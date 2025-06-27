@@ -3,7 +3,7 @@ import { NODE_REGION_CONFIG_FILE_OPTIONS, NODE_REGION_CONFIG_OPTIONS } from "@sm
 import { Hash } from "@smithy/hash-node";
 import { loadConfig } from "@smithy/node-config-provider";
 
-import { SignerConfig } from "./Signer";
+import type { SignerConfig } from "./Signer";
 
 /**
  * @internal
@@ -11,6 +11,7 @@ import { SignerConfig } from "./Signer";
 export const getRuntimeConfig = (config: SignerConfig) => {
   return {
     runtime: "node",
+    ...config,
     sha256: config?.sha256 ?? Hash.bind(null, "sha256"),
     credentials:
       config?.credentials ??
@@ -23,6 +24,5 @@ export const getRuntimeConfig = (config: SignerConfig) => {
         ...NODE_REGION_CONFIG_FILE_OPTIONS,
         profile: config.profile,
       }),
-    ...config,
   };
 };
