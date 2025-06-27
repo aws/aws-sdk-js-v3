@@ -14,7 +14,7 @@ class XhrMock {
   public static captures: any[] = [];
   public static DONE = 4;
 
-  private captureArgs =
+  protected captureArgs =
     (caller: string) =>
     (...args: any[]) => {
       XhrMock.captures.push([caller, ...args]);
@@ -243,5 +243,95 @@ describe(XhrHttpHandler.name, () => {
       ["send", "hello"],
       ["getAllResponseHeaders"],
     ]);
+  });
+
+  describe("per-request requestTimeout", () => {
+    it("should use per-request timeout over handler config timeout", async () => {
+      const handler = new XhrHttpHandler({ requestTimeout: 5000 });
+
+      const requestTimeoutSpy = vi.spyOn(await import("./request-timeout"), "requestTimeout");
+
+      const mockRequest = new HttpRequest({
+        method: "GET",
+        hostname: "example.com",
+        protocol: "https:",
+        path: "/",
+        headers: {},
+      });
+
+      class TimeoutXhrMock extends XhrMock {
+        send(...args: any[]) {
+          this.captureArgs("send")(...args);
+          // let it timeout
+        }
+      }
+
+      (global as any).XMLHttpRequest = TimeoutXhrMock;
+
+      try {
+        await handler.handle(mockRequest, { requestTimeout: 100 });
+      } catch (error) {
+        // expected to timeout
+      }
+
+      // verify requestTimeout function was called with per-request timeout (100), not handler timeout (5000)
+      expect(requestTimeoutSpy).toHaveBeenCalledWith(100);
+
+      requestTimeoutSpy.mockRestore();
+      (global as any).XMLHttpRequest = XhrMock; // restore original mock
+    });
+
+    it("should fall back to handler config timeout when per-request timeout not provided", async () => {
+      const handler = new XhrHttpHandler({ requestTimeout: 200 });
+
+      const requestTimeoutSpy = vi.spyOn(await import("./request-timeout"), "requestTimeout");
+
+      const mockRequest = new HttpRequest({
+        method: "GET",
+        hostname: "example.com",
+        protocol: "https:",
+        path: "/",
+        headers: {},
+      });
+
+      class TimeoutXhrMock extends XhrMock {
+        send(...args: any[]) {
+          this.captureArgs("send")(...args);
+        }
+      }
+
+      (global as any).XMLHttpRequest = TimeoutXhrMock;
+
+      try {
+        await handler.handle(mockRequest, {});
+      } catch (error) {}
+
+      expect(requestTimeoutSpy).toHaveBeenCalledWith(200);
+
+      requestTimeoutSpy.mockRestore();
+      (global as any).XMLHttpRequest = XhrMock;
+    });
+
+    it("should handle zero timeout correctly", async () => {
+      const handler = new XhrHttpHandler({ requestTimeout: 1000 });
+
+      const requestTimeoutSpy = vi.spyOn(await import("./request-timeout"), "requestTimeout");
+
+      const mockRequest = new HttpRequest({
+        method: "GET",
+        hostname: "example.com",
+        protocol: "https:",
+        path: "/",
+        headers: {},
+      });
+
+      try {
+        await handler.handle(mockRequest, { requestTimeout: 0 });
+      } catch (error) {}
+
+      expect(requestTimeoutSpy).toHaveBeenCalledWith(0);
+
+      requestTimeoutSpy.mockRestore();
+    });
   });
 });
