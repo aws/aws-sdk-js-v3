@@ -1,5 +1,5 @@
 import { FromStringShapeDeserializer } from "@smithy/core/protocols";
-import { ListSchema, NormalizedSchema } from "@smithy/core/schema";
+import { NormalizedSchema } from "@smithy/core/schema";
 import { getValueFromTextNode } from "@smithy/smithy-client";
 import type { Schema, SerdeFunctions, ShapeDeserializer } from "@smithy/types";
 import { toUtf8 } from "@smithy/util-utf8";
