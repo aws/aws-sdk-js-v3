@@ -69,6 +69,7 @@ export interface GetDatabaseCommandOutput extends GetDatabaseResponse, __Metadat
  * //     FederatedDatabase: { // FederatedDatabase
  * //       Identifier: "STRING_VALUE",
  * //       ConnectionName: "STRING_VALUE",
+ * //       ConnectionType: "STRING_VALUE",
  * //     },
  * //   },
  * // };

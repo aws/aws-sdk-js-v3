@@ -38,6 +38,7 @@ export interface CreateTableCommandOutput extends CreateTableResponse, __Metadat
  * const input = { // CreateTableRequest
  *   CatalogId: "STRING_VALUE",
  *   DatabaseName: "STRING_VALUE", // required
+ *   Name: "STRING_VALUE",
  *   TableInput: { // TableInput
  *     Name: "STRING_VALUE", // required
  *     Description: "STRING_VALUE",
@@ -151,6 +152,50 @@ export interface CreateTableCommandOutput extends CreateTableResponse, __Metadat
  *     IcebergInput: { // IcebergInput
  *       MetadataOperation: "CREATE", // required
  *       Version: "STRING_VALUE",
+ *       CreateIcebergTableInput: { // CreateIcebergTableInput
+ *         Location: "STRING_VALUE", // required
+ *         Schema: { // IcebergSchema
+ *           SchemaId: Number("int"),
+ *           IdentifierFieldIds: [ // IntegerList
+ *             Number("int"),
+ *           ],
+ *           Type: "struct",
+ *           Fields: [ // IcebergStructFieldList // required
+ *             { // IcebergStructField
+ *               Id: Number("int"), // required
+ *               Name: "STRING_VALUE", // required
+ *               Type: "DOCUMENT_VALUE", // required
+ *               Required: true || false, // required
+ *               Doc: "STRING_VALUE",
+ *             },
+ *           ],
+ *         },
+ *         PartitionSpec: { // IcebergPartitionSpec
+ *           Fields: [ // IcebergPartitionSpecFieldList // required
+ *             { // IcebergPartitionField
+ *               SourceId: Number("int"), // required
+ *               Transform: "STRING_VALUE", // required
+ *               Name: "STRING_VALUE", // required
+ *               FieldId: Number("int"),
+ *             },
+ *           ],
+ *           SpecId: Number("int"),
+ *         },
+ *         WriteOrder: { // IcebergSortOrder
+ *           OrderId: Number("int"), // required
+ *           Fields: [ // IcebergSortOrderFieldList // required
+ *             { // IcebergSortField
+ *               SourceId: Number("int"), // required
+ *               Transform: "STRING_VALUE", // required
+ *               Direction: "asc" || "desc", // required
+ *               NullOrder: "nulls-first" || "nulls-last", // required
+ *             },
+ *           ],
+ *         },
+ *         Properties: { // StringToStringMap
+ *           "<keys>": "STRING_VALUE",
+ *         },
+ *       },
  *     },
  *   },
  * };

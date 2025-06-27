@@ -38,6 +38,7 @@ export interface UpdateTableCommandOutput extends UpdateTableResponse, __Metadat
  * const input = { // UpdateTableRequest
  *   CatalogId: "STRING_VALUE",
  *   DatabaseName: "STRING_VALUE", // required
+ *   Name: "STRING_VALUE",
  *   TableInput: { // TableInput
  *     Name: "STRING_VALUE", // required
  *     Description: "STRING_VALUE",
@@ -143,6 +144,58 @@ export interface UpdateTableCommandOutput extends UpdateTableResponse, __Metadat
  *   VersionId: "STRING_VALUE",
  *   ViewUpdateAction: "ADD" || "REPLACE" || "ADD_OR_REPLACE" || "DROP",
  *   Force: true || false,
+ *   UpdateOpenTableFormatInput: { // UpdateOpenTableFormatInput
+ *     UpdateIcebergInput: { // UpdateIcebergInput
+ *       UpdateIcebergTableInput: { // UpdateIcebergTableInput
+ *         Updates: [ // IcebergTableUpdateList // required
+ *           { // IcebergTableUpdate
+ *             Schema: { // IcebergSchema
+ *               SchemaId: Number("int"),
+ *               IdentifierFieldIds: [ // IntegerList
+ *                 Number("int"),
+ *               ],
+ *               Type: "struct",
+ *               Fields: [ // IcebergStructFieldList // required
+ *                 { // IcebergStructField
+ *                   Id: Number("int"), // required
+ *                   Name: "STRING_VALUE", // required
+ *                   Type: "DOCUMENT_VALUE", // required
+ *                   Required: true || false, // required
+ *                   Doc: "STRING_VALUE",
+ *                 },
+ *               ],
+ *             },
+ *             PartitionSpec: { // IcebergPartitionSpec
+ *               Fields: [ // IcebergPartitionSpecFieldList // required
+ *                 { // IcebergPartitionField
+ *                   SourceId: Number("int"), // required
+ *                   Transform: "STRING_VALUE", // required
+ *                   Name: "STRING_VALUE", // required
+ *                   FieldId: Number("int"),
+ *                 },
+ *               ],
+ *               SpecId: Number("int"),
+ *             },
+ *             SortOrder: { // IcebergSortOrder
+ *               OrderId: Number("int"), // required
+ *               Fields: [ // IcebergSortOrderFieldList // required
+ *                 { // IcebergSortField
+ *                   SourceId: Number("int"), // required
+ *                   Transform: "STRING_VALUE", // required
+ *                   Direction: "asc" || "desc", // required
+ *                   NullOrder: "nulls-first" || "nulls-last", // required
+ *                 },
+ *               ],
+ *             },
+ *             Location: "STRING_VALUE", // required
+ *             Properties: { // StringToStringMap
+ *               "<keys>": "STRING_VALUE",
+ *             },
+ *           },
+ *         ],
+ *       },
+ *     },
+ *   },
  * };
  * const command = new UpdateTableCommand(input);
  * const response = await client.send(command);

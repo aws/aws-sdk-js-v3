@@ -844,8 +844,6 @@ import {
   CodeGenEdge,
   CodeGenNode,
   CodeGenNodeArg,
-  ColumnStatistics,
-  ColumnStatisticsData,
   ColumnStatisticsTaskRunningException,
   ComputeEnvironment,
   ConcurrentModificationException,
@@ -868,6 +866,7 @@ import {
   CreateDevEndpointRequest,
   CreateDevEndpointResponse,
   CreateGrokClassifierRequest,
+  CreateIcebergTableInput,
   CreateIntegrationRequest,
   CreateIntegrationResourcePropertyRequest,
   CreateIntegrationResponse,
@@ -899,7 +898,6 @@ import {
   DataQualityEncryption,
   DataQualityTargetTable,
   DateColumnStatisticsData,
-  DecimalColumnStatisticsData,
   DecimalNumber,
   DeleteBlueprintRequest,
   DeleteCatalogRequest,
@@ -939,7 +937,6 @@ import {
   DescribeInboundIntegrationsResponse,
   DescribeIntegrationsRequest,
   DescribeIntegrationsResponse,
-  DoubleColumnStatisticsData,
   EncryptionConfiguration,
   FederatedCatalog,
   FederatedDatabase,
@@ -962,10 +959,14 @@ import {
   GetClassifiersRequest,
   GetClassifiersResponse,
   GetColumnStatisticsForPartitionRequest,
-  GetColumnStatisticsForPartitionResponse,
-  GetColumnStatisticsForTableRequest,
   GrokClassifier,
   IcebergInput,
+  IcebergPartitionField,
+  IcebergPartitionSpec,
+  IcebergSchema,
+  IcebergSortField,
+  IcebergSortOrder,
+  IcebergStructField,
   IdempotentParameterMismatchException,
   IllegalSessionStateException,
   InboundIntegration,
@@ -981,7 +982,6 @@ import {
   JobBookmarksEncryption,
   JsonClassifier,
   KMSKeyNotAccessibleFault,
-  LongColumnStatisticsData,
   MLUserDataEncryption,
   OpenTableFormatInput,
   OperationNotSupportedException,
@@ -999,7 +999,6 @@ import {
   SessionCommand,
   SourceProcessingProperties,
   SourceTableConfig,
-  StringColumnStatisticsData,
   TableIdentifier,
   TableInput,
   Tag,
@@ -1020,6 +1019,8 @@ import {
 import {
   CatalogEntry,
   ColumnImportance,
+  ColumnStatistics,
+  ColumnStatisticsData,
   ColumnStatisticsTaskRun,
   ColumnStatisticsTaskSettings,
   Connection,
@@ -1039,10 +1040,14 @@ import {
   DataQualityRulesetEvaluationRunFilter,
   DataQualityRulesetFilterCriteria,
   DataQualityRulesetListDetails,
+  DecimalColumnStatisticsData,
+  DoubleColumnStatisticsData,
   EncryptionAtRest,
   EvaluationMetrics,
   ExecutionAttempt,
   FindMatchesMetrics,
+  GetColumnStatisticsForPartitionResponse,
+  GetColumnStatisticsForTableRequest,
   GetColumnStatisticsForTableResponse,
   GetColumnStatisticsTaskRunRequest,
   GetColumnStatisticsTaskRunResponse,
@@ -1193,6 +1198,7 @@ import {
   ListUsageProfilesResponse,
   ListWorkflowsRequest,
   Location,
+  LongColumnStatisticsData,
   MappingEntry,
   MetadataKeyValuePair,
   MLTransform,
@@ -1203,11 +1209,7 @@ import {
   PutDataCatalogEncryptionSettingsRequest,
   PutDataQualityProfileAnnotationRequest,
   PutResourcePolicyRequest,
-  PutSchemaVersionMetadataInput,
-  PutWorkflowRunPropertiesRequest,
-  QuerySchemaVersionMetadataInput,
   QuerySessionContext,
-  RegisterSchemaVersionInput,
   SchemaColumn,
   SchemaVersionNumber,
   SecurityConfiguration,
@@ -1215,6 +1217,7 @@ import {
   Statement,
   StatisticModelResult,
   StatisticSummary,
+  StringColumnStatisticsData,
   SupportedDialect,
   TableAttributes,
   TaskRun,
@@ -1247,6 +1250,7 @@ import {
   GetTableVersionResponse,
   GetTableVersionsResponse,
   GetUnfilteredTableMetadataResponse,
+  IcebergTableUpdate,
   IllegalBlueprintStateException,
   IllegalWorkflowStateException,
   Job,
@@ -1255,6 +1259,10 @@ import {
   MLTransformNotReadyException,
   NoScheduleException,
   PropertyPredicate,
+  PutSchemaVersionMetadataInput,
+  PutWorkflowRunPropertiesRequest,
+  QuerySchemaVersionMetadataInput,
+  RegisterSchemaVersionInput,
   RemoveSchemaVersionMetadataInput,
   ResetJobBookmarkRequest,
   ResumeWorkflowRunRequest,
@@ -1310,12 +1318,15 @@ import {
   UpdateDataQualityRulesetRequest,
   UpdateDevEndpointRequest,
   UpdateGrokClassifierRequest,
+  UpdateIcebergInput,
+  UpdateIcebergTableInput,
   UpdateIntegrationResourcePropertyRequest,
   UpdateIntegrationTablePropertiesRequest,
   UpdateJobFromSourceControlRequest,
   UpdateJobRequest,
   UpdateJsonClassifierRequest,
   UpdateMLTransformRequest,
+  UpdateOpenTableFormatInput,
   UpdatePartitionRequest,
   UpdateRegistryInput,
   UpdateSchemaInput,
@@ -11032,6 +11043,19 @@ const se_CreateCrawlerRequest = (input: CreateCrawlerRequest, context: __SerdeCo
 
 // se_CreateGrokClassifierRequest omitted.
 
+/**
+ * serializeAws_json1_1CreateIcebergTableInput
+ */
+const se_CreateIcebergTableInput = (input: CreateIcebergTableInput, context: __SerdeContext): any => {
+  return take(input, {
+    Location: [],
+    PartitionSpec: _json,
+    Properties: _json,
+    Schema: (_) => se_IcebergSchema(_, context),
+    WriteOrder: _json,
+  });
+};
+
 // se_CreateIntegrationRequest omitted.
 
 // se_CreateIntegrationResourcePropertyRequest omitted.
@@ -11148,7 +11172,8 @@ const se_CreateTableRequest = (input: CreateTableRequest, context: __SerdeContex
   return take(input, {
     CatalogId: [],
     DatabaseName: [],
-    OpenTableFormatInput: _json,
+    Name: [],
+    OpenTableFormatInput: (_) => se_OpenTableFormatInput(_, context),
     PartitionIndexes: _json,
     TableInput: (_) => se_TableInput(_, context),
     TransactionId: [],
@@ -11812,11 +11837,99 @@ const se_GetUnfilteredTableMetadataRequest = (
 
 // se_IcebergCompactionConfiguration omitted.
 
-// se_IcebergInput omitted.
+/**
+ * serializeAws_json1_1IcebergDocument
+ */
+const se_IcebergDocument = (input: __DocumentType, context: __SerdeContext): any => {
+  return input;
+};
+
+/**
+ * serializeAws_json1_1IcebergInput
+ */
+const se_IcebergInput = (input: IcebergInput, context: __SerdeContext): any => {
+  return take(input, {
+    CreateIcebergTableInput: (_) => se_CreateIcebergTableInput(_, context),
+    MetadataOperation: [],
+    Version: [],
+  });
+};
 
 // se_IcebergOrphanFileDeletionConfiguration omitted.
 
+// se_IcebergPartitionField omitted.
+
+// se_IcebergPartitionSpec omitted.
+
+// se_IcebergPartitionSpecFieldList omitted.
+
 // se_IcebergRetentionConfiguration omitted.
+
+/**
+ * serializeAws_json1_1IcebergSchema
+ */
+const se_IcebergSchema = (input: IcebergSchema, context: __SerdeContext): any => {
+  return take(input, {
+    Fields: (_) => se_IcebergStructFieldList(_, context),
+    IdentifierFieldIds: _json,
+    SchemaId: [],
+    Type: [],
+  });
+};
+
+// se_IcebergSortField omitted.
+
+// se_IcebergSortOrder omitted.
+
+// se_IcebergSortOrderFieldList omitted.
+
+/**
+ * serializeAws_json1_1IcebergStructField
+ */
+const se_IcebergStructField = (input: IcebergStructField, context: __SerdeContext): any => {
+  return take(input, {
+    Doc: [],
+    Id: [],
+    Name: [],
+    Required: [],
+    Type: (_) => se_IcebergDocument(_, context),
+  });
+};
+
+/**
+ * serializeAws_json1_1IcebergStructFieldList
+ */
+const se_IcebergStructFieldList = (input: IcebergStructField[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return se_IcebergStructField(entry, context);
+    });
+};
+
+/**
+ * serializeAws_json1_1IcebergTableUpdate
+ */
+const se_IcebergTableUpdate = (input: IcebergTableUpdate, context: __SerdeContext): any => {
+  return take(input, {
+    Location: [],
+    PartitionSpec: _json,
+    Properties: _json,
+    Schema: (_) => se_IcebergSchema(_, context),
+    SortOrder: _json,
+  });
+};
+
+/**
+ * serializeAws_json1_1IcebergTableUpdateList
+ */
+const se_IcebergTableUpdateList = (input: IcebergTableUpdate[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return se_IcebergTableUpdate(entry, context);
+    });
+};
 
 // se_IcebergTarget omitted.
 
@@ -11825,6 +11938,8 @@ const se_GetUnfilteredTableMetadataRequest = (
 // se_ImportCatalogToGlueRequest omitted.
 
 // se_InclusionAnnotationList omitted.
+
+// se_IntegerList omitted.
 
 // se_IntegrationAdditionalEncryptionContextMap omitted.
 
@@ -12177,7 +12292,14 @@ const se_Mappings = (input: Mapping[], context: __SerdeContext): any => {
 
 // se_OneInput omitted.
 
-// se_OpenTableFormatInput omitted.
+/**
+ * serializeAws_json1_1OpenTableFormatInput
+ */
+const se_OpenTableFormatInput = (input: OpenTableFormatInput, context: __SerdeContext): any => {
+  return take(input, {
+    IcebergInput: (_) => se_IcebergInput(_, context),
+  });
+};
 
 // se_Option omitted.
 
@@ -12553,6 +12675,8 @@ const se_StringColumnStatisticsData = (input: StringColumnStatisticsData, contex
 
 // se_StringList omitted.
 
+// se_StringToStringMap omitted.
+
 // se_SupportedDialect omitted.
 
 // se_TableAttributesList omitted.
@@ -12779,6 +12903,24 @@ const se_UpdateCrawlerRequest = (input: UpdateCrawlerRequest, context: __SerdeCo
 
 // se_UpdateGrokClassifierRequest omitted.
 
+/**
+ * serializeAws_json1_1UpdateIcebergInput
+ */
+const se_UpdateIcebergInput = (input: UpdateIcebergInput, context: __SerdeContext): any => {
+  return take(input, {
+    UpdateIcebergTableInput: (_) => se_UpdateIcebergTableInput(_, context),
+  });
+};
+
+/**
+ * serializeAws_json1_1UpdateIcebergTableInput
+ */
+const se_UpdateIcebergTableInput = (input: UpdateIcebergTableInput, context: __SerdeContext): any => {
+  return take(input, {
+    Updates: (_) => se_IcebergTableUpdateList(_, context),
+  });
+};
+
 // se_UpdateIntegrationResourcePropertyRequest omitted.
 
 // se_UpdateIntegrationTablePropertiesRequest omitted.
@@ -12817,6 +12959,15 @@ const se_UpdateMLTransformRequest = (input: UpdateMLTransformRequest, context: _
 };
 
 /**
+ * serializeAws_json1_1UpdateOpenTableFormatInput
+ */
+const se_UpdateOpenTableFormatInput = (input: UpdateOpenTableFormatInput, context: __SerdeContext): any => {
+  return take(input, {
+    UpdateIcebergInput: (_) => se_UpdateIcebergInput(_, context),
+  });
+};
+
+/**
  * serializeAws_json1_1UpdatePartitionRequest
  */
 const se_UpdatePartitionRequest = (input: UpdatePartitionRequest, context: __SerdeContext): any => {
@@ -12845,9 +12996,11 @@ const se_UpdateTableRequest = (input: UpdateTableRequest, context: __SerdeContex
     CatalogId: [],
     DatabaseName: [],
     Force: [],
+    Name: [],
     SkipArchive: [],
     TableInput: (_) => se_TableInput(_, context),
     TransactionId: [],
+    UpdateOpenTableFormatInput: (_) => se_UpdateOpenTableFormatInput(_, context),
     VersionId: [],
     ViewUpdateAction: [],
   });

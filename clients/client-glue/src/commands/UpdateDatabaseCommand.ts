@@ -63,6 +63,7 @@ export interface UpdateDatabaseCommandOutput extends UpdateDatabaseResponse, __M
  *     FederatedDatabase: { // FederatedDatabase
  *       Identifier: "STRING_VALUE",
  *       ConnectionName: "STRING_VALUE",
+ *       ConnectionType: "STRING_VALUE",
  *     },
  *   },
  * };

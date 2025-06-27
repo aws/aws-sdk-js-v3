@@ -110,7 +110,6 @@ import {
 
 import {
   CatalogInput,
-  ColumnStatistics,
   Compatibility,
   ConnectionInput,
   ConnectionInputFilterSensitiveLog,
@@ -119,9 +118,13 @@ import {
   CsvHeaderOption,
   CsvSerdeOption,
   DatabaseInput,
+  IcebergPartitionSpec,
+  IcebergSchema,
+  IcebergSortOrder,
   Permission,
   ProfileConfiguration,
   RegistryId,
+  SchemaVersionStatus,
   SourceProcessingProperties,
   SourceTableConfig,
   TableIdentifier,
@@ -134,6 +137,7 @@ import {
 
 import {
   ColumnRowFilter,
+  ColumnStatistics,
   DataQualityEvaluationRunAdditionalRunOptions,
   FederatedTable,
   JobBookmarkEntry,
@@ -145,6 +149,271 @@ import {
   ViewDefinition,
   ViewValidation,
 } from "./models_2";
+
+/**
+ * @public
+ */
+export interface PutSchemaVersionMetadataInput {
+  /**
+   * <p>The unique ID for the schema.</p>
+   * @public
+   */
+  SchemaId?: SchemaId | undefined;
+
+  /**
+   * <p>The version number of the schema.</p>
+   * @public
+   */
+  SchemaVersionNumber?: SchemaVersionNumber | undefined;
+
+  /**
+   * <p>The unique version ID of the schema version.</p>
+   * @public
+   */
+  SchemaVersionId?: string | undefined;
+
+  /**
+   * <p>The metadata key's corresponding value.</p>
+   * @public
+   */
+  MetadataKeyValue: MetadataKeyValuePair | undefined;
+}
+
+/**
+ * @public
+ */
+export interface PutSchemaVersionMetadataResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) for the schema.</p>
+   * @public
+   */
+  SchemaArn?: string | undefined;
+
+  /**
+   * <p>The name for the schema.</p>
+   * @public
+   */
+  SchemaName?: string | undefined;
+
+  /**
+   * <p>The name for the registry.</p>
+   * @public
+   */
+  RegistryName?: string | undefined;
+
+  /**
+   * <p>The latest version of the schema.</p>
+   * @public
+   */
+  LatestVersion?: boolean | undefined;
+
+  /**
+   * <p>The version number of the schema.</p>
+   * @public
+   */
+  VersionNumber?: number | undefined;
+
+  /**
+   * <p>The unique version ID of the schema version.</p>
+   * @public
+   */
+  SchemaVersionId?: string | undefined;
+
+  /**
+   * <p>The metadata key.</p>
+   * @public
+   */
+  MetadataKey?: string | undefined;
+
+  /**
+   * <p>The value of the metadata key.</p>
+   * @public
+   */
+  MetadataValue?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface PutWorkflowRunPropertiesRequest {
+  /**
+   * <p>Name of the workflow which was run.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The ID of the workflow run for which the run properties should be updated.</p>
+   * @public
+   */
+  RunId: string | undefined;
+
+  /**
+   * <p>The properties to put for the specified run.</p>
+   *          <p>Run properties may be logged. Do not pass plaintext secrets as properties. Retrieve secrets from a Glue Connection, Amazon Web Services Secrets Manager or other secret management mechanism if you intend to use them within the workflow run.</p>
+   * @public
+   */
+  RunProperties: Record<string, string> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface PutWorkflowRunPropertiesResponse {}
+
+/**
+ * @public
+ */
+export interface QuerySchemaVersionMetadataInput {
+  /**
+   * <p>A wrapper structure that may contain the schema name and Amazon Resource Name (ARN).</p>
+   * @public
+   */
+  SchemaId?: SchemaId | undefined;
+
+  /**
+   * <p>The version number of the schema.</p>
+   * @public
+   */
+  SchemaVersionNumber?: SchemaVersionNumber | undefined;
+
+  /**
+   * <p>The unique version ID of the schema version.</p>
+   * @public
+   */
+  SchemaVersionId?: string | undefined;
+
+  /**
+   * <p>Search key-value pairs for metadata, if they are not provided all the metadata information will be fetched.</p>
+   * @public
+   */
+  MetadataList?: MetadataKeyValuePair[] | undefined;
+
+  /**
+   * <p>Maximum number of results required per page. If the value is not supplied, this will be defaulted to 25 per page.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>A continuation token, if this is a continuation call.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * <p>A structure containing other metadata for a schema version belonging to the same metadata key.</p>
+ * @public
+ */
+export interface OtherMetadataValueListItem {
+  /**
+   * <p>The metadata key’s corresponding value for the other metadata belonging to the same metadata key.</p>
+   * @public
+   */
+  MetadataValue?: string | undefined;
+
+  /**
+   * <p>The time at which the entry was created.</p>
+   * @public
+   */
+  CreatedTime?: string | undefined;
+}
+
+/**
+ * <p>A structure containing metadata information for a schema version.</p>
+ * @public
+ */
+export interface MetadataInfo {
+  /**
+   * <p>The metadata key’s corresponding value.</p>
+   * @public
+   */
+  MetadataValue?: string | undefined;
+
+  /**
+   * <p>The time at which the entry was created.</p>
+   * @public
+   */
+  CreatedTime?: string | undefined;
+
+  /**
+   * <p>Other metadata belonging to the same metadata key.</p>
+   * @public
+   */
+  OtherMetadataValueList?: OtherMetadataValueListItem[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface QuerySchemaVersionMetadataResponse {
+  /**
+   * <p>A map of a metadata key and associated values.</p>
+   * @public
+   */
+  MetadataInfoMap?: Record<string, MetadataInfo> | undefined;
+
+  /**
+   * <p>The unique version ID of the schema version.</p>
+   * @public
+   */
+  SchemaVersionId?: string | undefined;
+
+  /**
+   * <p>A continuation token for paginating the returned list of tokens, returned if the current segment of the list is not the last.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface RegisterSchemaVersionInput {
+  /**
+   * <p>This is a wrapper structure to contain schema identity fields. The structure contains:</p>
+   *          <ul>
+   *             <li>
+   *                <p>SchemaId$SchemaArn: The Amazon Resource Name (ARN) of the schema. Either <code>SchemaArn</code> or <code>SchemaName</code> and <code>RegistryName</code> has to be provided.</p>
+   *             </li>
+   *             <li>
+   *                <p>SchemaId$SchemaName: The name of the schema. Either <code>SchemaArn</code> or <code>SchemaName</code> and <code>RegistryName</code> has to be provided.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  SchemaId: SchemaId | undefined;
+
+  /**
+   * <p>The schema definition using the <code>DataFormat</code> setting for the <code>SchemaName</code>.</p>
+   * @public
+   */
+  SchemaDefinition: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface RegisterSchemaVersionResponse {
+  /**
+   * <p>The unique ID that represents the version of this schema.</p>
+   * @public
+   */
+  SchemaVersionId?: string | undefined;
+
+  /**
+   * <p>The version of this schema (for sync flow only, in case this is the first version).</p>
+   * @public
+   */
+  VersionNumber?: number | undefined;
+
+  /**
+   * <p>The status of the schema version.</p>
+   * @public
+   */
+  Status?: SchemaVersionStatus | undefined;
+}
 
 /**
  * @public
@@ -2843,6 +3112,88 @@ export interface UpdateSourceControlFromJobResponse {
 }
 
 /**
+ * <p>Defines a complete set of updates to be applied to an Iceberg table, including schema changes, partitioning modifications, sort order
+ *       adjustments, location updates, and property changes.</p>
+ * @public
+ */
+export interface IcebergTableUpdate {
+  /**
+   * <p>The updated schema definition for the Iceberg table, specifying any changes to field structure, data types, or schema metadata.</p>
+   * @public
+   */
+  Schema: IcebergSchema | undefined;
+
+  /**
+   * <p>The updated partitioning specification that defines how the table data should be reorganized and partitioned.</p>
+   * @public
+   */
+  PartitionSpec?: IcebergPartitionSpec | undefined;
+
+  /**
+   * <p>The updated sort order specification that defines how data should be ordered within partitions for optimal query performance.</p>
+   * @public
+   */
+  SortOrder?: IcebergSortOrder | undefined;
+
+  /**
+   * <p>The updated S3 location where the Iceberg table data will be stored.</p>
+   * @public
+   */
+  Location: string | undefined;
+
+  /**
+   * <p>Updated key-value pairs of table properties and configuration settings for the Iceberg table.</p>
+   * @public
+   */
+  Properties?: Record<string, string> | undefined;
+}
+
+/**
+ * <p>Contains the update operations to be applied to an existing Iceberg table in AWS Glue Data Catalog, defining the new state of the table metadata.
+ *     </p>
+ * @public
+ */
+export interface UpdateIcebergTableInput {
+  /**
+   * <p>The list of table update operations that specify the changes to be made to the Iceberg table, including schema modifications, partition
+   *       specifications, and table properties.</p>
+   * @public
+   */
+  Updates: IcebergTableUpdate[] | undefined;
+}
+
+/**
+ * <p>Input parameters specific to updating Apache Iceberg tables in Glue Data
+ *       Catalog, containing the update operations to be applied to an existing Iceberg
+ *       table.</p>
+ * @public
+ */
+export interface UpdateIcebergInput {
+  /**
+   * <p>The specific update operations to be applied to the Iceberg table, containing a
+   *       list of updates that define the new state of the table including schema,
+   *       partitions, and properties.</p>
+   * @public
+   */
+  UpdateIcebergTableInput: UpdateIcebergTableInput | undefined;
+}
+
+/**
+ * <p>Input parameters for updating open table format tables in GlueData Catalog,
+ *       serving as a wrapper for format-specific update operations such as Apache Iceberg.</p>
+ * @public
+ */
+export interface UpdateOpenTableFormatInput {
+  /**
+   * <p>Apache Iceberg-specific update parameters that define the table modifications to
+   *       be applied, including schema changes, partition specifications, and table
+   *       properties.</p>
+   * @public
+   */
+  UpdateIcebergInput?: UpdateIcebergInput | undefined;
+}
+
+/**
  * @public
  * @enum
  */
@@ -2877,11 +3228,18 @@ export interface UpdateTableRequest {
   DatabaseName: string | undefined;
 
   /**
+   * <p>The unique identifier for the table within the specified database that will be
+   *       created in the Glue Data Catalog.</p>
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
    * <p>An updated <code>TableInput</code> object to define the metadata table
    *       in the catalog.</p>
    * @public
    */
-  TableInput: TableInput | undefined;
+  TableInput?: TableInput | undefined;
 
   /**
    * <p>By default, <code>UpdateTable</code> always creates an archived version of the table
@@ -2914,6 +3272,13 @@ export interface UpdateTableRequest {
    * @public
    */
   Force?: boolean | undefined;
+
+  /**
+   * <p>Input parameters for updating open table format tables in GlueData Catalog,
+   *       serving as a wrapper for format-specific update operations such as Apache Iceberg.</p>
+   * @public
+   */
+  UpdateOpenTableFormatInput?: UpdateOpenTableFormatInput | undefined;
 }
 
 /**

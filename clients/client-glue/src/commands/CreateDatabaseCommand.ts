@@ -62,6 +62,7 @@ export interface CreateDatabaseCommandOutput extends CreateDatabaseResponse, __M
  *     FederatedDatabase: { // FederatedDatabase
  *       Identifier: "STRING_VALUE",
  *       ConnectionName: "STRING_VALUE",
+ *       ConnectionType: "STRING_VALUE",
  *     },
  *   },
  *   Tags: { // TagsMap

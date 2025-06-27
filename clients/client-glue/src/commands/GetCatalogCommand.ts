@@ -57,6 +57,7 @@ export interface GetCatalogCommandOutput extends GetCatalogResponse, __MetadataB
  * //     FederatedCatalog: { // FederatedCatalog
  * //       Identifier: "STRING_VALUE",
  * //       ConnectionName: "STRING_VALUE",
+ * //       ConnectionType: "STRING_VALUE",
  * //     },
  * //     CatalogProperties: { // CatalogPropertiesOutput
  * //       DataLakeAccessProperties: { // DataLakeAccessPropertiesOutput

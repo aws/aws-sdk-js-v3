@@ -1,6 +1,8 @@
 // smithy-typescript generated code
 import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
 
+import { DocumentType as __DocumentType } from "@smithy/types";
+
 import { GlueServiceException as __BaseException } from "./GlueServiceException";
 
 import {
@@ -849,6 +851,13 @@ export interface FederatedCatalog {
    * @public
    */
   ConnectionName?: string | undefined;
+
+  /**
+   * <p>The type of connection used to access the federated catalog, specifying the protocol or method for connection to the
+   *     external data source.</p>
+   * @public
+   */
+  ConnectionType?: string | undefined;
 }
 
 /**
@@ -1927,6 +1936,12 @@ export interface FederatedDatabase {
    * @public
    */
   ConnectionName?: string | undefined;
+
+  /**
+   * <p>The type of connection used to access the federated database, such as JDBC, ODBC, or other supported connection protocols.</p>
+   * @public
+   */
+  ConnectionType?: string | undefined;
 }
 
 /**
@@ -4370,6 +4385,248 @@ export interface CreateSessionResponse {
 }
 
 /**
+ * <p>Defines a single partition field within an Iceberg partition specification, including the source field, transformation function, partition name,
+ *       and unique identifier.</p>
+ * @public
+ */
+export interface IcebergPartitionField {
+  /**
+   * <p>The identifier of the source field from the table schema that this partition field is based on.</p>
+   * @public
+   */
+  SourceId: number | undefined;
+
+  /**
+   * <p>The transformation function applied to the source field to create the partition, such as identity, bucket, truncate, year, month, day, or hour.</p>
+   * @public
+   */
+  Transform: string | undefined;
+
+  /**
+   * <p>The name of the partition field as it will appear in the partitioned table structure.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The unique identifier assigned to this partition field within the Iceberg table's partition specification.</p>
+   * @public
+   */
+  FieldId?: number | undefined;
+}
+
+/**
+ * <p>Defines the partitioning specification for an Iceberg table, determining how table data will be organized and partitioned for optimal query performance.</p>
+ * @public
+ */
+export interface IcebergPartitionSpec {
+  /**
+   * <p>The list of partition fields that define how the table data should be partitioned, including source fields and their transformations.</p>
+   * @public
+   */
+  Fields: IcebergPartitionField[] | undefined;
+
+  /**
+   * <p>The unique identifier for this partition specification within the Iceberg table's metadata history.</p>
+   * @public
+   */
+  SpecId?: number | undefined;
+}
+
+/**
+ * <p>Defines a single field within an Iceberg table schema, including its identifier, name, data type, nullability, and documentation.</p>
+ * @public
+ */
+export interface IcebergStructField {
+  /**
+   * <p>The unique identifier assigned to this field within the Iceberg table schema, used for schema evolution and field tracking.</p>
+   * @public
+   */
+  Id: number | undefined;
+
+  /**
+   * <p>The name of the field as it appears in the table schema and query operations.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The data type definition for this field, specifying the structure and format of the data it contains.</p>
+   * @public
+   */
+  Type: __DocumentType | undefined;
+
+  /**
+   * <p>Indicates whether this field is required (non-nullable) or optional (nullable) in the table schema.</p>
+   * @public
+   */
+  Required: boolean | undefined;
+
+  /**
+   * <p>Optional documentation or description text that provides additional context about the purpose and usage of this field.</p>
+   * @public
+   */
+  Doc?: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const IcebergStructTypeEnum = {
+  STRUCT: "struct",
+} as const;
+
+/**
+ * @public
+ */
+export type IcebergStructTypeEnum = (typeof IcebergStructTypeEnum)[keyof typeof IcebergStructTypeEnum];
+
+/**
+ * <p>Defines the schema structure for an Iceberg table, including field definitions, data types, and schema metadata.</p>
+ * @public
+ */
+export interface IcebergSchema {
+  /**
+   * <p>The unique identifier for this schema version within the Iceberg table's schema evolution history.</p>
+   * @public
+   */
+  SchemaId?: number | undefined;
+
+  /**
+   * <p>The list of field identifiers that uniquely identify records in the table, used for row-level operations and deduplication.</p>
+   * @public
+   */
+  IdentifierFieldIds?: number[] | undefined;
+
+  /**
+   * <p>The root type of the schema structure, typically "struct" for Iceberg table schemas.</p>
+   * @public
+   */
+  Type?: IcebergStructTypeEnum | undefined;
+
+  /**
+   * <p>The list of field definitions that make up the table schema, including field names, types, and metadata.</p>
+   * @public
+   */
+  Fields: IcebergStructField[] | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const IcebergSortDirection = {
+  ASC: "asc",
+  DESC: "desc",
+} as const;
+
+/**
+ * @public
+ */
+export type IcebergSortDirection = (typeof IcebergSortDirection)[keyof typeof IcebergSortDirection];
+
+/**
+ * @public
+ * @enum
+ */
+export const IcebergNullOrder = {
+  NULLS_FIRST: "nulls-first",
+  NULLS_LAST: "nulls-last",
+} as const;
+
+/**
+ * @public
+ */
+export type IcebergNullOrder = (typeof IcebergNullOrder)[keyof typeof IcebergNullOrder];
+
+/**
+ * <p>Defines a single field within an Iceberg sort order specification, including the source field, transformation, sort direction, and null value ordering.</p>
+ * @public
+ */
+export interface IcebergSortField {
+  /**
+   * <p>The identifier of the source field from the table schema that this sort field is based on.</p>
+   * @public
+   */
+  SourceId: number | undefined;
+
+  /**
+   * <p>The transformation function applied to the source field before sorting, such as identity, bucket, or truncate.</p>
+   * @public
+   */
+  Transform: string | undefined;
+
+  /**
+   * <p>The sort direction for this field, either ascending or descending.</p>
+   * @public
+   */
+  Direction: IcebergSortDirection | undefined;
+
+  /**
+   * <p>The ordering behavior for null values in this field, specifying whether nulls should appear first or last in the sort order.</p>
+   * @public
+   */
+  NullOrder: IcebergNullOrder | undefined;
+}
+
+/**
+ * <p>Defines the sort order specification for an Iceberg table, determining how data should be ordered within partitions to
+ *       optimize query performance.</p>
+ * @public
+ */
+export interface IcebergSortOrder {
+  /**
+   * <p>The unique identifier for this sort order specification within the Iceberg table's metadata.</p>
+   * @public
+   */
+  OrderId: number | undefined;
+
+  /**
+   * <p>The list of fields and their sort directions that define the ordering criteria for the Iceberg table data.</p>
+   * @public
+   */
+  Fields: IcebergSortField[] | undefined;
+}
+
+/**
+ * <p>The configuration parameters required to create a new Iceberg table in the Glue Data Catalog,
+ *       including table properties and metadata specifications.</p>
+ * @public
+ */
+export interface CreateIcebergTableInput {
+  /**
+   * <p>The S3 location where the Iceberg table data will be stored.</p>
+   * @public
+   */
+  Location: string | undefined;
+
+  /**
+   * <p>The schema definition that specifies the structure, field types, and metadata for the Iceberg table.</p>
+   * @public
+   */
+  Schema: IcebergSchema | undefined;
+
+  /**
+   * <p>The partitioning specification that defines how the Iceberg table data will be organized and partitioned for optimal query performance.</p>
+   * @public
+   */
+  PartitionSpec?: IcebergPartitionSpec | undefined;
+
+  /**
+   * <p>The sort order specification that defines how data should be ordered within each partition to optimize query performance.</p>
+   * @public
+   */
+  WriteOrder?: IcebergSortOrder | undefined;
+
+  /**
+   * <p>Key-value pairs of additional table properties and configuration settings for the Iceberg table.</p>
+   * @public
+   */
+  Properties?: Record<string, string> | undefined;
+}
+
+/**
  * @public
  * @enum
  */
@@ -4398,6 +4655,13 @@ export interface IcebergInput {
    * @public
    */
   Version?: string | undefined;
+
+  /**
+   * <p>The configuration parameters required to create a new Iceberg table in the Glue Data Catalog, including table properties
+   *       and metadata specifications.</p>
+   * @public
+   */
+  CreateIcebergTableInput?: CreateIcebergTableInput | undefined;
 }
 
 /**
@@ -4655,6 +4919,13 @@ export interface CreateTableRequest {
    * @public
    */
   DatabaseName: string | undefined;
+
+  /**
+   * <p>The unique identifier for the table within the specified database that will be
+   *       created in the Glue Data Catalog.</p>
+   * @public
+   */
+  Name?: string | undefined;
 
   /**
    * <p>The <code>TableInput</code> object that defines the metadata table
@@ -7768,298 +8039,6 @@ export interface DecimalNumber {
    * @public
    */
   Scale: number | undefined;
-}
-
-/**
- * <p>Defines column statistics supported for fixed-point number data columns.</p>
- * @public
- */
-export interface DecimalColumnStatisticsData {
-  /**
-   * <p>The lowest value in the column.</p>
-   * @public
-   */
-  MinimumValue?: DecimalNumber | undefined;
-
-  /**
-   * <p>The highest value in the column.</p>
-   * @public
-   */
-  MaximumValue?: DecimalNumber | undefined;
-
-  /**
-   * <p>The number of null values in the column.</p>
-   * @public
-   */
-  NumberOfNulls: number | undefined;
-
-  /**
-   * <p>The number of distinct values in a column.</p>
-   * @public
-   */
-  NumberOfDistinctValues: number | undefined;
-}
-
-/**
- * <p>Defines column statistics supported for floating-point number data columns.</p>
- * @public
- */
-export interface DoubleColumnStatisticsData {
-  /**
-   * <p>The lowest value in the column.</p>
-   * @public
-   */
-  MinimumValue?: number | undefined;
-
-  /**
-   * <p>The highest value in the column.</p>
-   * @public
-   */
-  MaximumValue?: number | undefined;
-
-  /**
-   * <p>The number of null values in the column.</p>
-   * @public
-   */
-  NumberOfNulls: number | undefined;
-
-  /**
-   * <p>The number of distinct values in a column.</p>
-   * @public
-   */
-  NumberOfDistinctValues: number | undefined;
-}
-
-/**
- * <p>Defines column statistics supported for integer data columns.</p>
- * @public
- */
-export interface LongColumnStatisticsData {
-  /**
-   * <p>The lowest value in the column.</p>
-   * @public
-   */
-  MinimumValue?: number | undefined;
-
-  /**
-   * <p>The highest value in the column.</p>
-   * @public
-   */
-  MaximumValue?: number | undefined;
-
-  /**
-   * <p>The number of null values in the column.</p>
-   * @public
-   */
-  NumberOfNulls: number | undefined;
-
-  /**
-   * <p>The number of distinct values in a column.</p>
-   * @public
-   */
-  NumberOfDistinctValues: number | undefined;
-}
-
-/**
- * <p>Defines column statistics supported for character sequence data values.</p>
- * @public
- */
-export interface StringColumnStatisticsData {
-  /**
-   * <p>The size of the longest string in the column.</p>
-   * @public
-   */
-  MaximumLength: number | undefined;
-
-  /**
-   * <p>The average string length in the column.</p>
-   * @public
-   */
-  AverageLength: number | undefined;
-
-  /**
-   * <p>The number of null values in the column.</p>
-   * @public
-   */
-  NumberOfNulls: number | undefined;
-
-  /**
-   * <p>The number of distinct values in a column.</p>
-   * @public
-   */
-  NumberOfDistinctValues: number | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const ColumnStatisticsType = {
-  BINARY: "BINARY",
-  BOOLEAN: "BOOLEAN",
-  DATE: "DATE",
-  DECIMAL: "DECIMAL",
-  DOUBLE: "DOUBLE",
-  LONG: "LONG",
-  STRING: "STRING",
-} as const;
-
-/**
- * @public
- */
-export type ColumnStatisticsType = (typeof ColumnStatisticsType)[keyof typeof ColumnStatisticsType];
-
-/**
- * <p>Contains the individual types of column statistics data. Only one data object should be set and indicated by the <code>Type</code> attribute.</p>
- * @public
- */
-export interface ColumnStatisticsData {
-  /**
-   * <p>The type of column statistics data.</p>
-   * @public
-   */
-  Type: ColumnStatisticsType | undefined;
-
-  /**
-   * <p>Boolean column statistics data.</p>
-   * @public
-   */
-  BooleanColumnStatisticsData?: BooleanColumnStatisticsData | undefined;
-
-  /**
-   * <p>Date column statistics data.</p>
-   * @public
-   */
-  DateColumnStatisticsData?: DateColumnStatisticsData | undefined;
-
-  /**
-   * <p>
-   *         Decimal column statistics data. UnscaledValues within are Base64-encoded
-   *         binary objects storing big-endian, two's complement representations of
-   *         the decimal's unscaled value.
-   *     </p>
-   * @public
-   */
-  DecimalColumnStatisticsData?: DecimalColumnStatisticsData | undefined;
-
-  /**
-   * <p>Double column statistics data.</p>
-   * @public
-   */
-  DoubleColumnStatisticsData?: DoubleColumnStatisticsData | undefined;
-
-  /**
-   * <p>Long column statistics data.</p>
-   * @public
-   */
-  LongColumnStatisticsData?: LongColumnStatisticsData | undefined;
-
-  /**
-   * <p>String column statistics data.</p>
-   * @public
-   */
-  StringColumnStatisticsData?: StringColumnStatisticsData | undefined;
-
-  /**
-   * <p>Binary column statistics data.</p>
-   * @public
-   */
-  BinaryColumnStatisticsData?: BinaryColumnStatisticsData | undefined;
-}
-
-/**
- * <p>Represents the generated column-level statistics for a table or partition.</p>
- * @public
- */
-export interface ColumnStatistics {
-  /**
-   * <p>Name of column which statistics belong to.</p>
-   * @public
-   */
-  ColumnName: string | undefined;
-
-  /**
-   * <p>The data type of the column.</p>
-   * @public
-   */
-  ColumnType: string | undefined;
-
-  /**
-   * <p>The timestamp of when column statistics were generated.</p>
-   * @public
-   */
-  AnalyzedTime: Date | undefined;
-
-  /**
-   * <p>A <code>ColumnStatisticData</code> object that contains the statistics data values.</p>
-   * @public
-   */
-  StatisticsData: ColumnStatisticsData | undefined;
-}
-
-/**
- * <p>Encapsulates a column name that failed and the reason for failure.</p>
- * @public
- */
-export interface ColumnError {
-  /**
-   * <p>The name of the column that failed.</p>
-   * @public
-   */
-  ColumnName?: string | undefined;
-
-  /**
-   * <p>An error message with the reason for the failure of an operation.</p>
-   * @public
-   */
-  Error?: ErrorDetail | undefined;
-}
-
-/**
- * @public
- */
-export interface GetColumnStatisticsForPartitionResponse {
-  /**
-   * <p>List of ColumnStatistics that failed to be retrieved.</p>
-   * @public
-   */
-  ColumnStatisticsList?: ColumnStatistics[] | undefined;
-
-  /**
-   * <p>Error occurred during retrieving column statistics data.</p>
-   * @public
-   */
-  Errors?: ColumnError[] | undefined;
-}
-
-/**
- * @public
- */
-export interface GetColumnStatisticsForTableRequest {
-  /**
-   * <p>The ID of the Data Catalog where the partitions in question reside.
-   *       If none is supplied, the Amazon Web Services account ID is used by default.</p>
-   * @public
-   */
-  CatalogId?: string | undefined;
-
-  /**
-   * <p>The name of the catalog database where the partitions reside.</p>
-   * @public
-   */
-  DatabaseName: string | undefined;
-
-  /**
-   * <p>The name of the partitions' table.</p>
-   * @public
-   */
-  TableName: string | undefined;
-
-  /**
-   * <p>A list of the column names.</p>
-   * @public
-   */
-  ColumnNames: string[] | undefined;
 }
 
 /**

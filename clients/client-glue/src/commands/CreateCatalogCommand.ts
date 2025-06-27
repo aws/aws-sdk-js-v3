@@ -42,6 +42,7 @@ export interface CreateCatalogCommandOutput extends CreateCatalogResponse, __Met
  *     FederatedCatalog: { // FederatedCatalog
  *       Identifier: "STRING_VALUE",
  *       ConnectionName: "STRING_VALUE",
+ *       ConnectionType: "STRING_VALUE",
  *     },
  *     Parameters: { // ParametersMap
  *       "<keys>": "STRING_VALUE",

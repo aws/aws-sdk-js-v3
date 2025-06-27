@@ -47,6 +47,8 @@ export interface StartMLLabelingSetGenerationTaskRunCommandOutput
  *         <code>StartImportLabelsTaskRun</code>. After <code>StartImportLabelsTaskRun</code> finishes,
  *       all future runs of the machine learning transform will use the new and improved labels and
  *       perform a higher-quality transformation.</p>
+ *          <p>Note: The role used to write the generated labeling set to the <code>OutputS3Path</code> is the role
+ *           associated with the Machine Learning Transform, specified in the <code>CreateMLTransform</code> API.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -37,12 +37,12 @@ import {
 } from "./models_0";
 
 import {
+  BinaryColumnStatisticsData,
+  BooleanColumnStatisticsData,
   Capabilities,
   CodeGenEdge,
   CodeGenNode,
   CodeGenNodeArg,
-  ColumnError,
-  ColumnStatistics,
   Compatibility,
   ComputeEnvironment,
   ConnectionPropertyKey,
@@ -51,6 +51,8 @@ import {
   DatabaseIdentifier,
   DataFormat,
   DataQualityTargetTable,
+  DateColumnStatisticsData,
+  DecimalNumber,
   EncryptionConfiguration,
   FederatedDatabase,
   IntegrationError,
@@ -80,6 +82,298 @@ import {
   Workflow,
   WorkflowRun,
 } from "./models_1";
+
+/**
+ * <p>Defines column statistics supported for fixed-point number data columns.</p>
+ * @public
+ */
+export interface DecimalColumnStatisticsData {
+  /**
+   * <p>The lowest value in the column.</p>
+   * @public
+   */
+  MinimumValue?: DecimalNumber | undefined;
+
+  /**
+   * <p>The highest value in the column.</p>
+   * @public
+   */
+  MaximumValue?: DecimalNumber | undefined;
+
+  /**
+   * <p>The number of null values in the column.</p>
+   * @public
+   */
+  NumberOfNulls: number | undefined;
+
+  /**
+   * <p>The number of distinct values in a column.</p>
+   * @public
+   */
+  NumberOfDistinctValues: number | undefined;
+}
+
+/**
+ * <p>Defines column statistics supported for floating-point number data columns.</p>
+ * @public
+ */
+export interface DoubleColumnStatisticsData {
+  /**
+   * <p>The lowest value in the column.</p>
+   * @public
+   */
+  MinimumValue?: number | undefined;
+
+  /**
+   * <p>The highest value in the column.</p>
+   * @public
+   */
+  MaximumValue?: number | undefined;
+
+  /**
+   * <p>The number of null values in the column.</p>
+   * @public
+   */
+  NumberOfNulls: number | undefined;
+
+  /**
+   * <p>The number of distinct values in a column.</p>
+   * @public
+   */
+  NumberOfDistinctValues: number | undefined;
+}
+
+/**
+ * <p>Defines column statistics supported for integer data columns.</p>
+ * @public
+ */
+export interface LongColumnStatisticsData {
+  /**
+   * <p>The lowest value in the column.</p>
+   * @public
+   */
+  MinimumValue?: number | undefined;
+
+  /**
+   * <p>The highest value in the column.</p>
+   * @public
+   */
+  MaximumValue?: number | undefined;
+
+  /**
+   * <p>The number of null values in the column.</p>
+   * @public
+   */
+  NumberOfNulls: number | undefined;
+
+  /**
+   * <p>The number of distinct values in a column.</p>
+   * @public
+   */
+  NumberOfDistinctValues: number | undefined;
+}
+
+/**
+ * <p>Defines column statistics supported for character sequence data values.</p>
+ * @public
+ */
+export interface StringColumnStatisticsData {
+  /**
+   * <p>The size of the longest string in the column.</p>
+   * @public
+   */
+  MaximumLength: number | undefined;
+
+  /**
+   * <p>The average string length in the column.</p>
+   * @public
+   */
+  AverageLength: number | undefined;
+
+  /**
+   * <p>The number of null values in the column.</p>
+   * @public
+   */
+  NumberOfNulls: number | undefined;
+
+  /**
+   * <p>The number of distinct values in a column.</p>
+   * @public
+   */
+  NumberOfDistinctValues: number | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const ColumnStatisticsType = {
+  BINARY: "BINARY",
+  BOOLEAN: "BOOLEAN",
+  DATE: "DATE",
+  DECIMAL: "DECIMAL",
+  DOUBLE: "DOUBLE",
+  LONG: "LONG",
+  STRING: "STRING",
+} as const;
+
+/**
+ * @public
+ */
+export type ColumnStatisticsType = (typeof ColumnStatisticsType)[keyof typeof ColumnStatisticsType];
+
+/**
+ * <p>Contains the individual types of column statistics data. Only one data object should be set and indicated by the <code>Type</code> attribute.</p>
+ * @public
+ */
+export interface ColumnStatisticsData {
+  /**
+   * <p>The type of column statistics data.</p>
+   * @public
+   */
+  Type: ColumnStatisticsType | undefined;
+
+  /**
+   * <p>Boolean column statistics data.</p>
+   * @public
+   */
+  BooleanColumnStatisticsData?: BooleanColumnStatisticsData | undefined;
+
+  /**
+   * <p>Date column statistics data.</p>
+   * @public
+   */
+  DateColumnStatisticsData?: DateColumnStatisticsData | undefined;
+
+  /**
+   * <p>
+   *         Decimal column statistics data. UnscaledValues within are Base64-encoded
+   *         binary objects storing big-endian, two's complement representations of
+   *         the decimal's unscaled value.
+   *     </p>
+   * @public
+   */
+  DecimalColumnStatisticsData?: DecimalColumnStatisticsData | undefined;
+
+  /**
+   * <p>Double column statistics data.</p>
+   * @public
+   */
+  DoubleColumnStatisticsData?: DoubleColumnStatisticsData | undefined;
+
+  /**
+   * <p>Long column statistics data.</p>
+   * @public
+   */
+  LongColumnStatisticsData?: LongColumnStatisticsData | undefined;
+
+  /**
+   * <p>String column statistics data.</p>
+   * @public
+   */
+  StringColumnStatisticsData?: StringColumnStatisticsData | undefined;
+
+  /**
+   * <p>Binary column statistics data.</p>
+   * @public
+   */
+  BinaryColumnStatisticsData?: BinaryColumnStatisticsData | undefined;
+}
+
+/**
+ * <p>Represents the generated column-level statistics for a table or partition.</p>
+ * @public
+ */
+export interface ColumnStatistics {
+  /**
+   * <p>Name of column which statistics belong to.</p>
+   * @public
+   */
+  ColumnName: string | undefined;
+
+  /**
+   * <p>The data type of the column.</p>
+   * @public
+   */
+  ColumnType: string | undefined;
+
+  /**
+   * <p>The timestamp of when column statistics were generated.</p>
+   * @public
+   */
+  AnalyzedTime: Date | undefined;
+
+  /**
+   * <p>A <code>ColumnStatisticData</code> object that contains the statistics data values.</p>
+   * @public
+   */
+  StatisticsData: ColumnStatisticsData | undefined;
+}
+
+/**
+ * <p>Encapsulates a column name that failed and the reason for failure.</p>
+ * @public
+ */
+export interface ColumnError {
+  /**
+   * <p>The name of the column that failed.</p>
+   * @public
+   */
+  ColumnName?: string | undefined;
+
+  /**
+   * <p>An error message with the reason for the failure of an operation.</p>
+   * @public
+   */
+  Error?: ErrorDetail | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetColumnStatisticsForPartitionResponse {
+  /**
+   * <p>List of ColumnStatistics that failed to be retrieved.</p>
+   * @public
+   */
+  ColumnStatisticsList?: ColumnStatistics[] | undefined;
+
+  /**
+   * <p>Error occurred during retrieving column statistics data.</p>
+   * @public
+   */
+  Errors?: ColumnError[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetColumnStatisticsForTableRequest {
+  /**
+   * <p>The ID of the Data Catalog where the partitions in question reside.
+   *       If none is supplied, the Amazon Web Services account ID is used by default.</p>
+   * @public
+   */
+  CatalogId?: string | undefined;
+
+  /**
+   * <p>The name of the catalog database where the partitions reside.</p>
+   * @public
+   */
+  DatabaseName: string | undefined;
+
+  /**
+   * <p>The name of the partitions' table.</p>
+   * @public
+   */
+  TableName: string | undefined;
+
+  /**
+   * <p>A list of the column names.</p>
+   * @public
+   */
+  ColumnNames: string[] | undefined;
+}
 
 /**
  * @public
@@ -4869,6 +5163,12 @@ export interface FederatedTable {
    * @public
    */
   ConnectionName?: string | undefined;
+
+  /**
+   * <p>The type of connection used to access the federated table, specifying the protocol or method for connecting to the external data source.</p>
+   * @public
+   */
+  ConnectionType?: string | undefined;
 }
 
 /**
@@ -8420,271 +8720,6 @@ export interface MetadataKeyValuePair {
    * @public
    */
   MetadataValue?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface PutSchemaVersionMetadataInput {
-  /**
-   * <p>The unique ID for the schema.</p>
-   * @public
-   */
-  SchemaId?: SchemaId | undefined;
-
-  /**
-   * <p>The version number of the schema.</p>
-   * @public
-   */
-  SchemaVersionNumber?: SchemaVersionNumber | undefined;
-
-  /**
-   * <p>The unique version ID of the schema version.</p>
-   * @public
-   */
-  SchemaVersionId?: string | undefined;
-
-  /**
-   * <p>The metadata key's corresponding value.</p>
-   * @public
-   */
-  MetadataKeyValue: MetadataKeyValuePair | undefined;
-}
-
-/**
- * @public
- */
-export interface PutSchemaVersionMetadataResponse {
-  /**
-   * <p>The Amazon Resource Name (ARN) for the schema.</p>
-   * @public
-   */
-  SchemaArn?: string | undefined;
-
-  /**
-   * <p>The name for the schema.</p>
-   * @public
-   */
-  SchemaName?: string | undefined;
-
-  /**
-   * <p>The name for the registry.</p>
-   * @public
-   */
-  RegistryName?: string | undefined;
-
-  /**
-   * <p>The latest version of the schema.</p>
-   * @public
-   */
-  LatestVersion?: boolean | undefined;
-
-  /**
-   * <p>The version number of the schema.</p>
-   * @public
-   */
-  VersionNumber?: number | undefined;
-
-  /**
-   * <p>The unique version ID of the schema version.</p>
-   * @public
-   */
-  SchemaVersionId?: string | undefined;
-
-  /**
-   * <p>The metadata key.</p>
-   * @public
-   */
-  MetadataKey?: string | undefined;
-
-  /**
-   * <p>The value of the metadata key.</p>
-   * @public
-   */
-  MetadataValue?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface PutWorkflowRunPropertiesRequest {
-  /**
-   * <p>Name of the workflow which was run.</p>
-   * @public
-   */
-  Name: string | undefined;
-
-  /**
-   * <p>The ID of the workflow run for which the run properties should be updated.</p>
-   * @public
-   */
-  RunId: string | undefined;
-
-  /**
-   * <p>The properties to put for the specified run.</p>
-   *          <p>Run properties may be logged. Do not pass plaintext secrets as properties. Retrieve secrets from a Glue Connection, Amazon Web Services Secrets Manager or other secret management mechanism if you intend to use them within the workflow run.</p>
-   * @public
-   */
-  RunProperties: Record<string, string> | undefined;
-}
-
-/**
- * @public
- */
-export interface PutWorkflowRunPropertiesResponse {}
-
-/**
- * @public
- */
-export interface QuerySchemaVersionMetadataInput {
-  /**
-   * <p>A wrapper structure that may contain the schema name and Amazon Resource Name (ARN).</p>
-   * @public
-   */
-  SchemaId?: SchemaId | undefined;
-
-  /**
-   * <p>The version number of the schema.</p>
-   * @public
-   */
-  SchemaVersionNumber?: SchemaVersionNumber | undefined;
-
-  /**
-   * <p>The unique version ID of the schema version.</p>
-   * @public
-   */
-  SchemaVersionId?: string | undefined;
-
-  /**
-   * <p>Search key-value pairs for metadata, if they are not provided all the metadata information will be fetched.</p>
-   * @public
-   */
-  MetadataList?: MetadataKeyValuePair[] | undefined;
-
-  /**
-   * <p>Maximum number of results required per page. If the value is not supplied, this will be defaulted to 25 per page.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>A continuation token, if this is a continuation call.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * <p>A structure containing other metadata for a schema version belonging to the same metadata key.</p>
- * @public
- */
-export interface OtherMetadataValueListItem {
-  /**
-   * <p>The metadata key’s corresponding value for the other metadata belonging to the same metadata key.</p>
-   * @public
-   */
-  MetadataValue?: string | undefined;
-
-  /**
-   * <p>The time at which the entry was created.</p>
-   * @public
-   */
-  CreatedTime?: string | undefined;
-}
-
-/**
- * <p>A structure containing metadata information for a schema version.</p>
- * @public
- */
-export interface MetadataInfo {
-  /**
-   * <p>The metadata key’s corresponding value.</p>
-   * @public
-   */
-  MetadataValue?: string | undefined;
-
-  /**
-   * <p>The time at which the entry was created.</p>
-   * @public
-   */
-  CreatedTime?: string | undefined;
-
-  /**
-   * <p>Other metadata belonging to the same metadata key.</p>
-   * @public
-   */
-  OtherMetadataValueList?: OtherMetadataValueListItem[] | undefined;
-}
-
-/**
- * @public
- */
-export interface QuerySchemaVersionMetadataResponse {
-  /**
-   * <p>A map of a metadata key and associated values.</p>
-   * @public
-   */
-  MetadataInfoMap?: Record<string, MetadataInfo> | undefined;
-
-  /**
-   * <p>The unique version ID of the schema version.</p>
-   * @public
-   */
-  SchemaVersionId?: string | undefined;
-
-  /**
-   * <p>A continuation token for paginating the returned list of tokens, returned if the current segment of the list is not the last.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface RegisterSchemaVersionInput {
-  /**
-   * <p>This is a wrapper structure to contain schema identity fields. The structure contains:</p>
-   *          <ul>
-   *             <li>
-   *                <p>SchemaId$SchemaArn: The Amazon Resource Name (ARN) of the schema. Either <code>SchemaArn</code> or <code>SchemaName</code> and <code>RegistryName</code> has to be provided.</p>
-   *             </li>
-   *             <li>
-   *                <p>SchemaId$SchemaName: The name of the schema. Either <code>SchemaArn</code> or <code>SchemaName</code> and <code>RegistryName</code> has to be provided.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  SchemaId: SchemaId | undefined;
-
-  /**
-   * <p>The schema definition using the <code>DataFormat</code> setting for the <code>SchemaName</code>.</p>
-   * @public
-   */
-  SchemaDefinition: string | undefined;
-}
-
-/**
- * @public
- */
-export interface RegisterSchemaVersionResponse {
-  /**
-   * <p>The unique ID that represents the version of this schema.</p>
-   * @public
-   */
-  SchemaVersionId?: string | undefined;
-
-  /**
-   * <p>The version of this schema (for sync flow only, in case this is the first version).</p>
-   * @public
-   */
-  VersionNumber?: number | undefined;
-
-  /**
-   * <p>The status of the schema version.</p>
-   * @public
-   */
-  Status?: SchemaVersionStatus | undefined;
 }
 
 /**

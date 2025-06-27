@@ -6,8 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import { GetColumnStatisticsForTableRequest } from "../models/models_1";
-import { GetColumnStatisticsForTableResponse } from "../models/models_2";
+import { GetColumnStatisticsForTableRequest, GetColumnStatisticsForTableResponse } from "../models/models_2";
 import { de_GetColumnStatisticsForTableCommand, se_GetColumnStatisticsForTableCommand } from "../protocols/Aws_json1_1";
 
 /**

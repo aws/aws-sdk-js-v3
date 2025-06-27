@@ -140,6 +140,7 @@ export interface GetTableVersionCommandOutput extends GetTableVersionResponse, _
  * //         Identifier: "STRING_VALUE",
  * //         DatabaseIdentifier: "STRING_VALUE",
  * //         ConnectionName: "STRING_VALUE",
+ * //         ConnectionType: "STRING_VALUE",
  * //       },
  * //       ViewDefinition: { // ViewDefinition
  * //         IsProtected: true || false,
@@ -243,6 +244,7 @@ export interface GetTableVersionCommandOutput extends GetTableVersionResponse, _
  * //               Identifier: "STRING_VALUE",
  * //               DatabaseIdentifier: "STRING_VALUE",
  * //               ConnectionName: "STRING_VALUE",
+ * //               ConnectionType: "STRING_VALUE",
  * //             },
  * //             ViewDefinition: {
  * //               IsProtected: true || false,
