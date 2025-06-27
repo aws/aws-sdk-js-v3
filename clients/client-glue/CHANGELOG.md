@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.839.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.838.0...v3.839.0) (2025-06-27)
+
+
+### Features
+
+* **client-glue:** AWS Glue now supports schema, partition and sort management of Apache Iceberg tables using Glue SDK ([022f2c1](https://github.com/aws/aws-sdk-js-v3/commit/022f2c1daf88b6cc02cf915d9e01bd129136084b))
+
+
+
+
+
 # [3.835.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.834.0...v3.835.0) (2025-06-23)
 
 

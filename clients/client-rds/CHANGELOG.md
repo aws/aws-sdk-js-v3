@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.839.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.838.0...v3.839.0) (2025-06-27)
+
+
+### Features
+
+* **client-rds:** StartDBCluster and StopDBCluster can now throw InvalidDBShardGroupStateFault. ([807cec8](https://github.com/aws/aws-sdk-js-v3/commit/807cec8a117c62ef0157c20fb80bf6610532546a))
+
+
+
+
+
 # [3.836.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.835.0...v3.836.0) (2025-06-24)
 
 

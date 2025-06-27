@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.839.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.838.0...v3.839.0) (2025-06-27)
+
+
+### Bug Fixes
+
+* **rds-signer:** don't overwrite default config with undefined values ([#6166](https://github.com/aws/aws-sdk-js-v3/issues/6166)) ([c366275](https://github.com/aws/aws-sdk-js-v3/commit/c366275c0478193d554956ea2c74d7a4d80c6626))
+
+
+
+
+
 # [3.835.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.834.0...v3.835.0) (2025-06-23)
 
 **Note:** Version bump only for package @aws-sdk/rds-signer

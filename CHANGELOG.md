@@ -3,6 +3,28 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.839.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.838.0...v3.839.0) (2025-06-27)
+
+
+### Bug Fixes
+
+* **rds-signer:** don't overwrite default config with undefined values ([#6166](https://github.com/aws/aws-sdk-js-v3/issues/6166)) ([c366275](https://github.com/aws/aws-sdk-js-v3/commit/c366275c0478193d554956ea2c74d7a4d80c6626))
+
+
+### Features
+
+* **client-connect:** This release adds the following value to an InitiateAs enum: COMPLETED ([9fe3f13](https://github.com/aws/aws-sdk-js-v3/commit/9fe3f13072345f31410add1ec3fbf85f1efbb863))
+* **client-glue:** AWS Glue now supports schema, partition and sort management of Apache Iceberg tables using Glue SDK ([022f2c1](https://github.com/aws/aws-sdk-js-v3/commit/022f2c1daf88b6cc02cf915d9e01bd129136084b))
+* **client-guardduty:** Update JSON target for Kubernetes workload resource type. ([d9cb698](https://github.com/aws/aws-sdk-js-v3/commit/d9cb698c057198a9b0d716beaaff1302885a9202))
+* **client-qconnect:** Adding UnauthorizedException to public SDK ([7617f56](https://github.com/aws/aws-sdk-js-v3/commit/7617f56d01f2908c12e96ddc1cf3115918ae0002))
+* **client-rds:** StartDBCluster and StopDBCluster can now throw InvalidDBShardGroupStateFault. ([807cec8](https://github.com/aws/aws-sdk-js-v3/commit/807cec8a117c62ef0157c20fb80bf6610532546a))
+* **client-sesv2:** Added support for new SES regions ([f221398](https://github.com/aws/aws-sdk-js-v3/commit/f221398d8dcf964f28991c938d9982adf11c51d5))
+* **clients:** update client endpoints as of 2025-06-27 ([1e1395d](https://github.com/aws/aws-sdk-js-v3/commit/1e1395d593340c868ea03b7db1a2f1438ed40f9c))
+
+
+
+
+
 # [3.838.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.837.0...v3.838.0) (2025-06-26)
 
 
