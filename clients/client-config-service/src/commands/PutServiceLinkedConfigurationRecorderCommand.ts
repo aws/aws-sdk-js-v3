@@ -39,7 +39,7 @@ export interface PutServiceLinkedConfigurationRecorderCommandOutput
 /**
  * <p>Creates a service-linked configuration recorder that is linked to a specific Amazon Web Services service based on the <code>ServicePrincipal</code> you specify.</p>
  *          <p>The configuration recorder's <code>name</code>, <code>recordingGroup</code>, <code>recordingMode</code>, and <code>recordingScope</code> is set by the service that is linked to the configuration recorder.</p>
- *          <p>For more information and a list of supported services/service principals, see <a href="https://docs.aws.amazon.com/config/latest/developerguide/stop-start-recorder.html">
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/config/latest/developerguide/stop-start-recorder.html">
  *                <b>Working with the Configuration Recorder</b>
  *             </a> in the <i>Config Developer Guide</i>.</p>
  *          <p>This API creates a service-linked role <code>AWSServiceRoleForConfig</code> in your account. The service-linked role is created only when the role does not exist in your account.</p>

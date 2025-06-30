@@ -40,18 +40,6 @@ export interface PutOrganizationConformancePackCommandOutput
  *          <p>Only a management account and a delegated administrator can call this API.
  * 			When calling this API with a delegated administrator, you must ensure Organizations
  * 			<code>ListDelegatedAdministrator</code> permissions are added. An organization can have up to 3 delegated administrators.</p>
- *          <important>
- *             <p>When you use <code>PutOrganizationConformancePack</code> to deploy conformance packs across
- * 				member accounts, the operation can create Config rules and remediation
- * 				actions without requiring <code>config:PutConfigRule</code> or
- * 					<code>config:PutRemediationConfigurations</code> permissions in member account
- * 				IAM policies.</p>
- *             <p>This API uses the <code>AWSServiceRoleForConfigConforms</code> service-linked role in each
- * 				member account to create conformance pack resources. This service-linked role
- * 				includes the permissions to create Config rules and remediation
- * 				configurations, even if member account IAM policies explicitly deny these
- * 				actions.</p>
- *          </important>
  *          <p>This API enables organization service access for <code>config-multiaccountsetup.amazonaws.com</code>
  * 			through the <code>EnableAWSServiceAccess</code> action and creates a
  * 			service-linked role <code>AWSServiceRoleForConfigMultiAccountSetup</code> in the management or delegated administrator account of your organization.

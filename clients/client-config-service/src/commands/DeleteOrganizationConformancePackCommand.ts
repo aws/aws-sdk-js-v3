@@ -38,18 +38,6 @@ export interface DeleteOrganizationConformancePackCommandOutput extends __Metada
  * 		<code>ListDelegatedAdministrator</code> permissions are added.</p>
  *          <p>Config sets the state of a conformance pack to DELETE_IN_PROGRESS until the deletion is complete.
  * 				You cannot update a conformance pack while it is in this state. </p>
- *          <note>
- *             <p>
- *                <b>Recommendation: Consider excluding the <code>AWS::Config::ResourceCompliance</code> resource type from recording before deleting rules</b>
- *             </p>
- *             <p>Deleting rules creates configuration items (CIs) for <code>AWS::Config::ResourceCompliance</code>
- * 				that can affect your costs for the configuration recorder. If you are deleting rules which evaluate a large number of resource types,
- * 				this can lead to a spike in the number of CIs recorded.</p>
- *             <p>To avoid the associated costs, you can opt to disable recording
- * 				for the <code>AWS::Config::ResourceCompliance</code> resource type before deleting rules, and re-enable recording after the rules have been deleted.</p>
- *             <p>However, since deleting rules is an asynchronous process, it might take an hour or more to complete. During the time
- * 				when recording is disabled for <code>AWS::Config::ResourceCompliance</code>, rule evaluations will not be recorded in the associated resource’s history.</p>
- *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

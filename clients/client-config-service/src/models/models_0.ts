@@ -617,8 +617,10 @@ export const ResourceType = {
   AppConfigConfigurationProfile: "AWS::AppConfig::ConfigurationProfile",
   AppConfigDeploymentStrategy: "AWS::AppConfig::DeploymentStrategy",
   AppConfigEnvironment: "AWS::AppConfig::Environment",
+  AppConfigExtensionAssociation: "AWS::AppConfig::ExtensionAssociation",
   AppConfigHostedConfigurationVersion: "AWS::AppConfig::HostedConfigurationVersion",
   AppFlowFlow: "AWS::AppFlow::Flow",
+  AppIntegrationsApplication: "AWS::AppIntegrations::Application",
   AppIntegrationsEventIntegration: "AWS::AppIntegrations::EventIntegration",
   AppMeshGatewayRoute: "AWS::AppMesh::GatewayRoute",
   AppMeshMesh: "AWS::AppMesh::Mesh",
@@ -633,6 +635,7 @@ export const ResourceType = {
   AppStreamDirectoryConfig: "AWS::AppStream::DirectoryConfig",
   AppStreamFleet: "AWS::AppStream::Fleet",
   AppStreamStack: "AWS::AppStream::Stack",
+  AppSyncApiCache: "AWS::AppSync::ApiCache",
   AppSyncGraphQLApi: "AWS::AppSync::GraphQLApi",
   Application: "AWS::ElasticBeanstalk::Application",
   ApplicationVersion: "AWS::ElasticBeanstalk::ApplicationVersion",
@@ -651,6 +654,8 @@ export const ResourceType = {
   BatchComputeEnvironment: "AWS::Batch::ComputeEnvironment",
   BatchJobQueue: "AWS::Batch::JobQueue",
   BatchSchedulingPolicy: "AWS::Batch::SchedulingPolicy",
+  BedrockGuardrail: "AWS::Bedrock::Guardrail",
+  BedrockKnowledgeBase: "AWS::Bedrock::KnowledgeBase",
   Bucket: "AWS::S3::Bucket",
   BudgetsBudgetsAction: "AWS::Budgets::BudgetsAction",
   CassandraKeyspace: "AWS::Cassandra::Keyspace",
@@ -671,6 +676,7 @@ export const ResourceType = {
   CodeDeployDeploymentGroup: "AWS::CodeDeploy::DeploymentGroup",
   CodeGuruProfilerProfilingGroup: "AWS::CodeGuruProfiler::ProfilingGroup",
   CodeGuruReviewerRepositoryAssociation: "AWS::CodeGuruReviewer::RepositoryAssociation",
+  CognitoIdentityPool: "AWS::Cognito::IdentityPool",
   CognitoUserPool: "AWS::Cognito::UserPool",
   CognitoUserPoolClient: "AWS::Cognito::UserPoolClient",
   CognitoUserPoolGroup: "AWS::Cognito::UserPoolGroup",
@@ -678,6 +684,8 @@ export const ResourceType = {
   ConnectInstance: "AWS::Connect::Instance",
   ConnectPhoneNumber: "AWS::Connect::PhoneNumber",
   ConnectQuickConnect: "AWS::Connect::QuickConnect",
+  ConnectRule: "AWS::Connect::Rule",
+  ConnectUser: "AWS::Connect::User",
   CustomerGateway: "AWS::EC2::CustomerGateway",
   CustomerProfilesDomain: "AWS::CustomerProfiles::Domain",
   CustomerProfilesObjectType: "AWS::CustomerProfiles::ObjectType",
@@ -709,15 +717,21 @@ export const ResourceType = {
   EC2CapacityReservation: "AWS::EC2::CapacityReservation",
   EC2CarrierGateway: "AWS::EC2::CarrierGateway",
   EC2ClientVpnEndpoint: "AWS::EC2::ClientVpnEndpoint",
+  EC2ClientVpnTargetNetworkAssociation: "AWS::EC2::ClientVpnTargetNetworkAssociation",
   EC2DHCPOptions: "AWS::EC2::DHCPOptions",
   EC2EC2Fleet: "AWS::EC2::EC2Fleet",
+  EC2EIPAssociation: "AWS::EC2::EIPAssociation",
   EC2IPAM: "AWS::EC2::IPAM",
   EC2IPAMPool: "AWS::EC2::IPAMPool",
+  EC2IPAMResourceDiscovery: "AWS::EC2::IPAMResourceDiscovery",
+  EC2IPAMResourceDiscoveryAssociation: "AWS::EC2::IPAMResourceDiscoveryAssociation",
   EC2IPAMScope: "AWS::EC2::IPAMScope",
+  EC2InstanceConnectEndpoint: "AWS::EC2::InstanceConnectEndpoint",
   EC2NetworkInsightsAccessScope: "AWS::EC2::NetworkInsightsAccessScope",
   EC2NetworkInsightsAnalysis: "AWS::EC2::NetworkInsightsAnalysis",
   EC2NetworkInsightsPath: "AWS::EC2::NetworkInsightsPath",
   EC2PrefixList: "AWS::EC2::PrefixList",
+  EC2SnapshotBlockPublicAccess: "AWS::EC2::SnapshotBlockPublicAccess",
   EC2SpotFleet: "AWS::EC2::SpotFleet",
   EC2SubnetRouteTableAssociation: "AWS::EC2::SubnetRouteTableAssociation",
   EC2TrafficMirrorFilter: "AWS::EC2::TrafficMirrorFilter",
@@ -725,6 +739,10 @@ export const ResourceType = {
   EC2TrafficMirrorTarget: "AWS::EC2::TrafficMirrorTarget",
   EC2TransitGatewayConnect: "AWS::EC2::TransitGatewayConnect",
   EC2TransitGatewayMulticastDomain: "AWS::EC2::TransitGatewayMulticastDomain",
+  EC2VPCBlockPublicAccessExclusion: "AWS::EC2::VPCBlockPublicAccessExclusion",
+  EC2VPCBlockPublicAccessOptions: "AWS::EC2::VPCBlockPublicAccessOptions",
+  EC2VPCEndpointConnectionNotification: "AWS::EC2::VPCEndpointConnectionNotification",
+  EC2VPNConnectionRoute: "AWS::EC2::VPNConnectionRoute",
   ECRPublicRepository: "AWS::ECR::PublicRepository",
   ECRPullThroughCacheRule: "AWS::ECR::PullThroughCacheRule",
   ECRRegistryPolicy: "AWS::ECR::RegistryPolicy",
@@ -758,6 +776,7 @@ export const ResourceType = {
   EventsRule: "AWS::Events::Rule",
   EvidentlyLaunch: "AWS::Evidently::Launch",
   EvidentlyProject: "AWS::Evidently::Project",
+  EvidentlySegment: "AWS::Evidently::Segment",
   FISExperimentTemplate: "AWS::FIS::ExperimentTemplate",
   FileData: "AWS::SSM::FileData",
   FlowLog: "AWS::EC2::FlowLog",
@@ -787,6 +806,7 @@ export const ResourceType = {
   HealthLakeFHIRDatastore: "AWS::HealthLake::FHIRDatastore",
   Host: "AWS::EC2::Host",
   IAMInstanceProfile: "AWS::IAM::InstanceProfile",
+  IAMOIDCProvider: "AWS::IAM::OIDCProvider",
   IAMSAMLProvider: "AWS::IAM::SAMLProvider",
   IAMServerCertificate: "AWS::IAM::ServerCertificate",
   IPSetV2: "AWS::WAFv2::IPSet",
@@ -798,6 +818,7 @@ export const ResourceType = {
   ImageBuilderImagePipeline: "AWS::ImageBuilder::ImagePipeline",
   ImageBuilderImageRecipe: "AWS::ImageBuilder::ImageRecipe",
   ImageBuilderInfrastructureConfiguration: "AWS::ImageBuilder::InfrastructureConfiguration",
+  InspectorV2Activation: "AWS::InspectorV2::Activation",
   InspectorV2Filter: "AWS::InspectorV2::Filter",
   Instance: "AWS::EC2::Instance",
   InternetGateway: "AWS::EC2::InternetGateway",
@@ -862,15 +883,19 @@ export const ResourceType = {
   M2Environment: "AWS::M2::Environment",
   MSKBatchScramSecret: "AWS::MSK::BatchScramSecret",
   MSKCluster: "AWS::MSK::Cluster",
+  MSKClusterPolicy: "AWS::MSK::ClusterPolicy",
   MSKConfiguration: "AWS::MSK::Configuration",
+  MSKVpcConnection: "AWS::MSK::VpcConnection",
   ManagedInstanceInventory: "AWS::SSM::ManagedInstanceInventory",
   ManagedRuleSetV2: "AWS::WAFv2::ManagedRuleSet",
   MediaConnectFlowEntitlement: "AWS::MediaConnect::FlowEntitlement",
   MediaConnectFlowSource: "AWS::MediaConnect::FlowSource",
   MediaConnectFlowVpcInterface: "AWS::MediaConnect::FlowVpcInterface",
+  MediaConnectGateway: "AWS::MediaConnect::Gateway",
   MediaPackagePackagingConfiguration: "AWS::MediaPackage::PackagingConfiguration",
   MediaPackagePackagingGroup: "AWS::MediaPackage::PackagingGroup",
   MediaTailorPlaybackConfiguration: "AWS::MediaTailor::PlaybackConfiguration",
+  MemoryDBSubnetGroup: "AWS::MemoryDB::SubnetGroup",
   NatGateway: "AWS::EC2::NatGateway",
   NetworkAcl: "AWS::EC2::NetworkAcl",
   NetworkFirewallFirewall: "AWS::NetworkFirewall::Firewall",
@@ -887,6 +912,8 @@ export const ResourceType = {
   NetworkManagerSite: "AWS::NetworkManager::Site",
   NetworkManagerTransitGatewayRegistration: "AWS::NetworkManager::TransitGatewayRegistration",
   OpenSearchDomain: "AWS::OpenSearch::Domain",
+  OpenSearchServerlessCollection: "AWS::OpenSearchServerless::Collection",
+  OpenSearchServerlessVpcEndpoint: "AWS::OpenSearchServerless::VpcEndpoint",
   PanoramaPackage: "AWS::Panorama::Package",
   PatchCompliance: "AWS::SSM::PatchCompliance",
   PersonalizeDataset: "AWS::Personalize::Dataset",
@@ -916,6 +943,7 @@ export const ResourceType = {
   RUMAppMonitor: "AWS::RUM::AppMonitor",
   RateBasedRule: "AWS::WAF::RateBasedRule",
   RedshiftEndpointAccess: "AWS::Redshift::EndpointAccess",
+  RedshiftEndpointAuthorization: "AWS::Redshift::EndpointAuthorization",
   RedshiftEventSubscription: "AWS::Redshift::EventSubscription",
   RedshiftScheduledAction: "AWS::Redshift::ScheduledAction",
   RegexPatternSetV2: "AWS::WAFv2::RegexPatternSet",
@@ -935,6 +963,7 @@ export const ResourceType = {
   RoboMakerSimulationApplication: "AWS::RoboMaker::SimulationApplication",
   Role: "AWS::IAM::Role",
   Route53HostedZone: "AWS::Route53::HostedZone",
+  Route53ProfilesProfile: "AWS::Route53Profiles::Profile",
   Route53RecoveryControlCluster: "AWS::Route53RecoveryControl::Cluster",
   Route53RecoveryControlControlPanel: "AWS::Route53RecoveryControl::ControlPanel",
   Route53RecoveryControlRoutingControl: "AWS::Route53RecoveryControl::RoutingControl",
@@ -956,8 +985,11 @@ export const ResourceType = {
   RuleGroup: "AWS::WAF::RuleGroup",
   RuleGroupV2: "AWS::WAFv2::RuleGroup",
   S3AccessPoint: "AWS::S3::AccessPoint",
+  S3ExpressBucketPolicy: "AWS::S3Express::BucketPolicy",
+  S3ExpressDirectoryBucket: "AWS::S3Express::DirectoryBucket",
   S3MultiRegionAccessPoint: "AWS::S3::MultiRegionAccessPoint",
   S3StorageLens: "AWS::S3::StorageLens",
+  S3StorageLensGroup: "AWS::S3::StorageLensGroup",
   SESConfigurationSet: "AWS::SES::ConfigurationSet",
   SESContactList: "AWS::SES::ContactList",
   SESReceiptFilter: "AWS::SES::ReceiptFilter",
@@ -969,6 +1001,7 @@ export const ResourceType = {
   SageMakerDomain: "AWS::SageMaker::Domain",
   SageMakerFeatureGroup: "AWS::SageMaker::FeatureGroup",
   SageMakerImage: "AWS::SageMaker::Image",
+  SageMakerInferenceExperiment: "AWS::SageMaker::InferenceExperiment",
   SageMakerModel: "AWS::SageMaker::Model",
   SageMakerNotebookInstanceLifecycleConfig: "AWS::SageMaker::NotebookInstanceLifecycleConfig",
   SageMakerWorkteam: "AWS::SageMaker::Workteam",
@@ -976,6 +1009,7 @@ export const ResourceType = {
   ScheduledAction: "AWS::AutoScaling::ScheduledAction",
   Secret: "AWS::SecretsManager::Secret",
   SecurityGroup: "AWS::EC2::SecurityGroup",
+  SecurityHubStandard: "AWS::SecurityHub::Standard",
   ServiceDiscoveryHttpNamespace: "AWS::ServiceDiscovery::HttpNamespace",
   ServiceDiscoveryInstance: "AWS::ServiceDiscovery::Instance",
   ServiceDiscoveryPublicDnsNamespace: "AWS::ServiceDiscovery::PublicDnsNamespace",
@@ -994,6 +1028,7 @@ export const ResourceType = {
   TransferAgreement: "AWS::Transfer::Agreement",
   TransferCertificate: "AWS::Transfer::Certificate",
   TransferConnector: "AWS::Transfer::Connector",
+  TransferProfile: "AWS::Transfer::Profile",
   TransferWorkflow: "AWS::Transfer::Workflow",
   TransitGateway: "AWS::EC2::TransitGateway",
   TransitGatewayAttachment: "AWS::EC2::TransitGatewayAttachment",
@@ -1663,7 +1698,7 @@ export interface ConfigurationRecorder {
   /**
    * <p>The name of the configuration recorder.</p>
    *          <p>For customer managed configuration recorders, Config automatically assigns the name of "default" when creating a configuration recorder if you do not specify a name at creation time.</p>
-   *          <p>For service-linked configuration recorders, Config automatically assigns a name that has the prefix "<code>AWSConfigurationRecorderFor</code>" to a new service-linked configuration recorder.</p>
+   *          <p>For service-linked configuration recorders, Config automatically assigns a name that has the prefix "<code>AWS</code>" to a new service-linked configuration recorder.</p>
    *          <note>
    *             <p>
    *                <b>Changing the name of a configuration recorder</b>
@@ -2004,28 +2039,21 @@ export interface BaseConfigurationItem {
   resourceCreationTime?: Date | undefined;
 
   /**
-   * <p>A JSON-encoded string that contains the contents for the resource configuration. This string needs to be deserialized using <code>json.loads()</code> before you can access the contents.
-   * </p>
+   * <p>The description of the resource configuration.</p>
    * @public
    */
   configuration?: string | undefined;
 
   /**
-   * <p>A string to string map that contains additional contents for the resource configuration.Config returns this field for certain
+   * <p>Configuration attributes that Config returns for certain
    * 			resource types to supplement the information returned for the
-   * 			<code>configuration</code> field.</p>
-   *          <p>This string needs to be deserialized using <code>json.loads()</code> before you can access the contents.</p>
+   * 			configuration parameter.</p>
    * @public
    */
   supplementaryConfiguration?: Record<string, string> | undefined;
 
   /**
    * <p>The recording frequency that Config uses to record configuration changes for the resource.</p>
-   *          <note>
-   *             <p>This field only appears in the API response when <code>DAILY</code> recording is enabled for a resource type.
-   * 				If this field is not present, <code>CONTINUOUS</code> recording is enabled for that resource type. For more information on daily recording and continuous recording, see <a href="https://docs.aws.amazon.com/config/latest/developerguide/select-resources.html#select-resources-recording-frequency">Recording Frequency</a> in the <i>Config
-   * 						Developer Guide</i>.</p>
-   *          </note>
    * @public
    */
   recordingFrequency?: RecordingFrequency | undefined;
@@ -2662,6 +2690,9 @@ export interface ConfigRule {
    * 			trigger an evaluation for the rule. If you do not specify a scope,
    * 			evaluations are triggered when any resource in the recording group
    * 			changes.</p>
+   *          <note>
+   *             <p>The scope can be empty. </p>
+   *          </note>
    * @public
    */
   Scope?: Scope | undefined;
@@ -3291,27 +3322,21 @@ export interface ConfigurationItem {
   relationships?: Relationship[] | undefined;
 
   /**
-   * <p>A JSON-encoded string that contains the contents for the resource configuration. This string needs to be deserialized using <code>json.loads()</code> before you can access the contents.</p>
+   * <p>The description of the resource configuration.</p>
    * @public
    */
   configuration?: string | undefined;
 
   /**
-   * <p>A string to string map that contains additional contents for the resource configuration.Config returns this field for certain
+   * <p>Configuration attributes that Config returns for certain
    * 			resource types to supplement the information returned for the
-   * 			<code>configuration</code> field.</p>
-   *          <p>This string to string map needs to be deserialized using <code>json.loads()</code> before you can accessing the contents.</p>
+   * 				<code>configuration</code> parameter.</p>
    * @public
    */
   supplementaryConfiguration?: Record<string, string> | undefined;
 
   /**
    * <p>The recording frequency that Config uses to record configuration changes for the resource.</p>
-   *          <note>
-   *             <p>This field only appears in the API response when <code>DAILY</code> recording is enabled for a resource type.
-   * 				If this field is not present, <code>CONTINUOUS</code> recording is enabled for that resource type. For more information on daily recording and continuous recording, see <a href="https://docs.aws.amazon.com/config/latest/developerguide/select-resources.html#select-resources-recording-frequency">Recording Frequency</a> in the <i>Config
-   * 						Developer Guide</i>.</p>
-   *          </note>
    * @public
    */
   recordingFrequency?: RecordingFrequency | undefined;
@@ -3321,8 +3346,7 @@ export interface ConfigurationItem {
    *          <note>
    *             <p>This field is optional and is not guaranteed to be present in a configuration item  (CI). If you are using daily recording,
    * 			this field will be populated. However, if you are using continuous recording,
-   * 			this field will be omitted since the delivery time is instantaneous as the CI is available right away.</p>
-   *             <p>For more information on daily recording and continuous recording, see <a href="https://docs.aws.amazon.com/config/latest/developerguide/select-resources.html#select-resources-recording-frequency">Recording Frequency</a> in the <i>Config
+   * 			this field will be omitted since the delivery time is instantaneous as the CI is available right away. For more information on daily recording and continuous recording, see <a href="https://docs.aws.amazon.com/config/latest/developerguide/select-resources.html#select-resources-recording-frequency">Recording Frequency</a> in the <i>Config
    * 					Developer Guide</i>.</p>
    *          </note>
    * @public
@@ -8390,7 +8414,7 @@ export interface GetResourceConfigHistoryRequest {
  */
 export interface GetResourceConfigHistoryResponse {
   /**
-   * <p>An array of <code>ConfigurationItems</code> Objects. Contatins the configuration history for one or more
+   * <p>A list that contains the configuration history of one or more
    * 			resources.</p>
    * @public
    */
@@ -8641,7 +8665,8 @@ export class InsufficientDeliveryPolicyException extends __BaseException {
 }
 
 /**
- * <p>The configuration recorder name is not valid. The prefix "<code>AWSConfigurationRecorderFor</code>" is reserved for service-linked configuration recorders.</p>
+ * <p>You have provided a name for the customer managed configuration recorder that is not
+ * 			valid.</p>
  * @public
  */
 export class InvalidConfigurationRecorderNameException extends __BaseException {
