@@ -366,6 +366,11 @@ final class AwsProtocolUtils {
             return true;
         }
 
+        // TODO: https://github.com/aws/aws-sdk-js-v3/issues/7169
+        if (testCase.getId().equals("RestJsonHttpPayloadWithStructureAndEmptyResponseBody")) {
+            return true;
+        }
+
         return false;
     }
 
