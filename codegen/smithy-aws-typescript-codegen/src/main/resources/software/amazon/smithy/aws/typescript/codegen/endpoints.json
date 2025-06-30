@@ -3733,6 +3733,7 @@
                 }
               ]
             },
+            "ap-east-2": {},
             "ap-northeast-1": {
               "variants": [
                 {
@@ -41020,6 +41021,12 @@
                 }
               ]
             }
+          }
+        },
+        "scheduler": {
+          "endpoints": {
+            "us-gov-east-1": {},
+            "us-gov-west-1": {}
           }
         },
         "schemas": {
