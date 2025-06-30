@@ -37,6 +37,7 @@ export const getRuntimeConfig = (config: BedrockRuntimeClientConfig) => {
   const loaderConfig = {
     profile: config?.profile,
     logger: clientSharedValues.logger,
+    signingName: "bedrock",
   };
   return {
     ...clientSharedValues,
