@@ -962,6 +962,8 @@ import {
   AttributeCondition,
   AuthenticationProfile,
   AuthenticationProfileSummary,
+  ChatContactMetrics,
+  ChatMetrics,
   ContactEvaluation,
   ContactFilter,
   ContactFlow,
@@ -1005,6 +1007,7 @@ import {
   MetricInterval,
   MetricResultV2,
   MetricV2,
+  ParticipantMetrics,
   PhoneNumberCountryCode,
   PhoneNumberType,
   PredefinedAttribute,
@@ -15465,6 +15468,33 @@ const de_CaseSlaConfiguration = (output: any, context: __SerdeContext): CaseSlaC
 
 // de_ChannelToCountMap omitted.
 
+/**
+ * deserializeAws_restJson1ChatContactMetrics
+ */
+const de_ChatContactMetrics = (output: any, context: __SerdeContext): ChatContactMetrics => {
+  return take(output, {
+    AgentFirstResponseTimeInMillis: __expectLong,
+    AgentFirstResponseTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    ConversationCloseTimeInMillis: __expectLong,
+    ConversationTurnCount: __expectInt32,
+    MultiParty: __expectBoolean,
+    TotalBotMessageLengthInChars: __expectInt32,
+    TotalBotMessages: __expectInt32,
+    TotalMessages: __expectInt32,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1ChatMetrics
+ */
+const de_ChatMetrics = (output: any, context: __SerdeContext): ChatMetrics => {
+  return take(output, {
+    AgentMetrics: (_: any) => de_ParticipantMetrics(_, context),
+    ChatContactMetrics: (_: any) => de_ChatContactMetrics(_, context),
+    CustomerMetrics: (_: any) => de_ParticipantMetrics(_, context),
+  }) as any;
+};
+
 // de_ClaimedPhoneNumberSummary omitted.
 
 // de_ConnectionData omitted.
@@ -15481,6 +15511,7 @@ const de_Contact = (output: any, context: __SerdeContext): Contact => {
     Attributes: _json,
     Campaign: _json,
     Channel: __expectString,
+    ChatMetrics: (_: any) => de_ChatMetrics(_, context),
     ConnectedToSystemTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     ContactAssociationId: __expectString,
     ContactDetails: _json,
@@ -16593,6 +16624,23 @@ const de_MetricV2 = (output: any, context: __SerdeContext): MetricV2 => {
 // de_OverrideTimeSlice omitted.
 
 // de_ParticipantCapabilities omitted.
+
+/**
+ * deserializeAws_restJson1ParticipantMetrics
+ */
+const de_ParticipantMetrics = (output: any, context: __SerdeContext): ParticipantMetrics => {
+  return take(output, {
+    ConversationAbandon: __expectBoolean,
+    LastMessageTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    MaxResponseTimeInMillis: __expectLong,
+    MessageLengthInChars: __expectInt32,
+    MessagesSent: __expectInt32,
+    NumResponses: __expectInt32,
+    ParticipantId: __expectString,
+    ParticipantType: __expectString,
+    TotalResponseTimeInMillis: __expectLong,
+  }) as any;
+};
 
 // de_ParticipantTokenCredentials omitted.
 

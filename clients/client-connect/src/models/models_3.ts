@@ -46,6 +46,7 @@ import {
 import {
   AnsweringMachineDetectionStatus,
   AttributeCondition,
+  ChatMetrics,
   ContactDetails,
   ContactEvaluation,
   ContactFlowModuleState,
@@ -94,9 +95,72 @@ import {
   RoutingProfileSearchFilter,
   SearchableQueueType,
   SecurityProfilesSearchFilter,
+  UpdateParticipantRoleConfigChannelInfo,
   UserHierarchyGroupSearchFilter,
   UserSearchFilter,
 } from "./models_2";
+
+/**
+ * @public
+ */
+export interface UpdateParticipantRoleConfigRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The identifier of the contact in this instance of Amazon Connect. </p>
+   * @public
+   */
+  ContactId: string | undefined;
+
+  /**
+   * <p>The Amazon Connect channel you want to configure.</p>
+   * @public
+   */
+  ChannelConfiguration: UpdateParticipantRoleConfigChannelInfo | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateParticipantRoleConfigResponse {}
+
+/**
+ * @public
+ */
+export interface UpdatePhoneNumberRequest {
+  /**
+   * <p>A unique identifier for the phone number.</p>
+   * @public
+   */
+  PhoneNumberId: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) for Amazon Connect instances or traffic distribution groups that phone number inbound traffic is routed through. You must enter <code>InstanceId</code> or <code>TargetArn</code>. </p>
+   * @public
+   */
+  TargetArn?: string | undefined;
+
+  /**
+   * <p>The identifier of the Amazon Connect instance that phone numbers are claimed to. You
+   *    can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the
+   *     instance ID</a> in the Amazon Resource Name (ARN) of the instance. You must enter <code>InstanceId</code> or <code>TargetArn</code>. </p>
+   * @public
+   */
+  InstanceId?: string | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
+   *             request. If not provided, the Amazon Web Services
+   *             SDK populates this field. For more information about idempotency, see
+   *             <a href="https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>.</p>
+   * @public
+   */
+  ClientToken?: string | undefined;
+}
 
 /**
  * @public
@@ -1418,17 +1482,17 @@ export interface CreateContactRequest {
 
   /**
    * <p>A formatted URL that is shown to an agent in the Contact Control Panel (CCP). Tasks can have
-   *    the following reference types at the time of creation: URL | NUMBER | STRING | DATE | EMAIL |
-   *    ATTACHMENT.</p>
+   *    the following reference types at the time of creation: <code>URL</code> | <code>NUMBER</code> |
+   *     <code>STRING</code> | <code>DATE</code> | <code>EMAIL</code> | <code>ATTACHMENT</code>.</p>
    * @public
    */
   References?: Record<string, Reference> | undefined;
 
   /**
-   * <p>The channel for the contact</p>
+   * <p>The channel for the contact.</p>
    *          <important>
-   *             <p>CreateContact only supports the EMAIL and VOICE channels. The following information that
-   *     states other channels are supported is incorrect. We are working to update this topic.</p>
+   *             <p>The CHAT channel is not supported. The following information is incorrect. We're working to
+   *     correct it.</p>
    *          </important>
    * @public
    */
@@ -1437,17 +1501,23 @@ export interface CreateContactRequest {
   /**
    * <p>Indicates how the contact was initiated. </p>
    *          <important>
-   *             <p>CreateContact only supports the following initiation methods: </p>
+   *             <p>CreateContact only supports the following initiation methods. Valid values by channel are: </p>
    *             <ul>
    *                <li>
-   *                   <p>For EMAIL: OUTBOUND, AGENT_REPLY, and FLOW. </p>
+   *                   <p>For VOICE: <code>TRANSFER</code> and the subtype <code>connect:ExternalAudio</code>
+   *                   </p>
    *                </li>
    *                <li>
-   *                   <p>For VOICE: TRANSFER and the subtype connect:ExternalAudio. </p>
+   *                   <p>For EMAIL: <code>OUTBOUND</code> | <code>AGENT_REPLY</code> | <code>FLOW</code>
+   *                   </p>
+   *                </li>
+   *                <li>
+   *                   <p>For TASK: <code>API</code>
+   *                   </p>
    *                </li>
    *             </ul>
-   *             <p>The following information that states other initiation methods are supported is incorrect.
-   *     We are working to update this topic.</p>
+   *             <p>The other channels listed below are incorrect. We're working to correct this
+   *     information.</p>
    *          </important>
    * @public
    */
@@ -1462,15 +1532,16 @@ export interface CreateContactRequest {
   /**
    * <p>User details for the contact</p>
    *          <important>
-   *             <p>UserInfo is required when creating an EMAIL contact with OUTBOUND and AGENT_REPLY contact
-   *     initiation methods.</p>
+   *             <p>UserInfo is required when creating an EMAIL contact with <code>OUTBOUND</code> and
+   *      <code>AGENT_REPLY</code> contact initiation methods.</p>
    *          </important>
    * @public
    */
   UserInfo?: UserInfo | undefined;
 
   /**
-   * <p>Initial state of the contact when it's created</p>
+   * <p>Initial state of the contact when it's created. Only TASK channel contacts can be initiated
+   *    with <code>COMPLETED</code> state.</p>
    * @public
    */
   InitiateAs?: InitiateAs | undefined;
@@ -3651,6 +3722,12 @@ export interface Contact {
    * @public
    */
   QualityMetrics?: QualityMetrics | undefined;
+
+  /**
+   * <p>Information about how agent, bot, and customer interact in a chat contact.</p>
+   * @public
+   */
+  ChatMetrics?: ChatMetrics | undefined;
 
   /**
    * <p>Information about the call disconnect experience.</p>

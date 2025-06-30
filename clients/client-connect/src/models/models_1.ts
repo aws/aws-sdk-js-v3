@@ -585,6 +585,161 @@ export type AnsweringMachineDetectionStatus =
   (typeof AnsweringMachineDetectionStatus)[keyof typeof AnsweringMachineDetectionStatus];
 
 /**
+ * @public
+ * @enum
+ */
+export const ParticipantType = {
+  AGENT: "AGENT",
+  ALL: "ALL",
+  CUSTOMER: "CUSTOMER",
+  MANAGER: "MANAGER",
+  THIRDPARTY: "THIRDPARTY",
+} as const;
+
+/**
+ * @public
+ */
+export type ParticipantType = (typeof ParticipantType)[keyof typeof ParticipantType];
+
+/**
+ * <p>Information about a participant's interactions in a contact.</p>
+ * @public
+ */
+export interface ParticipantMetrics {
+  /**
+   * <p>The Participant's ID.</p>
+   * @public
+   */
+  ParticipantId?: string | undefined;
+
+  /**
+   * <p>Information about the conversation participant. Following are the participant types: [Agent, Customer, Supervisor].</p>
+   * @public
+   */
+  ParticipantType?: ParticipantType | undefined;
+
+  /**
+   * <p>A boolean flag indicating whether the chat conversation was abandoned by a Participant.</p>
+   * @public
+   */
+  ConversationAbandon?: boolean | undefined;
+
+  /**
+   * <p>Number of chat messages sent by Participant.</p>
+   * @public
+   */
+  MessagesSent?: number | undefined;
+
+  /**
+   * <p>Number of chat messages sent by Participant.</p>
+   * @public
+   */
+  NumResponses?: number | undefined;
+
+  /**
+   * <p>Number of chat characters sent by Participant.</p>
+   * @public
+   */
+  MessageLengthInChars?: number | undefined;
+
+  /**
+   * <p>Total chat response time by Participant.</p>
+   * @public
+   */
+  TotalResponseTimeInMillis?: number | undefined;
+
+  /**
+   * <p>Maximum chat response time by Participant.</p>
+   * @public
+   */
+  MaxResponseTimeInMillis?: number | undefined;
+
+  /**
+   * <p>Timestamp of last chat message by Participant.</p>
+   * @public
+   */
+  LastMessageTimestamp?: Date | undefined;
+}
+
+/**
+ * <p>Information about the overall participant interactions at the contact level.</p>
+ * @public
+ */
+export interface ChatContactMetrics {
+  /**
+   * <p>A boolean flag indicating whether multiparty chat or supervisor barge were enabled on this contact.</p>
+   * @public
+   */
+  MultiParty?: boolean | undefined;
+
+  /**
+   * <p>The number of chat messages on the contact.</p>
+   * @public
+   */
+  TotalMessages?: number | undefined;
+
+  /**
+   * <p>The total number of bot and automated messages on a chat contact.</p>
+   * @public
+   */
+  TotalBotMessages?: number | undefined;
+
+  /**
+   * <p>The total number of characters from bot and automated messages on a chat contact.</p>
+   * @public
+   */
+  TotalBotMessageLengthInChars?: number | undefined;
+
+  /**
+   * <p>The time it took for a contact to end after the last customer message.</p>
+   * @public
+   */
+  ConversationCloseTimeInMillis?: number | undefined;
+
+  /**
+   * <p>The number of conversation turns in a chat contact, which represents the back-and-forth exchanges between customer and other participants.</p>
+   * @public
+   */
+  ConversationTurnCount?: number | undefined;
+
+  /**
+   * <p>The agent first response timestamp for a chat contact.</p>
+   * @public
+   */
+  AgentFirstResponseTimestamp?: Date | undefined;
+
+  /**
+   * <p>The time for an agent to respond after obtaining a chat contact.</p>
+   * @public
+   */
+  AgentFirstResponseTimeInMillis?: number | undefined;
+}
+
+/**
+ * <p>Information about how agent, bot, and customer interact in a chat contact.</p>
+ * @public
+ */
+export interface ChatMetrics {
+  /**
+   * <p>Information about the overall participant interactions at the contact level.</p>
+   * @public
+   */
+  ChatContactMetrics?: ChatContactMetrics | undefined;
+
+  /**
+   * <p>Information about agent interactions in a contact.</p>
+   * @public
+   */
+  AgentMetrics?: ParticipantMetrics | undefined;
+
+  /**
+   * <p>Information about customer interactions in a contact.</p>
+   * @public
+   */
+  CustomerMetrics?: ParticipantMetrics | undefined;
+}
+
+/**
  * <p>A map of string key/value pairs that contain user-defined attributes which are lightly typed
  *    within the contact. This object is used only for task contacts. </p>
  * @public
@@ -804,23 +959,6 @@ export const MediaStreamType = {
  * @public
  */
 export type MediaStreamType = (typeof MediaStreamType)[keyof typeof MediaStreamType];
-
-/**
- * @public
- * @enum
- */
-export const ParticipantType = {
-  AGENT: "AGENT",
-  ALL: "ALL",
-  CUSTOMER: "CUSTOMER",
-  MANAGER: "MANAGER",
-  THIRDPARTY: "THIRDPARTY",
-} as const;
-
-/**
- * @public
- */
-export type ParticipantType = (typeof ParticipantType)[keyof typeof ParticipantType];
 
 /**
  * @public
@@ -9865,113 +10003,6 @@ export interface ListPhoneNumbersRequest {
    * @public
    */
   MaxResults?: number | undefined;
-}
-
-/**
- * <p>Contains summary information about a phone number for a contact center.</p>
- * @public
- */
-export interface PhoneNumberSummary {
-  /**
-   * <p>The identifier of the phone number.</p>
-   * @public
-   */
-  Id?: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the phone number.</p>
-   * @public
-   */
-  Arn?: string | undefined;
-
-  /**
-   * <p>The phone number.</p>
-   * @public
-   */
-  PhoneNumber?: string | undefined;
-
-  /**
-   * <p>The type of phone number.</p>
-   * @public
-   */
-  PhoneNumberType?: PhoneNumberType | undefined;
-
-  /**
-   * <p>The ISO country code.</p>
-   * @public
-   */
-  PhoneNumberCountryCode?: PhoneNumberCountryCode | undefined;
-}
-
-/**
- * @public
- */
-export interface ListPhoneNumbersResponse {
-  /**
-   * <p>Information about the phone numbers.</p>
-   * @public
-   */
-  PhoneNumberSummaryList?: PhoneNumberSummary[] | undefined;
-
-  /**
-   * <p>If there are additional results, this is the token for the next set of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListPhoneNumbersV2Request {
-  /**
-   * <p>The Amazon Resource Name (ARN) for Amazon Connect instances or traffic distribution groups that phone number inbound traffic is routed through. If both <code>TargetArn</code> and <code>InstanceId</code> input are not
-   *    provided, this API lists numbers claimed to all the Amazon Connect instances belonging to
-   *    your account in the same Amazon Web Services Region as the request.</p>
-   * @public
-   */
-  TargetArn?: string | undefined;
-
-  /**
-   * <p>The identifier of the Amazon Connect instance that phone numbers are claimed to. You
-   *    can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the
-   *     instance ID</a> in the Amazon Resource Name (ARN) of the instance. If both <code>TargetArn</code> and <code>InstanceId</code> are not
-   *    provided, this API lists numbers claimed to all the Amazon Connect instances belonging to your account in
-   *    the same AWS Region as the request.</p>
-   * @public
-   */
-  InstanceId?: string | undefined;
-
-  /**
-   * <p>The maximum number of results to return per page.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>The token for the next set of results. Use the value returned in the previous
-   * response in the next request to retrieve the next set of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The ISO country code.</p>
-   * @public
-   */
-  PhoneNumberCountryCodes?: PhoneNumberCountryCode[] | undefined;
-
-  /**
-   * <p>The type of phone number.</p>
-   * @public
-   */
-  PhoneNumberTypes?: PhoneNumberType[] | undefined;
-
-  /**
-   * <p>The prefix of the phone number. If provided, it must contain <code>+</code> as part of the country code.</p>
-   * @public
-   */
-  PhoneNumberPrefix?: string | undefined;
 }
 
 /**

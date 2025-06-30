@@ -64,6 +64,113 @@ import {
 } from "./models_1";
 
 /**
+ * <p>Contains summary information about a phone number for a contact center.</p>
+ * @public
+ */
+export interface PhoneNumberSummary {
+  /**
+   * <p>The identifier of the phone number.</p>
+   * @public
+   */
+  Id?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the phone number.</p>
+   * @public
+   */
+  Arn?: string | undefined;
+
+  /**
+   * <p>The phone number.</p>
+   * @public
+   */
+  PhoneNumber?: string | undefined;
+
+  /**
+   * <p>The type of phone number.</p>
+   * @public
+   */
+  PhoneNumberType?: PhoneNumberType | undefined;
+
+  /**
+   * <p>The ISO country code.</p>
+   * @public
+   */
+  PhoneNumberCountryCode?: PhoneNumberCountryCode | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListPhoneNumbersResponse {
+  /**
+   * <p>Information about the phone numbers.</p>
+   * @public
+   */
+  PhoneNumberSummaryList?: PhoneNumberSummary[] | undefined;
+
+  /**
+   * <p>If there are additional results, this is the token for the next set of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListPhoneNumbersV2Request {
+  /**
+   * <p>The Amazon Resource Name (ARN) for Amazon Connect instances or traffic distribution groups that phone number inbound traffic is routed through. If both <code>TargetArn</code> and <code>InstanceId</code> input are not
+   *    provided, this API lists numbers claimed to all the Amazon Connect instances belonging to
+   *    your account in the same Amazon Web Services Region as the request.</p>
+   * @public
+   */
+  TargetArn?: string | undefined;
+
+  /**
+   * <p>The identifier of the Amazon Connect instance that phone numbers are claimed to. You
+   *    can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the
+   *     instance ID</a> in the Amazon Resource Name (ARN) of the instance. If both <code>TargetArn</code> and <code>InstanceId</code> are not
+   *    provided, this API lists numbers claimed to all the Amazon Connect instances belonging to your account in
+   *    the same AWS Region as the request.</p>
+   * @public
+   */
+  InstanceId?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return per page.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>The token for the next set of results. Use the value returned in the previous
+   * response in the next request to retrieve the next set of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The ISO country code.</p>
+   * @public
+   */
+  PhoneNumberCountryCodes?: PhoneNumberCountryCode[] | undefined;
+
+  /**
+   * <p>The type of phone number.</p>
+   * @public
+   */
+  PhoneNumberTypes?: PhoneNumberType[] | undefined;
+
+  /**
+   * <p>The prefix of the phone number. If provided, it must contain <code>+</code> as part of the country code.</p>
+   * @public
+   */
+  PhoneNumberPrefix?: string | undefined;
+}
+
+/**
  * <p>Information about phone numbers that have been claimed to your Amazon Connect instance
  *    or traffic distribution group.</p>
  * @public
@@ -5044,8 +5151,9 @@ export interface EmailAddressInfo {
  */
 export interface OutboundAdditionalRecipients {
   /**
-   * <p>Information about the <b>additional</b> CC email address recipients.
-   *    Email recipients are limited to 50 total addresses: 1 required recipient in the <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_SendOutboundEmail.html#API_SendOutboundEmail_RequestBody">DestinationEmailAddress</a> field and up to 49 recipients in the 'CcEmailAddresses'
+   * <p>Information about the <b>additional</b> CC email address
+   *    recipients. Email recipients are limited to 50 total addresses: 1 required recipient in the
+   *     <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_SendOutboundEmail.html#API_SendOutboundEmail_RequestBody">DestinationEmailAddress</a> field and up to 49 recipients in the 'CcEmailAddresses'
    *    field.</p>
    * @public
    */
@@ -5680,26 +5788,28 @@ export interface StartContactStreamingResponse {
 /**
  * <p>Information about the additional TO and CC recipients of an inbound email contact.</p>
  *          <note>
- *             <p>You can include up to 50 email addresses in total, distributed across
- *     <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_StartEmailContact.html#API_StartEmailContact_RequestBody">DestinationEmailAddress</a>, <code>ToAddresses</code>, and <code>CcAddresses</code>. This total must include one required
- *     <code>DestinationEmailAddress</code>. You can then specify up to 49 addresses allocated across <code>ToAddresses</code>
- *     and <code>CcAddresses</code> as needed.</p>
+ *             <p>You can include up to 50 email addresses in total, distributed across <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_StartEmailContact.html#API_StartEmailContact_RequestBody">DestinationEmailAddress</a>, <code>ToAddresses</code>, and <code>CcAddresses</code>. This
+ *     total must include one required <code>DestinationEmailAddress</code>. You can then specify up to
+ *     49 addresses allocated across <code>ToAddresses</code> and <code>CcAddresses</code> as
+ *     needed.</p>
  *          </note>
  * @public
  */
 export interface InboundAdditionalRecipients {
   /**
    * <p>The <b>additional</b> recipients information present in to list.
-   *    You must have 1 required recipient (<code>DestinationEmailAddress</code>). You can then specify up to
-   *    49 additional recipients (across <code>ToAddresses</code> and <code>CcAddresses</code>), for a total of 50 recipients.</p>
+   *    You must have 1 required recipient (<code>DestinationEmailAddress</code>). You can then specify
+   *    up to 49 additional recipients (across <code>ToAddresses</code> and <code>CcAddresses</code>),
+   *    for a total of 50 recipients.</p>
    * @public
    */
   ToAddresses?: EmailAddressInfo[] | undefined;
 
   /**
    * <p>The <b>additional</b> recipients information present in cc list.
-   *    You must have 1 required recipient (<code>DestinationEmailAddress</code>). You can then specify up to
-   *    49 additional recipients (across <code>ToAddresses</code> and <code>CcAddresses</code>), for a total of 50 recipients.</p>
+   *    You must have 1 required recipient (<code>DestinationEmailAddress</code>). You can then specify
+   *    up to 49 additional recipients (across <code>ToAddresses</code> and <code>CcAddresses</code>),
+   *    for a total of 50 recipients.</p>
    * @public
    */
   CcAddresses?: EmailAddressInfo[] | undefined;
@@ -7691,68 +7801,6 @@ export namespace UpdateParticipantRoleConfigChannelInfo {
     if (value.Chat !== undefined) return visitor.Chat(value.Chat);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
-}
-
-/**
- * @public
- */
-export interface UpdateParticipantRoleConfigRequest {
-  /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
-   * @public
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>The identifier of the contact in this instance of Amazon Connect. </p>
-   * @public
-   */
-  ContactId: string | undefined;
-
-  /**
-   * <p>The Amazon Connect channel you want to configure.</p>
-   * @public
-   */
-  ChannelConfiguration: UpdateParticipantRoleConfigChannelInfo | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateParticipantRoleConfigResponse {}
-
-/**
- * @public
- */
-export interface UpdatePhoneNumberRequest {
-  /**
-   * <p>A unique identifier for the phone number.</p>
-   * @public
-   */
-  PhoneNumberId: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) for Amazon Connect instances or traffic distribution groups that phone number inbound traffic is routed through. You must enter <code>InstanceId</code> or <code>TargetArn</code>. </p>
-   * @public
-   */
-  TargetArn?: string | undefined;
-
-  /**
-   * <p>The identifier of the Amazon Connect instance that phone numbers are claimed to. You
-   *    can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the
-   *     instance ID</a> in the Amazon Resource Name (ARN) of the instance. You must enter <code>InstanceId</code> or <code>TargetArn</code>. </p>
-   * @public
-   */
-  InstanceId?: string | undefined;
-
-  /**
-   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
-   *             request. If not provided, the Amazon Web Services
-   *             SDK populates this field. For more information about idempotency, see
-   *             <a href="https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>.</p>
-   * @public
-   */
-  ClientToken?: string | undefined;
 }
 
 /**
