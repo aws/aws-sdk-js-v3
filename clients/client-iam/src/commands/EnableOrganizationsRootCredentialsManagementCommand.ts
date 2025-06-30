@@ -92,7 +92,7 @@ export interface EnableOrganizationsRootCredentialsManagementCommandOutput
  * @throws {@link OrganizationNotInAllFeaturesModeException} (client fault)
  *  <p>The request was rejected because your organization does not have All features enabled. For
  *       more information, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_getting-started_concepts.html#feature-set">Available feature sets</a> in the <i>Organizations User
- *           Guide</i>.</p>
+ *       Guide</i>.</p>
  *
  * @throws {@link ServiceAccessNotEnabledException} (client fault)
  *  <p>The request was rejected because trusted access is not enabled for IAM in Organizations. For details, see IAM and Organizations in the <i>Organizations User Guide</i>.</p>

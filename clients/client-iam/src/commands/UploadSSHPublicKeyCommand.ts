@@ -51,7 +51,7 @@ export interface UploadSSHPublicKeyCommandOutput extends UploadSSHPublicKeyRespo
  * //     SSHPublicKeyId: "STRING_VALUE", // required
  * //     Fingerprint: "STRING_VALUE", // required
  * //     SSHPublicKeyBody: "STRING_VALUE", // required
- * //     Status: "Active" || "Inactive", // required
+ * //     Status: "Active" || "Inactive" || "Expired", // required
  * //     UploadDate: new Date("TIMESTAMP"),
  * //   },
  * // };

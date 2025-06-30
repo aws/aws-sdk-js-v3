@@ -30,7 +30,7 @@ export interface DetachUserPolicyCommandOutput extends __MetadataBearer {}
 /**
  * <p>Removes the specified managed policy from the specified user.</p>
  *          <p>A user can also have inline policies embedded with it. To delete an inline policy, use
- *                 <a>DeleteUserPolicy</a>. For information about policies, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html">Managed
+ *                 <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_DeleteUserPolicy.html">DeleteUserPolicy</a>. For information about policies, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html">Managed
  *                 policies and inline policies</a> in the
  *             <i>IAM User Guide</i>.</p>
  * @example

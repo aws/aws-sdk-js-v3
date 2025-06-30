@@ -61,7 +61,7 @@ export interface CreateAccessKeyCommandOutput extends CreateAccessKeyResponse, _
  * //   AccessKey: { // AccessKey
  * //     UserName: "STRING_VALUE", // required
  * //     AccessKeyId: "STRING_VALUE", // required
- * //     Status: "Active" || "Inactive", // required
+ * //     Status: "Active" || "Inactive" || "Expired", // required
  * //     SecretAccessKey: "STRING_VALUE", // required
  * //     CreateDate: new Date("TIMESTAMP"),
  * //   },

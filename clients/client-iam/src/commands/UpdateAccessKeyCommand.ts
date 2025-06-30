@@ -48,7 +48,7 @@ export interface UpdateAccessKeyCommandOutput extends __MetadataBearer {}
  * const input = { // UpdateAccessKeyRequest
  *   UserName: "STRING_VALUE",
  *   AccessKeyId: "STRING_VALUE", // required
- *   Status: "Active" || "Inactive", // required
+ *   Status: "Active" || "Inactive" || "Expired", // required
  * };
  * const command = new UpdateAccessKeyCommand(input);
  * const response = await client.send(command);
@@ -61,6 +61,10 @@ export interface UpdateAccessKeyCommandOutput extends __MetadataBearer {}
  * @see {@link UpdateAccessKeyCommandInput} for command's `input` shape.
  * @see {@link UpdateAccessKeyCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>The request was rejected because an invalid or out-of-range value was supplied for an
+ *       input parameter.</p>
  *
  * @throws {@link LimitExceededException} (client fault)
  *  <p>The request was rejected because it attempted to create resources beyond the current

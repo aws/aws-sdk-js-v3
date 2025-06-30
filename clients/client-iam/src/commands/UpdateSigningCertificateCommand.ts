@@ -45,7 +45,7 @@ export interface UpdateSigningCertificateCommandOutput extends __MetadataBearer 
  * const input = { // UpdateSigningCertificateRequest
  *   UserName: "STRING_VALUE",
  *   CertificateId: "STRING_VALUE", // required
- *   Status: "Active" || "Inactive", // required
+ *   Status: "Active" || "Inactive" || "Expired", // required
  * };
  * const command = new UpdateSigningCertificateCommand(input);
  * const response = await client.send(command);
@@ -58,6 +58,10 @@ export interface UpdateSigningCertificateCommandOutput extends __MetadataBearer 
  * @see {@link UpdateSigningCertificateCommandInput} for command's `input` shape.
  * @see {@link UpdateSigningCertificateCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>The request was rejected because an invalid or out-of-range value was supplied for an
+ *       input parameter.</p>
  *
  * @throws {@link LimitExceededException} (client fault)
  *  <p>The request was rejected because it attempted to create resources beyond the current

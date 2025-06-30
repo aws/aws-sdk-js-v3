@@ -30,7 +30,7 @@ export interface DetachRolePolicyCommandOutput extends __MetadataBearer {}
 /**
  * <p>Removes the specified managed policy from the specified role.</p>
  *          <p>A role can also have inline policies embedded with it. To delete an inline policy, use
- *                 <a>DeleteRolePolicy</a>. For information about policies, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html">Managed
+ *                 <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_DeleteRolePolicy.html">DeleteRolePolicy</a>. For information about policies, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html">Managed
  *                 policies and inline policies</a> in the
  *             <i>IAM User Guide</i>.</p>
  * @example

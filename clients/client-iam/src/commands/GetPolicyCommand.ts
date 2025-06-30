@@ -31,11 +31,11 @@ export interface GetPolicyCommandOutput extends GetPolicyResponse, __MetadataBea
  * <p>Retrieves information about the specified managed policy, including the policy's
  *             default version and the total number of IAM users, groups, and roles to which the
  *             policy is attached. To retrieve the list of the specific users, groups, and roles that
- *             the policy is attached to, use <a>ListEntitiesForPolicy</a>. This operation
- *             returns metadata about the policy. To retrieve the actual policy document for a specific
- *             version of the policy, use <a>GetPolicyVersion</a>.</p>
+ *             the policy is attached to, use <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_ListEntitiesForPolicy.html">ListEntitiesForPolicy</a>. This operation returns metadata about the policy. To
+ *             retrieve the actual policy document for a specific version of the policy, use <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetPolicyVersion.html">GetPolicyVersion</a>.</p>
  *          <p>This operation retrieves information about managed policies. To retrieve information
- *             about an inline policy that is embedded with an IAM user, group, or role, use <a>GetUserPolicy</a>, <a>GetGroupPolicy</a>, or <a>GetRolePolicy</a>.</p>
+ *             about an inline policy that is embedded with an IAM user, group, or role, use <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetUserPolicy.html">GetUserPolicy</a>, <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetGroupPolicy.html">GetGroupPolicy</a>, or
+ *                 <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetRolePolicy.html">GetRolePolicy</a>.</p>
  *          <p>For more information about policies, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html">Managed policies and inline
  *                 policies</a> in the <i>IAM User Guide</i>.</p>
  * @example

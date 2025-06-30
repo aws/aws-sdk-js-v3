@@ -61,7 +61,7 @@ export interface ListAccessKeysCommandOutput extends ListAccessKeysResponse, __M
  * //     { // AccessKeyMetadata
  * //       UserName: "STRING_VALUE",
  * //       AccessKeyId: "STRING_VALUE",
- * //       Status: "Active" || "Inactive",
+ * //       Status: "Active" || "Inactive" || "Expired",
  * //       CreateDate: new Date("TIMESTAMP"),
  * //     },
  * //   ],

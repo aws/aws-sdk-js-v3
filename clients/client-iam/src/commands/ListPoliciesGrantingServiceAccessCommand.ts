@@ -74,7 +74,7 @@ export interface ListPoliciesGrantingServiceAccessCommandOutput
  *                 <i>IAM User Guide</i>.</p>
  *          <p>Policies that are attached to users and roles as permissions boundaries are not
  *             returned. To view which managed policy is currently used to set the permissions boundary
- *             for a user or role, use the <a>GetUser</a> or <a>GetRole</a>
+ *             for a user or role, use the <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetUser.html">GetUser</a> or <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetRole.html">GetRole</a>
  *             operations.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

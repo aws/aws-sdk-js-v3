@@ -44,7 +44,7 @@ export interface UpdateServiceSpecificCredentialCommandOutput extends __Metadata
  * const input = { // UpdateServiceSpecificCredentialRequest
  *   UserName: "STRING_VALUE",
  *   ServiceSpecificCredentialId: "STRING_VALUE", // required
- *   Status: "Active" || "Inactive", // required
+ *   Status: "Active" || "Inactive" || "Expired", // required
  * };
  * const command = new UpdateServiceSpecificCredentialCommand(input);
  * const response = await client.send(command);

@@ -31,9 +31,9 @@ export interface ListGroupPoliciesCommandOutput extends ListGroupPoliciesRespons
  * <p>Lists the names of the inline policies that are embedded in the specified IAM
  *             group.</p>
  *          <p>An IAM group can also have managed policies attached to it. To list the managed
- *             policies that are attached to a group, use <a>ListAttachedGroupPolicies</a>.
- *             For more information about policies, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html">Managed policies and inline
- *                 policies</a> in the <i>IAM User Guide</i>.</p>
+ *             policies that are attached to a group, use <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_ListAttachedGroupPolicies.html">ListAttachedGroupPolicies</a>. For more information about policies, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html">Managed
+ *                 policies and inline policies</a> in the
+ *             <i>IAM User Guide</i>.</p>
  *          <p>You can paginate the results using the <code>MaxItems</code> and <code>Marker</code>
  *             parameters. If there are no inline policies embedded with the specified group, the
  *             operation returns an empty list.</p>

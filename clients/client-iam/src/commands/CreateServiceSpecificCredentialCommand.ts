@@ -42,11 +42,9 @@ export interface CreateServiceSpecificCredentialCommandOutput
  *             IAM, and can be used only for the specified service. </p>
  *          <p>You can have a maximum of two sets of service-specific credentials for each supported
  *             service per user.</p>
- *          <p>You can create service-specific credentials for CodeCommit and Amazon Keyspaces (for Apache
- *             Cassandra).</p>
- *          <p>You can reset the password to a new service-generated value by calling <a>ResetServiceSpecificCredential</a>.</p>
- *          <p>For more information about service-specific credentials, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_ssh-keys.html">Using IAM
- *                 with CodeCommit: Git credentials, SSH keys, and Amazon Web Services access keys</a> in the
+ *          <p>You can create service-specific credentials for Amazon Bedrock, CodeCommit and Amazon Keyspaces (for Apache Cassandra).</p>
+ *          <p>You can reset the password to a new service-generated value by calling <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_ResetServiceSpecificCredential.html">ResetServiceSpecificCredential</a>.</p>
+ *          <p>For more information about service-specific credentials, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_bedrock.html">Service-specific credentials for IAM users</a> in the
  *                 <i>IAM User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -57,18 +55,22 @@ export interface CreateServiceSpecificCredentialCommandOutput
  * const input = { // CreateServiceSpecificCredentialRequest
  *   UserName: "STRING_VALUE", // required
  *   ServiceName: "STRING_VALUE", // required
+ *   CredentialAgeDays: Number("int"),
  * };
  * const command = new CreateServiceSpecificCredentialCommand(input);
  * const response = await client.send(command);
  * // { // CreateServiceSpecificCredentialResponse
  * //   ServiceSpecificCredential: { // ServiceSpecificCredential
  * //     CreateDate: new Date("TIMESTAMP"), // required
+ * //     ExpirationDate: new Date("TIMESTAMP"),
  * //     ServiceName: "STRING_VALUE", // required
- * //     ServiceUserName: "STRING_VALUE", // required
- * //     ServicePassword: "STRING_VALUE", // required
+ * //     ServiceUserName: "STRING_VALUE",
+ * //     ServicePassword: "STRING_VALUE",
+ * //     ServiceCredentialAlias: "STRING_VALUE",
+ * //     ServiceCredentialSecret: "STRING_VALUE",
  * //     ServiceSpecificCredentialId: "STRING_VALUE", // required
  * //     UserName: "STRING_VALUE", // required
- * //     Status: "Active" || "Inactive", // required
+ * //     Status: "Active" || "Inactive" || "Expired", // required
  * //   },
  * // };
  *

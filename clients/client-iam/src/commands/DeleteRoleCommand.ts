@@ -34,17 +34,17 @@ export interface DeleteRoleCommandOutput extends __MetadataBearer {}
  *             following attached items: </p>
  *          <ul>
  *             <li>
- *                <p>Inline policies (<a>DeleteRolePolicy</a>)</p>
+ *                <p>Inline policies (<a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_DeleteRolePolicy.html">DeleteRolePolicy</a>)</p>
  *             </li>
  *             <li>
- *                <p>Attached managed policies (<a>DetachRolePolicy</a>)</p>
+ *                <p>Attached managed policies (<a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_DetachRolePolicy.html">DetachRolePolicy</a>)</p>
  *             </li>
  *             <li>
- *                <p>Instance profile (<a>RemoveRoleFromInstanceProfile</a>)</p>
+ *                <p>Instance profile (<a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_RemoveRoleFromInstanceProfile.html">RemoveRoleFromInstanceProfile</a>)</p>
  *             </li>
  *             <li>
  *                <p>Optional – Delete instance profile after detaching from role for
- *                     resource clean up (<a>DeleteInstanceProfile</a>)</p>
+ *                     resource clean up (<a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_DeleteInstanceProfile.html">DeleteInstanceProfile</a>)</p>
  *             </li>
  *          </ul>
  *          <important>

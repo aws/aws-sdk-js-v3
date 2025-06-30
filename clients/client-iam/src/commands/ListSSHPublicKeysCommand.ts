@@ -54,7 +54,7 @@ export interface ListSSHPublicKeysCommandOutput extends ListSSHPublicKeysRespons
  * //     { // SSHPublicKeyMetadata
  * //       UserName: "STRING_VALUE", // required
  * //       SSHPublicKeyId: "STRING_VALUE", // required
- * //       Status: "Active" || "Inactive", // required
+ * //       Status: "Active" || "Inactive" || "Expired", // required
  * //       UploadDate: new Date("TIMESTAMP"), // required
  * //     },
  * //   ],

@@ -36,15 +36,13 @@ export interface DeletePolicyCommandOutput extends __MetadataBearer {}
  *          <ul>
  *             <li>
  *                <p>Detach the policy from all users, groups, and roles that the policy is
- *                     attached to, using <a>DetachUserPolicy</a>, <a>DetachGroupPolicy</a>, or <a>DetachRolePolicy</a>. To
- *                     list all the users, groups, and roles that a policy is attached to, use <a>ListEntitiesForPolicy</a>.</p>
+ *                     attached to, using <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_DetachUserPolicy.html">DetachUserPolicy</a>, <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_DetachGroupPolicy.html">DetachGroupPolicy</a>, or <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_DetachRolePolicy.html">DetachRolePolicy</a>. To list all the users, groups, and roles that a
+ *                     policy is attached to, use <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_ListEntitiesForPolicy.html">ListEntitiesForPolicy</a>.</p>
  *             </li>
  *             <li>
- *                <p>Delete all versions of the policy using <a>DeletePolicyVersion</a>.
- *                     To list the policy's versions, use <a>ListPolicyVersions</a>. You
- *                     cannot use <a>DeletePolicyVersion</a> to delete the version that is
- *                     marked as the default version. You delete the policy's default version in the
- *                     next step of the process.</p>
+ *                <p>Delete all versions of the policy using <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_DeletePolicyVersion.html">DeletePolicyVersion</a>. To list the policy's versions, use <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_ListPolicyVersions.html">ListPolicyVersions</a>. You cannot use <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_DeletePolicyVersion.html">DeletePolicyVersion</a> to delete the version that is marked as the
+ *                     default version. You delete the policy's default version in the next step of the
+ *                     process.</p>
  *             </li>
  *             <li>
  *                <p>Delete the policy (this automatically deletes the policy's default version)

@@ -32,10 +32,11 @@ export interface ChangePasswordCommandOutput extends __MetadataBearer {}
  *             can be performed using the CLI, the Amazon Web Services API, or the <b>My
  *                 Security Credentials</b> page in the Amazon Web Services Management Console. The Amazon Web Services account root user password is
  *             not affected by this operation.</p>
- *          <p>Use <a>UpdateLoginProfile</a> to use the CLI, the Amazon Web Services API, or the
- *                 <b>Users</b> page in the IAM console to change the
- *             password for any IAM user. For more information about modifying passwords, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_ManagingLogins.html">Managing
- *                 passwords</a> in the <i>IAM User Guide</i>.</p>
+ *          <p>Use <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_UpdateLoginProfile.html">UpdateLoginProfile</a>
+ *             to use the CLI, the Amazon Web Services API, or the <b>Users</b> page in
+ *             the IAM console to change the password for any IAM user. For more information about
+ *             modifying passwords, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_ManagingLogins.html">Managing passwords</a> in the
+ *                 <i>IAM User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

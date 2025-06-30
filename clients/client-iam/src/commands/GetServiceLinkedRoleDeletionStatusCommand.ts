@@ -36,8 +36,8 @@ export interface GetServiceLinkedRoleDeletionStatusCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Retrieves the status of your service-linked role deletion. After you use <a>DeleteServiceLinkedRole</a> to submit a service-linked role for deletion,
- *             you can use the <code>DeletionTaskId</code> parameter in
+ * <p>Retrieves the status of your service-linked role deletion. After you use <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_DeleteServiceLinkedRole.html">DeleteServiceLinkedRole</a> to submit a service-linked role for deletion, you
+ *             can use the <code>DeletionTaskId</code> parameter in
  *                 <code>GetServiceLinkedRoleDeletionStatus</code> to check the status of the deletion.
  *             If the deletion fails, this operation returns the reason that it failed, if that
  *             information is returned by the service.</p>

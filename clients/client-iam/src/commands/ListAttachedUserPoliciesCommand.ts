@@ -30,8 +30,8 @@ export interface ListAttachedUserPoliciesCommandOutput extends ListAttachedUserP
 /**
  * <p>Lists all managed policies that are attached to the specified IAM user.</p>
  *          <p>An IAM user can also have inline policies embedded with it. To list the inline
- *             policies for a user, use <a>ListUserPolicies</a>. For information about
- *             policies, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html">Managed policies and inline
+ *             policies for a user, use <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_ListUserPolicies.html">ListUserPolicies</a>.
+ *             For information about policies, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html">Managed policies and inline
  *                 policies</a> in the <i>IAM User Guide</i>.</p>
  *          <p>You can paginate the results using the <code>MaxItems</code> and <code>Marker</code>
  *             parameters. You can use the <code>PathPrefix</code> parameter to limit the list of

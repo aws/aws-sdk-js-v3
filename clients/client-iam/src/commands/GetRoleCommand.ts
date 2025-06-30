@@ -37,7 +37,8 @@ export interface GetRoleCommandOutput extends GetRoleResponse, __MetadataBearer 
  *     with <a href="https://tools.ietf.org/html/rfc3986">RFC 3986</a>. You can use a URL
  *     decoding method to convert the policy back to plain JSON text. For example, if you use Java, you
  *     can use the <code>decode</code> method of the <code>java.net.URLDecoder</code> utility class in
- *     the Java SDK. Other languages and SDKs provide similar functionality.</p>
+ *     the Java SDK. Other languages and SDKs provide similar functionality, and some SDKs do this decoding
+ *     automatically.</p>
  *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

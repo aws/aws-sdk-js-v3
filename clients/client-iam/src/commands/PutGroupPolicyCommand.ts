@@ -92,11 +92,11 @@ export interface PutGroupPolicyCommandOutput extends __MetadataBearer {}
  *
  * @example To add a policy to a group
  * ```javascript
- * // The following command adds a policy named AllPerms to the IAM group named Admins.
+ * // The following command adds a policy named IAMReadAccess to the IAM group named PowerUsers.
  * const input = {
- *   GroupName: "Admins",
- *   PolicyDocument: `{"Version":"2012-10-17","Statement":{"Effect":"Allow","Action":"*","Resource":"*"}}`,
- *   PolicyName: "AllPerms"
+ *   GroupName: "PowerUsers",
+ *   PolicyDocument: `{"Version":"2012-10-17","Statement":{"Effect":"Allow","Action":["iam:Get*","iam:List*","iam:Generate*"],"Resource":"*"}}`,
+ *   PolicyName: "IAMReadAccess"
  * };
  * const command = new PutGroupPolicyCommand(input);
  * const response = await client.send(command);

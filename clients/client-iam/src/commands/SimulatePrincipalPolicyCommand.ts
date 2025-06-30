@@ -35,7 +35,7 @@ export interface SimulatePrincipalPolicyCommandOutput extends SimulatePolicyResp
  *             You can simulate resources that don't exist in your account.</p>
  *          <p>You can optionally include a list of one or more additional policies specified as
  *             strings to include in the simulation. If you want to simulate only policies specified as
- *             strings, use <a>SimulateCustomPolicy</a> instead.</p>
+ *             strings, use <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_SimulateCustomPolicy.html">SimulateCustomPolicy</a> instead.</p>
  *          <p>You can also optionally include one resource-based policy to be evaluated with each of
  *             the resources included in the simulation for IAM users only.</p>
  *          <p>The simulation does not perform the API operations; it only checks the authorization
@@ -43,12 +43,11 @@ export interface SimulatePrincipalPolicyCommandOutput extends SimulatePolicyResp
  *          <p>
  *             <b>Note:</b> This operation discloses information about the
  *             permissions granted to other users. If you do not want users to see other user's
- *             permissions, then consider allowing them to use <a>SimulateCustomPolicy</a>
- *             instead.</p>
+ *             permissions, then consider allowing them to use <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_SimulateCustomPolicy.html">SimulateCustomPolicy</a> instead.</p>
  *          <p>Context keys are variables maintained by Amazon Web Services and its services that provide details
  *             about the context of an API query request. You can use the <code>Condition</code>
  *             element of an IAM policy to evaluate context keys. To get the list of context keys
- *             that the policies require for correct simulation, use <a>GetContextKeysForPrincipalPolicy</a>.</p>
+ *             that the policies require for correct simulation, use <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetContextKeysForPrincipalPolicy.html">GetContextKeysForPrincipalPolicy</a>.</p>
  *          <p>If the output is long, you can use the <code>MaxItems</code> and <code>Marker</code>
  *             parameters to paginate the results.</p>
  *          <note>

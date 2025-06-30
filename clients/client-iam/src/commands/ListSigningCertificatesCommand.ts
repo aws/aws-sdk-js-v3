@@ -57,7 +57,7 @@ export interface ListSigningCertificatesCommandOutput extends ListSigningCertifi
  * //       UserName: "STRING_VALUE", // required
  * //       CertificateId: "STRING_VALUE", // required
  * //       CertificateBody: "STRING_VALUE", // required
- * //       Status: "Active" || "Inactive", // required
+ * //       Status: "Active" || "Inactive" || "Expired", // required
  * //       UploadDate: new Date("TIMESTAMP"),
  * //     },
  * //   ],

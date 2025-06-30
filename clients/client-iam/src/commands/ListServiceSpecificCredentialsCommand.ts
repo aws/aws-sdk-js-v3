@@ -48,6 +48,9 @@ export interface ListServiceSpecificCredentialsCommandOutput
  * const input = { // ListServiceSpecificCredentialsRequest
  *   UserName: "STRING_VALUE",
  *   ServiceName: "STRING_VALUE",
+ *   AllUsers: true || false,
+ *   Marker: "STRING_VALUE",
+ *   MaxItems: Number("int"),
  * };
  * const command = new ListServiceSpecificCredentialsCommand(input);
  * const response = await client.send(command);
@@ -55,13 +58,17 @@ export interface ListServiceSpecificCredentialsCommandOutput
  * //   ServiceSpecificCredentials: [ // ServiceSpecificCredentialsListType
  * //     { // ServiceSpecificCredentialMetadata
  * //       UserName: "STRING_VALUE", // required
- * //       Status: "Active" || "Inactive", // required
- * //       ServiceUserName: "STRING_VALUE", // required
+ * //       Status: "Active" || "Inactive" || "Expired", // required
+ * //       ServiceUserName: "STRING_VALUE",
+ * //       ServiceCredentialAlias: "STRING_VALUE",
  * //       CreateDate: new Date("TIMESTAMP"), // required
+ * //       ExpirationDate: new Date("TIMESTAMP"),
  * //       ServiceSpecificCredentialId: "STRING_VALUE", // required
  * //       ServiceName: "STRING_VALUE", // required
  * //     },
  * //   ],
+ * //   Marker: "STRING_VALUE",
+ * //   IsTruncated: true || false,
  * // };
  *
  * ```

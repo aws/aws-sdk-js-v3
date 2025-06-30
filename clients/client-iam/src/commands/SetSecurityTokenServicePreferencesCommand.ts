@@ -49,7 +49,7 @@ export interface SetSecurityTokenServicePreferencesCommandOutput extends __Metad
  *                 deactivating STS in an Amazon Web Services Region</a> in the
  *                 <i>IAM User Guide</i>.</p>
  *          <p>To view the current session token version, see the
- *                 <code>GlobalEndpointTokenVersion</code> entry in the response of the <a>GetAccountSummary</a> operation.</p>
+ *                 <code>GlobalEndpointTokenVersion</code> entry in the response of the <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetAccountSummary.html">GetAccountSummary</a> operation.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

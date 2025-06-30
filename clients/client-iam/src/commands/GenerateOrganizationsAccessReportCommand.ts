@@ -68,14 +68,14 @@ export interface GenerateOrganizationsAccessReportCommandOutput
  *                     CloudTrail</a> in the <i>IAM User Guide</i>.</p>
  *          </important>
  *          <p>This operation returns a <code>JobId</code>. Use this parameter in the <code>
- *                <a>GetOrganizationsAccessReport</a>
+ *                <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetOrganizationsAccessReport.html">GetOrganizationsAccessReport</a>
  *             </code> operation to check the status of
  *             the report generation. To check the status of this request, use the <code>JobId</code>
  *             parameter in the <code>
- *                <a>GetOrganizationsAccessReport</a>
- *             </code> operation
- *             and test the <code>JobStatus</code> response parameter. When the job is complete, you
- *             can retrieve the report.</p>
+ *                <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetOrganizationsAccessReport.html">GetOrganizationsAccessReport</a>
+ *             </code> operation and test the
+ *                 <code>JobStatus</code> response parameter. When the job is complete, you can
+ *             retrieve the report.</p>
  *          <p>To generate a service last accessed data report for entities, specify an entity path
  *             without specifying the optional Organizations policy ID. The type of entity that you specify
  *             determines the data returned in the report.</p>

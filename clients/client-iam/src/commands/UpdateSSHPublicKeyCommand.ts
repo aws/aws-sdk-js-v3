@@ -44,7 +44,7 @@ export interface UpdateSSHPublicKeyCommandOutput extends __MetadataBearer {}
  * const input = { // UpdateSSHPublicKeyRequest
  *   UserName: "STRING_VALUE", // required
  *   SSHPublicKeyId: "STRING_VALUE", // required
- *   Status: "Active" || "Inactive", // required
+ *   Status: "Active" || "Inactive" || "Expired", // required
  * };
  * const command = new UpdateSSHPublicKeyCommand(input);
  * const response = await client.send(command);
@@ -57,6 +57,10 @@ export interface UpdateSSHPublicKeyCommandOutput extends __MetadataBearer {}
  * @see {@link UpdateSSHPublicKeyCommandInput} for command's `input` shape.
  * @see {@link UpdateSSHPublicKeyCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>The request was rejected because an invalid or out-of-range value was supplied for an
+ *       input parameter.</p>
  *
  * @throws {@link NoSuchEntityException} (client fault)
  *  <p>The request was rejected because it referenced a resource entity that does not exist. The

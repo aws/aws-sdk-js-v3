@@ -7719,6 +7719,9 @@ const se_CreateServiceSpecificCredentialRequest = (
   if (input[_SN] != null) {
     entries[_SN] = input[_SN];
   }
+  if (input[_CAD] != null) {
+    entries[_CAD] = input[_CAD];
+  }
   return entries;
 };
 
@@ -9081,6 +9084,15 @@ const se_ListServiceSpecificCredentialsRequest = (
   }
   if (input[_SN] != null) {
     entries[_SN] = input[_SN];
+  }
+  if (input[_AU] != null) {
+    entries[_AU] = input[_AU];
+  }
+  if (input[_M] != null) {
+    entries[_M] = input[_M];
+  }
+  if (input[_MI] != null) {
+    entries[_MI] = input[_MI];
   }
   return entries;
 };
@@ -12426,6 +12438,12 @@ const de_ListServiceSpecificCredentialsResponse = (
   } else if (output[_SSCe] != null && output[_SSCe][_me] != null) {
     contents[_SSCe] = de_ServiceSpecificCredentialsListType(__getArrayIfSingleItem(output[_SSCe][_me]), context);
   }
+  if (output[_M] != null) {
+    contents[_M] = __expectString(output[_M]);
+  }
+  if (output[_IT] != null) {
+    contents[_IT] = __parseBoolean(output[_IT]);
+  }
   return contents;
 };
 
@@ -13518,6 +13536,9 @@ const de_ServiceSpecificCredential = (output: any, context: __SerdeContext): Ser
   if (output[_CD] != null) {
     contents[_CD] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_CD]));
   }
+  if (output[_EDx] != null) {
+    contents[_EDx] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_EDx]));
+  }
   if (output[_SN] != null) {
     contents[_SN] = __expectString(output[_SN]);
   }
@@ -13526,6 +13547,12 @@ const de_ServiceSpecificCredential = (output: any, context: __SerdeContext): Ser
   }
   if (output[_SP] != null) {
     contents[_SP] = __expectString(output[_SP]);
+  }
+  if (output[_SCA] != null) {
+    contents[_SCA] = __expectString(output[_SCA]);
+  }
+  if (output[_SCS] != null) {
+    contents[_SCS] = __expectString(output[_SCS]);
   }
   if (output[_SSCI] != null) {
     contents[_SSCI] = __expectString(output[_SSCI]);
@@ -13556,8 +13583,14 @@ const de_ServiceSpecificCredentialMetadata = (
   if (output[_SUN] != null) {
     contents[_SUN] = __expectString(output[_SUN]);
   }
+  if (output[_SCA] != null) {
+    contents[_SCA] = __expectString(output[_SCA]);
+  }
   if (output[_CD] != null) {
     contents[_CD] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_CD]));
+  }
+  if (output[_EDx] != null) {
+    contents[_EDx] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_EDx]));
   }
   if (output[_SSCI] != null) {
     contents[_SSCI] = __expectString(output[_SSCI]);
@@ -14096,6 +14129,7 @@ const _ARP = "AttachRolePolicy";
 const _ARPD = "AssumeRolePolicyDocument";
 const _ARTIP = "AddRoleToInstanceProfile";
 const _AS = "AssignmentStatus";
+const _AU = "AllUsers";
 const _AUP = "AttachUserPolicy";
 const _AUTCP = "AllowUsersToChangePassword";
 const _AUTG = "AddUserToGroup";
@@ -14105,6 +14139,7 @@ const _BSS = "Base32StringSeed";
 const _C = "Code";
 const _CA = "CallerArn";
 const _CAA = "CreateAccountAlias";
+const _CAD = "CredentialAgeDays";
 const _CAK = "CreateAccessKey";
 const _CB = "CertificateBody";
 const _CC = "CertificateChain";
@@ -14176,6 +14211,7 @@ const _EDD = "EvalDecisionDetails";
 const _EDL = "EntityDetailsList";
 const _EDn = "EnableDate";
 const _EDr = "ErrorDetails";
+const _EDx = "ExpirationDate";
 const _EF = "EntityFilter";
 const _EFn = "EnabledFeatures";
 const _EI = "EntityInfo";
@@ -14392,11 +14428,13 @@ const _SAMLPA = "SAMLProviderArn";
 const _SAMLPL = "SAMLProviderList";
 const _SAMLPUUID = "SAMLProviderUUID";
 const _SC = "ServerCertificate";
+const _SCA = "ServiceCredentialAlias";
 const _SCI = "ServerCertificateId";
 const _SCM = "ServerCertificateMetadata";
 const _SCML = "ServerCertificateMetadataList";
 const _SCN = "ServerCertificateName";
 const _SCP = "SimulateCustomPolicy";
+const _SCS = "ServiceCredentialSecret";
 const _SDPV = "SetDefaultPolicyVersion";
 const _SK = "SortKey";
 const _SLA = "ServicesLastAccessed";

@@ -38,7 +38,8 @@ export interface ListServerCertificatesCommandOutput extends ListServerCertifica
  *             you manage with IAM.</p>
  *          <note>
  *             <p>IAM resource-listing operations return a subset of the available
- *    attributes for the resource. For example, this operation does not return tags, even though they are an attribute of the returned object. To view all of the information for a servercertificate, see <a>GetServerCertificate</a>.</p>
+ *    attributes for the resource. For example, this operation does not return tags, even though they are an attribute of the returned object. To view all of the information for a servercertificate, see
+ *                     <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetServerCertificate.html">GetServerCertificate</a>.</p>
  *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

@@ -56,13 +56,13 @@ export interface GetCredentialReportCommandOutput extends GetCredentialReportRes
  *
  * @throws {@link CredentialReportExpiredException} (client fault)
  *  <p>The request was rejected because the most recent credential report has expired. To
- *       generate a new credential report, use <a>GenerateCredentialReport</a>. For more
- *       information about credential report expiration, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/credential-reports.html">Getting credential reports</a> in the
- *       <i>IAM User Guide</i>.</p>
+ *       generate a new credential report, use <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GenerateCredentialReport.html">GenerateCredentialReport</a>. For more information about credential report expiration,
+ *       see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/credential-reports.html">Getting
+ *         credential reports</a> in the <i>IAM User Guide</i>.</p>
  *
  * @throws {@link CredentialReportNotPresentException} (client fault)
  *  <p>The request was rejected because the credential report does not exist. To generate a
- *       credential report, use <a>GenerateCredentialReport</a>.</p>
+ *       credential report, use <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GenerateCredentialReport.html">GenerateCredentialReport</a>.</p>
  *
  * @throws {@link CredentialReportNotReadyException} (client fault)
  *  <p>The request was rejected because the credential report is still being generated.</p>

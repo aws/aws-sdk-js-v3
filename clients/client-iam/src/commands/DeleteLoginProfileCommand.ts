@@ -28,18 +28,19 @@ export interface DeleteLoginProfileCommandInput extends DeleteLoginProfileReques
 export interface DeleteLoginProfileCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Deletes the password for the specified IAM user, For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_passwords_admin-change-user.html">Managing
+ * <p>Deletes the password for the specified IAM user or root user, For more information, see
+ *                 <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_passwords_admin-change-user.html">Managing
  *                 passwords for IAM users</a>.</p>
  *          <p>You can use the CLI, the Amazon Web Services API, or the <b>Users</b>
- *             page in the IAM console to delete a password for any IAM user. You can use <a>ChangePassword</a> to update, but not delete, your own password in the
+ *             page in the IAM console to delete a password for any IAM user. You can use <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_ChangePassword.html">ChangePassword</a> to update, but not delete, your own password in the
  *                 <b>My Security Credentials</b> page in the
  *             Amazon Web Services Management Console.</p>
  *          <important>
  *             <p>Deleting a user's password does not prevent a user from accessing Amazon Web Services through
  *                 the command line interface or the API. To prevent all user access, you must also
  *                 either make any access keys inactive or delete them. For more information about
- *                 making keys inactive or deleting them, see <a>UpdateAccessKey</a> and
- *                     <a>DeleteAccessKey</a>.</p>
+ *                 making keys inactive or deleting them, see <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_UpdateAccessKey.html">UpdateAccessKey</a>
+ *                 and <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_DeleteAccessKey.html">DeleteAccessKey</a>.</p>
  *          </important>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

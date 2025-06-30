@@ -31,7 +31,7 @@ export interface DeleteVirtualMFADeviceCommandOutput extends __MetadataBearer {}
  * <p>Deletes a virtual MFA device.</p>
  *          <note>
  *             <p> You must deactivate a user's virtual MFA device before you can delete it. For
- *                 information about deactivating MFA devices, see <a>DeactivateMFADevice</a>. </p>
+ *                 information about deactivating MFA devices, see <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_DeactivateMFADevice.html">DeactivateMFADevice</a>. </p>
  *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

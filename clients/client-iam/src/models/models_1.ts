@@ -34,7 +34,7 @@ export type PolicyEvaluationDecisionType =
  * <p>Contains the row and column of a location of a <code>Statement</code> element in a
  *          policy document.</p>
  *          <p>This data type is used as a member of the <code>
- *                <a>Statement</a>
+ *                <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_Statement.html">Statement</a>
  *             </code> type.</p>
  * @public
  */
@@ -75,7 +75,7 @@ export type PolicySourceType = (typeof PolicySourceType)[keyof typeof PolicySour
  * <p>Contains a reference to a <code>Statement</code> element in a policy document that
  *          determines the result of the simulation.</p>
  *          <p>This data type is used by the <code>MatchedStatements</code> member of the <code>
- *                <a>EvaluationResult</a>
+ *                <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_EvaluationResult.html">EvaluationResult</a>
  *             </code> type.</p>
  * @public
  */
@@ -142,7 +142,7 @@ export interface PermissionsBoundaryDecisionDetail {
 /**
  * <p>Contains the result of the simulation of a single API operation call on a single
  *          resource.</p>
- *          <p>This data type is used by a member of the <a>EvaluationResult</a> data
+ *          <p>This data type is used by a member of the <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_EvaluationResult.html">EvaluationResult</a> data
  *          type.</p>
  * @public
  */
@@ -177,8 +177,7 @@ export interface ResourceSpecificResult {
    *          individual resources, by setting <code>ResourceArns</code> to "*" or by not including the
    *             <code>ResourceArns</code> parameter, then any missing context values are instead
    *          included under the <code>EvaluationResults</code> section. To discover the context keys
-   *          used by a set of policies, you can call <a>GetContextKeysForCustomPolicy</a> or
-   *             <a>GetContextKeysForPrincipalPolicy</a>.</p>
+   *          used by a set of policies, you can call <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetContextKeysForCustomPolicy.html">GetContextKeysForCustomPolicy</a> or <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetContextKeysForPrincipalPolicy.html">GetContextKeysForPrincipalPolicy</a>.</p>
    * @public
    */
   MissingContextValues?: string[] | undefined;
@@ -202,9 +201,9 @@ export interface ResourceSpecificResult {
 /**
  * <p>Contains the results of a simulation.</p>
  *          <p>This data type is used by the return parameter of <code>
- *                <a>SimulateCustomPolicy</a>
+ *                <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_SimulateCustomPolicy.html">SimulateCustomPolicy</a>
  *             </code> and <code>
- *                <a>SimulatePrincipalPolicy</a>
+ *                <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_SimulatePrincipalPolicy.html">SimulatePrincipalPolicy</a>
  *             </code>.</p>
  * @public
  */
@@ -242,7 +241,7 @@ export interface EvaluationResult {
    *          simulation is "*", either explicitly, or when the <code>ResourceArns</code> parameter
    *          blank. If you include a list of resources, then any missing context values are instead
    *          included under the <code>ResourceSpecificResults</code> section. To discover the context
-   *          keys used by a set of policies, you can call <a>GetContextKeysForCustomPolicy</a> or <a>GetContextKeysForPrincipalPolicy</a>.</p>
+   *          keys used by a set of policies, you can call <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetContextKeysForCustomPolicy.html">GetContextKeysForCustomPolicy</a> or <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetContextKeysForPrincipalPolicy.html">GetContextKeysForPrincipalPolicy</a>.</p>
    * @public
    */
   MissingContextValues?: string[] | undefined;
@@ -289,8 +288,8 @@ export interface EvaluationResult {
 }
 
 /**
- * <p>Contains the response to a successful <a>SimulatePrincipalPolicy</a> or
- *       <a>SimulateCustomPolicy</a> request.</p>
+ * <p>Contains the response to a successful <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_SimulatePrincipalPolicy.html">SimulatePrincipalPolicy</a> or <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_SimulateCustomPolicy.html">SimulateCustomPolicy</a>
+ *       request.</p>
  * @public
  */
 export interface SimulatePolicyResponse {
@@ -1115,7 +1114,7 @@ export interface UpdateLoginProfileRequest {
    *             </li>
    *          </ul>
    *          <p>However, the format can be further restricted by the account administrator by setting
-   *             a password policy on the Amazon Web Services account. For more information, see <a>UpdateAccountPasswordPolicy</a>.</p>
+   *             a password policy on the Amazon Web Services account. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_UpdateAccountPasswordPolicy.html">UpdateAccountPasswordPolicy</a>.</p>
    * @public
    */
   Password?: string | undefined;
@@ -1135,7 +1134,7 @@ export interface UpdateOpenIDConnectProviderThumbprintRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the IAM OIDC provider resource object for which
    *             you want to update the thumbprint. You can get a list of OIDC provider ARNs by using the
-   *                 <a>ListOpenIDConnectProviders</a> operation.</p>
+   *                 <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_ListOpenIDConnectProviders.html">ListOpenIDConnectProviders</a> operation.</p>
    *          <p>For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>.</p>
    * @public
    */
@@ -1143,7 +1142,7 @@ export interface UpdateOpenIDConnectProviderThumbprintRequest {
 
   /**
    * <p>A list of certificate thumbprints that are associated with the specified IAM OpenID
-   *             Connect provider. For more information, see <a>CreateOpenIDConnectProvider</a>. </p>
+   *             Connect provider. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateOpenIDConnectProvider.html">CreateOpenIDConnectProvider</a>. </p>
    * @public
    */
   ThumbprintList: string[] | undefined;
@@ -1249,9 +1248,9 @@ export interface UpdateSAMLProviderRequest {
   AssertionEncryptionMode?: AssertionEncryptionModeType | undefined;
 
   /**
-   * <p>Specifies the new private key from your external identity provider. The
-   *             private key must be a .pem file that uses AES-GCM or AES-CBC encryption algorithm to
-   *             decrypt SAML assertions.</p>
+   * <p>Specifies the new private key from your external identity provider. The private key
+   *             must be a .pem file that uses AES-GCM or AES-CBC encryption algorithm to decrypt SAML
+   *             assertions.</p>
    * @public
    */
   AddPrivateKey?: string | undefined;
@@ -1264,8 +1263,8 @@ export interface UpdateSAMLProviderRequest {
 }
 
 /**
- * <p>Contains the response to a successful <a>UpdateSAMLProvider</a> request.
- *     </p>
+ * <p>Contains the response to a successful <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_UpdateSAMLProvider.html">UpdateSAMLProvider</a>
+ *       request. </p>
  * @public
  */
 export interface UpdateSAMLProviderResponse {
@@ -1585,8 +1584,7 @@ export interface UploadServerCertificateRequest {
 }
 
 /**
- * <p>Contains the response to a successful <a>UploadServerCertificate</a>
- *       request. </p>
+ * <p>Contains the response to a successful <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_UploadServerCertificate.html">UploadServerCertificate</a> request. </p>
  * @public
  */
 export interface UploadServerCertificateResponse {
@@ -1683,8 +1681,7 @@ export interface UploadSigningCertificateRequest {
 }
 
 /**
- * <p>Contains the response to a successful <a>UploadSigningCertificate</a>
- *       request. </p>
+ * <p>Contains the response to a successful <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_UploadSigningCertificate.html">UploadSigningCertificate</a> request. </p>
  * @public
  */
 export interface UploadSigningCertificateResponse {
@@ -1774,7 +1771,7 @@ export interface UploadSSHPublicKeyRequest {
 }
 
 /**
- * <p>Contains the response to a successful <a>UploadSSHPublicKey</a>
+ * <p>Contains the response to a successful <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_UploadSSHPublicKey.html">UploadSSHPublicKey</a>
  *       request.</p>
  * @public
  */

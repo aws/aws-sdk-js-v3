@@ -42,7 +42,7 @@ export interface ListPoliciesCommandOutput extends ListPoliciesResponse, __Metad
  *          <note>
  *             <p>IAM resource-listing operations return a subset of the available
  *    attributes for the resource. For example, this operation does not return tags, even though they are an attribute of the returned object. To view all of the information for a customer manged policy, see
- *                     <a>GetPolicy</a>.</p>
+ *                     <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetPolicy.html">GetPolicy</a>.</p>
  *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

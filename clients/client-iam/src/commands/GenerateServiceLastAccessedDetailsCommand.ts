@@ -60,10 +60,10 @@ export interface GenerateServiceLastAccessedDetailsCommandOutput
  *          <ul>
  *             <li>
  *                <p>
- *                   <a>GetServiceLastAccessedDetails</a> – Use this operation
- *                     for users, groups, roles, or policies to list every Amazon Web Services service that the
- *                     resource could access using permissions policies. For each service, the response
- *                     includes information about the most recent access attempt.</p>
+ *                   <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetServiceLastAccessedDetails.html">GetServiceLastAccessedDetails</a> – Use this operation for
+ *                     users, groups, roles, or policies to list every Amazon Web Services service that the resource
+ *                     could access using permissions policies. For each service, the response includes
+ *                     information about the most recent access attempt.</p>
  *                <p>The <code>JobId</code> returned by
  *                         <code>GenerateServiceLastAccessedDetail</code> must be used by the same role
  *                     within a session, or by the same user when used to call
@@ -71,7 +71,7 @@ export interface GenerateServiceLastAccessedDetailsCommandOutput
  *             </li>
  *             <li>
  *                <p>
- *                   <a>GetServiceLastAccessedDetailsWithEntities</a> – Use this
+ *                   <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetServiceLastAccessedDetailsWithEntities.html">GetServiceLastAccessedDetailsWithEntities</a> – Use this
  *                     operation for groups and policies to list information about the associated
  *                     entities (users or roles) that attempted to access a specific Amazon Web Services service.
  *                 </p>
@@ -81,7 +81,7 @@ export interface GenerateServiceLastAccessedDetailsCommandOutput
  *             use the <code>JobId</code> parameter in the same operations and test the
  *                 <code>JobStatus</code> response parameter.</p>
  *          <p>For additional information about the permissions policies that allow an identity
- *             (user, group, or role) to access specific services, use the <a>ListPoliciesGrantingServiceAccess</a> operation.</p>
+ *             (user, group, or role) to access specific services, use the <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_ListPoliciesGrantingServiceAccess.html">ListPoliciesGrantingServiceAccess</a> operation.</p>
  *          <note>
  *             <p>Service last accessed data does not use other policy types when determining
  *                 whether a resource could access a service. These other policy types include

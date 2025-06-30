@@ -42,7 +42,7 @@ export interface ListUsersCommandOutput extends ListUsersResponse, __MetadataBea
  *                   <p>Tags</p>
  *                </li>
  *             </ul>
- *             <p>To view all of the information for a user, see <a>GetUser</a>.</p>
+ *             <p>To view all of the information for a user, see <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetUser.html">GetUser</a>.</p>
  *          </note>
  *          <p>You can paginate the results using the <code>MaxItems</code> and <code>Marker</code>
  *             parameters.</p>

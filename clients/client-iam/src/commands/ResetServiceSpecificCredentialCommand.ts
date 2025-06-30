@@ -56,12 +56,15 @@ export interface ResetServiceSpecificCredentialCommandOutput
  * // { // ResetServiceSpecificCredentialResponse
  * //   ServiceSpecificCredential: { // ServiceSpecificCredential
  * //     CreateDate: new Date("TIMESTAMP"), // required
+ * //     ExpirationDate: new Date("TIMESTAMP"),
  * //     ServiceName: "STRING_VALUE", // required
- * //     ServiceUserName: "STRING_VALUE", // required
- * //     ServicePassword: "STRING_VALUE", // required
+ * //     ServiceUserName: "STRING_VALUE",
+ * //     ServicePassword: "STRING_VALUE",
+ * //     ServiceCredentialAlias: "STRING_VALUE",
+ * //     ServiceCredentialSecret: "STRING_VALUE",
  * //     ServiceSpecificCredentialId: "STRING_VALUE", // required
  * //     UserName: "STRING_VALUE", // required
- * //     Status: "Active" || "Inactive", // required
+ * //     Status: "Active" || "Inactive" || "Expired", // required
  * //   },
  * // };
  *

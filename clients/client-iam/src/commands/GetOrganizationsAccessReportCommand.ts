@@ -32,12 +32,11 @@ export interface GetOrganizationsAccessReportCommandOutput
 /**
  * <p>Retrieves the service last accessed data report for Organizations that was previously
  *             generated using the <code>
- *                <a>GenerateOrganizationsAccessReport</a>
- *             </code>
- *             operation. This operation retrieves the status of your report job and the report
- *             contents.</p>
+ *                <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GenerateOrganizationsAccessReport.html">GenerateOrganizationsAccessReport</a>
+ *             </code> operation. This operation
+ *             retrieves the status of your report job and the report contents.</p>
  *          <p>Depending on the parameters that you passed when you generated the report, the data
- *             returned could include different information. For details, see <a>GenerateOrganizationsAccessReport</a>.</p>
+ *             returned could include different information. For details, see <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GenerateOrganizationsAccessReport.html">GenerateOrganizationsAccessReport</a>.</p>
  *          <p>To call this operation, you must be signed in to the management account in your
  *             organization. SCPs must be enabled for your organization root. You must have permissions
  *             to perform this operation. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html">Refining permissions using

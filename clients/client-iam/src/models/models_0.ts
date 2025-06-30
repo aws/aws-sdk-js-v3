@@ -22,7 +22,7 @@ export type AccessAdvisorUsageGranularityType =
  * <p>An object that contains details about when a principal in the reported Organizations entity
  *          last attempted to access an Amazon Web Services service. A principal can be an IAM user, an IAM role,
  *          or the Amazon Web Services account root user within the reported Organizations entity.</p>
- *          <p>This data type is a response element in the <a>GetOrganizationsAccessReport</a> operation.</p>
+ *          <p>This data type is a response element in the <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetOrganizationsAccessReport.html">GetOrganizationsAccessReport</a> operation.</p>
  * @public
  */
 export interface AccessDetail {
@@ -86,6 +86,7 @@ export interface AccessDetail {
  */
 export const StatusType = {
   Active: "Active",
+  Expired: "Expired",
   Inactive: "Inactive",
 } as const;
 
@@ -96,12 +97,12 @@ export type StatusType = (typeof StatusType)[keyof typeof StatusType];
 
 /**
  * <p>Contains information about an Amazon Web Services access key.</p>
- *          <p> This data type is used as a response element in the <a>CreateAccessKey</a>
- *          and <a>ListAccessKeys</a> operations. </p>
+ *          <p> This data type is used as a response element in the <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateAccessKey.html">CreateAccessKey</a> and
+ *             <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_ListAccessKeys.html">ListAccessKeys</a> operations. </p>
  *          <note>
- *             <p>The <code>SecretAccessKey</code> value is returned only in response to <a>CreateAccessKey</a>. You can get a secret access key only when you first
- *             create an access key; you cannot recover the secret access key later. If you lose a
- *             secret access key, you must create a new access key.</p>
+ *             <p>The <code>SecretAccessKey</code> value is returned only in response to <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateAccessKey.html">CreateAccessKey</a>. You can get a secret access key only when you first create
+ *             an access key; you cannot recover the secret access key later. If you lose a secret
+ *             access key, you must create a new access key.</p>
  *          </note>
  * @public
  */
@@ -141,7 +142,8 @@ export interface AccessKey {
 /**
  * <p>Contains information about the last time an Amazon Web Services access key was used since IAM began
  *          tracking this information on April 22, 2015.</p>
- *          <p>This data type is used as a response element in the <a>GetAccessKeyLastUsed</a> operation.</p>
+ *          <p>This data type is used as a response element in the <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetAccessKeyLastUsed.html">GetAccessKeyLastUsed</a>
+ *          operation.</p>
  * @public
  */
 export interface AccessKeyLastUsed {
@@ -208,7 +210,7 @@ export interface AccessKeyLastUsed {
 
 /**
  * <p>Contains information about an Amazon Web Services access key, without its secret key.</p>
- *          <p>This data type is used as a response element in the <a>ListAccessKeys</a>
+ *          <p>This data type is used as a response element in the <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_ListAccessKeys.html">ListAccessKeys</a>
  *          operation.</p>
  * @public
  */
@@ -270,7 +272,7 @@ export class AccountNotManagementOrDelegatedAdministratorException extends __Bas
 export interface AddClientIDToOpenIDConnectProviderRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the IAM OpenID Connect (OIDC) provider resource to
-   *             add the client ID to. You can get a list of OIDC provider ARNs by using the <a>ListOpenIDConnectProviders</a> operation.</p>
+   *             add the client ID to. You can get a list of OIDC provider ARNs by using the <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_ListOpenIDConnectProviders.html">ListOpenIDConnectProviders</a> operation.</p>
    * @public
    */
   OpenIDConnectProviderArn: string | undefined;
@@ -524,7 +526,7 @@ export interface AttachedPermissionsBoundary {
 /**
  * <p>Contains information about an attached policy.</p>
  *          <p>An attached policy is a managed policy that has been attached to a user, group, or role.
- *          This data type is used as a response element in the <a>ListAttachedGroupPolicies</a>, <a>ListAttachedRolePolicies</a>, <a>ListAttachedUserPolicies</a>, and <a>GetAccountAuthorizationDetails</a> operations. </p>
+ *          This data type is used as a response element in the <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_ListAttachedGroupPolicies.html">ListAttachedGroupPolicies</a>, <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_ListAttachedRolePolicies.html">ListAttachedRolePolicies</a>, <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_ListAttachedUserPolicies.html">ListAttachedUserPolicies</a>, and <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetAccountAuthorizationDetails.html">GetAccountAuthorizationDetails</a> operations. </p>
  *          <p>For more information about managed policies, refer to <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html">Managed policies and inline
  *             policies</a> in the <i>IAM User Guide</i>. </p>
  * @public
@@ -730,7 +732,7 @@ export interface CreateAccessKeyRequest {
 }
 
 /**
- * <p>Contains the response to a successful <a>CreateAccessKey</a> request.
+ * <p>Contains the response to a successful <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateAccessKey.html">CreateAccessKey</a> request.
  *     </p>
  * @public
  */
@@ -809,17 +811,17 @@ export interface CreateGroupRequest {
  *          <ul>
  *             <li>
  *                <p>
- *                   <a>CreateGroup</a>
+ *                   <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateGroup.html">CreateGroup</a>
  *                </p>
  *             </li>
  *             <li>
  *                <p>
- *                   <a>GetGroup</a>
+ *                   <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetGroup.html">GetGroup</a>
  *                </p>
  *             </li>
  *             <li>
  *                <p>
- *                   <a>ListGroups</a>
+ *                   <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_ListGroups.html">ListGroups</a>
  *                </p>
  *             </li>
  *          </ul>
@@ -864,7 +866,7 @@ export interface Group {
 }
 
 /**
- * <p>Contains the response to a successful <a>CreateGroup</a> request. </p>
+ * <p>Contains the response to a successful <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateGroup.html">CreateGroup</a> request. </p>
  * @public
  */
 export interface CreateGroupResponse {
@@ -896,11 +898,6 @@ export interface Tag {
    *         Center</code> might have values that consist of the number associated with the different
    *       cost centers in your company. Typically, many resources have tags with the same key name but
    *       with different values.</p>
-   *          <note>
-   *             <p>Amazon Web Services always interprets the tag <code>Value</code> as a single string. If you need to
-   *         store an array, you can store comma-separated values in the string. However, you must
-   *         interpret the value in your code.</p>
-   *          </note>
    * @public
    */
   Value: string | undefined;
@@ -950,8 +947,7 @@ export interface CreateInstanceProfileRequest {
  *          features within the last year. The role might have been used more than 400 days ago. For
  *          more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#access-advisor_tracking-period">Regions where data is tracked</a> in the <i>IAM user
  *          Guide</i>.</p>
- *          <p>This data type is returned as a response element in the <a>GetRole</a> and
- *             <a>GetAccountAuthorizationDetails</a> operations.</p>
+ *          <p>This data type is returned as a response element in the <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetRole.html">GetRole</a> and <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetAccountAuthorizationDetails.html">GetAccountAuthorizationDetails</a> operations.</p>
  * @public
  */
 export interface RoleLastUsed {
@@ -1068,22 +1064,22 @@ export interface Role {
  *          <ul>
  *             <li>
  *                <p>
- *                   <a>CreateInstanceProfile</a>
+ *                   <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateInstanceProfile.html">CreateInstanceProfile</a>
  *                </p>
  *             </li>
  *             <li>
  *                <p>
- *                   <a>GetInstanceProfile</a>
+ *                   <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetInstanceProfile.html">GetInstanceProfile</a>
  *                </p>
  *             </li>
  *             <li>
  *                <p>
- *                   <a>ListInstanceProfiles</a>
+ *                   <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_ListInstanceProfiles.html">ListInstanceProfiles</a>
  *                </p>
  *             </li>
  *             <li>
  *                <p>
- *                   <a>ListInstanceProfilesForRole</a>
+ *                   <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_ListInstanceProfilesForRole.html">ListInstanceProfilesForRole</a>
  *                </p>
  *             </li>
  *          </ul>
@@ -1139,8 +1135,8 @@ export interface InstanceProfile {
 }
 
 /**
- * <p>Contains the response to a successful <a>CreateInstanceProfile</a> request.
- *     </p>
+ * <p>Contains the response to a successful <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateInstanceProfile.html">CreateInstanceProfile</a>
+ *       request. </p>
  * @public
  */
 export interface CreateInstanceProfileResponse {
@@ -1190,7 +1186,8 @@ export interface CreateLoginProfileRequest {
 
 /**
  * <p>Contains the user name and password create date for a user.</p>
- *          <p> This data type is used as a response element in the <a>CreateLoginProfile</a> and <a>GetLoginProfile</a> operations. </p>
+ *          <p> This data type is used as a response element in the <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateLoginProfile.html">CreateLoginProfile</a> and
+ *             <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetLoginProfile.html">GetLoginProfile</a> operations. </p>
  * @public
  */
 export interface LoginProfile {
@@ -1214,8 +1211,8 @@ export interface LoginProfile {
 }
 
 /**
- * <p>Contains the response to a successful <a>CreateLoginProfile</a> request.
- *     </p>
+ * <p>Contains the response to a successful <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateLoginProfile.html">CreateLoginProfile</a>
+ *       request. </p>
  * @public
  */
 export interface CreateLoginProfileResponse {
@@ -1296,15 +1293,13 @@ export interface CreateOpenIDConnectProviderRequest {
 }
 
 /**
- * <p>Contains the response to a successful <a>CreateOpenIDConnectProvider</a>
- *       request. </p>
+ * <p>Contains the response to a successful <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateOpenIDConnectProvider.html">CreateOpenIDConnectProvider</a> request. </p>
  * @public
  */
 export interface CreateOpenIDConnectProviderResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the new IAM OpenID Connect provider that is
-   *             created. For more information, see <a>OpenIDConnectProviderListEntry</a>.
-   *         </p>
+   *             created. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_OpenIDConnectProviderListEntry.html">OpenIDConnectProviderListEntry</a>. </p>
    * @public
    */
   OpenIDConnectProviderArn?: string | undefined;
@@ -1423,8 +1418,8 @@ export interface CreatePolicyRequest {
 
 /**
  * <p>Contains information about a managed policy.</p>
- *          <p>This data type is used as a response element in the <a>CreatePolicy</a>,
- *             <a>GetPolicy</a>, and <a>ListPolicies</a> operations. </p>
+ *          <p>This data type is used as a response element in the <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreatePolicy.html">CreatePolicy</a>, <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetPolicy.html">GetPolicy</a>,
+ *          and <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_ListPolicies.html">ListPolicies</a> operations. </p>
  *          <p>For more information about managed policies, refer to <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html">Managed policies and inline
  *             policies</a> in the <i>IAM User Guide</i>. </p>
  * @public
@@ -1489,8 +1484,9 @@ export interface Policy {
 
   /**
    * <p>A friendly description of the policy.</p>
-   *          <p>This element is included in the response to the <a>GetPolicy</a> operation.
-   *          It is not included in the response to the <a>ListPolicies</a> operation. </p>
+   *          <p>This element is included in the response to the <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetPolicy.html">GetPolicy</a> operation. It is not
+   *          included in the response to the <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_ListPolicies.html">ListPolicies</a> operation.
+   *       </p>
    * @public
    */
   Description?: string | undefined;
@@ -1521,8 +1517,7 @@ export interface Policy {
 }
 
 /**
- * <p>Contains the response to a successful <a>CreatePolicy</a> request.
- *     </p>
+ * <p>Contains the response to a successful <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreatePolicy.html">CreatePolicy</a> request. </p>
  * @public
  */
 export interface CreatePolicyResponse {
@@ -1608,7 +1603,9 @@ export interface CreatePolicyVersionRequest {
 
 /**
  * <p>Contains information about a version of a managed policy.</p>
- *          <p>This data type is used as a response element in the <a>CreatePolicyVersion</a>, <a>GetPolicyVersion</a>, <a>ListPolicyVersions</a>, and <a>GetAccountAuthorizationDetails</a> operations. </p>
+ *          <p>This data type is used as a response element in the <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreatePolicyVersion.html">CreatePolicyVersion</a>,
+ *             <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetPolicyVersion.html">GetPolicyVersion</a>, <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_ListPolicyVersions.html">ListPolicyVersions</a>,
+ *          and <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetAccountAuthorizationDetails.html">GetAccountAuthorizationDetails</a> operations. </p>
  *          <p>For more information about managed policies, refer to <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html">Managed policies and inline
  *             policies</a> in the <i>IAM User Guide</i>. </p>
  * @public
@@ -1616,8 +1613,10 @@ export interface CreatePolicyVersionRequest {
 export interface PolicyVersion {
   /**
    * <p>The policy document.</p>
-   *          <p>The policy document is returned in the response to the <a>GetPolicyVersion</a> and <a>GetAccountAuthorizationDetails</a> operations. It is not returned in
-   *          the response to the <a>CreatePolicyVersion</a> or <a>ListPolicyVersions</a> operations. </p>
+   *          <p>The policy document is returned in the response to the <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetPolicyVersion.html">GetPolicyVersion</a> and
+   *             <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetAccountAuthorizationDetails.html">GetAccountAuthorizationDetails</a> operations. It is not returned in the response
+   *          to the <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreatePolicyVersion.html">CreatePolicyVersion</a>
+   *          or <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_ListPolicyVersions.html">ListPolicyVersions</a> operations. </p>
    *          <p>The policy document returned in this structure is URL-encoded compliant with <a href="https://tools.ietf.org/html/rfc3986">RFC 3986</a>. You can use a URL decoding
    *          method to convert the policy back to plain JSON text. For example, if you use Java, you can
    *          use the <code>decode</code> method of the <code>java.net.URLDecoder</code> utility class in
@@ -1649,8 +1648,8 @@ export interface PolicyVersion {
 }
 
 /**
- * <p>Contains the response to a successful <a>CreatePolicyVersion</a> request.
- *     </p>
+ * <p>Contains the response to a successful <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreatePolicyVersion.html">CreatePolicyVersion</a>
+ *       request. </p>
  * @public
  */
 export interface CreatePolicyVersionResponse {
@@ -1768,7 +1767,7 @@ export interface CreateRoleRequest {
 }
 
 /**
- * <p>Contains the response to a successful <a>CreateRole</a> request. </p>
+ * <p>Contains the response to a successful <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateRole.html">CreateRole</a> request. </p>
  * @public
  */
 export interface CreateRoleResponse {
@@ -1832,8 +1831,8 @@ export interface CreateSAMLProviderRequest {
 }
 
 /**
- * <p>Contains the response to a successful <a>CreateSAMLProvider</a> request.
- *     </p>
+ * <p>Contains the response to a successful <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateSAMLProvider.html">CreateSAMLProvider</a>
+ *       request. </p>
  * @public
  */
 export interface CreateSAMLProviderResponse {
@@ -1895,8 +1894,8 @@ export interface CreateServiceLinkedRoleRequest {
  */
 export interface CreateServiceLinkedRoleResponse {
   /**
-   * <p>A <a>Role</a> object that contains details about the newly created
-   *             role.</p>
+   * <p>A <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_Role.html">Role</a>
+   *             object that contains details about the newly created role.</p>
    * @public
    */
   Role?: Role | undefined;
@@ -1923,6 +1922,14 @@ export interface CreateServiceSpecificCredentialRequest {
    * @public
    */
   ServiceName: string | undefined;
+
+  /**
+   * <p>The number of days until the service specific credential expires. This field is only
+   *             valid for Bedrock API keys and must be a positive integer. When not specified, the
+   *             credential will not expire.</p>
+   * @public
+   */
+  CredentialAgeDays?: number | undefined;
 }
 
 /**
@@ -1938,6 +1945,13 @@ export interface ServiceSpecificCredential {
   CreateDate: Date | undefined;
 
   /**
+   * <p>The date and time when the service specific credential expires. This field is only
+   *          present for Bedrock API keys that were created with an expiration period.</p>
+   * @public
+   */
+  ExpirationDate?: Date | undefined;
+
+  /**
    * <p>The name of the service associated with the service-specific credential.</p>
    * @public
    */
@@ -1950,13 +1964,28 @@ export interface ServiceSpecificCredential {
    *          user.</p>
    * @public
    */
-  ServiceUserName: string | undefined;
+  ServiceUserName?: string | undefined;
 
   /**
    * <p>The generated password for the service-specific credential.</p>
    * @public
    */
-  ServicePassword: string | undefined;
+  ServicePassword?: string | undefined;
+
+  /**
+   * <p>For Bedrock API keys, this is the public portion of the credential that includes the IAM
+   *          user name and a suffix containing version and creation information.</p>
+   * @public
+   */
+  ServiceCredentialAlias?: string | undefined;
+
+  /**
+   * <p>For Bedrock API keys, this is the secret portion of the credential that should be used
+   *          to authenticate API calls. This value is returned only when the credential is
+   *          created.</p>
+   * @public
+   */
+  ServiceCredentialSecret?: string | undefined;
 
   /**
    * <p>The unique identifier for the service-specific credential.</p>
@@ -1987,7 +2016,7 @@ export interface CreateServiceSpecificCredentialResponse {
    *             credential.</p>
    *          <important>
    *             <p>This is the only time that the password for this credential set is available. It
-   *                 cannot be recovered later. Instead, you must reset the password with <a>ResetServiceSpecificCredential</a>.</p>
+   *                 cannot be recovered later. Instead, you must reset the password with <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_ResetServiceSpecificCredential.html">ResetServiceSpecificCredential</a>.</p>
    *          </important>
    * @public
    */
@@ -2072,17 +2101,17 @@ export interface CreateUserRequest {
  *          <ul>
  *             <li>
  *                <p>
- *                   <a>CreateUser</a>
+ *                   <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateUser.html">CreateUser</a>
  *                </p>
  *             </li>
  *             <li>
  *                <p>
- *                   <a>GetUser</a>
+ *                   <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetUser.html">GetUser</a>
  *                </p>
  *             </li>
  *             <li>
  *                <p>
- *                   <a>ListUsers</a>
+ *                   <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_ListUsers.html">ListUsers</a>
  *                </p>
  *             </li>
  *          </ul>
@@ -2146,7 +2175,8 @@ export interface User {
    *          <p>A null value does not mean that the user <i>never</i> had a password.
    *          Also, if the user does not currently have a password but had one in the past, then this
    *          field contains the date and time the most recent password was used.</p>
-   *          <p>This value is returned only in the <a>GetUser</a> and <a>ListUsers</a> operations. </p>
+   *          <p>This value is returned only in the <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetUser.html">GetUser</a> and <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_ListUsers.html">ListUsers</a>
+   *          operations. </p>
    * @public
    */
   PasswordLastUsed?: Date | undefined;
@@ -2167,7 +2197,7 @@ export interface User {
 }
 
 /**
- * <p>Contains the response to a successful <a>CreateUser</a> request. </p>
+ * <p>Contains the response to a successful <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateUser.html">CreateUser</a> request. </p>
  * @public
  */
 export interface CreateUserResponse {
@@ -2265,8 +2295,8 @@ export interface VirtualMFADevice {
 }
 
 /**
- * <p>Contains the response to a successful <a>CreateVirtualMFADevice</a> request.
- *     </p>
+ * <p>Contains the response to a successful <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateVirtualMFADevice.html">CreateVirtualMFADevice</a>
+ *       request. </p>
  * @public
  */
 export interface CreateVirtualMFADeviceResponse {
@@ -2430,7 +2460,7 @@ export interface DeleteLoginProfileRequest {
 export interface DeleteOpenIDConnectProviderRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the IAM OpenID Connect provider resource object to
-   *             delete. You can get a list of OpenID Connect provider resource ARNs by using the <a>ListOpenIDConnectProviders</a> operation.</p>
+   *             delete. You can get a list of OpenID Connect provider resource ARNs by using the <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_ListOpenIDConnectProviders.html">ListOpenIDConnectProviders</a> operation.</p>
    * @public
    */
   OpenIDConnectProviderArn: string | undefined;
@@ -2583,7 +2613,7 @@ export interface DeleteServiceSpecificCredentialRequest {
 
   /**
    * <p>The unique identifier of the service-specific credential. You can get this value by
-   *             calling <a>ListServiceSpecificCredentials</a>.</p>
+   *             calling <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_ListServiceSpecificCredentials.html">ListServiceSpecificCredentials</a>.</p>
    *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters that can
    *     consist of any upper or lowercased letter or digit.</p>
    * @public
@@ -2817,7 +2847,7 @@ export class OrganizationNotFoundException extends __BaseException {
 /**
  * <p>The request was rejected because your organization does not have All features enabled. For
  *       more information, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_getting-started_concepts.html#feature-set">Available feature sets</a> in the <i>Organizations User
- *           Guide</i>.</p>
+ *       Guide</i>.</p>
  * @public
  */
 export class OrganizationNotInAllFeaturesModeException extends __BaseException {
@@ -3040,8 +3070,7 @@ export const ReportStateType = {
 export type ReportStateType = (typeof ReportStateType)[keyof typeof ReportStateType];
 
 /**
- * <p>Contains the response to a successful <a>GenerateCredentialReport</a>
- *       request. </p>
+ * <p>Contains the response to a successful <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GenerateCredentialReport.html">GenerateCredentialReport</a> request. </p>
  * @public
  */
 export interface GenerateCredentialReportResponse {
@@ -3088,7 +3117,7 @@ export interface GenerateOrganizationsAccessReportRequest {
  */
 export interface GenerateOrganizationsAccessReportResponse {
   /**
-   * <p>The job identifier that you can use in the <a>GetOrganizationsAccessReport</a> operation.</p>
+   * <p>The job identifier that you can use in the <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetOrganizationsAccessReport.html">GetOrganizationsAccessReport</a> operation.</p>
    * @public
    */
   JobId?: string | undefined;
@@ -3143,7 +3172,7 @@ export interface GenerateServiceLastAccessedDetailsRequest {
  */
 export interface GenerateServiceLastAccessedDetailsResponse {
   /**
-   * <p>The <code>JobId</code> that you can use in the <a>GetServiceLastAccessedDetails</a> or <a>GetServiceLastAccessedDetailsWithEntities</a> operations. The
+   * <p>The <code>JobId</code> that you can use in the <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetServiceLastAccessedDetails.html">GetServiceLastAccessedDetails</a> or <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetServiceLastAccessedDetailsWithEntities.html">GetServiceLastAccessedDetailsWithEntities</a> operations. The
    *                 <code>JobId</code> returned by <code>GenerateServiceLastAccessedDetail</code> must
    *             be used by the same role within a session, or by the same user when used to call
    *                 <code>GetServiceLastAccessedDetail</code>.</p>
@@ -3166,9 +3195,9 @@ export interface GetAccessKeyLastUsedRequest {
 }
 
 /**
- * <p>Contains the response to a successful <a>GetAccessKeyLastUsed</a> request.
- *       It is also returned as a member of the <a>AccessKeyMetaData</a> structure returned
- *       by the <a>ListAccessKeys</a> action.</p>
+ * <p>Contains the response to a successful <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetAccessKeyLastUsed.html">GetAccessKeyLastUsed</a>
+ *       request. It is also returned as a member of the <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_AccessKeyMetaData.html">AccessKeyMetaData</a> structure
+ *       returned by the <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_ListAccessKeys.html">ListAccessKeys</a> action.</p>
  * @public
  */
 export interface GetAccessKeyLastUsedResponse {
@@ -3242,7 +3271,7 @@ export interface GetAccountAuthorizationDetailsRequest {
 
 /**
  * <p>Contains information about an IAM policy, including the policy document.</p>
- *          <p>This data type is used as a response element in the <a>GetAccountAuthorizationDetails</a> operation.</p>
+ *          <p>This data type is used as a response element in the <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetAccountAuthorizationDetails.html">GetAccountAuthorizationDetails</a> operation.</p>
  * @public
  */
 export interface PolicyDetail {
@@ -3261,7 +3290,7 @@ export interface PolicyDetail {
 
 /**
  * <p>Contains information about an IAM group, including all of the group's policies.</p>
- *          <p>This data type is used as a response element in the <a>GetAccountAuthorizationDetails</a> operation.</p>
+ *          <p>This data type is used as a response element in the <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetAccountAuthorizationDetails.html">GetAccountAuthorizationDetails</a> operation.</p>
  * @public
  */
 export interface GroupDetail {
@@ -3318,7 +3347,7 @@ export interface GroupDetail {
  * <p>Contains information about a managed policy, including the policy's ARN, versions, and
  *          the number of principal entities (users, groups, and roles) that the policy is attached
  *          to.</p>
- *          <p>This data type is used as a response element in the <a>GetAccountAuthorizationDetails</a> operation.</p>
+ *          <p>This data type is used as a response element in the <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetAccountAuthorizationDetails.html">GetAccountAuthorizationDetails</a> operation.</p>
  *          <p>For more information about managed policies, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html">Managed policies and inline
  *             policies</a> in the <i>IAM User Guide</i>. </p>
  * @public
@@ -3417,7 +3446,7 @@ export interface ManagedPolicyDetail {
 
 /**
  * <p>Contains information about an IAM role, including all of the role's policies.</p>
- *          <p>This data type is used as a response element in the <a>GetAccountAuthorizationDetails</a> operation.</p>
+ *          <p>This data type is used as a response element in the <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetAccountAuthorizationDetails.html">GetAccountAuthorizationDetails</a> operation.</p>
  * @public
  */
 export interface RoleDetail {
@@ -3513,7 +3542,7 @@ export interface RoleDetail {
 /**
  * <p>Contains information about an IAM user, including all the user's policies and all the
  *          IAM groups the user is in.</p>
- *          <p>This data type is used as a response element in the <a>GetAccountAuthorizationDetails</a> operation.</p>
+ *          <p>This data type is used as a response element in the <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetAccountAuthorizationDetails.html">GetAccountAuthorizationDetails</a> operation.</p>
  * @public
  */
 export interface UserDetail {
@@ -3588,8 +3617,7 @@ export interface UserDetail {
 }
 
 /**
- * <p>Contains the response to a successful <a>GetAccountAuthorizationDetails</a>
- *       request. </p>
+ * <p>Contains the response to a successful <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetAccountAuthorizationDetails.html">GetAccountAuthorizationDetails</a> request. </p>
  * @public
  */
 export interface GetAccountAuthorizationDetailsResponse {
@@ -3639,7 +3667,7 @@ export interface GetAccountAuthorizationDetailsResponse {
 
 /**
  * <p>Contains information about the account password policy.</p>
- *          <p> This data type is used as a response element in the <a>GetAccountPasswordPolicy</a> operation. </p>
+ *          <p> This data type is used as a response element in the <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetAccountPasswordPolicy.html">GetAccountPasswordPolicy</a> operation. </p>
  * @public
  */
 export interface PasswordPolicy {
@@ -3721,8 +3749,7 @@ export interface PasswordPolicy {
 }
 
 /**
- * <p>Contains the response to a successful <a>GetAccountPasswordPolicy</a>
- *       request. </p>
+ * <p>Contains the response to a successful <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetAccountPasswordPolicy.html">GetAccountPasswordPolicy</a> request. </p>
  * @public
  */
 export interface GetAccountPasswordPolicyResponse {
@@ -3773,7 +3800,7 @@ export const SummaryKeyType = {
 export type SummaryKeyType = (typeof SummaryKeyType)[keyof typeof SummaryKeyType];
 
 /**
- * <p>Contains the response to a successful <a>GetAccountSummary</a> request.
+ * <p>Contains the response to a successful <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetAccountSummary.html">GetAccountSummary</a> request.
  *     </p>
  * @public
  */
@@ -3816,7 +3843,7 @@ export interface GetContextKeysForCustomPolicyRequest {
 }
 
 /**
- * <p>Contains the response to a successful <a>GetContextKeysForPrincipalPolicy</a> or <a>GetContextKeysForCustomPolicy</a> request. </p>
+ * <p>Contains the response to a successful <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetContextKeysForPrincipalPolicy.html">GetContextKeysForPrincipalPolicy</a> or <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetContextKeysForCustomPolicy.html">GetContextKeysForCustomPolicy</a> request. </p>
  * @public
  */
 export interface GetContextKeysForPolicyResponse {
@@ -3870,9 +3897,9 @@ export interface GetContextKeysForPrincipalPolicyRequest {
 
 /**
  * <p>The request was rejected because the most recent credential report has expired. To
- *       generate a new credential report, use <a>GenerateCredentialReport</a>. For more
- *       information about credential report expiration, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/credential-reports.html">Getting credential reports</a> in the
- *       <i>IAM User Guide</i>.</p>
+ *       generate a new credential report, use <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GenerateCredentialReport.html">GenerateCredentialReport</a>. For more information about credential report expiration,
+ *       see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/credential-reports.html">Getting
+ *         credential reports</a> in the <i>IAM User Guide</i>.</p>
  * @public
  */
 export class CredentialReportExpiredException extends __BaseException {
@@ -3893,7 +3920,7 @@ export class CredentialReportExpiredException extends __BaseException {
 
 /**
  * <p>The request was rejected because the credential report does not exist. To generate a
- *       credential report, use <a>GenerateCredentialReport</a>.</p>
+ *       credential report, use <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GenerateCredentialReport.html">GenerateCredentialReport</a>.</p>
  * @public
  */
 export class CredentialReportNotPresentException extends __BaseException {
@@ -3946,8 +3973,8 @@ export const ReportFormatType = {
 export type ReportFormatType = (typeof ReportFormatType)[keyof typeof ReportFormatType];
 
 /**
- * <p>Contains the response to a successful <a>GetCredentialReport</a> request.
- *     </p>
+ * <p>Contains the response to a successful <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetCredentialReport.html">GetCredentialReport</a>
+ *       request. </p>
  * @public
  */
 export interface GetCredentialReportResponse {
@@ -4006,7 +4033,7 @@ export interface GetGroupRequest {
 }
 
 /**
- * <p>Contains the response to a successful <a>GetGroup</a> request. </p>
+ * <p>Contains the response to a successful <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetGroup.html">GetGroup</a> request. </p>
  * @public
  */
 export interface GetGroupResponse {
@@ -4064,7 +4091,7 @@ export interface GetGroupPolicyRequest {
 }
 
 /**
- * <p>Contains the response to a successful <a>GetGroupPolicy</a> request.
+ * <p>Contains the response to a successful <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetGroupPolicy.html">GetGroupPolicy</a> request.
  *     </p>
  * @public
  */
@@ -4105,8 +4132,8 @@ export interface GetInstanceProfileRequest {
 }
 
 /**
- * <p>Contains the response to a successful <a>GetInstanceProfile</a> request.
- *     </p>
+ * <p>Contains the response to a successful <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetInstanceProfile.html">GetInstanceProfile</a>
+ *       request. </p>
  * @public
  */
 export interface GetInstanceProfileResponse {
@@ -4134,7 +4161,7 @@ export interface GetLoginProfileRequest {
 }
 
 /**
- * <p>Contains the response to a successful <a>GetLoginProfile</a> request.
+ * <p>Contains the response to a successful <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetLoginProfile.html">GetLoginProfile</a> request.
  *     </p>
  * @public
  */
@@ -4203,7 +4230,7 @@ export interface GetMFADeviceResponse {
 export interface GetOpenIDConnectProviderRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the OIDC provider resource object in IAM to get
-   *             information for. You can get a list of OIDC provider resource ARNs by using the <a>ListOpenIDConnectProviders</a> operation.</p>
+   *             information for. You can get a list of OIDC provider resource ARNs by using the <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_ListOpenIDConnectProviders.html">ListOpenIDConnectProviders</a> operation.</p>
    *          <p>For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>.</p>
    * @public
    */
@@ -4211,28 +4238,27 @@ export interface GetOpenIDConnectProviderRequest {
 }
 
 /**
- * <p>Contains the response to a successful <a>GetOpenIDConnectProvider</a>
- *       request. </p>
+ * <p>Contains the response to a successful <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetOpenIDConnectProvider.html">GetOpenIDConnectProvider</a> request. </p>
  * @public
  */
 export interface GetOpenIDConnectProviderResponse {
   /**
    * <p>The URL that the IAM OIDC provider resource object is associated with. For more
-   *             information, see <a>CreateOpenIDConnectProvider</a>.</p>
+   *             information, see <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateOpenIDConnectProvider.html">CreateOpenIDConnectProvider</a>.</p>
    * @public
    */
   Url?: string | undefined;
 
   /**
    * <p>A list of client IDs (also known as audiences) that are associated with the specified
-   *             IAM OIDC provider resource object. For more information, see <a>CreateOpenIDConnectProvider</a>.</p>
+   *             IAM OIDC provider resource object. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateOpenIDConnectProvider.html">CreateOpenIDConnectProvider</a>.</p>
    * @public
    */
   ClientIDList?: string[] | undefined;
 
   /**
    * <p>A list of certificate thumbprints that are associated with the specified IAM OIDC
-   *             provider resource object. For more information, see <a>CreateOpenIDConnectProvider</a>. </p>
+   *             provider resource object. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateOpenIDConnectProvider.html">CreateOpenIDConnectProvider</a>. </p>
    * @public
    */
   ThumbprintList?: string[] | undefined;
@@ -4274,7 +4300,7 @@ export type SortKeyType = (typeof SortKeyType)[keyof typeof SortKeyType];
  */
 export interface GetOrganizationsAccessReportRequest {
   /**
-   * <p>The identifier of the request generated by the <a>GenerateOrganizationsAccessReport</a> operation.</p>
+   * <p>The identifier of the request generated by the <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GenerateOrganizationsAccessReport.html">GenerateOrganizationsAccessReport</a> operation.</p>
    * @public
    */
   JobId: string | undefined;
@@ -4312,7 +4338,7 @@ export interface GetOrganizationsAccessReportRequest {
 
 /**
  * <p>Contains information about the reason that the operation failed.</p>
- *          <p>This data type is used as a response element in the <a>GetOrganizationsAccessReport</a>, <a>GetServiceLastAccessedDetails</a>, and <a>GetServiceLastAccessedDetailsWithEntities</a> operations.</p>
+ *          <p>This data type is used as a response element in the <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetOrganizationsAccessReport.html">GetOrganizationsAccessReport</a>, <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetServiceLastAccessedDetails.html">GetServiceLastAccessedDetails</a>, and <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetServiceLastAccessedDetailsWithEntities.html">GetServiceLastAccessedDetailsWithEntities</a> operations.</p>
  * @public
  */
 export interface ErrorDetails {
@@ -4412,7 +4438,7 @@ export interface GetOrganizationsAccessReportResponse {
 
   /**
    * <p>Contains information about the reason that the operation failed.</p>
-   *          <p>This data type is used as a response element in the <a>GetOrganizationsAccessReport</a>, <a>GetServiceLastAccessedDetails</a>, and <a>GetServiceLastAccessedDetailsWithEntities</a> operations.</p>
+   *          <p>This data type is used as a response element in the <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetOrganizationsAccessReport.html">GetOrganizationsAccessReport</a>, <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetServiceLastAccessedDetails.html">GetServiceLastAccessedDetails</a>, and <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetServiceLastAccessedDetailsWithEntities.html">GetServiceLastAccessedDetailsWithEntities</a> operations.</p>
    * @public
    */
   ErrorDetails?: ErrorDetails | undefined;
@@ -4432,7 +4458,7 @@ export interface GetPolicyRequest {
 }
 
 /**
- * <p>Contains the response to a successful <a>GetPolicy</a> request. </p>
+ * <p>Contains the response to a successful <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetPolicy.html">GetPolicy</a> request. </p>
  * @public
  */
 export interface GetPolicyResponse {
@@ -4466,7 +4492,7 @@ export interface GetPolicyVersionRequest {
 }
 
 /**
- * <p>Contains the response to a successful <a>GetPolicyVersion</a> request.
+ * <p>Contains the response to a successful <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetPolicyVersion.html">GetPolicyVersion</a> request.
  *     </p>
  * @public
  */
@@ -4492,7 +4518,7 @@ export interface GetRoleRequest {
 }
 
 /**
- * <p>Contains the response to a successful <a>GetRole</a> request. </p>
+ * <p>Contains the response to a successful <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetRole.html">GetRole</a> request. </p>
  * @public
  */
 export interface GetRoleResponse {
@@ -4525,8 +4551,7 @@ export interface GetRolePolicyRequest {
 }
 
 /**
- * <p>Contains the response to a successful <a>GetRolePolicy</a> request.
- *     </p>
+ * <p>Contains the response to a successful <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetRolePolicy.html">GetRolePolicy</a> request. </p>
  * @public
  */
 export interface GetRolePolicyResponse {
@@ -4567,7 +4592,8 @@ export interface GetSAMLProviderRequest {
 
 /**
  * <p>Contains the private keys for the SAML provider.</p>
- *          <p>This data type is used as a response element in the <a>GetSAMLProvider</a> operation.</p>
+ *          <p>This data type is used as a response element in the <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetSAMLProvider.html">GetSAMLProvider</a>
+ *          operation.</p>
  * @public
  */
 export interface SAMLPrivateKey {
@@ -4586,7 +4612,7 @@ export interface SAMLPrivateKey {
 }
 
 /**
- * <p>Contains the response to a successful <a>GetSAMLProvider</a> request.
+ * <p>Contains the response to a successful <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetSAMLProvider.html">GetSAMLProvider</a> request.
  *     </p>
  * @public
  */
@@ -4652,8 +4678,7 @@ export interface GetServerCertificateRequest {
 /**
  * <p>Contains information about a server certificate without its certificate body,
  *          certificate chain, and private key.</p>
- *          <p> This data type is used as a response element in the <a>UploadServerCertificate</a> and <a>ListServerCertificates</a>
- *          operations. </p>
+ *          <p> This data type is used as a response element in the <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_UploadServerCertificate.html">UploadServerCertificate</a> and <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_ListServerCertificates.html">ListServerCertificates</a> operations. </p>
  * @public
  */
 export interface ServerCertificateMetadata {
@@ -4700,7 +4725,8 @@ export interface ServerCertificateMetadata {
 
 /**
  * <p>Contains information about a server certificate.</p>
- *          <p> This data type is used as a response element in the <a>GetServerCertificate</a> operation. </p>
+ *          <p> This data type is used as a response element in the <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetServerCertificate.html">GetServerCertificate</a>
+ *          operation. </p>
  * @public
  */
 export interface ServerCertificate {
@@ -4732,8 +4758,8 @@ export interface ServerCertificate {
 }
 
 /**
- * <p>Contains the response to a successful <a>GetServerCertificate</a> request.
- *     </p>
+ * <p>Contains the response to a successful <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetServerCertificate.html">GetServerCertificate</a>
+ *       request. </p>
  * @public
  */
 export interface GetServerCertificateResponse {
@@ -4749,7 +4775,7 @@ export interface GetServerCertificateResponse {
  */
 export interface GetServiceLastAccessedDetailsRequest {
   /**
-   * <p>The ID of the request generated by the <a>GenerateServiceLastAccessedDetails</a> operation. The <code>JobId</code>
+   * <p>The ID of the request generated by the <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GenerateServiceLastAccessedDetails.html">GenerateServiceLastAccessedDetails</a> operation. The <code>JobId</code>
    *             returned by <code>GenerateServiceLastAccessedDetail</code> must be used by the same role
    *             within a session, or by the same user when used to call
    *                 <code>GetServiceLastAccessedDetail</code>.</p>
@@ -4783,7 +4809,7 @@ export interface GetServiceLastAccessedDetailsRequest {
 /**
  * <p>Contains details about the most recent attempt to access an action within the
  *          service.</p>
- *          <p>This data type is used as a response element in the <a>GetServiceLastAccessedDetails</a> operation.</p>
+ *          <p>This data type is used as a response element in the <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetServiceLastAccessedDetails.html">GetServiceLastAccessedDetails</a> operation.</p>
  * @public
  */
 export interface TrackedActionLastAccessed {
@@ -4824,7 +4850,7 @@ export interface TrackedActionLastAccessed {
 
 /**
  * <p>Contains details about the most recent attempt to access the service.</p>
- *          <p>This data type is used as a response element in the <a>GetServiceLastAccessedDetails</a> operation.</p>
+ *          <p>This data type is used as a response element in the <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetServiceLastAccessedDetails.html">GetServiceLastAccessedDetails</a> operation.</p>
  * @public
  */
 export interface ServiceLastAccessed {
@@ -4888,7 +4914,7 @@ export interface ServiceLastAccessed {
    *          <p>This field is null if there no tracked actions or if the principal did not use the
    *          tracked actions within the <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#service-last-accessed-reporting-period">tracking period</a>. This field is also null if the report was generated at the
    *          service level and not the action level. For more information, see the
-   *             <code>Granularity</code> field in <a>GenerateServiceLastAccessedDetails</a>.</p>
+   *             <code>Granularity</code> field in <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GenerateServiceLastAccessedDetails.html">GenerateServiceLastAccessedDetails</a>.</p>
    * @public
    */
   TrackedActionsLastAccessed?: TrackedActionLastAccessed[] | undefined;
@@ -5025,7 +5051,8 @@ export type PolicyOwnerEntityType = (typeof PolicyOwnerEntityType)[keyof typeof 
 
 /**
  * <p>Contains details about the specified entity (user or role).</p>
- *          <p>This data type is an element of the <a>EntityDetails</a> object.</p>
+ *          <p>This data type is an element of the <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_EntityDetails.html">EntityDetails</a>
+ *          object.</p>
  * @public
  */
 export interface EntityInfo {
@@ -5066,7 +5093,7 @@ export interface EntityInfo {
 /**
  * <p>An object that contains details about when the IAM entities (users or roles) were last
  *          used in an attempt to access the specified Amazon Web Services service.</p>
- *          <p>This data type is a response element in the <a>GetServiceLastAccessedDetailsWithEntities</a> operation.</p>
+ *          <p>This data type is a response element in the <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetServiceLastAccessedDetailsWithEntities.html">GetServiceLastAccessedDetailsWithEntities</a> operation.</p>
  * @public
  */
 export interface EntityDetails {
@@ -5153,7 +5180,7 @@ export interface GetServiceLastAccessedDetailsWithEntitiesResponse {
  */
 export interface GetServiceLinkedRoleDeletionStatusRequest {
   /**
-   * <p>The deletion task identifier. This identifier is returned by the <a>DeleteServiceLinkedRole</a> operation in the format
+   * <p>The deletion task identifier. This identifier is returned by the <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_DeleteServiceLinkedRole.html">DeleteServiceLinkedRole</a> operation in the format
    *                 <code>task/aws-service-role/<service-principal-name>/<role-name>/<task-uuid></code>.</p>
    * @public
    */
@@ -5163,7 +5190,7 @@ export interface GetServiceLinkedRoleDeletionStatusRequest {
 /**
  * <p>An object that contains details about how a service-linked role is used, if that
  *          information is returned by the service.</p>
- *          <p>This data type is used as a response element in the <a>GetServiceLinkedRoleDeletionStatus</a> operation.</p>
+ *          <p>This data type is used as a response element in the <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetServiceLinkedRoleDeletionStatus.html">GetServiceLinkedRoleDeletionStatus</a> operation.</p>
  * @public
  */
 export interface RoleUsageType {
@@ -5182,7 +5209,7 @@ export interface RoleUsageType {
 
 /**
  * <p>The reason that the service-linked role deletion failed.</p>
- *          <p>This data type is used as a response element in the <a>GetServiceLinkedRoleDeletionStatus</a> operation.</p>
+ *          <p>This data type is used as a response element in the <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetServiceLinkedRoleDeletionStatus.html">GetServiceLinkedRoleDeletionStatus</a> operation.</p>
  * @public
  */
 export interface DeletionTaskFailureReasonType {
@@ -5282,8 +5309,8 @@ export interface GetSSHPublicKeyRequest {
 
 /**
  * <p>Contains information about an SSH public key.</p>
- *          <p>This data type is used as a response element in the <a>GetSSHPublicKey</a>
- *          and <a>UploadSSHPublicKey</a> operations. </p>
+ *          <p>This data type is used as a response element in the <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetSSHPublicKey.html">GetSSHPublicKey</a> and
+ *             <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_UploadSSHPublicKey.html">UploadSSHPublicKey</a> operations. </p>
  * @public
  */
 export interface SSHPublicKey {
@@ -5328,7 +5355,7 @@ export interface SSHPublicKey {
 }
 
 /**
- * <p>Contains the response to a successful <a>GetSSHPublicKey</a>
+ * <p>Contains the response to a successful <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetSSHPublicKey.html">GetSSHPublicKey</a>
  *       request.</p>
  * @public
  */
@@ -5376,7 +5403,7 @@ export interface GetUserRequest {
 }
 
 /**
- * <p>Contains the response to a successful <a>GetUser</a> request. </p>
+ * <p>Contains the response to a successful <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetUser.html">GetUser</a> request. </p>
  * @public
  */
 export interface GetUserResponse {
@@ -5424,8 +5451,7 @@ export interface GetUserPolicyRequest {
 }
 
 /**
- * <p>Contains the response to a successful <a>GetUserPolicy</a> request.
- *     </p>
+ * <p>Contains the response to a successful <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetUserPolicy.html">GetUserPolicy</a> request. </p>
  * @public
  */
 export interface GetUserPolicyResponse {
@@ -5487,7 +5513,7 @@ export interface ListAccessKeysRequest {
 }
 
 /**
- * <p>Contains the response to a successful <a>ListAccessKeys</a> request.
+ * <p>Contains the response to a successful <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_ListAccessKeys.html">ListAccessKeys</a> request.
  *     </p>
  * @public
  */
@@ -5546,8 +5572,8 @@ export interface ListAccountAliasesRequest {
 }
 
 /**
- * <p>Contains the response to a successful <a>ListAccountAliases</a> request.
- *     </p>
+ * <p>Contains the response to a successful <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_ListAccountAliases.html">ListAccountAliases</a>
+ *       request. </p>
  * @public
  */
 export interface ListAccountAliasesResponse {
@@ -5625,8 +5651,7 @@ export interface ListAttachedGroupPoliciesRequest {
 }
 
 /**
- * <p>Contains the response to a successful <a>ListAttachedGroupPolicies</a>
- *       request. </p>
+ * <p>Contains the response to a successful <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_ListAttachedGroupPolicies.html">ListAttachedGroupPolicies</a> request. </p>
  * @public
  */
 export interface ListAttachedGroupPoliciesResponse {
@@ -5703,8 +5728,7 @@ export interface ListAttachedRolePoliciesRequest {
 }
 
 /**
- * <p>Contains the response to a successful <a>ListAttachedRolePolicies</a>
- *       request. </p>
+ * <p>Contains the response to a successful <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_ListAttachedRolePolicies.html">ListAttachedRolePolicies</a> request. </p>
  * @public
  */
 export interface ListAttachedRolePoliciesResponse {
@@ -5781,8 +5805,7 @@ export interface ListAttachedUserPoliciesRequest {
 }
 
 /**
- * <p>Contains the response to a successful <a>ListAttachedUserPolicies</a>
- *       request. </p>
+ * <p>Contains the response to a successful <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_ListAttachedUserPolicies.html">ListAttachedUserPolicies</a> request. </p>
  * @public
  */
 export interface ListAttachedUserPoliciesResponse {
@@ -5895,7 +5918,7 @@ export interface ListEntitiesForPolicyRequest {
 
 /**
  * <p>Contains information about a group that a managed policy is attached to.</p>
- *          <p>This data type is used as a response element in the <a>ListEntitiesForPolicy</a> operation. </p>
+ *          <p>This data type is used as a response element in the <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_ListEntitiesForPolicy.html">ListEntitiesForPolicy</a> operation. </p>
  *          <p>For more information about managed policies, refer to <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html">Managed policies and inline
  *             policies</a> in the <i>IAM User Guide</i>. </p>
  * @public
@@ -5918,7 +5941,7 @@ export interface PolicyGroup {
 
 /**
  * <p>Contains information about a role that a managed policy is attached to.</p>
- *          <p>This data type is used as a response element in the <a>ListEntitiesForPolicy</a> operation. </p>
+ *          <p>This data type is used as a response element in the <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_ListEntitiesForPolicy.html">ListEntitiesForPolicy</a> operation. </p>
  *          <p>For more information about managed policies, refer to <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html">Managed policies and inline
  *             policies</a> in the <i>IAM User Guide</i>. </p>
  * @public
@@ -5941,7 +5964,7 @@ export interface PolicyRole {
 
 /**
  * <p>Contains information about a user that a managed policy is attached to.</p>
- *          <p>This data type is used as a response element in the <a>ListEntitiesForPolicy</a> operation. </p>
+ *          <p>This data type is used as a response element in the <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_ListEntitiesForPolicy.html">ListEntitiesForPolicy</a> operation. </p>
  *          <p>For more information about managed policies, refer to <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html">Managed policies and inline
  *             policies</a> in the <i>IAM User Guide</i>. </p>
  * @public
@@ -5963,8 +5986,8 @@ export interface PolicyUser {
 }
 
 /**
- * <p>Contains the response to a successful <a>ListEntitiesForPolicy</a> request.
- *     </p>
+ * <p>Contains the response to a successful <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_ListEntitiesForPolicy.html">ListEntitiesForPolicy</a>
+ *       request. </p>
  * @public
  */
 export interface ListEntitiesForPolicyResponse {
@@ -6042,7 +6065,7 @@ export interface ListGroupPoliciesRequest {
 }
 
 /**
- * <p>Contains the response to a successful <a>ListGroupPolicies</a> request.
+ * <p>Contains the response to a successful <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_ListGroupPolicies.html">ListGroupPolicies</a> request.
  *     </p>
  * @public
  */
@@ -6116,7 +6139,7 @@ export interface ListGroupsRequest {
 }
 
 /**
- * <p>Contains the response to a successful <a>ListGroups</a> request. </p>
+ * <p>Contains the response to a successful <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_ListGroups.html">ListGroups</a> request. </p>
  * @public
  */
 export interface ListGroupsResponse {
@@ -6182,7 +6205,7 @@ export interface ListGroupsForUserRequest {
 }
 
 /**
- * <p>Contains the response to a successful <a>ListGroupsForUser</a> request.
+ * <p>Contains the response to a successful <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_ListGroupsForUser.html">ListGroupsForUser</a> request.
  *     </p>
  * @public
  */
@@ -6254,8 +6277,8 @@ export interface ListInstanceProfilesRequest {
 }
 
 /**
- * <p>Contains the response to a successful <a>ListInstanceProfiles</a> request.
- *     </p>
+ * <p>Contains the response to a successful <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_ListInstanceProfiles.html">ListInstanceProfiles</a>
+ *       request. </p>
  * @public
  */
 export interface ListInstanceProfilesResponse {
@@ -6321,8 +6344,7 @@ export interface ListInstanceProfilesForRoleRequest {
 }
 
 /**
- * <p>Contains the response to a successful <a>ListInstanceProfilesForRole</a>
- *       request. </p>
+ * <p>Contains the response to a successful <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_ListInstanceProfilesForRole.html">ListInstanceProfilesForRole</a> request. </p>
  * @public
  */
 export interface ListInstanceProfilesForRoleResponse {
@@ -6454,7 +6476,7 @@ export interface ListMFADevicesRequest {
 
 /**
  * <p>Contains information about an MFA device.</p>
- *          <p>This data type is used as a response element in the <a>ListMFADevices</a>
+ *          <p>This data type is used as a response element in the <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_ListMFADevices.html">ListMFADevices</a>
  *          operation.</p>
  * @public
  */
@@ -6480,7 +6502,7 @@ export interface MFADevice {
 }
 
 /**
- * <p>Contains the response to a successful <a>ListMFADevices</a> request.
+ * <p>Contains the response to a successful <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_ListMFADevices.html">ListMFADevices</a> request.
  *     </p>
  * @public
  */
@@ -6597,8 +6619,7 @@ export interface OpenIDConnectProviderListEntry {
 }
 
 /**
- * <p>Contains the response to a successful <a>ListOpenIDConnectProviders</a>
- *       request. </p>
+ * <p>Contains the response to a successful <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_ListOpenIDConnectProviders.html">ListOpenIDConnectProviders</a> request. </p>
  * @public
  */
 export interface ListOpenIDConnectProvidersResponse {
@@ -6783,8 +6804,7 @@ export interface ListPoliciesRequest {
 }
 
 /**
- * <p>Contains the response to a successful <a>ListPolicies</a> request.
- *     </p>
+ * <p>Contains the response to a successful <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_ListPolicies.html">ListPolicies</a> request. </p>
  * @public
  */
 export interface ListPoliciesResponse {
@@ -6864,7 +6884,7 @@ export type PolicyType = (typeof PolicyType)[keyof typeof PolicyType];
 /**
  * <p>Contains details about the permissions policies that are attached to the specified
  *          identity (user, group, or role).</p>
- *          <p>This data type is an element of the <a>ListPoliciesGrantingServiceAccessEntry</a> object.</p>
+ *          <p>This data type is an element of the <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_ListPoliciesGrantingServiceAccessEntry.html">ListPoliciesGrantingServiceAccessEntry</a> object.</p>
  * @public
  */
 export interface PolicyGrantingServiceAccess {
@@ -6913,7 +6933,7 @@ export interface PolicyGrantingServiceAccess {
 /**
  * <p>Contains details about the permissions policies that are attached to the specified
  *          identity (user, group, or role).</p>
- *          <p>This data type is used as a response element in the <a>ListPoliciesGrantingServiceAccess</a> operation.</p>
+ *          <p>This data type is used as a response element in the <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_ListPoliciesGrantingServiceAccess.html">ListPoliciesGrantingServiceAccess</a> operation.</p>
  * @public
  */
 export interface ListPoliciesGrantingServiceAccessEntry {
@@ -7070,8 +7090,8 @@ export interface ListPolicyVersionsRequest {
 }
 
 /**
- * <p>Contains the response to a successful <a>ListPolicyVersions</a> request.
- *     </p>
+ * <p>Contains the response to a successful <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_ListPolicyVersions.html">ListPolicyVersions</a>
+ *       request. </p>
  * @public
  */
 export interface ListPolicyVersionsResponse {
@@ -7139,7 +7159,7 @@ export interface ListRolePoliciesRequest {
 }
 
 /**
- * <p>Contains the response to a successful <a>ListRolePolicies</a> request.
+ * <p>Contains the response to a successful <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_ListRolePolicies.html">ListRolePolicies</a> request.
  *     </p>
  * @public
  */
@@ -7211,7 +7231,7 @@ export interface ListRolesRequest {
 }
 
 /**
- * <p>Contains the response to a successful <a>ListRoles</a> request. </p>
+ * <p>Contains the response to a successful <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_ListRoles.html">ListRoles</a> request. </p>
  * @public
  */
 export interface ListRolesResponse {
@@ -7336,7 +7356,7 @@ export interface SAMLProviderListEntry {
 }
 
 /**
- * <p>Contains the response to a successful <a>ListSAMLProviders</a> request.
+ * <p>Contains the response to a successful <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_ListSAMLProviders.html">ListSAMLProviders</a> request.
  *     </p>
  * @public
  */
@@ -7457,8 +7477,8 @@ export interface ListServerCertificatesRequest {
 }
 
 /**
- * <p>Contains the response to a successful <a>ListServerCertificates</a> request.
- *     </p>
+ * <p>Contains the response to a successful <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_ListServerCertificates.html">ListServerCertificates</a>
+ *       request. </p>
  * @public
  */
 export interface ListServerCertificatesResponse {
@@ -7574,6 +7594,30 @@ export interface ListServiceSpecificCredentialsRequest {
    * @public
    */
   ServiceName?: string | undefined;
+
+  /**
+   * <p>A flag indicating whether to list service specific credentials for all users. This
+   *             parameter cannot be specified together with UserName. When true, returns all credentials
+   *             associated with the specified service.</p>
+   * @public
+   */
+  AllUsers?: boolean | undefined;
+
+  /**
+   * <p>Use this parameter only when paginating results and only after you receive a response
+   *             indicating that the results are truncated. Set it to the value of the Marker from the
+   *             response that you received to indicate where the next call should start.</p>
+   * @public
+   */
+  Marker?: string | undefined;
+
+  /**
+   * <p>Use this only when paginating results to indicate the maximum number of items you want
+   *             in the response. If additional items exist beyond the maximum you specify, the
+   *             IsTruncated response element is true.</p>
+   * @public
+   */
+  MaxItems?: number | undefined;
 }
 
 /**
@@ -7598,7 +7642,14 @@ export interface ServiceSpecificCredentialMetadata {
    * <p>The generated user name for the service-specific credential.</p>
    * @public
    */
-  ServiceUserName: string | undefined;
+  ServiceUserName?: string | undefined;
+
+  /**
+   * <p>For Bedrock API keys, this is the public portion of the credential that includes the IAM
+   *          user name and a suffix containing version and creation information.</p>
+   * @public
+   */
+  ServiceCredentialAlias?: string | undefined;
 
   /**
    * <p>The date and time, in <a href="http://www.iso.org/iso/iso8601">ISO 8601 date-time
@@ -7606,6 +7657,13 @@ export interface ServiceSpecificCredentialMetadata {
    * @public
    */
   CreateDate: Date | undefined;
+
+  /**
+   * <p>The date and time when the service specific credential expires. This field is only
+   *          present for Bedrock API keys that were created with an expiration period.</p>
+   * @public
+   */
+  ExpirationDate?: Date | undefined;
 
   /**
    * <p>The unique identifier for the service-specific credential.</p>
@@ -7630,6 +7688,21 @@ export interface ListServiceSpecificCredentialsResponse {
    * @public
    */
   ServiceSpecificCredentials?: ServiceSpecificCredentialMetadata[] | undefined;
+
+  /**
+   * <p>When IsTruncated is true, this element is present and contains the value to use for
+   *             the Marker parameter in a subsequent pagination request.</p>
+   * @public
+   */
+  Marker?: string | undefined;
+
+  /**
+   * <p>A flag that indicates whether there are more items to return. If your results were
+   *             truncated, you can make a subsequent pagination request using the Marker request
+   *             parameter to retrieve more items.</p>
+   * @public
+   */
+  IsTruncated?: boolean | undefined;
 }
 
 /**
@@ -7669,8 +7742,7 @@ export interface ListSigningCertificatesRequest {
 
 /**
  * <p>Contains information about an X.509 signing certificate.</p>
- *          <p>This data type is used as a response element in the <a>UploadSigningCertificate</a> and <a>ListSigningCertificates</a>
- *          operations. </p>
+ *          <p>This data type is used as a response element in the <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_UploadSigningCertificate.html">UploadSigningCertificate</a> and <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_ListSigningCertificates.html">ListSigningCertificates</a> operations. </p>
  * @public
  */
 export interface SigningCertificate {
@@ -7707,8 +7779,7 @@ export interface SigningCertificate {
 }
 
 /**
- * <p>Contains the response to a successful <a>ListSigningCertificates</a>
- *       request. </p>
+ * <p>Contains the response to a successful <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_ListSigningCertificates.html">ListSigningCertificates</a> request. </p>
  * @public
  */
 export interface ListSigningCertificatesResponse {
@@ -7778,7 +7849,7 @@ export interface ListSSHPublicKeysRequest {
 /**
  * <p>Contains information about an SSH public key, without the key's body or
  *          fingerprint.</p>
- *          <p>This data type is used as a response element in the <a>ListSSHPublicKeys</a>
+ *          <p>This data type is used as a response element in the <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_ListSSHPublicKeys.html">ListSSHPublicKeys</a>
  *          operation.</p>
  * @public
  */
@@ -7812,7 +7883,7 @@ export interface SSHPublicKeyMetadata {
 }
 
 /**
- * <p>Contains the response to a successful <a>ListSSHPublicKeys</a>
+ * <p>Contains the response to a successful <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_ListSSHPublicKeys.html">ListSSHPublicKeys</a>
  *       request.</p>
  * @public
  */
@@ -7879,7 +7950,7 @@ export interface ListUserPoliciesRequest {
 }
 
 /**
- * <p>Contains the response to a successful <a>ListUserPolicies</a> request.
+ * <p>Contains the response to a successful <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_ListUserPolicies.html">ListUserPolicies</a> request.
  *     </p>
  * @public
  */
@@ -7951,7 +8022,7 @@ export interface ListUsersRequest {
 }
 
 /**
- * <p>Contains the response to a successful <a>ListUsers</a> request. </p>
+ * <p>Contains the response to a successful <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_ListUsers.html">ListUsers</a> request. </p>
  * @public
  */
 export interface ListUsersResponse {
@@ -8083,8 +8154,8 @@ export interface ListVirtualMFADevicesRequest {
 }
 
 /**
- * <p>Contains the response to a successful <a>ListVirtualMFADevices</a> request.
- *     </p>
+ * <p>Contains the response to a successful <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_ListVirtualMFADevices.html">ListVirtualMFADevices</a>
+ *       request. </p>
  * @public
  */
 export interface ListVirtualMFADevicesResponse {
@@ -8311,7 +8382,7 @@ export interface PutUserPolicyRequest {
 export interface RemoveClientIDFromOpenIDConnectProviderRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the IAM OIDC provider resource to remove the
-   *             client ID from. You can get a list of OIDC provider ARNs by using the <a>ListOpenIDConnectProviders</a> operation.</p>
+   *             client ID from. You can get a list of OIDC provider ARNs by using the <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_ListOpenIDConnectProviders.html">ListOpenIDConnectProviders</a> operation.</p>
    *          <p>For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>.</p>
    * @public
    */
@@ -8319,7 +8390,7 @@ export interface RemoveClientIDFromOpenIDConnectProviderRequest {
 
   /**
    * <p>The client ID (also known as audience) to remove from the IAM OIDC provider
-   *             resource. For more information about client IDs, see <a>CreateOpenIDConnectProvider</a>.</p>
+   *             resource. For more information about client IDs, see <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateOpenIDConnectProvider.html">CreateOpenIDConnectProvider</a>.</p>
    * @public
    */
   ClientID: string | undefined;
@@ -8543,8 +8614,8 @@ export type ContextKeyTypeEnum = (typeof ContextKeyTypeEnum)[keyof typeof Contex
  *          specifies the value (or values, if the context key supports multiple values) to use in the
  *          simulation. This information is used when evaluating the <code>Condition</code> elements of
  *          the input policies.</p>
- *          <p>This data type is used as an input parameter to <a>SimulateCustomPolicy</a>
- *          and <a>SimulatePrincipalPolicy</a>.</p>
+ *          <p>This data type is used as an input parameter to <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_SimulateCustomPolicy.html">SimulateCustomPolicy</a>
+ *          and <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_SimulatePrincipalPolicy.html">SimulatePrincipalPolicy</a>.</p>
  * @public
  */
 export interface ContextEntry {
@@ -8843,6 +8914,7 @@ export const CreateSAMLProviderRequestFilterSensitiveLog = (obj: CreateSAMLProvi
 export const ServiceSpecificCredentialFilterSensitiveLog = (obj: ServiceSpecificCredential): any => ({
   ...obj,
   ...(obj.ServicePassword && { ServicePassword: SENSITIVE_STRING }),
+  ...(obj.ServiceCredentialSecret && { ServiceCredentialSecret: SENSITIVE_STRING }),
 });
 
 /**

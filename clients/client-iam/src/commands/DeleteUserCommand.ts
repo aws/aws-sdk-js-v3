@@ -34,31 +34,31 @@ export interface DeleteUserCommandOutput extends __MetadataBearer {}
  *                 user</a>. Before attempting to delete a user, remove the following items:</p>
  *          <ul>
  *             <li>
- *                <p>Password (<a>DeleteLoginProfile</a>)</p>
+ *                <p>Password (<a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_DeleteLoginProfile.html">DeleteLoginProfile</a>)</p>
  *             </li>
  *             <li>
- *                <p>Access keys (<a>DeleteAccessKey</a>)</p>
+ *                <p>Access keys (<a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_DeleteAccessKey.html">DeleteAccessKey</a>)</p>
  *             </li>
  *             <li>
- *                <p>Signing certificate (<a>DeleteSigningCertificate</a>)</p>
+ *                <p>Signing certificate (<a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_DeleteSigningCertificate.html">DeleteSigningCertificate</a>)</p>
  *             </li>
  *             <li>
- *                <p>SSH public key (<a>DeleteSSHPublicKey</a>)</p>
+ *                <p>SSH public key (<a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_DeleteSSHPublicKey.html">DeleteSSHPublicKey</a>)</p>
  *             </li>
  *             <li>
- *                <p>Git credentials (<a>DeleteServiceSpecificCredential</a>)</p>
+ *                <p>Git credentials (<a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_DeleteServiceSpecificCredential.html">DeleteServiceSpecificCredential</a>)</p>
  *             </li>
  *             <li>
- *                <p>Multi-factor authentication (MFA) device (<a>DeactivateMFADevice</a>, <a>DeleteVirtualMFADevice</a>)</p>
+ *                <p>Multi-factor authentication (MFA) device (<a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_DeactivateMFADevice.html">DeactivateMFADevice</a>, <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_DeleteVirtualMFADevice.html">DeleteVirtualMFADevice</a>)</p>
  *             </li>
  *             <li>
- *                <p>Inline policies (<a>DeleteUserPolicy</a>)</p>
+ *                <p>Inline policies (<a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_DeleteUserPolicy.html">DeleteUserPolicy</a>)</p>
  *             </li>
  *             <li>
- *                <p>Attached managed policies (<a>DetachUserPolicy</a>)</p>
+ *                <p>Attached managed policies (<a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_DetachUserPolicy.html">DetachUserPolicy</a>)</p>
  *             </li>
  *             <li>
- *                <p>Group memberships (<a>RemoveUserFromGroup</a>)</p>
+ *                <p>Group memberships (<a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_RemoveUserFromGroup.html">RemoveUserFromGroup</a>)</p>
  *             </li>
  *          </ul>
  * @example

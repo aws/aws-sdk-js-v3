@@ -31,7 +31,7 @@ export interface SetDefaultPolicyVersionCommandOutput extends __MetadataBearer {
  * <p>Sets the specified version of the specified policy as the policy's default (operative)
  *             version.</p>
  *          <p>This operation affects all users, groups, and roles that the policy is attached to. To
- *             list the users, groups, and roles that the policy is attached to, use <a>ListEntitiesForPolicy</a>.</p>
+ *             list the users, groups, and roles that the policy is attached to, use <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_ListEntitiesForPolicy.html">ListEntitiesForPolicy</a>.</p>
  *          <p>For information about managed policies, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html">Managed policies and inline
  *                 policies</a> in the <i>IAM User Guide</i>.</p>
  * @example
