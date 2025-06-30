@@ -28,10 +28,7 @@ export interface ListManagedResourcesCommandInput extends ListManagedResourcesRe
 export interface ListManagedResourcesCommandOutput extends ListManagedResourcesResponse, __MetadataBearer {}
 
 /**
- * <p>Lists all the resources in your Amazon Web Services account in this Amazon Web Services Region that are managed for
- *    		zonal shifts in Amazon Route 53 Application Recovery Controller, and information about them. The information includes the zonal autoshift status for the resource,
- *    		as well as the Amazon Resource Name (ARN), the Availability Zones that each resource is deployed in, and
- *    		the resource name.</p>
+ * <p>Lists all the resources in your Amazon Web Services account in this Amazon Web Services Region that are managed for zonal shifts in Amazon Application Recovery Controller, and information about them. The information includes the zonal autoshift status for the resource, as well as the Amazon Resource Name (ARN), the Availability Zones that each resource is deployed in, and the resource name.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -65,7 +62,7 @@ export interface ListManagedResourcesCommandOutput extends ListManagedResourcesR
  * //           startTime: new Date("TIMESTAMP"), // required
  * //           comment: "STRING_VALUE", // required
  * //           shiftType: "ZONAL_SHIFT" || "PRACTICE_RUN" || "FIS_EXPERIMENT" || "ZONAL_AUTOSHIFT",
- * //           practiceRunOutcome: "FAILED" || "INTERRUPTED" || "PENDING" || "SUCCEEDED",
+ * //           practiceRunOutcome: "FAILED" || "INTERRUPTED" || "PENDING" || "SUCCEEDED" || "CAPACITY_CHECK_FAILED",
  * //         },
  * //       ],
  * //       autoshifts: [ // AutoshiftsInResource

@@ -6,8 +6,8 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ARCZonalShiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ARCZonalShiftClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { CancelZonalShiftRequest, ZonalShift } from "../models/models_0";
-import { de_CancelZonalShiftCommand, se_CancelZonalShiftCommand } from "../protocols/Aws_restJson1";
+import { StartPracticeRunRequest, StartPracticeRunResponse } from "../models/models_0";
+import { de_StartPracticeRunCommand, se_StartPracticeRunCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -17,30 +17,32 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link CancelZonalShiftCommand}.
+ * The input for {@link StartPracticeRunCommand}.
  */
-export interface CancelZonalShiftCommandInput extends CancelZonalShiftRequest {}
+export interface StartPracticeRunCommandInput extends StartPracticeRunRequest {}
 /**
  * @public
  *
- * The output of {@link CancelZonalShiftCommand}.
+ * The output of {@link StartPracticeRunCommand}.
  */
-export interface CancelZonalShiftCommandOutput extends ZonalShift, __MetadataBearer {}
+export interface StartPracticeRunCommandOutput extends StartPracticeRunResponse, __MetadataBearer {}
 
 /**
- * <p>Cancel a zonal shift in Amazon Application Recovery Controller. To cancel the zonal shift, specify the zonal shift ID.</p> <p>A zonal shift can be one that you've started for a resource in your Amazon Web Services account in an Amazon Web Services Region, or it can be a zonal shift started by a practice run with zonal autoshift. </p>
+ * <p>Start an on-demand practice run zonal shift in Amazon Application Recovery Controller. With zonal autoshift enabled, you can start an on-demand practice run to verify preparedness at any time. Amazon Web Services also runs automated practice runs about weekly when you have enabled zonal autoshift.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/r53recovery/latest/dg/arc-zonal-autoshift.considerations.html"> Considerations when you configure zonal autoshift</a> in the Amazon Application Recovery Controller Developer Guide.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ARCZonalShiftClient, CancelZonalShiftCommand } from "@aws-sdk/client-arc-zonal-shift"; // ES Modules import
- * // const { ARCZonalShiftClient, CancelZonalShiftCommand } = require("@aws-sdk/client-arc-zonal-shift"); // CommonJS import
+ * import { ARCZonalShiftClient, StartPracticeRunCommand } from "@aws-sdk/client-arc-zonal-shift"; // ES Modules import
+ * // const { ARCZonalShiftClient, StartPracticeRunCommand } = require("@aws-sdk/client-arc-zonal-shift"); // CommonJS import
  * const client = new ARCZonalShiftClient(config);
- * const input = { // CancelZonalShiftRequest
- *   zonalShiftId: "STRING_VALUE", // required
+ * const input = { // StartPracticeRunRequest
+ *   resourceIdentifier: "STRING_VALUE", // required
+ *   awayFrom: "STRING_VALUE", // required
+ *   comment: "STRING_VALUE", // required
  * };
- * const command = new CancelZonalShiftCommand(input);
+ * const command = new StartPracticeRunCommand(input);
  * const response = await client.send(command);
- * // { // ZonalShift
+ * // { // StartPracticeRunResponse
  * //   zonalShiftId: "STRING_VALUE", // required
  * //   resourceIdentifier: "STRING_VALUE", // required
  * //   awayFrom: "STRING_VALUE", // required
@@ -52,10 +54,10 @@ export interface CancelZonalShiftCommandOutput extends ZonalShift, __MetadataBea
  *
  * ```
  *
- * @param CancelZonalShiftCommandInput - {@link CancelZonalShiftCommandInput}
- * @returns {@link CancelZonalShiftCommandOutput}
- * @see {@link CancelZonalShiftCommandInput} for command's `input` shape.
- * @see {@link CancelZonalShiftCommandOutput} for command's `response` shape.
+ * @param StartPracticeRunCommandInput - {@link StartPracticeRunCommandInput}
+ * @returns {@link StartPracticeRunCommandOutput}
+ * @see {@link StartPracticeRunCommandInput} for command's `input` shape.
+ * @see {@link StartPracticeRunCommandOutput} for command's `response` shape.
  * @see {@link ARCZonalShiftClientResolvedConfig | config} for ARCZonalShiftClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -82,10 +84,10 @@ export interface CancelZonalShiftCommandOutput extends ZonalShift, __MetadataBea
  *
  * @public
  */
-export class CancelZonalShiftCommand extends $Command
+export class StartPracticeRunCommand extends $Command
   .classBuilder<
-    CancelZonalShiftCommandInput,
-    CancelZonalShiftCommandOutput,
+    StartPracticeRunCommandInput,
+    StartPracticeRunCommandOutput,
     ARCZonalShiftClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -97,21 +99,21 @@ export class CancelZonalShiftCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("PercDataPlane", "CancelZonalShift", {})
-  .n("ARCZonalShiftClient", "CancelZonalShiftCommand")
+  .s("PercDataPlane", "StartPracticeRun", {})
+  .n("ARCZonalShiftClient", "StartPracticeRunCommand")
   .f(void 0, void 0)
-  .ser(se_CancelZonalShiftCommand)
-  .de(de_CancelZonalShiftCommand)
+  .ser(se_StartPracticeRunCommand)
+  .de(de_StartPracticeRunCommand)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: CancelZonalShiftRequest;
-      output: ZonalShift;
+      input: StartPracticeRunRequest;
+      output: StartPracticeRunResponse;
     };
     sdk: {
-      input: CancelZonalShiftCommandInput;
-      output: CancelZonalShiftCommandOutput;
+      input: StartPracticeRunCommandInput;
+      output: StartPracticeRunCommandOutput;
     };
   };
 }

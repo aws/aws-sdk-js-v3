@@ -28,8 +28,7 @@ export interface GetManagedResourceCommandInput extends GetManagedResourceReques
 export interface GetManagedResourceCommandOutput extends GetManagedResourceResponse, __MetadataBearer {}
 
 /**
- * <p>Get information about a resource that's been registered for zonal shifts with Amazon Route 53 Application Recovery Controller in this Amazon Web Services Region. Resources that are registered for
- *    		zonal shifts are managed resources in ARC. You can start zonal shifts and configure zonal autoshift for managed resources.</p>
+ * <p>Get information about a resource that's been registered for zonal shifts with Amazon Application Recovery Controller in this Amazon Web Services Region. Resources that are registered for zonal shifts are managed resources in ARC. You can start zonal shifts and configure zonal autoshift for managed resources.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -57,7 +56,7 @@ export interface GetManagedResourceCommandOutput extends GetManagedResourceRespo
  * //       startTime: new Date("TIMESTAMP"), // required
  * //       comment: "STRING_VALUE", // required
  * //       shiftType: "ZONAL_SHIFT" || "PRACTICE_RUN" || "FIS_EXPERIMENT" || "ZONAL_AUTOSHIFT",
- * //       practiceRunOutcome: "FAILED" || "INTERRUPTED" || "PENDING" || "SUCCEEDED",
+ * //       practiceRunOutcome: "FAILED" || "INTERRUPTED" || "PENDING" || "SUCCEEDED" || "CAPACITY_CHECK_FAILED",
  * //     },
  * //   ],
  * //   autoshifts: [ // AutoshiftsInResource

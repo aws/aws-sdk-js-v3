@@ -24,6 +24,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@smithy/types";
 
+import { CancelPracticeRunCommandInput, CancelPracticeRunCommandOutput } from "../commands/CancelPracticeRunCommand";
 import { CancelZonalShiftCommandInput, CancelZonalShiftCommandOutput } from "../commands/CancelZonalShiftCommand";
 import {
   CreatePracticeRunConfigurationCommandInput,
@@ -44,6 +45,7 @@ import {
   ListManagedResourcesCommandOutput,
 } from "../commands/ListManagedResourcesCommand";
 import { ListZonalShiftsCommandInput, ListZonalShiftsCommandOutput } from "../commands/ListZonalShiftsCommand";
+import { StartPracticeRunCommandInput, StartPracticeRunCommandOutput } from "../commands/StartPracticeRunCommand";
 import { StartZonalShiftCommandInput, StartZonalShiftCommandOutput } from "../commands/StartZonalShiftCommand";
 import {
   UpdateAutoshiftObserverNotificationStatusCommandInput,
@@ -73,6 +75,22 @@ import {
   ZonalShiftInResource,
   ZonalShiftSummary,
 } from "../models/models_0";
+
+/**
+ * serializeAws_restJson1CancelPracticeRunCommand
+ */
+export const se_CancelPracticeRunCommand = async (
+  input: CancelPracticeRunCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/practiceruns/{zonalShiftId}");
+  b.p("zonalShiftId", () => input.zonalShiftId!, "{zonalShiftId}", false);
+  let body: any;
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
+};
 
 /**
  * serializeAws_restJson1CancelZonalShiftCommand
@@ -224,6 +242,30 @@ export const se_ListZonalShiftsCommand = async (
 };
 
 /**
+ * serializeAws_restJson1StartPracticeRunCommand
+ */
+export const se_StartPracticeRunCommand = async (
+  input: StartPracticeRunCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/practiceruns");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      awayFrom: [],
+      comment: [],
+      resourceIdentifier: [],
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1StartZonalShiftCommand
  */
 export const se_StartZonalShiftCommand = async (
@@ -341,6 +383,33 @@ export const se_UpdateZonalShiftCommand = async (
   );
   b.m("PATCH").h(headers).b(body);
   return b.build();
+};
+
+/**
+ * deserializeAws_restJson1CancelPracticeRunCommand
+ */
+export const de_CancelPracticeRunCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CancelPracticeRunCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    awayFrom: __expectString,
+    comment: __expectString,
+    expiryTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    resourceIdentifier: __expectString,
+    startTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    status: __expectString,
+    zonalShiftId: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
 };
 
 /**
@@ -526,6 +595,33 @@ export const de_ListZonalShiftsCommand = async (
   const doc = take(data, {
     items: (_) => de_ZonalShiftSummaries(_, context),
     nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1StartPracticeRunCommand
+ */
+export const de_StartPracticeRunCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartPracticeRunCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    awayFrom: __expectString,
+    comment: __expectString,
+    expiryTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    resourceIdentifier: __expectString,
+    startTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    status: __expectString,
+    zonalShiftId: __expectString,
   });
   Object.assign(contents, doc);
   return contents;

@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+export * from "./CancelPracticeRunCommand";
 export * from "./CancelZonalShiftCommand";
 export * from "./CreatePracticeRunConfigurationCommand";
 export * from "./DeletePracticeRunConfigurationCommand";
@@ -7,6 +8,7 @@ export * from "./GetManagedResourceCommand";
 export * from "./ListAutoshiftsCommand";
 export * from "./ListManagedResourcesCommand";
 export * from "./ListZonalShiftsCommand";
+export * from "./StartPracticeRunCommand";
 export * from "./StartZonalShiftCommand";
 export * from "./UpdateAutoshiftObserverNotificationStatusCommand";
 export * from "./UpdatePracticeRunConfigurationCommand";

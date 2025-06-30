@@ -33,9 +33,7 @@ export interface UpdatePracticeRunConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Update a practice run configuration to change one or more of the following: add,
- * 			change, or remove the blocking alarm; change the outcome alarm; or add, change,
- * 			or remove blocking dates or time windows.</p>
+ * <p>Update a practice run configuration to change one or more of the following: add, change, or remove the blocking alarm; change the outcome alarm; or add, change, or remove blocking dates or time windows.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
