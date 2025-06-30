@@ -10,6 +10,7 @@ import {
   _json,
   collectBody,
   decorateServiceException as __decorateServiceException,
+  expectBoolean as __expectBoolean,
   expectInt32 as __expectInt32,
   expectNonNull as __expectNonNull,
   expectNumber as __expectNumber,
@@ -113,6 +114,7 @@ export const se_CopyImageSetCommand = async (
   b.p("sourceImageSetId", () => input.sourceImageSetId!, "{sourceImageSetId}", false);
   const query: any = map({
     [_f]: [() => input.force !== void 0, () => input[_f]!.toString()],
+    [_pTP]: [() => input.promoteToPrimary !== void 0, () => input[_pTP]!.toString()],
   });
   let body: any;
   if (input.copyImageSetInformation !== undefined) {
@@ -729,6 +731,7 @@ export const de_GetImageSetCommand = async (
     imageSetId: __expectString,
     imageSetState: __expectString,
     imageSetWorkflowStatus: __expectString,
+    isPrimary: __expectBoolean,
     message: __expectString,
     overrides: _json,
     updatedAt: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
@@ -1173,6 +1176,7 @@ const se_SearchByAttributeValue = (input: SearchByAttributeValue, context: __Ser
     DICOMStudyId: (value) => ({ DICOMStudyId: value }),
     DICOMStudyInstanceUID: (value) => ({ DICOMStudyInstanceUID: value }),
     createdAt: (value) => ({ createdAt: value.getTime() / 1_000 }),
+    isPrimary: (value) => ({ isPrimary: value }),
     updatedAt: (value) => ({ updatedAt: value.getTime() / 1_000 }),
     _: (name, value) => ({ [name]: value } as any),
   });
@@ -1356,6 +1360,7 @@ const de_ImageSetProperties = (output: any, context: __SerdeContext): ImageSetPr
     deletedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     imageSetId: __expectString,
     imageSetState: __expectString,
+    isPrimary: __expectBoolean,
     message: __expectString,
     overrides: _json,
     updatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
@@ -1395,6 +1400,7 @@ const de_ImageSetsMetadataSummary = (output: any, context: __SerdeContext): Imag
     DICOMTags: _json,
     createdAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     imageSetId: __expectString,
+    isPrimary: __expectBoolean,
     updatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     version: __expectInt32,
   }) as any;
@@ -1429,6 +1435,7 @@ const _lV = "latestVersion";
 const _lVI = "latestVersionId";
 const _mR = "maxResults";
 const _nT = "nextToken";
+const _pTP = "promoteToPrimary";
 const _tK = "tagKeys";
 const _v = "version";
 const _vI = "versionId";

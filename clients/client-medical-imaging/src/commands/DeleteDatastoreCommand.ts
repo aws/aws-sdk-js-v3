@@ -28,10 +28,7 @@ export interface DeleteDatastoreCommandInput extends DeleteDatastoreRequest {}
 export interface DeleteDatastoreCommandOutput extends DeleteDatastoreResponse, __MetadataBearer {}
 
 /**
- * <p>Delete a data store.</p>
- *          <note>
- *             <p>Before a data store can be deleted, you must first delete all image sets within it.</p>
- *          </note>
+ * <p>Delete a data store.</p> <note> <p>Before a data store can be deleted, you must first delete all image sets within it.</p> </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -51,6 +51,7 @@ export interface CopyImageSetCommandOutput extends CopyImageSetResponse, __Metad
  *     },
  *   },
  *   force: true || false,
+ *   promoteToPrimary: true || false,
  * };
  * const command = new CopyImageSetCommand(input);
  * const response = await client.send(command);

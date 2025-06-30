@@ -56,6 +56,7 @@ export interface GetImageSetCommandOutput extends GetImageSetResponse, __Metadat
  * //   overrides: { // Overrides
  * //     forced: true || false,
  * //   },
+ * //   isPrimary: true || false,
  * // };
  *
  * ```

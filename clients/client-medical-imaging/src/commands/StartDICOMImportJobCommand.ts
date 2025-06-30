@@ -28,9 +28,7 @@ export interface StartDICOMImportJobCommandInput extends StartDICOMImportJobRequ
 export interface StartDICOMImportJobCommandOutput extends StartDICOMImportJobResponse, __MetadataBearer {}
 
 /**
- * <p>Start importing bulk data into an <code>ACTIVE</code> data store. The import job imports DICOM P10 files
- *            found in the S3 prefix specified by the <code>inputS3Uri</code> parameter. The import job stores
- *            processing results in the file specified by the <code>outputS3Uri</code> parameter.</p>
+ * <p>Start importing bulk data into an <code>ACTIVE</code> data store. The import job imports DICOM P10 files found in the S3 prefix specified by the <code>inputS3Uri</code> parameter. The import job stores processing results in the file specified by the <code>outputS3Uri</code> parameter.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -64,8 +64,7 @@ export interface CopyDestinationImageSet {
 }
 
 /**
- * <p>Contains copiable <code>Attributes</code> structure and wraps information related to specific copy use cases.
- *             For example, when copying subsets.</p>
+ * <p>Contains copiable <code>Attributes</code> structure and wraps information related to specific copy use cases. For example, when copying subsets.</p>
  * @public
  */
 export interface MetadataCopies {
@@ -88,8 +87,7 @@ export interface CopySourceImageSetInformation {
   latestVersionId: string | undefined;
 
   /**
-   * <p>Contains <code>MetadataCopies</code> structure and wraps information related to specific copy use cases.
-   *             For example, when copying subsets.</p>
+   * <p>Contains <code>MetadataCopies</code> structure and wraps information related to specific copy use cases. For example, when copying subsets.</p>
    * @public
    */
   DICOMCopies?: MetadataCopies | undefined;
@@ -136,11 +134,16 @@ export interface CopyImageSetRequest {
   copyImageSetInformation: CopyImageSetInformation | undefined;
 
   /**
-   * <p>Setting this flag will force the <code>CopyImageSet</code> operation, even if Patient, Study, or Series level
-   *             metadata are mismatched across the <code>sourceImageSet</code> and <code>destinationImageSet</code>.</p>
+   * <p>Providing this parameter will force completion of the <code>CopyImageSet</code> operation, even if there are inconsistent Patient, Study, and/or Series level metadata elements between the <code>sourceImageSet</code> and <code>destinationImageSet</code>.</p>
    * @public
    */
   force?: boolean | undefined;
+
+  /**
+   * <p>Providing this parameter will configure the <code>CopyImageSet</code> operation to promote the given image set to the primary DICOM hierarchy. If successful, a new primary image set ID will be returned as the destination image set.</p>
+   * @public
+   */
+  promoteToPrimary?: boolean | undefined;
 }
 
 /**
@@ -844,8 +847,7 @@ export interface GetImageFrameResponse {
   imageFrameBlob: StreamingBlobTypes | undefined;
 
   /**
-   * <p>The format in which the image frame information is returned to the customer. Default is
-   *            <code>application/octet-stream</code>.</p>
+   * <p>The format in which the image frame information is returned to the customer. Default is <code>application/octet-stream</code>.</p> <note> <ul> <li> <p>If the stored transfer syntax is <code>1.2.840.10008.1.2.1</code>, the returned <code>contentType</code> is <code>application/octet-stream</code>.</p> </li> </ul> <ul> <li> <p>If the stored transfer syntax is <code>1.2.840.10008.1.2.4.50</code>, the returned <code>contentType</code> is <code>image/jpeg</code>.</p> </li> </ul> <ul> <li> <p>If the stored transfer syntax is <code>1.2.840.10008.1.2.4.91</code>, the returned <code>contentType</code> is <code>image/j2c</code>.</p> </li> </ul> <ul> <li> <p>If the stored transfer syntax is MPEG2, <code>1.2.840.10008.1.2.4.100</code>, <code>1.2.840.10008.1.2.4.100.1</code>, <code>1.2.840.10008.1.2.4.101</code>, or <code>1.2.840.10008.1.2.4.101.1</code>, the returned <code>contentType</code> is <code>video/mpeg</code>.</p> </li> </ul> <ul> <li> <p>If the stored transfer syntax is MPEG-4 AVC/H.264, UID <code>1.2.840.10008.1.2.4.102</code>, <code>1.2.840.10008.1.2.4.102.1</code>, <code>1.2.840.10008.1.2.4.103</code>, <code>1.2.840.10008.1.2.4.103.1</code>, <code>1.2.840.10008.1.2.4.104</code>, <code>1.2.840.10008.1.2.4.104.1</code>, <code>1.2.840.10008.1.2.4.105</code>, <code>1.2.840.10008.1.2.4.105.1</code>, <code>1.2.840.10008.1.2.4.106</code>, or <code>1.2.840.10008.1.2.4.106.1</code>, the returned <code>contentType</code> is <code>video/mp4</code>.</p> </li> </ul> <ul> <li> <p>If the stored transfer syntax is HEVC/H.265, UID <code>1.2.840.10008.1.2.4.107</code> or <code>1.2.840.10008.1.2.4.108</code>, the returned <code>contentType</code> is <code>video/H256</code>.</p> </li> </ul> <ul> <li> <p>If the stored transfer syntax is <code>1.2.840.10008.1.2.4.202</code> or if the stored transfer syntax is <i>missing</i>, the returned <code>contentType</code> is <code>image/jph</code>.</p> </li> </ul> <ul> <li> <p>If the stored transfer syntax is <code>1.2.840.10008.1.2.4.203</code>, the returned contentType is <code>image/jphc</code>.</p> </li> </ul> </note>
    * @public
    */
   contentType?: string | undefined;
@@ -875,14 +877,12 @@ export interface GetImageSetRequest {
 }
 
 /**
- * <p>Specifies the overrides used in image set modification calls to <code>CopyImageSet</code> and
- *                 <code>UpdateImageSetMetadata</code>.</p>
+ * <p>Specifies the overrides used in image set modification calls to <code>CopyImageSet</code> and <code>UpdateImageSetMetadata</code>.</p>
  * @public
  */
 export interface Overrides {
   /**
-   * <p>Setting this flag will force the <code>CopyImageSet</code> and <code>UpdateImageSetMetadata</code>
-   *             operations, even if Patient, Study, or Series level metadata are mismatched.</p>
+   * <p>Providing this parameter will force completion of the <code>CopyImageSet</code> and <code>UpdateImageSetMetadata</code> actions, even if metadata is inconsistent at the Patient, Study, and/or Series levels.</p>
    * @public
    */
   forced?: boolean | undefined;
@@ -953,12 +953,16 @@ export interface GetImageSetResponse {
   imageSetArn?: string | undefined;
 
   /**
-   * <p>This object contains the details of any overrides used while creating a specific image set version.
-   *             If an image set was copied or updated using the <code>force</code> flag, this object will contain the
-   *             <code>forced</code> flag.</p>
+   * <p>This object contains the details of any overrides used while creating a specific image set version. If an image set was copied or updated using the <code>force</code> flag, this object will contain the <code>forced</code> flag.</p>
    * @public
    */
   overrides?: Overrides | undefined;
+
+  /**
+   * <p>The flag to determine whether the image set is primary or not.</p>
+   * @public
+   */
+  isPrimary?: boolean | undefined;
 }
 
 /**
@@ -1190,12 +1194,16 @@ export interface ImageSetProperties {
   message?: string | undefined;
 
   /**
-   * <p>Contains details on overrides used when creating the returned version of an image set.
-   *             For example, if <code>forced</code> exists, the <code>forced</code> flag was used when
-   *             creating the image set.</p>
+   * <p>Contains details on overrides used when creating the returned version of an image set. For example, if <code>forced</code> exists, the <code>forced</code> flag was used when creating the image set.</p>
    * @public
    */
   overrides?: Overrides | undefined;
+
+  /**
+   * <p>The flag to determine whether the image set is primary or not.</p>
+   * @public
+   */
+  isPrimary?: boolean | undefined;
 }
 
 /**
@@ -1281,6 +1289,7 @@ export type SearchByAttributeValue =
   | SearchByAttributeValue.DICOMStudyIdMember
   | SearchByAttributeValue.DICOMStudyInstanceUIDMember
   | SearchByAttributeValue.CreatedAtMember
+  | SearchByAttributeValue.IsPrimaryMember
   | SearchByAttributeValue.UpdatedAtMember
   | SearchByAttributeValue.$UnknownMember;
 
@@ -1301,6 +1310,7 @@ export namespace SearchByAttributeValue {
     createdAt?: never;
     updatedAt?: never;
     DICOMStudyDateAndTime?: never;
+    isPrimary?: never;
     $unknown?: never;
   }
 
@@ -1317,6 +1327,7 @@ export namespace SearchByAttributeValue {
     createdAt?: never;
     updatedAt?: never;
     DICOMStudyDateAndTime?: never;
+    isPrimary?: never;
     $unknown?: never;
   }
 
@@ -1333,6 +1344,7 @@ export namespace SearchByAttributeValue {
     createdAt?: never;
     updatedAt?: never;
     DICOMStudyDateAndTime?: never;
+    isPrimary?: never;
     $unknown?: never;
   }
 
@@ -1349,6 +1361,7 @@ export namespace SearchByAttributeValue {
     createdAt?: never;
     updatedAt?: never;
     DICOMStudyDateAndTime?: never;
+    isPrimary?: never;
     $unknown?: never;
   }
 
@@ -1365,6 +1378,7 @@ export namespace SearchByAttributeValue {
     createdAt?: never;
     updatedAt?: never;
     DICOMStudyDateAndTime?: never;
+    isPrimary?: never;
     $unknown?: never;
   }
 
@@ -1381,6 +1395,7 @@ export namespace SearchByAttributeValue {
     createdAt: Date;
     updatedAt?: never;
     DICOMStudyDateAndTime?: never;
+    isPrimary?: never;
     $unknown?: never;
   }
 
@@ -1397,6 +1412,7 @@ export namespace SearchByAttributeValue {
     createdAt?: never;
     updatedAt: Date;
     DICOMStudyDateAndTime?: never;
+    isPrimary?: never;
     $unknown?: never;
   }
 
@@ -1413,6 +1429,24 @@ export namespace SearchByAttributeValue {
     createdAt?: never;
     updatedAt?: never;
     DICOMStudyDateAndTime: DICOMStudyDateAndTime;
+    isPrimary?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The primary image set flag provided for search.</p>
+   * @public
+   */
+  export interface IsPrimaryMember {
+    DICOMPatientId?: never;
+    DICOMAccessionNumber?: never;
+    DICOMStudyId?: never;
+    DICOMStudyInstanceUID?: never;
+    DICOMSeriesInstanceUID?: never;
+    createdAt?: never;
+    updatedAt?: never;
+    DICOMStudyDateAndTime?: never;
+    isPrimary: boolean;
     $unknown?: never;
   }
 
@@ -1428,6 +1462,7 @@ export namespace SearchByAttributeValue {
     createdAt?: never;
     updatedAt?: never;
     DICOMStudyDateAndTime?: never;
+    isPrimary?: never;
     $unknown: [string, any];
   }
 
@@ -1440,6 +1475,7 @@ export namespace SearchByAttributeValue {
     createdAt: (value: Date) => T;
     updatedAt: (value: Date) => T;
     DICOMStudyDateAndTime: (value: DICOMStudyDateAndTime) => T;
+    isPrimary: (value: boolean) => T;
     _: (name: string, value: any) => T;
   }
 
@@ -1452,6 +1488,7 @@ export namespace SearchByAttributeValue {
     if (value.createdAt !== undefined) return visitor.createdAt(value.createdAt);
     if (value.updatedAt !== undefined) return visitor.updatedAt(value.updatedAt);
     if (value.DICOMStudyDateAndTime !== undefined) return visitor.DICOMStudyDateAndTime(value.DICOMStudyDateAndTime);
+    if (value.isPrimary !== undefined) return visitor.isPrimary(value.isPrimary);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
 }
@@ -1562,16 +1599,14 @@ export interface SearchImageSetsRequest {
   maxResults?: number | undefined;
 
   /**
-   * <p>The token used for pagination of results returned in the response. Use the token returned from the previous
-   *            request to continue results where the previous request ended.</p>
+   * <p>The token used for pagination of results returned in the response. Use the token returned from the previous request to continue results where the previous request ended.</p>
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * <p>The DICOM attributes returned as a part of a response. Each image set has these properties
- *            as part of a search result.</p>
+ * <p>The DICOM attributes returned as a part of a response. Each image set has these properties as part of a search result.</p>
  * @public
  */
 export interface DICOMTags {
@@ -1690,8 +1725,7 @@ export interface ImageSetsMetadataSummary {
   version?: number | undefined;
 
   /**
-   * <p>The time an image set is created. Sample creation
-   *             date is provided in <code>1985-04-12T23:20:50.52Z</code> format.</p>
+   * <p>The time an image set is created. Sample creation date is provided in <code>1985-04-12T23:20:50.52Z</code> format.</p>
    * @public
    */
   createdAt?: Date | undefined;
@@ -1707,6 +1741,12 @@ export interface ImageSetsMetadataSummary {
    * @public
    */
   DICOMTags?: DICOMTags | undefined;
+
+  /**
+   * <p>The flag to determine whether the image set is primary or not.</p>
+   * @public
+   */
+  isPrimary?: boolean | undefined;
 }
 
 /**
@@ -1894,11 +1934,7 @@ export namespace MetadataUpdates {
   }
 
   /**
-   * <p>Specifies the previous image set version ID to revert the current image set back to.</p>
-   *          <note>
-   *             <p>You must provide either <code>revertToVersionId</code> or <code>DICOMUpdates</code> in your request. A
-   *                 <code>ValidationException</code> error is thrown if both parameters are provided at the same time.</p>
-   *          </note>
+   * <p>Specifies the previous image set version ID to revert the current image set back to.</p> <note> <p>You must provide either <code>revertToVersionId</code> or <code>DICOMUpdates</code> in your request. A <code>ValidationException</code> error is thrown if both parameters are provided at the same time.</p> </note>
    * @public
    */
   export interface RevertToVersionIdMember {
@@ -1952,17 +1988,7 @@ export interface UpdateImageSetMetadataRequest {
   latestVersionId: string | undefined;
 
   /**
-   * <p>Setting this flag will force the <code>UpdateImageSetMetadata</code> operation for the following attributes:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>Tag.StudyInstanceUID</code>, <code>Tag.SeriesInstanceUID</code>, <code>Tag.SOPInstanceUID</code>, and <code>Tag.StudyID</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>Adding, removing, or updating private tags for an individual SOP Instance</p>
-   *             </li>
-   *          </ul>
+   * <p>Setting this flag will force the <code>UpdateImageSetMetadata</code> operation for the following attributes:</p> <ul> <li> <p> <code>Tag.StudyInstanceUID</code>, <code>Tag.SeriesInstanceUID</code>, <code>Tag.SOPInstanceUID</code>, and <code>Tag.StudyID</code> </p> </li> <li> <p>Adding, removing, or updating private tags for an individual SOP Instance</p> </li> </ul>
    * @public
    */
   force?: boolean | undefined;
@@ -2097,6 +2123,7 @@ export const SearchByAttributeValueFilterSensitiveLog = (obj: SearchByAttributeV
   if (obj.updatedAt !== undefined) return { updatedAt: obj.updatedAt };
   if (obj.DICOMStudyDateAndTime !== undefined)
     return { DICOMStudyDateAndTime: DICOMStudyDateAndTimeFilterSensitiveLog(obj.DICOMStudyDateAndTime) };
+  if (obj.isPrimary !== undefined) return { isPrimary: obj.isPrimary };
   if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
 };
 

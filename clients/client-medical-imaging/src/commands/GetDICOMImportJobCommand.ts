@@ -28,13 +28,7 @@ export interface GetDICOMImportJobCommandInput extends GetDICOMImportJobRequest 
 export interface GetDICOMImportJobCommandOutput extends GetDICOMImportJobResponse, __MetadataBearer {}
 
 /**
- * <p>Get the import job properties to learn more about the job or job progress.</p>
- *          <note>
- *             <p>The <code>jobStatus</code> refers to the execution of the import job. Therefore, an import job can return a <code>jobStatus</code> as
- *                <code>COMPLETED</code> even if validation issues are discovered during the import process. If a <code>jobStatus</code> returns
- *                as <code>COMPLETED</code>, we still recommend you review the output manifests written to S3, as they provide details on the success
- *                or failure of individual P10 object imports.</p>
- *          </note>
+ * <p>Get the import job properties to learn more about the job or job progress.</p> <note> <p>The <code>jobStatus</code> refers to the execution of the import job. Therefore, an import job can return a <code>jobStatus</code> as <code>COMPLETED</code> even if validation issues are discovered during the import process. If a <code>jobStatus</code> returns as <code>COMPLETED</code>, we still recommend you review the output manifests written to S3, as they provide details on the success or failure of individual P10 object imports.</p> </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

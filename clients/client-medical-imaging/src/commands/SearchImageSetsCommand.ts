@@ -33,15 +33,7 @@ export interface SearchImageSetsCommandInput extends SearchImageSetsRequest {}
 export interface SearchImageSetsCommandOutput extends SearchImageSetsResponse, __MetadataBearer {}
 
 /**
- * <p>Search image sets based on defined input attributes.</p>
- *          <note>
- *             <p>
- *                <code>SearchImageSets</code> accepts a single search query parameter and returns a paginated
- *                response of all image sets that have the matching criteria. All date range queries must be input
- *                as <code>(lowerBound, upperBound)</code>.</p>
- *             <p>By default, <code>SearchImageSets</code> uses the <code>updatedAt</code> field for sorting
- *                in descending order from newest to oldest.</p>
- *          </note>
+ * <p>Search image sets based on defined input attributes.</p> <note> <p> <code>SearchImageSets</code> accepts a single search query parameter and returns a paginated response of all image sets that have the matching criteria. All date range queries must be input as <code>(lowerBound, upperBound)</code>.</p> <p>By default, <code>SearchImageSets</code> uses the <code>updatedAt</code> field for sorting in descending order from newest to oldest.</p> </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -66,6 +58,7 @@ export interface SearchImageSetsCommandOutput extends SearchImageSetsResponse, _
  *               DICOMStudyDate: "STRING_VALUE", // required
  *               DICOMStudyTime: "STRING_VALUE",
  *             },
+ *             isPrimary: true || false,
  *           },
  *         ],
  *         operator: "EQUAL" || "BETWEEN", // required
@@ -106,6 +99,7 @@ export interface SearchImageSetsCommandOutput extends SearchImageSetsResponse, _
  * //         DICOMStudyDate: "STRING_VALUE",
  * //         DICOMStudyTime: "STRING_VALUE",
  * //       },
+ * //       isPrimary: true || false,
  * //     },
  * //   ],
  * //   sort: { // Sort

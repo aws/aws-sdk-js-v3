@@ -57,6 +57,7 @@ export interface ListImageSetVersionsCommandOutput extends ListImageSetVersionsR
  * //       overrides: { // Overrides
  * //         forced: true || false,
  * //       },
+ * //       isPrimary: true || false,
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",
