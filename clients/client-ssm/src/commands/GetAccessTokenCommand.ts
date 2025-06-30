@@ -72,7 +72,8 @@ export interface GetAccessTokenCommandOutput extends GetAccessTokenResponse, __M
  *  <p>The specified parameter to be shared could not be found.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request or operation couldn't be performed because the service is throttling requests.</p>
+ *  <p>The request or operation couldn't be performed because the service is throttling
+ *    requests.</p>
  *
  * @throws {@link ValidationException} (client fault)
  *  <p>The request isn't valid. Verify that you entered valid contents for the command and try

@@ -3,6 +3,7 @@ import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "
 
 import {
   AccessRequestStatus,
+  AccessType,
   AlarmConfiguration,
   AlarmStateInformation,
   AssociationComplianceSeverity,
@@ -20,6 +21,8 @@ import {
   InstanceAssociationOutputLocation,
   MaintenanceWindowExecutionStatus,
   MaintenanceWindowFilter,
+  MaintenanceWindowIdentity,
+  MaintenanceWindowIdentityFilterSensitiveLog,
   MaintenanceWindowTaskType,
   MetadataValue,
   OperatingSystem,
@@ -49,6 +52,24 @@ import {
 } from "./models_0";
 
 import { SSMServiceException as __BaseException } from "./SSMServiceException";
+
+/**
+ * @public
+ */
+export interface DescribeMaintenanceWindowsResult {
+  /**
+   * <p>Information about the maintenance windows.</p>
+   * @public
+   */
+  WindowIdentities?: MaintenanceWindowIdentity[] | undefined;
+
+  /**
+   * <p>The token to use when requesting the next set of items. If there are no additional items to
+   *    return, the string is empty.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
 
 /**
  * @public
@@ -1657,6 +1678,7 @@ export interface DescribePatchPropertiesResult {
  * @enum
  */
 export const SessionFilterKey = {
+  ACCESS_TYPE: "AccessType",
   INVOKED_AFTER: "InvokedAfter",
   INVOKED_BEFORE: "InvokedBefore",
   OWNER: "Owner",
@@ -1883,6 +1905,14 @@ export interface Session {
    * @public
    */
   MaxSessionDuration?: string | undefined;
+
+  /**
+   * <p>
+   *             <code>Standard</code> access type is the default for Session Manager sessions.
+   *     <code>JustInTime</code> is the access type for <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-just-in-time-node-access.html">Just-in-time node access</a>. </p>
+   * @public
+   */
+  AccessType?: AccessType | undefined;
 }
 
 /**
@@ -1962,7 +1992,8 @@ export interface GetAccessTokenRequest {
 }
 
 /**
- * <p>The temporary security credentials, which include an access key ID, a secret access key, and a security (or session) token.</p>
+ * <p>The temporary security credentials, which include an access key ID, a secret access key, and
+ *    a security (or session) token.</p>
  * @public
  */
 export interface Credentials {
@@ -1996,7 +2027,8 @@ export interface Credentials {
  */
 export interface GetAccessTokenResponse {
   /**
-   * <p>The temporary security credentials which can be used to start just-in-time node access sessions.</p>
+   * <p>The temporary security credentials which can be used to start just-in-time node access
+   *    sessions.</p>
    * @public
    */
   Credentials?: Credentials | undefined;
@@ -2009,7 +2041,8 @@ export interface GetAccessTokenResponse {
 }
 
 /**
- * <p>The request or operation couldn't be performed because the service is throttling requests.</p>
+ * <p>The request or operation couldn't be performed because the service is throttling
+ *    requests.</p>
  * @public
  */
 export class ThrottlingException extends __BaseException {
@@ -10645,21 +10678,14 @@ export interface RegisterPatchBaselineForPatchGroupRequest {
 }
 
 /**
- * @public
+ * @internal
  */
-export interface RegisterPatchBaselineForPatchGroupResult {
-  /**
-   * <p>The ID of the patch baseline the patch group was registered with.</p>
-   * @public
-   */
-  BaselineId?: string | undefined;
-
-  /**
-   * <p>The name of the patch group registered with the patch baseline.</p>
-   * @public
-   */
-  PatchGroup?: string | undefined;
-}
+export const DescribeMaintenanceWindowsResultFilterSensitiveLog = (obj: DescribeMaintenanceWindowsResult): any => ({
+  ...obj,
+  ...(obj.WindowIdentities && {
+    WindowIdentities: obj.WindowIdentities.map((item) => MaintenanceWindowIdentityFilterSensitiveLog(item)),
+  }),
+});
 
 /**
  * @internal

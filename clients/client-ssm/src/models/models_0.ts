@@ -43,6 +43,20 @@ export const AccessRequestStatus = {
 export type AccessRequestStatus = (typeof AccessRequestStatus)[keyof typeof AccessRequestStatus];
 
 /**
+ * @public
+ * @enum
+ */
+export const AccessType = {
+  JUSTINTIME: "JustInTime",
+  STANDARD: "Standard",
+} as const;
+
+/**
+ * @public
+ */
+export type AccessType = (typeof AccessType)[keyof typeof AccessType];
+
+/**
  * <p>Information includes the Amazon Web Services account ID where the current document is shared and the
  *    version shared with that account.</p>
  * @public
@@ -7115,6 +7129,10 @@ export interface DescribeAvailablePatchesResult {
 export interface DescribeDocumentRequest {
   /**
    * <p>The name of the SSM document.</p>
+   *          <note>
+   *             <p>If you're calling a shared SSM document from a different Amazon Web Services account,
+   *      <code>Name</code> is the full Amazon Resource Name (ARN) of the document.</p>
+   *          </note>
    * @public
    */
   Name: string | undefined;
@@ -7164,7 +7182,7 @@ export type DocumentPermissionType = (typeof DocumentPermissionType)[keyof typeo
  */
 export interface DescribeDocumentPermissionRequest {
   /**
-   * <p>The name of the document for which you are the owner.</p>
+   * <p>The name of the document for which you are the owner. </p>
    * @public
    */
   Name: string | undefined;
@@ -7197,7 +7215,7 @@ export interface DescribeDocumentPermissionRequest {
 export interface DescribeDocumentPermissionResponse {
   /**
    * <p>The account IDs that have permission to use this document. The ID can be either an
-   *    Amazon Web Services account or <i>All</i>.</p>
+   *    Amazon Web Services account number or <code>all</code>.</p>
    * @public
    */
   AccountIds?: string[] | undefined;
@@ -7598,7 +7616,7 @@ export interface InstanceInformationStringFilter {
   /**
    * <p>The filter key name to describe your managed nodes.</p>
    *          <p>Valid filter key values: ActivationIds | AgentVersion | AssociationStatus | IamRole |
-   *    InstanceIds | PingStatus | PlatformTypes | ResourceType | SourceIds | SourceTypes | "tag-key" |
+   *    InstanceIds | PingStatus | PlatformType | ResourceType | SourceIds | SourceTypes | "tag-key" |
    *     "tag:<code>\{keyname\}</code>
    *          </p>
    *          <ul>
@@ -9627,24 +9645,6 @@ export interface MaintenanceWindowIdentity {
 }
 
 /**
- * @public
- */
-export interface DescribeMaintenanceWindowsResult {
-  /**
-   * <p>Information about the maintenance windows.</p>
-   * @public
-   */
-  WindowIdentities?: MaintenanceWindowIdentity[] | undefined;
-
-  /**
-   * <p>The token to use when requesting the next set of items. If there are no additional items to
-   *    return, the string is empty.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
  * @internal
  */
 export const CreateAssociationRequestFilterSensitiveLog = (obj: CreateAssociationRequest): any => ({
@@ -9836,14 +9836,4 @@ export const DescribeMaintenanceWindowExecutionTaskInvocationsResultFilterSensit
 export const MaintenanceWindowIdentityFilterSensitiveLog = (obj: MaintenanceWindowIdentity): any => ({
   ...obj,
   ...(obj.Description && { Description: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const DescribeMaintenanceWindowsResultFilterSensitiveLog = (obj: DescribeMaintenanceWindowsResult): any => ({
-  ...obj,
-  ...(obj.WindowIdentities && {
-    WindowIdentities: obj.WindowIdentities.map((item) => MaintenanceWindowIdentityFilterSensitiveLog(item)),
-  }),
 });

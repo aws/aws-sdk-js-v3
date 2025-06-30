@@ -5,10 +5,8 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  RegisterPatchBaselineForPatchGroupRequest,
-  RegisterPatchBaselineForPatchGroupResult,
-} from "../models/models_1";
+import { RegisterPatchBaselineForPatchGroupRequest } from "../models/models_1";
+import { RegisterPatchBaselineForPatchGroupResult } from "../models/models_2";
 import {
   de_RegisterPatchBaselineForPatchGroupCommand,
   se_RegisterPatchBaselineForPatchGroupCommand,

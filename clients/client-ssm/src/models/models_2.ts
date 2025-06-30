@@ -65,6 +65,23 @@ import { SSMServiceException as __BaseException } from "./SSMServiceException";
 /**
  * @public
  */
+export interface RegisterPatchBaselineForPatchGroupResult {
+  /**
+   * <p>The ID of the patch baseline the patch group was registered with.</p>
+   * @public
+   */
+  BaselineId?: string | undefined;
+
+  /**
+   * <p>The name of the patch group registered with the patch baseline.</p>
+   * @public
+   */
+  PatchGroup?: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface RegisterTargetWithMaintenanceWindowRequest {
   /**
    * <p>The ID of the maintenance window the target should be registered with.</p>
@@ -908,7 +925,8 @@ export interface SendCommandResult {
 }
 
 /**
- * <p>The request exceeds the service quota. Service quotas, also referred to as limits, are the maximum number of service resources or operations for your Amazon Web Services account.</p>
+ * <p>The request exceeds the service quota. Service quotas, also referred to as limits, are the
+ *    maximum number of service resources or operations for your Amazon Web Services account.</p>
  * @public
  */
 export class ServiceQuotaExceededException extends __BaseException {

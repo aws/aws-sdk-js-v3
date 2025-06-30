@@ -42,7 +42,7 @@ export interface DescribeSessionsCommandOutput extends DescribeSessionsResponse,
  *   NextToken: "STRING_VALUE",
  *   Filters: [ // SessionFilterList
  *     { // SessionFilter
- *       key: "InvokedAfter" || "InvokedBefore" || "Target" || "Owner" || "Status" || "SessionId", // required
+ *       key: "InvokedAfter" || "InvokedBefore" || "Target" || "Owner" || "Status" || "SessionId" || "AccessType", // required
  *       value: "STRING_VALUE", // required
  *     },
  *   ],
@@ -66,6 +66,7 @@ export interface DescribeSessionsCommandOutput extends DescribeSessionsResponse,
  * //         CloudWatchOutputUrl: "STRING_VALUE",
  * //       },
  * //       MaxSessionDuration: "STRING_VALUE",
+ * //       AccessType: "Standard" || "JustInTime",
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",

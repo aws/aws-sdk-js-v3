@@ -12109,6 +12109,7 @@ const de_ServiceSetting = (output: any, context: __SerdeContext): ServiceSetting
  */
 const de_Session = (output: any, context: __SerdeContext): Session => {
   return take(output, {
+    AccessType: __expectString,
     Details: __expectString,
     DocumentName: __expectString,
     EndDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
