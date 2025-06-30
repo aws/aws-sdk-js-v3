@@ -45,8 +45,8 @@ export interface GetSiteAddressCommandOutput extends GetSiteAddressOutput, __Met
  * //   SiteId: "STRING_VALUE",
  * //   AddressType: "SHIPPING_ADDRESS" || "OPERATING_ADDRESS",
  * //   Address: { // Address
- * //     ContactName: "STRING_VALUE",
- * //     ContactPhoneNumber: "STRING_VALUE",
+ * //     ContactName: "STRING_VALUE", // required
+ * //     ContactPhoneNumber: "STRING_VALUE", // required
  * //     AddressLine1: "STRING_VALUE", // required
  * //     AddressLine2: "STRING_VALUE",
  * //     AddressLine3: "STRING_VALUE",

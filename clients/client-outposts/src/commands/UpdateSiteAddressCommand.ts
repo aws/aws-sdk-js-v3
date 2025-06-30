@@ -43,8 +43,8 @@ export interface UpdateSiteAddressCommandOutput extends UpdateSiteAddressOutput,
  *   SiteId: "STRING_VALUE", // required
  *   AddressType: "SHIPPING_ADDRESS" || "OPERATING_ADDRESS", // required
  *   Address: { // Address
- *     ContactName: "STRING_VALUE",
- *     ContactPhoneNumber: "STRING_VALUE",
+ *     ContactName: "STRING_VALUE", // required
+ *     ContactPhoneNumber: "STRING_VALUE", // required
  *     AddressLine1: "STRING_VALUE", // required
  *     AddressLine2: "STRING_VALUE",
  *     AddressLine3: "STRING_VALUE",
@@ -61,8 +61,8 @@ export interface UpdateSiteAddressCommandOutput extends UpdateSiteAddressOutput,
  * // { // UpdateSiteAddressOutput
  * //   AddressType: "SHIPPING_ADDRESS" || "OPERATING_ADDRESS",
  * //   Address: { // Address
- * //     ContactName: "STRING_VALUE",
- * //     ContactPhoneNumber: "STRING_VALUE",
+ * //     ContactName: "STRING_VALUE", // required
+ * //     ContactPhoneNumber: "STRING_VALUE", // required
  * //     AddressLine1: "STRING_VALUE", // required
  * //     AddressLine2: "STRING_VALUE",
  * //     AddressLine3: "STRING_VALUE",

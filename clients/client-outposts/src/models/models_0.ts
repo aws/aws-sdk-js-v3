@@ -34,13 +34,13 @@ export interface Address {
    * <p>The name of the contact.</p>
    * @public
    */
-  ContactName?: string | undefined;
+  ContactName: string | undefined;
 
   /**
    * <p>The phone number of the contact.</p>
    * @public
    */
-  ContactPhoneNumber?: string | undefined;
+  ContactPhoneNumber: string | undefined;
 
   /**
    * <p>The first line of the address.</p>
