@@ -1,17 +1,19 @@
 import { CloudWatchClient, GetDashboardCommand } from "@aws-sdk/client-cloudwatch";
-import { afterAll, beforeAll, describe, expect, test as it } from "vitest";
+import { beforeAll, describe, expect, test as it } from "vitest";
+
+import { getIntegTestResources } from "../../../../tests/e2e/get-integ-test-resources";
 
 describe("CloudWatch Query Compatibility E2E", () => {
   let client: CloudWatchClient;
+  let region: string;
 
-  beforeAll(() => {
-    client = new CloudWatchClient({
-      region: "us-west-2",
-    });
-  });
+  beforeAll(async () => {
+    const integTestResourcesEnv = await getIntegTestResources();
+    Object.assign(process.env, integTestResourcesEnv);
 
-  afterAll(() => {
-    client.destroy();
+    region = process?.env?.AWS_SMOKE_TEST_REGION as string;
+
+    client = new CloudWatchClient({ region });
   });
 
   it("AmbiguousErrorResolution", async () => {
