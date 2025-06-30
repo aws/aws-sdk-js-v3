@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.840.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.839.0...v3.840.0) (2025-06-30)
+
+
+### Features
+
+* **client-arc-zonal-shift:** Added support for on-demand practice runs and balanced capacity checks in ARC autoshift practice. ([95ccc93](https://github.com/aws/aws-sdk-js-v3/commit/95ccc935404ae5ede2652f131ecf1acc82bc0d63))
+
+
+
+
+
 # [3.839.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.838.0...v3.839.0) (2025-06-27)
 
 **Note:** Version bump only for package @aws-sdk/client-arc-zonal-shift

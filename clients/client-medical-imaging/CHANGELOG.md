@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.840.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.839.0...v3.840.0) (2025-06-30)
+
+
+### Features
+
+* **client-medical-imaging:** Added new fields to support the concept of primary image sets within the storage hierarchy. ([b28be5c](https://github.com/aws/aws-sdk-js-v3/commit/b28be5c582c396bffff58cd420b655db8ad7aaac))
+
+
+
+
+
 # [3.839.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.838.0...v3.839.0) (2025-06-27)
 
 **Note:** Version bump only for package @aws-sdk/client-medical-imaging

@@ -3,6 +3,38 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.840.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.839.0...v3.840.0) (2025-06-30)
+
+
+### Features
+
+* **client-arc-zonal-shift:** Added support for on-demand practice runs and balanced capacity checks in ARC autoshift practice. ([95ccc93](https://github.com/aws/aws-sdk-js-v3/commit/95ccc935404ae5ede2652f131ecf1acc82bc0d63))
+* **client-b2bi:** Updated APIs to support inbound EDI split capabilities and additional Partnership-level configurations of generated EDI files' contents and format. ([15f931b](https://github.com/aws/aws-sdk-js-v3/commit/15f931b5e0dcc16b53a8ff33d154919698da076e))
+* **client-bedrock-runtime:** Add API Key and document citations support for Bedrock Runtime APIs ([3e92ce7](https://github.com/aws/aws-sdk-js-v3/commit/3e92ce782ebab55e98768dcc65fb5bb509d17c5f))
+* **client-bedrock:** Add support for API Keys, Re-Ranker, implicit filter for RAG / KB evaluation for Bedrock APIs. ([8587fbb](https://github.com/aws/aws-sdk-js-v3/commit/8587fbbae3aebd8d1ff0bcb4c2acaadcbde99e1f))
+* **client-cloudformation:** Added support for UNKNOWN drift status. ([80c8e5f](https://github.com/aws/aws-sdk-js-v3/commit/80c8e5fb703dc8338ce4f48e25a647c924cc9048))
+* **client-cloudwatch-logs:** Increase minimum length of queryId parameter to 1 character. ([80e2132](https://github.com/aws/aws-sdk-js-v3/commit/80e213207f391a391e165b180815be01e94630aa))
+* **client-config-service:** Updated ResourceType enum with new resource types onboarded by AWS Config as of June 2025 ([4863805](https://github.com/aws/aws-sdk-js-v3/commit/48638057557318f73a08afd08a95a77f88d4e644))
+* **client-connect:** This release introduces ChatMetrics to the model, providing comprehensive analytics insights for Amazon Connect chat conversations. Users can access these detailed metrics through the AWS Connect API by using the DescribeContact operation with their specific instance and contact IDs ([171954c](https://github.com/aws/aws-sdk-js-v3/commit/171954c416926e8a6413c37b12a0fa8942057da1))
+* **client-dataexchange:** This release updates resource Id with alphanumeric constraint, including Asset id, Revision id, Data Set id, Job id, and Event Action id. ([64051a9](https://github.com/aws/aws-sdk-js-v3/commit/64051a9bbf3c96c679d98d39e93f79c432c0814a))
+* **client-dynamodb:** This change adds support for witnesses in global tables. It also adds a new table status, REPLICATION_NOT_AUTHORIZED. This status will indicate scenarios where global replicas table can't be utilized for data plane operations. ([73ec7dc](https://github.com/aws/aws-sdk-js-v3/commit/73ec7dca963269c03a8398c6157590db9d9dfbd3))
+* **client-eventbridge:** Added support for EventBridge Dualstack endpoints in AWS GovCloud (US) regions (us-gov-east-1 and us-gov-west-1). The dualstack endpoints are identical for both FIPS and non-FIPS configurations, following the format: events.{region}.api.aws ([b85b1f2](https://github.com/aws/aws-sdk-js-v3/commit/b85b1f21568fca8d78733bee1a51c76248f2e64c))
+* **client-glue:** releasing source processing properties to support source properties for ODB integrations ([aa10e5d](https://github.com/aws/aws-sdk-js-v3/commit/aa10e5dafadb41d06b370ab7005f3a7ccee50f98))
+* **client-iam:** Updated IAM ServiceSpecificCredential support to include expiration, API Key output format instead of username and password for services that will support API keys, and the ability to list credentials for all users in the account for a given service configuration. ([cffa711](https://github.com/aws/aws-sdk-js-v3/commit/cffa71105f727815cc6f91aa1ded59e473d4b5f1))
+* **client-medical-imaging:** Added new fields to support the concept of primary image sets within the storage hierarchy. ([b28be5c](https://github.com/aws/aws-sdk-js-v3/commit/b28be5c582c396bffff58cd420b655db8ad7aaac))
+* **client-networkflowmonitor:** Add ConflictExceptions to UpdateScope and DeleteScope operations for scopes being mutated. ([417e154](https://github.com/aws/aws-sdk-js-v3/commit/417e154554be5ab826a2398dc8c76a2ad5e46a15))
+* **client-outposts:** Make ContactName and ContactPhoneNumber required fields when creating and updating Outpost Site Addresses. ([c5cd452](https://github.com/aws/aws-sdk-js-v3/commit/c5cd452336cbf7143714be579ad83c4d5efeaf73))
+* **client-pcs:** Fixed the validation pattern for an instance profile Amazon Resource Name (ARN) in AWS PCS. ([cb27085](https://github.com/aws/aws-sdk-js-v3/commit/cb2708599abc9240b5c810eda45445ee7dbc9a62))
+* **client-quicksight:** Introduced custom permission capabilities for reporting content. Added menu option in exploration to preserve configuration data when textbox menu option is used. Added support for Athena trusted identity propagation. ([2cd13e7](https://github.com/aws/aws-sdk-js-v3/commit/2cd13e74dbb873f7219b76634a56098f844d28b3))
+* **client-ssm:** Introduces AccessType, a new filter value for the DescribeSessions API. ([daee31f](https://github.com/aws/aws-sdk-js-v3/commit/daee31fbf93510db09090d0094db931bbc44ee1c))
+* **client-transfer:** Added support for dual-stack (IPv4 and IPv6) endpoints for SFTP public endpoints and VPC-internal endpoints (SFTP, FTPS, FTP, and AS2), enabling customers to configure new servers with IPv4 or dual-stack mode, convert existing servers to dual-stack, and use IPv6 with service APIs. ([08fc8d3](https://github.com/aws/aws-sdk-js-v3/commit/08fc8d393ff694ac60a63f550758736c7240b469))
+* **clients:** update client endpoints as of 2025-06-30 ([0438004](https://github.com/aws/aws-sdk-js-v3/commit/043800445ece4310d87d8a9d8bb5520d04f07815))
+* **xhr-http-handler:** add support for per-request/per-operation timeouts ([#7159](https://github.com/aws/aws-sdk-js-v3/issues/7159)) ([9c12aff](https://github.com/aws/aws-sdk-js-v3/commit/9c12aff113c8339867f03c4ba2ed80c75498ca8e))
+
+
+
+
+
 # [3.839.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.838.0...v3.839.0) (2025-06-27)
 
 

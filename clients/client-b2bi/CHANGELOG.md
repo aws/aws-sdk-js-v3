@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.840.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.839.0...v3.840.0) (2025-06-30)
+
+
+### Features
+
+* **client-b2bi:** Updated APIs to support inbound EDI split capabilities and additional Partnership-level configurations of generated EDI files' contents and format. ([15f931b](https://github.com/aws/aws-sdk-js-v3/commit/15f931b5e0dcc16b53a8ff33d154919698da076e))
+
+
+
+
+
 # [3.839.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.838.0...v3.839.0) (2025-06-27)
 
 **Note:** Version bump only for package @aws-sdk/client-b2bi

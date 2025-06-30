@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.840.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.839.0...v3.840.0) (2025-06-30)
+
+
+### Features
+
+* **xhr-http-handler:** add support for per-request/per-operation timeouts ([#7159](https://github.com/aws/aws-sdk-js-v3/issues/7159)) ([9c12aff](https://github.com/aws/aws-sdk-js-v3/commit/9c12aff113c8339867f03c4ba2ed80c75498ca8e))
+
+
+
+
+
 # [3.821.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.820.0...v3.821.0) (2025-05-30)
 
 **Note:** Version bump only for package @aws-sdk/xhr-http-handler
