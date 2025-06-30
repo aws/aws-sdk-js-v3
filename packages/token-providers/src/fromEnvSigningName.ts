@@ -1,5 +1,6 @@
-import { getBearerTokenEnvKey } from "@aws-sdk/core";
-import type { CredentialProviderOptions, TokenIdentityProvider } from "@aws-sdk/types";
+import { setTokenFeature } from "@aws-sdk/core/client";
+import { getBearerTokenEnvKey } from "@aws-sdk/core/httpAuthSchemes";
+import type { AttributedTokenIdentity, CredentialProviderOptions, TokenIdentityProvider } from "@aws-sdk/types";
 import { TokenProviderError } from "@smithy/property-provider";
 
 /**
@@ -33,5 +34,8 @@ export const fromEnvSigningName =
       throw new TokenProviderError(`Token not present in '${bearerTokenKey}' environment variable`, { logger });
     }
 
-    return { token: process.env[bearerTokenKey]! };
+    const token = { token: process.env[bearerTokenKey]! } as AttributedTokenIdentity;
+    setTokenFeature(token, "BEARER_SERVICE_ENV_VARS", "3");
+
+    return token;
   };

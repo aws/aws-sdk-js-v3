@@ -1,9 +1,9 @@
-import { getBearerTokenEnvKey } from "@aws-sdk/core";
+import { getBearerTokenEnvKey } from "@aws-sdk/core/httpAuthSchemes";
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 
 import { fromEnvSigningName } from "./fromEnvSigningName";
 
-vi.mock("@aws-sdk/core");
+vi.mock("@aws-sdk/core/httpAuthSchemes");
 
 describe(fromEnvSigningName.name, () => {
   const originalEnv = process.env;
@@ -40,7 +40,12 @@ describe(fromEnvSigningName.name, () => {
     const mockBearerToken = "mock-bearer-token";
     process.env[mockBearerTokenEnvKey] = mockBearerToken;
     const token = await fromEnvSigningName(mockInit)();
-    expect(token).toEqual({ token: mockBearerToken });
+    expect(token).toEqual({
+      token: mockBearerToken,
+      $source: {
+        BEARER_SERVICE_ENV_VARS: "3",
+      },
+    });
     expect(getBearerTokenEnvKey).toHaveBeenCalledWith(mockInit.signingName);
   });
 });
