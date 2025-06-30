@@ -677,7 +677,7 @@ export interface GetQueryResultsMonitorTopContributorsInput {
 
   /**
    * <p>The identifier for the query. A query ID is an internally-generated
-   *    		identifier for a specific query returned from an API call to start a query.</p>
+   *    		identifier for a specific query returned from an API call to create a query.</p>
    * @public
    */
   queryId: string | undefined;
@@ -1025,7 +1025,7 @@ export interface GetQueryResultsWorkloadInsightsTopContributorsInput {
 
   /**
    * <p>The identifier for the query. A query ID is an internally-generated
-   *    		identifier for a specific query returned from an API call to start a query.</p>
+   *    		identifier for a specific query returned from an API call to create a query.</p>
    * @public
    */
   queryId: string | undefined;
@@ -1135,7 +1135,7 @@ export interface GetQueryResultsWorkloadInsightsTopContributorsDataInput {
 
   /**
    * <p>The identifier for the query. A query ID is an internally-generated
-   *    		identifier for a specific query returned from an API call to start a query.</p>
+   *    		identifier for a specific query returned from an API call to create a query.</p>
    * @public
    */
   queryId: string | undefined;
@@ -1662,9 +1662,9 @@ export interface StartQueryMonitorTopContributorsInput {
   endTime: Date | undefined;
 
   /**
-   * <p>The metric that you want to query top contributors for. That is, you can specify this metric to
-   *    		return the top contributor network flows, for this type of metric, for a monitor and (optionally) within
-   *    		a specific category, such as network flows between Availability Zones.</p>
+   * <p>The metric that you want to query top contributors for. That is, you can specify a metric
+   *    		with this call and return the top contributor network flows, for that type of metric, for a monitor
+   *    		and (optionally) within a specific category, such as network flows between Availability Zones.</p>
    * @public
    */
   metricName: MonitorMetric | undefined;
@@ -1733,7 +1733,7 @@ export interface StopQueryMonitorTopContributorsInput {
 
   /**
    * <p>The identifier for the query. A query ID is an internally-generated
-   *    		identifier for a specific query returned from an API call to start a query.</p>
+   *    		identifier for a specific query returned from an API call to create a query.</p>
    * @public
    */
   queryId: string | undefined;
@@ -2046,7 +2046,7 @@ export interface StopQueryWorkloadInsightsTopContributorsInput {
 
   /**
    * <p>The identifier for the query. A query ID is an internally-generated
-   *    		identifier for a specific query returned from an API call to start a query.</p>
+   *    		identifier for a specific query returned from an API call to create a query.</p>
    * @public
    */
   queryId: string | undefined;
@@ -2071,7 +2071,7 @@ export interface StopQueryWorkloadInsightsTopContributorsDataInput {
 
   /**
    * <p>The identifier for the query. A query ID is an internally-generated
-   *    		identifier for a specific query returned from an API call to start a query.</p>
+   *    		identifier for a specific query returned from an API call to create a query.</p>
    * @public
    */
   queryId: string | undefined;

@@ -37,11 +37,16 @@ export interface StartQueryMonitorTopContributorsCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Start a query to return the data with the Network Flow Monitor query interface.
- *    		Specify the query that you want to return results for by providing a query ID
- *    		and a monitor name. This query returns the top contributors for a specific monitor.</p>
+ * <p>Create a query that you can use with the Network Flow Monitor query interface to return the top
+ *    		contributors for a monitor. Specify the monitor that you want to create the query for. </p>
+ *          <p>The call returns a query ID that you can use with
+ *    		<a href="https://docs.aws.amazon.com/networkflowmonitor/2.0/APIReference/API_GetQueryResultsMonitorTopContributors.html">
+ *    			GetQueryResultsMonitorTopContributors</a>
+ *    		to run the query and return the top contributors for a specific monitor.</p>
  *          <p>Top contributors in Network Flow Monitor are network flows with the highest values for a specific
- *    		metric type, related to a scope (for workload insights) or a monitor.</p>
+ *    		metric type. Top contributors can be across all workload insights, for a given scope, or for
+ *    		a specific monitor. Use the applicable APIs for the top contributors that you want to be
+ *    		returned.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

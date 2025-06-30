@@ -41,15 +41,13 @@ export interface StopQueryWorkloadInsightsTopContributorsDataCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Return the data for a query with the Network Flow Monitor query interface.
- *    		Specify the query that you want to return results for by providing a query ID
- *    		and a scope ID. This query returns data for the top contributors for workload insights.
- *    		Workload insights provide a high level view of network flow performance data collected by agents
- *    		for a scope.</p>
+ * <p>Stop a top contributors data query for workload insights.
+ *    		Specify the query that you want to stop by providing a query ID
+ *    		and a scope ID. </p>
  *          <p>Top contributors in Network Flow Monitor are network flows with the highest values for a specific
- *    		metric type, related to a scope (for workload insights) or a monitor.</p>
- *          <p>The top contributor network flows overall for a specific metric type, for example, the
- *    		number of retransmissions.</p>
+ *    		metric type. Top contributors can be across all workload insights, for a given scope, or for
+ *    		a specific monitor. Use the applicable call for the top contributors that you want to be
+ *    		returned.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -57,6 +57,9 @@ export interface DeleteScopeCommandOutput extends DeleteScopeOutput, __MetadataB
  * @throws {@link AccessDeniedException} (client fault)
  *  <p>You don't have sufficient permission to perform this action.</p>
  *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>The requested resource is in use.</p>
+ *
  * @throws {@link InternalServerException} (server fault)
  *  <p>An internal error occurred.</p>
  *

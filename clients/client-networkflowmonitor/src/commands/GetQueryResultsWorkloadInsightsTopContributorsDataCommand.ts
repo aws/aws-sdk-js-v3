@@ -51,8 +51,10 @@ export interface GetQueryResultsWorkloadInsightsTopContributorsDataCommandOutput
  *    		<code>StartQueryWorkloadInsightsTopContributorsData</code>. Use the scope ID that was returned
  *    		for your account by <code>CreateScope</code>.</p>
  *          <p>Top contributors in Network Flow Monitor are network flows with the highest values for a specific
- *    		metric type, related to a scope (for workload insights) or a monitor.</p>
- *          <p>The top contributor network flows overall for a specific metric type, for example, the
+ *    		metric type. Top contributors can be across all workload insights, for a given scope, or for
+ *    		a specific monitor. Use the applicable call for the top contributors that you want to be
+ *    		returned.</p>
+ *          <p>The top contributor network flows overall are for a specific metric type, for example, the
  *    		number of retransmissions.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
