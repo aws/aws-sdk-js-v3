@@ -311,6 +311,10 @@ export interface BatchWriteItemCommandOutput extends BatchWriteItemOutput, __Met
  *             successful, unless your retry queue is too large to finish. Reduce the frequency of
  *             requests and use exponential backoff. For more information, go to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Programming.Errors.html#Programming.Errors.RetryAndBackoff">Error Retries and Exponential Backoff</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
  *
+ * @throws {@link ReplicatedWriteConflictException} (client fault)
+ *  <p>The request was rejected because one or more items in the request are being modified
+ *             by a request in another Region. </p>
+ *
  * @throws {@link RequestLimitExceeded} (client fault)
  *  <p>Throughput exceeds the current throughput quota for your account. Please contact
  *                 <a href="https://aws.amazon.com/support">Amazon Web ServicesSupport</a> to request a

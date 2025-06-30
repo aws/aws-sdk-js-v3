@@ -95,7 +95,8 @@ export interface GetResourcePolicyCommandOutput extends GetResourcePolicyOutput,
  *
  * @throws {@link PolicyNotFoundException} (client fault)
  *  <p>The operation tried to access a nonexistent resource-based policy.</p>
- *          <p>If you specified an <code>ExpectedRevisionId</code>, it's possible that a policy is present for the resource but its revision ID didn't match the expected value.</p>
+ *          <p>If you specified an <code>ExpectedRevisionId</code>, it's possible that a policy is
+ *             present for the resource but its revision ID didn't match the expected value.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The operation tried to access a nonexistent table or index. The resource might not

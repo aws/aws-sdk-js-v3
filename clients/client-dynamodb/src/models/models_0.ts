@@ -684,13 +684,13 @@ export interface Projection {
 
   /**
    * <p>Represents the non-key attribute names which will be projected into the index.</p>
-   *          <p>For global and local secondary indexes, the total count of <code>NonKeyAttributes</code> summed
-   *             across all of the secondary indexes, must not exceed 100. If you project the same
-   *             attribute into two different indexes, this counts as two distinct attributes when
-   *             determining the total. This limit only applies when you specify the ProjectionType of
-   *             <code>INCLUDE</code>. You still can specify the ProjectionType of <code>ALL</code> to
-   *             project all attributes from the source table, even if the table has more than 100
-   *             attributes.</p>
+   *          <p>For global and local secondary indexes, the total count of
+   *                 <code>NonKeyAttributes</code> summed across all of the secondary indexes, must not
+   *             exceed 100. If you project the same attribute into two different indexes, this counts as
+   *             two distinct attributes when determining the total. This limit only applies when you
+   *             specify the ProjectionType of <code>INCLUDE</code>. You still can specify the
+   *             ProjectionType of <code>ALL</code> to project all attributes from the source table, even
+   *             if the table has more than 100 attributes.</p>
    * @public
    */
   NonKeyAttributes?: string[] | undefined;
@@ -1469,6 +1469,28 @@ export class ItemCollectionSizeLimitExceededException extends __BaseException {
 }
 
 /**
+ * <p>The request was rejected because one or more items in the request are being modified
+ *             by a request in another Region. </p>
+ * @public
+ */
+export class ReplicatedWriteConflictException extends __BaseException {
+  readonly name: "ReplicatedWriteConflictException" = "ReplicatedWriteConflictException";
+  readonly $fault: "client" = "client";
+  $retryable = {};
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ReplicatedWriteConflictException, __BaseException>) {
+    super({
+      name: "ReplicatedWriteConflictException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ReplicatedWriteConflictException.prototype);
+  }
+}
+
+/**
  * <p>Contains the details for the read/write capacity mode. This page talks about
  *                 <code>PROVISIONED</code> and <code>PAY_PER_REQUEST</code> billing modes. For more
  *             information about these modes, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.ReadWriteCapacityMode.html">Read/write capacity mode</a>.</p>
@@ -1748,19 +1770,21 @@ export interface CreateBackupOutput {
 
 /**
  * <p>There is no limit to the number of daily on-demand backups that can be taken. </p>
- *          <p>For most purposes, up to 500 simultaneous table operations are allowed per account. These operations
- *             include <code>CreateTable</code>, <code>UpdateTable</code>,
+ *          <p>For most purposes, up to 500 simultaneous table operations are allowed per account.
+ *             These operations include <code>CreateTable</code>, <code>UpdateTable</code>,
  *                 <code>DeleteTable</code>,<code>UpdateTimeToLive</code>,
  *                 <code>RestoreTableFromBackup</code>, and <code>RestoreTableToPointInTime</code>. </p>
- *          <p>When you are creating a table with one or more secondary
- *             indexes, you can have up to 250 such requests running at a time. However, if the table or
- *             index specifications are complex, then DynamoDB might temporarily reduce the number
- *             of concurrent operations.</p>
- *          <p>When importing into DynamoDB, up to 50 simultaneous import table operations are allowed per account.</p>
+ *          <p>When you are creating a table with one or more secondary indexes, you can have up
+ *             to 250 such requests running at a time. However, if the table or index specifications
+ *             are complex, then DynamoDB might temporarily reduce the number of concurrent
+ *             operations.</p>
+ *          <p>When importing into DynamoDB, up to 50 simultaneous import table operations are
+ *             allowed per account.</p>
  *          <p>There is a soft account quota of 2,500 tables.</p>
- *          <p>GetRecords was called with a value of more than 1000 for the limit request parameter.</p>
- *          <p>More than 2 processes are reading from the same streams shard at the same time. Exceeding
- *             this limit may result in request throttling.</p>
+ *          <p>GetRecords was called with a value of more than 1000 for the limit request
+ *             parameter.</p>
+ *          <p>More than 2 processes are reading from the same streams shard at the same time.
+ *             Exceeding this limit may result in request throttling.</p>
  * @public
  */
 export class LimitExceededException extends __BaseException {
@@ -1802,7 +1826,8 @@ export class TableInUseException extends __BaseException {
 
 /**
  * <p>A source table with the name <code>TableName</code> does not currently exist within
- *             the subscriber's account or the subscriber is operating in the wrong Amazon Web Services Region.</p>
+ *             the subscriber's account or the subscriber is operating in the wrong Amazon Web Services
+ *             Region.</p>
  * @public
  */
 export class TableNotFoundException extends __BaseException {
@@ -1882,9 +1907,9 @@ export interface CreateGlobalSecondaryIndexAction {
   /**
    * <p>The maximum number of read and write units for the global secondary index being
    *             created. If you use this parameter, you must specify <code>MaxReadRequestUnits</code>,
-   *                 <code>MaxWriteRequestUnits</code>, or both. You must use either
-   *             <code>OnDemand Throughput</code> or <code>ProvisionedThroughput</code> based on your table's
-   *         capacity mode.</p>
+   *                 <code>MaxWriteRequestUnits</code>, or both. You must use either <code>OnDemand
+   *                 Throughput</code> or <code>ProvisionedThroughput</code> based on your table's
+   *             capacity mode.</p>
    * @public
    */
   OnDemandThroughput?: OnDemandThroughput | undefined;
@@ -2050,11 +2075,14 @@ export interface ReplicaGlobalSecondaryIndexDescription {
  */
 export const ReplicaStatus = {
   ACTIVE: "ACTIVE",
+  ARCHIVED: "ARCHIVED",
+  ARCHIVING: "ARCHIVING",
   CREATING: "CREATING",
   CREATION_FAILED: "CREATION_FAILED",
   DELETING: "DELETING",
   INACCESSIBLE_ENCRYPTION_CREDENTIALS: "INACCESSIBLE_ENCRYPTION_CREDENTIALS",
   REGION_DISABLED: "REGION_DISABLED",
+  REPLICATION_NOT_AUTHORIZED: "REPLICATION_NOT_AUTHORIZED",
   UPDATING: "UPDATING",
 } as const;
 
@@ -2107,6 +2135,7 @@ export const TableStatus = {
   CREATING: "CREATING",
   DELETING: "DELETING",
   INACCESSIBLE_ENCRYPTION_CREDENTIALS: "INACCESSIBLE_ENCRYPTION_CREDENTIALS",
+  REPLICATION_NOT_AUTHORIZED: "REPLICATION_NOT_AUTHORIZED",
   UPDATING: "UPDATING",
 } as const;
 
@@ -2116,9 +2145,9 @@ export const TableStatus = {
 export type TableStatus = (typeof TableStatus)[keyof typeof TableStatus];
 
 /**
- * <p>Represents the warm throughput value (in read units per second and write units per second)
- *             of the table. Warm throughput is applicable for DynamoDB Standard-IA tables and specifies
- *             the minimum provisioned capacity maintained for immediate data access.</p>
+ * <p>Represents the warm throughput value (in read units per second and write units per
+ *             second) of the table. Warm throughput is applicable for DynamoDB Standard-IA tables and
+ *             specifies the minimum provisioned capacity maintained for immediate data access.</p>
  * @public
  */
 export interface TableWarmThroughputDescription {
@@ -2343,6 +2372,35 @@ export class GlobalTableAlreadyExistsException extends __BaseException {
 }
 
 /**
+ * <p>Specifies the action to add a new witness Region to a MRSC global table. A MRSC global
+ *             table can be configured with either three replicas, or with two replicas and one
+ *             witness.</p>
+ * @public
+ */
+export interface CreateGlobalTableWitnessGroupMemberAction {
+  /**
+   * <p>The Amazon Web Services Region name to be added as a witness Region for the MRSC global
+   *             table. The witness must be in a different Region than the replicas and within the same
+   *             Region set:</p>
+   *          <ul>
+   *             <li>
+   *                <p>US Region set: US East (N. Virginia), US East (Ohio), US West (Oregon)</p>
+   *             </li>
+   *             <li>
+   *                <p>EU Region set: Europe (Ireland), Europe (London), Europe (Paris), Europe
+   *                     (Frankfurt)</p>
+   *             </li>
+   *             <li>
+   *                <p>AP Region set: Asia Pacific (Tokyo), Asia Pacific (Seoul), Asia Pacific
+   *                     (Osaka)</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  RegionName: string | undefined;
+}
+
+/**
  * <p>Represents a replica to be added.</p>
  * @public
  */
@@ -2479,9 +2537,8 @@ export interface GlobalSecondaryIndex {
 
   /**
    * <p>Represents the provisioned throughput settings for the specified global secondary
-   *             index. You must use either
-   *             <code>OnDemandThroughput</code> or <code>ProvisionedThroughput</code> based
-   *             on your table's capacity mode.</p>
+   *             index. You must use either <code>OnDemandThroughput</code> or
+   *                 <code>ProvisionedThroughput</code> based on your table's capacity mode.</p>
    *          <p>For current minimum and maximum provisioned throughput values, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html">Service,
    *                 Account, and Table Quotas</a> in the <i>Amazon DynamoDB Developer
    *                 Guide</i>.</p>
@@ -2493,8 +2550,8 @@ export interface GlobalSecondaryIndex {
    * <p>The maximum number of read and write units for the specified global secondary index.
    *             If you use this parameter, you must specify <code>MaxReadRequestUnits</code>,
    *                 <code>MaxWriteRequestUnits</code>, or both. You must use either
-   *         <code>OnDemandThroughput</code> or <code>ProvisionedThroughput</code> based
-   *         on your table's capacity mode.</p>
+   *                 <code>OnDemandThroughput</code> or <code>ProvisionedThroughput</code> based on your
+   *             table's capacity mode.</p>
    * @public
    */
   OnDemandThroughput?: OnDemandThroughput | undefined;
@@ -2743,9 +2800,10 @@ export interface CreateTableInput {
    *                             of the secondary indexes, must not exceed 100. If you project the same
    *                             attribute into two different indexes, this counts as two distinct
    *                             attributes when determining the total. This limit only applies when you
-   *                             specify the ProjectionType of <code>INCLUDE</code>. You still can specify the
-   *                             ProjectionType of <code>ALL</code> to project all attributes from the
-   *                             source table, even if the table has more than 100 attributes.</p>
+   *                             specify the ProjectionType of <code>INCLUDE</code>. You still can
+   *                             specify the ProjectionType of <code>ALL</code> to project all attributes
+   *                             from the source table, even if the table has more than 100
+   *                             attributes.</p>
    *                   </li>
    *                </ul>
    *             </li>
@@ -2808,7 +2866,8 @@ export interface CreateTableInput {
    *                             attributes when determining the total. This limit only applies when you
    *                             specify the ProjectionType of <code>INCLUDE</code>. You still can
    *                             specify the ProjectionType of <code>ALL</code> to project all attributes
-   *                             from the source table, even if the table has more than 100 attributes.</p>
+   *                             from the source table, even if the table has more than 100
+   *                             attributes.</p>
    *                   </li>
    *                </ul>
    *             </li>
@@ -3141,6 +3200,40 @@ export interface GlobalSecondaryIndexDescription {
 }
 
 /**
+ * @public
+ * @enum
+ */
+export const WitnessStatus = {
+  ACTIVE: "ACTIVE",
+  CREATING: "CREATING",
+  DELETING: "DELETING",
+} as const;
+
+/**
+ * @public
+ */
+export type WitnessStatus = (typeof WitnessStatus)[keyof typeof WitnessStatus];
+
+/**
+ * <p>Represents the properties of a witness Region in a MRSC global table. </p>
+ * @public
+ */
+export interface GlobalTableWitnessDescription {
+  /**
+   * <p>The name of the Amazon Web Services Region that serves as a witness for the MRSC global
+   *             table.</p>
+   * @public
+   */
+  RegionName?: string | undefined;
+
+  /**
+   * <p>The current status of the witness Region in the MRSC global table.</p>
+   * @public
+   */
+  WitnessStatus?: WitnessStatus | undefined;
+}
+
+/**
  * <p>Represents the properties of a local secondary index.</p>
  * @public
  */
@@ -3466,7 +3559,8 @@ export interface TableDescription {
    *                             attributes when determining the total. This limit only applies when you
    *                             specify the ProjectionType of <code>INCLUDE</code>. You still can
    *                             specify the ProjectionType of <code>ALL</code> to project all attributes
-   *                             from the source table, even if the table has more than 100 attributes.</p>
+   *                             from the source table, even if the table has more than 100
+   *                             attributes.</p>
    *                   </li>
    *                </ul>
    *             </li>
@@ -3591,7 +3685,8 @@ export interface TableDescription {
    *                             attributes when determining the total. This limit only applies when you
    *                             specify the ProjectionType of <code>INCLUDE</code>. You still can
    *                             specify the ProjectionType of <code>ALL</code> to project all attributes
-   *                             from the source table, even if the table has more than 100 attributes.</p>
+   *                             from the source table, even if the table has more than 100
+   *                             attributes.</p>
    *                   </li>
    *                </ul>
    *             </li>
@@ -3658,6 +3753,13 @@ export interface TableDescription {
   Replicas?: ReplicaDescription[] | undefined;
 
   /**
+   * <p>The witness Region and its current status in the MRSC global table. Only one witness
+   *             Region can be configured per MRSC global table.</p>
+   * @public
+   */
+  GlobalTableWitnesses?: GlobalTableWitnessDescription[] | undefined;
+
+  /**
    * <p>Contains details for the restore.</p>
    * @public
    */
@@ -3707,17 +3809,19 @@ export interface TableDescription {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>EVENTUAL</code>: Indicates that the global table is configured for multi-Region eventual consistency.</p>
+   *                   <code>EVENTUAL</code>: Indicates that the global table is configured for
+   *                     multi-Region eventual consistency (MREC).</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>STRONG</code>: Indicates that the global table is configured for multi-Region strong consistency (preview).</p>
-   *                <note>
-   *                   <p>Multi-Region strong consistency (MRSC) is a new DynamoDB global tables capability currently available in preview mode. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/PreviewFeatures.html#multi-region-strong-consistency-gt">Global tables multi-Region strong consistency</a>.</p>
-   *                </note>
+   *                   <code>STRONG</code>: Indicates that the global table is configured for
+   *                     multi-Region strong consistency (MRSC).</p>
    *             </li>
    *          </ul>
-   *          <p>If you don't specify this field, the global table consistency mode defaults to <code>EVENTUAL</code>.</p>
+   *          <p>If you don't specify this field, the global table consistency mode defaults to
+   *                 <code>EVENTUAL</code>. For more information about global tables consistency modes,
+   *             see <a href="https://docs.aws.amazon.com/V2globaltables_HowItWorks.html#V2globaltables_HowItWorks.consistency-modes">
+   *                 Consistency modes</a> in DynamoDB developer guide. </p>
    * @public
    */
   MultiRegionConsistency?: MultiRegionConsistency | undefined;
@@ -3742,13 +3846,15 @@ export interface CreateTableOutput {
  *                <p>You attempted to recreate an existing table.</p>
  *             </li>
  *             <li>
- *                <p>You tried to delete a table currently in the <code>CREATING</code> state.</p>
+ *                <p>You tried to delete a table currently in the <code>CREATING</code>
+ *                     state.</p>
  *             </li>
  *             <li>
  *                <p>You tried to update a resource that was already being updated.</p>
  *             </li>
  *          </ul>
- *          <p>When appropriate, wait for the ongoing update to complete and attempt the request again.</p>
+ *          <p>When appropriate, wait for the ongoing update to complete and attempt the request
+ *             again.</p>
  * @public
  */
 export class ResourceInUseException extends __BaseException {
@@ -3823,6 +3929,21 @@ export interface DeleteGlobalSecondaryIndexAction {
 }
 
 /**
+ * <p>Specifies the action to remove a witness Region from a MRSC global table. You cannot
+ *             delete a single witness from a MRSC global table - you must delete both a replica and
+ *             the witness together. The deletion of both a witness and replica converts the remaining
+ *             replica to a single-Region DynamoDB table. </p>
+ * @public
+ */
+export interface DeleteGlobalTableWitnessGroupMemberAction {
+  /**
+   * <p>The witness Region name to be removed from the MRSC global table.</p>
+   * @public
+   */
+  RegionName: string | undefined;
+}
+
+/**
  * @public
  * @enum
  */
@@ -3838,26 +3959,6 @@ export const ReturnValue = {
  * @public
  */
 export type ReturnValue = (typeof ReturnValue)[keyof typeof ReturnValue];
-
-/**
- * <p>The request was rejected because one or more items in the request are being modified by a request in another Region. </p>
- * @public
- */
-export class ReplicatedWriteConflictException extends __BaseException {
-  readonly name: "ReplicatedWriteConflictException" = "ReplicatedWriteConflictException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ReplicatedWriteConflictException, __BaseException>) {
-    super({
-      name: "ReplicatedWriteConflictException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ReplicatedWriteConflictException.prototype);
-  }
-}
 
 /**
  * <p>Operation was rejected because there is an ongoing transaction for the
@@ -3943,7 +4044,8 @@ export interface DeleteResourcePolicyOutput {
 
 /**
  * <p>The operation tried to access a nonexistent resource-based policy.</p>
- *          <p>If you specified an <code>ExpectedRevisionId</code>, it's possible that a policy is present for the resource but its revision ID didn't match the expected value.</p>
+ *          <p>If you specified an <code>ExpectedRevisionId</code>, it's possible that a policy is
+ *             present for the resource but its revision ID didn't match the expected value.</p>
  * @public
  */
 export class PolicyNotFoundException extends __BaseException {
@@ -4988,9 +5090,7 @@ export interface DescribeImportOutput {
 }
 
 /**
- * <p>
- *             The specified import was not found.
- *             </p>
+ * <p> The specified import was not found. </p>
  * @public
  */
 export class ImportNotFoundException extends __BaseException {
@@ -5464,51 +5564,44 @@ export class IdempotentParameterMismatchException extends __BaseException {
 
 /**
  * <p>The transaction with the given request token is already in progress.</p>
- *          <p>
- *             Recommended Settings
- *         </p>
+ *          <p> Recommended Settings </p>
  *          <note>
- *             <p>
- *                 This is a general recommendation for handling the <code>TransactionInProgressException</code>. These settings help
- *                 ensure that the client retries will trigger completion of the ongoing <code>TransactWriteItems</code> request.
- *             </p>
+ *             <p> This is a general recommendation for handling the
+ *                     <code>TransactionInProgressException</code>. These settings help ensure that the
+ *                 client retries will trigger completion of the ongoing
+ *                     <code>TransactWriteItems</code> request. </p>
  *          </note>
  *          <ul>
  *             <li>
- *                <p>
- *                     Set <code>clientExecutionTimeout</code> to a value that allows at least one retry to be processed after 5
- *                     seconds have elapsed since the first attempt for the <code>TransactWriteItems</code> operation.
- *                 </p>
+ *                <p> Set <code>clientExecutionTimeout</code> to a value that allows at least one
+ *                     retry to be processed after 5 seconds have elapsed since the first attempt for
+ *                     the <code>TransactWriteItems</code> operation. </p>
+ *             </li>
+ *             <li>
+ *                <p> Set <code>socketTimeout</code> to a value a little lower than the
+ *                         <code>requestTimeout</code> setting. </p>
  *             </li>
  *             <li>
  *                <p>
- *                     Set <code>socketTimeout</code> to a value a little lower than the <code>requestTimeout</code> setting.
- *                 </p>
+ *                   <code>requestTimeout</code> should be set based on the time taken for the
+ *                     individual retries of a single HTTP request for your use case, but setting it to
+ *                     1 second or higher should work well to reduce chances of retries and
+ *                         <code>TransactionInProgressException</code> errors. </p>
  *             </li>
  *             <li>
- *                <p>
- *                   <code>requestTimeout</code> should be set based on the time taken for the individual retries of a single
- *                     HTTP request for your use case, but setting it to 1 second or higher should work well to reduce chances of
- *                     retries and <code>TransactionInProgressException</code> errors.
- *                 </p>
- *             </li>
- *             <li>
- *                <p>
- *                     Use exponential backoff when retrying and tune backoff if needed.
- *                 </p>
+ *                <p> Use exponential backoff when retrying and tune backoff if needed. </p>
  *             </li>
  *          </ul>
- *          <p>
- *             Assuming <a href="https://github.com/aws/aws-sdk-java/blob/fd409dee8ae23fb8953e0bb4dbde65536a7e0514/aws-java-sdk-core/src/main/java/com/amazonaws/retry/PredefinedRetryPolicies.java#L97">default retry policy</a>,
- *             example timeout settings based on the guidelines above are as follows:
- *         </p>
+ *          <p> Assuming <a href="https://github.com/aws/aws-sdk-java/blob/fd409dee8ae23fb8953e0bb4dbde65536a7e0514/aws-java-sdk-core/src/main/java/com/amazonaws/retry/PredefinedRetryPolicies.java#L97">default retry policy</a>, example timeout settings based on the guidelines
+ *             above are as follows: </p>
  *          <p>Example timeline:</p>
  *          <ul>
  *             <li>
  *                <p>0-1000 first attempt</p>
  *             </li>
  *             <li>
- *                <p>1000-1500 first sleep/delay (default retry policy uses 500 ms as base delay for 4xx errors)</p>
+ *                <p>1000-1500 first sleep/delay (default retry policy uses 500 ms as base delay
+ *                     for 4xx errors)</p>
  *             </li>
  *             <li>
  *                <p>1500-2500 second attempt</p>
@@ -5523,7 +5616,8 @@ export class IdempotentParameterMismatchException extends __BaseException {
  *                <p>4500-6500 third sleep/delay (500 * 2^2)</p>
  *             </li>
  *             <li>
- *                <p>6500-7500 fourth attempt (this can trigger inline recovery since 5 seconds have elapsed since the first attempt reached TC)</p>
+ *                <p>6500-7500 fourth attempt (this can trigger inline recovery since 5 seconds
+ *                     have elapsed since the first attempt reached TC)</p>
  *             </li>
  *          </ul>
  * @public
@@ -5755,11 +5849,9 @@ export interface GetResourcePolicyOutput {
 }
 
 /**
- * <p>
- *             There was a conflict when importing from the specified S3 source.
- *             This can occur when the current import conflicts with a previous import request
- *             that had the same client token.
- *             </p>
+ * <p> There was a conflict when importing from the specified S3 source. This can occur when
+ *             the current import conflicts with a previous import request that had the same client
+ *             token. </p>
  * @public
  */
 export class ImportConflictException extends __BaseException {
@@ -7179,6 +7271,36 @@ export interface GlobalSecondaryIndexUpdate {
 }
 
 /**
+ * <p>Represents one of the following:</p>
+ *          <ul>
+ *             <li>
+ *                <p>A new witness to be added to a new global table.</p>
+ *             </li>
+ *             <li>
+ *                <p>An existing witness to be removed from an existing global table.</p>
+ *             </li>
+ *          </ul>
+ *          <p>You can configure one witness per MRSC global table.</p>
+ * @public
+ */
+export interface GlobalTableWitnessGroupUpdate {
+  /**
+   * <p>Specifies a witness Region to be added to a new MRSC global table. The witness must be
+   *             added when creating the MRSC global table.</p>
+   * @public
+   */
+  Create?: CreateGlobalTableWitnessGroupMemberAction | undefined;
+
+  /**
+   * <p>Specifies a witness Region to be removed from an existing global table. Must be done
+   *             in conjunction with removing a replica. The deletion of both a witness and replica
+   *             converts the remaining replica to a single-Region DynamoDB table.</p>
+   * @public
+   */
+  Delete?: DeleteGlobalTableWitnessGroupMemberAction | undefined;
+}
+
+/**
  * <p>Represents a replica to be modified.</p>
  * @public
  */
@@ -7366,10 +7488,6 @@ export interface UpdateTableInput {
 
   /**
    * <p>A list of replica update actions (create, delete, or update) for the table.</p>
-   *          <note>
-   *             <p>For global tables, this property only applies to global tables using Version
-   *                 2019.11.21 (Current version). </p>
-   *          </note>
    * @public
    */
   ReplicaUpdates?: ReplicationGroupUpdate[] | undefined;
@@ -7396,24 +7514,45 @@ export interface UpdateTableInput {
    *             <li>
    *                <p>
    *                   <code>EVENTUAL</code>: Configures a new global table for multi-Region eventual
-   *                     consistency. This is the default consistency mode for global tables.</p>
+   *                     consistency (MREC). This is the default consistency mode for global
+   *                     tables.</p>
    *             </li>
    *             <li>
    *                <p>
    *                   <code>STRONG</code>: Configures a new global table for multi-Region strong
-   *                     consistency (preview).</p>
-   *                <note>
-   *                   <p>Multi-Region strong consistency (MRSC) is a new DynamoDB global
-   *                         tables capability currently available in preview mode. For more information,
-   *                         see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/PreviewFeatures.html#multi-region-strong-consistency-gt">Global tables multi-Region strong consistency</a>.</p>
-   *                </note>
+   *                     consistency (MRSC).</p>
    *             </li>
    *          </ul>
-   *          <p>If you don't specify this parameter, the global table consistency mode defaults to
-   *                 <code>EVENTUAL</code>.</p>
+   *          <p>If you don't specify this field, the global table consistency mode defaults to
+   *                 <code>EVENTUAL</code>. For more information about global tables consistency modes,
+   *             see <a href="https://docs.aws.amazon.com/V2globaltables_HowItWorks.html#V2globaltables_HowItWorks.consistency-modes">
+   *                 Consistency modes</a> in DynamoDB developer guide. </p>
    * @public
    */
   MultiRegionConsistency?: MultiRegionConsistency | undefined;
+
+  /**
+   * <p>A list of witness updates for a  MRSC global table. A witness provides a cost-effective
+   *             alternative to a full replica in a MRSC global table by maintaining replicated change
+   *             data written to global table replicas. You cannot perform read or write operations on a
+   *             witness. For each witness, you can request one action:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>Create</code> - add a new witness to the global table.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Delete</code> - remove a witness from the global table.</p>
+   *             </li>
+   *          </ul>
+   *          <p>You can create or delete only one witness per <code>UpdateTable</code>
+   *             operation.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/V2globaltables_HowItWorks.html#V2globaltables_HowItWorks.consistency-modes">Multi-Region strong consistency (MRSC)</a> in the Amazon DynamoDB
+   *             Developer Guide</p>
+   * @public
+   */
+  GlobalTableWitnessUpdates?: GlobalTableWitnessGroupUpdate[] | undefined;
 
   /**
    * <p>Updates the maximum number of read and write units for the specified table in
@@ -8995,11 +9134,10 @@ export interface TransactGetItemsOutput {
  *                <p>There is a user error, such as an invalid data format.</p>
  *             </li>
  *             <li>
- *                <p>
- *                     There is an ongoing <code>TransactWriteItems</code> operation that conflicts with a concurrent
- *                     <code>TransactWriteItems</code> request. In this case the <code>TransactWriteItems</code> operation
- *                     fails with a <code>TransactionCanceledException</code>.
- *                 </p>
+ *                <p> There is an ongoing <code>TransactWriteItems</code> operation that
+ *                     conflicts with a concurrent <code>TransactWriteItems</code> request. In this
+ *                     case the <code>TransactWriteItems</code> operation fails with a
+ *                         <code>TransactionCanceledException</code>. </p>
  *             </li>
  *          </ul>
  *          <p>DynamoDB cancels a <code>TransactGetItems</code> request under the
@@ -9144,9 +9282,9 @@ export interface TransactGetItemsOutput {
  *                                     global secondary indexes. DynamoDB is automatically
  *                                     scaling your index so please try again shortly.</p>
  *                            <note>
- *                               <p>This message is returned when writes get throttled on
- *                                         an On-Demand GSI as DynamoDB is automatically
- *                                         scaling the GSI.</p>
+ *                               <p>This message is returned when writes get throttled on an
+ *                                         On-Demand GSI as DynamoDB is automatically scaling
+ *                                         the GSI.</p>
  *                            </note>
  *                         </li>
  *                      </ul>

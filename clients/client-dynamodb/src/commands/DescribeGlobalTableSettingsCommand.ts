@@ -49,7 +49,7 @@ export interface DescribeGlobalTableSettingsCommandOutput extends DescribeGlobal
  * //   ReplicaSettings: [ // ReplicaSettingsDescriptionList
  * //     { // ReplicaSettingsDescription
  * //       RegionName: "STRING_VALUE", // required
- * //       ReplicaStatus: "CREATING" || "CREATION_FAILED" || "UPDATING" || "DELETING" || "ACTIVE" || "REGION_DISABLED" || "INACCESSIBLE_ENCRYPTION_CREDENTIALS",
+ * //       ReplicaStatus: "CREATING" || "CREATION_FAILED" || "UPDATING" || "DELETING" || "ACTIVE" || "REGION_DISABLED" || "INACCESSIBLE_ENCRYPTION_CREDENTIALS" || "ARCHIVING" || "ARCHIVED" || "REPLICATION_NOT_AUTHORIZED",
  * //       ReplicaBillingModeSummary: { // BillingModeSummary
  * //         BillingMode: "PROVISIONED" || "PAY_PER_REQUEST",
  * //         LastUpdateToPayPerRequestDateTime: new Date("TIMESTAMP"),

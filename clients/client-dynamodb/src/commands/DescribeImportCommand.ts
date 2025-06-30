@@ -141,9 +141,7 @@ export interface DescribeImportCommandOutput extends DescribeImportOutput, __Met
  * @see {@link DynamoDBClientResolvedConfig | config} for DynamoDBClient's `config` shape.
  *
  * @throws {@link ImportNotFoundException} (client fault)
- *  <p>
- *             The specified import was not found.
- *             </p>
+ *  <p> The specified import was not found. </p>
  *
  * @throws {@link DynamoDBServiceException}
  * <p>Base exception class for all service exceptions from DynamoDB service.</p>

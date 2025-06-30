@@ -184,6 +184,7 @@ import {
   CreateGlobalSecondaryIndexAction,
   CreateGlobalTableInput,
   CreateGlobalTableOutput,
+  CreateGlobalTableWitnessGroupMemberAction,
   CreateReplicaAction,
   CreateReplicationGroupMemberAction,
   CreateTableInput,
@@ -193,6 +194,7 @@ import {
   DeleteBackupInput,
   DeleteBackupOutput,
   DeleteGlobalSecondaryIndexAction,
+  DeleteGlobalTableWitnessGroupMemberAction,
   DeleteItemInput,
   DeleteItemOutput,
   DeleteReplicaAction,
@@ -247,6 +249,7 @@ import {
   GlobalTableDescription,
   GlobalTableGlobalSecondaryIndexSettingsUpdate,
   GlobalTableNotFoundException,
+  GlobalTableWitnessGroupUpdate,
   IdempotentParameterMismatchException,
   ImportConflictException,
   ImportNotFoundException,
@@ -2263,6 +2266,9 @@ const de_CommandError = async (output: __HttpResponse, context: __SerdeContext):
     case "ItemCollectionSizeLimitExceededException":
     case "com.amazonaws.dynamodb#ItemCollectionSizeLimitExceededException":
       throw await de_ItemCollectionSizeLimitExceededExceptionRes(parsedOutput, context);
+    case "ReplicatedWriteConflictException":
+    case "com.amazonaws.dynamodb#ReplicatedWriteConflictException":
+      throw await de_ReplicatedWriteConflictExceptionRes(parsedOutput, context);
     case "BackupInUseException":
     case "com.amazonaws.dynamodb#BackupInUseException":
       throw await de_BackupInUseExceptionRes(parsedOutput, context);
@@ -2290,9 +2296,6 @@ const de_CommandError = async (output: __HttpResponse, context: __SerdeContext):
     case "ConditionalCheckFailedException":
     case "com.amazonaws.dynamodb#ConditionalCheckFailedException":
       throw await de_ConditionalCheckFailedExceptionRes(parsedOutput, context);
-    case "ReplicatedWriteConflictException":
-    case "com.amazonaws.dynamodb#ReplicatedWriteConflictException":
-      throw await de_ReplicatedWriteConflictExceptionRes(parsedOutput, context);
     case "TransactionConflictException":
     case "com.amazonaws.dynamodb#TransactionConflictException":
       throw await de_TransactionConflictExceptionRes(parsedOutput, context);
@@ -3103,6 +3106,8 @@ const se_ConditionCheck = (input: ConditionCheck, context: __SerdeContext): any 
 
 // se_CreateGlobalTableInput omitted.
 
+// se_CreateGlobalTableWitnessGroupMemberAction omitted.
+
 // se_CreateReplicaAction omitted.
 
 // se_CreateReplicationGroupMemberAction omitted.
@@ -3130,6 +3135,8 @@ const se_Delete = (input: Delete, context: __SerdeContext): any => {
 // se_DeleteBackupInput omitted.
 
 // se_DeleteGlobalSecondaryIndexAction omitted.
+
+// se_DeleteGlobalTableWitnessGroupMemberAction omitted.
 
 /**
  * serializeAws_json1_0DeleteItemInput
@@ -3384,6 +3391,10 @@ const se_GlobalTableGlobalSecondaryIndexSettingsUpdateList = (
       return se_GlobalTableGlobalSecondaryIndexSettingsUpdate(entry, context);
     });
 };
+
+// se_GlobalTableWitnessGroupUpdate omitted.
+
+// se_GlobalTableWitnessGroupUpdateList omitted.
 
 /**
  * serializeAws_json1_0ImportTableInput
@@ -4752,6 +4763,10 @@ const de_GlobalTableDescription = (output: any, context: __SerdeContext): Global
 
 // de_GlobalTableNotFoundException omitted.
 
+// de_GlobalTableWitnessDescription omitted.
+
+// de_GlobalTableWitnessDescriptionList omitted.
+
 // de_IdempotentParameterMismatchException omitted.
 
 // de_ImportConflictException omitted.
@@ -5478,6 +5493,7 @@ const de_TableDescription = (output: any, context: __SerdeContext): TableDescrip
     DeletionProtectionEnabled: __expectBoolean,
     GlobalSecondaryIndexes: (_: any) => de_GlobalSecondaryIndexDescriptionList(_, context),
     GlobalTableVersion: __expectString,
+    GlobalTableWitnesses: _json,
     ItemCount: __expectLong,
     KeySchema: _json,
     LatestStreamArn: __expectString,

@@ -30,10 +30,6 @@ export interface DescribeTableCommandOutput extends DescribeTableOutput, __Metad
 /**
  * <p>Returns information about the table, including the current status of the table, when
  *             it was created, the primary key schema, and any indexes on the table.</p>
- *          <important>
- *             <p>For global tables, this operation only applies to global tables using Version
- *                 2019.11.21 (Current version). </p>
- *          </important>
  *          <note>
  *             <p>If you issue a <code>DescribeTable</code> request immediately after a
  *                     <code>CreateTable</code> request, DynamoDB might return a
@@ -68,7 +64,7 @@ export interface DescribeTableCommandOutput extends DescribeTableOutput, __Metad
  * //         KeyType: "HASH" || "RANGE", // required
  * //       },
  * //     ],
- * //     TableStatus: "CREATING" || "UPDATING" || "DELETING" || "ACTIVE" || "INACCESSIBLE_ENCRYPTION_CREDENTIALS" || "ARCHIVING" || "ARCHIVED",
+ * //     TableStatus: "CREATING" || "UPDATING" || "DELETING" || "ACTIVE" || "INACCESSIBLE_ENCRYPTION_CREDENTIALS" || "ARCHIVING" || "ARCHIVED" || "REPLICATION_NOT_AUTHORIZED",
  * //     CreationDateTime: new Date("TIMESTAMP"),
  * //     ProvisionedThroughput: { // ProvisionedThroughputDescription
  * //       LastIncreaseDateTime: new Date("TIMESTAMP"),
@@ -153,7 +149,7 @@ export interface DescribeTableCommandOutput extends DescribeTableOutput, __Metad
  * //     Replicas: [ // ReplicaDescriptionList
  * //       { // ReplicaDescription
  * //         RegionName: "STRING_VALUE",
- * //         ReplicaStatus: "CREATING" || "CREATION_FAILED" || "UPDATING" || "DELETING" || "ACTIVE" || "REGION_DISABLED" || "INACCESSIBLE_ENCRYPTION_CREDENTIALS",
+ * //         ReplicaStatus: "CREATING" || "CREATION_FAILED" || "UPDATING" || "DELETING" || "ACTIVE" || "REGION_DISABLED" || "INACCESSIBLE_ENCRYPTION_CREDENTIALS" || "ARCHIVING" || "ARCHIVED" || "REPLICATION_NOT_AUTHORIZED",
  * //         ReplicaStatusDescription: "STRING_VALUE",
  * //         ReplicaStatusPercentProgress: "STRING_VALUE",
  * //         KMSMasterKeyId: "STRING_VALUE",
@@ -166,7 +162,7 @@ export interface DescribeTableCommandOutput extends DescribeTableOutput, __Metad
  * //         WarmThroughput: { // TableWarmThroughputDescription
  * //           ReadUnitsPerSecond: Number("long"),
  * //           WriteUnitsPerSecond: Number("long"),
- * //           Status: "CREATING" || "UPDATING" || "DELETING" || "ACTIVE" || "INACCESSIBLE_ENCRYPTION_CREDENTIALS" || "ARCHIVING" || "ARCHIVED",
+ * //           Status: "CREATING" || "UPDATING" || "DELETING" || "ACTIVE" || "INACCESSIBLE_ENCRYPTION_CREDENTIALS" || "ARCHIVING" || "ARCHIVED" || "REPLICATION_NOT_AUTHORIZED",
  * //         },
  * //         GlobalSecondaryIndexes: [ // ReplicaGlobalSecondaryIndexDescriptionList
  * //           { // ReplicaGlobalSecondaryIndexDescription
@@ -189,6 +185,12 @@ export interface DescribeTableCommandOutput extends DescribeTableOutput, __Metad
  * //           TableClass: "STANDARD" || "STANDARD_INFREQUENT_ACCESS",
  * //           LastUpdateDateTime: new Date("TIMESTAMP"),
  * //         },
+ * //       },
+ * //     ],
+ * //     GlobalTableWitnesses: [ // GlobalTableWitnessDescriptionList
+ * //       { // GlobalTableWitnessDescription
+ * //         RegionName: "STRING_VALUE",
+ * //         WitnessStatus: "CREATING" || "DELETING" || "ACTIVE",
  * //       },
  * //     ],
  * //     RestoreSummary: { // RestoreSummary
@@ -220,7 +222,7 @@ export interface DescribeTableCommandOutput extends DescribeTableOutput, __Metad
  * //     WarmThroughput: {
  * //       ReadUnitsPerSecond: Number("long"),
  * //       WriteUnitsPerSecond: Number("long"),
- * //       Status: "CREATING" || "UPDATING" || "DELETING" || "ACTIVE" || "INACCESSIBLE_ENCRYPTION_CREDENTIALS" || "ARCHIVING" || "ARCHIVED",
+ * //       Status: "CREATING" || "UPDATING" || "DELETING" || "ACTIVE" || "INACCESSIBLE_ENCRYPTION_CREDENTIALS" || "ARCHIVING" || "ARCHIVED" || "REPLICATION_NOT_AUTHORIZED",
  * //     },
  * //     MultiRegionConsistency: "EVENTUAL" || "STRONG",
  * //   },

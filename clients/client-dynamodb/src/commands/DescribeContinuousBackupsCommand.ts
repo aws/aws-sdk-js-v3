@@ -79,7 +79,8 @@ export interface DescribeContinuousBackupsCommandOutput extends DescribeContinuo
  *
  * @throws {@link TableNotFoundException} (client fault)
  *  <p>A source table with the name <code>TableName</code> does not currently exist within
- *             the subscriber's account or the subscriber is operating in the wrong Amazon Web Services Region.</p>
+ *             the subscriber's account or the subscriber is operating in the wrong Amazon Web Services
+ *             Region.</p>
  *
  * @throws {@link DynamoDBServiceException}
  * <p>Base exception class for all service exceptions from DynamoDB service.</p>

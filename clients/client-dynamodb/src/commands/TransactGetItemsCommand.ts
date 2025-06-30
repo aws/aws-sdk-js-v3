@@ -258,11 +258,10 @@ export interface TransactGetItemsCommandOutput extends TransactGetItemsOutput, _
  *                <p>There is a user error, such as an invalid data format.</p>
  *             </li>
  *             <li>
- *                <p>
- *                     There is an ongoing <code>TransactWriteItems</code> operation that conflicts with a concurrent
- *                     <code>TransactWriteItems</code> request. In this case the <code>TransactWriteItems</code> operation
- *                     fails with a <code>TransactionCanceledException</code>.
- *                 </p>
+ *                <p> There is an ongoing <code>TransactWriteItems</code> operation that
+ *                     conflicts with a concurrent <code>TransactWriteItems</code> request. In this
+ *                     case the <code>TransactWriteItems</code> operation fails with a
+ *                         <code>TransactionCanceledException</code>. </p>
  *             </li>
  *          </ul>
  *          <p>DynamoDB cancels a <code>TransactGetItems</code> request under the
@@ -407,9 +406,9 @@ export interface TransactGetItemsCommandOutput extends TransactGetItemsOutput, _
  *                                     global secondary indexes. DynamoDB is automatically
  *                                     scaling your index so please try again shortly.</p>
  *                            <note>
- *                               <p>This message is returned when writes get throttled on
- *                                         an On-Demand GSI as DynamoDB is automatically
- *                                         scaling the GSI.</p>
+ *                               <p>This message is returned when writes get throttled on an
+ *                                         On-Demand GSI as DynamoDB is automatically scaling
+ *                                         the GSI.</p>
  *                            </note>
  *                         </li>
  *                      </ul>

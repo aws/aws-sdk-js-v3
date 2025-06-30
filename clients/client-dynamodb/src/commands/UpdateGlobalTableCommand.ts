@@ -37,9 +37,8 @@ export interface UpdateGlobalTableCommandOutput extends UpdateGlobalTableOutput,
  *             <p>To determine which version you're using, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.DetermineVersion.html">Determining the global table version you are using</a>. To update existing global tables from version 2017.11.29 (Legacy) to version 2019.11.21 (Current), see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/V2globaltables_upgrade.html">Upgrading global tables</a>.</p>
  *          </important>
  *          <note>
- *             <p> For global tables, this operation only applies to global tables using Version
- *                 2019.11.21 (Current version). If you are using global tables <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GlobalTables.html">Version
- *                     2019.11.21</a> you can use <a href="https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_UpdateTable.html">UpdateTable</a> instead. </p>
+ *             <p> If you are using global tables <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GlobalTables.html">Version
+ *                     2019.11.21</a> (Current) you can use <a href="https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_UpdateTable.html">UpdateTable</a> instead. </p>
  *             <p> Although you can use <code>UpdateGlobalTable</code> to add replicas and remove
  *                 replicas in a single request, for simplicity we recommend that you issue separate
  *                 requests for adding or removing replicas. </p>
@@ -85,7 +84,7 @@ export interface UpdateGlobalTableCommandOutput extends UpdateGlobalTableOutput,
  * //     ReplicationGroup: [ // ReplicaDescriptionList
  * //       { // ReplicaDescription
  * //         RegionName: "STRING_VALUE",
- * //         ReplicaStatus: "CREATING" || "CREATION_FAILED" || "UPDATING" || "DELETING" || "ACTIVE" || "REGION_DISABLED" || "INACCESSIBLE_ENCRYPTION_CREDENTIALS",
+ * //         ReplicaStatus: "CREATING" || "CREATION_FAILED" || "UPDATING" || "DELETING" || "ACTIVE" || "REGION_DISABLED" || "INACCESSIBLE_ENCRYPTION_CREDENTIALS" || "ARCHIVING" || "ARCHIVED" || "REPLICATION_NOT_AUTHORIZED",
  * //         ReplicaStatusDescription: "STRING_VALUE",
  * //         ReplicaStatusPercentProgress: "STRING_VALUE",
  * //         KMSMasterKeyId: "STRING_VALUE",
@@ -98,7 +97,7 @@ export interface UpdateGlobalTableCommandOutput extends UpdateGlobalTableOutput,
  * //         WarmThroughput: { // TableWarmThroughputDescription
  * //           ReadUnitsPerSecond: Number("long"),
  * //           WriteUnitsPerSecond: Number("long"),
- * //           Status: "CREATING" || "UPDATING" || "DELETING" || "ACTIVE" || "INACCESSIBLE_ENCRYPTION_CREDENTIALS" || "ARCHIVING" || "ARCHIVED",
+ * //           Status: "CREATING" || "UPDATING" || "DELETING" || "ACTIVE" || "INACCESSIBLE_ENCRYPTION_CREDENTIALS" || "ARCHIVING" || "ARCHIVED" || "REPLICATION_NOT_AUTHORIZED",
  * //         },
  * //         GlobalSecondaryIndexes: [ // ReplicaGlobalSecondaryIndexDescriptionList
  * //           { // ReplicaGlobalSecondaryIndexDescription
@@ -154,7 +153,8 @@ export interface UpdateGlobalTableCommandOutput extends UpdateGlobalTableOutput,
  *
  * @throws {@link TableNotFoundException} (client fault)
  *  <p>A source table with the name <code>TableName</code> does not currently exist within
- *             the subscriber's account or the subscriber is operating in the wrong Amazon Web Services Region.</p>
+ *             the subscriber's account or the subscriber is operating in the wrong Amazon Web Services
+ *             Region.</p>
  *
  * @throws {@link DynamoDBServiceException}
  * <p>Base exception class for all service exceptions from DynamoDB service.</p>

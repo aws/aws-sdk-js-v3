@@ -34,10 +34,6 @@ export interface DescribeTableReplicaAutoScalingCommandOutput
 
 /**
  * <p>Describes auto scaling settings across replicas of the global table at once.</p>
- *          <important>
- *             <p>For global tables, this operation only applies to global tables using Version
- *                 2019.11.21 (Current version).</p>
- *          </important>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -52,7 +48,7 @@ export interface DescribeTableReplicaAutoScalingCommandOutput
  * // { // DescribeTableReplicaAutoScalingOutput
  * //   TableAutoScalingDescription: { // TableAutoScalingDescription
  * //     TableName: "STRING_VALUE",
- * //     TableStatus: "CREATING" || "UPDATING" || "DELETING" || "ACTIVE" || "INACCESSIBLE_ENCRYPTION_CREDENTIALS" || "ARCHIVING" || "ARCHIVED",
+ * //     TableStatus: "CREATING" || "UPDATING" || "DELETING" || "ACTIVE" || "INACCESSIBLE_ENCRYPTION_CREDENTIALS" || "ARCHIVING" || "ARCHIVED" || "REPLICATION_NOT_AUTHORIZED",
  * //     Replicas: [ // ReplicaAutoScalingDescriptionList
  * //       { // ReplicaAutoScalingDescription
  * //         RegionName: "STRING_VALUE",
@@ -130,7 +126,7 @@ export interface DescribeTableReplicaAutoScalingCommandOutput
  * //             },
  * //           ],
  * //         },
- * //         ReplicaStatus: "CREATING" || "CREATION_FAILED" || "UPDATING" || "DELETING" || "ACTIVE" || "REGION_DISABLED" || "INACCESSIBLE_ENCRYPTION_CREDENTIALS",
+ * //         ReplicaStatus: "CREATING" || "CREATION_FAILED" || "UPDATING" || "DELETING" || "ACTIVE" || "REGION_DISABLED" || "INACCESSIBLE_ENCRYPTION_CREDENTIALS" || "ARCHIVING" || "ARCHIVED" || "REPLICATION_NOT_AUTHORIZED",
  * //       },
  * //     ],
  * //   },

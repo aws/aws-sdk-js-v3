@@ -49,7 +49,7 @@ export interface DescribeGlobalTableCommandOutput extends DescribeGlobalTableOut
  * //     ReplicationGroup: [ // ReplicaDescriptionList
  * //       { // ReplicaDescription
  * //         RegionName: "STRING_VALUE",
- * //         ReplicaStatus: "CREATING" || "CREATION_FAILED" || "UPDATING" || "DELETING" || "ACTIVE" || "REGION_DISABLED" || "INACCESSIBLE_ENCRYPTION_CREDENTIALS",
+ * //         ReplicaStatus: "CREATING" || "CREATION_FAILED" || "UPDATING" || "DELETING" || "ACTIVE" || "REGION_DISABLED" || "INACCESSIBLE_ENCRYPTION_CREDENTIALS" || "ARCHIVING" || "ARCHIVED" || "REPLICATION_NOT_AUTHORIZED",
  * //         ReplicaStatusDescription: "STRING_VALUE",
  * //         ReplicaStatusPercentProgress: "STRING_VALUE",
  * //         KMSMasterKeyId: "STRING_VALUE",
@@ -62,7 +62,7 @@ export interface DescribeGlobalTableCommandOutput extends DescribeGlobalTableOut
  * //         WarmThroughput: { // TableWarmThroughputDescription
  * //           ReadUnitsPerSecond: Number("long"),
  * //           WriteUnitsPerSecond: Number("long"),
- * //           Status: "CREATING" || "UPDATING" || "DELETING" || "ACTIVE" || "INACCESSIBLE_ENCRYPTION_CREDENTIALS" || "ARCHIVING" || "ARCHIVED",
+ * //           Status: "CREATING" || "UPDATING" || "DELETING" || "ACTIVE" || "INACCESSIBLE_ENCRYPTION_CREDENTIALS" || "ARCHIVING" || "ARCHIVED" || "REPLICATION_NOT_AUTHORIZED",
  * //         },
  * //         GlobalSecondaryIndexes: [ // ReplicaGlobalSecondaryIndexDescriptionList
  * //           { // ReplicaGlobalSecondaryIndexDescription
