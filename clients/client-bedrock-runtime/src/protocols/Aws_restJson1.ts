@@ -64,6 +64,12 @@ import {
   BidirectionalInputPayloadPart,
   BidirectionalOutputPayloadPart,
   CachePointBlock,
+  Citation,
+  CitationGeneratedContent,
+  CitationLocation,
+  CitationsConfig,
+  CitationsContentBlock,
+  CitationSourceContent,
   ConflictException,
   ContentBlock,
   ContentBlockDelta,
@@ -76,6 +82,10 @@ import {
   ConverseStreamTrace,
   ConverseTrace,
   DocumentBlock,
+  DocumentCharLocation,
+  DocumentChunkLocation,
+  DocumentContentBlock,
+  DocumentPageLocation,
   DocumentSource,
   GuardrailAssessment,
   GuardrailConfiguration,
@@ -1189,12 +1199,31 @@ const se_BidirectionalInputPayloadPart = (input: BidirectionalInputPayloadPart, 
 
 // se_CachePointBlock omitted.
 
+// se_Citation omitted.
+
+// se_CitationGeneratedContent omitted.
+
+// se_CitationGeneratedContentList omitted.
+
+// se_CitationLocation omitted.
+
+// se_Citations omitted.
+
+// se_CitationsConfig omitted.
+
+// se_CitationsContentBlock omitted.
+
+// se_CitationSourceContent omitted.
+
+// se_CitationSourceContentList omitted.
+
 /**
  * serializeAws_restJson1ContentBlock
  */
 const se_ContentBlock = (input: ContentBlock, context: __SerdeContext): any => {
   return ContentBlock.visit(input, {
     cachePoint: (value) => ({ cachePoint: _json(value) }),
+    citationsContent: (value) => ({ citationsContent: _json(value) }),
     document: (value) => ({ document: se_DocumentBlock(value, context) }),
     guardContent: (value) => ({ guardContent: se_GuardrailConverseContentBlock(value, context) }),
     image: (value) => ({ image: se_ImageBlock(value, context) }),
@@ -1223,11 +1252,23 @@ const se_ContentBlocks = (input: ContentBlock[], context: __SerdeContext): any =
  */
 const se_DocumentBlock = (input: DocumentBlock, context: __SerdeContext): any => {
   return take(input, {
+    citations: _json,
+    context: [],
     format: [],
     name: [],
     source: (_) => se_DocumentSource(_, context),
   });
 };
+
+// se_DocumentCharLocation omitted.
+
+// se_DocumentChunkLocation omitted.
+
+// se_DocumentContentBlock omitted.
+
+// se_DocumentContentBlocks omitted.
+
+// se_DocumentPageLocation omitted.
 
 /**
  * serializeAws_restJson1DocumentSource
@@ -1235,7 +1276,9 @@ const se_DocumentBlock = (input: DocumentBlock, context: __SerdeContext): any =>
 const se_DocumentSource = (input: DocumentSource, context: __SerdeContext): any => {
   return DocumentSource.visit(input, {
     bytes: (value) => ({ bytes: context.base64Encoder(value) }),
+    content: (value) => ({ content: _json(value) }),
     s3Location: (value) => ({ s3Location: _json(value) }),
+    text: (value) => ({ text: value }),
     _: (name, value) => ({ [name]: value } as any),
   });
 };
@@ -1614,6 +1657,30 @@ const de_BidirectionalOutputPayloadPart = (output: any, context: __SerdeContext)
 
 // de_CachePointBlock omitted.
 
+// de_Citation omitted.
+
+// de_CitationGeneratedContent omitted.
+
+// de_CitationGeneratedContentList omitted.
+
+// de_CitationLocation omitted.
+
+// de_Citations omitted.
+
+// de_CitationsConfig omitted.
+
+// de_CitationsContentBlock omitted.
+
+// de_CitationsDelta omitted.
+
+// de_CitationSourceContent omitted.
+
+// de_CitationSourceContentDelta omitted.
+
+// de_CitationSourceContentList omitted.
+
+// de_CitationSourceContentListDelta omitted.
+
 /**
  * deserializeAws_restJson1ContentBlock
  */
@@ -1621,6 +1688,11 @@ const de_ContentBlock = (output: any, context: __SerdeContext): ContentBlock => 
   if (output.cachePoint != null) {
     return {
       cachePoint: _json(output.cachePoint),
+    };
+  }
+  if (output.citationsContent != null) {
+    return {
+      citationsContent: _json(output.citationsContent),
     };
   }
   if (output.document != null) {
@@ -1668,6 +1740,11 @@ const de_ContentBlock = (output: any, context: __SerdeContext): ContentBlock => 
  * deserializeAws_restJson1ContentBlockDelta
  */
 const de_ContentBlockDelta = (output: any, context: __SerdeContext): ContentBlockDelta => {
+  if (output.citation != null) {
+    return {
+      citation: _json(output.citation),
+    };
+  }
   if (output.reasoningContent != null) {
     return {
       reasoningContent: de_ReasoningContentBlockDelta(__expectUnion(output.reasoningContent), context),
@@ -1765,11 +1842,23 @@ const de_ConverseTrace = (output: any, context: __SerdeContext): ConverseTrace =
  */
 const de_DocumentBlock = (output: any, context: __SerdeContext): DocumentBlock => {
   return take(output, {
+    citations: _json,
+    context: __expectString,
     format: __expectString,
     name: __expectString,
     source: (_: any) => de_DocumentSource(__expectUnion(_), context),
   }) as any;
 };
+
+// de_DocumentCharLocation omitted.
+
+// de_DocumentChunkLocation omitted.
+
+// de_DocumentContentBlock omitted.
+
+// de_DocumentContentBlocks omitted.
+
+// de_DocumentPageLocation omitted.
 
 /**
  * deserializeAws_restJson1DocumentSource
@@ -1780,10 +1869,18 @@ const de_DocumentSource = (output: any, context: __SerdeContext): DocumentSource
       bytes: context.base64Decoder(output.bytes),
     };
   }
+  if (output.content != null) {
+    return {
+      content: _json(output.content),
+    };
+  }
   if (output.s3Location != null) {
     return {
       s3Location: _json(output.s3Location),
     };
+  }
+  if (__expectString(output.text) !== undefined) {
+    return { text: __expectString(output.text) as any };
   }
   return { $unknown: Object.entries(output)[0] };
 };

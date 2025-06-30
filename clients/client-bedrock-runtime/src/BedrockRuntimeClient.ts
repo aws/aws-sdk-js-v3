@@ -366,6 +366,7 @@ export class BedrockRuntimeClient extends __Client<
         identityProviderConfigProvider: async (config: BedrockRuntimeClientResolvedConfig) =>
           new DefaultIdentityProviderConfig({
             "aws.auth#sigv4": config.credentials,
+            "smithy.api#httpBearerAuth": config.token,
           }),
       })
     );

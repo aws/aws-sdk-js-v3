@@ -2,9 +2,14 @@
 // @ts-ignore: package.json will be imported from dist folders
 import packageInfo from "../package.json"; // eslint-disable-line
 
-import { NODE_AUTH_SCHEME_PREFERENCE_OPTIONS, emitWarningIfUnsupportedVersion as awsCheckVersion } from "@aws-sdk/core";
+import {
+  AwsSdkSigV4Signer,
+  NODE_AUTH_SCHEME_PREFERENCE_OPTIONS,
+  emitWarningIfUnsupportedVersion as awsCheckVersion,
+} from "@aws-sdk/core";
 import { defaultProvider as credentialDefaultProvider } from "@aws-sdk/credential-provider-node";
 import { eventStreamPayloadHandlerProvider } from "@aws-sdk/eventstream-handler-node";
+import { FromSsoInit, fromEnvSigningName, nodeProvider } from "@aws-sdk/token-providers";
 import { NODE_APP_ID_CONFIG_OPTIONS, createDefaultUserAgentProvider } from "@aws-sdk/util-user-agent-node";
 import {
   NODE_REGION_CONFIG_FILE_OPTIONS,
@@ -12,11 +17,13 @@ import {
   NODE_USE_DUALSTACK_ENDPOINT_CONFIG_OPTIONS,
   NODE_USE_FIPS_ENDPOINT_CONFIG_OPTIONS,
 } from "@smithy/config-resolver";
+import { HttpBearerAuthSigner } from "@smithy/core";
 import { eventStreamSerdeProvider } from "@smithy/eventstream-serde-node";
 import { Hash } from "@smithy/hash-node";
 import { NODE_MAX_ATTEMPT_CONFIG_OPTIONS, NODE_RETRY_MODE_CONFIG_OPTIONS } from "@smithy/middleware-retry";
 import { loadConfig as loadNodeConfig } from "@smithy/node-config-provider";
 import { NodeHttp2Handler as RequestHandler, streamCollector } from "@smithy/node-http-handler";
+import { IdentityProviderConfig } from "@smithy/types";
 import { calculateBodyLength } from "@smithy/util-body-length-node";
 import { DEFAULT_RETRY_MODE } from "@smithy/util-retry";
 import { BedrockRuntimeClientConfig } from "./BedrockRuntimeClient";
@@ -53,6 +60,26 @@ export const getRuntimeConfig = (config: BedrockRuntimeClientConfig) => {
       createDefaultUserAgentProvider({ serviceId: clientSharedValues.serviceId, clientVersion: packageInfo.version }),
     eventStreamPayloadHandlerProvider: config?.eventStreamPayloadHandlerProvider ?? eventStreamPayloadHandlerProvider,
     eventStreamSerdeProvider: config?.eventStreamSerdeProvider ?? eventStreamSerdeProvider,
+    httpAuthSchemes: config?.httpAuthSchemes ?? [
+      {
+        schemeId: "aws.auth#sigv4",
+        identityProvider: (ipc: IdentityProviderConfig) => ipc.getIdentityProvider("aws.auth#sigv4"),
+        signer: new AwsSdkSigV4Signer(),
+      },
+      {
+        schemeId: "smithy.api#httpBearerAuth",
+        identityProvider: (ipc: IdentityProviderConfig) =>
+          ipc.getIdentityProvider("smithy.api#httpBearerAuth") ||
+          (async (idProps) => {
+            try {
+              return await fromEnvSigningName({ signingName: "bedrock" })();
+            } catch (error) {
+              return await nodeProvider(idProps as FromSsoInit)(idProps);
+            }
+          }),
+        signer: new HttpBearerAuthSigner(),
+      },
+    ],
     maxAttempts: config?.maxAttempts ?? loadNodeConfig(NODE_MAX_ATTEMPT_CONFIG_OPTIONS, config),
     region:
       config?.region ??
