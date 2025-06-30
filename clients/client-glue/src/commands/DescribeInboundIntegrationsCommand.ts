@@ -55,6 +55,9 @@ export interface DescribeInboundIntegrationsCommandOutput
  * //       CreateTime: new Date("TIMESTAMP"), // required
  * //       IntegrationConfig: { // IntegrationConfig
  * //         RefreshInterval: "STRING_VALUE",
+ * //         SourceProperties: { // IntegrationSourcePropertiesMap
+ * //           "<keys>": "STRING_VALUE",
+ * //         },
  * //       },
  * //       Errors: [ // IntegrationErrorList
  * //         { // IntegrationError

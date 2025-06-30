@@ -53,6 +53,9 @@ export interface CreateIntegrationCommandOutput extends CreateIntegrationRespons
  *   ],
  *   IntegrationConfig: { // IntegrationConfig
  *     RefreshInterval: "STRING_VALUE",
+ *     SourceProperties: { // IntegrationSourcePropertiesMap
+ *       "<keys>": "STRING_VALUE",
+ *     },
  *   },
  * };
  * const command = new CreateIntegrationCommand(input);
@@ -84,6 +87,9 @@ export interface CreateIntegrationCommandOutput extends CreateIntegrationRespons
  * //   DataFilter: "STRING_VALUE",
  * //   IntegrationConfig: { // IntegrationConfig
  * //     RefreshInterval: "STRING_VALUE",
+ * //     SourceProperties: { // IntegrationSourcePropertiesMap
+ * //       "<keys>": "STRING_VALUE",
+ * //     },
  * //   },
  * // };
  *

@@ -2461,6 +2461,15 @@ export interface IntegrationConfig {
    * @public
    */
   RefreshInterval?: string | undefined;
+
+  /**
+   * <p>
+   *       A collection of key-value pairs that specify additional properties for the integration source. These properties provide configuration options that
+   *       can be used to customize the behavior of the ODB source during data integration operations.
+   *     </p>
+   * @public
+   */
+  SourceProperties?: Record<string, string> | undefined;
 }
 
 /**

@@ -11955,6 +11955,8 @@ const se_IcebergTableUpdateList = (input: IcebergTableUpdate[], context: __Serde
 
 // se_IntegrationPartitionSpecList omitted.
 
+// se_IntegrationSourcePropertiesMap omitted.
+
 // se_IntegrationTagsList omitted.
 
 // se_JDBCConnectorOptions omitted.
@@ -15809,6 +15811,8 @@ const de_IntegrationsList = (output: any, context: __SerdeContext): Integration[
     });
   return retVal;
 };
+
+// de_IntegrationSourcePropertiesMap omitted.
 
 // de_IntegrationTagsList omitted.
 
