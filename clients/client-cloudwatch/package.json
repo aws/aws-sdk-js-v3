@@ -12,7 +12,6 @@
     "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo",
     "extract:docs": "api-extractor run --local",
     "generate:client": "node ../../scripts/generate-clients/single-service --solo cloudwatch",
-    "test": "yarn g:vitest run -c vitest.config.e2e.ts",
     "test:e2e": "yarn g:vitest run -c vitest.config.e2e.ts",
     "test:e2e:watch": "yarn g:vitest watch -c vitest.config.e2e.ts"
   },
