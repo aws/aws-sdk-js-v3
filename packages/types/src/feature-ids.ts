@@ -32,7 +32,8 @@ export type AwsSdkFeatures = Partial<{
   FLEXIBLE_CHECKSUMS_RES_WHEN_REQUIRED: "c";
   DDB_MAPPER: "d";
 }> &
-  AwsSdkCredentialsFeatures;
+  AwsSdkCredentialsFeatures &
+  AwsSdkTokenFeatures;
 
 /**
  * @internal
@@ -61,4 +62,11 @@ export type AwsSdkCredentialsFeatures = Partial<{
   CREDENTIALS_AWS_SDK_STORE: "y";
   CREDENTIALS_HTTP: "z";
   CREDENTIALS_IMDS: "0";
+}>;
+
+/**
+ * @internal
+ */
+export type AwsSdkTokenFeatures = Partial<{
+  BEARER_SERVICE_ENV_VARS: "3";
 }>;
