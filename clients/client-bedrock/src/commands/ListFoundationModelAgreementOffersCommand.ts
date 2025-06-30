@@ -6,8 +6,10 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { BedrockClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BedrockClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ListFoundationModelAgreementOffersRequest } from "../models/models_0";
-import { ListFoundationModelAgreementOffersResponse } from "../models/models_1";
+import {
+  ListFoundationModelAgreementOffersRequest,
+  ListFoundationModelAgreementOffersResponse,
+} from "../models/models_1";
 import {
   de_ListFoundationModelAgreementOffersCommand,
   se_ListFoundationModelAgreementOffersCommand,

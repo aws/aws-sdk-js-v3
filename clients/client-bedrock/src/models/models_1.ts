@@ -2,7 +2,9 @@
 import { SENSITIVE_STRING } from "@smithy/smithy-client";
 
 import {
+  AgreementAvailability,
   ApplicationType,
+  AuthorizationStatus,
   CustomizationConfig,
   CustomizationType,
   EvaluationConfig,
@@ -18,6 +20,8 @@ import {
   FilterAttribute,
   GenerationConfiguration,
   GenerationConfigurationFilterSensitiveLog,
+  ImplicitFilterConfiguration,
+  ImplicitFilterConfigurationFilterSensitiveLog,
   OrchestrationConfiguration,
   OutputDataConfig,
   RetrieveAndGenerateType,
@@ -25,14 +29,217 @@ import {
   SortJobsBy,
   SortOrder,
   Tag,
-  TermDetails,
   TrainingDataConfig,
   TrainingDataConfigFilterSensitiveLog,
   TrainingMetrics,
   ValidationDataConfig,
   ValidatorMetric,
+  VectorSearchRerankingConfiguration,
+  VectorSearchRerankingConfigurationFilterSensitiveLog,
   VpcConfig,
 } from "./models_0";
+
+/**
+ * @public
+ * @enum
+ */
+export const EntitlementAvailability = {
+  AVAILABLE: "AVAILABLE",
+  NOT_AVAILABLE: "NOT_AVAILABLE",
+} as const;
+
+/**
+ * @public
+ */
+export type EntitlementAvailability = (typeof EntitlementAvailability)[keyof typeof EntitlementAvailability];
+
+/**
+ * @public
+ * @enum
+ */
+export const RegionAvailability = {
+  AVAILABLE: "AVAILABLE",
+  NOT_AVAILABLE: "NOT_AVAILABLE",
+} as const;
+
+/**
+ * @public
+ */
+export type RegionAvailability = (typeof RegionAvailability)[keyof typeof RegionAvailability];
+
+/**
+ * @public
+ */
+export interface GetFoundationModelAvailabilityResponse {
+  /**
+   * <p>The model Id of the foundation model.</p>
+   * @public
+   */
+  modelId: string | undefined;
+
+  /**
+   * <p>Agreement availability. </p>
+   * @public
+   */
+  agreementAvailability: AgreementAvailability | undefined;
+
+  /**
+   * <p>Authorization status.</p>
+   * @public
+   */
+  authorizationStatus: AuthorizationStatus | undefined;
+
+  /**
+   * <p>Entitlement availability. </p>
+   * @public
+   */
+  entitlementAvailability: EntitlementAvailability | undefined;
+
+  /**
+   * <p>Region availability. </p>
+   * @public
+   */
+  regionAvailability: RegionAvailability | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const OfferType = {
+  ALL: "ALL",
+  PUBLIC: "PUBLIC",
+} as const;
+
+/**
+ * @public
+ */
+export type OfferType = (typeof OfferType)[keyof typeof OfferType];
+
+/**
+ * @public
+ */
+export interface ListFoundationModelAgreementOffersRequest {
+  /**
+   * <p>Model Id of the foundation model.</p>
+   * @public
+   */
+  modelId: string | undefined;
+
+  /**
+   * <p>Type of offer associated with the model.</p>
+   * @public
+   */
+  offerType?: OfferType | undefined;
+}
+
+/**
+ * <p>The legal term of the agreement.</p>
+ * @public
+ */
+export interface LegalTerm {
+  /**
+   * <p>URL to the legal term document.</p>
+   * @public
+   */
+  url?: string | undefined;
+}
+
+/**
+ * <p>Describes a support term.</p>
+ * @public
+ */
+export interface SupportTerm {
+  /**
+   * <p>Describes the refund policy.</p>
+   * @public
+   */
+  refundPolicyDescription?: string | undefined;
+}
+
+/**
+ * <p>Dimensional price rate.</p>
+ * @public
+ */
+export interface DimensionalPriceRate {
+  /**
+   * <p>Dimension for the price rate.</p>
+   * @public
+   */
+  dimension?: string | undefined;
+
+  /**
+   * <p>Single-dimensional rate information.</p>
+   * @public
+   */
+  price?: string | undefined;
+
+  /**
+   * <p>Description of the price rate.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>Unit associated with the price.</p>
+   * @public
+   */
+  unit?: string | undefined;
+}
+
+/**
+ * <p>Describes the usage-based pricing term.</p>
+ * @public
+ */
+export interface PricingTerm {
+  /**
+   * <p>Describes a usage price for each dimension.</p>
+   * @public
+   */
+  rateCard: DimensionalPriceRate[] | undefined;
+}
+
+/**
+ * <p>Describes the validity terms.</p>
+ * @public
+ */
+export interface ValidityTerm {
+  /**
+   * <p>Describes the agreement duration.</p>
+   * @public
+   */
+  agreementDuration?: string | undefined;
+}
+
+/**
+ * <p>Describes the usage terms of an offer.</p>
+ * @public
+ */
+export interface TermDetails {
+  /**
+   * <p>Describes the usage-based pricing term.</p>
+   * @public
+   */
+  usageBasedPricingTerm: PricingTerm | undefined;
+
+  /**
+   * <p>Describes the legal terms.</p>
+   * @public
+   */
+  legalTerm: LegalTerm | undefined;
+
+  /**
+   * <p>Describes the support terms.</p>
+   * @public
+   */
+  supportTerm: SupportTerm | undefined;
+
+  /**
+   * <p>Describes the validity terms.</p>
+   * @public
+   */
+  validityTerm?: ValidityTerm | undefined;
+}
 
 /**
  * <p>An offer dictates usage terms for the model.</p>
@@ -1082,6 +1289,18 @@ export interface KnowledgeBaseVectorSearchConfiguration {
    * @public
    */
   filter?: RetrievalFilter | undefined;
+
+  /**
+   * <p>Configuration for implicit filtering in Knowledge Base vector searches. This allows the system to automatically apply filters based on the query context without requiring explicit filter expressions.</p>
+   * @public
+   */
+  implicitFilterConfiguration?: ImplicitFilterConfiguration | undefined;
+
+  /**
+   * <p>Configuration for reranking search results in Knowledge Base vector searches. Reranking improves search relevance by reordering initial vector search results using more sophisticated relevance models.</p>
+   * @public
+   */
+  rerankingConfiguration?: VectorSearchRerankingConfiguration | undefined;
 }
 
 /**
@@ -1541,6 +1760,12 @@ export const KnowledgeBaseVectorSearchConfigurationFilterSensitiveLog = (
 ): any => ({
   ...obj,
   ...(obj.filter && { filter: SENSITIVE_STRING }),
+  ...(obj.implicitFilterConfiguration && {
+    implicitFilterConfiguration: ImplicitFilterConfigurationFilterSensitiveLog(obj.implicitFilterConfiguration),
+  }),
+  ...(obj.rerankingConfiguration && {
+    rerankingConfiguration: VectorSearchRerankingConfigurationFilterSensitiveLog(obj.rerankingConfiguration),
+  }),
 });
 
 /**

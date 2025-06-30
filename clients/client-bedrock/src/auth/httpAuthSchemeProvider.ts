@@ -5,6 +5,8 @@ import {
   AwsSdkSigV4PreviouslyResolved,
   resolveAwsSdkSigV4Config,
 } from "@aws-sdk/core";
+import { FromSsoInit } from "@aws-sdk/token-providers";
+import { doesIdentityRequireRefresh, isIdentityExpired, memoizeIdentityProvider } from "@smithy/core";
 import {
   HandlerExecutionContext,
   HttpAuthOption,
@@ -13,6 +15,8 @@ import {
   HttpAuthSchemeParametersProvider,
   HttpAuthSchemeProvider,
   Provider,
+  TokenIdentity,
+  TokenIdentityProvider,
 } from "@smithy/types";
 import { getSmithyContext, normalizeProvider } from "@smithy/util-middleware";
 
@@ -73,6 +77,26 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: BedrockHttpAuthSchemeP
   };
 }
 
+function createSmithyApiHttpBearerAuthHttpAuthOption(authParameters: BedrockHttpAuthSchemeParameters): HttpAuthOption {
+  return {
+    schemeId: "smithy.api#httpBearerAuth",
+    propertiesExtractor: <T>(
+      { profile, filepath, configFilepath, ignoreCache }: T & FromSsoInit,
+      context: HandlerExecutionContext
+    ) => ({
+      /**
+       * @internal
+       */
+      identityProperties: {
+        profile,
+        filepath,
+        configFilepath,
+        ignoreCache,
+      },
+    }),
+  };
+}
+
 /**
  * @internal
  */
@@ -86,6 +110,7 @@ export const defaultBedrockHttpAuthSchemeProvider: BedrockHttpAuthSchemeProvider
   switch (authParameters.operation) {
     default: {
       options.push(createAwsAuthSigv4HttpAuthOption(authParameters));
+      options.push(createSmithyApiHttpBearerAuthHttpAuthOption(authParameters));
     }
   }
   return options;
@@ -114,6 +139,11 @@ export interface HttpAuthSchemeInputConfig extends AwsSdkSigV4AuthInputConfig {
    * @internal
    */
   httpAuthSchemeProvider?: BedrockHttpAuthSchemeProvider;
+
+  /**
+   * The token used to authenticate requests.
+   */
+  token?: TokenIdentity | TokenIdentityProvider;
 }
 
 /**
@@ -139,6 +169,11 @@ export interface HttpAuthSchemeResolvedConfig extends AwsSdkSigV4AuthResolvedCon
    * @internal
    */
   readonly httpAuthSchemeProvider: BedrockHttpAuthSchemeProvider;
+
+  /**
+   * The token used to authenticate requests.
+   */
+  readonly token?: TokenIdentityProvider;
 }
 
 /**
@@ -147,8 +182,10 @@ export interface HttpAuthSchemeResolvedConfig extends AwsSdkSigV4AuthResolvedCon
 export const resolveHttpAuthSchemeConfig = <T>(
   config: T & HttpAuthSchemeInputConfig & AwsSdkSigV4PreviouslyResolved
 ): T & HttpAuthSchemeResolvedConfig => {
+  const token = memoizeIdentityProvider(config.token, isIdentityExpired, doesIdentityRequireRefresh);
   const config_0 = resolveAwsSdkSigV4Config(config);
   return Object.assign(config_0, {
     authSchemePreference: normalizeProvider(config.authSchemePreference ?? []),
+    token,
   }) as T & HttpAuthSchemeResolvedConfig;
 };

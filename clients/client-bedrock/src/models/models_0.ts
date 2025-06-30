@@ -2429,6 +2429,64 @@ export interface FilterAttribute {
  * @public
  * @enum
  */
+export const AttributeType = {
+  BOOLEAN: "BOOLEAN",
+  NUMBER: "NUMBER",
+  STRING: "STRING",
+  STRING_LIST: "STRING_LIST",
+} as const;
+
+/**
+ * @public
+ */
+export type AttributeType = (typeof AttributeType)[keyof typeof AttributeType];
+
+/**
+ * <p>Defines the schema for a metadata attribute used in Knowledge Base vector searches. Metadata attributes provide additional context for documents and can be used for filtering and reranking search results.</p>
+ * @public
+ */
+export interface MetadataAttributeSchema {
+  /**
+   * <p>The unique identifier for the metadata attribute. This key is used to reference the attribute in filter expressions and reranking configurations.</p>
+   * @public
+   */
+  key: string | undefined;
+
+  /**
+   * <p>The data type of the metadata attribute. The type determines how the attribute can be used in filter expressions and reranking.</p>
+   * @public
+   */
+  type: AttributeType | undefined;
+
+  /**
+   * <p>An optional description of the metadata attribute that provides additional context about its purpose and usage.</p>
+   * @public
+   */
+  description: string | undefined;
+}
+
+/**
+ * <p>Configuration for implicit filtering in Knowledge Base vector searches. Implicit filtering allows you to automatically filter search results based on metadata attributes without requiring explicit filter expressions in each query.</p>
+ * @public
+ */
+export interface ImplicitFilterConfiguration {
+  /**
+   * <p>A list of metadata attribute schemas that define the structure and properties of metadata fields used for implicit filtering. Each attribute defines a key, type, and optional description.</p>
+   * @public
+   */
+  metadataAttributes: MetadataAttributeSchema[] | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the foundation model used for implicit filtering. This model processes the query to extract relevant filtering criteria.</p>
+   * @public
+   */
+  modelArn: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
 export const SearchType = {
   HYBRID: "HYBRID",
   SEMANTIC: "SEMANTIC",
@@ -2438,6 +2496,180 @@ export const SearchType = {
  * @public
  */
 export type SearchType = (typeof SearchType)[keyof typeof SearchType];
+
+/**
+ * @public
+ * @enum
+ */
+export const RerankingMetadataSelectionMode = {
+  ALL: "ALL",
+  SELECTIVE: "SELECTIVE",
+} as const;
+
+/**
+ * @public
+ */
+export type RerankingMetadataSelectionMode =
+  (typeof RerankingMetadataSelectionMode)[keyof typeof RerankingMetadataSelectionMode];
+
+/**
+ * <p>Specifies a field to be used during the reranking process in a Knowledge Base vector search. This structure identifies metadata fields that should be considered when reordering search results to improve relevance.</p>
+ * @public
+ */
+export interface FieldForReranking {
+  /**
+   * <p>The name of the metadata field to be used during the reranking process.</p>
+   * @public
+   */
+  fieldName: string | undefined;
+}
+
+/**
+ * <p>Configuration for selectively including or excluding metadata fields during the reranking process. This allows you to control which metadata attributes are considered when reordering search results.</p>
+ * @public
+ */
+export type RerankingMetadataSelectiveModeConfiguration =
+  | RerankingMetadataSelectiveModeConfiguration.FieldsToExcludeMember
+  | RerankingMetadataSelectiveModeConfiguration.FieldsToIncludeMember
+  | RerankingMetadataSelectiveModeConfiguration.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace RerankingMetadataSelectiveModeConfiguration {
+  /**
+   * <p>A list of metadata field names to explicitly include in the reranking process. Only these fields will be considered when reordering search results. This parameter cannot be used together with fieldsToExclude.</p>
+   * @public
+   */
+  export interface FieldsToIncludeMember {
+    fieldsToInclude: FieldForReranking[];
+    fieldsToExclude?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>A list of metadata field names to explicitly exclude from the reranking process. All metadata fields except these will be considered when reordering search results. This parameter cannot be used together with fieldsToInclude.</p>
+   * @public
+   */
+  export interface FieldsToExcludeMember {
+    fieldsToInclude?: never;
+    fieldsToExclude: FieldForReranking[];
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    fieldsToInclude?: never;
+    fieldsToExclude?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    fieldsToInclude: (value: FieldForReranking[]) => T;
+    fieldsToExclude: (value: FieldForReranking[]) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: RerankingMetadataSelectiveModeConfiguration, visitor: Visitor<T>): T => {
+    if (value.fieldsToInclude !== undefined) return visitor.fieldsToInclude(value.fieldsToInclude);
+    if (value.fieldsToExclude !== undefined) return visitor.fieldsToExclude(value.fieldsToExclude);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
+ * <p>Configuration for how metadata should be used during the reranking process in Knowledge Base vector searches. This determines which metadata fields are included or excluded when reordering search results.</p>
+ * @public
+ */
+export interface MetadataConfigurationForReranking {
+  /**
+   * <p>The mode for selecting which metadata fields to include in the reranking process. Valid values are ALL (use all available metadata fields) or SELECTIVE (use only specified fields).</p>
+   * @public
+   */
+  selectionMode: RerankingMetadataSelectionMode | undefined;
+
+  /**
+   * <p>Configuration for selective mode, which allows you to explicitly include or exclude specific metadata fields during reranking. This is only used when selectionMode is set to SELECTIVE.</p>
+   * @public
+   */
+  selectiveModeConfiguration?: RerankingMetadataSelectiveModeConfiguration | undefined;
+}
+
+/**
+ * <p>Configuration for the Amazon Bedrock foundation model used for reranking vector search results. This specifies which model to use and any additional parameters required by the model.</p>
+ * @public
+ */
+export interface VectorSearchBedrockRerankingModelConfiguration {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the foundation model to use for reranking. This model processes the query and search results to determine a more relevant ordering.</p>
+   * @public
+   */
+  modelArn: string | undefined;
+
+  /**
+   * <p>A list of additional fields to include in the model request during reranking. These fields provide extra context or configuration options specific to the selected foundation model.</p>
+   * @public
+   */
+  additionalModelRequestFields?: Record<string, __DocumentType> | undefined;
+}
+
+/**
+ * <p>Configuration for using Amazon Bedrock foundation models to rerank Knowledge Base vector search results. This enables more sophisticated relevance ranking using large language models.</p>
+ * @public
+ */
+export interface VectorSearchBedrockRerankingConfiguration {
+  /**
+   * <p>Configuration for the Amazon Bedrock foundation model used for reranking. This includes the model ARN and any additional request fields required by the model.</p>
+   * @public
+   */
+  modelConfiguration: VectorSearchBedrockRerankingModelConfiguration | undefined;
+
+  /**
+   * <p>The maximum number of results to rerank. This limits how many of the initial vector search results will be processed by the reranking model. A smaller number improves performance but may exclude potentially relevant results.</p>
+   * @public
+   */
+  numberOfRerankedResults?: number | undefined;
+
+  /**
+   * <p>Configuration for how document metadata should be used during the reranking process. This determines which metadata fields are included when reordering search results.</p>
+   * @public
+   */
+  metadataConfiguration?: MetadataConfigurationForReranking | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const VectorSearchRerankingConfigurationType = {
+  BEDROCK_RERANKING_MODEL: "BEDROCK_RERANKING_MODEL",
+} as const;
+
+/**
+ * @public
+ */
+export type VectorSearchRerankingConfigurationType =
+  (typeof VectorSearchRerankingConfigurationType)[keyof typeof VectorSearchRerankingConfigurationType];
+
+/**
+ * <p>Configuration for reranking vector search results to improve relevance. Reranking applies additional relevance models to reorder the initial vector search results based on more sophisticated criteria.</p>
+ * @public
+ */
+export interface VectorSearchRerankingConfiguration {
+  /**
+   * <p>The type of reranking to apply to vector search results. Currently, the only supported value is BEDROCK, which uses Amazon Bedrock foundation models for reranking.</p>
+   * @public
+   */
+  type: VectorSearchRerankingConfigurationType | undefined;
+
+  /**
+   * <p>Configuration for using Amazon Bedrock foundation models to rerank search results. This is required when the reranking type is set to BEDROCK.</p>
+   * @public
+   */
+  bedrockRerankingConfiguration?: VectorSearchBedrockRerankingConfiguration | undefined;
+}
 
 /**
  * @public
@@ -7264,208 +7496,6 @@ export const AuthorizationStatus = {
 export type AuthorizationStatus = (typeof AuthorizationStatus)[keyof typeof AuthorizationStatus];
 
 /**
- * @public
- * @enum
- */
-export const EntitlementAvailability = {
-  AVAILABLE: "AVAILABLE",
-  NOT_AVAILABLE: "NOT_AVAILABLE",
-} as const;
-
-/**
- * @public
- */
-export type EntitlementAvailability = (typeof EntitlementAvailability)[keyof typeof EntitlementAvailability];
-
-/**
- * @public
- * @enum
- */
-export const RegionAvailability = {
-  AVAILABLE: "AVAILABLE",
-  NOT_AVAILABLE: "NOT_AVAILABLE",
-} as const;
-
-/**
- * @public
- */
-export type RegionAvailability = (typeof RegionAvailability)[keyof typeof RegionAvailability];
-
-/**
- * @public
- */
-export interface GetFoundationModelAvailabilityResponse {
-  /**
-   * <p>The model Id of the foundation model.</p>
-   * @public
-   */
-  modelId: string | undefined;
-
-  /**
-   * <p>Agreement availability. </p>
-   * @public
-   */
-  agreementAvailability: AgreementAvailability | undefined;
-
-  /**
-   * <p>Authorization status.</p>
-   * @public
-   */
-  authorizationStatus: AuthorizationStatus | undefined;
-
-  /**
-   * <p>Entitlement availability. </p>
-   * @public
-   */
-  entitlementAvailability: EntitlementAvailability | undefined;
-
-  /**
-   * <p>Region availability. </p>
-   * @public
-   */
-  regionAvailability: RegionAvailability | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const OfferType = {
-  ALL: "ALL",
-  PUBLIC: "PUBLIC",
-} as const;
-
-/**
- * @public
- */
-export type OfferType = (typeof OfferType)[keyof typeof OfferType];
-
-/**
- * @public
- */
-export interface ListFoundationModelAgreementOffersRequest {
-  /**
-   * <p>Model Id of the foundation model.</p>
-   * @public
-   */
-  modelId: string | undefined;
-
-  /**
-   * <p>Type of offer associated with the model.</p>
-   * @public
-   */
-  offerType?: OfferType | undefined;
-}
-
-/**
- * <p>The legal term of the agreement.</p>
- * @public
- */
-export interface LegalTerm {
-  /**
-   * <p>URL to the legal term document.</p>
-   * @public
-   */
-  url?: string | undefined;
-}
-
-/**
- * <p>Describes a support term.</p>
- * @public
- */
-export interface SupportTerm {
-  /**
-   * <p>Describes the refund policy.</p>
-   * @public
-   */
-  refundPolicyDescription?: string | undefined;
-}
-
-/**
- * <p>Dimensional price rate.</p>
- * @public
- */
-export interface DimensionalPriceRate {
-  /**
-   * <p>Dimension for the price rate.</p>
-   * @public
-   */
-  dimension?: string | undefined;
-
-  /**
-   * <p>Single-dimensional rate information.</p>
-   * @public
-   */
-  price?: string | undefined;
-
-  /**
-   * <p>Description of the price rate.</p>
-   * @public
-   */
-  description?: string | undefined;
-
-  /**
-   * <p>Unit associated with the price.</p>
-   * @public
-   */
-  unit?: string | undefined;
-}
-
-/**
- * <p>Describes the usage-based pricing term.</p>
- * @public
- */
-export interface PricingTerm {
-  /**
-   * <p>Describes a usage price for each dimension.</p>
-   * @public
-   */
-  rateCard: DimensionalPriceRate[] | undefined;
-}
-
-/**
- * <p>Describes the validity terms.</p>
- * @public
- */
-export interface ValidityTerm {
-  /**
-   * <p>Describes the agreement duration.</p>
-   * @public
-   */
-  agreementDuration?: string | undefined;
-}
-
-/**
- * <p>Describes the usage terms of an offer.</p>
- * @public
- */
-export interface TermDetails {
-  /**
-   * <p>Describes the usage-based pricing term.</p>
-   * @public
-   */
-  usageBasedPricingTerm: PricingTerm | undefined;
-
-  /**
-   * <p>Describes the legal terms.</p>
-   * @public
-   */
-  legalTerm: LegalTerm | undefined;
-
-  /**
-   * <p>Describes the support terms.</p>
-   * @public
-   */
-  supportTerm: SupportTerm | undefined;
-
-  /**
-   * <p>Describes the validity terms.</p>
-   * @public
-   */
-  validityTerm?: ValidityTerm | undefined;
-}
-
-/**
  * @internal
  */
 export const RequestMetadataBaseFiltersFilterSensitiveLog = (obj: RequestMetadataBaseFilters): any => ({
@@ -7730,6 +7760,68 @@ export const ExternalSourcesRetrieveAndGenerateConfigurationFilterSensitiveLog =
 export const GenerationConfigurationFilterSensitiveLog = (obj: GenerationConfiguration): any => ({
   ...obj,
   ...(obj.promptTemplate && { promptTemplate: PromptTemplateFilterSensitiveLog(obj.promptTemplate) }),
+});
+
+/**
+ * @internal
+ */
+export const MetadataAttributeSchemaFilterSensitiveLog = (obj: MetadataAttributeSchema): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ImplicitFilterConfigurationFilterSensitiveLog = (obj: ImplicitFilterConfiguration): any => ({
+  ...obj,
+  ...(obj.metadataAttributes && { metadataAttributes: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const RerankingMetadataSelectiveModeConfigurationFilterSensitiveLog = (
+  obj: RerankingMetadataSelectiveModeConfiguration
+): any => {
+  if (obj.fieldsToInclude !== undefined) return { fieldsToInclude: SENSITIVE_STRING };
+  if (obj.fieldsToExclude !== undefined) return { fieldsToExclude: SENSITIVE_STRING };
+  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
+};
+
+/**
+ * @internal
+ */
+export const MetadataConfigurationForRerankingFilterSensitiveLog = (obj: MetadataConfigurationForReranking): any => ({
+  ...obj,
+  ...(obj.selectiveModeConfiguration && {
+    selectiveModeConfiguration: RerankingMetadataSelectiveModeConfigurationFilterSensitiveLog(
+      obj.selectiveModeConfiguration
+    ),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const VectorSearchBedrockRerankingConfigurationFilterSensitiveLog = (
+  obj: VectorSearchBedrockRerankingConfiguration
+): any => ({
+  ...obj,
+  ...(obj.metadataConfiguration && {
+    metadataConfiguration: MetadataConfigurationForRerankingFilterSensitiveLog(obj.metadataConfiguration),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const VectorSearchRerankingConfigurationFilterSensitiveLog = (obj: VectorSearchRerankingConfiguration): any => ({
+  ...obj,
+  ...(obj.bedrockRerankingConfiguration && {
+    bedrockRerankingConfiguration: VectorSearchBedrockRerankingConfigurationFilterSensitiveLog(
+      obj.bedrockRerankingConfiguration
+    ),
+  }),
 });
 
 /**

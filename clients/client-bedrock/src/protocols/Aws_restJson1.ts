@@ -257,6 +257,7 @@ import {
   ExternalSource,
   ExternalSourcesGenerationConfiguration,
   ExternalSourcesRetrieveAndGenerateConfiguration,
+  FieldForReranking,
   FilterAttribute,
   GenerationConfiguration,
   GuardrailConfiguration,
@@ -282,6 +283,7 @@ import {
   HumanEvaluationConfig,
   HumanEvaluationCustomMetric,
   HumanWorkflowConfig,
+  ImplicitFilterConfiguration,
   ImportedModelSummary,
   InferenceProfileModelSource,
   InferenceProfileSummary,
@@ -292,6 +294,8 @@ import {
   LoggingConfig,
   MarketplaceModelEndpoint,
   MarketplaceModelEndpointSummary,
+  MetadataAttributeSchema,
+  MetadataConfigurationForReranking,
   ModelCopyJobSummary,
   ModelDataSource,
   ModelImportJobSummary,
@@ -312,6 +316,7 @@ import {
   RatingScaleItemValue,
   RequestMetadataBaseFilters,
   RequestMetadataFilters,
+  RerankingMetadataSelectiveModeConfiguration,
   ResourceNotFoundException,
   RoutingCriteria,
   S3Config,
@@ -331,6 +336,9 @@ import {
   ValidationException,
   Validator,
   ValidatorMetric,
+  VectorSearchBedrockRerankingConfiguration,
+  VectorSearchBedrockRerankingModelConfiguration,
+  VectorSearchRerankingConfiguration,
   VpcConfig,
 } from "../models/models_0";
 import {
@@ -3673,6 +3681,10 @@ const se_ExternalSourcesRetrieveAndGenerateConfiguration = (
   });
 };
 
+// se_FieldForReranking omitted.
+
+// se_FieldsForReranking omitted.
+
 /**
  * serializeAws_restJson1FilterAttribute
  */
@@ -3795,6 +3807,8 @@ const se_GuardrailContextualGroundingPolicyConfig = (
 
 // se_HumanWorkflowConfig omitted.
 
+// se_ImplicitFilterConfiguration omitted.
+
 // se_InferenceProfileModelSource omitted.
 
 // se_InvocationLogsConfig omitted.
@@ -3860,12 +3874,20 @@ const se_KnowledgeBaseVectorSearchConfiguration = (
 ): any => {
   return take(input, {
     filter: (_) => se_RetrievalFilter(_, context),
+    implicitFilterConfiguration: _json,
     numberOfResults: [],
     overrideSearchType: [],
+    rerankingConfiguration: (_) => se_VectorSearchRerankingConfiguration(_, context),
   });
 };
 
 // se_LoggingConfig omitted.
+
+// se_MetadataAttributeSchema omitted.
+
+// se_MetadataAttributeSchemaList omitted.
+
+// se_MetadataConfigurationForReranking omitted.
 
 // se_ModelCustomizationHyperParameters omitted.
 
@@ -3956,6 +3978,8 @@ const se_RatingScaleItemValue = (input: RatingScaleItemValue, context: __SerdeCo
 // se_RequestMetadataFiltersList omitted.
 
 // se_RequestMetadataMap omitted.
+
+// se_RerankingMetadataSelectiveModeConfiguration omitted.
 
 /**
  * serializeAws_restJson1RetrievalFilter
@@ -4059,6 +4083,46 @@ const se_TextInferenceConfig = (input: TextInferenceConfig, context: __SerdeCont
 // se_Validator omitted.
 
 // se_Validators omitted.
+
+/**
+ * serializeAws_restJson1VectorSearchBedrockRerankingConfiguration
+ */
+const se_VectorSearchBedrockRerankingConfiguration = (
+  input: VectorSearchBedrockRerankingConfiguration,
+  context: __SerdeContext
+): any => {
+  return take(input, {
+    metadataConfiguration: _json,
+    modelConfiguration: (_) => se_VectorSearchBedrockRerankingModelConfiguration(_, context),
+    numberOfRerankedResults: [],
+  });
+};
+
+/**
+ * serializeAws_restJson1VectorSearchBedrockRerankingModelConfiguration
+ */
+const se_VectorSearchBedrockRerankingModelConfiguration = (
+  input: VectorSearchBedrockRerankingModelConfiguration,
+  context: __SerdeContext
+): any => {
+  return take(input, {
+    additionalModelRequestFields: (_) => se_AdditionalModelRequestFields(_, context),
+    modelArn: [],
+  });
+};
+
+/**
+ * serializeAws_restJson1VectorSearchRerankingConfiguration
+ */
+const se_VectorSearchRerankingConfiguration = (
+  input: VectorSearchRerankingConfiguration,
+  context: __SerdeContext
+): any => {
+  return take(input, {
+    bedrockRerankingConfiguration: (_) => se_VectorSearchBedrockRerankingConfiguration(_, context),
+    type: [],
+  });
+};
 
 // se_VpcConfig omitted.
 
@@ -4395,6 +4459,10 @@ const de_ExternalSourcesRetrieveAndGenerateConfiguration = (
   }) as any;
 };
 
+// de_FieldForReranking omitted.
+
+// de_FieldsForReranking omitted.
+
 /**
  * deserializeAws_restJson1FilterAttribute
  */
@@ -4559,6 +4627,8 @@ const de_GuardrailSummary = (output: any, context: __SerdeContext): GuardrailSum
 
 // de_HumanWorkflowConfig omitted.
 
+// de_ImplicitFilterConfiguration omitted.
+
 /**
  * deserializeAws_restJson1ImportedModelSummary
  */
@@ -4686,8 +4756,10 @@ const de_KnowledgeBaseVectorSearchConfiguration = (
 ): KnowledgeBaseVectorSearchConfiguration => {
   return take(output, {
     filter: (_: any) => de_RetrievalFilter(__expectUnion(_), context),
+    implicitFilterConfiguration: _json,
     numberOfResults: __expectInt32,
     overrideSearchType: __expectString,
+    rerankingConfiguration: (_: any) => de_VectorSearchRerankingConfiguration(_, context),
   }) as any;
 };
 
@@ -4740,6 +4812,12 @@ const de_MarketplaceModelEndpointSummary = (output: any, context: __SerdeContext
     updatedAt: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
   }) as any;
 };
+
+// de_MetadataAttributeSchema omitted.
+
+// de_MetadataAttributeSchemaList omitted.
+
+// de_MetadataConfigurationForReranking omitted.
 
 /**
  * deserializeAws_restJson1ModelCopyJobSummaries
@@ -5040,6 +5118,8 @@ const de_RatingScaleItemValue = (output: any, context: __SerdeContext): RatingSc
 
 // de_RequestMetadataMap omitted.
 
+// de_RerankingMetadataSelectiveModeConfiguration omitted.
+
 /**
  * deserializeAws_restJson1RetrievalFilter
  */
@@ -5263,6 +5343,46 @@ const de_ValidatorMetric = (output: any, context: __SerdeContext): ValidatorMetr
 // de_Validators omitted.
 
 // de_ValidityTerm omitted.
+
+/**
+ * deserializeAws_restJson1VectorSearchBedrockRerankingConfiguration
+ */
+const de_VectorSearchBedrockRerankingConfiguration = (
+  output: any,
+  context: __SerdeContext
+): VectorSearchBedrockRerankingConfiguration => {
+  return take(output, {
+    metadataConfiguration: _json,
+    modelConfiguration: (_: any) => de_VectorSearchBedrockRerankingModelConfiguration(_, context),
+    numberOfRerankedResults: __expectInt32,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1VectorSearchBedrockRerankingModelConfiguration
+ */
+const de_VectorSearchBedrockRerankingModelConfiguration = (
+  output: any,
+  context: __SerdeContext
+): VectorSearchBedrockRerankingModelConfiguration => {
+  return take(output, {
+    additionalModelRequestFields: (_: any) => de_AdditionalModelRequestFields(_, context),
+    modelArn: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1VectorSearchRerankingConfiguration
+ */
+const de_VectorSearchRerankingConfiguration = (
+  output: any,
+  context: __SerdeContext
+): VectorSearchRerankingConfiguration => {
+  return take(output, {
+    bedrockRerankingConfiguration: (_: any) => de_VectorSearchBedrockRerankingConfiguration(_, context),
+    type: __expectString,
+  }) as any;
+};
 
 // de_VpcConfig omitted.
 
