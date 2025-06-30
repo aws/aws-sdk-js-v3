@@ -29,6 +29,10 @@ export interface ListStackSetsCommandOutput extends ListStackSetsOutput, __Metad
 
 /**
  * <p>Returns summary information about stack sets that are associated with the user.</p>
+ *          <note>
+ *             <p>This API provides <i>strongly consistent</i> reads meaning it will always
+ *         return the most up-to-date data.</p>
+ *          </note>
  *          <ul>
  *             <li>
  *                <p>[Self-managed permissions] If you set the <code>CallAs</code> parameter to

@@ -29,6 +29,10 @@ export interface ListStackSetOperationsCommandOutput extends ListStackSetOperati
 
 /**
  * <p>Returns summary information about operations performed on a stack set.</p>
+ *          <note>
+ *             <p>This API provides <i>eventually consistent</i> reads meaning it may take
+ *         some time but will eventually return the most up-to-date data.</p>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

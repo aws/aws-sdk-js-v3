@@ -51,7 +51,7 @@ export interface ListStackInstanceResourceDriftsCommandOutput
  *   NextToken: "STRING_VALUE",
  *   MaxResults: Number("int"),
  *   StackInstanceResourceDriftStatuses: [ // StackResourceDriftStatusFilters
- *     "IN_SYNC" || "MODIFIED" || "DELETED" || "NOT_CHECKED",
+ *     "IN_SYNC" || "MODIFIED" || "DELETED" || "NOT_CHECKED" || "UNKNOWN",
  *   ],
  *   StackInstanceAccount: "STRING_VALUE", // required
  *   StackInstanceRegion: "STRING_VALUE", // required
@@ -81,7 +81,7 @@ export interface ListStackInstanceResourceDriftsCommandOutput
  * //           DifferenceType: "ADD" || "REMOVE" || "NOT_EQUAL", // required
  * //         },
  * //       ],
- * //       StackResourceDriftStatus: "IN_SYNC" || "MODIFIED" || "DELETED" || "NOT_CHECKED", // required
+ * //       StackResourceDriftStatus: "IN_SYNC" || "MODIFIED" || "DELETED" || "NOT_CHECKED" || "UNKNOWN", // required
  * //       Timestamp: new Date("TIMESTAMP"), // required
  * //     },
  * //   ],

@@ -34,6 +34,24 @@ export interface UpdateStackSetCommandOutput extends UpdateStackSetOutput, __Met
  *       partially, below or above a specified failure tolerance), the stack set is updated with your
  *       changes. Subsequent <a>CreateStackInstances</a> calls on the specified stack set
  *       use the updated stack set.</p>
+ *          <note>
+ *             <p>The maximum number of organizational unit (OUs) supported by a
+ *           <code>UpdateStackSet</code> operation is 50.</p>
+ *             <p>If you need more than 50, consider the following options:</p>
+ *             <ul>
+ *                <li>
+ *                   <p>
+ *                      <i>Batch processing:</i> If you don't want to expose your OU
+ *             hierarchy, split up the operations into multiple calls with less than 50 OUs
+ *             each.</p>
+ *                </li>
+ *                <li>
+ *                   <p>
+ *                      <i>Parent OU strategy:</i> If you don't mind exposing the OU
+ *             hierarchy, target a parent OU that contains all desired child OUs.</p>
+ *                </li>
+ *             </ul>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

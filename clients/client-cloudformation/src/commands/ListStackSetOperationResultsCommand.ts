@@ -31,6 +31,10 @@ export interface ListStackSetOperationResultsCommandOutput
 
 /**
  * <p>Returns summary information about the results of a stack set operation.</p>
+ *          <note>
+ *             <p>This API provides <i>eventually consistent</i> reads meaning it may take
+ *         some time but will eventually return the most up-to-date data.</p>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

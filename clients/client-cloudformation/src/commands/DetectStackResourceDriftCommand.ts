@@ -75,12 +75,13 @@ export interface DetectStackResourceDriftCommandOutput extends DetectStackResour
  * //         DifferenceType: "ADD" || "REMOVE" || "NOT_EQUAL", // required
  * //       },
  * //     ],
- * //     StackResourceDriftStatus: "IN_SYNC" || "MODIFIED" || "DELETED" || "NOT_CHECKED", // required
+ * //     StackResourceDriftStatus: "IN_SYNC" || "MODIFIED" || "DELETED" || "NOT_CHECKED" || "UNKNOWN", // required
  * //     Timestamp: new Date("TIMESTAMP"), // required
  * //     ModuleInfo: { // ModuleInfo
  * //       TypeHierarchy: "STRING_VALUE",
  * //       LogicalIdHierarchy: "STRING_VALUE",
  * //     },
+ * //     DriftStatusReason: "STRING_VALUE",
  * //   },
  * // };
  *

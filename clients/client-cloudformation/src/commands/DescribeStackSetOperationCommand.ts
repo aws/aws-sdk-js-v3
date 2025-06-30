@@ -29,6 +29,10 @@ export interface DescribeStackSetOperationCommandOutput extends DescribeStackSet
 
 /**
  * <p>Returns the description of the specified StackSet operation.</p>
+ *          <note>
+ *             <p>This API provides <i>strongly consistent</i> reads meaning it will always
+ *         return the most up-to-date data.</p>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -992,7 +992,7 @@ export interface ResourceChangeDetail {
  */
 export interface ModuleInfo {
   /**
-   * <p>A concatenated list of the module type or types containing the resource. Module types are
+   * <p>A concatenated list of the module type or types that contains the resource. Module types are
    *    listed starting with the inner-most nested module, and separated by <code>/</code>.</p>
    *          <p>In the following example, the resource was created from a module of type
    *     <code>AWS::First::Example::MODULE</code>, that's nested inside a parent module of type
@@ -1005,7 +1005,7 @@ export interface ModuleInfo {
   TypeHierarchy?: string | undefined;
 
   /**
-   * <p>A concatenated list of the logical IDs of the module or modules containing the resource.
+   * <p>A concatenated list of the logical IDs of the module or modules that contains the resource.
    *    Modules are listed starting with the inner-most nested module, and separated by
    *    <code>/</code>.</p>
    *          <p>In the following example, the resource was created from a module, <code>moduleA</code>,
@@ -1167,14 +1167,14 @@ export interface ResourceChange {
   ModuleInfo?: ModuleInfo | undefined;
 
   /**
-   * <p>An encoded JSON string containing the context of the resource before the change is
+   * <p>An encoded JSON string that contains the context of the resource before the change is
    *    executed.</p>
    * @public
    */
   BeforeContext?: string | undefined;
 
   /**
-   * <p>An encoded JSON string containing the context of the resource after the change is
+   * <p>An encoded JSON string that contains the context of the resource after the change is
    *    executed.</p>
    * @public
    */
@@ -1759,14 +1759,14 @@ export interface RollbackTrigger {
   Arn: string | undefined;
 
   /**
-   * <p>The resource type of the rollback trigger. Specify either <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-alarm.html">AWS::CloudWatch::Alarm</a> or <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-compositealarm.html">AWS::CloudWatch::CompositeAlarm</a> resource types.</p>
+   * <p>The resource type of the rollback trigger. Specify either <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-cloudwatch-alarm.html">AWS::CloudWatch::Alarm</a> or <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-cloudwatch-compositealarm.html">AWS::CloudWatch::CompositeAlarm</a> resource types.</p>
    * @public
    */
   Type: string | undefined;
 }
 
 /**
- * <p>Structure containing the rollback triggers for CloudFormation to monitor during stack creation
+ * <p>Structure that contains the rollback triggers for CloudFormation to monitor during stack creation
  *    and updating operations, and for the specified monitoring period afterwards.</p>
  *          <p>Rollback triggers enable you to have CloudFormation monitor the state of your application during
  *    stack creation and updating, and to roll back that operation if the application breaches the
@@ -1835,7 +1835,7 @@ export interface Tag {
 
   /**
    * <p>
-   *             <i>Required</i>. A string containing the value for this tag. You can specify a
+   *             <i>Required</i>. A string that contains the value for this tag. You can specify a
    *    maximum of 256 characters for a tag value.</p>
    * @public
    */
@@ -1869,7 +1869,8 @@ export interface CreateChangeSetInput {
    * <p>The URL of the file that contains the revised template. The URL must point to a template
    *       (max size: 1 MB) that's located in an Amazon S3 bucket or a Systems Manager document. CloudFormation
    *       generates the change set by comparing this template with the stack that you specified. The
-   *       location for an Amazon S3 bucket must start with <code>https://</code>.</p>
+   *       location for an Amazon S3 bucket must start with <code>https://</code>. URLs from S3 static
+   *       websites are not supported.</p>
    *          <p>Conditional: You must specify only <code>TemplateBody</code> or
    *       <code>TemplateURL</code>.</p>
    * @public
@@ -1921,48 +1922,48 @@ export interface CreateChangeSetInput {
    *                <ul>
    *                   <li>
    *                      <p>
-   *                         <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-accesskey.html">
+   *                         <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-iam-accesskey.html">
    *                 AWS::IAM::AccessKey</a>
    *                      </p>
    *                   </li>
    *                   <li>
    *                      <p>
-   *                         <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-group.html">
+   *                         <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-iam-group.html">
    *                 AWS::IAM::Group</a>
    *                      </p>
    *                   </li>
    *                   <li>
    *                      <p>
-   *                         <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-instanceprofile.html">AWS::IAM::InstanceProfile</a>
+   *                         <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-iam-instanceprofile.html">AWS::IAM::InstanceProfile</a>
    *                      </p>
    *                   </li>
    *                   <li>
    *                      <p>
-   *                         <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-managedpolicy.html">
+   *                         <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-iam-managedpolicy.html">
    *                 AWS::IAM::ManagedPolicy</a>
    *                      </p>
    *                   </li>
    *                   <li>
    *                      <p>
-   *                         <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-policy.html">
+   *                         <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-iam-policy.html">
    *                 AWS::IAM::Policy</a>
    *                      </p>
    *                   </li>
    *                   <li>
    *                      <p>
-   *                         <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-role.html">
+   *                         <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-iam-role.html">
    *                 AWS::IAM::Role</a>
    *                      </p>
    *                   </li>
    *                   <li>
    *                      <p>
-   *                         <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-user.html">
+   *                         <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-iam-user.html">
    *                 AWS::IAM::User</a>
    *                      </p>
    *                   </li>
    *                   <li>
    *                      <p>
-   *                         <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-usertogroupaddition.html">AWS::IAM::UserToGroupAddition</a>
+   *                         <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-iam-usertogroupaddition.html">AWS::IAM::UserToGroupAddition</a>
    *                      </p>
    *                   </li>
    *                </ul>
@@ -2136,15 +2137,16 @@ export interface CreateChangeSetInput {
   OnStackFailure?: OnStackFailure | undefined;
 
   /**
-   * <p>Indicates if the change set imports resources that already exist.</p>
+   * <p>Indicates if the change set auto-imports resources that already exist. For more
+   *       information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/import-resources-automatically.html">Import Amazon Web Services
+   *         resources into a CloudFormation stack automatically</a> in the
+   *         <i>CloudFormation User Guide</i>.</p>
    *          <note>
    *             <p>This parameter can only import resources that have custom names in templates. For more
-   *         information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html">name type</a> in the
+   *         information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-name.html">name type</a> in the
    *           <i>CloudFormation User Guide</i>. To import resources that do not accept custom
-   *         names, such as EC2 instances, use the resource import feature instead. For more information,
-   *         see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/resource-import.html">Import Amazon Web Services resources into
-   *           a CloudFormation stack with a resource import</a> in the
-   *           <i>CloudFormation User Guide</i>.</p>
+   *         names, such as EC2 instances, use the <code>ResourcesToImport</code> parameter
+   *         instead.</p>
    *          </note>
    * @public
    */
@@ -2426,18 +2428,19 @@ export interface CreateStackInput {
   StackName: string | undefined;
 
   /**
-   * <p>Structure containing the template body with a minimum length of 1 byte and a maximum
+   * <p>Structure that contains the template body with a minimum length of 1 byte and a maximum
    *       length of 51,200 bytes.</p>
-   *          <p>Conditional: You must specify either the <code>TemplateBody</code> or the
-   *         <code>TemplateURL</code> parameter, but not both.</p>
+   *          <p>Conditional: You must specify either <code>TemplateBody</code> or
+   *       <code>TemplateURL</code>, but not both.</p>
    * @public
    */
   TemplateBody?: string | undefined;
 
   /**
-   * <p>The URL of a file containing the template body. The URL must point to a template (max
+   * <p>The URL of a file that contains the template body. The URL must point to a template (max
    *       size: 1 MB) that's located in an Amazon S3 bucket or a Systems Manager document. The location for
-   *       an Amazon S3 bucket must start with <code>https://</code>.</p>
+   *       an Amazon S3 bucket must start with <code>https://</code>. URLs from S3 static websites are not
+   *       supported.</p>
    *          <p>Conditional: You must specify either the <code>TemplateBody</code> or the
    *         <code>TemplateURL</code> parameter, but not both.</p>
    * @public
@@ -2515,43 +2518,43 @@ export interface CreateStackInput {
    *                <ul>
    *                   <li>
    *                      <p>
-   *                         <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-accesskey.html">AWS::IAM::AccessKey</a>
+   *                         <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-iam-accesskey.html">AWS::IAM::AccessKey</a>
    *                      </p>
    *                   </li>
    *                   <li>
    *                      <p>
-   *                         <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-group.html">AWS::IAM::Group</a>
+   *                         <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-iam-group.html">AWS::IAM::Group</a>
    *                      </p>
    *                   </li>
    *                   <li>
    *                      <p>
-   *                         <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-instanceprofile.html">AWS::IAM::InstanceProfile</a>
+   *                         <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-iam-instanceprofile.html">AWS::IAM::InstanceProfile</a>
    *                      </p>
    *                   </li>
    *                   <li>
    *                      <p>
-   *                         <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-managedpolicy.html">
+   *                         <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-iam-managedpolicy.html">
    *                 AWS::IAM::ManagedPolicy</a>
    *                      </p>
    *                   </li>
    *                   <li>
    *                      <p>
-   *                         <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-policy.html">AWS::IAM::Policy</a>
+   *                         <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-iam-policy.html">AWS::IAM::Policy</a>
    *                      </p>
    *                   </li>
    *                   <li>
    *                      <p>
-   *                         <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-role.html">AWS::IAM::Role</a>
+   *                         <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-iam-role.html">AWS::IAM::Role</a>
    *                      </p>
    *                   </li>
    *                   <li>
    *                      <p>
-   *                         <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-user.html">AWS::IAM::User</a>
+   *                         <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-iam-user.html">AWS::IAM::User</a>
    *                      </p>
    *                   </li>
    *                   <li>
    *                      <p>
-   *                         <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-usertogroupaddition.html">AWS::IAM::UserToGroupAddition</a>
+   *                         <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-iam-usertogroupaddition.html">AWS::IAM::UserToGroupAddition</a>
    *                      </p>
    *                   </li>
    *                </ul>
@@ -2640,7 +2643,7 @@ export interface CreateStackInput {
   OnFailure?: OnFailure | undefined;
 
   /**
-   * <p>Structure containing the stack policy body. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/protect-stack-resources.html">Prevent updates to stack resources</a> in the <i>CloudFormation User Guide</i>.
+   * <p>Structure that contains the stack policy body. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/protect-stack-resources.html">Prevent updates to stack resources</a> in the <i>CloudFormation User Guide</i>.
    *       You can specify either the <code>StackPolicyBody</code> or the <code>StackPolicyURL</code>
    *       parameter, but not both.</p>
    * @public
@@ -2648,11 +2651,12 @@ export interface CreateStackInput {
   StackPolicyBody?: string | undefined;
 
   /**
-   * <p>Location of a file containing the stack policy. The URL must point to a policy (maximum
+   * <p>Location of a file that contains the stack policy. The URL must point to a policy (maximum
    *       size: 16 KB) located in an S3 bucket in the same Region as the stack. The location for an Amazon S3
-   *       bucket must start with <code>https://</code>. You can specify either the
-   *         <code>StackPolicyBody</code> or the <code>StackPolicyURL</code> parameter, but not
-   *       both.</p>
+   *       bucket must start with <code>https://</code>. URLs from S3 static websites are not
+   *       supported.</p>
+   *          <p>You can specify either the <code>StackPolicyBody</code> or the <code>StackPolicyURL</code>
+   *       parameter, but not both.</p>
    * @public
    */
   StackPolicyURL?: string | undefined;
@@ -2732,15 +2736,17 @@ export interface CreateStackOutput {
  */
 export interface DeploymentTargets {
   /**
-   * <p>The account IDs of the Amazon Web Services accounts. If you have many account numbers, you can provide those accounts using the <code>AccountsUrl</code> property instead.</p>
+   * <p>The account IDs of the Amazon Web Services accounts. If you have many account numbers, you can provide
+   *    those accounts using the <code>AccountsUrl</code> property instead.</p>
    * @public
    */
   Accounts?: string[] | undefined;
 
   /**
-   * <p>The Amazon S3 URL path to a file that contains a list of Amazon Web Services account IDs. The file format must be either <code>.csv</code>
-   *    or <code>.txt</code>, and the data can be comma-separated or new-line-separated. There is currently a 10MB
-   *    limit for the data (approximately 800,000 accounts).</p>
+   * <p>The Amazon S3 URL path to a file that contains a list of Amazon Web Services account IDs. The file
+   *    format must be either <code>.csv</code> or <code>.txt</code>, and the data can be comma-separated
+   *    or new-line-separated. There is currently a 10MB limit for the data (approximately 800,000
+   *    accounts).</p>
    *          <p></p>
    * @public
    */
@@ -2821,7 +2827,8 @@ export type RegionConcurrencyType = (typeof RegionConcurrencyType)[keyof typeof 
  *     set operation options</a>.</p>
  *          <note>
  *             <p>
- *                <code>StackSetOperationPreferences</code> don't apply to <code>AutoDeployment</code>, even if it's enabled.</p>
+ *                <code>StackSetOperationPreferences</code> don't apply to <code>AutoDeployment</code>, even
+ *     if it's enabled.</p>
  *          </note>
  * @public
  */
@@ -2843,8 +2850,8 @@ export interface StackSetOperationPreferences {
    * <p>The number of accounts, per Region, for which this operation can fail before CloudFormation
    *    stops the operation in that Region. If the operation is stopped in a Region, CloudFormation doesn't
    *    attempt the operation in any subsequent Regions.</p>
-   *          <p>Conditional: You must specify either <code>FailureToleranceCount</code> or
-   *     <code>FailureTolerancePercentage</code> (but not both).</p>
+   *          <p>You can specify either <code>FailureToleranceCount</code> or
+   *     <code>FailureTolerancePercentage</code>, but not both.</p>
    *          <p>By default, <code>0</code> is specified.</p>
    * @public
    */
@@ -2856,7 +2863,7 @@ export interface StackSetOperationPreferences {
    *    CloudFormation doesn't attempt the operation in any subsequent Regions.</p>
    *          <p>When calculating the number of accounts based on the specified percentage, CloudFormation rounds
    *     <i>down</i> to the next whole number.</p>
-   *          <p>Conditional: You must specify either <code>FailureToleranceCount</code> or
+   *          <p>You can specify either <code>FailureToleranceCount</code> or
    *     <code>FailureTolerancePercentage</code>, but not both.</p>
    *          <p>By default, <code>0</code> is specified.</p>
    * @public
@@ -2871,7 +2878,7 @@ export interface StackSetOperationPreferences {
    *          <p>Note that this setting lets you specify the <i>maximum</i> for operations. For
    *    large deployments, under certain circumstances the actual number of accounts acted upon
    *    concurrently may be lower due to service throttling.</p>
-   *          <p>Conditional: You must specify either <code>MaxConcurrentCount</code> or
+   *          <p>You can specify either <code>MaxConcurrentCount</code> or
    *     <code>MaxConcurrentPercentage</code>, but not both.</p>
    *          <p>By default, <code>1</code> is specified.</p>
    * @public
@@ -2886,7 +2893,7 @@ export interface StackSetOperationPreferences {
    *          <p>Note that this setting lets you specify the <i>maximum</i> for operations. For
    *    large deployments, under certain circumstances the actual number of accounts acted upon
    *    concurrently may be lower due to service throttling.</p>
-   *          <p>Conditional: You must specify either <code>MaxConcurrentCount</code> or
+   *          <p>You can specify either <code>MaxConcurrentCount</code> or
    *     <code>MaxConcurrentPercentage</code>, but not both.</p>
    *          <p>By default, <code>1</code> is specified.</p>
    * @public
@@ -3321,8 +3328,8 @@ export interface CreateStackSetInput {
   /**
    * <p>The structure that contains the template body, with a minimum length of 1 byte and a
    *       maximum length of 51,200 bytes.</p>
-   *          <p>Conditional: You must specify either the TemplateBody or the TemplateURL parameter, but
-   *       not both.</p>
+   *          <p>Conditional: You must specify either the <code>TemplateBody</code> or the
+   *         <code>TemplateURL</code> parameter, but not both.</p>
    * @public
    */
   TemplateBody?: string | undefined;
@@ -3330,9 +3337,10 @@ export interface CreateStackSetInput {
   /**
    * <p>The URL of a file that contains the template body. The URL must point to a template
    *       (maximum size: 1 MB) that's located in an Amazon S3 bucket or a Systems Manager document. The
-   *       location for an Amazon S3 bucket must start with <code>https://</code>.</p>
-   *          <p>Conditional: You must specify either the TemplateBody or the TemplateURL parameter, but
-   *       not both.</p>
+   *       location for an Amazon S3 bucket must start with <code>https://</code>. S3 static website URLs are
+   *       not supported.</p>
+   *          <p>Conditional: You must specify either the <code>TemplateBody</code> or the
+   *         <code>TemplateURL</code> parameter, but not both.</p>
    * @public
    */
   TemplateURL?: string | undefined;
@@ -3382,37 +3390,37 @@ export interface CreateStackSetInput {
    *                <ul>
    *                   <li>
    *                      <p>
-   *                         <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-accesskey.html">AWS::IAM::AccessKey</a>
+   *                         <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-iam-accesskey.html">AWS::IAM::AccessKey</a>
    *                      </p>
    *                   </li>
    *                   <li>
    *                      <p>
-   *                         <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-group.html">AWS::IAM::Group</a>
+   *                         <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-iam-group.html">AWS::IAM::Group</a>
    *                      </p>
    *                   </li>
    *                   <li>
    *                      <p>
-   *                         <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-instanceprofile.html">AWS::IAM::InstanceProfile</a>
+   *                         <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-iam-instanceprofile.html">AWS::IAM::InstanceProfile</a>
    *                      </p>
    *                   </li>
    *                   <li>
    *                      <p>
-   *                         <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-policy.html">AWS::IAM::Policy</a>
+   *                         <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-iam-policy.html">AWS::IAM::Policy</a>
    *                      </p>
    *                   </li>
    *                   <li>
    *                      <p>
-   *                         <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-role.html">AWS::IAM::Role</a>
+   *                         <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-iam-role.html">AWS::IAM::Role</a>
    *                      </p>
    *                   </li>
    *                   <li>
    *                      <p>
-   *                         <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-user.html">AWS::IAM::User</a>
+   *                         <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-iam-user.html">AWS::IAM::User</a>
    *                      </p>
    *                   </li>
    *                   <li>
    *                      <p>
-   *                         <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-usertogroupaddition.html">AWS::IAM::UserToGroupAddition</a>
+   *                         <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-iam-usertogroupaddition.html">AWS::IAM::UserToGroupAddition</a>
    *                      </p>
    *                   </li>
    *                </ul>
@@ -4231,7 +4239,7 @@ export interface DescribeChangeSetOutput {
   /**
    * <p>Indicates if the change set imports resources that already exist.</p>
    *          <note>
-   *             <p>This parameter can only import resources that have <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html">custom names</a> in
+   *             <p>This parameter can only import resources that have <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-name.html">custom names</a> in
    *         templates. To import resources that do not accept custom names, such as EC2 instances, use
    *         the <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/resource-import.html">resource import</a>
    *         feature instead.</p>
@@ -5075,7 +5083,7 @@ export interface DescribeStackDriftDetectionStatusOutput {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>UNKNOWN</code>: This value is reserved for future use.</p>
+   *                   <code>UNKNOWN</code>: CloudFormation could not run drift detection for a resource in the stack. See the <code>DetectionStatusReason</code> for details.</p>
    *             </li>
    *          </ul>
    * @public
@@ -5351,7 +5359,7 @@ export interface StackEvent {
   HookFailureMode?: HookFailureMode | undefined;
 
   /**
-   * <p>An optional field containing information about the detailed status of the stack
+   * <p>An optional field that contains information about the detailed status of the stack
    *    event.</p>
    *          <ul>
    *             <li>
@@ -5871,6 +5879,7 @@ export const StackResourceDriftStatus = {
   IN_SYNC: "IN_SYNC",
   MODIFIED: "MODIFIED",
   NOT_CHECKED: "NOT_CHECKED",
+  UNKNOWN: "UNKNOWN",
 } as const;
 
 /**
@@ -6014,8 +6023,8 @@ export interface StackResourceDetail {
  */
 export interface DescribeStackResourceOutput {
   /**
-   * <p>A <code>StackResourceDetail</code> structure containing the description of the specified
-   *       resource in the specified stack.</p>
+   * <p>A <code>StackResourceDetail</code> structure that contains the description of the
+   *       specified resource in the specified stack.</p>
    * @public
    */
   StackResourceDetail?: StackResourceDetail | undefined;
@@ -6053,6 +6062,10 @@ export interface DescribeStackResourceDriftsInput {
    *             <li>
    *                <p>
    *                   <code>NOT_CHECKED</code>: CloudFormation doesn't currently return this value.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>UNKNOWN</code>: CloudFormation could not run drift detection for the resource.</p>
    *             </li>
    *          </ul>
    * @public
@@ -6213,7 +6226,7 @@ export interface StackResourceDrift {
   ResourceType: string | undefined;
 
   /**
-   * <p>A JSON structure containing the expected property values of the stack resource, as defined
+   * <p>A JSON structure that contains the expected property values of the stack resource, as defined
    *    in the stack template and any values specified as template parameters.</p>
    *          <p>For resources whose <code>StackResourceDriftStatus</code> is <code>DELETED</code>, this
    *    structure will not be present.</p>
@@ -6222,7 +6235,7 @@ export interface StackResourceDrift {
   ExpectedProperties?: string | undefined;
 
   /**
-   * <p>A JSON structure containing the actual property values of the stack resource.</p>
+   * <p>A JSON structure that contains the actual property values of the stack resource.</p>
    *          <p>For resources whose <code>StackResourceDriftStatus</code> is <code>DELETED</code>, this
    *    structure will not be present.</p>
    * @public
@@ -6259,6 +6272,10 @@ export interface StackResourceDrift {
    *                <p>
    *                   <code>NOT_CHECKED</code>: CloudFormation does not currently return this value.</p>
    *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>UNKNOWN</code>: CloudFormation could not run drift detection for the resource. See the <code>DriftStatusReason</code> for details.</p>
+   *             </li>
    *          </ul>
    * @public
    */
@@ -6276,6 +6293,12 @@ export interface StackResourceDrift {
    * @public
    */
   ModuleInfo?: ModuleInfo | undefined;
+
+  /**
+   * <p>The reason for the drift status. </p>
+   * @public
+   */
+  DriftStatusReason?: string | undefined;
 }
 
 /**
@@ -6506,7 +6529,7 @@ export interface StackDriftInformation {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>UNKNOWN</code>: This value is reserved for future use.</p>
+   *                   <code>UNKNOWN</code>: CloudFormation could not run drift detection for a resource in the stack.</p>
    *             </li>
    *          </ul>
    * @public
@@ -6723,20 +6746,18 @@ export interface Stack {
   EnableTerminationProtection?: boolean | undefined;
 
   /**
-   * <p>For nested stacks--stacks created as resources for another stack--the stack ID of the direct
+   * <p>For nested stacks, the stack ID of the direct
    *    parent of this stack. For the first level of nested stacks, the root stack is also the parent
    *    stack.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-nested-stacks.html">Embed stacks within other
-   *     stacks using nested stacks</a> in the <i>CloudFormation User Guide</i>.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-nested-stacks.html">Nested stacks</a> in the <i>CloudFormation User Guide</i>.</p>
    * @public
    */
   ParentId?: string | undefined;
 
   /**
-   * <p>For nested stacks--stacks created as resources for another stack--the stack ID of the
+   * <p>For nested stacks, the stack ID of the
    *    top-level stack to which the nested stack ultimately belongs.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-nested-stacks.html">Embed stacks within other
-   *     stacks using nested stacks</a> in the <i>CloudFormation User Guide</i>.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-nested-stacks.html">Nested stacks</a> in the <i>CloudFormation User Guide</i>.</p>
    * @public
    */
   RootId?: string | undefined;
@@ -8065,7 +8086,7 @@ export interface DetectStackSetDriftOutput {
  */
 export interface EstimateTemplateCostInput {
   /**
-   * <p>Structure containing the template body with a minimum length of 1 byte and a maximum
+   * <p>Structure that contains the template body with a minimum length of 1 byte and a maximum
    *       length of 51,200 bytes.</p>
    *          <p>Conditional: You must pass <code>TemplateBody</code> or <code>TemplateURL</code>. If both
    *       are passed, only <code>TemplateBody</code> is used.</p>
@@ -8074,9 +8095,9 @@ export interface EstimateTemplateCostInput {
   TemplateBody?: string | undefined;
 
   /**
-   * <p>The URL of a file containing the template body. The URL must point to a template that's
+   * <p>The URL of a file that contains the template body. The URL must point to a template that's
    *       located in an Amazon S3 bucket or a Systems Manager document. The location for an Amazon S3 bucket must
-   *       start with <code>https://</code>.</p>
+   *       start with <code>https://</code>. URLs from S3 static websites are not supported.</p>
    *          <p>Conditional: You must pass <code>TemplateURL</code> or <code>TemplateBody</code>. If both
    *       are passed, only <code>TemplateBody</code> is used.</p>
    * @public
@@ -8300,7 +8321,7 @@ export interface GetStackPolicyInput {
  */
 export interface GetStackPolicyOutput {
   /**
-   * <p>Structure containing the stack policy body. (For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/protect-stack-resources.html">Prevent updates to stack resources</a> in the
+   * <p>Structure that contains the stack policy body. (For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/protect-stack-resources.html">Prevent updates to stack resources</a> in the
    *       <i>CloudFormation User Guide</i>.)</p>
    * @public
    */
@@ -8367,7 +8388,7 @@ export interface GetTemplateInput {
  */
 export interface GetTemplateOutput {
   /**
-   * <p>Structure containing the template body.</p>
+   * <p>Structure that contains the template body.</p>
    *          <p>CloudFormation returns the same template that was used when the stack was created.</p>
    * @public
    */
@@ -8403,7 +8424,7 @@ export interface TemplateSummaryConfig {
  */
 export interface GetTemplateSummaryInput {
   /**
-   * <p>Structure containing the template body with a minimum length of 1 byte and a maximum
+   * <p>Structure that contains the template body with a minimum length of 1 byte and a maximum
    *       length of 51,200 bytes.</p>
    *          <p>Conditional: You must specify only one of the following parameters:
    *       <code>StackName</code>, <code>StackSetName</code>, <code>TemplateBody</code>, or
@@ -8413,7 +8434,7 @@ export interface GetTemplateSummaryInput {
   TemplateBody?: string | undefined;
 
   /**
-   * <p>The URL of a file containing the template body. The URL must point to a template (max
+   * <p>The URL of a file that contains the template body. The URL must point to a template (max
    *       size: 1 MB) that's located in an Amazon S3 bucket or a Systems Manager document. The location for
    *       an Amazon S3 bucket must start with <code>https://</code>.</p>
    *          <p>Conditional: You must specify only one of the following parameters:
@@ -8647,7 +8668,7 @@ export interface GetTemplateSummaryOutput {
   ResourceIdentifierSummaries?: ResourceIdentifierSummary[] | undefined;
 
   /**
-   * <p>An object containing any warnings returned.</p>
+   * <p>An object that contains any warnings returned.</p>
    * @public
    */
   Warnings?: Warnings | undefined;
@@ -10497,7 +10518,7 @@ export interface StackDriftInformationSummary {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>UNKNOWN</code>: This value is reserved for future use.</p>
+   *                   <code>UNKNOWN</code>: CloudFormation could not run drift detection for a resource in the stack.</p>
    *             </li>
    *          </ul>
    * @public
@@ -10567,20 +10588,18 @@ export interface StackSummary {
   StackStatusReason?: string | undefined;
 
   /**
-   * <p>For nested stacks--stacks created as resources for another stack--the stack ID of the direct
+   * <p>For nested stacks, the stack ID of the direct
    *    parent of this stack. For the first level of nested stacks, the root stack is also the parent
    *    stack.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-nested-stacks.html">Embed stacks within other
-   *     stacks using nested stacks</a> in the <i>CloudFormation User Guide</i>.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-nested-stacks.html">Nested stacks</a> in the <i>CloudFormation User Guide</i>.</p>
    * @public
    */
   ParentId?: string | undefined;
 
   /**
-   * <p>For nested stacks--stacks created as resources for another stack--the stack ID of the
+   * <p>For nested stacks, the stack ID of the
    *    top-level stack to which the nested stack ultimately belongs.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-nested-stacks.html">Embed stacks within other
-   *     stacks using nested stacks</a> in the <i>CloudFormation User Guide</i>.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-nested-stacks.html">Nested stacks</a> in the <i>CloudFormation User Guide</i>.</p>
    * @public
    */
   RootId?: string | undefined;
@@ -10601,8 +10620,8 @@ export interface StackSummary {
  */
 export interface ListStacksOutput {
   /**
-   * <p>A list of <code>StackSummary</code> structures containing information about the specified
-   *       stacks.</p>
+   * <p>A list of <code>StackSummary</code> structures that contains information about the
+   *       specified stacks.</p>
    * @public
    */
   StackSummaries?: StackSummary[] | undefined;

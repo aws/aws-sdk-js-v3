@@ -10860,6 +10860,9 @@ const de_StackResourceDrift = (output: any, context: __SerdeContext): StackResou
   if (output[_MI] != null) {
     contents[_MI] = de_ModuleInfo(output[_MI], context);
   }
+  if (output[_DSRr] != null) {
+    contents[_DSRr] = __expectString(output[_DSRr]);
+  }
   return contents;
 };
 
@@ -12099,6 +12102,7 @@ const _DSRDe = "DetectStackResourceDrift";
 const _DSRe = "DescribeStackResource";
 const _DSRes = "DescribeStackResources";
 const _DSRet = "DetectionStatusReason";
+const _DSRr = "DriftStatusReason";
 const _DSS = "DeleteStackSet";
 const _DSSD = "DetectStackSetDrift";
 const _DSSO = "DescribeStackSetOperation";

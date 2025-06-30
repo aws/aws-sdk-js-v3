@@ -1066,7 +1066,7 @@ export interface RegisterTypeInput {
   TypeName: string | undefined;
 
   /**
-   * <p>A URL to the S3 bucket containing the extension project package that contains the
+   * <p>A URL to the S3 bucket that contains the extension project package that contains the
    *       necessary files for the extension you want to register.</p>
    *          <p>For information about generating a schema handler package for the extension you want to
    *       register, see <a href="https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/resource-type-cli-submit.html">submit</a> in
@@ -1188,7 +1188,7 @@ export interface SetStackPolicyInput {
   StackName: string | undefined;
 
   /**
-   * <p>Structure containing the stack policy body. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/protect-stack-resources.html">Prevent updates to stack resources</a> in the <i>CloudFormation User Guide</i>.
+   * <p>Structure that contains the stack policy body. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/protect-stack-resources.html">Prevent updates to stack resources</a> in the <i>CloudFormation User Guide</i>.
    *       You can specify either the <code>StackPolicyBody</code> or the <code>StackPolicyURL</code>
    *       parameter, but not both.</p>
    * @public
@@ -1196,11 +1196,12 @@ export interface SetStackPolicyInput {
   StackPolicyBody?: string | undefined;
 
   /**
-   * <p>Location of a file containing the stack policy. The URL must point to a policy (maximum
+   * <p>Location of a file that contains the stack policy. The URL must point to a policy (maximum
    *       size: 16 KB) located in an Amazon S3 bucket in the same Amazon Web Services Region as the stack. The location for
-   *       an Amazon S3 bucket must start with <code>https://</code>. You can specify either the
-   *         <code>StackPolicyBody</code> or the <code>StackPolicyURL</code> parameter, but not
-   *       both.</p>
+   *       an Amazon S3 bucket must start with <code>https://</code>. URLs from S3 static websites are not
+   *       supported.</p>
+   *          <p>You can specify either the <code>StackPolicyBody</code> or the <code>StackPolicyURL</code>
+   *       parameter, but not both.</p>
    * @public
    */
   StackPolicyURL?: string | undefined;
@@ -1620,7 +1621,7 @@ export interface UpdateStackInput {
   StackName: string | undefined;
 
   /**
-   * <p>Structure containing the template body with a minimum length of 1 byte and a maximum
+   * <p>Structure that contains the template body with a minimum length of 1 byte and a maximum
    *       length of 51,200 bytes.</p>
    *          <p>Conditional: You must specify only one of the following parameters:
    *         <code>TemplateBody</code>, <code>TemplateURL</code>, or set the
@@ -1630,7 +1631,7 @@ export interface UpdateStackInput {
   TemplateBody?: string | undefined;
 
   /**
-   * <p>The URL of a file containing the template body. The URL must point to a template that's
+   * <p>The URL of a file that contains the template body. The URL must point to a template that's
    *       located in an Amazon S3 bucket or a Systems Manager document. The location for an Amazon S3 bucket must
    *       start with <code>https://</code>.</p>
    *          <p>Conditional: You must specify only one of the following parameters:
@@ -1651,7 +1652,7 @@ export interface UpdateStackInput {
   UsePreviousTemplate?: boolean | undefined;
 
   /**
-   * <p>Structure containing the temporary overriding stack policy body. You can specify either
+   * <p>Structure that contains the temporary overriding stack policy body. You can specify either
    *       the <code>StackPolicyDuringUpdateBody</code> or the <code>StackPolicyDuringUpdateURL</code>
    *       parameter, but not both.</p>
    *          <p>If you want to update protected resources, specify a temporary overriding stack policy
@@ -1662,11 +1663,12 @@ export interface UpdateStackInput {
   StackPolicyDuringUpdateBody?: string | undefined;
 
   /**
-   * <p>Location of a file containing the temporary overriding stack policy. The URL must point to
-   *       a policy (max size: 16KB) located in an S3 bucket in the same Region as the stack. The
-   *       location for an Amazon S3 bucket must start with <code>https://</code>. You can specify either the
-   *         <code>StackPolicyDuringUpdateBody</code> or the <code>StackPolicyDuringUpdateURL</code>
-   *       parameter, but not both.</p>
+   * <p>Location of a file that contains the temporary overriding stack policy. The URL must point
+   *       to a policy (max size: 16KB) located in an S3 bucket in the same Region as the stack. The
+   *       location for an Amazon S3 bucket must start with <code>https://</code>. URLs from S3 static
+   *       websites are not supported.</p>
+   *          <p>You can specify either the <code>StackPolicyDuringUpdateBody</code> or the
+   *         <code>StackPolicyDuringUpdateURL</code> parameter, but not both.</p>
    *          <p>If you want to update protected resources, specify a temporary overriding stack policy
    *       during this update. If you don't specify a stack policy, the current policy that is associated
    *       with the stack will be used.</p>
@@ -1713,47 +1715,47 @@ export interface UpdateStackInput {
    *                <ul>
    *                   <li>
    *                      <p>
-   *                         <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-accesskey.html">
+   *                         <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-iam-accesskey.html">
    *                 AWS::IAM::AccessKey</a>
    *                      </p>
    *                   </li>
    *                   <li>
    *                      <p>
-   *                         <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-group.html">
+   *                         <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-iam-group.html">
    *                 AWS::IAM::Group</a>
    *                      </p>
    *                   </li>
    *                   <li>
    *                      <p>
-   *                         <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-instanceprofile.html">AWS::IAM::InstanceProfile</a>
+   *                         <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-iam-instanceprofile.html">AWS::IAM::InstanceProfile</a>
    *                      </p>
    *                   </li>
    *                   <li>
    *                      <p>
-   *                         <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-managedpolicy.html">
+   *                         <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-iam-managedpolicy.html">
    *                 AWS::IAM::ManagedPolicy</a>
    *                      </p>
    *                   </li>
    *                   <li>
    *                      <p>
-   *                         <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-policy.html">AWS::IAM::Policy</a>
+   *                         <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-iam-policy.html">AWS::IAM::Policy</a>
    *                      </p>
    *                   </li>
    *                   <li>
    *                      <p>
-   *                         <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-role.html">
+   *                         <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-iam-role.html">
    *                 AWS::IAM::Role</a>
    *                      </p>
    *                   </li>
    *                   <li>
    *                      <p>
-   *                         <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-user.html">
+   *                         <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-iam-user.html">
    *                 AWS::IAM::User</a>
    *                      </p>
    *                   </li>
    *                   <li>
    *                      <p>
-   *                         <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-usertogroupaddition.html">AWS::IAM::UserToGroupAddition</a>
+   *                         <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-iam-usertogroupaddition.html">AWS::IAM::UserToGroupAddition</a>
    *                      </p>
    *                   </li>
    *                </ul>
@@ -1832,7 +1834,7 @@ export interface UpdateStackInput {
   RollbackConfiguration?: RollbackConfiguration | undefined;
 
   /**
-   * <p>Structure containing a new stack policy body. You can specify either the
+   * <p>Structure that contains a new stack policy body. You can specify either the
    *         <code>StackPolicyBody</code> or the <code>StackPolicyURL</code> parameter, but not
    *       both.</p>
    *          <p>You might update the stack policy, for example, in order to protect a new resource that
@@ -1843,11 +1845,12 @@ export interface UpdateStackInput {
   StackPolicyBody?: string | undefined;
 
   /**
-   * <p>Location of a file containing the updated stack policy. The URL must point to a policy
+   * <p>Location of a file that contains the updated stack policy. The URL must point to a policy
    *       (max size: 16KB) located in an S3 bucket in the same Region as the stack. The location for an
-   *       Amazon S3 bucket must start with <code>https://</code>. You can specify either the
-   *         <code>StackPolicyBody</code> or the <code>StackPolicyURL</code> parameter, but not
-   *       both.</p>
+   *       Amazon S3 bucket must start with <code>https://</code>. URLs from S3 static websites are not
+   *       supported.</p>
+   *          <p>You can specify either the <code>StackPolicyBody</code> or the <code>StackPolicyURL</code>
+   *       parameter, but not both.</p>
    *          <p>You might update the stack policy, for example, in order to protect a new resource that
    *       you created during a stack update. If you don't specify a stack policy, the current policy
    *       that is associated with the stack is unchanged.</p>
@@ -2081,7 +2084,8 @@ export interface UpdateStackSetInput {
   /**
    * <p>The URL of a file that contains the template body. The URL must point to a template
    *       (maximum size: 1 MB) that is located in an Amazon S3 bucket or a Systems Manager document. The
-   *       location for an Amazon S3 bucket must start with <code>https://</code>.</p>
+   *       location for an Amazon S3 bucket must start with <code>https://</code>. S3 static website URLs are
+   *       not supported.</p>
    *          <p>Conditional: You must specify only one of the following parameters:
    *         <code>TemplateBody</code> or <code>TemplateURL</code>—or set
    *         <code>UsePreviousTemplate</code> to true.</p>
@@ -2137,37 +2141,37 @@ export interface UpdateStackSetInput {
    *                <ul>
    *                   <li>
    *                      <p>
-   *                         <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-accesskey.html">AWS::IAM::AccessKey</a>
+   *                         <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-iam-accesskey.html">AWS::IAM::AccessKey</a>
    *                      </p>
    *                   </li>
    *                   <li>
    *                      <p>
-   *                         <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-group.html">AWS::IAM::Group</a>
+   *                         <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-iam-group.html">AWS::IAM::Group</a>
    *                      </p>
    *                   </li>
    *                   <li>
    *                      <p>
-   *                         <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-instanceprofile.html">AWS::IAM::InstanceProfile</a>
+   *                         <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-iam-instanceprofile.html">AWS::IAM::InstanceProfile</a>
    *                      </p>
    *                   </li>
    *                   <li>
    *                      <p>
-   *                         <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-policy.html">AWS::IAM::Policy</a>
+   *                         <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-iam-policy.html">AWS::IAM::Policy</a>
    *                      </p>
    *                   </li>
    *                   <li>
    *                      <p>
-   *                         <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-role.html">AWS::IAM::Role</a>
+   *                         <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-iam-role.html">AWS::IAM::Role</a>
    *                      </p>
    *                   </li>
    *                   <li>
    *                      <p>
-   *                         <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-user.html">AWS::IAM::User</a>
+   *                         <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-iam-user.html">AWS::IAM::User</a>
    *                      </p>
    *                   </li>
    *                   <li>
    *                      <p>
-   *                         <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-usertogroupaddition.html">AWS::IAM::UserToGroupAddition</a>
+   *                         <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-iam-usertogroupaddition.html">AWS::IAM::UserToGroupAddition</a>
    *                      </p>
    *                   </li>
    *                </ul>
@@ -2433,7 +2437,7 @@ export interface UpdateTerminationProtectionOutput {
  */
 export interface ValidateTemplateInput {
   /**
-   * <p>Structure containing the template body with a minimum length of 1 byte and a maximum
+   * <p>Structure that contains the template body with a minimum length of 1 byte and a maximum
    *       length of 51,200 bytes.</p>
    *          <p>Conditional: You must pass <code>TemplateURL</code> or <code>TemplateBody</code>. If both
    *       are passed, only <code>TemplateBody</code> is used.</p>
@@ -2442,7 +2446,7 @@ export interface ValidateTemplateInput {
   TemplateBody?: string | undefined;
 
   /**
-   * <p>The URL of a file containing the template body. The URL must point to a template (max
+   * <p>The URL of a file that contains the template body. The URL must point to a template (max
    *       size: 1 MB) that is located in an Amazon S3 bucket or a Systems Manager document. The location for
    *       an Amazon S3 bucket must start with <code>https://</code>.</p>
    *          <p>Conditional: You must pass <code>TemplateURL</code> or <code>TemplateBody</code>. If both

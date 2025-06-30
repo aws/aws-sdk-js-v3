@@ -42,6 +42,24 @@ export interface UpdateStackInstancesCommandOutput extends UpdateStackInstancesO
  *       parameter value specified in the stack set. Once a stack instance has been updated with the
  *       new parameter, you can then override the parameter value using
  *         <code>UpdateStackInstances</code>.</p>
+ *          <note>
+ *             <p>The maximum number of organizational unit (OUs) supported by a
+ *           <code>UpdateStackInstances</code> operation is 50.</p>
+ *             <p>If you need more than 50, consider the following options:</p>
+ *             <ul>
+ *                <li>
+ *                   <p>
+ *                      <i>Batch processing:</i> If you don't want to expose your OU
+ *             hierarchy, split up the operations into multiple calls with less than 50 OUs
+ *             each.</p>
+ *                </li>
+ *                <li>
+ *                   <p>
+ *                      <i>Parent OU strategy:</i> If you don't mind exposing the OU
+ *             hierarchy, target a parent OU that contains all desired child OUs.</p>
+ *                </li>
+ *             </ul>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
