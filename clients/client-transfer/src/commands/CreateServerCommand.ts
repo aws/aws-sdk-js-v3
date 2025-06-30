@@ -102,6 +102,7 @@ export interface CreateServerCommandOutput extends CreateServerResponse, __Metad
  *   S3StorageOptions: { // S3StorageOptions
  *     DirectoryListingOptimization: "ENABLED" || "DISABLED",
  *   },
+ *   IpAddressType: "IPV4" || "DUALSTACK",
  * };
  * const command = new CreateServerCommand(input);
  * const response = await client.send(command);

@@ -115,6 +115,7 @@ export interface DescribeServerCommandOutput extends DescribeServerResponse, __M
  * //     As2ServiceManagedEgressIpAddresses: [ // ServiceManagedEgressIpAddresses
  * //       "STRING_VALUE",
  * //     ],
+ * //     IpAddressType: "IPV4" || "DUALSTACK",
  * //   },
  * // };
  *

@@ -95,6 +95,7 @@ export interface UpdateServerCommandOutput extends UpdateServerResponse, __Metad
  *   S3StorageOptions: { // S3StorageOptions
  *     DirectoryListingOptimization: "ENABLED" || "DISABLED",
  *   },
+ *   IpAddressType: "IPV4" || "DUALSTACK",
  * };
  * const command = new UpdateServerCommand(input);
  * const response = await client.send(command);
