@@ -28,8 +28,7 @@ export interface DeleteTransformerCommandInput extends DeleteTransformerRequest 
 export interface DeleteTransformerCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Deletes the specified transformer. A transformer can take an EDI file as input and transform it into a JSON-or XML-formatted document. Alternatively,
- *     a transformer can take a JSON-or XML-formatted document as input and transform it into an EDI file.</p>
+ * <p>Deletes the specified transformer. A transformer can take an EDI file as input and transform it into a JSON-or XML-formatted document. Alternatively, a transformer can take a JSON-or XML-formatted document as input and transform it into an EDI file.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

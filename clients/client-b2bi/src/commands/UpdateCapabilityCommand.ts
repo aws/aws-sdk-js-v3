@@ -28,8 +28,7 @@ export interface UpdateCapabilityCommandInput extends UpdateCapabilityRequest {}
 export interface UpdateCapabilityCommandOutput extends UpdateCapabilityResponse, __MetadataBearer {}
 
 /**
- * <p>Updates some of the parameters for a capability, based on the specified parameters.
- *       A trading capability contains the information required to transform incoming EDI documents into JSON or XML outputs.</p>
+ * <p>Updates some of the parameters for a capability, based on the specified parameters. A trading capability contains the information required to transform incoming EDI documents into JSON or XML outputs.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

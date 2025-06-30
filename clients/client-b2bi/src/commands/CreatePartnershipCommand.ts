@@ -33,8 +33,7 @@ export interface CreatePartnershipCommandInput extends CreatePartnershipRequest 
 export interface CreatePartnershipCommandOutput extends CreatePartnershipResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a partnership between a customer and a trading partner, based on the supplied parameters. A partnership represents the connection between you and your trading partner. It ties
- *    together a profile and one or more trading capabilities.</p>
+ * <p>Creates a partnership between a customer and a trading partner, based on the supplied parameters. A partnership represents the connection between you and your trading partner. It ties together a profile and one or more trading capabilities.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -73,6 +72,25 @@ export interface CreatePartnershipCommandOutput extends CreatePartnershipRespons
  *             segmentTerminator: "STRING_VALUE",
  *           },
  *           validateEdi: true || false,
+ *           controlNumbers: { // X12ControlNumbers
+ *             startingInterchangeControlNumber: Number("int"),
+ *             startingFunctionalGroupControlNumber: Number("int"),
+ *             startingTransactionSetControlNumber: Number("int"),
+ *           },
+ *           gs05TimeFormat: "HHMM" || "HHMMSS" || "HHMMSSDD",
+ *         },
+ *         wrapOptions: { // WrapOptions
+ *           wrapBy: "SEGMENT" || "ONE_LINE" || "LINE_LENGTH", // required
+ *           lineTerminator: "CRLF" || "LF" || "CR",
+ *           lineLength: Number("int"),
+ *         },
+ *       },
+ *     },
+ *     inboundEdi: { // InboundEdiOptions
+ *       x12: { // X12InboundEdiOptions
+ *         acknowledgmentOptions: { // X12AcknowledgmentOptions
+ *           functionalAcknowledgment: "DO_NOT_GENERATE" || "GENERATE_ALL_SEGMENTS" || "GENERATE_WITHOUT_TRANSACTION_SET_RESPONSE_LOOP", // required
+ *           technicalAcknowledgment: "DO_NOT_GENERATE" || "GENERATE_ALL_SEGMENTS", // required
  *         },
  *       },
  *     },
@@ -121,6 +139,25 @@ export interface CreatePartnershipCommandOutput extends CreatePartnershipRespons
  * //             segmentTerminator: "STRING_VALUE",
  * //           },
  * //           validateEdi: true || false,
+ * //           controlNumbers: { // X12ControlNumbers
+ * //             startingInterchangeControlNumber: Number("int"),
+ * //             startingFunctionalGroupControlNumber: Number("int"),
+ * //             startingTransactionSetControlNumber: Number("int"),
+ * //           },
+ * //           gs05TimeFormat: "HHMM" || "HHMMSS" || "HHMMSSDD",
+ * //         },
+ * //         wrapOptions: { // WrapOptions
+ * //           wrapBy: "SEGMENT" || "ONE_LINE" || "LINE_LENGTH", // required
+ * //           lineTerminator: "CRLF" || "LF" || "CR",
+ * //           lineLength: Number("int"),
+ * //         },
+ * //       },
+ * //     },
+ * //     inboundEdi: { // InboundEdiOptions
+ * //       x12: { // X12InboundEdiOptions
+ * //         acknowledgmentOptions: { // X12AcknowledgmentOptions
+ * //           functionalAcknowledgment: "DO_NOT_GENERATE" || "GENERATE_ALL_SEGMENTS" || "GENERATE_WITHOUT_TRANSACTION_SET_RESPONSE_LOOP", // required
+ * //           technicalAcknowledgment: "DO_NOT_GENERATE" || "GENERATE_ALL_SEGMENTS", // required
  * //         },
  * //       },
  * //     },

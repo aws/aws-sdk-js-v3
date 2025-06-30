@@ -28,8 +28,7 @@ export interface GetProfileCommandInput extends GetProfileRequest {}
 export interface GetProfileCommandOutput extends GetProfileResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves the details for the profile specified by the profile ID. A profile is the mechanism used to create the concept of
- *    a private network.</p>
+ * <p>Retrieves the details for the profile specified by the profile ID. A profile is the mechanism used to create the concept of a private network.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

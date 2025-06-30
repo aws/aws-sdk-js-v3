@@ -33,8 +33,7 @@ export interface CreateProfileCommandInput extends CreateProfileRequest {}
 export interface CreateProfileCommandOutput extends CreateProfileResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a customer profile. You can have up to five customer profiles, each representing a distinct private network. A profile is the mechanism used to create the concept of
- *    a private network.</p>
+ * <p>Creates a customer profile. You can have up to five customer profiles, each representing a distinct private network. A profile is the mechanism used to create the concept of a private network.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -28,8 +28,7 @@ export interface DeleteProfileCommandInput extends DeleteProfileRequest {}
 export interface DeleteProfileCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Deletes the specified profile. A profile is the mechanism used to create the concept of
- *    a private network.</p>
+ * <p>Deletes the specified profile. A profile is the mechanism used to create the concept of a private network.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -28,8 +28,7 @@ export interface DeletePartnershipCommandInput extends DeletePartnershipRequest 
 export interface DeletePartnershipCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Deletes the specified partnership. A partnership represents the connection between you and your trading partner. It ties
- *    together a profile and one or more trading capabilities.</p>
+ * <p>Deletes the specified partnership. A partnership represents the connection between you and your trading partner. It ties together a profile and one or more trading capabilities.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

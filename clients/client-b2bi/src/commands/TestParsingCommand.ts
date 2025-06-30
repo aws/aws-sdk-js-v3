@@ -47,11 +47,21 @@ export interface TestParsingCommandOutput extends TestParsingResponse, __Metadat
  *       version: "VERSION_4010" || "VERSION_4030" || "VERSION_4050" || "VERSION_4060" || "VERSION_5010" || "VERSION_5010_HIPAA",
  *     },
  *   },
+ *   advancedOptions: { // AdvancedOptions
+ *     x12: { // X12AdvancedOptions
+ *       splitOptions: { // X12SplitOptions
+ *         splitBy: "NONE" || "TRANSACTION", // required
+ *       },
+ *     },
+ *   },
  * };
  * const command = new TestParsingCommand(input);
  * const response = await client.send(command);
  * // { // TestParsingResponse
  * //   parsedFileContent: "STRING_VALUE", // required
+ * //   parsedSplitFileContents: [ // ParsedSplitFileContentsList
+ * //     "STRING_VALUE",
+ * //   ],
  * // };
  *
  * ```
@@ -102,6 +112,74 @@ export interface TestParsingCommandOutput extends TestParsingResponse, __Metadat
  * /* response is
  * {
  *   parsedFileContent: "Sample parsed file content"
+ * }
+ * *\/
+ * ```
+ *
+ * @example Sample TestParsing call without EDI Splitting
+ * ```javascript
+ * //
+ * const input = {
+ *   advancedOptions: {
+ *     x12: {
+ *       splitOptions: {
+ *         splitBy: "NONE"
+ *       }
+ *     }
+ *   },
+ *   ediType: {
+ *     x12Details: {
+ *       transactionSet: "X12_110",
+ *       version: "VERSION_4010"
+ *     }
+ *   },
+ *   fileFormat: "JSON",
+ *   inputFile: {
+ *     bucketName: "test-bucket",
+ *     key: "sampleFile.txt"
+ *   }
+ * };
+ * const command = new TestParsingCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   parsedFileContent: "Sample parsed file content"
+ * }
+ * *\/
+ * ```
+ *
+ * @example Sample TestParsing call with EDI Splitting by Transaction
+ * ```javascript
+ * //
+ * const input = {
+ *   advancedOptions: {
+ *     x12: {
+ *       splitOptions: {
+ *         splitBy: "TRANSACTION"
+ *       }
+ *     }
+ *   },
+ *   ediType: {
+ *     x12Details: {
+ *       transactionSet: "X12_110",
+ *       version: "VERSION_4010"
+ *     }
+ *   },
+ *   fileFormat: "JSON",
+ *   inputFile: {
+ *     bucketName: "test-bucket",
+ *     key: "sampleFile.txt"
+ *   }
+ * };
+ * const command = new TestParsingCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   parsedFileContent: "",
+ *   parsedSplitFileContents: [
+ *     "sample split parsed file content",
+ *     "sample split parsed file content"
+ *   ]
  * }
  * *\/
  * ```

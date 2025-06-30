@@ -28,9 +28,7 @@ export interface StartTransformerJobCommandInput extends StartTransformerJobRequ
 export interface StartTransformerJobCommandOutput extends StartTransformerJobResponse, __MetadataBearer {}
 
 /**
- * <p>Runs a job, using a transformer, to parse input EDI (electronic data interchange) file into the output structures used by Amazon Web Services B2B Data Interchange.</p>
- *          <p>If you only want to transform EDI (electronic data interchange) documents, you don't need to create profiles, partnerships or capabilities. Just
- *       create and configure a transformer, and then run the <code>StartTransformerJob</code> API to process your files.</p>
+ * <p>Runs a job, using a transformer, to parse input EDI (electronic data interchange) file into the output structures used by Amazon Web Services B2B Data Interchange.</p> <p>If you only want to transform EDI (electronic data interchange) documents, you don't need to create profiles, partnerships or capabilities. Just create and configure a transformer, and then run the <code>StartTransformerJob</code> API to process your files.</p> <note> <p>The system stores transformer jobs for 30 days. During that period, you can run <a href="https://docs.aws.amazon.com/b2bi/latest/APIReference/API_GetTransformerJob.html">GetTransformerJob</a> and supply its <code>transformerId</code> and <code>transformerJobId</code> to return details of the job.</p> </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

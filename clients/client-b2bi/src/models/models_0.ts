@@ -24,6 +24,56 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
+ * @public
+ * @enum
+ */
+export const X12SplitBy = {
+  NONE: "NONE",
+  TRANSACTION: "TRANSACTION",
+} as const;
+
+/**
+ * @public
+ */
+export type X12SplitBy = (typeof X12SplitBy)[keyof typeof X12SplitBy];
+
+/**
+ * <p>Contains options for splitting X12 EDI files into smaller units. This is useful for processing large EDI files more efficiently.</p>
+ * @public
+ */
+export interface X12SplitOptions {
+  /**
+   * <p>Specifies the method used to split X12 EDI files. Valid values include <code>TRANSACTION</code> (split by individual transaction sets), or <code>NONE</code> (no splitting).</p>
+   * @public
+   */
+  splitBy: X12SplitBy | undefined;
+}
+
+/**
+ * <p>Contains advanced options specific to X12 EDI processing, such as splitting large X12 files into smaller units.</p>
+ * @public
+ */
+export interface X12AdvancedOptions {
+  /**
+   * <p>Specifies options for splitting X12 EDI files. These options control how large X12 files are divided into smaller, more manageable units.</p>
+   * @public
+   */
+  splitOptions?: X12SplitOptions | undefined;
+}
+
+/**
+ * <p>A structure that contains advanced options for EDI processing. Currently, only X12 advanced options are supported.</p>
+ * @public
+ */
+export interface AdvancedOptions {
+  /**
+   * <p>A structure that contains X12-specific advanced options, such as split options for processing X12 EDI files.</p>
+   * @public
+   */
+  x12?: X12AdvancedOptions | undefined;
+}
+
+/**
  * <p>A conflict exception is thrown when you attempt to delete a resource (such as a profile or a capability) that is being used by other resources.</p>
  * @public
  */
@@ -58,8 +108,7 @@ export const CapabilityDirection = {
 export type CapabilityDirection = (typeof CapabilityDirection)[keyof typeof CapabilityDirection];
 
 /**
- * <p>Specifies the details for the Amazon S3 file location that is being used with Amazon Web Services B2B Data Interchange. File
- *          locations in Amazon S3 are identified using a combination of the bucket and key.</p>
+ * <p>Specifies the details for the Amazon S3 file location that is being used with Amazon Web Services B2B Data Interchange. File locations in Amazon S3 are identified using a combination of the bucket and key.</p>
  * @public
  */
 export interface S3Location {
@@ -449,10 +498,7 @@ export const X12Version = {
 export type X12Version = (typeof X12Version)[keyof typeof X12Version];
 
 /**
- * <p>A structure that contains the X12 transaction set and version. The X12 structure is used when the system transforms an EDI (electronic data interchange) file.</p>
- *          <note>
- *             <p>If an EDI input file contains more than one transaction, each transaction must have the same transaction set and version, for example 214/4010. If not, the transformer cannot parse the file.</p>
- *          </note>
+ * <p>A structure that contains the X12 transaction set and version. The X12 structure is used when the system transforms an EDI (electronic data interchange) file.</p> <note> <p>If an EDI input file contains more than one transaction, each transaction must have the same transaction set and version, for example 214/4010. If not, the transformer cannot parse the file.</p> </note>
  * @public
  */
 export interface X12Details {
@@ -470,9 +516,7 @@ export interface X12Details {
 }
 
 /**
- * <p>Specifies the details for the EDI standard that is being used for the transformer.
- *          Currently, only X12 is supported. X12 is a set of standards and corresponding messages
- *          that define specific business documents.</p>
+ * <p>Specifies the details for the EDI standard that is being used for the transformer. Currently, only X12 is supported. X12 is a set of standards and corresponding messages that define specific business documents.</p>
  * @public
  */
 export type EdiType = EdiType.X12DetailsMember | EdiType.$UnknownMember;
@@ -584,9 +628,7 @@ export namespace CapabilityConfiguration {
 }
 
 /**
- * <p>Creates a key-value pair for a specific resource. Tags are metadata that you can use to search for and group a resource for various purposes.
- *          You can apply tags to capabilities, partnerships, profiles and transformers. A tag key can take more than one value. For example, to group capabilities for accounting purposes,
- *          you might create a tag called <code>Group</code> and assign the values <code>Research</code> and <code>Accounting</code> to that group.</p>
+ * <p>Creates a key-value pair for a specific resource. Tags are metadata that you can use to search for and group a resource for various purposes. You can apply tags to capabilities, partnerships, profiles and transformers. A tag key can take more than one value. For example, to group capabilities for accounting purposes, you might create a tag called <code>Group</code> and assign the values <code>Research</code> and <code>Accounting</code> to that group.</p>
  * @public
  */
 export interface Tag {
@@ -930,8 +972,7 @@ export interface GetCapabilityResponse {
  */
 export interface ListCapabilitiesRequest {
   /**
-   * <p>When additional results are obtained from the command, a <code>NextToken</code> parameter is returned in the output.
-   *    You can then pass the <code>NextToken</code> parameter in a subsequent command to continue listing additional resources.</p>
+   * <p>When additional results are obtained from the command, a <code>NextToken</code> parameter is returned in the output. You can then pass the <code>NextToken</code> parameter in a subsequent command to continue listing additional resources.</p>
    * @public
    */
   nextToken?: string | undefined;
@@ -990,8 +1031,7 @@ export interface ListCapabilitiesResponse {
   capabilities: CapabilitySummary[] | undefined;
 
   /**
-   * <p>When additional results are obtained from the command, a <code>NextToken</code> parameter is returned in the output.
-   *    You can then pass the <code>NextToken</code> parameter in a subsequent command to continue listing additional resources.</p>
+   * <p>When additional results are obtained from the command, a <code>NextToken</code> parameter is returned in the output. You can then pass the <code>NextToken</code> parameter in a subsequent command to continue listing additional resources.</p>
    * @public
    */
   nextToken?: string | undefined;
@@ -1104,10 +1144,7 @@ export type TemplateDetails = TemplateDetails.X12Member | TemplateDetails.$Unkno
  */
 export namespace TemplateDetails {
   /**
-   * <p>A structure that contains the X12 transaction set and version. The X12 structure is used when the system transforms an EDI (electronic data interchange) file.</p>
-   *          <note>
-   *             <p>If an EDI input file contains more than one transaction, each transaction must have the same transaction set and version, for example 214/4010. If not, the transformer cannot parse the file.</p>
-   *          </note>
+   * <p>A structure that contains the X12 transaction set and version. The X12 structure is used when the system transforms an EDI (electronic data interchange) file.</p> <note> <p>If an EDI input file contains more than one transaction, each transaction must have the same transaction set and version, for example 214/4010. If not, the transformer cannot parse the file.</p> </note>
    * @public
    */
   export interface X12Member {
@@ -1151,10 +1188,7 @@ export interface CreateStarterMappingTemplateRequest {
   mappingType: MappingType | undefined;
 
   /**
-   * <p>
-   *          Describes the details needed for generating the template. Specify the X12 transaction set and version for which the template is used:
-   *          currently, we only support X12.
-   *       </p>
+   * <p> Describes the details needed for generating the template. Specify the X12 transaction set and version for which the template is used: currently, we only support X12. </p>
    * @public
    */
   templateDetails: TemplateDetails | undefined;
@@ -1176,20 +1210,19 @@ export interface CreateStarterMappingTemplateResponse {
  */
 export interface GenerateMappingRequest {
   /**
-   * <p>Provide the contents of a sample X12 EDI file (for inbound EDI) or JSON/XML file (for outbound EDI) to use as a starting point for the mapping.</p>
+   * <p>Provide the contents of a sample X12 EDI file, either in JSON or XML format, to use as a starting point for the mapping.</p>
    * @public
    */
   inputFileContent: string | undefined;
 
   /**
-   * <p>Provide the contents of a sample X12 EDI file (for outbound EDI) or JSON/XML file (for inbound EDI) to use as a target for the mapping.</p>
+   * <p>Provide the contents of a sample X12 EDI file, either in JSON or XML format, to use as a target for the mapping.</p>
    * @public
    */
   outputFileContent: string | undefined;
 
   /**
-   * <p>Specify the mapping type: either <code>JSONATA</code> or <code>XSLT.</code>
-   *          </p>
+   * <p>Specify the mapping type: either <code>JSONATA</code> or <code>XSLT.</code> </p>
    * @public
    */
   mappingType: MappingType | undefined;
@@ -1249,23 +1282,19 @@ export type TransformerJobStatus = (typeof TransformerJobStatus)[keyof typeof Tr
  */
 export interface GetTransformerJobResponse {
   /**
-   * <p>Returns the current state of the transformer job, either <code>running</code>,
-   *             <code>succeeded</code>, or <code>failed</code>.</p>
+   * <p>Returns the current state of the transformer job, either <code>running</code>, <code>succeeded</code>, or <code>failed</code>.</p>
    * @public
    */
   status: TransformerJobStatus | undefined;
 
   /**
-   * <p>Returns the location for the output files. If the caller specified a directory for the
-   *          output, then this contains the full path to the output file, including the file name
-   *          generated by the service.</p>
+   * <p>Returns the location for the output files. If the caller specified a directory for the output, then this contains the full path to the output file, including the file name generated by the service.</p>
    * @public
    */
   outputFiles?: S3Location[] | undefined;
 
   /**
-   * <p>Returns an optional error message, which gets populated when the job is not run
-   *          successfully.</p>
+   * <p>Returns an optional error message, which gets populated when the job is not run successfully.</p>
    * @public
    */
   message?: string | undefined;
@@ -1294,8 +1323,103 @@ export interface ListTagsForResourceResponse {
 }
 
 /**
- * <p>In X12 EDI messages, delimiters are used to mark the end of segments or elements, and are defined in the interchange control header.
- *          The delimiters are part of the message's syntax and divide up its different elements.</p>
+ * @public
+ * @enum
+ */
+export const X12FunctionalAcknowledgment = {
+  DO_NOT_GENERATE: "DO_NOT_GENERATE",
+  GENERATE_ALL_SEGMENTS: "GENERATE_ALL_SEGMENTS",
+  GENERATE_WITHOUT_TRANSACTION_SET_RESPONSE_LOOP: "GENERATE_WITHOUT_TRANSACTION_SET_RESPONSE_LOOP",
+} as const;
+
+/**
+ * @public
+ */
+export type X12FunctionalAcknowledgment =
+  (typeof X12FunctionalAcknowledgment)[keyof typeof X12FunctionalAcknowledgment];
+
+/**
+ * @public
+ * @enum
+ */
+export const X12TechnicalAcknowledgment = {
+  DO_NOT_GENERATE: "DO_NOT_GENERATE",
+  GENERATE_ALL_SEGMENTS: "GENERATE_ALL_SEGMENTS",
+} as const;
+
+/**
+ * @public
+ */
+export type X12TechnicalAcknowledgment = (typeof X12TechnicalAcknowledgment)[keyof typeof X12TechnicalAcknowledgment];
+
+/**
+ * <p>Contains options for configuring X12 acknowledgments. These options control how functional and technical acknowledgments are handled.</p>
+ * @public
+ */
+export interface X12AcknowledgmentOptions {
+  /**
+   * <p>Specifies whether functional acknowledgments (997/999) should be generated for incoming X12 transactions. Valid values are <code>DO_NOT_GENERATE</code>, <code>GENERATE_ALL_SEGMENTS</code> and <code>GENERATE_WITHOUT_TRANSACTION_SET_RESPONSE_LOOP</code>.</p> <p>If you choose <code>GENERATE_WITHOUT_TRANSACTION_SET_RESPONSE_LOOP</code>, Amazon Web Services B2B Data Interchange skips the AK2_Loop when generating an acknowledgment document.</p>
+   * @public
+   */
+  functionalAcknowledgment: X12FunctionalAcknowledgment | undefined;
+
+  /**
+   * <p>Specifies whether technical acknowledgments (TA1) should be generated for incoming X12 interchanges. Valid values are <code>DO_NOT_GENERATE</code> and <code>GENERATE_ALL_SEGMENTS</code> and.</p>
+   * @public
+   */
+  technicalAcknowledgment: X12TechnicalAcknowledgment | undefined;
+}
+
+/**
+ * <p>Contains options specific to processing inbound X12 EDI files.</p>
+ * @public
+ */
+export interface X12InboundEdiOptions {
+  /**
+   * <p>Specifies acknowledgment options for inbound X12 EDI files. These options control how functional and technical acknowledgments are handled.</p>
+   * @public
+   */
+  acknowledgmentOptions?: X12AcknowledgmentOptions | undefined;
+}
+
+/**
+ * <p>Contains options for processing inbound EDI files. These options allow for customizing how incoming EDI documents are processed.</p>
+ * @public
+ */
+export interface InboundEdiOptions {
+  /**
+   * <p>A structure that contains X12-specific options for processing inbound X12 EDI files.</p>
+   * @public
+   */
+  x12?: X12InboundEdiOptions | undefined;
+}
+
+/**
+ * <p>Contains configuration for X12 control numbers used in X12 EDI generation. Control numbers are used to uniquely identify interchanges, functional groups, and transaction sets.</p>
+ * @public
+ */
+export interface X12ControlNumbers {
+  /**
+   * <p>Specifies the starting interchange control number (ISA13) to use for X12 EDI generation. This number is incremented for each new interchange. For the ISA (interchange) envelope, Amazon Web Services B2B Data Interchange generates an interchange control number that is unique for the ISA05 and ISA06 (sender) &amp; ISA07 and ISA08 (receiver) combination. </p>
+   * @public
+   */
+  startingInterchangeControlNumber?: number | undefined;
+
+  /**
+   * <p>Specifies the starting functional group control number (GS06) to use for X12 EDI generation. This number is incremented for each new functional group. For the GS (functional group) envelope, Amazon Web Services B2B Data Interchange generates a functional group control number that is unique to the sender ID, receiver ID, and functional identifier code combination. </p>
+   * @public
+   */
+  startingFunctionalGroupControlNumber?: number | undefined;
+
+  /**
+   * <p>Specifies the starting transaction set control number (ST02) to use for X12 EDI generation. This number is incremented for each new transaction set.</p>
+   * @public
+   */
+  startingTransactionSetControlNumber?: number | undefined;
+}
+
+/**
+ * <p>In X12 EDI messages, delimiters are used to mark the end of segments or elements, and are defined in the interchange control header. The delimiters are part of the message's syntax and divide up its different elements.</p>
  * @public
  */
 export interface X12Delimiters {
@@ -1343,10 +1467,22 @@ export interface X12FunctionalGroupHeaders {
 }
 
 /**
- * <p>In X12, the Interchange Control Header is the first segment of an EDI document and is
- *          part of the Interchange Envelope. It contains information about the sender and receiver,
- *          the date and time of transmission, and the X12 version being used. It also includes
- *          delivery information, such as the sender and receiver IDs.</p>
+ * @public
+ * @enum
+ */
+export const X12GS05TimeFormat = {
+  HHMM: "HHMM",
+  HHMMSS: "HHMMSS",
+  HHMMSSDD: "HHMMSSDD",
+} as const;
+
+/**
+ * @public
+ */
+export type X12GS05TimeFormat = (typeof X12GS05TimeFormat)[keyof typeof X12GS05TimeFormat];
+
+/**
+ * <p>In X12, the Interchange Control Header is the first segment of an EDI document and is part of the Interchange Envelope. It contains information about the sender and receiver, the date and time of transmission, and the X12 version being used. It also includes delivery information, such as the sender and receiver IDs.</p>
  * @public
  */
 export interface X12InterchangeControlHeaders {
@@ -1375,12 +1511,7 @@ export interface X12InterchangeControlHeaders {
   receiverId?: string | undefined;
 
   /**
-   * <p>Located at position ISA-11 in the header. This string makes it easier when you need to group similar adjacent element values together without using extra segments.</p>
-   *          <note>
-   *             <p>This parameter is only honored for version greater than 401 (<code>VERSION_4010</code> and higher).</p>
-   *             <p>For versions less than 401, this field is called <a href="https://www.stedi.com/edi/x12-004010/segment/ISA#ISA-11">StandardsId</a>, in which case our service
-   *             sets the value to <code>U</code>.</p>
-   *          </note>
+   * <p>Located at position ISA-11 in the header. This string makes it easier when you need to group similar adjacent element values together without using extra segments.</p> <note> <p>This parameter is only honored for version greater than 401 (<code>VERSION_4010</code> and higher).</p> <p>For versions less than 401, this field is called <a href="https://www.stedi.com/edi/x12-004010/segment/ISA#ISA-11">StandardsId</a>, in which case our service sets the value to <code>U</code>.</p> </note>
    * @public
    */
   repetitionSeparator?: string | undefined;
@@ -1392,21 +1523,7 @@ export interface X12InterchangeControlHeaders {
   acknowledgmentRequestedCode?: string | undefined;
 
   /**
-   * <p>Located at position ISA-15 in the header. Specifies how this interchange is being used:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>T</code> indicates this interchange is for testing.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>P</code> indicates this interchange is for production.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>I</code> indicates this interchange is informational.</p>
-   *             </li>
-   *          </ul>
+   * <p>Located at position ISA-15 in the header. Specifies how this interchange is being used:</p> <ul> <li> <p> <code>T</code> indicates this interchange is for testing.</p> </li> <li> <p> <code>P</code> indicates this interchange is for production.</p> </li> <li> <p> <code>I</code> indicates this interchange is informational.</p> </li> </ul>
    * @public
    */
   usageIndicatorCode?: string | undefined;
@@ -1440,22 +1557,76 @@ export interface X12OutboundEdiHeaders {
    * @public
    */
   validateEdi?: boolean | undefined;
+
+  /**
+   * <p>Specifies control number configuration for outbound X12 EDI headers. These settings determine the starting values for interchange, functional group, and transaction set control numbers.</p>
+   * @public
+   */
+  controlNumbers?: X12ControlNumbers | undefined;
+
+  /**
+   * <p>Specifies the time format in the GS05 element (time) of the functional group header. The following formats use 24-hour clock time:</p> <ul> <li> <p> <code>HHMM</code> - Hours and minutes</p> </li> <li> <p> <code>HHMMSS</code> - Hours, minutes, and seconds</p> </li> <li> <p> <code>HHMMSSDD</code> - Hours, minutes, seconds, and decimal seconds</p> </li> </ul> <p>Where:</p> <ul> <li> <p> <code>HH</code> - Hours (00-23)</p> </li> <li> <p> <code>MM</code> - Minutes (00-59)</p> </li> <li> <p> <code>SS</code> - Seconds (00-59)</p> </li> <li> <p> <code>DD</code> - Hundredths of seconds (00-99)</p> </li> </ul>
+   * @public
+   */
+  gs05TimeFormat?: X12GS05TimeFormat | undefined;
 }
 
 /**
- * <p>A wrapper structure for an X12 definition object.</p>
- *          <p>the X12 envelope ensures the integrity of the data and the efficiency of the information exchange. The X12 message structure has hierarchical levels. From highest to the lowest, they are:</p>
- *          <ul>
- *             <li>
- *                <p>Interchange Envelope</p>
- *             </li>
- *             <li>
- *                <p>Functional Group</p>
- *             </li>
- *             <li>
- *                <p>Transaction Set</p>
- *             </li>
- *          </ul>
+ * @public
+ * @enum
+ */
+export const LineTerminator = {
+  CR: "CR",
+  CRLF: "CRLF",
+  LF: "LF",
+} as const;
+
+/**
+ * @public
+ */
+export type LineTerminator = (typeof LineTerminator)[keyof typeof LineTerminator];
+
+/**
+ * @public
+ * @enum
+ */
+export const WrapFormat = {
+  LINE_LENGTH: "LINE_LENGTH",
+  ONE_LINE: "ONE_LINE",
+  SEGMENT: "SEGMENT",
+} as const;
+
+/**
+ * @public
+ */
+export type WrapFormat = (typeof WrapFormat)[keyof typeof WrapFormat];
+
+/**
+ * <p>Contains options for wrapping (line folding) in X12 EDI files. Wrapping controls how long lines are handled in the EDI output.</p>
+ * @public
+ */
+export interface WrapOptions {
+  /**
+   * <p>Specifies the method used for wrapping lines in the EDI output. Valid values:</p> <ul> <li> <p> <code>SEGMENT</code>: Wraps by segment.</p> </li> <li> <p> <code>ONE_LINE</code>: Indicates that the entire content is on a single line.</p> <note> <p>When you specify <code>ONE_LINE</code>, do not provide either the line length nor the line terminator value.</p> </note> </li> <li> <p> <code>LINE_LENGTH</code>: Wraps by character count, as specified by <code>lineLength</code> value.</p> </li> </ul>
+   * @public
+   */
+  wrapBy: WrapFormat | undefined;
+
+  /**
+   * <p>Specifies the character sequence used to terminate lines when wrapping. Valid values:</p> <ul> <li> <p> <code>CRLF</code>: carriage return and line feed</p> </li> <li> <p> <code>LF</code>: line feed)</p> </li> <li> <p> <code>CR</code>: carriage return</p> </li> </ul>
+   * @public
+   */
+  lineTerminator?: LineTerminator | undefined;
+
+  /**
+   * <p>Specifies the maximum length of a line before wrapping occurs. This value is used when <code>wrapBy</code> is set to <code>LINE_LENGTH</code>.</p>
+   * @public
+   */
+  lineLength?: number | undefined;
+}
+
+/**
+ * <p>A wrapper structure for an X12 definition object.</p> <p>the X12 envelope ensures the integrity of the data and the efficiency of the information exchange. The X12 message structure has hierarchical levels. From highest to the lowest, they are:</p> <ul> <li> <p>Interchange Envelope</p> </li> <li> <p>Functional Group</p> </li> <li> <p>Transaction Set</p> </li> </ul>
  * @public
  */
 export interface X12Envelope {
@@ -1464,6 +1635,12 @@ export interface X12Envelope {
    * @public
    */
   common?: X12OutboundEdiHeaders | undefined;
+
+  /**
+   * <p>Contains options for wrapping (line folding) in X12 EDI files. Wrapping controls how long lines are handled in the EDI output.</p>
+   * @public
+   */
+  wrapOptions?: WrapOptions | undefined;
 }
 
 /**
@@ -1514,6 +1691,12 @@ export interface CapabilityOptions {
    * @public
    */
   outboundEdi?: OutboundEdiOptions | undefined;
+
+  /**
+   * <p>A structure that contains the inbound EDI options for the capability.</p>
+   * @public
+   */
+  inboundEdi?: InboundEdiOptions | undefined;
 }
 
 /**
@@ -1738,8 +1921,7 @@ export interface ListPartnershipsRequest {
   profileId?: string | undefined;
 
   /**
-   * <p>When additional results are obtained from the command, a <code>NextToken</code> parameter is returned in the output.
-   *    You can then pass the <code>NextToken</code> parameter in a subsequent command to continue listing additional resources.</p>
+   * <p>When additional results are obtained from the command, a <code>NextToken</code> parameter is returned in the output. You can then pass the <code>NextToken</code> parameter in a subsequent command to continue listing additional resources.</p>
    * @public
    */
   nextToken?: string | undefined;
@@ -1752,8 +1934,7 @@ export interface ListPartnershipsRequest {
 }
 
 /**
- * <p>A structure that contains the details for a partnership. A partnership represents the connection between you and your trading partner. It ties
- *    together a profile and one or more trading capabilities.</p>
+ * <p>A structure that contains the details for a partnership. A partnership represents the connection between you and your trading partner. It ties together a profile and one or more trading capabilities.</p>
  * @public
  */
 export interface PartnershipSummary {
@@ -1817,8 +1998,7 @@ export interface ListPartnershipsResponse {
   partnerships: PartnershipSummary[] | undefined;
 
   /**
-   * <p>When additional results are obtained from the command, a <code>NextToken</code> parameter is returned in the output.
-   *    You can then pass the <code>NextToken</code> parameter in a subsequent command to continue listing additional resources.</p>
+   * <p>When additional results are obtained from the command, a <code>NextToken</code> parameter is returned in the output. You can then pass the <code>NextToken</code> parameter in a subsequent command to continue listing additional resources.</p>
    * @public
    */
   nextToken?: string | undefined;
@@ -2136,8 +2316,7 @@ export interface GetProfileResponse {
  */
 export interface ListProfilesRequest {
   /**
-   * <p>When additional results are obtained from the command, a <code>NextToken</code> parameter is returned in the output.
-   *    You can then pass the <code>NextToken</code> parameter in a subsequent command to continue listing additional resources.</p>
+   * <p>When additional results are obtained from the command, a <code>NextToken</code> parameter is returned in the output. You can then pass the <code>NextToken</code> parameter in a subsequent command to continue listing additional resources.</p>
    * @public
    */
   nextToken?: string | undefined;
@@ -2150,8 +2329,7 @@ export interface ListProfilesRequest {
 }
 
 /**
- * <p>Contains the details for a profile. A profile is the mechanism used to create the concept of
- *    a private network.</p>
+ * <p>Contains the details for a profile. A profile is the mechanism used to create the concept of a private network.</p>
  * @public
  */
 export interface ProfileSummary {
@@ -2209,8 +2387,7 @@ export interface ListProfilesResponse {
   profiles: ProfileSummary[] | undefined;
 
   /**
-   * <p>When additional results are obtained from the command, a <code>NextToken</code> parameter is returned in the output.
-   *    You can then pass the <code>NextToken</code> parameter in a subsequent command to continue listing additional resources.</p>
+   * <p>When additional results are obtained from the command, a <code>NextToken</code> parameter is returned in the output. You can then pass the <code>NextToken</code> parameter in a subsequent command to continue listing additional resources.</p>
    * @public
    */
   nextToken?: string | undefined;
@@ -2469,10 +2646,7 @@ export type ConversionTargetFormatDetails =
  */
 export namespace ConversionTargetFormatDetails {
   /**
-   * <p>A structure that contains the X12 transaction set and version. The X12 structure is used when the system transforms an EDI (electronic data interchange) file.</p>
-   *          <note>
-   *             <p>If an EDI input file contains more than one transaction, each transaction must have the same transaction set and version, for example 214/4010. If not, the transformer cannot parse the file.</p>
-   *          </note>
+   * <p>A structure that contains the X12 transaction set and version. The X12 structure is used when the system transforms an EDI (electronic data interchange) file.</p> <note> <p>If an EDI input file contains more than one transaction, each transaction must have the same transaction set and version, for example 214/4010. If not, the transformer cannot parse the file.</p> </note>
    * @public
    */
   export interface X12Member {
@@ -2510,8 +2684,7 @@ export type OutputSampleFileSource = OutputSampleFileSource.FileLocationMember |
  */
 export namespace OutputSampleFileSource {
   /**
-   * <p>Specifies the details for the Amazon S3 file location that is being used with Amazon Web Services B2B Data Interchange. File
-   *          locations in Amazon S3 are identified using a combination of the bucket and key.</p>
+   * <p>Specifies the details for the Amazon S3 file location that is being used with Amazon Web Services B2B Data Interchange. File locations in Amazon S3 are identified using a combination of the bucket and key.</p>
    * @public
    */
   export interface FileLocationMember {
@@ -2623,10 +2796,7 @@ export interface TestMappingRequest {
   inputFileContent: string | undefined;
 
   /**
-   * <p>Specifies the mapping template for the transformer. This template is used to map the parsed EDI file using JSONata or XSLT.</p>
-   *          <note>
-   *             <p>This parameter is available for backwards compatibility. Use the <a href="https://docs.aws.amazon.com/b2bi/latest/APIReference/API_Mapping.html">Mapping</a> data type instead.</p>
-   *          </note>
+   * <p>Specifies the mapping template for the transformer. This template is used to map the parsed EDI file using JSONata or XSLT.</p> <note> <p>This parameter is available for backwards compatibility. Use the <a href="https://docs.aws.amazon.com/b2bi/latest/APIReference/API_Mapping.html">Mapping</a> data type instead.</p> </note>
    * @public
    */
   mappingTemplate: string | undefined;
@@ -2670,6 +2840,12 @@ export interface TestParsingRequest {
    * @public
    */
   ediType: EdiType | undefined;
+
+  /**
+   * <p>Specifies advanced options for parsing the input EDI file. These options allow for more granular control over the parsing process, including split options for X12 files.</p>
+   * @public
+   */
+  advancedOptions?: AdvancedOptions | undefined;
 }
 
 /**
@@ -2681,6 +2857,12 @@ export interface TestParsingResponse {
    * @public
    */
   parsedFileContent: string | undefined;
+
+  /**
+   * <p>Returns an array of parsed file contents when the input file is split according to the specified split options. Each element in the array represents a separate split file's parsed content.</p>
+   * @public
+   */
+  parsedSplitFileContents?: string[] | undefined;
 }
 
 /**
@@ -2694,10 +2876,7 @@ export type FormatOptions = FormatOptions.X12Member | FormatOptions.$UnknownMemb
  */
 export namespace FormatOptions {
   /**
-   * <p>A structure that contains the X12 transaction set and version. The X12 structure is used when the system transforms an EDI (electronic data interchange) file.</p>
-   *          <note>
-   *             <p>If an EDI input file contains more than one transaction, each transaction must have the same transaction set and version, for example 214/4010. If not, the transformer cannot parse the file.</p>
-   *          </note>
+   * <p>A structure that contains the X12 transaction set and version. The X12 structure is used when the system transforms an EDI (electronic data interchange) file.</p> <note> <p>If an EDI input file contains more than one transaction, each transaction must have the same transaction set and version, for example 214/4010. If not, the transformer cannot parse the file.</p> </note>
    * @public
    */
   export interface X12Member {
@@ -2738,8 +2917,7 @@ export const FromFormat = {
 export type FromFormat = (typeof FromFormat)[keyof typeof FromFormat];
 
 /**
- * <p>Contains the input formatting options for an inbound transformer (takes an X12-formatted
- *          EDI document as input and converts it to JSON or XML.</p>
+ * <p>Contains the input formatting options for an inbound transformer (takes an X12-formatted EDI document as input and converts it to JSON or XML.</p>
  * @public
  */
 export interface InputConversion {
@@ -2754,6 +2932,12 @@ export interface InputConversion {
    * @public
    */
   formatOptions?: FormatOptions | undefined;
+
+  /**
+   * <p>Specifies advanced options for the input conversion process. These options provide additional control over how EDI files are processed during transformation.</p>
+   * @public
+   */
+  advancedOptions?: AdvancedOptions | undefined;
 }
 
 /**
@@ -2886,10 +3070,7 @@ export interface CreateTransformerRequest {
   fileFormat?: FileFormat | undefined;
 
   /**
-   * <p>Specifies the mapping template for the transformer. This template is used to map the parsed EDI file using JSONata or XSLT.</p>
-   *          <note>
-   *             <p>This parameter is available for backwards compatibility. Use the <a href="https://docs.aws.amazon.com/b2bi/latest/APIReference/API_Mapping.html">Mapping</a> data type instead.</p>
-   *          </note>
+   * <p>Specifies the mapping template for the transformer. This template is used to map the parsed EDI file using JSONata or XSLT.</p> <note> <p>This parameter is available for backwards compatibility. Use the <a href="https://docs.aws.amazon.com/b2bi/latest/APIReference/API_Mapping.html">Mapping</a> data type instead.</p> </note>
    *
    * @deprecated
    * @public
@@ -2913,7 +3094,7 @@ export interface CreateTransformerRequest {
   sampleDocument?: string | undefined;
 
   /**
-   * <p>Specify  the <code>InputConversion</code> object, which contains the format options for the inbound transformation.</p>
+   * <p>Specify the <code>InputConversion</code> object, which contains the format options for the inbound transformation.</p>
    * @public
    */
   inputConversion?: InputConversion | undefined;
@@ -2974,9 +3155,7 @@ export interface CreateTransformerResponse {
   name: string | undefined;
 
   /**
-   * <p>Returns the state of the newly created transformer. The transformer can be either
-   *             <code>active</code> or <code>inactive</code>. For the transformer to be used in a
-   *          capability, its status must <code>active</code>.</p>
+   * <p>Returns the state of the newly created transformer. The transformer can be either <code>active</code> or <code>inactive</code>. For the transformer to be used in a capability, its status must <code>active</code>.</p>
    * @public
    */
   status: TransformerStatus | undefined;
@@ -3089,9 +3268,7 @@ export interface GetTransformerResponse {
   name: string | undefined;
 
   /**
-   * <p>Returns the state of the newly created transformer. The transformer can be either
-   *             <code>active</code> or <code>inactive</code>. For the transformer to be used in a
-   *          capability, its status must <code>active</code>.</p>
+   * <p>Returns the state of the newly created transformer. The transformer can be either <code>active</code> or <code>inactive</code>. For the transformer to be used in a capability, its status must <code>active</code>.</p>
    * @public
    */
   status: TransformerStatus | undefined;
@@ -3170,8 +3347,7 @@ export interface GetTransformerResponse {
  */
 export interface ListTransformersRequest {
   /**
-   * <p>When additional results are obtained from the command, a <code>NextToken</code> parameter is returned in the output.
-   *    You can then pass the <code>NextToken</code> parameter in a subsequent command to continue listing additional resources.</p>
+   * <p>When additional results are obtained from the command, a <code>NextToken</code> parameter is returned in the output. You can then pass the <code>NextToken</code> parameter in a subsequent command to continue listing additional resources.</p>
    * @public
    */
   nextToken?: string | undefined;
@@ -3184,8 +3360,7 @@ export interface ListTransformersRequest {
 }
 
 /**
- * <p>Contains the details for a transformer object. A transformer can take an EDI file as input and transform it into a JSON-or XML-formatted document. Alternatively,
- *     a transformer can take a JSON-or XML-formatted document as input and transform it into an EDI file.</p>
+ * <p>Contains the details for a transformer object. A transformer can take an EDI file as input and transform it into a JSON-or XML-formatted document. Alternatively, a transformer can take a JSON-or XML-formatted document as input and transform it into an EDI file.</p>
  * @public
  */
 export interface TransformerSummary {
@@ -3202,16 +3377,13 @@ export interface TransformerSummary {
   name: string | undefined;
 
   /**
-   * <p>Returns the state of the newly created transformer. The transformer can be either
-   *             <code>active</code> or <code>inactive</code>. For the transformer to be used in a
-   *          capability, its status must <code>active</code>.</p>
+   * <p>Returns the state of the newly created transformer. The transformer can be either <code>active</code> or <code>inactive</code>. For the transformer to be used in a capability, its status must <code>active</code>.</p>
    * @public
    */
   status: TransformerStatus | undefined;
 
   /**
-   * <p>Returns a timestamp indicating when the transformer was created. For example,
-   *          <code>2023-07-20T19:58:44.624Z</code>.</p>
+   * <p>Returns a timestamp indicating when the transformer was created. For example, <code>2023-07-20T19:58:44.624Z</code>.</p>
    * @public
    */
   createdAt: Date | undefined;
@@ -3284,16 +3456,13 @@ export interface TransformerSummary {
  */
 export interface ListTransformersResponse {
   /**
-   * <p>Returns an array of one or more transformer objects.</p>
-   *          <p>For each transformer, a <code>TransformerSummary</code> object is returned.
-   *          The <code>TransformerSummary</code> contains all the details for a specific transformer.</p>
+   * <p>Returns an array of one or more transformer objects.</p> <p>For each transformer, a <code>TransformerSummary</code> object is returned. The <code>TransformerSummary</code> contains all the details for a specific transformer.</p>
    * @public
    */
   transformers: TransformerSummary[] | undefined;
 
   /**
-   * <p>When additional results are obtained from the command, a <code>NextToken</code> parameter is returned in the output.
-   *    You can then pass the <code>NextToken</code> parameter in a subsequent command to continue listing additional resources.</p>
+   * <p>When additional results are obtained from the command, a <code>NextToken</code> parameter is returned in the output. You can then pass the <code>NextToken</code> parameter in a subsequent command to continue listing additional resources.</p>
    * @public
    */
   nextToken?: string | undefined;
@@ -3330,10 +3499,7 @@ export interface UpdateTransformerRequest {
   fileFormat?: FileFormat | undefined;
 
   /**
-   * <p>Specifies the mapping template for the transformer. This template is used to map the parsed EDI file using JSONata or XSLT.</p>
-   *          <note>
-   *             <p>This parameter is available for backwards compatibility. Use the <a href="https://docs.aws.amazon.com/b2bi/latest/APIReference/API_Mapping.html">Mapping</a> data type instead.</p>
-   *          </note>
+   * <p>Specifies the mapping template for the transformer. This template is used to map the parsed EDI file using JSONata or XSLT.</p> <note> <p>This parameter is available for backwards compatibility. Use the <a href="https://docs.aws.amazon.com/b2bi/latest/APIReference/API_Mapping.html">Mapping</a> data type instead.</p> </note>
    *
    * @deprecated
    * @public
@@ -3404,9 +3570,7 @@ export interface UpdateTransformerResponse {
   name: string | undefined;
 
   /**
-   * <p>Returns the state of the newly created transformer. The transformer can be either
-   *             <code>active</code> or <code>inactive</code>. For the transformer to be used in a
-   *          capability, its status must <code>active</code>.</p>
+   * <p>Returns the state of the newly created transformer. The transformer can be either <code>active</code> or <code>inactive</code>. For the transformer to be used in a capability, its status must <code>active</code>.</p>
    * @public
    */
   status: TransformerStatus | undefined;

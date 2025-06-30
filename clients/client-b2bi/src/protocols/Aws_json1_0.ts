@@ -67,6 +67,7 @@ import { UpdateTransformerCommandInput, UpdateTransformerCommandOutput } from ".
 import { B2biServiceException as __BaseException } from "../models/B2biServiceException";
 import {
   AccessDeniedException,
+  AdvancedOptions,
   CapabilityConfiguration,
   CapabilityOptions,
   CapabilitySummary,
@@ -101,6 +102,7 @@ import {
   GetTransformerJobRequest,
   GetTransformerRequest,
   GetTransformerResponse,
+  InboundEdiOptions,
   InputConversion,
   InputFileSource,
   InternalServerException,
@@ -143,12 +145,18 @@ import {
   UpdateTransformerRequest,
   UpdateTransformerResponse,
   ValidationException,
+  WrapOptions,
+  X12AcknowledgmentOptions,
+  X12AdvancedOptions,
+  X12ControlNumbers,
   X12Delimiters,
   X12Details,
   X12Envelope,
   X12FunctionalGroupHeaders,
+  X12InboundEdiOptions,
   X12InterchangeControlHeaders,
   X12OutboundEdiHeaders,
+  X12SplitOptions,
 } from "../models/models_0";
 
 /**
@@ -1267,6 +1275,8 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
   return __decorateServiceException(exception, body);
 };
 
+// se_AdvancedOptions omitted.
+
 // se_CapabilityConfiguration omitted.
 
 // se_CapabilityOptions omitted.
@@ -1369,6 +1379,8 @@ const se_CreateTransformerRequest = (input: CreateTransformerRequest, context: _
 
 // se_GetTransformerRequest omitted.
 
+// se_InboundEdiOptions omitted.
+
 // se_InputConversion omitted.
 
 // se_InputFileSource omitted.
@@ -1441,6 +1453,14 @@ const se_StartTransformerJobRequest = (input: StartTransformerJobRequest, contex
 
 // se_UpdateTransformerRequest omitted.
 
+// se_WrapOptions omitted.
+
+// se_X12AcknowledgmentOptions omitted.
+
+// se_X12AdvancedOptions omitted.
+
+// se_X12ControlNumbers omitted.
+
 // se_X12Delimiters omitted.
 
 // se_X12Details omitted.
@@ -1449,11 +1469,17 @@ const se_StartTransformerJobRequest = (input: StartTransformerJobRequest, contex
 
 // se_X12FunctionalGroupHeaders omitted.
 
+// se_X12InboundEdiOptions omitted.
+
 // se_X12InterchangeControlHeaders omitted.
 
 // se_X12OutboundEdiHeaders omitted.
 
+// se_X12SplitOptions omitted.
+
 // de_AccessDeniedException omitted.
+
+// de_AdvancedOptions omitted.
 
 // de_CapabilityConfiguration omitted.
 
@@ -1652,6 +1678,8 @@ const de_GetTransformerResponse = (output: any, context: __SerdeContext): GetTra
   }) as any;
 };
 
+// de_InboundEdiOptions omitted.
+
 // de_InputConversion omitted.
 
 // de_InstructionsDocuments omitted.
@@ -1707,6 +1735,8 @@ const de_ListTransformersResponse = (output: any, context: __SerdeContext): List
 // de_OutboundEdiOptions omitted.
 
 // de_OutputConversion omitted.
+
+// de_ParsedSplitFileContentsList omitted.
 
 // de_PartnershipCapabilities omitted.
 
@@ -1903,6 +1933,14 @@ const de_UpdateTransformerResponse = (output: any, context: __SerdeContext): Upd
 
 // de_ValidationMessages omitted.
 
+// de_WrapOptions omitted.
+
+// de_X12AcknowledgmentOptions omitted.
+
+// de_X12AdvancedOptions omitted.
+
+// de_X12ControlNumbers omitted.
+
 // de_X12Delimiters omitted.
 
 // de_X12Details omitted.
@@ -1911,9 +1949,13 @@ const de_UpdateTransformerResponse = (output: any, context: __SerdeContext): Upd
 
 // de_X12FunctionalGroupHeaders omitted.
 
+// de_X12InboundEdiOptions omitted.
+
 // de_X12InterchangeControlHeaders omitted.
 
 // de_X12OutboundEdiHeaders omitted.
+
+// de_X12SplitOptions omitted.
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,

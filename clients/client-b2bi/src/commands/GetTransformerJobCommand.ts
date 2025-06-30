@@ -28,7 +28,7 @@ export interface GetTransformerJobCommandInput extends GetTransformerJobRequest 
 export interface GetTransformerJobCommandOutput extends GetTransformerJobResponse, __MetadataBearer {}
 
 /**
- * <p>Returns the details of the transformer run, based on the Transformer job ID.</p>
+ * <p>Returns the details of the transformer run, based on the Transformer job ID.</p> <note> <p>If 30 days have elapsed since your transformer job was started, the system deletes it. So, if you run <code>GetTransformerJob</code> and supply a <code>transformerId</code> and <code>transformerJobId</code> for a job that was started more than 30 days previously, you receive a 404 response.</p> </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
