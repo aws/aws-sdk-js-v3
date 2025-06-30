@@ -6123,6 +6123,30 @@ export interface SheetControlLayout {
 }
 
 /**
+ * <p>The menu options for the interactions of a textbox.</p>
+ * @public
+ */
+export interface TextBoxMenuOption {
+  /**
+   * <p>The availability status of the textbox menu. If the value of this property is set to <code>ENABLED</code>, dashboard readers can interact with the textbox menu.</p>
+   * @public
+   */
+  AvailabilityStatus?: DashboardBehavior | undefined;
+}
+
+/**
+ * <p>The general textbox interactions setup for textbox publish options.</p>
+ * @public
+ */
+export interface TextBoxInteractionOptions {
+  /**
+   * <p>The menu options for the textbox.</p>
+   * @public
+   */
+  TextBoxMenuOption?: TextBoxMenuOption | undefined;
+}
+
+/**
  * <p>A text box.</p>
  * @public
  */
@@ -6138,6 +6162,12 @@ export interface SheetTextBox {
    * @public
    */
   Content?: string | undefined;
+
+  /**
+   * <p>The general textbox interactions setup for a textbox.</p>
+   * @public
+   */
+  Interactions?: TextBoxInteractionOptions | undefined;
 }
 
 /**
@@ -7327,88 +7357,6 @@ export interface VisualInteractionOptions {
    * @public
    */
   ContextMenuOption?: ContextMenuOption | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const LegendPosition = {
-  AUTO: "AUTO",
-  BOTTOM: "BOTTOM",
-  RIGHT: "RIGHT",
-  TOP: "TOP",
-} as const;
-
-/**
- * @public
- */
-export type LegendPosition = (typeof LegendPosition)[keyof typeof LegendPosition];
-
-/**
- * <p>The options for the legend setup of a visual.</p>
- * @public
- */
-export interface LegendOptions {
-  /**
-   * <p>Determines whether or not the legend is visible.</p>
-   * @public
-   */
-  Visibility?: Visibility | undefined;
-
-  /**
-   * <p>The custom title for the legend.</p>
-   * @public
-   */
-  Title?: LabelOptions | undefined;
-
-  /**
-   * <p>The positions for the legend. Choose one of the following
-   *             options:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>AUTO</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>RIGHT</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>BOTTOM</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>LEFT</code>
-   *                </p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  Position?: LegendPosition | undefined;
-
-  /**
-   * <p>The width of the legend. If this value is omitted, a default width is used when rendering.</p>
-   * @public
-   */
-  Width?: string | undefined;
-
-  /**
-   * <p>The height of the legend. If this value is omitted, a default height is used when
-   *             rendering.</p>
-   * @public
-   */
-  Height?: string | undefined;
-
-  /**
-   * <p>Configures the display properties of the given text.</p>
-   * @public
-   */
-  ValueFontConfiguration?: FontConfiguration | undefined;
 }
 
 /**

@@ -765,7 +765,6 @@ import {
   LabelOptions,
   Layout,
   LayoutConfiguration,
-  LegendOptions,
   ListControlDisplayOptions,
   ListControlSearchOptions,
   ListControlSelectAllOptions,
@@ -838,6 +837,8 @@ import {
   StringParameterDeclaration,
   StringValueWhenUnsetConfiguration,
   TextAreaControlDisplayOptions,
+  TextBoxInteractionOptions,
+  TextBoxMenuOption,
   TextControlPlaceholderOptions,
   TextFieldControlDisplayOptions,
   ThousandSeparatorOptions,
@@ -1011,6 +1012,7 @@ import {
   LayerCustomAction,
   LayerCustomActionOperation,
   LayerMapVisual,
+  LegendOptions,
   LineChartAggregatedFieldWells,
   LineChartConfiguration,
   LineChartDefaultSeriesSettings,
@@ -1038,7 +1040,6 @@ import {
   PieChartVisual,
   PivotFieldSortOptions,
   PivotTableAggregatedFieldWells,
-  PivotTableConfiguration,
   PivotTableDataPathOption,
   PivotTableFieldCollapseStateOption,
   PivotTableFieldCollapseStateTarget,
@@ -1051,7 +1052,6 @@ import {
   PivotTableRowsLabelOptions,
   PivotTableSortBy,
   PivotTableSortConfiguration,
-  PivotTableTotalOptions,
   PivotTotalOptions,
   PredefinedHierarchy,
   ProgressBarOptions,
@@ -1174,9 +1174,7 @@ import {
   BorderStyle,
   BrandColorPalette,
   BrandDefinition,
-  BrandDetail,
   BrandElementStyle,
-  BrandSummary,
   CollectiveConstantEntry,
   ConflictException,
   ContributionAnalysisFactor,
@@ -1216,6 +1214,8 @@ import {
   PivotTableConditionalFormatting,
   PivotTableConditionalFormattingOption,
   PivotTableConditionalFormattingScope,
+  PivotTableConfiguration,
+  PivotTableTotalOptions,
   PivotTableVisual,
   PluginVisual,
   PluginVisualConfiguration,
@@ -1336,6 +1336,8 @@ import {
 } from "../models/models_2";
 import {
   _Parameters,
+  BrandDetail,
+  BrandSummary,
   CalculatedColumn,
   Capabilities,
   CastColumnTypeOperation,
@@ -17071,6 +17073,10 @@ const se_TemplateVersionDefinition = (input: TemplateVersionDefinition, context:
 
 // se_TextAreaControlDisplayOptions omitted.
 
+// se_TextBoxInteractionOptions omitted.
+
+// se_TextBoxMenuOption omitted.
+
 /**
  * serializeAws_restJson1TextConditionalFormat
  */
@@ -23489,6 +23495,10 @@ const de_TemplateVersionSummaryList = (output: any, context: __SerdeContext): Te
 // de_TeradataParameters omitted.
 
 // de_TextAreaControlDisplayOptions omitted.
+
+// de_TextBoxInteractionOptions omitted.
+
+// de_TextBoxMenuOption omitted.
 
 /**
  * deserializeAws_restJson1TextConditionalFormat

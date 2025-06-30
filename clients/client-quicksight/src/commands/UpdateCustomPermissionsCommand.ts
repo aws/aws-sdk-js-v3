@@ -41,6 +41,8 @@ export interface UpdateCustomPermissionsCommandOutput extends UpdateCustomPermis
  *   Capabilities: { // Capabilities
  *     ExportToCsv: "DENY",
  *     ExportToExcel: "DENY",
+ *     ExportToPdf: "DENY",
+ *     PrintReports: "DENY",
  *     CreateAndUpdateThemes: "DENY",
  *     AddOrRunAnomalyDetectionForAnalyses: "DENY",
  *     ShareAnalyses: "DENY",
@@ -56,6 +58,10 @@ export interface UpdateCustomPermissionsCommandOutput extends UpdateCustomPermis
  *     ShareDataSources: "DENY",
  *     ViewAccountSPICECapacity: "DENY",
  *     CreateSPICEDataset: "DENY",
+ *     ExportToPdfInScheduledReports: "DENY",
+ *     ExportToCsvInScheduledReports: "DENY",
+ *     ExportToExcelInScheduledReports: "DENY",
+ *     IncludeContentInScheduledReportsEmail: "DENY",
  *   },
  * };
  * const command = new UpdateCustomPermissionsCommand(input);

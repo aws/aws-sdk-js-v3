@@ -4589,6 +4589,11 @@ export interface CreateDashboardCommandOutput extends CreateDashboardResponse, _
  *           { // SheetTextBox
  *             SheetTextBoxId: "STRING_VALUE", // required
  *             Content: "STRING_VALUE",
+ *             Interactions: { // TextBoxInteractionOptions
+ *               TextBoxMenuOption: { // TextBoxMenuOption
+ *                 AvailabilityStatus: "ENABLED" || "DISABLED",
+ *               },
+ *             },
  *           },
  *         ],
  *         Images: [ // SheetImageList

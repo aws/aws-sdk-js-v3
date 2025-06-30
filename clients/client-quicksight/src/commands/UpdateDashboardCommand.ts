@@ -4574,6 +4574,11 @@ export interface UpdateDashboardCommandOutput extends UpdateDashboardResponse, _
  *           { // SheetTextBox
  *             SheetTextBoxId: "STRING_VALUE", // required
  *             Content: "STRING_VALUE",
+ *             Interactions: { // TextBoxInteractionOptions
+ *               TextBoxMenuOption: { // TextBoxMenuOption
+ *                 AvailabilityStatus: "ENABLED" || "DISABLED",
+ *               },
+ *             },
  *           },
  *         ],
  *         Images: [ // SheetImageList

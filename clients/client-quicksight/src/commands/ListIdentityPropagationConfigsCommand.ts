@@ -51,7 +51,7 @@ export interface ListIdentityPropagationConfigsCommandOutput
  * // { // ListIdentityPropagationConfigsResponse
  * //   Services: [ // AuthorizedTargetsByServices
  * //     { // AuthorizedTargetsByService
- * //       Service: "REDSHIFT" || "QBUSINESS",
+ * //       Service: "REDSHIFT" || "QBUSINESS" || "ATHENA",
  * //       AuthorizedTargets: [ // AuthorizedTargetsList
  * //         "STRING_VALUE",
  * //       ],

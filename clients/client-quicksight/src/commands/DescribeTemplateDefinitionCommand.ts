@@ -4528,6 +4528,11 @@ export interface DescribeTemplateDefinitionCommandOutput extends DescribeTemplat
  * //           { // SheetTextBox
  * //             SheetTextBoxId: "STRING_VALUE", // required
  * //             Content: "STRING_VALUE",
+ * //             Interactions: { // TextBoxInteractionOptions
+ * //               TextBoxMenuOption: { // TextBoxMenuOption
+ * //                 AvailabilityStatus: "ENABLED" || "DISABLED",
+ * //               },
+ * //             },
  * //           },
  * //         ],
  * //         Images: [ // SheetImageList

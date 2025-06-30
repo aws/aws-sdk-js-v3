@@ -113,6 +113,9 @@ export interface DescribeAssetBundleImportJobCommandOutput
  * //           AthenaParameters: { // AthenaParameters
  * //             WorkGroup: "STRING_VALUE",
  * //             RoleArn: "STRING_VALUE",
+ * //             IdentityCenterConfiguration: { // IdentityCenterConfiguration
+ * //               EnableIdentityPropagation: true || false,
+ * //             },
  * //           },
  * //           AuroraParameters: { // AuroraParameters
  * //             Host: "STRING_VALUE", // required
@@ -173,7 +176,7 @@ export interface DescribeAssetBundleImportJobCommandOutput
  * //               ],
  * //               AutoCreateDatabaseUser: true || false,
  * //             },
- * //             IdentityCenterConfiguration: { // IdentityCenterConfiguration
+ * //             IdentityCenterConfiguration: {
  * //               EnableIdentityPropagation: true || false,
  * //             },
  * //           },

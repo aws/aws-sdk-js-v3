@@ -50,6 +50,9 @@ export interface UpdateDataSourceCommandOutput extends UpdateDataSourceResponse,
  *     AthenaParameters: { // AthenaParameters
  *       WorkGroup: "STRING_VALUE",
  *       RoleArn: "STRING_VALUE",
+ *       IdentityCenterConfiguration: { // IdentityCenterConfiguration
+ *         EnableIdentityPropagation: true || false,
+ *       },
  *     },
  *     AuroraParameters: { // AuroraParameters
  *       Host: "STRING_VALUE", // required
@@ -110,7 +113,7 @@ export interface UpdateDataSourceCommandOutput extends UpdateDataSourceResponse,
  *         ],
  *         AutoCreateDatabaseUser: true || false,
  *       },
- *       IdentityCenterConfiguration: { // IdentityCenterConfiguration
+ *       IdentityCenterConfiguration: {
  *         EnableIdentityPropagation: true || false,
  *       },
  *     },
@@ -207,6 +210,9 @@ export interface UpdateDataSourceCommandOutput extends UpdateDataSourceResponse,
  *           AthenaParameters: {
  *             WorkGroup: "STRING_VALUE",
  *             RoleArn: "STRING_VALUE",
+ *             IdentityCenterConfiguration: {
+ *               EnableIdentityPropagation: true || false,
+ *             },
  *           },
  *           AuroraParameters: {
  *             Host: "STRING_VALUE", // required

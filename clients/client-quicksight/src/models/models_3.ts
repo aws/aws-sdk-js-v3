@@ -33,7 +33,8 @@ import {
   AuthorSpecifiedAggregation,
   BorderStyle,
   BrandDefinition,
-  BrandDetail,
+  BrandStatus,
+  BrandVersionStatus,
   ConstantType,
   DataSetReference,
   DataSourceParameters,
@@ -42,6 +43,7 @@ import {
   ExceptionResourceType,
   FilterClass,
   FilterOperator,
+  Logo,
   ServiceType,
   SheetDefinition,
   SslProperties,
@@ -51,6 +53,114 @@ import {
 } from "./models_2";
 
 import { QuickSightServiceException as __BaseException } from "./QuickSightServiceException";
+
+/**
+ * <p>The details of the brand.</p>
+ * @public
+ */
+export interface BrandDetail {
+  /**
+   * <p>The ID of the Amazon QuickSight brand.</p>
+   * @public
+   */
+  BrandId: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the brand.</p>
+   * @public
+   */
+  Arn?: string | undefined;
+
+  /**
+   * <p>The status of the brand.</p>
+   * @public
+   */
+  BrandStatus?: BrandStatus | undefined;
+
+  /**
+   * <p>The time that the brand was created.</p>
+   * @public
+   */
+  CreatedTime?: Date | undefined;
+
+  /**
+   * <p>The last time the brand was updated.</p>
+   * @public
+   */
+  LastUpdatedTime?: Date | undefined;
+
+  /**
+   * <p>The ID of the version.</p>
+   * @public
+   */
+  VersionId?: string | undefined;
+
+  /**
+   * <p>The status of the version.</p>
+   * @public
+   */
+  VersionStatus?: BrandVersionStatus | undefined;
+
+  /**
+   * <p>A list of errors that occurred during the most recent brand operation.</p>
+   * @public
+   */
+  Errors?: string[] | undefined;
+
+  /**
+   * <p>The logo details.</p>
+   * @public
+   */
+  Logo?: Logo | undefined;
+}
+
+/**
+ * <p>A summary of the brand.</p>
+ * @public
+ */
+export interface BrandSummary {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the brand.</p>
+   * @public
+   */
+  Arn?: string | undefined;
+
+  /**
+   * <p>The ID of the Amazon QuickSight brand.</p>
+   * @public
+   */
+  BrandId?: string | undefined;
+
+  /**
+   * <p>The name of the brand.</p>
+   * @public
+   */
+  BrandName?: string | undefined;
+
+  /**
+   * <p>The description of the brand.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>The status of the brand.</p>
+   * @public
+   */
+  BrandStatus?: BrandStatus | undefined;
+
+  /**
+   * <p>The time that the brand was created.</p>
+   * @public
+   */
+  CreatedTime?: Date | undefined;
+
+  /**
+   * <p>The time when the brand was last updated.</p>
+   * @public
+   */
+  LastUpdatedTime?: Date | undefined;
+}
 
 /**
  * <p>A calculated column for a dataset.</p>
@@ -184,16 +294,28 @@ export type CapabilityState = (typeof CapabilityState)[keyof typeof CapabilitySt
  */
 export interface Capabilities {
   /**
-   * <p>The ability to export to CSV files.</p>
+   * <p>The ability to export to CSV files from the UI.</p>
    * @public
    */
   ExportToCsv?: CapabilityState | undefined;
 
   /**
-   * <p>The ability to export to Excel files.</p>
+   * <p>The ability to export to Excel files from the UI.</p>
    * @public
    */
   ExportToExcel?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to export to PDF files from the UI.</p>
+   * @public
+   */
+  ExportToPdf?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to print reports.</p>
+   * @public
+   */
+  PrintReports?: CapabilityState | undefined;
 
   /**
    * <p>The ability to export to Create and Update themes.</p>
@@ -284,6 +406,30 @@ export interface Capabilities {
    * @public
    */
   CreateSPICEDataset?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to export to PDF files in scheduled email reports.</p>
+   * @public
+   */
+  ExportToPdfInScheduledReports?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to export to CSV files in scheduled email reports.</p>
+   * @public
+   */
+  ExportToCsvInScheduledReports?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to export to Excel files in scheduled email reports.</p>
+   * @public
+   */
+  ExportToExcelInScheduledReports?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to include content in scheduled email reports.</p>
+   * @public
+   */
+  IncludeContentInScheduledReportsEmail?: CapabilityState | undefined;
 }
 
 /**
@@ -7248,7 +7394,7 @@ export interface DataSet {
   Arn?: string | undefined;
 
   /**
-   * <p>The ID of the dataset.</p>
+   * <p>The ID of the dataset. Limited to 96 characters.</p>
    * @public
    */
   DataSetId?: string | undefined;
@@ -8839,53 +8985,6 @@ export interface DeleteThemeAliasResponse {
    * @public
    */
   ThemeId?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteTopicRequest {
-  /**
-   * <p>The ID of the Amazon Web Services account that contains the topic that you want to
-   *          delete.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The ID of the topic that you want to delete. This ID is unique per Amazon Web Services Region for each Amazon Web Services account.</p>
-   * @public
-   */
-  TopicId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteTopicResponse {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the topic.</p>
-   * @public
-   */
-  Arn?: string | undefined;
-
-  /**
-   * <p>The ID of the topic that you want to delete. This ID is unique per Amazon Web Services Region for each Amazon Web Services account.</p>
-   * @public
-   */
-  TopicId?: string | undefined;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   * @public
-   */
-  Status?: number | undefined;
 }
 
 /**

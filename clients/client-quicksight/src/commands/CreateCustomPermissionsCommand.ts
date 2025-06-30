@@ -41,6 +41,8 @@ export interface CreateCustomPermissionsCommandOutput extends CreateCustomPermis
  *   Capabilities: { // Capabilities
  *     ExportToCsv: "DENY",
  *     ExportToExcel: "DENY",
+ *     ExportToPdf: "DENY",
+ *     PrintReports: "DENY",
  *     CreateAndUpdateThemes: "DENY",
  *     AddOrRunAnomalyDetectionForAnalyses: "DENY",
  *     ShareAnalyses: "DENY",
@@ -56,6 +58,10 @@ export interface CreateCustomPermissionsCommandOutput extends CreateCustomPermis
  *     ShareDataSources: "DENY",
  *     ViewAccountSPICECapacity: "DENY",
  *     CreateSPICEDataset: "DENY",
+ *     ExportToPdfInScheduledReports: "DENY",
+ *     ExportToCsvInScheduledReports: "DENY",
+ *     ExportToExcelInScheduledReports: "DENY",
+ *     IncludeContentInScheduledReportsEmail: "DENY",
  *   },
  *   Tags: [ // TagList
  *     { // Tag

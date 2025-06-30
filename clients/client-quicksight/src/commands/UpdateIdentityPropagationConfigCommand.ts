@@ -43,7 +43,7 @@ export interface UpdateIdentityPropagationConfigCommandOutput
  * const client = new QuickSightClient(config);
  * const input = { // UpdateIdentityPropagationConfigRequest
  *   AwsAccountId: "STRING_VALUE", // required
- *   Service: "REDSHIFT" || "QBUSINESS", // required
+ *   Service: "REDSHIFT" || "QBUSINESS" || "ATHENA", // required
  *   AuthorizedTargets: [ // AuthorizedTargetsList
  *     "STRING_VALUE",
  *   ],

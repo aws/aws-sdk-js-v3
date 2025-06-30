@@ -22,7 +22,7 @@ import {
   FontConfiguration,
   FormatConfiguration,
   FormatConfigurationFilterSensitiveLog,
-  LegendOptions,
+  LabelOptions,
   MeasureField,
   MeasureFieldFilterSensitiveLog,
   NumberDisplayFormatConfiguration,
@@ -39,6 +39,88 @@ import {
   VisualInteractionOptions,
   WidgetStatus,
 } from "./models_0";
+
+/**
+ * @public
+ * @enum
+ */
+export const LegendPosition = {
+  AUTO: "AUTO",
+  BOTTOM: "BOTTOM",
+  RIGHT: "RIGHT",
+  TOP: "TOP",
+} as const;
+
+/**
+ * @public
+ */
+export type LegendPosition = (typeof LegendPosition)[keyof typeof LegendPosition];
+
+/**
+ * <p>The options for the legend setup of a visual.</p>
+ * @public
+ */
+export interface LegendOptions {
+  /**
+   * <p>Determines whether or not the legend is visible.</p>
+   * @public
+   */
+  Visibility?: Visibility | undefined;
+
+  /**
+   * <p>The custom title for the legend.</p>
+   * @public
+   */
+  Title?: LabelOptions | undefined;
+
+  /**
+   * <p>The positions for the legend. Choose one of the following
+   *             options:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>AUTO</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>RIGHT</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>BOTTOM</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>LEFT</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Position?: LegendPosition | undefined;
+
+  /**
+   * <p>The width of the legend. If this value is omitted, a default width is used when rendering.</p>
+   * @public
+   */
+  Width?: string | undefined;
+
+  /**
+   * <p>The height of the legend. If this value is omitted, a default height is used when
+   *             rendering.</p>
+   * @public
+   */
+  Height?: string | undefined;
+
+  /**
+   * <p>Configures the display properties of the given text.</p>
+   * @public
+   */
+  ValueFontConfiguration?: FontConfiguration | undefined;
+}
 
 /**
  * @public
@@ -7713,84 +7795,6 @@ export interface PivotTotalOptions {
 }
 
 /**
- * <p>The total options for a pivot table visual.</p>
- * @public
- */
-export interface PivotTableTotalOptions {
-  /**
-   * <p>The row subtotal options.</p>
-   * @public
-   */
-  RowSubtotalOptions?: SubtotalOptions | undefined;
-
-  /**
-   * <p>The column subtotal options.</p>
-   * @public
-   */
-  ColumnSubtotalOptions?: SubtotalOptions | undefined;
-
-  /**
-   * <p>The row total options.</p>
-   * @public
-   */
-  RowTotalOptions?: PivotTotalOptions | undefined;
-
-  /**
-   * <p>The column total options.</p>
-   * @public
-   */
-  ColumnTotalOptions?: PivotTotalOptions | undefined;
-}
-
-/**
- * <p>The configuration for a <code>PivotTableVisual</code>.</p>
- * @public
- */
-export interface PivotTableConfiguration {
-  /**
-   * <p>The field wells of the visual.</p>
-   * @public
-   */
-  FieldWells?: PivotTableFieldWells | undefined;
-
-  /**
-   * <p>The sort configuration for a <code>PivotTableVisual</code>.</p>
-   * @public
-   */
-  SortConfiguration?: PivotTableSortConfiguration | undefined;
-
-  /**
-   * <p>The table options for a pivot table visual.</p>
-   * @public
-   */
-  TableOptions?: PivotTableOptions | undefined;
-
-  /**
-   * <p>The total options for a pivot table visual.</p>
-   * @public
-   */
-  TotalOptions?: PivotTableTotalOptions | undefined;
-
-  /**
-   * <p>The field options for a pivot table visual.</p>
-   * @public
-   */
-  FieldOptions?: PivotTableFieldOptions | undefined;
-
-  /**
-   * <p>The paginated report options for a pivot table visual.</p>
-   * @public
-   */
-  PaginatedReportOptions?: PivotTablePaginatedReportOptions | undefined;
-
-  /**
-   * <p>The general visual interactions setup for a visual.</p>
-   * @public
-   */
-  Interactions?: VisualInteractionOptions | undefined;
-}
-
-/**
  * @internal
  */
 export const ReferenceLineStaticDataConfigurationFilterSensitiveLog = (
@@ -8793,12 +8797,5 @@ export const PivotFieldSortOptionsFilterSensitiveLog = (obj: PivotFieldSortOptio
  * @internal
  */
 export const PivotTableSortConfigurationFilterSensitiveLog = (obj: PivotTableSortConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PivotTableConfigurationFilterSensitiveLog = (obj: PivotTableConfiguration): any => ({
   ...obj,
 });

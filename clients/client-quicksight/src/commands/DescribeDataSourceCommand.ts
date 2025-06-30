@@ -57,6 +57,9 @@ export interface DescribeDataSourceCommandOutput extends DescribeDataSourceRespo
  * //       AthenaParameters: { // AthenaParameters
  * //         WorkGroup: "STRING_VALUE",
  * //         RoleArn: "STRING_VALUE",
+ * //         IdentityCenterConfiguration: { // IdentityCenterConfiguration
+ * //           EnableIdentityPropagation: true || false,
+ * //         },
  * //       },
  * //       AuroraParameters: { // AuroraParameters
  * //         Host: "STRING_VALUE", // required
@@ -117,7 +120,7 @@ export interface DescribeDataSourceCommandOutput extends DescribeDataSourceRespo
  * //           ],
  * //           AutoCreateDatabaseUser: true || false,
  * //         },
- * //         IdentityCenterConfiguration: { // IdentityCenterConfiguration
+ * //         IdentityCenterConfiguration: {
  * //           EnableIdentityPropagation: true || false,
  * //         },
  * //       },
@@ -210,6 +213,9 @@ export interface DescribeDataSourceCommandOutput extends DescribeDataSourceRespo
  * //         AthenaParameters: {
  * //           WorkGroup: "STRING_VALUE",
  * //           RoleArn: "STRING_VALUE",
+ * //           IdentityCenterConfiguration: {
+ * //             EnableIdentityPropagation: true || false,
+ * //           },
  * //         },
  * //         AuroraParameters: {
  * //           Host: "STRING_VALUE", // required
