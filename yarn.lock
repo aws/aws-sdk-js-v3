@@ -3705,6 +3705,7 @@ __metadata:
     "@aws-sdk/middleware-logger": "npm:*"
     "@aws-sdk/middleware-recursion-detection": "npm:*"
     "@aws-sdk/middleware-user-agent": "npm:*"
+    "@aws-sdk/middleware-websocket": "npm:*"
     "@aws-sdk/region-config-resolver": "npm:*"
     "@aws-sdk/token-providers": "npm:*"
     "@aws-sdk/types": "npm:*"
