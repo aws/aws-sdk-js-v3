@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.841.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.840.0...v3.841.0) (2025-07-01)
+
+
+### Features
+
+* **client-cleanroomsml:** This release introduces support for incremental training and distributed training for custom models in AWS Clean Rooms ML. ([feb659a](https://github.com/aws/aws-sdk-js-v3/commit/feb659abf90d26760970b44ad1e7a48548f37dd5))
+
+
+
+
+
 # [3.840.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.839.0...v3.840.0) (2025-06-30)
 
 **Note:** Version bump only for package @aws-sdk/client-cleanroomsml

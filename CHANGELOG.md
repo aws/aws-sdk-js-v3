@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.841.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.840.0...v3.841.0) (2025-07-01)
+
+
+### Features
+
+* **client-cleanroomsml:** This release introduces support for incremental training and distributed training for custom models in AWS Clean Rooms ML. ([feb659a](https://github.com/aws/aws-sdk-js-v3/commit/feb659abf90d26760970b44ad1e7a48548f37dd5))
+* **client-datazone:** Add support for the new optional domain-unit-id parameter in the UpdateProject API. ([859a807](https://github.com/aws/aws-sdk-js-v3/commit/859a807f7e232f89dd4942638ea3eeb90fba5395))
+* **client-ec2:** Add Context to GetInstanceTypesFromInstanceRequirements API ([f300167](https://github.com/aws/aws-sdk-js-v3/commit/f300167ad149be18f74c767373817618fa07fc10))
+* **client-odb:** This release adds API operations for Oracle Database@AWS. You can use the APIs to create Exadata infrastructure, ODB networks, and Exadata and Autonomous VM clusters inside AWS data centers. The infrastructure is managed by OCI. You can integrate these resources with AWS services. ([abddb33](https://github.com/aws/aws-sdk-js-v3/commit/abddb3377a69baf6b8bc5a6da30cd6d2d8d56b52))
+* **client-qbusiness:** New ChatResponseConfiguration to Customize Q Business chat responses for specific use cases and communication needs. Updated Boosting capability allowing admins to provide preference on date attributes for recency and/or provide a preferred data source. ([32269b6](https://github.com/aws/aws-sdk-js-v3/commit/32269b6423faa1ba35f8658a84e9178b68d12a37))
+* **client-sagemaker:** Updated field validation requirements for InstanceGroups. ([8df0fe0](https://github.com/aws/aws-sdk-js-v3/commit/8df0fe0ccfb7b6d09041cdf9cc8bc92ea8db6e21))
+* **clients:** update client endpoints as of 2025-07-01 ([6c0e625](https://github.com/aws/aws-sdk-js-v3/commit/6c0e6255d7ac5f3b0c2822473b5ad7ea22a7e57b))
+
+
+
+
+
 # [3.840.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.839.0...v3.840.0) (2025-06-30)
 
 
