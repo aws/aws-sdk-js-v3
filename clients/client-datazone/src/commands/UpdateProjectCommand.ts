@@ -48,6 +48,7 @@ export interface UpdateProjectCommandOutput extends UpdateProjectOutput, __Metad
  *   glossaryTerms: [ // GlossaryTerms
  *     "STRING_VALUE",
  *   ],
+ *   domainUnitId: "STRING_VALUE",
  *   environmentDeploymentDetails: { // EnvironmentDeploymentDetails
  *     overallDeploymentStatus: "PENDING_DEPLOYMENT" || "IN_PROGRESS" || "SUCCESSFUL" || "FAILED_VALIDATION" || "FAILED_DEPLOYMENT",
  *     environmentFailureReasons: { // EnvironmentFailureReasons

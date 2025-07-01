@@ -1614,6 +1614,12 @@ export interface UpdateProjectInput {
   glossaryTerms?: string[] | undefined;
 
   /**
+   * <p>The ID of the domain unit.</p>
+   * @public
+   */
+  domainUnitId?: string | undefined;
+
+  /**
    * <p>The environment deployment details of the project.</p>
    * @public
    */

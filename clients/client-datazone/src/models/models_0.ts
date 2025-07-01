@@ -1112,7 +1112,8 @@ export interface OverrideProjectOwnersPolicyGrantDetail {
 }
 
 /**
- * <p>Specifies the domain unit(s) whose projects can use this asset type while creating asset or asset revisions.</p>
+ * <p>Specifies the domain unit(s) whose projects can use this asset type while creating asset
+ *          or asset revisions.</p>
  * @public
  */
 export interface UseAssetTypePolicyGrantDetail {
@@ -1435,7 +1436,8 @@ export namespace PolicyGrantDetail {
   }
 
   /**
-   * <p> Specifies the domain unit(s) whose projects can use this asset type while creating asset or asset revisions.</p>
+   * <p> Specifies the domain unit(s) whose projects can use this asset type while creating
+   *          asset or asset revisions.</p>
    * @public
    */
   export interface UseAssetTypeMember {

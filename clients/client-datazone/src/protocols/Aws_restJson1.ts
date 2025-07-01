@@ -4035,6 +4035,7 @@ export const se_UpdateProjectCommand = async (
   body = JSON.stringify(
     take(input, {
       description: [],
+      domainUnitId: [],
       environmentDeploymentDetails: (_) => _json(_),
       glossaryTerms: (_) => _json(_),
       name: [],
