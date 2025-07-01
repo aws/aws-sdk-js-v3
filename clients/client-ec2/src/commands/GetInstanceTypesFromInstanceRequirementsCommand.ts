@@ -141,6 +141,7 @@ export interface GetInstanceTypesFromInstanceRequirementsCommandOutput
  *   },
  *   MaxResults: Number("int"),
  *   NextToken: "STRING_VALUE",
+ *   Context: "STRING_VALUE",
  * };
  * const command = new GetInstanceTypesFromInstanceRequirementsCommand(input);
  * const response = await client.send(command);

@@ -5206,6 +5206,12 @@ export interface GetInstanceTypesFromInstanceRequirementsRequest {
    * @public
    */
   NextToken?: string | undefined;
+
+  /**
+   * <p>Reserved.</p>
+   * @public
+   */
+  Context?: string | undefined;
 }
 
 /**

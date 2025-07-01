@@ -7931,10 +7931,10 @@ export interface EbsBlockDevice {
 
   /**
    * <p>The Availability Zone where the EBS volume will be created (for example,
-   *         <code>us-east-1a</code>).</p>
+   *             <code>us-east-1a</code>).</p>
    *          <p>Either <code>AvailabilityZone</code> or <code>AvailabilityZoneId</code> can be specified,
-   *       but not both. If neither is specified, Amazon EC2 automatically selects an Availability Zone within
-   *       the Region.</p>
+   *             but not both. If neither is specified, Amazon EC2 automatically selects an Availability Zone within
+   *             the Region.</p>
    *          <p>This parameter is not supported when using <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateImage.html">CreateImage</a>.</p>
    * @public
    */
@@ -8013,10 +8013,10 @@ export interface EbsBlockDevice {
 
   /**
    * <p>The ID of the Availability Zone where the EBS volume will be created (for example,
-   *         <code>use1-az1</code>).</p>
+   *             <code>use1-az1</code>).</p>
    *          <p>Either <code>AvailabilityZone</code> or <code>AvailabilityZoneId</code> can be specified,
-   *       but not both. If neither is specified, Amazon EC2 automatically selects an Availability Zone within
-   *       the Region.</p>
+   *             but not both. If neither is specified, Amazon EC2 automatically selects an Availability Zone within
+   *             the Region.</p>
    *          <p>This parameter is not supported when using <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateImage.html">CreateImage</a>.</p>
    * @public
    */

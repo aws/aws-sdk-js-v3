@@ -45749,6 +45749,9 @@ const se_GetInstanceTypesFromInstanceRequirementsRequest = (
   if (input[_NT] != null) {
     entries[_NT] = input[_NT];
   }
+  if (input[_Con] != null) {
+    entries[_Con] = input[_Con];
+  }
   return entries;
 };
 
