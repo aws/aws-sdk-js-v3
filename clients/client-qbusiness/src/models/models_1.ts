@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { SENSITIVE_STRING } from "@smithy/smithy-client";
+import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@smithy/smithy-client";
 
 import {
   ActionExecution,
@@ -15,6 +15,8 @@ import {
   BlockedPhrasesConfigurationUpdate,
   ChatMode,
   ChatModeConfiguration,
+  ChatResponseConfiguration,
+  ChatResponseConfigurationDetail,
   ContentSource,
   Conversation,
   CreatorModeConfiguration,
@@ -24,10 +26,13 @@ import {
   DocumentAttribute,
   DocumentDetails,
   EndOfInputEvent,
+  ErrorDetail,
   HallucinationReductionConfiguration,
   MembershipType,
   OrchestrationControl,
   PluginType,
+  ResponseConfiguration,
+  ResponseConfigurationType,
   ResponseScope,
   S3,
   SourceAttribution,
@@ -39,6 +44,258 @@ import {
   TopicConfiguration,
   UserAlias,
 } from "./models_0";
+
+import { QBusinessServiceException as __BaseException } from "./QBusinessServiceException";
+
+/**
+ * @public
+ */
+export interface GetChatResponseConfigurationRequest {
+  /**
+   * <p>The unique identifier of the Amazon Q Business application containing the chat response configuration to retrieve.</p>
+   * @public
+   */
+  applicationId: string | undefined;
+
+  /**
+   * <p>The unique identifier of the chat response configuration to retrieve from the specified application.</p>
+   * @public
+   */
+  chatResponseConfigurationId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetChatResponseConfigurationResponse {
+  /**
+   * <p>The unique identifier of the retrieved chat response configuration.</p>
+   * @public
+   */
+  chatResponseConfigurationId?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the retrieved chat response configuration, which uniquely identifies the resource across all Amazon Web Services services. </p>
+   * @public
+   */
+  chatResponseConfigurationArn?: string | undefined;
+
+  /**
+   * <p>The human-readable name of the retrieved chat response configuration, making it easier to identify among multiple configurations.</p>
+   * @public
+   */
+  displayName?: string | undefined;
+
+  /**
+   * <p>The timestamp indicating when the chat response configuration was initially created.</p>
+   * @public
+   */
+  createdAt?: Date | undefined;
+
+  /**
+   * <p>The currently active configuration settings that are being used to generate responses in the Amazon Q Business application.</p>
+   * @public
+   */
+  inUseConfiguration?: ChatResponseConfigurationDetail | undefined;
+
+  /**
+   * <p>Information about the most recent update to the configuration, including timestamp and modification details.</p>
+   * @public
+   */
+  lastUpdateConfiguration?: ChatResponseConfigurationDetail | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetGroupRequest {
+  /**
+   * <p>The identifier of the application id the group is attached to.</p>
+   * @public
+   */
+  applicationId: string | undefined;
+
+  /**
+   * <p>The identifier of the index the group is attached to.</p>
+   * @public
+   */
+  indexId: string | undefined;
+
+  /**
+   * <p>The name of the group.</p>
+   * @public
+   */
+  groupName: string | undefined;
+
+  /**
+   * <p>The identifier of the data source the group is attached to.</p>
+   * @public
+   */
+  dataSourceId?: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const GroupStatus = {
+  DELETED: "DELETED",
+  DELETING: "DELETING",
+  FAILED: "FAILED",
+  PROCESSING: "PROCESSING",
+  SUCCEEDED: "SUCCEEDED",
+} as const;
+
+/**
+ * @public
+ */
+export type GroupStatus = (typeof GroupStatus)[keyof typeof GroupStatus];
+
+/**
+ * <p>Provides the details of a group's status.</p>
+ * @public
+ */
+export interface GroupStatusDetail {
+  /**
+   * <p>The status of a group.</p>
+   * @public
+   */
+  status?: GroupStatus | undefined;
+
+  /**
+   * <p>The Unix timestamp when the Amazon Q Business application was last updated.</p>
+   * @public
+   */
+  lastUpdatedAt?: Date | undefined;
+
+  /**
+   * <p>The details of an error associated a group status.</p>
+   * @public
+   */
+  errorDetail?: ErrorDetail | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetGroupResponse {
+  /**
+   * <p>The current status of the group.</p>
+   * @public
+   */
+  status?: GroupStatusDetail | undefined;
+
+  /**
+   * <p>The status history of the group.</p>
+   * @public
+   */
+  statusHistory?: GroupStatusDetail[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetMediaRequest {
+  /**
+   * <p>The identifier of the Amazon Q Business which contains the media object.</p>
+   * @public
+   */
+  applicationId: string | undefined;
+
+  /**
+   * <p>The identifier of the Amazon Q Business conversation.</p>
+   * @public
+   */
+  conversationId: string | undefined;
+
+  /**
+   * <p>The identifier of the Amazon Q Business message.</p>
+   * @public
+   */
+  messageId: string | undefined;
+
+  /**
+   * <p>The identifier of the media object. You can find this in the <code>sourceAttributions</code> returned by the <code>Chat</code>, <code>ChatSync</code>, and <code>ListMessages</code> API responses.</p>
+   * @public
+   */
+  mediaId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetMediaResponse {
+  /**
+   * <p>The base64-encoded bytes of the media object.</p>
+   * @public
+   */
+  mediaBytes?: Uint8Array | undefined;
+
+  /**
+   * <p>The MIME type of the media object (image/png).</p>
+   * @public
+   */
+  mediaMimeType?: string | undefined;
+}
+
+/**
+ * <p>The requested media object is too large to be returned.</p>
+ * @public
+ */
+export class MediaTooLargeException extends __BaseException {
+  readonly name: "MediaTooLargeException" = "MediaTooLargeException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<MediaTooLargeException, __BaseException>) {
+    super({
+      name: "MediaTooLargeException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, MediaTooLargeException.prototype);
+  }
+}
+
+/**
+ * @public
+ */
+export interface GetPolicyRequest {
+  /**
+   * <p>The unique identifier of the Amazon Q Business application.</p>
+   * @public
+   */
+  applicationId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetPolicyResponse {
+  /**
+   * <p>The JSON representation of the permission policy.</p>
+   * @public
+   */
+  policy?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetUserRequest {
+  /**
+   * <p>The identifier of the application connected to the user.</p>
+   * @public
+   */
+  applicationId: string | undefined;
+
+  /**
+   * <p>The user email address attached to the user.</p>
+   * @public
+   */
+  userId: string | undefined;
+}
 
 /**
  * @public
@@ -98,6 +355,46 @@ export interface ListAttachmentsResponse {
 
   /**
    * <p>If the response is truncated, Amazon Q Business returns this token, which you can use in a later request to list the next set of attachments.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListChatResponseConfigurationsRequest {
+  /**
+   * <p>The unique identifier of the Amazon Q Business application for which to list available chat response configurations.</p>
+   * @public
+   */
+  applicationId: string | undefined;
+
+  /**
+   * <p>The maximum number of chat response configurations to return in a single response. This parameter helps control pagination of results when many configurations exist.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p>A pagination token used to retrieve the next set of results when the number of configurations exceeds the specified <code>maxResults</code> value.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListChatResponseConfigurationsResponse {
+  /**
+   * <p>A list of chat response configuration summaries, each containing key information about an available configuration in the specified application.</p>
+   * @public
+   */
+  chatResponseConfigurations?: ChatResponseConfiguration[] | undefined;
+
+  /**
+   * <p>A pagination token that can be used in a subsequent request to retrieve additional chat response configurations if the results were truncated due to the <code>maxResults</code> parameter.</p>
    * @public
    */
   nextToken?: string | undefined;
@@ -1210,6 +1507,46 @@ export interface UpdateChatControlsConfigurationRequest {
  * @public
  */
 export interface UpdateChatControlsConfigurationResponse {}
+
+/**
+ * @public
+ */
+export interface UpdateChatResponseConfigurationRequest {
+  /**
+   * <p>The unique identifier of the Amazon Q Business application containing the chat response configuration to update.</p>
+   * @public
+   */
+  applicationId: string | undefined;
+
+  /**
+   * <p>The unique identifier of the chat response configuration to update within the specified application.</p>
+   * @public
+   */
+  chatResponseConfigurationId: string | undefined;
+
+  /**
+   * <p>The new human-readable name to assign to the chat response configuration, making it easier to identify among multiple configurations.</p>
+   * @public
+   */
+  displayName?: string | undefined;
+
+  /**
+   * <p>The updated collection of response configuration settings that define how Amazon Q Business generates and formats responses to user queries.</p>
+   * @public
+   */
+  responseConfigurations: Partial<Record<ResponseConfigurationType, ResponseConfiguration>> | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier to ensure idempotency of the request. This helps prevent the same update from being processed multiple times if retries occur.</p>
+   * @public
+   */
+  clientToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateChatResponseConfigurationResponse {}
 
 /**
  * @public

@@ -40,6 +40,11 @@ import {
   CreateApplicationCommandOutput,
 } from "./commands/CreateApplicationCommand";
 import {
+  CreateChatResponseConfigurationCommand,
+  CreateChatResponseConfigurationCommandInput,
+  CreateChatResponseConfigurationCommandOutput,
+} from "./commands/CreateChatResponseConfigurationCommand";
+import {
   CreateDataAccessorCommand,
   CreateDataAccessorCommandInput,
   CreateDataAccessorCommandOutput,
@@ -86,6 +91,11 @@ import {
   DeleteChatControlsConfigurationCommandInput,
   DeleteChatControlsConfigurationCommandOutput,
 } from "./commands/DeleteChatControlsConfigurationCommand";
+import {
+  DeleteChatResponseConfigurationCommand,
+  DeleteChatResponseConfigurationCommandInput,
+  DeleteChatResponseConfigurationCommandOutput,
+} from "./commands/DeleteChatResponseConfigurationCommand";
 import {
   DeleteConversationCommand,
   DeleteConversationCommandInput,
@@ -135,6 +145,11 @@ import {
   GetChatControlsConfigurationCommandOutput,
 } from "./commands/GetChatControlsConfigurationCommand";
 import {
+  GetChatResponseConfigurationCommand,
+  GetChatResponseConfigurationCommandInput,
+  GetChatResponseConfigurationCommandOutput,
+} from "./commands/GetChatResponseConfigurationCommand";
+import {
   GetDataAccessorCommand,
   GetDataAccessorCommandInput,
   GetDataAccessorCommandOutput,
@@ -170,6 +185,11 @@ import {
   ListAttachmentsCommandInput,
   ListAttachmentsCommandOutput,
 } from "./commands/ListAttachmentsCommand";
+import {
+  ListChatResponseConfigurationsCommand,
+  ListChatResponseConfigurationsCommandInput,
+  ListChatResponseConfigurationsCommandOutput,
+} from "./commands/ListChatResponseConfigurationsCommand";
 import {
   ListConversationsCommand,
   ListConversationsCommandInput,
@@ -272,6 +292,11 @@ import {
   UpdateChatControlsConfigurationCommandOutput,
 } from "./commands/UpdateChatControlsConfigurationCommand";
 import {
+  UpdateChatResponseConfigurationCommand,
+  UpdateChatResponseConfigurationCommandInput,
+  UpdateChatResponseConfigurationCommandOutput,
+} from "./commands/UpdateChatResponseConfigurationCommand";
+import {
   UpdateDataAccessorCommand,
   UpdateDataAccessorCommandInput,
   UpdateDataAccessorCommandOutput,
@@ -315,6 +340,7 @@ const commands = {
   CheckDocumentAccessCommand,
   CreateAnonymousWebExperienceUrlCommand,
   CreateApplicationCommand,
+  CreateChatResponseConfigurationCommand,
   CreateDataAccessorCommand,
   CreateDataSourceCommand,
   CreateIndexCommand,
@@ -326,6 +352,7 @@ const commands = {
   DeleteApplicationCommand,
   DeleteAttachmentCommand,
   DeleteChatControlsConfigurationCommand,
+  DeleteChatResponseConfigurationCommand,
   DeleteConversationCommand,
   DeleteDataAccessorCommand,
   DeleteDataSourceCommand,
@@ -338,6 +365,7 @@ const commands = {
   DisassociatePermissionCommand,
   GetApplicationCommand,
   GetChatControlsConfigurationCommand,
+  GetChatResponseConfigurationCommand,
   GetDataAccessorCommand,
   GetDataSourceCommand,
   GetGroupCommand,
@@ -350,6 +378,7 @@ const commands = {
   GetWebExperienceCommand,
   ListApplicationsCommand,
   ListAttachmentsCommand,
+  ListChatResponseConfigurationsCommand,
   ListConversationsCommand,
   ListDataAccessorsCommand,
   ListDataSourcesCommand,
@@ -375,6 +404,7 @@ const commands = {
   UntagResourceCommand,
   UpdateApplicationCommand,
   UpdateChatControlsConfigurationCommand,
+  UpdateChatResponseConfigurationCommand,
   UpdateDataAccessorCommand,
   UpdateDataSourceCommand,
   UpdateIndexCommand,
@@ -521,6 +551,23 @@ export interface QBusiness {
     args: CreateApplicationCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateApplicationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateChatResponseConfigurationCommand}
+   */
+  createChatResponseConfiguration(
+    args: CreateChatResponseConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateChatResponseConfigurationCommandOutput>;
+  createChatResponseConfiguration(
+    args: CreateChatResponseConfigurationCommandInput,
+    cb: (err: any, data?: CreateChatResponseConfigurationCommandOutput) => void
+  ): void;
+  createChatResponseConfiguration(
+    args: CreateChatResponseConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateChatResponseConfigurationCommandOutput) => void
   ): void;
 
   /**
@@ -687,6 +734,23 @@ export interface QBusiness {
     args: DeleteChatControlsConfigurationCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteChatControlsConfigurationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteChatResponseConfigurationCommand}
+   */
+  deleteChatResponseConfiguration(
+    args: DeleteChatResponseConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteChatResponseConfigurationCommandOutput>;
+  deleteChatResponseConfiguration(
+    args: DeleteChatResponseConfigurationCommandInput,
+    cb: (err: any, data?: DeleteChatResponseConfigurationCommandOutput) => void
+  ): void;
+  deleteChatResponseConfiguration(
+    args: DeleteChatResponseConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteChatResponseConfigurationCommandOutput) => void
   ): void;
 
   /**
@@ -864,6 +928,23 @@ export interface QBusiness {
   ): void;
 
   /**
+   * @see {@link GetChatResponseConfigurationCommand}
+   */
+  getChatResponseConfiguration(
+    args: GetChatResponseConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetChatResponseConfigurationCommandOutput>;
+  getChatResponseConfiguration(
+    args: GetChatResponseConfigurationCommandInput,
+    cb: (err: any, data?: GetChatResponseConfigurationCommandOutput) => void
+  ): void;
+  getChatResponseConfiguration(
+    args: GetChatResponseConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetChatResponseConfigurationCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetDataAccessorCommand}
    */
   getDataAccessor(
@@ -1012,6 +1093,23 @@ export interface QBusiness {
     args: ListAttachmentsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListAttachmentsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListChatResponseConfigurationsCommand}
+   */
+  listChatResponseConfigurations(
+    args: ListChatResponseConfigurationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListChatResponseConfigurationsCommandOutput>;
+  listChatResponseConfigurations(
+    args: ListChatResponseConfigurationsCommandInput,
+    cb: (err: any, data?: ListChatResponseConfigurationsCommandOutput) => void
+  ): void;
+  listChatResponseConfigurations(
+    args: ListChatResponseConfigurationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListChatResponseConfigurationsCommandOutput) => void
   ): void;
 
   /**
@@ -1378,6 +1476,23 @@ export interface QBusiness {
     args: UpdateChatControlsConfigurationCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateChatControlsConfigurationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateChatResponseConfigurationCommand}
+   */
+  updateChatResponseConfiguration(
+    args: UpdateChatResponseConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateChatResponseConfigurationCommandOutput>;
+  updateChatResponseConfiguration(
+    args: UpdateChatResponseConfigurationCommandInput,
+    cb: (err: any, data?: UpdateChatResponseConfigurationCommandOutput) => void
+  ): void;
+  updateChatResponseConfiguration(
+    args: UpdateChatResponseConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateChatResponseConfigurationCommandOutput) => void
   ): void;
 
   /**

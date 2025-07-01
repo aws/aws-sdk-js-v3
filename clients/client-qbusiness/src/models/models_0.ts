@@ -3078,7 +3078,7 @@ export interface CustomPluginConfiguration {
    * <p>Contains either details about the S3 object containing the OpenAPI schema for the action group or the JSON or YAML-formatted payload defining the schema.</p>
    * @public
    */
-  apiSchema: APISchema | undefined;
+  apiSchema?: APISchema | undefined;
 }
 
 /**
@@ -3473,6 +3473,8 @@ export const DocumentAttributeBoostingLevel = {
   LOW: "LOW",
   MEDIUM: "MEDIUM",
   NONE: "NONE",
+  ONE: "ONE",
+  TWO: "TWO",
   VERY_HIGH: "VERY_HIGH",
 } as const;
 
@@ -3488,7 +3490,7 @@ export type DocumentAttributeBoostingLevel =
  */
 export interface DateAttributeBoostingConfiguration {
   /**
-   * <p>Specifies how much a document attribute is boosted.</p>
+   * <p>Specifies the priority tier ranking of boosting applied to document attributes. For version 2, this parameter indicates the relative ranking between boosted fields (ONE being highest priority, TWO being second highest, etc.) and determines the order in which attributes influence document ranking in search results. For version 1, this parameter specifies the boosting intensity. For version 2, boosting intensity (VERY HIGH, HIGH, MEDIUM, LOW, NONE) are not supported. Note that in version 2, you are not allowed to boost on only one field and make this value TWO.</p>
    * @public
    */
   boostingLevel: DocumentAttributeBoostingLevel | undefined;
@@ -3516,18 +3518,18 @@ export type NumberAttributeBoostingType =
   (typeof NumberAttributeBoostingType)[keyof typeof NumberAttributeBoostingType];
 
 /**
- * <p>Provides information on boosting <code>NUMBER</code> type document attributes.</p> <p>For more information on how boosting document attributes work in Amazon Q Business, see <a href="https://docs.aws.amazon.com/amazonq/latest/business-use-dg/metadata-boosting.html">Boosting using document attributes</a>.</p>
+ * <p>Provides information on boosting <code>NUMBER</code> type document attributes.</p> <p>In the current boosting implementation, boosting focuses primarily on <code>DATE</code> attributes for recency and <code>STRING</code> attributes for source prioritization. <code>NUMBER</code> attributes can serve as additional boosting factors when needed, but are not supported when using <code>NativeIndexConfiguration</code> version 2.</p> <p>For more information on how boosting document attributes work in Amazon Q Business, see <a href="https://docs.aws.amazon.com/amazonq/latest/business-use-dg/metadata-boosting.html">Boosting using document attributes</a>.</p>
  * @public
  */
 export interface NumberAttributeBoostingConfiguration {
   /**
-   * <p>Specifies the duration, in seconds, of a boost applies to a <code>NUMBER</code> type document attribute.</p>
+   * <p>Specifies the priority of boosted document attributes in relation to other boosted attributes. This parameter determines how strongly the attribute influences document ranking in search results. <code>NUMBER</code> attributes can serve as additional boosting factors when needed, but are not supported when using <code>NativeIndexConfiguration</code> version 2.</p>
    * @public
    */
   boostingLevel: DocumentAttributeBoostingLevel | undefined;
 
   /**
-   * <p>Specifies how much a document attribute is boosted.</p>
+   * <p>Specifies whether higher or lower numeric values should be prioritized when boosting. Valid values are ASCENDING (higher numbers are more important) and DESCENDING (lower numbers are more important).</p>
    * @public
    */
   boostingType?: NumberAttributeBoostingType | undefined;
@@ -3538,9 +3540,14 @@ export interface NumberAttributeBoostingConfiguration {
  * @enum
  */
 export const StringAttributeValueBoostingLevel = {
+  FIVE: "FIVE",
+  FOUR: "FOUR",
   HIGH: "HIGH",
   LOW: "LOW",
   MEDIUM: "MEDIUM",
+  ONE: "ONE",
+  THREE: "THREE",
+  TWO: "TWO",
   VERY_HIGH: "VERY_HIGH",
 } as const;
 
@@ -3556,32 +3563,32 @@ export type StringAttributeValueBoostingLevel =
  */
 export interface StringAttributeBoostingConfiguration {
   /**
-   * <p>Specifies how much a document attribute is boosted.</p>
+   * <p>Specifies the priority tier ranking of boosting applied to document attributes. For version 2, this parameter indicates the relative ranking between boosted fields (ONE being highest priority, TWO being second highest, etc.) and determines the order in which attributes influence document ranking in search results. For version 1, this parameter specifies the boosting intensity. For version 2, boosting intensity (VERY HIGH, HIGH, MEDIUM, LOW, NONE) are not supported. Note that in version 2, you are not allowed to boost on only one field and make this value TWO.</p>
    * @public
    */
   boostingLevel: DocumentAttributeBoostingLevel | undefined;
 
   /**
-   * <p>Specifies specific values of a <code>STRING</code> type document attribute being boosted.</p>
+   * <p>Specifies specific values of a <code>STRING</code> type document attribute being boosted. When using <code>NativeIndexConfiguration</code> version 2, you can specify up to five values in order of priority.</p>
    * @public
    */
   attributeValueBoosting?: Record<string, StringAttributeValueBoostingLevel> | undefined;
 }
 
 /**
- * <p>Provides information on boosting <code>STRING_LIST</code> type document attributes.</p> <note> <p>For <code>STRING</code> and <code>STRING_LIST</code> type document attributes to be used for boosting on the console and the API, they must be enabled for search using the <a href="https://docs.aws.amazon.com/amazonq/latest/api-reference/API_DocumentAttributeConfiguration.html">DocumentAttributeConfiguration</a> object of the <a href="https://docs.aws.amazon.com/amazonq/latest/api-reference/API_UpdateIndex.html">UpdateIndex</a> API. If you haven't enabled searching on these attributes, you can't boost attributes of these data types on either the console or the API.</p> </note> <p>For more information on how boosting document attributes work in Amazon Q Business, see <a href="https://docs.aws.amazon.com/amazonq/latest/business-use-dg/metadata-boosting.html">Boosting using document attributes</a>.</p>
+ * <p>Provides information on boosting <code>STRING_LIST</code> type document attributes.</p> <p>In the current boosting implementation, boosting focuses primarily on <code>DATE</code> attributes for recency and <code>STRING</code> attributes for source prioritization. <code>STRING_LIST</code> attributes can serve as additional boosting factors when needed, but are not supported when using <code>NativeIndexConfiguration</code> version 2.</p> <note> <p>For <code>STRING</code> and <code>STRING_LIST</code> type document attributes to be used for boosting on the console and the API, they must be enabled for search using the <a href="https://docs.aws.amazon.com/amazonq/latest/api-reference/API_DocumentAttributeConfiguration.html">DocumentAttributeConfiguration</a> object of the <a href="https://docs.aws.amazon.com/amazonq/latest/api-reference/API_UpdateIndex.html">UpdateIndex</a> API. If you haven't enabled searching on these attributes, you can't boost attributes of these data types on either the console or the API.</p> </note> <p>For more information on how boosting document attributes work in Amazon Q Business, see <a href="https://docs.aws.amazon.com/amazonq/latest/business-use-dg/metadata-boosting.html">Boosting using document attributes</a>.</p>
  * @public
  */
 export interface StringListAttributeBoostingConfiguration {
   /**
-   * <p>Specifies how much a document attribute is boosted.</p>
+   * <p>Specifies the priority of boosted document attributes in relation to other boosted attributes. This parameter determines how strongly the attribute influences document ranking in search results. <code>STRING_LIST</code> attributes can serve as additional boosting factors when needed, but are not supported when using <code>NativeIndexConfiguration</code> version 2.</p>
    * @public
    */
   boostingLevel: DocumentAttributeBoostingLevel | undefined;
 }
 
 /**
- * <p>Provides information on boosting supported Amazon Q Business document attribute types. When an end user chat query matches document attributes that have been boosted, Amazon Q Business prioritizes generating responses from content that matches the boosted document attributes.</p> <note> <p>For <code>STRING</code> and <code>STRING_LIST</code> type document attributes to be used for boosting on the console and the API, they must be enabled for search using the <a href="https://docs.aws.amazon.com/amazonq/latest/api-reference/API_DocumentAttributeConfiguration.html">DocumentAttributeConfiguration</a> object of the <a href="https://docs.aws.amazon.com/amazonq/latest/api-reference/API_UpdateIndex.html">UpdateIndex</a> API. If you haven't enabled searching on these attributes, you can't boost attributes of these data types on either the console or the API.</p> </note> <p>For more information on how boosting document attributes work in Amazon Q Business, see <a href="https://docs.aws.amazon.com/amazonq/latest/business-use-dg/metadata-boosting.html">Boosting using document attributes</a>.</p>
+ * <p>Provides information on boosting supported Amazon Q Business document attribute types. When an end user chat query matches document attributes that have been boosted, Amazon Q Business prioritizes generating responses from content that matches the boosted document attributes.</p> <p>In version 2, boosting uses numeric values (ONE, TWO) to indicate priority tiers that establish clear hierarchical relationships between boosted attributes. This allows for more precise control over how different attributes influence search results.</p> <note> <p>For <code>STRING</code> and <code>STRING_LIST</code> type document attributes to be used for boosting on the console and the API, they must be enabled for search using the <a href="https://docs.aws.amazon.com/amazonq/latest/api-reference/API_DocumentAttributeConfiguration.html">DocumentAttributeConfiguration</a> object of the <a href="https://docs.aws.amazon.com/amazonq/latest/api-reference/API_UpdateIndex.html">UpdateIndex</a> API. If you haven't enabled searching on these attributes, you can't boost attributes of these data types on either the console or the API.</p> </note> <p>For more information on how boosting document attributes work in Amazon Q Business, see <a href="https://docs.aws.amazon.com/amazonq/latest/business-use-dg/metadata-boosting.html">Boosting using document attributes</a>.</p>
  * @public
  */
 export type DocumentAttributeBoostingConfiguration =
@@ -3596,7 +3603,7 @@ export type DocumentAttributeBoostingConfiguration =
  */
 export namespace DocumentAttributeBoostingConfiguration {
   /**
-   * <p>Provides information on boosting <code>NUMBER</code> type document attributes.</p>
+   * <p>Provides information on boosting <code>NUMBER</code> type document attributes.</p> <p> <code>NUMBER</code> attributes are not supported when using <code>NativeIndexConfiguration</code> version 2, which focuses on <code>DATE</code> attributes for recency and <code>STRING</code> attributes for source prioritization.</p>
    * @public
    */
   export interface NumberConfigurationMember {
@@ -3608,7 +3615,7 @@ export namespace DocumentAttributeBoostingConfiguration {
   }
 
   /**
-   * <p>Provides information on boosting <code>STRING</code> type document attributes.</p>
+   * <p>Provides information on boosting <code>STRING</code> type document attributes.</p> <p>Version 2 assigns priority tiers to <code>STRING</code> attributes, establishing clear hierarchical relationships with other boosted attributes.</p>
    * @public
    */
   export interface StringConfigurationMember {
@@ -3620,7 +3627,7 @@ export namespace DocumentAttributeBoostingConfiguration {
   }
 
   /**
-   * <p>Provides information on boosting <code>DATE</code> type document attributes.</p>
+   * <p>Provides information on boosting <code>DATE</code> type document attributes.</p> <p>Version 2 assigns priority tiers to <code>DATE</code> attributes, establishing clear hierarchical relationships with other boosted attributes.</p>
    * @public
    */
   export interface DateConfigurationMember {
@@ -3632,7 +3639,7 @@ export namespace DocumentAttributeBoostingConfiguration {
   }
 
   /**
-   * <p>Provides information on boosting <code>STRING_LIST</code> type document attributes.</p>
+   * <p>Provides information on boosting <code>STRING_LIST</code> type document attributes.</p> <p> <code>STRING_LIST</code> attributes are not supported when using <code>NativeIndexConfiguration</code> version 2, which focuses on <code>DATE</code> attributes for recency and <code>STRING</code> attributes for source prioritization.</p>
    * @public
    */
   export interface StringListConfigurationMember {
@@ -3682,6 +3689,12 @@ export interface NativeIndexConfiguration {
    * @public
    */
   indexId: string | undefined;
+
+  /**
+   * <p>A read-only field that specifies the version of the <code>NativeIndexConfiguration</code>.</p> <p>Amazon Q Business introduces enhanced document retrieval capabilities in version 2 of <code>NativeIndexConfiguration</code>, focusing on streamlined metadata boosting that prioritizes recency and source relevance to deliver more accurate responses to your queries. Version 2 has the following differences from version 1:</p> <ul> <li> <p>Version 2 supports a single Date field (created_at OR last_updated_at) for recency boosting</p> </li> <li> <p>Version 2 supports a single String field with an ordered list of up to 5 values</p> </li> <li> <p>Version 2 introduces number-based boost levels (ONE, TWO) alongside the text-based levels</p> </li> <li> <p>Version 2 allows specifying prioritization between Date and String fields</p> </li> <li> <p>Version 2 maintains backward compatibility with existing configurations</p> </li> </ul>
+   * @public
+   */
+  version?: number | undefined;
 
   /**
    * <p>Overrides the default boosts applied by Amazon Q Business to supported document attribute data types.</p>
@@ -6207,6 +6220,186 @@ export class LicenseNotFoundException extends __BaseException {
 
 /**
  * @public
+ * @enum
+ */
+export const ChatResponseConfigurationStatus = {
+  ACTIVE: "ACTIVE",
+  CREATING: "CREATING",
+  FAILED: "FAILED",
+  UPDATING: "UPDATING",
+} as const;
+
+/**
+ * @public
+ */
+export type ChatResponseConfigurationStatus =
+  (typeof ChatResponseConfigurationStatus)[keyof typeof ChatResponseConfigurationStatus];
+
+/**
+ * <p>Configuration details that define how Amazon Q Business generates and formats responses to user queries in chat interactions. This configuration allows administrators to customize response characteristics to meet specific organizational needs and communication standards.</p>
+ * @public
+ */
+export interface ChatResponseConfiguration {
+  /**
+   * <p>A unique identifier for your chat response configuration settings, used to reference and manage the configuration within the Amazon Q Business service.</p>
+   * @public
+   */
+  chatResponseConfigurationId: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the chat response configuration, which uniquely identifies the resource across all Amazon Web Services services and accounts.</p>
+   * @public
+   */
+  chatResponseConfigurationArn: string | undefined;
+
+  /**
+   * <p>A human-readable name for the chat response configuration, making it easier to identify and manage multiple configurations within an organization.</p>
+   * @public
+   */
+  displayName: string | undefined;
+
+  /**
+   * <p>A summary of the response configuration settings, providing a concise overview of the key parameters that define how responses are generated and formatted.</p>
+   * @public
+   */
+  responseConfigurationSummary?: string | undefined;
+
+  /**
+   * <p>The current status of the chat response configuration, indicating whether it is active, pending, or in another state that affects its availability for use in chat interactions.</p>
+   * @public
+   */
+  status: ChatResponseConfigurationStatus | undefined;
+
+  /**
+   * <p>The timestamp indicating when the chat response configuration was initially created, useful for tracking the lifecycle of configuration resources.</p>
+   * @public
+   */
+  createdAt?: Date | undefined;
+
+  /**
+   * <p>The timestamp indicating when the chat response configuration was last modified, helping administrators track changes and maintain version awareness.</p>
+   * @public
+   */
+  updatedAt?: Date | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const ResponseConfigurationType = {
+  ALL: "ALL",
+} as const;
+
+/**
+ * @public
+ */
+export type ResponseConfigurationType = (typeof ResponseConfigurationType)[keyof typeof ResponseConfigurationType];
+
+/**
+ * <p>A set of instructions that define how Amazon Q Business should generate and format responses to user queries. This collection includes parameters for controlling response characteristics such as length, audience targeting, perspective, style, identity, tone, and custom instructions.</p>
+ * @public
+ */
+export interface InstructionCollection {
+  /**
+   * <p>Specifies the desired length of responses generated by Amazon Q Business. This parameter allows administrators to control whether responses are concise and brief or more detailed and comprehensive.</p>
+   * @public
+   */
+  responseLength?: string | undefined;
+
+  /**
+   * <p>Defines the intended audience for the responses, allowing Amazon Q Business to tailor its language, terminology, and explanations appropriately. This could range from technical experts to general users with varying levels of domain knowledge.</p>
+   * @public
+   */
+  targetAudience?: string | undefined;
+
+  /**
+   * <p>Determines the point of view or perspective from which Amazon Q Business generates responses, such as first-person, second-person, or third-person perspective, affecting how information is presented to users.</p>
+   * @public
+   */
+  perspective?: string | undefined;
+
+  /**
+   * <p>Specifies the formatting and structural style of responses, such as bullet points, paragraphs, step-by-step instructions, or other organizational formats that enhance readability and comprehension.</p>
+   * @public
+   */
+  outputStyle?: string | undefined;
+
+  /**
+   * <p>Defines the persona or identity that Amazon Q Business should adopt when responding to users, allowing for customization of the assistant's character, role, or representation within an organization.</p>
+   * @public
+   */
+  identity?: string | undefined;
+
+  /**
+   * <p>Controls the emotional tone and communication style of responses, such as formal, casual, technical, friendly, or professional, to align with organizational communication standards and user expectations.</p>
+   * @public
+   */
+  tone?: string | undefined;
+
+  /**
+   * <p>Allows administrators to provide specific, custom instructions that guide how Amazon Q Business should respond in particular scenarios or to certain types of queries, enabling fine-grained control over response generation.</p>
+   * @public
+   */
+  customInstructions?: string | undefined;
+
+  /**
+   * <p>Provides sample responses or templates that Amazon Q Business can reference when generating responses, helping to establish consistent patterns and formats for different types of user queries.</p>
+   * @public
+   */
+  examples?: string | undefined;
+}
+
+/**
+ * <p>Configuration settings to define how Amazon Q Business generates and formats responses to user queries. This includes customization options for response style, tone, length, and other characteristics.</p>
+ * @public
+ */
+export interface ResponseConfiguration {
+  /**
+   * <p>A collection of instructions that guide how Amazon Q Business generates responses, including parameters for response length, target audience, perspective, output style, identity, tone, and custom instructions.</p>
+   * @public
+   */
+  instructionCollection?: InstructionCollection | undefined;
+}
+
+/**
+ * <p>Detailed information about a chat response configuration, including comprehensive settings and parameters that define how Amazon Q Business generates and formats responses.</p>
+ * @public
+ */
+export interface ChatResponseConfigurationDetail {
+  /**
+   * <p>A collection of specific response configuration settings that collectively define how responses are generated, formatted, and presented to users in chat interactions.</p>
+   * @public
+   */
+  responseConfigurations?: Partial<Record<ResponseConfigurationType, ResponseConfiguration>> | undefined;
+
+  /**
+   * <p>A summary of the response configuration details, providing a concise overview of the key parameters and settings that define the response generation behavior.</p>
+   * @public
+   */
+  responseConfigurationSummary?: string | undefined;
+
+  /**
+   * <p>The current status of the chat response configuration, indicating whether it is active, pending, or in another state that affects its availability for use.</p>
+   * @public
+   */
+  status?: ChatResponseConfigurationStatus | undefined;
+
+  /**
+   * <p>Provides information about a Amazon Q Business request error.</p>
+   * @public
+   */
+  error?: ErrorDetail | undefined;
+
+  /**
+   * <p>The timestamp indicating when the detailed chat response configuration was last modified, helping administrators track changes and maintain version awareness.</p>
+   * @public
+   */
+  updatedAt?: Date | undefined;
+}
+
+/**
+ * @public
  */
 export interface ChatSyncOutput {
   /**
@@ -6569,6 +6762,58 @@ export interface CreateAnonymousWebExperienceUrlResponse {
 }
 
 /**
+ * @public
+ */
+export interface CreateChatResponseConfigurationRequest {
+  /**
+   * <p>The unique identifier of the Amazon Q Business application for which to create the new chat response configuration.</p>
+   * @public
+   */
+  applicationId: string | undefined;
+
+  /**
+   * <p>A human-readable name for the new chat response configuration, making it easier to identify and manage among multiple configurations.</p>
+   * @public
+   */
+  displayName: string | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier to ensure idempotency of the request. This helps prevent the same configuration from being created multiple times if retries occur.</p>
+   * @public
+   */
+  clientToken?: string | undefined;
+
+  /**
+   * <p>A collection of response configuration settings that define how Amazon Q Business will generate and format responses to user queries in chat interactions.</p>
+   * @public
+   */
+  responseConfigurations: Partial<Record<ResponseConfigurationType, ResponseConfiguration>> | undefined;
+
+  /**
+   * <p>A list of key-value pairs to apply as tags to the new chat response configuration, enabling categorization and management of resources across Amazon Web Services services.</p>
+   * @public
+   */
+  tags?: Tag[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateChatResponseConfigurationResponse {
+  /**
+   * <p>The unique identifier assigned to a newly created chat response configuration, used for subsequent operations on this resource.</p>
+   * @public
+   */
+  chatResponseConfigurationId: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the newly created chat response configuration, which uniquely identifies the resource across all Amazon Web Services services. </p>
+   * @public
+   */
+  chatResponseConfigurationArn: string | undefined;
+}
+
+/**
  * <p>A user or group in the IAM Identity Center instance connected to the Amazon Q Business application.</p>
  * @public
  */
@@ -6903,6 +7148,28 @@ export interface DeleteChatControlsConfigurationRequest {
  * @public
  */
 export interface DeleteChatControlsConfigurationResponse {}
+
+/**
+ * @public
+ */
+export interface DeleteChatResponseConfigurationRequest {
+  /**
+   * <p>The unique identifier of theAmazon Q Business application from which to delete the chat response configuration.</p>
+   * @public
+   */
+  applicationId: string | undefined;
+
+  /**
+   * <p>The unique identifier of the chat response configuration to delete from the specified application. </p>
+   * @public
+   */
+  chatResponseConfigurationId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteChatResponseConfigurationResponse {}
 
 /**
  * @public
@@ -7322,198 +7589,6 @@ export interface GetChatControlsConfigurationResponse {
    * @public
    */
   hallucinationReductionConfiguration?: HallucinationReductionConfiguration | undefined;
-}
-
-/**
- * @public
- */
-export interface GetGroupRequest {
-  /**
-   * <p>The identifier of the application id the group is attached to.</p>
-   * @public
-   */
-  applicationId: string | undefined;
-
-  /**
-   * <p>The identifier of the index the group is attached to.</p>
-   * @public
-   */
-  indexId: string | undefined;
-
-  /**
-   * <p>The name of the group.</p>
-   * @public
-   */
-  groupName: string | undefined;
-
-  /**
-   * <p>The identifier of the data source the group is attached to.</p>
-   * @public
-   */
-  dataSourceId?: string | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const GroupStatus = {
-  DELETED: "DELETED",
-  DELETING: "DELETING",
-  FAILED: "FAILED",
-  PROCESSING: "PROCESSING",
-  SUCCEEDED: "SUCCEEDED",
-} as const;
-
-/**
- * @public
- */
-export type GroupStatus = (typeof GroupStatus)[keyof typeof GroupStatus];
-
-/**
- * <p>Provides the details of a group's status.</p>
- * @public
- */
-export interface GroupStatusDetail {
-  /**
-   * <p>The status of a group.</p>
-   * @public
-   */
-  status?: GroupStatus | undefined;
-
-  /**
-   * <p>The Unix timestamp when the Amazon Q Business application was last updated.</p>
-   * @public
-   */
-  lastUpdatedAt?: Date | undefined;
-
-  /**
-   * <p>The details of an error associated a group status.</p>
-   * @public
-   */
-  errorDetail?: ErrorDetail | undefined;
-}
-
-/**
- * @public
- */
-export interface GetGroupResponse {
-  /**
-   * <p>The current status of the group.</p>
-   * @public
-   */
-  status?: GroupStatusDetail | undefined;
-
-  /**
-   * <p>The status history of the group.</p>
-   * @public
-   */
-  statusHistory?: GroupStatusDetail[] | undefined;
-}
-
-/**
- * @public
- */
-export interface GetMediaRequest {
-  /**
-   * <p>The identifier of the Amazon Q Business which contains the media object.</p>
-   * @public
-   */
-  applicationId: string | undefined;
-
-  /**
-   * <p>The identifier of the Amazon Q Business conversation.</p>
-   * @public
-   */
-  conversationId: string | undefined;
-
-  /**
-   * <p>The identifier of the Amazon Q Business message.</p>
-   * @public
-   */
-  messageId: string | undefined;
-
-  /**
-   * <p>The identifier of the media object. You can find this in the <code>sourceAttributions</code> returned by the <code>Chat</code>, <code>ChatSync</code>, and <code>ListMessages</code> API responses.</p>
-   * @public
-   */
-  mediaId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface GetMediaResponse {
-  /**
-   * <p>The base64-encoded bytes of the media object.</p>
-   * @public
-   */
-  mediaBytes?: Uint8Array | undefined;
-
-  /**
-   * <p>The MIME type of the media object (image/png).</p>
-   * @public
-   */
-  mediaMimeType?: string | undefined;
-}
-
-/**
- * <p>The requested media object is too large to be returned.</p>
- * @public
- */
-export class MediaTooLargeException extends __BaseException {
-  readonly name: "MediaTooLargeException" = "MediaTooLargeException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<MediaTooLargeException, __BaseException>) {
-    super({
-      name: "MediaTooLargeException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, MediaTooLargeException.prototype);
-  }
-}
-
-/**
- * @public
- */
-export interface GetPolicyRequest {
-  /**
-   * <p>The unique identifier of the Amazon Q Business application.</p>
-   * @public
-   */
-  applicationId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface GetPolicyResponse {
-  /**
-   * <p>The JSON representation of the permission policy.</p>
-   * @public
-   */
-  policy?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface GetUserRequest {
-  /**
-   * <p>The identifier of the application connected to the user.</p>
-   * @public
-   */
-  applicationId: string | undefined;
-
-  /**
-   * <p>The user email address attached to the user.</p>
-   * @public
-   */
-  userId: string | undefined;
 }
 
 /**

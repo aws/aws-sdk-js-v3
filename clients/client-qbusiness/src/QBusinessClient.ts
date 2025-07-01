@@ -86,6 +86,10 @@ import {
   CreateAnonymousWebExperienceUrlCommandOutput,
 } from "./commands/CreateAnonymousWebExperienceUrlCommand";
 import { CreateApplicationCommandInput, CreateApplicationCommandOutput } from "./commands/CreateApplicationCommand";
+import {
+  CreateChatResponseConfigurationCommandInput,
+  CreateChatResponseConfigurationCommandOutput,
+} from "./commands/CreateChatResponseConfigurationCommand";
 import { CreateDataAccessorCommandInput, CreateDataAccessorCommandOutput } from "./commands/CreateDataAccessorCommand";
 import { CreateDataSourceCommandInput, CreateDataSourceCommandOutput } from "./commands/CreateDataSourceCommand";
 import { CreateIndexCommandInput, CreateIndexCommandOutput } from "./commands/CreateIndexCommand";
@@ -103,6 +107,10 @@ import {
   DeleteChatControlsConfigurationCommandInput,
   DeleteChatControlsConfigurationCommandOutput,
 } from "./commands/DeleteChatControlsConfigurationCommand";
+import {
+  DeleteChatResponseConfigurationCommandInput,
+  DeleteChatResponseConfigurationCommandOutput,
+} from "./commands/DeleteChatResponseConfigurationCommand";
 import { DeleteConversationCommandInput, DeleteConversationCommandOutput } from "./commands/DeleteConversationCommand";
 import { DeleteDataAccessorCommandInput, DeleteDataAccessorCommandOutput } from "./commands/DeleteDataAccessorCommand";
 import { DeleteDataSourceCommandInput, DeleteDataSourceCommandOutput } from "./commands/DeleteDataSourceCommand";
@@ -124,6 +132,10 @@ import {
   GetChatControlsConfigurationCommandInput,
   GetChatControlsConfigurationCommandOutput,
 } from "./commands/GetChatControlsConfigurationCommand";
+import {
+  GetChatResponseConfigurationCommandInput,
+  GetChatResponseConfigurationCommandOutput,
+} from "./commands/GetChatResponseConfigurationCommand";
 import { GetDataAccessorCommandInput, GetDataAccessorCommandOutput } from "./commands/GetDataAccessorCommand";
 import { GetDataSourceCommandInput, GetDataSourceCommandOutput } from "./commands/GetDataSourceCommand";
 import { GetGroupCommandInput, GetGroupCommandOutput } from "./commands/GetGroupCommand";
@@ -136,6 +148,10 @@ import { GetUserCommandInput, GetUserCommandOutput } from "./commands/GetUserCom
 import { GetWebExperienceCommandInput, GetWebExperienceCommandOutput } from "./commands/GetWebExperienceCommand";
 import { ListApplicationsCommandInput, ListApplicationsCommandOutput } from "./commands/ListApplicationsCommand";
 import { ListAttachmentsCommandInput, ListAttachmentsCommandOutput } from "./commands/ListAttachmentsCommand";
+import {
+  ListChatResponseConfigurationsCommandInput,
+  ListChatResponseConfigurationsCommandOutput,
+} from "./commands/ListChatResponseConfigurationsCommand";
 import { ListConversationsCommandInput, ListConversationsCommandOutput } from "./commands/ListConversationsCommand";
 import { ListDataAccessorsCommandInput, ListDataAccessorsCommandOutput } from "./commands/ListDataAccessorsCommand";
 import { ListDataSourcesCommandInput, ListDataSourcesCommandOutput } from "./commands/ListDataSourcesCommand";
@@ -185,6 +201,10 @@ import {
   UpdateChatControlsConfigurationCommandInput,
   UpdateChatControlsConfigurationCommandOutput,
 } from "./commands/UpdateChatControlsConfigurationCommand";
+import {
+  UpdateChatResponseConfigurationCommandInput,
+  UpdateChatResponseConfigurationCommandOutput,
+} from "./commands/UpdateChatResponseConfigurationCommand";
 import { UpdateDataAccessorCommandInput, UpdateDataAccessorCommandOutput } from "./commands/UpdateDataAccessorCommand";
 import { UpdateDataSourceCommandInput, UpdateDataSourceCommandOutput } from "./commands/UpdateDataSourceCommand";
 import { UpdateIndexCommandInput, UpdateIndexCommandOutput } from "./commands/UpdateIndexCommand";
@@ -220,6 +240,7 @@ export type ServiceInputTypes =
   | CheckDocumentAccessCommandInput
   | CreateAnonymousWebExperienceUrlCommandInput
   | CreateApplicationCommandInput
+  | CreateChatResponseConfigurationCommandInput
   | CreateDataAccessorCommandInput
   | CreateDataSourceCommandInput
   | CreateIndexCommandInput
@@ -231,6 +252,7 @@ export type ServiceInputTypes =
   | DeleteApplicationCommandInput
   | DeleteAttachmentCommandInput
   | DeleteChatControlsConfigurationCommandInput
+  | DeleteChatResponseConfigurationCommandInput
   | DeleteConversationCommandInput
   | DeleteDataAccessorCommandInput
   | DeleteDataSourceCommandInput
@@ -243,6 +265,7 @@ export type ServiceInputTypes =
   | DisassociatePermissionCommandInput
   | GetApplicationCommandInput
   | GetChatControlsConfigurationCommandInput
+  | GetChatResponseConfigurationCommandInput
   | GetDataAccessorCommandInput
   | GetDataSourceCommandInput
   | GetGroupCommandInput
@@ -255,6 +278,7 @@ export type ServiceInputTypes =
   | GetWebExperienceCommandInput
   | ListApplicationsCommandInput
   | ListAttachmentsCommandInput
+  | ListChatResponseConfigurationsCommandInput
   | ListConversationsCommandInput
   | ListDataAccessorsCommandInput
   | ListDataSourceSyncJobsCommandInput
@@ -280,6 +304,7 @@ export type ServiceInputTypes =
   | UntagResourceCommandInput
   | UpdateApplicationCommandInput
   | UpdateChatControlsConfigurationCommandInput
+  | UpdateChatResponseConfigurationCommandInput
   | UpdateDataAccessorCommandInput
   | UpdateDataSourceCommandInput
   | UpdateIndexCommandInput
@@ -302,6 +327,7 @@ export type ServiceOutputTypes =
   | CheckDocumentAccessCommandOutput
   | CreateAnonymousWebExperienceUrlCommandOutput
   | CreateApplicationCommandOutput
+  | CreateChatResponseConfigurationCommandOutput
   | CreateDataAccessorCommandOutput
   | CreateDataSourceCommandOutput
   | CreateIndexCommandOutput
@@ -313,6 +339,7 @@ export type ServiceOutputTypes =
   | DeleteApplicationCommandOutput
   | DeleteAttachmentCommandOutput
   | DeleteChatControlsConfigurationCommandOutput
+  | DeleteChatResponseConfigurationCommandOutput
   | DeleteConversationCommandOutput
   | DeleteDataAccessorCommandOutput
   | DeleteDataSourceCommandOutput
@@ -325,6 +352,7 @@ export type ServiceOutputTypes =
   | DisassociatePermissionCommandOutput
   | GetApplicationCommandOutput
   | GetChatControlsConfigurationCommandOutput
+  | GetChatResponseConfigurationCommandOutput
   | GetDataAccessorCommandOutput
   | GetDataSourceCommandOutput
   | GetGroupCommandOutput
@@ -337,6 +365,7 @@ export type ServiceOutputTypes =
   | GetWebExperienceCommandOutput
   | ListApplicationsCommandOutput
   | ListAttachmentsCommandOutput
+  | ListChatResponseConfigurationsCommandOutput
   | ListConversationsCommandOutput
   | ListDataAccessorsCommandOutput
   | ListDataSourceSyncJobsCommandOutput
@@ -362,6 +391,7 @@ export type ServiceOutputTypes =
   | UntagResourceCommandOutput
   | UpdateApplicationCommandOutput
   | UpdateChatControlsConfigurationCommandOutput
+  | UpdateChatResponseConfigurationCommandOutput
   | UpdateDataAccessorCommandOutput
   | UpdateDataSourceCommandOutput
   | UpdateIndexCommandOutput

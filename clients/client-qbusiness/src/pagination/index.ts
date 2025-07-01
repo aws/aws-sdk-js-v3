@@ -3,6 +3,7 @@ export * from "./GetChatControlsConfigurationPaginator";
 export * from "./Interfaces";
 export * from "./ListApplicationsPaginator";
 export * from "./ListAttachmentsPaginator";
+export * from "./ListChatResponseConfigurationsPaginator";
 export * from "./ListConversationsPaginator";
 export * from "./ListDataAccessorsPaginator";
 export * from "./ListDataSourceSyncJobsPaginator";

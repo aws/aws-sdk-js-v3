@@ -277,6 +277,14 @@ CreateApplication
 </details>
 <details>
 <summary>
+CreateChatResponseConfiguration
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/qbusiness/command/CreateChatResponseConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-qbusiness/Interface/CreateChatResponseConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-qbusiness/Interface/CreateChatResponseConfigurationCommandOutput/)
+
+</details>
+<details>
+<summary>
 CreateDataAccessor
 </summary>
 
@@ -361,6 +369,14 @@ DeleteChatControlsConfiguration
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/qbusiness/command/DeleteChatControlsConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-qbusiness/Interface/DeleteChatControlsConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-qbusiness/Interface/DeleteChatControlsConfigurationCommandOutput/)
+
+</details>
+<details>
+<summary>
+DeleteChatResponseConfiguration
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/qbusiness/command/DeleteChatResponseConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-qbusiness/Interface/DeleteChatResponseConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-qbusiness/Interface/DeleteChatResponseConfigurationCommandOutput/)
 
 </details>
 <details>
@@ -461,6 +477,14 @@ GetChatControlsConfiguration
 </details>
 <details>
 <summary>
+GetChatResponseConfiguration
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/qbusiness/command/GetChatResponseConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-qbusiness/Interface/GetChatResponseConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-qbusiness/Interface/GetChatResponseConfigurationCommandOutput/)
+
+</details>
+<details>
+<summary>
 GetDataAccessor
 </summary>
 
@@ -553,6 +577,14 @@ ListAttachments
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/qbusiness/command/ListAttachmentsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-qbusiness/Interface/ListAttachmentsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-qbusiness/Interface/ListAttachmentsCommandOutput/)
+
+</details>
+<details>
+<summary>
+ListChatResponseConfigurations
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/qbusiness/command/ListChatResponseConfigurationsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-qbusiness/Interface/ListChatResponseConfigurationsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-qbusiness/Interface/ListChatResponseConfigurationsCommandOutput/)
 
 </details>
 <details>
@@ -753,6 +785,14 @@ UpdateChatControlsConfiguration
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/qbusiness/command/UpdateChatControlsConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-qbusiness/Interface/UpdateChatControlsConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-qbusiness/Interface/UpdateChatControlsConfigurationCommandOutput/)
+
+</details>
+<details>
+<summary>
+UpdateChatResponseConfiguration
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/qbusiness/command/UpdateChatResponseConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-qbusiness/Interface/UpdateChatResponseConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-qbusiness/Interface/UpdateChatResponseConfigurationCommandOutput/)
 
 </details>
 <details>

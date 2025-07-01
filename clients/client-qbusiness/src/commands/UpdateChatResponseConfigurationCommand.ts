@@ -5,8 +5,11 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { GetGroupRequest, GetGroupResponse } from "../models/models_1";
-import { de_GetGroupCommand, se_GetGroupCommand } from "../protocols/Aws_restJson1";
+import { UpdateChatResponseConfigurationRequest, UpdateChatResponseConfigurationResponse } from "../models/models_1";
+import {
+  de_UpdateChatResponseConfigurationCommand,
+  se_UpdateChatResponseConfigurationCommand,
+} from "../protocols/Aws_restJson1";
 import { QBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QBusinessClient";
 
 /**
@@ -17,59 +20,56 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link GetGroupCommand}.
+ * The input for {@link UpdateChatResponseConfigurationCommand}.
  */
-export interface GetGroupCommandInput extends GetGroupRequest {}
+export interface UpdateChatResponseConfigurationCommandInput extends UpdateChatResponseConfigurationRequest {}
 /**
  * @public
  *
- * The output of {@link GetGroupCommand}.
+ * The output of {@link UpdateChatResponseConfigurationCommand}.
  */
-export interface GetGroupCommandOutput extends GetGroupResponse, __MetadataBearer {}
+export interface UpdateChatResponseConfigurationCommandOutput
+  extends UpdateChatResponseConfigurationResponse,
+    __MetadataBearer {}
 
 /**
- * <p>Describes a group by group name.</p>
+ * <p>Updates an existing chat response configuration in an Amazon Q Business application. This operation allows administrators to modify configuration settings, display name, and response parameters to refine how the system generates responses.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { QBusinessClient, GetGroupCommand } from "@aws-sdk/client-qbusiness"; // ES Modules import
- * // const { QBusinessClient, GetGroupCommand } = require("@aws-sdk/client-qbusiness"); // CommonJS import
+ * import { QBusinessClient, UpdateChatResponseConfigurationCommand } from "@aws-sdk/client-qbusiness"; // ES Modules import
+ * // const { QBusinessClient, UpdateChatResponseConfigurationCommand } = require("@aws-sdk/client-qbusiness"); // CommonJS import
  * const client = new QBusinessClient(config);
- * const input = { // GetGroupRequest
+ * const input = { // UpdateChatResponseConfigurationRequest
  *   applicationId: "STRING_VALUE", // required
- *   indexId: "STRING_VALUE", // required
- *   groupName: "STRING_VALUE", // required
- *   dataSourceId: "STRING_VALUE",
+ *   chatResponseConfigurationId: "STRING_VALUE", // required
+ *   displayName: "STRING_VALUE",
+ *   responseConfigurations: { // ResponseConfigurations // required
+ *     "<keys>": { // ResponseConfiguration
+ *       instructionCollection: { // InstructionCollection
+ *         responseLength: "STRING_VALUE",
+ *         targetAudience: "STRING_VALUE",
+ *         perspective: "STRING_VALUE",
+ *         outputStyle: "STRING_VALUE",
+ *         identity: "STRING_VALUE",
+ *         tone: "STRING_VALUE",
+ *         customInstructions: "STRING_VALUE",
+ *         examples: "STRING_VALUE",
+ *       },
+ *     },
+ *   },
+ *   clientToken: "STRING_VALUE",
  * };
- * const command = new GetGroupCommand(input);
+ * const command = new UpdateChatResponseConfigurationCommand(input);
  * const response = await client.send(command);
- * // { // GetGroupResponse
- * //   status: { // GroupStatusDetail
- * //     status: "FAILED" || "SUCCEEDED" || "PROCESSING" || "DELETING" || "DELETED",
- * //     lastUpdatedAt: new Date("TIMESTAMP"),
- * //     errorDetail: { // ErrorDetail
- * //       errorMessage: "STRING_VALUE",
- * //       errorCode: "InternalError" || "InvalidRequest" || "ResourceInactive" || "ResourceNotFound",
- * //     },
- * //   },
- * //   statusHistory: [ // GroupStatusDetails
- * //     {
- * //       status: "FAILED" || "SUCCEEDED" || "PROCESSING" || "DELETING" || "DELETED",
- * //       lastUpdatedAt: new Date("TIMESTAMP"),
- * //       errorDetail: {
- * //         errorMessage: "STRING_VALUE",
- * //         errorCode: "InternalError" || "InvalidRequest" || "ResourceInactive" || "ResourceNotFound",
- * //       },
- * //     },
- * //   ],
- * // };
+ * // {};
  *
  * ```
  *
- * @param GetGroupCommandInput - {@link GetGroupCommandInput}
- * @returns {@link GetGroupCommandOutput}
- * @see {@link GetGroupCommandInput} for command's `input` shape.
- * @see {@link GetGroupCommandOutput} for command's `response` shape.
+ * @param UpdateChatResponseConfigurationCommandInput - {@link UpdateChatResponseConfigurationCommandInput}
+ * @returns {@link UpdateChatResponseConfigurationCommandOutput}
+ * @see {@link UpdateChatResponseConfigurationCommandInput} for command's `input` shape.
+ * @see {@link UpdateChatResponseConfigurationCommandOutput} for command's `response` shape.
  * @see {@link QBusinessClientResolvedConfig | config} for QBusinessClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -96,10 +96,10 @@ export interface GetGroupCommandOutput extends GetGroupResponse, __MetadataBeare
  *
  * @public
  */
-export class GetGroupCommand extends $Command
+export class UpdateChatResponseConfigurationCommand extends $Command
   .classBuilder<
-    GetGroupCommandInput,
-    GetGroupCommandOutput,
+    UpdateChatResponseConfigurationCommandInput,
+    UpdateChatResponseConfigurationCommandOutput,
     QBusinessClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -111,21 +111,21 @@ export class GetGroupCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("ExpertQ", "GetGroup", {})
-  .n("QBusinessClient", "GetGroupCommand")
+  .s("ExpertQ", "UpdateChatResponseConfiguration", {})
+  .n("QBusinessClient", "UpdateChatResponseConfigurationCommand")
   .f(void 0, void 0)
-  .ser(se_GetGroupCommand)
-  .de(de_GetGroupCommand)
+  .ser(se_UpdateChatResponseConfigurationCommand)
+  .de(de_UpdateChatResponseConfigurationCommand)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: GetGroupRequest;
-      output: GetGroupResponse;
+      input: UpdateChatResponseConfigurationRequest;
+      output: {};
     };
     sdk: {
-      input: GetGroupCommandInput;
-      output: GetGroupCommandOutput;
+      input: UpdateChatResponseConfigurationCommandInput;
+      output: UpdateChatResponseConfigurationCommandOutput;
     };
   };
 }

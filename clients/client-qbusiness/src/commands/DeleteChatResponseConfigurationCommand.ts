@@ -5,8 +5,11 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { GetGroupRequest, GetGroupResponse } from "../models/models_1";
-import { de_GetGroupCommand, se_GetGroupCommand } from "../protocols/Aws_restJson1";
+import { DeleteChatResponseConfigurationRequest, DeleteChatResponseConfigurationResponse } from "../models/models_0";
+import {
+  de_DeleteChatResponseConfigurationCommand,
+  se_DeleteChatResponseConfigurationCommand,
+} from "../protocols/Aws_restJson1";
 import { QBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QBusinessClient";
 
 /**
@@ -17,59 +20,40 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link GetGroupCommand}.
+ * The input for {@link DeleteChatResponseConfigurationCommand}.
  */
-export interface GetGroupCommandInput extends GetGroupRequest {}
+export interface DeleteChatResponseConfigurationCommandInput extends DeleteChatResponseConfigurationRequest {}
 /**
  * @public
  *
- * The output of {@link GetGroupCommand}.
+ * The output of {@link DeleteChatResponseConfigurationCommand}.
  */
-export interface GetGroupCommandOutput extends GetGroupResponse, __MetadataBearer {}
+export interface DeleteChatResponseConfigurationCommandOutput
+  extends DeleteChatResponseConfigurationResponse,
+    __MetadataBearer {}
 
 /**
- * <p>Describes a group by group name.</p>
+ * <p>Deletes a specified chat response configuration from an Amazon Q Business application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { QBusinessClient, GetGroupCommand } from "@aws-sdk/client-qbusiness"; // ES Modules import
- * // const { QBusinessClient, GetGroupCommand } = require("@aws-sdk/client-qbusiness"); // CommonJS import
+ * import { QBusinessClient, DeleteChatResponseConfigurationCommand } from "@aws-sdk/client-qbusiness"; // ES Modules import
+ * // const { QBusinessClient, DeleteChatResponseConfigurationCommand } = require("@aws-sdk/client-qbusiness"); // CommonJS import
  * const client = new QBusinessClient(config);
- * const input = { // GetGroupRequest
+ * const input = { // DeleteChatResponseConfigurationRequest
  *   applicationId: "STRING_VALUE", // required
- *   indexId: "STRING_VALUE", // required
- *   groupName: "STRING_VALUE", // required
- *   dataSourceId: "STRING_VALUE",
+ *   chatResponseConfigurationId: "STRING_VALUE", // required
  * };
- * const command = new GetGroupCommand(input);
+ * const command = new DeleteChatResponseConfigurationCommand(input);
  * const response = await client.send(command);
- * // { // GetGroupResponse
- * //   status: { // GroupStatusDetail
- * //     status: "FAILED" || "SUCCEEDED" || "PROCESSING" || "DELETING" || "DELETED",
- * //     lastUpdatedAt: new Date("TIMESTAMP"),
- * //     errorDetail: { // ErrorDetail
- * //       errorMessage: "STRING_VALUE",
- * //       errorCode: "InternalError" || "InvalidRequest" || "ResourceInactive" || "ResourceNotFound",
- * //     },
- * //   },
- * //   statusHistory: [ // GroupStatusDetails
- * //     {
- * //       status: "FAILED" || "SUCCEEDED" || "PROCESSING" || "DELETING" || "DELETED",
- * //       lastUpdatedAt: new Date("TIMESTAMP"),
- * //       errorDetail: {
- * //         errorMessage: "STRING_VALUE",
- * //         errorCode: "InternalError" || "InvalidRequest" || "ResourceInactive" || "ResourceNotFound",
- * //       },
- * //     },
- * //   ],
- * // };
+ * // {};
  *
  * ```
  *
- * @param GetGroupCommandInput - {@link GetGroupCommandInput}
- * @returns {@link GetGroupCommandOutput}
- * @see {@link GetGroupCommandInput} for command's `input` shape.
- * @see {@link GetGroupCommandOutput} for command's `response` shape.
+ * @param DeleteChatResponseConfigurationCommandInput - {@link DeleteChatResponseConfigurationCommandInput}
+ * @returns {@link DeleteChatResponseConfigurationCommandOutput}
+ * @see {@link DeleteChatResponseConfigurationCommandInput} for command's `input` shape.
+ * @see {@link DeleteChatResponseConfigurationCommandOutput} for command's `response` shape.
  * @see {@link QBusinessClientResolvedConfig | config} for QBusinessClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -96,10 +80,10 @@ export interface GetGroupCommandOutput extends GetGroupResponse, __MetadataBeare
  *
  * @public
  */
-export class GetGroupCommand extends $Command
+export class DeleteChatResponseConfigurationCommand extends $Command
   .classBuilder<
-    GetGroupCommandInput,
-    GetGroupCommandOutput,
+    DeleteChatResponseConfigurationCommandInput,
+    DeleteChatResponseConfigurationCommandOutput,
     QBusinessClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -111,21 +95,21 @@ export class GetGroupCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("ExpertQ", "GetGroup", {})
-  .n("QBusinessClient", "GetGroupCommand")
+  .s("ExpertQ", "DeleteChatResponseConfiguration", {})
+  .n("QBusinessClient", "DeleteChatResponseConfigurationCommand")
   .f(void 0, void 0)
-  .ser(se_GetGroupCommand)
-  .de(de_GetGroupCommand)
+  .ser(se_DeleteChatResponseConfigurationCommand)
+  .de(de_DeleteChatResponseConfigurationCommand)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: GetGroupRequest;
-      output: GetGroupResponse;
+      input: DeleteChatResponseConfigurationRequest;
+      output: {};
     };
     sdk: {
-      input: GetGroupCommandInput;
-      output: GetGroupCommandOutput;
+      input: DeleteChatResponseConfigurationCommandInput;
+      output: DeleteChatResponseConfigurationCommandOutput;
     };
   };
 }
