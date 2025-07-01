@@ -69,6 +69,11 @@ import {
   PutWithContentEncodingCommandOutput,
 } from "./commands/PutWithContentEncodingCommand";
 import {
+  QueryIncompatibleOperationCommand,
+  QueryIncompatibleOperationCommandInput,
+  QueryIncompatibleOperationCommandOutput,
+} from "./commands/QueryIncompatibleOperationCommand";
+import {
   SimpleScalarPropertiesCommand,
   SimpleScalarPropertiesCommandInput,
   SimpleScalarPropertiesCommandOutput,
@@ -90,6 +95,7 @@ const commands = {
   OperationWithRequiredMembersCommand,
   OperationWithRequiredMembersWithDefaultsCommand,
   PutWithContentEncodingCommand,
+  QueryIncompatibleOperationCommand,
   SimpleScalarPropertiesCommand,
 };
 
@@ -336,6 +342,24 @@ export interface JSONRPC10 {
     args: PutWithContentEncodingCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: PutWithContentEncodingCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link QueryIncompatibleOperationCommand}
+   */
+  queryIncompatibleOperation(): Promise<QueryIncompatibleOperationCommandOutput>;
+  queryIncompatibleOperation(
+    args: QueryIncompatibleOperationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<QueryIncompatibleOperationCommandOutput>;
+  queryIncompatibleOperation(
+    args: QueryIncompatibleOperationCommandInput,
+    cb: (err: any, data?: QueryIncompatibleOperationCommandOutput) => void
+  ): void;
+  queryIncompatibleOperation(
+    args: QueryIncompatibleOperationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: QueryIncompatibleOperationCommandOutput) => void
   ): void;
 
   /**

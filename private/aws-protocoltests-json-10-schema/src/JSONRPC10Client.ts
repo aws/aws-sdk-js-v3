@@ -104,6 +104,10 @@ import {
   PutWithContentEncodingCommandOutput,
 } from "./commands/PutWithContentEncodingCommand";
 import {
+  QueryIncompatibleOperationCommandInput,
+  QueryIncompatibleOperationCommandOutput,
+} from "./commands/QueryIncompatibleOperationCommand";
+import {
   SimpleScalarPropertiesCommandInput,
   SimpleScalarPropertiesCommandOutput,
 } from "./commands/SimpleScalarPropertiesCommand";
@@ -136,6 +140,7 @@ export type ServiceInputTypes =
   | OperationWithRequiredMembersCommandInput
   | OperationWithRequiredMembersWithDefaultsCommandInput
   | PutWithContentEncodingCommandInput
+  | QueryIncompatibleOperationCommandInput
   | SimpleScalarPropertiesCommandInput;
 
 /**
@@ -156,6 +161,7 @@ export type ServiceOutputTypes =
   | OperationWithRequiredMembersCommandOutput
   | OperationWithRequiredMembersWithDefaultsCommandOutput
   | PutWithContentEncodingCommandOutput
+  | QueryIncompatibleOperationCommandOutput
   | SimpleScalarPropertiesCommandOutput;
 
 /**

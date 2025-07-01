@@ -46,6 +46,7 @@ const _OWRMWD = "OperationWithRequiredMembersWithDefaults";
 const _OWRMWDO = "OperationWithRequiredMembersWithDefaultsOutput";
 const _PWCE = "PutWithContentEncoding";
 const _PWCEI = "PutWithContentEncodingInput";
+const _QIO = "QueryIncompatibleOperation";
 const _SSP = "SimpleScalarProperties";
 const _SSPI = "SimpleScalarPropertiesInput";
 const _SSPO = "SimpleScalarPropertiesOutput";
@@ -469,6 +470,13 @@ export var PutWithContentEncoding = op(
   _PWCE,
   0,
   () => PutWithContentEncodingInput,
+  () => Unit
+);
+export var QueryIncompatibleOperation = op(
+  n0,
+  _QIO,
+  2,
+  () => Unit,
   () => Unit
 );
 export var SimpleScalarProperties = op(

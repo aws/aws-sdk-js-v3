@@ -18,6 +18,7 @@ import { OperationWithNestedStructureCommand } from "../../src/commands/Operatio
 import { OperationWithRequiredMembersCommand } from "../../src/commands/OperationWithRequiredMembersCommand";
 import { OperationWithRequiredMembersWithDefaultsCommand } from "../../src/commands/OperationWithRequiredMembersWithDefaultsCommand";
 import { PutWithContentEncodingCommand } from "../../src/commands/PutWithContentEncodingCommand";
+import { QueryIncompatibleOperationCommand } from "../../src/commands/QueryIncompatibleOperationCommand";
 import { SimpleScalarPropertiesCommand } from "../../src/commands/SimpleScalarPropertiesCommand";
 import { JSONRPC10Client } from "../../src/JSONRPC10Client";
 
@@ -2883,6 +2884,40 @@ it("SDKAppendsGzipAndIgnoresHttpProvidedEncoding_awsJson1_0:Request", async () =
     expect(r.path).toBe("/");
 
     expect(r.headers["content-encoding"]).toBe("gzip");
+  }
+});
+
+/**
+ * The query mode header MUST NOT be set on non-query-compatible services.
+ */
+it("NonQueryCompatibleAwsJson10ForbidsQueryModeHeader:Request", async () => {
+  const client = new JSONRPC10Client({
+    ...clientParams,
+    requestHandler: new RequestSerializationTestHandler(),
+  });
+
+  const command = new QueryIncompatibleOperationCommand({});
+  try {
+    await client.send(command);
+    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
+    return;
+  } catch (err) {
+    if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
+      fail(err);
+      return;
+    }
+    const r = err.request;
+    expect(r.method).toBe("POST");
+    expect(r.path).toBe("/");
+
+    expect(r.headers["content-type"]).toBe("application/x-amz-json-1.0");
+    expect(r.headers["x-amz-target"]).toBe("JsonRpc10.QueryIncompatibleOperation");
+
+    expect(r.body, `Body was undefined.`).toBeDefined();
+    const utf8Encoder = client.config.utf8Encoder;
+    const bodyString = `{}`;
+    const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
+    expect(unequalParts).toBeUndefined();
   }
 });
 
