@@ -60,6 +60,9 @@ export interface DeleteMLInputChannelDataCommandOutput extends __MetadataBearer 
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The resource you are requesting does not exist.</p>
  *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was denied due to request throttling.</p>
+ *
  * @throws {@link ValidationException} (client fault)
  *  <p>The request parameters for this request are incorrect.</p>
  *

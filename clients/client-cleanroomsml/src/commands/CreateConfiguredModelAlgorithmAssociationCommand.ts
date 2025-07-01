@@ -63,6 +63,10 @@ export interface CreateConfiguredModelAlgorithmAssociationCommandOutput
  *         containerMetrics: { // MetricsConfigurationPolicy
  *           noiseLevel: "HIGH" || "MEDIUM" || "LOW" || "NONE", // required
  *         },
+ *         maxArtifactSize: { // TrainedModelArtifactMaxSize
+ *           unit: "GB", // required
+ *           value: Number("double"), // required
+ *         },
  *       },
  *       trainedModelExports: { // TrainedModelExportsConfigurationPolicy
  *         maxSize: { // TrainedModelExportsMaxSize
@@ -118,6 +122,9 @@ export interface CreateConfiguredModelAlgorithmAssociationCommandOutput
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
  *  <p>You have exceeded your service quota.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was denied due to request throttling.</p>
  *
  * @throws {@link ValidationException} (client fault)
  *  <p>The request parameters for this request are incorrect.</p>

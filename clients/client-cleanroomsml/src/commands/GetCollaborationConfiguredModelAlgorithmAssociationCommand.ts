@@ -74,6 +74,10 @@ export interface GetCollaborationConfiguredModelAlgorithmAssociationCommandOutpu
  * //         containerMetrics: { // MetricsConfigurationPolicy
  * //           noiseLevel: "HIGH" || "MEDIUM" || "LOW" || "NONE", // required
  * //         },
+ * //         maxArtifactSize: { // TrainedModelArtifactMaxSize
+ * //           unit: "GB", // required
+ * //           value: Number("double"), // required
+ * //         },
  * //       },
  * //       trainedModelExports: { // TrainedModelExportsConfigurationPolicy
  * //         maxSize: { // TrainedModelExportsMaxSize
@@ -115,6 +119,9 @@ export interface GetCollaborationConfiguredModelAlgorithmAssociationCommandOutpu
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The resource you are requesting does not exist.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was denied due to request throttling.</p>
  *
  * @throws {@link ValidationException} (client fault)
  *  <p>The request parameters for this request are incorrect.</p>

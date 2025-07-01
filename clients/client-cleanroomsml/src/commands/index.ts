@@ -46,6 +46,7 @@ export * from "./ListConfiguredModelAlgorithmsCommand";
 export * from "./ListMLInputChannelsCommand";
 export * from "./ListTagsForResourceCommand";
 export * from "./ListTrainedModelInferenceJobsCommand";
+export * from "./ListTrainedModelVersionsCommand";
 export * from "./ListTrainedModelsCommand";
 export * from "./ListTrainingDatasetsCommand";
 export * from "./PutConfiguredAudienceModelPolicyCommand";

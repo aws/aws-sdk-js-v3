@@ -90,9 +90,7 @@ export type AudienceSizeType = (typeof AudienceSizeType)[keyof typeof AudienceSi
  */
 export interface AudienceSize {
   /**
-   * <p>Whether the audience size is defined in absolute terms or as a percentage. You can use the <code>ABSOLUTE</code>
-   *             <a>AudienceSize</a> to configure out audience sizes using the count of identifiers in the output. You can use the <code>Percentage</code>
-   *             <a>AudienceSize</a> to configure sizes in the range 1-100 percent.</p>
+   * <p>Whether the audience size is defined in absolute terms or as a percentage. You can use the <code>ABSOLUTE</code> <a>AudienceSize</a> to configure out audience sizes using the count of identifiers in the output. You can use the <code>Percentage</code> <a>AudienceSize</a> to configure sizes in the range 1-100 percent.</p>
    * @public
    */
   type: AudienceSizeType | undefined;
@@ -283,6 +281,18 @@ export class ServiceQuotaExceededException extends __BaseException {
   readonly name: "ServiceQuotaExceededException" = "ServiceQuotaExceededException";
   readonly $fault: "client" = "client";
   /**
+   * The name of the service quota limit that was exceeded
+   * @public
+   */
+  quotaName?: string | undefined;
+
+  /**
+   * The current limit on the service quota that was exceeded
+   * @public
+   */
+  quotaValue?: number | undefined;
+
+  /**
    * @internal
    */
   constructor(opts: __ExceptionOptionType<ServiceQuotaExceededException, __BaseException>) {
@@ -292,6 +302,8 @@ export class ServiceQuotaExceededException extends __BaseException {
       ...opts,
     });
     Object.setPrototypeOf(this, ServiceQuotaExceededException.prototype);
+    this.quotaName = opts.quotaName;
+    this.quotaValue = opts.quotaValue;
   }
 }
 
@@ -376,8 +388,7 @@ export interface AudienceQualityMetrics {
   relevanceMetrics: RelevanceMetric[] | undefined;
 
   /**
-   * <p>The recall score of the generated audience. Recall is the percentage of the most similar users (by default, the most similar 20%) from a sample of the training data that are included in the seed audience by the audience generation job. Values range from 0-1, larger values indicate a better audience. A recall value approximately equal to the maximum bin size indicates that the audience model is equivalent to random selection.
-   *       </p>
+   * <p>The recall score of the generated audience. Recall is the percentage of the most similar users (by default, the most similar 20%) from a sample of the training data that are included in the seed audience by the audience generation job. Values range from 0-1, larger values indicate a better audience. A recall value approximately equal to the maximum bin size indicates that the audience model is equivalent to random selection. </p>
    * @public
    */
   recallMetric?: number | undefined;
@@ -465,8 +476,7 @@ export interface ProtectedQuerySQLParameters {
   queryString?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) associated with the analysis template within a
-   *          collaboration.</p>
+   * <p>The Amazon Resource Name (ARN) associated with the analysis template within a collaboration.</p>
    * @public
    */
   analysisTemplateArn?: string | undefined;
@@ -484,16 +494,7 @@ export interface ProtectedQuerySQLParameters {
  */
 export interface AudienceGenerationJobDataSource {
   /**
-   * <p>Defines the Amazon S3 bucket where the seed audience for the generating audience is stored. A valid data source is a JSON line file in the following format:</p>
-   *          <p>
-   *             <code>\{"user_id": "111111"\}</code>
-   *          </p>
-   *          <p>
-   *             <code>\{"user_id": "222222"\}</code>
-   *          </p>
-   *          <p>
-   *             <code>...</code>
-   *          </p>
+   * <p>Defines the Amazon S3 bucket where the seed audience for the generating audience is stored. A valid data source is a JSON line file in the following format:</p> <p> <code>\{"user_id": "111111"\}</code> </p> <p> <code>\{"user_id": "222222"\}</code> </p> <p> <code>...</code> </p>
    * @public
    */
   dataSource?: S3ConfigMap | undefined;
@@ -779,31 +780,7 @@ export interface StartAudienceGenerationJobRequest {
   description?: string | undefined;
 
   /**
-   * <p>The optional metadata that you apply to the resource to help you categorize and organize them. Each tag consists of a key and an optional value, both of which you define.</p>
-   *          <p>The following basic restrictions apply to tags:</p>
-   *          <ul>
-   *             <li>
-   *                <p>Maximum number of tags per resource - 50.</p>
-   *             </li>
-   *             <li>
-   *                <p>For each resource, each tag key must be unique, and each tag key can have only one value.</p>
-   *             </li>
-   *             <li>
-   *                <p>Maximum key length - 128 Unicode characters in UTF-8.</p>
-   *             </li>
-   *             <li>
-   *                <p>Maximum value length - 256 Unicode characters in UTF-8.</p>
-   *             </li>
-   *             <li>
-   *                <p>If your tagging schema is used across multiple services and resources, remember that other services may have restrictions on allowed characters. Generally allowed characters are: letters, numbers, and spaces representable in UTF-8, and the following characters: + - = . _ : / @.</p>
-   *             </li>
-   *             <li>
-   *                <p>Tag keys and values are case sensitive.</p>
-   *             </li>
-   *             <li>
-   *                <p>Do not use aws:, AWS:, or any upper or lowercase combination of such as a prefix for keys as it is reserved for AWS use. You cannot edit or delete tag keys with this prefix. Values can have this prefix. If a tag value has aws as its prefix but the key does not, then Clean Rooms ML considers it to be a user tag and will count against the limit of 50 tags. Tags with only the key prefix of aws do not count against your tags per resource limit.</p>
-   *             </li>
-   *          </ul>
+   * <p>The optional metadata that you apply to the resource to help you categorize and organize them. Each tag consists of a key and an optional value, both of which you define.</p> <p>The following basic restrictions apply to tags:</p> <ul> <li> <p>Maximum number of tags per resource - 50.</p> </li> <li> <p>For each resource, each tag key must be unique, and each tag key can have only one value.</p> </li> <li> <p>Maximum key length - 128 Unicode characters in UTF-8.</p> </li> <li> <p>Maximum value length - 256 Unicode characters in UTF-8.</p> </li> <li> <p>If your tagging schema is used across multiple services and resources, remember that other services may have restrictions on allowed characters. Generally allowed characters are: letters, numbers, and spaces representable in UTF-8, and the following characters: + - = . _ : / @.</p> </li> <li> <p>Tag keys and values are case sensitive.</p> </li> <li> <p>Do not use aws:, AWS:, or any upper or lowercase combination of such as a prefix for keys as it is reserved for AWS use. You cannot edit or delete tag keys with this prefix. Values can have this prefix. If a tag value has aws as its prefix but the key does not, then Clean Rooms ML considers it to be a user tag and will count against the limit of 50 tags. Tags with only the key prefix of aws do not count against your tags per resource limit.</p> </li> </ul>
    * @public
    */
   tags?: Record<string, string> | undefined;
@@ -818,6 +795,26 @@ export interface StartAudienceGenerationJobResponse {
    * @public
    */
   audienceGenerationJobArn: string | undefined;
+}
+
+/**
+ * <p>The request was denied due to request throttling.</p>
+ * @public
+ */
+export class ThrottlingException extends __BaseException {
+  readonly name: "ThrottlingException" = "ThrottlingException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ThrottlingException, __BaseException>) {
+    super({
+      name: "ThrottlingException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ThrottlingException.prototype);
+  }
 }
 
 /**
@@ -855,31 +852,7 @@ export interface CreateAudienceModelRequest {
   kmsKeyArn?: string | undefined;
 
   /**
-   * <p>The optional metadata that you apply to the resource to help you categorize and organize them. Each tag consists of a key and an optional value, both of which you define.</p>
-   *          <p>The following basic restrictions apply to tags:</p>
-   *          <ul>
-   *             <li>
-   *                <p>Maximum number of tags per resource - 50.</p>
-   *             </li>
-   *             <li>
-   *                <p>For each resource, each tag key must be unique, and each tag key can have only one value.</p>
-   *             </li>
-   *             <li>
-   *                <p>Maximum key length - 128 Unicode characters in UTF-8.</p>
-   *             </li>
-   *             <li>
-   *                <p>Maximum value length - 256 Unicode characters in UTF-8.</p>
-   *             </li>
-   *             <li>
-   *                <p>If your tagging schema is used across multiple services and resources, remember that other services may have restrictions on allowed characters. Generally allowed characters are: letters, numbers, and spaces representable in UTF-8, and the following characters: + - = . _ : / @.</p>
-   *             </li>
-   *             <li>
-   *                <p>Tag keys and values are case sensitive.</p>
-   *             </li>
-   *             <li>
-   *                <p>Do not use aws:, AWS:, or any upper or lowercase combination of such as a prefix for keys as it is reserved for AWS use. You cannot edit or delete tag keys with this prefix. Values can have this prefix. If a tag value has aws as its prefix but the key does not, then Clean Rooms ML considers it to be a user tag and will count against the limit of 50 tags. Tags with only the key prefix of aws do not count against your tags per resource limit.</p>
-   *             </li>
-   *          </ul>
+   * <p>The optional metadata that you apply to the resource to help you categorize and organize them. Each tag consists of a key and an optional value, both of which you define.</p> <p>The following basic restrictions apply to tags:</p> <ul> <li> <p>Maximum number of tags per resource - 50.</p> </li> <li> <p>For each resource, each tag key must be unique, and each tag key can have only one value.</p> </li> <li> <p>Maximum key length - 128 Unicode characters in UTF-8.</p> </li> <li> <p>Maximum value length - 256 Unicode characters in UTF-8.</p> </li> <li> <p>If your tagging schema is used across multiple services and resources, remember that other services may have restrictions on allowed characters. Generally allowed characters are: letters, numbers, and spaces representable in UTF-8, and the following characters: + - = . _ : / @.</p> </li> <li> <p>Tag keys and values are case sensitive.</p> </li> <li> <p>Do not use aws:, AWS:, or any upper or lowercase combination of such as a prefix for keys as it is reserved for AWS use. You cannot edit or delete tag keys with this prefix. Values can have this prefix. If a tag value has aws as its prefix but the key does not, then Clean Rooms ML considers it to be a user tag and will count against the limit of 50 tags. Tags with only the key prefix of aws do not count against your tags per resource limit.</p> </li> </ul>
    * @public
    */
   tags?: Record<string, string> | undefined;
@@ -1103,10 +1076,7 @@ export interface ListAudienceModelsResponse {
 }
 
 /**
- * <p>Returns the relevance scores at these audience sizes when used in the <a>GetAudienceGenerationJob</a> for a specified audience generation job and configured audience model.</p>
- *          <p>Specifies the list of allowed <code>audienceSize</code> values when used in the <a>StartAudienceExportJob</a> for an audience generation job. You can use the <code>ABSOLUTE</code>
- *             <a>AudienceSize</a> to configure out audience sizes using the count of identifiers in the output. You can use the <code>Percentage</code>
- *             <a>AudienceSize</a> to configure sizes in the range 1-100 percent.</p>
+ * <p>Returns the relevance scores at these audience sizes when used in the <a>GetAudienceGenerationJob</a> for a specified audience generation job and configured audience model.</p> <p>Specifies the list of allowed <code>audienceSize</code> values when used in the <a>StartAudienceExportJob</a> for an audience generation job. You can use the <code>ABSOLUTE</code> <a>AudienceSize</a> to configure out audience sizes using the count of identifiers in the output. You can use the <code>Percentage</code> <a>AudienceSize</a> to configure sizes in the range 1-100 percent.</p>
  * @public
  */
 export interface AudienceSizeConfig {
@@ -1210,46 +1180,19 @@ export interface CreateConfiguredAudienceModelRequest {
   minMatchingSeedSize?: number | undefined;
 
   /**
-   * <p>Configure the list of output sizes of audiences that can be created using this configured audience model. A request to <a>StartAudienceGenerationJob</a> that uses this configured audience model must have an <code>audienceSize</code> selected from this list. You can use the <code>ABSOLUTE</code>
-   *             <a>AudienceSize</a> to configure out audience sizes using the count of identifiers in the output. You can use the <code>Percentage</code>
-   *             <a>AudienceSize</a> to configure sizes in the range 1-100 percent.</p>
+   * <p>Configure the list of output sizes of audiences that can be created using this configured audience model. A request to <a>StartAudienceGenerationJob</a> that uses this configured audience model must have an <code>audienceSize</code> selected from this list. You can use the <code>ABSOLUTE</code> <a>AudienceSize</a> to configure out audience sizes using the count of identifiers in the output. You can use the <code>Percentage</code> <a>AudienceSize</a> to configure sizes in the range 1-100 percent.</p>
    * @public
    */
   audienceSizeConfig?: AudienceSizeConfig | undefined;
 
   /**
-   * <p>The optional metadata that you apply to the resource to help you categorize and organize them. Each tag consists of a key and an optional value, both of which you define.</p>
-   *          <p>The following basic restrictions apply to tags:</p>
-   *          <ul>
-   *             <li>
-   *                <p>Maximum number of tags per resource - 50.</p>
-   *             </li>
-   *             <li>
-   *                <p>For each resource, each tag key must be unique, and each tag key can have only one value.</p>
-   *             </li>
-   *             <li>
-   *                <p>Maximum key length - 128 Unicode characters in UTF-8.</p>
-   *             </li>
-   *             <li>
-   *                <p>Maximum value length - 256 Unicode characters in UTF-8.</p>
-   *             </li>
-   *             <li>
-   *                <p>If your tagging schema is used across multiple services and resources, remember that other services may have restrictions on allowed characters. Generally allowed characters are: letters, numbers, and spaces representable in UTF-8, and the following characters: + - = . _ : / @.</p>
-   *             </li>
-   *             <li>
-   *                <p>Tag keys and values are case sensitive.</p>
-   *             </li>
-   *             <li>
-   *                <p>Do not use aws:, AWS:, or any upper or lowercase combination of such as a prefix for keys as it is reserved for AWS use. You cannot edit or delete tag keys with this prefix. Values can have this prefix. If a tag value has aws as its prefix but the key does not, then Clean Rooms ML considers it to be a user tag and will count against the limit of 50 tags. Tags with only the key prefix of aws do not count against your tags per resource limit.</p>
-   *             </li>
-   *          </ul>
+   * <p>The optional metadata that you apply to the resource to help you categorize and organize them. Each tag consists of a key and an optional value, both of which you define.</p> <p>The following basic restrictions apply to tags:</p> <ul> <li> <p>Maximum number of tags per resource - 50.</p> </li> <li> <p>For each resource, each tag key must be unique, and each tag key can have only one value.</p> </li> <li> <p>Maximum key length - 128 Unicode characters in UTF-8.</p> </li> <li> <p>Maximum value length - 256 Unicode characters in UTF-8.</p> </li> <li> <p>If your tagging schema is used across multiple services and resources, remember that other services may have restrictions on allowed characters. Generally allowed characters are: letters, numbers, and spaces representable in UTF-8, and the following characters: + - = . _ : / @.</p> </li> <li> <p>Tag keys and values are case sensitive.</p> </li> <li> <p>Do not use aws:, AWS:, or any upper or lowercase combination of such as a prefix for keys as it is reserved for AWS use. You cannot edit or delete tag keys with this prefix. Values can have this prefix. If a tag value has aws as its prefix but the key does not, then Clean Rooms ML considers it to be a user tag and will count against the limit of 50 tags. Tags with only the key prefix of aws do not count against your tags per resource limit.</p> </li> </ul>
    * @public
    */
   tags?: Record<string, string> | undefined;
 
   /**
-   * <p>Configure how the service tags audience generation jobs created using this configured audience model. If you specify <code>NONE</code>, the tags from the <a>StartAudienceGenerationJob</a> request determine the tags of the audience generation job. If you specify <code>FROM_PARENT_RESOURCE</code>, the audience generation job inherits the tags from the configured audience model, by default. Tags in the <a>StartAudienceGenerationJob</a> will override the default.</p>
-   *          <p>When the client is in a different account than the configured audience model, the tags from the client are never applied to a resource in the caller's account.</p>
+   * <p>Configure how the service tags audience generation jobs created using this configured audience model. If you specify <code>NONE</code>, the tags from the <a>StartAudienceGenerationJob</a> request determine the tags of the audience generation job. If you specify <code>FROM_PARENT_RESOURCE</code>, the audience generation job inherits the tags from the configured audience model, by default. Tags in the <a>StartAudienceGenerationJob</a> will override the default.</p> <p>When the client is in a different account than the configured audience model, the tags from the client are never applied to a resource in the caller's account.</p>
    * @public
    */
   childResourceTagOnCreatePolicy?: TagOnCreatePolicy | undefined;
@@ -1367,9 +1310,7 @@ export interface GetConfiguredAudienceModelResponse {
   minMatchingSeedSize?: number | undefined;
 
   /**
-   * <p>The list of output sizes of audiences that can be created using this configured audience model. A request to <a>StartAudienceGenerationJob</a> that uses this configured audience model must have an <code>audienceSize</code> selected from this list. You can use the <code>ABSOLUTE</code>
-   *             <a>AudienceSize</a> to configure out audience sizes using the count of identifiers in the output. You can use the <code>Percentage</code>
-   *             <a>AudienceSize</a> to configure sizes in the range 1-100 percent.</p>
+   * <p>The list of output sizes of audiences that can be created using this configured audience model. A request to <a>StartAudienceGenerationJob</a> that uses this configured audience model must have an <code>audienceSize</code> selected from this list. You can use the <code>ABSOLUTE</code> <a>AudienceSize</a> to configure out audience sizes using the count of identifiers in the output. You can use the <code>Percentage</code> <a>AudienceSize</a> to configure sizes in the range 1-100 percent.</p>
    * @public
    */
   audienceSizeConfig?: AudienceSizeConfig | undefined;
@@ -1644,7 +1585,7 @@ export interface PutConfiguredAudienceModelPolicyResponse {
  */
 export interface InferenceContainerConfig {
   /**
-   * <p>The registry path of the docker image that contains the inference algorithm. Clean Rooms ML supports both <code>registry/repository[:tag]</code> and <code>registry/repositry[@digest]</code> image path formats. For more information about using images in Clean Rooms ML, see the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_AlgorithmSpecification.html#sagemaker-Type-AlgorithmSpecification-TrainingImage">Sagemaker API reference</a>.</p>
+   * <p>The registry path of the docker image that contains the inference algorithm. Clean Rooms ML currently only supports the <code>registry/repository[:tag]</code> image path format. For more information about using images in Clean Rooms ML, see the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_AlgorithmSpecification.html#sagemaker-Type-AlgorithmSpecification-TrainingImage">Sagemaker API reference</a>.</p>
    * @public
    */
   imageUri: string | undefined;
@@ -1674,7 +1615,7 @@ export interface MetricDefinition {
  */
 export interface ContainerConfig {
   /**
-   * <p>The registry path of the docker image that contains the algorithm. Clean Rooms ML supports both <code>registry/repository[:tag]</code> and <code>registry/repositry[@digest]</code> image path formats. For more information about using images in Clean Rooms ML, see the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_AlgorithmSpecification.html#sagemaker-Type-AlgorithmSpecification-TrainingImage">Sagemaker API reference</a>.</p>
+   * <p>The registry path of the docker image that contains the algorithm. Clean Rooms ML currently only supports the <code>registry/repository[:tag]</code> image path format. For more information about using images in Clean Rooms ML, see the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_AlgorithmSpecification.html#sagemaker-Type-AlgorithmSpecification-TrainingImage">Sagemaker API reference</a>.</p>
    * @public
    */
   imageUri: string | undefined;
@@ -1733,31 +1674,7 @@ export interface CreateConfiguredModelAlgorithmRequest {
   inferenceContainerConfig?: InferenceContainerConfig | undefined;
 
   /**
-   * <p>The optional metadata that you apply to the resource to help you categorize and organize them. Each tag consists of a key and an optional value, both of which you define.</p>
-   *          <p>The following basic restrictions apply to tags:</p>
-   *          <ul>
-   *             <li>
-   *                <p>Maximum number of tags per resource - 50.</p>
-   *             </li>
-   *             <li>
-   *                <p>For each resource, each tag key must be unique, and each tag key can have only one value.</p>
-   *             </li>
-   *             <li>
-   *                <p>Maximum key length - 128 Unicode characters in UTF-8.</p>
-   *             </li>
-   *             <li>
-   *                <p>Maximum value length - 256 Unicode characters in UTF-8.</p>
-   *             </li>
-   *             <li>
-   *                <p>If your tagging schema is used across multiple services and resources, remember that other services may have restrictions on allowed characters. Generally allowed characters are: letters, numbers, and spaces representable in UTF-8, and the following characters: + - = . _ : / @.</p>
-   *             </li>
-   *             <li>
-   *                <p>Tag keys and values are case sensitive.</p>
-   *             </li>
-   *             <li>
-   *                <p>Do not use aws:, AWS:, or any upper or lowercase combination of such as a prefix for keys as it is reserved for AWS use. You cannot edit or delete tag keys with this prefix. Values can have this prefix. If a tag value has aws as its prefix but the key does not, then Clean Rooms ML considers it to be a user tag and will count against the limit of 50 tags. Tags with only the key prefix of aws do not count against your tags per resource limit.</p>
-   *             </li>
-   *          </ul>
+   * <p>The optional metadata that you apply to the resource to help you categorize and organize them. Each tag consists of a key and an optional value, both of which you define.</p> <p>The following basic restrictions apply to tags:</p> <ul> <li> <p>Maximum number of tags per resource - 50.</p> </li> <li> <p>For each resource, each tag key must be unique, and each tag key can have only one value.</p> </li> <li> <p>Maximum key length - 128 Unicode characters in UTF-8.</p> </li> <li> <p>Maximum value length - 256 Unicode characters in UTF-8.</p> </li> <li> <p>If your tagging schema is used across multiple services and resources, remember that other services may have restrictions on allowed characters. Generally allowed characters are: letters, numbers, and spaces representable in UTF-8, and the following characters: + - = . _ : / @.</p> </li> <li> <p>Tag keys and values are case sensitive.</p> </li> <li> <p>Do not use aws:, AWS:, or any upper or lowercase combination of such as a prefix for keys as it is reserved for AWS use. You cannot edit or delete tag keys with this prefix. Values can have this prefix. If a tag value has aws as its prefix but the key does not, then Clean Rooms ML considers it to be a user tag and will count against the limit of 50 tags. Tags with only the key prefix of aws do not count against your tags per resource limit.</p> </li> </ul>
    * @public
    */
   tags?: Record<string, string> | undefined;
@@ -1855,31 +1772,7 @@ export interface GetConfiguredModelAlgorithmResponse {
   description?: string | undefined;
 
   /**
-   * <p>The optional metadata that you applied to the resource to help you categorize and organize them. Each tag consists of a key and an optional value, both of which you define.</p>
-   *          <p>The following basic restrictions apply to tags:</p>
-   *          <ul>
-   *             <li>
-   *                <p>Maximum number of tags per resource - 50.</p>
-   *             </li>
-   *             <li>
-   *                <p>For each resource, each tag key must be unique, and each tag key can have only one value.</p>
-   *             </li>
-   *             <li>
-   *                <p>Maximum key length - 128 Unicode characters in UTF-8.</p>
-   *             </li>
-   *             <li>
-   *                <p>Maximum value length - 256 Unicode characters in UTF-8.</p>
-   *             </li>
-   *             <li>
-   *                <p>If your tagging schema is used across multiple services and resources, remember that other services may have restrictions on allowed characters. Generally allowed characters are: letters, numbers, and spaces representable in UTF-8, and the following characters: + - = . _ : / @.</p>
-   *             </li>
-   *             <li>
-   *                <p>Tag keys and values are case sensitive.</p>
-   *             </li>
-   *             <li>
-   *                <p>Do not use aws:, AWS:, or any upper or lowercase combination of such as a prefix for keys as it is reserved for AWS use. You cannot edit or delete tag keys with this prefix. Values can have this prefix. If a tag value has aws as its prefix but the key does not, then Clean Rooms ML considers it to be a user tag and will count against the limit of 50 tags. Tags with only the key prefix of aws do not count against your tags per resource limit.</p>
-   *             </li>
-   *          </ul>
+   * <p>The optional metadata that you applied to the resource to help you categorize and organize them. Each tag consists of a key and an optional value, both of which you define.</p> <p>The following basic restrictions apply to tags:</p> <ul> <li> <p>Maximum number of tags per resource - 50.</p> </li> <li> <p>For each resource, each tag key must be unique, and each tag key can have only one value.</p> </li> <li> <p>Maximum key length - 128 Unicode characters in UTF-8.</p> </li> <li> <p>Maximum value length - 256 Unicode characters in UTF-8.</p> </li> <li> <p>If your tagging schema is used across multiple services and resources, remember that other services may have restrictions on allowed characters. Generally allowed characters are: letters, numbers, and spaces representable in UTF-8, and the following characters: + - = . _ : / @.</p> </li> <li> <p>Tag keys and values are case sensitive.</p> </li> <li> <p>Do not use aws:, AWS:, or any upper or lowercase combination of such as a prefix for keys as it is reserved for AWS use. You cannot edit or delete tag keys with this prefix. Values can have this prefix. If a tag value has aws as its prefix but the key does not, then Clean Rooms ML considers it to be a user tag and will count against the limit of 50 tags. Tags with only the key prefix of aws do not count against your tags per resource limit.</p> </li> </ul>
    * @public
    */
   tags?: Record<string, string> | undefined;
@@ -2122,6 +2015,38 @@ export interface MetricsConfigurationPolicy {
 }
 
 /**
+ * @public
+ * @enum
+ */
+export const TrainedModelArtifactMaxSizeUnitType = {
+  GB: "GB",
+} as const;
+
+/**
+ * @public
+ */
+export type TrainedModelArtifactMaxSizeUnitType =
+  (typeof TrainedModelArtifactMaxSizeUnitType)[keyof typeof TrainedModelArtifactMaxSizeUnitType];
+
+/**
+ * <p>Specifies the maximum size limit for trained model artifacts. This configuration helps control storage costs and ensures that trained models don't exceed specified size constraints. The size limit applies to the total size of all artifacts produced by the training job.</p>
+ * @public
+ */
+export interface TrainedModelArtifactMaxSize {
+  /**
+   * <p>The unit of measurement for the maximum artifact size. Valid values include common storage units such as bytes, kilobytes, megabytes, gigabytes, and terabytes.</p>
+   * @public
+   */
+  unit: TrainedModelArtifactMaxSizeUnitType | undefined;
+
+  /**
+   * <p>The numerical value for the maximum artifact size limit. This value is interpreted according to the specified unit.</p>
+   * @public
+   */
+  value: number | undefined;
+}
+
+/**
  * <p>The configuration policy for the trained models.</p>
  * @public
  */
@@ -2137,6 +2062,12 @@ export interface TrainedModelsConfigurationPolicy {
    * @public
    */
   containerMetrics?: MetricsConfigurationPolicy | undefined;
+
+  /**
+   * <p>The maximum size limit for trained model artifacts as defined in the configuration policy. This setting helps enforce consistent size limits across trained models in the collaboration.</p>
+   * @public
+   */
+  maxArtifactSize?: TrainedModelArtifactMaxSize | undefined;
 }
 
 /**
@@ -2210,31 +2141,7 @@ export interface CreateConfiguredModelAlgorithmAssociationRequest {
   privacyConfiguration?: PrivacyConfiguration | undefined;
 
   /**
-   * <p>The optional metadata that you apply to the resource to help you categorize and organize them. Each tag consists of a key and an optional value, both of which you define.</p>
-   *          <p>The following basic restrictions apply to tags:</p>
-   *          <ul>
-   *             <li>
-   *                <p>Maximum number of tags per resource - 50.</p>
-   *             </li>
-   *             <li>
-   *                <p>For each resource, each tag key must be unique, and each tag key can have only one value.</p>
-   *             </li>
-   *             <li>
-   *                <p>Maximum key length - 128 Unicode characters in UTF-8.</p>
-   *             </li>
-   *             <li>
-   *                <p>Maximum value length - 256 Unicode characters in UTF-8.</p>
-   *             </li>
-   *             <li>
-   *                <p>If your tagging schema is used across multiple services and resources, remember that other services may have restrictions on allowed characters. Generally allowed characters are: letters, numbers, and spaces representable in UTF-8, and the following characters: + - = . _ : / @.</p>
-   *             </li>
-   *             <li>
-   *                <p>Tag keys and values are case sensitive.</p>
-   *             </li>
-   *             <li>
-   *                <p>Do not use aws:, AWS:, or any upper or lowercase combination of such as a prefix for keys as it is reserved for AWS use. You cannot edit or delete tag keys with this prefix. Values can have this prefix. If a tag value has aws as its prefix but the key does not, then Clean Rooms ML considers it to be a user tag and will count against the limit of 50 tags. Tags with only the key prefix of aws do not count against your tags per resource limit.</p>
-   *             </li>
-   *          </ul>
+   * <p>The optional metadata that you apply to the resource to help you categorize and organize them. Each tag consists of a key and an optional value, both of which you define.</p> <p>The following basic restrictions apply to tags:</p> <ul> <li> <p>Maximum number of tags per resource - 50.</p> </li> <li> <p>For each resource, each tag key must be unique, and each tag key can have only one value.</p> </li> <li> <p>Maximum key length - 128 Unicode characters in UTF-8.</p> </li> <li> <p>Maximum value length - 256 Unicode characters in UTF-8.</p> </li> <li> <p>If your tagging schema is used across multiple services and resources, remember that other services may have restrictions on allowed characters. Generally allowed characters are: letters, numbers, and spaces representable in UTF-8, and the following characters: + - = . _ : / @.</p> </li> <li> <p>Tag keys and values are case sensitive.</p> </li> <li> <p>Do not use aws:, AWS:, or any upper or lowercase combination of such as a prefix for keys as it is reserved for AWS use. You cannot edit or delete tag keys with this prefix. Values can have this prefix. If a tag value has aws as its prefix but the key does not, then Clean Rooms ML considers it to be a user tag and will count against the limit of 50 tags. Tags with only the key prefix of aws do not count against your tags per resource limit.</p> </li> </ul>
    * @public
    */
   tags?: Record<string, string> | undefined;
@@ -2426,31 +2333,7 @@ export interface GetConfiguredModelAlgorithmAssociationResponse {
   description?: string | undefined;
 
   /**
-   * <p>The optional metadata that you applied to the resource to help you categorize and organize them. Each tag consists of a key and an optional value, both of which you define.</p>
-   *          <p>The following basic restrictions apply to tags:</p>
-   *          <ul>
-   *             <li>
-   *                <p>Maximum number of tags per resource - 50.</p>
-   *             </li>
-   *             <li>
-   *                <p>For each resource, each tag key must be unique, and each tag key can have only one value.</p>
-   *             </li>
-   *             <li>
-   *                <p>Maximum key length - 128 Unicode characters in UTF-8.</p>
-   *             </li>
-   *             <li>
-   *                <p>Maximum value length - 256 Unicode characters in UTF-8.</p>
-   *             </li>
-   *             <li>
-   *                <p>If your tagging schema is used across multiple services and resources, remember that other services may have restrictions on allowed characters. Generally allowed characters are: letters, numbers, and spaces representable in UTF-8, and the following characters: + - = . _ : / @.</p>
-   *             </li>
-   *             <li>
-   *                <p>Tag keys and values are case sensitive.</p>
-   *             </li>
-   *             <li>
-   *                <p>Do not use aws:, AWS:, or any upper or lowercase combination of such as a prefix for keys as it is reserved for AWS use. You cannot edit or delete tag keys with this prefix. Values can have this prefix. If a tag value has aws as its prefix but the key does not, then Clean Rooms ML considers it to be a user tag and will count against the limit of 50 tags. Tags with only the key prefix of aws do not count against your tags per resource limit.</p>
-   *             </li>
-   *          </ul>
+   * <p>The optional metadata that you applied to the resource to help you categorize and organize them. Each tag consists of a key and an optional value, both of which you define.</p> <p>The following basic restrictions apply to tags:</p> <ul> <li> <p>Maximum number of tags per resource - 50.</p> </li> <li> <p>For each resource, each tag key must be unique, and each tag key can have only one value.</p> </li> <li> <p>Maximum key length - 128 Unicode characters in UTF-8.</p> </li> <li> <p>Maximum value length - 256 Unicode characters in UTF-8.</p> </li> <li> <p>If your tagging schema is used across multiple services and resources, remember that other services may have restrictions on allowed characters. Generally allowed characters are: letters, numbers, and spaces representable in UTF-8, and the following characters: + - = . _ : / @.</p> </li> <li> <p>Tag keys and values are case sensitive.</p> </li> <li> <p>Do not use aws:, AWS:, or any upper or lowercase combination of such as a prefix for keys as it is reserved for AWS use. You cannot edit or delete tag keys with this prefix. Values can have this prefix. If a tag value has aws as its prefix but the key does not, then Clean Rooms ML considers it to be a user tag and will count against the limit of 50 tags. Tags with only the key prefix of aws do not count against your tags per resource limit.</p> </li> </ul>
    * @public
    */
   tags?: Record<string, string> | undefined;
@@ -2805,6 +2688,12 @@ export interface ListCollaborationTrainedModelExportJobsRequest {
    * @public
    */
   trainedModelArn: string | undefined;
+
+  /**
+   * <p>The version identifier of the trained model to filter export jobs by. When specified, only export jobs for this specific version of the trained model are returned.</p>
+   * @public
+   */
+  trainedModelVersionIdentifier?: string | undefined;
 }
 
 /**
@@ -2908,6 +2797,12 @@ export interface CollaborationTrainedModelExportJobSummary {
   trainedModelArn: string | undefined;
 
   /**
+   * <p>The version identifier of the trained model that was exported in this job.</p>
+   * @public
+   */
+  trainedModelVersionIdentifier?: string | undefined;
+
+  /**
    * <p>The membership ID of the member that created the trained model export job.</p>
    * @public
    */
@@ -2964,6 +2859,12 @@ export interface ListCollaborationTrainedModelInferenceJobsRequest {
    * @public
    */
   trainedModelArn?: string | undefined;
+
+  /**
+   * <p>The version identifier of the trained model to filter inference jobs by. When specified, only inference jobs that used this specific version of the trained model are returned.</p>
+   * @public
+   */
+  trainedModelVersionIdentifier?: string | undefined;
 }
 
 /**
@@ -3073,6 +2974,12 @@ export interface CollaborationTrainedModelInferenceJobSummary {
    * @public
    */
   trainedModelArn: string | undefined;
+
+  /**
+   * <p>The version identifier of the trained model that was used for inference in this job.</p>
+   * @public
+   */
+  trainedModelVersionIdentifier?: string | undefined;
 
   /**
    * <p>The collaboration ID of the collaboration that contains the trained model inference job.</p>
@@ -3188,6 +3095,30 @@ export interface ListCollaborationTrainedModelsRequest {
 }
 
 /**
+ * <p>Contains information about an incremental training data channel that was used to create a trained model. This structure provides details about the base model and channel configuration used during incremental training.</p>
+ * @public
+ */
+export interface IncrementalTrainingDataChannelOutput {
+  /**
+   * <p>The name of the incremental training data channel that was used.</p>
+   * @public
+   */
+  channelName: string | undefined;
+
+  /**
+   * <p>The version identifier of the trained model that was used for incremental training.</p>
+   * @public
+   */
+  versionIdentifier?: string | undefined;
+
+  /**
+   * <p>The name of the base trained model that was used for incremental training.</p>
+   * @public
+   */
+  modelName: string | undefined;
+}
+
+/**
  * @public
  * @enum
  */
@@ -3238,6 +3169,18 @@ export interface CollaborationTrainedModelSummary {
    * @public
    */
   name: string | undefined;
+
+  /**
+   * <p>The version identifier of this trained model version.</p>
+   * @public
+   */
+  versionIdentifier?: string | undefined;
+
+  /**
+   * <p>Information about the incremental training data channels used to create this version of the trained model.</p>
+   * @public
+   */
+  incrementalTrainingDataChannels?: IncrementalTrainingDataChannelOutput[] | undefined;
 
   /**
    * <p>The description of the trained model.</p>
@@ -3484,8 +3427,7 @@ export interface InputChannel {
   dataSource: InputChannelDataSource | undefined;
 
   /**
-   * <p>The ARN of the IAM role that Clean Rooms ML can assume to read the data referred to in the <code>dataSource</code> field the input channel.</p>
-   *          <p>Passing a role across AWS accounts is not allowed. If you pass a role that isn't in your account, you get an <code>AccessDeniedException</code> error.</p>
+   * <p>The Amazon Resource Name (ARN) of the role used to run the query specified in the <code>dataSource</code> field of the input channel.</p> <p>Passing a role across AWS accounts is not allowed. If you pass a role that isn't in your account, you get an <code>AccessDeniedException</code> error.</p>
    * @public
    */
   roleArn: string | undefined;
@@ -3538,31 +3480,7 @@ export interface CreateMLInputChannelRequest {
   kmsKeyArn?: string | undefined;
 
   /**
-   * <p>The optional metadata that you apply to the resource to help you categorize and organize them. Each tag consists of a key and an optional value, both of which you define.</p>
-   *          <p>The following basic restrictions apply to tags:</p>
-   *          <ul>
-   *             <li>
-   *                <p>Maximum number of tags per resource - 50.</p>
-   *             </li>
-   *             <li>
-   *                <p>For each resource, each tag key must be unique, and each tag key can have only one value.</p>
-   *             </li>
-   *             <li>
-   *                <p>Maximum key length - 128 Unicode characters in UTF-8.</p>
-   *             </li>
-   *             <li>
-   *                <p>Maximum value length - 256 Unicode characters in UTF-8.</p>
-   *             </li>
-   *             <li>
-   *                <p>If your tagging schema is used across multiple services and resources, remember that other services may have restrictions on allowed characters. Generally allowed characters are: letters, numbers, and spaces representable in UTF-8, and the following characters: + - = . _ : / @.</p>
-   *             </li>
-   *             <li>
-   *                <p>Tag keys and values are case sensitive.</p>
-   *             </li>
-   *             <li>
-   *                <p>Do not use aws:, AWS:, or any upper or lowercase combination of such as a prefix for keys as it is reserved for AWS use. You cannot edit or delete tag keys with this prefix. Values can have this prefix. If a tag value has aws as its prefix but the key does not, then Clean Rooms ML considers it to be a user tag and will count against the limit of 50 tags. Tags with only the key prefix of aws do not count against your tags per resource limit.</p>
-   *             </li>
-   *          </ul>
+   * <p>The optional metadata that you apply to the resource to help you categorize and organize them. Each tag consists of a key and an optional value, both of which you define.</p> <p>The following basic restrictions apply to tags:</p> <ul> <li> <p>Maximum number of tags per resource - 50.</p> </li> <li> <p>For each resource, each tag key must be unique, and each tag key can have only one value.</p> </li> <li> <p>Maximum key length - 128 Unicode characters in UTF-8.</p> </li> <li> <p>Maximum value length - 256 Unicode characters in UTF-8.</p> </li> <li> <p>If your tagging schema is used across multiple services and resources, remember that other services may have restrictions on allowed characters. Generally allowed characters are: letters, numbers, and spaces representable in UTF-8, and the following characters: + - = . _ : / @.</p> </li> <li> <p>Tag keys and values are case sensitive.</p> </li> <li> <p>Do not use aws:, AWS:, or any upper or lowercase combination of such as a prefix for keys as it is reserved for AWS use. You cannot edit or delete tag keys with this prefix. Values can have this prefix. If a tag value has aws as its prefix but the key does not, then Clean Rooms ML considers it to be a user tag and will count against the limit of 50 tags. Tags with only the key prefix of aws do not count against your tags per resource limit.</p> </li> </ul>
    * @public
    */
   tags?: Record<string, string> | undefined;
@@ -3820,31 +3738,7 @@ export interface GetMLInputChannelResponse {
   kmsKeyArn?: string | undefined;
 
   /**
-   * <p>The optional metadata that you applied to the resource to help you categorize and organize them. Each tag consists of a key and an optional value, both of which you define.</p>
-   *          <p>The following basic restrictions apply to tags:</p>
-   *          <ul>
-   *             <li>
-   *                <p>Maximum number of tags per resource - 50.</p>
-   *             </li>
-   *             <li>
-   *                <p>For each resource, each tag key must be unique, and each tag key can have only one value.</p>
-   *             </li>
-   *             <li>
-   *                <p>Maximum key length - 128 Unicode characters in UTF-8.</p>
-   *             </li>
-   *             <li>
-   *                <p>Maximum value length - 256 Unicode characters in UTF-8.</p>
-   *             </li>
-   *             <li>
-   *                <p>If your tagging schema is used across multiple services and resources, remember that other services may have restrictions on allowed characters. Generally allowed characters are: letters, numbers, and spaces representable in UTF-8, and the following characters: + - = . _ : / @.</p>
-   *             </li>
-   *             <li>
-   *                <p>Tag keys and values are case sensitive.</p>
-   *             </li>
-   *             <li>
-   *                <p>Do not use aws:, AWS:, or any upper or lowercase combination of such as a prefix for keys as it is reserved for AWS use. You cannot edit or delete tag keys with this prefix. Values can have this prefix. If a tag value has aws as its prefix but the key does not, then Clean Rooms ML considers it to be a user tag and will count against the limit of 50 tags. Tags with only the key prefix of aws do not count against your tags per resource limit.</p>
-   *             </li>
-   *          </ul>
+   * <p>The optional metadata that you applied to the resource to help you categorize and organize them. Each tag consists of a key and an optional value, both of which you define.</p> <p>The following basic restrictions apply to tags:</p> <ul> <li> <p>Maximum number of tags per resource - 50.</p> </li> <li> <p>For each resource, each tag key must be unique, and each tag key can have only one value.</p> </li> <li> <p>Maximum key length - 128 Unicode characters in UTF-8.</p> </li> <li> <p>Maximum value length - 256 Unicode characters in UTF-8.</p> </li> <li> <p>If your tagging schema is used across multiple services and resources, remember that other services may have restrictions on allowed characters. Generally allowed characters are: letters, numbers, and spaces representable in UTF-8, and the following characters: + - = . _ : / @.</p> </li> <li> <p>Tag keys and values are case sensitive.</p> </li> <li> <p>Do not use aws:, AWS:, or any upper or lowercase combination of such as a prefix for keys as it is reserved for AWS use. You cannot edit or delete tag keys with this prefix. Values can have this prefix. If a tag value has aws as its prefix but the key does not, then Clean Rooms ML considers it to be a user tag and will count against the limit of 50 tags. Tags with only the key prefix of aws do not count against your tags per resource limit.</p> </li> </ul>
    * @public
    */
   tags?: Record<string, string> | undefined;
@@ -3967,31 +3861,7 @@ export interface TagResourceRequest {
   resourceArn: string | undefined;
 
   /**
-   * <p>The optional metadata that you apply to the resource to help you categorize and organize them. Each tag consists of a key and an optional value, both of which you define.</p>
-   *          <p>The following basic restrictions apply to tags:</p>
-   *          <ul>
-   *             <li>
-   *                <p>Maximum number of tags per resource - 50.</p>
-   *             </li>
-   *             <li>
-   *                <p>For each resource, each tag key must be unique, and each tag key can have only one value.</p>
-   *             </li>
-   *             <li>
-   *                <p>Maximum key length - 128 Unicode characters in UTF-8.</p>
-   *             </li>
-   *             <li>
-   *                <p>Maximum value length - 256 Unicode characters in UTF-8.</p>
-   *             </li>
-   *             <li>
-   *                <p>If your tagging schema is used across multiple services and resources, remember that other services may have restrictions on allowed characters. Generally allowed characters are: letters, numbers, and spaces representable in UTF-8, and the following characters: + - = . _ : / @.</p>
-   *             </li>
-   *             <li>
-   *                <p>Tag keys and values are case sensitive.</p>
-   *             </li>
-   *             <li>
-   *                <p>Do not use aws:, AWS:, or any upper or lowercase combination of such as a prefix for keys as it is reserved for AWS use. You cannot edit or delete tag keys with this prefix. Values can have this prefix. If a tag value has aws as its prefix but the key does not, then Clean Rooms considers it to be a user tag and will count against the limit of 50 tags. Tags with only the key prefix of aws do not count against your tags per resource limit.</p>
-   *             </li>
-   *          </ul>
+   * <p>The optional metadata that you apply to the resource to help you categorize and organize them. Each tag consists of a key and an optional value, both of which you define.</p> <p>The following basic restrictions apply to tags:</p> <ul> <li> <p>Maximum number of tags per resource - 50.</p> </li> <li> <p>For each resource, each tag key must be unique, and each tag key can have only one value.</p> </li> <li> <p>Maximum key length - 128 Unicode characters in UTF-8.</p> </li> <li> <p>Maximum value length - 256 Unicode characters in UTF-8.</p> </li> <li> <p>If your tagging schema is used across multiple services and resources, remember that other services may have restrictions on allowed characters. Generally allowed characters are: letters, numbers, and spaces representable in UTF-8, and the following characters: + - = . _ : / @.</p> </li> <li> <p>Tag keys and values are case sensitive.</p> </li> <li> <p>Do not use aws:, AWS:, or any upper or lowercase combination of such as a prefix for keys as it is reserved for AWS use. You cannot edit or delete tag keys with this prefix. Values can have this prefix. If a tag value has aws as its prefix but the key does not, then Clean Rooms considers it to be a user tag and will count against the limit of 50 tags. Tags with only the key prefix of aws do not count against your tags per resource limit.</p> </li> </ul>
    * @public
    */
   tags: Record<string, string> | undefined;
@@ -4017,7 +3887,27 @@ export interface CancelTrainedModelRequest {
    * @public
    */
   trainedModelArn: string | undefined;
+
+  /**
+   * <p>The version identifier of the trained model to cancel. This parameter allows you to specify which version of the trained model you want to cancel when multiple versions exist.</p> <p>If <code>versionIdentifier</code> is not specified, the base model will be cancelled.</p>
+   * @public
+   */
+  versionIdentifier?: string | undefined;
 }
+
+/**
+ * @public
+ * @enum
+ */
+export const S3DataDistributionType = {
+  FULLY_REPLICATED: "FullyReplicated",
+  SHARDED_BY_S3_KEY: "ShardedByS3Key",
+} as const;
+
+/**
+ * @public
+ */
+export type S3DataDistributionType = (typeof S3DataDistributionType)[keyof typeof S3DataDistributionType];
 
 /**
  * <p>Information about the model training data channel. A training data channel is a named data source that the training algorithms can consume. </p>
@@ -4032,6 +3922,36 @@ export interface ModelTrainingDataChannel {
 
   /**
    * <p>The name of the training data channel.</p>
+   * @public
+   */
+  channelName: string | undefined;
+
+  /**
+   * <p>Specifies how the training data stored in Amazon S3 should be distributed to training instances. This parameter controls the data distribution strategy for the training job:</p> <ul> <li> <p> <code>FullyReplicated</code> - The entire dataset is replicated on each training instance. This is suitable for smaller datasets and algorithms that require access to the complete dataset.</p> </li> <li> <p> <code>ShardedByS3Key</code> - The dataset is distributed across training instances based on Amazon S3 key names. This is suitable for larger datasets and distributed training scenarios where each instance processes a subset of the data.</p> </li> </ul>
+   * @public
+   */
+  s3DataDistributionType?: S3DataDistributionType | undefined;
+}
+
+/**
+ * <p>Defines an incremental training data channel that references a previously trained model. Incremental training allows you to update an existing trained model with new data, building upon the knowledge from a base model rather than training from scratch. This can significantly reduce training time and computational costs while improving model performance with additional data.</p>
+ * @public
+ */
+export interface IncrementalTrainingDataChannel {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the base trained model to use for incremental training. This model serves as the starting point for the incremental training process.</p>
+   * @public
+   */
+  trainedModelArn: string | undefined;
+
+  /**
+   * <p>The version identifier of the base trained model to use for incremental training. If not specified, the latest version of the trained model is used.</p>
+   * @public
+   */
+  versionIdentifier?: string | undefined;
+
+  /**
+   * <p>The name of the incremental training data channel. This name is used to identify the channel during the training process and must be unique within the training job.</p>
    * @public
    */
   channelName: string | undefined;
@@ -4176,6 +4096,21 @@ export interface StoppingCondition {
 
 /**
  * @public
+ * @enum
+ */
+export const TrainingInputMode = {
+  FAST_FILE: "FastFile",
+  FILE: "File",
+  PIPE: "Pipe",
+} as const;
+
+/**
+ * @public
+ */
+export type TrainingInputMode = (typeof TrainingInputMode)[keyof typeof TrainingInputMode];
+
+/**
+ * @public
  */
 export interface CreateTrainedModelRequest {
   /**
@@ -4221,10 +4156,22 @@ export interface CreateTrainedModelRequest {
   stoppingCondition?: StoppingCondition | undefined;
 
   /**
-   * <p>Defines the data channels that are used as input for the trained model request.</p>
+   * <p>Specifies the incremental training data channels for the trained model. </p> <p>Incremental training allows you to create a new trained model with updates without retraining from scratch. You can specify up to one incremental training data channel that references a previously trained model and its version.</p> <p>Limit: Maximum of 20 channels total (including both <code>incrementalTrainingDataChannels</code> and <code>dataChannels</code>).</p>
+   * @public
+   */
+  incrementalTrainingDataChannels?: IncrementalTrainingDataChannel[] | undefined;
+
+  /**
+   * <p>Defines the data channels that are used as input for the trained model request.</p> <p>Limit: Maximum of 20 channels total (including both <code>dataChannels</code> and <code>incrementalTrainingDataChannels</code>).</p>
    * @public
    */
   dataChannels: ModelTrainingDataChannel[] | undefined;
+
+  /**
+   * <p>The input mode for accessing the training data. This parameter determines how the training data is made available to the training algorithm. Valid values are:</p> <ul> <li> <p> <code>File</code> - The training data is downloaded to the training instance and made available as files.</p> </li> <li> <p> <code>FastFile</code> - The training data is streamed directly from Amazon S3 to the training algorithm, providing faster access for large datasets.</p> </li> <li> <p> <code>Pipe</code> - The training data is streamed to the training algorithm using named pipes, which can improve performance for certain algorithms.</p> </li> </ul>
+   * @public
+   */
+  trainingInputMode?: TrainingInputMode | undefined;
 
   /**
    * <p>The description of the trained model.</p>
@@ -4239,31 +4186,7 @@ export interface CreateTrainedModelRequest {
   kmsKeyArn?: string | undefined;
 
   /**
-   * <p>The optional metadata that you apply to the resource to help you categorize and organize them. Each tag consists of a key and an optional value, both of which you define.</p>
-   *          <p>The following basic restrictions apply to tags:</p>
-   *          <ul>
-   *             <li>
-   *                <p>Maximum number of tags per resource - 50.</p>
-   *             </li>
-   *             <li>
-   *                <p>For each resource, each tag key must be unique, and each tag key can have only one value.</p>
-   *             </li>
-   *             <li>
-   *                <p>Maximum key length - 128 Unicode characters in UTF-8.</p>
-   *             </li>
-   *             <li>
-   *                <p>Maximum value length - 256 Unicode characters in UTF-8.</p>
-   *             </li>
-   *             <li>
-   *                <p>If your tagging schema is used across multiple services and resources, remember that other services may have restrictions on allowed characters. Generally allowed characters are: letters, numbers, and spaces representable in UTF-8, and the following characters: + - = . _ : / @.</p>
-   *             </li>
-   *             <li>
-   *                <p>Tag keys and values are case sensitive.</p>
-   *             </li>
-   *             <li>
-   *                <p>Do not use aws:, AWS:, or any upper or lowercase combination of such as a prefix for keys as it is reserved for AWS use. You cannot edit or delete tag keys with this prefix. Values can have this prefix. If a tag value has aws as its prefix but the key does not, then Clean Rooms ML considers it to be a user tag and will count against the limit of 50 tags. Tags with only the key prefix of aws do not count against your tags per resource limit.</p>
-   *             </li>
-   *          </ul>
+   * <p>The optional metadata that you apply to the resource to help you categorize and organize them. Each tag consists of a key and an optional value, both of which you define.</p> <p>The following basic restrictions apply to tags:</p> <ul> <li> <p>Maximum number of tags per resource - 50.</p> </li> <li> <p>For each resource, each tag key must be unique, and each tag key can have only one value.</p> </li> <li> <p>Maximum key length - 128 Unicode characters in UTF-8.</p> </li> <li> <p>Maximum value length - 256 Unicode characters in UTF-8.</p> </li> <li> <p>If your tagging schema is used across multiple services and resources, remember that other services may have restrictions on allowed characters. Generally allowed characters are: letters, numbers, and spaces representable in UTF-8, and the following characters: + - = . _ : / @.</p> </li> <li> <p>Tag keys and values are case sensitive.</p> </li> <li> <p>Do not use aws:, AWS:, or any upper or lowercase combination of such as a prefix for keys as it is reserved for AWS use. You cannot edit or delete tag keys with this prefix. Values can have this prefix. If a tag value has aws as its prefix but the key does not, then Clean Rooms ML considers it to be a user tag and will count against the limit of 50 tags. Tags with only the key prefix of aws do not count against your tags per resource limit.</p> </li> </ul>
    * @public
    */
   tags?: Record<string, string> | undefined;
@@ -4278,6 +4201,32 @@ export interface CreateTrainedModelResponse {
    * @public
    */
   trainedModelArn: string | undefined;
+
+  /**
+   * <p>The unique version identifier assigned to the newly created trained model. This identifier can be used to reference this specific version of the trained model in subsequent operations such as inference jobs or incremental training.</p> <p>The initial version identifier for the base version of the trained model is "NULL".</p>
+   * @public
+   */
+  versionIdentifier?: string | undefined;
+}
+
+/**
+ * <p>An internal service error occurred. Retry your request. If the problem persists, contact AWS Support.</p>
+ * @public
+ */
+export class InternalServiceException extends __BaseException {
+  readonly name: "InternalServiceException" = "InternalServiceException";
+  readonly $fault: "server" = "server";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InternalServiceException, __BaseException>) {
+    super({
+      name: "InternalServiceException",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InternalServiceException.prototype);
+  }
 }
 
 /**
@@ -4295,6 +4244,12 @@ export interface DeleteTrainedModelOutputRequest {
    * @public
    */
   membershipIdentifier: string | undefined;
+
+  /**
+   * <p>The version identifier of the trained model to delete. If not specified, the operation will delete the base version of the trained model. When specified, only the particular version will be deleted.</p>
+   * @public
+   */
+  versionIdentifier?: string | undefined;
 }
 
 /**
@@ -4312,6 +4267,12 @@ export interface GetCollaborationTrainedModelRequest {
    * @public
    */
   collaborationIdentifier: string | undefined;
+
+  /**
+   * <p>The version identifier of the trained model to retrieve. If not specified, the operation returns information about the latest version of the trained model.</p>
+   * @public
+   */
+  versionIdentifier?: string | undefined;
 }
 
 /**
@@ -4335,6 +4296,18 @@ export interface GetCollaborationTrainedModelResponse {
    * @public
    */
   trainedModelArn: string | undefined;
+
+  /**
+   * <p>The version identifier of the trained model. This unique identifier distinguishes this version from other versions of the same trained model.</p>
+   * @public
+   */
+  versionIdentifier?: string | undefined;
+
+  /**
+   * <p>Information about the incremental training data channels used to create this version of the trained model. This includes details about the base model that was used for incremental training and the channel configuration.</p>
+   * @public
+   */
+  incrementalTrainingDataChannels?: IncrementalTrainingDataChannelOutput[] | undefined;
 
   /**
    * <p>The name of the trained model.</p>
@@ -4371,6 +4344,12 @@ export interface GetCollaborationTrainedModelResponse {
    * @public
    */
   resourceConfig?: ResourceConfig | undefined;
+
+  /**
+   * <p>The input mode that was used for accessing the training data when this trained model was created. This indicates how the training data was made available to the training algorithm.</p>
+   * @public
+   */
+  trainingInputMode?: TrainingInputMode | undefined;
 
   /**
    * <p>The stopping condition that determined when model training ended.</p>
@@ -4442,6 +4421,12 @@ export interface GetTrainedModelRequest {
    * @public
    */
   membershipIdentifier: string | undefined;
+
+  /**
+   * <p>The version identifier of the trained model to retrieve. If not specified, the operation returns information about the latest version of the trained model.</p>
+   * @public
+   */
+  versionIdentifier?: string | undefined;
 }
 
 /**
@@ -4465,6 +4450,18 @@ export interface GetTrainedModelResponse {
    * @public
    */
   trainedModelArn: string | undefined;
+
+  /**
+   * <p>The version identifier of the trained model. This unique identifier distinguishes this version from other versions of the same trained model.</p>
+   * @public
+   */
+  versionIdentifier?: string | undefined;
+
+  /**
+   * <p>Information about the incremental training data channels used to create this version of the trained model. This includes details about the base model that was used for incremental training and the channel configuration.</p>
+   * @public
+   */
+  incrementalTrainingDataChannels?: IncrementalTrainingDataChannelOutput[] | undefined;
 
   /**
    * <p>The name of the trained model.</p>
@@ -4501,6 +4498,12 @@ export interface GetTrainedModelResponse {
    * @public
    */
   resourceConfig?: ResourceConfig | undefined;
+
+  /**
+   * <p>The input mode that was used for accessing the training data when this trained model was created. This indicates how the training data was made available to the training algorithm.</p>
+   * @public
+   */
+  trainingInputMode?: TrainingInputMode | undefined;
 
   /**
    * <p>The stopping condition that was used to terminate model training.</p>
@@ -4569,31 +4572,7 @@ export interface GetTrainedModelResponse {
   kmsKeyArn?: string | undefined;
 
   /**
-   * <p>The optional metadata that you applied to the resource to help you categorize and organize them. Each tag consists of a key and an optional value, both of which you define.</p>
-   *          <p>The following basic restrictions apply to tags:</p>
-   *          <ul>
-   *             <li>
-   *                <p>Maximum number of tags per resource - 50.</p>
-   *             </li>
-   *             <li>
-   *                <p>For each resource, each tag key must be unique, and each tag key can have only one value.</p>
-   *             </li>
-   *             <li>
-   *                <p>Maximum key length - 128 Unicode characters in UTF-8.</p>
-   *             </li>
-   *             <li>
-   *                <p>Maximum value length - 256 Unicode characters in UTF-8.</p>
-   *             </li>
-   *             <li>
-   *                <p>If your tagging schema is used across multiple services and resources, remember that other services may have restrictions on allowed characters. Generally allowed characters are: letters, numbers, and spaces representable in UTF-8, and the following characters: + - = . _ : / @.</p>
-   *             </li>
-   *             <li>
-   *                <p>Tag keys and values are case sensitive.</p>
-   *             </li>
-   *             <li>
-   *                <p>Do not use aws:, AWS:, or any upper or lowercase combination of such as a prefix for keys as it is reserved for AWS use. You cannot edit or delete tag keys with this prefix. Values can have this prefix. If a tag value has aws as its prefix but the key does not, then Clean Rooms ML considers it to be a user tag and will count against the limit of 50 tags. Tags with only the key prefix of aws do not count against your tags per resource limit.</p>
-   *             </li>
-   *          </ul>
+   * <p>The optional metadata that you applied to the resource to help you categorize and organize them. Each tag consists of a key and an optional value, both of which you define.</p> <p>The following basic restrictions apply to tags:</p> <ul> <li> <p>Maximum number of tags per resource - 50.</p> </li> <li> <p>For each resource, each tag key must be unique, and each tag key can have only one value.</p> </li> <li> <p>Maximum key length - 128 Unicode characters in UTF-8.</p> </li> <li> <p>Maximum value length - 256 Unicode characters in UTF-8.</p> </li> <li> <p>If your tagging schema is used across multiple services and resources, remember that other services may have restrictions on allowed characters. Generally allowed characters are: letters, numbers, and spaces representable in UTF-8, and the following characters: + - = . _ : / @.</p> </li> <li> <p>Tag keys and values are case sensitive.</p> </li> <li> <p>Do not use aws:, AWS:, or any upper or lowercase combination of such as a prefix for keys as it is reserved for AWS use. You cannot edit or delete tag keys with this prefix. Values can have this prefix. If a tag value has aws as its prefix but the key does not, then Clean Rooms ML considers it to be a user tag and will count against the limit of 50 tags. Tags with only the key prefix of aws do not count against your tags per resource limit.</p> </li> </ul>
    * @public
    */
   tags?: Record<string, string> | undefined;
@@ -4652,6 +4631,18 @@ export interface TrainedModelSummary {
   trainedModelArn: string | undefined;
 
   /**
+   * <p>The version identifier of this trained model version.</p>
+   * @public
+   */
+  versionIdentifier?: string | undefined;
+
+  /**
+   * <p>Information about the incremental training data channels used to create this version of the trained model.</p>
+   * @public
+   */
+  incrementalTrainingDataChannels?: IncrementalTrainingDataChannelOutput[] | undefined;
+
+  /**
    * <p>The name of the trained model.</p>
    * @public
    */
@@ -4708,6 +4699,58 @@ export interface ListTrainedModelsResponse {
 /**
  * @public
  */
+export interface ListTrainedModelVersionsRequest {
+  /**
+   * <p>The pagination token from a previous <code>ListTrainedModelVersions</code> request. Use this token to retrieve the next page of results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of trained model versions to return in a single page. The default value is 10, and the maximum value is 100.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p>The membership identifier for the collaboration that contains the trained model.</p>
+   * @public
+   */
+  membershipIdentifier: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the trained model for which to list versions.</p>
+   * @public
+   */
+  trainedModelArn: string | undefined;
+
+  /**
+   * <p>Filter the results to only include trained model versions with the specified status. Valid values include <code>CREATE_PENDING</code>, <code>CREATE_IN_PROGRESS</code>, <code>ACTIVE</code>, <code>CREATE_FAILED</code>, and others.</p>
+   * @public
+   */
+  status?: TrainedModelStatus | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListTrainedModelVersionsResponse {
+  /**
+   * <p>The pagination token to use in a subsequent <code>ListTrainedModelVersions</code> request to retrieve the next page of results. This value is null when there are no more results to return.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>A list of trained model versions that match the specified criteria. Each entry contains summary information about a trained model version, including its version identifier, status, and creation details.</p>
+   * @public
+   */
+  trainedModels: TrainedModelSummary[] | undefined;
+}
+
+/**
+ * @public
+ */
 export interface StartTrainedModelExportJobRequest {
   /**
    * <p>The name of the trained model export job.</p>
@@ -4720,6 +4763,12 @@ export interface StartTrainedModelExportJobRequest {
    * @public
    */
   trainedModelArn: string | undefined;
+
+  /**
+   * <p>The version identifier of the trained model to export. This specifies which version of the trained model should be exported to the specified destination.</p>
+   * @public
+   */
+  trainedModelVersionIdentifier?: string | undefined;
 
   /**
    * <p>The membership ID of the member that is receiving the exported trained model artifacts.</p>
@@ -4969,6 +5018,12 @@ export interface GetTrainedModelInferenceJobResponse {
   trainedModelArn: string | undefined;
 
   /**
+   * <p>The version identifier of the trained model used for this inference job. This identifies the specific version of the trained model that was used to generate the inference results.</p>
+   * @public
+   */
+  trainedModelVersionIdentifier?: string | undefined;
+
+  /**
    * <p>The resource configuration information for the trained model inference job.</p>
    * @public
    */
@@ -5053,31 +5108,7 @@ export interface GetTrainedModelInferenceJobResponse {
   logsStatusDetails?: string | undefined;
 
   /**
-   * <p>The optional metadata that you applied to the resource to help you categorize and organize them. Each tag consists of a key and an optional value, both of which you define.</p>
-   *          <p>The following basic restrictions apply to tags:</p>
-   *          <ul>
-   *             <li>
-   *                <p>Maximum number of tags per resource - 50.</p>
-   *             </li>
-   *             <li>
-   *                <p>For each resource, each tag key must be unique, and each tag key can have only one value.</p>
-   *             </li>
-   *             <li>
-   *                <p>Maximum key length - 128 Unicode characters in UTF-8.</p>
-   *             </li>
-   *             <li>
-   *                <p>Maximum value length - 256 Unicode characters in UTF-8.</p>
-   *             </li>
-   *             <li>
-   *                <p>If your tagging schema is used across multiple services and resources, remember that other services may have restrictions on allowed characters. Generally allowed characters are: letters, numbers, and spaces representable in UTF-8, and the following characters: + - = . _ : / @.</p>
-   *             </li>
-   *             <li>
-   *                <p>Tag keys and values are case sensitive.</p>
-   *             </li>
-   *             <li>
-   *                <p>Do not use aws:, AWS:, or any upper or lowercase combination of such as a prefix for keys as it is reserved for AWS use. You cannot edit or delete tag keys with this prefix. Values can have this prefix. If a tag value has aws as its prefix but the key does not, then Clean Rooms ML considers it to be a user tag and will count against the limit of 50 tags. Tags with only the key prefix of aws do not count against your tags per resource limit.</p>
-   *             </li>
-   *          </ul>
+   * <p>The optional metadata that you applied to the resource to help you categorize and organize them. Each tag consists of a key and an optional value, both of which you define.</p> <p>The following basic restrictions apply to tags:</p> <ul> <li> <p>Maximum number of tags per resource - 50.</p> </li> <li> <p>For each resource, each tag key must be unique, and each tag key can have only one value.</p> </li> <li> <p>Maximum key length - 128 Unicode characters in UTF-8.</p> </li> <li> <p>Maximum value length - 256 Unicode characters in UTF-8.</p> </li> <li> <p>If your tagging schema is used across multiple services and resources, remember that other services may have restrictions on allowed characters. Generally allowed characters are: letters, numbers, and spaces representable in UTF-8, and the following characters: + - = . _ : / @.</p> </li> <li> <p>Tag keys and values are case sensitive.</p> </li> <li> <p>Do not use aws:, AWS:, or any upper or lowercase combination of such as a prefix for keys as it is reserved for AWS use. You cannot edit or delete tag keys with this prefix. Values can have this prefix. If a tag value has aws as its prefix but the key does not, then Clean Rooms ML considers it to be a user tag and will count against the limit of 50 tags. Tags with only the key prefix of aws do not count against your tags per resource limit.</p> </li> </ul>
    * @public
    */
   tags?: Record<string, string> | undefined;
@@ -5110,6 +5141,12 @@ export interface ListTrainedModelInferenceJobsRequest {
    * @public
    */
   trainedModelArn?: string | undefined;
+
+  /**
+   * <p>The version identifier of the trained model to filter inference jobs by. When specified, only inference jobs that used this specific version of the trained model are returned.</p>
+   * @public
+   */
+  trainedModelVersionIdentifier?: string | undefined;
 }
 
 /**
@@ -5140,6 +5177,12 @@ export interface TrainedModelInferenceJobSummary {
    * @public
    */
   trainedModelArn: string | undefined;
+
+  /**
+   * <p>The version identifier of the trained model that was used for inference in this job.</p>
+   * @public
+   */
+  trainedModelVersionIdentifier?: string | undefined;
 
   /**
    * <p>The collaboration ID of the collaboration that contains the trained model inference job.</p>
@@ -5248,6 +5291,12 @@ export interface StartTrainedModelInferenceJobRequest {
   trainedModelArn: string | undefined;
 
   /**
+   * <p>The version identifier of the trained model to use for inference. This specifies which version of the trained model should be used to generate predictions on the input data.</p>
+   * @public
+   */
+  trainedModelVersionIdentifier?: string | undefined;
+
+  /**
    * <p>The Amazon Resource Name (ARN) of the configured model algorithm association that is used for this trained model inference job.</p>
    * @public
    */
@@ -5296,31 +5345,7 @@ export interface StartTrainedModelInferenceJobRequest {
   kmsKeyArn?: string | undefined;
 
   /**
-   * <p>The optional metadata that you apply to the resource to help you categorize and organize them. Each tag consists of a key and an optional value, both of which you define.</p>
-   *          <p>The following basic restrictions apply to tags:</p>
-   *          <ul>
-   *             <li>
-   *                <p>Maximum number of tags per resource - 50.</p>
-   *             </li>
-   *             <li>
-   *                <p>For each resource, each tag key must be unique, and each tag key can have only one value.</p>
-   *             </li>
-   *             <li>
-   *                <p>Maximum key length - 128 Unicode characters in UTF-8.</p>
-   *             </li>
-   *             <li>
-   *                <p>Maximum value length - 256 Unicode characters in UTF-8.</p>
-   *             </li>
-   *             <li>
-   *                <p>If your tagging schema is used across multiple services and resources, remember that other services may have restrictions on allowed characters. Generally allowed characters are: letters, numbers, and spaces representable in UTF-8, and the following characters: + - = . _ : / @.</p>
-   *             </li>
-   *             <li>
-   *                <p>Tag keys and values are case sensitive.</p>
-   *             </li>
-   *             <li>
-   *                <p>Do not use aws:, AWS:, or any upper or lowercase combination of such as a prefix for keys as it is reserved for AWS use. You cannot edit or delete tag keys with this prefix. Values can have this prefix. If a tag value has aws as its prefix but the key does not, then Clean Rooms ML considers it to be a user tag and will count against the limit of 50 tags. Tags with only the key prefix of aws do not count against your tags per resource limit.</p>
-   *             </li>
-   *          </ul>
+   * <p>The optional metadata that you apply to the resource to help you categorize and organize them. Each tag consists of a key and an optional value, both of which you define.</p> <p>The following basic restrictions apply to tags:</p> <ul> <li> <p>Maximum number of tags per resource - 50.</p> </li> <li> <p>For each resource, each tag key must be unique, and each tag key can have only one value.</p> </li> <li> <p>Maximum key length - 128 Unicode characters in UTF-8.</p> </li> <li> <p>Maximum value length - 256 Unicode characters in UTF-8.</p> </li> <li> <p>If your tagging schema is used across multiple services and resources, remember that other services may have restrictions on allowed characters. Generally allowed characters are: letters, numbers, and spaces representable in UTF-8, and the following characters: + - = . _ : / @.</p> </li> <li> <p>Tag keys and values are case sensitive.</p> </li> <li> <p>Do not use aws:, AWS:, or any upper or lowercase combination of such as a prefix for keys as it is reserved for AWS use. You cannot edit or delete tag keys with this prefix. Values can have this prefix. If a tag value has aws as its prefix but the key does not, then Clean Rooms ML considers it to be a user tag and will count against the limit of 50 tags. Tags with only the key prefix of aws do not count against your tags per resource limit.</p> </li> </ul>
    * @public
    */
   tags?: Record<string, string> | undefined;
@@ -5468,8 +5493,7 @@ export interface CreateTrainingDatasetRequest {
   name: string | undefined;
 
   /**
-   * <p>The ARN of the IAM role that Clean Rooms ML can assume to read the data referred to in the <code>dataSource</code> field of each dataset.</p>
-   *          <p>Passing a role across AWS accounts is not allowed. If you pass a role that isn't in your account, you get an <code>AccessDeniedException</code> error.</p>
+   * <p>The ARN of the IAM role that Clean Rooms ML can assume to read the data referred to in the <code>dataSource</code> field of each dataset.</p> <p>Passing a role across AWS accounts is not allowed. If you pass a role that isn't in your account, you get an <code>AccessDeniedException</code> error.</p>
    * @public
    */
   roleArn: string | undefined;
@@ -5481,31 +5505,7 @@ export interface CreateTrainingDatasetRequest {
   trainingData: Dataset[] | undefined;
 
   /**
-   * <p>The optional metadata that you apply to the resource to help you categorize and organize them. Each tag consists of a key and an optional value, both of which you define.</p>
-   *          <p>The following basic restrictions apply to tags:</p>
-   *          <ul>
-   *             <li>
-   *                <p>Maximum number of tags per resource - 50.</p>
-   *             </li>
-   *             <li>
-   *                <p>For each resource, each tag key must be unique, and each tag key can have only one value.</p>
-   *             </li>
-   *             <li>
-   *                <p>Maximum key length - 128 Unicode characters in UTF-8.</p>
-   *             </li>
-   *             <li>
-   *                <p>Maximum value length - 256 Unicode characters in UTF-8.</p>
-   *             </li>
-   *             <li>
-   *                <p>If your tagging schema is used across multiple services and resources, remember that other services may have restrictions on allowed characters. Generally allowed characters are: letters, numbers, and spaces representable in UTF-8, and the following characters: + - = . _ : / @.</p>
-   *             </li>
-   *             <li>
-   *                <p>Tag keys and values are case sensitive.</p>
-   *             </li>
-   *             <li>
-   *                <p>Do not use aws:, AWS:, or any upper or lowercase combination of such as a prefix for keys as it is reserved for AWS use. You cannot edit or delete tag keys with this prefix. Values can have this prefix. If a tag value has aws as its prefix but the key does not, then Clean Rooms ML considers it to be a user tag and will count against the limit of 50 tags. Tags with only the key prefix of aws do not count against your tags per resource limit.</p>
-   *             </li>
-   *          </ul>
+   * <p>The optional metadata that you apply to the resource to help you categorize and organize them. Each tag consists of a key and an optional value, both of which you define.</p> <p>The following basic restrictions apply to tags:</p> <ul> <li> <p>Maximum number of tags per resource - 50.</p> </li> <li> <p>For each resource, each tag key must be unique, and each tag key can have only one value.</p> </li> <li> <p>Maximum key length - 128 Unicode characters in UTF-8.</p> </li> <li> <p>Maximum value length - 256 Unicode characters in UTF-8.</p> </li> <li> <p>If your tagging schema is used across multiple services and resources, remember that other services may have restrictions on allowed characters. Generally allowed characters are: letters, numbers, and spaces representable in UTF-8, and the following characters: + - = . _ : / @.</p> </li> <li> <p>Tag keys and values are case sensitive.</p> </li> <li> <p>Do not use aws:, AWS:, or any upper or lowercase combination of such as a prefix for keys as it is reserved for AWS use. You cannot edit or delete tag keys with this prefix. Values can have this prefix. If a tag value has aws as its prefix but the key does not, then Clean Rooms ML considers it to be a user tag and will count against the limit of 50 tags. Tags with only the key prefix of aws do not count against your tags per resource limit.</p> </li> </ul>
    * @public
    */
   tags?: Record<string, string> | undefined;

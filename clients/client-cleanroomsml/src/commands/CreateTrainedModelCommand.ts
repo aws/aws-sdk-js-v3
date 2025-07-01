@@ -53,12 +53,21 @@ export interface CreateTrainedModelCommandOutput extends CreateTrainedModelRespo
  *   stoppingCondition: { // StoppingCondition
  *     maxRuntimeInSeconds: Number("int"),
  *   },
+ *   incrementalTrainingDataChannels: [ // IncrementalTrainingDataChannels
+ *     { // IncrementalTrainingDataChannel
+ *       trainedModelArn: "STRING_VALUE", // required
+ *       versionIdentifier: "STRING_VALUE",
+ *       channelName: "STRING_VALUE", // required
+ *     },
+ *   ],
  *   dataChannels: [ // ModelTrainingDataChannels // required
  *     { // ModelTrainingDataChannel
  *       mlInputChannelArn: "STRING_VALUE", // required
  *       channelName: "STRING_VALUE", // required
+ *       s3DataDistributionType: "FullyReplicated" || "ShardedByS3Key",
  *     },
  *   ],
+ *   trainingInputMode: "File" || "FastFile" || "Pipe",
  *   description: "STRING_VALUE",
  *   kmsKeyArn: "STRING_VALUE",
  *   tags: { // TagMap
@@ -69,6 +78,7 @@ export interface CreateTrainedModelCommandOutput extends CreateTrainedModelRespo
  * const response = await client.send(command);
  * // { // CreateTrainedModelResponse
  * //   trainedModelArn: "STRING_VALUE", // required
+ * //   versionIdentifier: "STRING_VALUE",
  * // };
  *
  * ```
@@ -85,11 +95,17 @@ export interface CreateTrainedModelCommandOutput extends CreateTrainedModelRespo
  * @throws {@link ConflictException} (client fault)
  *  <p>You can't complete this action because another resource depends on this resource.</p>
  *
+ * @throws {@link InternalServiceException} (server fault)
+ *  <p>An internal service error occurred. Retry your request. If the problem persists, contact AWS Support.</p>
+ *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The resource you are requesting does not exist.</p>
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
  *  <p>You have exceeded your service quota.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was denied due to request throttling.</p>
  *
  * @throws {@link ValidationException} (client fault)
  *  <p>The request parameters for this request are incorrect.</p>

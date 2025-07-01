@@ -38,6 +38,7 @@ export interface CancelTrainedModelCommandOutput extends __MetadataBearer {}
  * const input = { // CancelTrainedModelRequest
  *   membershipIdentifier: "STRING_VALUE", // required
  *   trainedModelArn: "STRING_VALUE", // required
+ *   versionIdentifier: "STRING_VALUE",
  * };
  * const command = new CancelTrainedModelCommand(input);
  * const response = await client.send(command);
@@ -59,6 +60,9 @@ export interface CancelTrainedModelCommandOutput extends __MetadataBearer {}
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The resource you are requesting does not exist.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was denied due to request throttling.</p>
  *
  * @throws {@link ValidationException} (client fault)
  *  <p>The request parameters for this request are incorrect.</p>

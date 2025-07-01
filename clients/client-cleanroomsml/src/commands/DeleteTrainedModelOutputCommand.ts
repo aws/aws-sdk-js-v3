@@ -28,7 +28,7 @@ export interface DeleteTrainedModelOutputCommandInput extends DeleteTrainedModel
 export interface DeleteTrainedModelOutputCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Deletes the output of a trained model.</p>
+ * <p>Deletes the model artifacts stored by the service.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -38,6 +38,7 @@ export interface DeleteTrainedModelOutputCommandOutput extends __MetadataBearer 
  * const input = { // DeleteTrainedModelOutputRequest
  *   trainedModelArn: "STRING_VALUE", // required
  *   membershipIdentifier: "STRING_VALUE", // required
+ *   versionIdentifier: "STRING_VALUE",
  * };
  * const command = new DeleteTrainedModelOutputCommand(input);
  * const response = await client.send(command);
@@ -59,6 +60,9 @@ export interface DeleteTrainedModelOutputCommandOutput extends __MetadataBearer 
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The resource you are requesting does not exist.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was denied due to request throttling.</p>
  *
  * @throws {@link ValidationException} (client fault)
  *  <p>The request parameters for this request are incorrect.</p>

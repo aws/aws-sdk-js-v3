@@ -6,8 +6,8 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { CleanRoomsMLClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CleanRoomsMLClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ListTrainedModelsRequest, ListTrainedModelsResponse } from "../models/models_0";
-import { de_ListTrainedModelsCommand, se_ListTrainedModelsCommand } from "../protocols/Aws_restJson1";
+import { ListTrainedModelVersionsRequest, ListTrainedModelVersionsResponse } from "../models/models_0";
+import { de_ListTrainedModelVersionsCommand, se_ListTrainedModelVersionsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -17,32 +17,34 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link ListTrainedModelsCommand}.
+ * The input for {@link ListTrainedModelVersionsCommand}.
  */
-export interface ListTrainedModelsCommandInput extends ListTrainedModelsRequest {}
+export interface ListTrainedModelVersionsCommandInput extends ListTrainedModelVersionsRequest {}
 /**
  * @public
  *
- * The output of {@link ListTrainedModelsCommand}.
+ * The output of {@link ListTrainedModelVersionsCommand}.
  */
-export interface ListTrainedModelsCommandOutput extends ListTrainedModelsResponse, __MetadataBearer {}
+export interface ListTrainedModelVersionsCommandOutput extends ListTrainedModelVersionsResponse, __MetadataBearer {}
 
 /**
- * <p>Returns a list of trained models.</p>
+ * <p>Returns a list of trained model versions for a specified trained model. This operation allows you to view all versions of a trained model, including information about their status and creation details. You can use this to track the evolution of your trained models and select specific versions for inference or further training.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CleanRoomsMLClient, ListTrainedModelsCommand } from "@aws-sdk/client-cleanroomsml"; // ES Modules import
- * // const { CleanRoomsMLClient, ListTrainedModelsCommand } = require("@aws-sdk/client-cleanroomsml"); // CommonJS import
+ * import { CleanRoomsMLClient, ListTrainedModelVersionsCommand } from "@aws-sdk/client-cleanroomsml"; // ES Modules import
+ * // const { CleanRoomsMLClient, ListTrainedModelVersionsCommand } = require("@aws-sdk/client-cleanroomsml"); // CommonJS import
  * const client = new CleanRoomsMLClient(config);
- * const input = { // ListTrainedModelsRequest
+ * const input = { // ListTrainedModelVersionsRequest
  *   nextToken: "STRING_VALUE",
  *   maxResults: Number("int"),
  *   membershipIdentifier: "STRING_VALUE", // required
+ *   trainedModelArn: "STRING_VALUE", // required
+ *   status: "CREATE_PENDING" || "CREATE_IN_PROGRESS" || "CREATE_FAILED" || "ACTIVE" || "DELETE_PENDING" || "DELETE_IN_PROGRESS" || "DELETE_FAILED" || "INACTIVE" || "CANCEL_PENDING" || "CANCEL_IN_PROGRESS" || "CANCEL_FAILED",
  * };
- * const command = new ListTrainedModelsCommand(input);
+ * const command = new ListTrainedModelVersionsCommand(input);
  * const response = await client.send(command);
- * // { // ListTrainedModelsResponse
+ * // { // ListTrainedModelVersionsResponse
  * //   nextToken: "STRING_VALUE",
  * //   trainedModels: [ // TrainedModelList // required
  * //     { // TrainedModelSummary
@@ -69,14 +71,17 @@ export interface ListTrainedModelsCommandOutput extends ListTrainedModelsRespons
  *
  * ```
  *
- * @param ListTrainedModelsCommandInput - {@link ListTrainedModelsCommandInput}
- * @returns {@link ListTrainedModelsCommandOutput}
- * @see {@link ListTrainedModelsCommandInput} for command's `input` shape.
- * @see {@link ListTrainedModelsCommandOutput} for command's `response` shape.
+ * @param ListTrainedModelVersionsCommandInput - {@link ListTrainedModelVersionsCommandInput}
+ * @returns {@link ListTrainedModelVersionsCommandOutput}
+ * @see {@link ListTrainedModelVersionsCommandInput} for command's `input` shape.
+ * @see {@link ListTrainedModelVersionsCommandOutput} for command's `response` shape.
  * @see {@link CleanRoomsMLClientResolvedConfig | config} for CleanRoomsMLClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
  *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The resource you are requesting does not exist.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request was denied due to request throttling.</p>
@@ -90,10 +95,10 @@ export interface ListTrainedModelsCommandOutput extends ListTrainedModelsRespons
  *
  * @public
  */
-export class ListTrainedModelsCommand extends $Command
+export class ListTrainedModelVersionsCommand extends $Command
   .classBuilder<
-    ListTrainedModelsCommandInput,
-    ListTrainedModelsCommandOutput,
+    ListTrainedModelVersionsCommandInput,
+    ListTrainedModelVersionsCommandOutput,
     CleanRoomsMLClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -105,21 +110,21 @@ export class ListTrainedModelsCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("AWSStarkControlService", "ListTrainedModels", {})
-  .n("CleanRoomsMLClient", "ListTrainedModelsCommand")
+  .s("AWSStarkControlService", "ListTrainedModelVersions", {})
+  .n("CleanRoomsMLClient", "ListTrainedModelVersionsCommand")
   .f(void 0, void 0)
-  .ser(se_ListTrainedModelsCommand)
-  .de(de_ListTrainedModelsCommand)
+  .ser(se_ListTrainedModelVersionsCommand)
+  .de(de_ListTrainedModelVersionsCommand)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: ListTrainedModelsRequest;
-      output: ListTrainedModelsResponse;
+      input: ListTrainedModelVersionsRequest;
+      output: ListTrainedModelVersionsResponse;
     };
     sdk: {
-      input: ListTrainedModelsCommandInput;
-      output: ListTrainedModelsCommandOutput;
+      input: ListTrainedModelVersionsCommandInput;
+      output: ListTrainedModelVersionsCommandOutput;
     };
   };
 }

@@ -194,6 +194,10 @@ import {
 } from "../commands/ListTrainedModelInferenceJobsCommand";
 import { ListTrainedModelsCommandInput, ListTrainedModelsCommandOutput } from "../commands/ListTrainedModelsCommand";
 import {
+  ListTrainedModelVersionsCommandInput,
+  ListTrainedModelVersionsCommandOutput,
+} from "../commands/ListTrainedModelVersionsCommand";
+import {
   ListTrainingDatasetsCommandInput,
   ListTrainingDatasetsCommandOutput,
 } from "../commands/ListTrainingDatasetsCommand";
@@ -254,6 +258,7 @@ import {
   DataSource,
   Destination,
   GlueDataSource,
+  IncrementalTrainingDataChannel,
   InferenceContainerConfig,
   InferenceContainerExecutionParameters,
   InferenceOutputConfiguration,
@@ -261,6 +266,7 @@ import {
   InferenceResourceConfig,
   InputChannel,
   InputChannelDataSource,
+  InternalServiceException,
   LogsConfigurationPolicy,
   MetricDefinition,
   MetricsConfigurationPolicy,
@@ -279,6 +285,8 @@ import {
   ServiceQuotaExceededException,
   SharedAudienceMetrics,
   StoppingCondition,
+  ThrottlingException,
+  TrainedModelArtifactMaxSize,
   TrainedModelExportFileType,
   TrainedModelExportOutputConfiguration,
   TrainedModelExportReceiverMember,
@@ -306,8 +314,11 @@ export const se_CancelTrainedModelCommand = async (
   b.bp("/memberships/{membershipIdentifier}/trained-models/{trainedModelArn}");
   b.p("membershipIdentifier", () => input.membershipIdentifier!, "{membershipIdentifier}", false);
   b.p("trainedModelArn", () => input.trainedModelArn!, "{trainedModelArn}", false);
+  const query: any = map({
+    [_vI]: [, input[_vI]!],
+  });
   let body: any;
-  b.m("PATCH").h(headers).b(body);
+  b.m("PATCH").h(headers).q(query).b(body);
   return b.build();
 };
 
@@ -491,11 +502,13 @@ export const se_CreateTrainedModelCommand = async (
       description: [],
       environment: (_) => _json(_),
       hyperparameters: (_) => _json(_),
+      incrementalTrainingDataChannels: (_) => _json(_),
       kmsKeyArn: [],
       name: [],
       resourceConfig: (_) => _json(_),
       stoppingCondition: (_) => _json(_),
       tags: (_) => _json(_),
+      trainingInputMode: [],
     })
   );
   b.m("POST").h(headers).b(body);
@@ -677,8 +690,11 @@ export const se_DeleteTrainedModelOutputCommand = async (
   b.bp("/memberships/{membershipIdentifier}/trained-models/{trainedModelArn}");
   b.p("trainedModelArn", () => input.trainedModelArn!, "{trainedModelArn}", false);
   b.p("membershipIdentifier", () => input.membershipIdentifier!, "{membershipIdentifier}", false);
+  const query: any = map({
+    [_vI]: [, input[_vI]!],
+  });
   let body: any;
-  b.m("DELETE").h(headers).b(body);
+  b.m("DELETE").h(headers).q(query).b(body);
   return b.build();
 };
 
@@ -783,8 +799,11 @@ export const se_GetCollaborationTrainedModelCommand = async (
   b.bp("/collaborations/{collaborationIdentifier}/trained-models/{trainedModelArn}");
   b.p("trainedModelArn", () => input.trainedModelArn!, "{trainedModelArn}", false);
   b.p("collaborationIdentifier", () => input.collaborationIdentifier!, "{collaborationIdentifier}", false);
+  const query: any = map({
+    [_vI]: [, input[_vI]!],
+  });
   let body: any;
-  b.m("GET").h(headers).b(body);
+  b.m("GET").h(headers).q(query).b(body);
   return b.build();
 };
 
@@ -905,8 +924,11 @@ export const se_GetTrainedModelCommand = async (
   b.bp("/memberships/{membershipIdentifier}/trained-models/{trainedModelArn}");
   b.p("trainedModelArn", () => input.trainedModelArn!, "{trainedModelArn}", false);
   b.p("membershipIdentifier", () => input.membershipIdentifier!, "{membershipIdentifier}", false);
+  const query: any = map({
+    [_vI]: [, input[_vI]!],
+  });
   let body: any;
-  b.m("GET").h(headers).b(body);
+  b.m("GET").h(headers).q(query).b(body);
   return b.build();
 };
 
@@ -1058,6 +1080,7 @@ export const se_ListCollaborationTrainedModelExportJobsCommand = async (
   const query: any = map({
     [_nT]: [, input[_nT]!],
     [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
+    [_tMVI]: [, input[_tMVI]!],
   });
   let body: any;
   b.m("GET").h(headers).q(query).b(body);
@@ -1079,6 +1102,7 @@ export const se_ListCollaborationTrainedModelInferenceJobsCommand = async (
     [_nT]: [, input[_nT]!],
     [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
     [_tMA]: [, input[_tMA]!],
+    [_tMVI]: [, input[_tMVI]!],
   });
   let body: any;
   b.m("GET").h(headers).q(query).b(body);
@@ -1214,6 +1238,7 @@ export const se_ListTrainedModelInferenceJobsCommand = async (
     [_nT]: [, input[_nT]!],
     [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
     [_tMA]: [, input[_tMA]!],
+    [_tMVI]: [, input[_tMVI]!],
   });
   let body: any;
   b.m("GET").h(headers).q(query).b(body);
@@ -1234,6 +1259,28 @@ export const se_ListTrainedModelsCommand = async (
   const query: any = map({
     [_nT]: [, input[_nT]!],
     [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
+  });
+  let body: any;
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1ListTrainedModelVersionsCommand
+ */
+export const se_ListTrainedModelVersionsCommand = async (
+  input: ListTrainedModelVersionsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/memberships/{membershipIdentifier}/trained-models/{trainedModelArn}/versions");
+  b.p("membershipIdentifier", () => input.membershipIdentifier!, "{membershipIdentifier}", false);
+  b.p("trainedModelArn", () => input.trainedModelArn!, "{trainedModelArn}", false);
+  const query: any = map({
+    [_nT]: [, input[_nT]!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
+    [_s]: [, input[_s]!],
   });
   let body: any;
   b.m("GET").h(headers).q(query).b(body);
@@ -1380,6 +1427,7 @@ export const se_StartTrainedModelExportJobCommand = async (
       description: [],
       name: [],
       outputConfiguration: (_) => _json(_),
+      trainedModelVersionIdentifier: [],
     })
   );
   b.m("POST").h(headers).b(body);
@@ -1413,6 +1461,7 @@ export const se_StartTrainedModelInferenceJobCommand = async (
       resourceConfig: (_) => _json(_),
       tags: (_) => _json(_),
       trainedModelArn: [],
+      trainedModelVersionIdentifier: [],
     })
   );
   b.m("POST").h(headers).b(body);
@@ -1644,6 +1693,7 @@ export const de_CreateTrainedModelCommand = async (
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
     trainedModelArn: __expectString,
+    versionIdentifier: __expectString,
   });
   Object.assign(contents, doc);
   return contents;
@@ -1990,6 +2040,7 @@ export const de_GetCollaborationTrainedModelCommand = async (
     createTime: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
     creatorAccountId: __expectString,
     description: __expectString,
+    incrementalTrainingDataChannels: _json,
     logsStatus: __expectString,
     logsStatusDetails: __expectString,
     membershipIdentifier: __expectString,
@@ -2002,7 +2053,9 @@ export const de_GetCollaborationTrainedModelCommand = async (
     stoppingCondition: _json,
     trainedModelArn: __expectString,
     trainingContainerImageDigest: __expectString,
+    trainingInputMode: __expectString,
     updateTime: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    versionIdentifier: __expectString,
   });
   Object.assign(contents, doc);
   return contents;
@@ -2208,6 +2261,7 @@ export const de_GetTrainedModelCommand = async (
     description: __expectString,
     environment: _json,
     hyperparameters: _json,
+    incrementalTrainingDataChannels: _json,
     kmsKeyArn: __expectString,
     logsStatus: __expectString,
     logsStatusDetails: __expectString,
@@ -2222,7 +2276,9 @@ export const de_GetTrainedModelCommand = async (
     tags: _json,
     trainedModelArn: __expectString,
     trainingContainerImageDigest: __expectString,
+    trainingInputMode: __expectString,
     updateTime: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    versionIdentifier: __expectString,
   });
   Object.assign(contents, doc);
   return contents;
@@ -2264,6 +2320,7 @@ export const de_GetTrainedModelInferenceJobCommand = async (
     tags: _json,
     trainedModelArn: __expectString,
     trainedModelInferenceJobArn: __expectString,
+    trainedModelVersionIdentifier: __expectString,
     updateTime: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
   });
   Object.assign(contents, doc);
@@ -2630,6 +2687,28 @@ export const de_ListTrainedModelsCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1ListTrainedModelVersionsCommand
+ */
+export const de_ListTrainedModelVersionsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListTrainedModelVersionsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    nextToken: __expectString,
+    trainedModels: (_) => de_TrainedModelList(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1ListTrainingDatasetsCommand
  */
 export const de_ListTrainingDatasetsCommand = async (
@@ -2840,12 +2919,18 @@ const de_CommandError = async (output: __HttpResponse, context: __SerdeContext):
     case "ResourceNotFoundException":
     case "com.amazonaws.cleanroomsml#ResourceNotFoundException":
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.cleanroomsml#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.cleanroomsml#ValidationException":
       throw await de_ValidationExceptionRes(parsedOutput, context);
     case "ServiceQuotaExceededException":
     case "com.amazonaws.cleanroomsml#ServiceQuotaExceededException":
       throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
+    case "InternalServiceException":
+    case "com.amazonaws.cleanroomsml#InternalServiceException":
+      throw await de_InternalServiceExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
@@ -2895,6 +2980,26 @@ const de_ConflictExceptionRes = async (parsedOutput: any, context: __SerdeContex
 };
 
 /**
+ * deserializeAws_restJson1InternalServiceExceptionRes
+ */
+const de_InternalServiceExceptionRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<InternalServiceException> => {
+  const contents: any = map({});
+  const data: any = parsedOutput.body;
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
+  const exception = new InternalServiceException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
+};
+
+/**
  * deserializeAws_restJson1ResourceNotFoundExceptionRes
  */
 const de_ResourceNotFoundExceptionRes = async (
@@ -2925,9 +3030,28 @@ const de_ServiceQuotaExceededExceptionRes = async (
   const data: any = parsedOutput.body;
   const doc = take(data, {
     message: __expectString,
+    quotaName: __expectString,
+    quotaValue: __limitedParseDouble,
   });
   Object.assign(contents, doc);
   const exception = new ServiceQuotaExceededException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
+};
+
+/**
+ * deserializeAws_restJson1ThrottlingExceptionRes
+ */
+const de_ThrottlingExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ThrottlingException> => {
+  const contents: any = map({});
+  const data: any = parsedOutput.body;
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
+  const exception = new ThrottlingException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
   });
@@ -2997,6 +3121,10 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 
 // se_HyperParameters omitted.
 
+// se_IncrementalTrainingDataChannel omitted.
+
+// se_IncrementalTrainingDataChannels omitted.
+
 // se_InferenceContainerConfig omitted.
 
 // se_InferenceContainerExecutionParameters omitted.
@@ -3053,7 +3181,7 @@ const se_PrivacyConfigurationPolicies = (input: PrivacyConfigurationPolicies, co
   return take(input, {
     trainedModelExports: (_) => se_TrainedModelExportsConfigurationPolicy(_, context),
     trainedModelInferenceJobs: (_) => se_TrainedModelInferenceJobsConfigurationPolicy(_, context),
-    trainedModels: _json,
+    trainedModels: (_) => se_TrainedModelsConfigurationPolicy(_, context),
   });
 };
 
@@ -3068,6 +3196,16 @@ const se_PrivacyConfigurationPolicies = (input: PrivacyConfigurationPolicies, co
 // se_StoppingCondition omitted.
 
 // se_TagMap omitted.
+
+/**
+ * serializeAws_restJson1TrainedModelArtifactMaxSize
+ */
+const se_TrainedModelArtifactMaxSize = (input: TrainedModelArtifactMaxSize, context: __SerdeContext): any => {
+  return take(input, {
+    unit: [],
+    value: __serializeFloat,
+  });
+};
 
 // se_TrainedModelExportFileTypeList omitted.
 
@@ -3126,7 +3264,16 @@ const se_TrainedModelInferenceMaxOutputSize = (
   });
 };
 
-// se_TrainedModelsConfigurationPolicy omitted.
+/**
+ * serializeAws_restJson1TrainedModelsConfigurationPolicy
+ */
+const se_TrainedModelsConfigurationPolicy = (input: TrainedModelsConfigurationPolicy, context: __SerdeContext): any => {
+  return take(input, {
+    containerLogs: _json,
+    containerMetrics: _json,
+    maxArtifactSize: (_) => se_TrainedModelArtifactMaxSize(_, context),
+  });
+};
 
 // se_WorkerComputeConfiguration omitted.
 
@@ -3341,6 +3488,7 @@ const de_CollaborationTrainedModelExportJobSummary = (
     status: __expectString,
     statusDetails: _json,
     trainedModelArn: __expectString,
+    trainedModelVersionIdentifier: __expectString,
     updateTime: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
   }) as any;
 };
@@ -3383,6 +3531,7 @@ const de_CollaborationTrainedModelInferenceJobSummary = (
     status: __expectString,
     trainedModelArn: __expectString,
     trainedModelInferenceJobArn: __expectString,
+    trainedModelVersionIdentifier: __expectString,
     updateTime: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
   }) as any;
 };
@@ -3412,11 +3561,13 @@ const de_CollaborationTrainedModelSummary = (
     createTime: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
     creatorAccountId: __expectString,
     description: __expectString,
+    incrementalTrainingDataChannels: _json,
     membershipIdentifier: __expectString,
     name: __expectString,
     status: __expectString,
     trainedModelArn: __expectString,
     updateTime: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    versionIdentifier: __expectString,
   }) as any;
 };
 
@@ -3541,6 +3692,10 @@ const de_ConfiguredModelAlgorithmSummary = (output: any, context: __SerdeContext
 
 // de_HyperParameters omitted.
 
+// de_IncrementalTrainingDataChannelOutput omitted.
+
+// de_IncrementalTrainingDataChannelsOutput omitted.
+
 // de_InferenceContainerConfig omitted.
 
 // de_InferenceContainerExecutionParameters omitted.
@@ -3627,7 +3782,7 @@ const de_PrivacyConfigurationPolicies = (output: any, context: __SerdeContext): 
   return take(output, {
     trainedModelExports: (_: any) => de_TrainedModelExportsConfigurationPolicy(_, context),
     trainedModelInferenceJobs: (_: any) => de_TrainedModelInferenceJobsConfigurationPolicy(_, context),
-    trainedModels: _json,
+    trainedModels: (_: any) => de_TrainedModelsConfigurationPolicy(_, context),
   }) as any;
 };
 
@@ -3666,6 +3821,16 @@ const de_RelevanceMetrics = (output: any, context: __SerdeContext): RelevanceMet
 // de_StoppingCondition omitted.
 
 // de_TagMap omitted.
+
+/**
+ * deserializeAws_restJson1TrainedModelArtifactMaxSize
+ */
+const de_TrainedModelArtifactMaxSize = (output: any, context: __SerdeContext): TrainedModelArtifactMaxSize => {
+  return take(output, {
+    unit: __expectString,
+    value: __limitedParseDouble,
+  }) as any;
+};
 
 // de_TrainedModelExportFileTypeList omitted.
 
@@ -3742,6 +3907,7 @@ const de_TrainedModelInferenceJobSummary = (output: any, context: __SerdeContext
     status: __expectString,
     trainedModelArn: __expectString,
     trainedModelInferenceJobArn: __expectString,
+    trainedModelVersionIdentifier: __expectString,
     updateTime: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
   }) as any;
 };
@@ -3771,7 +3937,19 @@ const de_TrainedModelList = (output: any, context: __SerdeContext): TrainedModel
   return retVal;
 };
 
-// de_TrainedModelsConfigurationPolicy omitted.
+/**
+ * deserializeAws_restJson1TrainedModelsConfigurationPolicy
+ */
+const de_TrainedModelsConfigurationPolicy = (
+  output: any,
+  context: __SerdeContext
+): TrainedModelsConfigurationPolicy => {
+  return take(output, {
+    containerLogs: _json,
+    containerMetrics: _json,
+    maxArtifactSize: (_: any) => de_TrainedModelArtifactMaxSize(_, context),
+  }) as any;
+};
 
 /**
  * deserializeAws_restJson1TrainedModelSummary
@@ -3782,11 +3960,13 @@ const de_TrainedModelSummary = (output: any, context: __SerdeContext): TrainedMo
     configuredModelAlgorithmAssociationArn: __expectString,
     createTime: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
     description: __expectString,
+    incrementalTrainingDataChannels: _json,
     membershipIdentifier: __expectString,
     name: __expectString,
     status: __expectString,
     trainedModelArn: __expectString,
     updateTime: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    versionIdentifier: __expectString,
   }) as any;
 };
 
@@ -3835,5 +4015,8 @@ const _cAMA = "configuredAudienceModelArn";
 const _cI = "collaborationId";
 const _mR = "maxResults";
 const _nT = "nextToken";
+const _s = "status";
 const _tK = "tagKeys";
 const _tMA = "trainedModelArn";
+const _tMVI = "trainedModelVersionIdentifier";
+const _vI = "versionIdentifier";

@@ -55,6 +55,14 @@ export interface ListCollaborationTrainedModelsCommandOutput
  * //       updateTime: new Date("TIMESTAMP"), // required
  * //       trainedModelArn: "STRING_VALUE", // required
  * //       name: "STRING_VALUE", // required
+ * //       versionIdentifier: "STRING_VALUE",
+ * //       incrementalTrainingDataChannels: [ // IncrementalTrainingDataChannelsOutput
+ * //         { // IncrementalTrainingDataChannelOutput
+ * //           channelName: "STRING_VALUE", // required
+ * //           versionIdentifier: "STRING_VALUE",
+ * //           modelName: "STRING_VALUE", // required
+ * //         },
+ * //       ],
  * //       description: "STRING_VALUE",
  * //       membershipIdentifier: "STRING_VALUE", // required
  * //       collaborationIdentifier: "STRING_VALUE", // required
@@ -75,6 +83,9 @@ export interface ListCollaborationTrainedModelsCommandOutput
  *
  * @throws {@link AccessDeniedException} (client fault)
  *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was denied due to request throttling.</p>
  *
  * @throws {@link ValidationException} (client fault)
  *  <p>The request parameters for this request are incorrect.</p>

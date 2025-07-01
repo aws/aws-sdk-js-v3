@@ -13,5 +13,6 @@ export * from "./ListConfiguredModelAlgorithmAssociationsPaginator";
 export * from "./ListConfiguredModelAlgorithmsPaginator";
 export * from "./ListMLInputChannelsPaginator";
 export * from "./ListTrainedModelInferenceJobsPaginator";
+export * from "./ListTrainedModelVersionsPaginator";
 export * from "./ListTrainedModelsPaginator";
 export * from "./ListTrainingDatasetsPaginator";

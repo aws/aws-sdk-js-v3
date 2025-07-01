@@ -38,6 +38,7 @@ export interface StartTrainedModelExportJobCommandOutput extends __MetadataBeare
  * const input = { // StartTrainedModelExportJobRequest
  *   name: "STRING_VALUE", // required
  *   trainedModelArn: "STRING_VALUE", // required
+ *   trainedModelVersionIdentifier: "STRING_VALUE",
  *   membershipIdentifier: "STRING_VALUE", // required
  *   outputConfiguration: { // TrainedModelExportOutputConfiguration
  *     members: [ // TrainedModelExportReceiverMembers // required
@@ -68,6 +69,9 @@ export interface StartTrainedModelExportJobCommandOutput extends __MetadataBeare
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The resource you are requesting does not exist.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was denied due to request throttling.</p>
  *
  * @throws {@link ValidationException} (client fault)
  *  <p>The request parameters for this request are incorrect.</p>
