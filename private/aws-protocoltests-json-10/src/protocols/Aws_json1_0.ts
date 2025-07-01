@@ -80,6 +80,10 @@ import {
   PutWithContentEncodingCommandOutput,
 } from "../commands/PutWithContentEncodingCommand";
 import {
+  QueryIncompatibleOperationCommandInput,
+  QueryIncompatibleOperationCommandOutput,
+} from "../commands/QueryIncompatibleOperationCommand";
+import {
   SimpleScalarPropertiesCommandInput,
   SimpleScalarPropertiesCommandOutput,
 } from "../commands/SimpleScalarPropertiesCommand";
@@ -303,6 +307,18 @@ export const se_PutWithContentEncodingCommand = async (
   const headers: __HeaderBag = sharedHeaders("PutWithContentEncoding");
   let body: any;
   body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_0QueryIncompatibleOperationCommand
+ */
+export const se_QueryIncompatibleOperationCommand = async (
+  input: QueryIncompatibleOperationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("QueryIncompatibleOperation");
+  const body = "{}";
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -579,6 +595,23 @@ export const de_PutWithContentEncodingCommand = async (
   }
   await collectBody(output.body, context);
   const response: PutWithContentEncodingCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_0QueryIncompatibleOperationCommand
+ */
+export const de_QueryIncompatibleOperationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<QueryIncompatibleOperationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  await collectBody(output.body, context);
+  const response: QueryIncompatibleOperationCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;

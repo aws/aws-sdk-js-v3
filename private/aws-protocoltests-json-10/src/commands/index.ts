@@ -13,4 +13,5 @@ export * from "./OperationWithNestedStructureCommand";
 export * from "./OperationWithRequiredMembersCommand";
 export * from "./OperationWithRequiredMembersWithDefaultsCommand";
 export * from "./PutWithContentEncodingCommand";
+export * from "./QueryIncompatibleOperationCommand";
 export * from "./SimpleScalarPropertiesCommand";
