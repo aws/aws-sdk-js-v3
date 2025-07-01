@@ -612,7 +612,7 @@ export interface UpdateClusterRequest {
    * <p>Specify the instance groups to update.</p>
    * @public
    */
-  InstanceGroups: ClusterInstanceGroupSpecification[] | undefined;
+  InstanceGroups?: ClusterInstanceGroupSpecification[] | undefined;
 
   /**
    * <p>The node recovery mode to be applied to the SageMaker HyperPod cluster.</p>

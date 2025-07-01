@@ -37,7 +37,7 @@ export interface CreateClusterCommandOutput extends CreateClusterResponse, __Met
  * const client = new SageMakerClient(config);
  * const input = { // CreateClusterRequest
  *   ClusterName: "STRING_VALUE", // required
- *   InstanceGroups: [ // ClusterInstanceGroupSpecifications // required
+ *   InstanceGroups: [ // ClusterInstanceGroupSpecifications
  *     { // ClusterInstanceGroupSpecification
  *       InstanceCount: Number("int"), // required
  *       InstanceGroupName: "STRING_VALUE", // required

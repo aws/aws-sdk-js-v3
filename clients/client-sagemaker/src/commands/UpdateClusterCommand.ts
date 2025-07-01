@@ -37,7 +37,7 @@ export interface UpdateClusterCommandOutput extends UpdateClusterResponse, __Met
  * const client = new SageMakerClient(config);
  * const input = { // UpdateClusterRequest
  *   ClusterName: "STRING_VALUE", // required
- *   InstanceGroups: [ // ClusterInstanceGroupSpecifications // required
+ *   InstanceGroups: [ // ClusterInstanceGroupSpecifications
  *     { // ClusterInstanceGroupSpecification
  *       InstanceCount: Number("int"), // required
  *       InstanceGroupName: "STRING_VALUE", // required

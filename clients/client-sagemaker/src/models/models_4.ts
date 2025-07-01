@@ -356,7 +356,7 @@ export interface ListClustersRequest {
   CreationTimeBefore?: Date | undefined;
 
   /**
-   * <p>Set the maximum number of SageMaker HyperPod clusters to list.</p>
+   * <p>Specifies the maximum number of clusters to evaluate for the operation (not necessarily the number of matching items). After SageMaker processes the number of clusters up to <code>MaxResults</code>, it stops the operation and returns the matching clusters up to that point. If all the matching clusters are desired, SageMaker will go through all the clusters until <code>NextToken</code> is empty.</p>
    * @public
    */
   MaxResults?: number | undefined;
