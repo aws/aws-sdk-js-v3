@@ -332,7 +332,7 @@ export interface ListTagsForResourceRequest {
 
   /**
    * <p>
-   * The Amazon Resource Name (ARN) of the S3 resource that you want to list the tags for. The tagged resource can be an S3 Storage Lens group or S3 Access Grants instance, registered location, or grant.
+   * The Amazon Resource Name (ARN) of the S3 resource that you want to list tags for. The tagged resource can be a directory bucket, S3 Storage Lens group or S3 Access Grants instance, registered location, or grant.
    * </p>
    * @public
    */
@@ -902,7 +902,7 @@ export interface TagResourceRequest {
   AccountId?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the S3 resource that you're trying to add tags to. The tagged resource can be an S3 Storage Lens group or S3 Access Grants instance, registered location, or grant.</p>
+   * <p>The Amazon Resource Name (ARN) of the S3 resource that you're applying tags to. The tagged resource can be a directory bucket, S3 Storage Lens group or S3 Access Grants instance, registered location, or grant.</p>
    * @public
    */
   ResourceArn: string | undefined;
@@ -934,9 +934,7 @@ export interface UntagResourceRequest {
   AccountId?: string | undefined;
 
   /**
-   * <p>
-   *    The Amazon Resource Name (ARN) of the S3 resource that you're trying to remove the tags from.
-   *    </p>
+   * <p>The Amazon Resource Name (ARN) of the S3 resource that you're removing tags from. The tagged resource can be a directory bucket, S3 Storage Lens group or S3 Access Grants instance, registered location, or grant.</p>
    * @public
    */
   ResourceArn: string | undefined;
