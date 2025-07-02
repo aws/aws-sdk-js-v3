@@ -111,6 +111,7 @@ export interface HeadBucketCommandOutput extends HeadBucketOutput, __MetadataBea
  * const command = new HeadBucketCommand(input);
  * const response = await client.send(command);
  * // { // HeadBucketOutput
+ * //   BucketArn: "STRING_VALUE",
  * //   BucketLocationType: "AvailabilityZone" || "LocalZone",
  * //   BucketLocationName: "STRING_VALUE",
  * //   BucketRegion: "STRING_VALUE",

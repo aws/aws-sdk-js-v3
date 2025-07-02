@@ -1983,6 +1983,15 @@ export interface CreateBucketOutput {
    * @public
    */
   Location?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the S3 bucket. ARNs uniquely identify Amazon Web Services resources across all of Amazon Web Services.</p>
+   *          <note>
+   *             <p>This parameter is only supported for S3 directory buckets. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/directory-buckets-tagging.html">Using tags with directory buckets</a>.</p>
+   *          </note>
+   * @public
+   */
+  BucketArn?: string | undefined;
 }
 
 /**
@@ -2134,6 +2143,24 @@ export const BucketLocationConstraint = {
 export type BucketLocationConstraint = (typeof BucketLocationConstraint)[keyof typeof BucketLocationConstraint];
 
 /**
+ * <p>A container of a key value name pair.</p>
+ * @public
+ */
+export interface Tag {
+  /**
+   * <p>Name of the object key.</p>
+   * @public
+   */
+  Key: string | undefined;
+
+  /**
+   * <p>Value of the tag.</p>
+   * @public
+   */
+  Value: string | undefined;
+}
+
+/**
  * <p>The configuration information for the bucket.</p>
  * @public
  */
@@ -2176,6 +2203,15 @@ export interface CreateBucketConfiguration {
    * @public
    */
   Bucket?: BucketInfo | undefined;
+
+  /**
+   * <p>An array of tags that you can apply to the bucket that you're creating. Tags are key-value pairs of metadata used to categorize and organize your buckets, track costs, and control access. </p>
+   *          <note>
+   *             <p>This parameter is only supported for S3 directory buckets. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/directory-buckets-tagging.html">Using tags with directory buckets</a>.</p>
+   *          </note>
+   * @public
+   */
+  Tags?: Tag[] | undefined;
 }
 
 /**
@@ -6196,24 +6232,6 @@ export interface GetBucketAclRequest {
 }
 
 /**
- * <p>A container of a key value name pair.</p>
- * @public
- */
-export interface Tag {
-  /**
-   * <p>Name of the object key.</p>
-   * @public
-   */
-  Key: string | undefined;
-
-  /**
-   * <p>Value of the tag.</p>
-   * @public
-   */
-  Value: string | undefined;
-}
-
-/**
  * <p>A conjunction (logical AND) of predicates, which is used in evaluating a metrics filter.
  *          The operator must have at least two predicates in any combination, and an object must match
  *          all of the predicates for the filter to apply.</p>
@@ -9002,6 +9020,8 @@ export interface Destination {
    *          object replica. </p>
    *          <p>For valid values, see the <code>StorageClass</code> element of the <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketPUTreplication.html">PUT Bucket
    *             replication</a> action in the <i>Amazon S3 API Reference</i>.</p>
+   *          <p>
+   *             <code>FSX_OPENZFS</code> is not an accepted value when replicating objects.</p>
    * @public
    */
   StorageClass?: StorageClass | undefined;
@@ -11497,6 +11517,15 @@ export interface GetPublicAccessBlockRequest {
  */
 export interface HeadBucketOutput {
   /**
+   * <p>The Amazon Resource Name (ARN) of the S3 bucket. ARNs uniquely identify Amazon Web Services resources across all of Amazon Web Services.</p>
+   *          <note>
+   *             <p>This parameter is only supported for S3 directory buckets. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/directory-buckets-tagging.html">Using tags with directory buckets</a>.</p>
+   *          </note>
+   * @public
+   */
+  BucketArn?: string | undefined;
+
+  /**
    * <p>The type of location where the bucket is created.</p>
    *          <note>
    *             <p>This functionality is only supported by directory buckets.</p>
@@ -12523,6 +12552,15 @@ export interface Bucket {
    * @public
    */
   BucketRegion?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the S3 bucket. ARNs uniquely identify Amazon Web Services resources across all of Amazon Web Services.</p>
+   *          <note>
+   *             <p>This parameter is only supported for S3 directory buckets. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/directory-buckets-tagging.html">Using tags with directory buckets</a>.</p>
+   *          </note>
+   * @public
+   */
+  BucketArn?: string | undefined;
 }
 
 /**
@@ -12936,6 +12974,8 @@ export interface ListMultipartUploadsRequest {
    *          substring starts at the beginning of the key. The keys that are grouped under
    *             <code>CommonPrefixes</code> result element are not returned elsewhere in the
    *          response.</p>
+   *          <p>
+   *             <code>CommonPrefixes</code> is filtered out from results if it is not lexicographically greater than the key-marker.</p>
    *          <note>
    *             <p>
    *                <b>Directory buckets</b> - For directory buckets, <code>/</code> is the only supported delimiter.</p>
@@ -13383,6 +13423,8 @@ export interface ListObjectsRequest {
 
   /**
    * <p>A delimiter is a character that you use to group keys.</p>
+   *          <p>
+   *             <code>CommonPrefixes</code> is filtered out from results if it is not lexicographically greater than the key-marker.</p>
    * @public
    */
   Delimiter?: string | undefined;
@@ -13630,6 +13672,8 @@ export interface ListObjectsV2Request {
 
   /**
    * <p>A delimiter is a character that you use to group keys.</p>
+   *          <p>
+   *             <code>CommonPrefixes</code> is filtered out from results if it is not lexicographically greater than the <code>StartAfter</code> value.</p>
    *          <note>
    *             <ul>
    *                <li>
@@ -14006,6 +14050,8 @@ export interface ListObjectVersionsRequest {
    *          grouped under a single result element in <code>CommonPrefixes</code>. These groups are
    *          counted as one result against the <code>max-keys</code> limitation. These keys are not
    *          returned elsewhere in the response.</p>
+   *          <p>
+   *             <code>CommonPrefixes</code> is filtered out from results if it is not lexicographically greater than the key-marker.</p>
    * @public
    */
   Delimiter?: string | undefined;

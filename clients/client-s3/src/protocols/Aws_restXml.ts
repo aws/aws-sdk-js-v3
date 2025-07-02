@@ -3384,6 +3384,7 @@ export const de_CreateBucketCommand = async (
   const contents: any = map({
     $metadata: deserializeMetadata(output),
     [_L]: [, output.headers[_lo]],
+    [_BA]: [, output.headers[_xaba]],
   });
   await collectBody(output.body, context);
   return contents;
@@ -4490,6 +4491,7 @@ export const de_HeadBucketCommand = async (
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
+    [_BA]: [, output.headers[_xaba]],
     [_BLT]: [, output.headers[_xablt]],
     [_BLN]: [, output.headers[_xabln]],
     [_BR]: [, output.headers[_xabr]],
@@ -6244,6 +6246,7 @@ const se_CreateBucketConfiguration = (input: CreateBucketConfiguration, context:
   if (input[_B] != null) {
     bn.c(se_BucketInfo(input[_B], context).n(_B));
   }
+  bn.lc(input, "Tags", "Tags", () => se_TagSet(input[_Tag]!, context));
   return bn;
 };
 
@@ -8010,6 +8013,9 @@ const de_Bucket = (output: any, context: __SerdeContext): Bucket => {
   }
   if (output[_BR] != null) {
     contents[_BR] = __expectString(output[_BR]);
+  }
+  if (output[_BA] != null) {
+    contents[_BA] = __expectString(output[_BA]);
   }
   return contents;
 };
@@ -10136,6 +10142,7 @@ const _ASSEBD = "ApplyServerSideEncryptionByDefault";
 const _AT = "AccessTier";
 const _Ac = "Account";
 const _B = "Bucket";
+const _BA = "BucketArn";
 const _BAI = "BucketAccountId";
 const _BAS = "BucketAccelerateStatus";
 const _BGR = "BypassGovernanceRetention";
@@ -10678,6 +10685,7 @@ const _xaad = "x-amz-abort-date";
 const _xaapa = "x-amz-access-point-alias";
 const _xaari = "x-amz-abort-rule-id";
 const _xaas = "x-amz-archive-status";
+const _xaba = "x-amz-bucket-arn";
 const _xabgr = "x-amz-bypass-governance-retention";
 const _xabln = "x-amz-bucket-location-name";
 const _xablt = "x-amz-bucket-location-type";

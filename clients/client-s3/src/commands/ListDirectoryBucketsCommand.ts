@@ -76,6 +76,7 @@ export interface ListDirectoryBucketsCommandOutput extends ListDirectoryBucketsO
  * //       Name: "STRING_VALUE",
  * //       CreationDate: new Date("TIMESTAMP"),
  * //       BucketRegion: "STRING_VALUE",
+ * //       BucketArn: "STRING_VALUE",
  * //     },
  * //   ],
  * //   ContinuationToken: "STRING_VALUE",

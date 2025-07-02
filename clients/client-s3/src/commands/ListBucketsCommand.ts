@@ -70,6 +70,7 @@ export interface ListBucketsCommandOutput extends ListBucketsOutput, __MetadataB
  * //       Name: "STRING_VALUE",
  * //       CreationDate: new Date("TIMESTAMP"),
  * //       BucketRegion: "STRING_VALUE",
+ * //       BucketArn: "STRING_VALUE",
  * //     },
  * //   ],
  * //   Owner: { // Owner

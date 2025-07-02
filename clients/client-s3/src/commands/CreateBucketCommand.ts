@@ -213,6 +213,12 @@ export interface CreateBucketCommandOutput extends CreateBucketOutput, __Metadat
  *       DataRedundancy: "SingleAvailabilityZone" || "SingleLocalZone",
  *       Type: "Directory",
  *     },
+ *     Tags: [ // TagSet
+ *       { // Tag
+ *         Key: "STRING_VALUE", // required
+ *         Value: "STRING_VALUE", // required
+ *       },
+ *     ],
  *   },
  *   GrantFullControl: "STRING_VALUE",
  *   GrantRead: "STRING_VALUE",
@@ -226,6 +232,7 @@ export interface CreateBucketCommandOutput extends CreateBucketOutput, __Metadat
  * const response = await client.send(command);
  * // { // CreateBucketOutput
  * //   Location: "STRING_VALUE",
+ * //   BucketArn: "STRING_VALUE",
  * // };
  *
  * ```
