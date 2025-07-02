@@ -1071,8 +1071,8 @@ export interface VpnConnectionOptionsSpecification {
   RemoteIpv6NetworkCidr?: string | undefined;
 
   /**
-   * <p>The type of IPv4 address assigned to the outside interface of the customer gateway device.</p>
-   *          <p>Valid values: <code>PrivateIpv4</code> | <code>PublicIpv4</code>
+   * <p>The type of IP address assigned to the outside interface of the customer gateway device.</p>
+   *          <p>Valid values: <code>PrivateIpv4</code> | <code>PublicIpv4</code>  | <code>Ipv6</code>
    *          </p>
    *          <p>Default: <code>PublicIpv4</code>
    *          </p>
@@ -1482,7 +1482,7 @@ export interface VpnConnectionOptions {
 
   /**
    * <p>The type of IPv4 address assigned to the outside interface of the customer gateway.</p>
-   *          <p>Valid values: <code>PrivateIpv4</code> | <code>PublicIpv4</code>
+   *          <p>Valid values: <code>PrivateIpv4</code> | <code>PublicIpv4</code> | <code>Ipv6</code>
    *          </p>
    *          <p>Default: <code>PublicIpv4</code>
    *          </p>
