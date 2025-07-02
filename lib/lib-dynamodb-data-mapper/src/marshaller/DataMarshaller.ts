@@ -2,8 +2,8 @@ import type { AttributeValue } from "@aws-sdk/client-dynamodb";
 import { marshallOptions } from "@aws-sdk/util-dynamodb";
 
 import { ItemSchema } from "../schema";
-import { marshallItem, marshallKey } from "./marshall";
-import { unmarshallItem, unmarshallPlainObject } from "./unmarshall";
+import { marshallItem, marshallKey } from "./item";
+import { unmarshallItem, unmarshallPlainObject } from "./item";
 
 /**
  * Schema-aware marshalling and unmarshalling utilities.

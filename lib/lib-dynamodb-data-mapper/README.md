@@ -115,15 +115,13 @@ class User {
 }
 ```
 
-> Not yet implemented — decorator support will be released in future iterations.
-
 ---
 
 ## Supported operations
 
 > This is a work in progress and will be updated as implementations are completed.
 
-T### `put`
+### `put`
 
 ```ts
 await mapper.put({ id: "123", name: "Alice" });

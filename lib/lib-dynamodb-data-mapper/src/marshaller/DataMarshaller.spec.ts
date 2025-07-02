@@ -1,7 +1,7 @@
 import { describe, expect, it } from "vitest";
 
 import { DynamoDbSchema, DynamoDbTable, embed } from "../schema";
-import { ItemSchema } from "../schema/item/itemSchema";
+import { ItemSchema } from "../schema/";
 import { DataMarshaller } from "./DataMarshaller";
 
 class Profile {

@@ -78,8 +78,8 @@ export interface DataMapperConfig {
  * A class that maps between typed application objects and DynamoDB document format.
  * Supports schema-aware transformation and class-based hydration.
  *
- * @typeParam D - The raw DynamoDB document format.
- * @typeParam T - The application-facing data type.
+ * @typeParam D - The schema-aligned plain object used for marshalling to/from DynamoDB.
+ * @typeParam T - The application-facing type (e.g., domain model or custom class).
  *
  * @public
  */
