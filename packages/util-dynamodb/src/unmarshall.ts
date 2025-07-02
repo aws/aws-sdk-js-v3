@@ -24,6 +24,11 @@ export interface unmarshallOptions {
    * but false if directly using the unmarshall function (backwards compatibility).
    */
   convertWithoutMapWrapper?: boolean;
+
+  /**
+   * When true, return native JavaScript arrays instead of Sets.
+   */
+  preferNativeArrays?: boolean;
 }
 
 /**
