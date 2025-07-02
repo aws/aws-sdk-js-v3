@@ -3,6 +3,21 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.842.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.841.0...v3.842.0) (2025-07-02)
+
+
+### Features
+
+* **client-bedrock-runtime:** use WebSocketHandler in browser ([#7175](https://github.com/aws/aws-sdk-js-v3/issues/7175)) ([b293971](https://github.com/aws/aws-sdk-js-v3/commit/b29397195b2cbc6da2775654f06bee9517e924d4))
+* **client-connectcases:** This release adds DeleteCase and DeleteRelatedItem APIs, which enable deleting cases and comments, undoing contact association, and removing service level agreements (SLAs) from cases. Contact center admins can use these APIs to delete cases when requested by customers and correct agent errors. ([d439613](https://github.com/aws/aws-sdk-js-v3/commit/d43961342b502609482ac07bff1d2d69cae47170))
+* **client-ec2:** AWS Site-to-Site VPN now supports IPv6 addresses on outer tunnel IPs, making it easier for customers to build or transition to IPv6-only networks. ([af240bd](https://github.com/aws/aws-sdk-js-v3/commit/af240bd17f5cd88164d6b68ade05f2b092817757))
+* **client-s3-control:** Added TagResource, UntagResource, and ListTagsForResource support for directory bucket ([6f84d90](https://github.com/aws/aws-sdk-js-v3/commit/6f84d9093642078c9908f2004baa8db98f46d9a4))
+* **client-s3:** Added support for directory bucket creation with tags and bucket ARN retrieval in CreateBucket, ListDirectoryBuckets, and HeadBucket operations ([e5eb29d](https://github.com/aws/aws-sdk-js-v3/commit/e5eb29d5f712c3c9b217e362063f84be6b213fd1))
+
+
+
+
+
 # [3.841.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.840.0...v3.841.0) (2025-07-01)
 
 

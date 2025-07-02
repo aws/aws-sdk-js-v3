@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.842.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.841.0...v3.842.0) (2025-07-02)
+
+
+### Features
+
+* **client-s3-control:** Added TagResource, UntagResource, and ListTagsForResource support for directory bucket ([6f84d90](https://github.com/aws/aws-sdk-js-v3/commit/6f84d9093642078c9908f2004baa8db98f46d9a4))
+
+
+
+
+
 # [3.840.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.839.0...v3.840.0) (2025-06-30)
 
 **Note:** Version bump only for package @aws-sdk/client-s3-control

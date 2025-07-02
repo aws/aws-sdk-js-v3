@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.842.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.841.0...v3.842.0) (2025-07-02)
+
+
+### Features
+
+* **client-bedrock-runtime:** use WebSocketHandler in browser ([#7175](https://github.com/aws/aws-sdk-js-v3/issues/7175)) ([b293971](https://github.com/aws/aws-sdk-js-v3/commit/b29397195b2cbc6da2775654f06bee9517e924d4))
+
+
+
+
+
 # [3.840.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.839.0...v3.840.0) (2025-06-30)
 
 
