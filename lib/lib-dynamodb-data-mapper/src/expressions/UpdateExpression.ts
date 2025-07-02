@@ -1,4 +1,3 @@
-import { AttributeBearingExpression } from "./AttributeBearingExpression";
 import { AttributePath } from "./AttributePath";
 import { AttributeValue } from "./AttributeValue";
 import { ExpressionAttributes } from "./ExpressionAttributes";
@@ -8,7 +7,7 @@ import { MathematicalExpression } from "./MathematicalExpression";
 /**
  * An object representing a DynamoDB update expression.
  */
-export class UpdateExpression implements AttributeBearingExpression {
+export class UpdateExpression {
   readonly toAdd = new Map<AttributePath, any>();
   readonly toDelete = new Map<AttributePath, any>();
   readonly toRemove = new Set<AttributePath>();

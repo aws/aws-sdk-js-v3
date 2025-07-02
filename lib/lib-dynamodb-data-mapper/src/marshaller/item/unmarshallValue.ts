@@ -1,168 +1,94 @@
 import type { AttributeValue } from "@aws-sdk/client-dynamodb";
+import { unmarshallOptions } from "@aws-sdk/util-dynamodb";
 
-import type {
-  CollectionType,
-  CustomType,
-  DocumentType,
-  HashType,
-  ItemSchemaType,
-  ListType,
-  MapType,
-  SetType,
-  TupleType,
-} from "../../schema";
-import type { AttributeValueMap, MutableRecord, UnmarshallHandler } from "../types";
+import type { CustomType, DocumentType, ItemSchemaType, ListType, MapType, TupleType } from "../../schema";
+import { AttributeValueMap, UnmarshallHandler } from "../types";
 import { unmarshallDocument } from "./unmarshallDocument";
 
-export function unmarshallValue<T = unknown>(schema: ItemSchemaType, value: AttributeValue): T | undefined {
-  if (value === undefined) {
-    return undefined;
-  }
-  const handler = typeUnmarshallers[schema.type];
+export function unmarshallValue<T = unknown>(
+  schema: ItemSchemaType,
+  value: AttributeValue,
+  options: unmarshallOptions = {}
+): T | undefined {
+  if (value === undefined) return undefined;
+  const handler = unmarshallers[schema.type];
   if (!handler) {
-    throw new Error(`Unsupported schema type for unmarshalling: ${schema.type}`);
+    throw new Error(`Unsupported schema type: ${schema.type}`);
   }
-  return handler(schema, value) as T;
+  return handler(schema, value, options) as T;
 }
 
-const typeUnmarshallers: Record<ItemSchemaType["type"], UnmarshallHandler> = {
-  String: (_schema, value) => {
-    if (isNullValue(value)) return "";
-    return (value as { S: string }).S;
-  },
+const unmarshallers: Record<ItemSchemaType["type"], UnmarshallHandler> = {
+  String: (_s, v) => (isNull(v) ? "" : (v as { S: string }).S),
 
-  Number: (_schema, value) => {
-    const n = (value as { N?: string }).N;
-    return typeof n === "string" ? Number(n) : undefined;
-  },
+  Number: (_s, v, o) => getNumber((v as { N?: string }).N, o),
 
-  Boolean: (_schema, value) => (value as { BOOL: boolean }).BOOL,
+  Boolean: (_s, v) => (v as { BOOL: boolean }).BOOL,
 
-  Date: (_schema, value) => {
-    const n = (value as { N?: string }).N;
+  Null: (_s, v) => ((v as { NULL?: boolean }).NULL ? null : undefined),
+
+  Date: (_s, v) => {
+    const n = (v as { N?: string }).N;
     return n ? new Date(Number(n) * 1000) : undefined;
   },
 
-  Null: (_schema, value) => (isNullValue(value) ? null : undefined),
+  Binary: (_s, v) => ((v as { NULL?: boolean; B?: Uint8Array }).NULL ? new Uint8Array(0) : (v as { B: Uint8Array }).B),
 
-  List: (schema, value) => {
-    const listSchema = schema as ListType;
-    const list = (value as { L: AttributeValue[] }).L;
-    return list?.map((item) => unmarshallValue(listSchema.memberType, item));
-  },
+  Custom: (s, v) => (s as CustomType<unknown>).unmarshall(v),
 
-  Map: (schema, value) => {
-    const raw = (value as { M?: AttributeValueMap }).M;
-    return unmarshallMap(raw, () => (schema as MapType).memberType);
-  },
+  Document: (s, v) => unmarshallDocument((v as { M?: AttributeValueMap }).M, s as DocumentType),
 
-  Document: (schema, value) => {
-    const raw = (value as { M?: AttributeValueMap }).M;
-    return unmarshallDocument(raw, schema as DocumentType);
-  },
+  List: (s, v, o) => getList((v as { L?: AttributeValue[] }).L, (s as ListType).memberType, o),
 
-  Custom: (schema, value) => {
-    const customSchema = schema as CustomType<any>;
-    return customSchema.unmarshall(value);
-  },
+  Map: (s, v, o) => getMap((v as { M: Record<string, AttributeValue> }).M, (s as MapType).memberType, o),
 
-  Binary: (_schema, value) => {
-    if (isNullValue(value)) return new Uint8Array(0);
-    return (value as { B: Uint8Array }).B;
-  },
-
-  Collection: (schema, value) => {
-    const list = (value as { L: AttributeValue[] }).L;
-    const collectionSchema = schema as CollectionType;
-    return list?.map((v) => unmarshallValue(collectionSchema, v));
-  },
-
-  Hash: (schema, value) => {
-    const raw = (value as { M?: AttributeValueMap }).M;
-    return unmarshallMap(raw, () => schema as HashType);
-  },
-
-  Set: (schema, value) => {
-    const setSchema = schema as SetType;
-    if (isNullValue(value)) {
-      switch (setSchema.memberType) {
-        case "Binary":
-          return new Set<Uint8Array>();
-        case "Number":
-          return new Set<number>();
-        case "String":
-          return new Set<string>();
-      }
-    }
+  Set: (s, v, o) => {
+    if ("NULL" in v && (v as { NULL: boolean }).NULL) return new Set();
+    const setSchema = s as { memberType: string };
     switch (setSchema.memberType) {
-      case "Binary":
-        return new Set((value as { BS: Uint8Array[] }).BS);
-      case "Number":
-        return unmarshallNumberSet((value as { NS: string[] }).NS);
       case "String":
-        return unmarshallStringSet((value as { SS: string[] }).SS);
+        return new Set((v as { SS?: string[] }).SS ?? []);
+      case "Number":
+        return new Set(((v as { NS?: string[] }).NS ?? []).map((n) => getNumber(n, o)));
+      case "Binary":
+        return new Set((v as { BS?: Uint8Array[] }).BS ?? []);
       default:
-        throw new Error(`Unrecognized set member type: ${setSchema.memberType}`);
+        return undefined;
     }
   },
 
-  Tuple: (schema, value) => {
-    return unmarshallTuple(schema as TupleType, (value as { L: AttributeValue[] }).L);
+  Tuple: (s, v, o) => {
+    const list = (v as { L?: AttributeValue[] }).L;
+    return Array.isArray(list) ? (s as TupleType).members.map((m, i) => unmarshallValue(m, list[i], o)) : undefined;
   },
 
-  Any: (schema, value) => {
-    if (isNullValue(value)) return null;
-    if ((value as { S?: string }).S !== undefined) return (value as { S: string }).S;
-    if ((value as { N?: string }).N !== undefined) return Number((value as { N: string }).N);
-    if ((value as { BOOL?: boolean }).BOOL !== undefined) return (value as { BOOL: boolean }).BOOL;
-    if ((value as { L?: AttributeValue[] }).L !== undefined) {
-      const list = (value as { L: AttributeValue[] }).L;
-      return list.map((v) => unmarshallValue(schema, v));
-    }
-    if ((value as { M?: AttributeValueMap }).M !== undefined) {
-      const map = (value as { M: AttributeValueMap }).M;
-      return unmarshallMap(map, () => schema);
-    }
-    throw new Error("Unsupported value in Any unmarshall");
+  Collection: (s, v, o) => getList((v as { L?: AttributeValue[] }).L, s, o),
+
+  Hash: (s, v, o) => getMap((v as { M?: Record<string, AttributeValue> }).M, s, o),
+
+  Any: (s, v, o) => {
+    if (isNull(v)) return null;
+    if ("S" in v) return v.S;
+    if ("N" in v) return getNumber(v.N, o);
+    if ("BOOL" in v) return v.BOOL;
+    if ("L" in v) return getList(v.L, s, o);
+    if ("M" in v) return getMap(v.M, s, o);
+    return undefined;
   },
 };
 
-function unmarshallTuple<T = unknown>(schema: TupleType, input: AttributeValue[]): T[] {
-  return schema.members.map((member, i) => unmarshallValue(member, input[i])) as T[];
-}
+const isNull = (value: AttributeValue): boolean =>
+  typeof value === "object" && value !== null && "NULL" in value && value.NULL === true;
 
-function unmarshallStringSet(input: string[]): Set<string> {
-  return new Set(input);
-}
+const getNumber = (n: string | undefined, o: unmarshallOptions) => {
+  if (typeof n !== "string") return undefined;
+  if (typeof o.wrapNumbers === "function") return o.wrapNumbers(n);
+  if (o.wrapNumbers === true) return { value: n };
+  return Number(n);
+};
 
-function unmarshallNumberSet(input: string[]): Set<number> {
-  return new Set(input.map(Number));
-}
+const getList = (list: AttributeValue[] | undefined, s: ItemSchemaType, o: unmarshallOptions) =>
+  list?.map((i) => unmarshallValue(s, i, o));
 
-function unmarshallMap<T extends MutableRecord = MutableRecord>(
-  rawMap: AttributeValueMap | undefined,
-  getSchema: (key: string) => ItemSchemaType,
-  targetFactory: () => T = () => Object.create(null)
-): T | undefined {
-  if (!rawMap) return undefined;
-
-  const target = targetFactory() as MutableRecord;
-
-  for (const key of Object.keys(rawMap)) {
-    const schema = getSchema(key);
-    const attr = rawMap[key];
-    if (attr !== undefined) {
-      const attrName = schema.attributeName ?? key;
-      target[attrName] = unmarshallValue(schema, attr);
-    }
-  }
-
-  return target as T;
-}
-
-/**
- * Returns true if the given AttributeValue represents a DynamoDB NULL value.
- */
-function isNullValue(value: AttributeValue): boolean {
-  return typeof value === "object" && value !== null && "NULL" in value && value.NULL === true;
-}
+const getMap = (map: Record<string, AttributeValue> | undefined, s: ItemSchemaType, o: unmarshallOptions) =>
+  map ? Object.fromEntries(Object.entries(map).map(([k, val]) => [k, unmarshallValue(s, val, o)])) : undefined;

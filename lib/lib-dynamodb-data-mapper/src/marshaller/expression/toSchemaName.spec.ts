@@ -1,11 +1,11 @@
 import { describe, expect, it } from "vitest";
 
-import { AttributePath } from "../expressions";
-import { Schema } from "./Schema";
+import { AttributePath } from "../../expressions";
+import { ItemSchema } from "../../schema";
 import { toSchemaName } from "./toSchemaName";
 
 const testCases = new Map<string, string>();
-const schema: Schema = {
+const schema: ItemSchema = {
   unchanged: { type: "String" },
   property: {
     type: "String",

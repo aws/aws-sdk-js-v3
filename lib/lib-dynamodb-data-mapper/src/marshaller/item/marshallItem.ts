@@ -12,8 +12,7 @@ export function marshallItem<T extends object = MutableRecord>(
 ): Record<string, AttributeValue> {
   const output: Record<string, AttributeValue> = {};
 
-  for (const key of Object.keys(schema)) {
-    const field = schema[key];
+  for (const [key, field] of Object.entries(schema)) {
     const attrName = field.attributeName ?? key;
     const value = input[key as keyof T];
     if (value === undefined) {

@@ -1,5 +1,6 @@
 import { AttributePath } from "../AttributePath";
 import { AttributeValue } from "../AttributeValue";
+import { ExpressionAttributes } from "../ExpressionAttributes";
 import { FunctionExpression } from "../FunctionExpression";
 
 export type ComparisonOperand = AttributePath | AttributeValue | FunctionExpression | any;

@@ -231,6 +231,6 @@ export class DataMapper<D extends object, T = D> {
   }
 
   private unmarshallOutput(item: Record<string, any>): D {
-    return this.schema ? (DataMarshaller.unmarshallObject(item, this.schema) as D) : (awsUnmarshall(item) as D);
+    return this.schema ? (DataMarshaller.unmarshall(item, this.schema) as D) : (awsUnmarshall(item) as D);
   }
 }

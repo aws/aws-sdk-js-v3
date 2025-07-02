@@ -1,5 +1,7 @@
+import { unmarshallOptions } from "@aws-sdk/util-dynamodb";
+
 import type { DocumentType } from "../../schema";
-import type { AttributeValueMap, MutableRecord } from "../types";
+import type { AttributeValueMap } from "../types";
 import { unmarshallItem } from "./unmarshallItem";
 
 /**
@@ -8,8 +10,9 @@ import { unmarshallItem } from "./unmarshallItem";
  */
 export function unmarshallDocument<T extends object>(
   rawMap: AttributeValueMap | undefined,
-  schema: DocumentType<T>
+  schema: DocumentType<T>,
+  options?: unmarshallOptions
 ): T | undefined {
   if (!rawMap) return undefined;
-  return unmarshallItem(schema.members, rawMap, schema.valueConstructor);
+  return unmarshallItem(schema.members, rawMap, options) as T;
 }

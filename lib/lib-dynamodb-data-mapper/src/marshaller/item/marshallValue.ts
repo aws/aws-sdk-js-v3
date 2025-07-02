@@ -1,20 +1,8 @@
 import { AttributeValue } from "@aws-sdk/client-dynamodb";
 import { marshallOptions } from "@aws-sdk/util-dynamodb";
-import { TextEncoder } from "util";
 
-import type {
-  AnyType,
-  CollectionType,
-  CustomType,
-  DocumentType,
-  HashType,
-  ListType,
-  MapType,
-  SetType,
-  TupleType,
-} from "../../schema";
-import { ItemSchemaType } from "../../schema";
-import type { AttributeValueMap, MarshallHandler, MutableRecord } from "../types";
+import type { CustomType, DocumentType, ItemSchemaType, ListType, MapType, SetType, TupleType } from "../../schema";
+import { MarshallHandler } from "../types";
 import { marshallDocument } from "./marshallDocument";
 
 export function marshallValue<T = unknown>(
@@ -25,200 +13,199 @@ export function marshallValue<T = unknown>(
   if (value === undefined && typeof schema.defaultProvider === "function") {
     value = schema.defaultProvider() as T;
   }
-  if (value === undefined || value === null) {
-    return { NULL: true };
+  if (isNull(value)) {
+    return nullValue();
   }
-  const handler = typeMarshallers[schema.type];
+  const handler = marshallers[schema.type];
   if (!handler) {
-    throw new Error(`Unsupported schema type: ${schema.type}`);
+    throw new Error(`Unsupported schema type: ${(schema as any).type}`);
   }
   return handler(schema, value, options);
 }
 
-const typeMarshallers: Record<ItemSchemaType["type"], MarshallHandler> = {
-  String: (_schema, value, options) => {
-    const str = marshallString(value);
-    if (str.length === 0 && options.convertEmptyValues) {
-      return nullValue();
+const marshallers: Record<ItemSchemaType["type"], MarshallHandler> = {
+  String: (_s, v, o) => {
+    if (isNull(v)) return nullValue();
+    const str = (v as { toString(): string }).toString();
+    return str === "" && o.convertEmptyValues ? nullValue() : { S: str };
+  },
+
+  Number: (_s, v) => {
+    if (isNull(v)) return nullValue();
+    const num = v as number;
+
+    if (!Number.isFinite(num) || !Number.isSafeInteger(num)) {
+      throw new Error(`Value ${num} exceeds MAX_SAFE_INTEGER or is not a valid number`);
     }
-    return { S: str };
+
+    return { N: num.toString(10) };
   },
 
-  Number: (_schema, value, options) => {
-    if (
-      typeof value === "number" &&
-      !options.allowImpreciseNumbers &&
-      (value > Number.MAX_SAFE_INTEGER || value < -Number.MAX_SAFE_INTEGER)
-    ) {
-      throw new Error(`Number ${value} exceeds MAX_SAFE_INTEGER`);
-    }
-    return { N: marshallNumber(value) };
+  Boolean: (_s, v) => (isNull(v) ? nullValue() : { BOOL: !!v }),
+
+  Null: () => nullValue(),
+
+  Date: (_s, v) => {
+    let date: Date;
+    if (typeof v === "string") date = new Date(v);
+    else if (typeof v === "number") date = new Date(v * 1000);
+    else if (v instanceof Date || Object.prototype.toString.call(v) === "[object Date]") date = v as Date;
+    else return nullValue();
+    return { N: Math.floor(date.getTime() / 1000).toString() };
   },
 
-  Boolean: (_schema, value) => ({ BOOL: Boolean(value) }),
-
-  Null: () => ({ NULL: true }),
-
-  Date: (_schema, value) => {
-    const date = new Date(value);
-    return { N: marshallNumber(Math.floor(date.getTime() / 1000)) };
+  Binary: (_s, v) => {
+    if (isNull(v)) return nullValue();
+    let buffer: Uint8Array;
+    if (ArrayBuffer.isView(v)) buffer = new Uint8Array(v.buffer, v.byteOffset, v.byteLength);
+    else if (
+      typeof ArrayBuffer === "function" &&
+      (v instanceof ArrayBuffer || Object.prototype.toString.call(v) === "[object ArrayBuffer]")
+    )
+      buffer = new Uint8Array(v as ArrayBuffer);
+    else if (typeof v === "string") buffer = new TextEncoder().encode(v);
+    else return nullValue();
+    return buffer.byteLength === 0 ? { NULL: true } : { B: buffer };
   },
 
-  List: (schema, value, options) => {
-    const listSchema = schema as ListType;
-    const items = (value as unknown[]).map((v) => marshallValue(listSchema.memberType, v, options));
-    return {
-      L: options.removeUndefinedValues
-        ? items.filter((v): v is AttributeValue => v !== undefined)
-        : (items as AttributeValue[]),
-    };
+  Custom: (s, v) => {
+    if (isNull(v)) return nullValue();
+    return (s as CustomType<unknown>).marshall(v);
   },
 
-  Map: (schema, value, options) => {
-    const mapSchema = schema as MapType;
-    if (
-      options.convertClassInstanceToMap &&
-      typeof value === "object" &&
-      value !== null &&
-      value.constructor !== Object
-    ) {
-      value = { ...(value as MutableRecord) };
-    }
-    return marshallMap(Object.entries(value), () => mapSchema.memberType, options);
+  Document: (s, v, o) => {
+    if (v === null || typeof v !== "object") return nullValue();
+    return marshallDocument(v, s as DocumentType, o);
   },
 
-  Document: (schema, value, options) => {
-    return marshallDocument(value, schema as DocumentType, options);
-  },
-
-  Custom: (schema, value) => {
-    const customSchema = schema as CustomType<any>;
-    return customSchema.marshall(value);
-  },
-
-  Binary: (_schema, value) => {
-    const buffer = marshallBinary(value);
-    if (buffer.length === 0) {
-      return nullValue();
-    }
-    return { B: buffer };
-  },
-
-  Collection: (schema, value, options) => {
-    const collectionSchema = schema as CollectionType;
-    const items = (value as unknown[]).map((item) => marshallValue(collectionSchema, item, options));
-    return {
-      L: options.removeUndefinedValues
-        ? items.filter((v): v is AttributeValue => v !== undefined)
-        : (items as AttributeValue[]),
-    };
-  },
-
-  Hash: (schema, value, options) => {
-    const hashSchema = schema as HashType;
-    return marshallMap(Object.entries(value), () => hashSchema, options);
-  },
-
-  Set: (schema, value) => {
-    const setSchema = schema as SetType;
-
-    switch (setSchema.memberType) {
-      case "String": {
-        const values = Array.from(value) as { toString(): string }[];
-        return marshallSet(values, marshallString, (s) => s.length === 0, "SS");
-      }
-
-      case "Number": {
-        const values = Array.from(value) as number[];
-        return marshallSet(values, marshallNumber, () => false, "NS");
-      }
-
-      case "Binary": {
-        const values = Array.from(value) as (string | ArrayBuffer | ArrayBufferView)[];
-        return marshallSet(values, marshallBinary, (bin) => bin.byteLength === 0, "BS");
-      }
-
-      default:
-        throw new Error(`Unsupported set member type: ${setSchema.memberType}`);
-    }
-  },
-
-  Tuple: (schema, value, options) => {
-    const tupleSchema = schema as TupleType;
-    const L = tupleSchema.members
-      .map((member, i) => marshallValue(member, value[i], options))
-      .filter((v): v is AttributeValue => v !== undefined);
+  List: (s, v, o) => {
+    if (!Array.isArray(v)) return nullValue();
+    const member = (s as ListType).memberType;
+    const L = v
+      .map((item) => marshallValue(member, item, o))
+      .filter((val): val is AttributeValue => !o.removeUndefinedValues || val !== undefined);
     return { L };
   },
 
-  Any: (schema, value) => {
-    const anySchema = schema as AnyType;
-    if (value === undefined || value === null) return { NULL: true } as AttributeValue;
-    if (typeof value === "string") {
-      if (value === "" && anySchema.convertEmptyValues) {
-        return nullValue();
+  Map: (s, v, o) => {
+    if (v === null || typeof v !== "object") return nullValue();
+    const M: Record<string, AttributeValue> = {};
+    const mapSchema = s as MapType;
+
+    // Handle Map instance or custom iterable
+    if (v instanceof Map || isIterable(v)) {
+      for (const [k, val] of v as Iterable<[string, unknown]>) {
+        const marshalled = marshallValue(mapSchema.memberType, val, o);
+        if (marshalled !== undefined || !o.removeUndefinedValues) {
+          M[k] = marshalled!;
+        }
       }
-      return { S: value };
+    } else {
+      // Handle plain object
+      for (const [k, val] of Object.entries(v)) {
+        const marshalled = marshallValue(mapSchema.memberType, val, o);
+        if (marshalled !== undefined || !o.removeUndefinedValues) {
+          M[k] = marshalled!;
+        }
+      }
     }
-    if (typeof value === "number") return { N: marshallNumber(value) };
-    if (typeof value === "boolean") return { BOOL: value };
-    if (Array.isArray(value)) {
-      return {
-        L: value.map((v) => marshallValue(schema, v, anySchema)).filter((v): v is AttributeValue => v !== undefined),
-      };
+
+    return { M };
+  },
+
+  Set: (s, v, o) => {
+    const setSchema = s as SetType;
+    if (isNull(v)) return nullValue();
+    const values = toArray(createSet(v));
+
+    switch (setSchema.memberType) {
+      case "String": {
+        const members = values
+          .map((el) => (el as { toString(): string }).toString())
+          .filter((s) => !(o.convertEmptyValues && s === ""));
+        return members.length > 0 ? { SS: members } : nullValue();
+      }
+      case "Number": {
+        const members = values.map((n) => (n as number).toString());
+        return members.length > 0 ? { NS: members } : nullValue();
+      }
+      case "Binary": {
+        const members = values
+          .map((b) => {
+            if (typeof b === "string") return new TextEncoder().encode(b);
+            if (ArrayBuffer.isView(b)) return new Uint8Array(b.buffer, b.byteOffset, b.byteLength);
+            if (b instanceof ArrayBuffer) return new Uint8Array(b);
+            return new Uint8Array(0);
+          })
+          .filter((b) => !(o.convertEmptyValues && b.byteLength === 0));
+        return members.length > 0 ? { BS: members } : nullValue();
+      }
+      default:
+        return nullValue();
     }
-    if (typeof value === "object") {
-      return marshallMap(Object.entries(value), () => schema, anySchema);
+  },
+
+  Tuple: (s, v, o) => {
+    const tupleSchema = s as TupleType;
+    const values = tupleSchema.members.map((memberSchema, i) => {
+      const val = Array.isArray(v) ? v[i] : undefined;
+      const marshalled = marshallValue(memberSchema, val, o);
+      return marshalled ?? nullValue();
+    });
+    return { L: values };
+  },
+
+  Collection: (s, v, o) => {
+    if (!Array.isArray(v)) return nullValue();
+    const items = v.map((item) => marshallValue(s, item, o));
+    const L = o.removeUndefinedValues ? items.filter((x): x is AttributeValue => x !== undefined) : items;
+    return wrapAsList(L, o);
+  },
+
+  Hash: (s, v, o) => {
+    if (v === null || typeof v !== "object") return nullValue();
+    const entries = Object.entries(v);
+    const M: Record<string, AttributeValue> = {};
+    for (const [key, value] of entries) {
+      const marshalled = marshallValue(s, value, o);
+      if (marshalled !== undefined || !o.removeUndefinedValues) M[key] = marshalled!;
     }
-    throw new Error("Unsupported value in Any marshaller");
+    return Object.keys(M).length === 0 && o.convertEmptyValues ? nullValue() : { M };
+  },
+
+  Any: (s, v, o) => {
+    if (isNull(v)) return nullValue();
+    if (typeof v === "string") return v === "" && o.convertEmptyValues ? nullValue() : { S: v };
+    if (typeof v === "number") return { N: v.toString() };
+    if (typeof v === "boolean") return { BOOL: v };
+    if (Array.isArray(v)) {
+      const L = v.map((i) => marshallValue(s, i, o)).filter((x): x is AttributeValue => x !== undefined);
+      return { L };
+    }
+    if (typeof v === "object") {
+      const M = Object.fromEntries(
+        Object.entries(v)
+          .map(([k, val]) => [k, marshallValue(s, val, o)])
+          .filter((entry): entry is [string, AttributeValue] => entry[1] !== undefined)
+      );
+      return { M };
+    }
+    return nullValue();
   },
 };
 
-const marshallMap = (
-  entries: Iterable<[string, unknown]>,
-  getSchema: (key: string) => ItemSchemaType,
-  options: marshallOptions
-): { M: AttributeValueMap } => {
-  const M: AttributeValueMap = {};
-  for (const [key, raw] of Array.from(entries)) {
-    const schema = getSchema(key);
-    const marshalled = marshallValue(schema, raw, options);
-    if (marshalled !== undefined || !options.removeUndefinedValues) {
-      const attrName = schema.attributeName ?? key;
-      M[attrName] = marshalled!;
-    }
-  }
-  return { M };
+const createSet = (input: unknown): Set<unknown> => {
+  if (input instanceof Set) return input;
+  if (Array.isArray(input)) return new Set(input);
+  return new Set([input]);
 };
 
-const utf8Bytes = (text: string): Uint8Array => new TextEncoder().encode(text);
+const toArray = (input: Iterable<unknown>): unknown[] => (Array.isArray(input) ? input : Array.from(input));
 
-const marshallBinary = (input: string | ArrayBuffer | ArrayBufferView): Uint8Array => {
-  if (ArrayBuffer.isView(input)) {
-    return new Uint8Array(input.buffer, input.byteOffset, input.byteLength);
-  }
-  if (input instanceof ArrayBuffer) {
-    return new Uint8Array(input);
-  }
-  return Uint8Array.from(utf8Bytes(input));
-};
-
-const marshallNumber = (input: number): string => input.toString(10);
-const marshallString = (input: { toString(): string }): string => input.toString();
-const marshallSet = <InputType, MarshalledElementType>(
-  value: Iterable<InputType>,
-  marshaller: (element: InputType) => MarshalledElementType,
-  isEmpty: (member: MarshalledElementType) => boolean,
-  setTag: "BS" | "NS" | "SS"
-): AttributeValue => {
-  const collected: MarshalledElementType[] = [];
-  for (const member of Array.from(value)) {
-    const marshalled = marshaller(member);
-    if (!isEmpty(marshalled)) {
-      collected.push(marshalled);
-    }
-  }
-  return collected.length === 0 ? { NULL: true } : ({ [setTag]: collected } as unknown as AttributeValue);
-};
+const wrapAsList = (L: (AttributeValue | undefined)[], options: marshallOptions): AttributeValue =>
+  L.length === 0 && options.convertEmptyValues ? nullValue() : ({ L } as AttributeValue);
 
 const nullValue = (): AttributeValue => ({ NULL: true });
+const isNull = (v: unknown): v is null | undefined => v === null || v === undefined;
+const isIterable = (obj: unknown): obj is Iterable<[string, unknown]> =>
+  typeof obj === "object" && obj !== null && typeof (obj as Iterable<unknown>)[Symbol.iterator] === "function";

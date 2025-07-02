@@ -1,4 +1,5 @@
 import { describe, expect, it } from "vitest";
+import { vi } from "vitest";
 
 import type { ItemSchema } from "../../schema/";
 import { marshallItem } from "./marshallItem";
@@ -63,5 +64,54 @@ describe("error handling", () => {
 
     const result = marshallItem(schema, input);
     expect(result).not.toHaveProperty("optional");
+  });
+
+  it("gracefully returns NULL when Document input is invalid", () => {
+    const schema = {
+      meta: { type: "Document", members: {} },
+    } as const;
+    const input = { meta: 123 as any };
+    expect(marshallItem(schema, input)).toEqual({ meta: { NULL: true } });
+  });
+
+  it("gracefully returns NULL when Map input is invalid", () => {
+    const schema = {
+      settings: { type: "Map", memberType: { type: "String" } },
+    } as const;
+    const input = { settings: 123 as any };
+    expect(marshallItem(schema, input)).toEqual({ settings: { NULL: true } });
+  });
+});
+
+describe("marshallItem - default provider", () => {
+  it("should call a defined default provider if the input is undefined", () => {
+    const defaultProvider = vi.fn(() => "default-value");
+    const schema: ItemSchema = {
+      name: { type: "String", defaultProvider },
+    };
+    const input = {};
+    const result = marshallItem(schema, input);
+    expect(result).toEqual({ name: { S: "default-value" } });
+    expect(defaultProvider).toHaveBeenCalledTimes(1);
+  });
+
+  it("should not call the default provider if the input is defined", () => {
+    const defaultProvider = vi.fn(() => "default-value");
+    const schema: ItemSchema = {
+      name: { type: "String", defaultProvider },
+    };
+    const input = { name: "user-provided" };
+    const result = marshallItem(schema, input);
+    expect(result).toEqual({ name: { S: "user-provided" } });
+    expect(defaultProvider).not.toHaveBeenCalled();
+  });
+});
+
+describe("marshallItem - Map schema", () => {
+  it("should throw if a value that cannot be converted to a map is received", () => {
+    const schema: ItemSchema = {
+      map: { type: "Map", memberType: { type: "String" } },
+    };
+    expect(() => marshallItem(schema, { map: 123 })).toThrow();
   });
 });

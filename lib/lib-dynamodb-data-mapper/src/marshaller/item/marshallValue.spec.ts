@@ -92,9 +92,6 @@ describe("marshallValue", () => {
 });
 
 describe("marshallValue - error handling", () => {
-  class CustomDate {
-    constructor(public value: string) {}
-  }
   it("throws on unsupported schema type", () => {
     const badSchema = { type: "Invalid" } as any;
     expect(() => marshallValue(badSchema, "value")).toThrow("Unsupported schema type");
@@ -110,5 +107,30 @@ describe("marshallValue - error handling", () => {
     const schema = { type: "Set", memberType: "Unknown" as any } as const;
     const value = new Set(["a", "b"]);
     expect(() => marshallValue(schema, value)).toThrow(/Unsupported set member type/);
+  });
+});
+
+describe("marshallValue - List support with iterable", () => {
+  it("should marshall an iterable of strings", () => {
+    function* stringGen() {
+      yield "a";
+      yield "b";
+    }
+    const schema = { type: "List", memberType: { type: "String" } } as const;
+    const result = marshallValue(schema, stringGen());
+    expect(result).toEqual({ L: [{ S: "a" }, { S: "b" }] });
+  });
+});
+
+describe("marshallValue - Any with mixed list types", () => {
+  it("should marshall a mixed-type list using Any", () => {
+    const buffer = new Uint8Array([1, 2]);
+    const input = ["a", 123, true, buffer, { nested: "yes" }];
+    const schema = { type: "Any" as const };
+    const result = marshallValue(schema, input);
+
+    expect(result).toEqual({
+      L: [{ S: "a" }, { N: "123" }, { BOOL: true }, { B: buffer }, { M: { nested: { S: "yes" } } }],
+    });
   });
 });

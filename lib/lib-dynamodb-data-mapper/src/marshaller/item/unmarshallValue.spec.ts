@@ -1,6 +1,7 @@
 import { AttributeValue } from "@aws-sdk/client-dynamodb";
 import { describe, expect, it } from "vitest";
 
+import { TupleType } from "../../schema";
 import { unmarshallValue } from "./unmarshallValue";
 
 const epoch = 946684800;
@@ -77,6 +78,46 @@ describe("unmarshallValue", () => {
       )
     ).toEqual({ nested: { id: "x" } });
   });
+
+  it("should wrap number with wrapNumbers: true", () => {
+    const schema = { type: "Number" } as const;
+    const attr = { N: "42" };
+    const result = unmarshallValue(schema, attr, { wrapNumbers: true });
+    expect(result).toEqual({ value: "42" });
+  });
+
+  it("should wrap number using custom wrapNumbers function", () => {
+    const schema = { type: "Number" } as const;
+    const attr = { N: "12345678901234567890" };
+    const result = unmarshallValue(schema, attr, {
+      wrapNumbers: (s) => BigInt(s),
+    });
+    expect(result).toEqual(BigInt("12345678901234567890"));
+  });
+
+  it("should unmarshall NULL to empty string for String schema", () => {
+    expect(unmarshallValue({ type: "String" }, { NULL: true })).toBe("");
+  });
+
+  it("should unmarshall NULL to empty Uint8Array for Binary schema", () => {
+    expect(unmarshallValue({ type: "Binary" }, { NULL: true })).toEqual(new Uint8Array(0));
+  });
+
+  it("should return undefined for invalid number input (e.g., string instead of N)", () => {
+    const schema = { type: "Number" } as const;
+    const attr = { S: "oops" };
+    expect(unmarshallValue(schema, attr as any)).toBeUndefined();
+  });
+
+  it("returns undefined for missing Tuple items", () => {
+    const schema: TupleType = {
+      type: "Tuple",
+      members: [{ type: "String" }, { type: "Number" }],
+    };
+    const attr = { L: [] };
+    const result = unmarshallValue(schema, attr);
+    expect(result).toEqual([undefined, undefined]);
+  });
 });
 
 describe("unmarshallValue - error handling", () => {
@@ -86,25 +127,35 @@ describe("unmarshallValue - error handling", () => {
     expect(() => unmarshallValue(schema, attr)).toThrow("Unsupported schema type");
   });
 
-  it("throws for invalid Any value shape", () => {
-    const schema = { type: "Any" as const };
-    const attr = { X: "not-valid" } as any;
-    expect(() => unmarshallValue(schema, attr)).toThrow("Unsupported value in Any unmarshall");
-  });
-
-  it("throws on unknown Set memberType", () => {
+  it("returns undefined for unsupported set member type", () => {
     const schema = { type: "Set", memberType: "Fake" as any } as const;
     const attr: AttributeValue = { SS: ["a", "b"] };
-    expect(() => unmarshallValue(schema, attr)).toThrow(/Unrecognized set member type/);
+    const result = unmarshallValue(schema, attr);
+    expect(result).toBeUndefined();
   });
 
-  it("returns undefined for missing Tuple items", () => {
-    const schema = {
-      type: "Tuple" as const,
-      members: [{ type: "String" as const }, { type: "Number" as const }],
+  it("returns undefined for unsupported Tuple value", () => {
+    const schema: TupleType = {
+      type: "Tuple",
+      members: [{ type: "String" }, { type: "Number" }],
     };
-    const attr = { L: [] };
-    const result = unmarshallValue(schema, attr);
+    const result = unmarshallValue(schema, { L: [] });
     expect(result).toEqual([undefined, undefined]);
+  });
+
+  it("wraps number with wrapNumbers: true", () => {
+    const schema = { type: "Number" } as const;
+    const attr = { N: "42" };
+    const result = unmarshallValue(schema, attr, { wrapNumbers: true });
+    expect(result).toEqual({ value: "42" });
+  });
+
+  it("wraps number using custom wrapNumbers function", () => {
+    const schema = { type: "Number" } as const;
+    const attr = { N: "12345678901234567890" };
+    const result = unmarshallValue(schema, attr, {
+      wrapNumbers: (s) => BigInt(s),
+    });
+    expect(result).toEqual(BigInt("12345678901234567890"));
   });
 });

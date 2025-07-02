@@ -1,4 +1,3 @@
-import { AttributeBearingExpression } from "./AttributeBearingExpression";
 import { AttributePath } from "./AttributePath";
 import { ExpressionAttributes } from "./ExpressionAttributes";
 import { FunctionExpression } from "./FunctionExpression";
@@ -11,7 +10,7 @@ const EXPECTED_TOSTRING = `[object ${MATHEMATICAL_EXPRESSION_TAG}]`;
 /**
  * An object representing a DynamoDB function expression.
  */
-export class MathematicalExpression implements AttributeBearingExpression {
+export class MathematicalExpression {
   readonly [Symbol.toStringTag] = MATHEMATICAL_EXPRESSION_TAG;
 
   constructor(

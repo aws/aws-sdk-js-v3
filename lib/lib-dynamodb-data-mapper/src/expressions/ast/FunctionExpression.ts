@@ -1,5 +1,5 @@
-import { AttributePath } from "./AttributePath";
-import { ExpressionAttributes } from "./ExpressionAttributes";
+import { AttributePath } from "../AttributePath";
+import { ExpressionAttributes } from "../ExpressionAttributes";
 
 const FUNCTION_EXPRESSION_TAG = "AmazonDynamoDbFunctionExpression";
 const EXPECTED_TOSTRING = `[object ${FUNCTION_EXPRESSION_TAG}]`;

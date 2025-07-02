@@ -12,7 +12,7 @@ const mockSend = vi.fn();
 const mockClient = { send: mockSend } as any;
 
 const mockMarshall = vi.spyOn(DataMarshaller, "marshall");
-const mockUnmarshall = vi.spyOn(DataMarshaller, "unmarshallObject");
+const mockUnmarshall = vi.spyOn(DataMarshaller, "unmarshall");
 const mockMarshallKey = vi.spyOn(DataMarshaller, "marshallKey");
 
 import type { AttributeValue } from "@aws-sdk/client-dynamodb";

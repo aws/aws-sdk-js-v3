@@ -1,9 +1,9 @@
 import type { AttributeValue } from "@aws-sdk/client-dynamodb";
-import { marshallOptions } from "@aws-sdk/util-dynamodb";
+import { marshallOptions, unmarshallOptions } from "@aws-sdk/util-dynamodb";
 
-import { ItemSchema } from "../schema";
+import { ItemSchema, MutableRecord } from "../schema";
 import { marshallItem, marshallKey } from "./item";
-import { unmarshallItem, unmarshallPlainObject } from "./item";
+import { unmarshallItem } from "./item";
 
 /**
  * Schema-aware marshalling and unmarshalling utilities.
@@ -47,27 +47,18 @@ export class DataMarshaller {
   }
 
   /**
-   * Unmarshalls a DynamoDB item into a class-based model instance.
+   * Unmarshalls a DynamoDB item
    *
    * @param item - The raw DynamoDB item.
    * @param schema - The schema to use for unmarshalling.
-   * @param model - A class constructor for the output model.
+   * @param options - Optional DynamoDB unmarshalling options.
    * @returns A hydrated instance of the model.
    */
-  static unmarshall<T extends object>(item: Record<string, AttributeValue>, schema: ItemSchema, model: new () => T): T {
-    return unmarshallItem(schema, item, model);
-  }
-
-  /**
-   * Unmarshalls a DynamoDB item into a plain JavaScript object
-   * using the provided schema. Used when constructing model instances
-   * through factory functions rather than class constructors.
-   *
-   * @param item - The raw DynamoDB item.
-   * @param schema - The schema to use for unmarshalling.
-   * @returns A plain object containing unmarshalled values.
-   */
-  static unmarshallObject(item: Record<string, AttributeValue>, schema: ItemSchema): Record<string, any> {
-    return unmarshallPlainObject(item, schema);
+  static unmarshall<T extends object = MutableRecord>(
+    item: Record<string, AttributeValue>,
+    schema: ItemSchema,
+    options: unmarshallOptions = {}
+  ): T {
+    return unmarshallItem(schema, item, options);
   }
 }
