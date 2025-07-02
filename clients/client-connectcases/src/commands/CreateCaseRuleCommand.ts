@@ -28,9 +28,7 @@ export interface CreateCaseRuleCommandInput extends CreateCaseRuleRequest {}
 export interface CreateCaseRuleCommandOutput extends CreateCaseRuleResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a new case rule. In the Amazon Connect admin website, case rules are known as <i>case field conditions</i>.  For more
- *       information about case field conditions, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/case-field-conditions.html">Add case field conditions to a
- *         case template</a>.</p>
+ * <p>Creates a new case rule. In the Amazon Connect admin website, case rules are known as <i>case field conditions</i>. For more information about case field conditions, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/case-field-conditions.html">Add case field conditions to a case template</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -94,21 +92,16 @@ export interface CreateCaseRuleCommandOutput extends CreateCaseRuleResponse, __M
  *  <p>You do not have sufficient access to perform this action.</p>
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>The requested operation would cause a conflict with the current state of a service
- *       resource associated with the request. Resolve the conflict before retrying this request. See
- *       the accompanying error message for details.</p>
+ *  <p>The requested operation would cause a conflict with the current state of a service resource associated with the request. Resolve the conflict before retrying this request. See the accompanying error message for details.</p>
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>We couldn't process your request because of an issue with the server. Try again
- *       later.</p>
+ *  <p>We couldn't process your request because of an issue with the server. Try again later.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>We couldn't find the requested resource. Check that your resources exists and were created
- *       in the same Amazon Web Services Region as your request, and try your request again.</p>
+ *  <p>We couldn't find the requested resource. Check that your resources exists and were created in the same Amazon Web Services Region as your request, and try your request again.</p>
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>The service quota has been exceeded. For a list of service quotas, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html">Amazon Connect Service Quotas</a> in the <i>Amazon Connect
- *         Administrator Guide</i>.</p>
+ *  <p>The service quota has been exceeded. For a list of service quotas, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html">Amazon Connect Service Quotas</a> in the <i>Amazon Connect Administrator Guide</i>.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The rate has been exceeded for this API. Please try again after a few minutes.</p>

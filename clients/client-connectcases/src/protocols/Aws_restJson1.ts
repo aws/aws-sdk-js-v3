@@ -45,10 +45,12 @@ import { CreateFieldCommandInput, CreateFieldCommandOutput } from "../commands/C
 import { CreateLayoutCommandInput, CreateLayoutCommandOutput } from "../commands/CreateLayoutCommand";
 import { CreateRelatedItemCommandInput, CreateRelatedItemCommandOutput } from "../commands/CreateRelatedItemCommand";
 import { CreateTemplateCommandInput, CreateTemplateCommandOutput } from "../commands/CreateTemplateCommand";
+import { DeleteCaseCommandInput, DeleteCaseCommandOutput } from "../commands/DeleteCaseCommand";
 import { DeleteCaseRuleCommandInput, DeleteCaseRuleCommandOutput } from "../commands/DeleteCaseRuleCommand";
 import { DeleteDomainCommandInput, DeleteDomainCommandOutput } from "../commands/DeleteDomainCommand";
 import { DeleteFieldCommandInput, DeleteFieldCommandOutput } from "../commands/DeleteFieldCommand";
 import { DeleteLayoutCommandInput, DeleteLayoutCommandOutput } from "../commands/DeleteLayoutCommand";
+import { DeleteRelatedItemCommandInput, DeleteRelatedItemCommandOutput } from "../commands/DeleteRelatedItemCommand";
 import { DeleteTemplateCommandInput, DeleteTemplateCommandOutput } from "../commands/DeleteTemplateCommand";
 import { GetCaseAuditEventsCommandInput, GetCaseAuditEventsCommandOutput } from "../commands/GetCaseAuditEventsCommand";
 import { GetCaseCommandInput, GetCaseCommandOutput } from "../commands/GetCaseCommand";
@@ -396,6 +398,23 @@ export const se_CreateTemplateCommand = async (
 };
 
 /**
+ * serializeAws_restJson1DeleteCaseCommand
+ */
+export const se_DeleteCaseCommand = async (
+  input: DeleteCaseCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/domains/{domainId}/cases/{caseId}");
+  b.p("domainId", () => input.domainId!, "{domainId}", false);
+  b.p("caseId", () => input.caseId!, "{caseId}", false);
+  let body: any;
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1DeleteCaseRuleCommand
  */
 export const se_DeleteCaseRuleCommand = async (
@@ -457,6 +476,24 @@ export const se_DeleteLayoutCommand = async (
   b.bp("/domains/{domainId}/layouts/{layoutId}");
   b.p("domainId", () => input.domainId!, "{domainId}", false);
   b.p("layoutId", () => input.layoutId!, "{layoutId}", false);
+  let body: any;
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1DeleteRelatedItemCommand
+ */
+export const se_DeleteRelatedItemCommand = async (
+  input: DeleteRelatedItemCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/domains/{domainId}/cases/{caseId}/related-items/{relatedItemId}");
+  b.p("domainId", () => input.domainId!, "{domainId}", false);
+  b.p("caseId", () => input.caseId!, "{caseId}", false);
+  b.p("relatedItemId", () => input.relatedItemId!, "{relatedItemId}", false);
   let body: any;
   b.m("DELETE").h(headers).b(body);
   return b.build();
@@ -1228,6 +1265,23 @@ export const de_CreateTemplateCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1DeleteCaseCommand
+ */
+export const de_DeleteCaseCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteCaseCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1DeleteCaseRuleCommand
  */
 export const de_DeleteCaseRuleCommand = async (
@@ -1285,6 +1339,23 @@ export const de_DeleteLayoutCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteLayoutCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DeleteRelatedItemCommand
+ */
+export const de_DeleteRelatedItemCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteRelatedItemCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
     return de_CommandError(output, context);
   }

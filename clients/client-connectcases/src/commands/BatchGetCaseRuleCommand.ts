@@ -28,9 +28,7 @@ export interface BatchGetCaseRuleCommandInput extends BatchGetCaseRuleRequest {}
 export interface BatchGetCaseRuleCommandOutput extends BatchGetCaseRuleResponse, __MetadataBearer {}
 
 /**
- * <p>Gets a batch of case rules. In the Amazon Connect admin website, case rules are known as <i>case field conditions</i>.  For more
- *       information about case field conditions, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/case-field-conditions.html">Add case field conditions to a
- *         case template</a>.</p>
+ * <p>Gets a batch of case rules. In the Amazon Connect admin website, case rules are known as <i>case field conditions</i>. For more information about case field conditions, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/case-field-conditions.html">Add case field conditions to a case template</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -116,12 +114,10 @@ export interface BatchGetCaseRuleCommandOutput extends BatchGetCaseRuleResponse,
  *  <p>You do not have sufficient access to perform this action.</p>
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>We couldn't process your request because of an issue with the server. Try again
- *       later.</p>
+ *  <p>We couldn't process your request because of an issue with the server. Try again later.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>We couldn't find the requested resource. Check that your resources exists and were created
- *       in the same Amazon Web Services Region as your request, and try your request again.</p>
+ *  <p>We couldn't find the requested resource. Check that your resources exists and were created in the same Amazon Web Services Region as your request, and try your request again.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The rate has been exceeded for this API. Please try again after a few minutes.</p>

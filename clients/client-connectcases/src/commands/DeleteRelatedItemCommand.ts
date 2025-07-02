@@ -6,8 +6,8 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ConnectCasesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectCasesClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { GetCaseRequest, GetCaseResponse } from "../models/models_0";
-import { de_GetCaseCommand, se_GetCaseCommand } from "../protocols/Aws_restJson1";
+import { DeleteRelatedItemRequest, DeleteRelatedItemResponse } from "../models/models_0";
+import { de_DeleteRelatedItemCommand, se_DeleteRelatedItemCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -17,62 +17,39 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link GetCaseCommand}.
+ * The input for {@link DeleteRelatedItemCommand}.
  */
-export interface GetCaseCommandInput extends GetCaseRequest {}
+export interface DeleteRelatedItemCommandInput extends DeleteRelatedItemRequest {}
 /**
  * @public
  *
- * The output of {@link GetCaseCommand}.
+ * The output of {@link DeleteRelatedItemCommand}.
  */
-export interface GetCaseCommandOutput extends GetCaseResponse, __MetadataBearer {}
+export interface DeleteRelatedItemCommandOutput extends DeleteRelatedItemResponse, __MetadataBearer {}
 
 /**
- * <p>Returns information about a specific case if it exists. </p>
+ * <p>Deletes the related item resource under a case.</p> <note> <p>This API cannot be used on a FILE type related attachment. To delete this type of file, use the <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_DeleteAttachedFile.html">DeleteAttachedFile</a> API</p> </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ConnectCasesClient, GetCaseCommand } from "@aws-sdk/client-connectcases"; // ES Modules import
- * // const { ConnectCasesClient, GetCaseCommand } = require("@aws-sdk/client-connectcases"); // CommonJS import
+ * import { ConnectCasesClient, DeleteRelatedItemCommand } from "@aws-sdk/client-connectcases"; // ES Modules import
+ * // const { ConnectCasesClient, DeleteRelatedItemCommand } = require("@aws-sdk/client-connectcases"); // CommonJS import
  * const client = new ConnectCasesClient(config);
- * const input = { // GetCaseRequest
- *   caseId: "STRING_VALUE", // required
+ * const input = { // DeleteRelatedItemRequest
  *   domainId: "STRING_VALUE", // required
- *   fields: [ // FieldIdentifierList // required
- *     { // FieldIdentifier
- *       id: "STRING_VALUE", // required
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
+ *   caseId: "STRING_VALUE", // required
+ *   relatedItemId: "STRING_VALUE", // required
  * };
- * const command = new GetCaseCommand(input);
+ * const command = new DeleteRelatedItemCommand(input);
  * const response = await client.send(command);
- * // { // GetCaseResponse
- * //   fields: [ // FieldValueList // required
- * //     { // FieldValue
- * //       id: "STRING_VALUE", // required
- * //       value: { // FieldValueUnion Union: only one key present
- * //         stringValue: "STRING_VALUE",
- * //         doubleValue: Number("double"),
- * //         booleanValue: true || false,
- * //         emptyValue: {},
- * //         userArnValue: "STRING_VALUE",
- * //       },
- * //     },
- * //   ],
- * //   templateId: "STRING_VALUE", // required
- * //   nextToken: "STRING_VALUE",
- * //   tags: { // Tags
- * //     "<keys>": "STRING_VALUE",
- * //   },
- * // };
+ * // {};
  *
  * ```
  *
- * @param GetCaseCommandInput - {@link GetCaseCommandInput}
- * @returns {@link GetCaseCommandOutput}
- * @see {@link GetCaseCommandInput} for command's `input` shape.
- * @see {@link GetCaseCommandOutput} for command's `response` shape.
+ * @param DeleteRelatedItemCommandInput - {@link DeleteRelatedItemCommandInput}
+ * @returns {@link DeleteRelatedItemCommandOutput}
+ * @see {@link DeleteRelatedItemCommandInput} for command's `input` shape.
+ * @see {@link DeleteRelatedItemCommandOutput} for command's `response` shape.
  * @see {@link ConnectCasesClientResolvedConfig | config} for ConnectCasesClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -96,10 +73,10 @@ export interface GetCaseCommandOutput extends GetCaseResponse, __MetadataBearer 
  *
  * @public
  */
-export class GetCaseCommand extends $Command
+export class DeleteRelatedItemCommand extends $Command
   .classBuilder<
-    GetCaseCommandInput,
-    GetCaseCommandOutput,
+    DeleteRelatedItemCommandInput,
+    DeleteRelatedItemCommandOutput,
     ConnectCasesClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -111,21 +88,21 @@ export class GetCaseCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("AmazonConnectCases", "GetCase", {})
-  .n("ConnectCasesClient", "GetCaseCommand")
+  .s("AmazonConnectCases", "DeleteRelatedItem", {})
+  .n("ConnectCasesClient", "DeleteRelatedItemCommand")
   .f(void 0, void 0)
-  .ser(se_GetCaseCommand)
-  .de(de_GetCaseCommand)
+  .ser(se_DeleteRelatedItemCommand)
+  .de(de_DeleteRelatedItemCommand)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: GetCaseRequest;
-      output: GetCaseResponse;
+      input: DeleteRelatedItemRequest;
+      output: {};
     };
     sdk: {
-      input: GetCaseCommandInput;
-      output: GetCaseCommandOutput;
+      input: DeleteRelatedItemCommandInput;
+      output: DeleteRelatedItemCommandOutput;
     };
   };
 }

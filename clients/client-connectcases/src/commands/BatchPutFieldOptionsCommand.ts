@@ -28,8 +28,7 @@ export interface BatchPutFieldOptionsCommandInput extends BatchPutFieldOptionsRe
 export interface BatchPutFieldOptionsCommandOutput extends BatchPutFieldOptionsResponse, __MetadataBearer {}
 
 /**
- * <p>Creates and updates a set of field options for a single select field in a Cases
- *       domain.</p>
+ * <p>Creates and updates a set of field options for a single select field in a Cases domain.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -71,16 +70,13 @@ export interface BatchPutFieldOptionsCommandOutput extends BatchPutFieldOptionsR
  *  <p>You do not have sufficient access to perform this action.</p>
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>We couldn't process your request because of an issue with the server. Try again
- *       later.</p>
+ *  <p>We couldn't process your request because of an issue with the server. Try again later.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>We couldn't find the requested resource. Check that your resources exists and were created
- *       in the same Amazon Web Services Region as your request, and try your request again.</p>
+ *  <p>We couldn't find the requested resource. Check that your resources exists and were created in the same Amazon Web Services Region as your request, and try your request again.</p>
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>The service quota has been exceeded. For a list of service quotas, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html">Amazon Connect Service Quotas</a> in the <i>Amazon Connect
- *         Administrator Guide</i>.</p>
+ *  <p>The service quota has been exceeded. For a list of service quotas, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html">Amazon Connect Service Quotas</a> in the <i>Amazon Connect Administrator Guide</i>.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The rate has been exceeded for this API. Please try again after a few minutes.</p>

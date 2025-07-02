@@ -6,8 +6,8 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ConnectCasesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectCasesClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { GetCaseRequest, GetCaseResponse } from "../models/models_0";
-import { de_GetCaseCommand, se_GetCaseCommand } from "../protocols/Aws_restJson1";
+import { DeleteCaseRequest, DeleteCaseResponse } from "../models/models_0";
+import { de_DeleteCaseCommand, se_DeleteCaseCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -17,62 +17,38 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link GetCaseCommand}.
+ * The input for {@link DeleteCaseCommand}.
  */
-export interface GetCaseCommandInput extends GetCaseRequest {}
+export interface DeleteCaseCommandInput extends DeleteCaseRequest {}
 /**
  * @public
  *
- * The output of {@link GetCaseCommand}.
+ * The output of {@link DeleteCaseCommand}.
  */
-export interface GetCaseCommandOutput extends GetCaseResponse, __MetadataBearer {}
+export interface DeleteCaseCommandOutput extends DeleteCaseResponse, __MetadataBearer {}
 
 /**
- * <p>Returns information about a specific case if it exists. </p>
+ * <p> The DeleteCase API permanently deletes a case and all its associated resources from the cases data store. After a successful deletion, you cannot:</p> <ul> <li> <p>Retrieve related items</p> </li> <li> <p>Access audit history</p> </li> <li> <p>Perform any operations that require the CaseID</p> </li> </ul> <important> <p>This action is irreversible. Once you delete a case, you cannot recover its data.</p> </important>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ConnectCasesClient, GetCaseCommand } from "@aws-sdk/client-connectcases"; // ES Modules import
- * // const { ConnectCasesClient, GetCaseCommand } = require("@aws-sdk/client-connectcases"); // CommonJS import
+ * import { ConnectCasesClient, DeleteCaseCommand } from "@aws-sdk/client-connectcases"; // ES Modules import
+ * // const { ConnectCasesClient, DeleteCaseCommand } = require("@aws-sdk/client-connectcases"); // CommonJS import
  * const client = new ConnectCasesClient(config);
- * const input = { // GetCaseRequest
- *   caseId: "STRING_VALUE", // required
+ * const input = { // DeleteCaseRequest
  *   domainId: "STRING_VALUE", // required
- *   fields: [ // FieldIdentifierList // required
- *     { // FieldIdentifier
- *       id: "STRING_VALUE", // required
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
+ *   caseId: "STRING_VALUE", // required
  * };
- * const command = new GetCaseCommand(input);
+ * const command = new DeleteCaseCommand(input);
  * const response = await client.send(command);
- * // { // GetCaseResponse
- * //   fields: [ // FieldValueList // required
- * //     { // FieldValue
- * //       id: "STRING_VALUE", // required
- * //       value: { // FieldValueUnion Union: only one key present
- * //         stringValue: "STRING_VALUE",
- * //         doubleValue: Number("double"),
- * //         booleanValue: true || false,
- * //         emptyValue: {},
- * //         userArnValue: "STRING_VALUE",
- * //       },
- * //     },
- * //   ],
- * //   templateId: "STRING_VALUE", // required
- * //   nextToken: "STRING_VALUE",
- * //   tags: { // Tags
- * //     "<keys>": "STRING_VALUE",
- * //   },
- * // };
+ * // {};
  *
  * ```
  *
- * @param GetCaseCommandInput - {@link GetCaseCommandInput}
- * @returns {@link GetCaseCommandOutput}
- * @see {@link GetCaseCommandInput} for command's `input` shape.
- * @see {@link GetCaseCommandOutput} for command's `response` shape.
+ * @param DeleteCaseCommandInput - {@link DeleteCaseCommandInput}
+ * @returns {@link DeleteCaseCommandOutput}
+ * @see {@link DeleteCaseCommandInput} for command's `input` shape.
+ * @see {@link DeleteCaseCommandOutput} for command's `response` shape.
  * @see {@link ConnectCasesClientResolvedConfig | config} for ConnectCasesClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -96,10 +72,10 @@ export interface GetCaseCommandOutput extends GetCaseResponse, __MetadataBearer 
  *
  * @public
  */
-export class GetCaseCommand extends $Command
+export class DeleteCaseCommand extends $Command
   .classBuilder<
-    GetCaseCommandInput,
-    GetCaseCommandOutput,
+    DeleteCaseCommandInput,
+    DeleteCaseCommandOutput,
     ConnectCasesClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -111,21 +87,21 @@ export class GetCaseCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("AmazonConnectCases", "GetCase", {})
-  .n("ConnectCasesClient", "GetCaseCommand")
+  .s("AmazonConnectCases", "DeleteCase", {})
+  .n("ConnectCasesClient", "DeleteCaseCommand")
   .f(void 0, void 0)
-  .ser(se_GetCaseCommand)
-  .de(de_GetCaseCommand)
+  .ser(se_DeleteCaseCommand)
+  .de(de_DeleteCaseCommand)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: GetCaseRequest;
-      output: GetCaseResponse;
+      input: DeleteCaseRequest;
+      output: {};
     };
     sdk: {
-      input: GetCaseCommandInput;
-      output: GetCaseCommandOutput;
+      input: DeleteCaseCommandInput;
+      output: DeleteCaseCommandOutput;
     };
   };
 }

@@ -28,26 +28,7 @@ export interface CreateCaseCommandInput extends CreateCaseRequest {}
 export interface CreateCaseCommandOutput extends CreateCaseResponse, __MetadataBearer {}
 
 /**
- * <note>
- *             <p>If you provide a value for <code>PerformedBy.UserArn</code> you must also have <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_DescribeUser.html">connect:DescribeUser</a> permission on the User ARN resource that you provide</p>
- *          </note>
- *          <p>Creates a case in the specified Cases domain. Case system and custom fields are taken
- *       as an array id/value pairs with a declared data types.</p>
- *          <p>The following fields are required when creating a case:</p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <code>customer_id</code> - You must provide the full customer profile ARN in this format:
- *             <code>arn:aws:profile:your_AWS_Region:your_AWS_account
- *             ID:domains/your_profiles_domain_name/profiles/profile_ID</code>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>title</code>
- *                </p>
- *             </li>
- *          </ul>
+ * <note> <p>If you provide a value for <code>PerformedBy.UserArn</code> you must also have <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_DescribeUser.html">connect:DescribeUser</a> permission on the User ARN resource that you provide</p> </note> <p>Creates a case in the specified Cases domain. Case system and custom fields are taken as an array id/value pairs with a declared data types.</p> <p>The following fields are required when creating a case:</p> <ul> <li> <p> <code>customer_id</code> - You must provide the full customer profile ARN in this format: <code>arn:aws:profile:your_AWS_Region:your_AWS_account ID:domains/your_profiles_domain_name/profiles/profile_ID</code> </p> </li> <li> <p> <code>title</code> </p> </li> </ul>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -94,17 +75,13 @@ export interface CreateCaseCommandOutput extends CreateCaseResponse, __MetadataB
  *  <p>You do not have sufficient access to perform this action.</p>
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>The requested operation would cause a conflict with the current state of a service
- *       resource associated with the request. Resolve the conflict before retrying this request. See
- *       the accompanying error message for details.</p>
+ *  <p>The requested operation would cause a conflict with the current state of a service resource associated with the request. Resolve the conflict before retrying this request. See the accompanying error message for details.</p>
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>We couldn't process your request because of an issue with the server. Try again
- *       later.</p>
+ *  <p>We couldn't process your request because of an issue with the server. Try again later.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>We couldn't find the requested resource. Check that your resources exists and were created
- *       in the same Amazon Web Services Region as your request, and try your request again.</p>
+ *  <p>We couldn't find the requested resource. Check that your resources exists and were created in the same Amazon Web Services Region as your request, and try your request again.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The rate has been exceeded for this API. Please try again after a few minutes.</p>

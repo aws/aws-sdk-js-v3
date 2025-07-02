@@ -28,8 +28,7 @@ export interface ListDomainsCommandInput extends ListDomainsRequest {}
 export interface ListDomainsCommandOutput extends ListDomainsResponse, __MetadataBearer {}
 
 /**
- * <p>Lists all cases domains in the Amazon Web Services account. Each list item is a condensed
- *       summary object of the domain.</p>
+ * <p>Lists all cases domains in the Amazon Web Services account. Each list item is a condensed summary object of the domain.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -65,8 +64,7 @@ export interface ListDomainsCommandOutput extends ListDomainsResponse, __Metadat
  *  <p>You do not have sufficient access to perform this action.</p>
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>We couldn't process your request because of an issue with the server. Try again
- *       later.</p>
+ *  <p>We couldn't process your request because of an issue with the server. Try again later.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The rate has been exceeded for this API. Please try again after a few minutes.</p>

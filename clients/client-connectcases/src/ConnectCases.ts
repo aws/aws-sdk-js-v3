@@ -44,6 +44,7 @@ import {
   CreateTemplateCommandInput,
   CreateTemplateCommandOutput,
 } from "./commands/CreateTemplateCommand";
+import { DeleteCaseCommand, DeleteCaseCommandInput, DeleteCaseCommandOutput } from "./commands/DeleteCaseCommand";
 import {
   DeleteCaseRuleCommand,
   DeleteCaseRuleCommandInput,
@@ -60,6 +61,11 @@ import {
   DeleteLayoutCommandInput,
   DeleteLayoutCommandOutput,
 } from "./commands/DeleteLayoutCommand";
+import {
+  DeleteRelatedItemCommand,
+  DeleteRelatedItemCommandInput,
+  DeleteRelatedItemCommandOutput,
+} from "./commands/DeleteRelatedItemCommand";
 import {
   DeleteTemplateCommand,
   DeleteTemplateCommandInput,
@@ -154,10 +160,12 @@ const commands = {
   CreateLayoutCommand,
   CreateRelatedItemCommand,
   CreateTemplateCommand,
+  DeleteCaseCommand,
   DeleteCaseRuleCommand,
   DeleteDomainCommand,
   DeleteFieldCommand,
   DeleteLayoutCommand,
+  DeleteRelatedItemCommand,
   DeleteTemplateCommand,
   GetCaseCommand,
   GetCaseAuditEventsCommand,
@@ -321,6 +329,17 @@ export interface ConnectCases {
   ): void;
 
   /**
+   * @see {@link DeleteCaseCommand}
+   */
+  deleteCase(args: DeleteCaseCommandInput, options?: __HttpHandlerOptions): Promise<DeleteCaseCommandOutput>;
+  deleteCase(args: DeleteCaseCommandInput, cb: (err: any, data?: DeleteCaseCommandOutput) => void): void;
+  deleteCase(
+    args: DeleteCaseCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteCaseCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DeleteCaseRuleCommand}
    */
   deleteCaseRule(
@@ -365,6 +384,23 @@ export interface ConnectCases {
     args: DeleteLayoutCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteLayoutCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteRelatedItemCommand}
+   */
+  deleteRelatedItem(
+    args: DeleteRelatedItemCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteRelatedItemCommandOutput>;
+  deleteRelatedItem(
+    args: DeleteRelatedItemCommandInput,
+    cb: (err: any, data?: DeleteRelatedItemCommandOutput) => void
+  ): void;
+  deleteRelatedItem(
+    args: DeleteRelatedItemCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteRelatedItemCommandOutput) => void
   ): void;
 
   /**
@@ -696,25 +732,7 @@ export interface ConnectCases {
 }
 
 /**
- * <ul>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_Operations_Amazon_Connect_Cases.html">Cases
- *             actions</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_Types_Amazon_Connect_Cases.html">Cases data
- *             types</a>
- *                </p>
- *             </li>
- *          </ul>
- *          <p>With Amazon Connect Cases, your agents can track and manage customer issues that require
- *       multiple interactions, follow-up tasks, and teams in your contact center. A case represents a
- *       customer issue. It records the issue, the steps and interactions taken to resolve the issue,
- *       and the outcome. For more information, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/cases.html">Amazon Connect Cases</a> in the
- *           <i>Amazon Connect Administrator Guide</i>.</p>
+ * <ul> <li> <p> <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_Operations_Amazon_Connect_Cases.html">Cases actions</a> </p> </li> <li> <p> <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_Types_Amazon_Connect_Cases.html">Cases data types</a> </p> </li> </ul> <p>With Amazon Connect Cases, your agents can track and manage customer issues that require multiple interactions, follow-up tasks, and teams in your contact center. A case represents a customer issue. It records the issue, the steps and interactions taken to resolve the issue, and the outcome. For more information, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/cases.html">Amazon Connect Cases</a> in the <i>Amazon Connect Administrator Guide</i>.</p>
  * @public
  */
 export class ConnectCases extends ConnectCasesClient implements ConnectCases {}

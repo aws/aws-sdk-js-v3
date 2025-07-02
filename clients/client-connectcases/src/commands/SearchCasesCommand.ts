@@ -28,13 +28,7 @@ export interface SearchCasesCommandInput extends SearchCasesRequest {}
 export interface SearchCasesCommandOutput extends SearchCasesResponse, __MetadataBearer {}
 
 /**
- * <p>Searches for cases within their associated Cases domain. Search results are returned
- *       as a paginated list of abridged case documents.</p>
- *          <note>
- *             <p>For <code>customer_id</code> you must provide the full customer profile ARN in this
- *         format: <code> arn:aws:profile:your AWS Region:your AWS account ID:domains/profiles domain
- *           name/profiles/profile ID</code>. </p>
- *          </note>
+ * <p>Searches for cases within their associated Cases domain. Search results are returned as a paginated list of abridged case documents.</p> <note> <p>For <code>customer_id</code> you must provide the full customer profile ARN in this format: <code> arn:aws:profile:your AWS Region:your AWS account ID:domains/profiles domain name/profiles/profile ID</code>. </p> </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -175,12 +169,10 @@ export interface SearchCasesCommandOutput extends SearchCasesResponse, __Metadat
  *  <p>You do not have sufficient access to perform this action.</p>
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>We couldn't process your request because of an issue with the server. Try again
- *       later.</p>
+ *  <p>We couldn't process your request because of an issue with the server. Try again later.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>We couldn't find the requested resource. Check that your resources exists and were created
- *       in the same Amazon Web Services Region as your request, and try your request again.</p>
+ *  <p>We couldn't find the requested resource. Check that your resources exists and were created in the same Amazon Web Services Region as your request, and try your request again.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The rate has been exceeded for this API. Please try again after a few minutes.</p>
