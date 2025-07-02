@@ -18,6 +18,7 @@ import {
   UserAgentInputConfig,
   UserAgentResolvedConfig,
 } from "@aws-sdk/middleware-user-agent";
+import { resolveWebSocketConfig, WebSocketInputConfig, WebSocketResolvedConfig } from "@aws-sdk/middleware-websocket";
 import { EventStreamPayloadHandlerProvider as __EventStreamPayloadHandlerProvider } from "@aws-sdk/types";
 import { RegionInputConfig, RegionResolvedConfig, resolveRegionConfig } from "@smithy/config-resolver";
 import {
@@ -294,6 +295,7 @@ export type BedrockRuntimeClientConfigType = Partial<__SmithyConfiguration<__Htt
   EventStreamSerdeInputConfig &
   HttpAuthSchemeInputConfig &
   EventStreamInputConfig &
+  WebSocketInputConfig &
   ClientInputEndpointParameters;
 /**
  * @public
@@ -316,6 +318,7 @@ export type BedrockRuntimeClientResolvedConfigType = __SmithyResolvedConfigurati
   EventStreamSerdeResolvedConfig &
   HttpAuthSchemeResolvedConfig &
   EventStreamResolvedConfig &
+  WebSocketResolvedConfig &
   ClientResolvedEndpointParameters;
 /**
  * @public
@@ -352,8 +355,9 @@ export class BedrockRuntimeClient extends __Client<
     const _config_7 = resolveEventStreamSerdeConfig(_config_6);
     const _config_8 = resolveHttpAuthSchemeConfig(_config_7);
     const _config_9 = resolveEventStreamConfig(_config_8);
-    const _config_10 = resolveRuntimeExtensions(_config_9, configuration?.extensions || []);
-    this.config = _config_10;
+    const _config_10 = resolveWebSocketConfig(_config_9);
+    const _config_11 = resolveRuntimeExtensions(_config_10, configuration?.extensions || []);
+    this.config = _config_11;
     this.middlewareStack.use(getUserAgentPlugin(this.config));
     this.middlewareStack.use(getRetryPlugin(this.config));
     this.middlewareStack.use(getContentLengthPlugin(this.config));

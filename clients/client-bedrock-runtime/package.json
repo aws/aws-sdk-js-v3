@@ -28,6 +28,7 @@
     "@aws-sdk/middleware-logger": "*",
     "@aws-sdk/middleware-recursion-detection": "*",
     "@aws-sdk/middleware-user-agent": "*",
+    "@aws-sdk/middleware-websocket": "*",
     "@aws-sdk/region-config-resolver": "*",
     "@aws-sdk/token-providers": "*",
     "@aws-sdk/types": "*",

@@ -1,5 +1,6 @@
 // smithy-typescript generated code
 import { getEventStreamPlugin } from "@aws-sdk/middleware-eventstream";
+import { getWebSocketPlugin } from "@aws-sdk/middleware-websocket";
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
@@ -145,6 +146,9 @@ export class InvokeModelWithBidirectionalStreamCommand extends $Command
       getSerdePlugin(config, this.serialize, this.deserialize),
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
       getEventStreamPlugin(config),
+      getWebSocketPlugin(config, {
+        headerPrefix: "x-amz-bedrock-",
+      }),
     ];
   })
   .s("AmazonBedrockFrontendService", "InvokeModelWithBidirectionalStream", {
