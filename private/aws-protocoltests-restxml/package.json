@@ -62,7 +62,7 @@
     "@smithy/util-utf8": "^4.0.0",
     "@types/uuid": "^9.0.1",
     "entities": "2.2.0",
-    "fast-xml-parser": "4.4.1",
+    "fast-xml-parser": "5.2.5",
     "tslib": "^2.6.2",
     "uuid": "^9.0.1"
   },
