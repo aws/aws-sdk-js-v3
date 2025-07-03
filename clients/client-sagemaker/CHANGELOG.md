@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.843.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.842.0...v3.843.0) (2025-07-03)
+
+
+### Features
+
+* **client-sagemaker:** Changes include new StartSession API for SageMaker Studio spaces and CreateHubContentPresignedUrls API for SageMaker JumpStart. ([33f9fd4](https://github.com/aws/aws-sdk-js-v3/commit/33f9fd40cef5de3fcc0814d875c4e8e7a6e3fc71))
+
+
+
+
+
 # [3.841.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.840.0...v3.841.0) (2025-07-01)
 
 

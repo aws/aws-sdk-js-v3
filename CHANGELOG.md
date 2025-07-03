@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.843.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.842.0...v3.843.0) (2025-07-03)
+
+
+### Features
+
+* **client-customer-profiles:** This release introduces capability of create Segments via importing a CSV file directly. This consumes the CSV file and creates/updates corresponding profiles for the particular domain. ([517b669](https://github.com/aws/aws-sdk-js-v3/commit/517b66985d16aac57e354a32b1e4750620843f64))
+* **client-deadline:** Added fields for output manifest reporting and task chunking parameters ([e5bcf91](https://github.com/aws/aws-sdk-js-v3/commit/e5bcf91b952b7eb3a92d004bedf6e3f93048395a))
+* **client-ec2:** This release adds GroupOwnerId as a response member to the DescribeSecurityGroupVpcAssociations API and also adds waiters for SecurityGroupVpcAssociations (SecurityGroupVpcAssociationAssociated and SecurityGroupVpcAssociationDisassociated). ([69f38fa](https://github.com/aws/aws-sdk-js-v3/commit/69f38fa850383d24be3650e605fbdcf508869084))
+* **client-mediapackagev2:** This release adds support for Microsoft Smooth Streaming (MSS) and allows users to exclude DRM segment Metadata in MediaPackage v2 Origin Endpoints ([11e9774](https://github.com/aws/aws-sdk-js-v3/commit/11e9774be365fc2d163576edc3e62dd34bdf0197))
+* **client-route-53:** Amazon Route 53 now supports the iso-e regions for private DNS Amazon VPCs and cloudwatch healthchecks. ([42e0f48](https://github.com/aws/aws-sdk-js-v3/commit/42e0f48f56766cef9aeee1928c4e292c56707f91))
+* **client-sagemaker:** Changes include new StartSession API for SageMaker Studio spaces and CreateHubContentPresignedUrls API for SageMaker JumpStart. ([33f9fd4](https://github.com/aws/aws-sdk-js-v3/commit/33f9fd40cef5de3fcc0814d875c4e8e7a6e3fc71))
+* **clients:** update client endpoints as of 2025-07-03 ([8d7d3df](https://github.com/aws/aws-sdk-js-v3/commit/8d7d3dff8c5e6f0732d5740b512d7aa5c1f6e571))
+
+
+
+
+
 # [3.842.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.841.0...v3.842.0) (2025-07-02)
 
 
