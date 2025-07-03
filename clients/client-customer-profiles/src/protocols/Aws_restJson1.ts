@@ -64,6 +64,7 @@ import {
   CreateSegmentSnapshotCommandInput,
   CreateSegmentSnapshotCommandOutput,
 } from "../commands/CreateSegmentSnapshotCommand";
+import { CreateUploadJobCommandInput, CreateUploadJobCommandOutput } from "../commands/CreateUploadJobCommand";
 import {
   DeleteCalculatedAttributeDefinitionCommandInput,
   DeleteCalculatedAttributeDefinitionCommandOutput,
@@ -133,6 +134,8 @@ import {
 } from "../commands/GetSegmentMembershipCommand";
 import { GetSegmentSnapshotCommandInput, GetSegmentSnapshotCommandOutput } from "../commands/GetSegmentSnapshotCommand";
 import { GetSimilarProfilesCommandInput, GetSimilarProfilesCommandOutput } from "../commands/GetSimilarProfilesCommand";
+import { GetUploadJobCommandInput, GetUploadJobCommandOutput } from "../commands/GetUploadJobCommand";
+import { GetUploadJobPathCommandInput, GetUploadJobPathCommandOutput } from "../commands/GetUploadJobPathCommand";
 import { GetWorkflowCommandInput, GetWorkflowCommandOutput } from "../commands/GetWorkflowCommand";
 import { GetWorkflowStepsCommandInput, GetWorkflowStepsCommandOutput } from "../commands/GetWorkflowStepsCommand";
 import {
@@ -185,6 +188,7 @@ import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "../commands/ListTagsForResourceCommand";
+import { ListUploadJobsCommandInput, ListUploadJobsCommandOutput } from "../commands/ListUploadJobsCommand";
 import { ListWorkflowsCommandInput, ListWorkflowsCommandOutput } from "../commands/ListWorkflowsCommand";
 import { MergeProfilesCommandInput, MergeProfilesCommandOutput } from "../commands/MergeProfilesCommand";
 import { PutIntegrationCommandInput, PutIntegrationCommandOutput } from "../commands/PutIntegrationCommand";
@@ -194,6 +198,8 @@ import {
   PutProfileObjectTypeCommandOutput,
 } from "../commands/PutProfileObjectTypeCommand";
 import { SearchProfilesCommandInput, SearchProfilesCommandOutput } from "../commands/SearchProfilesCommand";
+import { StartUploadJobCommandInput, StartUploadJobCommandOutput } from "../commands/StartUploadJobCommand";
+import { StopUploadJobCommandInput, StopUploadJobCommandOutput } from "../commands/StopUploadJobCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
 import {
@@ -275,6 +281,7 @@ import {
   Range,
   RangeOverride,
   ResourceNotFoundException,
+  ResultsSummary,
   RuleBasedMatchingRequest,
   S3ExportingConfig,
   S3SourceProperties,
@@ -293,11 +300,12 @@ import {
   ThrottlingException,
   TriggerConfig,
   TriggerProperties,
-  UpdateAddress,
+  UploadJobItem,
   ValueRange,
   WorkflowStepItem,
   ZendeskSourceProperties,
 } from "../models/models_0";
+import { UpdateAddress } from "../models/models_1";
 
 /**
  * serializeAws_restJson1AddProfileKeyCommand
@@ -657,6 +665,32 @@ export const se_CreateSegmentSnapshotCommand = async (
       DestinationUri: [],
       EncryptionKey: [],
       RoleArn: [],
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1CreateUploadJobCommand
+ */
+export const se_CreateUploadJobCommand = async (
+  input: CreateUploadJobCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/domains/{DomainName}/upload-jobs");
+  b.p("DomainName", () => input.DomainName!, "{DomainName}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      DataExpiry: [],
+      DisplayName: [],
+      Fields: (_) => _json(_),
+      UniqueKey: [],
     })
   );
   b.m("POST").h(headers).b(body);
@@ -1243,6 +1277,40 @@ export const se_GetSimilarProfilesCommand = async (
 };
 
 /**
+ * serializeAws_restJson1GetUploadJobCommand
+ */
+export const se_GetUploadJobCommand = async (
+  input: GetUploadJobCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/domains/{DomainName}/upload-jobs/{JobId}");
+  b.p("DomainName", () => input.DomainName!, "{DomainName}", false);
+  b.p("JobId", () => input.JobId!, "{JobId}", false);
+  let body: any;
+  b.m("GET").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1GetUploadJobPathCommand
+ */
+export const se_GetUploadJobPathCommand = async (
+  input: GetUploadJobPathCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/domains/{DomainName}/upload-jobs/{JobId}/path");
+  b.p("DomainName", () => input.DomainName!, "{DomainName}", false);
+  b.p("JobId", () => input.JobId!, "{JobId}", false);
+  let body: any;
+  b.m("GET").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1GetWorkflowCommand
  */
 export const se_GetWorkflowCommand = async (
@@ -1631,6 +1699,26 @@ export const se_ListTagsForResourceCommand = async (
 };
 
 /**
+ * serializeAws_restJson1ListUploadJobsCommand
+ */
+export const se_ListUploadJobsCommand = async (
+  input: ListUploadJobsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/domains/{DomainName}/upload-jobs");
+  b.p("DomainName", () => input.DomainName!, "{DomainName}", false);
+  const query: any = map({
+    [_mr]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+    [_nt]: [, input[_NT]!],
+  });
+  let body: any;
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1ListWorkflowsCommand
  */
 export const se_ListWorkflowsCommand = async (
@@ -1798,6 +1886,40 @@ export const se_SearchProfilesCommand = async (
     })
   );
   b.m("POST").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1StartUploadJobCommand
+ */
+export const se_StartUploadJobCommand = async (
+  input: StartUploadJobCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/domains/{DomainName}/upload-jobs/{JobId}");
+  b.p("DomainName", () => input.DomainName!, "{DomainName}", false);
+  b.p("JobId", () => input.JobId!, "{JobId}", false);
+  let body: any;
+  b.m("PUT").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1StopUploadJobCommand
+ */
+export const se_StopUploadJobCommand = async (
+  input: StopUploadJobCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/domains/{DomainName}/upload-jobs/{JobId}/stop");
+  b.p("DomainName", () => input.DomainName!, "{DomainName}", false);
+  b.p("JobId", () => input.JobId!, "{JobId}", false);
+  let body: any;
+  b.m("PUT").h(headers).b(body);
   return b.build();
 };
 
@@ -2319,6 +2441,27 @@ export const de_CreateSegmentSnapshotCommand = async (
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
     SnapshotId: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1CreateUploadJobCommand
+ */
+export const de_CreateUploadJobCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateUploadJobCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    JobId: [, __expectString, `JobId`],
   });
   Object.assign(contents, doc);
   return contents;
@@ -3062,6 +3205,59 @@ export const de_GetSimilarProfilesCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1GetUploadJobCommand
+ */
+export const de_GetUploadJobCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetUploadJobCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    CompletedAt: [, (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))), `CompletedAt`],
+    CreatedAt: [, (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))), `CreatedAt`],
+    DataExpiry: [, __expectInt32, `DataExpiry`],
+    DisplayName: [, __expectString, `DisplayName`],
+    Fields: [, _json, `Fields`],
+    JobId: [, __expectString, `JobId`],
+    ResultsSummary: [, (_) => de_ResultsSummary(_, context), `ResultsSummary`],
+    Status: [, __expectString, `Status`],
+    StatusReason: [, __expectString, `StatusReason`],
+    UniqueKey: [, __expectString, `UniqueKey`],
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1GetUploadJobPathCommand
+ */
+export const de_GetUploadJobPathCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetUploadJobPathCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    ClientToken: [, __expectString, `ClientToken`],
+    Url: [, __expectString, `Url`],
+    ValidUntil: [, (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))), `ValidUntil`],
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1GetWorkflowCommand
  */
 export const de_GetWorkflowCommand = async (
@@ -3491,6 +3687,28 @@ export const de_ListTagsForResourceCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1ListUploadJobsCommand
+ */
+export const de_ListUploadJobsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListUploadJobsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    Items: [, (_) => de_UploadJobsList(_, context), `Items`],
+    NextToken: [, __expectString, `NextToken`],
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1ListWorkflowsCommand
  */
 export const de_ListWorkflowsCommand = async (
@@ -3638,6 +3856,40 @@ export const de_SearchProfilesCommand = async (
     NextToken: __expectString,
   });
   Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1StartUploadJobCommand
+ */
+export const de_StartUploadJobCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartUploadJobCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1StopUploadJobCommand
+ */
+export const de_StopUploadJobCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StopUploadJobCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
   return contents;
 };
 
@@ -5200,6 +5452,17 @@ const de_Profiles = (output: any, context: __SerdeContext): ProfileQueryResult[]
 
 // de_requestValueList omitted.
 
+/**
+ * deserializeAws_restJson1ResultsSummary
+ */
+const de_ResultsSummary = (output: any, context: __SerdeContext): ResultsSummary => {
+  return take(output, {
+    CreatedRecords: [, __expectLong, `CreatedRecords`],
+    FailedRecords: [, __expectLong, `FailedRecords`],
+    UpdatedRecords: [, __expectLong, `UpdatedRecords`],
+  }) as any;
+};
+
 // de_RuleBasedMatchingResponse omitted.
 
 // de_S3ExportingConfig omitted.
@@ -5280,6 +5543,33 @@ const de_SourceSegmentList = (output: any, context: __SerdeContext): SourceSegme
 // de_TagMap omitted.
 
 // de_Threshold omitted.
+
+/**
+ * deserializeAws_restJson1UploadJobItem
+ */
+const de_UploadJobItem = (output: any, context: __SerdeContext): UploadJobItem => {
+  return take(output, {
+    CompletedAt: [, (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))), `CompletedAt`],
+    CreatedAt: [, (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))), `CreatedAt`],
+    DataExpiry: [, __expectInt32, `DataExpiry`],
+    DisplayName: [, __expectString, `DisplayName`],
+    JobId: [, __expectString, `JobId`],
+    Status: [, __expectString, `Status`],
+    StatusReason: [, __expectString, `StatusReason`],
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1UploadJobsList
+ */
+const de_UploadJobsList = (output: any, context: __SerdeContext): UploadJobItem[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_UploadJobItem(entry, context);
+    });
+  return retVal;
+};
 
 // de_ValueList omitted.
 

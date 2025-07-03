@@ -11,7 +11,7 @@ import {
   UpdateEventTriggerRequestFilterSensitiveLog,
   UpdateEventTriggerResponse,
   UpdateEventTriggerResponseFilterSensitiveLog,
-} from "../models/models_0";
+} from "../models/models_1";
 import { de_UpdateEventTriggerCommand, se_UpdateEventTriggerCommand } from "../protocols/Aws_restJson1";
 
 /**

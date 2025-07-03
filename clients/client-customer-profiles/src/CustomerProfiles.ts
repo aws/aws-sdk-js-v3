@@ -68,6 +68,11 @@ import {
   CreateSegmentSnapshotCommandOutput,
 } from "./commands/CreateSegmentSnapshotCommand";
 import {
+  CreateUploadJobCommand,
+  CreateUploadJobCommandInput,
+  CreateUploadJobCommandOutput,
+} from "./commands/CreateUploadJobCommand";
+import {
   DeleteCalculatedAttributeDefinitionCommand,
   DeleteCalculatedAttributeDefinitionCommandInput,
   DeleteCalculatedAttributeDefinitionCommandOutput,
@@ -209,6 +214,16 @@ import {
   GetSimilarProfilesCommandInput,
   GetSimilarProfilesCommandOutput,
 } from "./commands/GetSimilarProfilesCommand";
+import {
+  GetUploadJobCommand,
+  GetUploadJobCommandInput,
+  GetUploadJobCommandOutput,
+} from "./commands/GetUploadJobCommand";
+import {
+  GetUploadJobPathCommand,
+  GetUploadJobPathCommandInput,
+  GetUploadJobPathCommandOutput,
+} from "./commands/GetUploadJobPathCommand";
 import { GetWorkflowCommand, GetWorkflowCommandInput, GetWorkflowCommandOutput } from "./commands/GetWorkflowCommand";
 import {
   GetWorkflowStepsCommand,
@@ -297,6 +312,11 @@ import {
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import {
+  ListUploadJobsCommand,
+  ListUploadJobsCommandInput,
+  ListUploadJobsCommandOutput,
+} from "./commands/ListUploadJobsCommand";
+import {
   ListWorkflowsCommand,
   ListWorkflowsCommandInput,
   ListWorkflowsCommandOutput,
@@ -326,6 +346,16 @@ import {
   SearchProfilesCommandInput,
   SearchProfilesCommandOutput,
 } from "./commands/SearchProfilesCommand";
+import {
+  StartUploadJobCommand,
+  StartUploadJobCommandInput,
+  StartUploadJobCommandOutput,
+} from "./commands/StartUploadJobCommand";
+import {
+  StopUploadJobCommand,
+  StopUploadJobCommandInput,
+  StopUploadJobCommandOutput,
+} from "./commands/StopUploadJobCommand";
 import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
   UntagResourceCommand,
@@ -373,6 +403,7 @@ const commands = {
   CreateSegmentDefinitionCommand,
   CreateSegmentEstimateCommand,
   CreateSegmentSnapshotCommand,
+  CreateUploadJobCommand,
   DeleteCalculatedAttributeDefinitionCommand,
   DeleteDomainCommand,
   DeleteDomainLayoutCommand,
@@ -403,6 +434,8 @@ const commands = {
   GetSegmentMembershipCommand,
   GetSegmentSnapshotCommand,
   GetSimilarProfilesCommand,
+  GetUploadJobCommand,
+  GetUploadJobPathCommand,
   GetWorkflowCommand,
   GetWorkflowStepsCommand,
   ListAccountIntegrationsCommand,
@@ -422,12 +455,15 @@ const commands = {
   ListRuleBasedMatchesCommand,
   ListSegmentDefinitionsCommand,
   ListTagsForResourceCommand,
+  ListUploadJobsCommand,
   ListWorkflowsCommand,
   MergeProfilesCommand,
   PutIntegrationCommand,
   PutProfileObjectCommand,
   PutProfileObjectTypeCommand,
   SearchProfilesCommand,
+  StartUploadJobCommand,
+  StopUploadJobCommand,
   TagResourceCommand,
   UntagResourceCommand,
   UpdateCalculatedAttributeDefinitionCommand,
@@ -636,6 +672,20 @@ export interface CustomerProfiles {
     args: CreateSegmentSnapshotCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateSegmentSnapshotCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateUploadJobCommand}
+   */
+  createUploadJob(
+    args: CreateUploadJobCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateUploadJobCommandOutput>;
+  createUploadJob(args: CreateUploadJobCommandInput, cb: (err: any, data?: CreateUploadJobCommandOutput) => void): void;
+  createUploadJob(
+    args: CreateUploadJobCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateUploadJobCommandOutput) => void
   ): void;
 
   /**
@@ -1110,6 +1160,34 @@ export interface CustomerProfiles {
   ): void;
 
   /**
+   * @see {@link GetUploadJobCommand}
+   */
+  getUploadJob(args: GetUploadJobCommandInput, options?: __HttpHandlerOptions): Promise<GetUploadJobCommandOutput>;
+  getUploadJob(args: GetUploadJobCommandInput, cb: (err: any, data?: GetUploadJobCommandOutput) => void): void;
+  getUploadJob(
+    args: GetUploadJobCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetUploadJobCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetUploadJobPathCommand}
+   */
+  getUploadJobPath(
+    args: GetUploadJobPathCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetUploadJobPathCommandOutput>;
+  getUploadJobPath(
+    args: GetUploadJobPathCommandInput,
+    cb: (err: any, data?: GetUploadJobPathCommandOutput) => void
+  ): void;
+  getUploadJobPath(
+    args: GetUploadJobPathCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetUploadJobPathCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetWorkflowCommand}
    */
   getWorkflow(args: GetWorkflowCommandInput, options?: __HttpHandlerOptions): Promise<GetWorkflowCommandOutput>;
@@ -1423,6 +1501,20 @@ export interface CustomerProfiles {
   ): void;
 
   /**
+   * @see {@link ListUploadJobsCommand}
+   */
+  listUploadJobs(
+    args: ListUploadJobsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListUploadJobsCommandOutput>;
+  listUploadJobs(args: ListUploadJobsCommandInput, cb: (err: any, data?: ListUploadJobsCommandOutput) => void): void;
+  listUploadJobs(
+    args: ListUploadJobsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListUploadJobsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListWorkflowsCommand}
    */
   listWorkflows(args: ListWorkflowsCommandInput, options?: __HttpHandlerOptions): Promise<ListWorkflowsCommandOutput>;
@@ -1504,6 +1596,31 @@ export interface CustomerProfiles {
     args: SearchProfilesCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: SearchProfilesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link StartUploadJobCommand}
+   */
+  startUploadJob(
+    args: StartUploadJobCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartUploadJobCommandOutput>;
+  startUploadJob(args: StartUploadJobCommandInput, cb: (err: any, data?: StartUploadJobCommandOutput) => void): void;
+  startUploadJob(
+    args: StartUploadJobCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartUploadJobCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link StopUploadJobCommand}
+   */
+  stopUploadJob(args: StopUploadJobCommandInput, options?: __HttpHandlerOptions): Promise<StopUploadJobCommandOutput>;
+  stopUploadJob(args: StopUploadJobCommandInput, cb: (err: any, data?: StopUploadJobCommandOutput) => void): void;
+  stopUploadJob(
+    args: StopUploadJobCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StopUploadJobCommandOutput) => void
   ): void;
 
   /**

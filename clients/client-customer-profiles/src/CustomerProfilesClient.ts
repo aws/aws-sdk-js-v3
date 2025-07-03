@@ -84,6 +84,7 @@ import {
   CreateSegmentSnapshotCommandInput,
   CreateSegmentSnapshotCommandOutput,
 } from "./commands/CreateSegmentSnapshotCommand";
+import { CreateUploadJobCommandInput, CreateUploadJobCommandOutput } from "./commands/CreateUploadJobCommand";
 import {
   DeleteCalculatedAttributeDefinitionCommandInput,
   DeleteCalculatedAttributeDefinitionCommandOutput,
@@ -153,6 +154,8 @@ import {
 } from "./commands/GetSegmentMembershipCommand";
 import { GetSegmentSnapshotCommandInput, GetSegmentSnapshotCommandOutput } from "./commands/GetSegmentSnapshotCommand";
 import { GetSimilarProfilesCommandInput, GetSimilarProfilesCommandOutput } from "./commands/GetSimilarProfilesCommand";
+import { GetUploadJobCommandInput, GetUploadJobCommandOutput } from "./commands/GetUploadJobCommand";
+import { GetUploadJobPathCommandInput, GetUploadJobPathCommandOutput } from "./commands/GetUploadJobPathCommand";
 import { GetWorkflowCommandInput, GetWorkflowCommandOutput } from "./commands/GetWorkflowCommand";
 import { GetWorkflowStepsCommandInput, GetWorkflowStepsCommandOutput } from "./commands/GetWorkflowStepsCommand";
 import {
@@ -205,6 +208,7 @@ import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
+import { ListUploadJobsCommandInput, ListUploadJobsCommandOutput } from "./commands/ListUploadJobsCommand";
 import { ListWorkflowsCommandInput, ListWorkflowsCommandOutput } from "./commands/ListWorkflowsCommand";
 import { MergeProfilesCommandInput, MergeProfilesCommandOutput } from "./commands/MergeProfilesCommand";
 import { PutIntegrationCommandInput, PutIntegrationCommandOutput } from "./commands/PutIntegrationCommand";
@@ -214,6 +218,8 @@ import {
   PutProfileObjectTypeCommandOutput,
 } from "./commands/PutProfileObjectTypeCommand";
 import { SearchProfilesCommandInput, SearchProfilesCommandOutput } from "./commands/SearchProfilesCommand";
+import { StartUploadJobCommandInput, StartUploadJobCommandOutput } from "./commands/StartUploadJobCommand";
+import { StopUploadJobCommandInput, StopUploadJobCommandOutput } from "./commands/StopUploadJobCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import {
@@ -252,6 +258,7 @@ export type ServiceInputTypes =
   | CreateSegmentDefinitionCommandInput
   | CreateSegmentEstimateCommandInput
   | CreateSegmentSnapshotCommandInput
+  | CreateUploadJobCommandInput
   | DeleteCalculatedAttributeDefinitionCommandInput
   | DeleteDomainCommandInput
   | DeleteDomainLayoutCommandInput
@@ -282,6 +289,8 @@ export type ServiceInputTypes =
   | GetSegmentMembershipCommandInput
   | GetSegmentSnapshotCommandInput
   | GetSimilarProfilesCommandInput
+  | GetUploadJobCommandInput
+  | GetUploadJobPathCommandInput
   | GetWorkflowCommandInput
   | GetWorkflowStepsCommandInput
   | ListAccountIntegrationsCommandInput
@@ -301,12 +310,15 @@ export type ServiceInputTypes =
   | ListRuleBasedMatchesCommandInput
   | ListSegmentDefinitionsCommandInput
   | ListTagsForResourceCommandInput
+  | ListUploadJobsCommandInput
   | ListWorkflowsCommandInput
   | MergeProfilesCommandInput
   | PutIntegrationCommandInput
   | PutProfileObjectCommandInput
   | PutProfileObjectTypeCommandInput
   | SearchProfilesCommandInput
+  | StartUploadJobCommandInput
+  | StopUploadJobCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
   | UpdateCalculatedAttributeDefinitionCommandInput
@@ -332,6 +344,7 @@ export type ServiceOutputTypes =
   | CreateSegmentDefinitionCommandOutput
   | CreateSegmentEstimateCommandOutput
   | CreateSegmentSnapshotCommandOutput
+  | CreateUploadJobCommandOutput
   | DeleteCalculatedAttributeDefinitionCommandOutput
   | DeleteDomainCommandOutput
   | DeleteDomainLayoutCommandOutput
@@ -362,6 +375,8 @@ export type ServiceOutputTypes =
   | GetSegmentMembershipCommandOutput
   | GetSegmentSnapshotCommandOutput
   | GetSimilarProfilesCommandOutput
+  | GetUploadJobCommandOutput
+  | GetUploadJobPathCommandOutput
   | GetWorkflowCommandOutput
   | GetWorkflowStepsCommandOutput
   | ListAccountIntegrationsCommandOutput
@@ -381,12 +396,15 @@ export type ServiceOutputTypes =
   | ListRuleBasedMatchesCommandOutput
   | ListSegmentDefinitionsCommandOutput
   | ListTagsForResourceCommandOutput
+  | ListUploadJobsCommandOutput
   | ListWorkflowsCommandOutput
   | MergeProfilesCommandOutput
   | PutIntegrationCommandOutput
   | PutProfileObjectCommandOutput
   | PutProfileObjectTypeCommandOutput
   | SearchProfilesCommandOutput
+  | StartUploadJobCommandOutput
+  | StopUploadJobCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
   | UpdateCalculatedAttributeDefinitionCommandOutput

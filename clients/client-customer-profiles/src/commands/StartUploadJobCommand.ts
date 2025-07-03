@@ -6,8 +6,9 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { CustomerProfilesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CustomerProfilesClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { UntagResourceRequest, UntagResourceResponse } from "../models/models_1";
-import { de_UntagResourceCommand, se_UntagResourceCommand } from "../protocols/Aws_restJson1";
+import { StartUploadJobRequest } from "../models/models_0";
+import { StartUploadJobResponse } from "../models/models_1";
+import { de_StartUploadJobCommand, se_StartUploadJobCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -17,42 +18,42 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link UntagResourceCommand}.
+ * The input for {@link StartUploadJobCommand}.
  */
-export interface UntagResourceCommandInput extends UntagResourceRequest {}
+export interface StartUploadJobCommandInput extends StartUploadJobRequest {}
 /**
  * @public
  *
- * The output of {@link UntagResourceCommand}.
+ * The output of {@link StartUploadJobCommand}.
  */
-export interface UntagResourceCommandOutput extends UntagResourceResponse, __MetadataBearer {}
+export interface StartUploadJobCommandOutput extends StartUploadJobResponse, __MetadataBearer {}
 
 /**
- * <p>Removes one or more tags from the specified Amazon Connect Customer Profiles resource. In Connect
- *          Customer Profiles, domains, profile object types, and integrations can be tagged.</p>
+ * <p>This API starts the processing of an upload job to ingest profile data. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CustomerProfilesClient, UntagResourceCommand } from "@aws-sdk/client-customer-profiles"; // ES Modules import
- * // const { CustomerProfilesClient, UntagResourceCommand } = require("@aws-sdk/client-customer-profiles"); // CommonJS import
+ * import { CustomerProfilesClient, StartUploadJobCommand } from "@aws-sdk/client-customer-profiles"; // ES Modules import
+ * // const { CustomerProfilesClient, StartUploadJobCommand } = require("@aws-sdk/client-customer-profiles"); // CommonJS import
  * const client = new CustomerProfilesClient(config);
- * const input = { // UntagResourceRequest
- *   resourceArn: "STRING_VALUE", // required
- *   tagKeys: [ // TagKeyList // required
- *     "STRING_VALUE",
- *   ],
+ * const input = { // StartUploadJobRequest
+ *   DomainName: "STRING_VALUE", // required
+ *   JobId: "STRING_VALUE", // required
  * };
- * const command = new UntagResourceCommand(input);
+ * const command = new StartUploadJobCommand(input);
  * const response = await client.send(command);
  * // {};
  *
  * ```
  *
- * @param UntagResourceCommandInput - {@link UntagResourceCommandInput}
- * @returns {@link UntagResourceCommandOutput}
- * @see {@link UntagResourceCommandInput} for command's `input` shape.
- * @see {@link UntagResourceCommandOutput} for command's `response` shape.
+ * @param StartUploadJobCommandInput - {@link StartUploadJobCommandInput}
+ * @returns {@link StartUploadJobCommandOutput}
+ * @see {@link StartUploadJobCommandInput} for command's `input` shape.
+ * @see {@link StartUploadJobCommandOutput} for command's `response` shape.
  * @see {@link CustomerProfilesClientResolvedConfig | config} for CustomerProfilesClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have sufficient access to perform this action.</p>
  *
  * @throws {@link BadRequestException} (client fault)
  *  <p>The input you provided is invalid.</p>
@@ -63,16 +64,19 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The requested resource does not exist, or access was denied.</p>
  *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>You exceeded the maximum number of requests.</p>
+ *
  * @throws {@link CustomerProfilesServiceException}
  * <p>Base exception class for all service exceptions from CustomerProfiles service.</p>
  *
  *
  * @public
  */
-export class UntagResourceCommand extends $Command
+export class StartUploadJobCommand extends $Command
   .classBuilder<
-    UntagResourceCommandInput,
-    UntagResourceCommandOutput,
+    StartUploadJobCommandInput,
+    StartUploadJobCommandOutput,
     CustomerProfilesClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -84,21 +88,21 @@ export class UntagResourceCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("CustomerProfiles_20200815", "UntagResource", {})
-  .n("CustomerProfilesClient", "UntagResourceCommand")
+  .s("CustomerProfiles_20200815", "StartUploadJob", {})
+  .n("CustomerProfilesClient", "StartUploadJobCommand")
   .f(void 0, void 0)
-  .ser(se_UntagResourceCommand)
-  .de(de_UntagResourceCommand)
+  .ser(se_StartUploadJobCommand)
+  .de(de_StartUploadJobCommand)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: UntagResourceRequest;
+      input: StartUploadJobRequest;
       output: {};
     };
     sdk: {
-      input: UntagResourceCommandInput;
-      output: UntagResourceCommandOutput;
+      input: StartUploadJobCommandInput;
+      output: StartUploadJobCommandOutput;
     };
   };
 }

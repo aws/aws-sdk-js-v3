@@ -328,6 +328,14 @@ CreateSegmentSnapshot
 </details>
 <details>
 <summary>
+CreateUploadJob
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/customer-profiles/command/CreateUploadJobCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-customer-profiles/Interface/CreateUploadJobCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-customer-profiles/Interface/CreateUploadJobCommandOutput/)
+
+</details>
+<details>
+<summary>
 DeleteCalculatedAttributeDefinition
 </summary>
 
@@ -568,6 +576,22 @@ GetSimilarProfiles
 </details>
 <details>
 <summary>
+GetUploadJob
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/customer-profiles/command/GetUploadJobCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-customer-profiles/Interface/GetUploadJobCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-customer-profiles/Interface/GetUploadJobCommandOutput/)
+
+</details>
+<details>
+<summary>
+GetUploadJobPath
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/customer-profiles/command/GetUploadJobPathCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-customer-profiles/Interface/GetUploadJobPathCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-customer-profiles/Interface/GetUploadJobPathCommandOutput/)
+
+</details>
+<details>
+<summary>
 GetWorkflow
 </summary>
 
@@ -720,6 +744,14 @@ ListTagsForResource
 </details>
 <details>
 <summary>
+ListUploadJobs
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/customer-profiles/command/ListUploadJobsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-customer-profiles/Interface/ListUploadJobsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-customer-profiles/Interface/ListUploadJobsCommandOutput/)
+
+</details>
+<details>
+<summary>
 ListWorkflows
 </summary>
 
@@ -764,6 +796,22 @@ SearchProfiles
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/customer-profiles/command/SearchProfilesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-customer-profiles/Interface/SearchProfilesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-customer-profiles/Interface/SearchProfilesCommandOutput/)
+
+</details>
+<details>
+<summary>
+StartUploadJob
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/customer-profiles/command/StartUploadJobCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-customer-profiles/Interface/StartUploadJobCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-customer-profiles/Interface/StartUploadJobCommandOutput/)
+
+</details>
+<details>
+<summary>
+StopUploadJob
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/customer-profiles/command/StopUploadJobCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-customer-profiles/Interface/StopUploadJobCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-customer-profiles/Interface/StopUploadJobCommandOutput/)
 
 </details>
 <details>

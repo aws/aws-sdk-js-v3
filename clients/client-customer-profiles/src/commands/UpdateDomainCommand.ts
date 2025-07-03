@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { CustomerProfilesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CustomerProfilesClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { UpdateDomainRequest, UpdateDomainResponse } from "../models/models_0";
+import { UpdateDomainRequest, UpdateDomainResponse } from "../models/models_1";
 import { de_UpdateDomainCommand, se_UpdateDomainCommand } from "../protocols/Aws_restJson1";
 
 /**

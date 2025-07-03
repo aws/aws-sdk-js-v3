@@ -7,3 +7,4 @@ export * from "./ListEventTriggersPaginator";
 export * from "./ListObjectTypeAttributesPaginator";
 export * from "./ListRuleBasedMatchesPaginator";
 export * from "./ListSegmentDefinitionsPaginator";
+export * from "./ListUploadJobsPaginator";

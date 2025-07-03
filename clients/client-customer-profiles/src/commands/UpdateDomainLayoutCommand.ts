@@ -11,7 +11,7 @@ import {
   UpdateDomainLayoutRequestFilterSensitiveLog,
   UpdateDomainLayoutResponse,
   UpdateDomainLayoutResponseFilterSensitiveLog,
-} from "../models/models_0";
+} from "../models/models_1";
 import { de_UpdateDomainLayoutCommand, se_UpdateDomainLayoutCommand } from "../protocols/Aws_restJson1";
 
 /**

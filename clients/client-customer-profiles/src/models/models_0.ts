@@ -1574,7 +1574,8 @@ export interface CalculatedAttributeValue {
   Value?: string | undefined;
 
   /**
-   * <p>The timestamp of the newest object included in the calculated attribute calculation.</p>
+   * <p>The timestamp of the newest object included in the calculated attribute
+   *          calculation.</p>
    * @public
    */
   LastObjectTimestamp?: Date | undefined;
@@ -2050,7 +2051,8 @@ export interface ListCalculatedAttributeForProfileItem {
   Value?: string | undefined;
 
   /**
-   * <p>The timestamp of the newest object included in the calculated attribute calculation.</p>
+   * <p>The timestamp of the newest object included in the calculated attribute
+   *          calculation.</p>
    * @public
    */
   LastObjectTimestamp?: Date | undefined;
@@ -3057,8 +3059,7 @@ export interface CreateDomainLayoutRequest {
   LayoutType: LayoutType | undefined;
 
   /**
-   * <p>A customizable layout that can be used to view data under a Customer Profiles
-   *          domain.</p>
+   * <p>A customizable layout that can be used to view data under a Customer Profiles domain.</p>
    * @public
    */
   Layout: string | undefined;
@@ -4226,6 +4227,100 @@ export interface CreateSegmentSnapshotResponse {
 
 /**
  * @public
+ * @enum
+ */
+export const FieldContentType = {
+  EMAIL_ADDRESS: "EMAIL_ADDRESS",
+  NAME: "NAME",
+  NUMBER: "NUMBER",
+  PHONE_NUMBER: "PHONE_NUMBER",
+  STRING: "STRING",
+} as const;
+
+/**
+ * @public
+ */
+export type FieldContentType = (typeof FieldContentType)[keyof typeof FieldContentType];
+
+/**
+ * <p>Represents a field in a ProfileObjectType.</p>
+ * @public
+ */
+export interface ObjectTypeField {
+  /**
+   * <p>A field of a ProfileObject. For example: _source.FirstName, where “_source” is a
+   *          ProfileObjectType of a Zendesk user and “FirstName” is a field in that ObjectType.</p>
+   * @public
+   */
+  Source?: string | undefined;
+
+  /**
+   * <p>The location of the data in the standard ProfileObject model. For example:
+   *          _profile.Address.PostalCode.</p>
+   * @public
+   */
+  Target?: string | undefined;
+
+  /**
+   * <p>The content type of the field. Used for determining equality when searching.</p>
+   * @public
+   */
+  ContentType?: FieldContentType | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateUploadJobRequest {
+  /**
+   * <p>The unique name of the domain. Domain should be exists for the upload job to be created.
+   *       </p>
+   * @public
+   */
+  DomainName: string | undefined;
+
+  /**
+   * <p>The unique name of the upload job. Could be a file name to identify the upload
+   *          job.</p>
+   * @public
+   */
+  DisplayName: string | undefined;
+
+  /**
+   * <p>The mapping between CSV Columns and Profile Object attributes. A map of the name and
+   *          ObjectType field.</p>
+   * @public
+   */
+  Fields: Record<string, ObjectTypeField> | undefined;
+
+  /**
+   * <p>The unique key columns for de-duping the profiles used to map data to the profile.
+   *       </p>
+   * @public
+   */
+  UniqueKey: string | undefined;
+
+  /**
+   * <p>The expiry duration for the profiles ingested with the job. If not provided, the system
+   *          default of 2 weeks is used. </p>
+   * @public
+   */
+  DataExpiry?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateUploadJobResponse {
+  /**
+   * <p>The unique identifier for the created upload job. </p>
+   * @public
+   */
+  JobId: string | undefined;
+}
+
+/**
+ * @public
  */
 export interface DeleteCalculatedAttributeDefinitionRequest {
   /**
@@ -4581,49 +4676,6 @@ export interface DetectProfileObjectTypeRequest {
  * @public
  * @enum
  */
-export const FieldContentType = {
-  EMAIL_ADDRESS: "EMAIL_ADDRESS",
-  NAME: "NAME",
-  NUMBER: "NUMBER",
-  PHONE_NUMBER: "PHONE_NUMBER",
-  STRING: "STRING",
-} as const;
-
-/**
- * @public
- */
-export type FieldContentType = (typeof FieldContentType)[keyof typeof FieldContentType];
-
-/**
- * <p>Represents a field in a ProfileObjectType.</p>
- * @public
- */
-export interface ObjectTypeField {
-  /**
-   * <p>A field of a ProfileObject. For example: _source.FirstName, where “_source” is a
-   *          ProfileObjectType of a Zendesk user and “FirstName” is a field in that ObjectType.</p>
-   * @public
-   */
-  Source?: string | undefined;
-
-  /**
-   * <p>The location of the data in the standard ProfileObject model. For example:
-   *          _profile.Address.PostalCode.</p>
-   * @public
-   */
-  Target?: string | undefined;
-
-  /**
-   * <p>The content type of the field. Used for determining equality when searching.</p>
-   * @public
-   */
-  ContentType?: FieldContentType | undefined;
-}
-
-/**
- * @public
- * @enum
- */
 export const StandardIdentifier = {
   AIR_BOOKING: "AIR_BOOKING",
   AIR_PREFERENCE: "AIR_PREFERENCE",
@@ -4933,7 +4985,8 @@ export interface GetCalculatedAttributeForProfileResponse {
   Value?: string | undefined;
 
   /**
-   * <p>The timestamp of the newest object included in the calculated attribute calculation.</p>
+   * <p>The timestamp of the newest object included in the calculated attribute
+   *          calculation.</p>
    * @public
    */
   LastObjectTimestamp?: Date | undefined;
@@ -5116,8 +5169,7 @@ export interface GetDomainLayoutResponse {
   LayoutType: LayoutType | undefined;
 
   /**
-   * <p>A customizable layout that can be used to view data under a Customer Profiles
-   *          domain.</p>
+   * <p>A customizable layout that can be used to view data under a Customer Profiles domain.</p>
    * @public
    */
   Layout: string | undefined;
@@ -6335,6 +6387,248 @@ export interface GetSimilarProfilesResponse {
    * @public
    */
   NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetUploadJobRequest {
+  /**
+   * <p>The unique name of the domain containing the upload job. </p>
+   * @public
+   */
+  DomainName: string | undefined;
+
+  /**
+   * <p>The unique identifier of the upload job to retrieve. </p>
+   * @public
+   */
+  JobId: string | undefined;
+}
+
+/**
+ * <p>The summary of results for an upload job, including the number of updated, created, and
+ *          failed records. </p>
+ * @public
+ */
+export interface ResultsSummary {
+  /**
+   * <p>The number of records that were updated during the upload job. </p>
+   * @public
+   */
+  UpdatedRecords?: number | undefined;
+
+  /**
+   * <p>The number of records that were newly created during the upload job. </p>
+   * @public
+   */
+  CreatedRecords?: number | undefined;
+
+  /**
+   * <p>The number of records that failed to be processed during the upload job. </p>
+   * @public
+   */
+  FailedRecords?: number | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const UploadJobStatus = {
+  CREATED: "CREATED",
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+  PARTIALLY_SUCCEEDED: "PARTIALLY_SUCCEEDED",
+  STOPPED: "STOPPED",
+  SUCCEEDED: "SUCCEEDED",
+} as const;
+
+/**
+ * @public
+ */
+export type UploadJobStatus = (typeof UploadJobStatus)[keyof typeof UploadJobStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const StatusReason = {
+  INTERNAL_FAILURE: "INTERNAL_FAILURE",
+  VALIDATION_FAILURE: "VALIDATION_FAILURE",
+} as const;
+
+/**
+ * @public
+ */
+export type StatusReason = (typeof StatusReason)[keyof typeof StatusReason];
+
+/**
+ * @public
+ */
+export interface GetUploadJobResponse {
+  /**
+   * <p>The unique identifier of the upload job. </p>
+   * @public
+   */
+  JobId?: string | undefined;
+
+  /**
+   * <p>The unique name of the upload job. Could be a file name to identify the upload job.
+   *       </p>
+   * @public
+   */
+  DisplayName?: string | undefined;
+
+  /**
+   * <p>The status describing the status for the upload job. The following are Valid Values: </p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <b>CREATED</b>: The upload job has been created, but has
+   *                not started processing yet. </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>IN_PROGRESS</b>: The upload job is currently in
+   *                progress, ingesting and processing the profile data. </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>PARTIALLY_SUCCEEDED</b>: The upload job has
+   *                successfully completed the ingestion and processing of all profile data. </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>SUCCEEDED</b>: The upload job has successfully
+   *                completed the ingestion and processing of all profile data. </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>FAILED</b>: The upload job has failed to complete.
+   *             </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>STOPPED</b>: The upload job has been manually stopped
+   *                or terminated before completion. </p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Status?: UploadJobStatus | undefined;
+
+  /**
+   * <p>The reason for the current status of the upload job. Possible reasons: </p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <b>VALIDATION_FAILURE</b>: The upload job has
+   *                encountered an error or issue and was unable to complete the profile data ingestion.
+   *             </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>INTERNAL_FAILURE</b>: Failure caused from service
+   *                side </p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  StatusReason?: StatusReason | undefined;
+
+  /**
+   * <p>The timestamp when the upload job was created. </p>
+   * @public
+   */
+  CreatedAt?: Date | undefined;
+
+  /**
+   * <p>The timestamp when the upload job was completed. </p>
+   * @public
+   */
+  CompletedAt?: Date | undefined;
+
+  /**
+   * <p>The mapping between CSV Columns and Profile Object attributes for the upload job.
+   *       </p>
+   * @public
+   */
+  Fields?: Record<string, ObjectTypeField> | undefined;
+
+  /**
+   * <p>The unique key columns used for de-duping the keys in the upload job. </p>
+   * @public
+   */
+  UniqueKey?: string | undefined;
+
+  /**
+   * <p>The summary of results for the upload job, including the number of updated, created, and
+   *          failed records. </p>
+   * @public
+   */
+  ResultsSummary?: ResultsSummary | undefined;
+
+  /**
+   * <p>The expiry duration for the profiles ingested with the upload job. </p>
+   * @public
+   */
+  DataExpiry?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetUploadJobPathRequest {
+  /**
+   * <p>The unique name of the domain containing the upload job. </p>
+   * @public
+   */
+  DomainName: string | undefined;
+
+  /**
+   * <p>The unique identifier of the upload job to retrieve the upload path for. This is
+   *          generated from the CreateUploadJob API. </p>
+   * @public
+   */
+  JobId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetUploadJobPathResponse {
+  /**
+   * <p>The pre-signed S3 URL for uploading the CSV file associated with the upload job. </p>
+   * @public
+   */
+  Url: string | undefined;
+
+  /**
+   * <p>The plaintext data key used to encrypt the upload file. </p>
+   *          <p>To persist to the pre-signed url, use the client token and MD5 client token as header.
+   *          The required headers are as follows: </p>
+   *          <ul>
+   *             <li>
+   *                <p>x-amz-server-side-encryption-customer-key: Client Token </p>
+   *             </li>
+   *             <li>
+   *                <p>x-amz-server-side-encryption-customer-key-MD5: MD5 Client Token </p>
+   *             </li>
+   *             <li>
+   *                <p>x-amz-server-side-encryption-customer-algorithm: AES256 </p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  ClientToken?: string | undefined;
+
+  /**
+   * <p>The expiry timestamp for the pre-signed URL, after which the URL will no longer be
+   *          valid. </p>
+   * @public
+   */
+  ValidUntil?: Date | undefined;
 }
 
 /**
@@ -7759,6 +8053,95 @@ export interface ListTagsForResourceResponse {
 /**
  * @public
  */
+export interface ListUploadJobsRequest {
+  /**
+   * <p>The unique name of the domain to list upload jobs for. </p>
+   * @public
+   */
+  DomainName: string | undefined;
+
+  /**
+   * <p>The maximum number of upload jobs to return per page. </p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>The pagination token from the previous call to retrieve the next page of results.
+   *       </p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * <p>The summary information for an individual upload job. </p>
+ * @public
+ */
+export interface UploadJobItem {
+  /**
+   * <p>The unique identifier of the upload job. </p>
+   * @public
+   */
+  JobId?: string | undefined;
+
+  /**
+   * <p>The name of the upload job. </p>
+   * @public
+   */
+  DisplayName?: string | undefined;
+
+  /**
+   * <p>The current status of the upload job. </p>
+   * @public
+   */
+  Status?: UploadJobStatus | undefined;
+
+  /**
+   * <p>The reason for the current status of the upload job. </p>
+   * @public
+   */
+  StatusReason?: StatusReason | undefined;
+
+  /**
+   * <p>The timestamp when the upload job was created. </p>
+   * @public
+   */
+  CreatedAt?: Date | undefined;
+
+  /**
+   * <p>The timestamp when the upload job was completed. </p>
+   * @public
+   */
+  CompletedAt?: Date | undefined;
+
+  /**
+   * <p>The expiry duration for the profiles ingested with the upload job. </p>
+   * @public
+   */
+  DataExpiry?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListUploadJobsResponse {
+  /**
+   * <p>The pagination token to use to retrieve the next page of results. </p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The list of upload jobs for the specified domain. </p>
+   * @public
+   */
+  Items?: UploadJobItem[] | undefined;
+}
+
+/**
+ * @public
+ */
 export interface ListWorkflowsRequest {
   /**
    * <p>The unique name of the domain.</p>
@@ -8500,597 +8883,18 @@ export interface SearchProfilesResponse {
 /**
  * @public
  */
-export interface TagResourceRequest {
+export interface StartUploadJobRequest {
   /**
-   * <p>The ARN of the resource that you're adding tags to.</p>
-   * @public
-   */
-  resourceArn: string | undefined;
-
-  /**
-   * <p>The tags used to organize, track, or control access for this resource.</p>
-   * @public
-   */
-  tags: Record<string, string> | undefined;
-}
-
-/**
- * @public
- */
-export interface TagResourceResponse {}
-
-/**
- * @public
- */
-export interface UntagResourceRequest {
-  /**
-   * <p>The ARN of the resource from which you are removing tags.</p>
-   * @public
-   */
-  resourceArn: string | undefined;
-
-  /**
-   * <p>The list of tag keys to remove from the resource.</p>
-   * @public
-   */
-  tagKeys: string[] | undefined;
-}
-
-/**
- * @public
- */
-export interface UntagResourceResponse {}
-
-/**
- * @public
- */
-export interface UpdateCalculatedAttributeDefinitionRequest {
-  /**
-   * <p>The unique name of the domain.</p>
+   * <p>The unique name of the domain containing the upload job to start. </p>
    * @public
    */
   DomainName: string | undefined;
 
   /**
-   * <p>The unique name of the calculated attribute.</p>
+   * <p>The unique identifier of the upload job to start. </p>
    * @public
    */
-  CalculatedAttributeName: string | undefined;
-
-  /**
-   * <p>The display name of the calculated attribute.</p>
-   * @public
-   */
-  DisplayName?: string | undefined;
-
-  /**
-   * <p>The description of the calculated attribute.</p>
-   * @public
-   */
-  Description?: string | undefined;
-
-  /**
-   * <p>The conditions including range, object count, and threshold for the calculated
-   *          attribute.</p>
-   * @public
-   */
-  Conditions?: Conditions | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateCalculatedAttributeDefinitionResponse {
-  /**
-   * <p>The unique name of the calculated attribute.</p>
-   * @public
-   */
-  CalculatedAttributeName?: string | undefined;
-
-  /**
-   * <p>The display name of the calculated attribute.</p>
-   * @public
-   */
-  DisplayName?: string | undefined;
-
-  /**
-   * <p>The description of the calculated attribute.</p>
-   * @public
-   */
-  Description?: string | undefined;
-
-  /**
-   * <p>The timestamp of when the calculated attribute definition was created.</p>
-   * @public
-   */
-  CreatedAt?: Date | undefined;
-
-  /**
-   * <p>The timestamp of when the calculated attribute definition was most recently
-   *          edited.</p>
-   * @public
-   */
-  LastUpdatedAt?: Date | undefined;
-
-  /**
-   * <p>The aggregation operation to perform for the calculated attribute.</p>
-   * @public
-   */
-  Statistic?: Statistic | undefined;
-
-  /**
-   * <p>The conditions including range, object count, and threshold for the calculated
-   *          attribute.</p>
-   * @public
-   */
-  Conditions?: Conditions | undefined;
-
-  /**
-   * <p>The mathematical expression and a list of attribute items specified in that
-   *          expression.</p>
-   * @public
-   */
-  AttributeDetails?: AttributeDetails | undefined;
-
-  /**
-   * <p>Whether historical data ingested before the Calculated Attribute was created should be
-   *          included in calculations.</p>
-   * @public
-   */
-  UseHistoricalData?: boolean | undefined;
-
-  /**
-   * <p>Status of the Calculated Attribute creation (whether all historical data has been
-   *          indexed.)</p>
-   * @public
-   */
-  Status?: ReadinessStatus | undefined;
-
-  /**
-   * <p>Information indicating if the Calculated Attribute is ready for use by confirming all
-   *          historical data has been processed and reflected.</p>
-   * @public
-   */
-  Readiness?: Readiness | undefined;
-
-  /**
-   * <p>The tags used to organize, track, or control access for this resource.</p>
-   * @public
-   */
-  Tags?: Record<string, string> | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateDomainRequest {
-  /**
-   * <p>The unique name of the domain.</p>
-   * @public
-   */
-  DomainName: string | undefined;
-
-  /**
-   * <p>The default number of days until the data within the domain expires.</p>
-   * @public
-   */
-  DefaultExpirationDays?: number | undefined;
-
-  /**
-   * <p>The default encryption key, which is an AWS managed key, is used when no specific type
-   *          of encryption key is specified. It is used to encrypt all data before it is placed in
-   *          permanent or semi-permanent storage. If specified as an empty string, it will clear any
-   *          existing value.</p>
-   * @public
-   */
-  DefaultEncryptionKey?: string | undefined;
-
-  /**
-   * <p>The URL of the SQS dead letter queue, which is used for reporting errors associated with
-   *          ingesting data from third party applications. If specified as an empty string, it will
-   *          clear any existing value. You must set up a policy on the DeadLetterQueue for the
-   *          SendMessage operation to enable Amazon Connect Customer Profiles to send messages to the
-   *          DeadLetterQueue.</p>
-   * @public
-   */
-  DeadLetterQueueUrl?: string | undefined;
-
-  /**
-   * <p>The process of matching duplicate profiles. If <code>Matching</code> = <code>true</code>, Amazon Connect Customer Profiles starts a weekly
-   * batch process called Identity Resolution Job. If you do not specify a date and time for Identity Resolution Job to run, by default it runs every
-   * Saturday at 12AM UTC to detect duplicate profiles in your domains. </p>
-   *          <p>After the Identity Resolution Job completes, use the
-   * <a href="https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_GetMatches.html">GetMatches</a>
-   * API to return and review the results. Or, if you have configured <code>ExportingConfig</code> in the <code>MatchingRequest</code>, you can download the results from
-   * S3.</p>
-   * @public
-   */
-  Matching?: MatchingRequest | undefined;
-
-  /**
-   * <p>The process of matching duplicate profiles using the rule-Based matching. If
-   *             <code>RuleBasedMatching</code> = true, Amazon Connect Customer Profiles will start
-   *          to match and merge your profiles according to your configuration in the
-   *             <code>RuleBasedMatchingRequest</code>. You can use the <code>ListRuleBasedMatches</code>
-   *          and <code>GetSimilarProfiles</code> API to return and review the results. Also, if you have
-   *          configured <code>ExportingConfig</code> in the <code>RuleBasedMatchingRequest</code>, you
-   *          can download the results from S3.</p>
-   * @public
-   */
-  RuleBasedMatching?: RuleBasedMatchingRequest | undefined;
-
-  /**
-   * <p>The tags used to organize, track, or control access for this resource.</p>
-   * @public
-   */
-  Tags?: Record<string, string> | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateDomainResponse {
-  /**
-   * <p>The unique name of the domain.</p>
-   * @public
-   */
-  DomainName: string | undefined;
-
-  /**
-   * <p>The default number of days until the data within the domain expires.</p>
-   * @public
-   */
-  DefaultExpirationDays?: number | undefined;
-
-  /**
-   * <p>The default encryption key, which is an AWS managed key, is used when no specific type
-   *          of encryption key is specified. It is used to encrypt all data before it is placed in
-   *          permanent or semi-permanent storage.</p>
-   * @public
-   */
-  DefaultEncryptionKey?: string | undefined;
-
-  /**
-   * <p>The URL of the SQS dead letter queue, which is used for reporting errors associated with
-   *          ingesting data from third party applications.</p>
-   * @public
-   */
-  DeadLetterQueueUrl?: string | undefined;
-
-  /**
-   * <p>The process of matching duplicate profiles. If <code>Matching</code> = <code>true</code>, Amazon Connect Customer Profiles starts a weekly
-   * batch process called Identity Resolution Job. If you do not specify a date and time for Identity Resolution Job to run, by default it runs every
-   * Saturday at 12AM UTC to detect duplicate profiles in your domains. </p>
-   *          <p>After the Identity Resolution Job completes, use the
-   * <a href="https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_GetMatches.html">GetMatches</a>
-   * API to return and review the results. Or, if you have configured <code>ExportingConfig</code> in the <code>MatchingRequest</code>, you can download the results from
-   * S3.</p>
-   * @public
-   */
-  Matching?: MatchingResponse | undefined;
-
-  /**
-   * <p>The process of matching duplicate profiles using the rule-Based matching. If
-   *             <code>RuleBasedMatching</code> = true, Amazon Connect Customer Profiles will start
-   *          to match and merge your profiles according to your configuration in the
-   *             <code>RuleBasedMatchingRequest</code>. You can use the <code>ListRuleBasedMatches</code>
-   *          and <code>GetSimilarProfiles</code> API to return and review the results. Also, if you have
-   *          configured <code>ExportingConfig</code> in the <code>RuleBasedMatchingRequest</code>, you
-   *          can download the results from S3.</p>
-   * @public
-   */
-  RuleBasedMatching?: RuleBasedMatchingResponse | undefined;
-
-  /**
-   * <p>The timestamp of when the domain was created.</p>
-   * @public
-   */
-  CreatedAt: Date | undefined;
-
-  /**
-   * <p>The timestamp of when the domain was most recently edited.</p>
-   * @public
-   */
-  LastUpdatedAt: Date | undefined;
-
-  /**
-   * <p>The tags used to organize, track, or control access for this resource.</p>
-   * @public
-   */
-  Tags?: Record<string, string> | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateDomainLayoutRequest {
-  /**
-   * <p>The unique name of the domain.</p>
-   * @public
-   */
-  DomainName: string | undefined;
-
-  /**
-   * <p>The unique name of the layout.</p>
-   * @public
-   */
-  LayoutDefinitionName: string | undefined;
-
-  /**
-   * <p>The description of the layout</p>
-   * @public
-   */
-  Description?: string | undefined;
-
-  /**
-   * <p>The display name of the layout</p>
-   * @public
-   */
-  DisplayName?: string | undefined;
-
-  /**
-   * <p>If set to true for a layout, this layout will be used by default to view data. If set to
-   *          false, then the layout will not be used by default, but it can be used to view data by
-   *          explicitly selecting it in the console.</p>
-   * @public
-   */
-  IsDefault?: boolean | undefined;
-
-  /**
-   * <p>The type of layout that can be used to view data under a Customer Profiles domain.</p>
-   * @public
-   */
-  LayoutType?: LayoutType | undefined;
-
-  /**
-   * <p>A customizable layout that can be used to view data under a Customer Profiles
-   *          domain.</p>
-   * @public
-   */
-  Layout?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateDomainLayoutResponse {
-  /**
-   * <p>The unique name of the layout.</p>
-   * @public
-   */
-  LayoutDefinitionName?: string | undefined;
-
-  /**
-   * <p>The description of the layout</p>
-   * @public
-   */
-  Description?: string | undefined;
-
-  /**
-   * <p>The display name of the layout</p>
-   * @public
-   */
-  DisplayName?: string | undefined;
-
-  /**
-   * <p>If set to true for a layout, this layout will be used by default to view data. If set to
-   *          false, then the layout will not be used by default, but it can be used to view data by
-   *          explicitly selecting it in the console.</p>
-   * @public
-   */
-  IsDefault?: boolean | undefined;
-
-  /**
-   * <p>The type of layout that can be used to view data under a Customer Profiles domain.</p>
-   * @public
-   */
-  LayoutType?: LayoutType | undefined;
-
-  /**
-   * <p>A customizable layout that can be used to view data under a Customer Profiles domain.</p>
-   * @public
-   */
-  Layout?: string | undefined;
-
-  /**
-   * <p>The version used to create layout.</p>
-   * @public
-   */
-  Version?: string | undefined;
-
-  /**
-   * <p>The timestamp of when the layout was created.</p>
-   * @public
-   */
-  CreatedAt?: Date | undefined;
-
-  /**
-   * <p>The timestamp of when the layout was most recently updated.</p>
-   * @public
-   */
-  LastUpdatedAt?: Date | undefined;
-
-  /**
-   * <p>The tags used to organize, track, or control access for this resource.</p>
-   * @public
-   */
-  Tags?: Record<string, string> | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateEventTriggerRequest {
-  /**
-   * <p>The unique name of the domain.</p>
-   * @public
-   */
-  DomainName: string | undefined;
-
-  /**
-   * <p>The unique name of the event trigger.</p>
-   * @public
-   */
-  EventTriggerName: string | undefined;
-
-  /**
-   * <p>The unique name of the object type.</p>
-   * @public
-   */
-  ObjectTypeName?: string | undefined;
-
-  /**
-   * <p>The description of the event trigger.</p>
-   * @public
-   */
-  Description?: string | undefined;
-
-  /**
-   * <p>A list of conditions that determine when an event should trigger the destination.</p>
-   * @public
-   */
-  EventTriggerConditions?: EventTriggerCondition[] | undefined;
-
-  /**
-   * <p>The destination is triggered only for profiles that meet the criteria of a segment
-   *          definition.</p>
-   * @public
-   */
-  SegmentFilter?: string | undefined;
-
-  /**
-   * <p>Defines limits controlling whether an event triggers the destination, based on ingestion
-   *          latency and the number of invocations per profile over specific time periods.</p>
-   * @public
-   */
-  EventTriggerLimits?: EventTriggerLimits | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateEventTriggerResponse {
-  /**
-   * <p>The unique name of the event trigger.</p>
-   * @public
-   */
-  EventTriggerName?: string | undefined;
-
-  /**
-   * <p>The unique name of the object type.</p>
-   * @public
-   */
-  ObjectTypeName?: string | undefined;
-
-  /**
-   * <p>The description of the event trigger.</p>
-   * @public
-   */
-  Description?: string | undefined;
-
-  /**
-   * <p>A list of conditions that determine when an event should trigger the destination.</p>
-   * @public
-   */
-  EventTriggerConditions?: EventTriggerCondition[] | undefined;
-
-  /**
-   * <p>The destination is triggered only for profiles that meet the criteria of a segment
-   *          definition.</p>
-   * @public
-   */
-  SegmentFilter?: string | undefined;
-
-  /**
-   * <p>Defines limits controlling whether an event triggers the destination, based on ingestion
-   *          latency and the number of invocations per profile over specific time periods.</p>
-   * @public
-   */
-  EventTriggerLimits?: EventTriggerLimits | undefined;
-
-  /**
-   * <p>The timestamp of when the event trigger was created.</p>
-   * @public
-   */
-  CreatedAt?: Date | undefined;
-
-  /**
-   * <p>The timestamp of when the event trigger was most recently updated.</p>
-   * @public
-   */
-  LastUpdatedAt?: Date | undefined;
-
-  /**
-   * <p>An array of key-value pairs to apply to this resource.</p>
-   * @public
-   */
-  Tags?: Record<string, string> | undefined;
-}
-
-/**
- * <p>Updates associated with the address properties of a customer profile.</p>
- * @public
- */
-export interface UpdateAddress {
-  /**
-   * <p>The first line of a customer address.</p>
-   * @public
-   */
-  Address1?: string | undefined;
-
-  /**
-   * <p>The second line of a customer address.</p>
-   * @public
-   */
-  Address2?: string | undefined;
-
-  /**
-   * <p>The third line of a customer address.</p>
-   * @public
-   */
-  Address3?: string | undefined;
-
-  /**
-   * <p>The fourth line of a customer address.</p>
-   * @public
-   */
-  Address4?: string | undefined;
-
-  /**
-   * <p>The city in which a customer lives.</p>
-   * @public
-   */
-  City?: string | undefined;
-
-  /**
-   * <p>The county in which a customer lives.</p>
-   * @public
-   */
-  County?: string | undefined;
-
-  /**
-   * <p>The state in which a customer lives.</p>
-   * @public
-   */
-  State?: string | undefined;
-
-  /**
-   * <p>The province in which a customer lives.</p>
-   * @public
-   */
-  Province?: string | undefined;
-
-  /**
-   * <p>The country in which a customer lives.</p>
-   * @public
-   */
-  Country?: string | undefined;
-
-  /**
-   * <p>The postal code of a customer address.</p>
-   * @public
-   */
-  PostalCode?: string | undefined;
+  JobId: string | undefined;
 }
 
 /**
@@ -9396,6 +9200,14 @@ export const CreateSegmentEstimateRequestFilterSensitiveLog = (obj: CreateSegmen
 /**
  * @internal
  */
+export const CreateUploadJobRequestFilterSensitiveLog = (obj: CreateUploadJobRequest): any => ({
+  ...obj,
+  ...(obj.Fields && { Fields: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
 export const DetectProfileObjectTypeRequestFilterSensitiveLog = (obj: DetectProfileObjectTypeRequest): any => ({
   ...obj,
   ...(obj.Objects && { Objects: SENSITIVE_STRING }),
@@ -9497,6 +9309,14 @@ export const ProfileQueryResultFilterSensitiveLog = (obj: ProfileQueryResult): a
 export const GetSegmentMembershipResponseFilterSensitiveLog = (obj: GetSegmentMembershipResponse): any => ({
   ...obj,
   ...(obj.Profiles && { Profiles: obj.Profiles.map((item) => ProfileQueryResultFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const GetUploadJobResponseFilterSensitiveLog = (obj: GetUploadJobResponse): any => ({
+  ...obj,
+  ...(obj.Fields && { Fields: SENSITIVE_STRING }),
 });
 
 /**
@@ -9615,71 +9435,4 @@ export const PutProfileObjectTypeResponseFilterSensitiveLog = (obj: PutProfileOb
 export const SearchProfilesResponseFilterSensitiveLog = (obj: SearchProfilesResponse): any => ({
   ...obj,
   ...(obj.Items && { Items: obj.Items.map((item) => ProfileFilterSensitiveLog(item)) }),
-});
-
-/**
- * @internal
- */
-export const UpdateCalculatedAttributeDefinitionRequestFilterSensitiveLog = (
-  obj: UpdateCalculatedAttributeDefinitionRequest
-): any => ({
-  ...obj,
-  ...(obj.Description && { Description: SENSITIVE_STRING }),
-  ...(obj.Conditions && { Conditions: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const UpdateCalculatedAttributeDefinitionResponseFilterSensitiveLog = (
-  obj: UpdateCalculatedAttributeDefinitionResponse
-): any => ({
-  ...obj,
-  ...(obj.Description && { Description: SENSITIVE_STRING }),
-  ...(obj.Statistic && { Statistic: SENSITIVE_STRING }),
-  ...(obj.Conditions && { Conditions: SENSITIVE_STRING }),
-  ...(obj.AttributeDetails && { AttributeDetails: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const UpdateDomainLayoutRequestFilterSensitiveLog = (obj: UpdateDomainLayoutRequest): any => ({
-  ...obj,
-  ...(obj.Description && { Description: SENSITIVE_STRING }),
-  ...(obj.Layout && { Layout: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const UpdateDomainLayoutResponseFilterSensitiveLog = (obj: UpdateDomainLayoutResponse): any => ({
-  ...obj,
-  ...(obj.Description && { Description: SENSITIVE_STRING }),
-  ...(obj.Layout && { Layout: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const UpdateEventTriggerRequestFilterSensitiveLog = (obj: UpdateEventTriggerRequest): any => ({
-  ...obj,
-  ...(obj.Description && { Description: SENSITIVE_STRING }),
-  ...(obj.EventTriggerConditions && { EventTriggerConditions: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const UpdateEventTriggerResponseFilterSensitiveLog = (obj: UpdateEventTriggerResponse): any => ({
-  ...obj,
-  ...(obj.Description && { Description: SENSITIVE_STRING }),
-  ...(obj.EventTriggerConditions && { EventTriggerConditions: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const UpdateAddressFilterSensitiveLog = (obj: UpdateAddress): any => ({
-  ...obj,
 });
