@@ -84715,6 +84715,9 @@ const de_SecurityGroupVpcAssociation = (output: any, context: __SerdeContext): S
   if (output[_sRt] != null) {
     contents[_SRt] = __expectString(output[_sRt]);
   }
+  if (output[_gOI] != null) {
+    contents[_GOI] = __expectString(output[_gOI]);
+  }
   return contents;
 };
 

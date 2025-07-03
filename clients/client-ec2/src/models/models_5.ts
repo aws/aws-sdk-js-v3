@@ -5589,6 +5589,10 @@ export interface DescribeSecurityGroupVpcAssociationsRequest {
    *             </li>
    *             <li>
    *                <p>
+   *                   <code>group-owner-id</code>: The group owner ID.</p>
+   *             </li>
+   *             <li>
+   *                <p>
    *                   <code>vpc-id</code>: The ID of the associated VPC.</p>
    *             </li>
    *             <li>
@@ -5673,6 +5677,12 @@ export interface SecurityGroupVpcAssociation {
    * @public
    */
   StateReason?: string | undefined;
+
+  /**
+   * <p>The Amazon Web Services account ID of the owner of the security group.</p>
+   * @public
+   */
+  GroupOwnerId?: string | undefined;
 }
 
 /**

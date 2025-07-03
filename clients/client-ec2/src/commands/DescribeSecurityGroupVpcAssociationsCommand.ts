@@ -66,6 +66,7 @@ export interface DescribeSecurityGroupVpcAssociationsCommandOutput
  * //       VpcOwnerId: "STRING_VALUE",
  * //       State: "associating" || "associated" || "association-failed" || "disassociating" || "disassociated" || "disassociation-failed",
  * //       StateReason: "STRING_VALUE",
+ * //       GroupOwnerId: "STRING_VALUE",
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",
