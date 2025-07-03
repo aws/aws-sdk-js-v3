@@ -20,6 +20,7 @@ import {
   QueueStatus,
   SessionLifecycleTargetStatus,
   StepLifecycleStatus,
+  StepSummary,
   StepTargetTaskRunStatus,
   StorageProfileOperatingSystemFamily,
   StorageProfileSummary,
@@ -28,6 +29,64 @@ import {
   TaskTargetRunStatus,
   WorkerStatus,
 } from "./models_0";
+
+/**
+ * @public
+ */
+export interface ListStepsResponse {
+  /**
+   * <p>The steps on the list.</p>
+   * @public
+   */
+  steps: StepSummary[] | undefined;
+
+  /**
+   * <p>If Deadline Cloud returns <code>nextToken</code>, then there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page. To retrieve the next page, call the operation again using the returned token. Keep all other arguments unchanged. If no results remain, then <code>nextToken</code> is set to <code>null</code>. Each pagination token expires after 24 hours. If you provide a token that isn't valid, then you receive an HTTP 400 <code>ValidationException</code> error.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListTasksRequest {
+  /**
+   * <p>The farm ID connected to the tasks.</p>
+   * @public
+   */
+  farmId: string | undefined;
+
+  /**
+   * <p>The queue ID connected to the tasks.</p>
+   * @public
+   */
+  queueId: string | undefined;
+
+  /**
+   * <p>The job ID for the tasks.</p>
+   * @public
+   */
+  jobId: string | undefined;
+
+  /**
+   * <p>The step ID for the tasks.</p>
+   * @public
+   */
+  stepId: string | undefined;
+
+  /**
+   * <p>The token for the next set of results, or <code>null</code> to start from the beginning.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return. Use this parameter with <code>NextToken</code> to get results as a set of sequential pages.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+}
 
 /**
  * <p>The details of a task.</p>

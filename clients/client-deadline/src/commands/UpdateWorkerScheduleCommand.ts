@@ -53,6 +53,12 @@ export interface UpdateWorkerScheduleCommandOutput extends UpdateWorkerScheduleR
  *       endedAt: new Date("TIMESTAMP"),
  *       updatedAt: new Date("TIMESTAMP"),
  *       progressPercent: Number("float"),
+ *       manifests: [ // TaskRunManifestPropertiesListRequest
+ *         { // TaskRunManifestPropertiesRequest
+ *           outputManifestPath: "STRING_VALUE",
+ *           outputManifestHash: "STRING_VALUE",
+ *         },
+ *       ],
  *     },
  *   },
  * };
@@ -82,6 +88,7 @@ export interface UpdateWorkerScheduleCommandOutput extends UpdateWorkerScheduleR
  * //                   float: "STRING_VALUE",
  * //                   string: "STRING_VALUE",
  * //                   path: "STRING_VALUE",
+ * //                   chunkInt: "STRING_VALUE",
  * //                 },
  * //               },
  * //             },

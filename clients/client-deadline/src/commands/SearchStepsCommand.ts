@@ -136,7 +136,7 @@ export interface SearchStepsCommandOutput extends SearchStepsResponse, __Metadat
  * //         parameters: [ // StepParameterList // required
  * //           { // StepParameter
  * //             name: "STRING_VALUE", // required
- * //             type: "INT" || "FLOAT" || "STRING" || "PATH", // required
+ * //             type: "INT" || "FLOAT" || "STRING" || "PATH" || "CHUNK_INT", // required
  * //           },
  * //         ],
  * //         combination: "STRING_VALUE",

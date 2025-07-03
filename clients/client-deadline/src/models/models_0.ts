@@ -225,6 +225,7 @@ export interface AssignedSyncInputJobAttachmentsSessionActionDefinition {
  * @public
  */
 export type TaskParameterValue =
+  | TaskParameterValue.ChunkIntMember
   | TaskParameterValue.FloatMember
   | TaskParameterValue.IntMember
   | TaskParameterValue.PathMember
@@ -244,6 +245,7 @@ export namespace TaskParameterValue {
     float?: never;
     string?: never;
     path?: never;
+    chunkInt?: never;
     $unknown?: never;
   }
 
@@ -256,6 +258,7 @@ export namespace TaskParameterValue {
     float: string;
     string?: never;
     path?: never;
+    chunkInt?: never;
     $unknown?: never;
   }
 
@@ -268,6 +271,7 @@ export namespace TaskParameterValue {
     float?: never;
     string: string;
     path?: never;
+    chunkInt?: never;
     $unknown?: never;
   }
 
@@ -280,6 +284,20 @@ export namespace TaskParameterValue {
     float?: never;
     string?: never;
     path: string;
+    chunkInt?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>A range (for example 1-10) or selection of specific (for example 1,3,7,8,10) integers represented as a string.</p>
+   * @public
+   */
+  export interface ChunkIntMember {
+    int?: never;
+    float?: never;
+    string?: never;
+    path?: never;
+    chunkInt: string;
     $unknown?: never;
   }
 
@@ -291,6 +309,7 @@ export namespace TaskParameterValue {
     float?: never;
     string?: never;
     path?: never;
+    chunkInt?: never;
     $unknown: [string, any];
   }
 
@@ -299,6 +318,7 @@ export namespace TaskParameterValue {
     float: (value: string) => T;
     string: (value: string) => T;
     path: (value: string) => T;
+    chunkInt: (value: string) => T;
     _: (name: string, value: any) => T;
   }
 
@@ -307,6 +327,7 @@ export namespace TaskParameterValue {
     if (value.float !== undefined) return visitor.float(value.float);
     if (value.string !== undefined) return visitor.string(value.string);
     if (value.path !== undefined) return visitor.path(value.path);
+    if (value.chunkInt !== undefined) return visitor.chunkInt(value.chunkInt);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
 }
@@ -5325,6 +5346,24 @@ export interface UpdateWorkerResponse {
 }
 
 /**
+ * <p>The output manifest properties reported by the worker agent for a completed task run.</p>
+ * @public
+ */
+export interface TaskRunManifestPropertiesRequest {
+  /**
+   * <p>The manifest file path.</p>
+   * @public
+   */
+  outputManifestPath?: string | undefined;
+
+  /**
+   * <p>The hash value of the file.</p>
+   * @public
+   */
+  outputManifestHash?: string | undefined;
+}
+
+/**
  * <p>The updated session action information as it relates to completion and progress of the session.</p>
  * @public
  */
@@ -5370,6 +5409,12 @@ export interface UpdatedSessionActionInfo {
    * @public
    */
   progressPercent?: number | undefined;
+
+  /**
+   * <p>A list of output manifest properties reported by the worker agent, with each entry corresponding to a manifest property in the job.</p>
+   * @public
+   */
+  manifests?: TaskRunManifestPropertiesRequest[] | undefined;
 }
 
 /**
@@ -6909,6 +6954,24 @@ export namespace SessionActionDefinition {
 }
 
 /**
+ * <p>The manifest properties for a task run, corresponding to the manifest properties in the job.</p>
+ * @public
+ */
+export interface TaskRunManifestPropertiesResponse {
+  /**
+   * <p>The manifest file path.</p>
+   * @public
+   */
+  outputManifestPath?: string | undefined;
+
+  /**
+   * <p>The hash value of the file.</p>
+   * @public
+   */
+  outputManifestHash?: string | undefined;
+}
+
+/**
  * @public
  * @enum
  */
@@ -7000,6 +7063,12 @@ export interface GetSessionActionResponse {
    * @public
    */
   acquiredLimits?: AcquiredLimit[] | undefined;
+
+  /**
+   * <p>The list of manifest properties that describe file attachments for the task run.</p>
+   * @public
+   */
+  manifests?: TaskRunManifestPropertiesResponse[] | undefined;
 }
 
 /**
@@ -7082,6 +7151,7 @@ export type StepLifecycleStatus = (typeof StepLifecycleStatus)[keyof typeof Step
  * @enum
  */
 export const StepParameterType = {
+  CHUNK_INT: "CHUNK_INT",
   FLOAT: "FLOAT",
   INT: "INT",
   PATH: "PATH",
@@ -7885,6 +7955,12 @@ export interface TaskRunSessionActionDefinitionSummary {
    * @public
    */
   stepId: string | undefined;
+
+  /**
+   * <p>The parameters of a task run in a session action.</p>
+   * @public
+   */
+  parameters?: Record<string, TaskParameterValue> | undefined;
 }
 
 /**
@@ -8025,6 +8101,12 @@ export interface SessionActionSummary {
    * @public
    */
   definition: SessionActionDefinitionSummary | undefined;
+
+  /**
+   * <p>The list of manifest properties that describe file attachments for the task run.</p>
+   * @public
+   */
+  manifests?: TaskRunManifestPropertiesResponse[] | undefined;
 }
 
 /**
@@ -8455,64 +8537,6 @@ export interface StepSummary {
 }
 
 /**
- * @public
- */
-export interface ListStepsResponse {
-  /**
-   * <p>The steps on the list.</p>
-   * @public
-   */
-  steps: StepSummary[] | undefined;
-
-  /**
-   * <p>If Deadline Cloud returns <code>nextToken</code>, then there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page. To retrieve the next page, call the operation again using the returned token. Keep all other arguments unchanged. If no results remain, then <code>nextToken</code> is set to <code>null</code>. Each pagination token expires after 24 hours. If you provide a token that isn't valid, then you receive an HTTP 400 <code>ValidationException</code> error.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListTasksRequest {
-  /**
-   * <p>The farm ID connected to the tasks.</p>
-   * @public
-   */
-  farmId: string | undefined;
-
-  /**
-   * <p>The queue ID connected to the tasks.</p>
-   * @public
-   */
-  queueId: string | undefined;
-
-  /**
-   * <p>The job ID for the tasks.</p>
-   * @public
-   */
-  jobId: string | undefined;
-
-  /**
-   * <p>The step ID for the tasks.</p>
-   * @public
-   */
-  stepId: string | undefined;
-
-  /**
-   * <p>The token for the next set of results, or <code>null</code> to start from the beginning.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of results to return. Use this parameter with <code>NextToken</code> to get results as a set of sequential pages.</p>
-   * @public
-   */
-  maxResults?: number | undefined;
-}
-
-/**
  * @internal
  */
 export const TaskParameterValueFilterSensitiveLog = (obj: TaskParameterValue): any => {
@@ -8520,6 +8544,7 @@ export const TaskParameterValueFilterSensitiveLog = (obj: TaskParameterValue): a
   if (obj.float !== undefined) return { float: obj.float };
   if (obj.string !== undefined) return { string: obj.string };
   if (obj.path !== undefined) return { path: obj.path };
+  if (obj.chunkInt !== undefined) return { chunkInt: obj.chunkInt };
   if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
 };
 
@@ -8996,4 +9021,44 @@ export const GetStepResponseFilterSensitiveLog = (obj: GetStepResponse): any => 
 export const GetTaskResponseFilterSensitiveLog = (obj: GetTaskResponse): any => ({
   ...obj,
   ...(obj.parameters && { parameters: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const TaskRunSessionActionDefinitionSummaryFilterSensitiveLog = (
+  obj: TaskRunSessionActionDefinitionSummary
+): any => ({
+  ...obj,
+  ...(obj.parameters && { parameters: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const SessionActionDefinitionSummaryFilterSensitiveLog = (obj: SessionActionDefinitionSummary): any => {
+  if (obj.envEnter !== undefined) return { envEnter: obj.envEnter };
+  if (obj.envExit !== undefined) return { envExit: obj.envExit };
+  if (obj.taskRun !== undefined)
+    return { taskRun: TaskRunSessionActionDefinitionSummaryFilterSensitiveLog(obj.taskRun) };
+  if (obj.syncInputJobAttachments !== undefined) return { syncInputJobAttachments: obj.syncInputJobAttachments };
+  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
+};
+
+/**
+ * @internal
+ */
+export const SessionActionSummaryFilterSensitiveLog = (obj: SessionActionSummary): any => ({
+  ...obj,
+  ...(obj.definition && { definition: SessionActionDefinitionSummaryFilterSensitiveLog(obj.definition) }),
+});
+
+/**
+ * @internal
+ */
+export const ListSessionActionsResponseFilterSensitiveLog = (obj: ListSessionActionsResponse): any => ({
+  ...obj,
+  ...(obj.sessionActions && {
+    sessionActions: obj.sessionActions.map((item) => SessionActionSummaryFilterSensitiveLog(item)),
+  }),
 });

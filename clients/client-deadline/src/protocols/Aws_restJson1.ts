@@ -354,6 +354,7 @@ import {
   StepDetailsIdentifiers,
   StepRequiredCapabilities,
   StepSummary,
+  TaskRunManifestPropertiesRequest,
   ThrottlingException,
   UpdatedSessionActionInfo,
   UsageTrackingResource,
@@ -4960,6 +4961,7 @@ export const de_GetSessionActionCommand = async (
     acquiredLimits: _json,
     definition: (_) => _json(__expectUnion(_)),
     endedAt: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    manifests: _json,
     processExitCode: __expectInt32,
     progressMessage: __expectString,
     progressPercent: __limitedParseFloat32,
@@ -6745,6 +6747,10 @@ const se_ServiceManagedEc2InstanceCapabilities = (
 
 // se_Tags omitted.
 
+// se_TaskRunManifestPropertiesListRequest omitted.
+
+// se_TaskRunManifestPropertiesRequest omitted.
+
 /**
  * serializeAws_restJson1UpdatedSessionActionInfo
  */
@@ -6752,6 +6758,7 @@ const se_UpdatedSessionActionInfo = (input: UpdatedSessionActionInfo, context: _
   return take(input, {
     completedStatus: [],
     endedAt: __serializeDateTime,
+    manifests: _json,
     processExitCode: [],
     progressMessage: [],
     progressPercent: __serializeFloat,
@@ -7607,6 +7614,7 @@ const de_SessionActionSummary = (output: any, context: __SerdeContext): SessionA
   return take(output, {
     definition: (_: any) => _json(__expectUnion(_)),
     endedAt: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    manifests: _json,
     progressPercent: __limitedParseFloat32,
     sessionActionId: __expectString,
     startedAt: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
@@ -7838,6 +7846,10 @@ const de_StepSummary = (output: any, context: __SerdeContext): StepSummary => {
 // de_TaskParameters omitted.
 
 // de_TaskParameterValue omitted.
+
+// de_TaskRunManifestPropertiesListResponse omitted.
+
+// de_TaskRunManifestPropertiesResponse omitted.
 
 // de_TaskRunSessionActionDefinition omitted.
 

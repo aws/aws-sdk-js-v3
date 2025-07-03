@@ -129,6 +129,7 @@ export interface SearchTasksCommandOutput extends SearchTasksResponse, __Metadat
  * //           float: "STRING_VALUE",
  * //           string: "STRING_VALUE",
  * //           path: "STRING_VALUE",
+ * //           chunkInt: "STRING_VALUE",
  * //         },
  * //       },
  * //       failureRetryCount: Number("int"),

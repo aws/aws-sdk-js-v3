@@ -57,6 +57,7 @@ export interface GetTaskCommandOutput extends GetTaskResponse, __MetadataBearer 
  * //       float: "STRING_VALUE",
  * //       string: "STRING_VALUE",
  * //       path: "STRING_VALUE",
+ * //       chunkInt: "STRING_VALUE",
  * //     },
  * //   },
  * //   startedAt: new Date("TIMESTAMP"),

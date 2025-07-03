@@ -6,8 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { DeadlineClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeadlineClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ListTasksRequest } from "../models/models_0";
-import { ListTasksResponse, ListTasksResponseFilterSensitiveLog } from "../models/models_1";
+import { ListTasksRequest, ListTasksResponse, ListTasksResponseFilterSensitiveLog } from "../models/models_1";
 import { de_ListTasksCommand, se_ListTasksCommand } from "../protocols/Aws_restJson1";
 
 /**
@@ -61,6 +60,7 @@ export interface ListTasksCommandOutput extends ListTasksResponse, __MetadataBea
  * //           float: "STRING_VALUE",
  * //           string: "STRING_VALUE",
  * //           path: "STRING_VALUE",
+ * //           chunkInt: "STRING_VALUE",
  * //         },
  * //       },
  * //       startedAt: new Date("TIMESTAMP"),

@@ -73,6 +73,7 @@ export interface GetSessionActionCommandOutput extends GetSessionActionResponse,
  * //           float: "STRING_VALUE",
  * //           string: "STRING_VALUE",
  * //           path: "STRING_VALUE",
+ * //           chunkInt: "STRING_VALUE",
  * //         },
  * //       },
  * //     },
@@ -84,6 +85,12 @@ export interface GetSessionActionCommandOutput extends GetSessionActionResponse,
  * //     { // AcquiredLimit
  * //       limitId: "STRING_VALUE", // required
  * //       count: Number("int"), // required
+ * //     },
+ * //   ],
+ * //   manifests: [ // TaskRunManifestPropertiesListResponse
+ * //     { // TaskRunManifestPropertiesResponse
+ * //       outputManifestPath: "STRING_VALUE",
+ * //       outputManifestHash: "STRING_VALUE",
  * //     },
  * //   ],
  * // };

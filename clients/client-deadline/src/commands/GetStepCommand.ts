@@ -91,7 +91,7 @@ export interface GetStepCommandOutput extends GetStepResponse, __MetadataBearer 
  * //     parameters: [ // StepParameterList // required
  * //       { // StepParameter
  * //         name: "STRING_VALUE", // required
- * //         type: "INT" || "FLOAT" || "STRING" || "PATH", // required
+ * //         type: "INT" || "FLOAT" || "STRING" || "PATH" || "CHUNK_INT", // required
  * //       },
  * //     ],
  * //     combination: "STRING_VALUE",

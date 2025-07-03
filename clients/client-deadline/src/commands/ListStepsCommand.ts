@@ -6,7 +6,8 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { DeadlineClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeadlineClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ListStepsRequest, ListStepsResponse } from "../models/models_0";
+import { ListStepsRequest } from "../models/models_0";
+import { ListStepsResponse } from "../models/models_1";
 import { de_ListStepsCommand, se_ListStepsCommand } from "../protocols/Aws_restJson1";
 
 /**
