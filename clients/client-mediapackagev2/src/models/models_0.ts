@@ -231,6 +231,9 @@ export class ThrottlingException extends __BaseException {
 export const ValidationExceptionType = {
   CENC_IV_INCOMPATIBLE: "CENC_IV_INCOMPATIBLE",
   CLIP_START_TIME_WITH_START_OR_END: "CLIP_START_TIME_WITH_START_OR_END",
+  CMAF_CONTAINER_TYPE_WITH_MSS_MANIFEST: "CMAF_CONTAINER_TYPE_WITH_MSS_MANIFEST",
+  CMAF_EXCLUDE_SEGMENT_DRM_METADATA_INCOMPATIBLE_CONTAINER_TYPE:
+    "CMAF_EXCLUDE_SEGMENT_DRM_METADATA_INCOMPATIBLE_CONTAINER_TYPE",
   CONTAINER_TYPE_IMMUTABLE: "CONTAINER_TYPE_IMMUTABLE",
   DASH_DVB_ATTRIBUTES_WITHOUT_DVB_DASH_PROFILE: "DASH_DVB_ATTRIBUTES_WITHOUT_DVB_DASH_PROFILE",
   DIRECT_MODE_WITH_TIMING_SOURCE: "DIRECT_MODE_WITH_TIMING_SOURCE",
@@ -239,6 +242,7 @@ export const ValidationExceptionType = {
   ENCRYPTION_CONTRACT_SHARED: "ENCRYPTION_CONTRACT_SHARED",
   ENCRYPTION_CONTRACT_UNENCRYPTED: "ENCRYPTION_CONTRACT_UNENCRYPTED",
   ENCRYPTION_CONTRACT_WITHOUT_AUDIO_RENDITION_INCOMPATIBLE: "ENCRYPTION_CONTRACT_WITHOUT_AUDIO_RENDITION_INCOMPATIBLE",
+  ENCRYPTION_CONTRACT_WITH_ISM_CONTAINER_INCOMPATIBLE: "ENCRYPTION_CONTRACT_WITH_ISM_CONTAINER_INCOMPATIBLE",
   ENCRYPTION_METHOD_CONTAINER_TYPE_MISMATCH: "ENCRYPTION_METHOD_CONTAINER_TYPE_MISMATCH",
   END_TIME_EARLIER_THAN_START_TIME: "END_TIME_EARLIER_THAN_START_TIME",
   HARVESTED_MANIFEST_HAS_START_END_FILTER_CONFIGURATION: "HARVESTED_MANIFEST_HAS_START_END_FILTER_CONFIGURATION",
@@ -257,6 +261,11 @@ export const ValidationExceptionType = {
   INVALID_POLICY: "INVALID_POLICY",
   INVALID_ROLE_ARN: "INVALID_ROLE_ARN",
   INVALID_TIME_DELAY_SECONDS: "INVALID_TIME_DELAY_SECONDS",
+  ISM_CONTAINER_TYPE_WITH_DASH_MANIFEST: "ISM_CONTAINER_TYPE_WITH_DASH_MANIFEST",
+  ISM_CONTAINER_TYPE_WITH_HLS_MANIFEST: "ISM_CONTAINER_TYPE_WITH_HLS_MANIFEST",
+  ISM_CONTAINER_TYPE_WITH_LL_HLS_MANIFEST: "ISM_CONTAINER_TYPE_WITH_LL_HLS_MANIFEST",
+  ISM_CONTAINER_TYPE_WITH_SCTE: "ISM_CONTAINER_TYPE_WITH_SCTE",
+  ISM_CONTAINER_WITH_KEY_ROTATION: "ISM_CONTAINER_WITH_KEY_ROTATION",
   MANIFEST_DRM_SYSTEMS_INCOMPATIBLE: "MANIFEST_DRM_SYSTEMS_INCOMPATIBLE",
   MANIFEST_NAME_COLLISION: "MANIFEST_NAME_COLLISION",
   MEMBER_DOES_NOT_MATCH_PATTERN: "MEMBER_DOES_NOT_MATCH_PATTERN",
@@ -283,6 +292,7 @@ export const ValidationExceptionType = {
   TIMING_SOURCE_MISSING: "TIMING_SOURCE_MISSING",
   TOO_MANY_IN_PROGRESS_HARVEST_JOBS: "TOO_MANY_IN_PROGRESS_HARVEST_JOBS",
   TS_CONTAINER_TYPE_WITH_DASH_MANIFEST: "TS_CONTAINER_TYPE_WITH_DASH_MANIFEST",
+  TS_CONTAINER_TYPE_WITH_MSS_MANIFEST: "TS_CONTAINER_TYPE_WITH_MSS_MANIFEST",
   UPDATE_PERIOD_SMALLER_THAN_SEGMENT_DURATION: "UPDATE_PERIOD_SMALLER_THAN_SEGMENT_DURATION",
   URL_INVALID: "URL_INVALID",
   URL_LINK_LOCAL_ADDRESS: "URL_LINK_LOCAL_ADDRESS",
@@ -928,6 +938,7 @@ export interface ListChannelsResponse {
  */
 export const ContainerType = {
   CMAF: "CMAF",
+  ISM: "ISM",
   TS: "TS",
 } as const;
 
@@ -1586,6 +1597,50 @@ export interface CreateLowLatencyHlsManifestConfiguration {
  * @public
  * @enum
  */
+export const MssManifestLayout = {
+  COMPACT: "COMPACT",
+  FULL: "FULL",
+} as const;
+
+/**
+ * @public
+ */
+export type MssManifestLayout = (typeof MssManifestLayout)[keyof typeof MssManifestLayout];
+
+/**
+ * <p>Configuration parameters for creating a Microsoft Smooth Streaming (MSS) manifest. MSS is a streaming media format developed by Microsoft that delivers adaptive bitrate streaming content to compatible players and devices.</p>
+ * @public
+ */
+export interface CreateMssManifestConfiguration {
+  /**
+   * <p>A short string that's appended to the endpoint URL to create a unique path to this MSS manifest. The manifest name must be unique within the origin endpoint and can contain letters, numbers, hyphens, and underscores.</p>
+   * @public
+   */
+  ManifestName: string | undefined;
+
+  /**
+   * <p>The total duration (in seconds) of the manifest window. This determines how much content is available in the manifest at any given time. The manifest window slides forward as new segments become available, maintaining a consistent duration of content. The minimum value is 30 seconds.</p>
+   * @public
+   */
+  ManifestWindowSeconds?: number | undefined;
+
+  /**
+   * <p>Filter configuration includes settings for manifest filtering, start and end times, and time delay that apply to all of your egress requests for this manifest. </p>
+   * @public
+   */
+  FilterConfiguration?: FilterConfiguration | undefined;
+
+  /**
+   * <p>Determines the layout format of the MSS manifest. This controls how the manifest is structured and presented to client players, affecting compatibility with different MSS-compatible devices and applications.</p>
+   * @public
+   */
+  ManifestLayout?: MssManifestLayout | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
 export const CmafEncryptionMethod = {
   CBCS: "CBCS",
   CENC: "CENC",
@@ -1595,6 +1650,19 @@ export const CmafEncryptionMethod = {
  * @public
  */
 export type CmafEncryptionMethod = (typeof CmafEncryptionMethod)[keyof typeof CmafEncryptionMethod];
+
+/**
+ * @public
+ * @enum
+ */
+export const IsmEncryptionMethod = {
+  CENC: "CENC",
+} as const;
+
+/**
+ * @public
+ */
+export type IsmEncryptionMethod = (typeof IsmEncryptionMethod)[keyof typeof IsmEncryptionMethod];
 
 /**
  * @public
@@ -1626,6 +1694,12 @@ export interface EncryptionMethod {
    * @public
    */
   CmafEncryptionMethod?: CmafEncryptionMethod | undefined;
+
+  /**
+   * <p>The encryption method used for Microsoft Smooth Streaming (MSS) content. This specifies how the MSS segments are encrypted to protect the content during delivery to client players.</p>
+   * @public
+   */
+  IsmEncryptionMethod?: IsmEncryptionMethod | undefined;
 }
 
 /**
@@ -1846,6 +1920,32 @@ export interface Encryption {
   KeyRotationIntervalSeconds?: number | undefined;
 
   /**
+   * <p>Excludes SEIG and SGPD boxes from segment metadata in CMAF containers.</p>
+   *          <p>When set to <code>true</code>, MediaPackage omits these DRM metadata boxes from CMAF segments, which can improve compatibility with certain devices and players that don't support these boxes.</p>
+   *          <p>Important considerations:</p>
+   *          <ul>
+   *             <li>
+   *                <p>This setting only affects CMAF container formats</p>
+   *             </li>
+   *             <li>
+   *                <p>Key rotation can still be handled through media playlist signaling</p>
+   *             </li>
+   *             <li>
+   *                <p>PSSH and TENC boxes remain unaffected</p>
+   *             </li>
+   *             <li>
+   *                <p>Default behavior is preserved when this setting is disabled</p>
+   *             </li>
+   *          </ul>
+   *          <p>Valid values: <code>true</code> | <code>false</code>
+   *          </p>
+   *          <p>Default: <code>false</code>
+   *          </p>
+   * @public
+   */
+  CmafExcludeSegmentDrmMetadata?: boolean | undefined;
+
+  /**
    * <p>The parameters for the SPEKE key provider.</p>
    * @public
    */
@@ -2002,6 +2102,12 @@ export interface CreateOriginEndpointRequest {
    * @public
    */
   DashManifests?: CreateDashManifestConfiguration[] | undefined;
+
+  /**
+   * <p>A list of Microsoft Smooth Streaming (MSS) manifest configurations for the origin endpoint. You can configure multiple MSS manifests to provide different streaming experiences or to support different client requirements.</p>
+   * @public
+   */
+  MssManifests?: CreateMssManifestConfiguration[] | undefined;
 
   /**
    * <p>The failover settings for the endpoint.</p>
@@ -2273,6 +2379,42 @@ export interface GetLowLatencyHlsManifestConfiguration {
 }
 
 /**
+ * <p>Configuration details for a Microsoft Smooth Streaming (MSS) manifest associated with an origin endpoint. This includes all the settings and properties that define how the MSS content is packaged and delivered.</p>
+ * @public
+ */
+export interface GetMssManifestConfiguration {
+  /**
+   * <p>The name of the MSS manifest. This name is appended to the origin endpoint URL to create the unique path for accessing this specific MSS manifest.</p>
+   * @public
+   */
+  ManifestName: string | undefined;
+
+  /**
+   * <p>The complete URL for accessing the MSS manifest. Client players use this URL to retrieve the manifest and begin streaming the Microsoft Smooth Streaming content.</p>
+   * @public
+   */
+  Url: string | undefined;
+
+  /**
+   * <p>Filter configuration includes settings for manifest filtering, start and end times, and time delay that apply to all of your egress requests for this manifest. </p>
+   * @public
+   */
+  FilterConfiguration?: FilterConfiguration | undefined;
+
+  /**
+   * <p>The duration (in seconds) of the manifest window. This represents the total amount of content available in the manifest at any given time.</p>
+   * @public
+   */
+  ManifestWindowSeconds?: number | undefined;
+
+  /**
+   * <p>The layout format of the MSS manifest, which determines how the manifest is structured for client compatibility.</p>
+   * @public
+   */
+  ManifestLayout?: MssManifestLayout | undefined;
+}
+
+/**
  * @public
  */
 export interface CreateOriginEndpointResponse {
@@ -2353,6 +2495,12 @@ export interface CreateOriginEndpointResponse {
    * @public
    */
   DashManifests?: GetDashManifestConfiguration[] | undefined;
+
+  /**
+   * <p>The Microsoft Smooth Streaming (MSS) manifest configurations that were created for this origin endpoint.</p>
+   * @public
+   */
+  MssManifests?: GetMssManifestConfiguration[] | undefined;
 
   /**
    * <p>The failover settings for the endpoint.</p>
@@ -2513,6 +2661,12 @@ export interface GetOriginEndpointResponse {
   DashManifests?: GetDashManifestConfiguration[] | undefined;
 
   /**
+   * <p>The Microsoft Smooth Streaming (MSS) manifest configurations associated with this origin endpoint.</p>
+   * @public
+   */
+  MssManifests?: GetMssManifestConfiguration[] | undefined;
+
+  /**
    * <p>The failover settings for the endpoint.</p>
    * @public
    */
@@ -2627,6 +2781,24 @@ export interface ListLowLatencyHlsManifestConfiguration {
 }
 
 /**
+ * <p>Summary information about a Microsoft Smooth Streaming (MSS) manifest configuration. This provides key details about the MSS manifest without including all configuration parameters.</p>
+ * @public
+ */
+export interface ListMssManifestConfiguration {
+  /**
+   * <p>The name of the MSS manifest configuration.</p>
+   * @public
+   */
+  ManifestName: string | undefined;
+
+  /**
+   * <p>The URL for accessing the MSS manifest.</p>
+   * @public
+   */
+  Url?: string | undefined;
+}
+
+/**
  * <p>The configuration of the origin endpoint.</p>
  * @public
  */
@@ -2696,6 +2868,12 @@ export interface OriginEndpointListConfiguration {
    * @public
    */
   DashManifests?: ListDashManifestConfiguration[] | undefined;
+
+  /**
+   * <p>A list of Microsoft Smooth Streaming (MSS) manifest configurations associated with the origin endpoint. Each configuration represents a different MSS streaming option available from this endpoint.</p>
+   * @public
+   */
+  MssManifests?: ListMssManifestConfiguration[] | undefined;
 
   /**
    * <p>The failover settings for the endpoint.</p>
@@ -2958,6 +3136,12 @@ export interface UpdateOriginEndpointRequest {
   DashManifests?: CreateDashManifestConfiguration[] | undefined;
 
   /**
+   * <p>A list of Microsoft Smooth Streaming (MSS) manifest configurations to update for the origin endpoint. This replaces the existing MSS manifest configurations.</p>
+   * @public
+   */
+  MssManifests?: CreateMssManifestConfiguration[] | undefined;
+
+  /**
    * <p>The failover settings for the endpoint.</p>
    * @public
    */
@@ -3045,6 +3229,12 @@ export interface UpdateOriginEndpointResponse {
    * @public
    */
   LowLatencyHlsManifests?: GetLowLatencyHlsManifestConfiguration[] | undefined;
+
+  /**
+   * <p>The updated Microsoft Smooth Streaming (MSS) manifest configurations for this origin endpoint.</p>
+   * @public
+   */
+  MssManifests?: GetMssManifestConfiguration[] | undefined;
 
   /**
    * <p>The failover settings for the endpoint.</p>

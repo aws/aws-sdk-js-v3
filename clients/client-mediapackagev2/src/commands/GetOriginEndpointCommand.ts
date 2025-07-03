@@ -47,7 +47,7 @@ export interface GetOriginEndpointCommandOutput extends GetOriginEndpointRespons
  * //   ChannelGroupName: "STRING_VALUE", // required
  * //   ChannelName: "STRING_VALUE", // required
  * //   OriginEndpointName: "STRING_VALUE", // required
- * //   ContainerType: "TS" || "CMAF", // required
+ * //   ContainerType: "TS" || "CMAF" || "ISM", // required
  * //   Segment: { // Segment
  * //     SegmentDurationSeconds: Number("int"),
  * //     SegmentName: "STRING_VALUE",
@@ -64,8 +64,10 @@ export interface GetOriginEndpointCommandOutput extends GetOriginEndpointRespons
  * //       EncryptionMethod: { // EncryptionMethod
  * //         TsEncryptionMethod: "AES_128" || "SAMPLE_AES",
  * //         CmafEncryptionMethod: "CENC" || "CBCS",
+ * //         IsmEncryptionMethod: "CENC",
  * //       },
  * //       KeyRotationIntervalSeconds: Number("int"),
+ * //       CmafExcludeSegmentDrmMetadata: true || false,
  * //       SpekeKeyProvider: { // SpekeKeyProvider
  * //         EncryptionContractConfiguration: { // EncryptionContractConfiguration
  * //           PresetSpeke20Audio: "PRESET_AUDIO_1" || "PRESET_AUDIO_2" || "PRESET_AUDIO_3" || "SHARED" || "UNENCRYPTED", // required
@@ -197,6 +199,21 @@ export interface GetOriginEndpointCommandOutput extends GetOriginEndpointRespons
  * //           TtmlProfile: "IMSC_1" || "EBU_TT_D_101", // required
  * //         },
  * //       },
+ * //     },
+ * //   ],
+ * //   MssManifests: [ // GetMssManifests
+ * //     { // GetMssManifestConfiguration
+ * //       ManifestName: "STRING_VALUE", // required
+ * //       Url: "STRING_VALUE", // required
+ * //       FilterConfiguration: {
+ * //         ManifestFilter: "STRING_VALUE",
+ * //         Start: new Date("TIMESTAMP"),
+ * //         End: new Date("TIMESTAMP"),
+ * //         TimeDelaySeconds: Number("int"),
+ * //         ClipStartTime: new Date("TIMESTAMP"),
+ * //       },
+ * //       ManifestWindowSeconds: Number("int"),
+ * //       ManifestLayout: "FULL" || "COMPACT",
  * //     },
  * //   ],
  * //   ForceEndpointErrorConfiguration: { // ForceEndpointErrorConfiguration
@@ -341,6 +358,79 @@ export interface GetOriginEndpointCommandOutput extends GetOriginEndpointRespons
  *     SegmentName: "segmentName",
  *     TsIncludeDvbSubtitles: true,
  *     TsUseAudioRenditionGroup: true
+ *   },
+ *   StartoverWindowSeconds: 300,
+ *   Tags: {
+ *     key1: "value1",
+ *     key2: "value2"
+ *   }
+ * }
+ * *\/
+ * ```
+ *
+ * @example Getting an OriginEndpoint with ISM container
+ * ```javascript
+ * //
+ * const input = {
+ *   ChannelGroupName: "exampleChannelGroup",
+ *   ChannelName: "exampleChannel",
+ *   OriginEndpointName: "exampleOriginEndpointISM"
+ * };
+ * const command = new GetOriginEndpointCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   Arn: "arn:aws:mediapackagev2:us-west-2:123456789012:channelGroup/exampleChannelGroup/channel/exampleChannel/originEndpoint/exampleOriginEndpointISM",
+ *   ChannelGroupName: "exampleChannelGroup",
+ *   ChannelName: "exampleChannel",
+ *   ContainerType: "ISM",
+ *   CreatedAt: "2022-10-18T09:36:00.00Z",
+ *   Description: "Description for exampleOriginEndpointISM",
+ *   ETag: "HmgU+ewBzHJS5xvz9nLXm2SEQxTsjRfk0rVvuMayoyl=",
+ *   ForceEndpointErrorConfiguration: {
+ *     EndpointErrorConditions: [
+ *       "STALE_MANIFEST",
+ *       "INCOMPLETE_MANIFEST",
+ *       "MISSING_DRM_KEY",
+ *       "SLATE_INPUT"
+ *     ]
+ *   },
+ *   ModifiedAt: "2022-10-18T09:36:00.00Z",
+ *   MssManifests: [
+ *     {
+ *       ManifestLayout: "FULL",
+ *       ManifestName: "exampleMssManifest1",
+ *       ManifestWindowSeconds: 60,
+ *       Url: "https://abcde.egress.vwxyz.mediapackagev2.us-west-2.amazonaws.com/out/v1/exampleChannelGroup/exampleChannel/exampleOriginEndpointISM/exampleMssManifest1.ism/Manifest"
+ *     },
+ *     {
+ *       ManifestLayout: "COMPACT",
+ *       ManifestName: "exampleMssManifest2",
+ *       ManifestWindowSeconds: 30,
+ *       Url: "https://abcde.egress.vwxyz.mediapackagev2.us-west-2.amazonaws.com/out/v1/exampleChannelGroup/exampleChannel/exampleOriginEndpointISM/exampleMssManifest2.ism/Manifest"
+ *     }
+ *   ],
+ *   OriginEndpointName: "exampleOriginEndpointISM",
+ *   Segment: {
+ *     Encryption: {
+ *       EncryptionMethod: {
+ *         IsmEncryptionMethod: "CENC"
+ *       },
+ *       SpekeKeyProvider: {
+ *         DrmSystems: [
+ *           "PLAYREADY"
+ *         ],
+ *         EncryptionContractConfiguration: {
+ *           PresetSpeke20Audio: "SHARED",
+ *           PresetSpeke20Video: "SHARED"
+ *         },
+ *         ResourceId: "ResourceId",
+ *         RoleArn: "arn:aws:iam::123456789012:role/empRole",
+ *         Url: "https://speke-key-provider.example.com"
+ *       }
+ *     },
+ *     SegmentDurationSeconds: 2,
+ *     SegmentName: "segmentName"
  *   },
  *   StartoverWindowSeconds: 300,
  *   Tags: {

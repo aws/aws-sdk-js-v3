@@ -166,11 +166,7 @@ export interface ListHarvestJobsCommandOutput extends ListHarvestJobsResponse, _
  *         EndTime: "2024-05-28T12:00:00.00Z",
  *         StartTime: "2024-05-28T06:00:00.00Z"
  *       },
- *       Status: "QUEUED",
- *       Tags: {
- *         key1: "value1",
- *         key2: "value2"
- *       }
+ *       Status: "QUEUED"
  *     },
  *     {
  *       Arn: "arn:aws:mediapackagev2:us-west-2:123456789012:channelGroup/exampleChannelGroup/channel/exampleChannelName2/originEndpoint/exampleOriginEndpointName2/harvestJob/HarvestJobName2",
@@ -209,11 +205,7 @@ export interface ListHarvestJobsCommandOutput extends ListHarvestJobsResponse, _
  *         EndTime: "2024-05-28T12:00:00.00Z",
  *         StartTime: "2024-05-28T02:00:00.00Z"
  *       },
- *       Status: "IN_PROGRESS",
- *       Tags: {
- *         key1: "value1",
- *         key2: "value2"
- *       }
+ *       Status: "IN_PROGRESS"
  *     }
  *   ],
  *   NextToken: "someTokenValue"
@@ -270,11 +262,7 @@ export interface ListHarvestJobsCommandOutput extends ListHarvestJobsResponse, _
  *         EndTime: "2024-05-28T12:00:00.00Z",
  *         StartTime: "2024-05-28T06:00:00.00Z"
  *       },
- *       Status: "QUEUED",
- *       Tags: {
- *         key1: "value1",
- *         key2: "value2"
- *       }
+ *       Status: "QUEUED"
  *     },
  *     {
  *       Arn: "arn:aws:mediapackagev2:us-west-2:123456789012:channelGroup/exampleChannelGroup/channel/exampleChannelName/originEndpoint/exampleOriginEndpointName2/harvestJob/HarvestJobName2",
@@ -312,11 +300,7 @@ export interface ListHarvestJobsCommandOutput extends ListHarvestJobsResponse, _
  *         EndTime: "2024-05-28T12:00:00.00Z",
  *         StartTime: "2024-05-28T02:00:00.00Z"
  *       },
- *       Status: "IN_PROGRESS",
- *       Tags: {
- *         key1: "value1",
- *         key2: "value2"
- *       }
+ *       Status: "IN_PROGRESS"
  *     }
  *   ],
  *   NextToken: "someTokenValue"

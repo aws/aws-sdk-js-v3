@@ -50,7 +50,7 @@ export interface ListOriginEndpointsCommandOutput extends ListOriginEndpointsRes
  * //       ChannelGroupName: "STRING_VALUE", // required
  * //       ChannelName: "STRING_VALUE", // required
  * //       OriginEndpointName: "STRING_VALUE", // required
- * //       ContainerType: "TS" || "CMAF", // required
+ * //       ContainerType: "TS" || "CMAF" || "ISM", // required
  * //       Description: "STRING_VALUE",
  * //       CreatedAt: new Date("TIMESTAMP"),
  * //       ModifiedAt: new Date("TIMESTAMP"),
@@ -70,6 +70,12 @@ export interface ListOriginEndpointsCommandOutput extends ListOriginEndpointsRes
  * //       ],
  * //       DashManifests: [ // ListDashManifests
  * //         { // ListDashManifestConfiguration
+ * //           ManifestName: "STRING_VALUE", // required
+ * //           Url: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //       MssManifests: [ // ListMssManifests
+ * //         { // ListMssManifestConfiguration
  * //           ManifestName: "STRING_VALUE", // required
  * //           Url: "STRING_VALUE",
  * //         },
@@ -215,6 +221,34 @@ export interface ListOriginEndpointsCommandOutput extends ListOriginEndpointsRes
  *       ],
  *       ModifiedAt: "2022-10-18T09:36:00.00Z",
  *       OriginEndpointName: "exampleOriginEndpointCMAF"
+ *     },
+ *     {
+ *       Arn: "arn:aws:mediapackagev2:us-west-2:123456789012:channelGroup/exampleChannelGroup/channel/exampleChannel/originEndpoint/exampleOriginEndpointISM",
+ *       ChannelGroupName: "exampleChannelGroup",
+ *       ChannelName: "exampleChannel",
+ *       ContainerType: "ISM",
+ *       CreatedAt: "2022-10-18T09:36:00.00Z",
+ *       Description: "Description for exampleOriginEndpointISM",
+ *       ForceEndpointErrorConfiguration: {
+ *         EndpointErrorConditions: [
+ *           "STALE_MANIFEST",
+ *           "INCOMPLETE_MANIFEST",
+ *           "MISSING_DRM_KEY",
+ *           "SLATE_INPUT"
+ *         ]
+ *       },
+ *       ModifiedAt: "2022-10-18T09:36:00.00Z",
+ *       MssManifests: [
+ *         {
+ *           ManifestName: "exampleMssManifest1",
+ *           Url: "https://abcde.egress.vwxyz.mediapackagev2.us-west-2.amazonaws.com/out/v1/exampleChannelGroup/exampleChannel/exampleOriginEndpointISM/exampleMssManifest1.ism/Manifest"
+ *         },
+ *         {
+ *           ManifestName: "exampleMssManifest2",
+ *           Url: "https://abcde.egress.vwxyz.mediapackagev2.us-west-2.amazonaws.com/out/v1/exampleChannelGroup/exampleChannel/exampleOriginEndpointISM/exampleMssManifest2.ism/Manifest"
+ *         }
+ *       ],
+ *       OriginEndpointName: "exampleOriginEndpointISM"
  *     }
  *   ]
  * }
