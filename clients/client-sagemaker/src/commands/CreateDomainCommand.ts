@@ -287,10 +287,10 @@ export interface CreateDomainCommandOutput extends CreateDomainResponse, __Metad
  *       SingleSignOnApplicationArn: "STRING_VALUE",
  *     },
  *   },
- *   SubnetIds: [ // Subnets // required
+ *   SubnetIds: [ // Subnets
  *     "STRING_VALUE",
  *   ],
- *   VpcId: "STRING_VALUE", // required
+ *   VpcId: "STRING_VALUE",
  *   Tags: [ // TagList
  *     { // Tag
  *       Key: "STRING_VALUE", // required

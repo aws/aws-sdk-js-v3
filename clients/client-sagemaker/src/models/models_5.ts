@@ -19,6 +19,7 @@ import {
   JupyterLabAppImageConfig,
   KernelGatewayImageConfig,
   ModelApprovalStatus,
+  OutputParameter,
   Tag,
 } from "./models_0";
 
@@ -28,6 +29,7 @@ import {
   DeploymentConfig,
   EdgeOutputConfig,
   FeatureDefinition,
+  HubContentType,
   InferenceComponentRuntimeConfig,
   InferenceComponentSpecification,
   InferenceExperimentDataStorageConfig,
@@ -50,7 +52,6 @@ import {
 
 import {
   CrossAccountFilterOption,
-  HubContentType,
   InstanceMetadataServiceConfiguration,
   MemberDefinition,
   MonitoringScheduleConfig,
@@ -102,6 +103,68 @@ import {
   SearchSortOrder,
   VisibilityConditions,
 } from "./models_4";
+
+/**
+ * @public
+ */
+export interface SendPipelineExecutionStepFailureResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the pipeline execution.</p>
+   * @public
+   */
+  PipelineExecutionArn?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface SendPipelineExecutionStepSuccessRequest {
+  /**
+   * <p>The pipeline generated token from the Amazon SQS queue.</p>
+   * @public
+   */
+  CallbackToken: string | undefined;
+
+  /**
+   * <p>A list of the output parameters of the callback step.</p>
+   * @public
+   */
+  OutputParameters?: OutputParameter[] | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the operation. An idempotent operation completes no more than one time.</p>
+   * @public
+   */
+  ClientRequestToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface SendPipelineExecutionStepSuccessResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the pipeline execution.</p>
+   * @public
+   */
+  PipelineExecutionArn?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StartEdgeDeploymentStageRequest {
+  /**
+   * <p>The name of the edge deployment plan to start.</p>
+   * @public
+   */
+  EdgeDeploymentPlanName: string | undefined;
+
+  /**
+   * <p>The name of the stage to start.</p>
+   * @public
+   */
+  StageName: string | undefined;
+}
 
 /**
  * @public
@@ -225,6 +288,40 @@ export interface StartPipelineExecutionResponse {
    * @public
    */
   PipelineExecutionArn?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StartSessionRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the resource to which the remote connection will be established. For example, this identifies the specific ARN space application you want to connect to from your local IDE.</p>
+   * @public
+   */
+  ResourceIdentifier: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StartSessionResponse {
+  /**
+   * <p>A unique identifier for the established remote connection session.</p>
+   * @public
+   */
+  SessionId?: string | undefined;
+
+  /**
+   * <p>A WebSocket URL used to establish a SSH connection between the local IDE and remote SageMaker space.</p>
+   * @public
+   */
+  StreamUrl?: string | undefined;
+
+  /**
+   * <p>An encrypted token value containing session and caller information. </p>
+   * @public
+   */
+  TokenValue?: string | undefined;
 }
 
 /**

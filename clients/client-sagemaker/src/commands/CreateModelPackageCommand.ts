@@ -9,7 +9,7 @@ import {
   CreateModelPackageInput,
   CreateModelPackageInputFilterSensitiveLog,
   CreateModelPackageOutput,
-} from "../models/models_1";
+} from "../models/models_2";
 import { de_CreateModelPackageCommand, se_CreateModelPackageCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 

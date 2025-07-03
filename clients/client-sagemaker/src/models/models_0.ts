@@ -3209,6 +3209,24 @@ export const AuthMode = {
 export type AuthMode = (typeof AuthMode)[keyof typeof AuthMode];
 
 /**
+ * <p>Contains a presigned URL and its associated local file path for downloading hub content artifacts.</p>
+ * @public
+ */
+export interface AuthorizedUrl {
+  /**
+   * <p>The presigned S3 URL that provides temporary, secure access to download the file. URLs expire within 15 minutes for security purposes.</p>
+   * @public
+   */
+  Url?: string | undefined;
+
+  /**
+   * <p>The recommended local file path where the downloaded file should be stored to maintain proper directory structure and file organization.</p>
+   * @public
+   */
+  LocalPath?: string | undefined;
+}
+
+/**
  * @public
  * @enum
  */
@@ -7820,17 +7838,3 @@ export interface ComputeQuotaSummary {
    */
   LastModifiedTime?: Date | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ConditionOutcome = {
-  FALSE: "False",
-  TRUE: "True",
-} as const;
-
-/**
- * @public
- */
-export type ConditionOutcome = (typeof ConditionOutcome)[keyof typeof ConditionOutcome];

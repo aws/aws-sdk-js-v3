@@ -125,6 +125,7 @@ export interface UpdateSpaceCommandOutput extends UpdateSpaceResponse, __Metadat
  *         },
  *       },
  *     ],
+ *     RemoteAccess: "ENABLED" || "DISABLED",
  *   },
  *   SpaceDisplayName: "STRING_VALUE",
  * };

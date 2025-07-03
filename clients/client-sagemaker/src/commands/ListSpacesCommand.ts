@@ -55,6 +55,7 @@ export interface ListSpacesCommandOutput extends ListSpacesResponse, __MetadataB
  * //       LastModifiedTime: new Date("TIMESTAMP"),
  * //       SpaceSettingsSummary: { // SpaceSettingsSummary
  * //         AppType: "JupyterServer" || "KernelGateway" || "DetailedProfiler" || "TensorBoard" || "CodeEditor" || "JupyterLab" || "RStudioServerPro" || "RSessionGateway" || "Canvas",
+ * //         RemoteAccess: "ENABLED" || "DISABLED",
  * //         SpaceStorageSettings: { // SpaceStorageSettings
  * //           EbsStorageSettings: { // EbsStorageSettings
  * //             EbsVolumeSizeInGb: Number("int"), // required

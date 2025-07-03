@@ -16,11 +16,6 @@ import {
   AppSpecification,
   ArtifactSummary,
   AssociationEdgeType,
-  AssociationSummary,
-  AutoMLJobStatus,
-  AutoMLJobSummary,
-  AutoMLSortBy,
-  AutoMLSortOrder,
   AutoRollbackConfig,
   Autotune,
   BatchDataCaptureConfig,
@@ -58,6 +53,7 @@ import {
   FeatureDefinition,
   FeatureType,
   FlowDefinitionOutputConfig,
+  HubContentType,
   HubS3StorageConfig,
   HumanLoopActivationConfig,
   HumanLoopConfig,
@@ -95,7 +91,6 @@ import {
   ModelPackageModelCard,
   ModelPackageModelCardFilterSensitiveLog,
   ModelPackageSecurityConfig,
-  ModelPackageValidationSpecification,
   MonitoringNetworkConfig,
   MonitoringOutputConfig,
   MonitoringResources,
@@ -134,14 +129,12 @@ import {
   EndpointStatus,
   ExperimentConfig,
   ExperimentSource,
-  FeatureGroupStatus,
-  HubContentType,
   InfraCheckConfig,
   InstanceMetadataServiceConfiguration,
-  LastUpdateStatus,
   MemberDefinition,
   ModelArtifacts,
   ModelClientConfig,
+  ModelPackageValidationSpecification,
   ModelQualityAppSpecification,
   ModelQualityBaselineConfig,
   ModelQualityJobInput,
@@ -183,6 +176,73 @@ import {
   TrialComponentStatus,
   WorkerAccessConfiguration,
 } from "./models_2";
+
+/**
+ * @public
+ */
+export interface DescribeFeatureGroupRequest {
+  /**
+   * <p>The name or Amazon Resource Name (ARN) of the <code>FeatureGroup</code> you want described. </p>
+   * @public
+   */
+  FeatureGroupName: string | undefined;
+
+  /**
+   * <p>A token to resume pagination of the list of <code>Features</code> (<code>FeatureDefinitions</code>). 2,500 <code>Features</code> are returned by default.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const FeatureGroupStatus = {
+  CREATED: "Created",
+  CREATE_FAILED: "CreateFailed",
+  CREATING: "Creating",
+  DELETE_FAILED: "DeleteFailed",
+  DELETING: "Deleting",
+} as const;
+
+/**
+ * @public
+ */
+export type FeatureGroupStatus = (typeof FeatureGroupStatus)[keyof typeof FeatureGroupStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const LastUpdateStatusValue = {
+  FAILED: "Failed",
+  IN_PROGRESS: "InProgress",
+  SUCCESSFUL: "Successful",
+} as const;
+
+/**
+ * @public
+ */
+export type LastUpdateStatusValue = (typeof LastUpdateStatusValue)[keyof typeof LastUpdateStatusValue];
+
+/**
+ * <p>A value that indicates whether the update was successful.</p>
+ * @public
+ */
+export interface LastUpdateStatus {
+  /**
+   * <p>A value that indicates whether the update was made successful.</p>
+   * @public
+   */
+  Status: LastUpdateStatusValue | undefined;
+
+  /**
+   * <p>If the update wasn't successful, indicates the reason why it failed.</p>
+   * @public
+   */
+  FailureReason?: string | undefined;
+}
 
 /**
  * @public
@@ -10167,176 +10227,6 @@ export const SortAssociationsBy = {
  * @public
  */
 export type SortAssociationsBy = (typeof SortAssociationsBy)[keyof typeof SortAssociationsBy];
-
-/**
- * @public
- */
-export interface ListAssociationsRequest {
-  /**
-   * <p>A filter that returns only associations with the specified source ARN.</p>
-   * @public
-   */
-  SourceArn?: string | undefined;
-
-  /**
-   * <p>A filter that returns only associations with the specified destination Amazon Resource Name (ARN).</p>
-   * @public
-   */
-  DestinationArn?: string | undefined;
-
-  /**
-   * <p>A filter that returns only associations with the specified source type.</p>
-   * @public
-   */
-  SourceType?: string | undefined;
-
-  /**
-   * <p>A filter that returns only associations with the specified destination type.</p>
-   * @public
-   */
-  DestinationType?: string | undefined;
-
-  /**
-   * <p>A filter that returns only associations of the specified type.</p>
-   * @public
-   */
-  AssociationType?: AssociationEdgeType | undefined;
-
-  /**
-   * <p>A filter that returns only associations created on or after the specified time.</p>
-   * @public
-   */
-  CreatedAfter?: Date | undefined;
-
-  /**
-   * <p>A filter that returns only associations created on or before the specified time.</p>
-   * @public
-   */
-  CreatedBefore?: Date | undefined;
-
-  /**
-   * <p>The property used to sort results. The default value is <code>CreationTime</code>.</p>
-   * @public
-   */
-  SortBy?: SortAssociationsBy | undefined;
-
-  /**
-   * <p>The sort order. The default value is <code>Descending</code>.</p>
-   * @public
-   */
-  SortOrder?: SortOrder | undefined;
-
-  /**
-   * <p>If the previous call to <code>ListAssociations</code> didn't return the full set of associations, the call returns a token for getting the next set of associations.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of associations to return in the response. The default value is 10.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface ListAssociationsResponse {
-  /**
-   * <p>A list of associations and their properties.</p>
-   * @public
-   */
-  AssociationSummaries?: AssociationSummary[] | undefined;
-
-  /**
-   * <p>A token for getting the next set of associations, if there are any.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListAutoMLJobsRequest {
-  /**
-   * <p>Request a list of jobs, using a filter for time.</p>
-   * @public
-   */
-  CreationTimeAfter?: Date | undefined;
-
-  /**
-   * <p>Request a list of jobs, using a filter for time.</p>
-   * @public
-   */
-  CreationTimeBefore?: Date | undefined;
-
-  /**
-   * <p>Request a list of jobs, using a filter for time.</p>
-   * @public
-   */
-  LastModifiedTimeAfter?: Date | undefined;
-
-  /**
-   * <p>Request a list of jobs, using a filter for time.</p>
-   * @public
-   */
-  LastModifiedTimeBefore?: Date | undefined;
-
-  /**
-   * <p>Request a list of jobs, using a search filter for name.</p>
-   * @public
-   */
-  NameContains?: string | undefined;
-
-  /**
-   * <p>Request a list of jobs, using a filter for status.</p>
-   * @public
-   */
-  StatusEquals?: AutoMLJobStatus | undefined;
-
-  /**
-   * <p>The sort order for the results. The default is <code>Descending</code>.</p>
-   * @public
-   */
-  SortOrder?: AutoMLSortOrder | undefined;
-
-  /**
-   * <p>The parameter by which to sort the results. The default is <code>Name</code>.</p>
-   * @public
-   */
-  SortBy?: AutoMLSortBy | undefined;
-
-  /**
-   * <p>Request a list of jobs up to a specified limit.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>If the previous response was truncated, you receive this token. Use it in your next request to receive the next set of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListAutoMLJobsResponse {
-  /**
-   * <p>Returns a summary list of jobs.</p>
-   * @public
-   */
-  AutoMLJobSummaries: AutoMLJobSummary[] | undefined;
-
-  /**
-   * <p>If the previous response was truncated, you receive this token. Use it in your next request to receive the next set of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
 
 /**
  * @internal

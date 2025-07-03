@@ -137,6 +137,7 @@ export interface DescribeSpaceCommandOutput extends DescribeSpaceResponse, __Met
  * //         },
  * //       },
  * //     ],
+ * //     RemoteAccess: "ENABLED" || "DISABLED",
  * //   },
  * //   OwnershipSettings: { // OwnershipSettings
  * //     OwnerUserProfileName: "STRING_VALUE", // required

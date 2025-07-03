@@ -141,6 +141,11 @@ import {
 } from "./commands/CreateFlowDefinitionCommand";
 import { CreateHubCommand, CreateHubCommandInput, CreateHubCommandOutput } from "./commands/CreateHubCommand";
 import {
+  CreateHubContentPresignedUrlsCommand,
+  CreateHubContentPresignedUrlsCommandInput,
+  CreateHubContentPresignedUrlsCommandOutput,
+} from "./commands/CreateHubContentPresignedUrlsCommand";
+import {
   CreateHubContentReferenceCommand,
   CreateHubContentReferenceCommandInput,
   CreateHubContentReferenceCommandOutput,
@@ -1386,6 +1391,11 @@ import {
   StartPipelineExecutionCommandOutput,
 } from "./commands/StartPipelineExecutionCommand";
 import {
+  StartSessionCommand,
+  StartSessionCommandInput,
+  StartSessionCommandOutput,
+} from "./commands/StartSessionCommand";
+import {
   StopAutoMLJobCommand,
   StopAutoMLJobCommandInput,
   StopAutoMLJobCommandOutput,
@@ -1697,6 +1707,7 @@ const commands = {
   CreateFeatureGroupCommand,
   CreateFlowDefinitionCommand,
   CreateHubCommand,
+  CreateHubContentPresignedUrlsCommand,
   CreateHubContentReferenceCommand,
   CreateHumanTaskUiCommand,
   CreateHyperParameterTuningJobCommand,
@@ -1966,6 +1977,7 @@ const commands = {
   StartMonitoringScheduleCommand,
   StartNotebookInstanceCommand,
   StartPipelineExecutionCommand,
+  StartSessionCommand,
   StopAutoMLJobCommand,
   StopCompilationJobCommand,
   StopEdgeDeploymentStageCommand,
@@ -2479,6 +2491,23 @@ export interface SageMaker {
     args: CreateHubCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateHubCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateHubContentPresignedUrlsCommand}
+   */
+  createHubContentPresignedUrls(
+    args: CreateHubContentPresignedUrlsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateHubContentPresignedUrlsCommandOutput>;
+  createHubContentPresignedUrls(
+    args: CreateHubContentPresignedUrlsCommandInput,
+    cb: (err: any, data?: CreateHubContentPresignedUrlsCommandOutput) => void
+  ): void;
+  createHubContentPresignedUrls(
+    args: CreateHubContentPresignedUrlsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateHubContentPresignedUrlsCommandOutput) => void
   ): void;
 
   /**
@@ -6790,6 +6819,17 @@ export interface SageMaker {
     args: StartPipelineExecutionCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: StartPipelineExecutionCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link StartSessionCommand}
+   */
+  startSession(args: StartSessionCommandInput, options?: __HttpHandlerOptions): Promise<StartSessionCommandOutput>;
+  startSession(args: StartSessionCommandInput, cb: (err: any, data?: StartSessionCommandOutput) => void): void;
+  startSession(
+    args: StartSessionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartSessionCommandOutput) => void
   ): void;
 
   /**

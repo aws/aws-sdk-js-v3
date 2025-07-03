@@ -102,6 +102,10 @@ import {
 } from "../commands/CreateFlowDefinitionCommand";
 import { CreateHubCommandInput, CreateHubCommandOutput } from "../commands/CreateHubCommand";
 import {
+  CreateHubContentPresignedUrlsCommandInput,
+  CreateHubContentPresignedUrlsCommandOutput,
+} from "../commands/CreateHubContentPresignedUrlsCommand";
+import {
   CreateHubContentReferenceCommandInput,
   CreateHubContentReferenceCommandOutput,
 } from "../commands/CreateHubContentReferenceCommand";
@@ -820,6 +824,7 @@ import {
   StartPipelineExecutionCommandInput,
   StartPipelineExecutionCommandOutput,
 } from "../commands/StartPipelineExecutionCommand";
+import { StartSessionCommandInput, StartSessionCommandOutput } from "../commands/StartSessionCommand";
 import { StopAutoMLJobCommandInput, StopAutoMLJobCommandOutput } from "../commands/StopAutoMLJobCommand";
 import { StopCompilationJobCommandInput, StopCompilationJobCommandOutput } from "../commands/StopCompilationJobCommand";
 import {
@@ -1000,6 +1005,7 @@ import {
   AsyncInferenceOutputConfig,
   AsyncNotificationTopicTypes,
   AthenaDatasetDefinition,
+  AuthorizedUrl,
   AutoMLAlgorithm,
   AutoMLAlgorithmConfig,
   AutoMLCandidate,
@@ -1233,6 +1239,8 @@ import {
   CreateFeatureGroupResponse,
   CreateFlowDefinitionRequest,
   CreateFlowDefinitionResponse,
+  CreateHubContentPresignedUrlsRequest,
+  CreateHubContentPresignedUrlsResponse,
   CreateHubContentReferenceRequest,
   CreateHubContentReferenceResponse,
   CreateHubRequest,
@@ -1265,9 +1273,6 @@ import {
   CreateModelExplainabilityJobDefinitionResponse,
   CreateModelInput,
   CreateModelOutput,
-  CreateModelPackageGroupInput,
-  CreateModelPackageInput,
-  CreateModelPackageOutput,
   CustomFileSystemConfig,
   CustomPosixUserConfig,
   DataCaptureConfig,
@@ -1362,8 +1367,6 @@ import {
   ModelMetrics,
   ModelPackageModelCard,
   ModelPackageSecurityConfig,
-  ModelPackageValidationProfile,
-  ModelPackageValidationSpecification,
   ModelQuality,
   ModelVariantConfig,
   MonitoringClusterConfig,
@@ -1386,6 +1389,7 @@ import {
   ParameterRanges,
   ParentHyperParameterTuningJob,
   Phase,
+  PresignedUrlAccessConfig,
   PriorityClass,
   ProductionVariant,
   ProductionVariantCapacityReservationConfig,
@@ -1434,7 +1438,10 @@ import {
   UserSettings,
 } from "../models/models_1";
 import {
+  CreateModelPackageGroupInput,
   CreateModelPackageGroupOutput,
+  CreateModelPackageInput,
+  CreateModelPackageOutput,
   CreateModelQualityJobDefinitionRequest,
   CreateModelQualityJobDefinitionResponse,
   CreateMonitoringScheduleRequest,
@@ -1615,7 +1622,6 @@ import {
   DescribeEndpointOutput,
   DescribeExperimentRequest,
   DescribeExperimentResponse,
-  DescribeFeatureGroupRequest,
   EbsStorageSettings,
   Ec2CapacityReservation,
   EdgeDeploymentStatus,
@@ -1628,13 +1634,14 @@ import {
   IamPolicyConstraints,
   InfraCheckConfig,
   InstanceMetadataServiceConfiguration,
-  LastUpdateStatus,
   MemberDefinition,
   ModelArtifacts,
   ModelClientConfig,
   ModelCompilationConfig,
   ModelDeployResult,
   ModelDigests,
+  ModelPackageValidationProfile,
+  ModelPackageValidationSpecification,
   ModelQualityAppSpecification,
   ModelQualityBaselineConfig,
   ModelQualityJobInput,
@@ -1704,6 +1711,7 @@ import {
   WorkforceVpcConfigRequest,
 } from "../models/models_2";
 import {
+  DescribeFeatureGroupRequest,
   DescribeFeatureGroupResponse,
   DescribeFeatureMetadataRequest,
   DescribeFeatureMetadataResponse,
@@ -1876,6 +1884,7 @@ import {
   LabelingJobOutput,
   LabelingJobSummary,
   LambdaStepMetadata,
+  LastUpdateStatus,
   LineageGroupSummary,
   LineageType,
   ListActionsRequest,
@@ -1890,10 +1899,6 @@ import {
   ListAppsResponse,
   ListArtifactsRequest,
   ListArtifactsResponse,
-  ListAssociationsRequest,
-  ListAssociationsResponse,
-  ListAutoMLJobsRequest,
-  ListAutoMLJobsResponse,
   MetricData,
   MetricSpecification,
   ModelCardExportArtifacts,
@@ -1941,6 +1946,10 @@ import {
   Workteam,
 } from "../models/models_3";
 import {
+  ListAssociationsRequest,
+  ListAssociationsResponse,
+  ListAutoMLJobsRequest,
+  ListAutoMLJobsResponse,
   ListCandidatesForAutoMLJobRequest,
   ListCandidatesForAutoMLJobResponse,
   ListClusterNodesRequest,
@@ -2157,13 +2166,9 @@ import {
   SearchTrainingPlanOfferingsResponse,
   SelectiveExecutionResult,
   SendPipelineExecutionStepFailureRequest,
-  SendPipelineExecutionStepFailureResponse,
-  SendPipelineExecutionStepSuccessRequest,
-  SendPipelineExecutionStepSuccessResponse,
   SpaceDetails,
   SpaceSettingsSummary,
   SpaceSharingSettingsSummary,
-  StartEdgeDeploymentStageRequest,
   StudioLifecycleConfigDetails,
   TotalHits,
   TrackingServerSummary,
@@ -2190,7 +2195,11 @@ import {
 import {
   SearchExpression,
   SearchRequest,
+  SendPipelineExecutionStepFailureResponse,
+  SendPipelineExecutionStepSuccessRequest,
+  SendPipelineExecutionStepSuccessResponse,
   ServiceCatalogProvisioningUpdateDetails,
+  StartEdgeDeploymentStageRequest,
   StartInferenceExperimentRequest,
   StartInferenceExperimentResponse,
   StartMlflowTrackingServerRequest,
@@ -2199,6 +2208,8 @@ import {
   StartNotebookInstanceInput,
   StartPipelineExecutionRequest,
   StartPipelineExecutionResponse,
+  StartSessionRequest,
+  StartSessionResponse,
   StopAutoMLJobRequest,
   StopCompilationJobRequest,
   StopEdgeDeploymentStageRequest,
@@ -2693,6 +2704,19 @@ export const se_CreateHubCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("CreateHub");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1CreateHubContentPresignedUrlsCommand
+ */
+export const se_CreateHubContentPresignedUrlsCommand = async (
+  input: CreateHubContentPresignedUrlsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("CreateHubContentPresignedUrls");
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -6193,6 +6217,19 @@ export const se_StartPipelineExecutionCommand = async (
 };
 
 /**
+ * serializeAws_json1_1StartSessionCommand
+ */
+export const se_StartSessionCommand = async (
+  input: StartSessionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("StartSession");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_json1_1StopAutoMLJobCommand
  */
 export const se_StopAutoMLJobCommand = async (
@@ -7544,6 +7581,26 @@ export const de_CreateHubCommand = async (
   let contents: any = {};
   contents = de_CreateHubResponse(data, context);
   const response: CreateHubCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1CreateHubContentPresignedUrlsCommand
+ */
+export const de_CreateHubContentPresignedUrlsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateHubContentPresignedUrlsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_CreateHubContentPresignedUrlsResponse(data, context);
+  const response: CreateHubContentPresignedUrlsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
@@ -12808,6 +12865,26 @@ export const de_StartPipelineExecutionCommand = async (
 };
 
 /**
+ * deserializeAws_json1_1StartSessionCommand
+ */
+export const de_StartSessionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartSessionCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_StartSessionResponse(data, context);
+  const response: StartSessionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
  * deserializeAws_json1_1StopAutoMLJobCommand
  */
 export const de_StopAutoMLJobCommand = async (
@@ -14459,6 +14536,8 @@ const se_CreateFlowDefinitionRequest = (input: CreateFlowDefinitionRequest, cont
     Tags: _json,
   });
 };
+
+// se_CreateHubContentPresignedUrlsRequest omitted.
 
 // se_CreateHubContentReferenceRequest omitted.
 
@@ -16934,6 +17013,8 @@ const se_MonitoringScheduleConfig = (input: MonitoringScheduleConfig, context: _
 
 // se_PipelineDefinitionS3Location omitted.
 
+// se_PresignedUrlAccessConfig omitted.
+
 // se_PriorityClass omitted.
 
 // se_PriorityClassList omitted.
@@ -17328,6 +17409,8 @@ const se_StartPipelineExecutionRequest = (input: StartPipelineExecutionRequest, 
     SelectiveExecutionConfig: _json,
   });
 };
+
+// se_StartSessionRequest omitted.
 
 // se_StopAutoMLJobRequest omitted.
 
@@ -18316,6 +18399,28 @@ const de_AuthenticationRequestExtraParams = (output: any, context: __SerdeContex
     acc[key as string] = __expectString(value) as any;
     return acc;
   }, {} as Record<string, string>);
+};
+
+/**
+ * deserializeAws_json1_1AuthorizedUrl
+ */
+const de_AuthorizedUrl = (output: any, context: __SerdeContext): AuthorizedUrl => {
+  return take(output, {
+    LocalPath: __expectString,
+    Url: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1AuthorizedUrlConfigs
+ */
+const de_AuthorizedUrlConfigs = (output: any, context: __SerdeContext): AuthorizedUrl[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_AuthorizedUrl(entry, context);
+    });
+  return retVal;
 };
 
 /**
@@ -20224,6 +20329,19 @@ const de_CreateFeatureGroupResponse = (output: any, context: __SerdeContext): Cr
 const de_CreateFlowDefinitionResponse = (output: any, context: __SerdeContext): CreateFlowDefinitionResponse => {
   return take(output, {
     FlowDefinitionArn: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1CreateHubContentPresignedUrlsResponse
+ */
+const de_CreateHubContentPresignedUrlsResponse = (
+  output: any,
+  context: __SerdeContext
+): CreateHubContentPresignedUrlsResponse => {
+  return take(output, {
+    AuthorizedUrlConfigs: (_: any) => de_AuthorizedUrlConfigs(_, context),
+    NextToken: __expectString,
   }) as any;
 };
 
@@ -30598,6 +30716,7 @@ const de_SpaceSettings = (output: any, context: __SerdeContext): SpaceSettings =
     JupyterLabAppSettings: (_: any) => de_SpaceJupyterLabAppSettings(_, context),
     JupyterServerAppSettings: (_: any) => de_JupyterServerAppSettings(_, context),
     KernelGatewayAppSettings: (_: any) => de_KernelGatewayAppSettings(_, context),
+    RemoteAccess: __expectString,
     SpaceManagedResources: __expectString,
     SpaceStorageSettings: (_: any) => de_SpaceStorageSettings(_, context),
   }) as any;
@@ -30609,6 +30728,7 @@ const de_SpaceSettings = (output: any, context: __SerdeContext): SpaceSettings =
 const de_SpaceSettingsSummary = (output: any, context: __SerdeContext): SpaceSettingsSummary => {
   return take(output, {
     AppType: __expectString,
+    RemoteAccess: __expectString,
     SpaceStorageSettings: (_: any) => de_SpaceStorageSettings(_, context),
   }) as any;
 };
@@ -30681,6 +30801,17 @@ const de_StartMlflowTrackingServerResponse = (
 const de_StartPipelineExecutionResponse = (output: any, context: __SerdeContext): StartPipelineExecutionResponse => {
   return take(output, {
     PipelineExecutionArn: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1StartSessionResponse
+ */
+const de_StartSessionResponse = (output: any, context: __SerdeContext): StartSessionResponse => {
+  return take(output, {
+    SessionId: __expectString,
+    StreamUrl: __expectString,
+    TokenValue: __expectString,
   }) as any;
 };
 

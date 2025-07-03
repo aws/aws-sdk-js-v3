@@ -5,6 +5,7 @@ import {
   ActionSource,
   ActionStatus,
   ActivationState,
+  AdditionalInferenceSpecificationDefinition,
   AlgorithmSpecification,
   AlgorithmStatus,
   AlgorithmStatusDetails,
@@ -61,6 +62,7 @@ import {
   InferenceSpecification,
   JupyterLabAppImageConfig,
   KernelGatewayImageConfig,
+  ModelApprovalStatus,
   OutputDataConfig,
   ProblemType,
   ProcessingS3DataDistributionType,
@@ -72,6 +74,7 @@ import {
   StoppingCondition,
   Tag,
   TransformInput,
+  TransformJobDefinition,
   TransformOutput,
   TransformResources,
   UserContext,
@@ -89,17 +92,24 @@ import {
   DeploymentConfig,
   DeviceSelectionConfig,
   DomainSettings,
+  DriftCheckBaselines,
   EdgeDeploymentConfig,
   EdgeDeploymentModelConfig,
   EdgeOutputConfig,
   EdgePresetDeploymentType,
   EndpointInput,
   ExplainerConfig,
+  HubContentType,
   InputConfig,
   JupyterServerAppSettings,
   KernelGatewayAppSettings,
   MetadataProperties,
   ModelDeployConfig,
+  ModelLifeCycle,
+  ModelMetrics,
+  ModelPackageModelCard,
+  ModelPackageModelCardFilterSensitiveLog,
+  ModelPackageSecurityConfig,
   MonitoringConstraintsResource,
   MonitoringGroundTruthS3Input,
   MonitoringNetworkConfig,
@@ -118,10 +128,225 @@ import {
   ProductionVariantServerlessConfig,
   RetryStrategy,
   SchedulerConfig,
+  SkipModelValidation,
+  SourceAlgorithmSpecification,
   TagPropagation,
   TrainingSpecification,
   UserSettings,
 } from "./models_1";
+
+/**
+ * <p>Contains data, such as the inputs and targeted instance types that are used in the process of validating the model package.</p> <p>The data provided in the validation profile is made available to your buyers on Amazon Web Services Marketplace.</p>
+ * @public
+ */
+export interface ModelPackageValidationProfile {
+  /**
+   * <p>The name of the profile for the model package.</p>
+   * @public
+   */
+  ProfileName: string | undefined;
+
+  /**
+   * <p>The <code>TransformJobDefinition</code> object that describes the transform job used for the validation of the model package.</p>
+   * @public
+   */
+  TransformJobDefinition: TransformJobDefinition | undefined;
+}
+
+/**
+ * <p>Specifies batch transform jobs that SageMaker runs to validate your model package.</p>
+ * @public
+ */
+export interface ModelPackageValidationSpecification {
+  /**
+   * <p>The IAM roles to be used for the validation of the model package.</p>
+   * @public
+   */
+  ValidationRole: string | undefined;
+
+  /**
+   * <p>An array of <code>ModelPackageValidationProfile</code> objects, each of which specifies a batch transform job that SageMaker runs to validate your model package.</p>
+   * @public
+   */
+  ValidationProfiles: ModelPackageValidationProfile[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateModelPackageInput {
+  /**
+   * <p>The name of the model package. The name must have 1 to 63 characters. Valid characters are a-z, A-Z, 0-9, and - (hyphen).</p> <p>This parameter is required for unversioned models. It is not applicable to versioned models.</p>
+   * @public
+   */
+  ModelPackageName?: string | undefined;
+
+  /**
+   * <p>The name or Amazon Resource Name (ARN) of the model package group that this model version belongs to.</p> <p>This parameter is required for versioned models, and does not apply to unversioned models.</p>
+   * @public
+   */
+  ModelPackageGroupName?: string | undefined;
+
+  /**
+   * <p>A description of the model package.</p>
+   * @public
+   */
+  ModelPackageDescription?: string | undefined;
+
+  /**
+   * <p>Specifies details about inference jobs that you can run with models based on this model package, including the following information:</p> <ul> <li> <p>The Amazon ECR paths of containers that contain the inference code and model artifacts.</p> </li> <li> <p>The instance types that the model package supports for transform jobs and real-time endpoints used for inference.</p> </li> <li> <p>The input and output content formats that the model package supports for inference.</p> </li> </ul>
+   * @public
+   */
+  InferenceSpecification?: InferenceSpecification | undefined;
+
+  /**
+   * <p>Specifies configurations for one or more transform jobs that SageMaker runs to test the model package.</p>
+   * @public
+   */
+  ValidationSpecification?: ModelPackageValidationSpecification | undefined;
+
+  /**
+   * <p>Details about the algorithm that was used to create the model package.</p>
+   * @public
+   */
+  SourceAlgorithmSpecification?: SourceAlgorithmSpecification | undefined;
+
+  /**
+   * <p>Whether to certify the model package for listing on Amazon Web Services Marketplace.</p> <p>This parameter is optional for unversioned models, and does not apply to versioned models.</p>
+   * @public
+   */
+  CertifyForMarketplace?: boolean | undefined;
+
+  /**
+   * <p>A list of key value pairs associated with the model. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services resources</a> in the <i>Amazon Web Services General Reference Guide</i>.</p> <p>If you supply <code>ModelPackageGroupName</code>, your model package belongs to the model group you specify and uses the tags associated with the model group. In this case, you cannot supply a <code>tag</code> argument. </p>
+   * @public
+   */
+  Tags?: Tag[] | undefined;
+
+  /**
+   * <p>Whether the model is approved for deployment.</p> <p>This parameter is optional for versioned models, and does not apply to unversioned models.</p> <p>For versioned models, the value of this parameter must be set to <code>Approved</code> to deploy the model.</p>
+   * @public
+   */
+  ModelApprovalStatus?: ModelApprovalStatus | undefined;
+
+  /**
+   * <p>Metadata properties of the tracking entity, trial, or trial component.</p>
+   * @public
+   */
+  MetadataProperties?: MetadataProperties | undefined;
+
+  /**
+   * <p>A structure that contains model metrics reports.</p>
+   * @public
+   */
+  ModelMetrics?: ModelMetrics | undefined;
+
+  /**
+   * <p>A unique token that guarantees that the call to this API is idempotent.</p>
+   * @public
+   */
+  ClientToken?: string | undefined;
+
+  /**
+   * <p>The machine learning domain of your model package and its components. Common machine learning domains include computer vision and natural language processing.</p>
+   * @public
+   */
+  Domain?: string | undefined;
+
+  /**
+   * <p>The machine learning task your model package accomplishes. Common machine learning tasks include object detection and image classification. The following tasks are supported by Inference Recommender: <code>"IMAGE_CLASSIFICATION"</code> | <code>"OBJECT_DETECTION"</code> | <code>"TEXT_GENERATION"</code> |<code>"IMAGE_SEGMENTATION"</code> | <code>"FILL_MASK"</code> | <code>"CLASSIFICATION"</code> | <code>"REGRESSION"</code> | <code>"OTHER"</code>.</p> <p>Specify "OTHER" if none of the tasks listed fit your use case.</p>
+   * @public
+   */
+  Task?: string | undefined;
+
+  /**
+   * <p>The Amazon Simple Storage Service (Amazon S3) path where the sample payload is stored. This path must point to a single gzip compressed tar archive (.tar.gz suffix). This archive can hold multiple files that are all equally used in the load test. Each file in the archive must satisfy the size constraints of the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_runtime_InvokeEndpoint.html#API_runtime_InvokeEndpoint_RequestSyntax">InvokeEndpoint</a> call.</p>
+   * @public
+   */
+  SamplePayloadUrl?: string | undefined;
+
+  /**
+   * <p>The metadata properties associated with the model package versions.</p>
+   * @public
+   */
+  CustomerMetadataProperties?: Record<string, string> | undefined;
+
+  /**
+   * <p>Represents the drift check baselines that can be used when the model monitor is set using the model package. For more information, see the topic on <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/pipelines-quality-clarify-baseline-lifecycle.html#pipelines-quality-clarify-baseline-drift-detection">Drift Detection against Previous Baselines in SageMaker Pipelines</a> in the <i>Amazon SageMaker Developer Guide</i>. </p>
+   * @public
+   */
+  DriftCheckBaselines?: DriftCheckBaselines | undefined;
+
+  /**
+   * <p>An array of additional Inference Specification objects. Each additional Inference Specification specifies artifacts based on this model package that can be used on inference endpoints. Generally used with SageMaker Neo to store the compiled artifacts. </p>
+   * @public
+   */
+  AdditionalInferenceSpecifications?: AdditionalInferenceSpecificationDefinition[] | undefined;
+
+  /**
+   * <p>Indicates if you want to skip model validation.</p>
+   * @public
+   */
+  SkipModelValidation?: SkipModelValidation | undefined;
+
+  /**
+   * <p>The URI of the source for the model package. If you want to clone a model package, set it to the model package Amazon Resource Name (ARN). If you want to register a model, set it to the model ARN.</p>
+   * @public
+   */
+  SourceUri?: string | undefined;
+
+  /**
+   * <p>The KMS Key ID (<code>KMSKeyId</code>) used for encryption of model package information.</p>
+   * @public
+   */
+  SecurityConfig?: ModelPackageSecurityConfig | undefined;
+
+  /**
+   * <p>The model card associated with the model package. Since <code>ModelPackageModelCard</code> is tied to a model package, it is a specific usage of a model card and its schema is simplified compared to the schema of <code>ModelCard</code>. The <code>ModelPackageModelCard</code> schema does not include <code>model_package_details</code>, and <code>model_overview</code> is composed of the <code>model_creator</code> and <code>model_artifact</code> properties. For more information about the model package model card schema, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/model-registry-details.html#model-card-schema">Model package model card schema</a>. For more information about the model card associated with the model package, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/model-registry-details.html">View the Details of a Model Version</a>.</p>
+   * @public
+   */
+  ModelCard?: ModelPackageModelCard | undefined;
+
+  /**
+   * <p> A structure describing the current state of the model in its life cycle. </p>
+   * @public
+   */
+  ModelLifeCycle?: ModelLifeCycle | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateModelPackageOutput {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the new model package.</p>
+   * @public
+   */
+  ModelPackageArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateModelPackageGroupInput {
+  /**
+   * <p>The name of the model group.</p>
+   * @public
+   */
+  ModelPackageGroupName: string | undefined;
+
+  /**
+   * <p>A description for the model group.</p>
+   * @public
+   */
+  ModelPackageGroupDescription?: string | undefined;
+
+  /**
+   * <p>A list of key value pairs associated with the model group. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services resources</a> in the <i>Amazon Web Services General Reference Guide</i>.</p>
+   * @public
+   */
+  Tags?: Tag[] | undefined;
+}
 
 /**
  * @public
@@ -2379,6 +2604,12 @@ export interface SpaceSettings {
    * @public
    */
   CustomFileSystems?: CustomFileSystem[] | undefined;
+
+  /**
+   * <p>A setting that enables or disables remote access for a SageMaker space. When enabled, this allows you to connect to the remote space from your local IDE.</p>
+   * @public
+   */
+  RemoteAccess?: FeatureStatus | undefined;
 }
 
 /**
@@ -4229,21 +4460,6 @@ export interface DeleteHubRequest {
    */
   HubName: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const HubContentType = {
-  MODEL: "Model",
-  MODEL_REFERENCE: "ModelReference",
-  NOTEBOOK: "Notebook",
-} as const;
-
-/**
- * @public
- */
-export type HubContentType = (typeof HubContentType)[keyof typeof HubContentType];
 
 /**
  * @public
@@ -7642,71 +7858,12 @@ export interface DescribeExperimentResponse {
 }
 
 /**
- * @public
+ * @internal
  */
-export interface DescribeFeatureGroupRequest {
-  /**
-   * <p>The name or Amazon Resource Name (ARN) of the <code>FeatureGroup</code> you want described. </p>
-   * @public
-   */
-  FeatureGroupName: string | undefined;
-
-  /**
-   * <p>A token to resume pagination of the list of <code>Features</code> (<code>FeatureDefinitions</code>). 2,500 <code>Features</code> are returned by default.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const FeatureGroupStatus = {
-  CREATED: "Created",
-  CREATE_FAILED: "CreateFailed",
-  CREATING: "Creating",
-  DELETE_FAILED: "DeleteFailed",
-  DELETING: "Deleting",
-} as const;
-
-/**
- * @public
- */
-export type FeatureGroupStatus = (typeof FeatureGroupStatus)[keyof typeof FeatureGroupStatus];
-
-/**
- * @public
- * @enum
- */
-export const LastUpdateStatusValue = {
-  FAILED: "Failed",
-  IN_PROGRESS: "InProgress",
-  SUCCESSFUL: "Successful",
-} as const;
-
-/**
- * @public
- */
-export type LastUpdateStatusValue = (typeof LastUpdateStatusValue)[keyof typeof LastUpdateStatusValue];
-
-/**
- * <p>A value that indicates whether the update was successful.</p>
- * @public
- */
-export interface LastUpdateStatus {
-  /**
-   * <p>A value that indicates whether the update was made successful.</p>
-   * @public
-   */
-  Status: LastUpdateStatusValue | undefined;
-
-  /**
-   * <p>If the update wasn't successful, indicates the reason why it failed.</p>
-   * @public
-   */
-  FailureReason?: string | undefined;
-}
+export const CreateModelPackageInputFilterSensitiveLog = (obj: CreateModelPackageInput): any => ({
+  ...obj,
+  ...(obj.ModelCard && { ModelCard: ModelPackageModelCardFilterSensitiveLog(obj.ModelCard) }),
+});
 
 /**
  * @internal

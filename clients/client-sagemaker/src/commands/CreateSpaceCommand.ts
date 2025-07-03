@@ -131,6 +131,7 @@ export interface CreateSpaceCommandOutput extends CreateSpaceResponse, __Metadat
  *         },
  *       },
  *     ],
+ *     RemoteAccess: "ENABLED" || "DISABLED",
  *   },
  *   OwnershipSettings: { // OwnershipSettings
  *     OwnerUserProfileName: "STRING_VALUE", // required

@@ -123,6 +123,10 @@ import {
 } from "./commands/CreateFlowDefinitionCommand";
 import { CreateHubCommandInput, CreateHubCommandOutput } from "./commands/CreateHubCommand";
 import {
+  CreateHubContentPresignedUrlsCommandInput,
+  CreateHubContentPresignedUrlsCommandOutput,
+} from "./commands/CreateHubContentPresignedUrlsCommand";
+import {
   CreateHubContentReferenceCommandInput,
   CreateHubContentReferenceCommandOutput,
 } from "./commands/CreateHubContentReferenceCommand";
@@ -841,6 +845,7 @@ import {
   StartPipelineExecutionCommandInput,
   StartPipelineExecutionCommandOutput,
 } from "./commands/StartPipelineExecutionCommand";
+import { StartSessionCommandInput, StartSessionCommandOutput } from "./commands/StartSessionCommand";
 import { StopAutoMLJobCommandInput, StopAutoMLJobCommandOutput } from "./commands/StopAutoMLJobCommand";
 import { StopCompilationJobCommandInput, StopCompilationJobCommandOutput } from "./commands/StopCompilationJobCommand";
 import {
@@ -1026,6 +1031,7 @@ export type ServiceInputTypes =
   | CreateFeatureGroupCommandInput
   | CreateFlowDefinitionCommandInput
   | CreateHubCommandInput
+  | CreateHubContentPresignedUrlsCommandInput
   | CreateHubContentReferenceCommandInput
   | CreateHumanTaskUiCommandInput
   | CreateHyperParameterTuningJobCommandInput
@@ -1295,6 +1301,7 @@ export type ServiceInputTypes =
   | StartMonitoringScheduleCommandInput
   | StartNotebookInstanceCommandInput
   | StartPipelineExecutionCommandInput
+  | StartSessionCommandInput
   | StopAutoMLJobCommandInput
   | StopCompilationJobCommandInput
   | StopEdgeDeploymentStageCommandInput
@@ -1389,6 +1396,7 @@ export type ServiceOutputTypes =
   | CreateFeatureGroupCommandOutput
   | CreateFlowDefinitionCommandOutput
   | CreateHubCommandOutput
+  | CreateHubContentPresignedUrlsCommandOutput
   | CreateHubContentReferenceCommandOutput
   | CreateHumanTaskUiCommandOutput
   | CreateHyperParameterTuningJobCommandOutput
@@ -1658,6 +1666,7 @@ export type ServiceOutputTypes =
   | StartMonitoringScheduleCommandOutput
   | StartNotebookInstanceCommandOutput
   | StartPipelineExecutionCommandOutput
+  | StartSessionCommandOutput
   | StopAutoMLJobCommandOutput
   | StopCompilationJobCommandOutput
   | StopEdgeDeploymentStageCommandOutput

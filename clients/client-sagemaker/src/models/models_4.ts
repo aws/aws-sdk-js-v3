@@ -6,8 +6,13 @@ import {
   AlgorithmSpecification,
   AppSpecification,
   AppType,
+  AssociationEdgeType,
+  AssociationSummary,
   AutoMLCandidate,
+  AutoMLJobStatus,
   AutoMLJobStepMetadata,
+  AutoMLJobSummary,
+  AutoMLSortBy,
   AutoMLSortOrder,
   BatchDataCaptureConfig,
   BatchStrategy,
@@ -29,11 +34,11 @@ import {
   CompilationJobStatus,
   CompilationJobSummary,
   ComputeQuotaSummary,
+  FeatureStatus,
   InferenceSpecification,
   ModelApprovalStatus,
   ModelPackageStatus,
   OutputDataConfig,
-  OutputParameter,
   ResourceConfig,
   SchedulerResourceStatus,
   StoppingCondition,
@@ -51,6 +56,7 @@ import {
   ContainerDefinition,
   ContextSummary,
   DriftCheckBaselines,
+  HubContentType,
   InferenceExecutionConfig,
   InferenceExperimentType,
   MetadataProperties,
@@ -61,7 +67,6 @@ import {
   ModelPackageModelCard,
   ModelPackageModelCardFilterSensitiveLog,
   ModelPackageSecurityConfig,
-  ModelPackageValidationSpecification,
   RetryStrategy,
   SkipModelValidation,
   SourceAlgorithmSpecification,
@@ -79,10 +84,9 @@ import {
   EdgePackagingJobStatus,
   EndpointStatus,
   ExperimentConfig,
-  FeatureGroupStatus,
-  HubContentType,
   ModelArtifacts,
   ModelClientConfig,
+  ModelPackageValidationSpecification,
   MonitoringScheduleConfig,
   MonitoringType,
   NetworkConfig,
@@ -129,6 +133,7 @@ import {
   FeatureGroup,
   FeatureGroupSortBy,
   FeatureGroupSortOrder,
+  FeatureGroupStatus,
   FeatureGroupSummary,
   FeatureMetadata,
   Filter,
@@ -187,6 +192,7 @@ import {
   SecondaryStatusTransition,
   SelectiveExecutionConfig,
   ServiceCatalogProvisionedProductDetails,
+  SortAssociationsBy,
   SortOrder,
   SpaceStatus,
   SubscribedWorkteam,
@@ -204,6 +210,176 @@ import {
   Workforce,
   Workteam,
 } from "./models_3";
+
+/**
+ * @public
+ */
+export interface ListAssociationsRequest {
+  /**
+   * <p>A filter that returns only associations with the specified source ARN.</p>
+   * @public
+   */
+  SourceArn?: string | undefined;
+
+  /**
+   * <p>A filter that returns only associations with the specified destination Amazon Resource Name (ARN).</p>
+   * @public
+   */
+  DestinationArn?: string | undefined;
+
+  /**
+   * <p>A filter that returns only associations with the specified source type.</p>
+   * @public
+   */
+  SourceType?: string | undefined;
+
+  /**
+   * <p>A filter that returns only associations with the specified destination type.</p>
+   * @public
+   */
+  DestinationType?: string | undefined;
+
+  /**
+   * <p>A filter that returns only associations of the specified type.</p>
+   * @public
+   */
+  AssociationType?: AssociationEdgeType | undefined;
+
+  /**
+   * <p>A filter that returns only associations created on or after the specified time.</p>
+   * @public
+   */
+  CreatedAfter?: Date | undefined;
+
+  /**
+   * <p>A filter that returns only associations created on or before the specified time.</p>
+   * @public
+   */
+  CreatedBefore?: Date | undefined;
+
+  /**
+   * <p>The property used to sort results. The default value is <code>CreationTime</code>.</p>
+   * @public
+   */
+  SortBy?: SortAssociationsBy | undefined;
+
+  /**
+   * <p>The sort order. The default value is <code>Descending</code>.</p>
+   * @public
+   */
+  SortOrder?: SortOrder | undefined;
+
+  /**
+   * <p>If the previous call to <code>ListAssociations</code> didn't return the full set of associations, the call returns a token for getting the next set of associations.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of associations to return in the response. The default value is 10.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListAssociationsResponse {
+  /**
+   * <p>A list of associations and their properties.</p>
+   * @public
+   */
+  AssociationSummaries?: AssociationSummary[] | undefined;
+
+  /**
+   * <p>A token for getting the next set of associations, if there are any.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListAutoMLJobsRequest {
+  /**
+   * <p>Request a list of jobs, using a filter for time.</p>
+   * @public
+   */
+  CreationTimeAfter?: Date | undefined;
+
+  /**
+   * <p>Request a list of jobs, using a filter for time.</p>
+   * @public
+   */
+  CreationTimeBefore?: Date | undefined;
+
+  /**
+   * <p>Request a list of jobs, using a filter for time.</p>
+   * @public
+   */
+  LastModifiedTimeAfter?: Date | undefined;
+
+  /**
+   * <p>Request a list of jobs, using a filter for time.</p>
+   * @public
+   */
+  LastModifiedTimeBefore?: Date | undefined;
+
+  /**
+   * <p>Request a list of jobs, using a search filter for name.</p>
+   * @public
+   */
+  NameContains?: string | undefined;
+
+  /**
+   * <p>Request a list of jobs, using a filter for status.</p>
+   * @public
+   */
+  StatusEquals?: AutoMLJobStatus | undefined;
+
+  /**
+   * <p>The sort order for the results. The default is <code>Descending</code>.</p>
+   * @public
+   */
+  SortOrder?: AutoMLSortOrder | undefined;
+
+  /**
+   * <p>The parameter by which to sort the results. The default is <code>Name</code>.</p>
+   * @public
+   */
+  SortBy?: AutoMLSortBy | undefined;
+
+  /**
+   * <p>Request a list of jobs up to a specified limit.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>If the previous response was truncated, you receive this token. Use it in your next request to receive the next set of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListAutoMLJobsResponse {
+  /**
+   * <p>Returns a summary list of jobs.</p>
+   * @public
+   */
+  AutoMLJobSummaries: AutoMLJobSummary[] | undefined;
+
+  /**
+   * <p>If the previous response was truncated, you receive this token. Use it in your next request to receive the next set of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
 
 /**
  * @public
@@ -6404,6 +6580,12 @@ export interface SpaceSettingsSummary {
   AppType?: AppType | undefined;
 
   /**
+   * <p>A setting that enables or disables remote access for a SageMaker space. When enabled, this allows you to connect to the remote space from your local IDE.</p>
+   * @public
+   */
+  RemoteAccess?: FeatureStatus | undefined;
+
+  /**
    * <p>The storage settings for a space.</p>
    * @public
    */
@@ -10330,68 +10512,6 @@ export interface SendPipelineExecutionStepFailureRequest {
    * @public
    */
   ClientRequestToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface SendPipelineExecutionStepFailureResponse {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the pipeline execution.</p>
-   * @public
-   */
-  PipelineExecutionArn?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface SendPipelineExecutionStepSuccessRequest {
-  /**
-   * <p>The pipeline generated token from the Amazon SQS queue.</p>
-   * @public
-   */
-  CallbackToken: string | undefined;
-
-  /**
-   * <p>A list of the output parameters of the callback step.</p>
-   * @public
-   */
-  OutputParameters?: OutputParameter[] | undefined;
-
-  /**
-   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the operation. An idempotent operation completes no more than one time.</p>
-   * @public
-   */
-  ClientRequestToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface SendPipelineExecutionStepSuccessResponse {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the pipeline execution.</p>
-   * @public
-   */
-  PipelineExecutionArn?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface StartEdgeDeploymentStageRequest {
-  /**
-   * <p>The name of the edge deployment plan to start.</p>
-   * @public
-   */
-  EdgeDeploymentPlanName: string | undefined;
-
-  /**
-   * <p>The name of the stage to start.</p>
-   * @public
-   */
-  StageName: string | undefined;
 }
 
 /**
