@@ -94,7 +94,7 @@
     "@smithy/util-body-length-browser": "^4.0.0",
     "@smithy/util-middleware": "^4.0.4",
     "@smithy/util-utf8": "^4.0.0",
-    "fast-xml-parser": "4.4.1",
+    "fast-xml-parser": "5.2.5",
     "tslib": "^2.6.2"
   },
   "devDependencies": {
