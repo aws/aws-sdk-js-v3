@@ -9,6 +9,7 @@ import java.util.List;
 import software.amazon.smithy.aws.traits.ServiceTrait;
 import software.amazon.smithy.model.Model;
 import software.amazon.smithy.model.node.Node;
+import software.amazon.smithy.model.shapes.ServiceShape;
 import software.amazon.smithy.rulesengine.traits.EndpointRuleSetTrait;
 import software.amazon.smithy.typescript.codegen.TypeScriptSettings;
 import software.amazon.smithy.typescript.codegen.endpointsV2.AddDefaultEndpointRuleSet;
@@ -34,20 +35,21 @@ public class AddDefaultAwsEndpointRuleSet implements TypeScriptIntegration {
     public Model preprocessModel(Model model, TypeScriptSettings settings) {
         Model.Builder modelBuilder = model.toBuilder();
 
-        model.getServiceShapes().forEach(serviceShape -> {
-            if (!serviceShape.hasTrait(EndpointRuleSetTrait.class)
-                && AwsTraitsUtils.isAwsService(settings, model)) {
-                // this branch is for models that identify as AWS services
-                // but do not include an endpoint ruleset.
+        ServiceShape serviceShape = settings.getService(model);
+        if (!serviceShape.hasTrait(EndpointRuleSetTrait.class)
+            && AwsTraitsUtils.isAwsService(serviceShape)) {
+            // this branch is for models that identify as AWS services
+            // but do not include an endpoint ruleset.
 
-                modelBuilder.removeShape(serviceShape.toShapeId());
-                modelBuilder.addShape(serviceShape.toBuilder()
+            modelBuilder.removeShape(serviceShape.toShapeId());
+            modelBuilder.addShape(
+                serviceShape.toBuilder()
                     .addTrait(getDefaultRegionalEndpointRuleSet(
-                        serviceShape.expectTrait(ServiceTrait.class).getEndpointPrefix())
-                    )
-                    .build());
-            }
-        });
+                        serviceShape.expectTrait(ServiceTrait.class).getEndpointPrefix()
+                    ))
+                    .build()
+            );
+        }
 
         return modelBuilder.build();
     }
