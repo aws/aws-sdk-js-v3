@@ -13,7 +13,7 @@ exports.deleteStaleChangesets = async (client, stackName) => {
         changeset.Status === "FAILED" &&
         changeset.StatusReason ===
           `The submitted information didn't contain changes. Submit different information to create a change set.` &&
-        changeset.creationDate < new Date(Date.now() - 5 * 60 * 1000)
+        changeset.CreationTime < new Date(Date.now() - 5 * 60 * 1000)
       ) {
         console.log("Deleting stale changeset", changeset.ChangeSetId);
         await new Promise((r) => setTimeout(r, 200));
