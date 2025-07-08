@@ -35,7 +35,7 @@ const args = [
   "--ignore-scripts",
   "--no-verify-access",
   "--concurrency",
-  "8",
+  "4",
   "--dist-tag",
   "ci",
 ];
