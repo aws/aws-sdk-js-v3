@@ -21,10 +21,6 @@ import { parseUrl } from "@smithy/url-parser";
  */
 export type DefaultAwsRegionalEndpointsInputConfig = {
   endpoint?: unknown;
-  endpointProvider: (
-    endpointParams: EndpointParameters | DefaultRegionalEndpointParameters,
-    context?: { logger?: Logger }
-  ) => EndpointV2;
 };
 
 type PreviouslyResolved = {
@@ -32,6 +28,10 @@ type PreviouslyResolved = {
   region?: undefined | string | Provider<string | undefined>;
   useFipsEndpoint?: undefined | boolean | Provider<string | boolean>;
   useDualstackEndpoint?: undefined | boolean | Provider<string | boolean>;
+  endpointProvider: (
+    endpointParams: EndpointParameters | DefaultRegionalEndpointParameters,
+    context?: { logger?: Logger }
+  ) => EndpointV2;
 };
 
 /**
@@ -75,13 +75,14 @@ export const resolveDefaultAwsRegionalEndpointsConfig = <T>(
                 : input.useDualstackEndpoint,
             UseFIPS:
               typeof input.useFipsEndpoint === "function" ? await input.useFipsEndpoint() : input.useFipsEndpoint,
+            Endpoint: undefined,
           },
           { logger: input.logger }
         )
       );
     };
   }
-  return input as T & DefaultEndpointResolvedConfig;
+  return input as T & DefaultAwsRegionalEndpointsResolvedConfig;
 };
 
 /**

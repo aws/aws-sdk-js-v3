@@ -24460,6 +24460,7 @@ __metadata:
   dependencies:
     "@aws-sdk/types": "npm:*"
     "@smithy/types": "npm:^4.3.1"
+    "@smithy/url-parser": "npm:^4.0.4"
     "@smithy/util-endpoints": "npm:^3.0.6"
     "@tsconfig/recommended": "npm:1.0.1"
     concurrently: "npm:7.0.0"

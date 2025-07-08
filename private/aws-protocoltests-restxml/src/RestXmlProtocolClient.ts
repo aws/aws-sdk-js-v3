@@ -13,6 +13,11 @@ import {
   UserAgentInputConfig,
   UserAgentResolvedConfig,
 } from "@aws-sdk/middleware-user-agent";
+import {
+  DefaultAwsRegionalEndpointsInputConfig,
+  DefaultAwsRegionalEndpointsResolvedConfig,
+  resolveDefaultAwsRegionalEndpointsConfig,
+} from "@aws-sdk/util-endpoints";
 import { RegionInputConfig, RegionResolvedConfig, resolveRegionConfig } from "@smithy/config-resolver";
 import {
   DefaultIdentityProviderConfig,
@@ -534,6 +539,7 @@ export type RestXmlProtocolClientConfigType = Partial<__SmithyConfiguration<__Ht
   RegionInputConfig &
   HostHeaderInputConfig &
   EndpointInputConfig<EndpointParameters> &
+  DefaultAwsRegionalEndpointsInputConfig &
   HttpAuthSchemeInputConfig &
   CompressionInputConfig &
   ClientInputEndpointParameters;
@@ -555,6 +561,7 @@ export type RestXmlProtocolClientResolvedConfigType = __SmithyResolvedConfigurat
   RegionResolvedConfig &
   HostHeaderResolvedConfig &
   EndpointResolvedConfig<EndpointParameters> &
+  DefaultAwsRegionalEndpointsResolvedConfig &
   HttpAuthSchemeResolvedConfig &
   CompressionResolvedConfig &
   ClientResolvedEndpointParameters;
@@ -590,10 +597,11 @@ export class RestXmlProtocolClient extends __Client<
     const _config_4 = resolveRegionConfig(_config_3);
     const _config_5 = resolveHostHeaderConfig(_config_4);
     const _config_6 = resolveEndpointConfig(_config_5);
-    const _config_7 = resolveHttpAuthSchemeConfig(_config_6);
-    const _config_8 = resolveCompressionConfig(_config_7);
-    const _config_9 = resolveRuntimeExtensions(_config_8, configuration?.extensions || []);
-    this.config = _config_9;
+    const _config_7 = resolveDefaultAwsRegionalEndpointsConfig(_config_6);
+    const _config_8 = resolveHttpAuthSchemeConfig(_config_7);
+    const _config_9 = resolveCompressionConfig(_config_8);
+    const _config_10 = resolveRuntimeExtensions(_config_9, configuration?.extensions || []);
+    this.config = _config_10;
     this.middlewareStack.use(getUserAgentPlugin(this.config));
     this.middlewareStack.use(getRetryPlugin(this.config));
     this.middlewareStack.use(getContentLengthPlugin(this.config));

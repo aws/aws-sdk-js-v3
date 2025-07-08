@@ -5,7 +5,6 @@
 
 package software.amazon.smithy.aws.typescript.codegen;
 
-import java.util.Collections;
 import java.util.List;
 import software.amazon.smithy.aws.traits.ServiceTrait;
 import software.amazon.smithy.model.Model;
@@ -16,8 +15,6 @@ import software.amazon.smithy.typescript.codegen.TypeScriptSettings;
 import software.amazon.smithy.typescript.codegen.endpointsV2.AddDefaultEndpointRuleSet;
 import software.amazon.smithy.typescript.codegen.integration.RuntimeClientPlugin;
 import software.amazon.smithy.typescript.codegen.integration.TypeScriptIntegration;
-
-import static software.amazon.smithy.typescript.codegen.integration.RuntimeClientPlugin.Convention.HAS_CONFIG;
 
 
 /**
@@ -37,25 +34,37 @@ public class AddDefaultAwsEndpointRuleSet implements TypeScriptIntegration {
         return List.of(AddDefaultEndpointRuleSet.class.getCanonicalName());
     }
 
+    /**
+     * Inserts this resolver after the `resolveEndpointConfig` function.
+     */
     @Override
-    public List<RuntimeClientPlugin> getClientPlugins() {
-        if (usesDefaultAwsRegionalEndpoints) {
-            /*
-            This resolver supports the behavior of endpoints.json-based endpoint provider
-            for default regional services: it makes client.config.endpoint optional on the input side,
-            but guaranteed on the resolved side.
-             */
-            return List.of(
-                RuntimeClientPlugin.builder()
-                    .withConventions(
-                        AwsDependency.UTIL_ENDPOINTS.dependency,
-                        "DefaultAwsRegionalEndpoints",
-                        HAS_CONFIG
-                    )
-                    .build()
-            );
+    public void mutateClientPlugins(List<RuntimeClientPlugin> plugins) {
+        if (!usesDefaultAwsRegionalEndpoints) {
+            return;
         }
-        return Collections.emptyList();
+
+        /*
+        This resolver supports the behavior of endpoints.json-based endpoint provider
+        for default regional services: it makes client.config.endpoint optional on the input side,
+        but guaranteed on the resolved side.
+        */
+        RuntimeClientPlugin defaultAwsRegionalEndpoints = RuntimeClientPlugin.builder()
+            .withConventions(
+                AwsDependency.UTIL_ENDPOINTS.dependency,
+                "DefaultAwsRegionalEndpoints",
+                RuntimeClientPlugin.Convention.HAS_CONFIG
+            )
+            .build();
+
+        RuntimeClientPlugin endpointPlugin = plugins.stream()
+            .filter(p -> p.getResolveFunction()
+                .map(r -> r.getAlias().equals("resolveEndpointConfig"))
+                .orElse(false))
+            .findAny()
+            .orElseThrow(() -> new IllegalStateException("Expected resolveEndpointConfig function in plugins."));
+
+        int index = plugins.indexOf(endpointPlugin);
+        plugins.add(index + 1, defaultAwsRegionalEndpoints);
     }
 
     @Override
