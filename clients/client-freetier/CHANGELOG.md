@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.844.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.843.0...v3.844.0) (2025-07-09)
+
+
+### Features
+
+* **client-freetier:** This release introduces four new APIs: GetAccountPlanState and UpgradeAccountPlan for AWS account plan management; ListAccountActivities and GetAccountActivity that provide activity tracking capabilities. ([5ad5755](https://github.com/aws/aws-sdk-js-v3/commit/5ad57558bed8d0f06c385fc03b6804f4c809ea98))
+
+
+
+
+
 # [3.840.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.839.0...v3.840.0) (2025-06-30)
 
 **Note:** Version bump only for package @aws-sdk/client-freetier

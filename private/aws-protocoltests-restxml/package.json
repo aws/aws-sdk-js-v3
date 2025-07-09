@@ -1,7 +1,7 @@
 {
   "name": "@aws-sdk/aws-protocoltests-restxml",
   "description": "@aws-sdk/aws-protocoltests-restxml client",
-  "version": "3.841.0",
+  "version": "3.844.0",
   "scripts": {
     "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types'",
     "build:cjs": "tsc -p tsconfig.cjs.json",

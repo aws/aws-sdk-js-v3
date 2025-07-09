@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.844.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.843.0...v3.844.0) (2025-07-09)
+
+
+### Bug Fixes
+
+* **codegen:** generate default endpoint provider for default regional AWS endpoints ([#7190](https://github.com/aws/aws-sdk-js-v3/issues/7190)) ([27a66c0](https://github.com/aws/aws-sdk-js-v3/commit/27a66c0ba496e458032b3599ee0539e2ddaa3db7))
+* **tests:** prevent changeset race condition in parallel tests ([#7183](https://github.com/aws/aws-sdk-js-v3/issues/7183)) ([2d376dc](https://github.com/aws/aws-sdk-js-v3/commit/2d376dc20a85059d6ba8d7b9001fc277761318a5))
+
+
+### Features
+
+* **client-ec2:** Adds support to Capacity Blocks for ML for purchasing EC2 P6e-GB200 UltraServers. Customers can now purchase u-p6e-gb200x72 and u-p6e-gb200x36 UltraServers. Adds new DescribeCapacityBlocks andDescribeCapacityBlockStatus APIs. Adds support for CapacityBlockId to DescribeInstanceTopology. ([202ec5f](https://github.com/aws/aws-sdk-js-v3/commit/202ec5f1f458aac73c8b78558ddfdba9a9595542))
+* **client-freetier:** This release introduces four new APIs: GetAccountPlanState and UpgradeAccountPlan for AWS account plan management; ListAccountActivities and GetAccountActivity that provide activity tracking capabilities. ([5ad5755](https://github.com/aws/aws-sdk-js-v3/commit/5ad57558bed8d0f06c385fc03b6804f4c809ea98))
+* **clients:** update client endpoints as of 2025-07-09 ([accc6e8](https://github.com/aws/aws-sdk-js-v3/commit/accc6e8312ec9dcd96a5eee0aef2ecf89d066639))
+
+
+
+
+
 # [3.843.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.842.0...v3.843.0) (2025-07-03)
 
 
