@@ -235,9 +235,14 @@ describe(AwsRestJsonProtocol.name, () => {
               [SCHEMA.TIMESTAMP_DATE_TIME, { httpHeader: "header-member-trait-date" }],
               [SCHEMA.TIMESTAMP_HTTP_DATE, { httpHeader: "header-http-date" }],
               [SCHEMA.TIMESTAMP_EPOCH_SECONDS, { httpHeader: "header-epoch-seconds" }],
-              [sim("ns", "", SCHEMA.TIMESTAMP_EPOCH_SECONDS, 0), 0],
+              [
+                sim("ns", "", SCHEMA.TIMESTAMP_EPOCH_SECONDS, 0),
+                {
+                  httpHeader: "header-target-trait-date",
+                },
+              ],
               [SCHEMA.TIMESTAMP_DEFAULT, { httpQuery: "query-default-date" }],
-              [SCHEMA.TIMESTAMP_DEFAULT, { httpPayload: 1 }],
+              [struct("ns", "date", 0, ["payloadDefaultDate"], [SCHEMA.TIMESTAMP_DEFAULT]), { httpPayload: 1 }],
             ]
           ),
           "unit"
@@ -249,19 +254,25 @@ describe(AwsRestJsonProtocol.name, () => {
           headerEpochSeconds: new Date(0),
           headerTargetTraitDate: new Date(0),
           queryDefaultDate: new Date(0),
-          payloadDefaultDate: new Date(0),
+          payloadDefaultDate: {
+            payloadDefaultDate: new Date(0),
+          },
         },
         context
       );
 
+      expect(request.body).toEqual(`{"payloadDefaultDate":0}`);
+
       expect(request.headers).toEqual({
-        "content-length": "50",
         "content-type": "application/json",
+        "content-length": "24",
         "header-default-date": "Thu, 01 Jan 1970 00:00:00 GMT",
         "header-member-trait-date": "1970-01-01T00:00:00Z",
         "header-epoch-seconds": "0",
         "header-http-date": "Thu, 01 Jan 1970 00:00:00 GMT",
+        "header-target-trait-date": "0",
       });
+
       expect(request.query).toEqual({
         "query-default-date": "1970-01-01T00:00:00Z",
       });
