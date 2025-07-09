@@ -386,7 +386,7 @@ export const deserializeAllQueryStringTypesRequest = async (
   );
   if (contentTypeHeaderKey != null) {
     const contentType = output.headers[contentTypeHeaderKey];
-    if (contentType !== undefined && contentType !== "application/json") {
+    if (contentType !== undefined) {
       throw new __UnsupportedMediaTypeException();
     }
   }
@@ -618,7 +618,7 @@ export const deserializeConstantAndVariableQueryStringRequest = async (
   );
   if (contentTypeHeaderKey != null) {
     const contentType = output.headers[contentTypeHeaderKey];
-    if (contentType !== undefined && contentType !== "application/json") {
+    if (contentType !== undefined) {
       throw new __UnsupportedMediaTypeException();
     }
   }
@@ -672,7 +672,7 @@ export const deserializeConstantQueryStringRequest = async (
   );
   if (contentTypeHeaderKey != null) {
     const contentType = output.headers[contentTypeHeaderKey];
-    if (contentType !== undefined && contentType !== "application/json") {
+    if (contentType !== undefined) {
       throw new __UnsupportedMediaTypeException();
     }
   }
@@ -842,7 +842,7 @@ export const deserializeEmptyInputAndEmptyOutputRequest = async (
   );
   if (contentTypeHeaderKey != null) {
     const contentType = output.headers[contentTypeHeaderKey];
-    if (contentType !== undefined && contentType !== "application/json") {
+    if (contentType !== undefined) {
       throw new __UnsupportedMediaTypeException();
     }
   }
@@ -1186,7 +1186,7 @@ export const deserializeHttpPrefixHeadersRequest = async (
   );
   if (contentTypeHeaderKey != null) {
     const contentType = output.headers[contentTypeHeaderKey];
-    if (contentType !== undefined && contentType !== "application/json") {
+    if (contentType !== undefined) {
       throw new __UnsupportedMediaTypeException();
     }
   }
@@ -1222,7 +1222,7 @@ export const deserializeHttpPrefixHeadersInResponseRequest = async (
   );
   if (contentTypeHeaderKey != null) {
     const contentType = output.headers[contentTypeHeaderKey];
-    if (contentType !== undefined && contentType !== "application/json") {
+    if (contentType !== undefined) {
       throw new __UnsupportedMediaTypeException();
     }
   }
@@ -1247,7 +1247,7 @@ export const deserializeHttpRequestWithFloatLabelsRequest = async (
   );
   if (contentTypeHeaderKey != null) {
     const contentType = output.headers[contentTypeHeaderKey];
-    if (contentType !== undefined && contentType !== "application/json") {
+    if (contentType !== undefined) {
       throw new __UnsupportedMediaTypeException();
     }
   }
@@ -1278,7 +1278,7 @@ export const deserializeHttpRequestWithGreedyLabelInPathRequest = async (
   );
   if (contentTypeHeaderKey != null) {
     const contentType = output.headers[contentTypeHeaderKey];
-    if (contentType !== undefined && contentType !== "application/json") {
+    if (contentType !== undefined) {
       throw new __UnsupportedMediaTypeException();
     }
   }
@@ -1309,7 +1309,7 @@ export const deserializeHttpRequestWithLabelsRequest = async (
   );
   if (contentTypeHeaderKey != null) {
     const contentType = output.headers[contentTypeHeaderKey];
-    if (contentType !== undefined && contentType !== "application/json") {
+    if (contentType !== undefined) {
       throw new __UnsupportedMediaTypeException();
     }
   }
@@ -1348,7 +1348,7 @@ export const deserializeHttpRequestWithLabelsAndTimestampFormatRequest = async (
   );
   if (contentTypeHeaderKey != null) {
     const contentType = output.headers[contentTypeHeaderKey];
-    if (contentType !== undefined && contentType !== "application/json") {
+    if (contentType !== undefined) {
       throw new __UnsupportedMediaTypeException();
     }
   }
@@ -1400,7 +1400,7 @@ export const deserializeHttpRequestWithRegexLiteralRequest = async (
   );
   if (contentTypeHeaderKey != null) {
     const contentType = output.headers[contentTypeHeaderKey];
-    if (contentType !== undefined && contentType !== "application/json") {
+    if (contentType !== undefined) {
       throw new __UnsupportedMediaTypeException();
     }
   }
@@ -1506,7 +1506,7 @@ export const deserializeInputAndOutputWithHeadersRequest = async (
   );
   if (contentTypeHeaderKey != null) {
     const contentType = output.headers[contentTypeHeaderKey];
-    if (contentType !== undefined && contentType !== "application/json") {
+    if (contentType !== undefined) {
       throw new __UnsupportedMediaTypeException();
     }
   }
@@ -2093,7 +2093,7 @@ export const deserializeMalformedContentTypeWithoutBodyEmptyInputRequest = async
   );
   if (contentTypeHeaderKey != null) {
     const contentType = output.headers[contentTypeHeaderKey];
-    if (contentType !== undefined && contentType !== "application/json") {
+    if (contentType !== undefined) {
       throw new __UnsupportedMediaTypeException();
     }
   }
@@ -2494,7 +2494,7 @@ export const deserializeMalformedStringRequest = async (
   );
   if (contentTypeHeaderKey != null) {
     const contentType = output.headers[contentTypeHeaderKey];
-    if (contentType !== undefined && contentType !== "application/json") {
+    if (contentType !== undefined) {
       throw new __UnsupportedMediaTypeException();
     }
   }
@@ -2611,7 +2611,7 @@ export const deserializeMalformedTimestampHeaderDateTimeRequest = async (
   );
   if (contentTypeHeaderKey != null) {
     const contentType = output.headers[contentTypeHeaderKey];
-    if (contentType !== undefined && contentType !== "application/json") {
+    if (contentType !== undefined) {
       throw new __UnsupportedMediaTypeException();
     }
   }
@@ -2638,7 +2638,7 @@ export const deserializeMalformedTimestampHeaderDefaultRequest = async (
   );
   if (contentTypeHeaderKey != null) {
     const contentType = output.headers[contentTypeHeaderKey];
-    if (contentType !== undefined && contentType !== "application/json") {
+    if (contentType !== undefined) {
       throw new __UnsupportedMediaTypeException();
     }
   }
@@ -2665,7 +2665,7 @@ export const deserializeMalformedTimestampHeaderEpochRequest = async (
   );
   if (contentTypeHeaderKey != null) {
     const contentType = output.headers[contentTypeHeaderKey];
-    if (contentType !== undefined && contentType !== "application/json") {
+    if (contentType !== undefined) {
       throw new __UnsupportedMediaTypeException();
     }
   }
@@ -2692,7 +2692,7 @@ export const deserializeMalformedTimestampPathDefaultRequest = async (
   );
   if (contentTypeHeaderKey != null) {
     const contentType = output.headers[contentTypeHeaderKey];
-    if (contentType !== undefined && contentType !== "application/json") {
+    if (contentType !== undefined) {
       throw new __UnsupportedMediaTypeException();
     }
   }
@@ -2722,7 +2722,7 @@ export const deserializeMalformedTimestampPathEpochRequest = async (
   );
   if (contentTypeHeaderKey != null) {
     const contentType = output.headers[contentTypeHeaderKey];
-    if (contentType !== undefined && contentType !== "application/json") {
+    if (contentType !== undefined) {
       throw new __UnsupportedMediaTypeException();
     }
   }
@@ -2752,7 +2752,7 @@ export const deserializeMalformedTimestampPathHttpDateRequest = async (
   );
   if (contentTypeHeaderKey != null) {
     const contentType = output.headers[contentTypeHeaderKey];
-    if (contentType !== undefined && contentType !== "application/json") {
+    if (contentType !== undefined) {
       throw new __UnsupportedMediaTypeException();
     }
   }
@@ -2782,7 +2782,7 @@ export const deserializeMalformedTimestampQueryDefaultRequest = async (
   );
   if (contentTypeHeaderKey != null) {
     const contentType = output.headers[contentTypeHeaderKey];
-    if (contentType !== undefined && contentType !== "application/json") {
+    if (contentType !== undefined) {
       throw new __UnsupportedMediaTypeException();
     }
   }
@@ -2823,7 +2823,7 @@ export const deserializeMalformedTimestampQueryEpochRequest = async (
   );
   if (contentTypeHeaderKey != null) {
     const contentType = output.headers[contentTypeHeaderKey];
-    if (contentType !== undefined && contentType !== "application/json") {
+    if (contentType !== undefined) {
       throw new __UnsupportedMediaTypeException();
     }
   }
@@ -2864,7 +2864,7 @@ export const deserializeMalformedTimestampQueryHttpDateRequest = async (
   );
   if (contentTypeHeaderKey != null) {
     const contentType = output.headers[contentTypeHeaderKey];
-    if (contentType !== undefined && contentType !== "application/json") {
+    if (contentType !== undefined) {
       throw new __UnsupportedMediaTypeException();
     }
   }
@@ -2934,7 +2934,7 @@ export const deserializeMediaTypeHeaderRequest = async (
   );
   if (contentTypeHeaderKey != null) {
     const contentType = output.headers[contentTypeHeaderKey];
-    if (contentType !== undefined && contentType !== "application/json") {
+    if (contentType !== undefined) {
       throw new __UnsupportedMediaTypeException();
     }
   }
@@ -3014,7 +3014,7 @@ export const deserializeNullAndEmptyHeadersClientRequest = async (
   );
   if (contentTypeHeaderKey != null) {
     const contentType = output.headers[contentTypeHeaderKey];
-    if (contentType !== undefined && contentType !== "application/json") {
+    if (contentType !== undefined) {
       throw new __UnsupportedMediaTypeException();
     }
   }
@@ -3046,7 +3046,7 @@ export const deserializeNullAndEmptyHeadersServerRequest = async (
   );
   if (contentTypeHeaderKey != null) {
     const contentType = output.headers[contentTypeHeaderKey];
-    if (contentType !== undefined && contentType !== "application/json") {
+    if (contentType !== undefined) {
       throw new __UnsupportedMediaTypeException();
     }
   }
@@ -3078,7 +3078,7 @@ export const deserializeOmitsNullSerializesEmptyStringRequest = async (
   );
   if (contentTypeHeaderKey != null) {
     const contentType = output.headers[contentTypeHeaderKey];
-    if (contentType !== undefined && contentType !== "application/json") {
+    if (contentType !== undefined) {
       throw new __UnsupportedMediaTypeException();
     }
   }
@@ -3132,7 +3132,7 @@ export const deserializeOmitsSerializingEmptyListsRequest = async (
   );
   if (contentTypeHeaderKey != null) {
     const contentType = output.headers[contentTypeHeaderKey];
-    if (contentType !== undefined && contentType !== "application/json") {
+    if (contentType !== undefined) {
       throw new __UnsupportedMediaTypeException();
     }
   }
@@ -3352,7 +3352,7 @@ export const deserializeQueryIdempotencyTokenAutoFillRequest = async (
   );
   if (contentTypeHeaderKey != null) {
     const contentType = output.headers[contentTypeHeaderKey];
-    if (contentType !== undefined && contentType !== "application/json") {
+    if (contentType !== undefined) {
       throw new __UnsupportedMediaTypeException();
     }
   }
@@ -3393,7 +3393,7 @@ export const deserializeQueryParamsAsStringListMapRequest = async (
   );
   if (contentTypeHeaderKey != null) {
     const contentType = output.headers[contentTypeHeaderKey];
-    if (contentType !== undefined && contentType !== "application/json") {
+    if (contentType !== undefined) {
       throw new __UnsupportedMediaTypeException();
     }
   }
@@ -3441,7 +3441,7 @@ export const deserializeQueryPrecedenceRequest = async (
   );
   if (contentTypeHeaderKey != null) {
     const contentType = output.headers[contentTypeHeaderKey];
-    if (contentType !== undefined && contentType !== "application/json") {
+    if (contentType !== undefined) {
       throw new __UnsupportedMediaTypeException();
     }
   }
@@ -3526,7 +3526,7 @@ export const deserializeResponseCodeHttpFallbackRequest = async (
   );
   if (contentTypeHeaderKey != null) {
     const contentType = output.headers[contentTypeHeaderKey];
-    if (contentType !== undefined && contentType !== "application/json") {
+    if (contentType !== undefined) {
       throw new __UnsupportedMediaTypeException();
     }
   }
@@ -3793,7 +3793,7 @@ export const deserializeTestGetNoPayloadRequest = async (
   );
   if (contentTypeHeaderKey != null) {
     const contentType = output.headers[contentTypeHeaderKey];
-    if (contentType !== undefined && contentType !== "application/json") {
+    if (contentType !== undefined) {
       throw new __UnsupportedMediaTypeException();
     }
   }
@@ -3885,7 +3885,7 @@ export const deserializeTestPostNoPayloadRequest = async (
   );
   if (contentTypeHeaderKey != null) {
     const contentType = output.headers[contentTypeHeaderKey];
-    if (contentType !== undefined && contentType !== "application/json") {
+    if (contentType !== undefined) {
       throw new __UnsupportedMediaTypeException();
     }
   }
@@ -3912,7 +3912,7 @@ export const deserializeTimestampFormatHeadersRequest = async (
   );
   if (contentTypeHeaderKey != null) {
     const contentType = output.headers[contentTypeHeaderKey];
-    if (contentType !== undefined && contentType !== "application/json") {
+    if (contentType !== undefined) {
       throw new __UnsupportedMediaTypeException();
     }
   }
