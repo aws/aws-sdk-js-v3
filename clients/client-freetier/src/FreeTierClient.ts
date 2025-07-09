@@ -53,7 +53,17 @@ import {
   HttpAuthSchemeResolvedConfig,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
+import { GetAccountActivityCommandInput, GetAccountActivityCommandOutput } from "./commands/GetAccountActivityCommand";
+import {
+  GetAccountPlanStateCommandInput,
+  GetAccountPlanStateCommandOutput,
+} from "./commands/GetAccountPlanStateCommand";
 import { GetFreeTierUsageCommandInput, GetFreeTierUsageCommandOutput } from "./commands/GetFreeTierUsageCommand";
+import {
+  ListAccountActivitiesCommandInput,
+  ListAccountActivitiesCommandOutput,
+} from "./commands/ListAccountActivitiesCommand";
+import { UpgradeAccountPlanCommandInput, UpgradeAccountPlanCommandOutput } from "./commands/UpgradeAccountPlanCommand";
 import {
   ClientInputEndpointParameters,
   ClientResolvedEndpointParameters,
@@ -68,12 +78,22 @@ export { __Client };
 /**
  * @public
  */
-export type ServiceInputTypes = GetFreeTierUsageCommandInput;
+export type ServiceInputTypes =
+  | GetAccountActivityCommandInput
+  | GetAccountPlanStateCommandInput
+  | GetFreeTierUsageCommandInput
+  | ListAccountActivitiesCommandInput
+  | UpgradeAccountPlanCommandInput;
 
 /**
  * @public
  */
-export type ServiceOutputTypes = GetFreeTierUsageCommandOutput;
+export type ServiceOutputTypes =
+  | GetAccountActivityCommandOutput
+  | GetAccountPlanStateCommandOutput
+  | GetFreeTierUsageCommandOutput
+  | ListAccountActivitiesCommandOutput
+  | UpgradeAccountPlanCommandOutput;
 
 /**
  * @public
@@ -266,17 +286,7 @@ export type FreeTierClientResolvedConfigType = __SmithyResolvedConfiguration<__H
 export interface FreeTierClientResolvedConfig extends FreeTierClientResolvedConfigType {}
 
 /**
- * <p>You can use the Amazon Web Services Free Tier API to query programmatically your Free Tier usage data.</p>
- *          <p>Free Tier tracks your monthly usage data for all free tier offers that are associated with your
- *       Amazon Web Services account. You can use the Free Tier API to filter and show only the data that you want.</p>
- *          <p>Service endpoint</p>
- *          <p>The Free Tier API provides the following endpoint:</p>
- *          <ul>
- *             <li>
- *                <p>https://freetier.us-east-1.api.aws</p>
- *             </li>
- *          </ul>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/billing-free-tier.html">Using the Amazon Web Services Free Tier</a> in the <i>Billing User Guide</i>.</p>
+ * <p>You can use the Amazon Web Services Free Tier API to query programmatically your Free Tier usage data.</p> <p>Free Tier tracks your monthly usage data for all free tier offers that are associated with your Amazon Web Services account. You can use the Free Tier API to filter and show only the data that you want.</p> <p>Service endpoint</p> <p>The Free Tier API provides the following endpoint:</p> <ul/> <p>For more information, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/billing-free-tier.html">Using the Amazon Web Services Free Tier</a> in the <i>Billing User Guide</i>.</p>
  * @public
  */
 export class FreeTierClient extends __Client<

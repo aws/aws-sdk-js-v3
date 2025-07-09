@@ -6,17 +6,7 @@
 
 AWS SDK for JavaScript FreeTier Client for Node.js, Browser and React Native.
 
-<p>You can use the Amazon Web Services Free Tier API to query programmatically your Free Tier usage data.</p>
-<p>Free Tier tracks your monthly usage data for all free tier offers that are associated with your
-Amazon Web Services account. You can use the Free Tier API to filter and show only the data that you want.</p>
-<p>Service endpoint</p>
-<p>The Free Tier API provides the following endpoint:</p>
-<ul>
-<li>
-<p>https://freetier.us-east-1.api.aws</p>
-</li>
-</ul>
-<p>For more information, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/billing-free-tier.html">Using the Amazon Web Services Free Tier</a> in the <i>Billing User Guide</i>.</p>
+<p>You can use the Amazon Web Services Free Tier API to query programmatically your Free Tier usage data.</p> <p>Free Tier tracks your monthly usage data for all free tier offers that are associated with your Amazon Web Services account. You can use the Free Tier API to filter and show only the data that you want.</p> <p>Service endpoint</p> <p>The Free Tier API provides the following endpoint:</p> <ul/> <p>For more information, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/billing-free-tier.html">Using the Amazon Web Services Free Tier</a> in the <i>Billing User Guide</i>.</p>
 
 ## Installing
 
@@ -33,16 +23,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `FreeTierClient` and
-the commands you need, for example `GetFreeTierUsageCommand`:
+the commands you need, for example `ListAccountActivitiesCommand`:
 
 ```js
 // ES5 example
-const { FreeTierClient, GetFreeTierUsageCommand } = require("@aws-sdk/client-freetier");
+const { FreeTierClient, ListAccountActivitiesCommand } = require("@aws-sdk/client-freetier");
 ```
 
 ```ts
 // ES6+ example
-import { FreeTierClient, GetFreeTierUsageCommand } from "@aws-sdk/client-freetier";
+import { FreeTierClient, ListAccountActivitiesCommand } from "@aws-sdk/client-freetier";
 ```
 
 ### Usage
@@ -61,7 +51,7 @@ const client = new FreeTierClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new GetFreeTierUsageCommand(params);
+const command = new ListAccountActivitiesCommand(params);
 ```
 
 #### Async/await
@@ -140,7 +130,7 @@ const client = new AWS.FreeTier({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.getFreeTierUsage(params);
+  const data = await client.listAccountActivities(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -148,7 +138,7 @@ try {
 
 // Promises.
 client
-  .getFreeTierUsage(params)
+  .listAccountActivities(params)
   .then((data) => {
     // process data.
   })
@@ -157,7 +147,7 @@ client
   });
 
 // callbacks.
-client.getFreeTierUsage(params, (err, data) => {
+client.listAccountActivities(params, (err, data) => {
   // process err and data.
 });
 ```
@@ -215,9 +205,41 @@ see LICENSE for more information.
 
 <details>
 <summary>
+GetAccountActivity
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/freetier/command/GetAccountActivityCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-freetier/Interface/GetAccountActivityCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-freetier/Interface/GetAccountActivityCommandOutput/)
+
+</details>
+<details>
+<summary>
+GetAccountPlanState
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/freetier/command/GetAccountPlanStateCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-freetier/Interface/GetAccountPlanStateCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-freetier/Interface/GetAccountPlanStateCommandOutput/)
+
+</details>
+<details>
+<summary>
 GetFreeTierUsage
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/freetier/command/GetFreeTierUsageCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-freetier/Interface/GetFreeTierUsageCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-freetier/Interface/GetFreeTierUsageCommandOutput/)
+
+</details>
+<details>
+<summary>
+ListAccountActivities
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/freetier/command/ListAccountActivitiesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-freetier/Interface/ListAccountActivitiesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-freetier/Interface/ListAccountActivitiesCommandOutput/)
+
+</details>
+<details>
+<summary>
+UpgradeAccountPlan
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/freetier/command/UpgradeAccountPlanCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-freetier/Interface/UpgradeAccountPlanCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-freetier/Interface/UpgradeAccountPlanCommandOutput/)
 
 </details>
