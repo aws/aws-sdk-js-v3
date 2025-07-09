@@ -1,6 +1,10 @@
+import type { EC2ProtocolClientConfig } from "@aws-sdk/aws-protocoltests-ec2";
 import { EC2ProtocolClient } from "@aws-sdk/aws-protocoltests-ec2";
+import type { S3ClientConfig } from "@aws-sdk/client-s3";
 import { S3Client } from "@aws-sdk/client-s3";
+import type { WeatherClientConfig } from "@aws-sdk/weather";
 import { WeatherClient } from "@aws-sdk/weather";
+import type { Endpoint, EndpointV2, Exact, Provider } from "@smithy/types";
 import { describe, expect, test as it } from "vitest";
 
 describe("variations in the config endpoint property", () => {
@@ -9,6 +13,12 @@ describe("variations in the config endpoint property", () => {
       const client = new S3Client({});
       expect(client.config.endpoint).toBeUndefined();
       expect(await client.config.endpoint?.()).toBeUndefined();
+
+      const endpointNotRequired: true = true as Exact<
+        S3ClientConfig["endpoint"],
+        undefined | string | Endpoint | Provider<Endpoint> | EndpointV2 | Provider<EndpointV2>
+      >;
+      void endpointNotRequired;
     });
 
     it("endpoint can be set, but must be queried with an undef-check", async () => {
@@ -23,6 +33,9 @@ describe("variations in the config endpoint property", () => {
         protocol: "https:",
         query: undefined,
       });
+
+      const endpointNotGuaranteed: true = true as Exact<typeof client.config.endpoint, undefined | Provider<Endpoint>>;
+      void endpointNotGuaranteed;
     });
   });
 
@@ -31,6 +44,12 @@ describe("variations in the config endpoint property", () => {
       const client = new WeatherClient({
         endpoint: "https://localhost",
       });
+
+      const endpointIsRequired: true = true as Exact<
+        WeatherClientConfig["endpoint"],
+        string | Endpoint | Provider<Endpoint> | EndpointV2 | Provider<EndpointV2>
+      >;
+      void endpointIsRequired;
     });
 
     it("config.endpoint may be queried without undef-check since it was required on input", async () => {
@@ -44,6 +63,9 @@ describe("variations in the config endpoint property", () => {
         protocol: "https:",
         query: undefined,
       });
+
+      const endpointIsGuaranteed: true = true as Exact<typeof client.config.endpoint, Provider<Endpoint>>;
+      void endpointIsGuaranteed;
     });
   });
 
@@ -55,6 +77,12 @@ describe("variations in the config endpoint property", () => {
     it("endpoint is not required", async () => {
       const client = new EC2ProtocolClient({});
       expect(client.config.endpoint).toBeInstanceOf(Function);
+
+      const endpointNotRequired: true = true as Exact<
+        EC2ProtocolClientConfig["endpoint"],
+        undefined | string | Endpoint | Provider<Endpoint> | EndpointV2 | Provider<EndpointV2>
+      >;
+      void endpointNotRequired;
     });
 
     it("endpoint may be set", async () => {
@@ -79,6 +107,9 @@ describe("variations in the config endpoint property", () => {
         protocol: "https:",
         query: undefined,
       });
+
+      const endpointIsGuaranteed: true = true as Exact<typeof client.config.endpoint, Provider<Endpoint>>;
+      void endpointIsGuaranteed;
     });
 
     it("fips", async () => {
