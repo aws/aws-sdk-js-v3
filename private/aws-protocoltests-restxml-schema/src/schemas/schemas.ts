@@ -723,9 +723,9 @@ export var FlattenedXmlMapWithXmlNamespaceOutput = struct(
     [
       () => FlattenedXmlMapWithXmlNamespaceOutputMap,
       {
+        [_xNm]: [_, _hm],
         [_xN]: _KVP,
         [_xF]: 1,
-        [_xNm]: [_, _hm],
       },
     ],
   ]

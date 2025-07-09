@@ -13,6 +13,7 @@ import software.amazon.smithy.model.shapes.ServiceShape;
 import software.amazon.smithy.rulesengine.traits.EndpointRuleSetTrait;
 import software.amazon.smithy.typescript.codegen.TypeScriptSettings;
 import software.amazon.smithy.typescript.codegen.endpointsV2.AddDefaultEndpointRuleSet;
+import software.amazon.smithy.typescript.codegen.integration.RuntimeClientPlugin;
 import software.amazon.smithy.typescript.codegen.integration.TypeScriptIntegration;
 
 
@@ -20,6 +21,8 @@ import software.amazon.smithy.typescript.codegen.integration.TypeScriptIntegrati
  * This replaces behavior from {@link EndpointGenerator}.
  */
 public class AddDefaultAwsEndpointRuleSet implements TypeScriptIntegration {
+    private boolean usesDefaultAwsRegionalEndpoints = false;
+
     /**
      * Running before the smithy-typescript default endpoint integration
      * will prevent it from applying its non-AWS default ruleset and
@@ -31,6 +34,39 @@ public class AddDefaultAwsEndpointRuleSet implements TypeScriptIntegration {
         return List.of(AddDefaultEndpointRuleSet.class.getCanonicalName());
     }
 
+    /**
+     * Inserts this resolver after the `resolveEndpointConfig` function.
+     */
+    @Override
+    public void mutateClientPlugins(List<RuntimeClientPlugin> plugins) {
+        if (!usesDefaultAwsRegionalEndpoints) {
+            return;
+        }
+
+        /*
+        This resolver supports the behavior of endpoints.json-based endpoint provider
+        for default regional services: it makes client.config.endpoint optional on the input side,
+        but guaranteed on the resolved side.
+        */
+        RuntimeClientPlugin defaultAwsRegionalEndpoints = RuntimeClientPlugin.builder()
+            .withConventions(
+                AwsDependency.UTIL_ENDPOINTS.dependency,
+                "DefaultAwsRegionalEndpoints",
+                RuntimeClientPlugin.Convention.HAS_CONFIG
+            )
+            .build();
+
+        RuntimeClientPlugin endpointPlugin = plugins.stream()
+            .filter(p -> p.getResolveFunction()
+                .map(r -> r.getAlias().equals("resolveEndpointConfig"))
+                .orElse(false))
+            .findAny()
+            .orElseThrow(() -> new IllegalStateException("Expected resolveEndpointConfig function in plugins."));
+
+        int index = plugins.indexOf(endpointPlugin);
+        plugins.add(index + 1, defaultAwsRegionalEndpoints);
+    }
+
     @Override
     public Model preprocessModel(Model model, TypeScriptSettings settings) {
         Model.Builder modelBuilder = model.toBuilder();
@@ -40,7 +76,7 @@ public class AddDefaultAwsEndpointRuleSet implements TypeScriptIntegration {
             && AwsTraitsUtils.isAwsService(serviceShape)) {
             // this branch is for models that identify as AWS services
             // but do not include an endpoint ruleset.
-
+            usesDefaultAwsRegionalEndpoints = true;
             modelBuilder.removeShape(serviceShape.toShapeId());
             modelBuilder.addShape(
                 serviceShape.toBuilder()
@@ -49,6 +85,8 @@ public class AddDefaultAwsEndpointRuleSet implements TypeScriptIntegration {
                     ))
                     .build()
             );
+        } else {
+            usesDefaultAwsRegionalEndpoints = false;
         }
 
         return modelBuilder.build();
