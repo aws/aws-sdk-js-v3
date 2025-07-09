@@ -146,6 +146,7 @@ export type AcceleratorType = (typeof AcceleratorType)[keyof typeof AcceleratorT
  * @enum
  */
 export const ResourceType = {
+  capacity_block: "capacity-block",
   capacity_reservation: "capacity-reservation",
   capacity_reservation_fleet: "capacity-reservation-fleet",
   carrier_gateway: "carrier-gateway",
@@ -6732,17 +6733,17 @@ export interface VolumeAttachment {
   DeleteOnTermination?: boolean | undefined;
 
   /**
-   * <p>The ARN of the Amazon ECS or Fargate task
+   * <p>The ARN of the Amazon Web Services-managed resource
    *       to which the volume is attached.</p>
    * @public
    */
   AssociatedResource?: string | undefined;
 
   /**
-   * <p>The service principal of Amazon Web Services service that owns the underlying
-   *       instance to which the volume is attached.</p>
+   * <p>The service principal of the Amazon Web Services service that owns the underlying
+   *       resource to which the volume is attached.</p>
    *          <p>This parameter is returned only for volumes that are attached to
-   *       Fargate tasks.</p>
+   *       Amazon Web Services-managed resources.</p>
    * @public
    */
   InstanceOwningService?: string | undefined;
@@ -6755,7 +6756,7 @@ export interface VolumeAttachment {
 
   /**
    * <p>The ID of the instance.</p>
-   *          <p>If the volume is attached to a Fargate task, this parameter
+   *          <p>If the volume is attached to an Amazon Web Services-managed resource, this parameter
    *       returns <code>null</code>.</p>
    * @public
    */
@@ -6763,7 +6764,7 @@ export interface VolumeAttachment {
 
   /**
    * <p>The device name.</p>
-   *          <p>If the volume is attached to a Fargate task, this parameter
+   *          <p>If the volume is attached to an Amazon Web Services-managed resource, this parameter
    *       returns <code>null</code>.</p>
    * @public
    */

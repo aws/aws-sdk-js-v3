@@ -19,12 +19,11 @@ import {
   InstanceEventWindow,
   Ipv6SupportValue,
   SecurityGroupReferencingSupportValue,
+  SubnetAssociation,
   Tag,
   TagSpecification,
   TransitGatewayAssociationState,
   TransitGatewayAttachmentResourceType,
-  TransitGatewayMulticastDomainAssociations,
-  TransitGatewayPeeringAttachment,
   TransitGatewayPolicyTableAssociation,
   TransitGatewayVpcAttachment,
   UnsuccessfulItem,
@@ -82,6 +81,7 @@ import {
   ManagedPrefixList,
   RouteServer,
   RouteServerPersistRoutesAction,
+  SubnetCidrReservation,
   SubnetConfiguration,
   TrafficDirection,
   TrafficMirrorFilter,
@@ -102,6 +102,7 @@ import {
 
 import {
   Byoasn,
+  CapacityBlock,
   CapacityBlockExtension,
   Filter,
   IKEVersionsRequestListValue,
@@ -167,10 +168,329 @@ import {
   InstanceFamilyCreditSpecification,
   IpamResourceCidr,
   Purchase,
-  TransitGatewayMulticastDomainAssociation,
   TransitGatewayPropagationState,
   UnlimitedSupportedInstanceFamily,
 } from "./models_6";
+
+/**
+ * <p>The Spot placement score for this Region or Availability Zone. The score is calculated
+ *          based on the assumption that the <code>capacity-optimized</code> allocation strategy is
+ *          used and that all of the Availability Zones in the Region can be used.</p>
+ * @public
+ */
+export interface SpotPlacementScore {
+  /**
+   * <p>The Region.</p>
+   * @public
+   */
+  Region?: string | undefined;
+
+  /**
+   * <p>The Availability Zone.</p>
+   * @public
+   */
+  AvailabilityZoneId?: string | undefined;
+
+  /**
+   * <p>The placement score, on a scale from <code>1</code> to <code>10</code>. A score of
+   *             <code>10</code> indicates that your Spot request is highly likely to succeed in this
+   *          Region or Availability Zone. A score of <code>1</code> indicates that your Spot request is
+   *          not likely to succeed. </p>
+   * @public
+   */
+  Score?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetSpotPlacementScoresResult {
+  /**
+   * <p>The Spot placement score for the top 10 Regions or Availability Zones, scored on a scale
+   *          from 1 to 10. Each score  reflects how likely it is that each Region or Availability Zone
+   *          will succeed at fulfilling the specified target capacity  <i>at the time of the Spot
+   *             placement score request</i>. A score of <code>10</code> means that your Spot
+   *          capacity request is highly likely to succeed in that Region or Availability Zone. </p>
+   *          <p>If you request a Spot placement score for Regions, a high score assumes that your fleet
+   *          request will be configured to use all Availability Zones and the
+   *             <code>capacity-optimized</code> allocation strategy. If you request a Spot placement
+   *          score for Availability Zones, a high score assumes that your fleet request will be
+   *          configured to use a single Availability Zone and the <code>capacity-optimized</code>
+   *          allocation strategy.</p>
+   *          <p>Different  Regions or Availability Zones might return the same score.</p>
+   *          <note>
+   *             <p>The Spot placement score serves as a recommendation only. No score guarantees that your
+   *             Spot request will be fully or partially fulfilled.</p>
+   *          </note>
+   * @public
+   */
+  SpotPlacementScores?: SpotPlacementScore[] | undefined;
+
+  /**
+   * <p>The token to include in another request to get the next page of items. This value is <code>null</code> when there
+   *          are no more items to return.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetSubnetCidrReservationsRequest {
+  /**
+   * <p>One or more filters.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>reservationType</code> - The type of reservation (<code>prefix</code> |
+   *                     <code>explicit</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>subnet-id</code> - The ID of the subnet.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>tag</code>:<key> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value.
+   *     For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Filters?: Filter[] | undefined;
+
+  /**
+   * <p>The ID of the subnet.</p>
+   * @public
+   */
+  SubnetId: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>The token for the next page of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return with a single call.
+   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetSubnetCidrReservationsResult {
+  /**
+   * <p>Information about the IPv4 subnet CIDR reservations.</p>
+   * @public
+   */
+  SubnetIpv4CidrReservations?: SubnetCidrReservation[] | undefined;
+
+  /**
+   * <p>Information about the IPv6 subnet CIDR reservations.</p>
+   * @public
+   */
+  SubnetIpv6CidrReservations?: SubnetCidrReservation[] | undefined;
+
+  /**
+   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetTransitGatewayAttachmentPropagationsRequest {
+  /**
+   * <p>The ID of the attachment.</p>
+   * @public
+   */
+  TransitGatewayAttachmentId: string | undefined;
+
+  /**
+   * <p>One or more filters. The possible values are:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>transit-gateway-route-table-id</code> - The ID of the transit gateway route table.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Filters?: Filter[] | undefined;
+
+  /**
+   * <p>The maximum number of results to return with a single call.
+   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>The token for the next page of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
+
+/**
+ * <p>Describes a propagation route table.</p>
+ * @public
+ */
+export interface TransitGatewayAttachmentPropagation {
+  /**
+   * <p>The ID of the propagation route table.</p>
+   * @public
+   */
+  TransitGatewayRouteTableId?: string | undefined;
+
+  /**
+   * <p>The state of the propagation route table.</p>
+   * @public
+   */
+  State?: TransitGatewayPropagationState | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetTransitGatewayAttachmentPropagationsResult {
+  /**
+   * <p>Information about the propagation route tables.</p>
+   * @public
+   */
+  TransitGatewayAttachmentPropagations?: TransitGatewayAttachmentPropagation[] | undefined;
+
+  /**
+   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetTransitGatewayMulticastDomainAssociationsRequest {
+  /**
+   * <p>The ID of the transit gateway multicast domain.</p>
+   * @public
+   */
+  TransitGatewayMulticastDomainId: string | undefined;
+
+  /**
+   * <p>One or more filters. The possible values are:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>resource-id</code> - The ID of the resource.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>resource-type</code> - The type of resource. The valid value is: <code>vpc</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>state</code> - The state of the subnet association. Valid values are
+   *                         <code>associated</code> | <code>associating</code> |
+   *                         <code>disassociated</code> | <code>disassociating</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>subnet-id</code> - The ID of the subnet.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>transit-gateway-attachment-id</code> - The id of the transit gateway attachment.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Filters?: Filter[] | undefined;
+
+  /**
+   * <p>The maximum number of results to return with a single call.
+   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>The token for the next page of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
+
+/**
+ * <p>Describes the resources associated with the transit gateway multicast domain.</p>
+ * @public
+ */
+export interface TransitGatewayMulticastDomainAssociation {
+  /**
+   * <p>The ID of the transit gateway attachment.</p>
+   * @public
+   */
+  TransitGatewayAttachmentId?: string | undefined;
+
+  /**
+   * <p>The ID of the resource.</p>
+   * @public
+   */
+  ResourceId?: string | undefined;
+
+  /**
+   * <p>The type of resource, for example a VPC attachment.</p>
+   * @public
+   */
+  ResourceType?: TransitGatewayAttachmentResourceType | undefined;
+
+  /**
+   * <p> The ID of the Amazon Web Services account that owns the transit gateway multicast domain association resource.</p>
+   * @public
+   */
+  ResourceOwnerId?: string | undefined;
+
+  /**
+   * <p>The subnet associated with the transit gateway multicast domain.</p>
+   * @public
+   */
+  Subnet?: SubnetAssociation | undefined;
+}
 
 /**
  * @public
@@ -3341,7 +3661,7 @@ export interface ModifyInstanceAttributeRequest {
    *             attached. The volume must be owned by the caller. If no value is specified for
    *                 <code>DeleteOnTermination</code>, the default is <code>true</code> and the volume is
    *             deleted when the instance is terminated. You can't modify the <code>DeleteOnTermination</code>
-   *             attribute for volumes that are attached to Fargate tasks.</p>
+   *             attribute for volumes that are attached to Amazon Web Services-managed resources.</p>
    *          <p>To add instance store volumes to an Amazon EBS-backed instance, you must add them when
    *             you launch the instance. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/block-device-mapping-concepts.html#Using_OverridingAMIBDM">Update the block device mapping when launching an instance</a> in the
    *                 <i>Amazon EC2 User Guide</i>.</p>
@@ -8649,6 +8969,12 @@ export interface PurchaseCapacityBlockResult {
    * @public
    */
   CapacityReservation?: CapacityReservation | undefined;
+
+  /**
+   * <p>The Capacity Block.</p>
+   * @public
+   */
+  CapacityBlocks?: CapacityBlock[] | undefined;
 }
 
 /**
@@ -9308,163 +9634,6 @@ export interface RejectCapacityReservationBillingOwnershipResult {
    * @public
    */
   Return?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface RejectTransitGatewayMulticastDomainAssociationsRequest {
-  /**
-   * <p>The ID of the transit gateway multicast domain.</p>
-   * @public
-   */
-  TransitGatewayMulticastDomainId?: string | undefined;
-
-  /**
-   * <p>The ID of the transit gateway attachment.</p>
-   * @public
-   */
-  TransitGatewayAttachmentId?: string | undefined;
-
-  /**
-   * <p>The IDs of the subnets to associate with the transit gateway multicast domain.</p>
-   * @public
-   */
-  SubnetIds?: string[] | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface RejectTransitGatewayMulticastDomainAssociationsResult {
-  /**
-   * <p>Information about the multicast domain associations.</p>
-   * @public
-   */
-  Associations?: TransitGatewayMulticastDomainAssociations | undefined;
-}
-
-/**
- * @public
- */
-export interface RejectTransitGatewayPeeringAttachmentRequest {
-  /**
-   * <p>The ID of the transit gateway peering attachment.</p>
-   * @public
-   */
-  TransitGatewayAttachmentId: string | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface RejectTransitGatewayPeeringAttachmentResult {
-  /**
-   * <p>The transit gateway peering attachment.</p>
-   * @public
-   */
-  TransitGatewayPeeringAttachment?: TransitGatewayPeeringAttachment | undefined;
-}
-
-/**
- * @public
- */
-export interface RejectTransitGatewayVpcAttachmentRequest {
-  /**
-   * <p>The ID of the attachment.</p>
-   * @public
-   */
-  TransitGatewayAttachmentId: string | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface RejectTransitGatewayVpcAttachmentResult {
-  /**
-   * <p>Information about the attachment.</p>
-   * @public
-   */
-  TransitGatewayVpcAttachment?: TransitGatewayVpcAttachment | undefined;
-}
-
-/**
- * @public
- */
-export interface RejectVpcEndpointConnectionsRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>The ID of the service.</p>
-   * @public
-   */
-  ServiceId: string | undefined;
-
-  /**
-   * <p>The IDs of the VPC endpoints.</p>
-   * @public
-   */
-  VpcEndpointIds: string[] | undefined;
-}
-
-/**
- * @public
- */
-export interface RejectVpcEndpointConnectionsResult {
-  /**
-   * <p>Information about the endpoints that were not rejected, if applicable.</p>
-   * @public
-   */
-  Unsuccessful?: UnsuccessfulItem[] | undefined;
-}
-
-/**
- * @public
- */
-export interface RejectVpcPeeringConnectionRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>The ID of the VPC peering connection.</p>
-   * @public
-   */
-  VpcPeeringConnectionId: string | undefined;
 }
 
 /**

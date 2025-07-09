@@ -877,6 +877,14 @@ import {
   DescribeCapacityBlockOfferingsCommandOutput,
 } from "./commands/DescribeCapacityBlockOfferingsCommand";
 import {
+  DescribeCapacityBlocksCommandInput,
+  DescribeCapacityBlocksCommandOutput,
+} from "./commands/DescribeCapacityBlocksCommand";
+import {
+  DescribeCapacityBlockStatusCommandInput,
+  DescribeCapacityBlockStatusCommandOutput,
+} from "./commands/DescribeCapacityBlockStatusCommand";
+import {
   DescribeCapacityReservationBillingRequestsCommandInput,
   DescribeCapacityReservationBillingRequestsCommandOutput,
 } from "./commands/DescribeCapacityReservationBillingRequestsCommand";
@@ -2672,6 +2680,8 @@ export type ServiceInputTypes =
   | DescribeCapacityBlockExtensionHistoryCommandInput
   | DescribeCapacityBlockExtensionOfferingsCommandInput
   | DescribeCapacityBlockOfferingsCommandInput
+  | DescribeCapacityBlockStatusCommandInput
+  | DescribeCapacityBlocksCommandInput
   | DescribeCapacityReservationBillingRequestsCommandInput
   | DescribeCapacityReservationFleetsCommandInput
   | DescribeCapacityReservationsCommandInput
@@ -3363,6 +3373,8 @@ export type ServiceOutputTypes =
   | DescribeCapacityBlockExtensionHistoryCommandOutput
   | DescribeCapacityBlockExtensionOfferingsCommandOutput
   | DescribeCapacityBlockOfferingsCommandOutput
+  | DescribeCapacityBlockStatusCommandOutput
+  | DescribeCapacityBlocksCommandOutput
   | DescribeCapacityReservationBillingRequestsCommandOutput
   | DescribeCapacityReservationFleetsCommandOutput
   | DescribeCapacityReservationsCommandOutput

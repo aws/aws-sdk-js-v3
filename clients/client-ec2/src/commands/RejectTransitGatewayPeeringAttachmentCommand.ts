@@ -9,7 +9,7 @@ import { commonParams } from "../endpoint/EndpointParameters";
 import {
   RejectTransitGatewayPeeringAttachmentRequest,
   RejectTransitGatewayPeeringAttachmentResult,
-} from "../models/models_7";
+} from "../models/models_8";
 import {
   de_RejectTransitGatewayPeeringAttachmentCommand,
   se_RejectTransitGatewayPeeringAttachmentCommand,

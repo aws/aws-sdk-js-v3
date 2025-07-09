@@ -12,13 +12,15 @@ export * from "./DescribeCapacityBlockExtensionOfferingsPaginator";
 
 export * from "./DescribeCapacityBlockOfferingsPaginator";
 
+export * from "./DescribeCapacityBlockStatusPaginator";
+
+export * from "./DescribeCapacityBlocksPaginator";
+
 export * from "./DescribeCapacityReservationBillingRequestsPaginator";
-
-export * from "./DescribeCapacityReservationFleetsPaginator";
-
-export * from "./DescribeCapacityReservationsPaginator";
 // smithy-typescript generated code
 export * from "./Interfaces";
+export * from "./DescribeCapacityReservationFleetsPaginator";
+export * from "./DescribeCapacityReservationsPaginator";
 export * from "./DescribeCarrierGatewaysPaginator";
 export * from "./DescribeClassicLinkInstancesPaginator";
 export * from "./DescribeClientVpnAuthorizationRulesPaginator";

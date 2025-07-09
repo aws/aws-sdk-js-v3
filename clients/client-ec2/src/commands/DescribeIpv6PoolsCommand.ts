@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DescribeIpv6PoolsRequest, DescribeIpv6PoolsResult } from "../models/models_4";
+import { DescribeIpv6PoolsRequest, DescribeIpv6PoolsResult } from "../models/models_5";
 import { de_DescribeIpv6PoolsCommand, se_DescribeIpv6PoolsCommand } from "../protocols/Aws_ec2";
 
 /**

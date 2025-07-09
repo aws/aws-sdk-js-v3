@@ -9,7 +9,7 @@ import { commonParams } from "../endpoint/EndpointParameters";
 import {
   RejectTransitGatewayMulticastDomainAssociationsRequest,
   RejectTransitGatewayMulticastDomainAssociationsResult,
-} from "../models/models_7";
+} from "../models/models_8";
 import {
   de_RejectTransitGatewayMulticastDomainAssociationsCommand,
   se_RejectTransitGatewayMulticastDomainAssociationsCommand,

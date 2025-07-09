@@ -8,13 +8,13 @@ import {
   AssociationStatus,
   AttachmentStatus,
   AutoPlacement,
+  ClientVpnAuthorizationRuleStatus,
   CurrencyCodeValues,
   HostMaintenance,
   HostRecovery,
   IamInstanceProfile,
   IamInstanceProfileAssociation,
   InstanceEventWindow,
-  IpamResourceDiscoveryAssociation,
   Tag,
 } from "./models_0";
 
@@ -25,6 +25,7 @@ import {
   BlockDeviceMapping,
   CapacityReservationPreference,
   CapacityReservationTargetResponse,
+  CarrierGateway,
   ClientVpnAuthenticationType,
   ClientVpnEndpointStatus,
   ClientVpnRouteStatus,
@@ -48,11 +49,9 @@ import {
   InstanceBandwidthWeighting,
   InstanceLifecycle,
   InternetGateway,
-  Ipam,
   IpamExternalResourceVerificationToken,
   IpamPool,
   IpamResourceDiscovery,
-  IpamScope,
   LaunchTemplateAndOverridesResponse,
   LogDestinationType,
   OperatorResponse,
@@ -67,14 +66,309 @@ import {
 
 import { GroupIdentifier, InstanceIpv6Address, NetworkInterfaceStatus, StateReason } from "./models_2";
 
-import {
-  Byoasn,
-  ClientVpnConnectionStatusCode,
-  Filter,
-  FleetStateCode,
-  IdFormat,
-  InstanceTagNotificationAttribute,
-} from "./models_3";
+import { Byoasn, Filter, FleetStateCode, IdFormat, InstanceTagNotificationAttribute } from "./models_3";
+
+/**
+ * @public
+ */
+export interface DescribeCarrierGatewaysResult {
+  /**
+   * <p>Information about the carrier gateway.</p>
+   * @public
+   */
+  CarrierGateways?: CarrierGateway[] | undefined;
+
+  /**
+   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeClassicLinkInstancesRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>The instance IDs. Must be instances linked to a VPC through ClassicLink.</p>
+   * @public
+   */
+  InstanceIds?: string[] | undefined;
+
+  /**
+   * <p>The filters.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>group-id</code> - The ID of a VPC security group that's associated with the instance.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>instance-id</code> - The ID of the instance.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>tag</code> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value.
+   *     For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>vpc-id</code> - The ID of the VPC to which the instance is linked.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Filters?: Filter[] | undefined;
+
+  /**
+   * <p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of items to return for this request.
+   * 	To get the next page of items, make another request with the token returned in the output.
+   * 	For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
+   *          <p>Constraint: If the value is greater than 1000, we return only 1000 items.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+}
+
+/**
+ * <note>
+ *             <p>Deprecated.</p>
+ *          </note>
+ *          <p>Describes a linked EC2-Classic instance.</p>
+ * @public
+ */
+export interface ClassicLinkInstance {
+  /**
+   * <p>The security groups.</p>
+   * @public
+   */
+  Groups?: GroupIdentifier[] | undefined;
+
+  /**
+   * <p>The ID of the instance.</p>
+   * @public
+   */
+  InstanceId?: string | undefined;
+
+  /**
+   * <p>Any tags assigned to the instance.</p>
+   * @public
+   */
+  Tags?: Tag[] | undefined;
+
+  /**
+   * <p>The ID of the VPC.</p>
+   * @public
+   */
+  VpcId?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeClassicLinkInstancesResult {
+  /**
+   * <p>Information about one or more linked EC2-Classic instances.</p>
+   * @public
+   */
+  Instances?: ClassicLinkInstance[] | undefined;
+
+  /**
+   * <p>The token to include in another request to get the next page of items. This value is <code>null</code> when there are no more items to return.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeClientVpnAuthorizationRulesRequest {
+  /**
+   * <p>The ID of the Client VPN endpoint.</p>
+   * @public
+   */
+  ClientVpnEndpointId: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>The token to retrieve the next page of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>One or more filters. Filter names and values are case-sensitive.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>description</code> - The description of the authorization rule.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>destination-cidr</code> - The CIDR of the network to which the authorization rule
+   *                     applies.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>group-id</code> - The ID of the Active Directory group to which the authorization rule grants access.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Filters?: Filter[] | undefined;
+
+  /**
+   * <p>The maximum number of results to return for the request in a single page. The remaining results can be seen by sending another request with the nextToken value.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+}
+
+/**
+ * <p>Information about an authorization rule.</p>
+ * @public
+ */
+export interface AuthorizationRule {
+  /**
+   * <p>The ID of the Client VPN endpoint with which the authorization rule is associated.</p>
+   * @public
+   */
+  ClientVpnEndpointId?: string | undefined;
+
+  /**
+   * <p>A brief description of the authorization rule.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>The ID of the Active Directory group to which the authorization rule grants access.</p>
+   * @public
+   */
+  GroupId?: string | undefined;
+
+  /**
+   * <p>Indicates whether the authorization rule grants access to all clients.</p>
+   * @public
+   */
+  AccessAll?: boolean | undefined;
+
+  /**
+   * <p>The IPv4 address range, in CIDR notation, of the network to which the authorization rule applies.</p>
+   * @public
+   */
+  DestinationCidr?: string | undefined;
+
+  /**
+   * <p>The current state of the authorization rule.</p>
+   * @public
+   */
+  Status?: ClientVpnAuthorizationRuleStatus | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeClientVpnAuthorizationRulesResult {
+  /**
+   * <p>Information about the authorization rules.</p>
+   * @public
+   */
+  AuthorizationRules?: AuthorizationRule[] | undefined;
+
+  /**
+   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeClientVpnConnectionsRequest {
+  /**
+   * <p>The ID of the Client VPN endpoint.</p>
+   * @public
+   */
+  ClientVpnEndpointId: string | undefined;
+
+  /**
+   * <p>One or more filters. Filter names and values are case-sensitive.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>connection-id</code> - The ID of the connection.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>username</code> - For Active Directory client authentication, the user name of the
+   *                     client who established the client connection.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Filters?: Filter[] | undefined;
+
+  /**
+   * <p>The token to retrieve the next page of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return for the request in a single page. The remaining results can be seen by sending another request with the nextToken value.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const ClientVpnConnectionStatusCode = {
+  active: "active",
+  failed_to_terminate: "failed-to-terminate",
+  terminated: "terminated",
+  terminating: "terminating",
+} as const;
+
+/**
+ * @public
+ */
+export type ClientVpnConnectionStatusCode =
+  (typeof ClientVpnConnectionStatusCode)[keyof typeof ClientVpnConnectionStatusCode];
 
 /**
  * <p>Describes the status of a client connection.</p>
@@ -6216,7 +6510,7 @@ export interface EbsInstanceBlockDevice {
   VolumeId?: string | undefined;
 
   /**
-   * <p>The ARN of the Amazon ECS or Fargate task
+   * <p>The ARN of the Amazon Web Services-managed resource
    *             to which the volume is attached.</p>
    * @public
    */
@@ -6225,7 +6519,7 @@ export interface EbsInstanceBlockDevice {
   /**
    * <p>The ID of the Amazon Web Services account that owns the volume.</p>
    *          <p>This parameter is returned only for volumes that are attached to
-   *             Fargate tasks.</p>
+   *             Amazon Web Services-managed resources.</p>
    * @public
    */
   VolumeOwnerId?: string | undefined;
@@ -8780,6 +9074,16 @@ export interface Instance {
   CpuOptions?: CpuOptions | undefined;
 
   /**
+   * <p>The ID of the Capacity Block.</p>
+   *          <note>
+   *             <p>For P5 instances, a Capacity Block ID refers to a group of instances. For Trn2u
+   *                 instances, a capacity block ID refers to an EC2 UltraServer.</p>
+   *          </note>
+   * @public
+   */
+  CapacityBlockId?: string | undefined;
+
+  /**
    * <p>The ID of the Capacity Reservation.</p>
    * @public
    */
@@ -9623,6 +9927,13 @@ export interface InstanceTopology {
    * @public
    */
   ZoneId?: string | undefined;
+
+  /**
+   * <p>The ID of the Capacity Block. This parameter is only supported for Ultraserver
+   *             instances and identifies instances within the Ultraserver domain.</p>
+   * @public
+   */
+  CapacityBlockId?: string | undefined;
 }
 
 /**
@@ -11701,239 +12012,6 @@ export interface DescribeIpamResourceDiscoveryAssociationsRequest {
    * @public
    */
   Filters?: Filter[] | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeIpamResourceDiscoveryAssociationsResult {
-  /**
-   * <p>The resource discovery associations.</p>
-   * @public
-   */
-  IpamResourceDiscoveryAssociations?: IpamResourceDiscoveryAssociation[] | undefined;
-
-  /**
-   * <p>Specify the pagination token from a previous request to retrieve the next page of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeIpamsRequest {
-  /**
-   * <p>A check for whether you have the required permissions for the action without actually making the request
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>One or more filters for the request. For more information about filtering, see <a href="https://docs.aws.amazon.com/cli/latest/userguide/cli-usage-filter.html">Filtering CLI output</a>.</p>
-   * @public
-   */
-  Filters?: Filter[] | undefined;
-
-  /**
-   * <p>The maximum number of results to return in the request.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>The token for the next page of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The IDs of the IPAMs you want information on.</p>
-   * @public
-   */
-  IpamIds?: string[] | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeIpamsResult {
-  /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>Information about the IPAMs.</p>
-   * @public
-   */
-  Ipams?: Ipam[] | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeIpamScopesRequest {
-  /**
-   * <p>A check for whether you have the required permissions for the action without actually making the request
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>One or more filters for the request. For more information about filtering, see <a href="https://docs.aws.amazon.com/cli/latest/userguide/cli-usage-filter.html">Filtering CLI output</a>.</p>
-   * @public
-   */
-  Filters?: Filter[] | undefined;
-
-  /**
-   * <p>The maximum number of results to return in the request.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>The token for the next page of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The IDs of the scopes you want information on.</p>
-   * @public
-   */
-  IpamScopeIds?: string[] | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeIpamScopesResult {
-  /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The scopes you want information on.</p>
-   * @public
-   */
-  IpamScopes?: IpamScope[] | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeIpv6PoolsRequest {
-  /**
-   * <p>The IDs of the IPv6 address pools.</p>
-   * @public
-   */
-  PoolIds?: string[] | undefined;
-
-  /**
-   * <p>The token for the next page of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of results to return with a single call.
-   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>One or more filters.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>tag</code>:<key> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value.
-   *     For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  Filters?: Filter[] | undefined;
-}
-
-/**
- * <p>Describes a CIDR block for an address pool.</p>
- * @public
- */
-export interface PoolCidrBlock {
-  /**
-   * <p>The CIDR block.</p>
-   * @public
-   */
-  Cidr?: string | undefined;
-}
-
-/**
- * <p>Describes an IPv6 address pool.</p>
- * @public
- */
-export interface Ipv6Pool {
-  /**
-   * <p>The ID of the address pool.</p>
-   * @public
-   */
-  PoolId?: string | undefined;
-
-  /**
-   * <p>The description for the address pool.</p>
-   * @public
-   */
-  Description?: string | undefined;
-
-  /**
-   * <p>The CIDR blocks for the address pool.</p>
-   * @public
-   */
-  PoolCidrBlocks?: PoolCidrBlock[] | undefined;
-
-  /**
-   * <p>Any tags for the address pool.</p>
-   * @public
-   */
-  Tags?: Tag[] | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeIpv6PoolsResult {
-  /**
-   * <p>Information about the IPv6 address pools.</p>
-   * @public
-   */
-  Ipv6Pools?: Ipv6Pool[] | undefined;
-
-  /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
 }
 
 /**

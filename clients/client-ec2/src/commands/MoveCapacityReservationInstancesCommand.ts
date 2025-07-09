@@ -86,7 +86,7 @@ export interface MoveCapacityReservationInstancesCommandOutput
  * //     AvailableInstanceCount: Number("int"),
  * //     EbsOptimized: true || false,
  * //     EphemeralStorage: true || false,
- * //     State: "active" || "expired" || "cancelled" || "pending" || "failed" || "scheduled" || "payment-pending" || "payment-failed" || "assessing" || "delayed" || "unsupported",
+ * //     State: "active" || "expired" || "cancelled" || "pending" || "failed" || "scheduled" || "payment-pending" || "payment-failed" || "assessing" || "delayed" || "unsupported" || "unavailable",
  * //     StartDate: new Date("TIMESTAMP"),
  * //     EndDate: new Date("TIMESTAMP"),
  * //     EndDateType: "unlimited" || "limited",
@@ -114,6 +114,7 @@ export interface MoveCapacityReservationInstancesCommandOutput
  * //       CommitmentEndDate: new Date("TIMESTAMP"),
  * //     },
  * //     DeliveryPreference: "fixed" || "incremental",
+ * //     CapacityBlockId: "STRING_VALUE",
  * //   },
  * //   DestinationCapacityReservation: {
  * //     CapacityReservationId: "STRING_VALUE",
@@ -128,7 +129,7 @@ export interface MoveCapacityReservationInstancesCommandOutput
  * //     AvailableInstanceCount: Number("int"),
  * //     EbsOptimized: true || false,
  * //     EphemeralStorage: true || false,
- * //     State: "active" || "expired" || "cancelled" || "pending" || "failed" || "scheduled" || "payment-pending" || "payment-failed" || "assessing" || "delayed" || "unsupported",
+ * //     State: "active" || "expired" || "cancelled" || "pending" || "failed" || "scheduled" || "payment-pending" || "payment-failed" || "assessing" || "delayed" || "unsupported" || "unavailable",
  * //     StartDate: new Date("TIMESTAMP"),
  * //     EndDate: new Date("TIMESTAMP"),
  * //     EndDateType: "unlimited" || "limited",
@@ -156,6 +157,7 @@ export interface MoveCapacityReservationInstancesCommandOutput
  * //       CommitmentEndDate: new Date("TIMESTAMP"),
  * //     },
  * //     DeliveryPreference: "fixed" || "incremental",
+ * //     CapacityBlockId: "STRING_VALUE",
  * //   },
  * //   InstanceCount: Number("int"),
  * // };

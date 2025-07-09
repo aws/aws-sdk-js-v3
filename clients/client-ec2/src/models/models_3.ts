@@ -12,7 +12,6 @@ import {
   BundleTaskFilterSensitiveLog,
   ByoipCidr,
   CapacityReservationFleetState,
-  ClientVpnAuthorizationRuleStatus,
   InstanceEventWindowState,
   Tag,
   TagSpecification,
@@ -48,7 +47,6 @@ import {
 } from "./models_1";
 
 import {
-  GroupIdentifier,
   LocalGatewayRoute,
   LocalGatewayRouteTable,
   LocalGatewayRouteTableVirtualInterfaceGroupAssociation,
@@ -6461,6 +6459,18 @@ export interface DescribeCapacityBlockOfferingsRequest {
    * @public
    */
   MaxResults?: number | undefined;
+
+  /**
+   * <p>The EC2 UltraServer type of the Capacity Block offerings.</p>
+   * @public
+   */
+  UltraserverType?: string | undefined;
+
+  /**
+   * <p>The number of EC2 UltraServers in the offerings.</p>
+   * @public
+   */
+  UltraserverCount?: number | undefined;
 }
 
 /**
@@ -6531,6 +6541,18 @@ export interface CapacityBlockOffering {
   Tenancy?: CapacityReservationTenancy | undefined;
 
   /**
+   * <p>The EC2 UltraServer type of the Capacity Block offering.</p>
+   * @public
+   */
+  UltraserverType?: string | undefined;
+
+  /**
+   * <p>The number of EC2 UltraServers in the offering.</p>
+   * @public
+   */
+  UltraserverCount?: number | undefined;
+
+  /**
    * <p>The number of minutes (in addition to <code>capacityBlockDurationHours</code>) for the
    * 			duration of the Capacity Block reservation. For example, if a Capacity Block starts at
    * 				<b>08:55</b> and ends at <b>11:30</b>, the minutes field would be <b>35</b>.</p>
@@ -6548,6 +6570,352 @@ export interface DescribeCapacityBlockOfferingsResult {
    * @public
    */
   CapacityBlockOfferings?: CapacityBlockOffering[] | undefined;
+
+  /**
+   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeCapacityBlocksRequest {
+  /**
+   * <p>The IDs of the Capacity Blocks.</p>
+   * @public
+   */
+  CapacityBlockIds?: string[] | undefined;
+
+  /**
+   * <p>The token to use to retrieve the next page of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of items to return for this request. To get the next page of items, make another request with the token returned in the output. For more information,
+   *     see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p> One or more filters. </p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>capacity-block-id</code> - The ID of the Capacity Block.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ultraserver-type</code> - The Capacity Block type. The type can be
+   * 					<code>instances</code> or <code>ultraservers</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>availability-zone</code> - The Availability Zone of the Capacity
+   * 					Block.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>start-date</code> - The date and time at which the Capacity Block was
+   * 					started.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>end-date</code> - The date and time at which the Capacity Block expires.
+   * 					When a Capacity Block expires, all instances in the Capacity Block are
+   * 					terminated.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>create-date</code> - The date and time at which the Capacity Block was
+   * 					created.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>state</code> - The state of the Capacity Block (<code>active</code> |
+   * 					<code>expired</code> | <code>unavailable</code> | <code>cancelled</code> |
+   * 					<code>failed</code> | <code>scheduled</code> | <code>payment-pending</code> |
+   * 					<code>payment-failed</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>tags</code> - The tags assigned to the Capacity Block.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Filters?: Filter[] | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const CapacityBlockResourceState = {
+  active: "active",
+  cancelled: "cancelled",
+  expired: "expired",
+  failed: "failed",
+  payment_failed: "payment-failed",
+  payment_pending: "payment-pending",
+  scheduled: "scheduled",
+  unavailable: "unavailable",
+} as const;
+
+/**
+ * @public
+ */
+export type CapacityBlockResourceState = (typeof CapacityBlockResourceState)[keyof typeof CapacityBlockResourceState];
+
+/**
+ * <p>Reserve powerful GPU instances on a future date to support your short duration machine learning (ML) workloads. Instances that run inside a Capacity Block are automatically placed close together inside <a href="http://aws.amazon.com/ec2/ultraclusters/">Amazon EC2 UltraClusters</a>, for low-latency, petabit-scale, non-blocking networking.</p>
+ *          <p>You can also reserve Amazon EC2 UltraServers. UltraServers connect multiple EC2 instances using a low-latency, high-bandwidth accelerator interconnect (NeuronLink). They are built to tackle very large-scale AI/ML workloads that require significant processing power. For more information, see Amazon EC2 UltraServers.</p>
+ * @public
+ */
+export interface CapacityBlock {
+  /**
+   * <p>The ID of the Capacity Block.</p>
+   * @public
+   */
+  CapacityBlockId?: string | undefined;
+
+  /**
+   * <p>The EC2 UltraServer type of the Capacity Block.</p>
+   * @public
+   */
+  UltraserverType?: string | undefined;
+
+  /**
+   * <p>The Availability Zone of the Capacity Block.</p>
+   * @public
+   */
+  AvailabilityZone?: string | undefined;
+
+  /**
+   * <p>The Availability Zone ID of the Capacity Block.</p>
+   * @public
+   */
+  AvailabilityZoneId?: string | undefined;
+
+  /**
+   * <p>The ID of the Capacity Reservation.</p>
+   * @public
+   */
+  CapacityReservationIds?: string[] | undefined;
+
+  /**
+   * <p>The date and time at which the Capacity Block was started.</p>
+   * @public
+   */
+  StartDate?: Date | undefined;
+
+  /**
+   * <p>The date and time at which the Capacity Block expires. When a Capacity Block expires,
+   * 			all instances in the Capacity Block are terminated.</p>
+   * @public
+   */
+  EndDate?: Date | undefined;
+
+  /**
+   * <p>The date and time at which the Capacity Block was created.</p>
+   * @public
+   */
+  CreateDate?: Date | undefined;
+
+  /**
+   * <p>The state of the Capacity Block.</p>
+   * @public
+   */
+  State?: CapacityBlockResourceState | undefined;
+
+  /**
+   * <p>The tags assigned to the Capacity Block.</p>
+   * @public
+   */
+  Tags?: Tag[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeCapacityBlocksResult {
+  /**
+   * <p>The Capacity Blocks.</p>
+   * @public
+   */
+  CapacityBlocks?: CapacityBlock[] | undefined;
+
+  /**
+   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeCapacityBlockStatusRequest {
+  /**
+   * <p>The ID of the Capacity Block.</p>
+   * @public
+   */
+  CapacityBlockIds?: string[] | undefined;
+
+  /**
+   * <p>The token to use to retrieve the next page of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of items to return for this request. To get the next page of items, make another request with the token returned in the output. For more information,
+   *     see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>One or more filters. </p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>interconnect-status</code> - The status of the interconnect for the Capacity Block (<code>ok</code> | <code>impaired</code> | <code>insufficient-data</code>).</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Filters?: Filter[] | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
+
+/**
+ * <p>Describes the availability of capacity for a Capacity Reservation.</p>
+ * @public
+ */
+export interface CapacityReservationStatus {
+  /**
+   * <p>The ID of the Capacity Reservation.</p>
+   * @public
+   */
+  CapacityReservationId?: string | undefined;
+
+  /**
+   * <p>The combined amount of <code>Available</code> and <code>Unavailable</code> capacity in the Capacity Reservation.</p>
+   * @public
+   */
+  TotalCapacity?: number | undefined;
+
+  /**
+   * <p>The remaining capacity. Indicates the amount of resources that can be launched into the Capacity Reservation.</p>
+   * @public
+   */
+  TotalAvailableCapacity?: number | undefined;
+
+  /**
+   * <p>The used capacity. Indicates that the capacity is in use by resources that are running in the Capacity Reservation.</p>
+   * @public
+   */
+  TotalUnavailableCapacity?: number | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const CapacityBlockInterconnectStatus = {
+  impaired: "impaired",
+  insufficient_data: "insufficient-data",
+  ok: "ok",
+} as const;
+
+/**
+ * @public
+ */
+export type CapacityBlockInterconnectStatus =
+  (typeof CapacityBlockInterconnectStatus)[keyof typeof CapacityBlockInterconnectStatus];
+
+/**
+ * <p>Describes the availability of capacity for a Capacity Block.</p>
+ * @public
+ */
+export interface CapacityBlockStatus {
+  /**
+   * <p>The ID of the Capacity Block.</p>
+   * @public
+   */
+  CapacityBlockId?: string | undefined;
+
+  /**
+   * <p>The status of the high-bandwidth accelerator interconnect. Possible states include:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>ok</code> the accelerator interconnect is healthy.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>impaired</code> - accelerator interconnect communication is impaired.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>insufficient-data</code> - insufficient data to determine accelerator interconnect status.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  InterconnectStatus?: CapacityBlockInterconnectStatus | undefined;
+
+  /**
+   * <p>The combined amount of <code>Available</code> and <code>Unavailable</code> capacity in the Capacity Block.</p>
+   * @public
+   */
+  TotalCapacity?: number | undefined;
+
+  /**
+   * <p>The remaining capacity. Indicates the number of resources that can be launched into the Capacity Block.</p>
+   * @public
+   */
+  TotalAvailableCapacity?: number | undefined;
+
+  /**
+   * <p>The unavailable capacity. Indicates the instance capacity that is unavailable for use
+   * 			due to a system status check failure.</p>
+   * @public
+   */
+  TotalUnavailableCapacity?: number | undefined;
+
+  /**
+   * <p>The availability of capacity for the Capacity Block reservations.</p>
+   * @public
+   */
+  CapacityReservationStatuses?: CapacityReservationStatus[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeCapacityBlockStatusResult {
+  /**
+   * <p>The availability of capacity for a Capacity Block.</p>
+   * @public
+   */
+  CapacityBlockStatuses?: CapacityBlockStatus[] | undefined;
 
   /**
    * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
@@ -7250,308 +7618,6 @@ export interface DescribeCarrierGatewaysRequest {
    */
   DryRun?: boolean | undefined;
 }
-
-/**
- * @public
- */
-export interface DescribeCarrierGatewaysResult {
-  /**
-   * <p>Information about the carrier gateway.</p>
-   * @public
-   */
-  CarrierGateways?: CarrierGateway[] | undefined;
-
-  /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeClassicLinkInstancesRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>The instance IDs. Must be instances linked to a VPC through ClassicLink.</p>
-   * @public
-   */
-  InstanceIds?: string[] | undefined;
-
-  /**
-   * <p>The filters.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>group-id</code> - The ID of a VPC security group that's associated with the instance.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>instance-id</code> - The ID of the instance.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>tag</code> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value.
-   *     For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>vpc-id</code> - The ID of the VPC to which the instance is linked.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  Filters?: Filter[] | undefined;
-
-  /**
-   * <p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of items to return for this request.
-   * 	To get the next page of items, make another request with the token returned in the output.
-   * 	For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
-   *          <p>Constraint: If the value is greater than 1000, we return only 1000 items.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-}
-
-/**
- * <note>
- *             <p>Deprecated.</p>
- *          </note>
- *          <p>Describes a linked EC2-Classic instance.</p>
- * @public
- */
-export interface ClassicLinkInstance {
-  /**
-   * <p>The security groups.</p>
-   * @public
-   */
-  Groups?: GroupIdentifier[] | undefined;
-
-  /**
-   * <p>The ID of the instance.</p>
-   * @public
-   */
-  InstanceId?: string | undefined;
-
-  /**
-   * <p>Any tags assigned to the instance.</p>
-   * @public
-   */
-  Tags?: Tag[] | undefined;
-
-  /**
-   * <p>The ID of the VPC.</p>
-   * @public
-   */
-  VpcId?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeClassicLinkInstancesResult {
-  /**
-   * <p>Information about one or more linked EC2-Classic instances.</p>
-   * @public
-   */
-  Instances?: ClassicLinkInstance[] | undefined;
-
-  /**
-   * <p>The token to include in another request to get the next page of items. This value is <code>null</code> when there are no more items to return.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeClientVpnAuthorizationRulesRequest {
-  /**
-   * <p>The ID of the Client VPN endpoint.</p>
-   * @public
-   */
-  ClientVpnEndpointId: string | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>The token to retrieve the next page of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>One or more filters. Filter names and values are case-sensitive.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>description</code> - The description of the authorization rule.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>destination-cidr</code> - The CIDR of the network to which the authorization rule
-   *                     applies.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>group-id</code> - The ID of the Active Directory group to which the authorization rule grants access.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  Filters?: Filter[] | undefined;
-
-  /**
-   * <p>The maximum number of results to return for the request in a single page. The remaining results can be seen by sending another request with the nextToken value.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-}
-
-/**
- * <p>Information about an authorization rule.</p>
- * @public
- */
-export interface AuthorizationRule {
-  /**
-   * <p>The ID of the Client VPN endpoint with which the authorization rule is associated.</p>
-   * @public
-   */
-  ClientVpnEndpointId?: string | undefined;
-
-  /**
-   * <p>A brief description of the authorization rule.</p>
-   * @public
-   */
-  Description?: string | undefined;
-
-  /**
-   * <p>The ID of the Active Directory group to which the authorization rule grants access.</p>
-   * @public
-   */
-  GroupId?: string | undefined;
-
-  /**
-   * <p>Indicates whether the authorization rule grants access to all clients.</p>
-   * @public
-   */
-  AccessAll?: boolean | undefined;
-
-  /**
-   * <p>The IPv4 address range, in CIDR notation, of the network to which the authorization rule applies.</p>
-   * @public
-   */
-  DestinationCidr?: string | undefined;
-
-  /**
-   * <p>The current state of the authorization rule.</p>
-   * @public
-   */
-  Status?: ClientVpnAuthorizationRuleStatus | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeClientVpnAuthorizationRulesResult {
-  /**
-   * <p>Information about the authorization rules.</p>
-   * @public
-   */
-  AuthorizationRules?: AuthorizationRule[] | undefined;
-
-  /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeClientVpnConnectionsRequest {
-  /**
-   * <p>The ID of the Client VPN endpoint.</p>
-   * @public
-   */
-  ClientVpnEndpointId: string | undefined;
-
-  /**
-   * <p>One or more filters. Filter names and values are case-sensitive.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>connection-id</code> - The ID of the connection.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>username</code> - For Active Directory client authentication, the user name of the
-   *                     client who established the client connection.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  Filters?: Filter[] | undefined;
-
-  /**
-   * <p>The token to retrieve the next page of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of results to return for the request in a single page. The remaining results can be seen by sending another request with the nextToken value.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const ClientVpnConnectionStatusCode = {
-  active: "active",
-  failed_to_terminate: "failed-to-terminate",
-  terminated: "terminated",
-  terminating: "terminating",
-} as const;
-
-/**
- * @public
- */
-export type ClientVpnConnectionStatusCode =
-  (typeof ClientVpnConnectionStatusCode)[keyof typeof ClientVpnConnectionStatusCode];
 
 /**
  * @internal

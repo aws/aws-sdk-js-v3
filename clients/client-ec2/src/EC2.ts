@@ -1224,6 +1224,16 @@ import {
   DescribeCapacityBlockOfferingsCommandOutput,
 } from "./commands/DescribeCapacityBlockOfferingsCommand";
 import {
+  DescribeCapacityBlocksCommand,
+  DescribeCapacityBlocksCommandInput,
+  DescribeCapacityBlocksCommandOutput,
+} from "./commands/DescribeCapacityBlocksCommand";
+import {
+  DescribeCapacityBlockStatusCommand,
+  DescribeCapacityBlockStatusCommandInput,
+  DescribeCapacityBlockStatusCommandOutput,
+} from "./commands/DescribeCapacityBlockStatusCommand";
+import {
   DescribeCapacityReservationBillingRequestsCommand,
   DescribeCapacityReservationBillingRequestsCommandInput,
   DescribeCapacityReservationBillingRequestsCommandOutput,
@@ -3620,6 +3630,8 @@ const commands = {
   DescribeCapacityBlockExtensionHistoryCommand,
   DescribeCapacityBlockExtensionOfferingsCommand,
   DescribeCapacityBlockOfferingsCommand,
+  DescribeCapacityBlocksCommand,
+  DescribeCapacityBlockStatusCommand,
   DescribeCapacityReservationBillingRequestsCommand,
   DescribeCapacityReservationFleetsCommand,
   DescribeCapacityReservationsCommand,
@@ -8203,6 +8215,42 @@ export interface EC2 {
     args: DescribeCapacityBlockOfferingsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DescribeCapacityBlockOfferingsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeCapacityBlocksCommand}
+   */
+  describeCapacityBlocks(): Promise<DescribeCapacityBlocksCommandOutput>;
+  describeCapacityBlocks(
+    args: DescribeCapacityBlocksCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeCapacityBlocksCommandOutput>;
+  describeCapacityBlocks(
+    args: DescribeCapacityBlocksCommandInput,
+    cb: (err: any, data?: DescribeCapacityBlocksCommandOutput) => void
+  ): void;
+  describeCapacityBlocks(
+    args: DescribeCapacityBlocksCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeCapacityBlocksCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeCapacityBlockStatusCommand}
+   */
+  describeCapacityBlockStatus(): Promise<DescribeCapacityBlockStatusCommandOutput>;
+  describeCapacityBlockStatus(
+    args: DescribeCapacityBlockStatusCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeCapacityBlockStatusCommandOutput>;
+  describeCapacityBlockStatus(
+    args: DescribeCapacityBlockStatusCommandInput,
+    cb: (err: any, data?: DescribeCapacityBlockStatusCommandOutput) => void
+  ): void;
+  describeCapacityBlockStatus(
+    args: DescribeCapacityBlockStatusCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeCapacityBlockStatusCommandOutput) => void
   ): void;
 
   /**

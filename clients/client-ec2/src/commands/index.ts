@@ -252,6 +252,8 @@ export * from "./DescribeByoipCidrsCommand";
 export * from "./DescribeCapacityBlockExtensionHistoryCommand";
 export * from "./DescribeCapacityBlockExtensionOfferingsCommand";
 export * from "./DescribeCapacityBlockOfferingsCommand";
+export * from "./DescribeCapacityBlockStatusCommand";
+export * from "./DescribeCapacityBlocksCommand";
 export * from "./DescribeCapacityReservationBillingRequestsCommand";
 export * from "./DescribeCapacityReservationFleetsCommand";
 export * from "./DescribeCapacityReservationsCommand";

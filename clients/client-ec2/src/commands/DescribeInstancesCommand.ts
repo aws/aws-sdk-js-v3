@@ -246,6 +246,7 @@ export interface DescribeInstancesCommandOutput extends DescribeInstancesResult,
  * //             ThreadsPerCore: Number("int"),
  * //             AmdSevSnp: "enabled" || "disabled",
  * //           },
+ * //           CapacityBlockId: "STRING_VALUE",
  * //           CapacityReservationId: "STRING_VALUE",
  * //           CapacityReservationSpecification: { // CapacityReservationSpecificationResponse
  * //             CapacityReservationPreference: "capacity-reservations-only" || "open" || "none",

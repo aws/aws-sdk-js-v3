@@ -33,8 +33,8 @@ export interface DescribeCapacityBlockOfferingsCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Describes Capacity Block offerings available for purchase in the Amazon Web Services Region that you're currently using. With Capacity Blocks, you purchase a
- * 			specific instance type for a period of time.</p>
+ * <p>Describes Capacity Block offerings available for purchase in the Amazon Web Services Region that you're currently using. With Capacity Blocks, you can
+ * 			purchase a specific GPU instance type or EC2 UltraServer for a period of time.</p>
  *          <p>To search for an available Capacity Block offering, you specify a reservation duration
  * 			and instance count.</p>
  * @example
@@ -52,6 +52,8 @@ export interface DescribeCapacityBlockOfferingsCommandOutput
  *   CapacityDurationHours: Number("int"), // required
  *   NextToken: "STRING_VALUE",
  *   MaxResults: Number("int"),
+ *   UltraserverType: "STRING_VALUE",
+ *   UltraserverCount: Number("int"),
  * };
  * const command = new DescribeCapacityBlockOfferingsCommand(input);
  * const response = await client.send(command);
@@ -68,6 +70,8 @@ export interface DescribeCapacityBlockOfferingsCommandOutput
  * //       UpfrontFee: "STRING_VALUE",
  * //       CurrencyCode: "STRING_VALUE",
  * //       Tenancy: "default" || "dedicated",
+ * //       UltraserverType: "STRING_VALUE",
+ * //       UltraserverCount: Number("int"),
  * //       CapacityBlockDurationMinutes: Number("int"),
  * //     },
  * //   ],

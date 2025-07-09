@@ -7,6 +7,7 @@ import {
   AddressTransfer,
   AllowedImagesSettingsDisabledState,
   AllowedImagesSettingsEnabledState,
+  AllowedPrincipal,
   AsnAssociation,
   AssociationStatus,
   CurrencyCodeValues,
@@ -18,7 +19,6 @@ import {
   NatGatewayAddress,
   RouteServerAssociation,
   SecurityGroupVpcAssociationState,
-  SubnetAssociation,
   SubnetIpv6CidrBlockAssociation,
   Tag,
   TagSpecification,
@@ -33,6 +33,7 @@ import {
   VerifiedAccessTrustProviderFilterSensitiveLog,
   VpcCidrBlockAssociation,
   VpcIpv6CidrBlockAssociation,
+  VpcPeeringConnection,
 } from "./models_0";
 
 import {
@@ -50,14 +51,18 @@ import {
   ResponseLaunchTemplateData,
   ResponseLaunchTemplateDataFilterSensitiveLog,
   SSEType,
-  SubnetCidrReservation,
 } from "./models_2";
 
 import {
+  DnsNameState,
   Filter,
   IpamPoolCidr,
   MetricType,
+  PayerResponsibility,
   PeriodType,
+  ServiceConfiguration,
+  ServiceConnectivityType,
+  ServiceTypeDetail,
   StatisticType,
   VpnConnection,
   VpnConnectionFilterSensitiveLog,
@@ -80,6 +85,426 @@ import {
 } from "./models_4";
 
 import { AnalysisStatus, ManagedBy } from "./models_5";
+
+/**
+ * @public
+ */
+export interface DescribeVpcEndpointServiceConfigurationsResult {
+  /**
+   * <p>Information about the services.</p>
+   * @public
+   */
+  ServiceConfigurations?: ServiceConfiguration[] | undefined;
+
+  /**
+   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeVpcEndpointServicePermissionsRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>The ID of the service.</p>
+   * @public
+   */
+  ServiceId: string | undefined;
+
+  /**
+   * <p>The filters.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>principal</code> - The ARN of the principal.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>principal-type</code> - The principal type (<code>All</code> |
+   * 						<code>Service</code> | <code>OrganizationUnit</code> | <code>Account</code>
+   * 					| <code>User</code> | <code>Role</code>).</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Filters?: Filter[] | undefined;
+
+  /**
+   * <p>The maximum number of results to return for the request in a single page. The remaining
+   *             results of the initial request can be seen by sending another request with the returned
+   *                 <code>NextToken</code> value. This value can be between 5 and 1,000; if
+   *                 <code>MaxResults</code> is given a value larger than 1,000, only 1,000 results are
+   *             returned.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>The token to retrieve the next page of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeVpcEndpointServicePermissionsResult {
+  /**
+   * <p>Information about the allowed principals.</p>
+   * @public
+   */
+  AllowedPrincipals?: AllowedPrincipal[] | undefined;
+
+  /**
+   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeVpcEndpointServicesRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>The service names.</p>
+   * @public
+   */
+  ServiceNames?: string[] | undefined;
+
+  /**
+   * <p>The filters.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>owner</code> - The ID or alias of the Amazon Web Services account that owns
+   *                     the service.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>service-name</code> - The name of the service.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>service-region</code> - The Region of the service.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>service-type</code> - The type of service (<code>Interface</code> |
+   *                         <code>Gateway</code> | <code>GatewayLoadBalancer</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>supported-ip-address-types</code> - The IP address type (<code>ipv4</code> | <code>ipv6</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>tag</code>:<key> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value. For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Filters?: Filter[] | undefined;
+
+  /**
+   * <p>The maximum number of items to return for this request. The request returns a token that you can specify in a subsequent call to get the next set of results.</p>
+   *          <p>Constraint: If the value is greater than 1,000, we return only 1,000 items.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>The token for the next set of items to return. (You received this token from a prior call.)</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The service Regions.</p>
+   * @public
+   */
+  ServiceRegions?: string[] | undefined;
+}
+
+/**
+ * <p>Information about the Private DNS name for interface endpoints.</p>
+ * @public
+ */
+export interface PrivateDnsDetails {
+  /**
+   * <p>The private DNS name assigned to the VPC endpoint service.</p>
+   * @public
+   */
+  PrivateDnsName?: string | undefined;
+}
+
+/**
+ * <p>Describes a VPC endpoint service.</p>
+ * @public
+ */
+export interface ServiceDetail {
+  /**
+   * <p>The name of the service.</p>
+   * @public
+   */
+  ServiceName?: string | undefined;
+
+  /**
+   * <p>The ID of the endpoint service.</p>
+   * @public
+   */
+  ServiceId?: string | undefined;
+
+  /**
+   * <p>The type of service.</p>
+   * @public
+   */
+  ServiceType?: ServiceTypeDetail[] | undefined;
+
+  /**
+   * <p>The Region where the service is hosted.</p>
+   * @public
+   */
+  ServiceRegion?: string | undefined;
+
+  /**
+   * <p>The Availability Zones in which the service is available.</p>
+   * @public
+   */
+  AvailabilityZones?: string[] | undefined;
+
+  /**
+   * <p>The Amazon Web Services account ID of the service owner.</p>
+   * @public
+   */
+  Owner?: string | undefined;
+
+  /**
+   * <p>The DNS names for the service.</p>
+   * @public
+   */
+  BaseEndpointDnsNames?: string[] | undefined;
+
+  /**
+   * <p>The private DNS name for the service.</p>
+   * @public
+   */
+  PrivateDnsName?: string | undefined;
+
+  /**
+   * <p>The private DNS names assigned to the VPC endpoint service.</p>
+   * @public
+   */
+  PrivateDnsNames?: PrivateDnsDetails[] | undefined;
+
+  /**
+   * <p>Indicates whether the service supports endpoint policies.</p>
+   * @public
+   */
+  VpcEndpointPolicySupported?: boolean | undefined;
+
+  /**
+   * <p>Indicates whether VPC endpoint connection requests to the service must be accepted by the service owner.</p>
+   * @public
+   */
+  AcceptanceRequired?: boolean | undefined;
+
+  /**
+   * <p>Indicates whether the service manages its VPC endpoints. Management of the service VPC
+   *             endpoints using the VPC endpoint API is restricted.</p>
+   * @public
+   */
+  ManagesVpcEndpoints?: boolean | undefined;
+
+  /**
+   * <p>The payer responsibility.</p>
+   * @public
+   */
+  PayerResponsibility?: PayerResponsibility | undefined;
+
+  /**
+   * <p>The tags assigned to the service.</p>
+   * @public
+   */
+  Tags?: Tag[] | undefined;
+
+  /**
+   * <p>The verification state of the VPC endpoint service.</p>
+   *          <p>Consumers of the endpoint service cannot use the private name when the state is not <code>verified</code>.</p>
+   * @public
+   */
+  PrivateDnsNameVerificationState?: DnsNameState | undefined;
+
+  /**
+   * <p>The supported IP address types.</p>
+   * @public
+   */
+  SupportedIpAddressTypes?: ServiceConnectivityType[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeVpcEndpointServicesResult {
+  /**
+   * <p>The supported services.</p>
+   * @public
+   */
+  ServiceNames?: string[] | undefined;
+
+  /**
+   * <p>Information about the service.</p>
+   * @public
+   */
+  ServiceDetails?: ServiceDetail[] | undefined;
+
+  /**
+   * <p>The token to use when requesting the next set of items. If there are no additional items to return, the string is empty.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeVpcPeeringConnectionsRequest {
+  /**
+   * <p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of items to return for this request.
+   * 	To get the next page of items, make another request with the token returned in the output.
+   * 	For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>The IDs of the VPC peering connections.</p>
+   *          <p>Default: Describes all your VPC peering connections.</p>
+   * @public
+   */
+  VpcPeeringConnectionIds?: string[] | undefined;
+
+  /**
+   * <p>The filters.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>accepter-vpc-info.cidr-block</code> - The IPv4 CIDR block of the accepter
+   *                     VPC.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>accepter-vpc-info.owner-id</code> - The ID of the Amazon Web Services account that owns the
+   *                     accepter VPC.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>accepter-vpc-info.vpc-id</code> - The ID of the accepter VPC.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>expiration-time</code> - The expiration date and time for the VPC peering
+   *           connection.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>requester-vpc-info.cidr-block</code> - The IPv4 CIDR block of the
+   *                     requester's VPC.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>requester-vpc-info.owner-id</code> - The ID of the Amazon Web Services account that owns the
+   *                   requester VPC.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>requester-vpc-info.vpc-id</code> - The ID of the requester VPC.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>status-code</code> - The status of the VPC peering connection
+   *                         (<code>pending-acceptance</code> | <code>failed</code> |
+   *                         <code>expired</code> | <code>provisioning</code> | <code>active</code> |
+   *                         <code>deleting</code> | <code>deleted</code> |
+   *                     <code>rejected</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>status-message</code> - A message that provides more information about the status
+   *           of the VPC peering connection, if applicable.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>tag</code> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value.
+   *     For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>vpc-peering-connection-id</code> - The ID of the VPC peering connection.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Filters?: Filter[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeVpcPeeringConnectionsResult {
+  /**
+   * <p>Information about the VPC peering connections.</p>
+   * @public
+   */
+  VpcPeeringConnections?: VpcPeeringConnection[] | undefined;
+
+  /**
+   * <p>The token to include in another request to get the next page of items. This value is <code>null</code> when there are no more items to return.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
 
 /**
  * @public
@@ -7501,326 +7926,6 @@ export interface GetSpotPlacementScoresRequest {
    * @public
    */
   NextToken?: string | undefined;
-}
-
-/**
- * <p>The Spot placement score for this Region or Availability Zone. The score is calculated
- *          based on the assumption that the <code>capacity-optimized</code> allocation strategy is
- *          used and that all of the Availability Zones in the Region can be used.</p>
- * @public
- */
-export interface SpotPlacementScore {
-  /**
-   * <p>The Region.</p>
-   * @public
-   */
-  Region?: string | undefined;
-
-  /**
-   * <p>The Availability Zone.</p>
-   * @public
-   */
-  AvailabilityZoneId?: string | undefined;
-
-  /**
-   * <p>The placement score, on a scale from <code>1</code> to <code>10</code>. A score of
-   *             <code>10</code> indicates that your Spot request is highly likely to succeed in this
-   *          Region or Availability Zone. A score of <code>1</code> indicates that your Spot request is
-   *          not likely to succeed. </p>
-   * @public
-   */
-  Score?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface GetSpotPlacementScoresResult {
-  /**
-   * <p>The Spot placement score for the top 10 Regions or Availability Zones, scored on a scale
-   *          from 1 to 10. Each score  reflects how likely it is that each Region or Availability Zone
-   *          will succeed at fulfilling the specified target capacity  <i>at the time of the Spot
-   *             placement score request</i>. A score of <code>10</code> means that your Spot
-   *          capacity request is highly likely to succeed in that Region or Availability Zone. </p>
-   *          <p>If you request a Spot placement score for Regions, a high score assumes that your fleet
-   *          request will be configured to use all Availability Zones and the
-   *             <code>capacity-optimized</code> allocation strategy. If you request a Spot placement
-   *          score for Availability Zones, a high score assumes that your fleet request will be
-   *          configured to use a single Availability Zone and the <code>capacity-optimized</code>
-   *          allocation strategy.</p>
-   *          <p>Different  Regions or Availability Zones might return the same score.</p>
-   *          <note>
-   *             <p>The Spot placement score serves as a recommendation only. No score guarantees that your
-   *             Spot request will be fully or partially fulfilled.</p>
-   *          </note>
-   * @public
-   */
-  SpotPlacementScores?: SpotPlacementScore[] | undefined;
-
-  /**
-   * <p>The token to include in another request to get the next page of items. This value is <code>null</code> when there
-   *          are no more items to return.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface GetSubnetCidrReservationsRequest {
-  /**
-   * <p>One or more filters.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>reservationType</code> - The type of reservation (<code>prefix</code> |
-   *                     <code>explicit</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>subnet-id</code> - The ID of the subnet.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>tag</code>:<key> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value.
-   *     For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  Filters?: Filter[] | undefined;
-
-  /**
-   * <p>The ID of the subnet.</p>
-   * @public
-   */
-  SubnetId: string | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>The token for the next page of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of results to return with a single call.
-   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface GetSubnetCidrReservationsResult {
-  /**
-   * <p>Information about the IPv4 subnet CIDR reservations.</p>
-   * @public
-   */
-  SubnetIpv4CidrReservations?: SubnetCidrReservation[] | undefined;
-
-  /**
-   * <p>Information about the IPv6 subnet CIDR reservations.</p>
-   * @public
-   */
-  SubnetIpv6CidrReservations?: SubnetCidrReservation[] | undefined;
-
-  /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface GetTransitGatewayAttachmentPropagationsRequest {
-  /**
-   * <p>The ID of the attachment.</p>
-   * @public
-   */
-  TransitGatewayAttachmentId: string | undefined;
-
-  /**
-   * <p>One or more filters. The possible values are:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>transit-gateway-route-table-id</code> - The ID of the transit gateway route table.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  Filters?: Filter[] | undefined;
-
-  /**
-   * <p>The maximum number of results to return with a single call.
-   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>The token for the next page of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-}
-
-/**
- * <p>Describes a propagation route table.</p>
- * @public
- */
-export interface TransitGatewayAttachmentPropagation {
-  /**
-   * <p>The ID of the propagation route table.</p>
-   * @public
-   */
-  TransitGatewayRouteTableId?: string | undefined;
-
-  /**
-   * <p>The state of the propagation route table.</p>
-   * @public
-   */
-  State?: TransitGatewayPropagationState | undefined;
-}
-
-/**
- * @public
- */
-export interface GetTransitGatewayAttachmentPropagationsResult {
-  /**
-   * <p>Information about the propagation route tables.</p>
-   * @public
-   */
-  TransitGatewayAttachmentPropagations?: TransitGatewayAttachmentPropagation[] | undefined;
-
-  /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface GetTransitGatewayMulticastDomainAssociationsRequest {
-  /**
-   * <p>The ID of the transit gateway multicast domain.</p>
-   * @public
-   */
-  TransitGatewayMulticastDomainId: string | undefined;
-
-  /**
-   * <p>One or more filters. The possible values are:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>resource-id</code> - The ID of the resource.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>resource-type</code> - The type of resource. The valid value is: <code>vpc</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>state</code> - The state of the subnet association. Valid values are
-   *                         <code>associated</code> | <code>associating</code> |
-   *                         <code>disassociated</code> | <code>disassociating</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>subnet-id</code> - The ID of the subnet.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>transit-gateway-attachment-id</code> - The id of the transit gateway attachment.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  Filters?: Filter[] | undefined;
-
-  /**
-   * <p>The maximum number of results to return with a single call.
-   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>The token for the next page of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-}
-
-/**
- * <p>Describes the resources associated with the transit gateway multicast domain.</p>
- * @public
- */
-export interface TransitGatewayMulticastDomainAssociation {
-  /**
-   * <p>The ID of the transit gateway attachment.</p>
-   * @public
-   */
-  TransitGatewayAttachmentId?: string | undefined;
-
-  /**
-   * <p>The ID of the resource.</p>
-   * @public
-   */
-  ResourceId?: string | undefined;
-
-  /**
-   * <p>The type of resource, for example a VPC attachment.</p>
-   * @public
-   */
-  ResourceType?: TransitGatewayAttachmentResourceType | undefined;
-
-  /**
-   * <p> The ID of the Amazon Web Services account that owns the transit gateway multicast domain association resource.</p>
-   * @public
-   */
-  ResourceOwnerId?: string | undefined;
-
-  /**
-   * <p>The subnet associated with the transit gateway multicast domain.</p>
-   * @public
-   */
-  Subnet?: SubnetAssociation | undefined;
 }
 
 /**

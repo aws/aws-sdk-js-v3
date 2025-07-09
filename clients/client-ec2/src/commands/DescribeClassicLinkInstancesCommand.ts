@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DescribeClassicLinkInstancesRequest, DescribeClassicLinkInstancesResult } from "../models/models_3";
+import { DescribeClassicLinkInstancesRequest, DescribeClassicLinkInstancesResult } from "../models/models_4";
 import { de_DescribeClassicLinkInstancesCommand, se_DescribeClassicLinkInstancesCommand } from "../protocols/Aws_ec2";
 
 /**

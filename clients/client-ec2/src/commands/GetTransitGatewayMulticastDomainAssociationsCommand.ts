@@ -6,8 +6,10 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { GetTransitGatewayMulticastDomainAssociationsRequest } from "../models/models_6";
-import { GetTransitGatewayMulticastDomainAssociationsResult } from "../models/models_7";
+import {
+  GetTransitGatewayMulticastDomainAssociationsRequest,
+  GetTransitGatewayMulticastDomainAssociationsResult,
+} from "../models/models_7";
 import {
   de_GetTransitGatewayMulticastDomainAssociationsCommand,
   se_GetTransitGatewayMulticastDomainAssociationsCommand,
