@@ -48,8 +48,10 @@ export interface UpdateServerEngineAttributesCommandOutput
  *       This operation is asynchronous.
  *     </p>
  *          <p>
- *       This operation can only be called for servers in <code>HEALTHY</code> or <code>UNHEALTHY</code> states. Otherwise, an <code>InvalidStateException</code> is raised.
- *       A <code>ResourceNotFoundException</code> is thrown when the server does not exist. A <code>ValidationException</code> is raised when parameters of the request are not valid.
+ *       This operation can only be called for servers in <code>HEALTHY</code> or <code>UNHEALTHY</code> states.
+ *       Otherwise, an <code>InvalidStateException</code> is raised.
+ *       A <code>ResourceNotFoundException</code> is thrown when the server does not exist. A <code>ValidationException</code> is
+ *       raised when parameters of the request are not valid.
  *     </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

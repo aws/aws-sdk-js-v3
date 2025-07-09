@@ -33,7 +33,7 @@ export interface DisassociateNodeCommandOutput extends DisassociateNodeResponse,
 
 /**
  * <p>
- *       Disassociates a node from an AWS OpsWorks CM server, and removes the node from the server's managed nodes. After a node is disassociated,
+ *       Disassociates a node from an OpsWorks CM server, and removes the node from the server's managed nodes. After a node is disassociated,
  *       the node key pair is no longer valid for accessing the configuration manager's API. For more information about how to associate a node, see <a>AssociateNode</a>.
  *     </p>
  *          <p>A node can can only be disassociated from a server that is in a <code>HEALTHY</code> state. Otherwise, an <code>InvalidStateException</code> is thrown.

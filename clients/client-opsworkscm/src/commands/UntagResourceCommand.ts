@@ -28,7 +28,7 @@ export interface UntagResourceCommandInput extends UntagResourceRequest {}
 export interface UntagResourceCommandOutput extends UntagResourceResponse, __MetadataBearer {}
 
 /**
- * <p>Removes specified tags from an AWS OpsWorks-CM server or backup.</p>
+ * <p>Removes specified tags from an OpsWorks CM server or backup.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

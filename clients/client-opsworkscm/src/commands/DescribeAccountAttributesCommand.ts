@@ -29,7 +29,7 @@ export interface DescribeAccountAttributesCommandOutput extends DescribeAccountA
 
 /**
  * <p>
- *       Describes your OpsWorks-CM account attributes.
+ *       Describes your OpsWorks CM account attributes.
  *     </p>
  *          <p>
  *       This operation is synchronous.

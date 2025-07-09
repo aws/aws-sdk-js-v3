@@ -28,8 +28,8 @@ export interface ListTagsForResourceCommandInput extends ListTagsForResourceRequ
 export interface ListTagsForResourceCommandOutput extends ListTagsForResourceResponse, __MetadataBearer {}
 
 /**
- * <p>Returns a list of tags that are applied to the specified AWS OpsWorks for Chef Automate or
- *       AWS OpsWorks for Puppet Enterprise servers or backups.</p>
+ * <p>Returns a list of tags that are applied to the specified OpsWorks for Chef Automate or
+ *       OpsWorks for Puppet Enterprise servers or backups.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

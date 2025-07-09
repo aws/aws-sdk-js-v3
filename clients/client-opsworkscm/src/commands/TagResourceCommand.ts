@@ -28,7 +28,7 @@ export interface TagResourceCommandInput extends TagResourceRequest {}
 export interface TagResourceCommandOutput extends TagResourceResponse, __MetadataBearer {}
 
 /**
- * <p>Applies tags to an AWS OpsWorks for Chef Automate or AWS OpsWorks for Puppet Enterprise server, or to server backups.</p>
+ * <p>Applies tags to an OpsWorks for Chef Automate or OpsWorks for Puppet Enterprise server, or to server backups.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -38,7 +38,7 @@ export interface RestoreServerCommandOutput extends RestoreServerResponse, __Met
  *       the existing server endpoint, so configuration management of the server's client devices (nodes) should continue to work.
  *     </p>
  *          <p>Restoring from a backup is performed by creating a new EC2 instance. If restoration is successful, and the server is in a <code>HEALTHY</code> state,
- *       AWS OpsWorks CM switches traffic over to the new instance. After restoration is finished, the old EC2 instance is maintained in a
+ *       OpsWorks CM switches traffic over to the new instance. After restoration is finished, the old EC2 instance is maintained in a
  *       <code>Running</code> or <code>Stopped</code> state, but is eventually terminated.</p>
  *          <p>
  *       This operation is asynchronous.

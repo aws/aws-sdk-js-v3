@@ -34,7 +34,8 @@ export interface CreateBackupCommandOutput extends CreateBackupResponse, __Metad
  *       changed, and no additional backup can be created.
  *     </p>
  *          <p>
- *       Backups can be created for servers in <code>RUNNING</code>, <code>HEALTHY</code>, and <code>UNHEALTHY</code> states. By default, you can create a maximum of 50
+ *       Backups can be created for servers in <code>RUNNING</code>, <code>HEALTHY</code>, and <code>UNHEALTHY</code> states.
+ *       By default, you can create a maximum of 50
  *       manual backups.
  *     </p>
  *          <p>

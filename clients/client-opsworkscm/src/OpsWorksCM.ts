@@ -383,10 +383,14 @@ export interface OpsWorksCM {
 }
 
 /**
- * <fullname>AWS OpsWorks CM</fullname>
- *          <p>AWS OpsWorks for configuration management (CM) is a service that runs and manages
- *       configuration management servers. You can use AWS OpsWorks CM to create and manage AWS
- *       OpsWorks for Chef Automate and AWS OpsWorks for Puppet Enterprise servers, and add or remove
+ * <fullname>OpsWorks CM</fullname>
+ *          <important>
+ *             <p>The OpsWorks services have reached end of life and have been disabled for both new and existing customers.
+ *         We strongly recommend customers migrate their workloads to other solutions as soon as possible. If you have questions about migration, reach out to the Amazon Web ServicesSupport Team on <a href="https://repost.aws/">Amazon Web Services re:Post</a> or through <a href="https://aws.amazon.com/support">Amazon Web Services Premium Support</a>.</p>
+ *          </important>
+ *          <p>OpsWorks CM is a service that runs and manages
+ *       configuration management servers. You can use OpsWorks CM to create and manage OpsWorks for Chef Automate and
+ *       OpsWorks for Puppet Enterprise servers, and add or remove
  *       nodes for the servers to manage.</p>
  *          <p>
  *             <b>Glossary of terms</b>
@@ -396,9 +400,9 @@ export interface OpsWorksCM {
  *                <p>
  *                   <b>Server</b>: A configuration management server that can be
  *         highly-available. The configuration management server runs on
- *       an Amazon Elastic Compute Cloud (EC2) instance, and may use various other AWS services, such as Amazon Relational
- *       Database Service (RDS) and Elastic Load Balancing. A server is a generic abstraction over the configuration
- *       manager that you want to use, much like Amazon RDS. In AWS OpsWorks CM, you do not start
+ *         an Amazon Elastic Compute Cloud (EC2) instance, and may use various other Amazon Web Services services, such as Amazon Relational Database Service
+ *         (RDS) and Elastic Load Balancing. A server is a generic abstraction over the configuration
+ *         manager that you want to use, much like Amazon RDS. In OpsWorks CM, you do not start
  *       or stop servers. After you create servers, they continue to run until they are deleted.</p>
  *             </li>
  *             <li>
@@ -410,7 +414,7 @@ export interface OpsWorksCM {
  *                <p>
  *                   <b>Backup</b>: This
  *       is an application-level backup of the data that the configuration manager
- *       stores. AWS OpsWorks CM
+ *       stores. OpsWorks CM
  *       creates an S3 bucket for backups when you launch the first
  *       server. A backup maintains a snapshot of a server's configuration-related
  *       attributes at the time the backup starts.</p>
@@ -426,7 +430,7 @@ export interface OpsWorksCM {
  *             <li>
  *                <p>
  *                   <b>Account attributes</b>:
- *       Every account has attributes that are assigned in the AWS OpsWorks CM
+ *         Every account has attributes that are assigned in the OpsWorks CM
  *       database. These attributes store information about configuration limits (servers,
  *       backups, etc.) and your customer account.
  *       </p>
@@ -435,7 +439,8 @@ export interface OpsWorksCM {
  *          <p>
  *             <b>Endpoints</b>
  *          </p>
- *          <p>AWS OpsWorks CM supports the following endpoints, all HTTPS. You must connect to one of the following endpoints. Your servers
+ *          <p>OpsWorks CM supports the following endpoints, all HTTPS. You must connect to one of the following endpoints.
+ *       Your servers
  *       can only be accessed or managed within the endpoint in which they are created.</p>
  *          <ul>
  *             <li>
@@ -466,7 +471,7 @@ export interface OpsWorksCM {
  *                <p>opsworks-cm.eu-west-1.amazonaws.com</p>
  *             </li>
  *          </ul>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/opsworks-service.html">AWS OpsWorks endpoints and quotas</a> in the AWS General Reference.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/opsworks-service.html">OpsWorks endpoints and quotas</a> in the Amazon Web Services General Reference.</p>
  *          <p>
  *             <b>Throttling limits</b>
  *          </p>

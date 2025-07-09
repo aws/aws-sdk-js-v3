@@ -16,12 +16,14 @@ export interface AccountAttribute {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <i>ServerLimit:</i> The number of current servers/maximum number of servers allowed. By default, you can have a maximum of 10 servers.
+   *                   <i>ServerLimit:</i> The number of current servers/maximum number of servers allowed. By default, you can have a
+   *         maximum of 10 servers.
    *       </p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <i>ManualBackupLimit:</i> The number of current manual backups/maximum number of backups allowed. By default, you can have a maximum
+   *                   <i>ManualBackupLimit:</i> The number of current manual backups/maximum number of backups allowed. By default,
+   *         you can have a maximum
    *         of 50 manual backups saved.
    *       </p>
    *             </li>
@@ -102,7 +104,7 @@ export interface AssociateNodeRequest {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>CHEF_NODE_PUBLIC_KEY</code>: A PEM-formatted public key. This key is required for the <code>chef-client</code> agent to access the Chef API.
+   *                   <code>CHEF_AUTOMATE_NODE_PUBLIC_KEY</code>: A PEM-formatted public key. This key is required for the <code>chef-client</code> agent to access the Chef API.
    *     </p>
    *             </li>
    *          </ul>
@@ -435,7 +437,7 @@ export interface Backup {
 
   /**
    * <p>
-   *       The version of AWS OpsWorks CM-specific tools that is obtained from the server when the backup is created.
+   *       The version of OpsWorks CM-specific tools that is obtained from the server when the backup is created.
    *     </p>
    * @public
    */
@@ -443,7 +445,7 @@ export interface Backup {
 
   /**
    * <p>
-   *       The IAM user ARN of the requester for manual backups. This field is empty for automated backups.
+   *       The user ARN of the requester for manual backups. This field is empty for automated backups.
    *     </p>
    * @public
    */
@@ -451,9 +453,9 @@ export interface Backup {
 }
 
 /**
- * <p>A map that contains tag keys and tag values to attach to an AWS OpsWorks for Chef Automate
- *       or AWS OpsWorks for Puppet Enterprise server. Leading and trailing white spaces are trimmed from both the key and value.
- *       A maximum of 50 user-applied tags is allowed for tag-supported AWS OpsWorks-CM resources.</p>
+ * <p>A map that contains tag keys and tag values to attach to an OpsWorks for Chef Automate
+ *       or OpsWorks for Puppet Enterprise server. Leading and trailing spaces are trimmed from both the key and value.
+ *       A maximum of 50 user-applied tags is allowed for tag-supported OpsWorks CM resources.</p>
  * @public
  */
 export interface Tag {
@@ -494,24 +496,26 @@ export interface CreateBackupRequest {
   Description?: string | undefined;
 
   /**
-   * <p>A map that contains tag keys and tag values to attach to an AWS OpsWorks-CM server backup.</p>
+   * <p>A map that contains tag keys and tag values to attach to an OpsWorks CM server backup.</p>
    *          <ul>
    *             <li>
    *                <p>The key cannot be empty.</p>
    *             </li>
    *             <li>
-   *                <p>The key can be a maximum of 127 characters, and can contain only Unicode letters, numbers, or separators, or the following special characters: <code>+ - = . _ : /</code>
+   *                <p>The key can be a maximum of 127 characters, and can contain only Unicode letters, numbers, or separators, or the
+   *         following special characters: <code>+ - = . _ : /</code>
    *                </p>
    *             </li>
    *             <li>
-   *                <p>The value can be a maximum 255 characters, and contain only Unicode letters, numbers, or separators, or the following special characters: <code>+ - = . _ : /</code>
+   *                <p>The value can be a maximum 255 characters, and contain only Unicode letters, numbers, or separators, or the
+   *         following special characters: <code>+ - = . _ : /</code>
    *                </p>
    *             </li>
    *             <li>
    *                <p>Leading and trailing white spaces are trimmed from both the key and value.</p>
    *             </li>
    *             <li>
-   *                <p>A maximum of 50 user-applied tags is allowed for tag-supported AWS OpsWorks-CM resources.</p>
+   *                <p>A maximum of 50 user-applied tags is allowed for tag-supported OpsWorks CM resources.</p>
    *             </li>
    *          </ul>
    * @public
@@ -695,7 +699,7 @@ export interface CreateServerRequest {
 
   /**
    * <p>
-   *         The number of automated backups that you want to keep. Whenever a new backup is created, AWS OpsWorks CM deletes the oldest backups if this number is exceeded.
+   *         The number of automated backups that you want to keep. Whenever a new backup is created, OpsWorks CM deletes the oldest backups if this number is exceeded.
    *         The default value is <code>1</code>.
    *       </p>
    * @public
@@ -704,7 +708,7 @@ export interface CreateServerRequest {
 
   /**
    * <p>
-   *         The name of the server. The server name must be unique within your AWS account, within each region.
+   *         The name of the server. The server name must be unique within your Amazon Web Services account, within each region.
    *         Server names must start with a letter; then letters, numbers, or hyphens (-) are allowed, up to a maximum of 40 characters.
    *       </p>
    * @public
@@ -714,12 +718,8 @@ export interface CreateServerRequest {
   /**
    * <p>
    *         The ARN of the instance profile that your Amazon EC2
-   *         instances use. Although the AWS OpsWorks console typically creates
-   *         the instance profile for you, if you are using API commands instead, run the service-role-creation.yaml
-   *         AWS CloudFormation template, located at https://s3.amazonaws.com/opsworks-cm-us-east-1-prod-default-assets/misc/opsworks-cm-roles.yaml.
-   *         This template creates a CloudFormation stack that includes the instance profile you need.
-   *
-   *       </p>
+   *         instances use. The OpsWorks console typically creates
+   *         the instance profile for you</p>
    * @public
    */
   InstanceProfileArn: string | undefined;
@@ -742,7 +742,7 @@ export interface CreateServerRequest {
 
   /**
    * <p>
-   *       The start time for a one-hour period each week during which AWS OpsWorks CM performs maintenance on the instance.
+   *       The start time for a one-hour period each week during which OpsWorks CM performs maintenance on the instance.
    *       Valid values must be specified in the following format: <code>DDD:HH:MM</code>. <code>MM</code> must be specified as <code>00</code>. The specified time is in coordinated universal time (UTC).
    *       The default value is a random one-hour period on Tuesday, Wednesday, or Friday. See <code>TimeWindowDefinition</code> for more information.
    *     </p>
@@ -757,7 +757,7 @@ export interface CreateServerRequest {
 
   /**
    * <p>
-   *       The start time for a one-hour period during which AWS OpsWorks CM backs up application-level data on your server
+   *       The start time for a one-hour period during which OpsWorks CM backs up application-level data on your server
    *       if automated backups are enabled. Valid values must be specified in one of the following formats:
    *     </p>
    *          <ul>
@@ -788,7 +788,7 @@ export interface CreateServerRequest {
    *       must be within the VPC that is specified by <code>SubnetIds</code>.
    *     </p>
    *          <p>
-   *       If you do not specify this parameter, AWS OpsWorks CM creates one new security group that uses TCP ports 22 and 443, open to
+   *       If you do not specify this parameter, OpsWorks CM creates one new security group that uses TCP ports 22 and 443, open to
    *       0.0.0.0/0 (everyone).
    *     </p>
    * @public
@@ -797,11 +797,7 @@ export interface CreateServerRequest {
 
   /**
    * <p>
-   *       The service role that the AWS OpsWorks CM service backend uses to work with your account. Although the AWS OpsWorks management console typically creates
-   *       the service role for you, if you are using the AWS CLI or API commands,
-   *       run the service-role-creation.yaml AWS CloudFormation template, located at https://s3.amazonaws.com/opsworks-cm-us-east-1-prod-default-assets/misc/opsworks-cm-roles.yaml.
-   *       This template creates a CloudFormation stack that includes the service role and instance profile that you need.
-   *     </p>
+   *       The service role that the OpsWorks CM service backend uses to work with your account.</p>
    * @public
    */
   ServiceRoleArn: string | undefined;
@@ -814,7 +810,8 @@ export interface CreateServerRequest {
    *       Amazon EC2-Classic customers: This field is required. All servers must run within a VPC. The VPC must have "Auto Assign Public IP" enabled.
    *     </p>
    *          <p>
-   *       EC2-VPC customers: This field is optional. If you do not specify subnet IDs, your EC2 instances are created in a default subnet that is selected by Amazon EC2. If you specify subnet IDs, the VPC must have "Auto Assign Public IP" enabled.
+   *       EC2-VPC customers: This field is optional. If you do not specify subnet IDs, your EC2 instances are created in a default subnet that
+   *       is selected by Amazon EC2. If you specify subnet IDs, the VPC must have "Auto Assign Public IP" enabled.
    *     </p>
    *          <p>For more information about supported Amazon EC2 platforms, see
    *       <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-supported-platforms.html">Supported Platforms</a>.</p>
@@ -823,7 +820,7 @@ export interface CreateServerRequest {
   SubnetIds?: string[] | undefined;
 
   /**
-   * <p>A map that contains tag keys and tag values to attach to an AWS OpsWorks for Chef Automate or AWS OpsWorks for Puppet Enterprise server.</p>
+   * <p>A map that contains tag keys and tag values to attach to an OpsWorks for Chef Automate or OpsWorks for Puppet Enterprise server.</p>
    *          <ul>
    *             <li>
    *                <p>The key cannot be empty.</p>
@@ -837,10 +834,10 @@ export interface CreateServerRequest {
    *                </p>
    *             </li>
    *             <li>
-   *                <p>Leading and trailing white spaces are trimmed from both the key and value.</p>
+   *                <p>Leading and trailing spaces are trimmed from both the key and value.</p>
    *             </li>
    *             <li>
-   *                <p>A maximum of 50 user-applied tags is allowed for any AWS OpsWorks-CM server.</p>
+   *                <p>A maximum of 50 user-applied tags is allowed for any OpsWorks CM server.</p>
    *             </li>
    *          </ul>
    * @public
@@ -849,7 +846,7 @@ export interface CreateServerRequest {
 
   /**
    * <p>
-   *       If you specify this field, AWS OpsWorks CM creates the server by using the backup represented by BackupId.
+   *       If you specify this field, OpsWorks CM creates the server by using the backup represented by BackupId.
    *     </p>
    * @public
    */
@@ -976,7 +973,7 @@ export interface Server {
   /**
    * <p>The response of a createServer() request returns the master
    *     credential to access the server in EngineAttributes. These
-   *     credentials are not stored by AWS OpsWorks CM; they are returned only as part of the result of createServer().
+   *     credentials are not stored by OpsWorks CM; they are returned only as part of the result of createServer().
    *     </p>
    *          <p class="title">
    *             <b>Attributes returned in a createServer response for Chef</b>
@@ -985,7 +982,7 @@ export interface Server {
    *             <li>
    *                <p>
    *                   <code>CHEF_AUTOMATE_PIVOTAL_KEY</code>: A base64-encoded RSA private key that is
-   *       generated by AWS OpsWorks for Chef Automate. This private key is required to access
+   *         generated by OpsWorks for Chef Automate. This private key is required to access
    *       the Chef API.</p>
    *             </li>
    *             <li>
@@ -1010,7 +1007,8 @@ export interface Server {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>PUPPET_ADMIN_PASSWORD</code>: An administrator password that you can use to sign in to the Puppet Enterprise console after the server is online.</p>
+   *                   <code>PUPPET_ADMIN_PASSWORD</code>: An administrator password that you can use to sign in to the
+   *         Puppet Enterprise console after the server is online.</p>
    *             </li>
    *          </ul>
    * @public
@@ -1034,7 +1032,8 @@ export interface Server {
 
   /**
    * <p>
-   *       The instance type for the server, as specified in the CloudFormation stack. This might not be the same instance type that is shown in the EC2 console.
+   *       The instance type for the server, as specified in the CloudFormation stack. This might not be the same instance type
+   *       that is shown in the EC2 console.
    *     </p>
    * @public
    */
@@ -1446,7 +1445,7 @@ export interface DescribeNodeAssociationStatusResponse {
 
   /**
    * <p>Attributes specific to the node association.
-   *       In Puppet, the attibute PUPPET_NODE_CERT contains the signed certificate (the result of the CSR).
+   *       In Puppet, the attribute PUPPET_NODE_CERT contains the signed certificate (the result of the CSR).
    *     </p>
    * @public
    */
@@ -1598,7 +1597,7 @@ export interface ExportServerEngineAttributeRequest {
    *             </li>
    *             <li>
    *                <p>
-   *                   <b>OrganizationName</b> In Chef, an organization name. AWS OpsWorks for Chef Automate
+   *                   <b>OrganizationName</b> In Chef, an organization name. OpsWorks for Chef Automate
    *         always creates the organization <code>default</code>. In Puppet, this parameter is ignored.</p>
    *             </li>
    *             <li>
@@ -1640,7 +1639,7 @@ export interface ExportServerEngineAttributeResponse {
  */
 export interface ListTagsForResourceRequest {
   /**
-   * <p>The Amazon Resource Number (ARN) of an AWS OpsWorks for Chef Automate or AWS OpsWorks for Puppet Enterprise server for which you want to show applied tags. For example,
+   * <p>The Amazon Resource Number (ARN) of an OpsWorks for Chef Automate or OpsWorks for Puppet Enterprise server for which you want to show applied tags. For example,
    *         <code>arn:aws:opsworks-cm:us-west-2:123456789012:server/test-owcm-server/EXAMPLE-66b0-4196-8274-d1a2bEXAMPLE</code>.</p>
    * @public
    */
@@ -1754,7 +1753,7 @@ export interface StartMaintenanceRequest {
    *                <p>
    *                   <code>CHEF_MAJOR_UPGRADE</code>: If a Chef Automate server is eligible for upgrade to Chef Automate 2,
    *         add this engine attribute to a <code>StartMaintenance</code> request and set the value to <code>true</code> to upgrade the server to Chef Automate 2. For more information, see
-   *         <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/opscm-a2upgrade.html">Upgrade an AWS OpsWorks for Chef Automate Server to Chef Automate 2</a>.
+   *         <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/opscm-a2upgrade.html">Upgrade an OpsWorks for Chef Automate Server to Chef Automate 2</a>.
    *       </p>
    *             </li>
    *          </ul>
@@ -1787,7 +1786,7 @@ export interface TagResourceRequest {
   ResourceArn: string | undefined;
 
   /**
-   * <p>A map that contains tag keys and tag values to attach to AWS OpsWorks-CM servers or backups.</p>
+   * <p>A map that contains tag keys and tag values to attach to OpsWorks CM servers or backups.</p>
    *          <ul>
    *             <li>
    *                <p>The key cannot be empty.</p>
@@ -1804,7 +1803,7 @@ export interface TagResourceRequest {
    *                <p>Leading and trailing white spaces are trimmed from both the key and value.</p>
    *             </li>
    *             <li>
-   *                <p>A maximum of 50 user-applied tags is allowed for any AWS OpsWorks-CM server or backup.</p>
+   *                <p>A maximum of 50 user-applied tags is allowed for any OpsWorks CM server or backup.</p>
    *             </li>
    *          </ul>
    * @public
@@ -1845,7 +1844,8 @@ export interface UntagResourceResponse {}
  */
 export interface UpdateServerRequest {
   /**
-   * <p>Setting DisableAutomatedBackup to <code>true</code> disables automated or scheduled backups. Automated backups are enabled by default.
+   * <p>Setting DisableAutomatedBackup to <code>true</code> disables automated or scheduled backups.
+   *       Automated backups are enabled by default.
    *     </p>
    * @public
    */
