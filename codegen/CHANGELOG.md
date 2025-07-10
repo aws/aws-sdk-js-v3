@@ -1,5 +1,19 @@
 # Smithy AWS Typescript Codegen Changelog
 
+## 0.33.0 (2025-07-10)
+
+### Features
+- Upgraded to smithy-typescript 0.33.0 ([Release Notes](https://github.com/smithy-lang/smithy-typescript/blob/main/CHANGELOG.md#0330-2025-07-10))
+- Upgraded smithy version to 1.60.3 ([#7170](https://github.com/aws/aws-sdk-js-v3/pull/7170))
+- Updated codegen to get token from environment variable ([#7166](https://github.com/aws/aws-sdk-js-v3/pull/7166))
+- Updated codegen to use Websocket in browser runtime for Bedrock Runtime ([#7175](https://github.com/aws/aws-sdk-js-v3/pull/7175))
+
+### Bug Fixes
+- Used model service instead of iterating services ([#7184](https://github.com/aws/aws-sdk-js-v3/pull/7184))
+- Generated default endpoint provider for default regional AWS endpoints ([#7190](https://github.com/aws/aws-sdk-js-v3/pull/7190))
+
+### Documentation
+
 ## 0.32.0 (2025-06-26)
 
 ## Features
