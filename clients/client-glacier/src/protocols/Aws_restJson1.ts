@@ -1106,6 +1106,9 @@ export const de_GetVaultAccessPolicyCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.policy = _json(data);
+  if (contents.policy && Object.keys(contents.policy).length === 0) {
+    contents.policy = null;
+  }
   return contents;
 };
 
@@ -1148,6 +1151,9 @@ export const de_GetVaultNotificationsCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.vaultNotificationConfig = _json(data);
+  if (contents.vaultNotificationConfig && Object.keys(contents.vaultNotificationConfig).length === 0) {
+    contents.vaultNotificationConfig = null;
+  }
   return contents;
 };
 

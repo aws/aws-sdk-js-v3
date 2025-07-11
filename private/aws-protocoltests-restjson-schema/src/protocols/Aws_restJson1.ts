@@ -3046,6 +3046,9 @@ export const de_HttpPayloadWithStructureCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.nested = _json(data);
+  if (contents.nested && Object.keys(contents.nested).length === 0) {
+    contents.nested = null;
+  }
   return contents;
 };
 
@@ -4668,6 +4671,9 @@ export const de_TestPayloadStructureCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.payloadConfig = _json(data);
+  if (contents.payloadConfig && Object.keys(contents.payloadConfig).length === 0) {
+    contents.payloadConfig = null;
+  }
   return contents;
 };
 

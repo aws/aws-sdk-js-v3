@@ -1171,6 +1171,9 @@ export const de_CreateGatewayRouteCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.gatewayRoute = de_GatewayRouteData(data, context);
+  if (contents.gatewayRoute && Object.keys(contents.gatewayRoute).length === 0) {
+    contents.gatewayRoute = null;
+  }
   return contents;
 };
 
@@ -1189,6 +1192,9 @@ export const de_CreateMeshCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.mesh = de_MeshData(data, context);
+  if (contents.mesh && Object.keys(contents.mesh).length === 0) {
+    contents.mesh = null;
+  }
   return contents;
 };
 
@@ -1207,6 +1213,9 @@ export const de_CreateRouteCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.route = de_RouteData(data, context);
+  if (contents.route && Object.keys(contents.route).length === 0) {
+    contents.route = null;
+  }
   return contents;
 };
 
@@ -1225,6 +1234,9 @@ export const de_CreateVirtualGatewayCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.virtualGateway = de_VirtualGatewayData(data, context);
+  if (contents.virtualGateway && Object.keys(contents.virtualGateway).length === 0) {
+    contents.virtualGateway = null;
+  }
   return contents;
 };
 
@@ -1243,6 +1255,9 @@ export const de_CreateVirtualNodeCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.virtualNode = de_VirtualNodeData(data, context);
+  if (contents.virtualNode && Object.keys(contents.virtualNode).length === 0) {
+    contents.virtualNode = null;
+  }
   return contents;
 };
 
@@ -1261,6 +1276,9 @@ export const de_CreateVirtualRouterCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.virtualRouter = de_VirtualRouterData(data, context);
+  if (contents.virtualRouter && Object.keys(contents.virtualRouter).length === 0) {
+    contents.virtualRouter = null;
+  }
   return contents;
 };
 
@@ -1279,6 +1297,9 @@ export const de_CreateVirtualServiceCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.virtualService = de_VirtualServiceData(data, context);
+  if (contents.virtualService && Object.keys(contents.virtualService).length === 0) {
+    contents.virtualService = null;
+  }
   return contents;
 };
 
@@ -1297,6 +1318,9 @@ export const de_DeleteGatewayRouteCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.gatewayRoute = de_GatewayRouteData(data, context);
+  if (contents.gatewayRoute && Object.keys(contents.gatewayRoute).length === 0) {
+    contents.gatewayRoute = null;
+  }
   return contents;
 };
 
@@ -1315,6 +1339,9 @@ export const de_DeleteMeshCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.mesh = de_MeshData(data, context);
+  if (contents.mesh && Object.keys(contents.mesh).length === 0) {
+    contents.mesh = null;
+  }
   return contents;
 };
 
@@ -1333,6 +1360,9 @@ export const de_DeleteRouteCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.route = de_RouteData(data, context);
+  if (contents.route && Object.keys(contents.route).length === 0) {
+    contents.route = null;
+  }
   return contents;
 };
 
@@ -1351,6 +1381,9 @@ export const de_DeleteVirtualGatewayCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.virtualGateway = de_VirtualGatewayData(data, context);
+  if (contents.virtualGateway && Object.keys(contents.virtualGateway).length === 0) {
+    contents.virtualGateway = null;
+  }
   return contents;
 };
 
@@ -1369,6 +1402,9 @@ export const de_DeleteVirtualNodeCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.virtualNode = de_VirtualNodeData(data, context);
+  if (contents.virtualNode && Object.keys(contents.virtualNode).length === 0) {
+    contents.virtualNode = null;
+  }
   return contents;
 };
 
@@ -1387,6 +1423,9 @@ export const de_DeleteVirtualRouterCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.virtualRouter = de_VirtualRouterData(data, context);
+  if (contents.virtualRouter && Object.keys(contents.virtualRouter).length === 0) {
+    contents.virtualRouter = null;
+  }
   return contents;
 };
 
@@ -1405,6 +1444,9 @@ export const de_DeleteVirtualServiceCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.virtualService = de_VirtualServiceData(data, context);
+  if (contents.virtualService && Object.keys(contents.virtualService).length === 0) {
+    contents.virtualService = null;
+  }
   return contents;
 };
 
@@ -1423,6 +1465,9 @@ export const de_DescribeGatewayRouteCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.gatewayRoute = de_GatewayRouteData(data, context);
+  if (contents.gatewayRoute && Object.keys(contents.gatewayRoute).length === 0) {
+    contents.gatewayRoute = null;
+  }
   return contents;
 };
 
@@ -1441,6 +1486,9 @@ export const de_DescribeMeshCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.mesh = de_MeshData(data, context);
+  if (contents.mesh && Object.keys(contents.mesh).length === 0) {
+    contents.mesh = null;
+  }
   return contents;
 };
 
@@ -1459,6 +1507,9 @@ export const de_DescribeRouteCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.route = de_RouteData(data, context);
+  if (contents.route && Object.keys(contents.route).length === 0) {
+    contents.route = null;
+  }
   return contents;
 };
 
@@ -1477,6 +1528,9 @@ export const de_DescribeVirtualGatewayCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.virtualGateway = de_VirtualGatewayData(data, context);
+  if (contents.virtualGateway && Object.keys(contents.virtualGateway).length === 0) {
+    contents.virtualGateway = null;
+  }
   return contents;
 };
 
@@ -1495,6 +1549,9 @@ export const de_DescribeVirtualNodeCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.virtualNode = de_VirtualNodeData(data, context);
+  if (contents.virtualNode && Object.keys(contents.virtualNode).length === 0) {
+    contents.virtualNode = null;
+  }
   return contents;
 };
 
@@ -1513,6 +1570,9 @@ export const de_DescribeVirtualRouterCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.virtualRouter = de_VirtualRouterData(data, context);
+  if (contents.virtualRouter && Object.keys(contents.virtualRouter).length === 0) {
+    contents.virtualRouter = null;
+  }
   return contents;
 };
 
@@ -1531,6 +1591,9 @@ export const de_DescribeVirtualServiceCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.virtualService = de_VirtualServiceData(data, context);
+  if (contents.virtualService && Object.keys(contents.virtualService).length === 0) {
+    contents.virtualService = null;
+  }
   return contents;
 };
 
@@ -1759,6 +1822,9 @@ export const de_UpdateGatewayRouteCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.gatewayRoute = de_GatewayRouteData(data, context);
+  if (contents.gatewayRoute && Object.keys(contents.gatewayRoute).length === 0) {
+    contents.gatewayRoute = null;
+  }
   return contents;
 };
 
@@ -1777,6 +1843,9 @@ export const de_UpdateMeshCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.mesh = de_MeshData(data, context);
+  if (contents.mesh && Object.keys(contents.mesh).length === 0) {
+    contents.mesh = null;
+  }
   return contents;
 };
 
@@ -1795,6 +1864,9 @@ export const de_UpdateRouteCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.route = de_RouteData(data, context);
+  if (contents.route && Object.keys(contents.route).length === 0) {
+    contents.route = null;
+  }
   return contents;
 };
 
@@ -1813,6 +1885,9 @@ export const de_UpdateVirtualGatewayCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.virtualGateway = de_VirtualGatewayData(data, context);
+  if (contents.virtualGateway && Object.keys(contents.virtualGateway).length === 0) {
+    contents.virtualGateway = null;
+  }
   return contents;
 };
 
@@ -1831,6 +1906,9 @@ export const de_UpdateVirtualNodeCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.virtualNode = de_VirtualNodeData(data, context);
+  if (contents.virtualNode && Object.keys(contents.virtualNode).length === 0) {
+    contents.virtualNode = null;
+  }
   return contents;
 };
 
@@ -1849,6 +1927,9 @@ export const de_UpdateVirtualRouterCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.virtualRouter = de_VirtualRouterData(data, context);
+  if (contents.virtualRouter && Object.keys(contents.virtualRouter).length === 0) {
+    contents.virtualRouter = null;
+  }
   return contents;
 };
 
@@ -1867,6 +1948,9 @@ export const de_UpdateVirtualServiceCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.virtualService = de_VirtualServiceData(data, context);
+  if (contents.virtualService && Object.keys(contents.virtualService).length === 0) {
+    contents.virtualService = null;
+  }
   return contents;
 };
 

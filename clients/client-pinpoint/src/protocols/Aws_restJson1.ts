@@ -3002,6 +3002,9 @@ export const de_CreateAppCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.ApplicationResponse = de_ApplicationResponse(data, context);
+  if (contents.ApplicationResponse && Object.keys(contents.ApplicationResponse).length === 0) {
+    contents.ApplicationResponse = null;
+  }
   return contents;
 };
 
@@ -3020,6 +3023,9 @@ export const de_CreateCampaignCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.CampaignResponse = de_CampaignResponse(data, context);
+  if (contents.CampaignResponse && Object.keys(contents.CampaignResponse).length === 0) {
+    contents.CampaignResponse = null;
+  }
   return contents;
 };
 
@@ -3038,6 +3044,9 @@ export const de_CreateEmailTemplateCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.CreateTemplateMessageBody = _json(data);
+  if (contents.CreateTemplateMessageBody && Object.keys(contents.CreateTemplateMessageBody).length === 0) {
+    contents.CreateTemplateMessageBody = null;
+  }
   return contents;
 };
 
@@ -3056,6 +3065,9 @@ export const de_CreateExportJobCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.ExportJobResponse = _json(data);
+  if (contents.ExportJobResponse && Object.keys(contents.ExportJobResponse).length === 0) {
+    contents.ExportJobResponse = null;
+  }
   return contents;
 };
 
@@ -3074,6 +3086,9 @@ export const de_CreateImportJobCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.ImportJobResponse = _json(data);
+  if (contents.ImportJobResponse && Object.keys(contents.ImportJobResponse).length === 0) {
+    contents.ImportJobResponse = null;
+  }
   return contents;
 };
 
@@ -3092,6 +3107,9 @@ export const de_CreateInAppTemplateCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.TemplateCreateMessageBody = _json(data);
+  if (contents.TemplateCreateMessageBody && Object.keys(contents.TemplateCreateMessageBody).length === 0) {
+    contents.TemplateCreateMessageBody = null;
+  }
   return contents;
 };
 
@@ -3110,6 +3128,9 @@ export const de_CreateJourneyCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.JourneyResponse = de_JourneyResponse(data, context);
+  if (contents.JourneyResponse && Object.keys(contents.JourneyResponse).length === 0) {
+    contents.JourneyResponse = null;
+  }
   return contents;
 };
 
@@ -3128,6 +3149,9 @@ export const de_CreatePushTemplateCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.CreateTemplateMessageBody = _json(data);
+  if (contents.CreateTemplateMessageBody && Object.keys(contents.CreateTemplateMessageBody).length === 0) {
+    contents.CreateTemplateMessageBody = null;
+  }
   return contents;
 };
 
@@ -3146,6 +3170,12 @@ export const de_CreateRecommenderConfigurationCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.RecommenderConfigurationResponse = _json(data);
+  if (
+    contents.RecommenderConfigurationResponse &&
+    Object.keys(contents.RecommenderConfigurationResponse).length === 0
+  ) {
+    contents.RecommenderConfigurationResponse = null;
+  }
   return contents;
 };
 
@@ -3164,6 +3194,9 @@ export const de_CreateSegmentCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.SegmentResponse = de_SegmentResponse(data, context);
+  if (contents.SegmentResponse && Object.keys(contents.SegmentResponse).length === 0) {
+    contents.SegmentResponse = null;
+  }
   return contents;
 };
 
@@ -3182,6 +3215,9 @@ export const de_CreateSmsTemplateCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.CreateTemplateMessageBody = _json(data);
+  if (contents.CreateTemplateMessageBody && Object.keys(contents.CreateTemplateMessageBody).length === 0) {
+    contents.CreateTemplateMessageBody = null;
+  }
   return contents;
 };
 
@@ -3200,6 +3236,9 @@ export const de_CreateVoiceTemplateCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.CreateTemplateMessageBody = _json(data);
+  if (contents.CreateTemplateMessageBody && Object.keys(contents.CreateTemplateMessageBody).length === 0) {
+    contents.CreateTemplateMessageBody = null;
+  }
   return contents;
 };
 
@@ -3218,6 +3257,9 @@ export const de_DeleteAdmChannelCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.ADMChannelResponse = _json(data);
+  if (contents.ADMChannelResponse && Object.keys(contents.ADMChannelResponse).length === 0) {
+    contents.ADMChannelResponse = null;
+  }
   return contents;
 };
 
@@ -3236,6 +3278,9 @@ export const de_DeleteApnsChannelCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.APNSChannelResponse = _json(data);
+  if (contents.APNSChannelResponse && Object.keys(contents.APNSChannelResponse).length === 0) {
+    contents.APNSChannelResponse = null;
+  }
   return contents;
 };
 
@@ -3254,6 +3299,9 @@ export const de_DeleteApnsSandboxChannelCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.APNSSandboxChannelResponse = _json(data);
+  if (contents.APNSSandboxChannelResponse && Object.keys(contents.APNSSandboxChannelResponse).length === 0) {
+    contents.APNSSandboxChannelResponse = null;
+  }
   return contents;
 };
 
@@ -3272,6 +3320,9 @@ export const de_DeleteApnsVoipChannelCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.APNSVoipChannelResponse = _json(data);
+  if (contents.APNSVoipChannelResponse && Object.keys(contents.APNSVoipChannelResponse).length === 0) {
+    contents.APNSVoipChannelResponse = null;
+  }
   return contents;
 };
 
@@ -3290,6 +3341,9 @@ export const de_DeleteApnsVoipSandboxChannelCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.APNSVoipSandboxChannelResponse = _json(data);
+  if (contents.APNSVoipSandboxChannelResponse && Object.keys(contents.APNSVoipSandboxChannelResponse).length === 0) {
+    contents.APNSVoipSandboxChannelResponse = null;
+  }
   return contents;
 };
 
@@ -3308,6 +3362,9 @@ export const de_DeleteAppCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.ApplicationResponse = de_ApplicationResponse(data, context);
+  if (contents.ApplicationResponse && Object.keys(contents.ApplicationResponse).length === 0) {
+    contents.ApplicationResponse = null;
+  }
   return contents;
 };
 
@@ -3326,6 +3383,9 @@ export const de_DeleteBaiduChannelCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.BaiduChannelResponse = _json(data);
+  if (contents.BaiduChannelResponse && Object.keys(contents.BaiduChannelResponse).length === 0) {
+    contents.BaiduChannelResponse = null;
+  }
   return contents;
 };
 
@@ -3344,6 +3404,9 @@ export const de_DeleteCampaignCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.CampaignResponse = de_CampaignResponse(data, context);
+  if (contents.CampaignResponse && Object.keys(contents.CampaignResponse).length === 0) {
+    contents.CampaignResponse = null;
+  }
   return contents;
 };
 
@@ -3362,6 +3425,9 @@ export const de_DeleteEmailChannelCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.EmailChannelResponse = _json(data);
+  if (contents.EmailChannelResponse && Object.keys(contents.EmailChannelResponse).length === 0) {
+    contents.EmailChannelResponse = null;
+  }
   return contents;
 };
 
@@ -3380,6 +3446,9 @@ export const de_DeleteEmailTemplateCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.MessageBody = _json(data);
+  if (contents.MessageBody && Object.keys(contents.MessageBody).length === 0) {
+    contents.MessageBody = null;
+  }
   return contents;
 };
 
@@ -3398,6 +3467,9 @@ export const de_DeleteEndpointCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.EndpointResponse = de_EndpointResponse(data, context);
+  if (contents.EndpointResponse && Object.keys(contents.EndpointResponse).length === 0) {
+    contents.EndpointResponse = null;
+  }
   return contents;
 };
 
@@ -3416,6 +3488,9 @@ export const de_DeleteEventStreamCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.EventStream = _json(data);
+  if (contents.EventStream && Object.keys(contents.EventStream).length === 0) {
+    contents.EventStream = null;
+  }
   return contents;
 };
 
@@ -3434,6 +3509,9 @@ export const de_DeleteGcmChannelCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.GCMChannelResponse = _json(data);
+  if (contents.GCMChannelResponse && Object.keys(contents.GCMChannelResponse).length === 0) {
+    contents.GCMChannelResponse = null;
+  }
   return contents;
 };
 
@@ -3452,6 +3530,9 @@ export const de_DeleteInAppTemplateCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.MessageBody = _json(data);
+  if (contents.MessageBody && Object.keys(contents.MessageBody).length === 0) {
+    contents.MessageBody = null;
+  }
   return contents;
 };
 
@@ -3470,6 +3551,9 @@ export const de_DeleteJourneyCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.JourneyResponse = de_JourneyResponse(data, context);
+  if (contents.JourneyResponse && Object.keys(contents.JourneyResponse).length === 0) {
+    contents.JourneyResponse = null;
+  }
   return contents;
 };
 
@@ -3488,6 +3572,9 @@ export const de_DeletePushTemplateCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.MessageBody = _json(data);
+  if (contents.MessageBody && Object.keys(contents.MessageBody).length === 0) {
+    contents.MessageBody = null;
+  }
   return contents;
 };
 
@@ -3506,6 +3593,12 @@ export const de_DeleteRecommenderConfigurationCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.RecommenderConfigurationResponse = _json(data);
+  if (
+    contents.RecommenderConfigurationResponse &&
+    Object.keys(contents.RecommenderConfigurationResponse).length === 0
+  ) {
+    contents.RecommenderConfigurationResponse = null;
+  }
   return contents;
 };
 
@@ -3524,6 +3617,9 @@ export const de_DeleteSegmentCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.SegmentResponse = de_SegmentResponse(data, context);
+  if (contents.SegmentResponse && Object.keys(contents.SegmentResponse).length === 0) {
+    contents.SegmentResponse = null;
+  }
   return contents;
 };
 
@@ -3542,6 +3638,9 @@ export const de_DeleteSmsChannelCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.SMSChannelResponse = _json(data);
+  if (contents.SMSChannelResponse && Object.keys(contents.SMSChannelResponse).length === 0) {
+    contents.SMSChannelResponse = null;
+  }
   return contents;
 };
 
@@ -3560,6 +3659,9 @@ export const de_DeleteSmsTemplateCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.MessageBody = _json(data);
+  if (contents.MessageBody && Object.keys(contents.MessageBody).length === 0) {
+    contents.MessageBody = null;
+  }
   return contents;
 };
 
@@ -3578,6 +3680,9 @@ export const de_DeleteUserEndpointsCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.EndpointsResponse = de_EndpointsResponse(data, context);
+  if (contents.EndpointsResponse && Object.keys(contents.EndpointsResponse).length === 0) {
+    contents.EndpointsResponse = null;
+  }
   return contents;
 };
 
@@ -3596,6 +3701,9 @@ export const de_DeleteVoiceChannelCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.VoiceChannelResponse = _json(data);
+  if (contents.VoiceChannelResponse && Object.keys(contents.VoiceChannelResponse).length === 0) {
+    contents.VoiceChannelResponse = null;
+  }
   return contents;
 };
 
@@ -3614,6 +3722,9 @@ export const de_DeleteVoiceTemplateCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.MessageBody = _json(data);
+  if (contents.MessageBody && Object.keys(contents.MessageBody).length === 0) {
+    contents.MessageBody = null;
+  }
   return contents;
 };
 
@@ -3632,6 +3743,9 @@ export const de_GetAdmChannelCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.ADMChannelResponse = _json(data);
+  if (contents.ADMChannelResponse && Object.keys(contents.ADMChannelResponse).length === 0) {
+    contents.ADMChannelResponse = null;
+  }
   return contents;
 };
 
@@ -3650,6 +3764,9 @@ export const de_GetApnsChannelCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.APNSChannelResponse = _json(data);
+  if (contents.APNSChannelResponse && Object.keys(contents.APNSChannelResponse).length === 0) {
+    contents.APNSChannelResponse = null;
+  }
   return contents;
 };
 
@@ -3668,6 +3785,9 @@ export const de_GetApnsSandboxChannelCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.APNSSandboxChannelResponse = _json(data);
+  if (contents.APNSSandboxChannelResponse && Object.keys(contents.APNSSandboxChannelResponse).length === 0) {
+    contents.APNSSandboxChannelResponse = null;
+  }
   return contents;
 };
 
@@ -3686,6 +3806,9 @@ export const de_GetApnsVoipChannelCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.APNSVoipChannelResponse = _json(data);
+  if (contents.APNSVoipChannelResponse && Object.keys(contents.APNSVoipChannelResponse).length === 0) {
+    contents.APNSVoipChannelResponse = null;
+  }
   return contents;
 };
 
@@ -3704,6 +3827,9 @@ export const de_GetApnsVoipSandboxChannelCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.APNSVoipSandboxChannelResponse = _json(data);
+  if (contents.APNSVoipSandboxChannelResponse && Object.keys(contents.APNSVoipSandboxChannelResponse).length === 0) {
+    contents.APNSVoipSandboxChannelResponse = null;
+  }
   return contents;
 };
 
@@ -3722,6 +3848,9 @@ export const de_GetAppCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.ApplicationResponse = de_ApplicationResponse(data, context);
+  if (contents.ApplicationResponse && Object.keys(contents.ApplicationResponse).length === 0) {
+    contents.ApplicationResponse = null;
+  }
   return contents;
 };
 
@@ -3740,6 +3869,9 @@ export const de_GetApplicationDateRangeKpiCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.ApplicationDateRangeKpiResponse = de_ApplicationDateRangeKpiResponse(data, context);
+  if (contents.ApplicationDateRangeKpiResponse && Object.keys(contents.ApplicationDateRangeKpiResponse).length === 0) {
+    contents.ApplicationDateRangeKpiResponse = null;
+  }
   return contents;
 };
 
@@ -3758,6 +3890,9 @@ export const de_GetApplicationSettingsCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.ApplicationSettingsResource = _json(data);
+  if (contents.ApplicationSettingsResource && Object.keys(contents.ApplicationSettingsResource).length === 0) {
+    contents.ApplicationSettingsResource = null;
+  }
   return contents;
 };
 
@@ -3776,6 +3911,9 @@ export const de_GetAppsCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.ApplicationsResponse = de_ApplicationsResponse(data, context);
+  if (contents.ApplicationsResponse && Object.keys(contents.ApplicationsResponse).length === 0) {
+    contents.ApplicationsResponse = null;
+  }
   return contents;
 };
 
@@ -3794,6 +3932,9 @@ export const de_GetBaiduChannelCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.BaiduChannelResponse = _json(data);
+  if (contents.BaiduChannelResponse && Object.keys(contents.BaiduChannelResponse).length === 0) {
+    contents.BaiduChannelResponse = null;
+  }
   return contents;
 };
 
@@ -3812,6 +3953,9 @@ export const de_GetCampaignCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.CampaignResponse = de_CampaignResponse(data, context);
+  if (contents.CampaignResponse && Object.keys(contents.CampaignResponse).length === 0) {
+    contents.CampaignResponse = null;
+  }
   return contents;
 };
 
@@ -3830,6 +3974,9 @@ export const de_GetCampaignActivitiesCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.ActivitiesResponse = _json(data);
+  if (contents.ActivitiesResponse && Object.keys(contents.ActivitiesResponse).length === 0) {
+    contents.ActivitiesResponse = null;
+  }
   return contents;
 };
 
@@ -3848,6 +3995,9 @@ export const de_GetCampaignDateRangeKpiCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.CampaignDateRangeKpiResponse = de_CampaignDateRangeKpiResponse(data, context);
+  if (contents.CampaignDateRangeKpiResponse && Object.keys(contents.CampaignDateRangeKpiResponse).length === 0) {
+    contents.CampaignDateRangeKpiResponse = null;
+  }
   return contents;
 };
 
@@ -3866,6 +4016,9 @@ export const de_GetCampaignsCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.CampaignsResponse = de_CampaignsResponse(data, context);
+  if (contents.CampaignsResponse && Object.keys(contents.CampaignsResponse).length === 0) {
+    contents.CampaignsResponse = null;
+  }
   return contents;
 };
 
@@ -3884,6 +4037,9 @@ export const de_GetCampaignVersionCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.CampaignResponse = de_CampaignResponse(data, context);
+  if (contents.CampaignResponse && Object.keys(contents.CampaignResponse).length === 0) {
+    contents.CampaignResponse = null;
+  }
   return contents;
 };
 
@@ -3902,6 +4058,9 @@ export const de_GetCampaignVersionsCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.CampaignsResponse = de_CampaignsResponse(data, context);
+  if (contents.CampaignsResponse && Object.keys(contents.CampaignsResponse).length === 0) {
+    contents.CampaignsResponse = null;
+  }
   return contents;
 };
 
@@ -3920,6 +4079,9 @@ export const de_GetChannelsCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.ChannelsResponse = _json(data);
+  if (contents.ChannelsResponse && Object.keys(contents.ChannelsResponse).length === 0) {
+    contents.ChannelsResponse = null;
+  }
   return contents;
 };
 
@@ -3938,6 +4100,9 @@ export const de_GetEmailChannelCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.EmailChannelResponse = _json(data);
+  if (contents.EmailChannelResponse && Object.keys(contents.EmailChannelResponse).length === 0) {
+    contents.EmailChannelResponse = null;
+  }
   return contents;
 };
 
@@ -3956,6 +4121,9 @@ export const de_GetEmailTemplateCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.EmailTemplateResponse = de_EmailTemplateResponse(data, context);
+  if (contents.EmailTemplateResponse && Object.keys(contents.EmailTemplateResponse).length === 0) {
+    contents.EmailTemplateResponse = null;
+  }
   return contents;
 };
 
@@ -3974,6 +4142,9 @@ export const de_GetEndpointCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.EndpointResponse = de_EndpointResponse(data, context);
+  if (contents.EndpointResponse && Object.keys(contents.EndpointResponse).length === 0) {
+    contents.EndpointResponse = null;
+  }
   return contents;
 };
 
@@ -3992,6 +4163,9 @@ export const de_GetEventStreamCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.EventStream = _json(data);
+  if (contents.EventStream && Object.keys(contents.EventStream).length === 0) {
+    contents.EventStream = null;
+  }
   return contents;
 };
 
@@ -4010,6 +4184,9 @@ export const de_GetExportJobCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.ExportJobResponse = _json(data);
+  if (contents.ExportJobResponse && Object.keys(contents.ExportJobResponse).length === 0) {
+    contents.ExportJobResponse = null;
+  }
   return contents;
 };
 
@@ -4028,6 +4205,9 @@ export const de_GetExportJobsCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.ExportJobsResponse = _json(data);
+  if (contents.ExportJobsResponse && Object.keys(contents.ExportJobsResponse).length === 0) {
+    contents.ExportJobsResponse = null;
+  }
   return contents;
 };
 
@@ -4046,6 +4226,9 @@ export const de_GetGcmChannelCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.GCMChannelResponse = _json(data);
+  if (contents.GCMChannelResponse && Object.keys(contents.GCMChannelResponse).length === 0) {
+    contents.GCMChannelResponse = null;
+  }
   return contents;
 };
 
@@ -4064,6 +4247,9 @@ export const de_GetImportJobCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.ImportJobResponse = _json(data);
+  if (contents.ImportJobResponse && Object.keys(contents.ImportJobResponse).length === 0) {
+    contents.ImportJobResponse = null;
+  }
   return contents;
 };
 
@@ -4082,6 +4268,9 @@ export const de_GetImportJobsCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.ImportJobsResponse = _json(data);
+  if (contents.ImportJobsResponse && Object.keys(contents.ImportJobsResponse).length === 0) {
+    contents.ImportJobsResponse = null;
+  }
   return contents;
 };
 
@@ -4100,6 +4289,9 @@ export const de_GetInAppMessagesCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.InAppMessagesResponse = de_InAppMessagesResponse(data, context);
+  if (contents.InAppMessagesResponse && Object.keys(contents.InAppMessagesResponse).length === 0) {
+    contents.InAppMessagesResponse = null;
+  }
   return contents;
 };
 
@@ -4118,6 +4310,9 @@ export const de_GetInAppTemplateCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.InAppTemplateResponse = de_InAppTemplateResponse(data, context);
+  if (contents.InAppTemplateResponse && Object.keys(contents.InAppTemplateResponse).length === 0) {
+    contents.InAppTemplateResponse = null;
+  }
   return contents;
 };
 
@@ -4136,6 +4331,9 @@ export const de_GetJourneyCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.JourneyResponse = de_JourneyResponse(data, context);
+  if (contents.JourneyResponse && Object.keys(contents.JourneyResponse).length === 0) {
+    contents.JourneyResponse = null;
+  }
   return contents;
 };
 
@@ -4154,6 +4352,9 @@ export const de_GetJourneyDateRangeKpiCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.JourneyDateRangeKpiResponse = de_JourneyDateRangeKpiResponse(data, context);
+  if (contents.JourneyDateRangeKpiResponse && Object.keys(contents.JourneyDateRangeKpiResponse).length === 0) {
+    contents.JourneyDateRangeKpiResponse = null;
+  }
   return contents;
 };
 
@@ -4172,6 +4373,12 @@ export const de_GetJourneyExecutionActivityMetricsCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.JourneyExecutionActivityMetricsResponse = _json(data);
+  if (
+    contents.JourneyExecutionActivityMetricsResponse &&
+    Object.keys(contents.JourneyExecutionActivityMetricsResponse).length === 0
+  ) {
+    contents.JourneyExecutionActivityMetricsResponse = null;
+  }
   return contents;
 };
 
@@ -4190,6 +4397,9 @@ export const de_GetJourneyExecutionMetricsCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.JourneyExecutionMetricsResponse = _json(data);
+  if (contents.JourneyExecutionMetricsResponse && Object.keys(contents.JourneyExecutionMetricsResponse).length === 0) {
+    contents.JourneyExecutionMetricsResponse = null;
+  }
   return contents;
 };
 
@@ -4208,6 +4418,12 @@ export const de_GetJourneyRunExecutionActivityMetricsCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.JourneyRunExecutionActivityMetricsResponse = _json(data);
+  if (
+    contents.JourneyRunExecutionActivityMetricsResponse &&
+    Object.keys(contents.JourneyRunExecutionActivityMetricsResponse).length === 0
+  ) {
+    contents.JourneyRunExecutionActivityMetricsResponse = null;
+  }
   return contents;
 };
 
@@ -4226,6 +4442,12 @@ export const de_GetJourneyRunExecutionMetricsCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.JourneyRunExecutionMetricsResponse = _json(data);
+  if (
+    contents.JourneyRunExecutionMetricsResponse &&
+    Object.keys(contents.JourneyRunExecutionMetricsResponse).length === 0
+  ) {
+    contents.JourneyRunExecutionMetricsResponse = null;
+  }
   return contents;
 };
 
@@ -4244,6 +4466,9 @@ export const de_GetJourneyRunsCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.JourneyRunsResponse = _json(data);
+  if (contents.JourneyRunsResponse && Object.keys(contents.JourneyRunsResponse).length === 0) {
+    contents.JourneyRunsResponse = null;
+  }
   return contents;
 };
 
@@ -4262,6 +4487,12 @@ export const de_GetPushTemplateCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.PushNotificationTemplateResponse = de_PushNotificationTemplateResponse(data, context);
+  if (
+    contents.PushNotificationTemplateResponse &&
+    Object.keys(contents.PushNotificationTemplateResponse).length === 0
+  ) {
+    contents.PushNotificationTemplateResponse = null;
+  }
   return contents;
 };
 
@@ -4280,6 +4511,12 @@ export const de_GetRecommenderConfigurationCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.RecommenderConfigurationResponse = _json(data);
+  if (
+    contents.RecommenderConfigurationResponse &&
+    Object.keys(contents.RecommenderConfigurationResponse).length === 0
+  ) {
+    contents.RecommenderConfigurationResponse = null;
+  }
   return contents;
 };
 
@@ -4298,6 +4535,12 @@ export const de_GetRecommenderConfigurationsCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.ListRecommenderConfigurationsResponse = _json(data);
+  if (
+    contents.ListRecommenderConfigurationsResponse &&
+    Object.keys(contents.ListRecommenderConfigurationsResponse).length === 0
+  ) {
+    contents.ListRecommenderConfigurationsResponse = null;
+  }
   return contents;
 };
 
@@ -4316,6 +4559,9 @@ export const de_GetSegmentCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.SegmentResponse = de_SegmentResponse(data, context);
+  if (contents.SegmentResponse && Object.keys(contents.SegmentResponse).length === 0) {
+    contents.SegmentResponse = null;
+  }
   return contents;
 };
 
@@ -4334,6 +4580,9 @@ export const de_GetSegmentExportJobsCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.ExportJobsResponse = _json(data);
+  if (contents.ExportJobsResponse && Object.keys(contents.ExportJobsResponse).length === 0) {
+    contents.ExportJobsResponse = null;
+  }
   return contents;
 };
 
@@ -4352,6 +4601,9 @@ export const de_GetSegmentImportJobsCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.ImportJobsResponse = _json(data);
+  if (contents.ImportJobsResponse && Object.keys(contents.ImportJobsResponse).length === 0) {
+    contents.ImportJobsResponse = null;
+  }
   return contents;
 };
 
@@ -4370,6 +4622,9 @@ export const de_GetSegmentsCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.SegmentsResponse = de_SegmentsResponse(data, context);
+  if (contents.SegmentsResponse && Object.keys(contents.SegmentsResponse).length === 0) {
+    contents.SegmentsResponse = null;
+  }
   return contents;
 };
 
@@ -4388,6 +4643,9 @@ export const de_GetSegmentVersionCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.SegmentResponse = de_SegmentResponse(data, context);
+  if (contents.SegmentResponse && Object.keys(contents.SegmentResponse).length === 0) {
+    contents.SegmentResponse = null;
+  }
   return contents;
 };
 
@@ -4406,6 +4664,9 @@ export const de_GetSegmentVersionsCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.SegmentsResponse = de_SegmentsResponse(data, context);
+  if (contents.SegmentsResponse && Object.keys(contents.SegmentsResponse).length === 0) {
+    contents.SegmentsResponse = null;
+  }
   return contents;
 };
 
@@ -4424,6 +4685,9 @@ export const de_GetSmsChannelCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.SMSChannelResponse = _json(data);
+  if (contents.SMSChannelResponse && Object.keys(contents.SMSChannelResponse).length === 0) {
+    contents.SMSChannelResponse = null;
+  }
   return contents;
 };
 
@@ -4442,6 +4706,9 @@ export const de_GetSmsTemplateCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.SMSTemplateResponse = de_SMSTemplateResponse(data, context);
+  if (contents.SMSTemplateResponse && Object.keys(contents.SMSTemplateResponse).length === 0) {
+    contents.SMSTemplateResponse = null;
+  }
   return contents;
 };
 
@@ -4460,6 +4727,9 @@ export const de_GetUserEndpointsCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.EndpointsResponse = de_EndpointsResponse(data, context);
+  if (contents.EndpointsResponse && Object.keys(contents.EndpointsResponse).length === 0) {
+    contents.EndpointsResponse = null;
+  }
   return contents;
 };
 
@@ -4478,6 +4748,9 @@ export const de_GetVoiceChannelCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.VoiceChannelResponse = _json(data);
+  if (contents.VoiceChannelResponse && Object.keys(contents.VoiceChannelResponse).length === 0) {
+    contents.VoiceChannelResponse = null;
+  }
   return contents;
 };
 
@@ -4496,6 +4769,9 @@ export const de_GetVoiceTemplateCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.VoiceTemplateResponse = de_VoiceTemplateResponse(data, context);
+  if (contents.VoiceTemplateResponse && Object.keys(contents.VoiceTemplateResponse).length === 0) {
+    contents.VoiceTemplateResponse = null;
+  }
   return contents;
 };
 
@@ -4514,6 +4790,9 @@ export const de_ListJourneysCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.JourneysResponse = de_JourneysResponse(data, context);
+  if (contents.JourneysResponse && Object.keys(contents.JourneysResponse).length === 0) {
+    contents.JourneysResponse = null;
+  }
   return contents;
 };
 
@@ -4532,6 +4811,9 @@ export const de_ListTagsForResourceCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.TagsModel = de_TagsModel(data, context);
+  if (contents.TagsModel && Object.keys(contents.TagsModel).length === 0) {
+    contents.TagsModel = null;
+  }
   return contents;
 };
 
@@ -4550,6 +4832,9 @@ export const de_ListTemplatesCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.TemplatesResponse = de_TemplatesResponse(data, context);
+  if (contents.TemplatesResponse && Object.keys(contents.TemplatesResponse).length === 0) {
+    contents.TemplatesResponse = null;
+  }
   return contents;
 };
 
@@ -4568,6 +4853,9 @@ export const de_ListTemplateVersionsCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.TemplateVersionsResponse = _json(data);
+  if (contents.TemplateVersionsResponse && Object.keys(contents.TemplateVersionsResponse).length === 0) {
+    contents.TemplateVersionsResponse = null;
+  }
   return contents;
 };
 
@@ -4586,6 +4874,9 @@ export const de_PhoneNumberValidateCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.NumberValidateResponse = _json(data);
+  if (contents.NumberValidateResponse && Object.keys(contents.NumberValidateResponse).length === 0) {
+    contents.NumberValidateResponse = null;
+  }
   return contents;
 };
 
@@ -4604,6 +4895,9 @@ export const de_PutEventsCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.EventsResponse = _json(data);
+  if (contents.EventsResponse && Object.keys(contents.EventsResponse).length === 0) {
+    contents.EventsResponse = null;
+  }
   return contents;
 };
 
@@ -4622,6 +4916,9 @@ export const de_PutEventStreamCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.EventStream = _json(data);
+  if (contents.EventStream && Object.keys(contents.EventStream).length === 0) {
+    contents.EventStream = null;
+  }
   return contents;
 };
 
@@ -4640,6 +4937,9 @@ export const de_RemoveAttributesCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.AttributesResource = _json(data);
+  if (contents.AttributesResource && Object.keys(contents.AttributesResource).length === 0) {
+    contents.AttributesResource = null;
+  }
   return contents;
 };
 
@@ -4658,6 +4958,9 @@ export const de_SendMessagesCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.MessageResponse = _json(data);
+  if (contents.MessageResponse && Object.keys(contents.MessageResponse).length === 0) {
+    contents.MessageResponse = null;
+  }
   return contents;
 };
 
@@ -4676,6 +4979,9 @@ export const de_SendOTPMessageCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.MessageResponse = _json(data);
+  if (contents.MessageResponse && Object.keys(contents.MessageResponse).length === 0) {
+    contents.MessageResponse = null;
+  }
   return contents;
 };
 
@@ -4694,6 +5000,9 @@ export const de_SendUsersMessagesCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.SendUsersMessageResponse = _json(data);
+  if (contents.SendUsersMessageResponse && Object.keys(contents.SendUsersMessageResponse).length === 0) {
+    contents.SendUsersMessageResponse = null;
+  }
   return contents;
 };
 
@@ -4746,6 +5055,9 @@ export const de_UpdateAdmChannelCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.ADMChannelResponse = _json(data);
+  if (contents.ADMChannelResponse && Object.keys(contents.ADMChannelResponse).length === 0) {
+    contents.ADMChannelResponse = null;
+  }
   return contents;
 };
 
@@ -4764,6 +5076,9 @@ export const de_UpdateApnsChannelCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.APNSChannelResponse = _json(data);
+  if (contents.APNSChannelResponse && Object.keys(contents.APNSChannelResponse).length === 0) {
+    contents.APNSChannelResponse = null;
+  }
   return contents;
 };
 
@@ -4782,6 +5097,9 @@ export const de_UpdateApnsSandboxChannelCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.APNSSandboxChannelResponse = _json(data);
+  if (contents.APNSSandboxChannelResponse && Object.keys(contents.APNSSandboxChannelResponse).length === 0) {
+    contents.APNSSandboxChannelResponse = null;
+  }
   return contents;
 };
 
@@ -4800,6 +5118,9 @@ export const de_UpdateApnsVoipChannelCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.APNSVoipChannelResponse = _json(data);
+  if (contents.APNSVoipChannelResponse && Object.keys(contents.APNSVoipChannelResponse).length === 0) {
+    contents.APNSVoipChannelResponse = null;
+  }
   return contents;
 };
 
@@ -4818,6 +5139,9 @@ export const de_UpdateApnsVoipSandboxChannelCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.APNSVoipSandboxChannelResponse = _json(data);
+  if (contents.APNSVoipSandboxChannelResponse && Object.keys(contents.APNSVoipSandboxChannelResponse).length === 0) {
+    contents.APNSVoipSandboxChannelResponse = null;
+  }
   return contents;
 };
 
@@ -4836,6 +5160,9 @@ export const de_UpdateApplicationSettingsCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.ApplicationSettingsResource = _json(data);
+  if (contents.ApplicationSettingsResource && Object.keys(contents.ApplicationSettingsResource).length === 0) {
+    contents.ApplicationSettingsResource = null;
+  }
   return contents;
 };
 
@@ -4854,6 +5181,9 @@ export const de_UpdateBaiduChannelCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.BaiduChannelResponse = _json(data);
+  if (contents.BaiduChannelResponse && Object.keys(contents.BaiduChannelResponse).length === 0) {
+    contents.BaiduChannelResponse = null;
+  }
   return contents;
 };
 
@@ -4872,6 +5202,9 @@ export const de_UpdateCampaignCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.CampaignResponse = de_CampaignResponse(data, context);
+  if (contents.CampaignResponse && Object.keys(contents.CampaignResponse).length === 0) {
+    contents.CampaignResponse = null;
+  }
   return contents;
 };
 
@@ -4890,6 +5223,9 @@ export const de_UpdateEmailChannelCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.EmailChannelResponse = _json(data);
+  if (contents.EmailChannelResponse && Object.keys(contents.EmailChannelResponse).length === 0) {
+    contents.EmailChannelResponse = null;
+  }
   return contents;
 };
 
@@ -4908,6 +5244,9 @@ export const de_UpdateEmailTemplateCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.MessageBody = _json(data);
+  if (contents.MessageBody && Object.keys(contents.MessageBody).length === 0) {
+    contents.MessageBody = null;
+  }
   return contents;
 };
 
@@ -4926,6 +5265,9 @@ export const de_UpdateEndpointCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.MessageBody = _json(data);
+  if (contents.MessageBody && Object.keys(contents.MessageBody).length === 0) {
+    contents.MessageBody = null;
+  }
   return contents;
 };
 
@@ -4944,6 +5286,9 @@ export const de_UpdateEndpointsBatchCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.MessageBody = _json(data);
+  if (contents.MessageBody && Object.keys(contents.MessageBody).length === 0) {
+    contents.MessageBody = null;
+  }
   return contents;
 };
 
@@ -4962,6 +5307,9 @@ export const de_UpdateGcmChannelCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.GCMChannelResponse = _json(data);
+  if (contents.GCMChannelResponse && Object.keys(contents.GCMChannelResponse).length === 0) {
+    contents.GCMChannelResponse = null;
+  }
   return contents;
 };
 
@@ -4980,6 +5328,9 @@ export const de_UpdateInAppTemplateCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.MessageBody = _json(data);
+  if (contents.MessageBody && Object.keys(contents.MessageBody).length === 0) {
+    contents.MessageBody = null;
+  }
   return contents;
 };
 
@@ -4998,6 +5349,9 @@ export const de_UpdateJourneyCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.JourneyResponse = de_JourneyResponse(data, context);
+  if (contents.JourneyResponse && Object.keys(contents.JourneyResponse).length === 0) {
+    contents.JourneyResponse = null;
+  }
   return contents;
 };
 
@@ -5016,6 +5370,9 @@ export const de_UpdateJourneyStateCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.JourneyResponse = de_JourneyResponse(data, context);
+  if (contents.JourneyResponse && Object.keys(contents.JourneyResponse).length === 0) {
+    contents.JourneyResponse = null;
+  }
   return contents;
 };
 
@@ -5034,6 +5391,9 @@ export const de_UpdatePushTemplateCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.MessageBody = _json(data);
+  if (contents.MessageBody && Object.keys(contents.MessageBody).length === 0) {
+    contents.MessageBody = null;
+  }
   return contents;
 };
 
@@ -5052,6 +5412,12 @@ export const de_UpdateRecommenderConfigurationCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.RecommenderConfigurationResponse = _json(data);
+  if (
+    contents.RecommenderConfigurationResponse &&
+    Object.keys(contents.RecommenderConfigurationResponse).length === 0
+  ) {
+    contents.RecommenderConfigurationResponse = null;
+  }
   return contents;
 };
 
@@ -5070,6 +5436,9 @@ export const de_UpdateSegmentCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.SegmentResponse = de_SegmentResponse(data, context);
+  if (contents.SegmentResponse && Object.keys(contents.SegmentResponse).length === 0) {
+    contents.SegmentResponse = null;
+  }
   return contents;
 };
 
@@ -5088,6 +5457,9 @@ export const de_UpdateSmsChannelCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.SMSChannelResponse = _json(data);
+  if (contents.SMSChannelResponse && Object.keys(contents.SMSChannelResponse).length === 0) {
+    contents.SMSChannelResponse = null;
+  }
   return contents;
 };
 
@@ -5106,6 +5478,9 @@ export const de_UpdateSmsTemplateCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.MessageBody = _json(data);
+  if (contents.MessageBody && Object.keys(contents.MessageBody).length === 0) {
+    contents.MessageBody = null;
+  }
   return contents;
 };
 
@@ -5124,6 +5499,9 @@ export const de_UpdateTemplateActiveVersionCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.MessageBody = _json(data);
+  if (contents.MessageBody && Object.keys(contents.MessageBody).length === 0) {
+    contents.MessageBody = null;
+  }
   return contents;
 };
 
@@ -5142,6 +5520,9 @@ export const de_UpdateVoiceChannelCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.VoiceChannelResponse = _json(data);
+  if (contents.VoiceChannelResponse && Object.keys(contents.VoiceChannelResponse).length === 0) {
+    contents.VoiceChannelResponse = null;
+  }
   return contents;
 };
 
@@ -5160,6 +5541,9 @@ export const de_UpdateVoiceTemplateCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.MessageBody = _json(data);
+  if (contents.MessageBody && Object.keys(contents.MessageBody).length === 0) {
+    contents.MessageBody = null;
+  }
   return contents;
 };
 
@@ -5178,6 +5562,9 @@ export const de_VerifyOTPMessageCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.VerificationResponse = _json(data);
+  if (contents.VerificationResponse && Object.keys(contents.VerificationResponse).length === 0) {
+    contents.VerificationResponse = null;
+  }
   return contents;
 };
 

@@ -27,7 +27,7 @@
     "@aws-sdk/util-format-url": "*",
     "@smithy/eventstream-codec": "^4.0.4",
     "@smithy/eventstream-serde-browser": "^4.0.4",
-    "@smithy/fetch-http-handler": "^5.0.4",
+    "@smithy/fetch-http-handler": "^5.1.0",
     "@smithy/protocol-http": "^5.1.2",
     "@smithy/signature-v4": "^5.1.2",
     "@smithy/types": "^4.3.1",

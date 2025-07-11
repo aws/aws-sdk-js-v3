@@ -43,12 +43,12 @@
     "@smithy/protocol-http": "^5.1.2",
     "@smithy/types": "^4.3.1",
     "@smithy/util-middleware": "^4.0.4",
-    "@smithy/util-stream": "^4.2.2",
+    "@smithy/util-stream": "^4.2.3",
     "@smithy/util-utf8": "^4.0.0",
     "tslib": "^2.6.2"
   },
   "devDependencies": {
-    "@smithy/node-http-handler": "^4.0.6",
+    "@smithy/node-http-handler": "^4.1.0",
     "concurrently": "7.0.0",
     "downlevel-dts": "0.10.1",
     "rimraf": "3.0.2",

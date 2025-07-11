@@ -3887,6 +3887,9 @@ export const de_GetPublicAccessBlockCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.PublicAccessBlockConfiguration = de_PublicAccessBlockConfiguration(data, context);
+  if (contents.PublicAccessBlockConfiguration && Object.keys(contents.PublicAccessBlockConfiguration).length === 0) {
+    contents.PublicAccessBlockConfiguration = null;
+  }
   return contents;
 };
 
@@ -3905,6 +3908,9 @@ export const de_GetStorageLensConfigurationCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.StorageLensConfiguration = de_StorageLensConfiguration(data, context);
+  if (contents.StorageLensConfiguration && Object.keys(contents.StorageLensConfiguration).length === 0) {
+    contents.StorageLensConfiguration = null;
+  }
   return contents;
 };
 
@@ -3945,6 +3951,9 @@ export const de_GetStorageLensGroupCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.StorageLensGroup = de_StorageLensGroup(data, context);
+  if (contents.StorageLensGroup && Object.keys(contents.StorageLensGroup).length === 0) {
+    contents.StorageLensGroup = null;
+  }
   return contents;
 };
 

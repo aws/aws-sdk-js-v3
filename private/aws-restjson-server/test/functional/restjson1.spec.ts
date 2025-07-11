@@ -3230,7 +3230,7 @@ it("RestJsonHttpPayloadWithStructure:ServerResponse", async () => {
 /**
  * Serializes a structure in the payload
  */
-it.skip("RestJsonHttpPayloadWithStructureAndEmptyResponseBody:ServerResponse", async () => {
+it("RestJsonHttpPayloadWithStructureAndEmptyResponseBody:ServerResponse", async () => {
   class TestService implements Partial<RestJsonService<{}>> {
     HttpPayloadWithStructure(input: any, ctx: {}): Promise<HttpPayloadWithStructureServerOutput> {
       const response = {

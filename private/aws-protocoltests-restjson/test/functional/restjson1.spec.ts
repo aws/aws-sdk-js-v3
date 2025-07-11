@@ -2788,7 +2788,7 @@ it("RestJsonHttpPayloadWithStructure:Response", async () => {
 /**
  * Serializes a structure in the payload
  */
-it.skip("RestJsonHttpPayloadWithStructureAndEmptyResponseBody:Response", async () => {
+it("RestJsonHttpPayloadWithStructureAndEmptyResponseBody:Response", async () => {
   const client = new RestJsonProtocolClient({
     ...clientParams,
     requestHandler: new ResponseDeserializationTestHandler(true, 200, undefined, ``),
