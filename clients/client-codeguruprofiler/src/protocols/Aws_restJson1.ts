@@ -667,6 +667,9 @@ export const de_ConfigureAgentCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.configuration = _json(data);
+  if (contents.configuration && Object.keys(contents.configuration).length === 0) {
+    contents.configuration = null;
+  }
   return contents;
 };
 
@@ -685,6 +688,9 @@ export const de_CreateProfilingGroupCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.profilingGroup = de_ProfilingGroupDescription(data, context);
+  if (contents.profilingGroup && Object.keys(contents.profilingGroup).length === 0) {
+    contents.profilingGroup = null;
+  }
   return contents;
 };
 
@@ -720,6 +726,9 @@ export const de_DescribeProfilingGroupCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.profilingGroup = de_ProfilingGroupDescription(data, context);
+  if (contents.profilingGroup && Object.keys(contents.profilingGroup).length === 0) {
+    contents.profilingGroup = null;
+  }
   return contents;
 };
 
@@ -1069,6 +1078,9 @@ export const de_UpdateProfilingGroupCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.profilingGroup = de_ProfilingGroupDescription(data, context);
+  if (contents.profilingGroup && Object.keys(contents.profilingGroup).length === 0) {
+    contents.profilingGroup = null;
+  }
   return contents;
 };
 

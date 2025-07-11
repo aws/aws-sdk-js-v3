@@ -781,6 +781,9 @@ export const de_CreateComponentCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.entity = de_Component(data, context);
+  if (contents.entity && Object.keys(contents.entity).length === 0) {
+    contents.entity = null;
+  }
   return contents;
 };
 
@@ -799,6 +802,9 @@ export const de_CreateFormCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.entity = de_Form(data, context);
+  if (contents.entity && Object.keys(contents.entity).length === 0) {
+    contents.entity = null;
+  }
   return contents;
 };
 
@@ -817,6 +823,9 @@ export const de_CreateThemeCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.entity = de_Theme(data, context);
+  if (contents.entity && Object.keys(contents.entity).length === 0) {
+    contents.entity = null;
+  }
   return contents;
 };
 
@@ -975,6 +984,9 @@ export const de_GetCodegenJobCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.job = de_CodegenJob(data, context);
+  if (contents.job && Object.keys(contents.job).length === 0) {
+    contents.job = null;
+  }
   return contents;
 };
 
@@ -993,6 +1005,9 @@ export const de_GetComponentCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.component = de_Component(data, context);
+  if (contents.component && Object.keys(contents.component).length === 0) {
+    contents.component = null;
+  }
   return contents;
 };
 
@@ -1011,6 +1026,9 @@ export const de_GetFormCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.form = de_Form(data, context);
+  if (contents.form && Object.keys(contents.form).length === 0) {
+    contents.form = null;
+  }
   return contents;
 };
 
@@ -1050,6 +1068,9 @@ export const de_GetThemeCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.theme = de_Theme(data, context);
+  if (contents.theme && Object.keys(contents.theme).length === 0) {
+    contents.theme = null;
+  }
   return contents;
 };
 
@@ -1216,6 +1237,9 @@ export const de_StartCodegenJobCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.entity = de_CodegenJob(data, context);
+  if (contents.entity && Object.keys(contents.entity).length === 0) {
+    contents.entity = null;
+  }
   return contents;
 };
 
@@ -1268,6 +1292,9 @@ export const de_UpdateComponentCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.entity = de_Component(data, context);
+  if (contents.entity && Object.keys(contents.entity).length === 0) {
+    contents.entity = null;
+  }
   return contents;
 };
 
@@ -1286,6 +1313,9 @@ export const de_UpdateFormCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.entity = de_Form(data, context);
+  if (contents.entity && Object.keys(contents.entity).length === 0) {
+    contents.entity = null;
+  }
   return contents;
 };
 
@@ -1304,6 +1334,9 @@ export const de_UpdateThemeCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.entity = de_Theme(data, context);
+  if (contents.entity && Object.keys(contents.entity).length === 0) {
+    contents.entity = null;
+  }
   return contents;
 };
 

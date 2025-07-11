@@ -2150,6 +2150,9 @@ export const de_HttpPayloadWithMemberXmlNameCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.nested = de_PayloadWithXmlName(data, context);
+  if (contents.nested && Object.keys(contents.nested).length === 0) {
+    contents.nested = null;
+  }
   return contents;
 };
 
@@ -2168,6 +2171,9 @@ export const de_HttpPayloadWithStructureCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.nested = de_NestedPayload(data, context);
+  if (contents.nested && Object.keys(contents.nested).length === 0) {
+    contents.nested = null;
+  }
   return contents;
 };
 
@@ -2206,6 +2212,9 @@ export const de_HttpPayloadWithXmlNameCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.nested = de_PayloadWithXmlName(data, context);
+  if (contents.nested && Object.keys(contents.nested).length === 0) {
+    contents.nested = null;
+  }
   return contents;
 };
 
@@ -2224,6 +2233,9 @@ export const de_HttpPayloadWithXmlNamespaceCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.nested = de_PayloadWithXmlNamespace(data, context);
+  if (contents.nested && Object.keys(contents.nested).length === 0) {
+    contents.nested = null;
+  }
   return contents;
 };
 
@@ -2242,6 +2254,9 @@ export const de_HttpPayloadWithXmlNamespaceAndPrefixCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.nested = de_PayloadWithXmlNamespaceAndPrefix(data, context);
+  if (contents.nested && Object.keys(contents.nested).length === 0) {
+    contents.nested = null;
+  }
   return contents;
 };
 
@@ -2805,6 +2820,9 @@ export const de_XmlAttributesOnPayloadCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.payload = de_XmlAttributesPayloadResponse(data, context);
+  if (contents.payload && Object.keys(contents.payload).length === 0) {
+    contents.payload = null;
+  }
   return contents;
 };
 

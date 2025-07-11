@@ -4095,6 +4095,9 @@ export const de_CopyDistributionCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.Distribution = de_Distribution(data, context);
+  if (contents.Distribution && Object.keys(contents.Distribution).length === 0) {
+    contents.Distribution = null;
+  }
   return contents;
 };
 
@@ -4114,6 +4117,9 @@ export const de_CreateAnycastIpListCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.AnycastIpList = de_AnycastIpList(data, context);
+  if (contents.AnycastIpList && Object.keys(contents.AnycastIpList).length === 0) {
+    contents.AnycastIpList = null;
+  }
   return contents;
 };
 
@@ -4134,6 +4140,9 @@ export const de_CreateCachePolicyCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.CachePolicy = de_CachePolicy(data, context);
+  if (contents.CachePolicy && Object.keys(contents.CachePolicy).length === 0) {
+    contents.CachePolicy = null;
+  }
   return contents;
 };
 
@@ -4154,6 +4163,9 @@ export const de_CreateCloudFrontOriginAccessIdentityCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.CloudFrontOriginAccessIdentity = de_CloudFrontOriginAccessIdentity(data, context);
+  if (contents.CloudFrontOriginAccessIdentity && Object.keys(contents.CloudFrontOriginAccessIdentity).length === 0) {
+    contents.CloudFrontOriginAccessIdentity = null;
+  }
   return contents;
 };
 
@@ -4173,6 +4185,9 @@ export const de_CreateConnectionGroupCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.ConnectionGroup = de_ConnectionGroup(data, context);
+  if (contents.ConnectionGroup && Object.keys(contents.ConnectionGroup).length === 0) {
+    contents.ConnectionGroup = null;
+  }
   return contents;
 };
 
@@ -4193,6 +4208,9 @@ export const de_CreateContinuousDeploymentPolicyCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.ContinuousDeploymentPolicy = de_ContinuousDeploymentPolicy(data, context);
+  if (contents.ContinuousDeploymentPolicy && Object.keys(contents.ContinuousDeploymentPolicy).length === 0) {
+    contents.ContinuousDeploymentPolicy = null;
+  }
   return contents;
 };
 
@@ -4213,6 +4231,9 @@ export const de_CreateDistributionCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.Distribution = de_Distribution(data, context);
+  if (contents.Distribution && Object.keys(contents.Distribution).length === 0) {
+    contents.Distribution = null;
+  }
   return contents;
 };
 
@@ -4232,6 +4253,9 @@ export const de_CreateDistributionTenantCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.DistributionTenant = de_DistributionTenant(data, context);
+  if (contents.DistributionTenant && Object.keys(contents.DistributionTenant).length === 0) {
+    contents.DistributionTenant = null;
+  }
   return contents;
 };
 
@@ -4252,6 +4276,9 @@ export const de_CreateDistributionWithTagsCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.Distribution = de_Distribution(data, context);
+  if (contents.Distribution && Object.keys(contents.Distribution).length === 0) {
+    contents.Distribution = null;
+  }
   return contents;
 };
 
@@ -4272,6 +4299,9 @@ export const de_CreateFieldLevelEncryptionConfigCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.FieldLevelEncryption = de_FieldLevelEncryption(data, context);
+  if (contents.FieldLevelEncryption && Object.keys(contents.FieldLevelEncryption).length === 0) {
+    contents.FieldLevelEncryption = null;
+  }
   return contents;
 };
 
@@ -4292,6 +4322,9 @@ export const de_CreateFieldLevelEncryptionProfileCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.FieldLevelEncryptionProfile = de_FieldLevelEncryptionProfile(data, context);
+  if (contents.FieldLevelEncryptionProfile && Object.keys(contents.FieldLevelEncryptionProfile).length === 0) {
+    contents.FieldLevelEncryptionProfile = null;
+  }
   return contents;
 };
 
@@ -4312,6 +4345,9 @@ export const de_CreateFunctionCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.FunctionSummary = de_FunctionSummary(data, context);
+  if (contents.FunctionSummary && Object.keys(contents.FunctionSummary).length === 0) {
+    contents.FunctionSummary = null;
+  }
   return contents;
 };
 
@@ -4331,6 +4367,9 @@ export const de_CreateInvalidationCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.Invalidation = de_Invalidation(data, context);
+  if (contents.Invalidation && Object.keys(contents.Invalidation).length === 0) {
+    contents.Invalidation = null;
+  }
   return contents;
 };
 
@@ -4350,6 +4389,9 @@ export const de_CreateInvalidationForDistributionTenantCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.Invalidation = de_Invalidation(data, context);
+  if (contents.Invalidation && Object.keys(contents.Invalidation).length === 0) {
+    contents.Invalidation = null;
+  }
   return contents;
 };
 
@@ -4370,6 +4412,9 @@ export const de_CreateKeyGroupCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.KeyGroup = de_KeyGroup(data, context);
+  if (contents.KeyGroup && Object.keys(contents.KeyGroup).length === 0) {
+    contents.KeyGroup = null;
+  }
   return contents;
 };
 
@@ -4390,6 +4435,9 @@ export const de_CreateKeyValueStoreCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.KeyValueStore = de_KeyValueStore(data, context);
+  if (contents.KeyValueStore && Object.keys(contents.KeyValueStore).length === 0) {
+    contents.KeyValueStore = null;
+  }
   return contents;
 };
 
@@ -4408,6 +4456,9 @@ export const de_CreateMonitoringSubscriptionCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.MonitoringSubscription = de_MonitoringSubscription(data, context);
+  if (contents.MonitoringSubscription && Object.keys(contents.MonitoringSubscription).length === 0) {
+    contents.MonitoringSubscription = null;
+  }
   return contents;
 };
 
@@ -4428,6 +4479,9 @@ export const de_CreateOriginAccessControlCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.OriginAccessControl = de_OriginAccessControl(data, context);
+  if (contents.OriginAccessControl && Object.keys(contents.OriginAccessControl).length === 0) {
+    contents.OriginAccessControl = null;
+  }
   return contents;
 };
 
@@ -4448,6 +4502,9 @@ export const de_CreateOriginRequestPolicyCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.OriginRequestPolicy = de_OriginRequestPolicy(data, context);
+  if (contents.OriginRequestPolicy && Object.keys(contents.OriginRequestPolicy).length === 0) {
+    contents.OriginRequestPolicy = null;
+  }
   return contents;
 };
 
@@ -4468,6 +4525,9 @@ export const de_CreatePublicKeyCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.PublicKey = de_PublicKey(data, context);
+  if (contents.PublicKey && Object.keys(contents.PublicKey).length === 0) {
+    contents.PublicKey = null;
+  }
   return contents;
 };
 
@@ -4508,6 +4568,9 @@ export const de_CreateResponseHeadersPolicyCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.ResponseHeadersPolicy = de_ResponseHeadersPolicy(data, context);
+  if (contents.ResponseHeadersPolicy && Object.keys(contents.ResponseHeadersPolicy).length === 0) {
+    contents.ResponseHeadersPolicy = null;
+  }
   return contents;
 };
 
@@ -4528,6 +4591,9 @@ export const de_CreateStreamingDistributionCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.StreamingDistribution = de_StreamingDistribution(data, context);
+  if (contents.StreamingDistribution && Object.keys(contents.StreamingDistribution).length === 0) {
+    contents.StreamingDistribution = null;
+  }
   return contents;
 };
 
@@ -4548,6 +4614,9 @@ export const de_CreateStreamingDistributionWithTagsCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.StreamingDistribution = de_StreamingDistribution(data, context);
+  if (contents.StreamingDistribution && Object.keys(contents.StreamingDistribution).length === 0) {
+    contents.StreamingDistribution = null;
+  }
   return contents;
 };
 
@@ -4568,6 +4637,9 @@ export const de_CreateVpcOriginCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.VpcOrigin = de_VpcOrigin(data, context);
+  if (contents.VpcOrigin && Object.keys(contents.VpcOrigin).length === 0) {
+    contents.VpcOrigin = null;
+  }
   return contents;
 };
 
@@ -4910,6 +4982,9 @@ export const de_DeleteVpcOriginCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.VpcOrigin = de_VpcOrigin(data, context);
+  if (contents.VpcOrigin && Object.keys(contents.VpcOrigin).length === 0) {
+    contents.VpcOrigin = null;
+  }
   return contents;
 };
 
@@ -4929,6 +5004,9 @@ export const de_DescribeFunctionCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.FunctionSummary = de_FunctionSummary(data, context);
+  if (contents.FunctionSummary && Object.keys(contents.FunctionSummary).length === 0) {
+    contents.FunctionSummary = null;
+  }
   return contents;
 };
 
@@ -4948,6 +5026,9 @@ export const de_DescribeKeyValueStoreCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.KeyValueStore = de_KeyValueStore(data, context);
+  if (contents.KeyValueStore && Object.keys(contents.KeyValueStore).length === 0) {
+    contents.KeyValueStore = null;
+  }
   return contents;
 };
 
@@ -5009,6 +5090,9 @@ export const de_GetAnycastIpListCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.AnycastIpList = de_AnycastIpList(data, context);
+  if (contents.AnycastIpList && Object.keys(contents.AnycastIpList).length === 0) {
+    contents.AnycastIpList = null;
+  }
   return contents;
 };
 
@@ -5028,6 +5112,9 @@ export const de_GetCachePolicyCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.CachePolicy = de_CachePolicy(data, context);
+  if (contents.CachePolicy && Object.keys(contents.CachePolicy).length === 0) {
+    contents.CachePolicy = null;
+  }
   return contents;
 };
 
@@ -5047,6 +5134,9 @@ export const de_GetCachePolicyConfigCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.CachePolicyConfig = de_CachePolicyConfig(data, context);
+  if (contents.CachePolicyConfig && Object.keys(contents.CachePolicyConfig).length === 0) {
+    contents.CachePolicyConfig = null;
+  }
   return contents;
 };
 
@@ -5066,6 +5156,9 @@ export const de_GetCloudFrontOriginAccessIdentityCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.CloudFrontOriginAccessIdentity = de_CloudFrontOriginAccessIdentity(data, context);
+  if (contents.CloudFrontOriginAccessIdentity && Object.keys(contents.CloudFrontOriginAccessIdentity).length === 0) {
+    contents.CloudFrontOriginAccessIdentity = null;
+  }
   return contents;
 };
 
@@ -5085,6 +5178,12 @@ export const de_GetCloudFrontOriginAccessIdentityConfigCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.CloudFrontOriginAccessIdentityConfig = de_CloudFrontOriginAccessIdentityConfig(data, context);
+  if (
+    contents.CloudFrontOriginAccessIdentityConfig &&
+    Object.keys(contents.CloudFrontOriginAccessIdentityConfig).length === 0
+  ) {
+    contents.CloudFrontOriginAccessIdentityConfig = null;
+  }
   return contents;
 };
 
@@ -5104,6 +5203,9 @@ export const de_GetConnectionGroupCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.ConnectionGroup = de_ConnectionGroup(data, context);
+  if (contents.ConnectionGroup && Object.keys(contents.ConnectionGroup).length === 0) {
+    contents.ConnectionGroup = null;
+  }
   return contents;
 };
 
@@ -5123,6 +5225,9 @@ export const de_GetConnectionGroupByRoutingEndpointCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.ConnectionGroup = de_ConnectionGroup(data, context);
+  if (contents.ConnectionGroup && Object.keys(contents.ConnectionGroup).length === 0) {
+    contents.ConnectionGroup = null;
+  }
   return contents;
 };
 
@@ -5142,6 +5247,9 @@ export const de_GetContinuousDeploymentPolicyCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.ContinuousDeploymentPolicy = de_ContinuousDeploymentPolicy(data, context);
+  if (contents.ContinuousDeploymentPolicy && Object.keys(contents.ContinuousDeploymentPolicy).length === 0) {
+    contents.ContinuousDeploymentPolicy = null;
+  }
   return contents;
 };
 
@@ -5161,6 +5269,12 @@ export const de_GetContinuousDeploymentPolicyConfigCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.ContinuousDeploymentPolicyConfig = de_ContinuousDeploymentPolicyConfig(data, context);
+  if (
+    contents.ContinuousDeploymentPolicyConfig &&
+    Object.keys(contents.ContinuousDeploymentPolicyConfig).length === 0
+  ) {
+    contents.ContinuousDeploymentPolicyConfig = null;
+  }
   return contents;
 };
 
@@ -5180,6 +5294,9 @@ export const de_GetDistributionCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.Distribution = de_Distribution(data, context);
+  if (contents.Distribution && Object.keys(contents.Distribution).length === 0) {
+    contents.Distribution = null;
+  }
   return contents;
 };
 
@@ -5199,6 +5316,9 @@ export const de_GetDistributionConfigCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.DistributionConfig = de_DistributionConfig(data, context);
+  if (contents.DistributionConfig && Object.keys(contents.DistributionConfig).length === 0) {
+    contents.DistributionConfig = null;
+  }
   return contents;
 };
 
@@ -5218,6 +5338,9 @@ export const de_GetDistributionTenantCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.DistributionTenant = de_DistributionTenant(data, context);
+  if (contents.DistributionTenant && Object.keys(contents.DistributionTenant).length === 0) {
+    contents.DistributionTenant = null;
+  }
   return contents;
 };
 
@@ -5237,6 +5360,9 @@ export const de_GetDistributionTenantByDomainCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.DistributionTenant = de_DistributionTenant(data, context);
+  if (contents.DistributionTenant && Object.keys(contents.DistributionTenant).length === 0) {
+    contents.DistributionTenant = null;
+  }
   return contents;
 };
 
@@ -5256,6 +5382,9 @@ export const de_GetFieldLevelEncryptionCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.FieldLevelEncryption = de_FieldLevelEncryption(data, context);
+  if (contents.FieldLevelEncryption && Object.keys(contents.FieldLevelEncryption).length === 0) {
+    contents.FieldLevelEncryption = null;
+  }
   return contents;
 };
 
@@ -5275,6 +5404,9 @@ export const de_GetFieldLevelEncryptionConfigCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.FieldLevelEncryptionConfig = de_FieldLevelEncryptionConfig(data, context);
+  if (contents.FieldLevelEncryptionConfig && Object.keys(contents.FieldLevelEncryptionConfig).length === 0) {
+    contents.FieldLevelEncryptionConfig = null;
+  }
   return contents;
 };
 
@@ -5294,6 +5426,9 @@ export const de_GetFieldLevelEncryptionProfileCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.FieldLevelEncryptionProfile = de_FieldLevelEncryptionProfile(data, context);
+  if (contents.FieldLevelEncryptionProfile && Object.keys(contents.FieldLevelEncryptionProfile).length === 0) {
+    contents.FieldLevelEncryptionProfile = null;
+  }
   return contents;
 };
 
@@ -5313,6 +5448,12 @@ export const de_GetFieldLevelEncryptionProfileConfigCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.FieldLevelEncryptionProfileConfig = de_FieldLevelEncryptionProfileConfig(data, context);
+  if (
+    contents.FieldLevelEncryptionProfileConfig &&
+    Object.keys(contents.FieldLevelEncryptionProfileConfig).length === 0
+  ) {
+    contents.FieldLevelEncryptionProfileConfig = null;
+  }
   return contents;
 };
 
@@ -5351,6 +5492,9 @@ export const de_GetInvalidationCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.Invalidation = de_Invalidation(data, context);
+  if (contents.Invalidation && Object.keys(contents.Invalidation).length === 0) {
+    contents.Invalidation = null;
+  }
   return contents;
 };
 
@@ -5369,6 +5513,9 @@ export const de_GetInvalidationForDistributionTenantCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.Invalidation = de_Invalidation(data, context);
+  if (contents.Invalidation && Object.keys(contents.Invalidation).length === 0) {
+    contents.Invalidation = null;
+  }
   return contents;
 };
 
@@ -5388,6 +5535,9 @@ export const de_GetKeyGroupCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.KeyGroup = de_KeyGroup(data, context);
+  if (contents.KeyGroup && Object.keys(contents.KeyGroup).length === 0) {
+    contents.KeyGroup = null;
+  }
   return contents;
 };
 
@@ -5407,6 +5557,9 @@ export const de_GetKeyGroupConfigCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.KeyGroupConfig = de_KeyGroupConfig(data, context);
+  if (contents.KeyGroupConfig && Object.keys(contents.KeyGroupConfig).length === 0) {
+    contents.KeyGroupConfig = null;
+  }
   return contents;
 };
 
@@ -5425,6 +5578,9 @@ export const de_GetManagedCertificateDetailsCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.ManagedCertificateDetails = de_ManagedCertificateDetails(data, context);
+  if (contents.ManagedCertificateDetails && Object.keys(contents.ManagedCertificateDetails).length === 0) {
+    contents.ManagedCertificateDetails = null;
+  }
   return contents;
 };
 
@@ -5443,6 +5599,9 @@ export const de_GetMonitoringSubscriptionCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.MonitoringSubscription = de_MonitoringSubscription(data, context);
+  if (contents.MonitoringSubscription && Object.keys(contents.MonitoringSubscription).length === 0) {
+    contents.MonitoringSubscription = null;
+  }
   return contents;
 };
 
@@ -5462,6 +5621,9 @@ export const de_GetOriginAccessControlCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.OriginAccessControl = de_OriginAccessControl(data, context);
+  if (contents.OriginAccessControl && Object.keys(contents.OriginAccessControl).length === 0) {
+    contents.OriginAccessControl = null;
+  }
   return contents;
 };
 
@@ -5481,6 +5643,9 @@ export const de_GetOriginAccessControlConfigCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.OriginAccessControlConfig = de_OriginAccessControlConfig(data, context);
+  if (contents.OriginAccessControlConfig && Object.keys(contents.OriginAccessControlConfig).length === 0) {
+    contents.OriginAccessControlConfig = null;
+  }
   return contents;
 };
 
@@ -5500,6 +5665,9 @@ export const de_GetOriginRequestPolicyCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.OriginRequestPolicy = de_OriginRequestPolicy(data, context);
+  if (contents.OriginRequestPolicy && Object.keys(contents.OriginRequestPolicy).length === 0) {
+    contents.OriginRequestPolicy = null;
+  }
   return contents;
 };
 
@@ -5519,6 +5687,9 @@ export const de_GetOriginRequestPolicyConfigCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.OriginRequestPolicyConfig = de_OriginRequestPolicyConfig(data, context);
+  if (contents.OriginRequestPolicyConfig && Object.keys(contents.OriginRequestPolicyConfig).length === 0) {
+    contents.OriginRequestPolicyConfig = null;
+  }
   return contents;
 };
 
@@ -5538,6 +5709,9 @@ export const de_GetPublicKeyCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.PublicKey = de_PublicKey(data, context);
+  if (contents.PublicKey && Object.keys(contents.PublicKey).length === 0) {
+    contents.PublicKey = null;
+  }
   return contents;
 };
 
@@ -5557,6 +5731,9 @@ export const de_GetPublicKeyConfigCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.PublicKeyConfig = de_PublicKeyConfig(data, context);
+  if (contents.PublicKeyConfig && Object.keys(contents.PublicKeyConfig).length === 0) {
+    contents.PublicKeyConfig = null;
+  }
   return contents;
 };
 
@@ -5596,6 +5773,9 @@ export const de_GetResponseHeadersPolicyCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.ResponseHeadersPolicy = de_ResponseHeadersPolicy(data, context);
+  if (contents.ResponseHeadersPolicy && Object.keys(contents.ResponseHeadersPolicy).length === 0) {
+    contents.ResponseHeadersPolicy = null;
+  }
   return contents;
 };
 
@@ -5615,6 +5795,9 @@ export const de_GetResponseHeadersPolicyConfigCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.ResponseHeadersPolicyConfig = de_ResponseHeadersPolicyConfig(data, context);
+  if (contents.ResponseHeadersPolicyConfig && Object.keys(contents.ResponseHeadersPolicyConfig).length === 0) {
+    contents.ResponseHeadersPolicyConfig = null;
+  }
   return contents;
 };
 
@@ -5634,6 +5817,9 @@ export const de_GetStreamingDistributionCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.StreamingDistribution = de_StreamingDistribution(data, context);
+  if (contents.StreamingDistribution && Object.keys(contents.StreamingDistribution).length === 0) {
+    contents.StreamingDistribution = null;
+  }
   return contents;
 };
 
@@ -5653,6 +5839,9 @@ export const de_GetStreamingDistributionConfigCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.StreamingDistributionConfig = de_StreamingDistributionConfig(data, context);
+  if (contents.StreamingDistributionConfig && Object.keys(contents.StreamingDistributionConfig).length === 0) {
+    contents.StreamingDistributionConfig = null;
+  }
   return contents;
 };
 
@@ -5672,6 +5861,9 @@ export const de_GetVpcOriginCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.VpcOrigin = de_VpcOrigin(data, context);
+  if (contents.VpcOrigin && Object.keys(contents.VpcOrigin).length === 0) {
+    contents.VpcOrigin = null;
+  }
   return contents;
 };
 
@@ -5690,6 +5882,9 @@ export const de_ListAnycastIpListsCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.AnycastIpLists = de_AnycastIpListCollection(data, context);
+  if (contents.AnycastIpLists && Object.keys(contents.AnycastIpLists).length === 0) {
+    contents.AnycastIpLists = null;
+  }
   return contents;
 };
 
@@ -5708,6 +5903,9 @@ export const de_ListCachePoliciesCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.CachePolicyList = de_CachePolicyList(data, context);
+  if (contents.CachePolicyList && Object.keys(contents.CachePolicyList).length === 0) {
+    contents.CachePolicyList = null;
+  }
   return contents;
 };
 
@@ -5726,6 +5924,12 @@ export const de_ListCloudFrontOriginAccessIdentitiesCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.CloudFrontOriginAccessIdentityList = de_CloudFrontOriginAccessIdentityList(data, context);
+  if (
+    contents.CloudFrontOriginAccessIdentityList &&
+    Object.keys(contents.CloudFrontOriginAccessIdentityList).length === 0
+  ) {
+    contents.CloudFrontOriginAccessIdentityList = null;
+  }
   return contents;
 };
 
@@ -5744,6 +5948,9 @@ export const de_ListConflictingAliasesCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.ConflictingAliasesList = de_ConflictingAliasesList(data, context);
+  if (contents.ConflictingAliasesList && Object.keys(contents.ConflictingAliasesList).length === 0) {
+    contents.ConflictingAliasesList = null;
+  }
   return contents;
 };
 
@@ -5787,6 +5994,9 @@ export const de_ListContinuousDeploymentPoliciesCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.ContinuousDeploymentPolicyList = de_ContinuousDeploymentPolicyList(data, context);
+  if (contents.ContinuousDeploymentPolicyList && Object.keys(contents.ContinuousDeploymentPolicyList).length === 0) {
+    contents.ContinuousDeploymentPolicyList = null;
+  }
   return contents;
 };
 
@@ -5805,6 +6015,9 @@ export const de_ListDistributionsCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.DistributionList = de_DistributionList(data, context);
+  if (contents.DistributionList && Object.keys(contents.DistributionList).length === 0) {
+    contents.DistributionList = null;
+  }
   return contents;
 };
 
@@ -5823,6 +6036,9 @@ export const de_ListDistributionsByAnycastIpListIdCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.DistributionList = de_DistributionList(data, context);
+  if (contents.DistributionList && Object.keys(contents.DistributionList).length === 0) {
+    contents.DistributionList = null;
+  }
   return contents;
 };
 
@@ -5841,6 +6057,9 @@ export const de_ListDistributionsByCachePolicyIdCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.DistributionIdList = de_DistributionIdList(data, context);
+  if (contents.DistributionIdList && Object.keys(contents.DistributionIdList).length === 0) {
+    contents.DistributionIdList = null;
+  }
   return contents;
 };
 
@@ -5859,6 +6078,9 @@ export const de_ListDistributionsByConnectionModeCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.DistributionList = de_DistributionList(data, context);
+  if (contents.DistributionList && Object.keys(contents.DistributionList).length === 0) {
+    contents.DistributionList = null;
+  }
   return contents;
 };
 
@@ -5877,6 +6099,9 @@ export const de_ListDistributionsByKeyGroupCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.DistributionIdList = de_DistributionIdList(data, context);
+  if (contents.DistributionIdList && Object.keys(contents.DistributionIdList).length === 0) {
+    contents.DistributionIdList = null;
+  }
   return contents;
 };
 
@@ -5895,6 +6120,9 @@ export const de_ListDistributionsByOriginRequestPolicyIdCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.DistributionIdList = de_DistributionIdList(data, context);
+  if (contents.DistributionIdList && Object.keys(contents.DistributionIdList).length === 0) {
+    contents.DistributionIdList = null;
+  }
   return contents;
 };
 
@@ -5913,6 +6141,9 @@ export const de_ListDistributionsByRealtimeLogConfigCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.DistributionList = de_DistributionList(data, context);
+  if (contents.DistributionList && Object.keys(contents.DistributionList).length === 0) {
+    contents.DistributionList = null;
+  }
   return contents;
 };
 
@@ -5931,6 +6162,9 @@ export const de_ListDistributionsByResponseHeadersPolicyIdCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.DistributionIdList = de_DistributionIdList(data, context);
+  if (contents.DistributionIdList && Object.keys(contents.DistributionIdList).length === 0) {
+    contents.DistributionIdList = null;
+  }
   return contents;
 };
 
@@ -5949,6 +6183,9 @@ export const de_ListDistributionsByVpcOriginIdCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.DistributionIdList = de_DistributionIdList(data, context);
+  if (contents.DistributionIdList && Object.keys(contents.DistributionIdList).length === 0) {
+    contents.DistributionIdList = null;
+  }
   return contents;
 };
 
@@ -5967,6 +6204,9 @@ export const de_ListDistributionsByWebACLIdCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.DistributionList = de_DistributionList(data, context);
+  if (contents.DistributionList && Object.keys(contents.DistributionList).length === 0) {
+    contents.DistributionList = null;
+  }
   return contents;
 };
 
@@ -6060,6 +6300,9 @@ export const de_ListFieldLevelEncryptionConfigsCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.FieldLevelEncryptionList = de_FieldLevelEncryptionList(data, context);
+  if (contents.FieldLevelEncryptionList && Object.keys(contents.FieldLevelEncryptionList).length === 0) {
+    contents.FieldLevelEncryptionList = null;
+  }
   return contents;
 };
 
@@ -6078,6 +6321,9 @@ export const de_ListFieldLevelEncryptionProfilesCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.FieldLevelEncryptionProfileList = de_FieldLevelEncryptionProfileList(data, context);
+  if (contents.FieldLevelEncryptionProfileList && Object.keys(contents.FieldLevelEncryptionProfileList).length === 0) {
+    contents.FieldLevelEncryptionProfileList = null;
+  }
   return contents;
 };
 
@@ -6096,6 +6342,9 @@ export const de_ListFunctionsCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.FunctionList = de_FunctionList(data, context);
+  if (contents.FunctionList && Object.keys(contents.FunctionList).length === 0) {
+    contents.FunctionList = null;
+  }
   return contents;
 };
 
@@ -6114,6 +6363,9 @@ export const de_ListInvalidationsCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.InvalidationList = de_InvalidationList(data, context);
+  if (contents.InvalidationList && Object.keys(contents.InvalidationList).length === 0) {
+    contents.InvalidationList = null;
+  }
   return contents;
 };
 
@@ -6132,6 +6384,9 @@ export const de_ListInvalidationsForDistributionTenantCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.InvalidationList = de_InvalidationList(data, context);
+  if (contents.InvalidationList && Object.keys(contents.InvalidationList).length === 0) {
+    contents.InvalidationList = null;
+  }
   return contents;
 };
 
@@ -6150,6 +6405,9 @@ export const de_ListKeyGroupsCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.KeyGroupList = de_KeyGroupList(data, context);
+  if (contents.KeyGroupList && Object.keys(contents.KeyGroupList).length === 0) {
+    contents.KeyGroupList = null;
+  }
   return contents;
 };
 
@@ -6168,6 +6426,9 @@ export const de_ListKeyValueStoresCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.KeyValueStoreList = de_KeyValueStoreList(data, context);
+  if (contents.KeyValueStoreList && Object.keys(contents.KeyValueStoreList).length === 0) {
+    contents.KeyValueStoreList = null;
+  }
   return contents;
 };
 
@@ -6186,6 +6447,9 @@ export const de_ListOriginAccessControlsCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.OriginAccessControlList = de_OriginAccessControlList(data, context);
+  if (contents.OriginAccessControlList && Object.keys(contents.OriginAccessControlList).length === 0) {
+    contents.OriginAccessControlList = null;
+  }
   return contents;
 };
 
@@ -6204,6 +6468,9 @@ export const de_ListOriginRequestPoliciesCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.OriginRequestPolicyList = de_OriginRequestPolicyList(data, context);
+  if (contents.OriginRequestPolicyList && Object.keys(contents.OriginRequestPolicyList).length === 0) {
+    contents.OriginRequestPolicyList = null;
+  }
   return contents;
 };
 
@@ -6222,6 +6489,9 @@ export const de_ListPublicKeysCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.PublicKeyList = de_PublicKeyList(data, context);
+  if (contents.PublicKeyList && Object.keys(contents.PublicKeyList).length === 0) {
+    contents.PublicKeyList = null;
+  }
   return contents;
 };
 
@@ -6240,6 +6510,9 @@ export const de_ListRealtimeLogConfigsCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.RealtimeLogConfigs = de_RealtimeLogConfigs(data, context);
+  if (contents.RealtimeLogConfigs && Object.keys(contents.RealtimeLogConfigs).length === 0) {
+    contents.RealtimeLogConfigs = null;
+  }
   return contents;
 };
 
@@ -6258,6 +6531,9 @@ export const de_ListResponseHeadersPoliciesCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.ResponseHeadersPolicyList = de_ResponseHeadersPolicyList(data, context);
+  if (contents.ResponseHeadersPolicyList && Object.keys(contents.ResponseHeadersPolicyList).length === 0) {
+    contents.ResponseHeadersPolicyList = null;
+  }
   return contents;
 };
 
@@ -6276,6 +6552,9 @@ export const de_ListStreamingDistributionsCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.StreamingDistributionList = de_StreamingDistributionList(data, context);
+  if (contents.StreamingDistributionList && Object.keys(contents.StreamingDistributionList).length === 0) {
+    contents.StreamingDistributionList = null;
+  }
   return contents;
 };
 
@@ -6294,6 +6573,9 @@ export const de_ListTagsForResourceCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.Tags = de_Tags(data, context);
+  if (contents.Tags && Object.keys(contents.Tags).length === 0) {
+    contents.Tags = null;
+  }
   return contents;
 };
 
@@ -6312,6 +6594,9 @@ export const de_ListVpcOriginsCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.VpcOriginList = de_VpcOriginList(data, context);
+  if (contents.VpcOriginList && Object.keys(contents.VpcOriginList).length === 0) {
+    contents.VpcOriginList = null;
+  }
   return contents;
 };
 
@@ -6330,6 +6615,9 @@ export const de_PublishFunctionCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.FunctionSummary = de_FunctionSummary(data, context);
+  if (contents.FunctionSummary && Object.keys(contents.FunctionSummary).length === 0) {
+    contents.FunctionSummary = null;
+  }
   return contents;
 };
 
@@ -6365,6 +6653,9 @@ export const de_TestFunctionCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.TestResult = de_TestResult(data, context);
+  if (contents.TestResult && Object.keys(contents.TestResult).length === 0) {
+    contents.TestResult = null;
+  }
   return contents;
 };
 
@@ -6401,6 +6692,9 @@ export const de_UpdateCachePolicyCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.CachePolicy = de_CachePolicy(data, context);
+  if (contents.CachePolicy && Object.keys(contents.CachePolicy).length === 0) {
+    contents.CachePolicy = null;
+  }
   return contents;
 };
 
@@ -6420,6 +6714,9 @@ export const de_UpdateCloudFrontOriginAccessIdentityCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.CloudFrontOriginAccessIdentity = de_CloudFrontOriginAccessIdentity(data, context);
+  if (contents.CloudFrontOriginAccessIdentity && Object.keys(contents.CloudFrontOriginAccessIdentity).length === 0) {
+    contents.CloudFrontOriginAccessIdentity = null;
+  }
   return contents;
 };
 
@@ -6439,6 +6736,9 @@ export const de_UpdateConnectionGroupCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.ConnectionGroup = de_ConnectionGroup(data, context);
+  if (contents.ConnectionGroup && Object.keys(contents.ConnectionGroup).length === 0) {
+    contents.ConnectionGroup = null;
+  }
   return contents;
 };
 
@@ -6458,6 +6758,9 @@ export const de_UpdateContinuousDeploymentPolicyCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.ContinuousDeploymentPolicy = de_ContinuousDeploymentPolicy(data, context);
+  if (contents.ContinuousDeploymentPolicy && Object.keys(contents.ContinuousDeploymentPolicy).length === 0) {
+    contents.ContinuousDeploymentPolicy = null;
+  }
   return contents;
 };
 
@@ -6477,6 +6780,9 @@ export const de_UpdateDistributionCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.Distribution = de_Distribution(data, context);
+  if (contents.Distribution && Object.keys(contents.Distribution).length === 0) {
+    contents.Distribution = null;
+  }
   return contents;
 };
 
@@ -6496,6 +6802,9 @@ export const de_UpdateDistributionTenantCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.DistributionTenant = de_DistributionTenant(data, context);
+  if (contents.DistributionTenant && Object.keys(contents.DistributionTenant).length === 0) {
+    contents.DistributionTenant = null;
+  }
   return contents;
 };
 
@@ -6515,6 +6824,9 @@ export const de_UpdateDistributionWithStagingConfigCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.Distribution = de_Distribution(data, context);
+  if (contents.Distribution && Object.keys(contents.Distribution).length === 0) {
+    contents.Distribution = null;
+  }
   return contents;
 };
 
@@ -6558,6 +6870,9 @@ export const de_UpdateFieldLevelEncryptionConfigCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.FieldLevelEncryption = de_FieldLevelEncryption(data, context);
+  if (contents.FieldLevelEncryption && Object.keys(contents.FieldLevelEncryption).length === 0) {
+    contents.FieldLevelEncryption = null;
+  }
   return contents;
 };
 
@@ -6577,6 +6892,9 @@ export const de_UpdateFieldLevelEncryptionProfileCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.FieldLevelEncryptionProfile = de_FieldLevelEncryptionProfile(data, context);
+  if (contents.FieldLevelEncryptionProfile && Object.keys(contents.FieldLevelEncryptionProfile).length === 0) {
+    contents.FieldLevelEncryptionProfile = null;
+  }
   return contents;
 };
 
@@ -6596,6 +6914,9 @@ export const de_UpdateFunctionCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.FunctionSummary = de_FunctionSummary(data, context);
+  if (contents.FunctionSummary && Object.keys(contents.FunctionSummary).length === 0) {
+    contents.FunctionSummary = null;
+  }
   return contents;
 };
 
@@ -6615,6 +6936,9 @@ export const de_UpdateKeyGroupCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.KeyGroup = de_KeyGroup(data, context);
+  if (contents.KeyGroup && Object.keys(contents.KeyGroup).length === 0) {
+    contents.KeyGroup = null;
+  }
   return contents;
 };
 
@@ -6634,6 +6958,9 @@ export const de_UpdateKeyValueStoreCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.KeyValueStore = de_KeyValueStore(data, context);
+  if (contents.KeyValueStore && Object.keys(contents.KeyValueStore).length === 0) {
+    contents.KeyValueStore = null;
+  }
   return contents;
 };
 
@@ -6653,6 +6980,9 @@ export const de_UpdateOriginAccessControlCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.OriginAccessControl = de_OriginAccessControl(data, context);
+  if (contents.OriginAccessControl && Object.keys(contents.OriginAccessControl).length === 0) {
+    contents.OriginAccessControl = null;
+  }
   return contents;
 };
 
@@ -6672,6 +7002,9 @@ export const de_UpdateOriginRequestPolicyCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.OriginRequestPolicy = de_OriginRequestPolicy(data, context);
+  if (contents.OriginRequestPolicy && Object.keys(contents.OriginRequestPolicy).length === 0) {
+    contents.OriginRequestPolicy = null;
+  }
   return contents;
 };
 
@@ -6691,6 +7024,9 @@ export const de_UpdatePublicKeyCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.PublicKey = de_PublicKey(data, context);
+  if (contents.PublicKey && Object.keys(contents.PublicKey).length === 0) {
+    contents.PublicKey = null;
+  }
   return contents;
 };
 
@@ -6730,6 +7066,9 @@ export const de_UpdateResponseHeadersPolicyCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.ResponseHeadersPolicy = de_ResponseHeadersPolicy(data, context);
+  if (contents.ResponseHeadersPolicy && Object.keys(contents.ResponseHeadersPolicy).length === 0) {
+    contents.ResponseHeadersPolicy = null;
+  }
   return contents;
 };
 
@@ -6749,6 +7088,9 @@ export const de_UpdateStreamingDistributionCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.StreamingDistribution = de_StreamingDistribution(data, context);
+  if (contents.StreamingDistribution && Object.keys(contents.StreamingDistribution).length === 0) {
+    contents.StreamingDistribution = null;
+  }
   return contents;
 };
 
@@ -6768,6 +7110,9 @@ export const de_UpdateVpcOriginCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.VpcOrigin = de_VpcOrigin(data, context);
+  if (contents.VpcOrigin && Object.keys(contents.VpcOrigin).length === 0) {
+    contents.VpcOrigin = null;
+  }
   return contents;
 };
 

@@ -1146,6 +1146,9 @@ export const deserializeHttpPayloadWithStructureRequest = async (
   const contents: any = map({});
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.nested = de_NestedPayload(data, context);
+  if (contents.nested && Object.keys(contents.nested).length === 0) {
+    contents.nested = null;
+  }
   return contents;
 };
 
@@ -3848,6 +3851,9 @@ export const deserializeTestPayloadStructureRequest = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.payloadConfig = de_PayloadConfig(data, context);
+  if (contents.payloadConfig && Object.keys(contents.payloadConfig).length === 0) {
+    contents.payloadConfig = null;
+  }
   return contents;
 };
 

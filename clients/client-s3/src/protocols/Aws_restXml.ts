@@ -3368,6 +3368,9 @@ export const de_CopyObjectCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.CopyObjectResult = de_CopyObjectResult(data, context);
+  if (contents.CopyObjectResult && Object.keys(contents.CopyObjectResult).length === 0) {
+    contents.CopyObjectResult = null;
+  }
   return contents;
 };
 
@@ -3853,6 +3856,9 @@ export const de_GetBucketAnalyticsConfigurationCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.AnalyticsConfiguration = de_AnalyticsConfiguration(data, context);
+  if (contents.AnalyticsConfiguration && Object.keys(contents.AnalyticsConfiguration).length === 0) {
+    contents.AnalyticsConfiguration = null;
+  }
   return contents;
 };
 
@@ -3893,6 +3899,12 @@ export const de_GetBucketEncryptionCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.ServerSideEncryptionConfiguration = de_ServerSideEncryptionConfiguration(data, context);
+  if (
+    contents.ServerSideEncryptionConfiguration &&
+    Object.keys(contents.ServerSideEncryptionConfiguration).length === 0
+  ) {
+    contents.ServerSideEncryptionConfiguration = null;
+  }
   return contents;
 };
 
@@ -3911,6 +3923,9 @@ export const de_GetBucketIntelligentTieringConfigurationCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.IntelligentTieringConfiguration = de_IntelligentTieringConfiguration(data, context);
+  if (contents.IntelligentTieringConfiguration && Object.keys(contents.IntelligentTieringConfiguration).length === 0) {
+    contents.IntelligentTieringConfiguration = null;
+  }
   return contents;
 };
 
@@ -3929,6 +3944,9 @@ export const de_GetBucketInventoryConfigurationCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.InventoryConfiguration = de_InventoryConfiguration(data, context);
+  if (contents.InventoryConfiguration && Object.keys(contents.InventoryConfiguration).length === 0) {
+    contents.InventoryConfiguration = null;
+  }
   return contents;
 };
 
@@ -4010,6 +4028,12 @@ export const de_GetBucketMetadataTableConfigurationCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.GetBucketMetadataTableConfigurationResult = de_GetBucketMetadataTableConfigurationResult(data, context);
+  if (
+    contents.GetBucketMetadataTableConfigurationResult &&
+    Object.keys(contents.GetBucketMetadataTableConfigurationResult).length === 0
+  ) {
+    contents.GetBucketMetadataTableConfigurationResult = null;
+  }
   return contents;
 };
 
@@ -4028,6 +4052,9 @@ export const de_GetBucketMetricsConfigurationCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.MetricsConfiguration = de_MetricsConfiguration(data, context);
+  if (contents.MetricsConfiguration && Object.keys(contents.MetricsConfiguration).length === 0) {
+    contents.MetricsConfiguration = null;
+  }
   return contents;
 };
 
@@ -4081,6 +4108,9 @@ export const de_GetBucketOwnershipControlsCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.OwnershipControls = de_OwnershipControls(data, context);
+  if (contents.OwnershipControls && Object.keys(contents.OwnershipControls).length === 0) {
+    contents.OwnershipControls = null;
+  }
   return contents;
 };
 
@@ -4117,6 +4147,9 @@ export const de_GetBucketPolicyStatusCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.PolicyStatus = de_PolicyStatus(data, context);
+  if (contents.PolicyStatus && Object.keys(contents.PolicyStatus).length === 0) {
+    contents.PolicyStatus = null;
+  }
   return contents;
 };
 
@@ -4135,6 +4168,9 @@ export const de_GetBucketReplicationCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.ReplicationConfiguration = de_ReplicationConfiguration(data, context);
+  if (contents.ReplicationConfiguration && Object.keys(contents.ReplicationConfiguration).length === 0) {
+    contents.ReplicationConfiguration = null;
+  }
   return contents;
 };
 
@@ -4379,6 +4415,9 @@ export const de_GetObjectLegalHoldCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.LegalHold = de_ObjectLockLegalHold(data, context);
+  if (contents.LegalHold && Object.keys(contents.LegalHold).length === 0) {
+    contents.LegalHold = null;
+  }
   return contents;
 };
 
@@ -4397,6 +4436,9 @@ export const de_GetObjectLockConfigurationCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.ObjectLockConfiguration = de_ObjectLockConfiguration(data, context);
+  if (contents.ObjectLockConfiguration && Object.keys(contents.ObjectLockConfiguration).length === 0) {
+    contents.ObjectLockConfiguration = null;
+  }
   return contents;
 };
 
@@ -4415,6 +4457,9 @@ export const de_GetObjectRetentionCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.Retention = de_ObjectLockRetention(data, context);
+  if (contents.Retention && Object.keys(contents.Retention).length === 0) {
+    contents.Retention = null;
+  }
   return contents;
 };
 
@@ -4476,6 +4521,9 @@ export const de_GetPublicAccessBlockCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.PublicAccessBlockConfiguration = de_PublicAccessBlockConfiguration(data, context);
+  if (contents.PublicAccessBlockConfiguration && Object.keys(contents.PublicAccessBlockConfiguration).length === 0) {
+    contents.PublicAccessBlockConfiguration = null;
+  }
   return contents;
 };
 
@@ -5596,6 +5644,9 @@ export const de_UploadPartCopyCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.CopyPartResult = de_CopyPartResult(data, context);
+  if (contents.CopyPartResult && Object.keys(contents.CopyPartResult).length === 0) {
+    contents.CopyPartResult = null;
+  }
   return contents;
 };
 
