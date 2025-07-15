@@ -1255,6 +1255,58 @@ export interface DeadLetterConfig {
 }
 
 /**
+ * @public
+ * @enum
+ */
+export const IncludeDetail = {
+  FULL: "FULL",
+  NONE: "NONE",
+} as const;
+
+/**
+ * @public
+ */
+export type IncludeDetail = (typeof IncludeDetail)[keyof typeof IncludeDetail];
+
+/**
+ * @public
+ * @enum
+ */
+export const Level = {
+  ERROR: "ERROR",
+  INFO: "INFO",
+  OFF: "OFF",
+  TRACE: "TRACE",
+} as const;
+
+/**
+ * @public
+ */
+export type Level = (typeof Level)[keyof typeof Level];
+
+/**
+ * <p>The logging configuration settings for the event bus.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/eb-event-bus-logs.html">Configuring logs for event buses</a> in the <i>EventBridge User Guide</i>.</p>
+ * @public
+ */
+export interface LogConfig {
+  /**
+   * <p>Whether EventBridge include detailed event information in the records it generates.
+   *       Detailed data can be useful for troubleshooting and debugging. This information includes details of the event itself, as well as target details.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-event-bus-logs.html#eb-event-logs-data">Including detail data in event bus logs</a> in the <i>EventBridge User Guide</i>.</p>
+   * @public
+   */
+  IncludeDetail?: IncludeDetail | undefined;
+
+  /**
+   * <p>The level of logging detail to include. This applies to all log destinations for the event bus.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-event-bus-logs.html#eb-event-bus-logs-level">Specifying event bus log level</a> in the <i>EventBridge User Guide</i>.</p>
+   * @public
+   */
+  Level?: Level | undefined;
+}
+
+/**
  * <p>A key-value pair associated with an Amazon Web Services resource. In EventBridge,
  *       rules and event buses support tagging.</p>
  * @public
@@ -1348,6 +1400,13 @@ export interface CreateEventBusRequest {
   DeadLetterConfig?: DeadLetterConfig | undefined;
 
   /**
+   * <p>The logging configuration settings for the event bus.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/eb-event-bus-logs.html">Configuring logs for event buses</a> in the <i>EventBridge User Guide</i>.</p>
+   * @public
+   */
+  LogConfig?: LogConfig | undefined;
+
+  /**
    * <p>Tags to associate with the event bus.</p>
    * @public
    */
@@ -1386,6 +1445,13 @@ export interface CreateEventBusResponse {
    * @public
    */
   DeadLetterConfig?: DeadLetterConfig | undefined;
+
+  /**
+   * <p>The logging configuration settings for the event bus.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/eb-event-bus-logs.html">Configuring logs for event buses</a> in the <i>EventBridge User Guide</i>.</p>
+   * @public
+   */
+  LogConfig?: LogConfig | undefined;
 }
 
 /**
@@ -2236,6 +2302,13 @@ export interface DescribeEventBusResponse {
    * @public
    */
   Policy?: string | undefined;
+
+  /**
+   * <p>The logging configuration settings for the event bus.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/eb-event-bus-logs.html">Configuring logs for event buses</a> in the <i>EventBridge User Guide</i>.</p>
+   * @public
+   */
+  LogConfig?: LogConfig | undefined;
 
   /**
    * <p>The time the event bus was created.</p>
@@ -5964,6 +6037,13 @@ export interface UpdateEventBusRequest {
    * @public
    */
   DeadLetterConfig?: DeadLetterConfig | undefined;
+
+  /**
+   * <p>The logging configuration settings for the event bus.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/eb-event-bus-logs.html">Configuring logs for event buses</a> in the <i>EventBridge User Guide</i>.</p>
+   * @public
+   */
+  LogConfig?: LogConfig | undefined;
 }
 
 /**
@@ -6004,6 +6084,13 @@ export interface UpdateEventBusResponse {
    * @public
    */
   DeadLetterConfig?: DeadLetterConfig | undefined;
+
+  /**
+   * <p>The logging configuration settings for the event bus.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/eb-event-bus-logs.html">Configuring logs for event buses</a> in the <i>EventBridge User Guide</i>.</p>
+   * @public
+   */
+  LogConfig?: LogConfig | undefined;
 }
 
 /**

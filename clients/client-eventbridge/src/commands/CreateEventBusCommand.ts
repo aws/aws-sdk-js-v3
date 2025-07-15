@@ -45,6 +45,10 @@ export interface CreateEventBusCommandOutput extends CreateEventBusResponse, __M
  *   DeadLetterConfig: { // DeadLetterConfig
  *     Arn: "STRING_VALUE",
  *   },
+ *   LogConfig: { // LogConfig
+ *     IncludeDetail: "NONE" || "FULL",
+ *     Level: "OFF" || "ERROR" || "INFO" || "TRACE",
+ *   },
  *   Tags: [ // TagList
  *     { // Tag
  *       Key: "STRING_VALUE", // required
@@ -60,6 +64,10 @@ export interface CreateEventBusCommandOutput extends CreateEventBusResponse, __M
  * //   KmsKeyIdentifier: "STRING_VALUE",
  * //   DeadLetterConfig: { // DeadLetterConfig
  * //     Arn: "STRING_VALUE",
+ * //   },
+ * //   LogConfig: { // LogConfig
+ * //     IncludeDetail: "NONE" || "FULL",
+ * //     Level: "OFF" || "ERROR" || "INFO" || "TRACE",
  * //   },
  * // };
  *

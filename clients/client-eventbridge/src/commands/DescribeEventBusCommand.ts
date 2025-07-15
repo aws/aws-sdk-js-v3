@@ -54,6 +54,10 @@ export interface DescribeEventBusCommandOutput extends DescribeEventBusResponse,
  * //     Arn: "STRING_VALUE",
  * //   },
  * //   Policy: "STRING_VALUE",
+ * //   LogConfig: { // LogConfig
+ * //     IncludeDetail: "NONE" || "FULL",
+ * //     Level: "OFF" || "ERROR" || "INFO" || "TRACE",
+ * //   },
  * //   CreationTime: new Date("TIMESTAMP"),
  * //   LastModifiedTime: new Date("TIMESTAMP"),
  * // };

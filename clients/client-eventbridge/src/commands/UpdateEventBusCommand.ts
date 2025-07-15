@@ -42,6 +42,10 @@ export interface UpdateEventBusCommandOutput extends UpdateEventBusResponse, __M
  *   DeadLetterConfig: { // DeadLetterConfig
  *     Arn: "STRING_VALUE",
  *   },
+ *   LogConfig: { // LogConfig
+ *     IncludeDetail: "NONE" || "FULL",
+ *     Level: "OFF" || "ERROR" || "INFO" || "TRACE",
+ *   },
  * };
  * const command = new UpdateEventBusCommand(input);
  * const response = await client.send(command);
@@ -52,6 +56,10 @@ export interface UpdateEventBusCommandOutput extends UpdateEventBusResponse, __M
  * //   Description: "STRING_VALUE",
  * //   DeadLetterConfig: { // DeadLetterConfig
  * //     Arn: "STRING_VALUE",
+ * //   },
+ * //   LogConfig: { // LogConfig
+ * //     IncludeDetail: "NONE" || "FULL",
+ * //     Level: "OFF" || "ERROR" || "INFO" || "TRACE",
  * //   },
  * // };
  *

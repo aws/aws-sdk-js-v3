@@ -227,6 +227,7 @@ import {
   ListRulesRequest,
   ListTagsForResourceRequest,
   ListTargetsByRuleRequest,
+  LogConfig,
   ManagedRuleException,
   NetworkConfiguration,
   OperationDisabledException,
@@ -2542,6 +2543,8 @@ const de_ThrottlingExceptionRes = async (parsedOutput: any, context: __SerdeCont
 
 // se_ListTargetsByRuleRequest omitted.
 
+// se_LogConfig omitted.
+
 // se_NetworkConfiguration omitted.
 
 // se_PathParameterList omitted.
@@ -3025,6 +3028,7 @@ const de_DescribeEventBusResponse = (output: any, context: __SerdeContext): Desc
     Description: __expectString,
     KmsKeyIdentifier: __expectString,
     LastModifiedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    LogConfig: _json,
     Name: __expectString,
     Policy: __expectString,
   }) as any;
@@ -3271,6 +3275,8 @@ const de_ListReplaysResponse = (output: any, context: __SerdeContext): ListRepla
 // de_ListTagsForResourceResponse omitted.
 
 // de_ListTargetsByRuleResponse omitted.
+
+// de_LogConfig omitted.
 
 // de_ManagedRuleException omitted.
 
