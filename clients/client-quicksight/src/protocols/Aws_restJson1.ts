@@ -1356,6 +1356,7 @@ import {
   CreateColumnsOperation,
   CredentialPair,
   CustomerManagedKeyUnavailableException,
+  CustomInstructions,
   CustomSql,
   Dashboard,
   DashboardPublishOptions,
@@ -2185,6 +2186,7 @@ export const se_CreateTopicCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
+      CustomInstructions: (_) => _json(_),
       FolderArns: (_) => _json(_),
       Tags: (_) => _json(_),
       Topic: (_) => _json(_),
@@ -5934,6 +5936,7 @@ export const se_UpdateTopicCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
+      CustomInstructions: (_) => _json(_),
       Topic: (_) => _json(_),
     })
   );
@@ -8766,6 +8769,7 @@ export const de_DescribeTopicCommand = async (
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
     Arn: __expectString,
+    CustomInstructions: _json,
     RequestId: __expectString,
     Topic: _json,
     TopicId: __expectString,
@@ -13157,6 +13161,8 @@ const se_CustomContentVisual = (input: CustomContentVisual, context: __SerdeCont
 // se_CustomFilterConfiguration omitted.
 
 // se_CustomFilterListConfiguration omitted.
+
+// se_CustomInstructions omitted.
 
 // se_CustomNarrativeOptions omitted.
 
@@ -19091,6 +19097,8 @@ const de_CustomContentVisual = (output: any, context: __SerdeContext): CustomCon
 // de_CustomFilterConfiguration omitted.
 
 // de_CustomFilterListConfiguration omitted.
+
+// de_CustomInstructions omitted.
 
 // de_CustomNarrativeOptions omitted.
 

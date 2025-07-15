@@ -5594,6 +5594,18 @@ export interface CreateThemeAliasResponse {
 }
 
 /**
+ * <p>Instructions that provide additional guidance and context for response generation.</p>
+ * @public
+ */
+export interface CustomInstructions {
+  /**
+   * <p>A text field for providing additional guidance or context for response generation.</p>
+   * @public
+   */
+  CustomInstructionsString: string | undefined;
+}
+
+/**
  * <p>Configuration options for a <code>Topic</code>.</p>
  * @public
  */
@@ -6618,6 +6630,12 @@ export interface CreateTopicRequest {
    * @public
    */
   FolderArns?: string[] | undefined;
+
+  /**
+   * <p>Custom instructions for the topic.</p>
+   * @public
+   */
+  CustomInstructions?: CustomInstructions | undefined;
 }
 
 /**
@@ -8953,41 +8971,6 @@ export interface DeleteThemeAliasRequest {
 }
 
 /**
- * @public
- */
-export interface DeleteThemeAliasResponse {
-  /**
-   * <p>The name for the theme alias.</p>
-   * @public
-   */
-  AliasName?: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the theme resource using the deleted alias.</p>
-   * @public
-   */
-  Arn?: string | undefined;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   * @public
-   */
-  Status?: number | undefined;
-
-  /**
-   * <p>An ID for the theme associated with the deletion.</p>
-   * @public
-   */
-  ThemeId?: string | undefined;
-}
-
-/**
  * @internal
  */
 export const CalculatedColumnFilterSensitiveLog = (obj: CalculatedColumn): any => ({
@@ -9230,6 +9213,14 @@ export const CreateTemplateRequestFilterSensitiveLog = (obj: CreateTemplateReque
 /**
  * @internal
  */
+export const CustomInstructionsFilterSensitiveLog = (obj: CustomInstructions): any => ({
+  ...obj,
+  ...(obj.CustomInstructionsString && { CustomInstructionsString: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
 export const SemanticTypeFilterSensitiveLog = (obj: SemanticType): any => ({
   ...obj,
   ...(obj.TruthyCellValue && { TruthyCellValue: SENSITIVE_STRING }),
@@ -9358,6 +9349,7 @@ export const TopicDetailsFilterSensitiveLog = (obj: TopicDetails): any => ({
  */
 export const CreateTopicRequestFilterSensitiveLog = (obj: CreateTopicRequest): any => ({
   ...obj,
+  ...(obj.CustomInstructions && { CustomInstructions: CustomInstructionsFilterSensitiveLog(obj.CustomInstructions) }),
 });
 
 /**

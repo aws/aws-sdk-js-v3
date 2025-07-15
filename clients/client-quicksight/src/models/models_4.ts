@@ -57,6 +57,8 @@ import {
   _ParametersFilterSensitiveLog,
   BrandDetail,
   BrandSummary,
+  CustomInstructions,
+  CustomInstructionsFilterSensitiveLog,
   CustomPermissions,
   Dashboard,
   DashboardError,
@@ -98,6 +100,41 @@ import {
 } from "./models_3";
 
 import { QuickSightServiceException as __BaseException } from "./QuickSightServiceException";
+
+/**
+ * @public
+ */
+export interface DeleteThemeAliasResponse {
+  /**
+   * <p>The name for the theme alias.</p>
+   * @public
+   */
+  AliasName?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the theme resource using the deleted alias.</p>
+   * @public
+   */
+  Arn?: string | undefined;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   * @public
+   */
+  RequestId?: string | undefined;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   * @public
+   */
+  Status?: number | undefined;
+
+  /**
+   * <p>An ID for the theme associated with the deletion.</p>
+   * @public
+   */
+  ThemeId?: string | undefined;
+}
 
 /**
  * @public
@@ -4111,6 +4148,12 @@ export interface DescribeTopicResponse {
    * @public
    */
   Status?: number | undefined;
+
+  /**
+   * <p>Custom instructions for the topic.</p>
+   * @public
+   */
+  CustomInstructions?: CustomInstructions | undefined;
 }
 
 /**
@@ -9003,35 +9046,6 @@ export interface SearchTopicsRequest {
 }
 
 /**
- * @public
- */
-export interface SearchTopicsResponse {
-  /**
-   * <p>A list of topic summaries that is returned by the search topic request.</p>
-   * @public
-   */
-  TopicSummaryList?: TopicSummary[] | undefined;
-
-  /**
-   * <p>The token for the next set of results, or null if there are no more results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   * @public
-   */
-  Status?: number | undefined;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-}
-
-/**
  * @internal
  */
 export const DescribeAnalysisResponseFilterSensitiveLog = (obj: DescribeAnalysisResponse): any => ({
@@ -9157,6 +9171,7 @@ export const DescribeTemplateDefinitionResponseFilterSensitiveLog = (obj: Descri
  */
 export const DescribeTopicResponseFilterSensitiveLog = (obj: DescribeTopicResponse): any => ({
   ...obj,
+  ...(obj.CustomInstructions && { CustomInstructions: CustomInstructionsFilterSensitiveLog(obj.CustomInstructions) }),
 });
 
 /**

@@ -301,6 +301,9 @@ export interface DescribeTopicCommandOutput extends DescribeTopicResponse, __Met
  * //   },
  * //   RequestId: "STRING_VALUE",
  * //   Status: Number("int"),
+ * //   CustomInstructions: { // CustomInstructions
+ * //     CustomInstructionsString: "STRING_VALUE", // required
+ * //   },
  * // };
  *
  * ```

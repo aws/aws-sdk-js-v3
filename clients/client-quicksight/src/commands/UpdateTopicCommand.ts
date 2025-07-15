@@ -289,6 +289,9 @@ export interface UpdateTopicCommandOutput extends UpdateTopicResponse, __Metadat
  *       QBusinessInsightsEnabled: true || false,
  *     },
  *   },
+ *   CustomInstructions: { // CustomInstructions
+ *     CustomInstructionsString: "STRING_VALUE", // required
+ *   },
  * };
  * const command = new UpdateTopicCommand(input);
  * const response = await client.send(command);

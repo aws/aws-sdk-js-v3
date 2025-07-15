@@ -28,7 +28,7 @@ export interface ListIngestionsCommandInput extends ListIngestionsRequest {}
 export interface ListIngestionsCommandOutput extends ListIngestionsResponse, __MetadataBearer {}
 
 /**
- * <p>Lists the history of SPICE ingestions for a dataset.</p>
+ * <p>Lists the history of SPICE ingestions for a dataset. Limited to 5 TPS per user and 25 TPS per account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

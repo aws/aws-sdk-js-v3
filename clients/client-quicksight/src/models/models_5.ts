@@ -36,6 +36,8 @@ import {
   Capabilities,
   ColumnGroup,
   ColumnLevelPermissionRule,
+  CustomInstructions,
+  CustomInstructionsFilterSensitiveLog,
   DashboardPublishOptions,
   DashboardSourceEntity,
   DashboardsQAStatus,
@@ -79,9 +81,39 @@ import {
   SessionTag,
   SessionTagFilterSensitiveLog,
   SnapshotConfiguration,
+  TopicSummary,
   User,
   UserRole,
 } from "./models_4";
+
+/**
+ * @public
+ */
+export interface SearchTopicsResponse {
+  /**
+   * <p>A list of topic summaries that is returned by the search topic request.</p>
+   * @public
+   */
+  TopicSummaryList?: TopicSummary[] | undefined;
+
+  /**
+   * <p>The token for the next set of results, or null if there are no more results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   * @public
+   */
+  Status?: number | undefined;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   * @public
+   */
+  RequestId?: string | undefined;
+}
 
 /**
  * @public
@@ -2907,6 +2939,12 @@ export interface UpdateTopicRequest {
    * @public
    */
   Topic: TopicDetails | undefined;
+
+  /**
+   * <p>Custom instructions for the topic.</p>
+   * @public
+   */
+  CustomInstructions?: CustomInstructions | undefined;
 }
 
 /**
@@ -3651,6 +3689,7 @@ export const UpdateTemplateRequestFilterSensitiveLog = (obj: UpdateTemplateReque
  */
 export const UpdateTopicRequestFilterSensitiveLog = (obj: UpdateTopicRequest): any => ({
   ...obj,
+  ...(obj.CustomInstructions && { CustomInstructions: CustomInstructionsFilterSensitiveLog(obj.CustomInstructions) }),
 });
 
 /**

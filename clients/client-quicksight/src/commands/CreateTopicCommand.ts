@@ -298,6 +298,9 @@ export interface CreateTopicCommandOutput extends CreateTopicResponse, __Metadat
  *   FolderArns: [ // FolderArnList
  *     "STRING_VALUE",
  *   ],
+ *   CustomInstructions: { // CustomInstructions
+ *     CustomInstructionsString: "STRING_VALUE", // required
+ *   },
  * };
  * const command = new CreateTopicCommand(input);
  * const response = await client.send(command);
