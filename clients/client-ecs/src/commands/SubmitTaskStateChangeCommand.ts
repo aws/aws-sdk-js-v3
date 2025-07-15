@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ECSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECSClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { SubmitTaskStateChangeRequest, SubmitTaskStateChangeResponse } from "../models/models_0";
+import { SubmitTaskStateChangeRequest, SubmitTaskStateChangeResponse } from "../models/models_1";
 import { de_SubmitTaskStateChangeCommand, se_SubmitTaskStateChangeCommand } from "../protocols/Aws_json1_1";
 
 /**

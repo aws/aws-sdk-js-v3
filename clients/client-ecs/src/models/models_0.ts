@@ -1,6 +1,8 @@
 // smithy-typescript generated code
 import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@smithy/smithy-client";
 
+import { DocumentType as __DocumentType } from "@smithy/types";
+
 import { ECSServiceException as __BaseException } from "./ECSServiceException";
 
 /**
@@ -21,6 +23,39 @@ export class AccessDeniedException extends __BaseException {
     });
     Object.setPrototypeOf(this, AccessDeniedException.prototype);
   }
+}
+
+/**
+ * <p>The advanced settings for a load balancer used in blue/green deployments. Specify the
+ *          alternate target group, listener rules, and IAM role required for traffic shifting during
+ *          blue/green deployments. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/blue-green-deployment-implementation.html">Required resources for Amazon ECS
+ *             blue/green deployments</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
+ * @public
+ */
+export interface AdvancedConfiguration {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the alternate target group for Amazon ECS blue/green deployments. </p>
+   * @public
+   */
+  alternateTargetGroupArn?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) that identifies the production listener rule for routing production traffic.</p>
+   * @public
+   */
+  productionListenerRule?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) that identifies the test listener rule or listener for routing test traffic.</p>
+   * @public
+   */
+  testListenerRule?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the IAM role that grants Amazon ECS permission to call the Elastic Load Balancing APIs for you.</p>
+   * @public
+   */
+  roleArn?: string | undefined;
 }
 
 /**
@@ -1421,6 +1456,127 @@ export interface DeploymentCircuitBreaker {
 }
 
 /**
+ * @public
+ * @enum
+ */
+export const DeploymentLifecycleHookStage = {
+  POST_PRODUCTION_TRAFFIC_SHIFT: "POST_PRODUCTION_TRAFFIC_SHIFT",
+  POST_SCALE_UP: "POST_SCALE_UP",
+  POST_TEST_TRAFFIC_SHIFT: "POST_TEST_TRAFFIC_SHIFT",
+  PRE_SCALE_UP: "PRE_SCALE_UP",
+  PRODUCTION_TRAFFIC_SHIFT: "PRODUCTION_TRAFFIC_SHIFT",
+  RECONCILE_SERVICE: "RECONCILE_SERVICE",
+  TEST_TRAFFIC_SHIFT: "TEST_TRAFFIC_SHIFT",
+} as const;
+
+/**
+ * @public
+ */
+export type DeploymentLifecycleHookStage =
+  (typeof DeploymentLifecycleHookStage)[keyof typeof DeploymentLifecycleHookStage];
+
+/**
+ * <p>A deployment lifecycle hook runs custom logic at specific stages of the deployment process. Currently, you can use Lambda functions as hook targets.</p>
+ * @public
+ */
+export interface DeploymentLifecycleHook {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the hook target. Currently, only Lambda function ARNs are supported.</p>
+   *          <p>You must provide this parameter when configuring a deployment lifecycle hook.</p>
+   * @public
+   */
+  hookTargetArn?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the IAM role that grants Amazon ECS permission to call Lambda functions on your behalf.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/blue-green-permissions.html">Permissions required
+   *             for Lambda functions in Amazon ECS blue/green deployments</a> in the<i>
+   *             Amazon Elastic Container Service Developer Guide</i>.</p>
+   * @public
+   */
+  roleArn?: string | undefined;
+
+  /**
+   * <p>The lifecycle stages at which to run the hook. Choose from these valid values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>RECONCILE_SERVICE</p>
+   *                <p>This stage only happens when you start a new service deployment with more than 1 service revision in an ACTIVE state.</p>
+   *                <p>You can use a lifecycle hook for this stage.</p>
+   *             </li>
+   *             <li>
+   *                <p>PRE_SCALE_UP</p>
+   *                <p>The green service revision has not started. The blue service revision is handling 100% of the production traffic. There is no test traffic.</p>
+   *                <p>You can use a lifecycle hook for this stage.</p>
+   *             </li>
+   *             <li>
+   *                <p>SCALE_UP</p>
+   *                <p>The time when the green service revision scales up to 100% and launches new tasks. The green service revision is not serving any traffic at this point.</p>
+   *                <p>You can't use a lifecycle hook for this stage.</p>
+   *             </li>
+   *             <li>
+   *                <p>POST_SCALE_UP</p>
+   *                <p>The green service revision has started. The blue service revision is handling 100% of the production traffic. There is no test traffic.</p>
+   *                <p>You can use a lifecycle hook for this stage.</p>
+   *             </li>
+   *             <li>
+   *                <p>TEST_TRAFFIC_SHIFT</p>
+   *                <p>The blue and green service revisions are running. The blue service revision handles 100% of the production traffic. The green service revision is migrating from 0% to 100% of test traffic.</p>
+   *                <p>You can use a lifecycle hook for this stage.</p>
+   *             </li>
+   *             <li>
+   *                <p>POST_TEST_TRAFFIC_SHIFT</p>
+   *                <p>The test traffic shift is complete. The green service revision handles 100% of the test traffic.</p>
+   *                <p>You can use a lifecycle hook for this stage.</p>
+   *             </li>
+   *             <li>
+   *                <p>PRODUCTION_TRAFFIC_SHIFT</p>
+   *                <p>Production traffic is shifting to the green service revision. The green service revision is migrating from 0% to 100% of production traffic.</p>
+   *                <p>You can use a lifecycle hook for this stage.</p>
+   *             </li>
+   *             <li>
+   *                <p>POST_PRODUCTION_TRAFFIC_SHIFT</p>
+   *                <p>The production traffic shift is complete.</p>
+   *                <p>Yes</p>
+   *             </li>
+   *             <li>
+   *                <p>BAKE_TIME</p>
+   *                <p>The duration when both blue and green service revisions are running simultaneously.</p>
+   *                <p>You can't use a lifecycle hook for this stage.</p>
+   *             </li>
+   *             <li>
+   *                <p>CLEAN_UP</p>
+   *                <p>The blue service revision has completely scaled down to 0 running tasks. The green service revision is now the production service revision after this stage.</p>
+   *                <p>You can't use a lifecycle hook for this stage.</p>
+   *             </li>
+   *          </ul>
+   *          <p>You must provide this parameter when configuring a deployment lifecycle hook.</p>
+   * @public
+   */
+  lifecycleStages?: DeploymentLifecycleHookStage[] | undefined;
+
+  /**
+   * <p>Optionally provide details about the hook. Use this field to pass custom parameters to your hook target (such as a Lambda function).</p>
+   * @public
+   */
+  hookDetails?: __DocumentType | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const DeploymentStrategy = {
+  BLUE_GREEN: "BLUE_GREEN",
+  ROLLING: "ROLLING",
+} as const;
+
+/**
+ * @public
+ */
+export type DeploymentStrategy = (typeof DeploymentStrategy)[keyof typeof DeploymentStrategy];
+
+/**
  * <p>Optional deployment parameters that control how many tasks run during a deployment and
  * 			the ordering of stopping and starting tasks.</p>
  * @public
@@ -1564,6 +1720,45 @@ export interface DeploymentConfiguration {
    * @public
    */
   alarms?: DeploymentAlarms | undefined;
+
+  /**
+   * <p>The deployment strategy for the service. Choose from these valid values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>ROLLING</code> - When you create a service which uses the rolling update
+   *                   (<code>ROLLING</code>) deployment strategy, the Amazon ECS service scheduler replaces
+   *                the currently running tasks with new tasks. The number of tasks that Amazon ECS adds or
+   *                removes from the service during a rolling update is controlled by the service
+   *                deployment configuration.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>BLUE_GREEN</code> - A blue/green deployment strategy
+   *                   (<code>BLUE_GREEN</code>) is a release methodology that reduces downtime and risk
+   *                by running two identical production environments called blue and green. With Amazon ECS
+   *                blue/green deployments, you can validate new service revisions before directing
+   *                production traffic to them. This approach provides a safer way to deploy changes with
+   *                the ability to quickly roll back if needed.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  strategy?: DeploymentStrategy | undefined;
+
+  /**
+   * <p>The duration when both blue and green service revisions are running simultaneously after the production traffic has shifted.</p>
+   *          <p>You must provide this parameter when you use the <code>BLUE_GREEN</code> deployment
+   *          strategy.</p>
+   * @public
+   */
+  bakeTimeInMinutes?: number | undefined;
+
+  /**
+   * <p>An array of deployment lifecycle hook objects to run custom logic at specific stages of the deployment lifecycle. These hooks allow you to run custom logic at key points during the deployment process.</p>
+   * @public
+   */
+  lifecycleHooks?: DeploymentLifecycleHook[] | undefined;
 }
 
 /**
@@ -1588,35 +1783,111 @@ export type DeploymentControllerType = (typeof DeploymentControllerType)[keyof t
 export interface DeploymentController {
   /**
    * <p>The deployment controller type to use.</p>
-   *          <p>There are three deployment controller types available:</p>
-   *          <dl>
-   *             <dt>ECS</dt>
-   *             <dd>
-   *                <p>The rolling update (<code>ECS</code>) deployment type involves replacing
-   * 						the current running version of the container with the latest version. The
-   * 						number of containers Amazon ECS adds or removes from the service during a rolling
-   * 						update is controlled by adjusting the minimum and maximum number of healthy
-   * 						tasks allowed during a service deployment, as specified in the <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_DeploymentConfiguration.html">DeploymentConfiguration</a>.</p>
-   *                <p>For more information about rolling deployments, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-type-ecs.html">Deploy
-   * 							Amazon ECS services by replacing tasks</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
-   *             </dd>
-   *             <dt>CODE_DEPLOY</dt>
-   *             <dd>
-   *                <p>The blue/green (<code>CODE_DEPLOY</code>) deployment type uses the
-   * 						blue/green deployment model powered by CodeDeploy, which allows you to verify a
-   * 						new deployment of a service before sending production traffic to it.</p>
-   *                <p>For more information about blue/green deployments, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-type-bluegreen.html">Validate the state of an Amazon ECS service before deployment </a> in
-   * 						the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
-   *             </dd>
-   *             <dt>EXTERNAL</dt>
-   *             <dd>
-   *                <p>The external (<code>EXTERNAL</code>) deployment type enables you to use
-   * 						any third-party deployment controller for full control over the deployment
-   * 						process for an Amazon ECS service.</p>
-   *                <p>For more information about external deployments, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-type-external.html">Deploy Amazon ECS services using a third-party controller </a> in the
-   * 						<i>Amazon Elastic Container Service Developer Guide</i>.</p>
-   *             </dd>
-   *          </dl>
+   *          <p>The deployment controller is the mechanism that determines how tasks are deployed for
+   * 			your service. The valid options are:</p>
+   *          <ul>
+   *             <li>
+   *                <p>ECS</p>
+   *                <p>When you create a service which uses the <code>ECS</code> deployment controller, you can choose between the following deployment strategies:</p>
+   *                <ul>
+   *                   <li>
+   *                      <p>
+   *                         <code>ROLLING</code>: When you create a service which uses the <i>rolling update</i>
+   * 							(<code>ROLLING</code>) deployment strategy, the Amazon ECS service scheduler replaces the
+   * 							currently running tasks with new tasks. The number of tasks that Amazon ECS adds or
+   * 							removes from the service during a rolling update is controlled by the service
+   * 							deployment configuration. </p>
+   *                      <p>Rolling update deployments are best suited for the following scenarios:</p>
+   *                      <ul>
+   *                         <li>
+   *                            <p>Gradual service updates: You need to
+   * 									update your service incrementally without taking the entire service
+   * 									offline at once.</p>
+   *                         </li>
+   *                         <li>
+   *                            <p>Limited resource requirements: You
+   * 									want to avoid the additional resource costs of running two complete
+   * 									environments simultaneously (as required by blue/green
+   * 									deployments).</p>
+   *                         </li>
+   *                         <li>
+   *                            <p>Acceptable deployment time: Your
+   * 									application can tolerate a longer deployment process, as rolling updates
+   * 									replace tasks one by one.</p>
+   *                         </li>
+   *                         <li>
+   *                            <p>No need for instant roll back: Your
+   * 									service can tolerate a rollback process that takes minutes rather than
+   * 									seconds.</p>
+   *                         </li>
+   *                         <li>
+   *                            <p>Simple deployment process: You prefer
+   * 									a straightforward deployment approach without the complexity of managing
+   * 									multiple environments, target groups, and listeners.</p>
+   *                         </li>
+   *                         <li>
+   *                            <p>No load balancer requirement: Your
+   * 									service doesn't use or require a load balancer, Application Load Balancer, Network Load Balancer, or Service Connect (which are required
+   * 									for blue/green deployments).</p>
+   *                         </li>
+   *                         <li>
+   *                            <p>Stateful applications: Your
+   * 									application maintains state that makes it difficult to run two parallel
+   * 									environments.</p>
+   *                         </li>
+   *                         <li>
+   *                            <p>Cost sensitivity: You want to
+   * 									minimize deployment costs by not running duplicate environments during
+   * 									deployment.</p>
+   *                         </li>
+   *                      </ul>
+   *                      <p>Rolling updates are the default deployment strategy for services and provide a
+   * 							balance between deployment safety and resource efficiency for many common
+   * 							application scenarios.</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>BLUE_GREEN</code>: A <i>blue/green</i> deployment strategy (<code>BLUE_GREEN</code>) is a release methodology that reduces downtime and
+   * 							risk by running two identical production environments called blue and green.
+   * 							With Amazon ECS blue/green deployments, you can validate new service revisions before
+   * 							directing production traffic to them. This approach provides a safer way to
+   * 							deploy changes with the ability to quickly roll back if needed.</p>
+   *                      <p>Amazon ECS blue/green deployments are best suited for the following scenarios:</p>
+   *                      <ul>
+   *                         <li>
+   *                            <p>Service validation: When you need to
+   * 									validate new service revisions before directing production traffic to
+   * 									them</p>
+   *                         </li>
+   *                         <li>
+   *                            <p>Zero downtime: When your service
+   * 									requires zero-downtime deployments</p>
+   *                         </li>
+   *                         <li>
+   *                            <p>Instant roll back: When you
+   * 									need the ability to quickly roll back if issues are detected</p>
+   *                         </li>
+   *                         <li>
+   *                            <p>Load balancer requirement: When your
+   * 									service uses Application Load Balancer, Network Load Balancer, or Service Connect</p>
+   *                         </li>
+   *                      </ul>
+   *                   </li>
+   *                </ul>
+   *             </li>
+   *             <li>
+   *                <p>External</p>
+   *                <p>Use a third-party deployment controller.</p>
+   *             </li>
+   *             <li>
+   *                <p>Blue/green deployment (powered by CodeDeploy)</p>
+   *                <p>CodeDeploy installs an updated version of the application as a new replacement task
+   * 					set and reroutes production traffic from the original application task set to
+   * 					the replacement task set. The original task set is terminated after a successful
+   * 					deployment. Use this deployment controller to verify a new deployment of a service
+   * 					before sending production traffic to it.</p>
+   *             </li>
+   *          </ul>
    * @public
    */
   type: DeploymentControllerType | undefined;
@@ -1698,6 +1969,12 @@ export interface LoadBalancer {
    * @public
    */
   containerPort?: number | undefined;
+
+  /**
+   * <p>The advanced settings for the load balancer used in blue/green deployments. Specify the alternate target group, listener rules, and IAM role required for traffic shifting during blue/green deployments.</p>
+   * @public
+   */
+  advancedConfiguration?: AdvancedConfiguration | undefined;
 }
 
 /**
@@ -2202,6 +2479,55 @@ export interface LogConfiguration {
 }
 
 /**
+ * <p>The header matching rules for test traffic routing in Amazon ECS blue/green deployments.
+ *          These rules determine how incoming requests are matched based on HTTP headers to route test
+ *          traffic to the new service revision.</p>
+ * @public
+ */
+export interface ServiceConnectTestTrafficHeaderMatchRules {
+  /**
+   * <p>The exact value that the HTTP header must match for the test traffic routing rule to apply. This provides precise control over which requests are routed to the new service revision during blue/green deployments.</p>
+   * @public
+   */
+  exact: string | undefined;
+}
+
+/**
+ * <p>The HTTP header rules used to identify and route test traffic during Amazon ECS blue/green
+ *          deployments. These rules specify which HTTP headers to examine and what values to match for
+ *          routing decisions.</p>
+ * @public
+ */
+export interface ServiceConnectTestTrafficHeaderRules {
+  /**
+   * <p>The name of the HTTP header to examine for test traffic routing. Common examples include custom headers like <code>X-Test-Version</code> or <code>X-Canary-Request</code> that can be used to identify test traffic.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The header value matching configuration that determines how the HTTP header value is evaluated for test traffic routing decisions.</p>
+   * @public
+   */
+  value?: ServiceConnectTestTrafficHeaderMatchRules | undefined;
+}
+
+/**
+ * <p>The test traffic routing configuration for Amazon ECS blue/green deployments. This
+ *          configuration allows you to define rules for routing specific traffic to the new service
+ *          revision during the deployment process, allowing for safe testing before full production
+ *          traffic shift.</p>
+ * @public
+ */
+export interface ServiceConnectTestTrafficRules {
+  /**
+   * <p>The HTTP header-based routing rules that determine which requests should be routed to the new service version during blue/green deployment testing. These rules provide fine-grained control over test traffic routing based on request headers.</p>
+   * @public
+   */
+  header: ServiceConnectTestTrafficHeaderRules | undefined;
+}
+
+/**
  * <p>Each alias ("endpoint") is a fully-qualified name and port number that other tasks
  * 			("clients") can use to connect to this service.</p>
  *          <p>Each name and port mapping must be unique within the namespace.</p>
@@ -2237,6 +2563,12 @@ export interface ServiceConnectClientAlias {
    * @public
    */
   dnsName?: string | undefined;
+
+  /**
+   * <p>The configuration for test traffic routing rules used during blue/green deployments with Amazon ECS Service Connect. This allows you to route a portion of traffic to the new service revision of your service for testing before shifting all production traffic.</p>
+   * @public
+   */
+  testTrafficRules?: ServiceConnectTestTrafficRules | undefined;
 }
 
 /**
@@ -3119,7 +3451,7 @@ export interface CreateServiceRequest {
    * <p>Specifies whether to turn on Amazon ECS managed tags for the tasks within the service. For
    * 			more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-using-tags.html">Tagging your Amazon ECS
    * 				resources</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
-   *          <p>When you use Amazon ECS managed tags, you need to set the <code>propagateTags</code>
+   *          <p>When you use Amazon ECS managed tags, you must set the <code>propagateTags</code>
    * 			request parameter.</p>
    * @public
    */
@@ -3223,7 +3555,7 @@ export interface ServiceConnectServiceResource {
   discoveryName?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) for the namespace in Cloud Map that matches the discovery name for this
+   * <p>The Amazon Resource Name (ARN) for the service in Cloud Map that matches the discovery name for this
    * 			Service Connect resource. You can use this ARN in other integrations with Cloud Map.
    * 			However, Service Connect can't ensure connectivity outside of Amazon ECS.</p>
    * @public
@@ -8489,6 +8821,29 @@ export interface ServiceDeploymentCircuitBreaker {
 }
 
 /**
+ * @public
+ * @enum
+ */
+export const ServiceDeploymentLifecycleStage = {
+  BAKE_TIME: "BAKE_TIME",
+  CLEAN_UP: "CLEAN_UP",
+  POST_PRODUCTION_TRAFFIC_SHIFT: "POST_PRODUCTION_TRAFFIC_SHIFT",
+  POST_SCALE_UP: "POST_SCALE_UP",
+  POST_TEST_TRAFFIC_SHIFT: "POST_TEST_TRAFFIC_SHIFT",
+  PRE_SCALE_UP: "PRE_SCALE_UP",
+  PRODUCTION_TRAFFIC_SHIFT: "PRODUCTION_TRAFFIC_SHIFT",
+  RECONCILE_SERVICE: "RECONCILE_SERVICE",
+  SCALE_UP: "SCALE_UP",
+  TEST_TRAFFIC_SHIFT: "TEST_TRAFFIC_SHIFT",
+} as const;
+
+/**
+ * @public
+ */
+export type ServiceDeploymentLifecycleStage =
+  (typeof ServiceDeploymentLifecycleStage)[keyof typeof ServiceDeploymentLifecycleStage];
+
+/**
  * <p>Information about the service deployment rollback.</p>
  * @public
  */
@@ -8664,6 +9019,34 @@ export interface ServiceDeployment {
   statusReason?: string | undefined;
 
   /**
+   * <p>The current lifecycle stage of the deployment. Possible values include:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>SCALE_UP_IN_PROGRESS</code> - Creating the new (green) tasks</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>TEST_TRAFFIC_SHIFT_IN_PROGRESS</code> - Shifting test traffic to the new (green) tasks</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>PRODUCTION_TRAFFIC_SHIFT_IN_PROGRESS</code> - Shifting production traffic to the new (green) tasks</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>BAKE_TIME_IN_PROGRESS</code> - The duration when both blue and green service revisions are running simultaneously after the production traffic has shifted</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>CLEAN_UP_IN_PROGRESS</code> - Stopping the old (blue) tasks</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  lifecycleStage?: ServiceDeploymentLifecycleStage | undefined;
+
+  /**
    * <p>Optional deployment parameters that control how many tasks run during a deployment and
    * 			the ordering of stopping and starting tasks.</p>
    * @public
@@ -8751,6 +9134,36 @@ export interface ContainerImage {
    * @public
    */
   image?: string | undefined;
+}
+
+/**
+ * <p>The resolved load balancer configuration for a service revision. This includes information about which target groups serve traffic and which listener rules direct traffic to them.</p>
+ * @public
+ */
+export interface ServiceRevisionLoadBalancer {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the target group associated with the service revision.</p>
+   * @public
+   */
+  targetGroupArn?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the production listener rule or listener that directs traffic to the target group associated with the service revision.</p>
+   * @public
+   */
+  productionListenerRule?: string | undefined;
+}
+
+/**
+ * <p>The resolved configuration for a service revision, which contains the actual resources your service revision uses, such as which target groups serve traffic.</p>
+ * @public
+ */
+export interface ResolvedConfiguration {
+  /**
+   * <p>The resolved load balancer configuration for the service revision. This includes information about which target groups serve traffic and which listener rules direct traffic to them.</p>
+   * @public
+   */
+  loadBalancers?: ServiceRevisionLoadBalancer[] | undefined;
 }
 
 /**
@@ -8881,6 +9294,12 @@ export interface ServiceRevision {
    * @public
    */
   vpcLatticeConfigurations?: VpcLatticeConfiguration[] | undefined;
+
+  /**
+   * <p>The resolved configuration for the service revision which contains the actual resources your service revision uses, such as which target groups serve traffic.</p>
+   * @public
+   */
+  resolvedConfiguration?: ResolvedConfiguration | undefined;
 }
 
 /**
@@ -9061,7 +9480,7 @@ export type TaskField = (typeof TaskField)[keyof typeof TaskField];
 export interface DescribeTasksRequest {
   /**
    * <p>The short name or full Amazon Resource Name (ARN) of the cluster that hosts the task or tasks to
-   * 			describe. If you do not specify a cluster, the default cluster is assumed. This parameter is required. If you do not specify a
+   * 			describe. If you do not specify a cluster, the default cluster is assumed. If you do not specify a
    * 			value, the <code>default</code> cluster is used.</p>
    * @public
    */
@@ -13044,283 +13463,6 @@ export interface StopTaskRequest {
    * @public
    */
   reason?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface StopTaskResponse {
-  /**
-   * <p>The task that was stopped.</p>
-   * @public
-   */
-  task?: Task | undefined;
-}
-
-/**
- * <p>An object representing a change in state for a task attachment.</p>
- * @public
- */
-export interface AttachmentStateChange {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the attachment.</p>
-   * @public
-   */
-  attachmentArn: string | undefined;
-
-  /**
-   * <p>The status of the attachment.</p>
-   * @public
-   */
-  status: string | undefined;
-}
-
-/**
- * @public
- */
-export interface SubmitAttachmentStateChangesRequest {
-  /**
-   * <p>The short name or full ARN of the cluster that hosts the container instance the
-   * 			attachment belongs to.</p>
-   * @public
-   */
-  cluster?: string | undefined;
-
-  /**
-   * <p>Any attachments associated with the state change request.</p>
-   * @public
-   */
-  attachments: AttachmentStateChange[] | undefined;
-}
-
-/**
- * @public
- */
-export interface SubmitAttachmentStateChangesResponse {
-  /**
-   * <p>Acknowledgement of the state change.</p>
-   * @public
-   */
-  acknowledgment?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface SubmitContainerStateChangeRequest {
-  /**
-   * <p>The short name or full ARN of the cluster that hosts the container.</p>
-   * @public
-   */
-  cluster?: string | undefined;
-
-  /**
-   * <p>The task ID or full Amazon Resource Name (ARN) of the task that hosts the container.</p>
-   * @public
-   */
-  task?: string | undefined;
-
-  /**
-   * <p>The name of the container.</p>
-   * @public
-   */
-  containerName?: string | undefined;
-
-  /**
-   * <p>The ID of the Docker container.</p>
-   * @public
-   */
-  runtimeId?: string | undefined;
-
-  /**
-   * <p>The status of the state change request.</p>
-   * @public
-   */
-  status?: string | undefined;
-
-  /**
-   * <p>The exit code that's returned for the state change request.</p>
-   * @public
-   */
-  exitCode?: number | undefined;
-
-  /**
-   * <p>The reason for the state change request.</p>
-   * @public
-   */
-  reason?: string | undefined;
-
-  /**
-   * <p>The network bindings of the container.</p>
-   * @public
-   */
-  networkBindings?: NetworkBinding[] | undefined;
-}
-
-/**
- * @public
- */
-export interface SubmitContainerStateChangeResponse {
-  /**
-   * <p>Acknowledgement of the state change.</p>
-   * @public
-   */
-  acknowledgment?: string | undefined;
-}
-
-/**
- * <p>An object that represents a change in state for a container.</p>
- * @public
- */
-export interface ContainerStateChange {
-  /**
-   * <p>The name of the container.</p>
-   * @public
-   */
-  containerName?: string | undefined;
-
-  /**
-   * <p>The container image SHA 256 digest.</p>
-   * @public
-   */
-  imageDigest?: string | undefined;
-
-  /**
-   * <p>The ID of the Docker container.</p>
-   * @public
-   */
-  runtimeId?: string | undefined;
-
-  /**
-   * <p>The exit code for the container, if the state change is a result of the container
-   * 			exiting.</p>
-   * @public
-   */
-  exitCode?: number | undefined;
-
-  /**
-   * <p>Any network bindings that are associated with the container.</p>
-   * @public
-   */
-  networkBindings?: NetworkBinding[] | undefined;
-
-  /**
-   * <p>The reason for the state change.</p>
-   * @public
-   */
-  reason?: string | undefined;
-
-  /**
-   * <p>The status of the container.</p>
-   * @public
-   */
-  status?: string | undefined;
-}
-
-/**
- * <p>An object representing a change in state for a managed agent.</p>
- * @public
- */
-export interface ManagedAgentStateChange {
-  /**
-   * <p>The name of the container that's associated with the managed agent.</p>
-   * @public
-   */
-  containerName: string | undefined;
-
-  /**
-   * <p>The name of the managed agent.</p>
-   * @public
-   */
-  managedAgentName: ManagedAgentName | undefined;
-
-  /**
-   * <p>The status of the managed agent.</p>
-   * @public
-   */
-  status: string | undefined;
-
-  /**
-   * <p>The reason for the status of the managed agent.</p>
-   * @public
-   */
-  reason?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface SubmitTaskStateChangeRequest {
-  /**
-   * <p>The short name or full Amazon Resource Name (ARN) of the cluster that hosts the task.</p>
-   * @public
-   */
-  cluster?: string | undefined;
-
-  /**
-   * <p>The task ID or full ARN of the task in the state change request.</p>
-   * @public
-   */
-  task?: string | undefined;
-
-  /**
-   * <p>The status of the state change request.</p>
-   * @public
-   */
-  status?: string | undefined;
-
-  /**
-   * <p>The reason for the state change request.</p>
-   * @public
-   */
-  reason?: string | undefined;
-
-  /**
-   * <p>Any containers that's associated with the state change request.</p>
-   * @public
-   */
-  containers?: ContainerStateChange[] | undefined;
-
-  /**
-   * <p>Any attachments associated with the state change request.</p>
-   * @public
-   */
-  attachments?: AttachmentStateChange[] | undefined;
-
-  /**
-   * <p>The details for the managed agent that's associated with the task.</p>
-   * @public
-   */
-  managedAgents?: ManagedAgentStateChange[] | undefined;
-
-  /**
-   * <p>The Unix timestamp for the time when the container image pull started.</p>
-   * @public
-   */
-  pullStartedAt?: Date | undefined;
-
-  /**
-   * <p>The Unix timestamp for the time when the container image pull completed.</p>
-   * @public
-   */
-  pullStoppedAt?: Date | undefined;
-
-  /**
-   * <p>The Unix timestamp for the time when the task execution stopped.</p>
-   * @public
-   */
-  executionStoppedAt?: Date | undefined;
-}
-
-/**
- * @public
- */
-export interface SubmitTaskStateChangeResponse {
-  /**
-   * <p>Acknowledgement of the state change.</p>
-   * @public
-   */
-  acknowledgment?: string | undefined;
 }
 
 /**

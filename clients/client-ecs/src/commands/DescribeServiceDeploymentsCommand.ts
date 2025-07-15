@@ -71,6 +71,7 @@ export interface DescribeServiceDeploymentsCommandOutput extends DescribeService
  * //       },
  * //       status: "PENDING" || "SUCCESSFUL" || "STOPPED" || "STOP_REQUESTED" || "IN_PROGRESS" || "ROLLBACK_REQUESTED" || "ROLLBACK_IN_PROGRESS" || "ROLLBACK_SUCCESSFUL" || "ROLLBACK_FAILED",
  * //       statusReason: "STRING_VALUE",
+ * //       lifecycleStage: "RECONCILE_SERVICE" || "PRE_SCALE_UP" || "SCALE_UP" || "POST_SCALE_UP" || "TEST_TRAFFIC_SHIFT" || "POST_TEST_TRAFFIC_SHIFT" || "PRODUCTION_TRAFFIC_SHIFT" || "POST_PRODUCTION_TRAFFIC_SHIFT" || "BAKE_TIME" || "CLEAN_UP",
  * //       deploymentConfiguration: { // DeploymentConfiguration
  * //         deploymentCircuitBreaker: { // DeploymentCircuitBreaker
  * //           enable: true || false, // required
@@ -85,6 +86,18 @@ export interface DescribeServiceDeploymentsCommandOutput extends DescribeService
  * //           rollback: true || false, // required
  * //           enable: true || false, // required
  * //         },
+ * //         strategy: "ROLLING" || "BLUE_GREEN",
+ * //         bakeTimeInMinutes: Number("int"),
+ * //         lifecycleHooks: [ // DeploymentLifecycleHookList
+ * //           { // DeploymentLifecycleHook
+ * //             hookTargetArn: "STRING_VALUE",
+ * //             roleArn: "STRING_VALUE",
+ * //             lifecycleStages: [ // DeploymentLifecycleHookStageList
+ * //               "RECONCILE_SERVICE" || "PRE_SCALE_UP" || "POST_SCALE_UP" || "TEST_TRAFFIC_SHIFT" || "POST_TEST_TRAFFIC_SHIFT" || "PRODUCTION_TRAFFIC_SHIFT" || "POST_PRODUCTION_TRAFFIC_SHIFT",
+ * //             ],
+ * //             hookDetails: "DOCUMENT_VALUE",
+ * //           },
+ * //         ],
  * //       },
  * //       rollback: { // Rollback
  * //         reason: "STRING_VALUE",

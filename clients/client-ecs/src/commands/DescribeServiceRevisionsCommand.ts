@@ -69,6 +69,12 @@ export interface DescribeServiceRevisionsCommandOutput extends DescribeServiceRe
  * //           loadBalancerName: "STRING_VALUE",
  * //           containerName: "STRING_VALUE",
  * //           containerPort: Number("int"),
+ * //           advancedConfiguration: { // AdvancedConfiguration
+ * //             alternateTargetGroupArn: "STRING_VALUE",
+ * //             productionListenerRule: "STRING_VALUE",
+ * //             testListenerRule: "STRING_VALUE",
+ * //             roleArn: "STRING_VALUE",
+ * //           },
  * //         },
  * //       ],
  * //       serviceRegistries: [ // ServiceRegistries
@@ -109,6 +115,14 @@ export interface DescribeServiceRevisionsCommandOutput extends DescribeServiceRe
  * //               { // ServiceConnectClientAlias
  * //                 port: Number("int"), // required
  * //                 dnsName: "STRING_VALUE",
+ * //                 testTrafficRules: { // ServiceConnectTestTrafficRules
+ * //                   header: { // ServiceConnectTestTrafficHeaderRules
+ * //                     name: "STRING_VALUE", // required
+ * //                     value: { // ServiceConnectTestTrafficHeaderMatchRules
+ * //                       exact: "STRING_VALUE", // required
+ * //                     },
+ * //                   },
+ * //                 },
  * //               },
  * //             ],
  * //             ingressPortOverride: Number("int"),
@@ -178,6 +192,14 @@ export interface DescribeServiceRevisionsCommandOutput extends DescribeServiceRe
  * //           portName: "STRING_VALUE", // required
  * //         },
  * //       ],
+ * //       resolvedConfiguration: { // ResolvedConfiguration
+ * //         loadBalancers: [ // ServiceRevisionLoadBalancers
+ * //           { // ServiceRevisionLoadBalancer
+ * //             targetGroupArn: "STRING_VALUE",
+ * //             productionListenerRule: "STRING_VALUE",
+ * //           },
+ * //         ],
+ * //       },
  * //     },
  * //   ],
  * //   failures: [ // Failures

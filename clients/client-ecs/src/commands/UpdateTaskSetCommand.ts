@@ -90,6 +90,12 @@ export interface UpdateTaskSetCommandOutput extends UpdateTaskSetResponse, __Met
  * //         loadBalancerName: "STRING_VALUE",
  * //         containerName: "STRING_VALUE",
  * //         containerPort: Number("int"),
+ * //         advancedConfiguration: { // AdvancedConfiguration
+ * //           alternateTargetGroupArn: "STRING_VALUE",
+ * //           productionListenerRule: "STRING_VALUE",
+ * //           testListenerRule: "STRING_VALUE",
+ * //           roleArn: "STRING_VALUE",
+ * //         },
  * //       },
  * //     ],
  * //     serviceRegistries: [ // ServiceRegistries

@@ -14,11 +14,14 @@ import {
   ContainerInstance,
   ContainerInstanceStatus,
   DeploymentConfiguration,
+  DeploymentController,
   Failure,
   LoadBalancer,
+  ManagedAgentName,
   ManagedDraining,
   ManagedScaling,
   ManagedTerminationProtection,
+  NetworkBinding,
   NetworkConfiguration,
   PlacementConstraint,
   PlacementStrategy,
@@ -30,9 +33,287 @@ import {
   ServiceRegistry,
   ServiceVolumeConfiguration,
   Tag,
+  Task,
   TaskSet,
   VpcLatticeConfiguration,
 } from "./models_0";
+
+/**
+ * @public
+ */
+export interface StopTaskResponse {
+  /**
+   * <p>The task that was stopped.</p>
+   * @public
+   */
+  task?: Task | undefined;
+}
+
+/**
+ * <p>An object representing a change in state for a task attachment.</p>
+ * @public
+ */
+export interface AttachmentStateChange {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the attachment.</p>
+   * @public
+   */
+  attachmentArn: string | undefined;
+
+  /**
+   * <p>The status of the attachment.</p>
+   * @public
+   */
+  status: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface SubmitAttachmentStateChangesRequest {
+  /**
+   * <p>The short name or full ARN of the cluster that hosts the container instance the
+   * 			attachment belongs to.</p>
+   * @public
+   */
+  cluster?: string | undefined;
+
+  /**
+   * <p>Any attachments associated with the state change request.</p>
+   * @public
+   */
+  attachments: AttachmentStateChange[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface SubmitAttachmentStateChangesResponse {
+  /**
+   * <p>Acknowledgement of the state change.</p>
+   * @public
+   */
+  acknowledgment?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface SubmitContainerStateChangeRequest {
+  /**
+   * <p>The short name or full ARN of the cluster that hosts the container.</p>
+   * @public
+   */
+  cluster?: string | undefined;
+
+  /**
+   * <p>The task ID or full Amazon Resource Name (ARN) of the task that hosts the container.</p>
+   * @public
+   */
+  task?: string | undefined;
+
+  /**
+   * <p>The name of the container.</p>
+   * @public
+   */
+  containerName?: string | undefined;
+
+  /**
+   * <p>The ID of the Docker container.</p>
+   * @public
+   */
+  runtimeId?: string | undefined;
+
+  /**
+   * <p>The status of the state change request.</p>
+   * @public
+   */
+  status?: string | undefined;
+
+  /**
+   * <p>The exit code that's returned for the state change request.</p>
+   * @public
+   */
+  exitCode?: number | undefined;
+
+  /**
+   * <p>The reason for the state change request.</p>
+   * @public
+   */
+  reason?: string | undefined;
+
+  /**
+   * <p>The network bindings of the container.</p>
+   * @public
+   */
+  networkBindings?: NetworkBinding[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface SubmitContainerStateChangeResponse {
+  /**
+   * <p>Acknowledgement of the state change.</p>
+   * @public
+   */
+  acknowledgment?: string | undefined;
+}
+
+/**
+ * <p>An object that represents a change in state for a container.</p>
+ * @public
+ */
+export interface ContainerStateChange {
+  /**
+   * <p>The name of the container.</p>
+   * @public
+   */
+  containerName?: string | undefined;
+
+  /**
+   * <p>The container image SHA 256 digest.</p>
+   * @public
+   */
+  imageDigest?: string | undefined;
+
+  /**
+   * <p>The ID of the Docker container.</p>
+   * @public
+   */
+  runtimeId?: string | undefined;
+
+  /**
+   * <p>The exit code for the container, if the state change is a result of the container
+   * 			exiting.</p>
+   * @public
+   */
+  exitCode?: number | undefined;
+
+  /**
+   * <p>Any network bindings that are associated with the container.</p>
+   * @public
+   */
+  networkBindings?: NetworkBinding[] | undefined;
+
+  /**
+   * <p>The reason for the state change.</p>
+   * @public
+   */
+  reason?: string | undefined;
+
+  /**
+   * <p>The status of the container.</p>
+   * @public
+   */
+  status?: string | undefined;
+}
+
+/**
+ * <p>An object representing a change in state for a managed agent.</p>
+ * @public
+ */
+export interface ManagedAgentStateChange {
+  /**
+   * <p>The name of the container that's associated with the managed agent.</p>
+   * @public
+   */
+  containerName: string | undefined;
+
+  /**
+   * <p>The name of the managed agent.</p>
+   * @public
+   */
+  managedAgentName: ManagedAgentName | undefined;
+
+  /**
+   * <p>The status of the managed agent.</p>
+   * @public
+   */
+  status: string | undefined;
+
+  /**
+   * <p>The reason for the status of the managed agent.</p>
+   * @public
+   */
+  reason?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface SubmitTaskStateChangeRequest {
+  /**
+   * <p>The short name or full Amazon Resource Name (ARN) of the cluster that hosts the task.</p>
+   * @public
+   */
+  cluster?: string | undefined;
+
+  /**
+   * <p>The task ID or full ARN of the task in the state change request.</p>
+   * @public
+   */
+  task?: string | undefined;
+
+  /**
+   * <p>The status of the state change request.</p>
+   * @public
+   */
+  status?: string | undefined;
+
+  /**
+   * <p>The reason for the state change request.</p>
+   * @public
+   */
+  reason?: string | undefined;
+
+  /**
+   * <p>Any containers that's associated with the state change request.</p>
+   * @public
+   */
+  containers?: ContainerStateChange[] | undefined;
+
+  /**
+   * <p>Any attachments associated with the state change request.</p>
+   * @public
+   */
+  attachments?: AttachmentStateChange[] | undefined;
+
+  /**
+   * <p>The details for the managed agent that's associated with the task.</p>
+   * @public
+   */
+  managedAgents?: ManagedAgentStateChange[] | undefined;
+
+  /**
+   * <p>The Unix timestamp for the time when the container image pull started.</p>
+   * @public
+   */
+  pullStartedAt?: Date | undefined;
+
+  /**
+   * <p>The Unix timestamp for the time when the container image pull completed.</p>
+   * @public
+   */
+  pullStoppedAt?: Date | undefined;
+
+  /**
+   * <p>The Unix timestamp for the time when the task execution stopped.</p>
+   * @public
+   */
+  executionStoppedAt?: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface SubmitTaskStateChangeResponse {
+  /**
+   * <p>Acknowledgement of the state change.</p>
+   * @public
+   */
+  acknowledgment?: string | undefined;
+}
 
 /**
  * @public
@@ -545,6 +826,12 @@ export interface UpdateServiceRequest {
    * @public
    */
   healthCheckGracePeriodSeconds?: number | undefined;
+
+  /**
+   * <p>The deployment controller to use for the service. </p>
+   * @public
+   */
+  deploymentController?: DeploymentController | undefined;
 
   /**
    * <p>If <code>true</code>, this enables execute command functionality on all task

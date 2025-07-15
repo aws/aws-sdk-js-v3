@@ -177,6 +177,18 @@ export interface UpdateServiceCommandOutput extends UpdateServiceResponse, __Met
  *       rollback: true || false, // required
  *       enable: true || false, // required
  *     },
+ *     strategy: "ROLLING" || "BLUE_GREEN",
+ *     bakeTimeInMinutes: Number("int"),
+ *     lifecycleHooks: [ // DeploymentLifecycleHookList
+ *       { // DeploymentLifecycleHook
+ *         hookTargetArn: "STRING_VALUE",
+ *         roleArn: "STRING_VALUE",
+ *         lifecycleStages: [ // DeploymentLifecycleHookStageList
+ *           "RECONCILE_SERVICE" || "PRE_SCALE_UP" || "POST_SCALE_UP" || "TEST_TRAFFIC_SHIFT" || "POST_TEST_TRAFFIC_SHIFT" || "PRODUCTION_TRAFFIC_SHIFT" || "POST_PRODUCTION_TRAFFIC_SHIFT",
+ *         ],
+ *         hookDetails: "DOCUMENT_VALUE",
+ *       },
+ *     ],
  *   },
  *   availabilityZoneRebalancing: "ENABLED" || "DISABLED",
  *   networkConfiguration: { // NetworkConfiguration
@@ -205,6 +217,9 @@ export interface UpdateServiceCommandOutput extends UpdateServiceResponse, __Met
  *   platformVersion: "STRING_VALUE",
  *   forceNewDeployment: true || false,
  *   healthCheckGracePeriodSeconds: Number("int"),
+ *   deploymentController: { // DeploymentController
+ *     type: "ECS" || "CODE_DEPLOY" || "EXTERNAL", // required
+ *   },
  *   enableExecuteCommand: true || false,
  *   enableECSManagedTags: true || false,
  *   loadBalancers: [ // LoadBalancers
@@ -213,6 +228,12 @@ export interface UpdateServiceCommandOutput extends UpdateServiceResponse, __Met
  *       loadBalancerName: "STRING_VALUE",
  *       containerName: "STRING_VALUE",
  *       containerPort: Number("int"),
+ *       advancedConfiguration: { // AdvancedConfiguration
+ *         alternateTargetGroupArn: "STRING_VALUE",
+ *         productionListenerRule: "STRING_VALUE",
+ *         testListenerRule: "STRING_VALUE",
+ *         roleArn: "STRING_VALUE",
+ *       },
  *     },
  *   ],
  *   propagateTags: "TASK_DEFINITION" || "SERVICE" || "NONE",
@@ -235,6 +256,14 @@ export interface UpdateServiceCommandOutput extends UpdateServiceResponse, __Met
  *           { // ServiceConnectClientAlias
  *             port: Number("int"), // required
  *             dnsName: "STRING_VALUE",
+ *             testTrafficRules: { // ServiceConnectTestTrafficRules
+ *               header: { // ServiceConnectTestTrafficHeaderRules
+ *                 name: "STRING_VALUE", // required
+ *                 value: { // ServiceConnectTestTrafficHeaderMatchRules
+ *                   exact: "STRING_VALUE", // required
+ *                 },
+ *               },
+ *             },
  *           },
  *         ],
  *         ingressPortOverride: Number("int"),
@@ -314,6 +343,12 @@ export interface UpdateServiceCommandOutput extends UpdateServiceResponse, __Met
  * //         loadBalancerName: "STRING_VALUE",
  * //         containerName: "STRING_VALUE",
  * //         containerPort: Number("int"),
+ * //         advancedConfiguration: { // AdvancedConfiguration
+ * //           alternateTargetGroupArn: "STRING_VALUE",
+ * //           productionListenerRule: "STRING_VALUE",
+ * //           testListenerRule: "STRING_VALUE",
+ * //           roleArn: "STRING_VALUE",
+ * //         },
  * //       },
  * //     ],
  * //     serviceRegistries: [ // ServiceRegistries
@@ -353,6 +388,18 @@ export interface UpdateServiceCommandOutput extends UpdateServiceResponse, __Met
  * //         rollback: true || false, // required
  * //         enable: true || false, // required
  * //       },
+ * //       strategy: "ROLLING" || "BLUE_GREEN",
+ * //       bakeTimeInMinutes: Number("int"),
+ * //       lifecycleHooks: [ // DeploymentLifecycleHookList
+ * //         { // DeploymentLifecycleHook
+ * //           hookTargetArn: "STRING_VALUE",
+ * //           roleArn: "STRING_VALUE",
+ * //           lifecycleStages: [ // DeploymentLifecycleHookStageList
+ * //             "RECONCILE_SERVICE" || "PRE_SCALE_UP" || "POST_SCALE_UP" || "TEST_TRAFFIC_SHIFT" || "POST_TEST_TRAFFIC_SHIFT" || "PRODUCTION_TRAFFIC_SHIFT" || "POST_PRODUCTION_TRAFFIC_SHIFT",
+ * //           ],
+ * //           hookDetails: "DOCUMENT_VALUE",
+ * //         },
+ * //       ],
  * //     },
  * //     taskSets: [ // TaskSets
  * //       { // TaskSet
@@ -396,6 +443,12 @@ export interface UpdateServiceCommandOutput extends UpdateServiceResponse, __Met
  * //             loadBalancerName: "STRING_VALUE",
  * //             containerName: "STRING_VALUE",
  * //             containerPort: Number("int"),
+ * //             advancedConfiguration: {
+ * //               alternateTargetGroupArn: "STRING_VALUE",
+ * //               productionListenerRule: "STRING_VALUE",
+ * //               testListenerRule: "STRING_VALUE",
+ * //               roleArn: "STRING_VALUE",
+ * //             },
  * //           },
  * //         ],
  * //         serviceRegistries: [
@@ -468,6 +521,14 @@ export interface UpdateServiceCommandOutput extends UpdateServiceResponse, __Met
  * //                 { // ServiceConnectClientAlias
  * //                   port: Number("int"), // required
  * //                   dnsName: "STRING_VALUE",
+ * //                   testTrafficRules: { // ServiceConnectTestTrafficRules
+ * //                     header: { // ServiceConnectTestTrafficHeaderRules
+ * //                       name: "STRING_VALUE", // required
+ * //                       value: { // ServiceConnectTestTrafficHeaderMatchRules
+ * //                         exact: "STRING_VALUE", // required
+ * //                       },
+ * //                     },
+ * //                   },
  * //                 },
  * //               ],
  * //               ingressPortOverride: Number("int"),

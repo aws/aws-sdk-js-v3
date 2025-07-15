@@ -67,47 +67,114 @@ export interface CreateServiceCommandOutput extends CreateServiceResponse, __Met
  * 					evaluates the task placement constraints for running tasks. It also stops tasks
  * 					that don't meet the placement constraints. When using this strategy, you don't
  * 					need to specify a desired number of tasks, a task placement strategy, or use
- * 					Service Auto Scaling policies. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs_services.html">Service scheduler concepts</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
+ * 					Service Auto Scaling policies. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs_services.html">Amazon ECS services</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
  *             </li>
  *          </ul>
- *          <p>You can optionally specify a deployment configuration for your service. The deployment
- * 			is initiated by changing properties. For example, the deployment might be initiated by
- * 			the task definition or by your desired count of a service. You can use <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_UpdateService.html">UpdateService</a>. The default value for a replica service for
- * 				<code>minimumHealthyPercent</code> is 100%. The default value for a daemon service
- * 			for <code>minimumHealthyPercent</code> is 0%.</p>
- *          <p>If a service uses the <code>ECS</code> deployment controller, the minimum healthy
- * 			percent represents a lower limit on the number of tasks in a service that must remain in
- * 			the <code>RUNNING</code> state during a deployment. Specifically, it represents it as a
- * 			percentage of your desired number of tasks (rounded up to the nearest integer). This
- * 			happens when any of your container instances are in the <code>DRAINING</code> state if
- * 			the service contains tasks using the EC2 launch type. Using this
- * 			parameter, you can deploy without using additional cluster capacity. For example, if you
- * 			set your service to have desired number of four tasks and a minimum healthy percent of
- * 			50%, the scheduler might stop two existing tasks to free up cluster capacity before
- * 			starting two new tasks. If they're in the <code>RUNNING</code> state, tasks for services
- * 			that don't use a load balancer are considered healthy . If they're in the
- * 				<code>RUNNING</code> state and reported as healthy by the load balancer, tasks for
- * 			services that <i>do</i> use a load balancer are considered healthy . The
- * 			default value for minimum healthy percent is 100%.</p>
- *          <p>If a service uses the <code>ECS</code> deployment controller, the <b>maximum percent</b> parameter represents an upper limit on the
- * 			number of tasks in a service that are allowed in the <code>RUNNING</code> or
- * 				<code>PENDING</code> state during a deployment. Specifically, it represents it as a
- * 			percentage of the desired number of tasks (rounded down to the nearest integer). This
- * 			happens when any of your container instances are in the <code>DRAINING</code> state if
- * 			the service contains tasks using the EC2 launch type. Using this
- * 			parameter, you can define the deployment batch size. For example, if your service has a
- * 			desired number of four tasks and a maximum percent value of 200%, the scheduler may
- * 			start four new tasks before stopping the four older tasks (provided that the cluster
- * 			resources required to do this are available). The default value for maximum percent is
- * 			200%.</p>
- *          <p>If a service uses either the <code>CODE_DEPLOY</code> or <code>EXTERNAL</code>
- * 			deployment controller types and tasks that use the EC2 launch type, the
- * 				<b>minimum healthy percent</b> and <b>maximum percent</b> values are used only to define the lower and upper limit
- * 			on the number of the tasks in the service that remain in the <code>RUNNING</code> state.
- * 			This is while the container instances are in the <code>DRAINING</code> state. If the
- * 			tasks in the service use the Fargate launch type, the minimum healthy
- * 			percent and maximum percent values aren't used. This is the case even if they're
- * 			currently visible when describing your service.</p>
+ *          <p>The deployment controller is the mechanism that determines how tasks are deployed for
+ * 			your service. The valid options are:</p>
+ *          <ul>
+ *             <li>
+ *                <p>ECS</p>
+ *                <p>When you create a service which uses the <code>ECS</code> deployment controller, you can choose between the following deployment strategies:</p>
+ *                <ul>
+ *                   <li>
+ *                      <p>
+ *                         <code>ROLLING</code>: When you create a service which uses the <i>rolling update</i>
+ * 							(<code>ROLLING</code>) deployment strategy, the Amazon ECS service scheduler replaces the
+ * 							currently running tasks with new tasks. The number of tasks that Amazon ECS adds or
+ * 							removes from the service during a rolling update is controlled by the service
+ * 							deployment configuration. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-type-ecs.html">Deploy Amazon ECS services by replacing tasks</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
+ *                      <p>Rolling update deployments are best suited for the following scenarios:</p>
+ *                      <ul>
+ *                         <li>
+ *                            <p>Gradual service updates: You need to
+ * 									update your service incrementally without taking the entire service
+ * 									offline at once.</p>
+ *                         </li>
+ *                         <li>
+ *                            <p>Limited resource requirements: You
+ * 									want to avoid the additional resource costs of running two complete
+ * 									environments simultaneously (as required by blue/green
+ * 									deployments).</p>
+ *                         </li>
+ *                         <li>
+ *                            <p>Acceptable deployment time: Your
+ * 									application can tolerate a longer deployment process, as rolling updates
+ * 									replace tasks one by one.</p>
+ *                         </li>
+ *                         <li>
+ *                            <p>No need for instant roll back: Your
+ * 									service can tolerate a rollback process that takes minutes rather than
+ * 									seconds.</p>
+ *                         </li>
+ *                         <li>
+ *                            <p>Simple deployment process: You prefer
+ * 									a straightforward deployment approach without the complexity of managing
+ * 									multiple environments, target groups, and listeners.</p>
+ *                         </li>
+ *                         <li>
+ *                            <p>No load balancer requirement: Your
+ * 									service doesn't use or require a load balancer, Application Load Balancer, Network Load Balancer, or Service Connect (which are required
+ * 									for blue/green deployments).</p>
+ *                         </li>
+ *                         <li>
+ *                            <p>Stateful applications: Your
+ * 									application maintains state that makes it difficult to run two parallel
+ * 									environments.</p>
+ *                         </li>
+ *                         <li>
+ *                            <p>Cost sensitivity: You want to
+ * 									minimize deployment costs by not running duplicate environments during
+ * 									deployment.</p>
+ *                         </li>
+ *                      </ul>
+ *                      <p>Rolling updates are the default deployment strategy for services and provide a
+ * 							balance between deployment safety and resource efficiency for many common
+ * 							application scenarios.</p>
+ *                   </li>
+ *                   <li>
+ *                      <p>
+ *                         <code>BLUE_GREEN</code>: A <i>blue/green</i> deployment strategy (<code>BLUE_GREEN</code>) is a release methodology that reduces downtime and
+ * 							risk by running two identical production environments called blue and green.
+ * 							With Amazon ECS blue/green deployments, you can validate new service revisions before
+ * 							directing production traffic to them. This approach provides a safer way to
+ * 							deploy changes with the ability to quickly roll back if needed. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-type-blue-green.html">Amazon ECS blue/green deployments</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
+ *                      <p>Amazon ECS blue/green deployments are best suited for the following scenarios:</p>
+ *                      <ul>
+ *                         <li>
+ *                            <p>Service validation: When you need to
+ * 									validate new service revisions before directing production traffic to
+ * 									them</p>
+ *                         </li>
+ *                         <li>
+ *                            <p>Zero downtime: When your service
+ * 									requires zero-downtime deployments</p>
+ *                         </li>
+ *                         <li>
+ *                            <p>Instant roll back: When you
+ * 									need the ability to quickly roll back if issues are detected</p>
+ *                         </li>
+ *                         <li>
+ *                            <p>Load balancer requirement: When your
+ * 									service uses Application Load Balancer, Network Load Balancer, or Service Connect</p>
+ *                         </li>
+ *                      </ul>
+ *                   </li>
+ *                </ul>
+ *             </li>
+ *             <li>
+ *                <p>External</p>
+ *                <p>Use a third-party deployment controller.</p>
+ *             </li>
+ *             <li>
+ *                <p>Blue/green deployment (powered by CodeDeploy)</p>
+ *                <p>CodeDeploy installs an updated version of the application as a new replacement task
+ * 					set and reroutes production traffic from the original application task set to
+ * 					the replacement task set. The original task set is terminated after a successful
+ * 					deployment. Use this deployment controller to verify a new deployment of a service
+ * 					before sending production traffic to it.</p>
+ *             </li>
+ *          </ul>
  *          <p>When creating a service that uses the <code>EXTERNAL</code> deployment controller, you
  * 			can specify only parameters that aren't controlled at the task set level. The only
  * 			required parameter is the service name. You control your services using the <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_CreateTaskSet.html">CreateTaskSet</a>. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-types.html">Amazon ECS deployment types</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
@@ -132,6 +199,12 @@ export interface CreateServiceCommandOutput extends CreateServiceResponse, __Met
  *       loadBalancerName: "STRING_VALUE",
  *       containerName: "STRING_VALUE",
  *       containerPort: Number("int"),
+ *       advancedConfiguration: { // AdvancedConfiguration
+ *         alternateTargetGroupArn: "STRING_VALUE",
+ *         productionListenerRule: "STRING_VALUE",
+ *         testListenerRule: "STRING_VALUE",
+ *         roleArn: "STRING_VALUE",
+ *       },
  *     },
  *   ],
  *   serviceRegistries: [ // ServiceRegistries
@@ -168,6 +241,18 @@ export interface CreateServiceCommandOutput extends CreateServiceResponse, __Met
  *       rollback: true || false, // required
  *       enable: true || false, // required
  *     },
+ *     strategy: "ROLLING" || "BLUE_GREEN",
+ *     bakeTimeInMinutes: Number("int"),
+ *     lifecycleHooks: [ // DeploymentLifecycleHookList
+ *       { // DeploymentLifecycleHook
+ *         hookTargetArn: "STRING_VALUE",
+ *         roleArn: "STRING_VALUE",
+ *         lifecycleStages: [ // DeploymentLifecycleHookStageList
+ *           "RECONCILE_SERVICE" || "PRE_SCALE_UP" || "POST_SCALE_UP" || "TEST_TRAFFIC_SHIFT" || "POST_TEST_TRAFFIC_SHIFT" || "PRODUCTION_TRAFFIC_SHIFT" || "POST_PRODUCTION_TRAFFIC_SHIFT",
+ *         ],
+ *         hookDetails: "DOCUMENT_VALUE",
+ *       },
+ *     ],
  *   },
  *   placementConstraints: [ // PlacementConstraints
  *     { // PlacementConstraint
@@ -217,6 +302,14 @@ export interface CreateServiceCommandOutput extends CreateServiceResponse, __Met
  *           { // ServiceConnectClientAlias
  *             port: Number("int"), // required
  *             dnsName: "STRING_VALUE",
+ *             testTrafficRules: { // ServiceConnectTestTrafficRules
+ *               header: { // ServiceConnectTestTrafficHeaderRules
+ *                 name: "STRING_VALUE", // required
+ *                 value: { // ServiceConnectTestTrafficHeaderMatchRules
+ *                   exact: "STRING_VALUE", // required
+ *                 },
+ *               },
+ *             },
  *           },
  *         ],
  *         ingressPortOverride: Number("int"),
@@ -296,6 +389,12 @@ export interface CreateServiceCommandOutput extends CreateServiceResponse, __Met
  * //         loadBalancerName: "STRING_VALUE",
  * //         containerName: "STRING_VALUE",
  * //         containerPort: Number("int"),
+ * //         advancedConfiguration: { // AdvancedConfiguration
+ * //           alternateTargetGroupArn: "STRING_VALUE",
+ * //           productionListenerRule: "STRING_VALUE",
+ * //           testListenerRule: "STRING_VALUE",
+ * //           roleArn: "STRING_VALUE",
+ * //         },
  * //       },
  * //     ],
  * //     serviceRegistries: [ // ServiceRegistries
@@ -335,6 +434,18 @@ export interface CreateServiceCommandOutput extends CreateServiceResponse, __Met
  * //         rollback: true || false, // required
  * //         enable: true || false, // required
  * //       },
+ * //       strategy: "ROLLING" || "BLUE_GREEN",
+ * //       bakeTimeInMinutes: Number("int"),
+ * //       lifecycleHooks: [ // DeploymentLifecycleHookList
+ * //         { // DeploymentLifecycleHook
+ * //           hookTargetArn: "STRING_VALUE",
+ * //           roleArn: "STRING_VALUE",
+ * //           lifecycleStages: [ // DeploymentLifecycleHookStageList
+ * //             "RECONCILE_SERVICE" || "PRE_SCALE_UP" || "POST_SCALE_UP" || "TEST_TRAFFIC_SHIFT" || "POST_TEST_TRAFFIC_SHIFT" || "PRODUCTION_TRAFFIC_SHIFT" || "POST_PRODUCTION_TRAFFIC_SHIFT",
+ * //           ],
+ * //           hookDetails: "DOCUMENT_VALUE",
+ * //         },
+ * //       ],
  * //     },
  * //     taskSets: [ // TaskSets
  * //       { // TaskSet
@@ -378,6 +489,12 @@ export interface CreateServiceCommandOutput extends CreateServiceResponse, __Met
  * //             loadBalancerName: "STRING_VALUE",
  * //             containerName: "STRING_VALUE",
  * //             containerPort: Number("int"),
+ * //             advancedConfiguration: {
+ * //               alternateTargetGroupArn: "STRING_VALUE",
+ * //               productionListenerRule: "STRING_VALUE",
+ * //               testListenerRule: "STRING_VALUE",
+ * //               roleArn: "STRING_VALUE",
+ * //             },
  * //           },
  * //         ],
  * //         serviceRegistries: [
@@ -450,6 +567,14 @@ export interface CreateServiceCommandOutput extends CreateServiceResponse, __Met
  * //                 { // ServiceConnectClientAlias
  * //                   port: Number("int"), // required
  * //                   dnsName: "STRING_VALUE",
+ * //                   testTrafficRules: { // ServiceConnectTestTrafficRules
+ * //                     header: { // ServiceConnectTestTrafficHeaderRules
+ * //                       name: "STRING_VALUE", // required
+ * //                       value: { // ServiceConnectTestTrafficHeaderMatchRules
+ * //                         exact: "STRING_VALUE", // required
+ * //                       },
+ * //                     },
+ * //                   },
  * //                 },
  * //               ],
  * //               ingressPortOverride: Number("int"),
