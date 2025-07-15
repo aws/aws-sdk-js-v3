@@ -32,8 +32,7 @@ export interface GetObjectRetentionCommandOutput extends GetObjectRetentionOutpu
  * <note>
  *             <p>This operation is not supported for directory buckets.</p>
  *          </note>
- *          <p>Retrieves an object's retention settings. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html">Locking
- *          Objects</a>.</p>
+ *          <p>Retrieves an object's retention settings. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html">Locking Objects</a>.</p>
  *          <p>This functionality is not supported for Amazon S3 on Outposts.</p>
  *          <p>The following action is related to <code>GetObjectRetention</code>:</p>
  *          <ul>

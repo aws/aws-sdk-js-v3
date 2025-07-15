@@ -36,45 +36,39 @@ export interface CompleteMultipartUploadCommandOutput extends CompleteMultipartU
 
 /**
  * <p>Completes a multipart upload by assembling previously uploaded parts.</p>
- *          <p>You first initiate the multipart upload and then upload all parts using the <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_UploadPart.html">UploadPart</a>
- *          operation or the <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_UploadPartCopy.html">UploadPartCopy</a> operation.
- *          After successfully uploading all relevant parts of an upload, you call this
- *             <code>CompleteMultipartUpload</code> operation to complete the upload. Upon receiving
- *          this request, Amazon S3 concatenates all the parts in ascending order by part number to create a
- *          new object. In the CompleteMultipartUpload request, you must provide the parts list and
- *          ensure that the parts list is complete. The CompleteMultipartUpload API operation
- *          concatenates the parts that you provide in the list. For each part in the list, you must
- *          provide the <code>PartNumber</code> value and the <code>ETag</code> value that are returned
- *          after that part was uploaded.</p>
- *          <p>The processing of a CompleteMultipartUpload request could take several minutes to
- *          finalize. After Amazon S3 begins processing the request, it sends an HTTP response header that
- *          specifies a <code>200 OK</code> response. While processing is in progress, Amazon S3
- *          periodically sends white space characters to keep the connection from timing out. A request
- *          could fail after the initial <code>200 OK</code> response has been sent. This means that a
- *             <code>200 OK</code> response can contain either a success or an error. The error
- *          response might be embedded in the <code>200 OK</code> response. If you call this API
- *          operation directly, make sure to design your application to parse the contents of the
- *          response and handle it appropriately. If you use Amazon Web Services SDKs, SDKs handle this condition.
- *          The SDKs detect the embedded error and apply error handling per your configuration settings
- *          (including automatically retrying the request as appropriate). If the condition persists,
- *          the SDKs throw an exception (or, for the SDKs that don't use exceptions, they return an
- *          error). </p>
- *          <p>Note that if <code>CompleteMultipartUpload</code> fails, applications should be prepared
- *          to retry any failed requests (including 500 error responses). For more information, see
- *             <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ErrorBestPractices.html">Amazon S3 Error
- *             Best Practices</a>.</p>
+ *          <p>You first initiate the multipart upload and then upload all parts using the <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_UploadPart.html">UploadPart</a> operation or the
+ *         <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_UploadPartCopy.html">UploadPartCopy</a>
+ *       operation. After successfully uploading all relevant parts of an upload, you call this
+ *         <code>CompleteMultipartUpload</code> operation to complete the upload. Upon receiving this request,
+ *       Amazon S3 concatenates all the parts in ascending order by part number to create a new object. In the
+ *       CompleteMultipartUpload request, you must provide the parts list and ensure that the parts list is
+ *       complete. The CompleteMultipartUpload API operation concatenates the parts that you provide in the list.
+ *       For each part in the list, you must provide the <code>PartNumber</code> value and the <code>ETag</code>
+ *       value that are returned after that part was uploaded.</p>
+ *          <p>The processing of a CompleteMultipartUpload request could take several minutes to finalize. After
+ *       Amazon S3 begins processing the request, it sends an HTTP response header that specifies a <code>200
+ *         OK</code> response. While processing is in progress, Amazon S3 periodically sends white space characters to
+ *       keep the connection from timing out. A request could fail after the initial <code>200 OK</code> response
+ *       has been sent. This means that a <code>200 OK</code> response can contain either a success or an error.
+ *       The error response might be embedded in the <code>200 OK</code> response. If you call this API operation
+ *       directly, make sure to design your application to parse the contents of the response and handle it
+ *       appropriately. If you use Amazon Web Services SDKs, SDKs handle this condition. The SDKs detect the embedded error and
+ *       apply error handling per your configuration settings (including automatically retrying the request as
+ *       appropriate). If the condition persists, the SDKs throw an exception (or, for the SDKs that don't use
+ *       exceptions, they return an error). </p>
+ *          <p>Note that if <code>CompleteMultipartUpload</code> fails, applications should be prepared to retry
+ *       any failed requests (including 500 error responses). For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ErrorBestPractices.html">Amazon S3 Error Best
+ *         Practices</a>.</p>
  *          <important>
  *             <p>You can't use <code>Content-Type: application/x-www-form-urlencoded</code> for the
- *             CompleteMultipartUpload requests. Also, if you don't provide a <code>Content-Type</code>
- *             header, <code>CompleteMultipartUpload</code> can still return a <code>200 OK</code>
- *             response.</p>
+ *         CompleteMultipartUpload requests. Also, if you don't provide a <code>Content-Type</code> header,
+ *           <code>CompleteMultipartUpload</code> can still return a <code>200 OK</code> response.</p>
  *          </important>
- *          <p>For more information about multipart uploads, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/uploadobjusingmpu.html">Uploading Objects Using Multipart
- *             Upload</a> in the <i>Amazon S3 User Guide</i>.</p>
+ *          <p>For more information about multipart uploads, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/uploadobjusingmpu.html">Uploading Objects Using Multipart Upload</a> in
+ *       the <i>Amazon S3 User Guide</i>.</p>
  *          <note>
  *             <p>
- *                <b>Directory buckets</b> -
- *             For directory buckets, you must make requests for this API operation to the Zonal endpoint. These endpoints support virtual-hosted-style requests in the format <code>https://<i>amzn-s3-demo-bucket</i>.s3express-<i>zone-id</i>.<i>region-code</i>.amazonaws.com/<i>key-name</i>
+ *                <b>Directory buckets</b> - For directory buckets, you must make requests for this API operation to the Zonal endpoint. These endpoints support virtual-hosted-style requests in the format <code>https://<i>amzn-s3-demo-bucket</i>.s3express-<i>zone-id</i>.<i>region-code</i>.amazonaws.com/<i>key-name</i>
  *                </code>. Path-style requests are not supported. For more information about endpoints in Availability Zones, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/endpoint-directory-buckets-AZ.html">Regional and Zonal endpoints for directory buckets in Availability Zones</a> in the
  *     <i>Amazon S3 User Guide</i>. For more information about endpoints in Local Zones, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-lzs-for-directory-buckets.html">Concepts for directory buckets in Local Zones</a> in the
  *     <i>Amazon S3 User Guide</i>.</p>
@@ -85,15 +79,13 @@ export interface CompleteMultipartUploadCommandOutput extends CompleteMultipartU
  *                <ul>
  *                   <li>
  *                      <p>
- *                         <b>General purpose bucket permissions</b> - For
- *                         information about permissions required to use the multipart upload API, see
- *                            <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/mpuAndPermissions.html">Multipart Upload and
- *                            Permissions</a> in the <i>Amazon S3 User Guide</i>.</p>
- *                      <p>If you provide an <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_Checksum.html">additional checksum
- *                            value</a> in your <code>MultipartUpload</code> requests and the
- *                         object is encrypted with Key Management Service, you must have permission to use the
- *                            <code>kms:Decrypt</code> action for the
- *                            <code>CompleteMultipartUpload</code> request to succeed.</p>
+ *                         <b>General purpose bucket permissions</b> - For information
+ *                 about permissions required to use the multipart upload API, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/mpuAndPermissions.html">Multipart Upload and Permissions</a> in
+ *                 the <i>Amazon S3 User Guide</i>.</p>
+ *                      <p>If you provide an <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_Checksum.html">additional checksum value</a> in your <code>MultipartUpload</code> requests and the
+ *                 object is encrypted with Key Management Service, you must have permission to use the
+ *                   <code>kms:Decrypt</code> action for the <code>CompleteMultipartUpload</code> request to
+ *                 succeed.</p>
  *                   </li>
  *                   <li>
  *                      <p>
@@ -104,9 +96,8 @@ export interface CompleteMultipartUploadCommandOutput extends CompleteMultipartU
  *                            <code>CreateSession</code>
  *                         </a>.</p>
  *                      <p>If the object is encrypted with SSE-KMS, you must also have the
- *                            <code>kms:GenerateDataKey</code> and <code>kms:Decrypt</code> permissions
- *                         in IAM identity-based policies and KMS key policies for the KMS
- *                         key.</p>
+ *                   <code>kms:GenerateDataKey</code> and <code>kms:Decrypt</code> permissions in IAM
+ *                 identity-based policies and KMS key policies for the KMS key.</p>
  *                   </li>
  *                </ul>
  *             </dd>
@@ -118,9 +109,8 @@ export interface CompleteMultipartUploadCommandOutput extends CompleteMultipartU
  *                      </p>
  *                      <ul>
  *                         <li>
- *                            <p>Description: Your proposed upload is smaller than the minimum
- *                               allowed object size. Each part must be at least 5 MB in size, except
- *                               the last part.</p>
+ *                            <p>Description: Your proposed upload is smaller than the minimum allowed object size.
+ *                     Each part must be at least 5 MB in size, except the last part.</p>
  *                         </li>
  *                         <li>
  *                            <p>HTTP Status Code: 400 Bad Request</p>
@@ -132,9 +122,9 @@ export interface CompleteMultipartUploadCommandOutput extends CompleteMultipartU
  *                      </p>
  *                      <ul>
  *                         <li>
- *                            <p>Description: One or more of the specified parts could not be found.
- *                               The part might not have been uploaded, or the specified ETag might not
- *                               have matched the uploaded part's ETag.</p>
+ *                            <p>Description: One or more of the specified parts could not be found. The part might not
+ *                     have been uploaded, or the specified ETag might not have matched the uploaded part's
+ *                     ETag.</p>
  *                         </li>
  *                         <li>
  *                            <p>HTTP Status Code: 400 Bad Request</p>
@@ -146,8 +136,8 @@ export interface CompleteMultipartUploadCommandOutput extends CompleteMultipartU
  *                      </p>
  *                      <ul>
  *                         <li>
- *                            <p>Description: The list of parts was not in ascending order. The
- *                               parts list must be specified in order by part number.</p>
+ *                            <p>Description: The list of parts was not in ascending order. The parts list must be
+ *                     specified in order by part number.</p>
  *                         </li>
  *                         <li>
  *                            <p>HTTP Status Code: 400 Bad Request</p>
@@ -159,9 +149,8 @@ export interface CompleteMultipartUploadCommandOutput extends CompleteMultipartU
  *                      </p>
  *                      <ul>
  *                         <li>
- *                            <p>Description: The specified multipart upload does not exist. The
- *                               upload ID might be invalid, or the multipart upload might have been
- *                               aborted or completed.</p>
+ *                            <p>Description: The specified multipart upload does not exist. The upload ID might be
+ *                     invalid, or the multipart upload might have been aborted or completed.</p>
  *                         </li>
  *                         <li>
  *                            <p>HTTP Status Code: 404 Not Found</p>

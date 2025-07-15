@@ -29,8 +29,7 @@ export interface PutBucketEncryptionCommandInput extends PutBucketEncryptionRequ
 export interface PutBucketEncryptionCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>This operation configures default encryption and Amazon S3 Bucket Keys for an existing
- *          bucket.</p>
+ * <p>This operation configures default encryption and Amazon S3 Bucket Keys for an existing bucket.</p>
  *          <note>
  *             <p>
  *                <b>Directory buckets </b> - For directory buckets, you must make requests for this API operation to the Regional endpoint. These endpoints support path-style requests in the format <code>https://s3express-control.<i>region-code</i>.amazonaws.com/<i>bucket-name</i>
@@ -39,8 +38,8 @@ export interface PutBucketEncryptionCommandOutput extends __MetadataBearer {}
  *     <i>Amazon S3 User Guide</i>. For more information about endpoints in Local Zones, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-lzs-for-directory-buckets.html">Concepts for directory buckets in Local Zones</a> in the
  *     <i>Amazon S3 User Guide</i>.</p>
  *          </note>
- *          <p>By default, all buckets have a default encryption configuration that uses server-side
- *          encryption with Amazon S3 managed keys (SSE-S3).</p>
+ *          <p>By default, all buckets have a default encryption configuration that uses server-side encryption
+ *       with Amazon S3 managed keys (SSE-S3).</p>
  *          <note>
  *             <ul>
  *                <li>
@@ -49,35 +48,32 @@ export interface PutBucketEncryptionCommandOutput extends __MetadataBearer {}
  *                   </p>
  *                   <ul>
  *                      <li>
- *                         <p>You can optionally configure default encryption for a bucket by using
- *                         server-side encryption with Key Management Service (KMS) keys (SSE-KMS) or dual-layer
- *                         server-side encryption with Amazon Web Services KMS keys (DSSE-KMS). If you specify
- *                         default encryption by using SSE-KMS, you can also configure <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-key.html">Amazon S3
- *                            Bucket Keys</a>. For information about the bucket default encryption
- *                         feature, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-encryption.html">Amazon S3 Bucket Default
- *                            Encryption</a> in the <i>Amazon S3 User Guide</i>. </p>
+ *                         <p>You can optionally configure default encryption for a bucket by using server-side
+ *                 encryption with Key Management Service (KMS) keys (SSE-KMS) or dual-layer server-side encryption with
+ *                 Amazon Web Services KMS keys (DSSE-KMS). If you specify default encryption by using SSE-KMS, you can also
+ *                 configure <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-key.html">Amazon S3 Bucket
+ *                   Keys</a>. For information about the bucket default encryption feature, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-encryption.html">Amazon S3 Bucket Default
+ *                   Encryption</a> in the <i>Amazon S3 User Guide</i>. </p>
  *                      </li>
  *                      <li>
- *                         <p>If you use PutBucketEncryption to set your <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-encryption.html">default bucket
- *                            encryption</a> to SSE-KMS, you should verify that your KMS key ID
- *                         is correct. Amazon S3 doesn't validate the KMS key ID provided in
- *                         PutBucketEncryption requests.</p>
+ *                         <p>If you use PutBucketEncryption to set your <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-encryption.html">default bucket encryption</a> to
+ *                 SSE-KMS, you should verify that your KMS key ID is correct. Amazon S3 doesn't validate the
+ *                 KMS key ID provided in PutBucketEncryption requests.</p>
  *                      </li>
  *                   </ul>
  *                </li>
  *                <li>
  *                   <p>
- *                      <b>Directory buckets </b> - You can
- *                   optionally configure default encryption for a bucket by using server-side
- *                   encryption with Key Management Service (KMS) keys (SSE-KMS).</p>
+ *                      <b>Directory buckets </b> - You can optionally configure
+ *             default encryption for a bucket by using server-side encryption with Key Management Service (KMS) keys
+ *             (SSE-KMS).</p>
  *                   <ul>
  *                      <li>
- *                         <p>We recommend that the bucket's default encryption uses the desired
- *                         encryption configuration and you don't override the bucket default
- *                         encryption in your <code>CreateSession</code> requests or <code>PUT</code>
- *                         object requests. Then, new objects are automatically encrypted with the
- *                         desired encryption settings.
- *                         For more information about the encryption overriding behaviors in directory buckets, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-specifying-kms-encryption.html">Specifying server-side encryption with KMS for new object uploads</a>.</p>
+ *                         <p>We recommend that the bucket's default encryption uses the desired encryption
+ *                 configuration and you don't override the bucket default encryption in your
+ *                   <code>CreateSession</code> requests or <code>PUT</code> object requests. Then, new objects
+ *                 are automatically encrypted with the desired encryption settings.
+ *                 For more information about the encryption overriding behaviors in directory buckets, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-specifying-kms-encryption.html">Specifying server-side encryption with KMS for new object uploads</a>.</p>
  *                      </li>
  *                      <li>
  *                         <p>Your SSE-KMS configuration can only support 1 <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#customer-cmk">customer managed key</a> per directory bucket's lifetime.
@@ -93,21 +89,21 @@ export interface PutBucketEncryptionCommandOutput extends __MetadataBearer {}
  *                         <p>When you specify an <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#customer-cmk">KMS customer managed key</a> for encryption in your directory bucket, only use the key ID or key ARN. The key alias format of the KMS key isn't supported.</p>
  *                      </li>
  *                      <li>
- *                         <p>For directory buckets, if you use PutBucketEncryption to set your <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-encryption.html">default bucket encryption</a> to SSE-KMS, Amazon S3 validates the
- *                         KMS key ID provided in PutBucketEncryption requests.</p>
+ *                         <p>For directory buckets, if you use PutBucketEncryption to set your <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-encryption.html">default bucket
+ *                   encryption</a> to SSE-KMS, Amazon S3 validates the KMS key ID provided in
+ *                 PutBucketEncryption requests.</p>
  *                      </li>
  *                   </ul>
  *                </li>
  *             </ul>
  *          </note>
  *          <important>
- *             <p>If you're specifying a customer managed KMS key, we recommend using a fully
- *             qualified KMS key ARN. If you use a KMS key alias instead, then KMS resolves the
- *             key within the requester’s account. This behavior can result in data that's encrypted
- *             with a KMS key that belongs to the requester, and not the bucket owner.</p>
- *             <p>Also, this action requires Amazon Web Services Signature Version 4. For more information, see
- *                <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/sig-v4-authenticating-requests.html"> Authenticating
- *                Requests (Amazon Web Services Signature Version 4)</a>. </p>
+ *             <p>If you're specifying a customer managed KMS key, we recommend using a fully qualified KMS key
+ *         ARN. If you use a KMS key alias instead, then KMS resolves the key within the requester’s account.
+ *         This behavior can result in data that's encrypted with a KMS key that belongs to the requester, and
+ *         not the bucket owner.</p>
+ *             <p>Also, this action requires Amazon Web Services Signature Version 4. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/sig-v4-authenticating-requests.html"> Authenticating
+ *           Requests (Amazon Web Services Signature Version 4)</a>. </p>
  *          </important>
  *          <dl>
  *             <dt>Permissions</dt>
@@ -116,24 +112,20 @@ export interface PutBucketEncryptionCommandOutput extends __MetadataBearer {}
  *                   <li>
  *                      <p>
  *                         <b>General purpose bucket permissions</b> - The
- *                            <code>s3:PutEncryptionConfiguration</code> permission is required in a
- *                         policy. The bucket owner has this permission by default. The bucket owner
- *                         can grant this permission to others. For more information about permissions,
- *                         see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-with-s3-actions.html#using-with-s3-actions-related-to-bucket-subresources">Permissions Related to Bucket Operations</a> and <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-access-control.html">Managing Access
- *                            Permissions to Your Amazon S3 Resources</a> in the
- *                            <i>Amazon S3 User Guide</i>.</p>
+ *                   <code>s3:PutEncryptionConfiguration</code> permission is required in a policy. The bucket
+ *                 owner has this permission by default. The bucket owner can grant this permission to others.
+ *                 For more information about permissions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-with-s3-actions.html#using-with-s3-actions-related-to-bucket-subresources">Permissions Related to Bucket Operations</a> and <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-access-control.html">Managing Access Permissions to Your
+ *                   Amazon S3 Resources</a> in the <i>Amazon S3 User Guide</i>.</p>
  *                   </li>
  *                   <li>
  *                      <p>
- *                         <b>Directory bucket permissions</b> -
- *                         To grant access to this API operation, you must have the
- *                            <code>s3express:PutEncryptionConfiguration</code> permission in
- *                         an IAM identity-based policy instead of a bucket policy. Cross-account access to this API operation isn't supported. This operation can only be performed by the Amazon Web Services account that owns the resource.
- *                         For more information about directory bucket policies and permissions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-security-iam.html">Amazon Web Services Identity and Access Management (IAM) for S3 Express One Zone</a> in the <i>Amazon S3 User Guide</i>.</p>
- *                      <p>To set a directory bucket default encryption with SSE-KMS, you must also
- *                         have the <code>kms:GenerateDataKey</code> and the <code>kms:Decrypt</code>
- *                         permissions in IAM identity-based policies and KMS key policies for the
- *                         target KMS key.</p>
+ *                         <b>Directory bucket permissions</b> - To grant access to
+ *                 this API operation, you must have the <code>s3express:PutEncryptionConfiguration</code>
+ *                 permission in an IAM identity-based policy instead of a bucket policy. Cross-account access to this API operation isn't supported. This operation can only be performed by the Amazon Web Services account that owns the resource.
+ *                 For more information about directory bucket policies and permissions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-security-iam.html">Amazon Web Services Identity and Access Management (IAM) for S3 Express One Zone</a> in the <i>Amazon S3 User Guide</i>.</p>
+ *                      <p>To set a directory bucket default encryption with SSE-KMS, you must also have the
+ *                   <code>kms:GenerateDataKey</code> and the <code>kms:Decrypt</code> permissions in IAM
+ *                 identity-based policies and KMS key policies for the target KMS key.</p>
  *                   </li>
  *                </ul>
  *             </dd>

@@ -32,11 +32,10 @@ export interface PutBucketRequestPaymentCommandOutput extends __MetadataBearer {
  * <note>
  *             <p>This operation is not supported for directory buckets.</p>
  *          </note>
- *          <p>Sets the request payment configuration for a bucket. By default, the bucket owner pays
- *          for downloads from the bucket. This configuration parameter enables the bucket owner (only)
- *          to specify that the person requesting the download will be charged for the download. For
- *          more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/RequesterPaysBuckets.html">Requester Pays
- *          Buckets</a>.</p>
+ *          <p>Sets the request payment configuration for a bucket. By default, the bucket owner pays for downloads
+ *       from the bucket. This configuration parameter enables the bucket owner (only) to specify that the person
+ *       requesting the download will be charged for the download. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/RequesterPaysBuckets.html">Requester Pays
+ *         Buckets</a>.</p>
  *          <p>The following operations are related to <code>PutBucketRequestPayment</code>:</p>
  *          <ul>
  *             <li>

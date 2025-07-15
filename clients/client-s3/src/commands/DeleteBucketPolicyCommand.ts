@@ -40,38 +40,35 @@ export interface DeleteBucketPolicyCommandOutput extends __MetadataBearer {}
  *          <dl>
  *             <dt>Permissions</dt>
  *             <dd>
- *                <p>If you are using an identity other than the root user of the Amazon Web Services account that
- *                   owns the bucket, the calling identity must both have the
- *                      <code>DeleteBucketPolicy</code> permissions on the specified bucket and belong
- *                   to the bucket owner's account in order to use this operation.</p>
- *                <p>If you don't have <code>DeleteBucketPolicy</code> permissions, Amazon S3 returns a
- *                      <code>403 Access Denied</code> error. If you have the correct permissions, but
- *                   you're not using an identity that belongs to the bucket owner's account, Amazon S3
- *                   returns a <code>405 Method Not Allowed</code> error.</p>
+ *                <p>If you are using an identity other than the root user of the Amazon Web Services account that owns the
+ *             bucket, the calling identity must both have the <code>DeleteBucketPolicy</code> permissions on the
+ *             specified bucket and belong to the bucket owner's account in order to use this operation.</p>
+ *                <p>If you don't have <code>DeleteBucketPolicy</code> permissions, Amazon S3 returns a <code>403 Access
+ *               Denied</code> error. If you have the correct permissions, but you're not using an identity that
+ *             belongs to the bucket owner's account, Amazon S3 returns a <code>405 Method Not Allowed</code>
+ *             error.</p>
  *                <important>
- *                   <p>To ensure that bucket owners don't inadvertently lock themselves out of
- *                      their own buckets, the root principal in a bucket owner's Amazon Web Services account can
- *                      perform the <code>GetBucketPolicy</code>, <code>PutBucketPolicy</code>, and
- *                         <code>DeleteBucketPolicy</code> API actions, even if their bucket policy
- *                      explicitly denies the root principal's access. Bucket owner root principals can
- *                      only be blocked from performing these API actions by VPC endpoint policies and
- *                      Amazon Web Services Organizations policies.</p>
+ *                   <p>To ensure that bucket owners don't inadvertently lock themselves out of their own buckets,
+ *               the root principal in a bucket owner's Amazon Web Services account can perform the
+ *                 <code>GetBucketPolicy</code>, <code>PutBucketPolicy</code>, and
+ *                 <code>DeleteBucketPolicy</code> API actions, even if their bucket policy explicitly denies the
+ *               root principal's access. Bucket owner root principals can only be blocked from performing these
+ *               API actions by VPC endpoint policies and Amazon Web Services Organizations policies.</p>
  *                </important>
  *                <ul>
  *                   <li>
  *                      <p>
  *                         <b>General purpose bucket permissions</b> - The
- *                            <code>s3:DeleteBucketPolicy</code> permission is required in a policy.
- *                         For more information about general purpose buckets bucket policies, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/using-iam-policies.html">Using Bucket Policies and User Policies</a> in the
- *                            <i>Amazon S3 User Guide</i>.</p>
+ *                   <code>s3:DeleteBucketPolicy</code> permission is required in a policy. For more information
+ *                 about general purpose buckets bucket policies, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/using-iam-policies.html">Using Bucket Policies and User
+ *                   Policies</a> in the <i>Amazon S3 User Guide</i>.</p>
  *                   </li>
  *                   <li>
  *                      <p>
- *                         <b>Directory bucket permissions</b> -
- *                         To grant access to this API operation, you must have the
- *                            <code>s3express:DeleteBucketPolicy</code> permission in
- *                         an IAM identity-based policy instead of a bucket policy. Cross-account access to this API operation isn't supported. This operation can only be performed by the Amazon Web Services account that owns the resource.
- *                         For more information about directory bucket policies and permissions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-security-iam.html">Amazon Web Services Identity and Access Management (IAM) for S3 Express One Zone</a> in the <i>Amazon S3 User Guide</i>.</p>
+ *                         <b>Directory bucket permissions</b> - To grant access to
+ *                 this API operation, you must have the <code>s3express:DeleteBucketPolicy</code> permission in
+ *                 an IAM identity-based policy instead of a bucket policy. Cross-account access to this API operation isn't supported. This operation can only be performed by the Amazon Web Services account that owns the resource.
+ *                 For more information about directory bucket policies and permissions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-security-iam.html">Amazon Web Services Identity and Access Management (IAM) for S3 Express One Zone</a> in the <i>Amazon S3 User Guide</i>.</p>
  *                   </li>
  *                </ul>
  *             </dd>

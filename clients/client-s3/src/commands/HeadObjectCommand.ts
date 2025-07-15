@@ -35,20 +35,17 @@ export interface HeadObjectCommandInput extends HeadObjectRequest {}
 export interface HeadObjectCommandOutput extends HeadObjectOutput, __MetadataBearer {}
 
 /**
- * <p>The <code>HEAD</code> operation retrieves metadata from an object without returning the
- *          object itself. This operation is useful if you're interested only in an object's
- *          metadata.</p>
+ * <p>The <code>HEAD</code> operation retrieves metadata from an object without returning the object
+ *       itself. This operation is useful if you're interested only in an object's metadata.</p>
  *          <note>
- *             <p>A <code>HEAD</code> request has the same options as a <code>GET</code> operation on
- *             an object. The response is identical to the <code>GET</code> response except that there
- *             is no response body. Because of this, if the <code>HEAD</code> request generates an
- *             error, it returns a generic code, such as <code>400 Bad Request</code>, <code>403
- *                Forbidden</code>, <code>404 Not Found</code>, <code>405 Method Not Allowed</code>,
- *                <code>412 Precondition Failed</code>, or <code>304 Not Modified</code>. It's not
- *             possible to retrieve the exact exception of these error codes.</p>
+ *             <p>A <code>HEAD</code> request has the same options as a <code>GET</code> operation on an object. The
+ *         response is identical to the <code>GET</code> response except that there is no response body. Because
+ *         of this, if the <code>HEAD</code> request generates an error, it returns a generic code, such as
+ *           <code>400 Bad Request</code>, <code>403 Forbidden</code>, <code>404 Not Found</code>, <code>405
+ *           Method Not Allowed</code>, <code>412 Precondition Failed</code>, or <code>304 Not Modified</code>.
+ *         It's not possible to retrieve the exact exception of these error codes.</p>
  *          </note>
- *          <p>Request headers are limited to 8 KB in size. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/RESTCommonRequestHeaders.html">Common
- *             Request Headers</a>.</p>
+ *          <p>Request headers are limited to 8 KB in size. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/RESTCommonRequestHeaders.html">Common Request Headers</a>.</p>
  *          <dl>
  *             <dt>Permissions</dt>
  *             <dd>
@@ -56,26 +53,23 @@ export interface HeadObjectCommandOutput extends HeadObjectOutput, __MetadataBea
  *                <ul>
  *                   <li>
  *                      <p>
- *                         <b>General purpose bucket permissions</b> - To
- *                         use <code>HEAD</code>, you must have the <code>s3:GetObject</code>
- *                         permission. You need the relevant read object (or version) permission for
- *                         this operation. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/list_amazons3.html">Actions, resources, and
- *                            condition keys for Amazon S3</a> in the <i>Amazon S3 User
- *                            Guide</i>. For more information about the permissions to S3 API
- *                         operations by S3 resource types, see <a href="/AmazonS3/latest/userguide/using-with-s3-policy-actions.html">Required permissions for Amazon S3 API operations</a> in the
- *                            <i>Amazon S3 User Guide</i>.</p>
- *                      <p>If the object you request doesn't exist, the error that Amazon S3 returns
- *                         depends on whether you also have the <code>s3:ListBucket</code>
- *                         permission.</p>
+ *                         <b>General purpose bucket permissions</b> - To use
+ *                   <code>HEAD</code>, you must have the <code>s3:GetObject</code> permission. You need the
+ *                 relevant read object (or version) permission for this operation. For more information, see
+ *                   <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/list_amazons3.html">Actions, resources,
+ *                   and condition keys for Amazon S3</a> in the <i>Amazon S3 User Guide</i>. For more
+ *                 information about the permissions to S3 API operations by S3 resource types, see <a href="/AmazonS3/latest/userguide/using-with-s3-policy-actions.html">Required permissions for
+ *                   Amazon S3 API operations</a> in the <i>Amazon S3 User Guide</i>.</p>
+ *                      <p>If the object you request doesn't exist, the error that Amazon S3 returns depends on whether
+ *                 you also have the <code>s3:ListBucket</code> permission.</p>
  *                      <ul>
  *                         <li>
- *                            <p>If you have the <code>s3:ListBucket</code> permission on the
- *                               bucket, Amazon S3 returns an HTTP status code <code>404 Not Found</code>
- *                               error.</p>
+ *                            <p>If you have the <code>s3:ListBucket</code> permission on the bucket, Amazon S3 returns an
+ *                     HTTP status code <code>404 Not Found</code> error.</p>
  *                         </li>
  *                         <li>
- *                            <p>If you don’t have the <code>s3:ListBucket</code> permission, Amazon S3
- *                               returns an HTTP status code <code>403 Forbidden</code> error.</p>
+ *                            <p>If you don’t have the <code>s3:ListBucket</code> permission, Amazon S3 returns an HTTP
+ *                     status code <code>403 Forbidden</code> error.</p>
  *                         </li>
  *                      </ul>
  *                   </li>
@@ -87,34 +81,31 @@ export interface HeadObjectCommandOutput extends HeadObjectOutput, __MetadataBea
  * Amazon Web Services CLI or SDKs create session and refresh the session token automatically to avoid service interruptions when a session expires. For more information about authorization, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateSession.html">
  *                            <code>CreateSession</code>
  *                         </a>.</p>
- *                      <p>If you enable <code>x-amz-checksum-mode</code> in the request and the
- *                         object is encrypted with Amazon Web Services Key Management Service (Amazon Web Services KMS), you must
- *                         also have the <code>kms:GenerateDataKey</code> and <code>kms:Decrypt</code>
- *                         permissions in IAM identity-based policies and KMS key policies for the
- *                         KMS key to retrieve the checksum of the object.</p>
+ *                      <p>If you enable <code>x-amz-checksum-mode</code> in the request and the object is encrypted
+ *                 with Amazon Web Services Key Management Service (Amazon Web Services KMS), you must also have the
+ *                   <code>kms:GenerateDataKey</code> and <code>kms:Decrypt</code> permissions in IAM
+ *                 identity-based policies and KMS key policies for the KMS key to retrieve the checksum of
+ *                 the object.</p>
  *                   </li>
  *                </ul>
  *             </dd>
  *             <dt>Encryption</dt>
  *             <dd>
  *                <note>
- *                   <p>Encryption request headers, like <code>x-amz-server-side-encryption</code>,
- *                      should not be sent for <code>HEAD</code> requests if your object uses
- *                      server-side encryption with Key Management Service (KMS) keys (SSE-KMS), dual-layer
- *                      server-side encryption with Amazon Web Services KMS keys (DSSE-KMS), or server-side
- *                      encryption with Amazon S3 managed encryption keys (SSE-S3). The
- *                         <code>x-amz-server-side-encryption</code> header is used when you
- *                         <code>PUT</code> an object to S3 and want to specify the encryption method.
- *                      If you include this header in a <code>HEAD</code> request for an object that
- *                      uses these types of keys, you’ll get an HTTP <code>400 Bad Request</code>
- *                      error. It's because the encryption method can't be changed when you retrieve
- *                      the object.</p>
+ *                   <p>Encryption request headers, like <code>x-amz-server-side-encryption</code>, should not be
+ *               sent for <code>HEAD</code> requests if your object uses server-side encryption with Key Management Service
+ *               (KMS) keys (SSE-KMS), dual-layer server-side encryption with Amazon Web Services KMS keys (DSSE-KMS), or
+ *               server-side encryption with Amazon S3 managed encryption keys (SSE-S3). The
+ *                 <code>x-amz-server-side-encryption</code> header is used when you <code>PUT</code> an object
+ *               to S3 and want to specify the encryption method. If you include this header in a
+ *                 <code>HEAD</code> request for an object that uses these types of keys, you’ll get an HTTP
+ *                 <code>400 Bad Request</code> error. It's because the encryption method can't be changed when
+ *               you retrieve the object.</p>
  *                </note>
- *                <p>If you encrypt an object by using server-side encryption with customer-provided
- *                   encryption keys (SSE-C) when you store the object in Amazon S3, then when you retrieve
- *                   the metadata from the object, you must use the following headers to provide the
- *                   encryption key for the server to be able to retrieve the object's metadata. The
- *                   headers are: </p>
+ *                <p>If you encrypt an object by using server-side encryption with customer-provided encryption
+ *             keys (SSE-C) when you store the object in Amazon S3, then when you retrieve the metadata from the
+ *             object, you must use the following headers to provide the encryption key for the server to be able
+ *             to retrieve the object's metadata. The headers are: </p>
  *                <ul>
  *                   <li>
  *                      <p>
@@ -132,13 +123,12 @@ export interface HeadObjectCommandOutput extends HeadObjectOutput, __MetadataBea
  *                      </p>
  *                   </li>
  *                </ul>
- *                <p>For more information about SSE-C, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ServerSideEncryptionCustomerKeys.html">Server-Side
- *                      Encryption (Using Customer-Provided Encryption Keys)</a> in the
- *                      <i>Amazon S3 User Guide</i>.</p>
+ *                <p>For more information about SSE-C, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ServerSideEncryptionCustomerKeys.html">Server-Side Encryption (Using
+ *               Customer-Provided Encryption Keys)</a> in the <i>Amazon S3 User Guide</i>.</p>
  *                <note>
  *                   <p>
  *                      <b>Directory bucket </b> -
- *                      For directory buckets, there are only two supported options for server-side encryption: SSE-S3 and SSE-KMS. SSE-C isn't supported. For more
+ *               For directory buckets, there are only two supported options for server-side encryption: SSE-S3 and SSE-KMS. SSE-C isn't supported. For more
  *          information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-serv-side-encryption.html">Protecting data with server-side encryption</a> in the <i>Amazon S3 User Guide</i>. </p>
  *                </note>
  *             </dd>
@@ -146,14 +136,12 @@ export interface HeadObjectCommandOutput extends HeadObjectOutput, __MetadataBea
  *             <dd>
  *                <ul>
  *                   <li>
- *                      <p>If the current version of the object is a delete marker, Amazon S3 behaves as
- *                         if the object was deleted and includes <code>x-amz-delete-marker:
- *                            true</code> in the response.</p>
+ *                      <p>If the current version of the object is a delete marker, Amazon S3 behaves as if the object was
+ *                 deleted and includes <code>x-amz-delete-marker: true</code> in the response.</p>
  *                   </li>
  *                   <li>
- *                      <p>If the specified version is a delete marker, the response returns a
- *                            <code>405 Method Not Allowed</code> error and the <code>Last-Modified:
- *                            timestamp</code> response header.</p>
+ *                      <p>If the specified version is a delete marker, the response returns a <code>405 Method Not
+ *                   Allowed</code> error and the <code>Last-Modified: timestamp</code> response header.</p>
  *                   </li>
  *                </ul>
  *                <note>
@@ -161,13 +149,13 @@ export interface HeadObjectCommandOutput extends HeadObjectOutput, __MetadataBea
  *                      <li>
  *                         <p>
  *                            <b>Directory buckets</b> -
- *                            Delete marker is not supported for directory buckets.</p>
+ *                   Delete marker is not supported for directory buckets.</p>
  *                      </li>
  *                      <li>
  *                         <p>
  *                            <b>Directory buckets</b> -
- *                            S3 Versioning isn't enabled and supported for directory buckets. For this API operation, only the <code>null</code> value of the version ID is supported by directory buckets. You can only specify <code>null</code>
- *                            to the <code>versionId</code> query parameter in the request.</p>
+ *                   S3 Versioning isn't enabled and supported for directory buckets. For this API operation, only the <code>null</code> value of the version ID is supported by directory buckets. You can only specify <code>null</code> to the
+ *                     <code>versionId</code> query parameter in the request.</p>
  *                      </li>
  *                   </ul>
  *                </note>

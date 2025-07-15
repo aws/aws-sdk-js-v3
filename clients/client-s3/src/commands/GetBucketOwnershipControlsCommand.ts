@@ -32,24 +32,25 @@ export interface GetBucketOwnershipControlsCommandOutput extends GetBucketOwners
  * <note>
  *             <p>This operation is not supported for directory buckets.</p>
  *          </note>
- *          <p>Retrieves <code>OwnershipControls</code> for an Amazon S3 bucket. To use this operation, you
- *          must have the <code>s3:GetBucketOwnershipControls</code> permission. For more information
- *          about Amazon S3 permissions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-with-s3-actions.html">Specifying permissions in a
- *             policy</a>. </p>
+ *          <p>Retrieves <code>OwnershipControls</code> for an Amazon S3 bucket. To use this operation, you must have
+ *       the <code>s3:GetBucketOwnershipControls</code> permission. For more information about Amazon S3 permissions,
+ *       see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-with-s3-actions.html">Specifying
+ *         permissions in a policy</a>. </p>
  *          <note>
  *             <p>A bucket doesn't have <code>OwnershipControls</code> settings in the following cases:</p>
  *             <ul>
  *                <li>
- *                   <p>The bucket was created before the <code>BucketOwnerEnforced</code> ownership setting was introduced and you've never explicitly applied this value</p>
+ *                   <p>The bucket was created before the <code>BucketOwnerEnforced</code> ownership setting was
+ *             introduced and you've never explicitly applied this value</p>
  *                </li>
  *                <li>
- *                   <p>You've manually deleted the bucket ownership control value using the <code>DeleteBucketOwnershipControls</code> API operation.</p>
+ *                   <p>You've manually deleted the bucket ownership control value using the
+ *               <code>DeleteBucketOwnershipControls</code> API operation.</p>
  *                </li>
  *             </ul>
  *             <p>By default, Amazon S3 sets <code>OwnershipControls</code> for all newly created buckets.</p>
  *          </note>
- *          <p>For information about Amazon S3 Object Ownership, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/about-object-ownership.html">Using Object
- *             Ownership</a>. </p>
+ *          <p>For information about Amazon S3 Object Ownership, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/about-object-ownership.html">Using Object Ownership</a>. </p>
  *          <p>The following operations are related to <code>GetBucketOwnershipControls</code>:</p>
  *          <ul>
  *             <li>

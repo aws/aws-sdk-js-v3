@@ -37,12 +37,11 @@ export interface GetObjectTorrentCommandOutput extends Omit<GetObjectTorrentOutp
  * <note>
  *             <p>This operation is not supported for directory buckets.</p>
  *          </note>
- *          <p>Returns torrent files from a bucket. BitTorrent can save you bandwidth when you're
- *          distributing large files.</p>
+ *          <p>Returns torrent files from a bucket. BitTorrent can save you bandwidth when you're distributing
+ *       large files.</p>
  *          <note>
- *             <p>You can get torrent only for objects that are less than 5 GB in size, and that are
- *             not encrypted using server-side encryption with a customer-provided encryption
- *             key.</p>
+ *             <p>You can get torrent only for objects that are less than 5 GB in size, and that are not encrypted
+ *         using server-side encryption with a customer-provided encryption key.</p>
  *          </note>
  *          <p>To use GET, you must have READ access to the object.</p>
  *          <p>This functionality is not supported for Amazon S3 on Outposts.</p>

@@ -39,16 +39,17 @@ export interface ListBucketsCommandOutput extends ListBucketsOutput, __MetadataB
  *          <note>
  *             <p>This operation is not supported for directory buckets.</p>
  *          </note>
- *          <p>Returns a list of all buckets owned by the authenticated sender of the request. To grant IAM permission to use
- *          this operation, you must add the <code>s3:ListAllMyBuckets</code> policy action. </p>
- *          <p>For information about Amazon S3 buckets, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/creating-buckets-s3.html">Creating, configuring, and
- *             working with Amazon S3 buckets</a>.</p>
+ *          <p>Returns a list of all buckets owned by the authenticated sender of the request. To grant IAM
+ *       permission to use this operation, you must add the <code>s3:ListAllMyBuckets</code> policy action. </p>
+ *          <p>For information about Amazon S3 buckets, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/creating-buckets-s3.html">Creating, configuring, and working with Amazon S3
+ *         buckets</a>.</p>
  *          <important>
- *             <p>We strongly recommend using only paginated <code>ListBuckets</code> requests. Unpaginated <code>ListBuckets</code> requests are only supported for
- *             Amazon Web Services accounts set to the default general purpose bucket quota of 10,000. If you have an approved
- *             general purpose bucket quota above 10,000, you must send paginated <code>ListBuckets</code> requests to list your account’s buckets.
- *             All unpaginated <code>ListBuckets</code> requests will be rejected for Amazon Web Services accounts with a general purpose bucket quota
- *             greater than 10,000. </p>
+ *             <p>We strongly recommend using only paginated <code>ListBuckets</code> requests. Unpaginated
+ *           <code>ListBuckets</code> requests are only supported for Amazon Web Services accounts set to the default general
+ *         purpose bucket quota of 10,000. If you have an approved general purpose bucket quota above 10,000, you
+ *         must send paginated <code>ListBuckets</code> requests to list your account’s buckets. All unpaginated
+ *           <code>ListBuckets</code> requests will be rejected for Amazon Web Services accounts with a general purpose bucket
+ *         quota greater than 10,000. </p>
  *          </important>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

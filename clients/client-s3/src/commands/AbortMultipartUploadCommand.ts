@@ -29,31 +29,27 @@ export interface AbortMultipartUploadCommandInput extends AbortMultipartUploadRe
 export interface AbortMultipartUploadCommandOutput extends AbortMultipartUploadOutput, __MetadataBearer {}
 
 /**
- * <p>This operation aborts a multipart upload. After a multipart upload is aborted, no
- *          additional parts can be uploaded using that upload ID. The storage consumed by any
- *          previously uploaded parts will be freed. However, if any part uploads are currently in
- *          progress, those part uploads might or might not succeed. As a result, it might be necessary
- *          to abort a given multipart upload multiple times in order to completely free all storage
- *          consumed by all parts. </p>
- *          <p>To verify that all parts have been removed and prevent getting charged for the part
- *          storage, you should call the <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListParts.html">ListParts</a> API operation and ensure
- *          that the parts list is empty.</p>
+ * <p>This operation aborts a multipart upload. After a multipart upload is aborted, no additional parts
+ *       can be uploaded using that upload ID. The storage consumed by any previously uploaded parts will be
+ *       freed. However, if any part uploads are currently in progress, those part uploads might or might not
+ *       succeed. As a result, it might be necessary to abort a given multipart upload multiple times in order to
+ *       completely free all storage consumed by all parts. </p>
+ *          <p>To verify that all parts have been removed and prevent getting charged for the part storage, you
+ *       should call the <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListParts.html">ListParts</a> API operation and ensure that the parts list is empty.</p>
  *          <note>
  *             <ul>
  *                <li>
  *                   <p>
- *                      <b>Directory buckets</b> - If multipart
- *                   uploads in a directory bucket are in progress, you can't delete the bucket until
- *                   all the in-progress multipart uploads are aborted or completed. To delete these
- *                   in-progress multipart uploads, use the <code>ListMultipartUploads</code> operation
- *                   to list the in-progress multipart uploads in the bucket and use the
- *                      <code>AbortMultipartUpload</code> operation to abort all the in-progress
- *                   multipart uploads. </p>
+ *                      <b>Directory buckets</b> - If multipart uploads in a
+ *             directory bucket are in progress, you can't delete the bucket until all the in-progress multipart
+ *             uploads are aborted or completed. To delete these in-progress multipart uploads, use the
+ *               <code>ListMultipartUploads</code> operation to list the in-progress multipart uploads in the
+ *             bucket and use the <code>AbortMultipartUpload</code> operation to abort all the in-progress
+ *             multipart uploads. </p>
  *                </li>
  *                <li>
  *                   <p>
- *                      <b>Directory buckets</b> -
- *                   For directory buckets, you must make requests for this API operation to the Zonal endpoint. These endpoints support virtual-hosted-style requests in the format <code>https://<i>amzn-s3-demo-bucket</i>.s3express-<i>zone-id</i>.<i>region-code</i>.amazonaws.com/<i>key-name</i>
+ *                      <b>Directory buckets</b> - For directory buckets, you must make requests for this API operation to the Zonal endpoint. These endpoints support virtual-hosted-style requests in the format <code>https://<i>amzn-s3-demo-bucket</i>.s3express-<i>zone-id</i>.<i>region-code</i>.amazonaws.com/<i>key-name</i>
  *                      </code>. Path-style requests are not supported. For more information about endpoints in Availability Zones, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/endpoint-directory-buckets-AZ.html">Regional and Zonal endpoints for directory buckets in Availability Zones</a> in the
  *     <i>Amazon S3 User Guide</i>. For more information about endpoints in Local Zones, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-lzs-for-directory-buckets.html">Concepts for directory buckets in Local Zones</a> in the
  *     <i>Amazon S3 User Guide</i>.</p>
@@ -66,10 +62,9 @@ export interface AbortMultipartUploadCommandOutput extends AbortMultipartUploadO
  *                <ul>
  *                   <li>
  *                      <p>
- *                         <b>General purpose bucket permissions</b> - For
- *                         information about permissions required to use the multipart upload, see
- *                            <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/mpuAndPermissions.html">Multipart Upload and
- *                            Permissions</a> in the <i>Amazon S3 User Guide</i>.</p>
+ *                         <b>General purpose bucket permissions</b> - For information
+ *                 about permissions required to use the multipart upload, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/mpuAndPermissions.html">Multipart Upload and Permissions</a> in
+ *                 the <i>Amazon S3 User Guide</i>.</p>
  *                   </li>
  *                   <li>
  *                      <p>

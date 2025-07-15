@@ -6,7 +6,7 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ListObjectsOutput, ListObjectsRequest } from "../models/models_0";
+import { ListObjectsOutput, ListObjectsRequest } from "../models/models_1";
 import { de_ListObjectsCommand, se_ListObjectsCommand } from "../protocols/Aws_restXml";
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
@@ -39,13 +39,14 @@ export interface ListObjectsCommandOutput extends ListObjectsOutput, __MetadataB
  *          <note>
  *             <p>This operation is not supported for directory buckets.</p>
  *          </note>
- *          <p>Returns some or all (up to 1,000) of the objects in a bucket. You can use the request
- *          parameters as selection criteria to return a subset of the objects in a bucket. A 200 OK
- *          response can contain valid or invalid XML. Be sure to design your application to parse the
- *          contents of the response and handle it appropriately.</p>
+ *          <p>Returns some or all (up to 1,000) of the objects in a bucket. You can use the request parameters as
+ *       selection criteria to return a subset of the objects in a bucket. A 200 OK response can contain valid or
+ *       invalid XML. Be sure to design your application to parse the contents of the response and handle it
+ *       appropriately.</p>
  *          <important>
- *             <p>This action has been revised. We recommend that you use the newer version, <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListObjectsV2.html">ListObjectsV2</a>, when developing applications. For backward compatibility,
- *             Amazon S3 continues to support <code>ListObjects</code>.</p>
+ *             <p>This action has been revised. We recommend that you use the newer version, <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListObjectsV2.html">ListObjectsV2</a>, when
+ *         developing applications. For backward compatibility, Amazon S3 continues to support
+ *           <code>ListObjects</code>.</p>
  *          </important>
  *          <p>The following operations are related to <code>ListObjects</code>:</p>
  *          <ul>

@@ -51,20 +51,19 @@ export interface PutObjectCommandOutput extends PutObjectOutput, __MetadataBeare
  *          <note>
  *             <ul>
  *                <li>
- *                   <p>Amazon S3 never adds partial objects; if you receive a success response, Amazon S3 added
- *                   the entire object to the bucket. You cannot use <code>PutObject</code> to only
- *                   update a single piece of metadata for an existing object. You must put the entire
- *                   object with updated metadata if you want to update some values.</p>
+ *                   <p>Amazon S3 never adds partial objects; if you receive a success response, Amazon S3 added the entire
+ *             object to the bucket. You cannot use <code>PutObject</code> to only update a single piece of
+ *             metadata for an existing object. You must put the entire object with updated metadata if you want
+ *             to update some values.</p>
  *                </li>
  *                <li>
- *                   <p>If your bucket uses the bucket owner enforced setting for Object Ownership,
- *                   ACLs are disabled and no longer affect permissions. All objects written to the
- *                   bucket by any account will be owned by the bucket owner.</p>
+ *                   <p>If your bucket uses the bucket owner enforced setting for Object Ownership, ACLs are disabled
+ *             and no longer affect permissions. All objects written to the bucket by any account will be owned
+ *             by the bucket owner.</p>
  *                </li>
  *                <li>
  *                   <p>
- *                      <b>Directory buckets</b> -
- *                   For directory buckets, you must make requests for this API operation to the Zonal endpoint. These endpoints support virtual-hosted-style requests in the format <code>https://<i>amzn-s3-demo-bucket</i>.s3express-<i>zone-id</i>.<i>region-code</i>.amazonaws.com/<i>key-name</i>
+ *                      <b>Directory buckets</b> - For directory buckets, you must make requests for this API operation to the Zonal endpoint. These endpoints support virtual-hosted-style requests in the format <code>https://<i>amzn-s3-demo-bucket</i>.s3express-<i>zone-id</i>.<i>region-code</i>.amazonaws.com/<i>key-name</i>
  *                      </code>. Path-style requests are not supported. For more information about endpoints in Availability Zones, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/endpoint-directory-buckets-AZ.html">Regional and Zonal endpoints for directory buckets in Availability Zones</a> in the
  *     <i>Amazon S3 User Guide</i>. For more information about endpoints in Local Zones, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-lzs-for-directory-buckets.html">Concepts for directory buckets in Local Zones</a> in the
  *     <i>Amazon S3 User Guide</i>.</p>
@@ -72,39 +71,39 @@ export interface PutObjectCommandOutput extends PutObjectOutput, __MetadataBeare
  *             </ul>
  *          </note>
  *          <p>Amazon S3 is a distributed system. If it receives multiple write requests for the same object
- *          simultaneously, it overwrites all but the last object written. However, Amazon S3 provides
- *          features that can modify this behavior:</p>
+ *       simultaneously, it overwrites all but the last object written. However, Amazon S3 provides features that can
+ *       modify this behavior:</p>
  *          <ul>
  *             <li>
  *                <p>
- *                   <b>S3 Object Lock</b> - To prevent objects from
- *                being deleted or overwritten, you can use <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lock.html">Amazon S3 Object
- *                   Lock</a> in the <i>Amazon S3 User Guide</i>.</p>
+ *                   <b>S3 Object Lock</b> - To prevent objects from being deleted
+ *           or overwritten, you can use <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lock.html">Amazon S3 Object Lock</a> in the <i>Amazon S3 User Guide</i>.</p>
  *                <note>
  *                   <p>This functionality is not supported for directory buckets.</p>
  *                </note>
  *             </li>
  *             <li>
  *                <p>
- *                   <b>If-None-Match</b> - Uploads the object only if the object key name does not already exist in the specified bucket. Otherwise, Amazon S3 returns a <code>412 Precondition Failed</code> error. If a conflicting operation occurs during the upload, S3 returns a <code>409 ConditionalRequestConflict</code> response. On a 409 failure, retry the upload.</p>
+ *                   <b>If-None-Match</b> - Uploads the object only if the object
+ *           key name does not already exist in the specified bucket. Otherwise, Amazon S3 returns a <code>412
+ *             Precondition Failed</code> error. If a conflicting operation occurs during the upload, S3 returns
+ *           a <code>409 ConditionalRequestConflict</code> response. On a 409 failure, retry the upload.</p>
  *                <p>Expects the * character (asterisk).</p>
- *                <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/conditional-requests.html">Add preconditions to S3 operations with conditional requests</a> in the <i>Amazon S3 User Guide</i> or <a href="https://datatracker.ietf.org/doc/rfc7232/">RFC 7232</a>.
- *             </p>
+ *                <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/conditional-requests.html">Add preconditions to S3 operations with
+ *             conditional requests</a> in the <i>Amazon S3 User Guide</i> or <a href="https://datatracker.ietf.org/doc/rfc7232/">RFC 7232</a>. </p>
  *                <note>
  *                   <p>This functionality is not supported for S3 on Outposts.</p>
  *                </note>
  *             </li>
  *             <li>
  *                <p>
- *                   <b>S3 Versioning</b> - When you enable versioning
- *                for a bucket, if Amazon S3 receives multiple write requests for the same object
- *                simultaneously, it stores all versions of the objects. For each write request that is
- *                made to the same object, Amazon S3 automatically generates a unique version ID of that
- *                object being stored in Amazon S3. You can retrieve, replace, or delete any version of the
- *                object. For more information about versioning, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/AddingObjectstoVersioningEnabledBuckets.html">Adding
- *                   Objects to Versioning-Enabled Buckets</a> in the <i>Amazon S3 User
- *                   Guide</i>. For information about returning the versioning state of a
- *                bucket, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketVersioning.html">GetBucketVersioning</a>. </p>
+ *                   <b>S3 Versioning</b> - When you enable versioning for a bucket,
+ *           if Amazon S3 receives multiple write requests for the same object simultaneously, it stores all versions
+ *           of the objects. For each write request that is made to the same object, Amazon S3 automatically generates
+ *           a unique version ID of that object being stored in Amazon S3. You can retrieve, replace, or delete any
+ *           version of the object. For more information about versioning, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/AddingObjectstoVersioningEnabledBuckets.html">Adding Objects to
+ *             Versioning-Enabled Buckets</a> in the <i>Amazon S3 User Guide</i>. For information
+ *           about returning the versioning state of a bucket, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketVersioning.html">GetBucketVersioning</a>. </p>
  *                <note>
  *                   <p>This functionality is not supported for directory buckets.</p>
  *                </note>
@@ -116,34 +115,31 @@ export interface PutObjectCommandOutput extends PutObjectOutput, __MetadataBeare
  *                <ul>
  *                   <li>
  *                      <p>
- *                         <b>General purpose bucket permissions</b> - The
- *                         following permissions are required in your policies when your
- *                            <code>PutObject</code> request includes specific headers.</p>
+ *                         <b>General purpose bucket permissions</b> - The following
+ *                 permissions are required in your policies when your <code>PutObject</code> request includes
+ *                 specific headers.</p>
  *                      <ul>
  *                         <li>
  *                            <p>
  *                               <b>
  *                                  <code>s3:PutObject</code>
- *                               </b> -
- *                               To successfully complete the <code>PutObject</code> request, you must
- *                               always have the <code>s3:PutObject</code> permission on a bucket to
- *                               add an object to it.</p>
+ *                               </b> - To successfully
+ *                     complete the <code>PutObject</code> request, you must always have the
+ *                       <code>s3:PutObject</code> permission on a bucket to add an object to it.</p>
  *                         </li>
  *                         <li>
  *                            <p>
  *                               <b>
  *                                  <code>s3:PutObjectAcl</code>
- *                               </b> - To successfully change the objects ACL of your
- *                                  <code>PutObject</code> request, you must have the
- *                                  <code>s3:PutObjectAcl</code>.</p>
+ *                               </b> - To successfully change the objects ACL of your <code>PutObject</code>
+ *                     request, you must have the <code>s3:PutObjectAcl</code>.</p>
  *                         </li>
  *                         <li>
  *                            <p>
  *                               <b>
  *                                  <code>s3:PutObjectTagging</code>
- *                               </b> - To successfully set the tag-set with your
- *                                  <code>PutObject</code> request, you must have the
- *                                  <code>s3:PutObjectTagging</code>.</p>
+ *                               </b> - To successfully set the tag-set with your <code>PutObject</code>
+ *                     request, you must have the <code>s3:PutObjectTagging</code>.</p>
  *                         </li>
  *                      </ul>
  *                   </li>
@@ -156,9 +152,8 @@ export interface PutObjectCommandOutput extends PutObjectOutput, __MetadataBeare
  *                            <code>CreateSession</code>
  *                         </a>.</p>
  *                      <p>If the object is encrypted with SSE-KMS, you must also have the
- *                            <code>kms:GenerateDataKey</code> and <code>kms:Decrypt</code> permissions
- *                         in IAM identity-based policies and KMS key policies for the KMS
- *                         key.</p>
+ *                   <code>kms:GenerateDataKey</code> and <code>kms:Decrypt</code> permissions in IAM
+ *                 identity-based policies and KMS key policies for the KMS key.</p>
  *                   </li>
  *                </ul>
  *             </dd>
@@ -167,18 +162,17 @@ export interface PutObjectCommandOutput extends PutObjectOutput, __MetadataBeare
  *                <ul>
  *                   <li>
  *                      <p>
- *                         <b>General purpose bucket</b> - To ensure that
- *                         data is not corrupted traversing the network, use the
- *                            <code>Content-MD5</code> header. When you use this header, Amazon S3 checks
- *                         the object against the provided MD5 value and, if they do not match, Amazon S3
- *                         returns an error. Alternatively, when the object's ETag is its MD5 digest,
- *                         you can calculate the MD5 while putting the object to Amazon S3 and compare the
- *                         returned ETag to the calculated MD5 value.</p>
+ *                         <b>General purpose bucket</b> - To ensure that data is not
+ *                 corrupted traversing the network, use the <code>Content-MD5</code> header. When you use this
+ *                 header, Amazon S3 checks the object against the provided MD5 value and, if they do not match, Amazon S3
+ *                 returns an error. Alternatively, when the object's ETag is its MD5 digest, you can calculate
+ *                 the MD5 while putting the object to Amazon S3 and compare the returned ETag to the calculated MD5
+ *                 value.</p>
  *                   </li>
  *                   <li>
  *                      <p>
  *                         <b>Directory bucket</b> -
- *                         This functionality is not supported for directory buckets.</p>
+ *                 This functionality is not supported for directory buckets.</p>
  *                   </li>
  *                </ul>
  *             </dd>
@@ -284,20 +278,20 @@ export interface PutObjectCommandOutput extends PutObjectOutput, __MetadataBeare
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
  *
  * @throws {@link EncryptionTypeMismatch} (client fault)
- *  <p>
- *          The existing object was created with a different encryption type.
- *          Subsequent write requests must include the appropriate encryption
- *          parameters in the request or while creating the session.
- *       </p>
+ *  <p> The existing object was created with a different encryption type. Subsequent write requests must
+ *       include the appropriate encryption parameters in the request or while creating the session. </p>
  *
  * @throws {@link InvalidRequest} (client fault)
- *  <p>You may receive this error in multiple cases. Depending on the reason for the error, you may receive one of the messages below:</p>
+ *  <p>You may receive this error in multiple cases. Depending on the reason for the error, you may receive
+ *       one of the messages below:</p>
  *          <ul>
  *             <li>
- *                <p>Cannot specify both a write offset value and user-defined object metadata for existing objects.</p>
+ *                <p>Cannot specify both a write offset value and user-defined object metadata for existing
+ *           objects.</p>
  *             </li>
  *             <li>
- *                <p>Checksum Type mismatch occurred, expected checksum Type: sha1, actual checksum Type: crc32c.</p>
+ *                <p>Checksum Type mismatch occurred, expected checksum Type: sha1, actual checksum Type:
+ *           crc32c.</p>
  *             </li>
  *             <li>
  *                <p>Request body cannot be empty when 'write offset' is specified.</p>
@@ -305,16 +299,12 @@ export interface PutObjectCommandOutput extends PutObjectOutput, __MetadataBeare
  *          </ul>
  *
  * @throws {@link InvalidWriteOffset} (client fault)
- *  <p>
- *          The write offset value that you specified does not match the current object size.
- *       </p>
+ *  <p> The write offset value that you specified does not match the current object size. </p>
  *
  * @throws {@link TooManyParts} (client fault)
- *  <p>
- *          You have attempted to add more parts than the maximum of 10000
- *          that are allowed for this object. You can use the CopyObject operation
- *          to copy this object to another and then add more data to the newly copied object.
- *       </p>
+ *  <p> You have attempted to add more parts than the maximum of 10000 that are allowed for this object.
+ *       You can use the CopyObject operation to copy this object to another and then add more data to the newly
+ *       copied object. </p>
  *
  * @throws {@link S3ServiceException}
  * <p>Base exception class for all service exceptions from S3 service.</p>

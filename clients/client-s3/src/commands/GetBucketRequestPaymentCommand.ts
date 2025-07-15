@@ -32,9 +32,8 @@ export interface GetBucketRequestPaymentCommandOutput extends GetBucketRequestPa
  * <note>
  *             <p>This operation is not supported for directory buckets.</p>
  *          </note>
- *          <p>Returns the request payment configuration of a bucket. To use this version of the
- *          operation, you must be the bucket owner. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/RequesterPaysBuckets.html">Requester Pays
- *             Buckets</a>.</p>
+ *          <p>Returns the request payment configuration of a bucket. To use this version of the operation, you
+ *       must be the bucket owner. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/RequesterPaysBuckets.html">Requester Pays Buckets</a>.</p>
  *          <p>The following operations are related to <code>GetBucketRequestPayment</code>:</p>
  *          <ul>
  *             <li>

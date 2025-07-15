@@ -33,44 +33,38 @@ export interface PutObjectTaggingCommandOutput extends PutObjectTaggingOutput, _
  * <note>
  *             <p>This operation is not supported for directory buckets.</p>
  *          </note>
- *          <p>Sets the supplied tag-set to an object that already exists in a bucket. A tag is a
- *          key-value pair. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-tagging.html">Object Tagging</a>.</p>
- *          <p>You can associate tags with an object by sending a PUT request against the tagging
- *          subresource that is associated with the object. You can retrieve tags by sending a GET
- *          request. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObjectTagging.html">GetObjectTagging</a>.</p>
+ *          <p>Sets the supplied tag-set to an object that already exists in a bucket. A tag is a key-value pair.
+ *       For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-tagging.html">Object Tagging</a>.</p>
+ *          <p>You can associate tags with an object by sending a PUT request against the tagging subresource that
+ *       is associated with the object. You can retrieve tags by sending a GET request. For more information, see
+ *         <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObjectTagging.html">GetObjectTagging</a>.</p>
  *          <p>For tagging-related restrictions related to characters and encodings, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/allocation-tag-restrictions.html">Tag
- *             Restrictions</a>. Note that Amazon S3 limits the maximum number of tags to 10 tags per
- *          object.</p>
- *          <p>To use this operation, you must have permission to perform the
- *             <code>s3:PutObjectTagging</code> action. By default, the bucket owner has this
- *          permission and can grant this permission to others.</p>
- *          <p>To put tags of any other version, use the <code>versionId</code> query parameter. You
- *          also need permission for the <code>s3:PutObjectVersionTagging</code> action.</p>
+ *         Restrictions</a>. Note that Amazon S3 limits the maximum number of tags to 10 tags per object.</p>
+ *          <p>To use this operation, you must have permission to perform the <code>s3:PutObjectTagging</code>
+ *       action. By default, the bucket owner has this permission and can grant this permission to others.</p>
+ *          <p>To put tags of any other version, use the <code>versionId</code> query parameter. You also need
+ *       permission for the <code>s3:PutObjectVersionTagging</code> action.</p>
  *          <p>
- *             <code>PutObjectTagging</code> has the following special errors. For more Amazon S3 errors
- *          see, <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/ErrorResponses.html">Error
- *             Responses</a>.</p>
+ *             <code>PutObjectTagging</code> has the following special errors. For more Amazon S3 errors see, <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/ErrorResponses.html">Error Responses</a>.</p>
  *          <ul>
  *             <li>
  *                <p>
- *                   <code>InvalidTag</code> - The tag provided was not a valid tag. This error
- *                can occur if the tag did not pass input validation. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-tagging.html">Object
- *                   Tagging</a>.</p>
+ *                   <code>InvalidTag</code> - The tag provided was not a valid tag. This error can occur if
+ *           the tag did not pass input validation. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-tagging.html">Object Tagging</a>.</p>
  *             </li>
  *             <li>
  *                <p>
- *                   <code>MalformedXML</code> - The XML provided does not match the
- *                schema.</p>
+ *                   <code>MalformedXML</code> - The XML provided does not match the schema.</p>
  *             </li>
  *             <li>
  *                <p>
- *                   <code>OperationAborted</code> - A conflicting conditional action is
- *                currently in progress against this resource. Please try again.</p>
+ *                   <code>OperationAborted</code> - A conflicting conditional action is currently in progress
+ *           against this resource. Please try again.</p>
  *             </li>
  *             <li>
  *                <p>
- *                   <code>InternalError</code> - The service was unable to apply the provided
- *                tag to the object.</p>
+ *                   <code>InternalError</code> - The service was unable to apply the provided tag to the
+ *           object.</p>
  *             </li>
  *          </ul>
  *          <p>The following operations are related to <code>PutObjectTagging</code>:</p>

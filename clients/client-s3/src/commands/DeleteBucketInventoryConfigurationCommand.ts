@@ -34,13 +34,11 @@ export interface DeleteBucketInventoryConfigurationCommandOutput extends __Metad
  * <note>
  *             <p>This operation is not supported for directory buckets.</p>
  *          </note>
- *          <p>Deletes an inventory configuration (identified by the inventory ID) from the
- *          bucket.</p>
+ *          <p>Deletes an S3 Inventory configuration (identified by the inventory ID) from the bucket.</p>
  *          <p>To use this operation, you must have permissions to perform the
- *             <code>s3:PutInventoryConfiguration</code> action. The bucket owner has this permission
- *          by default. The bucket owner can grant this permission to others. For more information
- *          about permissions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-with-s3-actions.html#using-with-s3-actions-related-to-bucket-subresources">Permissions Related to Bucket Subresource Operations</a> and <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-access-control.html">Managing
- *             Access Permissions to Your Amazon S3 Resources</a>.</p>
+ *         <code>s3:PutInventoryConfiguration</code> action. The bucket owner has this permission by default. The
+ *       bucket owner can grant this permission to others. For more information about permissions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-with-s3-actions.html#using-with-s3-actions-related-to-bucket-subresources">Permissions Related to Bucket Subresource Operations</a> and <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-access-control.html">Managing Access Permissions to Your Amazon S3
+ *         Resources</a>.</p>
  *          <p>For information about the Amazon S3 inventory feature, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/storage-inventory.html">Amazon S3 Inventory</a>.</p>
  *          <p>Operations related to <code>DeleteBucketInventoryConfiguration</code> include: </p>
  *          <ul>

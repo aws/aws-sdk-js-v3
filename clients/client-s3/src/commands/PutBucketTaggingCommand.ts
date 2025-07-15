@@ -33,48 +33,42 @@ export interface PutBucketTaggingCommandOutput extends __MetadataBearer {}
  *             <p>This operation is not supported for directory buckets.</p>
  *          </note>
  *          <p>Sets the tags for a bucket.</p>
- *          <p>Use tags to organize your Amazon Web Services bill to reflect your own cost structure. To do this,
- *          sign up to get your Amazon Web Services account bill with tag key values included. Then, to see the cost
- *          of combined resources, organize your billing information according to resources with the
- *          same tag key values. For example, you can tag several resources with a specific application
- *          name, and then organize your billing information to see the total cost of that application
- *          across several services. For more information, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html">Cost Allocation and
- *             Tagging</a> and <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/CostAllocTagging.html">Using Cost Allocation in Amazon S3
- *             Bucket Tags</a>.</p>
+ *          <p>Use tags to organize your Amazon Web Services bill to reflect your own cost structure. To do this, sign up to get
+ *       your Amazon Web Services account bill with tag key values included. Then, to see the cost of combined resources,
+ *       organize your billing information according to resources with the same tag key values. For example, you
+ *       can tag several resources with a specific application name, and then organize your billing information
+ *       to see the total cost of that application across several services. For more information, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html">Cost Allocation and
+ *         Tagging</a> and <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/CostAllocTagging.html">Using Cost Allocation in Amazon S3 Bucket Tags</a>.</p>
  *          <note>
- *             <p> When this operation sets the tags for a bucket, it will overwrite any current tags
- *             the bucket already has. You cannot use this operation to add tags to an existing list of
- *             tags.</p>
+ *             <p> When this operation sets the tags for a bucket, it will overwrite any current tags the bucket
+ *         already has. You cannot use this operation to add tags to an existing list of tags.</p>
  *          </note>
- *          <p>To use this operation, you must have permissions to perform the
- *             <code>s3:PutBucketTagging</code> action. The bucket owner has this permission by default
- *          and can grant this permission to others. For more information about permissions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-with-s3-actions.html#using-with-s3-actions-related-to-bucket-subresources">Permissions Related to Bucket Subresource Operations</a> and <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-access-control.html">Managing
- *             Access Permissions to Your Amazon S3 Resources</a>.</p>
+ *          <p>To use this operation, you must have permissions to perform the <code>s3:PutBucketTagging</code>
+ *       action. The bucket owner has this permission by default and can grant this permission to others. For
+ *       more information about permissions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-with-s3-actions.html#using-with-s3-actions-related-to-bucket-subresources">Permissions Related to Bucket Subresource Operations</a> and <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-access-control.html">Managing Access Permissions to Your Amazon S3
+ *         Resources</a>.</p>
  *          <p>
- *             <code>PutBucketTagging</code> has the following special errors. For more Amazon S3 errors
- *          see, <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/ErrorResponses.html">Error
- *             Responses</a>.</p>
+ *             <code>PutBucketTagging</code> has the following special errors. For more Amazon S3 errors see, <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/ErrorResponses.html">Error Responses</a>.</p>
  *          <ul>
  *             <li>
  *                <p>
- *                   <code>InvalidTag</code> - The tag provided was not a valid tag. This error
- *                can occur if the tag did not pass input validation. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/CostAllocTagging.html">Using
- *                   Cost Allocation in Amazon S3 Bucket Tags</a>.</p>
+ *                   <code>InvalidTag</code> - The tag provided was not a valid tag. This error can occur if
+ *           the tag did not pass input validation. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/CostAllocTagging.html">Using Cost Allocation in Amazon S3 Bucket
+ *             Tags</a>.</p>
  *             </li>
  *             <li>
  *                <p>
- *                   <code>MalformedXML</code> - The XML provided does not match the
- *                schema.</p>
+ *                   <code>MalformedXML</code> - The XML provided does not match the schema.</p>
  *             </li>
  *             <li>
  *                <p>
- *                   <code>OperationAborted</code> - A conflicting conditional action is
- *                currently in progress against this resource. Please try again.</p>
+ *                   <code>OperationAborted</code> - A conflicting conditional action is currently in progress
+ *           against this resource. Please try again.</p>
  *             </li>
  *             <li>
  *                <p>
- *                   <code>InternalError</code> - The service was unable to apply the provided
- *                tag to the bucket.</p>
+ *                   <code>InternalError</code> - The service was unable to apply the provided tag to the
+ *           bucket.</p>
  *             </li>
  *          </ul>
  *          <p>The following operations are related to <code>PutBucketTagging</code>:</p>

@@ -33,17 +33,15 @@ export interface GetBucketCorsCommandOutput extends GetBucketCorsOutput, __Metad
  *             <p>This operation is not supported for directory buckets.</p>
  *          </note>
  *          <p>Returns the Cross-Origin Resource Sharing (CORS) configuration information set for the
- *          bucket.</p>
- *          <p> To use this operation, you must have permission to perform the
- *             <code>s3:GetBucketCORS</code> action. By default, the bucket owner has this permission
- *          and can grant it to others.</p>
+ *       bucket.</p>
+ *          <p> To use this operation, you must have permission to perform the <code>s3:GetBucketCORS</code>
+ *       action. By default, the bucket owner has this permission and can grant it to others.</p>
  *          <p>When you use this API operation with an access point, provide the alias of the access point in place of the bucket name.</p>
  *          <p>When you use this API operation with an Object Lambda access point, provide the alias of the Object Lambda access point in place of the bucket name.
  * If the Object Lambda access point alias in a request is not valid, the error code <code>InvalidAccessPointAliasError</code> is returned.
  * For more information about <code>InvalidAccessPointAliasError</code>, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/ErrorResponses.html#ErrorCodeList">List of
  *             Error Codes</a>.</p>
- *          <p> For more information about CORS, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/cors.html"> Enabling Cross-Origin Resource
- *          Sharing</a>.</p>
+ *          <p> For more information about CORS, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/cors.html"> Enabling Cross-Origin Resource Sharing</a>.</p>
  *          <p>The following operations are related to <code>GetBucketCors</code>:</p>
  *          <ul>
  *             <li>

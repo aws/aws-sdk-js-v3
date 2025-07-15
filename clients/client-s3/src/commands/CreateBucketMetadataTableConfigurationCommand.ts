@@ -33,21 +33,34 @@ export interface CreateBucketMetadataTableConfigurationCommandInput
 export interface CreateBucketMetadataTableConfigurationCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Creates a metadata table configuration for a general purpose bucket. For more
- *          information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/metadata-tables-overview.html">Accelerating data
- *             discovery with S3 Metadata</a> in the <i>Amazon S3 User Guide</i>. </p>
+ * <important>
+ *             <p>
+ *         We recommend that you create your S3 Metadata configurations by using the V2
+ *         <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateBucketMetadataConfiguration.html">CreateBucketMetadataConfiguration</a> API operation. We no longer recommend using the V1
+ *         <code>CreateBucketMetadataTableConfiguration</code> API operation.
+ *       </p>
+ *             <p>If you created your S3 Metadata configuration before July 15, 2025, we recommend that you delete
+ *         and re-create your configuration by using <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateBucketMetadataConfiguration.html">CreateBucketMetadataConfiguration</a> so that you can expire journal table records and create
+ *         a live inventory table.</p>
+ *          </important>
+ *          <p>Creates a V1 S3 Metadata configuration for a general purpose bucket. For more information, see
+ *         <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/metadata-tables-overview.html">Accelerating
+ *         data discovery with S3 Metadata</a> in the <i>Amazon S3 User Guide</i>.</p>
  *          <dl>
  *             <dt>Permissions</dt>
  *             <dd>
- *                <p>To use this operation, you must have the following permissions. For more
- *                   information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/metadata-tables-permissions.html">Setting up
- *                      permissions for configuring metadata tables</a> in the
- *                      <i>Amazon S3 User Guide</i>.</p>
- *                <p>If you also want to integrate your table bucket with Amazon Web Services analytics services so that you
- *                   can query your metadata table, you need additional permissions. For more information, see
- *                   <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-integrating-aws.html">
- *                      Integrating Amazon S3 Tables with Amazon Web Services analytics services</a> in the
- *                   <i>Amazon S3 User Guide</i>.</p>
+ *                <p>To use this operation, you must have the following permissions. For more information, see
+ *               <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/metadata-tables-permissions.html">Setting up permissions for configuring metadata tables</a> in the
+ *               <i>Amazon S3 User Guide</i>.</p>
+ *                <p>If you want to encrypt your metadata tables with server-side encryption with Key Management Service
+ *             (KMS) keys (SSE-KMS), you need additional permissions. For more
+ *             information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/metadata-tables-permissions.html">
+ *               Setting up permissions for configuring metadata tables</a> in the
+ *             <i>Amazon S3 User Guide</i>.</p>
+ *                <p>If you also want to integrate your table bucket with Amazon Web Services analytics services so that you can
+ *             query your metadata table, you need additional permissions. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-integrating-aws.html"> Integrating
+ *               Amazon S3 Tables with Amazon Web Services analytics services</a> in the
+ *             <i>Amazon S3 User Guide</i>.</p>
  *                <ul>
  *                   <li>
  *                      <p>

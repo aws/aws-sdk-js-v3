@@ -32,13 +32,13 @@ export interface DeleteObjectTaggingCommandOutput extends DeleteObjectTaggingOut
  * <note>
  *             <p>This operation is not supported for directory buckets.</p>
  *          </note>
- *          <p>Removes the entire tag set from the specified object. For more information about
- *          managing object tags, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/object-tagging.html"> Object Tagging</a>.</p>
- *          <p>To use this operation, you must have permission to perform the
- *             <code>s3:DeleteObjectTagging</code> action.</p>
- *          <p>To delete tags of a specific object version, add the <code>versionId</code> query
- *          parameter in the request. You will need permission for the
- *             <code>s3:DeleteObjectVersionTagging</code> action.</p>
+ *          <p>Removes the entire tag set from the specified object. For more information about managing object
+ *       tags, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/object-tagging.html"> Object
+ *         Tagging</a>.</p>
+ *          <p>To use this operation, you must have permission to perform the <code>s3:DeleteObjectTagging</code>
+ *       action.</p>
+ *          <p>To delete tags of a specific object version, add the <code>versionId</code> query parameter in the
+ *       request. You will need permission for the <code>s3:DeleteObjectVersionTagging</code> action.</p>
  *          <p>The following operations are related to <code>DeleteObjectTagging</code>:</p>
  *          <ul>
  *             <li>

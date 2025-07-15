@@ -35,18 +35,30 @@ export interface DeleteObjectCommandOutput extends DeleteObjectOutput, __Metadat
  *                <p>If bucket versioning is not enabled, the operation permanently deletes the object.</p>
  *             </li>
  *             <li>
- *                <p>If bucket versioning is enabled, the operation inserts a delete marker, which becomes the current version of the object. To permanently delete an object in a versioned bucket, you must include the object’s <code>versionId</code> in the request. For more information about versioning-enabled buckets, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/DeletingObjectVersions.html">Deleting object versions from a versioning-enabled bucket</a>.</p>
+ *                <p>If bucket versioning is enabled, the operation inserts a delete marker, which becomes the
+ *           current version of the object. To permanently delete an object in a versioned bucket, you must
+ *           include the object’s <code>versionId</code> in the request. For more information about
+ *           versioning-enabled buckets, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/DeletingObjectVersions.html">Deleting object versions from a
+ *             versioning-enabled bucket</a>.</p>
  *             </li>
  *             <li>
- *                <p>If bucket versioning is suspended, the operation removes the object that has a null <code>versionId</code>, if there is one, and inserts a delete marker that becomes the current version of the object. If there isn't an object with a null <code>versionId</code>, and all versions of the object have a <code>versionId</code>, Amazon S3 does not remove the object and only inserts a delete marker. To permanently delete an object that has a <code>versionId</code>, you must include the object’s <code>versionId</code> in the request. For more information about versioning-suspended buckets, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/DeletingObjectsfromVersioningSuspendedBuckets.html">Deleting objects from versioning-suspended buckets</a>.</p>
+ *                <p>If bucket versioning is suspended, the operation removes the object that has a null
+ *             <code>versionId</code>, if there is one, and inserts a delete marker that becomes the current
+ *           version of the object. If there isn't an object with a null <code>versionId</code>, and all versions
+ *           of the object have a <code>versionId</code>, Amazon S3 does not remove the object and only inserts a
+ *           delete marker. To permanently delete an object that has a <code>versionId</code>, you must include
+ *           the object’s <code>versionId</code> in the request. For more information about versioning-suspended
+ *           buckets, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/DeletingObjectsfromVersioningSuspendedBuckets.html">Deleting
+ *             objects from versioning-suspended buckets</a>.</p>
  *             </li>
  *          </ul>
  *          <note>
  *             <ul>
  *                <li>
  *                   <p>
- *                      <b>Directory buckets</b> - S3 Versioning isn't enabled and supported for directory buckets. For this API operation, only the <code>null</code> value of the version ID is supported by directory buckets. You can only specify <code>null</code>
- *                to the <code>versionId</code> query parameter in the request.</p>
+ *                      <b>Directory buckets</b> - S3 Versioning isn't enabled and supported for directory buckets. For this API operation, only the <code>null</code> value of the version ID is supported by directory buckets.
+ *             You can only specify <code>null</code> to the <code>versionId</code> query parameter in the
+ *             request.</p>
  *                </li>
  *                <li>
  *                   <p>
@@ -58,27 +70,25 @@ export interface DeleteObjectCommandOutput extends DeleteObjectOutput, __Metadat
  *             </ul>
  *          </note>
  *          <p>To remove a specific version, you must use the <code>versionId</code> query parameter. Using this
- *          query parameter permanently deletes the version. If the object deleted is a delete marker, Amazon S3
- *          sets the response header <code>x-amz-delete-marker</code> to true. </p>
- *          <p>If the object you want to delete is in a bucket where the bucket versioning
- *          configuration is MFA Delete enabled, you must include the <code>x-amz-mfa</code> request
- *          header in the DELETE <code>versionId</code> request. Requests that include
- *          <code>x-amz-mfa</code> must use HTTPS. For more information about MFA Delete, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMFADelete.html">Using MFA Delete</a> in the <i>Amazon S3
- *                User Guide</i>. To see sample
- *          requests that use versioning, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/RESTObjectDELETE.html#ExampleVersionObjectDelete">Sample
- *             Request</a>. </p>
+ *       query parameter permanently deletes the version. If the object deleted is a delete marker, Amazon S3 sets the
+ *       response header <code>x-amz-delete-marker</code> to true. </p>
+ *          <p>If the object you want to delete is in a bucket where the bucket versioning configuration is MFA
+ *       Delete enabled, you must include the <code>x-amz-mfa</code> request header in the DELETE
+ *         <code>versionId</code> request. Requests that include <code>x-amz-mfa</code> must use HTTPS. For more
+ *       information about MFA Delete, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMFADelete.html">Using MFA Delete</a> in the <i>Amazon S3 User
+ *         Guide</i>. To see sample requests that use versioning, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/RESTObjectDELETE.html#ExampleVersionObjectDelete">Sample Request</a>. </p>
  *          <note>
  *             <p>
  *                <b>Directory buckets</b> - MFA delete is not supported by directory buckets.</p>
  *          </note>
- *          <p>You can delete objects by explicitly calling DELETE Object or calling
- *          (<a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketLifecycle.html">PutBucketLifecycle</a>) to enable Amazon S3 to remove them for you. If you want to block
- *          users or accounts from removing or deleting objects from your bucket, you must deny them
- *          the <code>s3:DeleteObject</code>, <code>s3:DeleteObjectVersion</code>, and
- *          <code>s3:PutLifeCycleConfiguration</code> actions. </p>
+ *          <p>You can delete objects by explicitly calling DELETE Object or calling (<a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketLifecycle.html">PutBucketLifecycle</a>) to enable Amazon S3 to
+ *       remove them for you. If you want to block users or accounts from removing or deleting objects from your
+ *       bucket, you must deny them the <code>s3:DeleteObject</code>, <code>s3:DeleteObjectVersion</code>, and
+ *         <code>s3:PutLifeCycleConfiguration</code> actions. </p>
  *          <note>
  *             <p>
- *                <b>Directory buckets</b> - S3 Lifecycle is not supported by directory buckets.</p>
+ *                <b>Directory buckets</b> -
+ *         S3 Lifecycle is not supported by directory buckets.</p>
  *          </note>
  *          <dl>
  *             <dt>Permissions</dt>
@@ -86,20 +96,24 @@ export interface DeleteObjectCommandOutput extends DeleteObjectOutput, __Metadat
  *                <ul>
  *                   <li>
  *                      <p>
- *                         <b>General purpose bucket permissions</b> - The following permissions are required in your policies when your
- *                         <code>DeleteObjects</code> request includes specific headers.</p>
+ *                         <b>General purpose bucket permissions</b> - The following
+ *                 permissions are required in your policies when your <code>DeleteObjects</code> request
+ *                 includes specific headers.</p>
  *                      <ul>
  *                         <li>
  *                            <p>
  *                               <b>
  *                                  <code>s3:DeleteObject</code>
- *                               </b> - To delete an object from a bucket, you must always have the <code>s3:DeleteObject</code> permission.</p>
+ *                               </b> - To delete an
+ *                     object from a bucket, you must always have the <code>s3:DeleteObject</code>
+ *                     permission.</p>
  *                         </li>
  *                         <li>
  *                            <p>
  *                               <b>
  *                                  <code>s3:DeleteObjectVersion</code>
- *                               </b> - To delete a specific version of an object from a versioning-enabled bucket, you must have the <code>s3:DeleteObjectVersion</code> permission.</p>
+ *                               </b> - To delete a specific version of an object from a versioning-enabled
+ *                     bucket, you must have the <code>s3:DeleteObjectVersion</code> permission.</p>
  *                         </li>
  *                      </ul>
  *                   </li>

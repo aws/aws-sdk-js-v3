@@ -39,8 +39,8 @@ export interface GetBucketLoggingCommandOutput extends GetBucketLoggingOutput, _
  *          <note>
  *             <p>This operation is not supported for directory buckets.</p>
  *          </note>
- *          <p>Returns the logging status of a bucket and the permissions users have to view and modify
- *          that status.</p>
+ *          <p>Returns the logging status of a bucket and the permissions users have to view and modify that
+ *       status.</p>
  *          <p>The following operations are related to <code>GetBucketLogging</code>:</p>
  *          <ul>
  *             <li>

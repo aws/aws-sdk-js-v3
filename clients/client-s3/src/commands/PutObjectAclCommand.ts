@@ -33,23 +33,22 @@ export interface PutObjectAclCommandOutput extends PutObjectAclOutput, __Metadat
  * <note>
  *             <p>This operation is not supported for directory buckets.</p>
  *          </note>
- *          <p>Uses the <code>acl</code> subresource to set the access control list (ACL) permissions
- *          for a new or existing object in an S3 bucket. You must have the <code>WRITE_ACP</code>
- *          permission to set the ACL of an object. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#permissions">What
- *             permissions can I grant?</a> in the <i>Amazon S3 User Guide</i>.</p>
+ *          <p>Uses the <code>acl</code> subresource to set the access control list (ACL) permissions for a new or
+ *       existing object in an S3 bucket. You must have the <code>WRITE_ACP</code> permission to set the ACL of
+ *       an object. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#permissions">What permissions can I grant?</a> in the
+ *         <i>Amazon S3 User Guide</i>.</p>
  *          <p>This functionality is not supported for Amazon S3 on Outposts.</p>
- *          <p>Depending on your application needs, you can choose to set the ACL on an object using
- *          either the request body or the headers. For example, if you have an existing application
- *          that updates a bucket ACL using the request body, you can continue to use that approach.
- *          For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html">Access Control List (ACL) Overview</a>
- *          in the <i>Amazon S3 User Guide</i>.</p>
+ *          <p>Depending on your application needs, you can choose to set the ACL on an object using either the
+ *       request body or the headers. For example, if you have an existing application that updates a bucket ACL
+ *       using the request body, you can continue to use that approach. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html">Access Control List (ACL)
+ *         Overview</a> in the <i>Amazon S3 User Guide</i>.</p>
  *          <important>
- *             <p>If your bucket uses the bucket owner enforced setting for S3 Object Ownership, ACLs
- *             are disabled and no longer affect permissions. You must use policies to grant access to
- *             your bucket and the objects in it. Requests to set ACLs or update ACLs fail and return
- *             the <code>AccessControlListNotSupported</code> error code. Requests to read ACLs are
- *             still supported. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/about-object-ownership.html">Controlling object
- *                ownership</a> in the <i>Amazon S3 User Guide</i>.</p>
+ *             <p>If your bucket uses the bucket owner enforced setting for S3 Object Ownership, ACLs are disabled
+ *         and no longer affect permissions. You must use policies to grant access to your bucket and the objects
+ *         in it. Requests to set ACLs or update ACLs fail and return the
+ *           <code>AccessControlListNotSupported</code> error code. Requests to read ACLs are still supported.
+ *         For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/about-object-ownership.html">Controlling object ownership</a> in
+ *         the <i>Amazon S3 User Guide</i>.</p>
  *          </important>
  *          <dl>
  *             <dt>Permissions</dt>
@@ -57,42 +56,37 @@ export interface PutObjectAclCommandOutput extends PutObjectAclOutput, __Metadat
  *                <p>You can set access permissions using one of the following methods:</p>
  *                <ul>
  *                   <li>
- *                      <p>Specify a canned ACL with the <code>x-amz-acl</code> request header. Amazon S3
- *                         supports a set of predefined ACLs, known as canned ACLs. Each canned ACL has
- *                         a predefined set of grantees and permissions. Specify the canned ACL name as
- *                         the value of <code>x-amz-ac</code>l. If you use this header, you cannot use
- *                         other access control-specific headers in your request. For more information,
- *                         see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#CannedACL">Canned
- *                         ACL</a>.</p>
+ *                      <p>Specify a canned ACL with the <code>x-amz-acl</code> request header. Amazon S3 supports a set
+ *                 of predefined ACLs, known as canned ACLs. Each canned ACL has a predefined set of grantees and
+ *                 permissions. Specify the canned ACL name as the value of <code>x-amz-ac</code>l. If you use
+ *                 this header, you cannot use other access control-specific headers in your request. For more
+ *                 information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#CannedACL">Canned ACL</a>.</p>
  *                   </li>
  *                   <li>
- *                      <p>Specify access permissions explicitly with the
- *                            <code>x-amz-grant-read</code>, <code>x-amz-grant-read-acp</code>,
- *                            <code>x-amz-grant-write-acp</code>, and
- *                            <code>x-amz-grant-full-control</code> headers. When using these headers,
- *                         you specify explicit access permissions and grantees (Amazon Web Services accounts or Amazon S3
- *                         groups) who will receive the permission. If you use these ACL-specific
- *                         headers, you cannot use <code>x-amz-acl</code> header to set a canned ACL.
- *                         These parameters map to the set of permissions that Amazon S3 supports in an ACL.
- *                         For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html">Access Control List (ACL)
- *                            Overview</a>.</p>
- *                      <p>You specify each grantee as a type=value pair, where the type is one of
- *                         the following:</p>
+ *                      <p>Specify access permissions explicitly with the <code>x-amz-grant-read</code>,
+ *                   <code>x-amz-grant-read-acp</code>, <code>x-amz-grant-write-acp</code>, and
+ *                   <code>x-amz-grant-full-control</code> headers. When using these headers, you specify
+ *                 explicit access permissions and grantees (Amazon Web Services accounts or Amazon S3 groups) who will receive the
+ *                 permission. If you use these ACL-specific headers, you cannot use <code>x-amz-acl</code>
+ *                 header to set a canned ACL. These parameters map to the set of permissions that Amazon S3 supports
+ *                 in an ACL. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html">Access Control List (ACL)
+ *                 Overview</a>.</p>
+ *                      <p>You specify each grantee as a type=value pair, where the type is one of the
+ *                 following:</p>
  *                      <ul>
  *                         <li>
  *                            <p>
- *                               <code>id</code> – if the value specified is the canonical user ID
- *                               of an Amazon Web Services account</p>
+ *                               <code>id</code> – if the value specified is the canonical user ID of an
+ *                     Amazon Web Services account</p>
  *                         </li>
  *                         <li>
  *                            <p>
- *                               <code>uri</code> – if you are granting permissions to a predefined
- *                               group</p>
+ *                               <code>uri</code> – if you are granting permissions to a predefined group</p>
  *                         </li>
  *                         <li>
  *                            <p>
- *                               <code>emailAddress</code> – if the value specified is the email
- *                               address of an Amazon Web Services account</p>
+ *                               <code>emailAddress</code> – if the value specified is the email address of an
+ *                     Amazon Web Services account</p>
  *                            <note>
  *                               <p>Using email addresses to specify a grantee is only supported in the following Amazon Web Services Regions: </p>
  *                               <ul>
@@ -125,32 +119,30 @@ export interface PutObjectAclCommandOutput extends PutObjectAclOutput, __Metadat
  *                            </note>
  *                         </li>
  *                      </ul>
- *                      <p>For example, the following <code>x-amz-grant-read</code> header grants
- *                         list objects permission to the two Amazon Web Services accounts identified by their email
- *                         addresses.</p>
+ *                      <p>For example, the following <code>x-amz-grant-read</code> header grants list objects
+ *                 permission to the two Amazon Web Services accounts identified by their email addresses.</p>
  *                      <p>
- *                         <code>x-amz-grant-read: emailAddress="xyz@amazon.com",
- *                            emailAddress="abc@amazon.com" </code>
+ *                         <code>x-amz-grant-read: emailAddress="xyz@amazon.com", emailAddress="abc@amazon.com"
+ *                 </code>
  *                      </p>
  *                   </li>
  *                </ul>
- *                <p>You can use either a canned ACL or specify access permissions explicitly. You
- *                   cannot do both.</p>
+ *                <p>You can use either a canned ACL or specify access permissions explicitly. You cannot do
+ *             both.</p>
  *             </dd>
  *             <dt>Grantee Values</dt>
  *             <dd>
- *                <p>You can specify the person (grantee) to whom you're assigning access rights
- *                  (using request elements) in the following ways. For examples of how to specify these
- *                  grantee values in JSON format, see the Amazon Web Services CLI example in <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/enable-server-access-logging.html">
- *                    Enabling Amazon S3 server access logging</a> in the
- *                  <i>Amazon S3 User Guide</i>.</p>
+ *                <p>You can specify the person (grantee) to whom you're assigning access rights (using request
+ *             elements) in the following ways. For examples of how to specify these grantee values in JSON
+ *             format, see the Amazon Web Services CLI example in <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/enable-server-access-logging.html"> Enabling Amazon S3 server
+ *               access logging</a> in the <i>Amazon S3 User Guide</i>.</p>
  *                <ul>
  *                   <li>
  *                      <p>By the person's ID:</p>
  *                      <p>
  *                         <code><Grantee xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
- *                            xsi:type="CanonicalUser"><ID><>ID<></ID><DisplayName><>GranteesEmail<></DisplayName>
- *                            </Grantee></code>
+ *                   xsi:type="CanonicalUser"><ID><>ID<></ID><DisplayName><>GranteesEmail<></DisplayName>
+ *                   </Grantee></code>
  *                      </p>
  *                      <p>DisplayName is optional and ignored in the request.</p>
  *                   </li>
@@ -158,17 +150,17 @@ export interface PutObjectAclCommandOutput extends PutObjectAclOutput, __Metadat
  *                      <p>By URI:</p>
  *                      <p>
  *                         <code><Grantee xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
- *                            xsi:type="Group"><URI><>http://acs.amazonaws.com/groups/global/AuthenticatedUsers<></URI></Grantee></code>
+ *                   xsi:type="Group"><URI><>http://acs.amazonaws.com/groups/global/AuthenticatedUsers<></URI></Grantee></code>
  *                      </p>
  *                   </li>
  *                   <li>
  *                      <p>By Email address:</p>
  *                      <p>
  *                         <code><Grantee xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
- *                            xsi:type="AmazonCustomerByEmail"><EmailAddress><>Grantees@email.com<></EmailAddress>lt;/Grantee></code>
+ *                   xsi:type="AmazonCustomerByEmail"><EmailAddress><>Grantees@email.com<></EmailAddress>lt;/Grantee></code>
  *                      </p>
- *                      <p>The grantee is resolved to the CanonicalUser and, in a response to a GET
- *                         Object acl request, appears as the CanonicalUser.</p>
+ *                      <p>The grantee is resolved to the CanonicalUser and, in a response to a GET Object acl
+ *                 request, appears as the CanonicalUser.</p>
  *                      <note>
  *                         <p>Using email addresses to specify a grantee is only supported in the following Amazon Web Services Regions: </p>
  *                         <ul>
@@ -204,9 +196,9 @@ export interface PutObjectAclCommandOutput extends PutObjectAclOutput, __Metadat
  *             </dd>
  *             <dt>Versioning</dt>
  *             <dd>
- *                <p>The ACL of an object is set at the object version level. By default, PUT sets
- *                   the ACL of the current version of an object. To set the ACL of a different
- *                   version, use the <code>versionId</code> subresource.</p>
+ *                <p>The ACL of an object is set at the object version level. By default, PUT sets the ACL of the
+ *             current version of an object. To set the ACL of a different version, use the
+ *               <code>versionId</code> subresource.</p>
  *             </dd>
  *          </dl>
  *          <p>The following operations are related to <code>PutObjectAcl</code>:</p>

@@ -6,7 +6,7 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ListObjectVersionsOutput, ListObjectVersionsRequest } from "../models/models_0";
+import { ListObjectVersionsOutput, ListObjectVersionsRequest } from "../models/models_1";
 import { de_ListObjectVersionsCommand, se_ListObjectVersionsCommand } from "../protocols/Aws_restXml";
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
@@ -39,17 +39,15 @@ export interface ListObjectVersionsCommandOutput extends ListObjectVersionsOutpu
  *          <note>
  *             <p>This operation is not supported for directory buckets.</p>
  *          </note>
- *          <p>Returns metadata about all versions of the objects in a bucket. You can also use request
- *          parameters as selection criteria to return metadata about a subset of all the object
- *          versions.</p>
+ *          <p>Returns metadata about all versions of the objects in a bucket. You can also use request parameters
+ *       as selection criteria to return metadata about a subset of all the object versions.</p>
  *          <important>
- *             <p> To use this operation, you must have permission to perform the
- *                <code>s3:ListBucketVersions</code> action. Be aware of the name difference. </p>
+ *             <p> To use this operation, you must have permission to perform the <code>s3:ListBucketVersions</code>
+ *         action. Be aware of the name difference. </p>
  *          </important>
  *          <note>
- *             <p> A <code>200 OK</code> response can contain valid or invalid XML. Make sure to design
- *             your application to parse the contents of the response and handle it
- *             appropriately.</p>
+ *             <p> A <code>200 OK</code> response can contain valid or invalid XML. Make sure to design your
+ *         application to parse the contents of the response and handle it appropriately.</p>
  *          </note>
  *          <p>To use this operation, you must have READ access to the bucket.</p>
  *          <p>The following operations are related to <code>ListObjectVersions</code>:</p>

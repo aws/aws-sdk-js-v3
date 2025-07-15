@@ -28,22 +28,22 @@ export interface DeleteBucketEncryptionCommandInput extends DeleteBucketEncrypti
 export interface DeleteBucketEncryptionCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>This implementation of the DELETE action resets the default encryption for the bucket as
- *          server-side encryption with Amazon S3 managed keys (SSE-S3).</p>
+ * <p>This implementation of the DELETE action resets the default encryption for the bucket as server-side
+ *       encryption with Amazon S3 managed keys (SSE-S3).</p>
  *          <note>
  *             <ul>
  *                <li>
  *                   <p>
- *                      <b>General purpose buckets</b> - For information
- *                   about the bucket default encryption feature, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-encryption.html">Amazon S3 Bucket Default
- *                      Encryption</a> in the <i>Amazon S3 User Guide</i>.</p>
+ *                      <b>General purpose buckets</b> - For information about the bucket
+ *             default encryption feature, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-encryption.html">Amazon S3 Bucket Default Encryption</a> in the
+ *               <i>Amazon S3 User Guide</i>.</p>
  *                </li>
  *                <li>
  *                   <p>
  *                      <b>Directory buckets</b> -
- *                   For directory buckets, there are only two supported options for server-side encryption: SSE-S3 and SSE-KMS. For information about the default encryption
- *                   configuration in directory buckets, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-bucket-encryption.html">Setting
- *                      default server-side encryption behavior for directory buckets</a>.</p>
+ *             For directory buckets, there are only two supported options for server-side encryption: SSE-S3 and SSE-KMS. For information about the default encryption configuration in
+ *             directory buckets, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-bucket-encryption.html">Setting default server-side
+ *               encryption behavior for directory buckets</a>.</p>
  *                </li>
  *             </ul>
  *          </note>
@@ -54,19 +54,17 @@ export interface DeleteBucketEncryptionCommandOutput extends __MetadataBearer {}
  *                   <li>
  *                      <p>
  *                         <b>General purpose bucket permissions</b> - The
- *                            <code>s3:PutEncryptionConfiguration</code> permission is required in a
- *                         policy. The bucket owner has this permission by default. The bucket owner
- *                         can grant this permission to others. For more information about permissions,
- *                         see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-with-s3-actions.html#using-with-s3-actions-related-to-bucket-subresources">Permissions Related to Bucket Operations</a> and <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-access-control.html">Managing Access
- *                            Permissions to Your Amazon S3 Resources</a>.</p>
+ *                   <code>s3:PutEncryptionConfiguration</code> permission is required in a policy. The bucket
+ *                 owner has this permission by default. The bucket owner can grant this permission to others.
+ *                 For more information about permissions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-with-s3-actions.html#using-with-s3-actions-related-to-bucket-subresources">Permissions Related to Bucket Operations</a> and <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-access-control.html">Managing Access Permissions to Your
+ *                   Amazon S3 Resources</a>.</p>
  *                   </li>
  *                   <li>
  *                      <p>
- *                         <b>Directory bucket permissions</b> -
- *                         To grant access to this API operation, you must have the
- *                            <code>s3express:PutEncryptionConfiguration</code> permission in
- *                         an IAM identity-based policy instead of a bucket policy. Cross-account access to this API operation isn't supported. This operation can only be performed by the Amazon Web Services account that owns the resource.
- *                         For more information about directory bucket policies and permissions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-security-iam.html">Amazon Web Services Identity and Access Management (IAM) for S3 Express One Zone</a> in the <i>Amazon S3 User Guide</i>.</p>
+ *                         <b>Directory bucket permissions</b> - To grant access to
+ *                 this API operation, you must have the <code>s3express:PutEncryptionConfiguration</code>
+ *                 permission in an IAM identity-based policy instead of a bucket policy. Cross-account access to this API operation isn't supported. This operation can only be performed by the Amazon Web Services account that owns the resource.
+ *                 For more information about directory bucket policies and permissions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-security-iam.html">Amazon Web Services Identity and Access Management (IAM) for S3 Express One Zone</a> in the <i>Amazon S3 User Guide</i>.</p>
  *                   </li>
  *                </ul>
  *             </dd>

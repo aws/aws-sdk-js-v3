@@ -29,8 +29,9 @@ export interface ListDirectoryBucketsCommandInput extends ListDirectoryBucketsRe
 export interface ListDirectoryBucketsCommandOutput extends ListDirectoryBucketsOutput, __MetadataBearer {}
 
 /**
- * <p>Returns a list of all Amazon S3 directory buckets owned by the authenticated sender of the
- *          request. For more information about directory buckets, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/directory-buckets-overview.html">Directory buckets</a> in the <i>Amazon S3 User Guide</i>.</p>
+ * <p>Returns a list of all Amazon S3 directory buckets owned by the authenticated sender of the request. For
+ *       more information about directory buckets, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/directory-buckets-overview.html">Directory buckets</a> in the
+ *         <i>Amazon S3 User Guide</i>.</p>
  *          <note>
  *             <p>
  *                <b>Directory buckets </b> - For directory buckets, you must make requests for this API operation to the Regional endpoint. These endpoints support path-style requests in the format <code>https://s3express-control.<i>region-code</i>.amazonaws.com/<i>bucket-name</i>
@@ -42,21 +43,20 @@ export interface ListDirectoryBucketsCommandOutput extends ListDirectoryBucketsO
  *          <dl>
  *             <dt>Permissions</dt>
  *             <dd>
- *                <p>You must have the <code>s3express:ListAllMyDirectoryBuckets</code> permission
- *                   in an IAM identity-based policy instead of a bucket policy. Cross-account access to this API operation isn't supported. This operation can only be performed by the Amazon Web Services account that owns the resource.
- *                   For more information about directory bucket policies and permissions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-security-iam.html">Amazon Web Services Identity and Access Management (IAM) for S3 Express One Zone</a> in the <i>Amazon S3 User Guide</i>.</p>
+ *                <p>You must have the <code>s3express:ListAllMyDirectoryBuckets</code> permission in
+ *             an IAM identity-based policy instead of a bucket policy. Cross-account access to this API operation isn't supported. This operation can only be performed by the Amazon Web Services account that owns the resource.
+ *             For more information about directory bucket policies and permissions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-security-iam.html">Amazon Web Services Identity and Access Management (IAM) for S3 Express One Zone</a> in the <i>Amazon S3 User Guide</i>.</p>
  *             </dd>
  *             <dt>HTTP Host header syntax</dt>
  *             <dd>
  *                <p>
- *                   <b>Directory buckets </b> - The HTTP Host
- *                   header syntax is
- *                      <code>s3express-control.<i>region</i>.amazonaws.com</code>.</p>
+ *                   <b>Directory buckets </b> - The HTTP Host header syntax is
+ *                 <code>s3express-control.<i>region</i>.amazonaws.com</code>.</p>
  *             </dd>
  *          </dl>
  *          <note>
  *             <p> The <code>BucketRegion</code> response element is not part of the
- *                <code>ListDirectoryBuckets</code> Response Syntax.</p>
+ *           <code>ListDirectoryBuckets</code> Response Syntax.</p>
  *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

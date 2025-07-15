@@ -34,30 +34,28 @@ export interface CreateSessionCommandInput extends CreateSessionRequest {}
 export interface CreateSessionCommandOutput extends CreateSessionOutput, __MetadataBearer {}
 
 /**
- * <p>Creates a session that establishes temporary security credentials to support fast
- *          authentication and authorization for the Zonal endpoint API operations on directory buckets. For more
- *          information about Zonal endpoint API operations that include the Availability Zone in the request endpoint, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-APIs.html">S3 Express One Zone
- *             APIs</a> in the <i>Amazon S3 User Guide</i>. </p>
- *          <p>To make Zonal endpoint API requests on a directory bucket, use the <code>CreateSession</code>
- *          API operation. Specifically, you grant <code>s3express:CreateSession</code> permission to a
- *          bucket in a bucket policy or an IAM identity-based policy. Then, you use IAM credentials to make the
- *             <code>CreateSession</code> API request on the bucket, which returns temporary security
- *          credentials that include the access key ID, secret access key, session token, and
- *          expiration. These credentials have associated permissions to access the Zonal endpoint API operations. After
- *          the session is created, you don’t need to use other policies to grant permissions to each
- *          Zonal endpoint API individually. Instead, in your Zonal endpoint API requests, you sign your requests by
- *          applying the temporary security credentials of the session to the request headers and
- *          following the SigV4 protocol for authentication. You also apply the session token to the
- *             <code>x-amz-s3session-token</code> request header for authorization. Temporary security
- *          credentials are scoped to the bucket and expire after 5 minutes. After the expiration time,
- *          any calls that you make with those credentials will fail. You must use IAM credentials
- *          again to make a <code>CreateSession</code> API request that generates a new set of
- *          temporary credentials for use. Temporary credentials cannot be extended or refreshed beyond
- *          the original specified interval.</p>
- *          <p>If you use Amazon Web Services SDKs, SDKs handle the session token refreshes automatically to avoid
- *          service interruptions when a session expires. We recommend that you use the Amazon Web Services SDKs to
- *          initiate and manage requests to the CreateSession API. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-optimizing-performance-guidelines-design-patterns.html#s3-express-optimizing-performance-session-authentication">Performance guidelines and design patterns</a> in the
- *             <i>Amazon S3 User Guide</i>.</p>
+ * <p>Creates a session that establishes temporary security credentials to support fast authentication and
+ *       authorization for the Zonal endpoint API operations on directory buckets. For more information about Zonal endpoint API operations that
+ *       include the Availability Zone in the request endpoint, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-APIs.html">S3 Express One Zone APIs</a> in the
+ *         <i>Amazon S3 User Guide</i>. </p>
+ *          <p>To make Zonal endpoint API requests on a directory bucket, use the <code>CreateSession</code> API
+ *       operation. Specifically, you grant <code>s3express:CreateSession</code> permission to a bucket in
+ *       a bucket policy or an IAM identity-based policy. Then, you use IAM credentials to make the <code>CreateSession</code>
+ *       API request on the bucket, which returns temporary security credentials that include the access key ID,
+ *       secret access key, session token, and expiration. These credentials have associated permissions to
+ *       access the Zonal endpoint API operations. After the session is created, you don’t need to use other policies to grant
+ *       permissions to each Zonal endpoint API individually. Instead, in your Zonal endpoint API requests, you sign your
+ *       requests by applying the temporary security credentials of the session to the request headers and
+ *       following the SigV4 protocol for authentication. You also apply the session token to the
+ *         <code>x-amz-s3session-token</code> request header for authorization. Temporary security credentials
+ *       are scoped to the bucket and expire after 5 minutes. After the expiration time, any calls that you make
+ *       with those credentials will fail. You must use IAM credentials again to make a
+ *         <code>CreateSession</code> API request that generates a new set of temporary credentials for use.
+ *       Temporary credentials cannot be extended or refreshed beyond the original specified interval.</p>
+ *          <p>If you use Amazon Web Services SDKs, SDKs handle the session token refreshes automatically to avoid service
+ *       interruptions when a session expires. We recommend that you use the Amazon Web Services SDKs to initiate and manage
+ *       requests to the CreateSession API. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-optimizing-performance-guidelines-design-patterns.html#s3-express-optimizing-performance-session-authentication">Performance guidelines and design patterns</a> in the
+ *       <i>Amazon S3 User Guide</i>.</p>
  *          <note>
  *             <ul>
  *                <li>
@@ -68,44 +66,41 @@ export interface CreateSessionCommandOutput extends CreateSessionOutput, __Metad
  *                <li>
  *                   <p>
  *                      <b>
- *                         <code>CopyObject</code> API operation</b> -
- *                   Unlike other Zonal endpoint API operations, the <code>CopyObject</code> API operation doesn't use
- *                   the temporary security credentials returned from the <code>CreateSession</code>
- *                   API operation for authentication and authorization. For information about
- *                   authentication and authorization of the <code>CopyObject</code> API operation on
- *                   directory buckets, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_CopyObject.html">CopyObject</a>.</p>
+ *                         <code>CopyObject</code> API operation</b> - Unlike other
+ *             Zonal endpoint API operations, the <code>CopyObject</code> API operation doesn't use the temporary security
+ *             credentials returned from the <code>CreateSession</code> API operation for authentication and
+ *             authorization. For information about authentication and authorization of the
+ *               <code>CopyObject</code> API operation on directory buckets, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_CopyObject.html">CopyObject</a>.</p>
  *                </li>
  *                <li>
  *                   <p>
  *                      <b>
- *                         <code>HeadBucket</code> API operation</b> -
- *                   Unlike other Zonal endpoint API operations, the <code>HeadBucket</code> API operation doesn't use
- *                   the temporary security credentials returned from the <code>CreateSession</code>
- *                   API operation for authentication and authorization. For information about
- *                   authentication and authorization of the <code>HeadBucket</code> API operation on
- *                   directory buckets, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_HeadBucket.html">HeadBucket</a>.</p>
+ *                         <code>HeadBucket</code> API operation</b> - Unlike other
+ *             Zonal endpoint API operations, the <code>HeadBucket</code> API operation doesn't use the temporary security
+ *             credentials returned from the <code>CreateSession</code> API operation for authentication and
+ *             authorization. For information about authentication and authorization of the
+ *               <code>HeadBucket</code> API operation on directory buckets, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_HeadBucket.html">HeadBucket</a>.</p>
  *                </li>
  *             </ul>
  *          </note>
  *          <dl>
  *             <dt>Permissions</dt>
  *             <dd>
- *                <p>To obtain temporary security credentials, you must create
- *                   a bucket policy or an IAM identity-based policy that grants <code>s3express:CreateSession</code>
- *                   permission to the bucket. In a policy, you can have the
- *                      <code>s3express:SessionMode</code> condition key to control who can create a
- *                      <code>ReadWrite</code> or <code>ReadOnly</code> session. For more information
- *                   about <code>ReadWrite</code> or <code>ReadOnly</code> sessions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateSession.html#API_CreateSession_RequestParameters">
+ *                <p>To obtain temporary security credentials, you must create a bucket policy or an IAM identity-based policy that
+ *             grants <code>s3express:CreateSession</code> permission to the bucket. In a policy, you can have
+ *             the <code>s3express:SessionMode</code> condition key to control who can create a
+ *               <code>ReadWrite</code> or <code>ReadOnly</code> session. For more information about
+ *               <code>ReadWrite</code> or <code>ReadOnly</code> sessions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateSession.html#API_CreateSession_RequestParameters">
  *                      <code>x-amz-create-session-mode</code>
- *                   </a>. For example policies, see
- *                      <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-security-iam-example-bucket-policies.html">Example bucket policies for S3 Express One Zone</a> and <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-security-iam-identity-policies.html">Amazon Web Services Identity and Access Management (IAM) identity-based policies for
- *                      S3 Express One Zone</a> in the <i>Amazon S3 User Guide</i>. </p>
- *                <p>To grant cross-account access to Zonal endpoint API operations, the bucket policy should also
- *                   grant both accounts the <code>s3express:CreateSession</code> permission.</p>
+ *                   </a>. For example policies, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-security-iam-example-bucket-policies.html">Example
+ *               bucket policies for S3 Express One Zone</a> and <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-security-iam-identity-policies.html">Amazon Web Services Identity
+ *               and Access Management (IAM) identity-based policies for S3 Express One Zone</a> in the
+ *               <i>Amazon S3 User Guide</i>. </p>
+ *                <p>To grant cross-account access to Zonal endpoint API operations, the bucket policy should also grant both
+ *             accounts the <code>s3express:CreateSession</code> permission.</p>
  *                <p>If you want to encrypt objects with SSE-KMS, you must also have the
- *                      <code>kms:GenerateDataKey</code> and the <code>kms:Decrypt</code> permissions
- *                   in IAM identity-based policies and KMS key policies for the target KMS
- *                   key.</p>
+ *               <code>kms:GenerateDataKey</code> and the <code>kms:Decrypt</code> permissions in IAM
+ *             identity-based policies and KMS key policies for the target KMS key.</p>
  *             </dd>
  *             <dt>Encryption</dt>
  *             <dd>
