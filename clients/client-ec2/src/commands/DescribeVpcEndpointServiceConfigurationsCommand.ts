@@ -6,8 +6,10 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DescribeVpcEndpointServiceConfigurationsRequest } from "../models/models_5";
-import { DescribeVpcEndpointServiceConfigurationsResult } from "../models/models_6";
+import {
+  DescribeVpcEndpointServiceConfigurationsRequest,
+  DescribeVpcEndpointServiceConfigurationsResult,
+} from "../models/models_6";
 import {
   de_DescribeVpcEndpointServiceConfigurationsCommand,
   se_DescribeVpcEndpointServiceConfigurationsCommand,

@@ -9,7 +9,7 @@ import { commonParams } from "../endpoint/EndpointParameters";
 import {
   RejectCapacityReservationBillingOwnershipRequest,
   RejectCapacityReservationBillingOwnershipResult,
-} from "../models/models_7";
+} from "../models/models_8";
 import {
   de_RejectCapacityReservationBillingOwnershipCommand,
   se_RejectCapacityReservationBillingOwnershipCommand,

@@ -69,6 +69,7 @@ export interface DeleteInstanceConnectEndpointCommandOutput
  * //         Value: "STRING_VALUE",
  * //       },
  * //     ],
+ * //     IpAddressType: "ipv4" || "dualstack" || "ipv6",
  * //   },
  * // };
  *

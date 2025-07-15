@@ -85,6 +85,7 @@ export interface DescribeInstanceConnectEndpointsCommandOutput
  * //           Value: "STRING_VALUE",
  * //         },
  * //       ],
+ * //       IpAddressType: "ipv4" || "dualstack" || "ipv6",
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",

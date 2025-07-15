@@ -8231,6 +8231,21 @@ export interface CreateImageResult {
 
 /**
  * @public
+ * @enum
+ */
+export const IpAddressType = {
+  dualstack: "dualstack",
+  ipv4: "ipv4",
+  ipv6: "ipv6",
+} as const;
+
+/**
+ * @public
+ */
+export type IpAddressType = (typeof IpAddressType)[keyof typeof IpAddressType];
+
+/**
+ * @public
  */
 export interface CreateInstanceConnectEndpointRequest {
   /**
@@ -8266,6 +8281,12 @@ export interface CreateInstanceConnectEndpointRequest {
    *                   <code>false</code> - Use the network interface IP address as the source.</p>
    *             </li>
    *          </ul>
+   *          <note>
+   *             <p>
+   *                <code>PreserveClientIp</code> is only supported on IPv4 EC2 Instance Connect
+   *                 Endpoints. To use <code>PreserveClientIp</code>, the value for
+   *                     <code>IpAddressType</code> must be <code>ipv4</code>.</p>
+   *          </note>
    *          <p>Default: <code>false</code>
    *          </p>
    * @public
@@ -8283,6 +8304,34 @@ export interface CreateInstanceConnectEndpointRequest {
    * @public
    */
   TagSpecifications?: TagSpecification[] | undefined;
+
+  /**
+   * <p>The IP address type of the endpoint.</p>
+   *          <p>If no value is specified, the default value is determined by the IP address type of
+   *             the subnet:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>dualstack</code> - If the subnet has both IPv4 and IPv6 CIDRs</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ipv4</code> - If the subnet has only IPv4 CIDRs</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ipv6</code> - If the subnet has only IPv6 CIDRs</p>
+   *             </li>
+   *          </ul>
+   *          <note>
+   *             <p>
+   *                <code>PreserveClientIp</code> is only supported on IPv4 EC2 Instance Connect
+   *                 Endpoints. To use <code>PreserveClientIp</code>, the value for
+   *                 <code>IpAddressType</code> must be <code>ipv4</code>.</p>
+   *          </note>
+   * @public
+   */
+  IpAddressType?: IpAddressType | undefined;
 }
 
 /**
@@ -8347,7 +8396,8 @@ export interface Ec2InstanceConnectEndpoint {
   DnsName?: string | undefined;
 
   /**
-   * <p></p>
+   * <p>The Federal Information Processing Standards (FIPS) compliant DNS name of the EC2
+   *             Instance Connect Endpoint.</p>
    * @public
    */
   FipsDnsName?: string | undefined;
@@ -8411,6 +8461,12 @@ export interface Ec2InstanceConnectEndpoint {
    * @public
    */
   Tags?: Tag[] | undefined;
+
+  /**
+   * <p>The IP address type of the endpoint.</p>
+   * @public
+   */
+  IpAddressType?: IpAddressType | undefined;
 }
 
 /**
@@ -12538,23 +12594,6 @@ export interface ConnectionTrackingSpecification {
    * @public
    */
   UdpStreamTimeout?: number | undefined;
-}
-
-/**
- * <p>ENA Express is compatible with both TCP and UDP transport protocols. When it's enabled, TCP traffic
- * 			automatically uses it. However, some UDP-based applications are designed to handle network packets that are
- * 			out of order, without a need for retransmission, such as live video broadcasting or other near-real-time
- * 			applications. For UDP traffic, you can specify whether to use ENA Express, based on your application
- * 			environment needs.</p>
- * @public
- */
-export interface LaunchTemplateEnaSrdUdpSpecification {
-  /**
-   * <p>Indicates whether UDP traffic to and from the instance uses ENA Express. To specify this setting,
-   * 			you must first enable ENA Express.</p>
-   * @public
-   */
-  EnaSrdUdpEnabled?: boolean | undefined;
 }
 
 /**

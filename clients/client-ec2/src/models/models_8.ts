@@ -78,6 +78,34 @@ import { CapacityReservationSpecification, InstanceMonitoring, Status } from "./
 /**
  * @public
  */
+export interface RejectCapacityReservationBillingOwnershipRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>The ID of the Capacity Reservation for which to reject the request.</p>
+   * @public
+   */
+  CapacityReservationId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface RejectCapacityReservationBillingOwnershipResult {
+  /**
+   * <p>Returns <code>true</code> if the request succeeds; otherwise, it returns an error.</p>
+   * @public
+   */
+  Return?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
 export interface RejectTransitGatewayMulticastDomainAssociationsRequest {
   /**
    * <p>The ID of the transit gateway multicast domain.</p>

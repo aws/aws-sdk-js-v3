@@ -54,6 +54,8 @@ import {
   InstanceBandwidthWeighting,
   InstanceEventWindowTimeRangeRequest,
   InstanceMatchCriteria,
+  InstanceRequirementsRequest,
+  IpAddressType,
   Ipam,
   IpamMeteredAccount,
   IpamPool,
@@ -67,6 +69,7 @@ import {
   SelfServicePortal,
   ShutdownBehavior,
   TargetCapacitySpecificationRequest,
+  TargetCapacityUnitType,
   VolumeType,
 } from "./models_1";
 
@@ -76,7 +79,6 @@ import {
   DefaultRouteTablePropagationValue,
   DnsOptionsSpecification,
   InternetGatewayExclusionMode,
-  IpAddressType,
   LocalGatewayRoute,
   ManagedPrefixList,
   RouteServer,
@@ -121,6 +123,7 @@ import {
 } from "./models_3";
 
 import {
+  ArchitectureType,
   ArchitectureValues,
   AttributeBooleanValue,
   BootModeValues,
@@ -147,6 +150,7 @@ import {
   SnapshotTaskDetail,
   SnapshotTaskDetailFilterSensitiveLog,
   TpmSupportValues,
+  VirtualizationType,
 } from "./models_4";
 
 import {
@@ -171,6 +175,110 @@ import {
   TransitGatewayPropagationState,
   UnlimitedSupportedInstanceFamily,
 } from "./models_6";
+
+/**
+ * <p>The architecture type, virtualization type, and other attributes for the instance types.
+ *          When you specify instance attributes, Amazon EC2 will identify instance types with those
+ *          attributes.</p>
+ *          <p>If you specify <code>InstanceRequirementsWithMetadataRequest</code>, you can't specify
+ *          <code>InstanceTypes</code>.</p>
+ * @public
+ */
+export interface InstanceRequirementsWithMetadataRequest {
+  /**
+   * <p>The architecture type.</p>
+   * @public
+   */
+  ArchitectureTypes?: ArchitectureType[] | undefined;
+
+  /**
+   * <p>The virtualization type.</p>
+   * @public
+   */
+  VirtualizationTypes?: VirtualizationType[] | undefined;
+
+  /**
+   * <p>The attributes for the instance types. When you specify instance attributes, Amazon EC2 will
+   *          identify instance types with those attributes.</p>
+   * @public
+   */
+  InstanceRequirements?: InstanceRequirementsRequest | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetSpotPlacementScoresRequest {
+  /**
+   * <p>The instance types. We recommend that you specify at least three instance types. If you
+   *          specify one or two instance types, or specify variations of a single instance type (for
+   *          example, an <code>m3.xlarge</code> with and without instance storage), the returned
+   *          placement score will always be low. </p>
+   *          <p>If you specify <code>InstanceTypes</code>, you can't specify
+   *             <code>InstanceRequirementsWithMetadata</code>.</p>
+   * @public
+   */
+  InstanceTypes?: string[] | undefined;
+
+  /**
+   * <p>The target capacity.</p>
+   * @public
+   */
+  TargetCapacity: number | undefined;
+
+  /**
+   * <p>The unit for the target capacity.</p>
+   * @public
+   */
+  TargetCapacityUnitType?: TargetCapacityUnitType | undefined;
+
+  /**
+   * <p>Specify <code>true</code> so that the response returns a list of scored Availability Zones.
+   *          Otherwise, the response returns a list of scored Regions.</p>
+   *          <p>A list of scored Availability Zones is useful if you want to launch all of your Spot
+   *          capacity into a single Availability Zone.</p>
+   * @public
+   */
+  SingleAvailabilityZone?: boolean | undefined;
+
+  /**
+   * <p>The Regions used to narrow down the list of Regions to be scored. Enter the Region code,
+   *          for example, <code>us-east-1</code>.</p>
+   * @public
+   */
+  RegionNames?: string[] | undefined;
+
+  /**
+   * <p>The attributes for the instance types. When you specify instance attributes, Amazon EC2 will
+   *          identify instance types with those attributes.</p>
+   *          <p>If you specify <code>InstanceRequirementsWithMetadata</code>, you can't specify
+   *             <code>InstanceTypes</code>.</p>
+   * @public
+   */
+  InstanceRequirementsWithMetadata?: InstanceRequirementsWithMetadataRequest | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>The maximum number of items to return for this request.
+   *          To get the next page of items, make another request with the token returned in the output.
+   * 	        For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
 
 /**
  * <p>The Spot placement score for this Region or Availability Zone. The score is calculated
@@ -9606,34 +9714,6 @@ export interface RegisterTransitGatewayMulticastGroupSourcesResult {
    * @public
    */
   RegisteredMulticastGroupSources?: TransitGatewayMulticastRegisteredGroupSources | undefined;
-}
-
-/**
- * @public
- */
-export interface RejectCapacityReservationBillingOwnershipRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>The ID of the Capacity Reservation for which to reject the request.</p>
-   * @public
-   */
-  CapacityReservationId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface RejectCapacityReservationBillingOwnershipResult {
-  /**
-   * <p>Returns <code>true</code> if the request succeeds; otherwise, it returns an error.</p>
-   * @public
-   */
-  Return?: boolean | undefined;
 }
 
 /**

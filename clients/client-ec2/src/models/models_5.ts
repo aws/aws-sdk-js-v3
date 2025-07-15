@@ -41,6 +41,7 @@ import {
   FleetType,
   InstanceInterruptionBehavior,
   InstanceRequirements,
+  IpAddressType,
   Ipam,
   IpamScope,
   Ipv4PrefixSpecificationRequest,
@@ -60,7 +61,6 @@ import {
   DnsEntry,
   GroupIdentifier,
   InstanceIpv6Address,
-  IpAddressType,
   LaunchTemplateVersion,
   LaunchTemplateVersionFilterSensitiveLog,
   LocalGatewayRouteTable,
@@ -103,7 +103,6 @@ import {
   VerifiedAccessGroup,
   Volume,
   VpcBlockPublicAccessExclusion,
-  VpcEndpoint,
 } from "./models_2";
 
 import { ConnectionNotification, Filter, IdFormat } from "./models_3";
@@ -11484,7 +11483,61 @@ export interface VolumeStatusEvent {
  * @public
  * @enum
  */
+export const InitializationType = {
+  default: "default",
+  provisioned_rate: "provisioned-rate",
+} as const;
+
+/**
+ * @public
+ */
+export type InitializationType = (typeof InitializationType)[keyof typeof InitializationType];
+
+/**
+ * <p>Information about the volume initialization. For more information, see <a href="https://docs.aws.amazon.com/ebs/latest/userguide/initalize-volume.html">Initialize Amazon EBS volumes</a>.</p>
+ * @public
+ */
+export interface InitializationStatusDetails {
+  /**
+   * <p>The method used for volume initialization. Possible values include:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>default</code> - Volume initialized using the default volume initialization
+   *           rate or fast snapshot restore.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>provisioned-rate</code> - Volume initialized using an Amazon EBS Provisioned
+   *           Rate for Volume Initialization.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  InitializationType?: InitializationType | undefined;
+
+  /**
+   * <p>The current volume initialization progress as a percentage (0-100). Returns <code>100</code>
+   *       when volume initialization has completed.</p>
+   * @public
+   */
+  Progress?: number | undefined;
+
+  /**
+   * <p>The estimated remaining time, in seconds, for volume initialization to complete. Returns
+   *       <code>0</code> when volume initialization has completed.</p>
+   *          <p>Only available for volumes created with Amazon EBS Provisioned Rate for Volume Initialization.</p>
+   * @public
+   */
+  EstimatedTimeToCompleteInSeconds?: number | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
 export const VolumeStatusName = {
+  initialization_state: "initialization-state",
   io_enabled: "io-enabled",
   io_performance: "io-performance",
 } as const;
@@ -11501,6 +11554,25 @@ export type VolumeStatusName = (typeof VolumeStatusName)[keyof typeof VolumeStat
 export interface VolumeStatusDetails {
   /**
    * <p>The name of the volume status.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>io-enabled</code> - Indicates the volume I/O status. For more
+   *           information, see <a href="https://docs.aws.amazon.com/ebs/latest/userguide/monitoring-volume-checks.html">Amazon EBS volume
+   *             status checks</a>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>io-performance</code> - Indicates the volume performance status.
+   *           For more information, see <a href="https://docs.aws.amazon.com/ebs/latest/userguide/monitoring-volume-checks.html">Amazon EBS volume
+   *             status checks</a>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>initialization-state</code> - Indicates the status of the volume
+   *           initialization process. For more information, see <a href="https://docs.aws.amazon.com/ebs/latest/userguide/initalize-volume.html">Initialize Amazon EBS volumes</a>.</p>
+   *             </li>
+   *          </ul>
    * @public
    */
   Name?: VolumeStatusName | undefined;
@@ -11591,6 +11663,18 @@ export interface VolumeStatusItem {
    * @public
    */
   AttachmentStatuses?: VolumeStatusAttachmentStatus[] | undefined;
+
+  /**
+   * <p>Information about the volume initialization. It can take up to 5 minutes
+   *       for the volume initialization information to be updated.</p>
+   *          <p>Only available for volumes created from snapshots. Not available for empty
+   *       volumes created without a snapshot.</p>
+   *          <p>For more information, see
+   *       <a href="https://docs.aws.amazon.com/ebs/latest/userguide/initalize-volume.html">
+   *         Initialize Amazon EBS volumes</a>.</p>
+   * @public
+   */
+  InitializationStatusDetails?: InitializationStatusDetails | undefined;
 
   /**
    * <p>The ID of the Availability Zone.</p>
@@ -12576,92 +12660,6 @@ export interface DescribeVpcEndpointsRequest {
 
   /**
    * <p>The token for the next set of items to return. (You received this token from a prior call.)</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeVpcEndpointsResult {
-  /**
-   * <p>Information about the VPC endpoints.</p>
-   * @public
-   */
-  VpcEndpoints?: VpcEndpoint[] | undefined;
-
-  /**
-   * <p>The token to use when requesting the next set of items. If there are no additional items to return, the string is empty.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeVpcEndpointServiceConfigurationsRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>The IDs of the endpoint services.</p>
-   * @public
-   */
-  ServiceIds?: string[] | undefined;
-
-  /**
-   * <p>The filters.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>service-name</code> - The name of the service.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>service-id</code> - The ID of the service.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>service-state</code> - The state of the service (<code>Pending</code> |
-   *                         <code>Available</code> | <code>Deleting</code> | <code>Deleted</code> |
-   *                         <code>Failed</code>). </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>supported-ip-address-types</code> - The IP address type (<code>ipv4</code> | <code>ipv6</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>tag</code>:<key> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value. For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  Filters?: Filter[] | undefined;
-
-  /**
-   * <p>The maximum number of results to return for the request in a single page. The remaining
-   *             results of the initial request can be seen by sending another request with the returned
-   *                 <code>NextToken</code> value. This value can be between 5 and 1,000; if
-   *                 <code>MaxResults</code> is given a value larger than 1,000, only 1,000 results are
-   *             returned.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>The token to retrieve the next page of results.</p>
    * @public
    */
   NextToken?: string | undefined;

@@ -2785,7 +2785,6 @@ import {
   LaunchTemplateEbsBlockDeviceRequest,
   LaunchTemplateElasticInferenceAccelerator,
   LaunchTemplateElasticInferenceAcceleratorResponse,
-  LaunchTemplateEnaSrdUdpSpecification,
   LaunchTemplateEnclaveOptions,
   LaunchTemplateEnclaveOptionsRequest,
   LaunchTemplateHibernationOptions,
@@ -2985,6 +2984,7 @@ import {
   Ipv6PrefixSpecificationResponse,
   LastError,
   LaunchTemplateEnaSrdSpecification,
+  LaunchTemplateEnaSrdUdpSpecification,
   LaunchTemplateInstanceNetworkInterfaceSpecification,
   LaunchTemplateNetworkPerformanceOptions,
   LaunchTemplatePlacement,
@@ -3790,10 +3790,9 @@ import {
   DescribeVpcEndpointConnectionNotificationsResult,
   DescribeVpcEndpointConnectionsRequest,
   DescribeVpcEndpointConnectionsResult,
-  DescribeVpcEndpointServiceConfigurationsRequest,
   DescribeVpcEndpointsRequest,
-  DescribeVpcEndpointsResult,
   HistoryRecord,
+  InitializationStatusDetails,
   InstanceNetworkInterfaceSpecification,
   Ipv6Pool,
   KeyPairInfo,
@@ -3880,11 +3879,13 @@ import {
   CoipAddressUsage,
   DataQuery,
   DataResponse,
+  DescribeVpcEndpointServiceConfigurationsRequest,
   DescribeVpcEndpointServiceConfigurationsResult,
   DescribeVpcEndpointServicePermissionsRequest,
   DescribeVpcEndpointServicePermissionsResult,
   DescribeVpcEndpointServicesRequest,
   DescribeVpcEndpointServicesResult,
+  DescribeVpcEndpointsResult,
   DescribeVpcPeeringConnectionsRequest,
   DescribeVpcPeeringConnectionsResult,
   DescribeVpcsRequest,
@@ -4111,12 +4112,10 @@ import {
   GetSerialConsoleAccessStatusResult,
   GetSnapshotBlockPublicAccessStateRequest,
   GetSnapshotBlockPublicAccessStateResult,
-  GetSpotPlacementScoresRequest,
   ImageCriterion,
   InstanceEventWindowDisassociationRequest,
   InstanceFamilyCreditSpecification,
   InstanceMetadataDefaultsResponse,
-  InstanceRequirementsWithMetadataRequest,
   InstanceTypeInfoFromInstanceRequirements,
   InstanceUsage,
   IntegrateServices,
@@ -4161,6 +4160,7 @@ import {
   DiskImageDetail,
   DnsServersOptionsModifyStructure,
   EbsInstanceBlockDeviceSpecification,
+  GetSpotPlacementScoresRequest,
   GetSpotPlacementScoresResult,
   GetSubnetCidrReservationsRequest,
   GetSubnetCidrReservationsResult,
@@ -4209,6 +4209,7 @@ import {
   InstanceBlockDeviceMappingSpecification,
   InstanceCreditSpecificationRequest,
   InstanceMonitoring,
+  InstanceRequirementsWithMetadataRequest,
   IpamCidrAuthorizationContext,
   LaunchPermissionModifications,
   ListImagesInRecycleBinRequest,
@@ -4404,8 +4405,6 @@ import {
   RegisterTransitGatewayMulticastGroupMembersResult,
   RegisterTransitGatewayMulticastGroupSourcesRequest,
   RegisterTransitGatewayMulticastGroupSourcesResult,
-  RejectCapacityReservationBillingOwnershipRequest,
-  RejectCapacityReservationBillingOwnershipResult,
   RemoveIpamOperatingRegion,
   RemoveIpamOrganizationalUnitExclusion,
   RemovePrefixListEntry,
@@ -4453,6 +4452,8 @@ import {
   LaunchTemplateSpecification,
   LicenseConfigurationRequest,
   PrivateDnsNameOptionsRequest,
+  RejectCapacityReservationBillingOwnershipRequest,
+  RejectCapacityReservationBillingOwnershipResult,
   RejectTransitGatewayMulticastDomainAssociationsRequest,
   RejectTransitGatewayMulticastDomainAssociationsResult,
   RejectTransitGatewayPeeringAttachmentRequest,
@@ -33268,6 +33269,9 @@ const se_CreateInstanceConnectEndpointRequest = (
       const loc = `TagSpecification.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
     });
+  }
+  if (input[_IAT] != null) {
+    entries[_IAT] = input[_IAT];
   }
   return entries;
 };
@@ -70321,6 +70325,9 @@ const de_Ec2InstanceConnectEndpoint = (output: any, context: __SerdeContext): Ec
   } else if (output[_tS] != null && output[_tS][_i] != null) {
     contents[_Ta] = de_TagList(__getArrayIfSingleItem(output[_tS][_i]), context);
   }
+  if (output[_iAT] != null) {
+    contents[_IAT] = __expectString(output[_iAT]);
+  }
   return contents;
 };
 
@@ -74445,6 +74452,23 @@ const de_InferenceDeviceMemoryInfo = (output: any, context: __SerdeContext): Inf
   const contents: any = {};
   if (output[_sIMB] != null) {
     contents[_SIMB] = __strictParseInt32(output[_sIMB]) as number;
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_ec2InitializationStatusDetails
+ */
+const de_InitializationStatusDetails = (output: any, context: __SerdeContext): InitializationStatusDetails => {
+  const contents: any = {};
+  if (output[_iTni] != null) {
+    contents[_ITni] = __expectString(output[_iTni]);
+  }
+  if (output[_pro] != null) {
+    contents[_Prog] = __strictParseLong(output[_pro]) as number;
+  }
+  if (output[_eTTCIS] != null) {
+    contents[_ETTCIS] = __strictParseLong(output[_eTTCIS]) as number;
   }
   return contents;
 };
@@ -90321,6 +90345,9 @@ const de_VolumeStatusItem = (output: any, context: __SerdeContext): VolumeStatus
   } else if (output[_aStt] != null && output[_aStt][_i] != null) {
     contents[_AStt] = de_VolumeStatusAttachmentStatusList(__getArrayIfSingleItem(output[_aStt][_i]), context);
   }
+  if (output[_iSD] != null) {
+    contents[_ISD] = de_InitializationStatusDetails(output[_iSD], context);
+  }
   if (output[_aZI] != null) {
     contents[_AZI] = __expectString(output[_aZI]);
   }
@@ -92396,6 +92423,7 @@ const _ETI = "ExportTaskId";
 const _ETIx = "ExportTaskIds";
 const _ETLC = "EnableTunnelLifecycleControl";
 const _ETST = "ExportToS3Task";
+const _ETTCIS = "EstimatedTimeToCompleteInSeconds";
 const _ETa = "EarliestTime";
 const _ETi = "EipTags";
 const _ETn = "EndTime";
@@ -92750,6 +92778,7 @@ const _IRpa = "IpamRegion";
 const _IRpv = "Ipv6Ranges";
 const _IS = "ImportSnapshot";
 const _ISA = "IpamScopeArn";
+const _ISD = "InitializationStatusDetails";
 const _ISI = "IpamScopeId";
 const _ISIn = "InstanceStorageInfo";
 const _ISIp = "IpamScopeIds";
@@ -92782,6 +92811,7 @@ const _ITO = "InstanceTypeOfferings";
 const _ITS = "InstanceTypeSpecifications";
 const _ITm = "ImageType";
 const _ITn = "InterfaceType";
+const _ITni = "InitializationType";
 const _ITns = "InstanceTenancy";
 const _ITnst = "InstanceTypes";
 const _ITnsta = "InstanceTags";
@@ -94694,6 +94724,7 @@ const _eTLC = "enableTunnelLifecycleControl";
 const _eTS = "exportTaskSet";
 const _eTSi = "eipTagSet";
 const _eTSx = "exportToS3";
+const _eTTCIS = "estimatedTimeToCompleteInSeconds";
 const _eTn = "endTime";
 const _eTna = "enablingTime";
 const _eTnab = "enabledTime";
@@ -94940,6 +94971,7 @@ const _iRpa = "ipRanges";
 const _iRpv = "ipv6Ranges";
 const _iS = "interconnectStatus";
 const _iSA = "ipamScopeArn";
+const _iSD = "initializationStatusDetails";
 const _iSI = "instanceStorageInfo";
 const _iSIp = "ipamScopeId";
 const _iSS = "instanceStatusSet";
@@ -94973,6 +95005,7 @@ const _iTS = "instanceTypeSet";
 const _iTSS = "instanceTypeSpecificationSet";
 const _iTm = "imageType";
 const _iTn = "instanceTypes";
+const _iTni = "initializationType";
 const _iTns = "instanceTenancy";
 const _iTnt = "interfaceType";
 const _iU = "ipUsage";

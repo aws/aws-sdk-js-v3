@@ -118,7 +118,7 @@ export interface DescribeVolumeStatusCommandOutput extends DescribeVolumeStatusR
  * //       VolumeStatus: { // VolumeStatusInfo
  * //         Details: [ // VolumeStatusDetailsList
  * //           { // VolumeStatusDetails
- * //             Name: "io-enabled" || "io-performance",
+ * //             Name: "io-enabled" || "io-performance" || "initialization-state",
  * //             Status: "STRING_VALUE",
  * //           },
  * //         ],
@@ -130,6 +130,11 @@ export interface DescribeVolumeStatusCommandOutput extends DescribeVolumeStatusR
  * //           InstanceId: "STRING_VALUE",
  * //         },
  * //       ],
+ * //       InitializationStatusDetails: { // InitializationStatusDetails
+ * //         InitializationType: "default" || "provisioned-rate",
+ * //         Progress: Number("long"),
+ * //         EstimatedTimeToCompleteInSeconds: Number("long"),
+ * //       },
  * //       AvailabilityZoneId: "STRING_VALUE",
  * //     },
  * //   ],

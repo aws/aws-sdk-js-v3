@@ -42,7 +42,6 @@ import {
   InstanceRequirementsRequest,
   IpamResourceTag,
   RequestIpamResourceTag,
-  TargetCapacityUnitType,
   Vpc,
 } from "./models_1";
 
@@ -51,6 +50,7 @@ import {
   ResponseLaunchTemplateData,
   ResponseLaunchTemplateDataFilterSensitiveLog,
   SSEType,
+  VpcEndpoint,
 } from "./models_2";
 
 import {
@@ -85,6 +85,92 @@ import {
 } from "./models_4";
 
 import { AnalysisStatus, ManagedBy } from "./models_5";
+
+/**
+ * @public
+ */
+export interface DescribeVpcEndpointsResult {
+  /**
+   * <p>Information about the VPC endpoints.</p>
+   * @public
+   */
+  VpcEndpoints?: VpcEndpoint[] | undefined;
+
+  /**
+   * <p>The token to use when requesting the next set of items. If there are no additional items to return, the string is empty.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeVpcEndpointServiceConfigurationsRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>The IDs of the endpoint services.</p>
+   * @public
+   */
+  ServiceIds?: string[] | undefined;
+
+  /**
+   * <p>The filters.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>service-name</code> - The name of the service.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>service-id</code> - The ID of the service.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>service-state</code> - The state of the service (<code>Pending</code> |
+   *                         <code>Available</code> | <code>Deleting</code> | <code>Deleted</code> |
+   *                         <code>Failed</code>). </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>supported-ip-address-types</code> - The IP address type (<code>ipv4</code> | <code>ipv6</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>tag</code>:<key> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value. For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Filters?: Filter[] | undefined;
+
+  /**
+   * <p>The maximum number of results to return for the request in a single page. The remaining
+   *             results of the initial request can be seen by sending another request with the returned
+   *                 <code>NextToken</code> value. This value can be between 5 and 1,000; if
+   *                 <code>MaxResults</code> is given a value larger than 1,000, only 1,000 results are
+   *             returned.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>The token to retrieve the next page of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
 
 /**
  * @public
@@ -7822,110 +7908,6 @@ export interface GetSnapshotBlockPublicAccessStateResult {
    * @public
    */
   ManagedBy?: ManagedBy | undefined;
-}
-
-/**
- * <p>The architecture type, virtualization type, and other attributes for the instance types.
- *          When you specify instance attributes, Amazon EC2 will identify instance types with those
- *          attributes.</p>
- *          <p>If you specify <code>InstanceRequirementsWithMetadataRequest</code>, you can't specify
- *          <code>InstanceTypes</code>.</p>
- * @public
- */
-export interface InstanceRequirementsWithMetadataRequest {
-  /**
-   * <p>The architecture type.</p>
-   * @public
-   */
-  ArchitectureTypes?: ArchitectureType[] | undefined;
-
-  /**
-   * <p>The virtualization type.</p>
-   * @public
-   */
-  VirtualizationTypes?: VirtualizationType[] | undefined;
-
-  /**
-   * <p>The attributes for the instance types. When you specify instance attributes, Amazon EC2 will
-   *          identify instance types with those attributes.</p>
-   * @public
-   */
-  InstanceRequirements?: InstanceRequirementsRequest | undefined;
-}
-
-/**
- * @public
- */
-export interface GetSpotPlacementScoresRequest {
-  /**
-   * <p>The instance types. We recommend that you specify at least three instance types. If you
-   *          specify one or two instance types, or specify variations of a single instance type (for
-   *          example, an <code>m3.xlarge</code> with and without instance storage), the returned
-   *          placement score will always be low. </p>
-   *          <p>If you specify <code>InstanceTypes</code>, you can't specify
-   *             <code>InstanceRequirementsWithMetadata</code>.</p>
-   * @public
-   */
-  InstanceTypes?: string[] | undefined;
-
-  /**
-   * <p>The target capacity.</p>
-   * @public
-   */
-  TargetCapacity: number | undefined;
-
-  /**
-   * <p>The unit for the target capacity.</p>
-   * @public
-   */
-  TargetCapacityUnitType?: TargetCapacityUnitType | undefined;
-
-  /**
-   * <p>Specify <code>true</code> so that the response returns a list of scored Availability Zones.
-   *          Otherwise, the response returns a list of scored Regions.</p>
-   *          <p>A list of scored Availability Zones is useful if you want to launch all of your Spot
-   *          capacity into a single Availability Zone.</p>
-   * @public
-   */
-  SingleAvailabilityZone?: boolean | undefined;
-
-  /**
-   * <p>The Regions used to narrow down the list of Regions to be scored. Enter the Region code,
-   *          for example, <code>us-east-1</code>.</p>
-   * @public
-   */
-  RegionNames?: string[] | undefined;
-
-  /**
-   * <p>The attributes for the instance types. When you specify instance attributes, Amazon EC2 will
-   *          identify instance types with those attributes.</p>
-   *          <p>If you specify <code>InstanceRequirementsWithMetadata</code>, you can't specify
-   *             <code>InstanceTypes</code>.</p>
-   * @public
-   */
-  InstanceRequirementsWithMetadata?: InstanceRequirementsWithMetadataRequest | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>The maximum number of items to return for this request.
-   *          To get the next page of items, make another request with the token returned in the output.
-   * 	        For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
 }
 
 /**
