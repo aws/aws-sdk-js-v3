@@ -765,6 +765,10 @@ import {
   ListPipelineParametersForExecutionCommandOutput,
 } from "./commands/ListPipelineParametersForExecutionCommand";
 import { ListPipelinesCommandInput, ListPipelinesCommandOutput } from "./commands/ListPipelinesCommand";
+import {
+  ListPipelineVersionsCommandInput,
+  ListPipelineVersionsCommandOutput,
+} from "./commands/ListPipelineVersionsCommand";
 import { ListProcessingJobsCommandInput, ListProcessingJobsCommandOutput } from "./commands/ListProcessingJobsCommand";
 import { ListProjectsCommandInput, ListProjectsCommandOutput } from "./commands/ListProjectsCommand";
 import {
@@ -975,6 +979,10 @@ import {
   UpdatePipelineExecutionCommandInput,
   UpdatePipelineExecutionCommandOutput,
 } from "./commands/UpdatePipelineExecutionCommand";
+import {
+  UpdatePipelineVersionCommandInput,
+  UpdatePipelineVersionCommandOutput,
+} from "./commands/UpdatePipelineVersionCommand";
 import { UpdateProjectCommandInput, UpdateProjectCommandOutput } from "./commands/UpdateProjectCommand";
 import { UpdateSpaceCommandInput, UpdateSpaceCommandOutput } from "./commands/UpdateSpaceCommand";
 import { UpdateTrainingJobCommandInput, UpdateTrainingJobCommandOutput } from "./commands/UpdateTrainingJobCommand";
@@ -1268,6 +1276,7 @@ export type ServiceInputTypes =
   | ListPipelineExecutionStepsCommandInput
   | ListPipelineExecutionsCommandInput
   | ListPipelineParametersForExecutionCommandInput
+  | ListPipelineVersionsCommandInput
   | ListPipelinesCommandInput
   | ListProcessingJobsCommandInput
   | ListProjectsCommandInput
@@ -1353,6 +1362,7 @@ export type ServiceInputTypes =
   | UpdatePartnerAppCommandInput
   | UpdatePipelineCommandInput
   | UpdatePipelineExecutionCommandInput
+  | UpdatePipelineVersionCommandInput
   | UpdateProjectCommandInput
   | UpdateSpaceCommandInput
   | UpdateTrainingJobCommandInput
@@ -1633,6 +1643,7 @@ export type ServiceOutputTypes =
   | ListPipelineExecutionStepsCommandOutput
   | ListPipelineExecutionsCommandOutput
   | ListPipelineParametersForExecutionCommandOutput
+  | ListPipelineVersionsCommandOutput
   | ListPipelinesCommandOutput
   | ListProcessingJobsCommandOutput
   | ListProjectsCommandOutput
@@ -1718,6 +1729,7 @@ export type ServiceOutputTypes =
   | UpdatePartnerAppCommandOutput
   | UpdatePipelineCommandOutput
   | UpdatePipelineExecutionCommandOutput
+  | UpdatePipelineVersionCommandOutput
   | UpdateProjectCommandOutput
   | UpdateSpaceCommandOutput
   | UpdateTrainingJobCommandOutput

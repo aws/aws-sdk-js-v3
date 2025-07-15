@@ -37,7 +37,7 @@ export interface BatchDeleteClusterNodesCommandOutput extends BatchDeleteCluster
  * const client = new SageMakerClient(config);
  * const input = { // BatchDeleteClusterNodesRequest
  *   ClusterName: "STRING_VALUE", // required
- *   NodeIds: [ // ClusterNodeIds // required
+ *   NodeIds: [ // ClusterNodeIds
  *     "STRING_VALUE",
  *   ],
  * };

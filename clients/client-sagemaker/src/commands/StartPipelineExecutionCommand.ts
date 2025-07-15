@@ -57,6 +57,7 @@ export interface StartPipelineExecutionCommandOutput extends StartPipelineExecut
  *       },
  *     ],
  *   },
+ *   PipelineVersionId: Number("long"),
  * };
  * const command = new StartPipelineExecutionCommand(input);
  * const response = await client.send(command);

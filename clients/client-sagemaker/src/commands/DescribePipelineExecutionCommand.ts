@@ -84,6 +84,7 @@ export interface DescribePipelineExecutionCommandOutput extends DescribePipeline
  * //       },
  * //     ],
  * //   },
+ * //   PipelineVersionId: Number("long"),
  * // };
  *
  * ```

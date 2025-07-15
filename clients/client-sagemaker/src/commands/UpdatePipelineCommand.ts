@@ -54,6 +54,7 @@ export interface UpdatePipelineCommandOutput extends UpdatePipelineResponse, __M
  * const response = await client.send(command);
  * // { // UpdatePipelineResponse
  * //   PipelineArn: "STRING_VALUE",
+ * //   PipelineVersionId: Number("long"),
  * // };
  *
  * ```

@@ -5,8 +5,7 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { SearchResponse, SearchResponseFilterSensitiveLog } from "../models/models_4";
-import { SearchRequest } from "../models/models_5";
+import { SearchRequest, SearchResponse, SearchResponseFilterSensitiveLog } from "../models/models_5";
 import { de_SearchCommand, se_SearchCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
@@ -37,7 +36,7 @@ export interface SearchCommandOutput extends SearchResponse, __MetadataBearer {}
  * // const { SageMakerClient, SearchCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
  * const input = { // SearchRequest
- *   Resource: "TrainingJob" || "Experiment" || "ExperimentTrial" || "ExperimentTrialComponent" || "Endpoint" || "Model" || "ModelPackage" || "ModelPackageGroup" || "Pipeline" || "PipelineExecution" || "FeatureGroup" || "FeatureMetadata" || "Image" || "ImageVersion" || "Project" || "HyperParameterTuningJob" || "ModelCard", // required
+ *   Resource: "TrainingJob" || "Experiment" || "ExperimentTrial" || "ExperimentTrialComponent" || "Endpoint" || "Model" || "ModelPackage" || "ModelPackageGroup" || "Pipeline" || "PipelineExecution" || "FeatureGroup" || "FeatureMetadata" || "Image" || "ImageVersion" || "Project" || "HyperParameterTuningJob" || "ModelCard" || "PipelineVersion", // required
  *   SearchExpression: { // SearchExpression
  *     Filters: [ // FilterList
  *       { // Filter
@@ -1464,6 +1463,21 @@ export interface SearchCommandOutput extends SearchResponse, __MetadataBearer {}
  * //             Value: "STRING_VALUE", // required
  * //           },
  * //         ],
+ * //         PipelineVersionId: Number("long"),
+ * //         PipelineVersionDisplayName: "STRING_VALUE",
+ * //       },
+ * //       PipelineVersion: { // PipelineVersion
+ * //         PipelineArn: "STRING_VALUE",
+ * //         PipelineVersionId: Number("long"),
+ * //         PipelineVersionDisplayName: "STRING_VALUE",
+ * //         PipelineVersionDescription: "STRING_VALUE",
+ * //         CreationTime: new Date("TIMESTAMP"),
+ * //         LastModifiedTime: new Date("TIMESTAMP"),
+ * //         CreatedBy: "<UserContext>",
+ * //         LastModifiedBy: "<UserContext>",
+ * //         LastExecutedPipelineExecutionArn: "STRING_VALUE",
+ * //         LastExecutedPipelineExecutionDisplayName: "STRING_VALUE",
+ * //         LastExecutedPipelineExecutionStatus: "Executing" || "Stopping" || "Stopped" || "Failed" || "Succeeded",
  * //       },
  * //       FeatureGroup: { // FeatureGroup
  * //         FeatureGroupArn: "STRING_VALUE",

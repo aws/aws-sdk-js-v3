@@ -37,6 +37,7 @@ export interface DescribePipelineCommandOutput extends DescribePipelineResponse,
  * const client = new SageMakerClient(config);
  * const input = { // DescribePipelineRequest
  *   PipelineName: "STRING_VALUE", // required
+ *   PipelineVersionId: Number("long"),
  * };
  * const command = new DescribePipelineCommand(input);
  * const response = await client.send(command);
@@ -74,6 +75,8 @@ export interface DescribePipelineCommandOutput extends DescribePipelineResponse,
  * //   ParallelismConfiguration: { // ParallelismConfiguration
  * //     MaxParallelExecutionSteps: Number("int"), // required
  * //   },
+ * //   PipelineVersionDisplayName: "STRING_VALUE",
+ * //   PipelineVersionDescription: "STRING_VALUE",
  * // };
  *
  * ```

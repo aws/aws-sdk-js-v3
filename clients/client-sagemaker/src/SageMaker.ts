@@ -1247,6 +1247,11 @@ import {
   ListPipelinesCommandOutput,
 } from "./commands/ListPipelinesCommand";
 import {
+  ListPipelineVersionsCommand,
+  ListPipelineVersionsCommandInput,
+  ListPipelineVersionsCommandOutput,
+} from "./commands/ListPipelineVersionsCommand";
+import {
   ListProcessingJobsCommand,
   ListProcessingJobsCommandInput,
   ListProcessingJobsCommandOutput,
@@ -1643,6 +1648,11 @@ import {
   UpdatePipelineExecutionCommandOutput,
 } from "./commands/UpdatePipelineExecutionCommand";
 import {
+  UpdatePipelineVersionCommand,
+  UpdatePipelineVersionCommandInput,
+  UpdatePipelineVersionCommandOutput,
+} from "./commands/UpdatePipelineVersionCommand";
+import {
   UpdateProjectCommand,
   UpdateProjectCommandInput,
   UpdateProjectCommandOutput,
@@ -1945,6 +1955,7 @@ const commands = {
   ListPipelineExecutionStepsCommand,
   ListPipelineParametersForExecutionCommand,
   ListPipelinesCommand,
+  ListPipelineVersionsCommand,
   ListProcessingJobsCommand,
   ListProjectsCommand,
   ListResourceCatalogsCommand,
@@ -2029,6 +2040,7 @@ const commands = {
   UpdatePartnerAppCommand,
   UpdatePipelineCommand,
   UpdatePipelineExecutionCommand,
+  UpdatePipelineVersionCommand,
   UpdateProjectCommand,
   UpdateSpaceCommand,
   UpdateTrainingJobCommand,
@@ -6311,6 +6323,23 @@ export interface SageMaker {
   ): void;
 
   /**
+   * @see {@link ListPipelineVersionsCommand}
+   */
+  listPipelineVersions(
+    args: ListPipelineVersionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListPipelineVersionsCommandOutput>;
+  listPipelineVersions(
+    args: ListPipelineVersionsCommandInput,
+    cb: (err: any, data?: ListPipelineVersionsCommandOutput) => void
+  ): void;
+  listPipelineVersions(
+    args: ListPipelineVersionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListPipelineVersionsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListProcessingJobsCommand}
    */
   listProcessingJobs(): Promise<ListProcessingJobsCommandOutput>;
@@ -7631,6 +7660,23 @@ export interface SageMaker {
     args: UpdatePipelineExecutionCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdatePipelineExecutionCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdatePipelineVersionCommand}
+   */
+  updatePipelineVersion(
+    args: UpdatePipelineVersionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdatePipelineVersionCommandOutput>;
+  updatePipelineVersion(
+    args: UpdatePipelineVersionCommandInput,
+    cb: (err: any, data?: UpdatePipelineVersionCommandOutput) => void
+  ): void;
+  updatePipelineVersion(
+    args: UpdatePipelineVersionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdatePipelineVersionCommandOutput) => void
   ): void;
 
   /**

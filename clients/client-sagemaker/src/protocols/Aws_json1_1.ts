@@ -744,6 +744,10 @@ import {
   ListPipelineParametersForExecutionCommandOutput,
 } from "../commands/ListPipelineParametersForExecutionCommand";
 import { ListPipelinesCommandInput, ListPipelinesCommandOutput } from "../commands/ListPipelinesCommand";
+import {
+  ListPipelineVersionsCommandInput,
+  ListPipelineVersionsCommandOutput,
+} from "../commands/ListPipelineVersionsCommand";
 import { ListProcessingJobsCommandInput, ListProcessingJobsCommandOutput } from "../commands/ListProcessingJobsCommand";
 import { ListProjectsCommandInput, ListProjectsCommandOutput } from "../commands/ListProjectsCommand";
 import {
@@ -954,6 +958,10 @@ import {
   UpdatePipelineExecutionCommandInput,
   UpdatePipelineExecutionCommandOutput,
 } from "../commands/UpdatePipelineExecutionCommand";
+import {
+  UpdatePipelineVersionCommandInput,
+  UpdatePipelineVersionCommandOutput,
+} from "../commands/UpdatePipelineVersionCommand";
 import { UpdateProjectCommandInput, UpdateProjectCommandOutput } from "../commands/UpdateProjectCommand";
 import { UpdateSpaceCommandInput, UpdateSpaceCommandOutput } from "../commands/UpdateSpaceCommand";
 import { UpdateTrainingJobCommandInput, UpdateTrainingJobCommandOutput } from "../commands/UpdateTrainingJobCommand";
@@ -1087,6 +1095,8 @@ import {
   ClusterNodeSummary,
   ClusterOrchestrator,
   ClusterOrchestratorEksConfig,
+  ClusterRestrictedInstanceGroupDetails,
+  ClusterRestrictedInstanceGroupSpecification,
   ClusterSchedulerConfigSummary,
   ClusterSummary,
   CodeEditorAppImageConfig,
@@ -1099,10 +1109,7 @@ import {
   CollectionConfiguration,
   CompilationJobSummary,
   CompressionType,
-  ComputeQuotaConfig,
   ComputeQuotaResourceConfig,
-  ComputeQuotaSummary,
-  ComputeQuotaTarget,
   ContainerConfig,
   CustomImage,
   DataSource,
@@ -1111,10 +1118,13 @@ import {
   DirectDeploySettings,
   EmrServerlessComputeConfig,
   EmrServerlessSettings,
+  EnvironmentConfig,
+  EnvironmentConfigDetails,
   FileSystemConfig,
   FileSystemDataSource,
   FillingType,
   FinalAutoMLJobObjectiveMetric,
+  FSxLustreConfig,
   GenerativeAiSettings,
   GitConfig,
   HolidayConfigAttributes,
@@ -1148,7 +1158,6 @@ import {
   ResourceConfig,
   ResourceLimitExceeded,
   ResourceNotFound,
-  ResourceSharingConfig,
   ResourceSpec,
   RollingDeploymentPolicy,
   S3DataSource,
@@ -1185,6 +1194,9 @@ import {
   WorkspaceSettings,
 } from "../models/models_0";
 import {
+  ComputeQuotaConfig,
+  ComputeQuotaSummary,
+  ComputeQuotaTarget,
   ConditionStepMetadata,
   ConflictException,
   ContainerDefinition,
@@ -1364,9 +1376,7 @@ import {
   ModelInfrastructureConfig,
   ModelLatencyThreshold,
   ModelLifeCycle,
-  ModelMetrics,
   ModelPackageModelCard,
-  ModelPackageSecurityConfig,
   ModelQuality,
   ModelVariantConfig,
   MonitoringClusterConfig,
@@ -1410,6 +1420,7 @@ import {
   RepositoryAuthConfig,
   ResourceInUse,
   ResourceLimits,
+  ResourceSharingConfig,
   RetryStrategy,
   RollingUpdatePolicy,
   RSessionAppSettings,
@@ -1420,8 +1431,6 @@ import {
   ShadowModeConfig,
   ShadowModelVariantConfig,
   SharingSettings,
-  SourceAlgorithm,
-  SourceAlgorithmSpecification,
   Stairs,
   StudioWebPortalSettings,
   TargetPlatform,
@@ -1616,12 +1625,8 @@ import {
   DescribeEdgeDeploymentPlanResponse,
   DescribeEdgePackagingJobRequest,
   DescribeEdgePackagingJobResponse,
-  DescribeEndpointConfigInput,
-  DescribeEndpointConfigOutput,
   DescribeEndpointInput,
   DescribeEndpointOutput,
-  DescribeExperimentRequest,
-  DescribeExperimentResponse,
   EbsStorageSettings,
   Ec2CapacityReservation,
   EdgeDeploymentStatus,
@@ -1629,7 +1634,6 @@ import {
   EdgePresetDeploymentOutput,
   EFSFileSystem,
   ExperimentConfig,
-  ExperimentSource,
   FSxLustreFileSystem,
   IamPolicyConstraints,
   InfraCheckConfig,
@@ -1640,6 +1644,8 @@ import {
   ModelCompilationConfig,
   ModelDeployResult,
   ModelDigests,
+  ModelMetrics,
+  ModelPackageSecurityConfig,
   ModelPackageValidationProfile,
   ModelPackageValidationSpecification,
   ModelQualityAppSpecification,
@@ -1695,6 +1701,8 @@ import {
   ScheduleConfig,
   ServiceCatalogProvisioningDetails,
   SessionChainingConfig,
+  SourceAlgorithm,
+  SourceAlgorithmSpecification,
   SourceIpConfig,
   SpaceAppLifecycleManagement,
   SpaceCodeEditorAppSettings,
@@ -1711,6 +1719,10 @@ import {
   WorkforceVpcConfigRequest,
 } from "../models/models_2";
 import {
+  DescribeEndpointConfigInput,
+  DescribeEndpointConfigOutput,
+  DescribeExperimentRequest,
+  DescribeExperimentResponse,
   DescribeFeatureGroupRequest,
   DescribeFeatureGroupResponse,
   DescribeFeatureMetadataRequest,
@@ -1831,6 +1843,7 @@ import {
   EnvironmentParameter,
   ErrorInfo,
   Experiment,
+  ExperimentSource,
   ExperimentSummary,
   FailStepMetadata,
   FeatureGroup,
@@ -1896,9 +1909,6 @@ import {
   ListAppImageConfigsRequest,
   ListAppImageConfigsResponse,
   ListAppsRequest,
-  ListAppsResponse,
-  ListArtifactsRequest,
-  ListArtifactsResponse,
   MetricData,
   MetricSpecification,
   ModelCardExportArtifacts,
@@ -1946,6 +1956,9 @@ import {
   Workteam,
 } from "../models/models_3";
 import {
+  ListAppsResponse,
+  ListArtifactsRequest,
+  ListArtifactsResponse,
   ListAssociationsRequest,
   ListAssociationsResponse,
   ListAutoMLJobsRequest,
@@ -2062,6 +2075,8 @@ import {
   ListPipelineParametersForExecutionResponse,
   ListPipelinesRequest,
   ListPipelinesResponse,
+  ListPipelineVersionsRequest,
+  ListPipelineVersionsResponse,
   ListProcessingJobsRequest,
   ListProcessingJobsResponse,
   ListProjectsInput,
@@ -2136,6 +2151,8 @@ import {
   PipelineExecutionStepMetadata,
   PipelineExecutionSummary,
   PipelineSummary,
+  PipelineVersion,
+  PipelineVersionSummary,
   ProcessingJob,
   ProcessingJobStepMetadata,
   ProcessingJobSummary,
@@ -2160,31 +2177,22 @@ import {
   ResourceConfigForUpdate,
   RetryPipelineExecutionRequest,
   RetryPipelineExecutionResponse,
-  SearchRecord,
-  SearchResponse,
-  SearchTrainingPlanOfferingsRequest,
-  SearchTrainingPlanOfferingsResponse,
   SelectiveExecutionResult,
-  SendPipelineExecutionStepFailureRequest,
   SpaceDetails,
   SpaceSettingsSummary,
   SpaceSharingSettingsSummary,
   StudioLifecycleConfigDetails,
-  TotalHits,
   TrackingServerSummary,
   TrainingJob,
   TrainingJobStepMetadata,
   TrainingJobSummary,
   TrainingPlanFilter,
-  TrainingPlanOffering,
   TrainingPlanSummary,
   TransformJob,
   TransformJobStepMetadata,
   TransformJobSummary,
   Trial,
-  TrialComponent,
   TrialComponentSimpleSummary,
-  TrialComponentSourceDetail,
   TrialComponentSummary,
   TrialSummary,
   TuningJobStepMetaData,
@@ -2194,7 +2202,12 @@ import {
 } from "../models/models_4";
 import {
   SearchExpression,
+  SearchRecord,
   SearchRequest,
+  SearchResponse,
+  SearchTrainingPlanOfferingsRequest,
+  SearchTrainingPlanOfferingsResponse,
+  SendPipelineExecutionStepFailureRequest,
   SendPipelineExecutionStepFailureResponse,
   SendPipelineExecutionStepSuccessRequest,
   SendPipelineExecutionStepSuccessResponse,
@@ -2230,6 +2243,10 @@ import {
   StopTrainingJobRequest,
   StopTransformJobRequest,
   ThroughputConfigUpdate,
+  TotalHits,
+  TrainingPlanOffering,
+  TrialComponent,
+  TrialComponentSourceDetail,
   UpdateActionRequest,
   UpdateActionResponse,
   UpdateAppImageConfigRequest,
@@ -2298,6 +2315,8 @@ import {
   UpdatePipelineExecutionResponse,
   UpdatePipelineRequest,
   UpdatePipelineResponse,
+  UpdatePipelineVersionRequest,
+  UpdatePipelineVersionResponse,
   UpdateProjectInput,
   UpdateProjectOutput,
   UpdateSpaceRequest,
@@ -5804,6 +5823,19 @@ export const se_ListPipelinesCommand = async (
 };
 
 /**
+ * serializeAws_json1_1ListPipelineVersionsCommand
+ */
+export const se_ListPipelineVersionsCommand = async (
+  input: ListPipelineVersionsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("ListPipelineVersions");
+  let body: any;
+  body = JSON.stringify(se_ListPipelineVersionsRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_json1_1ListProcessingJobsCommand
  */
 export const se_ListProcessingJobsCommand = async (
@@ -6887,6 +6919,19 @@ export const se_UpdatePipelineExecutionCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("UpdatePipelineExecution");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1UpdatePipelineVersionCommand
+ */
+export const se_UpdatePipelineVersionCommand = async (
+  input: UpdatePipelineVersionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("UpdatePipelineVersion");
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -12237,6 +12282,26 @@ export const de_ListPipelinesCommand = async (
 };
 
 /**
+ * deserializeAws_json1_1ListPipelineVersionsCommand
+ */
+export const de_ListPipelineVersionsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListPipelineVersionsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ListPipelineVersionsResponse(data, context);
+  const response: ListPipelineVersionsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
  * deserializeAws_json1_1ListProcessingJobsCommand
  */
 export const de_ListProcessingJobsCommand = async (
@@ -13857,6 +13922,26 @@ export const de_UpdatePipelineExecutionCommand = async (
 };
 
 /**
+ * deserializeAws_json1_1UpdatePipelineVersionCommand
+ */
+export const de_UpdatePipelineVersionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdatePipelineVersionCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_UpdatePipelineVersionResponse(data, context);
+  const response: UpdatePipelineVersionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
  * deserializeAws_json1_1UpdateProjectCommand
  */
 export const de_UpdateProjectCommand = async (
@@ -14352,6 +14437,10 @@ const se_BatchTransformInput = (input: BatchTransformInput, context: __SerdeCont
 // se_ClusterOrchestrator omitted.
 
 // se_ClusterOrchestratorEksConfig omitted.
+
+// se_ClusterRestrictedInstanceGroupSpecification omitted.
+
+// se_ClusterRestrictedInstanceGroupSpecifications omitted.
 
 // se_CodeEditorAppImageConfig omitted.
 
@@ -15266,6 +15355,8 @@ const se_EndpointInput = (input: EndpointInput, context: __SerdeContext): any =>
 
 // se_Endpoints omitted.
 
+// se_EnvironmentConfig omitted.
+
 // se_EnvironmentMap omitted.
 
 // se_EnvironmentParameterRanges omitted.
@@ -15309,6 +15400,8 @@ const se_EndpointInput = (input: EndpointInput, context: __SerdeContext): any =>
 // se_FlowDefinitionTaskKeywords omitted.
 
 // se_ForecastQuantiles omitted.
+
+// se_FSxLustreConfig omitted.
 
 // se_FSxLustreFileSystem omitted.
 
@@ -16537,6 +16630,20 @@ const se_ListPipelinesRequest = (input: ListPipelinesRequest, context: __SerdeCo
 };
 
 /**
+ * serializeAws_json1_1ListPipelineVersionsRequest
+ */
+const se_ListPipelineVersionsRequest = (input: ListPipelineVersionsRequest, context: __SerdeContext): any => {
+  return take(input, {
+    CreatedAfter: (_) => _.getTime() / 1_000,
+    CreatedBefore: (_) => _.getTime() / 1_000,
+    MaxResults: [],
+    NextToken: [],
+    PipelineName: [],
+    SortOrder: [],
+  });
+};
+
+/**
  * serializeAws_json1_1ListProcessingJobsRequest
  */
 const se_ListProcessingJobsRequest = (input: ListProcessingJobsRequest, context: __SerdeContext): any => {
@@ -17406,6 +17513,7 @@ const se_StartPipelineExecutionRequest = (input: StartPipelineExecutionRequest, 
     PipelineExecutionDisplayName: [],
     PipelineName: [],
     PipelineParameters: _json,
+    PipelineVersionId: [],
     SelectiveExecutionConfig: _json,
   });
 };
@@ -17713,6 +17821,8 @@ const se_UpdatePartnerAppRequest = (input: UpdatePartnerAppRequest, context: __S
 // se_UpdatePipelineExecutionRequest omitted.
 
 // se_UpdatePipelineRequest omitted.
+
+// se_UpdatePipelineVersionRequest omitted.
 
 // se_UpdateProjectInput omitted.
 
@@ -19627,6 +19737,46 @@ const de_ClusterOrchestratorEksConfig = (output: any, context: __SerdeContext): 
   return take(output, {
     ClusterArn: __expectString,
   }) as any;
+};
+
+/**
+ * deserializeAws_json1_1ClusterRestrictedInstanceGroupDetails
+ */
+const de_ClusterRestrictedInstanceGroupDetails = (
+  output: any,
+  context: __SerdeContext
+): ClusterRestrictedInstanceGroupDetails => {
+  return take(output, {
+    CurrentCount: __expectInt32,
+    EnvironmentConfig: (_: any) => de_EnvironmentConfigDetails(_, context),
+    ExecutionRole: __expectString,
+    InstanceGroupName: __expectString,
+    InstanceStorageConfigs: (_: any) => de_ClusterInstanceStorageConfigs(_, context),
+    InstanceType: __expectString,
+    OnStartDeepHealthChecks: (_: any) => de_OnStartDeepHealthChecks(_, context),
+    OverrideVpcConfig: (_: any) => de_VpcConfig(_, context),
+    ScheduledUpdateConfig: (_: any) => de_ScheduledUpdateConfig(_, context),
+    Status: __expectString,
+    TargetCount: __expectInt32,
+    ThreadsPerCore: __expectInt32,
+    TrainingPlanArn: __expectString,
+    TrainingPlanStatus: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1ClusterRestrictedInstanceGroupDetailsList
+ */
+const de_ClusterRestrictedInstanceGroupDetailsList = (
+  output: any,
+  context: __SerdeContext
+): ClusterRestrictedInstanceGroupDetails[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_ClusterRestrictedInstanceGroupDetails(entry, context);
+    });
+  return retVal;
 };
 
 /**
@@ -21566,6 +21716,7 @@ const de_DescribeClusterResponse = (output: any, context: __SerdeContext): Descr
     InstanceGroups: (_: any) => de_ClusterInstanceGroupDetailsList(_, context),
     NodeRecovery: __expectString,
     Orchestrator: (_: any) => de_ClusterOrchestrator(_, context),
+    RestrictedInstanceGroups: (_: any) => de_ClusterRestrictedInstanceGroupDetailsList(_, context),
     VpcConfig: (_: any) => de_VpcConfig(_, context),
   }) as any;
 };
@@ -22529,6 +22680,7 @@ const de_DescribePipelineExecutionResponse = (
     PipelineExecutionDisplayName: __expectString,
     PipelineExecutionStatus: __expectString,
     PipelineExperimentConfig: (_: any) => de_PipelineExperimentConfig(_, context),
+    PipelineVersionId: __expectLong,
     SelectiveExecutionConfig: (_: any) => de_SelectiveExecutionConfig(_, context),
   }) as any;
 };
@@ -22550,6 +22702,8 @@ const de_DescribePipelineResponse = (output: any, context: __SerdeContext): Desc
     PipelineDisplayName: __expectString,
     PipelineName: __expectString,
     PipelineStatus: __expectString,
+    PipelineVersionDescription: __expectString,
+    PipelineVersionDisplayName: __expectString,
     RoleArn: __expectString,
   }) as any;
 };
@@ -23637,6 +23791,16 @@ const de_EndpointSummaryList = (output: any, context: __SerdeContext): EndpointS
 };
 
 /**
+ * deserializeAws_json1_1EnvironmentConfigDetails
+ */
+const de_EnvironmentConfigDetails = (output: any, context: __SerdeContext): EnvironmentConfigDetails => {
+  return take(output, {
+    FSxLustreConfig: (_: any) => de_FSxLustreConfig(_, context),
+    S3OutputPath: __expectString,
+  }) as any;
+};
+
+/**
  * deserializeAws_json1_1EnvironmentMap
  */
 const de_EnvironmentMap = (output: any, context: __SerdeContext): Record<string, string> => {
@@ -24068,6 +24232,16 @@ const de_ForecastQuantiles = (output: any, context: __SerdeContext): string[] =>
       return __expectString(entry) as any;
     });
   return retVal;
+};
+
+/**
+ * deserializeAws_json1_1FSxLustreConfig
+ */
+const de_FSxLustreConfig = (output: any, context: __SerdeContext): FSxLustreConfig => {
+  return take(output, {
+    PerUnitStorageThroughput: __expectInt32,
+    SizeInGiB: __expectInt32,
+  }) as any;
 };
 
 /**
@@ -26512,6 +26686,16 @@ const de_ListPipelinesResponse = (output: any, context: __SerdeContext): ListPip
 };
 
 /**
+ * deserializeAws_json1_1ListPipelineVersionsResponse
+ */
+const de_ListPipelineVersionsResponse = (output: any, context: __SerdeContext): ListPipelineVersionsResponse => {
+  return take(output, {
+    NextToken: __expectString,
+    PipelineVersionSummaries: (_: any) => de_PipelineVersionSummaryList(_, context),
+  }) as any;
+};
+
+/**
  * deserializeAws_json1_1ListProcessingJobsResponse
  */
 const de_ListProcessingJobsResponse = (output: any, context: __SerdeContext): ListProcessingJobsResponse => {
@@ -28890,6 +29074,8 @@ const de_PipelineExecution = (output: any, context: __SerdeContext): PipelineExe
     PipelineExecutionStatus: __expectString,
     PipelineExperimentConfig: (_: any) => de_PipelineExperimentConfig(_, context),
     PipelineParameters: (_: any) => de_ParameterList(_, context),
+    PipelineVersionDisplayName: __expectString,
+    PipelineVersionId: __expectLong,
     SelectiveExecutionConfig: (_: any) => de_SelectiveExecutionConfig(_, context),
   }) as any;
 };
@@ -29009,6 +29195,51 @@ const de_PipelineSummaryList = (output: any, context: __SerdeContext): PipelineS
     .filter((e: any) => e != null)
     .map((entry: any) => {
       return de_PipelineSummary(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_json1_1PipelineVersion
+ */
+const de_PipelineVersion = (output: any, context: __SerdeContext): PipelineVersion => {
+  return take(output, {
+    CreatedBy: (_: any) => de_UserContext(_, context),
+    CreationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    LastExecutedPipelineExecutionArn: __expectString,
+    LastExecutedPipelineExecutionDisplayName: __expectString,
+    LastExecutedPipelineExecutionStatus: __expectString,
+    LastModifiedBy: (_: any) => de_UserContext(_, context),
+    LastModifiedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    PipelineArn: __expectString,
+    PipelineVersionDescription: __expectString,
+    PipelineVersionDisplayName: __expectString,
+    PipelineVersionId: __expectLong,
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1PipelineVersionSummary
+ */
+const de_PipelineVersionSummary = (output: any, context: __SerdeContext): PipelineVersionSummary => {
+  return take(output, {
+    CreationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    LastExecutionPipelineExecutionArn: __expectString,
+    PipelineArn: __expectString,
+    PipelineVersionDescription: __expectString,
+    PipelineVersionDisplayName: __expectString,
+    PipelineVersionId: __expectLong,
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1PipelineVersionSummaryList
+ */
+const de_PipelineVersionSummaryList = (output: any, context: __SerdeContext): PipelineVersionSummary[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_PipelineVersionSummary(entry, context);
     });
   return retVal;
 };
@@ -30373,6 +30604,7 @@ const de_SearchRecord = (output: any, context: __SerdeContext): SearchRecord => 
     ModelPackageGroup: (_: any) => de_ModelPackageGroup(_, context),
     Pipeline: (_: any) => de_Pipeline(_, context),
     PipelineExecution: (_: any) => de_PipelineExecution(_, context),
+    PipelineVersion: (_: any) => de_PipelineVersion(_, context),
     Project: (_: any) => de_Project(_, context),
     TrainingJob: (_: any) => de_TrainingJob(_, context),
     Trial: (_: any) => de_Trial(_, context),
@@ -32299,6 +32531,17 @@ const de_UpdatePipelineExecutionResponse = (output: any, context: __SerdeContext
 const de_UpdatePipelineResponse = (output: any, context: __SerdeContext): UpdatePipelineResponse => {
   return take(output, {
     PipelineArn: __expectString,
+    PipelineVersionId: __expectLong,
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1UpdatePipelineVersionResponse
+ */
+const de_UpdatePipelineVersionResponse = (output: any, context: __SerdeContext): UpdatePipelineVersionResponse => {
+  return take(output, {
+    PipelineArn: __expectString,
+    PipelineVersionId: __expectLong,
   }) as any;
 };
 

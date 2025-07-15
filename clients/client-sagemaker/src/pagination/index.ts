@@ -61,6 +61,7 @@ export * from "./ListPartnerAppsPaginator";
 export * from "./ListPipelineExecutionStepsPaginator";
 export * from "./ListPipelineExecutionsPaginator";
 export * from "./ListPipelineParametersForExecutionPaginator";
+export * from "./ListPipelineVersionsPaginator";
 export * from "./ListPipelinesPaginator";
 export * from "./ListProcessingJobsPaginator";
 export * from "./ListProjectsPaginator";

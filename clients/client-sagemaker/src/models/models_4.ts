@@ -4,8 +4,10 @@ import { SENSITIVE_STRING } from "@smithy/smithy-client";
 import {
   AdditionalInferenceSpecificationDefinition,
   AlgorithmSpecification,
+  AppDetails,
   AppSpecification,
   AppType,
+  ArtifactSummary,
   AssociationEdgeType,
   AssociationSummary,
   AutoMLCandidate,
@@ -33,7 +35,6 @@ import {
   CodeRepositorySummary,
   CompilationJobStatus,
   CompilationJobSummary,
-  ComputeQuotaSummary,
   FeatureStatus,
   InferenceSpecification,
   ModelApprovalStatus,
@@ -52,6 +53,7 @@ import {
 
 import {
   _InstanceType,
+  ComputeQuotaSummary,
   ConditionStepMetadata,
   ContainerDefinition,
   ContextSummary,
@@ -63,13 +65,9 @@ import {
   ModelCardSecurityConfig,
   ModelCardStatus,
   ModelLifeCycle,
-  ModelMetrics,
   ModelPackageModelCard,
   ModelPackageModelCardFilterSensitiveLog,
-  ModelPackageSecurityConfig,
   RetryStrategy,
-  SkipModelValidation,
-  SourceAlgorithmSpecification,
   TtlDuration,
   UiTemplate,
 } from "./models_1";
@@ -86,6 +84,8 @@ import {
   ExperimentConfig,
   ModelArtifacts,
   ModelClientConfig,
+  ModelMetrics,
+  ModelPackageSecurityConfig,
   ModelPackageValidationSpecification,
   MonitoringScheduleConfig,
   MonitoringType,
@@ -100,11 +100,11 @@ import {
   ProfilerConfig,
   ServiceCatalogProvisioningDetails,
   SharingType,
+  SkipModelValidation,
+  SourceAlgorithmSpecification,
   SpaceStorageSettings,
   StudioLifecycleConfigAppType,
   TensorBoardOutputConfig,
-  TrialComponentArtifact,
-  TrialComponentParameterValue,
   TrialComponentStatus,
 } from "./models_2";
 
@@ -119,7 +119,6 @@ import {
   EdgeDeploymentPlanSummary,
   EdgePackagingJobSummary,
   EMRStepMetadata,
-  Endpoint,
   EndpointConfigSortKey,
   EndpointConfigStepMetadata,
   EndpointConfigSummary,
@@ -127,15 +126,12 @@ import {
   EndpointStepMetadata,
   EndpointSummary,
   ExecutionStatus,
-  Experiment,
   ExperimentSummary,
   FailStepMetadata,
-  FeatureGroup,
   FeatureGroupSortBy,
   FeatureGroupSortOrder,
   FeatureGroupStatus,
   FeatureGroupSummary,
-  FeatureMetadata,
   Filter,
   FlowDefinitionSummary,
   HubContentInfo,
@@ -144,7 +140,6 @@ import {
   HubSortBy,
   HumanTaskUiSummary,
   HyperParameterTrainingJobSummary,
-  HyperParameterTuningJobSearchEntity,
   HyperParameterTuningJobSortByOptions,
   HyperParameterTuningJobStatus,
   HyperParameterTuningJobSummary,
@@ -192,7 +187,6 @@ import {
   SecondaryStatusTransition,
   SelectiveExecutionConfig,
   ServiceCatalogProvisionedProductDetails,
-  SortAssociationsBy,
   SortOrder,
   SpaceStatus,
   SubscribedWorkteam,
@@ -201,7 +195,6 @@ import {
   TrainingJobStatus,
   TrainingPlanStatus,
   TransformJobStatus,
-  TrialComponentMetricSummary,
   TrialComponentSource,
   TrialSource,
   UserProfileStatus,
@@ -210,6 +203,123 @@ import {
   Workforce,
   Workteam,
 } from "./models_3";
+
+/**
+ * @public
+ */
+export interface ListAppsResponse {
+  /**
+   * <p>The list of apps.</p>
+   * @public
+   */
+  Apps?: AppDetails[] | undefined;
+
+  /**
+   * <p>If the previous response was truncated, you will receive this token. Use it in your next request to receive the next set of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const SortArtifactsBy = {
+  CREATION_TIME: "CreationTime",
+} as const;
+
+/**
+ * @public
+ */
+export type SortArtifactsBy = (typeof SortArtifactsBy)[keyof typeof SortArtifactsBy];
+
+/**
+ * @public
+ */
+export interface ListArtifactsRequest {
+  /**
+   * <p>A filter that returns only artifacts with the specified source URI.</p>
+   * @public
+   */
+  SourceUri?: string | undefined;
+
+  /**
+   * <p>A filter that returns only artifacts of the specified type.</p>
+   * @public
+   */
+  ArtifactType?: string | undefined;
+
+  /**
+   * <p>A filter that returns only artifacts created on or after the specified time.</p>
+   * @public
+   */
+  CreatedAfter?: Date | undefined;
+
+  /**
+   * <p>A filter that returns only artifacts created on or before the specified time.</p>
+   * @public
+   */
+  CreatedBefore?: Date | undefined;
+
+  /**
+   * <p>The property used to sort results. The default value is <code>CreationTime</code>.</p>
+   * @public
+   */
+  SortBy?: SortArtifactsBy | undefined;
+
+  /**
+   * <p>The sort order. The default value is <code>Descending</code>.</p>
+   * @public
+   */
+  SortOrder?: SortOrder | undefined;
+
+  /**
+   * <p>If the previous call to <code>ListArtifacts</code> didn't return the full set of artifacts, the call returns a token for getting the next set of artifacts.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of artifacts to return in the response. The default value is 10.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListArtifactsResponse {
+  /**
+   * <p>A list of artifacts and their properties.</p>
+   * @public
+   */
+  ArtifactSummaries?: ArtifactSummary[] | undefined;
+
+  /**
+   * <p>A token for getting the next set of artifacts, if there are any.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const SortAssociationsBy = {
+  CREATION_TIME: "CreationTime",
+  DESTINATION_ARN: "DestinationArn",
+  DESTINATION_TYPE: "DestinationType",
+  SOURCE_ARN: "SourceArn",
+  SOURCE_TYPE: "SourceType",
+} as const;
+
+/**
+ * @public
+ */
+export type SortAssociationsBy = (typeof SortAssociationsBy)[keyof typeof SortAssociationsBy];
 
 /**
  * @public
@@ -6113,6 +6223,106 @@ export interface ListPipelinesResponse {
 /**
  * @public
  */
+export interface ListPipelineVersionsRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the pipeline.</p>
+   * @public
+   */
+  PipelineName: string | undefined;
+
+  /**
+   * <p>A filter that returns the pipeline versions that were created after a specified time.</p>
+   * @public
+   */
+  CreatedAfter?: Date | undefined;
+
+  /**
+   * <p>A filter that returns the pipeline versions that were created before a specified time.</p>
+   * @public
+   */
+  CreatedBefore?: Date | undefined;
+
+  /**
+   * <p>The sort order for the results.</p>
+   * @public
+   */
+  SortOrder?: SortOrder | undefined;
+
+  /**
+   * <p>If the result of the previous <code>ListPipelineVersions</code> request was truncated, the response includes a <code>NextToken</code>. To retrieve the next set of pipeline versions, use this token in your next request.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of pipeline versions to return in the response.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+}
+
+/**
+ * <p>The summary of the pipeline version.</p>
+ * @public
+ */
+export interface PipelineVersionSummary {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the pipeline.</p>
+   * @public
+   */
+  PipelineArn?: string | undefined;
+
+  /**
+   * <p>The ID of the pipeline version.</p>
+   * @public
+   */
+  PipelineVersionId?: number | undefined;
+
+  /**
+   * <p>The creation time of the pipeline version.</p>
+   * @public
+   */
+  CreationTime?: Date | undefined;
+
+  /**
+   * <p>The description of the pipeline version.</p>
+   * @public
+   */
+  PipelineVersionDescription?: string | undefined;
+
+  /**
+   * <p>The display name of the pipeline version.</p>
+   * @public
+   */
+  PipelineVersionDisplayName?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the most recent pipeline execution created from this pipeline version.</p>
+   * @public
+   */
+  LastExecutionPipelineExecutionArn?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListPipelineVersionsResponse {
+  /**
+   * <p>Contains a sorted list of pipeline version summary objects matching the specified filters. Each version summary includes the pipeline version ID, the creation date, and the last pipeline execution created from that version. This list can be empty.</p>
+   * @public
+   */
+  PipelineVersionSummaries?: PipelineVersionSummary[] | undefined;
+
+  /**
+   * <p>If the result of the previous <code>ListPipelineVersions</code> request was truncated, the response includes a <code>NextToken</code>. To retrieve the next set of pipeline versions, use this token in your next request.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface ListProcessingJobsRequest {
   /**
    * <p>A filter that returns only processing jobs created after the specified time.</p>
@@ -8174,7 +8384,7 @@ export interface ModelCard {
   CreationTime?: Date | undefined;
 
   /**
-   * <p>Information about the user who created or modified an experiment, trial, trial component, lineage group, project, or model card.</p>
+   * <p>Information about the user who created or modified a SageMaker resource.</p>
    * @public
    */
   CreatedBy?: UserContext | undefined;
@@ -8186,7 +8396,7 @@ export interface ModelCard {
   LastModifiedTime?: Date | undefined;
 
   /**
-   * <p>Information about the user who created or modified an experiment, trial, trial component, lineage group, project, or model card.</p>
+   * <p>Information about the user who created or modified a SageMaker resource.</p>
    * @public
    */
   LastModifiedBy?: UserContext | undefined;
@@ -8432,7 +8642,7 @@ export interface ModelDashboardModelCard {
   CreationTime?: Date | undefined;
 
   /**
-   * <p>Information about the user who created or modified an experiment, trial, trial component, lineage group, project, or model card.</p>
+   * <p>Information about the user who created or modified a SageMaker resource.</p>
    * @public
    */
   CreatedBy?: UserContext | undefined;
@@ -8444,7 +8654,7 @@ export interface ModelDashboardModelCard {
   LastModifiedTime?: Date | undefined;
 
   /**
-   * <p>Information about the user who created or modified an experiment, trial, trial component, lineage group, project, or model card.</p>
+   * <p>Information about the user who created or modified a SageMaker resource.</p>
    * @public
    */
   LastModifiedBy?: UserContext | undefined;
@@ -8804,7 +9014,7 @@ export interface ModelPackageGroup {
   CreationTime?: Date | undefined;
 
   /**
-   * <p>Information about the user who created or modified an experiment, trial, trial component, lineage group, project, or model card.</p>
+   * <p>Information about the user who created or modified a SageMaker resource.</p>
    * @public
    */
   CreatedBy?: UserContext | undefined;
@@ -8945,13 +9155,13 @@ export interface Pipeline {
   LastRunTime?: Date | undefined;
 
   /**
-   * <p>Information about the user who created or modified an experiment, trial, trial component, lineage group, project, or model card.</p>
+   * <p>Information about the user who created or modified a SageMaker resource.</p>
    * @public
    */
   CreatedBy?: UserContext | undefined;
 
   /**
-   * <p>Information about the user who created or modified an experiment, trial, trial component, lineage group, project, or model card.</p>
+   * <p>Information about the user who created or modified a SageMaker resource.</p>
    * @public
    */
   LastModifiedBy?: UserContext | undefined;
@@ -9029,13 +9239,13 @@ export interface PipelineExecution {
   LastModifiedTime?: Date | undefined;
 
   /**
-   * <p>Information about the user who created or modified an experiment, trial, trial component, lineage group, project, or model card.</p>
+   * <p>Information about the user who created or modified a SageMaker resource.</p>
    * @public
    */
   CreatedBy?: UserContext | undefined;
 
   /**
-   * <p>Information about the user who created or modified an experiment, trial, trial component, lineage group, project, or model card.</p>
+   * <p>Information about the user who created or modified a SageMaker resource.</p>
    * @public
    */
   LastModifiedBy?: UserContext | undefined;
@@ -9057,6 +9267,90 @@ export interface PipelineExecution {
    * @public
    */
   PipelineParameters?: Parameter[] | undefined;
+
+  /**
+   * <p>The ID of the pipeline version that started this execution.</p>
+   * @public
+   */
+  PipelineVersionId?: number | undefined;
+
+  /**
+   * <p>The display name of the pipeline version that started this execution.</p>
+   * @public
+   */
+  PipelineVersionDisplayName?: string | undefined;
+}
+
+/**
+ * <p>The version of the pipeline.</p>
+ * @public
+ */
+export interface PipelineVersion {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the pipeline.</p>
+   * @public
+   */
+  PipelineArn?: string | undefined;
+
+  /**
+   * <p>The ID of the pipeline version.</p>
+   * @public
+   */
+  PipelineVersionId?: number | undefined;
+
+  /**
+   * <p>The display name of the pipeline version.</p>
+   * @public
+   */
+  PipelineVersionDisplayName?: string | undefined;
+
+  /**
+   * <p>The description of the pipeline version.</p>
+   * @public
+   */
+  PipelineVersionDescription?: string | undefined;
+
+  /**
+   * <p>The creation time of the pipeline version.</p>
+   * @public
+   */
+  CreationTime?: Date | undefined;
+
+  /**
+   * <p>The time when the pipeline version was last modified.</p>
+   * @public
+   */
+  LastModifiedTime?: Date | undefined;
+
+  /**
+   * <p>Information about the user who created or modified a SageMaker resource.</p>
+   * @public
+   */
+  CreatedBy?: UserContext | undefined;
+
+  /**
+   * <p>Information about the user who created or modified a SageMaker resource.</p>
+   * @public
+   */
+  LastModifiedBy?: UserContext | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the most recent pipeline execution created from this pipeline version.</p>
+   * @public
+   */
+  LastExecutedPipelineExecutionArn?: string | undefined;
+
+  /**
+   * <p>The display name of the most recent pipeline execution created from this pipeline version.</p>
+   * @public
+   */
+  LastExecutedPipelineExecutionDisplayName?: string | undefined;
+
+  /**
+   * <p>The status of the most recent pipeline execution created from this pipeline version.</p>
+   * @public
+   */
+  LastExecutedPipelineExecutionStatus?: PipelineExecutionStatus | undefined;
 }
 
 /**
@@ -9305,7 +9599,7 @@ export interface Project {
   LastModifiedTime?: Date | undefined;
 
   /**
-   * <p>Information about the user who created or modified an experiment, trial, trial component, lineage group, project, or model card.</p>
+   * <p>Information about the user who created or modified a SageMaker resource.</p>
    * @public
    */
   LastModifiedBy?: UserContext | undefined;
@@ -9996,7 +10290,7 @@ export interface TrialComponentSimpleSummary {
   CreationTime?: Date | undefined;
 
   /**
-   * <p>Information about the user who created or modified an experiment, trial, trial component, lineage group, project, or model card.</p>
+   * <p>Information about the user who created or modified a SageMaker resource.</p>
    * @public
    */
   CreatedBy?: UserContext | undefined;
@@ -10056,7 +10350,7 @@ export interface Trial {
   LastModifiedTime?: Date | undefined;
 
   /**
-   * <p>Information about the user who created or modified an experiment, trial, trial component, lineage group, project, or model card.</p>
+   * <p>Information about the user who created or modified a SageMaker resource.</p>
    * @public
    */
   LastModifiedBy?: UserContext | undefined;
@@ -10081,440 +10375,6 @@ export interface Trial {
 }
 
 /**
- * <p>Detailed information about the source of a trial component. Either <code>ProcessingJob</code> or <code>TrainingJob</code> is returned.</p>
- * @public
- */
-export interface TrialComponentSourceDetail {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the source.</p>
-   * @public
-   */
-  SourceArn?: string | undefined;
-
-  /**
-   * <p>Information about a training job that's the source of a trial component.</p>
-   * @public
-   */
-  TrainingJob?: TrainingJob | undefined;
-
-  /**
-   * <p>Information about a processing job that's the source of a trial component.</p>
-   * @public
-   */
-  ProcessingJob?: ProcessingJob | undefined;
-
-  /**
-   * <p>Information about a transform job that's the source of a trial component.</p>
-   * @public
-   */
-  TransformJob?: TransformJob | undefined;
-}
-
-/**
- * <p>The properties of a trial component as returned by the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_Search.html">Search</a> API.</p>
- * @public
- */
-export interface TrialComponent {
-  /**
-   * <p>The name of the trial component.</p>
-   * @public
-   */
-  TrialComponentName?: string | undefined;
-
-  /**
-   * <p>The name of the component as displayed. If <code>DisplayName</code> isn't specified, <code>TrialComponentName</code> is displayed.</p>
-   * @public
-   */
-  DisplayName?: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the trial component.</p>
-   * @public
-   */
-  TrialComponentArn?: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) and job type of the source of the component.</p>
-   * @public
-   */
-  Source?: TrialComponentSource | undefined;
-
-  /**
-   * <p>The status of the trial component.</p>
-   * @public
-   */
-  Status?: TrialComponentStatus | undefined;
-
-  /**
-   * <p>When the component started.</p>
-   * @public
-   */
-  StartTime?: Date | undefined;
-
-  /**
-   * <p>When the component ended.</p>
-   * @public
-   */
-  EndTime?: Date | undefined;
-
-  /**
-   * <p>When the component was created.</p>
-   * @public
-   */
-  CreationTime?: Date | undefined;
-
-  /**
-   * <p>Who created the trial component.</p>
-   * @public
-   */
-  CreatedBy?: UserContext | undefined;
-
-  /**
-   * <p>When the component was last modified.</p>
-   * @public
-   */
-  LastModifiedTime?: Date | undefined;
-
-  /**
-   * <p>Information about the user who created or modified an experiment, trial, trial component, lineage group, project, or model card.</p>
-   * @public
-   */
-  LastModifiedBy?: UserContext | undefined;
-
-  /**
-   * <p>The hyperparameters of the component.</p>
-   * @public
-   */
-  Parameters?: Record<string, TrialComponentParameterValue> | undefined;
-
-  /**
-   * <p>The input artifacts of the component.</p>
-   * @public
-   */
-  InputArtifacts?: Record<string, TrialComponentArtifact> | undefined;
-
-  /**
-   * <p>The output artifacts of the component.</p>
-   * @public
-   */
-  OutputArtifacts?: Record<string, TrialComponentArtifact> | undefined;
-
-  /**
-   * <p>The metrics for the component.</p>
-   * @public
-   */
-  Metrics?: TrialComponentMetricSummary[] | undefined;
-
-  /**
-   * <p>Metadata properties of the tracking entity, trial, or trial component.</p>
-   * @public
-   */
-  MetadataProperties?: MetadataProperties | undefined;
-
-  /**
-   * <p>Details of the source of the component.</p>
-   * @public
-   */
-  SourceDetail?: TrialComponentSourceDetail | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the lineage group resource.</p>
-   * @public
-   */
-  LineageGroupArn?: string | undefined;
-
-  /**
-   * <p>The list of tags that are associated with the component. You can use <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_Search.html">Search</a> API to search on the tags.</p>
-   * @public
-   */
-  Tags?: Tag[] | undefined;
-
-  /**
-   * <p>An array of the parents of the component. A parent is a trial the component is associated with and the experiment the trial is part of. A component might not have any parents.</p>
-   * @public
-   */
-  Parents?: Parent[] | undefined;
-
-  /**
-   * <p>The name of the experiment run.</p>
-   * @public
-   */
-  RunName?: string | undefined;
-}
-
-/**
- * <p>A single resource returned as part of the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_Search.html">Search</a> API response.</p>
- * @public
- */
-export interface SearchRecord {
-  /**
-   * <p>The properties of a training job.</p>
-   * @public
-   */
-  TrainingJob?: TrainingJob | undefined;
-
-  /**
-   * <p>The properties of an experiment.</p>
-   * @public
-   */
-  Experiment?: Experiment | undefined;
-
-  /**
-   * <p>The properties of a trial.</p>
-   * @public
-   */
-  Trial?: Trial | undefined;
-
-  /**
-   * <p>The properties of a trial component.</p>
-   * @public
-   */
-  TrialComponent?: TrialComponent | undefined;
-
-  /**
-   * <p>A hosted endpoint for real-time inference.</p>
-   * @public
-   */
-  Endpoint?: Endpoint | undefined;
-
-  /**
-   * <p>A container for your trained model that can be deployed for SageMaker inference. This can include inference code, artifacts, and metadata. The model package type can be one of the following.</p> <ul> <li> <p>Versioned model: A part of a model package group in Model Registry.</p> </li> <li> <p>Unversioned model: Not part of a model package group and used in Amazon Web Services Marketplace.</p> </li> </ul> <p>For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateModelPackage.html"> <code>CreateModelPackage</code> </a>.</p>
-   * @public
-   */
-  ModelPackage?: ModelPackage | undefined;
-
-  /**
-   * <p>A group of versioned models in the Model Registry.</p>
-   * @public
-   */
-  ModelPackageGroup?: ModelPackageGroup | undefined;
-
-  /**
-   * <p>A SageMaker Model Building Pipeline instance.</p>
-   * @public
-   */
-  Pipeline?: Pipeline | undefined;
-
-  /**
-   * <p>An execution of a pipeline.</p>
-   * @public
-   */
-  PipelineExecution?: PipelineExecution | undefined;
-
-  /**
-   * <p>Amazon SageMaker Feature Store stores features in a collection called Feature Group. A Feature Group can be visualized as a table which has rows, with a unique identifier for each row where each column in the table is a feature. In principle, a Feature Group is composed of features and values per features.</p>
-   * @public
-   */
-  FeatureGroup?: FeatureGroup | undefined;
-
-  /**
-   * <p>The feature metadata used to search through the features.</p>
-   * @public
-   */
-  FeatureMetadata?: FeatureMetadata | undefined;
-
-  /**
-   * <p>The properties of a project.</p>
-   * @public
-   */
-  Project?: Project | undefined;
-
-  /**
-   * <p>The properties of a hyperparameter tuning job.</p>
-   * @public
-   */
-  HyperParameterTuningJob?: HyperParameterTuningJobSearchEntity | undefined;
-
-  /**
-   * <p>An Amazon SageMaker Model Card that documents details about a machine learning model.</p>
-   * @public
-   */
-  ModelCard?: ModelCard | undefined;
-
-  /**
-   * <p>A model displayed in the Amazon SageMaker Model Dashboard.</p>
-   * @public
-   */
-  Model?: ModelDashboardModel | undefined;
-}
-
-/**
- * <p>Represents the total number of matching results and indicates how accurate that count is.</p> <p>The <code>Value</code> field provides the count, which may be exact or estimated. The <code>Relation</code> field indicates whether it's an exact figure or a lower bound. This helps understand the full scope of search results, especially when dealing with large result sets.</p>
- * @public
- */
-export interface TotalHits {
-  /**
-   * <p>The total number of matching results. This value may be exact or an estimate, depending on the <code>Relation</code> field.</p>
-   * @public
-   */
-  Value?: number | undefined;
-
-  /**
-   * <p>Indicates the relationship between the returned <code>Value</code> and the actual total number of matching results. Possible values are:</p> <ul> <li> <p> <code>EqualTo</code>: The <code>Value</code> is the exact count of matching results.</p> </li> <li> <p> <code>GreaterThanOrEqualTo</code>: The <code>Value</code> is a lower bound of the actual count of matching results.</p> </li> </ul>
-   * @public
-   */
-  Relation?: Relation | undefined;
-}
-
-/**
- * @public
- */
-export interface SearchResponse {
-  /**
-   * <p>A list of <code>SearchRecord</code> objects.</p>
-   * @public
-   */
-  Results?: SearchRecord[] | undefined;
-
-  /**
-   * <p>If the result of the previous <code>Search</code> request was truncated, the response includes a NextToken. To retrieve the next set of results, use the token in the next request.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The total number of matching results.</p>
-   * @public
-   */
-  TotalHits?: TotalHits | undefined;
-}
-
-/**
- * @public
- */
-export interface SearchTrainingPlanOfferingsRequest {
-  /**
-   * <p>The type of instance you want to search for in the available training plan offerings. This field allows you to filter the search results based on the specific compute resources you require for your SageMaker training jobs or SageMaker HyperPod clusters. When searching for training plan offerings, specifying the instance type helps you find Reserved Instances that match your computational needs.</p>
-   * @public
-   */
-  InstanceType?: ReservedCapacityInstanceType | undefined;
-
-  /**
-   * <p>The number of instances you want to reserve in the training plan offerings. This allows you to specify the quantity of compute resources needed for your SageMaker training jobs or SageMaker HyperPod clusters, helping you find reserved capacity offerings that match your requirements.</p>
-   * @public
-   */
-  InstanceCount?: number | undefined;
-
-  /**
-   * <p>A filter to search for training plan offerings with a start time after a specified date.</p>
-   * @public
-   */
-  StartTimeAfter?: Date | undefined;
-
-  /**
-   * <p>A filter to search for reserved capacity offerings with an end time before a specified date.</p>
-   * @public
-   */
-  EndTimeBefore?: Date | undefined;
-
-  /**
-   * <p>The desired duration in hours for the training plan offerings.</p>
-   * @public
-   */
-  DurationHours: number | undefined;
-
-  /**
-   * <p>The target resources (e.g., SageMaker Training Jobs, SageMaker HyperPod) to search for in the offerings.</p> <p>Training plans are specific to their target resource.</p> <ul> <li> <p>A training plan designed for SageMaker training jobs can only be used to schedule and run training jobs.</p> </li> <li> <p>A training plan for HyperPod clusters can be used exclusively to provide compute resources to a cluster's instance group.</p> </li> </ul>
-   * @public
-   */
-  TargetResources: SageMakerResourceName[] | undefined;
-}
-
-/**
- * <p>Details about a training plan offering.</p> <p>For more information about how to reserve GPU capacity for your SageMaker HyperPod clusters using Amazon SageMaker Training Plan, see <code> <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateTrainingPlan.html">CreateTrainingPlan</a> </code>.</p>
- * @public
- */
-export interface TrainingPlanOffering {
-  /**
-   * <p>The unique identifier for this training plan offering.</p>
-   * @public
-   */
-  TrainingPlanOfferingId: string | undefined;
-
-  /**
-   * <p>The target resources (e.g., SageMaker Training Jobs, SageMaker HyperPod) for this training plan offering.</p> <p>Training plans are specific to their target resource.</p> <ul> <li> <p>A training plan designed for SageMaker training jobs can only be used to schedule and run training jobs.</p> </li> <li> <p>A training plan for HyperPod clusters can be used exclusively to provide compute resources to a cluster's instance group.</p> </li> </ul>
-   * @public
-   */
-  TargetResources: SageMakerResourceName[] | undefined;
-
-  /**
-   * <p>The requested start time that the user specified when searching for the training plan offering.</p>
-   * @public
-   */
-  RequestedStartTimeAfter?: Date | undefined;
-
-  /**
-   * <p>The requested end time that the user specified when searching for the training plan offering.</p>
-   * @public
-   */
-  RequestedEndTimeBefore?: Date | undefined;
-
-  /**
-   * <p>The number of whole hours in the total duration for this training plan offering.</p>
-   * @public
-   */
-  DurationHours?: number | undefined;
-
-  /**
-   * <p>The additional minutes beyond whole hours in the total duration for this training plan offering.</p>
-   * @public
-   */
-  DurationMinutes?: number | undefined;
-
-  /**
-   * <p>The upfront fee for this training plan offering.</p>
-   * @public
-   */
-  UpfrontFee?: string | undefined;
-
-  /**
-   * <p>The currency code for the upfront fee (e.g., USD).</p>
-   * @public
-   */
-  CurrencyCode?: string | undefined;
-
-  /**
-   * <p>A list of reserved capacity offerings associated with this training plan offering.</p>
-   * @public
-   */
-  ReservedCapacityOfferings?: ReservedCapacityOffering[] | undefined;
-}
-
-/**
- * @public
- */
-export interface SearchTrainingPlanOfferingsResponse {
-  /**
-   * <p>A list of training plan offerings that match the search criteria.</p>
-   * @public
-   */
-  TrainingPlanOfferings: TrainingPlanOffering[] | undefined;
-}
-
-/**
- * @public
- */
-export interface SendPipelineExecutionStepFailureRequest {
-  /**
-   * <p>The pipeline generated token from the Amazon SQS queue.</p>
-   * @public
-   */
-  CallbackToken: string | undefined;
-
-  /**
-   * <p>A message describing why the step failed.</p>
-   * @public
-   */
-  FailureReason?: string | undefined;
-
-  /**
-   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the operation. An idempotent operation completes no more than one time.</p>
-   * @public
-   */
-  ClientRequestToken?: string | undefined;
-}
-
-/**
  * @internal
  */
 export const ModelCardFilterSensitiveLog = (obj: ModelCard): any => ({
@@ -10528,23 +10388,4 @@ export const ModelCardFilterSensitiveLog = (obj: ModelCard): any => ({
 export const ModelPackageFilterSensitiveLog = (obj: ModelPackage): any => ({
   ...obj,
   ...(obj.ModelCard && { ModelCard: ModelPackageModelCardFilterSensitiveLog(obj.ModelCard) }),
-});
-
-/**
- * @internal
- */
-export const SearchRecordFilterSensitiveLog = (obj: SearchRecord): any => ({
-  ...obj,
-  ...(obj.TrialComponent && { TrialComponent: obj.TrialComponent }),
-  ...(obj.ModelPackage && { ModelPackage: ModelPackageFilterSensitiveLog(obj.ModelPackage) }),
-  ...(obj.FeatureGroup && { FeatureGroup: obj.FeatureGroup }),
-  ...(obj.ModelCard && { ModelCard: ModelCardFilterSensitiveLog(obj.ModelCard) }),
-});
-
-/**
- * @internal
- */
-export const SearchResponseFilterSensitiveLog = (obj: SearchResponse): any => ({
-  ...obj,
-  ...(obj.Results && { Results: obj.Results.map((item) => SearchRecordFilterSensitiveLog(item)) }),
 });

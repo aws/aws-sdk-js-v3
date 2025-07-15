@@ -9,13 +9,12 @@ import {
   AlgorithmSpecification,
   AlgorithmSummary,
   AmazonQSettings,
-  AppDetails,
   AppImageConfigDetails,
   AppImageConfigSortKey,
   AppSortKey,
   AppSpecification,
-  ArtifactSummary,
   AssociationEdgeType,
+  AsyncInferenceConfig,
   AutoRollbackConfig,
   Autotune,
   BatchDataCaptureConfig,
@@ -45,11 +44,13 @@ import {
 import {
   _InstanceType,
   ContainerDefinition,
+  DataCaptureConfig,
   DockerSettings,
   DriftCheckBaselines,
   EdgeOutputConfig,
   EndpointInfo,
   ExecutionRoleIdentityConfig,
+  ExplainerConfig,
   FeatureDefinition,
   FeatureType,
   FlowDefinitionOutputConfig,
@@ -87,10 +88,8 @@ import {
   ModelExplainabilityJobInput,
   ModelInfrastructureConfig,
   ModelLifeCycle,
-  ModelMetrics,
   ModelPackageModelCard,
   ModelPackageModelCardFilterSensitiveLog,
-  ModelPackageSecurityConfig,
   MonitoringNetworkConfig,
   MonitoringOutputConfig,
   MonitoringResources,
@@ -98,6 +97,7 @@ import {
   OfflineStoreConfig,
   OnlineStoreConfig,
   Processor,
+  ProductionVariant,
   ProductionVariantServerlessConfig,
   RecommendationJobInputConfig,
   RecommendationJobStoppingConditions,
@@ -105,8 +105,6 @@ import {
   ResourceLimits,
   RetryStrategy,
   ShadowModeConfig,
-  SkipModelValidation,
-  SourceAlgorithmSpecification,
   ThroughputMode,
   TrackingServerSize,
   UnifiedStudioSettings,
@@ -128,12 +126,13 @@ import {
   EdgePackagingJobStatus,
   EndpointStatus,
   ExperimentConfig,
-  ExperimentSource,
   InfraCheckConfig,
   InstanceMetadataServiceConfiguration,
   MemberDefinition,
   ModelArtifacts,
   ModelClientConfig,
+  ModelMetrics,
+  ModelPackageSecurityConfig,
   ModelPackageValidationSpecification,
   ModelQualityAppSpecification,
   ModelQualityBaselineConfig,
@@ -166,6 +165,8 @@ import {
   RootAccess,
   RuleEvaluationStatus,
   ServiceCatalogProvisioningDetails,
+  SkipModelValidation,
+  SourceAlgorithmSpecification,
   SourceIpConfig,
   SpaceSettings,
   SpaceSharingSettings,
@@ -176,6 +177,182 @@ import {
   TrialComponentStatus,
   WorkerAccessConfiguration,
 } from "./models_2";
+
+/**
+ * @public
+ */
+export interface DescribeEndpointConfigInput {
+  /**
+   * <p>The name of the endpoint configuration.</p>
+   * @public
+   */
+  EndpointConfigName: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeEndpointConfigOutput {
+  /**
+   * <p>Name of the SageMaker endpoint configuration.</p>
+   * @public
+   */
+  EndpointConfigName: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the endpoint configuration.</p>
+   * @public
+   */
+  EndpointConfigArn: string | undefined;
+
+  /**
+   * <p>An array of <code>ProductionVariant</code> objects, one for each model that you want to host at this endpoint.</p>
+   * @public
+   */
+  ProductionVariants: ProductionVariant[] | undefined;
+
+  /**
+   * <p>Configuration to control how SageMaker AI captures inference data.</p>
+   * @public
+   */
+  DataCaptureConfig?: DataCaptureConfig | undefined;
+
+  /**
+   * <p>Amazon Web Services KMS key ID Amazon SageMaker uses to encrypt data when storing it on the ML storage volume attached to the instance.</p>
+   * @public
+   */
+  KmsKeyId?: string | undefined;
+
+  /**
+   * <p>A timestamp that shows when the endpoint configuration was created.</p>
+   * @public
+   */
+  CreationTime: Date | undefined;
+
+  /**
+   * <p>Returns the description of an endpoint configuration created using the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateEndpointConfig.html"> <code>CreateEndpointConfig</code> </a> API.</p>
+   * @public
+   */
+  AsyncInferenceConfig?: AsyncInferenceConfig | undefined;
+
+  /**
+   * <p>The configuration parameters for an explainer.</p>
+   * @public
+   */
+  ExplainerConfig?: ExplainerConfig | undefined;
+
+  /**
+   * <p>An array of <code>ProductionVariant</code> objects, one for each model that you want to host at this endpoint in shadow mode with production traffic replicated from the model specified on <code>ProductionVariants</code>.</p>
+   * @public
+   */
+  ShadowProductionVariants?: ProductionVariant[] | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the IAM role that you assigned to the endpoint configuration.</p>
+   * @public
+   */
+  ExecutionRoleArn?: string | undefined;
+
+  /**
+   * <p>Specifies an Amazon Virtual Private Cloud (VPC) that your SageMaker jobs, hosted models, and compute resources have access to. You can control access to and from your resources by configuring a VPC. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/infrastructure-give-access.html">Give SageMaker Access to Resources in your Amazon VPC</a>. </p>
+   * @public
+   */
+  VpcConfig?: VpcConfig | undefined;
+
+  /**
+   * <p>Indicates whether all model containers deployed to the endpoint are isolated. If they are, no inbound or outbound network calls can be made to or from the model containers.</p>
+   * @public
+   */
+  EnableNetworkIsolation?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeExperimentRequest {
+  /**
+   * <p>The name of the experiment to describe.</p>
+   * @public
+   */
+  ExperimentName: string | undefined;
+}
+
+/**
+ * <p>The source of the experiment.</p>
+ * @public
+ */
+export interface ExperimentSource {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the source.</p>
+   * @public
+   */
+  SourceArn: string | undefined;
+
+  /**
+   * <p>The source type.</p>
+   * @public
+   */
+  SourceType?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeExperimentResponse {
+  /**
+   * <p>The name of the experiment.</p>
+   * @public
+   */
+  ExperimentName?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the experiment.</p>
+   * @public
+   */
+  ExperimentArn?: string | undefined;
+
+  /**
+   * <p>The name of the experiment as displayed. If <code>DisplayName</code> isn't specified, <code>ExperimentName</code> is displayed.</p>
+   * @public
+   */
+  DisplayName?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the source and, optionally, the type.</p>
+   * @public
+   */
+  Source?: ExperimentSource | undefined;
+
+  /**
+   * <p>The description of the experiment.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>When the experiment was created.</p>
+   * @public
+   */
+  CreationTime?: Date | undefined;
+
+  /**
+   * <p>Who created the experiment.</p>
+   * @public
+   */
+  CreatedBy?: UserContext | undefined;
+
+  /**
+   * <p>When the experiment was last modified.</p>
+   * @public
+   */
+  LastModifiedTime?: Date | undefined;
+
+  /**
+   * <p>Who last modified the experiment.</p>
+   * @public
+   */
+  LastModifiedBy?: UserContext | undefined;
+}
 
 /**
  * @public
@@ -2599,7 +2776,7 @@ export interface DescribeLineageGroupResponse {
   CreationTime?: Date | undefined;
 
   /**
-   * <p>Information about the user who created or modified an experiment, trial, trial component, lineage group, project, or model card.</p>
+   * <p>Information about the user who created or modified a SageMaker resource.</p>
    * @public
    */
   CreatedBy?: UserContext | undefined;
@@ -2611,7 +2788,7 @@ export interface DescribeLineageGroupResponse {
   LastModifiedTime?: Date | undefined;
 
   /**
-   * <p>Information about the user who created or modified an experiment, trial, trial component, lineage group, project, or model card.</p>
+   * <p>Information about the user who created or modified a SageMaker resource.</p>
    * @public
    */
   LastModifiedBy?: UserContext | undefined;
@@ -2770,7 +2947,7 @@ export interface DescribeMlflowTrackingServerResponse {
   CreationTime?: Date | undefined;
 
   /**
-   * <p>Information about the user who created or modified an experiment, trial, trial component, lineage group, project, or model card.</p>
+   * <p>Information about the user who created or modified a SageMaker resource.</p>
    * @public
    */
   CreatedBy?: UserContext | undefined;
@@ -2782,7 +2959,7 @@ export interface DescribeMlflowTrackingServerResponse {
   LastModifiedTime?: Date | undefined;
 
   /**
-   * <p>Information about the user who created or modified an experiment, trial, trial component, lineage group, project, or model card.</p>
+   * <p>Information about the user who created or modified a SageMaker resource.</p>
    * @public
    */
   LastModifiedBy?: UserContext | undefined;
@@ -3028,7 +3205,7 @@ export interface DescribeModelCardResponse {
   CreationTime: Date | undefined;
 
   /**
-   * <p>Information about the user who created or modified an experiment, trial, trial component, lineage group, project, or model card.</p>
+   * <p>Information about the user who created or modified a SageMaker resource.</p>
    * @public
    */
   CreatedBy: UserContext | undefined;
@@ -3040,7 +3217,7 @@ export interface DescribeModelCardResponse {
   LastModifiedTime?: Date | undefined;
 
   /**
-   * <p>Information about the user who created or modified an experiment, trial, trial component, lineage group, project, or model card.</p>
+   * <p>Information about the user who created or modified a SageMaker resource.</p>
    * @public
    */
   LastModifiedBy?: UserContext | undefined;
@@ -3389,7 +3566,7 @@ export interface DescribeModelPackageOutput {
   ModelApprovalStatus?: ModelApprovalStatus | undefined;
 
   /**
-   * <p>Information about the user who created or modified an experiment, trial, trial component, lineage group, project, or model card.</p>
+   * <p>Information about the user who created or modified a SageMaker resource.</p>
    * @public
    */
   CreatedBy?: UserContext | undefined;
@@ -3413,7 +3590,7 @@ export interface DescribeModelPackageOutput {
   LastModifiedTime?: Date | undefined;
 
   /**
-   * <p>Information about the user who created or modified an experiment, trial, trial component, lineage group, project, or model card.</p>
+   * <p>Information about the user who created or modified a SageMaker resource.</p>
    * @public
    */
   LastModifiedBy?: UserContext | undefined;
@@ -3549,7 +3726,7 @@ export interface DescribeModelPackageGroupOutput {
   CreationTime: Date | undefined;
 
   /**
-   * <p>Information about the user who created or modified an experiment, trial, trial component, lineage group, project, or model card.</p>
+   * <p>Information about the user who created or modified a SageMaker resource.</p>
    * @public
    */
   CreatedBy: UserContext | undefined;
@@ -4345,6 +4522,12 @@ export interface DescribePipelineRequest {
    * @public
    */
   PipelineName: string | undefined;
+
+  /**
+   * <p>The ID of the pipeline version to describe.</p>
+   * @public
+   */
+  PipelineVersionId?: number | undefined;
 }
 
 /**
@@ -4426,13 +4609,13 @@ export interface DescribePipelineResponse {
   LastRunTime?: Date | undefined;
 
   /**
-   * <p>Information about the user who created or modified an experiment, trial, trial component, lineage group, project, or model card.</p>
+   * <p>Information about the user who created or modified a SageMaker resource.</p>
    * @public
    */
   CreatedBy?: UserContext | undefined;
 
   /**
-   * <p>Information about the user who created or modified an experiment, trial, trial component, lineage group, project, or model card.</p>
+   * <p>Information about the user who created or modified a SageMaker resource.</p>
    * @public
    */
   LastModifiedBy?: UserContext | undefined;
@@ -4442,6 +4625,18 @@ export interface DescribePipelineResponse {
    * @public
    */
   ParallelismConfiguration?: ParallelismConfiguration | undefined;
+
+  /**
+   * <p>The display name of the pipeline version.</p>
+   * @public
+   */
+  PipelineVersionDisplayName?: string | undefined;
+
+  /**
+   * <p>The description of the pipeline version.</p>
+   * @public
+   */
+  PipelineVersionDescription?: string | undefined;
 }
 
 /**
@@ -4607,13 +4802,13 @@ export interface DescribePipelineExecutionResponse {
   LastModifiedTime?: Date | undefined;
 
   /**
-   * <p>Information about the user who created or modified an experiment, trial, trial component, lineage group, project, or model card.</p>
+   * <p>Information about the user who created or modified a SageMaker resource.</p>
    * @public
    */
   CreatedBy?: UserContext | undefined;
 
   /**
-   * <p>Information about the user who created or modified an experiment, trial, trial component, lineage group, project, or model card.</p>
+   * <p>Information about the user who created or modified a SageMaker resource.</p>
    * @public
    */
   LastModifiedBy?: UserContext | undefined;
@@ -4629,6 +4824,12 @@ export interface DescribePipelineExecutionResponse {
    * @public
    */
   SelectiveExecutionConfig?: SelectiveExecutionConfig | undefined;
+
+  /**
+   * <p>The ID of the pipeline version.</p>
+   * @public
+   */
+  PipelineVersionId?: number | undefined;
 }
 
 /**
@@ -4906,7 +5107,7 @@ export interface DescribeProjectOutput {
   TemplateProviderDetails?: TemplateProviderDetail[] | undefined;
 
   /**
-   * <p>Information about the user who created or modified an experiment, trial, trial component, lineage group, project, or model card.</p>
+   * <p>Information about the user who created or modified a SageMaker resource.</p>
    * @public
    */
   CreatedBy?: UserContext | undefined;
@@ -4924,7 +5125,7 @@ export interface DescribeProjectOutput {
   LastModifiedTime?: Date | undefined;
 
   /**
-   * <p>Information about the user who created or modified an experiment, trial, trial component, lineage group, project, or model card.</p>
+   * <p>Information about the user who created or modified a SageMaker resource.</p>
    * @public
    */
   LastModifiedBy?: UserContext | undefined;
@@ -7854,7 +8055,7 @@ export interface Experiment {
   LastModifiedTime?: Date | undefined;
 
   /**
-   * <p>Information about the user who created or modified an experiment, trial, trial component, lineage group, project, or model card.</p>
+   * <p>Information about the user who created or modified a SageMaker resource.</p>
    * @public
    */
   LastModifiedBy?: UserContext | undefined;
@@ -8507,6 +8708,7 @@ export const ResourceType = {
   MODEL_PACKAGE_GROUP: "ModelPackageGroup",
   PIPELINE: "Pipeline",
   PIPELINE_EXECUTION: "PipelineExecution",
+  PIPELINE_VERSION: "PipelineVersion",
   PROJECT: "Project",
   TRAINING_JOB: "TrainingJob",
 } as const;
@@ -10110,123 +10312,6 @@ export interface ListAppsRequest {
    */
   SpaceNameEquals?: string | undefined;
 }
-
-/**
- * @public
- */
-export interface ListAppsResponse {
-  /**
-   * <p>The list of apps.</p>
-   * @public
-   */
-  Apps?: AppDetails[] | undefined;
-
-  /**
-   * <p>If the previous response was truncated, you will receive this token. Use it in your next request to receive the next set of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const SortArtifactsBy = {
-  CREATION_TIME: "CreationTime",
-} as const;
-
-/**
- * @public
- */
-export type SortArtifactsBy = (typeof SortArtifactsBy)[keyof typeof SortArtifactsBy];
-
-/**
- * @public
- */
-export interface ListArtifactsRequest {
-  /**
-   * <p>A filter that returns only artifacts with the specified source URI.</p>
-   * @public
-   */
-  SourceUri?: string | undefined;
-
-  /**
-   * <p>A filter that returns only artifacts of the specified type.</p>
-   * @public
-   */
-  ArtifactType?: string | undefined;
-
-  /**
-   * <p>A filter that returns only artifacts created on or after the specified time.</p>
-   * @public
-   */
-  CreatedAfter?: Date | undefined;
-
-  /**
-   * <p>A filter that returns only artifacts created on or before the specified time.</p>
-   * @public
-   */
-  CreatedBefore?: Date | undefined;
-
-  /**
-   * <p>The property used to sort results. The default value is <code>CreationTime</code>.</p>
-   * @public
-   */
-  SortBy?: SortArtifactsBy | undefined;
-
-  /**
-   * <p>The sort order. The default value is <code>Descending</code>.</p>
-   * @public
-   */
-  SortOrder?: SortOrder | undefined;
-
-  /**
-   * <p>If the previous call to <code>ListArtifacts</code> didn't return the full set of artifacts, the call returns a token for getting the next set of artifacts.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of artifacts to return in the response. The default value is 10.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface ListArtifactsResponse {
-  /**
-   * <p>A list of artifacts and their properties.</p>
-   * @public
-   */
-  ArtifactSummaries?: ArtifactSummary[] | undefined;
-
-  /**
-   * <p>A token for getting the next set of artifacts, if there are any.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const SortAssociationsBy = {
-  CREATION_TIME: "CreationTime",
-  DESTINATION_ARN: "DestinationArn",
-  DESTINATION_TYPE: "DestinationType",
-  SOURCE_ARN: "SourceArn",
-  SOURCE_TYPE: "SourceType",
-} as const;
-
-/**
- * @public
- */
-export type SortAssociationsBy = (typeof SortAssociationsBy)[keyof typeof SortAssociationsBy];
 
 /**
  * @internal

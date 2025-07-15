@@ -2919,7 +2919,7 @@ export interface IamIdentity {
 }
 
 /**
- * <p>Information about the user who created or modified an experiment, trial, trial component, lineage group, project, or model card.</p>
+ * <p>Information about the user who created or modified a SageMaker resource.</p>
  * @public
  */
 export interface UserContext {
@@ -3002,7 +3002,7 @@ export interface AssociationSummary {
   CreationTime?: Date | undefined;
 
   /**
-   * <p>Information about the user who created or modified an experiment, trial, trial component, lineage group, project, or model card.</p>
+   * <p>Information about the user who created or modified a SageMaker resource.</p>
    * @public
    */
   CreatedBy?: UserContext | undefined;
@@ -4810,7 +4810,7 @@ export interface BatchDeleteClusterNodesRequest {
    * <p>A list of node IDs to be deleted from the specified cluster.</p> <note> <ul> <li> <p>For SageMaker HyperPod clusters using the Slurm workload manager, you cannot remove instances that are configured as Slurm controller nodes.</p> </li> <li> <p>If you need to delete more than 99 instances, contact <a href="http://aws.amazon.com/contact-us/">Support</a> for assistance.</p> </li> </ul> </note>
    * @public
    */
-  NodeIds: string[] | undefined;
+  NodeIds?: string[] | undefined;
 }
 
 /**
@@ -7028,6 +7028,216 @@ export interface ClusterOrchestrator {
 }
 
 /**
+ * <p>Configuration settings for an Amazon FSx for Lustre file system to be used with the cluster.</p>
+ * @public
+ */
+export interface FSxLustreConfig {
+  /**
+   * <p>The storage capacity of the Amazon FSx for Lustre file system, specified in gibibytes (GiB).</p>
+   * @public
+   */
+  SizeInGiB: number | undefined;
+
+  /**
+   * <p>The throughput capacity of the Amazon FSx for Lustre file system, measured in MB/s per TiB of storage.</p>
+   * @public
+   */
+  PerUnitStorageThroughput: number | undefined;
+}
+
+/**
+ * <p>The configuration details for the restricted instance groups (RIG) environment.</p>
+ * @public
+ */
+export interface EnvironmentConfigDetails {
+  /**
+   * <p>Configuration settings for an Amazon FSx for Lustre file system to be used with the cluster.</p>
+   * @public
+   */
+  FSxLustreConfig?: FSxLustreConfig | undefined;
+
+  /**
+   * <p>The Amazon S3 path where output data from the restricted instance group (RIG) environment will be stored.</p>
+   * @public
+   */
+  S3OutputPath?: string | undefined;
+}
+
+/**
+ * <p>The instance group details of the restricted instance group (RIG).</p>
+ * @public
+ */
+export interface ClusterRestrictedInstanceGroupDetails {
+  /**
+   * <p>The number of instances that are currently in the restricted instance group of a SageMaker HyperPod cluster.</p>
+   * @public
+   */
+  CurrentCount?: number | undefined;
+
+  /**
+   * <p>The number of instances you specified to add to the restricted instance group of a SageMaker HyperPod cluster.</p>
+   * @public
+   */
+  TargetCount?: number | undefined;
+
+  /**
+   * <p>The name of the restricted instance group of a SageMaker HyperPod cluster.</p>
+   * @public
+   */
+  InstanceGroupName?: string | undefined;
+
+  /**
+   * <p>The instance type of the restricted instance group of a SageMaker HyperPod cluster.</p>
+   * @public
+   */
+  InstanceType?: ClusterInstanceType | undefined;
+
+  /**
+   * <p>The execution role for the restricted instance group to assume.</p>
+   * @public
+   */
+  ExecutionRole?: string | undefined;
+
+  /**
+   * <p>The number you specified to <code>TreadsPerCore</code> in <code>CreateCluster</code> for enabling or disabling multithreading. For instance types that support multithreading, you can specify 1 for disabling multithreading and 2 for enabling multithreading. For more information, see the reference table of <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/cpu-options-supported-instances-values.html">CPU cores and threads per CPU core per instance type</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   * @public
+   */
+  ThreadsPerCore?: number | undefined;
+
+  /**
+   * <p>The additional storage configurations for the instances in the SageMaker HyperPod cluster restricted instance group.</p>
+   * @public
+   */
+  InstanceStorageConfigs?: ClusterInstanceStorageConfig[] | undefined;
+
+  /**
+   * <p>A flag indicating whether deep health checks should be performed when the cluster's restricted instance group is created or updated.</p>
+   * @public
+   */
+  OnStartDeepHealthChecks?: DeepHealthCheckType[] | undefined;
+
+  /**
+   * <p>The current status of the cluster's restricted instance group.</p> <ul> <li> <p> <code>InService</code>: The restricted instance group is active and healthy.</p> </li> <li> <p> <code>Creating</code>: The restricted instance group is being provisioned.</p> </li> <li> <p> <code>Updating</code>: The restricted instance group is being updated.</p> </li> <li> <p> <code>Failed</code>: The restricted instance group has failed to provision or is no longer healthy.</p> </li> <li> <p> <code>Degraded</code>: The restricted instance group is degraded, meaning that some instances have failed to provision or are no longer healthy.</p> </li> <li> <p> <code>Deleting</code>: The restricted instance group is being deleted.</p> </li> </ul>
+   * @public
+   */
+  Status?: InstanceGroupStatus | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the training plan to filter clusters by. For more information about reserving GPU capacity for your SageMaker HyperPod clusters using Amazon SageMaker Training Plan, see <code> <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateTrainingPlan.html">CreateTrainingPlan</a> </code>.</p>
+   * @public
+   */
+  TrainingPlanArn?: string | undefined;
+
+  /**
+   * <p>The current status of the training plan associated with this cluster restricted instance group.</p>
+   * @public
+   */
+  TrainingPlanStatus?: string | undefined;
+
+  /**
+   * <p>Specifies an Amazon Virtual Private Cloud (VPC) that your SageMaker jobs, hosted models, and compute resources have access to. You can control access to and from your resources by configuring a VPC. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/infrastructure-give-access.html">Give SageMaker Access to Resources in your Amazon VPC</a>. </p>
+   * @public
+   */
+  OverrideVpcConfig?: VpcConfig | undefined;
+
+  /**
+   * <p>The configuration object of the schedule that SageMaker follows when updating the AMI.</p>
+   * @public
+   */
+  ScheduledUpdateConfig?: ScheduledUpdateConfig | undefined;
+
+  /**
+   * <p>The configuration for the restricted instance groups (RIG) environment.</p>
+   * @public
+   */
+  EnvironmentConfig?: EnvironmentConfigDetails | undefined;
+}
+
+/**
+ * <p>The configuration for the restricted instance groups (RIG) environment.</p>
+ * @public
+ */
+export interface EnvironmentConfig {
+  /**
+   * <p>Configuration settings for an Amazon FSx for Lustre file system to be used with the cluster.</p>
+   * @public
+   */
+  FSxLustreConfig?: FSxLustreConfig | undefined;
+}
+
+/**
+ * <p>The specifications of a restricted instance group that you need to define.</p>
+ * @public
+ */
+export interface ClusterRestrictedInstanceGroupSpecification {
+  /**
+   * <p>Specifies the number of instances to add to the restricted instance group of a SageMaker HyperPod cluster.</p>
+   * @public
+   */
+  InstanceCount: number | undefined;
+
+  /**
+   * <p>Specifies the name of the restricted instance group.</p>
+   * @public
+   */
+  InstanceGroupName: string | undefined;
+
+  /**
+   * <p>Specifies the instance type of the restricted instance group.</p>
+   * @public
+   */
+  InstanceType: ClusterInstanceType | undefined;
+
+  /**
+   * <p>Specifies an IAM execution role to be assumed by the restricted instance group.</p>
+   * @public
+   */
+  ExecutionRole: string | undefined;
+
+  /**
+   * <p>The number you specified to <code>TreadsPerCore</code> in <code>CreateCluster</code> for enabling or disabling multithreading. For instance types that support multithreading, you can specify 1 for disabling multithreading and 2 for enabling multithreading. For more information, see the reference table of <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/cpu-options-supported-instances-values.html">CPU cores and threads per CPU core per instance type</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   * @public
+   */
+  ThreadsPerCore?: number | undefined;
+
+  /**
+   * <p>Specifies the additional storage configurations for the instances in the SageMaker HyperPod cluster restricted instance group.</p>
+   * @public
+   */
+  InstanceStorageConfigs?: ClusterInstanceStorageConfig[] | undefined;
+
+  /**
+   * <p>A flag indicating whether deep health checks should be performed when the cluster restricted instance group is created or updated.</p>
+   * @public
+   */
+  OnStartDeepHealthChecks?: DeepHealthCheckType[] | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the training plan to filter clusters by. For more information about reserving GPU capacity for your SageMaker HyperPod clusters using Amazon SageMaker Training Plan, see <code> <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateTrainingPlan.html">CreateTrainingPlan</a> </code>.</p>
+   * @public
+   */
+  TrainingPlanArn?: string | undefined;
+
+  /**
+   * <p>Specifies an Amazon Virtual Private Cloud (VPC) that your SageMaker jobs, hosted models, and compute resources have access to. You can control access to and from your resources by configuring a VPC. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/infrastructure-give-access.html">Give SageMaker Access to Resources in your Amazon VPC</a>. </p>
+   * @public
+   */
+  OverrideVpcConfig?: VpcConfig | undefined;
+
+  /**
+   * <p>The configuration object of the schedule that SageMaker follows when updating the AMI.</p>
+   * @public
+   */
+  ScheduledUpdateConfig?: ScheduledUpdateConfig | undefined;
+
+  /**
+   * <p>The configuration for the restricted instance groups (RIG) environment.</p>
+   * @public
+   */
+  EnvironmentConfig: EnvironmentConfig | undefined;
+}
+
+/**
  * @public
  * @enum
  */
@@ -7691,150 +7901,3 @@ export const PreemptTeamTasks = {
  * @public
  */
 export type PreemptTeamTasks = (typeof PreemptTeamTasks)[keyof typeof PreemptTeamTasks];
-
-/**
- * @public
- * @enum
- */
-export const ResourceSharingStrategy = {
-  DONTLEND: "DontLend",
-  LEND: "Lend",
-  LENDANDBORROW: "LendAndBorrow",
-} as const;
-
-/**
- * @public
- */
-export type ResourceSharingStrategy = (typeof ResourceSharingStrategy)[keyof typeof ResourceSharingStrategy];
-
-/**
- * <p>Resource sharing configuration.</p>
- * @public
- */
-export interface ResourceSharingConfig {
-  /**
-   * <p>The strategy of how idle compute is shared within the cluster. The following are the options of strategies.</p> <ul> <li> <p> <code>DontLend</code>: entities do not lend idle compute.</p> </li> <li> <p> <code>Lend</code>: entities can lend idle compute to entities that can borrow.</p> </li> <li> <p> <code>LendandBorrow</code>: entities can lend idle compute and borrow idle compute from other entities.</p> </li> </ul> <p>Default is <code>LendandBorrow</code>.</p>
-   * @public
-   */
-  Strategy: ResourceSharingStrategy | undefined;
-
-  /**
-   * <p>The limit on how much idle compute can be borrowed.The values can be 1 - 500 percent of idle compute that the team is allowed to borrow.</p> <p>Default is <code>50</code>.</p>
-   * @public
-   */
-  BorrowLimit?: number | undefined;
-}
-
-/**
- * <p>Configuration of the compute allocation definition for an entity. This includes the resource sharing option and the setting to preempt low priority tasks.</p>
- * @public
- */
-export interface ComputeQuotaConfig {
-  /**
-   * <p>Allocate compute resources by instance types.</p>
-   * @public
-   */
-  ComputeQuotaResources?: ComputeQuotaResourceConfig[] | undefined;
-
-  /**
-   * <p>Resource sharing configuration. This defines how an entity can lend and borrow idle compute with other entities within the cluster.</p>
-   * @public
-   */
-  ResourceSharingConfig?: ResourceSharingConfig | undefined;
-
-  /**
-   * <p>Allows workloads from within an entity to preempt same-team workloads. When set to <code>LowerPriority</code>, the entity's lower priority tasks are preempted by their own higher priority tasks.</p> <p>Default is <code>LowerPriority</code>.</p>
-   * @public
-   */
-  PreemptTeamTasks?: PreemptTeamTasks | undefined;
-}
-
-/**
- * <p>The target entity to allocate compute resources to.</p>
- * @public
- */
-export interface ComputeQuotaTarget {
-  /**
-   * <p>Name of the team to allocate compute resources to.</p>
-   * @public
-   */
-  TeamName: string | undefined;
-
-  /**
-   * <p>Assigned entity fair-share weight. Idle compute will be shared across entities based on these assigned weights. This weight is only used when <code>FairShare</code> is enabled.</p> <p>A weight of 0 is the lowest priority and 100 is the highest. Weight 0 is the default.</p>
-   * @public
-   */
-  FairShareWeight?: number | undefined;
-}
-
-/**
- * <p>Summary of the compute allocation definition.</p>
- * @public
- */
-export interface ComputeQuotaSummary {
-  /**
-   * <p>ARN of the compute allocation definition.</p>
-   * @public
-   */
-  ComputeQuotaArn: string | undefined;
-
-  /**
-   * <p>ID of the compute allocation definition.</p>
-   * @public
-   */
-  ComputeQuotaId: string | undefined;
-
-  /**
-   * <p>Name of the compute allocation definition.</p>
-   * @public
-   */
-  Name: string | undefined;
-
-  /**
-   * <p>Version of the compute allocation definition.</p>
-   * @public
-   */
-  ComputeQuotaVersion?: number | undefined;
-
-  /**
-   * <p>Status of the compute allocation definition.</p>
-   * @public
-   */
-  Status: SchedulerResourceStatus | undefined;
-
-  /**
-   * <p>ARN of the cluster.</p>
-   * @public
-   */
-  ClusterArn?: string | undefined;
-
-  /**
-   * <p>Configuration of the compute allocation definition. This includes the resource sharing option, and the setting to preempt low priority tasks.</p>
-   * @public
-   */
-  ComputeQuotaConfig?: ComputeQuotaConfig | undefined;
-
-  /**
-   * <p>The target entity to allocate compute resources to.</p>
-   * @public
-   */
-  ComputeQuotaTarget: ComputeQuotaTarget | undefined;
-
-  /**
-   * <p>The state of the compute allocation being described. Use to enable or disable compute allocation.</p> <p>Default is <code>Enabled</code>.</p>
-   * @public
-   */
-  ActivationState?: ActivationState | undefined;
-
-  /**
-   * <p>Creation time of the compute allocation definition.</p>
-   * @public
-   */
-  CreationTime: Date | undefined;
-
-  /**
-   * <p>Last modified time of the compute allocation definition.</p>
-   * @public
-   */
-  LastModifiedTime?: Date | undefined;
-}

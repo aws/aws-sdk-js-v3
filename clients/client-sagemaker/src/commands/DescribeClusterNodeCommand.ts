@@ -37,7 +37,7 @@ export interface DescribeClusterNodeCommandOutput extends DescribeClusterNodeRes
  * const client = new SageMakerClient(config);
  * const input = { // DescribeClusterNodeRequest
  *   ClusterName: "STRING_VALUE", // required
- *   NodeId: "STRING_VALUE", // required
+ *   NodeId: "STRING_VALUE",
  * };
  * const command = new DescribeClusterNodeCommand(input);
  * const response = await client.send(command);

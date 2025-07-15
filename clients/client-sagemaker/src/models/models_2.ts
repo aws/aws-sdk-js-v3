@@ -39,6 +39,7 @@ import {
   BatchDataCaptureConfig,
   BatchStrategy,
   BatchTransformInput,
+  Bias,
   CapacityReservationPreference,
   CaptureStatus,
   CfnCreateTemplateProvider,
@@ -48,6 +49,7 @@ import {
   ClusterNodeDetails,
   ClusterNodeRecovery,
   ClusterOrchestrator,
+  ClusterRestrictedInstanceGroupDetails,
   ClusterStatus,
   CodeEditorAppImageConfig,
   CodeRepository,
@@ -55,14 +57,13 @@ import {
   CognitoMemberDefinition,
   CollectionConfiguration,
   CompilationJobStatus,
-  ComputeQuotaConfig,
-  ComputeQuotaTarget,
   FeatureStatus,
   GitConfig,
   InferenceSpecification,
   JupyterLabAppImageConfig,
   KernelGatewayImageConfig,
   ModelApprovalStatus,
+  ModelDataSource,
   OutputDataConfig,
   ProblemType,
   ProcessingS3DataDistributionType,
@@ -83,8 +84,9 @@ import {
 
 import {
   _InstanceType,
+  ComputeQuotaConfig,
+  ComputeQuotaTarget,
   ContextSource,
-  DataCaptureConfig,
   DataQualityAppSpecification,
   DataQualityBaselineConfig,
   DataQualityJobInput,
@@ -98,18 +100,19 @@ import {
   EdgeOutputConfig,
   EdgePresetDeploymentType,
   EndpointInput,
+  Explainability,
   ExplainerConfig,
   HubContentType,
   InputConfig,
   JupyterServerAppSettings,
   KernelGatewayAppSettings,
   MetadataProperties,
+  ModelDataQuality,
   ModelDeployConfig,
   ModelLifeCycle,
-  ModelMetrics,
   ModelPackageModelCard,
   ModelPackageModelCardFilterSensitiveLog,
-  ModelPackageSecurityConfig,
+  ModelQuality,
   MonitoringConstraintsResource,
   MonitoringGroundTruthS3Input,
   MonitoringNetworkConfig,
@@ -121,19 +124,114 @@ import {
   OutputConfig,
   ProcessingInstanceType,
   ProcessingS3UploadMode,
-  ProductionVariant,
   ProductionVariantAcceleratorType,
   ProductionVariantManagedInstanceScaling,
   ProductionVariantRoutingConfig,
   ProductionVariantServerlessConfig,
   RetryStrategy,
   SchedulerConfig,
-  SkipModelValidation,
-  SourceAlgorithmSpecification,
   TagPropagation,
   TrainingSpecification,
   UserSettings,
 } from "./models_1";
+
+/**
+ * <p>Contains metrics captured from a model.</p>
+ * @public
+ */
+export interface ModelMetrics {
+  /**
+   * <p>Metrics that measure the quality of a model.</p>
+   * @public
+   */
+  ModelQuality?: ModelQuality | undefined;
+
+  /**
+   * <p>Metrics that measure the quality of the input data for a model.</p>
+   * @public
+   */
+  ModelDataQuality?: ModelDataQuality | undefined;
+
+  /**
+   * <p>Metrics that measure bias in a model.</p>
+   * @public
+   */
+  Bias?: Bias | undefined;
+
+  /**
+   * <p>Metrics that help explain a model.</p>
+   * @public
+   */
+  Explainability?: Explainability | undefined;
+}
+
+/**
+ * <p>An optional Key Management Service key to encrypt, decrypt, and re-encrypt model package information for regulated workloads with highly sensitive data.</p>
+ * @public
+ */
+export interface ModelPackageSecurityConfig {
+  /**
+   * <p>The KMS Key ID (<code>KMSKeyId</code>) used for encryption of model package information.</p>
+   * @public
+   */
+  KmsKeyId: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const SkipModelValidation = {
+  ALL: "All",
+  NONE: "None",
+} as const;
+
+/**
+ * @public
+ */
+export type SkipModelValidation = (typeof SkipModelValidation)[keyof typeof SkipModelValidation];
+
+/**
+ * <p>Specifies an algorithm that was used to create the model package. The algorithm must be either an algorithm resource in your SageMaker account or an algorithm in Amazon Web Services Marketplace that you are subscribed to.</p>
+ * @public
+ */
+export interface SourceAlgorithm {
+  /**
+   * <p>The Amazon S3 path where the model artifacts, which result from model training, are stored. This path must point to a single <code>gzip</code> compressed tar archive (<code>.tar.gz</code> suffix).</p> <note> <p>The model artifacts must be in an S3 bucket that is in the same Amazon Web Services region as the algorithm.</p> </note>
+   * @public
+   */
+  ModelDataUrl?: string | undefined;
+
+  /**
+   * <p>Specifies the location of ML model data to deploy during endpoint creation.</p>
+   * @public
+   */
+  ModelDataSource?: ModelDataSource | undefined;
+
+  /**
+   * <p>The ETag associated with Model Data URL.</p>
+   * @public
+   */
+  ModelDataETag?: string | undefined;
+
+  /**
+   * <p>The name of an algorithm that was used to create the model package. The algorithm must be either an algorithm resource in your SageMaker account or an algorithm in Amazon Web Services Marketplace that you are subscribed to.</p>
+   * @public
+   */
+  AlgorithmName: string | undefined;
+}
+
+/**
+ * <p>A list of algorithms that were used to create a model package.</p>
+ * @public
+ */
+export interface SourceAlgorithmSpecification {
+  /**
+   * <p>A list of the algorithms that were used to create a model package.</p>
+   * @public
+   */
+  SourceAlgorithms: SourceAlgorithm[] | undefined;
+}
 
 /**
  * <p>Contains data, such as the inputs and targeted instance types that are used in the process of validating the model package.</p> <p>The data provided in the validation profile is made available to your buyers on Amazon Web Services Marketplace.</p>
@@ -5254,7 +5352,7 @@ export interface DescribeActionResponse {
   CreationTime?: Date | undefined;
 
   /**
-   * <p>Information about the user who created or modified an experiment, trial, trial component, lineage group, project, or model card.</p>
+   * <p>Information about the user who created or modified a SageMaker resource.</p>
    * @public
    */
   CreatedBy?: UserContext | undefined;
@@ -5266,7 +5364,7 @@ export interface DescribeActionResponse {
   LastModifiedTime?: Date | undefined;
 
   /**
-   * <p>Information about the user who created or modified an experiment, trial, trial component, lineage group, project, or model card.</p>
+   * <p>Information about the user who created or modified a SageMaker resource.</p>
    * @public
    */
   LastModifiedBy?: UserContext | undefined;
@@ -5600,7 +5698,7 @@ export interface DescribeArtifactResponse {
   CreationTime?: Date | undefined;
 
   /**
-   * <p>Information about the user who created or modified an experiment, trial, trial component, lineage group, project, or model card.</p>
+   * <p>Information about the user who created or modified a SageMaker resource.</p>
    * @public
    */
   CreatedBy?: UserContext | undefined;
@@ -5612,7 +5710,7 @@ export interface DescribeArtifactResponse {
   LastModifiedTime?: Date | undefined;
 
   /**
-   * <p>Information about the user who created or modified an experiment, trial, trial component, lineage group, project, or model card.</p>
+   * <p>Information about the user who created or modified a SageMaker resource.</p>
    * @public
    */
   LastModifiedBy?: UserContext | undefined;
@@ -6014,6 +6112,12 @@ export interface DescribeClusterResponse {
   InstanceGroups: ClusterInstanceGroupDetails[] | undefined;
 
   /**
+   * <p>The specialized instance groups for training models like Amazon Nova to be created in the SageMaker HyperPod cluster.</p>
+   * @public
+   */
+  RestrictedInstanceGroups?: ClusterRestrictedInstanceGroupDetails[] | undefined;
+
+  /**
    * <p>Specifies an Amazon Virtual Private Cloud (VPC) that your SageMaker jobs, hosted models, and compute resources have access to. You can control access to and from your resources by configuring a VPC. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/infrastructure-give-access.html">Give SageMaker Access to Resources in your Amazon VPC</a>. </p>
    * @public
    */
@@ -6046,7 +6150,7 @@ export interface DescribeClusterNodeRequest {
    * <p>The ID of the SageMaker HyperPod cluster node.</p>
    * @public
    */
-  NodeId: string | undefined;
+  NodeId?: string | undefined;
 }
 
 /**
@@ -6142,7 +6246,7 @@ export interface DescribeClusterSchedulerConfigResponse {
   CreationTime: Date | undefined;
 
   /**
-   * <p>Information about the user who created or modified an experiment, trial, trial component, lineage group, project, or model card.</p>
+   * <p>Information about the user who created or modified a SageMaker resource.</p>
    * @public
    */
   CreatedBy?: UserContext | undefined;
@@ -6154,7 +6258,7 @@ export interface DescribeClusterSchedulerConfigResponse {
   LastModifiedTime?: Date | undefined;
 
   /**
-   * <p>Information about the user who created or modified an experiment, trial, trial component, lineage group, project, or model card.</p>
+   * <p>Information about the user who created or modified a SageMaker resource.</p>
    * @public
    */
   LastModifiedBy?: UserContext | undefined;
@@ -6448,7 +6552,7 @@ export interface DescribeComputeQuotaResponse {
   CreationTime: Date | undefined;
 
   /**
-   * <p>Information about the user who created or modified an experiment, trial, trial component, lineage group, project, or model card.</p>
+   * <p>Information about the user who created or modified a SageMaker resource.</p>
    * @public
    */
   CreatedBy?: UserContext | undefined;
@@ -6460,7 +6564,7 @@ export interface DescribeComputeQuotaResponse {
   LastModifiedTime?: Date | undefined;
 
   /**
-   * <p>Information about the user who created or modified an experiment, trial, trial component, lineage group, project, or model card.</p>
+   * <p>Information about the user who created or modified a SageMaker resource.</p>
    * @public
    */
   LastModifiedBy?: UserContext | undefined;
@@ -6524,7 +6628,7 @@ export interface DescribeContextResponse {
   CreationTime?: Date | undefined;
 
   /**
-   * <p>Information about the user who created or modified an experiment, trial, trial component, lineage group, project, or model card.</p>
+   * <p>Information about the user who created or modified a SageMaker resource.</p>
    * @public
    */
   CreatedBy?: UserContext | undefined;
@@ -6536,7 +6640,7 @@ export interface DescribeContextResponse {
   LastModifiedTime?: Date | undefined;
 
   /**
-   * <p>Information about the user who created or modified an experiment, trial, trial component, lineage group, project, or model card.</p>
+   * <p>Information about the user who created or modified a SageMaker resource.</p>
    * @public
    */
   LastModifiedBy?: UserContext | undefined;
@@ -7679,182 +7783,6 @@ export interface DescribeEndpointOutput {
    * @public
    */
   ShadowProductionVariants?: ProductionVariantSummary[] | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeEndpointConfigInput {
-  /**
-   * <p>The name of the endpoint configuration.</p>
-   * @public
-   */
-  EndpointConfigName: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeEndpointConfigOutput {
-  /**
-   * <p>Name of the SageMaker endpoint configuration.</p>
-   * @public
-   */
-  EndpointConfigName: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the endpoint configuration.</p>
-   * @public
-   */
-  EndpointConfigArn: string | undefined;
-
-  /**
-   * <p>An array of <code>ProductionVariant</code> objects, one for each model that you want to host at this endpoint.</p>
-   * @public
-   */
-  ProductionVariants: ProductionVariant[] | undefined;
-
-  /**
-   * <p>Configuration to control how SageMaker AI captures inference data.</p>
-   * @public
-   */
-  DataCaptureConfig?: DataCaptureConfig | undefined;
-
-  /**
-   * <p>Amazon Web Services KMS key ID Amazon SageMaker uses to encrypt data when storing it on the ML storage volume attached to the instance.</p>
-   * @public
-   */
-  KmsKeyId?: string | undefined;
-
-  /**
-   * <p>A timestamp that shows when the endpoint configuration was created.</p>
-   * @public
-   */
-  CreationTime: Date | undefined;
-
-  /**
-   * <p>Returns the description of an endpoint configuration created using the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateEndpointConfig.html"> <code>CreateEndpointConfig</code> </a> API.</p>
-   * @public
-   */
-  AsyncInferenceConfig?: AsyncInferenceConfig | undefined;
-
-  /**
-   * <p>The configuration parameters for an explainer.</p>
-   * @public
-   */
-  ExplainerConfig?: ExplainerConfig | undefined;
-
-  /**
-   * <p>An array of <code>ProductionVariant</code> objects, one for each model that you want to host at this endpoint in shadow mode with production traffic replicated from the model specified on <code>ProductionVariants</code>.</p>
-   * @public
-   */
-  ShadowProductionVariants?: ProductionVariant[] | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the IAM role that you assigned to the endpoint configuration.</p>
-   * @public
-   */
-  ExecutionRoleArn?: string | undefined;
-
-  /**
-   * <p>Specifies an Amazon Virtual Private Cloud (VPC) that your SageMaker jobs, hosted models, and compute resources have access to. You can control access to and from your resources by configuring a VPC. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/infrastructure-give-access.html">Give SageMaker Access to Resources in your Amazon VPC</a>. </p>
-   * @public
-   */
-  VpcConfig?: VpcConfig | undefined;
-
-  /**
-   * <p>Indicates whether all model containers deployed to the endpoint are isolated. If they are, no inbound or outbound network calls can be made to or from the model containers.</p>
-   * @public
-   */
-  EnableNetworkIsolation?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeExperimentRequest {
-  /**
-   * <p>The name of the experiment to describe.</p>
-   * @public
-   */
-  ExperimentName: string | undefined;
-}
-
-/**
- * <p>The source of the experiment.</p>
- * @public
- */
-export interface ExperimentSource {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the source.</p>
-   * @public
-   */
-  SourceArn: string | undefined;
-
-  /**
-   * <p>The source type.</p>
-   * @public
-   */
-  SourceType?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeExperimentResponse {
-  /**
-   * <p>The name of the experiment.</p>
-   * @public
-   */
-  ExperimentName?: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the experiment.</p>
-   * @public
-   */
-  ExperimentArn?: string | undefined;
-
-  /**
-   * <p>The name of the experiment as displayed. If <code>DisplayName</code> isn't specified, <code>ExperimentName</code> is displayed.</p>
-   * @public
-   */
-  DisplayName?: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the source and, optionally, the type.</p>
-   * @public
-   */
-  Source?: ExperimentSource | undefined;
-
-  /**
-   * <p>The description of the experiment.</p>
-   * @public
-   */
-  Description?: string | undefined;
-
-  /**
-   * <p>When the experiment was created.</p>
-   * @public
-   */
-  CreationTime?: Date | undefined;
-
-  /**
-   * <p>Who created the experiment.</p>
-   * @public
-   */
-  CreatedBy?: UserContext | undefined;
-
-  /**
-   * <p>When the experiment was last modified.</p>
-   * @public
-   */
-  LastModifiedTime?: Date | undefined;
-
-  /**
-   * <p>Who last modified the experiment.</p>
-   * @public
-   */
-  LastModifiedBy?: UserContext | undefined;
 }
 
 /**

@@ -39,7 +39,6 @@ import {
   AwsManagedHumanLoopRequestSource,
   BatchTransformInput,
   BestObjectiveNotImproving,
-  Bias,
   BlueGreenUpdatePolicy,
   CanvasAppSettings,
   CapacityReservationPreference,
@@ -56,14 +55,14 @@ import {
   ClusterInstanceGroupSpecification,
   ClusterNodeRecovery,
   ClusterOrchestrator,
+  ClusterRestrictedInstanceGroupSpecification,
   CodeEditorAppImageConfig,
   CodeEditorAppSettings,
   CodeRepository,
   CollectionConfig,
   CollectionType,
   CompleteOnConvergence,
-  ComputeQuotaConfig,
-  ComputeQuotaTarget,
+  ComputeQuotaResourceConfig,
   CustomImage,
   FeatureStatus,
   GitConfig,
@@ -74,12 +73,14 @@ import {
   MetricsSource,
   ModelDataSource,
   OutputDataConfig,
+  PreemptTeamTasks,
   ProblemType,
   ProcessingS3DataDistributionType,
   ProcessingS3InputMode,
   ProductionVariantInstanceType,
   ResourceConfig,
   ResourceSpec,
+  SchedulerResourceStatus,
   StoppingCondition,
   Tag,
   TargetDevice,
@@ -92,6 +93,153 @@ import {
 } from "./models_0";
 
 import { SageMakerServiceException as __BaseException } from "./SageMakerServiceException";
+
+/**
+ * @public
+ * @enum
+ */
+export const ResourceSharingStrategy = {
+  DONTLEND: "DontLend",
+  LEND: "Lend",
+  LENDANDBORROW: "LendAndBorrow",
+} as const;
+
+/**
+ * @public
+ */
+export type ResourceSharingStrategy = (typeof ResourceSharingStrategy)[keyof typeof ResourceSharingStrategy];
+
+/**
+ * <p>Resource sharing configuration.</p>
+ * @public
+ */
+export interface ResourceSharingConfig {
+  /**
+   * <p>The strategy of how idle compute is shared within the cluster. The following are the options of strategies.</p> <ul> <li> <p> <code>DontLend</code>: entities do not lend idle compute.</p> </li> <li> <p> <code>Lend</code>: entities can lend idle compute to entities that can borrow.</p> </li> <li> <p> <code>LendandBorrow</code>: entities can lend idle compute and borrow idle compute from other entities.</p> </li> </ul> <p>Default is <code>LendandBorrow</code>.</p>
+   * @public
+   */
+  Strategy: ResourceSharingStrategy | undefined;
+
+  /**
+   * <p>The limit on how much idle compute can be borrowed.The values can be 1 - 500 percent of idle compute that the team is allowed to borrow.</p> <p>Default is <code>50</code>.</p>
+   * @public
+   */
+  BorrowLimit?: number | undefined;
+}
+
+/**
+ * <p>Configuration of the compute allocation definition for an entity. This includes the resource sharing option and the setting to preempt low priority tasks.</p>
+ * @public
+ */
+export interface ComputeQuotaConfig {
+  /**
+   * <p>Allocate compute resources by instance types.</p>
+   * @public
+   */
+  ComputeQuotaResources?: ComputeQuotaResourceConfig[] | undefined;
+
+  /**
+   * <p>Resource sharing configuration. This defines how an entity can lend and borrow idle compute with other entities within the cluster.</p>
+   * @public
+   */
+  ResourceSharingConfig?: ResourceSharingConfig | undefined;
+
+  /**
+   * <p>Allows workloads from within an entity to preempt same-team workloads. When set to <code>LowerPriority</code>, the entity's lower priority tasks are preempted by their own higher priority tasks.</p> <p>Default is <code>LowerPriority</code>.</p>
+   * @public
+   */
+  PreemptTeamTasks?: PreemptTeamTasks | undefined;
+}
+
+/**
+ * <p>The target entity to allocate compute resources to.</p>
+ * @public
+ */
+export interface ComputeQuotaTarget {
+  /**
+   * <p>Name of the team to allocate compute resources to.</p>
+   * @public
+   */
+  TeamName: string | undefined;
+
+  /**
+   * <p>Assigned entity fair-share weight. Idle compute will be shared across entities based on these assigned weights. This weight is only used when <code>FairShare</code> is enabled.</p> <p>A weight of 0 is the lowest priority and 100 is the highest. Weight 0 is the default.</p>
+   * @public
+   */
+  FairShareWeight?: number | undefined;
+}
+
+/**
+ * <p>Summary of the compute allocation definition.</p>
+ * @public
+ */
+export interface ComputeQuotaSummary {
+  /**
+   * <p>ARN of the compute allocation definition.</p>
+   * @public
+   */
+  ComputeQuotaArn: string | undefined;
+
+  /**
+   * <p>ID of the compute allocation definition.</p>
+   * @public
+   */
+  ComputeQuotaId: string | undefined;
+
+  /**
+   * <p>Name of the compute allocation definition.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>Version of the compute allocation definition.</p>
+   * @public
+   */
+  ComputeQuotaVersion?: number | undefined;
+
+  /**
+   * <p>Status of the compute allocation definition.</p>
+   * @public
+   */
+  Status: SchedulerResourceStatus | undefined;
+
+  /**
+   * <p>ARN of the cluster.</p>
+   * @public
+   */
+  ClusterArn?: string | undefined;
+
+  /**
+   * <p>Configuration of the compute allocation definition. This includes the resource sharing option, and the setting to preempt low priority tasks.</p>
+   * @public
+   */
+  ComputeQuotaConfig?: ComputeQuotaConfig | undefined;
+
+  /**
+   * <p>The target entity to allocate compute resources to.</p>
+   * @public
+   */
+  ComputeQuotaTarget: ComputeQuotaTarget | undefined;
+
+  /**
+   * <p>The state of the compute allocation being described. Use to enable or disable compute allocation.</p> <p>Default is <code>Enabled</code>.</p>
+   * @public
+   */
+  ActivationState?: ActivationState | undefined;
+
+  /**
+   * <p>Creation time of the compute allocation definition.</p>
+   * @public
+   */
+  CreationTime: Date | undefined;
+
+  /**
+   * <p>Last modified time of the compute allocation definition.</p>
+   * @public
+   */
+  LastModifiedTime?: Date | undefined;
+}
 
 /**
  * @public
@@ -1179,6 +1327,12 @@ export interface CreateClusterRequest {
    * @public
    */
   InstanceGroups?: ClusterInstanceGroupSpecification[] | undefined;
+
+  /**
+   * <p>The specialized instance groups for training models like Amazon Nova to be created in the SageMaker HyperPod cluster.</p>
+   * @public
+   */
+  RestrictedInstanceGroups?: ClusterRestrictedInstanceGroupSpecification[] | undefined;
 
   /**
    * <p>Specifies the Amazon Virtual Private Cloud (VPC) that is associated with the Amazon SageMaker HyperPod cluster. You can control access to and from your resources by configuring your VPC. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/infrastructure-give-access.html">Give SageMaker access to resources in your Amazon VPC</a>.</p> <note> <p>When your Amazon VPC and subnets support IPv6, network communications differ based on the cluster orchestration platform:</p> <ul> <li> <p>Slurm-orchestrated clusters automatically configure nodes with dual IPv6 and IPv4 addresses, allowing immediate IPv6 network communications.</p> </li> <li> <p>In Amazon EKS-orchestrated clusters, nodes receive dual-stack addressing, but pods can only use IPv6 when the Amazon EKS cluster is explicitly IPv6-enabled. For information about deploying an IPv6 Amazon EKS cluster, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/deploy-ipv6-cluster.html#_deploy_an_ipv6_cluster_with_eksctl">Amazon EKS IPv6 Cluster Deployment</a>.</p> </li> </ul> <p>Additional resources for IPv6 configuration:</p> <ul> <li> <p>For information about adding IPv6 support to your VPC, see to <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-migrate-ipv6.html">IPv6 Support for VPC</a>.</p> </li> <li> <p>For information about creating a new IPv6-compatible VPC, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/create-vpc.html">Amazon VPC Creation Guide</a>.</p> </li> <li> <p>To configure SageMaker HyperPod with a custom Amazon VPC, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-hyperpod-prerequisites.html#sagemaker-hyperpod-prerequisites-optional-vpc">Custom Amazon VPC Setup for SageMaker HyperPod</a>.</p> </li> </ul> </note>
@@ -7752,104 +7906,6 @@ export interface ModelQuality {
    * @public
    */
   Constraints?: MetricsSource | undefined;
-}
-
-/**
- * <p>Contains metrics captured from a model.</p>
- * @public
- */
-export interface ModelMetrics {
-  /**
-   * <p>Metrics that measure the quality of a model.</p>
-   * @public
-   */
-  ModelQuality?: ModelQuality | undefined;
-
-  /**
-   * <p>Metrics that measure the quality of the input data for a model.</p>
-   * @public
-   */
-  ModelDataQuality?: ModelDataQuality | undefined;
-
-  /**
-   * <p>Metrics that measure bias in a model.</p>
-   * @public
-   */
-  Bias?: Bias | undefined;
-
-  /**
-   * <p>Metrics that help explain a model.</p>
-   * @public
-   */
-  Explainability?: Explainability | undefined;
-}
-
-/**
- * <p>An optional Key Management Service key to encrypt, decrypt, and re-encrypt model package information for regulated workloads with highly sensitive data.</p>
- * @public
- */
-export interface ModelPackageSecurityConfig {
-  /**
-   * <p>The KMS Key ID (<code>KMSKeyId</code>) used for encryption of model package information.</p>
-   * @public
-   */
-  KmsKeyId: string | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const SkipModelValidation = {
-  ALL: "All",
-  NONE: "None",
-} as const;
-
-/**
- * @public
- */
-export type SkipModelValidation = (typeof SkipModelValidation)[keyof typeof SkipModelValidation];
-
-/**
- * <p>Specifies an algorithm that was used to create the model package. The algorithm must be either an algorithm resource in your SageMaker account or an algorithm in Amazon Web Services Marketplace that you are subscribed to.</p>
- * @public
- */
-export interface SourceAlgorithm {
-  /**
-   * <p>The Amazon S3 path where the model artifacts, which result from model training, are stored. This path must point to a single <code>gzip</code> compressed tar archive (<code>.tar.gz</code> suffix).</p> <note> <p>The model artifacts must be in an S3 bucket that is in the same Amazon Web Services region as the algorithm.</p> </note>
-   * @public
-   */
-  ModelDataUrl?: string | undefined;
-
-  /**
-   * <p>Specifies the location of ML model data to deploy during endpoint creation.</p>
-   * @public
-   */
-  ModelDataSource?: ModelDataSource | undefined;
-
-  /**
-   * <p>The ETag associated with Model Data URL.</p>
-   * @public
-   */
-  ModelDataETag?: string | undefined;
-
-  /**
-   * <p>The name of an algorithm that was used to create the model package. The algorithm must be either an algorithm resource in your SageMaker account or an algorithm in Amazon Web Services Marketplace that you are subscribed to.</p>
-   * @public
-   */
-  AlgorithmName: string | undefined;
-}
-
-/**
- * <p>A list of algorithms that were used to create a model package.</p>
- * @public
- */
-export interface SourceAlgorithmSpecification {
-  /**
-   * <p>A list of the algorithms that were used to create a model package.</p>
-   * @public
-   */
-  SourceAlgorithms: SourceAlgorithm[] | undefined;
 }
 
 /**
