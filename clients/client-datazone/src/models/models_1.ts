@@ -74,10 +74,8 @@ import {
   SubscribedAsset,
   SubscribedListing,
   SubscribedListingFilterSensitiveLog,
-  SubscribedListingInput,
   SubscribedPrincipal,
   SubscribedPrincipalFilterSensitiveLog,
-  SubscriptionGrantOverallStatus,
   SubscriptionRequestStatus,
   SubscriptionStatus,
   TargetEntityType,
@@ -85,6 +83,112 @@ import {
   TimeSeriesDataPointSummaryFormOutput,
   UserDesignation,
 } from "./models_0";
+
+/**
+ * @public
+ * @enum
+ */
+export const SubscriptionGrantOverallStatus = {
+  COMPLETED: "COMPLETED",
+  GRANT_AND_REVOKE_FAILED: "GRANT_AND_REVOKE_FAILED",
+  GRANT_FAILED: "GRANT_FAILED",
+  INACCESSIBLE: "INACCESSIBLE",
+  IN_PROGRESS: "IN_PROGRESS",
+  PENDING: "PENDING",
+  REVOKE_FAILED: "REVOKE_FAILED",
+} as const;
+
+/**
+ * @public
+ */
+export type SubscriptionGrantOverallStatus =
+  (typeof SubscriptionGrantOverallStatus)[keyof typeof SubscriptionGrantOverallStatus];
+
+/**
+ * @public
+ */
+export interface CreateSubscriptionGrantOutput {
+  /**
+   * <p>The ID of the subscription grant.</p>
+   * @public
+   */
+  id: string | undefined;
+
+  /**
+   * <p>The Amazon DataZone user who created the subscription grant.</p>
+   * @public
+   */
+  createdBy: string | undefined;
+
+  /**
+   * <p>The Amazon DataZone user who updated the subscription grant.</p>
+   * @public
+   */
+  updatedBy?: string | undefined;
+
+  /**
+   * <p>The ID of the Amazon DataZone domain in which the subscription grant is created.</p>
+   * @public
+   */
+  domainId: string | undefined;
+
+  /**
+   * <p>A timestamp of when the subscription grant is created.</p>
+   * @public
+   */
+  createdAt: Date | undefined;
+
+  /**
+   * <p>A timestamp of when the subscription grant was updated.</p>
+   * @public
+   */
+  updatedAt: Date | undefined;
+
+  /**
+   * <p>The ID of the subscription target for which the subscription grant is created.</p>
+   * @public
+   */
+  subscriptionTargetId: string | undefined;
+
+  /**
+   * <p>The entity to which the subscription is granted.</p>
+   * @public
+   */
+  grantedEntity: GrantedEntity | undefined;
+
+  /**
+   * <p>The status of the subscription grant.</p>
+   * @public
+   */
+  status: SubscriptionGrantOverallStatus | undefined;
+
+  /**
+   * <p>The assets for which the subscription grant is created.</p>
+   * @public
+   */
+  assets?: SubscribedAsset[] | undefined;
+
+  /**
+   * <p>The identifier of the subscription grant.</p>
+   *
+   * @deprecated
+   * @public
+   */
+  subscriptionId?: string | undefined;
+}
+
+/**
+ * <p>The published asset for which the subscription grant is to be created.</p>
+ * @public
+ */
+export interface SubscribedListingInput {
+  /**
+   * <p>The identifier of the published asset for which the subscription grant is to be
+   *          created.</p>
+   * @public
+   */
+  identifier: string | undefined;
+}
 
 /**
  * <p>The project that is to be given a subscription grant.</p>
@@ -11073,151 +11177,6 @@ export interface ListRulesOutput {
 }
 
 /**
- * @public
- */
-export interface UpdateRuleInput {
-  /**
-   * <p>The ID of the domain in which a rule is to be updated.</p>
-   * @public
-   */
-  domainIdentifier: string | undefined;
-
-  /**
-   * <p>The ID of the rule that is to be updated</p>
-   * @public
-   */
-  identifier: string | undefined;
-
-  /**
-   * <p>The name of the rule.</p>
-   * @public
-   */
-  name?: string | undefined;
-
-  /**
-   * <p>The description of the rule.</p>
-   * @public
-   */
-  description?: string | undefined;
-
-  /**
-   * <p>The scrope of the rule.</p>
-   * @public
-   */
-  scope?: RuleScope | undefined;
-
-  /**
-   * <p>The detail of the rule.</p>
-   * @public
-   */
-  detail?: RuleDetail | undefined;
-
-  /**
-   * <p>Specifies whether to update this rule in the child domain units.</p>
-   * @public
-   */
-  includeChildDomainUnits?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateRuleOutput {
-  /**
-   * <p>The ID of the rule.</p>
-   * @public
-   */
-  identifier: string | undefined;
-
-  /**
-   * <p>The revision of the rule.</p>
-   * @public
-   */
-  revision: string | undefined;
-
-  /**
-   * <p>The name of the rule.</p>
-   * @public
-   */
-  name: string | undefined;
-
-  /**
-   * <p>The type of the rule.</p>
-   * @public
-   */
-  ruleType: RuleType | undefined;
-
-  /**
-   * <p>The target of the rule.</p>
-   * @public
-   */
-  target: RuleTarget | undefined;
-
-  /**
-   * <p>The action of the rule.</p>
-   * @public
-   */
-  action: RuleAction | undefined;
-
-  /**
-   * <p>The scope of the rule.</p>
-   * @public
-   */
-  scope: RuleScope | undefined;
-
-  /**
-   * <p>The detail of the rule.</p>
-   * @public
-   */
-  detail: RuleDetail | undefined;
-
-  /**
-   * <p>The description of the rule.</p>
-   * @public
-   */
-  description?: string | undefined;
-
-  /**
-   * <p>The timestamp at which the rule was created.</p>
-   * @public
-   */
-  createdAt: Date | undefined;
-
-  /**
-   * <p>The timestamp at which the rule was last updated.</p>
-   * @public
-   */
-  updatedAt: Date | undefined;
-
-  /**
-   * <p>The user who created the rule.</p>
-   * @public
-   */
-  createdBy: string | undefined;
-
-  /**
-   * <p>The timestamp at which the rule was last updated.</p>
-   * @public
-   */
-  lastUpdatedBy: string | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const SearchOutputAdditionalAttribute = {
-  FORMS: "FORMS",
-  TIME_SERIES_DATA_POINT_FORMS: "TIME_SERIES_DATA_POINT_FORMS",
-} as const;
-
-/**
- * @public
- */
-export type SearchOutputAdditionalAttribute =
-  (typeof SearchOutputAdditionalAttribute)[keyof typeof SearchOutputAdditionalAttribute];
-
-/**
  * @internal
  */
 export const CreateSubscriptionRequestInputFilterSensitiveLog = (obj: CreateSubscriptionRequestInput): any => ({
@@ -12026,25 +11985,4 @@ export const RuleSummaryFilterSensitiveLog = (obj: RuleSummary): any => ({
 export const ListRulesOutputFilterSensitiveLog = (obj: ListRulesOutput): any => ({
   ...obj,
   ...(obj.items && { items: obj.items.map((item) => RuleSummaryFilterSensitiveLog(item)) }),
-});
-
-/**
- * @internal
- */
-export const UpdateRuleInputFilterSensitiveLog = (obj: UpdateRuleInput): any => ({
-  ...obj,
-  ...(obj.name && { name: SENSITIVE_STRING }),
-  ...(obj.description && { description: SENSITIVE_STRING }),
-  ...(obj.detail && { detail: obj.detail }),
-});
-
-/**
- * @internal
- */
-export const UpdateRuleOutputFilterSensitiveLog = (obj: UpdateRuleOutput): any => ({
-  ...obj,
-  ...(obj.name && { name: SENSITIVE_STRING }),
-  ...(obj.target && { target: obj.target }),
-  ...(obj.detail && { detail: obj.detail }),
-  ...(obj.description && { description: SENSITIVE_STRING }),
 });

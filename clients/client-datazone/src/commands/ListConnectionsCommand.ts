@@ -49,7 +49,7 @@ export interface ListConnectionsCommandOutput extends ListConnectionsOutput, __M
  *   name: "STRING_VALUE",
  *   environmentIdentifier: "STRING_VALUE",
  *   projectIdentifier: "STRING_VALUE", // required
- *   type: "ATHENA" || "BIGQUERY" || "DATABRICKS" || "DOCUMENTDB" || "DYNAMODB" || "HYPERPOD" || "IAM" || "MYSQL" || "OPENSEARCH" || "ORACLE" || "POSTGRESQL" || "REDSHIFT" || "SAPHANA" || "SNOWFLAKE" || "SPARK" || "SQLSERVER" || "TERADATA" || "VERTICA" || "WORKFLOWS_MWAA",
+ *   type: "ATHENA" || "BIGQUERY" || "DATABRICKS" || "DOCUMENTDB" || "DYNAMODB" || "HYPERPOD" || "IAM" || "MYSQL" || "OPENSEARCH" || "ORACLE" || "POSTGRESQL" || "REDSHIFT" || "S3" || "SAPHANA" || "SNOWFLAKE" || "SPARK" || "SQLSERVER" || "TERADATA" || "VERTICA" || "WORKFLOWS_MWAA",
  * };
  * const command = new ListConnectionsCommand(input);
  * const response = await client.send(command);
@@ -73,7 +73,7 @@ export interface ListConnectionsCommandOutput extends ListConnectionsOutput, __M
  * //           glueConnection: { // GlueConnection
  * //             name: "STRING_VALUE",
  * //             description: "STRING_VALUE",
- * //             connectionType: "ATHENA" || "BIGQUERY" || "DATABRICKS" || "DOCUMENTDB" || "DYNAMODB" || "HYPERPOD" || "IAM" || "MYSQL" || "OPENSEARCH" || "ORACLE" || "POSTGRESQL" || "REDSHIFT" || "SAPHANA" || "SNOWFLAKE" || "SPARK" || "SQLSERVER" || "TERADATA" || "VERTICA" || "WORKFLOWS_MWAA",
+ * //             connectionType: "ATHENA" || "BIGQUERY" || "DATABRICKS" || "DOCUMENTDB" || "DYNAMODB" || "HYPERPOD" || "IAM" || "MYSQL" || "OPENSEARCH" || "ORACLE" || "POSTGRESQL" || "REDSHIFT" || "S3" || "SAPHANA" || "SNOWFLAKE" || "SPARK" || "SQLSERVER" || "TERADATA" || "VERTICA" || "WORKFLOWS_MWAA",
  * //             matchCriteria: [ // MatchCriteria
  * //               "STRING_VALUE",
  * //             ],
@@ -213,8 +213,14 @@ export interface ListConnectionsCommandOutput extends ListConnectionsOutput, __M
  * //           pythonVirtualEnv: "STRING_VALUE",
  * //           workerType: "STRING_VALUE",
  * //         },
+ * //         s3Properties: { // S3PropertiesOutput
+ * //           s3Uri: "STRING_VALUE", // required
+ * //           s3AccessGrantLocationId: "STRING_VALUE",
+ * //           status: "CREATING" || "CREATE_FAILED" || "DELETING" || "DELETE_FAILED" || "READY" || "UPDATING" || "UPDATE_FAILED" || "DELETED",
+ * //           errorMessage: "STRING_VALUE",
+ * //         },
  * //       },
- * //       type: "ATHENA" || "BIGQUERY" || "DATABRICKS" || "DOCUMENTDB" || "DYNAMODB" || "HYPERPOD" || "IAM" || "MYSQL" || "OPENSEARCH" || "ORACLE" || "POSTGRESQL" || "REDSHIFT" || "SAPHANA" || "SNOWFLAKE" || "SPARK" || "SQLSERVER" || "TERADATA" || "VERTICA" || "WORKFLOWS_MWAA", // required
+ * //       type: "ATHENA" || "BIGQUERY" || "DATABRICKS" || "DOCUMENTDB" || "DYNAMODB" || "HYPERPOD" || "IAM" || "MYSQL" || "OPENSEARCH" || "ORACLE" || "POSTGRESQL" || "REDSHIFT" || "S3" || "SAPHANA" || "SNOWFLAKE" || "SPARK" || "SQLSERVER" || "TERADATA" || "VERTICA" || "WORKFLOWS_MWAA", // required
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",

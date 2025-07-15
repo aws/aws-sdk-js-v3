@@ -11,7 +11,7 @@ import {
   UpdateRuleInputFilterSensitiveLog,
   UpdateRuleOutput,
   UpdateRuleOutputFilterSensitiveLog,
-} from "../models/models_1";
+} from "../models/models_2";
 import { de_UpdateRuleCommand, se_UpdateRuleCommand } from "../protocols/Aws_restJson1";
 
 /**

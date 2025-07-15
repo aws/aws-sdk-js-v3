@@ -503,6 +503,8 @@ import {
   RuleDetail,
   RuleScope,
   RuleTarget,
+  S3PropertiesInput,
+  S3PropertiesPatch,
   SageMakerRunConfigurationInput,
   ScheduleConfiguration,
   ServiceQuotaExceededException,
@@ -513,7 +515,6 @@ import {
   SparkGlueArgs,
   SparkGluePropertiesInput,
   SubscribedAsset,
-  SubscribedListingInput,
   TermRelations,
   ThrottlingException,
   TimeSeriesDataPointSummaryFormOutput,
@@ -556,7 +557,7 @@ import {
   RejectChoice,
   RejectRule,
   RuleSummary,
-  SearchOutputAdditionalAttribute,
+  SubscribedListingInput,
   SubscribedPrincipalInput,
   SubscribedProjectInput,
   SubscriptionGrantSummary,
@@ -579,6 +580,7 @@ import {
   RowFilterConfiguration,
   SearchInItem,
   SearchInventoryResultItem,
+  SearchOutputAdditionalAttribute,
   SearchResultItem,
   SearchSort,
   SearchTypesResultItem,
@@ -8929,6 +8931,10 @@ const se_RowFilterList = (input: RowFilter[], context: __SerdeContext): any => {
 
 // se_S3LocationList omitted.
 
+// se_S3PropertiesInput omitted.
+
+// se_S3PropertiesPatch omitted.
+
 // se_SageMakerRunConfigurationInput omitted.
 
 // se_ScheduleConfiguration omitted.
@@ -9279,6 +9285,11 @@ const de_ConnectionPropertiesOutput = (output: any, context: __SerdeContext): Co
   if (output.redshiftProperties != null) {
     return {
       redshiftProperties: _json(output.redshiftProperties),
+    };
+  }
+  if (output.s3Properties != null) {
+    return {
+      s3Properties: _json(output.s3Properties),
     };
   }
   if (output.sparkEmrProperties != null) {
@@ -10485,6 +10496,8 @@ const de_RuleSummary = (output: any, context: __SerdeContext): RuleSummary => {
 // de_RunStatisticsForAssets omitted.
 
 // de_S3LocationList omitted.
+
+// de_S3PropertiesOutput omitted.
 
 // de_SageMakerRunConfigurationOutput omitted.
 

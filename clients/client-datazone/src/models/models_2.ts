@@ -47,13 +47,17 @@ import {
   ProvisioningProperties,
   Resource,
   RowFilterExpression,
+  RuleAction,
+  RuleDetail,
+  RuleScope,
+  RuleTarget,
+  RuleType,
   Status,
   SubscribedAsset,
   SubscribedListing,
   SubscribedListingFilterSensitiveLog,
   SubscribedPrincipal,
   SubscribedPrincipalFilterSensitiveLog,
-  SubscriptionGrantOverallStatus,
   SubscriptionGrantStatus,
   SubscriptionRequestStatus,
   TermRelations,
@@ -66,14 +70,159 @@ import {
   DataProductResultItemFilterSensitiveLog,
   Import,
   ImportFilterSensitiveLog,
-  SearchOutputAdditionalAttribute,
   SortOrder,
+  SubscriptionGrantOverallStatus,
   SubscriptionTargetForm,
   UserProfileDetails,
   UserProfileDetailsFilterSensitiveLog,
   UserProfileStatus,
   UserProfileType,
 } from "./models_1";
+
+/**
+ * @public
+ */
+export interface UpdateRuleInput {
+  /**
+   * <p>The ID of the domain in which a rule is to be updated.</p>
+   * @public
+   */
+  domainIdentifier: string | undefined;
+
+  /**
+   * <p>The ID of the rule that is to be updated</p>
+   * @public
+   */
+  identifier: string | undefined;
+
+  /**
+   * <p>The name of the rule.</p>
+   * @public
+   */
+  name?: string | undefined;
+
+  /**
+   * <p>The description of the rule.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>The scrope of the rule.</p>
+   * @public
+   */
+  scope?: RuleScope | undefined;
+
+  /**
+   * <p>The detail of the rule.</p>
+   * @public
+   */
+  detail?: RuleDetail | undefined;
+
+  /**
+   * <p>Specifies whether to update this rule in the child domain units.</p>
+   * @public
+   */
+  includeChildDomainUnits?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateRuleOutput {
+  /**
+   * <p>The ID of the rule.</p>
+   * @public
+   */
+  identifier: string | undefined;
+
+  /**
+   * <p>The revision of the rule.</p>
+   * @public
+   */
+  revision: string | undefined;
+
+  /**
+   * <p>The name of the rule.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The type of the rule.</p>
+   * @public
+   */
+  ruleType: RuleType | undefined;
+
+  /**
+   * <p>The target of the rule.</p>
+   * @public
+   */
+  target: RuleTarget | undefined;
+
+  /**
+   * <p>The action of the rule.</p>
+   * @public
+   */
+  action: RuleAction | undefined;
+
+  /**
+   * <p>The scope of the rule.</p>
+   * @public
+   */
+  scope: RuleScope | undefined;
+
+  /**
+   * <p>The detail of the rule.</p>
+   * @public
+   */
+  detail: RuleDetail | undefined;
+
+  /**
+   * <p>The description of the rule.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>The timestamp at which the rule was created.</p>
+   * @public
+   */
+  createdAt: Date | undefined;
+
+  /**
+   * <p>The timestamp at which the rule was last updated.</p>
+   * @public
+   */
+  updatedAt: Date | undefined;
+
+  /**
+   * <p>The user who created the rule.</p>
+   * @public
+   */
+  createdBy: string | undefined;
+
+  /**
+   * <p>The timestamp at which the rule was last updated.</p>
+   * @public
+   */
+  lastUpdatedBy: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const SearchOutputAdditionalAttribute = {
+  FORMS: "FORMS",
+  TIME_SERIES_DATA_POINT_FORMS: "TIME_SERIES_DATA_POINT_FORMS",
+} as const;
+
+/**
+ * @public
+ */
+export type SearchOutputAdditionalAttribute =
+  (typeof SearchOutputAdditionalAttribute)[keyof typeof SearchOutputAdditionalAttribute];
 
 /**
  * <p>A search filter in Amazon DataZone.</p>
@@ -3030,6 +3179,27 @@ export interface UpdateAssetFilterOutput {
    */
   effectiveRowFilter?: string | undefined;
 }
+
+/**
+ * @internal
+ */
+export const UpdateRuleInputFilterSensitiveLog = (obj: UpdateRuleInput): any => ({
+  ...obj,
+  ...(obj.name && { name: SENSITIVE_STRING }),
+  ...(obj.description && { description: SENSITIVE_STRING }),
+  ...(obj.detail && { detail: obj.detail }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateRuleOutputFilterSensitiveLog = (obj: UpdateRuleOutput): any => ({
+  ...obj,
+  ...(obj.name && { name: SENSITIVE_STRING }),
+  ...(obj.target && { target: obj.target }),
+  ...(obj.detail && { detail: obj.detail }),
+  ...(obj.description && { description: SENSITIVE_STRING }),
+});
 
 /**
  * @internal

@@ -5018,6 +5018,24 @@ export interface RedshiftPropertiesInput {
 }
 
 /**
+ * <p>The Amazon S3 properties of a connection.</p>
+ * @public
+ */
+export interface S3PropertiesInput {
+  /**
+   * <p>The Amazon S3 URI that's part of the Amazon S3 properties of a connection.</p>
+   * @public
+   */
+  s3Uri: string | undefined;
+
+  /**
+   * <p>The Amazon S3 Access Grant location ID that's part of the Amazon S3 properties of a connection.</p>
+   * @public
+   */
+  s3AccessGrantLocationId?: string | undefined;
+}
+
+/**
  * <p>The Spark EMR properties.</p>
  * @public
  */
@@ -5143,6 +5161,7 @@ export type ConnectionPropertiesInput =
   | ConnectionPropertiesInput.HyperPodPropertiesMember
   | ConnectionPropertiesInput.IamPropertiesMember
   | ConnectionPropertiesInput.RedshiftPropertiesMember
+  | ConnectionPropertiesInput.S3PropertiesMember
   | ConnectionPropertiesInput.SparkEmrPropertiesMember
   | ConnectionPropertiesInput.SparkGluePropertiesMember
   | ConnectionPropertiesInput.$UnknownMember;
@@ -5163,6 +5182,7 @@ export namespace ConnectionPropertiesInput {
     redshiftProperties?: never;
     sparkEmrProperties?: never;
     sparkGlueProperties?: never;
+    s3Properties?: never;
     $unknown?: never;
   }
 
@@ -5178,6 +5198,7 @@ export namespace ConnectionPropertiesInput {
     redshiftProperties?: never;
     sparkEmrProperties?: never;
     sparkGlueProperties?: never;
+    s3Properties?: never;
     $unknown?: never;
   }
 
@@ -5193,6 +5214,7 @@ export namespace ConnectionPropertiesInput {
     redshiftProperties?: never;
     sparkEmrProperties?: never;
     sparkGlueProperties?: never;
+    s3Properties?: never;
     $unknown?: never;
   }
 
@@ -5208,6 +5230,7 @@ export namespace ConnectionPropertiesInput {
     redshiftProperties?: never;
     sparkEmrProperties?: never;
     sparkGlueProperties?: never;
+    s3Properties?: never;
     $unknown?: never;
   }
 
@@ -5223,6 +5246,7 @@ export namespace ConnectionPropertiesInput {
     redshiftProperties: RedshiftPropertiesInput;
     sparkEmrProperties?: never;
     sparkGlueProperties?: never;
+    s3Properties?: never;
     $unknown?: never;
   }
 
@@ -5238,6 +5262,7 @@ export namespace ConnectionPropertiesInput {
     redshiftProperties?: never;
     sparkEmrProperties: SparkEmrPropertiesInput;
     sparkGlueProperties?: never;
+    s3Properties?: never;
     $unknown?: never;
   }
 
@@ -5253,6 +5278,23 @@ export namespace ConnectionPropertiesInput {
     redshiftProperties?: never;
     sparkEmrProperties?: never;
     sparkGlueProperties: SparkGluePropertiesInput;
+    s3Properties?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The Amazon S3 properties of a connection.</p>
+   * @public
+   */
+  export interface S3PropertiesMember {
+    athenaProperties?: never;
+    glueProperties?: never;
+    hyperPodProperties?: never;
+    iamProperties?: never;
+    redshiftProperties?: never;
+    sparkEmrProperties?: never;
+    sparkGlueProperties?: never;
+    s3Properties: S3PropertiesInput;
     $unknown?: never;
   }
 
@@ -5267,6 +5309,7 @@ export namespace ConnectionPropertiesInput {
     redshiftProperties?: never;
     sparkEmrProperties?: never;
     sparkGlueProperties?: never;
+    s3Properties?: never;
     $unknown: [string, any];
   }
 
@@ -5278,6 +5321,7 @@ export namespace ConnectionPropertiesInput {
     redshiftProperties: (value: RedshiftPropertiesInput) => T;
     sparkEmrProperties: (value: SparkEmrPropertiesInput) => T;
     sparkGlueProperties: (value: SparkGluePropertiesInput) => T;
+    s3Properties: (value: S3PropertiesInput) => T;
     _: (name: string, value: any) => T;
   }
 
@@ -5289,6 +5333,7 @@ export namespace ConnectionPropertiesInput {
     if (value.redshiftProperties !== undefined) return visitor.redshiftProperties(value.redshiftProperties);
     if (value.sparkEmrProperties !== undefined) return visitor.sparkEmrProperties(value.sparkEmrProperties);
     if (value.sparkGlueProperties !== undefined) return visitor.sparkGlueProperties(value.sparkGlueProperties);
+    if (value.s3Properties !== undefined) return visitor.s3Properties(value.s3Properties);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
 }
@@ -5473,6 +5518,36 @@ export interface RedshiftPropertiesOutput {
 }
 
 /**
+ * <p>The Amazon S3 properties of a connection.</p>
+ * @public
+ */
+export interface S3PropertiesOutput {
+  /**
+   * <p>The Amazon S3 URI that's part of the Amazon S3 properties of a connection.</p>
+   * @public
+   */
+  s3Uri: string | undefined;
+
+  /**
+   * <p>The Amazon S3 Access Grant location ID that's part of the Amazon S3 properties of a connection.</p>
+   * @public
+   */
+  s3AccessGrantLocationId?: string | undefined;
+
+  /**
+   * <p>The status of the Amazon S3 connection.</p>
+   * @public
+   */
+  status?: ConnectionStatus | undefined;
+
+  /**
+   * <p>The error message that gets displayed.</p>
+   * @public
+   */
+  errorMessage?: string | undefined;
+}
+
+/**
  * @public
  * @enum
  */
@@ -5624,6 +5699,7 @@ export type ConnectionPropertiesOutput =
   | ConnectionPropertiesOutput.HyperPodPropertiesMember
   | ConnectionPropertiesOutput.IamPropertiesMember
   | ConnectionPropertiesOutput.RedshiftPropertiesMember
+  | ConnectionPropertiesOutput.S3PropertiesMember
   | ConnectionPropertiesOutput.SparkEmrPropertiesMember
   | ConnectionPropertiesOutput.SparkGluePropertiesMember
   | ConnectionPropertiesOutput.$UnknownMember;
@@ -5644,6 +5720,7 @@ export namespace ConnectionPropertiesOutput {
     redshiftProperties?: never;
     sparkEmrProperties?: never;
     sparkGlueProperties?: never;
+    s3Properties?: never;
     $unknown?: never;
   }
 
@@ -5659,6 +5736,7 @@ export namespace ConnectionPropertiesOutput {
     redshiftProperties?: never;
     sparkEmrProperties?: never;
     sparkGlueProperties?: never;
+    s3Properties?: never;
     $unknown?: never;
   }
 
@@ -5674,6 +5752,7 @@ export namespace ConnectionPropertiesOutput {
     redshiftProperties?: never;
     sparkEmrProperties?: never;
     sparkGlueProperties?: never;
+    s3Properties?: never;
     $unknown?: never;
   }
 
@@ -5689,6 +5768,7 @@ export namespace ConnectionPropertiesOutput {
     redshiftProperties?: never;
     sparkEmrProperties?: never;
     sparkGlueProperties?: never;
+    s3Properties?: never;
     $unknown?: never;
   }
 
@@ -5704,6 +5784,7 @@ export namespace ConnectionPropertiesOutput {
     redshiftProperties: RedshiftPropertiesOutput;
     sparkEmrProperties?: never;
     sparkGlueProperties?: never;
+    s3Properties?: never;
     $unknown?: never;
   }
 
@@ -5719,6 +5800,7 @@ export namespace ConnectionPropertiesOutput {
     redshiftProperties?: never;
     sparkEmrProperties: SparkEmrPropertiesOutput;
     sparkGlueProperties?: never;
+    s3Properties?: never;
     $unknown?: never;
   }
 
@@ -5734,6 +5816,23 @@ export namespace ConnectionPropertiesOutput {
     redshiftProperties?: never;
     sparkEmrProperties?: never;
     sparkGlueProperties: SparkGluePropertiesOutput;
+    s3Properties?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The Amazon S3 properties of a connection.</p>
+   * @public
+   */
+  export interface S3PropertiesMember {
+    athenaProperties?: never;
+    glueProperties?: never;
+    hyperPodProperties?: never;
+    iamProperties?: never;
+    redshiftProperties?: never;
+    sparkEmrProperties?: never;
+    sparkGlueProperties?: never;
+    s3Properties: S3PropertiesOutput;
     $unknown?: never;
   }
 
@@ -5748,6 +5847,7 @@ export namespace ConnectionPropertiesOutput {
     redshiftProperties?: never;
     sparkEmrProperties?: never;
     sparkGlueProperties?: never;
+    s3Properties?: never;
     $unknown: [string, any];
   }
 
@@ -5759,6 +5859,7 @@ export namespace ConnectionPropertiesOutput {
     redshiftProperties: (value: RedshiftPropertiesOutput) => T;
     sparkEmrProperties: (value: SparkEmrPropertiesOutput) => T;
     sparkGlueProperties: (value: SparkGluePropertiesOutput) => T;
+    s3Properties: (value: S3PropertiesOutput) => T;
     _: (name: string, value: any) => T;
   }
 
@@ -5770,6 +5871,7 @@ export namespace ConnectionPropertiesOutput {
     if (value.redshiftProperties !== undefined) return visitor.redshiftProperties(value.redshiftProperties);
     if (value.sparkEmrProperties !== undefined) return visitor.sparkEmrProperties(value.sparkEmrProperties);
     if (value.sparkGlueProperties !== undefined) return visitor.sparkGlueProperties(value.sparkGlueProperties);
+    if (value.s3Properties !== undefined) return visitor.s3Properties(value.s3Properties);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
 }
@@ -5866,6 +5968,24 @@ export interface RedshiftPropertiesPatch {
 }
 
 /**
+ * <p>The Amazon S3 properties patch of a connection.</p>
+ * @public
+ */
+export interface S3PropertiesPatch {
+  /**
+   * <p>The Amazon S3 URI that's part of the Amazon S3 properties patch of a connection.</p>
+   * @public
+   */
+  s3Uri: string | undefined;
+
+  /**
+   * <p>The Amazon S3 Access Grant location ID that's part of the Amazon S3 properties patch of a connection.</p>
+   * @public
+   */
+  s3AccessGrantLocationId?: string | undefined;
+}
+
+/**
  * <p>The Spark EMR properties patch.</p>
  * @public
  */
@@ -5922,6 +6042,7 @@ export type ConnectionPropertiesPatch =
   | ConnectionPropertiesPatch.GluePropertiesMember
   | ConnectionPropertiesPatch.IamPropertiesMember
   | ConnectionPropertiesPatch.RedshiftPropertiesMember
+  | ConnectionPropertiesPatch.S3PropertiesMember
   | ConnectionPropertiesPatch.SparkEmrPropertiesMember
   | ConnectionPropertiesPatch.$UnknownMember;
 
@@ -5939,6 +6060,7 @@ export namespace ConnectionPropertiesPatch {
     iamProperties?: never;
     redshiftProperties?: never;
     sparkEmrProperties?: never;
+    s3Properties?: never;
     $unknown?: never;
   }
 
@@ -5952,6 +6074,7 @@ export namespace ConnectionPropertiesPatch {
     iamProperties?: never;
     redshiftProperties?: never;
     sparkEmrProperties?: never;
+    s3Properties?: never;
     $unknown?: never;
   }
 
@@ -5965,6 +6088,7 @@ export namespace ConnectionPropertiesPatch {
     iamProperties: IamPropertiesPatch;
     redshiftProperties?: never;
     sparkEmrProperties?: never;
+    s3Properties?: never;
     $unknown?: never;
   }
 
@@ -5978,6 +6102,7 @@ export namespace ConnectionPropertiesPatch {
     iamProperties?: never;
     redshiftProperties: RedshiftPropertiesPatch;
     sparkEmrProperties?: never;
+    s3Properties?: never;
     $unknown?: never;
   }
 
@@ -5991,6 +6116,21 @@ export namespace ConnectionPropertiesPatch {
     iamProperties?: never;
     redshiftProperties?: never;
     sparkEmrProperties: SparkEmrPropertiesPatch;
+    s3Properties?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The Amazon S3 properties of a connection properties patch.</p>
+   * @public
+   */
+  export interface S3PropertiesMember {
+    athenaProperties?: never;
+    glueProperties?: never;
+    iamProperties?: never;
+    redshiftProperties?: never;
+    sparkEmrProperties?: never;
+    s3Properties: S3PropertiesPatch;
     $unknown?: never;
   }
 
@@ -6003,6 +6143,7 @@ export namespace ConnectionPropertiesPatch {
     iamProperties?: never;
     redshiftProperties?: never;
     sparkEmrProperties?: never;
+    s3Properties?: never;
     $unknown: [string, any];
   }
 
@@ -6012,6 +6153,7 @@ export namespace ConnectionPropertiesPatch {
     iamProperties: (value: IamPropertiesPatch) => T;
     redshiftProperties: (value: RedshiftPropertiesPatch) => T;
     sparkEmrProperties: (value: SparkEmrPropertiesPatch) => T;
+    s3Properties: (value: S3PropertiesPatch) => T;
     _: (name: string, value: any) => T;
   }
 
@@ -6021,6 +6163,7 @@ export namespace ConnectionPropertiesPatch {
     if (value.iamProperties !== undefined) return visitor.iamProperties(value.iamProperties);
     if (value.redshiftProperties !== undefined) return visitor.redshiftProperties(value.redshiftProperties);
     if (value.sparkEmrProperties !== undefined) return visitor.sparkEmrProperties(value.sparkEmrProperties);
+    if (value.s3Properties !== undefined) return visitor.s3Properties(value.s3Properties);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
 }
@@ -6042,6 +6185,7 @@ export const ConnectionType = {
   ORACLE: "ORACLE",
   POSTGRESQL: "POSTGRESQL",
   REDSHIFT: "REDSHIFT",
+  S3: "S3",
   SAPHANA: "SAPHANA",
   SNOWFLAKE: "SNOWFLAKE",
   SPARK: "SPARK",
@@ -8129,7 +8273,7 @@ export interface CreateEnvironmentInput {
    *          environment.</p>
    * @public
    */
-  environmentProfileIdentifier: string | undefined;
+  environmentProfileIdentifier?: string | undefined;
 
   /**
    * <p>The user parameters of this Amazon DataZone environment.</p>
@@ -10500,112 +10644,6 @@ export namespace GrantedEntity {
 }
 
 /**
- * @public
- * @enum
- */
-export const SubscriptionGrantOverallStatus = {
-  COMPLETED: "COMPLETED",
-  GRANT_AND_REVOKE_FAILED: "GRANT_AND_REVOKE_FAILED",
-  GRANT_FAILED: "GRANT_FAILED",
-  INACCESSIBLE: "INACCESSIBLE",
-  IN_PROGRESS: "IN_PROGRESS",
-  PENDING: "PENDING",
-  REVOKE_FAILED: "REVOKE_FAILED",
-} as const;
-
-/**
- * @public
- */
-export type SubscriptionGrantOverallStatus =
-  (typeof SubscriptionGrantOverallStatus)[keyof typeof SubscriptionGrantOverallStatus];
-
-/**
- * @public
- */
-export interface CreateSubscriptionGrantOutput {
-  /**
-   * <p>The ID of the subscription grant.</p>
-   * @public
-   */
-  id: string | undefined;
-
-  /**
-   * <p>The Amazon DataZone user who created the subscription grant.</p>
-   * @public
-   */
-  createdBy: string | undefined;
-
-  /**
-   * <p>The Amazon DataZone user who updated the subscription grant.</p>
-   * @public
-   */
-  updatedBy?: string | undefined;
-
-  /**
-   * <p>The ID of the Amazon DataZone domain in which the subscription grant is created.</p>
-   * @public
-   */
-  domainId: string | undefined;
-
-  /**
-   * <p>A timestamp of when the subscription grant is created.</p>
-   * @public
-   */
-  createdAt: Date | undefined;
-
-  /**
-   * <p>A timestamp of when the subscription grant was updated.</p>
-   * @public
-   */
-  updatedAt: Date | undefined;
-
-  /**
-   * <p>The ID of the subscription target for which the subscription grant is created.</p>
-   * @public
-   */
-  subscriptionTargetId: string | undefined;
-
-  /**
-   * <p>The entity to which the subscription is granted.</p>
-   * @public
-   */
-  grantedEntity: GrantedEntity | undefined;
-
-  /**
-   * <p>The status of the subscription grant.</p>
-   * @public
-   */
-  status: SubscriptionGrantOverallStatus | undefined;
-
-  /**
-   * <p>The assets for which the subscription grant is created.</p>
-   * @public
-   */
-  assets?: SubscribedAsset[] | undefined;
-
-  /**
-   * <p>The identifier of the subscription grant.</p>
-   *
-   * @deprecated
-   * @public
-   */
-  subscriptionId?: string | undefined;
-}
-
-/**
- * <p>The published asset for which the subscription grant is to be created.</p>
- * @public
- */
-export interface SubscribedListingInput {
-  /**
-   * <p>The identifier of the published asset for which the subscription grant is to be
-   *          created.</p>
-   * @public
-   */
-  identifier: string | undefined;
-}
-
-/**
  * @internal
  */
 export const AcceptChoiceFilterSensitiveLog = (obj: AcceptChoice): any => ({
@@ -11027,6 +11065,7 @@ export const ConnectionPropertiesInputFilterSensitiveLog = (obj: ConnectionPrope
     return { redshiftProperties: RedshiftPropertiesInputFilterSensitiveLog(obj.redshiftProperties) };
   if (obj.sparkEmrProperties !== undefined) return { sparkEmrProperties: obj.sparkEmrProperties };
   if (obj.sparkGlueProperties !== undefined) return { sparkGlueProperties: obj.sparkGlueProperties };
+  if (obj.s3Properties !== undefined) return { s3Properties: obj.s3Properties };
   if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
 };
 
@@ -11060,6 +11099,7 @@ export const ConnectionPropertiesOutputFilterSensitiveLog = (obj: ConnectionProp
   if (obj.sparkEmrProperties !== undefined)
     return { sparkEmrProperties: SparkEmrPropertiesOutputFilterSensitiveLog(obj.sparkEmrProperties) };
   if (obj.sparkGlueProperties !== undefined) return { sparkGlueProperties: obj.sparkGlueProperties };
+  if (obj.s3Properties !== undefined) return { s3Properties: obj.s3Properties };
   if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
 };
 
@@ -11103,6 +11143,7 @@ export const ConnectionPropertiesPatchFilterSensitiveLog = (obj: ConnectionPrope
   if (obj.redshiftProperties !== undefined)
     return { redshiftProperties: RedshiftPropertiesPatchFilterSensitiveLog(obj.redshiftProperties) };
   if (obj.sparkEmrProperties !== undefined) return { sparkEmrProperties: obj.sparkEmrProperties };
+  if (obj.s3Properties !== undefined) return { s3Properties: obj.s3Properties };
   if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
 };
 

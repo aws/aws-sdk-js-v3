@@ -44,7 +44,7 @@ export interface CreateEnvironmentCommandOutput extends CreateEnvironmentOutput,
  *   domainIdentifier: "STRING_VALUE", // required
  *   description: "STRING_VALUE",
  *   name: "STRING_VALUE", // required
- *   environmentProfileIdentifier: "STRING_VALUE", // required
+ *   environmentProfileIdentifier: "STRING_VALUE",
  *   userParameters: [ // EnvironmentParametersList
  *     { // EnvironmentParameter
  *       name: "STRING_VALUE",
