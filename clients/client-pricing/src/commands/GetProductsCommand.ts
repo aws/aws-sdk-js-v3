@@ -39,7 +39,7 @@ export interface GetProductsCommandOutput extends GetProductsResponse, __Metadat
  *   ServiceCode: "STRING_VALUE", // required
  *   Filters: [ // Filters
  *     { // Filter
- *       Type: "TERM_MATCH", // required
+ *       Type: "TERM_MATCH" || "EQUALS" || "CONTAINS" || "ANY_OF" || "NONE_OF", // required
  *       Field: "STRING_VALUE", // required
  *       Value: "STRING_VALUE", // required
  *     },

@@ -360,6 +360,10 @@ export class ResourceNotFoundException extends __BaseException {
  * @enum
  */
 export const FilterType = {
+  ANY_OF: "ANY_OF",
+  CONTAINS: "CONTAINS",
+  EQUALS: "EQUALS",
+  NONE_OF: "NONE_OF",
   TERM_MATCH: "TERM_MATCH",
 } as const;
 
@@ -375,8 +379,30 @@ export type FilterType = (typeof FilterType)[keyof typeof FilterType];
 export interface Filter {
   /**
    * <p>The type of filter that you want to use.</p>
-   *          <p>Valid values are: <code>TERM_MATCH</code>. <code>TERM_MATCH</code> returns only
-   *          products that match both the given filter field and the given value.</p>
+   *          <p>Valid values are:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>TERM_MATCH</code>: Returns only
+   *             products that match both the given filter field and the given value.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>EQUALS</code>: Returns products that have a field value exactly matching the provided value.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>CONTAINS</code>: Returns products where the field value contains the provided value as a substring.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ANY_OF</code>: Returns products where the field value is any of the provided values.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>NONE_OF</code>: Returns products where the field value is not any of the provided values.</p>
+   *             </li>
+   *          </ul>
    * @public
    */
   Type: FilterType | undefined;
@@ -398,6 +424,7 @@ export interface Filter {
    *          by service code this is the actual service code, such as <code>AmazonEC2</code>. If you're
    *          filtering by attribute name, this is the attribute value that you want the returned
    *          products to match, such as a <code>Provisioned IOPS</code> volume.</p>
+   *          <p>For <code>ANY_OF</code> and <code>NONE_OF</code> filter types, you can provide multiple values as a comma-separated string. For example, <code>t2.micro,t2.small,t2.medium</code> or <code>Compute optimized, GPU instance, Micro instances</code>.</p>
    * @public
    */
   Value: string | undefined;
