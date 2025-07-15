@@ -1,5 +1,5 @@
 import { S3 } from "@aws-sdk/client-s3";
-import { GetCallerIdentityCommandOutput, STS } from "@aws-sdk/client-sts";
+import { type GetCallerIdentityCommandOutput, STS } from "@aws-sdk/client-sts";
 import { afterAll, beforeAll, describe, test as it } from "vitest";
 
 describe("S3 throw 200 exceptions", () => {
@@ -10,7 +10,7 @@ describe("S3 throw 200 exceptions", () => {
   const stsClient = new STS(config);
 
   const alphabet = "abcdefghijklmnopqrstuvwxyz";
-  const randId = alphabet[(Math.random() * alphabet.length) | 0] + alphabet[(Math.random() * alphabet.length) | 0];
+  const randId = Array.from({ length: 8 }, () => alphabet[(Math.random() * alphabet.length) | 0]).join("");
   let Bucket: string;
   let callerID: GetCallerIdentityCommandOutput;
 
