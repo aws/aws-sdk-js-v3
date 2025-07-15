@@ -3,6 +3,36 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.845.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.844.0...v3.845.0) (2025-07-15)
+
+
+### Bug Fixes
+
+* **clients:** upgrade @smithy/middleware-endpoint to fix file/env endpoint resolution ([#7206](https://github.com/aws/aws-sdk-js-v3/issues/7206)) ([37a6275](https://github.com/aws/aws-sdk-js-v3/commit/37a627510bc53ad0ce8d3ef10a2a5ec8ad195ee2))
+
+
+### Features
+
+* **client-bedrock-agent:** Add support for S3 Vectors as a vector store. ([62f309e](https://github.com/aws/aws-sdk-js-v3/commit/62f309ed6e1c7ec9633bf873a3ea9a1efe3ae104))
+* **client-datazone:** Removing restriction of environment profile identifier as required field, S3 feature release ([5b32ed8](https://github.com/aws/aws-sdk-js-v3/commit/5b32ed8e8b8b91430f4f647a034da116730da754))
+* **client-dynamodb-streams:** Added support for optional shard filter parameter in DescribeStream api that allows customers to fetch child shards of a read_only parent shard. ([33f76e9](https://github.com/aws/aws-sdk-js-v3/commit/33f76e966b3ab9f7e5a52407806be4c4d87398f3))
+* **client-ec2:** This release adds support for volume initialization status, which enables you to monitor when the initialization process for an EBS volume is completed. This release also adds IPv6 support to EC2 Instance Connect Endpoints, allowing you to connect to your EC2 Instance via a private IPv6 address. ([ba3d837](https://github.com/aws/aws-sdk-js-v3/commit/ba3d83753c3d4edf3b3e240a9697e9f9c9293644))
+* **client-ecs:** Amazon ECS supports native blue/green deployments, allowing you to validate new service revisions before directing production traffic to them. ([26ec370](https://github.com/aws/aws-sdk-js-v3/commit/26ec370f252c0002ba61af6dbbe9373bd4631ca0))
+* **client-eventbridge:** Add customer-facing logging for the EventBridge Event Bus, enabling customers to better observe their events and extract insights about their EventBridge usage. ([f9e43a0](https://github.com/aws/aws-sdk-js-v3/commit/f9e43a06840efd2ccb12f8cc5f36c12166848b40))
+* **client-opensearch:** AWS Opensearch adds support for enabling s3 vector engine options. After enabling this option, customers will be able to create indices with s3 vector engine. ([076c2b7](https://github.com/aws/aws-sdk-js-v3/commit/076c2b7537fe64c7aeb6287f124938892ee6528d))
+* **client-pricing:** This release adds support for new filter types in GetProducts API, including EQUALS, CONTAINS, ANY_OF, and NONE_OF. ([0f1048c](https://github.com/aws/aws-sdk-js-v3/commit/0f1048c0ad340047c4950ffc0b3cd859a0caf326))
+* **client-quicksight:** Introduced custom instructions for topics. ([261ae68](https://github.com/aws/aws-sdk-js-v3/commit/261ae6847b2860d6c71c13666bd271b4589e3f14))
+* **client-repostspace:** This release introduces Channels functionality with CreateChannel, GetChannel, ListChannels, and UpdateChannel operations. Channels provide dedicated collaboration spaces where teams can organize discussions and knowledge by projects, business units, or areas of responsibility. ([9d93a26](https://github.com/aws/aws-sdk-js-v3/commit/9d93a2651601041d8a9a4c3f4165386591d6d733))
+* **client-s3:** Amazon S3 Metadata live inventory tables provide a queryable inventory of all the objects in your general purpose bucket so that you can determine the latest state of your data. To help minimize your storage costs, use journal table record expiration to set a retention period for your records. ([6f14868](https://github.com/aws/aws-sdk-js-v3/commit/6f14868baccb691d449170eafc7330a27272a1ba))
+* **client-s3tables:** Adds table bucket type to ListTableBucket and GetTableBucket API operations ([5784238](https://github.com/aws/aws-sdk-js-v3/commit/5784238b37bc96614c56eefaf1f997ab816f6412))
+* **client-s3vectors:** Amazon S3 Vectors provides cost-effective, elastic, and durable vector storage for queries based on semantic meaning and similarity. ([1a04801](https://github.com/aws/aws-sdk-js-v3/commit/1a04801a82cb5fd592d3f8814c5c30e2cfabc395))
+* **client-sagemaker:** This release adds support for a new Restricted instance group type to enable a specialized environment for running Nova customization jobs on SageMaker HyperPod clusters. This release also adds support for SageMaker pipeline versioning. ([469f748](https://github.com/aws/aws-sdk-js-v3/commit/469f748a6bf4b643f845e9ea305d5dbdddf02382))
+* **clients:** update client endpoints as of 2025-07-15 ([8cbd7a2](https://github.com/aws/aws-sdk-js-v3/commit/8cbd7a20d01fe3d353a41d2ea84452c832580bdd))
+
+
+
+
+
 # [3.844.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.843.0...v3.844.0) (2025-07-09)
 
 
