@@ -33,26 +33,7 @@ export interface UpdateKnowledgeBaseCommandInput extends UpdateKnowledgeBaseRequ
 export interface UpdateKnowledgeBaseCommandOutput extends UpdateKnowledgeBaseResponse, __MetadataBearer {}
 
 /**
- * <p>Updates the configuration of a knowledge base with the fields that you specify. Because all fields will be overwritten, you must include the same values for fields that you want to keep the same.</p>
- *          <p>You can change the following fields:</p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <code>name</code>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>description</code>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>roleArn</code>
- *                </p>
- *             </li>
- *          </ul>
- *          <p>You can't change the <code>knowledgeBaseConfiguration</code> or <code>storageConfiguration</code> fields, so you must specify the same configurations as when you created the knowledge base. You can send a <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_GetKnowledgeBase.html">GetKnowledgeBase</a> request and copy the same configurations.</p>
+ * <p>Updates the configuration of a knowledge base with the fields that you specify. Because all fields will be overwritten, you must include the same values for fields that you want to keep the same.</p> <p>You can change the following fields:</p> <ul> <li> <p> <code>name</code> </p> </li> <li> <p> <code>description</code> </p> </li> <li> <p> <code>roleArn</code> </p> </li> </ul> <p>You can't change the <code>knowledgeBaseConfiguration</code> or <code>storageConfiguration</code> fields, so you must specify the same configurations as when you created the knowledge base. You can send a <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_GetKnowledgeBase.html">GetKnowledgeBase</a> request and copy the same configurations.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -151,7 +132,7 @@ export interface UpdateKnowledgeBaseCommandOutput extends UpdateKnowledgeBaseRes
  *     },
  *   },
  *   storageConfiguration: { // StorageConfiguration
- *     type: "OPENSEARCH_SERVERLESS" || "PINECONE" || "REDIS_ENTERPRISE_CLOUD" || "RDS" || "MONGO_DB_ATLAS" || "NEPTUNE_ANALYTICS" || "OPENSEARCH_MANAGED_CLUSTER", // required
+ *     type: "OPENSEARCH_SERVERLESS" || "PINECONE" || "REDIS_ENTERPRISE_CLOUD" || "RDS" || "MONGO_DB_ATLAS" || "NEPTUNE_ANALYTICS" || "OPENSEARCH_MANAGED_CLUSTER" || "S3_VECTORS", // required
  *     opensearchServerlessConfiguration: { // OpenSearchServerlessConfiguration
  *       collectionArn: "STRING_VALUE", // required
  *       vectorIndexName: "STRING_VALUE", // required
@@ -223,6 +204,11 @@ export interface UpdateKnowledgeBaseCommandOutput extends UpdateKnowledgeBaseRes
  *         textField: "STRING_VALUE", // required
  *         metadataField: "STRING_VALUE", // required
  *       },
+ *     },
+ *     s3VectorsConfiguration: { // S3VectorsConfiguration
+ *       vectorBucketArn: "STRING_VALUE",
+ *       indexArn: "STRING_VALUE",
+ *       indexName: "STRING_VALUE",
  *     },
  *   },
  * };
@@ -322,7 +308,7 @@ export interface UpdateKnowledgeBaseCommandOutput extends UpdateKnowledgeBaseRes
  * //       },
  * //     },
  * //     storageConfiguration: { // StorageConfiguration
- * //       type: "OPENSEARCH_SERVERLESS" || "PINECONE" || "REDIS_ENTERPRISE_CLOUD" || "RDS" || "MONGO_DB_ATLAS" || "NEPTUNE_ANALYTICS" || "OPENSEARCH_MANAGED_CLUSTER", // required
+ * //       type: "OPENSEARCH_SERVERLESS" || "PINECONE" || "REDIS_ENTERPRISE_CLOUD" || "RDS" || "MONGO_DB_ATLAS" || "NEPTUNE_ANALYTICS" || "OPENSEARCH_MANAGED_CLUSTER" || "S3_VECTORS", // required
  * //       opensearchServerlessConfiguration: { // OpenSearchServerlessConfiguration
  * //         collectionArn: "STRING_VALUE", // required
  * //         vectorIndexName: "STRING_VALUE", // required
@@ -394,6 +380,11 @@ export interface UpdateKnowledgeBaseCommandOutput extends UpdateKnowledgeBaseRes
  * //           textField: "STRING_VALUE", // required
  * //           metadataField: "STRING_VALUE", // required
  * //         },
+ * //       },
+ * //       s3VectorsConfiguration: { // S3VectorsConfiguration
+ * //         vectorBucketArn: "STRING_VALUE",
+ * //         indexArn: "STRING_VALUE",
+ * //         indexName: "STRING_VALUE",
  * //       },
  * //     },
  * //     status: "CREATING" || "ACTIVE" || "DELETING" || "UPDATING" || "FAILED" || "DELETE_UNSUCCESSFUL", // required

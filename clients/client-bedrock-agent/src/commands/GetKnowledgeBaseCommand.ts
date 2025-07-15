@@ -138,7 +138,7 @@ export interface GetKnowledgeBaseCommandOutput extends GetKnowledgeBaseResponse,
  * //       },
  * //     },
  * //     storageConfiguration: { // StorageConfiguration
- * //       type: "OPENSEARCH_SERVERLESS" || "PINECONE" || "REDIS_ENTERPRISE_CLOUD" || "RDS" || "MONGO_DB_ATLAS" || "NEPTUNE_ANALYTICS" || "OPENSEARCH_MANAGED_CLUSTER", // required
+ * //       type: "OPENSEARCH_SERVERLESS" || "PINECONE" || "REDIS_ENTERPRISE_CLOUD" || "RDS" || "MONGO_DB_ATLAS" || "NEPTUNE_ANALYTICS" || "OPENSEARCH_MANAGED_CLUSTER" || "S3_VECTORS", // required
  * //       opensearchServerlessConfiguration: { // OpenSearchServerlessConfiguration
  * //         collectionArn: "STRING_VALUE", // required
  * //         vectorIndexName: "STRING_VALUE", // required
@@ -210,6 +210,11 @@ export interface GetKnowledgeBaseCommandOutput extends GetKnowledgeBaseResponse,
  * //           textField: "STRING_VALUE", // required
  * //           metadataField: "STRING_VALUE", // required
  * //         },
+ * //       },
+ * //       s3VectorsConfiguration: { // S3VectorsConfiguration
+ * //         vectorBucketArn: "STRING_VALUE",
+ * //         indexArn: "STRING_VALUE",
+ * //         indexName: "STRING_VALUE",
  * //       },
  * //     },
  * //     status: "CREATING" || "ACTIVE" || "DELETING" || "UPDATING" || "FAILED" || "DELETE_UNSUCCESSFUL", // required

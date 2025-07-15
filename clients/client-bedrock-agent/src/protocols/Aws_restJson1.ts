@@ -383,6 +383,7 @@ import {
   RedshiftServerlessAuthConfiguration,
   RedshiftServerlessConfiguration,
   S3Content,
+  S3VectorsConfiguration,
   SqlKnowledgeBaseConfiguration,
   StorageConfiguration,
   SupplementalDataStorageConfiguration,
@@ -4488,6 +4489,8 @@ const se_PromptVariantList = (input: PromptVariant[], context: __SerdeContext): 
 
 // se_S3Prefixes omitted.
 
+// se_S3VectorsConfiguration omitted.
+
 // se_SalesforceCrawlerConfiguration omitted.
 
 // se_SalesforceDataSourceConfiguration omitted.
@@ -5936,6 +5939,8 @@ const de_PromptVariantList = (output: any, context: __SerdeContext): PromptVaria
 // de_S3Location omitted.
 
 // de_S3Prefixes omitted.
+
+// de_S3VectorsConfiguration omitted.
 
 // de_SalesforceCrawlerConfiguration omitted.
 

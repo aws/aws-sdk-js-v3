@@ -66,25 +66,7 @@ export const IngestionJobStatus = {
 export type IngestionJobStatus = (typeof IngestionJobStatus)[keyof typeof IngestionJobStatus];
 
 /**
- * <p>Contains details about a data ingestion job. Data sources are ingested into a knowledge base so that Large Language Models (LLMs) can use your data.</p>
- *          <p>This data type is used in the following API operations:</p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_StartIngestionJob.html#API_agent_StartIngestionJob_ResponseSyntax">StartIngestionJob response</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_GetIngestionJob.html#API_agent_GetIngestionJob_ResponseSyntax">GetIngestionJob response</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_ListIngestionJobs.html#API_agent_ListIngestionJobs_ResponseSyntax">ListIngestionJob response</a>
- *                </p>
- *             </li>
- *          </ul>
+ * <p>Contains details about a data ingestion job. Data sources are ingested into a knowledge base so that Large Language Models (LLMs) can use your data.</p> <p>This data type is used in the following API operations:</p> <ul> <li> <p> <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_StartIngestionJob.html#API_agent_StartIngestionJob_ResponseSyntax">StartIngestionJob response</a> </p> </li> <li> <p> <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_GetIngestionJob.html#API_agent_GetIngestionJob_ResponseSyntax">GetIngestionJob response</a> </p> </li> <li> <p> <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_ListIngestionJobs.html#API_agent_ListIngestionJobs_ResponseSyntax">ListIngestionJob response</a> </p> </li> </ul>
  * @public
  */
 export interface IngestionJob {
@@ -131,15 +113,13 @@ export interface IngestionJob {
   failureReasons?: string[] | undefined;
 
   /**
-   * <p>The time the data ingestion job started.</p>
-   *          <p>If you stop a data ingestion job, the <code>startedAt</code> time is the time the job was started before the job was stopped.</p>
+   * <p>The time the data ingestion job started.</p> <p>If you stop a data ingestion job, the <code>startedAt</code> time is the time the job was started before the job was stopped.</p>
    * @public
    */
   startedAt: Date | undefined;
 
   /**
-   * <p>The time the data ingestion job was last updated.</p>
-   *          <p>If you stop a data ingestion job, the <code>updatedAt</code> time is the time the job was stopped.</p>
+   * <p>The time the data ingestion job was last updated.</p> <p>If you stop a data ingestion job, the <code>updatedAt</code> time is the time the job was stopped.</p>
    * @public
    */
   updatedAt: Date | undefined;
@@ -383,8 +363,7 @@ export interface StartIngestionJobRequest {
   dataSourceId: string | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If this token matches a previous request,
-   *       Amazon Bedrock ignores the request, but does not return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>.</p>
+   * <p>A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If this token matches a previous request, Amazon Bedrock ignores the request, but does not return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>.</p>
    * @public
    */
   clientToken?: string | undefined;
@@ -508,8 +487,7 @@ export interface DeleteKnowledgeBaseDocumentsRequest {
   dataSourceId: string | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If this token matches a previous request,
-   *       Amazon Bedrock ignores the request, but does not return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>.</p>
+   * <p>A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If this token matches a previous request, Amazon Bedrock ignores the request, but does not return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>.</p>
    * @public
    */
   clientToken?: string | undefined;
@@ -563,45 +541,7 @@ export interface KnowledgeBaseDocumentDetail {
   dataSourceId: string | undefined;
 
   /**
-   * <p>The ingestion status of the document. The following statuses are possible:</p>
-   *          <ul>
-   *             <li>
-   *                <p>STARTED – You submitted the ingestion job containing the document.</p>
-   *             </li>
-   *             <li>
-   *                <p>PENDING – The document is waiting to be ingested.</p>
-   *             </li>
-   *             <li>
-   *                <p>IN_PROGRESS – The document is being ingested.</p>
-   *             </li>
-   *             <li>
-   *                <p>INDEXED – The document was successfully indexed.</p>
-   *             </li>
-   *             <li>
-   *                <p>PARTIALLY_INDEXED – The document was partially indexed.</p>
-   *             </li>
-   *             <li>
-   *                <p>METADATA_PARTIALLY_INDEXED – You submitted metadata for an existing document and it was partially indexed.</p>
-   *             </li>
-   *             <li>
-   *                <p>METADATA_UPDATE_FAILED – You submitted a metadata update for an existing document but it failed.</p>
-   *             </li>
-   *             <li>
-   *                <p>FAILED – The document failed to be ingested.</p>
-   *             </li>
-   *             <li>
-   *                <p>NOT_FOUND – The document wasn't found.</p>
-   *             </li>
-   *             <li>
-   *                <p>IGNORED – The document was ignored during ingestion.</p>
-   *             </li>
-   *             <li>
-   *                <p>DELETING – You submitted the delete job containing the document.</p>
-   *             </li>
-   *             <li>
-   *                <p>DELETE_IN_PROGRESS – The document is being deleted.</p>
-   *             </li>
-   *          </ul>
+   * <p>The ingestion status of the document. The following statuses are possible:</p> <ul> <li> <p>STARTED – You submitted the ingestion job containing the document.</p> </li> <li> <p>PENDING – The document is waiting to be ingested.</p> </li> <li> <p>IN_PROGRESS – The document is being ingested.</p> </li> <li> <p>INDEXED – The document was successfully indexed.</p> </li> <li> <p>PARTIALLY_INDEXED – The document was partially indexed.</p> </li> <li> <p>METADATA_PARTIALLY_INDEXED – You submitted metadata for an existing document and it was partially indexed.</p> </li> <li> <p>METADATA_UPDATE_FAILED – You submitted a metadata update for an existing document but it failed.</p> </li> <li> <p>FAILED – The document failed to be ingested.</p> </li> <li> <p>NOT_FOUND – The document wasn't found.</p> </li> <li> <p>IGNORED – The document was ignored during ingestion.</p> </li> <li> <p>DELETING – You submitted the delete job containing the document.</p> </li> <li> <p>DELETE_IN_PROGRESS – The document is being deleted.</p> </li> </ul>
    * @public
    */
   status: DocumentStatus | undefined;
@@ -676,69 +616,7 @@ export interface GetKnowledgeBaseDocumentsResponse {
  */
 export interface ByteContentDoc {
   /**
-   * <p>The MIME type of the content. For a list of MIME types, see <a href="https://www.iana.org/assignments/media-types/media-types.xhtml">Media Types</a>. The following MIME types are supported:</p>
-   *          <ul>
-   *             <li>
-   *                <p>text/plain</p>
-   *             </li>
-   *             <li>
-   *                <p>text/html</p>
-   *             </li>
-   *             <li>
-   *                <p>text/csv</p>
-   *             </li>
-   *             <li>
-   *                <p>text/vtt</p>
-   *             </li>
-   *             <li>
-   *                <p>message/rfc822</p>
-   *             </li>
-   *             <li>
-   *                <p>application/xhtml+xml</p>
-   *             </li>
-   *             <li>
-   *                <p>application/pdf</p>
-   *             </li>
-   *             <li>
-   *                <p>application/msword</p>
-   *             </li>
-   *             <li>
-   *                <p>application/vnd.ms-word.document.macroenabled.12</p>
-   *             </li>
-   *             <li>
-   *                <p>application/vnd.ms-word.template.macroenabled.12</p>
-   *             </li>
-   *             <li>
-   *                <p>application/vnd.ms-excel</p>
-   *             </li>
-   *             <li>
-   *                <p>application/vnd.ms-excel.addin.macroenabled.12</p>
-   *             </li>
-   *             <li>
-   *                <p>application/vnd.ms-excel.sheet.macroenabled.12</p>
-   *             </li>
-   *             <li>
-   *                <p>application/vnd.ms-excel.template.macroenabled.12</p>
-   *             </li>
-   *             <li>
-   *                <p>application/vnd.ms-excel.sheet.binary.macroenabled.12</p>
-   *             </li>
-   *             <li>
-   *                <p>application/vnd.ms-spreadsheetml</p>
-   *             </li>
-   *             <li>
-   *                <p>application/vnd.openxmlformats-officedocument.spreadsheetml.sheet</p>
-   *             </li>
-   *             <li>
-   *                <p>application/vnd.openxmlformats-officedocument.spreadsheetml.template</p>
-   *             </li>
-   *             <li>
-   *                <p>application/vnd.openxmlformats-officedocument.wordprocessingml.document</p>
-   *             </li>
-   *             <li>
-   *                <p>application/vnd.openxmlformats-officedocument.wordprocessingml.template</p>
-   *             </li>
-   *          </ul>
+   * <p>The MIME type of the content. For a list of MIME types, see <a href="https://www.iana.org/assignments/media-types/media-types.xhtml">Media Types</a>. The following MIME types are supported:</p> <ul> <li> <p>text/plain</p> </li> <li> <p>text/html</p> </li> <li> <p>text/csv</p> </li> <li> <p>text/vtt</p> </li> <li> <p>message/rfc822</p> </li> <li> <p>application/xhtml+xml</p> </li> <li> <p>application/pdf</p> </li> <li> <p>application/msword</p> </li> <li> <p>application/vnd.ms-word.document.macroenabled.12</p> </li> <li> <p>application/vnd.ms-word.template.macroenabled.12</p> </li> <li> <p>application/vnd.ms-excel</p> </li> <li> <p>application/vnd.ms-excel.addin.macroenabled.12</p> </li> <li> <p>application/vnd.ms-excel.sheet.macroenabled.12</p> </li> <li> <p>application/vnd.ms-excel.template.macroenabled.12</p> </li> <li> <p>application/vnd.ms-excel.sheet.binary.macroenabled.12</p> </li> <li> <p>application/vnd.ms-spreadsheetml</p> </li> <li> <p>application/vnd.openxmlformats-officedocument.spreadsheetml.sheet</p> </li> <li> <p>application/vnd.openxmlformats-officedocument.spreadsheetml.template</p> </li> <li> <p>application/vnd.openxmlformats-officedocument.wordprocessingml.document</p> </li> <li> <p>application/vnd.openxmlformats-officedocument.wordprocessingml.template</p> </li> </ul>
    * @public
    */
   mimeType: string | undefined;
@@ -1041,8 +919,7 @@ export interface IngestKnowledgeBaseDocumentsRequest {
   dataSourceId: string | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If this token matches a previous request,
-   *       Amazon Bedrock ignores the request, but does not return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>.</p>
+   * <p>A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If this token matches a previous request, Amazon Bedrock ignores the request, but does not return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>.</p>
    * @public
    */
   clientToken?: string | undefined;
@@ -1596,11 +1473,7 @@ export interface BedrockEmbeddingModelConfiguration {
   dimensions?: number | undefined;
 
   /**
-   * <p>The data type for the vectors when using a model to convert text into vector
-   *       embeddings. The model must support the specified data type for vector embeddings.
-   *       Floating-point (float32) is the default data type, and is supported by most models
-   *       for vector embeddings. See <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-supported.html">Supported embeddings
-   *         models</a> for information on the available models and their vector data types.</p>
+   * <p>The data type for the vectors when using a model to convert text into vector embeddings. The model must support the specified data type for vector embeddings. Floating-point (float32) is the default data type, and is supported by most models for vector embeddings. See <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-supported.html">Supported embeddings models</a> for information on the available models and their vector data types.</p>
    * @public
    */
   embeddingDataType?: EmbeddingDataType | undefined;
@@ -1788,8 +1661,7 @@ export interface MongoDbAtlasConfiguration {
   endpointServiceName?: string | undefined;
 
   /**
-   * <p>The name of the text search index in the MongoDB collection. This is required for using the hybrid search
-   *       feature.</p>
+   * <p>The name of the text search index in the MongoDB collection. This is required for using the hybrid search feature.</p>
    * @public
    */
   textIndexName?: string | undefined;
@@ -1801,8 +1673,7 @@ export interface MongoDbAtlasConfiguration {
  */
 export interface NeptuneAnalyticsFieldMapping {
   /**
-   * <p>The name of the field in which Amazon Bedrock stores the raw text from your data. The text
-   *      is split according to the chunking strategy you choose.</p>
+   * <p>The name of the field in which Amazon Bedrock stores the raw text from your data. The text is split according to the chunking strategy you choose.</p>
    * @public
    */
   textField: string | undefined;
@@ -1815,9 +1686,7 @@ export interface NeptuneAnalyticsFieldMapping {
 }
 
 /**
- * <p>Contains details about the storage configuration of the knowledge base in
- *       Amazon Neptune Analytics. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-setup-neptune.html">Create a vector index
- *       in Amazon Neptune Analytics</a>.</p>
+ * <p>Contains details about the storage configuration of the knowledge base in Amazon Neptune Analytics. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-setup-neptune.html">Create a vector index in Amazon Neptune Analytics</a>.</p>
  * @public
  */
 export interface NeptuneAnalyticsConfiguration {
@@ -1846,8 +1715,7 @@ export interface OpenSearchManagedClusterFieldMapping {
   vectorField: string | undefined;
 
   /**
-   * <p>The name of the field in which Amazon Bedrock stores the raw text from your data. The text
-   *     is split according to the chunking strategy you choose.</p>
+   * <p>The name of the field in which Amazon Bedrock stores the raw text from your data. The text is split according to the chunking strategy you choose.</p>
    * @public
    */
   textField: string | undefined;
@@ -1860,8 +1728,7 @@ export interface OpenSearchManagedClusterFieldMapping {
 }
 
 /**
- * <p>Contains details about the Managed Cluster configuration of the knowledge base in Amazon OpenSearch Service. For more information,
- *     see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-setup-osm.html">Create a vector index in OpenSearch Managed Cluster</a>.</p>
+ * <p>Contains details about the Managed Cluster configuration of the knowledge base in Amazon OpenSearch Service. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-setup-osm.html">Create a vector index in OpenSearch Managed Cluster</a>.</p>
  * @public
  */
 export interface OpenSearchManagedClusterConfiguration {
@@ -2016,8 +1883,7 @@ export interface RdsFieldMapping {
   metadataField: string | undefined;
 
   /**
-   * <p>Provide a name for the universal metadata field where Amazon Bedrock will store any custom metadata from
-   *       your data source.</p>
+   * <p>Provide a name for the universal metadata field where Amazon Bedrock will store any custom metadata from your data source.</p>
    * @public
    */
   customMetadataField?: string | undefined;
@@ -2114,6 +1980,30 @@ export interface RedisEnterpriseCloudConfiguration {
 }
 
 /**
+ * <p>Contains the storage configuration of the knowledge base for S3 vectors.</p>
+ * @public
+ */
+export interface S3VectorsConfiguration {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the S3 bucket where vector embeddings are stored. This bucket contains the vector data used by the knowledge base.</p>
+   * @public
+   */
+  vectorBucketArn?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the vector index used for the knowledge base. This ARN identifies the specific vector index resource within Amazon Bedrock.</p>
+   * @public
+   */
+  indexArn?: string | undefined;
+
+  /**
+   * <p>The name of the vector index used for the knowledge base. This name identifies the vector index within the Amazon Bedrock service.</p>
+   * @public
+   */
+  indexName?: string | undefined;
+}
+
+/**
  * @public
  * @enum
  */
@@ -2125,6 +2015,7 @@ export const KnowledgeBaseStorageType = {
   PINECONE: "PINECONE",
   RDS: "RDS",
   REDIS_ENTERPRISE_CLOUD: "REDIS_ENTERPRISE_CLOUD",
+  S3_VECTORS: "S3_VECTORS",
 } as const;
 
 /**
@@ -2150,9 +2041,7 @@ export interface StorageConfiguration {
   opensearchServerlessConfiguration?: OpenSearchServerlessConfiguration | undefined;
 
   /**
-   * <p>Contains details about the storage configuration of the knowledge base in OpenSearch Managed
-   *     Cluster. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-setup-osm.html">Create
-   *     a vector index in Amazon OpenSearch Service</a>.</p>
+   * <p>Contains details about the storage configuration of the knowledge base in OpenSearch Managed Cluster. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-setup-osm.html">Create a vector index in Amazon OpenSearch Service</a>.</p>
    * @public
    */
   opensearchManagedClusterConfiguration?: OpenSearchManagedClusterConfiguration | undefined;
@@ -2182,12 +2071,16 @@ export interface StorageConfiguration {
   mongoDbAtlasConfiguration?: MongoDbAtlasConfiguration | undefined;
 
   /**
-   * <p>Contains details about the Neptune Analytics configuration of the knowledge base in Amazon Neptune. For more information,
-   *     see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-setup-neptune.html">Create a
-   *     vector index in Amazon Neptune Analytics.</a>.</p>
+   * <p>Contains details about the Neptune Analytics configuration of the knowledge base in Amazon Neptune. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-setup-neptune.html">Create a vector index in Amazon Neptune Analytics.</a>.</p>
    * @public
    */
   neptuneAnalyticsConfiguration?: NeptuneAnalyticsConfiguration | undefined;
+
+  /**
+   * <p>The configuration settings for storing knowledge base data using S3 vectors. This includes vector index information and S3 bucket details for vector storage.</p>
+   * @public
+   */
+  s3VectorsConfiguration?: S3VectorsConfiguration | undefined;
 }
 
 /**
@@ -2195,8 +2088,7 @@ export interface StorageConfiguration {
  */
 export interface CreateKnowledgeBaseRequest {
   /**
-   * <p>A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If this token matches a previous request,
-   *       Amazon Bedrock ignores the request, but does not return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>.</p>
+   * <p>A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If this token matches a previous request, Amazon Bedrock ignores the request, but does not return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>.</p>
    * @public
    */
   clientToken?: string | undefined;
@@ -2304,24 +2196,7 @@ export interface KnowledgeBase {
   storageConfiguration?: StorageConfiguration | undefined;
 
   /**
-   * <p>The status of the knowledge base. The following statuses are possible:</p>
-   *          <ul>
-   *             <li>
-   *                <p>CREATING – The knowledge base is being created.</p>
-   *             </li>
-   *             <li>
-   *                <p>ACTIVE – The knowledge base is ready to be queried.</p>
-   *             </li>
-   *             <li>
-   *                <p>DELETING – The knowledge base is being deleted.</p>
-   *             </li>
-   *             <li>
-   *                <p>UPDATING – The knowledge base is being updated.</p>
-   *             </li>
-   *             <li>
-   *                <p>FAILED – The knowledge base API operation failed.</p>
-   *             </li>
-   *          </ul>
+   * <p>The status of the knowledge base. The following statuses are possible:</p> <ul> <li> <p>CREATING – The knowledge base is being created.</p> </li> <li> <p>ACTIVE – The knowledge base is ready to be queried.</p> </li> <li> <p>DELETING – The knowledge base is being deleted.</p> </li> <li> <p>UPDATING – The knowledge base is being updated.</p> </li> <li> <p>FAILED – The knowledge base API operation failed.</p> </li> </ul>
    * @public
    */
   status: KnowledgeBaseStatus | undefined;
@@ -2839,8 +2714,7 @@ export interface CreatePromptRequest {
   variants?: PromptVariant[] | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If this token matches a previous request,
-   *       Amazon Bedrock ignores the request, but does not return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>.</p>
+   * <p>A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If this token matches a previous request, Amazon Bedrock ignores the request, but does not return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>.</p>
    * @public
    */
   clientToken?: string | undefined;
@@ -2934,8 +2808,7 @@ export interface CreatePromptVersionRequest {
   description?: string | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If this token matches a previous request,
-   *       Amazon Bedrock ignores the request, but does not return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>.</p>
+   * <p>A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If this token matches a previous request, Amazon Bedrock ignores the request, but does not return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>.</p>
    * @public
    */
   clientToken?: string | undefined;
@@ -3152,15 +3025,7 @@ export interface ListPromptsRequest {
 }
 
 /**
- * <p>Contains information about a prompt in your Prompt management tool.</p>
- *          <p>This data type is used in the following API operations:</p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_ListPrompts.html#API_agent_ListPrompts_ResponseSyntax">ListPrompts response</a>
- *                </p>
- *             </li>
- *          </ul>
+ * <p>Contains information about a prompt in your Prompt management tool.</p> <p>This data type is used in the following API operations:</p> <ul> <li> <p> <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_ListPrompts.html#API_agent_ListPrompts_ResponseSyntax">ListPrompts response</a> </p> </li> </ul>
  * @public
  */
 export interface PromptSummary {
@@ -3843,8 +3708,7 @@ export namespace FlowNodeConfiguration {
   }
 
   /**
-   * <p>Contains configurations for an iterator node in your flow. Takes an input that is an array and iteratively sends each item of the array as an output to the following node. The size of the array is also returned in the output.</p>
-   *          <p>The output flow node at the end of the flow iteration will return a response for each member of the array. To return only one response, you can include a collector node downstream from the iterator node.</p>
+   * <p>Contains configurations for an iterator node in your flow. Takes an input that is an array and iteratively sends each item of the array as an output to the following node. The size of the array is also returned in the output.</p> <p>The output flow node at the end of the flow iteration will return a response for each member of the array. To return only one response, you can include a collector node downstream from the iterator node.</p>
    * @public
    */
   export interface IteratorMember {
@@ -4052,29 +3916,7 @@ export namespace FlowNodeConfiguration {
 }
 
 /**
- * <p>Contains configurations for the nodes of a DoWhile loop in your flow.</p>
- *          <p>A DoWhile loop is made up of the following nodes:</p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <code>Loop</code> - The container node that holds the loop's flow definition. This node encompasses the entire loop structure.</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>LoopInput</code> - The entry point node for the loop. This node receives inputs from nodes outside the loop and from previous loop iterations.</p>
- *             </li>
- *             <li>
- *                <p>Body nodes - The processing nodes that execute within each loop iteration.
- *                     These can be nodes for handling data in your flow, such as a prompt or Lambda
- *                     function nodes. Some node types aren't supported inside a DoWhile loop body. For
- *                     more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_LoopIncompatibleNodeTypeFlowValidationDetails.html">LoopIncompatibleNodeTypeFlowValidationDetails</a>.</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>LoopController</code> - The node that evaluates whether the loop should continue or exit based on a condition.</p>
- *             </li>
- *          </ul>
- *          <p>These nodes work together to create a loop that runs at least once and continues until a specified condition is met or a maximum number of iterations is reached.</p>
+ * <p>Contains configurations for the nodes of a DoWhile loop in your flow.</p> <p>A DoWhile loop is made up of the following nodes:</p> <ul> <li> <p> <code>Loop</code> - The container node that holds the loop's flow definition. This node encompasses the entire loop structure.</p> </li> <li> <p> <code>LoopInput</code> - The entry point node for the loop. This node receives inputs from nodes outside the loop and from previous loop iterations.</p> </li> <li> <p>Body nodes - The processing nodes that execute within each loop iteration. These can be nodes for handling data in your flow, such as a prompt or Lambda function nodes. Some node types aren't supported inside a DoWhile loop body. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_LoopIncompatibleNodeTypeFlowValidationDetails.html">LoopIncompatibleNodeTypeFlowValidationDetails</a>.</p> </li> <li> <p> <code>LoopController</code> - The node that evaluates whether the loop should continue or exit based on a condition.</p> </li> </ul> <p>These nodes work together to create a loop that runs at least once and continues until a specified condition is met or a maximum number of iterations is reached.</p>
  * @public
  */
 export interface LoopFlowNodeConfiguration {
@@ -4120,8 +3962,7 @@ export interface CreateFlowRequest {
   definition?: FlowDefinition | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If this token matches a previous request,
-   *       Amazon Bedrock ignores the request, but does not return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>.</p>
+   * <p>A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If this token matches a previous request, Amazon Bedrock ignores the request, but does not return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>.</p>
    * @public
    */
   clientToken?: string | undefined;
@@ -4286,7 +4127,7 @@ export interface GetFlowResponse {
   description?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the service role with permissions to create a flow.  For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/flows-permissions.html">Create a service row for flows</a> in the Amazon Bedrock User Guide.</p>
+   * <p>The Amazon Resource Name (ARN) of the service role with permissions to create a flow. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/flows-permissions.html">Create a service row for flows</a> in the Amazon Bedrock User Guide.</p>
    * @public
    */
   executionRoleArn: string | undefined;
@@ -4310,21 +4151,7 @@ export interface GetFlowResponse {
   arn: string | undefined;
 
   /**
-   * <p>The status of the flow. The following statuses are possible:</p>
-   *          <ul>
-   *             <li>
-   *                <p>NotPrepared – The flow has been created or updated, but hasn't been prepared. If you just created the flow, you can't test it. If you updated the flow, the <code>DRAFT</code> version won't contain the latest changes for testing. Send a <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_PrepareFlow.html">PrepareFlow</a> request to package the latest changes into the <code>DRAFT</code> version.</p>
-   *             </li>
-   *             <li>
-   *                <p>Preparing – The flow is being prepared so that the <code>DRAFT</code> version contains the latest changes for testing.</p>
-   *             </li>
-   *             <li>
-   *                <p>Prepared – The flow is prepared and the <code>DRAFT</code> version contains the latest changes for testing.</p>
-   *             </li>
-   *             <li>
-   *                <p>Failed – The last API operation that you invoked on the flow failed. Send a <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_GetFlow.html">GetFlow</a> request and check the error message in the <code>validations</code> field.</p>
-   *             </li>
-   *          </ul>
+   * <p>The status of the flow. The following statuses are possible:</p> <ul> <li> <p>NotPrepared – The flow has been created or updated, but hasn't been prepared. If you just created the flow, you can't test it. If you updated the flow, the <code>DRAFT</code> version won't contain the latest changes for testing. Send a <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_PrepareFlow.html">PrepareFlow</a> request to package the latest changes into the <code>DRAFT</code> version.</p> </li> <li> <p>Preparing – The flow is being prepared so that the <code>DRAFT</code> version contains the latest changes for testing.</p> </li> <li> <p>Prepared – The flow is prepared and the <code>DRAFT</code> version contains the latest changes for testing.</p> </li> <li> <p>Failed – The last API operation that you invoked on the flow failed. Send a <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_GetFlow.html">GetFlow</a> request and check the error message in the <code>validations</code> field.</p> </li> </ul>
    * @public
    */
   status: FlowStatus | undefined;
@@ -4703,6 +4530,16 @@ export const OpenSearchManagedClusterConfigurationFilterSensitiveLog = (
 /**
  * @internal
  */
+export const S3VectorsConfigurationFilterSensitiveLog = (obj: S3VectorsConfiguration): any => ({
+  ...obj,
+  ...(obj.vectorBucketArn && { vectorBucketArn: SENSITIVE_STRING }),
+  ...(obj.indexArn && { indexArn: SENSITIVE_STRING }),
+  ...(obj.indexName && { indexName: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
 export const StorageConfigurationFilterSensitiveLog = (obj: StorageConfiguration): any => ({
   ...obj,
   ...(obj.opensearchManagedClusterConfiguration && {
@@ -4712,6 +4549,9 @@ export const StorageConfigurationFilterSensitiveLog = (obj: StorageConfiguration
   }),
   ...(obj.neptuneAnalyticsConfiguration && {
     neptuneAnalyticsConfiguration: NeptuneAnalyticsConfigurationFilterSensitiveLog(obj.neptuneAnalyticsConfiguration),
+  }),
+  ...(obj.s3VectorsConfiguration && {
+    s3VectorsConfiguration: S3VectorsConfigurationFilterSensitiveLog(obj.s3VectorsConfiguration),
   }),
 });
 

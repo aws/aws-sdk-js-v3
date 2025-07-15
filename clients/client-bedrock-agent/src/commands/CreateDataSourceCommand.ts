@@ -33,10 +33,7 @@ export interface CreateDataSourceCommandInput extends CreateDataSourceRequest {}
 export interface CreateDataSourceCommandOutput extends CreateDataSourceResponse, __MetadataBearer {}
 
 /**
- * <p>Connects a knowledge base to a data source. You specify the configuration for the specific data source service in the <code>dataSourceConfiguration</code> field.</p>
- *          <important>
- *             <p>You can't change the <code>chunkingConfiguration</code> after you create the data source connector.</p>
- *          </important>
+ * <p>Connects a knowledge base to a data source. You specify the configuration for the specific data source service in the <code>dataSourceConfiguration</code> field.</p> <important> <p>You can't change the <code>chunkingConfiguration</code> after you create the data source connector.</p> </important>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

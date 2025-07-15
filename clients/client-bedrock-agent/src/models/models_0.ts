@@ -215,35 +215,7 @@ export const Type = {
 export type Type = (typeof Type)[keyof typeof Type];
 
 /**
- * <p>Contains details about a parameter in a function for an action group.</p>
- *          <p>This data type is used in the following API operations:</p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_CreateAgentActionGroup.html#API_agent_CreateAgentActionGroup_RequestSyntax">CreateAgentActionGroup request</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_CreateAgentActionGroup.html#API_agent_CreateAgentActionGroup_ResponseSyntax">CreateAgentActionGroup response</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_UpdateAgentActionGroup.html#API_agent_UpdateAgentActionGroup_RequestSyntax">UpdateAgentActionGroup request</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_UpdateAgentActionGroup.html#API_agent_UpdateAgentActionGroup_ResponseSyntax">UpdateAgentActionGroup response</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_GetAgentActionGroup.html#API_agent_GetAgentActionGroup_ResponseSyntax">GetAgentActionGroup response</a>
- *                </p>
- *             </li>
- *          </ul>
+ * <p>Contains details about a parameter in a function for an action group.</p> <p>This data type is used in the following API operations:</p> <ul> <li> <p> <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_CreateAgentActionGroup.html#API_agent_CreateAgentActionGroup_RequestSyntax">CreateAgentActionGroup request</a> </p> </li> <li> <p> <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_CreateAgentActionGroup.html#API_agent_CreateAgentActionGroup_ResponseSyntax">CreateAgentActionGroup response</a> </p> </li> <li> <p> <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_UpdateAgentActionGroup.html#API_agent_UpdateAgentActionGroup_RequestSyntax">UpdateAgentActionGroup request</a> </p> </li> <li> <p> <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_UpdateAgentActionGroup.html#API_agent_UpdateAgentActionGroup_ResponseSyntax">UpdateAgentActionGroup response</a> </p> </li> <li> <p> <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_GetAgentActionGroup.html#API_agent_GetAgentActionGroup_ResponseSyntax">GetAgentActionGroup response</a> </p> </li> </ul>
  * @public
  */
 export interface ParameterDetail {
@@ -281,35 +253,7 @@ export const RequireConfirmation = {
 export type RequireConfirmation = (typeof RequireConfirmation)[keyof typeof RequireConfirmation];
 
 /**
- * <p>Defines parameters that the agent needs to invoke from the user to complete the function. Corresponds to an action in an action group.</p>
- *          <p>This data type is used in the following API operations:</p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_CreateAgentActionGroup.html#API_agent_CreateAgentActionGroup_RequestSyntax">CreateAgentActionGroup request</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_CreateAgentActionGroup.html#API_agent_CreateAgentActionGroup_ResponseSyntax">CreateAgentActionGroup response</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_UpdateAgentActionGroup.html#API_agent_UpdateAgentActionGroup_RequestSyntax">UpdateAgentActionGroup request</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_UpdateAgentActionGroup.html#API_agent_UpdateAgentActionGroup_ResponseSyntax">UpdateAgentActionGroup response</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_GetAgentActionGroup.html#API_agent_GetAgentActionGroup_ResponseSyntax">GetAgentActionGroup response</a>
- *                </p>
- *             </li>
- *          </ul>
+ * <p>Defines parameters that the agent needs to invoke from the user to complete the function. Corresponds to an action in an action group.</p> <p>This data type is used in the following API operations:</p> <ul> <li> <p> <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_CreateAgentActionGroup.html#API_agent_CreateAgentActionGroup_RequestSyntax">CreateAgentActionGroup request</a> </p> </li> <li> <p> <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_CreateAgentActionGroup.html#API_agent_CreateAgentActionGroup_ResponseSyntax">CreateAgentActionGroup response</a> </p> </li> <li> <p> <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_UpdateAgentActionGroup.html#API_agent_UpdateAgentActionGroup_RequestSyntax">UpdateAgentActionGroup request</a> </p> </li> <li> <p> <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_UpdateAgentActionGroup.html#API_agent_UpdateAgentActionGroup_ResponseSyntax">UpdateAgentActionGroup response</a> </p> </li> <li> <p> <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_GetAgentActionGroup.html#API_agent_GetAgentActionGroup_ResponseSyntax">GetAgentActionGroup response</a> </p> </li> </ul>
  * @public
  */
 export interface Function {
@@ -339,35 +283,7 @@ export interface Function {
 }
 
 /**
- * <p>Defines functions that each define parameters that the agent needs to invoke from the user. Each function represents an action in an action group.</p>
- *          <p>This data type is used in the following API operations:</p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_CreateAgentActionGroup.html#API_agent_CreateAgentActionGroup_RequestSyntax">CreateAgentActionGroup request</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_CreateAgentActionGroup.html#API_agent_CreateAgentActionGroup_ResponseSyntax">CreateAgentActionGroup response</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_UpdateAgentActionGroup.html#API_agent_UpdateAgentActionGroup_RequestSyntax">UpdateAgentActionGroup request</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_UpdateAgentActionGroup.html#API_agent_UpdateAgentActionGroup_ResponseSyntax">UpdateAgentActionGroup response</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_GetAgentActionGroup.html#API_agent_GetAgentActionGroup_ResponseSyntax">GetAgentActionGroup response</a>
- *                </p>
- *             </li>
- *          </ul>
+ * <p>Defines functions that each define parameters that the agent needs to invoke from the user. Each function represents an action in an action group.</p> <p>This data type is used in the following API operations:</p> <ul> <li> <p> <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_CreateAgentActionGroup.html#API_agent_CreateAgentActionGroup_RequestSyntax">CreateAgentActionGroup request</a> </p> </li> <li> <p> <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_CreateAgentActionGroup.html#API_agent_CreateAgentActionGroup_ResponseSyntax">CreateAgentActionGroup response</a> </p> </li> <li> <p> <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_UpdateAgentActionGroup.html#API_agent_UpdateAgentActionGroup_RequestSyntax">UpdateAgentActionGroup request</a> </p> </li> <li> <p> <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_UpdateAgentActionGroup.html#API_agent_UpdateAgentActionGroup_ResponseSyntax">UpdateAgentActionGroup response</a> </p> </li> <li> <p> <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_GetAgentActionGroup.html#API_agent_GetAgentActionGroup_ResponseSyntax">GetAgentActionGroup response</a> </p> </li> </ul>
  * @public
  */
 export type FunctionSchema = FunctionSchema.FunctionsMember | FunctionSchema.$UnknownMember;
@@ -444,8 +360,7 @@ export interface CreateAgentActionGroupRequest {
   actionGroupName: string | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If this token matches a previous request,
-   *       Amazon Bedrock ignores the request, but does not return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>.</p>
+   * <p>A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If this token matches a previous request, Amazon Bedrock ignores the request, but does not return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>.</p>
    * @public
    */
   clientToken?: string | undefined;
@@ -457,52 +372,13 @@ export interface CreateAgentActionGroupRequest {
   description?: string | undefined;
 
   /**
-   * <p>Specify a built-in or computer use action for this action group. If you specify a value, you must leave the <code>description</code>, <code>apiSchema</code>, and <code>actionGroupExecutor</code> fields empty for this action group. </p>
-   *          <ul>
-   *             <li>
-   *                <p>To allow your agent to request the user for additional information when trying to complete a task, set this field to <code>AMAZON.UserInput</code>. </p>
-   *             </li>
-   *             <li>
-   *                <p>To allow your agent to generate, run, and troubleshoot code when trying to complete a task, set this field to <code>AMAZON.CodeInterpreter</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>To allow your agent to use an Anthropic computer use tool, specify one of the following values. </p>
-   *                <important>
-   *                   <p>
-   *             Computer use is a new Anthropic Claude model capability (in beta) available with Anthropic Claude 3.7 Sonnet and Claude 3.5 Sonnet v2 only.
-   *             When operating computer use functionality, we recommend taking additional security precautions,
-   *             such as executing computer actions in virtual environments with restricted data access and limited internet connectivity.
-   *              For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/agents-computer-use.html">Configure an Amazon Bedrock Agent to complete tasks with computer use tools</a>.
-   *           </p>
-   *                </important>
-   *                <ul>
-   *                   <li>
-   *                      <p>
-   *                         <code>ANTHROPIC.Computer</code> - Gives the agent permission to use the mouse and keyboard and
-   *               take screenshots.</p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <code>ANTHROPIC.TextEditor</code> - Gives the agent permission to view, create and edit files.</p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <code>ANTHROPIC.Bash</code> - Gives the agent permission to run commands in a bash shell.</p>
-   *                   </li>
-   *                </ul>
-   *             </li>
-   *          </ul>
+   * <p>Specify a built-in or computer use action for this action group. If you specify a value, you must leave the <code>description</code>, <code>apiSchema</code>, and <code>actionGroupExecutor</code> fields empty for this action group. </p> <ul> <li> <p>To allow your agent to request the user for additional information when trying to complete a task, set this field to <code>AMAZON.UserInput</code>. </p> </li> <li> <p>To allow your agent to generate, run, and troubleshoot code when trying to complete a task, set this field to <code>AMAZON.CodeInterpreter</code>.</p> </li> <li> <p>To allow your agent to use an Anthropic computer use tool, specify one of the following values. </p> <important> <p> Computer use is a new Anthropic Claude model capability (in beta) available with Anthropic Claude 3.7 Sonnet and Claude 3.5 Sonnet v2 only. When operating computer use functionality, we recommend taking additional security precautions, such as executing computer actions in virtual environments with restricted data access and limited internet connectivity. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/agents-computer-use.html">Configure an Amazon Bedrock Agent to complete tasks with computer use tools</a>. </p> </important> <ul> <li> <p> <code>ANTHROPIC.Computer</code> - Gives the agent permission to use the mouse and keyboard and take screenshots.</p> </li> <li> <p> <code>ANTHROPIC.TextEditor</code> - Gives the agent permission to view, create and edit files.</p> </li> <li> <p> <code>ANTHROPIC.Bash</code> - Gives the agent permission to run commands in a bash shell.</p> </li> </ul> </li> </ul>
    * @public
    */
   parentActionGroupSignature?: ActionGroupSignature | undefined;
 
   /**
-   * <p>The configuration settings for a computer use action.</p>
-   *          <important>
-   *             <p>
-   *         Computer use is a new Anthropic Claude model capability (in beta) available with Anthropic Claude 3.7 Sonnet and Claude 3.5 Sonnet v2 only. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/agents-computer-use.html">Configure an Amazon Bedrock Agent to complete tasks with computer use tools</a>.
-   *       </p>
-   *          </important>
+   * <p>The configuration settings for a computer use action.</p> <important> <p> Computer use is a new Anthropic Claude model capability (in beta) available with Anthropic Claude 3.7 Sonnet and Claude 3.5 Sonnet v2 only. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/agents-computer-use.html">Configure an Amazon Bedrock Agent to complete tasks with computer use tools</a>. </p> </important>
    * @public
    */
   parentActionGroupSignatureParams?: Record<string, string> | undefined;
@@ -562,8 +438,7 @@ export interface AgentActionGroup {
   actionGroupName: string | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If this token matches a previous request,
-   *       Amazon Bedrock ignores the request, but does not return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>.</p>
+   * <p>A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If this token matches a previous request, Amazon Bedrock ignores the request, but does not return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>.</p>
    * @public
    */
   clientToken?: string | undefined;
@@ -587,19 +462,13 @@ export interface AgentActionGroup {
   updatedAt: Date | undefined;
 
   /**
-   * <p>If this field is set as <code>AMAZON.UserInput</code>, the agent can request the user for additional information when trying to complete a task. The <code>description</code>, <code>apiSchema</code>, and <code>actionGroupExecutor</code> fields must be blank for this action group.</p>
-   *          <p>During orchestration, if the agent determines that it needs to invoke an API in an action group, but doesn't have enough information to complete the API request, it will invoke this action group instead and return an <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_Observation.html">Observation</a> reprompting the user for more information.</p>
+   * <p>If this field is set as <code>AMAZON.UserInput</code>, the agent can request the user for additional information when trying to complete a task. The <code>description</code>, <code>apiSchema</code>, and <code>actionGroupExecutor</code> fields must be blank for this action group.</p> <p>During orchestration, if the agent determines that it needs to invoke an API in an action group, but doesn't have enough information to complete the API request, it will invoke this action group instead and return an <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_Observation.html">Observation</a> reprompting the user for more information.</p>
    * @public
    */
   parentActionSignature?: ActionGroupSignature | undefined;
 
   /**
-   * <p>The configuration settings for a computer use action.</p>
-   *          <important>
-   *             <p>
-   *         Computer use is a new Anthropic Claude model capability (in beta) available with Claude 3.7 Sonnet and Claude 3.5 Sonnet v2 only. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/agents-computer-use.html">Configure an Amazon Bedrock Agent to complete tasks with computer use tools</a>.
-   *       </p>
-   *          </important>
+   * <p>The configuration settings for a computer use action.</p> <important> <p> Computer use is a new Anthropic Claude model capability (in beta) available with Claude 3.7 Sonnet and Claude 3.5 Sonnet v2 only. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/agents-computer-use.html">Configure an Amazon Bedrock Agent to complete tasks with computer use tools</a>. </p> </important>
    * @public
    */
   parentActionGroupSignatureParams?: Record<string, string> | undefined;
@@ -880,9 +749,7 @@ export interface ActionGroupSummary {
   actionGroupName: string | undefined;
 
   /**
-   * <p>Specifies whether the action group is available for the agent to invoke or not when
-   *       sending an <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_InvokeAgent.html">InvokeAgent</a>
-   *       request.</p>
+   * <p>Specifies whether the action group is available for the agent to invoke or not when sending an <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_InvokeAgent.html">InvokeAgent</a> request.</p>
    * @public
    */
   actionGroupState: ActionGroupState | undefined;
@@ -952,53 +819,13 @@ export interface UpdateAgentActionGroupRequest {
   description?: string | undefined;
 
   /**
-   * <p>Update the built-in or computer use action for this action group. If you specify a value, you must leave the <code>description</code>, <code>apiSchema</code>, and <code>actionGroupExecutor</code> fields empty for this action group. </p>
-   *          <ul>
-   *             <li>
-   *                <p>To allow your agent to request the user for additional information when trying to complete a task, set this field to <code>AMAZON.UserInput</code>. </p>
-   *             </li>
-   *             <li>
-   *                <p>To allow your agent to generate, run, and troubleshoot code when trying to complete a task, set this field to <code>AMAZON.CodeInterpreter</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>To allow your agent to use an Anthropic computer use tool, specify one of the following values. </p>
-   *                <important>
-   *                   <p>
-   *             Computer use is a new Anthropic Claude model capability (in beta) available with Anthropic Claude 3.7 Sonnet and Claude 3.5 Sonnet v2 only.
-   *             When operating computer use functionality, we recommend taking additional security precautions,
-   *             such as executing computer actions in virtual environments with restricted data access and limited internet connectivity.
-   *              For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/agents-computer-use.html">Configure an Amazon Bedrock Agent to complete tasks with computer use tools</a>.
-   *           </p>
-   *                </important>
-   *                <ul>
-   *                   <li>
-   *                      <p>
-   *                         <code>ANTHROPIC.Computer</code> - Gives the agent permission to use the mouse and keyboard and
-   *               take screenshots.</p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <code>ANTHROPIC.TextEditor</code> - Gives the agent permission to view, create and edit files.</p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <code>ANTHROPIC.Bash</code> - Gives the agent permission to run commands in a bash shell.</p>
-   *                   </li>
-   *                </ul>
-   *             </li>
-   *          </ul>
-   *          <p>During orchestration, if your agent determines that it needs to invoke an API in an action group, but doesn't have enough information to complete the API request, it will invoke this action group instead and return an <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_Observation.html">Observation</a> reprompting the user for more information.</p>
+   * <p>Update the built-in or computer use action for this action group. If you specify a value, you must leave the <code>description</code>, <code>apiSchema</code>, and <code>actionGroupExecutor</code> fields empty for this action group. </p> <ul> <li> <p>To allow your agent to request the user for additional information when trying to complete a task, set this field to <code>AMAZON.UserInput</code>. </p> </li> <li> <p>To allow your agent to generate, run, and troubleshoot code when trying to complete a task, set this field to <code>AMAZON.CodeInterpreter</code>.</p> </li> <li> <p>To allow your agent to use an Anthropic computer use tool, specify one of the following values. </p> <important> <p> Computer use is a new Anthropic Claude model capability (in beta) available with Anthropic Claude 3.7 Sonnet and Claude 3.5 Sonnet v2 only. When operating computer use functionality, we recommend taking additional security precautions, such as executing computer actions in virtual environments with restricted data access and limited internet connectivity. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/agents-computer-use.html">Configure an Amazon Bedrock Agent to complete tasks with computer use tools</a>. </p> </important> <ul> <li> <p> <code>ANTHROPIC.Computer</code> - Gives the agent permission to use the mouse and keyboard and take screenshots.</p> </li> <li> <p> <code>ANTHROPIC.TextEditor</code> - Gives the agent permission to view, create and edit files.</p> </li> <li> <p> <code>ANTHROPIC.Bash</code> - Gives the agent permission to run commands in a bash shell.</p> </li> </ul> </li> </ul> <p>During orchestration, if your agent determines that it needs to invoke an API in an action group, but doesn't have enough information to complete the API request, it will invoke this action group instead and return an <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_Observation.html">Observation</a> reprompting the user for more information.</p>
    * @public
    */
   parentActionGroupSignature?: ActionGroupSignature | undefined;
 
   /**
-   * <p>The configuration settings for a computer use action.</p>
-   *          <important>
-   *             <p>
-   *         Computer use is a new Anthropic Claude model capability (in beta) available with Claude 3.7 Sonnet and Claude 3.5 Sonnet v2 only. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/agents-computer-use.html">Configure an Amazon Bedrock Agent to complete tasks with computer use tools</a>.
-   *       </p>
-   *          </important>
+   * <p>The configuration settings for a computer use action.</p> <important> <p> Computer use is a new Anthropic Claude model capability (in beta) available with Claude 3.7 Sonnet and Claude 3.5 Sonnet v2 only. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/agents-computer-use.html">Configure an Amazon Bedrock Agent to complete tasks with computer use tools</a>. </p> </important>
    * @public
    */
   parentActionGroupSignatureParams?: Record<string, string> | undefined;
@@ -1075,9 +902,7 @@ export const AgentStatus = {
 export type AgentStatus = (typeof AgentStatus)[keyof typeof AgentStatus];
 
 /**
- * <p>
- *       Contains details about the Lambda function containing the orchestration logic carried out upon invoking the custom orchestration.
- *     </p>
+ * <p> Contains details about the Lambda function containing the orchestration logic carried out upon invoking the custom orchestration. </p>
  * @public
  */
 export type OrchestrationExecutor = OrchestrationExecutor.LambdaMember | OrchestrationExecutor.$UnknownMember;
@@ -1087,9 +912,7 @@ export type OrchestrationExecutor = OrchestrationExecutor.LambdaMember | Orchest
  */
 export namespace OrchestrationExecutor {
   /**
-   * <p>
-   *       The Amazon Resource Name (ARN) of the Lambda function containing the business logic that is carried out upon invoking the action.
-   *     </p>
+   * <p> The Amazon Resource Name (ARN) of the Lambda function containing the business logic that is carried out upon invoking the action. </p>
    * @public
    */
   export interface LambdaMember {
@@ -1117,16 +940,12 @@ export namespace OrchestrationExecutor {
 }
 
 /**
- * <p>
- *      Details of custom orchestration.
- *     </p>
+ * <p> Details of custom orchestration. </p>
  * @public
  */
 export interface CustomOrchestration {
   /**
-   * <p>
-   *       The structure of the executor invoking the actions in custom orchestration.
-   *     </p>
+   * <p> The structure of the executor invoking the actions in custom orchestration. </p>
    * @public
    */
   executor?: OrchestrationExecutor | undefined;
@@ -1312,29 +1131,7 @@ export interface PromptConfiguration {
   promptCreationMode?: CreationMode | undefined;
 
   /**
-   * <p>Specifies whether to allow the agent to carry out the step specified in the <code>promptType</code>. If you set this value to <code>DISABLED</code>, the agent skips that step. The default state for each <code>promptType</code> is as follows.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>PRE_PROCESSING</code> – <code>DISABLED</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>ORCHESTRATION</code> – <code>ENABLED</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>KNOWLEDGE_BASE_RESPONSE_GENERATION</code> – <code>ENABLED</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>POST_PROCESSING</code> – <code>DISABLED</code>
-   *                </p>
-   *             </li>
-   *          </ul>
+   * <p>Specifies whether to allow the agent to carry out the step specified in the <code>promptType</code>. If you set this value to <code>DISABLED</code>, the agent skips that step. The default state for each <code>promptType</code> is as follows.</p> <ul> <li> <p> <code>PRE_PROCESSING</code> – <code>DISABLED</code> </p> </li> <li> <p> <code>ORCHESTRATION</code> – <code>ENABLED</code> </p> </li> <li> <p> <code>KNOWLEDGE_BASE_RESPONSE_GENERATION</code> – <code>ENABLED</code> </p> </li> <li> <p> <code>POST_PROCESSING</code> – <code>DISABLED</code> </p> </li> </ul>
    * @public
    */
   promptState?: PromptState | undefined;
@@ -1364,13 +1161,7 @@ export interface PromptConfiguration {
   foundationModel?: string | undefined;
 
   /**
-   * <p>If the Converse or ConverseStream operations support the model,
-   *                 <code>additionalModelRequestFields</code> contains additional inference parameters,
-   *             beyond the base set of inference parameters in the <code>inferenceConfiguration</code>
-   *             field. </p>
-   *          <p>For more information, see <i>Inference request parameters and
-   *                 response fields for foundation models</i> in the Amazon Bedrock user
-   *             guide.</p>
+   * <p>If the Converse or ConverseStream operations support the model, <code>additionalModelRequestFields</code> contains additional inference parameters, beyond the base set of inference parameters in the <code>inferenceConfiguration</code> field. </p> <p>For more information, see <i>Inference request parameters and response fields for foundation models</i> in the Amazon Bedrock user guide.</p>
    * @public
    */
   additionalModelRequestFields?: __DocumentType | undefined;
@@ -1424,8 +1215,7 @@ export interface Agent {
   agentVersion: string | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If this token matches a previous request,
-   *       Amazon Bedrock ignores the request, but does not return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>.</p>
+   * <p>A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If this token matches a previous request, Amazon Bedrock ignores the request, but does not return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>.</p>
    * @public
    */
   clientToken?: string | undefined;
@@ -1437,30 +1227,7 @@ export interface Agent {
   instruction?: string | undefined;
 
   /**
-   * <p>The status of the agent and whether it is ready for use. The following statuses are possible:</p>
-   *          <ul>
-   *             <li>
-   *                <p>CREATING – The agent is being created.</p>
-   *             </li>
-   *             <li>
-   *                <p>PREPARING – The agent is being prepared.</p>
-   *             </li>
-   *             <li>
-   *                <p>PREPARED – The agent is prepared and ready to be invoked.</p>
-   *             </li>
-   *             <li>
-   *                <p>NOT_PREPARED – The agent has been created but not yet prepared.</p>
-   *             </li>
-   *             <li>
-   *                <p>FAILED – The agent API operation failed.</p>
-   *             </li>
-   *             <li>
-   *                <p>UPDATING – The agent is being updated.</p>
-   *             </li>
-   *             <li>
-   *                <p>DELETING – The agent is being deleted.</p>
-   *             </li>
-   *          </ul>
+   * <p>The status of the agent and whether it is ready for use. The following statuses are possible:</p> <ul> <li> <p>CREATING – The agent is being created.</p> </li> <li> <p>PREPARING – The agent is being prepared.</p> </li> <li> <p>PREPARED – The agent is prepared and ready to be invoked.</p> </li> <li> <p>NOT_PREPARED – The agent has been created but not yet prepared.</p> </li> <li> <p>FAILED – The agent API operation failed.</p> </li> <li> <p>UPDATING – The agent is being updated.</p> </li> <li> <p>DELETING – The agent is being deleted.</p> </li> </ul>
    * @public
    */
   agentStatus: AgentStatus | undefined;
@@ -1478,24 +1245,19 @@ export interface Agent {
   description?: string | undefined;
 
   /**
-   * <p>
-   *       Specifies the orchestration strategy for the agent.
-   *     </p>
+   * <p> Specifies the orchestration strategy for the agent. </p>
    * @public
    */
   orchestrationType?: OrchestrationType | undefined;
 
   /**
-   * <p>
-   *       Contains custom orchestration configurations for the agent.
-   *     </p>
+   * <p> Contains custom orchestration configurations for the agent. </p>
    * @public
    */
   customOrchestration?: CustomOrchestration | undefined;
 
   /**
-   * <p>The number of seconds for which Amazon Bedrock keeps information about a user's conversation with the agent.</p>
-   *          <p>A user interaction remains active for the amount of time specified. If no conversation occurs during this time, the session expires and Amazon Bedrock deletes any data provided before the timeout.</p>
+   * <p>The number of seconds for which Amazon Bedrock keeps information about a user's conversation with the agent.</p> <p>A user interaction remains active for the amount of time specified. If no conversation occurs during this time, the session expires and Amazon Bedrock deletes any data provided before the timeout.</p>
    * @public
    */
   idleSessionTTLInSeconds: number | undefined;
@@ -1677,8 +1439,7 @@ export interface AgentAlias {
   agentAliasArn: string | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If this token matches a previous request,
-   *       Amazon Bedrock ignores the request, but does not return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>.</p>
+   * <p>A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If this token matches a previous request, Amazon Bedrock ignores the request, but does not return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>.</p>
    * @public
    */
   clientToken?: string | undefined;
@@ -1714,27 +1475,7 @@ export interface AgentAlias {
   agentAliasHistoryEvents?: AgentAliasHistoryEvent[] | undefined;
 
   /**
-   * <p>The status of the alias of the agent and whether it is ready for use. The following statuses are possible:</p>
-   *          <ul>
-   *             <li>
-   *                <p>CREATING – The agent alias is being created.</p>
-   *             </li>
-   *             <li>
-   *                <p>PREPARED – The agent alias is finished being created or updated and is ready to be invoked.</p>
-   *             </li>
-   *             <li>
-   *                <p>FAILED – The agent alias API operation failed.</p>
-   *             </li>
-   *             <li>
-   *                <p>UPDATING – The agent alias is being updated.</p>
-   *             </li>
-   *             <li>
-   *                <p>DELETING – The agent alias is being deleted.</p>
-   *             </li>
-   *             <li>
-   *                <p>DISSOCIATED - The agent alias has no version associated with it.</p>
-   *             </li>
-   *          </ul>
+   * <p>The status of the alias of the agent and whether it is ready for use. The following statuses are possible:</p> <ul> <li> <p>CREATING – The agent alias is being created.</p> </li> <li> <p>PREPARED – The agent alias is finished being created or updated and is ready to be invoked.</p> </li> <li> <p>FAILED – The agent alias API operation failed.</p> </li> <li> <p>UPDATING – The agent alias is being updated.</p> </li> <li> <p>DELETING – The agent alias is being deleted.</p> </li> <li> <p>DISSOCIATED - The agent alias has no version associated with it.</p> </li> </ul>
    * @public
    */
   agentAliasStatus: AgentAliasStatus | undefined;
@@ -1746,10 +1487,7 @@ export interface AgentAlias {
   failureReasons?: string[] | undefined;
 
   /**
-   * <p>The invocation state for the agent alias. If the agent alias is running,
-   *       the value is <code>ACCEPT_INVOCATIONS</code>. If the agent alias is paused,
-   *       the value is <code>REJECT_INVOCATIONS</code>. Use the <code>UpdateAgentAlias</code> operation
-   *       to change the invocation state.</p>
+   * <p>The invocation state for the agent alias. If the agent alias is running, the value is <code>ACCEPT_INVOCATIONS</code>. If the agent alias is paused, the value is <code>REJECT_INVOCATIONS</code>. Use the <code>UpdateAgentAlias</code> operation to change the invocation state.</p>
    * @public
    */
   aliasInvocationState?: AliasInvocationState | undefined;
@@ -1803,10 +1541,7 @@ export interface AgentAliasSummary {
   updatedAt: Date | undefined;
 
   /**
-   * <p>The invocation state for the agent alias. If the agent alias is running,
-   *       the value is <code>ACCEPT_INVOCATIONS</code>. If the agent alias is paused,
-   *       the value is <code>REJECT_INVOCATIONS</code>. Use the <code>UpdateAgentAlias</code> operation
-   *     to change the invocation state.</p>
+   * <p>The invocation state for the agent alias. If the agent alias is running, the value is <code>ACCEPT_INVOCATIONS</code>. If the agent alias is paused, the value is <code>REJECT_INVOCATIONS</code>. Use the <code>UpdateAgentAlias</code> operation to change the invocation state.</p>
    * @public
    */
   aliasInvocationState?: AliasInvocationState | undefined;
@@ -2303,8 +2038,7 @@ export interface CreateAgentRequest {
   agentName: string | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If this token matches a previous request,
-   *       Amazon Bedrock ignores the request, but does not return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>.</p>
+   * <p>A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If this token matches a previous request, Amazon Bedrock ignores the request, but does not return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>.</p>
    * @public
    */
   clientToken?: string | undefined;
@@ -2316,25 +2050,7 @@ export interface CreateAgentRequest {
   instruction?: string | undefined;
 
   /**
-   * <p>The identifier for the model that you want to be used for orchestration by the agent you create.</p>
-   *          <p>The <code>modelId</code> to provide depends on the type of model or throughput that you use:</p>
-   *          <ul>
-   *             <li>
-   *                <p>If you use a base model, specify the model ID or its ARN. For a list of model IDs for base models, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/model-ids.html#model-ids-arns">Amazon Bedrock base model IDs (on-demand throughput)</a> in the Amazon Bedrock User Guide.</p>
-   *             </li>
-   *             <li>
-   *                <p>If you use an inference profile, specify the inference profile ID or its ARN. For a list of inference profile IDs, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/cross-region-inference-support.html">Supported Regions and models for cross-region inference</a> in the Amazon Bedrock User Guide.</p>
-   *             </li>
-   *             <li>
-   *                <p>If you use a provisioned model, specify the ARN of the Provisioned Throughput. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/prov-thru-use.html">Run inference using a Provisioned Throughput</a> in the Amazon Bedrock User Guide.</p>
-   *             </li>
-   *             <li>
-   *                <p>If you use a custom model, first purchase Provisioned Throughput for it. Then specify the ARN of the resulting provisioned model. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/model-customization-use.html">Use a custom model in Amazon Bedrock</a> in the Amazon Bedrock User Guide.</p>
-   *             </li>
-   *             <li>
-   *                <p>If you use an <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/model-customization-import-model.html">imported model</a>, specify the ARN of the imported model. You can get the model ARN from a successful call to <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_CreateModelImportJob.html">CreateModelImportJob</a> or from the Imported models page in the Amazon Bedrock console.</p>
-   *             </li>
-   *          </ul>
+   * <p>The identifier for the model that you want to be used for orchestration by the agent you create.</p> <p>The <code>modelId</code> to provide depends on the type of model or throughput that you use:</p> <ul> <li> <p>If you use a base model, specify the model ID or its ARN. For a list of model IDs for base models, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/model-ids.html#model-ids-arns">Amazon Bedrock base model IDs (on-demand throughput)</a> in the Amazon Bedrock User Guide.</p> </li> <li> <p>If you use an inference profile, specify the inference profile ID or its ARN. For a list of inference profile IDs, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/cross-region-inference-support.html">Supported Regions and models for cross-region inference</a> in the Amazon Bedrock User Guide.</p> </li> <li> <p>If you use a provisioned model, specify the ARN of the Provisioned Throughput. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/prov-thru-use.html">Run inference using a Provisioned Throughput</a> in the Amazon Bedrock User Guide.</p> </li> <li> <p>If you use a custom model, first purchase Provisioned Throughput for it. Then specify the ARN of the resulting provisioned model. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/model-customization-use.html">Use a custom model in Amazon Bedrock</a> in the Amazon Bedrock User Guide.</p> </li> <li> <p>If you use an <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/model-customization-import-model.html">imported model</a>, specify the ARN of the imported model. You can get the model ARN from a successful call to <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_CreateModelImportJob.html">CreateModelImportJob</a> or from the Imported models page in the Amazon Bedrock console.</p> </li> </ul>
    * @public
    */
   foundationModel?: string | undefined;
@@ -2346,24 +2062,19 @@ export interface CreateAgentRequest {
   description?: string | undefined;
 
   /**
-   * <p>
-   *       Specifies the type of orchestration strategy for the agent. This is set to <code>DEFAULT</code> orchestration type, by default.
-   *     </p>
+   * <p> Specifies the type of orchestration strategy for the agent. This is set to <code>DEFAULT</code> orchestration type, by default. </p>
    * @public
    */
   orchestrationType?: OrchestrationType | undefined;
 
   /**
-   * <p>
-   *       Contains details of the custom orchestration configured for the agent.
-   *     </p>
+   * <p> Contains details of the custom orchestration configured for the agent. </p>
    * @public
    */
   customOrchestration?: CustomOrchestration | undefined;
 
   /**
-   * <p>The number of seconds for which Amazon Bedrock keeps information about a user's conversation with the agent.</p>
-   *          <p>A user interaction remains active for the amount of time specified. If no conversation occurs during this time, the session expires and Amazon Bedrock deletes any data provided before the timeout.</p>
+   * <p>The number of seconds for which Amazon Bedrock keeps information about a user's conversation with the agent.</p> <p>A user interaction remains active for the amount of time specified. If no conversation occurs during this time, the session expires and Amazon Bedrock deletes any data provided before the timeout.</p>
    * @public
    */
   idleSessionTTLInSeconds?: number | undefined;
@@ -2623,25 +2334,7 @@ export interface UpdateAgentRequest {
   instruction?: string | undefined;
 
   /**
-   * <p>The identifier for the model that you want to be used for orchestration by the agent you create.</p>
-   *          <p>The <code>modelId</code> to provide depends on the type of model or throughput that you use:</p>
-   *          <ul>
-   *             <li>
-   *                <p>If you use a base model, specify the model ID or its ARN. For a list of model IDs for base models, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/model-ids.html#model-ids-arns">Amazon Bedrock base model IDs (on-demand throughput)</a> in the Amazon Bedrock User Guide.</p>
-   *             </li>
-   *             <li>
-   *                <p>If you use an inference profile, specify the inference profile ID or its ARN. For a list of inference profile IDs, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/cross-region-inference-support.html">Supported Regions and models for cross-region inference</a> in the Amazon Bedrock User Guide.</p>
-   *             </li>
-   *             <li>
-   *                <p>If you use a provisioned model, specify the ARN of the Provisioned Throughput. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/prov-thru-use.html">Run inference using a Provisioned Throughput</a> in the Amazon Bedrock User Guide.</p>
-   *             </li>
-   *             <li>
-   *                <p>If you use a custom model, first purchase Provisioned Throughput for it. Then specify the ARN of the resulting provisioned model. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/model-customization-use.html">Use a custom model in Amazon Bedrock</a> in the Amazon Bedrock User Guide.</p>
-   *             </li>
-   *             <li>
-   *                <p>If you use an <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/model-customization-import-model.html">imported model</a>, specify the ARN of the imported model. You can get the model ARN from a successful call to <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_CreateModelImportJob.html">CreateModelImportJob</a> or from the Imported models page in the Amazon Bedrock console.</p>
-   *             </li>
-   *          </ul>
+   * <p>The identifier for the model that you want to be used for orchestration by the agent you create.</p> <p>The <code>modelId</code> to provide depends on the type of model or throughput that you use:</p> <ul> <li> <p>If you use a base model, specify the model ID or its ARN. For a list of model IDs for base models, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/model-ids.html#model-ids-arns">Amazon Bedrock base model IDs (on-demand throughput)</a> in the Amazon Bedrock User Guide.</p> </li> <li> <p>If you use an inference profile, specify the inference profile ID or its ARN. For a list of inference profile IDs, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/cross-region-inference-support.html">Supported Regions and models for cross-region inference</a> in the Amazon Bedrock User Guide.</p> </li> <li> <p>If you use a provisioned model, specify the ARN of the Provisioned Throughput. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/prov-thru-use.html">Run inference using a Provisioned Throughput</a> in the Amazon Bedrock User Guide.</p> </li> <li> <p>If you use a custom model, first purchase Provisioned Throughput for it. Then specify the ARN of the resulting provisioned model. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/model-customization-use.html">Use a custom model in Amazon Bedrock</a> in the Amazon Bedrock User Guide.</p> </li> <li> <p>If you use an <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/model-customization-import-model.html">imported model</a>, specify the ARN of the imported model. You can get the model ARN from a successful call to <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_CreateModelImportJob.html">CreateModelImportJob</a> or from the Imported models page in the Amazon Bedrock console.</p> </li> </ul>
    * @public
    */
   foundationModel: string | undefined;
@@ -2653,24 +2346,19 @@ export interface UpdateAgentRequest {
   description?: string | undefined;
 
   /**
-   * <p>
-   *       Specifies the type of orchestration strategy for the agent. This is set to <code>DEFAULT</code> orchestration type, by default.
-   *     </p>
+   * <p> Specifies the type of orchestration strategy for the agent. This is set to <code>DEFAULT</code> orchestration type, by default. </p>
    * @public
    */
   orchestrationType?: OrchestrationType | undefined;
 
   /**
-   * <p>
-   *       Contains details of the custom orchestration configured for the agent.
-   *     </p>
+   * <p> Contains details of the custom orchestration configured for the agent. </p>
    * @public
    */
   customOrchestration?: CustomOrchestration | undefined;
 
   /**
-   * <p>The number of seconds for which Amazon Bedrock keeps information about a user's conversation with the agent.</p>
-   *          <p>A user interaction remains active for the amount of time specified. If no conversation occurs during this time, the session expires and Amazon Bedrock deletes any data provided before the timeout.</p>
+   * <p>The number of seconds for which Amazon Bedrock keeps information about a user's conversation with the agent.</p> <p>A user interaction remains active for the amount of time specified. If no conversation occurs during this time, the session expires and Amazon Bedrock deletes any data provided before the timeout.</p>
    * @public
    */
   idleSessionTTLInSeconds?: number | undefined;
@@ -2777,8 +2465,7 @@ export interface AgentVersion {
   description?: string | undefined;
 
   /**
-   * <p>The number of seconds for which Amazon Bedrock keeps information about a user's conversation with the agent.</p>
-   *          <p>A user interaction remains active for the amount of time specified. If no conversation occurs during this time, the session expires and Amazon Bedrock deletes any data provided before the timeout.</p>
+   * <p>The number of seconds for which Amazon Bedrock keeps information about a user's conversation with the agent.</p> <p>A user interaction remains active for the amount of time specified. If no conversation occurs during this time, the session expires and Amazon Bedrock deletes any data provided before the timeout.</p>
    * @public
    */
   idleSessionTTLInSeconds: number | undefined;
@@ -2832,9 +2519,7 @@ export interface AgentVersion {
   guardrailConfiguration?: GuardrailConfiguration | undefined;
 
   /**
-   * <p>
-   *         Contains details of the memory configuration on the version of the agent.
-   *       </p>
+   * <p> Contains details of the memory configuration on the version of the agent. </p>
    * @public
    */
   memoryConfiguration?: MemoryConfiguration | undefined;
@@ -2911,8 +2596,7 @@ export interface CreateAgentAliasRequest {
   agentAliasName: string | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If this token matches a previous request,
-   *       Amazon Bedrock ignores the request, but does not return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>.</p>
+   * <p>A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If this token matches a previous request, Amazon Bedrock ignores the request, but does not return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>.</p>
    * @public
    */
   clientToken?: string | undefined;
@@ -3090,11 +2774,7 @@ export interface UpdateAgentAliasRequest {
   routingConfiguration?: AgentAliasRoutingConfigurationListItem[] | undefined;
 
   /**
-   * <p>The invocation state for the agent alias. To pause the agent alias, set the value to
-   *         <code>REJECT_INVOCATIONS</code>. To start the agent alias running again, set the value to
-   *         <code>ACCEPT_INVOCATIONS</code>. Use the <code>GetAgentAlias</code>, or
-   *         <code>ListAgentAliases</code>, operation to get the invocation state of an agent
-   *       alias.</p>
+   * <p>The invocation state for the agent alias. To pause the agent alias, set the value to <code>REJECT_INVOCATIONS</code>. To start the agent alias running again, set the value to <code>ACCEPT_INVOCATIONS</code>. Use the <code>GetAgentAlias</code>, or <code>ListAgentAliases</code>, operation to get the invocation state of an agent alias.</p>
    * @public
    */
   aliasInvocationState?: AliasInvocationState | undefined;
@@ -3126,8 +2806,7 @@ export const DataDeletionPolicy = {
 export type DataDeletionPolicy = (typeof DataDeletionPolicy)[keyof typeof DataDeletionPolicy];
 
 /**
- * <p>The specific filters applied to your data source content. You can filter out or
- *             include certain content.</p>
+ * <p>The specific filters applied to your data source content. You can filter out or include certain content.</p>
  * @public
  */
 export interface PatternObjectFilter {
@@ -3138,19 +2817,13 @@ export interface PatternObjectFilter {
   objectType: string | undefined;
 
   /**
-   * <p>A list of one or more inclusion regular expression patterns to include certain
-   *             object types that adhere to the pattern. If you specify an inclusion and exclusion
-   *             filter/pattern and both match a document, the exclusion filter takes precedence
-   *             and the document isn’t crawled.</p>
+   * <p>A list of one or more inclusion regular expression patterns to include certain object types that adhere to the pattern. If you specify an inclusion and exclusion filter/pattern and both match a document, the exclusion filter takes precedence and the document isn’t crawled.</p>
    * @public
    */
   inclusionFilters?: string[] | undefined;
 
   /**
-   * <p>A list of one or more exclusion regular expression patterns to exclude certain
-   *             object types that adhere to the pattern. If you specify an inclusion and exclusion
-   *             filter/pattern and both match a document, the exclusion filter takes precedence
-   *             and the document isn’t crawled.</p>
+   * <p>A list of one or more exclusion regular expression patterns to exclude certain object types that adhere to the pattern. If you specify an inclusion and exclusion filter/pattern and both match a document, the exclusion filter takes precedence and the document isn’t crawled.</p>
    * @public
    */
   exclusionFilters?: string[] | undefined;
@@ -3162,8 +2835,7 @@ export interface PatternObjectFilter {
  */
 export interface PatternObjectFilterConfiguration {
   /**
-   * <p>The configuration of specific filters applied to your data source content. You can
-   *             filter out or include certain content.</p>
+   * <p>The configuration of specific filters applied to your data source content. You can filter out or include certain content.</p>
    * @public
    */
   filters: PatternObjectFilter[] | undefined;
@@ -3184,15 +2856,12 @@ export type CrawlFilterConfigurationType =
   (typeof CrawlFilterConfigurationType)[keyof typeof CrawlFilterConfigurationType];
 
 /**
- * <p>The configuration of filtering the data source content. For example,
- *             configuring regular expression patterns to include or exclude certain content.</p>
+ * <p>The configuration of filtering the data source content. For example, configuring regular expression patterns to include or exclude certain content.</p>
  * @public
  */
 export interface CrawlFilterConfiguration {
   /**
-   * <p>The type of filtering that you want to apply to certain objects or content of the
-   *             data source. For example, the <code>PATTERN</code> type is regular expression patterns
-   *             you can apply to filter your content.</p>
+   * <p>The type of filtering that you want to apply to certain objects or content of the data source. For example, the <code>PATTERN</code> type is regular expression patterns you can apply to filter your content.</p>
    * @public
    */
   type: CrawlFilterConfigurationType | undefined;
@@ -3205,14 +2874,12 @@ export interface CrawlFilterConfiguration {
 }
 
 /**
- * <p>The configuration of the Confluence content. For example, configuring specific
- *             types of Confluence content.</p>
+ * <p>The configuration of the Confluence content. For example, configuring specific types of Confluence content.</p>
  * @public
  */
 export interface ConfluenceCrawlerConfiguration {
   /**
-   * <p>The configuration of filtering the Confluence content. For example, configuring
-   *             regular expression patterns to include or exclude certain content.</p>
+   * <p>The configuration of filtering the Confluence content. For example, configuring regular expression patterns to include or exclude certain content.</p>
    * @public
    */
   filterConfiguration?: CrawlFilterConfiguration | undefined;
@@ -3263,18 +2930,13 @@ export interface ConfluenceSourceConfiguration {
   hostType: ConfluenceHostType | undefined;
 
   /**
-   * <p>The supported authentication type to authenticate and connect to your
-   *             Confluence instance.</p>
+   * <p>The supported authentication type to authenticate and connect to your Confluence instance.</p>
    * @public
    */
   authType: ConfluenceAuthType | undefined;
 
   /**
-   * <p>The Amazon Resource Name of an Secrets Manager secret that
-   *             stores your authentication credentials for your Confluence instance URL.
-   *             For more information on the key-value pairs that must be included in
-   *             your secret, depending on your authentication type, see
-   *             <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/confluence-data-source-connector.html#configuration-confluence-connector">Confluence connection configuration</a>.</p>
+   * <p>The Amazon Resource Name of an Secrets Manager secret that stores your authentication credentials for your Confluence instance URL. For more information on the key-value pairs that must be included in your secret, depending on your authentication type, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/confluence-data-source-connector.html#configuration-confluence-connector">Confluence connection configuration</a>.</p>
    * @public
    */
   credentialsSecretArn: string | undefined;
@@ -3292,8 +2954,7 @@ export interface ConfluenceDataSourceConfiguration {
   sourceConfiguration: ConfluenceSourceConfiguration | undefined;
 
   /**
-   * <p>The configuration of the Confluence content. For example, configuring
-   *             specific types of Confluence content.</p>
+   * <p>The configuration of the Confluence content. For example, configuring specific types of Confluence content.</p>
    * @public
    */
   crawlerConfiguration?: ConfluenceCrawlerConfiguration | undefined;
@@ -3311,8 +2972,7 @@ export interface S3DataSourceConfiguration {
   bucketArn: string | undefined;
 
   /**
-   * <p>A list of S3 prefixes to include certain files or content. For more information,
-   *             see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-prefixes.html">Organizing objects using prefixes</a>.</p>
+   * <p>A list of S3 prefixes to include certain files or content. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-prefixes.html">Organizing objects using prefixes</a>.</p>
    * @public
    */
   inclusionPrefixes?: string[] | undefined;
@@ -3325,15 +2985,12 @@ export interface S3DataSourceConfiguration {
 }
 
 /**
- * <p>The configuration of the Salesforce content. For example, configuring
- *             specific types of Salesforce content.</p>
+ * <p>The configuration of the Salesforce content. For example, configuring specific types of Salesforce content.</p>
  * @public
  */
 export interface SalesforceCrawlerConfiguration {
   /**
-   * <p>The configuration of filtering the Salesforce content. For example,
-   *             configuring regular expression patterns to include or exclude certain
-   *             content.</p>
+   * <p>The configuration of filtering the Salesforce content. For example, configuring regular expression patterns to include or exclude certain content.</p>
    * @public
    */
   filterConfiguration?: CrawlFilterConfiguration | undefined;
@@ -3364,18 +3021,13 @@ export interface SalesforceSourceConfiguration {
   hostUrl: string | undefined;
 
   /**
-   * <p>The supported authentication type to authenticate and connect to your
-   *             Salesforce instance.</p>
+   * <p>The supported authentication type to authenticate and connect to your Salesforce instance.</p>
    * @public
    */
   authType: SalesforceAuthType | undefined;
 
   /**
-   * <p>The Amazon Resource Name of an Secrets Manager secret that
-   *             stores your authentication credentials for your Salesforce instance URL.
-   *             For more information on the key-value pairs that must be included in
-   *             your secret, depending on your authentication type, see
-   *             <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/salesforce-data-source-connector.html#configuration-salesforce-connector">Salesforce connection configuration</a>.</p>
+   * <p>The Amazon Resource Name of an Secrets Manager secret that stores your authentication credentials for your Salesforce instance URL. For more information on the key-value pairs that must be included in your secret, depending on your authentication type, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/salesforce-data-source-connector.html#configuration-salesforce-connector">Salesforce connection configuration</a>.</p>
    * @public
    */
   credentialsSecretArn: string | undefined;
@@ -3393,22 +3045,19 @@ export interface SalesforceDataSourceConfiguration {
   sourceConfiguration: SalesforceSourceConfiguration | undefined;
 
   /**
-   * <p>The configuration of the Salesforce content. For example, configuring
-   *             specific types of Salesforce content.</p>
+   * <p>The configuration of the Salesforce content. For example, configuring specific types of Salesforce content.</p>
    * @public
    */
   crawlerConfiguration?: SalesforceCrawlerConfiguration | undefined;
 }
 
 /**
- * <p>The configuration of the SharePoint content. For example, configuring
- *             specific types of SharePoint content.</p>
+ * <p>The configuration of the SharePoint content. For example, configuring specific types of SharePoint content.</p>
  * @public
  */
 export interface SharePointCrawlerConfiguration {
   /**
-   * <p>The configuration of filtering the SharePoint content. For example,
-   *             configuring regular expression patterns to include or exclude certain content.</p>
+   * <p>The configuration of filtering the SharePoint content. For example, configuring regular expression patterns to include or exclude certain content.</p>
    * @public
    */
   filterConfiguration?: CrawlFilterConfiguration | undefined;
@@ -3471,18 +3120,13 @@ export interface SharePointSourceConfiguration {
   hostType: SharePointHostType | undefined;
 
   /**
-   * <p>The supported authentication type to authenticate and connect
-   *             to your SharePoint site/sites.</p>
+   * <p>The supported authentication type to authenticate and connect to your SharePoint site/sites.</p>
    * @public
    */
   authType: SharePointAuthType | undefined;
 
   /**
-   * <p>The Amazon Resource Name of an Secrets Manager secret that
-   *             stores your authentication credentials for your SharePoint site/sites.
-   *             For more information on the key-value pairs that must be included in
-   *             your secret, depending on your authentication type, see
-   *             <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/sharepoint-data-source-connector.html#configuration-sharepoint-connector">SharePoint connection configuration</a>.</p>
+   * <p>The Amazon Resource Name of an Secrets Manager secret that stores your authentication credentials for your SharePoint site/sites. For more information on the key-value pairs that must be included in your secret, depending on your authentication type, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/sharepoint-data-source-connector.html#configuration-sharepoint-connector">SharePoint connection configuration</a>.</p>
    * @public
    */
   credentialsSecretArn: string | undefined;
@@ -3500,8 +3144,7 @@ export interface SharePointDataSourceConfiguration {
   sourceConfiguration: SharePointSourceConfiguration | undefined;
 
   /**
-   * <p>The configuration of the SharePoint content. For example, configuring
-   *             specific types of SharePoint content.</p>
+   * <p>The configuration of the SharePoint content. For example, configuring specific types of SharePoint content.</p>
    * @public
    */
   crawlerConfiguration?: SharePointCrawlerConfiguration | undefined;
@@ -3527,8 +3170,7 @@ export const DataSourceType = {
 export type DataSourceType = (typeof DataSourceType)[keyof typeof DataSourceType];
 
 /**
- * <p>The rate limits for the URLs that you want to crawl.
- *             You should be authorized to crawl the URLs.</p>
+ * <p>The rate limits for the URLs that you want to crawl. You should be authorized to crawl the URLs.</p>
  * @public
  */
 export interface WebCrawlerLimits {
@@ -3539,10 +3181,7 @@ export interface WebCrawlerLimits {
   rateLimit?: number | undefined;
 
   /**
-   * <p>
-   *             The max number of web pages crawled from your source URLs, up to 25,000 pages.  If
-   *             the web pages exceed this limit, the data source sync will fail and no web pages will be ingested.
-   *         </p>
+   * <p> The max number of web pages crawled from your source URLs, up to 25,000 pages. If the web pages exceed this limit, the data source sync will fail and no web pages will be ingested. </p>
    * @public
    */
   maxPages?: number | undefined;
@@ -3563,8 +3202,7 @@ export const WebScopeType = {
 export type WebScopeType = (typeof WebScopeType)[keyof typeof WebScopeType];
 
 /**
- * <p>The configuration of web URLs that you want to crawl.
- *             You should be authorized to crawl the URLs.</p>
+ * <p>The configuration of web URLs that you want to crawl. You should be authorized to crawl the URLs.</p>
  * @public
  */
 export interface WebCrawlerConfiguration {
@@ -3575,31 +3213,19 @@ export interface WebCrawlerConfiguration {
   crawlerLimits?: WebCrawlerLimits | undefined;
 
   /**
-   * <p>A list of one or more inclusion regular expression patterns to include
-   *             certain URLs. If you specify an inclusion and exclusion filter/pattern
-   *             and both match a URL, the exclusion filter takes precedence and the web
-   *             content of the URL isn’t crawled.</p>
+   * <p>A list of one or more inclusion regular expression patterns to include certain URLs. If you specify an inclusion and exclusion filter/pattern and both match a URL, the exclusion filter takes precedence and the web content of the URL isn’t crawled.</p>
    * @public
    */
   inclusionFilters?: string[] | undefined;
 
   /**
-   * <p>A list of one or more exclusion regular expression patterns to exclude
-   *             certain URLs. If you specify an inclusion and exclusion filter/pattern
-   *             and both match a URL, the exclusion filter takes precedence and the web
-   *             content of the URL isn’t crawled.</p>
+   * <p>A list of one or more exclusion regular expression patterns to exclude certain URLs. If you specify an inclusion and exclusion filter/pattern and both match a URL, the exclusion filter takes precedence and the web content of the URL isn’t crawled.</p>
    * @public
    */
   exclusionFilters?: string[] | undefined;
 
   /**
-   * <p>The scope of what is crawled for your URLs.</p>
-   *          <p>You can choose to crawl only web pages that belong to the same host or primary
-   *             domain. For example, only web pages that contain the seed URL
-   *             "https://docs.aws.amazon.com/bedrock/latest/userguide/" and no other domains.
-   *             You can choose to include sub domains in addition to the host or primary domain.
-   *             For example, web pages that contain "aws.amazon.com" can also include sub domain
-   *             "docs.aws.amazon.com".</p>
+   * <p>The scope of what is crawled for your URLs.</p> <p>You can choose to crawl only web pages that belong to the same host or primary domain. For example, only web pages that contain the seed URL "https://docs.aws.amazon.com/bedrock/latest/userguide/" and no other domains. You can choose to include sub domains in addition to the host or primary domain. For example, web pages that contain "aws.amazon.com" can also include sub domain "docs.aws.amazon.com".</p>
    * @public
    */
   scope?: WebScopeType | undefined;
@@ -3611,18 +3237,14 @@ export interface WebCrawlerConfiguration {
   userAgent?: string | undefined;
 
   /**
-   * <p>A string used for identifying the crawler or bot when it accesses a web server. The user agent header value
-   *         consists of the <code>bedrockbot</code>, UUID, and a user agent suffix for your crawler (if one is provided).
-   *         By default, it is set to <code>bedrockbot_UUID</code>. You can optionally append a custom
-   *         suffix to <code>bedrockbot_UUID</code> to allowlist a specific user agent permitted to access your source URLs. </p>
+   * <p>A string used for identifying the crawler or bot when it accesses a web server. The user agent header value consists of the <code>bedrockbot</code>, UUID, and a user agent suffix for your crawler (if one is provided). By default, it is set to <code>bedrockbot_UUID</code>. You can optionally append a custom suffix to <code>bedrockbot_UUID</code> to allowlist a specific user agent permitted to access your source URLs. </p>
    * @public
    */
   userAgentHeader?: string | undefined;
 }
 
 /**
- * <p>The seed or starting point URL.
- *             You should be authorized to crawl the URL.</p>
+ * <p>The seed or starting point URL. You should be authorized to crawl the URL.</p>
  * @public
  */
 export interface SeedUrl {
@@ -3634,8 +3256,7 @@ export interface SeedUrl {
 }
 
 /**
- * <p>The configuration of web URLs that you want to crawl.
- *             You should be authorized to crawl the URLs.</p>
+ * <p>The configuration of web URLs that you want to crawl. You should be authorized to crawl the URLs.</p>
  * @public
  */
 export interface UrlConfiguration {
@@ -3647,8 +3268,7 @@ export interface UrlConfiguration {
 }
 
 /**
- * <p>The configuration of the URL/URLs for the web content that you want
- *             to crawl. You should be authorized to crawl the URLs.</p>
+ * <p>The configuration of the URL/URLs for the web content that you want to crawl. You should be authorized to crawl the URLs.</p>
  * @public
  */
 export interface WebSourceConfiguration {
@@ -3695,39 +3315,25 @@ export interface DataSourceConfiguration {
   s3Configuration?: S3DataSourceConfiguration | undefined;
 
   /**
-   * <p>The configuration of web URLs to crawl for your data source.
-   *             You should be authorized to crawl the URLs.</p>
-   *          <note>
-   *             <p>Crawling web URLs as your data source is in preview release
-   *                 and is subject to change.</p>
-   *          </note>
+   * <p>The configuration of web URLs to crawl for your data source. You should be authorized to crawl the URLs.</p> <note> <p>Crawling web URLs as your data source is in preview release and is subject to change.</p> </note>
    * @public
    */
   webConfiguration?: WebDataSourceConfiguration | undefined;
 
   /**
-   * <p>The configuration information to connect to Confluence as your data source.</p>
-   *          <note>
-   *             <p>Confluence data source connector is in preview release and is subject to change.</p>
-   *          </note>
+   * <p>The configuration information to connect to Confluence as your data source.</p> <note> <p>Confluence data source connector is in preview release and is subject to change.</p> </note>
    * @public
    */
   confluenceConfiguration?: ConfluenceDataSourceConfiguration | undefined;
 
   /**
-   * <p>The configuration information to connect to Salesforce as your data source.</p>
-   *          <note>
-   *             <p>Salesforce data source connector is in preview release and is subject to change.</p>
-   *          </note>
+   * <p>The configuration information to connect to Salesforce as your data source.</p> <note> <p>Salesforce data source connector is in preview release and is subject to change.</p> </note>
    * @public
    */
   salesforceConfiguration?: SalesforceDataSourceConfiguration | undefined;
 
   /**
-   * <p>The configuration information to connect to SharePoint as your data source.</p>
-   *          <note>
-   *             <p>SharePoint data source connector is in preview release and is subject to change.</p>
-   *          </note>
+   * <p>The configuration information to connect to SharePoint as your data source.</p> <note> <p>SharePoint data source connector is in preview release and is subject to change.</p> </note>
    * @public
    */
   sharePointConfiguration?: SharePointDataSourceConfiguration | undefined;
@@ -3792,12 +3398,7 @@ export interface HierarchicalChunkingLevelConfiguration {
 }
 
 /**
- * <p>Settings for hierarchical document chunking for a data source. Hierarchical chunking splits documents
- *     into layers of chunks where the first layer contains large chunks, and the second layer contains smaller
- *     chunks derived from the first layer.</p>
- *          <p>You configure the number of tokens to overlap, or repeat across adjacent chunks. For example,
- *     if you set overlap tokens to 60, the last 60 tokens in the first chunk are also included at the beginning of
- *     the second chunk. For each layer, you must also configure the maximum number of tokens in a chunk.</p>
+ * <p>Settings for hierarchical document chunking for a data source. Hierarchical chunking splits documents into layers of chunks where the first layer contains large chunks, and the second layer contains smaller chunks derived from the first layer.</p> <p>You configure the number of tokens to overlap, or repeat across adjacent chunks. For example, if you set overlap tokens to 60, the last 60 tokens in the first chunk are also included at the beginning of the second chunk. For each layer, you must also configure the maximum number of tokens in a chunk.</p>
  * @public
  */
 export interface HierarchicalChunkingConfiguration {
@@ -3815,19 +3416,7 @@ export interface HierarchicalChunkingConfiguration {
 }
 
 /**
- * <p>Settings for semantic document chunking for a data source. Semantic chunking splits
- *     a document into into smaller documents based on groups of similar content derived from the text
- *     with natural language processing.</p>
- *          <p>With semantic chunking, each sentence is compared to the next to determine how similar they are.
- *     You specify a threshold in the form of a percentile, where adjacent sentences that are less similar than
- *     that percentage of sentence pairs are divided into separate chunks. For example, if you set the threshold to
- *     90, then the 10 percent of sentence pairs that are least similar are split. So if you have 101 sentences,
- *     100 sentence pairs are compared, and the 10 with the least similarity are split, creating 11 chunks. These
- *     chunks are further split if they exceed the max token size.</p>
- *          <p>You must also specify a buffer size, which determines whether sentences are compared in isolation, or
- *     within a moving context window that includes the previous and following sentence. For example, if you set
- *     the buffer size to <code>1</code>, the embedding for sentence 10 is derived from sentences 9, 10, and 11
- *     combined.</p>
+ * <p>Settings for semantic document chunking for a data source. Semantic chunking splits a document into into smaller documents based on groups of similar content derived from the text with natural language processing.</p> <p>With semantic chunking, each sentence is compared to the next to determine how similar they are. You specify a threshold in the form of a percentile, where adjacent sentences that are less similar than that percentage of sentence pairs are divided into separate chunks. For example, if you set the threshold to 90, then the 10 percent of sentence pairs that are least similar are split. So if you have 101 sentences, 100 sentence pairs are compared, and the 10 with the least similarity are split, creating 11 chunks. These chunks are further split if they exceed the max token size.</p> <p>You must also specify a buffer size, which determines whether sentences are compared in isolation, or within a moving context window that includes the previous and following sentence. For example, if you set the buffer size to <code>1</code>, the embedding for sentence 10 is derived from sentences 9, 10, and 11 combined.</p>
  * @public
  */
 export interface SemanticChunkingConfiguration {
@@ -3856,25 +3445,7 @@ export interface SemanticChunkingConfiguration {
  */
 export interface ChunkingConfiguration {
   /**
-   * <p>Knowledge base can split your source data into chunks. A <i>chunk</i> refers to an excerpt from a data source that is returned when the knowledge base that it belongs to is queried. You have the following options for chunking your data. If you opt for <code>NONE</code>, then you may want to pre-process your files by splitting them up such that each file corresponds to a chunk.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>FIXED_SIZE</code> – Amazon Bedrock splits your source data into chunks of the approximate size that you set in the <code>fixedSizeChunkingConfiguration</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>HIERARCHICAL</code> – Split documents into layers of chunks where the first layer contains large chunks, and the second layer contains smaller chunks derived from the first layer.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>SEMANTIC</code> – Split documents into chunks based on groups of similar content derived with natural language processing.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>NONE</code> – Amazon Bedrock treats each file as one chunk. If you choose this option, you may want to pre-process your documents by splitting them into separate files.</p>
-   *             </li>
-   *          </ul>
+   * <p>Knowledge base can split your source data into chunks. A <i>chunk</i> refers to an excerpt from a data source that is returned when the knowledge base that it belongs to is queried. You have the following options for chunking your data. If you opt for <code>NONE</code>, then you may want to pre-process your files by splitting them up such that each file corresponds to a chunk.</p> <ul> <li> <p> <code>FIXED_SIZE</code> – Amazon Bedrock splits your source data into chunks of the approximate size that you set in the <code>fixedSizeChunkingConfiguration</code>.</p> </li> <li> <p> <code>HIERARCHICAL</code> – Split documents into layers of chunks where the first layer contains large chunks, and the second layer contains smaller chunks derived from the first layer.</p> </li> <li> <p> <code>SEMANTIC</code> – Split documents into chunks based on groups of similar content derived with natural language processing.</p> </li> <li> <p> <code>NONE</code> – Amazon Bedrock treats each file as one chunk. If you choose this option, you may want to pre-process your documents by splitting them into separate files.</p> </li> </ul>
    * @public
    */
   chunkingStrategy: ChunkingStrategy | undefined;
@@ -3886,17 +3457,13 @@ export interface ChunkingConfiguration {
   fixedSizeChunkingConfiguration?: FixedSizeChunkingConfiguration | undefined;
 
   /**
-   * <p>Settings for hierarchical document chunking for a data source. Hierarchical chunking splits documents
-   *     into layers of chunks where the first layer contains large chunks, and the second layer contains smaller
-   *     chunks derived from the first layer.</p>
+   * <p>Settings for hierarchical document chunking for a data source. Hierarchical chunking splits documents into layers of chunks where the first layer contains large chunks, and the second layer contains smaller chunks derived from the first layer.</p>
    * @public
    */
   hierarchicalChunkingConfiguration?: HierarchicalChunkingConfiguration | undefined;
 
   /**
-   * <p>Settings for semantic document chunking for a data source. Semantic chunking splits
-   *     a document into into smaller documents based on groups of similar content derived from the text
-   *     with natural language processing.</p>
+   * <p>Settings for semantic document chunking for a data source. Semantic chunking splits a document into into smaller documents based on groups of similar content derived from the text with natural language processing.</p>
    * @public
    */
   semanticChunkingConfiguration?: SemanticChunkingConfiguration | undefined;
@@ -3928,14 +3495,12 @@ export interface EnrichmentStrategyConfiguration {
 }
 
 /**
- * <p>Context enrichment configuration is used to provide additional context to the RAG application
- *       using Amazon Bedrock foundation models.</p>
+ * <p>Context enrichment configuration is used to provide additional context to the RAG application using Amazon Bedrock foundation models.</p>
  * @public
  */
 export interface BedrockFoundationModelContextEnrichmentConfiguration {
   /**
-   * <p>The enrichment stategy used to provide additional context. For example, Neptune GraphRAG uses
-   *       Amazon Bedrock foundation models to perform chunk entity extraction.</p>
+   * <p>The enrichment stategy used to provide additional context. For example, Neptune GraphRAG uses Amazon Bedrock foundation models to perform chunk entity extraction.</p>
    * @public
    */
   enrichmentStrategyConfiguration: EnrichmentStrategyConfiguration | undefined;
@@ -3991,8 +3556,7 @@ export interface S3Location {
 }
 
 /**
- * <p>A location for storing content from data sources temporarily as it is processed by
- *     custom components in the ingestion pipeline.</p>
+ * <p>A location for storing content from data sources temporarily as it is processed by custom components in the ingestion pipeline.</p>
  * @public
  */
 export interface IntermediateStorage {
@@ -4041,9 +3605,7 @@ export interface TransformationFunction {
 }
 
 /**
- * <p>A custom processing step for documents moving through a data source ingestion pipeline. To
- *     process documents after they have been converted into chunks, set the step to apply to
- *     <code>POST_CHUNKING</code>.</p>
+ * <p>A custom processing step for documents moving through a data source ingestion pipeline. To process documents after they have been converted into chunks, set the step to apply to <code>POST_CHUNKING</code>.</p>
  * @public
  */
 export interface Transformation {
@@ -4061,15 +3623,7 @@ export interface Transformation {
 }
 
 /**
- * <p>Settings for customizing steps in the data source content ingestion pipeline.</p>
- *          <p>You can configure the data source to process documents with a Lambda function after
- *     they are parsed and converted into chunks. When you add a post-chunking transformation,
- *     the service stores chunked documents in an S3 bucket and invokes a Lambda function to process
- *     them.</p>
- *          <p>To process chunked documents with a Lambda function, define an S3 bucket path for input
- *     and output objects, and a transformation that specifies the Lambda function to invoke. You can
- *     use the Lambda function to customize how chunks are split, and the metadata for each chunk.
- *     </p>
+ * <p>Settings for customizing steps in the data source content ingestion pipeline.</p> <p>You can configure the data source to process documents with a Lambda function after they are parsed and converted into chunks. When you add a post-chunking transformation, the service stores chunked documents in an S3 bucket and invokes a Lambda function to process them.</p> <p>To process chunked documents with a Lambda function, define an S3 bucket path for input and output objects, and a transformation that specifies the Lambda function to invoke. You can use the Lambda function to customize how chunks are split, and the metadata for each chunk. </p>
  * @public
  */
 export interface CustomTransformationConfiguration {
@@ -4162,11 +3716,7 @@ export const ParsingStrategy = {
 export type ParsingStrategy = (typeof ParsingStrategy)[keyof typeof ParsingStrategy];
 
 /**
- * <p>Settings for parsing document contents. If you exclude this field, the default parser converts the contents of each
- *       document into text before splitting it into chunks. Specify the parsing strategy to use in the <code>parsingStrategy</code> field and include the relevant configuration, or omit it to use the Amazon Bedrock default parser. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/kb-advanced-parsing.html">Parsing options for your data source</a>.</p>
- *          <note>
- *             <p>If you specify <code>BEDROCK_DATA_AUTOMATION</code> or <code>BEDROCK_FOUNDATION_MODEL</code> and it fails to parse a file, the Amazon Bedrock default parser will be used instead.</p>
- *          </note>
+ * <p>Settings for parsing document contents. If you exclude this field, the default parser converts the contents of each document into text before splitting it into chunks. Specify the parsing strategy to use in the <code>parsingStrategy</code> field and include the relevant configuration, or omit it to use the Amazon Bedrock default parser. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/kb-advanced-parsing.html">Parsing options for your data source</a>.</p> <note> <p>If you specify <code>BEDROCK_DATA_AUTOMATION</code> or <code>BEDROCK_FOUNDATION_MODEL</code> and it fails to parse a file, the Amazon Bedrock default parser will be used instead.</p> </note>
  * @public
  */
 export interface ParsingConfiguration {
@@ -4213,8 +3763,7 @@ export interface VectorIngestionConfiguration {
   parsingConfiguration?: ParsingConfiguration | undefined;
 
   /**
-   * <p>The context enrichment configuration used for ingestion of the data into the vector
-   *       store.</p>
+   * <p>The context enrichment configuration used for ingestion of the data into the vector store.</p>
    * @public
    */
   contextEnrichmentConfiguration?: ContextEnrichmentConfiguration | undefined;
@@ -4231,8 +3780,7 @@ export interface CreateDataSourceRequest {
   knowledgeBaseId: string | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If this token matches a previous request,
-   *       Amazon Bedrock ignores the request, but does not return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>.</p>
+   * <p>A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If this token matches a previous request, Amazon Bedrock ignores the request, but does not return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>.</p>
    * @public
    */
   clientToken?: string | undefined;
@@ -4256,22 +3804,7 @@ export interface CreateDataSourceRequest {
   dataSourceConfiguration: DataSourceConfiguration | undefined;
 
   /**
-   * <p>The data deletion policy for the data source.</p>
-   *          <p>You can set the data deletion policy to:</p>
-   *          <ul>
-   *             <li>
-   *                <p>DELETE: Deletes all data from your data source that’s converted
-   *           into vector embeddings upon deletion of a knowledge base or data source resource.
-   *           Note that the <b>vector store itself is not deleted</b>,
-   *           only the data. This flag is ignored if an Amazon Web Services account is deleted.</p>
-   *             </li>
-   *             <li>
-   *                <p>RETAIN: Retains all data from your data source that’s converted
-   *           into vector embeddings upon deletion of a knowledge base or data source resource.
-   *           Note that the <b>vector store itself is not deleted</b>
-   *           if you delete a knowledge base or data source resource.</p>
-   *             </li>
-   *          </ul>
+   * <p>The data deletion policy for the data source.</p> <p>You can set the data deletion policy to:</p> <ul> <li> <p>DELETE: Deletes all data from your data source that’s converted into vector embeddings upon deletion of a knowledge base or data source resource. Note that the <b>vector store itself is not deleted</b>, only the data. This flag is ignored if an Amazon Web Services account is deleted.</p> </li> <li> <p>RETAIN: Retains all data from your data source that’s converted into vector embeddings upon deletion of a knowledge base or data source resource. Note that the <b>vector store itself is not deleted</b> if you delete a knowledge base or data source resource.</p> </li> </ul>
    * @public
    */
   dataDeletionPolicy?: DataDeletionPolicy | undefined;
@@ -4328,15 +3861,7 @@ export interface DataSource {
   name: string | undefined;
 
   /**
-   * <p>The status of the data source. The following statuses are possible:</p>
-   *          <ul>
-   *             <li>
-   *                <p>Available – The data source has been created and is ready for ingestion into the knowledge base.</p>
-   *             </li>
-   *             <li>
-   *                <p>Deleting – The data source is being deleted.</p>
-   *             </li>
-   *          </ul>
+   * <p>The status of the data source. The following statuses are possible:</p> <ul> <li> <p>Available – The data source has been created and is ready for ingestion into the knowledge base.</p> </li> <li> <p>Deleting – The data source is being deleted.</p> </li> </ul>
    * @public
    */
   status: DataSourceStatus | undefined;
@@ -4805,15 +4330,13 @@ export type SupportedLanguages = (typeof SupportedLanguages)[keyof typeof Suppor
  */
 export interface InlineCodeFlowNodeConfiguration {
   /**
-   * <p>The code that's executed in your inline code node. The code can access input data from previous nodes in the flow, perform operations on that data, and produce output that can be used by other nodes in your flow.</p>
-   *          <p>The code must be valid in the programming <code>language</code> that you specify.</p>
+   * <p>The code that's executed in your inline code node. The code can access input data from previous nodes in the flow, perform operations on that data, and produce output that can be used by other nodes in your flow.</p> <p>The code must be valid in the programming <code>language</code> that you specify.</p>
    * @public
    */
   code: string | undefined;
 
   /**
-   * <p>The programming language used by your inline code node.</p>
-   *          <p>The code must be valid in the programming <code>language</code> that you specify. Currently, only Python 3 (<code>Python_3</code>) is supported.</p>
+   * <p>The programming language used by your inline code node.</p> <p>The code must be valid in the programming <code>language</code> that you specify. Currently, only Python 3 (<code>Python_3</code>) is supported.</p>
    * @public
    */
   language: SupportedLanguages | undefined;
@@ -4826,8 +4349,7 @@ export interface InlineCodeFlowNodeConfiguration {
 export interface InputFlowNodeConfiguration {}
 
 /**
- * <p>Contains configurations for an iterator node in a flow. Takes an input that is an array and iteratively sends each item of the array as an output to the following node. The size of the array is also returned in the output.</p>
- *          <p>The output flow node at the end of the flow iteration will return a response for each member of the array. To return only one response, you can include a collector node downstream from the iterator node.</p>
+ * <p>Contains configurations for an iterator node in a flow. Takes an input that is an array and iteratively sends each item of the array as an output to the following node. The size of the array is also returned in the output.</p> <p>The output flow node at the end of the flow iteration will return a response for each member of the array. To return only one response, you can include a collector node downstream from the iterator node.</p>
  * @public
  */
 export interface IteratorFlowNodeConfiguration {}
@@ -5234,15 +4756,13 @@ export interface LexFlowNodeConfiguration {
  */
 export interface LoopControllerFlowNodeConfiguration {
   /**
-   * <p>Specifies the condition that determines when the flow exits the DoWhile loop. The loop
-   *             executes until this condition evaluates to true.</p>
+   * <p>Specifies the condition that determines when the flow exits the DoWhile loop. The loop executes until this condition evaluates to true.</p>
    * @public
    */
   continueCondition: FlowCondition | undefined;
 
   /**
-   * <p>Specifies the maximum number of times the DoWhile loop can iterate before the flow
-   *             exits the loop.</p>
+   * <p>Specifies the maximum number of times the DoWhile loop can iterate before the flow exits the loop.</p>
    * @public
    */
   maxIterations?: number | undefined;
@@ -6080,8 +5600,7 @@ export interface FlowNodeInput {
   name: string | undefined;
 
   /**
-   * <p>Specifies the data type of the input. If the input doesn't match this type at runtime,
-   *             a validation error will be thrown.</p>
+   * <p>Specifies the data type of the input. If the input doesn't match this type at runtime, a validation error will be thrown.</p>
    * @public
    */
   type: FlowNodeIODataType | undefined;
@@ -6093,26 +5612,7 @@ export interface FlowNodeInput {
   expression: string | undefined;
 
   /**
-   * <p>Specifies how input data flows between iterations in a DoWhile
-   *                 loop.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>LoopCondition</code> - Controls whether the loop continues by evaluating condition expressions against the input data. Use this category to define
-   *                     the condition that determines if the loop should continue. </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>ReturnValueToLoopStart</code> - Defines data to pass back to the start
-   *                     of the loop's next iteration. Use this category for variables that you
-   *                     want to update for each loop iteration.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>ExitLoop</code> - Defines the value that's available once the loop ends.
-   *                     Use this category to expose loop results to nodes outside the loop.</p>
-   *             </li>
-   *          </ul>
+   * <p>Specifies how input data flows between iterations in a DoWhile loop.</p> <ul> <li> <p> <code>LoopCondition</code> - Controls whether the loop continues by evaluating condition expressions against the input data. Use this category to define the condition that determines if the loop should continue. </p> </li> <li> <p> <code>ReturnValueToLoopStart</code> - Defines data to pass back to the start of the loop's next iteration. Use this category for variables that you want to update for each loop iteration.</p> </li> <li> <p> <code>ExitLoop</code> - Defines the value that's available once the loop ends. Use this category to expose loop results to nodes outside the loop.</p> </li> </ul>
    * @public
    */
   category?: FlowNodeInputCategory | undefined;
@@ -6228,17 +5728,7 @@ export type ConcurrencyType = (typeof ConcurrencyType)[keyof typeof ConcurrencyT
  */
 export interface FlowAliasConcurrencyConfiguration {
   /**
-   * <p>The type of concurrency to use for parallel node execution. Specify one of the following options:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>Automatic</code> - Amazon Bedrock determines which nodes can be executed in parallel based on the flow definition and its dependencies.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>Manual</code> - You specify which nodes can be executed in parallel.</p>
-   *             </li>
-   *          </ul>
+   * <p>The type of concurrency to use for parallel node execution. Specify one of the following options:</p> <ul> <li> <p> <code>Automatic</code> - Amazon Bedrock determines which nodes can be executed in parallel based on the flow definition and its dependencies.</p> </li> <li> <p> <code>Manual</code> - You specify which nodes can be executed in parallel.</p> </li> </ul>
    * @public
    */
   type: ConcurrencyType | undefined;
@@ -6297,8 +5787,7 @@ export interface CreateFlowAliasRequest {
   flowIdentifier: string | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If this token matches a previous request,
-   *       Amazon Bedrock ignores the request, but does not return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>.</p>
+   * <p>A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If this token matches a previous request, Amazon Bedrock ignores the request, but does not return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>.</p>
    * @public
    */
   clientToken?: string | undefined;
@@ -6503,15 +5992,7 @@ export interface ListFlowAliasesRequest {
 }
 
 /**
- * <p>Contains information about an alias of a flow.</p>
- *          <p>This data type is used in the following API operations:</p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_ListFlowAliases.html#API_agent_ListFlowAliases_ResponseSyntax">ListFlowAliases response</a>
- *                </p>
- *             </li>
- *          </ul>
+ * <p>Contains information about an alias of a flow.</p> <p>This data type is used in the following API operations:</p> <ul> <li> <p> <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_ListFlowAliases.html#API_agent_ListFlowAliases_ResponseSyntax">ListFlowAliases response</a> </p> </li> </ul>
  * @public
  */
 export interface FlowAliasSummary {
@@ -6704,8 +6185,7 @@ export interface CreateFlowVersionRequest {
   description?: string | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If this token matches a previous request,
-   *       Amazon Bedrock ignores the request, but does not return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>.</p>
+   * <p>A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If this token matches a previous request, Amazon Bedrock ignores the request, but does not return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>.</p>
    * @public
    */
   clientToken?: string | undefined;
@@ -6792,15 +6272,7 @@ export interface ListFlowVersionsRequest {
 }
 
 /**
- * <p>Contains information about a version of a flow.</p>
- *          <p>This data type is used in the following API operations:</p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_ListFlowVersions.html#API_agent_ListFlowVersions_ResponseSyntax">ListFlowVersions response</a>
- *                </p>
- *             </li>
- *          </ul>
+ * <p>Contains information about a version of a flow.</p> <p>This data type is used in the following API operations:</p> <ul> <li> <p> <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_ListFlowVersions.html#API_agent_ListFlowVersions_ResponseSyntax">ListFlowVersions response</a> </p> </li> </ul>
  * @public
  */
 export interface FlowVersionSummary {
@@ -8968,20 +8440,7 @@ export const FlowValidationType = {
 export type FlowValidationType = (typeof FlowValidationType)[keyof typeof FlowValidationType];
 
 /**
- * <p>Contains information about validation of the flow.</p>
- *          <p>This data type is used in the following API operations:</p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_GetFlow.html#API_agent_GetFlow_ResponseSyntax">GetFlow response</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_GetFlowVersion.html#API_agent_GetFlowVersion_ResponseSyntax">GetFlowVersion response</a>
- *                </p>
- *             </li>
- *          </ul>
+ * <p>Contains information about validation of the flow.</p> <p>This data type is used in the following API operations:</p> <ul> <li> <p> <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_GetFlow.html#API_agent_GetFlow_ResponseSyntax">GetFlow response</a> </p> </li> <li> <p> <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_GetFlowVersion.html#API_agent_GetFlowVersion_ResponseSyntax">GetFlowVersion response</a> </p> </li> </ul>
  * @public
  */
 export interface FlowValidation {
@@ -9057,21 +8516,7 @@ export interface FlowSummary {
   arn: string | undefined;
 
   /**
-   * <p>The status of the flow. The following statuses are possible:</p>
-   *          <ul>
-   *             <li>
-   *                <p>NotPrepared – The flow has been created or updated, but hasn't been prepared. If you just created the flow, you can't test it. If you updated the flow, the <code>DRAFT</code> version won't contain the latest changes for testing. Send a <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_PrepareFlow.html">PrepareFlow</a> request to package the latest changes into the <code>DRAFT</code> version.</p>
-   *             </li>
-   *             <li>
-   *                <p>Preparing – The flow is being prepared so that the <code>DRAFT</code> version contains the latest changes for testing.</p>
-   *             </li>
-   *             <li>
-   *                <p>Prepared – The flow is prepared and the <code>DRAFT</code> version contains the latest changes for testing.</p>
-   *             </li>
-   *             <li>
-   *                <p>Failed – The last API operation that you invoked on the flow failed. Send a <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_GetFlow.html">GetFlow</a> request and check the error message in the <code>validations</code> field.</p>
-   *             </li>
-   *          </ul>
+   * <p>The status of the flow. The following statuses are possible:</p> <ul> <li> <p>NotPrepared – The flow has been created or updated, but hasn't been prepared. If you just created the flow, you can't test it. If you updated the flow, the <code>DRAFT</code> version won't contain the latest changes for testing. Send a <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_PrepareFlow.html">PrepareFlow</a> request to package the latest changes into the <code>DRAFT</code> version.</p> </li> <li> <p>Preparing – The flow is being prepared so that the <code>DRAFT</code> version contains the latest changes for testing.</p> </li> <li> <p>Prepared – The flow is prepared and the <code>DRAFT</code> version contains the latest changes for testing.</p> </li> <li> <p>Failed – The last API operation that you invoked on the flow failed. Send a <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_GetFlow.html">GetFlow</a> request and check the error message in the <code>validations</code> field.</p> </li> </ul>
    * @public
    */
   status: FlowStatus | undefined;
