@@ -16,7 +16,7 @@ describe("S3 throw 200 exceptions", () => {
 
   beforeAll(async () => {
     callerID = await stsClient.getCallerIdentity({});
-    Bucket = `${callerID.Account}-${randId}-s3-200s-e2e-test-empty-${config.region}-${(Date.now() / 1000) | 0}`;
+    Bucket = `${callerID.Account}-${randId}-js-sdk-e2e-${config.region}-${(Date.now() / 1000) | 0}`;
 
     await s3.createBucket({
       Bucket,
