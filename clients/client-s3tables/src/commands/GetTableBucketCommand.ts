@@ -46,6 +46,7 @@ export interface GetTableBucketCommandOutput extends GetTableBucketResponse, __M
  * //   ownerAccountId: "STRING_VALUE", // required
  * //   createdAt: new Date("TIMESTAMP"), // required
  * //   tableBucketId: "STRING_VALUE",
+ * //   type: "customer" || "aws",
  * // };
  *
  * ```

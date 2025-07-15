@@ -711,6 +711,20 @@ export interface GetTableBucketRequest {
 
 /**
  * @public
+ * @enum
+ */
+export const TableBucketType = {
+  AWS: "aws",
+  CUSTOMER: "customer",
+} as const;
+
+/**
+ * @public
+ */
+export type TableBucketType = (typeof TableBucketType)[keyof typeof TableBucketType];
+
+/**
+ * @public
  */
 export interface GetTableBucketResponse {
   /**
@@ -742,6 +756,12 @@ export interface GetTableBucketResponse {
    * @public
    */
   tableBucketId?: string | undefined;
+
+  /**
+   * <p>The type of the table bucket.</p>
+   * @public
+   */
+  type?: TableBucketType | undefined;
 }
 
 /**
@@ -1418,6 +1438,12 @@ export interface ListTableBucketsRequest {
    * @public
    */
   maxBuckets?: number | undefined;
+
+  /**
+   * <p>The type of table buckets to filter by in the list.</p>
+   * @public
+   */
+  type?: TableBucketType | undefined;
 }
 
 /**
@@ -1454,6 +1480,12 @@ export interface TableBucketSummary {
    * @public
    */
   tableBucketId?: string | undefined;
+
+  /**
+   * <p>The type of the table bucket.</p>
+   * @public
+   */
+  type?: TableBucketType | undefined;
 }
 
 /**

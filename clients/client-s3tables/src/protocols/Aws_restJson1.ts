@@ -523,6 +523,7 @@ export const se_ListTableBucketsCommand = async (
     [_p]: [, input[_p]!],
     [_cT]: [, input[_cT]!],
     [_mB]: [() => input.maxBuckets !== void 0, () => input[_mB]!.toString()],
+    [_t]: [, input[_t]!],
   });
   let body: any;
   b.m("GET").h(headers).q(query).b(body);
@@ -974,6 +975,7 @@ export const de_GetTableBucketCommand = async (
     name: __expectString,
     ownerAccountId: __expectString,
     tableBucketId: __expectString,
+    type: __expectString,
   });
   Object.assign(contents, doc);
   return contents;
@@ -1595,6 +1597,7 @@ const de_TableBucketSummary = (output: any, context: __SerdeContext): TableBucke
     name: __expectString,
     ownerAccountId: __expectString,
     tableBucketId: __expectString,
+    type: __expectString,
   }) as any;
 };
 
@@ -1693,6 +1696,7 @@ const _mT = "maxTables";
 const _n = "namespace";
 const _na = "name";
 const _p = "prefix";
+const _t = "type";
 const _tA = "tableArn";
 const _tBARN = "tableBucketARN";
 const _vT = "versionToken";

@@ -39,6 +39,7 @@ export interface ListTableBucketsCommandOutput extends ListTableBucketsResponse,
  *   prefix: "STRING_VALUE",
  *   continuationToken: "STRING_VALUE",
  *   maxBuckets: Number("int"),
+ *   type: "customer" || "aws",
  * };
  * const command = new ListTableBucketsCommand(input);
  * const response = await client.send(command);
@@ -50,6 +51,7 @@ export interface ListTableBucketsCommandOutput extends ListTableBucketsResponse,
  * //       ownerAccountId: "STRING_VALUE", // required
  * //       createdAt: new Date("TIMESTAMP"), // required
  * //       tableBucketId: "STRING_VALUE",
+ * //       type: "customer" || "aws",
  * //     },
  * //   ],
  * //   continuationToken: "STRING_VALUE",
