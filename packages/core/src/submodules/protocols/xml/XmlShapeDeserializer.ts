@@ -1,12 +1,12 @@
 import { FromStringShapeDeserializer } from "@smithy/core/protocols";
 import { NormalizedSchema } from "@smithy/core/schema";
 import { getValueFromTextNode } from "@smithy/smithy-client";
-import { Schema, SerdeFunctions, ShapeDeserializer } from "@smithy/types";
+import type { Schema, SerdeFunctions, ShapeDeserializer } from "@smithy/types";
 import { toUtf8 } from "@smithy/util-utf8";
 import { XMLParser } from "fast-xml-parser";
 
 import { SerdeContextConfig } from "../ConfigurableSerdeContext";
-import { XmlSettings } from "./XmlCodec";
+import type { XmlSettings } from "./XmlCodec";
 
 /**
  * @alpha
@@ -59,11 +59,10 @@ export class XmlShapeDeserializer extends SerdeContextConfig implements ShapeDes
   public readSchema(_schema: Schema, value: any): any {
     const ns = NormalizedSchema.of(_schema);
     const traits = ns.getMergedTraits();
-    const schema = ns.getSchema();
 
     if (ns.isListSchema() && !Array.isArray(value)) {
       // single item in what should have been a list.
-      return this.readSchema(schema, [value]);
+      return this.readSchema(ns, [value]);
     }
 
     if (value == null) {
@@ -132,17 +131,17 @@ export class XmlShapeDeserializer extends SerdeContextConfig implements ShapeDes
       }
 
       throw new Error(`@aws-sdk/core/protocols - xml deserializer unhandled schema type for ${ns.getName(true)}`);
-    } else {
-      // non-object aggregate type.
-      if (ns.isListSchema()) {
-        return [];
-      } else if (ns.isMapSchema() || ns.isStructSchema()) {
-        return {} as any;
-      }
-
-      // simple
-      return this.stringDeserializer.read(ns, value as string);
     }
+    // non-object aggregate type.
+    if (ns.isListSchema()) {
+      return [];
+    }
+    if (ns.isMapSchema() || ns.isStructSchema()) {
+      return {} as any;
+    }
+
+    // simple
+    return this.stringDeserializer.read(ns, value as string);
   }
 
   protected parseXml(xml: string): any {
