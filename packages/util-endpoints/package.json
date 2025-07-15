@@ -23,6 +23,7 @@
     "url": "https://aws.amazon.com/javascript/"
   },
   "license": "Apache-2.0",
+  "sideEffects": true,
   "dependencies": {
     "@aws-sdk/types": "*",
     "@smithy/types": "^4.3.1",
