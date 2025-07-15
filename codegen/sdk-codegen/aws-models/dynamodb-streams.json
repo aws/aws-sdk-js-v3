@@ -171,6 +171,12 @@
           "traits": {
             "smithy.api#documentation": "<p>The shard ID of the first item that this operation will evaluate. Use the value that was\n      returned for <code>LastEvaluatedShardId</code> in the previous operation. </p>"
           }
+        },
+        "ShardFilter": {
+          "target": "com.amazonaws.dynamodbstreams#ShardFilter",
+          "traits": {
+            "smithy.api#documentation": "<p>This optional field contains the filter definition for the\n            <code>DescribeStream</code> API.</p>"
+          }
         }
       },
       "traits": {
@@ -1948,6 +1954,37 @@
         "target": "com.amazonaws.dynamodbstreams#Shard"
       }
     },
+    "com.amazonaws.dynamodbstreams#ShardFilter": {
+      "type": "structure",
+      "members": {
+        "Type": {
+          "target": "com.amazonaws.dynamodbstreams#ShardFilterType",
+          "traits": {
+            "smithy.api#documentation": "<p>Contains the type of filter to be applied on the <code>DescribeStream</code> API. \n            Currently, the only value this parameter accepts is <code>CHILD_SHARDS</code>.</p>"
+          }
+        },
+        "ShardId": {
+          "target": "com.amazonaws.dynamodbstreams#ShardId",
+          "traits": {
+            "smithy.api#documentation": "<p>Contains the <code>shardId</code> of the parent shard for which you are requesting child shards.</p>\n         <p>\n            <i>Sample request:</i>\n         </p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>This optional field contains the filter \n            definition for the <code>DescribeStream</code> API.</p>"
+      }
+    },
+    "com.amazonaws.dynamodbstreams#ShardFilterType": {
+      "type": "enum",
+      "members": {
+        "CHILD_SHARDS": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "CHILD_SHARDS"
+          }
+        }
+      }
+    },
     "com.amazonaws.dynamodbstreams#ShardId": {
       "type": "string",
       "traits": {
@@ -2104,7 +2141,7 @@
         "ApproximateCreationDateTime": {
           "target": "com.amazonaws.dynamodbstreams#Date",
           "traits": {
-            "smithy.api#documentation": "<p>The approximate date and time when the stream record was created, in <a href=\"http://www.epochconverter.com/\">UNIX epoch time</a> format and rounded down to the closest second.</p>"
+            "smithy.api#documentation": "<p>The approximate date and time when the stream record was created, in <a href=\"https://www.iso.org/iso-8601-date-and-time-format.html\">ISO 8601</a> format and rounded down to the closest second.</p>"
           }
         },
         "Keys": {

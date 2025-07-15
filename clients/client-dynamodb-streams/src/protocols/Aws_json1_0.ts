@@ -44,6 +44,7 @@ import {
   LimitExceededException,
   ListStreamsInput,
   ResourceNotFoundException,
+  ShardFilter,
   StreamDescription,
   StreamRecord,
   TrimmedDataAccessException,
@@ -300,6 +301,8 @@ const de_TrimmedDataAccessExceptionRes = async (
 // se_GetShardIteratorInput omitted.
 
 // se_ListStreamsInput omitted.
+
+// se_ShardFilter omitted.
 
 /**
  * deserializeAws_json1_0AttributeMap

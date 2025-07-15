@@ -47,6 +47,10 @@ export interface DescribeStreamCommandOutput extends DescribeStreamOutput, __Met
  *   StreamArn: "STRING_VALUE", // required
  *   Limit: Number("int"),
  *   ExclusiveStartShardId: "STRING_VALUE",
+ *   ShardFilter: { // ShardFilter
+ *     Type: "CHILD_SHARDS",
+ *     ShardId: "STRING_VALUE",
+ *   },
  * };
  * const command = new DescribeStreamCommand(input);
  * const response = await client.send(command);

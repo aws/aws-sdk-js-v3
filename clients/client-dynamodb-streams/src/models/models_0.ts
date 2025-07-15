@@ -4,6 +4,42 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-cli
 import { DynamoDBStreamsServiceException as __BaseException } from "./DynamoDBStreamsServiceException";
 
 /**
+ * @public
+ * @enum
+ */
+export const ShardFilterType = {
+  CHILD_SHARDS: "CHILD_SHARDS",
+} as const;
+
+/**
+ * @public
+ */
+export type ShardFilterType = (typeof ShardFilterType)[keyof typeof ShardFilterType];
+
+/**
+ * <p>This optional field contains the filter
+ *             definition for the <code>DescribeStream</code> API.</p>
+ * @public
+ */
+export interface ShardFilter {
+  /**
+   * <p>Contains the type of filter to be applied on the <code>DescribeStream</code> API.
+   *             Currently, the only value this parameter accepts is <code>CHILD_SHARDS</code>.</p>
+   * @public
+   */
+  Type?: ShardFilterType | undefined;
+
+  /**
+   * <p>Contains the <code>shardId</code> of the parent shard for which you are requesting child shards.</p>
+   *          <p>
+   *             <i>Sample request:</i>
+   *          </p>
+   * @public
+   */
+  ShardId?: string | undefined;
+}
+
+/**
  * <p>Represents the input of a <code>DescribeStream</code> operation.</p>
  * @public
  */
@@ -26,6 +62,13 @@ export interface DescribeStreamInput {
    * @public
    */
   ExclusiveStartShardId?: string | undefined;
+
+  /**
+   * <p>This optional field contains the filter definition for the
+   *             <code>DescribeStream</code> API.</p>
+   * @public
+   */
+  ShardFilter?: ShardFilter | undefined;
 }
 
 /**
@@ -930,7 +973,7 @@ export namespace AttributeValue {
  */
 export interface StreamRecord {
   /**
-   * <p>The approximate date and time when the stream record was created, in <a href="http://www.epochconverter.com/">UNIX epoch time</a> format and rounded down to the closest second.</p>
+   * <p>The approximate date and time when the stream record was created, in <a href="https://www.iso.org/iso-8601-date-and-time-format.html">ISO 8601</a> format and rounded down to the closest second.</p>
    * @public
    */
   ApproximateCreationDateTime?: Date | undefined;
