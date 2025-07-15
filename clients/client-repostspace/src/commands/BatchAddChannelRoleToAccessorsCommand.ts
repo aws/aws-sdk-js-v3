@@ -5,8 +5,11 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { BatchRemoveRoleInput, BatchRemoveRoleOutput } from "../models/models_0";
-import { de_BatchRemoveRoleCommand, se_BatchRemoveRoleCommand } from "../protocols/Aws_restJson1";
+import { BatchAddChannelRoleToAccessorsInput, BatchAddChannelRoleToAccessorsOutput } from "../models/models_0";
+import {
+  de_BatchAddChannelRoleToAccessorsCommand,
+  se_BatchAddChannelRoleToAccessorsCommand,
+} from "../protocols/Aws_restJson1";
 import { RepostspaceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RepostspaceClient";
 
 /**
@@ -17,35 +20,38 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link BatchRemoveRoleCommand}.
+ * The input for {@link BatchAddChannelRoleToAccessorsCommand}.
  */
-export interface BatchRemoveRoleCommandInput extends BatchRemoveRoleInput {}
+export interface BatchAddChannelRoleToAccessorsCommandInput extends BatchAddChannelRoleToAccessorsInput {}
 /**
  * @public
  *
- * The output of {@link BatchRemoveRoleCommand}.
+ * The output of {@link BatchAddChannelRoleToAccessorsCommand}.
  */
-export interface BatchRemoveRoleCommandOutput extends BatchRemoveRoleOutput, __MetadataBearer {}
+export interface BatchAddChannelRoleToAccessorsCommandOutput
+  extends BatchAddChannelRoleToAccessorsOutput,
+    __MetadataBearer {}
 
 /**
- * <p>Remove a role from multiple users or groups in a private re:Post.</p>
+ * <p>Add role to multiple users or groups in a private re:Post channel.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RepostspaceClient, BatchRemoveRoleCommand } from "@aws-sdk/client-repostspace"; // ES Modules import
- * // const { RepostspaceClient, BatchRemoveRoleCommand } = require("@aws-sdk/client-repostspace"); // CommonJS import
+ * import { RepostspaceClient, BatchAddChannelRoleToAccessorsCommand } from "@aws-sdk/client-repostspace"; // ES Modules import
+ * // const { RepostspaceClient, BatchAddChannelRoleToAccessorsCommand } = require("@aws-sdk/client-repostspace"); // CommonJS import
  * const client = new RepostspaceClient(config);
- * const input = { // BatchRemoveRoleInput
+ * const input = { // BatchAddChannelRoleToAccessorsInput
  *   spaceId: "STRING_VALUE", // required
+ *   channelId: "STRING_VALUE", // required
  *   accessorIds: [ // AccessorIdList // required
  *     "STRING_VALUE",
  *   ],
- *   role: "EXPERT" || "MODERATOR" || "ADMINISTRATOR" || "SUPPORTREQUESTOR", // required
+ *   channelRole: "ASKER" || "EXPERT" || "MODERATOR" || "SUPPORTREQUESTOR", // required
  * };
- * const command = new BatchRemoveRoleCommand(input);
+ * const command = new BatchAddChannelRoleToAccessorsCommand(input);
  * const response = await client.send(command);
- * // { // BatchRemoveRoleOutput
- * //   removedAccessorIds: [ // AccessorIdList // required
+ * // { // BatchAddChannelRoleToAccessorsOutput
+ * //   addedAccessorIds: [ // AccessorIdList // required
  * //     "STRING_VALUE",
  * //   ],
  * //   errors: [ // BatchErrorList // required
@@ -59,10 +65,10 @@ export interface BatchRemoveRoleCommandOutput extends BatchRemoveRoleOutput, __M
  *
  * ```
  *
- * @param BatchRemoveRoleCommandInput - {@link BatchRemoveRoleCommandInput}
- * @returns {@link BatchRemoveRoleCommandOutput}
- * @see {@link BatchRemoveRoleCommandInput} for command's `input` shape.
- * @see {@link BatchRemoveRoleCommandOutput} for command's `response` shape.
+ * @param BatchAddChannelRoleToAccessorsCommandInput - {@link BatchAddChannelRoleToAccessorsCommandInput}
+ * @returns {@link BatchAddChannelRoleToAccessorsCommandOutput}
+ * @see {@link BatchAddChannelRoleToAccessorsCommandInput} for command's `input` shape.
+ * @see {@link BatchAddChannelRoleToAccessorsCommandOutput} for command's `response` shape.
  * @see {@link RepostspaceClientResolvedConfig | config} for RepostspaceClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -84,34 +90,35 @@ export interface BatchRemoveRoleCommandOutput extends BatchRemoveRoleOutput, __M
  * <p>Base exception class for all service exceptions from Repostspace service.</p>
  *
  *
- * @example BatchRemoveRole
+ * @example BatchAddChannelRoleToAccessors
  * ```javascript
  * //
  * const input = {
  *   accessorIds: [
  *     "12345678-1234-1234-1234-1234567890ab"
  *   ],
- *   role: "EXPERT",
+ *   channelId: "WS1234567890abcdefghijkl",
+ *   channelRole: "MODERATOR",
  *   spaceId: "SP1234567890abcdefghijkl"
  * };
- * const command = new BatchRemoveRoleCommand(input);
+ * const command = new BatchAddChannelRoleToAccessorsCommand(input);
  * const response = await client.send(command);
  * /* response is
  * {
- *   errors:   [],
- *   removedAccessorIds: [
+ *   addedAccessorIds: [
  *     "12345678-1234-1234-1234-1234567890ab"
- *   ]
+ *   ],
+ *   errors:   []
  * }
  * *\/
  * ```
  *
  * @public
  */
-export class BatchRemoveRoleCommand extends $Command
+export class BatchAddChannelRoleToAccessorsCommand extends $Command
   .classBuilder<
-    BatchRemoveRoleCommandInput,
-    BatchRemoveRoleCommandOutput,
+    BatchAddChannelRoleToAccessorsCommandInput,
+    BatchAddChannelRoleToAccessorsCommandOutput,
     RepostspaceClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -123,21 +130,21 @@ export class BatchRemoveRoleCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("RepostSpace", "BatchRemoveRole", {})
-  .n("RepostspaceClient", "BatchRemoveRoleCommand")
+  .s("RepostSpace", "BatchAddChannelRoleToAccessors", {})
+  .n("RepostspaceClient", "BatchAddChannelRoleToAccessorsCommand")
   .f(void 0, void 0)
-  .ser(se_BatchRemoveRoleCommand)
-  .de(de_BatchRemoveRoleCommand)
+  .ser(se_BatchAddChannelRoleToAccessorsCommand)
+  .de(de_BatchAddChannelRoleToAccessorsCommand)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: BatchRemoveRoleInput;
-      output: BatchRemoveRoleOutput;
+      input: BatchAddChannelRoleToAccessorsInput;
+      output: BatchAddChannelRoleToAccessorsOutput;
     };
     sdk: {
-      input: BatchRemoveRoleCommandInput;
-      output: BatchRemoveRoleCommandOutput;
+      input: BatchAddChannelRoleToAccessorsCommandInput;
+      output: BatchAddChannelRoleToAccessorsCommandOutput;
     };
   };
 }

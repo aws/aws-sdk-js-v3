@@ -25,12 +25,23 @@ import {
   SerdeContext as __SerdeContext,
 } from "@smithy/types";
 
+import {
+  BatchAddChannelRoleToAccessorsCommandInput,
+  BatchAddChannelRoleToAccessorsCommandOutput,
+} from "../commands/BatchAddChannelRoleToAccessorsCommand";
 import { BatchAddRoleCommandInput, BatchAddRoleCommandOutput } from "../commands/BatchAddRoleCommand";
+import {
+  BatchRemoveChannelRoleFromAccessorsCommandInput,
+  BatchRemoveChannelRoleFromAccessorsCommandOutput,
+} from "../commands/BatchRemoveChannelRoleFromAccessorsCommand";
 import { BatchRemoveRoleCommandInput, BatchRemoveRoleCommandOutput } from "../commands/BatchRemoveRoleCommand";
+import { CreateChannelCommandInput, CreateChannelCommandOutput } from "../commands/CreateChannelCommand";
 import { CreateSpaceCommandInput, CreateSpaceCommandOutput } from "../commands/CreateSpaceCommand";
 import { DeleteSpaceCommandInput, DeleteSpaceCommandOutput } from "../commands/DeleteSpaceCommand";
 import { DeregisterAdminCommandInput, DeregisterAdminCommandOutput } from "../commands/DeregisterAdminCommand";
+import { GetChannelCommandInput, GetChannelCommandOutput } from "../commands/GetChannelCommand";
 import { GetSpaceCommandInput, GetSpaceCommandOutput } from "../commands/GetSpaceCommand";
+import { ListChannelsCommandInput, ListChannelsCommandOutput } from "../commands/ListChannelsCommand";
 import { ListSpacesCommandInput, ListSpacesCommandOutput } from "../commands/ListSpacesCommand";
 import {
   ListTagsForResourceCommandInput,
@@ -40,18 +51,46 @@ import { RegisterAdminCommandInput, RegisterAdminCommandOutput } from "../comman
 import { SendInvitesCommandInput, SendInvitesCommandOutput } from "../commands/SendInvitesCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
+import { UpdateChannelCommandInput, UpdateChannelCommandOutput } from "../commands/UpdateChannelCommand";
 import { UpdateSpaceCommandInput, UpdateSpaceCommandOutput } from "../commands/UpdateSpaceCommand";
 import {
   AccessDeniedException,
+  ChannelData,
   ConflictException,
   InternalServerException,
   ResourceNotFoundException,
   ServiceQuotaExceededException,
   SpaceData,
+  SupportedEmailDomainsParameters,
   ThrottlingException,
   ValidationException,
 } from "../models/models_0";
 import { RepostspaceServiceException as __BaseException } from "../models/RepostspaceServiceException";
+
+/**
+ * serializeAws_restJson1BatchAddChannelRoleToAccessorsCommand
+ */
+export const se_BatchAddChannelRoleToAccessorsCommand = async (
+  input: BatchAddChannelRoleToAccessorsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/spaces/{spaceId}/channels/{channelId}/roles");
+  b.p("spaceId", () => input.spaceId!, "{spaceId}", false);
+  b.p("channelId", () => input.channelId!, "{channelId}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      accessorIds: (_) => _json(_),
+      channelRole: [],
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
 
 /**
  * serializeAws_restJson1BatchAddRoleCommand
@@ -74,6 +113,31 @@ export const se_BatchAddRoleCommand = async (
     })
   );
   b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1BatchRemoveChannelRoleFromAccessorsCommand
+ */
+export const se_BatchRemoveChannelRoleFromAccessorsCommand = async (
+  input: BatchRemoveChannelRoleFromAccessorsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/spaces/{spaceId}/channels/{channelId}/roles");
+  b.p("spaceId", () => input.spaceId!, "{spaceId}", false);
+  b.p("channelId", () => input.channelId!, "{channelId}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      accessorIds: (_) => _json(_),
+      channelRole: [],
+    })
+  );
+  b.m("PATCH").h(headers).b(body);
   return b.build();
 };
 
@@ -102,6 +166,30 @@ export const se_BatchRemoveRoleCommand = async (
 };
 
 /**
+ * serializeAws_restJson1CreateChannelCommand
+ */
+export const se_CreateChannelCommand = async (
+  input: CreateChannelCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/spaces/{spaceId}/channels");
+  b.p("spaceId", () => input.spaceId!, "{spaceId}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      channelDescription: [],
+      channelName: [],
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1CreateSpaceCommand
  */
 export const se_CreateSpaceCommand = async (
@@ -120,6 +208,7 @@ export const se_CreateSpaceCommand = async (
       name: [],
       roleArn: [],
       subdomain: [],
+      supportedEmailDomains: (_) => _json(_),
       tags: (_) => _json(_),
       tier: [],
       userKMSKey: [],
@@ -163,6 +252,23 @@ export const se_DeregisterAdminCommand = async (
 };
 
 /**
+ * serializeAws_restJson1GetChannelCommand
+ */
+export const se_GetChannelCommand = async (
+  input: GetChannelCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/spaces/{spaceId}/channels/{channelId}");
+  b.p("spaceId", () => input.spaceId!, "{spaceId}", false);
+  b.p("channelId", () => input.channelId!, "{channelId}", false);
+  let body: any;
+  b.m("GET").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1GetSpaceCommand
  */
 export const se_GetSpaceCommand = async (
@@ -175,6 +281,26 @@ export const se_GetSpaceCommand = async (
   b.p("spaceId", () => input.spaceId!, "{spaceId}", false);
   let body: any;
   b.m("GET").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1ListChannelsCommand
+ */
+export const se_ListChannelsCommand = async (
+  input: ListChannelsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/spaces/{spaceId}/channels");
+  b.p("spaceId", () => input.spaceId!, "{spaceId}", false);
+  const query: any = map({
+    [_nT]: [, input[_nT]!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
+  });
+  let body: any;
+  b.m("GET").h(headers).q(query).b(body);
   return b.build();
 };
 
@@ -298,6 +424,31 @@ export const se_UntagResourceCommand = async (
 };
 
 /**
+ * serializeAws_restJson1UpdateChannelCommand
+ */
+export const se_UpdateChannelCommand = async (
+  input: UpdateChannelCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/spaces/{spaceId}/channels/{channelId}");
+  b.p("spaceId", () => input.spaceId!, "{spaceId}", false);
+  b.p("channelId", () => input.channelId!, "{channelId}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      channelDescription: [],
+      channelName: [],
+    })
+  );
+  b.m("PUT").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1UpdateSpaceCommand
  */
 export const se_UpdateSpaceCommand = async (
@@ -315,11 +466,34 @@ export const se_UpdateSpaceCommand = async (
     take(input, {
       description: [],
       roleArn: [],
+      supportedEmailDomains: (_) => _json(_),
       tier: [],
     })
   );
   b.m("PUT").h(headers).b(body);
   return b.build();
+};
+
+/**
+ * deserializeAws_restJson1BatchAddChannelRoleToAccessorsCommand
+ */
+export const de_BatchAddChannelRoleToAccessorsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<BatchAddChannelRoleToAccessorsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    addedAccessorIds: _json,
+    errors: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
 };
 
 /**
@@ -345,6 +519,28 @@ export const de_BatchAddRoleCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1BatchRemoveChannelRoleFromAccessorsCommand
+ */
+export const de_BatchRemoveChannelRoleFromAccessorsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<BatchRemoveChannelRoleFromAccessorsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    errors: _json,
+    removedAccessorIds: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1BatchRemoveRoleCommand
  */
 export const de_BatchRemoveRoleCommand = async (
@@ -361,6 +557,27 @@ export const de_BatchRemoveRoleCommand = async (
   const doc = take(data, {
     errors: _json,
     removedAccessorIds: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1CreateChannelCommand
+ */
+export const de_CreateChannelCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateChannelCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    channelId: __expectString,
   });
   Object.assign(contents, doc);
   return contents;
@@ -422,6 +639,34 @@ export const de_DeregisterAdminCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1GetChannelCommand
+ */
+export const de_GetChannelCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetChannelCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    channelDescription: __expectString,
+    channelId: __expectString,
+    channelName: __expectString,
+    channelRoles: _json,
+    channelStatus: __expectString,
+    createDateTime: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    deleteDateTime: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    spaceId: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1GetSpaceCommand
  */
 export const de_GetSpaceCommand = async (
@@ -436,6 +681,7 @@ export const de_GetSpaceCommand = async (
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
+    applicationArn: __expectString,
     arn: __expectString,
     clientId: __expectString,
     configurationStatus: __expectString,
@@ -445,18 +691,42 @@ export const de_GetSpaceCommand = async (
     deleteDateTime: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
     description: __expectString,
     groupAdmins: _json,
+    identityStoreId: __expectString,
     name: __expectString,
     randomDomain: __expectString,
     roles: _json,
     spaceId: __expectString,
     status: __expectString,
     storageLimit: __expectLong,
+    supportedEmailDomains: _json,
     tier: __expectString,
     userAdmins: _json,
     userCount: __expectInt32,
     userKMSKey: __expectString,
     vanityDomain: __expectString,
     vanityDomainStatus: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListChannelsCommand
+ */
+export const de_ListChannelsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListChannelsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    channels: (_) => de_ChannelsList(_, context),
+    nextToken: __expectString,
   });
   Object.assign(contents, doc);
   return contents;
@@ -563,6 +833,23 @@ export const de_UntagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1UpdateChannelCommand
+ */
+export const de_UpdateChannelCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateChannelCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
     return de_CommandError(output, context);
   }
@@ -781,13 +1068,52 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 
 // se_AccessorIdList omitted.
 
+// se_AllowedDomainsList omitted.
+
+// se_SupportedEmailDomainsParameters omitted.
+
 // se_Tags omitted.
 
 // de_AccessorIdList omitted.
 
+// de_AllowedDomainsList omitted.
+
 // de_BatchError omitted.
 
 // de_BatchErrorList omitted.
+
+/**
+ * deserializeAws_restJson1ChannelData
+ */
+const de_ChannelData = (output: any, context: __SerdeContext): ChannelData => {
+  return take(output, {
+    channelDescription: __expectString,
+    channelId: __expectString,
+    channelName: __expectString,
+    channelStatus: __expectString,
+    createDateTime: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    deleteDateTime: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    groupCount: __expectInt32,
+    spaceId: __expectString,
+    userCount: __expectInt32,
+  }) as any;
+};
+
+// de_ChannelRoleList omitted.
+
+// de_ChannelRoles omitted.
+
+/**
+ * deserializeAws_restJson1ChannelsList
+ */
+const de_ChannelsList = (output: any, context: __SerdeContext): ChannelData[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_ChannelData(entry, context);
+    });
+  return retVal;
+};
 
 // de_GroupAdmins omitted.
 
@@ -811,6 +1137,7 @@ const de_SpaceData = (output: any, context: __SerdeContext): SpaceData => {
     spaceId: __expectString,
     status: __expectString,
     storageLimit: __expectLong,
+    supportedEmailDomains: _json,
     tier: __expectString,
     userCount: __expectInt32,
     userKMSKey: __expectString,
@@ -830,6 +1157,8 @@ const de_SpacesList = (output: any, context: __SerdeContext): SpaceData[] => {
     });
   return retVal;
 };
+
+// de_SupportedEmailDomainsStatus omitted.
 
 // de_Tags omitted.
 

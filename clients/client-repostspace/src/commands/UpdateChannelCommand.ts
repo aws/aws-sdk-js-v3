@@ -5,8 +5,8 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { BatchRemoveRoleInput, BatchRemoveRoleOutput } from "../models/models_0";
-import { de_BatchRemoveRoleCommand, se_BatchRemoveRoleCommand } from "../protocols/Aws_restJson1";
+import { UpdateChannelInput, UpdateChannelInputFilterSensitiveLog, UpdateChannelOutput } from "../models/models_0";
+import { de_UpdateChannelCommand, se_UpdateChannelCommand } from "../protocols/Aws_restJson1";
 import { RepostspaceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RepostspaceClient";
 
 /**
@@ -17,56 +17,47 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link BatchRemoveRoleCommand}.
+ * The input for {@link UpdateChannelCommand}.
  */
-export interface BatchRemoveRoleCommandInput extends BatchRemoveRoleInput {}
+export interface UpdateChannelCommandInput extends UpdateChannelInput {}
 /**
  * @public
  *
- * The output of {@link BatchRemoveRoleCommand}.
+ * The output of {@link UpdateChannelCommand}.
  */
-export interface BatchRemoveRoleCommandOutput extends BatchRemoveRoleOutput, __MetadataBearer {}
+export interface UpdateChannelCommandOutput extends UpdateChannelOutput, __MetadataBearer {}
 
 /**
- * <p>Remove a role from multiple users or groups in a private re:Post.</p>
+ * <p>Modifies an existing channel.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RepostspaceClient, BatchRemoveRoleCommand } from "@aws-sdk/client-repostspace"; // ES Modules import
- * // const { RepostspaceClient, BatchRemoveRoleCommand } = require("@aws-sdk/client-repostspace"); // CommonJS import
+ * import { RepostspaceClient, UpdateChannelCommand } from "@aws-sdk/client-repostspace"; // ES Modules import
+ * // const { RepostspaceClient, UpdateChannelCommand } = require("@aws-sdk/client-repostspace"); // CommonJS import
  * const client = new RepostspaceClient(config);
- * const input = { // BatchRemoveRoleInput
+ * const input = { // UpdateChannelInput
  *   spaceId: "STRING_VALUE", // required
- *   accessorIds: [ // AccessorIdList // required
- *     "STRING_VALUE",
- *   ],
- *   role: "EXPERT" || "MODERATOR" || "ADMINISTRATOR" || "SUPPORTREQUESTOR", // required
+ *   channelId: "STRING_VALUE", // required
+ *   channelName: "STRING_VALUE", // required
+ *   channelDescription: "STRING_VALUE",
  * };
- * const command = new BatchRemoveRoleCommand(input);
+ * const command = new UpdateChannelCommand(input);
  * const response = await client.send(command);
- * // { // BatchRemoveRoleOutput
- * //   removedAccessorIds: [ // AccessorIdList // required
- * //     "STRING_VALUE",
- * //   ],
- * //   errors: [ // BatchErrorList // required
- * //     { // BatchError
- * //       accessorId: "STRING_VALUE", // required
- * //       error: Number("int"), // required
- * //       message: "STRING_VALUE", // required
- * //     },
- * //   ],
- * // };
+ * // {};
  *
  * ```
  *
- * @param BatchRemoveRoleCommandInput - {@link BatchRemoveRoleCommandInput}
- * @returns {@link BatchRemoveRoleCommandOutput}
- * @see {@link BatchRemoveRoleCommandInput} for command's `input` shape.
- * @see {@link BatchRemoveRoleCommandOutput} for command's `response` shape.
+ * @param UpdateChannelCommandInput - {@link UpdateChannelCommandInput}
+ * @returns {@link UpdateChannelCommandOutput}
+ * @see {@link UpdateChannelCommandInput} for command's `input` shape.
+ * @see {@link UpdateChannelCommandOutput} for command's `response` shape.
  * @see {@link RepostspaceClientResolvedConfig | config} for RepostspaceClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
  *  <p>User does not have sufficient access to perform this action.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>Updating or deleting a resource can cause an inconsistent state.</p>
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>Unexpected error during processing of request.</p>
@@ -84,34 +75,28 @@ export interface BatchRemoveRoleCommandOutput extends BatchRemoveRoleOutput, __M
  * <p>Base exception class for all service exceptions from Repostspace service.</p>
  *
  *
- * @example BatchRemoveRole
+ * @example UpdateChannel
  * ```javascript
  * //
  * const input = {
- *   accessorIds: [
- *     "12345678-1234-1234-1234-1234567890ab"
- *   ],
- *   role: "EXPERT",
+ *   channelDescription: "Better channel description",
+ *   channelId: "WS1234567890abcdefghijkl",
+ *   channelName: "Better Channel",
  *   spaceId: "SP1234567890abcdefghijkl"
  * };
- * const command = new BatchRemoveRoleCommand(input);
+ * const command = new UpdateChannelCommand(input);
  * const response = await client.send(command);
  * /* response is
- * {
- *   errors:   [],
- *   removedAccessorIds: [
- *     "12345678-1234-1234-1234-1234567890ab"
- *   ]
- * }
+ * { /* metadata only *\/ }
  * *\/
  * ```
  *
  * @public
  */
-export class BatchRemoveRoleCommand extends $Command
+export class UpdateChannelCommand extends $Command
   .classBuilder<
-    BatchRemoveRoleCommandInput,
-    BatchRemoveRoleCommandOutput,
+    UpdateChannelCommandInput,
+    UpdateChannelCommandOutput,
     RepostspaceClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -123,21 +108,21 @@ export class BatchRemoveRoleCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("RepostSpace", "BatchRemoveRole", {})
-  .n("RepostspaceClient", "BatchRemoveRoleCommand")
-  .f(void 0, void 0)
-  .ser(se_BatchRemoveRoleCommand)
-  .de(de_BatchRemoveRoleCommand)
+  .s("RepostSpace", "UpdateChannel", {})
+  .n("RepostspaceClient", "UpdateChannelCommand")
+  .f(UpdateChannelInputFilterSensitiveLog, void 0)
+  .ser(se_UpdateChannelCommand)
+  .de(de_UpdateChannelCommand)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: BatchRemoveRoleInput;
-      output: BatchRemoveRoleOutput;
+      input: UpdateChannelInput;
+      output: {};
     };
     sdk: {
-      input: BatchRemoveRoleCommandInput;
-      output: BatchRemoveRoleCommandOutput;
+      input: UpdateChannelCommandInput;
+      output: UpdateChannelCommandOutput;
     };
   };
 }

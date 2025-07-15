@@ -60,6 +60,12 @@ export interface ListSpacesCommandOutput extends ListSpacesOutput, __MetadataBea
  * //       userKMSKey: "STRING_VALUE",
  * //       userCount: Number("int"),
  * //       contentSize: Number("long"),
+ * //       supportedEmailDomains: { // SupportedEmailDomainsStatus
+ * //         enabled: "ENABLED" || "DISABLED" || "NOT_ALLOWED",
+ * //         allowedDomains: [ // AllowedDomainsList
+ * //           "STRING_VALUE",
+ * //         ],
+ * //       },
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",

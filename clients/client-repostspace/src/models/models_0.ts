@@ -27,8 +27,8 @@ export class AccessDeniedException extends __BaseException {
  * @public
  * @enum
  */
-export const Role = {
-  ADMINISTRATOR: "ADMINISTRATOR",
+export const ChannelRole = {
+  ASKER: "ASKER",
   EXPERT: "EXPERT",
   MODERATOR: "MODERATOR",
   SUPPORTREQUESTOR: "SUPPORTREQUESTOR",
@@ -37,12 +37,12 @@ export const Role = {
 /**
  * @public
  */
-export type Role = (typeof Role)[keyof typeof Role];
+export type ChannelRole = (typeof ChannelRole)[keyof typeof ChannelRole];
 
 /**
  * @public
  */
-export interface BatchAddRoleInput {
+export interface BatchAddChannelRoleToAccessorsInput {
   /**
    * <p>The unique ID of the private re:Post.</p>
    * @public
@@ -50,16 +50,22 @@ export interface BatchAddRoleInput {
   spaceId: string | undefined;
 
   /**
-   * <p>The user or group accessor identifiers to add the role to.</p>
+   * <p>The unique ID of the private re:Post channel.</p>
+   * @public
+   */
+  channelId: string | undefined;
+
+  /**
+   * <p>The user or group identifiers to add the role to.</p>
    * @public
    */
   accessorIds: string[] | undefined;
 
   /**
-   * <p>The role to add to the users or groups.</p>
+   * <p>The channel role to add to the users or groups.</p>
    * @public
    */
-  role: Role | undefined;
+  channelRole: ChannelRole | undefined;
 }
 
 /**
@@ -89,9 +95,9 @@ export interface BatchError {
 /**
  * @public
  */
-export interface BatchAddRoleOutput {
+export interface BatchAddChannelRoleToAccessorsOutput {
   /**
-   * <p>An array of successfully updated accessor identifiers.</p>
+   * <p>An array of successfully updated identifiers.</p>
    * @public
    */
   addedAccessorIds: string[] | undefined;
@@ -279,6 +285,108 @@ export class ValidationException extends __BaseException {
 
 /**
  * @public
+ * @enum
+ */
+export const Role = {
+  ADMINISTRATOR: "ADMINISTRATOR",
+  EXPERT: "EXPERT",
+  MODERATOR: "MODERATOR",
+  SUPPORTREQUESTOR: "SUPPORTREQUESTOR",
+} as const;
+
+/**
+ * @public
+ */
+export type Role = (typeof Role)[keyof typeof Role];
+
+/**
+ * @public
+ */
+export interface BatchAddRoleInput {
+  /**
+   * <p>The unique ID of the private re:Post.</p>
+   * @public
+   */
+  spaceId: string | undefined;
+
+  /**
+   * <p>The user or group accessor identifiers to add the role to.</p>
+   * @public
+   */
+  accessorIds: string[] | undefined;
+
+  /**
+   * <p>The role to add to the users or groups.</p>
+   * @public
+   */
+  role: Role | undefined;
+}
+
+/**
+ * @public
+ */
+export interface BatchAddRoleOutput {
+  /**
+   * <p>An array of successfully updated accessor identifiers.</p>
+   * @public
+   */
+  addedAccessorIds: string[] | undefined;
+
+  /**
+   * <p>An array of errors that occurred when roles were added.</p>
+   * @public
+   */
+  errors: BatchError[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface BatchRemoveChannelRoleFromAccessorsInput {
+  /**
+   * <p>The unique ID of the private re:Post.</p>
+   * @public
+   */
+  spaceId: string | undefined;
+
+  /**
+   * <p>The unique ID of the private re:Post channel.</p>
+   * @public
+   */
+  channelId: string | undefined;
+
+  /**
+   * <p>The users or groups identifiers to remove the role from.</p>
+   * @public
+   */
+  accessorIds: string[] | undefined;
+
+  /**
+   * <p>The channel role to remove from the users or groups.</p>
+   * @public
+   */
+  channelRole: ChannelRole | undefined;
+}
+
+/**
+ * @public
+ */
+export interface BatchRemoveChannelRoleFromAccessorsOutput {
+  /**
+   * <p>An array of successfully updated identifiers.</p>
+   * @public
+   */
+  removedAccessorIds: string[] | undefined;
+
+  /**
+   * <p>An array of errors that occurred when roles were removed.</p>
+   * @public
+   */
+  errors: BatchError[] | undefined;
+}
+
+/**
+ * @public
  */
 export interface BatchRemoveRoleInput {
   /**
@@ -315,6 +423,84 @@ export interface BatchRemoveRoleOutput {
    * @public
    */
   errors: BatchError[] | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const ChannelStatus = {
+  CREATED: "CREATED",
+  CREATE_FAILED: "CREATE_FAILED",
+  CREATING: "CREATING",
+  DELETED: "DELETED",
+  DELETE_FAILED: "DELETE_FAILED",
+  DELETING: "DELETING",
+} as const;
+
+/**
+ * @public
+ */
+export type ChannelStatus = (typeof ChannelStatus)[keyof typeof ChannelStatus];
+
+/**
+ * <p>A structure that contains some information about a channel in a private re:Post.</p>
+ * @public
+ */
+export interface ChannelData {
+  /**
+   * <p>The unique ID of the private re:Post.</p>
+   * @public
+   */
+  spaceId: string | undefined;
+
+  /**
+   * <p>The unique ID of the private re:Post channel.</p>
+   * @public
+   */
+  channelId: string | undefined;
+
+  /**
+   * <p>The name for the channel. This must be unique per private re:Post.</p>
+   * @public
+   */
+  channelName: string | undefined;
+
+  /**
+   * <p>A description for the channel. This is used only to help you identify this channel.</p>
+   * @public
+   */
+  channelDescription?: string | undefined;
+
+  /**
+   * <p>The date when the channel was created.</p>
+   * @public
+   */
+  createDateTime: Date | undefined;
+
+  /**
+   * <p>The date when the channel was deleted.</p>
+   * @public
+   */
+  deleteDateTime?: Date | undefined;
+
+  /**
+   * <p>The status pf the channel.</p>
+   * @public
+   */
+  channelStatus: ChannelStatus | undefined;
+
+  /**
+   * <p>The number of users that are part of the channel.</p>
+   * @public
+   */
+  userCount: number | undefined;
+
+  /**
+   * <p>The number of groups that are part of the channel.</p>
+   * @public
+   */
+  groupCount: number | undefined;
 }
 
 /**
@@ -363,6 +549,120 @@ export class ConflictException extends __BaseException {
     this.resourceId = opts.resourceId;
     this.resourceType = opts.resourceType;
   }
+}
+
+/**
+ * @public
+ */
+export interface CreateChannelInput {
+  /**
+   * <p>The unique ID of the private re:Post.</p>
+   * @public
+   */
+  spaceId: string | undefined;
+
+  /**
+   * <p>The name for the channel. This must be unique per private re:Post.</p>
+   * @public
+   */
+  channelName: string | undefined;
+
+  /**
+   * <p>A description for the channel. This is used only to help you identify this channel.</p>
+   * @public
+   */
+  channelDescription?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateChannelOutput {
+  /**
+   * <p>The unique ID of the private re:Post channel.</p>
+   * @public
+   */
+  channelId: string | undefined;
+}
+
+/**
+ * <p>Request would cause a service quota to be exceeded.</p>
+ * @public
+ */
+export class ServiceQuotaExceededException extends __BaseException {
+  readonly name: "ServiceQuotaExceededException" = "ServiceQuotaExceededException";
+  readonly $fault: "client" = "client";
+  /**
+   * <p>The id of the resource.</p>
+   * @public
+   */
+  resourceId: string | undefined;
+
+  /**
+   * <p>The type of the resource.</p>
+   * @public
+   */
+  resourceType: string | undefined;
+
+  /**
+   * <p>The code to identify the service.</p>
+   * @public
+   */
+  serviceCode: string | undefined;
+
+  /**
+   * <p>The code to identify the quota.</p>
+   * @public
+   */
+  quotaCode: string | undefined;
+
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ServiceQuotaExceededException, __BaseException>) {
+    super({
+      name: "ServiceQuotaExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ServiceQuotaExceededException.prototype);
+    this.resourceId = opts.resourceId;
+    this.resourceType = opts.resourceType;
+    this.serviceCode = opts.serviceCode;
+    this.quotaCode = opts.quotaCode;
+  }
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const FeatureEnableParameter = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type FeatureEnableParameter = (typeof FeatureEnableParameter)[keyof typeof FeatureEnableParameter];
+
+/**
+ * <p/>
+ * @public
+ */
+export interface SupportedEmailDomainsParameters {
+  /**
+   * <p/>
+   * @public
+   */
+  enabled?: FeatureEnableParameter | undefined;
+
+  /**
+   * <p/>
+   * @public
+   */
+  allowedDomains?: string[] | undefined;
 }
 
 /**
@@ -424,6 +724,12 @@ export interface CreateSpaceInput {
    * @public
    */
   roleArn?: string | undefined;
+
+  /**
+   * <p/>
+   * @public
+   */
+  supportedEmailDomains?: SupportedEmailDomainsParameters | undefined;
 }
 
 /**
@@ -435,54 +741,6 @@ export interface CreateSpaceOutput {
    * @public
    */
   spaceId: string | undefined;
-}
-
-/**
- * <p>Request would cause a service quota to be exceeded.</p>
- * @public
- */
-export class ServiceQuotaExceededException extends __BaseException {
-  readonly name: "ServiceQuotaExceededException" = "ServiceQuotaExceededException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>The id of the resource.</p>
-   * @public
-   */
-  resourceId: string | undefined;
-
-  /**
-   * <p>The type of the resource.</p>
-   * @public
-   */
-  resourceType: string | undefined;
-
-  /**
-   * <p>The code to identify the service.</p>
-   * @public
-   */
-  serviceCode: string | undefined;
-
-  /**
-   * <p>The code to identify the quota.</p>
-   * @public
-   */
-  quotaCode: string | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ServiceQuotaExceededException, __BaseException>) {
-    super({
-      name: "ServiceQuotaExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ServiceQuotaExceededException.prototype);
-    this.resourceId = opts.resourceId;
-    this.resourceType = opts.resourceType;
-    this.serviceCode = opts.serviceCode;
-    this.quotaCode = opts.quotaCode;
-  }
 }
 
 /**
@@ -515,6 +773,91 @@ export interface DeregisterAdminInput {
 
 /**
  * @public
+ * @enum
+ */
+export const FeatureEnableStatus = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+  NOT_ALLOWED: "NOT_ALLOWED",
+} as const;
+
+/**
+ * @public
+ */
+export type FeatureEnableStatus = (typeof FeatureEnableStatus)[keyof typeof FeatureEnableStatus];
+
+/**
+ * @public
+ */
+export interface GetChannelInput {
+  /**
+   * <p>The unique ID of the private re:Post.</p>
+   * @public
+   */
+  spaceId: string | undefined;
+
+  /**
+   * <p>The unique ID of the private re:Post channel.</p>
+   * @public
+   */
+  channelId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetChannelOutput {
+  /**
+   * <p>The unique ID of the private re:Post.</p>
+   * @public
+   */
+  spaceId: string | undefined;
+
+  /**
+   * <p>The unique ID of the private re:Post channel.</p>
+   * @public
+   */
+  channelId: string | undefined;
+
+  /**
+   * <p>The name for the channel. This must be unique per private re:Post.</p>
+   * @public
+   */
+  channelName: string | undefined;
+
+  /**
+   * <p>A description for the channel. This is used only to help you identify this channel.</p>
+   * @public
+   */
+  channelDescription?: string | undefined;
+
+  /**
+   * <p>The date when the channel was created.</p>
+   * @public
+   */
+  createDateTime: Date | undefined;
+
+  /**
+   * <p>The date when the channel was deleted.</p>
+   * @public
+   */
+  deleteDateTime?: Date | undefined;
+
+  /**
+   * <p>The channel roles associated to the users and groups of the channel.</p>
+   * @public
+   */
+  channelRoles?: Record<string, ChannelRole[]> | undefined;
+
+  /**
+   * <p>The status pf the channel.</p>
+   * @public
+   */
+  channelStatus: ChannelStatus | undefined;
+}
+
+/**
+ * @public
  */
 export interface GetSpaceInput {
   /**
@@ -522,6 +865,24 @@ export interface GetSpaceInput {
    * @public
    */
   spaceId: string | undefined;
+}
+
+/**
+ * <p/>
+ * @public
+ */
+export interface SupportedEmailDomainsStatus {
+  /**
+   * <p/>
+   * @public
+   */
+  enabled?: FeatureEnableStatus | undefined;
+
+  /**
+   * <p/>
+   * @public
+   */
+  allowedDomains?: string[] | undefined;
 }
 
 /**
@@ -578,6 +939,18 @@ export interface GetSpaceOutput {
    * @public
    */
   clientId: string | undefined;
+
+  /**
+   * <p/>
+   * @public
+   */
+  identityStoreId?: string | undefined;
+
+  /**
+   * <p/>
+   * @public
+   */
+  applicationArn?: string | undefined;
 
   /**
    * <p>The description of the private re:Post.</p>
@@ -672,6 +1045,52 @@ export interface GetSpaceOutput {
    * @public
    */
   contentSize?: number | undefined;
+
+  /**
+   * <p/>
+   * @public
+   */
+  supportedEmailDomains?: SupportedEmailDomainsStatus | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListChannelsInput {
+  /**
+   * <p>The unique ID of the private re:Post.</p>
+   * @public
+   */
+  spaceId: string | undefined;
+
+  /**
+   * <p>The token for the next set of channel to return. You receive this token from a previous ListChannels operation.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of channels to include in the results.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListChannelsOutput {
+  /**
+   * <p>An array of structures that contain some information about the channels in the private re:Post.</p>
+   * @public
+   */
+  channels: ChannelData[] | undefined;
+
+  /**
+   * <p>The token that you use when you request the next set of channels.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
 }
 
 /**
@@ -791,6 +1210,12 @@ export interface SpaceData {
    * @public
    */
   contentSize?: number | undefined;
+
+  /**
+   * <p/>
+   * @public
+   */
+  supportedEmailDomains?: SupportedEmailDomainsStatus | undefined;
 }
 
 /**
@@ -925,6 +1350,40 @@ export interface UntagResourceResponse {}
 /**
  * @public
  */
+export interface UpdateChannelInput {
+  /**
+   * <p>The unique ID of the private re:Post.</p>
+   * @public
+   */
+  spaceId: string | undefined;
+
+  /**
+   * <p>The unique ID of the private re:Post channel.</p>
+   * @public
+   */
+  channelId: string | undefined;
+
+  /**
+   * <p>The name for the channel. This must be unique per private re:Post.</p>
+   * @public
+   */
+  channelName: string | undefined;
+
+  /**
+   * <p>A description for the channel. This is used only to help you identify this channel.</p>
+   * @public
+   */
+  channelDescription?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateChannelOutput {}
+
+/**
+ * @public
+ */
 export interface UpdateSpaceInput {
   /**
    * <p>The unique ID of this private re:Post.</p>
@@ -949,7 +1408,39 @@ export interface UpdateSpaceInput {
    * @public
    */
   roleArn?: string | undefined;
+
+  /**
+   * <p/>
+   * @public
+   */
+  supportedEmailDomains?: SupportedEmailDomainsParameters | undefined;
 }
+
+/**
+ * @internal
+ */
+export const ChannelDataFilterSensitiveLog = (obj: ChannelData): any => ({
+  ...obj,
+  ...(obj.channelName && { channelName: SENSITIVE_STRING }),
+  ...(obj.channelDescription && { channelDescription: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const CreateChannelInputFilterSensitiveLog = (obj: CreateChannelInput): any => ({
+  ...obj,
+  ...(obj.channelName && { channelName: SENSITIVE_STRING }),
+  ...(obj.channelDescription && { channelDescription: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const SupportedEmailDomainsParametersFilterSensitiveLog = (obj: SupportedEmailDomainsParameters): any => ({
+  ...obj,
+  ...(obj.allowedDomains && { allowedDomains: SENSITIVE_STRING }),
+});
 
 /**
  * @internal
@@ -959,6 +1450,26 @@ export const CreateSpaceInputFilterSensitiveLog = (obj: CreateSpaceInput): any =
   ...(obj.name && { name: SENSITIVE_STRING }),
   ...(obj.description && { description: SENSITIVE_STRING }),
   ...(obj.tags && { tags: SENSITIVE_STRING }),
+  ...(obj.supportedEmailDomains && {
+    supportedEmailDomains: SupportedEmailDomainsParametersFilterSensitiveLog(obj.supportedEmailDomains),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const GetChannelOutputFilterSensitiveLog = (obj: GetChannelOutput): any => ({
+  ...obj,
+  ...(obj.channelName && { channelName: SENSITIVE_STRING }),
+  ...(obj.channelDescription && { channelDescription: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const SupportedEmailDomainsStatusFilterSensitiveLog = (obj: SupportedEmailDomainsStatus): any => ({
+  ...obj,
+  ...(obj.allowedDomains && { allowedDomains: SENSITIVE_STRING }),
 });
 
 /**
@@ -968,6 +1479,17 @@ export const GetSpaceOutputFilterSensitiveLog = (obj: GetSpaceOutput): any => ({
   ...obj,
   ...(obj.name && { name: SENSITIVE_STRING }),
   ...(obj.description && { description: SENSITIVE_STRING }),
+  ...(obj.supportedEmailDomains && {
+    supportedEmailDomains: SupportedEmailDomainsStatusFilterSensitiveLog(obj.supportedEmailDomains),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const ListChannelsOutputFilterSensitiveLog = (obj: ListChannelsOutput): any => ({
+  ...obj,
+  ...(obj.channels && { channels: obj.channels.map((item) => ChannelDataFilterSensitiveLog(item)) }),
 });
 
 /**
@@ -977,6 +1499,9 @@ export const SpaceDataFilterSensitiveLog = (obj: SpaceData): any => ({
   ...obj,
   ...(obj.name && { name: SENSITIVE_STRING }),
   ...(obj.description && { description: SENSITIVE_STRING }),
+  ...(obj.supportedEmailDomains && {
+    supportedEmailDomains: SupportedEmailDomainsStatusFilterSensitiveLog(obj.supportedEmailDomains),
+  }),
 });
 
 /**
@@ -1015,7 +1540,19 @@ export const TagResourceRequestFilterSensitiveLog = (obj: TagResourceRequest): a
 /**
  * @internal
  */
+export const UpdateChannelInputFilterSensitiveLog = (obj: UpdateChannelInput): any => ({
+  ...obj,
+  ...(obj.channelName && { channelName: SENSITIVE_STRING }),
+  ...(obj.channelDescription && { channelDescription: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
 export const UpdateSpaceInputFilterSensitiveLog = (obj: UpdateSpaceInput): any => ({
   ...obj,
   ...(obj.description && { description: SENSITIVE_STRING }),
+  ...(obj.supportedEmailDomains && {
+    supportedEmailDomains: SupportedEmailDomainsParametersFilterSensitiveLog(obj.supportedEmailDomains),
+  }),
 });

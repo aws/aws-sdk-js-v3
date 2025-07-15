@@ -28,7 +28,7 @@ export interface BatchAddRoleCommandInput extends BatchAddRoleInput {}
 export interface BatchAddRoleCommandOutput extends BatchAddRoleOutput, __MetadataBearer {}
 
 /**
- * <p>Add role to multiple users or groups in a private re:Post.</p>
+ * <p>Add a role to multiple users or groups in a private re:Post.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -83,6 +83,28 @@ export interface BatchAddRoleCommandOutput extends BatchAddRoleOutput, __Metadat
  * @throws {@link RepostspaceServiceException}
  * <p>Base exception class for all service exceptions from Repostspace service.</p>
  *
+ *
+ * @example BatchAddRole
+ * ```javascript
+ * //
+ * const input = {
+ *   accessorIds: [
+ *     "12345678-1234-1234-1234-1234567890ab"
+ *   ],
+ *   role: "EXPERT",
+ *   spaceId: "SP1234567890abcdefghijkl"
+ * };
+ * const command = new BatchAddRoleCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   addedAccessorIds: [
+ *     "12345678-1234-1234-1234-1234567890ab"
+ *   ],
+ *   errors:   []
+ * }
+ * *\/
+ * ```
  *
  * @public
  */

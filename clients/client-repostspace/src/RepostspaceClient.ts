@@ -53,12 +53,23 @@ import {
   HttpAuthSchemeResolvedConfig,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
+import {
+  BatchAddChannelRoleToAccessorsCommandInput,
+  BatchAddChannelRoleToAccessorsCommandOutput,
+} from "./commands/BatchAddChannelRoleToAccessorsCommand";
 import { BatchAddRoleCommandInput, BatchAddRoleCommandOutput } from "./commands/BatchAddRoleCommand";
+import {
+  BatchRemoveChannelRoleFromAccessorsCommandInput,
+  BatchRemoveChannelRoleFromAccessorsCommandOutput,
+} from "./commands/BatchRemoveChannelRoleFromAccessorsCommand";
 import { BatchRemoveRoleCommandInput, BatchRemoveRoleCommandOutput } from "./commands/BatchRemoveRoleCommand";
+import { CreateChannelCommandInput, CreateChannelCommandOutput } from "./commands/CreateChannelCommand";
 import { CreateSpaceCommandInput, CreateSpaceCommandOutput } from "./commands/CreateSpaceCommand";
 import { DeleteSpaceCommandInput, DeleteSpaceCommandOutput } from "./commands/DeleteSpaceCommand";
 import { DeregisterAdminCommandInput, DeregisterAdminCommandOutput } from "./commands/DeregisterAdminCommand";
+import { GetChannelCommandInput, GetChannelCommandOutput } from "./commands/GetChannelCommand";
 import { GetSpaceCommandInput, GetSpaceCommandOutput } from "./commands/GetSpaceCommand";
+import { ListChannelsCommandInput, ListChannelsCommandOutput } from "./commands/ListChannelsCommand";
 import { ListSpacesCommandInput, ListSpacesCommandOutput } from "./commands/ListSpacesCommand";
 import {
   ListTagsForResourceCommandInput,
@@ -68,6 +79,7 @@ import { RegisterAdminCommandInput, RegisterAdminCommandOutput } from "./command
 import { SendInvitesCommandInput, SendInvitesCommandOutput } from "./commands/SendInvitesCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import { UpdateChannelCommandInput, UpdateChannelCommandOutput } from "./commands/UpdateChannelCommand";
 import { UpdateSpaceCommandInput, UpdateSpaceCommandOutput } from "./commands/UpdateSpaceCommand";
 import {
   ClientInputEndpointParameters,
@@ -84,36 +96,48 @@ export { __Client };
  * @public
  */
 export type ServiceInputTypes =
+  | BatchAddChannelRoleToAccessorsCommandInput
   | BatchAddRoleCommandInput
+  | BatchRemoveChannelRoleFromAccessorsCommandInput
   | BatchRemoveRoleCommandInput
+  | CreateChannelCommandInput
   | CreateSpaceCommandInput
   | DeleteSpaceCommandInput
   | DeregisterAdminCommandInput
+  | GetChannelCommandInput
   | GetSpaceCommandInput
+  | ListChannelsCommandInput
   | ListSpacesCommandInput
   | ListTagsForResourceCommandInput
   | RegisterAdminCommandInput
   | SendInvitesCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
+  | UpdateChannelCommandInput
   | UpdateSpaceCommandInput;
 
 /**
  * @public
  */
 export type ServiceOutputTypes =
+  | BatchAddChannelRoleToAccessorsCommandOutput
   | BatchAddRoleCommandOutput
+  | BatchRemoveChannelRoleFromAccessorsCommandOutput
   | BatchRemoveRoleCommandOutput
+  | CreateChannelCommandOutput
   | CreateSpaceCommandOutput
   | DeleteSpaceCommandOutput
   | DeregisterAdminCommandOutput
+  | GetChannelCommandOutput
   | GetSpaceCommandOutput
+  | ListChannelsCommandOutput
   | ListSpacesCommandOutput
   | ListTagsForResourceCommandOutput
   | RegisterAdminCommandOutput
   | SendInvitesCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
+  | UpdateChannelCommandOutput
   | UpdateSpaceCommandOutput;
 
 /**

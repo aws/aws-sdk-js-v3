@@ -3,15 +3,30 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
+  BatchAddChannelRoleToAccessorsCommand,
+  BatchAddChannelRoleToAccessorsCommandInput,
+  BatchAddChannelRoleToAccessorsCommandOutput,
+} from "./commands/BatchAddChannelRoleToAccessorsCommand";
+import {
   BatchAddRoleCommand,
   BatchAddRoleCommandInput,
   BatchAddRoleCommandOutput,
 } from "./commands/BatchAddRoleCommand";
 import {
+  BatchRemoveChannelRoleFromAccessorsCommand,
+  BatchRemoveChannelRoleFromAccessorsCommandInput,
+  BatchRemoveChannelRoleFromAccessorsCommandOutput,
+} from "./commands/BatchRemoveChannelRoleFromAccessorsCommand";
+import {
   BatchRemoveRoleCommand,
   BatchRemoveRoleCommandInput,
   BatchRemoveRoleCommandOutput,
 } from "./commands/BatchRemoveRoleCommand";
+import {
+  CreateChannelCommand,
+  CreateChannelCommandInput,
+  CreateChannelCommandOutput,
+} from "./commands/CreateChannelCommand";
 import { CreateSpaceCommand, CreateSpaceCommandInput, CreateSpaceCommandOutput } from "./commands/CreateSpaceCommand";
 import { DeleteSpaceCommand, DeleteSpaceCommandInput, DeleteSpaceCommandOutput } from "./commands/DeleteSpaceCommand";
 import {
@@ -19,7 +34,13 @@ import {
   DeregisterAdminCommandInput,
   DeregisterAdminCommandOutput,
 } from "./commands/DeregisterAdminCommand";
+import { GetChannelCommand, GetChannelCommandInput, GetChannelCommandOutput } from "./commands/GetChannelCommand";
 import { GetSpaceCommand, GetSpaceCommandInput, GetSpaceCommandOutput } from "./commands/GetSpaceCommand";
+import {
+  ListChannelsCommand,
+  ListChannelsCommandInput,
+  ListChannelsCommandOutput,
+} from "./commands/ListChannelsCommand";
 import { ListSpacesCommand, ListSpacesCommandInput, ListSpacesCommandOutput } from "./commands/ListSpacesCommand";
 import {
   ListTagsForResourceCommand,
@@ -38,26 +59,54 @@ import {
   UntagResourceCommandInput,
   UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
+import {
+  UpdateChannelCommand,
+  UpdateChannelCommandInput,
+  UpdateChannelCommandOutput,
+} from "./commands/UpdateChannelCommand";
 import { UpdateSpaceCommand, UpdateSpaceCommandInput, UpdateSpaceCommandOutput } from "./commands/UpdateSpaceCommand";
 import { RepostspaceClient, RepostspaceClientConfig } from "./RepostspaceClient";
 
 const commands = {
+  BatchAddChannelRoleToAccessorsCommand,
   BatchAddRoleCommand,
+  BatchRemoveChannelRoleFromAccessorsCommand,
   BatchRemoveRoleCommand,
+  CreateChannelCommand,
   CreateSpaceCommand,
   DeleteSpaceCommand,
   DeregisterAdminCommand,
+  GetChannelCommand,
   GetSpaceCommand,
+  ListChannelsCommand,
   ListSpacesCommand,
   ListTagsForResourceCommand,
   RegisterAdminCommand,
   SendInvitesCommand,
   TagResourceCommand,
   UntagResourceCommand,
+  UpdateChannelCommand,
   UpdateSpaceCommand,
 };
 
 export interface Repostspace {
+  /**
+   * @see {@link BatchAddChannelRoleToAccessorsCommand}
+   */
+  batchAddChannelRoleToAccessors(
+    args: BatchAddChannelRoleToAccessorsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<BatchAddChannelRoleToAccessorsCommandOutput>;
+  batchAddChannelRoleToAccessors(
+    args: BatchAddChannelRoleToAccessorsCommandInput,
+    cb: (err: any, data?: BatchAddChannelRoleToAccessorsCommandOutput) => void
+  ): void;
+  batchAddChannelRoleToAccessors(
+    args: BatchAddChannelRoleToAccessorsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: BatchAddChannelRoleToAccessorsCommandOutput) => void
+  ): void;
+
   /**
    * @see {@link BatchAddRoleCommand}
    */
@@ -67,6 +116,23 @@ export interface Repostspace {
     args: BatchAddRoleCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: BatchAddRoleCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link BatchRemoveChannelRoleFromAccessorsCommand}
+   */
+  batchRemoveChannelRoleFromAccessors(
+    args: BatchRemoveChannelRoleFromAccessorsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<BatchRemoveChannelRoleFromAccessorsCommandOutput>;
+  batchRemoveChannelRoleFromAccessors(
+    args: BatchRemoveChannelRoleFromAccessorsCommandInput,
+    cb: (err: any, data?: BatchRemoveChannelRoleFromAccessorsCommandOutput) => void
+  ): void;
+  batchRemoveChannelRoleFromAccessors(
+    args: BatchRemoveChannelRoleFromAccessorsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: BatchRemoveChannelRoleFromAccessorsCommandOutput) => void
   ): void;
 
   /**
@@ -81,6 +147,17 @@ export interface Repostspace {
     args: BatchRemoveRoleCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: BatchRemoveRoleCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateChannelCommand}
+   */
+  createChannel(args: CreateChannelCommandInput, options?: __HttpHandlerOptions): Promise<CreateChannelCommandOutput>;
+  createChannel(args: CreateChannelCommandInput, cb: (err: any, data?: CreateChannelCommandOutput) => void): void;
+  createChannel(
+    args: CreateChannelCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateChannelCommandOutput) => void
   ): void;
 
   /**
@@ -120,6 +197,17 @@ export interface Repostspace {
   ): void;
 
   /**
+   * @see {@link GetChannelCommand}
+   */
+  getChannel(args: GetChannelCommandInput, options?: __HttpHandlerOptions): Promise<GetChannelCommandOutput>;
+  getChannel(args: GetChannelCommandInput, cb: (err: any, data?: GetChannelCommandOutput) => void): void;
+  getChannel(
+    args: GetChannelCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetChannelCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetSpaceCommand}
    */
   getSpace(args: GetSpaceCommandInput, options?: __HttpHandlerOptions): Promise<GetSpaceCommandOutput>;
@@ -128,6 +216,17 @@ export interface Repostspace {
     args: GetSpaceCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetSpaceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListChannelsCommand}
+   */
+  listChannels(args: ListChannelsCommandInput, options?: __HttpHandlerOptions): Promise<ListChannelsCommandOutput>;
+  listChannels(args: ListChannelsCommandInput, cb: (err: any, data?: ListChannelsCommandOutput) => void): void;
+  listChannels(
+    args: ListChannelsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListChannelsCommandOutput) => void
   ): void;
 
   /**
@@ -201,6 +300,17 @@ export interface Repostspace {
     args: UntagResourceCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateChannelCommand}
+   */
+  updateChannel(args: UpdateChannelCommandInput, options?: __HttpHandlerOptions): Promise<UpdateChannelCommandOutput>;
+  updateChannel(args: UpdateChannelCommandInput, cb: (err: any, data?: UpdateChannelCommandOutput) => void): void;
+  updateChannel(
+    args: UpdateChannelCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateChannelCommandOutput) => void
   ): void;
 
   /**

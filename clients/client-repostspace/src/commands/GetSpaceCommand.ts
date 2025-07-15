@@ -47,6 +47,8 @@ export interface GetSpaceCommandOutput extends GetSpaceOutput, __MetadataBearer 
  * //   status: "STRING_VALUE", // required
  * //   configurationStatus: "CONFIGURED" || "UNCONFIGURED", // required
  * //   clientId: "STRING_VALUE", // required
+ * //   identityStoreId: "STRING_VALUE",
+ * //   applicationArn: "STRING_VALUE",
  * //   description: "STRING_VALUE",
  * //   vanityDomainStatus: "PENDING" || "APPROVED" || "UNAPPROVED", // required
  * //   vanityDomain: "STRING_VALUE", // required
@@ -70,6 +72,12 @@ export interface GetSpaceCommandOutput extends GetSpaceOutput, __MetadataBearer 
  * //   userKMSKey: "STRING_VALUE",
  * //   userCount: Number("int"),
  * //   contentSize: Number("long"),
+ * //   supportedEmailDomains: { // SupportedEmailDomainsStatus
+ * //     enabled: "ENABLED" || "DISABLED" || "NOT_ALLOWED",
+ * //     allowedDomains: [ // AllowedDomainsList
+ * //       "STRING_VALUE",
+ * //     ],
+ * //   },
  * // };
  *
  * ```

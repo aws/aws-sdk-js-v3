@@ -40,6 +40,12 @@ export interface UpdateSpaceCommandOutput extends __MetadataBearer {}
  *   description: "STRING_VALUE",
  *   tier: "BASIC" || "STANDARD",
  *   roleArn: "STRING_VALUE",
+ *   supportedEmailDomains: { // SupportedEmailDomainsParameters
+ *     enabled: "ENABLED" || "DISABLED",
+ *     allowedDomains: [ // AllowedDomainsList
+ *       "STRING_VALUE",
+ *     ],
+ *   },
  * };
  * const command = new UpdateSpaceCommand(input);
  * const response = await client.send(command);

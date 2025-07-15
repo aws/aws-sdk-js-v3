@@ -45,6 +45,12 @@ export interface CreateSpaceCommandOutput extends CreateSpaceOutput, __MetadataB
  *     "<keys>": "STRING_VALUE",
  *   },
  *   roleArn: "STRING_VALUE",
+ *   supportedEmailDomains: { // SupportedEmailDomainsParameters
+ *     enabled: "ENABLED" || "DISABLED",
+ *     allowedDomains: [ // AllowedDomainsList
+ *       "STRING_VALUE",
+ *     ],
+ *   },
  * };
  * const command = new CreateSpaceCommand(input);
  * const response = await client.send(command);
