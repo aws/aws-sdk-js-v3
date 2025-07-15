@@ -32,8 +32,7 @@ export interface UpdateDomainConfigCommandInput extends UpdateDomainConfigReques
 export interface UpdateDomainConfigCommandOutput extends UpdateDomainConfigResponse, __MetadataBearer {}
 
 /**
- * <p>Modifies the cluster configuration of the specified Amazon OpenSearch Service
- *    domain.</p>
+ * <p>Modifies the cluster configuration of the specified Amazon OpenSearch Service domain.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -185,6 +184,9 @@ export interface UpdateDomainConfigCommandOutput extends UpdateDomainConfigRespo
  *   AIMLOptions: { // AIMLOptionsInput
  *     NaturalLanguageQueryGenerationOptions: { // NaturalLanguageQueryGenerationOptionsInput
  *       DesiredState: "ENABLED" || "DISABLED",
+ *     },
+ *     S3VectorsEngine: { // S3VectorsEngine
+ *       Enabled: true || false,
  *     },
  *   },
  * };
@@ -443,6 +445,9 @@ export interface UpdateDomainConfigCommandOutput extends UpdateDomainConfigRespo
  * //         NaturalLanguageQueryGenerationOptions: { // NaturalLanguageQueryGenerationOptionsOutput
  * //           DesiredState: "ENABLED" || "DISABLED",
  * //           CurrentState: "NOT_ENABLED" || "ENABLE_COMPLETE" || "ENABLE_IN_PROGRESS" || "ENABLE_FAILED" || "DISABLE_COMPLETE" || "DISABLE_IN_PROGRESS" || "DISABLE_FAILED",
+ * //         },
+ * //         S3VectorsEngine: { // S3VectorsEngine
+ * //           Enabled: true || false,
  * //         },
  * //       },
  * //       Status: "<OptionStatus>",

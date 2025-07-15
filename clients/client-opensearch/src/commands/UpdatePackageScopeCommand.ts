@@ -28,7 +28,8 @@ export interface UpdatePackageScopeCommandInput extends UpdatePackageScopeReques
 export interface UpdatePackageScopeCommandOutput extends UpdatePackageScopeResponse, __MetadataBearer {}
 
 /**
- * <p>Updates the scope of a package. Scope of the package defines users who can view and associate a package.</p>
+ * <p>Updates the scope of a package. Scope of the package defines users who can view and
+ *    associate a package.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

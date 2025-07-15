@@ -37,7 +37,8 @@ export interface DescribeReservedInstanceOfferingsCommandOutput
 
 /**
  * <p>Describes the available Amazon OpenSearch Service Reserved Instance offerings for a given
- *    Region. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/ri.html">Reserved Instances in Amazon OpenSearch Service</a>.</p>
+ *    Region. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/ri.html">Reserved Instances in Amazon OpenSearch
+ *     Service</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

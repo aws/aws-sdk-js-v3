@@ -28,10 +28,8 @@ export interface AddDirectQueryDataSourceCommandInput extends AddDirectQueryData
 export interface AddDirectQueryDataSourceCommandOutput extends AddDirectQueryDataSourceResponse, __MetadataBearer {}
 
 /**
- * <p>
- *    Adds a new data source in Amazon OpenSearch Service
- *    so that you can perform direct queries on external data.
- *   </p>
+ * <p> Adds a new data source in Amazon OpenSearch Service so that you can perform direct queries
+ *    on external data. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

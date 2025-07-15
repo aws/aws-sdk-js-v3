@@ -28,10 +28,8 @@ export interface GetDirectQueryDataSourceCommandInput extends GetDirectQueryData
 export interface GetDirectQueryDataSourceCommandOutput extends GetDirectQueryDataSourceResponse, __MetadataBearer {}
 
 /**
- * <p>
- *    Returns detailed configuration information for
- *    a specific direct query data source in Amazon OpenSearch Service.
- *   </p>
+ * <p> Returns detailed configuration information for a specific direct query data source in
+ *    Amazon OpenSearch Service. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -28,7 +28,8 @@ export interface DeleteDataSourceCommandInput extends DeleteDataSourceRequest {}
 export interface DeleteDataSourceCommandOutput extends DeleteDataSourceResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes a direct-query data source. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/direct-query-s3-delete.html">Deleting an Amazon OpenSearch Service data source with Amazon S3</a>.</p>
+ * <p>Deletes a direct-query data source. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/direct-query-s3-delete.html">Deleting an Amazon
+ *     OpenSearch Service data source with Amazon S3</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -28,8 +28,9 @@ export interface GetPackageVersionHistoryCommandInput extends GetPackageVersionH
 export interface GetPackageVersionHistoryCommandOutput extends GetPackageVersionHistoryResponse, __MetadataBearer {}
 
 /**
- * <p>Returns a list of Amazon OpenSearch Service package versions, along with their creation time, commit message, and plugin properties (if the
- *    package is a zip plugin package). For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/custom-packages.html">Custom packages for Amazon
+ * <p>Returns a list of Amazon OpenSearch Service package versions, along with their creation
+ *    time, commit message, and plugin properties (if the package is a zip plugin package). For more
+ *    information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/custom-packages.html">Custom packages for Amazon
  *     OpenSearch Service</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

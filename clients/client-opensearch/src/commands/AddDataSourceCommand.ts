@@ -29,7 +29,8 @@ export interface AddDataSourceCommandOutput extends AddDataSourceResponse, __Met
 
 /**
  * <p>Creates a new direct-query data source to the specified domain. For more information, see
- *    <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/direct-query-s3-creating.html">Creating Amazon OpenSearch Service data source integrations with Amazon S3</a>.</p>
+ *     <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/direct-query-s3-creating.html">Creating Amazon
+ *     OpenSearch Service data source integrations with Amazon S3</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

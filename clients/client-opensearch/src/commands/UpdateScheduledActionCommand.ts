@@ -31,7 +31,7 @@ export interface UpdateScheduledActionCommandOutput extends UpdateScheduledActio
  * <p>Reschedules a planned domain configuration change for a later time. This change can be a
  *    scheduled <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/service-software.html">service software
  *     update</a> or a <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/auto-tune.html#auto-tune-types">blue/green
- *      Auto-Tune enhancement</a>.</p>
+ *     Auto-Tune enhancement</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

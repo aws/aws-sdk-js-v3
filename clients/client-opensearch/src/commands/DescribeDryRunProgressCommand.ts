@@ -28,8 +28,8 @@ export interface DescribeDryRunProgressCommandInput extends DescribeDryRunProgre
 export interface DescribeDryRunProgressCommandOutput extends DescribeDryRunProgressResponse, __MetadataBearer {}
 
 /**
- * <p>Describes the progress of a pre-update dry run analysis on an Amazon OpenSearch
- *    Service domain. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/managedomains-configuration-changes#dryrun">Determining whether a change will cause a blue/green deployment</a>.</p>
+ * <p>Describes the progress of a pre-update dry run analysis on an Amazon OpenSearch Service
+ *    domain. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/managedomains-configuration-changes#dryrun">Determining whether a change will cause a blue/green deployment</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -230,6 +230,9 @@ export interface DescribeDryRunProgressCommandOutput extends DescribeDryRunProgr
  * //       NaturalLanguageQueryGenerationOptions: { // NaturalLanguageQueryGenerationOptionsOutput
  * //         DesiredState: "ENABLED" || "DISABLED",
  * //         CurrentState: "NOT_ENABLED" || "ENABLE_COMPLETE" || "ENABLE_IN_PROGRESS" || "ENABLE_FAILED" || "DISABLE_COMPLETE" || "DISABLE_IN_PROGRESS" || "DISABLE_FAILED",
+ * //       },
+ * //       S3VectorsEngine: { // S3VectorsEngine
+ * //         Enabled: true || false,
  * //       },
  * //     },
  * //   },

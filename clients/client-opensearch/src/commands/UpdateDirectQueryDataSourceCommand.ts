@@ -33,10 +33,8 @@ export interface UpdateDirectQueryDataSourceCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>
- *    Updates the configuration or properties of an existing
- *    direct query data source in Amazon OpenSearch Service.
- *   </p>
+ * <p> Updates the configuration or properties of an existing direct query data source in Amazon
+ *    OpenSearch Service. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -31,9 +31,7 @@ export interface DeleteDirectQueryDataSourceCommandInput extends DeleteDirectQue
 export interface DeleteDirectQueryDataSourceCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>
- *    Deletes a previously configured direct query data
- *    source from Amazon OpenSearch Service.
+ * <p> Deletes a previously configured direct query data source from Amazon OpenSearch Service.
  *   </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

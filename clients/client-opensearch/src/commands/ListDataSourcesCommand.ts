@@ -28,9 +28,9 @@ export interface ListDataSourcesCommandInput extends ListDataSourcesRequest {}
 export interface ListDataSourcesCommandOutput extends ListDataSourcesResponse, __MetadataBearer {}
 
 /**
- * <p>Lists direct-query data sources for a specific domain. For more information, see
- *    For more information, see
- *    <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/direct-query-s3.html">Working with Amazon OpenSearch Service direct queries with Amazon S3</a>.</p>
+ * <p>Lists direct-query data sources for a specific domain. For more information, see For more
+ *    information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/direct-query-s3.html">Working with Amazon
+ *     OpenSearch Service direct queries with Amazon S3</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

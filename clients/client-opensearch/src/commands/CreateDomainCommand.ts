@@ -185,6 +185,9 @@ export interface CreateDomainCommandOutput extends CreateDomainResponse, __Metad
  *     NaturalLanguageQueryGenerationOptions: { // NaturalLanguageQueryGenerationOptionsInput
  *       DesiredState: "ENABLED" || "DISABLED",
  *     },
+ *     S3VectorsEngine: { // S3VectorsEngine
+ *       Enabled: true || false,
+ *     },
  *   },
  * };
  * const command = new CreateDomainCommand(input);
@@ -364,6 +367,9 @@ export interface CreateDomainCommandOutput extends CreateDomainResponse, __Metad
  * //       NaturalLanguageQueryGenerationOptions: { // NaturalLanguageQueryGenerationOptionsOutput
  * //         DesiredState: "ENABLED" || "DISABLED",
  * //         CurrentState: "NOT_ENABLED" || "ENABLE_COMPLETE" || "ENABLE_IN_PROGRESS" || "ENABLE_FAILED" || "DISABLE_COMPLETE" || "DISABLE_IN_PROGRESS" || "DISABLE_FAILED",
+ * //       },
+ * //       S3VectorsEngine: { // S3VectorsEngine
+ * //         Enabled: true || false,
  * //       },
  * //     },
  * //   },

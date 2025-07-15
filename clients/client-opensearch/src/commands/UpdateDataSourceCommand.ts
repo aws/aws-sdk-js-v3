@@ -28,8 +28,8 @@ export interface UpdateDataSourceCommandInput extends UpdateDataSourceRequest {}
 export interface UpdateDataSourceCommandOutput extends UpdateDataSourceResponse, __MetadataBearer {}
 
 /**
- * <p>Updates a direct-query data source. For more information, see
- *    <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/direct-query-s3-creating.html">Working with Amazon OpenSearch Service data source integrations with Amazon S3</a>.</p>
+ * <p>Updates a direct-query data source. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/direct-query-s3-creating.html">Working with Amazon
+ *     OpenSearch Service data source integrations with Amazon S3</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

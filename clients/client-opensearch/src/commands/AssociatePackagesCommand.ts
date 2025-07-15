@@ -28,7 +28,8 @@ export interface AssociatePackagesCommandInput extends AssociatePackagesRequest 
 export interface AssociatePackagesCommandOutput extends AssociatePackagesResponse, __MetadataBearer {}
 
 /**
- * <p>Operation in the Amazon OpenSearch Service API for associating  multiple packages with a domain simultaneously.</p>
+ * <p>Operation in the Amazon OpenSearch Service API for associating multiple packages with a
+ *    domain simultaneously.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

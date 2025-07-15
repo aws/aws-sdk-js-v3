@@ -28,8 +28,8 @@ export interface StartDomainMaintenanceCommandInput extends StartDomainMaintenan
 export interface StartDomainMaintenanceCommandOutput extends StartDomainMaintenanceResponse, __MetadataBearer {}
 
 /**
- * <p>Starts the node maintenance process on the data node. These processes can include a node reboot, an Opensearch or Elasticsearch process restart,
- *    or a Dashboard or Kibana restart.</p>
+ * <p>Starts the node maintenance process on the data node. These processes can include a node
+ *    reboot, an Opensearch or Elasticsearch process restart, or a Dashboard or Kibana restart.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

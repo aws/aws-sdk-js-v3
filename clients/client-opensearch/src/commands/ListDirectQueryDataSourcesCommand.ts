@@ -28,10 +28,8 @@ export interface ListDirectQueryDataSourcesCommandInput extends ListDirectQueryD
 export interface ListDirectQueryDataSourcesCommandOutput extends ListDirectQueryDataSourcesResponse, __MetadataBearer {}
 
 /**
- * <p>
- *    Lists an inventory of all the direct query data sources that you
- *    have configured within Amazon OpenSearch Service.
- *   </p>
+ * <p> Lists an inventory of all the direct query data sources that you have configured within
+ *    Amazon OpenSearch Service. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

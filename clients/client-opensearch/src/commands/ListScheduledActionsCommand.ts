@@ -31,7 +31,7 @@ export interface ListScheduledActionsCommandOutput extends ListScheduledActionsR
  * <p>Retrieves a list of configuration changes that are scheduled for a domain. These changes can
  *    be <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/service-software.html">service software
  *     updates</a> or <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/auto-tune.html#auto-tune-types">blue/green
- *      Auto-Tune enhancements</a>.</p>
+ *     Auto-Tune enhancements</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

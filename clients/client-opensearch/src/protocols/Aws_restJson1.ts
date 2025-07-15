@@ -317,6 +317,7 @@ import {
   ResourceAlreadyExistsException,
   ResourceNotFoundException,
   S3GlueDataCatalog,
+  S3VectorsEngine,
   SAMLIdp,
   SAMLOptionsInput,
   ScheduledAutoTuneDetails,
@@ -4079,6 +4080,8 @@ const se_AutoTuneOptionsInput = (input: AutoTuneOptionsInput, context: __SerdeCo
 
 // se_S3GlueDataCatalog omitted.
 
+// se_S3VectorsEngine omitted.
+
 // se_SAMLIdp omitted.
 
 // se_SAMLOptionsInput omitted.
@@ -4906,6 +4909,8 @@ const de_ReservedInstanceOfferingList = (output: any, context: __SerdeContext): 
 };
 
 // de_S3GlueDataCatalog omitted.
+
+// de_S3VectorsEngine omitted.
 
 // de_SAMLIdp omitted.
 

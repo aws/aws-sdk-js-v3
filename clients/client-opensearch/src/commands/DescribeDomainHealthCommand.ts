@@ -28,7 +28,8 @@ export interface DescribeDomainHealthCommandInput extends DescribeDomainHealthRe
 export interface DescribeDomainHealthCommandOutput extends DescribeDomainHealthResponse, __MetadataBearer {}
 
 /**
- * <p>Returns information about domain and node health, the standby Availability Zone, number of nodes per Availability Zone, and shard count per node.</p>
+ * <p>Returns information about domain and node health, the standby Availability Zone, number of
+ *    nodes per Availability Zone, and shard count per node.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
