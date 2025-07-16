@@ -40,6 +40,12 @@ export interface PutOriginEndpointPolicyCommandOutput extends PutOriginEndpointP
  *   ChannelName: "STRING_VALUE", // required
  *   OriginEndpointName: "STRING_VALUE", // required
  *   Policy: "STRING_VALUE", // required
+ *   CdnAuthConfiguration: { // CdnAuthConfiguration
+ *     CdnIdentifierSecretArns: [ // CdnIdentifierSecretArns // required
+ *       "STRING_VALUE",
+ *     ],
+ *     SecretsRoleArn: "STRING_VALUE", // required
+ *   },
  * };
  * const command = new PutOriginEndpointPolicyCommand(input);
  * const response = await client.send(command);
@@ -54,7 +60,9 @@ export interface PutOriginEndpointPolicyCommandOutput extends PutOriginEndpointP
  * @see {@link MediaPackageV2ClientResolvedConfig | config} for MediaPackageV2Client's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You don't have permissions to perform the requested operation. The user or role that is making the request must have at least one IAM permissions policy attached that grants the required permissions. For more information, see Access Management in the IAM User Guide.</p>
+ *  <p>Access is denied because either you don't have permissions to perform the requested operation or MediaPackage is getting throttling errors with CDN authorization. The user or role that is making the request must have at least
+ *          one IAM permissions policy attached that grants the required permissions. For more information, see Access Management in the IAM User Guide. Or, if you're using CDN authorization, you will receive this exception
+ *          if MediaPackage receives a throttling error from Secrets Manager.</p>
  *
  * @throws {@link ConflictException} (client fault)
  *  <p>Updating or deleting this resource can cause an inconsistent state.</p>

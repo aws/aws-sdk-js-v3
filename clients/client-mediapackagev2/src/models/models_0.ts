@@ -4,7 +4,9 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-cli
 import { MediaPackageV2ServiceException as __BaseException } from "./MediaPackageV2ServiceException";
 
 /**
- * <p>You don't have permissions to perform the requested operation. The user or role that is making the request must have at least one IAM permissions policy attached that grants the required permissions. For more information, see Access Management in the IAM User Guide.</p>
+ * <p>Access is denied because either you don't have permissions to perform the requested operation or MediaPackage is getting throttling errors with CDN authorization. The user or role that is making the request must have at least
+ *          one IAM permissions policy attached that grants the required permissions. For more information, see Access Management in the IAM User Guide. Or, if you're using CDN authorization, you will receive this exception
+ *          if MediaPackage receives a throttling error from Secrets Manager.</p>
  * @public
  */
 export class AccessDeniedException extends __BaseException {
@@ -229,6 +231,7 @@ export class ThrottlingException extends __BaseException {
  * @enum
  */
 export const ValidationExceptionType = {
+  BATCH_GET_SECRET_VALUE_DENIED: "BATCH_GET_SECRET_VALUE_DENIED",
   CENC_IV_INCOMPATIBLE: "CENC_IV_INCOMPATIBLE",
   CLIP_START_TIME_WITH_START_OR_END: "CLIP_START_TIME_WITH_START_OR_END",
   CMAF_CONTAINER_TYPE_WITH_MSS_MANIFEST: "CMAF_CONTAINER_TYPE_WITH_MSS_MANIFEST",
@@ -236,15 +239,19 @@ export const ValidationExceptionType = {
     "CMAF_EXCLUDE_SEGMENT_DRM_METADATA_INCOMPATIBLE_CONTAINER_TYPE",
   CONTAINER_TYPE_IMMUTABLE: "CONTAINER_TYPE_IMMUTABLE",
   DASH_DVB_ATTRIBUTES_WITHOUT_DVB_DASH_PROFILE: "DASH_DVB_ATTRIBUTES_WITHOUT_DVB_DASH_PROFILE",
+  DECRYPT_SECRET_FAILED: "DECRYPT_SECRET_FAILED",
+  DESCRIBE_SECRET_DENIED: "DESCRIBE_SECRET_DENIED",
   DIRECT_MODE_WITH_TIMING_SOURCE: "DIRECT_MODE_WITH_TIMING_SOURCE",
   DRM_SIGNALING_MISMATCH_SEGMENT_ENCRYPTION_STATUS: "DRM_SIGNALING_MISMATCH_SEGMENT_ENCRYPTION_STATUS",
   DRM_SYSTEMS_ENCRYPTION_METHOD_INCOMPATIBLE: "DRM_SYSTEMS_ENCRYPTION_METHOD_INCOMPATIBLE",
+  DUPLICATED_SECRET: "DUPLICATED_SECRET",
   ENCRYPTION_CONTRACT_SHARED: "ENCRYPTION_CONTRACT_SHARED",
   ENCRYPTION_CONTRACT_UNENCRYPTED: "ENCRYPTION_CONTRACT_UNENCRYPTED",
   ENCRYPTION_CONTRACT_WITHOUT_AUDIO_RENDITION_INCOMPATIBLE: "ENCRYPTION_CONTRACT_WITHOUT_AUDIO_RENDITION_INCOMPATIBLE",
   ENCRYPTION_CONTRACT_WITH_ISM_CONTAINER_INCOMPATIBLE: "ENCRYPTION_CONTRACT_WITH_ISM_CONTAINER_INCOMPATIBLE",
   ENCRYPTION_METHOD_CONTAINER_TYPE_MISMATCH: "ENCRYPTION_METHOD_CONTAINER_TYPE_MISMATCH",
   END_TIME_EARLIER_THAN_START_TIME: "END_TIME_EARLIER_THAN_START_TIME",
+  GET_SECRET_VALUE_DENIED: "GET_SECRET_VALUE_DENIED",
   HARVESTED_MANIFEST_HAS_START_END_FILTER_CONFIGURATION: "HARVESTED_MANIFEST_HAS_START_END_FILTER_CONFIGURATION",
   HARVESTED_MANIFEST_NOT_FOUND_ON_ENDPOINT: "HARVESTED_MANIFEST_NOT_FOUND_ON_ENDPOINT",
   HARVEST_JOB_CUSTOMER_ENDPOINT_READ_ACCESS_DENIED: "HARVEST_JOB_CUSTOMER_ENDPOINT_READ_ACCESS_DENIED",
@@ -260,12 +267,17 @@ export const ValidationExceptionType = {
   INVALID_PAGINATION_TOKEN: "INVALID_PAGINATION_TOKEN",
   INVALID_POLICY: "INVALID_POLICY",
   INVALID_ROLE_ARN: "INVALID_ROLE_ARN",
+  INVALID_SECRET: "INVALID_SECRET",
+  INVALID_SECRET_FORMAT: "INVALID_SECRET_FORMAT",
+  INVALID_SECRET_KEY: "INVALID_SECRET_KEY",
+  INVALID_SECRET_VALUE: "INVALID_SECRET_VALUE",
   INVALID_TIME_DELAY_SECONDS: "INVALID_TIME_DELAY_SECONDS",
   ISM_CONTAINER_TYPE_WITH_DASH_MANIFEST: "ISM_CONTAINER_TYPE_WITH_DASH_MANIFEST",
   ISM_CONTAINER_TYPE_WITH_HLS_MANIFEST: "ISM_CONTAINER_TYPE_WITH_HLS_MANIFEST",
   ISM_CONTAINER_TYPE_WITH_LL_HLS_MANIFEST: "ISM_CONTAINER_TYPE_WITH_LL_HLS_MANIFEST",
   ISM_CONTAINER_TYPE_WITH_SCTE: "ISM_CONTAINER_TYPE_WITH_SCTE",
   ISM_CONTAINER_WITH_KEY_ROTATION: "ISM_CONTAINER_WITH_KEY_ROTATION",
+  MALFORMED_SECRET_ARN: "MALFORMED_SECRET_ARN",
   MANIFEST_DRM_SYSTEMS_INCOMPATIBLE: "MANIFEST_DRM_SYSTEMS_INCOMPATIBLE",
   MANIFEST_NAME_COLLISION: "MANIFEST_NAME_COLLISION",
   MEMBER_DOES_NOT_MATCH_PATTERN: "MEMBER_DOES_NOT_MATCH_PATTERN",
@@ -287,10 +299,15 @@ export const ValidationExceptionType = {
   ROLE_ARN_INVALID_FORMAT: "ROLE_ARN_INVALID_FORMAT",
   ROLE_ARN_LENGTH_OUT_OF_RANGE: "ROLE_ARN_LENGTH_OUT_OF_RANGE",
   ROLE_ARN_NOT_ASSUMABLE: "ROLE_ARN_NOT_ASSUMABLE",
+  SECRET_ARN_RESOURCE_NOT_FOUND: "SECRET_ARN_RESOURCE_NOT_FOUND",
+  SECRET_FROM_DIFFERENT_ACCOUNT: "SECRET_FROM_DIFFERENT_ACCOUNT",
+  SECRET_FROM_DIFFERENT_REGION: "SECRET_FROM_DIFFERENT_REGION",
+  SECRET_IS_NOT_ONE_KEY_VALUE_PAIR: "SECRET_IS_NOT_ONE_KEY_VALUE_PAIR",
   SOURCE_DISRUPTIONS_ENABLED_INCORRECTLY: "SOURCE_DISRUPTIONS_ENABLED_INCORRECTLY",
   START_TAG_TIME_OFFSET_INVALID: "START_TAG_TIME_OFFSET_INVALID",
   TIMING_SOURCE_MISSING: "TIMING_SOURCE_MISSING",
   TOO_MANY_IN_PROGRESS_HARVEST_JOBS: "TOO_MANY_IN_PROGRESS_HARVEST_JOBS",
+  TOO_MANY_SECRETS: "TOO_MANY_SECRETS",
   TS_CONTAINER_TYPE_WITH_DASH_MANIFEST: "TS_CONTAINER_TYPE_WITH_DASH_MANIFEST",
   TS_CONTAINER_TYPE_WITH_MSS_MANIFEST: "TS_CONTAINER_TYPE_WITH_MSS_MANIFEST",
   UPDATE_PERIOD_SMALLER_THAN_SEGMENT_DURATION: "UPDATE_PERIOD_SMALLER_THAN_SEGMENT_DURATION",
@@ -336,6 +353,24 @@ export class ValidationException extends __BaseException {
     this.Message = opts.Message;
     this.ValidationExceptionType = opts.ValidationExceptionType;
   }
+}
+
+/**
+ * <p>The settings to enable CDN authorization headers in MediaPackage.</p>
+ * @public
+ */
+export interface CdnAuthConfiguration {
+  /**
+   * <p>The ARN for the secret in Secrets Manager that your CDN uses for authorization to access the endpoint.</p>
+   * @public
+   */
+  CdnIdentifierSecretArns: string[] | undefined;
+
+  /**
+   * <p>The ARN for the IAM role that gives MediaPackage read access to Secrets Manager and KMS for CDN authorization.</p>
+   * @public
+   */
+  SecretsRoleArn: string | undefined;
 }
 
 /**
@@ -2977,6 +3012,14 @@ export interface GetOriginEndpointPolicyResponse {
    * @public
    */
   Policy: string | undefined;
+
+  /**
+   * <p>The settings for using authorization headers between the MediaPackage endpoint and your CDN. </p>
+   *          <p>For information about CDN authorization, see <a href="https://docs.aws.amazon.com/mediapackage/latest/userguide/cdn-auth.html">CDN authorization
+   *             in Elemental MediaPackage</a>  in the MediaPackage user guide.</p>
+   * @public
+   */
+  CdnAuthConfiguration?: CdnAuthConfiguration | undefined;
 }
 
 /**
@@ -3006,6 +3049,14 @@ export interface PutOriginEndpointPolicyRequest {
    * @public
    */
   Policy: string | undefined;
+
+  /**
+   * <p>The settings for using authorization headers between the MediaPackage endpoint and your CDN. </p>
+   *          <p>For information about CDN authorization, see <a href="https://docs.aws.amazon.com/mediapackage/latest/userguide/cdn-auth.html">CDN authorization
+   *             in Elemental MediaPackage</a>  in the MediaPackage user guide. </p>
+   * @public
+   */
+  CdnAuthConfiguration?: CdnAuthConfiguration | undefined;
 }
 
 /**

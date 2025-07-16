@@ -92,6 +92,7 @@ import {
 import { MediaPackageV2ServiceException as __BaseException } from "../models/MediaPackageV2ServiceException";
 import {
   AccessDeniedException,
+  CdnAuthConfiguration,
   ChannelGroupListConfiguration,
   ChannelListConfiguration,
   ConflictException,
@@ -622,6 +623,7 @@ export const se_PutOriginEndpointPolicyCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
+      CdnAuthConfiguration: (_) => _json(_),
       Policy: [],
     })
   );
@@ -1197,6 +1199,7 @@ export const de_GetOriginEndpointPolicyCommand = async (
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
+    CdnAuthConfiguration: _json,
     ChannelGroupName: __expectString,
     ChannelName: __expectString,
     OriginEndpointName: __expectString,
@@ -1705,6 +1708,10 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
+// se_CdnAuthConfiguration omitted.
+
+// se_CdnIdentifierSecretArns omitted.
+
 /**
  * serializeAws_restJson1CreateDashManifestConfiguration
  */
@@ -1928,6 +1935,10 @@ const se_StartTag = (input: StartTag, context: __SerdeContext): any => {
 };
 
 // se_TagMap omitted.
+
+// de_CdnAuthConfiguration omitted.
+
+// de_CdnIdentifierSecretArns omitted.
 
 /**
  * deserializeAws_restJson1ChannelGroupListConfiguration
