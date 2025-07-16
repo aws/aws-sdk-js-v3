@@ -1,0 +1,289 @@
+// smithy-typescript generated code
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { Command as $Command } from "@smithy/smithy-client";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+
+import {
+  BedrockAgentCoreControlClientResolvedConfig,
+  ServiceInputTypes,
+  ServiceOutputTypes,
+} from "../BedrockAgentCoreControlClient";
+import { commonParams } from "../endpoint/EndpointParameters";
+import {
+  CreateGatewayTargetRequest,
+  CreateGatewayTargetRequestFilterSensitiveLog,
+  CreateGatewayTargetResponse,
+  CreateGatewayTargetResponseFilterSensitiveLog,
+} from "../models/models_0";
+import { de_CreateGatewayTargetCommand, se_CreateGatewayTargetCommand } from "../protocols/Aws_restJson1";
+
+/**
+ * @public
+ */
+export type { __MetadataBearer };
+export { $Command };
+/**
+ * @public
+ *
+ * The input for {@link CreateGatewayTargetCommand}.
+ */
+export interface CreateGatewayTargetCommandInput extends CreateGatewayTargetRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateGatewayTargetCommand}.
+ */
+export interface CreateGatewayTargetCommandOutput extends CreateGatewayTargetResponse, __MetadataBearer {}
+
+/**
+ * <p>Creates a target for a gateway. A target defines an endpoint that the gateway can connect to.</p> <p>To create a target, you must specify the gateway identifier and target configuration.</p>
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { BedrockAgentCoreControlClient, CreateGatewayTargetCommand } from "@aws-sdk/client-bedrock-agentcore-control"; // ES Modules import
+ * // const { BedrockAgentCoreControlClient, CreateGatewayTargetCommand } = require("@aws-sdk/client-bedrock-agentcore-control"); // CommonJS import
+ * const client = new BedrockAgentCoreControlClient(config);
+ * const input = { // CreateGatewayTargetRequest
+ *   gatewayIdentifier: "STRING_VALUE", // required
+ *   name: "STRING_VALUE", // required
+ *   description: "STRING_VALUE",
+ *   clientToken: "STRING_VALUE",
+ *   targetConfiguration: { // TargetConfiguration Union: only one key present
+ *     mcp: { // McpTargetConfiguration Union: only one key present
+ *       openApiSchema: { // ApiSchemaConfiguration Union: only one key present
+ *         s3: { // S3Configuration
+ *           uri: "STRING_VALUE",
+ *           bucketOwnerAccountId: "STRING_VALUE",
+ *         },
+ *         inlinePayload: "STRING_VALUE",
+ *       },
+ *       smithyModel: {//  Union: only one key present
+ *         s3: {
+ *           uri: "STRING_VALUE",
+ *           bucketOwnerAccountId: "STRING_VALUE",
+ *         },
+ *         inlinePayload: "STRING_VALUE",
+ *       },
+ *       lambda: { // McpLambdaTargetConfiguration
+ *         lambdaArn: "STRING_VALUE", // required
+ *         toolSchema: { // ToolSchema Union: only one key present
+ *           s3: {
+ *             uri: "STRING_VALUE",
+ *             bucketOwnerAccountId: "STRING_VALUE",
+ *           },
+ *           inlinePayload: [ // ToolDefinitions
+ *             { // ToolDefinition
+ *               name: "STRING_VALUE", // required
+ *               description: "STRING_VALUE", // required
+ *               inputSchema: { // SchemaDefinition
+ *                 type: "string" || "number" || "object" || "array" || "boolean" || "integer", // required
+ *                 properties: { // SchemaProperties
+ *                   "<keys>": {
+ *                     type: "string" || "number" || "object" || "array" || "boolean" || "integer", // required
+ *                     properties: {
+ *                       "<keys>": "<SchemaDefinition>",
+ *                     },
+ *                     required: [ // RequiredProperties
+ *                       "STRING_VALUE",
+ *                     ],
+ *                     items: "<SchemaDefinition>",
+ *                     description: "STRING_VALUE",
+ *                   },
+ *                 },
+ *                 required: [
+ *                   "STRING_VALUE",
+ *                 ],
+ *                 items: "<SchemaDefinition>",
+ *                 description: "STRING_VALUE",
+ *               },
+ *               outputSchema: "<SchemaDefinition>",
+ *             },
+ *           ],
+ *         },
+ *       },
+ *     },
+ *   },
+ *   credentialProviderConfigurations: [ // CredentialProviderConfigurations // required
+ *     { // CredentialProviderConfiguration
+ *       credentialProviderType: "GATEWAY_IAM_ROLE" || "OAUTH" || "API_KEY", // required
+ *       credentialProvider: { // CredentialProvider Union: only one key present
+ *         oauthCredentialProvider: { // OAuthCredentialProvider
+ *           providerArn: "STRING_VALUE", // required
+ *           scopes: [ // OAuthScopes // required
+ *             "STRING_VALUE",
+ *           ],
+ *           customParameters: { // OAuthCustomParameters
+ *             "<keys>": "STRING_VALUE",
+ *           },
+ *         },
+ *         apiKeyCredentialProvider: { // GatewayApiKeyCredentialProvider
+ *           providerArn: "STRING_VALUE", // required
+ *           credentialParameterName: "STRING_VALUE",
+ *           credentialPrefix: "STRING_VALUE",
+ *           credentialLocation: "HEADER" || "QUERY_PARAMETER",
+ *         },
+ *       },
+ *     },
+ *   ],
+ * };
+ * const command = new CreateGatewayTargetCommand(input);
+ * const response = await client.send(command);
+ * // { // CreateGatewayTargetResponse
+ * //   gatewayArn: "STRING_VALUE", // required
+ * //   targetId: "STRING_VALUE", // required
+ * //   createdAt: new Date("TIMESTAMP"), // required
+ * //   updatedAt: new Date("TIMESTAMP"), // required
+ * //   status: "CREATING" || "UPDATING" || "UPDATE_UNSUCCESSFUL" || "DELETING" || "READY" || "FAILED", // required
+ * //   statusReasons: [ // StatusReasons
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   name: "STRING_VALUE", // required
+ * //   description: "STRING_VALUE",
+ * //   targetConfiguration: { // TargetConfiguration Union: only one key present
+ * //     mcp: { // McpTargetConfiguration Union: only one key present
+ * //       openApiSchema: { // ApiSchemaConfiguration Union: only one key present
+ * //         s3: { // S3Configuration
+ * //           uri: "STRING_VALUE",
+ * //           bucketOwnerAccountId: "STRING_VALUE",
+ * //         },
+ * //         inlinePayload: "STRING_VALUE",
+ * //       },
+ * //       smithyModel: {//  Union: only one key present
+ * //         s3: {
+ * //           uri: "STRING_VALUE",
+ * //           bucketOwnerAccountId: "STRING_VALUE",
+ * //         },
+ * //         inlinePayload: "STRING_VALUE",
+ * //       },
+ * //       lambda: { // McpLambdaTargetConfiguration
+ * //         lambdaArn: "STRING_VALUE", // required
+ * //         toolSchema: { // ToolSchema Union: only one key present
+ * //           s3: {
+ * //             uri: "STRING_VALUE",
+ * //             bucketOwnerAccountId: "STRING_VALUE",
+ * //           },
+ * //           inlinePayload: [ // ToolDefinitions
+ * //             { // ToolDefinition
+ * //               name: "STRING_VALUE", // required
+ * //               description: "STRING_VALUE", // required
+ * //               inputSchema: { // SchemaDefinition
+ * //                 type: "string" || "number" || "object" || "array" || "boolean" || "integer", // required
+ * //                 properties: { // SchemaProperties
+ * //                   "<keys>": {
+ * //                     type: "string" || "number" || "object" || "array" || "boolean" || "integer", // required
+ * //                     properties: {
+ * //                       "<keys>": "<SchemaDefinition>",
+ * //                     },
+ * //                     required: [ // RequiredProperties
+ * //                       "STRING_VALUE",
+ * //                     ],
+ * //                     items: "<SchemaDefinition>",
+ * //                     description: "STRING_VALUE",
+ * //                   },
+ * //                 },
+ * //                 required: [
+ * //                   "STRING_VALUE",
+ * //                 ],
+ * //                 items: "<SchemaDefinition>",
+ * //                 description: "STRING_VALUE",
+ * //               },
+ * //               outputSchema: "<SchemaDefinition>",
+ * //             },
+ * //           ],
+ * //         },
+ * //       },
+ * //     },
+ * //   },
+ * //   credentialProviderConfigurations: [ // CredentialProviderConfigurations // required
+ * //     { // CredentialProviderConfiguration
+ * //       credentialProviderType: "GATEWAY_IAM_ROLE" || "OAUTH" || "API_KEY", // required
+ * //       credentialProvider: { // CredentialProvider Union: only one key present
+ * //         oauthCredentialProvider: { // OAuthCredentialProvider
+ * //           providerArn: "STRING_VALUE", // required
+ * //           scopes: [ // OAuthScopes // required
+ * //             "STRING_VALUE",
+ * //           ],
+ * //           customParameters: { // OAuthCustomParameters
+ * //             "<keys>": "STRING_VALUE",
+ * //           },
+ * //         },
+ * //         apiKeyCredentialProvider: { // GatewayApiKeyCredentialProvider
+ * //           providerArn: "STRING_VALUE", // required
+ * //           credentialParameterName: "STRING_VALUE",
+ * //           credentialPrefix: "STRING_VALUE",
+ * //           credentialLocation: "HEADER" || "QUERY_PARAMETER",
+ * //         },
+ * //       },
+ * //     },
+ * //   ],
+ * // };
+ *
+ * ```
+ *
+ * @param CreateGatewayTargetCommandInput - {@link CreateGatewayTargetCommandInput}
+ * @returns {@link CreateGatewayTargetCommandOutput}
+ * @see {@link CreateGatewayTargetCommandInput} for command's `input` shape.
+ * @see {@link CreateGatewayTargetCommandOutput} for command's `response` shape.
+ * @see {@link BedrockAgentCoreControlClientResolvedConfig | config} for BedrockAgentCoreControlClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>This exception is thrown when a request is denied per access permissions</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>This exception is thrown when there is a conflict performing an operation</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>This exception is thrown if there was an unexpected error during processing of request</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>This exception is thrown when a resource referenced by the operation does not exist</p>
+ *
+ * @throws {@link ServiceQuotaExceededException} (client fault)
+ *  <p>This exception is thrown when a request is made beyond the service quota</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>This exception is thrown when the number of requests exceeds the limit</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The input fails to satisfy the constraints specified by the service.</p>
+ *
+ * @throws {@link BedrockAgentCoreControlServiceException}
+ * <p>Base exception class for all service exceptions from BedrockAgentCoreControl service.</p>
+ *
+ *
+ * @public
+ */
+export class CreateGatewayTargetCommand extends $Command
+  .classBuilder<
+    CreateGatewayTargetCommandInput,
+    CreateGatewayTargetCommandOutput,
+    BedrockAgentCoreControlClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep(commonParams)
+  .m(function (this: any, Command: any, cs: any, config: BedrockAgentCoreControlClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("AmazonBedrockAgentCoreControl", "CreateGatewayTarget", {})
+  .n("BedrockAgentCoreControlClient", "CreateGatewayTargetCommand")
+  .f(CreateGatewayTargetRequestFilterSensitiveLog, CreateGatewayTargetResponseFilterSensitiveLog)
+  .ser(se_CreateGatewayTargetCommand)
+  .de(de_CreateGatewayTargetCommand)
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateGatewayTargetRequest;
+      output: CreateGatewayTargetResponse;
+    };
+    sdk: {
+      input: CreateGatewayTargetCommandInput;
+      output: CreateGatewayTargetCommandOutput;
+    };
+  };
+}
