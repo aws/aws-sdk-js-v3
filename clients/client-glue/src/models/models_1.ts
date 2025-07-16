@@ -4941,7 +4941,7 @@ export interface CreateTableRequest {
    *       to create in the catalog.</p>
    * @public
    */
-  TableInput: TableInput | undefined;
+  TableInput?: TableInput | undefined;
 
   /**
    * <p>A list of partition indexes, <code>PartitionIndex</code> structures, to create in the table.</p>
