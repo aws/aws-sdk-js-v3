@@ -1308,7 +1308,7 @@ export interface CreateLocationNfsRequest {
   Subdirectory: string | undefined;
 
   /**
-   * <p>Specifies the DNS name or IP version 4 address of the NFS file server that your DataSync agent connects to.</p>
+   * <p>Specifies the DNS name or IP address (IPv4 or IPv6) of the NFS file server that your DataSync agent connects to.</p>
    * @public
    */
   ServerHostname: string | undefined;
@@ -1368,7 +1368,7 @@ export type ObjectStorageServerProtocol =
  */
 export interface CreateLocationObjectStorageRequest {
   /**
-   * <p>Specifies the domain name or IP version 4 (IPv4) address of the object storage server that
+   * <p>Specifies the domain name or IP address (IPv4 or IPv6) of the object storage server that
    *       your DataSync agent connects to.</p>
    * @public
    */
@@ -1382,7 +1382,8 @@ export interface CreateLocationObjectStorageRequest {
   ServerPort?: number | undefined;
 
   /**
-   * <p>Specifies the protocol that your object storage server uses to communicate.</p>
+   * <p>Specifies the protocol that your object storage server uses to communicate. If not specified, the default
+   *       value is <code>HTTPS</code>.</p>
    * @public
    */
   ServerProtocol?: ObjectStorageServerProtocol | undefined;
@@ -1411,6 +1412,11 @@ export interface CreateLocationObjectStorageRequest {
   /**
    * <p>Specifies the secret key (for example, a password) if credentials are required to
    *       authenticate with the object storage server.</p>
+   *          <note>
+   *             <p>If you provide a secret using <code>SecretKey</code>, but do not provide secret
+   *         configuration details using <code>CmkSecretConfig</code> or <code>CustomSecretConfig</code>,
+   *         then DataSync stores the token using your Amazon Web Services account's Secrets Manager secret.</p>
+   *          </note>
    * @public
    */
   SecretKey?: string | undefined;
@@ -1676,16 +1682,10 @@ export interface CreateLocationSmbRequest {
   Subdirectory: string | undefined;
 
   /**
-   * <p>Specifies the domain name or IP address of the SMB file server that your DataSync agent connects to.</p>
-   *          <p>Remember the following when configuring this parameter:</p>
-   *          <ul>
-   *             <li>
-   *                <p>You can't specify an IP version 6 (IPv6) address.</p>
-   *             </li>
-   *             <li>
-   *                <p>If you're using Kerberos authentication, you must specify a domain name.</p>
-   *             </li>
-   *          </ul>
+   * <p>Specifies the domain name or IP address (IPv4 or IPv6) of the SMB file server that your DataSync agent connects to.</p>
+   *          <note>
+   *             <p>If you're using Kerberos authentication, you must specify a domain name.</p>
+   *          </note>
    * @public
    */
   ServerHostname: string | undefined;
@@ -1748,7 +1748,7 @@ export interface CreateLocationSmbRequest {
   AuthenticationType?: SmbAuthenticationType | undefined;
 
   /**
-   * <p>Specifies the IPv4 addresses for the DNS servers that your SMB file server belongs to.
+   * <p>Specifies the IPv4 or IPv6 addresses for the DNS servers that your SMB file server belongs to.
    *       This parameter applies only if <code>AuthenticationType</code> is set to
    *       <code>KERBEROS</code>.</p>
    *          <p>If you have multiple domains in your environment, configuring this parameter makes sure
@@ -1758,7 +1758,7 @@ export interface CreateLocationSmbRequest {
   DnsIpAddresses?: string[] | undefined;
 
   /**
-   * <p>Specifies a Kerberos prinicpal, which is an identity in your Kerberos realm that has
+   * <p>Specifies a Kerberos principal, which is an identity in your Kerberos realm that has
    *       permission to access the files, folders, and file metadata in your SMB file server.</p>
    *          <p>A Kerberos principal might look like <code>HOST/kerberosuser@MYDOMAIN.ORG</code>.</p>
    *          <p>Principal names are case sensitive. Your DataSync task execution will fail if
@@ -3841,7 +3841,7 @@ export interface DescribeLocationSmbResponse {
   CreationTime?: Date | undefined;
 
   /**
-   * <p>The IPv4 addresses for the DNS servers that your SMB file server belongs to. This element
+   * <p>The IPv4 or IPv6 addresses for the DNS servers that your SMB file server belongs to. This element
    *       applies only if <code>AuthenticationType</code> is set to <code>KERBEROS</code>.</p>
    * @public
    */
@@ -4731,8 +4731,8 @@ export interface ListLocationsRequest {
  */
 export interface LocationListEntry {
   /**
-   * <p>The Amazon Resource Name (ARN) of the location. For Network File System (NFS) or Amazon
-   *       EFS, the location is the export path. For Amazon S3, the location is the prefix path that you
+   * <p>The Amazon Resource Name (ARN) of the location. For Network File System (NFS) or Amazon EFS,
+   *       the location is the export path. For Amazon S3, the location is the prefix path that you
    *       want to mount and use as the root of the location.</p>
    * @public
    */
@@ -4747,8 +4747,8 @@ export interface LocationListEntry {
    *       <code>s3</code>).</p>
    *          <p>GLOBAL_ID is the globally unique identifier of the resource that backs the location. An
    *       example for EFS is <code>us-east-2.fs-abcd1234</code>. An example for Amazon S3 is the bucket
-   *       name, such as <code>myBucket</code>. An example for NFS is a valid IPv4 address or a hostname
-   *       that is compliant with Domain Name Service (DNS).</p>
+   *       name, such as <code>myBucket</code>. An example for NFS is a valid IPv4 or IPv6 address or a hostname
+   *       that is compliant with DNS.</p>
    *          <p>SUBDIR is a valid file system path, delimited by forward slashes as is the *nix
    *       convention. For NFS and Amazon EFS, it's the export path to mount the location. For
    *       Amazon S3, it's the prefix path that you mount to and treat as the root of the
@@ -5641,7 +5641,7 @@ export interface UpdateLocationNfsRequest {
   Subdirectory?: string | undefined;
 
   /**
-   * <p>Specifies the DNS name or IP version 4 (IPv4) address of the NFS file server that your
+   * <p>Specifies the DNS name or IP address (IPv4 or IPv6) of the NFS file server that your
    *         DataSync agent connects to.</p>
    * @public
    */
@@ -5698,7 +5698,7 @@ export interface UpdateLocationObjectStorageRequest {
   Subdirectory?: string | undefined;
 
   /**
-   * <p>Specifies the domain name or IP version 4 (IPv4) address of the object storage server that
+   * <p>Specifies the domain name or IP address (IPv4 or IPv6) of the object storage server that
    *       your DataSync agent connects to.</p>
    * @public
    */
@@ -5714,6 +5714,11 @@ export interface UpdateLocationObjectStorageRequest {
   /**
    * <p>Specifies the secret key (for example, a password) if credentials are required to
    *       authenticate with the object storage server.</p>
+   *          <note>
+   *             <p>If you provide a secret using <code>SecretKey</code>, but do not provide secret
+   *         configuration details using <code>CmkSecretConfig</code> or <code>CustomSecretConfig</code>,
+   *         then DataSync stores the token using your Amazon Web Services account's Secrets Manager secret.</p>
+   *          </note>
    * @public
    */
   SecretKey?: string | undefined;
@@ -5875,16 +5880,10 @@ export interface UpdateLocationSmbRequest {
   Subdirectory?: string | undefined;
 
   /**
-   * <p>Specifies the domain name or IP address of the SMB file server that your DataSync agent connects to.</p>
-   *          <p>Remember the following when configuring this parameter:</p>
-   *          <ul>
-   *             <li>
-   *                <p>You can't specify an IP version 6 (IPv6) address.</p>
-   *             </li>
-   *             <li>
-   *                <p>If you're using Kerberos authentication, you must specify a domain name.</p>
-   *             </li>
-   *          </ul>
+   * <p>Specifies the domain name or IP address (IPv4 or IPv6) of the SMB file server that your DataSync agent connects to.</p>
+   *          <note>
+   *             <p>If you're using Kerberos authentication, you must specify a domain name.</p>
+   *          </note>
    * @public
    */
   ServerHostname?: string | undefined;
@@ -5939,7 +5938,7 @@ export interface UpdateLocationSmbRequest {
   AuthenticationType?: SmbAuthenticationType | undefined;
 
   /**
-   * <p>Specifies the IPv4 addresses for the DNS servers that your SMB file server belongs to.
+   * <p>Specifies the IP addresses (IPv4 or IPv6) for the DNS servers that your SMB file server belongs to.
    *       This parameter applies only if <code>AuthenticationType</code> is set to
    *       <code>KERBEROS</code>.</p>
    *          <p>If you have multiple domains in your environment, configuring this parameter makes sure
