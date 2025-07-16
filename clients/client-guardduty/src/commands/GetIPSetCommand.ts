@@ -49,6 +49,7 @@ export interface GetIPSetCommandOutput extends GetIPSetResponse, __MetadataBeare
  * //   Tags: { // TagMap
  * //     "<keys>": "STRING_VALUE",
  * //   },
+ * //   ExpectedBucketOwner: "STRING_VALUE",
  * // };
  *
  * ```

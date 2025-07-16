@@ -48,6 +48,7 @@ export interface CreateIPSetCommandOutput extends CreateIPSetResponse, __Metadat
  *   Tags: { // TagMap
  *     "<keys>": "STRING_VALUE",
  *   },
+ *   ExpectedBucketOwner: "STRING_VALUE",
  * };
  * const command = new CreateIPSetCommand(input);
  * const response = await client.send(command);
@@ -62,6 +63,9 @@ export interface CreateIPSetCommandOutput extends CreateIPSetResponse, __Metadat
  * @see {@link CreateIPSetCommandInput} for command's `input` shape.
  * @see {@link CreateIPSetCommandOutput} for command's `response` shape.
  * @see {@link GuardDutyClientResolvedConfig | config} for GuardDutyClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>An access denied exception object.</p>
  *
  * @throws {@link BadRequestException} (client fault)
  *  <p>A bad request exception object.</p>

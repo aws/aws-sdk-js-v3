@@ -3199,6 +3199,12 @@ export interface CreateIPSetRequest {
    * @public
    */
   Tags?: Record<string, string> | undefined;
+
+  /**
+   * <p>The Amazon Web Services account ID that owns the Amazon S3 bucket specified in the <b>location</b> parameter.</p>
+   * @public
+   */
+  ExpectedBucketOwner?: string | undefined;
 }
 
 /**
@@ -3556,6 +3562,12 @@ export interface CreateThreatIntelSetRequest {
    * @public
    */
   Tags?: Record<string, string> | undefined;
+
+  /**
+   * <p>The Amazon Web Services account ID that owns the Amazon S3 bucket specified in the <b>location</b> parameter.</p>
+   * @public
+   */
+  ExpectedBucketOwner?: string | undefined;
 }
 
 /**

@@ -599,6 +599,7 @@ export const se_CreateIPSetCommand = async (
     take(input, {
       activate: [, , `Activate`],
       clientToken: [true, (_) => _ ?? generateIdempotencyToken(), `ClientToken`],
+      expectedBucketOwner: [, , `ExpectedBucketOwner`],
       format: [, , `Format`],
       location: [, , `Location`],
       name: [, , `Name`],
@@ -724,6 +725,7 @@ export const se_CreateThreatIntelSetCommand = async (
     take(input, {
       activate: [, , `Activate`],
       clientToken: [true, (_) => _ ?? generateIdempotencyToken(), `ClientToken`],
+      expectedBucketOwner: [, , `ExpectedBucketOwner`],
       format: [, , `Format`],
       location: [, , `Location`],
       name: [, , `Name`],
@@ -1893,6 +1895,7 @@ export const se_UpdateIPSetCommand = async (
   body = JSON.stringify(
     take(input, {
       activate: [, , `Activate`],
+      expectedBucketOwner: [, , `ExpectedBucketOwner`],
       location: [, , `Location`],
       name: [, , `Name`],
     })
@@ -2043,6 +2046,7 @@ export const se_UpdateThreatIntelSetCommand = async (
   body = JSON.stringify(
     take(input, {
       activate: [, , `Activate`],
+      expectedBucketOwner: [, , `ExpectedBucketOwner`],
       location: [, , `Location`],
       name: [, , `Name`],
     })
@@ -2769,6 +2773,7 @@ export const de_GetIPSetCommand = async (
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
+    ExpectedBucketOwner: [, __expectString, `expectedBucketOwner`],
     Format: [, __expectString, `format`],
     Location: [, __expectString, `location`],
     Name: [, __expectString, `name`],
@@ -2952,6 +2957,7 @@ export const de_GetThreatIntelSetCommand = async (
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
+    ExpectedBucketOwner: [, __expectString, `expectedBucketOwner`],
     Format: [, __expectString, `format`],
     Location: [, __expectString, `location`],
     Name: [, __expectString, `name`],

@@ -47,6 +47,7 @@ export interface CreateThreatIntelSetCommandOutput extends CreateThreatIntelSetR
  *   Tags: { // TagMap
  *     "<keys>": "STRING_VALUE",
  *   },
+ *   ExpectedBucketOwner: "STRING_VALUE",
  * };
  * const command = new CreateThreatIntelSetCommand(input);
  * const response = await client.send(command);
@@ -61,6 +62,9 @@ export interface CreateThreatIntelSetCommandOutput extends CreateThreatIntelSetR
  * @see {@link CreateThreatIntelSetCommandInput} for command's `input` shape.
  * @see {@link CreateThreatIntelSetCommandOutput} for command's `response` shape.
  * @see {@link GuardDutyClientResolvedConfig | config} for GuardDutyClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>An access denied exception object.</p>
  *
  * @throws {@link BadRequestException} (client fault)
  *  <p>A bad request exception object.</p>

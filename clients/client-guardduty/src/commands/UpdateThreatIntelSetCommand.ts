@@ -41,6 +41,7 @@ export interface UpdateThreatIntelSetCommandOutput extends UpdateThreatIntelSetR
  *   Name: "STRING_VALUE",
  *   Location: "STRING_VALUE",
  *   Activate: true || false,
+ *   ExpectedBucketOwner: "STRING_VALUE",
  * };
  * const command = new UpdateThreatIntelSetCommand(input);
  * const response = await client.send(command);
@@ -53,6 +54,9 @@ export interface UpdateThreatIntelSetCommandOutput extends UpdateThreatIntelSetR
  * @see {@link UpdateThreatIntelSetCommandInput} for command's `input` shape.
  * @see {@link UpdateThreatIntelSetCommandOutput} for command's `response` shape.
  * @see {@link GuardDutyClientResolvedConfig | config} for GuardDutyClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>An access denied exception object.</p>
  *
  * @throws {@link BadRequestException} (client fault)
  *  <p>A bad request exception object.</p>

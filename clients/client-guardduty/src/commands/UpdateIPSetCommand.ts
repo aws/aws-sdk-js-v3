@@ -41,6 +41,7 @@ export interface UpdateIPSetCommandOutput extends UpdateIPSetResponse, __Metadat
  *   Name: "STRING_VALUE",
  *   Location: "STRING_VALUE",
  *   Activate: true || false,
+ *   ExpectedBucketOwner: "STRING_VALUE",
  * };
  * const command = new UpdateIPSetCommand(input);
  * const response = await client.send(command);
@@ -53,6 +54,9 @@ export interface UpdateIPSetCommandOutput extends UpdateIPSetResponse, __Metadat
  * @see {@link UpdateIPSetCommandInput} for command's `input` shape.
  * @see {@link UpdateIPSetCommandOutput} for command's `response` shape.
  * @see {@link GuardDutyClientResolvedConfig | config} for GuardDutyClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>An access denied exception object.</p>
  *
  * @throws {@link BadRequestException} (client fault)
  *  <p>A bad request exception object.</p>

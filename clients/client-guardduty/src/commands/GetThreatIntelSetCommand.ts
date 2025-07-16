@@ -49,6 +49,7 @@ export interface GetThreatIntelSetCommandOutput extends GetThreatIntelSetRespons
  * //   Tags: { // TagMap
  * //     "<keys>": "STRING_VALUE",
  * //   },
+ * //   ExpectedBucketOwner: "STRING_VALUE",
  * // };
  *
  * ```

@@ -218,6 +218,13 @@ export interface GetIPSetResponse {
    * @public
    */
   Tags?: Record<string, string> | undefined;
+
+  /**
+   * <p>The Amazon Web Services account ID that owns the Amazon S3 bucket specified in the <b>location</b> parameter. This field appears
+   *       in the response only if it was provided during IPSet creation or update.</p>
+   * @public
+   */
+  ExpectedBucketOwner?: string | undefined;
 }
 
 /**
@@ -925,6 +932,13 @@ export interface GetThreatIntelSetResponse {
    * @public
    */
   Tags?: Record<string, string> | undefined;
+
+  /**
+   * <p>The Amazon Web Services account ID that owns the Amazon S3 bucket specified in the <b>location</b> parameter.
+   *       This field appears in the response only if it was provided during ThreatIntelSet creation or update.</p>
+   * @public
+   */
+  ExpectedBucketOwner?: string | undefined;
 }
 
 /**
@@ -2370,6 +2384,12 @@ export interface UpdateIPSetRequest {
    * @public
    */
   Activate?: boolean | undefined;
+
+  /**
+   * <p>The Amazon Web Services account ID that owns the Amazon S3 bucket specified in the <b>location</b> parameter.</p>
+   * @public
+   */
+  ExpectedBucketOwner?: string | undefined;
 }
 
 /**
@@ -2900,6 +2920,12 @@ export interface UpdateThreatIntelSetRequest {
    * @public
    */
   Activate?: boolean | undefined;
+
+  /**
+   * <p>The Amazon Web Services account ID that owns the Amazon S3 bucket specified in the <b>location</b> parameter.</p>
+   * @public
+   */
+  ExpectedBucketOwner?: string | undefined;
 }
 
 /**
