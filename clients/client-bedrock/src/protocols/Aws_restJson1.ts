@@ -41,6 +41,10 @@ import {
 } from "../commands/BatchDeleteEvaluationJobCommand";
 import { CreateCustomModelCommandInput, CreateCustomModelCommandOutput } from "../commands/CreateCustomModelCommand";
 import {
+  CreateCustomModelDeploymentCommandInput,
+  CreateCustomModelDeploymentCommandOutput,
+} from "../commands/CreateCustomModelDeploymentCommand";
+import {
   CreateEvaluationJobCommandInput,
   CreateEvaluationJobCommandOutput,
 } from "../commands/CreateEvaluationJobCommand";
@@ -81,6 +85,10 @@ import {
 } from "../commands/CreateProvisionedModelThroughputCommand";
 import { DeleteCustomModelCommandInput, DeleteCustomModelCommandOutput } from "../commands/DeleteCustomModelCommand";
 import {
+  DeleteCustomModelDeploymentCommandInput,
+  DeleteCustomModelDeploymentCommandOutput,
+} from "../commands/DeleteCustomModelDeploymentCommand";
+import {
   DeleteFoundationModelAgreementCommandInput,
   DeleteFoundationModelAgreementCommandOutput,
 } from "../commands/DeleteFoundationModelAgreementCommand";
@@ -111,6 +119,10 @@ import {
   DeregisterMarketplaceModelEndpointCommandOutput,
 } from "../commands/DeregisterMarketplaceModelEndpointCommand";
 import { GetCustomModelCommandInput, GetCustomModelCommandOutput } from "../commands/GetCustomModelCommand";
+import {
+  GetCustomModelDeploymentCommandInput,
+  GetCustomModelDeploymentCommandOutput,
+} from "../commands/GetCustomModelDeploymentCommand";
 import { GetEvaluationJobCommandInput, GetEvaluationJobCommandOutput } from "../commands/GetEvaluationJobCommand";
 import {
   GetFoundationModelAvailabilityCommandInput,
@@ -150,6 +162,10 @@ import {
   GetUseCaseForModelAccessCommandInput,
   GetUseCaseForModelAccessCommandOutput,
 } from "../commands/GetUseCaseForModelAccessCommand";
+import {
+  ListCustomModelDeploymentsCommandInput,
+  ListCustomModelDeploymentsCommandOutput,
+} from "../commands/ListCustomModelDeploymentsCommand";
 import { ListCustomModelsCommandInput, ListCustomModelsCommandOutput } from "../commands/ListCustomModelsCommand";
 import { ListEvaluationJobsCommandInput, ListEvaluationJobsCommandOutput } from "../commands/ListEvaluationJobsCommand";
 import {
@@ -238,6 +254,7 @@ import {
   CustomMetricBedrockEvaluatorModel,
   CustomMetricDefinition,
   CustomMetricEvaluatorModelConfig,
+  CustomModelDeploymentSummary,
   CustomModelSummary,
   DistillationConfig,
   EndpointConfig,
@@ -310,7 +327,6 @@ import {
   PromptRouterSummary,
   PromptRouterTargetModel,
   PromptTemplate,
-  ProvisionedModelSummary,
   QueryTransformationConfiguration,
   RatingScaleItem,
   RatingScaleItemValue,
@@ -349,6 +365,7 @@ import {
   KnowledgeBaseRetrieveAndGenerateConfiguration,
   KnowledgeBaseVectorSearchConfiguration,
   ModelCustomizationJobSummary,
+  ProvisionedModelSummary,
   RAGConfig,
   RetrievalFilter,
   RetrieveAndGenerateConfiguration,
@@ -401,6 +418,32 @@ export const se_CreateCustomModelCommand = async (
       modelSourceConfig: (_) => _json(_),
       modelTags: (_) => _json(_),
       roleArn: [],
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1CreateCustomModelDeploymentCommand
+ */
+export const se_CreateCustomModelDeploymentCommand = async (
+  input: CreateCustomModelDeploymentCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/model-customization/custom-model-deployments");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      clientRequestToken: [true, (_) => _ ?? generateIdempotencyToken()],
+      description: [],
+      modelArn: [],
+      modelDeploymentName: [],
+      tags: (_) => _json(_),
     })
   );
   b.m("POST").h(headers).b(body);
@@ -766,6 +809,27 @@ export const se_DeleteCustomModelCommand = async (
 };
 
 /**
+ * serializeAws_restJson1DeleteCustomModelDeploymentCommand
+ */
+export const se_DeleteCustomModelDeploymentCommand = async (
+  input: DeleteCustomModelDeploymentCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/model-customization/custom-model-deployments/{customModelDeploymentIdentifier}");
+  b.p(
+    "customModelDeploymentIdentifier",
+    () => input.customModelDeploymentIdentifier!,
+    "{customModelDeploymentIdentifier}",
+    false
+  );
+  let body: any;
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1DeleteFoundationModelAgreementCommand
  */
 export const se_DeleteFoundationModelAgreementCommand = async (
@@ -928,6 +992,27 @@ export const se_GetCustomModelCommand = async (
   const headers: any = {};
   b.bp("/custom-models/{modelIdentifier}");
   b.p("modelIdentifier", () => input.modelIdentifier!, "{modelIdentifier}", false);
+  let body: any;
+  b.m("GET").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1GetCustomModelDeploymentCommand
+ */
+export const se_GetCustomModelDeploymentCommand = async (
+  input: GetCustomModelDeploymentCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/model-customization/custom-model-deployments/{customModelDeploymentIdentifier}");
+  b.p(
+    "customModelDeploymentIdentifier",
+    () => input.customModelDeploymentIdentifier!,
+    "{customModelDeploymentIdentifier}",
+    false
+  );
   let body: any;
   b.m("GET").h(headers).b(body);
   return b.build();
@@ -1171,6 +1256,32 @@ export const se_GetUseCaseForModelAccessCommand = async (
   b.bp("/use-case-for-model-access");
   let body: any;
   b.m("GET").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1ListCustomModelDeploymentsCommand
+ */
+export const se_ListCustomModelDeploymentsCommand = async (
+  input: ListCustomModelDeploymentsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/model-customization/custom-model-deployments");
+  const query: any = map({
+    [_cB]: [() => input.createdBefore !== void 0, () => __serializeDateTime(input[_cB]!).toString()],
+    [_cA]: [() => input.createdAfter !== void 0, () => __serializeDateTime(input[_cA]!).toString()],
+    [_nC]: [, input[_nC]!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
+    [_nT]: [, input[_nT]!],
+    [_sB]: [, input[_sB]!],
+    [_sO]: [, input[_sO]!],
+    [_sE]: [, input[_sE]!],
+    [_mAE]: [, input[_mAE]!],
+  });
+  let body: any;
+  b.m("GET").h(headers).q(query).b(body);
   return b.build();
 };
 
@@ -1793,7 +1904,7 @@ export const de_CreateCustomModelCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateCustomModelCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 300) {
+  if (output.statusCode !== 202 && output.statusCode >= 300) {
     return de_CommandError(output, context);
   }
   const contents: any = map({
@@ -1802,6 +1913,27 @@ export const de_CreateCustomModelCommand = async (
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
     modelArn: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1CreateCustomModelDeploymentCommand
+ */
+export const de_CreateCustomModelDeploymentCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateCustomModelDeploymentCommandOutput> => {
+  if (output.statusCode !== 202 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    customModelDeploymentArn: __expectString,
   });
   Object.assign(contents, doc);
   return contents;
@@ -2082,6 +2214,23 @@ export const de_DeleteCustomModelCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1DeleteCustomModelDeploymentCommand
+ */
+export const de_DeleteCustomModelDeploymentCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteCustomModelDeploymentCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1DeleteFoundationModelAgreementCommand
  */
 export const de_DeleteFoundationModelAgreementCommand = async (
@@ -2266,6 +2415,34 @@ export const de_GetCustomModelCommand = async (
     trainingMetrics: (_) => de_TrainingMetrics(_, context),
     validationDataConfig: _json,
     validationMetrics: (_) => de_ValidationMetrics(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1GetCustomModelDeploymentCommand
+ */
+export const de_GetCustomModelDeploymentCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetCustomModelDeploymentCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    createdAt: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    customModelDeploymentArn: __expectString,
+    description: __expectString,
+    failureMessage: __expectString,
+    lastUpdatedAt: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    modelArn: __expectString,
+    modelDeploymentName: __expectString,
+    status: __expectString,
   });
   Object.assign(contents, doc);
   return contents;
@@ -2712,6 +2889,28 @@ export const de_GetUseCaseForModelAccessCommand = async (
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
     formData: context.base64Decoder,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListCustomModelDeploymentsCommand
+ */
+export const de_ListCustomModelDeploymentsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListCustomModelDeploymentsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    modelDeploymentSummaries: (_) => de_CustomModelDeploymentSummaryList(_, context),
+    nextToken: __expectString,
   });
   Object.assign(contents, doc);
   return contents;
@@ -4247,6 +4446,33 @@ const de_CustomMetricDefinition = (output: any, context: __SerdeContext): Custom
 // de_CustomMetricEvaluatorModelConfig omitted.
 
 /**
+ * deserializeAws_restJson1CustomModelDeploymentSummary
+ */
+const de_CustomModelDeploymentSummary = (output: any, context: __SerdeContext): CustomModelDeploymentSummary => {
+  return take(output, {
+    createdAt: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    customModelDeploymentArn: __expectString,
+    customModelDeploymentName: __expectString,
+    failureMessage: __expectString,
+    lastUpdatedAt: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    modelArn: __expectString,
+    status: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1CustomModelDeploymentSummaryList
+ */
+const de_CustomModelDeploymentSummaryList = (output: any, context: __SerdeContext): CustomModelDeploymentSummary[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_CustomModelDeploymentSummary(entry, context);
+    });
+  return retVal;
+};
+
+/**
  * deserializeAws_restJson1CustomModelSummary
  */
 const de_CustomModelSummary = (output: any, context: __SerdeContext): CustomModelSummary => {
@@ -5404,6 +5630,8 @@ const _bIT = "byInferenceType";
 const _bMAE = "baseModelArnEquals";
 const _bOM = "byOutputModality";
 const _bP = "byProvider";
+const _cA = "createdAfter";
+const _cB = "createdBefore";
 const _cTA = "creationTimeAfter";
 const _cTB = "creationTimeBefore";
 const _fMAE = "foundationModelArnEquals";

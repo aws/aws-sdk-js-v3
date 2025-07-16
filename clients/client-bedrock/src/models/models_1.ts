@@ -4,7 +4,7 @@ import { SENSITIVE_STRING } from "@smithy/smithy-client";
 import {
   AgreementAvailability,
   ApplicationType,
-  AuthorizationStatus,
+  CommitmentDuration,
   CustomizationConfig,
   CustomizationType,
   EvaluationConfig,
@@ -24,6 +24,7 @@ import {
   ImplicitFilterConfigurationFilterSensitiveLog,
   OrchestrationConfiguration,
   OutputDataConfig,
+  ProvisionedModelStatus,
   RetrieveAndGenerateType,
   SearchType,
   SortJobsBy,
@@ -38,6 +39,198 @@ import {
   VectorSearchRerankingConfigurationFilterSensitiveLog,
   VpcConfig,
 } from "./models_0";
+
+/**
+ * <p>A summary of information about a Provisioned Throughput.</p> <p>This data type is used in the following API operations:</p> <ul> <li> <p> <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_ListProvisionedModelThroughputs.html#API_ListProvisionedModelThroughputs_ResponseSyntax">ListProvisionedThroughputs response</a> </p> </li> </ul>
+ * @public
+ */
+export interface ProvisionedModelSummary {
+  /**
+   * <p>The name of the Provisioned Throughput.</p>
+   * @public
+   */
+  provisionedModelName: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Provisioned Throughput.</p>
+   * @public
+   */
+  provisionedModelArn: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the model associated with the Provisioned Throughput.</p>
+   * @public
+   */
+  modelArn: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the model requested to be associated to this Provisioned Throughput. This value differs from the <code>modelArn</code> if updating hasn't completed.</p>
+   * @public
+   */
+  desiredModelArn: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the base model for which the Provisioned Throughput was created, or of the base model that the custom model for which the Provisioned Throughput was created was customized.</p>
+   * @public
+   */
+  foundationModelArn: string | undefined;
+
+  /**
+   * <p>The number of model units allocated to the Provisioned Throughput.</p>
+   * @public
+   */
+  modelUnits: number | undefined;
+
+  /**
+   * <p>The number of model units that was requested to be allocated to the Provisioned Throughput.</p>
+   * @public
+   */
+  desiredModelUnits: number | undefined;
+
+  /**
+   * <p>The status of the Provisioned Throughput.</p>
+   * @public
+   */
+  status: ProvisionedModelStatus | undefined;
+
+  /**
+   * <p>The duration for which the Provisioned Throughput was committed.</p>
+   * @public
+   */
+  commitmentDuration?: CommitmentDuration | undefined;
+
+  /**
+   * <p>The timestamp for when the commitment term of the Provisioned Throughput expires.</p>
+   * @public
+   */
+  commitmentExpirationTime?: Date | undefined;
+
+  /**
+   * <p>The time that the Provisioned Throughput was created. </p>
+   * @public
+   */
+  creationTime: Date | undefined;
+
+  /**
+   * <p>The time that the Provisioned Throughput was last modified. </p>
+   * @public
+   */
+  lastModifiedTime: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListProvisionedModelThroughputsResponse {
+  /**
+   * <p>If there are more results than the number you specified in the <code>maxResults</code> field, this value is returned. To see the next batch of results, include this value in the <code>nextToken</code> field in another list request.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>A list of summaries, one for each Provisioned Throughput in the response.</p>
+   * @public
+   */
+  provisionedModelSummaries?: ProvisionedModelSummary[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateProvisionedModelThroughputRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) or name of the Provisioned Throughput to update.</p>
+   * @public
+   */
+  provisionedModelId: string | undefined;
+
+  /**
+   * <p>The new name for this Provisioned Throughput.</p>
+   * @public
+   */
+  desiredProvisionedModelName?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the new model to associate with this Provisioned Throughput. You can't specify this field if this Provisioned Throughput is associated with a base model.</p> <p>If this Provisioned Throughput is associated with a custom model, you can specify one of the following options:</p> <ul> <li> <p>The base model from which the custom model was customized.</p> </li> <li> <p>Another custom model that was customized from the same base model as the custom model.</p> </li> </ul>
+   * @public
+   */
+  desiredModelId?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateProvisionedModelThroughputResponse {}
+
+/**
+ * @public
+ */
+export interface CreateFoundationModelAgreementRequest {
+  /**
+   * <p>An offer token encapsulates the information for an offer.</p>
+   * @public
+   */
+  offerToken: string | undefined;
+
+  /**
+   * <p>Model Id of the model for the access request.</p>
+   * @public
+   */
+  modelId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateFoundationModelAgreementResponse {
+  /**
+   * <p>Model Id of the model for the access request.</p>
+   * @public
+   */
+  modelId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteFoundationModelAgreementRequest {
+  /**
+   * <p>Model Id of the model access to delete.</p>
+   * @public
+   */
+  modelId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteFoundationModelAgreementResponse {}
+
+/**
+ * @public
+ */
+export interface GetFoundationModelAvailabilityRequest {
+  /**
+   * <p>The model Id of the foundation model.</p>
+   * @public
+   */
+  modelId: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const AuthorizationStatus = {
+  AUTHORIZED: "AUTHORIZED",
+  NOT_AUTHORIZED: "NOT_AUTHORIZED",
+} as const;
+
+/**
+ * @public
+ */
+export type AuthorizationStatus = (typeof AuthorizationStatus)[keyof typeof AuthorizationStatus];
 
 /**
  * @public

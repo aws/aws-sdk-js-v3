@@ -14,6 +14,11 @@ import {
   CreateCustomModelCommandOutput,
 } from "./commands/CreateCustomModelCommand";
 import {
+  CreateCustomModelDeploymentCommand,
+  CreateCustomModelDeploymentCommandInput,
+  CreateCustomModelDeploymentCommandOutput,
+} from "./commands/CreateCustomModelDeploymentCommand";
+import {
   CreateEvaluationJobCommand,
   CreateEvaluationJobCommandInput,
   CreateEvaluationJobCommandOutput,
@@ -79,6 +84,11 @@ import {
   DeleteCustomModelCommandOutput,
 } from "./commands/DeleteCustomModelCommand";
 import {
+  DeleteCustomModelDeploymentCommand,
+  DeleteCustomModelDeploymentCommandInput,
+  DeleteCustomModelDeploymentCommandOutput,
+} from "./commands/DeleteCustomModelDeploymentCommand";
+import {
   DeleteFoundationModelAgreementCommand,
   DeleteFoundationModelAgreementCommandInput,
   DeleteFoundationModelAgreementCommandOutput,
@@ -128,6 +138,11 @@ import {
   GetCustomModelCommandInput,
   GetCustomModelCommandOutput,
 } from "./commands/GetCustomModelCommand";
+import {
+  GetCustomModelDeploymentCommand,
+  GetCustomModelDeploymentCommandInput,
+  GetCustomModelDeploymentCommandOutput,
+} from "./commands/GetCustomModelDeploymentCommand";
 import {
   GetEvaluationJobCommand,
   GetEvaluationJobCommandInput,
@@ -203,6 +218,11 @@ import {
   GetUseCaseForModelAccessCommandInput,
   GetUseCaseForModelAccessCommandOutput,
 } from "./commands/GetUseCaseForModelAccessCommand";
+import {
+  ListCustomModelDeploymentsCommand,
+  ListCustomModelDeploymentsCommandInput,
+  ListCustomModelDeploymentsCommandOutput,
+} from "./commands/ListCustomModelDeploymentsCommand";
 import {
   ListCustomModelsCommand,
   ListCustomModelsCommandInput,
@@ -333,6 +353,7 @@ import {
 const commands = {
   BatchDeleteEvaluationJobCommand,
   CreateCustomModelCommand,
+  CreateCustomModelDeploymentCommand,
   CreateEvaluationJobCommand,
   CreateFoundationModelAgreementCommand,
   CreateGuardrailCommand,
@@ -346,6 +367,7 @@ const commands = {
   CreatePromptRouterCommand,
   CreateProvisionedModelThroughputCommand,
   DeleteCustomModelCommand,
+  DeleteCustomModelDeploymentCommand,
   DeleteFoundationModelAgreementCommand,
   DeleteGuardrailCommand,
   DeleteImportedModelCommand,
@@ -356,6 +378,7 @@ const commands = {
   DeleteProvisionedModelThroughputCommand,
   DeregisterMarketplaceModelEndpointCommand,
   GetCustomModelCommand,
+  GetCustomModelDeploymentCommand,
   GetEvaluationJobCommand,
   GetFoundationModelCommand,
   GetFoundationModelAvailabilityCommand,
@@ -371,6 +394,7 @@ const commands = {
   GetPromptRouterCommand,
   GetProvisionedModelThroughputCommand,
   GetUseCaseForModelAccessCommand,
+  ListCustomModelDeploymentsCommand,
   ListCustomModelsCommand,
   ListEvaluationJobsCommand,
   ListFoundationModelAgreementOffersCommand,
@@ -432,6 +456,23 @@ export interface Bedrock {
     args: CreateCustomModelCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateCustomModelCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateCustomModelDeploymentCommand}
+   */
+  createCustomModelDeployment(
+    args: CreateCustomModelDeploymentCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateCustomModelDeploymentCommandOutput>;
+  createCustomModelDeployment(
+    args: CreateCustomModelDeploymentCommandInput,
+    cb: (err: any, data?: CreateCustomModelDeploymentCommandOutput) => void
+  ): void;
+  createCustomModelDeployment(
+    args: CreateCustomModelDeploymentCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateCustomModelDeploymentCommandOutput) => void
   ): void;
 
   /**
@@ -653,6 +694,23 @@ export interface Bedrock {
   ): void;
 
   /**
+   * @see {@link DeleteCustomModelDeploymentCommand}
+   */
+  deleteCustomModelDeployment(
+    args: DeleteCustomModelDeploymentCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteCustomModelDeploymentCommandOutput>;
+  deleteCustomModelDeployment(
+    args: DeleteCustomModelDeploymentCommandInput,
+    cb: (err: any, data?: DeleteCustomModelDeploymentCommandOutput) => void
+  ): void;
+  deleteCustomModelDeployment(
+    args: DeleteCustomModelDeploymentCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteCustomModelDeploymentCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DeleteFoundationModelAgreementCommand}
    */
   deleteFoundationModelAgreement(
@@ -815,6 +873,23 @@ export interface Bedrock {
     args: GetCustomModelCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetCustomModelCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetCustomModelDeploymentCommand}
+   */
+  getCustomModelDeployment(
+    args: GetCustomModelDeploymentCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetCustomModelDeploymentCommandOutput>;
+  getCustomModelDeployment(
+    args: GetCustomModelDeploymentCommandInput,
+    cb: (err: any, data?: GetCustomModelDeploymentCommandOutput) => void
+  ): void;
+  getCustomModelDeployment(
+    args: GetCustomModelDeploymentCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetCustomModelDeploymentCommandOutput) => void
   ): void;
 
   /**
@@ -1060,6 +1135,24 @@ export interface Bedrock {
     args: GetUseCaseForModelAccessCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetUseCaseForModelAccessCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListCustomModelDeploymentsCommand}
+   */
+  listCustomModelDeployments(): Promise<ListCustomModelDeploymentsCommandOutput>;
+  listCustomModelDeployments(
+    args: ListCustomModelDeploymentsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListCustomModelDeploymentsCommandOutput>;
+  listCustomModelDeployments(
+    args: ListCustomModelDeploymentsCommandInput,
+    cb: (err: any, data?: ListCustomModelDeploymentsCommandOutput) => void
+  ): void;
+  listCustomModelDeployments(
+    args: ListCustomModelDeploymentsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListCustomModelDeploymentsCommandOutput) => void
   ): void;
 
   /**

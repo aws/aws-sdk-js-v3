@@ -666,6 +666,326 @@ export interface UpdateMarketplaceModelEndpointResponse {
 }
 
 /**
+ * @public
+ */
+export interface CreateCustomModelDeploymentRequest {
+  /**
+   * <p>The name for the custom model deployment. The name must be unique within your Amazon Web Services account and Region.</p>
+   * @public
+   */
+  modelDeploymentName: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the custom model to deploy for on-demand inference. The custom model must be in the <code>Active</code> state.</p>
+   * @public
+   */
+  modelArn: string | undefined;
+
+  /**
+   * <p>A description for the custom model deployment to help you identify its purpose.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>Tags to assign to the custom model deployment. You can use tags to organize and track your Amazon Web Services resources for cost allocation and management purposes.</p>
+   * @public
+   */
+  tags?: Tag[] | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier to ensure that the operation completes no more than one time. If this token matches a previous request, Amazon Bedrock ignores the request, but does not return an error. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/model-customization-idempotency.html">Ensuring idempotency</a>.</p>
+   * @public
+   */
+  clientRequestToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateCustomModelDeploymentResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the custom model deployment. Use this ARN as the <code>modelId</code> parameter when invoking the model with the <code>InvokeModel</code> or <code>Converse</code> operations.</p>
+   * @public
+   */
+  customModelDeploymentArn: string | undefined;
+}
+
+/**
+ * <p>The request contains more tags than can be associated with a resource (50 tags per resource). The maximum number of tags includes both existing tags and those included in your current request. </p>
+ * @public
+ */
+export class TooManyTagsException extends __BaseException {
+  readonly name: "TooManyTagsException" = "TooManyTagsException";
+  readonly $fault: "client" = "client";
+  /**
+   * <p>The name of the resource with too many tags.</p>
+   * @public
+   */
+  resourceName?: string | undefined;
+
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<TooManyTagsException, __BaseException>) {
+    super({
+      name: "TooManyTagsException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TooManyTagsException.prototype);
+    this.resourceName = opts.resourceName;
+  }
+}
+
+/**
+ * @public
+ */
+export interface DeleteCustomModelDeploymentRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) or name of the custom model deployment to delete.</p>
+   * @public
+   */
+  customModelDeploymentIdentifier: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteCustomModelDeploymentResponse {}
+
+/**
+ * @public
+ */
+export interface GetCustomModelDeploymentRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) or name of the custom model deployment to retrieve information about.</p>
+   * @public
+   */
+  customModelDeploymentIdentifier: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const CustomModelDeploymentStatus = {
+  ACTIVE: "Active",
+  CREATING: "Creating",
+  FAILED: "Failed",
+} as const;
+
+/**
+ * @public
+ */
+export type CustomModelDeploymentStatus =
+  (typeof CustomModelDeploymentStatus)[keyof typeof CustomModelDeploymentStatus];
+
+/**
+ * @public
+ */
+export interface GetCustomModelDeploymentResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the custom model deployment.</p>
+   * @public
+   */
+  customModelDeploymentArn: string | undefined;
+
+  /**
+   * <p>The name of the custom model deployment.</p>
+   * @public
+   */
+  modelDeploymentName: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the custom model associated with this deployment.</p>
+   * @public
+   */
+  modelArn: string | undefined;
+
+  /**
+   * <p>The date and time when the custom model deployment was created.</p>
+   * @public
+   */
+  createdAt: Date | undefined;
+
+  /**
+   * <p>The status of the custom model deployment. Possible values are:</p> <ul> <li> <p> <code>CREATING</code> - The deployment is being set up and prepared for inference.</p> </li> <li> <p> <code>ACTIVE</code> - The deployment is ready and available for inference requests.</p> </li> <li> <p> <code>FAILED</code> - The deployment failed to be created or became unavailable.</p> </li> </ul>
+   * @public
+   */
+  status: CustomModelDeploymentStatus | undefined;
+
+  /**
+   * <p>The description of the custom model deployment.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>If the deployment status is <code>FAILED</code>, this field contains a message describing the failure reason.</p>
+   * @public
+   */
+  failureMessage?: string | undefined;
+
+  /**
+   * <p>The date and time when the custom model deployment was last updated.</p>
+   * @public
+   */
+  lastUpdatedAt?: Date | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const SortModelsBy = {
+  CREATION_TIME: "CreationTime",
+} as const;
+
+/**
+ * @public
+ */
+export type SortModelsBy = (typeof SortModelsBy)[keyof typeof SortModelsBy];
+
+/**
+ * @public
+ * @enum
+ */
+export const SortOrder = {
+  ASCENDING: "Ascending",
+  DESCENDING: "Descending",
+} as const;
+
+/**
+ * @public
+ */
+export type SortOrder = (typeof SortOrder)[keyof typeof SortOrder];
+
+/**
+ * @public
+ */
+export interface ListCustomModelDeploymentsRequest {
+  /**
+   * <p>Filters deployments created before the specified date and time.</p>
+   * @public
+   */
+  createdBefore?: Date | undefined;
+
+  /**
+   * <p>Filters deployments created after the specified date and time.</p>
+   * @public
+   */
+  createdAfter?: Date | undefined;
+
+  /**
+   * <p>Filters deployments whose names contain the specified string. </p>
+   * @public
+   */
+  nameContains?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return in a single call.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p>The token for the next set of results. Use this token to retrieve additional results when the response is truncated.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>The field to sort the results by. The only supported value is <code>CreationTime</code>.</p>
+   * @public
+   */
+  sortBy?: SortModelsBy | undefined;
+
+  /**
+   * <p>The sort order for the results. Valid values are <code>Ascending</code> and <code>Descending</code>. Default is <code>Descending</code>.</p>
+   * @public
+   */
+  sortOrder?: SortOrder | undefined;
+
+  /**
+   * <p>Filters deployments by status. Valid values are <code>CREATING</code>, <code>ACTIVE</code>, and <code>FAILED</code>.</p>
+   * @public
+   */
+  statusEquals?: CustomModelDeploymentStatus | undefined;
+
+  /**
+   * <p>Filters deployments by the Amazon Resource Name (ARN) of the associated custom model.</p>
+   * @public
+   */
+  modelArnEquals?: string | undefined;
+}
+
+/**
+ * <p>Contains summary information about a custom model deployment, including its ARN, name, status, and associated custom model.</p>
+ * @public
+ */
+export interface CustomModelDeploymentSummary {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the custom model deployment.</p>
+   * @public
+   */
+  customModelDeploymentArn: string | undefined;
+
+  /**
+   * <p>The name of the custom model deployment.</p>
+   * @public
+   */
+  customModelDeploymentName: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the custom model associated with this deployment.</p>
+   * @public
+   */
+  modelArn: string | undefined;
+
+  /**
+   * <p>The date and time when the custom model deployment was created.</p>
+   * @public
+   */
+  createdAt: Date | undefined;
+
+  /**
+   * <p>The status of the custom model deployment. Possible values are <code>CREATING</code>, <code>ACTIVE</code>, and <code>FAILED</code>.</p>
+   * @public
+   */
+  status: CustomModelDeploymentStatus | undefined;
+
+  /**
+   * <p>The date and time when the custom model deployment was last modified.</p>
+   * @public
+   */
+  lastUpdatedAt?: Date | undefined;
+
+  /**
+   * <p>If the deployment status is <code>FAILED</code>, this field contains a message describing the failure reason.</p>
+   * @public
+   */
+  failureMessage?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListCustomModelDeploymentsResponse {
+  /**
+   * <p>The token for the next set of results. This value is null when there are no more results to return.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>A list of custom model deployment summaries.</p>
+   * @public
+   */
+  modelDeploymentSummaries?: CustomModelDeploymentSummary[] | undefined;
+}
+
+/**
  * <p>The Amazon S3 data source of the model to import. </p>
  * @public
  */
@@ -765,33 +1085,6 @@ export interface CreateCustomModelResponse {
    * @public
    */
   modelArn: string | undefined;
-}
-
-/**
- * <p>The request contains more tags than can be associated with a resource (50 tags per resource). The maximum number of tags includes both existing tags and those included in your current request. </p>
- * @public
- */
-export class TooManyTagsException extends __BaseException {
-  readonly name: "TooManyTagsException" = "TooManyTagsException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>The name of the resource with too many tags.</p>
-   * @public
-   */
-  resourceName?: string | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<TooManyTagsException, __BaseException>) {
-    super({
-      name: "TooManyTagsException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, TooManyTagsException.prototype);
-    this.resourceName = opts.resourceName;
-  }
 }
 
 /**
@@ -1275,33 +1568,6 @@ export interface GetCustomModelResponse {
    */
   failureMessage?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const SortModelsBy = {
-  CREATION_TIME: "CreationTime",
-} as const;
-
-/**
- * @public
- */
-export type SortModelsBy = (typeof SortModelsBy)[keyof typeof SortModelsBy];
-
-/**
- * @public
- * @enum
- */
-export const SortOrder = {
-  ASCENDING: "Ascending",
-  DESCENDING: "Descending",
-} as const;
-
-/**
- * @public
- */
-export type SortOrder = (typeof SortOrder)[keyof typeof SortOrder];
 
 /**
  * @public
@@ -7302,198 +7568,6 @@ export interface ListProvisionedModelThroughputsRequest {
    */
   sortOrder?: SortOrder | undefined;
 }
-
-/**
- * <p>A summary of information about a Provisioned Throughput.</p> <p>This data type is used in the following API operations:</p> <ul> <li> <p> <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_ListProvisionedModelThroughputs.html#API_ListProvisionedModelThroughputs_ResponseSyntax">ListProvisionedThroughputs response</a> </p> </li> </ul>
- * @public
- */
-export interface ProvisionedModelSummary {
-  /**
-   * <p>The name of the Provisioned Throughput.</p>
-   * @public
-   */
-  provisionedModelName: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the Provisioned Throughput.</p>
-   * @public
-   */
-  provisionedModelArn: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the model associated with the Provisioned Throughput.</p>
-   * @public
-   */
-  modelArn: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the model requested to be associated to this Provisioned Throughput. This value differs from the <code>modelArn</code> if updating hasn't completed.</p>
-   * @public
-   */
-  desiredModelArn: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the base model for which the Provisioned Throughput was created, or of the base model that the custom model for which the Provisioned Throughput was created was customized.</p>
-   * @public
-   */
-  foundationModelArn: string | undefined;
-
-  /**
-   * <p>The number of model units allocated to the Provisioned Throughput.</p>
-   * @public
-   */
-  modelUnits: number | undefined;
-
-  /**
-   * <p>The number of model units that was requested to be allocated to the Provisioned Throughput.</p>
-   * @public
-   */
-  desiredModelUnits: number | undefined;
-
-  /**
-   * <p>The status of the Provisioned Throughput.</p>
-   * @public
-   */
-  status: ProvisionedModelStatus | undefined;
-
-  /**
-   * <p>The duration for which the Provisioned Throughput was committed.</p>
-   * @public
-   */
-  commitmentDuration?: CommitmentDuration | undefined;
-
-  /**
-   * <p>The timestamp for when the commitment term of the Provisioned Throughput expires.</p>
-   * @public
-   */
-  commitmentExpirationTime?: Date | undefined;
-
-  /**
-   * <p>The time that the Provisioned Throughput was created. </p>
-   * @public
-   */
-  creationTime: Date | undefined;
-
-  /**
-   * <p>The time that the Provisioned Throughput was last modified. </p>
-   * @public
-   */
-  lastModifiedTime: Date | undefined;
-}
-
-/**
- * @public
- */
-export interface ListProvisionedModelThroughputsResponse {
-  /**
-   * <p>If there are more results than the number you specified in the <code>maxResults</code> field, this value is returned. To see the next batch of results, include this value in the <code>nextToken</code> field in another list request.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
-
-  /**
-   * <p>A list of summaries, one for each Provisioned Throughput in the response.</p>
-   * @public
-   */
-  provisionedModelSummaries?: ProvisionedModelSummary[] | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateProvisionedModelThroughputRequest {
-  /**
-   * <p>The Amazon Resource Name (ARN) or name of the Provisioned Throughput to update.</p>
-   * @public
-   */
-  provisionedModelId: string | undefined;
-
-  /**
-   * <p>The new name for this Provisioned Throughput.</p>
-   * @public
-   */
-  desiredProvisionedModelName?: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the new model to associate with this Provisioned Throughput. You can't specify this field if this Provisioned Throughput is associated with a base model.</p> <p>If this Provisioned Throughput is associated with a custom model, you can specify one of the following options:</p> <ul> <li> <p>The base model from which the custom model was customized.</p> </li> <li> <p>Another custom model that was customized from the same base model as the custom model.</p> </li> </ul>
-   * @public
-   */
-  desiredModelId?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateProvisionedModelThroughputResponse {}
-
-/**
- * @public
- */
-export interface CreateFoundationModelAgreementRequest {
-  /**
-   * <p>An offer token encapsulates the information for an offer.</p>
-   * @public
-   */
-  offerToken: string | undefined;
-
-  /**
-   * <p>Model Id of the model for the access request.</p>
-   * @public
-   */
-  modelId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface CreateFoundationModelAgreementResponse {
-  /**
-   * <p>Model Id of the model for the access request.</p>
-   * @public
-   */
-  modelId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteFoundationModelAgreementRequest {
-  /**
-   * <p>Model Id of the model access to delete.</p>
-   * @public
-   */
-  modelId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteFoundationModelAgreementResponse {}
-
-/**
- * @public
- */
-export interface GetFoundationModelAvailabilityRequest {
-  /**
-   * <p>The model Id of the foundation model.</p>
-   * @public
-   */
-  modelId: string | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const AuthorizationStatus = {
-  AUTHORIZED: "AUTHORIZED",
-  NOT_AUTHORIZED: "NOT_AUTHORIZED",
-} as const;
-
-/**
- * @public
- */
-export type AuthorizationStatus = (typeof AuthorizationStatus)[keyof typeof AuthorizationStatus];
 
 /**
  * @internal

@@ -6,8 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { BedrockClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BedrockClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { GetFoundationModelAvailabilityRequest } from "../models/models_0";
-import { GetFoundationModelAvailabilityResponse } from "../models/models_1";
+import { GetFoundationModelAvailabilityRequest, GetFoundationModelAvailabilityResponse } from "../models/models_1";
 import {
   de_GetFoundationModelAvailabilityCommand,
   se_GetFoundationModelAvailabilityCommand,
