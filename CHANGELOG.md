@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.846.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.845.0...v3.846.0) (2025-07-16)
+
+
+### Features
+
+* **client-ecs:** This release removes hookDetails for the Amazon ECS native blue/green deployments. ([59ef177](https://github.com/aws/aws-sdk-js-v3/commit/59ef17783f86470512f43b70c61ca4fe2ef10196))
+* **clients:** update client endpoints as of 2025-07-16 ([6ce3f3c](https://github.com/aws/aws-sdk-js-v3/commit/6ce3f3c43d2660fc0b022e878016be5ed7bec909))
+
+
+
+
+
 # [3.845.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.844.0...v3.845.0) (2025-07-15)
 
 
