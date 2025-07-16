@@ -32,8 +32,7 @@ export interface ListMonitorsCommandInput extends ListMonitorsInput {}
 export interface ListMonitorsCommandOutput extends ListMonitorsOutput, __MetadataBearer {}
 
 /**
- * <p>List all monitors in an account. Optionally, you can list only monitors that have a specific status, by
- *    		using the <code>STATUS</code> parameter.</p>
+ * <p>List all monitors in an account. Optionally, you can list only monitors that have a specific status, by using the <code>STATUS</code> parameter.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

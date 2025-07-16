@@ -49,7 +49,7 @@ export interface ListScopesCommandOutput extends ListScopesOutput, __MetadataBea
  * //   scopes: [ // ScopeSummaryList // required
  * //     { // ScopeSummary
  * //       scopeId: "STRING_VALUE", // required
- * //       status: "SUCCEEDED" || "IN_PROGRESS" || "FAILED", // required
+ * //       status: "SUCCEEDED" || "IN_PROGRESS" || "FAILED" || "DEACTIVATING" || "DEACTIVATED", // required
  * //       scopeArn: "STRING_VALUE", // required
  * //     },
  * //   ],

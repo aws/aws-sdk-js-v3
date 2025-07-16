@@ -40,13 +40,7 @@ export interface GetQueryStatusMonitorTopContributorsCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Returns the current status of a query for the Network Flow Monitor query interface, for a specified query ID and monitor.
- *    		This call returns the query status for the top contributors for a monitor.</p>
- *          <p>When you create a query, use this call to check the status of the query to make sure that it has
- *    		has <code>SUCCEEDED</code> before you review the results. Use the same query ID that you used for
- *    		the corresponding API call to start (create) the query, <code>StartQueryMonitorTopContributors</code>.</p>
- *          <p>When you run a query, use this call to check the status of the query to make sure that the query
- *    		has <code>SUCCEEDED</code> before you review the results.</p>
+ * <p>Returns the current status of a query for the Network Flow Monitor query interface, for a specified query ID and monitor. This call returns the query status for the top contributors for a monitor.</p> <p>When you create a query, use this call to check the status of the query to make sure that it has has <code>SUCCEEDED</code> before you review the results. Use the same query ID that you used for the corresponding API call to start (create) the query, <code>StartQueryMonitorTopContributors</code>.</p> <p>When you run a query, use this call to check the status of the query to make sure that the query has <code>SUCCEEDED</code> before you review the results.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

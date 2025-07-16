@@ -37,13 +37,7 @@ export interface StopQueryMonitorTopContributorsCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Stop a top contributors query for a monitor.
- *    		Specify the query that you want to stop by providing a query ID
- *    		and a monitor name. </p>
- *          <p>Top contributors in Network Flow Monitor are network flows with the highest values for a specific
- *    		metric type. Top contributors can be across all workload insights, for a given scope, or for
- *    		a specific monitor. Use the applicable call for the top contributors that you want to be
- *    		returned.</p>
+ * <p>Stop a top contributors query for a monitor. Specify the query that you want to stop by providing a query ID and a monitor name. </p> <p>Top contributors in Network Flow Monitor are network flows with the highest values for a specific metric type. Top contributors can be across all workload insights, for a given scope, or for a specific monitor. Use the applicable call for the top contributors that you want to be returned.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

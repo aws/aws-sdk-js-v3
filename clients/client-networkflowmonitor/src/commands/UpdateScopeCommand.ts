@@ -32,8 +32,7 @@ export interface UpdateScopeCommandInput extends UpdateScopeInput {}
 export interface UpdateScopeCommandOutput extends UpdateScopeOutput, __MetadataBearer {}
 
 /**
- * <p>Update a scope to add or remove resources that you want to be available for Network Flow Monitor to generate metrics for,
- *    		when you have active agents on those resources sending metrics reports to the Network Flow Monitor backend.</p>
+ * <p>Update a scope to add or remove resources that you want to be available for Network Flow Monitor to generate metrics for, when you have active agents on those resources sending metrics reports to the Network Flow Monitor backend.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -69,7 +68,7 @@ export interface UpdateScopeCommandOutput extends UpdateScopeOutput, __MetadataB
  * const response = await client.send(command);
  * // { // UpdateScopeOutput
  * //   scopeId: "STRING_VALUE", // required
- * //   status: "SUCCEEDED" || "IN_PROGRESS" || "FAILED", // required
+ * //   status: "SUCCEEDED" || "IN_PROGRESS" || "FAILED" || "DEACTIVATING" || "DEACTIVATED", // required
  * //   scopeArn: "STRING_VALUE", // required
  * //   tags: { // TagMap
  * //     "<keys>": "STRING_VALUE",

@@ -32,11 +32,7 @@ export interface CreateScopeCommandInput extends CreateScopeInput {}
 export interface CreateScopeCommandOutput extends CreateScopeOutput, __MetadataBearer {}
 
 /**
- * <p>Create a scope of resources that you want to be available for Network Flow Monitor to generate metrics for,
- *    		when you have active agents on those resources sending metrics reports to the Network Flow Monitor backend.
- *    		This call returns a scope ID to identify the scope.</p>
- *          <p>When you create a scope, you enable permissions for Network Flow Monitor. The scope is set to the
- *    		resources for the Amazon Web Services that enables the feature.</p>
+ * <p>Create a scope of resources that you want to be available for Network Flow Monitor to generate metrics for, when you have active agents on those resources sending metrics reports to the Network Flow Monitor backend. This call returns a scope ID to identify the scope.</p> <p>When you create a scope, you enable permissions for Network Flow Monitor. The scope is set to the resources for the Amazon Web Services that enables the feature.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -64,7 +60,7 @@ export interface CreateScopeCommandOutput extends CreateScopeOutput, __MetadataB
  * const response = await client.send(command);
  * // { // CreateScopeOutput
  * //   scopeId: "STRING_VALUE", // required
- * //   status: "SUCCEEDED" || "IN_PROGRESS" || "FAILED", // required
+ * //   status: "SUCCEEDED" || "IN_PROGRESS" || "FAILED" || "DEACTIVATING" || "DEACTIVATED", // required
  * //   scopeArn: "STRING_VALUE", // required
  * //   tags: { // TagMap
  * //     "<keys>": "STRING_VALUE",

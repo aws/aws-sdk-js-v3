@@ -32,8 +32,7 @@ export interface GetMonitorCommandInput extends GetMonitorInput {}
 export interface GetMonitorCommandOutput extends GetMonitorOutput, __MetadataBearer {}
 
 /**
- * <p>Gets information about a monitor in Network Flow Monitor based on a monitor name. The information returned includes
- *    		the Amazon Resource Name (ARN), create time, modified time, resources included in the monitor, and status information.</p>
+ * <p>Gets information about a monitor in Network Flow Monitor based on a monitor name. The information returned includes the Amazon Resource Name (ARN), create time, modified time, resources included in the monitor, and status information.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

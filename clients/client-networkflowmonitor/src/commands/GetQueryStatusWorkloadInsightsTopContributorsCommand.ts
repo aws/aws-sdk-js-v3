@@ -41,16 +41,7 @@ export interface GetQueryStatusWorkloadInsightsTopContributorsCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Return the data for a query with the Network Flow Monitor query interface.
- *    		Specify the query that you want to return results for by providing a query ID
- *    		and a monitor name. This query returns the top contributors for workload insights.</p>
- *          <p>When you start a query, use this call to check the status of the query to make sure that it has
- *    		has <code>SUCCEEDED</code> before you review the results. Use the same query ID that you used for
- *    		the corresponding API call to start the query, <code>StartQueryWorkloadInsightsTopContributors</code>.</p>
- *          <p>Top contributors in Network Flow Monitor are network flows with the highest values for a specific
- *    		metric type. Top contributors can be across all workload insights, for a given scope, or for
- *    		a specific monitor. Use the applicable call for the top contributors that you want to be
- *    		returned.</p>
+ * <p>Return the data for a query with the Network Flow Monitor query interface. Specify the query that you want to return results for by providing a query ID and a monitor name. This query returns the top contributors for workload insights.</p> <p>When you start a query, use this call to check the status of the query to make sure that it has has <code>SUCCEEDED</code> before you review the results. Use the same query ID that you used for the corresponding API call to start the query, <code>StartQueryWorkloadInsightsTopContributors</code>.</p> <p>Top contributors in Network Flow Monitor are network flows with the highest values for a specific metric type. Top contributors can be across all workload insights, for a given scope, or for a specific monitor. Use the applicable call for the top contributors that you want to be returned.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

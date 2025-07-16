@@ -59,14 +59,12 @@ export const MonitorLocalResourceType = {
 export type MonitorLocalResourceType = (typeof MonitorLocalResourceType)[keyof typeof MonitorLocalResourceType];
 
 /**
- * <p>A local resource is the host where the agent is installed. Local resources can be a
- *    		a subnet, a VPC, or an Availability Zone.</p>
+ * <p>A local resource is the host where the agent is installed. Local resources can be a a subnet, a VPC, or an Availability Zone.</p>
  * @public
  */
 export interface MonitorLocalResource {
   /**
-   * <p>The type of the local resource. Valid values are <code>AWS::EC2::VPC</code>
-   *             <code>AWS::AvailabilityZone</code> or <code>AWS::EC2::Subnet</code>.</p>
+   * <p>The type of the local resource. Valid values are <code>AWS::EC2::VPC</code> <code>AWS::AvailabilityZone</code> or <code>AWS::EC2::Subnet</code>.</p>
    * @public
    */
   type: MonitorLocalResourceType | undefined;
@@ -95,16 +93,12 @@ export const MonitorRemoteResourceType = {
 export type MonitorRemoteResourceType = (typeof MonitorRemoteResourceType)[keyof typeof MonitorRemoteResourceType];
 
 /**
- * <p>A remote resource is the other endpoint in a network flow. That is, one endpoint
- *    		is the local resource and the other is the remote resource. Remote resources can be a
- *    		a subnet, a VPC, an Availability Zone, or an Amazon Web Services service. </p>
+ * <p>A remote resource is the other endpoint in a network flow. That is, one endpoint is the local resource and the other is the remote resource. Remote resources can be a a subnet, a VPC, an Availability Zone, or an Amazon Web Services service. </p>
  * @public
  */
 export interface MonitorRemoteResource {
   /**
-   * <p>The type of the remote resource. Valid values are <code>AWS::EC2::VPC</code>
-   *             <code>AWS::AvailabilityZone</code>, <code>AWS::EC2::Subnet</code>, or
-   *    		<code>AWS::AWSService</code>.</p>
+   * <p>The type of the remote resource. Valid values are <code>AWS::EC2::VPC</code> <code>AWS::AvailabilityZone</code>, <code>AWS::EC2::Subnet</code>, or <code>AWS::AWSService</code>.</p>
    * @public
    */
   type: MonitorRemoteResourceType | undefined;
@@ -127,17 +121,13 @@ export interface CreateMonitorInput {
   monitorName: string | undefined;
 
   /**
-   * <p>The local resources to monitor. A local resource, in a bi-directional flow of a workload,
-   *    		is the host where the agent is installed. For example, if a workload consists of an interaction
-   *    		between a web service and a backend database (for example, Amazon Relational Database Service (RDS)),
-   *    		the EC2 instance hosting the web service, which also runs the agent, is the local resource.</p>
+   * <p>The local resources to monitor. A local resource, in a bi-directional flow of a workload, is the host where the agent is installed. For example, if a workload consists of an interaction between a web service and a backend database (for example, Amazon Relational Database Service (RDS)), the EC2 instance hosting the web service, which also runs the agent, is the local resource.</p>
    * @public
    */
   localResources: MonitorLocalResource[] | undefined;
 
   /**
-   * <p>The remote resources to monitor. A remote resource is the other endpoint in the bi-directional
-   *    		flow of a workload, with a local resource. For example, Amazon Relational Database Service (RDS) can be a remote resource.</p>
+   * <p>The remote resources to monitor. A remote resource is the other endpoint in the bi-directional flow of a workload, with a local resource. For example, Amazon Relational Database Service (RDS) can be a remote resource.</p>
    * @public
    */
   remoteResources?: MonitorRemoteResource[] | undefined;
@@ -149,8 +139,7 @@ export interface CreateMonitorInput {
   scopeArn: string | undefined;
 
   /**
-   * <p>A unique, case-sensitive string of up to 64 ASCII characters that you specify to make an idempotent API request. Don't reuse the same client token for
-   *    		other API requests.</p>
+   * <p>A unique, case-sensitive string of up to 64 ASCII characters that you specify to make an idempotent API request. Don't reuse the same client token for other API requests.</p>
    * @public
    */
   clientToken?: string | undefined;
@@ -196,44 +185,19 @@ export interface CreateMonitorOutput {
   monitorName: string | undefined;
 
   /**
-   * <p>The status of a monitor. The status can be one of the following</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>PENDING</code>: The monitor is in the process of being created.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>ACTIVE</code>: The monitor is active.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>INACTIVE</code>: The monitor is inactive.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>ERROR</code>: Monitor creation failed due to an error.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>DELETING</code>: The monitor is in the process of being deleted.</p>
-   *             </li>
-   *          </ul>
+   * <p>The status of a monitor. The status can be one of the following</p> <ul> <li> <p> <code>PENDING</code>: The monitor is in the process of being created.</p> </li> <li> <p> <code>ACTIVE</code>: The monitor is active.</p> </li> <li> <p> <code>INACTIVE</code>: The monitor is inactive.</p> </li> <li> <p> <code>ERROR</code>: Monitor creation failed due to an error.</p> </li> <li> <p> <code>DELETING</code>: The monitor is in the process of being deleted.</p> </li> </ul>
    * @public
    */
   monitorStatus: MonitorStatus | undefined;
 
   /**
-   * <p>The local resources to monitor. A local resource, in a bi-directional flow of a workload,
-   *    	is the host where the agent is installed. </p>
+   * <p>The local resources to monitor. A local resource, in a bi-directional flow of a workload, is the host where the agent is installed. </p>
    * @public
    */
   localResources: MonitorLocalResource[] | undefined;
 
   /**
-   * <p>The remote resources to monitor. A remote resource is the other endpoint in the bi-directional
-   *    		flow of a workload, with a local resource. For example, Amazon Relational Database Service (RDS) can
-   *    		be a remote resource. The remote resource is identified by its ARN or an identifier.</p>
+   * <p>The remote resources to monitor. A remote resource is the other endpoint in the bi-directional flow of a workload, with a local resource. For example, Amazon Relational Database Service (RDS) can be a remote resource. The remote resource is identified by its ARN or an identifier.</p>
    * @public
    */
   remoteResources: MonitorRemoteResource[] | undefined;
@@ -342,9 +306,7 @@ export class ValidationException extends __BaseException {
 }
 
 /**
- * <p>A target ID is an internally-generated identifier for a target.
- *    		A target allows you to identify all the resources in a Network Flow Monitor scope. Currently,
- *    		a target is always an Amazon Web Services account.</p>
+ * <p>A target ID is an internally-generated identifier for a target. A target allows you to identify all the resources in a Network Flow Monitor scope. Currently, a target is always an Amazon Web Services account.</p>
  * @public
  */
 export type TargetId = TargetId.AccountIdMember | TargetId.$UnknownMember;
@@ -395,9 +357,7 @@ export const TargetType = {
 export type TargetType = (typeof TargetType)[keyof typeof TargetType];
 
 /**
- * <p>A target identifier is a pair of identifying information for a resource that
- *    		is included in a target. A target identifier includes the target ID and
- *    		the target type.</p>
+ * <p>A target identifier is a pair of identifying information for a resource that is included in a target. A target identifier includes the target ID and the target type.</p>
  * @public
  */
 export interface TargetIdentifier {
@@ -408,23 +368,19 @@ export interface TargetIdentifier {
   targetId: TargetId | undefined;
 
   /**
-   * <p>The type of a target. A target type is currently always <code>ACCOUNT</code>
-   *    		because a target is currently a single Amazon Web Services account.</p>
+   * <p>The type of a target. A target type is currently always <code>ACCOUNT</code> because a target is currently a single Amazon Web Services account.</p>
    * @public
    */
   targetType: TargetType | undefined;
 }
 
 /**
- * <p>A target resource in a scope. The resource is identified by a Region and
- *    		a target identifier, which includes a target ID and a target type.</p>
+ * <p>A target resource in a scope. The resource is identified by a Region and a target identifier, which includes a target ID and a target type.</p>
  * @public
  */
 export interface TargetResource {
   /**
-   * <p>A target identifier is a pair of identifying information for a resource that
-   *    		is included in a target. A target identifier includes the target ID and
-   *    		the target type.</p>
+   * <p>A target identifier is a pair of identifying information for a resource that is included in a target. A target identifier includes the target ID and the target type.</p>
    * @public
    */
   targetIdentifier: TargetIdentifier | undefined;
@@ -447,8 +403,7 @@ export interface CreateScopeInput {
   targets: TargetResource[] | undefined;
 
   /**
-   * <p>A unique, case-sensitive string of up to 64 ASCII characters that you specify to make an idempotent
-   *    		API request. Don't reuse the same client token for other API requests.</p>
+   * <p>A unique, case-sensitive string of up to 64 ASCII characters that you specify to make an idempotent API request. Don't reuse the same client token for other API requests.</p>
    * @public
    */
   clientToken?: string | undefined;
@@ -465,6 +420,8 @@ export interface CreateScopeInput {
  * @enum
  */
 export const ScopeStatus = {
+  DEACTIVATED: "DEACTIVATED",
+  DEACTIVATING: "DEACTIVATING",
   FAILED: "FAILED",
   IN_PROGRESS: "IN_PROGRESS",
   SUCCEEDED: "SUCCEEDED",
@@ -480,16 +437,13 @@ export type ScopeStatus = (typeof ScopeStatus)[keyof typeof ScopeStatus];
  */
 export interface CreateScopeOutput {
   /**
-   * <p>The identifier for the scope that includes the resources you want to get metrics for.
-   *    		A scope ID is an internally-generated identifier that includes all the resources
-   *    		for a specific root account.</p>
+   * <p>The identifier for the scope that includes the resources you want to get metrics for. A scope ID is an internally-generated identifier that includes all the resources for a specific root account.</p>
    * @public
    */
   scopeId: string | undefined;
 
   /**
-   * <p>The status for a call to create a scope. The status can be one of the following:
-   *    		<code>SUCCEEDED</code>, <code>IN_PROGRESS</code>, or <code>FAILED</code>.</p>
+   * <p>The status for a scope. The status can be one of the following: <code>SUCCEEDED</code>, <code>IN_PROGRESS</code>, <code>FAILED</code>, <code>DEACTIVATING</code>, or <code>DEACTIVATED</code>.</p> <p>A status of <code>DEACTIVATING</code> means that you've requested a scope to be deactivated and Network Flow Monitor is in the process of deactivating the scope. A status of <code>DEACTIVATED</code> means that the deactivating process is complete.</p>
    * @public
    */
   status: ScopeStatus | undefined;
@@ -548,9 +502,7 @@ export class ResourceNotFoundException extends __BaseException {
  */
 export interface DeleteScopeInput {
   /**
-   * <p>The identifier for the scope that includes the resources you want to get data results for.
-   *    		A scope ID is an internally-generated identifier that includes all the resources
-   *    		for a specific root account.</p>
+   * <p>The identifier for the scope that includes the resources you want to get data results for. A scope ID is an internally-generated identifier that includes all the resources for a specific root account.</p>
    * @public
    */
   scopeId: string | undefined;
@@ -607,29 +559,7 @@ export interface GetMonitorOutput {
   monitorName: string | undefined;
 
   /**
-   * <p>The status of a monitor. The status can be one of the following</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>PENDING</code>: The monitor is in the process of being created.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>ACTIVE</code>: The monitor is active.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>INACTIVE</code>: The monitor is inactive.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>ERROR</code>: Monitor creation failed due to an error.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>DELETING</code>: The monitor is in the process of being deleted.</p>
-   *             </li>
-   *          </ul>
+   * <p>The status of a monitor. The status can be one of the following</p> <ul> <li> <p> <code>PENDING</code>: The monitor is in the process of being created.</p> </li> <li> <p> <code>ACTIVE</code>: The monitor is active.</p> </li> <li> <p> <code>INACTIVE</code>: The monitor is inactive.</p> </li> <li> <p> <code>ERROR</code>: Monitor creation failed due to an error.</p> </li> <li> <p> <code>DELETING</code>: The monitor is in the process of being deleted.</p> </li> </ul>
    * @public
    */
   monitorStatus: MonitorStatus | undefined;
@@ -676,8 +606,7 @@ export interface GetQueryResultsMonitorTopContributorsInput {
   monitorName: string | undefined;
 
   /**
-   * <p>The identifier for the query. A query ID is an internally-generated
-   *    		identifier for a specific query returned from an API call to create a query.</p>
+   * <p>The identifier for the query. A query ID is an internally-generated identifier for a specific query returned from an API call to create a query.</p>
    * @public
    */
   queryId: string | undefined;
@@ -768,10 +697,7 @@ export interface TraversedComponent {
 }
 
 /**
- * <p>A set of information for a top contributor network flow in a monitor.
- *    		In a monitor, Network Flow Monitor returns information about the network flows for top
- *    		contributors for each metric. Top contributors are network flows with
- *    		the top values for each metric type.</p>
+ * <p>A set of information for a top contributor network flow in a monitor. In a monitor, Network Flow Monitor returns information about the network flows for top contributors for each metric. Top contributors are network flows with the top values for each metric type.</p>
  * @public
  */
 export interface MonitorTopContributorsRow {
@@ -824,29 +750,7 @@ export interface MonitorTopContributorsRow {
   targetPort?: number | undefined;
 
   /**
-   * <p>The destination category for a top contributors row. Destination categories can be one of the following: </p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>INTRA_AZ</code>: Top contributor network flows within a single Availability Zone</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>INTER_AZ</code>: Top contributor network flows between Availability Zones</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>INTER_VPC</code>: Top contributor network flows between VPCs</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>AWS_SERVICES</code>: Top contributor network flows to or from Amazon Web Services services</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>UNCLASSIFIED</code>: Top contributor network flows that do not have a bucket classification</p>
-   *             </li>
-   *          </ul>
+   * <p>The destination category for a top contributors row. Destination categories can be one of the following: </p> <ul> <li> <p> <code>INTRA_AZ</code>: Top contributor network flows within a single Availability Zone</p> </li> <li> <p> <code>INTER_AZ</code>: Top contributor network flows between Availability Zones</p> </li> <li> <p> <code>INTER_VPC</code>: Top contributor network flows between VPCs</p> </li> <li> <p> <code>AWS_SERVICES</code>: Top contributor network flows to or from Amazon Web Services services</p> </li> <li> <p> <code>UNCLASSIFIED</code>: Top contributor network flows that do not have a bucket classification</p> </li> </ul>
    * @public
    */
   destinationCategory?: DestinationCategory | undefined;
@@ -998,8 +902,7 @@ export interface GetQueryResultsMonitorTopContributorsOutput {
   unit?: MetricUnit | undefined;
 
   /**
-   * <p>The top contributor network flows overall for a specific metric type, for example, the
-   *    		number of retransmissions.</p>
+   * <p>The top contributor network flows overall for a specific metric type, for example, the number of retransmissions.</p>
    * @public
    */
   topContributors?: MonitorTopContributorsRow[] | undefined;
@@ -1016,16 +919,13 @@ export interface GetQueryResultsMonitorTopContributorsOutput {
  */
 export interface GetQueryResultsWorkloadInsightsTopContributorsInput {
   /**
-   * <p>The identifier for the scope that includes the resources you want to get data results for.
-   *    		A scope ID is an internally-generated identifier that includes all the resources
-   *    		for a specific root account.</p>
+   * <p>The identifier for the scope that includes the resources you want to get data results for. A scope ID is an internally-generated identifier that includes all the resources for a specific root account.</p>
    * @public
    */
   scopeId: string | undefined;
 
   /**
-   * <p>The identifier for the query. A query ID is an internally-generated
-   *    		identifier for a specific query returned from an API call to create a query.</p>
+   * <p>The identifier for the query. A query ID is an internally-generated identifier for a specific query returned from an API call to create a query.</p>
    * @public
    */
   queryId: string | undefined;
@@ -1108,8 +1008,7 @@ export interface WorkloadInsightsTopContributorsRow {
  */
 export interface GetQueryResultsWorkloadInsightsTopContributorsOutput {
   /**
-   * <p>The top contributor network flows overall for a specific metric type, for example, the
-   *    		number of retransmissions.</p>
+   * <p>The top contributor network flows overall for a specific metric type, for example, the number of retransmissions.</p>
    * @public
    */
   topContributors?: WorkloadInsightsTopContributorsRow[] | undefined;
@@ -1126,16 +1025,13 @@ export interface GetQueryResultsWorkloadInsightsTopContributorsOutput {
  */
 export interface GetQueryResultsWorkloadInsightsTopContributorsDataInput {
   /**
-   * <p>The identifier for the scope that includes the resources you want to get data results for.
-   *    		A scope ID is an internally-generated identifier that includes all the resources
-   *    		for a specific root account.</p>
+   * <p>The identifier for the scope that includes the resources you want to get data results for. A scope ID is an internally-generated identifier that includes all the resources for a specific root account.</p>
    * @public
    */
   scopeId: string | undefined;
 
   /**
-   * <p>The identifier for the query. A query ID is an internally-generated
-   *    		identifier for a specific query returned from an API call to create a query.</p>
+   * <p>The identifier for the query. A query ID is an internally-generated identifier for a specific query returned from an API call to create a query.</p>
    * @public
    */
   queryId: string | undefined;
@@ -1154,9 +1050,7 @@ export interface GetQueryResultsWorkloadInsightsTopContributorsDataInput {
 }
 
 /**
- * <p>A data point for a top contributor network flow in a scope.
- *    		Network Flow Monitor returns information about the network flows with the top values
- *    		for each metric type, which are called top contributors.</p>
+ * <p>A data point for a top contributor network flow in a scope. Network Flow Monitor returns information about the network flows with the top values for each metric type, which are called top contributors.</p>
  * @public
  */
 export interface WorkloadInsightsTopContributorsDataPoint {
@@ -1213,8 +1107,7 @@ export interface GetQueryStatusMonitorTopContributorsInput {
   monitorName: string | undefined;
 
   /**
-   * <p>The identifier for the query. A query ID is an internally-generated
-   *    		identifier for a specific query returned from an API call to start a query.</p>
+   * <p>The identifier for the query. A query ID is an internally-generated identifier for a specific query returned from an API call to start a query.</p>
    * @public
    */
   queryId: string | undefined;
@@ -1242,30 +1135,7 @@ export type QueryStatus = (typeof QueryStatus)[keyof typeof QueryStatus];
  */
 export interface GetQueryStatusMonitorTopContributorsOutput {
   /**
-   * <p>When you run a query, use this call to check the status of the query to make sure that the query
-   *    		has <code>SUCCEEDED</code> before you review the results.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>QUEUED</code>: The query is scheduled to run.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>RUNNING</code>: The query is in progress but not complete.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>SUCCEEDED</code>: The query completed sucessfully.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>FAILED</code>: The query failed due to an error.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>CANCELED</code>: The query was canceled.</p>
-   *             </li>
-   *          </ul>
+   * <p>When you run a query, use this call to check the status of the query to make sure that the query has <code>SUCCEEDED</code> before you review the results.</p> <ul> <li> <p> <code>QUEUED</code>: The query is scheduled to run.</p> </li> <li> <p> <code>RUNNING</code>: The query is in progress but not complete.</p> </li> <li> <p> <code>SUCCEEDED</code>: The query completed sucessfully.</p> </li> <li> <p> <code>FAILED</code>: The query failed due to an error.</p> </li> <li> <p> <code>CANCELED</code>: The query was canceled.</p> </li> </ul>
    * @public
    */
   status: QueryStatus | undefined;
@@ -1276,16 +1146,13 @@ export interface GetQueryStatusMonitorTopContributorsOutput {
  */
 export interface GetQueryStatusWorkloadInsightsTopContributorsInput {
   /**
-   * <p>The identifier for the scope that includes the resources you want to get data results for.
-   *    		A scope ID is an internally-generated identifier that includes all the resources
-   *    		for a specific root account.</p>
+   * <p>The identifier for the scope that includes the resources you want to get data results for. A scope ID is an internally-generated identifier that includes all the resources for a specific root account.</p>
    * @public
    */
   scopeId: string | undefined;
 
   /**
-   * <p>The identifier for the query. A query ID is an internally-generated
-   *    		identifier for a specific query returned from an API call to start a query.</p>
+   * <p>The identifier for the query. A query ID is an internally-generated identifier for a specific query returned from an API call to start a query.</p>
    * @public
    */
   queryId: string | undefined;
@@ -1296,30 +1163,7 @@ export interface GetQueryStatusWorkloadInsightsTopContributorsInput {
  */
 export interface GetQueryStatusWorkloadInsightsTopContributorsOutput {
   /**
-   * <p>When you run a query, use this call to check the status of the query to make sure that the query
-   *    		has <code>SUCCEEDED</code> before you review the results.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>QUEUED</code>: The query is scheduled to run.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>RUNNING</code>: The query is in progress but not complete.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>SUCCEEDED</code>: The query completed sucessfully.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>FAILED</code>: The query failed due to an error.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>CANCELED</code>: The query was canceled.</p>
-   *             </li>
-   *          </ul>
+   * <p>When you run a query, use this call to check the status of the query to make sure that the query has <code>SUCCEEDED</code> before you review the results.</p> <ul> <li> <p> <code>QUEUED</code>: The query is scheduled to run.</p> </li> <li> <p> <code>RUNNING</code>: The query is in progress but not complete.</p> </li> <li> <p> <code>SUCCEEDED</code>: The query completed sucessfully.</p> </li> <li> <p> <code>FAILED</code>: The query failed due to an error.</p> </li> <li> <p> <code>CANCELED</code>: The query was canceled.</p> </li> </ul>
    * @public
    */
   status: QueryStatus | undefined;
@@ -1330,16 +1174,13 @@ export interface GetQueryStatusWorkloadInsightsTopContributorsOutput {
  */
 export interface GetQueryStatusWorkloadInsightsTopContributorsDataInput {
   /**
-   * <p>The identifier for the scope that includes the resources you want to get data results for.
-   *    		A scope ID is an internally-generated identifier that includes all the resources
-   *    		for a specific root account. A scope ID is returned from a <code>CreateScope</code> API call.</p>
+   * <p>The identifier for the scope that includes the resources you want to get data results for. A scope ID is an internally-generated identifier that includes all the resources for a specific root account. A scope ID is returned from a <code>CreateScope</code> API call.</p>
    * @public
    */
   scopeId: string | undefined;
 
   /**
-   * <p>The identifier for the query. A query ID is an internally-generated
-   *    		identifier for a specific query returned from an API call to start a query.</p>
+   * <p>The identifier for the query. A query ID is an internally-generated identifier for a specific query returned from an API call to start a query.</p>
    * @public
    */
   queryId: string | undefined;
@@ -1350,29 +1191,7 @@ export interface GetQueryStatusWorkloadInsightsTopContributorsDataInput {
  */
 export interface GetQueryStatusWorkloadInsightsTopContributorsDataOutput {
   /**
-   * <p>The status of a query for top contributors data.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>QUEUED</code>: The query is scheduled to run.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>RUNNING</code>: The query is in progress but not complete.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>SUCCEEDED</code>: The query completed sucessfully.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>FAILED</code>: The query failed due to an error.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>CANCELED</code>: The query was canceled.</p>
-   *             </li>
-   *          </ul>
+   * <p>The status of a query for top contributors data.</p> <ul> <li> <p> <code>QUEUED</code>: The query is scheduled to run.</p> </li> <li> <p> <code>RUNNING</code>: The query is in progress but not complete.</p> </li> <li> <p> <code>SUCCEEDED</code>: The query completed sucessfully.</p> </li> <li> <p> <code>FAILED</code>: The query failed due to an error.</p> </li> <li> <p> <code>CANCELED</code>: The query was canceled.</p> </li> </ul>
    * @public
    */
   status: QueryStatus | undefined;
@@ -1383,9 +1202,7 @@ export interface GetQueryStatusWorkloadInsightsTopContributorsDataOutput {
  */
 export interface GetScopeInput {
   /**
-   * <p>The identifier for the scope that includes the resources you want to get data results for.
-   *    		A scope ID is an internally-generated identifier that includes all the resources
-   *    		for a specific root account. A scope ID is returned from a <code>CreateScope</code> API call.</p>
+   * <p>The identifier for the scope that includes the resources you want to get data results for. A scope ID is an internally-generated identifier that includes all the resources for a specific root account. A scope ID is returned from a <code>CreateScope</code> API call.</p>
    * @public
    */
   scopeId: string | undefined;
@@ -1396,16 +1213,13 @@ export interface GetScopeInput {
  */
 export interface GetScopeOutput {
   /**
-   * <p>The identifier for the scope that includes the resources you want to get data results for.
-   *    		A scope ID is an internally-generated identifier that includes all the resources
-   *    		for a specific root account. A scope ID is returned from a <code>CreateScope</code> API call.</p>
+   * <p>The identifier for the scope that includes the resources you want to get data results for. A scope ID is an internally-generated identifier that includes all the resources for a specific root account. A scope ID is returned from a <code>CreateScope</code> API call.</p>
    * @public
    */
   scopeId: string | undefined;
 
   /**
-   * <p>The status of a scope. The status can be one of the following:
-   *    		<code>SUCCEEDED</code>, <code>IN_PROGRESS</code>, or <code>FAILED</code>.</p>
+   * <p>The status for a scope. The status can be one of the following: <code>SUCCEEDED</code>, <code>IN_PROGRESS</code>, <code>FAILED</code>, <code>DEACTIVATING</code>, or <code>DEACTIVATED</code>.</p> <p>A status of <code>DEACTIVATING</code> means that you've requested a scope to be deactivated and Network Flow Monitor is in the process of deactivating the scope. A status of <code>DEACTIVATED</code> means that the deactivating process is complete.</p>
    * @public
    */
   status: ScopeStatus | undefined;
@@ -1446,29 +1260,7 @@ export interface ListMonitorsInput {
   maxResults?: number | undefined;
 
   /**
-   * <p>The status of a monitor. The status can be one of the following</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>PENDING</code>: The monitor is in the process of being created.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>ACTIVE</code>: The monitor is active.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>INACTIVE</code>: The monitor is inactive.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>ERROR</code>: Monitor creation failed due to an error.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>DELETING</code>: The monitor is in the process of being deleted.</p>
-   *             </li>
-   *          </ul>
+   * <p>The status of a monitor. The status can be one of the following</p> <ul> <li> <p> <code>PENDING</code>: The monitor is in the process of being created.</p> </li> <li> <p> <code>ACTIVE</code>: The monitor is active.</p> </li> <li> <p> <code>INACTIVE</code>: The monitor is inactive.</p> </li> <li> <p> <code>ERROR</code>: Monitor creation failed due to an error.</p> </li> <li> <p> <code>DELETING</code>: The monitor is in the process of being deleted.</p> </li> </ul>
    * @public
    */
   monitorStatus?: MonitorStatus | undefined;
@@ -1492,29 +1284,7 @@ export interface MonitorSummary {
   monitorName: string | undefined;
 
   /**
-   * <p>The status of a monitor. The status can be one of the following</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>PENDING</code>: The monitor is in the process of being created.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>ACTIVE</code>: The monitor is active.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>INACTIVE</code>: The monitor is inactive.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>ERROR</code>: Monitor creation failed due to an error.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>DELETING</code>: The monitor is in the process of being deleted.</p>
-   *             </li>
-   *          </ul>
+   * <p>The status of a monitor. The status can be one of the following</p> <ul> <li> <p> <code>PENDING</code>: The monitor is in the process of being created.</p> </li> <li> <p> <code>ACTIVE</code>: The monitor is active.</p> </li> <li> <p> <code>INACTIVE</code>: The monitor is inactive.</p> </li> <li> <p> <code>ERROR</code>: Monitor creation failed due to an error.</p> </li> <li> <p> <code>DELETING</code>: The monitor is in the process of being deleted.</p> </li> </ul>
    * @public
    */
   monitorStatus: MonitorStatus | undefined;
@@ -1555,22 +1325,18 @@ export interface ListScopesInput {
 }
 
 /**
- * <p>A summary of information about a scope, including the ARN, target ID, and
- *    		Amazon Web Services Region.</p>
+ * <p>A summary of information about a scope, including the ARN, target ID, and Amazon Web Services Region.</p>
  * @public
  */
 export interface ScopeSummary {
   /**
-   * <p>The identifier for the scope that includes the resources you want to get data results for.
-   *    		A scope ID is an internally-generated identifier that includes all the resources
-   *    		for a specific root account.</p>
+   * <p>The identifier for the scope that includes the resources you want to get data results for. A scope ID is an internally-generated identifier that includes all the resources for a specific root account.</p>
    * @public
    */
   scopeId: string | undefined;
 
   /**
-   * <p>The status of a scope. The status can be one of the following, depending on the
-   *    		state of scope creation: <code>SUCCEEDED</code>, <code>IN_PROGRESS</code>, or <code>FAILED</code>.</p>
+   * <p>The status for a scope. The status can be one of the following: <code>SUCCEEDED</code>, <code>IN_PROGRESS</code>, <code>FAILED</code>, <code>DEACTIVATING</code>, or <code>DEACTIVATED</code>.</p> <p>A status of <code>DEACTIVATING</code> means that you've requested a scope to be deactivated and Network Flow Monitor is in the process of deactivating the scope. A status of <code>DEACTIVATED</code> means that the deactivating process is complete.</p>
    * @public
    */
   status: ScopeStatus | undefined;
@@ -1648,56 +1414,25 @@ export interface StartQueryMonitorTopContributorsInput {
   monitorName: string | undefined;
 
   /**
-   * <p>The timestamp that is the date and time beginning of the period that you want to retrieve
-   *    		results for with your query.</p>
+   * <p>The timestamp that is the date and time beginning of the period that you want to retrieve results for with your query.</p>
    * @public
    */
   startTime: Date | undefined;
 
   /**
-   * <p>The timestamp that is the date and time end of the period that you want to retrieve
-   *    		results for with your query.</p>
+   * <p>The timestamp that is the date and time end of the period that you want to retrieve results for with your query.</p>
    * @public
    */
   endTime: Date | undefined;
 
   /**
-   * <p>The metric that you want to query top contributors for. That is, you can specify a metric
-   *    		with this call and return the top contributor network flows, for that type of metric, for a monitor
-   *    		and (optionally) within a specific category, such as network flows between Availability Zones.</p>
+   * <p>The metric that you want to query top contributors for. That is, you can specify a metric with this call and return the top contributor network flows, for that type of metric, for a monitor and (optionally) within a specific category, such as network flows between Availability Zones.</p>
    * @public
    */
   metricName: MonitorMetric | undefined;
 
   /**
-   * <p>The category that you want to query top contributors for, for a specific monitor. Destination
-   *    		categories can be one of the following: </p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>INTRA_AZ</code>: Top contributor network flows within a single Availability Zone</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>INTER_AZ</code>: Top contributor network flows between Availability Zones</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>INTER_VPC</code>: Top contributor network flows between VPCs</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>AMAZON_S3</code>: Top contributor network flows to or from Amazon S3</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>AMAZON_DYNAMODB</code>: Top contributor network flows to or from Amazon Dynamo DB</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>UNCLASSIFIED</code>: Top contributor network flows that do not have a bucket classification</p>
-   *             </li>
-   *          </ul>
+   * <p>The category that you want to query top contributors for, for a specific monitor. Destination categories can be one of the following: </p> <ul> <li> <p> <code>INTRA_AZ</code>: Top contributor network flows within a single Availability Zone</p> </li> <li> <p> <code>INTER_AZ</code>: Top contributor network flows between Availability Zones</p> </li> <li> <p> <code>INTER_VPC</code>: Top contributor network flows between VPCs</p> </li> <li> <p> <code>AMAZON_S3</code>: Top contributor network flows to or from Amazon S3</p> </li> <li> <p> <code>AMAZON_DYNAMODB</code>: Top contributor network flows to or from Amazon Dynamo DB</p> </li> <li> <p> <code>UNCLASSIFIED</code>: Top contributor network flows that do not have a bucket classification</p> </li> </ul>
    * @public
    */
   destinationCategory: DestinationCategory | undefined;
@@ -1714,8 +1449,7 @@ export interface StartQueryMonitorTopContributorsInput {
  */
 export interface StartQueryMonitorTopContributorsOutput {
   /**
-   * <p>The identifier for the query. A query ID is an internally-generated
-   *    		identifier for a specific query returned from an API call to start a query.</p>
+   * <p>The identifier for the query. A query ID is an internally-generated identifier for a specific query returned from an API call to start a query.</p>
    * @public
    */
   queryId: string | undefined;
@@ -1732,8 +1466,7 @@ export interface StopQueryMonitorTopContributorsInput {
   monitorName: string | undefined;
 
   /**
-   * <p>The identifier for the query. A query ID is an internally-generated
-   *    		identifier for a specific query returned from an API call to create a query.</p>
+   * <p>The identifier for the query. A query ID is an internally-generated identifier for a specific query returned from an API call to create a query.</p>
    * @public
    */
   queryId: string | undefined;
@@ -1779,8 +1512,7 @@ export interface UpdateMonitorInput {
   remoteResourcesToRemove?: MonitorRemoteResource[] | undefined;
 
   /**
-   * <p>A unique, case-sensitive string of up to 64 ASCII characters that you specify to make an idempotent API request. Don't reuse the same client token for
-   *    		other API requests.</p>
+   * <p>A unique, case-sensitive string of up to 64 ASCII characters that you specify to make an idempotent API request. Don't reuse the same client token for other API requests.</p>
    * @public
    */
   clientToken?: string | undefined;
@@ -1803,29 +1535,7 @@ export interface UpdateMonitorOutput {
   monitorName: string | undefined;
 
   /**
-   * <p>The status of a monitor. The status can be one of the following</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>PENDING</code>: The monitor is in the process of being created.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>ACTIVE</code>: The monitor is active.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>INACTIVE</code>: The monitor is inactive.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>ERROR</code>: Monitor creation failed due to an error.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>DELETING</code>: The monitor is in the process of being deleted.</p>
-   *             </li>
-   *          </ul>
+   * <p>The status of a monitor. The status can be one of the following</p> <ul> <li> <p> <code>PENDING</code>: The monitor is in the process of being created.</p> </li> <li> <p> <code>ACTIVE</code>: The monitor is active.</p> </li> <li> <p> <code>INACTIVE</code>: The monitor is inactive.</p> </li> <li> <p> <code>ERROR</code>: Monitor creation failed due to an error.</p> </li> <li> <p> <code>DELETING</code>: The monitor is in the process of being deleted.</p> </li> </ul>
    * @public
    */
   monitorStatus: MonitorStatus | undefined;
@@ -1881,59 +1591,31 @@ export type WorkloadInsightsMetric = (typeof WorkloadInsightsMetric)[keyof typeo
  */
 export interface StartQueryWorkloadInsightsTopContributorsInput {
   /**
-   * <p>The identifier for the scope that includes the resources you want to get data results for.
-   *    		A scope ID is an internally-generated identifier that includes all the resources
-   *    		for a specific root account. A scope ID is returned from a <code>CreateScope</code> API call.</p>
+   * <p>The identifier for the scope that includes the resources you want to get data results for. A scope ID is an internally-generated identifier that includes all the resources for a specific root account. A scope ID is returned from a <code>CreateScope</code> API call.</p>
    * @public
    */
   scopeId: string | undefined;
 
   /**
-   * <p>The timestamp that is the date and time beginning of the period that you want to retrieve
-   *    		results for with your query.</p>
+   * <p>The timestamp that is the date and time beginning of the period that you want to retrieve results for with your query.</p>
    * @public
    */
   startTime: Date | undefined;
 
   /**
-   * <p>The timestamp that is the date and time end of the period that you want to retrieve
-   *    		results for with your query.</p>
+   * <p>The timestamp that is the date and time end of the period that you want to retrieve results for with your query.</p>
    * @public
    */
   endTime: Date | undefined;
 
   /**
-   * <p>The metric that you want to query top contributors for. That is, you can specify this metric to
-   *    		return the top contributor network flows, for this type of metric, for a monitor and (optionally)
-   *    		within a specific category, such as network flows between Availability Zones.</p>
+   * <p>The metric that you want to query top contributors for. That is, you can specify this metric to return the top contributor network flows, for this type of metric, for a monitor and (optionally) within a specific category, such as network flows between Availability Zones.</p>
    * @public
    */
   metricName: WorkloadInsightsMetric | undefined;
 
   /**
-   * <p>The destination category for a top contributors row. Destination categories can be one of the following: </p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>INTRA_AZ</code>: Top contributor network flows within a single Availability Zone</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>INTER_AZ</code>: Top contributor network flows between Availability Zones</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>INTER_VPC</code>: Top contributor network flows between VPCs</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>AWS_SERVICES</code>: Top contributor network flows to or from Amazon Web Services services</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>UNCLASSIFIED</code>: Top contributor network flows that do not have a bucket classification</p>
-   *             </li>
-   *          </ul>
+   * <p>The destination category for a top contributors row. Destination categories can be one of the following: </p> <ul> <li> <p> <code>INTRA_AZ</code>: Top contributor network flows within a single Availability Zone</p> </li> <li> <p> <code>INTER_AZ</code>: Top contributor network flows between Availability Zones</p> </li> <li> <p> <code>INTER_VPC</code>: Top contributor network flows between VPCs</p> </li> <li> <p> <code>AWS_SERVICES</code>: Top contributor network flows to or from Amazon Web Services services</p> </li> <li> <p> <code>UNCLASSIFIED</code>: Top contributor network flows that do not have a bucket classification</p> </li> </ul>
    * @public
    */
   destinationCategory: DestinationCategory | undefined;
@@ -1950,8 +1632,7 @@ export interface StartQueryWorkloadInsightsTopContributorsInput {
  */
 export interface StartQueryWorkloadInsightsTopContributorsOutput {
   /**
-   * <p>The identifier for the query. A query ID is an internally-generated
-   *    		identifier for a specific query returned from an API call to start a query.</p>
+   * <p>The identifier for the query. A query ID is an internally-generated identifier for a specific query returned from an API call to start a query.</p>
    * @public
    */
   queryId: string | undefined;
@@ -1962,59 +1643,31 @@ export interface StartQueryWorkloadInsightsTopContributorsOutput {
  */
 export interface StartQueryWorkloadInsightsTopContributorsDataInput {
   /**
-   * <p>The identifier for the scope that includes the resources you want to get data results for.
-   *    		A scope ID is an internally-generated identifier that includes all the resources
-   *    		for a specific root account.</p>
+   * <p>The identifier for the scope that includes the resources you want to get data results for. A scope ID is an internally-generated identifier that includes all the resources for a specific root account.</p>
    * @public
    */
   scopeId: string | undefined;
 
   /**
-   * <p>The timestamp that is the date and time beginning of the period that you want to retrieve
-   *    		results for with your query.</p>
+   * <p>The timestamp that is the date and time beginning of the period that you want to retrieve results for with your query.</p>
    * @public
    */
   startTime: Date | undefined;
 
   /**
-   * <p>The timestamp that is the date and time end of the period that you want to retrieve
-   *    		results for with your query.</p>
+   * <p>The timestamp that is the date and time end of the period that you want to retrieve results for with your query.</p>
    * @public
    */
   endTime: Date | undefined;
 
   /**
-   * <p>The metric that you want to query top contributors for. That is, you can specify this metric to
-   *    		return the top contributor network flows, for this type of metric, for a monitor and (optionally)
-   *    		within a specific category, such as network flows between Availability Zones.</p>
+   * <p>The metric that you want to query top contributors for. That is, you can specify this metric to return the top contributor network flows, for this type of metric, for a monitor and (optionally) within a specific category, such as network flows between Availability Zones.</p>
    * @public
    */
   metricName: WorkloadInsightsMetric | undefined;
 
   /**
-   * <p>The destination category for a top contributors. Destination categories can be one of the following: </p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>INTRA_AZ</code>: Top contributor network flows within a single Availability Zone</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>INTER_AZ</code>: Top contributor network flows between Availability Zones</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>INTER_VPC</code>: Top contributor network flows between VPCs</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>AWS_SERVICES</code>: Top contributor network flows to or from Amazon Web Services services</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>UNCLASSIFIED</code>: Top contributor network flows that do not have a bucket classification</p>
-   *             </li>
-   *          </ul>
+   * <p>The destination category for a top contributors. Destination categories can be one of the following: </p> <ul> <li> <p> <code>INTRA_AZ</code>: Top contributor network flows within a single Availability Zone</p> </li> <li> <p> <code>INTER_AZ</code>: Top contributor network flows between Availability Zones</p> </li> <li> <p> <code>INTER_VPC</code>: Top contributor network flows between VPCs</p> </li> <li> <p> <code>AWS_SERVICES</code>: Top contributor network flows to or from Amazon Web Services services</p> </li> <li> <p> <code>UNCLASSIFIED</code>: Top contributor network flows that do not have a bucket classification</p> </li> </ul>
    * @public
    */
   destinationCategory: DestinationCategory | undefined;
@@ -2025,8 +1678,7 @@ export interface StartQueryWorkloadInsightsTopContributorsDataInput {
  */
 export interface StartQueryWorkloadInsightsTopContributorsDataOutput {
   /**
-   * <p>The identifier for the query. A query ID is an internally-generated
-   *    		identifier for a specific query returned from an API call to start a query.</p>
+   * <p>The identifier for the query. A query ID is an internally-generated identifier for a specific query returned from an API call to start a query.</p>
    * @public
    */
   queryId: string | undefined;
@@ -2037,16 +1689,13 @@ export interface StartQueryWorkloadInsightsTopContributorsDataOutput {
  */
 export interface StopQueryWorkloadInsightsTopContributorsInput {
   /**
-   * <p>The identifier for the scope that includes the resources you want to get data results for.
-   *    		A scope ID is an internally-generated identifier that includes all the resources
-   *    		for a specific root account.</p>
+   * <p>The identifier for the scope that includes the resources you want to get data results for. A scope ID is an internally-generated identifier that includes all the resources for a specific root account.</p>
    * @public
    */
   scopeId: string | undefined;
 
   /**
-   * <p>The identifier for the query. A query ID is an internally-generated
-   *    		identifier for a specific query returned from an API call to create a query.</p>
+   * <p>The identifier for the query. A query ID is an internally-generated identifier for a specific query returned from an API call to create a query.</p>
    * @public
    */
   queryId: string | undefined;
@@ -2062,16 +1711,13 @@ export interface StopQueryWorkloadInsightsTopContributorsOutput {}
  */
 export interface StopQueryWorkloadInsightsTopContributorsDataInput {
   /**
-   * <p>The identifier for the scope that includes the resources you want to get data results for.
-   *    		A scope ID is an internally-generated identifier that includes all the resources
-   *    		for a specific root account.</p>
+   * <p>The identifier for the scope that includes the resources you want to get data results for. A scope ID is an internally-generated identifier that includes all the resources for a specific root account.</p>
    * @public
    */
   scopeId: string | undefined;
 
   /**
-   * <p>The identifier for the query. A query ID is an internally-generated
-   *    		identifier for a specific query returned from an API call to create a query.</p>
+   * <p>The identifier for the query. A query ID is an internally-generated identifier for a specific query returned from an API call to create a query.</p>
    * @public
    */
   queryId: string | undefined;
@@ -2087,9 +1733,7 @@ export interface StopQueryWorkloadInsightsTopContributorsDataOutput {}
  */
 export interface UpdateScopeInput {
   /**
-   * <p>The identifier for the scope that includes the resources you want to get data results for.
-   *    		A scope ID is an internally-generated identifier that includes all the resources
-   *    		for a specific root account.</p>
+   * <p>The identifier for the scope that includes the resources you want to get data results for. A scope ID is an internally-generated identifier that includes all the resources for a specific root account.</p>
    * @public
    */
   scopeId: string | undefined;
@@ -2112,16 +1756,13 @@ export interface UpdateScopeInput {
  */
 export interface UpdateScopeOutput {
   /**
-   * <p>The identifier for the scope that includes the resources you want to get data results for.
-   *    		A scope ID is an internally-generated identifier that includes all the resources
-   *    		for a specific root account.</p>
+   * <p>The identifier for the scope that includes the resources you want to get data results for. A scope ID is an internally-generated identifier that includes all the resources for a specific root account.</p>
    * @public
    */
   scopeId: string | undefined;
 
   /**
-   * <p>The status for a call to update a scope. The status can be one of the following:
-   *    		<code>SUCCEEDED</code>, <code>IN_PROGRESS</code>, or <code>FAILED</code>.</p>
+   * <p>The status for a scope. The status can be one of the following: <code>SUCCEEDED</code>, <code>IN_PROGRESS</code>, <code>FAILED</code>, <code>DEACTIVATING</code>, or <code>DEACTIVATED</code>.</p> <p>A status of <code>DEACTIVATING</code> means that you've requested a scope to be deactivated and Network Flow Monitor is in the process of deactivating the scope. A status of <code>DEACTIVATED</code> means that the deactivating process is complete.</p>
    * @public
    */
   status: ScopeStatus | undefined;

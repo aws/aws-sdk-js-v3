@@ -32,8 +32,7 @@ export interface GetScopeCommandInput extends GetScopeInput {}
 export interface GetScopeCommandOutput extends GetScopeOutput, __MetadataBearer {}
 
 /**
- * <p>Gets information about a scope, including the name, status, tags, and target details.
- *    		The scope in Network Flow Monitor is an account.</p>
+ * <p>Gets information about a scope, including the name, status, tags, and target details. The scope in Network Flow Monitor is an account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -47,7 +46,7 @@ export interface GetScopeCommandOutput extends GetScopeOutput, __MetadataBearer 
  * const response = await client.send(command);
  * // { // GetScopeOutput
  * //   scopeId: "STRING_VALUE", // required
- * //   status: "SUCCEEDED" || "IN_PROGRESS" || "FAILED", // required
+ * //   status: "SUCCEEDED" || "IN_PROGRESS" || "FAILED" || "DEACTIVATING" || "DEACTIVATED", // required
  * //   scopeArn: "STRING_VALUE", // required
  * //   targets: [ // TargetResourceList // required
  * //     { // TargetResource
