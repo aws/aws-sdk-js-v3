@@ -28,7 +28,8 @@ export interface DescribeDestinationsCommandInput extends DescribeDestinationsRe
 export interface DescribeDestinationsCommandOutput extends DescribeDestinationsResponse, __MetadataBearer {}
 
 /**
- * <p>Lists all your destinations. The results are ASCII-sorted by destination name.</p>
+ * <p>Lists all your destinations. The results are ASCII-sorted by destination
+ *       name.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

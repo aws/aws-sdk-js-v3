@@ -28,8 +28,9 @@ export interface StopQueryCommandInput extends StopQueryRequest {}
 export interface StopQueryCommandOutput extends StopQueryResponse, __MetadataBearer {}
 
 /**
- * <p>Stops a CloudWatch Logs Insights query that is in progress. If the query has already ended, the operation
- *     returns an error indicating that the specified query is not running.</p>
+ * <p>Stops a CloudWatch Logs Insights query that is in progress. If the query has already
+ *       ended, the operation returns an error indicating that the specified query is not
+ *       running.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

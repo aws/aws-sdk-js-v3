@@ -28,23 +28,23 @@ export interface DisassociateKmsKeyCommandInput extends DisassociateKmsKeyReques
 export interface DisassociateKmsKeyCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Disassociates the specified KMS key from the specified log
- *       group or from all CloudWatch Logs Insights query results in the account.</p>
- *          <p>When you use <code>DisassociateKmsKey</code>, you specify either the <code>logGroupName</code> parameter
- *       or the <code>resourceIdentifier</code> parameter. You can't specify both of those parameters in the same operation.</p>
+ * <p>Disassociates the specified KMS key from the specified log group or
+ *       from all CloudWatch Logs Insights query results in the account.</p>
+ *          <p>When you use <code>DisassociateKmsKey</code>, you specify either the
+ *         <code>logGroupName</code> parameter or the <code>resourceIdentifier</code> parameter. You
+ *       can't specify both of those parameters in the same operation.</p>
  *          <ul>
  *             <li>
- *                <p>Specify the <code>logGroupName</code> parameter to stop using the KMS key
- *           to encrypt future log events ingested and stored in the log group. Instead, they will be
- *           encrypted with the default CloudWatch Logs method. The log events that were ingested
- *           while the key was associated with the log group are still encrypted with that key.
- *           Therefore, CloudWatch Logs will need permissions for the key whenever that data is
- *           accessed.</p>
+ *                <p>Specify the <code>logGroupName</code> parameter to stop using the KMS key to encrypt future log events ingested and stored in the log group.
+ *           Instead, they will be encrypted with the default CloudWatch Logs method. The log events
+ *           that were ingested while the key was associated with the log group are still encrypted
+ *           with that key. Therefore, CloudWatch Logs will need permissions for the key whenever
+ *           that data is accessed.</p>
  *             </li>
  *             <li>
- *                <p>Specify the <code>resourceIdentifier</code> parameter with the <code>query-result</code>
- *           resource to stop using the KMS key to encrypt the results of all
- *           future <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_StartQuery.html">StartQuery</a>
+ *                <p>Specify the <code>resourceIdentifier</code> parameter with the
+ *             <code>query-result</code> resource to stop using the KMS key to
+ *           encrypt the results of all future <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_StartQuery.html">StartQuery</a>
  *           operations in the account. They will instead be encrypted with the default CloudWatch Logs method. The results from queries that ran while the key was associated with
  *           the account are still encrypted with that key. Therefore, CloudWatch Logs will need
  *           permissions for the key whenever that data is accessed.</p>

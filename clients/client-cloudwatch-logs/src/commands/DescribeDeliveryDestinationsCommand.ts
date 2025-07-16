@@ -33,7 +33,8 @@ export interface DescribeDeliveryDestinationsCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Retrieves a list of the delivery destinations that have been created in the account.</p>
+ * <p>Retrieves a list of the delivery destinations that have been created in the
+ *       account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -51,7 +52,7 @@ export interface DescribeDeliveryDestinationsCommandOutput
  * //     { // DeliveryDestination
  * //       name: "STRING_VALUE",
  * //       arn: "STRING_VALUE",
- * //       deliveryDestinationType: "S3" || "CWL" || "FH",
+ * //       deliveryDestinationType: "S3" || "CWL" || "FH" || "XRAY",
  * //       outputFormat: "json" || "plain" || "w3c" || "raw" || "parquet",
  * //       deliveryDestinationConfiguration: { // DeliveryDestinationConfiguration
  * //         destinationResourceArn: "STRING_VALUE", // required

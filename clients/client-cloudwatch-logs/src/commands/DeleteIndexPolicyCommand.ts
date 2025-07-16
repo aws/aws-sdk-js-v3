@@ -28,12 +28,13 @@ export interface DeleteIndexPolicyCommandInput extends DeleteIndexPolicyRequest 
 export interface DeleteIndexPolicyCommandOutput extends DeleteIndexPolicyResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes a log-group level field index policy that was applied to a single log group. The indexing of the log events that happened before
- *     you delete the policy will still be used for as many as 30 days to improve CloudWatch Logs Insights queries.</p>
- *          <p>You can't use this operation to delete an account-level index policy. Instead, use
- *       <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DeleteAccountPolicy.html">DeletAccountPolicy</a>.</p>
- *          <p>If you delete a log-group level field index policy and there is an account-level field index policy, in a few minutes the log group begins using that account-wide policy to index new
- *       incoming log events. </p>
+ * <p>Deletes a log-group level field index policy that was applied to a single log group. The
+ *       indexing of the log events that happened before you delete the policy will still be used for
+ *       as many as 30 days to improve CloudWatch Logs Insights queries.</p>
+ *          <p>You can't use this operation to delete an account-level index policy. Instead, use <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DeleteAccountPolicy.html">DeletAccountPolicy</a>.</p>
+ *          <p>If you delete a log-group level field index policy and there is an account-level field
+ *       index policy, in a few minutes the log group begins using that account-wide policy to index
+ *       new incoming log events. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

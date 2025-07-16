@@ -28,11 +28,12 @@ export interface ListLogGroupsForQueryCommandInput extends ListLogGroupsForQuery
 export interface ListLogGroupsForQueryCommandOutput extends ListLogGroupsForQueryResponse, __MetadataBearer {}
 
 /**
- * <p>Returns a list of the log groups that were analyzed during a single CloudWatch Logs Insights query. This can be useful for queries
- *     that use
- *     log group name prefixes or the <code>filterIndex</code> command, because the log groups are dynamically selected in these cases.</p>
- *          <p>For more information about field indexes, see
- *       <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatchLogs-Field-Indexing.html">Create field indexes to improve query performance and reduce costs</a>.</p>
+ * <p>Returns a list of the log groups that were analyzed during a single CloudWatch Logs
+ *       Insights query. This can be useful for queries that use log group name prefixes or the
+ *         <code>filterIndex</code> command, because the log groups are dynamically selected in these
+ *       cases.</p>
+ *          <p>For more information about field indexes, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatchLogs-Field-Indexing.html">Create field indexes
+ *         to improve query performance and reduce costs</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

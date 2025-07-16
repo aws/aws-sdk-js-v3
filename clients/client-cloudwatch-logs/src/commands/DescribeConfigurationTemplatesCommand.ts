@@ -33,8 +33,9 @@ export interface DescribeConfigurationTemplatesCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Use this operation to return the valid and default values that are used when creating delivery sources, delivery destinations, and deliveries.
- *       For more information about deliveries, see <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_CreateDelivery.html">CreateDelivery</a>.</p>
+ * <p>Use this operation to return the valid and default values that are used when creating
+ *       delivery sources, delivery destinations, and deliveries. For more information about
+ *       deliveries, see <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_CreateDelivery.html">CreateDelivery</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -50,7 +51,7 @@ export interface DescribeConfigurationTemplatesCommandOutput
  *     "STRING_VALUE",
  *   ],
  *   deliveryDestinationTypes: [ // DeliveryDestinationTypes
- *     "S3" || "CWL" || "FH",
+ *     "S3" || "CWL" || "FH" || "XRAY",
  *   ],
  *   nextToken: "STRING_VALUE",
  *   limit: Number("int"),
@@ -63,7 +64,7 @@ export interface DescribeConfigurationTemplatesCommandOutput
  * //       service: "STRING_VALUE",
  * //       logType: "STRING_VALUE",
  * //       resourceType: "STRING_VALUE",
- * //       deliveryDestinationType: "S3" || "CWL" || "FH",
+ * //       deliveryDestinationType: "S3" || "CWL" || "FH" || "XRAY",
  * //       defaultDeliveryConfigValues: { // ConfigurationTemplateDeliveryConfigValues
  * //         recordFields: [ // RecordFields
  * //           "STRING_VALUE",

@@ -28,16 +28,17 @@ export interface PutDestinationCommandInput extends PutDestinationRequest {}
 export interface PutDestinationCommandOutput extends PutDestinationResponse, __MetadataBearer {}
 
 /**
- * <p>Creates or updates a destination. This operation is used only to create destinations for cross-account subscriptions.</p>
+ * <p>Creates or updates a destination. This operation is used only to create destinations
+ *       for cross-account subscriptions.</p>
  *          <p>A destination encapsulates a physical resource (such as an Amazon Kinesis stream). With
  *       a destination, you can subscribe to a real-time stream of log events for a different account,
  *       ingested using <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutLogEvents.html">PutLogEvents</a>.</p>
- *          <p>Through an access policy, a destination controls what is written to it.
- *       By default, <code>PutDestination</code> does not set any access policy with the destination,
- *       which means a cross-account user cannot call <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutSubscriptionFilter.html">PutSubscriptionFilter</a> against
- *       this destination. To enable this, the destination owner must call <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutDestinationPolicy.html">PutDestinationPolicy</a> after <code>PutDestination</code>.</p>
+ *          <p>Through an access policy, a destination controls what is written to it. By default,
+ *         <code>PutDestination</code> does not set any access policy with the destination, which means
+ *       a cross-account user cannot call <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutSubscriptionFilter.html">PutSubscriptionFilter</a> against this destination. To enable this, the destination
+ *       owner must call <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutDestinationPolicy.html">PutDestinationPolicy</a> after <code>PutDestination</code>.</p>
  *          <p>To perform a <code>PutDestination</code> operation, you must also have the
- *     <code>iam:PassRole</code> permission.</p>
+ *         <code>iam:PassRole</code> permission.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -30,8 +30,9 @@ export interface DescribeSubscriptionFiltersCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Lists the subscription filters for the specified log group. You can list all the subscription filters or filter the results by prefix.
- *       The results are ASCII-sorted by filter name.</p>
+ * <p>Lists the subscription filters for the specified log group. You can list all the
+ *       subscription filters or filter the results by prefix. The results are ASCII-sorted by filter
+ *       name.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

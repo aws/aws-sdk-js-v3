@@ -29,7 +29,8 @@ export interface DeleteRetentionPolicyCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes the specified retention policy.</p>
- *          <p>Log events do not expire if they belong to log groups without a retention policy.</p>
+ *          <p>Log events do not expire if they belong to log groups without a retention
+ *       policy.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

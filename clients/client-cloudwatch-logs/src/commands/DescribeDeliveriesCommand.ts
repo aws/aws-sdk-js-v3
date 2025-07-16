@@ -29,18 +29,16 @@ export interface DescribeDeliveriesCommandOutput extends DescribeDeliveriesRespo
 
 /**
  * <p>Retrieves a list of the deliveries that have been created in the account.</p>
- *          <p>A <i>delivery</i> is a
- *        connection between a <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutDeliverySource.html">
- *                <i>delivery source</i>
- *             </a> and a
- *        <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutDeliveryDestination.html">
+ *          <p>A <i>delivery</i> is a connection between a <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutDeliverySource.html">
+ *                <i>delivery
+ *           source</i>
+ *             </a> and a <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutDeliveryDestination.html">
  *                <i>delivery destination</i>
  *             </a>.</p>
- *          <p>A delivery source represents an Amazon Web Services resource that sends logs to an logs delivery destination.
- *        The destination can be CloudWatch Logs, Amazon S3, or Firehose.
- *        Only some Amazon Web Services services support being configured as a delivery source. These services are listed
- *        in <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/AWS-logs-and-resource-policy.html">Enable logging from Amazon Web Services
- *          services.</a>
+ *          <p>A delivery source represents an Amazon Web Services resource that sends logs to an logs
+ *       delivery destination. The destination can be CloudWatch Logs, Amazon S3, Firehose or X-Ray. Only some Amazon Web Services services support being configured as a delivery
+ *       source. These services are listed in <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/AWS-logs-and-resource-policy.html">Enable logging from
+ *           Amazon Web Services services.</a>
  *          </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -61,7 +59,7 @@ export interface DescribeDeliveriesCommandOutput extends DescribeDeliveriesRespo
  * //       arn: "STRING_VALUE",
  * //       deliverySourceName: "STRING_VALUE",
  * //       deliveryDestinationArn: "STRING_VALUE",
- * //       deliveryDestinationType: "S3" || "CWL" || "FH",
+ * //       deliveryDestinationType: "S3" || "CWL" || "FH" || "XRAY",
  * //       recordFields: [ // RecordFields
  * //         "STRING_VALUE",
  * //       ],

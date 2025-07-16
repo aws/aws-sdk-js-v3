@@ -28,21 +28,20 @@ export interface GetDeliveryCommandInput extends GetDeliveryRequest {}
 export interface GetDeliveryCommandOutput extends GetDeliveryResponse, __MetadataBearer {}
 
 /**
- * <p>Returns complete information about one logical <i>delivery</i>. A delivery is a
- *        connection between a <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutDeliverySource.html">
- *                <i>delivery source</i>
- *             </a> and a
- *        <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutDeliveryDestination.html">
+ * <p>Returns complete information about one logical <i>delivery</i>. A delivery
+ *       is a connection between a <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutDeliverySource.html">
+ *                <i>delivery
+ *           source</i>
+ *             </a> and a <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutDeliveryDestination.html">
  *                <i>delivery destination</i>
  *             </a>.</p>
- *          <p>A delivery source represents an Amazon Web Services resource that sends logs to an logs delivery destination.
- *        The destination can be CloudWatch Logs, Amazon S3, or Firehose.
- *        Only some Amazon Web Services services support being configured as a delivery source. These services are listed
- *        in <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/AWS-logs-and-resource-policy.html">Enable logging from Amazon Web Services
- *          services.</a>
+ *          <p>A delivery source represents an Amazon Web Services resource that sends logs to an logs
+ *       delivery destination. The destination can be CloudWatch Logs, Amazon S3, or Firehose. Only some Amazon Web Services services support being configured as a delivery
+ *       source. These services are listed in <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/AWS-logs-and-resource-policy.html">Enable logging from
+ *           Amazon Web Services services.</a>
  *          </p>
- *          <p>You need to specify the delivery <code>id</code> in this operation. You can find the IDs of the deliveries in your account with the
- *        <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DescribeDeliveries.html">DescribeDeliveries</a> operation.</p>
+ *          <p>You need to specify the delivery <code>id</code> in this operation. You can find the IDs
+ *       of the deliveries in your account with the <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DescribeDeliveries.html">DescribeDeliveries</a> operation.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -60,7 +59,7 @@ export interface GetDeliveryCommandOutput extends GetDeliveryResponse, __Metadat
  * //     arn: "STRING_VALUE",
  * //     deliverySourceName: "STRING_VALUE",
  * //     deliveryDestinationArn: "STRING_VALUE",
- * //     deliveryDestinationType: "S3" || "CWL" || "FH",
+ * //     deliveryDestinationType: "S3" || "CWL" || "FH" || "XRAY",
  * //     recordFields: [ // RecordFields
  * //       "STRING_VALUE",
  * //     ],

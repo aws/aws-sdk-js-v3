@@ -28,27 +28,28 @@ export interface PutDataProtectionPolicyCommandInput extends PutDataProtectionPo
 export interface PutDataProtectionPolicyCommandOutput extends PutDataProtectionPolicyResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a data protection policy for the specified log group. A data protection policy can help safeguard sensitive
- *       data that's ingested by the log group by auditing and masking the sensitive log data.</p>
+ * <p>Creates a data protection policy for the specified log group. A data protection policy can
+ *       help safeguard sensitive data that's ingested by the log group by auditing and masking the
+ *       sensitive log data.</p>
  *          <important>
- *             <p>Sensitive data is detected and masked when it is ingested into the log group. When you set a
- *       data protection policy, log events ingested into the log group before that time are not masked.</p>
+ *             <p>Sensitive data is detected and masked when it is ingested into the log group. When you
+ *         set a data protection policy, log events ingested into the log group before that time are
+ *         not masked.</p>
  *          </important>
- *          <p>By default, when a user views a log event that includes masked data, the sensitive data is replaced by asterisks.
- *       A user who has the <code>logs:Unmask</code> permission can use a
- *       <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_GetLogEvents.html">GetLogEvents</a> or
- *       <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_FilterLogEvents.html">FilterLogEvents</a>
- *       operation with the <code>unmask</code> parameter set to <code>true</code> to view the unmasked
- *       log events. Users with the <code>logs:Unmask</code> can also view unmasked data in the CloudWatch Logs
- *       console by running a CloudWatch Logs Insights query with the <code>unmask</code> query command.</p>
- *          <p>For more information, including a list of types of data that can be audited and masked, see
- *       <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/mask-sensitive-log-data.html">Protect sensitive log data with masking</a>.</p>
- *          <p>The <code>PutDataProtectionPolicy</code> operation applies to only the specified log group. You can also use
- *       <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutAccountPolicy.html">PutAccountPolicy</a>
- *       to create an account-level data protection policy that applies to all log groups in the account,
- *     including both existing log groups and log groups that are created level. If a log group has its own data protection policy and
- *     the account also has an account-level data protection policy, then the two policies are cumulative. Any sensitive term
- *     specified in either policy is masked.</p>
+ *          <p>By default, when a user views a log event that includes masked data, the sensitive data is
+ *       replaced by asterisks. A user who has the <code>logs:Unmask</code> permission can use a <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_GetLogEvents.html">GetLogEvents</a> or <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_FilterLogEvents.html">FilterLogEvents</a> operation with the <code>unmask</code> parameter set to
+ *         <code>true</code> to view the unmasked log events. Users with the <code>logs:Unmask</code>
+ *       can also view unmasked data in the CloudWatch Logs console by running a CloudWatch Logs
+ *       Insights query with the <code>unmask</code> query command.</p>
+ *          <p>For more information, including a list of types of data that can be audited and masked,
+ *       see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/mask-sensitive-log-data.html">Protect sensitive log data
+ *         with masking</a>.</p>
+ *          <p>The <code>PutDataProtectionPolicy</code> operation applies to only the specified log
+ *       group. You can also use <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutAccountPolicy.html">PutAccountPolicy</a> to create an account-level data protection policy that applies to
+ *       all log groups in the account, including both existing log groups and log groups that are
+ *       created level. If a log group has its own data protection policy and the account also has an
+ *       account-level data protection policy, then the two policies are cumulative. Any sensitive term
+ *       specified in either policy is masked.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

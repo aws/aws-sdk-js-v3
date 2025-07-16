@@ -28,8 +28,8 @@ export interface PutQueryDefinitionCommandInput extends PutQueryDefinitionReques
 export interface PutQueryDefinitionCommandOutput extends PutQueryDefinitionResponse, __MetadataBearer {}
 
 /**
- * <p>Creates or updates a query definition for CloudWatch Logs Insights. For
- *       more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/AnalyzingLogData.html">Analyzing Log Data with CloudWatch Logs Insights</a>.</p>
+ * <p>Creates or updates a query definition for CloudWatch Logs Insights. For more information,
+ *       see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/AnalyzingLogData.html">Analyzing Log Data with CloudWatch Logs Insights</a>.</p>
  *          <p>To update a query definition, specify its <code>queryDefinitionId</code> in your request.
  *       The values of <code>name</code>, <code>queryString</code>, and <code>logGroupNames</code> are
  *       changed to the values that you specify in your update operation. No current values are
@@ -38,7 +38,7 @@ export interface PutQueryDefinitionCommandOutput extends PutQueryDefinitionRespo
  *       parameter in your update operation, the query definition changes to contain no log
  *       groups.</p>
  *          <p>You must have the <code>logs:PutQueryDefinition</code> permission to be able to perform
- *     this operation.</p>
+ *       this operation.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

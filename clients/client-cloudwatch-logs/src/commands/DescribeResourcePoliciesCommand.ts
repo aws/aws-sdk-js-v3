@@ -38,6 +38,8 @@ export interface DescribeResourcePoliciesCommandOutput extends DescribeResourceP
  * const input = { // DescribeResourcePoliciesRequest
  *   nextToken: "STRING_VALUE",
  *   limit: Number("int"),
+ *   resourceArn: "STRING_VALUE",
+ *   policyScope: "ACCOUNT" || "RESOURCE",
  * };
  * const command = new DescribeResourcePoliciesCommand(input);
  * const response = await client.send(command);
@@ -47,6 +49,9 @@ export interface DescribeResourcePoliciesCommandOutput extends DescribeResourceP
  * //       policyName: "STRING_VALUE",
  * //       policyDocument: "STRING_VALUE",
  * //       lastUpdatedTime: Number("long"),
+ * //       policyScope: "ACCOUNT" || "RESOURCE",
+ * //       resourceArn: "STRING_VALUE",
+ * //       revisionId: "STRING_VALUE",
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",

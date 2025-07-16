@@ -41,7 +41,8 @@ export interface PutSubscriptionFilterCommandOutput extends __MetadataBearer {}
  *             </li>
  *             <li>
  *                <p>A logical destination created with <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutDestination.html">PutDestination</a> that belongs to a different account, for cross-account delivery.
- *           We currently support Kinesis Data Streams and Firehose as logical destinations.</p>
+ *           We currently support Kinesis Data Streams and Firehose as logical
+ *           destinations.</p>
  *             </li>
  *             <li>
  *                <p>An Amazon Kinesis Data Firehose delivery stream that belongs to the same account as
@@ -53,17 +54,15 @@ export interface PutSubscriptionFilterCommandOutput extends __MetadataBearer {}
  *             </li>
  *          </ul>
  *          <p>Each log group can have up to two subscription filters associated with it. If you are
- *       updating an existing filter, you must specify the correct name in <code>filterName</code>.
- *       </p>
- *          <p>Using regular expressions in filter patterns is supported. For these filters,
- *       there is a quotas of quota of two regular expression patterns within a single filter pattern. There
- *       is also a quota of five regular expression patterns per log group.
- *       For more information about using regular expressions in filter patterns,
- *       see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/FilterAndPatternSyntax.html">
- *         Filter pattern syntax for metric filters, subscription filters, filter log events, and Live Tail</a>.</p>
- *          <p>To perform a <code>PutSubscriptionFilter</code> operation for any destination except a Lambda function,
- *     you must also have the
- *       <code>iam:PassRole</code> permission.</p>
+ *       updating an existing filter, you must specify the correct name in <code>filterName</code>. </p>
+ *          <p>Using regular expressions in filter patterns is supported. For these filters, there is a
+ *       quotas of quota of two regular expression patterns within a single filter pattern. There is
+ *       also a quota of five regular expression patterns per log group. For more information about
+ *       using regular expressions in filter patterns, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/FilterAndPatternSyntax.html"> Filter pattern syntax for
+ *         metric filters, subscription filters, filter log events, and Live Tail</a>.</p>
+ *          <p>To perform a <code>PutSubscriptionFilter</code> operation for any destination except a
+ *         Lambda function, you must also have the <code>iam:PassRole</code>
+ *       permission.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

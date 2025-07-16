@@ -28,23 +28,24 @@ export interface PutIndexPolicyCommandInput extends PutIndexPolicyRequest {}
 export interface PutIndexPolicyCommandOutput extends PutIndexPolicyResponse, __MetadataBearer {}
 
 /**
- * <p>Creates or updates a <i>field index policy</i> for the specified log group. Only log groups
- *     in the Standard log class support field index policies. For more information about log classes, see
- *       <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch_Logs_Log_Classes.html">Log classes</a>.</p>
- *          <p>You can use field index policies to create <i>field indexes</i> on fields found in
- *       log events in the log group. Creating field indexes speeds up and lowers the costs for CloudWatch Logs Insights queries that reference
- *       those field indexes, because these queries attempt to skip the processing of log events that are known to not match the indexed field.
- *       Good fields to index are fields that you often need to query for and fields or values that match only a small fraction of the total log events.
- *       Common examples of indexes
- *       include request ID, session ID, userID, and instance IDs. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatchLogs-Field-Indexing.html">Create field indexes to improve query performance and reduce costs</a>.</p>
- *          <p>To find the fields that are in your log group events, use the
- *       <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_GetLogGroupFields.html">GetLogGroupFields</a>
- *     operation.</p>
+ * <p>Creates or updates a <i>field index policy</i> for the specified log group.
+ *       Only log groups in the Standard log class support field index policies. For more information
+ *       about log classes, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch_Logs_Log_Classes.html">Log
+ *       classes</a>.</p>
+ *          <p>You can use field index policies to create <i>field indexes</i> on fields
+ *       found in log events in the log group. Creating field indexes speeds up and lowers the costs
+ *       for CloudWatch Logs Insights queries that reference those field indexes, because these
+ *       queries attempt to skip the processing of log events that are known to not match the indexed
+ *       field. Good fields to index are fields that you often need to query for and fields or values
+ *       that match only a small fraction of the total log events. Common examples of indexes include
+ *       request ID, session ID, userID, and instance IDs. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatchLogs-Field-Indexing.html">Create field indexes to improve query performance and reduce costs</a>.</p>
+ *          <p>To find the fields that are in your log group events, use the <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_GetLogGroupFields.html">GetLogGroupFields</a> operation.</p>
  *          <p>For example, suppose you have created a field index for <code>requestId</code>. Then, any
- *       CloudWatch Logs Insights query on that log group that includes <code>requestId = <i>value</i>
- *             </code>
- *       or <code>requestId IN [<i>value</i>, <i>value</i>, ...]</code> will process fewer log events
- *       to reduce costs, and have improved performance.</p>
+ *         CloudWatch Logs Insights query on that log group that includes <code>requestId =
+ *           <i>value</i>
+ *             </code> or <code>requestId IN [<i>value</i>,
+ *           <i>value</i>, ...]</code> will process fewer log events to reduce costs, and
+ *       have improved performance.</p>
  *          <p>Each index policy has the following quotas and restrictions:</p>
  *          <ul>
  *             <li>
@@ -54,13 +55,13 @@ export interface PutIndexPolicyCommandOutput extends PutIndexPolicyResponse, __M
  *                <p>Each field name can include as many as 100 characters.</p>
  *             </li>
  *          </ul>
- *          <p>Matches of log events to the names of indexed fields are case-sensitive. For example, a field index
- *     of <code>RequestId</code> won't match a log event containing <code>requestId</code>.</p>
- *          <p>Log group-level field index policies created with <code>PutIndexPolicy</code> override account-level field
- *       index policies created with <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutAccountPolicy.html">PutAccountPolicy</a>. If you use
- *       <code>PutIndexPolicy</code> to create a field
- *     index policy for a log group, that log group uses only that policy. The log group ignores any account-wide
- *     field index policy that you might have created.</p>
+ *          <p>Matches of log events to the names of indexed fields are case-sensitive. For example, a
+ *       field index of <code>RequestId</code> won't match a log event containing
+ *         <code>requestId</code>.</p>
+ *          <p>Log group-level field index policies created with <code>PutIndexPolicy</code> override
+ *       account-level field index policies created with <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutAccountPolicy.html">PutAccountPolicy</a>. If you use <code>PutIndexPolicy</code> to create a field index
+ *       policy for a log group, that log group uses only that policy. The log group ignores any
+ *       account-wide field index policy that you might have created.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

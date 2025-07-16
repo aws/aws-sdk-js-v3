@@ -44,7 +44,7 @@ export interface GetDeliveryDestinationCommandOutput extends GetDeliveryDestinat
  * //   deliveryDestination: { // DeliveryDestination
  * //     name: "STRING_VALUE",
  * //     arn: "STRING_VALUE",
- * //     deliveryDestinationType: "S3" || "CWL" || "FH",
+ * //     deliveryDestinationType: "S3" || "CWL" || "FH" || "XRAY",
  * //     outputFormat: "json" || "plain" || "w3c" || "raw" || "parquet",
  * //     deliveryDestinationConfiguration: { // DeliveryDestinationConfiguration
  * //       destinationResourceArn: "STRING_VALUE", // required

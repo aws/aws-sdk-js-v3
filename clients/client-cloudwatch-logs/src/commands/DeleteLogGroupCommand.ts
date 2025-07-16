@@ -28,8 +28,8 @@ export interface DeleteLogGroupCommandInput extends DeleteLogGroupRequest {}
 export interface DeleteLogGroupCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Deletes the specified log group and permanently deletes all the archived
- *       log events associated with the log group.</p>
+ * <p>Deletes the specified log group and permanently deletes all the archived log events
+ *       associated with the log group.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

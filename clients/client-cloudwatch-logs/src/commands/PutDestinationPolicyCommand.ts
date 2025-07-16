@@ -28,9 +28,10 @@ export interface PutDestinationPolicyCommandInput extends PutDestinationPolicyRe
 export interface PutDestinationPolicyCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Creates or updates an access policy associated with an existing
- *       destination. An access policy is an <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/policies_overview.html">IAM policy document</a> that is used
- *       to authorize claims to register a subscription filter against a given destination.</p>
+ * <p>Creates or updates an access policy associated with an existing destination. An access
+ *       policy is an <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/policies_overview.html">IAM
+ *         policy document</a> that is used to authorize claims to register a subscription filter
+ *       against a given destination.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

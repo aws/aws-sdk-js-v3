@@ -28,8 +28,9 @@ export interface ListIntegrationsCommandInput extends ListIntegrationsRequest {}
 export interface ListIntegrationsCommandOutput extends ListIntegrationsResponse, __MetadataBearer {}
 
 /**
- * <p>Returns a list of integrations between CloudWatch Logs and other services in this account. Currently, only one
- *       integration can be created in an account, and this integration must be with OpenSearch Service.</p>
+ * <p>Returns a list of integrations between CloudWatch Logs and other services in this
+ *       account. Currently, only one integration can be created in an account, and this integration
+ *       must be with OpenSearch Service.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

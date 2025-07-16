@@ -28,29 +28,34 @@ export interface DeleteAccountPolicyCommandInput extends DeleteAccountPolicyRequ
 export interface DeleteAccountPolicyCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Deletes a CloudWatch Logs account policy. This stops the account-wide policy from applying to log groups in the account. If you delete a data protection
- *       policy or subscription filter policy, any log-group level policies of those types remain in effect.</p>
- *          <p>To use this operation, you must be signed on with the correct permissions depending on the type of policy
- *       that you are deleting.</p>
+ * <p>Deletes a CloudWatch Logs account policy. This stops the account-wide policy from
+ *       applying to log groups in the account. If you delete a data protection policy or subscription
+ *       filter policy, any log-group level policies of those types remain in effect.</p>
+ *          <p>To use this operation, you must be signed on with the correct permissions depending on the
+ *       type of policy that you are deleting.</p>
  *          <ul>
  *             <li>
- *                <p>To delete a data protection policy, you must have the <code>logs:DeleteDataProtectionPolicy</code> and
- *         <code>logs:DeleteAccountPolicy</code> permissions.</p>
+ *                <p>To delete a data protection policy, you must have the
+ *             <code>logs:DeleteDataProtectionPolicy</code> and <code>logs:DeleteAccountPolicy</code>
+ *           permissions.</p>
  *             </li>
  *             <li>
- *                <p>To delete a subscription filter policy, you must have the <code>logs:DeleteSubscriptionFilter</code> and
- *         <code>logs:DeleteAccountPolicy</code> permissions.</p>
+ *                <p>To delete a subscription filter policy, you must have the
+ *             <code>logs:DeleteSubscriptionFilter</code> and <code>logs:DeleteAccountPolicy</code>
+ *           permissions.</p>
  *             </li>
  *             <li>
- *                <p>To delete a transformer policy, you must have the <code>logs:DeleteTransformer</code> and <code>logs:DeleteAccountPolicy</code> permissions.</p>
+ *                <p>To delete a transformer policy, you must have the <code>logs:DeleteTransformer</code>
+ *           and <code>logs:DeleteAccountPolicy</code> permissions.</p>
  *             </li>
  *             <li>
- *                <p>To delete a field index policy, you must have the <code>logs:DeleteIndexPolicy</code> and
- *         <code>logs:DeleteAccountPolicy</code> permissions.</p>
+ *                <p>To delete a field index policy, you must have the <code>logs:DeleteIndexPolicy</code>
+ *           and <code>logs:DeleteAccountPolicy</code> permissions.</p>
  *             </li>
  *          </ul>
  *          <p>If you delete a field index policy, the indexing of the log events that happened before
- *       you deleted the policy will still be used for up to 30 days to improve CloudWatch Logs Insights queries.</p>
+ *       you deleted the policy will still be used for up to 30 days to improve CloudWatch Logs
+ *       Insights queries.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

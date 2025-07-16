@@ -28,12 +28,14 @@ export interface PutIntegrationCommandInput extends PutIntegrationRequest {}
 export interface PutIntegrationCommandOutput extends PutIntegrationResponse, __MetadataBearer {}
 
 /**
- * <p>Creates an integration between CloudWatch Logs and another service in this account. Currently, only integrations with
- *        OpenSearch Service are supported, and currently you can have only one integration in your account.</p>
- *          <p>Integrating with OpenSearch Service makes it possible for you to create curated vended logs dashboards, powered
- *        by OpenSearch Service analytics. For more information, see
- *        <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatchLogs-OpenSearch-Dashboards.html">Vended log dashboards powered by Amazon OpenSearch Service</a>.</p>
- *          <p>You can use this operation only to create a new integration. You can't modify an existing integration.</p>
+ * <p>Creates an integration between CloudWatch Logs and another service in this account.
+ *       Currently, only integrations with OpenSearch Service are supported, and currently you can have
+ *       only one integration in your account.</p>
+ *          <p>Integrating with OpenSearch Service makes it possible for you to create curated vended
+ *       logs dashboards, powered by OpenSearch Service analytics. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatchLogs-OpenSearch-Dashboards.html">Vended log
+ *         dashboards powered by Amazon OpenSearch Service</a>.</p>
+ *          <p>You can use this operation only to create a new integration. You can't modify an existing
+ *       integration.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

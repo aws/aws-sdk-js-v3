@@ -28,8 +28,8 @@ export interface DeleteLogStreamCommandInput extends DeleteLogStreamRequest {}
 export interface DeleteLogStreamCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Deletes the specified log stream and permanently deletes all the archived log events associated
- *       with the log stream.</p>
+ * <p>Deletes the specified log stream and permanently deletes all the archived log events
+ *       associated with the log stream.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

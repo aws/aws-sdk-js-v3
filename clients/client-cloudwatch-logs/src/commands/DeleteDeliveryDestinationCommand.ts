@@ -28,10 +28,12 @@ export interface DeleteDeliveryDestinationCommandInput extends DeleteDeliveryDes
 export interface DeleteDeliveryDestinationCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Deletes a <i>delivery destination</i>. A delivery is a connection between a logical <i>delivery source</i> and a logical
- *        <i>delivery destination</i>.</p>
- *          <p>You can't delete a delivery destination if any current deliveries are associated with it. To find whether any deliveries are associated with
- *        this delivery destination, use the <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DescribeDeliveries.html">DescribeDeliveries</a> operation and check the <code>deliveryDestinationArn</code> field in the results.</p>
+ * <p>Deletes a <i>delivery destination</i>. A delivery is a connection between a
+ *       logical <i>delivery source</i> and a logical <i>delivery
+ *         destination</i>.</p>
+ *          <p>You can't delete a delivery destination if any current deliveries are associated with it.
+ *       To find whether any deliveries are associated with this delivery destination, use the <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DescribeDeliveries.html">DescribeDeliveries</a> operation and check the <code>deliveryDestinationArn</code>
+ *       field in the results.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

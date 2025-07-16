@@ -28,9 +28,9 @@ export interface DeleteDestinationCommandInput extends DeleteDestinationRequest 
 export interface DeleteDestinationCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Deletes the specified destination, and eventually disables all the
- *       subscription filters that publish to it. This operation does not delete the
- *       physical resource encapsulated by the destination.</p>
+ * <p>Deletes the specified destination, and eventually disables all the subscription filters
+ *       that publish to it. This operation does not delete the physical resource encapsulated by the
+ *       destination.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

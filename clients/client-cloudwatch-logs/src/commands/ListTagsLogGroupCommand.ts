@@ -30,7 +30,7 @@ export interface ListTagsLogGroupCommandOutput extends ListTagsLogGroupResponse,
 /**
  * <important>
  *             <p>The ListTagsLogGroup operation is on the path to deprecation. We recommend that you use
- *       <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_ListTagsForResource.html">ListTagsForResource</a> instead.</p>
+ *           <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_ListTagsForResource.html">ListTagsForResource</a> instead.</p>
  *          </important>
  *          <p>Lists the tags for the specified log group.</p>
  *

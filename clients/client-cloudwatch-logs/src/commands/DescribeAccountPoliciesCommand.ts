@@ -29,22 +29,26 @@ export interface DescribeAccountPoliciesCommandOutput extends DescribeAccountPol
 
 /**
  * <p>Returns a list of all CloudWatch Logs account policies in the account.</p>
- *          <p>To use this operation, you must be signed on with the correct permissions depending on the type of policy that you are retrieving information for.</p>
+ *          <p>To use this operation, you must be signed on with the correct permissions depending on the
+ *       type of policy that you are retrieving information for.</p>
  *          <ul>
  *             <li>
- *                <p>To see data protection policies, you must have the <code>logs:GetDataProtectionPolicy</code> and
- *         <code>logs:DescribeAccountPolicies</code> permissions.</p>
+ *                <p>To see data protection policies, you must have the
+ *             <code>logs:GetDataProtectionPolicy</code> and <code>logs:DescribeAccountPolicies</code>
+ *           permissions.</p>
  *             </li>
  *             <li>
- *                <p>To see subscription filter policies, you must have the <code>logs:DescribeSubscriptionFilters</code> and
- *         <code>logs:DescribeAccountPolicies</code> permissions.</p>
+ *                <p>To see subscription filter policies, you must have the
+ *             <code>logs:DescribeSubscriptionFilters</code> and
+ *             <code>logs:DescribeAccountPolicies</code> permissions.</p>
  *             </li>
  *             <li>
- *                <p>To see transformer policies, you must have the <code>logs:GetTransformer</code> and <code>logs:DescribeAccountPolicies</code> permissions.</p>
+ *                <p>To see transformer policies, you must have the <code>logs:GetTransformer</code> and
+ *             <code>logs:DescribeAccountPolicies</code> permissions.</p>
  *             </li>
  *             <li>
- *                <p>To see field index policies, you must have the <code>logs:DescribeIndexPolicies</code> and
- *         <code>logs:DescribeAccountPolicies</code> permissions.</p>
+ *                <p>To see field index policies, you must have the <code>logs:DescribeIndexPolicies</code>
+ *           and <code>logs:DescribeAccountPolicies</code> permissions.</p>
  *             </li>
  *          </ul>
  * @example

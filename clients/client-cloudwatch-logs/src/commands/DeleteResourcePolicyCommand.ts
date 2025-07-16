@@ -28,8 +28,8 @@ export interface DeleteResourcePolicyCommandInput extends DeleteResourcePolicyRe
 export interface DeleteResourcePolicyCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Deletes a resource policy from this account. This revokes
- *     the access of the identities in that policy to put log events to this account.</p>
+ * <p>Deletes a resource policy from this account. This revokes the access of the identities
+ *       in that policy to put log events to this account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -38,6 +38,8 @@ export interface DeleteResourcePolicyCommandOutput extends __MetadataBearer {}
  * const client = new CloudWatchLogsClient(config);
  * const input = { // DeleteResourcePolicyRequest
  *   policyName: "STRING_VALUE",
+ *   resourceArn: "STRING_VALUE",
+ *   expectedRevisionId: "STRING_VALUE",
  * };
  * const command = new DeleteResourcePolicyCommand(input);
  * const response = await client.send(command);
@@ -53,6 +55,9 @@ export interface DeleteResourcePolicyCommandOutput extends __MetadataBearer {}
  *
  * @throws {@link InvalidParameterException} (client fault)
  *  <p>A parameter is specified incorrectly.</p>
+ *
+ * @throws {@link OperationAbortedException} (client fault)
+ *  <p>Multiple concurrent requests to update the same resource were in conflict.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource does not exist.</p>

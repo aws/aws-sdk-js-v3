@@ -28,11 +28,12 @@ export interface DeleteIntegrationCommandInput extends DeleteIntegrationRequest 
 export interface DeleteIntegrationCommandOutput extends DeleteIntegrationResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes the integration between CloudWatch Logs and OpenSearch Service. If your integration has active vended logs dashboards,
- *         you must specify <code>true</code> for the <code>force</code> parameter, otherwise the operation will fail. If you delete the integration by
- *         setting <code>force</code> to <code>true</code>,
- *         all your vended logs dashboards powered by OpenSearch Service will be deleted and the data that was on them
- *       will no longer be accessible.</p>
+ * <p>Deletes the integration between CloudWatch Logs and OpenSearch Service. If your
+ *       integration has active vended logs dashboards, you must specify <code>true</code> for the
+ *         <code>force</code> parameter, otherwise the operation will fail. If you delete the
+ *       integration by setting <code>force</code> to <code>true</code>, all your vended logs
+ *       dashboards powered by OpenSearch Service will be deleted and the data that was on them will no
+ *       longer be accessible.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

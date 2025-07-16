@@ -33,9 +33,8 @@ export interface GetDeliveryDestinationPolicyCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Retrieves the delivery destination policy assigned to the delivery destination that you specify.
- *       For more information about delivery destinations and their policies, see
- *         <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutDeliveryDestinationPolicy.html">PutDeliveryDestinationPolicy</a>.</p>
+ * <p>Retrieves the delivery destination policy assigned to the delivery destination that you
+ *       specify. For more information about delivery destinations and their policies, see <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutDeliveryDestinationPolicy.html">PutDeliveryDestinationPolicy</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

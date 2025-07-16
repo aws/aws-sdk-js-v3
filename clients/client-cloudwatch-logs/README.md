@@ -28,8 +28,8 @@ CloudWatch metric that you specify.</p>
 </li>
 <li>
 <p>
-<b>Monitor CloudTrail logged events</b>: You can
-create alarms in CloudWatch and receive notifications of particular API activity as
+<b>Monitor CloudTrail logged events</b>: You
+can create alarms in CloudWatch and receive notifications of particular API activity as
 captured by CloudTrail. You can use the notification to perform troubleshooting.</p>
 </li>
 <li>

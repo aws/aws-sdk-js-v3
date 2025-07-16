@@ -28,14 +28,15 @@ export interface ListLogGroupsCommandInput extends ListLogGroupsRequest {}
 export interface ListLogGroupsCommandOutput extends ListLogGroupsResponse, __MetadataBearer {}
 
 /**
- * <p>Returns a list of log groups in the Region in your account. If you are performing this action in a monitoring account, you can
- *       choose to also return log groups from source accounts that are linked to the monitoring account. For more information about using cross-account
- *       observability to set up monitoring accounts and source accounts, see
- *       <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Unified-Cross-Account.html">
+ * <p>Returns a list of log groups in the Region in your account. If you are performing this
+ *       action in a monitoring account, you can choose to also return log groups from source accounts
+ *       that are linked to the monitoring account. For more information about using cross-account
+ *       observability to set up monitoring accounts and source accounts, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Unified-Cross-Account.html">
  *         CloudWatch cross-account observability</a>.</p>
- *          <p>You can optionally filter the list by log group class and by using regular expressions in your request to match strings in the log group names.</p>
- *          <p>This operation is paginated. By default, your first use of this operation returns 50 results, and includes a token to use in a subsequent operation to return
- *     more results.</p>
+ *          <p>You can optionally filter the list by log group class and by using regular expressions in
+ *       your request to match strings in the log group names.</p>
+ *          <p>This operation is paginated. By default, your first use of this operation returns 50
+ *       results, and includes a token to use in a subsequent operation to return more results.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

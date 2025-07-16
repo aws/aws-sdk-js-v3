@@ -28,9 +28,11 @@ export interface DeleteDeliveryCommandInput extends DeleteDeliveryRequest {}
 export interface DeleteDeliveryCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Deletes a <i>delivery</i>. A delivery is a connection between a logical <i>delivery source</i> and a logical
- *        <i>delivery destination</i>. Deleting a delivery only deletes the connection between the delivery source and delivery destination. It does
- *      not delete the delivery destination or the delivery source.</p>
+ * <p>Deletes a <i>delivery</i>. A delivery is a connection between a logical
+ *         <i>delivery source</i> and a logical <i>delivery
+ *       destination</i>. Deleting a delivery only deletes the connection between the delivery
+ *       source and delivery destination. It does not delete the delivery destination or the delivery
+ *       source.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

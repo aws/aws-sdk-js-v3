@@ -28,8 +28,8 @@ export interface DescribeExportTasksCommandInput extends DescribeExportTasksRequ
 export interface DescribeExportTasksCommandOutput extends DescribeExportTasksResponse, __MetadataBearer {}
 
 /**
- * <p>Lists the specified export tasks. You can list all your export tasks or filter
- *       the results based on task ID or task status.</p>
+ * <p>Lists the specified export tasks. You can list all your export tasks or filter the
+ *       results based on task ID or task status.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

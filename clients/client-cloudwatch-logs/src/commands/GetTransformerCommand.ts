@@ -29,8 +29,8 @@ export interface GetTransformerCommandOutput extends GetTransformerResponse, __M
 
 /**
  * <p>Returns the information about the log transformer associated with this log group.</p>
- *          <p>This operation returns data only for transformers created at the log group level. To get information
- *        for an account-level transformer, use <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DescribeAccountPolicies.html">DescribeAccountPolicies</a>.</p>
+ *          <p>This operation returns data only for transformers created at the log group level. To get
+ *       information for an account-level transformer, use <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DescribeAccountPolicies.html">DescribeAccountPolicies</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

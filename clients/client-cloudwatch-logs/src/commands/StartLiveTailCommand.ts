@@ -32,51 +32,50 @@ export interface StartLiveTailCommandInput extends StartLiveTailRequest {}
 export interface StartLiveTailCommandOutput extends StartLiveTailResponse, __MetadataBearer {}
 
 /**
- * <p>Starts a Live Tail streaming session for one or more log groups. A Live Tail session returns a stream of
- *       log events that have
- *       been recently ingested in the log groups. For more information, see
- *       <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatchLogs_LiveTail.html">Use Live Tail to view logs in near real time</a>.
- *     </p>
- *          <p>The response to this operation is a response stream, over which
- *       the server sends live log events and the client receives them.</p>
+ * <p>Starts a Live Tail streaming session for one or more log groups. A Live Tail session
+ *       returns a stream of log events that have been recently ingested in the log groups. For more
+ *       information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatchLogs_LiveTail.html">Use Live Tail to view logs
+ *         in near real time</a>. </p>
+ *          <p>The response to this operation is a response stream, over which the server sends live log
+ *       events and the client receives them.</p>
  *          <p>The following objects are sent over the stream:</p>
  *          <ul>
  *             <li>
- *                <p>A single <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_LiveTailSessionStart.html">LiveTailSessionStart</a>
- *         object is sent at the start of the session.</p>
+ *                <p>A single <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_LiveTailSessionStart.html">LiveTailSessionStart</a> object is sent at the start of the session.</p>
  *             </li>
  *             <li>
- *                <p>Every second, a <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_LiveTailSessionUpdate.html">LiveTailSessionUpdate</a>
- *         object is sent. Each of these objects contains an array of the actual log events.</p>
+ *                <p>Every second, a <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_LiveTailSessionUpdate.html">LiveTailSessionUpdate</a> object is sent. Each of these objects contains an array
+ *           of the actual log events.</p>
  *                <p>If no new log events were ingested in the past second, the
- *           <code>LiveTailSessionUpdate</code> object will contain an empty array.</p>
+ *             <code>LiveTailSessionUpdate</code> object will contain an empty array.</p>
  *                <p>The array of log events contained in a <code>LiveTailSessionUpdate</code> can include
- *           as many as 500 log events. If the number of log events matching the request exceeds 500 per second, the
- *           log events are sampled down to 500 log events to be included in each <code>LiveTailSessionUpdate</code> object.</p>
- *                <p>If your client consumes the log events slower than the server produces them, CloudWatch Logs
- *           buffers up to 10 <code>LiveTailSessionUpdate</code> events or 5000 log events, after
- *           which it starts dropping the oldest events.</p>
+ *           as many as 500 log events. If the number of log events matching the request exceeds 500
+ *           per second, the log events are sampled down to 500 log events to be included in each
+ *             <code>LiveTailSessionUpdate</code> object.</p>
+ *                <p>If your client consumes the log events slower than the server produces them, CloudWatch Logs buffers up to 10 <code>LiveTailSessionUpdate</code> events or 5000 log
+ *           events, after which it starts dropping the oldest events.</p>
  *             </li>
  *             <li>
- *                <p>A <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_StartLiveTailResponseStream.html#CWL-Type-StartLiveTailResponseStream-SessionStreamingException">SessionStreamingException</a>
- *         object is returned if an unknown error occurs on the server side.</p>
+ *                <p>A <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_StartLiveTailResponseStream.html#CWL-Type-StartLiveTailResponseStream-SessionStreamingException">SessionStreamingException</a> object is returned if an unknown error occurs on the
+ *           server side.</p>
  *             </li>
  *             <li>
- *                <p>A <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_StartLiveTailResponseStream.html#CWL-Type-StartLiveTailResponseStream-SessionTimeoutException">SessionTimeoutException</a>
- *         object is returned when the session times out, after it has been kept open for three hours.</p>
+ *                <p>A <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_StartLiveTailResponseStream.html#CWL-Type-StartLiveTailResponseStream-SessionTimeoutException">SessionTimeoutException</a> object is returned when the session times out, after it
+ *           has been kept open for three hours.</p>
  *             </li>
  *          </ul>
  *          <note>
- *             <p>The <code>StartLiveTail</code> API routes requests to <code>streaming-logs.<i>Region</i>.amazonaws.com</code> using SDK host prefix injection.
- *       VPC endpoint support is not available for this API.</p>
+ *             <p>The <code>StartLiveTail</code> API routes requests to
+ *             <code>streaming-logs.<i>Region</i>.amazonaws.com</code> using SDK host
+ *         prefix injection. VPC endpoint support is not available for this API.</p>
  *          </note>
  *          <important>
- *             <p>You can end a session before it times out by closing the session stream or by closing the client that is receiving the
- *   stream. The session also ends if the established connection between the client and the server breaks.</p>
+ *             <p>You can end a session before it times out by closing the session stream or by closing
+ *         the client that is receiving the stream. The session also ends if the established connection
+ *         between the client and the server breaks.</p>
  *          </important>
- *          <p>For examples of using an SDK to start a Live Tail session, see
- *     <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/example_cloudwatch-logs_StartLiveTail_section.html">
- *       Start a Live Tail session using an Amazon Web Services SDK</a>.</p>
+ *          <p>For examples of using an SDK to start a Live Tail session, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/example_cloudwatch-logs_StartLiveTail_section.html"> Start
+ *         a Live Tail session using an Amazon Web Services SDK</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

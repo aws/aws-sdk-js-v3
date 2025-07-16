@@ -31,8 +31,8 @@ export interface DeleteDeliveryDestinationPolicyCommandInput extends DeleteDeliv
 export interface DeleteDeliveryDestinationPolicyCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Deletes a delivery destination policy. For more information about these policies,
- *         see <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutDeliveryDestinationPolicy.html">PutDeliveryDestinationPolicy</a>.</p>
+ * <p>Deletes a delivery destination policy. For more information about these policies, see
+ *         <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutDeliveryDestinationPolicy.html">PutDeliveryDestinationPolicy</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

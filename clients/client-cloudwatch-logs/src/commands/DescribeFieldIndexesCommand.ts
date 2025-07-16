@@ -28,9 +28,8 @@ export interface DescribeFieldIndexesCommandInput extends DescribeFieldIndexesRe
 export interface DescribeFieldIndexesCommandOutput extends DescribeFieldIndexesResponse, __MetadataBearer {}
 
 /**
- * <p>Returns a list of field indexes listed in the field index policies of
- *     one or more log groups. For more information about field index policies, see
- *       <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutIndexPolicy.html">PutIndexPolicy</a>.</p>
+ * <p>Returns a list of field indexes listed in the field index policies of one or more log
+ *       groups. For more information about field index policies, see <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutIndexPolicy.html">PutIndexPolicy</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -28,43 +28,42 @@ export interface StartQueryCommandInput extends StartQueryRequest {}
 export interface StartQueryCommandOutput extends StartQueryResponse, __MetadataBearer {}
 
 /**
- * <p>Starts a query of one or more log groups using CloudWatch Logs Insights. You specify the log groups
- *       and time range to query and the query string to use.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL_QuerySyntax.html">CloudWatch Logs Insights Query Syntax</a>.</p>
- *          <p>After you run a query using <code>StartQuery</code>, the query results are stored by CloudWatch Logs.
- *       You can use <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_GetQueryResults.html">GetQueryResults</a> to retrieve
- *       the results of a query, using the <code>queryId</code> that <code>StartQuery</code> returns.
- *     </p>
+ * <p>Starts a query of one or more log groups using CloudWatch Logs Insights. You specify
+ *       the log groups and time range to query and the query string to use.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL_QuerySyntax.html">CloudWatch Logs Insights Query
+ *         Syntax</a>.</p>
+ *          <p>After you run a query using <code>StartQuery</code>, the query results are stored by
+ *         CloudWatch Logs. You can use <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_GetQueryResults.html">GetQueryResults</a> to retrieve the results of a query, using the <code>queryId</code>
+ *       that <code>StartQuery</code> returns. </p>
  *          <note>
- *             <p>To specify the log groups to query, a <code>StartQuery</code> operation must include one of the following:</p>
+ *             <p>To specify the log groups to query, a <code>StartQuery</code> operation must include one
+ *         of the following:</p>
  *             <ul>
  *                <li>
- *                   <p>Either exactly one of the following
- *           parameters: <code>logGroupName</code>, <code>logGroupNames</code>, or
- *           <code>logGroupIdentifiers</code>
+ *                   <p>Either exactly one of the following parameters: <code>logGroupName</code>,
+ *               <code>logGroupNames</code>, or <code>logGroupIdentifiers</code>
  *                   </p>
  *                </li>
  *                <li>
- *                   <p>Or the <code>queryString</code> must include a <code>SOURCE</code> command to select log
- *           groups for the query. The <code>SOURCE</code> command can select log groups based on log group name prefix, account ID,
- *           and log class. </p>
- *                   <p>For more information about the <code>SOURCE</code> command,
- *           see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL_QuerySyntax-Source.html">SOURCE</a>.</p>
+ *                   <p>Or the <code>queryString</code> must include a <code>SOURCE</code> command to select
+ *             log groups for the query. The <code>SOURCE</code> command can select log groups based on
+ *             log group name prefix, account ID, and log class.
+ *             </p>
+ *                   <p>For more information about the <code>SOURCE</code> command, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL_QuerySyntax-Source.html">SOURCE</a>.</p>
  *                </li>
  *             </ul>
  *          </note>
- *          <p>If you have associated a KMS key with the query results in this account,
- *     then
- *       <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_StartQuery.html">StartQuery</a> uses that key to
- *       encrypt the results when it stores them. If no key is associated with query results, the query results are
- *     encrypted with the default CloudWatch Logs encryption method.</p>
+ *          <p>If you have associated a KMS key with the query results in this
+ *       account, then <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_StartQuery.html">StartQuery</a> uses
+ *       that key to encrypt the results when it stores them. If no key is associated with query
+ *       results, the query results are encrypted with the default CloudWatch Logs encryption
+ *       method.</p>
  *          <p>Queries time out after 60 minutes of runtime. If your queries are timing out, reduce the
  *       time range being searched or partition your query into a number of queries.</p>
- *          <p>If you are using CloudWatch cross-account observability, you can use this operation in a
- *       monitoring account to start a query in a linked source account. For more information, see
- *         <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Unified-Cross-Account.html">CloudWatch
- *         cross-account observability</a>. For a cross-account <code>StartQuery</code> operation,
- *       the query definition must be defined in the monitoring account.</p>
+ *          <p>If you are using CloudWatch cross-account observability, you can use this operation
+ *       in a monitoring account to start a query in a linked source account. For more information, see
+ *         <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Unified-Cross-Account.html">CloudWatch cross-account observability</a>. For a cross-account <code>StartQuery</code>
+ *       operation, the query definition must be defined in the monitoring account.</p>
  *          <p>You can have up to 30 concurrent CloudWatch Logs insights queries, including queries
  *       that have been added to dashboards. </p>
  * @example
@@ -109,10 +108,9 @@ export interface StartQueryCommandOutput extends StartQueryResponse, __MetadataB
  *
  * @throws {@link MalformedQueryException} (client fault)
  *  <p>The query string is not valid. Details about this error are displayed in a
- *       <code>QueryCompileError</code> object. For more information, see
- *       <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_QueryCompileError.html">QueryCompileError</a>.</p>
- *          <p>For more information about valid query syntax, see
- *       <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL_QuerySyntax.html">CloudWatch Logs Insights Query Syntax</a>.</p>
+ *         <code>QueryCompileError</code> object. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_QueryCompileError.html">QueryCompileError</a>.</p>
+ *          <p>For more information about valid query syntax, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL_QuerySyntax.html">CloudWatch Logs Insights Query
+ *         Syntax</a>.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource does not exist.</p>

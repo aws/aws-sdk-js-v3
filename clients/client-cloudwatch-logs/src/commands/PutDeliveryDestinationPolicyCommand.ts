@@ -33,37 +33,35 @@ export interface PutDeliveryDestinationPolicyCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Creates and assigns an IAM policy that grants permissions to CloudWatch Logs to deliver
- *        logs cross-account to a specified destination in this account. To configure the delivery of logs from an
- *      Amazon Web Services service in another account to a logs delivery destination in the current account, you must do the following:</p>
+ * <p>Creates and assigns an IAM policy that grants permissions to CloudWatch Logs to deliver logs cross-account to a specified destination in this account. To
+ *       configure the delivery of logs from an Amazon Web Services service in another account to a logs
+ *       delivery destination in the current account, you must do the following:</p>
  *          <ul>
  *             <li>
- *                <p>Create a delivery source, which is a logical object that represents the resource that is actually
- *          sending the logs. For more
- *          information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutDeliverySource.html">PutDeliverySource</a>.</p>
+ *                <p>Create a delivery source, which is a logical object that represents the resource that
+ *           is actually sending the logs. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutDeliverySource.html">PutDeliverySource</a>.</p>
  *             </li>
  *             <li>
- *                <p>Create a <i>delivery destination</i>, which is a logical object that represents the actual
- *          delivery destination.  For more
- *          information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutDeliveryDestination.html">PutDeliveryDestination</a>.</p>
+ *                <p>Create a <i>delivery destination</i>, which is a logical object that
+ *           represents the actual delivery destination. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutDeliveryDestination.html">PutDeliveryDestination</a>.</p>
  *             </li>
  *             <li>
- *                <p>Use this operation in the destination account to assign an IAM policy to the
- *          destination. This policy allows delivery to that destination.
- *         </p>
+ *                <p>Use this operation in the destination account to assign an IAM policy
+ *           to the destination. This policy allows delivery to that destination. </p>
  *             </li>
  *             <li>
- *                <p>Create a <i>delivery</i> by pairing exactly one delivery source and one delivery destination.
- *          For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_CreateDelivery.html">CreateDelivery</a>.</p>
+ *                <p>Create a <i>delivery</i> by pairing exactly one delivery source and one
+ *           delivery destination. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_CreateDelivery.html">CreateDelivery</a>.</p>
  *             </li>
  *          </ul>
- *          <p>Only some Amazon Web Services services support being configured as a delivery source. These services are listed
- *        as <b>Supported [V2 Permissions]</b> in the table at
- *        <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/AWS-logs-and-resource-policy.html">Enabling
- *          logging from Amazon Web Services services.</a>
+ *          <p>Only some Amazon Web Services services support being configured as a delivery source. These
+ *       services are listed as <b>Supported [V2 Permissions]</b> in the
+ *       table at <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/AWS-logs-and-resource-policy.html">Enabling logging from
+ *           Amazon Web Services services.</a>
  *          </p>
- *          <p>The contents of the policy must include two statements. One statement enables general logs delivery, and the other
- *     allows delivery to the chosen destination. See the examples for the needed policies.</p>
+ *          <p>The contents of the policy must include two statements. One statement enables general logs
+ *       delivery, and the other allows delivery to the chosen destination. See the examples for the
+ *       needed policies.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

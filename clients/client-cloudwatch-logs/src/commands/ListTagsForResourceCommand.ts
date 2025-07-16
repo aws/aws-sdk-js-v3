@@ -28,8 +28,8 @@ export interface ListTagsForResourceCommandInput extends ListTagsForResourceRequ
 export interface ListTagsForResourceCommandOutput extends ListTagsForResourceResponse, __MetadataBearer {}
 
 /**
- * <p>Displays the tags associated with a CloudWatch Logs resource. Currently, log groups
- *       and destinations support tagging.</p>
+ * <p>Displays the tags associated with a CloudWatch Logs resource. Currently, log groups and
+ *       destinations support tagging.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

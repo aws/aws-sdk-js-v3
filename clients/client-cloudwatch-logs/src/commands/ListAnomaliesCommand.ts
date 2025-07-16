@@ -28,8 +28,9 @@ export interface ListAnomaliesCommandInput extends ListAnomaliesRequest {}
 export interface ListAnomaliesCommandOutput extends ListAnomaliesResponse, __MetadataBearer {}
 
 /**
- * <p>Returns a list of anomalies that log anomaly detectors have found. For details about the structure format of
- *       each anomaly object that is returned, see the example in this section.</p>
+ * <p>Returns a list of anomalies that log anomaly detectors have found. For details about the
+ *       structure format of each anomaly object that is returned, see the example in this
+ *       section.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

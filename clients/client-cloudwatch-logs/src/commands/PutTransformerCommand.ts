@@ -28,26 +28,31 @@ export interface PutTransformerCommandInput extends PutTransformerRequest {}
 export interface PutTransformerCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Creates or updates a <i>log transformer</i> for a single log group. You use log transformers to transform log events into
- *        a different format, making them easier for you to process and analyze. You can also transform logs from different sources into standardized formats that
- *        contains
- *        relevant, source-specific information.</p>
- *          <p>After you have created a transformer,
- *        CloudWatch Logs performs the transformations at the time of log ingestion. You can then refer to the transformed versions of the logs during
- *      operations such as querying with CloudWatch Logs Insights or creating metric filters or subscription filers.</p>
- *          <p>You can also use a transformer to copy metadata from metadata keys into the log events themselves. This metadata can include log group name,
- *      log stream name, account ID and Region.</p>
- *          <p>A transformer for a log group is a series of processors, where each processor applies one type of transformation to the log events
- *        ingested into this log group. The processors work one after another, in the order that you list them, like a pipeline. For more information about the available processors to use in a transformer, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch-Logs-Transformation.html#CloudWatch-Logs-Transformation-Processors">
- *        Processors that you can use</a>.</p>
- *          <p>Having log events in standardized format enables visibility across your applications for your log analysis, reporting, and alarming needs.
- *        CloudWatch Logs provides transformation for common log types with out-of-the-box transformation templates for major Amazon Web Services log sources such
- *        as VPC flow logs, Lambda, and Amazon RDS. You can use pre-built transformation templates or create custom transformation policies.</p>
+ * <p>Creates or updates a <i>log transformer</i> for a single log group. You use
+ *       log transformers to transform log events into a different format, making them easier for you
+ *       to process and analyze. You can also transform logs from different sources into standardized
+ *       formats that contains relevant, source-specific information.</p>
+ *          <p>After you have created a transformer, CloudWatch Logs performs the transformations at
+ *       the time of log ingestion. You can then refer to the transformed versions of the logs during
+ *       operations such as querying with CloudWatch Logs Insights or creating metric filters or
+ *       subscription filers.</p>
+ *          <p>You can also use a transformer to copy metadata from metadata keys into the log events
+ *       themselves. This metadata can include log group name, log stream name, account ID and
+ *       Region.</p>
+ *          <p>A transformer for a log group is a series of processors, where each processor applies one
+ *       type of transformation to the log events ingested into this log group. The processors work one
+ *       after another, in the order that you list them, like a pipeline. For more information about
+ *       the available processors to use in a transformer, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch-Logs-Transformation.html#CloudWatch-Logs-Transformation-Processors"> Processors that you can use</a>.</p>
+ *          <p>Having log events in standardized format enables visibility across your applications for
+ *       your log analysis, reporting, and alarming needs. CloudWatch Logs provides transformation
+ *       for common log types with out-of-the-box transformation templates for major Amazon Web Services
+ *       log sources such as VPC flow logs, Lambda, and Amazon RDS. You can use
+ *       pre-built transformation templates or create custom transformation policies.</p>
  *          <p>You can create transformers only for the log groups in the Standard log class.</p>
- *          <p>You can also set up a transformer at the account level. For more information, see
- *        <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutAccountPolicy.html">PutAccountPolicy</a>. If there is both a
- *      log-group level transformer created with <code>PutTransformer</code> and an account-level transformer that could apply to the same log
- *      group, the log group uses only the log-group level transformer. It ignores the account-level transformer.</p>
+ *          <p>You can also set up a transformer at the account level. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutAccountPolicy.html">PutAccountPolicy</a>. If there is both a log-group level transformer created with
+ *         <code>PutTransformer</code> and an account-level transformer that could apply to the same
+ *       log group, the log group uses only the log-group level transformer. It ignores the
+ *       account-level transformer.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

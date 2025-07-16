@@ -30,9 +30,9 @@ export interface UpdateDeliveryConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Use this operation to update the configuration of a <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_Delivery.html">delivery</a> to change either the
- *       S3 path pattern or the format of the delivered logs. You can't use this operation to change the
- *       source or destination of the delivery.</p>
+ * <p>Use this operation to update the configuration of a <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_Delivery.html">delivery</a> to change
+ *       either the S3 path pattern or the format of the delivered logs. You can't use this operation
+ *       to change the source or destination of the delivery.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

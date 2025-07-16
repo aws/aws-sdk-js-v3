@@ -33,26 +33,22 @@ export interface PutMetricFilterCommandOutput extends __MetadataBearer {}
  *       through <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutLogEvents.html">PutLogEvents</a>.</p>
  *          <p>The maximum number of metric filters that can be associated with a log group is
  *       100.</p>
- *          <p>Using regular expressions in filter patterns is supported. For these filters,
- *       there is a quota of two regular expression patterns within a single filter pattern. There
- *       is also a quota of five regular expression patterns per log group.
- *     For more information about using regular expressions in filter patterns,
- *     see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/FilterAndPatternSyntax.html">
- *       Filter pattern syntax for metric filters, subscription filters, filter log events, and Live Tail</a>.</p>
- *          <p>When you create a metric filter, you can also optionally assign a unit and dimensions
- *     to the metric that is created.</p>
+ *          <p>Using regular expressions in filter patterns is supported. For these filters, there is a
+ *       quota of two regular expression patterns within a single filter pattern. There is also a quota
+ *       of five regular expression patterns per log group. For more information about using regular
+ *       expressions in filter patterns, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/FilterAndPatternSyntax.html"> Filter pattern syntax for
+ *         metric filters, subscription filters, filter log events, and Live Tail</a>.</p>
+ *          <p>When you create a metric filter, you can also optionally assign a unit and dimensions to
+ *       the metric that is created.</p>
  *          <important>
- *             <p>Metrics extracted from log events are charged as custom metrics.
- *       To prevent unexpected high charges, do not specify high-cardinality fields such as
- *       <code>IPAddress</code> or <code>requestID</code> as dimensions. Each different value
- *       found for
- *       a dimension is treated as a separate metric and accrues charges as a separate custom metric.
- *     </p>
- *             <p>CloudWatch Logs might disable a metric filter if it generates 1,000 different name/value pairs for
- *         your specified dimensions within one hour.</p>
+ *             <p>Metrics extracted from log events are charged as custom metrics. To prevent unexpected
+ *         high charges, do not specify high-cardinality fields such as <code>IPAddress</code> or
+ *           <code>requestID</code> as dimensions. Each different value found for a dimension is
+ *         treated as a separate metric and accrues charges as a separate custom metric. </p>
+ *             <p>CloudWatch Logs might disable a metric filter if it generates 1,000 different
+ *         name/value pairs for your specified dimensions within one hour.</p>
  *             <p>You can also set up a billing alarm to alert you if your charges are higher than
- *         expected. For more information,
- *         see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/monitor_estimated_charges_with_cloudwatch.html">
+ *         expected. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/monitor_estimated_charges_with_cloudwatch.html">
  *           Creating a Billing Alarm to Monitor Your Estimated Amazon Web Services Charges</a>.
  *       </p>
  *          </important>

@@ -28,9 +28,9 @@ export interface PutResourcePolicyCommandInput extends PutResourcePolicyRequest 
 export interface PutResourcePolicyCommandOutput extends PutResourcePolicyResponse, __MetadataBearer {}
 
 /**
- * <p>Creates or updates a resource policy allowing other Amazon Web Services services to put log events to
- *       this account, such as Amazon Route 53. An account can have up to 10 resource policies per Amazon Web Services
- *       Region.</p>
+ * <p>Creates or updates a resource policy allowing other Amazon Web Services services to put
+ *       log events to this account, such as Amazon Route 53. An account can have up to 10 resource
+ *       policies per Amazon Web Services Region.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -40,6 +40,8 @@ export interface PutResourcePolicyCommandOutput extends PutResourcePolicyRespons
  * const input = { // PutResourcePolicyRequest
  *   policyName: "STRING_VALUE",
  *   policyDocument: "STRING_VALUE",
+ *   resourceArn: "STRING_VALUE",
+ *   expectedRevisionId: "STRING_VALUE",
  * };
  * const command = new PutResourcePolicyCommand(input);
  * const response = await client.send(command);
@@ -48,7 +50,11 @@ export interface PutResourcePolicyCommandOutput extends PutResourcePolicyRespons
  * //     policyName: "STRING_VALUE",
  * //     policyDocument: "STRING_VALUE",
  * //     lastUpdatedTime: Number("long"),
+ * //     policyScope: "ACCOUNT" || "RESOURCE",
+ * //     resourceArn: "STRING_VALUE",
+ * //     revisionId: "STRING_VALUE",
  * //   },
+ * //   revisionId: "STRING_VALUE",
  * // };
  *
  * ```
@@ -64,6 +70,12 @@ export interface PutResourcePolicyCommandOutput extends PutResourcePolicyRespons
  *
  * @throws {@link LimitExceededException} (client fault)
  *  <p>You have reached the maximum number of resources that can be created.</p>
+ *
+ * @throws {@link OperationAbortedException} (client fault)
+ *  <p>Multiple concurrent requests to update the same resource were in conflict.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource does not exist.</p>
  *
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The service cannot complete the request.</p>
