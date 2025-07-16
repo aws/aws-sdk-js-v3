@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.847.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.846.0...v3.847.0) (2025-07-16)
+
+
+### Features
+
+* **client-payment-cryptography-data:** Expand length of message data field for Mac generation and validation to 8192 characters. ([94e5aad](https://github.com/aws/aws-sdk-js-v3/commit/94e5aad502fd2f683810c84236d42594365fdb49))
+
+
+
+
+
 # [3.846.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.845.0...v3.846.0) (2025-07-16)
 
 **Note:** Version bump only for package @aws-sdk/client-payment-cryptography-data

@@ -3,6 +3,29 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.847.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.846.0...v3.847.0) (2025-07-16)
+
+
+### Features
+
+* **client-bedrock-agentcore-control:** Initial release of Amazon Bedrock AgentCore SDK including Runtime, Built-In Tools, Memory, Gateway and Identity. ([4badd7d](https://github.com/aws/aws-sdk-js-v3/commit/4badd7d8b7cca2d8c71d8cda12539a7eb39aad58))
+* **client-bedrock-agentcore:** Initial release of Amazon Bedrock AgentCore SDK including Runtime, Built-In Tools, Memory, Gateway and Identity. ([3497fa5](https://github.com/aws/aws-sdk-js-v3/commit/3497fa53ce9ff268bf0081e5e1ceed94fd263ebc))
+* **client-bedrock-runtime:** document update to support on demand custom model. ([2f6ff16](https://github.com/aws/aws-sdk-js-v3/commit/2f6ff1679e475e432eb0c3f074ab357387d302a2))
+* **client-bedrock:** This release adds support for on-demand custom model inference through CustomModelDeployment APIs for Amazon Bedrock. ([841448b](https://github.com/aws/aws-sdk-js-v3/commit/841448ba61602cebaf0a660f572aff40f9a6ab37))
+* **client-cloudwatch-logs:** CloudWatch Logs updates: Added X-Ray tracing for Amazon Bedrock Agent resources. Logs introduced Log Group level resource policies (managed through Put/Delete/Describe Resource Policy APIs). For more information, see CloudWatch Logs API documentation. ([fb8fd45](https://github.com/aws/aws-sdk-js-v3/commit/fb8fd45cbf10676b1c2e862a64a7bb97b2e0fe68))
+* **client-datasync:** AWS DataSync now supports IPv6 address inputs and outputs in create, update, and describe operations for NFS, SMB, and Object Storage locations ([7536612](https://github.com/aws/aws-sdk-js-v3/commit/7536612e6ca1c722be385b9daedb935acdae98bd))
+* **client-glue:** AWS Glue now supports schema, partition and sort management of Apache Iceberg tables using Glue SDK ([0e59b13](https://github.com/aws/aws-sdk-js-v3/commit/0e59b1376e47239baa7ca44fc271e1fc4ad8e0d9))
+* **client-guardduty:** Add expectedBucketOwner parameter to ThreatIntel and IPSet APIs. ([d6dcecc](https://github.com/aws/aws-sdk-js-v3/commit/d6dcecccab0bd98a8772113a5a137d1645cb0ea2))
+* **client-iot-wireless:** FuotaTaskId is not a valid IdentifierType for EventConfiguration and is being removed from possible IdentifierType values. ([24949eb](https://github.com/aws/aws-sdk-js-v3/commit/24949eb62976c52743dab223febabcee8ece0a54))
+* **client-mediapackagev2:** This release adds support for CDN Authentication using Static Headers in MediaPackage v2. ([ecdc121](https://github.com/aws/aws-sdk-js-v3/commit/ecdc121d7096eb84519668f5fb12504475ec8420))
+* **client-networkflowmonitor:** Introducing 2 new scope status types - DEACTIVATING and DEACTIVATED. ([21e747a](https://github.com/aws/aws-sdk-js-v3/commit/21e747add6c0565a63222dc553456f0ca86564ed))
+* **client-payment-cryptography-data:** Expand length of message data field for Mac generation and validation to 8192 characters. ([94e5aad](https://github.com/aws/aws-sdk-js-v3/commit/94e5aad502fd2f683810c84236d42594365fdb49))
+* **clients:** update client endpoints as of 2025-07-16 ([d2dcec4](https://github.com/aws/aws-sdk-js-v3/commit/d2dcec4df7f942f9089894ee62b021a6c53f9451))
+
+
+
+
+
 # [3.846.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.845.0...v3.846.0) (2025-07-16)
 
 

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.847.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.846.0...v3.847.0) (2025-07-16)
+
+
+### Features
+
+* **client-iot-wireless:** FuotaTaskId is not a valid IdentifierType for EventConfiguration and is being removed from possible IdentifierType values. ([24949eb](https://github.com/aws/aws-sdk-js-v3/commit/24949eb62976c52743dab223febabcee8ece0a54))
+
+
+
+
+
 # [3.846.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.845.0...v3.846.0) (2025-07-16)
 
 **Note:** Version bump only for package @aws-sdk/client-iot-wireless

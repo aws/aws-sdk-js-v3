@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.847.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.846.0...v3.847.0) (2025-07-16)
+
+
+### Features
+
+* **client-bedrock:** This release adds support for on-demand custom model inference through CustomModelDeployment APIs for Amazon Bedrock. ([841448b](https://github.com/aws/aws-sdk-js-v3/commit/841448ba61602cebaf0a660f572aff40f9a6ab37))
+
+
+
+
+
 # [3.846.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.845.0...v3.846.0) (2025-07-16)
 
 **Note:** Version bump only for package @aws-sdk/client-bedrock

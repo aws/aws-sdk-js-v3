@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.847.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.846.0...v3.847.0) (2025-07-16)
+
+
+### Features
+
+* **client-networkflowmonitor:** Introducing 2 new scope status types - DEACTIVATING and DEACTIVATED. ([21e747a](https://github.com/aws/aws-sdk-js-v3/commit/21e747add6c0565a63222dc553456f0ca86564ed))
+
+
+
+
+
 # [3.846.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.845.0...v3.846.0) (2025-07-16)
 
 **Note:** Version bump only for package @aws-sdk/client-networkflowmonitor
