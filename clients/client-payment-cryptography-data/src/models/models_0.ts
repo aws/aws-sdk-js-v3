@@ -1033,6 +1033,7 @@ export const KeyCheckValueAlgorithm = {
   ANSI_X9_24: "ANSI_X9_24",
   CMAC: "CMAC",
   HMAC: "HMAC",
+  SHA_1: "SHA_1",
 } as const;
 
 /**
@@ -1815,6 +1816,7 @@ export interface GenerateCardValidationDataOutput {
  */
 export const MacAlgorithm = {
   CMAC: "CMAC",
+  HMAC: "HMAC",
   HMAC_SHA224: "HMAC_SHA224",
   HMAC_SHA256: "HMAC_SHA256",
   HMAC_SHA384: "HMAC_SHA384",
