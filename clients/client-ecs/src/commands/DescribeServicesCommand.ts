@@ -112,7 +112,6 @@ export interface DescribeServicesCommandOutput extends DescribeServicesResponse,
  * //             lifecycleStages: [ // DeploymentLifecycleHookStageList
  * //               "RECONCILE_SERVICE" || "PRE_SCALE_UP" || "POST_SCALE_UP" || "TEST_TRAFFIC_SHIFT" || "POST_TEST_TRAFFIC_SHIFT" || "PRODUCTION_TRAFFIC_SHIFT" || "POST_PRODUCTION_TRAFFIC_SHIFT",
  * //             ],
- * //             hookDetails: "DOCUMENT_VALUE",
  * //           },
  * //         ],
  * //       },

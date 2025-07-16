@@ -186,7 +186,6 @@ export interface UpdateServiceCommandOutput extends UpdateServiceResponse, __Met
  *         lifecycleStages: [ // DeploymentLifecycleHookStageList
  *           "RECONCILE_SERVICE" || "PRE_SCALE_UP" || "POST_SCALE_UP" || "TEST_TRAFFIC_SHIFT" || "POST_TEST_TRAFFIC_SHIFT" || "PRODUCTION_TRAFFIC_SHIFT" || "POST_PRODUCTION_TRAFFIC_SHIFT",
  *         ],
- *         hookDetails: "DOCUMENT_VALUE",
  *       },
  *     ],
  *   },
@@ -397,7 +396,6 @@ export interface UpdateServiceCommandOutput extends UpdateServiceResponse, __Met
  * //           lifecycleStages: [ // DeploymentLifecycleHookStageList
  * //             "RECONCILE_SERVICE" || "PRE_SCALE_UP" || "POST_SCALE_UP" || "TEST_TRAFFIC_SHIFT" || "POST_TEST_TRAFFIC_SHIFT" || "PRODUCTION_TRAFFIC_SHIFT" || "POST_PRODUCTION_TRAFFIC_SHIFT",
  * //           ],
- * //           hookDetails: "DOCUMENT_VALUE",
  * //         },
  * //       ],
  * //     },

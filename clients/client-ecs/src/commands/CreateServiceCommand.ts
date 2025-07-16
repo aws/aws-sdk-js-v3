@@ -75,7 +75,10 @@ export interface CreateServiceCommandOutput extends CreateServiceResponse, __Met
  *          <ul>
  *             <li>
  *                <p>ECS</p>
- *                <p>When you create a service which uses the <code>ECS</code> deployment controller, you can choose between the following deployment strategies:</p>
+ *                <p> When you create a service which uses the <code>ECS</code> deployment controller, you can
+ * 					choose between the following deployment strategies (which you can set in the
+ * 						“<code>strategy</code>” field in “<code>deploymentConfiguration</code>”):
+ * 					:</p>
  *                <ul>
  *                   <li>
  *                      <p>
@@ -250,7 +253,6 @@ export interface CreateServiceCommandOutput extends CreateServiceResponse, __Met
  *         lifecycleStages: [ // DeploymentLifecycleHookStageList
  *           "RECONCILE_SERVICE" || "PRE_SCALE_UP" || "POST_SCALE_UP" || "TEST_TRAFFIC_SHIFT" || "POST_TEST_TRAFFIC_SHIFT" || "PRODUCTION_TRAFFIC_SHIFT" || "POST_PRODUCTION_TRAFFIC_SHIFT",
  *         ],
- *         hookDetails: "DOCUMENT_VALUE",
  *       },
  *     ],
  *   },
@@ -443,7 +445,6 @@ export interface CreateServiceCommandOutput extends CreateServiceResponse, __Met
  * //           lifecycleStages: [ // DeploymentLifecycleHookStageList
  * //             "RECONCILE_SERVICE" || "PRE_SCALE_UP" || "POST_SCALE_UP" || "TEST_TRAFFIC_SHIFT" || "POST_TEST_TRAFFIC_SHIFT" || "PRODUCTION_TRAFFIC_SHIFT" || "POST_PRODUCTION_TRAFFIC_SHIFT",
  * //           ],
- * //           hookDetails: "DOCUMENT_VALUE",
  * //         },
  * //       ],
  * //     },

@@ -1,8 +1,6 @@
 // smithy-typescript generated code
 import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@smithy/smithy-client";
 
-import { DocumentType as __DocumentType } from "@smithy/types";
-
 import { ECSServiceException as __BaseException } from "./ECSServiceException";
 
 /**
@@ -34,19 +32,21 @@ export class AccessDeniedException extends __BaseException {
  */
 export interface AdvancedConfiguration {
   /**
-   * <p>The Amazon Resource Name (ARN) of the alternate target group for Amazon ECS blue/green deployments. </p>
+   * <p>The Amazon Resource Name (ARN) of the alternate target group for Amazon ECS blue/green deployments.</p>
    * @public
    */
   alternateTargetGroupArn?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) that identifies the production listener rule for routing production traffic.</p>
+   * <p>The Amazon Resource Name (ARN) that that identifies the production listener rule (in the case of an Application Load Balancer) or
+   *          listener (in the case for an Network Load Balancer) for routing production traffic.</p>
    * @public
    */
   productionListenerRule?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) that identifies the test listener rule or listener for routing test traffic.</p>
+   * <p>The Amazon Resource Name (ARN) that identifies ) that identifies the test listener rule  (in the case of an Application Load Balancer) or
+   *          listener (in the case for an Network Load Balancer) for routing test traffic.</p>
    * @public
    */
   testListenerRule?: string | undefined;
@@ -1393,8 +1393,7 @@ export type AvailabilityZoneRebalancing =
  * 			rollback parameter to have Amazon ECS to roll back your service to the last completed
  * 			deployment after a failure.</p>
  *          <p>You can only use the <code>DeploymentAlarms</code> method to detect failures when the
- * 				<code>DeploymentController</code> is set to <code>ECS</code> (rolling
- * 			update).</p>
+ * 				<code>DeploymentController</code> is set to <code>ECS</code>.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-type-ecs.html">Rolling
  * 				update</a> in the <i>
  *                <i>Amazon Elastic Container Service Developer Guide</i>
@@ -1477,6 +1476,8 @@ export type DeploymentLifecycleHookStage =
 
 /**
  * <p>A deployment lifecycle hook runs custom logic at specific stages of the deployment process. Currently, you can use Lambda functions as hook targets.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-lifecycle-hooks.html">Lifecycle hooks for Amazon ECS service deployments</a> in the <i>
+ *             Amazon Elastic Container Service Developer Guide</i>.</p>
  * @public
  */
 export interface DeploymentLifecycleHook {
@@ -1490,7 +1491,7 @@ export interface DeploymentLifecycleHook {
   /**
    * <p>The Amazon Resource Name (ARN) of the IAM role that grants Amazon ECS permission to call Lambda functions on your behalf.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/blue-green-permissions.html">Permissions required
-   *             for Lambda functions in Amazon ECS blue/green deployments</a> in the<i>
+   *             for Lambda functions in Amazon ECS blue/green deployments</a> in the <i>
    *             Amazon Elastic Container Service Developer Guide</i>.</p>
    * @public
    */
@@ -1501,18 +1502,13 @@ export interface DeploymentLifecycleHook {
    *          <ul>
    *             <li>
    *                <p>RECONCILE_SERVICE</p>
-   *                <p>This stage only happens when you start a new service deployment with more than 1 service revision in an ACTIVE state.</p>
+   *                <p>The reconciliation stage that only happens when you start a new service deployment with more than 1 service revision in an ACTIVE state.</p>
    *                <p>You can use a lifecycle hook for this stage.</p>
    *             </li>
    *             <li>
    *                <p>PRE_SCALE_UP</p>
    *                <p>The green service revision has not started. The blue service revision is handling 100% of the production traffic. There is no test traffic.</p>
    *                <p>You can use a lifecycle hook for this stage.</p>
-   *             </li>
-   *             <li>
-   *                <p>SCALE_UP</p>
-   *                <p>The time when the green service revision scales up to 100% and launches new tasks. The green service revision is not serving any traffic at this point.</p>
-   *                <p>You can't use a lifecycle hook for this stage.</p>
    *             </li>
    *             <li>
    *                <p>POST_SCALE_UP</p>
@@ -1537,29 +1533,13 @@ export interface DeploymentLifecycleHook {
    *             <li>
    *                <p>POST_PRODUCTION_TRAFFIC_SHIFT</p>
    *                <p>The production traffic shift is complete.</p>
-   *                <p>Yes</p>
-   *             </li>
-   *             <li>
-   *                <p>BAKE_TIME</p>
-   *                <p>The duration when both blue and green service revisions are running simultaneously.</p>
-   *                <p>You can't use a lifecycle hook for this stage.</p>
-   *             </li>
-   *             <li>
-   *                <p>CLEAN_UP</p>
-   *                <p>The blue service revision has completely scaled down to 0 running tasks. The green service revision is now the production service revision after this stage.</p>
-   *                <p>You can't use a lifecycle hook for this stage.</p>
+   *                <p>You can use a lifecycle hook for this stage.</p>
    *             </li>
    *          </ul>
    *          <p>You must provide this parameter when configuring a deployment lifecycle hook.</p>
    * @public
    */
   lifecycleStages?: DeploymentLifecycleHookStage[] | undefined;
-
-  /**
-   * <p>Optionally provide details about the hook. Use this field to pass custom parameters to your hook target (such as a Lambda function).</p>
-   * @public
-   */
-  hookDetails?: __DocumentType | undefined;
 }
 
 /**
@@ -1747,7 +1727,7 @@ export interface DeploymentConfiguration {
   strategy?: DeploymentStrategy | undefined;
 
   /**
-   * <p>The duration when both blue and green service revisions are running simultaneously after the production traffic has shifted.</p>
+   * <p>The time period when both blue and green service revisions are running simultaneously after the production traffic has shifted.</p>
    *          <p>You must provide this parameter when you use the <code>BLUE_GREEN</code> deployment
    *          strategy.</p>
    * @public
@@ -1755,7 +1735,7 @@ export interface DeploymentConfiguration {
   bakeTimeInMinutes?: number | undefined;
 
   /**
-   * <p>An array of deployment lifecycle hook objects to run custom logic at specific stages of the deployment lifecycle. These hooks allow you to run custom logic at key points during the deployment process.</p>
+   * <p>An array of deployment lifecycle hook objects to run custom logic at specific stages of the deployment lifecycle.</p>
    * @public
    */
   lifecycleHooks?: DeploymentLifecycleHook[] | undefined;
@@ -2496,6 +2476,8 @@ export interface ServiceConnectTestTrafficHeaderMatchRules {
  * <p>The HTTP header rules used to identify and route test traffic during Amazon ECS blue/green
  *          deployments. These rules specify which HTTP headers to examine and what values to match for
  *          routing decisions.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-connect-blue-green.html">Service Connect for Amazon ECS blue/green deployments</a> in the <i>
+ *                Amazon Elastic Container Service Developer Guide</i>.</p>
  * @public
  */
 export interface ServiceConnectTestTrafficHeaderRules {
@@ -2517,6 +2499,8 @@ export interface ServiceConnectTestTrafficHeaderRules {
  *          configuration allows you to define rules for routing specific traffic to the new service
  *          revision during the deployment process, allowing for safe testing before full production
  *          traffic shift.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-connect-blue-green.html">Service Connect for Amazon ECS blue/green deployments</a> in the <i>
+ *                Amazon Elastic Container Service Developer Guide</i>.</p>
  * @public
  */
 export interface ServiceConnectTestTrafficRules {
@@ -9022,24 +9006,44 @@ export interface ServiceDeployment {
    * <p>The current lifecycle stage of the deployment. Possible values include:</p>
    *          <ul>
    *             <li>
-   *                <p>
-   *                   <code>SCALE_UP_IN_PROGRESS</code> - Creating the new (green) tasks</p>
+   *                <p>RECONCILE_SERVICE</p>
+   *                <p>The reconciliation stage that only happens when you start a new service deployment with more than 1 service revision in an ACTIVE state.</p>
    *             </li>
    *             <li>
-   *                <p>
-   *                   <code>TEST_TRAFFIC_SHIFT_IN_PROGRESS</code> - Shifting test traffic to the new (green) tasks</p>
+   *                <p>PRE_SCALE_UP</p>
+   *                <p>The green service revision has not started. The blue service revision is handling 100% of the production traffic. There is no test traffic.</p>
    *             </li>
    *             <li>
-   *                <p>
-   *                   <code>PRODUCTION_TRAFFIC_SHIFT_IN_PROGRESS</code> - Shifting production traffic to the new (green) tasks</p>
+   *                <p>SCALE_UP</p>
+   *                <p>The stage when the green service revision scales up to 100% and launches new tasks. The green service revision is not serving any traffic at this point.</p>
    *             </li>
    *             <li>
-   *                <p>
-   *                   <code>BAKE_TIME_IN_PROGRESS</code> - The duration when both blue and green service revisions are running simultaneously after the production traffic has shifted</p>
+   *                <p>POST_SCALE_UP</p>
+   *                <p>The green service revision has started. The blue service revision is handling 100% of the production traffic. There is no test traffic.</p>
    *             </li>
    *             <li>
-   *                <p>
-   *                   <code>CLEAN_UP_IN_PROGRESS</code> - Stopping the old (blue) tasks</p>
+   *                <p>TEST_TRAFFIC_SHIFT</p>
+   *                <p>The blue and green service revisions are running. The blue service revision handles 100% of the production traffic. The green service revision is migrating from 0% to 100% of test traffic.</p>
+   *             </li>
+   *             <li>
+   *                <p>POST_TEST_TRAFFIC_SHIFT</p>
+   *                <p>The test traffic shift is complete. The green service revision handles 100% of the test traffic.</p>
+   *             </li>
+   *             <li>
+   *                <p>PRODUCTION_TRAFFIC_SHIFT</p>
+   *                <p>Production traffic is shifting to the green service revision. The green service revision is migrating from 0% to 100% of production traffic.</p>
+   *             </li>
+   *             <li>
+   *                <p>POST_PRODUCTION_TRAFFIC_SHIFT</p>
+   *                <p>The production traffic shift is complete.</p>
+   *             </li>
+   *             <li>
+   *                <p>BAKE_TIME</p>
+   *                <p>The stage when both blue and green service revisions are running simultaneously after the production traffic has shifted.</p>
+   *             </li>
+   *             <li>
+   *                <p>CLEAN_UP</p>
+   *                <p>The stage when the blue service revision has completely scaled down to 0 running tasks. The green service revision is now the production service revision after this stage.</p>
    *             </li>
    *          </ul>
    * @public
