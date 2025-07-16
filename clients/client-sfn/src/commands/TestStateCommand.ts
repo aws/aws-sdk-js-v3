@@ -42,7 +42,7 @@ export interface TestStateCommandOutput extends TestStateOutput, __MetadataBeare
  *                <p>An <a href="https://docs.aws.amazon.com/step-functions/latest/dg/connect-to-services.html">Amazon Web Services service integration</a> request and response</p>
  *             </li>
  *             <li>
- *                <p>An <a href="https://docs.aws.amazon.com/step-functions/latest/dg/connect-third-party-apis.html">HTTP Task</a> request and response</p>
+ *                <p>An <a href="https://docs.aws.amazon.com/step-functions/latest/dg/call-https-apis.html">HTTP Task</a> request and response</p>
  *             </li>
  *          </ul>
  *          <p>You can call this API on only one state at a time. The states that you can test include the following:</p>
