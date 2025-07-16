@@ -36,7 +36,7 @@ export interface ListEventConfigurationsCommandOutput extends ListEventConfigura
  * // const { IoTWirelessClient, ListEventConfigurationsCommand } = require("@aws-sdk/client-iot-wireless"); // CommonJS import
  * const client = new IoTWirelessClient(config);
  * const input = { // ListEventConfigurationsRequest
- *   ResourceType: "FuotaTask" || "SidewalkAccount" || "WirelessDevice" || "WirelessGateway", // required
+ *   ResourceType: "SidewalkAccount" || "WirelessDevice" || "WirelessGateway", // required
  *   MaxResults: Number("int"),
  *   NextToken: "STRING_VALUE",
  * };
@@ -47,7 +47,7 @@ export interface ListEventConfigurationsCommandOutput extends ListEventConfigura
  * //   EventConfigurationsList: [ // EventConfigurationsList
  * //     { // EventConfigurationItem
  * //       Identifier: "STRING_VALUE",
- * //       IdentifierType: "PartnerAccountId" || "DevEui" || "FuotaTaskId" || "GatewayEui" || "WirelessDeviceId" || "WirelessGatewayId",
+ * //       IdentifierType: "PartnerAccountId" || "DevEui" || "GatewayEui" || "WirelessDeviceId" || "WirelessGatewayId",
  * //       PartnerType: "Sidewalk",
  * //       Events: { // EventNotificationItemConfigurations
  * //         DeviceRegistrationState: { // DeviceRegistrationStateEventConfiguration
