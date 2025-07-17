@@ -247,6 +247,11 @@ export class Upload extends EventEmitter {
         }
       }
 
+      // If the part is already uploaded, skip it.
+      if (this.uploadedParts.some((uploadedPart) => uploadedPart.PartNumber === dataPart.partNumber)) {
+        continue;
+      }
+
       const partSize: number = byteLength(dataPart.data) || 0;
 
       const requestHandler = this.client.config.requestHandler;
