@@ -3946,7 +3946,7 @@ export interface ListCloudFrontOriginAccessIdentitiesResult {
  */
 export interface ListConflictingAliasesRequest {
   /**
-   * <p>The ID of a distribution in your account that has an attached SSL/TLS certificate that includes the provided alias.</p>
+   * <p>The ID of a standard distribution in your account that has an attached TLS certificate that includes the provided alias.</p>
    * @public
    */
   DistributionId: string | undefined;
@@ -3971,7 +3971,7 @@ export interface ListConflictingAliasesRequest {
 }
 
 /**
- * <p>An alias (also called a CNAME) and the CloudFront distribution and Amazon Web Services account ID that it's associated with. The distribution and account IDs are partially hidden, which allows you to identify the distributions and accounts that you own, but helps to protect the information of ones that you don't own.</p>
+ * <p>An alias (also called a CNAME) and the CloudFront standard distribution and Amazon Web Services account ID that it's associated with. The standard distribution and account IDs are partially hidden, which allows you to identify the standard distributions and accounts that you own, and helps to protect the information of ones that you don't own.</p>
  * @public
  */
 export interface ConflictingAlias {
@@ -3982,20 +3982,20 @@ export interface ConflictingAlias {
   Alias?: string | undefined;
 
   /**
-   * <p>The (partially hidden) ID of the CloudFront distribution associated with the alias.</p>
+   * <p>The (partially hidden) ID of the CloudFront standard distribution associated with the alias.</p>
    * @public
    */
   DistributionId?: string | undefined;
 
   /**
-   * <p>The (partially hidden) ID of the Amazon Web Services account that owns the distribution that's associated with the alias.</p>
+   * <p>The (partially hidden) ID of the Amazon Web Services account that owns the standard distribution that's associated with the alias.</p>
    * @public
    */
   AccountId?: string | undefined;
 }
 
 /**
- * <p>A list of aliases (also called CNAMEs) and the CloudFront distributions and Amazon Web Services accounts that they are associated with. In the list, the distribution and account IDs are partially hidden, which allows you to identify the distributions and accounts that you own, but helps to protect the information of ones that you don't own.</p>
+ * <p>A list of aliases (also called CNAMEs) and the CloudFront standard distributions and Amazon Web Services accounts that they are associated with. In the list, the standard distribution and account IDs are partially hidden, which allows you to identify the standard distributions and accounts that you own, but helps to protect the information of ones that you don't own.</p>
  * @public
  */
 export interface ConflictingAliasesList {
@@ -4331,7 +4331,7 @@ export interface DistributionSummary {
   Comment: string | undefined;
 
   /**
-   * <p>A complex type that contains information about price class for this streaming distribution.</p>
+   * <note> <p>This field only supports standard distributions. You can't specify this field for multi-tenant distributions. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-config-options.html#unsupported-saas">Unsupported features for SaaS Manager for Amazon CloudFront</a> in the <i>Amazon CloudFront Developer Guide</i>.</p> </note> <p>A complex type that contains information about price class for this streaming distribution.</p>
    * @public
    */
   PriceClass: PriceClass | undefined;
@@ -4385,7 +4385,7 @@ export interface DistributionSummary {
   Staging: boolean | undefined;
 
   /**
-   * <p>The connection mode to filter distributions by.</p>
+   * <p>This field specifies whether the connection mode is through a standard distribution (direct) or a multi-tenant distribution with distribution tenants(tenant-only).</p>
    * @public
    */
   ConnectionMode?: ConnectionMode | undefined;
@@ -4578,7 +4578,7 @@ export interface ListDistributionsByConnectionModeRequest {
   MaxItems?: number | undefined;
 
   /**
-   * <p>The connection mode to filter distributions by.</p>
+   * <p>This field specifies whether the connection mode is through a standard distribution (direct) or a multi-tenant distribution with distribution tenants(tenant-only).</p>
    * @public
    */
   ConnectionMode: ConnectionMode | undefined;
@@ -5018,7 +5018,7 @@ export interface ListDomainConflictsRequest {
   Domain: string | undefined;
 
   /**
-   * <p>The distribution resource identifier. This can be the distribution or distribution tenant that has a valid certificate, which covers the domain that you specify.</p>
+   * <p>The distribution resource identifier. This can be the standard distribution or distribution tenant that has a valid certificate, which covers the domain that you specify.</p>
    * @public
    */
   DomainControlValidationResource: DistributionResourceId | undefined;

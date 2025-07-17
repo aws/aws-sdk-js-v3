@@ -765,13 +765,13 @@ export interface UpdateDomainAssociationRequest {
   Domain: string | undefined;
 
   /**
-   * <p>The target distribution resource for the domain. You can specify either <code>DistributionId</code> or <code>DistributionTenantId</code>, but not both.</p>
+   * <p>The target standard distribution or distribution tenant resource for the domain. You can specify either <code>DistributionId</code> or <code>DistributionTenantId</code>, but not both.</p>
    * @public
    */
   TargetResource: DistributionResourceId | undefined;
 
   /**
-   * <p>The value of the <code>ETag</code> identifier for the distribution or distribution tenant that will be associated with the domain.</p>
+   * <p>The value of the <code>ETag</code> identifier for the standard distribution or distribution tenant that will be associated with the domain.</p>
    * @public
    */
   IfMatch?: string | undefined;
@@ -794,7 +794,7 @@ export interface UpdateDomainAssociationResult {
   ResourceId?: string | undefined;
 
   /**
-   * <p>The current version of the target distribution or distribution tenant that was associated with the domain.</p>
+   * <p>The current version of the target standard distribution or distribution tenant that was associated with the domain.</p>
    * @public
    */
   ETag?: string | undefined;
