@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.848.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.847.0...v3.848.0) (2025-07-17)
+
+
+### Features
+
+* **client-cleanroomsml:** This release introduces Parquet result format support for ML Input Channel models in AWS Clean Rooms ML. ([2b8c1aa](https://github.com/aws/aws-sdk-js-v3/commit/2b8c1aae01e9d6d0e2a7c09b80ac99675f7208fe))
+* **client-ec2:** AWS Free Tier Version2 Support ([1356a46](https://github.com/aws/aws-sdk-js-v3/commit/1356a462bacc1925301805789570fa914844eb19))
+* **client-mailmanager:** Allow underscores in the local part of the input of the "Email recipients rewrite" action in rule sets. ([d0c6611](https://github.com/aws/aws-sdk-js-v3/commit/d0c66111ca15c6b3d3472deee726ec576bef3367))
+* **client-mediaconvert:** This release expands the range of supported audio outputs to include xHE, 192khz FLAC and the deprecation of dual mono for AC3. ([dc5d4c4](https://github.com/aws/aws-sdk-js-v3/commit/dc5d4c46174c8bade6db2f9d49fbd67a18d5bd01))
+* **client-synthetics:** This feature allows AWS Synthetics customers to provide code dependencies using lambda layer while creating a canary ([816322a](https://github.com/aws/aws-sdk-js-v3/commit/816322ac0b2a2e686fbabacc376e64f97ef2ad00))
+* **clients:** update client endpoints as of 2025-07-17 ([6fad106](https://github.com/aws/aws-sdk-js-v3/commit/6fad106cd807fb255a800d07811d9d04d620cb5e))
+
+
+
+
+
 # [3.847.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.846.0...v3.847.0) (2025-07-16)
 
 

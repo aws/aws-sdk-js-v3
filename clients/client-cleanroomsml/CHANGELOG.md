@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.848.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.847.0...v3.848.0) (2025-07-17)
+
+
+### Features
+
+* **client-cleanroomsml:** This release introduces Parquet result format support for ML Input Channel models in AWS Clean Rooms ML. ([2b8c1aa](https://github.com/aws/aws-sdk-js-v3/commit/2b8c1aae01e9d6d0e2a7c09b80ac99675f7208fe))
+
+
+
+
+
 # [3.846.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.845.0...v3.846.0) (2025-07-16)
 
 **Note:** Version bump only for package @aws-sdk/client-cleanroomsml

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.848.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.847.0...v3.848.0) (2025-07-17)
+
+
+### Features
+
+* **client-mediaconvert:** This release expands the range of supported audio outputs to include xHE, 192khz FLAC and the deprecation of dual mono for AC3. ([dc5d4c4](https://github.com/aws/aws-sdk-js-v3/commit/dc5d4c46174c8bade6db2f9d49fbd67a18d5bd01))
+
+
+
+
+
 # [3.846.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.845.0...v3.846.0) (2025-07-16)
 
 **Note:** Version bump only for package @aws-sdk/client-mediaconvert
