@@ -143,6 +143,7 @@ export interface DescribeImagesCommandOutput extends DescribeImagesResult, __Met
  * //       ImageAllowed: true || false,
  * //       SourceImageId: "STRING_VALUE",
  * //       SourceImageRegion: "STRING_VALUE",
+ * //       FreeTierEligible: true || false,
  * //       ImageId: "STRING_VALUE",
  * //       ImageLocation: "STRING_VALUE",
  * //       State: "pending" || "available" || "invalid" || "deregistered" || "transient" || "failed" || "error" || "disabled",

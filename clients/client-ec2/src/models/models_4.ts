@@ -5454,6 +5454,11 @@ export interface DescribeImagesRequest {
    *             </li>
    *             <li>
    *                <p>
+   *                   <code>free-tier-eligible</code> - A Boolean that indicates whether this image can be
+   *           used under the Amazon Web Services Free Tier  (<code>true</code> | <code>false</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
    *                   <code>hypervisor</code> - The hypervisor type (<code>ovm</code> |
    *           <code>xen</code>).</p>
    *             </li>
@@ -5907,6 +5912,21 @@ export interface Image {
    * @public
    */
   SourceImageRegion?: string | undefined;
+
+  /**
+   * <p>Indicates whether the image is eligible for Amazon Web Services Free Tier.</p>
+   *          <ul>
+   *             <li>
+   *                <p>If <code>true</code>, the AMI is eligible for Free Tier and can be used to launch
+   *           instances under the Free Tier limits.</p>
+   *             </li>
+   *             <li>
+   *                <p>If <code>false</code>, the AMI is not eligible for Free Tier.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  FreeTierEligible?: boolean | undefined;
 
   /**
    * <p>The ID of the AMI.</p>

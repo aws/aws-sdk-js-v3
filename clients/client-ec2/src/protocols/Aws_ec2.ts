@@ -73822,6 +73822,9 @@ const de_Image = (output: any, context: __SerdeContext): Image => {
   if (output[_sIR] != null) {
     contents[_SIRo] = __expectString(output[_sIR]);
   }
+  if (output[_fTE] != null) {
+    contents[_FTE] = __parseBoolean(output[_fTE]);
+  }
   if (output[_iIma] != null) {
     contents[_IIma] = __expectString(output[_iIma]);
   }
