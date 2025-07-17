@@ -3357,6 +3357,20 @@ export interface PutMLConfigurationRequest {
 }
 
 /**
+ * @public
+ * @enum
+ */
+export const ResultFormat = {
+  CSV: "CSV",
+  PARQUET: "PARQUET",
+} as const;
+
+/**
+ * @public
+ */
+export type ResultFormat = (typeof ResultFormat)[keyof typeof ResultFormat];
+
+/**
  * <p>Provides information necessary to perform the protected query.</p>
  * @public
  */
@@ -3372,6 +3386,12 @@ export interface ProtectedQueryInputParameters {
    * @public
    */
   computeConfiguration?: ComputeConfiguration | undefined;
+
+  /**
+   * <p>The format in which the query results should be returned. If not specified, defaults to <code>CSV</code>. </p>
+   * @public
+   */
+  resultFormat?: ResultFormat | undefined;
 }
 
 /**

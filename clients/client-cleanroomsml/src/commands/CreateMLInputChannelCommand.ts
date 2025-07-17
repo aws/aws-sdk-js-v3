@@ -60,6 +60,7 @@ export interface CreateMLInputChannelCommandOutput extends CreateMLInputChannelR
  *             number: Number("int"),
  *           },
  *         },
+ *         resultFormat: "CSV" || "PARQUET",
  *       },
  *     },
  *     roleArn: "STRING_VALUE", // required

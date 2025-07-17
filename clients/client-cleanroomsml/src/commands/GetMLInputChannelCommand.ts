@@ -66,6 +66,7 @@ export interface GetMLInputChannelCommandOutput extends GetMLInputChannelRespons
  * //             number: Number("int"),
  * //           },
  * //         },
+ * //         resultFormat: "CSV" || "PARQUET",
  * //       },
  * //     },
  * //     roleArn: "STRING_VALUE", // required
