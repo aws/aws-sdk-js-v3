@@ -56,6 +56,12 @@ export interface CreateCanaryCommandOutput extends CreateCanaryResponse, __Metad
  *     S3Version: "STRING_VALUE",
  *     ZipFile: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")
  *     Handler: "STRING_VALUE", // required
+ *     Dependencies: [ // Dependencies
+ *       { // Dependency
+ *         Type: "LambdaLayer",
+ *         Reference: "STRING_VALUE", // required
+ *       },
+ *     ],
  *   },
  *   ArtifactS3Location: "STRING_VALUE", // required
  *   ExecutionRoleArn: "STRING_VALUE", // required
@@ -110,6 +116,12 @@ export interface CreateCanaryCommandOutput extends CreateCanaryResponse, __Metad
  * //     Code: { // CanaryCodeOutput
  * //       SourceLocationArn: "STRING_VALUE",
  * //       Handler: "STRING_VALUE",
+ * //       Dependencies: [ // Dependencies
+ * //         { // Dependency
+ * //           Type: "LambdaLayer",
+ * //           Reference: "STRING_VALUE", // required
+ * //         },
+ * //       ],
  * //     },
  * //     ExecutionRoleArn: "STRING_VALUE",
  * //     Schedule: { // CanaryScheduleOutput

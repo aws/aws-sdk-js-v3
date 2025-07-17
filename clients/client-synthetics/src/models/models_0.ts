@@ -279,6 +279,38 @@ export interface BaseScreenshot {
 }
 
 /**
+ * @public
+ * @enum
+ */
+export const DependencyType = {
+  LambdaLayer: "LambdaLayer",
+} as const;
+
+/**
+ * @public
+ */
+export type DependencyType = (typeof DependencyType)[keyof typeof DependencyType];
+
+/**
+ * <p>A structure that contains information about a dependency for a canary.</p>
+ * @public
+ */
+export interface Dependency {
+  /**
+   * <p>The type of dependency. Valid value is <code>LambdaLayer</code>.</p>
+   * @public
+   */
+  Type?: DependencyType | undefined;
+
+  /**
+   * <p>The dependency reference. For Lambda layers, this is the ARN of the Lambda layer. For more information
+   *          about Lambda ARN format, see <a href="https://docs.aws.amazon.com/lambda/latest/api/API_Layer.html">Lambda</a>.</p>
+   * @public
+   */
+  Reference: string | undefined;
+}
+
+/**
  * <p>This structure contains information about the canary's Lambda handler and
  *       where its code is stored by CloudWatch Synthetics.</p>
  * @public
@@ -295,6 +327,12 @@ export interface CanaryCodeOutput {
    * @public
    */
   Handler?: string | undefined;
+
+  /**
+   * <p>A list of dependencies that are used for running this canary. The dependencies are specified as a key-value pair, where the key is the type of dependency and the value is the dependency reference.</p>
+   * @public
+   */
+  Dependencies?: Dependency[] | undefined;
 }
 
 /**
@@ -969,6 +1007,12 @@ export interface CanaryCodeInput {
    * @public
    */
   Handler: string | undefined;
+
+  /**
+   * <p>A list of dependencies that should be used for running this canary. Specify the dependencies as a key-value pair, where the key is the type of dependency and the value is the dependency reference.</p>
+   * @public
+   */
+  Dependencies?: Dependency[] | undefined;
 }
 
 /**

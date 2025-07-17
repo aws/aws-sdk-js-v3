@@ -50,6 +50,12 @@ export interface GetCanaryCommandOutput extends GetCanaryResponse, __MetadataBea
  * //     Code: { // CanaryCodeOutput
  * //       SourceLocationArn: "STRING_VALUE",
  * //       Handler: "STRING_VALUE",
+ * //       Dependencies: [ // Dependencies
+ * //         { // Dependency
+ * //           Type: "LambdaLayer",
+ * //           Reference: "STRING_VALUE", // required
+ * //         },
+ * //       ],
  * //     },
  * //     ExecutionRoleArn: "STRING_VALUE",
  * //     Schedule: { // CanaryScheduleOutput

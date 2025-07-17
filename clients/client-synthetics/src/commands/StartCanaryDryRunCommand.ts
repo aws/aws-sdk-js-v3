@@ -43,6 +43,12 @@ export interface StartCanaryDryRunCommandOutput extends StartCanaryDryRunRespons
  *     S3Version: "STRING_VALUE",
  *     ZipFile: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")
  *     Handler: "STRING_VALUE", // required
+ *     Dependencies: [ // Dependencies
+ *       { // Dependency
+ *         Type: "LambdaLayer",
+ *         Reference: "STRING_VALUE", // required
+ *       },
+ *     ],
  *   },
  *   RuntimeVersion: "STRING_VALUE",
  *   RunConfig: { // CanaryRunConfigInput

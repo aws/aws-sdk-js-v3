@@ -75,6 +75,7 @@ import {
   CanaryScheduleInput,
   CanaryTimeline,
   ConflictException,
+  Dependency,
   Group,
   InternalFailureException,
   InternalServerException,
@@ -1301,6 +1302,7 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
  */
 const se_CanaryCodeInput = (input: CanaryCodeInput, context: __SerdeContext): any => {
   return take(input, {
+    Dependencies: _json,
     Handler: [],
     S3Bucket: [],
     S3Key: [],
@@ -1312,6 +1314,10 @@ const se_CanaryCodeInput = (input: CanaryCodeInput, context: __SerdeContext): an
 // se_CanaryRunConfigInput omitted.
 
 // se_CanaryScheduleInput omitted.
+
+// se_Dependencies omitted.
+
+// se_Dependency omitted.
 
 // se_DescribeCanariesLastRunNameFilter omitted.
 
@@ -1466,6 +1472,10 @@ const de_CanaryTimeline = (output: any, context: __SerdeContext): CanaryTimeline
     LastStopped: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
   }) as any;
 };
+
+// de_Dependencies omitted.
+
+// de_Dependency omitted.
 
 // de_DryRunConfigOutput omitted.
 
