@@ -4231,7 +4231,7 @@ export interface StartExecutionInput {
   /**
    * <p>The string that contains the JSON input data for the execution, for example:</p>
    *          <p>
-   *             <code>"\{\"first_name\" : \"Tim\"\}"</code>
+   *             <code>"\{\"first_name\" : \"Alejandro\"\}"</code>
    *          </p>
    *          <note>
    *             <p>If you don't include any JSON input data, you still must include the two braces, for
@@ -4292,7 +4292,7 @@ export interface StartSyncExecutionInput {
   /**
    * <p>The string that contains the JSON input data for the execution, for example:</p>
    *          <p>
-   *             <code>"\{\"first_name\" : \"Tim\"\}"</code>
+   *             <code>"\{\"first_name\" : \"Alejandro\"\}"</code>
    *          </p>
    *          <note>
    *             <p>If you don't include any JSON input data, you still must include the two braces, for
