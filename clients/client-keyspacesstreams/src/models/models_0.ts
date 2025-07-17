@@ -28,13 +28,13 @@ export class AccessDeniedException extends __BaseException {
  */
 export interface GetRecordsInput {
   /**
-   * <p> The unique identifier of the shard iterator. A shard iterator specifies the position in the shard from which you want to start reading data records sequentially. You obtain this value by calling the <code>GetShardIterator</code> operation. Each shard iterator is valid for 5 minutes after creation. </p>
+   * <p> The unique identifier of the shard iterator. A shard iterator specifies the position in the shard from which you want to start reading data records sequentially. You obtain this value by calling the <code>GetShardIterator</code> operation. Each shard iterator is valid for 15 minutes after creation. </p>
    * @public
    */
   shardIterator: string | undefined;
 
   /**
-   * <p> The maximum number of records to return in a single <code>GetRecords</code> request. Default value is 1000. You can specify a limit between 1 and 10000, but the actual number returned might be less than the specified maximum if the size of the data for the returned records exceeds the internal size limit. </p>
+   * <p> The maximum number of records to return in a single <code>GetRecords</code> request. Default value is 1000. You can specify a limit between 1 and 1000, but the actual number returned might be less than the specified maximum if the size of the data for the returned records exceeds the internal size limit. </p>
    * @public
    */
   maxResults?: number | undefined;
@@ -226,7 +226,7 @@ export interface GetShardIteratorInput {
  */
 export interface GetShardIteratorOutput {
   /**
-   * <p> The unique identifier for the shard iterator. This value is used in the <code>GetRecords</code> operation to retrieve data records from the specified shard. Each shard iterator expires 5 minutes after it is returned to the requester. </p>
+   * <p> The unique identifier for the shard iterator. This value is used in the <code>GetRecords</code> operation to retrieve data records from the specified shard. Each shard iterator expires 15 minutes after it is returned to the requester. </p>
    * @public
    */
   shardIterator?: string | undefined;
@@ -274,7 +274,7 @@ export interface GetStreamInput {
   streamArn: string | undefined;
 
   /**
-   * <p> The maximum number of shard objects to return in a single <code>GetStream</code> request. Default value is 100. The minimum value is 1 and the maximum value is 1000. </p>
+   * <p> The maximum number of shard objects to return in a single <code>GetStream</code> request. Default value is 100. The minimum value is 1 and the maximum value is 100. </p>
    * @public
    */
   maxResults?: number | undefined;
@@ -442,7 +442,7 @@ export interface ListStreamsInput {
   tableName?: string | undefined;
 
   /**
-   * <p> The maximum number of streams to return in a single <code>ListStreams</code> request. Default value is 100. The minimum value is 1 and the maximum value is 1000. </p>
+   * <p> The maximum number of streams to return in a single <code>ListStreams</code> request. Default value is 100. The minimum value is 1 and the maximum value is 100. </p>
    * @public
    */
   maxResults?: number | undefined;
