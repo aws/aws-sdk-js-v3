@@ -19,12 +19,29 @@ import {
   Input,
   KantarWatermarkSettings,
   MotionImageInserter,
-  MsSmoothAdditionalManifest,
   NielsenConfiguration,
   NielsenNonLinearWatermarkSettings,
   Rectangle,
   SpekeKeyProvider,
 } from "./models_0";
+
+/**
+ * Specify the details for each additional Microsoft Smooth Streaming manifest that you want the service to generate for this output group. Each manifest can reference a different subset of outputs in the group.
+ * @public
+ */
+export interface MsSmoothAdditionalManifest {
+  /**
+   * Specify a name modifier that the service adds to the name of this manifest to make it different from the file names of the other main manifests in the output group. For example, say that the default main manifest for your Microsoft Smooth group is film-name.ismv. If you enter "-no-premium" for this setting, then the file name the service generates for this top-level manifest is film-name-no-premium.ismv.
+   * @public
+   */
+  ManifestNameModifier?: string | undefined;
+
+  /**
+   * Specify the outputs that you want this additional top-level manifest to reference.
+   * @public
+   */
+  SelectedOutputs?: string[] | undefined;
+}
 
 /**
  * @public
@@ -6026,7 +6043,7 @@ export interface VideoCodecSettings {
   AvcIntraSettings?: AvcIntraSettings | undefined;
 
   /**
-   * Specifies the video codec. This must be equal to one of the enum values defined by the object VideoCodec. To passthrough the video stream of your input JPEG2000, VC-3, AVC-INTRA or Apple ProRes video without any video encoding: Choose Passthrough. If you have multiple input videos, note that they must have identical encoding attributes. When you choose Passthrough, your output container must be MXF or QuickTime MOV.
+   * Specifies the video codec. This must be equal to one of the enum values defined by the object VideoCodec. To passthrough the video stream of your input without any video encoding: Choose Passthrough. More information about passthrough codec support and job settings requirements, see: https://docs.aws.amazon.com/mediaconvert/latest/ug/video-passthrough-feature-restrictions.html
    * @public
    */
   Codec?: VideoCodec | undefined;
@@ -7194,20 +7211,3 @@ export const SimulateReservedQueue = {
  * @public
  */
 export type SimulateReservedQueue = (typeof SimulateReservedQueue)[keyof typeof SimulateReservedQueue];
-
-/**
- * @public
- * @enum
- */
-export const JobStatus = {
-  CANCELED: "CANCELED",
-  COMPLETE: "COMPLETE",
-  ERROR: "ERROR",
-  PROGRESSING: "PROGRESSING",
-  SUBMITTED: "SUBMITTED",
-} as const;
-
-/**
- * @public
- */
-export type JobStatus = (typeof JobStatus)[keyof typeof JobStatus];

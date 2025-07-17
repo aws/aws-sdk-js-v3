@@ -49,7 +49,7 @@ export interface ProbeCommandOutput extends ProbeResponse, __MetadataBearer {}
  * //     { // ProbeResult
  * //       Container: { // Container
  * //         Duration: Number("double"),
- * //         Format: "mp4" || "quicktime" || "matroska" || "webm",
+ * //         Format: "mp4" || "quicktime" || "matroska" || "webm" || "mxf",
  * //         Tracks: [ // __listOfTrack
  * //           { // Track
  * //             AudioProperties: { // AudioProperties
@@ -63,7 +63,7 @@ export interface ProbeCommandOutput extends ProbeResponse, __MetadataBearer {}
  * //               LanguageCode: "STRING_VALUE",
  * //               SampleRate: Number("int"),
  * //             },
- * //             Codec: "UNKNOWN" || "AAC" || "AC3" || "EAC3" || "FLAC" || "MP3" || "OPUS" || "PCM" || "VORBIS" || "AV1" || "AVC" || "HEVC" || "MJPEG" || "MP4V" || "MPEG2" || "PRORES" || "THEORA" || "VP8" || "VP9" || "C608" || "C708" || "WEBVTT",
+ * //             Codec: "UNKNOWN" || "AAC" || "AC3" || "EAC3" || "FLAC" || "MP3" || "OPUS" || "PCM" || "VORBIS" || "AV1" || "AVC" || "HEVC" || "JPEG2000" || "MJPEG" || "MP4V" || "MPEG2" || "PRORES" || "THEORA" || "VP8" || "VP9" || "C608" || "C708" || "WEBVTT",
  * //             DataProperties: { // DataProperties
  * //               LanguageCode: "STRING_VALUE",
  * //             },

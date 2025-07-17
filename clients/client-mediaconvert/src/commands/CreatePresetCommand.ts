@@ -64,12 +64,15 @@ export interface CreatePresetCommandOutput extends CreatePresetResponse, __Metad
  *           AacSettings: { // AacSettings
  *             AudioDescriptionBroadcasterMix: "BROADCASTER_MIXED_AD" || "NORMAL",
  *             Bitrate: Number("int"),
- *             CodecProfile: "LC" || "HEV1" || "HEV2",
+ *             CodecProfile: "LC" || "HEV1" || "HEV2" || "XHE",
  *             CodingMode: "AD_RECEIVER_MIX" || "CODING_MODE_1_0" || "CODING_MODE_1_1" || "CODING_MODE_2_0" || "CODING_MODE_5_1",
+ *             LoudnessMeasurementMode: "PROGRAM" || "ANCHOR",
+ *             RapInterval: Number("int"),
  *             RateControlMode: "CBR" || "VBR",
  *             RawFormat: "LATM_LOAS" || "NONE",
  *             SampleRate: Number("int"),
  *             Specification: "MPEG2" || "MPEG4",
+ *             TargetLoudnessRange: Number("int"),
  *             VbrQuality: "LOW" || "MEDIUM_LOW" || "MEDIUM_HIGH" || "HIGH",
  *           },
  *           Ac3Settings: { // Ac3Settings
@@ -921,12 +924,15 @@ export interface CreatePresetCommandOutput extends CreatePresetResponse, __Metad
  * //             AacSettings: { // AacSettings
  * //               AudioDescriptionBroadcasterMix: "BROADCASTER_MIXED_AD" || "NORMAL",
  * //               Bitrate: Number("int"),
- * //               CodecProfile: "LC" || "HEV1" || "HEV2",
+ * //               CodecProfile: "LC" || "HEV1" || "HEV2" || "XHE",
  * //               CodingMode: "AD_RECEIVER_MIX" || "CODING_MODE_1_0" || "CODING_MODE_1_1" || "CODING_MODE_2_0" || "CODING_MODE_5_1",
+ * //               LoudnessMeasurementMode: "PROGRAM" || "ANCHOR",
+ * //               RapInterval: Number("int"),
  * //               RateControlMode: "CBR" || "VBR",
  * //               RawFormat: "LATM_LOAS" || "NONE",
  * //               SampleRate: Number("int"),
  * //               Specification: "MPEG2" || "MPEG4",
+ * //               TargetLoudnessRange: Number("int"),
  * //               VbrQuality: "LOW" || "MEDIUM_LOW" || "MEDIUM_HIGH" || "HIGH",
  * //             },
  * //             Ac3Settings: { // Ac3Settings

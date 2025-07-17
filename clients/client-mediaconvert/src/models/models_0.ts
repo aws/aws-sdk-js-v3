@@ -242,6 +242,7 @@ export const AacCodecProfile = {
   HEV1: "HEV1",
   HEV2: "HEV2",
   LC: "LC",
+  XHE: "XHE",
 } as const;
 
 /**
@@ -265,6 +266,20 @@ export const AacCodingMode = {
  * @public
  */
 export type AacCodingMode = (typeof AacCodingMode)[keyof typeof AacCodingMode];
+
+/**
+ * @public
+ * @enum
+ */
+export const AacLoudnessMeasurementMode = {
+  ANCHOR: "ANCHOR",
+  PROGRAM: "PROGRAM",
+} as const;
+
+/**
+ * @public
+ */
+export type AacLoudnessMeasurementMode = (typeof AacLoudnessMeasurementMode)[keyof typeof AacLoudnessMeasurementMode];
 
 /**
  * @public
@@ -354,6 +369,18 @@ export interface AacSettings {
   CodingMode?: AacCodingMode | undefined;
 
   /**
+   * Choose the loudness measurement mode for your audio content. For music or advertisements: We recommend that you keep the default value, Program. For speech or other content: We recommend that you choose Anchor. When you do, MediaConvert optimizes the loudness of your output for clarify by applying speech gates.
+   * @public
+   */
+  LoudnessMeasurementMode?: AacLoudnessMeasurementMode | undefined;
+
+  /**
+   * Specify the RAP (Random Access Point) interval for your xHE-AAC audio output. A RAP allows a decoder to decode audio data mid-stream, without the need to reference previous audio frames, and perform adaptive audio bitrate switching. To specify the RAP interval: Enter an integer from 2000 to 30000, in milliseconds. Smaller values allow for better seeking and more frequent stream switching, while large values improve compression efficiency. To have MediaConvert automatically determine the RAP interval: Leave blank.
+   * @public
+   */
+  RapInterval?: number | undefined;
+
+  /**
    * Specify the AAC rate control mode. For a constant bitrate: Choose CBR. Your AAC output bitrate will be equal to the value that you choose for Bitrate. For a variable bitrate: Choose VBR. Your AAC output bitrate will vary according to your audio content and the value that you choose for Bitrate quality.
    * @public
    */
@@ -376,6 +403,12 @@ export interface AacSettings {
    * @public
    */
   Specification?: AacSpecification | undefined;
+
+  /**
+   * Specify the xHE-AAC loudness target. Enter an integer from 6 to 16, representing "loudness units". For more information, see the following specification: Supplementary information for R 128 EBU Tech 3342-2023.
+   * @public
+   */
+  TargetLoudnessRange?: number | undefined;
 
   /**
    * Specify the quality of your variable bitrate (VBR) AAC audio. For a list of approximate VBR bitrates, see: https://docs.aws.amazon.com/mediaconvert/latest/ug/aac-support.html#aac_vbr
@@ -7546,22 +7579,4 @@ export interface HlsGroupSettings {
    * @public
    */
   TimestampDeltaMilliseconds?: number | undefined;
-}
-
-/**
- * Specify the details for each additional Microsoft Smooth Streaming manifest that you want the service to generate for this output group. Each manifest can reference a different subset of outputs in the group.
- * @public
- */
-export interface MsSmoothAdditionalManifest {
-  /**
-   * Specify a name modifier that the service adds to the name of this manifest to make it different from the file names of the other main manifests in the output group. For example, say that the default main manifest for your Microsoft Smooth group is film-name.ismv. If you enter "-no-premium" for this setting, then the file name the service generates for this top-level manifest is film-name-no-premium.ismv.
-   * @public
-   */
-  ManifestNameModifier?: string | undefined;
-
-  /**
-   * Specify the outputs that you want this additional top-level manifest to reference.
-   * @public
-   */
-  SelectedOutputs?: string[] | undefined;
 }

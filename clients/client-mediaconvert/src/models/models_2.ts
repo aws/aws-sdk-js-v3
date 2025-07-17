@@ -29,13 +29,29 @@ import {
 import {
   ContainerSettings,
   JobSettings,
-  JobStatus,
   OutputGroup,
   SimulateReservedQueue,
   TimecodeConfig,
   TimedMetadataInsertion,
   VideoDescription,
 } from "./models_1";
+
+/**
+ * @public
+ * @enum
+ */
+export const JobStatus = {
+  CANCELED: "CANCELED",
+  COMPLETE: "COMPLETE",
+  ERROR: "ERROR",
+  PROGRESSING: "PROGRESSING",
+  SUBMITTED: "SUBMITTED",
+} as const;
+
+/**
+ * @public
+ */
+export type JobStatus = (typeof JobStatus)[keyof typeof JobStatus];
 
 /**
  * @public
@@ -595,6 +611,7 @@ export interface ProbeInputFile {
 export const Format = {
   matroska: "matroska",
   mp4: "mp4",
+  mxf: "mxf",
   quicktime: "quicktime",
   webm: "webm",
 } as const;
@@ -678,6 +695,7 @@ export const Codec = {
   EAC3: "EAC3",
   FLAC: "FLAC",
   HEVC: "HEVC",
+  JPEG2000: "JPEG2000",
   MJPEG: "MJPEG",
   MP3: "MP3",
   MP4V: "MP4V",
@@ -928,7 +946,7 @@ export interface Container {
   Duration?: number | undefined;
 
   /**
-   * The format of your media file. For example: MP4, QuickTime (MOV), Matroska (MKV), or WebM. Note that this will be blank if your media file has a format that the MediaConvert Probe operation does not recognize.
+   * The format of your media file. For example: MP4, QuickTime (MOV), Matroska (MKV), WebM or MXF. Note that this will be blank if your media file has a format that the MediaConvert Probe operation does not recognize.
    * @public
    */
   Format?: Format | undefined;

@@ -151,7 +151,6 @@ import {
   MotionImageInsertionOffset,
   Mp2Settings,
   Mp3Settings,
-  MsSmoothAdditionalManifest,
   NielsenConfiguration,
   NielsenNonLinearWatermarkSettings,
   OpusSettings,
@@ -220,6 +219,7 @@ import {
   Mp4Settings,
   MpdSettings,
   Mpeg2Settings,
+  MsSmoothAdditionalManifest,
   MsSmoothEncryptionSettings,
   MsSmoothGroupSettings,
   MxfSettings,
@@ -2076,10 +2076,13 @@ const se_AacSettings = (input: AacSettings, context: __SerdeContext): any => {
     bitrate: [, , `Bitrate`],
     codecProfile: [, , `CodecProfile`],
     codingMode: [, , `CodingMode`],
+    loudnessMeasurementMode: [, , `LoudnessMeasurementMode`],
+    rapInterval: [, , `RapInterval`],
     rateControlMode: [, , `RateControlMode`],
     rawFormat: [, , `RawFormat`],
     sampleRate: [, , `SampleRate`],
     specification: [, , `Specification`],
+    targetLoudnessRange: [, , `TargetLoudnessRange`],
     vbrQuality: [, , `VbrQuality`],
   });
 };
@@ -5261,10 +5264,13 @@ const de_AacSettings = (output: any, context: __SerdeContext): AacSettings => {
     Bitrate: [, __expectInt32, `bitrate`],
     CodecProfile: [, __expectString, `codecProfile`],
     CodingMode: [, __expectString, `codingMode`],
+    LoudnessMeasurementMode: [, __expectString, `loudnessMeasurementMode`],
+    RapInterval: [, __expectInt32, `rapInterval`],
     RateControlMode: [, __expectString, `rateControlMode`],
     RawFormat: [, __expectString, `rawFormat`],
     SampleRate: [, __expectInt32, `sampleRate`],
     Specification: [, __expectString, `specification`],
+    TargetLoudnessRange: [, __expectInt32, `targetLoudnessRange`],
     VbrQuality: [, __expectString, `vbrQuality`],
   }) as any;
 };
