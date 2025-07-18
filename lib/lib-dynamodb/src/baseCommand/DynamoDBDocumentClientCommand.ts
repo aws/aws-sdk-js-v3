@@ -48,8 +48,18 @@ export abstract class DynamoDBDocumentClientCommand<
           args: InitializeHandlerArguments<Input | BaseInput>
         ): Promise<InitializeHandlerOutput<Output | BaseOutput>> => {
           setFeature(context, "DDB_MAPPER", "d");
-          args.input = marshallInput(args.input, this.inputKeyNodes, marshallOptions);
-          return next(args);
+          return next({
+            ...args,
+            /**
+             * We overwrite `args.input` at this middleware, but do not
+             * mutate the args object itself, which is initially the Command instance.
+             *
+             * The reason for this is to prevent mutations to the Command instance's inputs
+             * from being carried over if the Command instance is reused in a new
+             * request.
+             */
+            input: marshallInput(args.input, this.inputKeyNodes, marshallOptions),
+          });
         },
       {
         name: "DocumentMarshall",
