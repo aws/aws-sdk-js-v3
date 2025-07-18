@@ -58,7 +58,7 @@ export interface DescribeAccountPoliciesCommandOutput extends DescribeAccountPol
  * // const { CloudWatchLogsClient, DescribeAccountPoliciesCommand } = require("@aws-sdk/client-cloudwatch-logs"); // CommonJS import
  * const client = new CloudWatchLogsClient(config);
  * const input = { // DescribeAccountPoliciesRequest
- *   policyType: "DATA_PROTECTION_POLICY" || "SUBSCRIPTION_FILTER_POLICY" || "FIELD_INDEX_POLICY" || "TRANSFORMER_POLICY", // required
+ *   policyType: "DATA_PROTECTION_POLICY" || "SUBSCRIPTION_FILTER_POLICY" || "FIELD_INDEX_POLICY" || "TRANSFORMER_POLICY" || "METRIC_EXTRACTION_POLICY", // required
  *   policyName: "STRING_VALUE",
  *   accountIdentifiers: [ // AccountIds
  *     "STRING_VALUE",
@@ -73,7 +73,7 @@ export interface DescribeAccountPoliciesCommandOutput extends DescribeAccountPol
  * //       policyName: "STRING_VALUE",
  * //       policyDocument: "STRING_VALUE",
  * //       lastUpdatedTime: Number("long"),
- * //       policyType: "DATA_PROTECTION_POLICY" || "SUBSCRIPTION_FILTER_POLICY" || "FIELD_INDEX_POLICY" || "TRANSFORMER_POLICY",
+ * //       policyType: "DATA_PROTECTION_POLICY" || "SUBSCRIPTION_FILTER_POLICY" || "FIELD_INDEX_POLICY" || "TRANSFORMER_POLICY" || "METRIC_EXTRACTION_POLICY",
  * //       scope: "ALL",
  * //       selectionCriteria: "STRING_VALUE",
  * //       accountId: "STRING_VALUE",

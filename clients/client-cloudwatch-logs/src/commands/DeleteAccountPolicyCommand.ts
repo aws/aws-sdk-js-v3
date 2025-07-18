@@ -64,7 +64,7 @@ export interface DeleteAccountPolicyCommandOutput extends __MetadataBearer {}
  * const client = new CloudWatchLogsClient(config);
  * const input = { // DeleteAccountPolicyRequest
  *   policyName: "STRING_VALUE", // required
- *   policyType: "DATA_PROTECTION_POLICY" || "SUBSCRIPTION_FILTER_POLICY" || "FIELD_INDEX_POLICY" || "TRANSFORMER_POLICY", // required
+ *   policyType: "DATA_PROTECTION_POLICY" || "SUBSCRIPTION_FILTER_POLICY" || "FIELD_INDEX_POLICY" || "TRANSFORMER_POLICY" || "METRIC_EXTRACTION_POLICY", // required
  * };
  * const command = new DeleteAccountPolicyCommand(input);
  * const response = await client.send(command);

@@ -51,6 +51,7 @@ export * from "./GetIntegrationCommand";
 export * from "./GetLogAnomalyDetectorCommand";
 export * from "./GetLogEventsCommand";
 export * from "./GetLogGroupFieldsCommand";
+export * from "./GetLogObjectCommand";
 export * from "./GetLogRecordCommand";
 export * from "./GetQueryResultsCommand";
 export * from "./GetTransformerCommand";

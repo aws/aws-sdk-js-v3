@@ -260,6 +260,11 @@ import {
   GetLogGroupFieldsCommandOutput,
 } from "./commands/GetLogGroupFieldsCommand";
 import {
+  GetLogObjectCommand,
+  GetLogObjectCommandInput,
+  GetLogObjectCommandOutput,
+} from "./commands/GetLogObjectCommand";
+import {
   GetLogRecordCommand,
   GetLogRecordCommandInput,
   GetLogRecordCommandOutput,
@@ -487,6 +492,7 @@ const commands = {
   GetLogAnomalyDetectorCommand,
   GetLogEventsCommand,
   GetLogGroupFieldsCommand,
+  GetLogObjectCommand,
   GetLogRecordCommand,
   GetQueryResultsCommand,
   GetTransformerCommand,
@@ -1384,6 +1390,17 @@ export interface CloudWatchLogs {
     args: GetLogGroupFieldsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetLogGroupFieldsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetLogObjectCommand}
+   */
+  getLogObject(args: GetLogObjectCommandInput, options?: __HttpHandlerOptions): Promise<GetLogObjectCommandOutput>;
+  getLogObject(args: GetLogObjectCommandInput, cb: (err: any, data?: GetLogObjectCommandOutput) => void): void;
+  getLogObject(
+    args: GetLogObjectCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetLogObjectCommandOutput) => void
   ): void;
 
   /**

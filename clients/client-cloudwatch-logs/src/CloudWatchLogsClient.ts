@@ -192,6 +192,7 @@ import {
 } from "./commands/GetLogAnomalyDetectorCommand";
 import { GetLogEventsCommandInput, GetLogEventsCommandOutput } from "./commands/GetLogEventsCommand";
 import { GetLogGroupFieldsCommandInput, GetLogGroupFieldsCommandOutput } from "./commands/GetLogGroupFieldsCommand";
+import { GetLogObjectCommandInput, GetLogObjectCommandOutput } from "./commands/GetLogObjectCommand";
 import { GetLogRecordCommandInput, GetLogRecordCommandOutput } from "./commands/GetLogRecordCommand";
 import { GetQueryResultsCommandInput, GetQueryResultsCommandOutput } from "./commands/GetQueryResultsCommand";
 import { GetTransformerCommandInput, GetTransformerCommandOutput } from "./commands/GetTransformerCommand";
@@ -327,6 +328,7 @@ export type ServiceInputTypes =
   | GetLogAnomalyDetectorCommandInput
   | GetLogEventsCommandInput
   | GetLogGroupFieldsCommandInput
+  | GetLogObjectCommandInput
   | GetLogRecordCommandInput
   | GetQueryResultsCommandInput
   | GetTransformerCommandInput
@@ -422,6 +424,7 @@ export type ServiceOutputTypes =
   | GetLogAnomalyDetectorCommandOutput
   | GetLogEventsCommandOutput
   | GetLogGroupFieldsCommandOutput
+  | GetLogObjectCommandOutput
   | GetLogRecordCommandOutput
   | GetQueryResultsCommandOutput
   | GetTransformerCommandOutput

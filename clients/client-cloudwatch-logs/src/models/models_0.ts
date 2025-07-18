@@ -30,6 +30,7 @@ export class AccessDeniedException extends __BaseException {
 export const PolicyType = {
   DATA_PROTECTION_POLICY: "DATA_PROTECTION_POLICY",
   FIELD_INDEX_POLICY: "FIELD_INDEX_POLICY",
+  METRIC_EXTRACTION_POLICY: "METRIC_EXTRACTION_POLICY",
   SUBSCRIPTION_FILTER_POLICY: "SUBSCRIPTION_FILTER_POLICY",
   TRANSFORMER_POLICY: "TRANSFORMER_POLICY",
 } as const;
@@ -2603,9 +2604,10 @@ export interface DescribeLogGroupsRequest {
   /**
    * <p>If you specify a string for this parameter, the operation returns only log groups that
    *       have names that match the string based on a case-sensitive substring search. For example, if
-   *       you specify <code>DataLogs</code>, log groups named <code>DataLogs</code>, <code>aws/DataLogs</code>, and
-   *         <code>GroupDataLogs</code> would match, but <code>datalogs</code>, <code>Data/log/s</code> and
-   *         <code>Groupdata</code> would not match.</p>
+   *       you specify <code>DataLogs</code>, log groups named <code>DataLogs</code>,
+   *         <code>aws/DataLogs</code>, and <code>GroupDataLogs</code> would match, but
+   *         <code>datalogs</code>, <code>Data/log/s</code> and <code>Groupdata</code> would not
+   *       match.</p>
    *          <p>If you specify <code>logGroupNamePattern</code> in your request, then only
    *         <code>arn</code>, <code>creationTime</code>, and <code>logGroupName</code> are included in
    *       the response. </p>
@@ -3805,6 +3807,18 @@ export const EventSource = {
 export type EventSource = (typeof EventSource)[keyof typeof EventSource];
 
 /**
+ * <p>A structure containing the extracted fields from a log event. These fields are extracted based on the log format and can be used for structured querying and analysis.</p>
+ * @public
+ */
+export interface FieldsData {
+  /**
+   * <p>The actual log data content returned in the streaming response. This contains the fields and values of the log event in a structured format that can be parsed and processed by the client.</p>
+   * @public
+   */
+  data?: Uint8Array | undefined;
+}
+
+/**
  * <p>Represents a matched event.</p>
  * @public
  */
@@ -4863,6 +4877,112 @@ export interface GetLogGroupFieldsResponse {
 }
 
 /**
+ * <p>The parameters for the GetLogObject operation.</p>
+ * @public
+ */
+export interface GetLogObjectRequest {
+  /**
+   * <p>A boolean flag that indicates whether to unmask sensitive log data. When set to true, any masked or redacted data in the log object will be displayed in its original form. Default is false.</p>
+   * @public
+   */
+  unmask?: boolean | undefined;
+
+  /**
+   * <p>A pointer to the specific log object to retrieve. This is a required parameter that uniquely identifies the log object within CloudWatch Logs. The pointer is typically obtained from a previous query or filter operation.</p>
+   * @public
+   */
+  logObjectPointer: string | undefined;
+}
+
+/**
+ * <p>An internal error occurred during the streaming of log data. This exception is thrown when there's an issue with the internal streaming mechanism used by the GetLogObject operation.</p>
+ * @public
+ */
+export class InternalStreamingException extends __BaseException {
+  readonly name: "InternalStreamingException" = "InternalStreamingException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InternalStreamingException, __BaseException>) {
+    super({
+      name: "InternalStreamingException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InternalStreamingException.prototype);
+  }
+}
+
+/**
+ * <p>A stream of structured log data returned by the GetLogObject operation. This stream contains log events with their associated metadata and extracted fields.</p>
+ * @public
+ */
+export type GetLogObjectResponseStream =
+  | GetLogObjectResponseStream.InternalStreamingExceptionMember
+  | GetLogObjectResponseStream.FieldsMember
+  | GetLogObjectResponseStream.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace GetLogObjectResponseStream {
+  /**
+   * <p>A structure containing the extracted fields from a log event. These fields are extracted based on the log format and can be used for structured querying and analysis.</p>
+   * @public
+   */
+  export interface FieldsMember {
+    fields: FieldsData;
+    InternalStreamingException?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>An internal error occurred during the streaming of log data. This exception is thrown when there's an issue with the internal streaming mechanism used by the GetLogObject operation.</p>
+   * @public
+   */
+  export interface InternalStreamingExceptionMember {
+    fields?: never;
+    InternalStreamingException: InternalStreamingException;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    fields?: never;
+    InternalStreamingException?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    fields: (value: FieldsData) => T;
+    InternalStreamingException: (value: InternalStreamingException) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: GetLogObjectResponseStream, visitor: Visitor<T>): T => {
+    if (value.fields !== undefined) return visitor.fields(value.fields);
+    if (value.InternalStreamingException !== undefined)
+      return visitor.InternalStreamingException(value.InternalStreamingException);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
+ * <p>The response from the GetLogObject operation.</p>
+ * @public
+ */
+export interface GetLogObjectResponse {
+  /**
+   * <p>A stream of structured log data returned by the GetLogObject operation. This stream contains log events with their associated metadata and extracted fields.</p>
+   * @public
+   */
+  fieldStream?: AsyncIterable<GetLogObjectResponseStream> | undefined;
+}
+
+/**
  * @public
  */
 export interface GetLogRecordRequest {
@@ -5323,20 +5443,22 @@ export const OCSFVersion = {
 export type OCSFVersion = (typeof OCSFVersion)[keyof typeof OCSFVersion];
 
 /**
- * <p>This processor converts logs into <a href="https://ocsf.io">Open Cybersecurity Schema Framework (OCSF)</a> events.</p>
- *          <p>For more information about this processor including examples, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch-Logs-Transformation.html#CloudWatch-Logs-Transformation-parseToOCSF">
- *       parseToOSCF</a> in the <i>CloudWatch Logs User Guide</i>.</p>
+ * <p>This processor converts logs into <a href="https://ocsf.io">Open Cybersecurity Schema
+ *         Framework (OCSF)</a> events.</p>
+ *          <p>For more information about this processor including examples, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch-Logs-Transformation.html#CloudWatch-Logs-Transformation-parseToOCSF"> parseToOSCF</a> in the <i>CloudWatch Logs User Guide</i>.</p>
  * @public
  */
 export interface ParseToOCSF {
   /**
-   * <p>The path to the field in the log event that you want to parse. If you omit this value, the whole log message is parsed.</p>
+   * <p>The path to the field in the log event that you want to parse. If you omit this value, the
+   *       whole log message is parsed.</p>
    * @public
    */
   source?: string | undefined;
 
   /**
-   * <p>Specify the service or process that produces the log events that will be converted with this processor.</p>
+   * <p>Specify the service or process that produces the log events that will be converted with
+   *       this processor.</p>
    * @public
    */
   eventSource: EventSource | undefined;
@@ -6470,7 +6592,7 @@ export interface PutAccountPolicyRequest {
   /**
    * <p>Use this parameter to apply the new policy to a subset of log groups in the
    *       account.</p>
-   *          <p>Specifing <code>selectionCriteria</code> is valid only when you specify
+   *          <p>Specifying <code>selectionCriteria</code> is valid only when you specify
    *         <code>SUBSCRIPTION_FILTER_POLICY</code>, <code>FIELD_INDEX_POLICY</code> or
    *         <code>TRANSFORMER_POLICY</code>for <code>policyType</code>.</p>
    *          <p>If <code>policyType</code> is <code>SUBSCRIPTION_FILTER_POLICY</code>, the only supported
@@ -6727,7 +6849,8 @@ export interface PutDeliverySourceRequest {
    *           <code>ERROR_LOGS</code>.</p>
    *             </li>
    *             <li>
-   *                <p>For PCS, the valid values are <code>PCS_SCHEDULER_LOGS</code> and <code>PCS_JOBCOMP_LOGS</code>.</p>
+   *                <p>For PCS, the valid values are <code>PCS_SCHEDULER_LOGS</code> and
+   *             <code>PCS_JOBCOMP_LOGS</code>.</p>
    *             </li>
    *             <li>
    *                <p>For Amazon Q, the valid value is <code>EVENT_LOGS</code>.</p>
@@ -8245,6 +8368,24 @@ export interface UpdateLogAnomalyDetectorRequest {
    */
   enabled: boolean | undefined;
 }
+
+/**
+ * @internal
+ */
+export const GetLogObjectResponseStreamFilterSensitiveLog = (obj: GetLogObjectResponseStream): any => {
+  if (obj.fields !== undefined) return { fields: obj.fields };
+  if (obj.InternalStreamingException !== undefined)
+    return { InternalStreamingException: obj.InternalStreamingException };
+  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
+};
+
+/**
+ * @internal
+ */
+export const GetLogObjectResponseFilterSensitiveLog = (obj: GetLogObjectResponse): any => ({
+  ...obj,
+  ...(obj.fieldStream && { fieldStream: "STREAMING_CONTENT" }),
+});
 
 /**
  * @internal
