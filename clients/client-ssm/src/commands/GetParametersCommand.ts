@@ -33,6 +33,9 @@ export interface GetParametersCommandOutput extends GetParametersResult, __Metad
  *             <p>To get information about a single parameter, you can use the <a>GetParameter</a>
  *     operation instead.</p>
  *          </note>
+ *          <p>Parameter names can't contain spaces. The service removes any spaces specified for the
+ *    beginning or end of a parameter name. If the specified name for a parameter contains spaces
+ *    between characters, the request fails with a <code>ValidationException</code> error.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

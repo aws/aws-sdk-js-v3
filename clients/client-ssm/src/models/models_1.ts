@@ -1909,7 +1909,7 @@ export interface Session {
   /**
    * <p>
    *             <code>Standard</code> access type is the default for Session Manager sessions.
-   *     <code>JustInTime</code> is the access type for <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-just-in-time-node-access.html">Just-in-time node access</a>. </p>
+   *     <code>JustInTime</code> is the access type for <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-just-in-time-node-access.html">Just-in-time node access</a>.</p>
    * @public
    */
   AccessType?: AccessType | undefined;
@@ -3422,6 +3422,50 @@ export type InventoryQueryOperatorType = (typeof InventoryQueryOperatorType)[key
 
 /**
  * <p>One or more filters. Use a filter to return a more specific list of results.</p>
+ *          <p>
+ *             <b>Example formats for the <code>aws ssm get-inventory</code>
+ *     command:</b>
+ *          </p>
+ *          <p>
+ *             <code>--filters
+ *     Key=AWS:InstanceInformation.AgentType,Values=amazon-ssm-agent,Type=Equal</code>
+ *          </p>
+ *          <p>
+ *             <code>--filters
+ *    Key=AWS:InstanceInformation.AgentVersion,Values=3.3.2299.0,Type=Equal</code>
+ *          </p>
+ *          <p>
+ *             <code>--filters
+ *     Key=AWS:InstanceInformation.ComputerName,Values=ip-192.0.2.0.us-east-2.compute.internal,Type=Equal</code>
+ *          </p>
+ *          <p>
+ *             <code>--filters
+ *     Key=AWS:InstanceInformation.InstanceId,Values=i-0a4cd6ceffEXAMPLE,i-1a2b3c4d5e6EXAMPLE,Type=Equal</code>
+ *          </p>
+ *          <p>
+ *             <code>--filters
+ *    Key=AWS:InstanceInformation.InstanceStatus,Values=Active,Type=Equal</code>
+ *          </p>
+ *          <p>
+ *             <code>--filters
+ *    Key=AWS:InstanceInformation.IpAddress,Values=198.51.100.0,Type=Equal</code>
+ *          </p>
+ *          <p>
+ *             <code>--filters Key=AWS:InstanceInformation.PlatformName,Values="Amazon
+ *     Linux",Type=Equal</code>
+ *          </p>
+ *          <p>
+ *             <code>--filters
+ *    Key=AWS:InstanceInformation.PlatformType,Values=Linux,Type=Equal</code>
+ *          </p>
+ *          <p>
+ *             <code>--filters
+ *     Key=AWS:InstanceInformation.PlatformVersion,Values=2023,Type=BeginWith</code>
+ *          </p>
+ *          <p>
+ *             <code>--filters
+ *     Key=AWS:InstanceInformation.ResourceType,Values=EC2Instance,Type=Equal</code>
+ *          </p>
  * @public
  */
 export interface InventoryFilter {
@@ -3432,9 +3476,7 @@ export interface InventoryFilter {
   Key: string | undefined;
 
   /**
-   * <p>Inventory filter values. Example: inventory filter where managed node IDs are specified as
-   *    values <code>Key=AWS:InstanceInformation.InstanceId,Values= i-a12b3c4d5e6g,
-   *     i-1a2b3c4d5e6,Type=Equal</code>. </p>
+   * <p>Inventory filter values.</p>
    * @public
    */
   Values: string[] | undefined;
@@ -7350,6 +7392,12 @@ export interface ComplianceExecutionSummary {
    * <p>The time the execution ran as a datetime object that is saved in the following format:
    *     <code>yyyy-MM-dd'T'HH:mm:ss'Z'</code>
    *          </p>
+   *          <important>
+   *             <p>For State Manager associations, this timestamp represents when the compliance status was
+   *     captured and reported by the Systems Manager service, not when the underlying association was actually
+   *     executed on the managed node. To track actual association execution times, use the <a>DescribeAssociationExecutionTargets</a> command or check the association execution
+   *     history in the Systems Manager console.</p>
+   *          </important>
    * @public
    */
   ExecutionTime: Date | undefined;
@@ -7459,6 +7507,14 @@ export interface ComplianceItem {
   /**
    * <p>A summary for the compliance item. The summary includes an execution ID, the execution type
    *    (for example, command), and the execution time.</p>
+   *          <important>
+   *             <p>For State Manager associations, the <code>ExecutionTime</code> value represents when the
+   *     compliance status was captured and aggregated by the Systems Manager service, not necessarily when the
+   *     underlying association was executed on the managed node. State Manager updates compliance status
+   *     for all associations on an instance whenever any association executes, which means multiple
+   *     associations may show the same execution time even if they were executed at different
+   *     times.</p>
+   *          </important>
    * @public
    */
   ExecutionSummary?: ComplianceExecutionSummary | undefined;
@@ -10273,7 +10329,9 @@ export interface PutParameterRequest {
    *                </p>
    *             </li>
    *             <li>
-   *                <p>A parameter name can't include spaces.</p>
+   *                <p>Parameter names can't contain spaces. The service removes any spaces specified for
+   *      the beginning or end of a parameter name. If the specified name for a parameter contains spaces
+   *      between characters, the request fails with a <code>ValidationException</code> error.</p>
    *             </li>
    *             <li>
    *                <p>Parameter hierarchies are limited to a maximum depth of fifteen levels.</p>

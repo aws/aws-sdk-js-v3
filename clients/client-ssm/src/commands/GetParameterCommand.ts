@@ -29,6 +29,9 @@ export interface GetParameterCommandOutput extends GetParameterResult, __Metadat
 
 /**
  * <p>Get information about a single parameter by specifying the parameter name.</p>
+ *          <p>Parameter names can't contain spaces. The service removes any spaces specified for the
+ *    beginning or end of a parameter name. If the specified name for a parameter contains spaces
+ *    between characters, the request fails with a <code>ValidationException</code> error.</p>
  *          <note>
  *             <p>To get information about more than one parameter at a time, use the <a>GetParameters</a> operation.</p>
  *          </note>

@@ -39,6 +39,9 @@ export interface GetParametersByPathCommandOutput extends GetParametersByPathRes
  *    reaches an internal limit while processing the results, it stops the operation and returns the
  *    matching values up to that point and a <code>NextToken</code>. You can specify the
  *     <code>NextToken</code> in a subsequent call to get the next set of results.</p>
+ *          <p>Parameter names can't contain spaces. The service removes any spaces specified for the
+ *    beginning or end of a parameter name. If the specified name for a parameter contains spaces
+ *    between characters, the request fails with a <code>ValidationException</code> error.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

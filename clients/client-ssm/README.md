@@ -22,7 +22,7 @@ Systems Manager tools</a> in the <i>Amazon Web Services Systems Manager User Gui
 <li>
 <p>For details about predefined runbooks for Automation, a tool in Amazon Web Services Systems Manager, see the
 <i>
-<a href="https://docs.aws.amazon.com/systems-manager-automation-runbooks/latest/userguide/automation-runbook-reference.html">Systems Manager Automation runbook reference</a>
+<a href="https://docs.aws.amazon.com/systems-manager-automation-runbooks/latest/userguide/automation-runbook-reference.html">Systems Manager Automation Runbook Reference</a>
 </i>.</p>
 </li>
 <li>
