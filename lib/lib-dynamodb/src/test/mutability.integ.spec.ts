@@ -88,10 +88,9 @@ describe("DynamoDBDocument command mutability", () => {
     await doc.send(command);
 
     // params should remain what it was set to by the caller,
-    // disregarding middleware modifications and mutations
-    // applied by the marshaller.
+    // disregarding mutations applied by the AttributeValue marshaller.
     expect(params).toEqual({
-      TableName: "test",
+      TableName: "modified-by-middleware",
       FilterExpression: "id = :id",
       ExpressionAttributeValues: {
         ":id": "1",
@@ -184,7 +183,7 @@ describe("DynamoDBDocument command mutability", () => {
     await ddb.send(command);
 
     // for regular clients, middleware modifications to the
-    // args.input object persist beyond the request.
+    // args.input object also persist beyond the request.
     expect(params).toEqual({
       TableName: "modified-by-middleware",
       FilterExpression: "id = :id",
@@ -250,8 +249,6 @@ describe("DynamoDBDocument command mutability", () => {
     params.Bucket = `bucket4`;
     await s3.send(command);
 
-    // for regular clients, middleware modifications to the
-    // args.input object persist beyond the request.
     expect(params).toEqual({
       Bucket: "bucket4",
       ExpectedBucketOwner: "me",
