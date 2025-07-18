@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.849.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.848.0...v3.849.0) (2025-07-18)
+
+
+### Features
+
+* **client-outposts:** Add AWS Outposts API to surface customer billing information ([bc4cc25](https://github.com/aws/aws-sdk-js-v3/commit/bc4cc25c54dee158f6fae638ba75781083988551))
+
+
+
+
+
 # [3.848.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.847.0...v3.848.0) (2025-07-17)
 
 **Note:** Version bump only for package @aws-sdk/client-outposts

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.849.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.848.0...v3.849.0) (2025-07-18)
+
+
+### Features
+
+* **client-mediaconvert:** This release adds support for TAMS server integration with MediaConvert inputs. ([e804655](https://github.com/aws/aws-sdk-js-v3/commit/e804655c3bbe845605a6631e792c2920dbd95523))
+
+
+
+
+
 # [3.848.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.847.0...v3.848.0) (2025-07-17)
 
 

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.849.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.848.0...v3.849.0) (2025-07-18)
+
+
+### Features
+
+* **client-cloudwatch-logs:** CloudWatchLogs launches GetLogObject API with streaming support for efficient log data retrieval. Logs added support for new AccountPolicy type METRIC_EXTRACTION_POLICY. For more information, see CloudWatch Logs API documentation ([090c700](https://github.com/aws/aws-sdk-js-v3/commit/090c70084e11a2e7553c2c4408ae9027e43f7430))
+
+
+
+
+
 # [3.848.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.847.0...v3.848.0) (2025-07-17)
 
 **Note:** Version bump only for package @aws-sdk/client-cloudwatch-logs

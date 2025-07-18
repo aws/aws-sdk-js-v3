@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.849.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.848.0...v3.849.0) (2025-07-18)
+
+
+### Features
+
+* **client-auditmanager:** Updated error handling for RegisterOrganizationAdminAccount API to properly translate TooManyExceptions to HTTP 429 status code. This enhancement improves error handling consistency and provides clearer feedback when request limits are exceeded. ([218ebbc](https://github.com/aws/aws-sdk-js-v3/commit/218ebbc102914a59b872ad2382da80286a0d121c))
+* **client-cloudwatch-logs:** CloudWatchLogs launches GetLogObject API with streaming support for efficient log data retrieval. Logs added support for new AccountPolicy type METRIC_EXTRACTION_POLICY. For more information, see CloudWatch Logs API documentation ([090c700](https://github.com/aws/aws-sdk-js-v3/commit/090c70084e11a2e7553c2c4408ae9027e43f7430))
+* **client-mediaconvert:** This release adds support for TAMS server integration with MediaConvert inputs. ([e804655](https://github.com/aws/aws-sdk-js-v3/commit/e804655c3bbe845605a6631e792c2920dbd95523))
+* **client-outposts:** Add AWS Outposts API to surface customer billing information ([bc4cc25](https://github.com/aws/aws-sdk-js-v3/commit/bc4cc25c54dee158f6fae638ba75781083988551))
+* **client-sesv2:** Added IP Visibility support for managed dedicated pools. Enhanced GetDedicatedIp and GetDedicatedIps APIs to return managed IP addresses. ([1cf5c01](https://github.com/aws/aws-sdk-js-v3/commit/1cf5c019c50e9a58915d1caf44748cacfe88a48b))
+* **clients:** update client endpoints as of 2025-07-18 ([dac2a87](https://github.com/aws/aws-sdk-js-v3/commit/dac2a874e9ce808de0ed60e54174aa3249c71639))
+
+
+
+
+
 # [3.848.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.847.0...v3.848.0) (2025-07-17)
 
 
