@@ -1,3 +1,5 @@
+export * from "./GetOutpostBillingInformationPaginator";
+
 export * from "./GetOutpostInstanceTypesPaginator";
 
 export * from "./GetOutpostSupportedInstanceTypesPaginator";

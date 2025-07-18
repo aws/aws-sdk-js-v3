@@ -86,6 +86,9 @@ export interface ListCatalogItemsCommandOutput extends ListCatalogItemsOutput, _
  * @see {@link ListCatalogItemsCommandOutput} for command's `response` shape.
  * @see {@link OutpostsClientResolvedConfig | config} for OutpostsClient's `config` shape.
  *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have permission to perform this operation.</p>
+ *
  * @throws {@link InternalServerException} (server fault)
  *  <p>An internal error has occurred.</p>
  *

@@ -305,6 +305,14 @@ GetOutpost
 </details>
 <details>
 <summary>
+GetOutpostBillingInformation
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/outposts/command/GetOutpostBillingInformationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-outposts/Interface/GetOutpostBillingInformationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-outposts/Interface/GetOutpostBillingInformationCommandOutput/)
+
+</details>
+<details>
+<summary>
 GetOutpostInstanceTypes
 </summary>
 

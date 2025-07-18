@@ -64,6 +64,10 @@ import { GetCapacityTaskCommandInput, GetCapacityTaskCommandOutput } from "./com
 import { GetCatalogItemCommandInput, GetCatalogItemCommandOutput } from "./commands/GetCatalogItemCommand";
 import { GetConnectionCommandInput, GetConnectionCommandOutput } from "./commands/GetConnectionCommand";
 import { GetOrderCommandInput, GetOrderCommandOutput } from "./commands/GetOrderCommand";
+import {
+  GetOutpostBillingInformationCommandInput,
+  GetOutpostBillingInformationCommandOutput,
+} from "./commands/GetOutpostBillingInformationCommand";
 import { GetOutpostCommandInput, GetOutpostCommandOutput } from "./commands/GetOutpostCommand";
 import {
   GetOutpostInstanceTypesCommandInput,
@@ -127,6 +131,7 @@ export type ServiceInputTypes =
   | GetCatalogItemCommandInput
   | GetConnectionCommandInput
   | GetOrderCommandInput
+  | GetOutpostBillingInformationCommandInput
   | GetOutpostCommandInput
   | GetOutpostInstanceTypesCommandInput
   | GetOutpostSupportedInstanceTypesCommandInput
@@ -165,6 +170,7 @@ export type ServiceOutputTypes =
   | GetCatalogItemCommandOutput
   | GetConnectionCommandOutput
   | GetOrderCommandOutput
+  | GetOutpostBillingInformationCommandOutput
   | GetOutpostCommandOutput
   | GetOutpostInstanceTypesCommandOutput
   | GetOutpostSupportedInstanceTypesCommandOutput

@@ -10,6 +10,7 @@ export * from "./GetCapacityTaskCommand";
 export * from "./GetCatalogItemCommand";
 export * from "./GetConnectionCommand";
 export * from "./GetOrderCommand";
+export * from "./GetOutpostBillingInformationCommand";
 export * from "./GetOutpostCommand";
 export * from "./GetOutpostInstanceTypesCommand";
 export * from "./GetOutpostSupportedInstanceTypesCommand";

@@ -13,6 +13,7 @@ import {
   expectObject as __expectObject,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
+  limitedParseDouble as __limitedParseDouble,
   limitedParseFloat32 as __limitedParseFloat32,
   map,
   parseEpochTimestamp as __parseEpochTimestamp,
@@ -37,6 +38,10 @@ import { GetCapacityTaskCommandInput, GetCapacityTaskCommandOutput } from "../co
 import { GetCatalogItemCommandInput, GetCatalogItemCommandOutput } from "../commands/GetCatalogItemCommand";
 import { GetConnectionCommandInput, GetConnectionCommandOutput } from "../commands/GetConnectionCommand";
 import { GetOrderCommandInput, GetOrderCommandOutput } from "../commands/GetOrderCommand";
+import {
+  GetOutpostBillingInformationCommandInput,
+  GetOutpostBillingInformationCommandOutput,
+} from "../commands/GetOutpostBillingInformationCommand";
 import { GetOutpostCommandInput, GetOutpostCommandOutput } from "../commands/GetOutpostCommand";
 import {
   GetOutpostInstanceTypesCommandInput,
@@ -92,6 +97,7 @@ import {
   OrderSummary,
   RackPhysicalProperties,
   ServiceQuotaExceededException,
+  Subscription,
   ValidationException,
 } from "../models/models_0";
 import { OutpostsServiceException as __BaseException } from "../models/OutpostsServiceException";
@@ -320,6 +326,26 @@ export const se_GetOutpostCommand = async (
   b.p("OutpostId", () => input.OutpostId!, "{OutpostId}", false);
   let body: any;
   b.m("GET").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1GetOutpostBillingInformationCommand
+ */
+export const se_GetOutpostBillingInformationCommand = async (
+  input: GetOutpostBillingInformationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/outpost/{OutpostIdentifier}/billing-information");
+  b.p("OutpostIdentifier", () => input.OutpostIdentifier!, "{OutpostIdentifier}", false);
+  const query: any = map({
+    [_NT]: [, input[_NT]!],
+    [_MR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+  });
+  let body: any;
+  b.m("GET").h(headers).q(query).b(body);
   return b.build();
 };
 
@@ -1034,6 +1060,29 @@ export const de_GetOutpostCommand = async (
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
     Outpost: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1GetOutpostBillingInformationCommand
+ */
+export const de_GetOutpostBillingInformationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetOutpostBillingInformationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    ContractEndDate: __expectString,
+    NextToken: __expectString,
+    Subscriptions: (_) => de_SubscriptionList(_, context),
   });
   Object.assign(contents, doc);
   return contents;
@@ -1834,6 +1883,8 @@ const de_Order = (output: any, context: __SerdeContext): Order => {
   }) as any;
 };
 
+// de_OrderIdList omitted.
+
 /**
  * deserializeAws_restJson1OrderSummary
  */
@@ -1874,6 +1925,34 @@ const de_OrderSummaryListDefinition = (output: any, context: __SerdeContext): Or
 // de_Site omitted.
 
 // de_siteListDefinition omitted.
+
+/**
+ * deserializeAws_restJson1Subscription
+ */
+const de_Subscription = (output: any, context: __SerdeContext): Subscription => {
+  return take(output, {
+    BeginDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    EndDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    MonthlyRecurringPrice: __limitedParseDouble,
+    OrderIds: _json,
+    SubscriptionId: __expectString,
+    SubscriptionStatus: __expectString,
+    SubscriptionType: __expectString,
+    UpfrontPrice: __limitedParseDouble,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1SubscriptionList
+ */
+const de_SubscriptionList = (output: any, context: __SerdeContext): Subscription[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_Subscription(entry, context);
+    });
+  return retVal;
+};
 
 // de_SupportedStorageList omitted.
 

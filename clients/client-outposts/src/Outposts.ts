@@ -37,6 +37,11 @@ import {
   GetConnectionCommandOutput,
 } from "./commands/GetConnectionCommand";
 import { GetOrderCommand, GetOrderCommandInput, GetOrderCommandOutput } from "./commands/GetOrderCommand";
+import {
+  GetOutpostBillingInformationCommand,
+  GetOutpostBillingInformationCommandInput,
+  GetOutpostBillingInformationCommandOutput,
+} from "./commands/GetOutpostBillingInformationCommand";
 import { GetOutpostCommand, GetOutpostCommandInput, GetOutpostCommandOutput } from "./commands/GetOutpostCommand";
 import {
   GetOutpostInstanceTypesCommand,
@@ -134,6 +139,7 @@ const commands = {
   GetConnectionCommand,
   GetOrderCommand,
   GetOutpostCommand,
+  GetOutpostBillingInformationCommand,
   GetOutpostInstanceTypesCommand,
   GetOutpostSupportedInstanceTypesCommand,
   GetSiteCommand,
@@ -300,6 +306,23 @@ export interface Outposts {
     args: GetOutpostCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetOutpostCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetOutpostBillingInformationCommand}
+   */
+  getOutpostBillingInformation(
+    args: GetOutpostBillingInformationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetOutpostBillingInformationCommandOutput>;
+  getOutpostBillingInformation(
+    args: GetOutpostBillingInformationCommandInput,
+    cb: (err: any, data?: GetOutpostBillingInformationCommandOutput) => void
+  ): void;
+  getOutpostBillingInformation(
+    args: GetOutpostBillingInformationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetOutpostBillingInformationCommandOutput) => void
   ): void;
 
   /**
