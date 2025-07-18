@@ -1,4 +1,5 @@
 import { setFeature } from "@aws-sdk/core";
+import { NumberValueImpl as NumberValue } from "@aws-sdk/util-dynamodb";
 import { Command as $Command } from "@smithy/smithy-client";
 import {
   DeserializeHandler,
@@ -42,6 +43,23 @@ export abstract class DynamoDBDocumentClientCommand<
     marshallOptions.convertTopLevelContainer = marshallOptions.convertTopLevelContainer ?? true;
     unmarshallOptions.convertWithoutMapWrapper = unmarshallOptions.convertWithoutMapWrapper ?? true;
 
+    this.clientCommand.middlewareStack.add(
+      (next: InitializeHandler<Input | BaseInput, Output | BaseOutput>, context: HandlerExecutionContext) =>
+        async (
+          args: InitializeHandlerArguments<Input | BaseInput>
+        ): Promise<InitializeHandlerOutput<Output | BaseOutput>> => {
+          return next({
+            ...args,
+            input: this.getCommandInput(),
+          });
+        },
+      {
+        name: "DocumentInitCopyInput",
+        step: "initialize",
+        priority: "high",
+        override: true,
+      }
+    );
     this.clientCommand.middlewareStack.addRelativeTo(
       (next: InitializeHandler<Input | BaseInput, Output | BaseOutput>, context: HandlerExecutionContext) =>
         async (
@@ -74,5 +92,47 @@ export abstract class DynamoDBDocumentClientCommand<
         override: true,
       }
     );
+  }
+
+  /**
+   * For snapshotting the user input as the request starts.
+   * The reason for this is to prevent mutations to the Command instance's inputs
+   * from being carried over if the Command instance is reused in a new
+   * request.
+   */
+  private getCommandInput(): Input | BaseInput {
+    return this.documentClone(this.input);
+  }
+
+  /**
+   * Recursive clone of types applicable to DynamoDBDocument.
+   */
+  private documentClone(it: any): any {
+    if (it === null || it === undefined) {
+      return it;
+    }
+    if (it instanceof Set) {
+      return new Set(it.values());
+    }
+    if (it instanceof Map) {
+      return new Map(it.entries());
+    }
+    if (typeof it === "object") {
+      if (it instanceof NumberValue) {
+        return new NumberValue(it.value);
+      }
+      if (it instanceof Uint8Array) {
+        return new Uint8Array(it);
+      }
+      if (Array.isArray(it)) {
+        return it.map((i) => this.documentClone(i));
+      }
+      const out = {} as any;
+      for (const [key, value] of Object.entries(it)) {
+        out[key] = this.documentClone(value);
+      }
+      return out;
+    }
+    return it;
   }
 }
