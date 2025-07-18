@@ -3995,6 +3995,7 @@ export interface DashboardAttributes {
 export const WarmupStatus = {
   DONE: "DONE",
   IN_PROGRESS: "IN_PROGRESS",
+  NOT_APPLICABLE: "NOT_APPLICABLE",
 } as const;
 
 /**
@@ -4031,14 +4032,29 @@ export interface DedicatedIp {
    *                   <code>DONE</code> – The dedicated IP warm-up process is complete, and
    *                     the IP address is ready to use.</p>
    *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>NOT_APPLICABLE</code> – The warm-up status doesn't apply to this IP address.
+   *                     This status is used for IP addresses in managed dedicated IP pools, where Amazon SES automatically
+   *                     handles the warm-up process.</p>
+   *             </li>
    *          </ul>
    * @public
    */
   WarmupStatus: WarmupStatus | undefined;
 
   /**
-   * <p>Indicates how complete the dedicated IP warm-up process is. When this value equals 1,
-   *             the address has completed the warm-up process and is ready for use.</p>
+   * <p>Indicates the progress of your dedicated IP warm-up:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>0-100</code> – For standard dedicated IP addresses, this shows the warm-up completion percentage. A value of 100 means the IP address is fully warmed up and ready for use.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>-1</code> – Appears for IP addresses in managed dedicated pools where Amazon SES automatically handles the warm-up process, making the percentage not applicable.</p>
+   *             </li>
+   *          </ul>
    * @public
    */
   WarmupPercentage: number | undefined;

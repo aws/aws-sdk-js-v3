@@ -45,7 +45,7 @@ export interface GetDedicatedIpCommandOutput extends GetDedicatedIpResponse, __M
  * // { // GetDedicatedIpResponse
  * //   DedicatedIp: { // DedicatedIp
  * //     Ip: "STRING_VALUE", // required
- * //     WarmupStatus: "IN_PROGRESS" || "DONE", // required
+ * //     WarmupStatus: "IN_PROGRESS" || "DONE" || "NOT_APPLICABLE", // required
  * //     WarmupPercentage: Number("int"), // required
  * //     PoolName: "STRING_VALUE",
  * //   },
