@@ -4273,6 +4273,51 @@ export type InputPsiControl = (typeof InputPsiControl)[keyof typeof InputPsiCont
  * @public
  * @enum
  */
+export const TamsGapHandling = {
+  FILL_WITH_BLACK: "FILL_WITH_BLACK",
+  HOLD_LAST_FRAME: "HOLD_LAST_FRAME",
+  SKIP_GAPS: "SKIP_GAPS",
+} as const;
+
+/**
+ * @public
+ */
+export type TamsGapHandling = (typeof TamsGapHandling)[keyof typeof TamsGapHandling];
+
+/**
+ * Specify a Time Addressable Media Store (TAMS) server as an input source. TAMS is an open-source API specification that provides access to time-segmented media content. Use TAMS to retrieve specific time ranges from live or archived media streams. When you specify TAMS settings, MediaConvert connects to your TAMS server, retrieves the media segments for your specified time range, and processes them as a single input. This enables workflows like extracting clips from live streams or processing specific portions of archived content. To use TAMS, you must: 1. Have access to a TAMS-compliant server 2. Specify the server URL in the Input file URL field 3. Provide the required SourceId and Timerange parameters 4. Configure authentication, if your TAMS server requires it
+ * @public
+ */
+export interface InputTamsSettings {
+  /**
+   * Specify the ARN (Amazon Resource Name) of an EventBridge Connection to authenticate with your TAMS server. The EventBridge Connection stores your authentication credentials securely. MediaConvert assumes your job's IAM role to access this connection, so ensure the role has the events:RetrieveConnectionCredentials, secretsmanager:DescribeSecret, and secretsmanager:GetSecretValue permissions. Format: arn:aws:events:region:account-id:connection/connection-name/unique-id
+   * @public
+   */
+  AuthConnectionArn?: string | undefined;
+
+  /**
+   * Specify how MediaConvert handles gaps between media segments in your TAMS source. Gaps can occur in live streams due to network issues or other interruptions. Choose from the following options: * Skip gaps - Default. Skip over gaps and join segments together. This creates a continuous output with no blank frames, but may cause timeline discontinuities. * Fill with black - Insert black frames to fill gaps between segments. This maintains timeline continuity but adds black frames where content is missing. * Hold last frame - Repeat the last frame before a gap until the next segment begins. This maintains visual continuity during gaps.
+   * @public
+   */
+  GapHandling?: TamsGapHandling | undefined;
+
+  /**
+   * Specify the unique identifier for the media source in your TAMS server. MediaConvert uses this source ID to locate the appropriate flows containing the media segments you want to process. The source ID corresponds to a specific media source registered in your TAMS server. This source must be of type urn:x-nmos:format:multi, and can can reference multiple flows for audio, video, or combined audio/video content. MediaConvert automatically selects the highest quality flows available for your job. This setting is required when include TAMS settings in your job.
+   * @public
+   */
+  SourceId?: string | undefined;
+
+  /**
+   * Specify the time range of media segments to retrieve from your TAMS server. MediaConvert fetches only the segments that fall within this range. Use the format specified by your TAMS server implementation. This must be two timestamp values with the format \{sign?\}\{seconds\}:\{nanoseconds\}, separated by an underscore, surrounded by either parentheses or square brackets.  Example: [15:0_35:0) This setting is required when include TAMS settings in your job.
+   * @public
+   */
+  Timerange?: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
 export const InputTimecodeSource = {
   EMBEDDED: "EMBEDDED",
   SPECIFIEDSTART: "SPECIFIEDSTART",
@@ -4342,7 +4387,7 @@ export type VideoOverlayUnit = (typeof VideoOverlayUnit)[keyof typeof VideoOverl
  */
 export interface VideoOverlayCrop {
   /**
-   * Specify the height of the video overlay cropping rectangle. To use the same height as your overlay input video: Keep blank, or enter 0. To specify a different height for the cropping rectangle: Enter an integer representing the Unit type that you choose, either Pixels or Percentage. For example, when you enter 100 and choose Pixels, the cropping rectangle will 100 pixels high. When you enter 10, choose Percentage, and your overlay input video is 1920x1080, the cropping rectangle will be 108 pixels high.
+   * Specify the height of the video overlay cropping rectangle. To use the same height as your overlay input video: Keep blank, or enter 0. To specify a different height for the cropping rectangle: Enter an integer representing the Unit type that you choose, either Pixels or Percentage. For example, when you enter 100 and choose Pixels, the cropping rectangle will be 100 pixels high. When you enter 10, choose Percentage, and your overlay input video is 1920x1080, the cropping rectangle will be 108 pixels high.
    * @public
    */
   Height?: number | undefined;
@@ -4354,7 +4399,7 @@ export interface VideoOverlayCrop {
   Unit?: VideoOverlayUnit | undefined;
 
   /**
-   * Specify the width of the video overlay cropping rectangle. To use the same width as your overlay input video: Keep blank, or enter 0. To specify a different width for the cropping rectangle: Enter an integer representing the Unit type that you choose, either Pixels or Percentage. For example, when you enter 100 and choose Pixels, the cropping rectangle will 100 pixels wide. When you enter 10, choose Percentage, and your overlay input video is 1920x1080, the cropping rectangle will be 192 pixels wide.
+   * Specify the width of the video overlay cropping rectangle. To use the same width as your overlay input video: Keep blank, or enter 0. To specify a different width for the cropping rectangle: Enter an integer representing the Unit type that you choose, either Pixels or Percentage. For example, when you enter 100 and choose Pixels, the cropping rectangle will be 100 pixels wide. When you enter 10, choose Percentage, and your overlay input video is 1920x1080, the cropping rectangle will be 192 pixels wide.
    * @public
    */
   Width?: number | undefined;
@@ -4858,7 +4903,7 @@ export interface Input {
   DynamicAudioSelectors?: Record<string, DynamicAudioSelector> | undefined;
 
   /**
-   * Specify the source file for your transcoding job. You can use multiple inputs in a single job. The service concatenates these inputs, in the order that you specify them in the job, to create the outputs. If your input format is IMF, specify your input by providing the path to your CPL. For example, "s3://bucket/vf/cpl.xml". If the CPL is in an incomplete IMP, make sure to use *Supplemental IMPs* to specify any supplemental IMPs that contain assets referenced by the CPL.
+   * Specify the source file for your transcoding job. You can use multiple inputs in a single job. The service concatenates these inputs, in the order that you specify them in the job, to create the outputs. For standard inputs, provide the path to your S3, HTTP, or HTTPS source file. For example, s3://amzn-s3-demo-bucket/input.mp4 for an Amazon S3 input or https://example.com/input.mp4 for an HTTPS input. For TAMS inputs, specify the HTTPS endpoint of your TAMS server. For example, https://tams-server.example.com . When you do, also specify Source ID, Timerange, GAP handling, and the Authorization connection ARN under TAMS settings. (Don't include these parameters in the Input file URL.) For IMF inputs, specify your input by providing the path to your CPL. For example, s3://amzn-s3-demo-bucket/vf/cpl.xml . If the CPL is in an incomplete IMP, make sure to use Supplemental IMPsto specify any supplemental IMPs that contain assets referenced by the CPL.
    * @public
    */
   FileInput?: string | undefined;
@@ -4918,6 +4963,12 @@ export interface Input {
    * @public
    */
   SupplementalImps?: string[] | undefined;
+
+  /**
+   * Specify a Time Addressable Media Store (TAMS) server as an input source. TAMS is an open-source API specification that provides access to time-segmented media content. Use TAMS to retrieve specific time ranges from live or archived media streams. When you specify TAMS settings, MediaConvert connects to your TAMS server, retrieves the media segments for your specified time range, and processes them as a single input. This enables workflows like extracting clips from live streams or processing specific portions of archived content. To use TAMS, you must: 1. Have access to a TAMS-compliant server 2. Specify the server URL in the Input file URL field 3. Provide the required SourceId and Timerange parameters 4. Configure authentication, if your TAMS server requires it
+   * @public
+   */
+  TamsSettings?: InputTamsSettings | undefined;
 
   /**
    * Use this Timecode source setting, located under the input settings, to specify how the service counts input video frames. This input frame count affects only the behavior of features that apply to a single input at a time, such as input clipping and synchronizing some captions formats. Choose Embedded to use the timecodes in your input video. Choose Start at zero to start the first frame at zero. Choose Specified start to start the first frame at the timecode that you specify in the setting Start timecode. If you don't specify a value for Timecode source, the service will use Embedded by default. For more information about timecodes, see https://docs.aws.amazon.com/console/mediaconvert/timecode.
@@ -7367,216 +7418,3 @@ export const HlsTargetDurationCompatibilityMode = {
  */
 export type HlsTargetDurationCompatibilityMode =
   (typeof HlsTargetDurationCompatibilityMode)[keyof typeof HlsTargetDurationCompatibilityMode];
-
-/**
- * @public
- * @enum
- */
-export const HlsTimedMetadataId3Frame = {
-  NONE: "NONE",
-  PRIV: "PRIV",
-  TDRL: "TDRL",
-} as const;
-
-/**
- * @public
- */
-export type HlsTimedMetadataId3Frame = (typeof HlsTimedMetadataId3Frame)[keyof typeof HlsTimedMetadataId3Frame];
-
-/**
- * Settings related to your HLS output package. For more information, see https://docs.aws.amazon.com/mediaconvert/latest/ug/outputs-file-ABR.html.
- * @public
- */
-export interface HlsGroupSettings {
-  /**
-   * Choose one or more ad marker types to decorate your Apple HLS manifest. This setting does not determine whether SCTE-35 markers appear in the outputs themselves.
-   * @public
-   */
-  AdMarkers?: HlsAdMarkers[] | undefined;
-
-  /**
-   * By default, the service creates one top-level .m3u8 HLS manifest for each HLS output group in your job. This default manifest references every output in the output group. To create additional top-level manifests that reference a subset of the outputs in the output group, specify a list of them here.
-   * @public
-   */
-  AdditionalManifests?: HlsAdditionalManifest[] | undefined;
-
-  /**
-   * Ignore this setting unless you are using FairPlay DRM with Verimatrix and you encounter playback issues. Keep the default value, Include, to output audio-only headers. Choose Exclude to remove the audio-only headers from your audio segments.
-   * @public
-   */
-  AudioOnlyHeader?: HlsAudioOnlyHeader | undefined;
-
-  /**
-   * A partial URI prefix that will be prepended to each output in the media .m3u8 file. Can be used if base manifest is delivered from a different URL than the main .m3u8 file.
-   * @public
-   */
-  BaseUrl?: string | undefined;
-
-  /**
-   * Language to be used on Caption outputs
-   * @public
-   */
-  CaptionLanguageMappings?: HlsCaptionLanguageMapping[] | undefined;
-
-  /**
-   * Applies only to 608 Embedded output captions. Insert: Include CLOSED-CAPTIONS lines in the manifest. Specify at least one language in the CC1 Language Code field. One CLOSED-CAPTION line is added for each Language Code you specify. Make sure to specify the languages in the order in which they appear in the original source (if the source is embedded format) or the order of the caption selectors (if the source is other than embedded). Otherwise, languages in the manifest will not match up properly with the output captions. None: Include CLOSED-CAPTIONS=NONE line in the manifest. Omit: Omit any CLOSED-CAPTIONS line from the manifest.
-   * @public
-   */
-  CaptionLanguageSetting?: HlsCaptionLanguageSetting | undefined;
-
-  /**
-   * Set Caption segment length control to Match video to create caption segments that align with the video segments from the first video output in this output group. For example, if the video segments are 2 seconds long, your WebVTT segments will also be 2 seconds long. Keep the default setting, Large segments to create caption segments that are 300 seconds long.
-   * @public
-   */
-  CaptionSegmentLengthControl?: HlsCaptionSegmentLengthControl | undefined;
-
-  /**
-   * Disable this setting only when your workflow requires the #EXT-X-ALLOW-CACHE:no tag. Otherwise, keep the default value Enabled and control caching in your video distribution set up. For example, use the Cache-Control http header.
-   * @public
-   */
-  ClientCache?: HlsClientCache | undefined;
-
-  /**
-   * Specification to use (RFC-6381 or the default RFC-4281) during m3u8 playlist generation.
-   * @public
-   */
-  CodecSpecification?: HlsCodecSpecification | undefined;
-
-  /**
-   * Use Destination to specify the S3 output location and the output filename base. Destination accepts format identifiers. If you do not specify the base filename in the URI, the service will use the filename of the input file. If your job has multiple inputs, the service uses the filename of the first input file.
-   * @public
-   */
-  Destination?: string | undefined;
-
-  /**
-   * Settings associated with the destination. Will vary based on the type of destination
-   * @public
-   */
-  DestinationSettings?: DestinationSettings | undefined;
-
-  /**
-   * Indicates whether segments should be placed in subdirectories.
-   * @public
-   */
-  DirectoryStructure?: HlsDirectoryStructure | undefined;
-
-  /**
-   * DRM settings.
-   * @public
-   */
-  Encryption?: HlsEncryptionSettings | undefined;
-
-  /**
-   * Specify whether MediaConvert generates images for trick play. Keep the default value, None, to not generate any images. Choose Thumbnail to generate tiled thumbnails. Choose Thumbnail and full frame to generate tiled thumbnails and full-resolution images of single frames. MediaConvert creates a child manifest for each set of images that you generate and adds corresponding entries to the parent manifest. A common application for these images is Roku trick mode. The thumbnails and full-frame images that MediaConvert creates with this feature are compatible with this Roku specification: https://developer.roku.com/docs/developer-program/media-playback/trick-mode/hls-and-dash.md
-   * @public
-   */
-  ImageBasedTrickPlay?: HlsImageBasedTrickPlay | undefined;
-
-  /**
-   * Tile and thumbnail settings applicable when imageBasedTrickPlay is ADVANCED
-   * @public
-   */
-  ImageBasedTrickPlaySettings?: HlsImageBasedTrickPlaySettings | undefined;
-
-  /**
-   * When set to GZIP, compresses HLS playlist.
-   * @public
-   */
-  ManifestCompression?: HlsManifestCompression | undefined;
-
-  /**
-   * Indicates whether the output manifest should use floating point values for segment duration.
-   * @public
-   */
-  ManifestDurationFormat?: HlsManifestDurationFormat | undefined;
-
-  /**
-   * Keep this setting at the default value of 0, unless you are troubleshooting a problem with how devices play back the end of your video asset. If you know that player devices are hanging on the final segment of your video because the length of your final segment is too short, use this setting to specify a minimum final segment length, in seconds. Choose a value that is greater than or equal to 1 and less than your segment length. When you specify a value for this setting, the encoder will combine any final segment that is shorter than the length that you specify with the previous segment. For example, your segment length is 3 seconds and your final segment is .5 seconds without a minimum final segment length; when you set the minimum final segment length to 1, your final segment is 3.5 seconds.
-   * @public
-   */
-  MinFinalSegmentLength?: number | undefined;
-
-  /**
-   * When set, Minimum Segment Size is enforced by looking ahead and back within the specified range for a nearby avail and extending the segment size if needed.
-   * @public
-   */
-  MinSegmentLength?: number | undefined;
-
-  /**
-   * Indicates whether the .m3u8 manifest file should be generated for this HLS output group.
-   * @public
-   */
-  OutputSelection?: HlsOutputSelection | undefined;
-
-  /**
-   * Includes or excludes EXT-X-PROGRAM-DATE-TIME tag in .m3u8 manifest files. The value is calculated as follows: either the program date and time are initialized using the input timecode source, or the time is initialized using the input timecode source and the date is initialized using the timestamp_offset.
-   * @public
-   */
-  ProgramDateTime?: HlsProgramDateTime | undefined;
-
-  /**
-   * Period of insertion of EXT-X-PROGRAM-DATE-TIME entry, in seconds.
-   * @public
-   */
-  ProgramDateTimePeriod?: number | undefined;
-
-  /**
-   * Specify whether MediaConvert generates HLS manifests while your job is running or when your job is complete. To generate HLS manifests while your job is running: Choose Enabled. Use if you want to play back your content as soon as it's available. MediaConvert writes the parent and child manifests after the first three media segments are written to your destination S3 bucket. It then writes new updated manifests after each additional segment is written. The parent manifest includes the latest BANDWIDTH and AVERAGE-BANDWIDTH attributes, and child manifests include the latest available media segment. When your job completes, the final child playlists include an EXT-X-ENDLIST tag. To generate HLS manifests only when your job completes: Choose Disabled.
-   * @public
-   */
-  ProgressiveWriteHlsManifest?: HlsProgressiveWriteHlsManifest | undefined;
-
-  /**
-   * When set to SINGLE_FILE, emits program as a single media resource (.ts) file, uses #EXT-X-BYTERANGE tags to index segment for playback.
-   * @public
-   */
-  SegmentControl?: HlsSegmentControl | undefined;
-
-  /**
-   * Specify the length, in whole seconds, of each segment. When you don't specify a value, MediaConvert defaults to 10. Related settings: Use Segment length control to specify whether the encoder enforces this value strictly. Use Segment control to specify whether MediaConvert creates separate segment files or one content file that has metadata to mark the segment boundaries.
-   * @public
-   */
-  SegmentLength?: number | undefined;
-
-  /**
-   * Specify how you want MediaConvert to determine segment lengths in this output group. To use the exact value that you specify under Segment length: Choose Exact. Note that this might result in additional I-frames in the output GOP. To create segment lengths that are a multiple of the GOP: Choose Multiple of GOP. MediaConvert will round up the segment lengths to match the next GOP boundary. To have MediaConvert automatically determine a segment duration that is a multiple of both the audio packets and the frame rates: Choose Match. When you do, also specify a target segment duration under Segment length. This is useful for some ad-insertion or segment replacement workflows. Note that Match has the following requirements: - Output containers: Include at least one video output and at least one audio output. Audio-only outputs are not supported. - Output frame rate: Follow source is not supported. - Multiple output frame rates: When you specify multiple outputs, we recommend they share a similar frame rate (as in X/3, X/2, X, or 2X). For example: 5, 15, 30 and 60. Or: 25 and 50. (Outputs must share an integer multiple.) - Output audio codec: Specify Advanced Audio Coding (AAC). - Output sample rate: Choose 48kHz.
-   * @public
-   */
-  SegmentLengthControl?: HlsSegmentLengthControl | undefined;
-
-  /**
-   * Specify the number of segments to write to a subdirectory before starting a new one. You must also set Directory structure to Subdirectory per stream for this setting to have an effect.
-   * @public
-   */
-  SegmentsPerSubdirectory?: number | undefined;
-
-  /**
-   * Include or exclude RESOLUTION attribute for video in EXT-X-STREAM-INF tag of variant manifest.
-   * @public
-   */
-  StreamInfResolution?: HlsStreamInfResolution | undefined;
-
-  /**
-   * When set to LEGACY, the segment target duration is always rounded up to the nearest integer value above its current value in seconds. When set to SPEC\\_COMPLIANT, the segment target duration is rounded up to the nearest integer value if fraction seconds are greater than or equal to 0.5 (>= 0.5) and rounded down if less than 0.5 (< 0.5). You may need to use LEGACY if your client needs to ensure that the target duration is always longer than the actual duration of the segment. Some older players may experience interrupted playback when the actual duration of a track in a segment is longer than the target duration.
-   * @public
-   */
-  TargetDurationCompatibilityMode?: HlsTargetDurationCompatibilityMode | undefined;
-
-  /**
-   * Specify the type of the ID3 frame to use for ID3 timestamps in your output. To include ID3 timestamps: Specify PRIV or TDRL and set ID3 metadata to Passthrough. To exclude ID3 timestamps: Set ID3 timestamp frame type to None.
-   * @public
-   */
-  TimedMetadataId3Frame?: HlsTimedMetadataId3Frame | undefined;
-
-  /**
-   * Specify the interval in seconds to write ID3 timestamps in your output. The first timestamp starts at the output timecode and date, and increases incrementally with each ID3 timestamp. To use the default interval of 10 seconds: Leave blank. To include this metadata in your output: Set ID3 timestamp frame type to PRIV or TDRL, and set ID3 metadata to Passthrough.
-   * @public
-   */
-  TimedMetadataId3Period?: number | undefined;
-
-  /**
-   * Provides an extra millisecond delta offset to fine tune the timestamps.
-   * @public
-   */
-  TimestampDeltaMilliseconds?: number | undefined;
-}

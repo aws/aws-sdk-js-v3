@@ -290,6 +290,12 @@ export interface GetJobCommandOutput extends GetJobResponse, __MetadataBearer {}
  * //           SupplementalImps: [ // __listOf__stringPatternS3ASSETMAPXml
  * //             "STRING_VALUE",
  * //           ],
+ * //           TamsSettings: { // InputTamsSettings
+ * //             AuthConnectionArn: "STRING_VALUE",
+ * //             GapHandling: "SKIP_GAPS" || "FILL_WITH_BLACK" || "HOLD_LAST_FRAME",
+ * //             SourceId: "STRING_VALUE",
+ * //             Timerange: "STRING_VALUE",
+ * //           },
  * //           TimecodeSource: "EMBEDDED" || "ZEROBASED" || "SPECIFIEDSTART",
  * //           TimecodeStart: "STRING_VALUE",
  * //           VideoGenerator: { // InputVideoGenerator

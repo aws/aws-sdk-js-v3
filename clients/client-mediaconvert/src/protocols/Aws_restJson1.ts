@@ -129,7 +129,6 @@ import {
   HlsAdMarkers,
   HlsCaptionLanguageMapping,
   HlsEncryptionSettings,
-  HlsGroupSettings,
   HlsImageBasedTrickPlaySettings,
   HlsRenditionGroupSettings,
   HopDestination,
@@ -139,6 +138,7 @@ import {
   Input,
   InputClipping,
   InputDecryptionSettings,
+  InputTamsSettings,
   InputTemplate,
   InputVideoGenerator,
   InsertableImage,
@@ -210,8 +210,8 @@ import {
   H265QvbrSettings,
   H265Settings,
   Hdr10Plus,
+  HlsGroupSettings,
   HlsSettings,
-  JobSettings,
   M2tsScte35Esam,
   M2tsSettings,
   M3u8Settings,
@@ -263,6 +263,7 @@ import {
   InternalServerErrorException,
   Job,
   JobEngineVersion,
+  JobSettings,
   JobTemplate,
   JobTemplateSettings,
   Metadata,
@@ -3418,6 +3419,7 @@ const se_Input = (input: Input, context: __SerdeContext): any => {
     programNumber: [, , `ProgramNumber`],
     psiControl: [, , `PsiControl`],
     supplementalImps: [, _json, `SupplementalImps`],
+    tamsSettings: [, (_) => se_InputTamsSettings(_, context), `TamsSettings`],
     timecodeSource: [, , `TimecodeSource`],
     timecodeStart: [, , `TimecodeStart`],
     videoGenerator: [, (_) => se_InputVideoGenerator(_, context), `VideoGenerator`],
@@ -3445,6 +3447,18 @@ const se_InputDecryptionSettings = (input: InputDecryptionSettings, context: __S
     encryptedDecryptionKey: [, , `EncryptedDecryptionKey`],
     initializationVector: [, , `InitializationVector`],
     kmsKeyRegion: [, , `KmsKeyRegion`],
+  });
+};
+
+/**
+ * serializeAws_restJson1InputTamsSettings
+ */
+const se_InputTamsSettings = (input: InputTamsSettings, context: __SerdeContext): any => {
+  return take(input, {
+    authConnectionArn: [, , `AuthConnectionArn`],
+    gapHandling: [, , `GapHandling`],
+    sourceId: [, , `SourceId`],
+    timerange: [, , `Timerange`],
   });
 };
 
@@ -6682,6 +6696,7 @@ const de_Input = (output: any, context: __SerdeContext): Input => {
     ProgramNumber: [, __expectInt32, `programNumber`],
     PsiControl: [, __expectString, `psiControl`],
     SupplementalImps: [, _json, `supplementalImps`],
+    TamsSettings: [, (_: any) => de_InputTamsSettings(_, context), `tamsSettings`],
     TimecodeSource: [, __expectString, `timecodeSource`],
     TimecodeStart: [, __expectString, `timecodeStart`],
     VideoGenerator: [, (_: any) => de_InputVideoGenerator(_, context), `videoGenerator`],
@@ -6709,6 +6724,18 @@ const de_InputDecryptionSettings = (output: any, context: __SerdeContext): Input
     EncryptedDecryptionKey: [, __expectString, `encryptedDecryptionKey`],
     InitializationVector: [, __expectString, `initializationVector`],
     KmsKeyRegion: [, __expectString, `kmsKeyRegion`],
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1InputTamsSettings
+ */
+const de_InputTamsSettings = (output: any, context: __SerdeContext): InputTamsSettings => {
+  return take(output, {
+    AuthConnectionArn: [, __expectString, `authConnectionArn`],
+    GapHandling: [, __expectString, `gapHandling`],
+    SourceId: [, __expectString, `sourceId`],
+    Timerange: [, __expectString, `timerange`],
   }) as any;
 };
 
