@@ -64,6 +64,7 @@ export class ConflictException extends __BaseException {
 export const DbInstanceType = {
   DB_INFLUX_12XLARGE: "db.influx.12xlarge",
   DB_INFLUX_16XLARGE: "db.influx.16xlarge",
+  DB_INFLUX_24XLARGE: "db.influx.24xlarge",
   DB_INFLUX_2XLARGE: "db.influx.2xlarge",
   DB_INFLUX_4XLARGE: "db.influx.4xlarge",
   DB_INFLUX_8XLARGE: "db.influx.8xlarge",

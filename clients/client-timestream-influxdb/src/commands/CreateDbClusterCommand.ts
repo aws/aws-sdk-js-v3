@@ -51,7 +51,7 @@ export interface CreateDbClusterCommandOutput extends CreateDbClusterOutput, __M
  *   bucket: "STRING_VALUE",
  *   port: Number("int"),
  *   dbParameterGroupIdentifier: "STRING_VALUE",
- *   dbInstanceType: "db.influx.medium" || "db.influx.large" || "db.influx.xlarge" || "db.influx.2xlarge" || "db.influx.4xlarge" || "db.influx.8xlarge" || "db.influx.12xlarge" || "db.influx.16xlarge", // required
+ *   dbInstanceType: "db.influx.medium" || "db.influx.large" || "db.influx.xlarge" || "db.influx.2xlarge" || "db.influx.4xlarge" || "db.influx.8xlarge" || "db.influx.12xlarge" || "db.influx.16xlarge" || "db.influx.24xlarge", // required
  *   dbStorageType: "InfluxIOIncludedT1" || "InfluxIOIncludedT2" || "InfluxIOIncludedT3",
  *   allocatedStorage: Number("int"), // required
  *   networkType: "IPV4" || "DUAL",

@@ -49,7 +49,7 @@ export interface UpdateDbClusterCommandOutput extends UpdateDbClusterOutput, __M
  *   },
  *   dbParameterGroupIdentifier: "STRING_VALUE",
  *   port: Number("int"),
- *   dbInstanceType: "db.influx.medium" || "db.influx.large" || "db.influx.xlarge" || "db.influx.2xlarge" || "db.influx.4xlarge" || "db.influx.8xlarge" || "db.influx.12xlarge" || "db.influx.16xlarge",
+ *   dbInstanceType: "db.influx.medium" || "db.influx.large" || "db.influx.xlarge" || "db.influx.2xlarge" || "db.influx.4xlarge" || "db.influx.8xlarge" || "db.influx.12xlarge" || "db.influx.16xlarge" || "db.influx.24xlarge",
  *   failoverMode: "AUTOMATIC" || "NO_FAILOVER",
  * };
  * const command = new UpdateDbClusterCommand(input);

@@ -53,7 +53,7 @@ export interface GetDbClusterCommandOutput extends GetDbClusterOutput, __Metadat
  * //   readerEndpoint: "STRING_VALUE",
  * //   port: Number("int"),
  * //   deploymentType: "MULTI_NODE_READ_REPLICAS",
- * //   dbInstanceType: "db.influx.medium" || "db.influx.large" || "db.influx.xlarge" || "db.influx.2xlarge" || "db.influx.4xlarge" || "db.influx.8xlarge" || "db.influx.12xlarge" || "db.influx.16xlarge",
+ * //   dbInstanceType: "db.influx.medium" || "db.influx.large" || "db.influx.xlarge" || "db.influx.2xlarge" || "db.influx.4xlarge" || "db.influx.8xlarge" || "db.influx.12xlarge" || "db.influx.16xlarge" || "db.influx.24xlarge",
  * //   networkType: "IPV4" || "DUAL",
  * //   dbStorageType: "InfluxIOIncludedT1" || "InfluxIOIncludedT2" || "InfluxIOIncludedT3",
  * //   allocatedStorage: Number("int"),

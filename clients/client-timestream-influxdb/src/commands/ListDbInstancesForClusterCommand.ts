@@ -56,7 +56,7 @@ export interface ListDbInstancesForClusterCommandOutput extends ListDbInstancesF
  * //       endpoint: "STRING_VALUE",
  * //       port: Number("int"),
  * //       networkType: "IPV4" || "DUAL",
- * //       dbInstanceType: "db.influx.medium" || "db.influx.large" || "db.influx.xlarge" || "db.influx.2xlarge" || "db.influx.4xlarge" || "db.influx.8xlarge" || "db.influx.12xlarge" || "db.influx.16xlarge",
+ * //       dbInstanceType: "db.influx.medium" || "db.influx.large" || "db.influx.xlarge" || "db.influx.2xlarge" || "db.influx.4xlarge" || "db.influx.8xlarge" || "db.influx.12xlarge" || "db.influx.16xlarge" || "db.influx.24xlarge",
  * //       dbStorageType: "InfluxIOIncludedT1" || "InfluxIOIncludedT2" || "InfluxIOIncludedT3",
  * //       allocatedStorage: Number("int"),
  * //       deploymentType: "SINGLE_AZ" || "WITH_MULTIAZ_STANDBY",
