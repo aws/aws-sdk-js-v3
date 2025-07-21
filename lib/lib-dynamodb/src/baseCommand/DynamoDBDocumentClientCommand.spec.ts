@@ -20,6 +20,7 @@ class AnyCommand extends DynamoDBDocumentClientCommand<{}, {}, {}, {}, {}> {
       addRelativeTo(fn: any, config: any) {
         this.argCaptor.push([fn, config]);
       },
+      add(fn: any, config: any) {},
     },
   } as any;
   protected readonly clientCommandName = "AnyCommand";
