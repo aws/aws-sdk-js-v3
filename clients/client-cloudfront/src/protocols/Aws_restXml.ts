@@ -12372,7 +12372,7 @@ const se_StreamingLoggingConfig = (input: StreamingLoggingConfig, context: __Ser
 const se_StringSchemaConfig = (input: StringSchemaConfig, context: __SerdeContext): any => {
   const bn = new __XmlNode(_SSCt);
   if (input[_Co] != null) {
-    bn.c(__XmlNode.of(_s, input[_Co]).n(_Co));
+    bn.c(__XmlNode.of(_sST, input[_Co]).n(_Co));
   }
   if (input[_DV] != null) {
     bn.c(__XmlNode.of(_PV, input[_DV]).n(_DV));
@@ -12516,7 +12516,7 @@ const se_ViewerCertificate = (input: ViewerCertificate, context: __SerdeContext)
     bn.c(__XmlNode.of(_b, String(input[_CFDC])).n(_CFDC));
   }
   if (input[_IAMCI] != null) {
-    bn.c(__XmlNode.of(_s, input[_IAMCI]).n(_IAMCI));
+    bn.c(__XmlNode.of(_SCI, input[_IAMCI]).n(_IAMCI));
   }
   if (input[_ACMCA] != null) {
     bn.c(__XmlNode.of(_s, input[_ACMCA]).n(_ACMCA));
@@ -17568,6 +17568,7 @@ const _SARN = "SourceARN";
 const _SARNt = "StreamARN";
 const _SB = "SigningBehavior";
 const _SC = "SelectionCriteria";
+const _SCI = "ServerCertificateId";
 const _SCUI = "S3CanonicalUserId";
 const _SCt = "StatusCodes";
 const _SCta = "StatusCode";

@@ -6879,9 +6879,44 @@ export const OriginsFilterSensitiveLog = (obj: Origins): any => ({
 /**
  * @internal
  */
+export const StringSchemaConfigFilterSensitiveLog = (obj: StringSchemaConfig): any => ({
+  ...obj,
+  ...(obj.Comment && { Comment: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ParameterDefinitionSchemaFilterSensitiveLog = (obj: ParameterDefinitionSchema): any => ({
+  ...obj,
+  ...(obj.StringSchema && { StringSchema: StringSchemaConfigFilterSensitiveLog(obj.StringSchema) }),
+});
+
+/**
+ * @internal
+ */
+export const ParameterDefinitionFilterSensitiveLog = (obj: ParameterDefinition): any => ({
+  ...obj,
+  ...(obj.Definition && { Definition: ParameterDefinitionSchemaFilterSensitiveLog(obj.Definition) }),
+});
+
+/**
+ * @internal
+ */
+export const TenantConfigFilterSensitiveLog = (obj: TenantConfig): any => ({
+  ...obj,
+  ...(obj.ParameterDefinitions && {
+    ParameterDefinitions: obj.ParameterDefinitions.map((item) => ParameterDefinitionFilterSensitiveLog(item)),
+  }),
+});
+
+/**
+ * @internal
+ */
 export const DistributionConfigFilterSensitiveLog = (obj: DistributionConfig): any => ({
   ...obj,
   ...(obj.Comment && { Comment: SENSITIVE_STRING }),
+  ...(obj.TenantConfig && { TenantConfig: TenantConfigFilterSensitiveLog(obj.TenantConfig) }),
 });
 
 /**

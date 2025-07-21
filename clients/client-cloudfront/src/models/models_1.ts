@@ -6200,6 +6200,7 @@ export const GetFunctionResultFilterSensitiveLog = (obj: GetFunctionResult): any
  */
 export const DistributionSummaryFilterSensitiveLog = (obj: DistributionSummary): any => ({
   ...obj,
+  ...(obj.Comment && { Comment: SENSITIVE_STRING }),
 });
 
 /**
@@ -6207,6 +6208,7 @@ export const DistributionSummaryFilterSensitiveLog = (obj: DistributionSummary):
  */
 export const DistributionListFilterSensitiveLog = (obj: DistributionList): any => ({
   ...obj,
+  ...(obj.Items && { Items: obj.Items.map((item) => DistributionSummaryFilterSensitiveLog(item)) }),
 });
 
 /**
@@ -6214,6 +6216,7 @@ export const DistributionListFilterSensitiveLog = (obj: DistributionList): any =
  */
 export const ListDistributionsResultFilterSensitiveLog = (obj: ListDistributionsResult): any => ({
   ...obj,
+  ...(obj.DistributionList && { DistributionList: DistributionListFilterSensitiveLog(obj.DistributionList) }),
 });
 
 /**
@@ -6223,6 +6226,7 @@ export const ListDistributionsByAnycastIpListIdResultFilterSensitiveLog = (
   obj: ListDistributionsByAnycastIpListIdResult
 ): any => ({
   ...obj,
+  ...(obj.DistributionList && { DistributionList: DistributionListFilterSensitiveLog(obj.DistributionList) }),
 });
 
 /**
@@ -6232,6 +6236,7 @@ export const ListDistributionsByConnectionModeResultFilterSensitiveLog = (
   obj: ListDistributionsByConnectionModeResult
 ): any => ({
   ...obj,
+  ...(obj.DistributionList && { DistributionList: DistributionListFilterSensitiveLog(obj.DistributionList) }),
 });
 
 /**
@@ -6241,6 +6246,7 @@ export const ListDistributionsByRealtimeLogConfigResultFilterSensitiveLog = (
   obj: ListDistributionsByRealtimeLogConfigResult
 ): any => ({
   ...obj,
+  ...(obj.DistributionList && { DistributionList: DistributionListFilterSensitiveLog(obj.DistributionList) }),
 });
 
 /**
@@ -6248,4 +6254,5 @@ export const ListDistributionsByRealtimeLogConfigResultFilterSensitiveLog = (
  */
 export const ListDistributionsByWebACLIdResultFilterSensitiveLog = (obj: ListDistributionsByWebACLIdResult): any => ({
   ...obj,
+  ...(obj.DistributionList && { DistributionList: DistributionListFilterSensitiveLog(obj.DistributionList) }),
 });

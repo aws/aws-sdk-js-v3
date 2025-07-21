@@ -10,5 +10,6 @@ export * from "./ListDomainConflictsPaginator";
 export * from "./ListInvalidationsForDistributionTenantPaginator";
 export * from "./ListInvalidationsPaginator";
 export * from "./ListKeyValueStoresPaginator";
+export * from "./ListOriginAccessControlsPaginator";
 export * from "./ListPublicKeysPaginator";
 export * from "./ListStreamingDistributionsPaginator";
