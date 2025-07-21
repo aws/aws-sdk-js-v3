@@ -111,7 +111,7 @@ describe(S3TransferManager.name, () => {
     }
   });
 
-  describe.skip("(SEP) download single object tests", () => {
+  describe("(SEP) download single object tests", () => {
     async function sepTests(
       objectType: "single" | "multipart",
       multipartType: "PART" | "RANGE",
