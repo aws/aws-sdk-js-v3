@@ -81,6 +81,7 @@ export interface DescribeWorkforceCommandOutput extends DescribeWorkforceRespons
  * //     },
  * //     Status: "Initializing" || "Updating" || "Deleting" || "Failed" || "Active",
  * //     FailureReason: "STRING_VALUE",
+ * //     IpAddressType: "ipv4" || "dualstack",
  * //   },
  * // };
  *

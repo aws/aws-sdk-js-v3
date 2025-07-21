@@ -16,7 +16,6 @@ import {
   AppStatus,
   AppType,
   ArtifactSource,
-  AsyncInferenceConfig,
   AthenaDatasetDefinition,
   AuthMode,
   AutoMLCandidate,
@@ -40,7 +39,6 @@ import {
   BatchStrategy,
   BatchTransformInput,
   Bias,
-  CapacityReservationPreference,
   CaptureStatus,
   CfnCreateTemplateProvider,
   Channel,
@@ -62,6 +60,7 @@ import {
   InferenceSpecification,
   JupyterLabAppImageConfig,
   KernelGatewayImageConfig,
+  MetricsSource,
   ModelApprovalStatus,
   ModelDataSource,
   OutputDataConfig,
@@ -91,7 +90,6 @@ import {
   DataQualityBaselineConfig,
   DataQualityJobInput,
   DefaultSpaceSettings,
-  DeploymentConfig,
   DeviceSelectionConfig,
   DomainSettings,
   DriftCheckBaselines,
@@ -101,7 +99,6 @@ import {
   EdgePresetDeploymentType,
   EndpointInput,
   Explainability,
-  ExplainerConfig,
   HubContentType,
   InputConfig,
   JupyterServerAppSettings,
@@ -112,7 +109,6 @@ import {
   ModelLifeCycle,
   ModelPackageModelCard,
   ModelPackageModelCardFilterSensitiveLog,
-  ModelQuality,
   MonitoringConstraintsResource,
   MonitoringGroundTruthS3Input,
   MonitoringNetworkConfig,
@@ -134,6 +130,24 @@ import {
   TrainingSpecification,
   UserSettings,
 } from "./models_1";
+
+/**
+ * <p>Model quality statistics and constraints.</p>
+ * @public
+ */
+export interface ModelQuality {
+  /**
+   * <p>Model quality statistics.</p>
+   * @public
+   */
+  Statistics?: MetricsSource | undefined;
+
+  /**
+   * <p>Model quality constraints.</p>
+   * @public
+   */
+  Constraints?: MetricsSource | undefined;
+}
 
 /**
  * <p>Contains metrics captured from a model.</p>
@@ -2548,12 +2562,25 @@ export interface FSxLustreFileSystem {
 }
 
 /**
+ * <p>A custom file system in Amazon S3. This is only supported in Amazon SageMaker Unified Studio.</p>
+ * @public
+ */
+export interface S3FileSystem {
+  /**
+   * <p>The Amazon S3 URI that specifies the location in S3 where files are stored, which is mounted within the Studio environment. For example: <code>s3://&lt;bucket-name&gt;/&lt;prefix&gt;/</code>.</p>
+   * @public
+   */
+  S3Uri?: string | undefined;
+}
+
+/**
  * <p>A file system, created by you, that you assign to a user profile or space for an Amazon SageMaker AI Domain. Permitted users can access this file system in Amazon SageMaker AI Studio.</p>
  * @public
  */
 export type CustomFileSystem =
   | CustomFileSystem.EFSFileSystemMember
   | CustomFileSystem.FSxLustreFileSystemMember
+  | CustomFileSystem.S3FileSystemMember
   | CustomFileSystem.$UnknownMember;
 
 /**
@@ -2567,6 +2594,7 @@ export namespace CustomFileSystem {
   export interface EFSFileSystemMember {
     EFSFileSystem: EFSFileSystem;
     FSxLustreFileSystem?: never;
+    S3FileSystem?: never;
     $unknown?: never;
   }
 
@@ -2577,6 +2605,18 @@ export namespace CustomFileSystem {
   export interface FSxLustreFileSystemMember {
     EFSFileSystem?: never;
     FSxLustreFileSystem: FSxLustreFileSystem;
+    S3FileSystem?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>A custom file system in Amazon S3. This is only supported in Amazon SageMaker Unified Studio.</p>
+   * @public
+   */
+  export interface S3FileSystemMember {
+    EFSFileSystem?: never;
+    FSxLustreFileSystem?: never;
+    S3FileSystem: S3FileSystem;
     $unknown?: never;
   }
 
@@ -2586,18 +2626,21 @@ export namespace CustomFileSystem {
   export interface $UnknownMember {
     EFSFileSystem?: never;
     FSxLustreFileSystem?: never;
+    S3FileSystem?: never;
     $unknown: [string, any];
   }
 
   export interface Visitor<T> {
     EFSFileSystem: (value: EFSFileSystem) => T;
     FSxLustreFileSystem: (value: FSxLustreFileSystem) => T;
+    S3FileSystem: (value: S3FileSystem) => T;
     _: (name: string, value: any) => T;
   }
 
   export const visit = <T>(value: CustomFileSystem, visitor: Visitor<T>): T => {
     if (value.EFSFileSystem !== undefined) return visitor.EFSFileSystem(value.EFSFileSystem);
     if (value.FSxLustreFileSystem !== undefined) return visitor.FSxLustreFileSystem(value.FSxLustreFileSystem);
+    if (value.S3FileSystem !== undefined) return visitor.S3FileSystem(value.S3FileSystem);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
 }
@@ -3701,6 +3744,20 @@ export interface CreateUserProfileResponse {
 }
 
 /**
+ * @public
+ * @enum
+ */
+export const WorkforceIpAddressType = {
+  dualstack: "dualstack",
+  ipv4: "ipv4",
+} as const;
+
+/**
+ * @public
+ */
+export type WorkforceIpAddressType = (typeof WorkforceIpAddressType)[keyof typeof WorkforceIpAddressType];
+
+/**
  * <p>Use this parameter to configure your OIDC Identity Provider (IdP).</p>
  * @public
  */
@@ -3841,6 +3898,12 @@ export interface CreateWorkforceRequest {
    * @public
    */
   WorkforceVpcConfig?: WorkforceVpcConfigRequest | undefined;
+
+  /**
+   * <p>Use this parameter to specify whether you want <code>IPv4</code> only or <code>dualstack</code> (<code>IPv4</code> and <code>IPv6</code>) to support your labeling workforce.</p>
+   * @public
+   */
+  IpAddressType?: WorkforceIpAddressType | undefined;
 }
 
 /**
@@ -7574,215 +7637,6 @@ export interface Ec2CapacityReservation {
    * @public
    */
   UsedByCurrentEndpoint?: number | undefined;
-}
-
-/**
- * <p>Details about an ML capacity reservation.</p>
- * @public
- */
-export interface ProductionVariantCapacityReservationSummary {
-  /**
-   * <p>The Amazon Resource Name (ARN) that uniquely identifies the ML capacity reservation that SageMaker AI applies when it deploys the endpoint.</p>
-   * @public
-   */
-  MlReservationArn?: string | undefined;
-
-  /**
-   * <p>The option that you chose for the capacity reservation. SageMaker AI supports the following options:</p> <dl> <dt>capacity-reservations-only</dt> <dd> <p>SageMaker AI launches instances only into an ML capacity reservation. If no capacity is available, the instances fail to launch.</p> </dd> </dl>
-   * @public
-   */
-  CapacityReservationPreference?: CapacityReservationPreference | undefined;
-
-  /**
-   * <p>The number of instances that you allocated to the ML capacity reservation.</p>
-   * @public
-   */
-  TotalInstanceCount?: number | undefined;
-
-  /**
-   * <p>The number of instances that are currently available in the ML capacity reservation.</p>
-   * @public
-   */
-  AvailableInstanceCount?: number | undefined;
-
-  /**
-   * <p>The number of instances from the ML capacity reservation that are being used by the endpoint.</p>
-   * @public
-   */
-  UsedByCurrentEndpoint?: number | undefined;
-
-  /**
-   * <p>The EC2 capacity reservations that are shared to this ML capacity reservation, if any.</p>
-   * @public
-   */
-  Ec2CapacityReservations?: Ec2CapacityReservation[] | undefined;
-}
-
-/**
- * <p>Describes weight and capacities for a production variant associated with an endpoint. If you sent a request to the <code>UpdateEndpointWeightsAndCapacities</code> API and the endpoint status is <code>Updating</code>, you get different desired and current values. </p>
- * @public
- */
-export interface ProductionVariantSummary {
-  /**
-   * <p>The name of the variant.</p>
-   * @public
-   */
-  VariantName: string | undefined;
-
-  /**
-   * <p>An array of <code>DeployedImage</code> objects that specify the Amazon EC2 Container Registry paths of the inference images deployed on instances of this <code>ProductionVariant</code>.</p>
-   * @public
-   */
-  DeployedImages?: DeployedImage[] | undefined;
-
-  /**
-   * <p>The weight associated with the variant.</p>
-   * @public
-   */
-  CurrentWeight?: number | undefined;
-
-  /**
-   * <p>The requested weight, as specified in the <code>UpdateEndpointWeightsAndCapacities</code> request. </p>
-   * @public
-   */
-  DesiredWeight?: number | undefined;
-
-  /**
-   * <p>The number of instances associated with the variant.</p>
-   * @public
-   */
-  CurrentInstanceCount?: number | undefined;
-
-  /**
-   * <p>The number of instances requested in the <code>UpdateEndpointWeightsAndCapacities</code> request. </p>
-   * @public
-   */
-  DesiredInstanceCount?: number | undefined;
-
-  /**
-   * <p>The endpoint variant status which describes the current deployment stage status or operational status.</p>
-   * @public
-   */
-  VariantStatus?: ProductionVariantStatus[] | undefined;
-
-  /**
-   * <p>The serverless configuration for the endpoint.</p>
-   * @public
-   */
-  CurrentServerlessConfig?: ProductionVariantServerlessConfig | undefined;
-
-  /**
-   * <p>The serverless configuration requested for the endpoint update.</p>
-   * @public
-   */
-  DesiredServerlessConfig?: ProductionVariantServerlessConfig | undefined;
-
-  /**
-   * <p>Settings that control the range in the number of instances that the endpoint provisions as it scales up or down to accommodate traffic. </p>
-   * @public
-   */
-  ManagedInstanceScaling?: ProductionVariantManagedInstanceScaling | undefined;
-
-  /**
-   * <p>Settings that control how the endpoint routes incoming traffic to the instances that the endpoint hosts.</p>
-   * @public
-   */
-  RoutingConfig?: ProductionVariantRoutingConfig | undefined;
-
-  /**
-   * <p>Settings for the capacity reservation for the compute instances that SageMaker AI reserves for an endpoint. </p>
-   * @public
-   */
-  CapacityReservationConfig?: ProductionVariantCapacityReservationSummary | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeEndpointOutput {
-  /**
-   * <p>Name of the endpoint.</p>
-   * @public
-   */
-  EndpointName: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the endpoint.</p>
-   * @public
-   */
-  EndpointArn: string | undefined;
-
-  /**
-   * <p>The name of the endpoint configuration associated with this endpoint.</p>
-   * @public
-   */
-  EndpointConfigName?: string | undefined;
-
-  /**
-   * <p>An array of <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ProductionVariantSummary.html">ProductionVariantSummary</a> objects, one for each model hosted behind this endpoint.</p>
-   * @public
-   */
-  ProductionVariants?: ProductionVariantSummary[] | undefined;
-
-  /**
-   * <p>The currently active data capture configuration used by your Endpoint.</p>
-   * @public
-   */
-  DataCaptureConfig?: DataCaptureConfigSummary | undefined;
-
-  /**
-   * <p>The status of the endpoint.</p> <ul> <li> <p> <code>OutOfService</code>: Endpoint is not available to take incoming requests.</p> </li> <li> <p> <code>Creating</code>: <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateEndpoint.html">CreateEndpoint</a> is executing.</p> </li> <li> <p> <code>Updating</code>: <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_UpdateEndpoint.html">UpdateEndpoint</a> or <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_UpdateEndpointWeightsAndCapacities.html">UpdateEndpointWeightsAndCapacities</a> is executing.</p> </li> <li> <p> <code>SystemUpdating</code>: Endpoint is undergoing maintenance and cannot be updated or deleted or re-scaled until it has completed. This maintenance operation does not change any customer-specified values such as VPC config, KMS encryption, model, instance type, or instance count.</p> </li> <li> <p> <code>RollingBack</code>: Endpoint fails to scale up or down or change its variant weight and is in the process of rolling back to its previous configuration. Once the rollback completes, endpoint returns to an <code>InService</code> status. This transitional status only applies to an endpoint that has autoscaling enabled and is undergoing variant weight or capacity changes as part of an <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_UpdateEndpointWeightsAndCapacities.html">UpdateEndpointWeightsAndCapacities</a> call or when the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_UpdateEndpointWeightsAndCapacities.html">UpdateEndpointWeightsAndCapacities</a> operation is called explicitly.</p> </li> <li> <p> <code>InService</code>: Endpoint is available to process incoming requests.</p> </li> <li> <p> <code>Deleting</code>: <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DeleteEndpoint.html">DeleteEndpoint</a> is executing.</p> </li> <li> <p> <code>Failed</code>: Endpoint could not be created, updated, or re-scaled. Use the <code>FailureReason</code> value returned by <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeEndpoint.html">DescribeEndpoint</a> for information about the failure. <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DeleteEndpoint.html">DeleteEndpoint</a> is the only operation that can be performed on a failed endpoint.</p> </li> <li> <p> <code>UpdateRollbackFailed</code>: Both the rolling deployment and auto-rollback failed. Your endpoint is in service with a mix of the old and new endpoint configurations. For information about how to remedy this issue and restore the endpoint's status to <code>InService</code>, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/deployment-guardrails-rolling.html">Rolling Deployments</a>.</p> </li> </ul>
-   * @public
-   */
-  EndpointStatus: EndpointStatus | undefined;
-
-  /**
-   * <p>If the status of the endpoint is <code>Failed</code>, the reason why it failed. </p>
-   * @public
-   */
-  FailureReason?: string | undefined;
-
-  /**
-   * <p>A timestamp that shows when the endpoint was created.</p>
-   * @public
-   */
-  CreationTime: Date | undefined;
-
-  /**
-   * <p>A timestamp that shows when the endpoint was last modified.</p>
-   * @public
-   */
-  LastModifiedTime: Date | undefined;
-
-  /**
-   * <p>The most recent deployment configuration for the endpoint.</p>
-   * @public
-   */
-  LastDeploymentConfig?: DeploymentConfig | undefined;
-
-  /**
-   * <p>Returns the description of an endpoint configuration created using the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateEndpointConfig.html"> <code>CreateEndpointConfig</code> </a> API.</p>
-   * @public
-   */
-  AsyncInferenceConfig?: AsyncInferenceConfig | undefined;
-
-  /**
-   * <p>Returns the summary of an in-progress deployment. This field is only returned when the endpoint is creating or updating with a new endpoint configuration.</p>
-   * @public
-   */
-  PendingDeploymentSummary?: PendingDeploymentSummary | undefined;
-
-  /**
-   * <p>The configuration parameters for an explainer.</p>
-   * @public
-   */
-  ExplainerConfig?: ExplainerConfig | undefined;
-
-  /**
-   * <p>An array of <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ProductionVariantSummary.html">ProductionVariantSummary</a> objects, one for each model that you want to host at this endpoint in shadow mode with production traffic replicated from the model specified on <code>ProductionVariants</code>.</p>
-   * @public
-   */
-  ShadowProductionVariants?: ProductionVariantSummary[] | undefined;
 }
 
 /**

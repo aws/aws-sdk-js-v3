@@ -1377,7 +1377,6 @@ import {
   ModelLatencyThreshold,
   ModelLifeCycle,
   ModelPackageModelCard,
-  ModelQuality,
   ModelVariantConfig,
   MonitoringClusterConfig,
   MonitoringConstraintsResource,
@@ -1426,6 +1425,7 @@ import {
   RSessionAppSettings,
   RStudioServerProAppSettings,
   RStudioServerProDomainSettings,
+  S3FileSystemConfig,
   S3StorageConfig,
   SchedulerConfig,
   ShadowModeConfig,
@@ -1626,7 +1626,6 @@ import {
   DescribeEdgePackagingJobRequest,
   DescribeEdgePackagingJobResponse,
   DescribeEndpointInput,
-  DescribeEndpointOutput,
   EbsStorageSettings,
   Ec2CapacityReservation,
   EdgeDeploymentStatus,
@@ -1648,6 +1647,7 @@ import {
   ModelPackageSecurityConfig,
   ModelPackageValidationProfile,
   ModelPackageValidationSpecification,
+  ModelQuality,
   ModelQualityAppSpecification,
   ModelQualityBaselineConfig,
   ModelQualityJobInput,
@@ -1686,9 +1686,7 @@ import {
   ProcessingS3Input,
   ProcessingS3Output,
   ProcessingStoppingCondition,
-  ProductionVariantCapacityReservationSummary,
   ProductionVariantStatus,
-  ProductionVariantSummary,
   ProfilerConfig,
   ProfilerRuleConfiguration,
   ProvisioningParameter,
@@ -1697,6 +1695,7 @@ import {
   RemoteDebugConfig,
   ResolvedAttributes,
   RetentionPolicy,
+  S3FileSystem,
   S3Presign,
   ScheduleConfig,
   ServiceCatalogProvisioningDetails,
@@ -1721,6 +1720,7 @@ import {
 import {
   DescribeEndpointConfigInput,
   DescribeEndpointConfigOutput,
+  DescribeEndpointOutput,
   DescribeExperimentRequest,
   DescribeExperimentResponse,
   DescribeFeatureGroupRequest,
@@ -1906,9 +1906,6 @@ import {
   ListAlgorithmsOutput,
   ListAliasesRequest,
   ListAliasesResponse,
-  ListAppImageConfigsRequest,
-  ListAppImageConfigsResponse,
-  ListAppsRequest,
   MetricData,
   MetricSpecification,
   ModelCardExportArtifacts,
@@ -1924,7 +1921,9 @@ import {
   OptimizationOutput,
   PipelineExperimentConfig,
   PredefinedMetricSpecification,
+  ProductionVariantCapacityReservationSummary,
   ProductionVariantServerlessUpdateConfig,
+  ProductionVariantSummary,
   ProfilerRuleEvaluationStatus,
   PropertyNameQuery,
   PropertyNameSuggestion,
@@ -1956,6 +1955,9 @@ import {
   Workteam,
 } from "../models/models_3";
 import {
+  ListAppImageConfigsRequest,
+  ListAppImageConfigsResponse,
+  ListAppsRequest,
   ListAppsResponse,
   ListArtifactsRequest,
   ListArtifactsResponse,
@@ -2183,7 +2185,6 @@ import {
   SpaceSharingSettingsSummary,
   StudioLifecycleConfigDetails,
   TrackingServerSummary,
-  TrainingJob,
   TrainingJobStepMetadata,
   TrainingJobSummary,
   TrainingPlanFilter,
@@ -2191,8 +2192,6 @@ import {
   TransformJob,
   TransformJobStepMetadata,
   TransformJobSummary,
-  Trial,
-  TrialComponentSimpleSummary,
   TrialComponentSummary,
   TrialSummary,
   TuningJobStepMetaData,
@@ -2244,8 +2243,11 @@ import {
   StopTransformJobRequest,
   ThroughputConfigUpdate,
   TotalHits,
+  TrainingJob,
   TrainingPlanOffering,
+  Trial,
   TrialComponent,
+  TrialComponentSimpleSummary,
   TrialComponentSourceDetail,
   UpdateActionRequest,
   UpdateActionResponse,
@@ -17342,6 +17344,10 @@ const se_RetryPipelineExecutionRequest = (input: RetryPipelineExecutionRequest, 
 
 // se_S3DataSource omitted.
 
+// se_S3FileSystem omitted.
+
+// se_S3FileSystemConfig omitted.
+
 // se_S3ModelDataSource omitted.
 
 // se_S3Presign omitted.
@@ -20953,6 +20959,11 @@ const de_CustomFileSystem = (output: any, context: __SerdeContext): CustomFileSy
       FSxLustreFileSystem: de_FSxLustreFileSystem(output.FSxLustreFileSystem, context),
     };
   }
+  if (output.S3FileSystem != null) {
+    return {
+      S3FileSystem: de_S3FileSystem(output.S3FileSystem, context),
+    };
+  }
   return { $unknown: Object.entries(output)[0] };
 };
 
@@ -20968,6 +20979,11 @@ const de_CustomFileSystemConfig = (output: any, context: __SerdeContext): Custom
   if (output.FSxLustreFileSystemConfig != null) {
     return {
       FSxLustreFileSystemConfig: de_FSxLustreFileSystemConfig(output.FSxLustreFileSystemConfig, context),
+    };
+  }
+  if (output.S3FileSystemConfig != null) {
+    return {
+      S3FileSystemConfig: de_S3FileSystemConfig(output.S3FileSystemConfig, context),
     };
   }
   return { $unknown: Object.entries(output)[0] };
@@ -30454,6 +30470,25 @@ const de_S3DataSource = (output: any, context: __SerdeContext): S3DataSource => 
 };
 
 /**
+ * deserializeAws_json1_1S3FileSystem
+ */
+const de_S3FileSystem = (output: any, context: __SerdeContext): S3FileSystem => {
+  return take(output, {
+    S3Uri: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1S3FileSystemConfig
+ */
+const de_S3FileSystemConfig = (output: any, context: __SerdeContext): S3FileSystemConfig => {
+  return take(output, {
+    MountPath: __expectString,
+    S3Uri: __expectString,
+  }) as any;
+};
+
+/**
  * deserializeAws_json1_1S3ModelDataSource
  */
 const de_S3ModelDataSource = (output: any, context: __SerdeContext): S3ModelDataSource => {
@@ -32797,6 +32832,7 @@ const de_Workforce = (output: any, context: __SerdeContext): Workforce => {
     CognitoConfig: (_: any) => de_CognitoConfig(_, context),
     CreateDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     FailureReason: __expectString,
+    IpAddressType: __expectString,
     LastUpdatedDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     OidcConfig: (_: any) => de_OidcConfigForResponse(_, context),
     SourceIpConfig: (_: any) => de_SourceIpConfig(_, context),

@@ -135,6 +135,9 @@ export interface DescribeSpaceCommandOutput extends DescribeSpaceResponse, __Met
  * //         FSxLustreFileSystem: { // FSxLustreFileSystem
  * //           FileSystemId: "STRING_VALUE", // required
  * //         },
+ * //         S3FileSystem: { // S3FileSystem
+ * //           S3Uri: "STRING_VALUE",
+ * //         },
  * //       },
  * //     ],
  * //     RemoteAccess: "ENABLED" || "DISABLED",

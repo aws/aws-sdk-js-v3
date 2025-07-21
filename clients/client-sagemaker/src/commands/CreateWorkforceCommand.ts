@@ -79,6 +79,7 @@ export interface CreateWorkforceCommandOutput extends CreateWorkforceResponse, _
  *       "STRING_VALUE",
  *     ],
  *   },
+ *   IpAddressType: "ipv4" || "dualstack",
  * };
  * const command = new CreateWorkforceCommand(input);
  * const response = await client.send(command);

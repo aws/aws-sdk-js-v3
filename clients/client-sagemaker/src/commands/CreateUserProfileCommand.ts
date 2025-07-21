@@ -240,6 +240,10 @@ export interface CreateUserProfileCommandOutput extends CreateUserProfileRespons
  *           FileSystemId: "STRING_VALUE", // required
  *           FileSystemPath: "STRING_VALUE",
  *         },
+ *         S3FileSystemConfig: { // S3FileSystemConfig
+ *           MountPath: "STRING_VALUE",
+ *           S3Uri: "STRING_VALUE",
+ *         },
  *       },
  *     ],
  *     StudioWebPortalSettings: { // StudioWebPortalSettings

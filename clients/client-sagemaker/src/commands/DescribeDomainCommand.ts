@@ -247,6 +247,10 @@ export interface DescribeDomainCommandOutput extends DescribeDomainResponse, __M
  * //           FileSystemId: "STRING_VALUE", // required
  * //           FileSystemPath: "STRING_VALUE",
  * //         },
+ * //         S3FileSystemConfig: { // S3FileSystemConfig
+ * //           MountPath: "STRING_VALUE",
+ * //           S3Uri: "STRING_VALUE",
+ * //         },
  * //       },
  * //     ],
  * //     StudioWebPortalSettings: { // StudioWebPortalSettings
@@ -385,6 +389,10 @@ export interface DescribeDomainCommandOutput extends DescribeDomainResponse, __M
  * //         FSxLustreFileSystemConfig: {
  * //           FileSystemId: "STRING_VALUE", // required
  * //           FileSystemPath: "STRING_VALUE",
+ * //         },
+ * //         S3FileSystemConfig: {
+ * //           MountPath: "STRING_VALUE",
+ * //           S3Uri: "STRING_VALUE",
  * //         },
  * //       },
  * //     ],

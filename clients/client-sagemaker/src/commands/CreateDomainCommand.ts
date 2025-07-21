@@ -232,6 +232,10 @@ export interface CreateDomainCommandOutput extends CreateDomainResponse, __Metad
  *           FileSystemId: "STRING_VALUE", // required
  *           FileSystemPath: "STRING_VALUE",
  *         },
+ *         S3FileSystemConfig: { // S3FileSystemConfig
+ *           MountPath: "STRING_VALUE",
+ *           S3Uri: "STRING_VALUE",
+ *         },
  *       },
  *     ],
  *     StudioWebPortalSettings: { // StudioWebPortalSettings
@@ -375,6 +379,10 @@ export interface CreateDomainCommandOutput extends CreateDomainResponse, __Metad
  *         FSxLustreFileSystemConfig: {
  *           FileSystemId: "STRING_VALUE", // required
  *           FileSystemPath: "STRING_VALUE",
+ *         },
+ *         S3FileSystemConfig: {
+ *           MountPath: "STRING_VALUE",
+ *           S3Uri: "STRING_VALUE",
  *         },
  *       },
  *     ],

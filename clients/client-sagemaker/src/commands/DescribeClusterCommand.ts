@@ -61,7 +61,7 @@ export interface DescribeClusterCommandOutput extends DescribeClusterResponse, _
  * //       InstanceStorageConfigs: [ // ClusterInstanceStorageConfigs
  * //         { // ClusterInstanceStorageConfig Union: only one key present
  * //           EbsVolumeConfig: { // ClusterEbsVolumeConfig
- * //             VolumeSizeInGB: Number("int"), // required
+ * //             VolumeSizeInGB: Number("int"),
  * //           },
  * //         },
  * //       ],
@@ -113,7 +113,7 @@ export interface DescribeClusterCommandOutput extends DescribeClusterResponse, _
  * //       InstanceStorageConfigs: [
  * //         {//  Union: only one key present
  * //           EbsVolumeConfig: {
- * //             VolumeSizeInGB: Number("int"), // required
+ * //             VolumeSizeInGB: Number("int"),
  * //           },
  * //         },
  * //       ],

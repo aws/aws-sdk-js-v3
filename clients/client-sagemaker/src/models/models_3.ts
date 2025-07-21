@@ -9,9 +9,6 @@ import {
   AlgorithmSpecification,
   AlgorithmSummary,
   AmazonQSettings,
-  AppImageConfigDetails,
-  AppImageConfigSortKey,
-  AppSortKey,
   AppSpecification,
   AssociationEdgeType,
   AsyncInferenceConfig,
@@ -19,6 +16,7 @@ import {
   Autotune,
   BatchDataCaptureConfig,
   BatchStrategy,
+  CapacityReservationPreference,
   CfnTemplateProviderDetail,
   Channel,
   CheckpointConfig,
@@ -45,6 +43,7 @@ import {
   _InstanceType,
   ContainerDefinition,
   DataCaptureConfig,
+  DeploymentConfig,
   DockerSettings,
   DriftCheckBaselines,
   EdgeOutputConfig,
@@ -98,6 +97,8 @@ import {
   OnlineStoreConfig,
   Processor,
   ProductionVariant,
+  ProductionVariantManagedInstanceScaling,
+  ProductionVariantRoutingConfig,
   ProductionVariantServerlessConfig,
   RecommendationJobInputConfig,
   RecommendationJobStoppingConditions,
@@ -123,6 +124,7 @@ import {
   DeploymentRecommendation,
   DirectInternetAccess,
   DomainStatus,
+  Ec2CapacityReservation,
   EdgePackagingJobStatus,
   EndpointStatus,
   ExperimentConfig,
@@ -154,11 +156,12 @@ import {
   PartnerAppConfig,
   PartnerAppMaintenanceConfig,
   PartnerAppType,
+  PendingDeploymentSummary,
   ProcessingInput,
   ProcessingOutputConfig,
   ProcessingResources,
   ProcessingStoppingCondition,
-  ProductionVariantSummary,
+  ProductionVariantStatus,
   ProfilerConfig,
   ProfilerRuleConfiguration,
   RemoteDebugConfig,
@@ -176,7 +179,217 @@ import {
   TrialComponentParameterValue,
   TrialComponentStatus,
   WorkerAccessConfiguration,
+  WorkforceIpAddressType,
 } from "./models_2";
+
+/**
+ * <p>Details about an ML capacity reservation.</p>
+ * @public
+ */
+export interface ProductionVariantCapacityReservationSummary {
+  /**
+   * <p>The Amazon Resource Name (ARN) that uniquely identifies the ML capacity reservation that SageMaker AI applies when it deploys the endpoint.</p>
+   * @public
+   */
+  MlReservationArn?: string | undefined;
+
+  /**
+   * <p>The option that you chose for the capacity reservation. SageMaker AI supports the following options:</p> <dl> <dt>capacity-reservations-only</dt> <dd> <p>SageMaker AI launches instances only into an ML capacity reservation. If no capacity is available, the instances fail to launch.</p> </dd> </dl>
+   * @public
+   */
+  CapacityReservationPreference?: CapacityReservationPreference | undefined;
+
+  /**
+   * <p>The number of instances that you allocated to the ML capacity reservation.</p>
+   * @public
+   */
+  TotalInstanceCount?: number | undefined;
+
+  /**
+   * <p>The number of instances that are currently available in the ML capacity reservation.</p>
+   * @public
+   */
+  AvailableInstanceCount?: number | undefined;
+
+  /**
+   * <p>The number of instances from the ML capacity reservation that are being used by the endpoint.</p>
+   * @public
+   */
+  UsedByCurrentEndpoint?: number | undefined;
+
+  /**
+   * <p>The EC2 capacity reservations that are shared to this ML capacity reservation, if any.</p>
+   * @public
+   */
+  Ec2CapacityReservations?: Ec2CapacityReservation[] | undefined;
+}
+
+/**
+ * <p>Describes weight and capacities for a production variant associated with an endpoint. If you sent a request to the <code>UpdateEndpointWeightsAndCapacities</code> API and the endpoint status is <code>Updating</code>, you get different desired and current values. </p>
+ * @public
+ */
+export interface ProductionVariantSummary {
+  /**
+   * <p>The name of the variant.</p>
+   * @public
+   */
+  VariantName: string | undefined;
+
+  /**
+   * <p>An array of <code>DeployedImage</code> objects that specify the Amazon EC2 Container Registry paths of the inference images deployed on instances of this <code>ProductionVariant</code>.</p>
+   * @public
+   */
+  DeployedImages?: DeployedImage[] | undefined;
+
+  /**
+   * <p>The weight associated with the variant.</p>
+   * @public
+   */
+  CurrentWeight?: number | undefined;
+
+  /**
+   * <p>The requested weight, as specified in the <code>UpdateEndpointWeightsAndCapacities</code> request. </p>
+   * @public
+   */
+  DesiredWeight?: number | undefined;
+
+  /**
+   * <p>The number of instances associated with the variant.</p>
+   * @public
+   */
+  CurrentInstanceCount?: number | undefined;
+
+  /**
+   * <p>The number of instances requested in the <code>UpdateEndpointWeightsAndCapacities</code> request. </p>
+   * @public
+   */
+  DesiredInstanceCount?: number | undefined;
+
+  /**
+   * <p>The endpoint variant status which describes the current deployment stage status or operational status.</p>
+   * @public
+   */
+  VariantStatus?: ProductionVariantStatus[] | undefined;
+
+  /**
+   * <p>The serverless configuration for the endpoint.</p>
+   * @public
+   */
+  CurrentServerlessConfig?: ProductionVariantServerlessConfig | undefined;
+
+  /**
+   * <p>The serverless configuration requested for the endpoint update.</p>
+   * @public
+   */
+  DesiredServerlessConfig?: ProductionVariantServerlessConfig | undefined;
+
+  /**
+   * <p>Settings that control the range in the number of instances that the endpoint provisions as it scales up or down to accommodate traffic. </p>
+   * @public
+   */
+  ManagedInstanceScaling?: ProductionVariantManagedInstanceScaling | undefined;
+
+  /**
+   * <p>Settings that control how the endpoint routes incoming traffic to the instances that the endpoint hosts.</p>
+   * @public
+   */
+  RoutingConfig?: ProductionVariantRoutingConfig | undefined;
+
+  /**
+   * <p>Settings for the capacity reservation for the compute instances that SageMaker AI reserves for an endpoint. </p>
+   * @public
+   */
+  CapacityReservationConfig?: ProductionVariantCapacityReservationSummary | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeEndpointOutput {
+  /**
+   * <p>Name of the endpoint.</p>
+   * @public
+   */
+  EndpointName: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the endpoint.</p>
+   * @public
+   */
+  EndpointArn: string | undefined;
+
+  /**
+   * <p>The name of the endpoint configuration associated with this endpoint.</p>
+   * @public
+   */
+  EndpointConfigName?: string | undefined;
+
+  /**
+   * <p>An array of <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ProductionVariantSummary.html">ProductionVariantSummary</a> objects, one for each model hosted behind this endpoint.</p>
+   * @public
+   */
+  ProductionVariants?: ProductionVariantSummary[] | undefined;
+
+  /**
+   * <p>The currently active data capture configuration used by your Endpoint.</p>
+   * @public
+   */
+  DataCaptureConfig?: DataCaptureConfigSummary | undefined;
+
+  /**
+   * <p>The status of the endpoint.</p> <ul> <li> <p> <code>OutOfService</code>: Endpoint is not available to take incoming requests.</p> </li> <li> <p> <code>Creating</code>: <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateEndpoint.html">CreateEndpoint</a> is executing.</p> </li> <li> <p> <code>Updating</code>: <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_UpdateEndpoint.html">UpdateEndpoint</a> or <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_UpdateEndpointWeightsAndCapacities.html">UpdateEndpointWeightsAndCapacities</a> is executing.</p> </li> <li> <p> <code>SystemUpdating</code>: Endpoint is undergoing maintenance and cannot be updated or deleted or re-scaled until it has completed. This maintenance operation does not change any customer-specified values such as VPC config, KMS encryption, model, instance type, or instance count.</p> </li> <li> <p> <code>RollingBack</code>: Endpoint fails to scale up or down or change its variant weight and is in the process of rolling back to its previous configuration. Once the rollback completes, endpoint returns to an <code>InService</code> status. This transitional status only applies to an endpoint that has autoscaling enabled and is undergoing variant weight or capacity changes as part of an <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_UpdateEndpointWeightsAndCapacities.html">UpdateEndpointWeightsAndCapacities</a> call or when the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_UpdateEndpointWeightsAndCapacities.html">UpdateEndpointWeightsAndCapacities</a> operation is called explicitly.</p> </li> <li> <p> <code>InService</code>: Endpoint is available to process incoming requests.</p> </li> <li> <p> <code>Deleting</code>: <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DeleteEndpoint.html">DeleteEndpoint</a> is executing.</p> </li> <li> <p> <code>Failed</code>: Endpoint could not be created, updated, or re-scaled. Use the <code>FailureReason</code> value returned by <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeEndpoint.html">DescribeEndpoint</a> for information about the failure. <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DeleteEndpoint.html">DeleteEndpoint</a> is the only operation that can be performed on a failed endpoint.</p> </li> <li> <p> <code>UpdateRollbackFailed</code>: Both the rolling deployment and auto-rollback failed. Your endpoint is in service with a mix of the old and new endpoint configurations. For information about how to remedy this issue and restore the endpoint's status to <code>InService</code>, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/deployment-guardrails-rolling.html">Rolling Deployments</a>.</p> </li> </ul>
+   * @public
+   */
+  EndpointStatus: EndpointStatus | undefined;
+
+  /**
+   * <p>If the status of the endpoint is <code>Failed</code>, the reason why it failed. </p>
+   * @public
+   */
+  FailureReason?: string | undefined;
+
+  /**
+   * <p>A timestamp that shows when the endpoint was created.</p>
+   * @public
+   */
+  CreationTime: Date | undefined;
+
+  /**
+   * <p>A timestamp that shows when the endpoint was last modified.</p>
+   * @public
+   */
+  LastModifiedTime: Date | undefined;
+
+  /**
+   * <p>The most recent deployment configuration for the endpoint.</p>
+   * @public
+   */
+  LastDeploymentConfig?: DeploymentConfig | undefined;
+
+  /**
+   * <p>Returns the description of an endpoint configuration created using the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateEndpointConfig.html"> <code>CreateEndpointConfig</code> </a> API.</p>
+   * @public
+   */
+  AsyncInferenceConfig?: AsyncInferenceConfig | undefined;
+
+  /**
+   * <p>Returns the summary of an in-progress deployment. This field is only returned when the endpoint is creating or updating with a new endpoint configuration.</p>
+   * @public
+   */
+  PendingDeploymentSummary?: PendingDeploymentSummary | undefined;
+
+  /**
+   * <p>The configuration parameters for an explainer.</p>
+   * @public
+   */
+  ExplainerConfig?: ExplainerConfig | undefined;
+
+  /**
+   * <p>An array of <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ProductionVariantSummary.html">ProductionVariantSummary</a> objects, one for each model that you want to host at this endpoint in shadow mode with production traffic replicated from the model specified on <code>ProductionVariants</code>.</p>
+   * @public
+   */
+  ShadowProductionVariants?: ProductionVariantSummary[] | undefined;
+}
 
 /**
  * @public
@@ -5823,6 +6036,7 @@ export interface DescribeTrainingPlanRequest {
  * @enum
  */
 export const ReservedCapacityInstanceType = {
+  ML_P4DE_24XLARGE: "ml.p4de.24xlarge",
   ML_P4D_24XLARGE: "ml.p4d.24xlarge",
   ML_P5EN_48XLARGE: "ml.p5en.48xlarge",
   ML_P5E_48XLARGE: "ml.p5e.48xlarge",
@@ -6791,6 +7005,12 @@ export interface Workforce {
    * @public
    */
   FailureReason?: string | undefined;
+
+  /**
+   * <p>The IP address type you specify - either <code>IPv4</code> only or <code>dualstack</code> (<code>IPv4</code> and <code>IPv6</code>) - to support your labeling workforce.</p>
+   * @public
+   */
+  IpAddressType?: WorkforceIpAddressType | undefined;
 }
 
 /**
@@ -10188,129 +10408,6 @@ export interface ListAliasesResponse {
    * @public
    */
   NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListAppImageConfigsRequest {
-  /**
-   * <p>The total number of items to return in the response. If the total number of items available is more than the value specified, a <code>NextToken</code> is provided in the response. To resume pagination, provide the <code>NextToken</code> value in the as part of a subsequent call. The default value is 10.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>If the previous call to <code>ListImages</code> didn't return the full set of AppImageConfigs, the call returns a token for getting the next set of AppImageConfigs.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>A filter that returns only AppImageConfigs whose name contains the specified string.</p>
-   * @public
-   */
-  NameContains?: string | undefined;
-
-  /**
-   * <p>A filter that returns only AppImageConfigs created on or before the specified time.</p>
-   * @public
-   */
-  CreationTimeBefore?: Date | undefined;
-
-  /**
-   * <p>A filter that returns only AppImageConfigs created on or after the specified time.</p>
-   * @public
-   */
-  CreationTimeAfter?: Date | undefined;
-
-  /**
-   * <p>A filter that returns only AppImageConfigs modified on or before the specified time.</p>
-   * @public
-   */
-  ModifiedTimeBefore?: Date | undefined;
-
-  /**
-   * <p>A filter that returns only AppImageConfigs modified on or after the specified time.</p>
-   * @public
-   */
-  ModifiedTimeAfter?: Date | undefined;
-
-  /**
-   * <p>The property used to sort results. The default value is <code>CreationTime</code>.</p>
-   * @public
-   */
-  SortBy?: AppImageConfigSortKey | undefined;
-
-  /**
-   * <p>The sort order. The default value is <code>Descending</code>.</p>
-   * @public
-   */
-  SortOrder?: SortOrder | undefined;
-}
-
-/**
- * @public
- */
-export interface ListAppImageConfigsResponse {
-  /**
-   * <p>A token for getting the next set of AppImageConfigs, if there are any.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>A list of AppImageConfigs and their properties.</p>
-   * @public
-   */
-  AppImageConfigs?: AppImageConfigDetails[] | undefined;
-}
-
-/**
- * @public
- */
-export interface ListAppsRequest {
-  /**
-   * <p>If the previous response was truncated, you will receive this token. Use it in your next request to receive the next set of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>This parameter defines the maximum number of results that can be return in a single response. The <code>MaxResults</code> parameter is an upper bound, not a target. If there are more results available than the value specified, a <code>NextToken</code> is provided in the response. The <code>NextToken</code> indicates that the user should get the next set of results by providing this token as a part of a subsequent call. The default value for <code>MaxResults</code> is 10.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>The sort order for the results. The default is Ascending.</p>
-   * @public
-   */
-  SortOrder?: SortOrder | undefined;
-
-  /**
-   * <p>The parameter by which to sort the results. The default is CreationTime.</p>
-   * @public
-   */
-  SortBy?: AppSortKey | undefined;
-
-  /**
-   * <p>A parameter to search for the domain ID.</p>
-   * @public
-   */
-  DomainIdEquals?: string | undefined;
-
-  /**
-   * <p>A parameter to search by user profile name. If <code>SpaceNameEquals</code> is set, then this value cannot be set.</p>
-   * @public
-   */
-  UserProfileNameEquals?: string | undefined;
-
-  /**
-   * <p>A parameter to search by space name. If <code>UserProfileNameEquals</code> is set, then this value cannot be set.</p>
-   * @public
-   */
-  SpaceNameEquals?: string | undefined;
 }
 
 /**

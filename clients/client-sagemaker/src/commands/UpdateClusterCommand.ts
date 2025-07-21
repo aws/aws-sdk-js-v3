@@ -51,7 +51,7 @@ export interface UpdateClusterCommandOutput extends UpdateClusterResponse, __Met
  *       InstanceStorageConfigs: [ // ClusterInstanceStorageConfigs
  *         { // ClusterInstanceStorageConfig Union: only one key present
  *           EbsVolumeConfig: { // ClusterEbsVolumeConfig
- *             VolumeSizeInGB: Number("int"), // required
+ *             VolumeSizeInGB: Number("int"),
  *           },
  *         },
  *       ],
@@ -100,7 +100,7 @@ export interface UpdateClusterCommandOutput extends UpdateClusterResponse, __Met
  *       InstanceStorageConfigs: [
  *         {//  Union: only one key present
  *           EbsVolumeConfig: {
- *             VolumeSizeInGB: Number("int"), // required
+ *             VolumeSizeInGB: Number("int"),
  *           },
  *         },
  *       ],

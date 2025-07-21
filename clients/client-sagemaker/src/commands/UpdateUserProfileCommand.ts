@@ -232,6 +232,10 @@ export interface UpdateUserProfileCommandOutput extends UpdateUserProfileRespons
  *           FileSystemId: "STRING_VALUE", // required
  *           FileSystemPath: "STRING_VALUE",
  *         },
+ *         S3FileSystemConfig: { // S3FileSystemConfig
+ *           MountPath: "STRING_VALUE",
+ *           S3Uri: "STRING_VALUE",
+ *         },
  *       },
  *     ],
  *     StudioWebPortalSettings: { // StudioWebPortalSettings

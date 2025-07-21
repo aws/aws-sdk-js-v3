@@ -86,6 +86,7 @@ export interface ListWorkforcesCommandOutput extends ListWorkforcesResponse, __M
  * //       },
  * //       Status: "Initializing" || "Updating" || "Deleting" || "Failed" || "Active",
  * //       FailureReason: "STRING_VALUE",
+ * //       IpAddressType: "ipv4" || "dualstack",
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",

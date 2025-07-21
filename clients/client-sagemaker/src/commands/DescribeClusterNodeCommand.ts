@@ -68,7 +68,7 @@ export interface DescribeClusterNodeCommandOutput extends DescribeClusterNodeRes
  * //     InstanceStorageConfigs: [ // ClusterInstanceStorageConfigs
  * //       { // ClusterInstanceStorageConfig Union: only one key present
  * //         EbsVolumeConfig: { // ClusterEbsVolumeConfig
- * //           VolumeSizeInGB: Number("int"), // required
+ * //           VolumeSizeInGB: Number("int"),
  * //         },
  * //       },
  * //     ],

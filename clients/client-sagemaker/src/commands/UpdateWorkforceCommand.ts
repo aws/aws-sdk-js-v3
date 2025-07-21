@@ -69,6 +69,7 @@ export interface UpdateWorkforceCommandOutput extends UpdateWorkforceResponse, _
  *       "STRING_VALUE",
  *     ],
  *   },
+ *   IpAddressType: "ipv4" || "dualstack",
  * };
  * const command = new UpdateWorkforceCommand(input);
  * const response = await client.send(command);
@@ -113,6 +114,7 @@ export interface UpdateWorkforceCommandOutput extends UpdateWorkforceResponse, _
  * //     },
  * //     Status: "Initializing" || "Updating" || "Deleting" || "Failed" || "Active",
  * //     FailureReason: "STRING_VALUE",
+ * //     IpAddressType: "ipv4" || "dualstack",
  * //   },
  * // };
  *
