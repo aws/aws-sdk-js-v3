@@ -353,13 +353,13 @@ import {
   StepDetailsEntity,
   StepDetailsIdentifiers,
   StepRequiredCapabilities,
-  StepSummary,
   TaskRunManifestPropertiesRequest,
   ThrottlingException,
   UpdatedSessionActionInfo,
   UsageTrackingResource,
   ValidationException,
   VCpuCountRange,
+  VpcConfiguration,
   WindowsUser,
   WorkerAmountCapability,
   WorkerAttributeCapability,
@@ -384,6 +384,7 @@ import {
   Statistics,
   Stats,
   StepSearchSummary,
+  StepSummary,
   StringFilterExpression,
   TaskSearchSummary,
   TaskSummary,
@@ -6711,6 +6712,7 @@ const se_ServiceManagedEc2FleetConfiguration = (
     instanceCapabilities: (_) => se_ServiceManagedEc2InstanceCapabilities(_, context),
     instanceMarketOptions: _json,
     storageProfileId: [],
+    vpcConfiguration: _json,
   });
 };
 
@@ -6789,6 +6791,10 @@ const se_UpdatedSessionActions = (input: Record<string, UpdatedSessionActionInfo
 // se_UserJobsFirst omitted.
 
 // se_VCpuCountRange omitted.
+
+// se_VpcConfiguration omitted.
+
+// se_VpcResourceConfigurationArns omitted.
 
 // se_WindowsUser omitted.
 
@@ -7286,6 +7292,8 @@ const de_JobSearchSummary = (output: any, context: __SerdeContext): JobSearchSum
     taskFailureRetryCount: __expectInt32,
     taskRunStatus: __expectString,
     taskRunStatusCounts: _json,
+    updatedAt: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    updatedBy: __expectString,
   }) as any;
 };
 
@@ -7563,6 +7571,7 @@ const de_ServiceManagedEc2FleetConfiguration = (
     instanceCapabilities: (_: any) => de_ServiceManagedEc2InstanceCapabilities(_, context),
     instanceMarketOptions: _json,
     storageProfileId: __expectString,
+    vpcConfiguration: _json,
   }) as any;
 };
 
@@ -7780,6 +7789,7 @@ const de_StepSearchSummaries = (output: any, context: __SerdeContext): StepSearc
 const de_StepSearchSummary = (output: any, context: __SerdeContext): StepSearchSummary => {
   return take(output, {
     createdAt: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    createdBy: __expectString,
     endedAt: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
     jobId: __expectString,
     lifecycleStatus: __expectString,
@@ -7793,6 +7803,8 @@ const de_StepSearchSummary = (output: any, context: __SerdeContext): StepSearchS
     taskFailureRetryCount: __expectInt32,
     taskRunStatus: __expectString,
     taskRunStatusCounts: _json,
+    updatedAt: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    updatedBy: __expectString,
   }) as any;
 };
 
@@ -7884,6 +7896,8 @@ const de_TaskSearchSummary = (output: any, context: __SerdeContext): TaskSearchS
     stepId: __expectString,
     targetRunStatus: __expectString,
     taskId: __expectString,
+    updatedAt: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    updatedBy: __expectString,
   }) as any;
 };
 
@@ -7926,6 +7940,10 @@ const de_TaskSummary = (output: any, context: __SerdeContext): TaskSummary => {
 // de_ValidationExceptionFieldList omitted.
 
 // de_VCpuCountRange omitted.
+
+// de_VpcConfiguration omitted.
+
+// de_VpcResourceConfigurationArns omitted.
 
 // de_WindowsUser omitted.
 

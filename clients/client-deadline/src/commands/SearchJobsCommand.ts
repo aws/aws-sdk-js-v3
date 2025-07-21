@@ -134,6 +134,8 @@ export interface SearchJobsCommandOutput extends SearchJobsResponse, __MetadataB
  * //       createdAt: new Date("TIMESTAMP"),
  * //       endedAt: new Date("TIMESTAMP"),
  * //       startedAt: new Date("TIMESTAMP"),
+ * //       updatedAt: new Date("TIMESTAMP"),
+ * //       updatedBy: "STRING_VALUE",
  * //       jobParameters: { // JobParameters
  * //         "<keys>": { // JobParameter Union: only one key present
  * //           int: "STRING_VALUE",

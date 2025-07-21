@@ -6,6 +6,7 @@ import {
   DateTimeFilterExpression,
   DeadlinePrincipalType,
   DefaultQueueBudgetAction,
+  DependencyCounts,
   EnvironmentTemplateType,
   FileSystemLocation,
   HostPropertiesResponse,
@@ -20,7 +21,6 @@ import {
   QueueStatus,
   SessionLifecycleTargetStatus,
   StepLifecycleStatus,
-  StepSummary,
   StepTargetTaskRunStatus,
   StorageProfileOperatingSystemFamily,
   StorageProfileSummary,
@@ -29,6 +29,102 @@ import {
   TaskTargetRunStatus,
   WorkerStatus,
 } from "./models_0";
+
+/**
+ * <p>The details for a step.</p>
+ * @public
+ */
+export interface StepSummary {
+  /**
+   * <p>The step ID.</p>
+   * @public
+   */
+  stepId: string | undefined;
+
+  /**
+   * <p>The name of the step.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The life cycle status.</p>
+   * @public
+   */
+  lifecycleStatus: StepLifecycleStatus | undefined;
+
+  /**
+   * <p>A message that describes the lifecycle of the step.</p>
+   * @public
+   */
+  lifecycleStatusMessage?: string | undefined;
+
+  /**
+   * <p>The task run status for the job.</p> <ul> <li> <p> <code>PENDING</code>–pending and waiting for resources.</p> </li> <li> <p> <code>READY</code>–ready to process.</p> </li> <li> <p> <code>ASSIGNED</code>–assigned and will run next on a worker.</p> </li> <li> <p> <code>SCHEDULED</code>–scheduled to run on a worker.</p> </li> <li> <p> <code>INTERRUPTING</code>–being interrupted.</p> </li> <li> <p> <code>RUNNING</code>–running on a worker.</p> </li> <li> <p> <code>SUSPENDED</code>–the task is suspended.</p> </li> <li> <p> <code>CANCELED</code>–the task has been canceled.</p> </li> <li> <p> <code>FAILED</code>–the task has failed.</p> </li> <li> <p> <code>SUCCEEDED</code>–the task has succeeded.</p> </li> </ul>
+   * @public
+   */
+  taskRunStatus: TaskRunStatus | undefined;
+
+  /**
+   * <p>The number of tasks running on the job.</p>
+   * @public
+   */
+  taskRunStatusCounts: Partial<Record<TaskRunStatus, number>> | undefined;
+
+  /**
+   * <p>The total number of times tasks from the step failed and were retried.</p>
+   * @public
+   */
+  taskFailureRetryCount?: number | undefined;
+
+  /**
+   * <p>The task status to start with on the job.</p>
+   * @public
+   */
+  targetTaskRunStatus?: StepTargetTaskRunStatus | undefined;
+
+  /**
+   * <p>The date and time the resource was created.</p>
+   * @public
+   */
+  createdAt: Date | undefined;
+
+  /**
+   * <p>The user or system that created this resource.</p>
+   * @public
+   */
+  createdBy: string | undefined;
+
+  /**
+   * <p>The date and time the resource was updated.</p>
+   * @public
+   */
+  updatedAt?: Date | undefined;
+
+  /**
+   * <p>The user or system that updated this resource.</p>
+   * @public
+   */
+  updatedBy?: string | undefined;
+
+  /**
+   * <p>The date and time the resource started running.</p>
+   * @public
+   */
+  startedAt?: Date | undefined;
+
+  /**
+   * <p>The date and time the resource ended running.</p>
+   * @public
+   */
+  endedAt?: Date | undefined;
+
+  /**
+   * <p>The number of dependencies for the step.</p>
+   * @public
+   */
+  dependencyCounts?: DependencyCounts | undefined;
+}
 
 /**
  * @public
@@ -2461,6 +2557,18 @@ export interface JobSearchSummary {
   startedAt?: Date | undefined;
 
   /**
+   * <p>The date and time the resource was updated.</p>
+   * @public
+   */
+  updatedAt?: Date | undefined;
+
+  /**
+   * <p>The user or system that updated this resource.</p>
+   * @public
+   */
+  updatedBy?: string | undefined;
+
+  /**
    * <p>The job parameters.</p>
    * @public
    */
@@ -2574,6 +2682,12 @@ export interface StepSearchSummary {
   createdAt?: Date | undefined;
 
   /**
+   * <p>The user or system that created this resource.</p>
+   * @public
+   */
+  createdBy?: string | undefined;
+
+  /**
    * <p>The date and time the resource started running.</p>
    * @public
    */
@@ -2584,6 +2698,18 @@ export interface StepSearchSummary {
    * @public
    */
   endedAt?: Date | undefined;
+
+  /**
+   * <p>The date and time the resource was updated.</p>
+   * @public
+   */
+  updatedAt?: Date | undefined;
+
+  /**
+   * <p>The user or system that updated this resource.</p>
+   * @public
+   */
+  updatedBy?: string | undefined;
 
   /**
    * <p>The parameters and combination expressions for the search.</p>
@@ -2679,6 +2805,18 @@ export interface TaskSearchSummary {
    * @public
    */
   endedAt?: Date | undefined;
+
+  /**
+   * <p>The date and time the resource was updated.</p>
+   * @public
+   */
+  updatedAt?: Date | undefined;
+
+  /**
+   * <p>The user or system that updated this resource.</p>
+   * @public
+   */
+  updatedBy?: string | undefined;
 }
 
 /**

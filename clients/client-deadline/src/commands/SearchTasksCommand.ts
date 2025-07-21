@@ -135,6 +135,8 @@ export interface SearchTasksCommandOutput extends SearchTasksResponse, __Metadat
  * //       failureRetryCount: Number("int"),
  * //       startedAt: new Date("TIMESTAMP"),
  * //       endedAt: new Date("TIMESTAMP"),
+ * //       updatedAt: new Date("TIMESTAMP"),
+ * //       updatedBy: "STRING_VALUE",
  * //     },
  * //   ],
  * //   nextItemOffset: Number("int"),

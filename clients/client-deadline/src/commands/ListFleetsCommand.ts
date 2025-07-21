@@ -155,6 +155,11 @@ export interface ListFleetsCommandOutput extends ListFleetsResponse, __MetadataB
  * //           instanceMarketOptions: { // ServiceManagedEc2InstanceMarketOptions
  * //             type: "on-demand" || "spot", // required
  * //           },
+ * //           vpcConfiguration: { // VpcConfiguration
+ * //             resourceConfigurationArns: [ // VpcResourceConfigurationArns
+ * //               "STRING_VALUE",
+ * //             ],
+ * //           },
  * //           storageProfileId: "STRING_VALUE",
  * //         },
  * //       },

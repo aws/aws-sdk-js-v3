@@ -130,8 +130,11 @@ export interface SearchStepsCommandOutput extends SearchStepsResponse, __Metadat
  * //       },
  * //       taskFailureRetryCount: Number("int"),
  * //       createdAt: new Date("TIMESTAMP"),
+ * //       createdBy: "STRING_VALUE",
  * //       startedAt: new Date("TIMESTAMP"),
  * //       endedAt: new Date("TIMESTAMP"),
+ * //       updatedAt: new Date("TIMESTAMP"),
+ * //       updatedBy: "STRING_VALUE",
  * //       parameterSpace: { // ParameterSpace
  * //         parameters: [ // StepParameterList // required
  * //           { // StepParameter
