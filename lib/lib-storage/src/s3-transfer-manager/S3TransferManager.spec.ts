@@ -1,7 +1,11 @@
 import { S3, S3Client } from "@aws-sdk/client-s3";
 import { TransferCompleteEvent, TransferEvent } from "@aws-sdk/lib-storage/dist-types/s3-transfer-manager/types";
+import { StreamingBlobPayloadOutputTypes } from "@smithy/types";
+import { Readable } from "stream";
 import { beforeAll, beforeEach, describe, expect, test as it, vi } from "vitest";
 
+import { getIntegTestResources } from "../../../../tests/e2e/get-integ-test-resources";
+import { iterateStreams, joinStreams } from "./join-streams";
 import { S3TransferManager } from "./S3TransferManager";
 
 /**
@@ -22,8 +26,15 @@ describe("S3TransferManager Unit Tests", () => {
   let region: string;
 
   beforeAll(async () => {
-    region = "us-west-1";
-    Bucket = "lukachad-us-west-2";
+    const integTestResourcesEnv = await getIntegTestResources();
+    Object.assign(process.env, integTestResourcesEnv);
+
+    region = process?.env?.AWS_SMOKE_TEST_REGION as string;
+    Bucket = process?.env?.AWS_SMOKE_TEST_BUCKET as string;
+    void getIntegTestResources;
+
+    // region = "us-west-1";
+    // Bucket = "lukachad-us-west-2";
 
     client = new S3({
       region,
@@ -175,7 +186,7 @@ describe("S3TransferManager Unit Tests", () => {
         }).toThrow("Unknown event type: invalidEvent");
       });
 
-      it("Should handle options.once correctly", () => {
+      it("Should handle options.once correctly, running the listener at most once.", () => {
         const mockCallback = vi.fn();
         tm.addEventListener("transferInitiated", mockCallback, { once: true });
 
@@ -188,6 +199,50 @@ describe("S3TransferManager Unit Tests", () => {
         tm.dispatchEvent(event);
 
         expect(mockCallback).toHaveBeenCalledTimes(1);
+      });
+
+      it("Should not add listener if included AbortSignal is aborted", () => {
+        const controller = new AbortController();
+        const callback = vi.fn();
+        controller.abort();
+        tm.addEventListener("transferInitiated", callback, { signal: controller.signal });
+        expect((tm as any).eventListeners.transferInitiated).toEqual([]);
+      });
+
+      it("Should remove listener after included AbortSignal was aborted", () => {
+        const controller = new AbortController();
+        const callback = vi.fn();
+        tm.addEventListener("transferInitiated", callback, { signal: controller.signal });
+
+        const event = Object.assign(new Event("transferInitiated"), {
+          request: {},
+          snapshot: {},
+        });
+        tm.dispatchEvent(event);
+
+        expect(callback).toHaveBeenCalledTimes(1);
+        expect((tm as any).eventListeners.transferInitiated).toEqual([callback]);
+
+        controller.abort();
+        expect((tm as any).eventListeners.transferInitiated).toEqual([]);
+      });
+
+      it("Should clean up abort listeners and store cleanup functions in WeakMap", () => {
+        const controller = new AbortController();
+        const callback = vi.fn();
+
+        tm.addEventListener("transferInitiated", callback, { signal: controller.signal });
+
+        expect((tm as any).eventListeners.transferInitiated).toEqual([callback]);
+        expect((tm as any).abortCleanupFunctions.has(controller.signal)).toBe(true);
+
+        const cleanupFn = (tm as any).abortCleanupFunctions.get(controller.signal);
+        cleanupFn();
+        (tm as any).abortCleanupFunctions.delete(controller.signal);
+
+        expect((tm as any).abortCleanupFunctions.has(controller.signal)).toBe(false);
+        controller.abort();
+        expect((tm as any).eventListeners.transferInitiated).toEqual([callback]);
       });
 
       it("Should handle boolean options parameter", () => {
@@ -310,68 +365,511 @@ describe("S3TransferManager Unit Tests", () => {
         expect(result).toBe(true);
       });
 
-      it("Should handle unknown event types", () => {});
+      it("Should handle unknown event types", () => {
+        const event = Object.assign(new Event("unknownEvent"), {
+          request: {},
+          snapshot: {},
+        });
 
-      it("Should handle a mix of object-style callbacks and functions", () => {});
+        const results = tm.dispatchEvent(event);
+        expect(results).toBe(true);
+      });
+
+      it("Should handle a mix of object-style callbacks and functions", () => {
+        const callback = vi.fn();
+        const objectCallback = {
+          handleEvent: vi.fn(),
+        };
+        tm.addEventListener("transferInitiated", objectCallback as any);
+        tm.addEventListener("transferInitiated", callback);
+
+        const event = Object.assign(new Event("transferInitiated"), {
+          request: {},
+          snapshot: {},
+        });
+
+        tm.dispatchEvent(event);
+
+        expect(objectCallback.handleEvent).toHaveBeenCalledTimes(1);
+        expect(objectCallback.handleEvent).toHaveBeenCalledWith(event);
+        expect(callback).toHaveBeenCalledTimes(1);
+        expect(callback).toHaveBeenCalledWith(event);
+      });
     });
 
-    describe.skip("removeEventListener()", () => {
-      it("Should remove a listener from an event", () => {});
+    describe("removeEventListener()", () => {
+      it("Should remove only the specified listener, leaving other intact", () => {
+        const callback1 = vi.fn();
+        const callback2 = vi.fn();
+        tm.addEventListener("transferInitiated", callback1);
+        tm.addEventListener("transferInitiated", callback2);
 
-      it("Should remove a listener from an event", () => {});
+        tm.removeEventListener("transferInitiated", callback1);
 
-      it("Should remove a listener from an event", () => {});
+        const event = Object.assign(new Event("transferInitiated"), {
+          request: {},
+          snapshot: {},
+        });
+
+        tm.dispatchEvent(event);
+
+        expect(callback1).not.toHaveBeenCalled();
+        expect(callback2).toHaveBeenCalledTimes(1);
+      });
+
+      it("Should remove object-style callback with handleEvent", () => {
+        const objectCallback = { handleEvent: vi.fn() };
+        tm.addEventListener("transferInitiated", objectCallback as any);
+        tm.removeEventListener("transferInitiated", objectCallback as any);
+
+        const event = Object.assign(new Event("transferInitiated"), {
+          request: {},
+          snapshot: {},
+        });
+
+        tm.dispatchEvent(event);
+        expect(objectCallback.handleEvent).not.toHaveBeenCalled();
+      });
+
+      it("Should remove all instance of the same callback", () => {
+        const callback = vi.fn();
+        tm.addEventListener("transferInitiated", callback);
+        tm.addEventListener("transferInitiated", callback);
+
+        tm.removeEventListener("transferInitiated", callback);
+
+        const event = Object.assign(new Event("transferInitiated"), {
+          request: {},
+          snapshot: {},
+        });
+
+        tm.dispatchEvent(event);
+
+        expect(callback).not.toHaveBeenCalled();
+      });
+
+      it("Should handle removing non-existing listener gracefully", () => {
+        const callback = vi.fn();
+        expect(() => {
+          tm.removeEventListener("transferInitiated", callback);
+        }).not.toThrow();
+      });
+
+      it("Should handle removing from an event type with no listeners gracefully", () => {
+        const callback = vi.fn();
+        tm.removeEventListener("transferInitiated", callback);
+
+        const event = Object.assign(new Event("transferInitiated"), {
+          request: {},
+          snapshot: {},
+        });
+
+        tm.dispatchEvent(event);
+
+        expect(callback).not.toHaveBeenCalled();
+      });
+
+      it("Should handle null callback parameter", () => {
+        expect(() => {
+          tm.removeEventListener("transferInitiated", null as any);
+        }).not.toThrow();
+      });
     });
-
-    describe.skip("iterateListeners()", () => {});
-
-    describe.skip("joinStreams()", () => {});
-
-    describe.skip("iterateStreams()", () => {});
   });
 
-  describe("validateExpectedRanges()", () => {
+  describe("iterateListeners()", () => {
+    let tm: S3TransferManager;
+
+    beforeEach(async () => {
+      tm = new S3TransferManager({
+        s3ClientInstance: client,
+      });
+    });
+
+    it("Should iterate over all listeners given a TransferManager's object of event listeners", () => {
+      const callback1 = vi.fn();
+      const callback2 = vi.fn();
+      const callback3 = vi.fn();
+
+      const eventListeners = {
+        transferInitiated: [callback1],
+        bytesTransferred: [callback2, callback3],
+        transferComplete: [],
+        transferFailed: [],
+      };
+
+      const results = Array.from((tm as any).iterateListeners(eventListeners)) as any[];
+
+      expect(results).toHaveLength(3);
+      expect(results[0][0]).toEqual({ eventType: "transferInitiated", callback: callback1 });
+      expect(results[1][0]).toEqual({ eventType: "bytesTransferred", callback: callback2 });
+      expect(results[2][0]).toEqual({ eventType: "bytesTransferred", callback: callback3 });
+    });
+
+    it("Should handle empty event listeners object", () => {
+      const eventListeners = {
+        transferInitiated: [],
+        bytesTransferred: [],
+        transferComplete: [],
+        transferFailed: [],
+      };
+
+      const results = Array.from((tm as any).iterateListeners(eventListeners)) as any[];
+
+      expect(results).toHaveLength(0);
+    });
+
+    it("Should iterate over a mix of functions and objects with handleEvent callback types.", () => {
+      const callback1 = vi.fn();
+      const callback2 = vi.fn();
+      const objectCallback = {
+        handleEvent: vi.fn(),
+      };
+
+      const eventListeners = {
+        transferInitiated: [callback1],
+        bytesTransferred: [],
+        transferComplete: [],
+        transferFailed: [callback2, objectCallback],
+      };
+
+      const results = Array.from((tm as any).iterateListeners(eventListeners)) as any[];
+
+      expect(results).toHaveLength(3);
+      expect(results[0][0]).toEqual({ eventType: "transferInitiated", callback: callback1 });
+      expect(results[1][0]).toEqual({ eventType: "transferFailed", callback: callback2 });
+      expect(results[2][0]).toEqual({ eventType: "transferFailed", callback: objectCallback });
+    });
+
+    it("Should handle event lisetners with duplicate callbacks in the same event type", () => {
+      const callback = vi.fn();
+
+      const eventListeners = {
+        transferInitiated: [callback, callback],
+        bytesTransferred: [],
+        transferComplete: [callback, callback],
+        transferFailed: [],
+      };
+
+      const results = Array.from((tm as any).iterateListeners(eventListeners)) as any[];
+
+      expect(results).toHaveLength(4);
+      for (let i = 0; i < results.length; i++) {
+        expect(results[i][0]).toEqual({ eventType: results[i][0].eventType, callback });
+      }
+    });
+
+    it("Should return empty iterator when no callbacks are present", () => {
+      const eventListeners = {};
+
+      const results = Array.from((tm as any).iterateListeners(eventListeners)) as any[];
+
+      expect(results).toHaveLength(0);
+    });
+  });
+
+  describe("validatePartRange()", () => {
     let tm: any;
     beforeAll(async () => {
       tm = new S3TransferManager() as any;
     }, 120_000);
 
-    it("Should pass correct sequential ranges without throwing an error", () => {
+    it("Should pass correct ranges based on part number without throwing an error", () => {
+      const partSize = 5242880;
       const ranges = [
-        "bytes 0-5242879/13631488",
-        "bytes 5242880-10485759/13631488",
-        "bytes 10485760-13631487/13631488",
+        { partNumber: 1, range: "bytes 0-5242879/13631488" },
+        { partNumber: 2, range: "bytes 5242880-10485759/13631488" },
+        { partNumber: 3, range: "bytes 10485760-13631487/13631488" },
       ];
 
-      for (let i = 1; i < ranges.length; i++) {
+      for (const { partNumber, range } of ranges) {
         expect(() => {
-          tm.validateExpectedRanges(ranges[i - 1], ranges[i], i + 1);
+          tm.validatePartRange(partNumber, range, partSize);
         }).not.toThrow();
       }
     });
 
-    it("Should throw error for incomplete download", () => {
-      const ranges = [
-        "bytes 0-5242879/13631488",
-        "bytes 5242880-10485759/13631488",
-        "bytes 10485760-13631480/13631488", // 8 bytes short
-      ];
+    it("Should throw error for incorrect start position", () => {
+      const partSize = 5242880;
 
       expect(() => {
-        tm.validateExpectedRanges(ranges[1], ranges[2], 3);
-      }).toThrow(
-        "Range validation failed: Final part did not cover total range of 13631488. Expected range of bytes 10485760-314572"
-      );
+        tm.validatePartRange(2, "bytes 5242881-10485759/13631488", partSize);
+      }).toThrow("Expected part 2 to start at 5242880 but got 5242881");
+
+      expect(() => {
+        tm.validatePartRange(2, "bytes 5242879-10485759/13631488", partSize);
+      }).toThrow("Expected part 2 to start at 5242880 but got 5242879");
+
+      expect(() => {
+        tm.validatePartRange(2, "bytes 0-5242879/13631488", partSize);
+      }).toThrow("Expected part 2 to start at 5242880 but got 0");
     });
 
-    it.each([
-      ["bytes 5242881-10485759/13631488", "Expected part 2 to start at 5242880 but got 5242881"], // 1 byte off
-      ["bytes 5242879-10485759/13631488", "Expected part 2 to start at 5242880 but got 5242879"], // overlap
-      ["bytes 0-5242879/13631488", "Expected part 2 to start at 5242880 but got 0"], // duplicate
-    ])("Should throw error for non-sequential range: %s", (invalidRange, expectedError) => {
+    it("Should throw error for incorrect end position", () => {
+      const partSize = 5242880;
+
       expect(() => {
-        tm.validateExpectedRanges("bytes 0-5242879/13631488", invalidRange, 2);
-      }).toThrow(expectedError);
+        tm.validatePartRange(2, "bytes 5242880-10485760/13631488", partSize);
+      }).toThrow("Expected part 2 to end at 10485759 but got 10485760");
+
+      expect(() => {
+        tm.validatePartRange(3, "bytes 10485760-13631480/13631488", partSize);
+      }).toThrow("Expected part 3 to end at 13631487 but got 13631480");
+    });
+
+    it("Should handle last part correctly when not a full part size", () => {
+      const partSize = 5242880;
+
+      expect(() => {
+        tm.validatePartRange(3, "bytes 10485760-13631487/13631488", partSize);
+      }).not.toThrow();
+    });
+
+    it("Should throw error for invalid ContentRange format", () => {
+      const partSize = 5242880;
+
+      expect(() => {
+        tm.validatePartRange(2, "invalid-format", partSize);
+      }).toThrow("Invalid ContentRange format: invalid-format");
     });
   });
 });
+
+// describe("join-streams tests", () => {
+//   const streamTypes = [
+//     {
+//       name: "Readable",
+//       createStream: () => new Readable({ read() {} }),
+//       supported: true,
+//       streamType: Readable,
+//     },
+//     {
+//       name: "ReadableStream",
+//       createStream: () => new ReadableStream(),
+//       supported: false,
+//       streamType: ReadableStream,
+//     },
+//     {
+//       name: "Blob",
+//       createStream: () => new Blob(["test"]),
+//       supported: false,
+//       streamType: Blob,
+//     },
+//   ];
+
+//   streamTypes.forEach(({ name, createStream, supported, streamType }) => {
+//     describe.skipIf(!supported)(`${name} streams`, () => {
+//       describe("joinStreams()", () => {
+//         it(`Should return single ${name} when only one stream is provided`, () => {
+//           const stream = createStream();
+//           const result = joinStreams([stream as unknown as StreamingBlobPayloadOutputTypes]);
+
+//           expect(result).toBeDefined();
+//           expect(result).toBe(stream);
+//         });
+//         it(`Should handle empty ${name} streams array`, () => {
+//           const result = joinStreams([] as unknown as StreamingBlobPayloadOutputTypes[]);
+//           expect(result).toBeDefined();
+//           expect(result).toBeInstanceOf(streamType);
+//         });
+//         it(`Should join multiple ${name} streams into a single stream`, async () => {
+//           const content1 = Buffer.from("Chunk 1");
+//           const content2 = Buffer.from("Chunk 2");
+//           const content3 = Buffer.from("Chunk 3");
+
+//           if (name === "Readable") {
+//             const stream1 = new Readable({
+//               read() {
+//                 this.push(content1);
+//                 this.push(null);
+//               },
+//             });
+//             const stream2 = new Readable({
+//               read() {
+//                 this.push(content2);
+//                 this.push(null);
+//               },
+//             });
+//             const stream3 = new Readable({
+//               read() {
+//                 this.push(content3);
+//                 this.push(null);
+//               },
+//             });
+
+//             const joinedStream = joinStreams([
+//               stream1,
+//               stream2,
+//               stream3,
+//             ] as unknown as StreamingBlobPayloadOutputTypes[]);
+
+//             const chunks: Buffer[] = [];
+//             for await (const chunk of joinedStream as any) {
+//               chunks.push(Buffer.from(chunk));
+//             }
+
+//             const joinedContent = Buffer.concat(chunks).toString();
+//             expect(joinedContent).toContain(content1.toString());
+//             expect(joinedContent).toContain(content2.toString());
+//             expect(joinedContent).toContain(content3.toString());
+//           }
+//         });
+//         it(`Should handle ${name} streams with different chunk sizes`, async () => {
+//           const content1 = Buffer.from("Chunk 1 Chunk 1 Chunk 1");
+//           const content2 = Buffer.from("Chunk 2");
+//           const content3 = Buffer.from("Chunk 3 Chunk 3");
+
+//           if (name === "Readable") {
+//             const stream1 = new Readable({
+//               read() {
+//                 this.push(content1);
+//                 this.push(null);
+//               },
+//             });
+//             const stream2 = new Readable({
+//               read() {
+//                 this.push(content2);
+//                 this.push(null);
+//               },
+//             });
+//             const stream3 = new Readable({
+//               read() {
+//                 this.push(content3);
+//                 this.push(null);
+//               },
+//             });
+
+//             const joinedStream = joinStreams([
+//               stream1,
+//               stream2,
+//               stream3,
+//             ] as unknown as StreamingBlobPayloadOutputTypes[]);
+
+//             const chunks: Buffer[] = [];
+//             for await (const chunk of joinedStream as any) {
+//               chunks.push(Buffer.from(chunk));
+//             }
+
+//             const joinedContent = Buffer.concat(chunks).toString();
+//             expect(joinedContent).toContain(content1.toString());
+//             expect(joinedContent).toContain(content2.toString());
+//             expect(joinedContent).toContain(content3.toString());
+//           }
+//         });
+//         it(`Should handle ${name} streams with no data`, async () => {
+//           if (name === "Readable") {
+//             const emptyStream1 = new Readable({
+//               read() {
+//                 this.push(null);
+//               },
+//             });
+//             const emptyStream2 = new Readable({
+//               read() {
+//                 this.push(null);
+//               },
+//             });
+
+//             const joinedStream = joinStreams([
+//               emptyStream1,
+//               emptyStream2,
+//             ] as unknown as StreamingBlobPayloadOutputTypes[]);
+
+//             const chunks: Buffer[] = [];
+//             for await (const chunk of joinedStream as any) {
+//               chunks.push(Buffer.from(chunk));
+//             }
+//             expect(chunks.length).toBe(0);
+//             expect(Buffer.concat(chunks).length).toBe(0);
+//           }
+//         });
+//         it(`Should properly close/cleanup ${name} streams after processing`, async () => {
+//           if (name === "Readable") {
+//             const stream1 = new Readable({
+//               read() {
+//                 this.push(Buffer.from("data"));
+//                 this.push(null);
+//               },
+//             });
+//             const stream2 = new Readable({
+//               read() {
+//                 this.push(Buffer.from("more"));
+//                 this.push(null);
+//               },
+//             });
+
+//             const destroySpy1 = vi.spyOn(stream1, "destroy");
+//             const destroySpy2 = vi.spyOn(stream2, "destroy");
+
+//             const joinedStream = joinStreams([stream1, stream2] as unknown as StreamingBlobPayloadOutputTypes[]);
+
+//             for await (const chunk of joinedStream as any) {
+//               // consume the data
+//             }
+
+//             expect(destroySpy1).toHaveBeenCalled();
+//             expect(destroySpy2).toHaveBeenCalled();
+//           }
+//         });
+//       });
+
+//       describe("iterateStreams()", () => {
+//         it(`Should iterate through single ${name} stream`, async () => {
+//           if (name === "Readable") {
+//             const stream1 = new Readable({
+//               read() {
+//                 this.push(Buffer.from("stream 1"));
+//                 this.push(null);
+//               },
+//             });
+//             const iterator = iterateStreams([stream1] as unknown as StreamingBlobPayloadOutputTypes[]);
+
+//             const chunks: string[] = [];
+//             for await (const chunk of iterator) {
+//               chunks.push(chunk.toString());
+//             }
+//             expect(chunks).toEqual(["stream 1"]);
+//           }
+//         });
+//         it(`Should iterate through multiple ${name} streams in order`, async () => {
+//           if (name === "Readable") {
+//             const stream1 = new Readable({
+//               read() {
+//                 this.push(Buffer.from("stream 1"));
+//                 this.push(null);
+//               },
+//             });
+//             const stream2 = new Readable({
+//               read() {
+//                 this.push(Buffer.from("stream 2"));
+//                 this.push(null);
+//               },
+//             });
+//             const stream3 = new Readable({
+//               read() {
+//                 this.push(Buffer.from("stream 3"));
+//                 this.push(null);
+//               },
+//             });
+//             const iterator = iterateStreams([
+//               stream1,
+//               stream2,
+//               stream3,
+//             ] as unknown as StreamingBlobPayloadOutputTypes[]);
+
+//             const chunks: string[] = [];
+//             for await (const chunk of iterator) {
+//               chunks.push(chunk.toString());
+//             }
+//             expect(chunks).toEqual(["stream 1", "stream 2", "stream 3"]);
+//           }
+//         });
+//         it(`Should call onBytes callback during ${name} iteration`, () => {});
+//         it(`Should call onCompletion callback after ${name} iteration completes`, () => {});
+//         it(`Should call onFailure callback when ${name} iteration fails`, () => {});
+//         it(`Should handle empty ${name} streams during iteration`, () => {});
+//         it(`Should track correct byte count across ${name} streams`, () => {});
+//         it(`Should maintain correct index during ${name} stream iteration`, () => {});
+//       });
+//     });
+//   });
+// });

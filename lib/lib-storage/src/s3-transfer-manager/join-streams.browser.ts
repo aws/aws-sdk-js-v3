@@ -1,17 +1,16 @@
 import { StreamingBlobPayloadOutputTypes } from "@smithy/types";
 import { isBlob, isReadableStream, sdkStreamMixin } from "@smithy/util-stream";
 
-// check all types. needs to join nodejs and browser together
-export function joinStreams(streams: StreamingBlobPayloadOutputTypes[]): StreamingBlobPayloadOutputTypes {
-  console.log("Is Readable Stream: ");
-  console.log(isReadableStream(streams[0]));
+import { JoinStreamIterationEvents } from "./types";
 
-  if (streams.length === 1) {
-    return streams[0];
-  } else if (isReadableStream(streams[0]) || isBlob(streams[0])) {
+export async function joinStreams(
+  streams: Promise<StreamingBlobPayloadOutputTypes>[],
+  eventListeners?: JoinStreamIterationEvents
+): Promise<StreamingBlobPayloadOutputTypes> {
+  if (isReadableStream(streams[0])) {
     const newReadableStream = new ReadableStream({
       async start(controller) {
-        for await (const chunk of iterateStreams(streams)) {
+        for await (const chunk of iterateStreams(streams, eventListeners)) {
           controller.enqueue(chunk);
         }
         controller.close();
@@ -19,25 +18,36 @@ export function joinStreams(streams: StreamingBlobPayloadOutputTypes[]): Streami
     });
     return sdkStreamMixin(newReadableStream);
   } else {
-    throw new Error("Unknown stream type");
+    throw new Error("Unsupported Stream Type");
   }
 }
 
 export async function* iterateStreams(
-  streams: StreamingBlobPayloadOutputTypes[]
+  streams: Promise<StreamingBlobPayloadOutputTypes>[],
+  eventListeners?: JoinStreamIterationEvents
 ): AsyncIterable<StreamingBlobPayloadOutputTypes, void, void> {
-  for (const stream of streams) {
+  let bytesTransferred = 0;
+  let index = 0;
+  for (const streamPromise of streams) {
+    const stream = await streamPromise;
     if (isReadableStream(stream)) {
-      const reader = (stream as ReadableStream).getReader();
-      try {
-        while (true) {
-          const { done, value } = await reader.read();
-          if (done) break;
-          yield value;
+      const reader = stream.getReader();
+      while (true) {
+        const { done, value } = await reader.read();
+        if (done) {
+          break;
         }
-      } finally {
-        reader.releaseLock();
+        yield value;
+        bytesTransferred += value.byteLength;
+        eventListeners?.onBytes?.(bytesTransferred, index);
       }
+      reader.releaseLock();
+    } else {
+      const failure = new Error(`unhandled stream type ${(stream as any)?.constructor?.name}`);
+      eventListeners?.onFailure?.(failure, index);
+      throw failure;
     }
+    index++;
   }
+  eventListeners?.onCompletion?.(bytesTransferred, index - 1);
 }
