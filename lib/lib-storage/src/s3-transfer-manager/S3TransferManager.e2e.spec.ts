@@ -31,16 +31,12 @@ describe(S3TransferManager.name, () => {
   let region: string;
 
   beforeAll(async () => {
-    // TODO: replace hard coded region and bucket with integration test resources.
     const integTestResourcesEnv = await getIntegTestResources();
     Object.assign(process.env, integTestResourcesEnv);
 
     region = process?.env?.AWS_SMOKE_TEST_REGION as string;
     Bucket = process?.env?.AWS_SMOKE_TEST_BUCKET as string;
     void getIntegTestResources;
-
-    // region = "us-west-2";
-    // Bucket = "lukachad-us-west-2";
 
     client = new S3({
       region,
@@ -96,7 +92,6 @@ describe(S3TransferManager.name, () => {
                 bytesTransferred: [
                   ({ request, snapshot }) => {
                     bytesTransferred = snapshot.transferredBytes;
-                    // console.log(bytesTransferred);
                   },
                 ],
               },
