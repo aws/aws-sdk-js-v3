@@ -9,7 +9,8 @@ export async function joinStreams(
   streams: Promise<StreamingBlobPayloadOutputTypes>[],
   eventListeners?: JoinStreamIterationEvents
 ): Promise<StreamingBlobPayloadOutputTypes> {
-  if (isReadableStream(streams[0])) {
+  const firstStream = await streams[0];
+  if (isReadableStream(firstStream)) {
     const newReadableStream = new ReadableStream({
       async start(controller) {
         for await (const chunk of iterateStreams(streams, eventListeners)) {
@@ -34,16 +35,19 @@ export async function* iterateStreams(
     const stream = await streamPromise;
     if (isReadableStream(stream)) {
       const reader = stream.getReader();
-      while (true) {
-        const { done, value } = await reader.read();
-        if (done) {
-          break;
+      try {
+        while (true) {
+          const { done, value } = await reader.read();
+          if (done) {
+            break;
+          }
+          yield value;
+          bytesTransferred += value.byteLength;
+          eventListeners?.onBytes?.(bytesTransferred, index);
         }
-        yield value;
-        bytesTransferred += value.byteLength;
-        eventListeners?.onBytes?.(bytesTransferred, index);
+      } finally {
+        reader.releaseLock();
       }
-      reader.releaseLock();
     } else if (stream instanceof Readable) {
       for await (const chunk of stream) {
         yield chunk;
