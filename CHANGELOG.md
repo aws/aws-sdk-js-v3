@@ -3,6 +3,27 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.850.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.849.0...v3.850.0) (2025-07-21)
+
+
+### Bug Fixes
+
+* **lib-dynamodb:** support command reuse ([#7216](https://github.com/aws/aws-sdk-js-v3/issues/7216)) ([24e5b28](https://github.com/aws/aws-sdk-js-v3/commit/24e5b28bf51df504c3504854ae5f3c50199b423b))
+
+
+### Features
+
+* **client-cloudfront:** Add dualstack endpoint support ([f67f982](https://github.com/aws/aws-sdk-js-v3/commit/f67f98270956c7683649e6eff690819f7119431d))
+* **client-deadline:** Add support for VPC resource endpoints in Service Managed Fleets ([e094eab](https://github.com/aws/aws-sdk-js-v3/commit/e094eab24c1f32a2750762a83f4231079adabb74))
+* **client-ec2:** This release adds support for C8gn, F2 and P6e-GB200 Instance types ([3d8f2e1](https://github.com/aws/aws-sdk-js-v3/commit/3d8f2e1262c71a3b21095200a4e53b058d907ed6))
+* **client-sagemaker:** This release adds 1/ Support for S3FileSystem in CustomFileSystems 2/ The ability for a customer to select their preferred IpAddressType for use with private Workforces 3/ Support for p4de instance type in SageMaker Training Plans ([a78bcaf](https://github.com/aws/aws-sdk-js-v3/commit/a78bcaf1ef8cc1498f3e73f59329fdae3d3bd4de))
+* **client-timestream-influxdb:** Timestream for InfluxDB adds support for db.influx.24xlarge instance type. This enhancement enables higher compute capacity for demanding workloads through CreateDbInstance, CreateDbCluster, UpdateDbInstance, and UpdateDbCluster APIs. ([ccb7908](https://github.com/aws/aws-sdk-js-v3/commit/ccb790866737f26ad3f111feb3ce4ae935ad024a))
+* **clients:** update client endpoints as of 2025-07-21 ([9a5e598](https://github.com/aws/aws-sdk-js-v3/commit/9a5e598d9f1f78bca23ad741ecec3027b61e7131))
+
+
+
+
+
 # [3.849.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.848.0...v3.849.0) (2025-07-18)
 
 

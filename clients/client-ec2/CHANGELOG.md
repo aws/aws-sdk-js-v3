@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.850.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.849.0...v3.850.0) (2025-07-21)
+
+
+### Features
+
+* **client-ec2:** This release adds support for C8gn, F2 and P6e-GB200 Instance types ([3d8f2e1](https://github.com/aws/aws-sdk-js-v3/commit/3d8f2e1262c71a3b21095200a4e53b058d907ed6))
+
+
+
+
+
 # [3.848.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.847.0...v3.848.0) (2025-07-17)
 
 

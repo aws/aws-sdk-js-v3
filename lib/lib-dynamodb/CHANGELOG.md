@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.850.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.849.0...v3.850.0) (2025-07-21)
+
+
+### Bug Fixes
+
+* **lib-dynamodb:** support command reuse ([#7216](https://github.com/aws/aws-sdk-js-v3/issues/7216)) ([24e5b28](https://github.com/aws/aws-sdk-js-v3/commit/24e5b28bf51df504c3504854ae5f3c50199b423b))
+
+
+
+
+
 # [3.848.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.847.0...v3.848.0) (2025-07-17)
 
 **Note:** Version bump only for package @aws-sdk/lib-dynamodb
