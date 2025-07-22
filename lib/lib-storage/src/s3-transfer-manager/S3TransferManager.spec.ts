@@ -584,7 +584,7 @@ describe("S3TransferManager Unit Tests", () => {
 
       for (const { partNumber, range } of ranges) {
         expect(() => {
-          tm.validatePartDownload(partNumber, range, partSize);
+          tm.validatePartDownload(range, partNumber, partSize);
         }).not.toThrow();
       }
     });
@@ -593,15 +593,15 @@ describe("S3TransferManager Unit Tests", () => {
       const partSize = 5242880;
 
       expect(() => {
-        tm.validatePartDownload(2, "bytes 5242881-10485759/13631488", partSize);
+        tm.validatePartDownload("bytes 5242881-10485759/13631488", 2, partSize);
       }).toThrow("Expected part 2 to start at 5242880 but got 5242881");
 
       expect(() => {
-        tm.validatePartDownload(2, "bytes 5242879-10485759/13631488", partSize);
+        tm.validatePartDownload("bytes 5242879-10485759/13631488", 2, partSize);
       }).toThrow("Expected part 2 to start at 5242880 but got 5242879");
 
       expect(() => {
-        tm.validatePartDownload(2, "bytes 0-5242879/13631488", partSize);
+        tm.validatePartDownload("bytes 0-5242879/13631488", 2, partSize);
       }).toThrow("Expected part 2 to start at 5242880 but got 0");
     });
 
@@ -609,11 +609,11 @@ describe("S3TransferManager Unit Tests", () => {
       const partSize = 5242880;
 
       expect(() => {
-        tm.validatePartDownload(2, "bytes 5242880-10485760/13631488", partSize);
+        tm.validatePartDownload("bytes 5242880-10485760/13631488", 2, partSize);
       }).toThrow("Expected part 2 to end at 10485759 but got 10485760");
 
       expect(() => {
-        tm.validatePartDownload(3, "bytes 10485760-13631480/13631488", partSize);
+        tm.validatePartDownload("bytes 10485760-13631480/13631488", 3, partSize);
       }).toThrow("Expected part 3 to end at 13631487 but got 13631480");
     });
 
@@ -621,7 +621,7 @@ describe("S3TransferManager Unit Tests", () => {
       const partSize = 5242880;
 
       expect(() => {
-        tm.validatePartDownload(3, "bytes 10485760-13631487/13631488", partSize);
+        tm.validatePartDownload("bytes 10485760-13631487/13631488", 3, partSize);
       }).not.toThrow();
     });
 
@@ -629,12 +629,67 @@ describe("S3TransferManager Unit Tests", () => {
       const partSize = 5242880;
 
       expect(() => {
-        tm.validatePartDownload(2, "invalid-format", partSize);
+        tm.validatePartDownload("invalid-format", 2, partSize);
       }).toThrow("Invalid ContentRange format: invalid-format");
+    });
+
+    it("Should throw error for missing ContentRange", () => {
+      const partSize = 5242880;
+
+      expect(() => {
+        tm.validatePartDownload(undefined, 2, partSize);
+      }).toThrow("Missing ContentRange for part 2.");
     });
   });
 
-  // TODO: tests cases for validateRangeDownload()
+  describe("validateRangeDownload()", () => {
+    let tm: any;
+    beforeAll(async () => {
+      tm = new S3TransferManager() as any;
+    }, 120_000);
+
+    it("Should pass when response range matches request range", () => {
+      expect(() => {
+        tm.validateRangeDownload("bytes=0-5242879", "bytes 0-5242879/13631488");
+      }).not.toThrow();
+    });
+
+    it("Should pass when response range ends at total size", () => {
+      expect(() => {
+        tm.validateRangeDownload("bytes=10485760-13631500", "bytes 10485760-13631487/13631488");
+      }).not.toThrow();
+    });
+
+    it("Should throw error for missing response range", () => {
+      expect(() => {
+        tm.validateRangeDownload("bytes=0-5242879", undefined);
+      }).toThrow("Missing ContentRange for range bytes=0-5242879.");
+    });
+
+    it("Should throw error for invalid response range format", () => {
+      expect(() => {
+        tm.validateRangeDownload("bytes=0-5242879", "invalid-format");
+      }).toThrow("Invalid ContentRange format: invalid-format");
+    });
+
+    it("Should throw error for invalid request range format", () => {
+      expect(() => {
+        tm.validateRangeDownload("invalid-format", "bytes 0-5242879/13631488");
+      }).toThrow("Invalid Range format: invalid-format");
+    });
+
+    it("Should throw error for incorrect start position", () => {
+      expect(() => {
+        tm.validateRangeDownload("bytes=0-5242879", "bytes 1-5242879/13631488");
+      }).toThrow("Expected range to start at 0 but got 1");
+    });
+
+    it("Should throw error for incorrect end position", () => {
+      expect(() => {
+        tm.validateRangeDownload("bytes=0-5242879", "bytes 0-5242878/13631488");
+      }).toThrow("Expected range to end at 5242879 but got 5242878");
+    });
+  });
 });
 
 describe("join-streams tests", () => {
