@@ -2049,7 +2049,7 @@ export interface CreatePersistentAppUIInput {
   XReferer?: string | undefined;
 
   /**
-   * <p>The profiler type for the persistent application user interface. Valid values are SHS, TEZUI, or YTS.</p>
+   * <p>The profiler type for the persistent application user interface.</p>
    * @public
    */
   ProfilerType?: ProfilerType | undefined;
@@ -5777,6 +5777,12 @@ export interface ModifyClusterInput {
    * @public
    */
   StepConcurrencyLevel?: number | undefined;
+
+  /**
+   * <p>Reserved.</p>
+   * @public
+   */
+  ExtendedSupport?: boolean | undefined;
 }
 
 /**
@@ -5788,6 +5794,12 @@ export interface ModifyClusterOutput {
    * @public
    */
   StepConcurrencyLevel?: number | undefined;
+
+  /**
+   * <p>Reserved.</p>
+   * @public
+   */
+  ExtendedSupport?: boolean | undefined;
 }
 
 /**
@@ -6702,6 +6714,12 @@ export interface Cluster {
    * @public
    */
   EbsRootVolumeThroughput?: number | undefined;
+
+  /**
+   * <p>Reserved.</p>
+   * @public
+   */
+  ExtendedSupport?: boolean | undefined;
 }
 
 /**
@@ -8008,6 +8026,12 @@ export interface RunJobFlowInput {
    * @public
    */
   EbsRootVolumeThroughput?: number | undefined;
+
+  /**
+   * <p>Reserved.</p>
+   * @public
+   */
+  ExtendedSupport?: boolean | undefined;
 }
 
 /**

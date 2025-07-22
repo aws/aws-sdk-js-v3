@@ -335,6 +335,7 @@ export interface RunJobFlowCommandOutput extends RunJobFlowOutput, __MetadataBea
  *   OSReleaseLabel: "STRING_VALUE",
  *   EbsRootVolumeIops: Number("int"),
  *   EbsRootVolumeThroughput: Number("int"),
+ *   ExtendedSupport: true || false,
  * };
  * const command = new RunJobFlowCommand(input);
  * const response = await client.send(command);

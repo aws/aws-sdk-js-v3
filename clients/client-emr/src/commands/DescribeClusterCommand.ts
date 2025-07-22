@@ -162,6 +162,7 @@ export interface DescribeClusterCommandOutput extends DescribeClusterOutput, __M
  * //     OSReleaseLabel: "STRING_VALUE",
  * //     EbsRootVolumeIops: Number("int"),
  * //     EbsRootVolumeThroughput: Number("int"),
+ * //     ExtendedSupport: true || false,
  * //   },
  * // };
  *

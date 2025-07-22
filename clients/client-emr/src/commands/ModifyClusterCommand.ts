@@ -39,11 +39,13 @@ export interface ModifyClusterCommandOutput extends ModifyClusterOutput, __Metad
  * const input = { // ModifyClusterInput
  *   ClusterId: "STRING_VALUE", // required
  *   StepConcurrencyLevel: Number("int"),
+ *   ExtendedSupport: true || false,
  * };
  * const command = new ModifyClusterCommand(input);
  * const response = await client.send(command);
  * // { // ModifyClusterOutput
  * //   StepConcurrencyLevel: Number("int"),
+ * //   ExtendedSupport: true || false,
  * // };
  *
  * ```
