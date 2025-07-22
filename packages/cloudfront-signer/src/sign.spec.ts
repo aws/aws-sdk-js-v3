@@ -366,6 +366,23 @@ describe("getSignedUrl", () => {
     const signatureQueryParam = denormalizeBase64(signature);
     expect(verifySignature(signatureQueryParam, policy)).toBeTruthy();
   });
+
+  describe("should not normalize the URL", () => {
+    it.each([".", ".."])("with '%s'", (folderName) => {
+      const urlWithFolderName = `https://d111111abcdef8.cloudfront.net/public-content/${folderName}/private-content/private.jpeg`;
+      const policy = JSON.stringify({ Statement: [{ Resource: urlWithFolderName }] });
+      const result = getSignedUrl({
+        keyPairId,
+        privateKey,
+        policy,
+        passphrase,
+      });
+      const signature = createSignature(policy);
+      expect(result.startsWith(urlWithFolderName)).toBeTruthy();
+      const signatureQueryParam = denormalizeBase64(signature);
+      expect(verifySignature(signatureQueryParam, policy)).toBeTruthy();
+    });
+  });
 });
 
 describe("getSignedCookies", () => {
