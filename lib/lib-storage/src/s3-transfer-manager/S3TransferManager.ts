@@ -23,6 +23,12 @@ import type {
   UploadResponse,
 } from "./types";
 
+/**
+ * Describe what this is
+ * TODO: Switch all @public to @alpha
+ * TODO: tag internal for itneral functions
+ * @alpha
+ */
 export class S3TransferManager implements IS3TransferManager {
   private static MIN_PART_SIZE = 5 * 1024 * 1024; // 5MB
   private static DEFAULT_PART_SIZE = 8 * 1024 * 1024; // 8MB

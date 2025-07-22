@@ -1,5 +1,5 @@
 import { StreamingBlobPayloadOutputTypes } from "@smithy/types";
-import { isBlob, isReadableStream, sdkStreamMixin } from "@smithy/util-stream";
+import { isReadableStream, sdkStreamMixin } from "@smithy/util-stream";
 
 import { JoinStreamIterationEvents } from "./types";
 
@@ -8,6 +8,7 @@ export async function joinStreams(
   eventListeners?: JoinStreamIterationEvents
 ): Promise<StreamingBlobPayloadOutputTypes> {
   const firstStream = await streams[0];
+  console.log("TESTING BROWSER VERSION");
   if (isReadableStream(firstStream)) {
     const newReadableStream = new ReadableStream({
       async start(controller) {
