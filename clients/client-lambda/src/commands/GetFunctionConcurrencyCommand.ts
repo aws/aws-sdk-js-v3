@@ -28,8 +28,7 @@ export interface GetFunctionConcurrencyCommandInput extends GetFunctionConcurren
 export interface GetFunctionConcurrencyCommandOutput extends GetFunctionConcurrencyResponse, __MetadataBearer {}
 
 /**
- * <p>Returns details about the reserved concurrency configuration for a function. To set a concurrency limit for a
- *       function, use <a>PutFunctionConcurrency</a>.</p>
+ * <p>Returns details about the reserved concurrency configuration for a function. To set a concurrency limit for a function, use <a>PutFunctionConcurrency</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

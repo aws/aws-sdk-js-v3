@@ -28,8 +28,7 @@ export interface GetLayerVersionPolicyCommandInput extends GetLayerVersionPolicy
 export interface GetLayerVersionPolicyCommandOutput extends GetLayerVersionPolicyResponse, __MetadataBearer {}
 
 /**
- * <p>Returns the permission policy for a version of an <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">Lambda
- *         layer</a>. For more information, see <a>AddLayerVersionPermission</a>.</p>
+ * <p>Returns the permission policy for a version of an <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">Lambda layer</a>. For more information, see <a>AddLayerVersionPermission</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

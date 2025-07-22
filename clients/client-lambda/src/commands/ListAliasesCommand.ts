@@ -28,8 +28,7 @@ export interface ListAliasesCommandInput extends ListAliasesRequest {}
 export interface ListAliasesCommandOutput extends ListAliasesResponse, __MetadataBearer {}
 
 /**
- * <p>Returns a list of <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-aliases.html">aliases</a>
- *       for a Lambda function.</p>
+ * <p>Returns a list of <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-aliases.html">aliases</a> for a Lambda function.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

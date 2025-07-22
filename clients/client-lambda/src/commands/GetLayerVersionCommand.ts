@@ -28,9 +28,7 @@ export interface GetLayerVersionCommandInput extends GetLayerVersionRequest {}
 export interface GetLayerVersionCommandOutput extends GetLayerVersionResponse, __MetadataBearer {}
 
 /**
- * <p>Returns information about a version of an <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">Lambda
- *         layer</a>, with a link to download the layer archive
- *         that's valid for 10 minutes.</p>
+ * <p>Returns information about a version of an <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">Lambda layer</a>, with a link to download the layer archive that's valid for 10 minutes.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

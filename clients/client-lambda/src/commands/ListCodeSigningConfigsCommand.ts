@@ -28,9 +28,7 @@ export interface ListCodeSigningConfigsCommandInput extends ListCodeSigningConfi
 export interface ListCodeSigningConfigsCommandOutput extends ListCodeSigningConfigsResponse, __MetadataBearer {}
 
 /**
- * <p>Returns a list of <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuring-codesigning.html">code
- *         signing configurations</a>. A request returns up to 10,000 configurations per
- *       call. You can use the <code>MaxItems</code> parameter to return fewer configurations per call. </p>
+ * <p>Returns a list of <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuring-codesigning.html">code signing configurations</a>. A request returns up to 10,000 configurations per call. You can use the <code>MaxItems</code> parameter to return fewer configurations per call. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

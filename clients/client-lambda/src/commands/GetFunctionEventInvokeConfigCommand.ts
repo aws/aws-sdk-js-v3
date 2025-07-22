@@ -31,8 +31,7 @@ export interface GetFunctionEventInvokeConfigCommandInput extends GetFunctionEve
 export interface GetFunctionEventInvokeConfigCommandOutput extends FunctionEventInvokeConfig, __MetadataBearer {}
 
 /**
- * <p>Retrieves the configuration for asynchronous invocation for a function, version, or alias.</p>
- *          <p>To configure options for asynchronous invocation, use <a>PutFunctionEventInvokeConfig</a>.</p>
+ * <p>Retrieves the configuration for asynchronous invocation for a function, version, or alias.</p> <p>To configure options for asynchronous invocation, use <a>PutFunctionEventInvokeConfig</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

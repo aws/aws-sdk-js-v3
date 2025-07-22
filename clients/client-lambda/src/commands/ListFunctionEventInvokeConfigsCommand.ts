@@ -33,8 +33,7 @@ export interface ListFunctionEventInvokeConfigsCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Retrieves a list of configurations for asynchronous invocation for a function.</p>
- *          <p>To configure options for asynchronous invocation, use <a>PutFunctionEventInvokeConfig</a>.</p>
+ * <p>Retrieves a list of configurations for asynchronous invocation for a function.</p> <p>To configure options for asynchronous invocation, use <a>PutFunctionEventInvokeConfig</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -32,9 +32,7 @@ export interface GetFunctionConfigurationCommandInput extends GetFunctionConfigu
 export interface GetFunctionConfigurationCommandOutput extends FunctionConfiguration, __MetadataBearer {}
 
 /**
- * <p>Returns the version-specific settings of a Lambda function or version. The output includes only options that
- *       can vary between versions of a function. To modify these settings, use <a>UpdateFunctionConfiguration</a>.</p>
- *          <p>To get all of a function's details, including function-level settings, use <a>GetFunction</a>.</p>
+ * <p>Returns the version-specific settings of a Lambda function or version. The output includes only options that can vary between versions of a function. To modify these settings, use <a>UpdateFunctionConfiguration</a>.</p> <p>To get all of a function's details, including function-level settings, use <a>GetFunction</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

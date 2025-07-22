@@ -28,8 +28,7 @@ export interface ListTagsCommandInput extends ListTagsRequest {}
 export interface ListTagsCommandOutput extends ListTagsResponse, __MetadataBearer {}
 
 /**
- * <p>Returns a function, event source mapping, or code signing configuration's <a href="https://docs.aws.amazon.com/lambda/latest/dg/tagging.html">tags</a>. You can
- *       also view function tags with <a>GetFunction</a>.</p>
+ * <p>Returns a function, event source mapping, or code signing configuration's <a href="https://docs.aws.amazon.com/lambda/latest/dg/tagging.html">tags</a>. You can also view function tags with <a>GetFunction</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

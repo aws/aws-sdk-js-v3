@@ -32,8 +32,7 @@ export interface ListVersionsByFunctionCommandInput extends ListVersionsByFuncti
 export interface ListVersionsByFunctionCommandOutput extends ListVersionsByFunctionResponse, __MetadataBearer {}
 
 /**
- * <p>Returns a list of <a href="https://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html">versions</a>,
- *       with the version-specific configuration of each. Lambda returns up to 50 versions per call.</p>
+ * <p>Returns a list of <a href="https://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html">versions</a>, with the version-specific configuration of each. Lambda returns up to 50 versions per call.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

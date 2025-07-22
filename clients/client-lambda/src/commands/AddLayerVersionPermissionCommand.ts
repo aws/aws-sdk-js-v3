@@ -28,12 +28,7 @@ export interface AddLayerVersionPermissionCommandInput extends AddLayerVersionPe
 export interface AddLayerVersionPermissionCommandOutput extends AddLayerVersionPermissionResponse, __MetadataBearer {}
 
 /**
- * <p>Adds permissions to the resource-based policy of a version of an <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">Lambda
- *         layer</a>. Use this action to grant layer
- *       usage permission to other accounts. You can grant permission to a single account, all accounts in an organization,
- *       or all Amazon Web Services accounts.  </p>
- *          <p>To revoke permission, call <a>RemoveLayerVersionPermission</a> with the statement ID that you
- *       specified when you added it.</p>
+ * <p>Adds permissions to the resource-based policy of a version of an <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">Lambda layer</a>. Use this action to grant layer usage permission to other accounts. You can grant permission to a single account, all accounts in an organization, or all Amazon Web Services accounts. </p> <p>To revoke permission, call <a>RemoveLayerVersionPermission</a> with the statement ID that you specified when you added it.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -71,17 +66,7 @@ export interface AddLayerVersionPermissionCommandOutput extends AddLayerVersionP
  *  <p>The permissions policy for the resource is too large. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html">Lambda quotas</a>.</p>
  *
  * @throws {@link PreconditionFailedException} (client fault)
- *  <p>The RevisionId provided does not match the latest RevisionId for the Lambda function or alias.</p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <b>For AddPermission and RemovePermission API operations:</b> Call <code>GetPolicy</code> to retrieve the latest RevisionId for your resource.</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <b>For all other API operations:</b> Call <code>GetFunction</code> or <code>GetAlias</code> to retrieve the latest RevisionId for your resource.</p>
- *             </li>
- *          </ul>
+ *  <p>The RevisionId provided does not match the latest RevisionId for the Lambda function or alias.</p> <ul> <li> <p> <b>For AddPermission and RemovePermission API operations:</b> Call <code>GetPolicy</code> to retrieve the latest RevisionId for your resource.</p> </li> <li> <p> <b>For all other API operations:</b> Call <code>GetFunction</code> or <code>GetAlias</code> to retrieve the latest RevisionId for your resource.</p> </li> </ul>
  *
  * @throws {@link ResourceConflictException} (client fault)
  *  <p>The resource already exists, or another operation is in progress.</p>

@@ -74,17 +74,7 @@ export interface UpdateAliasCommandOutput extends AliasConfiguration, __Metadata
  *  <p>One of the parameters in the request is not valid.</p>
  *
  * @throws {@link PreconditionFailedException} (client fault)
- *  <p>The RevisionId provided does not match the latest RevisionId for the Lambda function or alias.</p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <b>For AddPermission and RemovePermission API operations:</b> Call <code>GetPolicy</code> to retrieve the latest RevisionId for your resource.</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <b>For all other API operations:</b> Call <code>GetFunction</code> or <code>GetAlias</code> to retrieve the latest RevisionId for your resource.</p>
- *             </li>
- *          </ul>
+ *  <p>The RevisionId provided does not match the latest RevisionId for the Lambda function or alias.</p> <ul> <li> <p> <b>For AddPermission and RemovePermission API operations:</b> Call <code>GetPolicy</code> to retrieve the latest RevisionId for your resource.</p> </li> <li> <p> <b>For all other API operations:</b> Call <code>GetFunction</code> or <code>GetAlias</code> to retrieve the latest RevisionId for your resource.</p> </li> </ul>
  *
  * @throws {@link ResourceConflictException} (client fault)
  *  <p>The resource already exists, or another operation is in progress.</p>

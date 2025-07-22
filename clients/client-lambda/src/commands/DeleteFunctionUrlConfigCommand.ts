@@ -28,8 +28,7 @@ export interface DeleteFunctionUrlConfigCommandInput extends DeleteFunctionUrlCo
 export interface DeleteFunctionUrlConfigCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Deletes a Lambda function URL. When you delete a function URL, you
- *       can't recover it. Creating a new function URL results in a different URL address.</p>
+ * <p>Deletes a Lambda function URL. When you delete a function URL, you can't recover it. Creating a new function URL results in a different URL address.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

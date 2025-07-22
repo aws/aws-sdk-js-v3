@@ -33,22 +33,7 @@ export interface UpdateFunctionCodeCommandInput extends UpdateFunctionCodeReques
 export interface UpdateFunctionCodeCommandOutput extends FunctionConfiguration, __MetadataBearer {}
 
 /**
- * <p>Updates a Lambda function's code. If code signing is enabled for the function, the code package
- *       must be signed by a trusted publisher. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-codesigning.html">Configuring code signing for Lambda</a>.</p>
- *          <p>If the function's package type is <code>Image</code>, then you must specify the code package in
- *         <code>ImageUri</code> as the URI of a <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-images.html">container image</a> in the Amazon ECR registry.</p>
- *          <p>If the function's package type is <code>Zip</code>, then you must specify the deployment package as a <a href="https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-package.html#gettingstarted-package-zip">.zip file
- *         archive</a>. Enter the Amazon S3 bucket and key of the code .zip file location. You can also provide
- *       the function code inline using the <code>ZipFile</code> field.</p>
- *          <p>The code in the deployment package must be compatible with the target instruction set architecture of the
- *       function (<code>x86-64</code> or <code>arm64</code>).</p>
- *          <p>The function's code is locked when you publish a version. You can't modify the code of a published version,
- *       only the unpublished version.</p>
- *          <note>
- *             <p>For a function defined as a container image, Lambda resolves the image tag to an image digest. In
- *           Amazon ECR, if you update the image tag to a new image, Lambda does not automatically
- *         update the function.</p>
- *          </note>
+ * <p>Updates a Lambda function's code. If code signing is enabled for the function, the code package must be signed by a trusted publisher. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-codesigning.html">Configuring code signing for Lambda</a>.</p> <p>If the function's package type is <code>Image</code>, then you must specify the code package in <code>ImageUri</code> as the URI of a <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-images.html">container image</a> in the Amazon ECR registry.</p> <p>If the function's package type is <code>Zip</code>, then you must specify the deployment package as a <a href="https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-package.html#gettingstarted-package-zip">.zip file archive</a>. Enter the Amazon S3 bucket and key of the code .zip file location. You can also provide the function code inline using the <code>ZipFile</code> field.</p> <p>The code in the deployment package must be compatible with the target instruction set architecture of the function (<code>x86-64</code> or <code>arm64</code>).</p> <p>The function's code is locked when you publish a version. You can't modify the code of a published version, only the unpublished version.</p> <note> <p>For a function defined as a container image, Lambda resolves the image tag to an image digest. In Amazon ECR, if you update the image tag to a new image, Lambda does not automatically update the function.</p> </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -191,28 +176,16 @@ export interface UpdateFunctionCodeCommandOutput extends FunctionConfiguration, 
  *  <p>Your Amazon Web Services account has exceeded its maximum total code size. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html">Lambda quotas</a>.</p>
  *
  * @throws {@link CodeVerificationFailedException} (client fault)
- *  <p>The code signature failed one or more of the validation checks for signature mismatch or expiry, and the code
- *       signing policy is set to ENFORCE. Lambda blocks the deployment.</p>
+ *  <p>The code signature failed one or more of the validation checks for signature mismatch or expiry, and the code signing policy is set to ENFORCE. Lambda blocks the deployment.</p>
  *
  * @throws {@link InvalidCodeSignatureException} (client fault)
- *  <p>The code signature failed the integrity check. If the integrity check fails, then Lambda blocks
- *       deployment, even if the code signing policy is set to WARN.</p>
+ *  <p>The code signature failed the integrity check. If the integrity check fails, then Lambda blocks deployment, even if the code signing policy is set to WARN.</p>
  *
  * @throws {@link InvalidParameterValueException} (client fault)
  *  <p>One of the parameters in the request is not valid.</p>
  *
  * @throws {@link PreconditionFailedException} (client fault)
- *  <p>The RevisionId provided does not match the latest RevisionId for the Lambda function or alias.</p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <b>For AddPermission and RemovePermission API operations:</b> Call <code>GetPolicy</code> to retrieve the latest RevisionId for your resource.</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <b>For all other API operations:</b> Call <code>GetFunction</code> or <code>GetAlias</code> to retrieve the latest RevisionId for your resource.</p>
- *             </li>
- *          </ul>
+ *  <p>The RevisionId provided does not match the latest RevisionId for the Lambda function or alias.</p> <ul> <li> <p> <b>For AddPermission and RemovePermission API operations:</b> Call <code>GetPolicy</code> to retrieve the latest RevisionId for your resource.</p> </li> <li> <p> <b>For all other API operations:</b> Call <code>GetFunction</code> or <code>GetAlias</code> to retrieve the latest RevisionId for your resource.</p> </li> </ul>
  *
  * @throws {@link ResourceConflictException} (client fault)
  *  <p>The resource already exists, or another operation is in progress.</p>

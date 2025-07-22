@@ -31,14 +31,7 @@ export interface InvokeAsyncCommandInput extends Omit<InvokeAsyncRequest, "Invok
 export interface InvokeAsyncCommandOutput extends InvokeAsyncResponse, __MetadataBearer {}
 
 /**
- * <important>
- *             <p>For asynchronous function invocation, use <a>Invoke</a>.</p>
- *          </important>
- *          <p>Invokes a function asynchronously.</p>
- *          <note>
- *             <p>If you do use the InvokeAsync action, note that it doesn't support the use of X-Ray active tracing. Trace ID is not
- *         propagated to the function, even if X-Ray active tracing is turned on.</p>
- *          </note>
+ * <important> <p>For asynchronous function invocation, use <a>Invoke</a>.</p> </important> <p>Invokes a function asynchronously.</p> <note> <p>If you do use the InvokeAsync action, note that it doesn't support the use of X-Ray active tracing. Trace ID is not propagated to the function, even if X-Ray active tracing is turned on.</p> </note>
  *
  * @deprecated
  * @example
@@ -66,8 +59,7 @@ export interface InvokeAsyncCommandOutput extends InvokeAsyncResponse, __Metadat
  * @see {@link LambdaClientResolvedConfig | config} for LambdaClient's `config` shape.
  *
  * @throws {@link InvalidRequestContentException} (client fault)
- *  <p>The request body could not be parsed as JSON, or a request header is invalid. For example, the 'x-amzn-RequestId'
- *       header is not a valid UUID string.</p>
+ *  <p>The request body could not be parsed as JSON, or a request header is invalid. For example, the 'x-amzn-RequestId' header is not a valid UUID string.</p>
  *
  * @throws {@link InvalidRuntimeException} (server fault)
  *  <p>The runtime or runtime version specified is not supported.</p>

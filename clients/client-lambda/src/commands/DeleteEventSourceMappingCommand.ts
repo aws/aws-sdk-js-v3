@@ -28,10 +28,7 @@ export interface DeleteEventSourceMappingCommandInput extends DeleteEventSourceM
 export interface DeleteEventSourceMappingCommandOutput extends EventSourceMappingConfiguration, __MetadataBearer {}
 
 /**
- * <p>Deletes an <a href="https://docs.aws.amazon.com/lambda/latest/dg/intro-invocation-modes.html">event source
- *         mapping</a>. You can get the identifier of a mapping from the output of <a>ListEventSourceMappings</a>.</p>
- *          <p>When you delete an event source mapping, it enters a <code>Deleting</code> state and might not be completely
- *       deleted for several seconds.</p>
+ * <p>Deletes an <a href="https://docs.aws.amazon.com/lambda/latest/dg/intro-invocation-modes.html">event source mapping</a>. You can get the identifier of a mapping from the output of <a>ListEventSourceMappings</a>.</p> <p>When you delete an event source mapping, it enters a <code>Deleting</code> state and might not be completely deleted for several seconds.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -173,8 +170,7 @@ export interface DeleteEventSourceMappingCommandOutput extends EventSourceMappin
  *  <p>The resource already exists, or another operation is in progress.</p>
  *
  * @throws {@link ResourceInUseException} (client fault)
- *  <p>The operation conflicts with the resource's availability. For example, you tried to update an event source
- *       mapping in the CREATING state, or you tried to delete an event source mapping currently UPDATING.</p>
+ *  <p>The operation conflicts with the resource's availability. For example, you tried to update an event source mapping in the CREATING state, or you tried to delete an event source mapping currently UPDATING.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The resource specified in the request does not exist.</p>

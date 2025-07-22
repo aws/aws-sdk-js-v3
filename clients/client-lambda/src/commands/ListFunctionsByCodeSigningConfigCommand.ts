@@ -33,8 +33,7 @@ export interface ListFunctionsByCodeSigningConfigCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>List the functions that use the specified code signing configuration. You can use this method prior to deleting a
- *       code signing configuration, to verify that no functions are using it.</p>
+ * <p>List the functions that use the specified code signing configuration. You can use this method prior to deleting a code signing configuration, to verify that no functions are using it.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

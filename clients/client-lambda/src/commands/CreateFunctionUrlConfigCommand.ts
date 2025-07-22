@@ -28,8 +28,7 @@ export interface CreateFunctionUrlConfigCommandInput extends CreateFunctionUrlCo
 export interface CreateFunctionUrlConfigCommandOutput extends CreateFunctionUrlConfigResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a Lambda function URL with the specified configuration parameters. A function URL is
- *       a dedicated HTTP(S) endpoint that you can use to invoke your function.</p>
+ * <p>Creates a Lambda function URL with the specified configuration parameters. A function URL is a dedicated HTTP(S) endpoint that you can use to invoke your function.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

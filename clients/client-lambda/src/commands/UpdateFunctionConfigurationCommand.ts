@@ -36,18 +36,7 @@ export interface UpdateFunctionConfigurationCommandInput extends UpdateFunctionC
 export interface UpdateFunctionConfigurationCommandOutput extends FunctionConfiguration, __MetadataBearer {}
 
 /**
- * <p>Modify the version-specific settings of a Lambda function.</p>
- *          <p>When you update a function, Lambda provisions an instance of the function and its supporting
- *       resources. If your function connects to a VPC, this process can take a minute. During this time, you can't modify
- *       the function, but you can still invoke it. The <code>LastUpdateStatus</code>, <code>LastUpdateStatusReason</code>,
- *       and <code>LastUpdateStatusReasonCode</code> fields in the response from <a>GetFunctionConfiguration</a>
- *       indicate when the update is complete and the function is processing events with the new configuration. For more
- *       information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/functions-states.html">Lambda
- *         function states</a>.</p>
- *          <p>These settings can vary between versions of a function and are locked when you publish a version. You can't
- *       modify the configuration of a published version, only the unpublished version.</p>
- *          <p>To configure function concurrency, use <a>PutFunctionConcurrency</a>. To grant invoke permissions
- *       to an Amazon Web Services account or Amazon Web Services service, use <a>AddPermission</a>.</p>
+ * <p>Modify the version-specific settings of a Lambda function.</p> <p>When you update a function, Lambda provisions an instance of the function and its supporting resources. If your function connects to a VPC, this process can take a minute. During this time, you can't modify the function, but you can still invoke it. The <code>LastUpdateStatus</code>, <code>LastUpdateStatusReason</code>, and <code>LastUpdateStatusReasonCode</code> fields in the response from <a>GetFunctionConfiguration</a> indicate when the update is complete and the function is processing events with the new configuration. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/functions-states.html">Lambda function states</a>.</p> <p>These settings can vary between versions of a function and are locked when you publish a version. You can't modify the configuration of a published version, only the unpublished version.</p> <p>To configure function concurrency, use <a>PutFunctionConcurrency</a>. To grant invoke permissions to an Amazon Web Services account or Amazon Web Services service, use <a>AddPermission</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -233,28 +222,16 @@ export interface UpdateFunctionConfigurationCommandOutput extends FunctionConfig
  *  <p>The specified code signing configuration does not exist.</p>
  *
  * @throws {@link CodeVerificationFailedException} (client fault)
- *  <p>The code signature failed one or more of the validation checks for signature mismatch or expiry, and the code
- *       signing policy is set to ENFORCE. Lambda blocks the deployment.</p>
+ *  <p>The code signature failed one or more of the validation checks for signature mismatch or expiry, and the code signing policy is set to ENFORCE. Lambda blocks the deployment.</p>
  *
  * @throws {@link InvalidCodeSignatureException} (client fault)
- *  <p>The code signature failed the integrity check. If the integrity check fails, then Lambda blocks
- *       deployment, even if the code signing policy is set to WARN.</p>
+ *  <p>The code signature failed the integrity check. If the integrity check fails, then Lambda blocks deployment, even if the code signing policy is set to WARN.</p>
  *
  * @throws {@link InvalidParameterValueException} (client fault)
  *  <p>One of the parameters in the request is not valid.</p>
  *
  * @throws {@link PreconditionFailedException} (client fault)
- *  <p>The RevisionId provided does not match the latest RevisionId for the Lambda function or alias.</p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <b>For AddPermission and RemovePermission API operations:</b> Call <code>GetPolicy</code> to retrieve the latest RevisionId for your resource.</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <b>For all other API operations:</b> Call <code>GetFunction</code> or <code>GetAlias</code> to retrieve the latest RevisionId for your resource.</p>
- *             </li>
- *          </ul>
+ *  <p>The RevisionId provided does not match the latest RevisionId for the Lambda function or alias.</p> <ul> <li> <p> <b>For AddPermission and RemovePermission API operations:</b> Call <code>GetPolicy</code> to retrieve the latest RevisionId for your resource.</p> </li> <li> <p> <b>For all other API operations:</b> Call <code>GetFunction</code> or <code>GetAlias</code> to retrieve the latest RevisionId for your resource.</p> </li> </ul>
  *
  * @throws {@link ResourceConflictException} (client fault)
  *  <p>The resource already exists, or another operation is in progress.</p>

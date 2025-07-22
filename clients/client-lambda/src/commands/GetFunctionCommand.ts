@@ -28,9 +28,7 @@ export interface GetFunctionCommandInput extends GetFunctionRequest {}
 export interface GetFunctionCommandOutput extends GetFunctionResponse, __MetadataBearer {}
 
 /**
- * <p>Returns information about the function or function version, with a link to download the deployment package
- *       that's valid for 10 minutes. If you specify a function version, only details that are specific to that version are
- *       returned.</p>
+ * <p>Returns information about the function or function version, with a link to download the deployment package that's valid for 10 minutes. If you specify a function version, only details that are specific to that version are returned.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -28,13 +28,7 @@ export interface PutFunctionRecursionConfigCommandInput extends PutFunctionRecur
 export interface PutFunctionRecursionConfigCommandOutput extends PutFunctionRecursionConfigResponse, __MetadataBearer {}
 
 /**
- * <p>Sets your function's <a href="https://docs.aws.amazon.com/lambda/latest/dg/invocation-recursion.html">recursive loop detection</a> configuration.</p>
- *          <p>When you configure a Lambda function to output to the same service or resource that invokes the function, it's possible to create
- *       an infinite recursive loop. For example, a Lambda function might write a message to an Amazon Simple Queue Service (Amazon SQS) queue, which then invokes the same
- *       function. This invocation causes the function to write another message to the queue, which in turn invokes the function again.</p>
- *          <p>Lambda can detect certain types of recursive loops shortly after they occur. When Lambda detects a recursive loop and your
- *       function's recursive loop detection configuration is set to <code>Terminate</code>, it stops your function being invoked and notifies
- *       you.</p>
+ * <p>Sets your function's <a href="https://docs.aws.amazon.com/lambda/latest/dg/invocation-recursion.html">recursive loop detection</a> configuration.</p> <p>When you configure a Lambda function to output to the same service or resource that invokes the function, it's possible to create an infinite recursive loop. For example, a Lambda function might write a message to an Amazon Simple Queue Service (Amazon SQS) queue, which then invokes the same function. This invocation causes the function to write another message to the queue, which in turn invokes the function again.</p> <p>Lambda can detect certain types of recursive loops shortly after they occur. When Lambda detects a recursive loop and your function's recursive loop detection configuration is set to <code>Terminate</code>, it stops your function being invoked and notifies you.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -28,8 +28,7 @@ export interface PutRuntimeManagementConfigCommandInput extends PutRuntimeManage
 export interface PutRuntimeManagementConfigCommandOutput extends PutRuntimeManagementConfigResponse, __MetadataBearer {}
 
 /**
- * <p>Sets the runtime management configuration for a function's version. For more information,
- *       see <a href="https://docs.aws.amazon.com/lambda/latest/dg/runtimes-update.html">Runtime updates</a>.</p>
+ * <p>Sets the runtime management configuration for a function's version. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/runtimes-update.html">Runtime updates</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -28,8 +28,7 @@ export interface UpdateCodeSigningConfigCommandInput extends UpdateCodeSigningCo
 export interface UpdateCodeSigningConfigCommandOutput extends UpdateCodeSigningConfigResponse, __MetadataBearer {}
 
 /**
- * <p>Update the code signing configuration. Changes to the code signing configuration take effect the next time a
- *       user tries to deploy a code package to the function. </p>
+ * <p>Update the code signing configuration. Changes to the code signing configuration take effect the next time a user tries to deploy a code package to the function. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

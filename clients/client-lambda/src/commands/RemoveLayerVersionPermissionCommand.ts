@@ -31,9 +31,7 @@ export interface RemoveLayerVersionPermissionCommandInput extends RemoveLayerVer
 export interface RemoveLayerVersionPermissionCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Removes a statement from the permissions policy for a version of an <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">Lambda
- *         layer</a>. For more information, see
- *         <a>AddLayerVersionPermission</a>.</p>
+ * <p>Removes a statement from the permissions policy for a version of an <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">Lambda layer</a>. For more information, see <a>AddLayerVersionPermission</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -62,17 +60,7 @@ export interface RemoveLayerVersionPermissionCommandOutput extends __MetadataBea
  *  <p>One of the parameters in the request is not valid.</p>
  *
  * @throws {@link PreconditionFailedException} (client fault)
- *  <p>The RevisionId provided does not match the latest RevisionId for the Lambda function or alias.</p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <b>For AddPermission and RemovePermission API operations:</b> Call <code>GetPolicy</code> to retrieve the latest RevisionId for your resource.</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <b>For all other API operations:</b> Call <code>GetFunction</code> or <code>GetAlias</code> to retrieve the latest RevisionId for your resource.</p>
- *             </li>
- *          </ul>
+ *  <p>The RevisionId provided does not match the latest RevisionId for the Lambda function or alias.</p> <ul> <li> <p> <b>For AddPermission and RemovePermission API operations:</b> Call <code>GetPolicy</code> to retrieve the latest RevisionId for your resource.</p> </li> <li> <p> <b>For all other API operations:</b> Call <code>GetFunction</code> or <code>GetAlias</code> to retrieve the latest RevisionId for your resource.</p> </li> </ul>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The resource specified in the request does not exist.</p>

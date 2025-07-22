@@ -28,8 +28,7 @@ export interface GetFunctionRecursionConfigCommandInput extends GetFunctionRecur
 export interface GetFunctionRecursionConfigCommandOutput extends GetFunctionRecursionConfigResponse, __MetadataBearer {}
 
 /**
- * <p>Returns your function's <a href="https://docs.aws.amazon.com/lambda/latest/dg/invocation-recursion.html">recursive loop detection</a> configuration.
- *     </p>
+ * <p>Returns your function's <a href="https://docs.aws.amazon.com/lambda/latest/dg/invocation-recursion.html">recursive loop detection</a> configuration. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

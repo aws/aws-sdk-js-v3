@@ -28,8 +28,7 @@ export interface ListEventSourceMappingsCommandInput extends ListEventSourceMapp
 export interface ListEventSourceMappingsCommandOutput extends ListEventSourceMappingsResponse, __MetadataBearer {}
 
 /**
- * <p>Lists event source mappings. Specify an <code>EventSourceArn</code> to show only event source mappings for a
- *       single event source.</p>
+ * <p>Lists event source mappings. Specify an <code>EventSourceArn</code> to show only event source mappings for a single event source.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
