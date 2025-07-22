@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.851.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.850.0...v3.851.0) (2025-07-22)
+
+
+### Features
+
+* **client-emr:** This release adds new parameter 'ExtendedSupport' in AWS EMR RunJobFlow, ModifyCluster and DescribeCluster API. ([fa006a5](https://github.com/aws/aws-sdk-js-v3/commit/fa006a51f3d17e713fec218c904a2cf9d56bcb91))
+
+
+
+
+
 # [3.848.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.847.0...v3.848.0) (2025-07-17)
 
 **Note:** Version bump only for package @aws-sdk/client-emr

@@ -3,6 +3,21 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.851.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.850.0...v3.851.0) (2025-07-22)
+
+
+### Features
+
+* **client-ecr:** Add support for Image Tag Mutability Exception feature, allowing repositories to define wildcard-based patterns that override the default image tag mutability settings. ([0f39696](https://github.com/aws/aws-sdk-js-v3/commit/0f39696ac880128a17a9260db80429a6f0f081f8))
+* **client-emr:** This release adds new parameter 'ExtendedSupport' in AWS EMR RunJobFlow, ModifyCluster and DescribeCluster API. ([fa006a5](https://github.com/aws/aws-sdk-js-v3/commit/fa006a51f3d17e713fec218c904a2cf9d56bcb91))
+* **client-lambda:** This release migrated the model to Smithy keeping all features unchanged. ([ba8907d](https://github.com/aws/aws-sdk-js-v3/commit/ba8907d7cc72b7d807b547f09b5131ea9c89f05f))
+* **client-neptunedata:** This release updates the supported regions for Neptune API to include current AWS regions. ([08f26cc](https://github.com/aws/aws-sdk-js-v3/commit/08f26ccfc79040cff8a24ba417cd8126dd0fe379))
+* **clients:** update client endpoints as of 2025-07-22 ([c9a4da3](https://github.com/aws/aws-sdk-js-v3/commit/c9a4da306e4421875fd776e11750463482de8b6f))
+
+
+
+
+
 # [3.850.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.849.0...v3.850.0) (2025-07-21)
 
 

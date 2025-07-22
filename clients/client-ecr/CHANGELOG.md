@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.851.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.850.0...v3.851.0) (2025-07-22)
+
+
+### Features
+
+* **client-ecr:** Add support for Image Tag Mutability Exception feature, allowing repositories to define wildcard-based patterns that override the default image tag mutability settings. ([0f39696](https://github.com/aws/aws-sdk-js-v3/commit/0f39696ac880128a17a9260db80429a6f0f081f8))
+
+
+
+
+
 # [3.848.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.847.0...v3.848.0) (2025-07-17)
 
 **Note:** Version bump only for package @aws-sdk/client-ecr

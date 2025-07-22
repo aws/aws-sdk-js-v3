@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.851.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.850.0...v3.851.0) (2025-07-22)
+
+
+### Features
+
+* **client-lambda:** This release migrated the model to Smithy keeping all features unchanged. ([ba8907d](https://github.com/aws/aws-sdk-js-v3/commit/ba8907d7cc72b7d807b547f09b5131ea9c89f05f))
+
+
+
+
+
 # [3.848.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.847.0...v3.848.0) (2025-07-17)
 
 **Note:** Version bump only for package @aws-sdk/client-lambda
