@@ -28,12 +28,7 @@ export interface CancelGremlinQueryCommandInput extends CancelGremlinQueryInput 
 export interface CancelGremlinQueryCommandOutput extends CancelGremlinQueryOutput, __MetadataBearer {}
 
 /**
- * <p>Cancels a Gremlin query. See <a href="https://docs.aws.amazon.com/neptune/latest/userguide/gremlin-api-status-cancel.html">Gremlin
- *       query cancellation</a> for more information.</p>
- *          <p>When invoking this operation in a Neptune cluster that has IAM
- *       authentication enabled, the IAM user or role making the request must
- *       have a policy attached that allows the <a href="https://docs.aws.amazon.com/neptune/latest/userguide/iam-dp-actions.html#cancelquery">neptune-db:CancelQuery</a>
- *       IAM action in that cluster.</p>
+ * <p>Cancels a Gremlin query. See <a href="https://docs.aws.amazon.com/neptune/latest/userguide/gremlin-api-status-cancel.html">Gremlin query cancellation</a> for more information.</p> <p>When invoking this operation in a Neptune cluster that has IAM authentication enabled, the IAM user or role making the request must have a policy attached that allows the <a href="https://docs.aws.amazon.com/neptune/latest/userguide/iam-dp-actions.html#cancelquery">neptune-db:CancelQuery</a> IAM action in that cluster.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -64,8 +59,7 @@ export interface CancelGremlinQueryCommandOutput extends CancelGremlinQueryOutpu
  *  <p>Raised when a request timed out in the client.</p>
  *
  * @throws {@link ConcurrentModificationException} (server fault)
- *  <p>Raised when a request attempts to modify data that is concurrently being
- *       modified by another process.</p>
+ *  <p>Raised when a request attempts to modify data that is concurrently being modified by another process.</p>
  *
  * @throws {@link ConstraintViolationException} (client fault)
  *  <p>Raised when a value in a request field did not satisfy required constraints.</p>

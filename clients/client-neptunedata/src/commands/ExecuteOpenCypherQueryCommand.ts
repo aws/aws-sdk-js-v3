@@ -28,42 +28,7 @@ export interface ExecuteOpenCypherQueryCommandInput extends ExecuteOpenCypherQue
 export interface ExecuteOpenCypherQueryCommandOutput extends ExecuteOpenCypherQueryOutput, __MetadataBearer {}
 
 /**
- * <p>Executes an openCypher query. See <a href="https://docs.aws.amazon.com/neptune/latest/userguide/access-graph-opencypher.html">Accessing
- *       the Neptune Graph with openCypher</a> for more information.</p>
- *          <p>Neptune supports building graph applications using openCypher,
- *       which is currently one of the most popular query languages among
- *       developers working with graph databases. Developers, business analysts,
- *       and data scientists like openCypher's declarative, SQL-inspired syntax
- *       because it provides a familiar structure in which to querying property
- *        graphs.</p>
- *          <p>The openCypher language was originally developed by Neo4j, then
- *       open-sourced in 2015 and contributed to the <a href="https://opencypher.org/">openCypher project</a> under an Apache
- *       2 open-source license.</p>
- *          <p>Note that when invoking this operation in a Neptune cluster that has IAM
- *       authentication enabled, the IAM user or role making the request must
- *       have a policy attached that allows one of the following IAM actions
- *       in that cluster, depending on the query:</p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/neptune/latest/userguide/iam-dp-actions.html#readdataviaquery">neptune-db:ReadDataViaQuery</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/neptune/latest/userguide/iam-dp-actions.html#writedataviaquery">neptune-db:WriteDataViaQuery</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/neptune/latest/userguide/iam-dp-actions.html#deletedataviaquery">neptune-db:DeleteDataViaQuery</a>
- *                </p>
- *             </li>
- *          </ul>
- *          <p>Note also that the <a href="https://docs.aws.amazon.com/neptune/latest/userguide/iam-data-condition-keys.html#iam-neptune-condition-keys">neptune-db:QueryLanguage:OpenCypher</a>
- *       IAM condition key can be used in the policy document to restrict the use of
- *       openCypher queries (see <a href="https://docs.aws.amazon.com/neptune/latest/userguide/iam-data-condition-keys.html">Condition
- *       keys available in Neptune IAM data-access policy statements</a>).</p>
+ * <p>Executes an openCypher query. See <a href="https://docs.aws.amazon.com/neptune/latest/userguide/access-graph-opencypher.html">Accessing the Neptune Graph with openCypher</a> for more information.</p> <p>Neptune supports building graph applications using openCypher, which is currently one of the most popular query languages among developers working with graph databases. Developers, business analysts, and data scientists like openCypher's declarative, SQL-inspired syntax because it provides a familiar structure in which to querying property graphs.</p> <p>The openCypher language was originally developed by Neo4j, then open-sourced in 2015 and contributed to the <a href="https://opencypher.org/">openCypher project</a> under an Apache 2 open-source license.</p> <p>Note that when invoking this operation in a Neptune cluster that has IAM authentication enabled, the IAM user or role making the request must have a policy attached that allows one of the following IAM actions in that cluster, depending on the query:</p> <ul> <li> <p> <a href="https://docs.aws.amazon.com/neptune/latest/userguide/iam-dp-actions.html#readdataviaquery">neptune-db:ReadDataViaQuery</a> </p> </li> <li> <p> <a href="https://docs.aws.amazon.com/neptune/latest/userguide/iam-dp-actions.html#writedataviaquery">neptune-db:WriteDataViaQuery</a> </p> </li> <li> <p> <a href="https://docs.aws.amazon.com/neptune/latest/userguide/iam-dp-actions.html#deletedataviaquery">neptune-db:DeleteDataViaQuery</a> </p> </li> </ul> <p>Note also that the <a href="https://docs.aws.amazon.com/neptune/latest/userguide/iam-data-condition-keys.html#iam-neptune-condition-keys">neptune-db:QueryLanguage:OpenCypher</a> IAM condition key can be used in the policy document to restrict the use of openCypher queries (see <a href="https://docs.aws.amazon.com/neptune/latest/userguide/iam-data-condition-keys.html">Condition keys available in Neptune IAM data-access policy statements</a>).</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -98,8 +63,7 @@ export interface ExecuteOpenCypherQueryCommandOutput extends ExecuteOpenCypherQu
  *  <p>Raised when a request timed out in the client.</p>
  *
  * @throws {@link ConcurrentModificationException} (server fault)
- *  <p>Raised when a request attempts to modify data that is concurrently being
- *       modified by another process.</p>
+ *  <p>Raised when a request attempts to modify data that is concurrently being modified by another process.</p>
  *
  * @throws {@link ConstraintViolationException} (client fault)
  *  <p>Raised when a value in a request field did not satisfy required constraints.</p>
@@ -120,12 +84,10 @@ export interface ExecuteOpenCypherQueryCommandOutput extends ExecuteOpenCypherQu
  *  <p>Raised when a parameter value is not valid.</p>
  *
  * @throws {@link MalformedQueryException} (client fault)
- *  <p>Raised when a query is submitted that is syntactically incorrect or does not
- *       pass additional validation.</p>
+ *  <p>Raised when a query is submitted that is syntactically incorrect or does not pass additional validation.</p>
  *
  * @throws {@link MemoryLimitExceededException} (server fault)
- *  <p>Raised when a request fails because of insufficient memory resources. The
- *       request can be retried.</p>
+ *  <p>Raised when a request fails because of insufficient memory resources. The request can be retried.</p>
  *
  * @throws {@link MissingParameterException} (client fault)
  *  <p>Raised when a required parameter is missing.</p>
@@ -137,8 +99,7 @@ export interface ExecuteOpenCypherQueryCommandOutput extends ExecuteOpenCypherQu
  *  <p>Raised when a precondition for processing a request is not satisfied.</p>
  *
  * @throws {@link QueryLimitExceededException} (server fault)
- *  <p>Raised when the number of active queries exceeds what the server can process.
- *       The query in question can be retried when the system is less busy.</p>
+ *  <p>Raised when the number of active queries exceeds what the server can process. The query in question can be retried when the system is less busy.</p>
  *
  * @throws {@link QueryLimitException} (client fault)
  *  <p>Raised when the size of a query exceeds the system limit.</p>

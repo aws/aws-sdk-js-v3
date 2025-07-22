@@ -28,12 +28,7 @@ export interface ListMLDataProcessingJobsCommandInput extends ListMLDataProcessi
 export interface ListMLDataProcessingJobsCommandOutput extends ListMLDataProcessingJobsOutput, __MetadataBearer {}
 
 /**
- * <p>Returns a list of Neptune ML data processing jobs. See <a href="https://docs.aws.amazon.com/neptune/latest/userguide/machine-learning-api-dataprocessing.html#machine-learning-api-dataprocessing-list-jobs">Listing
- *       active data-processing jobs using the Neptune ML dataprocessing command</a>.</p>
- *          <p>When invoking this operation in a Neptune cluster that has IAM
- *       authentication enabled, the IAM user or role making the request must
- *       have a policy attached that allows the <a href="https://docs.aws.amazon.com/neptune/latest/userguide/iam-dp-actions.html#listmldataprocessingjobs">neptune-db:ListMLDataProcessingJobs</a>
- *       IAM action in that cluster.</p>
+ * <p>Returns a list of Neptune ML data processing jobs. See <a href="https://docs.aws.amazon.com/neptune/latest/userguide/machine-learning-api-dataprocessing.html#machine-learning-api-dataprocessing-list-jobs">Listing active data-processing jobs using the Neptune ML dataprocessing command</a>.</p> <p>When invoking this operation in a Neptune cluster that has IAM authentication enabled, the IAM user or role making the request must have a policy attached that allows the <a href="https://docs.aws.amazon.com/neptune/latest/userguide/iam-dp-actions.html#listmldataprocessingjobs">neptune-db:ListMLDataProcessingJobs</a> IAM action in that cluster.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

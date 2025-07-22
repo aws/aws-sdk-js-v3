@@ -28,12 +28,7 @@ export interface GetMLModelTrainingJobCommandInput extends GetMLModelTrainingJob
 export interface GetMLModelTrainingJobCommandOutput extends GetMLModelTrainingJobOutput, __MetadataBearer {}
 
 /**
- * <p>Retrieves information about a Neptune ML model training job. See <a href="https://docs.aws.amazon.com/neptune/latest/userguide/machine-learning-api-modeltraining.html">Model
- *       training using the <code>modeltraining</code> command</a>.</p>
- *          <p>When invoking this operation in a Neptune cluster that has IAM
- *       authentication enabled, the IAM user or role making the request must
- *       have a policy attached that allows the <a href="https://docs.aws.amazon.com/neptune/latest/userguide/iam-dp-actions.html#getmlmodeltrainingjobstatus">neptune-db:GetMLModelTrainingJobStatus</a>
- *       IAM action in that cluster.</p>
+ * <p>Retrieves information about a Neptune ML model training job. See <a href="https://docs.aws.amazon.com/neptune/latest/userguide/machine-learning-api-modeltraining.html">Model training using the <code>modeltraining</code> command</a>.</p> <p>When invoking this operation in a Neptune cluster that has IAM authentication enabled, the IAM user or role making the request must have a policy attached that allows the <a href="https://docs.aws.amazon.com/neptune/latest/userguide/iam-dp-actions.html#getmlmodeltrainingjobstatus">neptune-db:GetMLModelTrainingJobStatus</a> IAM action in that cluster.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

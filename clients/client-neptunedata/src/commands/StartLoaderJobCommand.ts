@@ -28,13 +28,7 @@ export interface StartLoaderJobCommandInput extends StartLoaderJobInput {}
 export interface StartLoaderJobCommandOutput extends StartLoaderJobOutput, __MetadataBearer {}
 
 /**
- * <p>Starts a Neptune bulk loader job to load data from an Amazon S3
- *       bucket into a Neptune DB instance. See <a href="https://docs.aws.amazon.com/neptune/latest/userguide/bulk-load.html">Using the Amazon Neptune
- *       Bulk Loader to Ingest Data</a>.</p>
- *          <p>When invoking this operation in a Neptune cluster that has IAM
- *       authentication enabled, the IAM user or role making the request must
- *       have a policy attached that allows the <a href="https://docs.aws.amazon.com/neptune/latest/userguide/iam-dp-actions.html#startloaderjob">neptune-db:StartLoaderJob</a>
- *       IAM action in that cluster.</p>
+ * <p>Starts a Neptune bulk loader job to load data from an Amazon S3 bucket into a Neptune DB instance. See <a href="https://docs.aws.amazon.com/neptune/latest/userguide/bulk-load.html">Using the Amazon Neptune Bulk Loader to Ingest Data</a>.</p> <p>When invoking this operation in a Neptune cluster that has IAM authentication enabled, the IAM user or role making the request must have a policy attached that allows the <a href="https://docs.aws.amazon.com/neptune/latest/userguide/iam-dp-actions.html#startloaderjob">neptune-db:StartLoaderJob</a> IAM action in that cluster.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -44,7 +38,7 @@ export interface StartLoaderJobCommandOutput extends StartLoaderJobOutput, __Met
  * const input = { // StartLoaderJobInput
  *   source: "STRING_VALUE", // required
  *   format: "csv" || "opencypher" || "ntriples" || "nquads" || "rdfxml" || "turtle", // required
- *   s3BucketRegion: "us-east-1" || "us-east-2" || "us-west-1" || "us-west-2" || "ca-central-1" || "sa-east-1" || "eu-north-1" || "eu-west-1" || "eu-west-2" || "eu-west-3" || "eu-central-1" || "me-south-1" || "af-south-1" || "ap-east-1" || "ap-northeast-1" || "ap-northeast-2" || "ap-southeast-1" || "ap-southeast-2" || "ap-south-1" || "cn-north-1" || "cn-northwest-1" || "us-gov-west-1" || "us-gov-east-1", // required
+ *   s3BucketRegion: "us-east-1" || "us-east-2" || "us-west-1" || "us-west-2" || "ca-central-1" || "sa-east-1" || "eu-north-1" || "eu-west-1" || "eu-west-2" || "eu-west-3" || "eu-central-1" || "me-south-1" || "af-south-1" || "ap-east-1" || "ap-northeast-1" || "ap-northeast-2" || "ap-southeast-1" || "ap-southeast-2" || "ap-south-1" || "cn-north-1" || "cn-northwest-1" || "us-gov-west-1" || "us-gov-east-1" || "ca-west-1" || "eu-south-2" || "il-central-1" || "me-central-1" || "ap-northeast-3" || "ap-southeast-3" || "ap-southeast-4" || "ap-southeast-5" || "ap-southeast-7" || "mx-central-1" || "ap-east-2" || "ap-south-2" || "eu-central-2", // required
  *   iamRoleArn: "STRING_VALUE", // required
  *   mode: "RESUME" || "NEW" || "AUTO",
  *   failOnError: true || false,

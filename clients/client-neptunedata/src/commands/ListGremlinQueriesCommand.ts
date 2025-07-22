@@ -28,16 +28,7 @@ export interface ListGremlinQueriesCommandInput extends ListGremlinQueriesInput 
 export interface ListGremlinQueriesCommandOutput extends ListGremlinQueriesOutput, __MetadataBearer {}
 
 /**
- * <p>Lists active Gremlin queries. See <a href="https://docs.aws.amazon.com/neptune/latest/userguide/gremlin-api-status.html">Gremlin query
- *       status API</a> for details about the output.</p>
- *          <p>When invoking this operation in a Neptune cluster that has IAM
- *       authentication enabled, the IAM user or role making the request must
- *       have a policy attached that allows the <a href="https://docs.aws.amazon.com/neptune/latest/userguide/iam-dp-actions.html#getquerystatus">neptune-db:GetQueryStatus</a>
- *       IAM action in that cluster.</p>
- *          <p>Note that the <a href="https://docs.aws.amazon.com/neptune/latest/userguide/iam-data-condition-keys.html#iam-neptune-condition-keys">neptune-db:QueryLanguage:Gremlin</a>
- *       IAM condition key can be used in the policy document to restrict the use of
- *       Gremlin queries (see <a href="https://docs.aws.amazon.com/neptune/latest/userguide/iam-data-condition-keys.html">Condition
- *       keys available in Neptune IAM data-access policy statements</a>).</p>
+ * <p>Lists active Gremlin queries. See <a href="https://docs.aws.amazon.com/neptune/latest/userguide/gremlin-api-status.html">Gremlin query status API</a> for details about the output.</p> <p>When invoking this operation in a Neptune cluster that has IAM authentication enabled, the IAM user or role making the request must have a policy attached that allows the <a href="https://docs.aws.amazon.com/neptune/latest/userguide/iam-dp-actions.html#getquerystatus">neptune-db:GetQueryStatus</a> IAM action in that cluster.</p> <p>Note that the <a href="https://docs.aws.amazon.com/neptune/latest/userguide/iam-data-condition-keys.html#iam-neptune-condition-keys">neptune-db:QueryLanguage:Gremlin</a> IAM condition key can be used in the policy document to restrict the use of Gremlin queries (see <a href="https://docs.aws.amazon.com/neptune/latest/userguide/iam-data-condition-keys.html">Condition keys available in Neptune IAM data-access policy statements</a>).</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -84,8 +75,7 @@ export interface ListGremlinQueriesCommandOutput extends ListGremlinQueriesOutpu
  *  <p>Raised when a request timed out in the client.</p>
  *
  * @throws {@link ConcurrentModificationException} (server fault)
- *  <p>Raised when a request attempts to modify data that is concurrently being
- *       modified by another process.</p>
+ *  <p>Raised when a request attempts to modify data that is concurrently being modified by another process.</p>
  *
  * @throws {@link ConstraintViolationException} (client fault)
  *  <p>Raised when a value in a request field did not satisfy required constraints.</p>

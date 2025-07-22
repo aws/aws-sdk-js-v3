@@ -28,12 +28,7 @@ export interface ListLoaderJobsCommandInput extends ListLoaderJobsInput {}
 export interface ListLoaderJobsCommandOutput extends ListLoaderJobsOutput, __MetadataBearer {}
 
 /**
- * <p>Retrieves a list of the <code>loadIds</code> for all active
- *       loader jobs.</p>
- *          <p>When invoking this operation in a Neptune cluster that has IAM
- *       authentication enabled, the IAM user or role making the request must
- *       have a policy attached that allows the <a href="https://docs.aws.amazon.com/neptune/latest/userguide/iam-dp-actions.html#listloaderjobs">neptune-db:ListLoaderJobs</a>
- *       IAM action in that cluster..</p>
+ * <p>Retrieves a list of the <code>loadIds</code> for all active loader jobs.</p> <p>When invoking this operation in a Neptune cluster that has IAM authentication enabled, the IAM user or role making the request must have a policy attached that allows the <a href="https://docs.aws.amazon.com/neptune/latest/userguide/iam-dp-actions.html#listloaderjobs">neptune-db:ListLoaderJobs</a> IAM action in that cluster..</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

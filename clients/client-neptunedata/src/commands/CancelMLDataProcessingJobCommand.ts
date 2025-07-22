@@ -28,12 +28,7 @@ export interface CancelMLDataProcessingJobCommandInput extends CancelMLDataProce
 export interface CancelMLDataProcessingJobCommandOutput extends CancelMLDataProcessingJobOutput, __MetadataBearer {}
 
 /**
- * <p>Cancels a Neptune ML data processing job. See <a href="https://docs.aws.amazon.com/neptune/latest/userguide/machine-learning-api-dataprocessing.html">The
- *       <code>dataprocessing</code> command</a>.</p>
- *          <p>When invoking this operation in a Neptune cluster that has IAM
- *       authentication enabled, the IAM user or role making the request must
- *       have a policy attached that allows the <a href="https://docs.aws.amazon.com/neptune/latest/userguide/iam-dp-actions.html#cancelmldataprocessingjob">neptune-db:CancelMLDataProcessingJob</a>
- *       IAM action in that cluster.</p>
+ * <p>Cancels a Neptune ML data processing job. See <a href="https://docs.aws.amazon.com/neptune/latest/userguide/machine-learning-api-dataprocessing.html">The <code>dataprocessing</code> command</a>.</p> <p>When invoking this operation in a Neptune cluster that has IAM authentication enabled, the IAM user or role making the request must have a policy attached that allows the <a href="https://docs.aws.amazon.com/neptune/latest/userguide/iam-dp-actions.html#cancelmldataprocessingjob">neptune-db:CancelMLDataProcessingJob</a> IAM action in that cluster.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -28,17 +28,7 @@ export interface ExecuteFastResetCommandInput extends ExecuteFastResetInput {}
 export interface ExecuteFastResetCommandOutput extends ExecuteFastResetOutput, __MetadataBearer {}
 
 /**
- * <p>The fast reset REST API lets you reset a Neptune graph quicky
- *       and easily, removing all of its data.</p>
- *          <p>Neptune fast reset is a two-step process. First you call <code>ExecuteFastReset</code>
- *       with <code>action</code> set to <code>initiateDatabaseReset</code>. This returns a
- *       UUID token which you then include when calling <code>ExecuteFastReset</code> again
- *       with <code>action</code> set to <code>performDatabaseReset</code>. See <a href="https://docs.aws.amazon.com/neptune/latest/userguide/manage-console-fast-reset.html">Empty an Amazon Neptune
- *       DB cluster using the fast reset API</a>.</p>
- *          <p>When invoking this operation in a Neptune cluster that has IAM
- *       authentication enabled, the IAM user or role making the request must
- *       have a policy attached that allows the <a href="https://docs.aws.amazon.com/neptune/latest/userguide/iam-dp-actions.html#resetdatabase">neptune-db:ResetDatabase</a>
- *       IAM action in that cluster.</p>
+ * <p>The fast reset REST API lets you reset a Neptune graph quicky and easily, removing all of its data.</p> <p>Neptune fast reset is a two-step process. First you call <code>ExecuteFastReset</code> with <code>action</code> set to <code>initiateDatabaseReset</code>. This returns a UUID token which you then include when calling <code>ExecuteFastReset</code> again with <code>action</code> set to <code>performDatabaseReset</code>. See <a href="https://docs.aws.amazon.com/neptune/latest/userguide/manage-console-fast-reset.html">Empty an Amazon Neptune DB cluster using the fast reset API</a>.</p> <p>When invoking this operation in a Neptune cluster that has IAM authentication enabled, the IAM user or role making the request must have a policy attached that allows the <a href="https://docs.aws.amazon.com/neptune/latest/userguide/iam-dp-actions.html#resetdatabase">neptune-db:ResetDatabase</a> IAM action in that cluster.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -85,8 +75,7 @@ export interface ExecuteFastResetCommandOutput extends ExecuteFastResetOutput, _
  *  <p>Raised when a parameter value is not valid.</p>
  *
  * @throws {@link MethodNotAllowedException} (client fault)
- *  <p>Raised when the HTTP method used by a request is not supported by the endpoint
- *       being used.</p>
+ *  <p>Raised when the HTTP method used by a request is not supported by the endpoint being used.</p>
  *
  * @throws {@link MissingParameterException} (client fault)
  *  <p>Raised when a required parameter is missing.</p>
