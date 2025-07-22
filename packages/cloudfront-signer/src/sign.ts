@@ -12,8 +12,10 @@ export type CloudfrontSignInput = CloudfrontSignInputWithParameters | Cloudfront
 export type CloudfrontSignerCredentials = {
   /** The ID of the Cloudfront key pair. */
   keyPairId: string;
+
   /** The content of the Cloudfront private key. */
   privateKey: string | Buffer;
+
   /** The passphrase of RSA-SHA1 key*/
   passphrase?: string;
 };
@@ -24,12 +26,16 @@ export type CloudfrontSignerCredentials = {
 export type CloudfrontSignInputWithParameters = CloudfrontSignerCredentials & {
   /** The URL string to sign. */
   url: string;
+
   /** The date string for when the signed URL or cookie can no longer be accessed */
   dateLessThan: string | number | Date;
+
   /** The date string for when the signed URL or cookie can start to be accessed. */
   dateGreaterThan?: string | number | Date;
+
   /** The IP address string to restrict signed URL access to. */
   ipAddress?: string;
+
   /**
    * [policy] should not be provided when using separate
    * dateLessThan, dateGreaterThan, or ipAddress inputs.
@@ -50,12 +56,16 @@ export type CloudfrontSignInputWithPolicy = CloudfrontSignerCredentials & {
    * This will be ignored if calling getSignedCookies with a policy.
    */
   url?: string;
+
   /** The JSON-encoded policy string */
   policy: string;
+
   /** When using a policy, a separate dateLessThan should not be provided. */
   dateLessThan?: never;
+
   /** When using a policy, a separate dateGreaterThan should not be provided. */
   dateGreaterThan?: never;
+
   /** When using a policy, a separate ipAddress should not be provided.  */
   ipAddress?: never;
 };
@@ -66,10 +76,13 @@ export type CloudfrontSignInputWithPolicy = CloudfrontSignerCredentials & {
 export interface CloudfrontSignedCookiesOutput {
   /** ID of the Cloudfront key pair. */
   "CloudFront-Key-Pair-Id": string;
+
   /** Hashed, signed, and base64-encoded version of the JSON policy. */
   "CloudFront-Signature": string;
+
   /** The unix date time for when the signed URL or cookie can no longer be accessed. */
   "CloudFront-Expires"?: number;
+
   /** Base64-encoded version of the JSON policy. */
   "CloudFront-Policy"?: string;
 }
