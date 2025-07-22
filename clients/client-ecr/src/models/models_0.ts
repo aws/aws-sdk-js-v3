@@ -1152,13 +1152,47 @@ export interface ImageScanningConfiguration {
  */
 export const ImageTagMutability = {
   IMMUTABLE: "IMMUTABLE",
+  IMMUTABLE_WITH_EXCLUSION: "IMMUTABLE_WITH_EXCLUSION",
   MUTABLE: "MUTABLE",
+  MUTABLE_WITH_EXCLUSION: "MUTABLE_WITH_EXCLUSION",
 } as const;
 
 /**
  * @public
  */
 export type ImageTagMutability = (typeof ImageTagMutability)[keyof typeof ImageTagMutability];
+
+/**
+ * @public
+ * @enum
+ */
+export const ImageTagMutabilityExclusionFilterType = {
+  WILDCARD: "WILDCARD",
+} as const;
+
+/**
+ * @public
+ */
+export type ImageTagMutabilityExclusionFilterType =
+  (typeof ImageTagMutabilityExclusionFilterType)[keyof typeof ImageTagMutabilityExclusionFilterType];
+
+/**
+ * <p>Overrides the default image tag mutability setting of the repository for image tags that match the specified filters.</p>
+ * @public
+ */
+export interface ImageTagMutabilityExclusionFilter {
+  /**
+   * <p>Specifies the type of filter to use for excluding image tags from the repository's mutability setting.</p>
+   * @public
+   */
+  filterType: ImageTagMutabilityExclusionFilterType | undefined;
+
+  /**
+   * <p>The value to use when filtering image tags. Must be either a regular expression pattern or a tag prefix value based on the specified filter type.</p>
+   * @public
+   */
+  filter: string | undefined;
+}
 
 /**
  * <p>The metadata to apply to a resource to help you categorize and organize them. Each tag
@@ -1221,6 +1255,12 @@ export interface CreateRepositoryRequest {
   imageTagMutability?: ImageTagMutability | undefined;
 
   /**
+   * <p>Creates a repository with a list of filters that define which image tags can override the default image tag mutability setting.</p>
+   * @public
+   */
+  imageTagMutabilityExclusionFilters?: ImageTagMutabilityExclusionFilter[] | undefined;
+
+  /**
    * <p>The image scanning configuration for the repository. This determines whether images
    *             are scanned for known vulnerabilities after being pushed to the repository.</p>
    * @public
@@ -1278,6 +1318,12 @@ export interface Repository {
    * @public
    */
   imageTagMutability?: ImageTagMutability | undefined;
+
+  /**
+   * <p>The image tag mutability exclusion filters associated with the repository. These filters specify which image tags can override the repository's default image tag mutability setting.</p>
+   * @public
+   */
+  imageTagMutabilityExclusionFilters?: ImageTagMutabilityExclusionFilter[] | undefined;
 
   /**
    * <p>The image scanning configuration for a repository.</p>
@@ -1468,6 +1514,12 @@ export interface CreateRepositoryCreationTemplateRequest {
   imageTagMutability?: ImageTagMutability | undefined;
 
   /**
+   * <p>Creates a repository creation template with a list of filters that define which image tags can override the default image tag mutability setting.</p>
+   * @public
+   */
+  imageTagMutabilityExclusionFilters?: ImageTagMutabilityExclusionFilter[] | undefined;
+
+  /**
    * <p>The repository policy to apply to repositories created using the template. A
    *             repository policy is a permissions policy associated with a repository to control access
    *             permissions. </p>
@@ -1540,6 +1592,12 @@ export interface RepositoryCreationTemplate {
    * @public
    */
   imageTagMutability?: ImageTagMutability | undefined;
+
+  /**
+   * <p>Defines the image tag mutability exclusion filters to apply when creating repositories from this template. These filters specify which image tags can override the repository's default image tag mutability setting.</p>
+   * @public
+   */
+  imageTagMutabilityExclusionFilters?: ImageTagMutabilityExclusionFilter[] | undefined;
 
   /**
    * <p>The repository policy to apply to repositories created using the template. A
@@ -4464,6 +4522,12 @@ export interface PutImageTagMutabilityRequest {
    * @public
    */
   imageTagMutability: ImageTagMutability | undefined;
+
+  /**
+   * <p>Creates or updates a repository with filters that define which image tags can override the default image tag mutability setting.</p>
+   * @public
+   */
+  imageTagMutabilityExclusionFilters?: ImageTagMutabilityExclusionFilter[] | undefined;
 }
 
 /**
@@ -4487,6 +4551,12 @@ export interface PutImageTagMutabilityResponse {
    * @public
    */
   imageTagMutability?: ImageTagMutability | undefined;
+
+  /**
+   * <p>Returns a list of filters that were defined for a repository. These filters determine which image tags can override the default image tag mutability setting of the repository.</p>
+   * @public
+   */
+  imageTagMutabilityExclusionFilters?: ImageTagMutabilityExclusionFilter[] | undefined;
 }
 
 /**
@@ -5001,6 +5071,12 @@ export interface UpdateRepositoryCreationTemplateRequest {
    * @public
    */
   imageTagMutability?: ImageTagMutability | undefined;
+
+  /**
+   * <p>Updates a repository with filters that define which image tags can override the default image tag mutability setting.</p>
+   * @public
+   */
+  imageTagMutabilityExclusionFilters?: ImageTagMutabilityExclusionFilter[] | undefined;
 
   /**
    * <p>Updates the repository policy created using the template. A repository policy is a

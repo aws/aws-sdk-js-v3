@@ -40,14 +40,26 @@ export interface PutImageTagMutabilityCommandOutput extends PutImageTagMutabilit
  * const input = { // PutImageTagMutabilityRequest
  *   registryId: "STRING_VALUE",
  *   repositoryName: "STRING_VALUE", // required
- *   imageTagMutability: "MUTABLE" || "IMMUTABLE", // required
+ *   imageTagMutability: "MUTABLE" || "IMMUTABLE" || "IMMUTABLE_WITH_EXCLUSION" || "MUTABLE_WITH_EXCLUSION", // required
+ *   imageTagMutabilityExclusionFilters: [ // ImageTagMutabilityExclusionFilters
+ *     { // ImageTagMutabilityExclusionFilter
+ *       filterType: "WILDCARD", // required
+ *       filter: "STRING_VALUE", // required
+ *     },
+ *   ],
  * };
  * const command = new PutImageTagMutabilityCommand(input);
  * const response = await client.send(command);
  * // { // PutImageTagMutabilityResponse
  * //   registryId: "STRING_VALUE",
  * //   repositoryName: "STRING_VALUE",
- * //   imageTagMutability: "MUTABLE" || "IMMUTABLE",
+ * //   imageTagMutability: "MUTABLE" || "IMMUTABLE" || "IMMUTABLE_WITH_EXCLUSION" || "MUTABLE_WITH_EXCLUSION",
+ * //   imageTagMutabilityExclusionFilters: [ // ImageTagMutabilityExclusionFilters
+ * //     { // ImageTagMutabilityExclusionFilter
+ * //       filterType: "WILDCARD", // required
+ * //       filter: "STRING_VALUE", // required
+ * //     },
+ * //   ],
  * // };
  *
  * ```

@@ -57,7 +57,13 @@ export interface CreateRepositoryCreationTemplateCommandOutput
  *       Value: "STRING_VALUE", // required
  *     },
  *   ],
- *   imageTagMutability: "MUTABLE" || "IMMUTABLE",
+ *   imageTagMutability: "MUTABLE" || "IMMUTABLE" || "IMMUTABLE_WITH_EXCLUSION" || "MUTABLE_WITH_EXCLUSION",
+ *   imageTagMutabilityExclusionFilters: [ // ImageTagMutabilityExclusionFilters
+ *     { // ImageTagMutabilityExclusionFilter
+ *       filterType: "WILDCARD", // required
+ *       filter: "STRING_VALUE", // required
+ *     },
+ *   ],
  *   repositoryPolicy: "STRING_VALUE",
  *   lifecyclePolicy: "STRING_VALUE",
  *   appliedFor: [ // RCTAppliedForList // required
@@ -82,7 +88,13 @@ export interface CreateRepositoryCreationTemplateCommandOutput
  * //         Value: "STRING_VALUE", // required
  * //       },
  * //     ],
- * //     imageTagMutability: "MUTABLE" || "IMMUTABLE",
+ * //     imageTagMutability: "MUTABLE" || "IMMUTABLE" || "IMMUTABLE_WITH_EXCLUSION" || "MUTABLE_WITH_EXCLUSION",
+ * //     imageTagMutabilityExclusionFilters: [ // ImageTagMutabilityExclusionFilters
+ * //       { // ImageTagMutabilityExclusionFilter
+ * //         filterType: "WILDCARD", // required
+ * //         filter: "STRING_VALUE", // required
+ * //       },
+ * //     ],
  * //     repositoryPolicy: "STRING_VALUE",
  * //     lifecyclePolicy: "STRING_VALUE",
  * //     appliedFor: [ // RCTAppliedForList

@@ -51,7 +51,13 @@ export interface DeleteRepositoryCommandOutput extends DeleteRepositoryResponse,
  * //     repositoryName: "STRING_VALUE",
  * //     repositoryUri: "STRING_VALUE",
  * //     createdAt: new Date("TIMESTAMP"),
- * //     imageTagMutability: "MUTABLE" || "IMMUTABLE",
+ * //     imageTagMutability: "MUTABLE" || "IMMUTABLE" || "IMMUTABLE_WITH_EXCLUSION" || "MUTABLE_WITH_EXCLUSION",
+ * //     imageTagMutabilityExclusionFilters: [ // ImageTagMutabilityExclusionFilters
+ * //       { // ImageTagMutabilityExclusionFilter
+ * //         filterType: "WILDCARD", // required
+ * //         filter: "STRING_VALUE", // required
+ * //       },
+ * //     ],
  * //     imageScanningConfiguration: { // ImageScanningConfiguration
  * //       scanOnPush: true || false,
  * //     },
