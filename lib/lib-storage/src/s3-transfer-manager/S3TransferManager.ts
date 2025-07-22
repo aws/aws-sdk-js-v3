@@ -392,7 +392,6 @@ export class S3TransferManager implements IS3TransferManager {
       if (initialPart.PartsCount! > 1) {
         for (let part = 2; part <= initialPart.PartsCount!; part++) {
           this.checkAborted(transferOptions);
-
           const getObjectRequest = {
             ...request,
             PartNumber: part,
@@ -401,7 +400,7 @@ export class S3TransferManager implements IS3TransferManager {
           const getObject = this.s3ClientInstance
             .send(new GetObjectCommand(getObjectRequest), transferOptions)
             .then((response) => {
-              this.validatePartDownload(part, response.ContentRange, partSize ?? 0);
+              this.validatePartDownload(response.ContentRange, part, partSize ?? 0);
               if (response.Body && typeof (response.Body as any).getReader === "function") {
                 const reader = (response.Body as any).getReader();
                 (response.Body as any).getReader = function () {
@@ -415,12 +414,11 @@ export class S3TransferManager implements IS3TransferManager {
           requests.push(getObjectRequest);
           partCount++;
         }
-      }
-
-      if (partCount !== initialPart.PartsCount) {
-        throw new Error(
-          `The number of parts downloaded (${partCount}) does not match the expected number (${initialPart.PartsCount})`
-        );
+        if (partCount !== initialPart.PartsCount) {
+          throw new Error(
+            `The number of parts downloaded (${partCount}) does not match the expected number (${initialPart.PartsCount})`
+          );
+        }
       }
     } else {
       this.checkAborted(transferOptions);
@@ -630,18 +628,20 @@ export class S3TransferManager implements IS3TransferManager {
     }
   }
 
-  private validatePartDownload(partNumber: number, contentRange: string | undefined, partSize: number) {
-    if (!contentRange) return;
+  private validatePartDownload(contentRange: string | undefined, partNumber: number, partSize: number) {
+    if (!contentRange) {
+      throw new Error(`Missing ContentRange for part ${partNumber}.`);
+    }
 
     const match = contentRange.match(/bytes (\d+)-(\d+)\/(\d+)/);
     if (!match) throw new Error(`Invalid ContentRange format: ${contentRange}`);
 
     const start = Number.parseInt(match[1]);
     const end = Number.parseInt(match[2]);
-    const total = Number.parseInt(match[3]);
+    const total = Number.parseInt(match[3]) - 1;
 
     const expectedStart = (partNumber - 1) * partSize;
-    const expectedEnd = Math.min(expectedStart + partSize - 1, total - 1);
+    const expectedEnd = Math.min(expectedStart + partSize - 1, total);
 
     if (start !== expectedStart) {
       throw new Error(`Expected part ${partNumber} to start at ${expectedStart} but got ${start}`);
@@ -653,14 +653,16 @@ export class S3TransferManager implements IS3TransferManager {
   }
 
   private validateRangeDownload(requestRange: string, responseRange: string | undefined) {
-    if (!responseRange) return;
+    if (!responseRange) {
+      throw new Error(`Missing ContentRange for range ${requestRange}.`);
+    }
 
     const match = responseRange.match(/bytes (\d+)-(\d+)\/(\d+)/);
     if (!match) throw new Error(`Invalid ContentRange format: ${responseRange}`);
 
     const start = Number.parseInt(match[1]);
     const end = Number.parseInt(match[2]);
-    const total = Number.parseInt(match[3]);
+    const total = Number.parseInt(match[3]) - 1;
 
     const rangeMatch = requestRange.match(/bytes=(\d+)-(\d+)/);
     if (!rangeMatch) throw new Error(`Invalid Range format: ${requestRange}`);
@@ -672,10 +674,14 @@ export class S3TransferManager implements IS3TransferManager {
       throw new Error(`Expected range to start at ${expectedStart} but got ${start}`);
     }
 
-    const isFinalPart = end + 1 === total;
-
-    if (end !== expectedEnd && !(isFinalPart && end < expectedEnd)) {
-      throw new Error(`Expected range to end at ${expectedEnd} but got ${end}`);
+    if (end === expectedEnd) {
+      return;
     }
+
+    if (end === total) {
+      return;
+    }
+
+    throw new Error(`Expected range to end at ${expectedEnd} but got ${end}`);
   }
 }
