@@ -85,6 +85,7 @@ export interface GetJobRunsCommandOutput extends GetJobRunsResponse, __MetadataB
  * //       MaintenanceWindow: "STRING_VALUE",
  * //       ProfileName: "STRING_VALUE",
  * //       StateDetail: "STRING_VALUE",
+ * //       ExecutionRoleSessionPolicy: "STRING_VALUE",
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",

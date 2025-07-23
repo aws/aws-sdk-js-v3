@@ -52,6 +52,7 @@ export interface StartJobRunCommandOutput extends StartJobRunResponse, __Metadat
  *   WorkerType: "Standard" || "G.1X" || "G.2X" || "G.025X" || "G.4X" || "G.8X" || "Z.2X",
  *   NumberOfWorkers: Number("int"),
  *   ExecutionClass: "FLEX" || "STANDARD",
+ *   ExecutionRoleSessionPolicy: "STRING_VALUE",
  * };
  * const command = new StartJobRunCommand(input);
  * const response = await client.send(command);

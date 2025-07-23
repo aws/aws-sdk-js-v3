@@ -152,6 +152,7 @@ export interface GetWorkflowRunCommandOutput extends GetWorkflowRunResponse, __M
  * //                 MaintenanceWindow: "STRING_VALUE",
  * //                 ProfileName: "STRING_VALUE",
  * //                 StateDetail: "STRING_VALUE",
+ * //                 ExecutionRoleSessionPolicy: "STRING_VALUE",
  * //               },
  * //             ],
  * //           },

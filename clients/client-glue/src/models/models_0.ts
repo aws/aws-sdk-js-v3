@@ -9360,6 +9360,13 @@ export interface JobRun {
    * @public
    */
   StateDetail?: string | undefined;
+
+  /**
+   * <p>This inline session policy to the StartJobRun API allows you to dynamically restrict the permissions of the specified
+   *       execution role for the scope of the job, without requiring the creation of additional IAM roles.</p>
+   * @public
+   */
+  ExecutionRoleSessionPolicy?: string | undefined;
 }
 
 /**
