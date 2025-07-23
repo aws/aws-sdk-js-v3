@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.852.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.851.0...v3.852.0) (2025-07-23)
+
+
+### Features
+
+* **client-glue:** AWS Glue now supports dynamic session policies for job executions. This feature allows you to specify custom, fine-grained permissions for each job run without creating multiple IAM roles. ([1708c81](https://github.com/aws/aws-sdk-js-v3/commit/1708c8122952a7aa9f331b704883750bf361d38f))
+
+
+
+
+
 # [3.848.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.847.0...v3.848.0) (2025-07-17)
 
 **Note:** Version bump only for package @aws-sdk/client-glue

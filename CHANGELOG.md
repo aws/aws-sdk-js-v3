@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.852.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.851.0...v3.852.0) (2025-07-23)
+
+
+### Features
+
+* **client-ec2:** Added support for skip-os-shutdown option for the EC2 instance stop and terminate operations. This feature enables customers to bypass the graceful OS shutdown, supporting faster state transitions when instance data preservation isn't critical. ([322ef3e](https://github.com/aws/aws-sdk-js-v3/commit/322ef3e9ca06fd132238db9bbc514b5be544bafd))
+* **client-glue:** AWS Glue now supports dynamic session policies for job executions. This feature allows you to specify custom, fine-grained permissions for each job run without creating multiple IAM roles. ([1708c81](https://github.com/aws/aws-sdk-js-v3/commit/1708c8122952a7aa9f331b704883750bf361d38f))
+* **client-workspaces-thin-client:** Added the lastUserId parameter to the ListDevices and GetDevice API. ([5bde47b](https://github.com/aws/aws-sdk-js-v3/commit/5bde47b9e1a8f334c2f75123f25a0455138603c5))
+* **clients:** update client endpoints as of 2025-07-23 ([898dd92](https://github.com/aws/aws-sdk-js-v3/commit/898dd92fc9564e7482b0592189e93a276a13b4f8))
+
+
+
+
+
 # [3.851.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.850.0...v3.851.0) (2025-07-22)
 
 

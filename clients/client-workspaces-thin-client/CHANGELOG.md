@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.852.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.851.0...v3.852.0) (2025-07-23)
+
+
+### Features
+
+* **client-workspaces-thin-client:** Added the lastUserId parameter to the ListDevices and GetDevice API. ([5bde47b](https://github.com/aws/aws-sdk-js-v3/commit/5bde47b9e1a8f334c2f75123f25a0455138603c5))
+
+
+
+
+
 # [3.848.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.847.0...v3.848.0) (2025-07-17)
 
 **Note:** Version bump only for package @aws-sdk/client-workspaces-thin-client
