@@ -805,6 +805,25 @@ describe("join-streams tests", () => {
           });
         });
 
+        it("should handle consecutive calls of joining multiple streams into a single stream", async () => {
+          for (let i = 0; i <= 3; i++) {
+            const contents = [Buffer.from("Chunk 1"), Buffer.from("Chunk 2"), Buffer.from("Chunk 3")];
+
+            const streams = contents.map((content) =>
+              Promise.resolve(createWithContent(content) as unknown as StreamingBlobPayloadOutputTypes)
+            );
+
+            const joinedStream = await joinStreams(streams);
+
+            const chunks = await consume(joinedStream);
+
+            const joinedContent = Buffer.isBuffer(chunks) ? chunks.toString() : Buffer.concat(chunks).toString();
+            contents.forEach((content) => {
+              expect(joinedContent).toContain(content.toString());
+            });
+          }
+        });
+
         it("should handle streams with no data", async () => {
           const streams = [
             Promise.resolve(createEmpty() as unknown as StreamingBlobPayloadOutputTypes),
