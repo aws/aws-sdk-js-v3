@@ -10201,8 +10201,8 @@ export interface DescribeInstanceTypesRequest {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>free-tier-eligible</code> - Indicates whether the instance type is eligible to use
-   *      in the free tier  (<code>true</code> | <code>false</code>).</p>
+   *                   <code>free-tier-eligible</code> - A Boolean that indicates whether this instance type can
+   *      be used under the Amazon Web Services Free Tier  (<code>true</code> | <code>false</code>).</p>
    *             </li>
    *             <li>
    *                <p>

@@ -57913,6 +57913,9 @@ const se_StopInstancesRequest = (input: StopInstancesRequest, context: __SerdeCo
   if (input[_Hi] != null) {
     entries[_Hi] = input[_Hi];
   }
+  if (input[_SOS] != null) {
+    entries[_SOS] = input[_SOS];
+  }
   if (input[_DRr] != null) {
     entries[_DRr] = input[_DRr];
   }
@@ -58227,6 +58230,9 @@ const se_TerminateInstancesRequest = (input: TerminateInstancesRequest, context:
       const loc = `InstanceId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
     });
+  }
+  if (input[_SOS] != null) {
+    entries[_SOS] = input[_SOS];
   }
   if (input[_DRr] != null) {
     entries[_DRr] = input[_DRr];
@@ -93793,6 +93799,7 @@ const _SNe = "ServiceName";
 const _SNeq = "SequenceNumber";
 const _SNer = "ServiceNames";
 const _SO = "SpotOptions";
+const _SOS = "SkipOsShutdown";
 const _SOT = "S3ObjectTags";
 const _SP = "S3Prefix";
 const _SPA = "SamlProviderArn";

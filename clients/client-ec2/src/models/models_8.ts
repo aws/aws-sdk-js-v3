@@ -2474,8 +2474,8 @@ export interface RunInstancesRequest {
   ImageId?: string | undefined;
 
   /**
-   * <p>The instance type. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html">Amazon EC2 instance
-   *                 types</a> in the <i>Amazon EC2 User Guide</i>.</p>
+   * <p>The instance type. For more information, see <a href="https://docs.aws.amazon.com/ec2/latest/instancetypes/instance-types.html">Amazon EC2 Instance
+   *                 Types Guide</a>.</p>
    * @public
    */
   InstanceType?: _InstanceType | undefined;
@@ -2515,8 +2515,7 @@ export interface RunInstancesRequest {
   KernelId?: string | undefined;
 
   /**
-   * <p>The name of the key pair. You can create a key pair using <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateKeyPair.html">CreateKeyPair</a> or
-   *                 <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ImportKeyPair.html">ImportKeyPair</a>.</p>
+   * <p>The name of the key pair. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/create-key-pairs.html">Create a key pair for your EC2 instance</a>.</p>
    *          <important>
    *             <p>If you do not specify a key pair, you can't connect to the instance unless you
    *                 choose an AMI that is configured to allow users another way to log in.</p>
@@ -2573,7 +2572,7 @@ export interface RunInstancesRequest {
   RamdiskId?: string | undefined;
 
   /**
-   * <p>The IDs of the security groups. You can create a security group using <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateSecurityGroup.html">CreateSecurityGroup</a>.</p>
+   * <p>The IDs of the security groups.</p>
    *          <p>If you specify a network interface, you must specify any security groups as part of
    *             the network interface instead of using this parameter.</p>
    * @public
@@ -2600,7 +2599,7 @@ export interface RunInstancesRequest {
   /**
    * <p>The user data to make available to the instance. User data must be base64-encoded.
    *             Depending on the tool or SDK that you're using, the base64-encoding might be performed for you.
-   *             For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instancedata-add-user-data.html">Work with instance user data</a>.</p>
+   *             For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/user-data.html">Run commands at launch using instance user data</a>.</p>
    * @public
    */
   UserData?: string | undefined;
@@ -2708,16 +2707,15 @@ export interface RunInstancesRequest {
   LicenseSpecifications?: LicenseConfigurationRequest[] | undefined;
 
   /**
-   * <p>The metadata options for the instance. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html">Instance metadata and user data</a>.</p>
+   * <p>The metadata options for the instance. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configuring-instance-metadata-options.html">Configure the Instance Metadata Service options</a>.</p>
    * @public
    */
   MetadataOptions?: InstanceMetadataOptionsRequest | undefined;
 
   /**
    * <p>Indicates whether the instance is enabled for Amazon Web Services Nitro Enclaves. For
-   *             more information, see <a href="https://docs.aws.amazon.com/enclaves/latest/user/nitro-enclave.html">What is Amazon Web Services Nitro
-   *                 Enclaves?</a> in the <i>Amazon Web Services Nitro Enclaves User
-   *                 Guide</i>.</p>
+   *             more information, see <a href="https://docs.aws.amazon.com/enclaves/latest/user/">Amazon Web Services Nitro
+   *                 Enclaves User Guide</a>.</p>
    *          <p>You can't enable Amazon Web Services Nitro Enclaves and hibernation on the same
    *             instance.</p>
    * @public
@@ -2740,8 +2738,7 @@ export interface RunInstancesRequest {
 
   /**
    * <p>Indicates whether an instance is enabled for stop protection. For more information,
-   *             see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html#Using_StopProtection">Stop
-   *                 protection</a>. </p>
+   *             see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-stop-protection.html">Enable stop protection for your EC2 instances</a>.</p>
    * @public
    */
   DisableApiStop?: boolean | undefined;
@@ -2819,8 +2816,7 @@ export interface RunInstancesRequest {
    * <p>Unique, case-sensitive identifier you provide to ensure the idempotency of the
    *             request. If you do not specify a client token, a randomly generated token is used for
    *             the request to ensure idempotency.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring
-   *                 Idempotency</a>.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html">Ensuring idempotency in Amazon EC2 API requests</a>.</p>
    *          <p>Constraints: Maximum 64 ASCII characters</p>
    * @public
    */
@@ -3903,12 +3899,27 @@ export interface StopInstancesRequest {
    * <p>Hibernates the instance if the instance was enabled for hibernation at launch. If the
    *             instance cannot hibernate successfully, a normal shutdown occurs. For more information,
    *             see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html">Hibernate
-   *                 your instance</a> in the <i>Amazon EC2 User Guide</i>.</p>
+   *                 your Amazon EC2 instance</a> in the
+   *                 <i>Amazon EC2 User Guide</i>.</p>
    *          <p> Default: <code>false</code>
    *          </p>
    * @public
    */
   Hibernate?: boolean | undefined;
+
+  /**
+   * <p>Specifies whether to bypass the graceful OS shutdown process when the instance is
+   *             stopped.</p>
+   *          <important>
+   *             <p>Bypassing the graceful OS shutdown might result in data loss or corruption (for
+   *                 example, memory contents not flushed to disk or loss of in-flight IOs) or skipped
+   *                 shutdown scripts.</p>
+   *          </important>
+   *          <p>Default: <code>false</code>
+   *          </p>
+   * @public
+   */
+  SkipOsShutdown?: boolean | undefined;
 
   /**
    * <p>Checks whether you have the required permissions for the operation, without actually making the
@@ -4033,6 +4044,15 @@ export interface TerminateInstancesRequest {
    * @public
    */
   InstanceIds: string[] | undefined;
+
+  /**
+   * <p>Specifies whether to bypass the graceful OS shutdown process when the instance is
+   *             terminated.</p>
+   *          <p>Default: <code>false</code>
+   *          </p>
+   * @public
+   */
+  SkipOsShutdown?: boolean | undefined;
 
   /**
    * <p>Checks whether you have the required permissions for the operation, without actually making the

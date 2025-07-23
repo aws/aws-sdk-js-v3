@@ -31,17 +31,21 @@ export interface StopInstancesCommandOutput extends StopInstancesResult, __Metad
  * <p>Stops an Amazon EBS-backed instance. You can restart your instance at any time using
  *             the <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_StartInstances.html">StartInstances</a> API. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html">Stop and start Amazon EC2
  *                 instances</a> in the <i>Amazon EC2 User Guide</i>.</p>
- *          <p>When you stop an instance, we shut it down.</p>
- *          <p>You can use the Stop operation together with the Hibernate parameter to hibernate an
- *             instance if the instance is <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/enabling-hibernation.html">enabled for
+ *          <p>When you stop or hibernate an instance, we shut it down. By default, this includes a
+ *             graceful operating system (OS) shutdown. To bypass the graceful shutdown, use the
+ *                 <code>skipOsShutdown</code> parameter; however, this might risk data
+ *             integrity.</p>
+ *          <p>You can use the StopInstances operation together with the <code>Hibernate</code>
+ *             parameter to hibernate an instance if the instance is <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/enabling-hibernation.html">enabled for
  *                 hibernation</a> and meets the <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/hibernating-prerequisites.html">hibernation
  *                 prerequisites</a>. Stopping an instance doesn't preserve data stored in RAM,
  *             while hibernation does. If hibernation fails, a normal shutdown occurs. For more
  *             information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html">Hibernate your Amazon EC2
  *                 instance</a> in the <i>Amazon EC2 User Guide</i>.</p>
  *          <p>If your instance appears stuck in the <code>stopping</code> state, there might be an
- *             issue with the underlying host computer. You can use the Stop operation together with
- *             the Force parameter to force stop your instance. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/TroubleshootingInstancesStopping.html">Troubleshoot
+ *             issue with the underlying host computer. You can use the StopInstances operation
+ *             together with the Force parameter to force stop your instance. For more information, see
+ *                 <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/TroubleshootingInstancesStopping.html">Troubleshoot
  *                     Amazon EC2 instance stop issues</a> in the
  *                 <i>Amazon EC2 User Guide</i>.</p>
  *          <p>Stopping and hibernating an instance differs from rebooting or terminating it. For
@@ -66,6 +70,7 @@ export interface StopInstancesCommandOutput extends StopInstancesResult, __Metad
  *     "STRING_VALUE",
  *   ],
  *   Hibernate: true || false,
+ *   SkipOsShutdown: true || false,
  *   DryRun: true || false,
  *   Force: true || false,
  * };

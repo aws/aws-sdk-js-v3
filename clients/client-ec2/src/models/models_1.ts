@@ -482,7 +482,7 @@ export interface CreateCapacityReservationRequest {
    * <p>The instance type for which to reserve capacity.</p>
    *          <note>
    *             <p>You can request future-dated Capacity Reservations for instance types in the C, M,
-   * 				R, I, and T instance families only.</p>
+   * 				R, I, T, and G instance families only.</p>
    *          </note>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html">Instance types</a> in the
    * 				<i>Amazon EC2 User Guide</i>.</p>
@@ -531,9 +531,9 @@ export interface CreateCapacityReservationRequest {
    * <p>The number of instances for which to reserve capacity.</p>
    *          <note>
    *             <p>You can request future-dated Capacity Reservations for an instance count with a
-   * 				minimum of 100 vCPUs. For example, if you request a future-dated Capacity
+   * 				minimum of 64 vCPUs. For example, if you request a future-dated Capacity
    * 				Reservation for <code>m5.xlarge</code> instances, you must request at least 25
-   * 				instances (<i>25 * m5.xlarge = 100 vCPUs</i>).</p>
+   * 				instances (<i>16 * m5.xlarge = 64 vCPUs</i>).</p>
    *          </note>
    *          <p>Valid range: 1 - 1000</p>
    * @public
@@ -7957,8 +7957,11 @@ export interface EbsBlockDevice {
    *             but not both. If neither is specified, Amazon EC2 automatically selects an Availability Zone within
    *             the Region.</p>
    *          <p>This parameter is not supported when using
+   *             <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFleet.html">CreateFleet</a>,
    *             <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateImage.html">CreateImage</a>,
-   *             <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeImages.html">DescribeImages</a>, and
+   *             <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeImages.html">DescribeImages</a>,
+   *             <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RequestSpotFleet.html">RequestSpotFleet</a>,
+   *             <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RequestSpotInstances.html">RequestSpotInstances</a>, and
    *             <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html">RunInstances</a>.</p>
    * @public
    */
@@ -8042,8 +8045,11 @@ export interface EbsBlockDevice {
    *             but not both. If neither is specified, Amazon EC2 automatically selects an Availability Zone within
    *             the Region.</p>
    *          <p>This parameter is not supported when using
+   *             <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFleet.html">CreateFleet</a>,
    *             <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateImage.html">CreateImage</a>,
-   *             <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeImages.html">DescribeImages</a>, and
+   *             <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeImages.html">DescribeImages</a>,
+   *             <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RequestSpotFleet.html">RequestSpotFleet</a>,
+   *             <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RequestSpotInstances.html">RequestSpotInstances</a>, and
    *             <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html">RunInstances</a>.</p>
    * @public
    */
