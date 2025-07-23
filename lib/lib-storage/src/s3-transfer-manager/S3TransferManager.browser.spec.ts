@@ -1,9 +1,8 @@
-// s3-transfer-manager.browser.spec.ts
 import { StreamingBlobPayloadOutputTypes } from "@smithy/types";
 import { sdkStreamMixin } from "@smithy/util-stream";
 import { describe, expect, it, vi } from "vitest";
 
-import { joinStreams } from "./join-streams";
+import { joinStreams } from "./join-streams.browser";
 
 describe("join-streams tests", () => {
   const createReadableStreamWithContent = (content: Uint8Array) =>
@@ -76,6 +75,29 @@ describe("join-streams tests", () => {
         chunks.forEach((chunk, i) => {
           expect(chunk).toEqual(contents[i]);
         });
+      });
+
+      it("should handle consecutive calls of joining multiple streams into a single stream", async () => {
+        for (let i = 0; i <= 3; i++) {
+          const contents = [
+            new Uint8Array([67, 104, 117, 110, 107, 32, 49]), // "Chunk 1"
+            new Uint8Array([67, 104, 117, 110, 107, 32, 50]), // "Chunk 2"
+            new Uint8Array([67, 104, 117, 110, 107, 32, 51]), // "Chunk 3"
+          ];
+
+          const streams = contents.map((content) =>
+            Promise.resolve(sdkStreamMixin(createWithContent(content)) as StreamingBlobPayloadOutputTypes)
+          );
+
+          const joinedStream = await joinStreams(streams);
+
+          const chunks = await consume(joinedStream);
+
+          expect(chunks.length).toBe(contents.length);
+          chunks.forEach((chunk, i) => {
+            expect(chunk).toEqual(contents[i]);
+          });
+        }
       });
 
       it("should handle streams with no data", async () => {
