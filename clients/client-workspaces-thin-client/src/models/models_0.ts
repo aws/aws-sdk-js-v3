@@ -842,6 +842,12 @@ export interface Device {
    * @public
    */
   kmsKeyArn?: string | undefined;
+
+  /**
+   * <p>The user ID of the most recent session on the device.</p>
+   * @public
+   */
+  lastUserId?: string | undefined;
 }
 
 /**
@@ -938,6 +944,12 @@ export interface DeviceSummary {
    * @public
    */
   arn?: string | undefined;
+
+  /**
+   * <p>The user ID of the most recent session on the device.</p>
+   * @public
+   */
+  lastUserId?: string | undefined;
 }
 
 /**
@@ -1600,6 +1612,7 @@ export const CreateEnvironmentResponseFilterSensitiveLog = (obj: CreateEnvironme
 export const DeviceFilterSensitiveLog = (obj: Device): any => ({
   ...obj,
   ...(obj.name && { name: SENSITIVE_STRING }),
+  ...(obj.lastUserId && { lastUserId: SENSITIVE_STRING }),
 });
 
 /**
@@ -1608,6 +1621,7 @@ export const DeviceFilterSensitiveLog = (obj: Device): any => ({
 export const DeviceSummaryFilterSensitiveLog = (obj: DeviceSummary): any => ({
   ...obj,
   ...(obj.name && { name: SENSITIVE_STRING }),
+  ...(obj.lastUserId && { lastUserId: SENSITIVE_STRING }),
 });
 
 /**

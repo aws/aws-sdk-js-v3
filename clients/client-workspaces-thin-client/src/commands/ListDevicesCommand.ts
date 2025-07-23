@@ -63,6 +63,7 @@ export interface ListDevicesCommandOutput extends ListDevicesResponse, __Metadat
  * //       createdAt: new Date("TIMESTAMP"),
  * //       updatedAt: new Date("TIMESTAMP"),
  * //       arn: "STRING_VALUE",
+ * //       lastUserId: "STRING_VALUE",
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",
