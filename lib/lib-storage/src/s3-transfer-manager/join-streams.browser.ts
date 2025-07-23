@@ -8,7 +8,6 @@ export async function joinStreams(
   eventListeners?: JoinStreamIterationEvents
 ): Promise<StreamingBlobPayloadOutputTypes> {
   const firstStream = await streams[0];
-  console.log("TESTING BROWSER VERSION");
   if (isReadableStream(firstStream)) {
     const newReadableStream = new ReadableStream({
       async start(controller) {
@@ -33,6 +32,7 @@ export async function* iterateStreams(
   for (const streamPromise of streams) {
     const stream = await streamPromise;
     if (isReadableStream(stream)) {
+      // TODO: May need to acquire reader before reaching the stream
       const reader = stream.getReader();
       try {
         while (true) {
