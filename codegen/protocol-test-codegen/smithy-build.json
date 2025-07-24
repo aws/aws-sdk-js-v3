@@ -314,6 +314,31 @@
         }
       }
     },
+    "aws-protocoltests-json-schema-machinelearning": {
+      "transforms": [
+        {
+          "name": "includeServices",
+          "args": {
+            "services": ["com.amazonaws.machinelearning#AmazonML_20141212"]
+          }
+        }
+      ],
+      "plugins": {
+        "typescript-codegen": {
+          "package": "@aws-sdk/aws-protocoltests-json-schema-machinelearning",
+          "generateSchemas": true,
+          "packageVersion": "1.0.0-alpha.1",
+          "packageJson": {
+            "author": {
+              "name": "AWS SDK for JavaScript Team",
+              "url": "https://aws.amazon.com/javascript/"
+            },
+            "license": "Apache-2.0"
+          },
+          "private": true
+        }
+      }
+    },
     "aws-protocoltests-json-10-schema": {
       "transforms": [
         {
@@ -376,6 +401,56 @@
       "plugins": {
         "typescript-codegen": {
           "package": "@aws-sdk/aws-protocoltests-restjson-schema",
+          "generateSchemas": true,
+          "packageVersion": "1.0.0-alpha.1",
+          "packageJson": {
+            "author": {
+              "name": "AWS SDK for JavaScript Team",
+              "url": "https://aws.amazon.com/javascript/"
+            },
+            "license": "Apache-2.0"
+          },
+          "private": true
+        }
+      }
+    },
+    "aws-protocoltests-restjson-schema-apigateway": {
+      "transforms": [
+        {
+          "name": "includeServices",
+          "args": {
+            "services": ["com.amazonaws.apigateway#BackplaneControlService"]
+          }
+        }
+      ],
+      "plugins": {
+        "typescript-codegen": {
+          "package": "@aws-sdk/aws-protocoltests-restjson-schema-apigateway",
+          "generateSchemas": true,
+          "packageVersion": "1.0.0-alpha.1",
+          "packageJson": {
+            "author": {
+              "name": "AWS SDK for JavaScript Team",
+              "url": "https://aws.amazon.com/javascript/"
+            },
+            "license": "Apache-2.0"
+          },
+          "private": true
+        }
+      }
+    },
+    "aws-protocoltests-restjson-schema-glacier": {
+      "transforms": [
+        {
+          "name": "includeServices",
+          "args": {
+            "services": ["com.amazonaws.glacier#Glacier"]
+          }
+        }
+      ],
+      "plugins": {
+        "typescript-codegen": {
+          "package": "@aws-sdk/aws-protocoltests-restjson-schema-glacier",
           "generateSchemas": true,
           "packageVersion": "1.0.0-alpha.1",
           "packageJson": {
