@@ -28,7 +28,7 @@ export interface GetRunTaskCommandInput extends GetRunTaskRequest {}
 export interface GetRunTaskCommandOutput extends GetRunTaskResponse, __MetadataBearer {}
 
 /**
- * <p>Gets information about a workflow run task.</p>
+ * <p>Gets detailed information about a run task using its ID.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

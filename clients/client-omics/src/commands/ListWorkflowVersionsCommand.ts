@@ -28,7 +28,7 @@ export interface ListWorkflowVersionsCommandInput extends ListWorkflowVersionsRe
 export interface ListWorkflowVersionsCommandOutput extends ListWorkflowVersionsResponse, __MetadataBearer {}
 
 /**
- * <p>Lists the workflow versions for the specified workflow. For more information, see <a href="https://docs.aws.amazon.com/omics/latest/dev/workflow-versions.html">Workflow versioning in Amazon Web Services HealthOmics</a> in the Amazon Web Services HealthOmics User Guide.</p>
+ * <p>Lists the workflow versions for the specified workflow. For more information, see <a href="https://docs.aws.amazon.com/omics/latest/dev/workflow-versions.html">Workflow versioning in Amazon Web Services HealthOmics</a> in the <i>Amazon Web Services HealthOmics User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

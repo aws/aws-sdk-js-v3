@@ -9,7 +9,7 @@ import {
   UploadReadSetPartRequest,
   UploadReadSetPartRequestFilterSensitiveLog,
   UploadReadSetPartResponse,
-} from "../models/models_0";
+} from "../models/models_1";
 import { OmicsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OmicsClient";
 import { de_UploadReadSetPartCommand, se_UploadReadSetPartCommand } from "../protocols/Aws_restJson1";
 

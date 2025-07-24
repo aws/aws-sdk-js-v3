@@ -28,7 +28,7 @@ export interface GetRunGroupCommandInput extends GetRunGroupRequest {}
 export interface GetRunGroupCommandOutput extends GetRunGroupResponse, __MetadataBearer {}
 
 /**
- * <p>Gets information about a workflow run group.</p>
+ * <p>Gets information about a run group and returns its metadata.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

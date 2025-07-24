@@ -28,7 +28,7 @@ export interface ListRunGroupsCommandInput extends ListRunGroupsRequest {}
 export interface ListRunGroupsCommandOutput extends ListRunGroupsResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves a list of run groups.</p>
+ * <p>Retrieves a list of all run groups and returns the metadata for each run group.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

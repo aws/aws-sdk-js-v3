@@ -28,7 +28,7 @@ export interface UpdateRunCacheCommandInput extends UpdateRunCacheRequest {}
 export interface UpdateRunCacheCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Update a run cache. </p>
+ * <p>Updates a run cache using its ID and returns a response with no body if the operation is successful. You can update the run cache description, name, or the default run cache behavior with <code>CACHE_ON_FAILURE</code> or <code>CACHE_ALWAYS</code>. To confirm that your run cache settings have been properly updated, use the <code>GetRunCache</code> API operation.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/omics/latest/dev/how-run-cache.html">How call caching works</a> in the <i>Amazon Web Services HealthOmics User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

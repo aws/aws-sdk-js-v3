@@ -28,7 +28,7 @@ export interface CancelRunCommandInput extends CancelRunRequest {}
 export interface CancelRunCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Cancels a run.</p>
+ * <p>Cancels a run using its ID and returns a response with no body if the operation is successful. To confirm that the run has been cancelled, use the <code>ListRuns</code> API operation to check that it is no longer listed.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

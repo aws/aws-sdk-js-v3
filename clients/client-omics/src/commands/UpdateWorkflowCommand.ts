@@ -28,7 +28,7 @@ export interface UpdateWorkflowCommandInput extends UpdateWorkflowRequest {}
 export interface UpdateWorkflowCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Updates information about a workflow. For more information, see <a href="https://docs.aws.amazon.com/omics/latest/dev/update-private-workflow.html">Update a private workflow</a> in the Amazon Web Services HealthOmics User Guide.</p>
+ * <p>Updates information about a workflow.</p> <p>You can update the following workflow information:</p> <ul> <li> <p>Name</p> </li> <li> <p>Description</p> </li> <li> <p>Default storage type</p> </li> <li> <p>Default storage capacity (with workflow ID)</p> </li> </ul> <p>This operation returns a response with no body if the operation is successful. You can check the workflow updates by calling the <code>GetWorkflow</code> API operation.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/omics/latest/dev/update-private-workflow.html">Update a private workflow</a> in the <i>Amazon Web Services HealthOmics User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -41,6 +41,7 @@ export interface UpdateWorkflowCommandOutput extends __MetadataBearer {}
  *   description: "STRING_VALUE",
  *   storageType: "STRING_VALUE",
  *   storageCapacity: Number("int"),
+ *   readmeMarkdown: "STRING_VALUE",
  * };
  * const command = new UpdateWorkflowCommand(input);
  * const response = await client.send(command);

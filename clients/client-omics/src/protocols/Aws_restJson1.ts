@@ -287,6 +287,7 @@ import {
   AnnotationStoreVersionItem,
   CompleteReadSetUploadPartListItem,
   ConflictException,
+  DefinitionRepository,
   ExportReadSet,
   ExportReadSetFilter,
   ExportReadSetJobDetail,
@@ -330,6 +331,7 @@ import {
   ShareResourceType,
   ShareStatus,
   SourceFiles,
+  SourceReference,
   SseConfig,
   StartReadSetActivationJobSourceItem,
   StartReadSetImportJobSourceItem,
@@ -872,6 +874,7 @@ export const se_CreateWorkflowCommand = async (
   body = JSON.stringify(
     take(input, {
       accelerators: [],
+      definitionRepository: (_) => _json(_),
       definitionUri: [],
       definitionZip: (_) => context.base64Encoder(_),
       description: [],
@@ -879,10 +882,15 @@ export const se_CreateWorkflowCommand = async (
       main: [],
       name: [],
       parameterTemplate: (_) => _json(_),
+      parameterTemplatePath: [],
+      readmeMarkdown: [],
+      readmePath: [],
+      readmeUri: [],
       requestId: [true, (_) => _ ?? generateIdempotencyToken()],
       storageCapacity: [],
       storageType: [],
       tags: (_) => _json(_),
+      workflowBucketOwnerId: [],
     })
   );
   let { hostname: resolvedHostname } = await context.endpoint();
@@ -914,12 +922,17 @@ export const se_CreateWorkflowVersionCommand = async (
   body = JSON.stringify(
     take(input, {
       accelerators: [],
+      definitionRepository: (_) => _json(_),
       definitionUri: [],
       definitionZip: (_) => context.base64Encoder(_),
       description: [],
       engine: [],
       main: [],
       parameterTemplate: (_) => _json(_),
+      parameterTemplatePath: [],
+      readmeMarkdown: [],
+      readmePath: [],
+      readmeUri: [],
       requestId: [true, (_) => _ ?? generateIdempotencyToken()],
       storageCapacity: [],
       storageType: [],
@@ -3158,6 +3171,7 @@ export const se_UpdateWorkflowCommand = async (
     take(input, {
       description: [],
       name: [],
+      readmeMarkdown: [],
       storageCapacity: [],
       storageType: [],
     })
@@ -3192,6 +3206,7 @@ export const se_UpdateWorkflowVersionCommand = async (
   body = JSON.stringify(
     take(input, {
       description: [],
+      readmeMarkdown: [],
       storageCapacity: [],
       storageType: [],
     })
@@ -4557,6 +4572,7 @@ export const de_GetWorkflowCommand = async (
     arn: __expectString,
     creationTime: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
     definition: __expectString,
+    definitionRepositoryDetails: _json,
     description: __expectString,
     digest: __expectString,
     engine: __expectString,
@@ -4565,6 +4581,8 @@ export const de_GetWorkflowCommand = async (
     metadata: _json,
     name: __expectString,
     parameterTemplate: _json,
+    readme: __expectString,
+    readmePath: __expectString,
     status: __expectString,
     statusMessage: __expectString,
     storageCapacity: __expectInt32,
@@ -4596,12 +4614,15 @@ export const de_GetWorkflowVersionCommand = async (
     arn: __expectString,
     creationTime: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
     definition: __expectString,
+    definitionRepositoryDetails: _json,
     description: __expectString,
     digest: __expectString,
     engine: __expectString,
     main: __expectString,
     metadata: _json,
     parameterTemplate: _json,
+    readme: __expectString,
+    readmePath: __expectString,
     status: __expectString,
     statusMessage: __expectString,
     storageCapacity: __expectInt32,
@@ -5817,6 +5838,10 @@ const se_ActivateReadSetFilter = (input: ActivateReadSetFilter, context: __Serde
 
 // se_CompleteReadSetUploadPartListItem omitted.
 
+// se_DefinitionRepository omitted.
+
+// se_ExcludeFilePatternList omitted.
+
 // se_ExportReadSet omitted.
 
 /**
@@ -5958,6 +5983,8 @@ const se_SequenceStoreFilter = (input: SequenceStoreFilter, context: __SerdeCont
 };
 
 // se_SourceFiles omitted.
+
+// se_SourceReference omitted.
 
 // se_SseConfig omitted.
 
@@ -6128,6 +6155,8 @@ const de_AnnotationStoreVersionItems = (output: any, context: __SerdeContext): A
     });
   return retVal;
 };
+
+// de_DefinitionRepositoryDetails omitted.
 
 // de_ETag omitted.
 
@@ -6558,6 +6587,8 @@ const de_ShareDetailsList = (output: any, context: __SerdeContext): ShareDetails
 };
 
 // de_SourceFiles omitted.
+
+// de_SourceReference omitted.
 
 // de_SseConfig omitted.
 

@@ -2582,7 +2582,7 @@ export interface CreateReferenceStoreResponse {
  */
 export interface CreateRunCacheRequest {
   /**
-   * <p>Default cache behavior for runs that use this cache. Supported values are:</p> <p> <code>CACHE_ON_FAILURE</code>: Caches task outputs from completed tasks for runs that fail. This setting is useful if you're debugging a workflow that fails after several tasks completed successfully. The subsequent run uses the cache outputs for previously-completed tasks if the task definition, inputs, and container in ECR are identical to the prior run.</p> <p> <code>CACHE_ALWAYS</code>: Caches task outputs from completed tasks for all runs. This setting is useful in development mode, but do not use it in a production setting.</p> <p>If you don't specify a value, the default behavior is CACHE_ON_FAILURE. When you start a run that uses this cache, you can override the default cache behavior.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/omics/latest/dev/how-run-cache.html#run-cache-behavior">Run cache behavior</a> in the Amazon Web Services HealthOmics User Guide.</p>
+   * <p>Default cache behavior for runs that use this cache. Supported values are:</p> <p> <code>CACHE_ON_FAILURE</code>: Caches task outputs from completed tasks for runs that fail. This setting is useful if you're debugging a workflow that fails after several tasks completed successfully. The subsequent run uses the cache outputs for previously-completed tasks if the task definition, inputs, and container in ECR are identical to the prior run.</p> <p> <code>CACHE_ALWAYS</code>: Caches task outputs from completed tasks for all runs. This setting is useful in development mode, but do not use it in a production setting.</p> <p>If you don't specify a value, the default behavior is CACHE_ON_FAILURE. When you start a run that uses this cache, you can override the default cache behavior.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/omics/latest/dev/how-run-cache.html#run-cache-behavior">Run cache behavior</a> in the <i>Amazon Web Services HealthOmics User Guide</i>.</p>
    * @public
    */
   cacheBehavior?: CacheBehavior | undefined;
@@ -3062,6 +3062,69 @@ export interface CreateVariantStoreResponse {
  * @public
  * @enum
  */
+export const SourceReferenceType = {
+  BRANCH: "BRANCH",
+  COMMIT: "COMMIT",
+  TAG: "TAG",
+} as const;
+
+/**
+ * @public
+ */
+export type SourceReferenceType = (typeof SourceReferenceType)[keyof typeof SourceReferenceType];
+
+/**
+ * <p>Contains information about the source reference in a code repository, such as a branch, tag, or commit.</p>
+ * @public
+ */
+export interface SourceReference {
+  /**
+   * <p>The type of source reference, such as branch, tag, or commit.</p>
+   * @public
+   */
+  type: SourceReferenceType | undefined;
+
+  /**
+   * <p>The value of the source reference, such as the branch name, tag name, or commit ID.</p>
+   * @public
+   */
+  value: string | undefined;
+}
+
+/**
+ * <p>Contains information about a source code repository that hosts the workflow definition files.</p>
+ * @public
+ */
+export interface DefinitionRepository {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the connection to the source code repository.</p>
+   * @public
+   */
+  connectionArn: string | undefined;
+
+  /**
+   * <p>The full repository identifier, including the repository owner and name. For example, 'repository-owner/repository-name'.</p>
+   * @public
+   */
+  fullRepositoryId: string | undefined;
+
+  /**
+   * <p>The source reference for the repository, such as a branch name, tag, or commit ID.</p>
+   * @public
+   */
+  sourceReference?: SourceReference | undefined;
+
+  /**
+   * <p>A list of file patterns to exclude when retrieving the workflow definition from the repository.</p>
+   * @public
+   */
+  excludeFilePatterns?: string[] | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
 export const WorkflowEngine = {
   CWL: "CWL",
   NEXTFLOW: "NEXTFLOW",
@@ -3110,7 +3173,7 @@ export type StorageType = (typeof StorageType)[keyof typeof StorageType];
  */
 export interface CreateWorkflowRequest {
   /**
-   * <p>A name for the workflow.</p>
+   * <p>Name (optional but highly recommended) for the workflow to locate relevant information in the CloudWatch logs and Amazon Web Services HealthOmics console. </p>
    * @public
    */
   name?: string | undefined;
@@ -3122,49 +3185,49 @@ export interface CreateWorkflowRequest {
   description?: string | undefined;
 
   /**
-   * <p>The workflow engine for the workflow.</p>
+   * <p>The workflow engine for the workflow. This is only required if you have workflow definition files from more than one engine in your zip file. Otherwise, the service can detect the engine automatically from your workflow definition.</p>
    * @public
    */
   engine?: WorkflowEngine | undefined;
 
   /**
-   * <p>A ZIP archive for the workflow.</p>
+   * <p>A ZIP archive containing the main workflow definition file and dependencies that it imports for the workflow. You can use a file with a ://fileb prefix instead of the Base64 string. For more information, see <a href="https://docs.aws.amazon.com/omics/latest/dev/workflow-defn-requirements.html">Workflow definition requirements</a> in the <i>Amazon Web Services HealthOmics User Guide</i>.</p>
    * @public
    */
   definitionZip?: Uint8Array | undefined;
 
   /**
-   * <p>The URI of a definition for the workflow.</p>
+   * <p>The S3 URI of a definition for the workflow. The S3 bucket must be in the same region as the workflow.</p>
    * @public
    */
   definitionUri?: string | undefined;
 
   /**
-   * <p>The path of the main definition file for the workflow.</p>
+   * <p>The path of the main definition file for the workflow. This parameter is not required if the ZIP archive contains only one workflow definition file, or if the main definition file is named “main”. An example path is: <code>workflow-definition/main-file.wdl</code>. </p>
    * @public
    */
   main?: string | undefined;
 
   /**
-   * <p>A parameter template for the workflow.</p>
+   * <p>A parameter template for the workflow. If this field is blank, Amazon Web Services HealthOmics will automatically parse the parameter template values from your workflow definition file. To override these service generated default values, provide a parameter template. To view an example of a parameter template, see <a href="https://docs.aws.amazon.com/omics/latest/dev/parameter-templates.html">Parameter template files</a> in the <i>Amazon Web Services HealthOmics User Guide</i>.</p>
    * @public
    */
   parameterTemplate?: Record<string, WorkflowParameter> | undefined;
 
   /**
-   * <p>The default static storage capacity (in gibibytes) for runs that use this workflow or workflow version.</p>
+   * <p>The default static storage capacity (in gibibytes) for runs that use this workflow or workflow version. The <code>storageCapacity</code> can be overwritten at run time. The storage capacity is not required for runs with a <code>DYNAMIC</code> storage type.</p>
    * @public
    */
   storageCapacity?: number | undefined;
 
   /**
-   * <p>Tags for the workflow.</p>
+   * <p>Tags for the workflow. You can define up to 50 tags for the workflow. For more information, see <a href="https://docs.aws.amazon.com/omics/latest/dev/add-a-tag.html">Adding a tag</a> in the <i>Amazon Web Services HealthOmics User Guide</i>.</p>
    * @public
    */
   tags?: Record<string, string> | undefined;
 
   /**
-   * <p>To ensure that requests don't run multiple times, specify a unique ID for each request.</p>
+   * <p>An idempotency token to ensure that duplicate workflows are not created when Amazon Web Services HealthOmics submits retry requests.</p>
    * @public
    */
   requestId?: string | undefined;
@@ -3176,10 +3239,46 @@ export interface CreateWorkflowRequest {
   accelerators?: Accelerators | undefined;
 
   /**
-   * <p> The default storage type for runs that use this workflow. STATIC storage allocates a fixed amount of storage. DYNAMIC storage dynamically scales the storage up or down, based on file system utilization. For more information about static and dynamic storage, see <a href="https://docs.aws.amazon.com/omics/latest/dev/Using-workflows.html">Running workflows</a> in the <i>Amazon Web Services HealthOmics User Guide</i>.</p>
+   * <p>The default storage type for runs that use this workflow. The <code>storageType</code> can be overridden at run time. <code>DYNAMIC</code> storage dynamically scales the storage up or down, based on file system utilization. <code>STATIC</code> storage allocates a fixed amount of storage. For more information about dynamic and static storage types, see <a href="https://docs.aws.amazon.com/omics/latest/dev/workflows-run-types.html">Run storage types</a> in the <i>Amazon Web Services HealthOmics User Guide</i>.</p>
    * @public
    */
   storageType?: StorageType | undefined;
+
+  /**
+   * <p>The markdown content for the workflow's README file. This provides documentation and usage information for users of the workflow.</p>
+   * @public
+   */
+  readmeMarkdown?: string | undefined;
+
+  /**
+   * <p>The path to the workflow parameter template JSON file within the repository. This file defines the input parameters for runs that use this workflow. If not specified, the workflow will be created without a parameter template.</p>
+   * @public
+   */
+  parameterTemplatePath?: string | undefined;
+
+  /**
+   * <p>The path to the workflow README markdown file within the repository. This file provides documentation and usage information for the workflow. If not specified, the <code>README.md</code> file from the root directory of the repository will be used.</p>
+   * @public
+   */
+  readmePath?: string | undefined;
+
+  /**
+   * <p>The repository information for the workflow definition. This allows you to source your workflow definition directly from a code repository.</p>
+   * @public
+   */
+  definitionRepository?: DefinitionRepository | undefined;
+
+  /**
+   * <p>The Amazon Web Services account ID of the expected owner of the S3 bucket that contains the workflow definition. If not specified, the service skips the validation.</p>
+   * @public
+   */
+  workflowBucketOwnerId?: string | undefined;
+
+  /**
+   * <p>The S3 URI of the README file for the workflow. This file provides documentation and usage information for the workflow. Requirements include:</p> <ul> <li> <p>The S3 URI must begin with <code>s3://USER-OWNED-BUCKET/</code> </p> </li> <li> <p>The requester must have access to the S3 bucket and object.</p> </li> <li> <p>The max README content length is 500 KiB.</p> </li> </ul>
+   * @public
+   */
+  readmeUri?: string | undefined;
 }
 
 /**
@@ -3322,6 +3421,36 @@ export interface CreateWorkflowVersionRequest {
    * @public
    */
   workflowBucketOwnerId?: string | undefined;
+
+  /**
+   * <p>The markdown content for the workflow version's README file. This provides documentation and usage information for users of this specific workflow version.</p>
+   * @public
+   */
+  readmeMarkdown?: string | undefined;
+
+  /**
+   * <p>The path to the workflow version parameter template JSON file within the repository. This file defines the input parameters for runs that use this workflow version. If not specified, the workflow version will be created without a parameter template.</p>
+   * @public
+   */
+  parameterTemplatePath?: string | undefined;
+
+  /**
+   * <p>The path to the workflow version README markdown file within the repository. This file provides documentation and usage information for the workflow. If not specified, the <code>README.md</code> file from the root directory of the repository will be used.</p>
+   * @public
+   */
+  readmePath?: string | undefined;
+
+  /**
+   * <p>The repository information for the workflow version definition. This allows you to source your workflow version definition directly from a code repository.</p>
+   * @public
+   */
+  definitionRepository?: DefinitionRepository | undefined;
+
+  /**
+   * <p>The S3 URI of the README file for the workflow version. This file provides documentation and usage information for the workflow version. Requirements include:</p> <ul> <li> <p>The S3 URI must begin with <code>s3://USER-OWNED-BUCKET/</code> </p> </li> <li> <p>The requester must have access to the S3 bucket and object.</p> </li> <li> <p>The max README content length is 500 KiB.</p> </li> </ul>
+   * @public
+   */
+  readmeUri?: string | undefined;
 }
 
 /**
@@ -3378,6 +3507,42 @@ export const CreationType = {
  * @public
  */
 export type CreationType = (typeof CreationType)[keyof typeof CreationType];
+
+/**
+ * <p>Contains detailed information about the source code repository that hosts the workflow definition files.</p>
+ * @public
+ */
+export interface DefinitionRepositoryDetails {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the connection to the source code repository.</p>
+   * @public
+   */
+  connectionArn?: string | undefined;
+
+  /**
+   * <p>The full repository identifier, including the repository owner and name. For example, 'repository-owner/repository-name'.</p>
+   * @public
+   */
+  fullRepositoryId?: string | undefined;
+
+  /**
+   * <p>The source reference for the repository, such as a branch name, tag, or commit ID.</p>
+   * @public
+   */
+  sourceReference?: SourceReference | undefined;
+
+  /**
+   * <p>The provider type of the source code repository, such as Bitbucket, GitHub, GitHubEnterpriseServer, GitLab, and GitLabSelfManaged.</p>
+   * @public
+   */
+  providerType?: string | undefined;
+
+  /**
+   * <p>The endpoint URL of the source code repository provider.</p>
+   * @public
+   */
+  providerEndpoint?: string | undefined;
+}
 
 /**
  * @public
@@ -5898,6 +6063,7 @@ export interface GetVariantStoreResponse {
  */
 export const WorkflowExport = {
   DEFINITION: "DEFINITION",
+  README: "README",
 } as const;
 
 /**
@@ -6051,6 +6217,24 @@ export interface GetWorkflowResponse {
    * @public
    */
   uuid?: string | undefined;
+
+  /**
+   * <p>The README content for the workflow, providing documentation and usage information.</p>
+   * @public
+   */
+  readme?: string | undefined;
+
+  /**
+   * <p>Details about the source code repository that hosts the workflow definition files.</p>
+   * @public
+   */
+  definitionRepositoryDetails?: DefinitionRepositoryDetails | undefined;
+
+  /**
+   * <p>The path to the workflow README markdown file within the repository. This file provides documentation and usage information for the workflow. If not specified, the <code>README.md</code> file from the root directory of the repository will be used.</p>
+   * @public
+   */
+  readmePath?: string | undefined;
 }
 
 /**
@@ -6211,6 +6395,24 @@ export interface GetWorkflowVersionResponse {
    * @public
    */
   workflowBucketOwnerId?: string | undefined;
+
+  /**
+   * <p>The README content for the workflow version, providing documentation and usage information specific to this version.</p>
+   * @public
+   */
+  readme?: string | undefined;
+
+  /**
+   * <p>Details about the source code repository that hosts the workflow version definition files.</p>
+   * @public
+   */
+  definitionRepositoryDetails?: DefinitionRepositoryDetails | undefined;
+
+  /**
+   * <p>The path to the workflow version README markdown file within the repository. This file provides documentation and usage information for the workflow. If not specified, the <code>README.md</code> file from the root directory of the repository will be used.</p>
+   * @public
+   */
+  readmePath?: string | undefined;
 }
 
 /**
@@ -8550,13 +8752,13 @@ export interface UpdateRunGroupRequest {
  */
 export interface StartRunRequest {
   /**
-   * <p>The run's workflow ID.</p>
+   * <p>The run's workflow ID. The <code>workflowId</code> is not the UUID.</p>
    * @public
    */
   workflowId?: string | undefined;
 
   /**
-   * <p>The run's workflow type.</p>
+   * <p>The run's workflow type. The <code>workflowType</code> must be specified if you are running a <code>READY2RUN</code> workflow. If you are running a <code>PRIVATE</code> workflow (default), you do not need to include the workflow type. </p>
    * @public
    */
   workflowType?: WorkflowType | undefined;
@@ -8568,13 +8770,13 @@ export interface StartRunRequest {
   runId?: string | undefined;
 
   /**
-   * <p>A service role for the run.</p>
+   * <p>A service role for the run. The <code>roleArn</code> requires access to Amazon Web Services HealthOmics, S3, Cloudwatch logs, and EC2. An example <code>roleArn</code> is <code>arn:aws:iam::123456789012:role/omics-service-role-serviceRole-W8O1XMPL7QZ</code>. In this example, the AWS account ID is <code>123456789012</code> and the role name is <code>omics-service-role-serviceRole-W8O1XMPL7QZ</code>.</p>
    * @public
    */
   roleArn: string | undefined;
 
   /**
-   * <p>A name for the run.</p>
+   * <p>A name for the run. This is recommended to view and organize runs in the Amazon Web Services HealthOmics console and CloudWatch logs.</p>
    * @public
    */
   name?: string | undefined;
@@ -8586,37 +8788,37 @@ export interface StartRunRequest {
   cacheId?: string | undefined;
 
   /**
-   * <p>The cache behavior for the run. You specify this value if you want to override the default behavior for the cache. You had set the default value when you created the cache. For more information, see <a href="https://docs.aws.amazon.com/omics/latest/dev/how-run-cache.html#run-cache-behavior">Run cache behavior</a> in the Amazon Web Services HealthOmics User Guide.</p>
+   * <p>The cache behavior for the run. You specify this value if you want to override the default behavior for the cache. You had set the default value when you created the cache. For more information, see <a href="https://docs.aws.amazon.com/omics/latest/dev/how-run-cache.html#run-cache-behavior">Run cache behavior</a> in the <i>Amazon Web Services HealthOmics User Guide</i>.</p>
    * @public
    */
   cacheBehavior?: CacheBehavior | undefined;
 
   /**
-   * <p>The run's group ID.</p>
+   * <p>The run's group ID. Use a run group to cap the compute resources (and number of concurrent runs) for the runs that you add to the run group.</p>
    * @public
    */
   runGroupId?: string | undefined;
 
   /**
-   * <p>A priority for the run.</p>
+   * <p>Use the run priority (highest: 1) to establish the order of runs in a run group when you start a run. If multiple runs share the same priority, the run that was initiated first will have the higher priority. Runs that do not belong to a run group can be assigned a priority. The priorities of these runs are ranked among other runs that are not in a run group. For more information, see <a href="https://docs.aws.amazon.com/omics/latest/dev/creating-run-groups.html#run-priority">Run priority</a> in the <i>Amazon Web Services HealthOmics User Guide</i>.</p>
    * @public
    */
   priority?: number | undefined;
 
   /**
-   * <p>Parameters for the run.</p>
+   * <p>Parameters for the run. The run needs all required parameters and can include optional parameters. The run cannot include any parameters that are not defined in the parameter template. To retrieve parameters from the run, use the GetRun API operation.</p>
    * @public
    */
   parameters?: __DocumentType | undefined;
 
   /**
-   * <p>The static storage capacity (in gibibytes) for this run. This field is not required if the storage type is dynamic (the system ignores any value that you enter).</p>
+   * <p>The <code>STATIC</code> storage capacity (in gibibytes, GiB) for this run. The default run storage capacity is 1200 GiB. If your requested storage capacity is unavailable, the system rounds up the value to the nearest 1200 GiB multiple. If the requested storage capacity is still unavailable, the system rounds up the value to the nearest 2400 GiB multiple. This field is not required if the storage type is <code>DYNAMIC</code> (the system ignores any value that you enter).</p>
    * @public
    */
   storageCapacity?: number | undefined;
 
   /**
-   * <p>An output URI for the run.</p>
+   * <p>An output S3 URI for the run. The S3 bucket must be in the same region as the workflow. The role ARN must have permission to write to this S3 bucket.</p>
    * @public
    */
   outputUri?: string | undefined;
@@ -8628,37 +8830,37 @@ export interface StartRunRequest {
   logLevel?: RunLogLevel | undefined;
 
   /**
-   * <p>Tags for the run.</p>
+   * <p>Tags for the run. You can add up to 50 tags per run. For more information, see <a href="https://docs.aws.amazon.com/omics/latest/dev/add-a-tag.html">Adding a tag</a> in the <i>Amazon Web Services HealthOmics User Guide</i>.</p>
    * @public
    */
   tags?: Record<string, string> | undefined;
 
   /**
-   * <p>To ensure that requests don't run multiple times, specify a unique ID for each request.</p>
+   * <p>An idempotency token used to dedupe retry requests so that duplicate runs are not created.</p>
    * @public
    */
   requestId?: string | undefined;
 
   /**
-   * <p>The retention mode for the run. The default value is RETAIN. </p> <p>Amazon Web Services HealthOmics stores a fixed number of runs that are available to the console and API. In the default mode (RETAIN), you need to remove runs manually when the number of run exceeds the maximum. If you set the retention mode to <code>REMOVE</code>, Amazon Web Services HealthOmics automatically removes runs (that have mode set to REMOVE) when the number of run exceeds the maximum. All run logs are available in CloudWatch logs, if you need information about a run that is no longer available to the API.</p> <p>For more information about retention mode, see <a href="https://docs.aws.amazon.com/omics/latest/dev/starting-a-run.html">Specifying run retention mode</a> in the <i>Amazon Web Services HealthOmics User Guide</i>.</p>
+   * <p>The retention mode for the run. The default value is <code>RETAIN</code>. </p> <p>Amazon Web Services HealthOmics stores a fixed number of runs that are available to the console and API. In the default mode (<code>RETAIN</code>), you need to remove runs manually when the number of run exceeds the maximum. If you set the retention mode to <code>REMOVE</code>, Amazon Web Services HealthOmics automatically removes runs (that have mode set to <code>REMOVE</code>) when the number of run exceeds the maximum. All run logs are available in CloudWatch logs, if you need information about a run that is no longer available to the API.</p> <p>For more information about retention mode, see <a href="https://docs.aws.amazon.com/omics/latest/dev/starting-a-run.html">Specifying run retention mode</a> in the <i>Amazon Web Services HealthOmics User Guide</i>.</p>
    * @public
    */
   retentionMode?: RunRetentionMode | undefined;
 
   /**
-   * <p>The storage type for the run. By default, the run uses STATIC storage type, which allocates a fixed amount of storage. If you set the storage type to DYNAMIC, Amazon Web Services HealthOmics dynamically scales the storage up or down, based on file system utilization. For more information about static and dynamic storage, see <a href="https://docs.aws.amazon.com/omics/latest/dev/Using-workflows.html">Running workflows</a> in the <i>Amazon Web Services HealthOmics User Guide</i>.</p>
+   * <p>The storage type for the run. If you set the storage type to <code>DYNAMIC</code>, Amazon Web Services HealthOmics dynamically scales the storage up or down, based on file system utilization. By default, the run uses <code>STATIC</code> storage type, which allocates a fixed amount of storage. For more information about <code>DYNAMIC</code> and <code>STATIC</code> storage, see <a href="https://docs.aws.amazon.com/omics/latest/dev/workflows-run-types.html">Run storage types</a> in the <i>Amazon Web Services HealthOmics User Guide</i>.</p>
    * @public
    */
   storageType?: StorageType | undefined;
 
   /**
-   * <p>The ID of the workflow owner. </p>
+   * <p>The 12-digit account ID of the workflow owner that is used for running a shared workflow. The workflow owner ID can be retrieved using the <code>GetShare</code> API operation. If you are the workflow owner, you do not need to include this ID.</p>
    * @public
    */
   workflowOwnerId?: string | undefined;
 
   /**
-   * <p>The name of the workflow version.</p>
+   * <p>The name of the workflow version. Use workflow versions to track and organize changes to the workflow. If your workflow has multiple versions, the run uses the default version unless you specify a version name. To learn more, see <a href="https://docs.aws.amazon.com/omics/latest/dev/workflow-versions.html">Workflow versioning</a> in the <i>Amazon Web Services HealthOmics User Guide</i>.</p>
    * @public
    */
   workflowVersionName?: string | undefined;
@@ -9094,74 +9296,6 @@ export interface UpdateSequenceStoreResponse {
 }
 
 /**
- * @public
- */
-export interface UploadReadSetPartRequest {
-  /**
-   * <p>The Sequence Store ID used for the multipart upload.</p>
-   * @public
-   */
-  sequenceStoreId: string | undefined;
-
-  /**
-   * <p>The ID for the initiated multipart upload.</p>
-   * @public
-   */
-  uploadId: string | undefined;
-
-  /**
-   * <p>The source file for an upload part.</p>
-   * @public
-   */
-  partSource: ReadSetPartSource | undefined;
-
-  /**
-   * <p>The number of the part being uploaded.</p>
-   * @public
-   */
-  partNumber: number | undefined;
-
-  /**
-   * <p>The read set data to upload for a part.</p>
-   * @public
-   */
-  payload: StreamingBlobTypes | undefined;
-}
-
-/**
- * @public
- */
-export interface UploadReadSetPartResponse {
-  /**
-   * <p>An identifier used to confirm that parts are being added to the intended upload.</p>
-   * @public
-   */
-  checksum: string | undefined;
-}
-
-/**
- * @public
- */
-export interface TagResourceRequest {
-  /**
-   * <p>The resource's ARN.</p>
-   * @public
-   */
-  resourceArn: string | undefined;
-
-  /**
-   * <p>Tags for the resource.</p>
-   * @public
-   */
-  tags: Record<string, string> | undefined;
-}
-
-/**
- * @public
- */
-export interface TagResourceResponse {}
-
-/**
  * @internal
  */
 export const GetReadSetResponseFilterSensitiveLog = (obj: GetReadSetResponse): any => ({
@@ -9172,12 +9306,5 @@ export const GetReadSetResponseFilterSensitiveLog = (obj: GetReadSetResponse): a
  * @internal
  */
 export const GetReferenceResponseFilterSensitiveLog = (obj: GetReferenceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UploadReadSetPartRequestFilterSensitiveLog = (obj: UploadReadSetPartRequest): any => ({
   ...obj,
 });

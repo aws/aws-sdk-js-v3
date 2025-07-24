@@ -28,7 +28,7 @@ export interface UpdateWorkflowVersionCommandInput extends UpdateWorkflowVersion
 export interface UpdateWorkflowVersionCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Updates information about the workflow version. For more information, see <a href="https://docs.aws.amazon.com/omics/latest/dev/workflow-versions.html">Workflow versioning in Amazon Web Services HealthOmics</a> in the Amazon Web Services HealthOmics User Guide.</p>
+ * <p>Updates information about the workflow version. For more information, see <a href="https://docs.aws.amazon.com/omics/latest/dev/workflow-versions.html">Workflow versioning in Amazon Web Services HealthOmics</a> in the <i>Amazon Web Services HealthOmics User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -41,6 +41,7 @@ export interface UpdateWorkflowVersionCommandOutput extends __MetadataBearer {}
  *   description: "STRING_VALUE",
  *   storageType: "STRING_VALUE",
  *   storageCapacity: Number("int"),
+ *   readmeMarkdown: "STRING_VALUE",
  * };
  * const command = new UpdateWorkflowVersionCommand(input);
  * const response = await client.send(command);

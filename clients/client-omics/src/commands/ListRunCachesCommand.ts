@@ -28,7 +28,7 @@ export interface ListRunCachesCommandInput extends ListRunCachesRequest {}
 export interface ListRunCachesCommandOutput extends ListRunCachesResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves a list of your run caches.</p>
+ * <p>Retrieves a list of your run caches and the metadata for each cache.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

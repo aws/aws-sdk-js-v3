@@ -28,7 +28,7 @@ export interface DeleteRunGroupCommandInput extends DeleteRunGroupRequest {}
 export interface DeleteRunGroupCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Deletes a workflow run group.</p>
+ * <p>Deletes a run group and returns a response with no body if the operation is successful.</p> <p>To verify that the run group is deleted:</p> <ul> <li> <p>Use <code>ListRunGroups</code> to confirm the workflow no longer appears in the list.</p> </li> <li> <p>Use <code>GetRunGroup</code> to verify the workflow cannot be found.</p> </li> </ul>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

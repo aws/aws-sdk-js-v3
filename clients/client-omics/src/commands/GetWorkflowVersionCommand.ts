@@ -28,7 +28,7 @@ export interface GetWorkflowVersionCommandInput extends GetWorkflowVersionReques
 export interface GetWorkflowVersionCommandOutput extends GetWorkflowVersionResponse, __MetadataBearer {}
 
 /**
- * <p>Gets information about a workflow version. For more information, see <a href="https://docs.aws.amazon.com/omics/latest/dev/workflow-versions.html">Workflow versioning in Amazon Web Services HealthOmics</a> in the Amazon Web Services HealthOmics User Guide.</p>
+ * <p>Gets information about a workflow version. For more information, see <a href="https://docs.aws.amazon.com/omics/latest/dev/workflow-versions.html">Workflow versioning in Amazon Web Services HealthOmics</a> in the <i>Amazon Web Services HealthOmics User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -76,6 +76,18 @@ export interface GetWorkflowVersionCommandOutput extends GetWorkflowVersionRespo
  * //   },
  * //   uuid: "STRING_VALUE",
  * //   workflowBucketOwnerId: "STRING_VALUE",
+ * //   readme: "STRING_VALUE",
+ * //   definitionRepositoryDetails: { // DefinitionRepositoryDetails
+ * //     connectionArn: "STRING_VALUE",
+ * //     fullRepositoryId: "STRING_VALUE",
+ * //     sourceReference: { // SourceReference
+ * //       type: "STRING_VALUE", // required
+ * //       value: "STRING_VALUE", // required
+ * //     },
+ * //     providerType: "STRING_VALUE",
+ * //     providerEndpoint: "STRING_VALUE",
+ * //   },
+ * //   readmePath: "STRING_VALUE",
  * // };
  *
  * ```

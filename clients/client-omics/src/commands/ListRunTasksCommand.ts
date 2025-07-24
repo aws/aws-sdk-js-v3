@@ -28,7 +28,7 @@ export interface ListRunTasksCommandInput extends ListRunTasksRequest {}
 export interface ListRunTasksCommandOutput extends ListRunTasksResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves a list of tasks for a run.</p>
+ * <p>Returns a list of tasks and status information within their specified run. Use this operation to monitor runs and to identify which specific tasks have failed.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

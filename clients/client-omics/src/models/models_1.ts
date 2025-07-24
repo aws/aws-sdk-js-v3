@@ -1,5 +1,75 @@
 // smithy-typescript generated code
-import { ReferenceItem, StorageType, StoreStatus } from "./models_0";
+import { StreamingBlobTypes } from "@smithy/types";
+
+import { ReadSetPartSource, ReferenceItem, StorageType, StoreStatus } from "./models_0";
+
+/**
+ * @public
+ */
+export interface UploadReadSetPartRequest {
+  /**
+   * <p>The Sequence Store ID used for the multipart upload.</p>
+   * @public
+   */
+  sequenceStoreId: string | undefined;
+
+  /**
+   * <p>The ID for the initiated multipart upload.</p>
+   * @public
+   */
+  uploadId: string | undefined;
+
+  /**
+   * <p>The source file for an upload part.</p>
+   * @public
+   */
+  partSource: ReadSetPartSource | undefined;
+
+  /**
+   * <p>The number of the part being uploaded.</p>
+   * @public
+   */
+  partNumber: number | undefined;
+
+  /**
+   * <p>The read set data to upload for a part.</p>
+   * @public
+   */
+  payload: StreamingBlobTypes | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UploadReadSetPartResponse {
+  /**
+   * <p>An identifier used to confirm that parts are being added to the intended upload.</p>
+   * @public
+   */
+  checksum: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface TagResourceRequest {
+  /**
+   * <p>The resource's ARN.</p>
+   * @public
+   */
+  resourceArn: string | undefined;
+
+  /**
+   * <p>Tags for the resource.</p>
+   * @public
+   */
+  tags: Record<string, string> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface TagResourceResponse {}
 
 /**
  * @public
@@ -178,6 +248,12 @@ export interface UpdateWorkflowRequest {
    * @public
    */
   storageCapacity?: number | undefined;
+
+  /**
+   * <p>The markdown content for the workflow's README file. This provides documentation and usage information for users of the workflow.</p>
+   * @public
+   */
+  readmeMarkdown?: string | undefined;
 }
 
 /**
@@ -213,4 +289,17 @@ export interface UpdateWorkflowVersionRequest {
    * @public
    */
   storageCapacity?: number | undefined;
+
+  /**
+   * <p>The markdown content for the workflow version's README file. This provides documentation and usage information for users of this specific workflow version.</p>
+   * @public
+   */
+  readmeMarkdown?: string | undefined;
 }
+
+/**
+ * @internal
+ */
+export const UploadReadSetPartRequestFilterSensitiveLog = (obj: UploadReadSetPartRequest): any => ({
+  ...obj,
+});

@@ -28,7 +28,7 @@ export interface GetWorkflowCommandInput extends GetWorkflowRequest {}
 export interface GetWorkflowCommandOutput extends GetWorkflowResponse, __MetadataBearer {}
 
 /**
- * <p>Gets information about a workflow.</p> <p>If a workflow is shared with you, you cannot export the workflow.</p>
+ * <p>Gets all information about a workflow using its ID.</p> <p>If a workflow is shared with you, you cannot export the workflow.</p> <p>For more information about your workflow status, see <a href="https://docs.aws.amazon.com/omics/latest/dev/using-get-workflow.html">Verify the workflow status</a> in the <i>Amazon Web Services HealthOmics User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -74,6 +74,18 @@ export interface GetWorkflowCommandOutput extends GetWorkflowResponse, __Metadat
  * //   accelerators: "STRING_VALUE",
  * //   storageType: "STRING_VALUE",
  * //   uuid: "STRING_VALUE",
+ * //   readme: "STRING_VALUE",
+ * //   definitionRepositoryDetails: { // DefinitionRepositoryDetails
+ * //     connectionArn: "STRING_VALUE",
+ * //     fullRepositoryId: "STRING_VALUE",
+ * //     sourceReference: { // SourceReference
+ * //       type: "STRING_VALUE", // required
+ * //       value: "STRING_VALUE", // required
+ * //     },
+ * //     providerType: "STRING_VALUE",
+ * //     providerEndpoint: "STRING_VALUE",
+ * //   },
+ * //   readmePath: "STRING_VALUE",
  * // };
  *
  * ```
