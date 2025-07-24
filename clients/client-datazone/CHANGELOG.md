@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.853.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.852.0...v3.853.0) (2025-07-24)
+
+
+### Features
+
+* **client-datazone:** This release adds support for 1) highlighting relevant text in returned results for Search and SearchListings APIs and 2) returning aggregated counts of values for specified attributes for SearchListings API. ([3df3ee8](https://github.com/aws/aws-sdk-js-v3/commit/3df3ee84d6654a46be27d3634f7f5a6e6ec4b4eb))
+
+
+
+
+
 # [3.848.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.847.0...v3.848.0) (2025-07-17)
 
 **Note:** Version bump only for package @aws-sdk/client-datazone

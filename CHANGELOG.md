@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.853.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.852.0...v3.853.0) (2025-07-24)
+
+
+### Features
+
+* **client-datazone:** This release adds support for 1) highlighting relevant text in returned results for Search and SearchListings APIs and 2) returning aggregated counts of values for specified attributes for SearchListings API. ([3df3ee8](https://github.com/aws/aws-sdk-js-v3/commit/3df3ee84d6654a46be27d3634f7f5a6e6ec4b4eb))
+* **client-omics:** Add Git integration and README support for HealthOmics workflows ([0114b86](https://github.com/aws/aws-sdk-js-v3/commit/0114b86cee6cc3490bdd9ef4cd7c360dd6b3774b))
+* **clients:** update client endpoints as of 2025-07-24 ([71e9de7](https://github.com/aws/aws-sdk-js-v3/commit/71e9de7b33572ec622960ec844057a170c77d536))
+
+
+
+
+
 # [3.852.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.851.0...v3.852.0) (2025-07-23)
 
 

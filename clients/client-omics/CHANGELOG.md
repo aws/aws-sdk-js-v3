@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.853.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.852.0...v3.853.0) (2025-07-24)
+
+
+### Features
+
+* **client-omics:** Add Git integration and README support for HealthOmics workflows ([0114b86](https://github.com/aws/aws-sdk-js-v3/commit/0114b86cee6cc3490bdd9ef4cd7c360dd6b3774b))
+
+
+
+
+
 # [3.848.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.847.0...v3.848.0) (2025-07-17)
 
 **Note:** Version bump only for package @aws-sdk/client-omics
