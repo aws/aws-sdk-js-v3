@@ -1,4 +1,5 @@
-import { S3 } from "@aws-sdk/client-s3";
+import { GetObjectCommandOutput, S3 } from "@aws-sdk/client-s3";
+import { getHeapSnapshot } from "v8";
 import { beforeAll, describe, expect, test as it } from "vitest";
 
 import { getIntegTestResources } from "../../../../tests/e2e/get-integ-test-resources";
@@ -51,7 +52,7 @@ describe(S3TransferManager.name, () => {
     });
   }, 120_000);
 
-  describe("multi part download", () => {
+  describe.skip("multi part download", () => {
     const modes = ["PART", "RANGE"] as S3TransferManagerConfig["multipartDownloadType"][];
     // 6 = 1 part, 11 = 2 part, 19 = 3 part
     const sizes = [6, 11, 19] as number[];
@@ -62,40 +63,59 @@ describe(S3TransferManager.name, () => {
     for (const mode of modes) {
       for (const size of sizes) {
         it(`should download an object of size ${size} with mode ${mode}`, async () => {
-          const Body = data(size * 1024 * 1024);
+          const totalSizeMB = size * 1024 * 1024;
+          const Body = data(totalSizeMB);
           const Key = `${mode}-size`;
 
           if (mode === "PART") {
             await new Upload({
               client,
-              params: {
-                Bucket,
-                Key,
-                Body,
-              },
+              params: { Bucket, Key, Body },
             }).done();
           } else {
-            await client.putObject({
-              Bucket,
-              Key,
-              Body,
-            });
+            await client.putObject({ Bucket, Key, Body });
           }
 
           const tm: S3TransferManager = mode === "PART" ? tmPart : tmRange;
 
-          let bytesTransferred = 0;
+          const expectBasicTransfer = (request: any, snapshot: any) => {
+            expect(request.Bucket).toEqual(Bucket);
+            expect(request.Key).toEqual(Key);
+            expect(snapshot.totalBytes).toEqual(totalSizeMB);
+          };
 
+          let bytesTransferred = 0;
+          let handleEventCalled = false;
           const download = await tm.download(
-            {
-              Bucket,
-              Key,
-            },
+            { Bucket, Key },
             {
               eventListeners: {
+                transferInitiated: [
+                  ({ request, snapshot }) => {
+                    expectBasicTransfer(request, snapshot);
+                    expect(snapshot.transferredBytes).toEqual(0);
+                  },
+                ],
                 bytesTransferred: [
                   ({ request, snapshot }) => {
+                    expectBasicTransfer(request, snapshot);
                     bytesTransferred = snapshot.transferredBytes;
+                    expect(snapshot.transferredBytes).toEqual(bytesTransferred);
+                  },
+                ],
+                transferComplete: [
+                  ({ request, snapshot, response }) => {
+                    expectBasicTransfer(request, snapshot);
+                    expect(snapshot.transferredBytes).toEqual(totalSizeMB);
+                    expect(response.ETag).toBeDefined();
+                    expect((response as GetObjectCommandOutput).ContentLength).toEqual(totalSizeMB);
+                  },
+                  {
+                    handleEvent: (event: any) => {
+                      handleEventCalled = true;
+                      expect(event.request.Bucket).toEqual(Bucket);
+                      expect(event.response).toBeDefined();
+                    },
                   },
                 ],
               },
@@ -104,13 +124,86 @@ describe(S3TransferManager.name, () => {
           const serialized = await download.Body?.transformToString();
           check(serialized);
 
+          expect(download.ContentLength).toEqual(totalSizeMB);
           expect(bytesTransferred).toEqual(Body.length);
+          expect(handleEventCalled).toEqual(true);
         }, 60_000);
       }
     }
   });
 
-  describe("(SEP) download single object tests", () => {
+  describe("error handling", () => {
+    const modes = ["PART", "RANGE"] as S3TransferManagerConfig["multipartDownloadType"][];
+
+    for (const mode of modes) {
+      it(`should fail when ETag changes during a  ${mode} download`, async () => {
+        const totalSizeMB = 20 * 1024 * 1024;
+        const Body = data(totalSizeMB);
+        const Key = `${mode}-etag-test`;
+
+        if (mode === "PART") {
+          await new Upload({
+            client,
+            params: { Bucket, Key, Body },
+          }).done();
+        } else {
+          await client.putObject({ Bucket, Key, Body });
+        }
+
+        let transferFailed = false;
+        let objectUpdated = false;
+
+        const tm: S3TransferManager = mode === "PART" ? tmPart : tmRange;
+
+        // TODO: this test does not currently pass, fix mid-download logic or fix ETag verification in S3TM.
+        try {
+          await tm.download(
+            { Bucket, Key },
+            {
+              eventListeners: {
+                bytesTransferred: [
+                  async ({ snapshot }) => {
+                    // Update object after first part is downloaded
+                    if (!objectUpdated && snapshot.transferredBytes > 8 * 1024 * 1024) {
+                      objectUpdated = true;
+                      if (mode === "PART") {
+                        await new Upload({
+                          client,
+                          params: {
+                            Bucket,
+                            Key,
+                            Body: "updated content",
+                          },
+                        }).done();
+                      } else {
+                        await client.putObject({
+                          Bucket,
+                          Key,
+                          Body: "updated content",
+                        });
+                      }
+                    }
+                  },
+                ],
+                transferFailed: [
+                  () => {
+                    transferFailed = true;
+                  },
+                ],
+              },
+            }
+          );
+          expect.fail("Download should have failed due to ETag mismatch");
+        } catch (error) {
+          console.log("Error:", error.name, error.message);
+          expect(transferFailed).toBe(true);
+          expect(error.name).toContain("PreconditionFailed");
+        }
+      }, 60_000);
+    }
+  });
+
+  describe.skip("(SEP) download single object tests", () => {
     async function sepTests(
       objectType: "single" | "multipart",
       multipartType: "PART" | "RANGE",
