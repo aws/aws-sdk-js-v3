@@ -1989,6 +1989,75 @@ export interface AddPolicyGrantInput {
 export interface AddPolicyGrantOutput {}
 
 /**
+ * <p>An aggregation list item.</p>
+ * @public
+ */
+export interface AggregationListItem {
+  /**
+   * <p>An attribute on which to compute aggregations.</p>
+   * @public
+   */
+  attribute: string | undefined;
+
+  /**
+   * <p>The display value of the aggregation list item. Supported values include
+   *             <code>value</code> and <code>glossaryTerm.name</code>.</p>
+   * @public
+   */
+  displayValue?: string | undefined;
+}
+
+/**
+ * <p>An aggregation output item.</p>
+ * @public
+ */
+export interface AggregationOutputItem {
+  /**
+   * <p>The attribute value of the aggregation output item.</p>
+   * @public
+   */
+  value?: string | undefined;
+
+  /**
+   * <p>The count of the aggregation output item.</p>
+   * @public
+   */
+  count?: number | undefined;
+
+  /**
+   * <p>The display value of the aggregation. If the attribute being aggregated corresponds to
+   *          the id of a public resource, the service automatically resolves the id to the provided
+   *          display value.</p>
+   * @public
+   */
+  displayValue?: string | undefined;
+}
+
+/**
+ * <p>The aggregation for an attribute.</p>
+ * @public
+ */
+export interface AggregationOutput {
+  /**
+   * <p>The attribute for this aggregation.</p>
+   * @public
+   */
+  attribute?: string | undefined;
+
+  /**
+   * <p>The display value of the aggregation output item.</p>
+   * @public
+   */
+  displayValue?: string | undefined;
+
+  /**
+   * <p>A list of aggregation output items.</p>
+   * @public
+   */
+  items?: AggregationOutputItem[] | undefined;
+}
+
+/**
  * @public
  * @enum
  */
@@ -2093,6 +2162,8 @@ export interface CreateAssetInput {
 
   /**
    * <p>The external identifier of the asset.</p>
+   *          <p>If the value for the <code>externalIdentifier</code> parameter is specified, it must be
+   *          a unique value.</p>
    * @public
    */
   externalIdentifier?: string | undefined;
@@ -2526,6 +2597,9 @@ export interface GetAssetInput {
 
   /**
    * <p>The ID of the Amazon DataZone asset.</p>
+   *          <p>This parameter supports either the value of <code>assetId</code> or <code>externalIdentifier</code>
+   *          as input. If you are passing the value of <code>externalIdentifier</code>, you must prefix this
+   *          value with <code>externalIdentifer%2F</code>.</p>
    * @public
    */
   identifier: string | undefined;
@@ -3262,6 +3336,86 @@ export interface AssetFilterSummary {
 }
 
 /**
+ * <p>The offset of a matched term.</p>
+ * @public
+ */
+export interface MatchOffset {
+  /**
+   * <p>The 0-indexed number indicating the start position (inclusive) of a matched term.</p>
+   * @public
+   */
+  startOffset?: number | undefined;
+
+  /**
+   * <p>The 0-indexed number indicating the end position (exclusive) of a matched term.</p>
+   * @public
+   */
+  endOffset?: number | undefined;
+}
+
+/**
+ * <p>A structure indicating matched terms for an attribute.</p>
+ * @public
+ */
+export interface TextMatchItem {
+  /**
+   * <p>The name of the attribute.</p>
+   * @public
+   */
+  attribute?: string | undefined;
+
+  /**
+   * <p>Snippet of attribute text containing highlighted content.</p>
+   * @public
+   */
+  text?: string | undefined;
+
+  /**
+   * <p>List of offsets indicating matching terms in the TextMatchItem text.</p>
+   * @public
+   */
+  matchOffsets?: MatchOffset[] | undefined;
+}
+
+/**
+ * <p>A rationale indicating why this item was matched by search. </p>
+ * @public
+ */
+export type MatchRationaleItem = MatchRationaleItem.TextMatchesMember | MatchRationaleItem.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace MatchRationaleItem {
+  /**
+   * <p>A list of TextMatchItems.</p>
+   * @public
+   */
+  export interface TextMatchesMember {
+    textMatches: TextMatchItem[];
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    textMatches?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    textMatches: (value: TextMatchItem[]) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: MatchRationaleItem, visitor: Visitor<T>): T => {
+    if (value.textMatches !== undefined) return visitor.textMatches(value.textMatches);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
  * <p>The additional attributes of an inventory asset.</p>
  * @public
  */
@@ -3284,6 +3438,12 @@ export interface AssetItemAdditionalAttributes {
    * @public
    */
   latestTimeSeriesDataPointFormsOutput?: TimeSeriesDataPointSummaryFormOutput[] | undefined;
+
+  /**
+   * <p>List of rationales indicating why this item was matched by search.</p>
+   * @public
+   */
+  matchRationale?: MatchRationaleItem[] | undefined;
 }
 
 /**
@@ -3442,6 +3602,12 @@ export interface AssetListingItemAdditionalAttributes {
    * @public
    */
   forms?: string | undefined;
+
+  /**
+   * <p>List of rationales indicating why this item was matched by search.</p>
+   * @public
+   */
+  matchRationale?: MatchRationaleItem[] | undefined;
 
   /**
    * <p>The latest time series data points forms included in the additional attributes of an
@@ -5029,7 +5195,8 @@ export interface S3PropertiesInput {
   s3Uri: string | undefined;
 
   /**
-   * <p>The Amazon S3 Access Grant location ID that's part of the Amazon S3 properties of a connection.</p>
+   * <p>The Amazon S3 Access Grant location ID that's part of the Amazon S3 properties of a
+   *          connection.</p>
    * @public
    */
   s3AccessGrantLocationId?: string | undefined;
@@ -5529,7 +5696,8 @@ export interface S3PropertiesOutput {
   s3Uri: string | undefined;
 
   /**
-   * <p>The Amazon S3 Access Grant location ID that's part of the Amazon S3 properties of a connection.</p>
+   * <p>The Amazon S3 Access Grant location ID that's part of the Amazon S3 properties of a
+   *          connection.</p>
    * @public
    */
   s3AccessGrantLocationId?: string | undefined;
@@ -5979,7 +6147,8 @@ export interface S3PropertiesPatch {
   s3Uri: string | undefined;
 
   /**
-   * <p>The Amazon S3 Access Grant location ID that's part of the Amazon S3 properties patch of a connection.</p>
+   * <p>The Amazon S3 Access Grant location ID that's part of the Amazon S3 properties patch of
+   *          a connection.</p>
    * @public
    */
   s3AccessGrantLocationId?: string | undefined;
@@ -10457,193 +10626,6 @@ export namespace GrantedEntityInput {
 }
 
 /**
- * @public
- */
-export interface CreateSubscriptionGrantInput {
-  /**
-   * <p>The ID of the Amazon DataZone domain in which the subscription grant is created.</p>
-   * @public
-   */
-  domainIdentifier: string | undefined;
-
-  /**
-   * <p>The ID of the environment in which the subscription grant is created.</p>
-   * @public
-   */
-  environmentIdentifier: string | undefined;
-
-  /**
-   * <p>The ID of the subscription target for which the subscription grant is created.</p>
-   * @public
-   */
-  subscriptionTargetIdentifier?: string | undefined;
-
-  /**
-   * <p>The entity to which the subscription is to be granted.</p>
-   * @public
-   */
-  grantedEntity: GrantedEntityInput | undefined;
-
-  /**
-   * <p>The names of the assets for which the subscription grant is created.</p>
-   * @public
-   */
-  assetTargetNames?: AssetTargetNameMap[] | undefined;
-
-  /**
-   * <p>A unique, case-sensitive identifier that is provided to ensure the idempotency of the
-   *          request.</p>
-   * @public
-   */
-  clientToken?: string | undefined;
-}
-
-/**
- * <p>Specifies the error message that is returned if the operation cannot be successfully
- *          completed.</p>
- * @public
- */
-export interface FailureCause {
-  /**
-   * <p>The description of the error message.</p>
-   * @public
-   */
-  message?: string | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const SubscriptionGrantStatus = {
-  GRANTED: "GRANTED",
-  GRANT_FAILED: "GRANT_FAILED",
-  GRANT_IN_PROGRESS: "GRANT_IN_PROGRESS",
-  GRANT_PENDING: "GRANT_PENDING",
-  REVOKED: "REVOKED",
-  REVOKE_FAILED: "REVOKE_FAILED",
-  REVOKE_IN_PROGRESS: "REVOKE_IN_PROGRESS",
-  REVOKE_PENDING: "REVOKE_PENDING",
-} as const;
-
-/**
- * @public
- */
-export type SubscriptionGrantStatus = (typeof SubscriptionGrantStatus)[keyof typeof SubscriptionGrantStatus];
-
-/**
- * <p>The details of the asset for which the subscription grant is created.</p>
- * @public
- */
-export interface SubscribedAsset {
-  /**
-   * <p>The identifier of the asset for which the subscription grant is created.</p>
-   * @public
-   */
-  assetId: string | undefined;
-
-  /**
-   * <p>The revision of the asset for which the subscription grant is created.</p>
-   * @public
-   */
-  assetRevision: string | undefined;
-
-  /**
-   * <p>The status of the asset for which the subscription grant is created.</p>
-   * @public
-   */
-  status: SubscriptionGrantStatus | undefined;
-
-  /**
-   * <p>The target name of the asset for which the subscription grant is created.</p>
-   * @public
-   */
-  targetName?: string | undefined;
-
-  /**
-   * <p>The failure cause included in the details of the asset for which the subscription grant
-   *          is created.</p>
-   * @public
-   */
-  failureCause?: FailureCause | undefined;
-
-  /**
-   * <p>The timestamp of when the subscription grant to the asset is created.</p>
-   * @public
-   */
-  grantedTimestamp?: Date | undefined;
-
-  /**
-   * <p>The failure timestamp included in the details of the asset for which the subscription
-   *          grant is created.</p>
-   * @public
-   */
-  failureTimestamp?: Date | undefined;
-
-  /**
-   * <p>The asset scope of the subscribed asset.</p>
-   * @public
-   */
-  assetScope?: AssetScope | undefined;
-}
-
-/**
- * <p>A revision of an asset published in a Amazon DataZone catalog.</p>
- * @public
- */
-export interface ListingRevision {
-  /**
-   * <p>An identifier of a revision of an asset published in a Amazon DataZone catalog.</p>
-   * @public
-   */
-  id: string | undefined;
-
-  /**
-   * <p>The details of a revision of an asset published in a Amazon DataZone catalog.</p>
-   * @public
-   */
-  revision: string | undefined;
-}
-
-/**
- * <p>The details of a listing for which a subscription is granted.</p>
- * @public
- */
-export type GrantedEntity = GrantedEntity.ListingMember | GrantedEntity.$UnknownMember;
-
-/**
- * @public
- */
-export namespace GrantedEntity {
-  /**
-   * <p>The listing for which a subscription is granted.</p>
-   * @public
-   */
-  export interface ListingMember {
-    listing: ListingRevision;
-    $unknown?: never;
-  }
-
-  /**
-   * @public
-   */
-  export interface $UnknownMember {
-    listing?: never;
-    $unknown: [string, any];
-  }
-
-  export interface Visitor<T> {
-    listing: (value: ListingRevision) => T;
-    _: (name: string, value: any) => T;
-  }
-
-  export const visit = <T>(value: GrantedEntity, visitor: Visitor<T>): T => {
-    if (value.listing !== undefined) return visitor.listing(value.listing);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
-}
-
-/**
  * @internal
  */
 export const AcceptChoiceFilterSensitiveLog = (obj: AcceptChoice): any => ({
@@ -10840,6 +10822,7 @@ export const AssetItemAdditionalAttributesFilterSensitiveLog = (obj: AssetItemAd
   ...(obj.readOnlyFormsOutput && {
     readOnlyFormsOutput: obj.readOnlyFormsOutput.map((item) => FormOutputFilterSensitiveLog(item)),
   }),
+  ...(obj.matchRationale && { matchRationale: obj.matchRationale.map((item) => item) }),
 });
 
 /**
@@ -10874,6 +10857,7 @@ export const AssetListingItemFilterSensitiveLog = (obj: AssetListingItem): any =
   ...(obj.glossaryTerms && {
     glossaryTerms: obj.glossaryTerms.map((item) => DetailedGlossaryTermFilterSensitiveLog(item)),
   }),
+  ...(obj.additionalAttributes && { additionalAttributes: obj.additionalAttributes }),
 });
 
 /**

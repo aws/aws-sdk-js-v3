@@ -3,6 +3,8 @@ import { SENSITIVE_STRING } from "@smithy/smithy-client";
 
 import {
   ActionParameters,
+  AggregationListItem,
+  AggregationOutput,
   AssetItem,
   AssetItemFilterSensitiveLog,
   AssetListingItem,
@@ -28,7 +30,6 @@ import {
   EnvironmentDeploymentDetails,
   EnvironmentParameter,
   EnvironmentStatus,
-  FailureCause,
   FilterStatus,
   FormEntryOutput,
   FormEntryOutputFilterSensitiveLog,
@@ -37,8 +38,8 @@ import {
   FormTypeStatus,
   GlossaryStatus,
   GlossaryTermStatus,
-  GrantedEntity,
   GroupProfileStatus,
+  MatchRationaleItem,
   Model,
   PhysicalEndpoint,
   PhysicalEndpointFilterSensitiveLog,
@@ -51,14 +52,13 @@ import {
   RuleDetail,
   RuleScope,
   RuleTarget,
+  RuleTargetType,
   RuleType,
   Status,
-  SubscribedAsset,
   SubscribedListing,
   SubscribedListingFilterSensitiveLog,
   SubscribedPrincipal,
   SubscribedPrincipalFilterSensitiveLog,
-  SubscriptionGrantStatus,
   SubscriptionRequestStatus,
   TermRelations,
 } from "./models_0";
@@ -68,16 +68,319 @@ import {
   DataProductListingItemFilterSensitiveLog,
   DataProductResultItem,
   DataProductResultItemFilterSensitiveLog,
+  FailureCause,
+  GrantedEntity,
   Import,
   ImportFilterSensitiveLog,
   SortOrder,
+  SubscribedAsset,
   SubscriptionGrantOverallStatus,
+  SubscriptionGrantStatus,
   SubscriptionTargetForm,
   UserProfileDetails,
   UserProfileDetailsFilterSensitiveLog,
   UserProfileStatus,
   UserProfileType,
 } from "./models_1";
+
+/**
+ * @public
+ */
+export interface DeleteRuleInput {
+  /**
+   * <p>The ID of the domain that where the rule is to be deleted.</p>
+   * @public
+   */
+  domainIdentifier: string | undefined;
+
+  /**
+   * <p>The ID of the rule that is to be deleted.</p>
+   * @public
+   */
+  identifier: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteRuleOutput {}
+
+/**
+ * @public
+ */
+export interface GetRuleInput {
+  /**
+   * <p>The ID of the domain where the <code>GetRule</code> action is to be invoked.</p>
+   * @public
+   */
+  domainIdentifier: string | undefined;
+
+  /**
+   * <p>The ID of the rule.</p>
+   * @public
+   */
+  identifier: string | undefined;
+
+  /**
+   * <p>The revision of the rule.</p>
+   * @public
+   */
+  revision?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetRuleOutput {
+  /**
+   * <p>The ID of the rule.</p>
+   * @public
+   */
+  identifier: string | undefined;
+
+  /**
+   * <p>The revision of the rule.</p>
+   * @public
+   */
+  revision: string | undefined;
+
+  /**
+   * <p>The name of the rule.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The type of the rule.</p>
+   * @public
+   */
+  ruleType: RuleType | undefined;
+
+  /**
+   * <p>The target of the rule.</p>
+   * @public
+   */
+  target: RuleTarget | undefined;
+
+  /**
+   * <p>The action of the rule.</p>
+   * @public
+   */
+  action: RuleAction | undefined;
+
+  /**
+   * <p>The scope of the rule.</p>
+   * @public
+   */
+  scope: RuleScope | undefined;
+
+  /**
+   * <p>The detail of the rule.</p>
+   * @public
+   */
+  detail: RuleDetail | undefined;
+
+  /**
+   * <p>The target type of the rule.</p>
+   * @public
+   */
+  targetType?: RuleTargetType | undefined;
+
+  /**
+   * <p>The description of the rule.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>The timestamp at which the rule was created.</p>
+   * @public
+   */
+  createdAt: Date | undefined;
+
+  /**
+   * <p>The timestamp at which the rule was last updated.</p>
+   * @public
+   */
+  updatedAt: Date | undefined;
+
+  /**
+   * <p>The user who created the rule.</p>
+   * @public
+   */
+  createdBy: string | undefined;
+
+  /**
+   * <p>The timestamp at which the rule was last updated.</p>
+   * @public
+   */
+  lastUpdatedBy: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListRulesInput {
+  /**
+   * <p>The ID of the domain in which the rules are to be listed.</p>
+   * @public
+   */
+  domainIdentifier: string | undefined;
+
+  /**
+   * <p>The target type of the rule.</p>
+   * @public
+   */
+  targetType: RuleTargetType | undefined;
+
+  /**
+   * <p>The target ID of the rule.</p>
+   * @public
+   */
+  targetIdentifier: string | undefined;
+
+  /**
+   * <p>The type of the rule.</p>
+   * @public
+   */
+  ruleType?: RuleType | undefined;
+
+  /**
+   * <p>The action of the rule.</p>
+   * @public
+   */
+  action?: RuleAction | undefined;
+
+  /**
+   * <p>The IDs of projects in which rules are to be listed.</p>
+   * @public
+   */
+  projectIds?: string[] | undefined;
+
+  /**
+   * <p>The asset types of the rule.</p>
+   * @public
+   */
+  assetTypes?: string[] | undefined;
+
+  /**
+   * <p>The data product of the rule.</p>
+   * @public
+   */
+  dataProduct?: boolean | undefined;
+
+  /**
+   * <p>Specifies whether to include cascading rules in the results.</p>
+   * @public
+   */
+  includeCascaded?: boolean | undefined;
+
+  /**
+   * <p>The maximum number of rules to return in a single call to <code>ListRules</code>. When
+   *          the number of rules to be listed is greater than the value of <code>MaxResults</code>, the
+   *          response contains a <code>NextToken</code> value that you can use in a subsequent call to
+   *             <code>ListRules</code> to list the next set of rules.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p>When the number of rules is greater than the default value for the
+   *             <code>MaxResults</code> parameter, or if you explicitly specify a value for
+   *             <code>MaxResults</code> that is less than the number of rules, the response includes a
+   *          pagination token named <code>NextToken</code>. You can specify this <code>NextToken</code>
+   *          value in a subsequent call to <code>ListRules</code> to list the next set of rules.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * <p>The summary of the rule.</p>
+ * @public
+ */
+export interface RuleSummary {
+  /**
+   * <p>The ID of the rule.</p>
+   * @public
+   */
+  identifier?: string | undefined;
+
+  /**
+   * <p>The revision of the rule.</p>
+   * @public
+   */
+  revision?: string | undefined;
+
+  /**
+   * <p>The type of the rule.</p>
+   * @public
+   */
+  ruleType?: RuleType | undefined;
+
+  /**
+   * <p>The name of the rule.</p>
+   * @public
+   */
+  name?: string | undefined;
+
+  /**
+   * <p>The target type of the rule.</p>
+   * @public
+   */
+  targetType?: RuleTargetType | undefined;
+
+  /**
+   * <p>The target of the rule.</p>
+   * @public
+   */
+  target?: RuleTarget | undefined;
+
+  /**
+   * <p>The action of the rule.</p>
+   * @public
+   */
+  action?: RuleAction | undefined;
+
+  /**
+   * <p>The scope of the rule.</p>
+   * @public
+   */
+  scope?: RuleScope | undefined;
+
+  /**
+   * <p>The timestamp at which the rule was last updated.</p>
+   * @public
+   */
+  updatedAt?: Date | undefined;
+
+  /**
+   * <p>The timestamp at which the rule was last updated.</p>
+   * @public
+   */
+  lastUpdatedBy?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListRulesOutput {
+  /**
+   * <p>The results of the <code>ListRules</code> action.</p>
+   * @public
+   */
+  items: RuleSummary[] | undefined;
+
+  /**
+   * <p>When the number of rules is greater than the default value for the
+   *             <code>MaxResults</code> parameter, or if you explicitly specify a value for
+   *             <code>MaxResults</code> that is less than the number of rules, the response includes a
+   *          pagination token named <code>NextToken</code>. You can specify this <code>NextToken</code>
+   *          value in a subsequent call to <code>ListRules</code> to list the next set of rules.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
 
 /**
  * @public
@@ -215,6 +518,7 @@ export interface UpdateRuleOutput {
  */
 export const SearchOutputAdditionalAttribute = {
   FORMS: "FORMS",
+  TEXT_MATCH_RATIONALE: "TEXT_MATCH_RATIONALE",
   TIME_SERIES_DATA_POINT_FORMS: "TIME_SERIES_DATA_POINT_FORMS",
 } as const;
 
@@ -289,6 +593,18 @@ export interface SearchSort {
 }
 
 /**
+ * <p>The additional attributes of an Amazon DataZone glossary.</p>
+ * @public
+ */
+export interface GlossaryItemAdditionalAttributes {
+  /**
+   * <p>List of rationales indicating why this item was matched by search.</p>
+   * @public
+   */
+  matchRationale?: MatchRationaleItem[] | undefined;
+}
+
+/**
  * <p>The details of a business glossary.</p>
  * @public
  */
@@ -352,6 +668,24 @@ export interface GlossaryItem {
    * @public
    */
   updatedBy?: string | undefined;
+
+  /**
+   * <p>The additional attributes of an Amazon DataZone glossary.</p>
+   * @public
+   */
+  additionalAttributes?: GlossaryItemAdditionalAttributes | undefined;
+}
+
+/**
+ * <p>The additional attributes of an Amazon DataZone glossary term.</p>
+ * @public
+ */
+export interface GlossaryTermItemAdditionalAttributes {
+  /**
+   * <p>List of rationales indicating why this item was matched by search.</p>
+   * @public
+   */
+  matchRationale?: MatchRationaleItem[] | undefined;
 }
 
 /**
@@ -430,6 +764,12 @@ export interface GlossaryTermItem {
    * @public
    */
   updatedBy?: string | undefined;
+
+  /**
+   * <p>The additional attributes of an Amazon DataZone glossary term.</p>
+   * @public
+   */
+  additionalAttributes?: GlossaryTermItemAdditionalAttributes | undefined;
 }
 
 /**
@@ -743,6 +1083,13 @@ export interface SearchListingsOutput {
    * @public
    */
   totalMatchCount?: number | undefined;
+
+  /**
+   * <p>Contains computed counts grouped by field values based on the requested aggregation
+   *          attributes for the matching listings.</p>
+   * @public
+   */
+  aggregates?: AggregationOutput[] | undefined;
 }
 
 /**
@@ -2747,6 +3094,13 @@ export interface SearchListingsInput {
   filters?: FilterClause | undefined;
 
   /**
+   * <p>Enables you to specify one or more attributes to compute and return counts grouped by
+   *          field values.</p>
+   * @public
+   */
+  aggregations?: AggregationListItem[] | undefined;
+
+  /**
    * <p>Specifies the way for sorting the search results.</p>
    * @public
    */
@@ -3183,6 +3537,34 @@ export interface UpdateAssetFilterOutput {
 /**
  * @internal
  */
+export const GetRuleOutputFilterSensitiveLog = (obj: GetRuleOutput): any => ({
+  ...obj,
+  ...(obj.name && { name: SENSITIVE_STRING }),
+  ...(obj.target && { target: obj.target }),
+  ...(obj.detail && { detail: obj.detail }),
+  ...(obj.description && { description: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const RuleSummaryFilterSensitiveLog = (obj: RuleSummary): any => ({
+  ...obj,
+  ...(obj.name && { name: SENSITIVE_STRING }),
+  ...(obj.target && { target: obj.target }),
+});
+
+/**
+ * @internal
+ */
+export const ListRulesOutputFilterSensitiveLog = (obj: ListRulesOutput): any => ({
+  ...obj,
+  ...(obj.items && { items: obj.items.map((item) => RuleSummaryFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
 export const UpdateRuleInputFilterSensitiveLog = (obj: UpdateRuleInput): any => ({
   ...obj,
   ...(obj.name && { name: SENSITIVE_STRING }),
@@ -3208,6 +3590,7 @@ export const GlossaryItemFilterSensitiveLog = (obj: GlossaryItem): any => ({
   ...obj,
   ...(obj.name && { name: SENSITIVE_STRING }),
   ...(obj.description && { description: SENSITIVE_STRING }),
+  ...(obj.additionalAttributes && { additionalAttributes: obj.additionalAttributes }),
 });
 
 /**
@@ -3218,6 +3601,7 @@ export const GlossaryTermItemFilterSensitiveLog = (obj: GlossaryTermItem): any =
   ...(obj.name && { name: SENSITIVE_STRING }),
   ...(obj.shortDescription && { shortDescription: SENSITIVE_STRING }),
   ...(obj.longDescription && { longDescription: SENSITIVE_STRING }),
+  ...(obj.additionalAttributes && { additionalAttributes: obj.additionalAttributes }),
 });
 
 /**

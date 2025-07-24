@@ -385,6 +385,7 @@ import {
   AccessDeniedException,
   ActionParameters,
   AddToProjectMemberPoolPolicyGrantDetail,
+  AggregationListItem,
   AllDomainUnitsGrantFilter,
   AllUsersGrantFilter,
   AssetFilterSummary,
@@ -436,7 +437,6 @@ import {
   EnvironmentError,
   EnvironmentParameter,
   EqualToExpression,
-  FailureCause,
   FilterExpression,
   FormEntryInput,
   FormInput,
@@ -514,7 +514,6 @@ import {
   SparkEmrPropertiesPatch,
   SparkGlueArgs,
   SparkGluePropertiesInput,
-  SubscribedAsset,
   TermRelations,
   ThrottlingException,
   TimeSeriesDataPointSummaryFormOutput,
@@ -538,6 +537,7 @@ import {
   EnvironmentBlueprintSummary,
   EnvironmentProfileSummary,
   EnvironmentSummary,
+  FailureCause,
   JobRunDetails,
   JobRunSummary,
   LakeFormationConfiguration,
@@ -556,7 +556,7 @@ import {
   ProvisioningConfiguration,
   RejectChoice,
   RejectRule,
-  RuleSummary,
+  SubscribedAsset,
   SubscribedListingInput,
   SubscribedPrincipalInput,
   SubscribedProjectInput,
@@ -578,6 +578,7 @@ import {
   LineageNodeTypeItem,
   RowFilter,
   RowFilterConfiguration,
+  RuleSummary,
   SearchInItem,
   SearchInventoryResultItem,
   SearchOutputAdditionalAttribute,
@@ -3556,6 +3557,7 @@ export const se_SearchListingsCommand = async (
   body = JSON.stringify(
     take(input, {
       additionalAttributes: (_) => _json(_),
+      aggregations: (_) => _json(_),
       filters: (_) => se_FilterClause(_, context),
       maxResults: [],
       nextToken: [],
@@ -7647,6 +7649,7 @@ export const de_SearchListingsCommand = async (
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
+    aggregates: _json,
     items: (_) => de_SearchResultItems(_, context),
     nextToken: __expectString,
     totalMatchCount: __expectInt32,
@@ -8574,6 +8577,10 @@ const se_AcceptRule = (input: AcceptRule, context: __SerdeContext): any => {
 
 // se_AddToProjectMemberPoolPolicyGrantDetail omitted.
 
+// se_AggregationList omitted.
+
+// se_AggregationListItem omitted.
+
 // se_AllDomainUnitsGrantFilter omitted.
 
 // se_AllUsersGrantFilter omitted.
@@ -9023,6 +9030,14 @@ const se_TimeSeriesDataPointFormInputList = (input: TimeSeriesDataPointFormInput
 
 // de_AddToProjectMemberPoolPolicyGrantDetail omitted.
 
+// de_AggregationOutput omitted.
+
+// de_AggregationOutputItem omitted.
+
+// de_AggregationOutputItems omitted.
+
+// de_AggregationOutputList omitted.
+
 // de_AllDomainUnitsGrantFilter omitted.
 
 // de_AllUsersGrantFilter omitted.
@@ -9109,6 +9124,7 @@ const de_AssetItemAdditionalAttributes = (output: any, context: __SerdeContext):
   return take(output, {
     formsOutput: _json,
     latestTimeSeriesDataPointFormsOutput: (_: any) => de_TimeSeriesDataPointSummaryFormOutputList(_, context),
+    matchRationale: _json,
     readOnlyFormsOutput: _json,
   }) as any;
 };
@@ -9162,6 +9178,7 @@ const de_AssetListingItemAdditionalAttributes = (
   return take(output, {
     forms: __expectString,
     latestTimeSeriesDataPointForms: (_: any) => de_TimeSeriesDataPointSummaryFormOutputList(_, context),
+    matchRationale: _json,
   }) as any;
 };
 
@@ -9354,6 +9371,8 @@ const de_ConnectionSummary = (output: any, context: __SerdeContext): ConnectionS
 
 // de_DataProductItem omitted.
 
+// de_DataProductItemAdditionalAttributes omitted.
+
 // de_DataProductItems omitted.
 
 /**
@@ -9399,6 +9418,7 @@ const de_DataProductListingItem = (output: any, context: __SerdeContext): DataPr
  */
 const de_DataProductResultItem = (output: any, context: __SerdeContext): DataProductResultItem => {
   return take(output, {
+    additionalAttributes: _json,
     createdAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     createdBy: __expectString,
     description: __expectString,
@@ -9815,6 +9835,7 @@ const de_FormTypeData = (output: any, context: __SerdeContext): FormTypeData => 
  */
 const de_GlossaryItem = (output: any, context: __SerdeContext): GlossaryItem => {
   return take(output, {
+    additionalAttributes: _json,
     createdAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     createdBy: __expectString,
     description: __expectString,
@@ -9828,11 +9849,14 @@ const de_GlossaryItem = (output: any, context: __SerdeContext): GlossaryItem => 
   }) as any;
 };
 
+// de_GlossaryItemAdditionalAttributes omitted.
+
 /**
  * deserializeAws_restJson1GlossaryTermItem
  */
 const de_GlossaryTermItem = (output: any, context: __SerdeContext): GlossaryTermItem => {
   return take(output, {
+    additionalAttributes: _json,
     createdAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     createdBy: __expectString,
     domainId: __expectString,
@@ -9847,6 +9871,8 @@ const de_GlossaryTermItem = (output: any, context: __SerdeContext): GlossaryTerm
     updatedBy: __expectString,
   }) as any;
 };
+
+// de_GlossaryTermItemAdditionalAttributes omitted.
 
 // de_GlossaryTerms omitted.
 
@@ -10123,6 +10149,14 @@ const de_ListingItem = (output: any, context: __SerdeContext): ListingItem => {
 // de_ListingSummaryItems omitted.
 
 // de_MatchCriteria omitted.
+
+// de_MatchOffset omitted.
+
+// de_MatchOffsets omitted.
+
+// de_MatchRationale omitted.
+
+// de_MatchRationaleItem omitted.
 
 // de_MemberDetails omitted.
 
@@ -10826,6 +10860,10 @@ const de_SubscriptionTargetSummary = (output: any, context: __SerdeContext): Sub
 // de_Tags omitted.
 
 // de_TermRelations omitted.
+
+// de_TextMatches omitted.
+
+// de_TextMatchItem omitted.
 
 /**
  * deserializeAws_restJson1TimeSeriesDataPointFormOutput

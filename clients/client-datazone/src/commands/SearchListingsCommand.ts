@@ -68,12 +68,18 @@ export interface SearchListingsCommandOutput extends SearchListingsOutput, __Met
  *       "<FilterClause>",
  *     ],
  *   },
+ *   aggregations: [ // AggregationList
+ *     { // AggregationListItem
+ *       attribute: "STRING_VALUE", // required
+ *       displayValue: "STRING_VALUE",
+ *     },
+ *   ],
  *   sort: { // SearchSort
  *     attribute: "STRING_VALUE", // required
  *     order: "ASCENDING" || "DESCENDING",
  *   },
  *   additionalAttributes: [ // SearchOutputAdditionalAttributes
- *     "FORMS" || "TIME_SERIES_DATA_POINT_FORMS",
+ *     "FORMS" || "TIME_SERIES_DATA_POINT_FORMS" || "TEXT_MATCH_RATIONALE",
  *   ],
  * };
  * const command = new SearchListingsCommand(input);
@@ -101,6 +107,22 @@ export interface SearchListingsCommandOutput extends SearchListingsOutput, __Met
  * //         owningProjectId: "STRING_VALUE",
  * //         additionalAttributes: { // AssetListingItemAdditionalAttributes
  * //           forms: "STRING_VALUE",
+ * //           matchRationale: [ // MatchRationale
+ * //             { // MatchRationaleItem Union: only one key present
+ * //               textMatches: [ // TextMatches
+ * //                 { // TextMatchItem
+ * //                   attribute: "STRING_VALUE",
+ * //                   text: "STRING_VALUE",
+ * //                   matchOffsets: [ // MatchOffsets
+ * //                     { // MatchOffset
+ * //                       startOffset: Number("int"),
+ * //                       endOffset: Number("int"),
+ * //                     },
+ * //                   ],
+ * //                 },
+ * //               ],
+ * //             },
+ * //           ],
  * //           latestTimeSeriesDataPointForms: [ // TimeSeriesDataPointSummaryFormOutputList
  * //             { // TimeSeriesDataPointSummaryFormOutput
  * //               formName: "STRING_VALUE", // required
@@ -132,6 +154,22 @@ export interface SearchListingsCommandOutput extends SearchListingsOutput, __Met
  * //         owningProjectId: "STRING_VALUE",
  * //         additionalAttributes: { // DataProductListingItemAdditionalAttributes
  * //           forms: "STRING_VALUE",
+ * //           matchRationale: [
+ * //             {//  Union: only one key present
+ * //               textMatches: [
+ * //                 {
+ * //                   attribute: "STRING_VALUE",
+ * //                   text: "STRING_VALUE",
+ * //                   matchOffsets: [
+ * //                     {
+ * //                       startOffset: Number("int"),
+ * //                       endOffset: Number("int"),
+ * //                     },
+ * //                   ],
+ * //                 },
+ * //               ],
+ * //             },
+ * //           ],
  * //         },
  * //         items: [ // ListingSummaryItems
  * //           { // ListingSummaryItem
@@ -150,6 +188,19 @@ export interface SearchListingsCommandOutput extends SearchListingsOutput, __Met
  * //   ],
  * //   nextToken: "STRING_VALUE",
  * //   totalMatchCount: Number("int"),
+ * //   aggregates: [ // AggregationOutputList
+ * //     { // AggregationOutput
+ * //       attribute: "STRING_VALUE",
+ * //       displayValue: "STRING_VALUE",
+ * //       items: [ // AggregationOutputItems
+ * //         { // AggregationOutputItem
+ * //           value: "STRING_VALUE",
+ * //           count: Number("int"),
+ * //           displayValue: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //     },
+ * //   ],
  * // };
  *
  * ```

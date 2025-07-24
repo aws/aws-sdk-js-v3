@@ -75,7 +75,7 @@ export interface SearchCommandOutput extends SearchOutput, __MetadataBearer {}
  *     order: "ASCENDING" || "DESCENDING",
  *   },
  *   additionalAttributes: [ // SearchOutputAdditionalAttributes
- *     "FORMS" || "TIME_SERIES_DATA_POINT_FORMS",
+ *     "FORMS" || "TIME_SERIES_DATA_POINT_FORMS" || "TEXT_MATCH_RATIONALE",
  *   ],
  * };
  * const command = new SearchCommand(input);
@@ -94,6 +94,24 @@ export interface SearchCommandOutput extends SearchOutput, __MetadataBearer {}
  * //         createdBy: "STRING_VALUE",
  * //         updatedAt: new Date("TIMESTAMP"),
  * //         updatedBy: "STRING_VALUE",
+ * //         additionalAttributes: { // GlossaryItemAdditionalAttributes
+ * //           matchRationale: [ // MatchRationale
+ * //             { // MatchRationaleItem Union: only one key present
+ * //               textMatches: [ // TextMatches
+ * //                 { // TextMatchItem
+ * //                   attribute: "STRING_VALUE",
+ * //                   text: "STRING_VALUE",
+ * //                   matchOffsets: [ // MatchOffsets
+ * //                     { // MatchOffset
+ * //                       startOffset: Number("int"),
+ * //                       endOffset: Number("int"),
+ * //                     },
+ * //                   ],
+ * //                 },
+ * //               ],
+ * //             },
+ * //           ],
+ * //         },
  * //       },
  * //       glossaryTermItem: { // GlossaryTermItem
  * //         domainId: "STRING_VALUE", // required
@@ -115,6 +133,24 @@ export interface SearchCommandOutput extends SearchOutput, __MetadataBearer {}
  * //         createdBy: "STRING_VALUE",
  * //         updatedAt: new Date("TIMESTAMP"),
  * //         updatedBy: "STRING_VALUE",
+ * //         additionalAttributes: { // GlossaryTermItemAdditionalAttributes
+ * //           matchRationale: [
+ * //             {//  Union: only one key present
+ * //               textMatches: [
+ * //                 {
+ * //                   attribute: "STRING_VALUE",
+ * //                   text: "STRING_VALUE",
+ * //                   matchOffsets: [
+ * //                     {
+ * //                       startOffset: Number("int"),
+ * //                       endOffset: Number("int"),
+ * //                     },
+ * //                   ],
+ * //                 },
+ * //               ],
+ * //             },
+ * //           ],
+ * //         },
  * //       },
  * //       assetItem: { // AssetItem
  * //         domainId: "STRING_VALUE", // required
@@ -159,6 +195,22 @@ export interface SearchCommandOutput extends SearchOutput, __MetadataBearer {}
  * //               id: "STRING_VALUE",
  * //             },
  * //           ],
+ * //           matchRationale: [
+ * //             {//  Union: only one key present
+ * //               textMatches: [
+ * //                 {
+ * //                   attribute: "STRING_VALUE",
+ * //                   text: "STRING_VALUE",
+ * //                   matchOffsets: [
+ * //                     {
+ * //                       startOffset: Number("int"),
+ * //                       endOffset: Number("int"),
+ * //                     },
+ * //                   ],
+ * //                 },
+ * //               ],
+ * //             },
+ * //           ],
  * //         },
  * //       },
  * //       dataProductItem: { // DataProductResultItem
@@ -174,6 +226,24 @@ export interface SearchCommandOutput extends SearchOutput, __MetadataBearer {}
  * //         createdBy: "STRING_VALUE",
  * //         firstRevisionCreatedAt: new Date("TIMESTAMP"),
  * //         firstRevisionCreatedBy: "STRING_VALUE",
+ * //         additionalAttributes: { // DataProductItemAdditionalAttributes
+ * //           matchRationale: [
+ * //             {//  Union: only one key present
+ * //               textMatches: [
+ * //                 {
+ * //                   attribute: "STRING_VALUE",
+ * //                   text: "STRING_VALUE",
+ * //                   matchOffsets: [
+ * //                     {
+ * //                       startOffset: Number("int"),
+ * //                       endOffset: Number("int"),
+ * //                     },
+ * //                   ],
+ * //                 },
+ * //               ],
+ * //             },
+ * //           ],
+ * //         },
  * //       },
  * //     },
  * //   ],
