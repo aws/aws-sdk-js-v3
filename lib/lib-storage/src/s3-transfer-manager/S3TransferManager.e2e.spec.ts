@@ -53,8 +53,12 @@ describe(S3TransferManager.name, () => {
 
   describe("multi part download", () => {
     const modes = ["PART", "RANGE"] as S3TransferManagerConfig["multipartDownloadType"][];
-    const sizes = [6, 11] as number[];
+    // 6 = 1 part, 11 = 2 part, 19 = 3 part
+    const sizes = [6, 11, 19] as number[];
 
+    // TODO: eventListener callback tests - transferInitiated, bytesTransferred, transferComplete
+    // TODO: Integration test for transferFailed
+    // TODO: Write README, think in customer perspective, then based on that write e2e tests
     for (const mode of modes) {
       for (const size of sizes) {
         it(`should download an object of size ${size} with mode ${mode}`, async () => {
