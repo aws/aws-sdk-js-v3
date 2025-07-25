@@ -1054,7 +1054,7 @@ export interface PutConformancePackRequest {
   TemplateS3Uri?: string | undefined;
 
   /**
-   * <p>A string containing the full conformance pack template body. The structure containing the template body has a minimum length of 1 byte and a maximum length of 51,200 bytes.</p>
+   * <p>A string that contains the full conformance pack template body. The structure containing the template body has a minimum length of 1 byte and a maximum length of 51,200 bytes.</p>
    *          <note>
    *             <p>You can use a YAML template with two resource types: Config rule (<code>AWS::Config::ConfigRule</code>) and remediation action (<code>AWS::Config::RemediationConfiguration</code>).</p>
    *          </note>
@@ -1264,7 +1264,7 @@ export interface PutOrganizationConformancePackRequest {
   TemplateS3Uri?: string | undefined;
 
   /**
-   * <p>A string containing full conformance pack template body. Structure containing the template body
+   * <p>A string that contains the full conformance pack template body. Structure containing the template body
    * 			with a minimum length of 1 byte and a maximum length of 51,200 bytes.</p>
    * @public
    */
@@ -1481,7 +1481,7 @@ export interface PutServiceLinkedConfigurationRecorderResponse {
 
   /**
    * <p>The name of the specified configuration recorder.</p>
-   *          <p>For service-linked configuration recorders, Config automatically assigns a name that has the prefix "<code>AWS</code>" to the new service-linked configuration recorder.</p>
+   *          <p>For service-linked configuration recorders, Config automatically assigns a name that has the prefix "<code>AWSConfigurationRecorderFor</code>" to the new service-linked configuration recorder.</p>
    * @public
    */
   Name?: string | undefined;
@@ -1763,7 +1763,10 @@ export interface StartResourceEvaluationRequest {
   EvaluationContext?: EvaluationContext | undefined;
 
   /**
-   * <p>The mode of an evaluation. The valid values for this API are <code>DETECTIVE</code> and <code>PROACTIVE</code>.</p>
+   * <p>The mode of an evaluation.</p>
+   *          <note>
+   *             <p>The only valid value for this API is <code>PROACTIVE</code>.</p>
+   *          </note>
    * @public
    */
   EvaluationMode: EvaluationMode | undefined;

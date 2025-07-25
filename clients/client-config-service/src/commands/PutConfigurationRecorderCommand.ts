@@ -114,8 +114,7 @@ export interface PutConfigurationRecorderCommandOutput extends __MetadataBearer 
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.
  *
  * @throws {@link InvalidConfigurationRecorderNameException} (client fault)
- *  <p>You have provided a name for the customer managed configuration recorder that is not
- * 			valid.</p>
+ *  <p>The configuration recorder name is not valid. The prefix "<code>AWSConfigurationRecorderFor</code>" is reserved for service-linked configuration recorders.</p>
  *
  * @throws {@link InvalidRecordingGroupException} (client fault)
  *  <p>One of the following errors:</p>

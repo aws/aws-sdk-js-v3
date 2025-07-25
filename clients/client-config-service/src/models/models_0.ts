@@ -1698,7 +1698,7 @@ export interface ConfigurationRecorder {
   /**
    * <p>The name of the configuration recorder.</p>
    *          <p>For customer managed configuration recorders, Config automatically assigns the name of "default" when creating a configuration recorder if you do not specify a name at creation time.</p>
-   *          <p>For service-linked configuration recorders, Config automatically assigns a name that has the prefix "<code>AWS</code>" to a new service-linked configuration recorder.</p>
+   *          <p>For service-linked configuration recorders, Config automatically assigns a name that has the prefix "<code>AWSConfigurationRecorderFor</code>" to a new service-linked configuration recorder.</p>
    *          <note>
    *             <p>
    *                <b>Changing the name of a configuration recorder</b>
@@ -2039,21 +2039,28 @@ export interface BaseConfigurationItem {
   resourceCreationTime?: Date | undefined;
 
   /**
-   * <p>The description of the resource configuration.</p>
+   * <p>A JSON-encoded string that contains the contents for the resource configuration. This string needs to be deserialized using <code>json.loads()</code> before you can access the contents.
+   * </p>
    * @public
    */
   configuration?: string | undefined;
 
   /**
-   * <p>Configuration attributes that Config returns for certain
+   * <p>A string to string map that contains additional contents for the resource configuration.Config returns this field for certain
    * 			resource types to supplement the information returned for the
-   * 			configuration parameter.</p>
+   * 			<code>configuration</code> field.</p>
+   *          <p>This string needs to be deserialized using <code>json.loads()</code> before you can access the contents.</p>
    * @public
    */
   supplementaryConfiguration?: Record<string, string> | undefined;
 
   /**
    * <p>The recording frequency that Config uses to record configuration changes for the resource.</p>
+   *          <note>
+   *             <p>This field only appears in the API response when <code>DAILY</code> recording is enabled for a resource type.
+   * 				If this field is not present, <code>CONTINUOUS</code> recording is enabled for that resource type. For more information on daily recording and continuous recording, see <a href="https://docs.aws.amazon.com/config/latest/developerguide/select-resources.html#select-resources-recording-frequency">Recording Frequency</a> in the <i>Config
+   * 						Developer Guide</i>.</p>
+   *          </note>
    * @public
    */
   recordingFrequency?: RecordingFrequency | undefined;
@@ -2690,9 +2697,6 @@ export interface ConfigRule {
    * 			trigger an evaluation for the rule. If you do not specify a scope,
    * 			evaluations are triggered when any resource in the recording group
    * 			changes.</p>
-   *          <note>
-   *             <p>The scope can be empty. </p>
-   *          </note>
    * @public
    */
   Scope?: Scope | undefined;
@@ -3322,21 +3326,27 @@ export interface ConfigurationItem {
   relationships?: Relationship[] | undefined;
 
   /**
-   * <p>The description of the resource configuration.</p>
+   * <p>A JSON-encoded string that contains the contents for the resource configuration. This string needs to be deserialized using <code>json.loads()</code> before you can access the contents.</p>
    * @public
    */
   configuration?: string | undefined;
 
   /**
-   * <p>Configuration attributes that Config returns for certain
+   * <p>A string to string map that contains additional contents for the resource configuration.Config returns this field for certain
    * 			resource types to supplement the information returned for the
-   * 				<code>configuration</code> parameter.</p>
+   * 			<code>configuration</code> field.</p>
+   *          <p>This string to string map needs to be deserialized using <code>json.loads()</code> before you can accessing the contents.</p>
    * @public
    */
   supplementaryConfiguration?: Record<string, string> | undefined;
 
   /**
    * <p>The recording frequency that Config uses to record configuration changes for the resource.</p>
+   *          <note>
+   *             <p>This field only appears in the API response when <code>DAILY</code> recording is enabled for a resource type.
+   * 				If this field is not present, <code>CONTINUOUS</code> recording is enabled for that resource type. For more information on daily recording and continuous recording, see <a href="https://docs.aws.amazon.com/config/latest/developerguide/select-resources.html#select-resources-recording-frequency">Recording Frequency</a> in the <i>Config
+   * 						Developer Guide</i>.</p>
+   *          </note>
    * @public
    */
   recordingFrequency?: RecordingFrequency | undefined;
@@ -3346,7 +3356,8 @@ export interface ConfigurationItem {
    *          <note>
    *             <p>This field is optional and is not guaranteed to be present in a configuration item  (CI). If you are using daily recording,
    * 			this field will be populated. However, if you are using continuous recording,
-   * 			this field will be omitted since the delivery time is instantaneous as the CI is available right away. For more information on daily recording and continuous recording, see <a href="https://docs.aws.amazon.com/config/latest/developerguide/select-resources.html#select-resources-recording-frequency">Recording Frequency</a> in the <i>Config
+   * 			this field will be omitted since the delivery time is instantaneous as the CI is available right away.</p>
+   *             <p>For more information on daily recording and continuous recording, see <a href="https://docs.aws.amazon.com/config/latest/developerguide/select-resources.html#select-resources-recording-frequency">Recording Frequency</a> in the <i>Config
    * 					Developer Guide</i>.</p>
    *          </note>
    * @public
@@ -5259,6 +5270,9 @@ export interface DescribeConfigurationAggregatorSourcesStatusResponse {
 export interface DescribeConfigurationRecordersRequest {
   /**
    * <p>A list of names of the configuration recorders that you want to specify.</p>
+   *          <note>
+   *             <p>When making a request to this operation, you can only specify one configuration recorder.</p>
+   *          </note>
    * @public
    */
   ConfigurationRecorderNames?: string[] | undefined;
@@ -5297,7 +5311,7 @@ export interface DescribeConfigurationRecordersResponse {
 export interface DescribeConfigurationRecorderStatusRequest {
   /**
    * <p>The name of the configuration recorder. If the name is not
-   * 			specified, the opertation returns the status for the customer managed configuration recorder configured for the
+   * 			specified, the operation returns the status for the customer managed configuration recorder configured for the
    * 			account, if applicable.</p>
    *          <note>
    *             <p>When making a request to this operation, you can only specify one configuration recorder.</p>
@@ -8414,7 +8428,7 @@ export interface GetResourceConfigHistoryRequest {
  */
 export interface GetResourceConfigHistoryResponse {
   /**
-   * <p>A list that contains the configuration history of one or more
+   * <p>An array of <code>ConfigurationItems</code> Objects. Contatins the configuration history for one or more
    * 			resources.</p>
    * @public
    */
@@ -8665,8 +8679,7 @@ export class InsufficientDeliveryPolicyException extends __BaseException {
 }
 
 /**
- * <p>You have provided a name for the customer managed configuration recorder that is not
- * 			valid.</p>
+ * <p>The configuration recorder name is not valid. The prefix "<code>AWSConfigurationRecorderFor</code>" is reserved for service-linked configuration recorders.</p>
  * @public
  */
 export class InvalidConfigurationRecorderNameException extends __BaseException {
