@@ -35,7 +35,7 @@ export interface GetKeyRotationStatusCommandOutput extends GetKeyRotationStatusR
  *          <p>Automatic key rotation is supported only on symmetric encryption KMS keys.
  *       You cannot enable automatic rotation of <a href="https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html">asymmetric KMS keys</a>, <a href="https://docs.aws.amazon.com/kms/latest/developerguide/hmac.html">HMAC KMS keys</a>, KMS keys with <a href="https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys.html">imported key material</a>, or KMS keys in a <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-store-overview.html">custom key store</a>. To enable or disable automatic rotation of a set of related <a href="https://docs.aws.amazon.com/kms/latest/developerguide/rotate-keys.html#multi-region-rotate">multi-Region keys</a>, set the property on the primary key.</p>
  *          <p>You can enable (<a>EnableKeyRotation</a>) and disable automatic rotation (<a>DisableKeyRotation</a>) of the key material in customer managed KMS keys. Key
- *       material rotation of <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-cmk">Amazon Web Services managed KMS keys</a> is not
+ *       material rotation of <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-key">Amazon Web Services managed KMS keys</a> is not
  *       configurable. KMS always rotates the key material in Amazon Web Services managed KMS keys every year. The
  *       key rotation status for Amazon Web Services managed KMS keys is always <code>true</code>.</p>
  *          <p>You can perform on-demand (<a>RotateKeyOnDemand</a>) rotation of the key

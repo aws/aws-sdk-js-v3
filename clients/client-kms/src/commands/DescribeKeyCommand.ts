@@ -29,8 +29,8 @@ export interface DescribeKeyCommandOutput extends DescribeKeyResponse, __Metadat
 
 /**
  * <p>Provides detailed information about a KMS key. You can run <code>DescribeKey</code> on a
- *         <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#customer-cmk">customer managed
- *         key</a> or an <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-cmk">Amazon Web Services managed key</a>.</p>
+ *       <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#customer-mgn-key">customer managed
+ *         key</a> or an <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-key">Amazon Web Services managed key</a>.</p>
  *          <p>This detailed information includes the key ARN, creation date (and deletion date, if
  *       applicable), the key state, and the origin and expiration date (if any) of the key material.
  *       It includes fields, like <code>KeySpec</code>, that help you distinguish different types of
@@ -61,7 +61,7 @@ export interface DescribeKeyCommandOutput extends DescribeKeyResponse, __Metadat
  *          </ul>
  *          <p>In general, <code>DescribeKey</code> is a non-mutating operation. It returns data about
  *       KMS keys, but doesn't change them. However, Amazon Web Services services use <code>DescribeKey</code> to
- *       create <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-cmk">Amazon Web Services
+ *       create <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-key">Amazon Web Services
  *         managed keys</a> from a <i>predefined Amazon Web Services alias</i> with no key
  *       ID.</p>
  *          <p>

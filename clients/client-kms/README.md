@@ -14,7 +14,8 @@ see the <a href="https://docs.aws.amazon.com/kms/latest/developerguide/">
 <i>Key Management Service Developer Guide</i>
 </a>.</p>
 <note>
-<p>KMS has replaced the term <i>customer master key (CMK)</i> with <i>KMS key</i> and <i>KMS key</i>. The concept has not changed. To prevent breaking changes, KMS is keeping some variations of this term.</p>
+<p>KMS has replaced the term <i>customer master key (CMK)</i> with <i>Key Management Service key</i>
+and <i>KMS key</i>. The concept has not changed. To prevent breaking changes, KMS is keeping some variations of this term.</p>
 <p>Amazon Web Services provides SDKs that consist of libraries and sample code for various programming
 languages and platforms (Java, Rust, Python, Ruby, .Net, macOS, Android, etc.). The SDKs
 provide a convenient way to create programmatic access to KMS and other Amazon Web Services services.

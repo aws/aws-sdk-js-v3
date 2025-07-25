@@ -555,14 +555,14 @@ export interface CreateAliasRequest {
    *          <p>The <code>AliasName</code> value must be string of 1-256 characters. It can contain only
    *       alphanumeric characters, forward slashes (/), underscores (_), and dashes (-). The alias name
    *       cannot begin with <code>alias/aws/</code>. The <code>alias/aws/</code> prefix is reserved for
-   *         <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-cmk">Amazon Web Services managed
+   *         <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-key">Amazon Web Services managed
    *         keys</a>.</p>
    * @public
    */
   AliasName: string | undefined;
 
   /**
-   * <p>Associates the alias with the specified <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#customer-cmk">customer managed key</a>. The KMS key must
+   * <p>Associates the alias with the specified <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#customer-mgn-key">customer managed key</a>. The KMS key must
    *       be in the same Amazon Web Services Region. </p>
    *          <p>A valid key ID is required. If you supply a null or empty string value, this operation
    *       returns an error.</p>
@@ -3454,7 +3454,7 @@ export interface DescribeKeyRequest {
   /**
    * <p>Describes the specified KMS key. </p>
    *          <p>If you specify a predefined Amazon Web Services alias (an Amazon Web Services alias with no key ID), KMS associates
-   *       the alias with an <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html##aws-managed-cmk">Amazon Web Services managed key</a> and returns its
+   *       the alias with an <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-key">Amazon Web Services managed key</a> and returns its
    *         <code>KeyId</code> and <code>Arn</code> in the response.</p>
    *          <p>To specify a KMS key, use its key ID, key ARN, alias name, or alias ARN. When using an alias name, prefix it with <code>"alias/"</code>. To specify a KMS key in a different Amazon Web Services account, you must use the key ARN or alias ARN.</p>
    *          <p>For example:</p>
@@ -6596,8 +6596,8 @@ export interface UpdateAliasRequest {
   AliasName: string | undefined;
 
   /**
-   * <p>Identifies the <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#customer-cmk">customer managed key</a> to associate with the alias. You don't have permission to
-   *       associate an alias with an <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-cmk">Amazon Web Services managed key</a>.</p>
+   * <p>Identifies the <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#customer-mgn-key">customer managed key</a> to associate with the alias. You don't have permission to
+   *       associate an alias with an <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-key">Amazon Web Services managed key</a>.</p>
    *          <p>The KMS key must be in the same Amazon Web Services account and Region as the alias. Also, the new
    *       target KMS key must be the same type as the current target KMS key (both symmetric or both
    *       asymmetric or both HMAC) and they must have the same key usage. </p>
