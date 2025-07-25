@@ -519,6 +519,7 @@ export interface AcceptTransitGatewayMulticastDomainAssociationsRequest {
 export const TransitGatewayAttachmentResourceType = {
   connect: "connect",
   direct_connect_gateway: "direct-connect-gateway",
+  network_function: "network-function",
   peering: "peering",
   tgw_peering: "tgw-peering",
   vpc: "vpc",

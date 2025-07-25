@@ -65,7 +65,7 @@ export interface GetTransitGatewayMulticastDomainAssociationsCommandOutput
  * //     { // TransitGatewayMulticastDomainAssociation
  * //       TransitGatewayAttachmentId: "STRING_VALUE",
  * //       ResourceId: "STRING_VALUE",
- * //       ResourceType: "vpc" || "vpn" || "direct-connect-gateway" || "connect" || "peering" || "tgw-peering",
+ * //       ResourceType: "vpc" || "vpn" || "direct-connect-gateway" || "connect" || "peering" || "tgw-peering" || "network-function",
  * //       ResourceOwnerId: "STRING_VALUE",
  * //       Subnet: { // SubnetAssociation
  * //         SubnetId: "STRING_VALUE",

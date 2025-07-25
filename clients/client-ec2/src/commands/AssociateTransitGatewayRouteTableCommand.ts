@@ -53,7 +53,7 @@ export interface AssociateTransitGatewayRouteTableCommandOutput
  * //     TransitGatewayRouteTableId: "STRING_VALUE",
  * //     TransitGatewayAttachmentId: "STRING_VALUE",
  * //     ResourceId: "STRING_VALUE",
- * //     ResourceType: "vpc" || "vpn" || "direct-connect-gateway" || "connect" || "peering" || "tgw-peering",
+ * //     ResourceType: "vpc" || "vpn" || "direct-connect-gateway" || "connect" || "peering" || "tgw-peering" || "network-function",
  * //     State: "associating" || "associated" || "disassociating" || "disassociated",
  * //   },
  * // };

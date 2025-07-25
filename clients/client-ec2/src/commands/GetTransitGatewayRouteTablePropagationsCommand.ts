@@ -65,7 +65,7 @@ export interface GetTransitGatewayRouteTablePropagationsCommandOutput
  * //     { // TransitGatewayRouteTablePropagation
  * //       TransitGatewayAttachmentId: "STRING_VALUE",
  * //       ResourceId: "STRING_VALUE",
- * //       ResourceType: "vpc" || "vpn" || "direct-connect-gateway" || "connect" || "peering" || "tgw-peering",
+ * //       ResourceType: "vpc" || "vpn" || "direct-connect-gateway" || "connect" || "peering" || "tgw-peering" || "network-function",
  * //       State: "enabling" || "enabled" || "disabling" || "disabled",
  * //       TransitGatewayRouteTableAnnouncementId: "STRING_VALUE",
  * //     },
