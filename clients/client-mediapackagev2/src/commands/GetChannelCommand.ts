@@ -28,7 +28,7 @@ export interface GetChannelCommandInput extends GetChannelRequest {}
 export interface GetChannelCommandOutput extends GetChannelResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves the specified channel that's configured in AWS Elemental MediaPackage, including the origin endpoints that are associated with it.</p>
+ * <p>Retrieves the specified channel that's configured in AWS Elemental MediaPackage.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -62,6 +62,7 @@ export interface GetChannelCommandOutput extends GetChannelResponse, __MetadataB
  * //   },
  * //   InputSwitchConfiguration: { // InputSwitchConfiguration
  * //     MQCSInputSwitching: true || false,
+ * //     PreferredInput: Number("int"),
  * //   },
  * //   OutputHeaderConfiguration: { // OutputHeaderConfiguration
  * //     PublishMQCS: true || false,

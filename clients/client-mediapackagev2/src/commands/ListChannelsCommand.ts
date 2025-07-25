@@ -28,7 +28,7 @@ export interface ListChannelsCommandInput extends ListChannelsRequest {}
 export interface ListChannelsCommandOutput extends ListChannelsResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves all channels in a specific channel group that are configured in AWS Elemental MediaPackage, including the origin endpoints that are associated with it.</p>
+ * <p>Retrieves all channels in a specific channel group that are configured in AWS Elemental MediaPackage.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

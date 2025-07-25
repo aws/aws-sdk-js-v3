@@ -295,6 +295,7 @@ export const ValidationExceptionType = {
     "ONLY_CMAF_INPUT_TYPE_ALLOW_FORCE_ENDPOINT_ERROR_CONFIGURATION",
   ONLY_CMAF_INPUT_TYPE_ALLOW_MQCS_INPUT_SWITCHING: "ONLY_CMAF_INPUT_TYPE_ALLOW_MQCS_INPUT_SWITCHING",
   ONLY_CMAF_INPUT_TYPE_ALLOW_MQCS_OUTPUT_CONFIGURATION: "ONLY_CMAF_INPUT_TYPE_ALLOW_MQCS_OUTPUT_CONFIGURATION",
+  ONLY_CMAF_INPUT_TYPE_ALLOW_PREFERRED_INPUT_CONFIGURATION: "ONLY_CMAF_INPUT_TYPE_ALLOW_PREFERRED_INPUT_CONFIGURATION",
   PERIOD_TRIGGERS_NONE_SPECIFIED_WITH_ADDITIONAL_VALUES: "PERIOD_TRIGGERS_NONE_SPECIFIED_WITH_ADDITIONAL_VALUES",
   ROLE_ARN_INVALID_FORMAT: "ROLE_ARN_INVALID_FORMAT",
   ROLE_ARN_LENGTH_OUT_OF_RANGE: "ROLE_ARN_LENGTH_OUT_OF_RANGE",
@@ -509,6 +510,12 @@ export interface InputSwitchConfiguration {
    * @public
    */
   MQCSInputSwitching?: boolean | undefined;
+
+  /**
+   * <p>For CMAF inputs, indicates which input MediaPackage should prefer when both inputs have equal MQCS scores. Select <code>1</code> to prefer the first ingest endpoint, or <code>2</code> to prefer the second ingest endpoint. If you don't specify a preferred input, MediaPackage uses its default switching behavior when MQCS scores are equal.</p>
+   * @public
+   */
+  PreferredInput?: number | undefined;
 }
 
 /**

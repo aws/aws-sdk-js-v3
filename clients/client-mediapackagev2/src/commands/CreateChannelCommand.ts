@@ -43,6 +43,7 @@ export interface CreateChannelCommandOutput extends CreateChannelResponse, __Met
  *   Description: "STRING_VALUE",
  *   InputSwitchConfiguration: { // InputSwitchConfiguration
  *     MQCSInputSwitching: true || false,
+ *     PreferredInput: Number("int"),
  *   },
  *   OutputHeaderConfiguration: { // OutputHeaderConfiguration
  *     PublishMQCS: true || false,
@@ -73,6 +74,7 @@ export interface CreateChannelCommandOutput extends CreateChannelResponse, __Met
  * //   },
  * //   InputSwitchConfiguration: { // InputSwitchConfiguration
  * //     MQCSInputSwitching: true || false,
+ * //     PreferredInput: Number("int"),
  * //   },
  * //   OutputHeaderConfiguration: { // OutputHeaderConfiguration
  * //     PublishMQCS: true || false,
