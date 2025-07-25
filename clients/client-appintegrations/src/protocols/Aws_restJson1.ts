@@ -6,6 +6,8 @@ import {
   _json,
   collectBody,
   decorateServiceException as __decorateServiceException,
+  expectBoolean as __expectBoolean,
+  expectInt32 as __expectInt32,
   expectNonNull as __expectNonNull,
   expectNumber as __expectNumber,
   expectObject as __expectObject,
@@ -95,13 +97,16 @@ import {
 import { AppIntegrationsServiceException as __BaseException } from "../models/AppIntegrationsServiceException";
 import {
   AccessDeniedException,
+  ApplicationConfig,
   ApplicationSourceConfig,
   ApplicationSummary,
+  ContactHandling,
   DuplicateResourceException,
   EventFilter,
   ExecutionConfiguration,
   ExternalUrlConfig,
   FileConfiguration,
+  IframeConfig,
   InternalServiceError,
   InvalidRequestException,
   OnDemandConfiguration,
@@ -129,9 +134,13 @@ export const se_CreateApplicationCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
+      ApplicationConfig: (_) => _json(_),
       ApplicationSourceConfig: (_) => _json(_),
       ClientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       Description: [],
+      IframeConfig: (_) => _json(_),
+      InitializationTimeout: [],
+      IsService: [],
       Name: [],
       Namespace: [],
       Permissions: (_) => _json(_),
@@ -516,8 +525,12 @@ export const se_UpdateApplicationCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
+      ApplicationConfig: (_) => _json(_),
       ApplicationSourceConfig: (_) => _json(_),
       Description: [],
+      IframeConfig: (_) => _json(_),
+      InitializationTimeout: [],
+      IsService: [],
       Name: [],
       Permissions: (_) => _json(_),
       Publications: (_) => _json(_),
@@ -766,11 +779,15 @@ export const de_GetApplicationCommand = async (
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
+    ApplicationConfig: _json,
     ApplicationSourceConfig: _json,
     Arn: __expectString,
     CreatedTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     Description: __expectString,
     Id: __expectString,
+    IframeConfig: _json,
+    InitializationTimeout: __expectInt32,
+    IsService: __expectBoolean,
     LastModifiedTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     Name: __expectString,
     Namespace: __expectString,
@@ -1298,9 +1315,13 @@ const de_UnsupportedOperationExceptionRes = async (
 
 // se_ApplicationApprovedOrigins omitted.
 
+// se_ApplicationConfig omitted.
+
 // se_ApplicationSourceConfig omitted.
 
 // se_ClientAssociationMetadata omitted.
+
+// se_ContactHandling omitted.
 
 // se_EventFilter omitted.
 
@@ -1315,6 +1336,10 @@ const de_UnsupportedOperationExceptionRes = async (
 // se_FileConfiguration omitted.
 
 // se_FolderList omitted.
+
+// se_IframeConfig omitted.
+
+// se_IframePermissionList omitted.
 
 // se_ObjectConfiguration omitted.
 
@@ -1340,6 +1365,8 @@ const de_UnsupportedOperationExceptionRes = async (
 
 // de_ApplicationAssociationSummary omitted.
 
+// de_ApplicationConfig omitted.
+
 /**
  * deserializeAws_restJson1ApplicationsList
  */
@@ -1362,6 +1389,7 @@ const de_ApplicationSummary = (output: any, context: __SerdeContext): Applicatio
     Arn: __expectString,
     CreatedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     Id: __expectString,
+    IsService: __expectBoolean,
     LastModifiedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     Name: __expectString,
     Namespace: __expectString,
@@ -1369,6 +1397,8 @@ const de_ApplicationSummary = (output: any, context: __SerdeContext): Applicatio
 };
 
 // de_ClientAssociationMetadata omitted.
+
+// de_ContactHandling omitted.
 
 // de_DataIntegrationAssociationsList omitted.
 
@@ -1399,6 +1429,10 @@ const de_ApplicationSummary = (output: any, context: __SerdeContext): Applicatio
 // de_FileConfiguration omitted.
 
 // de_FolderList omitted.
+
+// de_IframeConfig omitted.
+
+// de_IframePermissionList omitted.
 
 // de_LastExecutionStatus omitted.
 

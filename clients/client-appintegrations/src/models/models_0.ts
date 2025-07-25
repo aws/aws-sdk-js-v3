@@ -26,6 +26,44 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
+ * @public
+ * @enum
+ */
+export const ContactHandlingScope = {
+  CROSS_CONTACTS: "CROSS_CONTACTS",
+  PER_CONTACT: "PER_CONTACT",
+} as const;
+
+/**
+ * @public
+ */
+export type ContactHandlingScope = (typeof ContactHandlingScope)[keyof typeof ContactHandlingScope];
+
+/**
+ * <p>The contact handling configuration for the application.</p>
+ * @public
+ */
+export interface ContactHandling {
+  /**
+   * <p>Indicates whether the application refreshes for each contact or refreshes only with each new browser session.</p>
+   * @public
+   */
+  Scope?: ContactHandlingScope | undefined;
+}
+
+/**
+ * <p>The configuration settings for the application.</p>
+ * @public
+ */
+export interface ApplicationConfig {
+  /**
+   * <p>The contact handling configuration for the application.</p>
+   * @public
+   */
+  ContactHandling?: ContactHandling | undefined;
+}
+
+/**
  * <p>The external URL source for the application.</p>
  * @public
  */
@@ -53,6 +91,24 @@ export interface ApplicationSourceConfig {
    * @public
    */
   ExternalUrlConfig?: ExternalUrlConfig | undefined;
+}
+
+/**
+ * <p>The iframe configuration for the application.</p>
+ * @public
+ */
+export interface IframeConfig {
+  /**
+   * <p>The list of features that are allowed in the iframe.</p>
+   * @public
+   */
+  Allow?: string[] | undefined;
+
+  /**
+   * <p>The list of sandbox attributes for the iframe.</p>
+   * @public
+   */
+  Sandbox?: string[] | undefined;
 }
 
 /**
@@ -161,6 +217,30 @@ export interface CreateApplicationRequest {
    * @public
    */
   Permissions?: string[] | undefined;
+
+  /**
+   * <p>Indicates whether the application is a service.</p>
+   * @public
+   */
+  IsService?: boolean | undefined;
+
+  /**
+   * <p>The maximum time in milliseconds allowed to establish a connection with the workspace.</p>
+   * @public
+   */
+  InitializationTimeout?: number | undefined;
+
+  /**
+   * <p>The configuration settings for the application.</p>
+   * @public
+   */
+  ApplicationConfig?: ApplicationConfig | undefined;
+
+  /**
+   * <p>The iframe configuration for the application.</p>
+   * @public
+   */
+  IframeConfig?: IframeConfig | undefined;
 }
 
 /**
@@ -844,6 +924,30 @@ export interface GetApplicationResponse {
    * @public
    */
   Permissions?: string[] | undefined;
+
+  /**
+   * <p>Indicates whether the application is a service.</p>
+   * @public
+   */
+  IsService?: boolean | undefined;
+
+  /**
+   * <p>The maximum time in milliseconds allowed to establish a connection with the workspace.</p>
+   * @public
+   */
+  InitializationTimeout?: number | undefined;
+
+  /**
+   * <p>The configuration settings for the application.</p>
+   * @public
+   */
+  ApplicationConfig?: ApplicationConfig | undefined;
+
+  /**
+   * <p>The iframe configuration for the application.</p>
+   * @public
+   */
+  IframeConfig?: IframeConfig | undefined;
 }
 
 /**
@@ -1097,6 +1201,12 @@ export interface ApplicationSummary {
    * @public
    */
   LastModifiedTime?: Date | undefined;
+
+  /**
+   * <p>Indicates whether the application is a service.</p>
+   * @public
+   */
+  IsService?: boolean | undefined;
 }
 
 /**
@@ -1567,6 +1677,30 @@ export interface UpdateApplicationRequest {
    * @public
    */
   Permissions?: string[] | undefined;
+
+  /**
+   * <p>Indicates whether the application is a service.</p>
+   * @public
+   */
+  IsService?: boolean | undefined;
+
+  /**
+   * <p>The maximum time in milliseconds allowed to establish a connection with the workspace.</p>
+   * @public
+   */
+  InitializationTimeout?: number | undefined;
+
+  /**
+   * <p>The configuration settings for the application.</p>
+   * @public
+   */
+  ApplicationConfig?: ApplicationConfig | undefined;
+
+  /**
+   * <p>The iframe configuration for the application.</p>
+   * @public
+   */
+  IframeConfig?: IframeConfig | undefined;
 }
 
 /**

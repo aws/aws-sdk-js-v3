@@ -63,6 +63,21 @@ export interface UpdateApplicationCommandOutput extends UpdateApplicationRespons
  *   Permissions: [ // PermissionList
  *     "STRING_VALUE",
  *   ],
+ *   IsService: true || false,
+ *   InitializationTimeout: Number("int"),
+ *   ApplicationConfig: { // ApplicationConfig
+ *     ContactHandling: { // ContactHandling
+ *       Scope: "CROSS_CONTACTS" || "PER_CONTACT",
+ *     },
+ *   },
+ *   IframeConfig: { // IframeConfig
+ *     Allow: [ // IframePermissionList
+ *       "STRING_VALUE",
+ *     ],
+ *     Sandbox: [
+ *       "STRING_VALUE",
+ *     ],
+ *   },
  * };
  * const command = new UpdateApplicationCommand(input);
  * const response = await client.send(command);
