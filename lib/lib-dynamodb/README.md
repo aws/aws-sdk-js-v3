@@ -303,6 +303,77 @@ await impreciseClient.send(
 );
 ```
 
+### Example: performing a full table scan
+
+Before performing a full table scan, consider whether your query can be satisfied by a more efficient operation.
+For instance, if you are searching for a set of rows by primary keys, `BatchGetItem` may be better.
+
+First, initialize the base Client and Document Client.
+
+```ts
+import { DynamoDBClient } from "@aws-sdk/client-dynamodb";
+import { DynamoDBDocumentClient, paginateScan, ScanCommand } from "@aws-sdk/lib-dynamodb";
+
+const client = new DynamoDBClient({
+  region: "us-west-2",
+});
+
+const docClient = DynamoDBDocumentClient.from(client);
+
+const paginatorConfiguration = {
+  client: docClient,
+};
+
+/**
+ * This is a function so as to create
+ * separate objects per request.
+ *
+ * The objects passed into AWS SDK Command instances
+ * are retained as references, so this prevents unexpected mutations.
+ */
+const scanRequestInput = () => ({
+  TableName: "YOUR_TABLE_NAME",
+  Limit: 100,
+});
+```
+
+The recommended way to iterate the scan is with our library's paginator helper function.
+
+```ts
+// Recommended method, using the AWS SDK paginator:
+let pageNumber = 1;
+for await (const page of paginateScan(paginatorConfiguration, scanRequestInput())) {
+  console.log("page:", pageNumber++);
+  console.log(page.Items);
+}
+```
+
+Alternatively, the equivalent manual method, which is exactly what the paginator function
+is doing internally, is with a loop utilizing the pagination token from the responses:
+
+```ts
+// Manual method, using the ScanCommand and pagination token:
+let pageNumber = 1;
+const firstPage = await docClient.send(new ScanCommand(scanRequestInput()));
+console.log("page:", pageNumber++);
+console.log(firstPage.Items);
+
+let paginationToken = firstPage.LastEvaluatedKey;
+
+while (paginationToken) {
+  const page = await docClient.send(
+    new ScanCommand({
+      ...scanRequestInput(),
+      ExclusiveStartKey: paginationToken,
+    })
+  );
+  paginationToken = page.LastEvaluatedKey;
+
+  console.log("page:", pageNumber++);
+  console.log(page.Items);
+}
+```
+
 ### Client and Command middleware stacks
 
 As with other AWS SDK for JavaScript v3 clients, you can apply middleware functions
