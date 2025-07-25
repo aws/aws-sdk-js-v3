@@ -44,7 +44,7 @@ export interface SendMessageBatchCommandOutput extends SendMessageBatchResult, _
  *             <p>
  *                <code>#x9</code> | <code>#xA</code> | <code>#xD</code> | <code>#x20</code> to <code>#xD7FF</code> | <code>#xE000</code> to <code>#xFFFD</code> | <code>#x10000</code> to <code>#x10FFFF</code>
  *             </p>
- *             <p>Amazon SQS does not throw an exception or completely reject the message if it contains invalid characters. Instead, it replaces those invalid characters with <code>U+FFFD</code> before storing the message in the queue, as long as the message body contains at least one valid character.</p>
+ *             <p>Amazon SQS does not throw an exception or completely reject the message if it contains invalid characters. Instead, it replaces those invalid characters with U+FFFD before storing the message in the queue, as long as the message body contains at least one valid character.</p>
  *          </important>
  *          <p>If you don't specify the <code>DelaySeconds</code> parameter for an entry, Amazon SQS uses
  *             the default value for the queue.</p>

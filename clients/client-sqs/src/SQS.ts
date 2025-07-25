@@ -493,8 +493,7 @@ export interface SQS {
  *             </li>
  *             <li>
  *                <p>
- *                   <a href="http://docs.aws.amazon.com/cli/latest/reference/sqs/index.html">Amazon SQS in the <i>Command Line Interface</i>
- *                   </a>
+ *                   <a href="https://awscli.amazonaws.com/v2/documentation/api/latest/reference/sqs/index.html">Amazon SQS in the Command Line Interface</a>
  *                </p>
  *             </li>
  *             <li>
