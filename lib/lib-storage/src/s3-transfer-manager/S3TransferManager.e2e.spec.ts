@@ -1,4 +1,4 @@
-import { GetObjectCommandOutput, S3 } from "@aws-sdk/client-s3";
+import { GetObjectCommandOutput, PutObjectCommand, S3 } from "@aws-sdk/client-s3";
 import { getHeapSnapshot } from "v8";
 import { beforeAll, describe, expect, test as it } from "vitest";
 
@@ -52,14 +52,15 @@ describe(S3TransferManager.name, () => {
     });
   }, 120_000);
 
-  describe.skip("multi part download", () => {
+  // TODO: eventListener callback tests - transferInitiated, bytesTransferred, transferComplete
+  // TODO: Integration test for transferFailed
+  // TODO: Write README, think in customer perspective, then based on that write e2e tests
+
+  describe("multi part download", () => {
     const modes = ["PART", "RANGE"] as S3TransferManagerConfig["multipartDownloadType"][];
     // 6 = 1 part, 11 = 2 part, 19 = 3 part
-    const sizes = [6, 11, 19] as number[];
+    const sizes = [6, 11, 19, 0] as number[];
 
-    // TODO: eventListener callback tests - transferInitiated, bytesTransferred, transferComplete
-    // TODO: Integration test for transferFailed
-    // TODO: Write README, think in customer perspective, then based on that write e2e tests
     for (const mode of modes) {
       for (const size of sizes) {
         it(`should download an object of size ${size} with mode ${mode}`, async () => {
@@ -161,30 +162,21 @@ describe(S3TransferManager.name, () => {
             { Bucket, Key },
             {
               eventListeners: {
-                bytesTransferred: [
+                transferInitiated: [
                   async ({ snapshot }) => {
                     // Update object after first part is downloaded
-                    if (!objectUpdated && snapshot.transferredBytes > 8 * 1024 * 1024) {
-                      objectUpdated = true;
-                      if (mode === "PART") {
-                        await new Upload({
-                          client,
-                          params: {
-                            Bucket,
-                            Key,
-                            Body: "updated content",
-                          },
-                        }).done();
-                      } else {
-                        await client.putObject({
-                          Bucket,
-                          Key,
-                          Body: "updated content",
-                        });
-                      }
-                    }
+                    objectUpdated = true;
+                    const objectUpload = await client.send(
+                      new PutObjectCommand({
+                        Bucket,
+                        Key: "6mb",
+                        Body: data(2 * 1024 * 1024),
+                      })
+                    );
+                    console.log(objectUpload.ETag);
                   },
                 ],
+                bytesTransferred: [],
                 transferFailed: [
                   () => {
                     transferFailed = true;
