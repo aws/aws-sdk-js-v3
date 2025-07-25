@@ -58,9 +58,25 @@ import {
   AssociateWhatsAppBusinessAccountCommandOutput,
 } from "./commands/AssociateWhatsAppBusinessAccountCommand";
 import {
+  CreateWhatsAppMessageTemplateCommandInput,
+  CreateWhatsAppMessageTemplateCommandOutput,
+} from "./commands/CreateWhatsAppMessageTemplateCommand";
+import {
+  CreateWhatsAppMessageTemplateFromLibraryCommandInput,
+  CreateWhatsAppMessageTemplateFromLibraryCommandOutput,
+} from "./commands/CreateWhatsAppMessageTemplateFromLibraryCommand";
+import {
+  CreateWhatsAppMessageTemplateMediaCommandInput,
+  CreateWhatsAppMessageTemplateMediaCommandOutput,
+} from "./commands/CreateWhatsAppMessageTemplateMediaCommand";
+import {
   DeleteWhatsAppMessageMediaCommandInput,
   DeleteWhatsAppMessageMediaCommandOutput,
 } from "./commands/DeleteWhatsAppMessageMediaCommand";
+import {
+  DeleteWhatsAppMessageTemplateCommandInput,
+  DeleteWhatsAppMessageTemplateCommandOutput,
+} from "./commands/DeleteWhatsAppMessageTemplateCommand";
 import {
   DisassociateWhatsAppBusinessAccountCommandInput,
   DisassociateWhatsAppBusinessAccountCommandOutput,
@@ -78,6 +94,10 @@ import {
   GetWhatsAppMessageMediaCommandOutput,
 } from "./commands/GetWhatsAppMessageMediaCommand";
 import {
+  GetWhatsAppMessageTemplateCommandInput,
+  GetWhatsAppMessageTemplateCommandOutput,
+} from "./commands/GetWhatsAppMessageTemplateCommand";
+import {
   ListLinkedWhatsAppBusinessAccountsCommandInput,
   ListLinkedWhatsAppBusinessAccountsCommandOutput,
 } from "./commands/ListLinkedWhatsAppBusinessAccountsCommand";
@@ -85,6 +105,14 @@ import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
+import {
+  ListWhatsAppMessageTemplatesCommandInput,
+  ListWhatsAppMessageTemplatesCommandOutput,
+} from "./commands/ListWhatsAppMessageTemplatesCommand";
+import {
+  ListWhatsAppTemplateLibraryCommandInput,
+  ListWhatsAppTemplateLibraryCommandOutput,
+} from "./commands/ListWhatsAppTemplateLibraryCommand";
 import {
   PostWhatsAppMessageMediaCommandInput,
   PostWhatsAppMessageMediaCommandOutput,
@@ -99,6 +127,10 @@ import {
 } from "./commands/SendWhatsAppMessageCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import {
+  UpdateWhatsAppMessageTemplateCommandInput,
+  UpdateWhatsAppMessageTemplateCommandOutput,
+} from "./commands/UpdateWhatsAppMessageTemplateCommand";
 import {
   ClientInputEndpointParameters,
   ClientResolvedEndpointParameters,
@@ -115,36 +147,52 @@ export { __Client };
  */
 export type ServiceInputTypes =
   | AssociateWhatsAppBusinessAccountCommandInput
+  | CreateWhatsAppMessageTemplateCommandInput
+  | CreateWhatsAppMessageTemplateFromLibraryCommandInput
+  | CreateWhatsAppMessageTemplateMediaCommandInput
   | DeleteWhatsAppMessageMediaCommandInput
+  | DeleteWhatsAppMessageTemplateCommandInput
   | DisassociateWhatsAppBusinessAccountCommandInput
   | GetLinkedWhatsAppBusinessAccountCommandInput
   | GetLinkedWhatsAppBusinessAccountPhoneNumberCommandInput
   | GetWhatsAppMessageMediaCommandInput
+  | GetWhatsAppMessageTemplateCommandInput
   | ListLinkedWhatsAppBusinessAccountsCommandInput
   | ListTagsForResourceCommandInput
+  | ListWhatsAppMessageTemplatesCommandInput
+  | ListWhatsAppTemplateLibraryCommandInput
   | PostWhatsAppMessageMediaCommandInput
   | PutWhatsAppBusinessAccountEventDestinationsCommandInput
   | SendWhatsAppMessageCommandInput
   | TagResourceCommandInput
-  | UntagResourceCommandInput;
+  | UntagResourceCommandInput
+  | UpdateWhatsAppMessageTemplateCommandInput;
 
 /**
  * @public
  */
 export type ServiceOutputTypes =
   | AssociateWhatsAppBusinessAccountCommandOutput
+  | CreateWhatsAppMessageTemplateCommandOutput
+  | CreateWhatsAppMessageTemplateFromLibraryCommandOutput
+  | CreateWhatsAppMessageTemplateMediaCommandOutput
   | DeleteWhatsAppMessageMediaCommandOutput
+  | DeleteWhatsAppMessageTemplateCommandOutput
   | DisassociateWhatsAppBusinessAccountCommandOutput
   | GetLinkedWhatsAppBusinessAccountCommandOutput
   | GetLinkedWhatsAppBusinessAccountPhoneNumberCommandOutput
   | GetWhatsAppMessageMediaCommandOutput
+  | GetWhatsAppMessageTemplateCommandOutput
   | ListLinkedWhatsAppBusinessAccountsCommandOutput
   | ListTagsForResourceCommandOutput
+  | ListWhatsAppMessageTemplatesCommandOutput
+  | ListWhatsAppTemplateLibraryCommandOutput
   | PostWhatsAppMessageMediaCommandOutput
   | PutWhatsAppBusinessAccountEventDestinationsCommandOutput
   | SendWhatsAppMessageCommandOutput
   | TagResourceCommandOutput
-  | UntagResourceCommandOutput;
+  | UntagResourceCommandOutput
+  | UpdateWhatsAppMessageTemplateCommandOutput;
 
 /**
  * @public

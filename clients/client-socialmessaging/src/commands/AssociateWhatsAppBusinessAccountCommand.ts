@@ -48,6 +48,7 @@ export interface AssociateWhatsAppBusinessAccountCommandOutput
  * const input = { // AssociateWhatsAppBusinessAccountInput
  *   signupCallback: { // WhatsAppSignupCallback
  *     accessToken: "STRING_VALUE", // required
+ *     callbackUrl: "STRING_VALUE",
  *   },
  *   setupFinalization: { // WhatsAppSetupFinalization
  *     associateInProgressToken: "STRING_VALUE", // required
@@ -100,6 +101,7 @@ export interface AssociateWhatsAppBusinessAccountCommandOutput
  * //             displayPhoneNumberName: "STRING_VALUE", // required
  * //             displayPhoneNumber: "STRING_VALUE", // required
  * //             qualityRating: "STRING_VALUE", // required
+ * //             dataLocalizationRegion: "STRING_VALUE",
  * //           },
  * //         ],
  * //         wabaId: "STRING_VALUE",
@@ -122,6 +124,9 @@ export interface AssociateWhatsAppBusinessAccountCommandOutput
  *
  * @throws {@link InvalidParametersException} (client fault)
  *  <p>One or more parameters provided to the action are not valid.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>The request was denied because it would exceed one or more service quotas or limits.</p>
  *
  * @throws {@link ThrottledRequestException} (client fault)
  *  <p>The request was denied due to request throttling.</p>

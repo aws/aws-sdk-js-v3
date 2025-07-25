@@ -30,9 +30,25 @@ import {
   AssociateWhatsAppBusinessAccountCommandOutput,
 } from "../commands/AssociateWhatsAppBusinessAccountCommand";
 import {
+  CreateWhatsAppMessageTemplateCommandInput,
+  CreateWhatsAppMessageTemplateCommandOutput,
+} from "../commands/CreateWhatsAppMessageTemplateCommand";
+import {
+  CreateWhatsAppMessageTemplateFromLibraryCommandInput,
+  CreateWhatsAppMessageTemplateFromLibraryCommandOutput,
+} from "../commands/CreateWhatsAppMessageTemplateFromLibraryCommand";
+import {
+  CreateWhatsAppMessageTemplateMediaCommandInput,
+  CreateWhatsAppMessageTemplateMediaCommandOutput,
+} from "../commands/CreateWhatsAppMessageTemplateMediaCommand";
+import {
   DeleteWhatsAppMessageMediaCommandInput,
   DeleteWhatsAppMessageMediaCommandOutput,
 } from "../commands/DeleteWhatsAppMessageMediaCommand";
+import {
+  DeleteWhatsAppMessageTemplateCommandInput,
+  DeleteWhatsAppMessageTemplateCommandOutput,
+} from "../commands/DeleteWhatsAppMessageTemplateCommand";
 import {
   DisassociateWhatsAppBusinessAccountCommandInput,
   DisassociateWhatsAppBusinessAccountCommandOutput,
@@ -50,6 +66,10 @@ import {
   GetWhatsAppMessageMediaCommandOutput,
 } from "../commands/GetWhatsAppMessageMediaCommand";
 import {
+  GetWhatsAppMessageTemplateCommandInput,
+  GetWhatsAppMessageTemplateCommandOutput,
+} from "../commands/GetWhatsAppMessageTemplateCommand";
+import {
   ListLinkedWhatsAppBusinessAccountsCommandInput,
   ListLinkedWhatsAppBusinessAccountsCommandOutput,
 } from "../commands/ListLinkedWhatsAppBusinessAccountsCommand";
@@ -57,6 +77,14 @@ import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "../commands/ListTagsForResourceCommand";
+import {
+  ListWhatsAppMessageTemplatesCommandInput,
+  ListWhatsAppMessageTemplatesCommandOutput,
+} from "../commands/ListWhatsAppMessageTemplatesCommand";
+import {
+  ListWhatsAppTemplateLibraryCommandInput,
+  ListWhatsAppTemplateLibraryCommandOutput,
+} from "../commands/ListWhatsAppTemplateLibraryCommand";
 import {
   PostWhatsAppMessageMediaCommandInput,
   PostWhatsAppMessageMediaCommandOutput,
@@ -72,13 +100,21 @@ import {
 import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
 import {
+  UpdateWhatsAppMessageTemplateCommandInput,
+  UpdateWhatsAppMessageTemplateCommandOutput,
+} from "../commands/UpdateWhatsAppMessageTemplateCommand";
+import {
   AccessDeniedByMetaException,
   AccessDeniedException,
   DependencyException,
   InternalServiceException,
   InvalidParametersException,
+  LibraryTemplateBodyInputs,
+  LibraryTemplateButtonInput,
+  LimitExceededException,
   LinkedWhatsAppBusinessAccount,
   LinkedWhatsAppBusinessAccountSummary,
+  MetaLibraryTemplate,
   ResourceNotFoundException,
   S3File,
   S3PresignedUrl,
@@ -117,6 +153,75 @@ export const se_AssociateWhatsAppBusinessAccountCommand = async (
 };
 
 /**
+ * serializeAws_restJson1CreateWhatsAppMessageTemplateCommand
+ */
+export const se_CreateWhatsAppMessageTemplateCommand = async (
+  input: CreateWhatsAppMessageTemplateCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/v1/whatsapp/template/put");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      id: [],
+      templateDefinition: (_) => context.base64Encoder(_),
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1CreateWhatsAppMessageTemplateFromLibraryCommand
+ */
+export const se_CreateWhatsAppMessageTemplateFromLibraryCommand = async (
+  input: CreateWhatsAppMessageTemplateFromLibraryCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/v1/whatsapp/template/create");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      id: [],
+      metaLibraryTemplate: (_) => _json(_),
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1CreateWhatsAppMessageTemplateMediaCommand
+ */
+export const se_CreateWhatsAppMessageTemplateMediaCommand = async (
+  input: CreateWhatsAppMessageTemplateMediaCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/v1/whatsapp/template/media");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      id: [],
+      sourceS3File: (_) => _json(_),
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1DeleteWhatsAppMessageMediaCommand
  */
 export const se_DeleteWhatsAppMessageMediaCommand = async (
@@ -129,6 +234,27 @@ export const se_DeleteWhatsAppMessageMediaCommand = async (
   const query: any = map({
     [_mI]: [, __expectNonNull(input[_mI]!, `mediaId`)],
     [_oPNI]: [, __expectNonNull(input[_oPNI]!, `originationPhoneNumberId`)],
+  });
+  let body: any;
+  b.m("DELETE").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1DeleteWhatsAppMessageTemplateCommand
+ */
+export const se_DeleteWhatsAppMessageTemplateCommand = async (
+  input: DeleteWhatsAppMessageTemplateCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/v1/whatsapp/template");
+  const query: any = map({
+    [_mTI]: [, input[_mTI]!],
+    [_dAT]: [() => input.deleteAllLanguages !== void 0, () => input[_dAL]!.toString()],
+    [_i]: [, __expectNonNull(input[_i]!, `id`)],
+    [_tN]: [, __expectNonNull(input[_tN]!, `templateName`)],
   });
   let body: any;
   b.m("DELETE").h(headers).q(query).b(body);
@@ -216,6 +342,25 @@ export const se_GetWhatsAppMessageMediaCommand = async (
 };
 
 /**
+ * serializeAws_restJson1GetWhatsAppMessageTemplateCommand
+ */
+export const se_GetWhatsAppMessageTemplateCommand = async (
+  input: GetWhatsAppMessageTemplateCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/v1/whatsapp/template");
+  const query: any = map({
+    [_mTI]: [, __expectNonNull(input[_mTI]!, `metaTemplateId`)],
+    [_i]: [, __expectNonNull(input[_i]!, `id`)],
+  });
+  let body: any;
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1ListLinkedWhatsAppBusinessAccountsCommand
  */
 export const se_ListLinkedWhatsAppBusinessAccountsCommand = async (
@@ -249,6 +394,53 @@ export const se_ListTagsForResourceCommand = async (
   });
   let body: any;
   b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1ListWhatsAppMessageTemplatesCommand
+ */
+export const se_ListWhatsAppMessageTemplatesCommand = async (
+  input: ListWhatsAppMessageTemplatesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/v1/whatsapp/template/list");
+  const query: any = map({
+    [_i]: [, __expectNonNull(input[_i]!, `id`)],
+    [_nT]: [, input[_nT]!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
+  });
+  let body: any;
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1ListWhatsAppTemplateLibraryCommand
+ */
+export const se_ListWhatsAppTemplateLibraryCommand = async (
+  input: ListWhatsAppTemplateLibraryCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/v1/whatsapp/template/library");
+  const query: any = map({
+    [_i]: [, __expectNonNull(input[_i]!, `id`)],
+  });
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      filters: (_) => _json(_),
+      maxResults: [],
+      nextToken: [],
+    })
+  );
+  b.m("POST").h(headers).q(query).b(body);
   return b.build();
 };
 
@@ -370,6 +562,31 @@ export const se_UntagResourceCommand = async (
 };
 
 /**
+ * serializeAws_restJson1UpdateWhatsAppMessageTemplateCommand
+ */
+export const se_UpdateWhatsAppMessageTemplateCommand = async (
+  input: UpdateWhatsAppMessageTemplateCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/v1/whatsapp/template");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      id: [],
+      metaTemplateId: [],
+      templateCategory: [],
+      templateComponents: (_) => context.base64Encoder(_),
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * deserializeAws_restJson1AssociateWhatsAppBusinessAccountCommand
  */
 export const de_AssociateWhatsAppBusinessAccountCommand = async (
@@ -386,6 +603,73 @@ export const de_AssociateWhatsAppBusinessAccountCommand = async (
   const doc = take(data, {
     signupCallbackResult: _json,
     statusCode: __expectInt32,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1CreateWhatsAppMessageTemplateCommand
+ */
+export const de_CreateWhatsAppMessageTemplateCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateWhatsAppMessageTemplateCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    category: __expectString,
+    metaTemplateId: __expectString,
+    templateStatus: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1CreateWhatsAppMessageTemplateFromLibraryCommand
+ */
+export const de_CreateWhatsAppMessageTemplateFromLibraryCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateWhatsAppMessageTemplateFromLibraryCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    category: __expectString,
+    metaTemplateId: __expectString,
+    templateStatus: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1CreateWhatsAppMessageTemplateMediaCommand
+ */
+export const de_CreateWhatsAppMessageTemplateMediaCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateWhatsAppMessageTemplateMediaCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    metaHeaderHandle: __expectString,
   });
   Object.assign(contents, doc);
   return contents;
@@ -409,6 +693,23 @@ export const de_DeleteWhatsAppMessageMediaCommand = async (
     success: __expectBoolean,
   });
   Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DeleteWhatsAppMessageTemplateCommand
+ */
+export const de_DeleteWhatsAppMessageTemplateCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteWhatsAppMessageTemplateCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
   return contents;
 };
 
@@ -495,6 +796,27 @@ export const de_GetWhatsAppMessageMediaCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1GetWhatsAppMessageTemplateCommand
+ */
+export const de_GetWhatsAppMessageTemplateCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetWhatsAppMessageTemplateCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    template: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1ListLinkedWhatsAppBusinessAccountsCommand
  */
 export const de_ListLinkedWhatsAppBusinessAccountsCommand = async (
@@ -533,6 +855,50 @@ export const de_ListTagsForResourceCommand = async (
   const doc = take(data, {
     statusCode: __expectInt32,
     tags: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListWhatsAppMessageTemplatesCommand
+ */
+export const de_ListWhatsAppMessageTemplatesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListWhatsAppMessageTemplatesCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    nextToken: __expectString,
+    templates: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListWhatsAppTemplateLibraryCommand
+ */
+export const de_ListWhatsAppTemplateLibraryCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListWhatsAppTemplateLibraryCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    metaLibraryTemplates: _json,
+    nextToken: __expectString,
   });
   Object.assign(contents, doc);
   return contents;
@@ -640,6 +1006,23 @@ export const de_UntagResourceCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1UpdateWhatsAppMessageTemplateCommand
+ */
+export const de_UpdateWhatsAppMessageTemplateCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateWhatsAppMessageTemplateCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
  * deserialize_Aws_restJson1CommandError
  */
 const de_CommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<never> => {
@@ -658,21 +1041,24 @@ const de_CommandError = async (output: __HttpResponse, context: __SerdeContext):
     case "InvalidParametersException":
     case "com.amazonaws.socialmessaging#InvalidParametersException":
       throw await de_InvalidParametersExceptionRes(parsedOutput, context);
+    case "LimitExceededException":
+    case "com.amazonaws.socialmessaging#LimitExceededException":
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "ThrottledRequestException":
     case "com.amazonaws.socialmessaging#ThrottledRequestException":
       throw await de_ThrottledRequestExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.socialmessaging#ValidationException":
       throw await de_ValidationExceptionRes(parsedOutput, context);
-    case "AccessDeniedByMetaException":
-    case "com.amazonaws.socialmessaging#AccessDeniedByMetaException":
-      throw await de_AccessDeniedByMetaExceptionRes(parsedOutput, context);
     case "InternalServiceException":
     case "com.amazonaws.socialmessaging#InternalServiceException":
       throw await de_InternalServiceExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.socialmessaging#ResourceNotFoundException":
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "AccessDeniedByMetaException":
+    case "com.amazonaws.socialmessaging#AccessDeniedByMetaException":
+      throw await de_AccessDeniedByMetaExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
@@ -782,6 +1168,26 @@ const de_InvalidParametersExceptionRes = async (
 };
 
 /**
+ * deserializeAws_restJson1LimitExceededExceptionRes
+ */
+const de_LimitExceededExceptionRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<LimitExceededException> => {
+  const contents: any = map({});
+  const data: any = parsedOutput.body;
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
+  const exception = new LimitExceededException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
+};
+
+/**
  * deserializeAws_restJson1ResourceNotFoundExceptionRes
  */
 const de_ResourceNotFoundExceptionRes = async (
@@ -838,13 +1244,29 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
+// se_Filter omitted.
+
 // se_Headers omitted.
+
+// se_LibraryTemplateBodyInputs omitted.
+
+// se_LibraryTemplateButtonInput omitted.
+
+// se_MetaLibraryTemplate omitted.
+
+// se_MetaLibraryTemplateButtonInputs omitted.
+
+// se_MetaUrlWithSuffixExample omitted.
 
 // se_S3File omitted.
 
 // se_S3PresignedUrl omitted.
 
 // se_StringList omitted.
+
+// se_SupportedApp omitted.
+
+// se_SupportedApps omitted.
 
 // se_Tag omitted.
 
@@ -863,6 +1285,8 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 // se_WhatsAppSetupFinalization omitted.
 
 // se_WhatsAppSignupCallback omitted.
+
+// de_LibraryTemplateButtonList omitted.
 
 // de_LinkedAccountWithIncompleteSetup omitted.
 
@@ -917,9 +1341,25 @@ const de_LinkedWhatsAppBusinessAccountSummaryList = (
   return retVal;
 };
 
+// de_MetaIndustries omitted.
+
+// de_MetaLibraryTemplateButtonList omitted.
+
+// de_MetaLibraryTemplateDefinition omitted.
+
+// de_MetaLibraryTemplatesList omitted.
+
+// de_SupportedApp omitted.
+
+// de_SupportedApps omitted.
+
 // de_Tag omitted.
 
 // de_TagList omitted.
+
+// de_TemplateSummary omitted.
+
+// de_TemplateSummaryList omitted.
 
 // de_WhatsAppBusinessAccountEventDestination omitted.
 
@@ -947,9 +1387,13 @@ const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
 const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then((body) => context.utf8Encoder(body));
 
+const _dAL = "deleteAllLanguages";
+const _dAT = "deleteAllTemplates";
 const _i = "id";
 const _mI = "mediaId";
 const _mR = "maxResults";
+const _mTI = "metaTemplateId";
 const _nT = "nextToken";
 const _oPNI = "originationPhoneNumberId";
 const _rA = "resourceArn";
+const _tN = "templateName";

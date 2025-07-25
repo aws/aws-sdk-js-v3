@@ -238,10 +238,42 @@ AssociateWhatsAppBusinessAccount
 </details>
 <details>
 <summary>
+CreateWhatsAppMessageTemplate
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/socialmessaging/command/CreateWhatsAppMessageTemplateCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-socialmessaging/Interface/CreateWhatsAppMessageTemplateCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-socialmessaging/Interface/CreateWhatsAppMessageTemplateCommandOutput/)
+
+</details>
+<details>
+<summary>
+CreateWhatsAppMessageTemplateFromLibrary
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/socialmessaging/command/CreateWhatsAppMessageTemplateFromLibraryCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-socialmessaging/Interface/CreateWhatsAppMessageTemplateFromLibraryCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-socialmessaging/Interface/CreateWhatsAppMessageTemplateFromLibraryCommandOutput/)
+
+</details>
+<details>
+<summary>
+CreateWhatsAppMessageTemplateMedia
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/socialmessaging/command/CreateWhatsAppMessageTemplateMediaCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-socialmessaging/Interface/CreateWhatsAppMessageTemplateMediaCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-socialmessaging/Interface/CreateWhatsAppMessageTemplateMediaCommandOutput/)
+
+</details>
+<details>
+<summary>
 DeleteWhatsAppMessageMedia
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/socialmessaging/command/DeleteWhatsAppMessageMediaCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-socialmessaging/Interface/DeleteWhatsAppMessageMediaCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-socialmessaging/Interface/DeleteWhatsAppMessageMediaCommandOutput/)
+
+</details>
+<details>
+<summary>
+DeleteWhatsAppMessageTemplate
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/socialmessaging/command/DeleteWhatsAppMessageTemplateCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-socialmessaging/Interface/DeleteWhatsAppMessageTemplateCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-socialmessaging/Interface/DeleteWhatsAppMessageTemplateCommandOutput/)
 
 </details>
 <details>
@@ -278,6 +310,14 @@ GetWhatsAppMessageMedia
 </details>
 <details>
 <summary>
+GetWhatsAppMessageTemplate
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/socialmessaging/command/GetWhatsAppMessageTemplateCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-socialmessaging/Interface/GetWhatsAppMessageTemplateCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-socialmessaging/Interface/GetWhatsAppMessageTemplateCommandOutput/)
+
+</details>
+<details>
+<summary>
 ListLinkedWhatsAppBusinessAccounts
 </summary>
 
@@ -290,6 +330,22 @@ ListTagsForResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/socialmessaging/command/ListTagsForResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-socialmessaging/Interface/ListTagsForResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-socialmessaging/Interface/ListTagsForResourceCommandOutput/)
+
+</details>
+<details>
+<summary>
+ListWhatsAppMessageTemplates
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/socialmessaging/command/ListWhatsAppMessageTemplatesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-socialmessaging/Interface/ListWhatsAppMessageTemplatesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-socialmessaging/Interface/ListWhatsAppMessageTemplatesCommandOutput/)
+
+</details>
+<details>
+<summary>
+ListWhatsAppTemplateLibrary
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/socialmessaging/command/ListWhatsAppTemplateLibraryCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-socialmessaging/Interface/ListWhatsAppTemplateLibraryCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-socialmessaging/Interface/ListWhatsAppTemplateLibraryCommandOutput/)
 
 </details>
 <details>
@@ -330,5 +386,13 @@ UntagResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/socialmessaging/command/UntagResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-socialmessaging/Interface/UntagResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-socialmessaging/Interface/UntagResourceCommandOutput/)
+
+</details>
+<details>
+<summary>
+UpdateWhatsAppMessageTemplate
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/socialmessaging/command/UpdateWhatsAppMessageTemplateCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-socialmessaging/Interface/UpdateWhatsAppMessageTemplateCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-socialmessaging/Interface/UpdateWhatsAppMessageTemplateCommandOutput/)
 
 </details>

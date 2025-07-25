@@ -261,6 +261,12 @@ export interface WhatsAppSignupCallback {
    * @public
    */
   accessToken: string | undefined;
+
+  /**
+   * <p>The URL where WhatsApp will send callback notifications for this account.</p>
+   * @public
+   */
+  callbackUrl?: string | undefined;
 }
 
 /**
@@ -340,6 +346,12 @@ export interface WhatsAppPhoneNumberDetail {
    * @public
    */
   qualityRating: string | undefined;
+
+  /**
+   * <p>The geographic region where the WhatsApp phone number's data is stored and processed.</p>
+   * @public
+   */
+  dataLocalizationRegion?: string | undefined;
 }
 
 /**
@@ -450,6 +462,26 @@ export class InvalidParametersException extends __BaseException {
 }
 
 /**
+ * <p>The request was denied because it would exceed one or more service quotas or limits.</p>
+ * @public
+ */
+export class LimitExceededException extends __BaseException {
+  readonly name: "LimitExceededException" = "LimitExceededException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<LimitExceededException, __BaseException>) {
+    super({
+      name: "LimitExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, LimitExceededException.prototype);
+  }
+}
+
+/**
  * <p>The request was denied due to request throttling.</p>
  * @public
  */
@@ -493,33 +525,41 @@ export class ValidationException extends __BaseException {
 /**
  * @public
  */
-export interface DeleteWhatsAppMessageMediaInput {
+export interface CreateWhatsAppMessageTemplateInput {
   /**
-   * <p>The unique identifier of the media file to delete. Use the <code>mediaId</code> returned from <a href="https://console.aws.amazon.com/social-messaging/latest/APIReference/API_PostWhatsAppMessageMedia.html">PostWhatsAppMessageMedia</a>.</p>
+   * <p>The complete template definition as a JSON blob.</p>
    * @public
    */
-  mediaId: string | undefined;
+  templateDefinition: Uint8Array | undefined;
 
   /**
-   * <p>The unique identifier of the originating phone number associated with the media. Phone
-   *          number identifiers are formatted as
-   *             <code>phone-number-id-01234567890123456789012345678901</code>. Use
-   *          <a href="https://docs.aws.amazon.com/social-messaging/latest/APIReference/API_GetLinkedWhatsAppBusinessAccountPhoneNumber.html">GetLinkedWhatsAppBusinessAccount</a> to find a phone number's
-   *          id.</p>
+   * <p>The ID of the WhatsApp Business Account to associate with this template.</p>
    * @public
    */
-  originationPhoneNumberId: string | undefined;
+  id: string | undefined;
 }
 
 /**
  * @public
  */
-export interface DeleteWhatsAppMessageMediaOutput {
+export interface CreateWhatsAppMessageTemplateOutput {
   /**
-   * <p>Success indicator for deleting the media file.</p>
+   * <p>The numeric ID assigned to the template by Meta.</p>
    * @public
    */
-  success?: boolean | undefined;
+  metaTemplateId?: string | undefined;
+
+  /**
+   * <p>The status of the created template, such as PENDING or APPROVED..</p>
+   * @public
+   */
+  templateStatus?: string | undefined;
+
+  /**
+   * <p>The category of the template, such as UTILITY or MARKETING.</p>
+   * @public
+   */
+  category?: string | undefined;
 }
 
 /**
@@ -563,6 +603,278 @@ export class ResourceNotFoundException extends __BaseException {
     Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
   }
 }
+
+/**
+ * <p>Configuration options for customizing the body content of a template from Meta's library.</p>
+ * @public
+ */
+export interface LibraryTemplateBodyInputs {
+  /**
+   * <p>When true, includes a contact number in the template body.</p>
+   * @public
+   */
+  addContactNumber?: boolean | undefined;
+
+  /**
+   * <p>When true, includes a "learn more" link in the template body.</p>
+   * @public
+   */
+  addLearnMoreLink?: boolean | undefined;
+
+  /**
+   * <p>When true, includes security recommendations in the template body.</p>
+   * @public
+   */
+  addSecurityRecommendation?: boolean | undefined;
+
+  /**
+   * <p>When true, includes a package tracking link in the template body.</p>
+   * @public
+   */
+  addTrackPackageLink?: boolean | undefined;
+
+  /**
+   * <p>The number of minutes until a verification code or OTP expires.</p>
+   * @public
+   */
+  codeExpirationMinutes?: number | undefined;
+}
+
+/**
+ * <p>Configuration options for customizing buttons in a template from Meta's library.</p>
+ * @public
+ */
+export interface LibraryTemplateButtonInput {
+  /**
+   * <p>The type of button (for example, QUICK_REPLY, CALL, or URL).</p>
+   * @public
+   */
+  type?: string | undefined;
+
+  /**
+   * <p>The phone number in E.164 format for CALL-type buttons.</p>
+   * @public
+   */
+  phoneNumber?: string | undefined;
+
+  /**
+   * <p>The URL with dynamic parameters for URL-type buttons.</p>
+   * @public
+   */
+  url?: Record<string, string> | undefined;
+
+  /**
+   * <p>The type of one-time password for OTP buttons.</p>
+   * @public
+   */
+  otpType?: string | undefined;
+
+  /**
+   * <p>When true, indicates acceptance of zero-tap terms for the button.</p>
+   * @public
+   */
+  zeroTapTermsAccepted?: boolean | undefined;
+
+  /**
+   * <p>List of supported applications for this button type.</p>
+   * @public
+   */
+  supportedApps?: Record<string, string>[] | undefined;
+}
+
+/**
+ * <p>Represents a template from Meta's library with customization options.</p>
+ * @public
+ */
+export interface MetaLibraryTemplate {
+  /**
+   * <p>The name to assign to the template.</p>
+   * @public
+   */
+  templateName: string | undefined;
+
+  /**
+   * <p>The name of the template in Meta's library.</p>
+   * @public
+   */
+  libraryTemplateName: string | undefined;
+
+  /**
+   * <p>The category of the template (for example, UTILITY or MARKETING).</p>
+   * @public
+   */
+  templateCategory: string | undefined;
+
+  /**
+   * <p>The language code for the template (for example, en_US).</p>
+   * @public
+   */
+  templateLanguage: string | undefined;
+
+  /**
+   * <p>Button customizations for the template.</p>
+   * @public
+   */
+  libraryTemplateButtonInputs?: LibraryTemplateButtonInput[] | undefined;
+
+  /**
+   * <p>Body text customizations for the template.</p>
+   * @public
+   */
+  libraryTemplateBodyInputs?: LibraryTemplateBodyInputs | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateWhatsAppMessageTemplateFromLibraryInput {
+  /**
+   * <p>The template configuration from Meta's library, including customizations for buttons and body text.</p>
+   * @public
+   */
+  metaLibraryTemplate: MetaLibraryTemplate | undefined;
+
+  /**
+   * <p>The ID of the WhatsApp Business Account to associate with this template.</p>
+   * @public
+   */
+  id: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateWhatsAppMessageTemplateFromLibraryOutput {
+  /**
+   * <p>The numeric ID assigned to the template by Meta.</p>
+   * @public
+   */
+  metaTemplateId?: string | undefined;
+
+  /**
+   * <p>The status of the created template (for example, PENDING or APPROVED).</p>
+   * @public
+   */
+  templateStatus?: string | undefined;
+
+  /**
+   * <p>The category of the template (for example, UTILITY or MARKETING).</p>
+   * @public
+   */
+  category?: string | undefined;
+}
+
+/**
+ * <p>Contains information for the S3 bucket that contains media files.</p>
+ * @public
+ */
+export interface S3File {
+  /**
+   * <p>The bucket name.</p>
+   * @public
+   */
+  bucketName: string | undefined;
+
+  /**
+   * <p>The object key of the media file.</p>
+   * @public
+   */
+  key: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateWhatsAppMessageTemplateMediaInput {
+  /**
+   * <p>The ID of the WhatsApp Business Account associated with this media upload.</p>
+   * @public
+   */
+  id: string | undefined;
+
+  /**
+   * <p>Contains information for the S3 bucket that contains media files.</p>
+   * @public
+   */
+  sourceS3File?: S3File | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateWhatsAppMessageTemplateMediaOutput {
+  /**
+   * <p>The handle assigned to the uploaded media by Meta, used to reference the media in templates.</p>
+   * @public
+   */
+  metaHeaderHandle?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteWhatsAppMessageMediaInput {
+  /**
+   * <p>The unique identifier of the media file to delete. Use the <code>mediaId</code> returned from <a href="https://console.aws.amazon.com/social-messaging/latest/APIReference/API_PostWhatsAppMessageMedia.html">PostWhatsAppMessageMedia</a>.</p>
+   * @public
+   */
+  mediaId: string | undefined;
+
+  /**
+   * <p>The unique identifier of the originating phone number associated with the media. Phone
+   *          number identifiers are formatted as
+   *             <code>phone-number-id-01234567890123456789012345678901</code>. Use
+   *          <a href="https://docs.aws.amazon.com/social-messaging/latest/APIReference/API_GetLinkedWhatsAppBusinessAccountPhoneNumber.html">GetLinkedWhatsAppBusinessAccount</a> to find a phone number's
+   *          id.</p>
+   * @public
+   */
+  originationPhoneNumberId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteWhatsAppMessageMediaOutput {
+  /**
+   * <p>Success indicator for deleting the media file.</p>
+   * @public
+   */
+  success?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteWhatsAppMessageTemplateInput {
+  /**
+   * <p>The numeric ID of the template assigned by Meta.</p>
+   * @public
+   */
+  metaTemplateId?: string | undefined;
+
+  /**
+   * <p>If true, deletes all language versions of the template.</p>
+   * @public
+   */
+  deleteAllLanguages?: boolean | undefined;
+
+  /**
+   * <p>The ID of the WhatsApp Business Account associated with this template.</p>
+   * @public
+   */
+  id: string | undefined;
+
+  /**
+   * <p>The name of the template to delete.</p>
+   * @public
+   */
+  templateName: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteWhatsAppMessageTemplateOutput {}
 
 /**
  * @public
@@ -642,6 +954,12 @@ export interface WhatsAppPhoneNumberSummary {
    * @public
    */
   qualityRating: string | undefined;
+
+  /**
+   * <p>The geographic region where the WhatsApp phone number's data is stored and processed.</p>
+   * @public
+   */
+  dataLocalizationRegion?: string | undefined;
 }
 
 /**
@@ -742,24 +1060,6 @@ export interface GetLinkedWhatsAppBusinessAccountPhoneNumberOutput {
 }
 
 /**
- * <p>Contains information for the S3 bucket that contains media files.</p>
- * @public
- */
-export interface S3File {
-  /**
-   * <p>The bucket name.</p>
-   * @public
-   */
-  bucketName: string | undefined;
-
-  /**
-   * <p>The object key of the media file.</p>
-   * @public
-   */
-  key: string | undefined;
-}
-
-/**
  * <p>You can use presigned URLs to grant time-limited access to objects in Amazon S3 without updating your bucket policy. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-presigned-url.html">Working with presigned URLs</a> in the <i>Amazon S3
  *          User Guide</i>.</p>
  * @public
@@ -834,6 +1134,82 @@ export interface GetWhatsAppMessageMediaOutput {
    * @public
    */
   fileSize?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetWhatsAppMessageTemplateInput {
+  /**
+   * <p>The numeric ID of the template assigned by Meta.</p>
+   * @public
+   */
+  metaTemplateId: string | undefined;
+
+  /**
+   * <p>The ID of the WhatsApp Business Account associated with this template.</p>
+   * @public
+   */
+  id: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetWhatsAppMessageTemplateOutput {
+  /**
+   * <p>The complete template definition as a JSON string (maximum 6000 characters).</p>
+   * @public
+   */
+  template?: string | undefined;
+}
+
+/**
+ * <p>Defines a button in a template from Meta's library.</p>
+ * @public
+ */
+export interface LibraryTemplateButtonList {
+  /**
+   * <p>The type of button (for example, QUICK_REPLY, CALL, or URL).</p>
+   * @public
+   */
+  type?: string | undefined;
+
+  /**
+   * <p>The text displayed on the button (maximum 40 characters).</p>
+   * @public
+   */
+  text?: string | undefined;
+
+  /**
+   * <p>The phone number in E.164 format for CALL-type buttons.</p>
+   * @public
+   */
+  phoneNumber?: string | undefined;
+
+  /**
+   * <p>The URL for URL-type buttons.</p>
+   * @public
+   */
+  url?: string | undefined;
+
+  /**
+   * <p>The type of one-time password for OTP buttons.</p>
+   * @public
+   */
+  otpType?: string | undefined;
+
+  /**
+   * <p>When true, indicates acceptance of zero-tap terms for the button.</p>
+   * @public
+   */
+  zeroTapTermsAccepted?: boolean | undefined;
+
+  /**
+   * <p>List of supported applications for this button type.</p>
+   * @public
+   */
+  supportedApps?: Record<string, string>[] | undefined;
 }
 
 /**
@@ -1052,6 +1428,200 @@ export interface ListTagsForResourceOutput {
 /**
  * @public
  */
+export interface ListWhatsAppMessageTemplatesInput {
+  /**
+   * <p>The ID of the WhatsApp Business Account to list templates for.</p>
+   * @public
+   */
+  id: string | undefined;
+
+  /**
+   * <p>The token for the next page of results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return per page (1-100).</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+}
+
+/**
+ * <p>Provides a summary of a WhatsApp message template's key attributes.</p>
+ * @public
+ */
+export interface TemplateSummary {
+  /**
+   * <p>The name of the template.</p>
+   * @public
+   */
+  templateName?: string | undefined;
+
+  /**
+   * <p>The numeric ID assigned to the template by Meta.</p>
+   * @public
+   */
+  metaTemplateId?: string | undefined;
+
+  /**
+   * <p>The current status of the template (for example, APPROVED, PENDING, or REJECTED).</p>
+   * @public
+   */
+  templateStatus?: string | undefined;
+
+  /**
+   * <p>The quality score assigned to the template by Meta.</p>
+   * @public
+   */
+  templateQualityScore?: string | undefined;
+
+  /**
+   * <p>The language code of the template (for example, en_US).</p>
+   * @public
+   */
+  templateLanguage?: string | undefined;
+
+  /**
+   * <p>The category of the template (for example, UTILITY or MARKETING).</p>
+   * @public
+   */
+  templateCategory?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListWhatsAppMessageTemplatesOutput {
+  /**
+   * <p>A list of template summaries.</p>
+   * @public
+   */
+  templates?: TemplateSummary[] | undefined;
+
+  /**
+   * <p>The token to retrieve the next page of results, if any.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListWhatsAppTemplateLibraryInput {
+  /**
+   * <p>The token for the next page of results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return per page (1-100).</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p>The ID of the WhatsApp Business Account to list library templates for.</p>
+   * @public
+   */
+  id: string | undefined;
+
+  /**
+   * <p>Map of filters to apply (searchKey, topic, usecase, industry, language).</p>
+   * @public
+   */
+  filters?: Record<string, string> | undefined;
+}
+
+/**
+ * <p>Defines the complete structure and content of a template in Meta's library.</p>
+ * @public
+ */
+export interface MetaLibraryTemplateDefinition {
+  /**
+   * <p>The name of the template.</p>
+   * @public
+   */
+  templateName?: string | undefined;
+
+  /**
+   * <p>The language code for the template (for example, en_US).</p>
+   * @public
+   */
+  templateLanguage?: string | undefined;
+
+  /**
+   * <p>The category of the template (for example, UTILITY or MARKETING).</p>
+   * @public
+   */
+  templateCategory?: string | undefined;
+
+  /**
+   * <p>The topic or subject matter of the template.</p>
+   * @public
+   */
+  templateTopic?: string | undefined;
+
+  /**
+   * <p>The intended use case for the template.</p>
+   * @public
+   */
+  templateUseCase?: string | undefined;
+
+  /**
+   * <p>The industries the template is designed for.</p>
+   * @public
+   */
+  templateIndustry?: string[] | undefined;
+
+  /**
+   * <p>The header text of the template.</p>
+   * @public
+   */
+  templateHeader?: string | undefined;
+
+  /**
+   * <p>The body text of the template.</p>
+   * @public
+   */
+  templateBody?: string | undefined;
+
+  /**
+   * <p>The buttons included in the template.</p>
+   * @public
+   */
+  templateButtons?: LibraryTemplateButtonList[] | undefined;
+
+  /**
+   * <p>The ID of the template in Meta's library.</p>
+   * @public
+   */
+  templateId?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListWhatsAppTemplateLibraryOutput {
+  /**
+   * <p>A list of templates from Meta's library.</p>
+   * @public
+   */
+  metaLibraryTemplates?: MetaLibraryTemplateDefinition[] | undefined;
+
+  /**
+   * <p>The token to retrieve the next page of results, if any.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface TagResourceInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the resource to tag.</p>
@@ -1104,6 +1674,40 @@ export interface UntagResourceOutput {
    */
   statusCode?: number | undefined;
 }
+
+/**
+ * @public
+ */
+export interface UpdateWhatsAppMessageTemplateInput {
+  /**
+   * <p>The ID of the WhatsApp Business Account associated with this template.</p>
+   * @public
+   */
+  id: string | undefined;
+
+  /**
+   * <p>The numeric ID of the template assigned by Meta.</p>
+   * @public
+   */
+  metaTemplateId: string | undefined;
+
+  /**
+   * <p>The new category for the template (for example, UTILITY or MARKETING).</p>
+   * @public
+   */
+  templateCategory?: string | undefined;
+
+  /**
+   * <p>The updated components of the template as a JSON blob (maximum 3000 characters).</p>
+   * @public
+   */
+  templateComponents?: Uint8Array | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateWhatsAppMessageTemplateOutput {}
 
 /**
  * @internal
@@ -1161,6 +1765,16 @@ export const AssociateWhatsAppBusinessAccountOutputFilterSensitiveLog = (
  */
 export const S3FileFilterSensitiveLog = (obj: S3File): any => ({
   ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateWhatsAppMessageTemplateMediaInputFilterSensitiveLog = (
+  obj: CreateWhatsAppMessageTemplateMediaInput
+): any => ({
+  ...obj,
+  ...(obj.sourceS3File && { sourceS3File: SENSITIVE_STRING }),
 });
 
 /**

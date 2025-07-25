@@ -8,10 +8,30 @@ import {
   AssociateWhatsAppBusinessAccountCommandOutput,
 } from "./commands/AssociateWhatsAppBusinessAccountCommand";
 import {
+  CreateWhatsAppMessageTemplateCommand,
+  CreateWhatsAppMessageTemplateCommandInput,
+  CreateWhatsAppMessageTemplateCommandOutput,
+} from "./commands/CreateWhatsAppMessageTemplateCommand";
+import {
+  CreateWhatsAppMessageTemplateFromLibraryCommand,
+  CreateWhatsAppMessageTemplateFromLibraryCommandInput,
+  CreateWhatsAppMessageTemplateFromLibraryCommandOutput,
+} from "./commands/CreateWhatsAppMessageTemplateFromLibraryCommand";
+import {
+  CreateWhatsAppMessageTemplateMediaCommand,
+  CreateWhatsAppMessageTemplateMediaCommandInput,
+  CreateWhatsAppMessageTemplateMediaCommandOutput,
+} from "./commands/CreateWhatsAppMessageTemplateMediaCommand";
+import {
   DeleteWhatsAppMessageMediaCommand,
   DeleteWhatsAppMessageMediaCommandInput,
   DeleteWhatsAppMessageMediaCommandOutput,
 } from "./commands/DeleteWhatsAppMessageMediaCommand";
+import {
+  DeleteWhatsAppMessageTemplateCommand,
+  DeleteWhatsAppMessageTemplateCommandInput,
+  DeleteWhatsAppMessageTemplateCommandOutput,
+} from "./commands/DeleteWhatsAppMessageTemplateCommand";
 import {
   DisassociateWhatsAppBusinessAccountCommand,
   DisassociateWhatsAppBusinessAccountCommandInput,
@@ -33,6 +53,11 @@ import {
   GetWhatsAppMessageMediaCommandOutput,
 } from "./commands/GetWhatsAppMessageMediaCommand";
 import {
+  GetWhatsAppMessageTemplateCommand,
+  GetWhatsAppMessageTemplateCommandInput,
+  GetWhatsAppMessageTemplateCommandOutput,
+} from "./commands/GetWhatsAppMessageTemplateCommand";
+import {
   ListLinkedWhatsAppBusinessAccountsCommand,
   ListLinkedWhatsAppBusinessAccountsCommandInput,
   ListLinkedWhatsAppBusinessAccountsCommandOutput,
@@ -42,6 +67,16 @@ import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
+import {
+  ListWhatsAppMessageTemplatesCommand,
+  ListWhatsAppMessageTemplatesCommandInput,
+  ListWhatsAppMessageTemplatesCommandOutput,
+} from "./commands/ListWhatsAppMessageTemplatesCommand";
+import {
+  ListWhatsAppTemplateLibraryCommand,
+  ListWhatsAppTemplateLibraryCommandInput,
+  ListWhatsAppTemplateLibraryCommandOutput,
+} from "./commands/ListWhatsAppTemplateLibraryCommand";
 import {
   PostWhatsAppMessageMediaCommand,
   PostWhatsAppMessageMediaCommandInput,
@@ -63,22 +98,35 @@ import {
   UntagResourceCommandInput,
   UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
+import {
+  UpdateWhatsAppMessageTemplateCommand,
+  UpdateWhatsAppMessageTemplateCommandInput,
+  UpdateWhatsAppMessageTemplateCommandOutput,
+} from "./commands/UpdateWhatsAppMessageTemplateCommand";
 import { SocialMessagingClient, SocialMessagingClientConfig } from "./SocialMessagingClient";
 
 const commands = {
   AssociateWhatsAppBusinessAccountCommand,
+  CreateWhatsAppMessageTemplateCommand,
+  CreateWhatsAppMessageTemplateFromLibraryCommand,
+  CreateWhatsAppMessageTemplateMediaCommand,
   DeleteWhatsAppMessageMediaCommand,
+  DeleteWhatsAppMessageTemplateCommand,
   DisassociateWhatsAppBusinessAccountCommand,
   GetLinkedWhatsAppBusinessAccountCommand,
   GetLinkedWhatsAppBusinessAccountPhoneNumberCommand,
   GetWhatsAppMessageMediaCommand,
+  GetWhatsAppMessageTemplateCommand,
   ListLinkedWhatsAppBusinessAccountsCommand,
   ListTagsForResourceCommand,
+  ListWhatsAppMessageTemplatesCommand,
+  ListWhatsAppTemplateLibraryCommand,
   PostWhatsAppMessageMediaCommand,
   PutWhatsAppBusinessAccountEventDestinationsCommand,
   SendWhatsAppMessageCommand,
   TagResourceCommand,
   UntagResourceCommand,
+  UpdateWhatsAppMessageTemplateCommand,
 };
 
 export interface SocialMessaging {
@@ -101,6 +149,57 @@ export interface SocialMessaging {
   ): void;
 
   /**
+   * @see {@link CreateWhatsAppMessageTemplateCommand}
+   */
+  createWhatsAppMessageTemplate(
+    args: CreateWhatsAppMessageTemplateCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateWhatsAppMessageTemplateCommandOutput>;
+  createWhatsAppMessageTemplate(
+    args: CreateWhatsAppMessageTemplateCommandInput,
+    cb: (err: any, data?: CreateWhatsAppMessageTemplateCommandOutput) => void
+  ): void;
+  createWhatsAppMessageTemplate(
+    args: CreateWhatsAppMessageTemplateCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateWhatsAppMessageTemplateCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateWhatsAppMessageTemplateFromLibraryCommand}
+   */
+  createWhatsAppMessageTemplateFromLibrary(
+    args: CreateWhatsAppMessageTemplateFromLibraryCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateWhatsAppMessageTemplateFromLibraryCommandOutput>;
+  createWhatsAppMessageTemplateFromLibrary(
+    args: CreateWhatsAppMessageTemplateFromLibraryCommandInput,
+    cb: (err: any, data?: CreateWhatsAppMessageTemplateFromLibraryCommandOutput) => void
+  ): void;
+  createWhatsAppMessageTemplateFromLibrary(
+    args: CreateWhatsAppMessageTemplateFromLibraryCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateWhatsAppMessageTemplateFromLibraryCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateWhatsAppMessageTemplateMediaCommand}
+   */
+  createWhatsAppMessageTemplateMedia(
+    args: CreateWhatsAppMessageTemplateMediaCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateWhatsAppMessageTemplateMediaCommandOutput>;
+  createWhatsAppMessageTemplateMedia(
+    args: CreateWhatsAppMessageTemplateMediaCommandInput,
+    cb: (err: any, data?: CreateWhatsAppMessageTemplateMediaCommandOutput) => void
+  ): void;
+  createWhatsAppMessageTemplateMedia(
+    args: CreateWhatsAppMessageTemplateMediaCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateWhatsAppMessageTemplateMediaCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DeleteWhatsAppMessageMediaCommand}
    */
   deleteWhatsAppMessageMedia(
@@ -115,6 +214,23 @@ export interface SocialMessaging {
     args: DeleteWhatsAppMessageMediaCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteWhatsAppMessageMediaCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteWhatsAppMessageTemplateCommand}
+   */
+  deleteWhatsAppMessageTemplate(
+    args: DeleteWhatsAppMessageTemplateCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteWhatsAppMessageTemplateCommandOutput>;
+  deleteWhatsAppMessageTemplate(
+    args: DeleteWhatsAppMessageTemplateCommandInput,
+    cb: (err: any, data?: DeleteWhatsAppMessageTemplateCommandOutput) => void
+  ): void;
+  deleteWhatsAppMessageTemplate(
+    args: DeleteWhatsAppMessageTemplateCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteWhatsAppMessageTemplateCommandOutput) => void
   ): void;
 
   /**
@@ -186,6 +302,23 @@ export interface SocialMessaging {
   ): void;
 
   /**
+   * @see {@link GetWhatsAppMessageTemplateCommand}
+   */
+  getWhatsAppMessageTemplate(
+    args: GetWhatsAppMessageTemplateCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetWhatsAppMessageTemplateCommandOutput>;
+  getWhatsAppMessageTemplate(
+    args: GetWhatsAppMessageTemplateCommandInput,
+    cb: (err: any, data?: GetWhatsAppMessageTemplateCommandOutput) => void
+  ): void;
+  getWhatsAppMessageTemplate(
+    args: GetWhatsAppMessageTemplateCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetWhatsAppMessageTemplateCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListLinkedWhatsAppBusinessAccountsCommand}
    */
   listLinkedWhatsAppBusinessAccounts(): Promise<ListLinkedWhatsAppBusinessAccountsCommandOutput>;
@@ -218,6 +351,40 @@ export interface SocialMessaging {
     args: ListTagsForResourceCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListWhatsAppMessageTemplatesCommand}
+   */
+  listWhatsAppMessageTemplates(
+    args: ListWhatsAppMessageTemplatesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListWhatsAppMessageTemplatesCommandOutput>;
+  listWhatsAppMessageTemplates(
+    args: ListWhatsAppMessageTemplatesCommandInput,
+    cb: (err: any, data?: ListWhatsAppMessageTemplatesCommandOutput) => void
+  ): void;
+  listWhatsAppMessageTemplates(
+    args: ListWhatsAppMessageTemplatesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListWhatsAppMessageTemplatesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListWhatsAppTemplateLibraryCommand}
+   */
+  listWhatsAppTemplateLibrary(
+    args: ListWhatsAppTemplateLibraryCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListWhatsAppTemplateLibraryCommandOutput>;
+  listWhatsAppTemplateLibrary(
+    args: ListWhatsAppTemplateLibraryCommandInput,
+    cb: (err: any, data?: ListWhatsAppTemplateLibraryCommandOutput) => void
+  ): void;
+  listWhatsAppTemplateLibrary(
+    args: ListWhatsAppTemplateLibraryCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListWhatsAppTemplateLibraryCommandOutput) => void
   ): void;
 
   /**
@@ -291,6 +458,23 @@ export interface SocialMessaging {
     args: UntagResourceCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateWhatsAppMessageTemplateCommand}
+   */
+  updateWhatsAppMessageTemplate(
+    args: UpdateWhatsAppMessageTemplateCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateWhatsAppMessageTemplateCommandOutput>;
+  updateWhatsAppMessageTemplate(
+    args: UpdateWhatsAppMessageTemplateCommandInput,
+    cb: (err: any, data?: UpdateWhatsAppMessageTemplateCommandOutput) => void
+  ): void;
+  updateWhatsAppMessageTemplate(
+    args: UpdateWhatsAppMessageTemplateCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateWhatsAppMessageTemplateCommandOutput) => void
   ): void;
 }
 

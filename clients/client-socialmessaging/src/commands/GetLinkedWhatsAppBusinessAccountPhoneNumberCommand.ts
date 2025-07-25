@@ -59,6 +59,7 @@ export interface GetLinkedWhatsAppBusinessAccountPhoneNumberCommandOutput
  * //     displayPhoneNumberName: "STRING_VALUE", // required
  * //     displayPhoneNumber: "STRING_VALUE", // required
  * //     qualityRating: "STRING_VALUE", // required
+ * //     dataLocalizationRegion: "STRING_VALUE",
  * //   },
  * //   linkedWhatsAppBusinessAccountId: "STRING_VALUE",
  * // };
