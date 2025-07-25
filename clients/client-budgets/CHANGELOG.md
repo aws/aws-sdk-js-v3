@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.854.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.853.0...v3.854.0) (2025-07-25)
+
+
+### Features
+
+* **client-budgets:** Adds IPv6 and PrivateLink support for AWS Budgets in IAD. ([2c1ea80](https://github.com/aws/aws-sdk-js-v3/commit/2c1ea80b4cd1d1493af60b472f534e2c2c859191))
+
+
+
+
+
 # [3.848.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.847.0...v3.848.0) (2025-07-17)
 
 **Note:** Version bump only for package @aws-sdk/client-budgets

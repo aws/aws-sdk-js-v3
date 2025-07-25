@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.854.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.853.0...v3.854.0) (2025-07-25)
+
+
+### Features
+
+* **client-ec2:** Transit Gateway native integration with AWS Network Firewall. Adding new enum value for the new Transit Gateway Attachment type. ([97d8133](https://github.com/aws/aws-sdk-js-v3/commit/97d8133a118cf6385ff37d5de126e275d1452fa6))
+
+
+
+
+
 # [3.852.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.851.0...v3.852.0) (2025-07-23)
 
 

@@ -3,6 +3,21 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.854.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.853.0...v3.854.0) (2025-07-25)
+
+
+### Features
+
+* **client-appintegrations:** Amazon AppIntegrations introduces new configuration capabilities to enable customers to manage iframe permissions, control application refresh behavior (per contact or per browser/cross-contact), and run background applications (service). ([3096300](https://github.com/aws/aws-sdk-js-v3/commit/30963007015411a1a9cfe2bc54fe7990b1cfe89f))
+* **client-budgets:** Adds IPv6 and PrivateLink support for AWS Budgets in IAD. ([2c1ea80](https://github.com/aws/aws-sdk-js-v3/commit/2c1ea80b4cd1d1493af60b472f534e2c2c859191))
+* **client-ec2:** Transit Gateway native integration with AWS Network Firewall. Adding new enum value for the new Transit Gateway Attachment type. ([97d8133](https://github.com/aws/aws-sdk-js-v3/commit/97d8133a118cf6385ff37d5de126e275d1452fa6))
+* **client-mediapackagev2:** This release adds support for specifying a preferred input for channels using CMAF ingest. ([2c4726a](https://github.com/aws/aws-sdk-js-v3/commit/2c4726a672c9e9ff38083b647690ffb1d1dcce43))
+* **client-socialmessaging:** This release introduces new WhatsApp template management APIs that enable customers to programmatically create and submit templates for approval, monitor approval status, and manage the complete template lifecycle ([2bcbe79](https://github.com/aws/aws-sdk-js-v3/commit/2bcbe79749f754934a879af29ca11caee173aa93))
+
+
+
+
+
 # [3.853.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.852.0...v3.853.0) (2025-07-24)
 
 
