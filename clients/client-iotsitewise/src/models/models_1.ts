@@ -4,24 +4,42 @@ import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "
 import { IoTSiteWiseServiceException as __BaseException } from "./IoTSiteWiseServiceException";
 
 import {
+  AccessPolicySummary,
+  ActionDefinition,
+  ActionSummary,
   Alarms,
+  AssetBindingValueFilter,
+  AssetModelBindingValueFilter,
   AssetModelCompositeModel,
   AssetModelCompositeModelPathSegment,
+  AssetModelCompositeModelSummary,
   AssetModelHierarchy,
   AssetModelProperty,
+  AssetModelPropertyBindingValue,
+  AssetModelPropertyBindingValueFilter,
+  AssetModelPropertySummary,
   AssetModelStatus,
+  AssetModelSummary,
+  AssetModelType,
   AssetModelVersionType,
+  AssetPropertyBindingValue,
+  AssetPropertyBindingValueFilter,
+  AssetPropertySummary,
+  AssetRelationshipSummary,
   AssetStatus,
   AssetSummary,
   AssociatedAssetsSummary,
   CapabilitySyncStatus,
   ColumnInfo,
+  ComputationModelConfiguration,
+  ComputationModelStatus,
   ConfigurationStatus,
   DatasetSource,
   DatasetSourceType,
   DatasetStatus,
   DisassociatedDataStorageState,
   EncryptionType,
+  ExecutionStatus,
   GatewayCapabilitySummary,
   GatewayPlatform,
   Identity,
@@ -35,12 +53,591 @@ import {
   PortalTypeEntry,
   PropertyDataType,
   PropertyNotificationState,
+  ResolveTo,
+  ResolveToResourceType,
   Resource,
   RetentionPeriod,
   StorageType,
+  TargetResource,
   WarmTierRetentionPeriod,
   WarmTierState,
 } from "./models_0";
+
+/**
+ * @public
+ * @enum
+ */
+export const IdentityType = {
+  GROUP: "GROUP",
+  IAM: "IAM",
+  USER: "USER",
+} as const;
+
+/**
+ * @public
+ */
+export type IdentityType = (typeof IdentityType)[keyof typeof IdentityType];
+
+/**
+ * @public
+ * @enum
+ */
+export const ResourceType = {
+  PORTAL: "PORTAL",
+  PROJECT: "PROJECT",
+} as const;
+
+/**
+ * @public
+ */
+export type ResourceType = (typeof ResourceType)[keyof typeof ResourceType];
+
+/**
+ * @public
+ */
+export interface ListAccessPoliciesRequest {
+  /**
+   * <p>The type of identity (IAM Identity Center user, IAM Identity Center group, or IAM user). This parameter is required
+   *       if you specify <code>identityId</code>.</p>
+   * @public
+   */
+  identityType?: IdentityType | undefined;
+
+  /**
+   * <p>The ID of the identity. This parameter is required if you specify <code>USER</code> or
+   *         <code>GROUP</code> for <code>identityType</code>.</p>
+   * @public
+   */
+  identityId?: string | undefined;
+
+  /**
+   * <p>The type of resource (portal or project). This parameter is required if you specify
+   *         <code>resourceId</code>.</p>
+   * @public
+   */
+  resourceType?: ResourceType | undefined;
+
+  /**
+   * <p>The ID of the resource. This parameter is required if you specify
+   *         <code>resourceType</code>.</p>
+   * @public
+   */
+  resourceId?: string | undefined;
+
+  /**
+   * <p>The ARN of the IAM user. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html">IAM ARNs</a> in the
+   *         <i>IAM User Guide</i>. This parameter is required if you specify
+   *         <code>IAM</code> for <code>identityType</code>.</p>
+   * @public
+   */
+  iamArn?: string | undefined;
+
+  /**
+   * <p>The token to be used for the next set of paginated results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return for each paginated request.</p>
+   *          <p>Default: 50</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListAccessPoliciesResponse {
+  /**
+   * <p>A list that summarizes each access policy.</p>
+   * @public
+   */
+  accessPolicySummaries: AccessPolicySummary[] | undefined;
+
+  /**
+   * <p>The token for the next set of results, or null if there are no additional results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const TargetResourceType = {
+  ASSET: "ASSET",
+  COMPUTATION_MODEL: "COMPUTATION_MODEL",
+} as const;
+
+/**
+ * @public
+ */
+export type TargetResourceType = (typeof TargetResourceType)[keyof typeof TargetResourceType];
+
+/**
+ * @public
+ */
+export interface ListActionsRequest {
+  /**
+   * <p>The type of resource.</p>
+   * @public
+   */
+  targetResourceType: TargetResourceType | undefined;
+
+  /**
+   * <p>The ID of the target resource.</p>
+   * @public
+   */
+  targetResourceId: string | undefined;
+
+  /**
+   * <p>The token to be used for the next set of paginated results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return for each paginated request.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p>The type of the resolved resource.</p>
+   * @public
+   */
+  resolveToResourceType?: ResolveToResourceType | undefined;
+
+  /**
+   * <p>The ID of the resolved resource.</p>
+   * @public
+   */
+  resolveToResourceId?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListActionsResponse {
+  /**
+   * <p>A list that summarizes the actions associated with the specified asset.</p>
+   * @public
+   */
+  actionSummaries: ActionSummary[] | undefined;
+
+  /**
+   * <p>The token for the next set of results, or null if there are no additional results.</p>
+   * @public
+   */
+  nextToken: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListAssetModelCompositeModelsRequest {
+  /**
+   * <p>The ID of the asset model. This can be either the actual ID in UUID format, or else <code>externalId:</code> followed by the external ID, if it has one.
+   *     For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/object-ids.html#external-id-references">Referencing objects with external IDs</a> in the <i>IoT SiteWise User Guide</i>.</p>
+   * @public
+   */
+  assetModelId: string | undefined;
+
+  /**
+   * <p>The token to be used for the next set of paginated results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return for each paginated request.</p>
+   *          <p>Default: 50</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p>The version alias that specifies the latest or active version of the asset model.
+   *           The details are returned in the response. The default value is <code>LATEST</code>. See <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/model-active-version.html">
+   *           Asset model versions</a> in the <i>IoT SiteWise User Guide</i>.</p>
+   * @public
+   */
+  assetModelVersion?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListAssetModelCompositeModelsResponse {
+  /**
+   * <p>A list that summarizes each composite model.</p>
+   * @public
+   */
+  assetModelCompositeModelSummaries: AssetModelCompositeModelSummary[] | undefined;
+
+  /**
+   * <p>The token for the next set of results, or null if there are no additional results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const ListAssetModelPropertiesFilter = {
+  ALL: "ALL",
+  BASE: "BASE",
+} as const;
+
+/**
+ * @public
+ */
+export type ListAssetModelPropertiesFilter =
+  (typeof ListAssetModelPropertiesFilter)[keyof typeof ListAssetModelPropertiesFilter];
+
+/**
+ * @public
+ */
+export interface ListAssetModelPropertiesRequest {
+  /**
+   * <p>The ID of the asset model. This can be either the actual ID in UUID format, or else <code>externalId:</code> followed by the external ID, if it has one.
+   *     For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/object-ids.html#external-id-references">Referencing objects with external IDs</a> in the <i>IoT SiteWise User Guide</i>.</p>
+   * @public
+   */
+  assetModelId: string | undefined;
+
+  /**
+   * <p>The token to be used for the next set of paginated results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return for each paginated request. If not specified, the default value is 50.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p> Filters the requested list of asset model properties. You can choose one of the following
+   *       options:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>ALL</code> – The list includes all asset model properties for a given asset
+   *           model ID. </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>BASE</code> – The list includes only base asset model properties for a given
+   *           asset model ID. </p>
+   *             </li>
+   *          </ul>
+   *          <p>Default: <code>BASE</code>
+   *          </p>
+   * @public
+   */
+  filter?: ListAssetModelPropertiesFilter | undefined;
+
+  /**
+   * <p>The version alias that specifies the latest or active version of the asset model.
+   *           The details are returned in the response. The default value is <code>LATEST</code>. See <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/model-active-version.html">
+   *           Asset model versions</a> in the <i>IoT SiteWise User Guide</i>.</p>
+   * @public
+   */
+  assetModelVersion?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListAssetModelPropertiesResponse {
+  /**
+   * <p>A list that summarizes the properties associated with the specified asset model.</p>
+   * @public
+   */
+  assetModelPropertySummaries: AssetModelPropertySummary[] | undefined;
+
+  /**
+   * <p>The token for the next set of results, or null if there are no additional results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListAssetModelsRequest {
+  /**
+   * <p>The type of asset model. If you don't provide an <code>assetModelTypes</code>, all types
+   *       of asset models are returned.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <b>ASSET_MODEL</b> – An asset model that you can use
+   *           to create assets. Can't be included as a component in another asset model.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>COMPONENT_MODEL</b> – A reusable component that
+   *           you can include in the composite models of other asset models. You can't create
+   *           assets directly from this type of asset model. </p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  assetModelTypes?: AssetModelType[] | undefined;
+
+  /**
+   * <p>The token to be used for the next set of paginated results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return for each paginated request.</p>
+   *          <p>Default: 50</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p>The version alias that specifies the latest or active version of the asset model.
+   *           The details are returned in the response. The default value is <code>LATEST</code>. See <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/model-active-version.html">
+   *           Asset model versions</a> in the <i>IoT SiteWise User Guide</i>.</p>
+   * @public
+   */
+  assetModelVersion?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListAssetModelsResponse {
+  /**
+   * <p>A list that summarizes each asset model.</p>
+   * @public
+   */
+  assetModelSummaries: AssetModelSummary[] | undefined;
+
+  /**
+   * <p>The token for the next set of results, or null if there are no additional results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const ListAssetPropertiesFilter = {
+  ALL: "ALL",
+  BASE: "BASE",
+} as const;
+
+/**
+ * @public
+ */
+export type ListAssetPropertiesFilter = (typeof ListAssetPropertiesFilter)[keyof typeof ListAssetPropertiesFilter];
+
+/**
+ * @public
+ */
+export interface ListAssetPropertiesRequest {
+  /**
+   * <p>The ID of the asset. This can be either the actual ID in UUID format, or else <code>externalId:</code> followed by the external ID, if it has one.
+   *     For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/object-ids.html#external-id-references">Referencing objects with external IDs</a> in the <i>IoT SiteWise User Guide</i>.</p>
+   * @public
+   */
+  assetId: string | undefined;
+
+  /**
+   * <p>The token to be used for the next set of paginated results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return for each paginated request. If not specified, the default value is 50.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p> Filters the requested list of asset properties. You can choose one of the following
+   *       options:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>ALL</code> – The list includes all asset properties for a given asset model ID.
+   *         </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>BASE</code> – The list includes only base asset properties for a given asset
+   *           model ID. </p>
+   *             </li>
+   *          </ul>
+   *          <p>Default: <code>BASE</code>
+   *          </p>
+   * @public
+   */
+  filter?: ListAssetPropertiesFilter | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListAssetPropertiesResponse {
+  /**
+   * <p>A list that summarizes the properties associated with the specified asset.</p>
+   * @public
+   */
+  assetPropertySummaries: AssetPropertySummary[] | undefined;
+
+  /**
+   * <p>The token for the next set of results, or null if there are no additional results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const TraversalType = {
+  PATH_TO_ROOT: "PATH_TO_ROOT",
+} as const;
+
+/**
+ * @public
+ */
+export type TraversalType = (typeof TraversalType)[keyof typeof TraversalType];
+
+/**
+ * @public
+ */
+export interface ListAssetRelationshipsRequest {
+  /**
+   * <p>The ID of the asset. This can be either the actual ID in UUID format, or else <code>externalId:</code> followed by the external ID, if it has one.
+   *     For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/object-ids.html#external-id-references">Referencing objects with external IDs</a> in the <i>IoT SiteWise User Guide</i>.</p>
+   * @public
+   */
+  assetId: string | undefined;
+
+  /**
+   * <p>The type of traversal to use to identify asset relationships. Choose the following
+   *       option:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>PATH_TO_ROOT</code> – Identify the asset's parent assets up to the root
+   *           asset. The asset that you specify in <code>assetId</code> is the first result in the list
+   *           of <code>assetRelationshipSummaries</code>, and the root asset is the last result.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  traversalType: TraversalType | undefined;
+
+  /**
+   * <p>The token to be used for the next set of paginated results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return for each paginated request.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListAssetRelationshipsResponse {
+  /**
+   * <p>A list that summarizes each asset relationship.</p>
+   * @public
+   */
+  assetRelationshipSummaries: AssetRelationshipSummary[] | undefined;
+
+  /**
+   * <p>The token for the next set of results, or null if there are no additional results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const ListAssetsFilter = {
+  ALL: "ALL",
+  TOP_LEVEL: "TOP_LEVEL",
+} as const;
+
+/**
+ * @public
+ */
+export type ListAssetsFilter = (typeof ListAssetsFilter)[keyof typeof ListAssetsFilter];
+
+/**
+ * @public
+ */
+export interface ListAssetsRequest {
+  /**
+   * <p>The token to be used for the next set of paginated results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return for each paginated request.</p>
+   *          <p>Default: 50</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p>The ID of the asset model by which to filter the list of assets. This parameter is
+   *       required if you choose <code>ALL</code> for <code>filter</code>. This can be either the actual ID in UUID format, or else <code>externalId:</code> followed by the external ID, if it has one.
+   *     For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/object-ids.html#external-id-references">Referencing objects with external IDs</a> in the <i>IoT SiteWise User Guide</i>.</p>
+   * @public
+   */
+  assetModelId?: string | undefined;
+
+  /**
+   * <p>The filter for the requested list of assets. Choose one of the following options:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>ALL</code> – The list includes all assets for a given asset model ID. The
+   *             <code>assetModelId</code> parameter is required if you filter by
+   *           <code>ALL</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>TOP_LEVEL</code> – The list includes only top-level assets in the asset
+   *           hierarchy tree.</p>
+   *             </li>
+   *          </ul>
+   *          <p>Default: <code>ALL</code>
+   *          </p>
+   * @public
+   */
+  filter?: ListAssetsFilter | undefined;
+}
 
 /**
  * @public
@@ -324,6 +921,306 @@ export interface ListCompositionRelationshipsResponse {
 }
 
 /**
+ * <p>A filter used to match specific data binding values based on criteria.
+ *       This filter allows searching for data bindings by asset, asset model, asset property, or asset model property.</p>
+ * @public
+ */
+export interface DataBindingValueFilter {
+  /**
+   * <p>Filter criteria for matching data bindings based on a specific asset.
+   *       Used to list all data bindings referencing a particular asset or its properties.</p>
+   * @public
+   */
+  asset?: AssetBindingValueFilter | undefined;
+
+  /**
+   * <p>Filter criteria for matching data bindings based on a specific asset model.
+   *       Used to list all data bindings referencing a particular asset model or its properties.</p>
+   * @public
+   */
+  assetModel?: AssetModelBindingValueFilter | undefined;
+
+  /**
+   * <p>Filter criteria for matching data bindings based on a specific asset property.
+   *       Used to list all data bindings referencing a particular property of an asset.</p>
+   * @public
+   */
+  assetProperty?: AssetPropertyBindingValueFilter | undefined;
+
+  /**
+   * <p>Filter criteria for matching data bindings based on a specific asset model property.
+   *       Used to list all data bindings referencing a particular property of an asset model.</p>
+   * @public
+   */
+  assetModelProperty?: AssetModelPropertyBindingValueFilter | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListComputationModelDataBindingUsagesRequest {
+  /**
+   * <p>A filter used to limit the returned data binding usages based on
+   *       specific data binding values.
+   *       You can filter by asset, asset model, asset property,
+   *       or asset model property to find all computation models
+   *       using these specific data sources.</p>
+   * @public
+   */
+  dataBindingValueFilter: DataBindingValueFilter | undefined;
+
+  /**
+   * <p>The token used for the next set of paginated results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of results returned for each paginated request.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+}
+
+/**
+ * <p>Represents a value used in a data binding. It can be an asset property or an asset model property.</p>
+ * @public
+ */
+export interface DataBindingValue {
+  /**
+   * <p>Contains information about an <code>assetModelProperty</code> binding value.</p>
+   * @public
+   */
+  assetModelProperty?: AssetModelPropertyBindingValue | undefined;
+
+  /**
+   * <p>The asset property value used in the data binding.</p>
+   * @public
+   */
+  assetProperty?: AssetPropertyBindingValue | undefined;
+}
+
+/**
+ * <p>Represents a data binding that matches the specified filter criteria.</p>
+ * @public
+ */
+export interface MatchedDataBinding {
+  /**
+   * <p>The value of the matched data binding.</p>
+   * @public
+   */
+  value: DataBindingValue | undefined;
+}
+
+/**
+ * <p>A summary of how a specific data binding is used across computation models.
+ *       This tracks dependencies between data sources and computation models,
+ *       allowing you to understand the impact of changes to data sources.</p>
+ * @public
+ */
+export interface ComputationModelDataBindingUsageSummary {
+  /**
+   * <p>The list of computation model IDs that use this data binding.
+   *       This allows identification of all computation models affected by changes to the referenced data source.</p>
+   * @public
+   */
+  computationModelIds: string[] | undefined;
+
+  /**
+   * <p>The data binding matched by the filter criteria. Contains details
+   *       about specific data binding values used by the computation models.</p>
+   * @public
+   */
+  matchedDataBinding: MatchedDataBinding | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListComputationModelDataBindingUsagesResponse {
+  /**
+   * <p>A list of summaries describing the data binding usages across computation models.
+   *       Each summary includes the computation model IDs and the matched data binding details.</p>
+   * @public
+   */
+  dataBindingUsageSummaries: ComputationModelDataBindingUsageSummary[] | undefined;
+
+  /**
+   * <p>The token for the next set of paginated results, or null if there are no additional results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListComputationModelResolveToResourcesRequest {
+  /**
+   * <p>The ID of the computation model for which to list resolved resources.</p>
+   * @public
+   */
+  computationModelId: string | undefined;
+
+  /**
+   * <p>The token used for the next set of paginated results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of results returned for each paginated request.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+}
+
+/**
+ * <p>A summary of the resource that a computation model resolves to.</p>
+ * @public
+ */
+export interface ComputationModelResolveToResourceSummary {
+  /**
+   * <p>The detailed resource this execution summary resolves to.</p>
+   * @public
+   */
+  resolveTo?: ResolveTo | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListComputationModelResolveToResourcesResponse {
+  /**
+   * <p>A list of summaries describing the distinct resources that this computation model resolves to when actions were executed.</p>
+   * @public
+   */
+  computationModelResolveToResourceSummaries: ComputationModelResolveToResourceSummary[] | undefined;
+
+  /**
+   * <p>The token for the next set of paginated results, or null if there are no additional results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const ComputationModelType = {
+  ANOMALY_DETECTION: "ANOMALY_DETECTION",
+} as const;
+
+/**
+ * @public
+ */
+export type ComputationModelType = (typeof ComputationModelType)[keyof typeof ComputationModelType];
+
+/**
+ * @public
+ */
+export interface ListComputationModelsRequest {
+  /**
+   * <p>The type of computation model. If a <code>computationModelType</code> is not provided, all types of computation models are returned.</p>
+   * @public
+   */
+  computationModelType?: ComputationModelType | undefined;
+
+  /**
+   * <p>The token to be used for the next set of paginated results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return for each paginated request.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+}
+
+/**
+ * <p>Contains a summary of a computation model.</p>
+ * @public
+ */
+export interface ComputationModelSummary {
+  /**
+   * <p>The ID of the computation model.</p>
+   * @public
+   */
+  id: string | undefined;
+
+  /**
+   * <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">ARN</a> of the computation model, which has the following format.</p>
+   *          <p>
+   *             <code>arn:$\{Partition\}:iotsitewise:$\{Region\}:$\{Account\}:computation-model/$\{ComputationModelId\}</code>
+   *          </p>
+   * @public
+   */
+  arn: string | undefined;
+
+  /**
+   * <p>The name of the computation model.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The description of the computation model.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>The type of the computation model.</p>
+   * @public
+   */
+  type: ComputationModelType | undefined;
+
+  /**
+   * <p>The model creation date, in Unix epoch time.</p>
+   * @public
+   */
+  creationDate: Date | undefined;
+
+  /**
+   * <p>The time the model was last updated, in Unix epoch time.</p>
+   * @public
+   */
+  lastUpdateDate: Date | undefined;
+
+  /**
+   * <p>The current status of the computation model.</p>
+   * @public
+   */
+  status: ComputationModelStatus | undefined;
+
+  /**
+   * <p>The version of the computation model.</p>
+   * @public
+   */
+  version: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListComputationModelsResponse {
+  /**
+   * <p>A list summarizing each computation model.</p>
+   * @public
+   */
+  computationModelSummaries: ComputationModelSummary[] | undefined;
+
+  /**
+   * <p>The token for the next set of results, or null if there are no additional results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
  * @public
  */
 export interface ListDashboardsRequest {
@@ -493,6 +1390,130 @@ export interface ListDatasetsResponse {
 /**
  * @public
  */
+export interface ListExecutionsRequest {
+  /**
+   * <p>The type of the target resource.</p>
+   * @public
+   */
+  targetResourceType: TargetResourceType | undefined;
+
+  /**
+   * <p>The ID of the target resource.</p>
+   * @public
+   */
+  targetResourceId: string | undefined;
+
+  /**
+   * <p>The type of the resolved resource.</p>
+   * @public
+   */
+  resolveToResourceType?: ResolveToResourceType | undefined;
+
+  /**
+   * <p>The ID of the resolved resource.</p>
+   * @public
+   */
+  resolveToResourceId?: string | undefined;
+
+  /**
+   * <p>The token used for the next set of paginated results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of results returned for each paginated request.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p>The type of action exectued.</p>
+   * @public
+   */
+  actionType?: string | undefined;
+}
+
+/**
+ * <p>Contains the execution summary of the computation model.</p>
+ * @public
+ */
+export interface ExecutionSummary {
+  /**
+   * <p>The ID of the execution.</p>
+   * @public
+   */
+  executionId: string | undefined;
+
+  /**
+   * <p>The type of action exectued.</p>
+   * @public
+   */
+  actionType?: string | undefined;
+
+  /**
+   * <p>The resource the action will be taken on.</p>
+   * @public
+   */
+  targetResource: TargetResource | undefined;
+
+  /**
+   * <p>The version of the target resource.</p>
+   * @public
+   */
+  targetResourceVersion: string | undefined;
+
+  /**
+   * <p>The detailed resource this execution resolves to.</p>
+   * @public
+   */
+  resolveTo?: ResolveTo | undefined;
+
+  /**
+   * <p>The time the process started.</p>
+   * @public
+   */
+  executionStartTime: Date | undefined;
+
+  /**
+   * <p>The time the process ended.</p>
+   * @public
+   */
+  executionEndTime?: Date | undefined;
+
+  /**
+   * <p>The status of the execution process.</p>
+   * @public
+   */
+  executionStatus: ExecutionStatus | undefined;
+
+  /**
+   * <p>The execution entity version associated with the summary.</p>
+   * @public
+   */
+  executionEntityVersion?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListExecutionsResponse {
+  /**
+   * <p>Contains the list of execution summaries of the computation models.</p>
+   * @public
+   */
+  executionSummaries: ExecutionSummary[] | undefined;
+
+  /**
+   * <p>The token for the next set of results, or null if there are no additional results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface ListGatewaysRequest {
   /**
    * <p>The token to be used for the next set of paginated results.</p>
@@ -526,7 +1547,10 @@ export interface GatewaySummary {
   gatewayName: string | undefined;
 
   /**
-   * <p>Contains a gateway's platform information.</p>
+   * <p>The gateway's platform configuration. You can only specify one platform type in a gateway.</p>
+   *          <p>(Legacy only) For Greengrass V1 gateways, specify the <code>greengrass</code> parameter with a valid Greengrass group ARN.</p>
+   *          <p>For Greengrass V2 gateways, specify the <code>greengrassV2</code> parameter with a valid core device thing name. If creating a V3 gateway (<code>gatewayVersion=3</code>), you must also specify the <code>coreDeviceOperatingSystem</code>.</p>
+   *          <p>For Siemens Industrial Edge gateways, specify the <code>siemensIE</code> parameter with a valid IoT Core thing name.</p>
    * @public
    */
   gatewayPlatform?: GatewayPlatform | undefined;
@@ -1116,8 +2140,8 @@ export interface PutStorageConfigurationRequest {
   warmTierRetentionPeriod?: WarmTierRetentionPeriod | undefined;
 
   /**
-   * <p>Describes the configuration for ingesting NULL and NaN data.
-   *       By default the feature is allowed. The feature is disallowed if the value is <code>true</code>.</p>
+   * <p>Describes the configuration for ingesting NULL and NaN data. By default the feature is
+   *       allowed. The feature is disallowed if the value is <code>true</code>.</p>
    * @public
    */
   disallowIngestNullNaN?: boolean | undefined;
@@ -1199,8 +2223,8 @@ export interface PutStorageConfigurationResponse {
   warmTierRetentionPeriod?: WarmTierRetentionPeriod | undefined;
 
   /**
-   * <p>Describes the configuration for ingesting NULL and NaN data.
-   *       By default the feature is allowed. The feature is disallowed if the value is <code>true</code>.</p>
+   * <p>Describes the configuration for ingesting NULL and NaN data. By default the feature is
+   *       allowed. The feature is disallowed if the value is <code>true</code>.</p>
    * @public
    */
   disallowIngestNullNaN?: boolean | undefined;
@@ -1231,7 +2255,7 @@ export interface TagResourceRequest {
 export interface TagResourceResponse {}
 
 /**
- * <p>You've reached the limit for the number of tags allowed for a resource. For more
+ * <p>You've reached the quota for the number of tags allowed for a resource. For more
  *       information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html#tag-conventions">Tag naming limits and
  *         requirements</a> in the <i>Amazon Web Services General Reference</i>.</p>
  * @public
@@ -1333,6 +2357,13 @@ export interface UpdateAssetRequest {
   assetId: string | undefined;
 
   /**
+   * <p>An external ID to assign to the asset. The asset must not already have an external ID.
+   *       The external ID must be unique within your Amazon Web Services account. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/object-ids.html#external-ids">Using external IDs</a> in the <i>IoT SiteWise User Guide</i>.</p>
+   * @public
+   */
+  assetExternalId?: string | undefined;
+
+  /**
    * <p>A friendly name for the asset.</p>
    * @public
    */
@@ -1349,13 +2380,6 @@ export interface UpdateAssetRequest {
    * @public
    */
   assetDescription?: string | undefined;
-
-  /**
-   * <p>An external ID to assign to the asset. The asset must not already have an external ID.
-   *       The external ID must be unique within your Amazon Web Services account. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/object-ids.html#external-ids">Using external IDs</a> in the <i>IoT SiteWise User Guide</i>.</p>
-   * @public
-   */
-  assetExternalId?: string | undefined;
 }
 
 /**
@@ -1623,6 +2647,17 @@ export interface UpdateAssetPropertyRequest {
 /**
  * @public
  */
+export interface UpdateComputationModelResponse {
+  /**
+   * <p>The status of the computation model. It contains a state (UPDATING after successfully calling this operation) and an error message if any.</p>
+   * @public
+   */
+  computationModelStatus: ComputationModelStatus | undefined;
+}
+
+/**
+ * @public
+ */
 export interface UpdateDashboardRequest {
   /**
    * <p>The ID of the dashboard to update.</p>
@@ -1762,10 +2797,9 @@ export interface UpdateGatewayCapabilityConfigurationRequest {
 
   /**
    * <p>The namespace of the gateway capability configuration to be updated.
-   *       For example, if you configure OPC-UA
-   *       sources from the IoT SiteWise console, your OPC-UA capability configuration has the namespace
-   *         <code>iotsitewise:opcuacollector:version</code>, where <code>version</code> is a number such as
-   *         <code>1</code>.</p>
+   *       For example, if you configure OPC UA
+   *       sources for an MQTT-enabled gateway, your OPC-UA capability configuration has the namespace
+   *         <code>iotsitewise:opcuacollector:3</code>.</p>
    * @public
    */
   capabilityNamespace: string | undefined;
@@ -1789,27 +2823,27 @@ export interface UpdateGatewayCapabilityConfigurationResponse {
   capabilityNamespace: string | undefined;
 
   /**
-   * <p>The synchronization status of the capability configuration. The sync status can be one of the following:</p>
+   * <p>The synchronization status of the gateway capability configuration. The sync status can be one of the following:</p>
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>IN_SYNC</code> – The gateway is running the capability configuration.</p>
+   *                   <code>IN_SYNC</code> - The gateway is running with the latest configuration.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>NOT_APPLICABLE</code> – Synchronization is not required for this capability configuration. This is most common when integrating partner data sources, because the data integration is handled externally by the partner.</p>
+   *                   <code>OUT_OF_SYNC</code> - The gateway hasn't received the latest configuration.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>OUT_OF_SYNC</code> – The gateway hasn't received the capability configuration.</p>
+   *                   <code>SYNC_FAILED</code> - The gateway rejected the latest configuration.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>SYNC_FAILED</code> – The gateway rejected the capability configuration.</p>
+   *                   <code>UNKNOWN</code> - The gateway hasn't reported its sync status.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>UNKNOWN</code> – The synchronization status is currently unknown due to an undetermined or temporary error.</p>
+   *                   <code>NOT_APPLICABLE</code> - The gateway doesn't support this capability. This is most common when integrating partner data sources, because the data integration is handled externally by the partner.</p>
    *             </li>
    *          </ul>
    *          <p>After you update a capability configuration, its sync status is <code>OUT_OF_SYNC</code>
@@ -1973,6 +3007,191 @@ export interface UpdateProjectRequest {
  * @public
  */
 export interface UpdateProjectResponse {}
+
+/**
+ * <p>Contains computation model data binding value information, which can be one of <code>assetModelProperty</code>, <code>list</code>.</p>
+ * @public
+ */
+export interface ComputationModelDataBindingValue {
+  /**
+   * <p>Specifies an asset model property data binding value.</p>
+   * @public
+   */
+  assetModelProperty?: AssetModelPropertyBindingValue | undefined;
+
+  /**
+   * <p>The asset property value used for computation model data binding.</p>
+   * @public
+   */
+  assetProperty?: AssetPropertyBindingValue | undefined;
+
+  /**
+   * <p>Specifies a list of data binding value.</p>
+   * @public
+   */
+  list?: ComputationModelDataBindingValue[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateComputationModelRequest {
+  /**
+   * <p>The name of the computation model.</p>
+   * @public
+   */
+  computationModelName: string | undefined;
+
+  /**
+   * <p>The description of the computation model.</p>
+   * @public
+   */
+  computationModelDescription?: string | undefined;
+
+  /**
+   * <p>The configuration for the computation model.</p>
+   * @public
+   */
+  computationModelConfiguration: ComputationModelConfiguration | undefined;
+
+  /**
+   * <p>The data binding for the computation model. Key is a variable name defined in configuration.
+   *   Value is a <code>ComputationModelDataBindingValue</code> referenced by the variable.</p>
+   * @public
+   */
+  computationModelDataBinding: Record<string, ComputationModelDataBindingValue> | undefined;
+
+  /**
+   * <p>A unique case-sensitive identifier that you can provide to ensure the idempotency of the request. Don't reuse this client token if a new idempotent request is required.</p>
+   * @public
+   */
+  clientToken?: string | undefined;
+
+  /**
+   * <p>A list of key-value pairs that contain metadata for the asset. For more information, see
+   *        <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/tag-resources.html">Tagging your IoT SiteWise
+   *          resources</a> in the <i>IoT SiteWise User Guide</i>.</p>
+   * @public
+   */
+  tags?: Record<string, string> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeComputationModelResponse {
+  /**
+   * <p>The ID of the computation model.</p>
+   * @public
+   */
+  computationModelId: string | undefined;
+
+  /**
+   * <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">ARN</a> of the computation model, which has the following format.</p>
+   *          <p>
+   *             <code>arn:$\{Partition\}:iotsitewise:$\{Region\}:$\{Account\}:computation-model/$\{ComputationModelId\}</code>
+   *          </p>
+   * @public
+   */
+  computationModelArn: string | undefined;
+
+  /**
+   * <p>The name of the computation model.</p>
+   * @public
+   */
+  computationModelName: string | undefined;
+
+  /**
+   * <p>The description of the computation model.</p>
+   * @public
+   */
+  computationModelDescription?: string | undefined;
+
+  /**
+   * <p>The configuration for the computation model.</p>
+   * @public
+   */
+  computationModelConfiguration: ComputationModelConfiguration | undefined;
+
+  /**
+   * <p>The data binding for the computation model. Key is a variable name defined in configuration.
+   *   Value is a <code>ComputationModelDataBindingValue</code> referenced by the variable.</p>
+   * @public
+   */
+  computationModelDataBinding: Record<string, ComputationModelDataBindingValue> | undefined;
+
+  /**
+   * <p>The model creation date, in Unix epoch time.</p>
+   * @public
+   */
+  computationModelCreationDate: Date | undefined;
+
+  /**
+   * <p>The date the model was last updated, in Unix epoch time.</p>
+   * @public
+   */
+  computationModelLastUpdateDate: Date | undefined;
+
+  /**
+   * <p>The current status of the asset model, which contains a state and an error message if any.</p>
+   * @public
+   */
+  computationModelStatus: ComputationModelStatus | undefined;
+
+  /**
+   * <p>The version of the computation model.</p>
+   * @public
+   */
+  computationModelVersion: string | undefined;
+
+  /**
+   * <p>The available actions for this computation model.</p>
+   * @public
+   */
+  actionDefinitions: ActionDefinition[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateComputationModelRequest {
+  /**
+   * <p>The ID of the computation model.</p>
+   * @public
+   */
+  computationModelId: string | undefined;
+
+  /**
+   * <p>The name of the computation model.</p>
+   * @public
+   */
+  computationModelName: string | undefined;
+
+  /**
+   * <p>The description of the computation model.</p>
+   * @public
+   */
+  computationModelDescription?: string | undefined;
+
+  /**
+   * <p>The configuration for the computation model.</p>
+   * @public
+   */
+  computationModelConfiguration: ComputationModelConfiguration | undefined;
+
+  /**
+   * <p>The data binding for the computation model. Key is a variable name defined in configuration.
+   *   Value is a <code>ComputationModelDataBindingValue</code> referenced by the variable.</p>
+   * @public
+   */
+  computationModelDataBinding: Record<string, ComputationModelDataBindingValue> | undefined;
+
+  /**
+   * <p>A unique case-sensitive identifier that you can provide to ensure the idempotency of the request. Don't reuse this client token if a new idempotent request is required.</p>
+   * @public
+   */
+  clientToken?: string | undefined;
+}
 
 /**
  * <p>Represents a single data point in a query result. </p>

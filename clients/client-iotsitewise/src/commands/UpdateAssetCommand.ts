@@ -38,10 +38,10 @@ export interface UpdateAssetCommandOutput extends UpdateAssetResponse, __Metadat
  * const client = new IoTSiteWiseClient(config);
  * const input = { // UpdateAssetRequest
  *   assetId: "STRING_VALUE", // required
+ *   assetExternalId: "STRING_VALUE",
  *   assetName: "STRING_VALUE", // required
  *   clientToken: "STRING_VALUE",
  *   assetDescription: "STRING_VALUE",
- *   assetExternalId: "STRING_VALUE",
  * };
  * const command = new UpdateAssetCommand(input);
  * const response = await client.send(command);

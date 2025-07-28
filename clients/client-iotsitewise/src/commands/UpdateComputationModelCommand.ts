@@ -6,8 +6,8 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { IoTSiteWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTSiteWiseClient";
-import { CreateDatasetRequest, CreateDatasetResponse } from "../models/models_0";
-import { de_CreateDatasetCommand, se_CreateDatasetCommand } from "../protocols/Aws_restJson1";
+import { UpdateComputationModelRequest, UpdateComputationModelResponse } from "../models/models_1";
+import { de_UpdateComputationModelCommand, se_UpdateComputationModelCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -17,49 +17,67 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link CreateDatasetCommand}.
+ * The input for {@link UpdateComputationModelCommand}.
  */
-export interface CreateDatasetCommandInput extends CreateDatasetRequest {}
+export interface UpdateComputationModelCommandInput extends UpdateComputationModelRequest {}
 /**
  * @public
  *
- * The output of {@link CreateDatasetCommand}.
+ * The output of {@link UpdateComputationModelCommand}.
  */
-export interface CreateDatasetCommandOutput extends CreateDatasetResponse, __MetadataBearer {}
+export interface UpdateComputationModelCommandOutput extends UpdateComputationModelResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a dataset to connect an external datasource.</p>
+ * <p>Updates the computation model.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTSiteWiseClient, CreateDatasetCommand } from "@aws-sdk/client-iotsitewise"; // ES Modules import
- * // const { IoTSiteWiseClient, CreateDatasetCommand } = require("@aws-sdk/client-iotsitewise"); // CommonJS import
+ * import { IoTSiteWiseClient, UpdateComputationModelCommand } from "@aws-sdk/client-iotsitewise"; // ES Modules import
+ * // const { IoTSiteWiseClient, UpdateComputationModelCommand } = require("@aws-sdk/client-iotsitewise"); // CommonJS import
  * const client = new IoTSiteWiseClient(config);
- * const input = { // CreateDatasetRequest
- *   datasetId: "STRING_VALUE",
- *   datasetName: "STRING_VALUE", // required
- *   datasetDescription: "STRING_VALUE",
- *   datasetSource: { // DatasetSource
- *     sourceType: "KENDRA", // required
- *     sourceFormat: "KNOWLEDGE_BASE", // required
- *     sourceDetail: { // SourceDetail
- *       kendra: { // KendraSourceDetail
- *         knowledgeBaseArn: "STRING_VALUE", // required
- *         roleArn: "STRING_VALUE", // required
+ * const input = { // UpdateComputationModelRequest
+ *   computationModelId: "STRING_VALUE", // required
+ *   computationModelName: "STRING_VALUE", // required
+ *   computationModelDescription: "STRING_VALUE",
+ *   computationModelConfiguration: { // ComputationModelConfiguration
+ *     anomalyDetection: { // ComputationModelAnomalyDetectionConfiguration
+ *       inputProperties: "STRING_VALUE", // required
+ *       resultProperty: "STRING_VALUE", // required
+ *     },
+ *   },
+ *   computationModelDataBinding: { // ComputationModelDataBinding // required
+ *     "<keys>": { // ComputationModelDataBindingValue
+ *       assetModelProperty: { // AssetModelPropertyBindingValue
+ *         assetModelId: "STRING_VALUE", // required
+ *         propertyId: "STRING_VALUE", // required
  *       },
+ *       assetProperty: { // AssetPropertyBindingValue
+ *         assetId: "STRING_VALUE", // required
+ *         propertyId: "STRING_VALUE", // required
+ *       },
+ *       list: [ // BindingValueList
+ *         {
+ *           assetModelProperty: {
+ *             assetModelId: "STRING_VALUE", // required
+ *             propertyId: "STRING_VALUE", // required
+ *           },
+ *           assetProperty: {
+ *             assetId: "STRING_VALUE", // required
+ *             propertyId: "STRING_VALUE", // required
+ *           },
+ *           list: [
+ *             "<ComputationModelDataBindingValue>",
+ *           ],
+ *         },
+ *       ],
  *     },
  *   },
  *   clientToken: "STRING_VALUE",
- *   tags: { // TagMap
- *     "<keys>": "STRING_VALUE",
- *   },
  * };
- * const command = new CreateDatasetCommand(input);
+ * const command = new UpdateComputationModelCommand(input);
  * const response = await client.send(command);
- * // { // CreateDatasetResponse
- * //   datasetId: "STRING_VALUE", // required
- * //   datasetArn: "STRING_VALUE", // required
- * //   datasetStatus: { // DatasetStatus
+ * // { // UpdateComputationModelResponse
+ * //   computationModelStatus: { // ComputationModelStatus
  * //     state: "CREATING" || "ACTIVE" || "UPDATING" || "DELETING" || "FAILED", // required
  * //     error: { // ErrorDetails
  * //       code: "VALIDATION_ERROR" || "INTERNAL_FAILURE", // required
@@ -76,10 +94,10 @@ export interface CreateDatasetCommandOutput extends CreateDatasetResponse, __Met
  *
  * ```
  *
- * @param CreateDatasetCommandInput - {@link CreateDatasetCommandInput}
- * @returns {@link CreateDatasetCommandOutput}
- * @see {@link CreateDatasetCommandInput} for command's `input` shape.
- * @see {@link CreateDatasetCommandOutput} for command's `response` shape.
+ * @param UpdateComputationModelCommandInput - {@link UpdateComputationModelCommandInput}
+ * @returns {@link UpdateComputationModelCommandOutput}
+ * @see {@link UpdateComputationModelCommandInput} for command's `input` shape.
+ * @see {@link UpdateComputationModelCommandOutput} for command's `response` shape.
  * @see {@link IoTSiteWiseClientResolvedConfig | config} for IoTSiteWiseClient's `config` shape.
  *
  * @throws {@link ConflictingOperationException} (client fault)
@@ -117,10 +135,10 @@ export interface CreateDatasetCommandOutput extends CreateDatasetResponse, __Met
  *
  * @public
  */
-export class CreateDatasetCommand extends $Command
+export class UpdateComputationModelCommand extends $Command
   .classBuilder<
-    CreateDatasetCommandInput,
-    CreateDatasetCommandOutput,
+    UpdateComputationModelCommandInput,
+    UpdateComputationModelCommandOutput,
     IoTSiteWiseClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -132,21 +150,21 @@ export class CreateDatasetCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("AWSIoTSiteWise", "CreateDataset", {})
-  .n("IoTSiteWiseClient", "CreateDatasetCommand")
+  .s("AWSIoTSiteWise", "UpdateComputationModel", {})
+  .n("IoTSiteWiseClient", "UpdateComputationModelCommand")
   .f(void 0, void 0)
-  .ser(se_CreateDatasetCommand)
-  .de(de_CreateDatasetCommand)
+  .ser(se_UpdateComputationModelCommand)
+  .de(de_UpdateComputationModelCommand)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: CreateDatasetRequest;
-      output: CreateDatasetResponse;
+      input: UpdateComputationModelRequest;
+      output: UpdateComputationModelResponse;
     };
     sdk: {
-      input: CreateDatasetCommandInput;
-      output: CreateDatasetCommandOutput;
+      input: UpdateComputationModelCommandInput;
+      output: UpdateComputationModelCommandOutput;
     };
   };
 }

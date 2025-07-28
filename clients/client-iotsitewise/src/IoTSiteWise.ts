@@ -64,6 +64,11 @@ import {
   CreateBulkImportJobCommandOutput,
 } from "./commands/CreateBulkImportJobCommand";
 import {
+  CreateComputationModelCommand,
+  CreateComputationModelCommandInput,
+  CreateComputationModelCommandOutput,
+} from "./commands/CreateComputationModelCommand";
+import {
   CreateDashboardCommand,
   CreateDashboardCommandInput,
   CreateDashboardCommandOutput,
@@ -104,6 +109,11 @@ import {
   DeleteAssetModelCompositeModelCommandInput,
   DeleteAssetModelCompositeModelCommandOutput,
 } from "./commands/DeleteAssetModelCompositeModelCommand";
+import {
+  DeleteComputationModelCommand,
+  DeleteComputationModelCommandInput,
+  DeleteComputationModelCommandOutput,
+} from "./commands/DeleteComputationModelCommand";
 import {
   DeleteDashboardCommand,
   DeleteDashboardCommandInput,
@@ -175,6 +185,16 @@ import {
   DescribeBulkImportJobCommandOutput,
 } from "./commands/DescribeBulkImportJobCommand";
 import {
+  DescribeComputationModelCommand,
+  DescribeComputationModelCommandInput,
+  DescribeComputationModelCommandOutput,
+} from "./commands/DescribeComputationModelCommand";
+import {
+  DescribeComputationModelExecutionSummaryCommand,
+  DescribeComputationModelExecutionSummaryCommandInput,
+  DescribeComputationModelExecutionSummaryCommandOutput,
+} from "./commands/DescribeComputationModelExecutionSummaryCommand";
+import {
   DescribeDashboardCommand,
   DescribeDashboardCommandInput,
   DescribeDashboardCommandOutput,
@@ -189,6 +209,11 @@ import {
   DescribeDefaultEncryptionConfigurationCommandInput,
   DescribeDefaultEncryptionConfigurationCommandOutput,
 } from "./commands/DescribeDefaultEncryptionConfigurationCommand";
+import {
+  DescribeExecutionCommand,
+  DescribeExecutionCommandInput,
+  DescribeExecutionCommandOutput,
+} from "./commands/DescribeExecutionCommand";
 import {
   DescribeGatewayCapabilityConfigurationCommand,
   DescribeGatewayCapabilityConfigurationCommandInput,
@@ -317,6 +342,21 @@ import {
   ListCompositionRelationshipsCommandOutput,
 } from "./commands/ListCompositionRelationshipsCommand";
 import {
+  ListComputationModelDataBindingUsagesCommand,
+  ListComputationModelDataBindingUsagesCommandInput,
+  ListComputationModelDataBindingUsagesCommandOutput,
+} from "./commands/ListComputationModelDataBindingUsagesCommand";
+import {
+  ListComputationModelResolveToResourcesCommand,
+  ListComputationModelResolveToResourcesCommandInput,
+  ListComputationModelResolveToResourcesCommandOutput,
+} from "./commands/ListComputationModelResolveToResourcesCommand";
+import {
+  ListComputationModelsCommand,
+  ListComputationModelsCommandInput,
+  ListComputationModelsCommandOutput,
+} from "./commands/ListComputationModelsCommand";
+import {
   ListDashboardsCommand,
   ListDashboardsCommandInput,
   ListDashboardsCommandOutput,
@@ -326,6 +366,11 @@ import {
   ListDatasetsCommandInput,
   ListDatasetsCommandOutput,
 } from "./commands/ListDatasetsCommand";
+import {
+  ListExecutionsCommand,
+  ListExecutionsCommandInput,
+  ListExecutionsCommandOutput,
+} from "./commands/ListExecutionsCommand";
 import {
   ListGatewaysCommand,
   ListGatewaysCommandInput,
@@ -395,6 +440,11 @@ import {
   UpdateAssetPropertyCommandOutput,
 } from "./commands/UpdateAssetPropertyCommand";
 import {
+  UpdateComputationModelCommand,
+  UpdateComputationModelCommandInput,
+  UpdateComputationModelCommandOutput,
+} from "./commands/UpdateComputationModelCommand";
+import {
   UpdateDashboardCommand,
   UpdateDashboardCommandInput,
   UpdateDashboardCommandOutput,
@@ -440,6 +490,7 @@ const commands = {
   CreateAssetModelCommand,
   CreateAssetModelCompositeModelCommand,
   CreateBulkImportJobCommand,
+  CreateComputationModelCommand,
   CreateDashboardCommand,
   CreateDatasetCommand,
   CreateGatewayCommand,
@@ -449,6 +500,7 @@ const commands = {
   DeleteAssetCommand,
   DeleteAssetModelCommand,
   DeleteAssetModelCompositeModelCommand,
+  DeleteComputationModelCommand,
   DeleteDashboardCommand,
   DeleteDatasetCommand,
   DeleteGatewayCommand,
@@ -463,9 +515,12 @@ const commands = {
   DescribeAssetModelCompositeModelCommand,
   DescribeAssetPropertyCommand,
   DescribeBulkImportJobCommand,
+  DescribeComputationModelCommand,
+  DescribeComputationModelExecutionSummaryCommand,
   DescribeDashboardCommand,
   DescribeDatasetCommand,
   DescribeDefaultEncryptionConfigurationCommand,
+  DescribeExecutionCommand,
   DescribeGatewayCommand,
   DescribeGatewayCapabilityConfigurationCommand,
   DescribeLoggingOptionsCommand,
@@ -493,8 +548,12 @@ const commands = {
   ListAssociatedAssetsCommand,
   ListBulkImportJobsCommand,
   ListCompositionRelationshipsCommand,
+  ListComputationModelDataBindingUsagesCommand,
+  ListComputationModelResolveToResourcesCommand,
+  ListComputationModelsCommand,
   ListDashboardsCommand,
   ListDatasetsCommand,
+  ListExecutionsCommand,
   ListGatewaysCommand,
   ListPortalsCommand,
   ListProjectAssetsCommand,
@@ -511,6 +570,7 @@ const commands = {
   UpdateAssetModelCommand,
   UpdateAssetModelCompositeModelCommand,
   UpdateAssetPropertyCommand,
+  UpdateComputationModelCommand,
   UpdateDashboardCommand,
   UpdateDatasetCommand,
   UpdateGatewayCommand,
@@ -733,6 +793,23 @@ export interface IoTSiteWise {
   ): void;
 
   /**
+   * @see {@link CreateComputationModelCommand}
+   */
+  createComputationModel(
+    args: CreateComputationModelCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateComputationModelCommandOutput>;
+  createComputationModel(
+    args: CreateComputationModelCommandInput,
+    cb: (err: any, data?: CreateComputationModelCommandOutput) => void
+  ): void;
+  createComputationModel(
+    args: CreateComputationModelCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateComputationModelCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link CreateDashboardCommand}
    */
   createDashboard(
@@ -850,6 +927,23 @@ export interface IoTSiteWise {
     args: DeleteAssetModelCompositeModelCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteAssetModelCompositeModelCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteComputationModelCommand}
+   */
+  deleteComputationModel(
+    args: DeleteComputationModelCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteComputationModelCommandOutput>;
+  deleteComputationModel(
+    args: DeleteComputationModelCommandInput,
+    cb: (err: any, data?: DeleteComputationModelCommandOutput) => void
+  ): void;
+  deleteComputationModel(
+    args: DeleteComputationModelCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteComputationModelCommandOutput) => void
   ): void;
 
   /**
@@ -1056,6 +1150,40 @@ export interface IoTSiteWise {
   ): void;
 
   /**
+   * @see {@link DescribeComputationModelCommand}
+   */
+  describeComputationModel(
+    args: DescribeComputationModelCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeComputationModelCommandOutput>;
+  describeComputationModel(
+    args: DescribeComputationModelCommandInput,
+    cb: (err: any, data?: DescribeComputationModelCommandOutput) => void
+  ): void;
+  describeComputationModel(
+    args: DescribeComputationModelCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeComputationModelCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeComputationModelExecutionSummaryCommand}
+   */
+  describeComputationModelExecutionSummary(
+    args: DescribeComputationModelExecutionSummaryCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeComputationModelExecutionSummaryCommandOutput>;
+  describeComputationModelExecutionSummary(
+    args: DescribeComputationModelExecutionSummaryCommandInput,
+    cb: (err: any, data?: DescribeComputationModelExecutionSummaryCommandOutput) => void
+  ): void;
+  describeComputationModelExecutionSummary(
+    args: DescribeComputationModelExecutionSummaryCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeComputationModelExecutionSummaryCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DescribeDashboardCommand}
    */
   describeDashboard(
@@ -1102,6 +1230,23 @@ export interface IoTSiteWise {
     args: DescribeDefaultEncryptionConfigurationCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DescribeDefaultEncryptionConfigurationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeExecutionCommand}
+   */
+  describeExecution(
+    args: DescribeExecutionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeExecutionCommandOutput>;
+  describeExecution(
+    args: DescribeExecutionCommandInput,
+    cb: (err: any, data?: DescribeExecutionCommandOutput) => void
+  ): void;
+  describeExecution(
+    args: DescribeExecutionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeExecutionCommandOutput) => void
   ): void;
 
   /**
@@ -1534,6 +1679,58 @@ export interface IoTSiteWise {
   ): void;
 
   /**
+   * @see {@link ListComputationModelDataBindingUsagesCommand}
+   */
+  listComputationModelDataBindingUsages(
+    args: ListComputationModelDataBindingUsagesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListComputationModelDataBindingUsagesCommandOutput>;
+  listComputationModelDataBindingUsages(
+    args: ListComputationModelDataBindingUsagesCommandInput,
+    cb: (err: any, data?: ListComputationModelDataBindingUsagesCommandOutput) => void
+  ): void;
+  listComputationModelDataBindingUsages(
+    args: ListComputationModelDataBindingUsagesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListComputationModelDataBindingUsagesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListComputationModelResolveToResourcesCommand}
+   */
+  listComputationModelResolveToResources(
+    args: ListComputationModelResolveToResourcesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListComputationModelResolveToResourcesCommandOutput>;
+  listComputationModelResolveToResources(
+    args: ListComputationModelResolveToResourcesCommandInput,
+    cb: (err: any, data?: ListComputationModelResolveToResourcesCommandOutput) => void
+  ): void;
+  listComputationModelResolveToResources(
+    args: ListComputationModelResolveToResourcesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListComputationModelResolveToResourcesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListComputationModelsCommand}
+   */
+  listComputationModels(): Promise<ListComputationModelsCommandOutput>;
+  listComputationModels(
+    args: ListComputationModelsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListComputationModelsCommandOutput>;
+  listComputationModels(
+    args: ListComputationModelsCommandInput,
+    cb: (err: any, data?: ListComputationModelsCommandOutput) => void
+  ): void;
+  listComputationModels(
+    args: ListComputationModelsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListComputationModelsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListDashboardsCommand}
    */
   listDashboards(
@@ -1556,6 +1753,20 @@ export interface IoTSiteWise {
     args: ListDatasetsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListDatasetsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListExecutionsCommand}
+   */
+  listExecutions(
+    args: ListExecutionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListExecutionsCommandOutput>;
+  listExecutions(args: ListExecutionsCommandInput, cb: (err: any, data?: ListExecutionsCommandOutput) => void): void;
+  listExecutions(
+    args: ListExecutionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListExecutionsCommandOutput) => void
   ): void;
 
   /**
@@ -1792,6 +2003,23 @@ export interface IoTSiteWise {
     args: UpdateAssetPropertyCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateAssetPropertyCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateComputationModelCommand}
+   */
+  updateComputationModel(
+    args: UpdateComputationModelCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateComputationModelCommandOutput>;
+  updateComputationModel(
+    args: UpdateComputationModelCommandInput,
+    cb: (err: any, data?: UpdateComputationModelCommandOutput) => void
+  ): void;
+  updateComputationModel(
+    args: UpdateComputationModelCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateComputationModelCommandOutput) => void
   ): void;
 
   /**

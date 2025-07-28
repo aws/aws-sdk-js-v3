@@ -43,12 +43,14 @@ export interface DescribeAssetCommandOutput extends DescribeAssetResponse, __Met
  * const response = await client.send(command);
  * // { // DescribeAssetResponse
  * //   assetId: "STRING_VALUE", // required
+ * //   assetExternalId: "STRING_VALUE",
  * //   assetArn: "STRING_VALUE", // required
  * //   assetName: "STRING_VALUE", // required
  * //   assetModelId: "STRING_VALUE", // required
  * //   assetProperties: [ // AssetProperties // required
  * //     { // AssetProperty
  * //       id: "STRING_VALUE", // required
+ * //       externalId: "STRING_VALUE",
  * //       name: "STRING_VALUE", // required
  * //       alias: "STRING_VALUE",
  * //       notification: { // PropertyNotification
@@ -64,14 +66,13 @@ export interface DescribeAssetCommandOutput extends DescribeAssetResponse, __Met
  * //           name: "STRING_VALUE",
  * //         },
  * //       ],
- * //       externalId: "STRING_VALUE",
  * //     },
  * //   ],
  * //   assetHierarchies: [ // AssetHierarchies // required
  * //     { // AssetHierarchy
  * //       id: "STRING_VALUE",
- * //       name: "STRING_VALUE", // required
  * //       externalId: "STRING_VALUE",
+ * //       name: "STRING_VALUE", // required
  * //     },
  * //   ],
  * //   assetCompositeModels: [ // AssetCompositeModels
@@ -82,6 +83,7 @@ export interface DescribeAssetCommandOutput extends DescribeAssetResponse, __Met
  * //       properties: [ // required
  * //         {
  * //           id: "STRING_VALUE", // required
+ * //           externalId: "STRING_VALUE",
  * //           name: "STRING_VALUE", // required
  * //           alias: "STRING_VALUE",
  * //           notification: {
@@ -97,7 +99,6 @@ export interface DescribeAssetCommandOutput extends DescribeAssetResponse, __Met
  * //               name: "STRING_VALUE",
  * //             },
  * //           ],
- * //           externalId: "STRING_VALUE",
  * //         },
  * //       ],
  * //       id: "STRING_VALUE",
@@ -135,7 +136,6 @@ export interface DescribeAssetCommandOutput extends DescribeAssetResponse, __Met
  * //       ],
  * //     },
  * //   ],
- * //   assetExternalId: "STRING_VALUE",
  * // };
  *
  * ```

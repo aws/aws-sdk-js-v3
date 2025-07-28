@@ -50,10 +50,12 @@ export interface DescribeAssetPropertyCommandOutput extends DescribeAssetPropert
  * const response = await client.send(command);
  * // { // DescribeAssetPropertyResponse
  * //   assetId: "STRING_VALUE", // required
+ * //   assetExternalId: "STRING_VALUE",
  * //   assetName: "STRING_VALUE", // required
  * //   assetModelId: "STRING_VALUE", // required
  * //   assetProperty: { // Property
  * //     id: "STRING_VALUE", // required
+ * //     externalId: "STRING_VALUE",
  * //     name: "STRING_VALUE", // required
  * //     alias: "STRING_VALUE",
  * //     notification: { // PropertyNotification
@@ -131,13 +133,13 @@ export interface DescribeAssetPropertyCommandOutput extends DescribeAssetPropert
  * //         name: "STRING_VALUE",
  * //       },
  * //     ],
- * //     externalId: "STRING_VALUE",
  * //   },
  * //   compositeModel: { // CompositeModelProperty
  * //     name: "STRING_VALUE", // required
  * //     type: "STRING_VALUE", // required
  * //     assetProperty: {
  * //       id: "STRING_VALUE", // required
+ * //       externalId: "STRING_VALUE",
  * //       name: "STRING_VALUE", // required
  * //       alias: "STRING_VALUE",
  * //       notification: {
@@ -215,12 +217,10 @@ export interface DescribeAssetPropertyCommandOutput extends DescribeAssetPropert
  * //           name: "STRING_VALUE",
  * //         },
  * //       ],
- * //       externalId: "STRING_VALUE",
  * //     },
  * //     id: "STRING_VALUE",
  * //     externalId: "STRING_VALUE",
  * //   },
- * //   assetExternalId: "STRING_VALUE",
  * // };
  *
  * ```

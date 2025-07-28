@@ -99,6 +99,10 @@ import {
   CreateBulkImportJobCommandInput,
   CreateBulkImportJobCommandOutput,
 } from "./commands/CreateBulkImportJobCommand";
+import {
+  CreateComputationModelCommandInput,
+  CreateComputationModelCommandOutput,
+} from "./commands/CreateComputationModelCommand";
 import { CreateDashboardCommandInput, CreateDashboardCommandOutput } from "./commands/CreateDashboardCommand";
 import { CreateDatasetCommandInput, CreateDatasetCommandOutput } from "./commands/CreateDatasetCommand";
 import { CreateGatewayCommandInput, CreateGatewayCommandOutput } from "./commands/CreateGatewayCommand";
@@ -111,6 +115,10 @@ import {
   DeleteAssetModelCompositeModelCommandInput,
   DeleteAssetModelCompositeModelCommandOutput,
 } from "./commands/DeleteAssetModelCompositeModelCommand";
+import {
+  DeleteComputationModelCommandInput,
+  DeleteComputationModelCommandOutput,
+} from "./commands/DeleteComputationModelCommand";
 import { DeleteDashboardCommandInput, DeleteDashboardCommandOutput } from "./commands/DeleteDashboardCommand";
 import { DeleteDatasetCommandInput, DeleteDatasetCommandOutput } from "./commands/DeleteDatasetCommand";
 import { DeleteGatewayCommandInput, DeleteGatewayCommandOutput } from "./commands/DeleteGatewayCommand";
@@ -140,12 +148,21 @@ import {
   DescribeBulkImportJobCommandInput,
   DescribeBulkImportJobCommandOutput,
 } from "./commands/DescribeBulkImportJobCommand";
+import {
+  DescribeComputationModelCommandInput,
+  DescribeComputationModelCommandOutput,
+} from "./commands/DescribeComputationModelCommand";
+import {
+  DescribeComputationModelExecutionSummaryCommandInput,
+  DescribeComputationModelExecutionSummaryCommandOutput,
+} from "./commands/DescribeComputationModelExecutionSummaryCommand";
 import { DescribeDashboardCommandInput, DescribeDashboardCommandOutput } from "./commands/DescribeDashboardCommand";
 import { DescribeDatasetCommandInput, DescribeDatasetCommandOutput } from "./commands/DescribeDatasetCommand";
 import {
   DescribeDefaultEncryptionConfigurationCommandInput,
   DescribeDefaultEncryptionConfigurationCommandOutput,
 } from "./commands/DescribeDefaultEncryptionConfigurationCommand";
+import { DescribeExecutionCommandInput, DescribeExecutionCommandOutput } from "./commands/DescribeExecutionCommand";
 import {
   DescribeGatewayCapabilityConfigurationCommandInput,
   DescribeGatewayCapabilityConfigurationCommandOutput,
@@ -215,8 +232,21 @@ import {
   ListCompositionRelationshipsCommandInput,
   ListCompositionRelationshipsCommandOutput,
 } from "./commands/ListCompositionRelationshipsCommand";
+import {
+  ListComputationModelDataBindingUsagesCommandInput,
+  ListComputationModelDataBindingUsagesCommandOutput,
+} from "./commands/ListComputationModelDataBindingUsagesCommand";
+import {
+  ListComputationModelResolveToResourcesCommandInput,
+  ListComputationModelResolveToResourcesCommandOutput,
+} from "./commands/ListComputationModelResolveToResourcesCommand";
+import {
+  ListComputationModelsCommandInput,
+  ListComputationModelsCommandOutput,
+} from "./commands/ListComputationModelsCommand";
 import { ListDashboardsCommandInput, ListDashboardsCommandOutput } from "./commands/ListDashboardsCommand";
 import { ListDatasetsCommandInput, ListDatasetsCommandOutput } from "./commands/ListDatasetsCommand";
+import { ListExecutionsCommandInput, ListExecutionsCommandOutput } from "./commands/ListExecutionsCommand";
 import { ListGatewaysCommandInput, ListGatewaysCommandOutput } from "./commands/ListGatewaysCommand";
 import { ListPortalsCommandInput, ListPortalsCommandOutput } from "./commands/ListPortalsCommand";
 import { ListProjectAssetsCommandInput, ListProjectAssetsCommandOutput } from "./commands/ListProjectAssetsCommand";
@@ -248,6 +278,10 @@ import {
   UpdateAssetPropertyCommandInput,
   UpdateAssetPropertyCommandOutput,
 } from "./commands/UpdateAssetPropertyCommand";
+import {
+  UpdateComputationModelCommandInput,
+  UpdateComputationModelCommandOutput,
+} from "./commands/UpdateComputationModelCommand";
 import { UpdateDashboardCommandInput, UpdateDashboardCommandOutput } from "./commands/UpdateDashboardCommand";
 import { UpdateDatasetCommandInput, UpdateDatasetCommandOutput } from "./commands/UpdateDatasetCommand";
 import {
@@ -285,6 +319,7 @@ export type ServiceInputTypes =
   | CreateAssetModelCommandInput
   | CreateAssetModelCompositeModelCommandInput
   | CreateBulkImportJobCommandInput
+  | CreateComputationModelCommandInput
   | CreateDashboardCommandInput
   | CreateDatasetCommandInput
   | CreateGatewayCommandInput
@@ -294,6 +329,7 @@ export type ServiceInputTypes =
   | DeleteAssetCommandInput
   | DeleteAssetModelCommandInput
   | DeleteAssetModelCompositeModelCommandInput
+  | DeleteComputationModelCommandInput
   | DeleteDashboardCommandInput
   | DeleteDatasetCommandInput
   | DeleteGatewayCommandInput
@@ -308,9 +344,12 @@ export type ServiceInputTypes =
   | DescribeAssetModelCompositeModelCommandInput
   | DescribeAssetPropertyCommandInput
   | DescribeBulkImportJobCommandInput
+  | DescribeComputationModelCommandInput
+  | DescribeComputationModelExecutionSummaryCommandInput
   | DescribeDashboardCommandInput
   | DescribeDatasetCommandInput
   | DescribeDefaultEncryptionConfigurationCommandInput
+  | DescribeExecutionCommandInput
   | DescribeGatewayCapabilityConfigurationCommandInput
   | DescribeGatewayCommandInput
   | DescribeLoggingOptionsCommandInput
@@ -338,8 +377,12 @@ export type ServiceInputTypes =
   | ListAssociatedAssetsCommandInput
   | ListBulkImportJobsCommandInput
   | ListCompositionRelationshipsCommandInput
+  | ListComputationModelDataBindingUsagesCommandInput
+  | ListComputationModelResolveToResourcesCommandInput
+  | ListComputationModelsCommandInput
   | ListDashboardsCommandInput
   | ListDatasetsCommandInput
+  | ListExecutionsCommandInput
   | ListGatewaysCommandInput
   | ListPortalsCommandInput
   | ListProjectAssetsCommandInput
@@ -356,6 +399,7 @@ export type ServiceInputTypes =
   | UpdateAssetModelCommandInput
   | UpdateAssetModelCompositeModelCommandInput
   | UpdateAssetPropertyCommandInput
+  | UpdateComputationModelCommandInput
   | UpdateDashboardCommandInput
   | UpdateDatasetCommandInput
   | UpdateGatewayCapabilityConfigurationCommandInput
@@ -380,6 +424,7 @@ export type ServiceOutputTypes =
   | CreateAssetModelCommandOutput
   | CreateAssetModelCompositeModelCommandOutput
   | CreateBulkImportJobCommandOutput
+  | CreateComputationModelCommandOutput
   | CreateDashboardCommandOutput
   | CreateDatasetCommandOutput
   | CreateGatewayCommandOutput
@@ -389,6 +434,7 @@ export type ServiceOutputTypes =
   | DeleteAssetCommandOutput
   | DeleteAssetModelCommandOutput
   | DeleteAssetModelCompositeModelCommandOutput
+  | DeleteComputationModelCommandOutput
   | DeleteDashboardCommandOutput
   | DeleteDatasetCommandOutput
   | DeleteGatewayCommandOutput
@@ -403,9 +449,12 @@ export type ServiceOutputTypes =
   | DescribeAssetModelCompositeModelCommandOutput
   | DescribeAssetPropertyCommandOutput
   | DescribeBulkImportJobCommandOutput
+  | DescribeComputationModelCommandOutput
+  | DescribeComputationModelExecutionSummaryCommandOutput
   | DescribeDashboardCommandOutput
   | DescribeDatasetCommandOutput
   | DescribeDefaultEncryptionConfigurationCommandOutput
+  | DescribeExecutionCommandOutput
   | DescribeGatewayCapabilityConfigurationCommandOutput
   | DescribeGatewayCommandOutput
   | DescribeLoggingOptionsCommandOutput
@@ -433,8 +482,12 @@ export type ServiceOutputTypes =
   | ListAssociatedAssetsCommandOutput
   | ListBulkImportJobsCommandOutput
   | ListCompositionRelationshipsCommandOutput
+  | ListComputationModelDataBindingUsagesCommandOutput
+  | ListComputationModelResolveToResourcesCommandOutput
+  | ListComputationModelsCommandOutput
   | ListDashboardsCommandOutput
   | ListDatasetsCommandOutput
+  | ListExecutionsCommandOutput
   | ListGatewaysCommandOutput
   | ListPortalsCommandOutput
   | ListProjectAssetsCommandOutput
@@ -451,6 +504,7 @@ export type ServiceOutputTypes =
   | UpdateAssetModelCommandOutput
   | UpdateAssetModelCompositeModelCommandOutput
   | UpdateAssetPropertyCommandOutput
+  | UpdateComputationModelCommandOutput
   | UpdateDashboardCommandOutput
   | UpdateDatasetCommandOutput
   | UpdateGatewayCapabilityConfigurationCommandOutput

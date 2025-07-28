@@ -66,7 +66,7 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  *       unsupported characters. Check your request and try again.</p>
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>You've reached the limit for a resource. For example, this can occur if you're trying to
+ *  <p>You've reached the quota for a resource. For example, this can occur if you're trying to
  *       associate more than the allowed number of child assets or attempting to create more than the
  *       allowed number of properties for an asset model.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html">Quotas</a> in the <i>IoT SiteWise User Guide</i>.</p>
@@ -81,7 +81,7 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html">Quotas</a> in the <i>IoT SiteWise User Guide</i>.</p>
  *
  * @throws {@link TooManyTagsException} (client fault)
- *  <p>You've reached the limit for the number of tags allowed for a resource. For more
+ *  <p>You've reached the quota for the number of tags allowed for a resource. For more
  *       information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html#tag-conventions">Tag naming limits and
  *         requirements</a> in the <i>Amazon Web Services General Reference</i>.</p>
  *

@@ -43,13 +43,17 @@ export interface DescribeActionCommandOutput extends DescribeActionResponse, __M
  * // { // DescribeActionResponse
  * //   actionId: "STRING_VALUE", // required
  * //   targetResource: { // TargetResource
- * //     assetId: "STRING_VALUE", // required
+ * //     assetId: "STRING_VALUE",
+ * //     computationModelId: "STRING_VALUE",
  * //   },
  * //   actionDefinitionId: "STRING_VALUE", // required
  * //   actionPayload: { // ActionPayload
  * //     stringValue: "STRING_VALUE", // required
  * //   },
  * //   executionTime: new Date("TIMESTAMP"), // required
+ * //   resolveTo: { // ResolveTo
+ * //     assetId: "STRING_VALUE", // required
+ * //   },
  * // };
  *
  * ```

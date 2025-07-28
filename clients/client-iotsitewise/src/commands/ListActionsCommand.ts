@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { IoTSiteWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTSiteWiseClient";
-import { ListActionsRequest, ListActionsResponse } from "../models/models_0";
+import { ListActionsRequest, ListActionsResponse } from "../models/models_1";
 import { de_ListActionsCommand, se_ListActionsCommand } from "../protocols/Aws_restJson1";
 
 /**
@@ -36,10 +36,12 @@ export interface ListActionsCommandOutput extends ListActionsResponse, __Metadat
  * // const { IoTSiteWiseClient, ListActionsCommand } = require("@aws-sdk/client-iotsitewise"); // CommonJS import
  * const client = new IoTSiteWiseClient(config);
  * const input = { // ListActionsRequest
- *   targetResourceType: "ASSET", // required
+ *   targetResourceType: "ASSET" || "COMPUTATION_MODEL", // required
  *   targetResourceId: "STRING_VALUE", // required
  *   nextToken: "STRING_VALUE",
  *   maxResults: Number("int"),
+ *   resolveToResourceType: "ASSET",
+ *   resolveToResourceId: "STRING_VALUE",
  * };
  * const command = new ListActionsCommand(input);
  * const response = await client.send(command);
@@ -49,6 +51,10 @@ export interface ListActionsCommandOutput extends ListActionsResponse, __Metadat
  * //       actionId: "STRING_VALUE",
  * //       actionDefinitionId: "STRING_VALUE",
  * //       targetResource: { // TargetResource
+ * //         assetId: "STRING_VALUE",
+ * //         computationModelId: "STRING_VALUE",
+ * //       },
+ * //       resolveTo: { // ResolveTo
  * //         assetId: "STRING_VALUE", // required
  * //       },
  * //     },

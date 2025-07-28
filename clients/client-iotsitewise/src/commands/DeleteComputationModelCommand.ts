@@ -6,8 +6,8 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { IoTSiteWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTSiteWiseClient";
-import { ExecuteActionRequest, ExecuteActionResponse } from "../models/models_0";
-import { de_ExecuteActionCommand, se_ExecuteActionCommand } from "../protocols/Aws_restJson1";
+import { DeleteComputationModelRequest, DeleteComputationModelResponse } from "../models/models_0";
+import { de_DeleteComputationModelCommand, se_DeleteComputationModelCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -17,50 +17,52 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link ExecuteActionCommand}.
+ * The input for {@link DeleteComputationModelCommand}.
  */
-export interface ExecuteActionCommandInput extends ExecuteActionRequest {}
+export interface DeleteComputationModelCommandInput extends DeleteComputationModelRequest {}
 /**
  * @public
  *
- * The output of {@link ExecuteActionCommand}.
+ * The output of {@link DeleteComputationModelCommand}.
  */
-export interface ExecuteActionCommandOutput extends ExecuteActionResponse, __MetadataBearer {}
+export interface DeleteComputationModelCommandOutput extends DeleteComputationModelResponse, __MetadataBearer {}
 
 /**
- * <p>Executes an action on a target resource.</p>
+ * <p>Deletes a computation model. This action can't be undone.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTSiteWiseClient, ExecuteActionCommand } from "@aws-sdk/client-iotsitewise"; // ES Modules import
- * // const { IoTSiteWiseClient, ExecuteActionCommand } = require("@aws-sdk/client-iotsitewise"); // CommonJS import
+ * import { IoTSiteWiseClient, DeleteComputationModelCommand } from "@aws-sdk/client-iotsitewise"; // ES Modules import
+ * // const { IoTSiteWiseClient, DeleteComputationModelCommand } = require("@aws-sdk/client-iotsitewise"); // CommonJS import
  * const client = new IoTSiteWiseClient(config);
- * const input = { // ExecuteActionRequest
- *   targetResource: { // TargetResource
- *     assetId: "STRING_VALUE",
- *     computationModelId: "STRING_VALUE",
- *   },
- *   actionDefinitionId: "STRING_VALUE", // required
- *   actionPayload: { // ActionPayload
- *     stringValue: "STRING_VALUE", // required
- *   },
+ * const input = { // DeleteComputationModelRequest
+ *   computationModelId: "STRING_VALUE", // required
  *   clientToken: "STRING_VALUE",
- *   resolveTo: { // ResolveTo
- *     assetId: "STRING_VALUE", // required
- *   },
  * };
- * const command = new ExecuteActionCommand(input);
+ * const command = new DeleteComputationModelCommand(input);
  * const response = await client.send(command);
- * // { // ExecuteActionResponse
- * //   actionId: "STRING_VALUE", // required
+ * // { // DeleteComputationModelResponse
+ * //   computationModelStatus: { // ComputationModelStatus
+ * //     state: "CREATING" || "ACTIVE" || "UPDATING" || "DELETING" || "FAILED", // required
+ * //     error: { // ErrorDetails
+ * //       code: "VALIDATION_ERROR" || "INTERNAL_FAILURE", // required
+ * //       message: "STRING_VALUE", // required
+ * //       details: [ // DetailedErrors
+ * //         { // DetailedError
+ * //           code: "INCOMPATIBLE_COMPUTE_LOCATION" || "INCOMPATIBLE_FORWARDING_CONFIGURATION", // required
+ * //           message: "STRING_VALUE", // required
+ * //         },
+ * //       ],
+ * //     },
+ * //   },
  * // };
  *
  * ```
  *
- * @param ExecuteActionCommandInput - {@link ExecuteActionCommandInput}
- * @returns {@link ExecuteActionCommandOutput}
- * @see {@link ExecuteActionCommandInput} for command's `input` shape.
- * @see {@link ExecuteActionCommandOutput} for command's `response` shape.
+ * @param DeleteComputationModelCommandInput - {@link DeleteComputationModelCommandInput}
+ * @returns {@link DeleteComputationModelCommandOutput}
+ * @see {@link DeleteComputationModelCommandInput} for command's `input` shape.
+ * @see {@link DeleteComputationModelCommandOutput} for command's `response` shape.
  * @see {@link IoTSiteWiseClientResolvedConfig | config} for IoTSiteWiseClient's `config` shape.
  *
  * @throws {@link ConflictingOperationException} (client fault)
@@ -73,12 +75,6 @@ export interface ExecuteActionCommandOutput extends ExecuteActionResponse, __Met
  * @throws {@link InvalidRequestException} (client fault)
  *  <p>The request isn't valid. This can occur if your request contains malformed JSON or
  *       unsupported characters. Check your request and try again.</p>
- *
- * @throws {@link LimitExceededException} (client fault)
- *  <p>You've reached the quota for a resource. For example, this can occur if you're trying to
- *       associate more than the allowed number of child assets or attempting to create more than the
- *       allowed number of properties for an asset model.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html">Quotas</a> in the <i>IoT SiteWise User Guide</i>.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The requested resource can't be found.</p>
@@ -95,10 +91,10 @@ export interface ExecuteActionCommandOutput extends ExecuteActionResponse, __Met
  *
  * @public
  */
-export class ExecuteActionCommand extends $Command
+export class DeleteComputationModelCommand extends $Command
   .classBuilder<
-    ExecuteActionCommandInput,
-    ExecuteActionCommandOutput,
+    DeleteComputationModelCommandInput,
+    DeleteComputationModelCommandOutput,
     IoTSiteWiseClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -110,21 +106,21 @@ export class ExecuteActionCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("AWSIoTSiteWise", "ExecuteAction", {})
-  .n("IoTSiteWiseClient", "ExecuteActionCommand")
+  .s("AWSIoTSiteWise", "DeleteComputationModel", {})
+  .n("IoTSiteWiseClient", "DeleteComputationModelCommand")
   .f(void 0, void 0)
-  .ser(se_ExecuteActionCommand)
-  .de(de_ExecuteActionCommand)
+  .ser(se_DeleteComputationModelCommand)
+  .de(de_DeleteComputationModelCommand)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: ExecuteActionRequest;
-      output: ExecuteActionResponse;
+      input: DeleteComputationModelRequest;
+      output: DeleteComputationModelResponse;
     };
     sdk: {
-      input: ExecuteActionCommandInput;
-      output: ExecuteActionCommandOutput;
+      input: DeleteComputationModelCommandInput;
+      output: DeleteComputationModelCommandOutput;
     };
   };
 }

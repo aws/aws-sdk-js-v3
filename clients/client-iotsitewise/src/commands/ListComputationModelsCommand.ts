@@ -6,8 +6,8 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { IoTSiteWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTSiteWiseClient";
-import { ListAssetsRequest, ListAssetsResponse } from "../models/models_1";
-import { de_ListAssetsCommand, se_ListAssetsCommand } from "../protocols/Aws_restJson1";
+import { ListComputationModelsRequest, ListComputationModelsResponse } from "../models/models_1";
+import { de_ListComputationModelsCommand, se_ListComputationModelsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -17,55 +17,42 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link ListAssetsCommand}.
+ * The input for {@link ListComputationModelsCommand}.
  */
-export interface ListAssetsCommandInput extends ListAssetsRequest {}
+export interface ListComputationModelsCommandInput extends ListComputationModelsRequest {}
 /**
  * @public
  *
- * The output of {@link ListAssetsCommand}.
+ * The output of {@link ListComputationModelsCommand}.
  */
-export interface ListAssetsCommandOutput extends ListAssetsResponse, __MetadataBearer {}
+export interface ListComputationModelsCommandOutput extends ListComputationModelsResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves a paginated list of asset summaries.</p>
- *          <p>You can use this operation to do the following:</p>
- *          <ul>
- *             <li>
- *                <p>List assets based on a specific asset model.</p>
- *             </li>
- *             <li>
- *                <p>List top-level assets.</p>
- *             </li>
- *          </ul>
- *          <p>You can't use this operation to list all assets. To retrieve summaries for all of your
- *       assets, use <a href="https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_ListAssetModels.html">ListAssetModels</a> to get all of your asset model IDs. Then, use ListAssets to get all
- *       assets for each asset model.</p>
+ * <p>Retrieves a paginated list of summaries of all computation models.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTSiteWiseClient, ListAssetsCommand } from "@aws-sdk/client-iotsitewise"; // ES Modules import
- * // const { IoTSiteWiseClient, ListAssetsCommand } = require("@aws-sdk/client-iotsitewise"); // CommonJS import
+ * import { IoTSiteWiseClient, ListComputationModelsCommand } from "@aws-sdk/client-iotsitewise"; // ES Modules import
+ * // const { IoTSiteWiseClient, ListComputationModelsCommand } = require("@aws-sdk/client-iotsitewise"); // CommonJS import
  * const client = new IoTSiteWiseClient(config);
- * const input = { // ListAssetsRequest
+ * const input = { // ListComputationModelsRequest
+ *   computationModelType: "ANOMALY_DETECTION",
  *   nextToken: "STRING_VALUE",
  *   maxResults: Number("int"),
- *   assetModelId: "STRING_VALUE",
- *   filter: "ALL" || "TOP_LEVEL",
  * };
- * const command = new ListAssetsCommand(input);
+ * const command = new ListComputationModelsCommand(input);
  * const response = await client.send(command);
- * // { // ListAssetsResponse
- * //   assetSummaries: [ // AssetSummaries // required
- * //     { // AssetSummary
+ * // { // ListComputationModelsResponse
+ * //   computationModelSummaries: [ // ComputationModelSummaries // required
+ * //     { // ComputationModelSummary
  * //       id: "STRING_VALUE", // required
- * //       externalId: "STRING_VALUE",
  * //       arn: "STRING_VALUE", // required
  * //       name: "STRING_VALUE", // required
- * //       assetModelId: "STRING_VALUE", // required
+ * //       description: "STRING_VALUE",
+ * //       type: "ANOMALY_DETECTION", // required
  * //       creationDate: new Date("TIMESTAMP"), // required
  * //       lastUpdateDate: new Date("TIMESTAMP"), // required
- * //       status: { // AssetStatus
+ * //       status: { // ComputationModelStatus
  * //         state: "CREATING" || "ACTIVE" || "UPDATING" || "DELETING" || "FAILED", // required
  * //         error: { // ErrorDetails
  * //           code: "VALIDATION_ERROR" || "INTERNAL_FAILURE", // required
@@ -78,14 +65,7 @@ export interface ListAssetsCommandOutput extends ListAssetsResponse, __MetadataB
  * //           ],
  * //         },
  * //       },
- * //       hierarchies: [ // AssetHierarchies // required
- * //         { // AssetHierarchy
- * //           id: "STRING_VALUE",
- * //           externalId: "STRING_VALUE",
- * //           name: "STRING_VALUE", // required
- * //         },
- * //       ],
- * //       description: "STRING_VALUE",
+ * //       version: "STRING_VALUE", // required
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",
@@ -93,10 +73,10 @@ export interface ListAssetsCommandOutput extends ListAssetsResponse, __MetadataB
  *
  * ```
  *
- * @param ListAssetsCommandInput - {@link ListAssetsCommandInput}
- * @returns {@link ListAssetsCommandOutput}
- * @see {@link ListAssetsCommandInput} for command's `input` shape.
- * @see {@link ListAssetsCommandOutput} for command's `response` shape.
+ * @param ListComputationModelsCommandInput - {@link ListComputationModelsCommandInput}
+ * @returns {@link ListComputationModelsCommandOutput}
+ * @see {@link ListComputationModelsCommandInput} for command's `input` shape.
+ * @see {@link ListComputationModelsCommandOutput} for command's `response` shape.
  * @see {@link IoTSiteWiseClientResolvedConfig | config} for IoTSiteWiseClient's `config` shape.
  *
  * @throws {@link InternalFailureException} (server fault)
@@ -105,9 +85,6 @@ export interface ListAssetsCommandOutput extends ListAssetsResponse, __MetadataB
  * @throws {@link InvalidRequestException} (client fault)
  *  <p>The request isn't valid. This can occur if your request contains malformed JSON or
  *       unsupported characters. Check your request and try again.</p>
- *
- * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The requested resource can't be found.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>Your request exceeded a rate limit. For example, you might have exceeded the number of
@@ -121,10 +98,10 @@ export interface ListAssetsCommandOutput extends ListAssetsResponse, __MetadataB
  *
  * @public
  */
-export class ListAssetsCommand extends $Command
+export class ListComputationModelsCommand extends $Command
   .classBuilder<
-    ListAssetsCommandInput,
-    ListAssetsCommandOutput,
+    ListComputationModelsCommandInput,
+    ListComputationModelsCommandOutput,
     IoTSiteWiseClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -136,21 +113,21 @@ export class ListAssetsCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("AWSIoTSiteWise", "ListAssets", {})
-  .n("IoTSiteWiseClient", "ListAssetsCommand")
+  .s("AWSIoTSiteWise", "ListComputationModels", {})
+  .n("IoTSiteWiseClient", "ListComputationModelsCommand")
   .f(void 0, void 0)
-  .ser(se_ListAssetsCommand)
-  .de(de_ListAssetsCommand)
+  .ser(se_ListComputationModelsCommand)
+  .de(de_ListComputationModelsCommand)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: ListAssetsRequest;
-      output: ListAssetsResponse;
+      input: ListComputationModelsRequest;
+      output: ListComputationModelsResponse;
     };
     sdk: {
-      input: ListAssetsCommandInput;
-      output: ListAssetsCommandOutput;
+      input: ListComputationModelsCommandInput;
+      output: ListComputationModelsCommandOutput;
     };
   };
 }

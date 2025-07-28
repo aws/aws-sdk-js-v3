@@ -6,8 +6,8 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { IoTSiteWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTSiteWiseClient";
-import { ListAssetRelationshipsRequest, ListAssetRelationshipsResponse } from "../models/models_1";
-import { de_ListAssetRelationshipsCommand, se_ListAssetRelationshipsCommand } from "../protocols/Aws_restJson1";
+import { ListExecutionsRequest, ListExecutionsResponse } from "../models/models_1";
+import { de_ListExecutionsCommand, se_ListExecutionsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -17,42 +17,54 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link ListAssetRelationshipsCommand}.
+ * The input for {@link ListExecutionsCommand}.
  */
-export interface ListAssetRelationshipsCommandInput extends ListAssetRelationshipsRequest {}
+export interface ListExecutionsCommandInput extends ListExecutionsRequest {}
 /**
  * @public
  *
- * The output of {@link ListAssetRelationshipsCommand}.
+ * The output of {@link ListExecutionsCommand}.
  */
-export interface ListAssetRelationshipsCommandOutput extends ListAssetRelationshipsResponse, __MetadataBearer {}
+export interface ListExecutionsCommandOutput extends ListExecutionsResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves a paginated list of asset relationships for an asset. You can use this operation
- *       to identify an asset's root asset and all associated assets between that asset and its
- *       root.</p>
+ * <p>Retrieves a paginated list of summaries of all executions.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTSiteWiseClient, ListAssetRelationshipsCommand } from "@aws-sdk/client-iotsitewise"; // ES Modules import
- * // const { IoTSiteWiseClient, ListAssetRelationshipsCommand } = require("@aws-sdk/client-iotsitewise"); // CommonJS import
+ * import { IoTSiteWiseClient, ListExecutionsCommand } from "@aws-sdk/client-iotsitewise"; // ES Modules import
+ * // const { IoTSiteWiseClient, ListExecutionsCommand } = require("@aws-sdk/client-iotsitewise"); // CommonJS import
  * const client = new IoTSiteWiseClient(config);
- * const input = { // ListAssetRelationshipsRequest
- *   assetId: "STRING_VALUE", // required
- *   traversalType: "PATH_TO_ROOT", // required
+ * const input = { // ListExecutionsRequest
+ *   targetResourceType: "ASSET" || "COMPUTATION_MODEL", // required
+ *   targetResourceId: "STRING_VALUE", // required
+ *   resolveToResourceType: "ASSET",
+ *   resolveToResourceId: "STRING_VALUE",
  *   nextToken: "STRING_VALUE",
  *   maxResults: Number("int"),
+ *   actionType: "STRING_VALUE",
  * };
- * const command = new ListAssetRelationshipsCommand(input);
+ * const command = new ListExecutionsCommand(input);
  * const response = await client.send(command);
- * // { // ListAssetRelationshipsResponse
- * //   assetRelationshipSummaries: [ // AssetRelationshipSummaries // required
- * //     { // AssetRelationshipSummary
- * //       hierarchyInfo: { // AssetHierarchyInfo
- * //         parentAssetId: "STRING_VALUE",
- * //         childAssetId: "STRING_VALUE",
+ * // { // ListExecutionsResponse
+ * //   executionSummaries: [ // ExecutionSummaries // required
+ * //     { // ExecutionSummary
+ * //       executionId: "STRING_VALUE", // required
+ * //       actionType: "STRING_VALUE",
+ * //       targetResource: { // TargetResource
+ * //         assetId: "STRING_VALUE",
+ * //         computationModelId: "STRING_VALUE",
  * //       },
- * //       relationshipType: "HIERARCHY", // required
+ * //       targetResourceVersion: "STRING_VALUE", // required
+ * //       resolveTo: { // ResolveTo
+ * //         assetId: "STRING_VALUE", // required
+ * //       },
+ * //       executionStartTime: new Date("TIMESTAMP"), // required
+ * //       executionEndTime: new Date("TIMESTAMP"),
+ * //       executionStatus: { // ExecutionStatus
+ * //         state: "RUNNING" || "COMPLETED" || "FAILED", // required
+ * //       },
+ * //       executionEntityVersion: "STRING_VALUE",
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",
@@ -60,10 +72,10 @@ export interface ListAssetRelationshipsCommandOutput extends ListAssetRelationsh
  *
  * ```
  *
- * @param ListAssetRelationshipsCommandInput - {@link ListAssetRelationshipsCommandInput}
- * @returns {@link ListAssetRelationshipsCommandOutput}
- * @see {@link ListAssetRelationshipsCommandInput} for command's `input` shape.
- * @see {@link ListAssetRelationshipsCommandOutput} for command's `response` shape.
+ * @param ListExecutionsCommandInput - {@link ListExecutionsCommandInput}
+ * @returns {@link ListExecutionsCommandOutput}
+ * @see {@link ListExecutionsCommandInput} for command's `input` shape.
+ * @see {@link ListExecutionsCommandOutput} for command's `response` shape.
  * @see {@link IoTSiteWiseClientResolvedConfig | config} for IoTSiteWiseClient's `config` shape.
  *
  * @throws {@link InternalFailureException} (server fault)
@@ -88,10 +100,10 @@ export interface ListAssetRelationshipsCommandOutput extends ListAssetRelationsh
  *
  * @public
  */
-export class ListAssetRelationshipsCommand extends $Command
+export class ListExecutionsCommand extends $Command
   .classBuilder<
-    ListAssetRelationshipsCommandInput,
-    ListAssetRelationshipsCommandOutput,
+    ListExecutionsCommandInput,
+    ListExecutionsCommandOutput,
     IoTSiteWiseClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -103,21 +115,21 @@ export class ListAssetRelationshipsCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("AWSIoTSiteWise", "ListAssetRelationships", {})
-  .n("IoTSiteWiseClient", "ListAssetRelationshipsCommand")
+  .s("AWSIoTSiteWise", "ListExecutions", {})
+  .n("IoTSiteWiseClient", "ListExecutionsCommand")
   .f(void 0, void 0)
-  .ser(se_ListAssetRelationshipsCommand)
-  .de(de_ListAssetRelationshipsCommand)
+  .ser(se_ListExecutionsCommand)
+  .de(de_ListExecutionsCommand)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: ListAssetRelationshipsRequest;
-      output: ListAssetRelationshipsResponse;
+      input: ListExecutionsRequest;
+      output: ListExecutionsResponse;
     };
     sdk: {
-      input: ListAssetRelationshipsCommandInput;
-      output: ListAssetRelationshipsCommandOutput;
+      input: ListExecutionsCommandInput;
+      output: ListExecutionsCommandOutput;
     };
   };
 }

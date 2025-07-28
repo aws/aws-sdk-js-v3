@@ -59,6 +59,7 @@ export interface ListAssociatedAssetsCommandOutput extends ListAssociatedAssetsR
  * //   assetSummaries: [ // AssociatedAssetsSummaries // required
  * //     { // AssociatedAssetsSummary
  * //       id: "STRING_VALUE", // required
+ * //       externalId: "STRING_VALUE",
  * //       arn: "STRING_VALUE", // required
  * //       name: "STRING_VALUE", // required
  * //       assetModelId: "STRING_VALUE", // required
@@ -80,12 +81,11 @@ export interface ListAssociatedAssetsCommandOutput extends ListAssociatedAssetsR
  * //       hierarchies: [ // AssetHierarchies // required
  * //         { // AssetHierarchy
  * //           id: "STRING_VALUE",
- * //           name: "STRING_VALUE", // required
  * //           externalId: "STRING_VALUE",
+ * //           name: "STRING_VALUE", // required
  * //         },
  * //       ],
  * //       description: "STRING_VALUE",
- * //       externalId: "STRING_VALUE",
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",

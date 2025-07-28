@@ -6,8 +6,8 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { IoTSiteWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTSiteWiseClient";
-import { CreateProjectRequest, CreateProjectResponse } from "../models/models_0";
-import { de_CreateProjectCommand, se_CreateProjectCommand } from "../protocols/Aws_restJson1";
+import { DescribeExecutionRequest, DescribeExecutionResponse } from "../models/models_0";
+import { de_DescribeExecutionCommand, se_DescribeExecutionCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -17,50 +17,60 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link CreateProjectCommand}.
+ * The input for {@link DescribeExecutionCommand}.
  */
-export interface CreateProjectCommandInput extends CreateProjectRequest {}
+export interface DescribeExecutionCommandInput extends DescribeExecutionRequest {}
 /**
  * @public
  *
- * The output of {@link CreateProjectCommand}.
+ * The output of {@link DescribeExecutionCommand}.
  */
-export interface CreateProjectCommandOutput extends CreateProjectResponse, __MetadataBearer {}
+export interface DescribeExecutionCommandOutput extends DescribeExecutionResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a project in the specified portal.</p>
- *          <note>
- *             <p>Make sure that the project name and description don't contain confidential
- *         information.</p>
- *          </note>
+ * <p>Retrieves information about the execution.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTSiteWiseClient, CreateProjectCommand } from "@aws-sdk/client-iotsitewise"; // ES Modules import
- * // const { IoTSiteWiseClient, CreateProjectCommand } = require("@aws-sdk/client-iotsitewise"); // CommonJS import
+ * import { IoTSiteWiseClient, DescribeExecutionCommand } from "@aws-sdk/client-iotsitewise"; // ES Modules import
+ * // const { IoTSiteWiseClient, DescribeExecutionCommand } = require("@aws-sdk/client-iotsitewise"); // CommonJS import
  * const client = new IoTSiteWiseClient(config);
- * const input = { // CreateProjectRequest
- *   portalId: "STRING_VALUE", // required
- *   projectName: "STRING_VALUE", // required
- *   projectDescription: "STRING_VALUE",
- *   clientToken: "STRING_VALUE",
- *   tags: { // TagMap
- *     "<keys>": "STRING_VALUE",
- *   },
+ * const input = { // DescribeExecutionRequest
+ *   executionId: "STRING_VALUE", // required
  * };
- * const command = new CreateProjectCommand(input);
+ * const command = new DescribeExecutionCommand(input);
  * const response = await client.send(command);
- * // { // CreateProjectResponse
- * //   projectId: "STRING_VALUE", // required
- * //   projectArn: "STRING_VALUE", // required
+ * // { // DescribeExecutionResponse
+ * //   executionId: "STRING_VALUE", // required
+ * //   actionType: "STRING_VALUE",
+ * //   targetResource: { // TargetResource
+ * //     assetId: "STRING_VALUE",
+ * //     computationModelId: "STRING_VALUE",
+ * //   },
+ * //   targetResourceVersion: "STRING_VALUE", // required
+ * //   resolveTo: { // ResolveTo
+ * //     assetId: "STRING_VALUE", // required
+ * //   },
+ * //   executionStartTime: new Date("TIMESTAMP"), // required
+ * //   executionEndTime: new Date("TIMESTAMP"),
+ * //   executionStatus: { // ExecutionStatus
+ * //     state: "RUNNING" || "COMPLETED" || "FAILED", // required
+ * //   },
+ * //   executionResult: { // ExecutionResult
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * //   executionDetails: { // ExecutionDetails
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * //   executionEntityVersion: "STRING_VALUE",
  * // };
  *
  * ```
  *
- * @param CreateProjectCommandInput - {@link CreateProjectCommandInput}
- * @returns {@link CreateProjectCommandOutput}
- * @see {@link CreateProjectCommandInput} for command's `input` shape.
- * @see {@link CreateProjectCommandOutput} for command's `response` shape.
+ * @param DescribeExecutionCommandInput - {@link DescribeExecutionCommandInput}
+ * @returns {@link DescribeExecutionCommandOutput}
+ * @see {@link DescribeExecutionCommandInput} for command's `input` shape.
+ * @see {@link DescribeExecutionCommandOutput} for command's `response` shape.
  * @see {@link IoTSiteWiseClientResolvedConfig | config} for IoTSiteWiseClient's `config` shape.
  *
  * @throws {@link InternalFailureException} (server fault)
@@ -69,12 +79,6 @@ export interface CreateProjectCommandOutput extends CreateProjectResponse, __Met
  * @throws {@link InvalidRequestException} (client fault)
  *  <p>The request isn't valid. This can occur if your request contains malformed JSON or
  *       unsupported characters. Check your request and try again.</p>
- *
- * @throws {@link LimitExceededException} (client fault)
- *  <p>You've reached the quota for a resource. For example, this can occur if you're trying to
- *       associate more than the allowed number of child assets or attempting to create more than the
- *       allowed number of properties for an asset model.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html">Quotas</a> in the <i>IoT SiteWise User Guide</i>.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The requested resource can't be found.</p>
@@ -91,10 +95,10 @@ export interface CreateProjectCommandOutput extends CreateProjectResponse, __Met
  *
  * @public
  */
-export class CreateProjectCommand extends $Command
+export class DescribeExecutionCommand extends $Command
   .classBuilder<
-    CreateProjectCommandInput,
-    CreateProjectCommandOutput,
+    DescribeExecutionCommandInput,
+    DescribeExecutionCommandOutput,
     IoTSiteWiseClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -106,21 +110,21 @@ export class CreateProjectCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("AWSIoTSiteWise", "CreateProject", {})
-  .n("IoTSiteWiseClient", "CreateProjectCommand")
+  .s("AWSIoTSiteWise", "DescribeExecution", {})
+  .n("IoTSiteWiseClient", "DescribeExecutionCommand")
   .f(void 0, void 0)
-  .ser(se_CreateProjectCommand)
-  .de(de_CreateProjectCommand)
+  .ser(se_DescribeExecutionCommand)
+  .de(de_DescribeExecutionCommand)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: CreateProjectRequest;
-      output: CreateProjectResponse;
+      input: DescribeExecutionRequest;
+      output: DescribeExecutionResponse;
     };
     sdk: {
-      input: CreateProjectCommandInput;
-      output: CreateProjectCommandOutput;
+      input: DescribeExecutionCommandInput;
+      output: DescribeExecutionCommandOutput;
     };
   };
 }

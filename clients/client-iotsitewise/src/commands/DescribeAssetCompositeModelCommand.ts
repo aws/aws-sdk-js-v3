@@ -65,6 +65,7 @@ export interface DescribeAssetCompositeModelCommandOutput
  * //   assetCompositeModelProperties: [ // AssetProperties // required
  * //     { // AssetProperty
  * //       id: "STRING_VALUE", // required
+ * //       externalId: "STRING_VALUE",
  * //       name: "STRING_VALUE", // required
  * //       alias: "STRING_VALUE",
  * //       notification: { // PropertyNotification
@@ -80,7 +81,6 @@ export interface DescribeAssetCompositeModelCommandOutput
  * //           name: "STRING_VALUE",
  * //         },
  * //       ],
- * //       externalId: "STRING_VALUE",
  * //     },
  * //   ],
  * //   assetCompositeModelSummaries: [ // AssetCompositeModelSummaries // required

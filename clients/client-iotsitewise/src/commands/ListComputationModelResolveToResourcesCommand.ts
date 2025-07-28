@@ -6,10 +6,13 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { IoTSiteWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTSiteWiseClient";
-import { ListAssetModelCompositeModelsRequest, ListAssetModelCompositeModelsResponse } from "../models/models_1";
 import {
-  de_ListAssetModelCompositeModelsCommand,
-  se_ListAssetModelCompositeModelsCommand,
+  ListComputationModelResolveToResourcesRequest,
+  ListComputationModelResolveToResourcesResponse,
+} from "../models/models_1";
+import {
+  de_ListComputationModelResolveToResourcesCommand,
+  se_ListComputationModelResolveToResourcesCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -20,48 +23,40 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link ListAssetModelCompositeModelsCommand}.
+ * The input for {@link ListComputationModelResolveToResourcesCommand}.
  */
-export interface ListAssetModelCompositeModelsCommandInput extends ListAssetModelCompositeModelsRequest {}
+export interface ListComputationModelResolveToResourcesCommandInput
+  extends ListComputationModelResolveToResourcesRequest {}
 /**
  * @public
  *
- * The output of {@link ListAssetModelCompositeModelsCommand}.
+ * The output of {@link ListComputationModelResolveToResourcesCommand}.
  */
-export interface ListAssetModelCompositeModelsCommandOutput
-  extends ListAssetModelCompositeModelsResponse,
+export interface ListComputationModelResolveToResourcesCommandOutput
+  extends ListComputationModelResolveToResourcesResponse,
     __MetadataBearer {}
 
 /**
- * <p>Retrieves a paginated list of composite models associated with the asset model</p>
+ * <p>Lists all distinct resources that are resolved from the executed actions of the computation model.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTSiteWiseClient, ListAssetModelCompositeModelsCommand } from "@aws-sdk/client-iotsitewise"; // ES Modules import
- * // const { IoTSiteWiseClient, ListAssetModelCompositeModelsCommand } = require("@aws-sdk/client-iotsitewise"); // CommonJS import
+ * import { IoTSiteWiseClient, ListComputationModelResolveToResourcesCommand } from "@aws-sdk/client-iotsitewise"; // ES Modules import
+ * // const { IoTSiteWiseClient, ListComputationModelResolveToResourcesCommand } = require("@aws-sdk/client-iotsitewise"); // CommonJS import
  * const client = new IoTSiteWiseClient(config);
- * const input = { // ListAssetModelCompositeModelsRequest
- *   assetModelId: "STRING_VALUE", // required
+ * const input = { // ListComputationModelResolveToResourcesRequest
+ *   computationModelId: "STRING_VALUE", // required
  *   nextToken: "STRING_VALUE",
  *   maxResults: Number("int"),
- *   assetModelVersion: "STRING_VALUE",
  * };
- * const command = new ListAssetModelCompositeModelsCommand(input);
+ * const command = new ListComputationModelResolveToResourcesCommand(input);
  * const response = await client.send(command);
- * // { // ListAssetModelCompositeModelsResponse
- * //   assetModelCompositeModelSummaries: [ // AssetModelCompositeModelSummaries // required
- * //     { // AssetModelCompositeModelSummary
- * //       id: "STRING_VALUE", // required
- * //       externalId: "STRING_VALUE",
- * //       name: "STRING_VALUE", // required
- * //       type: "STRING_VALUE", // required
- * //       description: "STRING_VALUE",
- * //       path: [ // AssetModelCompositeModelPath
- * //         { // AssetModelCompositeModelPathSegment
- * //           id: "STRING_VALUE",
- * //           name: "STRING_VALUE",
- * //         },
- * //       ],
+ * // { // ListComputationModelResolveToResourcesResponse
+ * //   computationModelResolveToResourceSummaries: [ // ComputationModelResolveToResourceSummaries // required
+ * //     { // ComputationModelResolveToResourceSummary
+ * //       resolveTo: { // ResolveTo
+ * //         assetId: "STRING_VALUE", // required
+ * //       },
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",
@@ -69,10 +64,10 @@ export interface ListAssetModelCompositeModelsCommandOutput
  *
  * ```
  *
- * @param ListAssetModelCompositeModelsCommandInput - {@link ListAssetModelCompositeModelsCommandInput}
- * @returns {@link ListAssetModelCompositeModelsCommandOutput}
- * @see {@link ListAssetModelCompositeModelsCommandInput} for command's `input` shape.
- * @see {@link ListAssetModelCompositeModelsCommandOutput} for command's `response` shape.
+ * @param ListComputationModelResolveToResourcesCommandInput - {@link ListComputationModelResolveToResourcesCommandInput}
+ * @returns {@link ListComputationModelResolveToResourcesCommandOutput}
+ * @see {@link ListComputationModelResolveToResourcesCommandInput} for command's `input` shape.
+ * @see {@link ListComputationModelResolveToResourcesCommandOutput} for command's `response` shape.
  * @see {@link IoTSiteWiseClientResolvedConfig | config} for IoTSiteWiseClient's `config` shape.
  *
  * @throws {@link InternalFailureException} (server fault)
@@ -97,10 +92,10 @@ export interface ListAssetModelCompositeModelsCommandOutput
  *
  * @public
  */
-export class ListAssetModelCompositeModelsCommand extends $Command
+export class ListComputationModelResolveToResourcesCommand extends $Command
   .classBuilder<
-    ListAssetModelCompositeModelsCommandInput,
-    ListAssetModelCompositeModelsCommandOutput,
+    ListComputationModelResolveToResourcesCommandInput,
+    ListComputationModelResolveToResourcesCommandOutput,
     IoTSiteWiseClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -112,21 +107,21 @@ export class ListAssetModelCompositeModelsCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("AWSIoTSiteWise", "ListAssetModelCompositeModels", {})
-  .n("IoTSiteWiseClient", "ListAssetModelCompositeModelsCommand")
+  .s("AWSIoTSiteWise", "ListComputationModelResolveToResources", {})
+  .n("IoTSiteWiseClient", "ListComputationModelResolveToResourcesCommand")
   .f(void 0, void 0)
-  .ser(se_ListAssetModelCompositeModelsCommand)
-  .de(de_ListAssetModelCompositeModelsCommand)
+  .ser(se_ListComputationModelResolveToResourcesCommand)
+  .de(de_ListComputationModelResolveToResourcesCommand)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: ListAssetModelCompositeModelsRequest;
-      output: ListAssetModelCompositeModelsResponse;
+      input: ListComputationModelResolveToResourcesRequest;
+      output: ListComputationModelResolveToResourcesResponse;
     };
     sdk: {
-      input: ListAssetModelCompositeModelsCommandInput;
-      output: ListAssetModelCompositeModelsCommandOutput;
+      input: ListComputationModelResolveToResourcesCommandInput;
+      output: ListComputationModelResolveToResourcesCommandOutput;
     };
   };
 }
