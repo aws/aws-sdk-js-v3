@@ -10,18 +10,6 @@ import { getIntegTestResources } from "../../../../tests/e2e/get-integ-test-reso
 import { iterateStreams, joinStreams } from "./join-streams";
 import { S3TransferManager } from "./S3TransferManager";
 
-/**
- * Unit Tests:
- * - addEventListener()
- * - dispatchEvent()
- * - removeEventListener()
- * - TM Constructor
- * - *iterateListeners()
- * - joinStreams()
- * - iterateStreams()
- * - validateExpectedRanges()
- */
-
 describe("S3TransferManager Unit Tests", () => {
   let client: S3;
   let Bucket: string;
@@ -35,15 +23,13 @@ describe("S3TransferManager Unit Tests", () => {
     Bucket = process?.env?.AWS_SMOKE_TEST_BUCKET as string;
     void getIntegTestResources;
 
-    // region = "us-west-1";
-    // Bucket = "lukachad-us-west-2";
-
     client = new S3({
       region,
       responseChecksumValidation: "WHEN_REQUIRED",
     });
   });
 
+  // TODO: This test uses mock from public library aws-sdk-mock. May remove
   describe("ETag Unit tests", () => {
     const s3Mock = mockClient(S3Client);
 

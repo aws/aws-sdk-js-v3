@@ -7,6 +7,7 @@ import type {
 import { GetObjectCommand, HeadObjectCommand, S3Client } from "@aws-sdk/client-s3";
 import { CONFIG_RESPONSE_CHECKSUM_VALIDATION } from "@aws-sdk/middleware-flexible-checksums/dist-types";
 import { getChecksum } from "@aws-sdk/middleware-flexible-checksums/dist-types/getChecksum";
+import { copySnapshotPresignedUrlMiddlewareOptions } from "@aws-sdk/middleware-sdk-ec2/dist-types";
 import { type StreamingBlobPayloadOutputTypes, Checksum, ChecksumConstructor } from "@smithy/types";
 
 import type { AddEventListenerOptions, EventListener, RemoveEventListenerOptions } from "./event-listener-types";
@@ -476,16 +477,16 @@ export class S3TransferManager implements IS3TransferManager {
     let right = this.targetPartSizeBytes - 1;
     let maxRange = Number.POSITIVE_INFINITY;
     let remainingLength = 1;
+    let totalSize: number | undefined;
+    let initialETag: string | undefined;
 
     if (request.Range != null) {
       const [userRangeLeft, userRangeRight] = request.Range.replace("bytes=", "").split("-").map(Number);
       maxRange = userRangeRight;
       left = userRangeLeft;
       right = Math.min(userRangeRight, left + S3TransferManager.MIN_PART_SIZE - 1);
+      totalSize = userRangeRight + 1;
     }
-
-    let totalSize: number | undefined;
-    let initialETag: string | undefined;
 
     try {
       const getObjectRequest: GetObjectCommandInput = {
@@ -496,9 +497,11 @@ export class S3TransferManager implements IS3TransferManager {
       await internalEventHandler.afterInitialGetObject();
       this.validateRangeDownload(`bytes=${left}-${right}`, initialRangeGet.ContentRange);
       initialETag = initialRangeGet.ETag ?? undefined;
-      totalSize = initialRangeGet.ContentRange
-        ? Number.parseInt(initialRangeGet.ContentRange.split("/")[1])
-        : undefined;
+      if (!totalSize) {
+        totalSize = initialRangeGet.ContentRange
+          ? Number.parseInt(initialRangeGet.ContentRange.split("/")[1])
+          : undefined;
+      }
 
       if (initialRangeGet.Body && typeof (initialRangeGet.Body as any).getReader === "function") {
         const reader = (initialRangeGet.Body as any).getReader();
