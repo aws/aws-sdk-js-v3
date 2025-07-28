@@ -25,6 +25,15 @@ export async function joinStreams(
   }
 }
 
+/**
+ *
+ *
+ * @internal
+ */
+export const internalEventHandler = {
+  async onStreamAvailable() {},
+};
+
 export async function* iterateStreams(
   streams: Promise<StreamingBlobPayloadOutputTypes>[],
   eventListeners?: JoinStreamIterationEvents
@@ -33,6 +42,7 @@ export async function* iterateStreams(
   let index = 0;
   for (const streamPromise of streams) {
     const stream = await streamPromise;
+    await internalEventHandler.onStreamAvailable();
     if (isReadableStream(stream)) {
       // TODO: May need to acquire reader before reaching the stream
       const reader = stream.getReader();

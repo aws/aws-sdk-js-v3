@@ -330,6 +330,7 @@ export class S3TransferManager implements IS3TransferManager {
     throw new Error("Method not implemented.");
   }
 
+  // TODO: fix case if object size is 0 bytes
   protected async downloadByPart(
     request: DownloadRequest,
     transferOptions: TransferOptions,
@@ -348,6 +349,7 @@ export class S3TransferManager implements IS3TransferManager {
       try {
         const initialPart = await this.s3ClientInstance.send(new GetObjectCommand(initialPartRequest), transferOptions);
         const initialETag = initialPart.ETag ?? undefined;
+        await internalEventHandler.afterInitialGetObject();
         const partSize = initialPart.ContentLength;
         totalSize = initialPart.ContentRange ? Number.parseInt(initialPart.ContentRange.split("/")[1]) : undefined;
         this.dispatchTransferInitiatedEvent(request, totalSize);
@@ -368,6 +370,9 @@ export class S3TransferManager implements IS3TransferManager {
 
         let partCount = 1;
         if (initialPart.PartsCount! > 1) {
+          const concurrentRequests = [];
+          const concurrentRequestInputs = [];
+
           for (let part = 2; part <= initialPart.PartsCount!; part++) {
             this.checkAborted(transferOptions);
             const getObjectRequest = {
@@ -375,6 +380,7 @@ export class S3TransferManager implements IS3TransferManager {
               PartNumber: part,
               IfMatch: initialETag,
             };
+
             const getObject = this.s3ClientInstance
               .send(new GetObjectCommand(getObjectRequest), transferOptions)
               .then((response) => {
@@ -386,15 +392,25 @@ export class S3TransferManager implements IS3TransferManager {
                   };
                 }
                 return response.Body!;
-              })
-              .catch((error) => {
-                this.dispatchTransferFailedEvent(getObjectRequest, totalSize, error as Error);
-                throw error;
               });
-            streams.push(getObject);
-            requests.push(getObjectRequest);
+
+            concurrentRequests.push(getObject);
+            concurrentRequestInputs.push(getObjectRequest);
             partCount++;
           }
+
+          try {
+            // Add promise streams to streams array ONLY if all are resolved
+            const responses = await Promise.all(concurrentRequests);
+            for (let i = 0; i < responses.length; i++) {
+              streams.push(Promise.resolve(responses[i]));
+              requests.push(concurrentRequestInputs[i]);
+            }
+          } catch (error) {
+            this.dispatchTransferFailedEvent(request, totalSize, error as Error);
+            throw error;
+          }
+
           if (partCount !== initialPart.PartsCount) {
             throw new Error(
               `The number of parts downloaded (${partCount}) does not match the expected number (${initialPart.PartsCount})`
@@ -435,6 +451,7 @@ export class S3TransferManager implements IS3TransferManager {
     };
   }
 
+  // TODO: fix case if object size is 0 bytes
   protected async downloadByRange(
     request: DownloadRequest,
     transferOptions: TransferOptions,
@@ -466,6 +483,7 @@ export class S3TransferManager implements IS3TransferManager {
         Range: `bytes=${left}-${right}`,
       };
       const initialRangeGet = await this.s3ClientInstance.send(new GetObjectCommand(getObjectRequest), transferOptions);
+      await internalEventHandler.afterInitialGetObject();
       this.validateRangeDownload(`bytes=${left}-${right}`, initialRangeGet.ContentRange);
       initialETag = initialRangeGet.ETag ?? undefined;
       totalSize = initialRangeGet.ContentRange
@@ -504,6 +522,9 @@ export class S3TransferManager implements IS3TransferManager {
     remainingLength = totalSize ? Math.min(right - left + 1, Math.max(0, totalSize - left)) : 0;
     let actualRequestCount = 1;
 
+    const concurrentRequests = [];
+    const concurrentRequestInputs = [];
+
     while (remainingLength > 0) {
       this.checkAborted(transferOptions);
 
@@ -513,6 +534,7 @@ export class S3TransferManager implements IS3TransferManager {
         Range: range,
         IfMatch: initialETag,
       };
+
       const getObject = this.s3ClientInstance
         .send(new GetObjectCommand(getObjectRequest), transferOptions)
         .then((response) => {
@@ -524,19 +546,29 @@ export class S3TransferManager implements IS3TransferManager {
             };
           }
           return response.Body!;
-        })
-        .catch((error) => {
-          this.dispatchTransferFailedEvent(getObjectRequest, totalSize, error);
-          throw error;
         });
 
-      streams.push(getObject);
-      requests.push(getObjectRequest);
+      concurrentRequests.push(getObject);
+      concurrentRequestInputs.push(getObjectRequest);
       actualRequestCount++;
 
       left = right + 1;
       right = Math.min(left + S3TransferManager.MIN_PART_SIZE - 1, maxRange);
       remainingLength = totalSize ? Math.min(right - left + 1, Math.max(0, totalSize - left)) : 0;
+    }
+
+    if (concurrentRequests.length > 0) {
+      try {
+        // Add promise streams to streams array ONLY if all are resolved
+        const responses = await Promise.all(concurrentRequests);
+        for (let i = 0; i < responses.length; i++) {
+          streams.push(Promise.resolve(responses[i]));
+          requests.push(concurrentRequestInputs[i]);
+        }
+      } catch (error) {
+        this.dispatchTransferFailedEvent(request, totalSize, error as Error);
+        throw error;
+      }
     }
 
     if (expectedRequestCount !== actualRequestCount) {
@@ -708,3 +740,11 @@ export class S3TransferManager implements IS3TransferManager {
     throw new Error(`Expected range to end at ${expectedEnd} but got ${end}`);
   }
 }
+/**
+ *
+ *
+ * @internal
+ */
+export const internalEventHandler = {
+  async afterInitialGetObject() {},
+};
