@@ -97,6 +97,7 @@ export const se_CreatePipelineCommand = async (
       MinUnits: [],
       PipelineConfigurationBody: [],
       PipelineName: [],
+      PipelineRoleArn: [],
       Tags: (_) => _json(_),
       VpcOptions: (_) => _json(_),
     })
@@ -328,6 +329,7 @@ export const se_UpdatePipelineCommand = async (
       MaxUnits: [],
       MinUnits: [],
       PipelineConfigurationBody: [],
+      PipelineRoleArn: [],
     })
   );
   b.m("PUT").h(headers).b(body);
@@ -957,6 +959,7 @@ const de_Pipeline = (output: any, context: __SerdeContext): Pipeline => {
     PipelineArn: __expectString,
     PipelineConfigurationBody: __expectString,
     PipelineName: __expectString,
+    PipelineRoleArn: __expectString,
     ServiceVpcEndpoints: _json,
     Status: __expectString,
     StatusReason: _json,

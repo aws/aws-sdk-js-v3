@@ -106,6 +106,7 @@ export interface GetPipelineCommandOutput extends GetPipelineResponse, __Metadat
  * //         Value: "STRING_VALUE", // required
  * //       },
  * //     ],
+ * //     PipelineRoleArn: "STRING_VALUE",
  * //   },
  * // };
  *

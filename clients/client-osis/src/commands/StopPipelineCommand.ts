@@ -106,6 +106,7 @@ export interface StopPipelineCommandOutput extends StopPipelineResponse, __Metad
  * //         Value: "STRING_VALUE", // required
  * //       },
  * //     ],
+ * //     PipelineRoleArn: "STRING_VALUE",
  * //   },
  * // };
  *

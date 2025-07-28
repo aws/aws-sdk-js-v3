@@ -71,6 +71,7 @@ export interface CreatePipelineCommandOutput extends CreatePipelineResponse, __M
  *       Value: "STRING_VALUE", // required
  *     },
  *   ],
+ *   PipelineRoleArn: "STRING_VALUE",
  * };
  * const command = new CreatePipelineCommand(input);
  * const response = await client.send(command);
@@ -140,6 +141,7 @@ export interface CreatePipelineCommandOutput extends CreatePipelineResponse, __M
  * //         Value: "STRING_VALUE", // required
  * //       },
  * //     ],
+ * //     PipelineRoleArn: "STRING_VALUE",
  * //   },
  * // };
  *

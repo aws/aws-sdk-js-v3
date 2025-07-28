@@ -52,6 +52,7 @@ export interface UpdatePipelineCommandOutput extends UpdatePipelineResponse, __M
  *   EncryptionAtRestOptions: { // EncryptionAtRestOptions
  *     KmsKeyArn: "STRING_VALUE", // required
  *   },
+ *   PipelineRoleArn: "STRING_VALUE",
  * };
  * const command = new UpdatePipelineCommand(input);
  * const response = await client.send(command);
@@ -121,6 +122,7 @@ export interface UpdatePipelineCommandOutput extends UpdatePipelineResponse, __M
  * //         Value: "STRING_VALUE", // required
  * //       },
  * //     ],
+ * //     PipelineRoleArn: "STRING_VALUE",
  * //   },
  * // };
  *

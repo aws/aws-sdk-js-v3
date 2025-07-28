@@ -229,6 +229,14 @@ export interface CreatePipelineRequest {
    * @public
    */
   Tags?: Tag[] | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of an IAM role that provides
+   *    the required permissions for a pipeline to read from the source and write to the sink.
+   *    For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/pipeline-security-overview.html">Setting up roles and users in Amazon OpenSearch Ingestion</a>.</p>
+   * @public
+   */
+  PipelineRoleArn?: string | undefined;
 }
 
 /**
@@ -453,6 +461,13 @@ export interface Pipeline {
    * @public
    */
   Tags?: Tag[] | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the IAM role that provides
+   *    the required permissions for a pipeline to read from the source and write to the sink.</p>
+   * @public
+   */
+  PipelineRoleArn?: string | undefined;
 }
 
 /**
@@ -1170,6 +1185,14 @@ export interface UpdatePipelineRequest {
    * @public
    */
   EncryptionAtRestOptions?: EncryptionAtRestOptions | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of an IAM role that provides
+   *    the required permissions for a pipeline to read from the source and write to the sink.
+   *    For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/pipeline-security-overview.html">Setting up roles and users in Amazon OpenSearch Ingestion</a>.</p>
+   * @public
+   */
+  PipelineRoleArn?: string | undefined;
 }
 
 /**

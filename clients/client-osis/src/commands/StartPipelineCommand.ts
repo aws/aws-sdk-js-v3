@@ -106,6 +106,7 @@ export interface StartPipelineCommandOutput extends StartPipelineResponse, __Met
  * //         Value: "STRING_VALUE", // required
  * //       },
  * //     ],
+ * //     PipelineRoleArn: "STRING_VALUE",
  * //   },
  * // };
  *
