@@ -91,6 +91,7 @@ export interface AllocateConnectionOnInterconnectCommandOutput extends Connectio
  * //       startOn: "STRING_VALUE",
  * //     },
  * //   ],
+ * //   partnerInterconnectMacSecCapable: true || false,
  * // };
  *
  * ```

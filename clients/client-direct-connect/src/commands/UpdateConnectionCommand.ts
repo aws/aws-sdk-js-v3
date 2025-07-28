@@ -28,7 +28,7 @@ export interface UpdateConnectionCommandInput extends UpdateConnectionRequest {}
 export interface UpdateConnectionCommandOutput extends Connection, __MetadataBearer {}
 
 /**
- * <p>Updates the Direct Connect dedicated connection configuration.</p>
+ * <p>Updates the Direct Connect connection configuration.</p>
  *          <p>You can update the following parameters for a connection:</p>
  *          <ul>
  *             <li>
@@ -86,6 +86,7 @@ export interface UpdateConnectionCommandOutput extends Connection, __MetadataBea
  * //       startOn: "STRING_VALUE",
  * //     },
  * //   ],
+ * //   partnerInterconnectMacSecCapable: true || false,
  * // };
  *
  * ```

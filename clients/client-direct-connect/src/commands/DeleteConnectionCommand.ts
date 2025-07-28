@@ -78,6 +78,7 @@ export interface DeleteConnectionCommandOutput extends Connection, __MetadataBea
  * //       startOn: "STRING_VALUE",
  * //     },
  * //   ],
+ * //   partnerInterconnectMacSecCapable: true || false,
  * // };
  *
  * ```

@@ -63,6 +63,17 @@ export interface DescribeInterconnectsCommandOutput extends Interconnects, __Met
  * //         },
  * //       ],
  * //       providerName: "STRING_VALUE",
+ * //       macSecCapable: true || false,
+ * //       portEncryptionStatus: "STRING_VALUE",
+ * //       encryptionMode: "STRING_VALUE",
+ * //       macSecKeys: [ // MacSecKeyList
+ * //         { // MacSecKey
+ * //           secretARN: "STRING_VALUE",
+ * //           ckn: "STRING_VALUE",
+ * //           state: "STRING_VALUE",
+ * //           startOn: "STRING_VALUE",
+ * //         },
+ * //       ],
  * //     },
  * //   ],
  * // };

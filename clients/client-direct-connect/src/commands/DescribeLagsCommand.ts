@@ -91,6 +91,7 @@ export interface DescribeLagsCommandOutput extends Lags, __MetadataBearer {}
  * //               startOn: "STRING_VALUE",
  * //             },
  * //           ],
+ * //           partnerInterconnectMacSecCapable: true || false,
  * //         },
  * //       ],
  * //       allowsHostedConnections: true || false,

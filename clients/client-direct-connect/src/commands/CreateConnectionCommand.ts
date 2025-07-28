@@ -93,6 +93,7 @@ export interface CreateConnectionCommandOutput extends Connection, __MetadataBea
  * //       startOn: "STRING_VALUE",
  * //     },
  * //   ],
+ * //   partnerInterconnectMacSecCapable: true || false,
  * // };
  *
  * ```

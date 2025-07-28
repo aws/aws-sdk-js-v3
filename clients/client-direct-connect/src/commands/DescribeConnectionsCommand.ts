@@ -77,6 +77,7 @@ export interface DescribeConnectionsCommandOutput extends Connections, __Metadat
  * //           startOn: "STRING_VALUE",
  * //         },
  * //       ],
+ * //       partnerInterconnectMacSecCapable: true || false,
  * //     },
  * //   ],
  * // };

@@ -41,7 +41,7 @@ export interface DeleteVirtualInterfaceCommandOutput extends DeleteVirtualInterf
  * const command = new DeleteVirtualInterfaceCommand(input);
  * const response = await client.send(command);
  * // { // DeleteVirtualInterfaceResponse
- * //   virtualInterfaceState: "confirming" || "verifying" || "pending" || "available" || "down" || "deleting" || "deleted" || "rejected" || "unknown",
+ * //   virtualInterfaceState: "confirming" || "verifying" || "pending" || "available" || "down" || "testing" || "deleting" || "deleted" || "rejected" || "unknown",
  * // };
  *
  * ```

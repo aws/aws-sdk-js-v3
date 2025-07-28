@@ -90,6 +90,7 @@ export interface AllocateHostedConnectionCommandOutput extends Connection, __Met
  * //       startOn: "STRING_VALUE",
  * //     },
  * //   ],
+ * //   partnerInterconnectMacSecCapable: true || false,
  * // };
  *
  * ```

@@ -81,6 +81,7 @@ export interface DescribeHostedConnectionsCommandOutput extends Connections, __M
  * //           startOn: "STRING_VALUE",
  * //         },
  * //       ],
+ * //       partnerInterconnectMacSecCapable: true || false,
  * //     },
  * //   ],
  * // };

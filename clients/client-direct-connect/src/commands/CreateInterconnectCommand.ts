@@ -62,6 +62,7 @@ export interface CreateInterconnectCommandOutput extends Interconnect, __Metadat
  *     },
  *   ],
  *   providerName: "STRING_VALUE",
+ *   requestMACSec: true || false,
  * };
  * const command = new CreateInterconnectCommand(input);
  * const response = await client.send(command);
@@ -86,6 +87,17 @@ export interface CreateInterconnectCommandOutput extends Interconnect, __Metadat
  * //     },
  * //   ],
  * //   providerName: "STRING_VALUE",
+ * //   macSecCapable: true || false,
+ * //   portEncryptionStatus: "STRING_VALUE",
+ * //   encryptionMode: "STRING_VALUE",
+ * //   macSecKeys: [ // MacSecKeyList
+ * //     { // MacSecKey
+ * //       secretARN: "STRING_VALUE",
+ * //       ckn: "STRING_VALUE",
+ * //       state: "STRING_VALUE",
+ * //       startOn: "STRING_VALUE",
+ * //     },
+ * //   ],
  * // };
  *
  * ```

@@ -48,7 +48,7 @@ export interface ConfirmTransitVirtualInterfaceCommandOutput
  * const command = new ConfirmTransitVirtualInterfaceCommand(input);
  * const response = await client.send(command);
  * // { // ConfirmTransitVirtualInterfaceResponse
- * //   virtualInterfaceState: "confirming" || "verifying" || "pending" || "available" || "down" || "deleting" || "deleted" || "rejected" || "unknown",
+ * //   virtualInterfaceState: "confirming" || "verifying" || "pending" || "available" || "down" || "testing" || "deleting" || "deleted" || "rejected" || "unknown",
  * // };
  *
  * ```

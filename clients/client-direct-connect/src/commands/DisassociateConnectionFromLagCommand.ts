@@ -88,6 +88,7 @@ export interface DisassociateConnectionFromLagCommandOutput extends Connection, 
  * //       startOn: "STRING_VALUE",
  * //     },
  * //   ],
+ * //   partnerInterconnectMacSecCapable: true || false,
  * // };
  *
  * ```

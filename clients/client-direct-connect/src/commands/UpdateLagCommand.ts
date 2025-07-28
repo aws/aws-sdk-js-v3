@@ -114,6 +114,7 @@ export interface UpdateLagCommandOutput extends Lag, __MetadataBearer {}
  * //           startOn: "STRING_VALUE",
  * //         },
  * //       ],
+ * //       partnerInterconnectMacSecCapable: true || false,
  * //     },
  * //   ],
  * //   allowsHostedConnections: true || false,

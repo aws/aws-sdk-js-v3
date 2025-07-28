@@ -89,6 +89,7 @@ export interface AssociateConnectionWithLagCommandOutput extends Connection, __M
  * //       startOn: "STRING_VALUE",
  * //     },
  * //   ],
+ * //   partnerInterconnectMacSecCapable: true || false,
  * // };
  *
  * ```

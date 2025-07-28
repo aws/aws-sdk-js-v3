@@ -66,7 +66,7 @@ export interface UpdateVirtualInterfaceAttributesCommandOutput extends VirtualIn
  * //   amazonAddress: "STRING_VALUE",
  * //   customerAddress: "STRING_VALUE",
  * //   addressFamily: "ipv4" || "ipv6",
- * //   virtualInterfaceState: "confirming" || "verifying" || "pending" || "available" || "down" || "deleting" || "deleted" || "rejected" || "unknown",
+ * //   virtualInterfaceState: "confirming" || "verifying" || "pending" || "available" || "down" || "testing" || "deleting" || "deleted" || "rejected" || "unknown",
  * //   customerRouterConfig: "STRING_VALUE",
  * //   mtu: Number("int"),
  * //   jumboFrameCapable: true || false,

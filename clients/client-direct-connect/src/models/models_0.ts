@@ -633,6 +633,12 @@ export interface Connection {
    * @public
    */
   macSecKeys?: MacSecKey[] | undefined;
+
+  /**
+   * <p>Indicates whether the interconnect hosting this connection supports MAC Security (MACsec).</p>
+   * @public
+   */
+  partnerInterconnectMacSecCapable?: boolean | undefined;
 }
 
 /**
@@ -951,6 +957,7 @@ export const VirtualInterfaceState = {
   down: "down",
   pending: "pending",
   rejected: "rejected",
+  testing: "testing",
   unknown: "unknown",
   verifying: "verifying",
 } as const;
@@ -1384,14 +1391,14 @@ export interface AssociateHostedConnectionRequest {
  */
 export interface AssociateMacSecKeyRequest {
   /**
-   * <p>The ID of the dedicated connection (dxcon-xxxx), or the ID of the LAG (dxlag-xxxx).</p>
-   *          <p>You can use <a>DescribeConnections</a> or <a>DescribeLags</a> to retrieve connection ID.</p>
+   * <p>The ID of the dedicated connection (dxcon-xxxx), interconnect (dxcon-xxxx), or LAG (dxlag-xxxx).</p>
+   *          <p>You can use <a>DescribeConnections</a>, <a>DescribeInterconnects</a>, or <a>DescribeLags</a> to retrieve connection ID.</p>
    * @public
    */
   connectionId: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the MAC Security (MACsec) secret key to associate with the dedicated connection.</p>
+   * <p>The Amazon Resource Name (ARN) of the MAC Security (MACsec) secret key to associate with the connection.</p>
    *          <p>You can use <a>DescribeConnections</a> or <a>DescribeLags</a> to retrieve the MAC Security (MACsec) secret key.</p>
    *          <p>If you use this request parameter, you do not use the <code>ckn</code> and <code>cak</code> request parameters.</p>
    * @public
@@ -1399,7 +1406,7 @@ export interface AssociateMacSecKeyRequest {
   secretARN?: string | undefined;
 
   /**
-   * <p>The MAC Security (MACsec) CKN to associate with the dedicated connection.</p>
+   * <p>The MAC Security (MACsec) CKN to associate with the connection.</p>
    *          <p>You can create the CKN/CAK pair using an industry standard tool.</p>
    *          <p> The valid values are 64 hexadecimal characters (0-9, A-E).</p>
    *          <p>If you use this request parameter, you must use the <code>cak</code> request parameter and not use the <code>secretARN</code> request parameter.</p>
@@ -1408,7 +1415,7 @@ export interface AssociateMacSecKeyRequest {
   ckn?: string | undefined;
 
   /**
-   * <p>The MAC Security (MACsec) CAK to associate with the dedicated connection.</p>
+   * <p>The MAC Security (MACsec) CAK to associate with the connection.</p>
    *          <p>You can create the CKN/CAK pair using an industry standard tool.</p>
    *          <p> The valid values are 64 hexadecimal characters (0-9, A-E).</p>
    *          <p>If you use this request parameter, you must use the <code>ckn</code> request parameter and not use the <code>secretARN</code> request parameter.</p>
@@ -1422,13 +1429,13 @@ export interface AssociateMacSecKeyRequest {
  */
 export interface AssociateMacSecKeyResponse {
   /**
-   * <p>The ID of the dedicated connection (dxcon-xxxx), or the ID of the LAG (dxlag-xxxx).</p>
+   * <p>The ID of the dedicated connection (dxcon-xxxx), interconnect (dxcon-xxxx), or LAG (dxlag-xxxx).</p>
    * @public
    */
   connectionId?: string | undefined;
 
   /**
-   * <p>The MAC Security (MACsec) security keys associated with the dedicated connection.</p>
+   * <p>The MAC Security (MACsec) security keys associated with the connection.</p>
    * @public
    */
   macSecKeys?: MacSecKey[] | undefined;
@@ -1866,7 +1873,7 @@ export interface CreateConnectionRequest {
 
   /**
    * <p>Indicates whether you want the connection to support MAC Security (MACsec).</p>
-   *          <p>MAC Security (MACsec) is only available on dedicated connections. For information about MAC Security (MACsec) prerequisties, see  <a href="https://docs.aws.amazon.com/directconnect/latest/UserGuide/direct-connect-mac-sec-getting-started.html#mac-sec-prerequisites">MACsec prerequisties</a> in the <i>Direct Connect User Guide</i>.</p>
+   *          <p>MAC Security (MACsec) is unavailable on hosted connections. For information about MAC Security (MACsec) prerequisites, see  <a href="https://docs.aws.amazon.com/directconnect/latest/UserGuide/MACSec.html">MAC Security in Direct Connect</a> in the <i>Direct Connect User Guide</i>.</p>
    * @public
    */
   requestMACSec?: boolean | undefined;
@@ -2195,6 +2202,12 @@ export interface CreateInterconnectRequest {
    * @public
    */
   providerName?: string | undefined;
+
+  /**
+   * <p>Indicates whether you want the interconnect to support MAC Security (MACsec).</p>
+   * @public
+   */
+  requestMACSec?: boolean | undefined;
 }
 
 /**
@@ -2344,6 +2357,32 @@ export interface Interconnect {
    * @public
    */
   providerName?: string | undefined;
+
+  /**
+   * <p>Indicates whether the interconnect supports MAC Security (MACsec).</p>
+   * @public
+   */
+  macSecCapable?: boolean | undefined;
+
+  /**
+   * <p>The MAC Security (MACsec) port link status.</p>
+   *          <p>The valid values are <code>Encryption Up</code>, which means that there is an active Connection Key Name, or <code>Encryption Down</code>.</p>
+   * @public
+   */
+  portEncryptionStatus?: string | undefined;
+
+  /**
+   * <p>The MAC Security (MACsec) encryption mode.</p>
+   *          <p>The valid values are <code>no_encrypt</code>, <code>should_encrypt</code>, and <code>must_encrypt</code>.</p>
+   * @public
+   */
+  encryptionMode?: string | undefined;
+
+  /**
+   * <p>The MAC Security (MACsec) security keys.</p>
+   * @public
+   */
+  macSecKeys?: MacSecKey[] | undefined;
 }
 
 /**
@@ -3961,8 +4000,8 @@ export interface DisassociateConnectionFromLagRequest {
  */
 export interface DisassociateMacSecKeyRequest {
   /**
-   * <p>The ID of the dedicated connection (dxcon-xxxx), or the ID of the LAG (dxlag-xxxx).</p>
-   *          <p>You can use <a>DescribeConnections</a> or <a>DescribeLags</a> to retrieve connection ID.</p>
+   * <p>The ID of the dedicated connection (dxcon-xxxx), interconnect (dxcon-xxxx), or LAG (dxlag-xxxx).</p>
+   *          <p>You can use <a>DescribeConnections</a>, <a>DescribeInterconnects</a>, or <a>DescribeLags</a> to retrieve connection ID.</p>
    * @public
    */
   connectionId: string | undefined;
@@ -3980,13 +4019,13 @@ export interface DisassociateMacSecKeyRequest {
  */
 export interface DisassociateMacSecKeyResponse {
   /**
-   * <p>The ID of the dedicated connection (dxcon-xxxx), or the ID of the LAG (dxlag-xxxx).</p>
+   * <p>The ID of the dedicated connection (dxcon-xxxx), interconnect (dxcon-xxxx), or LAG (dxlag-xxxx).</p>
    * @public
    */
   connectionId?: string | undefined;
 
   /**
-   * <p>The MAC Security (MACsec) security keys no longer associated with the dedicated connection.</p>
+   * <p>The MAC Security (MACsec) security keys no longer associated with the connection.</p>
    * @public
    */
   macSecKeys?: MacSecKey[] | undefined;
@@ -4214,7 +4253,7 @@ export interface UntagResourceResponse {}
  */
 export interface UpdateConnectionRequest {
   /**
-   * <p>The ID of the dedicated connection.</p>
+   * <p>The ID of the connection.</p>
    *          <p>You can use <a>DescribeConnections</a> to retrieve the connection ID.</p>
    * @public
    */

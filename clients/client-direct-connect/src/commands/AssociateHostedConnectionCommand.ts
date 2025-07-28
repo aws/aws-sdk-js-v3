@@ -83,6 +83,7 @@ export interface AssociateHostedConnectionCommandOutput extends Connection, __Me
  * //       startOn: "STRING_VALUE",
  * //     },
  * //   ],
+ * //   partnerInterconnectMacSecCapable: true || false,
  * // };
  *
  * ```

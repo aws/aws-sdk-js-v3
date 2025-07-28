@@ -51,7 +51,7 @@ export interface ConfirmPrivateVirtualInterfaceCommandOutput
  * const command = new ConfirmPrivateVirtualInterfaceCommand(input);
  * const response = await client.send(command);
  * // { // ConfirmPrivateVirtualInterfaceResponse
- * //   virtualInterfaceState: "confirming" || "verifying" || "pending" || "available" || "down" || "deleting" || "deleted" || "rejected" || "unknown",
+ * //   virtualInterfaceState: "confirming" || "verifying" || "pending" || "available" || "down" || "testing" || "deleting" || "deleted" || "rejected" || "unknown",
  * // };
  *
  * ```

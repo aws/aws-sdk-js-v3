@@ -28,7 +28,7 @@ export interface DisassociateMacSecKeyCommandInput extends DisassociateMacSecKey
 export interface DisassociateMacSecKeyCommandOutput extends DisassociateMacSecKeyResponse, __MetadataBearer {}
 
 /**
- * <p>Removes the association between a MAC Security (MACsec) security key and an Direct Connect dedicated connection.</p>
+ * <p>Removes the association between a MAC Security (MACsec) security key and a Direct Connect connection.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
