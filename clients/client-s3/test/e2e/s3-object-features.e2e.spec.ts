@@ -91,6 +91,67 @@ describe("@aws-sdk/client-s3", () => {
       await deleteObject("hello");
       expect(await objectExists("hello")).toBe(false);
     });
+
+    describe("keys with special characters", () => {
+      const keys = [
+        `\r`,
+        `\n`,
+        `\x85`,
+        `\u2028`,
+        "\n \n",
+        "a\r\n b\n c\r",
+        "a\r\u0085 b\u0085",
+        "a\r\u2028 b\u0085 c\u2028",
+      ];
+
+      beforeAll(async () => {
+        await Promise.all(
+          keys.map(async (Key) => {
+            await client.putObject({
+              Bucket,
+              Key,
+              Body: Key,
+            });
+          })
+        );
+      });
+
+      afterAll(async () => {
+        for (const key of keys) {
+          await client
+            .deleteObject({
+              Bucket,
+              Key: key,
+            })
+            .catch(() => {});
+        }
+      });
+
+      it("can delete keys containing special characters", async () => {
+        await client.deleteObjects({
+          Bucket,
+          Delete: {
+            Objects: keys.map((Key) => ({
+              Key,
+            })),
+          },
+        });
+
+        await Promise.all(
+          keys.map(async (Key) => {
+            return client
+              .headObject({
+                Bucket,
+                Key,
+              })
+              .catch((e: any) => e)
+              .then((r) => {
+                expect((r ?? r.$response).$metadata.httpStatusCode).toEqual(404);
+              });
+          })
+        );
+      });
+    });
   });
 
   describe("Content length", () => {
