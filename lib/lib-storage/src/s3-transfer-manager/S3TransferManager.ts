@@ -330,7 +330,6 @@ export class S3TransferManager implements IS3TransferManager {
     throw new Error("Method not implemented.");
   }
 
-  // TODO: fix case if object size is 0 bytes
   protected async downloadByPart(
     request: DownloadRequest,
     transferOptions: TransferOptions,
@@ -351,7 +350,7 @@ export class S3TransferManager implements IS3TransferManager {
         const initialETag = initialPart.ETag ?? undefined;
         await internalEventHandler.afterInitialGetObject();
         const partSize = initialPart.ContentLength;
-        totalSize = initialPart.ContentRange ? Number.parseInt(initialPart.ContentRange.split("/")[1]) : undefined;
+        totalSize = initialPart.ContentRange ? Number.parseInt(initialPart.ContentRange.split("/")[1]) : 0;
         this.dispatchTransferInitiatedEvent(request, totalSize);
         if (initialPart.Body) {
           if (initialPart.Body && typeof (initialPart.Body as any).getReader === "function") {
@@ -364,9 +363,7 @@ export class S3TransferManager implements IS3TransferManager {
           requests.push(initialPartRequest);
         }
 
-        this.updateResponseLengthAndRange(initialPart, totalSize);
-        this.assignMetadata(metadata, initialPart);
-        this.updateChecksumValues(initialPart, metadata);
+        this.processResponseMetadata(initialPart, metadata, totalSize);
 
         let partCount = 1;
         if (initialPart.PartsCount! > 1) {
@@ -430,16 +427,14 @@ export class S3TransferManager implements IS3TransferManager {
         };
 
         const getObject = await this.s3ClientInstance.send(new GetObjectCommand(getObjectRequest), transferOptions);
-        totalSize = getObject.ContentRange ? Number.parseInt(getObject.ContentRange.split("/")[1]) : undefined;
+        totalSize = getObject.ContentRange ? Number.parseInt(getObject.ContentRange.split("/")[1]) : 0;
 
         this.dispatchTransferInitiatedEvent(request, totalSize);
         if (getObject.Body) {
           streams.push(Promise.resolve(getObject.Body));
           requests.push(getObjectRequest);
         }
-        this.updateResponseLengthAndRange(getObject, totalSize);
-        this.assignMetadata(metadata, getObject);
-        this.updateChecksumValues(getObject, metadata);
+        this.processResponseMetadata(getObject, metadata, totalSize);
       } catch (error) {
         this.dispatchTransferFailedEvent(request, undefined, error);
         throw error;
@@ -451,7 +446,6 @@ export class S3TransferManager implements IS3TransferManager {
     };
   }
 
-  // TODO: fix case if object size is 0 bytes
   protected async downloadByRange(
     request: DownloadRequest,
     transferOptions: TransferOptions,
@@ -461,6 +455,23 @@ export class S3TransferManager implements IS3TransferManager {
   ): Promise<{ totalSize: number | undefined }> {
     this.checkAborted(transferOptions);
 
+    const headResponse = await this.s3ClientInstance.send(
+      new HeadObjectCommand({ Bucket: request.Bucket, Key: request.Key }),
+      transferOptions
+    );
+
+    if (headResponse.ContentLength === 0) {
+      const getObjectRequest = { ...request };
+      const response = await this.s3ClientInstance.send(new GetObjectCommand(getObjectRequest), transferOptions);
+
+      this.dispatchTransferInitiatedEvent(request, 0);
+      if (response.Body) streams.push(Promise.resolve(response.Body));
+      requests.push(getObjectRequest);
+
+      this.processResponseMetadata(response, metadata, 0);
+      return { totalSize: 0 };
+    }
+
     let left = 0;
     let right = this.targetPartSizeBytes - 1;
     let maxRange = Number.POSITIVE_INFINITY;
@@ -468,7 +479,6 @@ export class S3TransferManager implements IS3TransferManager {
 
     if (request.Range != null) {
       const [userRangeLeft, userRangeRight] = request.Range.replace("bytes=", "").split("-").map(Number);
-
       maxRange = userRangeRight;
       left = userRangeLeft;
       right = Math.min(userRangeRight, left + S3TransferManager.MIN_PART_SIZE - 1);
@@ -500,10 +510,7 @@ export class S3TransferManager implements IS3TransferManager {
       this.dispatchTransferInitiatedEvent(request, totalSize);
       streams.push(Promise.resolve(initialRangeGet.Body!));
       requests.push(getObjectRequest);
-
-      this.updateResponseLengthAndRange(initialRangeGet, totalSize);
-      this.assignMetadata(metadata, initialRangeGet);
-      this.updateChecksumValues(initialRangeGet, metadata);
+      this.processResponseMetadata(initialRangeGet, metadata, totalSize);
     } catch (error) {
       this.dispatchTransferFailedEvent(request, totalSize, error as Error);
       throw error;
@@ -598,6 +605,15 @@ export class S3TransferManager implements IS3TransferManager {
     }
   }
 
+  private assignMetadata(container: any, response: any) {
+    for (const key in response) {
+      if (key === "Body") {
+        continue;
+      }
+      container[key] = response[key];
+    }
+  }
+
   private updateResponseLengthAndRange(response: DownloadResponse, totalSize: number | undefined): void {
     if (totalSize !== undefined) {
       response.ContentLength = totalSize;
@@ -614,18 +630,19 @@ export class S3TransferManager implements IS3TransferManager {
     }
   }
 
+  private processResponseMetadata(
+    response: DownloadResponse,
+    metadata: Omit<DownloadResponse, "Body">,
+    totalSize: number | undefined
+  ): void {
+    this.updateResponseLengthAndRange(response, totalSize);
+    this.assignMetadata(metadata, response);
+    this.updateChecksumValues(response, metadata);
+  }
+
   private checkAborted(transferOptions?: TransferOptions): void {
     if (transferOptions?.abortSignal?.aborted) {
       throw Object.assign(new Error("Download aborted."), { name: "AbortError" });
-    }
-  }
-
-  private assignMetadata(container: any, response: any) {
-    for (const key in response) {
-      if (key === "Body") {
-        continue;
-      }
-      container[key] = response[key];
     }
   }
 
