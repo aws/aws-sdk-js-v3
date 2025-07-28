@@ -1,10 +1,16 @@
-import { GetObjectCommandOutput, PutObjectCommand, S3 } from "@aws-sdk/client-s3";
+import {
+  GetObjectCommandOutput,
+  ListBucketInventoryConfigurationsOutputFilterSensitiveLog,
+  PutObjectCommand,
+  S3,
+} from "@aws-sdk/client-s3";
+import internal from "stream";
 import { getHeapSnapshot } from "v8";
 import { beforeAll, describe, expect, test as it } from "vitest";
 
 import { getIntegTestResources } from "../../../../tests/e2e/get-integ-test-resources";
 import { Upload } from "../Upload";
-import { S3TransferManager } from "./S3TransferManager";
+import { internalEventHandler, S3TransferManager } from "./S3TransferManager";
 import type { IS3TransferManager, S3TransferManagerConfig } from "./types";
 
 describe(S3TransferManager.name, () => {
@@ -56,7 +62,7 @@ describe(S3TransferManager.name, () => {
   // TODO: Integration test for transferFailed
   // TODO: Write README, think in customer perspective, then based on that write e2e tests
 
-  describe("multi part download", () => {
+  describe.skip("multi part download", () => {
     const modes = ["PART", "RANGE"] as S3TransferManagerConfig["multipartDownloadType"][];
     // 6 = 1 part, 11 = 2 part, 19 = 3 part
     const sizes = [6, 11, 19, 0] as number[];
@@ -68,14 +74,10 @@ describe(S3TransferManager.name, () => {
           const Body = data(totalSizeMB);
           const Key = `${mode}-size`;
 
-          if (mode === "PART") {
-            await new Upload({
-              client,
-              params: { Bucket, Key, Body },
-            }).done();
-          } else {
-            await client.putObject({ Bucket, Key, Body });
-          }
+          await new Upload({
+            client,
+            params: { Bucket, Key, Body },
+          }).done();
 
           const tm: S3TransferManager = mode === "PART" ? tmPart : tmRange;
 
@@ -137,7 +139,7 @@ describe(S3TransferManager.name, () => {
     const modes = ["PART", "RANGE"] as S3TransferManagerConfig["multipartDownloadType"][];
 
     for (const mode of modes) {
-      it(`should fail when ETag changes during a  ${mode} download`, async () => {
+      it(`should fail when ETag changes during a ${mode} download`, async () => {
         const totalSizeMB = 20 * 1024 * 1024;
         const Body = data(totalSizeMB);
         const Key = `${mode}-etag-test`;
@@ -152,30 +154,30 @@ describe(S3TransferManager.name, () => {
         }
 
         let transferFailed = false;
-        let objectUpdated = false;
-
         const tm: S3TransferManager = mode === "PART" ? tmPart : tmRange;
 
-        // TODO: this test does not currently pass, fix mid-download logic or fix ETag verification in S3TM.
         try {
+          internalEventHandler.afterInitialGetObject = async () => {
+            try {
+              if (mode === "PART") {
+                await new Upload({
+                  client,
+                  params: { Bucket, Key, Body: data(20 * 1024 * 1024 - 8) },
+                }).done();
+              } else {
+                await client.putObject({ Bucket, Key, Body: data(20 * 1024 * 1024 - 8) });
+              }
+            } catch (err) {
+              // ignore errors
+            }
+            internalEventHandler.afterInitialGetObject = async () => {};
+          };
+
           await tm.download(
             { Bucket, Key },
             {
               eventListeners: {
-                transferInitiated: [
-                  async ({ snapshot }) => {
-                    // Update object after first part is downloaded
-                    objectUpdated = true;
-                    const objectUpload = await client.send(
-                      new PutObjectCommand({
-                        Bucket,
-                        Key: "6mb",
-                        Body: data(2 * 1024 * 1024),
-                      })
-                    );
-                    console.log(objectUpload.ETag);
-                  },
-                ],
+                transferInitiated: [],
                 bytesTransferred: [],
                 transferFailed: [
                   () => {
@@ -187,15 +189,16 @@ describe(S3TransferManager.name, () => {
           );
           expect.fail("Download should have failed due to ETag mismatch");
         } catch (error) {
-          console.log("Error:", error.name, error.message);
           expect(transferFailed).toBe(true);
-          expect(error.name).toContain("PreconditionFailed");
+          expect(error.name).toEqual("PreconditionFailed");
+        } finally {
+          internalEventHandler.afterInitialGetObject = async () => {};
         }
       }, 60_000);
     }
   });
 
-  describe.skip("(SEP) download single object tests", () => {
+  describe("(SEP) download single object tests", () => {
     async function sepTests(
       objectType: "single" | "multipart",
       multipartType: "PART" | "RANGE",

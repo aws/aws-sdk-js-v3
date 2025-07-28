@@ -28573,6 +28573,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@sinonjs/fake-timers@npm:11.2.2":
+  version: 11.2.2
+  resolution: "@sinonjs/fake-timers@npm:11.2.2"
+  dependencies:
+    "@sinonjs/commons": "npm:^3.0.0"
+  checksum: 10c0/a4218efa6fdafda622d02d4c0a6ab7df3641cb038bb0b14f0a3ee56f50c95aab4f1ab2d7798ce928b40c6fc1839465a558c9393a77e4dca879e1b2f8d60d8136
+  languageName: node
+  linkType: hard
+
 "@sinonjs/fake-timers@npm:^10.0.2":
   version: 10.3.0
   resolution: "@sinonjs/fake-timers@npm:10.3.0"
@@ -30901,6 +30910,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"aws-sdk-client-mock@npm:^4.1.0":
+  version: 4.1.0
+  resolution: "aws-sdk-client-mock@npm:4.1.0"
+  dependencies:
+    "@types/sinon": "npm:^17.0.3"
+    sinon: "npm:^18.0.1"
+    tslib: "npm:^2.1.0"
+  checksum: 10c0/045caad0cff0ffeb08e69849dcae51aac8999163c58d71220bf47a82c237aabab2abf92bf6bf3bd7666e6e8984513c628e01a89eafa46fb230201d6587bc01e9
+  languageName: node
+  linkType: hard
+
 "aws-sdk-js-v3@workspace:.":
   version: 0.0.0-use.local
   resolution: "aws-sdk-js-v3@workspace:."
@@ -30920,6 +30940,7 @@ __metadata:
     "@typescript-eslint/eslint-plugin": "npm:5.55.0"
     "@typescript-eslint/parser": "npm:5.55.0"
     async: "npm:3.2.4"
+    aws-sdk-client-mock: "npm:^4.1.0"
     concurrently: "npm:7.0.0"
     decomment: "npm:0.9.5"
     downlevel-dts: "npm:0.10.1"
@@ -32488,6 +32509,13 @@ __metadata:
   version: 4.0.2
   resolution: "diff@npm:4.0.2"
   checksum: 10c0/81b91f9d39c4eaca068eb0c1eb0e4afbdc5bb2941d197f513dd596b820b956fef43485876226d65d497bebc15666aa2aa82c679e84f65d5f2bfbf14ee46e32c1
+  languageName: node
+  linkType: hard
+
+"diff@npm:^5.2.0":
+  version: 5.2.0
+  resolution: "diff@npm:5.2.0"
+  checksum: 10c0/aed0941f206fe261ecb258dc8d0ceea8abbde3ace5827518ff8d302f0fc9cc81ce116c4d8f379151171336caf0516b79e01abdc1ed1201b6440d895a66689eb4
   languageName: node
   linkType: hard
 
@@ -38526,6 +38554,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"path-to-regexp@npm:^8.1.0":
+  version: 8.2.0
+  resolution: "path-to-regexp@npm:8.2.0"
+  checksum: 10c0/ef7d0a887b603c0a142fad16ccebdcdc42910f0b14830517c724466ad676107476bba2fe9fffd28fd4c141391ccd42ea426f32bb44c2c82ecaefe10c37b90f5a
+  languageName: node
+  linkType: hard
+
 "path-type@npm:^3.0.0":
   version: 3.0.0
   resolution: "path-type@npm:3.0.0"
@@ -39937,6 +39972,20 @@ __metadata:
   version: 4.1.0
   resolution: "signal-exit@npm:4.1.0"
   checksum: 10c0/41602dce540e46d599edba9d9860193398d135f7ff72cab629db5171516cfae628d21e7bfccde1bbfdf11c48726bc2a6d1a8fb8701125852fbfda7cf19c6aa83
+  languageName: node
+  linkType: hard
+
+"sinon@npm:^18.0.1":
+  version: 18.0.1
+  resolution: "sinon@npm:18.0.1"
+  dependencies:
+    "@sinonjs/commons": "npm:^3.0.1"
+    "@sinonjs/fake-timers": "npm:11.2.2"
+    "@sinonjs/samsam": "npm:^8.0.0"
+    diff: "npm:^5.2.0"
+    nise: "npm:^6.0.0"
+    supports-color: "npm:^7"
+  checksum: 10c0/c4554b8d9654d42fc4baefecd3b5ac42bcce73ad926d58521233d9c355dc2c1a0d73c55e5b2c929b6814e528cd9b54bc61096b9288579f9b284edd6e3d2da3df
   languageName: node
   linkType: hard
 

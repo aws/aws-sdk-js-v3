@@ -80,6 +80,7 @@
     "@typescript-eslint/eslint-plugin": "5.55.0",
     "@typescript-eslint/parser": "5.55.0",
     "async": "3.2.4",
+    "aws-sdk-client-mock": "^4.1.0",
     "concurrently": "7.0.0",
     "decomment": "0.9.5",
     "downlevel-dts": "0.10.1",
