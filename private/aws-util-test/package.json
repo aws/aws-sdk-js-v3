@@ -3,7 +3,8 @@
   "version": "3.848.0",
   "private": true,
   "scripts": {
-    "build": "concurrently 'yarn:build:cjs' 'yarn:build:types'",
+    "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types'",
+    "build:es": "tsc -p tsconfig.es.json",
     "build:cjs": "tsc -p tsconfig.cjs.json",
     "build:include:deps": "lerna run --scope $npm_package_name --include-dependencies build",
     "build:types": "tsc -p tsconfig.types.json",
@@ -14,6 +15,7 @@
     "test:integration:watch": "yarn g:vitest watch -c vitest.config.integ.js"
   },
   "main": "./dist-cjs/index.js",
+  "module": "./dist-es/index.js",
   "types": "./dist-types/index.d.ts",
   "sideEffects": false,
   "dependencies": {
