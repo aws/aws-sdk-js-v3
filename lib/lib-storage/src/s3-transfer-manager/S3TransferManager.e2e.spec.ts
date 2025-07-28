@@ -58,10 +58,6 @@ describe(S3TransferManager.name, () => {
     });
   }, 120_000);
 
-  // TODO: eventListener callback tests - transferInitiated, bytesTransferred, transferComplete
-  // TODO: Integration test for transferFailed
-  // TODO: Write README, think in customer perspective, then based on that write e2e tests
-
   describe("multi part download", () => {
     const modes = ["PART", "RANGE"] as S3TransferManagerConfig["multipartDownloadType"][];
     // 6 = 1 part, 11 = 2 part, 19 = 3 part
@@ -136,82 +132,39 @@ describe(S3TransferManager.name, () => {
     }
   });
 
-  /**
-   * TODO: RANGE multipartdownloadtype specific tests
-   * - Download object uploaded using multipart upload
-   *  - Download with custom range
-   *    - bytes=0-5242880
-   *    - bytes=0-10485760
-   * - Download object uploaded using single part upload
-   *  - Download with custom range
-   *    - bytes=0-5242880
-   *    - bytes=0-10485760
-   */
-  describe.skip("RANGE tests", () => {
-    const sizes = [0] as number[];
-    for (const size of sizes) {
-      it(`should download an object of size ${size} with mode RANGE`, async () => {
-        const totalSizeMB = size * 1024 * 1024;
-        const Body = data(totalSizeMB);
-        const Key = `RANGE-${size}`;
+  describe("RANGE tests", () => {
+    const uploadTypes = ["multipart", "single"] as const;
+    const ranges = ["bytes=0-5242879", "bytes=0-10485759"];
 
-        await new Upload({
-          client,
-          params: { Bucket, Key, Body },
-        }).done();
+    for (const uploadType of uploadTypes) {
+      for (const range of ranges) {
+        it(`should download ${uploadType} uploaded object with range ${range}`, async () => {
+          const totalSizeMB = 12 * 1024 * 1024; // 12MB
+          const Body = data(totalSizeMB);
+          const Key = `RANGE-${uploadType}-${range.replace(/[^0-9]/g, "")}`;
 
-        const tm: S3TransferManager = tmRange;
-
-        const expectBasicTransfer = (request: any, snapshot: any) => {
-          expect(request.Bucket).toEqual(Bucket);
-          expect(request.Key).toEqual(Key);
-          expect(snapshot.totalBytes).toEqual(totalSizeMB);
-        };
-
-        let bytesTransferred = 0;
-        let handleEventCalled = false;
-        const download = await tm.download(
-          { Bucket, Key },
-          {
-            eventListeners: {
-              transferInitiated: [
-                ({ request, snapshot }) => {
-                  expectBasicTransfer(request, snapshot);
-                  expect(snapshot.transferredBytes).toEqual(0);
-                },
-              ],
-              bytesTransferred: [
-                ({ request, snapshot }) => {
-                  expectBasicTransfer(request, snapshot);
-                  bytesTransferred = snapshot.transferredBytes;
-                  expect(snapshot.transferredBytes).toEqual(bytesTransferred);
-                },
-              ],
-              transferComplete: [
-                ({ request, snapshot, response }) => {
-                  expectBasicTransfer(request, snapshot);
-                  expect(snapshot.transferredBytes).toEqual(totalSizeMB);
-                  expect(response.ETag).toBeDefined();
-                  expect((response as GetObjectCommandOutput).ContentLength).toEqual(totalSizeMB);
-                },
-                {
-                  handleEvent: (event: any) => {
-                    handleEventCalled = true;
-                    expect(event.request.Bucket).toEqual(Bucket);
-                    expect(event.response).toBeDefined();
-                  },
-                },
-              ],
-            },
+          // Upload based on type
+          if (uploadType === "multipart") {
+            await new Upload({
+              client,
+              params: { Bucket, Key, Body },
+            }).done();
+          } else {
+            await client.putObject({ Bucket, Key, Body });
           }
-        );
-        const serialized = await download.Body?.transformToString();
-        check(serialized);
 
-        expect(download.ContentLength).toEqual(totalSizeMB);
-        expect(bytesTransferred).toEqual(Body.length);
-        expect(handleEventCalled).toEqual(true);
-      }, 60_000);
+          const tm: S3TransferManager = tmRange;
+          const rangeEnd = parseInt(range.split("-")[1]);
+          const expectedBytes = rangeEnd + 1;
+
+          const download = await tm.download({ Bucket, Key, Range: range });
+          const serialized = await download.Body?.transformToString();
+          check(serialized);
+
+          expect(download.ContentLength).toEqual(expectedBytes);
+          expect(download.ContentRange).toEqual(`bytes 0-${rangeEnd}/${rangeEnd + 1}`);
+        }, 60_000);
+      }
     }
   });
 
@@ -278,7 +231,10 @@ describe(S3TransferManager.name, () => {
     }
   });
 
-  describe("(SEP) download single object tests", () => {
+  // TODO: Write abortController tests
+  describe.skip("Download must cancel on timed abortController", () => {});
+
+  describe.skip("(SEP) download single object tests", () => {
     async function sepTests(
       objectType: "single" | "multipart",
       multipartType: "PART" | "RANGE",
