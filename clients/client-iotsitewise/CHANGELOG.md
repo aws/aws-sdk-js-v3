@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.855.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.854.0...v3.855.0) (2025-07-28)
+
+
+### Features
+
+* **client-iotsitewise:** Add support for native anomaly detection in IoT SiteWise using new Computation Model APIs ([0b30d5c](https://github.com/aws/aws-sdk-js-v3/commit/0b30d5cf4322aa8bd27600a95b514b11a7b576d2))
+
+
+
+
+
 # [3.848.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.847.0...v3.848.0) (2025-07-17)
 
 **Note:** Version bump only for package @aws-sdk/client-iotsitewise

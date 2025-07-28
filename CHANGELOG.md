@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.855.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.854.0...v3.855.0) (2025-07-28)
+
+
+### Features
+
+* **client-direct-connect:** Enable MACSec support and features on Interconnects. ([bee374c](https://github.com/aws/aws-sdk-js-v3/commit/bee374c47daefc7e1c8bcecef1701615efb023b4))
+* **client-iotsitewise:** Add support for native anomaly detection in IoT SiteWise using new Computation Model APIs ([0b30d5c](https://github.com/aws/aws-sdk-js-v3/commit/0b30d5cf4322aa8bd27600a95b514b11a7b576d2))
+* **client-osis:** Add Pipeline Role Arn as an optional parameter to the create / update pipeline APIs as an alternative to passing in the pipeline configuration body ([36ca668](https://github.com/aws/aws-sdk-js-v3/commit/36ca668d8d5854e6475179ae12c042a97d02e50e))
+* **clients:** update client endpoints as of 2025-07-28 ([2d41ea6](https://github.com/aws/aws-sdk-js-v3/commit/2d41ea6f60add6899c9f0240460a150658273f80))
+
+
+
+
+
 # [3.854.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.853.0...v3.854.0) (2025-07-25)
 
 
