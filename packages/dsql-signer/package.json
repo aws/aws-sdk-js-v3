@@ -14,7 +14,10 @@
     "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
     "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo",
     "extract:docs": "api-extractor run --local",
-    "test": "yarn g:vitest run"
+    "test": "yarn g:vitest run",
+    "test:watch": "yarn g:vitest watch",
+    "test:integration": "yarn g:vitest run -c vitest.config.integ.ts",
+    "test:integration:watch": "yarn g:vitest watch -c vitest.config.integ.ts"
   },
   "engines": {
     "node": ">=18.0.0"
