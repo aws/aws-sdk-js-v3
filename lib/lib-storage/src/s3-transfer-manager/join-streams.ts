@@ -4,7 +4,6 @@ import { Readable } from "stream";
 
 import { JoinStreamIterationEvents } from "./types";
 
-// TODO: check all types. needs to join nodejs and browser together
 /**
  * @internal
  */
@@ -24,6 +23,7 @@ export async function joinStreams(
     });
     return sdkStreamMixin(newReadableStream);
   } else {
+    await Promise.all(streams);
     return sdkStreamMixin(Readable.from(iterateStreams(streams, eventListeners)));
   }
 }
