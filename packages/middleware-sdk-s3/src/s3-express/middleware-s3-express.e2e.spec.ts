@@ -88,11 +88,11 @@ describe("s3 express CRUD test suite", () => {
 
     readWriteDeleteRecorder = JSON.parse(JSON.stringify(recorder.calls));
     reset();
-  });
+  }, 60_000);
 
   afterAll(async () => {
     await emptyAndDeleteBucket(controller, bucketName);
-  });
+  }, 60_000);
 
   it("can create a bucket", () => {
     expect(createRecorder).toEqual({
@@ -186,7 +186,7 @@ describe("s3 express CRUD test suite", () => {
 
     expect(data).toEqual("xyz");
   });
-}, 30_000);
+}, 60_000);
 
 async function createClientAndRecorder() {
   const sts = new STS({ region });
