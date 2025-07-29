@@ -5,6 +5,9 @@ import { Readable } from "stream";
 import { JoinStreamIterationEvents } from "./types";
 
 // TODO: check all types. needs to join nodejs and browser together
+/**
+ * @internal
+ */
 export async function joinStreams(
   streams: Promise<StreamingBlobPayloadOutputTypes>[],
   eventListeners?: JoinStreamIterationEvents
@@ -26,14 +29,8 @@ export async function joinStreams(
 }
 
 /**
- *
- *
  * @internal
  */
-export const internalEventHandler = {
-  async onStreamAvailable() {},
-};
-
 export async function* iterateStreams(
   streams: Promise<StreamingBlobPayloadOutputTypes>[],
   eventListeners?: JoinStreamIterationEvents
@@ -41,10 +38,16 @@ export async function* iterateStreams(
   let bytesTransferred = 0;
   let index = 0;
   for (const streamPromise of streams) {
-    const stream = await streamPromise;
-    await internalEventHandler.onStreamAvailable();
+    let stream: Awaited<(typeof streams)[0]>;
+    try {
+      stream = await streamPromise;
+    } catch (e) {
+      await destroy(streams);
+      eventListeners?.onFailure?.(e, index);
+      throw e;
+    }
+
     if (isReadableStream(stream)) {
-      // TODO: May need to acquire reader before reaching the stream
       const reader = stream.getReader();
       try {
         while (true) {
@@ -74,4 +77,24 @@ export async function* iterateStreams(
     index++;
   }
   eventListeners?.onCompletion?.(bytesTransferred, index - 1);
+}
+
+/**
+ * @internal
+ */
+async function destroy(streams: Promise<StreamingBlobPayloadOutputTypes>[]): Promise<void> {
+  await Promise.all(
+    streams.map(async (streamPromise) => {
+      return streamPromise
+        .then((stream) => {
+          if (stream instanceof Readable) {
+            stream.destroy();
+            return;
+          } else if (isReadableStream(stream)) {
+            return stream.cancel();
+          }
+        })
+        .catch((e: unknown) => {});
+    })
+  );
 }

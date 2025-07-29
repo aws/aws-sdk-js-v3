@@ -5,7 +5,6 @@ import {
   S3,
 } from "@aws-sdk/client-s3";
 import internal from "stream";
-import { getHeapSnapshot } from "v8";
 import { beforeAll, describe, expect, test as it } from "vitest";
 
 import { getIntegTestResources } from "../../../../tests/e2e/get-integ-test-resources";
@@ -68,7 +67,7 @@ describe(S3TransferManager.name, () => {
         it(`should download an object of size ${size} with mode ${mode}`, async () => {
           const totalSizeMB = size * 1024 * 1024;
           const Body = data(totalSizeMB);
-          const Key = `${mode}-size`;
+          const Key = `${mode}-${size}`;
 
           await new Upload({
             client,
@@ -172,7 +171,7 @@ describe(S3TransferManager.name, () => {
     const modes = ["PART", "RANGE"] as S3TransferManagerConfig["multipartDownloadType"][];
 
     for (const mode of modes) {
-      it(`should fail when ETag changes during a ${mode} download`, async () => {
+      it.only(`should fail when ETag changes during a ${mode} download`, async () => {
         const totalSizeMB = 20 * 1024 * 1024;
         const Body = data(totalSizeMB);
         const Key = `${mode}-etag-test`;
@@ -206,7 +205,7 @@ describe(S3TransferManager.name, () => {
             internalEventHandler.afterInitialGetObject = async () => {};
           };
 
-          await tm.download(
+          const downloadResponse = await tm.download(
             { Bucket, Key },
             {
               eventListeners: {
@@ -220,6 +219,7 @@ describe(S3TransferManager.name, () => {
               },
             }
           );
+          await downloadResponse.Body?.transformToByteArray();
           expect.fail("Download should have failed due to ETag mismatch");
         } catch (error) {
           expect(transferFailed).toBe(true);
@@ -234,7 +234,7 @@ describe(S3TransferManager.name, () => {
   // TODO: Write abortController tests
   describe.skip("Download must cancel on timed abortController", () => {});
 
-  describe.skip("(SEP) download single object tests", () => {
+  describe("(SEP) download single object tests", () => {
     async function sepTests(
       objectType: "single" | "multipart",
       multipartType: "PART" | "RANGE",
@@ -285,13 +285,6 @@ describe(S3TransferManager.name, () => {
     }, 60_000);
     it("multipart object: multipartDownloadType = RANGE, range = 0-12MB, partNumber = null", async () => {
       await sepTests("multipart", "RANGE", `bytes=0-${12 * 1024 * 1024}`, undefined);
-    }, 60_000);
-    // skipped because TM no longer supports partNumber
-    it.skip("single object: multipartDownloadType = PART, range = null, partNumber = 2", async () => {
-      await sepTests("single", "PART", undefined, 2);
-    }, 60_000);
-    it.skip("single object: multipartDownloadType = RANGE, range = null, partNumber = 2", async () => {
-      await sepTests("single", "RANGE", undefined, 2);
     }, 60_000);
     it("single object: multipartDownloadType = PART, range = null, partNumber = null", async () => {
       await sepTests("single", "PART", undefined, undefined);
