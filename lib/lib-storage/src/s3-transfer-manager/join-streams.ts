@@ -25,6 +25,7 @@ export async function joinStreams(
     });
     return sdkStreamMixin(newReadableStream);
   } else {
+    await Promise.all(streams);
     return sdkStreamMixin(Readable.from(iterateStreams(streams, eventListeners)));
   }
 }
