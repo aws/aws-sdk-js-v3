@@ -46,12 +46,19 @@ export interface CreateJobQueueCommandOutput extends CreateJobQueueResponse, __M
  *   state: "ENABLED" || "DISABLED",
  *   schedulingPolicyArn: "STRING_VALUE",
  *   priority: Number("int"), // required
- *   computeEnvironmentOrder: [ // ComputeEnvironmentOrders // required
+ *   computeEnvironmentOrder: [ // ComputeEnvironmentOrders
  *     { // ComputeEnvironmentOrder
  *       order: Number("int"), // required
  *       computeEnvironment: "STRING_VALUE", // required
  *     },
  *   ],
+ *   serviceEnvironmentOrder: [ // ServiceEnvironmentOrders
+ *     { // ServiceEnvironmentOrder
+ *       order: Number("int"), // required
+ *       serviceEnvironment: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   jobQueueType: "EKS" || "ECS" || "ECS_FARGATE" || "SAGEMAKER_TRAINING",
  *   tags: { // TagrisTagsMap
  *     "<keys>": "STRING_VALUE",
  *   },
@@ -60,7 +67,7 @@ export interface CreateJobQueueCommandOutput extends CreateJobQueueResponse, __M
  *       reason: "STRING_VALUE", // required
  *       state: "RUNNABLE", // required
  *       maxTimeSeconds: Number("int"), // required
- *       action: "CANCEL", // required
+ *       action: "CANCEL" || "TERMINATE", // required
  *     },
  *   ],
  * };

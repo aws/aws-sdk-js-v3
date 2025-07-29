@@ -42,6 +42,10 @@ import {
   CreateSchedulingPolicyCommandOutput,
 } from "../commands/CreateSchedulingPolicyCommand";
 import {
+  CreateServiceEnvironmentCommandInput,
+  CreateServiceEnvironmentCommandOutput,
+} from "../commands/CreateServiceEnvironmentCommand";
+import {
   DeleteComputeEnvironmentCommandInput,
   DeleteComputeEnvironmentCommandOutput,
 } from "../commands/DeleteComputeEnvironmentCommand";
@@ -54,6 +58,10 @@ import {
   DeleteSchedulingPolicyCommandInput,
   DeleteSchedulingPolicyCommandOutput,
 } from "../commands/DeleteSchedulingPolicyCommand";
+import {
+  DeleteServiceEnvironmentCommandInput,
+  DeleteServiceEnvironmentCommandOutput,
+} from "../commands/DeleteServiceEnvironmentCommand";
 import {
   DeregisterJobDefinitionCommandInput,
   DeregisterJobDefinitionCommandOutput,
@@ -77,6 +85,11 @@ import {
   DescribeSchedulingPoliciesCommandOutput,
 } from "../commands/DescribeSchedulingPoliciesCommand";
 import {
+  DescribeServiceEnvironmentsCommandInput,
+  DescribeServiceEnvironmentsCommandOutput,
+} from "../commands/DescribeServiceEnvironmentsCommand";
+import { DescribeServiceJobCommandInput, DescribeServiceJobCommandOutput } from "../commands/DescribeServiceJobCommand";
+import {
   GetJobQueueSnapshotCommandInput,
   GetJobQueueSnapshotCommandOutput,
 } from "../commands/GetJobQueueSnapshotCommand";
@@ -93,6 +106,7 @@ import {
   ListSchedulingPoliciesCommandInput,
   ListSchedulingPoliciesCommandOutput,
 } from "../commands/ListSchedulingPoliciesCommand";
+import { ListServiceJobsCommandInput, ListServiceJobsCommandOutput } from "../commands/ListServiceJobsCommand";
 import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
@@ -102,8 +116,13 @@ import {
   RegisterJobDefinitionCommandOutput,
 } from "../commands/RegisterJobDefinitionCommand";
 import { SubmitJobCommandInput, SubmitJobCommandOutput } from "../commands/SubmitJobCommand";
+import { SubmitServiceJobCommandInput, SubmitServiceJobCommandOutput } from "../commands/SubmitServiceJobCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
 import { TerminateJobCommandInput, TerminateJobCommandOutput } from "../commands/TerminateJobCommand";
+import {
+  TerminateServiceJobCommandInput,
+  TerminateServiceJobCommandOutput,
+} from "../commands/TerminateServiceJobCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
 import {
   UpdateComputeEnvironmentCommandInput,
@@ -118,9 +137,14 @@ import {
   UpdateSchedulingPolicyCommandInput,
   UpdateSchedulingPolicyCommandOutput,
 } from "../commands/UpdateSchedulingPolicyCommand";
+import {
+  UpdateServiceEnvironmentCommandInput,
+  UpdateServiceEnvironmentCommandOutput,
+} from "../commands/UpdateServiceEnvironmentCommand";
 import { BatchServiceException as __BaseException } from "../models/BatchServiceException";
 import {
   ArrayProperties,
+  CapacityLimit,
   ClientException,
   ComputeEnvironmentOrder,
   ComputeResource,
@@ -186,6 +210,10 @@ import {
   SchedulingPolicyDetail,
   Secret,
   ServerException,
+  ServiceEnvironmentOrder,
+  ServiceJobEvaluateOnExit,
+  ServiceJobRetryStrategy,
+  ServiceJobTimeout,
   ShareAttributes,
   TaskContainerDependency,
   TaskContainerOverrides,
@@ -292,9 +320,11 @@ export const se_CreateJobQueueCommand = async (
     take(input, {
       computeEnvironmentOrder: (_) => _json(_),
       jobQueueName: [],
+      jobQueueType: [],
       jobStateTimeLimitActions: (_) => _json(_),
       priority: [],
       schedulingPolicyArn: [],
+      serviceEnvironmentOrder: (_) => _json(_),
       state: [],
       tags: (_) => _json(_),
     })
@@ -320,6 +350,32 @@ export const se_CreateSchedulingPolicyCommand = async (
     take(input, {
       fairsharePolicy: (_) => se_FairsharePolicy(_, context),
       name: [],
+      tags: (_) => _json(_),
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1CreateServiceEnvironmentCommand
+ */
+export const se_CreateServiceEnvironmentCommand = async (
+  input: CreateServiceEnvironmentCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/v1/createserviceenvironment");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      capacityLimits: (_) => _json(_),
+      serviceEnvironmentName: [],
+      serviceEnvironmentType: [],
+      state: [],
       tags: (_) => _json(_),
     })
   );
@@ -409,6 +465,28 @@ export const se_DeleteSchedulingPolicyCommand = async (
   body = JSON.stringify(
     take(input, {
       arn: [],
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1DeleteServiceEnvironmentCommand
+ */
+export const se_DeleteServiceEnvironmentCommand = async (
+  input: DeleteServiceEnvironmentCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/v1/deleteserviceenvironment");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      serviceEnvironment: [],
     })
   );
   b.m("POST").h(headers).b(body);
@@ -578,6 +656,52 @@ export const se_DescribeSchedulingPoliciesCommand = async (
 };
 
 /**
+ * serializeAws_restJson1DescribeServiceEnvironmentsCommand
+ */
+export const se_DescribeServiceEnvironmentsCommand = async (
+  input: DescribeServiceEnvironmentsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/v1/describeserviceenvironments");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      maxResults: [],
+      nextToken: [],
+      serviceEnvironments: (_) => _json(_),
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1DescribeServiceJobCommand
+ */
+export const se_DescribeServiceJobCommand = async (
+  input: DescribeServiceJobCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/v1/describeservicejob");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      jobId: [],
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1GetJobQueueSnapshotCommand
  */
 export const se_GetJobQueueSnapshotCommand = async (
@@ -700,6 +824,32 @@ export const se_ListSchedulingPoliciesCommand = async (
 };
 
 /**
+ * serializeAws_restJson1ListServiceJobsCommand
+ */
+export const se_ListServiceJobsCommand = async (
+  input: ListServiceJobsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/v1/listservicejobs");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      filters: (_) => _json(_),
+      jobQueue: [],
+      jobStatus: [],
+      maxResults: [],
+      nextToken: [],
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1ListTagsForResourceCommand
  */
 export const se_ListTagsForResourceCommand = async (
@@ -789,6 +939,37 @@ export const se_SubmitJobCommand = async (
 };
 
 /**
+ * serializeAws_restJson1SubmitServiceJobCommand
+ */
+export const se_SubmitServiceJobCommand = async (
+  input: SubmitServiceJobCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/v1/submitservicejob");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
+      jobName: [],
+      jobQueue: [],
+      retryStrategy: (_) => _json(_),
+      schedulingPriority: [],
+      serviceJobType: [],
+      serviceRequestPayload: [],
+      shareIdentifier: [],
+      tags: (_) => _json(_),
+      timeoutConfig: (_) => _json(_),
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1TagResourceCommand
  */
 export const se_TagResourceCommand = async (
@@ -823,6 +1004,29 @@ export const se_TerminateJobCommand = async (
     "content-type": "application/json",
   };
   b.bp("/v1/terminatejob");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      jobId: [],
+      reason: [],
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1TerminateServiceJobCommand
+ */
+export const se_TerminateServiceJobCommand = async (
+  input: TerminateServiceJobCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/v1/terminateservicejob");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -926,6 +1130,7 @@ export const se_UpdateJobQueueCommand = async (
       jobStateTimeLimitActions: (_) => _json(_),
       priority: [],
       schedulingPolicyArn: [],
+      serviceEnvironmentOrder: (_) => _json(_),
       state: [],
     })
   );
@@ -950,6 +1155,30 @@ export const se_UpdateSchedulingPolicyCommand = async (
     take(input, {
       arn: [],
       fairsharePolicy: (_) => se_FairsharePolicy(_, context),
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1UpdateServiceEnvironmentCommand
+ */
+export const se_UpdateServiceEnvironmentCommand = async (
+  input: UpdateServiceEnvironmentCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/v1/updateserviceenvironment");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      capacityLimits: (_) => _json(_),
+      serviceEnvironment: [],
+      state: [],
     })
   );
   b.m("POST").h(headers).b(body);
@@ -1062,6 +1291,28 @@ export const de_CreateSchedulingPolicyCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1CreateServiceEnvironmentCommand
+ */
+export const de_CreateServiceEnvironmentCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateServiceEnvironmentCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    serviceEnvironmentArn: __expectString,
+    serviceEnvironmentName: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1DeleteComputeEnvironmentCommand
  */
 export const de_DeleteComputeEnvironmentCommand = async (
@@ -1119,6 +1370,23 @@ export const de_DeleteSchedulingPolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteSchedulingPolicyCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DeleteServiceEnvironmentCommand
+ */
+export const de_DeleteServiceEnvironmentCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteServiceEnvironmentCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
     return de_CommandError(output, context);
   }
@@ -1283,6 +1551,67 @@ export const de_DescribeSchedulingPoliciesCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1DescribeServiceEnvironmentsCommand
+ */
+export const de_DescribeServiceEnvironmentsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeServiceEnvironmentsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    nextToken: __expectString,
+    serviceEnvironments: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DescribeServiceJobCommand
+ */
+export const de_DescribeServiceJobCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeServiceJobCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    attempts: _json,
+    createdAt: __expectLong,
+    isTerminated: __expectBoolean,
+    jobArn: __expectString,
+    jobId: __expectString,
+    jobName: __expectString,
+    jobQueue: __expectString,
+    latestAttempt: _json,
+    retryStrategy: _json,
+    schedulingPriority: __expectInt32,
+    serviceJobType: __expectString,
+    serviceRequestPayload: __expectString,
+    shareIdentifier: __expectString,
+    startedAt: __expectLong,
+    status: __expectString,
+    statusReason: __expectString,
+    stoppedAt: __expectLong,
+    tags: _json,
+    timeoutConfig: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1GetJobQueueSnapshotCommand
  */
 export const de_GetJobQueueSnapshotCommand = async (
@@ -1392,6 +1721,28 @@ export const de_ListSchedulingPoliciesCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1ListServiceJobsCommand
+ */
+export const de_ListServiceJobsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListServiceJobsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    jobSummaryList: _json,
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1ListTagsForResourceCommand
  */
 export const de_ListTagsForResourceCommand = async (
@@ -1459,6 +1810,29 @@ export const de_SubmitJobCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1SubmitServiceJobCommand
+ */
+export const de_SubmitServiceJobCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<SubmitServiceJobCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    jobArn: __expectString,
+    jobId: __expectString,
+    jobName: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1TagResourceCommand
  */
 export const de_TagResourceCommand = async (
@@ -1482,6 +1856,23 @@ export const de_TerminateJobCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TerminateJobCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1TerminateServiceJobCommand
+ */
+export const de_TerminateServiceJobCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<TerminateServiceJobCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
     return de_CommandError(output, context);
   }
@@ -1594,6 +1985,28 @@ export const de_UpdateSchedulingPolicyCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1UpdateServiceEnvironmentCommand
+ */
+export const de_UpdateServiceEnvironmentCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateServiceEnvironmentCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    serviceEnvironmentArn: __expectString,
+    serviceEnvironmentName: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserialize_Aws_restJson1CommandError
  */
 const de_CommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<never> => {
@@ -1655,6 +2068,10 @@ const de_ServerExceptionRes = async (parsedOutput: any, context: __SerdeContext)
 };
 
 // se_ArrayProperties omitted.
+
+// se_CapacityLimit omitted.
+
+// se_CapacityLimits omitted.
 
 // se_ComputeEnvironmentOrder omitted.
 
@@ -1871,6 +2288,18 @@ const se_NodeRangeProperties = (input: NodeRangeProperty[], context: __SerdeCont
 
 // se_SecretList omitted.
 
+// se_ServiceEnvironmentOrder omitted.
+
+// se_ServiceEnvironmentOrders omitted.
+
+// se_ServiceJobEvaluateOnExit omitted.
+
+// se_ServiceJobEvaluateOnExitList omitted.
+
+// se_ServiceJobRetryStrategy omitted.
+
+// se_ServiceJobTimeout omitted.
+
 /**
  * serializeAws_restJson1ShareAttributes
  */
@@ -1937,6 +2366,10 @@ const se_ShareAttributesList = (input: ShareAttributes[], context: __SerdeContex
 // de_AttemptEcsTaskDetails omitted.
 
 // de_AttemptTaskContainerDetails omitted.
+
+// de_CapacityLimit omitted.
+
+// de_CapacityLimits omitted.
 
 // de_ComputeEnvironmentDetail omitted.
 
@@ -2191,6 +2624,8 @@ const de_JobDetailList = (output: any, context: __SerdeContext): JobDetail[] => 
 
 // de_KeyValuePair omitted.
 
+// de_LatestServiceJobAttempt omitted.
+
 // de_LaunchTemplateSpecification omitted.
 
 // de_LaunchTemplateSpecificationOverride omitted.
@@ -2303,6 +2738,32 @@ const de_SchedulingPolicyDetailList = (output: any, context: __SerdeContext): Sc
 // de_Secret omitted.
 
 // de_SecretList omitted.
+
+// de_ServiceEnvironmentDetail omitted.
+
+// de_ServiceEnvironmentDetailList omitted.
+
+// de_ServiceEnvironmentOrder omitted.
+
+// de_ServiceEnvironmentOrders omitted.
+
+// de_ServiceJobAttemptDetail omitted.
+
+// de_ServiceJobAttemptDetails omitted.
+
+// de_ServiceJobEvaluateOnExit omitted.
+
+// de_ServiceJobEvaluateOnExitList omitted.
+
+// de_ServiceJobRetryStrategy omitted.
+
+// de_ServiceJobSummary omitted.
+
+// de_ServiceJobSummaryList omitted.
+
+// de_ServiceJobTimeout omitted.
+
+// de_ServiceResourceId omitted.
 
 /**
  * deserializeAws_restJson1ShareAttributes

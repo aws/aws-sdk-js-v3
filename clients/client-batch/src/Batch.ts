@@ -25,6 +25,11 @@ import {
   CreateSchedulingPolicyCommandOutput,
 } from "./commands/CreateSchedulingPolicyCommand";
 import {
+  CreateServiceEnvironmentCommand,
+  CreateServiceEnvironmentCommandInput,
+  CreateServiceEnvironmentCommandOutput,
+} from "./commands/CreateServiceEnvironmentCommand";
+import {
   DeleteComputeEnvironmentCommand,
   DeleteComputeEnvironmentCommandInput,
   DeleteComputeEnvironmentCommandOutput,
@@ -44,6 +49,11 @@ import {
   DeleteSchedulingPolicyCommandInput,
   DeleteSchedulingPolicyCommandOutput,
 } from "./commands/DeleteSchedulingPolicyCommand";
+import {
+  DeleteServiceEnvironmentCommand,
+  DeleteServiceEnvironmentCommandInput,
+  DeleteServiceEnvironmentCommandOutput,
+} from "./commands/DeleteServiceEnvironmentCommand";
 import {
   DeregisterJobDefinitionCommand,
   DeregisterJobDefinitionCommandInput,
@@ -80,6 +90,16 @@ import {
   DescribeSchedulingPoliciesCommandOutput,
 } from "./commands/DescribeSchedulingPoliciesCommand";
 import {
+  DescribeServiceEnvironmentsCommand,
+  DescribeServiceEnvironmentsCommandInput,
+  DescribeServiceEnvironmentsCommandOutput,
+} from "./commands/DescribeServiceEnvironmentsCommand";
+import {
+  DescribeServiceJobCommand,
+  DescribeServiceJobCommandInput,
+  DescribeServiceJobCommandOutput,
+} from "./commands/DescribeServiceJobCommand";
+import {
   GetJobQueueSnapshotCommand,
   GetJobQueueSnapshotCommandInput,
   GetJobQueueSnapshotCommandOutput,
@@ -101,6 +121,11 @@ import {
   ListSchedulingPoliciesCommandOutput,
 } from "./commands/ListSchedulingPoliciesCommand";
 import {
+  ListServiceJobsCommand,
+  ListServiceJobsCommandInput,
+  ListServiceJobsCommandOutput,
+} from "./commands/ListServiceJobsCommand";
+import {
   ListTagsForResourceCommand,
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
@@ -111,12 +136,22 @@ import {
   RegisterJobDefinitionCommandOutput,
 } from "./commands/RegisterJobDefinitionCommand";
 import { SubmitJobCommand, SubmitJobCommandInput, SubmitJobCommandOutput } from "./commands/SubmitJobCommand";
+import {
+  SubmitServiceJobCommand,
+  SubmitServiceJobCommandInput,
+  SubmitServiceJobCommandOutput,
+} from "./commands/SubmitServiceJobCommand";
 import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
   TerminateJobCommand,
   TerminateJobCommandInput,
   TerminateJobCommandOutput,
 } from "./commands/TerminateJobCommand";
+import {
+  TerminateServiceJobCommand,
+  TerminateServiceJobCommandInput,
+  TerminateServiceJobCommandOutput,
+} from "./commands/TerminateServiceJobCommand";
 import {
   UntagResourceCommand,
   UntagResourceCommandInput,
@@ -142,6 +177,11 @@ import {
   UpdateSchedulingPolicyCommandInput,
   UpdateSchedulingPolicyCommandOutput,
 } from "./commands/UpdateSchedulingPolicyCommand";
+import {
+  UpdateServiceEnvironmentCommand,
+  UpdateServiceEnvironmentCommandInput,
+  UpdateServiceEnvironmentCommandOutput,
+} from "./commands/UpdateServiceEnvironmentCommand";
 
 const commands = {
   CancelJobCommand,
@@ -149,10 +189,12 @@ const commands = {
   CreateConsumableResourceCommand,
   CreateJobQueueCommand,
   CreateSchedulingPolicyCommand,
+  CreateServiceEnvironmentCommand,
   DeleteComputeEnvironmentCommand,
   DeleteConsumableResourceCommand,
   DeleteJobQueueCommand,
   DeleteSchedulingPolicyCommand,
+  DeleteServiceEnvironmentCommand,
   DeregisterJobDefinitionCommand,
   DescribeComputeEnvironmentsCommand,
   DescribeConsumableResourceCommand,
@@ -160,21 +202,27 @@ const commands = {
   DescribeJobQueuesCommand,
   DescribeJobsCommand,
   DescribeSchedulingPoliciesCommand,
+  DescribeServiceEnvironmentsCommand,
+  DescribeServiceJobCommand,
   GetJobQueueSnapshotCommand,
   ListConsumableResourcesCommand,
   ListJobsCommand,
   ListJobsByConsumableResourceCommand,
   ListSchedulingPoliciesCommand,
+  ListServiceJobsCommand,
   ListTagsForResourceCommand,
   RegisterJobDefinitionCommand,
   SubmitJobCommand,
+  SubmitServiceJobCommand,
   TagResourceCommand,
   TerminateJobCommand,
+  TerminateServiceJobCommand,
   UntagResourceCommand,
   UpdateComputeEnvironmentCommand,
   UpdateConsumableResourceCommand,
   UpdateJobQueueCommand,
   UpdateSchedulingPolicyCommand,
+  UpdateServiceEnvironmentCommand,
 };
 
 export interface Batch {
@@ -255,6 +303,23 @@ export interface Batch {
   ): void;
 
   /**
+   * @see {@link CreateServiceEnvironmentCommand}
+   */
+  createServiceEnvironment(
+    args: CreateServiceEnvironmentCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateServiceEnvironmentCommandOutput>;
+  createServiceEnvironment(
+    args: CreateServiceEnvironmentCommandInput,
+    cb: (err: any, data?: CreateServiceEnvironmentCommandOutput) => void
+  ): void;
+  createServiceEnvironment(
+    args: CreateServiceEnvironmentCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateServiceEnvironmentCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DeleteComputeEnvironmentCommand}
    */
   deleteComputeEnvironment(
@@ -317,6 +382,23 @@ export interface Batch {
     args: DeleteSchedulingPolicyCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteSchedulingPolicyCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteServiceEnvironmentCommand}
+   */
+  deleteServiceEnvironment(
+    args: DeleteServiceEnvironmentCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteServiceEnvironmentCommandOutput>;
+  deleteServiceEnvironment(
+    args: DeleteServiceEnvironmentCommandInput,
+    cb: (err: any, data?: DeleteServiceEnvironmentCommandOutput) => void
+  ): void;
+  deleteServiceEnvironment(
+    args: DeleteServiceEnvironmentCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteServiceEnvironmentCommandOutput) => void
   ): void;
 
   /**
@@ -436,6 +518,41 @@ export interface Batch {
   ): void;
 
   /**
+   * @see {@link DescribeServiceEnvironmentsCommand}
+   */
+  describeServiceEnvironments(): Promise<DescribeServiceEnvironmentsCommandOutput>;
+  describeServiceEnvironments(
+    args: DescribeServiceEnvironmentsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeServiceEnvironmentsCommandOutput>;
+  describeServiceEnvironments(
+    args: DescribeServiceEnvironmentsCommandInput,
+    cb: (err: any, data?: DescribeServiceEnvironmentsCommandOutput) => void
+  ): void;
+  describeServiceEnvironments(
+    args: DescribeServiceEnvironmentsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeServiceEnvironmentsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeServiceJobCommand}
+   */
+  describeServiceJob(
+    args: DescribeServiceJobCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeServiceJobCommandOutput>;
+  describeServiceJob(
+    args: DescribeServiceJobCommandInput,
+    cb: (err: any, data?: DescribeServiceJobCommandOutput) => void
+  ): void;
+  describeServiceJob(
+    args: DescribeServiceJobCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeServiceJobCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetJobQueueSnapshotCommand}
    */
   getJobQueueSnapshot(
@@ -518,6 +635,21 @@ export interface Batch {
   ): void;
 
   /**
+   * @see {@link ListServiceJobsCommand}
+   */
+  listServiceJobs(): Promise<ListServiceJobsCommandOutput>;
+  listServiceJobs(
+    args: ListServiceJobsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListServiceJobsCommandOutput>;
+  listServiceJobs(args: ListServiceJobsCommandInput, cb: (err: any, data?: ListServiceJobsCommandOutput) => void): void;
+  listServiceJobs(
+    args: ListServiceJobsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListServiceJobsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListTagsForResourceCommand}
    */
   listTagsForResource(
@@ -563,6 +695,23 @@ export interface Batch {
   ): void;
 
   /**
+   * @see {@link SubmitServiceJobCommand}
+   */
+  submitServiceJob(
+    args: SubmitServiceJobCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<SubmitServiceJobCommandOutput>;
+  submitServiceJob(
+    args: SubmitServiceJobCommandInput,
+    cb: (err: any, data?: SubmitServiceJobCommandOutput) => void
+  ): void;
+  submitServiceJob(
+    args: SubmitServiceJobCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: SubmitServiceJobCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link TagResourceCommand}
    */
   tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
@@ -582,6 +731,23 @@ export interface Batch {
     args: TerminateJobCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: TerminateJobCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link TerminateServiceJobCommand}
+   */
+  terminateServiceJob(
+    args: TerminateServiceJobCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<TerminateServiceJobCommandOutput>;
+  terminateServiceJob(
+    args: TerminateServiceJobCommandInput,
+    cb: (err: any, data?: TerminateServiceJobCommandOutput) => void
+  ): void;
+  terminateServiceJob(
+    args: TerminateServiceJobCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: TerminateServiceJobCommandOutput) => void
   ): void;
 
   /**
@@ -658,6 +824,23 @@ export interface Batch {
     args: UpdateSchedulingPolicyCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateSchedulingPolicyCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateServiceEnvironmentCommand}
+   */
+  updateServiceEnvironment(
+    args: UpdateServiceEnvironmentCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateServiceEnvironmentCommandOutput>;
+  updateServiceEnvironment(
+    args: UpdateServiceEnvironmentCommandInput,
+    cb: (err: any, data?: UpdateServiceEnvironmentCommandOutput) => void
+  ): void;
+  updateServiceEnvironment(
+    args: UpdateServiceEnvironmentCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateServiceEnvironmentCommandOutput) => void
   ): void;
 }
 

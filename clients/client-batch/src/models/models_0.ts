@@ -1230,8 +1230,25 @@ export interface ComputeEnvironmentOrder {
  * @public
  * @enum
  */
+export const JobQueueType = {
+  ECS: "ECS",
+  ECS_FARGATE: "ECS_FARGATE",
+  EKS: "EKS",
+  SAGEMAKER_TRAINING: "SAGEMAKER_TRAINING",
+} as const;
+
+/**
+ * @public
+ */
+export type JobQueueType = (typeof JobQueueType)[keyof typeof JobQueueType];
+
+/**
+ * @public
+ * @enum
+ */
 export const JobStateTimeLimitActionsAction = {
   CANCEL: "CANCEL",
+  TERMINATE: "TERMINATE",
 } as const;
 
 /**
@@ -1284,6 +1301,24 @@ export interface JobStateTimeLimitAction {
    * @public
    */
   action: JobStateTimeLimitActionsAction | undefined;
+}
+
+/**
+ * <p>Specifies the order of a service environment for a job queue. This determines the priority order when multiple service environments are associated with the same job queue.</p>
+ * @public
+ */
+export interface ServiceEnvironmentOrder {
+  /**
+   * <p>The order of the service environment. Job queues with a higher priority are evaluated first when associated with the same service environment.</p>
+   * @public
+   */
+  order: number | undefined;
+
+  /**
+   * <p>The name or ARN of the service environment.</p>
+   * @public
+   */
+  serviceEnvironment: string | undefined;
 }
 
 /**
@@ -1359,7 +1394,19 @@ export interface CreateJobQueueRequest {
    *          </note>
    * @public
    */
-  computeEnvironmentOrder: ComputeEnvironmentOrder[] | undefined;
+  computeEnvironmentOrder?: ComputeEnvironmentOrder[] | undefined;
+
+  /**
+   * <p>A list of service environments that this job queue can use to allocate jobs. All serviceEnvironments must have the same type. A job queue can't have both a serviceEnvironmentOrder and a computeEnvironmentOrder field.</p>
+   * @public
+   */
+  serviceEnvironmentOrder?: ServiceEnvironmentOrder[] | undefined;
+
+  /**
+   * <p>The type of job queue. For service jobs that run on SageMaker Training, this value is <code>SAGEMAKER_TRAINING</code>. For regular container jobs, this value is <code>EKS</code>, <code>ECS</code>, or <code>ECS_FARGATE</code> depending on the compute environment.</p>
+   * @public
+   */
+  jobQueueType?: JobQueueType | undefined;
 
   /**
    * <p>The tags that you apply to the job queue to help you categorize and organize your
@@ -1520,6 +1567,107 @@ export interface CreateSchedulingPolicyResponse {
 }
 
 /**
+ * <p>Defines the capacity limit for a service environment. This structure specifies the maximum amount of resources that can be used by service jobs in the environment.</p>
+ * @public
+ */
+export interface CapacityLimit {
+  /**
+   * <p>The maximum capacity available for the service environment. This value represents the maximum amount of resources that can be allocated to service jobs.</p>
+   *          <p>For example, <code>maxCapacity=50</code>, <code>capacityUnit=NUM_INSTANCES</code>. This indicates that the
+   *             maximum number of instances that can be run on this service environment is 50. You could
+   *             then run 5 SageMaker Training jobs that each use 10 instances. However, if you submit another job that
+   *             requires 10 instances, it will wait in the queue.</p>
+   * @public
+   */
+  maxCapacity?: number | undefined;
+
+  /**
+   * <p>The unit of measure for the capacity limit. This defines how the maxCapacity value should be interpreted. For <code>SAGEMAKER_TRAINING</code> jobs, use <code>NUM_INSTANCES</code>.</p>
+   * @public
+   */
+  capacityUnit?: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const ServiceEnvironmentType = {
+  SAGEMAKER_TRAINING: "SAGEMAKER_TRAINING",
+} as const;
+
+/**
+ * @public
+ */
+export type ServiceEnvironmentType = (typeof ServiceEnvironmentType)[keyof typeof ServiceEnvironmentType];
+
+/**
+ * @public
+ * @enum
+ */
+export const ServiceEnvironmentState = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type ServiceEnvironmentState = (typeof ServiceEnvironmentState)[keyof typeof ServiceEnvironmentState];
+
+/**
+ * @public
+ */
+export interface CreateServiceEnvironmentRequest {
+  /**
+   * <p>The name for the service environment. It can be up to 128 characters long and can contain letters, numbers, hyphens (-), and underscores (_).</p>
+   * @public
+   */
+  serviceEnvironmentName: string | undefined;
+
+  /**
+   * <p>The type of service environment. For SageMaker Training jobs, specify <code>SAGEMAKER_TRAINING</code>.</p>
+   * @public
+   */
+  serviceEnvironmentType: ServiceEnvironmentType | undefined;
+
+  /**
+   * <p>The state of the service environment. Valid values are <code>ENABLED</code> and <code>DISABLED</code>. The default value is <code>ENABLED</code>.</p>
+   * @public
+   */
+  state?: ServiceEnvironmentState | undefined;
+
+  /**
+   * <p>The capacity limits for the service environment. The number of instances a job consumes is the total number of instances requested in the submit training job request resource configuration.</p>
+   * @public
+   */
+  capacityLimits: CapacityLimit[] | undefined;
+
+  /**
+   * <p>The tags that you apply to the service environment to help you categorize and organize your resources. Each tag consists of a key and an optional value. For more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/using-tags.html">Tagging your Batch resources</a>.</p>
+   * @public
+   */
+  tags?: Record<string, string> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateServiceEnvironmentResponse {
+  /**
+   * <p>The name of the service environment.</p>
+   * @public
+   */
+  serviceEnvironmentName: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the service environment.</p>
+   * @public
+   */
+  serviceEnvironmentArn: string | undefined;
+}
+
+/**
  * <p>Contains the parameters for <code>DeleteComputeEnvironment</code>.</p>
  * @public
  */
@@ -1585,6 +1733,22 @@ export interface DeleteSchedulingPolicyRequest {
  * @public
  */
 export interface DeleteSchedulingPolicyResponse {}
+
+/**
+ * @public
+ */
+export interface DeleteServiceEnvironmentRequest {
+  /**
+   * <p>The name or ARN of the service environment to delete.</p>
+   * @public
+   */
+  serviceEnvironment: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteServiceEnvironmentResponse {}
 
 /**
  * @public
@@ -4811,6 +4975,18 @@ export interface JobQueueDetail {
   computeEnvironmentOrder: ComputeEnvironmentOrder[] | undefined;
 
   /**
+   * <p>The order of the service environment associated with the job queue. Job queues with a higher priority are evaluated first when associated with the same service environment.</p>
+   * @public
+   */
+  serviceEnvironmentOrder?: ServiceEnvironmentOrder[] | undefined;
+
+  /**
+   * <p>The type of job queue. For service jobs that run on SageMaker Training, this value is <code>SAGEMAKER_TRAINING</code>. For regular container jobs, this value is <code>EKS</code>, <code>ECS</code>, or <code>ECS_FARGATE</code> depending on the compute environment.</p>
+   * @public
+   */
+  jobQueueType?: JobQueueType | undefined;
+
+  /**
    * <p>The tags that are applied to the job queue. For more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/using-tags.html">Tagging your Batch resources</a> in
    *     <i>Batch User Guide</i>.</p>
    * @public
@@ -6187,6 +6363,414 @@ export interface DescribeSchedulingPoliciesResponse {
 /**
  * @public
  */
+export interface DescribeServiceEnvironmentsRequest {
+  /**
+   * <p>An array of service environment names or ARN entries.</p>
+   * @public
+   */
+  serviceEnvironments?: string[] | undefined;
+
+  /**
+   * <p>The maximum number of results returned by <code>DescribeServiceEnvironments</code> in paginated output. When this parameter is used, <code>DescribeServiceEnvironments</code> only returns <code>maxResults</code> results in a single page and a <code>nextToken</code> response element. The remaining results of the initial request can be seen by sending another <code>DescribeServiceEnvironments</code> request with the returned <code>nextToken</code> value. This value can be between 1 and 100. If this parameter isn't used, then <code>DescribeServiceEnvironments</code> returns up to 100 results and a <code>nextToken</code> value if applicable.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p>The <code>nextToken</code> value returned from a previous paginated <code>DescribeServiceEnvironments</code> request where <code>maxResults</code> was used and the results exceeded the value of that parameter. Pagination continues from the end of the previous results that returned the <code>nextToken</code> value. This value is <code>null</code> when there are no more results to return.</p>
+   *          <note>
+   *             <p>Treat this token as an opaque identifier that's only used to
+   *  retrieve the next items in a list and not for other programmatic purposes.</p>
+   *          </note>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const ServiceEnvironmentStatus = {
+  CREATING: "CREATING",
+  DELETED: "DELETED",
+  DELETING: "DELETING",
+  INVALID: "INVALID",
+  UPDATING: "UPDATING",
+  VALID: "VALID",
+} as const;
+
+/**
+ * @public
+ */
+export type ServiceEnvironmentStatus = (typeof ServiceEnvironmentStatus)[keyof typeof ServiceEnvironmentStatus];
+
+/**
+ * <p>Detailed information about a service environment, including its configuration, state, and capacity limits.</p>
+ * @public
+ */
+export interface ServiceEnvironmentDetail {
+  /**
+   * <p>The name of the service environment.</p>
+   * @public
+   */
+  serviceEnvironmentName: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the service environment.</p>
+   * @public
+   */
+  serviceEnvironmentArn: string | undefined;
+
+  /**
+   * <p>The type of service environment. For SageMaker Training jobs, this value is <code>SAGEMAKER_TRAINING</code>.</p>
+   * @public
+   */
+  serviceEnvironmentType: ServiceEnvironmentType | undefined;
+
+  /**
+   * <p>The state of the service environment. Valid values are <code>ENABLED</code> and <code>DISABLED</code>.</p>
+   * @public
+   */
+  state?: ServiceEnvironmentState | undefined;
+
+  /**
+   * <p>The current status of the service environment.</p>
+   * @public
+   */
+  status?: ServiceEnvironmentStatus | undefined;
+
+  /**
+   * <p>The capacity limits for the service environment. This defines the maximum resources that can be used by service jobs in this environment.</p>
+   * @public
+   */
+  capacityLimits: CapacityLimit[] | undefined;
+
+  /**
+   * <p>The tags associated with the service environment. Each tag consists of a key and an optional value. For more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/using-tags.html">Tagging your Batch resources</a>.</p>
+   * @public
+   */
+  tags?: Record<string, string> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeServiceEnvironmentsResponse {
+  /**
+   * <p>The list of service environments that match the request.</p>
+   * @public
+   */
+  serviceEnvironments?: ServiceEnvironmentDetail[] | undefined;
+
+  /**
+   * <p>The <code>nextToken</code> value to include in a future <code>DescribeServiceEnvironments</code> request. When the results of a <code>DescribeServiceEnvironments</code> request exceed <code>maxResults</code>, this value can be used to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeServiceJobRequest {
+  /**
+   * <p>The job ID for the service job to describe.</p>
+   * @public
+   */
+  jobId: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const ServiceResourceIdName = {
+  SAGEMAKER_TRAINING_JOB_ARN: "TrainingJobArn",
+} as const;
+
+/**
+ * @public
+ */
+export type ServiceResourceIdName = (typeof ServiceResourceIdName)[keyof typeof ServiceResourceIdName];
+
+/**
+ * <p>The Batch unique identifier.</p>
+ * @public
+ */
+export interface ServiceResourceId {
+  /**
+   * <p>The name of the resource identifier. </p>
+   * @public
+   */
+  name: ServiceResourceIdName | undefined;
+
+  /**
+   * <p>The value of the resource identifier. </p>
+   * @public
+   */
+  value: string | undefined;
+}
+
+/**
+ * <p>Detailed information about an attempt to run a service job.</p>
+ * @public
+ */
+export interface ServiceJobAttemptDetail {
+  /**
+   * <p>The service resource identifier associated with the service job attempt.</p>
+   * @public
+   */
+  serviceResourceId?: ServiceResourceId | undefined;
+
+  /**
+   * <p>The Unix timestamp (in milliseconds) for when the service job attempt was started.</p>
+   * @public
+   */
+  startedAt?: number | undefined;
+
+  /**
+   * <p>The Unix timestamp (in milliseconds) for when the service job attempt stopped running.</p>
+   * @public
+   */
+  stoppedAt?: number | undefined;
+
+  /**
+   * <p>A string that provides additional details for the current status of the service job attempt.</p>
+   * @public
+   */
+  statusReason?: string | undefined;
+}
+
+/**
+ * <p>Information about the latest attempt of a service job. A Service job can transition from <code>SCHEDULED</code> back to <code>RUNNABLE</code> state when they encounter capacity constraints.</p>
+ * @public
+ */
+export interface LatestServiceJobAttempt {
+  /**
+   * <p>The service resource identifier associated with the service job attempt.</p>
+   * @public
+   */
+  serviceResourceId?: ServiceResourceId | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const ServiceJobRetryAction = {
+  EXIT: "EXIT",
+  RETRY: "RETRY",
+} as const;
+
+/**
+ * @public
+ */
+export type ServiceJobRetryAction = (typeof ServiceJobRetryAction)[keyof typeof ServiceJobRetryAction];
+
+/**
+ * <p>Specifies conditions for when to exit or retry a service job based on the exit status or status reason.</p>
+ * @public
+ */
+export interface ServiceJobEvaluateOnExit {
+  /**
+   * <p>The action to take if the service job exits with the specified condition. Valid values are <code>RETRY</code> and <code>EXIT</code>.</p>
+   * @public
+   */
+  action?: ServiceJobRetryAction | undefined;
+
+  /**
+   * <p>Contains a glob pattern to match against the StatusReason returned for a job. The pattern can contain up to 512 characters and can contain all printable characters. It can optionally end with an asterisk (*) so that only the start of the string needs to be an exact match.</p>
+   * @public
+   */
+  onStatusReason?: string | undefined;
+}
+
+/**
+ * <p>The retry strategy for service jobs. This defines how many times to retry a failed service job and under what conditions. For more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/service-job-retries.html">Service job retry strategies</a> in the <i>Batch User Guide</i>.</p>
+ * @public
+ */
+export interface ServiceJobRetryStrategy {
+  /**
+   * <p>The number of times to move a service job to <code>RUNNABLE</code> status. You can specify between 1 and 10 attempts.</p>
+   * @public
+   */
+  attempts: number | undefined;
+
+  /**
+   * <p>Array of <code>ServiceJobEvaluateOnExit</code> objects that specify conditions under which the service job should be retried or failed.</p>
+   * @public
+   */
+  evaluateOnExit?: ServiceJobEvaluateOnExit[] | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const ServiceJobType = {
+  SAGEMAKER_TRAINING: "SAGEMAKER_TRAINING",
+} as const;
+
+/**
+ * @public
+ */
+export type ServiceJobType = (typeof ServiceJobType)[keyof typeof ServiceJobType];
+
+/**
+ * @public
+ * @enum
+ */
+export const ServiceJobStatus = {
+  FAILED: "FAILED",
+  PENDING: "PENDING",
+  RUNNABLE: "RUNNABLE",
+  RUNNING: "RUNNING",
+  SCHEDULED: "SCHEDULED",
+  STARTING: "STARTING",
+  SUBMITTED: "SUBMITTED",
+  SUCCEEDED: "SUCCEEDED",
+} as const;
+
+/**
+ * @public
+ */
+export type ServiceJobStatus = (typeof ServiceJobStatus)[keyof typeof ServiceJobStatus];
+
+/**
+ * <p>The timeout configuration for service jobs. </p>
+ * @public
+ */
+export interface ServiceJobTimeout {
+  /**
+   * <p>The maximum duration in seconds that a service job attempt can run. After this time is reached, Batch terminates the service job attempt.</p>
+   * @public
+   */
+  attemptDurationSeconds?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeServiceJobResponse {
+  /**
+   * <p>A list of job attempts associated with the service job.</p>
+   * @public
+   */
+  attempts?: ServiceJobAttemptDetail[] | undefined;
+
+  /**
+   * <p>The Unix timestamp (in milliseconds) for when the service job was created.</p>
+   * @public
+   */
+  createdAt?: number | undefined;
+
+  /**
+   * <p>Indicates whether the service job has been terminated.</p>
+   * @public
+   */
+  isTerminated?: boolean | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the service job.</p>
+   * @public
+   */
+  jobArn?: string | undefined;
+
+  /**
+   * <p>The job ID for the service job.</p>
+   * @public
+   */
+  jobId: string | undefined;
+
+  /**
+   * <p>The name of the service job.</p>
+   * @public
+   */
+  jobName: string | undefined;
+
+  /**
+   * <p>The ARN of the job queue that the service job is associated with.</p>
+   * @public
+   */
+  jobQueue: string | undefined;
+
+  /**
+   * <p>The latest attempt associated with the service job.</p>
+   * @public
+   */
+  latestAttempt?: LatestServiceJobAttempt | undefined;
+
+  /**
+   * <p>The retry strategy to use for failed service jobs that are submitted with this service job.</p>
+   * @public
+   */
+  retryStrategy?: ServiceJobRetryStrategy | undefined;
+
+  /**
+   * <p>The scheduling priority of the service job. </p>
+   * @public
+   */
+  schedulingPriority?: number | undefined;
+
+  /**
+   * <p>The request, in JSON, for the service that the <code>SubmitServiceJob</code> operation is queueing. </p>
+   * @public
+   */
+  serviceRequestPayload?: string | undefined;
+
+  /**
+   * <p>The type of service job. For SageMaker Training jobs, this value is <code>SAGEMAKER_TRAINING</code>.</p>
+   * @public
+   */
+  serviceJobType: ServiceJobType | undefined;
+
+  /**
+   * <p>The share identifier for the service job. This is used for fair-share scheduling.</p>
+   * @public
+   */
+  shareIdentifier?: string | undefined;
+
+  /**
+   * <p>The Unix timestamp (in milliseconds) for when the service job was started.</p>
+   * @public
+   */
+  startedAt: number | undefined;
+
+  /**
+   * <p>The current status of the service job. </p>
+   * @public
+   */
+  status: ServiceJobStatus | undefined;
+
+  /**
+   * <p>A short, human-readable string to provide more details for the current status of the service job.</p>
+   * @public
+   */
+  statusReason?: string | undefined;
+
+  /**
+   * <p>The Unix timestamp (in milliseconds) for when the service job stopped running.</p>
+   * @public
+   */
+  stoppedAt?: number | undefined;
+
+  /**
+   * <p>The tags that are associated with the service job. Each tag consists of a key and an optional value. For more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/using-tags.html">Tagging your Batch resources</a>.</p>
+   * @public
+   */
+  tags?: Record<string, string> | undefined;
+
+  /**
+   * <p>The timeout configuration for the service job.</p>
+   * @public
+   */
+  timeoutConfig?: ServiceJobTimeout | undefined;
+}
+
+/**
+ * @public
+ */
 export interface GetJobQueueSnapshotRequest {
   /**
    * <p>The job queue’s name or full queue Amazon Resource Name (ARN).</p>
@@ -6905,6 +7489,147 @@ export interface ListSchedulingPoliciesResponse {
    *         <code>ListSchedulingPolicies</code> request exceed <code>maxResults</code>, this value can
    *       be used to retrieve the next page of results. This value is <code>null</code> when there are
    *       no more results to return.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListServiceJobsRequest {
+  /**
+   * <p>The name or ARN of the job queue with which to list service jobs.</p>
+   * @public
+   */
+  jobQueue?: string | undefined;
+
+  /**
+   * <p>The job status with which to filter service jobs. </p>
+   * @public
+   */
+  jobStatus?: ServiceJobStatus | undefined;
+
+  /**
+   * <p>The maximum number of results returned by <code>ListServiceJobs</code> in paginated output. When this parameter is used, <code>ListServiceJobs</code> only returns <code>maxResults</code> results in a single page and a <code>nextToken</code> response element. The remaining results of the initial request can be seen by sending another <code>ListServiceJobs</code> request with the returned <code>nextToken</code> value. This value can be between 1 and 100. If this parameter isn't used, then <code>ListServiceJobs</code> returns up to 100 results and a <code>nextToken</code> value if applicable.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p>The <code>nextToken</code> value returned from a previous paginated <code>ListServiceJobs</code> request where <code>maxResults</code> was used and the results exceeded the value of that parameter. Pagination continues from the end of the previous results that returned the <code>nextToken</code> value. This value is <code>null</code> when there are no more results to return.</p>
+   *          <note>
+   *             <p>Treat this token as an opaque identifier that's only used to
+   *  retrieve the next items in a list and not for other programmatic purposes.</p>
+   *          </note>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>The filters to apply to the service job list query. The filter names and values can be:</p>
+   *          <ul>
+   *             <li>
+   *                <p>name: <code>JOB_STATUS</code>
+   *                </p>
+   *                <p>values: <code>SUBMITTED | PENDING | RUNNABLE | STARTING | RUNNING | SUCCEEDED | FAILED | SCHEDULED</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>name: <code>JOB_NAME</code>
+   *                </p>
+   *                <p>values: case-insensitive matches for the job name. If a filter value ends with an asterisk (*), it matches any job name that begins with the string before the '*'.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  filters?: KeyValuesPair[] | undefined;
+}
+
+/**
+ * <p>Summary information about a service job.</p>
+ * @public
+ */
+export interface ServiceJobSummary {
+  /**
+   * <p>Information about the latest attempt for the service job.</p>
+   * @public
+   */
+  latestAttempt?: LatestServiceJobAttempt | undefined;
+
+  /**
+   * <p>The Unix timestamp (in milliseconds) for when the service job was created.</p>
+   * @public
+   */
+  createdAt?: number | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the service job.</p>
+   * @public
+   */
+  jobArn?: string | undefined;
+
+  /**
+   * <p>The job ID for the service job.</p>
+   * @public
+   */
+  jobId: string | undefined;
+
+  /**
+   * <p>The name of the service job.</p>
+   * @public
+   */
+  jobName: string | undefined;
+
+  /**
+   * <p>The type of service job. For SageMaker Training jobs, this value is <code>SAGEMAKER_TRAINING</code>.</p>
+   * @public
+   */
+  serviceJobType: ServiceJobType | undefined;
+
+  /**
+   * <p>The share identifier for the job.</p>
+   * @public
+   */
+  shareIdentifier?: string | undefined;
+
+  /**
+   * <p>The current status of the service job. </p>
+   * @public
+   */
+  status?: ServiceJobStatus | undefined;
+
+  /**
+   * <p>A short string to provide more details on the current status of the service job.</p>
+   * @public
+   */
+  statusReason?: string | undefined;
+
+  /**
+   * <p>The Unix timestamp (in milliseconds) for when the service job was started.</p>
+   * @public
+   */
+  startedAt?: number | undefined;
+
+  /**
+   * <p>The Unix timestamp (in milliseconds) for when the service job stopped running.</p>
+   * @public
+   */
+  stoppedAt?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListServiceJobsResponse {
+  /**
+   * <p>A list of service job summaries.</p>
+   * @public
+   */
+  jobSummaryList: ServiceJobSummary[] | undefined;
+
+  /**
+   * <p>The <code>nextToken</code> value to include in a future <code>ListServiceJobs</code> request. When the results of a <code>ListServiceJobs</code> request exceed <code>maxResults</code>, this value can be used to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
    * @public
    */
   nextToken?: string | undefined;
@@ -7648,6 +8373,96 @@ export interface SubmitJobResponse {
 }
 
 /**
+ * @public
+ */
+export interface SubmitServiceJobRequest {
+  /**
+   * <p>The name of the service job. It can be up to 128 characters long. It can contain uppercase and lowercase letters, numbers, hyphens (-), and underscores (_).</p>
+   * @public
+   */
+  jobName: string | undefined;
+
+  /**
+   * <p>The job queue into which the service job is submitted. You can specify either the name or the ARN of the queue. The job queue must have the type <code>SAGEMAKER_TRAINING</code>.</p>
+   * @public
+   */
+  jobQueue: string | undefined;
+
+  /**
+   * <p>The retry strategy to use for failed service jobs that are submitted with this service job request. </p>
+   * @public
+   */
+  retryStrategy?: ServiceJobRetryStrategy | undefined;
+
+  /**
+   * <p>The scheduling priority of the service job.  Valid values are integers between 0 and 9999.</p>
+   * @public
+   */
+  schedulingPriority?: number | undefined;
+
+  /**
+   * <p>The request, in JSON, for the service that the SubmitServiceJob operation is queueing. </p>
+   * @public
+   */
+  serviceRequestPayload: string | undefined;
+
+  /**
+   * <p>The type of service job. For SageMaker Training jobs, specify <code>SAGEMAKER_TRAINING</code>.</p>
+   * @public
+   */
+  serviceJobType: ServiceJobType | undefined;
+
+  /**
+   * <p>The share identifier for the service job. Don't specify this parameter if the job queue doesn't have a fair-
+   *            share scheduling policy. If the job queue has a fair-share scheduling policy, then this parameter
+   *            must be specified.</p>
+   * @public
+   */
+  shareIdentifier?: string | undefined;
+
+  /**
+   * <p>The timeout configuration for the service job. If none is specified, Batch defers to the default timeout of the underlying service handling the job.</p>
+   * @public
+   */
+  timeoutConfig?: ServiceJobTimeout | undefined;
+
+  /**
+   * <p>The tags that you apply to the service job request. Each tag consists of a key and an optional value. For more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/using-tags.html">Tagging your Batch resources</a>.</p>
+   * @public
+   */
+  tags?: Record<string, string> | undefined;
+
+  /**
+   * <p>A unique identifier for the request. This token is used to ensure idempotency of requests. If this parameter is specified and two submit requests with identical payloads and <code>clientToken</code>s are received, these requests are considered the same request and the second request is rejected.</p>
+   * @public
+   */
+  clientToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface SubmitServiceJobResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) for the service job.</p>
+   * @public
+   */
+  jobArn?: string | undefined;
+
+  /**
+   * <p>The name of the service job.</p>
+   * @public
+   */
+  jobName: string | undefined;
+
+  /**
+   * <p>The unique identifier for the service job.</p>
+   * @public
+   */
+  jobId: string | undefined;
+}
+
+/**
  * <p>Contains the parameters for <code>TagResource</code>.</p>
  * @public
  */
@@ -7698,6 +8513,28 @@ export interface TerminateJobRequest {
  * @public
  */
 export interface TerminateJobResponse {}
+
+/**
+ * @public
+ */
+export interface TerminateServiceJobRequest {
+  /**
+   * <p>The service job ID of the service job to terminate.</p>
+   * @public
+   */
+  jobId: string | undefined;
+
+  /**
+   * <p>A message to attach to the service job that explains the reason for canceling it. This message is returned by <code>DescribeServiceJob</code> operations on the service job.</p>
+   * @public
+   */
+  reason: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface TerminateServiceJobResponse {}
 
 /**
  * <p>Contains the parameters for <code>UntagResource</code>.</p>
@@ -8322,6 +9159,12 @@ export interface UpdateJobQueueRequest {
   computeEnvironmentOrder?: ComputeEnvironmentOrder[] | undefined;
 
   /**
+   * <p>The order of the service environment associated with the job queue. Job queues with a higher priority are evaluated first when associated with the same service environment.</p>
+   * @public
+   */
+  serviceEnvironmentOrder?: ServiceEnvironmentOrder[] | undefined;
+
+  /**
    * <p>The set of actions that Batch perform on jobs that remain at the head of the job queue in the specified state longer than specified times. Batch will perform each action after <code>maxTimeSeconds</code> has passed. (<b>Note</b>: The minimum value for maxTimeSeconds is 600 (10 minutes) and its maximum value is 86,400 (24 hours).)</p>
    * @public
    */
@@ -8367,3 +9210,43 @@ export interface UpdateSchedulingPolicyRequest {
  * @public
  */
 export interface UpdateSchedulingPolicyResponse {}
+
+/**
+ * @public
+ */
+export interface UpdateServiceEnvironmentRequest {
+  /**
+   * <p>The name or ARN of the service environment to update.</p>
+   * @public
+   */
+  serviceEnvironment: string | undefined;
+
+  /**
+   * <p>The state of the service environment. </p>
+   * @public
+   */
+  state?: ServiceEnvironmentState | undefined;
+
+  /**
+   * <p>The capacity limits for the service environment. This defines the maximum resources that can be used by service jobs in this environment.</p>
+   * @public
+   */
+  capacityLimits?: CapacityLimit[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateServiceEnvironmentResponse {
+  /**
+   * <p>The name of the service environment that was updated.</p>
+   * @public
+   */
+  serviceEnvironmentName: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the service environment that was updated.</p>
+   * @public
+   */
+  serviceEnvironmentArn: string | undefined;
+}

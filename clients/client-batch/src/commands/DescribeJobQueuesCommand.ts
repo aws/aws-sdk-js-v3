@@ -60,6 +60,13 @@ export interface DescribeJobQueuesCommandOutput extends DescribeJobQueuesRespons
  * //           computeEnvironment: "STRING_VALUE", // required
  * //         },
  * //       ],
+ * //       serviceEnvironmentOrder: [ // ServiceEnvironmentOrders
+ * //         { // ServiceEnvironmentOrder
+ * //           order: Number("int"), // required
+ * //           serviceEnvironment: "STRING_VALUE", // required
+ * //         },
+ * //       ],
+ * //       jobQueueType: "EKS" || "ECS" || "ECS_FARGATE" || "SAGEMAKER_TRAINING",
  * //       tags: { // TagrisTagsMap
  * //         "<keys>": "STRING_VALUE",
  * //       },
@@ -68,7 +75,7 @@ export interface DescribeJobQueuesCommandOutput extends DescribeJobQueuesRespons
  * //           reason: "STRING_VALUE", // required
  * //           state: "RUNNABLE", // required
  * //           maxTimeSeconds: Number("int"), // required
- * //           action: "CANCEL", // required
+ * //           action: "CANCEL" || "TERMINATE", // required
  * //         },
  * //       ],
  * //     },

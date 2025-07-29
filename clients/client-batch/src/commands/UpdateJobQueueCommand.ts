@@ -46,12 +46,18 @@ export interface UpdateJobQueueCommandOutput extends UpdateJobQueueResponse, __M
  *       computeEnvironment: "STRING_VALUE", // required
  *     },
  *   ],
+ *   serviceEnvironmentOrder: [ // ServiceEnvironmentOrders
+ *     { // ServiceEnvironmentOrder
+ *       order: Number("int"), // required
+ *       serviceEnvironment: "STRING_VALUE", // required
+ *     },
+ *   ],
  *   jobStateTimeLimitActions: [ // JobStateTimeLimitActions
  *     { // JobStateTimeLimitAction
  *       reason: "STRING_VALUE", // required
  *       state: "RUNNABLE", // required
  *       maxTimeSeconds: Number("int"), // required
- *       action: "CANCEL", // required
+ *       action: "CANCEL" || "TERMINATE", // required
  *     },
  *   ],
  * };
