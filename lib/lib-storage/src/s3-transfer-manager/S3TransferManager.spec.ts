@@ -1,13 +1,11 @@
 import { S3, S3Client } from "@aws-sdk/client-s3";
-import { GetObjectCommand, PutObjectCommand } from "@aws-sdk/client-s3";
 import { TransferCompleteEvent, TransferEvent } from "@aws-sdk/lib-storage/dist-types/s3-transfer-manager/types";
 import { StreamingBlobPayloadOutputTypes } from "@smithy/types";
-import { mockClient } from "aws-sdk-client-mock";
 import { Readable } from "stream";
 import { beforeAll, beforeEach, describe, expect, test as it, vi } from "vitest";
 
 import { getIntegTestResources } from "../../../../tests/e2e/get-integ-test-resources";
-import { iterateStreams, joinStreams } from "./join-streams";
+import { joinStreams } from "./join-streams";
 import { S3TransferManager } from "./S3TransferManager";
 
 describe("S3TransferManager Unit Tests", () => {
@@ -26,72 +24,6 @@ describe("S3TransferManager Unit Tests", () => {
     client = new S3({
       region,
       responseChecksumValidation: "WHEN_REQUIRED",
-    });
-  });
-
-  // TODO: This test uses mock from public library aws-sdk-mock. May remove
-  describe("ETag Unit tests", () => {
-    const s3Mock = mockClient(S3Client);
-
-    beforeEach(() => {
-      s3Mock.reset();
-    });
-
-    it("Should throw precondition error when ETag changes mid-download", async () => {
-      const bucket = "test-bucket";
-      const key = "test-key";
-      const originalData = Buffer.alloc(20 * 1024 * 1024, "a"); // 20MB
-
-      let getCallCount = 0;
-
-      s3Mock.on(GetObjectCommand).callsFake((input) => {
-        getCallCount++;
-
-        if (getCallCount === 1) {
-          // First call - return original object with PartsCount > 1 to trigger concurrent requests
-          return {
-            Body: Readable.from([originalData.slice(0, 8 * 1024 * 1024)]),
-            ETag: '"original-etag"',
-            ContentLength: 8 * 1024 * 1024,
-            ContentRange: "bytes 0-8388607/20971520", // Part 1 of 3 parts
-            PartsCount: 3,
-          };
-        } else {
-          // Subsequent calls with IfMatch should fail with 412 Precondition Failed
-          if (input.IfMatch === '"original-etag"') {
-            const error = new Error("The condition specified using HTTP conditional header(s) is not met.");
-            error.name = "PreconditionFailed";
-            (error as any).$metadata = {
-              httpStatusCode: 412,
-            };
-            throw error;
-          }
-
-          // Fallback for any other calls
-          return {
-            Body: Readable.from([originalData.slice(0, 8 * 1024 * 1024)]),
-            ETag: '"original-etag"',
-            ContentLength: 8 * 1024 * 1024,
-          };
-        }
-      });
-
-      const tm = new S3TransferManager({
-        s3ClientInstance: new S3Client({}),
-        targetPartSizeBytes: 8 * 1024 * 1024,
-        multipartDownloadType: "PART", // Use PART mode to trigger the concurrent requests
-      });
-
-      await expect(
-        tm.download({
-          Bucket: bucket,
-          Key: key,
-        })
-      ).rejects.toThrowError(
-        expect.objectContaining({
-          name: "PreconditionFailed",
-        })
-      );
     });
   });
 

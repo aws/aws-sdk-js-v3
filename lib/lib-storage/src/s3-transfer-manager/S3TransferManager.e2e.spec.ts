@@ -1,17 +1,10 @@
-import {
-  GetObjectCommandOutput,
-  ListBucketInventoryConfigurationsOutputFilterSensitiveLog,
-  PutObjectCommand,
-  S3,
-} from "@aws-sdk/client-s3";
-import internal from "stream";
-import { getHeapSnapshot } from "v8";
+import { GetObjectCommandOutput, S3 } from "@aws-sdk/client-s3";
 import { beforeAll, describe, expect, test as it } from "vitest";
 
 import { getIntegTestResources } from "../../../../tests/e2e/get-integ-test-resources";
 import { Upload } from "../Upload";
 import { internalEventHandler, S3TransferManager } from "./S3TransferManager";
-import type { IS3TransferManager, S3TransferManagerConfig } from "./types";
+import type { S3TransferManagerConfig } from "./types";
 
 describe(S3TransferManager.name, () => {
   const chunk = "01234567";
@@ -231,10 +224,36 @@ describe(S3TransferManager.name, () => {
     }
   });
 
-  // TODO: Write abortController tests
-  describe.skip("Download must cancel on timed abortController", () => {});
+  describe("download with abortController ", () => {
+    const modes = ["PART"] as S3TransferManagerConfig["multipartDownloadType"][];
+    for (const mode of modes) {
+      it(`should cancel ${mode} download on abort()`, async () => {
+        const totalSizeMB = 10 * 1024 * 1024;
+        const Body = data(totalSizeMB);
+        const Key = `${mode}-size`;
+        await new Upload({
+          client,
+          params: { Bucket, Key, Body },
+        }).done();
+        const tm: S3TransferManager = mode === "PART" ? tmPart : tmRange;
+        const controller = new AbortController();
+        setTimeout(() => controller.abort(), 100);
+        try {
+          await tm.download(
+            { Bucket, Key },
+            {
+              abortSignal: controller.signal,
+            }
+          );
+          expect.fail("Download should have been aborted");
+        } catch (error) {
+          expect(error.name).toEqual("AbortError");
+        }
+      }, 60_000);
+    }
+  });
 
-  describe.skip("(SEP) download single object tests", () => {
+  describe("(SEP) download single object tests", () => {
     async function sepTests(
       objectType: "single" | "multipart",
       multipartType: "PART" | "RANGE",
@@ -285,13 +304,6 @@ describe(S3TransferManager.name, () => {
     }, 60_000);
     it("multipart object: multipartDownloadType = RANGE, range = 0-12MB, partNumber = null", async () => {
       await sepTests("multipart", "RANGE", `bytes=0-${12 * 1024 * 1024}`, undefined);
-    }, 60_000);
-    // skipped because TM no longer supports partNumber
-    it.skip("single object: multipartDownloadType = PART, range = null, partNumber = 2", async () => {
-      await sepTests("single", "PART", undefined, 2);
-    }, 60_000);
-    it.skip("single object: multipartDownloadType = RANGE, range = null, partNumber = 2", async () => {
-      await sepTests("single", "RANGE", undefined, 2);
     }, 60_000);
     it("single object: multipartDownloadType = PART, range = null, partNumber = null", async () => {
       await sepTests("single", "PART", undefined, undefined);
