@@ -1,16 +1,11 @@
-import {
-  GetObjectCommandOutput,
-  ListBucketInventoryConfigurationsOutputFilterSensitiveLog,
-  PutObjectCommand,
-  S3,
-} from "@aws-sdk/client-s3";
-import internal from "stream";
+import { GetObjectCommandOutput, S3 } from "@aws-sdk/client-s3";
+import { Readable } from "node:stream";
 import { beforeAll, describe, expect, test as it } from "vitest";
 
 import { getIntegTestResources } from "../../../../tests/e2e/get-integ-test-resources";
 import { Upload } from "../Upload";
 import { internalEventHandler, S3TransferManager } from "./S3TransferManager";
-import type { IS3TransferManager, S3TransferManagerConfig } from "./types";
+import type { S3TransferManagerConfig } from "./types";
 
 describe(S3TransferManager.name, () => {
   const chunk = "01234567";
