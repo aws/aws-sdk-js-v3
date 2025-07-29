@@ -165,7 +165,7 @@ describe(S3TransferManager.name, () => {
     const modes = ["PART", "RANGE"] as S3TransferManagerConfig["multipartDownloadType"][];
 
     for (const mode of modes) {
-      it.only(`should fail when ETag changes during a ${mode} download`, async () => {
+      it(`should fail when ETag changes during a ${mode} download`, async () => {
         const totalSizeMB = 20 * 1024 * 1024;
         const Body = data(totalSizeMB);
         const Key = `${mode}-etag-test`;
