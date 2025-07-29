@@ -31,7 +31,7 @@ export interface UpdatePrivacyBudgetTemplateCommandInput extends UpdatePrivacyBu
 export interface UpdatePrivacyBudgetTemplateCommandOutput extends UpdatePrivacyBudgetTemplateOutput, __MetadataBearer {}
 
 /**
- * <p>Updates the privacy budget template for the specified membership.</p>
+ * <p>Updates the privacy budget template for the specified collaboration.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

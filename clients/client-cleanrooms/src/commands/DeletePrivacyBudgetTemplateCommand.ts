@@ -31,7 +31,7 @@ export interface DeletePrivacyBudgetTemplateCommandInput extends DeletePrivacyBu
 export interface DeletePrivacyBudgetTemplateCommandOutput extends DeletePrivacyBudgetTemplateOutput, __MetadataBearer {}
 
 /**
- * <p>Deletes a privacy budget template for a specified membership.</p>
+ * <p>Deletes a privacy budget template for a specified collaboration.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

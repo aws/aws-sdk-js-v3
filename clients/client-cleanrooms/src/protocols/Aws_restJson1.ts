@@ -2042,10 +2042,12 @@ export const se_UpdateConfiguredTableCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
+      allowedColumns: (_) => _json(_),
       analysisMethod: [],
       description: [],
       name: [],
       selectedAnalysisMethods: (_) => _json(_),
+      tableReference: (_) => _json(_),
     })
   );
   b.m("PATCH").h(headers).b(body);

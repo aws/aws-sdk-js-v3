@@ -2493,7 +2493,7 @@
         "analyticsEngine": {
           "target": "com.amazonaws.cleanrooms#AnalyticsEngine",
           "traits": {
-            "smithy.api#documentation": "<p> The analytics engine for the collaboration.</p>"
+            "smithy.api#documentation": "<p> The analytics engine for the collaboration.</p> <note> <p>After July 16, 2025, the <code>CLEAN_ROOMS_SQL</code> parameter will no longer be available. </p> </note>"
           }
         }
       },
@@ -3495,7 +3495,7 @@
         "analyticsEngine": {
           "target": "com.amazonaws.cleanrooms#AnalyticsEngine",
           "traits": {
-            "smithy.api#documentation": "<p> The analytics engine.</p>"
+            "smithy.api#documentation": "<p> The analytics engine.</p> <note> <p>After July 16, 2025, the <code>CLEAN_ROOMS_SQL</code> parameter will no longer be available. </p> </note>"
           }
         }
       },
@@ -4955,7 +4955,7 @@
         "source": {
           "target": "com.amazonaws.cleanrooms#AnalysisSource",
           "traits": {
-            "smithy.api#documentation": "<p>The information in the analysis template. Currently supports <code>text</code>, the query text for the analysis template.</p>",
+            "smithy.api#documentation": "<p>The information in the analysis template.</p>",
             "smithy.api#required": {}
           }
         },
@@ -5101,7 +5101,7 @@
         "analyticsEngine": {
           "target": "com.amazonaws.cleanrooms#AnalyticsEngine",
           "traits": {
-            "smithy.api#documentation": "<p> The analytics engine.</p>"
+            "smithy.api#documentation": "<p> The analytics engine.</p> <note> <p>After July 16, 2025, the <code>CLEAN_ROOMS_SQL</code> parameter will no longer be available. </p> </note>"
           }
         }
       }
@@ -5950,7 +5950,7 @@
       ],
       "traits": {
         "aws.iam#actionPermissionDescription": "Grants permission to create a new privacy budget template",
-        "smithy.api#documentation": "<p>Creates a privacy budget template for a specified membership. Each membership can have only one privacy budget template, but it can be deleted and recreated. If you need to change the privacy budget template for a membership, use the <a>UpdatePrivacyBudgetTemplate</a> operation.</p>",
+        "smithy.api#documentation": "<p>Creates a privacy budget template for a specified collaboration. Each collaboration can have only one privacy budget template. If you need to change the privacy budget template, use the <a>UpdatePrivacyBudgetTemplate</a> operation.</p>",
         "smithy.api#http": {
           "code": 200,
           "method": "POST",
@@ -6828,7 +6828,7 @@
       ],
       "traits": {
         "aws.iam#actionPermissionDescription": "Grants permission to remove a privacy budget from a collaboration",
-        "smithy.api#documentation": "<p>Deletes a privacy budget template for a specified membership.</p>",
+        "smithy.api#documentation": "<p>Deletes a privacy budget template for a specified collaboration.</p>",
         "smithy.api#http": {
           "code": 204,
           "method": "DELETE",
@@ -15490,7 +15490,7 @@
         "analyticsEngine": {
           "target": "com.amazonaws.cleanrooms#AnalyticsEngine",
           "traits": {
-            "smithy.api#documentation": "<p>The analytics engine.</p>"
+            "smithy.api#documentation": "<p>The analytics engine.</p> <note> <p>After July 16, 2025, the <code>CLEAN_ROOMS_SQL</code> parameter will no longer be available. </p> </note>"
           }
         }
       }
@@ -15615,6 +15615,9 @@
         },
         {
           "target": "com.amazonaws.cleanrooms#ResourceNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.cleanrooms#ServiceQuotaExceededException"
         },
         {
           "target": "com.amazonaws.cleanrooms#ThrottlingException"
@@ -15916,6 +15919,15 @@
           "target": "com.amazonaws.cleanrooms#TableDescription",
           "traits": {
             "smithy.api#documentation": "<p>A new description for the configured table.</p>"
+          }
+        },
+        "tableReference": {
+          "target": "com.amazonaws.cleanrooms#TableReference"
+        },
+        "allowedColumns": {
+          "target": "com.amazonaws.cleanrooms#AllowedColumnList",
+          "traits": {
+            "smithy.api#documentation": "<p>The columns of the underlying table that can be used by collaborations or analysis rules.</p>"
           }
         },
         "analysisMethod": {
@@ -16243,7 +16255,7 @@
       ],
       "traits": {
         "aws.iam#actionPermissionDescription": "Grants permission to update a privacy budget template",
-        "smithy.api#documentation": "<p>Updates the privacy budget template for the specified membership.</p>",
+        "smithy.api#documentation": "<p>Updates the privacy budget template for the specified collaboration.</p>",
         "smithy.api#http": {
           "code": 200,
           "method": "PATCH",

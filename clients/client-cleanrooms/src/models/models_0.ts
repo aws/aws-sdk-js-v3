@@ -1593,7 +1593,7 @@ export interface CreateAnalysisTemplateInput {
   format: AnalysisFormat | undefined;
 
   /**
-   * <p>The information in the analysis template. Currently supports <code>text</code>, the query text for the analysis template.</p>
+   * <p>The information in the analysis template.</p>
    * @public
    */
   source: AnalysisSource | undefined;
@@ -2971,7 +2971,7 @@ export interface CreateCollaborationInput {
   creatorPaymentConfiguration?: PaymentConfiguration | undefined;
 
   /**
-   * <p> The analytics engine.</p>
+   * <p> The analytics engine.</p> <note> <p>After July 16, 2025, the <code>CLEAN_ROOMS_SQL</code> parameter will no longer be available. </p> </note>
    * @public
    */
   analyticsEngine?: AnalyticsEngine | undefined;
@@ -3083,7 +3083,7 @@ export interface Collaboration {
   jobLogStatus?: CollaborationJobLogStatus | undefined;
 
   /**
-   * <p> The analytics engine for the collaboration.</p>
+   * <p> The analytics engine for the collaboration.</p> <note> <p>After July 16, 2025, the <code>CLEAN_ROOMS_SQL</code> parameter will no longer be available. </p> </note>
    * @public
    */
   analyticsEngine?: AnalyticsEngine | undefined;
@@ -4411,7 +4411,7 @@ export interface CollaborationSummary {
   membershipArn?: string | undefined;
 
   /**
-   * <p> The analytics engine.</p>
+   * <p> The analytics engine.</p> <note> <p>After July 16, 2025, the <code>CLEAN_ROOMS_SQL</code> parameter will no longer be available. </p> </note>
    * @public
    */
   analyticsEngine?: AnalyticsEngine | undefined;
@@ -4675,7 +4675,7 @@ export interface UpdateCollaborationInput {
   description?: string | undefined;
 
   /**
-   * <p>The analytics engine.</p>
+   * <p>The analytics engine.</p> <note> <p>After July 16, 2025, the <code>CLEAN_ROOMS_SQL</code> parameter will no longer be available. </p> </note>
    * @public
    */
   analyticsEngine?: AnalyticsEngine | undefined;
@@ -6271,6 +6271,18 @@ export interface UpdateConfiguredTableInput {
    * @public
    */
   description?: string | undefined;
+
+  /**
+   * <p>A pointer to the dataset that underlies this table.</p>
+   * @public
+   */
+  tableReference?: TableReference | undefined;
+
+  /**
+   * <p>The columns of the underlying table that can be used by collaborations or analysis rules.</p>
+   * @public
+   */
+  allowedColumns?: string[] | undefined;
 
   /**
    * <p> The analysis method for the configured table.</p> <p> <code>DIRECT_QUERY</code> allows SQL queries to be run directly on this table.</p> <p> <code>DIRECT_JOB</code> allows PySpark jobs to be run directly on this table.</p> <p> <code>MULTIPLE</code> allows both SQL queries and PySpark jobs to be run directly on this table.</p>

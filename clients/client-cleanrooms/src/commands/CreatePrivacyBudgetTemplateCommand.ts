@@ -31,7 +31,7 @@ export interface CreatePrivacyBudgetTemplateCommandInput extends CreatePrivacyBu
 export interface CreatePrivacyBudgetTemplateCommandOutput extends CreatePrivacyBudgetTemplateOutput, __MetadataBearer {}
 
 /**
- * <p>Creates a privacy budget template for a specified membership. Each membership can have only one privacy budget template, but it can be deleted and recreated. If you need to change the privacy budget template for a membership, use the <a>UpdatePrivacyBudgetTemplate</a> operation.</p>
+ * <p>Creates a privacy budget template for a specified collaboration. Each collaboration can have only one privacy budget template. If you need to change the privacy budget template, use the <a>UpdatePrivacyBudgetTemplate</a> operation.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -39,6 +39,36 @@ export interface UpdateConfiguredTableCommandOutput extends UpdateConfiguredTabl
  *   configuredTableIdentifier: "STRING_VALUE", // required
  *   name: "STRING_VALUE",
  *   description: "STRING_VALUE",
+ *   tableReference: { // TableReference Union: only one key present
+ *     glue: { // GlueTableReference
+ *       tableName: "STRING_VALUE", // required
+ *       databaseName: "STRING_VALUE", // required
+ *     },
+ *     snowflake: { // SnowflakeTableReference
+ *       secretArn: "STRING_VALUE", // required
+ *       accountIdentifier: "STRING_VALUE", // required
+ *       databaseName: "STRING_VALUE", // required
+ *       tableName: "STRING_VALUE", // required
+ *       schemaName: "STRING_VALUE", // required
+ *       tableSchema: { // SnowflakeTableSchema Union: only one key present
+ *         v1: [ // SnowflakeTableSchemaList
+ *           { // SnowflakeTableSchemaV1
+ *             columnName: "STRING_VALUE", // required
+ *             columnType: "STRING_VALUE", // required
+ *           },
+ *         ],
+ *       },
+ *     },
+ *     athena: { // AthenaTableReference
+ *       workGroup: "STRING_VALUE", // required
+ *       outputLocation: "STRING_VALUE",
+ *       databaseName: "STRING_VALUE", // required
+ *       tableName: "STRING_VALUE", // required
+ *     },
+ *   },
+ *   allowedColumns: [ // AllowedColumnList
+ *     "STRING_VALUE",
+ *   ],
  *   analysisMethod: "DIRECT_QUERY" || "DIRECT_JOB" || "MULTIPLE",
  *   selectedAnalysisMethods: [ // SelectedAnalysisMethods
  *     "DIRECT_QUERY" || "DIRECT_JOB",
@@ -113,6 +143,9 @@ export interface UpdateConfiguredTableCommandOutput extends UpdateConfiguredTabl
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>Request references a resource which does not exist.</p>
+ *
+ * @throws {@link ServiceQuotaExceededException} (client fault)
+ *  <p>Request denied because service quota has been exceeded.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>Request was denied due to request throttling.</p>
