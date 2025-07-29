@@ -3718,6 +3718,12 @@ export interface CreateMonitorRequest {
    * @public
    */
   roleArn: string | undefined;
+
+  /**
+   * <p>The tags to add to your monitor. Each tag consists of a tag key and a tag value. Tag keys and values are both required, but tag values can be empty strings.</p>
+   * @public
+   */
+  tags?: Record<string, string> | undefined;
 }
 
 /**

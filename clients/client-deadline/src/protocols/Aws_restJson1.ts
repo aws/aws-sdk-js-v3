@@ -972,6 +972,7 @@ export const se_CreateMonitorCommand = async (
       identityCenterInstanceArn: [],
       roleArn: [],
       subdomain: [],
+      tags: (_) => _json(_),
     })
   );
   let { hostname: resolvedHostname } = await context.endpoint();

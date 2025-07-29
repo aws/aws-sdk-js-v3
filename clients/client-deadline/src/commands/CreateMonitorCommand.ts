@@ -41,6 +41,9 @@ export interface CreateMonitorCommandOutput extends CreateMonitorResponse, __Met
  *   identityCenterInstanceArn: "STRING_VALUE", // required
  *   subdomain: "STRING_VALUE", // required
  *   roleArn: "STRING_VALUE", // required
+ *   tags: { // Tags
+ *     "<keys>": "STRING_VALUE",
+ *   },
  * };
  * const command = new CreateMonitorCommand(input);
  * const response = await client.send(command);
