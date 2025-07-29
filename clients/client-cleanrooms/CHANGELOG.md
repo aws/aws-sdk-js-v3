@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.856.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.855.0...v3.856.0) (2025-07-29)
+
+
+### Features
+
+* **client-cleanrooms:** This feature provides the ability to update the table reference and allowed columns on an existing configured table. ([f72f1fc](https://github.com/aws/aws-sdk-js-v3/commit/f72f1fc14b6db096b982e68d9da846529de798cd))
+
+
+
+
+
 # [3.855.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.854.0...v3.855.0) (2025-07-28)
 
 **Note:** Version bump only for package @aws-sdk/client-cleanrooms

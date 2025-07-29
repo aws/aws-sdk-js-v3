@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.856.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.855.0...v3.856.0) (2025-07-29)
+
+
+### Features
+
+* **client-batch:** AWS Batch for SageMaker Training jobs feature support.  Includes new APIs for service job submission (e.g., SubmitServiceJob) and managing service environments (e.g., CreateServiceEnvironment) that enable queueing SageMaker Training jobs. ([d1163fa](https://github.com/aws/aws-sdk-js-v3/commit/d1163fabe19573b00533e09746180824ec124ee9))
+* **client-cleanrooms:** This feature provides the ability to update the table reference and allowed columns on an existing configured table. ([f72f1fc](https://github.com/aws/aws-sdk-js-v3/commit/f72f1fc14b6db096b982e68d9da846529de798cd))
+* **client-deadline:** Adds support for tag management on monitors. ([60d0fe6](https://github.com/aws/aws-sdk-js-v3/commit/60d0fe6a32d66647a65c3c898c8ea65257e7f1ed))
+* **client-location:** This release 1) adds support for multi-polygon geofences with disconnected territories, and 2) enables polygon exclusion zones within geofences for more accurate representation of real-world boundaries. ([a590885](https://github.com/aws/aws-sdk-js-v3/commit/a59088528935222339cbef0bad93fff54595588b))
+* **client-opensearchserverless:** This is to support Granular access control support for SAML with IAMFedraton in AOSS ([a440fc3](https://github.com/aws/aws-sdk-js-v3/commit/a440fc3c73abfa79a59554c421bb0c989b627491))
+* **clients:** update client endpoints as of 2025-07-29 ([caa11b6](https://github.com/aws/aws-sdk-js-v3/commit/caa11b64ed808b2a6ea26a81d1c503b5d7b537dd))
+
+
+
+
+
 # [3.855.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.854.0...v3.855.0) (2025-07-28)
 
 

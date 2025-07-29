@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.856.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.855.0...v3.856.0) (2025-07-29)
+
+
+### Features
+
+* **client-location:** This release 1) adds support for multi-polygon geofences with disconnected territories, and 2) enables polygon exclusion zones within geofences for more accurate representation of real-world boundaries. ([a590885](https://github.com/aws/aws-sdk-js-v3/commit/a59088528935222339cbef0bad93fff54595588b))
+
+
+
+
+
 # [3.855.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.854.0...v3.855.0) (2025-07-28)
 
 **Note:** Version bump only for package @aws-sdk/client-location
