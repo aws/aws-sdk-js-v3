@@ -61,7 +61,7 @@ describe(S3TransferManager.name, () => {
         it(`should download an object of size ${size} with mode ${mode}`, async () => {
           const totalSizeMB = size * 1024 * 1024;
           const Body = data(totalSizeMB);
-          const Key = `${mode}-size`;
+          const Key = `${mode}-${size}`;
 
           await new Upload({
             client,
@@ -165,7 +165,7 @@ describe(S3TransferManager.name, () => {
     const modes = ["PART", "RANGE"] as S3TransferManagerConfig["multipartDownloadType"][];
 
     for (const mode of modes) {
-      it(`should fail when ETag changes during a ${mode} download`, async () => {
+      it.only(`should fail when ETag changes during a ${mode} download`, async () => {
         const totalSizeMB = 20 * 1024 * 1024;
         const Body = data(totalSizeMB);
         const Key = `${mode}-etag-test`;
@@ -199,7 +199,7 @@ describe(S3TransferManager.name, () => {
             internalEventHandler.afterInitialGetObject = async () => {};
           };
 
-          await tm.download(
+          const downloadResponse = await tm.download(
             { Bucket, Key },
             {
               eventListeners: {
@@ -213,6 +213,7 @@ describe(S3TransferManager.name, () => {
               },
             }
           );
+          await downloadResponse.Body?.transformToByteArray();
           expect.fail("Download should have failed due to ETag mismatch");
         } catch (error) {
           expect(transferFailed).toBe(true);

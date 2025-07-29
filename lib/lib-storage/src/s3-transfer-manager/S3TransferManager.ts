@@ -431,9 +431,6 @@ export class S3TransferManager implements IS3TransferManager {
 
         let partCount = 1;
         if (initialPart.PartsCount! > 1) {
-          const concurrentRequests = [];
-          const concurrentRequestInputs = [];
-
           for (let part = 2; part <= initialPart.PartsCount!; part++) {
             this.checkAborted(transferOptions);
             const getObjectRequest = {
@@ -453,23 +450,14 @@ export class S3TransferManager implements IS3TransferManager {
                   };
                 }
                 return response.Body!;
+              })
+              .catch((error) => {
+                this.dispatchTransferFailedEvent(getObjectRequest, totalSize, error as Error);
+                throw error;
               });
-
-            concurrentRequests.push(getObject);
-            concurrentRequestInputs.push(getObjectRequest);
+            streams.push(getObject);
+            requests.push(getObjectRequest);
             partCount++;
-          }
-
-          try {
-            // Add promise streams to streams array ONLY if all are resolved
-            const responses = await Promise.all(concurrentRequests);
-            for (let i = 0; i < responses.length; i++) {
-              streams.push(Promise.resolve(responses[i]));
-              requests.push(concurrentRequestInputs[i]);
-            }
-          } catch (error) {
-            this.dispatchTransferFailedEvent(request, totalSize, error as Error);
-            throw error;
           }
 
           if (partCount !== initialPart.PartsCount) {
@@ -600,9 +588,6 @@ export class S3TransferManager implements IS3TransferManager {
     remainingLength = totalSize ? Math.min(right - left + 1, Math.max(0, totalSize - left)) : 0;
     let actualRequestCount = 1;
 
-    const concurrentRequests = [];
-    const concurrentRequestInputs = [];
-
     while (remainingLength > 0) {
       this.checkAborted(transferOptions);
 
@@ -624,29 +609,19 @@ export class S3TransferManager implements IS3TransferManager {
             };
           }
           return response.Body!;
+        })
+        .catch((error) => {
+          this.dispatchTransferFailedEvent(getObjectRequest, totalSize, error);
+          throw error;
         });
 
-      concurrentRequests.push(getObject);
-      concurrentRequestInputs.push(getObjectRequest);
+      streams.push(getObject);
+      requests.push(getObjectRequest);
       actualRequestCount++;
 
       left = right + 1;
       right = Math.min(left + S3TransferManager.MIN_PART_SIZE - 1, maxRange);
       remainingLength = totalSize ? Math.min(right - left + 1, Math.max(0, totalSize - left)) : 0;
-    }
-
-    if (concurrentRequests.length > 0) {
-      try {
-        // Add promise streams to streams array ONLY if all are resolved
-        const responses = await Promise.all(concurrentRequests);
-        for (let i = 0; i < responses.length; i++) {
-          streams.push(Promise.resolve(responses[i]));
-          requests.push(concurrentRequestInputs[i]);
-        }
-      } catch (error) {
-        this.dispatchTransferFailedEvent(request, totalSize, error as Error);
-        throw error;
-      }
     }
 
     if (expectedRequestCount !== actualRequestCount) {
