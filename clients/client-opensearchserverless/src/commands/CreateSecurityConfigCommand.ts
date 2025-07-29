@@ -32,9 +32,8 @@ export interface CreateSecurityConfigCommandInput extends CreateSecurityConfigRe
 export interface CreateSecurityConfigCommandOutput extends CreateSecurityConfigResponse, __MetadataBearer {}
 
 /**
- * <p>Specifies a security configuration for OpenSearch Serverless. For more information, see
- *             <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-saml.html">SAML
- *                 authentication for Amazon OpenSearch Serverless</a>. </p>
+ * <p>Specifies a security configuration for OpenSearch Serverless. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-saml.html">SAML
+ *                 authentication for Amazon OpenSearch Serverless</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -56,6 +55,10 @@ export interface CreateSecurityConfigCommandOutput extends CreateSecurityConfigR
  *     instanceArn: "STRING_VALUE", // required
  *     userAttribute: "STRING_VALUE",
  *     groupAttribute: "STRING_VALUE",
+ *   },
+ *   iamFederationOptions: { // IamFederationConfigOptions
+ *     groupAttribute: "STRING_VALUE",
+ *     userAttribute: "STRING_VALUE",
  *   },
  *   clientToken: "STRING_VALUE",
  * };
@@ -82,6 +85,10 @@ export interface CreateSecurityConfigCommandOutput extends CreateSecurityConfigR
  * //       userAttribute: "STRING_VALUE",
  * //       groupAttribute: "STRING_VALUE",
  * //     },
+ * //     iamFederationOptions: { // IamFederationConfigOptions
+ * //       groupAttribute: "STRING_VALUE",
+ * //       userAttribute: "STRING_VALUE",
+ * //     },
  * //     createdDate: Number("long"),
  * //     lastModifiedDate: Number("long"),
  * //   },
@@ -96,15 +103,16 @@ export interface CreateSecurityConfigCommandOutput extends CreateSecurityConfigR
  * @see {@link OpenSearchServerlessClientResolvedConfig | config} for OpenSearchServerlessClient's `config` shape.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>When creating a resource, thrown when a resource with the same name already exists
- *             or is being created. When deleting a resource, thrown when the resource is not in
- *             the ACTIVE or FAILED state.</p>
+ *  <p>When creating a resource, thrown when a resource with the same name already exists or
+ *             is being created. When deleting a resource, thrown when the resource is not in the
+ *             ACTIVE or FAILED state.</p>
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>Thrown when an error internal to the service occurs while processing a request.</p>
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>Thrown when you attempt to create more resources than the service allows based on service quotas.</p>
+ *  <p>Thrown when you attempt to create more resources than the service allows based on
+ *             service quotas.</p>
  *
  * @throws {@link ValidationException} (client fault)
  *  <p>Thrown when the HTTP request contains invalid input or is missing required

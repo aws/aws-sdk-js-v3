@@ -434,7 +434,7 @@ export interface OpenSearchServerlessClientResolvedConfig extends OpenSearchServ
  *             configuring, and tuning your OpenSearch clusters. It enables you to easily search and
  *             analyze petabytes of data without having to worry about the underlying infrastructure
  *             and data management.</p>
- *          <p> To learn more about OpenSearch Serverless, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-overview.html">What is
+ *          <p>To learn more about OpenSearch Serverless, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-overview.html">What is
  *                 Amazon OpenSearch Serverless?</a>
  *          </p>
  * @public

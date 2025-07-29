@@ -32,8 +32,8 @@ export interface ListSecurityConfigsCommandInput extends ListSecurityConfigsRequ
 export interface ListSecurityConfigsCommandOutput extends ListSecurityConfigsResponse, __MetadataBearer {}
 
 /**
- * <p>Returns information about configured OpenSearch Serverless security configurations. For more information, see
- *             <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-saml.html">SAML
+ * <p>Returns information about configured OpenSearch Serverless security configurations. For more
+ *             information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-saml.html">SAML
  *                 authentication for Amazon OpenSearch Serverless</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

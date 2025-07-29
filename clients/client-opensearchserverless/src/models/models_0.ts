@@ -22,9 +22,9 @@ export const AccessPolicyType = {
 export type AccessPolicyType = (typeof AccessPolicyType)[keyof typeof AccessPolicyType];
 
 /**
- * <p>When creating a resource, thrown when a resource with the same name already exists
- *             or is being created. When deleting a resource, thrown when the resource is not in
- *             the ACTIVE or FAILED state.</p>
+ * <p>When creating a resource, thrown when a resource with the same name already exists or
+ *             is being created. When deleting a resource, thrown when the resource is not in the
+ *             ACTIVE or FAILED state.</p>
  * @public
  */
 export class ConflictException extends __BaseException {
@@ -159,7 +159,8 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
- * <p>Thrown when you attempt to create more resources than the service allows based on service quotas.</p>
+ * <p>Thrown when you attempt to create more resources than the service allows based on
+ *             service quotas.</p>
  * @public
  */
 export class ServiceQuotaExceededException extends __BaseException {
@@ -323,7 +324,7 @@ export interface ListAccessPoliciesRequest {
    * <p>If your initial <code>ListAccessPolicies</code> operation returns a
    *                 <code>nextToken</code>, you can include the returned <code>nextToken</code> in
    *             subsequent <code>ListAccessPolicies</code> operations, which returns results in the next
-   *             page. </p>
+   *             page.</p>
    * @public
    */
   nextToken?: string | undefined;
@@ -342,7 +343,8 @@ export interface ListAccessPoliciesRequest {
  */
 export interface AccessPolicySummary {
   /**
-   * <p>The type of access policy. Currently, the only available type is <code>data</code>.</p>
+   * <p>The type of access policy. Currently, the only available type is
+   *             <code>data</code>.</p>
    * @public
    */
   type?: AccessPolicyType | undefined;
@@ -510,7 +512,8 @@ export interface BatchGetCollectionRequest {
   ids?: string[] | undefined;
 
   /**
-   * <p>A list of collection names. You can't provide names and IDs in the same request.</p>
+   * <p>A list of collection names. You can't provide names and IDs in the same
+   *             request.</p>
    * @public
    */
   names?: string[] | undefined;
@@ -816,20 +819,23 @@ export interface EffectiveLifecyclePolicyDetail {
   policyName?: string | undefined;
 
   /**
-   * <p>The type of OpenSearch Serverless resource. Currently, the only supported resource is <code>index</code>.</p>
+   * <p>The type of OpenSearch Serverless resource. Currently, the only supported resource is
+   *                 <code>index</code>.</p>
    * @public
    */
   resourceType?: ResourceType | undefined;
 
   /**
-   * <p>The minimum number of index retention in days or hours. This is an optional parameter that will return only if it’s set.</p>
+   * <p>The minimum number of index retention in days or hours. This is an optional parameter
+   *             that will return only if it’s set.</p>
    * @public
    */
   retentionPeriod?: string | undefined;
 
   /**
-   * <p>The minimum number of index retention days set. That is an optional param that will return as <code>true</code> if the minimum number of days or
-   *             hours is not set to a index resource.</p>
+   * <p>The minimum number of index retention days set. That is an optional param that will
+   *             return as <code>true</code> if the minimum number of days or hours is not set to a index
+   *             resource.</p>
    * @public
    */
   noMinRetentionPeriod?: boolean | undefined;
@@ -853,7 +859,8 @@ export interface EffectiveLifecyclePolicyErrorDetail {
   resource?: string | undefined;
 
   /**
-   * <p>A description of the error. For example, <code>The specified Index resource is not found</code>.</p>
+   * <p>A description of the error. For example, <code>The specified Index resource is not
+   *                 found</code>.</p>
    * @public
    */
   errorMessage?: string | undefined;
@@ -977,7 +984,8 @@ export interface LifecyclePolicyErrorDetail {
   name?: string | undefined;
 
   /**
-   * <p>A description of the error. For example, <code>The specified Lifecycle Policy is not found</code>.</p>
+   * <p>A description of the error. For example, <code>The specified Lifecycle Policy is not
+   *                 found</code>.</p>
    * @public
    */
   errorMessage?: string | undefined;
@@ -1188,7 +1196,8 @@ export interface CreateCollectionRequest {
   description?: string | undefined;
 
   /**
-   * <p>An arbitrary set of tags (key–value pairs) to associate with the OpenSearch Serverless collection.</p>
+   * <p>An arbitrary set of tags (key–value pairs) to associate with the OpenSearch Serverless
+   *             collection.</p>
    * @public
    */
   tags?: Tag[] | undefined;
@@ -1248,7 +1257,8 @@ export interface CreateCollectionDetail {
   arn?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the KMS key with which to encrypt the collection.</p>
+   * <p>The Amazon Resource Name (ARN) of the KMS key with which to encrypt the
+   *             collection.</p>
    * @public
    */
   kmsKeyArn?: string | undefined;
@@ -1284,7 +1294,8 @@ export interface CreateCollectionResponse {
 }
 
 /**
- * <p>Thrown when the collection you're attempting to create results in a number of search or indexing OCUs that exceeds the account limit. </p>
+ * <p>Thrown when the collection you're attempting to create results in a number of search
+ *             or indexing OCUs that exceeds the account limit.</p>
  * @public
  */
 export class OcuLimitExceededException extends __BaseException {
@@ -1380,15 +1391,16 @@ export interface CollectionFilters {
  */
 export interface ListCollectionsRequest {
   /**
-   * <p> A list of filter names and values that you can use for requests.</p>
+   * <p>A list of filter names and values that you can use for requests.</p>
    * @public
    */
   collectionFilters?: CollectionFilters | undefined;
 
   /**
-   * <p>If your initial <code>ListCollections</code> operation returns a <code>nextToken</code>,
-   *             you can include the returned <code>nextToken</code> in subsequent <code>ListCollections</code> operations,
-   *             which returns results in the next page.</p>
+   * <p>If your initial <code>ListCollections</code> operation returns a
+   *                 <code>nextToken</code>, you can include the returned <code>nextToken</code> in
+   *             subsequent <code>ListCollections</code> operations, which returns results in the next
+   *             page.</p>
    * @public
    */
   nextToken?: string | undefined;
@@ -1442,9 +1454,9 @@ export interface ListCollectionsResponse {
   collectionSummaries?: CollectionSummary[] | undefined;
 
   /**
-   * <p>When <code>nextToken</code> is returned, there are more results available.
-   *             The value of <code>nextToken</code> is a unique pagination token for each page.
-   *             Make the call again using the returned token to retrieve the next page.</p>
+   * <p>When <code>nextToken</code> is returned, there are more results available. The value
+   *             of <code>nextToken</code> is a unique pagination token for each page. Make the call
+   *             again using the returned token to retrieve the next page.</p>
    * @public
    */
   nextToken?: string | undefined;
@@ -1585,24 +1597,28 @@ export type IamIdentityCenterUserAttribute =
   (typeof IamIdentityCenterUserAttribute)[keyof typeof IamIdentityCenterUserAttribute];
 
 /**
- * <p>Describes IAM Identity Center options for creating an OpenSearch Serverless security configuration in the form of a key-value map.</p>
+ * <p>Describes IAM Identity Center options for creating an OpenSearch Serverless security
+ *             configuration in the form of a key-value map.</p>
  * @public
  */
 export interface CreateIamIdentityCenterConfigOptions {
   /**
-   * <p>The ARN of the IAM Identity Center instance used to integrate with OpenSearch Serverless.</p>
+   * <p>The ARN of the IAM Identity Center instance used to integrate with OpenSearch
+   *             Serverless.</p>
    * @public
    */
   instanceArn: string | undefined;
 
   /**
-   * <p>The user attribute for this IAM Identity Center integration. Defaults to <code>UserId</code>.</p>
+   * <p>The user attribute for this IAM Identity Center integration. Defaults to
+   *                 <code>UserId</code>.</p>
    * @public
    */
   userAttribute?: IamIdentityCenterUserAttribute | undefined;
 
   /**
-   * <p>The group attribute for this IAM Identity Center integration. Defaults to <code>GroupId</code>.</p>
+   * <p>The group attribute for this IAM Identity Center integration. Defaults to
+   *                 <code>GroupId</code>.</p>
    * @public
    */
   groupAttribute?: IamIdentityCenterGroupAttribute | undefined;
@@ -1655,6 +1671,28 @@ export interface CreateLifecyclePolicyResponse {
 }
 
 /**
+ * <p>Describes IAM federation options for an OpenSearch Serverless security configuration
+ *             in the form of a key-value map. These options define how OpenSearch Serverless
+ *             integrates with external identity providers using federation.</p>
+ * @public
+ */
+export interface IamFederationConfigOptions {
+  /**
+   * <p>The group attribute for this IAM federation integration. This attribute is used to map
+   *             identity provider groups to OpenSearch Serverless permissions.</p>
+   * @public
+   */
+  groupAttribute?: string | undefined;
+
+  /**
+   * <p>The user attribute for this IAM federation integration. This attribute is used to
+   *             identify users in the federated authentication process.</p>
+   * @public
+   */
+  userAttribute?: string | undefined;
+}
+
+/**
  * <p>Describes SAML options for an OpenSearch Serverless security configuration in the form of a key-value
  *             map.</p>
  * @public
@@ -1679,7 +1717,8 @@ export interface SamlConfigOptions {
   groupAttribute?: string | undefined;
 
   /**
-   * <p>Custom entity id attribute to override default entity id for this saml integration.</p>
+   * <p>Custom entity ID attribute to override the default entity ID for this SAML
+   *             integration.</p>
    * @public
    */
   openSearchServerlessEntityId?: string | undefined;
@@ -1696,6 +1735,10 @@ export interface SamlConfigOptions {
  * @enum
  */
 export const SecurityConfigType = {
+  /**
+   * iam federation
+   */
+  iamfederation: "iamfederation",
   /**
    * iam identity center
    */
@@ -1735,16 +1778,25 @@ export interface CreateSecurityConfigRequest {
 
   /**
    * <p>Describes SAML options in in the form of a key-value map. This field is required if
-   *             you specify <code>saml</code> for the <code>type</code> parameter.</p>
+   *             you specify <code>SAML</code> for the <code>type</code> parameter.</p>
    * @public
    */
   samlOptions?: SamlConfigOptions | undefined;
 
   /**
-   * <p>Describes IAM Identity Center options in the form of a key-value map. This field is required if you specify iamidentitycenter for the type parameter.</p>
+   * <p>Describes IAM Identity Center options in the form of a key-value map. This field is
+   *             required if you specify iamidentitycenter for the type parameter.</p>
    * @public
    */
   iamIdentityCenterOptions?: CreateIamIdentityCenterConfigOptions | undefined;
+
+  /**
+   * <p>Describes IAM federation options in the form of a key-value map. This field is
+   *             required if you specify <code>iamFederation</code> for the <code>type</code>
+   *             parameter.</p>
+   * @public
+   */
+  iamFederationOptions?: IamFederationConfigOptions | undefined;
 
   /**
    * <p>Unique, case-sensitive identifier to ensure idempotency of the request.</p>
@@ -1754,50 +1806,57 @@ export interface CreateSecurityConfigRequest {
 }
 
 /**
- * <p>Describes IAM Identity Center options for an OpenSearch Serverless security configuration in the form of a key-value map.</p>
+ * <p>Describes IAM Identity Center options for an OpenSearch Serverless security
+ *             configuration in the form of a key-value map.</p>
  * @public
  */
 export interface IamIdentityCenterConfigOptions {
   /**
-   * <p>The ARN of the IAM Identity Center instance used to integrate with OpenSearch Serverless.</p>
+   * <p>The ARN of the IAM Identity Center instance used to integrate with OpenSearch
+   *             Serverless.</p>
    * @public
    */
   instanceArn?: string | undefined;
 
   /**
-   * <p>The ARN of the IAM Identity Center application used to integrate with OpenSearch Serverless.</p>
+   * <p>The ARN of the IAM Identity Center application used to integrate with OpenSearch
+   *             Serverless.</p>
    * @public
    */
   applicationArn?: string | undefined;
 
   /**
-   * <p>The name of the IAM Identity Center application used to integrate with OpenSearch Serverless.</p>
+   * <p>The name of the IAM Identity Center application used to integrate with OpenSearch
+   *             Serverless.</p>
    * @public
    */
   applicationName?: string | undefined;
 
   /**
-   * <p>The description of the IAM Identity Center application used to integrate with OpenSearch Serverless.</p>
+   * <p>The description of the IAM Identity Center application used to integrate with
+   *             OpenSearch Serverless.</p>
    * @public
    */
   applicationDescription?: string | undefined;
 
   /**
-   * <p>The user attribute for this IAM Identity Center integration. Defaults to <code>UserId</code>
+   * <p>The user attribute for this IAM Identity Center integration. Defaults to
+   *                 <code>UserId</code>
    *          </p>
    * @public
    */
   userAttribute?: IamIdentityCenterUserAttribute | undefined;
 
   /**
-   * <p>The group attribute for this IAM Identity Center integration. Defaults to <code>GroupId</code>.</p>
+   * <p>The group attribute for this IAM Identity Center integration. Defaults to
+   *                 <code>GroupId</code>.</p>
    * @public
    */
   groupAttribute?: IamIdentityCenterGroupAttribute | undefined;
 }
 
 /**
- * <p>Details about a security configuration for OpenSearch Serverless. </p>
+ * <p>Details about a security configuration for OpenSearch Serverless.</p>
  * @public
  */
 export interface SecurityConfigDetail {
@@ -1838,6 +1897,14 @@ export interface SecurityConfigDetail {
   iamIdentityCenterOptions?: IamIdentityCenterConfigOptions | undefined;
 
   /**
+   * <p>Describes IAM federation options in the form of a key-value map. Contains
+   *             configuration details about how OpenSearch Serverless integrates with external identity
+   *             providers through federation.</p>
+   * @public
+   */
+  iamFederationOptions?: IamFederationConfigOptions | undefined;
+
+  /**
    * <p>The date the configuration was created.</p>
    * @public
    */
@@ -1855,7 +1922,7 @@ export interface SecurityConfigDetail {
  */
 export interface CreateSecurityConfigResponse {
   /**
-   * <p>Details about the created security configuration. </p>
+   * <p>Details about the created security configuration.</p>
    * @public
    */
   securityConfigDetail?: SecurityConfigDetail | undefined;
@@ -2014,7 +2081,8 @@ export interface CreateVpcEndpointRequest {
 
 /**
  * <p>Creation details for an OpenSearch Serverless-managed interface endpoint. For more information, see
- *             <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-vpc.html">Access Amazon OpenSearch Serverless using an interface endpoint</a>.</p>
+ *                 <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-vpc.html">Access
+ *                 Amazon OpenSearch Serverless using an interface endpoint</a>.</p>
  * @public
  */
 export interface CreateVpcEndpointDetail {
@@ -2340,19 +2408,25 @@ export interface ListLifecyclePoliciesRequest {
   type: LifecyclePolicyType | undefined;
 
   /**
-   * <p>Resource filters that policies can apply to. Currently, the only supported resource type is <code>index</code>.</p>
+   * <p>Resource filters that policies can apply to. Currently, the only supported resource
+   *             type is <code>index</code>.</p>
    * @public
    */
   resources?: string[] | undefined;
 
   /**
-   * <p>If your initial <code>ListLifecyclePolicies</code> operation returns a <code>nextToken</code>, you can include the returned <code>nextToken</code> in subsequent <code>ListLifecyclePolicies</code> operations, which returns results in the next page.</p>
+   * <p>If your initial <code>ListLifecyclePolicies</code> operation returns a
+   *                 <code>nextToken</code>, you can include the returned <code>nextToken</code> in
+   *             subsequent <code>ListLifecyclePolicies</code> operations, which returns results in the
+   *             next page.</p>
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>An optional parameter that specifies the maximum number of results to return. You can use use <code>nextToken</code> to get the next page of results. The default is 10.</p>
+   * <p>An optional parameter that specifies the maximum number of results to return. You can
+   *             use use <code>nextToken</code> to get the next page of results. The default is
+   *             10.</p>
    * @public
    */
   maxResults?: number | undefined;
@@ -2411,7 +2485,9 @@ export interface ListLifecyclePoliciesResponse {
   lifecyclePolicySummaries?: LifecyclePolicySummary[] | undefined;
 
   /**
-   * <p>When <code>nextToken</code> is returned, there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page. Make the call again using the returned token to retrieve the next page.</p>
+   * <p>When <code>nextToken</code> is returned, there are more results available. The value
+   *             of <code>nextToken</code> is a unique pagination token for each page. Make the call
+   *             again using the returned token to retrieve the next page.</p>
    * @public
    */
   nextToken?: string | undefined;
@@ -2422,7 +2498,7 @@ export interface ListLifecyclePoliciesResponse {
  */
 export interface UpdateLifecyclePolicyRequest {
   /**
-   * <p> The type of lifecycle policy.</p>
+   * <p>The type of lifecycle policy.</p>
    * @public
    */
   type: LifecyclePolicyType | undefined;
@@ -2483,7 +2559,7 @@ export interface ListSecurityConfigsRequest {
    * <p>If your initial <code>ListSecurityConfigs</code> operation returns a
    *                 <code>nextToken</code>, you can include the returned <code>nextToken</code> in
    *             subsequent <code>ListSecurityConfigs</code> operations, which returns results in the
-   *             next page. </p>
+   *             next page.</p>
    * @public
    */
   nextToken?: string | undefined;
@@ -2568,7 +2644,7 @@ export interface ListSecurityPoliciesRequest {
   type: SecurityPolicyType | undefined;
 
   /**
-   * <p>Resource filters (can be collection or indexes) that policies can apply to. </p>
+   * <p>Resource filters (can be collection or indexes) that policies can apply to.</p>
    * @public
    */
   resource?: string[] | undefined;
@@ -2577,7 +2653,7 @@ export interface ListSecurityPoliciesRequest {
    * <p>If your initial <code>ListSecurityPolicies</code> operation returns a
    *                 <code>nextToken</code>, you can include the returned <code>nextToken</code> in
    *             subsequent <code>ListSecurityPolicies</code> operations, which returns results in the
-   *             next page. </p>
+   *             next page.</p>
    * @public
    */
   nextToken?: string | undefined;
@@ -2703,7 +2779,7 @@ export interface ListVpcEndpointsRequest {
    * <p>If your initial <code>ListVpcEndpoints</code> operation returns a
    *                 <code>nextToken</code>, you can include the returned <code>nextToken</code> in
    *             subsequent <code>ListVpcEndpoints</code> operations, which returns results in the next
-   *             page. </p>
+   *             page.</p>
    * @public
    */
   nextToken?: string | undefined;
@@ -2760,18 +2836,21 @@ export interface ListVpcEndpointsResponse {
 }
 
 /**
- * <p>Describes IAM Identity Center options for updating an OpenSearch Serverless security configuration in the form of a key-value map.</p>
+ * <p>Describes IAM Identity Center options for updating an OpenSearch Serverless security
+ *             configuration in the form of a key-value map.</p>
  * @public
  */
 export interface UpdateIamIdentityCenterConfigOptions {
   /**
-   * <p>The user attribute for this IAM Identity Center integration. Defaults to <code>UserId</code>.</p>
+   * <p>The user attribute for this IAM Identity Center integration. Defaults to
+   *                 <code>UserId</code>.</p>
    * @public
    */
   userAttribute?: IamIdentityCenterUserAttribute | undefined;
 
   /**
-   * <p>The group attribute for this IAM Identity Center integration. Defaults to <code>GroupId</code>.</p>
+   * <p>The group attribute for this IAM Identity Center integration. Defaults to
+   *                 <code>GroupId</code>.</p>
    * @public
    */
   groupAttribute?: IamIdentityCenterGroupAttribute | undefined;
@@ -2816,6 +2895,14 @@ export interface UpdateSecurityConfigRequest {
   iamIdentityCenterOptionsUpdates?: UpdateIamIdentityCenterConfigOptions | undefined;
 
   /**
+   * <p>Describes IAM federation options in the form of a key-value map for updating an
+   *             existing security configuration. Use this field to modify IAM federation settings for
+   *             the security configuration.</p>
+   * @public
+   */
+  iamFederationOptions?: IamFederationConfigOptions | undefined;
+
+  /**
    * <p>Unique, case-sensitive identifier to ensure idempotency of the request.</p>
    * @public
    */
@@ -2827,7 +2914,7 @@ export interface UpdateSecurityConfigRequest {
  */
 export interface UpdateSecurityConfigResponse {
   /**
-   * <p>Details about the updated security configuration. </p>
+   * <p>Details about the updated security configuration.</p>
    * @public
    */
   securityConfigDetail?: SecurityConfigDetail | undefined;
@@ -2955,7 +3042,7 @@ export interface UpdateAccountSettingsRequest {
  */
 export interface UpdateAccountSettingsResponse {
   /**
-   * <p>OpenSearch Serverless-related settings for the current Amazon Web Services account. </p>
+   * <p>OpenSearch Serverless-related settings for the current Amazon Web Services account.</p>
    * @public
    */
   accountSettingsDetail?: AccountSettingsDetail | undefined;

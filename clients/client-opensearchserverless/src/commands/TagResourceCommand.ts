@@ -32,7 +32,8 @@ export interface TagResourceCommandInput extends TagResourceRequest {}
 export interface TagResourceCommandOutput extends TagResourceResponse, __MetadataBearer {}
 
 /**
- * <p>Associates tags with an OpenSearch Serverless resource. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/tag-collection.html">Tagging Amazon OpenSearch Serverless collections</a>.</p>
+ * <p>Associates tags with an OpenSearch Serverless resource. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/tag-collection.html">Tagging
+ *                 Amazon OpenSearch Serverless collections</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -61,9 +62,9 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * @see {@link OpenSearchServerlessClientResolvedConfig | config} for OpenSearchServerlessClient's `config` shape.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>When creating a resource, thrown when a resource with the same name already exists
- *             or is being created. When deleting a resource, thrown when the resource is not in
- *             the ACTIVE or FAILED state.</p>
+ *  <p>When creating a resource, thrown when a resource with the same name already exists or
+ *             is being created. When deleting a resource, thrown when the resource is not in the
+ *             ACTIVE or FAILED state.</p>
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>Thrown when an error internal to the service occurs while processing a request.</p>
@@ -72,7 +73,8 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  *  <p>Thrown when accessing or deleting a resource that does not exist.</p>
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>Thrown when you attempt to create more resources than the service allows based on service quotas.</p>
+ *  <p>Thrown when you attempt to create more resources than the service allows based on
+ *             service quotas.</p>
  *
  * @throws {@link ValidationException} (client fault)
  *  <p>Thrown when the HTTP request contains invalid input or is missing required

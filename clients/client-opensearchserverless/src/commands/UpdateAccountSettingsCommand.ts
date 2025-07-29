@@ -33,7 +33,8 @@ export interface UpdateAccountSettingsCommandOutput extends UpdateAccountSetting
 
 /**
  * <p>Update the OpenSearch Serverless settings for the current Amazon Web Services account. For more
- *             information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-scaling.html">Managing capacity limits for Amazon OpenSearch Serverless</a>.</p>
+ *             information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-scaling.html">Managing
+ *                 capacity limits for Amazon OpenSearch Serverless</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

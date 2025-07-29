@@ -67,6 +67,10 @@ export interface GetSecurityConfigCommandOutput extends GetSecurityConfigRespons
  * //       userAttribute: "STRING_VALUE",
  * //       groupAttribute: "STRING_VALUE",
  * //     },
+ * //     iamFederationOptions: { // IamFederationConfigOptions
+ * //       groupAttribute: "STRING_VALUE",
+ * //       userAttribute: "STRING_VALUE",
+ * //     },
  * //     createdDate: Number("long"),
  * //     lastModifiedDate: Number("long"),
  * //   },

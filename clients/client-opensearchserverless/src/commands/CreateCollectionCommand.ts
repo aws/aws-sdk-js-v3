@@ -79,18 +79,20 @@ export interface CreateCollectionCommandOutput extends CreateCollectionResponse,
  * @see {@link OpenSearchServerlessClientResolvedConfig | config} for OpenSearchServerlessClient's `config` shape.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>When creating a resource, thrown when a resource with the same name already exists
- *             or is being created. When deleting a resource, thrown when the resource is not in
- *             the ACTIVE or FAILED state.</p>
+ *  <p>When creating a resource, thrown when a resource with the same name already exists or
+ *             is being created. When deleting a resource, thrown when the resource is not in the
+ *             ACTIVE or FAILED state.</p>
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>Thrown when an error internal to the service occurs while processing a request.</p>
  *
  * @throws {@link OcuLimitExceededException} (client fault)
- *  <p>Thrown when the collection you're attempting to create results in a number of search or indexing OCUs that exceeds the account limit. </p>
+ *  <p>Thrown when the collection you're attempting to create results in a number of search
+ *             or indexing OCUs that exceeds the account limit.</p>
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>Thrown when you attempt to create more resources than the service allows based on service quotas.</p>
+ *  <p>Thrown when you attempt to create more resources than the service allows based on
+ *             service quotas.</p>
  *
  * @throws {@link ValidationException} (client fault)
  *  <p>Thrown when the HTTP request contains invalid input or is missing required

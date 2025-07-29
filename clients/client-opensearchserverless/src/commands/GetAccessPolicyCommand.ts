@@ -33,7 +33,7 @@ export interface GetAccessPolicyCommandOutput extends GetAccessPolicyResponse, _
 
 /**
  * <p>Returns an OpenSearch Serverless access policy. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-data-access.html">Data
- *             access control for Amazon OpenSearch Serverless</a>.</p>
+ *                 access control for Amazon OpenSearch Serverless</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

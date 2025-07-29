@@ -32,9 +32,10 @@ export interface GetSecurityPolicyCommandInput extends GetSecurityPolicyRequest 
 export interface GetSecurityPolicyCommandOutput extends GetSecurityPolicyResponse, __MetadataBearer {}
 
 /**
- * <p>Returns information about a configured OpenSearch Serverless security policy. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-network.html">Network access
- *             for Amazon OpenSearch Serverless</a> and <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-encryption.html">Encryption at
- *                 rest for Amazon OpenSearch Serverless</a>.</p>
+ * <p>Returns information about a configured OpenSearch Serverless security policy. For more information,
+ *             see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-network.html">Network
+ *                 access for Amazon OpenSearch Serverless</a> and <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-encryption.html">Encryption
+ *                 at rest for Amazon OpenSearch Serverless</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

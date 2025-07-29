@@ -33,8 +33,8 @@ export interface BatchGetVpcEndpointCommandOutput extends BatchGetVpcEndpointRes
 
 /**
  * <p>Returns attributes for one or more VPC endpoints associated with the current account.
- *             For more information, see
- *             <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-vpc.html">Access Amazon OpenSearch Serverless using an interface endpoint</a>.</p>
+ *             For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-vpc.html">Access
+ *                 Amazon OpenSearch Serverless using an interface endpoint</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

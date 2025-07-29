@@ -140,6 +140,7 @@ import {
   GetSecurityConfigRequest,
   GetSecurityPolicyRequest,
   GetSecurityPolicyResponse,
+  IamFederationConfigOptions,
   InternalServerException,
   LifecyclePolicyDetail,
   LifecyclePolicyIdentifier,
@@ -1589,6 +1590,7 @@ const se_CreateSecurityConfigRequest = (input: CreateSecurityConfigRequest, cont
   return take(input, {
     clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
     description: [],
+    iamFederationOptions: _json,
     iamIdentityCenterOptions: _json,
     name: [],
     samlOptions: _json,
@@ -1695,6 +1697,8 @@ const se_DeleteVpcEndpointRequest = (input: DeleteVpcEndpointRequest, context: _
 
 // se_GetSecurityPolicyRequest omitted.
 
+// se_IamFederationConfigOptions omitted.
+
 // se_LifecyclePolicyIdentifier omitted.
 
 // se_LifecyclePolicyIdentifiers omitted.
@@ -1788,6 +1792,7 @@ const se_UpdateSecurityConfigRequest = (input: UpdateSecurityConfigRequest, cont
     clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
     configVersion: [],
     description: [],
+    iamFederationOptions: _json,
     iamIdentityCenterOptionsUpdates: _json,
     id: [],
     samlOptions: _json,
@@ -1965,6 +1970,8 @@ const de_GetSecurityPolicyResponse = (output: any, context: __SerdeContext): Get
     securityPolicyDetail: (_: any) => de_SecurityPolicyDetail(_, context),
   }) as any;
 };
+
+// de_IamFederationConfigOptions omitted.
 
 // de_IamIdentityCenterConfigOptions omitted.
 

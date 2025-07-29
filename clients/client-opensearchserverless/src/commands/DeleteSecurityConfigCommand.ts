@@ -32,8 +32,7 @@ export interface DeleteSecurityConfigCommandInput extends DeleteSecurityConfigRe
 export interface DeleteSecurityConfigCommandOutput extends DeleteSecurityConfigResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes a security configuration for OpenSearch Serverless. For more information, see
- *             <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-saml.html">SAML
+ * <p>Deletes a security configuration for OpenSearch Serverless. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-saml.html">SAML
  *                 authentication for Amazon OpenSearch Serverless</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -58,9 +57,9 @@ export interface DeleteSecurityConfigCommandOutput extends DeleteSecurityConfigR
  * @see {@link OpenSearchServerlessClientResolvedConfig | config} for OpenSearchServerlessClient's `config` shape.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>When creating a resource, thrown when a resource with the same name already exists
- *             or is being created. When deleting a resource, thrown when the resource is not in
- *             the ACTIVE or FAILED state.</p>
+ *  <p>When creating a resource, thrown when a resource with the same name already exists or
+ *             is being created. When deleting a resource, thrown when the resource is not in the
+ *             ACTIVE or FAILED state.</p>
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>Thrown when an error internal to the service occurs while processing a request.</p>

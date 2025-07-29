@@ -32,7 +32,8 @@ export interface BatchGetLifecyclePolicyCommandInput extends BatchGetLifecyclePo
 export interface BatchGetLifecyclePolicyCommandOutput extends BatchGetLifecyclePolicyResponse, __MetadataBearer {}
 
 /**
- * <p>Returns one or more configured OpenSearch Serverless lifecycle policies. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-lifecycle.html#serverless-lifecycle-list">Viewing data lifecycle policies</a>.</p>
+ * <p>Returns one or more configured OpenSearch Serverless lifecycle policies. For more information, see
+ *                 <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-lifecycle.html#serverless-lifecycle-list">Viewing data lifecycle policies</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

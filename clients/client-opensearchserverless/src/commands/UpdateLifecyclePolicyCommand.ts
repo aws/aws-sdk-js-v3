@@ -70,9 +70,9 @@ export interface UpdateLifecyclePolicyCommandOutput extends UpdateLifecyclePolic
  * @see {@link OpenSearchServerlessClientResolvedConfig | config} for OpenSearchServerlessClient's `config` shape.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>When creating a resource, thrown when a resource with the same name already exists
- *             or is being created. When deleting a resource, thrown when the resource is not in
- *             the ACTIVE or FAILED state.</p>
+ *  <p>When creating a resource, thrown when a resource with the same name already exists or
+ *             is being created. When deleting a resource, thrown when the resource is not in the
+ *             ACTIVE or FAILED state.</p>
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>Thrown when an error internal to the service occurs while processing a request.</p>
@@ -81,7 +81,8 @@ export interface UpdateLifecyclePolicyCommandOutput extends UpdateLifecyclePolic
  *  <p>Thrown when accessing or deleting a resource that does not exist.</p>
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>Thrown when you attempt to create more resources than the service allows based on service quotas.</p>
+ *  <p>Thrown when you attempt to create more resources than the service allows based on
+ *             service quotas.</p>
  *
  * @throws {@link ValidationException} (client fault)
  *  <p>Thrown when the HTTP request contains invalid input or is missing required
