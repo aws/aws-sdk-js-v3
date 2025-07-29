@@ -35,13 +35,21 @@ export async function joinStreams(
  * @internal
  */
 export async function* iterateStreams(
-  streams: Promise<StreamingBlobPayloadOutputTypes>[],
+  promises: Promise<StreamingBlobPayloadOutputTypes>[],
   eventListeners?: JoinStreamIterationEvents
 ): AsyncIterable<StreamingBlobPayloadOutputTypes, void, void> {
   let bytesTransferred = 0;
   let index = 0;
-  for (const streamPromise of streams) {
-    const stream = await streamPromise;
+  for (const streamPromise of promises) {
+    let stream: Awaited<(typeof promises)[0]>;
+    try {
+      stream = await streamPromise;
+    } catch (e) {
+      await destroy(promises);
+      eventListeners?.onFailure?.(e, index);
+      throw e;
+    }
+
     if (isReadableStream(stream)) {
       const reader = stream.getReader();
       try {
@@ -77,9 +85,9 @@ export async function* iterateStreams(
 /**
  * @internal
  */
-async function destroy(streams: Promise<StreamingBlobPayloadOutputTypes>[]): Promise<void> {
+async function destroy(promises: Promise<StreamingBlobPayloadOutputTypes>[]): Promise<void> {
   await Promise.all(
-    streams.map(async (streamPromise) => {
+    promises.map(async (streamPromise) => {
       return streamPromise
         .then((stream) => {
           if (stream instanceof Readable) {
