@@ -43,7 +43,6 @@ export async function* iterateStreams(
   for (const streamPromise of streams) {
     const stream = await streamPromise;
     if (isReadableStream(stream)) {
-      // TODO: May need to acquire reader before reaching the stream
       const reader = stream.getReader();
       try {
         while (true) {
@@ -73,4 +72,24 @@ export async function* iterateStreams(
     index++;
   }
   eventListeners?.onCompletion?.(bytesTransferred, index - 1);
+}
+
+/**
+ * @internal
+ */
+async function destroy(streams: Promise<StreamingBlobPayloadOutputTypes>[]): Promise<void> {
+  await Promise.all(
+    streams.map(async (streamPromise) => {
+      return streamPromise
+        .then((stream) => {
+          if (stream instanceof Readable) {
+            stream.destroy();
+            return;
+          } else if (isReadableStream(stream)) {
+            return stream.cancel();
+          }
+        })
+        .catch((e: unknown) => {});
+    })
+  );
 }
