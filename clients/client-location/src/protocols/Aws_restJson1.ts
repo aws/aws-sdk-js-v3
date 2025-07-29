@@ -3726,6 +3726,7 @@ const se_GeofenceGeometry = (input: GeofenceGeometry, context: __SerdeContext): 
   return take(input, {
     Circle: (_) => se_Circle(_, context),
     Geobuf: context.base64Encoder,
+    MultiPolygon: (_) => se_MultiLinearRings(_, context),
     Polygon: (_) => se_LinearRings(_, context),
   });
 };
@@ -3812,6 +3813,17 @@ const se_LteNetworkMeasurementsList = (input: LteNetworkMeasurements[], context:
 // se_MapConfiguration omitted.
 
 // se_MapConfigurationUpdate omitted.
+
+/**
+ * serializeAws_restJson1MultiLinearRings
+ */
+const se_MultiLinearRings = (input: number[][][][], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return se_LinearRings(entry, context);
+    });
+};
 
 /**
  * serializeAws_restJson1Position
@@ -4101,6 +4113,7 @@ const de_GeofenceGeometry = (output: any, context: __SerdeContext): GeofenceGeom
   return take(output, {
     Circle: (_: any) => de_Circle(_, context),
     Geobuf: context.base64Decoder,
+    MultiPolygon: (_: any) => de_MultiLinearRings(_, context),
     Polygon: (_: any) => de_LinearRings(_, context),
   }) as any;
 };
@@ -4417,6 +4430,18 @@ const de_ListTrackersResponseEntryList = (output: any, context: __SerdeContext):
 };
 
 // de_MapConfiguration omitted.
+
+/**
+ * deserializeAws_restJson1MultiLinearRings
+ */
+const de_MultiLinearRings = (output: any, context: __SerdeContext): number[][][][] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_LinearRings(entry, context);
+    });
+  return retVal;
+};
 
 /**
  * deserializeAws_restJson1Place

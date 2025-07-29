@@ -10,6 +10,7 @@ import {
   BatchEvaluateGeofencesRequest,
   BatchEvaluateGeofencesRequestFilterSensitiveLog,
   BatchEvaluateGeofencesResponse,
+  BatchEvaluateGeofencesResponseFilterSensitiveLog,
 } from "../models/models_0";
 import { de_BatchEvaluateGeofencesCommand, se_BatchEvaluateGeofencesCommand } from "../protocols/Aws_restJson1";
 
@@ -59,7 +60,8 @@ export interface BatchEvaluateGeofencesCommandOutput extends BatchEvaluateGeofen
  *          </note>
  *          <note>
  *             <p>The <code>DeviceID</code> is used as a string to represent the device. You do not
- *                 need to have a <code>Tracker</code> associated with the <code>DeviceID</code>.</p>
+ *                 need to have a <code>Tracker</code> associated with the
+ *                 <code>DeviceID</code>.</p>
  *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -147,7 +149,7 @@ export class BatchEvaluateGeofencesCommand extends $Command
   })
   .s("LocationService", "BatchEvaluateGeofences", {})
   .n("LocationClient", "BatchEvaluateGeofencesCommand")
-  .f(BatchEvaluateGeofencesRequestFilterSensitiveLog, void 0)
+  .f(BatchEvaluateGeofencesRequestFilterSensitiveLog, BatchEvaluateGeofencesResponseFilterSensitiveLog)
   .ser(se_BatchEvaluateGeofencesCommand)
   .de(de_BatchEvaluateGeofencesCommand)
   .build() {

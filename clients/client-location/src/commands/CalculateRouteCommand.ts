@@ -34,7 +34,7 @@ export interface CalculateRouteCommandOutput extends CalculateRouteResponse, __M
 
 /**
  * <p>
- *             <a href="https://docs.aws.amazon.com/location/latest/developerguide/calculate-route.html">Calculates a route</a> given the following required parameters:
+ *             <a href="https://docs.aws.amazon.com/location/previous/developerguide/calculate-route.html">Calculates a route</a> given the following required parameters:
  *                 <code>DeparturePosition</code> and <code>DestinationPosition</code>. Requires that
  *             you first <a href="https://docs.aws.amazon.com/location-routes/latest/APIReference/API_CreateRouteCalculator.html">create a
  *                 route calculator resource</a>.</p>
@@ -44,7 +44,7 @@ export interface CalculateRouteCommandOutput extends CalculateRouteResponse, __M
  *          <ul>
  *             <li>
  *                <p>
- *                   <a href="https://docs.aws.amazon.com/location/latest/developerguide/departure-time.html">Specifying a
+ *                   <a href="https://docs.aws.amazon.com/location/previous/developerguide/departure-time.html">Specifying a
  *                         departure time</a> using either <code>DepartureTime</code> or
  *                         <code>DepartNow</code>. This calculates a route based on predictive traffic
  *                     data at the given time. </p>
@@ -56,7 +56,7 @@ export interface CalculateRouteCommandOutput extends CalculateRouteResponse, __M
  *             </li>
  *             <li>
  *                <p>
- *                   <a href="https://docs.aws.amazon.com/location/latest/developerguide/travel-mode.html">Specifying a travel
+ *                   <a href="https://docs.aws.amazon.com/location/previous/developerguide/travel-mode.html">Specifying a travel
  *                         mode</a> using TravelMode sets the transportation mode used to calculate
  *                     the routes. This also lets you specify additional route preferences in
  *                         <code>CarModeOptions</code> if traveling by <code>Car</code>, or

@@ -6,7 +6,12 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { LocationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LocationClient";
-import { CreateKeyRequest, CreateKeyResponse, CreateKeyResponseFilterSensitiveLog } from "../models/models_0";
+import {
+  CreateKeyRequest,
+  CreateKeyRequestFilterSensitiveLog,
+  CreateKeyResponse,
+  CreateKeyResponseFilterSensitiveLog,
+} from "../models/models_0";
 import { de_CreateKeyCommand, se_CreateKeyCommand } from "../protocols/Aws_restJson1";
 
 /**
@@ -31,7 +36,7 @@ export interface CreateKeyCommandOutput extends CreateKeyResponse, __MetadataBea
  * <p>Creates an API key resource in your Amazon Web Services account, which lets you grant
  *             actions for Amazon Location resources to the API key bearer.</p>
  *          <note>
- *             <p>For more information, see <a href="https://docs.aws.amazon.com/location/latest/developerguide/using-apikeys.html">Using API keys</a>.</p>
+ *             <p>For more information, see <a href="https://docs.aws.amazon.com/location/previous/developerguide/using-apikeys.html">Using API keys</a>.</p>
  *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -87,7 +92,7 @@ export interface CreateKeyCommandOutput extends CreateKeyResponse, __MetadataBea
  *  <p>The request has failed to process because of an unknown server error, exception, or failure.</p>
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>The operation was denied because the request would exceed the maximum <a href="https://docs.aws.amazon.com/location/latest/developerguide/location-quotas.html">quota</a>
+ *  <p>The operation was denied because the request would exceed the maximum <a href="https://docs.aws.amazon.com/location/previous/developerguide/location-quotas.html">quota</a>
  *       set for Amazon Location Service.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
@@ -119,7 +124,7 @@ export class CreateKeyCommand extends $Command
   })
   .s("LocationService", "CreateKey", {})
   .n("LocationClient", "CreateKeyCommand")
-  .f(void 0, CreateKeyResponseFilterSensitiveLog)
+  .f(CreateKeyRequestFilterSensitiveLog, CreateKeyResponseFilterSensitiveLog)
   .ser(se_CreateKeyCommand)
   .de(de_CreateKeyCommand)
   .build() {

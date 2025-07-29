@@ -50,6 +50,12 @@ export interface GetPlaceCommandOutput extends GetPlaceResponse, __MetadataBeare
  *                </li>
  *             </ul>
  *          </note>
+ *          <note>
+ *             <p>If your Place index resource is configured with Grab as your geolocation
+ *                 provider and Storage as Intended use, the GetPlace operation is unavailable. For
+ *                 more information, see <a href="http://aws.amazon.com/service-terms">AWS service
+ *                     terms</a>.</p>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

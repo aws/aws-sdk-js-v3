@@ -34,7 +34,7 @@ export interface CalculateRouteMatrixCommandOutput extends CalculateRouteMatrixR
 
 /**
  * <p>
- *             <a href="https://docs.aws.amazon.com/location/latest/developerguide/calculate-route-matrix.html"> Calculates a route
+ *             <a href="https://docs.aws.amazon.com/location/previous/developerguide/calculate-route-matrix.html"> Calculates a route
  *                 matrix</a> given the following required parameters:
  *                 <code>DeparturePositions</code> and <code>DestinationPositions</code>.
  *                 <code>CalculateRouteMatrix</code> calculates routes and returns the travel time and
@@ -56,7 +56,7 @@ export interface CalculateRouteMatrixCommandOutput extends CalculateRouteMatrixR
  *          <ul>
  *             <li>
  *                <p>
- *                   <a href="https://docs.aws.amazon.com/location/latest/developerguide/departure-time.html"> Specifying a
+ *                   <a href="https://docs.aws.amazon.com/location/previous/developerguide/departure-time.html"> Specifying a
  *                         departure time</a> using either <code>DepartureTime</code> or
  *                         <code>DepartNow</code>. This calculates routes based on predictive traffic
  *                     data at the given time. </p>
@@ -68,7 +68,7 @@ export interface CalculateRouteMatrixCommandOutput extends CalculateRouteMatrixR
  *             </li>
  *             <li>
  *                <p>
- *                   <a href="https://docs.aws.amazon.com/location/latest/developerguide/travel-mode.html">Specifying a travel
+ *                   <a href="https://docs.aws.amazon.com/location/previous/developerguide/travel-mode.html">Specifying a travel
  *                         mode</a> using TravelMode sets the transportation mode used to calculate
  *                     the routes. This also lets you specify additional route preferences in
  *                         <code>CarModeOptions</code> if traveling by <code>Car</code>, or

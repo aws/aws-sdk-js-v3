@@ -6,7 +6,11 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { LocationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LocationClient";
-import { UpdateGeofenceCollectionRequest, UpdateGeofenceCollectionResponse } from "../models/models_0";
+import {
+  UpdateGeofenceCollectionRequest,
+  UpdateGeofenceCollectionResponse,
+  UpdateGeofenceCollectionResponseFilterSensitiveLog,
+} from "../models/models_0";
 import { de_UpdateGeofenceCollectionCommand, se_UpdateGeofenceCollectionCommand } from "../protocols/Aws_restJson1";
 
 /**
@@ -96,7 +100,7 @@ export class UpdateGeofenceCollectionCommand extends $Command
   })
   .s("LocationService", "UpdateGeofenceCollection", {})
   .n("LocationClient", "UpdateGeofenceCollectionCommand")
-  .f(void 0, void 0)
+  .f(void 0, UpdateGeofenceCollectionResponseFilterSensitiveLog)
   .ser(se_UpdateGeofenceCollectionCommand)
   .de(de_UpdateGeofenceCollectionCommand)
   .build() {

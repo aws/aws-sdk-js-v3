@@ -10,6 +10,7 @@ import {
   BatchUpdateDevicePositionRequest,
   BatchUpdateDevicePositionRequestFilterSensitiveLog,
   BatchUpdateDevicePositionResponse,
+  BatchUpdateDevicePositionResponseFilterSensitiveLog,
 } from "../models/models_0";
 import { de_BatchUpdateDevicePositionCommand, se_BatchUpdateDevicePositionCommand } from "../protocols/Aws_restJson1";
 
@@ -141,7 +142,7 @@ export class BatchUpdateDevicePositionCommand extends $Command
   })
   .s("LocationService", "BatchUpdateDevicePosition", {})
   .n("LocationClient", "BatchUpdateDevicePositionCommand")
-  .f(BatchUpdateDevicePositionRequestFilterSensitiveLog, void 0)
+  .f(BatchUpdateDevicePositionRequestFilterSensitiveLog, BatchUpdateDevicePositionResponseFilterSensitiveLog)
   .ser(se_BatchUpdateDevicePositionCommand)
   .de(de_BatchUpdateDevicePositionCommand)
   .build() {

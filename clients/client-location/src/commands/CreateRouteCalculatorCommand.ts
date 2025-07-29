@@ -6,7 +6,11 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { LocationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LocationClient";
-import { CreateRouteCalculatorRequest, CreateRouteCalculatorResponse } from "../models/models_0";
+import {
+  CreateRouteCalculatorRequest,
+  CreateRouteCalculatorResponse,
+  CreateRouteCalculatorResponseFilterSensitiveLog,
+} from "../models/models_0";
 import { de_CreateRouteCalculatorCommand, se_CreateRouteCalculatorCommand } from "../protocols/Aws_restJson1";
 
 /**
@@ -80,7 +84,7 @@ export interface CreateRouteCalculatorCommandOutput extends CreateRouteCalculato
  *  <p>The request has failed to process because of an unknown server error, exception, or failure.</p>
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>The operation was denied because the request would exceed the maximum <a href="https://docs.aws.amazon.com/location/latest/developerguide/location-quotas.html">quota</a>
+ *  <p>The operation was denied because the request would exceed the maximum <a href="https://docs.aws.amazon.com/location/previous/developerguide/location-quotas.html">quota</a>
  *       set for Amazon Location Service.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
@@ -112,7 +116,7 @@ export class CreateRouteCalculatorCommand extends $Command
   })
   .s("LocationService", "CreateRouteCalculator", {})
   .n("LocationClient", "CreateRouteCalculatorCommand")
-  .f(void 0, void 0)
+  .f(void 0, CreateRouteCalculatorResponseFilterSensitiveLog)
   .ser(se_CreateRouteCalculatorCommand)
   .de(de_CreateRouteCalculatorCommand)
   .build() {

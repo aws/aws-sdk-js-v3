@@ -6,7 +6,11 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { LocationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LocationClient";
-import { CreateTrackerRequest, CreateTrackerResponse } from "../models/models_0";
+import {
+  CreateTrackerRequest,
+  CreateTrackerResponse,
+  CreateTrackerResponseFilterSensitiveLog,
+} from "../models/models_0";
 import { de_CreateTrackerCommand, se_CreateTrackerCommand } from "../protocols/Aws_restJson1";
 
 /**
@@ -76,7 +80,7 @@ export interface CreateTrackerCommandOutput extends CreateTrackerResponse, __Met
  *  <p>The request has failed to process because of an unknown server error, exception, or failure.</p>
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>The operation was denied because the request would exceed the maximum <a href="https://docs.aws.amazon.com/location/latest/developerguide/location-quotas.html">quota</a>
+ *  <p>The operation was denied because the request would exceed the maximum <a href="https://docs.aws.amazon.com/location/previous/developerguide/location-quotas.html">quota</a>
  *       set for Amazon Location Service.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
@@ -108,7 +112,7 @@ export class CreateTrackerCommand extends $Command
   })
   .s("LocationService", "CreateTracker", {})
   .n("LocationClient", "CreateTrackerCommand")
-  .f(void 0, void 0)
+  .f(void 0, CreateTrackerResponseFilterSensitiveLog)
   .ser(se_CreateTrackerCommand)
   .de(de_CreateTrackerCommand)
   .build() {

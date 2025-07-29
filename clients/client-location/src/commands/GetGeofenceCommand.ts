@@ -30,7 +30,8 @@ export interface GetGeofenceCommandOutput extends GetGeofenceResponse, __Metadat
 /**
  * <p>Retrieves the geofence details from a geofence collection.</p>
  *          <note>
- *             <p>The returned geometry will always match the geometry format used when the geofence was created.</p>
+ *             <p>The returned geometry will always match the geometry format used when the geofence
+ *                 was created.</p>
  *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -61,6 +62,13 @@ export interface GetGeofenceCommandOutput extends GetGeofenceResponse, __Metadat
  * //       Radius: Number("double"), // required
  * //     },
  * //     Geobuf: new Uint8Array(),
+ * //     MultiPolygon: [ // MultiLinearRings
+ * //       [
+ * //         [
+ * //           "<Position>",
+ * //         ],
+ * //       ],
+ * //     ],
  * //   },
  * //   Status: "STRING_VALUE", // required
  * //   CreateTime: new Date("TIMESTAMP"), // required

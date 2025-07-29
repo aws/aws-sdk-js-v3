@@ -6,7 +6,11 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { LocationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LocationClient";
-import { DescribeRouteCalculatorRequest, DescribeRouteCalculatorResponse } from "../models/models_0";
+import {
+  DescribeRouteCalculatorRequest,
+  DescribeRouteCalculatorResponse,
+  DescribeRouteCalculatorResponseFilterSensitiveLog,
+} from "../models/models_0";
 import { de_DescribeRouteCalculatorCommand, se_DescribeRouteCalculatorCommand } from "../protocols/Aws_restJson1";
 
 /**
@@ -100,7 +104,7 @@ export class DescribeRouteCalculatorCommand extends $Command
   })
   .s("LocationService", "DescribeRouteCalculator", {})
   .n("LocationClient", "DescribeRouteCalculatorCommand")
-  .f(void 0, void 0)
+  .f(void 0, DescribeRouteCalculatorResponseFilterSensitiveLog)
   .ser(se_DescribeRouteCalculatorCommand)
   .de(de_DescribeRouteCalculatorCommand)
   .build() {

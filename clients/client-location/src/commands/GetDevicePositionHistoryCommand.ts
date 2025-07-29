@@ -8,6 +8,7 @@ import { commonParams } from "../endpoint/EndpointParameters";
 import { LocationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LocationClient";
 import {
   GetDevicePositionHistoryRequest,
+  GetDevicePositionHistoryRequestFilterSensitiveLog,
   GetDevicePositionHistoryResponse,
   GetDevicePositionHistoryResponseFilterSensitiveLog,
 } from "../models/models_0";
@@ -120,7 +121,7 @@ export class GetDevicePositionHistoryCommand extends $Command
   })
   .s("LocationService", "GetDevicePositionHistory", {})
   .n("LocationClient", "GetDevicePositionHistoryCommand")
-  .f(void 0, GetDevicePositionHistoryResponseFilterSensitiveLog)
+  .f(GetDevicePositionHistoryRequestFilterSensitiveLog, GetDevicePositionHistoryResponseFilterSensitiveLog)
   .ser(se_GetDevicePositionHistoryCommand)
   .de(de_GetDevicePositionHistoryCommand)
   .build() {

@@ -6,7 +6,11 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { LocationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LocationClient";
-import { UpdatePlaceIndexRequest, UpdatePlaceIndexResponse } from "../models/models_0";
+import {
+  UpdatePlaceIndexRequest,
+  UpdatePlaceIndexResponse,
+  UpdatePlaceIndexResponseFilterSensitiveLog,
+} from "../models/models_0";
 import { de_UpdatePlaceIndexCommand, se_UpdatePlaceIndexCommand } from "../protocols/Aws_restJson1";
 
 /**
@@ -98,7 +102,7 @@ export class UpdatePlaceIndexCommand extends $Command
   })
   .s("LocationService", "UpdatePlaceIndex", {})
   .n("LocationClient", "UpdatePlaceIndexCommand")
-  .f(void 0, void 0)
+  .f(void 0, UpdatePlaceIndexResponseFilterSensitiveLog)
   .ser(se_UpdatePlaceIndexCommand)
   .de(de_UpdatePlaceIndexCommand)
   .build() {

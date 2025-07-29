@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { LocationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LocationClient";
-import { ListMapsRequest, ListMapsResponse } from "../models/models_0";
+import { ListMapsRequest, ListMapsResponse, ListMapsResponseFilterSensitiveLog } from "../models/models_0";
 import { de_ListMapsCommand, se_ListMapsCommand } from "../protocols/Aws_restJson1";
 
 /**
@@ -99,7 +99,7 @@ export class ListMapsCommand extends $Command
   })
   .s("LocationService", "ListMaps", {})
   .n("LocationClient", "ListMapsCommand")
-  .f(void 0, void 0)
+  .f(void 0, ListMapsResponseFilterSensitiveLog)
   .ser(se_ListMapsCommand)
   .de(de_ListMapsCommand)
   .build() {

@@ -6,7 +6,11 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { LocationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LocationClient";
-import { UpdateTrackerRequest, UpdateTrackerResponse } from "../models/models_0";
+import {
+  UpdateTrackerRequest,
+  UpdateTrackerResponse,
+  UpdateTrackerResponseFilterSensitiveLog,
+} from "../models/models_0";
 import { de_UpdateTrackerCommand, se_UpdateTrackerCommand } from "../protocols/Aws_restJson1";
 
 /**
@@ -99,7 +103,7 @@ export class UpdateTrackerCommand extends $Command
   })
   .s("LocationService", "UpdateTracker", {})
   .n("LocationClient", "UpdateTrackerCommand")
-  .f(void 0, void 0)
+  .f(void 0, UpdateTrackerResponseFilterSensitiveLog)
   .ser(se_UpdateTrackerCommand)
   .de(de_UpdateTrackerCommand)
   .build() {

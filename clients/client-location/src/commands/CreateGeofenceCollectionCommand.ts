@@ -6,7 +6,11 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { LocationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LocationClient";
-import { CreateGeofenceCollectionRequest, CreateGeofenceCollectionResponse } from "../models/models_0";
+import {
+  CreateGeofenceCollectionRequest,
+  CreateGeofenceCollectionResponse,
+  CreateGeofenceCollectionResponseFilterSensitiveLog,
+} from "../models/models_0";
 import { de_CreateGeofenceCollectionCommand, se_CreateGeofenceCollectionCommand } from "../protocols/Aws_restJson1";
 
 /**
@@ -72,7 +76,7 @@ export interface CreateGeofenceCollectionCommandOutput extends CreateGeofenceCol
  *  <p>The request has failed to process because of an unknown server error, exception, or failure.</p>
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>The operation was denied because the request would exceed the maximum <a href="https://docs.aws.amazon.com/location/latest/developerguide/location-quotas.html">quota</a>
+ *  <p>The operation was denied because the request would exceed the maximum <a href="https://docs.aws.amazon.com/location/previous/developerguide/location-quotas.html">quota</a>
  *       set for Amazon Location Service.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
@@ -104,7 +108,7 @@ export class CreateGeofenceCollectionCommand extends $Command
   })
   .s("LocationService", "CreateGeofenceCollection", {})
   .n("LocationClient", "CreateGeofenceCollectionCommand")
-  .f(void 0, void 0)
+  .f(void 0, CreateGeofenceCollectionResponseFilterSensitiveLog)
   .ser(se_CreateGeofenceCollectionCommand)
   .de(de_CreateGeofenceCollectionCommand)
   .build() {

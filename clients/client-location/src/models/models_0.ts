@@ -86,6 +86,18 @@ export interface ApiKeyRestrictions {
    *                      <p>
    *                         <code>geo:GetMap*</code> - Allows all actions needed for map rendering.</p>
    *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>geo-maps:GetTile</code> - Allows retrieving map tiles.</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>geo-maps:GetStaticMap</code> - Allows retrieving static map images.</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>geo-maps:*</code> - Allows all actions related to map functionalities.</p>
+   *                   </li>
    *                </ul>
    *             </li>
    *             <li>
@@ -99,17 +111,47 @@ export interface ApiKeyRestrictions {
    *                   </li>
    *                   <li>
    *                      <p>
-   *                         <code>geo:SearchPlaceIndexForPosition</code> - Allows reverse
-   *                             geocoding.</p>
+   *                         <code>geo:SearchPlaceIndexForPosition</code> - Allows reverse geocoding.</p>
    *                   </li>
    *                   <li>
    *                      <p>
-   *                         <code>geo:SearchPlaceIndexForSuggestions</code> - Allows generating
-   *                             suggestions from text.</p>
+   *                         <code>geo:SearchPlaceIndexForSuggestions</code> - Allows generating suggestions from text.</p>
    *                   </li>
    *                   <li>
    *                      <p>
    *                         <code>GetPlace</code> - Allows finding a place by place ID.</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>geo-places:Geocode</code> - Allows geocoding using place information.</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>geo-places:ReverseGeocode</code> - Allows reverse geocoding from location coordinates.</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>geo-places:SearchNearby</code> - Allows searching for places near a location.</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>geo-places:SearchText</code> - Allows searching for places based on text input.</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>geo-places:Autocomplete</code> - Allows auto-completion of place names based on text input.</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>geo-places:Suggest</code> - Allows generating suggestions for places based on partial input.</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>geo-places:GetPlace</code> - Allows finding a place by its ID.</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>geo-places:*</code> - Allows all actions related to place services.</p>
    *                   </li>
    *                </ul>
    *             </li>
@@ -124,8 +166,31 @@ export interface ApiKeyRestrictions {
    *                   </li>
    *                   <li>
    *                      <p>
-   *                         <code>geo:CalculateRouteMatrix</code> - Allows calculating a matrix of
-   *                             routes.</p>
+   *                         <code>geo:CalculateRouteMatrix</code> - Allows calculating a matrix of routes.</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>geo-routes:CalculateRoutes</code> - Allows calculating multiple routes between points.</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>geo-routes:CalculateRouteMatrix</code> - Allows calculating a matrix of routes between points.</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>geo-routes:CalculateIsolines</code> - Allows calculating isolines for a given area.</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>geo-routes:OptimizeWaypoints</code> - Allows optimizing the order of waypoints in a route.</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>geo-routes:SnapToRoads</code> - Allows snapping a route to the nearest roads.</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>geo-routes:*</code> - Allows all actions related to routing functionalities.</p>
    *                   </li>
    *                </ul>
    *             </li>
@@ -290,7 +355,7 @@ export interface CreateKeyRequest {
 export interface CreateKeyResponse {
   /**
    * <p>The key value/string of an API key. This value is used when making API calls to
-   *             authorize the call. For example, see <a href="https://docs.aws.amazon.com/location/latest/APIReference/API_GetMapGlyphs.html">GetMapGlyphs</a>.</p>
+   *             authorize the call. For example, see <a href="https://docs.aws.amazon.com/location/previous/APIReference/API_GetMapGlyphs.html">GetMapGlyphs</a>.</p>
    * @public
    */
   Key: string | undefined;
@@ -347,7 +412,7 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
- * <p>The operation was denied because the request would exceed the maximum <a href="https://docs.aws.amazon.com/location/latest/developerguide/location-quotas.html">quota</a>
+ * <p>The operation was denied because the request would exceed the maximum <a href="https://docs.aws.amazon.com/location/previous/developerguide/location-quotas.html">quota</a>
  *       set for Amazon Location Service.</p>
  * @public
  */
@@ -1168,29 +1233,58 @@ export interface Circle {
 
 /**
  * <p>Contains the geofence geometry details.</p>
- *          <p>A geofence geometry is made up of either a polygon or a circle. Can be a
- *             polygon, a circle or a polygon encoded in Geobuf format. Including multiple selections will return a validation error.</p>
+ *          <p>A geofence geometry can be a circle, a polygon, or a multipolygon.
+ *                 <code>Polygon</code> and <code>MultiPolygon</code> geometries can be defined using
+ *             their respective parameters, or encoded in Geobuf format using the <code>Geobuf</code>
+ *             parameter. Including multiple geometry types in the same request will return a
+ *             validation error.</p>
  *          <note>
- *             <p>Amazon Location doesn't currently support polygons with holes, multipolygons, polygons
- *                 that are wound clockwise, or that cross the antimeridian. </p>
+ *             <p>Amazon Location doesn't currently support polygons that cross the antimeridian.</p>
  *          </note>
  * @public
  */
 export interface GeofenceGeometry {
   /**
-   * <p>A polygon is a list of linear rings which are each made up of a list of
-   *             vertices.</p>
-   *          <p>Each vertex is a 2-dimensional point of the form: <code>[longitude, latitude]</code>.
-   *             This is represented as an array of doubles of length 2 (so <code>[double,
-   *             double]</code>).</p>
-   *          <p>An array of 4 or more vertices, where the first and last vertex are the same (to form
-   *             a closed boundary), is called a linear ring. The linear ring vertices must be listed in
-   *             counter-clockwise order around the ring’s interior. The linear ring is represented as an
-   *             array of vertices, or an array of arrays of doubles (<code>[[double, double], ...]</code>).</p>
-   *          <p>A geofence consists of a single linear ring. To allow for future expansion, the
-   *             Polygon parameter takes an array of linear rings, which is represented as an array of
-   *             arrays of arrays of doubles (<code>[[[double, double], ...], ...]</code>).</p>
-   *          <p>A linear ring for use in geofences can consist of between 4 and 1,000 vertices.</p>
+   * <p>A <code>Polygon</code> is a list of up to 250 linear rings which represent the shape
+   *             of a geofence. This list <i>must</i> include 1 exterior ring (representing
+   *             the outer perimeter of the geofence), and can optionally include up to 249 interior
+   *             rings (representing polygonal spaces within the perimeter, which are excluded from the
+   *             geofence area).</p>
+   *          <p>A linear ring is an array of 4 or more vertices, where the first and last vertex are
+   *             the same (to form a closed boundary). Each vertex is a 2-dimensional point represented
+   *             as an array of doubles of length 2: <code>[longitude, latitude]</code>.</p>
+   *          <p>Each linear ring is represented as an array of arrays of doubles (<code>[[longitude,
+   *                 latitude], [longitude, latitude], ...]</code>). The vertices for the exterior ring
+   *             must be listed in <i>counter-clockwise</i> sequence. Vertices for all
+   *             interior rings must be listed in <i>clockwise</i> sequence.</p>
+   *          <p>The list of linear rings that describe the entire <code>Polygon</code> is represented
+   *             as an array of arrays of arrays of doubles (<code>[[[longitude, latitude], [longitude,
+   *                 latitude], ...], [[longitude, latitude], [longitude, latitude], ...], ...]</code>).
+   *             The exterior ring must be listed first, before any interior rings.</p>
+   *          <note>
+   *             <p>The following additional requirements and limitations apply to geometries defined
+   *                 using the <code>Polygon</code> parameter:</p>
+   *             <ul>
+   *                <li>
+   *                   <p>The entire <code>Polygon</code> must consist of no more than 1,000
+   *                         vertices, including all vertices from the exterior ring and all interior
+   *                         rings.</p>
+   *                </li>
+   *                <li>
+   *                   <p>Rings must not touch or cross each other.</p>
+   *                </li>
+   *                <li>
+   *                   <p>All interior rings must be fully contained within the exterior
+   *                         ring.</p>
+   *                </li>
+   *                <li>
+   *                   <p>Interior rings must not contain other interior rings.</p>
+   *                </li>
+   *                <li>
+   *                   <p>No ring is permitted to intersect itself.</p>
+   *                </li>
+   *             </ul>
+   *          </note>
    * @public
    */
   Polygon?: number[][][] | undefined;
@@ -1202,11 +1296,67 @@ export interface GeofenceGeometry {
   Circle?: Circle | undefined;
 
   /**
-   * <p>Geobuf is a compact binary encoding for geographic data that provides lossless compression of GeoJSON polygons. The Geobuf must be Base64-encoded.</p>
-   *          <p>A polygon in Geobuf format can have up to 100,000 vertices.</p>
+   * <p>Geobuf is a compact binary encoding for geographic data that provides lossless
+   *             compression of GeoJSON polygons. The Geobuf must be Base64-encoded.</p>
+   *          <p>This parameter can contain a Geobuf-encoded GeoJSON geometry object of type
+   *                 <code>Polygon</code>
+   *             <i>OR</i>
+   *             <code>MultiPolygon</code>. For more information and specific configuration requirements
+   *             for these object types, see <a href="https://docs.aws.amazon.com/location/latest/APIReference/API_WaypointGeofencing_GeofenceGeometry.html#location-Type-WaypointGeofencing_GeofenceGeometry-Polygon">Polygon</a> and <a href="https://docs.aws.amazon.com/location/latest/APIReference/API_WaypointGeofencing_GeofenceGeometry.html#location-Type-WaypointGeofencing_GeofenceGeometry-MultiPolygon">MultiPolygon</a>.</p>
+   *          <note>
+   *             <p>The following limitations apply specifically to geometries defined using the
+   *                     <code>Geobuf</code> parameter, and supercede the corresponding limitations of
+   *                 the <code>Polygon</code> and <code>MultiPolygon</code> parameters:</p>
+   *             <ul>
+   *                <li>
+   *                   <p>A <code>Polygon</code> in <code>Geobuf</code> format can have up to 25,000
+   *                         rings and up to 100,000 total vertices, including all vertices from all
+   *                         component rings.</p>
+   *                </li>
+   *                <li>
+   *                   <p>A <code>MultiPolygon</code> in <code>Geobuf</code> format can contain up
+   *                         to 10,000 <code>Polygons</code> and up to 100,000 total vertices, including
+   *                         all vertices from all component <code>Polygons</code>.</p>
+   *                </li>
+   *             </ul>
+   *          </note>
    * @public
    */
   Geobuf?: Uint8Array | undefined;
+
+  /**
+   * <p>A <code>MultiPolygon</code> is a list of up to 250 <code>Polygon</code> elements which
+   *             represent the shape of a geofence. The <code>Polygon</code> components of a
+   *                 <code>MultiPolygon</code> geometry can define separate geographical areas that are
+   *             considered part of the same geofence, perimeters of larger exterior areas with smaller
+   *             interior spaces that are excluded from the geofence, or some combination of these use
+   *             cases to form complex geofence boundaries.</p>
+   *          <p>For more information and specific configuration requirements for the
+   *                 <code>Polygon</code> components that form a <code>MultiPolygon</code>, see <a href="https://docs.aws.amazon.com/location/latest/APIReference/API_WaypointGeofencing_GeofenceGeometry.html#location-Type-WaypointGeofencing_GeofenceGeometry-Polygon">Polygon</a>.</p>
+   *          <note>
+   *             <p>The following additional requirements and limitations apply to geometries defined
+   *                 using the <code>MultiPolygon</code> parameter:</p>
+   *             <ul>
+   *                <li>
+   *                   <p>The entire <code>MultiPolygon</code> must consist of no more than 1,000
+   *                         vertices, including all vertices from all component
+   *                         <code>Polygons</code>.</p>
+   *                </li>
+   *                <li>
+   *                   <p>Each edge of a component <code>Polygon</code> must intersect no more than
+   *                         5 edges from other <code>Polygons</code>. Parallel edges that are shared but
+   *                         do not cross are not counted toward this limit.</p>
+   *                </li>
+   *                <li>
+   *                   <p>The total number of intersecting edges of component <code>Polygons</code>
+   *                         must be no more than 100,000. Parallel edges that are shared but do not
+   *                         cross are not counted toward this limit.</p>
+   *                </li>
+   *             </ul>
+   *          </note>
+   * @public
+   */
+  MultiPolygon?: number[][][][] | undefined;
 }
 
 /**
@@ -1221,19 +1371,23 @@ export interface BatchPutGeofenceRequestEntry {
   GeofenceId: string | undefined;
 
   /**
-   * <p>Contains the details to specify the position of the geofence. Can be a
-   *             polygon, a circle or a polygon encoded in Geobuf format. Including multiple selections will return a validation error.</p>
+   * <p>Contains the details to specify the position of the geofence. Can be a circle, a
+   *             polygon, or a multipolygon. <code>Polygon</code> and <code>MultiPolygon</code>
+   *             geometries can be defined using their respective parameters, or encoded in Geobuf format
+   *             using the <code>Geobuf</code> parameter. Including multiple geometry types in the same
+   *             request will return a validation error.</p>
    *          <note>
-   *             <p>The <a href="https://docs.aws.amazon.com/location-geofences/latest/APIReference/API_GeofenceGeometry.html">
-   *                 geofence polygon</a> format supports a maximum of 1,000 vertices. The <a href="https://docs.aws.amazon.com/location-geofences/latest/APIReference/API_GeofenceGeometry.html">Geofence geobuf</a> format supports a maximum of 100,000 vertices.</p>
+   *             <p>The geofence <code>Polygon</code> and <code>MultiPolygon</code> formats support a
+   *                 maximum of 1,000 total vertices. The <code>Geobuf</code> format supports a maximum
+   *                 of 100,000 vertices.</p>
    *          </note>
    * @public
    */
   Geometry: GeofenceGeometry | undefined;
 
   /**
-   * <p>Associates one of more properties with the geofence. A property is a key-value
-   *             pair stored with the geofence and added to any geofence event triggered with that
+   * <p>Associates one of more properties with the geofence. A property is a key-value pair
+   *             stored with the geofence and added to any geofence event triggered with that
    *             geofence.</p>
    *          <p>Format: <code>"key" : "value"</code>
    *          </p>
@@ -1586,7 +1740,7 @@ export interface CalculateRouteRequest {
    *             </li>
    *          </ul>
    *          <note>
-   *             <p>If you specify a departure that's not located on a road, Amazon Location <a href="https://docs.aws.amazon.com/location/latest/developerguide/snap-to-nearby-road.html">moves the position
+   *             <p>If you specify a departure that's not located on a road, Amazon Location <a href="https://docs.aws.amazon.com/location/previous/developerguide/snap-to-nearby-road.html">moves the position
    *                     to the nearest road</a>. If Esri is the provider for your route calculator,
    *                 specifying a route that is longer than 400 km returns a <code>400
    *                     RoutesValidationException</code> error.</p>
@@ -1608,7 +1762,7 @@ export interface CalculateRouteRequest {
    *             </li>
    *          </ul>
    *          <note>
-   *             <p>If you specify a destination that's not located on a road, Amazon Location <a href="https://docs.aws.amazon.com/location/latest/developerguide/snap-to-nearby-road.html">moves the position
+   *             <p>If you specify a destination that's not located on a road, Amazon Location <a href="https://docs.aws.amazon.com/location/previous/developerguide/snap-to-nearby-road.html">moves the position
    *                     to the nearest road</a>. </p>
    *          </note>
    *          <p>Valid Values: <code>[-180 to 180,-90 to 90]</code>
@@ -1629,7 +1783,7 @@ export interface CalculateRouteRequest {
    *             </li>
    *          </ul>
    *          <note>
-   *             <p>If you specify a waypoint position that's not located on a road, Amazon Location <a href="https://docs.aws.amazon.com/location/latest/developerguide/snap-to-nearby-road.html">moves the position
+   *             <p>If you specify a waypoint position that's not located on a road, Amazon Location <a href="https://docs.aws.amazon.com/location/previous/developerguide/snap-to-nearby-road.html">moves the position
    *                     to the nearest road</a>. </p>
    *             <p>Specifying more than 23 waypoints returns a <code>400 ValidationException</code>
    *                 error.</p>
@@ -1655,7 +1809,7 @@ export interface CalculateRouteRequest {
    *             <p>
    *                <code>Truck</code> is not available for Grab.</p>
    *             <p>For more details on the using Grab for routing, including areas of coverage, see
-   *                     <a href="https://docs.aws.amazon.com/location/latest/developerguide/grab.html">GrabMaps</a> in the <i>Amazon Location Service Developer Guide</i>.</p>
+   *                     <a href="https://docs.aws.amazon.com/location/previous/developerguide/grab.html">GrabMaps</a> in the <i>Amazon Location Service Developer Guide</i>.</p>
    *          </note>
    *          <p>The <code>TravelMode</code> you specify also determines how you specify route
    *             preferences: </p>
@@ -1756,7 +1910,7 @@ export interface CalculateRouteRequest {
   OptimizeFor?: OptimizationMode | undefined;
 
   /**
-   * <p>The optional <a href="https://docs.aws.amazon.com/location/latest/developerguide/using-apikeys.html">API key</a> to authorize
+   * <p>The optional <a href="https://docs.aws.amazon.com/location/previous/developerguide/using-apikeys.html">API key</a> to authorize
    *             the request.</p>
    * @public
    */
@@ -1836,7 +1990,7 @@ export interface Step {
  *             number of legs returned corresponds to one fewer than the total number of positions in
  *             the request. </p>
  *          <p>For example, a route with a departure position and destination position returns one
- *             leg with the positions <a href="https://docs.aws.amazon.com/location/latest/developerguide/snap-to-nearby-road.html">snapped to a nearby
+ *             leg with the positions <a href="https://docs.aws.amazon.com/location/previous/developerguide/snap-to-nearby-road.html">snapped to a nearby
  *                 road</a>:</p>
  *          <ul>
  *             <li>
@@ -1865,7 +2019,7 @@ export interface Leg {
    * <p>The starting position of the leg. Follows the format
    *             <code>[longitude,latitude]</code>.</p>
    *          <note>
-   *             <p>If the <code>StartPosition</code> isn't located on a road, it's <a href="https://docs.aws.amazon.com/location/latest/developerguide/snap-to-nearby-road.html">snapped to a
+   *             <p>If the <code>StartPosition</code> isn't located on a road, it's <a href="https://docs.aws.amazon.com/location/previous/developerguide/snap-to-nearby-road.html">snapped to a
    *                     nearby road</a>. </p>
    *          </note>
    * @public
@@ -1876,7 +2030,7 @@ export interface Leg {
    * <p>The terminating position of the leg. Follows the format
    *                 <code>[longitude,latitude]</code>.</p>
    *          <note>
-   *             <p>If the <code>EndPosition</code> isn't located on a road, it's <a href="https://docs.aws.amazon.com/location/latest/developerguide/nap-to-nearby-road.html">snapped to a nearby
+   *             <p>If the <code>EndPosition</code> isn't located on a road, it's <a href="https://docs.aws.amazon.com/location/previous/developerguide/nap-to-nearby-road.html">snapped to a nearby
    *                     road</a>. </p>
    *          </note>
    * @public
@@ -1973,7 +2127,7 @@ export interface CalculateRouteSummary {
    *                </p>
    *             </li>
    *          </ul>
-   *          <p>For more information about data providers, see <a href="https://docs.aws.amazon.com/location/latest/developerguide/what-is-data-provider.html">Amazon Location Service data providers</a>.</p>
+   *          <p>For more information about data providers, see <a href="https://docs.aws.amazon.com/location/previous/developerguide/what-is-data-provider.html">Amazon Location Service data providers</a>.</p>
    * @public
    */
   DataSource: string | undefined;
@@ -2018,7 +2172,7 @@ export interface CalculateRouteResponse {
    *             number of legs returned corresponds to one fewer than the total number of positions in
    *             the request. </p>
    *          <p>For example, a route with a departure position and destination position returns one
-   *             leg with the positions <a href="https://docs.aws.amazon.com/location/latest/developerguide/snap-to-nearby-road.html">snapped to a nearby
+   *             leg with the positions <a href="https://docs.aws.amazon.com/location/previous/developerguide/snap-to-nearby-road.html">snapped to a nearby
    *                 road</a>:</p>
    *          <ul>
    *             <li>
@@ -2071,12 +2225,12 @@ export interface CalculateRouteMatrixRequest {
    *             49.285]</code>.</p>
    *          <important>
    *             <p>Depending on the data provider selected in the route calculator resource there may
-   *                 be additional restrictions on the inputs you can choose. See <a href="https://docs.aws.amazon.com/location/latest/developerguide/calculate-route-matrix.html#matrix-routing-position-limits"> Position restrictions</a> in the <i>Amazon Location Service Developer
+   *                 be additional restrictions on the inputs you can choose. See <a href="https://docs.aws.amazon.com/location/previous/developerguide/calculate-route-matrix.html#matrix-routing-position-limits"> Position restrictions</a> in the <i>Amazon Location Service Developer
    *                     Guide</i>.</p>
    *          </important>
    *          <note>
    *             <p>For route calculators that use Esri as the data provider, if you specify a
-   *                 departure that's not located on a road, Amazon Location <a href="https://docs.aws.amazon.com/location/latest/developerguide/snap-to-nearby-road.html"> moves the
+   *                 departure that's not located on a road, Amazon Location <a href="https://docs.aws.amazon.com/location/previous/developerguide/snap-to-nearby-road.html"> moves the
    *                     position to the nearest road</a>. The snapped value is available in the
    *                 result in <code>SnappedDeparturePositions</code>.</p>
    *          </note>
@@ -2094,12 +2248,12 @@ export interface CalculateRouteMatrixRequest {
    *          </p>
    *          <important>
    *             <p>Depending on the data provider selected in the route calculator resource there may
-   *                 be additional restrictions on the inputs you can choose. See <a href="https://docs.aws.amazon.com/location/latest/developerguide/calculate-route-matrix.html#matrix-routing-position-limits"> Position restrictions</a> in the <i>Amazon Location Service Developer
+   *                 be additional restrictions on the inputs you can choose. See <a href="https://docs.aws.amazon.com/location/previous/developerguide/calculate-route-matrix.html#matrix-routing-position-limits"> Position restrictions</a> in the <i>Amazon Location Service Developer
    *                     Guide</i>.</p>
    *          </important>
    *          <note>
    *             <p>For route calculators that use Esri as the data provider, if you specify a
-   *                 destination that's not located on a road, Amazon Location <a href="https://docs.aws.amazon.com/location/latest/developerguide/snap-to-nearby-road.html"> moves the
+   *                 destination that's not located on a road, Amazon Location <a href="https://docs.aws.amazon.com/location/previous/developerguide/snap-to-nearby-road.html"> moves the
    *                     position to the nearest road</a>. The snapped value is available in the
    *                 result in <code>SnappedDestinationPositions</code>.</p>
    *          </note>
@@ -2130,7 +2284,7 @@ export interface CalculateRouteMatrixRequest {
    *                     <code>Grab</code> as a data provider, and only within Southeast Asia.</p>
    *             <p>
    *                <code>Truck</code> is not available for Grab.</p>
-   *             <p>For more information about using Grab as a data provider, see <a href="https://docs.aws.amazon.com/location/latest/developerguide/grab.html">GrabMaps</a> in the <i>Amazon Location Service Developer Guide</i>.</p>
+   *             <p>For more information about using Grab as a data provider, see <a href="https://docs.aws.amazon.com/location/previous/developerguide/grab.html">GrabMaps</a> in the <i>Amazon Location Service Developer Guide</i>.</p>
    *          </note>
    *          <p>Default Value: <code>Car</code>
    *          </p>
@@ -2198,7 +2352,7 @@ export interface CalculateRouteMatrixRequest {
   TruckModeOptions?: CalculateRouteTruckModeOptions | undefined;
 
   /**
-   * <p>The optional <a href="https://docs.aws.amazon.com/location/latest/developerguide/using-apikeys.html">API key</a> to authorize
+   * <p>The optional <a href="https://docs.aws.amazon.com/location/previous/developerguide/using-apikeys.html">API key</a> to authorize
    *             the request.</p>
    * @public
    */
@@ -2331,7 +2485,7 @@ export interface CalculateRouteMatrixSummary {
    *                </p>
    *             </li>
    *          </ul>
-   *          <p>For more information about data providers, see <a href="https://docs.aws.amazon.com/location/latest/developerguide/what-is-data-provider.html">Amazon Location Service data
+   *          <p>For more information about data providers, see <a href="https://docs.aws.amazon.com/location/previous/developerguide/what-is-data-provider.html">Amazon Location Service data
    *                 providers</a>.</p>
    * @public
    */
@@ -2614,10 +2768,8 @@ export interface CreateGeofenceCollectionRequest {
   Tags?: Record<string, string> | undefined;
 
   /**
-   * <p>A key identifier for an
-   *             <a href="https://docs.aws.amazon.com/kms/latest/developerguide/create-keys.html">Amazon Web Services
-   *                 KMS customer managed key</a>. Enter a key ID, key ARN, alias name, or alias ARN.
-   * 	</p>
+   * <p>A key identifier for an <a href="https://docs.aws.amazon.com/kms/latest/developerguide/create-keys.html">Amazon Web Services KMS customer
+   *                 managed key</a>. Enter a key ID, key ARN, alias name, or alias ARN. </p>
    * @public
    */
   KmsKeyId?: string | undefined;
@@ -2663,7 +2815,7 @@ export interface CreateGeofenceCollectionResponse {
 export interface MapConfiguration {
   /**
    * <p>Specifies the map style selected from an available data provider.</p>
-   *          <p>Valid <a href="https://docs.aws.amazon.com/location/latest/developerguide/esri.html">Esri map styles</a>:</p>
+   *          <p>Valid <a href="https://docs.aws.amazon.com/location/previous/developerguide/esri.html">Esri map styles</a>:</p>
    *          <ul>
    *             <li>
    *                <p>
@@ -2703,7 +2855,7 @@ export interface MapConfiguration {
    *                     map style that's designed for use during the day in mobile devices.</p>
    *             </li>
    *          </ul>
-   *          <p>Valid <a href="https://docs.aws.amazon.com/location/latest/developerguide/HERE.html">HERE
+   *          <p>Valid <a href="https://docs.aws.amazon.com/location/previous/developerguide/HERE.html">HERE
    *                 Technologies map styles</a>:</p>
    *          <ul>
    *             <li>
@@ -2750,7 +2902,7 @@ export interface MapConfiguration {
    *                </note>
    *             </li>
    *          </ul>
-   *          <p>Valid <a href="https://docs.aws.amazon.com/location/latest/developerguide/grab.html">GrabMaps map styles</a>:</p>
+   *          <p>Valid <a href="https://docs.aws.amazon.com/location/previous/developerguide/grab.html">GrabMaps map styles</a>:</p>
    *          <ul>
    *             <li>
    *                <p>
@@ -2769,9 +2921,9 @@ export interface MapConfiguration {
    *          <note>
    *             <p>Grab provides maps only for countries in Southeast Asia, and is only available
    *                 in the Asia Pacific (Singapore) Region (<code>ap-southeast-1</code>).
-   *                 For more information, see <a href="https://docs.aws.amazon.com/location/latest/developerguide/grab.html#grab-coverage-area">GrabMaps countries and area covered</a>.</p>
+   *                 For more information, see <a href="https://docs.aws.amazon.com/location/previous/developerguide/grab.html#grab-coverage-area">GrabMaps countries and area covered</a>.</p>
    *          </note>
-   *          <p>Valid <a href="https://docs.aws.amazon.com/location/latest/developerguide/open-data.html">Open Data map styles</a>:</p>
+   *          <p>Valid <a href="https://docs.aws.amazon.com/location/previous/developerguide/open-data.html">Open Data map styles</a>:</p>
    *          <ul>
    *             <li>
    *                <p>
@@ -2813,7 +2965,7 @@ export interface MapConfiguration {
    *          <p>Default is unset.</p>
    *          <note>
    *             <p>Not all map resources or styles support political view styles. See
-   *                 <a href="https://docs.aws.amazon.com/location/latest/developerguide/map-concepts.html#political-views">Political
+   *                 <a href="https://docs.aws.amazon.com/location/previous/developerguide/map-concepts.html#political-views">Political
    *                     views</a>
    *                 for more information.</p>
    *          </note>
@@ -3022,27 +3174,27 @@ export interface CreatePlaceIndexRequest {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>Esri</code> – For additional information about <a href="https://docs.aws.amazon.com/location/latest/developerguide/esri.html">Esri</a>'s coverage in your region of interest, see <a href="https://developers.arcgis.com/rest/geocode/api-reference/geocode-coverage.htm">Esri details on geocoding coverage</a>.</p>
+   *                   <code>Esri</code> – For additional information about <a href="https://docs.aws.amazon.com/location/previous/developerguide/esri.html">Esri</a>'s coverage in your region of interest, see <a href="https://developers.arcgis.com/rest/geocode/api-reference/geocode-coverage.htm">Esri details on geocoding coverage</a>.</p>
    *             </li>
    *             <li>
    *                <p>
    *                   <code>Grab</code> – Grab provides place index functionality for Southeast
-   *                     Asia. For additional information about <a href="https://docs.aws.amazon.com/location/latest/developerguide/grab.html">GrabMaps</a>' coverage, see <a href="https://docs.aws.amazon.com/location/latest/developerguide/grab.html#grab-coverage-area">GrabMaps countries and areas covered</a>.</p>
+   *                     Asia. For additional information about <a href="https://docs.aws.amazon.com/location/previous/developerguide/grab.html">GrabMaps</a>' coverage, see <a href="https://docs.aws.amazon.com/location/previous/developerguide/grab.html#grab-coverage-area">GrabMaps countries and areas covered</a>.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>Here</code> – For additional information about <a href="https://docs.aws.amazon.com/location/latest/developerguide/HERE.html">HERE
+   *                   <code>Here</code> – For additional information about <a href="https://docs.aws.amazon.com/location/previous/developerguide/HERE.html">HERE
    *                         Technologies</a>' coverage in your region of interest, see <a href="https://developer.here.com/documentation/geocoder/dev_guide/topics/coverage-geocoder.html">HERE details on goecoding coverage</a>.</p>
    *                <important>
    *                   <p>If you specify HERE Technologies (<code>Here</code>) as the data provider,
    *                         you may not <a href="https://docs.aws.amazon.com/location-places/latest/APIReference/API_DataSourceConfiguration.html">store results</a> for locations in Japan. For more information, see
-   *                         the <a href="http://aws.amazon.com/service-terms/">Amazon Web Services Service
-   *                             Terms</a> for Amazon Location Service.</p>
+   *                         the <a href="http://aws.amazon.com/service-terms/">Amazon Web Services service
+   *                             terms</a> for Amazon Location Service.</p>
    *                </important>
    *             </li>
    *          </ul>
-   *          <p>For additional information , see <a href="https://docs.aws.amazon.com/location/latest/developerguide/what-is-data-provider.html">Data
-   *                 providers</a> on the <i>Amazon Location Service Developer Guide</i>.</p>
+   *          <p>For additional information , see <a href="https://docs.aws.amazon.com/location/previous/developerguide/what-is-data-provider.html">Data
+   *                 providers</a> on the <i>Amazon Location Service developer guide</i>.</p>
    * @public
    */
   DataSource: string | undefined;
@@ -3165,24 +3317,24 @@ export interface CreateRouteCalculatorRequest {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>Esri</code> – For additional information about <a href="https://docs.aws.amazon.com/location/latest/developerguide/esri.html">Esri</a>'s coverage in your region of interest, see <a href="https://doc.arcgis.com/en/arcgis-online/reference/network-coverage.htm">Esri details on street networks and traffic coverage</a>.</p>
+   *                   <code>Esri</code> – For additional information about <a href="https://docs.aws.amazon.com/location/previous/developerguide/esri.html">Esri</a>'s coverage in your region of interest, see <a href="https://doc.arcgis.com/en/arcgis-online/reference/network-coverage.htm">Esri details on street networks and traffic coverage</a>.</p>
    *                <p>Route calculators that use Esri as a
    *                     data source only calculate routes that are shorter than 400 km.</p>
    *             </li>
    *             <li>
    *                <p>
    *                   <code>Grab</code> – Grab provides routing functionality for Southeast Asia.
-   *                     For additional information about <a href="https://docs.aws.amazon.com/location/latest/developerguide/grab.html">GrabMaps</a>' coverage,
-   *                     see <a href="https://docs.aws.amazon.com/location/latest/developerguide/grab.html#grab-coverage-area">GrabMaps
+   *                     For additional information about <a href="https://docs.aws.amazon.com/location/previous/developerguide/grab.html">GrabMaps</a>' coverage,
+   *                     see <a href="https://docs.aws.amazon.com/location/previous/developerguide/grab.html#grab-coverage-area">GrabMaps
    *                         countries and areas covered</a>.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>Here</code> – For additional information about <a href="https://docs.aws.amazon.com/location/latest/developerguide/HERE.html">HERE
+   *                   <code>Here</code> – For additional information about <a href="https://docs.aws.amazon.com/location/previous/developerguide/HERE.html">HERE
    *                         Technologies</a>' coverage in your region of interest, see <a href="https://developer.here.com/documentation/routing-api/dev_guide/topics/coverage/car-routing.html">HERE car routing coverage</a> and <a href="https://developer.here.com/documentation/routing-api/dev_guide/topics/coverage/truck-routing.html">HERE truck routing coverage</a>.</p>
    *             </li>
    *          </ul>
-   *          <p>For additional information , see <a href="https://docs.aws.amazon.com/location/latest/developerguide/what-is-data-provider.html">Data
+   *          <p>For additional information , see <a href="https://docs.aws.amazon.com/location/previous/developerguide/what-is-data-provider.html">Data
    *                 providers</a> on the <i>Amazon Location Service Developer Guide</i>.</p>
    * @public
    */
@@ -3606,9 +3758,8 @@ export interface DescribeGeofenceCollectionResponse {
   PricingPlanDataSource?: string | undefined;
 
   /**
-   * <p>A key identifier for an
-   *             <a href="https://docs.aws.amazon.com/kms/latest/developerguide/create-keys.html">Amazon Web Services
-   *                 KMS customer managed key</a> assigned to the Amazon Location resource</p>
+   * <p>A key identifier for an <a href="https://docs.aws.amazon.com/kms/latest/developerguide/create-keys.html">Amazon Web Services KMS customer
+   *                 managed key</a> assigned to the Amazon Location resource</p>
    * @public
    */
   KmsKeyId?: string | undefined;
@@ -3806,7 +3957,7 @@ export interface DescribePlaceIndexResponse {
    *                </p>
    *             </li>
    *          </ul>
-   *          <p>For more information about data providers, see <a href="https://docs.aws.amazon.com/location/latest/developerguide/what-is-data-provider.html">Amazon Location Service data providers</a>.</p>
+   *          <p>For more information about data providers, see <a href="https://docs.aws.amazon.com/location/previous/developerguide/what-is-data-provider.html">Amazon Location Service data providers</a>.</p>
    * @public
    */
   DataSource: string | undefined;
@@ -3919,7 +4070,7 @@ export interface DescribeRouteCalculatorResponse {
    *                </p>
    *             </li>
    *          </ul>
-   *          <p>For more information about data providers, see <a href="https://docs.aws.amazon.com/location/latest/developerguide/what-is-data-provider.html">Amazon Location Service data providers</a>.</p>
+   *          <p>For more information about data providers, see <a href="https://docs.aws.amazon.com/location/previous/developerguide/what-is-data-provider.html">Amazon Location Service data providers</a>.</p>
    * @public
    */
   DataSource: string | undefined;
@@ -4146,8 +4297,8 @@ export interface DisassociateTrackerConsumerResponse {}
 export type ForecastedGeofenceEventType = "ENTER" | "EXIT" | "IDLE";
 
 /**
- * <p>A forecasted event represents a geofence event in relation to the requested device state, that may occur
- *       given the provided device state and time horizon.</p>
+ * <p>A forecasted event represents a geofence event in relation to the requested device
+ *             state, that may occur given the provided device state and time horizon.</p>
  * @public
  */
 export interface ForecastedEvent {
@@ -4176,21 +4327,24 @@ export interface ForecastedEvent {
   NearestDistance: number | undefined;
 
   /**
-   * <p>The event type, forecasting three states for which
-   *           a device can be in relative to a geofence:</p>
+   * <p>The event type, forecasting three states for which a device can be in relative to a
+   *             geofence:</p>
    *          <p>
-   *             <code>ENTER</code>: If a device is outside of a geofence, but would breach the fence if the device is moving at its current speed within time horizon window.</p>
+   *             <code>ENTER</code>: If a device is outside of a geofence, but would breach the fence
+   *             if the device is moving at its current speed within time horizon window.</p>
    *          <p>
-   *             <code>EXIT</code>: If a device is inside of a geofence, but would breach the fence if the device is moving at its current speed within time horizon window.</p>
+   *             <code>EXIT</code>: If a device is inside of a geofence, but would breach the fence if
+   *             the device is moving at its current speed within time horizon window.</p>
    *          <p>
-   *             <code>IDLE</code>: If a device is inside of a geofence, and the device is not moving.</p>
+   *             <code>IDLE</code>: If a device is inside of a geofence, and the device is not
+   *             moving.</p>
    * @public
    */
   EventType: ForecastedGeofenceEventType | undefined;
 
   /**
    * <p>The forecasted time the device will breach the geofence in <a href="https://www.iso.org/iso-8601-date-and-time-format.html">ISO 8601</a>
-   *           format: <code>YYYY-MM-DDThh:mm:ss.sssZ</code>
+   *             format: <code>YYYY-MM-DDThh:mm:ss.sssZ</code>
    *          </p>
    * @public
    */
@@ -4204,7 +4358,7 @@ export interface ForecastedEvent {
 }
 
 /**
- * <p>The device's position, IP address, and WiFi access points.</p>
+ * <p>The device's position and speed.</p>
  * @public
  */
 export interface ForecastGeofenceEventsDeviceState {
@@ -4237,22 +4391,30 @@ export interface ForecastGeofenceEventsRequest {
   CollectionName: string | undefined;
 
   /**
-   * <p>The device's state, including current position and speed.</p>
+   * <p>Represents the device's state, including its current position and speed. When speed is
+   *             omitted, this API performs a <i>containment check</i>. The
+   *                 <i>containment check</i> operation returns <code>IDLE</code> events
+   *             for geofences where the device is currently inside of, but no other events.</p>
    * @public
    */
   DeviceState: ForecastGeofenceEventsDeviceState | undefined;
 
   /**
-   * <p>Specifies the time horizon in minutes for the forecasted events.</p>
+   * <p>The forward-looking time window for forecasting, specified in minutes. The API only
+   *             returns events that are predicted to occur within this time horizon. When no value is
+   *             specified, this API performs a <i>containment check</i>. The
+   *                 <i>containment check</i> operation returns <code>IDLE</code> events
+   *             for geofences where the device is currently inside of, but no other events.</p>
    * @public
    */
   TimeHorizonMinutes?: number | undefined;
 
   /**
-   * <p>The distance unit used for the <code>NearestDistance</code> property returned in a forecasted event.
-   *           The measurement system must match for <code>DistanceUnit</code> and <code>SpeedUnit</code>; if <code>Kilometers</code>
-   *           is specified for <code>DistanceUnit</code>, then <code>SpeedUnit</code> must be <code>KilometersPerHour</code>.
-   *       </p>
+   * <p>The distance unit used for the <code>NearestDistance</code> property returned in a
+   *             forecasted event. The measurement system must match for <code>DistanceUnit</code> and
+   *                 <code>SpeedUnit</code>; if <code>Kilometers</code> is specified for
+   *                 <code>DistanceUnit</code>, then <code>SpeedUnit</code> must be
+   *                 <code>KilometersPerHour</code>. </p>
    *          <p>Default Value: <code>Kilometers</code>
    *          </p>
    * @public
@@ -4260,8 +4422,10 @@ export interface ForecastGeofenceEventsRequest {
   DistanceUnit?: DistanceUnit | undefined;
 
   /**
-   * <p>The speed unit for the device captured by the device state. The measurement system must match for <code>DistanceUnit</code> and <code>SpeedUnit</code>; if <code>Kilometers</code>
-   *           is specified for <code>DistanceUnit</code>, then <code>SpeedUnit</code> must be <code>KilometersPerHour</code>.</p>
+   * <p>The speed unit for the device captured by the device state. The measurement system
+   *             must match for <code>DistanceUnit</code> and <code>SpeedUnit</code>; if
+   *                 <code>Kilometers</code> is specified for <code>DistanceUnit</code>, then
+   *                 <code>SpeedUnit</code> must be <code>KilometersPerHour</code>.</p>
    *          <p>Default Value: <code>KilometersPerHour</code>.</p>
    * @public
    */
@@ -4463,7 +4627,8 @@ export interface GetGeofenceResponse {
   GeofenceId: string | undefined;
 
   /**
-   * <p>Contains the geofence geometry details describing a polygon or a circle.</p>
+   * <p>Contains the geofence geometry details describing the position of the geofence. Can be
+   *             a circle, a polygon, or a multipolygon.</p>
    * @public
    */
   Geometry: GeofenceGeometry | undefined;
@@ -4516,9 +4681,8 @@ export interface GetGeofenceResponse {
   UpdateTime: Date | undefined;
 
   /**
-   * <p>User defined properties of the geofence. A property is a key-value
-   *             pair stored with the geofence and added to any geofence event triggered with that
-   *             geofence.</p>
+   * <p>User defined properties of the geofence. A property is a key-value pair stored with
+   *             the geofence and added to any geofence event triggered with that geofence.</p>
    *          <p>Format: <code>"key" : "value"</code>
    *          </p>
    * @public
@@ -4551,7 +4715,8 @@ export interface ListGeofenceCollectionsRequest {
 /**
  * <p>Contains the geofence collection details.</p>
  *          <note>
- *             <p>The returned geometry will always match the geometry format used when the geofence was created.</p>
+ *             <p>The returned geometry will always match the geometry format used when the geofence
+ *                 was created.</p>
  *          </note>
  * @public
  */
@@ -4650,7 +4815,8 @@ export interface ListGeofencesRequest {
 /**
  * <p>Contains a list of geofences stored in a given geofence collection.</p>
  *          <note>
- *             <p>The returned geometry will always match the geometry format used when the geofence was created.</p>
+ *             <p>The returned geometry will always match the geometry format used when the geofence
+ *                 was created.</p>
  *          </note>
  * @public
  */
@@ -4662,7 +4828,8 @@ export interface ListGeofenceResponseEntry {
   GeofenceId: string | undefined;
 
   /**
-   * <p>Contains the geofence geometry details describing a polygon or a circle.</p>
+   * <p>Contains the geofence geometry details describing the position of the geofence. Can be
+   *             a circle, a polygon, or a multipolygon.</p>
    * @public
    */
   Geometry: GeofenceGeometry | undefined;
@@ -4715,9 +4882,8 @@ export interface ListGeofenceResponseEntry {
   UpdateTime: Date | undefined;
 
   /**
-   * <p>User defined properties of the geofence. A property is a key-value
-   *             pair stored with the geofence and added to any geofence event triggered with that
-   *             geofence.</p>
+   * <p>User defined properties of the geofence. A property is a key-value pair stored with
+   *             the geofence and added to any geofence event triggered with that geofence.</p>
    *          <p>Format: <code>"key" : "value"</code>
    *          </p>
    * @public
@@ -4760,19 +4926,23 @@ export interface PutGeofenceRequest {
   GeofenceId: string | undefined;
 
   /**
-   * <p>Contains the details to specify the position of the geofence. Can be a
-   *             polygon, a circle or a polygon encoded in Geobuf format. Including multiple selections will return a validation error.</p>
+   * <p>Contains the details to specify the position of the geofence. Can be a circle, a
+   *             polygon, or a multipolygon. <code>Polygon</code> and <code>MultiPolygon</code>
+   *             geometries can be defined using their respective parameters, or encoded in Geobuf format
+   *             using the <code>Geobuf</code> parameter. Including multiple geometry types in the same
+   *             request will return a validation error.</p>
    *          <note>
-   *             <p>The <a href="https://docs.aws.amazon.com/location-geofences/latest/APIReference/API_GeofenceGeometry.html">
-   *                 geofence polygon</a> format supports a maximum of 1,000 vertices. The <a href="https://docs.aws.amazon.com/location-geofences/latest/APIReference/API_GeofenceGeometry.html">Geofence Geobuf</a> format supports a maximum of 100,000 vertices.</p>
+   *             <p>The geofence <code>Polygon</code> and <code>MultiPolygon</code> formats support a
+   *                 maximum of 1,000 total vertices. The <code>Geobuf</code> format supports a maximum
+   *                 of 100,000 vertices.</p>
    *          </note>
    * @public
    */
   Geometry: GeofenceGeometry | undefined;
 
   /**
-   * <p>Associates one of more properties with the geofence. A property is a key-value
-   *             pair stored with the geofence and added to any geofence event triggered with that
+   * <p>Associates one of more properties with the geofence. A property is a key-value pair
+   *             stored with the geofence and added to any geofence event triggered with that
    *             geofence.</p>
    *          <p>Format: <code>"key" : "value"</code>
    *          </p>
@@ -5030,7 +5200,7 @@ export interface GetMapGlyphsRequest {
   /**
    * <p>A comma-separated list of fonts to load glyphs from in order of preference. For
    *             example, <code>Noto Sans Regular, Arial Unicode</code>.</p>
-   *          <p>Valid font stacks for <a href="https://docs.aws.amazon.com/location/latest/developerguide/esri.html">Esri</a> styles: </p>
+   *          <p>Valid font stacks for <a href="https://docs.aws.amazon.com/location/previous/developerguide/esri.html">Esri</a> styles: </p>
    *          <ul>
    *             <li>
    *                <p>VectorEsriDarkGrayCanvas – <code>Ubuntu Medium Italic</code> | <code>Ubuntu
@@ -5060,7 +5230,7 @@ export interface GetMapGlyphsRequest {
    *                </p>
    *             </li>
    *          </ul>
-   *          <p>Valid font stacks for <a href="https://docs.aws.amazon.com/location/latest/developerguide/HERE.html">HERE Technologies</a> styles:</p>
+   *          <p>Valid font stacks for <a href="https://docs.aws.amazon.com/location/previous/developerguide/HERE.html">HERE Technologies</a> styles:</p>
    *          <ul>
    *             <li>
    *                <p>VectorHereContrast – <code>Fira
@@ -5076,7 +5246,7 @@ export interface GetMapGlyphsRequest {
    *                </p>
    *             </li>
    *          </ul>
-   *          <p>Valid font stacks for <a href="https://docs.aws.amazon.com/location/latest/developerguide/grab.html">GrabMaps</a> styles:</p>
+   *          <p>Valid font stacks for <a href="https://docs.aws.amazon.com/location/previous/developerguide/grab.html">GrabMaps</a> styles:</p>
    *          <ul>
    *             <li>
    *                <p>VectorGrabStandardLight, VectorGrabStandardDark –
@@ -5086,7 +5256,7 @@ export interface GetMapGlyphsRequest {
    *                </p>
    *             </li>
    *          </ul>
-   *          <p>Valid font stacks for <a href="https://docs.aws.amazon.com/location/latest/developerguide/open-data.html">Open Data</a> styles:</p>
+   *          <p>Valid font stacks for <a href="https://docs.aws.amazon.com/location/previous/developerguide/open-data.html">Open Data</a> styles:</p>
    *          <ul>
    *             <li>
    *                <p>VectorOpenDataStandardLight, VectorOpenDataStandardDark,
@@ -5127,7 +5297,7 @@ export interface GetMapGlyphsRequest {
   FontUnicodeRange: string | undefined;
 
   /**
-   * <p>The optional <a href="https://docs.aws.amazon.com/location/latest/developerguide/using-apikeys.html">API key</a> to authorize
+   * <p>The optional <a href="https://docs.aws.amazon.com/location/previous/developerguide/using-apikeys.html">API key</a> to authorize
    *             the request.</p>
    * @public
    */
@@ -5197,7 +5367,7 @@ export interface GetMapSpritesRequest {
   FileName: string | undefined;
 
   /**
-   * <p>The optional <a href="https://docs.aws.amazon.com/location/latest/developerguide/using-apikeys.html">API key</a> to authorize
+   * <p>The optional <a href="https://docs.aws.amazon.com/location/previous/developerguide/using-apikeys.html">API key</a> to authorize
    *             the request.</p>
    * @public
    */
@@ -5240,7 +5410,7 @@ export interface GetMapStyleDescriptorRequest {
   MapName: string | undefined;
 
   /**
-   * <p>The optional <a href="https://docs.aws.amazon.com/location/latest/developerguide/using-apikeys.html">API key</a> to authorize
+   * <p>The optional <a href="https://docs.aws.amazon.com/location/previous/developerguide/using-apikeys.html">API key</a> to authorize
    *             the request.</p>
    * @public
    */
@@ -5300,7 +5470,7 @@ export interface GetMapTileRequest {
   Y: string | undefined;
 
   /**
-   * <p>The optional <a href="https://docs.aws.amazon.com/location/latest/developerguide/using-apikeys.html">API key</a> to authorize
+   * <p>The optional <a href="https://docs.aws.amazon.com/location/previous/developerguide/using-apikeys.html">API key</a> to authorize
    *             the request.</p>
    * @public
    */
@@ -5367,7 +5537,7 @@ export interface GetPlaceRequest {
   Language?: string | undefined;
 
   /**
-   * <p>The optional <a href="https://docs.aws.amazon.com/location/latest/developerguide/using-apikeys.html">API key</a> to authorize
+   * <p>The optional <a href="https://docs.aws.amazon.com/location/previous/developerguide/using-apikeys.html">API key</a> to authorize
    *             the request.</p>
    * @public
    */
@@ -5538,8 +5708,8 @@ export interface Place {
   /**
    * <p>The Amazon Location categories that describe this Place.</p>
    *          <p>For more information about using categories, including a list of Amazon Location
-   *             categories, see <a href="https://docs.aws.amazon.com/location/latest/developerguide/category-filtering.html">Categories and filtering</a>, in the <i>Amazon Location Service Developer
-   *                 Guide</i>.</p>
+   *             categories, see <a href="https://docs.aws.amazon.com/location/previous/developerguide/category-filtering.html">Categories and filtering</a>, in the <i>Amazon Location Service developer
+   *                 guide</i>.</p>
    * @public
    */
   Categories?: string[] | undefined;
@@ -5847,7 +6017,7 @@ export interface ListPlaceIndexesResponseEntry {
    *                </p>
    *             </li>
    *          </ul>
-   *          <p>For more information about data providers, see <a href="https://docs.aws.amazon.com/location/latest/developerguide/what-is-data-provider.html">Amazon Location Service data providers</a>.</p>
+   *          <p>For more information about data providers, see <a href="https://docs.aws.amazon.com/location/previous/developerguide/what-is-data-provider.html">Amazon Location Service data providers</a>.</p>
    * @public
    */
   DataSource: string | undefined;
@@ -5952,7 +6122,7 @@ export interface ListRouteCalculatorsResponseEntry {
    *                </p>
    *             </li>
    *          </ul>
-   *          <p>For more information about data providers, see <a href="https://docs.aws.amazon.com/location/latest/developerguide/what-is-data-provider.html">Amazon Location Service data providers</a>.</p>
+   *          <p>For more information about data providers, see <a href="https://docs.aws.amazon.com/location/previous/developerguide/what-is-data-provider.html">Amazon Location Service data providers</a>.</p>
    * @public
    */
   DataSource: string | undefined;
@@ -6156,7 +6326,7 @@ export interface MapConfigurationUpdate {
    *             view, such as <code>IND</code> for the Indian view.</p>
    *          <note>
    *             <p>Not all map resources or styles support political view styles. See
-   *                 <a href="https://docs.aws.amazon.com/location/latest/developerguide/map-concepts.html#political-views">Political
+   *                 <a href="https://docs.aws.amazon.com/location/previous/developerguide/map-concepts.html#political-views">Political
    *                     views</a>
    *                 for more information.</p>
    *          </note>
@@ -6288,7 +6458,7 @@ export interface SearchPlaceIndexForPositionRequest {
   Language?: string | undefined;
 
   /**
-   * <p>The optional <a href="https://docs.aws.amazon.com/location/latest/developerguide/using-apikeys.html">API key</a> to authorize
+   * <p>The optional <a href="https://docs.aws.amazon.com/location/previous/developerguide/using-apikeys.html">API key</a> to authorize
    *             the request.</p>
    * @public
    */
@@ -6364,7 +6534,7 @@ export interface SearchPlaceIndexForPositionSummary {
    *                <p>Here</p>
    *             </li>
    *          </ul>
-   *          <p>For more information about data providers, see <a href="https://docs.aws.amazon.com/location/latest/developerguide/what-is-data-provider.html">Amazon Location Service data providers</a>.</p>
+   *          <p>For more information about data providers, see <a href="https://docs.aws.amazon.com/location/previous/developerguide/what-is-data-provider.html">Amazon Location Service data providers</a>.</p>
    * @public
    */
   DataSource: string | undefined;
@@ -6497,14 +6667,14 @@ export interface SearchPlaceIndexForSuggestionsRequest {
    *             include more than one category, the results will include results that match
    *             <i>any</i> of the categories listed.</p>
    *          <p>For more information about using categories, including a list of Amazon Location
-   *             categories, see <a href="https://docs.aws.amazon.com/location/latest/developerguide/category-filtering.html">Categories and filtering</a>, in the <i>Amazon Location Service Developer
-   *                     Guide</i>.</p>
+   *             categories, see <a href="https://docs.aws.amazon.com/location/previous/developerguide/category-filtering.html">Categories and filtering</a>, in the <i>Amazon Location Service developer
+   *                     guide</i>.</p>
    * @public
    */
   FilterCategories?: string[] | undefined;
 
   /**
-   * <p>The optional <a href="https://docs.aws.amazon.com/location/latest/developerguide/using-apikeys.html">API key</a> to authorize
+   * <p>The optional <a href="https://docs.aws.amazon.com/location/previous/developerguide/using-apikeys.html">API key</a> to authorize
    *             the request.</p>
    * @public
    */
@@ -6541,8 +6711,8 @@ export interface SearchForSuggestionsResult {
   /**
    * <p>The Amazon Location categories that describe the Place.</p>
    *          <p>For more information about using categories, including a list of Amazon Location
-   *             categories, see <a href="https://docs.aws.amazon.com/location/latest/developerguide/category-filtering.html">Categories and filtering</a>, in the <i>Amazon Location Service Developer
-   *                     Guide</i>.</p>
+   *             categories, see <a href="https://docs.aws.amazon.com/location/previous/developerguide/category-filtering.html">Categories and filtering</a>, in the <i>Amazon Location Service developer
+   *                     guide</i>.</p>
    * @public
    */
   Categories?: string[] | undefined;
@@ -6612,7 +6782,7 @@ export interface SearchPlaceIndexForSuggestionsSummary {
    *                <p>Here</p>
    *             </li>
    *          </ul>
-   *          <p>For more information about data providers, see <a href="https://docs.aws.amazon.com/location/latest/developerguide/what-is-data-provider.html">Amazon Location Service data providers</a>.</p>
+   *          <p>For more information about data providers, see <a href="https://docs.aws.amazon.com/location/previous/developerguide/what-is-data-provider.html">Amazon Location Service data providers</a>.</p>
    * @public
    */
   DataSource: string | undefined;
@@ -6751,14 +6921,14 @@ export interface SearchPlaceIndexForTextRequest {
    *             include more than one category, the results will include results that match
    *             <i>any</i> of the categories listed.</p>
    *          <p>For more information about using categories, including a list of Amazon Location
-   *             categories, see <a href="https://docs.aws.amazon.com/location/latest/developerguide/category-filtering.html">Categories and filtering</a>, in the <i>Amazon Location Service Developer
-   *                     Guide</i>.</p>
+   *             categories, see <a href="https://docs.aws.amazon.com/location/previous/developerguide/category-filtering.html">Categories and filtering</a>, in the <i>Amazon Location Service developer
+   *                     guide</i>.</p>
    * @public
    */
   FilterCategories?: string[] | undefined;
 
   /**
-   * <p>The optional <a href="https://docs.aws.amazon.com/location/latest/developerguide/using-apikeys.html">API key</a> to authorize
+   * <p>The optional <a href="https://docs.aws.amazon.com/location/previous/developerguide/using-apikeys.html">API key</a> to authorize
    *             the request.</p>
    * @public
    */
@@ -6876,7 +7046,7 @@ export interface SearchPlaceIndexForTextSummary {
    *                <p>Here</p>
    *             </li>
    *          </ul>
-   *          <p>For more information about data providers, see <a href="https://docs.aws.amazon.com/location/latest/developerguide/what-is-data-provider.html">Amazon Location Service data providers</a>.</p>
+   *          <p>For more information about data providers, see <a href="https://docs.aws.amazon.com/location/previous/developerguide/what-is-data-provider.html">Amazon Location Service data providers</a>.</p>
    * @public
    */
   DataSource: string | undefined;
@@ -7227,9 +7397,27 @@ export interface VerifyDevicePositionResponse {
 /**
  * @internal
  */
+export const ApiKeyRestrictionsFilterSensitiveLog = (obj: ApiKeyRestrictions): any => ({
+  ...obj,
+  ...(obj.AllowReferers && { AllowReferers: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const CreateKeyRequestFilterSensitiveLog = (obj: CreateKeyRequest): any => ({
+  ...obj,
+  ...(obj.Restrictions && { Restrictions: ApiKeyRestrictionsFilterSensitiveLog(obj.Restrictions) }),
+  ...(obj.ExpireTime && { ExpireTime: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
 export const CreateKeyResponseFilterSensitiveLog = (obj: CreateKeyResponse): any => ({
   ...obj,
   ...(obj.Key && { Key: SENSITIVE_STRING }),
+  ...(obj.CreateTime && { CreateTime: SENSITIVE_STRING }),
 });
 
 /**
@@ -7238,6 +7426,54 @@ export const CreateKeyResponseFilterSensitiveLog = (obj: CreateKeyResponse): any
 export const DescribeKeyResponseFilterSensitiveLog = (obj: DescribeKeyResponse): any => ({
   ...obj,
   ...(obj.Key && { Key: SENSITIVE_STRING }),
+  ...(obj.Restrictions && { Restrictions: ApiKeyRestrictionsFilterSensitiveLog(obj.Restrictions) }),
+  ...(obj.CreateTime && { CreateTime: SENSITIVE_STRING }),
+  ...(obj.ExpireTime && { ExpireTime: SENSITIVE_STRING }),
+  ...(obj.UpdateTime && { UpdateTime: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ListKeysResponseEntryFilterSensitiveLog = (obj: ListKeysResponseEntry): any => ({
+  ...obj,
+  ...(obj.ExpireTime && { ExpireTime: SENSITIVE_STRING }),
+  ...(obj.Restrictions && { Restrictions: ApiKeyRestrictionsFilterSensitiveLog(obj.Restrictions) }),
+  ...(obj.CreateTime && { CreateTime: SENSITIVE_STRING }),
+  ...(obj.UpdateTime && { UpdateTime: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ListKeysResponseFilterSensitiveLog = (obj: ListKeysResponse): any => ({
+  ...obj,
+  ...(obj.Entries && { Entries: obj.Entries.map((item) => ListKeysResponseEntryFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateKeyRequestFilterSensitiveLog = (obj: UpdateKeyRequest): any => ({
+  ...obj,
+  ...(obj.ExpireTime && { ExpireTime: SENSITIVE_STRING }),
+  ...(obj.Restrictions && { Restrictions: ApiKeyRestrictionsFilterSensitiveLog(obj.Restrictions) }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateKeyResponseFilterSensitiveLog = (obj: UpdateKeyResponse): any => ({
+  ...obj,
+  ...(obj.UpdateTime && { UpdateTime: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const PositionalAccuracyFilterSensitiveLog = (obj: PositionalAccuracy): any => ({
+  ...obj,
+  ...(obj.Horizontal && { Horizontal: SENSITIVE_STRING }),
 });
 
 /**
@@ -7245,7 +7481,9 @@ export const DescribeKeyResponseFilterSensitiveLog = (obj: DescribeKeyResponse):
  */
 export const DevicePositionUpdateFilterSensitiveLog = (obj: DevicePositionUpdate): any => ({
   ...obj,
+  ...(obj.SampleTime && { SampleTime: SENSITIVE_STRING }),
   ...(obj.Position && { Position: SENSITIVE_STRING }),
+  ...(obj.Accuracy && { Accuracy: PositionalAccuracyFilterSensitiveLog(obj.Accuracy) }),
   ...(obj.PositionProperties && { PositionProperties: SENSITIVE_STRING }),
 });
 
@@ -7262,9 +7500,28 @@ export const BatchEvaluateGeofencesRequestFilterSensitiveLog = (obj: BatchEvalua
 /**
  * @internal
  */
+export const BatchEvaluateGeofencesErrorFilterSensitiveLog = (obj: BatchEvaluateGeofencesError): any => ({
+  ...obj,
+  ...(obj.SampleTime && { SampleTime: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const BatchEvaluateGeofencesResponseFilterSensitiveLog = (obj: BatchEvaluateGeofencesResponse): any => ({
+  ...obj,
+  ...(obj.Errors && { Errors: obj.Errors.map((item) => BatchEvaluateGeofencesErrorFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
 export const DevicePositionFilterSensitiveLog = (obj: DevicePosition): any => ({
   ...obj,
+  ...(obj.SampleTime && { SampleTime: SENSITIVE_STRING }),
+  ...(obj.ReceivedTime && { ReceivedTime: SENSITIVE_STRING }),
   ...(obj.Position && { Position: SENSITIVE_STRING }),
+  ...(obj.Accuracy && { Accuracy: PositionalAccuracyFilterSensitiveLog(obj.Accuracy) }),
   ...(obj.PositionProperties && { PositionProperties: SENSITIVE_STRING }),
 });
 
@@ -7284,6 +7541,7 @@ export const BatchGetDevicePositionResponseFilterSensitiveLog = (obj: BatchGetDe
 export const CircleFilterSensitiveLog = (obj: Circle): any => ({
   ...obj,
   ...(obj.Center && { Center: SENSITIVE_STRING }),
+  ...(obj.Radius && { Radius: SENSITIVE_STRING }),
 });
 
 /**
@@ -7294,6 +7552,7 @@ export const GeofenceGeometryFilterSensitiveLog = (obj: GeofenceGeometry): any =
   ...(obj.Polygon && { Polygon: obj.Polygon.map((item) => SENSITIVE_STRING) }),
   ...(obj.Circle && { Circle: SENSITIVE_STRING }),
   ...(obj.Geobuf && { Geobuf: SENSITIVE_STRING }),
+  ...(obj.MultiPolygon && { MultiPolygon: obj.MultiPolygon.map((item) => item.map((item) => SENSITIVE_STRING)) }),
 });
 
 /**
@@ -7316,9 +7575,42 @@ export const BatchPutGeofenceRequestFilterSensitiveLog = (obj: BatchPutGeofenceR
 /**
  * @internal
  */
+export const BatchPutGeofenceSuccessFilterSensitiveLog = (obj: BatchPutGeofenceSuccess): any => ({
+  ...obj,
+  ...(obj.CreateTime && { CreateTime: SENSITIVE_STRING }),
+  ...(obj.UpdateTime && { UpdateTime: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const BatchPutGeofenceResponseFilterSensitiveLog = (obj: BatchPutGeofenceResponse): any => ({
+  ...obj,
+  ...(obj.Successes && { Successes: obj.Successes.map((item) => BatchPutGeofenceSuccessFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
 export const BatchUpdateDevicePositionRequestFilterSensitiveLog = (obj: BatchUpdateDevicePositionRequest): any => ({
   ...obj,
   ...(obj.Updates && { Updates: obj.Updates.map((item) => DevicePositionUpdateFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const BatchUpdateDevicePositionErrorFilterSensitiveLog = (obj: BatchUpdateDevicePositionError): any => ({
+  ...obj,
+  ...(obj.SampleTime && { SampleTime: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const BatchUpdateDevicePositionResponseFilterSensitiveLog = (obj: BatchUpdateDevicePositionResponse): any => ({
+  ...obj,
+  ...(obj.Errors && { Errors: obj.Errors.map((item) => BatchUpdateDevicePositionErrorFilterSensitiveLog(item)) }),
 });
 
 /**
@@ -7329,6 +7621,8 @@ export const CalculateRouteRequestFilterSensitiveLog = (obj: CalculateRouteReque
   ...(obj.DeparturePosition && { DeparturePosition: SENSITIVE_STRING }),
   ...(obj.DestinationPosition && { DestinationPosition: SENSITIVE_STRING }),
   ...(obj.WaypointPositions && { WaypointPositions: SENSITIVE_STRING }),
+  ...(obj.DepartureTime && { DepartureTime: SENSITIVE_STRING }),
+  ...(obj.ArrivalTime && { ArrivalTime: SENSITIVE_STRING }),
   ...(obj.Key && { Key: SENSITIVE_STRING }),
 });
 
@@ -7384,6 +7678,7 @@ export const CalculateRouteMatrixRequestFilterSensitiveLog = (obj: CalculateRout
   ...obj,
   ...(obj.DeparturePositions && { DeparturePositions: SENSITIVE_STRING }),
   ...(obj.DestinationPositions && { DestinationPositions: SENSITIVE_STRING }),
+  ...(obj.DepartureTime && { DepartureTime: SENSITIVE_STRING }),
   ...(obj.Key && { Key: SENSITIVE_STRING }),
 });
 
@@ -7399,9 +7694,113 @@ export const CalculateRouteMatrixResponseFilterSensitiveLog = (obj: CalculateRou
 /**
  * @internal
  */
+export const CreateGeofenceCollectionResponseFilterSensitiveLog = (obj: CreateGeofenceCollectionResponse): any => ({
+  ...obj,
+  ...(obj.CreateTime && { CreateTime: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const MapConfigurationFilterSensitiveLog = (obj: MapConfiguration): any => ({
+  ...obj,
+  ...(obj.PoliticalView && { PoliticalView: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const CreateMapRequestFilterSensitiveLog = (obj: CreateMapRequest): any => ({
+  ...obj,
+  ...(obj.Configuration && { Configuration: MapConfigurationFilterSensitiveLog(obj.Configuration) }),
+});
+
+/**
+ * @internal
+ */
+export const CreateMapResponseFilterSensitiveLog = (obj: CreateMapResponse): any => ({
+  ...obj,
+  ...(obj.CreateTime && { CreateTime: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const CreatePlaceIndexResponseFilterSensitiveLog = (obj: CreatePlaceIndexResponse): any => ({
+  ...obj,
+  ...(obj.CreateTime && { CreateTime: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const CreateRouteCalculatorResponseFilterSensitiveLog = (obj: CreateRouteCalculatorResponse): any => ({
+  ...obj,
+  ...(obj.CreateTime && { CreateTime: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const CreateTrackerResponseFilterSensitiveLog = (obj: CreateTrackerResponse): any => ({
+  ...obj,
+  ...(obj.CreateTime && { CreateTime: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const DescribeGeofenceCollectionResponseFilterSensitiveLog = (obj: DescribeGeofenceCollectionResponse): any => ({
+  ...obj,
+  ...(obj.CreateTime && { CreateTime: SENSITIVE_STRING }),
+  ...(obj.UpdateTime && { UpdateTime: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const DescribeMapResponseFilterSensitiveLog = (obj: DescribeMapResponse): any => ({
+  ...obj,
+  ...(obj.Configuration && { Configuration: MapConfigurationFilterSensitiveLog(obj.Configuration) }),
+  ...(obj.CreateTime && { CreateTime: SENSITIVE_STRING }),
+  ...(obj.UpdateTime && { UpdateTime: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const DescribePlaceIndexResponseFilterSensitiveLog = (obj: DescribePlaceIndexResponse): any => ({
+  ...obj,
+  ...(obj.CreateTime && { CreateTime: SENSITIVE_STRING }),
+  ...(obj.UpdateTime && { UpdateTime: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const DescribeRouteCalculatorResponseFilterSensitiveLog = (obj: DescribeRouteCalculatorResponse): any => ({
+  ...obj,
+  ...(obj.CreateTime && { CreateTime: SENSITIVE_STRING }),
+  ...(obj.UpdateTime && { UpdateTime: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const DescribeTrackerResponseFilterSensitiveLog = (obj: DescribeTrackerResponse): any => ({
+  ...obj,
+  ...(obj.CreateTime && { CreateTime: SENSITIVE_STRING }),
+  ...(obj.UpdateTime && { UpdateTime: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
 export const DeviceStateFilterSensitiveLog = (obj: DeviceState): any => ({
   ...obj,
+  ...(obj.SampleTime && { SampleTime: SENSITIVE_STRING }),
   ...(obj.Position && { Position: SENSITIVE_STRING }),
+  ...(obj.Accuracy && { Accuracy: PositionalAccuracyFilterSensitiveLog(obj.Accuracy) }),
 });
 
 /**
@@ -7409,6 +7808,7 @@ export const DeviceStateFilterSensitiveLog = (obj: DeviceState): any => ({
  */
 export const ForecastedEventFilterSensitiveLog = (obj: ForecastedEvent): any => ({
   ...obj,
+  ...(obj.ForecastedBreachTime && { ForecastedBreachTime: SENSITIVE_STRING }),
   ...(obj.GeofenceProperties && { GeofenceProperties: SENSITIVE_STRING }),
 });
 
@@ -7444,7 +7844,30 @@ export const ForecastGeofenceEventsResponseFilterSensitiveLog = (obj: ForecastGe
 export const GetGeofenceResponseFilterSensitiveLog = (obj: GetGeofenceResponse): any => ({
   ...obj,
   ...(obj.Geometry && { Geometry: GeofenceGeometryFilterSensitiveLog(obj.Geometry) }),
+  ...(obj.CreateTime && { CreateTime: SENSITIVE_STRING }),
+  ...(obj.UpdateTime && { UpdateTime: SENSITIVE_STRING }),
   ...(obj.GeofenceProperties && { GeofenceProperties: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ListGeofenceCollectionsResponseEntryFilterSensitiveLog = (
+  obj: ListGeofenceCollectionsResponseEntry
+): any => ({
+  ...obj,
+  ...(obj.CreateTime && { CreateTime: SENSITIVE_STRING }),
+  ...(obj.UpdateTime && { UpdateTime: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ListGeofenceCollectionsResponseFilterSensitiveLog = (obj: ListGeofenceCollectionsResponse): any => ({
+  ...obj,
+  ...(obj.Entries && {
+    Entries: obj.Entries.map((item) => ListGeofenceCollectionsResponseEntryFilterSensitiveLog(item)),
+  }),
 });
 
 /**
@@ -7453,6 +7876,8 @@ export const GetGeofenceResponseFilterSensitiveLog = (obj: GetGeofenceResponse):
 export const ListGeofenceResponseEntryFilterSensitiveLog = (obj: ListGeofenceResponseEntry): any => ({
   ...obj,
   ...(obj.Geometry && { Geometry: GeofenceGeometryFilterSensitiveLog(obj.Geometry) }),
+  ...(obj.CreateTime && { CreateTime: SENSITIVE_STRING }),
+  ...(obj.UpdateTime && { UpdateTime: SENSITIVE_STRING }),
   ...(obj.GeofenceProperties && { GeofenceProperties: SENSITIVE_STRING }),
 });
 
@@ -7476,10 +7901,39 @@ export const PutGeofenceRequestFilterSensitiveLog = (obj: PutGeofenceRequest): a
 /**
  * @internal
  */
+export const PutGeofenceResponseFilterSensitiveLog = (obj: PutGeofenceResponse): any => ({
+  ...obj,
+  ...(obj.CreateTime && { CreateTime: SENSITIVE_STRING }),
+  ...(obj.UpdateTime && { UpdateTime: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateGeofenceCollectionResponseFilterSensitiveLog = (obj: UpdateGeofenceCollectionResponse): any => ({
+  ...obj,
+  ...(obj.UpdateTime && { UpdateTime: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
 export const GetDevicePositionResponseFilterSensitiveLog = (obj: GetDevicePositionResponse): any => ({
   ...obj,
+  ...(obj.SampleTime && { SampleTime: SENSITIVE_STRING }),
+  ...(obj.ReceivedTime && { ReceivedTime: SENSITIVE_STRING }),
   ...(obj.Position && { Position: SENSITIVE_STRING }),
+  ...(obj.Accuracy && { Accuracy: PositionalAccuracyFilterSensitiveLog(obj.Accuracy) }),
   ...(obj.PositionProperties && { PositionProperties: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const GetDevicePositionHistoryRequestFilterSensitiveLog = (obj: GetDevicePositionHistoryRequest): any => ({
+  ...obj,
+  ...(obj.StartTimeInclusive && { StartTimeInclusive: SENSITIVE_STRING }),
+  ...(obj.EndTimeExclusive && { EndTimeExclusive: SENSITIVE_STRING }),
 });
 
 /**
@@ -7562,6 +8016,7 @@ export const GetPlaceResponseFilterSensitiveLog = (obj: GetPlaceResponse): any =
 export const InferredStateFilterSensitiveLog = (obj: InferredState): any => ({
   ...obj,
   ...(obj.Position && { Position: SENSITIVE_STRING }),
+  ...(obj.Accuracy && { Accuracy: PositionalAccuracyFilterSensitiveLog(obj.Accuracy) }),
 });
 
 /**
@@ -7585,7 +8040,9 @@ export const ListDevicePositionsRequestFilterSensitiveLog = (obj: ListDevicePosi
  */
 export const ListDevicePositionsResponseEntryFilterSensitiveLog = (obj: ListDevicePositionsResponseEntry): any => ({
   ...obj,
+  ...(obj.SampleTime && { SampleTime: SENSITIVE_STRING }),
   ...(obj.Position && { Position: SENSITIVE_STRING }),
+  ...(obj.Accuracy && { Accuracy: PositionalAccuracyFilterSensitiveLog(obj.Accuracy) }),
   ...(obj.PositionProperties && { PositionProperties: SENSITIVE_STRING }),
 });
 
@@ -7595,6 +8052,100 @@ export const ListDevicePositionsResponseEntryFilterSensitiveLog = (obj: ListDevi
 export const ListDevicePositionsResponseFilterSensitiveLog = (obj: ListDevicePositionsResponse): any => ({
   ...obj,
   ...(obj.Entries && { Entries: obj.Entries.map((item) => ListDevicePositionsResponseEntryFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const ListMapsResponseEntryFilterSensitiveLog = (obj: ListMapsResponseEntry): any => ({
+  ...obj,
+  ...(obj.CreateTime && { CreateTime: SENSITIVE_STRING }),
+  ...(obj.UpdateTime && { UpdateTime: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ListMapsResponseFilterSensitiveLog = (obj: ListMapsResponse): any => ({
+  ...obj,
+  ...(obj.Entries && { Entries: obj.Entries.map((item) => ListMapsResponseEntryFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const ListPlaceIndexesResponseEntryFilterSensitiveLog = (obj: ListPlaceIndexesResponseEntry): any => ({
+  ...obj,
+  ...(obj.CreateTime && { CreateTime: SENSITIVE_STRING }),
+  ...(obj.UpdateTime && { UpdateTime: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ListPlaceIndexesResponseFilterSensitiveLog = (obj: ListPlaceIndexesResponse): any => ({
+  ...obj,
+  ...(obj.Entries && { Entries: obj.Entries.map((item) => ListPlaceIndexesResponseEntryFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const ListRouteCalculatorsResponseEntryFilterSensitiveLog = (obj: ListRouteCalculatorsResponseEntry): any => ({
+  ...obj,
+  ...(obj.CreateTime && { CreateTime: SENSITIVE_STRING }),
+  ...(obj.UpdateTime && { UpdateTime: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ListRouteCalculatorsResponseFilterSensitiveLog = (obj: ListRouteCalculatorsResponse): any => ({
+  ...obj,
+  ...(obj.Entries && { Entries: obj.Entries.map((item) => ListRouteCalculatorsResponseEntryFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const ListTrackersResponseEntryFilterSensitiveLog = (obj: ListTrackersResponseEntry): any => ({
+  ...obj,
+  ...(obj.CreateTime && { CreateTime: SENSITIVE_STRING }),
+  ...(obj.UpdateTime && { UpdateTime: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ListTrackersResponseFilterSensitiveLog = (obj: ListTrackersResponse): any => ({
+  ...obj,
+  ...(obj.Entries && { Entries: obj.Entries.map((item) => ListTrackersResponseEntryFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const MapConfigurationUpdateFilterSensitiveLog = (obj: MapConfigurationUpdate): any => ({
+  ...obj,
+  ...(obj.PoliticalView && { PoliticalView: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateMapRequestFilterSensitiveLog = (obj: UpdateMapRequest): any => ({
+  ...obj,
+  ...(obj.ConfigurationUpdate && {
+    ConfigurationUpdate: MapConfigurationUpdateFilterSensitiveLog(obj.ConfigurationUpdate),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateMapResponseFilterSensitiveLog = (obj: UpdateMapResponse): any => ({
+  ...obj,
+  ...(obj.UpdateTime && { UpdateTime: SENSITIVE_STRING }),
 });
 
 /**
@@ -7643,6 +8194,7 @@ export const SearchPlaceIndexForSuggestionsRequestFilterSensitiveLog = (
   ...(obj.Text && { Text: SENSITIVE_STRING }),
   ...(obj.BiasPosition && { BiasPosition: SENSITIVE_STRING }),
   ...(obj.FilterBBox && { FilterBBox: SENSITIVE_STRING }),
+  ...(obj.FilterCountries && { FilterCountries: SENSITIVE_STRING }),
   ...(obj.Key && { Key: SENSITIVE_STRING }),
 });
 
@@ -7656,6 +8208,7 @@ export const SearchPlaceIndexForSuggestionsSummaryFilterSensitiveLog = (
   ...(obj.Text && { Text: SENSITIVE_STRING }),
   ...(obj.BiasPosition && { BiasPosition: SENSITIVE_STRING }),
   ...(obj.FilterBBox && { FilterBBox: SENSITIVE_STRING }),
+  ...(obj.FilterCountries && { FilterCountries: SENSITIVE_STRING }),
 });
 
 /**
@@ -7676,6 +8229,7 @@ export const SearchPlaceIndexForTextRequestFilterSensitiveLog = (obj: SearchPlac
   ...(obj.Text && { Text: SENSITIVE_STRING }),
   ...(obj.BiasPosition && { BiasPosition: SENSITIVE_STRING }),
   ...(obj.FilterBBox && { FilterBBox: SENSITIVE_STRING }),
+  ...(obj.FilterCountries && { FilterCountries: SENSITIVE_STRING }),
   ...(obj.Key && { Key: SENSITIVE_STRING }),
 });
 
@@ -7695,6 +8249,7 @@ export const SearchPlaceIndexForTextSummaryFilterSensitiveLog = (obj: SearchPlac
   ...(obj.Text && { Text: SENSITIVE_STRING }),
   ...(obj.BiasPosition && { BiasPosition: SENSITIVE_STRING }),
   ...(obj.FilterBBox && { FilterBBox: SENSITIVE_STRING }),
+  ...(obj.FilterCountries && { FilterCountries: SENSITIVE_STRING }),
   ...(obj.ResultBBox && { ResultBBox: SENSITIVE_STRING }),
 });
 
@@ -7705,6 +8260,30 @@ export const SearchPlaceIndexForTextResponseFilterSensitiveLog = (obj: SearchPla
   ...obj,
   ...(obj.Summary && { Summary: SearchPlaceIndexForTextSummaryFilterSensitiveLog(obj.Summary) }),
   ...(obj.Results && { Results: obj.Results.map((item) => SearchForTextResultFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const UpdatePlaceIndexResponseFilterSensitiveLog = (obj: UpdatePlaceIndexResponse): any => ({
+  ...obj,
+  ...(obj.UpdateTime && { UpdateTime: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateRouteCalculatorResponseFilterSensitiveLog = (obj: UpdateRouteCalculatorResponse): any => ({
+  ...obj,
+  ...(obj.UpdateTime && { UpdateTime: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateTrackerResponseFilterSensitiveLog = (obj: UpdateTrackerResponse): any => ({
+  ...obj,
+  ...(obj.UpdateTime && { UpdateTime: SENSITIVE_STRING }),
 });
 
 /**
@@ -7721,4 +8300,6 @@ export const VerifyDevicePositionRequestFilterSensitiveLog = (obj: VerifyDeviceP
 export const VerifyDevicePositionResponseFilterSensitiveLog = (obj: VerifyDevicePositionResponse): any => ({
   ...obj,
   ...(obj.InferredState && { InferredState: InferredStateFilterSensitiveLog(obj.InferredState) }),
+  ...(obj.SampleTime && { SampleTime: SENSITIVE_STRING }),
+  ...(obj.ReceivedTime && { ReceivedTime: SENSITIVE_STRING }),
 });

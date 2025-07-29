@@ -6,7 +6,12 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { LocationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LocationClient";
-import { PutGeofenceRequest, PutGeofenceRequestFilterSensitiveLog, PutGeofenceResponse } from "../models/models_0";
+import {
+  PutGeofenceRequest,
+  PutGeofenceRequestFilterSensitiveLog,
+  PutGeofenceResponse,
+  PutGeofenceResponseFilterSensitiveLog,
+} from "../models/models_0";
 import { de_PutGeofenceCommand, se_PutGeofenceCommand } from "../protocols/Aws_restJson1";
 
 /**
@@ -54,6 +59,13 @@ export interface PutGeofenceCommandOutput extends PutGeofenceResponse, __Metadat
  *       Radius: Number("double"), // required
  *     },
  *     Geobuf: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")
+ *     MultiPolygon: [ // MultiLinearRings
+ *       [
+ *         [
+ *           "<Position>",
+ *         ],
+ *       ],
+ *     ],
  *   },
  *   GeofenceProperties: { // PropertyMap
  *     "<keys>": "STRING_VALUE",
@@ -117,7 +129,7 @@ export class PutGeofenceCommand extends $Command
   })
   .s("LocationService", "PutGeofence", {})
   .n("LocationClient", "PutGeofenceCommand")
-  .f(PutGeofenceRequestFilterSensitiveLog, void 0)
+  .f(PutGeofenceRequestFilterSensitiveLog, PutGeofenceResponseFilterSensitiveLog)
   .ser(se_PutGeofenceCommand)
   .de(de_PutGeofenceCommand)
   .build() {

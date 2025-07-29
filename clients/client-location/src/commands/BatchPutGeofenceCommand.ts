@@ -10,6 +10,7 @@ import {
   BatchPutGeofenceRequest,
   BatchPutGeofenceRequestFilterSensitiveLog,
   BatchPutGeofenceResponse,
+  BatchPutGeofenceResponseFilterSensitiveLog,
 } from "../models/models_0";
 import { de_BatchPutGeofenceCommand, se_BatchPutGeofenceCommand } from "../protocols/Aws_restJson1";
 
@@ -33,7 +34,8 @@ export interface BatchPutGeofenceCommandOutput extends BatchPutGeofenceResponse,
 
 /**
  * <p>A batch request for storing geofence geometries into a given geofence collection, or
- *             updates the geometry of an existing geofence if a geofence ID is included in the request.</p>
+ *             updates the geometry of an existing geofence if a geofence ID is included in the
+ *             request.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -60,6 +62,13 @@ export interface BatchPutGeofenceCommandOutput extends BatchPutGeofenceResponse,
  *           Radius: Number("double"), // required
  *         },
  *         Geobuf: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")
+ *         MultiPolygon: [ // MultiLinearRings
+ *           [
+ *             [
+ *               "<Position>",
+ *             ],
+ *           ],
+ *         ],
  *       },
  *       GeofenceProperties: { // PropertyMap
  *         "<keys>": "STRING_VALUE",
@@ -135,7 +144,7 @@ export class BatchPutGeofenceCommand extends $Command
   })
   .s("LocationService", "BatchPutGeofence", {})
   .n("LocationClient", "BatchPutGeofenceCommand")
-  .f(BatchPutGeofenceRequestFilterSensitiveLog, void 0)
+  .f(BatchPutGeofenceRequestFilterSensitiveLog, BatchPutGeofenceResponseFilterSensitiveLog)
   .ser(se_BatchPutGeofenceCommand)
   .de(de_BatchPutGeofenceCommand)
   .build() {

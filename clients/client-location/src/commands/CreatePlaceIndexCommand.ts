@@ -6,7 +6,11 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { LocationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LocationClient";
-import { CreatePlaceIndexRequest, CreatePlaceIndexResponse } from "../models/models_0";
+import {
+  CreatePlaceIndexRequest,
+  CreatePlaceIndexResponse,
+  CreatePlaceIndexResponseFilterSensitiveLog,
+} from "../models/models_0";
 import { de_CreatePlaceIndexCommand, se_CreatePlaceIndexCommand } from "../protocols/Aws_restJson1";
 
 /**
@@ -84,7 +88,7 @@ export interface CreatePlaceIndexCommandOutput extends CreatePlaceIndexResponse,
  *  <p>The request has failed to process because of an unknown server error, exception, or failure.</p>
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>The operation was denied because the request would exceed the maximum <a href="https://docs.aws.amazon.com/location/latest/developerguide/location-quotas.html">quota</a>
+ *  <p>The operation was denied because the request would exceed the maximum <a href="https://docs.aws.amazon.com/location/previous/developerguide/location-quotas.html">quota</a>
  *       set for Amazon Location Service.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
@@ -116,7 +120,7 @@ export class CreatePlaceIndexCommand extends $Command
   })
   .s("LocationService", "CreatePlaceIndex", {})
   .n("LocationClient", "CreatePlaceIndexCommand")
-  .f(void 0, void 0)
+  .f(void 0, CreatePlaceIndexResponseFilterSensitiveLog)
   .ser(se_CreatePlaceIndexCommand)
   .de(de_CreatePlaceIndexCommand)
   .build() {
