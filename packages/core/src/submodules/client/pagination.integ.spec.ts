@@ -84,6 +84,11 @@ describe("pagination", () => {
     }
 
     expect(pages).toEqual(2);
+    /**
+     * As of writing, paginators mutate the input object.
+     * In case anyone is relying on this behavior to observe the pagination token,
+     * we are enforcing it with this assertion.
+     */
     expect(requestParams.ExclusiveStartKey).toEqual({
       id: { S: "2" },
     });
