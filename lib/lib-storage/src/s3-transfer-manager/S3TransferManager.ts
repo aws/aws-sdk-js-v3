@@ -5,8 +5,7 @@ import type {
   PutObjectCommandInput,
 } from "@aws-sdk/client-s3";
 import { GetObjectCommand, HeadObjectCommand, S3Client } from "@aws-sdk/client-s3";
-import { getChecksum } from "@aws-sdk/middleware-flexible-checksums/dist-types/getChecksum";
-import { type StreamingBlobPayloadOutputTypes, Checksum, ChecksumConstructor } from "@smithy/types";
+import { type StreamingBlobPayloadOutputTypes } from "@smithy/types";
 
 import type { AddEventListenerOptions, EventListener, RemoveEventListenerOptions } from "./event-listener-types";
 import { joinStreams } from "./join-streams";
@@ -23,6 +22,12 @@ import type {
   UploadResponse,
 } from "./types";
 
+/**
+ * Describe what this is
+ * TODO: Switch all @public to @alpha
+ * TODO: tag internal for itneral functions
+ * @alpha
+ */
 export class S3TransferManager implements IS3TransferManager {
   private static MIN_PART_SIZE = 5 * 1024 * 1024; // 5MB
   private static DEFAULT_PART_SIZE = 8 * 1024 * 1024; // 8MB
@@ -208,36 +213,6 @@ export class S3TransferManager implements IS3TransferManager {
     throw new Error("Method not implemented.");
   }
 
-  /**
-   * What is missing from the revised SEP and this implementation currently?
-   * PART mode:
-   * - (DONE) Step 5: validate GetObject response for each part
-   *    - If validation fails at any point, cancel all ongoing requests and error out
-   * - Step 6: after all requests have been sent, validate that the total number of part GET requests sent matches with the
-   *   expected `PartsCount`
-   * - Step 7: when creating DownloadResponse, set accordingly:
-   *    - (DONE) `ContentLength` : total length of the object saved from Step 3
-   *    - (DONE) `ContentRange`: based on `bytes 0-(ContentLength -1)/ContentLength`
-   *    - If ChecksumType is `COMPOSITE`, set all checksum value members to null as
-   *      the checksum value returned from a part GET request is not the composite
-   *      checksum for the entire object
-   * RANGE mode:
-   * - (DONE) Step 7: validate GetObject response for each part. If validation fails or a
-   *   request fails at any point, cancel all ongoing requests and return an error to
-   *   the user.
-   * - Step 8: after all requests have sent, validate that the total number of ranged
-   *   GET requests sent matches with the expected number saved from Step 5.
-   * - Step 9: create DownloadResponse. Copy the fields in GetObject response from
-   *   Step 3 and set the following fields accordingly:
-   *    - (DONE) `ContentLength` : total length of the object saved from Step 3
-   *    - (DONE) `ContentRange`: based on `bytes 0-(ContentLength -1)/ContentLength`
-   *    - If ChecksumType is `COMPOSITE`, set all checksum value members to null as
-   *      the checksum value returned from a part GET request is not the composite
-   *      checksum for the entire object
-   * Checksum validation notes:
-   * -
-   *
-   */
   public async download(request: DownloadRequest, transferOptions?: TransferOptions): Promise<DownloadResponse> {
     const partNumber = request.PartNumber;
     if (typeof partNumber === "number") {
@@ -368,75 +343,100 @@ export class S3TransferManager implements IS3TransferManager {
         ...request,
         PartNumber: 1,
       };
-      const initialPart = await this.s3ClientInstance.send(new GetObjectCommand(initialPartRequest), transferOptions);
-      const initialETag = initialPart.ETag ?? undefined;
-      const partSize = initialPart.ContentLength;
-      totalSize = initialPart.ContentRange ? Number.parseInt(initialPart.ContentRange.split("/")[1]) : undefined;
-      this.dispatchTransferInitiatedEvent(request, totalSize);
-      if (initialPart.Body) {
-        if (initialPart.Body && typeof (initialPart.Body as any).getReader === "function") {
-          const reader = (initialPart.Body as any).getReader();
-          (initialPart.Body as any).getReader = function () {
-            return reader;
-          };
+      try {
+        const initialPart = await this.s3ClientInstance.send(new GetObjectCommand(initialPartRequest), transferOptions);
+        const initialETag = initialPart.ETag ?? undefined;
+        await internalEventHandler.afterInitialGetObject();
+        const partSize = initialPart.ContentLength;
+        totalSize = initialPart.ContentRange ? Number.parseInt(initialPart.ContentRange.split("/")[1]) : 0;
+        this.dispatchTransferInitiatedEvent(request, totalSize);
+        if (initialPart.Body) {
+          if (initialPart.Body && typeof (initialPart.Body as any).getReader === "function") {
+            const reader = (initialPart.Body as any).getReader();
+            (initialPart.Body as any).getReader = function () {
+              return reader;
+            };
+          }
+          streams.push(Promise.resolve(initialPart.Body));
+          requests.push(initialPartRequest);
         }
-        streams.push(Promise.resolve(initialPart.Body));
-        requests.push(initialPartRequest);
-      }
 
-      this.updateResponseLengthAndRange(initialPart, totalSize);
-      this.assignMetadata(metadata, initialPart);
-      this.updateChecksumValues(initialPart, metadata);
+        this.processResponseMetadata(initialPart, metadata, totalSize);
 
-      let partCount = 1;
-      if (initialPart.PartsCount! > 1) {
-        for (let part = 2; part <= initialPart.PartsCount!; part++) {
-          this.checkAborted(transferOptions);
-          const getObjectRequest = {
-            ...request,
-            PartNumber: part,
-            IfMatch: !request.VersionId ? initialETag : undefined,
-          };
-          const getObject = this.s3ClientInstance
-            .send(new GetObjectCommand(getObjectRequest), transferOptions)
-            .then((response) => {
-              this.validatePartDownload(response.ContentRange, part, partSize ?? 0);
-              if (response.Body && typeof (response.Body as any).getReader === "function") {
-                const reader = (response.Body as any).getReader();
-                (response.Body as any).getReader = function () {
-                  return reader;
-                };
-              }
-              return response.Body!;
-            });
+        let partCount = 1;
+        if (initialPart.PartsCount! > 1) {
+          const concurrentRequests = [];
+          const concurrentRequestInputs = [];
 
-          streams.push(getObject);
-          requests.push(getObjectRequest);
-          partCount++;
+          for (let part = 2; part <= initialPart.PartsCount!; part++) {
+            this.checkAborted(transferOptions);
+            const getObjectRequest = {
+              ...request,
+              PartNumber: part,
+              IfMatch: initialETag,
+            };
+
+            const getObject = this.s3ClientInstance
+              .send(new GetObjectCommand(getObjectRequest), transferOptions)
+              .then((response) => {
+                this.validatePartDownload(response.ContentRange, part, partSize ?? 0);
+                if (response.Body && typeof (response.Body as any).getReader === "function") {
+                  const reader = (response.Body as any).getReader();
+                  (response.Body as any).getReader = function () {
+                    return reader;
+                  };
+                }
+                return response.Body!;
+              });
+
+            concurrentRequests.push(getObject);
+            concurrentRequestInputs.push(getObjectRequest);
+            partCount++;
+          }
+
+          try {
+            // Add promise streams to streams array ONLY if all are resolved
+            const responses = await Promise.all(concurrentRequests);
+            for (let i = 0; i < responses.length; i++) {
+              streams.push(Promise.resolve(responses[i]));
+              requests.push(concurrentRequestInputs[i]);
+            }
+          } catch (error) {
+            this.dispatchTransferFailedEvent(request, totalSize, error as Error);
+            throw error;
+          }
+
+          if (partCount !== initialPart.PartsCount) {
+            throw new Error(
+              `The number of parts downloaded (${partCount}) does not match the expected number (${initialPart.PartsCount})`
+            );
+          }
         }
-        if (partCount !== initialPart.PartsCount) {
-          throw new Error(
-            `The number of parts downloaded (${partCount}) does not match the expected number (${initialPart.PartsCount})`
-          );
-        }
+      } catch (error) {
+        this.dispatchTransferFailedEvent(request, totalSize, error);
+        throw error;
       }
     } else {
       this.checkAborted(transferOptions);
 
-      const getObjectRequest = {
-        ...request,
-      };
-      const getObject = await this.s3ClientInstance.send(new GetObjectCommand(getObjectRequest), transferOptions);
-      totalSize = getObject.ContentRange ? Number.parseInt(getObject.ContentRange.split("/")[1]) : undefined;
+      try {
+        const getObjectRequest = {
+          ...request,
+        };
 
-      this.dispatchTransferInitiatedEvent(request, totalSize);
-      if (getObject.Body) {
-        streams.push(Promise.resolve(getObject.Body));
-        requests.push(getObjectRequest);
+        const getObject = await this.s3ClientInstance.send(new GetObjectCommand(getObjectRequest), transferOptions);
+        totalSize = getObject.ContentRange ? Number.parseInt(getObject.ContentRange.split("/")[1]) : 0;
+
+        this.dispatchTransferInitiatedEvent(request, totalSize);
+        if (getObject.Body) {
+          streams.push(Promise.resolve(getObject.Body));
+          requests.push(getObjectRequest);
+        }
+        this.processResponseMetadata(getObject, metadata, totalSize);
+      } catch (error) {
+        this.dispatchTransferFailedEvent(request, undefined, error);
+        throw error;
       }
-      this.updateResponseLengthAndRange(getObject, totalSize);
-      this.assignMetadata(metadata, getObject);
-      this.updateChecksumValues(getObject, metadata);
     }
 
     return {
@@ -453,28 +453,68 @@ export class S3TransferManager implements IS3TransferManager {
   ): Promise<{ totalSize: number | undefined }> {
     this.checkAborted(transferOptions);
 
+    const headResponse = await this.s3ClientInstance.send(
+      new HeadObjectCommand({ Bucket: request.Bucket, Key: request.Key }),
+      transferOptions
+    );
+
+    if (headResponse.ContentLength === 0) {
+      const getObjectRequest = { ...request };
+      const response = await this.s3ClientInstance.send(new GetObjectCommand(getObjectRequest), transferOptions);
+
+      this.dispatchTransferInitiatedEvent(request, 0);
+      if (response.Body) streams.push(Promise.resolve(response.Body));
+      requests.push(getObjectRequest);
+
+      this.processResponseMetadata(response, metadata, 0);
+      return { totalSize: 0 };
+    }
+
     let left = 0;
     let right = this.targetPartSizeBytes - 1;
     let maxRange = Number.POSITIVE_INFINITY;
     let remainingLength = 1;
+    let totalSize: number | undefined;
+    let initialETag: string | undefined;
 
     if (request.Range != null) {
       const [userRangeLeft, userRangeRight] = request.Range.replace("bytes=", "").split("-").map(Number);
-
       maxRange = userRangeRight;
       left = userRangeLeft;
       right = Math.min(userRangeRight, left + S3TransferManager.MIN_PART_SIZE - 1);
+      totalSize = userRangeRight + 1;
     }
-    const getObjectRequest: GetObjectCommandInput = {
-      ...request,
-      Range: `bytes=${left}-${right}`,
-    };
-    const initialRangeGet = await this.s3ClientInstance.send(new GetObjectCommand(getObjectRequest), transferOptions);
-    this.validateRangeDownload(`bytes=${left}-${right}`, initialRangeGet.ContentRange);
-    const initialETag = initialRangeGet.ETag ?? undefined;
-    const totalSize = initialRangeGet.ContentRange
-      ? Number.parseInt(initialRangeGet.ContentRange.split("/")[1])
-      : undefined;
+
+    try {
+      const getObjectRequest: GetObjectCommandInput = {
+        ...request,
+        Range: `bytes=${left}-${right}`,
+      };
+      const initialRangeGet = await this.s3ClientInstance.send(new GetObjectCommand(getObjectRequest), transferOptions);
+      await internalEventHandler.afterInitialGetObject();
+      this.validateRangeDownload(`bytes=${left}-${right}`, initialRangeGet.ContentRange);
+      initialETag = initialRangeGet.ETag ?? undefined;
+      if (!totalSize) {
+        totalSize = initialRangeGet.ContentRange
+          ? Number.parseInt(initialRangeGet.ContentRange.split("/")[1])
+          : undefined;
+      }
+
+      if (initialRangeGet.Body && typeof (initialRangeGet.Body as any).getReader === "function") {
+        const reader = (initialRangeGet.Body as any).getReader();
+        (initialRangeGet.Body as any).getReader = function () {
+          return reader;
+        };
+      }
+
+      this.dispatchTransferInitiatedEvent(request, totalSize);
+      streams.push(Promise.resolve(initialRangeGet.Body!));
+      requests.push(getObjectRequest);
+      this.processResponseMetadata(initialRangeGet, metadata, totalSize);
+    } catch (error) {
+      this.dispatchTransferFailedEvent(request, totalSize, error as Error);
+      throw error;
+    }
 
     let expectedRequestCount = 1;
     if (totalSize) {
@@ -484,25 +524,14 @@ export class S3TransferManager implements IS3TransferManager {
       expectedRequestCount += additionalRequests;
     }
 
-    if (initialRangeGet.Body && typeof (initialRangeGet.Body as any).getReader === "function") {
-      const reader = (initialRangeGet.Body as any).getReader();
-      (initialRangeGet.Body as any).getReader = function () {
-        return reader;
-      };
-    }
-
-    this.dispatchTransferInitiatedEvent(request, totalSize);
-    streams.push(Promise.resolve(initialRangeGet.Body!));
-    requests.push(getObjectRequest);
-
-    this.updateResponseLengthAndRange(initialRangeGet, totalSize);
-    this.assignMetadata(metadata, initialRangeGet);
-    this.updateChecksumValues(initialRangeGet, metadata);
-
     left = right + 1;
     right = Math.min(left + S3TransferManager.MIN_PART_SIZE - 1, maxRange);
     remainingLength = totalSize ? Math.min(right - left + 1, Math.max(0, totalSize - left)) : 0;
     let actualRequestCount = 1;
+
+    const concurrentRequests = [];
+    const concurrentRequestInputs = [];
+
     while (remainingLength > 0) {
       this.checkAborted(transferOptions);
 
@@ -510,8 +539,9 @@ export class S3TransferManager implements IS3TransferManager {
       const getObjectRequest: GetObjectCommandInput = {
         ...request,
         Range: range,
-        IfMatch: !request.VersionId ? initialETag : undefined,
+        IfMatch: initialETag,
       };
+
       const getObject = this.s3ClientInstance
         .send(new GetObjectCommand(getObjectRequest), transferOptions)
         .then((response) => {
@@ -525,13 +555,27 @@ export class S3TransferManager implements IS3TransferManager {
           return response.Body!;
         });
 
-      streams.push(getObject);
-      requests.push(getObjectRequest);
+      concurrentRequests.push(getObject);
+      concurrentRequestInputs.push(getObjectRequest);
       actualRequestCount++;
 
       left = right + 1;
       right = Math.min(left + S3TransferManager.MIN_PART_SIZE - 1, maxRange);
       remainingLength = totalSize ? Math.min(right - left + 1, Math.max(0, totalSize - left)) : 0;
+    }
+
+    if (concurrentRequests.length > 0) {
+      try {
+        // Add promise streams to streams array ONLY if all are resolved
+        const responses = await Promise.all(concurrentRequests);
+        for (let i = 0; i < responses.length; i++) {
+          streams.push(Promise.resolve(responses[i]));
+          requests.push(concurrentRequestInputs[i]);
+        }
+      } catch (error) {
+        this.dispatchTransferFailedEvent(request, totalSize, error as Error);
+        throw error;
+      }
     }
 
     if (expectedRequestCount !== actualRequestCount) {
@@ -561,6 +605,15 @@ export class S3TransferManager implements IS3TransferManager {
     }
   }
 
+  private assignMetadata(container: any, response: any) {
+    for (const key in response) {
+      if (key === "Body") {
+        continue;
+      }
+      container[key] = response[key];
+    }
+  }
+
   private updateResponseLengthAndRange(response: DownloadResponse, totalSize: number | undefined): void {
     if (totalSize !== undefined) {
       response.ContentLength = totalSize;
@@ -577,18 +630,19 @@ export class S3TransferManager implements IS3TransferManager {
     }
   }
 
+  private processResponseMetadata(
+    response: DownloadResponse,
+    metadata: Omit<DownloadResponse, "Body">,
+    totalSize: number | undefined
+  ): void {
+    this.updateResponseLengthAndRange(response, totalSize);
+    this.assignMetadata(metadata, response);
+    this.updateChecksumValues(response, metadata);
+  }
+
   private checkAborted(transferOptions?: TransferOptions): void {
     if (transferOptions?.abortSignal?.aborted) {
       throw Object.assign(new Error("Download aborted."), { name: "AbortError" });
-    }
-  }
-
-  private assignMetadata(container: any, response: any) {
-    for (const key in response) {
-      if (key === "Body") {
-        continue;
-      }
-      container[key] = response[key];
     }
   }
 
@@ -602,6 +656,24 @@ export class S3TransferManager implements IS3TransferManager {
     this.dispatchEvent(
       Object.assign(new Event("transferInitiated"), {
         request,
+        snapshot: {
+          transferredBytes: 0,
+          totalBytes: totalSize,
+        },
+      })
+    );
+    return true;
+  }
+
+  private dispatchTransferFailedEvent(
+    request: DownloadRequest | UploadRequest,
+    totalSize?: number,
+    error?: Error
+  ): boolean {
+    this.dispatchEvent(
+      Object.assign(new Event("transferFailed"), {
+        request,
+        error,
         snapshot: {
           transferredBytes: 0,
           totalBytes: totalSize,
@@ -685,3 +757,11 @@ export class S3TransferManager implements IS3TransferManager {
     throw new Error(`Expected range to end at ${expectedEnd} but got ${end}`);
   }
 }
+/**
+ *
+ *
+ * @internal
+ */
+export const internalEventHandler = {
+  async afterInitialGetObject() {},
+};

@@ -1,10 +1,10 @@
-import { S3 } from "@aws-sdk/client-s3";
+import { GetObjectCommandOutput, S3 } from "@aws-sdk/client-s3";
 import { beforeAll, describe, expect, test as it } from "vitest";
 
 import { getIntegTestResources } from "../../../../tests/e2e/get-integ-test-resources";
 import { Upload } from "../Upload";
-import { S3TransferManager } from "./S3TransferManager";
-import type { IS3TransferManager, S3TransferManagerConfig } from "./types";
+import { internalEventHandler, S3TransferManager } from "./S3TransferManager";
+import type { S3TransferManagerConfig } from "./types";
 
 describe(S3TransferManager.name, () => {
   const chunk = "01234567";
@@ -53,45 +53,61 @@ describe(S3TransferManager.name, () => {
 
   describe("multi part download", () => {
     const modes = ["PART", "RANGE"] as S3TransferManagerConfig["multipartDownloadType"][];
-    const sizes = [6, 11] as number[];
+    // 6 = 1 part, 11 = 2 part, 19 = 3 part
+    const sizes = [6, 11, 19, 0] as number[];
 
     for (const mode of modes) {
       for (const size of sizes) {
         it(`should download an object of size ${size} with mode ${mode}`, async () => {
-          const Body = data(size * 1024 * 1024);
+          const totalSizeMB = size * 1024 * 1024;
+          const Body = data(totalSizeMB);
           const Key = `${mode}-size`;
 
-          if (mode === "PART") {
-            await new Upload({
-              client,
-              params: {
-                Bucket,
-                Key,
-                Body,
-              },
-            }).done();
-          } else {
-            await client.putObject({
-              Bucket,
-              Key,
-              Body,
-            });
-          }
+          await new Upload({
+            client,
+            params: { Bucket, Key, Body },
+          }).done();
 
           const tm: S3TransferManager = mode === "PART" ? tmPart : tmRange;
 
-          let bytesTransferred = 0;
+          const expectBasicTransfer = (request: any, snapshot: any) => {
+            expect(request.Bucket).toEqual(Bucket);
+            expect(request.Key).toEqual(Key);
+            expect(snapshot.totalBytes).toEqual(totalSizeMB);
+          };
 
+          let bytesTransferred = 0;
+          let handleEventCalled = false;
           const download = await tm.download(
-            {
-              Bucket,
-              Key,
-            },
+            { Bucket, Key },
             {
               eventListeners: {
+                transferInitiated: [
+                  ({ request, snapshot }) => {
+                    expectBasicTransfer(request, snapshot);
+                    expect(snapshot.transferredBytes).toEqual(0);
+                  },
+                ],
                 bytesTransferred: [
                   ({ request, snapshot }) => {
+                    expectBasicTransfer(request, snapshot);
                     bytesTransferred = snapshot.transferredBytes;
+                    expect(snapshot.transferredBytes).toEqual(bytesTransferred);
+                  },
+                ],
+                transferComplete: [
+                  ({ request, snapshot, response }) => {
+                    expectBasicTransfer(request, snapshot);
+                    expect(snapshot.transferredBytes).toEqual(totalSizeMB);
+                    expect(response.ETag).toBeDefined();
+                    expect((response as GetObjectCommandOutput).ContentLength).toEqual(totalSizeMB);
+                  },
+                  {
+                    handleEvent: (event: any) => {
+                      handleEventCalled = true;
+                      expect(event.request.Bucket).toEqual(Bucket);
+                      expect(event.response).toBeDefined();
+                    },
                   },
                 ],
               },
@@ -100,9 +116,140 @@ describe(S3TransferManager.name, () => {
           const serialized = await download.Body?.transformToString();
           check(serialized);
 
+          expect(download.ContentLength).toEqual(totalSizeMB);
+          expect(download.ContentRange).toEqual(`bytes 0-${totalSizeMB - 1}/${totalSizeMB}`);
           expect(bytesTransferred).toEqual(Body.length);
+          expect(handleEventCalled).toEqual(true);
         }, 60_000);
       }
+    }
+  });
+
+  describe("RANGE tests", () => {
+    const uploadTypes = ["multipart", "single"] as const;
+    const ranges = ["bytes=0-5242879", "bytes=0-10485759"];
+
+    for (const uploadType of uploadTypes) {
+      for (const range of ranges) {
+        it(`should download ${uploadType} uploaded object with range ${range}`, async () => {
+          const totalSizeMB = 12 * 1024 * 1024; // 12MB
+          const Body = data(totalSizeMB);
+          const Key = `RANGE-${uploadType}-${range.replace(/[^0-9]/g, "")}`;
+
+          // Upload based on type
+          if (uploadType === "multipart") {
+            await new Upload({
+              client,
+              params: { Bucket, Key, Body },
+            }).done();
+          } else {
+            await client.putObject({ Bucket, Key, Body });
+          }
+
+          const tm: S3TransferManager = tmRange;
+          const rangeEnd = parseInt(range.split("-")[1]);
+          const expectedBytes = rangeEnd + 1;
+
+          const download = await tm.download({ Bucket, Key, Range: range });
+          const serialized = await download.Body?.transformToString();
+          check(serialized);
+
+          expect(download.ContentLength).toEqual(expectedBytes);
+          expect(download.ContentRange).toEqual(`bytes 0-${rangeEnd}/${rangeEnd + 1}`);
+        }, 60_000);
+      }
+    }
+  });
+
+  describe("error handling", () => {
+    const modes = ["PART", "RANGE"] as S3TransferManagerConfig["multipartDownloadType"][];
+
+    for (const mode of modes) {
+      it(`should fail when ETag changes during a ${mode} download`, async () => {
+        const totalSizeMB = 20 * 1024 * 1024;
+        const Body = data(totalSizeMB);
+        const Key = `${mode}-etag-test`;
+
+        if (mode === "PART") {
+          await new Upload({
+            client,
+            params: { Bucket, Key, Body },
+          }).done();
+        } else {
+          await client.putObject({ Bucket, Key, Body });
+        }
+
+        let transferFailed = false;
+        const tm: S3TransferManager = mode === "PART" ? tmPart : tmRange;
+
+        try {
+          internalEventHandler.afterInitialGetObject = async () => {
+            try {
+              if (mode === "PART") {
+                await new Upload({
+                  client,
+                  params: { Bucket, Key, Body: data(20 * 1024 * 1024 - 8) },
+                }).done();
+              } else {
+                await client.putObject({ Bucket, Key, Body: data(20 * 1024 * 1024 - 8) });
+              }
+            } catch (err) {
+              // ignore errors
+            }
+            internalEventHandler.afterInitialGetObject = async () => {};
+          };
+
+          await tm.download(
+            { Bucket, Key },
+            {
+              eventListeners: {
+                transferInitiated: [],
+                bytesTransferred: [],
+                transferFailed: [
+                  () => {
+                    transferFailed = true;
+                  },
+                ],
+              },
+            }
+          );
+          expect.fail("Download should have failed due to ETag mismatch");
+        } catch (error) {
+          expect(transferFailed).toBe(true);
+          expect(error.name).toEqual("PreconditionFailed");
+        } finally {
+          internalEventHandler.afterInitialGetObject = async () => {};
+        }
+      }, 60_000);
+    }
+  });
+
+  describe("download with abortController ", () => {
+    const modes = ["PART"] as S3TransferManagerConfig["multipartDownloadType"][];
+    for (const mode of modes) {
+      it(`should cancel ${mode} download on abort()`, async () => {
+        const totalSizeMB = 10 * 1024 * 1024;
+        const Body = data(totalSizeMB);
+        const Key = `${mode}-size`;
+        await new Upload({
+          client,
+          params: { Bucket, Key, Body },
+        }).done();
+        const tm: S3TransferManager = mode === "PART" ? tmPart : tmRange;
+        const controller = new AbortController();
+        setTimeout(() => controller.abort(), 100);
+        try {
+          await tm.download(
+            { Bucket, Key },
+            {
+              abortSignal: controller.signal,
+            }
+          );
+          expect.fail("Download should have been aborted");
+        } catch (error) {
+          expect(error.name).toEqual("AbortError");
+        }
+      }, 60_000);
     }
   });
 
@@ -157,13 +304,6 @@ describe(S3TransferManager.name, () => {
     }, 60_000);
     it("multipart object: multipartDownloadType = RANGE, range = 0-12MB, partNumber = null", async () => {
       await sepTests("multipart", "RANGE", `bytes=0-${12 * 1024 * 1024}`, undefined);
-    }, 60_000);
-    // skipped because TM no longer supports partNumber
-    it.skip("single object: multipartDownloadType = PART, range = null, partNumber = 2", async () => {
-      await sepTests("single", "PART", undefined, 2);
-    }, 60_000);
-    it.skip("single object: multipartDownloadType = RANGE, range = null, partNumber = 2", async () => {
-      await sepTests("single", "RANGE", undefined, 2);
     }, 60_000);
     it("single object: multipartDownloadType = PART, range = null, partNumber = null", async () => {
       await sepTests("single", "PART", undefined, undefined);

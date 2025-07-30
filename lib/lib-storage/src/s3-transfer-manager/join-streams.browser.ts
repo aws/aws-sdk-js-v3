@@ -1,5 +1,5 @@
 import { StreamingBlobPayloadOutputTypes } from "@smithy/types";
-import { isBlob, isReadableStream, sdkStreamMixin } from "@smithy/util-stream";
+import { isReadableStream, sdkStreamMixin } from "@smithy/util-stream";
 
 import { JoinStreamIterationEvents } from "./types";
 
@@ -32,6 +32,7 @@ export async function* iterateStreams(
   for (const streamPromise of streams) {
     const stream = await streamPromise;
     if (isReadableStream(stream)) {
+      // TODO: May need to acquire reader before reaching the stream
       const reader = stream.getReader();
       try {
         while (true) {
