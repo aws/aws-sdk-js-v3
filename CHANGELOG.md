@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.857.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.856.0...v3.857.0) (2025-07-30)
+
+
+### Features
+
+* **client-cloudfront:** This release adds new origin timeout options: 1) ResponseCompletionTimeout and 2) OriginReadTimeout (for S3 origins) ([85139ef](https://github.com/aws/aws-sdk-js-v3/commit/85139ef10b4077bc4a22bcc0a45f95a12a18422c))
+* **client-directory-service:** This release adds support for AWS Managed Microsoft AD Hybrid Edition, introducing new operations: StartADAssessment, DescribeADAssessment, ListADAssessments, DeleteADAssessment, CreateHybridAD, UpdateHybridAD, and DescribeHybridADUpdate; and updated existing operation: DescribeDirectories. ([33ce8f0](https://github.com/aws/aws-sdk-js-v3/commit/33ce8f0d9481995155de23c2d59877963f2ef4e2))
+* **client-docdb:** Add support for setting Serverless Scaling Configuration on clusters. ([7601d95](https://github.com/aws/aws-sdk-js-v3/commit/7601d95f059b82248cfa6ad1e80b365bc8249c37))
+* **client-ec2:** Release to show the next hop IP address for routes propagated by VPC Route Server into VPC route tables. ([ec57020](https://github.com/aws/aws-sdk-js-v3/commit/ec57020fb54f101e65bd7676f067f763ec555366))
+* **client-iot-wireless:** Added TxPowerIndexMin, TxPowerIndexMax, NbTransMin and NbTransMax params to ServiceProfile. ([f8bbc34](https://github.com/aws/aws-sdk-js-v3/commit/f8bbc34d0694e3a209d64df45c464513fadcc38c))
+* **clients:** update client endpoints as of 2025-07-30 ([81ae68e](https://github.com/aws/aws-sdk-js-v3/commit/81ae68e574785d568ea03d6b1f8b32663e584920))
+
+
+
+
+
 # [3.856.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.855.0...v3.856.0) (2025-07-29)
 
 

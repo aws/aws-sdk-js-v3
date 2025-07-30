@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.857.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.856.0...v3.857.0) (2025-07-30)
+
+
+### Features
+
+* **client-ec2:** Release to show the next hop IP address for routes propagated by VPC Route Server into VPC route tables. ([ec57020](https://github.com/aws/aws-sdk-js-v3/commit/ec57020fb54f101e65bd7676f067f763ec555366))
+
+
+
+
+
 # [3.856.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.855.0...v3.856.0) (2025-07-29)
 
 **Note:** Version bump only for package @aws-sdk/client-ec2

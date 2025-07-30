@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.857.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.856.0...v3.857.0) (2025-07-30)
+
+**Note:** Version bump only for package @aws-sdk/client-gameliftstreams
+
+
+
+
+
 # [3.856.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.855.0...v3.856.0) (2025-07-29)
 
 **Note:** Version bump only for package @aws-sdk/client-gameliftstreams

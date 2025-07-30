@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.857.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.856.0...v3.857.0) (2025-07-30)
+
+
+### Features
+
+* **client-directory-service:** This release adds support for AWS Managed Microsoft AD Hybrid Edition, introducing new operations: StartADAssessment, DescribeADAssessment, ListADAssessments, DeleteADAssessment, CreateHybridAD, UpdateHybridAD, and DescribeHybridADUpdate; and updated existing operation: DescribeDirectories. ([33ce8f0](https://github.com/aws/aws-sdk-js-v3/commit/33ce8f0d9481995155de23c2d59877963f2ef4e2))
+
+
+
+
+
 # [3.856.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.855.0...v3.856.0) (2025-07-29)
 
 **Note:** Version bump only for package @aws-sdk/client-directory-service

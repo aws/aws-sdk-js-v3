@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.857.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.856.0...v3.857.0) (2025-07-30)
+
+
+### Features
+
+* **client-cloudfront:** This release adds new origin timeout options: 1) ResponseCompletionTimeout and 2) OriginReadTimeout (for S3 origins) ([85139ef](https://github.com/aws/aws-sdk-js-v3/commit/85139ef10b4077bc4a22bcc0a45f95a12a18422c))
+
+
+
+
+
 # [3.856.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.855.0...v3.856.0) (2025-07-29)
 
 **Note:** Version bump only for package @aws-sdk/client-cloudfront
