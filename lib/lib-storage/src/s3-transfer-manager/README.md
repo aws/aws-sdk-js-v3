@@ -1,74 +1,102 @@
 # @aws-sdk/lib-storage/s3-transfer-manager
 
+[![NPM version](https://img.shields.io/npm/v/@aws-sdk/lib-storage/latest.svg)](https://www.npmjs.com/package/@aws-sdk/lib-storage)
+[![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/lib-storage.svg)](https://www.npmjs.com/package/@aws-sdk/lib-storage)
+
 ## Overview
 
-S3TransferManager is a high level library that helps customer interact with S3
+S3TransferManager is a high level library that helps customers interact with S3
 for their most common use cases that involve multiple API operations through SDK JS V3.
 S3TransferManager provides the following features:
 
-- automatic multipart upload to S3
-- automatic multipart download from S3
-- upload all files in a directory to an S3 bucket recursively or non-recursively
-- download all objects in a bucket to a local directory recursively or non-recursively
-- transfer progress listener
+- automatic [multipart upload](#upload) to S3
+- automatic [multipart download](#download) from S3
+- upload all files in a directory to an S3 bucket recursively or non-recursively (see [upload all](#uploadall))
+- download all objects in a bucket to a local directory recursively or non-recursively (see [download all](#downloadall))
+- transfer progress listener (see [Event Listeners](#event-listeners))
 
 ## Installation
 
+`npm install @aws-sdk/lib-storage`
+
 ## Getting Started
 
-## Configuration
+### Import
 
-When creating an instance of the S3TransferManager, users can configure some of it's client options
-to best fit their use case.
-
-- s3ClientInstance - specify the low level S3 client that will be used to send reqeusts to S3
-- targetPartSizeBytes - specify the target part size to use in mulitpart transfer. Does not
-  apply to the last part and downloads if multipartDownloadType is PART
-- multipartUploadThresholdBytes - specify the size threshold in bytes for multipart upload.
-- checksumValidationEnabled - option to disable checksum validation for donwload.
-- multipartDownloadType - specify how the SDK should perform multipart download. Either RANGE or PART.
-- eventListeners - transfer progress listeners to receive event-driven updates on transfer
-  progress throughout the lifecycle of a request at client level. Supported callbacks:
-  - transferInitiated: A new transfer has been initiated. This method is invoked exactly once per
-    transfer, right after the operation has started. It allows users to retrieve the request and ProgressSnapshot.
-  - bytesTransferred: Additional bytes have been submitted or received. This method may be called
-    many times per transfer, depending on the transfer size and I/O buffer sizes. It must be called
-    at least once for a successful transfer. It allows users to retrieve the the request and the ProgressSnapshot.
-  - transferComplete: The transfer has completed successfully. This method is called exactly once for
-    a successful transfer. It allows users to retrieve the request, the response and the ProgressSnapshot.
-  - transferFailed: The transfer has failed. This method is called exactly once for a failed transfer.
-    It allows users to retrieve the request and a progress snapshot.
-
-### Example
+To begin using `S3TransferManager`, you must import it through `@aws-sdk/lib-storage`. You can also specify your own `S3Client` to use with `S3TransferManager`. Example:
 
 ```js
 import { S3Client } from "@aws-sdk/client-s3";
 import { S3TransferManager } from "@aws-sdk/lib-storage";
-
-  const tm = new S3TransferManager ({
-    s3ClientInstance: new S3Client({}),
-    multipartDownloadType: "RANGE",
-    targetPartSizeBytes: 8 * 1024 * 1024
-    multipartThresholdBytes: 16 * 1024 * 1024,
-    checksumValidationEnabled: true,
-    checksumAlgorithm: CRC32,
-    multipartDownloadType: PART,
-    eventListeners: {
-      transferInitiated: [transferStarted],
-      bytesTrnasferred: [progressBar],
-      transferComplete: [{
-        handleEvent: console.log({
-          request, snapshot, response
-        })
-      }],
-      trasnferFailed: [transferFailed]
-    }
-  })
 ```
+
+### Creating a TransferManager Instance
+
+When creating an instance, takes an optional `S3TransferManagerConfig` object (see [Constructor Options](#constructor-options)). Minimal instantiation of a `S3TransferManager`:
+
+```js
+// Create S3 client
+const s3Client = new S3Client({ region: "us-east-1" });
+
+// Create transfer manager
+const tm = new S3TransferManager({
+  s3ClientInstance: s3Client,
+});
+```
+
+### Basic Usage
+
+Basic use of `download()` (await required):
+
+```js
+const download = await tm.download({
+  Bucket,
+  Key,
+});
+
+const data = await download.Body?.transformToByteArray();
+console.log(`Downloaded ${data.byteLength} bytes`);
+```
+
+## Configuration
+
+- **s3ClientInstance** - The S3 client instance to use for requests
+- **targetPartSizeBytes** - Target part size for multipart transfers (default: 8MB)
+- **multipartUploadThresholdBytes** - Size threshold for multipart upload (default: 16MB)
+- **checksumValidationEnabled** - Enable/disable checksum validation for downloads (default: true)
+- **multipartDownloadType** - Download strategy: "RANGE" or "PART" (default: "RANGE")
+- [**eventListeners**](#event-listeners) - Transfer progress listeners
 
 ### Constructor Options
 
-## API Reference
+The S3TransferManager constructor accepts an optional `S3TransferManagerConfig` object with the following optional properties:
+
+| Option                          | Type                     | Default                               | Description                                       |
+| ------------------------------- | ------------------------ | ------------------------------------- | ------------------------------------------------- |
+| `s3ClientInstance`              | `S3Client`               | `new S3Client()` with checksum config | S3 client instance for API calls                  |
+| `targetPartSizeBytes`           | `number`                 | `8388608` (8MB)                       | Target size for each part in multipart operations |
+| `multipartUploadThresholdBytes` | `number`                 | `16777216` (16MB)                     | File size threshold to trigger multipart upload   |
+| `checksumValidationEnabled`     | `boolean`                | `true`                                | Enable checksum validation for data integrity     |
+| `checksumAlgorithm`             | `ChecksumAlgorithm`      | `"CRC32"`                             | Algorithm used for checksum calculation           |
+| `multipartDownloadType`         | `"PART" \| "RANGE"`      | `"PART"`                              | Strategy for multipart downloads                  |
+| `eventListeners`                | `TransferEventListeners` | `{}`                                  | Event listeners for transfer progress             |
+
+**Example:**
+
+```js
+const transferManager = new S3TransferManager({
+  s3ClientInstance: new S3Client({ region: "us-west-2" }),
+  targetPartSizeBytes: 10 * 1024 * 1024, // 10MB
+  multipartUploadThresholdBytes: 20 * 1024 * 1024, // 20MB
+  checksumValidationEnabled: false,
+  checksumAlgorithm: "SHA256",
+  multipartDownloadType: "RANGE",
+  eventListeners: {
+    transferInitiated: [myInitiatedHandler],
+    bytesTransferred: [myProgressHandler],
+  },
+});
+```
 
 ## Methods
 
@@ -76,61 +104,157 @@ import { S3TransferManager } from "@aws-sdk/lib-storage";
 
 ### download()
 
-The download() function in S3TransferManager is a wrapper function for the S3 GetObjectCommand
-allowing users to download objects from an S3 bucket using multipart download of two types
-which are specified in the configuration of the S3TransferManager instance: Part GET and Ranged GET.
-Both of which download the object using GetObjectCommand in separate streams then join them into
-one single stream. The S3TransferManager download() supports Readable and ReadableStream for node and browser.
+Downloads objects from S3 using multipart download with two modes:
 
-- Part GET
-  - Use case: Optimizes downloads for objects that were uploaded using the S3 multipart upload
-  - How it works: Uses the S3 native download feature with the PartNumber parameter. It fetches part 1 of the object to get the metadata then downloads the remaining parts concurrently.
-- Range GET
-  - Use case: Allows for multipart download for any S3 object regardless of whether it was
-    uploaded using multipart upload or not
-  - How it works: Uses the HTTP Range request with the bytes=start-end headers to split objects into
-    chunks based on the user-provided byte range header, or if not included the MIN_PART_SIZE to make concurrent range requests.
+**PART Mode:**
 
-Users can also include an abortController allowing for cancellation mid download along
-with eventListeners for the callbacks: 'transferInitiated', 'bytesTransferred', 'transferComplete',
-and 'transferFailed' at client level and request level. 'bytesTransferred' provides progress updates per byte chunk during streaming.
+- Optimized for objects uploaded via multipart upload
+- Uses S3's native PartNumber parameter to download parts concurrently
 
-#### Validation
+**RANGE Mode:**
 
-Both multipartDownloadTypes have methods that validates the bytes and ranges of the multipart download requests. In multipartDownloadType PART, bytes of the part boundaries in each concurrent request are checked for whether they match the expected byte boundaries. In multipartDownloadType RANGE, the byte ranges are checked for whether they match the expected ranges. An error is thrown on mismatches and all requests for download is cancelled.
+- Works with any S3 object regardless of upload method
+- Uses HTTP Range headers to split objects into chunks for concurrent download
 
-Both both PART and RANGE GET uses the S3 standard IfMatch header with the initial ETag for subsequent parts to ensure object version consistency during a download.
+Both modes join separate streams into a single stream and support Readable/ReadableStream for Node.js and browsers.
+
+**Parameters:**
+
+- `Bucket` (required) - S3 bucket name
+- `Key` (required) - Object key/path
+- `Range` - Byte range for partial downloads (e.g., "bytes=0-1023")
+
+**Transfer Options:**
+
+- `abortSignal` - AbortController signal for cancellation
+- `eventListeners` - Progress tracking callbacks
+
+> For complete parameter list, see [GetObjectCommandInput](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/s3/command/GetObjectCommand/) documentation.
+
+**Features:**
+
+- AbortController support for cancellation
+- Event listeners: `transferInitiated`, `bytesTransferred`, `transferComplete`, `transferFailed`
+- ETag validation ensures object consistency during download
+- Automatic boundary/range validation with error handling
+
+**Validation:**
+
+Both modes validate data integrity:
+
+- **PART**: Validates part boundaries match expected byte ranges
+- **RANGE**: Validates byte ranges match expected values
+- Uses `IfMatch` header with initial ETag to ensure object consistency
+- Throws errors and cancels download on validation failures
+
+We do not recommend updating the object you're downloading mid-download as this may throw a [Precondition Failed error](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/http-412-precondition-failed.html).
 
 #### uploadAll()
 
 #### downloadAll()
 
-### Event Handling
+## Event Handling
 
-#### addEventListener()
+### addEventListener()
 
-#### removeEventListener()
+Registers event listeners for transfer lifecycle monitoring. It uses familiar EventTarget API patterns.
 
-#### dispatchEvent()
+**Event Types:**
+
+- `transferInitiated` - Fired when transfer begins
+- `bytesTransferred` - Fired during transfer progress with each byte chunk transfer
+- `transferComplete` - Fired when transfer succeeds
+- `transferFailed` - Fired when transfer fails
+
+**Parameters:**
+
+- `type` - Event type to listen for
+- `callback` - Function or object with `handleEvent` method
+- `options` - Optional configuration:
+  - `once: boolean` - Remove listener after first execution
+  - `signal: AbortSignal` - Auto-remove listener when signal aborts
+
+**Example:**
+
+```js
+function progressBar({ request, snapshot }) {
+  const percent = snapshot.totalBytes ? (snapshot.transferredBytes / snapshot.totalBytes) * 100 : 0;
+  let barLength = percent / 2;
+  let progressBar = "[";
+  for (let i = 0; i < 50; i++) {
+    if (barLength > 0) {
+      progressBar += "#";
+      barLength--;
+    } else {
+      progressBar += "-";
+    }
+  }
+  progressBar += "]";
+
+  process.stdout.clearLine(0);
+  process.stdout.cursorTo(0);
+  process.stdout.write(`Downloading... ${progressBar} ${percent.toFixed(0)}%`);
+}
+
+transferManager.addEventListener("bytesTransferred", progressBar);
+
+// One-time listener
+transferManager.addEventListener(
+  "transferComplete",
+  (event) => {
+    console.log(`\nTransfer completed: ${event.request.Key}`);
+  },
+  { once: true }
+);
+```
+
+### removeEventListener()
+
+Removes a previously registered event listener from the specified event type.
+
+**Parameters:**
+
+- `type` - Event type to stop listening for
+- `callback` - The exact function that was previously registered
+- `options` - Optional configuration (currently unused)
+
+**Example:**
+
+```js
+const progressHandler = (event) => console.log("Progress:", event.snapshot);
+
+transferManager.addEventListener("bytesTransferred", progressHandler);
+transferManager.removeEventListener("bytesTransferred", progressHandler);
+```
+
+### dispatchEvent()
+
+Dispatches events to registered listeners. Primarily used internally but available for custom event handling.
+
+**Parameters:**
+
+- `event` - Event object with `type` property matching registered listeners
+
+**Returns:**
+
+- `boolean` - Always returns `true` (follows EventTarget API)
+
+**Example:**
+
+```js
+const customEvent = new Event("transferInitiated");
+customEvent.snapshot = { transferredBytes: 0, totalBytes: 1000 };
+transferManager.dispatchEvent(customEvent);
+```
 
 ## Transfer Options
 
 ### AbortSignal
 
+TODO: Include practical examples of using abortcontroller to cancel downloads
+
 ### Event Listeners
 
-## Examples
+TODO: Include examples of eventListeners are client level and request level
 
-### Basic Upload
-
-### Basic Download
-
-### Multipart Download
-
-### Event Handling
-
-### Abort Operations
-
-## Performance Considerations
-
-## Error Handling
+## Performance
