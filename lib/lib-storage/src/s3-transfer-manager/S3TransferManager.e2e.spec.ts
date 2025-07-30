@@ -253,8 +253,8 @@ describe(S3TransferManager.name, () => {
     }
   });
 
-  describe("(SEP) download single object tests", () => {
-    async function sepTests(
+  describe("Required compliance download single object tests", () => {
+    async function complianceTests(
       objectType: "single" | "multipart",
       multipartType: "PART" | "RANGE",
       range: string | undefined,
@@ -300,16 +300,16 @@ describe(S3TransferManager.name, () => {
     }
 
     it("single object: multipartDownloadType = PART, range = 0-12MB, partNumber = null", async () => {
-      await sepTests("single", "PART", `bytes=0-${12 * 1024 * 1024}`, undefined);
+      await complianceTests("single", "PART", `bytes=0-${12 * 1024 * 1024}`, undefined);
     }, 60_000);
     it("multipart object: multipartDownloadType = RANGE, range = 0-12MB, partNumber = null", async () => {
-      await sepTests("multipart", "RANGE", `bytes=0-${12 * 1024 * 1024}`, undefined);
+      await complianceTests("multipart", "RANGE", `bytes=0-${12 * 1024 * 1024}`, undefined);
     }, 60_000);
     it("single object: multipartDownloadType = PART, range = null, partNumber = null", async () => {
-      await sepTests("single", "PART", undefined, undefined);
+      await complianceTests("single", "PART", undefined, undefined);
     }, 60_000);
     it("single object: multipartDownloadType = RANGE, range = null, partNumber = null", async () => {
-      await sepTests("single", "RANGE", undefined, undefined);
+      await complianceTests("single", "RANGE", undefined, undefined);
     }, 60_000);
   });
 });

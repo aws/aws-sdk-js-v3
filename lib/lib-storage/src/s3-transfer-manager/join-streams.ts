@@ -4,7 +4,11 @@ import { Readable } from "stream";
 
 import { JoinStreamIterationEvents } from "./types";
 
-// TODO: check all types. needs to join nodejs and browser together
+/**
+ * Joins multiple stream promises into a single stream with event callbacks.
+ *
+ * @internal
+ */
 export async function joinStreams(
   streams: Promise<StreamingBlobPayloadOutputTypes>[],
   eventListeners?: JoinStreamIterationEvents
@@ -26,14 +30,10 @@ export async function joinStreams(
 }
 
 /**
- *
+ * Iterates through stream promises sequentially, yielding chunks with progress tracking.
  *
  * @internal
  */
-export const internalEventHandler = {
-  async onStreamAvailable() {},
-};
-
 export async function* iterateStreams(
   streams: Promise<StreamingBlobPayloadOutputTypes>[],
   eventListeners?: JoinStreamIterationEvents
@@ -42,7 +42,6 @@ export async function* iterateStreams(
   let index = 0;
   for (const streamPromise of streams) {
     const stream = await streamPromise;
-    await internalEventHandler.onStreamAvailable();
     if (isReadableStream(stream)) {
       // TODO: May need to acquire reader before reaching the stream
       const reader = stream.getReader();
