@@ -64,6 +64,10 @@ export interface GetServiceProfileCommandOutput extends GetServiceProfileRespons
  * //     NwkGeoLoc: true || false,
  * //     TargetPer: Number("int"),
  * //     MinGwDiversity: Number("int"),
+ * //     TxPowerIndexMin: Number("int"),
+ * //     TxPowerIndexMax: Number("int"),
+ * //     NbTransMin: Number("int"),
+ * //     NbTransMax: Number("int"),
  * //   },
  * // };
  *

@@ -43,6 +43,10 @@ export interface CreateServiceProfileCommandOutput extends CreateServiceProfileR
  *     DrMax: Number("int"),
  *     PrAllowed: true || false,
  *     RaAllowed: true || false,
+ *     TxPowerIndexMin: Number("int"),
+ *     TxPowerIndexMax: Number("int"),
+ *     NbTransMin: Number("int"),
+ *     NbTransMax: Number("int"),
  *   },
  *   Tags: [ // TagList
  *     { // Tag

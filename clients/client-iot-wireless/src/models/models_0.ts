@@ -2090,6 +2090,38 @@ export interface LoRaWANServiceProfile {
    * @public
    */
   RaAllowed?: boolean | undefined;
+
+  /**
+   * <p>The Transmit Power Index minimum.</p>
+   *          <p>Default: <code>0</code>
+   *          </p>
+   * @public
+   */
+  TxPowerIndexMin?: number | undefined;
+
+  /**
+   * <p>The Transmit Power Index maximum.</p>
+   *          <p>Default: <code>15</code>
+   *          </p>
+   * @public
+   */
+  TxPowerIndexMax?: number | undefined;
+
+  /**
+   * <p>The minimum number of transmissions.</p>
+   *          <p>Default: <code>0</code>
+   *          </p>
+   * @public
+   */
+  NbTransMin?: number | undefined;
+
+  /**
+   * <p>The maximum number of transmissions.</p>
+   *          <p>Default: <code>3</code>
+   *          </p>
+   * @public
+   */
+  NbTransMax?: number | undefined;
 }
 
 /**
@@ -5557,6 +5589,38 @@ export interface LoRaWANGetServiceProfileInfo {
    * @public
    */
   MinGwDiversity?: number | undefined;
+
+  /**
+   * <p>The Transmit Power Index minimum value.</p>
+   *          <p>Default: <code>0</code>
+   *          </p>
+   * @public
+   */
+  TxPowerIndexMin?: number | undefined;
+
+  /**
+   * <p>The Transmit Power Index maximum value.</p>
+   *          <p>Default: <code>15</code>
+   *          </p>
+   * @public
+   */
+  TxPowerIndexMax?: number | undefined;
+
+  /**
+   * <p>The minimum number of transmissions.</p>
+   *          <p>Default: <code>0</code>
+   *          </p>
+   * @public
+   */
+  NbTransMin?: number | undefined;
+
+  /**
+   * <p>The maximum number of transmissions.</p>
+   *          <p>Default: <code>3</code>
+   *          </p>
+   * @public
+   */
+  NbTransMax?: number | undefined;
 }
 
 /**
