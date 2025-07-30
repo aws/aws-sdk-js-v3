@@ -124,13 +124,13 @@ Downloads objects from S3 using multipart download with two modes:
 
 **PART Mode:**
 
-- Optimized for objects uploaded via multipart upload
-- Uses S3's native PartNumber parameter to download parts concurrently
+- Optimized for objects uploaded via multipart upload.
+- Uses S3's native PartNumber parameter to download parts concurrently.
 
 **RANGE Mode:**
 
-- Works with any S3 object regardless of upload method
-- Uses HTTP Range headers to split objects into chunks for concurrent download
+- Works with any S3 object regardless of upload method.
+- Uses HTTP Range headers to split objects into chunks for concurrent download.
 
 Both modes join separate streams into a single stream and support Readable/ReadableStream for Node.js and browsers.
 
@@ -158,10 +158,10 @@ Both modes join separate streams into a single stream and support Readable/Reada
 
 Both modes validate data integrity:
 
-- **PART**: Validates part boundaries match expected byte ranges
-- **RANGE**: Validates byte ranges match expected values
-- Uses `IfMatch` header with initial ETag to ensure object consistency
-- Throws errors and cancels download on validation failures
+- **PART**: Validates part boundaries match expected byte ranges.
+- **RANGE**: Validates byte ranges match expected values.
+- Uses `IfMatch` header with initial ETag to ensure object consistency.
+- Throws errors and cancels download on validation failures.
 
 We do not recommend updating the object you're downloading mid-download as this may throw a [Precondition Failed error](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/http-412-precondition-failed.html).
 
