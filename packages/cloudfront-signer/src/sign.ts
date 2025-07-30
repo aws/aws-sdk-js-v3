@@ -259,7 +259,8 @@ function getResource(urlString: string): string {
       return urlString;
     case "rtmp:":
       const url = new URL(urlString);
-      return url.pathname.replace(/^\//, "") + url.search + url.hash;
+      const origin = `${protocol}//${url.hostname}`;
+      return urlString.substring(origin.length).replace(/(?::\d+)?\//, "");
     default:
       throw new Error("Invalid URI scheme. Scheme must be one of http, https, or rtmp");
   }
