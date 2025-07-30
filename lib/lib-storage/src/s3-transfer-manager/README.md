@@ -1,11 +1,13 @@
 # @aws-sdk/lib-storage/s3-transfer-manager
 
+> 🚧 **Package Currently Under Development**
+
 [![NPM version](https://img.shields.io/npm/v/@aws-sdk/lib-storage/latest.svg)](https://www.npmjs.com/package/@aws-sdk/lib-storage)
 [![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/lib-storage.svg)](https://www.npmjs.com/package/@aws-sdk/lib-storage)
 
-## Overview
+# Overview
 
-S3TransferManager is a high level library that helps customers interact with S3
+S3TransferManager is a high level library that helps users interact with S3
 for their most common use cases that involve multiple API operations through SDK JS V3.
 S3TransferManager provides the following features:
 
@@ -19,7 +21,7 @@ S3TransferManager provides the following features:
 
 `npm install @aws-sdk/lib-storage`
 
-## Getting Started
+# Getting Started
 
 ### Import
 
@@ -71,19 +73,29 @@ console.log(`Downloaded ${data.byteLength} bytes`);
 
 The S3TransferManager constructor accepts an optional `S3TransferManagerConfig` object with the following optional properties:
 
-| Option                          | Type                     | Default                               | Description                                       |
-| ------------------------------- | ------------------------ | ------------------------------------- | ------------------------------------------------- |
-| `s3ClientInstance`              | `S3Client`               | `new S3Client()` with checksum config | S3 client instance for API calls                  |
-| `targetPartSizeBytes`           | `number`                 | `8388608` (8MB)                       | Target size for each part in multipart operations |
-| `multipartUploadThresholdBytes` | `number`                 | `16777216` (16MB)                     | File size threshold to trigger multipart upload   |
-| `checksumValidationEnabled`     | `boolean`                | `true`                                | Enable checksum validation for data integrity     |
-| `checksumAlgorithm`             | `ChecksumAlgorithm`      | `"CRC32"`                             | Algorithm used for checksum calculation           |
-| `multipartDownloadType`         | `"PART" \| "RANGE"`      | `"PART"`                              | Strategy for multipart downloads                  |
-| `eventListeners`                | `TransferEventListeners` | `{}`                                  | Event listeners for transfer progress             |
+| Option                          | Type                     | Default           | Description                                       |
+| ------------------------------- | ------------------------ | ----------------- | ------------------------------------------------- |
+| `s3ClientInstance`              | `S3Client`               | `new S3Client()`  | S3 client instance for API calls                  |
+| `targetPartSizeBytes`           | `number`                 | `8388608` (8MB)   | Target size for each part in multipart operations |
+| `multipartUploadThresholdBytes` | `number`                 | `16777216` (16MB) | File size threshold to trigger multipart upload   |
+| `checksumValidationEnabled`     | `boolean`                | `true`            | Enable checksum validation for data integrity     |
+| `checksumAlgorithm`             | `ChecksumAlgorithm`      | `"CRC32"`         | Algorithm used for checksum calculation           |
+| `multipartDownloadType`         | `"PART" \| "RANGE"`      | `"PART"`          | Strategy for multipart downloads                  |
+| `eventListeners`                | `TransferEventListeners` | `{}`              | Event listeners for transfer progress             |
 
 **Example:**
 
 ```js
+const myInitiatedHandler = ({ request }) => {
+  console.log(`Started: ${request.Key}`);
+};
+
+const myProgressHandler = ({ snapshot }) => {
+  const percent = snapshot.totalBytes ? (snapshot.transferredBytes / snapshot.totalBytes) * 100 : 0;
+  console.log(`Progress: ${percent.toFixed(1)}%`);
+};
+
+// Transfer Manager with optional config properties
 const tm = new S3TransferManager({
   s3ClientInstance: new S3Client({ region: "us-west-2" }),
   targetPartSizeBytes: 10 * 1024 * 1024, // 10MB
@@ -98,15 +110,15 @@ const tm = new S3TransferManager({
 });
 ```
 
-## Methods
+# Methods
 
-### upload()
+## upload()
 
 > 🚧 **Under Development**
 >
 > Documentation will be available when this feature is implemented.
 
-### download()
+## download()
 
 Downloads objects from S3 using multipart download with two modes:
 
@@ -152,6 +164,60 @@ Both modes validate data integrity:
 - Throws errors and cancels download on validation failures
 
 We do not recommend updating the object you're downloading mid-download as this may throw a [Precondition Failed error](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/http-412-precondition-failed.html).
+
+### Download Examples:
+
+**PART Download:**
+
+```js
+// Configure for PART mode
+const tm = new S3TransferManager({
+  s3ClientInstance: s3Client,
+  multipartDownloadType: "PART",
+});
+
+const download = await tm.download({
+  Bucket: "my-bucket",
+  Key: "large-file.zip",
+});
+
+const data = await download.Body?.transformToByteArray();
+```
+
+**RANGE Download:**
+
+```js
+// Configure for RANGE mode
+const tm = new S3TransferManager({
+  s3ClientInstance: s3Client,
+  multipartDownloadType: "RANGE",
+});
+
+const download = await tm.download({
+  Bucket: "my-bucket",
+  Key: "document.pdf",
+});
+
+const data = await download.Body?.transformToByteArray();
+```
+
+**RANGE Download with Specific Range:**
+
+```js
+const tm = new S3TransferManager({
+  s3ClientInstance: s3Client,
+  multipartDownloadType: "RANGE",
+});
+
+// Download first 1MB only
+const download = await tm.download({
+  Bucket: "my-bucket",
+  Key: "video.mp4",
+  Range: "bytes=0-1048575",
+});
+
+const data = await download.Body?.transformToByteArray();
+```
 
 #### uploadAll()
 
@@ -265,9 +331,9 @@ tm.addEventListener(
 
 ### removeEventListener()
 
-Removes a previously registered event listener from the specified event type. You must pass the exact same function reference that was used when adding the listener.
+Removes a previously registered event listener from the specified event type.
 
-**Important:** If you plan to remove event listeners during transfer lifecycle, define your callback as a named function or variable - you cannot remove anonymous functions.
+**Important:** If you plan to remove event listeners during transfer lifecycle, define your callback as a named function or variable as you cannot remove anonymous functions.
 
 **Parameters:**
 
@@ -367,6 +433,27 @@ try {
 
 Event listeners can be configured at two levels: **client-level** (applies to all transfers) and **request-level** (applies to specific transfers). (see [Event Handling](#event-handling))
 
+In the following code we will define basic callback functions that will be used in the proceeding examples:
+
+```js
+const downloadingKey = ({ request }) => {
+  console.log(`Started: ${request.Key}`);
+};
+
+const progressBar = ({ snapshot }) => {
+  const percent = snapshot.totalBytes ? (snapshot.transferredBytes / snapshot.totalBytes) * 100 : 0;
+  console.log(`Progress: ${percent.toFixed(1)}%`);
+};
+
+const transferComplete = ({ request, snapshot }) => {
+  console.log(`Completed: ${request.Key} (${snapshot.transferredBytes} bytes)`);
+};
+
+const transferFailed = ({ request }) => {
+  console.log(`Failed: ${request.Key}`);
+};
+```
+
 **Client-Level Event Listeners:**
 
 You can configure the event listeners when creating your Transfer Manager instance. These listeners apply to all transfers made with this instance.
@@ -430,6 +517,15 @@ const download = await tm.download(
 Because request-level listeners are added to client-level listeners (not replaced), it allows for global logging plus request-specific handling.
 
 ```js
+const globalErrorHandler = ({ request }) => {
+  console.error(`Global error: ${request.Key} failed`);
+};
+
+const videoProgressBar = ({ snapshot }) => {
+  const percent = snapshot.totalBytes ? (snapshot.transferredBytes / snapshot.totalBytes) * 100 : 0;
+  console.log(`Video download: ${percent.toFixed(1)}%`);
+};
+
 // Client-level: global logging
 const tm = new S3TransferManager({
   s3ClientInstance: s3Client,
