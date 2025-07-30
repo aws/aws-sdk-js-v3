@@ -46,17 +46,21 @@ function createSignature(data: string): string {
   signer.update(data);
   return normalizeBase64(signer.sign(privateKey, "base64"));
 }
+
 function verifySignature(signature: string, data: string): boolean {
   const verifier = createVerify("RSA-SHA1");
   verifier.update(data);
   return verifier.verify(privateKey, signature, "base64");
 }
+
 function encodeToBase64(str: string): string {
   return normalizeBase64(Buffer.from(str).toString("base64"));
 }
+
 function normalizeBase64(str: string): string {
   return str.replace(/\+/g, "-").replace(/=/g, "_").replace(/\//g, "~");
 }
+
 function denormalizeBase64(str: string): string {
   return str.replace(/\-/g, "+").replace(/_/g, "=").replace(/~/g, "/");
 }
@@ -78,6 +82,7 @@ describe("getSignedUrl", () => {
     }
     expect(result.query["foo"]).toBe("bar &=; baz");
   });
+
   it("should include url path in policy of signed URL", () => {
     const url = "https://example.com/private.jpeg?foo=bar";
     const result = parseUrl(
@@ -108,6 +113,7 @@ describe("getSignedUrl", () => {
     });
     expect(verifySignature(signatureQueryParam, policyStr)).toBeTruthy();
   });
+
   it("should sign a URL with a canned policy", () => {
     const result = getSignedUrl({
       url,
@@ -135,6 +141,7 @@ describe("getSignedUrl", () => {
     const signatureQueryParam = denormalizeBase64(parsedUrl.query!["Signature"] as string);
     expect(verifySignature(signatureQueryParam, policyStr)).toBeTruthy();
   });
+
   it("should sign a URL with a custom policy containing a start date", () => {
     const result = getSignedUrl({
       url,
@@ -166,6 +173,7 @@ describe("getSignedUrl", () => {
     const signatureQueryParam = denormalizeBase64(parsedUrl.query!["Signature"] as string);
     expect(verifySignature(signatureQueryParam, policyStr)).toBeTruthy();
   });
+
   it("should sign a URL with a custom policy containing an ip address", () => {
     const result = getSignedUrl({
       url,
@@ -197,6 +205,7 @@ describe("getSignedUrl", () => {
     const signatureQueryParam = denormalizeBase64(parsedUrl.query!["Signature"] as string);
     expect(verifySignature(signatureQueryParam, policyStr)).toBeTruthy();
   });
+
   it("should sign a URL with a custom policy containing a start date and ip address", () => {
     const result = getSignedUrl({
       url,
@@ -232,6 +241,7 @@ describe("getSignedUrl", () => {
     const signatureQueryParam = denormalizeBase64(parsedUrl.query!["Signature"] as string);
     expect(verifySignature(signatureQueryParam, policyStr)).toBeTruthy();
   });
+
   it("should allow an ip address with and without a mask", () => {
     const baseArgs = {
       url,
@@ -253,6 +263,7 @@ describe("getSignedUrl", () => {
       })
     ).toBeTruthy();
   });
+
   it("should throw an error when the ip address is invalid", () => {
     const baseArgs = {
       url,
@@ -298,6 +309,7 @@ describe("getSignedUrl", () => {
       })
     ).toThrow('IP address "10.0.0.256" is invalid due to invalid IP octets.');
   });
+
   it("should sign a RTMP URL", () => {
     const url = "rtmp://d111111abcdef8.cloudfront.net/private-content/private.jpeg";
     const result = getSignedUrl({
@@ -325,6 +337,7 @@ describe("getSignedUrl", () => {
     );
     expect(verifySignature(denormalizeBase64(signature), policyStr)).toBeTruthy();
   });
+
   it("should sign a URL with a policy provided by the user", () => {
     const policy = '{"foo":"bar"}';
     const result = getSignedUrl({
@@ -339,6 +352,7 @@ describe("getSignedUrl", () => {
     const signatureQueryParam = denormalizeBase64(signature);
     expect(verifySignature(signatureQueryParam, policy)).toBeTruthy();
   });
+
   it("should sign a URL automatically extracted from a policy provided by the user", () => {
     const policy = JSON.stringify({ Statement: [{ Resource: url }] });
     const result = getSignedUrl({
@@ -351,6 +365,23 @@ describe("getSignedUrl", () => {
     expect(result).toBe(`${url}?Policy=${encodeToBase64(policy)}&Key-Pair-Id=${keyPairId}&Signature=${signature}`);
     const signatureQueryParam = denormalizeBase64(signature);
     expect(verifySignature(signatureQueryParam, policy)).toBeTruthy();
+  });
+
+  describe("should not normalize the URL", () => {
+    it.each([".", ".."])("with '%s'", (folderName) => {
+      const urlWithFolderName = `https://d111111abcdef8.cloudfront.net/public-content/${folderName}/private-content/private.jpeg`;
+      const policy = JSON.stringify({ Statement: [{ Resource: urlWithFolderName }] });
+      const result = getSignedUrl({
+        keyPairId,
+        privateKey,
+        policy,
+        passphrase,
+      });
+      const signature = createSignature(policy);
+      expect(result.startsWith(urlWithFolderName)).toBeTruthy();
+      const signatureQueryParam = denormalizeBase64(signature);
+      expect(verifySignature(signatureQueryParam, policy)).toBeTruthy();
+    });
   });
 });
 
@@ -376,6 +407,7 @@ describe("getSignedCookies", () => {
       })
     ).toBeTruthy();
   });
+
   it("should throw an error when the ip address is invalid", () => {
     const baseArgs = {
       url,
@@ -421,6 +453,7 @@ describe("getSignedCookies", () => {
       })
     ).toThrow('IP address "10.0.0.256" is invalid due to invalid IP octets.');
   });
+
   it("should be able sign cookies that contain a URL with wildcards", () => {
     const url = "https://example.com/private-content/*";
     const result = getSignedCookies({
@@ -444,6 +477,7 @@ describe("getSignedCookies", () => {
     });
     expect(verifySignature(denormalizeBase64(result["CloudFront-Signature"]), policyStr)).toBeTruthy();
   });
+
   it("should sign cookies with a canned policy", () => {
     const result = getSignedCookies({
       url,
@@ -475,6 +509,7 @@ describe("getSignedCookies", () => {
     expect(result["CloudFront-Signature"]).toBe(expected["CloudFront-Signature"]);
     expect(verifySignature(denormalizeBase64(result["CloudFront-Signature"]), policyStr)).toBeTruthy();
   });
+
   it("should sign cookies with a custom policy containing a start date", () => {
     const result = getSignedCookies({
       url,
@@ -510,6 +545,7 @@ describe("getSignedCookies", () => {
     expect(result["CloudFront-Signature"]).toBe(expected["CloudFront-Signature"]);
     expect(verifySignature(denormalizeBase64(result["CloudFront-Signature"]), policyStr)).toBeTruthy();
   });
+
   it("should sign cookies with a custom policy containing an ip address", () => {
     const result = getSignedCookies({
       url,
@@ -545,6 +581,7 @@ describe("getSignedCookies", () => {
     expect(result["CloudFront-Signature"]).toBe(expected["CloudFront-Signature"]);
     expect(verifySignature(denormalizeBase64(result["CloudFront-Signature"]), policyStr)).toBeTruthy();
   });
+
   it("should sign cookies with a custom policy containing a start date and ip address", () => {
     const result = getSignedCookies({
       url,
@@ -584,6 +621,7 @@ describe("getSignedCookies", () => {
     expect(result["CloudFront-Signature"]).toBe(expected["CloudFront-Signature"]);
     expect(verifySignature(denormalizeBase64(result["CloudFront-Signature"]), policyStr)).toBeTruthy();
   });
+
   it("should sign cookies with a policy provided by the user without a url", () => {
     const policy = '{"foo":"bar"}';
     const result = getSignedCookies({
@@ -612,6 +650,7 @@ describe("getSignedUrl- when signing a URL with a date range", () => {
   const dateGreaterThanNumber = 1716034245000;
   const dateObject = new Date(dateString);
   const dateGreaterThanObject = new Date(dateGreaterThanString);
+
   it("allows string input compatible with Date constructor", () => {
     const epochDateLessThan = Math.round(new Date(dateString).getTime() / 1000);
     const resultUrl = getSignedUrl({
@@ -653,6 +692,7 @@ describe("getSignedUrl- when signing a URL with a date range", () => {
     expect(resultUrl).toContain(`Expires=${epochDateLessThan}`);
     expect(resultCookies["CloudFront-Expires"]).toBe(epochDateLessThan);
   });
+
   it("allows Date object input", () => {
     const epochDateLessThan = Math.round(dateObject.getTime() / 1000);
     const resultUrl = getSignedUrl({
@@ -673,6 +713,7 @@ describe("getSignedUrl- when signing a URL with a date range", () => {
     expect(resultUrl).toContain(`Expires=${epochDateLessThan}`);
     expect(resultCookies["CloudFront-Expires"]).toBe(epochDateLessThan);
   });
+
   it("allows string input for date range", () => {
     const result = getSignedUrl({
       url,
@@ -736,6 +777,7 @@ describe("getSignedUrl- when signing a URL with a date range", () => {
     const signatureQueryParam = denormalizeBase64(parsedUrl.query!["Signature"] as string);
     expect(verifySignature(signatureQueryParam, policyStr)).toBeTruthy();
   });
+
   it("allows Date object input for date range", () => {
     const result = getSignedUrl({
       url,
