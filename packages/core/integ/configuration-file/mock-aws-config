@@ -1,0 +1,17 @@
+[profile empty]
+
+[default]
+region = us-west-2
+output = json
+
+[profile abc]
+region = ap-northeast-1
+retry_mode = adaptive
+s3_disable_express_session_auth = true
+max_attempts = 33
+request_checksum_calculation = when_required
+sigv4a_signing_region_set = *,*,us-west-2
+use_fips_endpoint = true
+s3_use_arn_region = true
+use_dualstack_endpoint = true
+sdk-ua-app-id = blargh
