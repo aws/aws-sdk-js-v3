@@ -30913,17 +30913,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"aws-sdk-client-mock@npm:^4.1.0":
-  version: 4.1.0
-  resolution: "aws-sdk-client-mock@npm:4.1.0"
-  dependencies:
-    "@types/sinon": "npm:^17.0.3"
-    sinon: "npm:^18.0.1"
-    tslib: "npm:^2.1.0"
-  checksum: 10c0/045caad0cff0ffeb08e69849dcae51aac8999163c58d71220bf47a82c237aabab2abf92bf6bf3bd7666e6e8984513c628e01a89eafa46fb230201d6587bc01e9
-  languageName: node
-  linkType: hard
-
 "aws-sdk-js-v3@workspace:.":
   version: 0.0.0-use.local
   resolution: "aws-sdk-js-v3@workspace:."
@@ -30943,7 +30932,6 @@ __metadata:
     "@typescript-eslint/eslint-plugin": "npm:5.55.0"
     "@typescript-eslint/parser": "npm:5.55.0"
     async: "npm:3.2.4"
-    aws-sdk-client-mock: "npm:^4.1.0"
     concurrently: "npm:7.0.0"
     decomment: "npm:0.9.5"
     downlevel-dts: "npm:0.10.1"
