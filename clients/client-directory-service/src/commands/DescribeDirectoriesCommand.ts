@@ -156,6 +156,14 @@ export interface DescribeDirectoriesCommandOutput extends DescribeDirectoriesRes
  * //         ],
  * //       },
  * //       OsVersion: "SERVER_2012" || "SERVER_2019",
+ * //       HybridSettings: { // HybridSettingsDescription
+ * //         SelfManagedDnsIpAddrs: [
+ * //           "STRING_VALUE",
+ * //         ],
+ * //         SelfManagedInstanceIds: [ // AssessmentInstanceIds
+ * //           "STRING_VALUE",
+ * //         ],
+ * //       },
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",

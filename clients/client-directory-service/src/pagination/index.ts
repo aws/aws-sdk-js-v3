@@ -17,6 +17,7 @@ export * from "./DescribeTrustsPaginator";
 export * from "./DescribeUpdateDirectoryPaginator";
 // smithy-typescript generated code
 export * from "./Interfaces";
+export * from "./ListADAssessmentsPaginator";
 export * from "./ListCertificatesPaginator";
 export * from "./ListIpRoutesPaginator";
 export * from "./ListLogSubscriptionsPaginator";

@@ -72,6 +72,7 @@ import {
   CreateConditionalForwarderCommandOutput,
 } from "./commands/CreateConditionalForwarderCommand";
 import { CreateDirectoryCommandInput, CreateDirectoryCommandOutput } from "./commands/CreateDirectoryCommand";
+import { CreateHybridADCommandInput, CreateHybridADCommandOutput } from "./commands/CreateHybridADCommand";
 import {
   CreateLogSubscriptionCommandInput,
   CreateLogSubscriptionCommandOutput,
@@ -79,6 +80,7 @@ import {
 import { CreateMicrosoftADCommandInput, CreateMicrosoftADCommandOutput } from "./commands/CreateMicrosoftADCommand";
 import { CreateSnapshotCommandInput, CreateSnapshotCommandOutput } from "./commands/CreateSnapshotCommand";
 import { CreateTrustCommandInput, CreateTrustCommandOutput } from "./commands/CreateTrustCommand";
+import { DeleteADAssessmentCommandInput, DeleteADAssessmentCommandOutput } from "./commands/DeleteADAssessmentCommand";
 import {
   DeleteConditionalForwarderCommandInput,
   DeleteConditionalForwarderCommandOutput,
@@ -98,6 +100,10 @@ import {
   DeregisterEventTopicCommandInput,
   DeregisterEventTopicCommandOutput,
 } from "./commands/DeregisterEventTopicCommand";
+import {
+  DescribeADAssessmentCommandInput,
+  DescribeADAssessmentCommandOutput,
+} from "./commands/DescribeADAssessmentCommand";
 import {
   DescribeCertificateCommandInput,
   DescribeCertificateCommandOutput,
@@ -126,6 +132,10 @@ import {
   DescribeEventTopicsCommandInput,
   DescribeEventTopicsCommandOutput,
 } from "./commands/DescribeEventTopicsCommand";
+import {
+  DescribeHybridADUpdateCommandInput,
+  DescribeHybridADUpdateCommandOutput,
+} from "./commands/DescribeHybridADUpdateCommand";
 import {
   DescribeLDAPSSettingsCommandInput,
   DescribeLDAPSSettingsCommandOutput,
@@ -166,6 +176,7 @@ import { EnableRadiusCommandInput, EnableRadiusCommandOutput } from "./commands/
 import { EnableSsoCommandInput, EnableSsoCommandOutput } from "./commands/EnableSsoCommand";
 import { GetDirectoryLimitsCommandInput, GetDirectoryLimitsCommandOutput } from "./commands/GetDirectoryLimitsCommand";
 import { GetSnapshotLimitsCommandInput, GetSnapshotLimitsCommandOutput } from "./commands/GetSnapshotLimitsCommand";
+import { ListADAssessmentsCommandInput, ListADAssessmentsCommandOutput } from "./commands/ListADAssessmentsCommand";
 import { ListCertificatesCommandInput, ListCertificatesCommandOutput } from "./commands/ListCertificatesCommand";
 import { ListIpRoutesCommandInput, ListIpRoutesCommandOutput } from "./commands/ListIpRoutesCommand";
 import {
@@ -201,6 +212,7 @@ import {
   RestoreFromSnapshotCommandOutput,
 } from "./commands/RestoreFromSnapshotCommand";
 import { ShareDirectoryCommandInput, ShareDirectoryCommandOutput } from "./commands/ShareDirectoryCommand";
+import { StartADAssessmentCommandInput, StartADAssessmentCommandOutput } from "./commands/StartADAssessmentCommand";
 import {
   StartSchemaExtensionCommandInput,
   StartSchemaExtensionCommandOutput,
@@ -214,6 +226,7 @@ import {
   UpdateDirectorySetupCommandInput,
   UpdateDirectorySetupCommandOutput,
 } from "./commands/UpdateDirectorySetupCommand";
+import { UpdateHybridADCommandInput, UpdateHybridADCommandOutput } from "./commands/UpdateHybridADCommand";
 import {
   UpdateNumberOfDomainControllersCommandInput,
   UpdateNumberOfDomainControllersCommandOutput,
@@ -247,10 +260,12 @@ export type ServiceInputTypes =
   | CreateComputerCommandInput
   | CreateConditionalForwarderCommandInput
   | CreateDirectoryCommandInput
+  | CreateHybridADCommandInput
   | CreateLogSubscriptionCommandInput
   | CreateMicrosoftADCommandInput
   | CreateSnapshotCommandInput
   | CreateTrustCommandInput
+  | DeleteADAssessmentCommandInput
   | DeleteConditionalForwarderCommandInput
   | DeleteDirectoryCommandInput
   | DeleteLogSubscriptionCommandInput
@@ -258,6 +273,7 @@ export type ServiceInputTypes =
   | DeleteTrustCommandInput
   | DeregisterCertificateCommandInput
   | DeregisterEventTopicCommandInput
+  | DescribeADAssessmentCommandInput
   | DescribeCertificateCommandInput
   | DescribeClientAuthenticationSettingsCommandInput
   | DescribeConditionalForwardersCommandInput
@@ -265,6 +281,7 @@ export type ServiceInputTypes =
   | DescribeDirectoryDataAccessCommandInput
   | DescribeDomainControllersCommandInput
   | DescribeEventTopicsCommandInput
+  | DescribeHybridADUpdateCommandInput
   | DescribeLDAPSSettingsCommandInput
   | DescribeRegionsCommandInput
   | DescribeSettingsCommandInput
@@ -284,6 +301,7 @@ export type ServiceInputTypes =
   | EnableSsoCommandInput
   | GetDirectoryLimitsCommandInput
   | GetSnapshotLimitsCommandInput
+  | ListADAssessmentsCommandInput
   | ListCertificatesCommandInput
   | ListIpRoutesCommandInput
   | ListLogSubscriptionsCommandInput
@@ -298,10 +316,12 @@ export type ServiceInputTypes =
   | ResetUserPasswordCommandInput
   | RestoreFromSnapshotCommandInput
   | ShareDirectoryCommandInput
+  | StartADAssessmentCommandInput
   | StartSchemaExtensionCommandInput
   | UnshareDirectoryCommandInput
   | UpdateConditionalForwarderCommandInput
   | UpdateDirectorySetupCommandInput
+  | UpdateHybridADCommandInput
   | UpdateNumberOfDomainControllersCommandInput
   | UpdateRadiusCommandInput
   | UpdateSettingsCommandInput
@@ -322,10 +342,12 @@ export type ServiceOutputTypes =
   | CreateComputerCommandOutput
   | CreateConditionalForwarderCommandOutput
   | CreateDirectoryCommandOutput
+  | CreateHybridADCommandOutput
   | CreateLogSubscriptionCommandOutput
   | CreateMicrosoftADCommandOutput
   | CreateSnapshotCommandOutput
   | CreateTrustCommandOutput
+  | DeleteADAssessmentCommandOutput
   | DeleteConditionalForwarderCommandOutput
   | DeleteDirectoryCommandOutput
   | DeleteLogSubscriptionCommandOutput
@@ -333,6 +355,7 @@ export type ServiceOutputTypes =
   | DeleteTrustCommandOutput
   | DeregisterCertificateCommandOutput
   | DeregisterEventTopicCommandOutput
+  | DescribeADAssessmentCommandOutput
   | DescribeCertificateCommandOutput
   | DescribeClientAuthenticationSettingsCommandOutput
   | DescribeConditionalForwardersCommandOutput
@@ -340,6 +363,7 @@ export type ServiceOutputTypes =
   | DescribeDirectoryDataAccessCommandOutput
   | DescribeDomainControllersCommandOutput
   | DescribeEventTopicsCommandOutput
+  | DescribeHybridADUpdateCommandOutput
   | DescribeLDAPSSettingsCommandOutput
   | DescribeRegionsCommandOutput
   | DescribeSettingsCommandOutput
@@ -359,6 +383,7 @@ export type ServiceOutputTypes =
   | EnableSsoCommandOutput
   | GetDirectoryLimitsCommandOutput
   | GetSnapshotLimitsCommandOutput
+  | ListADAssessmentsCommandOutput
   | ListCertificatesCommandOutput
   | ListIpRoutesCommandOutput
   | ListLogSubscriptionsCommandOutput
@@ -373,10 +398,12 @@ export type ServiceOutputTypes =
   | ResetUserPasswordCommandOutput
   | RestoreFromSnapshotCommandOutput
   | ShareDirectoryCommandOutput
+  | StartADAssessmentCommandOutput
   | StartSchemaExtensionCommandOutput
   | UnshareDirectoryCommandOutput
   | UpdateConditionalForwarderCommandOutput
   | UpdateDirectorySetupCommandOutput
+  | UpdateHybridADCommandOutput
   | UpdateNumberOfDomainControllersCommandOutput
   | UpdateRadiusCommandOutput
   | UpdateSettingsCommandOutput

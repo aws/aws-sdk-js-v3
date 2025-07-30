@@ -40,6 +40,7 @@ import {
   CreateConditionalForwarderCommandOutput,
 } from "../commands/CreateConditionalForwarderCommand";
 import { CreateDirectoryCommandInput, CreateDirectoryCommandOutput } from "../commands/CreateDirectoryCommand";
+import { CreateHybridADCommandInput, CreateHybridADCommandOutput } from "../commands/CreateHybridADCommand";
 import {
   CreateLogSubscriptionCommandInput,
   CreateLogSubscriptionCommandOutput,
@@ -47,6 +48,7 @@ import {
 import { CreateMicrosoftADCommandInput, CreateMicrosoftADCommandOutput } from "../commands/CreateMicrosoftADCommand";
 import { CreateSnapshotCommandInput, CreateSnapshotCommandOutput } from "../commands/CreateSnapshotCommand";
 import { CreateTrustCommandInput, CreateTrustCommandOutput } from "../commands/CreateTrustCommand";
+import { DeleteADAssessmentCommandInput, DeleteADAssessmentCommandOutput } from "../commands/DeleteADAssessmentCommand";
 import {
   DeleteConditionalForwarderCommandInput,
   DeleteConditionalForwarderCommandOutput,
@@ -66,6 +68,10 @@ import {
   DeregisterEventTopicCommandInput,
   DeregisterEventTopicCommandOutput,
 } from "../commands/DeregisterEventTopicCommand";
+import {
+  DescribeADAssessmentCommandInput,
+  DescribeADAssessmentCommandOutput,
+} from "../commands/DescribeADAssessmentCommand";
 import {
   DescribeCertificateCommandInput,
   DescribeCertificateCommandOutput,
@@ -94,6 +100,10 @@ import {
   DescribeEventTopicsCommandInput,
   DescribeEventTopicsCommandOutput,
 } from "../commands/DescribeEventTopicsCommand";
+import {
+  DescribeHybridADUpdateCommandInput,
+  DescribeHybridADUpdateCommandOutput,
+} from "../commands/DescribeHybridADUpdateCommand";
 import {
   DescribeLDAPSSettingsCommandInput,
   DescribeLDAPSSettingsCommandOutput,
@@ -134,6 +144,7 @@ import { EnableRadiusCommandInput, EnableRadiusCommandOutput } from "../commands
 import { EnableSsoCommandInput, EnableSsoCommandOutput } from "../commands/EnableSsoCommand";
 import { GetDirectoryLimitsCommandInput, GetDirectoryLimitsCommandOutput } from "../commands/GetDirectoryLimitsCommand";
 import { GetSnapshotLimitsCommandInput, GetSnapshotLimitsCommandOutput } from "../commands/GetSnapshotLimitsCommand";
+import { ListADAssessmentsCommandInput, ListADAssessmentsCommandOutput } from "../commands/ListADAssessmentsCommand";
 import { ListCertificatesCommandInput, ListCertificatesCommandOutput } from "../commands/ListCertificatesCommand";
 import { ListIpRoutesCommandInput, ListIpRoutesCommandOutput } from "../commands/ListIpRoutesCommand";
 import {
@@ -169,6 +180,7 @@ import {
   RestoreFromSnapshotCommandOutput,
 } from "../commands/RestoreFromSnapshotCommand";
 import { ShareDirectoryCommandInput, ShareDirectoryCommandOutput } from "../commands/ShareDirectoryCommand";
+import { StartADAssessmentCommandInput, StartADAssessmentCommandOutput } from "../commands/StartADAssessmentCommand";
 import {
   StartSchemaExtensionCommandInput,
   StartSchemaExtensionCommandOutput,
@@ -182,6 +194,7 @@ import {
   UpdateDirectorySetupCommandInput,
   UpdateDirectorySetupCommandOutput,
 } from "../commands/UpdateDirectorySetupCommand";
+import { UpdateHybridADCommandInput, UpdateHybridADCommandOutput } from "../commands/UpdateHybridADCommand";
 import {
   UpdateNumberOfDomainControllersCommandInput,
   UpdateNumberOfDomainControllersCommandOutput,
@@ -195,9 +208,15 @@ import {
   AcceptSharedDirectoryRequest,
   AcceptSharedDirectoryResult,
   AccessDeniedException,
+  ADAssessmentLimitExceededException,
   AddIpRoutesRequest,
   AddRegionRequest,
   AddTagsToResourceRequest,
+  Assessment,
+  AssessmentConfiguration,
+  AssessmentReport,
+  AssessmentSummary,
+  AssessmentValidation,
   Attribute,
   AuthenticationFailedException,
   CancelSchemaExtensionRequest,
@@ -215,10 +234,12 @@ import {
   CreateComputerRequest,
   CreateConditionalForwarderRequest,
   CreateDirectoryRequest,
+  CreateHybridADRequest,
   CreateLogSubscriptionRequest,
   CreateMicrosoftADRequest,
   CreateSnapshotRequest,
   CreateTrustRequest,
+  DeleteADAssessmentRequest,
   DeleteConditionalForwarderRequest,
   DeleteDirectoryRequest,
   DeleteLogSubscriptionRequest,
@@ -226,6 +247,8 @@ import {
   DeleteTrustRequest,
   DeregisterCertificateRequest,
   DeregisterEventTopicRequest,
+  DescribeADAssessmentRequest,
+  DescribeADAssessmentResult,
   DescribeCertificateRequest,
   DescribeCertificateResult,
   DescribeClientAuthenticationSettingsRequest,
@@ -238,6 +261,8 @@ import {
   DescribeDomainControllersResult,
   DescribeEventTopicsRequest,
   DescribeEventTopicsResult,
+  DescribeHybridADUpdateRequest,
+  DescribeHybridADUpdateResult,
   DescribeLDAPSSettingsRequest,
   DescribeLDAPSSettingsResult,
   DescribeRegionsRequest,
@@ -279,6 +304,10 @@ import {
   EventTopic,
   GetDirectoryLimitsRequest,
   GetSnapshotLimitsRequest,
+  HybridAdministratorAccountUpdate,
+  HybridCustomerInstancesSettings,
+  HybridUpdateActivities,
+  HybridUpdateInfoEntry,
   IncompatibleSettingsException,
   InsufficientPermissionsException,
   InvalidCertificateException,
@@ -292,6 +321,8 @@ import {
   IpRouteInfo,
   IpRouteLimitExceededException,
   LDAPSSettingInfo,
+  ListADAssessmentsRequest,
+  ListADAssessmentsResult,
   ListCertificatesRequest,
   ListCertificatesResult,
   ListIpRoutesRequest,
@@ -326,6 +357,7 @@ import {
   ShareTarget,
   Snapshot,
   SnapshotLimitExceededException,
+  StartADAssessmentRequest,
   StartSchemaExtensionRequest,
   Tag,
   TagLimitExceededException,
@@ -336,6 +368,7 @@ import {
   UnsupportedSettingsException,
   UpdateConditionalForwarderRequest,
   UpdateDirectorySetupRequest,
+  UpdateHybridADRequest,
   UpdateInfoEntry,
   UpdateNumberOfDomainControllersRequest,
   UpdateRadiusRequest,
@@ -476,6 +509,19 @@ export const se_CreateDirectoryCommand = async (
 };
 
 /**
+ * serializeAws_json1_1CreateHybridADCommand
+ */
+export const se_CreateHybridADCommand = async (
+  input: CreateHybridADCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("CreateHybridAD");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_json1_1CreateLogSubscriptionCommand
  */
 export const se_CreateLogSubscriptionCommand = async (
@@ -522,6 +568,19 @@ export const se_CreateTrustCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("CreateTrust");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1DeleteADAssessmentCommand
+ */
+export const se_DeleteADAssessmentCommand = async (
+  input: DeleteADAssessmentCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("DeleteADAssessment");
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -619,6 +678,19 @@ export const se_DeregisterEventTopicCommand = async (
 };
 
 /**
+ * serializeAws_json1_1DescribeADAssessmentCommand
+ */
+export const se_DescribeADAssessmentCommand = async (
+  input: DescribeADAssessmentCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("DescribeADAssessment");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_json1_1DescribeCertificateCommand
  */
 export const se_DescribeCertificateCommand = async (
@@ -704,6 +776,19 @@ export const se_DescribeEventTopicsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeEventTopics");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1DescribeHybridADUpdateCommand
+ */
+export const se_DescribeHybridADUpdateCommand = async (
+  input: DescribeHybridADUpdateCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("DescribeHybridADUpdate");
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -957,6 +1042,19 @@ export const se_GetSnapshotLimitsCommand = async (
 };
 
 /**
+ * serializeAws_json1_1ListADAssessmentsCommand
+ */
+export const se_ListADAssessmentsCommand = async (
+  input: ListADAssessmentsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("ListADAssessments");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_json1_1ListCertificatesCommand
  */
 export const se_ListCertificatesCommand = async (
@@ -1139,6 +1237,19 @@ export const se_ShareDirectoryCommand = async (
 };
 
 /**
+ * serializeAws_json1_1StartADAssessmentCommand
+ */
+export const se_StartADAssessmentCommand = async (
+  input: StartADAssessmentCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("StartADAssessment");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_json1_1StartSchemaExtensionCommand
  */
 export const se_StartSchemaExtensionCommand = async (
@@ -1185,6 +1296,19 @@ export const se_UpdateDirectorySetupCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("UpdateDirectorySetup");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1UpdateHybridADCommand
+ */
+export const se_UpdateHybridADCommand = async (
+  input: UpdateHybridADCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("UpdateHybridAD");
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1456,6 +1580,26 @@ export const de_CreateDirectoryCommand = async (
 };
 
 /**
+ * deserializeAws_json1_1CreateHybridADCommand
+ */
+export const de_CreateHybridADCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateHybridADCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: CreateHybridADCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
  * deserializeAws_json1_1CreateLogSubscriptionCommand
  */
 export const de_CreateLogSubscriptionCommand = async (
@@ -1529,6 +1673,26 @@ export const de_CreateTrustCommand = async (
   let contents: any = {};
   contents = _json(data);
   const response: CreateTrustCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DeleteADAssessmentCommand
+ */
+export const de_DeleteADAssessmentCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteADAssessmentCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: DeleteADAssessmentCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
@@ -1676,6 +1840,26 @@ export const de_DeregisterEventTopicCommand = async (
 };
 
 /**
+ * deserializeAws_json1_1DescribeADAssessmentCommand
+ */
+export const de_DescribeADAssessmentCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeADAssessmentCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribeADAssessmentResult(data, context);
+  const response: DescribeADAssessmentCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
  * deserializeAws_json1_1DescribeCertificateCommand
  */
 export const de_DescribeCertificateCommand = async (
@@ -1809,6 +1993,26 @@ export const de_DescribeEventTopicsCommand = async (
   let contents: any = {};
   contents = de_DescribeEventTopicsResult(data, context);
   const response: DescribeEventTopicsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DescribeHybridADUpdateCommand
+ */
+export const de_DescribeHybridADUpdateCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeHybridADUpdateCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribeHybridADUpdateResult(data, context);
+  const response: DescribeHybridADUpdateCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
@@ -2196,6 +2400,26 @@ export const de_GetSnapshotLimitsCommand = async (
 };
 
 /**
+ * deserializeAws_json1_1ListADAssessmentsCommand
+ */
+export const de_ListADAssessmentsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListADAssessmentsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ListADAssessmentsResult(data, context);
+  const response: ListADAssessmentsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
  * deserializeAws_json1_1ListCertificatesCommand
  */
 export const de_ListCertificatesCommand = async (
@@ -2476,6 +2700,26 @@ export const de_ShareDirectoryCommand = async (
 };
 
 /**
+ * deserializeAws_json1_1StartADAssessmentCommand
+ */
+export const de_StartADAssessmentCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartADAssessmentCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: StartADAssessmentCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
  * deserializeAws_json1_1StartSchemaExtensionCommand
  */
 export const de_StartSchemaExtensionCommand = async (
@@ -2549,6 +2793,26 @@ export const de_UpdateDirectorySetupCommand = async (
   let contents: any = {};
   contents = _json(data);
   const response: UpdateDirectorySetupCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1UpdateHybridADCommand
+ */
+export const de_UpdateHybridADCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateHybridADCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: UpdateHybridADCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
@@ -2713,6 +2977,9 @@ const de_CommandError = async (output: __HttpResponse, context: __SerdeContext):
     case "AuthenticationFailedException":
     case "com.amazonaws.directoryservice#AuthenticationFailedException":
       throw await de_AuthenticationFailedExceptionRes(parsedOutput, context);
+    case "ADAssessmentLimitExceededException":
+    case "com.amazonaws.directoryservice#ADAssessmentLimitExceededException":
+      throw await de_ADAssessmentLimitExceededExceptionRes(parsedOutput, context);
     case "InsufficientPermissionsException":
     case "com.amazonaws.directoryservice#InsufficientPermissionsException":
       throw await de_InsufficientPermissionsExceptionRes(parsedOutput, context);
@@ -2796,6 +3063,22 @@ const de_AccessDeniedExceptionRes = async (
   const body = parsedOutput.body;
   const deserialized: any = _json(body);
   const exception = new AccessDeniedException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+/**
+ * deserializeAws_json1_1ADAssessmentLimitExceededExceptionRes
+ */
+const de_ADAssessmentLimitExceededExceptionRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<ADAssessmentLimitExceededException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = _json(body);
+  const exception = new ADAssessmentLimitExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
   });
@@ -3380,6 +3663,10 @@ const de_UserDoesNotExistExceptionRes = async (
 
 // se_AddTagsToResourceRequest omitted.
 
+// se_AssessmentConfiguration omitted.
+
+// se_AssessmentInstanceIds omitted.
+
 // se_Attribute omitted.
 
 // se_Attributes omitted.
@@ -3400,6 +3687,8 @@ const de_UserDoesNotExistExceptionRes = async (
 
 // se_CreateDirectoryRequest omitted.
 
+// se_CreateHybridADRequest omitted.
+
 // se_CreateLogSubscriptionRequest omitted.
 
 // se_CreateMicrosoftADRequest omitted.
@@ -3407,6 +3696,10 @@ const de_UserDoesNotExistExceptionRes = async (
 // se_CreateSnapshotRequest omitted.
 
 // se_CreateTrustRequest omitted.
+
+// se_CustomerDnsIps omitted.
+
+// se_DeleteADAssessmentRequest omitted.
 
 // se_DeleteConditionalForwarderRequest omitted.
 
@@ -3422,6 +3715,8 @@ const de_UserDoesNotExistExceptionRes = async (
 
 // se_DeregisterEventTopicRequest omitted.
 
+// se_DescribeADAssessmentRequest omitted.
+
 // se_DescribeCertificateRequest omitted.
 
 // se_DescribeClientAuthenticationSettingsRequest omitted.
@@ -3435,6 +3730,8 @@ const de_UserDoesNotExistExceptionRes = async (
 // se_DescribeDomainControllersRequest omitted.
 
 // se_DescribeEventTopicsRequest omitted.
+
+// se_DescribeHybridADUpdateRequest omitted.
 
 // se_DescribeLDAPSSettingsRequest omitted.
 
@@ -3484,9 +3781,15 @@ const de_UserDoesNotExistExceptionRes = async (
 
 // se_GetSnapshotLimitsRequest omitted.
 
+// se_HybridAdministratorAccountUpdate omitted.
+
+// se_HybridCustomerInstancesSettings omitted.
+
 // se_IpRoute omitted.
 
 // se_IpRoutes omitted.
+
+// se_ListADAssessmentsRequest omitted.
 
 // se_ListCertificatesRequest omitted.
 
@@ -3520,6 +3823,8 @@ const de_UserDoesNotExistExceptionRes = async (
 
 // se_RestoreFromSnapshotRequest omitted.
 
+// se_SecurityGroupIds omitted.
+
 // se_Servers omitted.
 
 // se_Setting omitted.
@@ -3531,6 +3836,8 @@ const de_UserDoesNotExistExceptionRes = async (
 // se_ShareTarget omitted.
 
 // se_SnapshotIds omitted.
+
+// se_StartADAssessmentRequest omitted.
 
 // se_StartSchemaExtensionRequest omitted.
 
@@ -3554,6 +3861,8 @@ const de_UserDoesNotExistExceptionRes = async (
 
 // se_UpdateDirectorySetupRequest omitted.
 
+// se_UpdateHybridADRequest omitted.
+
 // se_UpdateNumberOfDomainControllersRequest omitted.
 
 // se_UpdateRadiusRequest omitted.
@@ -3575,6 +3884,8 @@ const de_AcceptSharedDirectoryResult = (output: any, context: __SerdeContext): A
 
 // de_AccessDeniedException omitted.
 
+// de_ADAssessmentLimitExceededException omitted.
+
 // de_AddIpRoutesResult omitted.
 
 // de_AdditionalRegions omitted.
@@ -3582,6 +3893,108 @@ const de_AcceptSharedDirectoryResult = (output: any, context: __SerdeContext): A
 // de_AddRegionResult omitted.
 
 // de_AddTagsToResourceResult omitted.
+
+/**
+ * deserializeAws_json1_1Assessment
+ */
+const de_Assessment = (output: any, context: __SerdeContext): Assessment => {
+  return take(output, {
+    AssessmentId: __expectString,
+    CustomerDnsIps: _json,
+    DirectoryId: __expectString,
+    DnsName: __expectString,
+    LastUpdateDateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    ReportType: __expectString,
+    SecurityGroupIds: _json,
+    SelfManagedInstanceIds: _json,
+    StartTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Status: __expectString,
+    StatusCode: __expectString,
+    StatusReason: __expectString,
+    SubnetIds: _json,
+    Version: __expectString,
+    VpcId: __expectString,
+  }) as any;
+};
+
+// de_AssessmentInstanceIds omitted.
+
+/**
+ * deserializeAws_json1_1AssessmentReport
+ */
+const de_AssessmentReport = (output: any, context: __SerdeContext): AssessmentReport => {
+  return take(output, {
+    DomainControllerIp: __expectString,
+    Validations: (_: any) => de_AssessmentValidations(_, context),
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1AssessmentReports
+ */
+const de_AssessmentReports = (output: any, context: __SerdeContext): AssessmentReport[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_AssessmentReport(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_json1_1Assessments
+ */
+const de_Assessments = (output: any, context: __SerdeContext): AssessmentSummary[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_AssessmentSummary(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_json1_1AssessmentSummary
+ */
+const de_AssessmentSummary = (output: any, context: __SerdeContext): AssessmentSummary => {
+  return take(output, {
+    AssessmentId: __expectString,
+    CustomerDnsIps: _json,
+    DirectoryId: __expectString,
+    DnsName: __expectString,
+    LastUpdateDateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    ReportType: __expectString,
+    StartTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Status: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1AssessmentValidation
+ */
+const de_AssessmentValidation = (output: any, context: __SerdeContext): AssessmentValidation => {
+  return take(output, {
+    Category: __expectString,
+    LastUpdateDateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Name: __expectString,
+    StartTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Status: __expectString,
+    StatusCode: __expectString,
+    StatusReason: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1AssessmentValidations
+ */
+const de_AssessmentValidations = (output: any, context: __SerdeContext): AssessmentValidation[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_AssessmentValidation(entry, context);
+    });
+  return retVal;
+};
 
 // de_Attribute omitted.
 
@@ -3688,6 +4101,8 @@ const de_ClientAuthenticationSettingsInfo = (
 
 // de_CreateDirectoryResult omitted.
 
+// de_CreateHybridADResult omitted.
+
 // de_CreateLogSubscriptionResult omitted.
 
 // de_CreateMicrosoftADResult omitted.
@@ -3695,6 +4110,10 @@ const de_ClientAuthenticationSettingsInfo = (
 // de_CreateSnapshotResult omitted.
 
 // de_CreateTrustResult omitted.
+
+// de_CustomerDnsIps omitted.
+
+// de_DeleteADAssessmentResult omitted.
 
 // de_DeleteConditionalForwarderResult omitted.
 
@@ -3709,6 +4128,16 @@ const de_ClientAuthenticationSettingsInfo = (
 // de_DeregisterCertificateResult omitted.
 
 // de_DeregisterEventTopicResult omitted.
+
+/**
+ * deserializeAws_json1_1DescribeADAssessmentResult
+ */
+const de_DescribeADAssessmentResult = (output: any, context: __SerdeContext): DescribeADAssessmentResult => {
+  return take(output, {
+    Assessment: (_: any) => de_Assessment(_, context),
+    AssessmentReports: (_: any) => de_AssessmentReports(_, context),
+  }) as any;
+};
 
 /**
  * deserializeAws_json1_1DescribeCertificateResult
@@ -3762,6 +4191,16 @@ const de_DescribeDomainControllersResult = (output: any, context: __SerdeContext
 const de_DescribeEventTopicsResult = (output: any, context: __SerdeContext): DescribeEventTopicsResult => {
   return take(output, {
     EventTopics: (_: any) => de_EventTopics(_, context),
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1DescribeHybridADUpdateResult
+ */
+const de_DescribeHybridADUpdateResult = (output: any, context: __SerdeContext): DescribeHybridADUpdateResult => {
+  return take(output, {
+    NextToken: __expectString,
+    UpdateActivities: (_: any) => de_HybridUpdateActivities(_, context),
   }) as any;
 };
 
@@ -3857,6 +4296,7 @@ const de_DirectoryDescription = (output: any, context: __SerdeContext): Director
     DirectoryId: __expectString,
     DnsIpAddrs: _json,
     Edition: __expectString,
+    HybridSettings: _json,
     LaunchTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     Name: __expectString,
     OsVersion: __expectString,
@@ -3993,6 +4433,48 @@ const de_EventTopics = (output: any, context: __SerdeContext): EventTopic[] => {
 
 // de_GetSnapshotLimitsResult omitted.
 
+// de_HybridSettingsDescription omitted.
+
+/**
+ * deserializeAws_json1_1HybridUpdateActivities
+ */
+const de_HybridUpdateActivities = (output: any, context: __SerdeContext): HybridUpdateActivities => {
+  return take(output, {
+    HybridAdministratorAccount: (_: any) => de_HybridUpdateInfoEntries(_, context),
+    SelfManagedInstances: (_: any) => de_HybridUpdateInfoEntries(_, context),
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1HybridUpdateInfoEntries
+ */
+const de_HybridUpdateInfoEntries = (output: any, context: __SerdeContext): HybridUpdateInfoEntry[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_HybridUpdateInfoEntry(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_json1_1HybridUpdateInfoEntry
+ */
+const de_HybridUpdateInfoEntry = (output: any, context: __SerdeContext): HybridUpdateInfoEntry => {
+  return take(output, {
+    AssessmentId: __expectString,
+    InitiatedBy: __expectString,
+    LastUpdatedDateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    NewValue: _json,
+    PreviousValue: _json,
+    StartTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Status: __expectString,
+    StatusReason: __expectString,
+  }) as any;
+};
+
+// de_HybridUpdateValue omitted.
+
 // de_IncompatibleSettingsException omitted.
 
 // de_InsufficientPermissionsException omitted.
@@ -4062,6 +4544,16 @@ const de_LDAPSSettingsInfo = (output: any, context: __SerdeContext): LDAPSSettin
       return de_LDAPSSettingInfo(entry, context);
     });
   return retVal;
+};
+
+/**
+ * deserializeAws_json1_1ListADAssessmentsResult
+ */
+const de_ListADAssessmentsResult = (output: any, context: __SerdeContext): ListADAssessmentsResult => {
+  return take(output, {
+    Assessments: (_: any) => de_Assessments(_, context),
+    NextToken: __expectString,
+  }) as any;
 };
 
 /**
@@ -4215,6 +4707,8 @@ const de_SchemaExtensionsInfo = (output: any, context: __SerdeContext): SchemaEx
   return retVal;
 };
 
+// de_SecurityGroupIds omitted.
+
 // de_Servers omitted.
 
 // de_ServiceException omitted.
@@ -4313,6 +4807,8 @@ const de_Snapshots = (output: any, context: __SerdeContext): Snapshot[] => {
   return retVal;
 };
 
+// de_StartADAssessmentResult omitted.
+
 // de_StartSchemaExtensionResult omitted.
 
 // de_SubnetIds omitted.
@@ -4375,6 +4871,8 @@ const de_UpdateActivities = (output: any, context: __SerdeContext): UpdateInfoEn
 // de_UpdateConditionalForwarderResult omitted.
 
 // de_UpdateDirectorySetupResult omitted.
+
+// de_UpdateHybridADResult omitted.
 
 /**
  * deserializeAws_json1_1UpdateInfoEntry

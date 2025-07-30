@@ -41,6 +41,11 @@ import {
   CreateDirectoryCommandOutput,
 } from "./commands/CreateDirectoryCommand";
 import {
+  CreateHybridADCommand,
+  CreateHybridADCommandInput,
+  CreateHybridADCommandOutput,
+} from "./commands/CreateHybridADCommand";
+import {
   CreateLogSubscriptionCommand,
   CreateLogSubscriptionCommandInput,
   CreateLogSubscriptionCommandOutput,
@@ -56,6 +61,11 @@ import {
   CreateSnapshotCommandOutput,
 } from "./commands/CreateSnapshotCommand";
 import { CreateTrustCommand, CreateTrustCommandInput, CreateTrustCommandOutput } from "./commands/CreateTrustCommand";
+import {
+  DeleteADAssessmentCommand,
+  DeleteADAssessmentCommandInput,
+  DeleteADAssessmentCommandOutput,
+} from "./commands/DeleteADAssessmentCommand";
 import {
   DeleteConditionalForwarderCommand,
   DeleteConditionalForwarderCommandInput,
@@ -87,6 +97,11 @@ import {
   DeregisterEventTopicCommandInput,
   DeregisterEventTopicCommandOutput,
 } from "./commands/DeregisterEventTopicCommand";
+import {
+  DescribeADAssessmentCommand,
+  DescribeADAssessmentCommandInput,
+  DescribeADAssessmentCommandOutput,
+} from "./commands/DescribeADAssessmentCommand";
 import {
   DescribeCertificateCommand,
   DescribeCertificateCommandInput,
@@ -122,6 +137,11 @@ import {
   DescribeEventTopicsCommandInput,
   DescribeEventTopicsCommandOutput,
 } from "./commands/DescribeEventTopicsCommand";
+import {
+  DescribeHybridADUpdateCommand,
+  DescribeHybridADUpdateCommandInput,
+  DescribeHybridADUpdateCommandOutput,
+} from "./commands/DescribeHybridADUpdateCommand";
 import {
   DescribeLDAPSSettingsCommand,
   DescribeLDAPSSettingsCommandInput,
@@ -206,6 +226,11 @@ import {
   GetSnapshotLimitsCommandOutput,
 } from "./commands/GetSnapshotLimitsCommand";
 import {
+  ListADAssessmentsCommand,
+  ListADAssessmentsCommandInput,
+  ListADAssessmentsCommandOutput,
+} from "./commands/ListADAssessmentsCommand";
+import {
   ListCertificatesCommand,
   ListCertificatesCommandInput,
   ListCertificatesCommandOutput,
@@ -276,6 +301,11 @@ import {
   ShareDirectoryCommandOutput,
 } from "./commands/ShareDirectoryCommand";
 import {
+  StartADAssessmentCommand,
+  StartADAssessmentCommandInput,
+  StartADAssessmentCommandOutput,
+} from "./commands/StartADAssessmentCommand";
+import {
   StartSchemaExtensionCommand,
   StartSchemaExtensionCommandInput,
   StartSchemaExtensionCommandOutput,
@@ -295,6 +325,11 @@ import {
   UpdateDirectorySetupCommandInput,
   UpdateDirectorySetupCommandOutput,
 } from "./commands/UpdateDirectorySetupCommand";
+import {
+  UpdateHybridADCommand,
+  UpdateHybridADCommandInput,
+  UpdateHybridADCommandOutput,
+} from "./commands/UpdateHybridADCommand";
 import {
   UpdateNumberOfDomainControllersCommand,
   UpdateNumberOfDomainControllersCommandInput,
@@ -325,10 +360,12 @@ const commands = {
   CreateComputerCommand,
   CreateConditionalForwarderCommand,
   CreateDirectoryCommand,
+  CreateHybridADCommand,
   CreateLogSubscriptionCommand,
   CreateMicrosoftADCommand,
   CreateSnapshotCommand,
   CreateTrustCommand,
+  DeleteADAssessmentCommand,
   DeleteConditionalForwarderCommand,
   DeleteDirectoryCommand,
   DeleteLogSubscriptionCommand,
@@ -336,6 +373,7 @@ const commands = {
   DeleteTrustCommand,
   DeregisterCertificateCommand,
   DeregisterEventTopicCommand,
+  DescribeADAssessmentCommand,
   DescribeCertificateCommand,
   DescribeClientAuthenticationSettingsCommand,
   DescribeConditionalForwardersCommand,
@@ -343,6 +381,7 @@ const commands = {
   DescribeDirectoryDataAccessCommand,
   DescribeDomainControllersCommand,
   DescribeEventTopicsCommand,
+  DescribeHybridADUpdateCommand,
   DescribeLDAPSSettingsCommand,
   DescribeRegionsCommand,
   DescribeSettingsCommand,
@@ -362,6 +401,7 @@ const commands = {
   EnableSsoCommand,
   GetDirectoryLimitsCommand,
   GetSnapshotLimitsCommand,
+  ListADAssessmentsCommand,
   ListCertificatesCommand,
   ListIpRoutesCommand,
   ListLogSubscriptionsCommand,
@@ -376,10 +416,12 @@ const commands = {
   ResetUserPasswordCommand,
   RestoreFromSnapshotCommand,
   ShareDirectoryCommand,
+  StartADAssessmentCommand,
   StartSchemaExtensionCommand,
   UnshareDirectoryCommand,
   UpdateConditionalForwarderCommand,
   UpdateDirectorySetupCommand,
+  UpdateHybridADCommand,
   UpdateNumberOfDomainControllersCommand,
   UpdateRadiusCommand,
   UpdateSettingsCommand,
@@ -535,6 +577,20 @@ export interface DirectoryService {
   ): void;
 
   /**
+   * @see {@link CreateHybridADCommand}
+   */
+  createHybridAD(
+    args: CreateHybridADCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateHybridADCommandOutput>;
+  createHybridAD(args: CreateHybridADCommandInput, cb: (err: any, data?: CreateHybridADCommandOutput) => void): void;
+  createHybridAD(
+    args: CreateHybridADCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateHybridADCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link CreateLogSubscriptionCommand}
    */
   createLogSubscription(
@@ -591,6 +647,23 @@ export interface DirectoryService {
     args: CreateTrustCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateTrustCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteADAssessmentCommand}
+   */
+  deleteADAssessment(
+    args: DeleteADAssessmentCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteADAssessmentCommandOutput>;
+  deleteADAssessment(
+    args: DeleteADAssessmentCommandInput,
+    cb: (err: any, data?: DeleteADAssessmentCommandOutput) => void
+  ): void;
+  deleteADAssessment(
+    args: DeleteADAssessmentCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteADAssessmentCommandOutput) => void
   ): void;
 
   /**
@@ -698,6 +771,23 @@ export interface DirectoryService {
     args: DeregisterEventTopicCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeregisterEventTopicCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeADAssessmentCommand}
+   */
+  describeADAssessment(
+    args: DescribeADAssessmentCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeADAssessmentCommandOutput>;
+  describeADAssessment(
+    args: DescribeADAssessmentCommandInput,
+    cb: (err: any, data?: DescribeADAssessmentCommandOutput) => void
+  ): void;
+  describeADAssessment(
+    args: DescribeADAssessmentCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeADAssessmentCommandOutput) => void
   ): void;
 
   /**
@@ -819,6 +909,23 @@ export interface DirectoryService {
     args: DescribeEventTopicsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DescribeEventTopicsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeHybridADUpdateCommand}
+   */
+  describeHybridADUpdate(
+    args: DescribeHybridADUpdateCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeHybridADUpdateCommandOutput>;
+  describeHybridADUpdate(
+    args: DescribeHybridADUpdateCommandInput,
+    cb: (err: any, data?: DescribeHybridADUpdateCommandOutput) => void
+  ): void;
+  describeHybridADUpdate(
+    args: DescribeHybridADUpdateCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeHybridADUpdateCommandOutput) => void
   ): void;
 
   /**
@@ -1106,6 +1213,24 @@ export interface DirectoryService {
   ): void;
 
   /**
+   * @see {@link ListADAssessmentsCommand}
+   */
+  listADAssessments(): Promise<ListADAssessmentsCommandOutput>;
+  listADAssessments(
+    args: ListADAssessmentsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListADAssessmentsCommandOutput>;
+  listADAssessments(
+    args: ListADAssessmentsCommandInput,
+    cb: (err: any, data?: ListADAssessmentsCommandOutput) => void
+  ): void;
+  listADAssessments(
+    args: ListADAssessmentsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListADAssessmentsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListCertificatesCommand}
    */
   listCertificates(
@@ -1327,6 +1452,24 @@ export interface DirectoryService {
   ): void;
 
   /**
+   * @see {@link StartADAssessmentCommand}
+   */
+  startADAssessment(): Promise<StartADAssessmentCommandOutput>;
+  startADAssessment(
+    args: StartADAssessmentCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartADAssessmentCommandOutput>;
+  startADAssessment(
+    args: StartADAssessmentCommandInput,
+    cb: (err: any, data?: StartADAssessmentCommandOutput) => void
+  ): void;
+  startADAssessment(
+    args: StartADAssessmentCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartADAssessmentCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link StartSchemaExtensionCommand}
    */
   startSchemaExtension(
@@ -1392,6 +1535,20 @@ export interface DirectoryService {
     args: UpdateDirectorySetupCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateDirectorySetupCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateHybridADCommand}
+   */
+  updateHybridAD(
+    args: UpdateHybridADCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateHybridADCommandOutput>;
+  updateHybridAD(args: UpdateHybridADCommandInput, cb: (err: any, data?: UpdateHybridADCommandOutput) => void): void;
+  updateHybridAD(
+    args: UpdateHybridADCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateHybridADCommandOutput) => void
   ): void;
 
   /**

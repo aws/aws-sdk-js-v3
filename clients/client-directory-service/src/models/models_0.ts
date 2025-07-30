@@ -328,6 +328,47 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
+ * <p>A directory assessment is automatically created when you create a hybrid directory.
+ *             There are two types of assessments: <code>CUSTOMER</code> and <code>SYSTEM</code>. Your
+ *             Amazon Web Services account has a limit of 100 <code>CUSTOMER</code> directory assessments.</p>
+ *          <p>If you attempt to create a hybrid directory; and you already have 100
+ *                 <code>CUSTOMER</code> directory assessments;, you will encounter an error. Delete
+ *             assessments to free up capacity before trying again.</p>
+ *          <p>You can request an increase to your <code>CUSTOMER</code> directory assessment quota
+ *             by contacting customer support or delete existing CUSTOMER directory assessments; to
+ *             free up capacity.</p>
+ * @public
+ */
+export class ADAssessmentLimitExceededException extends __BaseException {
+  readonly name: "ADAssessmentLimitExceededException" = "ADAssessmentLimitExceededException";
+  readonly $fault: "client" = "client";
+  /**
+   * <p>The descriptive message for the exception.</p>
+   * @public
+   */
+  Message?: string | undefined;
+
+  /**
+   * <p>The Amazon Web Services request identifier.</p>
+   * @public
+   */
+  RequestId?: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ADAssessmentLimitExceededException, __BaseException>) {
+    super({
+      name: "ADAssessmentLimitExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ADAssessmentLimitExceededException.prototype);
+    this.Message = opts.Message;
+    this.RequestId = opts.RequestId;
+  }
+}
+
+/**
  * <p>IP address block. This is often the address block of the DNS server used for your
  *          self-managed domain. </p>
  * @public
@@ -545,7 +586,7 @@ export class IpRouteLimitExceededException extends __BaseException {
 }
 
 /**
- * <p>Contains VPC information for the <a>CreateDirectory</a> or <a>CreateMicrosoftAD</a> operation.</p>
+ * <p>Contains VPC information for the <a>CreateDirectory</a>, <a>CreateMicrosoftAD</a>, or <a>CreateHybridAD</a> operation.</p>
  * @public
  */
 export interface DirectoryVpcSettings {
@@ -582,7 +623,7 @@ export interface AddRegionRequest {
   RegionName: string | undefined;
 
   /**
-   * <p>Contains VPC information for the <a>CreateDirectory</a> or <a>CreateMicrosoftAD</a> operation.</p>
+   * <p>Contains VPC information for the <a>CreateDirectory</a>, <a>CreateMicrosoftAD</a>, or <a>CreateHybridAD</a> operation.</p>
    * @public
    */
   VPCSettings: DirectoryVpcSettings | undefined;
@@ -803,6 +844,284 @@ export class TagLimitExceededException extends __BaseException {
     this.Message = opts.Message;
     this.RequestId = opts.RequestId;
   }
+}
+
+/**
+ * <p>Contains detailed information about a directory assessment, including configuration
+ *             parameters, status, and validation results.</p>
+ * @public
+ */
+export interface Assessment {
+  /**
+   * <p>The unique identifier of the directory assessment.</p>
+   * @public
+   */
+  AssessmentId?: string | undefined;
+
+  /**
+   * <p>The identifier of the directory associated with this assessment.</p>
+   * @public
+   */
+  DirectoryId?: string | undefined;
+
+  /**
+   * <p>The fully qualified domain name (FQDN) of the Active Directory domain being
+   *             assessed.</p>
+   * @public
+   */
+  DnsName?: string | undefined;
+
+  /**
+   * <p>The date and time when the assessment was initiated.</p>
+   * @public
+   */
+  StartTime?: Date | undefined;
+
+  /**
+   * <p>The date and time when the assessment status was last updated.</p>
+   * @public
+   */
+  LastUpdateDateTime?: Date | undefined;
+
+  /**
+   * <p>The current status of the assessment. Valid values include <code>SUCCESS</code>,
+   *                 <code>FAILED</code>, <code>PENDING</code>, and <code>IN_PROGRESS</code>.</p>
+   * @public
+   */
+  Status?: string | undefined;
+
+  /**
+   * <p>A detailed status code providing additional information about the assessment
+   *             state.</p>
+   * @public
+   */
+  StatusCode?: string | undefined;
+
+  /**
+   * <p>A human-readable description of the current assessment status, including any error
+   *             details or progress information.</p>
+   * @public
+   */
+  StatusReason?: string | undefined;
+
+  /**
+   * <p>The IP addresses of the DNS servers or domain controllers in your self-managed AD
+   *             environment.</p>
+   * @public
+   */
+  CustomerDnsIps?: string[] | undefined;
+
+  /**
+   * <p>Contains Amazon VPC information for the <code>StartADAssessment</code> operation. </p>
+   * @public
+   */
+  VpcId?: string | undefined;
+
+  /**
+   * <p>A list of subnet identifiers in the Amazon VPC in which the hybrid directory is
+   *             created.</p>
+   * @public
+   */
+  SubnetIds?: string[] | undefined;
+
+  /**
+   * <p>The security groups identifiers attached to the network interfaces.</p>
+   * @public
+   */
+  SecurityGroupIds?: string[] | undefined;
+
+  /**
+   * <p>The identifiers of the self-managed AD instances used to perform the
+   *             assessment.</p>
+   * @public
+   */
+  SelfManagedInstanceIds?: string[] | undefined;
+
+  /**
+   * <p>The type of assessment report generated. Valid values are <code>CUSTOMER</code> and
+   *                 <code>SYSTEM</code>.</p>
+   * @public
+   */
+  ReportType?: string | undefined;
+
+  /**
+   * <p>The version of the assessment framework used to evaluate your self-managed AD
+   *             environment.</p>
+   * @public
+   */
+  Version?: string | undefined;
+}
+
+/**
+ * <p>Contains configuration parameters required to perform a directory assessment.</p>
+ * @public
+ */
+export interface AssessmentConfiguration {
+  /**
+   * <p>A list of IP addresses for the DNS servers or domain controllers in your self-managed
+   *             AD that are tested during the assessment.</p>
+   * @public
+   */
+  CustomerDnsIps: string[] | undefined;
+
+  /**
+   * <p>The fully qualified domain name (FQDN) of the self-managed AD domain to assess.</p>
+   * @public
+   */
+  DnsName: string | undefined;
+
+  /**
+   * <p>Contains VPC information for the <a>CreateDirectory</a>, <a>CreateMicrosoftAD</a>, or <a>CreateHybridAD</a> operation.</p>
+   * @public
+   */
+  VpcSettings: DirectoryVpcSettings | undefined;
+
+  /**
+   * <p>The identifiers of the self-managed instances with SSM that are used to perform
+   *             connectivity and validation tests.</p>
+   * @public
+   */
+  InstanceIds: string[] | undefined;
+
+  /**
+   * <p>By default, the service attaches a security group to allow network access to the
+   *             self-managed nodes in your Amazon VPC. You can optionally supply your own security group that
+   *             allows network traffic to and from your self-managed domain controllers outside of your
+   *             Amazon VPC. </p>
+   * @public
+   */
+  SecurityGroupIds?: string[] | undefined;
+}
+
+/**
+ * <p>Contains information about a specific validation test performed during a directory
+ *             assessment.</p>
+ * @public
+ */
+export interface AssessmentValidation {
+  /**
+   * <p>The category of the validation test.</p>
+   * @public
+   */
+  Category?: string | undefined;
+
+  /**
+   * <p>The name of the specific validation test performed within the category.</p>
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * <p>The result status of the validation test. Valid values include <code>SUCCESS</code>,
+   *                 <code>FAILED</code>, <code>PENDING</code>, and <code>IN_PROGRESS</code>.</p>
+   * @public
+   */
+  Status?: string | undefined;
+
+  /**
+   * <p>A detailed status code providing additional information about the validation
+   *             result.</p>
+   * @public
+   */
+  StatusCode?: string | undefined;
+
+  /**
+   * <p>A human-readable description of the validation result, including any error details or
+   *             recommendations.</p>
+   * @public
+   */
+  StatusReason?: string | undefined;
+
+  /**
+   * <p>The date and time when the validation test was started.</p>
+   * @public
+   */
+  StartTime?: Date | undefined;
+
+  /**
+   * <p>The date and time when the validation test was completed or last updated.</p>
+   * @public
+   */
+  LastUpdateDateTime?: Date | undefined;
+}
+
+/**
+ * <p>Contains the results of validation tests performed against a specific domain
+ *             controller during a directory assessment.</p>
+ * @public
+ */
+export interface AssessmentReport {
+  /**
+   * <p>The IP address of the domain controller that was tested during the assessment.</p>
+   * @public
+   */
+  DomainControllerIp?: string | undefined;
+
+  /**
+   * <p>A list of validation results for different test categories performed against this
+   *             domain controller.</p>
+   * @public
+   */
+  Validations?: AssessmentValidation[] | undefined;
+}
+
+/**
+ * <p>Contains summary information about a directory assessment, providing a high-level
+ *             overview without detailed validation results.</p>
+ * @public
+ */
+export interface AssessmentSummary {
+  /**
+   * <p>The unique identifier of the directory assessment.</p>
+   * @public
+   */
+  AssessmentId?: string | undefined;
+
+  /**
+   * <p>The identifier of the directory associated with this assessment.</p>
+   * @public
+   */
+  DirectoryId?: string | undefined;
+
+  /**
+   * <p>The fully qualified domain name (FQDN) of the Active Directory domain being
+   *             assessed.</p>
+   * @public
+   */
+  DnsName?: string | undefined;
+
+  /**
+   * <p>The date and time when the assessment was initiated.</p>
+   * @public
+   */
+  StartTime?: Date | undefined;
+
+  /**
+   * <p>The date and time when the assessment status was last updated.</p>
+   * @public
+   */
+  LastUpdateDateTime?: Date | undefined;
+
+  /**
+   * <p>The current status of the assessment. Valid values include <code>SUCCESS</code>,
+   *                 <code>FAILED</code>, <code>PENDING</code>, and <code>IN_PROGRESS</code>.</p>
+   * @public
+   */
+  Status?: string | undefined;
+
+  /**
+   * <p>The IP addresses of the DNS servers or domain controllers in your self-managed AD
+   *             environment.</p>
+   * @public
+   */
+  CustomerDnsIps?: string[] | undefined;
+
+  /**
+   * <p>The type of assessment report generated. Valid values include <code>CUSTOMER</code>
+   *             and <code>SYSTEM</code>.</p>
+   * @public
+   */
+  ReportType?: string | undefined;
 }
 
 /**
@@ -1644,6 +1963,49 @@ export interface CreateDirectoryResult {
 /**
  * @public
  */
+export interface CreateHybridADRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Amazon Web Services Secrets Manager secret that contains the
+   *             credentials for the service account used to join hybrid domain controllers to your
+   *             self-managed AD domain. This secret is used once and not stored.</p>
+   *          <p>The secret must contain key-value pairs with keys matching
+   *                 <code>customerAdAdminDomainUsername</code> and
+   *                 <code>customerAdAdminDomainPassword</code>. For example:
+   *                 <code>\{"customerAdAdminDomainUsername":"carlos_salazar","customerAdAdminDomainPassword":"ExamplePassword123!"\}</code>.</p>
+   * @public
+   */
+  SecretArn: string | undefined;
+
+  /**
+   * <p>The unique identifier of the successful directory assessment that validates your
+   *             self-managed AD environment. You must have a successful directory assessment before you
+   *             create a hybrid directory.</p>
+   * @public
+   */
+  AssessmentId: string | undefined;
+
+  /**
+   * <p>The tags to be assigned to the directory. Each tag consists of a key and value pair.
+   *             You can specify multiple tags as a list.</p>
+   * @public
+   */
+  Tags?: Tag[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateHybridADResult {
+  /**
+   * <p>The unique identifier of the newly created hybrid directory.</p>
+   * @public
+   */
+  DirectoryId?: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface CreateLogSubscriptionRequest {
   /**
    * <p>Identifier of the directory to which you want to subscribe and receive real-time logs to
@@ -1973,6 +2335,28 @@ export const DataAccessStatus = {
 export type DataAccessStatus = (typeof DataAccessStatus)[keyof typeof DataAccessStatus];
 
 /**
+ * @public
+ */
+export interface DeleteADAssessmentRequest {
+  /**
+   * <p>The unique identifier of the directory assessment to delete.</p>
+   * @public
+   */
+  AssessmentId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteADAssessmentResult {
+  /**
+   * <p>The unique identifier of the deleted directory assessment.</p>
+   * @public
+   */
+  AssessmentId?: string | undefined;
+}
+
+/**
  * <p>Deletes a conditional forwarder.</p>
  * @public
  */
@@ -2139,6 +2523,36 @@ export interface DeregisterEventTopicRequest {
  * @public
  */
 export interface DeregisterEventTopicResult {}
+
+/**
+ * @public
+ */
+export interface DescribeADAssessmentRequest {
+  /**
+   * <p>The identifier of the directory assessment to describe.</p>
+   * @public
+   */
+  AssessmentId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeADAssessmentResult {
+  /**
+   * <p>Detailed information about the self-managed instance settings (IDs and DNS
+   *             IPs).</p>
+   * @public
+   */
+  Assessment?: Assessment | undefined;
+
+  /**
+   * <p>A list of assessment reports containing validation results for each domain controller
+   *             and test category. Each report includes specific validation details and outcomes.</p>
+   * @public
+   */
+  AssessmentReports?: AssessmentReport[] | undefined;
+}
 
 /**
  * @public
@@ -2324,6 +2738,25 @@ export interface DirectoryConnectSettingsDescription {
    * @public
    */
   ConnectIps?: string[] | undefined;
+}
+
+/**
+ * <p>Describes the current hybrid directory configuration settings for a directory.</p>
+ * @public
+ */
+export interface HybridSettingsDescription {
+  /**
+   * <p>The IP addresses of the DNS servers in your self-managed AD environment.</p>
+   * @public
+   */
+  SelfManagedDnsIpAddrs?: string[] | undefined;
+
+  /**
+   * <p>The identifiers of the self-managed instances with SSM used for hybrid directory
+   *             operations.</p>
+   * @public
+   */
+  SelfManagedInstanceIds?: string[] | undefined;
 }
 
 /**
@@ -2741,6 +3174,13 @@ export interface DirectoryDescription {
    * @public
    */
   OsVersion?: OSVersion | undefined;
+
+  /**
+   * <p>Contains information about the hybrid directory configuration for the directory,
+   *             including Amazon Web Services System Manager managed node identifiers and DNS IPs.</p>
+   * @public
+   */
+  HybridSettings?: HybridSettingsDescription | undefined;
 }
 
 /**
@@ -3052,6 +3492,181 @@ export interface DescribeEventTopicsResult {
  * @public
  * @enum
  */
+export const HybridUpdateType = {
+  HYBRID_ADMINISTRATOR_ACCOUNT: "HybridAdministratorAccount",
+  SELF_MANAGED_INSTANCES: "SelfManagedInstances",
+} as const;
+
+/**
+ * @public
+ */
+export type HybridUpdateType = (typeof HybridUpdateType)[keyof typeof HybridUpdateType];
+
+/**
+ * @public
+ */
+export interface DescribeHybridADUpdateRequest {
+  /**
+   * <p>The identifier of the hybrid directory for which to retrieve update
+   *             information.</p>
+   * @public
+   */
+  DirectoryId: string | undefined;
+
+  /**
+   * <p>The type of update activities to retrieve. Valid values include
+   *                 <code>SelfManagedInstances</code> and
+   *             <code>HybridAdministratorAccount</code>.</p>
+   * @public
+   */
+  UpdateType?: HybridUpdateType | undefined;
+
+  /**
+   * <p>The pagination token from a previous request to <a>DescribeHybridADUpdate</a>. Pass null if this is the first request.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * <p>Contains the configuration values for a hybrid directory update, including Amazon Web Services
+ *             System Manager managed node and DNS information.</p>
+ * @public
+ */
+export interface HybridUpdateValue {
+  /**
+   * <p>The identifiers of the self-managed instances with SSM in the hybrid directory
+   *             configuration.</p>
+   * @public
+   */
+  InstanceIds?: string[] | undefined;
+
+  /**
+   * <p>The IP addresses of the DNS servers or domain controllers in the hybrid directory
+   *             configuration.</p>
+   * @public
+   */
+  DnsIps?: string[] | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const UpdateStatus = {
+  UPDATED: "Updated",
+  UPDATE_FAILED: "UpdateFailed",
+  UPDATING: "Updating",
+} as const;
+
+/**
+ * @public
+ */
+export type UpdateStatus = (typeof UpdateStatus)[keyof typeof UpdateStatus];
+
+/**
+ * <p>Contains detailed information about a specific update activity for a hybrid directory
+ *             component.</p>
+ * @public
+ */
+export interface HybridUpdateInfoEntry {
+  /**
+   * <p>The current status of the update activity. Valid values include <code>UPDATED</code>,
+   *                 <code>UPDATING</code>, and <code>UPDATE_FAILED</code>.</p>
+   * @public
+   */
+  Status?: UpdateStatus | undefined;
+
+  /**
+   * <p>A human-readable description of the update status, including any error details or
+   *             progress information.</p>
+   * @public
+   */
+  StatusReason?: string | undefined;
+
+  /**
+   * <p>Specifies if the update was initiated by the customer or Amazon Web Services.</p>
+   * @public
+   */
+  InitiatedBy?: string | undefined;
+
+  /**
+   * <p>The new configuration values being applied in this update.</p>
+   * @public
+   */
+  NewValue?: HybridUpdateValue | undefined;
+
+  /**
+   * <p>The previous configuration values before this update was applied.</p>
+   * @public
+   */
+  PreviousValue?: HybridUpdateValue | undefined;
+
+  /**
+   * <p>The date and time when the update activity was initiated.</p>
+   * @public
+   */
+  StartTime?: Date | undefined;
+
+  /**
+   * <p>The date and time when the update activity status was last updated.</p>
+   * @public
+   */
+  LastUpdatedDateTime?: Date | undefined;
+
+  /**
+   * <p>The identifier of the assessment performed to validate this update
+   *             configuration.</p>
+   * @public
+   */
+  AssessmentId?: string | undefined;
+}
+
+/**
+ * <p>Contains information about update activities for different components of a hybrid
+ *             directory.</p>
+ * @public
+ */
+export interface HybridUpdateActivities {
+  /**
+   * <p>A list of update activities related to the self-managed instances with SSM in the
+   *             self-managed instances with SSM hybrid directory configuration.</p>
+   * @public
+   */
+  SelfManagedInstances?: HybridUpdateInfoEntry[] | undefined;
+
+  /**
+   * <p>A list of update activities related to hybrid directory administrator account
+   *             changes.</p>
+   * @public
+   */
+  HybridAdministratorAccount?: HybridUpdateInfoEntry[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeHybridADUpdateResult {
+  /**
+   * <p>Information about update activities for the hybrid directory, organized by update
+   *             type.</p>
+   * @public
+   */
+  UpdateActivities?: HybridUpdateActivities | undefined;
+
+  /**
+   * <p>If not null, more results are available. Pass this value for the
+   *                 <code>NextToken</code> parameter in a subsequent request to retrieve the next set of
+   *             items.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
 export const LDAPSType = {
   CLIENT: "Client",
 } as const;
@@ -3217,7 +3832,7 @@ export interface RegionDescription {
   Status?: DirectoryStage | undefined;
 
   /**
-   * <p>Contains VPC information for the <a>CreateDirectory</a> or <a>CreateMicrosoftAD</a> operation.</p>
+   * <p>Contains VPC information for the <a>CreateDirectory</a>, <a>CreateMicrosoftAD</a>, or <a>CreateHybridAD</a> operation.</p>
    * @public
    */
   VpcSettings?: DirectoryVpcSettings | undefined;
@@ -3820,21 +4435,6 @@ export interface UpdateValue {
    */
   OSUpdateSettings?: OSUpdateSettings | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const UpdateStatus = {
-  UPDATED: "Updated",
-  UPDATE_FAILED: "UpdateFailed",
-  UPDATING: "Updating",
-} as const;
-
-/**
- * @public
- */
-export type UpdateStatus = (typeof UpdateStatus)[keyof typeof UpdateStatus];
 
 /**
  * <p> An entry of update information related to a requested update type. </p>
@@ -4449,6 +5049,51 @@ export interface GetSnapshotLimitsResult {
    * @public
    */
   SnapshotLimits?: SnapshotLimits | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListADAssessmentsRequest {
+  /**
+   * <p>The identifier of the directory for which to list assessments. If not specified, all
+   *             assessments in your account are returned.</p>
+   * @public
+   */
+  DirectoryId?: string | undefined;
+
+  /**
+   * <p>The pagination token from a previous request to <a>ListADAssessments</a>.
+   *             Pass null if this is the first request.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of assessment summaries to return.</p>
+   * @public
+   */
+  Limit?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListADAssessmentsResult {
+  /**
+   * <p>A list of assessment summaries containing basic information about each directory
+   *             assessment.</p>
+   * @public
+   */
+  Assessments?: AssessmentSummary[] | undefined;
+
+  /**
+   * <p>If not null, more results are available. Pass this value for the
+   *                 <code>NextToken</code> parameter in a subsequent request to retrieve the next set of
+   *             items.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
 }
 
 /**
@@ -5302,6 +5947,39 @@ export class ShareLimitExceededException extends __BaseException {
 /**
  * @public
  */
+export interface StartADAssessmentRequest {
+  /**
+   * <p>Configuration parameters for the directory assessment, including DNS server
+   *             information, domain name, Amazon VPC subnet, and Amazon Web Services System Manager managed node
+   *             details.</p>
+   * @public
+   */
+  AssessmentConfiguration?: AssessmentConfiguration | undefined;
+
+  /**
+   * <p>The identifier of the directory for which to perform the assessment. This should be an
+   *             existing directory. If the assessment is not for an existing directory, this parameter
+   *             should be omitted.</p>
+   * @public
+   */
+  DirectoryId?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StartADAssessmentResult {
+  /**
+   * <p>The unique identifier of the newly started directory assessment. Use this identifier
+   *             to monitor assessment progress and retrieve results.</p>
+   * @public
+   */
+  AssessmentId?: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface StartSchemaExtensionRequest {
   /**
    * <p>The identifier of the directory for which the schema extension will be applied
@@ -5459,6 +6137,96 @@ export interface UpdateDirectorySetupRequest {
  * @public
  */
 export interface UpdateDirectorySetupResult {}
+
+/**
+ * <p> Use to recover to the hybrid directory administrator account credentials.</p>
+ * @public
+ */
+export interface HybridAdministratorAccountUpdate {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Amazon Web Services Secrets Manager secret that contains the
+   *             credentials for the AD administrator user, and enables hybrid domain controllers to
+   *             join the managed AD domain. For example:</p>
+   *          <p>
+   *             <code>
+   *                 \{"customerAdAdminDomainUsername":"carlos_salazar","customerAdAdminDomainPassword":"ExamplePassword123!"\}.
+   *             </code>
+   *          </p>
+   * @public
+   */
+  SecretArn: string | undefined;
+}
+
+/**
+ * <p>Contains configuration settings for self-managed instances with SSM used in hybrid
+ *             directory operations.</p>
+ * @public
+ */
+export interface HybridCustomerInstancesSettings {
+  /**
+   * <p>The IP addresses of the DNS servers or domain controllers in your self-managed AD
+   *             environment.</p>
+   * @public
+   */
+  CustomerDnsIps: string[] | undefined;
+
+  /**
+   * <p>The identifiers of the self-managed instances with SSM used in hybrid
+   *             directory.</p>
+   * @public
+   */
+  InstanceIds: string[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateHybridADRequest {
+  /**
+   * <p>The identifier of the hybrid directory to update.</p>
+   * @public
+   */
+  DirectoryId: string | undefined;
+
+  /**
+   * <p>We create a hybrid directory administrator account when we create a hybrid directory.
+   *             Use <code>HybridAdministratorAccountUpdate</code> to recover the hybrid directory
+   *             administrator account if you have deleted it.</p>
+   *          <p>To recover your hybrid directory administrator account, we need temporary access to a
+   *             user in your self-managed AD with administrator permissions in the form of a secret from
+   *             Amazon Web Services Secrets Manager. We use these credentials once during recovery and don't store them.</p>
+   *          <p>If your hybrid directory administrator account exists, then you don’t need to use
+   *                 <code>HybridAdministratorAccountUpdate</code>, even if you have updated your
+   *             self-managed AD administrator user.</p>
+   * @public
+   */
+  HybridAdministratorAccountUpdate?: HybridAdministratorAccountUpdate | undefined;
+
+  /**
+   * <p>Updates to the self-managed AD configuration, including DNS server IP addresses and
+   *             Amazon Web Services System Manager managed node identifiers.</p>
+   * @public
+   */
+  SelfManagedInstancesSettings?: HybridCustomerInstancesSettings | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateHybridADResult {
+  /**
+   * <p>The identifier of the updated hybrid directory.</p>
+   * @public
+   */
+  DirectoryId?: string | undefined;
+
+  /**
+   * <p>The identifier of the assessment performed to validate the update configuration. This
+   *             assessment ensures the updated settings are compatible with your environment.</p>
+   * @public
+   */
+  AssessmentId?: string | undefined;
+}
 
 /**
  * <p>The maximum allowed number of domain controllers per directory was exceeded. The

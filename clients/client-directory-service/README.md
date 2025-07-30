@@ -37,16 +37,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `DirectoryServiceClient` and
-the commands you need, for example `ListCertificatesCommand`:
+the commands you need, for example `ListADAssessmentsCommand`:
 
 ```js
 // ES5 example
-const { DirectoryServiceClient, ListCertificatesCommand } = require("@aws-sdk/client-directory-service");
+const { DirectoryServiceClient, ListADAssessmentsCommand } = require("@aws-sdk/client-directory-service");
 ```
 
 ```ts
 // ES6+ example
-import { DirectoryServiceClient, ListCertificatesCommand } from "@aws-sdk/client-directory-service";
+import { DirectoryServiceClient, ListADAssessmentsCommand } from "@aws-sdk/client-directory-service";
 ```
 
 ### Usage
@@ -65,7 +65,7 @@ const client = new DirectoryServiceClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new ListCertificatesCommand(params);
+const command = new ListADAssessmentsCommand(params);
 ```
 
 #### Async/await
@@ -144,7 +144,7 @@ const client = new AWS.DirectoryService({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.listCertificates(params);
+  const data = await client.listADAssessments(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -152,7 +152,7 @@ try {
 
 // Promises.
 client
-  .listCertificates(params)
+  .listADAssessments(params)
   .then((data) => {
     // process data.
   })
@@ -161,7 +161,7 @@ client
   });
 
 // callbacks.
-client.listCertificates(params, (err, data) => {
+client.listADAssessments(params, (err, data) => {
   // process err and data.
 });
 ```
@@ -299,6 +299,14 @@ CreateDirectory
 </details>
 <details>
 <summary>
+CreateHybridAD
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/directory-service/command/CreateHybridADCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-directory-service/Interface/CreateHybridADCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-directory-service/Interface/CreateHybridADCommandOutput/)
+
+</details>
+<details>
+<summary>
 CreateLogSubscription
 </summary>
 
@@ -327,6 +335,14 @@ CreateTrust
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/directory-service/command/CreateTrustCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-directory-service/Interface/CreateTrustCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-directory-service/Interface/CreateTrustCommandOutput/)
+
+</details>
+<details>
+<summary>
+DeleteADAssessment
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/directory-service/command/DeleteADAssessmentCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-directory-service/Interface/DeleteADAssessmentCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-directory-service/Interface/DeleteADAssessmentCommandOutput/)
 
 </details>
 <details>
@@ -387,6 +403,14 @@ DeregisterEventTopic
 </details>
 <details>
 <summary>
+DescribeADAssessment
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/directory-service/command/DescribeADAssessmentCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-directory-service/Interface/DescribeADAssessmentCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-directory-service/Interface/DescribeADAssessmentCommandOutput/)
+
+</details>
+<details>
+<summary>
 DescribeCertificate
 </summary>
 
@@ -439,6 +463,14 @@ DescribeEventTopics
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/directory-service/command/DescribeEventTopicsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-directory-service/Interface/DescribeEventTopicsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-directory-service/Interface/DescribeEventTopicsCommandOutput/)
+
+</details>
+<details>
+<summary>
+DescribeHybridADUpdate
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/directory-service/command/DescribeHybridADUpdateCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-directory-service/Interface/DescribeHybridADUpdateCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-directory-service/Interface/DescribeHybridADUpdateCommandOutput/)
 
 </details>
 <details>
@@ -595,6 +627,14 @@ GetSnapshotLimits
 </details>
 <details>
 <summary>
+ListADAssessments
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/directory-service/command/ListADAssessmentsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-directory-service/Interface/ListADAssessmentsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-directory-service/Interface/ListADAssessmentsCommandOutput/)
+
+</details>
+<details>
+<summary>
 ListCertificates
 </summary>
 
@@ -707,6 +747,14 @@ ShareDirectory
 </details>
 <details>
 <summary>
+StartADAssessment
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/directory-service/command/StartADAssessmentCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-directory-service/Interface/StartADAssessmentCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-directory-service/Interface/StartADAssessmentCommandOutput/)
+
+</details>
+<details>
+<summary>
 StartSchemaExtension
 </summary>
 
@@ -735,6 +783,14 @@ UpdateDirectorySetup
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/directory-service/command/UpdateDirectorySetupCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-directory-service/Interface/UpdateDirectorySetupCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-directory-service/Interface/UpdateDirectorySetupCommandOutput/)
+
+</details>
+<details>
+<summary>
+UpdateHybridAD
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/directory-service/command/UpdateHybridADCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-directory-service/Interface/UpdateHybridADCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-directory-service/Interface/UpdateHybridADCommandOutput/)
 
 </details>
 <details>
