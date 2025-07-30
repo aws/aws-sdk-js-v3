@@ -84,7 +84,7 @@ The S3TransferManager constructor accepts an optional `S3TransferManagerConfig` 
 **Example:**
 
 ```js
-const transferManager = new S3TransferManager({
+const tm = new S3TransferManager({
   s3ClientInstance: new S3Client({ region: "us-west-2" }),
   targetPartSizeBytes: 10 * 1024 * 1024, // 10MB
   multipartUploadThresholdBytes: 20 * 1024 * 1024, // 20MB
@@ -101,6 +101,10 @@ const transferManager = new S3TransferManager({
 ## Methods
 
 ### upload()
+
+> 🚧 **Under Development**
+>
+> Documentation will be available when this feature is implemented.
 
 ### download()
 
@@ -151,20 +155,71 @@ We do not recommend updating the object you're downloading mid-download as this 
 
 #### uploadAll()
 
+> 🚧 **Under Development**
+>
+> Documentation will be available when this feature is implemented.
+
 #### downloadAll()
 
+> 🚧 **Under Development**
+>
+> Documentation will be available when this feature is implemented.
+
 ## Event Handling
+
+**Event Types and Data:**
+
+Event listeners receive a single event object with the following properties:
+
+- **`transferInitiated`** - Fired once when transfer begins
+
+  - `request` - Original transfer request (Bucket, Key, etc.)
+  - `snapshot` - Initial progress state (`transferredBytes: 0`, `totalBytes` if known)
+
+- **`bytesTransferred`** - Fired during transfer progress with each chunk
+
+  - `request` - Original transfer request
+  - `snapshot` - Current progress (`transferredBytes`, `totalBytes`, `transferredFiles` for directory transfers)
+
+- **`transferComplete`** - Fired once when transfer succeeds
+
+  - `request` - Original transfer request
+  - `snapshot` - Final progress state
+  - `response` - Complete S3 response with metadata
+
+- **`transferFailed`** - Fired once when transfer fails
+  - `request` - Original transfer request
+  - `snapshot` - Progress state at time of failure
+
+**Creating Callback Functions:**
+
+Event callbacks receive a single event object. Use destructuring to access specific properties:
+
+```js
+// Basic function - access specific properties
+function transferComplete({ request, snapshot, response }) {
+  console.log(`Transfer completed: ${request.Key}`);
+  console.log(`Total bytes: ${snapshot.transferredBytes}`);
+  console.log(`Response status: ${response.$metadata?.httpStatusCode}`);
+}
+
+// Arrow function - inline usage
+const progressHandler = ({ snapshot }) => {
+  const percent = snapshot.totalBytes ? (snapshot.transferredBytes / snapshot.totalBytes) * 100 : 0;
+  console.log(`Progress: ${percent.toFixed(1)}%`);
+};
+
+// Object with handleEvent method
+const transferLogger = {
+  handleEvent: ({ request, snapshot }) => {
+    console.log(`${request.Key}: ${snapshot.transferredBytes} bytes transferred`);
+  },
+};
+```
 
 ### addEventListener()
 
 Registers event listeners for transfer lifecycle monitoring. It uses familiar EventTarget API patterns.
-
-**Event Types:**
-
-- `transferInitiated` - Fired when transfer begins
-- `bytesTransferred` - Fired during transfer progress with each byte chunk transfer
-- `transferComplete` - Fired when transfer succeeds
-- `transferFailed` - Fired when transfer fails
 
 **Parameters:**
 
@@ -196,10 +251,10 @@ function progressBar({ request, snapshot }) {
   process.stdout.write(`Downloading... ${progressBar} ${percent.toFixed(0)}%`);
 }
 
-transferManager.addEventListener("bytesTransferred", progressBar);
+tm.addEventListener("bytesTransferred", progressBar);
 
 // One-time listener
-transferManager.addEventListener(
+tm.addEventListener(
   "transferComplete",
   (event) => {
     console.log(`\nTransfer completed: ${event.request.Key}`);
@@ -210,21 +265,28 @@ transferManager.addEventListener(
 
 ### removeEventListener()
 
-Removes a previously registered event listener from the specified event type.
+Removes a previously registered event listener from the specified event type. You must pass the exact same function reference that was used when adding the listener.
+
+**Important:** If you plan to remove event listeners during transfer lifecycle, define your callback as a named function or variable - you cannot remove anonymous functions.
 
 **Parameters:**
 
 - `type` - Event type to stop listening for
-- `callback` - The exact function that was previously registered
+- `callback` - The exact function reference that was previously registered
 - `options` - Optional configuration (currently unused)
 
 **Example:**
 
 ```js
+// Can be removed
 const progressHandler = (event) => console.log("Progress:", event.snapshot);
 
-transferManager.addEventListener("bytesTransferred", progressHandler);
-transferManager.removeEventListener("bytesTransferred", progressHandler);
+tm.addEventListener("bytesTransferred", progressHandler);
+tm.removeEventListener("bytesTransferred", progressHandler); // Works
+
+// Cannot be removed
+tm.addEventListener("bytesTransferred", (event) => console.log("Progress:", event.snapshot));
+tm.removeEventListener("bytesTransferred", (event) => console.log("Progress:", event.snapshot)); // Won't work - different function reference
 ```
 
 ### dispatchEvent()
@@ -251,10 +313,152 @@ transferManager.dispatchEvent(customEvent);
 
 ### AbortSignal
 
-TODO: Include practical examples of using abortcontroller to cancel downloads
+Use the standard AbortController (included in AWS SDK JS V3's HttpHandlerOptions) to cancel downloads at any time during transfer.
+
+**Timeout-Based Cancellation:**
+
+```js
+const controller = new AbortController();
+
+// Auto-cancel after 30 seconds
+const timeoutId = setTimeout(() => {
+  controller.abort();
+  console.log("Download timed out");
+}, 30000);
+
+try {
+  const download = await tm.download({ Bucket: "my-bucket", Key: "data.json" }, { abortSignal: controller.signal });
+
+  clearTimeout(timeoutId); // Cancel timeout on success
+  const data = await download.Body?.transformToByteArray();
+} catch (error) {
+  clearTimeout(timeoutId);
+  if (error.name === "AbortError") {
+    console.log("Operation was aborted");
+  }
+}
+```
+
+**User-Triggered Cancellation:**
+
+```js
+const controller = new AbortController();
+
+// UI cancel button
+document.getElementById("cancelBtn").onclick = () => {
+  controller.abort();
+  console.log("Download cancelled by user");
+};
+
+// Start download
+try {
+  const download = await tm.download({ Bucket: "my-bucket", Key: "video.mp4" }, { abortSignal: controller.signal });
+
+  const data = await download.Body?.transformToByteArray();
+  console.log("Download completed");
+} catch (error) {
+  if (error.name === "AbortError") {
+    console.log("Download was cancelled");
+  }
+}
+```
 
 ### Event Listeners
 
-TODO: Include examples of eventListeners are client level and request level
+Event listeners can be configured at two levels: **client-level** (applies to all transfers) and **request-level** (applies to specific transfers). (see [Event Handling](#event-handling))
 
-## Performance
+**Client-Level Event Listeners:**
+
+You can configure the event listeners when creating your Transfer Manager instance. These listeners apply to all transfers made with this instance.
+
+```js
+const tm = new S3TransferManager({
+  s3ClientInstance: s3Client,
+  multipartDownloadType: "RANGE",
+  checksumValidationEnabled: true,
+  eventListeners: {
+    transferInitiated: [downloadingKey],
+    bytesTransferred: [progressBar],
+    transferComplete: [
+      {
+        handleEvent: ({ request, snapshot, response }) => {
+          console.log(`Transfer completed: ${request.Key}`);
+          console.log(`Total bytes: ${snapshot.transferredBytes}`);
+        },
+      },
+    ],
+    transferFailed: [transferFailed],
+  },
+});
+
+// All downloads will use these event listeners
+const download1 = await tm.download({ Bucket: "my-bucket", Key: "file1.txt" });
+const download2 = await tm.download({ Bucket: "my-bucket", Key: "file2.txt" });
+```
+
+**Request-Level Event Listeners:**
+
+You can add event listeners for individual requests like this. Note adding event listeners at request-level will supplement any event listeners defined at client-level. So if you add the same callback at client and request level they will duplicate when the respective event occurs.
+
+```js
+const download = await tm.download(
+  {
+    Bucket: "my-bucket",
+    Key: "large-file.zip",
+    Range: `bytes=0-${5 * 1024 * 1024 - 1}`,
+  },
+  {
+    eventListeners: {
+      transferInitiated: [downloadingKey],
+      bytesTransferred: [
+        {
+          handleEvent: ({ request, snapshot }) => {
+            const percent = snapshot.totalBytes ? (snapshot.transferredBytes / snapshot.totalBytes) * 100 : 0;
+            console.log(`Progress: ${percent.toFixed(1)}%`);
+          },
+        },
+      ],
+      transferComplete: [transferComplete],
+      transferFailed: [transferFailed],
+    },
+  }
+);
+```
+
+**Practical Example of Combining Both Levels:**
+
+Because request-level listeners are added to client-level listeners (not replaced), it allows for global logging plus request-specific handling.
+
+```js
+// Client-level: global logging
+const tm = new S3TransferManager({
+  s3ClientInstance: s3Client,
+  eventListeners: {
+    transferInitiated: [
+      {
+        handleEvent: ({ request }) => {
+          console.log(`Global: Started ${request.Key}`);
+        },
+      },
+    ],
+    transferFailed: [globalErrorHandler],
+  },
+});
+
+// Request-level: specific progress tracking
+const download = await tm.download(
+  { Bucket: "my-bucket", Key: "video.mp4" },
+  {
+    eventListeners: {
+      bytesTransferred: [videoProgressBar], // Added to global listeners
+      transferComplete: [
+        {
+          handleEvent: ({ request, response }) => {
+            console.log(`Video ${request.Key} completed with status ${response.$metadata?.httpStatusCode}`);
+          },
+        },
+      ],
+    },
+  }
+);
+```
