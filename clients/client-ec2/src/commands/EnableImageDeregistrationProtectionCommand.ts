@@ -38,8 +38,7 @@ export interface EnableImageDeregistrationProtectionCommandOutput
 /**
  * <p>Enables deregistration protection for an AMI. When deregistration protection is enabled,
  *       the AMI can't be deregistered.</p>
- *          <p>To allow the AMI to be deregistered, you must first disable deregistration protection
- *       using <a>DisableImageDeregistrationProtection</a>.</p>
+ *          <p>To allow the AMI to be deregistered, you must first disable deregistration protection.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-deregistration-protection.html">Protect an
  *       Amazon EC2 AMI from deregistration</a> in the <i>Amazon EC2 User Guide</i>.</p>
  * @example

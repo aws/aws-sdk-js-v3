@@ -5353,6 +5353,13 @@ export interface Route {
    * @public
    */
   OdbNetworkArn?: string | undefined;
+
+  /**
+   * <p>The next hop IP address for routes propagated by VPC Route
+   *             Server into VPC route tables.</p>
+   * @public
+   */
+  IpAddress?: string | undefined;
 }
 
 /**
@@ -5727,8 +5734,8 @@ export interface Snapshot {
   SnapshotId?: string | undefined;
 
   /**
-   * <p>The ID of the volume that was used to create the snapshot. Snapshots created by the <a>CopySnapshot</a> action have an arbitrary volume ID that should not be used for any
-   *       purpose.</p>
+   * <p>The ID of the volume that was used to create the snapshot. Snapshots created by a copy
+   *       snapshot operation have an arbitrary volume ID that you should not use for any purpose.</p>
    * @public
    */
   VolumeId?: string | undefined;

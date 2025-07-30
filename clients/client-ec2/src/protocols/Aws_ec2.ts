@@ -84092,6 +84092,9 @@ const de_Route = (output: any, context: __SerdeContext): Route => {
   if (output[_oNA] != null) {
     contents[_ONA] = __expectString(output[_oNA]);
   }
+  if (output[_iAp] != null) {
+    contents[_IAp] = __expectString(output[_iAp]);
+  }
   return contents;
 };
 

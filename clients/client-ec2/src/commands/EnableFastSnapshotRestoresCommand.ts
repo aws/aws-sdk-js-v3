@@ -29,9 +29,7 @@ export interface EnableFastSnapshotRestoresCommandOutput extends EnableFastSnaps
 
 /**
  * <p>Enables fast snapshot restores for the specified snapshots in the specified Availability Zones.</p>
- *          <p>You get the full benefit of fast snapshot restores after they enter the <code>enabled</code> state.
- *       To get the current state of fast snapshot restores, use <a>DescribeFastSnapshotRestores</a>.
- *       To disable fast snapshot restores, use <a>DisableFastSnapshotRestores</a>.</p>
+ *          <p>You get the full benefit of fast snapshot restores after they enter the <code>enabled</code> state.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/ebs/latest/userguide/ebs-fast-snapshot-restore.html">Amazon EBS fast snapshot
  *       restore</a> in the <i>Amazon EBS User Guide</i>.</p>
  * @example

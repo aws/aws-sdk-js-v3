@@ -95,6 +95,7 @@ export interface CreateRouteTableCommandOutput extends CreateRouteTableResult, _
  * //         VpcPeeringConnectionId: "STRING_VALUE",
  * //         CoreNetworkArn: "STRING_VALUE",
  * //         OdbNetworkArn: "STRING_VALUE",
+ * //         IpAddress: "STRING_VALUE",
  * //       },
  * //     ],
  * //     Tags: [ // TagList

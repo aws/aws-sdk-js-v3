@@ -30,16 +30,14 @@ export interface ProvisionByoipCidrCommandOutput extends ProvisionByoipCidrResul
 /**
  * <p>Provisions an IPv4 or IPv6 address range for use with your Amazon Web Services resources through bring your own IP
  *          addresses (BYOIP) and creates a corresponding address pool. After the address range is
- *          provisioned, it is ready to be advertised using <a>AdvertiseByoipCidr</a>.</p>
+ *          provisioned, it is ready to be advertised.</p>
  *          <p>Amazon Web Services verifies that you own the address range and are authorized to advertise it.
  *          You must ensure that the address range is registered to you and that you created an
  *          RPKI ROA to authorize Amazon ASNs 16509 and 14618 to advertise the address range.
  *          For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-byoip.html">Bring your own IP addresses (BYOIP)</a> in the <i>Amazon EC2 User Guide</i>.</p>
  *          <p>Provisioning an address range is an asynchronous operation, so the call returns immediately,
  *          but the address range is not ready to use until its status changes from <code>pending-provision</code>
- *          to <code>provisioned</code>. To monitor the status of an address range, use <a>DescribeByoipCidrs</a>.
- *          To allocate an Elastic IP address from your IPv4 address pool, use <a>AllocateAddress</a>
- *          with either the specific address from the address pool or the ID of the address pool.</p>
+ *           to <code>provisioned</code>. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/byoip-onboard.html">Onboard your address range</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

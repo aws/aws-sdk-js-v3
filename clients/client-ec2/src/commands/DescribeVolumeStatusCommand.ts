@@ -56,8 +56,9 @@ export interface DescribeVolumeStatusCommandOutput extends DescribeVolumeStatusR
  *       event. For example, if the status of the volume is <code>impaired</code> and the volume event
  *       shows <code>potential-data-inconsistency</code>, then the action shows
  *         <code>enable-volume-io</code>. This means that you may want to enable the I/O operations for
- *       the volume by calling the <a>EnableVolumeIO</a> action and then check the volume
- *       for data consistency.</p>
+ *       the volume and then check the volume for data consistency. For more information, see
+ *       <a href="https://docs.aws.amazon.com/ebs/latest/userguide/work_volumes_impaired.html">Work with an
+ *         impaired EBS volume</a>.</p>
  *          <p>Volume status is based on the volume status checks, and does not reflect the volume state.
  *       Therefore, volume status does not indicate volumes in the <code>error</code> state (for
  *       example, when a volume is incapable of accepting I/O.)</p>
