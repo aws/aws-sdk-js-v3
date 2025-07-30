@@ -225,8 +225,34 @@ describe(S3TransferManager.name, () => {
     }
   });
 
-  // TODO: Write abortController tests
-  describe.skip("Download must cancel on timed abortController", () => {});
+  describe("download with abortController ", () => {
+    const modes = ["PART"] as S3TransferManagerConfig["multipartDownloadType"][];
+    for (const mode of modes) {
+      it(`should cancel ${mode} download on abort()`, async () => {
+        const totalSizeMB = 10 * 1024 * 1024;
+        const Body = data(totalSizeMB);
+        const Key = `${mode}-size`;
+        await new Upload({
+          client,
+          params: { Bucket, Key, Body },
+        }).done();
+        const tm: S3TransferManager = mode === "PART" ? tmPart : tmRange;
+        const controller = new AbortController();
+        setTimeout(() => controller.abort(), 100);
+        try {
+          await tm.download(
+            { Bucket, Key },
+            {
+              abortSignal: controller.signal,
+            }
+          );
+          expect.fail("Download should have been aborted");
+        } catch (error) {
+          expect(error.name).toEqual("AbortError");
+        }
+      }, 60_000);
+    }
+  });
 
   describe("(SEP) download single object tests", () => {
     async function sepTests(
