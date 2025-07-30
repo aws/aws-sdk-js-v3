@@ -4,7 +4,7 @@
  * 
  * @param event - The event object containing transfer details and progress information.
 
- * @public
+ * @alpha
  */
 export type EventListenerFunction<E = Event> = (event: Event & E) => void;
 
@@ -12,7 +12,7 @@ export type EventListenerFunction<E = Event> = (event: Event & E) => void;
  * Union type for handling transfer events in the transfer manager.
  * Can be a function or an object.
  *
- * @public
+ * @alpha
  */
 export type EventListener<E = Event> = EventListenerFunction<E> | EventListenerObject<E>;
 
@@ -20,7 +20,7 @@ export type EventListener<E = Event> = EventListenerFunction<E> | EventListenerO
  * Object type for handling transfer events in the transfer manager.
  * Represents an object that implements the `handleEvent` method to handle transfer events.
  *
- * @public
+ * @alpha
  */
 export type EventListenerObject<E = Event> = {
   handleEvent: EventListenerFunction<E>;
@@ -30,7 +30,7 @@ export type EventListenerObject<E = Event> = {
  * Configuration options for registering event listeners in the transfer manager.
  * Controls the behavior of event listeners for transfer events.
  *
- * @public
+ * @alpha
  */
 export type AddEventListenerOptions = {
   /**
@@ -51,7 +51,7 @@ export type AddEventListenerOptions = {
  * Configuration options for removing event listeners in the transfer manager.
  * Controls the behavior of event listeners for transfer events.
  *
- * @public
+ * @alpha
  */
 export type RemoveEventListenerOptions = {
   capture?: boolean;
