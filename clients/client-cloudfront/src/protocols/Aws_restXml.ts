@@ -11302,6 +11302,9 @@ const se_Origin = (input: Origin, context: __SerdeContext): any => {
   if (input[_CTon] != null) {
     bn.c(__XmlNode.of(_i, String(input[_CTon])).n(_CTon));
   }
+  if (input[_RCT] != null) {
+    bn.c(__XmlNode.of(_i, String(input[_RCT])).n(_RCT));
+  }
   if (input[_OS] != null) {
     bn.c(se_OriginShield(input[_OS], context).n(_OS));
   }
@@ -12224,6 +12227,9 @@ const se_S3OriginConfig = (input: S3OriginConfig, context: __SerdeContext): any 
   const bn = new __XmlNode(_SOC);
   if (input[_OAI] != null) {
     bn.c(__XmlNode.of(_s, input[_OAI]).n(_OAI));
+  }
+  if (input[_ORT] != null) {
+    bn.c(__XmlNode.of(_i, String(input[_ORT])).n(_ORT));
   }
   return bn;
 };
@@ -15236,6 +15242,9 @@ const de_Origin = (output: any, context: __SerdeContext): Origin => {
   if (output[_CTon] != null) {
     contents[_CTon] = __strictParseInt32(output[_CTon]) as number;
   }
+  if (output[_RCT] != null) {
+    contents[_RCT] = __strictParseInt32(output[_RCT]) as number;
+  }
   if (output[_OS] != null) {
     contents[_OS] = de_OriginShield(output[_OS], context);
   }
@@ -16555,6 +16564,9 @@ const de_S3OriginConfig = (output: any, context: __SerdeContext): S3OriginConfig
   if (output[_OAI] != null) {
     contents[_OAI] = __expectString(output[_OAI]);
   }
+  if (output[_ORT] != null) {
+    contents[_ORT] = __strictParseInt32(output[_ORT]) as number;
+  }
   return contents;
 };
 
@@ -17521,6 +17533,7 @@ const _QSu = "QueryString";
 const _R = "Resource";
 const _RARN = "RoleARN";
 const _RC = "ResponseCode";
+const _RCT = "ResponseCompletionTimeout";
 const _RE = "RoutingEndpoint";
 const _RF = "RedirectFrom";
 const _RHC = "RemoveHeadersConfig";

@@ -4385,7 +4385,7 @@ export interface DistributionSummary {
   Staging: boolean | undefined;
 
   /**
-   * <p>This field specifies whether the connection mode is through a standard distribution (direct) or a multi-tenant distribution with distribution tenants(tenant-only).</p>
+   * <p>This field specifies whether the connection mode is through a standard distribution (direct) or a multi-tenant distribution with distribution tenants (tenant-only).</p>
    * @public
    */
   ConnectionMode?: ConnectionMode | undefined;
@@ -4578,7 +4578,7 @@ export interface ListDistributionsByConnectionModeRequest {
   MaxItems?: number | undefined;
 
   /**
-   * <p>This field specifies whether the connection mode is through a standard distribution (direct) or a multi-tenant distribution with distribution tenants(tenant-only).</p>
+   * <p>This field specifies whether the connection mode is through a standard distribution (direct) or a multi-tenant distribution with distribution tenants (tenant-only).</p>
    * @public
    */
   ConnectionMode: ConnectionMode | undefined;

@@ -91,6 +91,7 @@ export interface ListDistributionsByRealtimeLogConfigCommandOutput
  * //               },
  * //               S3OriginConfig: { // S3OriginConfig
  * //                 OriginAccessIdentity: "STRING_VALUE", // required
+ * //                 OriginReadTimeout: Number("int"),
  * //               },
  * //               CustomOriginConfig: { // CustomOriginConfig
  * //                 HTTPPort: Number("int"), // required
@@ -112,6 +113,7 @@ export interface ListDistributionsByRealtimeLogConfigCommandOutput
  * //               },
  * //               ConnectionAttempts: Number("int"),
  * //               ConnectionTimeout: Number("int"),
+ * //               ResponseCompletionTimeout: Number("int"),
  * //               OriginShield: { // OriginShield
  * //                 Enabled: true || false, // required
  * //                 OriginShieldRegion: "STRING_VALUE",

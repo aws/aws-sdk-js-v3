@@ -68,6 +68,7 @@ export interface CreateDistributionCommandOutput extends CreateDistributionResul
  *           },
  *           S3OriginConfig: { // S3OriginConfig
  *             OriginAccessIdentity: "STRING_VALUE", // required
+ *             OriginReadTimeout: Number("int"),
  *           },
  *           CustomOriginConfig: { // CustomOriginConfig
  *             HTTPPort: Number("int"), // required
@@ -89,6 +90,7 @@ export interface CreateDistributionCommandOutput extends CreateDistributionResul
  *           },
  *           ConnectionAttempts: Number("int"),
  *           ConnectionTimeout: Number("int"),
+ *           ResponseCompletionTimeout: Number("int"),
  *           OriginShield: { // OriginShield
  *             Enabled: true || false, // required
  *             OriginShieldRegion: "STRING_VALUE",
@@ -424,6 +426,7 @@ export interface CreateDistributionCommandOutput extends CreateDistributionResul
  * //             },
  * //             S3OriginConfig: { // S3OriginConfig
  * //               OriginAccessIdentity: "STRING_VALUE", // required
+ * //               OriginReadTimeout: Number("int"),
  * //             },
  * //             CustomOriginConfig: { // CustomOriginConfig
  * //               HTTPPort: Number("int"), // required
@@ -445,6 +448,7 @@ export interface CreateDistributionCommandOutput extends CreateDistributionResul
  * //             },
  * //             ConnectionAttempts: Number("int"),
  * //             ConnectionTimeout: Number("int"),
+ * //             ResponseCompletionTimeout: Number("int"),
  * //             OriginShield: { // OriginShield
  * //               Enabled: true || false, // required
  * //               OriginShieldRegion: "STRING_VALUE",
