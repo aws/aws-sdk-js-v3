@@ -5,7 +5,7 @@ import type {
   PutObjectCommandInput,
 } from "@aws-sdk/client-s3";
 import { GetObjectCommand, HeadObjectCommand, S3Client } from "@aws-sdk/client-s3";
-import { type StreamingBlobPayloadOutputTypes, Checksum, ChecksumConstructor } from "@smithy/types";
+import { type StreamingBlobPayloadOutputTypes } from "@smithy/types";
 
 import type { AddEventListenerOptions, EventListener, RemoveEventListenerOptions } from "./event-listener-types";
 import { joinStreams } from "./join-streams";

@@ -1,5 +1,4 @@
 import { GetObjectCommandOutput, S3 } from "@aws-sdk/client-s3";
-import { Readable } from "node:stream";
 import { beforeAll, describe, expect, test as it } from "vitest";
 
 import { getIntegTestResources } from "../../../../tests/e2e/get-integ-test-resources";
