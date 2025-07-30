@@ -16,7 +16,7 @@ import { AddEventListenerOptions, EventListener, RemoveEventListenerOptions } fr
 /**
  * Constructor parameters for the S3 Transfer Manager configuration.
  *
- * @public
+ * @alpha
  */
 export interface S3TransferManagerConfig {
   /**
@@ -54,7 +54,7 @@ export interface S3TransferManagerConfig {
  * both PutObjectCommandInput and CreateMultipartUploadCommandInput to support both single object
  * and multipart upload requests.
  *
- * @public
+ * @alpha
  */
 export type UploadRequest = PutObjectCommandInput & CreateMultipartUploadCommandInput;
 
@@ -62,7 +62,7 @@ export type UploadRequest = PutObjectCommandInput & CreateMultipartUploadCommand
  * Uses union because the responses can vary from single object upload response to multipart upload
  * response depending on the request.
  *
- * @public
+ * @alpha
  */
 export type UploadResponse = PutObjectCommandOutput | CompleteMultipartUploadCommandOutput;
 
@@ -70,7 +70,7 @@ export type UploadResponse = PutObjectCommandOutput | CompleteMultipartUploadCom
  * Features the same properties as SDK JS S3 Command GetObjectCommandInput.
  * Created to standardize naming convention for TM APIs.
  *
- * @public
+ * @alpha
  */
 export type DownloadRequest = GetObjectCommandInput;
 
@@ -78,7 +78,7 @@ export type DownloadRequest = GetObjectCommandInput;
  * Features the same properties as SDK JS S3 Command GetObjectCommandOutput.
  * Created to standardize naming convention for TM APIs.
  *
- * @public
+ * @alpha
  */
 export type DownloadResponse = GetObjectCommandOutput;
 
@@ -87,7 +87,7 @@ export type DownloadResponse = GetObjectCommandOutput;
  *
  * @property eventListeners - Collection of callbacks for monitoring transfer lifecycle events
  *
- * @public
+ * @alpha
  */
 export type TransferOptions = HttpHandlerOptions & { eventListeners?: TransferEventListeners };
 
@@ -99,7 +99,7 @@ export type TransferOptions = HttpHandlerOptions & { eventListeners?: TransferEv
  * Implements an event-based progress tracking system with methods to register,
  * dispatch, and remove listeners for transfer lifecycle events.
  *
- * @public
+ * @alpha
  */
 export interface IS3TransferManager {
   /**
@@ -194,7 +194,7 @@ export interface IS3TransferManager {
    * @param callback - Function to execute when the specified event occurs.
    * @param options - Optional configuration for event listener behavior.
    *
-   * @public
+   * @alpha
    */
   addEventListener(
     type: "transferInitiated",
@@ -225,7 +225,7 @@ export interface IS3TransferManager {
    * @param event - The event object to dispatch.
    * @returns whether the event ran to completion
    *
-   * @public
+   * @alpha
    */
   dispatchEvent(event: Event & TransferEvent): boolean;
   dispatchEvent(event: Event & TransferCompleteEvent): boolean;
@@ -239,7 +239,7 @@ export interface IS3TransferManager {
    * @param callback - The function that was previously registered.
    * @param options - Optional configuration for the event listener.
    *
-   * @public
+   * @alpha
    */
   removeEventListener(
     type: "transferInitiated",
@@ -267,7 +267,7 @@ export interface IS3TransferManager {
 /**
  * Provides a snapshot of the progress during a single object transfer.
  *
- * @public
+ * @alpha
  */
 export interface SingleObjectProgressSnapshot {
   transferredBytes: number;
@@ -278,7 +278,7 @@ export interface SingleObjectProgressSnapshot {
 /**
  * Provides a snapshot of the progress during a directory transfer.
  *
- * @public
+ * @alpha
  */
 export interface DirectoryProgressSnapshot {
   transferredBytes: number;
@@ -290,7 +290,7 @@ export interface DirectoryProgressSnapshot {
 /**
  * Progress snapshot for either single object transfers or directory transfers.
  *
- * @public
+ * @alpha
  */
 export type TransferProgressSnapshot = SingleObjectProgressSnapshot | DirectoryProgressSnapshot;
 
@@ -298,7 +298,7 @@ export type TransferProgressSnapshot = SingleObjectProgressSnapshot | DirectoryP
  * Event interface for transfer progress events.
  * Used for tracking ongoing transfers with the original request and progress snapshot.
  *
- * @public
+ * @alpha
  */
 export interface TransferEvent extends Event {
   request: UploadRequest | DownloadRequest;
@@ -309,7 +309,7 @@ export interface TransferEvent extends Event {
  * Event interface for transfer completion.
  * Extends TransferEvent with response data that is received after a completed transfer.
  *
- * @public
+ * @alpha
  */
 export interface TransferCompleteEvent extends TransferEvent {
   response: UploadResponse | DownloadResponse;
@@ -319,7 +319,7 @@ export interface TransferCompleteEvent extends TransferEvent {
  * Collection of event handlers to monitor transfer lifecycle events.
  * Allows a way to register callbacks for each stage of the transfer process.
  *
- * @public
+ * @alpha
  */
 export interface TransferEventListeners {
   transferInitiated?: EventListener<TransferEvent>[];
@@ -331,7 +331,7 @@ export interface TransferEventListeners {
 /**
  * Event listener type.
  *
- * @public
+ * @alpha
  */
 export interface JoinStreamIterationEvents {
   onBytes?: (byteLength: number, index: number) => void;

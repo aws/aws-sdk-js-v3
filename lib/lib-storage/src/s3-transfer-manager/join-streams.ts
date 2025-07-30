@@ -5,6 +5,8 @@ import { Readable } from "stream";
 import { JoinStreamIterationEvents } from "./types";
 
 /**
+ * Joins multiple stream promises into a single stream with event callbacks.
+ *
  * @internal
  */
 export async function joinStreams(
@@ -31,6 +33,8 @@ export async function joinStreams(
 }
 
 /**
+ * Iterates through stream promises sequentially, yielding chunks with progress tracking.
+ *
  * @internal
  */
 export async function* iterateStreams(
