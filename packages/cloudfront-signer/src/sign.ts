@@ -1,5 +1,7 @@
 import { createSign } from "crypto";
 
+import { getPathnameWithDots } from "./getPathnameWithDots";
+
 /**
  * Input type to getSignedUrl and getSignedCookies.
  * @public
@@ -137,6 +139,7 @@ export function getSignedUrl({
   }
 
   const newURL = new URL(baseUrl!);
+  newURL.pathname = getPathnameWithDots(baseUrl!);
   newURL.search = Array.from(newURL.searchParams.entries())
     .concat(Object.entries(cloudfrontSignBuilder.createCloudfrontAttribute()))
     .filter(([, value]) => value !== undefined)

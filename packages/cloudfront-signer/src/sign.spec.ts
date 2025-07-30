@@ -369,14 +369,9 @@ describe("getSignedUrl", () => {
 
   describe("should not normalize the URL", () => {
     it.each([".", ".."])("with '%s'", (folderName) => {
-      const urlWithFolderName = `https://d111111abcdef8.cloudfront.net/public-content/${folderName}/private-content/private.jpeg`;
+      const urlWithFolderName = `https://d1234.cloudfront.net/public-content/${folderName}/private-content/private.jpeg`;
       const policy = JSON.stringify({ Statement: [{ Resource: urlWithFolderName }] });
-      const result = getSignedUrl({
-        keyPairId,
-        privateKey,
-        policy,
-        passphrase,
-      });
+      const result = getSignedUrl({ keyPairId, privateKey, policy, passphrase });
       const signature = createSignature(policy);
       expect(result.startsWith(urlWithFolderName)).toBeTruthy();
       const signatureQueryParam = denormalizeBase64(signature);
