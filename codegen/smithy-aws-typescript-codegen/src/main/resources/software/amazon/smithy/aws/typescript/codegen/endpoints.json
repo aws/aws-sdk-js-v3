@@ -20261,6 +20261,7 @@
           "endpoints": {
             "af-south-1": {},
             "ap-east-1": {},
+            "ap-east-2": {},
             "ap-northeast-1": {},
             "ap-northeast-2": {},
             "ap-northeast-3": {},
@@ -43565,6 +43566,12 @@
             "us-iso-west-1": {}
           }
         },
+        "servicequotas": {
+          "endpoints": {
+            "us-iso-east-1": {},
+            "us-iso-west-1": {}
+          }
+        },
         "snowball": {
           "endpoints": {
             "us-iso-east-1": {},
@@ -44569,6 +44576,11 @@
           }
         },
         "servicediscovery": {
+          "endpoints": {
+            "us-isob-east-1": {}
+          }
+        },
+        "servicequotas": {
           "endpoints": {
             "us-isob-east-1": {}
           }
