@@ -11,6 +11,8 @@ import {
   parseBoolean as __parseBoolean,
   parseRfc3339DateTimeWithOffset as __parseRfc3339DateTimeWithOffset,
   serializeDateTime as __serializeDateTime,
+  serializeFloat as __serializeFloat,
+  strictParseFloat as __strictParseFloat,
   strictParseInt32 as __strictParseInt32,
   withBaseException,
 } from "@smithy/smithy-client";
@@ -377,6 +379,9 @@ import {
   RestoreDBClusterFromSnapshotResult,
   RestoreDBClusterToPointInTimeMessage,
   RestoreDBClusterToPointInTimeResult,
+  ServerlessV2FeaturesSupport,
+  ServerlessV2ScalingConfiguration,
+  ServerlessV2ScalingConfigurationInfo,
   SharedSnapshotQuotaExceededFault,
   SnapshotQuotaExceededFault,
   SNSInvalidTopicFault,
@@ -3802,6 +3807,13 @@ const se_CreateDBClusterMessage = (input: CreateDBClusterMessage, context: __Ser
   if (input[_ST] != null) {
     entries[_ST] = input[_ST];
   }
+  if (input[_SVSC] != null) {
+    const memberEntries = se_ServerlessV2ScalingConfiguration(input[_SVSC], context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `ServerlessV2ScalingConfiguration.${key}`;
+      entries[loc] = value;
+    });
+  }
   if (input[_MMUP] != null) {
     entries[_MMUP] = input[_MMUP];
   }
@@ -4836,6 +4848,13 @@ const se_ModifyDBClusterMessage = (input: ModifyDBClusterMessage, context: __Ser
   if (input[_ST] != null) {
     entries[_ST] = input[_ST];
   }
+  if (input[_SVSC] != null) {
+    const memberEntries = se_ServerlessV2ScalingConfiguration(input[_SVSC], context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `ServerlessV2ScalingConfiguration.${key}`;
+      entries[loc] = value;
+    });
+  }
   if (input[_MMUP] != null) {
     entries[_MMUP] = input[_MMUP];
   }
@@ -5249,6 +5268,13 @@ const se_RestoreDBClusterFromSnapshotMessage = (
   if (input[_DBCPGN] != null) {
     entries[_DBCPGN] = input[_DBCPGN];
   }
+  if (input[_SVSC] != null) {
+    const memberEntries = se_ServerlessV2ScalingConfiguration(input[_SVSC], context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `ServerlessV2ScalingConfiguration.${key}`;
+      entries[loc] = value;
+    });
+  }
   if (input[_ST] != null) {
     entries[_ST] = input[_ST];
   }
@@ -5320,8 +5346,29 @@ const se_RestoreDBClusterToPointInTimeMessage = (
   if (input[_DP] != null) {
     entries[_DP] = input[_DP];
   }
+  if (input[_SVSC] != null) {
+    const memberEntries = se_ServerlessV2ScalingConfiguration(input[_SVSC], context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `ServerlessV2ScalingConfiguration.${key}`;
+      entries[loc] = value;
+    });
+  }
   if (input[_ST] != null) {
     entries[_ST] = input[_ST];
+  }
+  return entries;
+};
+
+/**
+ * serializeAws_queryServerlessV2ScalingConfiguration
+ */
+const se_ServerlessV2ScalingConfiguration = (input: ServerlessV2ScalingConfiguration, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input[_MC] != null) {
+    entries[_MC] = __serializeFloat(input[_MC]);
+  }
+  if (input[_MCa] != null) {
+    entries[_MCa] = __serializeFloat(input[_MCa]);
   }
   return entries;
 };
@@ -5853,6 +5900,9 @@ const de_DBCluster = (output: any, context: __SerdeContext): DBCluster => {
   if (output[_ST] != null) {
     contents[_ST] = __expectString(output[_ST]);
   }
+  if (output[_SVSC] != null) {
+    contents[_SVSC] = de_ServerlessV2ScalingConfigurationInfo(output[_SVSC], context);
+  }
   if (output[_MUS] != null) {
     contents[_MUS] = de_ClusterMasterUserSecret(output[_MUS], context);
   }
@@ -6268,6 +6318,9 @@ const de_DBEngineVersion = (output: any, context: __SerdeContext): DBEngineVersi
   }
   if (output[_SCRWR] != null) {
     contents[_SCRWR] = __parseBoolean(output[_SCRWR]);
+  }
+  if (output[_SVFS] != null) {
+    contents[_SVFS] = de_ServerlessV2FeaturesSupport(output[_SVFS], context);
   }
   return contents;
 };
@@ -7800,6 +7853,37 @@ const de_RestoreDBClusterToPointInTimeResult = (
 };
 
 /**
+ * deserializeAws_queryServerlessV2FeaturesSupport
+ */
+const de_ServerlessV2FeaturesSupport = (output: any, context: __SerdeContext): ServerlessV2FeaturesSupport => {
+  const contents: any = {};
+  if (output[_MC] != null) {
+    contents[_MC] = __strictParseFloat(output[_MC]) as number;
+  }
+  if (output[_MCa] != null) {
+    contents[_MCa] = __strictParseFloat(output[_MCa]) as number;
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_queryServerlessV2ScalingConfigurationInfo
+ */
+const de_ServerlessV2ScalingConfigurationInfo = (
+  output: any,
+  context: __SerdeContext
+): ServerlessV2ScalingConfigurationInfo => {
+  const contents: any = {};
+  if (output[_MC] != null) {
+    contents[_MC] = __strictParseFloat(output[_MC]) as number;
+  }
+  if (output[_MCa] != null) {
+    contents[_MCa] = __strictParseFloat(output[_MCa]) as number;
+  }
+  return contents;
+};
+
+/**
  * deserializeAws_querySharedSnapshotQuotaExceededFault
  */
 const de_SharedSnapshotQuotaExceededFault = (
@@ -8322,6 +8406,8 @@ const _LTTD = "LogTypesToDisable";
 const _LTTE = "LogTypesToEnable";
 const _M = "Marker";
 const _MAZ = "MultiAZ";
+const _MC = "MinCapacity";
+const _MCa = "MaxCapacity";
 const _MDBC = "ModifyDBCluster";
 const _MDBCPG = "ModifyDBClusterParameterGroup";
 const _MDBCSA = "ModifyDBClusterSnapshotAttribute";
@@ -8420,6 +8506,8 @@ const _STn = "SnapshotType";
 const _STo = "SourceType";
 const _STt = "StartTime";
 const _STta = "StatusType";
+const _SVFS = "ServerlessV2FeaturesSupport";
+const _SVSC = "ServerlessV2ScalingConfiguration";
 const _St = "Status";
 const _Su = "Subnets";
 const _Sub = "Subnet";

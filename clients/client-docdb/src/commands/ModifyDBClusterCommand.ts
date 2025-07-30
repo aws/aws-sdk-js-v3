@@ -62,6 +62,10 @@ export interface ModifyDBClusterCommandOutput extends ModifyDBClusterResult, __M
  *   AllowMajorVersionUpgrade: true || false,
  *   DeletionProtection: true || false,
  *   StorageType: "STRING_VALUE",
+ *   ServerlessV2ScalingConfiguration: { // ServerlessV2ScalingConfiguration
+ *     MinCapacity: Number("double"),
+ *     MaxCapacity: Number("double"),
+ *   },
  *   ManageMasterUserPassword: true || false,
  *   MasterUserSecretKmsKeyId: "STRING_VALUE",
  *   RotateMasterUserPassword: true || false,
@@ -126,6 +130,10 @@ export interface ModifyDBClusterCommandOutput extends ModifyDBClusterResult, __M
  * //     ],
  * //     DeletionProtection: true || false,
  * //     StorageType: "STRING_VALUE",
+ * //     ServerlessV2ScalingConfiguration: { // ServerlessV2ScalingConfigurationInfo
+ * //       MinCapacity: Number("double"),
+ * //       MaxCapacity: Number("double"),
+ * //     },
  * //     MasterUserSecret: { // ClusterMasterUserSecret
  * //       SecretArn: "STRING_VALUE",
  * //       SecretStatus: "STRING_VALUE",

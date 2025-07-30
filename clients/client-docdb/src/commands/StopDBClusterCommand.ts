@@ -101,6 +101,10 @@ export interface StopDBClusterCommandOutput extends StopDBClusterResult, __Metad
  * //     ],
  * //     DeletionProtection: true || false,
  * //     StorageType: "STRING_VALUE",
+ * //     ServerlessV2ScalingConfiguration: { // ServerlessV2ScalingConfigurationInfo
+ * //       MinCapacity: Number("double"),
+ * //       MaxCapacity: Number("double"),
+ * //     },
  * //     MasterUserSecret: { // ClusterMasterUserSecret
  * //       SecretArn: "STRING_VALUE",
  * //       SecretStatus: "STRING_VALUE",

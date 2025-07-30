@@ -81,6 +81,10 @@ export interface DescribeDBEngineVersionsCommandOutput extends DBEngineVersionMe
  * //         "STRING_VALUE",
  * //       ],
  * //       SupportsCertificateRotationWithoutRestart: true || false,
+ * //       ServerlessV2FeaturesSupport: { // ServerlessV2FeaturesSupport
+ * //         MinCapacity: Number("double"),
+ * //         MaxCapacity: Number("double"),
+ * //       },
  * //     },
  * //   ],
  * // };

@@ -64,6 +64,10 @@ export interface RestoreDBClusterFromSnapshotCommandOutput
  *   ],
  *   DeletionProtection: true || false,
  *   DBClusterParameterGroupName: "STRING_VALUE",
+ *   ServerlessV2ScalingConfiguration: { // ServerlessV2ScalingConfiguration
+ *     MinCapacity: Number("double"),
+ *     MaxCapacity: Number("double"),
+ *   },
  *   StorageType: "STRING_VALUE",
  * };
  * const command = new RestoreDBClusterFromSnapshotCommand(input);
@@ -126,6 +130,10 @@ export interface RestoreDBClusterFromSnapshotCommandOutput
  * //     ],
  * //     DeletionProtection: true || false,
  * //     StorageType: "STRING_VALUE",
+ * //     ServerlessV2ScalingConfiguration: { // ServerlessV2ScalingConfigurationInfo
+ * //       MinCapacity: Number("double"),
+ * //       MaxCapacity: Number("double"),
+ * //     },
  * //     MasterUserSecret: { // ClusterMasterUserSecret
  * //       SecretArn: "STRING_VALUE",
  * //       SecretStatus: "STRING_VALUE",

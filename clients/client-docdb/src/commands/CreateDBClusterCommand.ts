@@ -68,6 +68,10 @@ export interface CreateDBClusterCommandOutput extends CreateDBClusterResult, __M
  *   DeletionProtection: true || false,
  *   GlobalClusterIdentifier: "STRING_VALUE",
  *   StorageType: "STRING_VALUE",
+ *   ServerlessV2ScalingConfiguration: { // ServerlessV2ScalingConfiguration
+ *     MinCapacity: Number("double"),
+ *     MaxCapacity: Number("double"),
+ *   },
  *   ManageMasterUserPassword: true || false,
  *   MasterUserSecretKmsKeyId: "STRING_VALUE",
  * };
@@ -131,6 +135,10 @@ export interface CreateDBClusterCommandOutput extends CreateDBClusterResult, __M
  * //     ],
  * //     DeletionProtection: true || false,
  * //     StorageType: "STRING_VALUE",
+ * //     ServerlessV2ScalingConfiguration: { // ServerlessV2ScalingConfigurationInfo
+ * //       MinCapacity: Number("double"),
+ * //       MaxCapacity: Number("double"),
+ * //     },
  * //     MasterUserSecret: { // ClusterMasterUserSecret
  * //       SecretArn: "STRING_VALUE",
  * //       SecretStatus: "STRING_VALUE",

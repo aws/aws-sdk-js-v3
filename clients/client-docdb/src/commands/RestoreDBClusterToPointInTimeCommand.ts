@@ -66,6 +66,10 @@ export interface RestoreDBClusterToPointInTimeCommandOutput
  *     "STRING_VALUE",
  *   ],
  *   DeletionProtection: true || false,
+ *   ServerlessV2ScalingConfiguration: { // ServerlessV2ScalingConfiguration
+ *     MinCapacity: Number("double"),
+ *     MaxCapacity: Number("double"),
+ *   },
  *   StorageType: "STRING_VALUE",
  * };
  * const command = new RestoreDBClusterToPointInTimeCommand(input);
@@ -128,6 +132,10 @@ export interface RestoreDBClusterToPointInTimeCommandOutput
  * //     ],
  * //     DeletionProtection: true || false,
  * //     StorageType: "STRING_VALUE",
+ * //     ServerlessV2ScalingConfiguration: { // ServerlessV2ScalingConfigurationInfo
+ * //       MinCapacity: Number("double"),
+ * //       MaxCapacity: Number("double"),
+ * //     },
  * //     MasterUserSecret: { // ClusterMasterUserSecret
  * //       SecretArn: "STRING_VALUE",
  * //       SecretStatus: "STRING_VALUE",

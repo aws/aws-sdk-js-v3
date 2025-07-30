@@ -860,7 +860,7 @@ export interface DBClusterSnapshot {
   SourceDBClusterSnapshotArn?: string | undefined;
 
   /**
-   * <p>Storage type associated with your cluster snapshot </p>
+   * <p>Storage type associated with your cluster snapshot</p>
    *          <p>For information on storage types for Amazon DocumentDB clusters, see
    *             Cluster storage configurations in the <i>Amazon DocumentDB Developer Guide</i>.</p>
    *          <p>Valid values for storage type - <code>standard | iopt1</code>
@@ -982,6 +982,26 @@ export class SnapshotQuotaExceededFault extends __BaseException {
     });
     Object.setPrototypeOf(this, SnapshotQuotaExceededFault.prototype);
   }
+}
+
+/**
+ * <p>Sets the scaling configuration of an Amazon DocumentDB Serverless cluster.</p>
+ * @public
+ */
+export interface ServerlessV2ScalingConfiguration {
+  /**
+   * <p>The minimum number of Amazon DocumentDB capacity units (DCUs) for an instance in an Amazon DocumentDB Serverless cluster.
+   *             You can specify DCU values in half-step increments, such as 8, 8.5, 9, and so on.</p>
+   * @public
+   */
+  MinCapacity?: number | undefined;
+
+  /**
+   * <p>The maximum number of Amazon DocumentDB capacity units (DCUs) for an instance in an Amazon DocumentDB Serverless cluster.
+   *             You can specify DCU values in half-step increments, such as 32, 32.5, 33, and so on.</p>
+   * @public
+   */
+  MaxCapacity?: number | undefined;
 }
 
 /**
@@ -1224,6 +1244,12 @@ export interface CreateDBClusterMessage {
   StorageType?: string | undefined;
 
   /**
+   * <p>Contains the scaling configuration of an Amazon DocumentDB Serverless cluster.</p>
+   * @public
+   */
+  ServerlessV2ScalingConfiguration?: ServerlessV2ScalingConfiguration | undefined;
+
+  /**
    * <p>Specifies whether to manage the master user password with Amazon Web Services Secrets Manager.</p>
    *          <p>Constraint: You can't manage the master user password with Amazon Web Services Secrets Manager if <code>MasterUserPassword</code> is specified.</p>
    * @public
@@ -1351,6 +1377,26 @@ export interface ClusterMasterUserSecret {
    * @public
    */
   KmsKeyId?: string | undefined;
+}
+
+/**
+ * <p>Retrieves the scaling configuration for an Amazon DocumentDB Serverless cluster.</p>
+ * @public
+ */
+export interface ServerlessV2ScalingConfigurationInfo {
+  /**
+   * <p>The minimum number of Amazon DocumentDB capacity units (DCUs) for an instance in an Amazon DocumentDB Serverless cluster.
+   *             You can specify DCU values in half-step increments, such as 8, 8.5, 9, and so on.</p>
+   * @public
+   */
+  MinCapacity?: number | undefined;
+
+  /**
+   * <p>The maximum number of Amazon DocumentDB capacity units (DCUs) for an instance in an Amazon DocumentDB Serverless cluster.
+   *             You can specify DCU values in half-step increments, such as 32, 32.5, 33, and so on. </p>
+   * @public
+   */
+  MaxCapacity?: number | undefined;
 }
 
 /**
@@ -1586,7 +1632,6 @@ export interface DBCluster {
 
   /**
    * <p>Storage type associated with your cluster</p>
-   *          <p>Storage type associated with your cluster</p>
    *          <p>For information on storage types for Amazon DocumentDB clusters, see
    *             Cluster storage configurations in the <i>Amazon DocumentDB Developer Guide</i>.</p>
    *          <p>Valid values for storage type - <code>standard | iopt1</code>
@@ -1596,6 +1641,12 @@ export interface DBCluster {
    * @public
    */
   StorageType?: string | undefined;
+
+  /**
+   * <p>The scaling configuration of an Amazon DocumentDB Serverless cluster.</p>
+   * @public
+   */
+  ServerlessV2ScalingConfiguration?: ServerlessV2ScalingConfigurationInfo | undefined;
 
   /**
    * <p>The secret managed by Amazon DocumentDB in Amazon Web Services Secrets Manager for the master user password.</p>
@@ -3090,7 +3141,7 @@ export interface GlobalClusterMember {
   DBClusterArn?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) for each read-only secondary cluster associated with the Aurora global cluster.</p>
+   * <p>The Amazon Resource Name (ARN) for each read-only secondary cluster associated with the Amazon DocumentDB global cluster.</p>
    * @public
    */
   Readers?: string[] | undefined;
@@ -3114,7 +3165,8 @@ export interface GlobalCluster {
   GlobalClusterIdentifier?: string | undefined;
 
   /**
-   * <p>The Amazon Web Services Region-unique, immutable identifier for the global database cluster. This identifier is found in CloudTrail log entries whenever the KMS customer master key (CMK) for the cluster is accessed. </p>
+   * <p>The Amazon Web Services RegionRegion-unique, immutable identifier for the global database cluster.
+   *             This identifier is found in CloudTrail log entries whenever the KMS customer master key (CMK) for the cluster is accessed. </p>
    * @public
    */
   GlobalClusterResourceId?: string | undefined;
@@ -4126,6 +4178,28 @@ export interface DescribeDBClusterSnapshotsMessage {
 }
 
 /**
+ * <p>Specifies any Amazon DocumentDB Serverless properties or limits that differ between Amazon DocumentDB engine versions.
+ *             You can test the values of this attribute when deciding which Amazon DocumentDB version to use in a new or upgraded cluster.
+ *             You can also retrieve the version of an existing cluster and check whether that version supports certain Amazon DocumentDB Serverless features before you attempt to use those features.</p>
+ * @public
+ */
+export interface ServerlessV2FeaturesSupport {
+  /**
+   * <p>The minimum number of Amazon DocumentDB capacity units (DCUs) for an instance in an Amazon DocumentDB Serverless cluster.
+   *             You can specify DCU values in half-step increments, such as 8, 8.5, 9, and so on.</p>
+   * @public
+   */
+  MinCapacity?: number | undefined;
+
+  /**
+   * <p>The maximum number of Amazon DocumentDB capacity units (DCUs) for an instance in an Amazon DocumentDB Serverless cluster.
+   *             You can specify DCU values in half-step increments, such as 32, 32.5, 33, and so on.</p>
+   * @public
+   */
+  MaxCapacity?: number | undefined;
+}
+
+/**
  * <p>The version of the database engine that an instance can be upgraded to.</p>
  * @public
  */
@@ -4234,6 +4308,14 @@ export interface DBEngineVersion {
    * @public
    */
   SupportsCertificateRotationWithoutRestart?: boolean | undefined;
+
+  /**
+   * <p>Specifies any Amazon DocumentDB Serverless properties or limits that differ between Amazon DocumentDB engine versions.
+   *             You can test the values of this attribute when deciding which Amazon DocumentDB version to use in a new or upgraded cluster.
+   *             You can also retrieve the version of an existing cluster and check whether that version supports certain Amazon DocumentDB Serverless features before you attempt to use those features.</p>
+   * @public
+   */
+  ServerlessV2FeaturesSupport?: ServerlessV2FeaturesSupport | undefined;
 }
 
 /**
@@ -5450,6 +5532,12 @@ export interface ModifyDBClusterMessage {
   StorageType?: string | undefined;
 
   /**
+   * <p>Contains the scaling configuration of an Amazon DocumentDB Serverless cluster.</p>
+   * @public
+   */
+  ServerlessV2ScalingConfiguration?: ServerlessV2ScalingConfiguration | undefined;
+
+  /**
    * <p>Specifies whether to manage the master user password with Amazon Web Services Secrets Manager.
    *             If the cluster doesn't manage the master user password with Amazon Web Services Secrets Manager, you can turn on this management.
    *             In this case, you can't specify <code>MasterUserPassword</code>.
@@ -6291,6 +6379,12 @@ export interface RestoreDBClusterFromSnapshotMessage {
   DBClusterParameterGroupName?: string | undefined;
 
   /**
+   * <p>Contains the scaling configuration of an Amazon DocumentDB Serverless cluster.</p>
+   * @public
+   */
+  ServerlessV2ScalingConfiguration?: ServerlessV2ScalingConfiguration | undefined;
+
+  /**
    * <p>The storage type to associate with the DB cluster.</p>
    *          <p>For information on storage types for Amazon DocumentDB clusters, see
    *             Cluster storage configurations in the <i>Amazon DocumentDB Developer Guide</i>.</p>
@@ -6466,6 +6560,12 @@ export interface RestoreDBClusterToPointInTimeMessage {
    * @public
    */
   DeletionProtection?: boolean | undefined;
+
+  /**
+   * <p>Contains the scaling configuration of an Amazon DocumentDB Serverless cluster.</p>
+   * @public
+   */
+  ServerlessV2ScalingConfiguration?: ServerlessV2ScalingConfiguration | undefined;
 
   /**
    * <p>The storage type to associate with the DB cluster.</p>
