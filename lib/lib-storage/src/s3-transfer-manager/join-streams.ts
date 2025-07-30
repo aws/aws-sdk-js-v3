@@ -25,6 +25,8 @@ export async function joinStreams(
     });
     return sdkStreamMixin(newReadableStream);
   } else {
+    // TODO: The following line is a temp fix to handle error thrown in async iterable.
+    // We should find a better solution to improve performance.
     await Promise.all(streams);
     return sdkStreamMixin(Readable.from(iterateStreams(streams, eventListeners)));
   }
