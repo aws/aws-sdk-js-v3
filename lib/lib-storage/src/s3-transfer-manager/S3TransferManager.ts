@@ -74,6 +74,16 @@ export class S3TransferManager implements IS3TransferManager {
     this.validateConfig();
   }
 
+  /**
+   * Registers a callback function to be executed when a specific transfer event occurs.
+   * Supports monitoring the full lifecycle of transfers.
+   *
+   * @param type - The type of event to listen for.
+   * @param callback - Function to execute when the specified event occurs.
+   * @param options - Optional configuration for event listener behavior.
+   *
+   * @alpha
+   */
   public addEventListener(
     type: "transferInitiated",
     callback: EventListener<TransferEvent>,
@@ -95,16 +105,6 @@ export class S3TransferManager implements IS3TransferManager {
     options?: AddEventListenerOptions | boolean
   ): void;
   public addEventListener(type: string, callback: EventListener, options?: AddEventListenerOptions | boolean): void;
-  /**
-   * Registers a callback function to be executed when a specific transfer event occurs.
-   * Supports monitoring the full lifecycle of transfers.
-   *
-   * @param type - The type of event to listen for.
-   * @param callback - Function to execute when the specified event occurs.
-   * @param options - Optional configuration for event listener behavior.
-   *
-   * @alpha
-   */
   public addEventListener(type: string, callback: EventListener, options?: AddEventListenerOptions | boolean): void {
     const eventType = type as keyof TransferEventListeners;
     const listeners = this.eventListeners[eventType];
@@ -144,9 +144,6 @@ export class S3TransferManager implements IS3TransferManager {
     listeners.push(updatedCallback);
   }
 
-  public dispatchEvent(event: Event & TransferEvent): boolean;
-  public dispatchEvent(event: Event & TransferCompleteEvent): boolean;
-  public dispatchEvent(event: Event): boolean;
   /**
    * Dispatches an event to the registered event listeners.
    * Triggers callbacks registered via addEventListener with matching event types.
@@ -156,6 +153,9 @@ export class S3TransferManager implements IS3TransferManager {
    *
    * @alpha
    */
+  public dispatchEvent(event: Event & TransferEvent): boolean;
+  public dispatchEvent(event: Event & TransferCompleteEvent): boolean;
+  public dispatchEvent(event: Event): boolean;
   public dispatchEvent(event: Event): boolean {
     const eventType = event.type;
     const listeners = this.eventListeners[eventType as keyof TransferEventListeners] as EventListener[];
@@ -172,6 +172,16 @@ export class S3TransferManager implements IS3TransferManager {
     return true;
   }
 
+  /**
+   * Removes a previously registered event listener from the specified event type.
+   * Stops the callback from being invoked when the event occurs.
+   *
+   * @param type - The type of event to stop listening for.
+   * @param callback - The function that was previously registered.
+   * @param options - Optional configuration for the event listener.
+   *
+   * @alpha
+   */
   public removeEventListener(
     type: "transferInitiated",
     callback: EventListener<TransferEvent>,
@@ -197,16 +207,6 @@ export class S3TransferManager implements IS3TransferManager {
     callback: EventListener,
     options?: RemoveEventListenerOptions | boolean
   ): void;
-  /**
-   * Removes a previously registered event listener from the specified event type.
-   * Stops the callback from being invoked when the event occurs.
-   *
-   * @param type - The type of event to stop listening for.
-   * @param callback - The function that was previously registered.
-   * @param options - Optional configuration for the event listener.
-   *
-   * @alpha
-   */
   public removeEventListener(
     type: string,
     callback: EventListener,
@@ -346,7 +346,7 @@ export class S3TransferManager implements IS3TransferManager {
    *
    * @param options - Configuration including bucket, source directory, filtering, failure handling, and transfer settings.
    *
-   * @returns the number of objects that have been uploaded and the number of objects that have failed
+   * @returns the number of objects that have been uploaded and the number of objects that have failed.
    *
    * @alpha
    */
@@ -371,7 +371,7 @@ export class S3TransferManager implements IS3TransferManager {
    *
    * @param options - Configuration including bucket, destination directory, filtering, failure handling, and transfer settings.
    *
-   * @returns The number of objects that have been downloaded and the number of objects that have failed
+   * @returns The number of objects that have been downloaded and the number of objects that have failed.
    *
    * @alpha
    */
@@ -728,7 +728,7 @@ export class S3TransferManager implements IS3TransferManager {
   }
 
   /**
-   * Validates configuration parameters meet minimum requirements.
+   * Validates if configuration parameters meets minimum requirements.
    *
    * @internal
    */
