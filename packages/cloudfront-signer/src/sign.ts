@@ -136,14 +136,14 @@ export function getSignedUrl({
     baseUrl = resources[0].replace("*://", "https://");
   }
 
-  const newURL = new URL(baseUrl!);
-  newURL.search = Array.from(newURL.searchParams.entries())
-    .concat(Object.entries(cloudfrontSignBuilder.createCloudfrontAttribute()))
+  const startFlag = baseUrl!.includes("?") ? "&" : "?";
+  const params = Object.entries(cloudfrontSignBuilder.createCloudfrontAttribute())
     .filter(([, value]) => value !== undefined)
     .map(([key, value]) => `${encodeURIComponent(key)}=${encodeURIComponent(value)}`)
     .join("&");
+  const urlString = baseUrl + startFlag + params;
 
-  return getResource(newURL);
+  return getResource(urlString);
 }
 
 /**
@@ -249,14 +249,16 @@ function getPolicyResources(policy: string | Policy) {
 /**
  * @internal
  */
-function getResource(url: URL): string {
-  switch (url.protocol) {
+function getResource(urlString: string): string {
+  const protocol = urlString.slice(0, urlString.indexOf("//"));
+  switch (protocol) {
     case "http:":
     case "https:":
     case "ws:":
     case "wss:":
-      return url.toString();
+      return urlString;
     case "rtmp:":
+      const url = new URL(urlString);
       return url.pathname.replace(/^\//, "") + url.search + url.hash;
     default:
       throw new Error("Invalid URI scheme. Scheme must be one of http, https, or rtmp");
@@ -420,7 +422,7 @@ class CloudfrontSignBuilder {
     if (!url || !dateLessThan) {
       return false;
     }
-    const resource = getResource(new URL(url));
+    const resource = getResource(url);
     const parsedDates = this.parseDateWindow(dateLessThan, dateGreaterThan);
     this.dateLessThan = parsedDates.dateLessThan;
     this.customPolicy = Boolean(parsedDates.dateGreaterThan) || Boolean(ipAddress);
