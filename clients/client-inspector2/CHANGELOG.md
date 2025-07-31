@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.858.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.857.0...v3.858.0) (2025-07-31)
+
+
+### Features
+
+* **client-inspector2:** Extend usage to include agentless hours and add CODE_REPOSITORY to aggregation resource type ([91553bb](https://github.com/aws/aws-sdk-js-v3/commit/91553bb91c516ccb4327b385277fffdbf0f5efe5))
+
+
+
+
+
 # [3.857.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.856.0...v3.857.0) (2025-07-30)
 
 **Note:** Version bump only for package @aws-sdk/client-inspector2

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.858.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.857.0...v3.858.0) (2025-07-31)
+
+
+### Features
+
+* **client-entityresolution:** Add support for creating advanced rule-based matching workflows in AWS Entity Resolution. ([f36fbb4](https://github.com/aws/aws-sdk-js-v3/commit/f36fbb4058bb8402440450e4f65327d562147b9f))
+
+
+
+
+
 # [3.857.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.856.0...v3.857.0) (2025-07-30)
 
 **Note:** Version bump only for package @aws-sdk/client-entityresolution

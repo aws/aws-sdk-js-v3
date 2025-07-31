@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.858.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.857.0...v3.858.0) (2025-07-31)
+
+
+### Features
+
+* **client-opensearch:** Granular access control support for NEO-SAML with IAMFederation for AOS data source ([026ef65](https://github.com/aws/aws-sdk-js-v3/commit/026ef659f2bd3a528bf44061cf993cb3f902b702))
+
+
+
+
+
 # [3.857.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.856.0...v3.857.0) (2025-07-30)
 
 **Note:** Version bump only for package @aws-sdk/client-opensearch

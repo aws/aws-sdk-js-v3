@@ -3,6 +3,33 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.858.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.857.0...v3.858.0) (2025-07-31)
+
+
+### Bug Fixes
+
+* **cloudfront-signer:** do not use URL Object ([#7237](https://github.com/aws/aws-sdk-js-v3/issues/7237)) ([5a421d4](https://github.com/aws/aws-sdk-js-v3/commit/5a421d48a47cb30c69803a23abfdd2714009efac))
+
+
+### Features
+
+* **client-customer-profiles:** The release updates standard profile with 2 new fields that supports account-level engagement. Updated APIs include CreateProfile, UpdateProfile, MergeProfiles, SearchProfiles, BatchGetProfile, GetSegmentMembership, CreateSegmentDefinition, CreateSegmentEstimate. ([04e0957](https://github.com/aws/aws-sdk-js-v3/commit/04e0957b70e97aa2d8be423b0d1b381e8707cb7f))
+* **client-ec2:** Added support for the force option for the EC2 instance terminate command. This feature enables customers to recover resources associated with an instance stuck in the shutting-down state as a result of rare issues caused by a frozen operating system or an underlying hardware problem. ([d8adec8](https://github.com/aws/aws-sdk-js-v3/commit/d8adec80ddedc6a3c8d40a1ca6a9fd3cacb2ab85))
+* **client-entityresolution:** Add support for creating advanced rule-based matching workflows in AWS Entity Resolution. ([f36fbb4](https://github.com/aws/aws-sdk-js-v3/commit/f36fbb4058bb8402440450e4f65327d562147b9f))
+* **client-glue:** Added support for Route node, S3 Iceberg sources/targets, catalog Iceberg sources, DynamoDB ELT connector, AutoDataQuality evaluation, enhanced PII detection with redaction, Kinesis fan-out support, and new R-series worker types. ([3cf6f20](https://github.com/aws/aws-sdk-js-v3/commit/3cf6f20a56c23b3145966d968ea5c30cc63a68cf))
+* **client-inspector2:** Extend usage to include agentless hours and add CODE_REPOSITORY to aggregation resource type ([91553bb](https://github.com/aws/aws-sdk-js-v3/commit/91553bb91c516ccb4327b385277fffdbf0f5efe5))
+* **client-iot:** This release allows AWS IoT Core users to use their own AWS KMS keys for data protection ([c65f9ee](https://github.com/aws/aws-sdk-js-v3/commit/c65f9eec6ca1adee4a47ca5f85d957fba3da3935))
+* **client-opensearch:** Granular access control support for NEO-SAML with IAMFederation for AOS data source ([026ef65](https://github.com/aws/aws-sdk-js-v3/commit/026ef659f2bd3a528bf44061cf993cb3f902b702))
+* **client-quicksight:** Added Impala connector support ([1af8f7e](https://github.com/aws/aws-sdk-js-v3/commit/1af8f7e68b21d2e06927da32b418acb51323d40b))
+* **client-s3-control:** Add Tags field to CreateAccessPoint ([4e13ff3](https://github.com/aws/aws-sdk-js-v3/commit/4e13ff31dff017431e4f557ff1cfbe672d66b582))
+* **client-sesv2:** This release introduces support for Multi-tenant management ([41eae73](https://github.com/aws/aws-sdk-js-v3/commit/41eae73ba22f94029d70f2f1790821e4c5c55b24))
+* **client-workspaces-web:** Added ability to log session activity on a portal to an S3 bucket. ([1d75d43](https://github.com/aws/aws-sdk-js-v3/commit/1d75d4301ca79082989fb39022c7e93c2b9b7211))
+* **clients:** update client endpoints as of 2025-07-31 ([38d91b6](https://github.com/aws/aws-sdk-js-v3/commit/38d91b61bf94d1235d2b8dafb8d498e417652563))
+
+
+
+
+
 # [3.857.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.856.0...v3.857.0) (2025-07-30)
 
 

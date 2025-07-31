@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.858.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.857.0...v3.858.0) (2025-07-31)
+
+
+### Features
+
+* **client-glue:** Added support for Route node, S3 Iceberg sources/targets, catalog Iceberg sources, DynamoDB ELT connector, AutoDataQuality evaluation, enhanced PII detection with redaction, Kinesis fan-out support, and new R-series worker types. ([3cf6f20](https://github.com/aws/aws-sdk-js-v3/commit/3cf6f20a56c23b3145966d968ea5c30cc63a68cf))
+
+
+
+
+
 # [3.857.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.856.0...v3.857.0) (2025-07-30)
 
 **Note:** Version bump only for package @aws-sdk/client-glue

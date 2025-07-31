@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.858.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.857.0...v3.858.0) (2025-07-31)
+
+
+### Features
+
+* **client-workspaces-web:** Added ability to log session activity on a portal to an S3 bucket. ([1d75d43](https://github.com/aws/aws-sdk-js-v3/commit/1d75d4301ca79082989fb39022c7e93c2b9b7211))
+
+
+
+
+
 # [3.857.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.856.0...v3.857.0) (2025-07-30)
 
 **Note:** Version bump only for package @aws-sdk/client-workspaces-web
