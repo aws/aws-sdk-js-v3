@@ -167,6 +167,11 @@ export interface DeleteDomainCommandOutput extends DeleteDomainResponse, __Metad
  * //         RolesKey: "STRING_VALUE",
  * //         PublicKey: "STRING_VALUE",
  * //       },
+ * //       IAMFederationOptions: { // IAMFederationOptionsOutput
+ * //         Enabled: true || false,
+ * //         SubjectKey: "STRING_VALUE",
+ * //         RolesKey: "STRING_VALUE",
+ * //       },
  * //       AnonymousAuthDisableDate: new Date("TIMESTAMP"),
  * //       AnonymousAuthEnabled: true || false,
  * //     },

@@ -280,6 +280,7 @@ import {
   EncryptionAtRestOptions,
   EncryptionAtRestOptionsStatus,
   Filter,
+  IAMFederationOptionsInput,
   IamIdentityCenterOptionsInput,
   IdentityCenterOptionsInput,
   IdentityCenterOptionsStatus,
@@ -4032,6 +4033,8 @@ const se_AutoTuneOptionsInput = (input: AutoTuneOptionsInput, context: __SerdeCo
 
 // se_FilterList omitted.
 
+// se_IAMFederationOptionsInput omitted.
+
 // se_IamIdentityCenterOptionsInput omitted.
 
 // se_IdentityCenterOptionsInput omitted.
@@ -4142,6 +4145,7 @@ const de_AdvancedSecurityOptions = (output: any, context: __SerdeContext): Advan
     AnonymousAuthDisableDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     AnonymousAuthEnabled: __expectBoolean,
     Enabled: __expectBoolean,
+    IAMFederationOptions: _json,
     InternalUserDatabaseEnabled: __expectBoolean,
     JWTOptions: _json,
     SAMLOptions: _json,
@@ -4622,6 +4626,8 @@ const de_EncryptionAtRestOptionsStatus = (output: any, context: __SerdeContext):
 // de_ErrorDetails omitted.
 
 // de_GUIDList omitted.
+
+// de_IAMFederationOptionsOutput omitted.
 
 // de_IamIdentityCenterOptions omitted.
 

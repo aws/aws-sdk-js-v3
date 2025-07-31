@@ -5,8 +5,7 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ListDomainsForPackageRequest } from "../models/models_0";
-import { ListDomainsForPackageResponse } from "../models/models_1";
+import { ListDomainsForPackageRequest, ListDomainsForPackageResponse } from "../models/models_1";
 import { OpenSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpenSearchClient";
 import { de_ListDomainsForPackageCommand, se_ListDomainsForPackageCommand } from "../protocols/Aws_restJson1";
 

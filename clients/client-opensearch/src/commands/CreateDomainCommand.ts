@@ -141,6 +141,11 @@ export interface CreateDomainCommandOutput extends CreateDomainResponse, __Metad
  *       RolesKey: "STRING_VALUE",
  *       PublicKey: "STRING_VALUE",
  *     },
+ *     IAMFederationOptions: { // IAMFederationOptionsInput
+ *       Enabled: true || false,
+ *       SubjectKey: "STRING_VALUE",
+ *       RolesKey: "STRING_VALUE",
+ *     },
  *     AnonymousAuthEnabled: true || false,
  *   },
  *   IdentityCenterOptions: { // IdentityCenterOptionsInput
@@ -317,6 +322,11 @@ export interface CreateDomainCommandOutput extends CreateDomainResponse, __Metad
  * //         SubjectKey: "STRING_VALUE",
  * //         RolesKey: "STRING_VALUE",
  * //         PublicKey: "STRING_VALUE",
+ * //       },
+ * //       IAMFederationOptions: { // IAMFederationOptionsOutput
+ * //         Enabled: true || false,
+ * //         SubjectKey: "STRING_VALUE",
+ * //         RolesKey: "STRING_VALUE",
  * //       },
  * //       AnonymousAuthDisableDate: new Date("TIMESTAMP"),
  * //       AnonymousAuthEnabled: true || false,

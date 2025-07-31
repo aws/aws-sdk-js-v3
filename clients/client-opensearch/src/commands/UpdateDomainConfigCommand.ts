@@ -32,7 +32,8 @@ export interface UpdateDomainConfigCommandInput extends UpdateDomainConfigReques
 export interface UpdateDomainConfigCommandOutput extends UpdateDomainConfigResponse, __MetadataBearer {}
 
 /**
- * <p>Modifies the cluster configuration of the specified Amazon OpenSearch Service domain.</p>
+ * <p>Modifies the cluster configuration of the specified Amazon OpenSearch Service
+ *    domain.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -143,6 +144,11 @@ export interface UpdateDomainConfigCommandOutput extends UpdateDomainConfigRespo
  *       SubjectKey: "STRING_VALUE",
  *       RolesKey: "STRING_VALUE",
  *       PublicKey: "STRING_VALUE",
+ *     },
+ *     IAMFederationOptions: { // IAMFederationOptionsInput
+ *       Enabled: true || false,
+ *       SubjectKey: "STRING_VALUE",
+ *       RolesKey: "STRING_VALUE",
  *     },
  *     AnonymousAuthEnabled: true || false,
  *   },
@@ -364,6 +370,11 @@ export interface UpdateDomainConfigCommandOutput extends UpdateDomainConfigRespo
  * //           SubjectKey: "STRING_VALUE",
  * //           RolesKey: "STRING_VALUE",
  * //           PublicKey: "STRING_VALUE",
+ * //         },
+ * //         IAMFederationOptions: { // IAMFederationOptionsOutput
+ * //           Enabled: true || false,
+ * //           SubjectKey: "STRING_VALUE",
+ * //           RolesKey: "STRING_VALUE",
  * //         },
  * //         AnonymousAuthDisableDate: new Date("TIMESTAMP"),
  * //         AnonymousAuthEnabled: true || false,

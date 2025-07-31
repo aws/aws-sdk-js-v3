@@ -28,8 +28,8 @@ export interface DescribeDryRunProgressCommandInput extends DescribeDryRunProgre
 export interface DescribeDryRunProgressCommandOutput extends DescribeDryRunProgressResponse, __MetadataBearer {}
 
 /**
- * <p>Describes the progress of a pre-update dry run analysis on an Amazon OpenSearch Service
- *    domain. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/managedomains-configuration-changes#dryrun">Determining whether a change will cause a blue/green deployment</a>.</p>
+ * <p>Describes the progress of a pre-update dry run analysis on an Amazon OpenSearch
+ *    Service domain. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/managedomains-configuration-changes#dryrun">Determining whether a change will cause a blue/green deployment</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -180,6 +180,11 @@ export interface DescribeDryRunProgressCommandOutput extends DescribeDryRunProgr
  * //         SubjectKey: "STRING_VALUE",
  * //         RolesKey: "STRING_VALUE",
  * //         PublicKey: "STRING_VALUE",
+ * //       },
+ * //       IAMFederationOptions: { // IAMFederationOptionsOutput
+ * //         Enabled: true || false,
+ * //         SubjectKey: "STRING_VALUE",
+ * //         RolesKey: "STRING_VALUE",
  * //       },
  * //       AnonymousAuthDisableDate: new Date("TIMESTAMP"),
  * //       AnonymousAuthEnabled: true || false,

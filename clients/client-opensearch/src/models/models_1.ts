@@ -21,6 +21,7 @@ import {
   DirectQueryDataSourceType,
   DomainConfig,
   DomainEndpointOptions,
+  DomainInfo,
   DomainPackageDetails,
   DryRunProgressStatus,
   DryRunResults,
@@ -52,8 +53,48 @@ import {
 import { OpenSearchServiceException as __BaseException } from "./OpenSearchServiceException";
 
 /**
- * <p>Container for the response parameters to the <code>ListDomainsForPackage</code>
- *    operation.</p>
+ * <p>The results of a <code>ListDomainNames</code> operation. Contains the names of all domains
+ *    owned by this account and their respective engine types.</p>
+ * @public
+ */
+export interface ListDomainNamesResponse {
+  /**
+   * <p>The names of all OpenSearch Service domains owned by the current user and their respective
+   *    engine types.</p>
+   * @public
+   */
+  DomainNames?: DomainInfo[] | undefined;
+}
+
+/**
+ * <p>Container for the request parameters to the <code>ListDomainsForPackage</code> operation.</p>
+ * @public
+ */
+export interface ListDomainsForPackageRequest {
+  /**
+   * <p>The unique identifier of the package for which to list associated domains.</p>
+   * @public
+   */
+  PackageID: string | undefined;
+
+  /**
+   * <p>An optional parameter that specifies the maximum number of results to return. You can use
+   *     <code>nextToken</code> to get the next page of results.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>If your initial <code>ListDomainsForPackage</code> operation returns a
+   *     <code>nextToken</code>, you can include the returned <code>nextToken</code> in subsequent
+   *     <code>ListDomainsForPackage</code> operations, which returns results in the next page.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * <p>Container for the response parameters to the <code>ListDomainsForPackage</code> operation.</p>
  * @public
  */
 export interface ListDomainsForPackageResponse {
@@ -65,8 +106,8 @@ export interface ListDomainsForPackageResponse {
 
   /**
    * <p>When <code>nextToken</code> is returned, there are more results available. The value of
-   *     <code>nextToken</code> is a unique pagination token for each page. Send the request again using
-   *    the returned token to retrieve the next page.</p>
+   *     <code>nextToken</code> is a unique pagination token for each page. Send the request again using the
+   *    returned token to retrieve the next page.</p>
    * @public
    */
   NextToken?: string | undefined;
@@ -77,8 +118,8 @@ export interface ListDomainsForPackageResponse {
  */
 export interface ListInstanceTypeDetailsRequest {
   /**
-   * <p>The version of OpenSearch or Elasticsearch, in the format Elasticsearch_X.Y or
-   *    OpenSearch_X.Y. Defaults to the latest version of OpenSearch.</p>
+   * <p>The version of OpenSearch or Elasticsearch, in the format Elasticsearch_X.Y or OpenSearch_X.Y.
+   *    Defaults to the latest version of OpenSearch.</p>
    * @public
    */
   EngineVersion: string | undefined;
@@ -187,16 +228,15 @@ export interface ListInstanceTypeDetailsResponse {
 
   /**
    * <p>When <code>nextToken</code> is returned, there are more results available. The value of
-   *     <code>nextToken</code> is a unique pagination token for each page. Send the request again using
-   *    the returned token to retrieve the next page.</p>
+   *     <code>nextToken</code> is a unique pagination token for each page. Send the request again using the
+   *    returned token to retrieve the next page.</p>
    * @public
    */
   NextToken?: string | undefined;
 }
 
 /**
- * <p>Container for the request parameters to the <code>ListPackagesForDomain</code>
- *    operation.</p>
+ * <p>Container for the request parameters to the <code>ListPackagesForDomain</code> operation.</p>
  * @public
  */
 export interface ListPackagesForDomainRequest {
@@ -223,8 +263,7 @@ export interface ListPackagesForDomainRequest {
 }
 
 /**
- * <p>Container for the response parameters to the <code>ListPackagesForDomain</code>
- *    operation.</p>
+ * <p>Container for the response parameters to the <code>ListPackagesForDomain</code> operation.</p>
  * @public
  */
 export interface ListPackagesForDomainResponse {
@@ -236,8 +275,8 @@ export interface ListPackagesForDomainResponse {
 
   /**
    * <p>When <code>nextToken</code> is returned, there are more results available. The value of
-   *     <code>nextToken</code> is a unique pagination token for each page. Send the request again using
-   *    the returned token to retrieve the next page.</p>
+   *     <code>nextToken</code> is a unique pagination token for each page. Send the request again using the
+   *    returned token to retrieve the next page.</p>
    * @public
    */
   NextToken?: string | undefined;
@@ -255,15 +294,15 @@ export interface ListScheduledActionsRequest {
 
   /**
    * <p>An optional parameter that specifies the maximum number of results to return. You can use
-   *     <code>nextToken</code> to get the next page of results.</p>
+   *    <code>nextToken</code> to get the next page of results.</p>
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p>If your initial <code>ListScheduledActions</code> operation returns a
-   *    <code>nextToken</code>, you can include the returned <code>nextToken</code> in subsequent
-   *     <code>ListScheduledActions</code> operations, which returns results in the next page.</p>
+   * <p>If your initial <code>ListScheduledActions</code> operation returns a <code>nextToken</code>, you
+   *    can include the returned <code>nextToken</code> in subsequent <code>ListScheduledActions</code>
+   *    operations, which returns results in the next page.</p>
    * @public
    */
   NextToken?: string | undefined;
@@ -322,8 +361,7 @@ export interface ScheduledAction {
   Description?: string | undefined;
 
   /**
-   * <p>Whether the action was scheduled manually (<code>CUSTOMER</code>, or by OpenSearch Service
-   *    automatically (<code>SYSTEM</code>).</p>
+   * <p>Whether the action was scheduled manually (<code>CUSTOMER</code>, or by OpenSearch Service automatically (<code>SYSTEM</code>).</p>
    * @public
    */
   ScheduledBy?: ScheduledBy | undefined;
@@ -359,8 +397,8 @@ export interface ListScheduledActionsResponse {
 
   /**
    * <p>When <code>nextToken</code> is returned, there are more results available. The value of
-   *     <code>nextToken</code> is a unique pagination token for each page. Send the request again using
-   *    the returned token to retrieve the next page.</p>
+   *    <code>nextToken</code> is a unique pagination token for each page. Send the request again using the
+   *    returned token to retrieve the next page.</p>
    * @public
    */
   NextToken?: string | undefined;
@@ -428,8 +466,8 @@ export interface ListVersionsResponse {
 
   /**
    * <p>When <code>nextToken</code> is returned, there are more results available. The value of
-   *     <code>nextToken</code> is a unique pagination token for each page. Send the request again using
-   *    the returned token to retrieve the next page.</p>
+   *     <code>nextToken</code> is a unique pagination token for each page. Send the request again using the
+   *    returned token to retrieve the next page.</p>
    * @public
    */
   NextToken?: string | undefined;
@@ -467,8 +505,8 @@ export interface ListVpcEndpointAccessResponse {
 
   /**
    * <p>When <code>nextToken</code> is returned, there are more results available. The value of
-   *     <code>nextToken</code> is a unique pagination token for each page. Send the request again using
-   *    the returned token to retrieve the next page.</p>
+   *     <code>nextToken</code> is a unique pagination token for each page. Send the request again using the
+   *    returned token to retrieve the next page.</p>
    * @public
    */
   NextToken: string | undefined;
@@ -499,8 +537,8 @@ export interface ListVpcEndpointsResponse {
 
   /**
    * <p>When <code>nextToken</code> is returned, there are more results available. The value of
-   *     <code>nextToken</code> is a unique pagination token for each page. Send the request again using
-   *    the returned token to retrieve the next page.</p>
+   *     <code>nextToken</code> is a unique pagination token for each page. Send the request again using the
+   *    returned token to retrieve the next page.</p>
    * @public
    */
   NextToken: string | undefined;
@@ -537,8 +575,8 @@ export interface ListVpcEndpointsForDomainResponse {
 
   /**
    * <p>When <code>nextToken</code> is returned, there are more results available. The value of
-   *     <code>nextToken</code> is a unique pagination token for each page. Send the request again using
-   *    the returned token to retrieve the next page.</p>
+   *     <code>nextToken</code> is a unique pagination token for each page. Send the request again using the
+   *    returned token to retrieve the next page.</p>
    * @public
    */
   NextToken: string | undefined;
@@ -588,8 +626,7 @@ export interface PurchaseReservedInstanceOfferingResponse {
 }
 
 /**
- * <p>Container for the request parameters to the <code>RejectInboundConnection</code>
- *    operation.</p>
+ * <p>Container for the request parameters to the <code>RejectInboundConnection</code> operation.</p>
  * @public
  */
 export interface RejectInboundConnectionRequest {
@@ -660,7 +697,8 @@ export interface RevokeVpcEndpointAccessRequest {
 export interface RevokeVpcEndpointAccessResponse {}
 
 /**
- * <p>Container for the parameters to the <code>StartDomainMaintenance</code> operation.</p>
+ * <p>Container for the parameters to the <code>StartDomainMaintenance</code>
+ *    operation.</p>
  * @public
  */
 export interface StartDomainMaintenanceRequest {
@@ -684,8 +722,7 @@ export interface StartDomainMaintenanceRequest {
 }
 
 /**
- * <p>The result of a <code>StartDomainMaintenance</code> request that information about the
- *    requested action. </p>
+ * <p>The result of a <code>StartDomainMaintenance</code> request that information about the requested action. </p>
  * @public
  */
 export interface StartDomainMaintenanceResponse {
@@ -810,8 +847,9 @@ export interface UpdateApplicationResponse {
   name?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the domain. See <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/index.html">Identifiers for IAM Entities </a> in <i>Using
-   *      Amazon Web Services Identity and Access Management</i> for more information. </p>
+   * <p>The Amazon Resource Name (ARN) of the domain. See <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/index.html">Identifiers for IAM Entities
+   *   </a> in <i>Using Amazon Web Services Identity and Access Management</i> for more information.
+   *   </p>
    * @public
    */
   arn?: string | undefined;
@@ -848,7 +886,8 @@ export interface UpdateApplicationResponse {
 }
 
 /**
- * <p>Container for the parameters to the <code>UpdateDataSource</code> operation.</p>
+ * <p>Container for the parameters to the <code>UpdateDataSource</code>
+ *    operation.</p>
  * @public
  */
 export interface UpdateDataSourceRequest {
@@ -900,29 +939,37 @@ export interface UpdateDataSourceResponse {
  */
 export interface UpdateDirectQueryDataSourceRequest {
   /**
-   * <p> A unique, user-defined label to identify the data source within your OpenSearch Service
-   *    environment. </p>
+   * <p>
+   *    A unique, user-defined label to identify the data
+   *    source within your OpenSearch Service environment.
+   *   </p>
    * @public
    */
   DataSourceName: string | undefined;
 
   /**
-   * <p> The supported Amazon Web Services service that you want to use as the source for direct
-   *    queries in OpenSearch Service. </p>
+   * <p>
+   *    The supported Amazon Web Services service that you want to use as the source for
+   *    direct queries in OpenSearch Service.
+   *   </p>
    * @public
    */
   DataSourceType: DirectQueryDataSourceType | undefined;
 
   /**
-   * <p> An optional text field for providing additional context and details about the data source.
+   * <p>
+   *    An optional text field for providing additional context and
+   *    details about the data source.
    *   </p>
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * <p> A list of Amazon Resource Names (ARNs) for the OpenSearch collections that are associated
-   *    with the direct query data source. </p>
+   * <p>
+   *    A list of Amazon Resource Names (ARNs) for the OpenSearch
+   *    collections that are associated with the direct query data source.
+   *   </p>
    * @public
    */
   OpenSearchArns: string[] | undefined;
@@ -933,7 +980,9 @@ export interface UpdateDirectQueryDataSourceRequest {
  */
 export interface UpdateDirectQueryDataSourceResponse {
   /**
-   * <p> The unique, system-generated identifier that represents the data source. </p>
+   * <p>
+   *    The unique, system-generated identifier that represents the data source.
+   *   </p>
    * @public
    */
   DataSourceArn?: string | undefined;
@@ -978,8 +1027,8 @@ export interface UpdateDomainConfigRequest {
   EBSOptions?: EBSOptions | undefined;
 
   /**
-   * <p>Option to set the time, in UTC format, for the daily automated snapshot. Default value is
-   *     <code>0</code> hours. </p>
+   * <p>Option to set the time, in UTC format, for the daily automated snapshot. Default value is <code>0</code> hours.
+   *   </p>
    * @public
    */
   SnapshotOptions?: SnapshotOptions | undefined;
@@ -1021,7 +1070,7 @@ export interface UpdateDomainConfigRequest {
    *                   <code>"indices.query.bool.max_clause_count": "1024"</code> - Note the use of a string
    *      rather than a boolean. Specifies the maximum number of clauses allowed in a Lucene boolean
    *      query. Default is 1,024. Queries with more than the permitted number of clauses result in a
-   *       <code>TooManyClauses</code> error.</p>
+   *      <code>TooManyClauses</code> error.</p>
    *             </li>
    *          </ul>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/createupdatedomains.html#createdomain-configure-advanced-options">Advanced cluster parameters</a>.</p>
@@ -1036,9 +1085,10 @@ export interface UpdateDomainConfigRequest {
   AccessPolicies?: string | undefined;
 
   /**
-   * <p>Specify either dual stack or IPv4 as your IP address type. Dual stack allows you to share
-   *    domain resources across IPv4 and IPv6 address types, and is the recommended option. If your IP
-   *    address type is currently set to dual stack, you can't change it. </p>
+   * <p>Specify either dual stack or IPv4 as your IP address type. Dual stack allows you to share domain resources across
+   *    IPv4 and IPv6 address types, and is the recommended option.
+   *    If your IP address type is currently set to dual stack, you can't change it.
+   *   </p>
    * @public
    */
   IPAddressType?: IPAddressType | undefined;
@@ -1099,8 +1149,8 @@ export interface UpdateDomainConfigRequest {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>Basic</code> only returns the type of deployment (blue/green or dynamic) that the
-   *      update will cause.</p>
+   *                   <code>Basic</code> only returns the type of deployment (blue/green or dynamic) that the update
+   *      will cause.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -1317,8 +1367,7 @@ export interface UpdateScheduledActionRequest {
 
   /**
    * <p>The type of action to reschedule. Can be one of <code>SERVICE_SOFTWARE_UPDATE</code>,
-   *     <code>JVM_HEAP_SIZE_TUNING</code>, or <code>JVM_YOUNG_GEN_TUNING</code>. To retrieve this value,
-   *    send a <a href="https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_ListScheduledActions.html">ListScheduledActions</a> request.</p>
+   *    <code>JVM_HEAP_SIZE_TUNING</code>, or <code>JVM_YOUNG_GEN_TUNING</code>. To retrieve this value, send a <a href="https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_ListScheduledActions.html">ListScheduledActions</a> request.</p>
    * @public
    */
   ActionType: ActionType | undefined;
