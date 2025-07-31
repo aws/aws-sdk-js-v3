@@ -58231,6 +58231,9 @@ const se_TerminateInstancesRequest = (input: TerminateInstancesRequest, context:
       entries[loc] = value;
     });
   }
+  if (input[_F] != null) {
+    entries[_F] = input[_F];
+  }
   if (input[_SOS] != null) {
     entries[_SOS] = input[_SOS];
   }

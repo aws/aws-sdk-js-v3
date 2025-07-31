@@ -105,6 +105,7 @@ export interface TerminateInstancesCommandOutput extends TerminateInstancesResul
  *   InstanceIds: [ // InstanceIdStringList // required
  *     "STRING_VALUE",
  *   ],
+ *   Force: true || false,
  *   SkipOsShutdown: true || false,
  *   DryRun: true || false,
  * };
