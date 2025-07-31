@@ -28,7 +28,7 @@ export interface CreateIdNamespaceCommandInput extends CreateIdNamespaceInput {}
 export interface CreateIdNamespaceCommandOutput extends CreateIdNamespaceOutput, __MetadataBearer {}
 
 /**
- * <p>Creates an ID namespace object which will help customers provide metadata explaining their dataset and how to use it. Each ID namespace must have a unique name. To modify an existing ID namespace, use the <code>UpdateIdNamespace</code> API.</p>
+ * <p>Creates an ID namespace object which will help customers provide metadata explaining their dataset and how to use it. Each ID namespace must have a unique name. To modify an existing ID namespace, use the UpdateIdNamespace API.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

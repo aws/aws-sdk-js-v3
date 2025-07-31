@@ -28,7 +28,7 @@ export interface CreateMatchingWorkflowCommandInput extends CreateMatchingWorkfl
 export interface CreateMatchingWorkflowCommandOutput extends CreateMatchingWorkflowOutput, __MetadataBearer {}
 
 /**
- * <p>Creates a <code>MatchingWorkflow</code> object which stores the configuration of the data processing job to be run. It is important to note that there should not be a pre-existing <code>MatchingWorkflow</code> with the same name. To modify an existing workflow, utilize the <code>UpdateMatchingWorkflow</code> API.</p>
+ * <p>Creates a matching workflow that defines the configuration for a data processing job. The workflow name must be unique. To modify an existing workflow, use <code>UpdateMatchingWorkflow</code>. </p> <important> <p>For workflows where <code>resolutionType</code> is ML_MATCHING, incremental processing is not supported. </p> </important>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -71,6 +71,14 @@ export interface CreateMatchingWorkflowCommandOutput extends CreateMatchingWorkf
  *       ],
  *       attributeMatchingModel: "ONE_TO_ONE" || "MANY_TO_MANY", // required
  *       matchPurpose: "IDENTIFIER_GENERATION" || "INDEXING",
+ *     },
+ *     ruleConditionProperties: { // RuleConditionProperties
+ *       rules: [ // RuleConditionList // required
+ *         { // RuleCondition
+ *           ruleName: "STRING_VALUE", // required
+ *           condition: "STRING_VALUE", // required
+ *         },
+ *       ],
  *     },
  *     providerProperties: { // ProviderProperties
  *       providerServiceArn: "STRING_VALUE", // required
@@ -127,6 +135,14 @@ export interface CreateMatchingWorkflowCommandOutput extends CreateMatchingWorkf
  * //       ],
  * //       attributeMatchingModel: "ONE_TO_ONE" || "MANY_TO_MANY", // required
  * //       matchPurpose: "IDENTIFIER_GENERATION" || "INDEXING",
+ * //     },
+ * //     ruleConditionProperties: { // RuleConditionProperties
+ * //       rules: [ // RuleConditionList // required
+ * //         { // RuleCondition
+ * //           ruleName: "STRING_VALUE", // required
+ * //           condition: "STRING_VALUE", // required
+ * //         },
+ * //       ],
  * //     },
  * //     providerProperties: { // ProviderProperties
  * //       providerServiceArn: "STRING_VALUE", // required

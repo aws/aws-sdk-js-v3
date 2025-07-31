@@ -28,7 +28,7 @@ export interface UpdateMatchingWorkflowCommandInput extends UpdateMatchingWorkfl
 export interface UpdateMatchingWorkflowCommandOutput extends UpdateMatchingWorkflowOutput, __MetadataBearer {}
 
 /**
- * <p>Updates an existing <code>MatchingWorkflow</code>. This method is identical to <code>CreateMatchingWorkflow</code>, except it uses an HTTP <code>PUT</code> request instead of a <code>POST</code> request, and the <code>MatchingWorkflow</code> must already exist for the method to succeed.</p>
+ * <p>Updates an existing matching workflow. The workflow must already exist for this operation to succeed.</p> <important> <p>For workflows where <code>resolutionType</code> is ML_MATCHING, incremental processing is not supported. </p> </important>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -71,6 +71,14 @@ export interface UpdateMatchingWorkflowCommandOutput extends UpdateMatchingWorkf
  *       ],
  *       attributeMatchingModel: "ONE_TO_ONE" || "MANY_TO_MANY", // required
  *       matchPurpose: "IDENTIFIER_GENERATION" || "INDEXING",
+ *     },
+ *     ruleConditionProperties: { // RuleConditionProperties
+ *       rules: [ // RuleConditionList // required
+ *         { // RuleCondition
+ *           ruleName: "STRING_VALUE", // required
+ *           condition: "STRING_VALUE", // required
+ *         },
+ *       ],
  *     },
  *     providerProperties: { // ProviderProperties
  *       providerServiceArn: "STRING_VALUE", // required
@@ -123,6 +131,14 @@ export interface UpdateMatchingWorkflowCommandOutput extends UpdateMatchingWorkf
  * //       ],
  * //       attributeMatchingModel: "ONE_TO_ONE" || "MANY_TO_MANY", // required
  * //       matchPurpose: "IDENTIFIER_GENERATION" || "INDEXING",
+ * //     },
+ * //     ruleConditionProperties: { // RuleConditionProperties
+ * //       rules: [ // RuleConditionList // required
+ * //         { // RuleCondition
+ * //           ruleName: "STRING_VALUE", // required
+ * //           condition: "STRING_VALUE", // required
+ * //         },
+ * //       ],
  * //     },
  * //     providerProperties: { // ProviderProperties
  * //       providerServiceArn: "STRING_VALUE", // required

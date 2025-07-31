@@ -411,7 +411,7 @@ export type IdMappingWorkflowRuleDefinitionType =
   (typeof IdMappingWorkflowRuleDefinitionType)[keyof typeof IdMappingWorkflowRuleDefinitionType];
 
 /**
- * <p>An object containing <code>RuleName</code>, and <code>MatchingKeys</code>.</p>
+ * <p>An object containing the <code>ruleName</code> and <code>matchingKeys</code>.</p>
  * @public
  */
 export interface Rule {
@@ -446,7 +446,7 @@ export interface IdMappingRuleBasedProperties {
   ruleDefinitionType: IdMappingWorkflowRuleDefinitionType | undefined;
 
   /**
-   * <p>The comparison type. You can either choose <code>ONE_TO_ONE</code> or <code>MANY_TO_MANY</code> as the <code>attributeMatchingModel</code>. </p> <p>If you choose <code>MANY_TO_MANY</code>, the system can match attributes across the sub-types of an attribute type. For example, if the value of the <code>Email</code> field of Profile A matches the value of the <code>BusinessEmail</code> field of Profile B, the two profiles are matched on the <code>Email</code> attribute type. </p> <p>If you choose <code>ONE_TO_ONE</code>, the system can only match attributes if the sub-types are an exact match. For example, for the <code>Email</code> attribute type, the system will only consider it a match if the value of the <code>Email</code> field of Profile A matches the value of the <code>Email</code> field of Profile B.</p>
+   * <p>The comparison type. You can either choose <code>ONE_TO_ONE</code> or <code>MANY_TO_MANY</code> as the <code>attributeMatchingModel</code>. </p> <p>If you choose <code>ONE_TO_ONE</code>, the system can only match attributes if the sub-types are an exact match. For example, for the <code>Email</code> attribute type, the system will only consider it a match if the value of the <code>Email</code> field of Profile A matches the value of the <code>Email</code> field of Profile B.</p> <p>If you choose <code>MANY_TO_MANY</code>, the system can match attributes across the sub-types of an attribute type. For example, if the value of the <code>Email</code> field of Profile A matches the value of the <code>BusinessEmail</code> field of Profile B, the two profiles are matched on the <code>Email</code> attribute type. </p>
    * @public
    */
   attributeMatchingModel: AttributeMatchingModel | undefined;
@@ -497,7 +497,7 @@ export const IdNamespaceType = {
 export type IdNamespaceType = (typeof IdNamespaceType)[keyof typeof IdNamespaceType];
 
 /**
- * <p>An object containing <code>InputSourceARN</code>, <code>SchemaName</code>, and <code>Type</code>.</p>
+ * <p>An object containing <code>inputSourceARN</code>, <code>schemaName</code>, and <code>type</code>.</p>
  * @public
  */
 export interface IdMappingWorkflowInputSource {
@@ -561,7 +561,7 @@ export interface CreateIdMappingWorkflowInput {
   inputSourceConfig: IdMappingWorkflowInputSource[] | undefined;
 
   /**
-   * <p>A list of <code>IdMappingWorkflowOutputSource</code> objects, each of which contains fields <code>OutputS3Path</code> and <code>Output</code>.</p>
+   * <p>A list of <code>IdMappingWorkflowOutputSource</code> objects, each of which contains fields <code>outputS3Path</code> and <code>KMSArn</code>.</p>
    * @public
    */
   outputSourceConfig?: IdMappingWorkflowOutputSource[] | undefined;
@@ -614,7 +614,7 @@ export interface CreateIdMappingWorkflowOutput {
   inputSourceConfig: IdMappingWorkflowInputSource[] | undefined;
 
   /**
-   * <p>A list of <code>IdMappingWorkflowOutputSource</code> objects, each of which contains fields <code>OutputS3Path</code> and <code>Output</code>.</p>
+   * <p>A list of <code>IdMappingWorkflowOutputSource</code> objects, each of which contains fields <code>outputS3Path</code> and <code>KMSArn</code>.</p>
    * @public
    */
   outputSourceConfig?: IdMappingWorkflowOutputSource[] | undefined;
@@ -667,7 +667,7 @@ export class ExceedsLimitException extends __BaseException {
 }
 
 /**
- * <p>An object containing <code>ProviderConfiguration</code> and <code>ProviderServiceArn</code>.</p>
+ * <p>An object containing <code>providerConfiguration</code> and <code>providerServiceArn</code>.</p>
  * @public
  */
 export interface NamespaceProviderProperties {
@@ -702,7 +702,7 @@ export interface NamespaceRuleBasedProperties {
   ruleDefinitionTypes?: IdMappingWorkflowRuleDefinitionType[] | undefined;
 
   /**
-   * <p>The comparison type. You can either choose <code>ONE_TO_ONE</code> or <code>MANY_TO_MANY</code> as the <code>attributeMatchingModel</code>. </p> <p>If you choose <code>MANY_TO_MANY</code>, the system can match attributes across the sub-types of an attribute type. For example, if the value of the <code>Email</code> field of Profile A matches the value of <code>BusinessEmail</code> field of Profile B, the two profiles are matched on the <code>Email</code> attribute type. </p> <p>If you choose <code>ONE_TO_ONE</code>, the system can only match attributes if the sub-types are an exact match. For example, for the <code>Email</code> attribute type, the system will only consider it a match if the value of the <code>Email</code> field of Profile A matches the value of the <code>Email</code> field of Profile B.</p>
+   * <p>The comparison type. You can either choose <code>ONE_TO_ONE</code> or <code>MANY_TO_MANY</code> as the <code>attributeMatchingModel</code>. </p> <p>If you choose <code>ONE_TO_ONE</code>, the system can only match attributes if the sub-types are an exact match. For example, for the <code>Email</code> attribute type, the system will only consider it a match if the value of the <code>Email</code> field of Profile A matches the value of the <code>Email</code> field of Profile B.</p> <p>If you choose <code>MANY_TO_MANY</code>, the system can match attributes across the sub-types of an attribute type. For example, if the value of the <code>Email</code> field of Profile A matches the value of <code>BusinessEmail</code> field of Profile B, the two profiles are matched on the <code>Email</code> attribute type. </p>
    * @public
    */
   attributeMatchingModel?: AttributeMatchingModel | undefined;
@@ -715,7 +715,7 @@ export interface NamespaceRuleBasedProperties {
 }
 
 /**
- * <p>An object containing <code>IdMappingType</code>, <code>ProviderProperties</code>, and <code>RuleBasedProperties</code>.</p>
+ * <p>An object containing <code>idMappingType</code>, <code>providerProperties</code>, and <code>ruleBasedProperties</code>.</p>
  * @public
  */
 export interface IdNamespaceIdMappingWorkflowProperties {
@@ -739,7 +739,7 @@ export interface IdNamespaceIdMappingWorkflowProperties {
 }
 
 /**
- * <p>An object containing <code>InputSourceARN</code> and <code>SchemaName</code>.</p>
+ * <p>An object containing <code>inputSourceARN</code> and <code>schemaName</code>.</p>
  * @public
  */
 export interface IdNamespaceInputSource {
@@ -882,19 +882,19 @@ export const IncrementalRunType = {
 export type IncrementalRunType = (typeof IncrementalRunType)[keyof typeof IncrementalRunType];
 
 /**
- * <p>An object which defines an incremental run type and has only <code>incrementalRunType</code> as a field.</p>
+ * <p>Optional. An object that defines the incremental run type. This object contains only the <code>incrementalRunType</code> field, which appears as "Automatic" in the console. </p> <important> <p>For workflows where <code>resolutionType</code> is <code>ML_MATCHING</code>, incremental processing is not supported. </p> </important>
  * @public
  */
 export interface IncrementalRunConfig {
   /**
-   * <p>The type of incremental run. It takes only one value: <code>IMMEDIATE</code>.</p>
+   * <p>The type of incremental run. The only valid value is <code>IMMEDIATE</code>. This appears as "Automatic" in the console.</p> <important> <p>For workflows where <code>resolutionType</code> is <code>ML_MATCHING</code>, incremental processing is not supported. </p> </important>
    * @public
    */
   incrementalRunType?: IncrementalRunType | undefined;
 }
 
 /**
- * <p>An object containing <code>InputSourceARN</code>, <code>SchemaName</code>, and <code>ApplyNormalization</code>.</p>
+ * <p>An object containing <code>inputSourceARN</code>, <code>schemaName</code>, and <code>applyNormalization</code>.</p>
  * @public
  */
 export interface InputSource {
@@ -995,7 +995,7 @@ export const MatchPurpose = {
 export type MatchPurpose = (typeof MatchPurpose)[keyof typeof MatchPurpose];
 
 /**
- * <p>An object which defines the list of matching rules to run in a matching workflow. RuleBasedProperties contain a <code>Rules</code> field, which is a list of rule objects.</p>
+ * <p>An object which defines the list of matching rules to run in a matching workflow. </p>
  * @public
  */
 export interface RuleBasedProperties {
@@ -1006,7 +1006,7 @@ export interface RuleBasedProperties {
   rules: Rule[] | undefined;
 
   /**
-   * <p>The comparison type. You can either choose <code>ONE_TO_ONE</code> or <code>MANY_TO_MANY</code> as the <code>attributeMatchingModel</code>. </p> <p>If you choose <code>MANY_TO_MANY</code>, the system can match attributes across the sub-types of an attribute type. For example, if the value of the <code>Email</code> field of Profile A and the value of <code>BusinessEmail</code> field of Profile B matches, the two profiles are matched on the <code>Email</code> attribute type. </p> <p>If you choose <code>ONE_TO_ONE</code>, the system can only match attributes if the sub-types are an exact match. For example, for the <code>Email</code> attribute type, the system will only consider it a match if the value of the <code>Email</code> field of Profile A matches the value of the <code>Email</code> field of Profile B.</p>
+   * <p>The comparison type. You can choose <code>ONE_TO_ONE</code> or <code>MANY_TO_MANY</code> as the <code>attributeMatchingModel</code>. </p> <p>If you choose <code>ONE_TO_ONE</code>, the system can only match attributes if the sub-types are an exact match. For example, for the <code>Email</code> attribute type, the system will only consider it a match if the value of the <code>Email</code> field of Profile A matches the value of the <code>Email</code> field of Profile B.</p> <p>If you choose <code>MANY_TO_MANY</code>, the system can match attributes across the sub-types of an attribute type. For example, if the value of the <code>Email</code> field of Profile A and the value of <code>BusinessEmail</code> field of Profile B matches, the two profiles are matched on the <code>Email</code> attribute type. </p>
    * @public
    */
   attributeMatchingModel: AttributeMatchingModel | undefined;
@@ -1016,6 +1016,36 @@ export interface RuleBasedProperties {
    * @public
    */
   matchPurpose?: MatchPurpose | undefined;
+}
+
+/**
+ * <p>An object that defines the <code>ruleCondition</code> and the <code>ruleName</code> to use in a matching workflow.</p>
+ * @public
+ */
+export interface RuleCondition {
+  /**
+   * <p>A name for the matching rule.</p> <p>For example: <code>Rule1</code> </p>
+   * @public
+   */
+  ruleName: string | undefined;
+
+  /**
+   * <p>A statement that specifies the conditions for a matching rule.</p> <p>If your data is accurate, use an Exact matching function: <code>Exact</code> or <code>ExactManyToMany</code>. </p> <p>If your data has variations in spelling or pronunciation, use a Fuzzy matching function: <code>Cosine</code>, <code>Levenshtein</code>, or <code>Soundex</code>. </p> <p>Use operators if you want to combine (<code>AND</code>), separate (<code>OR</code>), or group matching functions <code>(...)</code>.</p> <p>For example: <code>(Cosine(a, 10) AND Exact(b, true)) OR ExactManyToMany(c, d)</code> </p>
+   * @public
+   */
+  condition: string | undefined;
+}
+
+/**
+ * <p>The properties of a rule condition that provides the ability to use more complex syntax.</p>
+ * @public
+ */
+export interface RuleConditionProperties {
+  /**
+   * <p> A list of rule objects, each of which have fields <code>ruleName</code> and <code>condition</code>. </p>
+   * @public
+   */
+  rules: RuleCondition[] | undefined;
 }
 
 /**
@@ -1030,10 +1060,16 @@ export interface ResolutionTechniques {
   resolutionType: ResolutionType | undefined;
 
   /**
-   * <p>An object which defines the list of matching rules to run and has a field <code>Rules</code>, which is a list of rule objects.</p>
+   * <p>An object which defines the list of matching rules to run and has a field <code>rules</code>, which is a list of rule objects.</p>
    * @public
    */
   ruleBasedProperties?: RuleBasedProperties | undefined;
+
+  /**
+   * <p>An object containing the <code>rules</code> for a matching workflow.</p>
+   * @public
+   */
+  ruleConditionProperties?: RuleConditionProperties | undefined;
 
   /**
    * <p>The properties of the provider service.</p>
@@ -1065,7 +1101,7 @@ export interface CreateMatchingWorkflowInput {
   inputSourceConfig: InputSource[] | undefined;
 
   /**
-   * <p>A list of <code>OutputSource</code> objects, each of which contains fields <code>OutputS3Path</code>, <code>ApplyNormalization</code>, and <code>Output</code>.</p>
+   * <p>A list of <code>OutputSource</code> objects, each of which contains fields <code>outputS3Path</code>, <code>applyNormalization</code>, <code>KMSArn</code>, and <code>output</code>.</p>
    * @public
    */
   outputSourceConfig: OutputSource[] | undefined;
@@ -1077,7 +1113,7 @@ export interface CreateMatchingWorkflowInput {
   resolutionTechniques: ResolutionTechniques | undefined;
 
   /**
-   * <p>An object which defines an incremental run type and has only <code>incrementalRunType</code> as a field.</p>
+   * <p>Optional. An object that defines the incremental run type. This object contains only the <code>incrementalRunType</code> field, which appears as "Automatic" in the console. </p> <important> <p>For workflows where <code>resolutionType</code> is <code>ML_MATCHING</code>, incremental processing is not supported. </p> </important>
    * @public
    */
   incrementalRunConfig?: IncrementalRunConfig | undefined;
@@ -1124,7 +1160,7 @@ export interface CreateMatchingWorkflowOutput {
   inputSourceConfig: InputSource[] | undefined;
 
   /**
-   * <p>A list of <code>OutputSource</code> objects, each of which contains fields <code>OutputS3Path</code>, <code>ApplyNormalization</code>, and <code>Output</code>.</p>
+   * <p>A list of <code>OutputSource</code> objects, each of which contains fields <code>outputS3Path</code>, <code>applyNormalization</code>, <code>KMSArn</code>, and <code>output</code>.</p>
    * @public
    */
   outputSourceConfig: OutputSource[] | undefined;
@@ -1634,7 +1670,7 @@ export interface IdMappingJobMetrics {
 }
 
 /**
- * <p>An object containing <code>KMSArn</code>, <code>OutputS3Path</code>, and <code>RoleARN</code>.</p>
+ * <p>An object containing <code>KMSArn</code>, <code>outputS3Path</code>, and <code>roleARN</code>.</p>
  * @public
  */
 export interface IdMappingJobOutputSource {
@@ -1760,7 +1796,7 @@ export interface GetIdMappingWorkflowOutput {
   inputSourceConfig: IdMappingWorkflowInputSource[] | undefined;
 
   /**
-   * <p>A list of <code>OutputSource</code> objects, each of which contains fields <code>OutputS3Path</code> and <code>KMSArn</code>.</p>
+   * <p>A list of <code>OutputSource</code> objects, each of which contains fields <code>outputS3Path</code> and <code>KMSArn</code>.</p>
    * @public
    */
   outputSourceConfig?: IdMappingWorkflowOutputSource[] | undefined;
@@ -1930,7 +1966,7 @@ export interface GetMatchingJobInput {
 }
 
 /**
- * <p>An object containing <code>InputRecords</code>, <code>TotalRecordsProcessed</code>, <code>MatchIDs</code>, and <code>RecordsNotProcessed</code>.</p>
+ * <p>An object containing <code>inputRecords</code>, <code>totalRecordsProcessed</code>, <code>matchIDs</code>, and <code>recordsNotProcessed</code>.</p>
  * @public
  */
 export interface JobMetrics {
@@ -1960,7 +1996,7 @@ export interface JobMetrics {
 }
 
 /**
- * <p>An object containing <code>KMSArn</code>, <code>OutputS3Path</code>, and <code>RoleArn</code>.</p>
+ * <p>An object containing <code>KMSArn</code>, <code>outputS3Path</code>, and <code>roleArn</code>.</p>
  * @public
  */
 export interface JobOutputSource {
@@ -2070,7 +2106,7 @@ export interface GetMatchingWorkflowOutput {
   inputSourceConfig: InputSource[] | undefined;
 
   /**
-   * <p>A list of <code>OutputSource</code> objects, each of which contains fields <code>OutputS3Path</code>, <code>ApplyNormalization</code>, and <code>Output</code>.</p>
+   * <p>A list of <code>OutputSource</code> objects, each of which contains fields <code>outputS3Path</code>, <code>applyNormalization</code>, <code>KMSArn</code>, and <code>output</code>.</p>
    * @public
    */
   outputSourceConfig: OutputSource[] | undefined;
@@ -2509,7 +2545,7 @@ export interface ListIdMappingJobsInput {
 }
 
 /**
- * <p>An object containing the <code>JobId</code>, <code>Status</code>, <code>StartTime</code>, and <code>EndTime</code> of a job.</p>
+ * <p>An object containing the <code>jobId</code>, <code>status</code>, <code>startTime</code>, and <code>endTime</code> of a job.</p>
  * @public
  */
 export interface JobSummary {
@@ -2771,7 +2807,7 @@ export interface ListMatchingWorkflowsInput {
 }
 
 /**
- * <p>A list of <code>MatchingWorkflowSummary</code> objects, each of which contain the fields <code>WorkflowName</code>, <code>WorkflowArn</code>, <code>CreatedAt</code>, <code>UpdatedAt</code>.</p>
+ * <p>A list of <code>MatchingWorkflowSummary</code> objects, each of which contain the fields <code>workflowName</code>, <code>workflowArn</code>, <code>resolutionType</code>, <code>createdAt</code>, <code>updatedAt</code>.</p>
  * @public
  */
 export interface MatchingWorkflowSummary {
@@ -2811,7 +2847,7 @@ export interface MatchingWorkflowSummary {
  */
 export interface ListMatchingWorkflowsOutput {
   /**
-   * <p>A list of <code>MatchingWorkflowSummary</code> objects, each of which contain the fields <code>WorkflowName</code>, <code>WorkflowArn</code>, <code>CreatedAt</code>, and <code>UpdatedAt</code>.</p>
+   * <p>A list of <code>MatchingWorkflowSummary</code> objects, each of which contain the fields <code>workflowName</code>, <code>workflowArn</code>, <code>resolutionType</code>, <code>createdAt</code>, and <code>updatedAt</code>.</p>
    * @public
    */
   workflowSummaries?: MatchingWorkflowSummary[] | undefined;
@@ -2917,7 +2953,7 @@ export interface ListSchemaMappingsInput {
 }
 
 /**
- * <p>An object containing <code>SchemaName</code>, <code>SchemaArn</code>, <code>CreatedAt</code>, and<code>UpdatedAt</code>.</p>
+ * <p>An object containing <code>schemaName</code>, <code>schemaArn</code>, <code>createdAt</code>, <code>updatedAt</code>, and <code>hasWorkflows</code>.</p>
  * @public
  */
 export interface SchemaMappingSummary {
@@ -3160,7 +3196,7 @@ export interface UpdateIdMappingWorkflowInput {
   inputSourceConfig: IdMappingWorkflowInputSource[] | undefined;
 
   /**
-   * <p>A list of <code>OutputSource</code> objects, each of which contains fields <code>OutputS3Path</code> and <code>KMSArn</code>.</p>
+   * <p>A list of <code>OutputSource</code> objects, each of which contains fields <code>outputS3Path</code> and <code>KMSArn</code>.</p>
    * @public
    */
   outputSourceConfig?: IdMappingWorkflowOutputSource[] | undefined;
@@ -3207,7 +3243,7 @@ export interface UpdateIdMappingWorkflowOutput {
   inputSourceConfig: IdMappingWorkflowInputSource[] | undefined;
 
   /**
-   * <p>A list of <code>OutputSource</code> objects, each of which contains fields <code>OutputS3Path</code> and <code>KMSArn</code>.</p>
+   * <p>A list of <code>OutputSource</code> objects, each of which contains fields <code>outputS3Path</code> and <code>KMSArn</code>.</p>
    * @public
    */
   outputSourceConfig?: IdMappingWorkflowOutputSource[] | undefined;
@@ -3342,7 +3378,7 @@ export interface UpdateMatchingWorkflowInput {
   inputSourceConfig: InputSource[] | undefined;
 
   /**
-   * <p>A list of <code>OutputSource</code> objects, each of which contains fields <code>OutputS3Path</code>, <code>ApplyNormalization</code>, and <code>Output</code>.</p>
+   * <p>A list of <code>OutputSource</code> objects, each of which contains fields <code>outputS3Path</code>, <code>applyNormalization</code>, <code>KMSArn</code>, and <code>output</code>.</p>
    * @public
    */
   outputSourceConfig: OutputSource[] | undefined;
@@ -3354,7 +3390,7 @@ export interface UpdateMatchingWorkflowInput {
   resolutionTechniques: ResolutionTechniques | undefined;
 
   /**
-   * <p>An object which defines an incremental run type and has only <code>incrementalRunType</code> as a field.</p>
+   * <p>Optional. An object that defines the incremental run type. This object contains only the <code>incrementalRunType</code> field, which appears as "Automatic" in the console. </p> <important> <p>For workflows where <code>resolutionType</code> is <code>ML_MATCHING</code>, incremental processing is not supported. </p> </important>
    * @public
    */
   incrementalRunConfig?: IncrementalRunConfig | undefined;
@@ -3389,7 +3425,7 @@ export interface UpdateMatchingWorkflowOutput {
   inputSourceConfig: InputSource[] | undefined;
 
   /**
-   * <p>A list of <code>OutputSource</code> objects, each of which contains fields <code>OutputS3Path</code>, <code>ApplyNormalization</code>, and <code>Output</code>.</p>
+   * <p>A list of <code>OutputSource</code> objects, each of which contains fields <code>outputS3Path</code>, <code>applyNormalization</code>, <code>KMSArn</code>, and <code>output</code>.</p>
    * @public
    */
   outputSourceConfig: OutputSource[] | undefined;

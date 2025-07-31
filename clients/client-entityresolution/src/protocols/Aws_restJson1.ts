@@ -155,6 +155,8 @@ import {
   ResourceNotFoundException,
   Rule,
   RuleBasedProperties,
+  RuleCondition,
+  RuleConditionProperties,
   SchemaInputAttribute,
   SchemaMappingSummary,
   ThrottlingException,
@@ -2150,12 +2152,19 @@ const se_ResolutionTechniques = (input: ResolutionTechniques, context: __SerdeCo
     providerProperties: (_) => se_ProviderProperties(_, context),
     resolutionType: [],
     ruleBasedProperties: _json,
+    ruleConditionProperties: _json,
   });
 };
 
 // se_Rule omitted.
 
 // se_RuleBasedProperties omitted.
+
+// se_RuleCondition omitted.
+
+// se_RuleConditionList omitted.
+
+// se_RuleConditionProperties omitted.
 
 // se_RuleList omitted.
 
@@ -2457,12 +2466,19 @@ const de_ResolutionTechniques = (output: any, context: __SerdeContext): Resoluti
     providerProperties: (_: any) => de_ProviderProperties(_, context),
     resolutionType: __expectString,
     ruleBasedProperties: _json,
+    ruleConditionProperties: _json,
   }) as any;
 };
 
 // de_Rule omitted.
 
 // de_RuleBasedProperties omitted.
+
+// de_RuleCondition omitted.
+
+// de_RuleConditionList omitted.
+
+// de_RuleConditionProperties omitted.
 
 // de_RuleList omitted.
 

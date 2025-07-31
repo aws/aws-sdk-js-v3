@@ -78,6 +78,14 @@ export interface GetMatchingWorkflowCommandOutput extends GetMatchingWorkflowOut
  * //       attributeMatchingModel: "ONE_TO_ONE" || "MANY_TO_MANY", // required
  * //       matchPurpose: "IDENTIFIER_GENERATION" || "INDEXING",
  * //     },
+ * //     ruleConditionProperties: { // RuleConditionProperties
+ * //       rules: [ // RuleConditionList // required
+ * //         { // RuleCondition
+ * //           ruleName: "STRING_VALUE", // required
+ * //           condition: "STRING_VALUE", // required
+ * //         },
+ * //       ],
+ * //     },
  * //     providerProperties: { // ProviderProperties
  * //       providerServiceArn: "STRING_VALUE", // required
  * //       providerConfiguration: "DOCUMENT_VALUE",

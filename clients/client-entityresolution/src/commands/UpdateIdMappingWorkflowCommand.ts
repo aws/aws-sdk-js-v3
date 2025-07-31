@@ -28,7 +28,7 @@ export interface UpdateIdMappingWorkflowCommandInput extends UpdateIdMappingWork
 export interface UpdateIdMappingWorkflowCommandOutput extends UpdateIdMappingWorkflowOutput, __MetadataBearer {}
 
 /**
- * <p>Updates an existing <code>IdMappingWorkflow</code>. This method is identical to <code>CreateIdMappingWorkflow</code>, except it uses an HTTP <code>PUT</code> request instead of a <code>POST</code> request, and the <code>IdMappingWorkflow</code> must already exist for the method to succeed.</p>
+ * <p>Updates an existing <code>IdMappingWorkflow</code>. This method is identical to CreateIdMappingWorkflow, except it uses an HTTP <code>PUT</code> request instead of a <code>POST</code> request, and the <code>IdMappingWorkflow</code> must already exist for the method to succeed.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
