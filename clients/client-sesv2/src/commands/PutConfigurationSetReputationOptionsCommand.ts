@@ -8,7 +8,7 @@ import { commonParams } from "../endpoint/EndpointParameters";
 import {
   PutConfigurationSetReputationOptionsRequest,
   PutConfigurationSetReputationOptionsResponse,
-} from "../models/models_0";
+} from "../models/models_1";
 import {
   de_PutConfigurationSetReputationOptionsCommand,
   se_PutConfigurationSetReputationOptionsCommand,

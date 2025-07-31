@@ -150,6 +150,7 @@ export interface SendEmailCommandOutput extends SendEmailResponse, __MetadataBea
  *   ],
  *   ConfigurationSetName: "STRING_VALUE",
  *   EndpointId: "STRING_VALUE",
+ *   TenantName: "STRING_VALUE",
  *   ListManagementOptions: { // ListManagementOptions
  *     ContactListName: "STRING_VALUE", // required
  *     TopicName: "STRING_VALUE",

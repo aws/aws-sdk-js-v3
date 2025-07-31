@@ -8,7 +8,7 @@ import { commonParams } from "../endpoint/EndpointParameters";
 import {
   PutConfigurationSetSendingOptionsRequest,
   PutConfigurationSetSendingOptionsResponse,
-} from "../models/models_0";
+} from "../models/models_1";
 import {
   de_PutConfigurationSetSendingOptionsCommand,
   se_PutConfigurationSetSendingOptionsCommand,

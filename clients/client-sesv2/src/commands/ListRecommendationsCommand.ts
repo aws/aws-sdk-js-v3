@@ -49,7 +49,7 @@ export interface ListRecommendationsCommandOutput extends ListRecommendationsRes
  * //   Recommendations: [ // RecommendationsList
  * //     { // Recommendation
  * //       ResourceArn: "STRING_VALUE",
- * //       Type: "DKIM" || "DMARC" || "SPF" || "BIMI" || "COMPLAINT",
+ * //       Type: "DKIM" || "DMARC" || "SPF" || "BIMI" || "COMPLAINT" || "BOUNCE" || "FEEDBACK_3P" || "IP_LISTING",
  * //       Description: "STRING_VALUE",
  * //       Status: "OPEN" || "FIXED",
  * //       CreatedTimestamp: new Date("TIMESTAMP"),

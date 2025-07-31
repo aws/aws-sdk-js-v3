@@ -70,6 +70,11 @@ import {
   CreateMultiRegionEndpointCommandInput,
   CreateMultiRegionEndpointCommandOutput,
 } from "../commands/CreateMultiRegionEndpointCommand";
+import { CreateTenantCommandInput, CreateTenantCommandOutput } from "../commands/CreateTenantCommand";
+import {
+  CreateTenantResourceAssociationCommandInput,
+  CreateTenantResourceAssociationCommandOutput,
+} from "../commands/CreateTenantResourceAssociationCommand";
 import {
   DeleteConfigurationSetCommandInput,
   DeleteConfigurationSetCommandOutput,
@@ -108,6 +113,11 @@ import {
   DeleteSuppressedDestinationCommandInput,
   DeleteSuppressedDestinationCommandOutput,
 } from "../commands/DeleteSuppressedDestinationCommand";
+import { DeleteTenantCommandInput, DeleteTenantCommandOutput } from "../commands/DeleteTenantCommand";
+import {
+  DeleteTenantResourceAssociationCommandInput,
+  DeleteTenantResourceAssociationCommandOutput,
+} from "../commands/DeleteTenantResourceAssociationCommand";
 import { GetAccountCommandInput, GetAccountCommandOutput } from "../commands/GetAccountCommand";
 import {
   GetBlacklistReportsCommandInput,
@@ -160,9 +170,14 @@ import {
   GetMultiRegionEndpointCommandOutput,
 } from "../commands/GetMultiRegionEndpointCommand";
 import {
+  GetReputationEntityCommandInput,
+  GetReputationEntityCommandOutput,
+} from "../commands/GetReputationEntityCommand";
+import {
   GetSuppressedDestinationCommandInput,
   GetSuppressedDestinationCommandOutput,
 } from "../commands/GetSuppressedDestinationCommand";
+import { GetTenantCommandInput, GetTenantCommandOutput } from "../commands/GetTenantCommand";
 import {
   ListConfigurationSetsCommandInput,
   ListConfigurationSetsCommandOutput,
@@ -201,6 +216,14 @@ import {
   ListRecommendationsCommandOutput,
 } from "../commands/ListRecommendationsCommand";
 import {
+  ListReputationEntitiesCommandInput,
+  ListReputationEntitiesCommandOutput,
+} from "../commands/ListReputationEntitiesCommand";
+import {
+  ListResourceTenantsCommandInput,
+  ListResourceTenantsCommandOutput,
+} from "../commands/ListResourceTenantsCommand";
+import {
   ListSuppressedDestinationsCommandInput,
   ListSuppressedDestinationsCommandOutput,
 } from "../commands/ListSuppressedDestinationsCommand";
@@ -208,6 +231,11 @@ import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "../commands/ListTagsForResourceCommand";
+import {
+  ListTenantResourcesCommandInput,
+  ListTenantResourcesCommandOutput,
+} from "../commands/ListTenantResourcesCommand";
+import { ListTenantsCommandInput, ListTenantsCommandOutput } from "../commands/ListTenantsCommand";
 import {
   PutAccountDedicatedIpWarmupAttributesCommandInput,
   PutAccountDedicatedIpWarmupAttributesCommandOutput,
@@ -324,6 +352,14 @@ import {
   UpdateEmailTemplateCommandOutput,
 } from "../commands/UpdateEmailTemplateCommand";
 import {
+  UpdateReputationEntityCustomerManagedStatusCommandInput,
+  UpdateReputationEntityCustomerManagedStatusCommandOutput,
+} from "../commands/UpdateReputationEntityCustomerManagedStatusCommand";
+import {
+  UpdateReputationEntityPolicyCommandInput,
+  UpdateReputationEntityPolicyCommandOutput,
+} from "../commands/UpdateReputationEntityPolicyCommand";
+import {
   AccountSuspendedException,
   AlreadyExistsException,
   ArchivingOptions,
@@ -401,19 +437,23 @@ import {
   Recommendation,
   ReplacementEmailContent,
   ReplacementTemplate,
+  ReputationEntity,
+  ReputationEntityFilterKey,
   ReputationOptions,
+  ResourceTenantMetadata,
   RouteDetails,
   SendingOptions,
   SendingPausedException,
   SendQuota,
   SnsDestination,
+  StatusRecord,
   SuppressedDestination,
-  SuppressedDestinationSummary,
   SuppressionListDestination,
   SuppressionListReason,
   SuppressionOptions,
   Tag,
   Template,
+  Tenant,
   TooManyRequestsException,
   Topic,
   TopicFilter,
@@ -423,6 +463,7 @@ import {
   VdmOptions,
   VerificationInfo,
 } from "../models/models_0";
+import { ListTenantResourcesFilterKey, SuppressedDestinationSummary, TenantInfo } from "../models/models_1";
 import { SESv2ServiceException as __BaseException } from "../models/SESv2ServiceException";
 
 /**
@@ -787,6 +828,52 @@ export const se_CreateMultiRegionEndpointCommand = async (
 };
 
 /**
+ * serializeAws_restJson1CreateTenantCommand
+ */
+export const se_CreateTenantCommand = async (
+  input: CreateTenantCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/v2/email/tenants");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      Tags: (_) => _json(_),
+      TenantName: [],
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1CreateTenantResourceAssociationCommand
+ */
+export const se_CreateTenantResourceAssociationCommand = async (
+  input: CreateTenantResourceAssociationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/v2/email/tenants/resources");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      ResourceArn: [],
+      TenantName: [],
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1DeleteConfigurationSetCommand
  */
 export const se_DeleteConfigurationSetCommand = async (
@@ -962,6 +1049,51 @@ export const se_DeleteSuppressedDestinationCommand = async (
   b.p("EmailAddress", () => input.EmailAddress!, "{EmailAddress}", false);
   let body: any;
   b.m("DELETE").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1DeleteTenantCommand
+ */
+export const se_DeleteTenantCommand = async (
+  input: DeleteTenantCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/v2/email/tenants/delete");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      TenantName: [],
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1DeleteTenantResourceAssociationCommand
+ */
+export const se_DeleteTenantResourceAssociationCommand = async (
+  input: DeleteTenantResourceAssociationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/v2/email/tenants/resources/delete");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      ResourceArn: [],
+      TenantName: [],
+    })
+  );
+  b.m("POST").h(headers).b(body);
   return b.build();
 };
 
@@ -1311,6 +1443,23 @@ export const se_GetMultiRegionEndpointCommand = async (
 };
 
 /**
+ * serializeAws_restJson1GetReputationEntityCommand
+ */
+export const se_GetReputationEntityCommand = async (
+  input: GetReputationEntityCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/v2/email/reputation/entities/{ReputationEntityType}/{ReputationEntityReference}");
+  b.p("ReputationEntityReference", () => input.ReputationEntityReference!, "{ReputationEntityReference}", false);
+  b.p("ReputationEntityType", () => input.ReputationEntityType!, "{ReputationEntityType}", false);
+  let body: any;
+  b.m("GET").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1GetSuppressedDestinationCommand
  */
 export const se_GetSuppressedDestinationCommand = async (
@@ -1323,6 +1472,28 @@ export const se_GetSuppressedDestinationCommand = async (
   b.p("EmailAddress", () => input.EmailAddress!, "{EmailAddress}", false);
   let body: any;
   b.m("GET").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1GetTenantCommand
+ */
+export const se_GetTenantCommand = async (
+  input: GetTenantCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/v2/email/tenants/get");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      TenantName: [],
+    })
+  );
+  b.m("POST").h(headers).b(body);
   return b.build();
 };
 
@@ -1599,6 +1770,54 @@ export const se_ListRecommendationsCommand = async (
 };
 
 /**
+ * serializeAws_restJson1ListReputationEntitiesCommand
+ */
+export const se_ListReputationEntitiesCommand = async (
+  input: ListReputationEntitiesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/v2/email/reputation/entities");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      Filter: (_) => _json(_),
+      NextToken: [],
+      PageSize: [],
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1ListResourceTenantsCommand
+ */
+export const se_ListResourceTenantsCommand = async (
+  input: ListResourceTenantsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/v2/email/resources/tenants/list");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      NextToken: [],
+      PageSize: [],
+      ResourceArn: [],
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1ListSuppressedDestinationsCommand
  */
 export const se_ListSuppressedDestinationsCommand = async (
@@ -1635,6 +1854,54 @@ export const se_ListTagsForResourceCommand = async (
   });
   let body: any;
   b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1ListTenantResourcesCommand
+ */
+export const se_ListTenantResourcesCommand = async (
+  input: ListTenantResourcesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/v2/email/tenants/resources/list");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      Filter: (_) => _json(_),
+      NextToken: [],
+      PageSize: [],
+      TenantName: [],
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1ListTenantsCommand
+ */
+export const se_ListTenantsCommand = async (
+  input: ListTenantsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/v2/email/tenants/list");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      NextToken: [],
+      PageSize: [],
+    })
+  );
+  b.m("POST").h(headers).b(body);
   return b.build();
 };
 
@@ -2174,6 +2441,7 @@ export const se_SendBulkEmailCommand = async (
       FromEmailAddress: [],
       FromEmailAddressIdentityArn: [],
       ReplyToAddresses: (_) => _json(_),
+      TenantName: [],
     })
   );
   b.m("POST").h(headers).b(body);
@@ -2230,6 +2498,7 @@ export const se_SendEmailCommand = async (
       FromEmailAddressIdentityArn: [],
       ListManagementOptions: (_) => _json(_),
       ReplyToAddresses: (_) => _json(_),
+      TenantName: [],
     })
   );
   b.m("POST").h(headers).b(body);
@@ -2443,6 +2712,54 @@ export const se_UpdateEmailTemplateCommand = async (
   body = JSON.stringify(
     take(input, {
       TemplateContent: (_) => _json(_),
+    })
+  );
+  b.m("PUT").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1UpdateReputationEntityCustomerManagedStatusCommand
+ */
+export const se_UpdateReputationEntityCustomerManagedStatusCommand = async (
+  input: UpdateReputationEntityCustomerManagedStatusCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/v2/email/reputation/entities/{ReputationEntityType}/{ReputationEntityReference}/customer-managed-status");
+  b.p("ReputationEntityType", () => input.ReputationEntityType!, "{ReputationEntityType}", false);
+  b.p("ReputationEntityReference", () => input.ReputationEntityReference!, "{ReputationEntityReference}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      SendingStatus: [],
+    })
+  );
+  b.m("PUT").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1UpdateReputationEntityPolicyCommand
+ */
+export const se_UpdateReputationEntityPolicyCommand = async (
+  input: UpdateReputationEntityPolicyCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/v2/email/reputation/entities/{ReputationEntityType}/{ReputationEntityReference}/policy");
+  b.p("ReputationEntityType", () => input.ReputationEntityType!, "{ReputationEntityType}", false);
+  b.p("ReputationEntityReference", () => input.ReputationEntityReference!, "{ReputationEntityReference}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      ReputationEntityPolicy: [],
     })
   );
   b.m("PUT").h(headers).b(body);
@@ -2734,6 +3051,49 @@ export const de_CreateMultiRegionEndpointCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1CreateTenantCommand
+ */
+export const de_CreateTenantCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateTenantCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    CreatedTimestamp: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    SendingStatus: __expectString,
+    Tags: _json,
+    TenantArn: __expectString,
+    TenantId: __expectString,
+    TenantName: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1CreateTenantResourceAssociationCommand
+ */
+export const de_CreateTenantResourceAssociationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateTenantResourceAssociationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1DeleteConfigurationSetCommand
  */
 export const de_DeleteConfigurationSetCommand = async (
@@ -2914,6 +3274,40 @@ export const de_DeleteSuppressedDestinationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteSuppressedDestinationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DeleteTenantCommand
+ */
+export const de_DeleteTenantCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteTenantCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DeleteTenantResourceAssociationCommand
+ */
+export const de_DeleteTenantResourceAssociationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteTenantResourceAssociationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
     return de_CommandError(output, context);
   }
@@ -3443,6 +3837,27 @@ export const de_GetMultiRegionEndpointCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1GetReputationEntityCommand
+ */
+export const de_GetReputationEntityCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetReputationEntityCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    ReputationEntity: (_) => de_ReputationEntity(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1GetSuppressedDestinationCommand
  */
 export const de_GetSuppressedDestinationCommand = async (
@@ -3458,6 +3873,27 @@ export const de_GetSuppressedDestinationCommand = async (
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
     SuppressedDestination: (_) => de_SuppressedDestination(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1GetTenantCommand
+ */
+export const de_GetTenantCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetTenantCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    Tenant: (_) => de_Tenant(_, context),
   });
   Object.assign(contents, doc);
   return contents;
@@ -3750,6 +4186,50 @@ export const de_ListRecommendationsCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1ListReputationEntitiesCommand
+ */
+export const de_ListReputationEntitiesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListReputationEntitiesCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    NextToken: __expectString,
+    ReputationEntities: (_) => de_ReputationEntitiesList(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListResourceTenantsCommand
+ */
+export const de_ListResourceTenantsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListResourceTenantsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    NextToken: __expectString,
+    ResourceTenants: (_) => de_ResourceTenantMetadataList(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1ListSuppressedDestinationsCommand
  */
 export const de_ListSuppressedDestinationsCommand = async (
@@ -3787,6 +4267,50 @@ export const de_ListTagsForResourceCommand = async (
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
     Tags: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListTenantResourcesCommand
+ */
+export const de_ListTenantResourcesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListTenantResourcesCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    NextToken: __expectString,
+    TenantResources: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListTenantsCommand
+ */
+export const de_ListTenantsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListTenantsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    NextToken: __expectString,
+    Tenants: (_) => de_TenantInfoList(_, context),
   });
   Object.assign(contents, doc);
   return contents;
@@ -4392,6 +4916,40 @@ export const de_UpdateEmailTemplateCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1UpdateReputationEntityCustomerManagedStatusCommand
+ */
+export const de_UpdateReputationEntityCustomerManagedStatusCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateReputationEntityCustomerManagedStatusCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1UpdateReputationEntityPolicyCommand
+ */
+export const de_UpdateReputationEntityPolicyCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateReputationEntityPolicyCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
  * deserialize_Aws_restJson1CommandError
  */
 const de_CommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<never> => {
@@ -4892,6 +5450,8 @@ const se_ExportDataSource = (input: ExportDataSource, context: __SerdeContext): 
 
 // se_ListRecommendationsFilter omitted.
 
+// se_ListTenantResourcesFilter omitted.
+
 /**
  * serializeAws_restJson1Message
  */
@@ -4954,6 +5514,8 @@ const se_RawMessage = (input: RawMessage, context: __SerdeContext): any => {
 // se_ReplacementEmailContent omitted.
 
 // se_ReplacementTemplate omitted.
+
+// se_ReputationEntityFilter omitted.
 
 /**
  * serializeAws_restJson1ReputationOptions
@@ -5648,6 +6210,33 @@ const de_RecommendationsList = (output: any, context: __SerdeContext): Recommend
 // de_Regions omitted.
 
 /**
+ * deserializeAws_restJson1ReputationEntitiesList
+ */
+const de_ReputationEntitiesList = (output: any, context: __SerdeContext): ReputationEntity[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_ReputationEntity(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_restJson1ReputationEntity
+ */
+const de_ReputationEntity = (output: any, context: __SerdeContext): ReputationEntity => {
+  return take(output, {
+    AwsSesManagedStatus: (_: any) => de_StatusRecord(_, context),
+    CustomerManagedStatus: (_: any) => de_StatusRecord(_, context),
+    ReputationEntityReference: __expectString,
+    ReputationEntityType: __expectString,
+    ReputationImpact: __expectString,
+    ReputationManagementPolicy: __expectString,
+    SendingStatusAggregate: __expectString,
+  }) as any;
+};
+
+/**
  * deserializeAws_restJson1ReputationOptions
  */
 const de_ReputationOptions = (output: any, context: __SerdeContext): ReputationOptions => {
@@ -5655,6 +6244,30 @@ const de_ReputationOptions = (output: any, context: __SerdeContext): ReputationO
     LastFreshStart: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     ReputationMetricsEnabled: __expectBoolean,
   }) as any;
+};
+
+/**
+ * deserializeAws_restJson1ResourceTenantMetadata
+ */
+const de_ResourceTenantMetadata = (output: any, context: __SerdeContext): ResourceTenantMetadata => {
+  return take(output, {
+    AssociatedTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    ResourceArn: __expectString,
+    TenantId: __expectString,
+    TenantName: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1ResourceTenantMetadataList
+ */
+const de_ResourceTenantMetadataList = (output: any, context: __SerdeContext): ResourceTenantMetadata[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_ResourceTenantMetadata(entry, context);
+    });
+  return retVal;
 };
 
 // de_ReviewDetails omitted.
@@ -5679,6 +6292,17 @@ const de_SendQuota = (output: any, context: __SerdeContext): SendQuota => {
 // de_SnsDestination omitted.
 
 // de_SOARecord omitted.
+
+/**
+ * deserializeAws_restJson1StatusRecord
+ */
+const de_StatusRecord = (output: any, context: __SerdeContext): StatusRecord => {
+  return take(output, {
+    Cause: __expectString,
+    LastUpdatedTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Status: __expectString,
+  }) as any;
+};
 
 /**
  * deserializeAws_restJson1SuppressedDestination
@@ -5728,6 +6352,48 @@ const de_SuppressedDestinationSummary = (output: any, context: __SerdeContext): 
 // de_Tag omitted.
 
 // de_TagList omitted.
+
+/**
+ * deserializeAws_restJson1Tenant
+ */
+const de_Tenant = (output: any, context: __SerdeContext): Tenant => {
+  return take(output, {
+    CreatedTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    SendingStatus: __expectString,
+    Tags: _json,
+    TenantArn: __expectString,
+    TenantId: __expectString,
+    TenantName: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1TenantInfo
+ */
+const de_TenantInfo = (output: any, context: __SerdeContext): TenantInfo => {
+  return take(output, {
+    CreatedTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    TenantArn: __expectString,
+    TenantId: __expectString,
+    TenantName: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1TenantInfoList
+ */
+const de_TenantInfoList = (output: any, context: __SerdeContext): TenantInfo[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_TenantInfo(entry, context);
+    });
+  return retVal;
+};
+
+// de_TenantResource omitted.
+
+// de_TenantResourceList omitted.
 
 /**
  * deserializeAws_restJson1TimestampList

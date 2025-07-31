@@ -112,6 +112,7 @@ export interface SendBulkEmailCommandOutput extends SendBulkEmailResponse, __Met
  *   ],
  *   ConfigurationSetName: "STRING_VALUE",
  *   EndpointId: "STRING_VALUE",
+ *   TenantName: "STRING_VALUE",
  * };
  * const command = new SendBulkEmailCommand(input);
  * const response = await client.send(command);

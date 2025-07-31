@@ -14,4 +14,8 @@ export * from "./ListExportJobsPaginator";
 export * from "./ListImportJobsPaginator";
 export * from "./ListMultiRegionEndpointsPaginator";
 export * from "./ListRecommendationsPaginator";
+export * from "./ListReputationEntitiesPaginator";
+export * from "./ListResourceTenantsPaginator";
 export * from "./ListSuppressedDestinationsPaginator";
+export * from "./ListTenantResourcesPaginator";
+export * from "./ListTenantsPaginator";

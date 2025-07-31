@@ -8,7 +8,7 @@ import { commonParams } from "../endpoint/EndpointParameters";
 import {
   PutConfigurationSetArchivingOptionsRequest,
   PutConfigurationSetArchivingOptionsResponse,
-} from "../models/models_0";
+} from "../models/models_1";
 import {
   de_PutConfigurationSetArchivingOptionsCommand,
   se_PutConfigurationSetArchivingOptionsCommand,

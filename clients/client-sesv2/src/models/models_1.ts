@@ -1,9 +1,12 @@
 // smithy-typescript generated code
+import { SENSITIVE_STRING } from "@smithy/smithy-client";
+
 import {
   BehaviorOnMxFailure,
   BulkEmailContent,
   BulkEmailEntry,
   BulkEmailEntryResult,
+  ContactLanguage,
   Destination,
   DkimSigningAttributes,
   DkimSigningAttributesFilterSensitiveLog,
@@ -15,14 +18,587 @@ import {
   EventDestinationDefinition,
   HttpsPolicy,
   ListManagementOptions,
+  MailType,
   MessageTag,
+  ReputationEntityType,
   ScalingMode,
+  SendingStatus,
   SuppressionListReason,
   Tag,
+  TlsPolicy,
   Topic,
   TopicPreference,
+  VdmAttributes,
   VdmOptions,
 } from "./models_0";
+
+/**
+ * <p>A request to obtain a list of email destinations that are on the suppression list for
+ *             your account.</p>
+ * @public
+ */
+export interface ListSuppressedDestinationsRequest {
+  /**
+   * <p>The factors that caused the email address to be added to .</p>
+   * @public
+   */
+  Reasons?: SuppressionListReason[] | undefined;
+
+  /**
+   * <p>Used to filter the list of suppressed email destinations so that it only includes
+   *             addresses that were added to the list after a specific date.</p>
+   * @public
+   */
+  StartDate?: Date | undefined;
+
+  /**
+   * <p>Used to filter the list of suppressed email destinations so that it only includes
+   *             addresses that were added to the list before a specific date.</p>
+   * @public
+   */
+  EndDate?: Date | undefined;
+
+  /**
+   * <p>A token returned from a previous call to <code>ListSuppressedDestinations</code> to
+   *             indicate the position in the list of suppressed email addresses.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The number of results to show in a single call to
+   *                 <code>ListSuppressedDestinations</code>. If the number of results is larger than the
+   *             number you specified in this parameter, then the response includes a
+   *                 <code>NextToken</code> element, which you can use to obtain additional
+   *             results.</p>
+   * @public
+   */
+  PageSize?: number | undefined;
+}
+
+/**
+ * <p>A summary that describes the suppressed email address.</p>
+ * @public
+ */
+export interface SuppressedDestinationSummary {
+  /**
+   * <p>The email address that's on the suppression list for your account.</p>
+   * @public
+   */
+  EmailAddress: string | undefined;
+
+  /**
+   * <p>The reason that the address was added to the suppression list for your account.</p>
+   * @public
+   */
+  Reason: SuppressionListReason | undefined;
+
+  /**
+   * <p>The date and time when the suppressed destination was last updated, shown in Unix time
+   *             format.</p>
+   * @public
+   */
+  LastUpdateTime: Date | undefined;
+}
+
+/**
+ * <p>A list of suppressed email addresses.</p>
+ * @public
+ */
+export interface ListSuppressedDestinationsResponse {
+  /**
+   * <p>A list of summaries, each containing a summary for a suppressed email
+   *             destination.</p>
+   * @public
+   */
+  SuppressedDestinationSummaries?: SuppressedDestinationSummary[] | undefined;
+
+  /**
+   * <p>A token that indicates that there are additional email addresses on the suppression
+   *             list for your account. To view additional suppressed addresses, issue another request to
+   *                 <code>ListSuppressedDestinations</code>, and pass this token in the
+   *                 <code>NextToken</code> parameter.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListTagsForResourceRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the resource that you want to retrieve tag
+   *             information for.</p>
+   * @public
+   */
+  ResourceArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListTagsForResourceResponse {
+  /**
+   * <p>An array that lists all the tags that are associated with the resource. Each tag
+   *             consists of a required tag key (<code>Key</code>) and an associated tag value
+   *                 (<code>Value</code>)</p>
+   * @public
+   */
+  Tags: Tag[] | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const ListTenantResourcesFilterKey = {
+  RESOURCE_TYPE: "RESOURCE_TYPE",
+} as const;
+
+/**
+ * @public
+ */
+export type ListTenantResourcesFilterKey =
+  (typeof ListTenantResourcesFilterKey)[keyof typeof ListTenantResourcesFilterKey];
+
+/**
+ * <p>Represents a request to list resources associated with a specific tenant.</p>
+ * @public
+ */
+export interface ListTenantResourcesRequest {
+  /**
+   * <p>The name of the tenant to list resources for.</p>
+   * @public
+   */
+  TenantName: string | undefined;
+
+  /**
+   * <p>A map of filter keys and values for filtering the list of tenant resources. Currently,
+   *             the only supported filter key is <code>RESOURCE_TYPE</code>.</p>
+   * @public
+   */
+  Filter?: Partial<Record<ListTenantResourcesFilterKey, string>> | undefined;
+
+  /**
+   * <p>The number of results to show in a single call to <code>ListTenantResources</code>.
+   *             If the number of results is larger than the number you specified in this parameter,
+   *             then the response includes a <code>NextToken</code> element, which you can use to obtain additional results.</p>
+   * @public
+   */
+  PageSize?: number | undefined;
+
+  /**
+   * <p>A token returned from a previous call to <code>ListTenantResources</code> to indicate the position in the list of tenant resources.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const ResourceType = {
+  CONFIGURATION_SET: "CONFIGURATION_SET",
+  EMAIL_IDENTITY: "EMAIL_IDENTITY",
+  EMAIL_TEMPLATE: "EMAIL_TEMPLATE",
+} as const;
+
+/**
+ * @public
+ */
+export type ResourceType = (typeof ResourceType)[keyof typeof ResourceType];
+
+/**
+ * <p>A structure that contains information about a resource associated with a tenant.</p>
+ * @public
+ */
+export interface TenantResource {
+  /**
+   * <p>The type of resource associated with the tenant. Valid values are <code>EMAIL_IDENTITY</code>,
+   *             <code>CONFIGURATION_SET</code>, or <code>EMAIL_TEMPLATE</code>.</p>
+   * @public
+   */
+  ResourceType?: ResourceType | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the resource associated with the tenant.</p>
+   * @public
+   */
+  ResourceArn?: string | undefined;
+}
+
+/**
+ * <p>Information about resources associated with a specific tenant.</p>
+ * @public
+ */
+export interface ListTenantResourcesResponse {
+  /**
+   * <p>An array that contains information about each resource associated with the tenant.</p>
+   * @public
+   */
+  TenantResources?: TenantResource[] | undefined;
+
+  /**
+   * <p>A token that indicates that there are additional resources to list. To view additional resources,
+   *             issue another request to <code>ListTenantResources</code>, and pass this token in the <code>NextToken</code> parameter.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * <p>Represents a request to list all tenants associated with your account in the current Amazon Web Services Region.</p>
+ * @public
+ */
+export interface ListTenantsRequest {
+  /**
+   * <p>A token returned from a previous call to <code>ListTenants</code> to indicate the position in the list of tenants.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The number of results to show in a single call to <code>ListTenants</code>.
+   *             If the number of results is larger than the number you specified in this parameter,
+   *             then the response includes a <code>NextToken</code> element, which you can use to obtain additional results.</p>
+   * @public
+   */
+  PageSize?: number | undefined;
+}
+
+/**
+ * <p>A structure that contains basic information about a tenant.</p>
+ * @public
+ */
+export interface TenantInfo {
+  /**
+   * <p>The name of the tenant.</p>
+   * @public
+   */
+  TenantName?: string | undefined;
+
+  /**
+   * <p>A unique identifier for the tenant.</p>
+   * @public
+   */
+  TenantId?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the tenant.</p>
+   * @public
+   */
+  TenantArn?: string | undefined;
+
+  /**
+   * <p>The date and time when the tenant was created.</p>
+   * @public
+   */
+  CreatedTimestamp?: Date | undefined;
+}
+
+/**
+ * <p>Information about tenants associated with your account.</p>
+ * @public
+ */
+export interface ListTenantsResponse {
+  /**
+   * <p>An array that contains basic information about each tenant.</p>
+   * @public
+   */
+  Tenants?: TenantInfo[] | undefined;
+
+  /**
+   * <p>A token that indicates that there are additional tenants to list. To view additional tenants,
+   *             issue another request to <code>ListTenants</code>, and pass this token in the <code>NextToken</code> parameter.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * <p>A request to enable or disable the automatic IP address warm-up feature.</p>
+ * @public
+ */
+export interface PutAccountDedicatedIpWarmupAttributesRequest {
+  /**
+   * <p>Enables or disables the automatic warm-up feature for dedicated IP addresses that are
+   *             associated with your Amazon SES account in the current Amazon Web Services Region. Set to <code>true</code>
+   *             to enable the automatic warm-up feature, or set to <code>false</code> to disable
+   *             it.</p>
+   * @public
+   */
+  AutoWarmupEnabled?: boolean | undefined;
+}
+
+/**
+ * <p>An HTTP 200 response if the request succeeds, or an error message if the request
+ *             fails.</p>
+ * @public
+ */
+export interface PutAccountDedicatedIpWarmupAttributesResponse {}
+
+/**
+ * <p>A request to submit new account details.</p>
+ * @public
+ */
+export interface PutAccountDetailsRequest {
+  /**
+   * <p>The type of email your account will send.</p>
+   * @public
+   */
+  MailType: MailType | undefined;
+
+  /**
+   * <p>The URL of your website. This information helps us better understand the type of
+   *             content that you plan to send.</p>
+   * @public
+   */
+  WebsiteURL: string | undefined;
+
+  /**
+   * <p>The language you would prefer to be contacted with.</p>
+   * @public
+   */
+  ContactLanguage?: ContactLanguage | undefined;
+
+  /**
+   * <p>A description of the types of email that you plan to send.</p>
+   *
+   * @deprecated
+   * @public
+   */
+  UseCaseDescription?: string | undefined;
+
+  /**
+   * <p>Additional email addresses that you would like to be notified regarding Amazon SES
+   *             matters.</p>
+   * @public
+   */
+  AdditionalContactEmailAddresses?: string[] | undefined;
+
+  /**
+   * <p>Indicates whether or not your account should have production access in the current
+   *             Amazon Web Services Region.</p>
+   *          <p>If the value is <code>false</code>, then your account is in the
+   *                 <i>sandbox</i>. When your account is in the sandbox, you can only send
+   *             email to verified identities.
+   *             </p>
+   *          <p>If the value is <code>true</code>, then your account has production access. When your
+   *             account has production access, you can send email to any address. The sending quota and
+   *             maximum sending rate for your account vary based on your specific use case.</p>
+   * @public
+   */
+  ProductionAccessEnabled?: boolean | undefined;
+}
+
+/**
+ * <p>An HTTP 200 response if the request succeeds, or an error message if the request
+ *             fails.</p>
+ * @public
+ */
+export interface PutAccountDetailsResponse {}
+
+/**
+ * <p>A request to change the ability of your account to send email.</p>
+ * @public
+ */
+export interface PutAccountSendingAttributesRequest {
+  /**
+   * <p>Enables or disables your account's ability to send email. Set to <code>true</code> to
+   *             enable email sending, or set to <code>false</code> to disable email sending.</p>
+   *          <note>
+   *             <p>If Amazon Web Services paused your account's ability to send email, you can't use this operation
+   *                 to resume your account's ability to send email.</p>
+   *          </note>
+   * @public
+   */
+  SendingEnabled?: boolean | undefined;
+}
+
+/**
+ * <p>An HTTP 200 response if the request succeeds, or an error message if the request
+ *             fails.</p>
+ * @public
+ */
+export interface PutAccountSendingAttributesResponse {}
+
+/**
+ * <p>A request to change your account's suppression preferences.</p>
+ * @public
+ */
+export interface PutAccountSuppressionAttributesRequest {
+  /**
+   * <p>A list that contains the reasons that email addresses will be automatically added to
+   *             the suppression list for your account. This list can contain any or all of the
+   *             following:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>COMPLAINT</code> – Amazon SES adds an email address to the suppression
+   *                     list for your account when a message sent to that address results in a
+   *                     complaint.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>BOUNCE</code> – Amazon SES adds an email address to the suppression
+   *                     list for your account when a message sent to that address results in a hard
+   *                     bounce.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  SuppressedReasons?: SuppressionListReason[] | undefined;
+}
+
+/**
+ * <p>An HTTP 200 response if the request succeeds, or an error message if the request
+ *             fails.</p>
+ * @public
+ */
+export interface PutAccountSuppressionAttributesResponse {}
+
+/**
+ * <p>A request to submit new account VDM attributes.</p>
+ * @public
+ */
+export interface PutAccountVdmAttributesRequest {
+  /**
+   * <p>The VDM attributes that you wish to apply to your Amazon SES account.</p>
+   * @public
+   */
+  VdmAttributes: VdmAttributes | undefined;
+}
+
+/**
+ * @public
+ */
+export interface PutAccountVdmAttributesResponse {}
+
+/**
+ * <p>A request to associate a configuration set with a MailManager archive.</p>
+ * @public
+ */
+export interface PutConfigurationSetArchivingOptionsRequest {
+  /**
+   * <p>The name of the configuration set to associate with a MailManager archive.</p>
+   * @public
+   */
+  ConfigurationSetName: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the MailManager archive that the Amazon SES API v2 sends email
+   *             to.</p>
+   * @public
+   */
+  ArchiveArn?: string | undefined;
+}
+
+/**
+ * <p>An HTTP 200 response if the request succeeds, or an error message if the request
+ *             fails.</p>
+ * @public
+ */
+export interface PutConfigurationSetArchivingOptionsResponse {}
+
+/**
+ * <p>A request to associate a configuration set with a dedicated IP pool.</p>
+ * @public
+ */
+export interface PutConfigurationSetDeliveryOptionsRequest {
+  /**
+   * <p>The name of the configuration set to associate with a dedicated IP pool.</p>
+   * @public
+   */
+  ConfigurationSetName: string | undefined;
+
+  /**
+   * <p>Specifies whether messages that use the configuration set are required to use
+   *             Transport Layer Security (TLS). If the value is <code>Require</code>, messages are only
+   *             delivered if a TLS connection can be established. If the value is <code>Optional</code>,
+   *             messages can be delivered in plain text if a TLS connection can't be established.</p>
+   * @public
+   */
+  TlsPolicy?: TlsPolicy | undefined;
+
+  /**
+   * <p>The name of the dedicated IP pool to associate with the configuration set.</p>
+   * @public
+   */
+  SendingPoolName?: string | undefined;
+
+  /**
+   * <p>The maximum amount of time, in seconds, that Amazon SES API v2 will attempt delivery of email.
+   *             If specified, the value must greater than or equal to 300 seconds (5 minutes)
+   *             and less than or equal to 50400 seconds (840 minutes).
+   *         </p>
+   * @public
+   */
+  MaxDeliverySeconds?: number | undefined;
+}
+
+/**
+ * <p>An HTTP 200 response if the request succeeds, or an error message if the request
+ *             fails.</p>
+ * @public
+ */
+export interface PutConfigurationSetDeliveryOptionsResponse {}
+
+/**
+ * <p>A request to enable or disable tracking of reputation metrics for a configuration
+ *             set.</p>
+ * @public
+ */
+export interface PutConfigurationSetReputationOptionsRequest {
+  /**
+   * <p>The name of the configuration set.</p>
+   * @public
+   */
+  ConfigurationSetName: string | undefined;
+
+  /**
+   * <p>If <code>true</code>, tracking of reputation metrics is enabled for the configuration
+   *             set. If <code>false</code>, tracking of reputation metrics is disabled for the
+   *             configuration set.</p>
+   * @public
+   */
+  ReputationMetricsEnabled?: boolean | undefined;
+}
+
+/**
+ * <p>An HTTP 200 response if the request succeeds, or an error message if the request
+ *             fails.</p>
+ * @public
+ */
+export interface PutConfigurationSetReputationOptionsResponse {}
+
+/**
+ * <p>A request to enable or disable the ability of Amazon SES to send emails that use a specific
+ *             configuration set.</p>
+ * @public
+ */
+export interface PutConfigurationSetSendingOptionsRequest {
+  /**
+   * <p>The name of the configuration set to enable or disable email sending for.</p>
+   * @public
+   */
+  ConfigurationSetName: string | undefined;
+
+  /**
+   * <p>If <code>true</code>, email sending is enabled for the configuration set. If
+   *                 <code>false</code>, email sending is disabled for the configuration set.</p>
+   * @public
+   */
+  SendingEnabled?: boolean | undefined;
+}
+
+/**
+ * <p>An HTTP 200 response if the request succeeds, or an error message if the request
+ *             fails.</p>
+ * @public
+ */
+export interface PutConfigurationSetSendingOptionsResponse {}
 
 /**
  * <p>A request to change the account suppression list preferences for a specific
@@ -603,6 +1179,18 @@ export interface SendBulkEmailRequest {
    * @public
    */
   EndpointId?: string | undefined;
+
+  /**
+   * <p>The name of the tenant through which this bulk email will be sent.</p>
+   *          <note>
+   *             <p>
+   *                 The email sending operation will only succeed if all referenced resources
+   *                 (identities, configuration sets, and templates) are associated with this tenant.
+   *             </p>
+   *          </note>
+   * @public
+   */
+  TenantName?: string | undefined;
 }
 
 /**
@@ -753,6 +1341,17 @@ export interface SendEmailRequest {
    * @public
    */
   EndpointId?: string | undefined;
+
+  /**
+   * <p>The name of the tenant through which this email will be sent.</p>
+   *          <note>
+   *             <p>The email sending operation will only succeed if all referenced resources
+   *                 (identities, configuration sets, and templates) are associated with this tenant.
+   *             </p>
+   *          </note>
+   * @public
+   */
+  TenantName?: string | undefined;
 
   /**
    * <p>An object used to specify a list or topic to which an email belongs, which will be
@@ -1091,6 +1690,93 @@ export interface UpdateEmailTemplateRequest {
  * @public
  */
 export interface UpdateEmailTemplateResponse {}
+
+/**
+ * <p>Represents a request to update the customer-managed sending status for a reputation entity.</p>
+ * @public
+ */
+export interface UpdateReputationEntityCustomerManagedStatusRequest {
+  /**
+   * <p>The type of reputation entity. Currently, only <code>RESOURCE</code> type entities are supported.</p>
+   * @public
+   */
+  ReputationEntityType: ReputationEntityType | undefined;
+
+  /**
+   * <p>The unique identifier for the reputation entity. For resource-type entities,
+   *             this is the Amazon Resource Name (ARN) of the resource.</p>
+   * @public
+   */
+  ReputationEntityReference: string | undefined;
+
+  /**
+   * <p>The new customer-managed sending status for the reputation entity. This can be one of the following:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>ENABLED</code> – Allow sending for this entity.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DISABLED</code> – Prevent sending for this entity.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>REINSTATED</code> – Allow sending even if there are active reputation findings.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  SendingStatus: SendingStatus | undefined;
+}
+
+/**
+ * <p>If the action is successful, the service sends back an HTTP 200 response with an empty HTTP body.</p>
+ * @public
+ */
+export interface UpdateReputationEntityCustomerManagedStatusResponse {}
+
+/**
+ * <p>Represents a request to update the reputation management policy for a reputation entity.</p>
+ * @public
+ */
+export interface UpdateReputationEntityPolicyRequest {
+  /**
+   * <p>The type of reputation entity. Currently, only <code>RESOURCE</code> type entities are supported.</p>
+   * @public
+   */
+  ReputationEntityType: ReputationEntityType | undefined;
+
+  /**
+   * <p>The unique identifier for the reputation entity. For resource-type entities,
+   *             this is the Amazon Resource Name (ARN) of the resource.</p>
+   * @public
+   */
+  ReputationEntityReference: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the reputation management policy to apply
+   *             to this entity. This is an Amazon Web Services Amazon SES-managed policy.</p>
+   * @public
+   */
+  ReputationEntityPolicy: string | undefined;
+}
+
+/**
+ * <p>If the action is successful, the service sends back an HTTP 200 response with an empty HTTP body.</p>
+ * @public
+ */
+export interface UpdateReputationEntityPolicyResponse {}
+
+/**
+ * @internal
+ */
+export const PutAccountDetailsRequestFilterSensitiveLog = (obj: PutAccountDetailsRequest): any => ({
+  ...obj,
+  ...(obj.WebsiteURL && { WebsiteURL: SENSITIVE_STRING }),
+  ...(obj.UseCaseDescription && { UseCaseDescription: SENSITIVE_STRING }),
+  ...(obj.AdditionalContactEmailAddresses && { AdditionalContactEmailAddresses: SENSITIVE_STRING }),
+});
 
 /**
  * @internal

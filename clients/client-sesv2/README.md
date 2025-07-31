@@ -30,16 +30,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `SESv2Client` and
-the commands you need, for example `ListContactListsCommand`:
+the commands you need, for example `ListTenantsCommand`:
 
 ```js
 // ES5 example
-const { SESv2Client, ListContactListsCommand } = require("@aws-sdk/client-sesv2");
+const { SESv2Client, ListTenantsCommand } = require("@aws-sdk/client-sesv2");
 ```
 
 ```ts
 // ES6+ example
-import { SESv2Client, ListContactListsCommand } from "@aws-sdk/client-sesv2";
+import { SESv2Client, ListTenantsCommand } from "@aws-sdk/client-sesv2";
 ```
 
 ### Usage
@@ -58,7 +58,7 @@ const client = new SESv2Client({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new ListContactListsCommand(params);
+const command = new ListTenantsCommand(params);
 ```
 
 #### Async/await
@@ -137,7 +137,7 @@ const client = new AWS.SESv2({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.listContactLists(params);
+  const data = await client.listTenants(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -145,7 +145,7 @@ try {
 
 // Promises.
 client
-  .listContactLists(params)
+  .listTenants(params)
   .then((data) => {
     // process data.
   })
@@ -154,7 +154,7 @@ client
   });
 
 // callbacks.
-client.listContactLists(params, (err, data) => {
+client.listTenants(params, (err, data) => {
   // process err and data.
 });
 ```
@@ -332,6 +332,22 @@ CreateMultiRegionEndpoint
 </details>
 <details>
 <summary>
+CreateTenant
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/sesv2/command/CreateTenantCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sesv2/Interface/CreateTenantCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sesv2/Interface/CreateTenantCommandOutput/)
+
+</details>
+<details>
+<summary>
+CreateTenantResourceAssociation
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/sesv2/command/CreateTenantResourceAssociationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sesv2/Interface/CreateTenantResourceAssociationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sesv2/Interface/CreateTenantResourceAssociationCommandOutput/)
+
+</details>
+<details>
+<summary>
 DeleteConfigurationSet
 </summary>
 
@@ -416,6 +432,22 @@ DeleteSuppressedDestination
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/sesv2/command/DeleteSuppressedDestinationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sesv2/Interface/DeleteSuppressedDestinationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sesv2/Interface/DeleteSuppressedDestinationCommandOutput/)
+
+</details>
+<details>
+<summary>
+DeleteTenant
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/sesv2/command/DeleteTenantCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sesv2/Interface/DeleteTenantCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sesv2/Interface/DeleteTenantCommandOutput/)
+
+</details>
+<details>
+<summary>
+DeleteTenantResourceAssociation
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/sesv2/command/DeleteTenantResourceAssociationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sesv2/Interface/DeleteTenantResourceAssociationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sesv2/Interface/DeleteTenantResourceAssociationCommandOutput/)
 
 </details>
 <details>
@@ -588,10 +620,26 @@ GetMultiRegionEndpoint
 </details>
 <details>
 <summary>
+GetReputationEntity
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/sesv2/command/GetReputationEntityCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sesv2/Interface/GetReputationEntityCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sesv2/Interface/GetReputationEntityCommandOutput/)
+
+</details>
+<details>
+<summary>
 GetSuppressedDestination
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/sesv2/command/GetSuppressedDestinationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sesv2/Interface/GetSuppressedDestinationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sesv2/Interface/GetSuppressedDestinationCommandOutput/)
+
+</details>
+<details>
+<summary>
+GetTenant
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/sesv2/command/GetTenantCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sesv2/Interface/GetTenantCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sesv2/Interface/GetTenantCommandOutput/)
 
 </details>
 <details>
@@ -700,6 +748,22 @@ ListRecommendations
 </details>
 <details>
 <summary>
+ListReputationEntities
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/sesv2/command/ListReputationEntitiesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sesv2/Interface/ListReputationEntitiesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sesv2/Interface/ListReputationEntitiesCommandOutput/)
+
+</details>
+<details>
+<summary>
+ListResourceTenants
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/sesv2/command/ListResourceTenantsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sesv2/Interface/ListResourceTenantsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sesv2/Interface/ListResourceTenantsCommandOutput/)
+
+</details>
+<details>
+<summary>
 ListSuppressedDestinations
 </summary>
 
@@ -712,6 +776,22 @@ ListTagsForResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/sesv2/command/ListTagsForResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sesv2/Interface/ListTagsForResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sesv2/Interface/ListTagsForResourceCommandOutput/)
+
+</details>
+<details>
+<summary>
+ListTenantResources
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/sesv2/command/ListTenantResourcesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sesv2/Interface/ListTenantResourcesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sesv2/Interface/ListTenantResourcesCommandOutput/)
+
+</details>
+<details>
+<summary>
+ListTenants
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/sesv2/command/ListTenantsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sesv2/Interface/ListTenantsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sesv2/Interface/ListTenantsCommandOutput/)
 
 </details>
 <details>
@@ -984,5 +1064,21 @@ UpdateEmailTemplate
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/sesv2/command/UpdateEmailTemplateCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sesv2/Interface/UpdateEmailTemplateCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sesv2/Interface/UpdateEmailTemplateCommandOutput/)
+
+</details>
+<details>
+<summary>
+UpdateReputationEntityCustomerManagedStatus
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/sesv2/command/UpdateReputationEntityCustomerManagedStatusCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sesv2/Interface/UpdateReputationEntityCustomerManagedStatusCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sesv2/Interface/UpdateReputationEntityCustomerManagedStatusCommandOutput/)
+
+</details>
+<details>
+<summary>
+UpdateReputationEntityPolicy
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/sesv2/command/UpdateReputationEntityPolicyCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sesv2/Interface/UpdateReputationEntityPolicyCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sesv2/Interface/UpdateReputationEntityPolicyCommandOutput/)
 
 </details>

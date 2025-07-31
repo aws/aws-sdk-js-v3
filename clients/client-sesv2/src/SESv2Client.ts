@@ -95,6 +95,11 @@ import {
   CreateMultiRegionEndpointCommandInput,
   CreateMultiRegionEndpointCommandOutput,
 } from "./commands/CreateMultiRegionEndpointCommand";
+import { CreateTenantCommandInput, CreateTenantCommandOutput } from "./commands/CreateTenantCommand";
+import {
+  CreateTenantResourceAssociationCommandInput,
+  CreateTenantResourceAssociationCommandOutput,
+} from "./commands/CreateTenantResourceAssociationCommand";
 import {
   DeleteConfigurationSetCommandInput,
   DeleteConfigurationSetCommandOutput,
@@ -133,6 +138,11 @@ import {
   DeleteSuppressedDestinationCommandInput,
   DeleteSuppressedDestinationCommandOutput,
 } from "./commands/DeleteSuppressedDestinationCommand";
+import { DeleteTenantCommandInput, DeleteTenantCommandOutput } from "./commands/DeleteTenantCommand";
+import {
+  DeleteTenantResourceAssociationCommandInput,
+  DeleteTenantResourceAssociationCommandOutput,
+} from "./commands/DeleteTenantResourceAssociationCommand";
 import { GetAccountCommandInput, GetAccountCommandOutput } from "./commands/GetAccountCommand";
 import {
   GetBlacklistReportsCommandInput,
@@ -185,9 +195,14 @@ import {
   GetMultiRegionEndpointCommandOutput,
 } from "./commands/GetMultiRegionEndpointCommand";
 import {
+  GetReputationEntityCommandInput,
+  GetReputationEntityCommandOutput,
+} from "./commands/GetReputationEntityCommand";
+import {
   GetSuppressedDestinationCommandInput,
   GetSuppressedDestinationCommandOutput,
 } from "./commands/GetSuppressedDestinationCommand";
+import { GetTenantCommandInput, GetTenantCommandOutput } from "./commands/GetTenantCommand";
 import {
   ListConfigurationSetsCommandInput,
   ListConfigurationSetsCommandOutput,
@@ -226,6 +241,14 @@ import {
   ListRecommendationsCommandOutput,
 } from "./commands/ListRecommendationsCommand";
 import {
+  ListReputationEntitiesCommandInput,
+  ListReputationEntitiesCommandOutput,
+} from "./commands/ListReputationEntitiesCommand";
+import {
+  ListResourceTenantsCommandInput,
+  ListResourceTenantsCommandOutput,
+} from "./commands/ListResourceTenantsCommand";
+import {
   ListSuppressedDestinationsCommandInput,
   ListSuppressedDestinationsCommandOutput,
 } from "./commands/ListSuppressedDestinationsCommand";
@@ -233,6 +256,11 @@ import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
+import {
+  ListTenantResourcesCommandInput,
+  ListTenantResourcesCommandOutput,
+} from "./commands/ListTenantResourcesCommand";
+import { ListTenantsCommandInput, ListTenantsCommandOutput } from "./commands/ListTenantsCommand";
 import {
   PutAccountDedicatedIpWarmupAttributesCommandInput,
   PutAccountDedicatedIpWarmupAttributesCommandOutput,
@@ -349,6 +377,14 @@ import {
   UpdateEmailTemplateCommandOutput,
 } from "./commands/UpdateEmailTemplateCommand";
 import {
+  UpdateReputationEntityCustomerManagedStatusCommandInput,
+  UpdateReputationEntityCustomerManagedStatusCommandOutput,
+} from "./commands/UpdateReputationEntityCustomerManagedStatusCommand";
+import {
+  UpdateReputationEntityPolicyCommandInput,
+  UpdateReputationEntityPolicyCommandOutput,
+} from "./commands/UpdateReputationEntityPolicyCommand";
+import {
   ClientInputEndpointParameters,
   ClientResolvedEndpointParameters,
   EndpointParameters,
@@ -378,6 +414,8 @@ export type ServiceInputTypes =
   | CreateExportJobCommandInput
   | CreateImportJobCommandInput
   | CreateMultiRegionEndpointCommandInput
+  | CreateTenantCommandInput
+  | CreateTenantResourceAssociationCommandInput
   | DeleteConfigurationSetCommandInput
   | DeleteConfigurationSetEventDestinationCommandInput
   | DeleteContactCommandInput
@@ -389,6 +427,8 @@ export type ServiceInputTypes =
   | DeleteEmailTemplateCommandInput
   | DeleteMultiRegionEndpointCommandInput
   | DeleteSuppressedDestinationCommandInput
+  | DeleteTenantCommandInput
+  | DeleteTenantResourceAssociationCommandInput
   | GetAccountCommandInput
   | GetBlacklistReportsCommandInput
   | GetConfigurationSetCommandInput
@@ -410,7 +450,9 @@ export type ServiceInputTypes =
   | GetImportJobCommandInput
   | GetMessageInsightsCommandInput
   | GetMultiRegionEndpointCommandInput
+  | GetReputationEntityCommandInput
   | GetSuppressedDestinationCommandInput
+  | GetTenantCommandInput
   | ListConfigurationSetsCommandInput
   | ListContactListsCommandInput
   | ListContactsCommandInput
@@ -424,8 +466,12 @@ export type ServiceInputTypes =
   | ListImportJobsCommandInput
   | ListMultiRegionEndpointsCommandInput
   | ListRecommendationsCommandInput
+  | ListReputationEntitiesCommandInput
+  | ListResourceTenantsCommandInput
   | ListSuppressedDestinationsCommandInput
   | ListTagsForResourceCommandInput
+  | ListTenantResourcesCommandInput
+  | ListTenantsCommandInput
   | PutAccountDedicatedIpWarmupAttributesCommandInput
   | PutAccountDetailsCommandInput
   | PutAccountSendingAttributesCommandInput
@@ -459,7 +505,9 @@ export type ServiceInputTypes =
   | UpdateContactListCommandInput
   | UpdateCustomVerificationEmailTemplateCommandInput
   | UpdateEmailIdentityPolicyCommandInput
-  | UpdateEmailTemplateCommandInput;
+  | UpdateEmailTemplateCommandInput
+  | UpdateReputationEntityCustomerManagedStatusCommandInput
+  | UpdateReputationEntityPolicyCommandInput;
 
 /**
  * @public
@@ -480,6 +528,8 @@ export type ServiceOutputTypes =
   | CreateExportJobCommandOutput
   | CreateImportJobCommandOutput
   | CreateMultiRegionEndpointCommandOutput
+  | CreateTenantCommandOutput
+  | CreateTenantResourceAssociationCommandOutput
   | DeleteConfigurationSetCommandOutput
   | DeleteConfigurationSetEventDestinationCommandOutput
   | DeleteContactCommandOutput
@@ -491,6 +541,8 @@ export type ServiceOutputTypes =
   | DeleteEmailTemplateCommandOutput
   | DeleteMultiRegionEndpointCommandOutput
   | DeleteSuppressedDestinationCommandOutput
+  | DeleteTenantCommandOutput
+  | DeleteTenantResourceAssociationCommandOutput
   | GetAccountCommandOutput
   | GetBlacklistReportsCommandOutput
   | GetConfigurationSetCommandOutput
@@ -512,7 +564,9 @@ export type ServiceOutputTypes =
   | GetImportJobCommandOutput
   | GetMessageInsightsCommandOutput
   | GetMultiRegionEndpointCommandOutput
+  | GetReputationEntityCommandOutput
   | GetSuppressedDestinationCommandOutput
+  | GetTenantCommandOutput
   | ListConfigurationSetsCommandOutput
   | ListContactListsCommandOutput
   | ListContactsCommandOutput
@@ -526,8 +580,12 @@ export type ServiceOutputTypes =
   | ListImportJobsCommandOutput
   | ListMultiRegionEndpointsCommandOutput
   | ListRecommendationsCommandOutput
+  | ListReputationEntitiesCommandOutput
+  | ListResourceTenantsCommandOutput
   | ListSuppressedDestinationsCommandOutput
   | ListTagsForResourceCommandOutput
+  | ListTenantResourcesCommandOutput
+  | ListTenantsCommandOutput
   | PutAccountDedicatedIpWarmupAttributesCommandOutput
   | PutAccountDetailsCommandOutput
   | PutAccountSendingAttributesCommandOutput
@@ -561,7 +619,9 @@ export type ServiceOutputTypes =
   | UpdateContactListCommandOutput
   | UpdateCustomVerificationEmailTemplateCommandOutput
   | UpdateEmailIdentityPolicyCommandOutput
-  | UpdateEmailTemplateCommandOutput;
+  | UpdateEmailTemplateCommandOutput
+  | UpdateReputationEntityCustomerManagedStatusCommandOutput
+  | UpdateReputationEntityPolicyCommandOutput;
 
 /**
  * @public

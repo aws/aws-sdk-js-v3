@@ -9,7 +9,7 @@ import {
   PutAccountDetailsRequest,
   PutAccountDetailsRequestFilterSensitiveLog,
   PutAccountDetailsResponse,
-} from "../models/models_0";
+} from "../models/models_1";
 import { de_PutAccountDetailsCommand, se_PutAccountDetailsCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SESv2ClientResolvedConfig } from "../SESv2Client";
 

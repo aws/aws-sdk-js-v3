@@ -78,6 +78,16 @@ import {
   CreateMultiRegionEndpointCommandOutput,
 } from "./commands/CreateMultiRegionEndpointCommand";
 import {
+  CreateTenantCommand,
+  CreateTenantCommandInput,
+  CreateTenantCommandOutput,
+} from "./commands/CreateTenantCommand";
+import {
+  CreateTenantResourceAssociationCommand,
+  CreateTenantResourceAssociationCommandInput,
+  CreateTenantResourceAssociationCommandOutput,
+} from "./commands/CreateTenantResourceAssociationCommand";
+import {
   DeleteConfigurationSetCommand,
   DeleteConfigurationSetCommandInput,
   DeleteConfigurationSetCommandOutput,
@@ -132,6 +142,16 @@ import {
   DeleteSuppressedDestinationCommandInput,
   DeleteSuppressedDestinationCommandOutput,
 } from "./commands/DeleteSuppressedDestinationCommand";
+import {
+  DeleteTenantCommand,
+  DeleteTenantCommandInput,
+  DeleteTenantCommandOutput,
+} from "./commands/DeleteTenantCommand";
+import {
+  DeleteTenantResourceAssociationCommand,
+  DeleteTenantResourceAssociationCommandInput,
+  DeleteTenantResourceAssociationCommandOutput,
+} from "./commands/DeleteTenantResourceAssociationCommand";
 import { GetAccountCommand, GetAccountCommandInput, GetAccountCommandOutput } from "./commands/GetAccountCommand";
 import {
   GetBlacklistReportsCommand,
@@ -230,10 +250,16 @@ import {
   GetMultiRegionEndpointCommandOutput,
 } from "./commands/GetMultiRegionEndpointCommand";
 import {
+  GetReputationEntityCommand,
+  GetReputationEntityCommandInput,
+  GetReputationEntityCommandOutput,
+} from "./commands/GetReputationEntityCommand";
+import {
   GetSuppressedDestinationCommand,
   GetSuppressedDestinationCommandInput,
   GetSuppressedDestinationCommandOutput,
 } from "./commands/GetSuppressedDestinationCommand";
+import { GetTenantCommand, GetTenantCommandInput, GetTenantCommandOutput } from "./commands/GetTenantCommand";
 import {
   ListConfigurationSetsCommand,
   ListConfigurationSetsCommandInput,
@@ -300,6 +326,16 @@ import {
   ListRecommendationsCommandOutput,
 } from "./commands/ListRecommendationsCommand";
 import {
+  ListReputationEntitiesCommand,
+  ListReputationEntitiesCommandInput,
+  ListReputationEntitiesCommandOutput,
+} from "./commands/ListReputationEntitiesCommand";
+import {
+  ListResourceTenantsCommand,
+  ListResourceTenantsCommandInput,
+  ListResourceTenantsCommandOutput,
+} from "./commands/ListResourceTenantsCommand";
+import {
   ListSuppressedDestinationsCommand,
   ListSuppressedDestinationsCommandInput,
   ListSuppressedDestinationsCommandOutput,
@@ -309,6 +345,12 @@ import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
+import {
+  ListTenantResourcesCommand,
+  ListTenantResourcesCommandInput,
+  ListTenantResourcesCommandOutput,
+} from "./commands/ListTenantResourcesCommand";
+import { ListTenantsCommand, ListTenantsCommandInput, ListTenantsCommandOutput } from "./commands/ListTenantsCommand";
 import {
   PutAccountDedicatedIpWarmupAttributesCommand,
   PutAccountDedicatedIpWarmupAttributesCommandInput,
@@ -471,6 +513,16 @@ import {
   UpdateEmailTemplateCommandInput,
   UpdateEmailTemplateCommandOutput,
 } from "./commands/UpdateEmailTemplateCommand";
+import {
+  UpdateReputationEntityCustomerManagedStatusCommand,
+  UpdateReputationEntityCustomerManagedStatusCommandInput,
+  UpdateReputationEntityCustomerManagedStatusCommandOutput,
+} from "./commands/UpdateReputationEntityCustomerManagedStatusCommand";
+import {
+  UpdateReputationEntityPolicyCommand,
+  UpdateReputationEntityPolicyCommandInput,
+  UpdateReputationEntityPolicyCommandOutput,
+} from "./commands/UpdateReputationEntityPolicyCommand";
 import { SESv2Client, SESv2ClientConfig } from "./SESv2Client";
 
 const commands = {
@@ -489,6 +541,8 @@ const commands = {
   CreateExportJobCommand,
   CreateImportJobCommand,
   CreateMultiRegionEndpointCommand,
+  CreateTenantCommand,
+  CreateTenantResourceAssociationCommand,
   DeleteConfigurationSetCommand,
   DeleteConfigurationSetEventDestinationCommand,
   DeleteContactCommand,
@@ -500,6 +554,8 @@ const commands = {
   DeleteEmailTemplateCommand,
   DeleteMultiRegionEndpointCommand,
   DeleteSuppressedDestinationCommand,
+  DeleteTenantCommand,
+  DeleteTenantResourceAssociationCommand,
   GetAccountCommand,
   GetBlacklistReportsCommand,
   GetConfigurationSetCommand,
@@ -521,7 +577,9 @@ const commands = {
   GetImportJobCommand,
   GetMessageInsightsCommand,
   GetMultiRegionEndpointCommand,
+  GetReputationEntityCommand,
   GetSuppressedDestinationCommand,
+  GetTenantCommand,
   ListConfigurationSetsCommand,
   ListContactListsCommand,
   ListContactsCommand,
@@ -535,8 +593,12 @@ const commands = {
   ListImportJobsCommand,
   ListMultiRegionEndpointsCommand,
   ListRecommendationsCommand,
+  ListReputationEntitiesCommand,
+  ListResourceTenantsCommand,
   ListSuppressedDestinationsCommand,
   ListTagsForResourceCommand,
+  ListTenantResourcesCommand,
+  ListTenantsCommand,
   PutAccountDedicatedIpWarmupAttributesCommand,
   PutAccountDetailsCommand,
   PutAccountSendingAttributesCommand,
@@ -571,6 +633,8 @@ const commands = {
   UpdateCustomVerificationEmailTemplateCommand,
   UpdateEmailIdentityPolicyCommand,
   UpdateEmailTemplateCommand,
+  UpdateReputationEntityCustomerManagedStatusCommand,
+  UpdateReputationEntityPolicyCommand,
 };
 
 export interface SESv2 {
@@ -815,6 +879,34 @@ export interface SESv2 {
   ): void;
 
   /**
+   * @see {@link CreateTenantCommand}
+   */
+  createTenant(args: CreateTenantCommandInput, options?: __HttpHandlerOptions): Promise<CreateTenantCommandOutput>;
+  createTenant(args: CreateTenantCommandInput, cb: (err: any, data?: CreateTenantCommandOutput) => void): void;
+  createTenant(
+    args: CreateTenantCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateTenantCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateTenantResourceAssociationCommand}
+   */
+  createTenantResourceAssociation(
+    args: CreateTenantResourceAssociationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateTenantResourceAssociationCommandOutput>;
+  createTenantResourceAssociation(
+    args: CreateTenantResourceAssociationCommandInput,
+    cb: (err: any, data?: CreateTenantResourceAssociationCommandOutput) => void
+  ): void;
+  createTenantResourceAssociation(
+    args: CreateTenantResourceAssociationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateTenantResourceAssociationCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DeleteConfigurationSetCommand}
    */
   deleteConfigurationSet(
@@ -993,6 +1085,34 @@ export interface SESv2 {
     args: DeleteSuppressedDestinationCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteSuppressedDestinationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteTenantCommand}
+   */
+  deleteTenant(args: DeleteTenantCommandInput, options?: __HttpHandlerOptions): Promise<DeleteTenantCommandOutput>;
+  deleteTenant(args: DeleteTenantCommandInput, cb: (err: any, data?: DeleteTenantCommandOutput) => void): void;
+  deleteTenant(
+    args: DeleteTenantCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteTenantCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteTenantResourceAssociationCommand}
+   */
+  deleteTenantResourceAssociation(
+    args: DeleteTenantResourceAssociationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteTenantResourceAssociationCommandOutput>;
+  deleteTenantResourceAssociation(
+    args: DeleteTenantResourceAssociationCommandInput,
+    cb: (err: any, data?: DeleteTenantResourceAssociationCommandOutput) => void
+  ): void;
+  deleteTenantResourceAssociation(
+    args: DeleteTenantResourceAssociationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteTenantResourceAssociationCommandOutput) => void
   ): void;
 
   /**
@@ -1323,6 +1443,23 @@ export interface SESv2 {
   ): void;
 
   /**
+   * @see {@link GetReputationEntityCommand}
+   */
+  getReputationEntity(
+    args: GetReputationEntityCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetReputationEntityCommandOutput>;
+  getReputationEntity(
+    args: GetReputationEntityCommandInput,
+    cb: (err: any, data?: GetReputationEntityCommandOutput) => void
+  ): void;
+  getReputationEntity(
+    args: GetReputationEntityCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetReputationEntityCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetSuppressedDestinationCommand}
    */
   getSuppressedDestination(
@@ -1337,6 +1474,17 @@ export interface SESv2 {
     args: GetSuppressedDestinationCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetSuppressedDestinationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetTenantCommand}
+   */
+  getTenant(args: GetTenantCommandInput, options?: __HttpHandlerOptions): Promise<GetTenantCommandOutput>;
+  getTenant(args: GetTenantCommandInput, cb: (err: any, data?: GetTenantCommandOutput) => void): void;
+  getTenant(
+    args: GetTenantCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetTenantCommandOutput) => void
   ): void;
 
   /**
@@ -1560,6 +1708,41 @@ export interface SESv2 {
   ): void;
 
   /**
+   * @see {@link ListReputationEntitiesCommand}
+   */
+  listReputationEntities(): Promise<ListReputationEntitiesCommandOutput>;
+  listReputationEntities(
+    args: ListReputationEntitiesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListReputationEntitiesCommandOutput>;
+  listReputationEntities(
+    args: ListReputationEntitiesCommandInput,
+    cb: (err: any, data?: ListReputationEntitiesCommandOutput) => void
+  ): void;
+  listReputationEntities(
+    args: ListReputationEntitiesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListReputationEntitiesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListResourceTenantsCommand}
+   */
+  listResourceTenants(
+    args: ListResourceTenantsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListResourceTenantsCommandOutput>;
+  listResourceTenants(
+    args: ListResourceTenantsCommandInput,
+    cb: (err: any, data?: ListResourceTenantsCommandOutput) => void
+  ): void;
+  listResourceTenants(
+    args: ListResourceTenantsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListResourceTenantsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListSuppressedDestinationsCommand}
    */
   listSuppressedDestinations(): Promise<ListSuppressedDestinationsCommandOutput>;
@@ -1592,6 +1775,35 @@ export interface SESv2 {
     args: ListTagsForResourceCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListTenantResourcesCommand}
+   */
+  listTenantResources(
+    args: ListTenantResourcesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListTenantResourcesCommandOutput>;
+  listTenantResources(
+    args: ListTenantResourcesCommandInput,
+    cb: (err: any, data?: ListTenantResourcesCommandOutput) => void
+  ): void;
+  listTenantResources(
+    args: ListTenantResourcesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListTenantResourcesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListTenantsCommand}
+   */
+  listTenants(): Promise<ListTenantsCommandOutput>;
+  listTenants(args: ListTenantsCommandInput, options?: __HttpHandlerOptions): Promise<ListTenantsCommandOutput>;
+  listTenants(args: ListTenantsCommandInput, cb: (err: any, data?: ListTenantsCommandOutput) => void): void;
+  listTenants(
+    args: ListTenantsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListTenantsCommandOutput) => void
   ): void;
 
   /**
@@ -2143,6 +2355,40 @@ export interface SESv2 {
     args: UpdateEmailTemplateCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateEmailTemplateCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateReputationEntityCustomerManagedStatusCommand}
+   */
+  updateReputationEntityCustomerManagedStatus(
+    args: UpdateReputationEntityCustomerManagedStatusCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateReputationEntityCustomerManagedStatusCommandOutput>;
+  updateReputationEntityCustomerManagedStatus(
+    args: UpdateReputationEntityCustomerManagedStatusCommandInput,
+    cb: (err: any, data?: UpdateReputationEntityCustomerManagedStatusCommandOutput) => void
+  ): void;
+  updateReputationEntityCustomerManagedStatus(
+    args: UpdateReputationEntityCustomerManagedStatusCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateReputationEntityCustomerManagedStatusCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateReputationEntityPolicyCommand}
+   */
+  updateReputationEntityPolicy(
+    args: UpdateReputationEntityPolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateReputationEntityPolicyCommandOutput>;
+  updateReputationEntityPolicy(
+    args: UpdateReputationEntityPolicyCommandInput,
+    cb: (err: any, data?: UpdateReputationEntityPolicyCommandOutput) => void
+  ): void;
+  updateReputationEntityPolicy(
+    args: UpdateReputationEntityPolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateReputationEntityPolicyCommandOutput) => void
   ): void;
 }
 
