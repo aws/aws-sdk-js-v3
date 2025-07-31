@@ -232,9 +232,11 @@ import {
   ConflictResolution,
   ConnectorOperator,
   Consolidation,
+  ContactPreference,
   DateDimension,
   DestinationSummary,
   Dimension,
+  EngagementPreferences,
   EventStreamDestinationDetails,
   EventStreamSummary,
   EventTriggerCondition,
@@ -278,6 +280,8 @@ import {
   ProfileDimension,
   ProfileQueryFailures,
   ProfileQueryResult,
+  ProfileType,
+  ProfileTypeDimension,
   Range,
   RangeOverride,
   ResourceNotFoundException,
@@ -575,6 +579,7 @@ export const se_CreateProfileCommand = async (
       BusinessName: [],
       BusinessPhoneNumber: [],
       EmailAddress: [],
+      EngagementPreferences: (_) => _json(_),
       FirstName: [],
       Gender: [],
       GenderString: [],
@@ -587,6 +592,7 @@ export const se_CreateProfileCommand = async (
       PartyTypeString: [],
       PersonalEmailAddress: [],
       PhoneNumber: [],
+      ProfileType: [],
       ShippingAddress: (_) => _json(_),
     })
   );
@@ -2101,6 +2107,7 @@ export const se_UpdateProfileCommand = async (
       BusinessName: [],
       BusinessPhoneNumber: [],
       EmailAddress: [],
+      EngagementPreferences: (_) => _json(_),
       FirstName: [],
       Gender: [],
       GenderString: [],
@@ -2114,6 +2121,7 @@ export const se_UpdateProfileCommand = async (
       PersonalEmailAddress: [],
       PhoneNumber: [],
       ProfileId: [],
+      ProfileType: [],
       ShippingAddress: (_) => _json(_),
     })
   );
@@ -4328,6 +4336,8 @@ const se_CalculatedCustomAttributes = (
 
 // se_Consolidation omitted.
 
+// se_ContactPreference omitted.
+
 /**
  * serializeAws_restJson1CustomAttributes
  */
@@ -4376,6 +4386,10 @@ const se_DimensionList = (input: Dimension[], context: __SerdeContext): any => {
 };
 
 // se_EmailList omitted.
+
+// se_EmailPreferenceList omitted.
+
+// se_EngagementPreferences omitted.
 
 // se_EventTriggerCondition omitted.
 
@@ -4510,6 +4524,8 @@ const se_MatchingRequest = (input: MatchingRequest, context: __SerdeContext): an
 
 // se_PhoneNumberList omitted.
 
+// se_PhonePreferenceList omitted.
+
 /**
  * serializeAws_restJson1ProfileAttributes
  */
@@ -4535,6 +4551,7 @@ const se_ProfileAttributes = (input: ProfileAttributes, context: __SerdeContext)
     PartyTypeString: [, (_) => se_ProfileDimension(_, context), `PartyTypeString`],
     PersonalEmailAddress: [, (_) => se_ProfileDimension(_, context), `PersonalEmailAddress`],
     PhoneNumber: [, (_) => se_ProfileDimension(_, context), `PhoneNumber`],
+    ProfileType: [, (_) => se_ProfileTypeDimension(_, context), `ProfileType`],
     ShippingAddress: [, (_) => se_AddressDimension(_, context), `ShippingAddress`],
   });
 };
@@ -4552,6 +4569,18 @@ const se_ProfileDimension = (input: ProfileDimension, context: __SerdeContext): 
 // se_ProfileIds omitted.
 
 // se_ProfileIdToBeMergedList omitted.
+
+/**
+ * serializeAws_restJson1ProfileTypeDimension
+ */
+const se_ProfileTypeDimension = (input: ProfileTypeDimension, context: __SerdeContext): any => {
+  return take(input, {
+    DimensionType: [, , `DimensionType`],
+    Values: [, _json, `Values`],
+  });
+};
+
+// se_ProfileTypeValues omitted.
 
 // se_Range omitted.
 
@@ -4862,6 +4891,8 @@ const de_CalculatedCustomAttributes = (
 
 // de_Consolidation omitted.
 
+// de_ContactPreference omitted.
+
 /**
  * deserializeAws_restJson1CustomAttributes
  */
@@ -4946,6 +4977,10 @@ const de_DomainList = (output: any, context: __SerdeContext): ListDomainItem[] =
 // de_DomainStats omitted.
 
 // de_EmailList omitted.
+
+// de_EmailPreferenceList omitted.
+
+// de_EngagementPreferences omitted.
 
 /**
  * deserializeAws_restJson1EventStreamDestinationDetails
@@ -5349,6 +5384,8 @@ const de_MatchItem = (output: any, context: __SerdeContext): MatchItem => {
 
 // de_PhoneNumberList omitted.
 
+// de_PhonePreferenceList omitted.
+
 // de_Profile omitted.
 
 /**
@@ -5376,6 +5413,7 @@ const de_ProfileAttributes = (output: any, context: __SerdeContext): ProfileAttr
     PartyTypeString: [, (_: any) => de_ProfileDimension(_, context), `PartyTypeString`],
     PersonalEmailAddress: [, (_: any) => de_ProfileDimension(_, context), `PersonalEmailAddress`],
     PhoneNumber: [, (_: any) => de_ProfileDimension(_, context), `PhoneNumber`],
+    ProfileType: [, (_: any) => de_ProfileTypeDimension(_, context), `ProfileType`],
     ShippingAddress: [, (_: any) => de_AddressDimension(_, context), `ShippingAddress`],
   }) as any;
 };
@@ -5443,6 +5481,18 @@ const de_Profiles = (output: any, context: __SerdeContext): ProfileQueryResult[]
     });
   return retVal;
 };
+
+/**
+ * deserializeAws_restJson1ProfileTypeDimension
+ */
+const de_ProfileTypeDimension = (output: any, context: __SerdeContext): ProfileTypeDimension => {
+  return take(output, {
+    DimensionType: [, __expectString, `DimensionType`],
+    Values: [, _json, `Values`],
+  }) as any;
+};
+
+// de_ProfileTypeValues omitted.
 
 // de_Range omitted.
 

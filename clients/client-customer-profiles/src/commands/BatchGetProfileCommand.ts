@@ -135,6 +135,25 @@ export interface BatchGetProfileCommandOutput extends BatchGetProfileResponse, _
  * //       ],
  * //       PartyTypeString: "STRING_VALUE",
  * //       GenderString: "STRING_VALUE",
+ * //       ProfileType: "ACCOUNT_PROFILE" || "PROFILE",
+ * //       EngagementPreferences: { // EngagementPreferences
+ * //         Phone: [ // PhonePreferenceList
+ * //           { // ContactPreference
+ * //             KeyName: "STRING_VALUE",
+ * //             KeyValue: "STRING_VALUE",
+ * //             ProfileId: "STRING_VALUE",
+ * //             ContactType: "PhoneNumber" || "MobilePhoneNumber" || "HomePhoneNumber" || "BusinessPhoneNumber" || "EmailAddress" || "PersonalEmailAddress" || "BusinessEmailAddress",
+ * //           },
+ * //         ],
+ * //         Email: [ // EmailPreferenceList
+ * //           {
+ * //             KeyName: "STRING_VALUE",
+ * //             KeyValue: "STRING_VALUE",
+ * //             ProfileId: "STRING_VALUE",
+ * //             ContactType: "PhoneNumber" || "MobilePhoneNumber" || "HomePhoneNumber" || "BusinessPhoneNumber" || "EmailAddress" || "PersonalEmailAddress" || "BusinessEmailAddress",
+ * //           },
+ * //         ],
+ * //       },
  * //     },
  * //   ],
  * // };

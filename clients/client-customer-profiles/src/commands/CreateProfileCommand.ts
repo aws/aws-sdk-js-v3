@@ -112,6 +112,25 @@ export interface CreateProfileCommandOutput extends CreateProfileResponse, __Met
  *   },
  *   PartyTypeString: "STRING_VALUE",
  *   GenderString: "STRING_VALUE",
+ *   ProfileType: "ACCOUNT_PROFILE" || "PROFILE",
+ *   EngagementPreferences: { // EngagementPreferences
+ *     Phone: [ // PhonePreferenceList
+ *       { // ContactPreference
+ *         KeyName: "STRING_VALUE",
+ *         KeyValue: "STRING_VALUE",
+ *         ProfileId: "STRING_VALUE",
+ *         ContactType: "PhoneNumber" || "MobilePhoneNumber" || "HomePhoneNumber" || "BusinessPhoneNumber" || "EmailAddress" || "PersonalEmailAddress" || "BusinessEmailAddress",
+ *       },
+ *     ],
+ *     Email: [ // EmailPreferenceList
+ *       {
+ *         KeyName: "STRING_VALUE",
+ *         KeyValue: "STRING_VALUE",
+ *         ProfileId: "STRING_VALUE",
+ *         ContactType: "PhoneNumber" || "MobilePhoneNumber" || "HomePhoneNumber" || "BusinessPhoneNumber" || "EmailAddress" || "PersonalEmailAddress" || "BusinessEmailAddress",
+ *       },
+ *     ],
+ *   },
  * };
  * const command = new CreateProfileCommand(input);
  * const response = await client.send(command);

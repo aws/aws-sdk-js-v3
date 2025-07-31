@@ -11,7 +11,7 @@ import {
   PutProfileObjectTypeRequestFilterSensitiveLog,
   PutProfileObjectTypeResponse,
   PutProfileObjectTypeResponseFilterSensitiveLog,
-} from "../models/models_0";
+} from "../models/models_1";
 import { de_PutProfileObjectTypeCommand, se_PutProfileObjectTypeCommand } from "../protocols/Aws_restJson1";
 
 /**

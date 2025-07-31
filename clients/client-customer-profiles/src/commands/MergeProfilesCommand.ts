@@ -107,6 +107,8 @@ export interface MergeProfilesCommandOutput extends MergeProfilesResponse, __Met
  *     Attributes: { // AttributeSourceIdMap
  *       "<keys>": "STRING_VALUE",
  *     },
+ *     ProfileType: "STRING_VALUE",
+ *     EngagementPreferences: "STRING_VALUE",
  *   },
  * };
  * const command = new MergeProfilesCommand(input);

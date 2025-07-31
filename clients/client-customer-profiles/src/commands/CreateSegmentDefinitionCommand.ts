@@ -140,6 +140,12 @@ export interface CreateSegmentDefinitionCommandOutput extends CreateSegmentDefin
  *                   Values: "<Values>", // required
  *                 },
  *               },
+ *               ProfileType: { // ProfileTypeDimension
+ *                 DimensionType: "INCLUSIVE" || "EXCLUSIVE", // required
+ *                 Values: [ // ProfileTypeValues // required
+ *                   "ACCOUNT_PROFILE" || "PROFILE",
+ *                 ],
+ *               },
  *             },
  *             CalculatedAttributes: { // CalculatedCustomAttributes
  *               "<keys>": { // CalculatedAttributeDimension
