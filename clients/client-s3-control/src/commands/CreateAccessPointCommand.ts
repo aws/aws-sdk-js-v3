@@ -96,6 +96,12 @@ export interface CreateAccessPointCommandOutput extends CreateAccessPointResult,
  *       "GetObject" || "GetObjectAttributes" || "ListMultipartUploadParts" || "ListBucket" || "ListBucketMultipartUploads" || "PutObject" || "DeleteObject" || "AbortMultipartUpload",
  *     ],
  *   },
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
  * };
  * const command = new CreateAccessPointCommand(input);
  * const response = await client.send(command);

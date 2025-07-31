@@ -1356,6 +1356,12 @@ export interface CreateAccessPointRequest {
    * @public
    */
   Scope?: Scope | undefined;
+
+  /**
+   * <p>An array of tags that you can apply to an access point. Tags are key-value pairs of metadata used to control access to your access points. For more information about tags, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/tagging.html">Using tags with Amazon S3</a>. For information about tagging access points, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/tagging.html#using-tags-for-abac">Using tags for attribute-based access control (ABAC)</a>.</p>
+   * @public
+   */
+  Tags?: Tag[] | undefined;
 }
 
 /**

@@ -630,6 +630,7 @@ export const se_CreateAccessPointCommand = async (
   if (input[_S] != null) {
     bn.c(se_Scope(input[_S], context).n(_S));
   }
+  bn.lc(input, "Tags", "Tags", () => se_TagList(input[_T]!, context));
   if (input[_VC] != null) {
     bn.c(se_VpcConfiguration(input[_VC], context).n(_VC));
   }
