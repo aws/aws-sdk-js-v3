@@ -29863,6 +29863,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/node@npm:^20.0.0":
+  version: 20.19.9
+  resolution: "@types/node@npm:20.19.9"
+  dependencies:
+    undici-types: "npm:~6.21.0"
+  checksum: 10c0/c6738131f1698258a5ac1e0185e4fc56977f7f566cd0ee11167f93f2339478470257bd82c5e1908a936a204e0ad7996d741356a1a07c04997a236161ea23a874
+  languageName: node
+  linkType: hard
+
 "@types/normalize-package-data@npm:^2.4.0":
   version: 2.4.4
   resolution: "@types/normalize-package-data@npm:2.4.4"
@@ -29916,6 +29925,13 @@ __metadata:
   version: 9.0.8
   resolution: "@types/uuid@npm:9.0.8"
   checksum: 10c0/b411b93054cb1d4361919579ef3508a1f12bf15b5fdd97337d3d351bece6c921b52b6daeef89b62340fd73fd60da407878432a1af777f40648cbe53a01723489
+  languageName: node
+  linkType: hard
+
+"@types/whatwg-mimetype@npm:^3.0.2":
+  version: 3.0.2
+  resolution: "@types/whatwg-mimetype@npm:3.0.2"
+  checksum: 10c0/dad39d1e4abe760a0a963c84bbdbd26b1df0eb68aff83bdf6ecbb50ad781ead777f6906d19a87007790b750f7500a12e5624d31fc6a1529d14bd19b5c3a316d1
   languageName: node
   linkType: hard
 
@@ -31259,7 +31275,7 @@ __metadata:
     fs-extra: "npm:^9.0.0"
     generate-changelog: "npm:^1.7.1"
     glob: "npm:7.1.6"
-    happy-dom: "npm:16.3.0"
+    happy-dom: "npm:^18.0.1"
     husky: "npm:^4.2.3"
     jest: "npm:29.7.0"
     jmespath: "npm:^0.15.0"
@@ -35025,16 +35041,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"happy-dom@npm:16.3.0":
-  version: 16.3.0
-  resolution: "happy-dom@npm:16.3.0"
-  dependencies:
-    webidl-conversions: "npm:^7.0.0"
-    whatwg-mimetype: "npm:^3.0.0"
-  checksum: 10c0/c90e29ff44818008aaae1fc65b276a9a1920455884fe895fdc634ced3f98a71fe81317ddf9a2ec1d7d07af0b300500d9f652ba7cfc144ed96c5f7c480edde83b
-  languageName: node
-  linkType: hard
-
 "happy-dom@npm:^15.7.4":
   version: 15.11.7
   resolution: "happy-dom@npm:15.11.7"
@@ -35043,6 +35049,17 @@ __metadata:
     webidl-conversions: "npm:^7.0.0"
     whatwg-mimetype: "npm:^3.0.0"
   checksum: 10c0/22b08cac20192b08edf2e9c857ceeda8333a3301c4b5965a9550787b00db60d6d107c726390bd45a35305cd12ab086abd656bf957a408be0fcdc9fcd389f1973
+  languageName: node
+  linkType: hard
+
+"happy-dom@npm:^18.0.1":
+  version: 18.0.1
+  resolution: "happy-dom@npm:18.0.1"
+  dependencies:
+    "@types/node": "npm:^20.0.0"
+    "@types/whatwg-mimetype": "npm:^3.0.2"
+    whatwg-mimetype: "npm:^3.0.0"
+  checksum: 10c0/10f2115f5001fdaf1aedcbda89c15248a1c2e43a25d7e774cb641a35bf6763cef9097b438ef3c2248ab59a0ef33b3e88cb94da096f2bb0fc109ba3f43f7c66d4
   languageName: node
   linkType: hard
 
@@ -41827,6 +41844,13 @@ __metadata:
   version: 6.20.0
   resolution: "undici-types@npm:6.20.0"
   checksum: 10c0/68e659a98898d6a836a9a59e6adf14a5d799707f5ea629433e025ac90d239f75e408e2e5ff086afc3cace26f8b26ee52155293564593fbb4a2f666af57fc59bf
+  languageName: node
+  linkType: hard
+
+"undici-types@npm:~6.21.0":
+  version: 6.21.0
+  resolution: "undici-types@npm:6.21.0"
+  checksum: 10c0/c01ed51829b10aa72fc3ce64b747f8e74ae9b60eafa19a7b46ef624403508a54c526ffab06a14a26b3120d055e1104d7abe7c9017e83ced038ea5cf52f8d5e04
   languageName: node
   linkType: hard
 
