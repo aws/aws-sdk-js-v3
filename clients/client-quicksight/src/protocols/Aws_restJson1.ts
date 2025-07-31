@@ -1194,6 +1194,7 @@ import {
   ImageSetConfiguration,
   ImageSource,
   ImageStaticFile,
+  ImpalaParameters,
   IncrementalRefresh,
   InternalFailureException,
   InvalidParameterValueException,
@@ -14956,6 +14957,8 @@ const se_ImageCustomActionOperationList = (input: ImageCustomActionOperation[], 
 
 // se_ImageStaticFile omitted.
 
+// se_ImpalaParameters omitted.
+
 // se_IncrementalRefresh omitted.
 
 /**
@@ -21172,6 +21175,8 @@ const de_ImageCustomActionOperationList = (output: any, context: __SerdeContext)
 // de_ImageSource omitted.
 
 // de_ImageStaticFile omitted.
+
+// de_ImpalaParameters omitted.
 
 // de_IncrementalRefresh omitted.
 

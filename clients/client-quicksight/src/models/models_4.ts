@@ -104,6 +104,29 @@ import { QuickSightServiceException as __BaseException } from "./QuickSightServi
 /**
  * @public
  */
+export interface DeleteThemeAliasRequest {
+  /**
+   * <p>The ID of the Amazon Web Services account that contains the theme alias to delete.</p>
+   * @public
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The ID for the theme that the specified alias is for.</p>
+   * @public
+   */
+  ThemeId: string | undefined;
+
+  /**
+   * <p>The unique name for the theme alias to delete.</p>
+   * @public
+   */
+  AliasName: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface DeleteThemeAliasResponse {
   /**
    * <p>The name for the theme alias.</p>
@@ -9014,35 +9037,6 @@ export interface TopicSearchFilter {
    * @public
    */
   Value: string | undefined;
-}
-
-/**
- * @public
- */
-export interface SearchTopicsRequest {
-  /**
-   * <p>The ID of the Amazon Web Services account that contains the topic that you want to find.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The filters that you want to use to search for the topic.</p>
-   * @public
-   */
-  Filters: TopicSearchFilter[] | undefined;
-
-  /**
-   * <p>The token for the next set of results, or null if there are no more results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of results to be returned per request.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
 }
 
 /**

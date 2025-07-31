@@ -4657,6 +4657,36 @@ export interface ExasolParameters {
 }
 
 /**
+ * <p>The parameters that are required to connect to a Impala data source.</p>
+ * @public
+ */
+export interface ImpalaParameters {
+  /**
+   * <p>The host name of the Impala data source.</p>
+   * @public
+   */
+  Host: string | undefined;
+
+  /**
+   * <p>The port of the Impala data source.</p>
+   * @public
+   */
+  Port: number | undefined;
+
+  /**
+   * <p>The database of the Impala data source.</p>
+   * @public
+   */
+  Database?: string | undefined;
+
+  /**
+   * <p>The HTTP path of the Impala data source.</p>
+   * @public
+   */
+  SqlEndpointPath: string | undefined;
+}
+
+/**
  * <p>The parameters for Jira.</p>
  * @public
  */
@@ -5223,6 +5253,7 @@ export type DataSourceParameters =
   | DataSourceParameters.BigQueryParametersMember
   | DataSourceParameters.DatabricksParametersMember
   | DataSourceParameters.ExasolParametersMember
+  | DataSourceParameters.ImpalaParametersMember
   | DataSourceParameters.JiraParametersMember
   | DataSourceParameters.MariaDbParametersMember
   | DataSourceParameters.MySqlParametersMember
@@ -5277,6 +5308,7 @@ export namespace DataSourceParameters {
     StarburstParameters?: never;
     TrinoParameters?: never;
     BigQueryParameters?: never;
+    ImpalaParameters?: never;
     $unknown?: never;
   }
 
@@ -5311,6 +5343,7 @@ export namespace DataSourceParameters {
     StarburstParameters?: never;
     TrinoParameters?: never;
     BigQueryParameters?: never;
+    ImpalaParameters?: never;
     $unknown?: never;
   }
 
@@ -5345,6 +5378,7 @@ export namespace DataSourceParameters {
     StarburstParameters?: never;
     TrinoParameters?: never;
     BigQueryParameters?: never;
+    ImpalaParameters?: never;
     $unknown?: never;
   }
 
@@ -5379,6 +5413,7 @@ export namespace DataSourceParameters {
     StarburstParameters?: never;
     TrinoParameters?: never;
     BigQueryParameters?: never;
+    ImpalaParameters?: never;
     $unknown?: never;
   }
 
@@ -5413,6 +5448,7 @@ export namespace DataSourceParameters {
     StarburstParameters?: never;
     TrinoParameters?: never;
     BigQueryParameters?: never;
+    ImpalaParameters?: never;
     $unknown?: never;
   }
 
@@ -5447,6 +5483,7 @@ export namespace DataSourceParameters {
     StarburstParameters?: never;
     TrinoParameters?: never;
     BigQueryParameters?: never;
+    ImpalaParameters?: never;
     $unknown?: never;
   }
 
@@ -5481,6 +5518,7 @@ export namespace DataSourceParameters {
     StarburstParameters?: never;
     TrinoParameters?: never;
     BigQueryParameters?: never;
+    ImpalaParameters?: never;
     $unknown?: never;
   }
 
@@ -5515,6 +5553,7 @@ export namespace DataSourceParameters {
     StarburstParameters?: never;
     TrinoParameters?: never;
     BigQueryParameters?: never;
+    ImpalaParameters?: never;
     $unknown?: never;
   }
 
@@ -5549,6 +5588,7 @@ export namespace DataSourceParameters {
     StarburstParameters?: never;
     TrinoParameters?: never;
     BigQueryParameters?: never;
+    ImpalaParameters?: never;
     $unknown?: never;
   }
 
@@ -5583,6 +5623,7 @@ export namespace DataSourceParameters {
     StarburstParameters?: never;
     TrinoParameters?: never;
     BigQueryParameters?: never;
+    ImpalaParameters?: never;
     $unknown?: never;
   }
 
@@ -5617,6 +5658,7 @@ export namespace DataSourceParameters {
     StarburstParameters?: never;
     TrinoParameters?: never;
     BigQueryParameters?: never;
+    ImpalaParameters?: never;
     $unknown?: never;
   }
 
@@ -5651,6 +5693,7 @@ export namespace DataSourceParameters {
     StarburstParameters?: never;
     TrinoParameters?: never;
     BigQueryParameters?: never;
+    ImpalaParameters?: never;
     $unknown?: never;
   }
 
@@ -5685,6 +5728,7 @@ export namespace DataSourceParameters {
     StarburstParameters?: never;
     TrinoParameters?: never;
     BigQueryParameters?: never;
+    ImpalaParameters?: never;
     $unknown?: never;
   }
 
@@ -5719,6 +5763,7 @@ export namespace DataSourceParameters {
     StarburstParameters?: never;
     TrinoParameters?: never;
     BigQueryParameters?: never;
+    ImpalaParameters?: never;
     $unknown?: never;
   }
 
@@ -5753,6 +5798,7 @@ export namespace DataSourceParameters {
     StarburstParameters?: never;
     TrinoParameters?: never;
     BigQueryParameters?: never;
+    ImpalaParameters?: never;
     $unknown?: never;
   }
 
@@ -5787,6 +5833,7 @@ export namespace DataSourceParameters {
     StarburstParameters?: never;
     TrinoParameters?: never;
     BigQueryParameters?: never;
+    ImpalaParameters?: never;
     $unknown?: never;
   }
 
@@ -5821,6 +5868,7 @@ export namespace DataSourceParameters {
     StarburstParameters?: never;
     TrinoParameters?: never;
     BigQueryParameters?: never;
+    ImpalaParameters?: never;
     $unknown?: never;
   }
 
@@ -5855,6 +5903,7 @@ export namespace DataSourceParameters {
     StarburstParameters?: never;
     TrinoParameters?: never;
     BigQueryParameters?: never;
+    ImpalaParameters?: never;
     $unknown?: never;
   }
 
@@ -5889,6 +5938,7 @@ export namespace DataSourceParameters {
     StarburstParameters?: never;
     TrinoParameters?: never;
     BigQueryParameters?: never;
+    ImpalaParameters?: never;
     $unknown?: never;
   }
 
@@ -5923,6 +5973,7 @@ export namespace DataSourceParameters {
     StarburstParameters?: never;
     TrinoParameters?: never;
     BigQueryParameters?: never;
+    ImpalaParameters?: never;
     $unknown?: never;
   }
 
@@ -5957,6 +6008,7 @@ export namespace DataSourceParameters {
     StarburstParameters?: never;
     TrinoParameters?: never;
     BigQueryParameters?: never;
+    ImpalaParameters?: never;
     $unknown?: never;
   }
 
@@ -5991,6 +6043,7 @@ export namespace DataSourceParameters {
     StarburstParameters?: never;
     TrinoParameters?: never;
     BigQueryParameters?: never;
+    ImpalaParameters?: never;
     $unknown?: never;
   }
 
@@ -6025,6 +6078,7 @@ export namespace DataSourceParameters {
     StarburstParameters?: never;
     TrinoParameters?: never;
     BigQueryParameters?: never;
+    ImpalaParameters?: never;
     $unknown?: never;
   }
 
@@ -6059,6 +6113,7 @@ export namespace DataSourceParameters {
     StarburstParameters: StarburstParameters;
     TrinoParameters?: never;
     BigQueryParameters?: never;
+    ImpalaParameters?: never;
     $unknown?: never;
   }
 
@@ -6093,6 +6148,7 @@ export namespace DataSourceParameters {
     StarburstParameters?: never;
     TrinoParameters: TrinoParameters;
     BigQueryParameters?: never;
+    ImpalaParameters?: never;
     $unknown?: never;
   }
 
@@ -6127,6 +6183,42 @@ export namespace DataSourceParameters {
     StarburstParameters?: never;
     TrinoParameters?: never;
     BigQueryParameters: BigQueryParameters;
+    ImpalaParameters?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The parameters for Impala.</p>
+   * @public
+   */
+  export interface ImpalaParametersMember {
+    AmazonElasticsearchParameters?: never;
+    AthenaParameters?: never;
+    AuroraParameters?: never;
+    AuroraPostgreSqlParameters?: never;
+    AwsIotAnalyticsParameters?: never;
+    JiraParameters?: never;
+    MariaDbParameters?: never;
+    MySqlParameters?: never;
+    OracleParameters?: never;
+    PostgreSqlParameters?: never;
+    PrestoParameters?: never;
+    RdsParameters?: never;
+    RedshiftParameters?: never;
+    S3Parameters?: never;
+    ServiceNowParameters?: never;
+    SnowflakeParameters?: never;
+    SparkParameters?: never;
+    SqlServerParameters?: never;
+    TeradataParameters?: never;
+    TwitterParameters?: never;
+    AmazonOpenSearchParameters?: never;
+    ExasolParameters?: never;
+    DatabricksParameters?: never;
+    StarburstParameters?: never;
+    TrinoParameters?: never;
+    BigQueryParameters?: never;
+    ImpalaParameters: ImpalaParameters;
     $unknown?: never;
   }
 
@@ -6160,6 +6252,7 @@ export namespace DataSourceParameters {
     StarburstParameters?: never;
     TrinoParameters?: never;
     BigQueryParameters?: never;
+    ImpalaParameters?: never;
     $unknown: [string, any];
   }
 
@@ -6190,6 +6283,7 @@ export namespace DataSourceParameters {
     StarburstParameters: (value: StarburstParameters) => T;
     TrinoParameters: (value: TrinoParameters) => T;
     BigQueryParameters: (value: BigQueryParameters) => T;
+    ImpalaParameters: (value: ImpalaParameters) => T;
     _: (name: string, value: any) => T;
   }
 
@@ -6224,6 +6318,7 @@ export namespace DataSourceParameters {
     if (value.StarburstParameters !== undefined) return visitor.StarburstParameters(value.StarburstParameters);
     if (value.TrinoParameters !== undefined) return visitor.TrinoParameters(value.TrinoParameters);
     if (value.BigQueryParameters !== undefined) return visitor.BigQueryParameters(value.BigQueryParameters);
+    if (value.ImpalaParameters !== undefined) return visitor.ImpalaParameters(value.ImpalaParameters);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
 }
@@ -8320,21 +8415,6 @@ export interface Logo {
    */
   LogoSet: LogoSet | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const BrandVersionStatus = {
-  CREATE_FAILED: "CREATE_FAILED",
-  CREATE_IN_PROGRESS: "CREATE_IN_PROGRESS",
-  CREATE_SUCCEEDED: "CREATE_SUCCEEDED",
-} as const;
-
-/**
- * @public
- */
-export type BrandVersionStatus = (typeof BrandVersionStatus)[keyof typeof BrandVersionStatus];
 
 /**
  * @internal

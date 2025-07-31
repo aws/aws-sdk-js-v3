@@ -197,6 +197,12 @@ export interface UpdateDataSourceCommandOutput extends UpdateDataSourceResponse,
  *       ProjectId: "STRING_VALUE", // required
  *       DataSetRegion: "STRING_VALUE",
  *     },
+ *     ImpalaParameters: { // ImpalaParameters
+ *       Host: "STRING_VALUE", // required
+ *       Port: Number("int"), // required
+ *       Database: "STRING_VALUE",
+ *       SqlEndpointPath: "STRING_VALUE", // required
+ *     },
  *   },
  *   Credentials: { // DataSourceCredentials
  *     CredentialPair: { // CredentialPair
@@ -356,6 +362,12 @@ export interface UpdateDataSourceCommandOutput extends UpdateDataSourceResponse,
  *           BigQueryParameters: {
  *             ProjectId: "STRING_VALUE", // required
  *             DataSetRegion: "STRING_VALUE",
+ *           },
+ *           ImpalaParameters: {
+ *             Host: "STRING_VALUE", // required
+ *             Port: Number("int"), // required
+ *             Database: "STRING_VALUE",
+ *             SqlEndpointPath: "STRING_VALUE", // required
  *           },
  *         },
  *       ],

@@ -206,6 +206,12 @@ export interface ListDataSourcesCommandOutput extends ListDataSourcesResponse, _
  * //           ProjectId: "STRING_VALUE", // required
  * //           DataSetRegion: "STRING_VALUE",
  * //         },
+ * //         ImpalaParameters: { // ImpalaParameters
+ * //           Host: "STRING_VALUE", // required
+ * //           Port: Number("int"), // required
+ * //           Database: "STRING_VALUE",
+ * //           SqlEndpointPath: "STRING_VALUE", // required
+ * //         },
  * //       },
  * //       AlternateDataSourceParameters: [ // DataSourceParametersList
  * //         {//  Union: only one key present
@@ -361,6 +367,12 @@ export interface ListDataSourcesCommandOutput extends ListDataSourcesResponse, _
  * //           BigQueryParameters: {
  * //             ProjectId: "STRING_VALUE", // required
  * //             DataSetRegion: "STRING_VALUE",
+ * //           },
+ * //           ImpalaParameters: {
+ * //             Host: "STRING_VALUE", // required
+ * //             Port: Number("int"), // required
+ * //             Database: "STRING_VALUE",
+ * //             SqlEndpointPath: "STRING_VALUE", // required
  * //           },
  * //         },
  * //       ],

@@ -233,6 +233,12 @@ export interface StartAssetBundleImportJobCommandOutput extends StartAssetBundle
  *             ProjectId: "STRING_VALUE", // required
  *             DataSetRegion: "STRING_VALUE",
  *           },
+ *           ImpalaParameters: { // ImpalaParameters
+ *             Host: "STRING_VALUE", // required
+ *             Port: Number("int"), // required
+ *             Database: "STRING_VALUE",
+ *             SqlEndpointPath: "STRING_VALUE", // required
+ *           },
  *         },
  *         VpcConnectionProperties: {
  *           VpcConnectionArn: "STRING_VALUE", // required

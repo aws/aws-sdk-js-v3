@@ -34,7 +34,6 @@ import {
   BorderStyle,
   BrandDefinition,
   BrandStatus,
-  BrandVersionStatus,
   ConstantType,
   DataSetReference,
   DataSourceParameters,
@@ -53,6 +52,21 @@ import {
 } from "./models_2";
 
 import { QuickSightServiceException as __BaseException } from "./QuickSightServiceException";
+
+/**
+ * @public
+ * @enum
+ */
+export const BrandVersionStatus = {
+  CREATE_FAILED: "CREATE_FAILED",
+  CREATE_IN_PROGRESS: "CREATE_IN_PROGRESS",
+  CREATE_SUCCEEDED: "CREATE_SUCCEEDED",
+} as const;
+
+/**
+ * @public
+ */
+export type BrandVersionStatus = (typeof BrandVersionStatus)[keyof typeof BrandVersionStatus];
 
 /**
  * <p>The details of the brand.</p>
@@ -8945,29 +8959,6 @@ export interface DeleteThemeResponse {
    * @public
    */
   ThemeId?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteThemeAliasRequest {
-  /**
-   * <p>The ID of the Amazon Web Services account that contains the theme alias to delete.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The ID for the theme that the specified alias is for.</p>
-   * @public
-   */
-  ThemeId: string | undefined;
-
-  /**
-   * <p>The unique name for the theme alias to delete.</p>
-   * @public
-   */
-  AliasName: string | undefined;
 }
 
 /**

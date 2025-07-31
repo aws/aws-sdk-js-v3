@@ -81,10 +81,40 @@ import {
   SessionTag,
   SessionTagFilterSensitiveLog,
   SnapshotConfiguration,
+  TopicSearchFilter,
   TopicSummary,
   User,
   UserRole,
 } from "./models_4";
+
+/**
+ * @public
+ */
+export interface SearchTopicsRequest {
+  /**
+   * <p>The ID of the Amazon Web Services account that contains the topic that you want to find.</p>
+   * @public
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The filters that you want to use to search for the topic.</p>
+   * @public
+   */
+  Filters: TopicSearchFilter[] | undefined;
+
+  /**
+   * <p>The token for the next set of results, or null if there are no more results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to be returned per request.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+}
 
 /**
  * @public
