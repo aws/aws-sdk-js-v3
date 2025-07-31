@@ -55,6 +55,7 @@ export interface ListPortalsCommandOutput extends ListPortalsResponse, __Metadat
  * //       dataProtectionSettingsArn: "STRING_VALUE",
  * //       userSettingsArn: "STRING_VALUE",
  * //       networkSettingsArn: "STRING_VALUE",
+ * //       sessionLoggerArn: "STRING_VALUE",
  * //       trustStoreArn: "STRING_VALUE",
  * //       userAccessLoggingSettingsArn: "STRING_VALUE",
  * //       authenticationType: "STRING_VALUE",

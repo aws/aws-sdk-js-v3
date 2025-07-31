@@ -366,6 +366,40 @@ export interface AssociateNetworkSettingsResponse {
 /**
  * @public
  */
+export interface AssociateSessionLoggerRequest {
+  /**
+   * <p>The ARN of the portal to associate to the session logger ARN.</p>
+   * @public
+   */
+  portalArn: string | undefined;
+
+  /**
+   * <p>The ARN of the session logger to associate to the portal ARN.</p>
+   * @public
+   */
+  sessionLoggerArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface AssociateSessionLoggerResponse {
+  /**
+   * <p>The ARN of the portal.</p>
+   * @public
+   */
+  portalArn: string | undefined;
+
+  /**
+   * <p>The ARN of the session logger.</p>
+   * @public
+   */
+  sessionLoggerArn: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface AssociateTrustStoreRequest {
   /**
    * <p>The ARN of the web portal.</p>
@@ -2928,6 +2962,22 @@ export interface DisassociateNetworkSettingsResponse {}
 /**
  * @public
  */
+export interface DisassociateSessionLoggerRequest {
+  /**
+   * <p>The ARN of the portal to disassociate from the a session logger.</p>
+   * @public
+   */
+  portalArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DisassociateSessionLoggerResponse {}
+
+/**
+ * @public
+ */
 export interface DisassociateTrustStoreRequest {
   /**
    * <p>The ARN of the web portal.</p>
@@ -3083,6 +3133,12 @@ export interface Portal {
    * @public
    */
   networkSettingsArn?: string | undefined;
+
+  /**
+   * <p>The ARN of the session logger that is assocaited with the portal.</p>
+   * @public
+   */
+  sessionLoggerArn?: string | undefined;
 
   /**
    * <p>The ARN of the trust store that is associated with the web portal.</p>
@@ -3280,6 +3336,12 @@ export interface PortalSummary {
   networkSettingsArn?: string | undefined;
 
   /**
+   * <p>The ARN of the session logger that is assocaited with the portal.</p>
+   * @public
+   */
+  sessionLoggerArn?: string | undefined;
+
+  /**
    * <p>The ARN of the trust that is associated with this web portal.</p>
    * @public
    */
@@ -3400,6 +3462,421 @@ export interface UpdatePortalResponse {
    * @public
    */
   portal?: Portal | undefined;
+}
+
+/**
+ * @public
+ */
+export interface Unit {}
+
+/**
+ * @public
+ * @enum
+ */
+export const Event = {
+  CONTENT_COPY_FROM_WEBSITE: "ContentCopyFromWebsite",
+  CONTENT_PASTE_TO_WEBSITE: "ContentPasteToWebsite",
+  CONTENT_TRANSFER_FROM_LOCAL_TO_REMOTE_CLIPBOARD: "ContentTransferFromLocalToRemoteClipboard",
+  FILE_DOWNLOAD_FROM_SECURE_BROWSER_TO_REMOTE_DISK: "FileDownloadFromSecureBrowserToRemoteDisk",
+  FILE_TRANSFER_FROM_LOCAL_TO_REMOTE_DISK: "FileTransferFromLocalToRemoteDisk",
+  FILE_TRANSFER_FROM_REMOTE_TO_LOCAL_DISK: "FileTransferFromRemoteToLocalDisk",
+  FILE_UPLOAD_FROM_REMOTE_DISK_TO_SECURE_BROWSER: "FileUploadFromRemoteDiskToSecureBrowser",
+  PRINT_JOB_SUBMIT: "PrintJobSubmit",
+  SESSION_CONNECT: "SessionConnect",
+  SESSION_DISCONNECT: "SessionDisconnect",
+  SESSION_END: "SessionEnd",
+  SESSION_START: "SessionStart",
+  TAB_CLOSE: "TabClose",
+  TAB_OPEN: "TabOpen",
+  URL_LOAD: "UrlLoad",
+  WEBSITE_INTERACT: "WebsiteInteract",
+} as const;
+
+/**
+ * @public
+ */
+export type Event = (typeof Event)[keyof typeof Event];
+
+/**
+ * <p>The filter that specifies the events to monitor.</p>
+ * @public
+ */
+export type EventFilter = EventFilter.AllMember | EventFilter.IncludeMember | EventFilter.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace EventFilter {
+  /**
+   * <p>The filter that monitors all of the available events, including any new events emitted in the future.</p>
+   * @public
+   */
+  export interface AllMember {
+    all: Unit;
+    include?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The filter that monitors only the listed set of events. New events are not auto-monitored.</p>
+   * @public
+   */
+  export interface IncludeMember {
+    all?: never;
+    include: Event[];
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    all?: never;
+    include?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    all: (value: Unit) => T;
+    include: (value: Event[]) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: EventFilter, visitor: Visitor<T>): T => {
+    if (value.all !== undefined) return visitor.all(value.all);
+    if (value.include !== undefined) return visitor.include(value.include);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const FolderStructure = {
+  FLAT: "Flat",
+  NESTED_BY_DATE: "NestedByDate",
+} as const;
+
+/**
+ * @public
+ */
+export type FolderStructure = (typeof FolderStructure)[keyof typeof FolderStructure];
+
+/**
+ * @public
+ * @enum
+ */
+export const LogFileFormat = {
+  JSON: "Json",
+  JSON_LINES: "JSONLines",
+} as const;
+
+/**
+ * @public
+ */
+export type LogFileFormat = (typeof LogFileFormat)[keyof typeof LogFileFormat];
+
+/**
+ * <p>The S3 log configuration.</p>
+ * @public
+ */
+export interface S3LogConfiguration {
+  /**
+   * <p>The S3 bucket name where logs are delivered.</p>
+   * @public
+   */
+  bucket: string | undefined;
+
+  /**
+   * <p>The S3 path prefix that determines where log files are stored.</p>
+   * @public
+   */
+  keyPrefix?: string | undefined;
+
+  /**
+   * <p>The expected bucket owner of the target S3 bucket. The caller must have permissions to write to the target bucket.</p>
+   * @public
+   */
+  bucketOwner?: string | undefined;
+
+  /**
+   * <p>The format of the LogFile that is written to S3.</p>
+   * @public
+   */
+  logFileFormat: LogFileFormat | undefined;
+
+  /**
+   * <p>The folder structure that defines the organizational structure for log files in S3.</p>
+   * @public
+   */
+  folderStructure: FolderStructure | undefined;
+}
+
+/**
+ * <p>The configuration of the log.</p>
+ * @public
+ */
+export interface LogConfiguration {
+  /**
+   * <p>The configuration for delivering the logs to S3.</p>
+   * @public
+   */
+  s3?: S3LogConfiguration | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateSessionLoggerRequest {
+  /**
+   * <p>The filter that specifies the events to monitor.</p>
+   * @public
+   */
+  eventFilter: EventFilter | undefined;
+
+  /**
+   * <p>The configuration that specifies where logs are delivered.</p>
+   * @public
+   */
+  logConfiguration: LogConfiguration | undefined;
+
+  /**
+   * <p>The human-readable display name for the session logger resource.</p>
+   * @public
+   */
+  displayName?: string | undefined;
+
+  /**
+   * <p>The custom managed key of the session logger.</p>
+   * @public
+   */
+  customerManagedKey?: string | undefined;
+
+  /**
+   * <p>The additional encryption context of the session logger.</p>
+   * @public
+   */
+  additionalEncryptionContext?: Record<string, string> | undefined;
+
+  /**
+   * <p>The tags to add to the session logger.</p>
+   * @public
+   */
+  tags?: Tag[] | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. Idempotency ensures that an API request completes only once. With an idempotent request, if the original request completes successfully, subsequent retries with the same client token returns the result from the original successful request. If you do not specify a client token, one is automatically generated by the AWS SDK.</p>
+   * @public
+   */
+  clientToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateSessionLoggerResponse {
+  /**
+   * <p>The ARN of the session logger.</p>
+   * @public
+   */
+  sessionLoggerArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteSessionLoggerRequest {
+  /**
+   * <p>The ARN of the session logger.</p>
+   * @public
+   */
+  sessionLoggerArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteSessionLoggerResponse {}
+
+/**
+ * @public
+ */
+export interface GetSessionLoggerRequest {
+  /**
+   * <p>The ARN of the session logger.</p>
+   * @public
+   */
+  sessionLoggerArn: string | undefined;
+}
+
+/**
+ * <p>The session logger resource.</p>
+ * @public
+ */
+export interface SessionLogger {
+  /**
+   * <p>The ARN of the session logger resource.</p>
+   * @public
+   */
+  sessionLoggerArn: string | undefined;
+
+  /**
+   * <p>The filter that specifies which events to monitor.</p>
+   * @public
+   */
+  eventFilter?: EventFilter | undefined;
+
+  /**
+   * <p>The configuration that specifies where logs are fowarded.</p>
+   * @public
+   */
+  logConfiguration?: LogConfiguration | undefined;
+
+  /**
+   * <p>The custom managed key of the session logger.</p>
+   * @public
+   */
+  customerManagedKey?: string | undefined;
+
+  /**
+   * <p>The additional encryption context of the session logger.</p>
+   * @public
+   */
+  additionalEncryptionContext?: Record<string, string> | undefined;
+
+  /**
+   * <p>The associated portal ARN.</p>
+   * @public
+   */
+  associatedPortalArns?: string[] | undefined;
+
+  /**
+   * <p>The human-readable display name.</p>
+   * @public
+   */
+  displayName?: string | undefined;
+
+  /**
+   * <p>The date the session logger resource was created.</p>
+   * @public
+   */
+  creationDate?: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetSessionLoggerResponse {
+  /**
+   * <p>The session logger details.</p>
+   * @public
+   */
+  sessionLogger?: SessionLogger | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListSessionLoggersRequest {
+  /**
+   * <p>The pagination token used to retrieve the next page of results for this operation.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to be included in the next page.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+}
+
+/**
+ * <p>The summary of the session logger resource.</p>
+ * @public
+ */
+export interface SessionLoggerSummary {
+  /**
+   * <p>The ARN of the session logger resource.</p>
+   * @public
+   */
+  sessionLoggerArn: string | undefined;
+
+  /**
+   * <p>The configuration that specifies where the logs are fowarded.</p>
+   * @public
+   */
+  logConfiguration?: LogConfiguration | undefined;
+
+  /**
+   * <p>The human-readable display name.</p>
+   * @public
+   */
+  displayName?: string | undefined;
+
+  /**
+   * <p>The date the session logger resource was created.</p>
+   * @public
+   */
+  creationDate?: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListSessionLoggersResponse {
+  /**
+   * <p>The list of session loggers, including summaries of their details.</p>
+   * @public
+   */
+  sessionLoggers?: SessionLoggerSummary[] | undefined;
+
+  /**
+   * <p>The pagination token used to retrieve the next page of results for this operation.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateSessionLoggerRequest {
+  /**
+   * <p>The ARN of the session logger to update.</p>
+   * @public
+   */
+  sessionLoggerArn: string | undefined;
+
+  /**
+   * <p>The updated eventFilter.</p>
+   * @public
+   */
+  eventFilter?: EventFilter | undefined;
+
+  /**
+   * <p>The updated logConfiguration.</p>
+   * @public
+   */
+  logConfiguration?: LogConfiguration | undefined;
+
+  /**
+   * <p>The updated display name.</p>
+   * @public
+   */
+  displayName?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateSessionLoggerResponse {
+  /**
+   * <p>The updated details of the session logger.</p>
+   * @public
+   */
+  sessionLogger: SessionLogger | undefined;
 }
 
 /**
@@ -5084,6 +5561,89 @@ export const UpdatePortalRequestFilterSensitiveLog = (obj: UpdatePortalRequest):
 export const UpdatePortalResponseFilterSensitiveLog = (obj: UpdatePortalResponse): any => ({
   ...obj,
   ...(obj.portal && { portal: PortalFilterSensitiveLog(obj.portal) }),
+});
+
+/**
+ * @internal
+ */
+export const S3LogConfigurationFilterSensitiveLog = (obj: S3LogConfiguration): any => ({
+  ...obj,
+  ...(obj.bucket && { bucket: SENSITIVE_STRING }),
+  ...(obj.keyPrefix && { keyPrefix: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const LogConfigurationFilterSensitiveLog = (obj: LogConfiguration): any => ({
+  ...obj,
+  ...(obj.s3 && { s3: S3LogConfigurationFilterSensitiveLog(obj.s3) }),
+});
+
+/**
+ * @internal
+ */
+export const CreateSessionLoggerRequestFilterSensitiveLog = (obj: CreateSessionLoggerRequest): any => ({
+  ...obj,
+  ...(obj.eventFilter && { eventFilter: obj.eventFilter }),
+  ...(obj.logConfiguration && { logConfiguration: LogConfigurationFilterSensitiveLog(obj.logConfiguration) }),
+  ...(obj.displayName && { displayName: SENSITIVE_STRING }),
+  ...(obj.tags && { tags: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const SessionLoggerFilterSensitiveLog = (obj: SessionLogger): any => ({
+  ...obj,
+  ...(obj.eventFilter && { eventFilter: obj.eventFilter }),
+  ...(obj.logConfiguration && { logConfiguration: LogConfigurationFilterSensitiveLog(obj.logConfiguration) }),
+  ...(obj.displayName && { displayName: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const GetSessionLoggerResponseFilterSensitiveLog = (obj: GetSessionLoggerResponse): any => ({
+  ...obj,
+  ...(obj.sessionLogger && { sessionLogger: SessionLoggerFilterSensitiveLog(obj.sessionLogger) }),
+});
+
+/**
+ * @internal
+ */
+export const SessionLoggerSummaryFilterSensitiveLog = (obj: SessionLoggerSummary): any => ({
+  ...obj,
+  ...(obj.logConfiguration && { logConfiguration: LogConfigurationFilterSensitiveLog(obj.logConfiguration) }),
+  ...(obj.displayName && { displayName: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ListSessionLoggersResponseFilterSensitiveLog = (obj: ListSessionLoggersResponse): any => ({
+  ...obj,
+  ...(obj.sessionLoggers && {
+    sessionLoggers: obj.sessionLoggers.map((item) => SessionLoggerSummaryFilterSensitiveLog(item)),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateSessionLoggerRequestFilterSensitiveLog = (obj: UpdateSessionLoggerRequest): any => ({
+  ...obj,
+  ...(obj.eventFilter && { eventFilter: obj.eventFilter }),
+  ...(obj.logConfiguration && { logConfiguration: LogConfigurationFilterSensitiveLog(obj.logConfiguration) }),
+  ...(obj.displayName && { displayName: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateSessionLoggerResponseFilterSensitiveLog = (obj: UpdateSessionLoggerResponse): any => ({
+  ...obj,
+  ...(obj.sessionLogger && { sessionLogger: SessionLoggerFilterSensitiveLog(obj.sessionLogger) }),
 });
 
 /**

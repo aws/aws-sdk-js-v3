@@ -53,6 +53,7 @@ export interface GetPortalCommandOutput extends GetPortalResponse, __MetadataBea
  * //     dataProtectionSettingsArn: "STRING_VALUE",
  * //     userSettingsArn: "STRING_VALUE",
  * //     networkSettingsArn: "STRING_VALUE",
+ * //     sessionLoggerArn: "STRING_VALUE",
  * //     trustStoreArn: "STRING_VALUE",
  * //     statusReason: "STRING_VALUE",
  * //     userAccessLoggingSettingsArn: "STRING_VALUE",

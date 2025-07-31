@@ -243,6 +243,14 @@ AssociateNetworkSettings
 </details>
 <details>
 <summary>
+AssociateSessionLogger
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/workspaces-web/command/AssociateSessionLoggerCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-workspaces-web/Interface/AssociateSessionLoggerCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-workspaces-web/Interface/AssociateSessionLoggerCommandOutput/)
+
+</details>
+<details>
+<summary>
 AssociateTrustStore
 </summary>
 
@@ -311,6 +319,14 @@ CreatePortal
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/workspaces-web/command/CreatePortalCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-workspaces-web/Interface/CreatePortalCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-workspaces-web/Interface/CreatePortalCommandOutput/)
+
+</details>
+<details>
+<summary>
+CreateSessionLogger
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/workspaces-web/command/CreateSessionLoggerCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-workspaces-web/Interface/CreateSessionLoggerCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-workspaces-web/Interface/CreateSessionLoggerCommandOutput/)
 
 </details>
 <details>
@@ -387,6 +403,14 @@ DeletePortal
 </details>
 <details>
 <summary>
+DeleteSessionLogger
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/workspaces-web/command/DeleteSessionLoggerCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-workspaces-web/Interface/DeleteSessionLoggerCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-workspaces-web/Interface/DeleteSessionLoggerCommandOutput/)
+
+</details>
+<details>
+<summary>
 DeleteTrustStore
 </summary>
 
@@ -439,6 +463,14 @@ DisassociateNetworkSettings
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/workspaces-web/command/DisassociateNetworkSettingsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-workspaces-web/Interface/DisassociateNetworkSettingsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-workspaces-web/Interface/DisassociateNetworkSettingsCommandOutput/)
+
+</details>
+<details>
+<summary>
+DisassociateSessionLogger
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/workspaces-web/command/DisassociateSessionLoggerCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-workspaces-web/Interface/DisassociateSessionLoggerCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-workspaces-web/Interface/DisassociateSessionLoggerCommandOutput/)
 
 </details>
 <details>
@@ -539,6 +571,14 @@ GetSession
 </details>
 <details>
 <summary>
+GetSessionLogger
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/workspaces-web/command/GetSessionLoggerCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-workspaces-web/Interface/GetSessionLoggerCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-workspaces-web/Interface/GetSessionLoggerCommandOutput/)
+
+</details>
+<details>
+<summary>
 GetTrustStore
 </summary>
 
@@ -615,6 +655,14 @@ ListPortals
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/workspaces-web/command/ListPortalsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-workspaces-web/Interface/ListPortalsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-workspaces-web/Interface/ListPortalsCommandOutput/)
+
+</details>
+<details>
+<summary>
+ListSessionLoggers
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/workspaces-web/command/ListSessionLoggersCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-workspaces-web/Interface/ListSessionLoggersCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-workspaces-web/Interface/ListSessionLoggersCommandOutput/)
 
 </details>
 <details>
@@ -727,6 +775,14 @@ UpdatePortal
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/workspaces-web/command/UpdatePortalCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-workspaces-web/Interface/UpdatePortalCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-workspaces-web/Interface/UpdatePortalCommandOutput/)
+
+</details>
+<details>
+<summary>
+UpdateSessionLogger
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/workspaces-web/command/UpdateSessionLoggerCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-workspaces-web/Interface/UpdateSessionLoggerCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-workspaces-web/Interface/UpdateSessionLoggerCommandOutput/)
 
 </details>
 <details>

@@ -23,6 +23,11 @@ import {
   AssociateNetworkSettingsCommandOutput,
 } from "./commands/AssociateNetworkSettingsCommand";
 import {
+  AssociateSessionLoggerCommand,
+  AssociateSessionLoggerCommandInput,
+  AssociateSessionLoggerCommandOutput,
+} from "./commands/AssociateSessionLoggerCommand";
+import {
   AssociateTrustStoreCommand,
   AssociateTrustStoreCommandInput,
   AssociateTrustStoreCommandOutput,
@@ -67,6 +72,11 @@ import {
   CreatePortalCommandInput,
   CreatePortalCommandOutput,
 } from "./commands/CreatePortalCommand";
+import {
+  CreateSessionLoggerCommand,
+  CreateSessionLoggerCommandInput,
+  CreateSessionLoggerCommandOutput,
+} from "./commands/CreateSessionLoggerCommand";
 import {
   CreateTrustStoreCommand,
   CreateTrustStoreCommandInput,
@@ -113,6 +123,11 @@ import {
   DeletePortalCommandOutput,
 } from "./commands/DeletePortalCommand";
 import {
+  DeleteSessionLoggerCommand,
+  DeleteSessionLoggerCommandInput,
+  DeleteSessionLoggerCommandOutput,
+} from "./commands/DeleteSessionLoggerCommand";
+import {
   DeleteTrustStoreCommand,
   DeleteTrustStoreCommandInput,
   DeleteTrustStoreCommandOutput,
@@ -147,6 +162,11 @@ import {
   DisassociateNetworkSettingsCommandInput,
   DisassociateNetworkSettingsCommandOutput,
 } from "./commands/DisassociateNetworkSettingsCommand";
+import {
+  DisassociateSessionLoggerCommand,
+  DisassociateSessionLoggerCommandInput,
+  DisassociateSessionLoggerCommandOutput,
+} from "./commands/DisassociateSessionLoggerCommand";
 import {
   DisassociateTrustStoreCommand,
   DisassociateTrustStoreCommandInput,
@@ -200,6 +220,11 @@ import {
 } from "./commands/GetPortalServiceProviderMetadataCommand";
 import { GetSessionCommand, GetSessionCommandInput, GetSessionCommandOutput } from "./commands/GetSessionCommand";
 import {
+  GetSessionLoggerCommand,
+  GetSessionLoggerCommandInput,
+  GetSessionLoggerCommandOutput,
+} from "./commands/GetSessionLoggerCommand";
+import {
   GetTrustStoreCertificateCommand,
   GetTrustStoreCertificateCommandInput,
   GetTrustStoreCertificateCommandOutput,
@@ -245,6 +270,11 @@ import {
   ListNetworkSettingsCommandOutput,
 } from "./commands/ListNetworkSettingsCommand";
 import { ListPortalsCommand, ListPortalsCommandInput, ListPortalsCommandOutput } from "./commands/ListPortalsCommand";
+import {
+  ListSessionLoggersCommand,
+  ListSessionLoggersCommandInput,
+  ListSessionLoggersCommandOutput,
+} from "./commands/ListSessionLoggersCommand";
 import {
   ListSessionsCommand,
   ListSessionsCommandInput,
@@ -312,6 +342,11 @@ import {
   UpdatePortalCommandOutput,
 } from "./commands/UpdatePortalCommand";
 import {
+  UpdateSessionLoggerCommand,
+  UpdateSessionLoggerCommandInput,
+  UpdateSessionLoggerCommandOutput,
+} from "./commands/UpdateSessionLoggerCommand";
+import {
   UpdateTrustStoreCommand,
   UpdateTrustStoreCommandInput,
   UpdateTrustStoreCommandOutput,
@@ -333,6 +368,7 @@ const commands = {
   AssociateDataProtectionSettingsCommand,
   AssociateIpAccessSettingsCommand,
   AssociateNetworkSettingsCommand,
+  AssociateSessionLoggerCommand,
   AssociateTrustStoreCommand,
   AssociateUserAccessLoggingSettingsCommand,
   AssociateUserSettingsCommand,
@@ -342,6 +378,7 @@ const commands = {
   CreateIpAccessSettingsCommand,
   CreateNetworkSettingsCommand,
   CreatePortalCommand,
+  CreateSessionLoggerCommand,
   CreateTrustStoreCommand,
   CreateUserAccessLoggingSettingsCommand,
   CreateUserSettingsCommand,
@@ -351,6 +388,7 @@ const commands = {
   DeleteIpAccessSettingsCommand,
   DeleteNetworkSettingsCommand,
   DeletePortalCommand,
+  DeleteSessionLoggerCommand,
   DeleteTrustStoreCommand,
   DeleteUserAccessLoggingSettingsCommand,
   DeleteUserSettingsCommand,
@@ -358,6 +396,7 @@ const commands = {
   DisassociateDataProtectionSettingsCommand,
   DisassociateIpAccessSettingsCommand,
   DisassociateNetworkSettingsCommand,
+  DisassociateSessionLoggerCommand,
   DisassociateTrustStoreCommand,
   DisassociateUserAccessLoggingSettingsCommand,
   DisassociateUserSettingsCommand,
@@ -370,6 +409,7 @@ const commands = {
   GetPortalCommand,
   GetPortalServiceProviderMetadataCommand,
   GetSessionCommand,
+  GetSessionLoggerCommand,
   GetTrustStoreCommand,
   GetTrustStoreCertificateCommand,
   GetUserAccessLoggingSettingsCommand,
@@ -380,6 +420,7 @@ const commands = {
   ListIpAccessSettingsCommand,
   ListNetworkSettingsCommand,
   ListPortalsCommand,
+  ListSessionLoggersCommand,
   ListSessionsCommand,
   ListTagsForResourceCommand,
   ListTrustStoreCertificatesCommand,
@@ -394,6 +435,7 @@ const commands = {
   UpdateIpAccessSettingsCommand,
   UpdateNetworkSettingsCommand,
   UpdatePortalCommand,
+  UpdateSessionLoggerCommand,
   UpdateTrustStoreCommand,
   UpdateUserAccessLoggingSettingsCommand,
   UpdateUserSettingsCommand,
@@ -466,6 +508,23 @@ export interface WorkSpacesWeb {
     args: AssociateNetworkSettingsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: AssociateNetworkSettingsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link AssociateSessionLoggerCommand}
+   */
+  associateSessionLogger(
+    args: AssociateSessionLoggerCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<AssociateSessionLoggerCommandOutput>;
+  associateSessionLogger(
+    args: AssociateSessionLoggerCommandInput,
+    cb: (err: any, data?: AssociateSessionLoggerCommandOutput) => void
+  ): void;
+  associateSessionLogger(
+    args: AssociateSessionLoggerCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: AssociateSessionLoggerCommandOutput) => void
   ): void;
 
   /**
@@ -618,6 +677,23 @@ export interface WorkSpacesWeb {
   ): void;
 
   /**
+   * @see {@link CreateSessionLoggerCommand}
+   */
+  createSessionLogger(
+    args: CreateSessionLoggerCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateSessionLoggerCommandOutput>;
+  createSessionLogger(
+    args: CreateSessionLoggerCommandInput,
+    cb: (err: any, data?: CreateSessionLoggerCommandOutput) => void
+  ): void;
+  createSessionLogger(
+    args: CreateSessionLoggerCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateSessionLoggerCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link CreateTrustStoreCommand}
    */
   createTrustStore(
@@ -765,6 +841,23 @@ export interface WorkSpacesWeb {
   ): void;
 
   /**
+   * @see {@link DeleteSessionLoggerCommand}
+   */
+  deleteSessionLogger(
+    args: DeleteSessionLoggerCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteSessionLoggerCommandOutput>;
+  deleteSessionLogger(
+    args: DeleteSessionLoggerCommandInput,
+    cb: (err: any, data?: DeleteSessionLoggerCommandOutput) => void
+  ): void;
+  deleteSessionLogger(
+    args: DeleteSessionLoggerCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteSessionLoggerCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DeleteTrustStoreCommand}
    */
   deleteTrustStore(
@@ -881,6 +974,23 @@ export interface WorkSpacesWeb {
     args: DisassociateNetworkSettingsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DisassociateNetworkSettingsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DisassociateSessionLoggerCommand}
+   */
+  disassociateSessionLogger(
+    args: DisassociateSessionLoggerCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DisassociateSessionLoggerCommandOutput>;
+  disassociateSessionLogger(
+    args: DisassociateSessionLoggerCommandInput,
+    cb: (err: any, data?: DisassociateSessionLoggerCommandOutput) => void
+  ): void;
+  disassociateSessionLogger(
+    args: DisassociateSessionLoggerCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DisassociateSessionLoggerCommandOutput) => void
   ): void;
 
   /**
@@ -1070,6 +1180,23 @@ export interface WorkSpacesWeb {
   ): void;
 
   /**
+   * @see {@link GetSessionLoggerCommand}
+   */
+  getSessionLogger(
+    args: GetSessionLoggerCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetSessionLoggerCommandOutput>;
+  getSessionLogger(
+    args: GetSessionLoggerCommandInput,
+    cb: (err: any, data?: GetSessionLoggerCommandOutput) => void
+  ): void;
+  getSessionLogger(
+    args: GetSessionLoggerCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetSessionLoggerCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetTrustStoreCommand}
    */
   getTrustStore(args: GetTrustStoreCommandInput, options?: __HttpHandlerOptions): Promise<GetTrustStoreCommandOutput>;
@@ -1227,6 +1354,24 @@ export interface WorkSpacesWeb {
     args: ListPortalsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListPortalsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListSessionLoggersCommand}
+   */
+  listSessionLoggers(): Promise<ListSessionLoggersCommandOutput>;
+  listSessionLoggers(
+    args: ListSessionLoggersCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListSessionLoggersCommandOutput>;
+  listSessionLoggers(
+    args: ListSessionLoggersCommandInput,
+    cb: (err: any, data?: ListSessionLoggersCommandOutput) => void
+  ): void;
+  listSessionLoggers(
+    args: ListSessionLoggersCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListSessionLoggersCommandOutput) => void
   ): void;
 
   /**
@@ -1441,6 +1586,23 @@ export interface WorkSpacesWeb {
     args: UpdatePortalCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdatePortalCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateSessionLoggerCommand}
+   */
+  updateSessionLogger(
+    args: UpdateSessionLoggerCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateSessionLoggerCommandOutput>;
+  updateSessionLogger(
+    args: UpdateSessionLoggerCommandInput,
+    cb: (err: any, data?: UpdateSessionLoggerCommandOutput) => void
+  ): void;
+  updateSessionLogger(
+    args: UpdateSessionLoggerCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateSessionLoggerCommandOutput) => void
   ): void;
 
   /**

@@ -1,5 +1,10 @@
 // smithy-typescript generated code
-import { loadRestJsonErrorCode, parseJsonBody as parseBody, parseJsonErrorBody as parseErrorBody } from "@aws-sdk/core";
+import {
+  awsExpectUnion as __expectUnion,
+  loadRestJsonErrorCode,
+  parseJsonBody as parseBody,
+  parseJsonErrorBody as parseErrorBody,
+} from "@aws-sdk/core";
 import { requestBuilder as rb } from "@smithy/core";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import {
@@ -43,6 +48,10 @@ import {
   AssociateNetworkSettingsCommandOutput,
 } from "../commands/AssociateNetworkSettingsCommand";
 import {
+  AssociateSessionLoggerCommandInput,
+  AssociateSessionLoggerCommandOutput,
+} from "../commands/AssociateSessionLoggerCommand";
+import {
   AssociateTrustStoreCommandInput,
   AssociateTrustStoreCommandOutput,
 } from "../commands/AssociateTrustStoreCommand";
@@ -75,6 +84,10 @@ import {
   CreateNetworkSettingsCommandOutput,
 } from "../commands/CreateNetworkSettingsCommand";
 import { CreatePortalCommandInput, CreatePortalCommandOutput } from "../commands/CreatePortalCommand";
+import {
+  CreateSessionLoggerCommandInput,
+  CreateSessionLoggerCommandOutput,
+} from "../commands/CreateSessionLoggerCommand";
 import { CreateTrustStoreCommandInput, CreateTrustStoreCommandOutput } from "../commands/CreateTrustStoreCommand";
 import {
   CreateUserAccessLoggingSettingsCommandInput,
@@ -102,6 +115,10 @@ import {
   DeleteNetworkSettingsCommandOutput,
 } from "../commands/DeleteNetworkSettingsCommand";
 import { DeletePortalCommandInput, DeletePortalCommandOutput } from "../commands/DeletePortalCommand";
+import {
+  DeleteSessionLoggerCommandInput,
+  DeleteSessionLoggerCommandOutput,
+} from "../commands/DeleteSessionLoggerCommand";
 import { DeleteTrustStoreCommandInput, DeleteTrustStoreCommandOutput } from "../commands/DeleteTrustStoreCommand";
 import {
   DeleteUserAccessLoggingSettingsCommandInput,
@@ -124,6 +141,10 @@ import {
   DisassociateNetworkSettingsCommandInput,
   DisassociateNetworkSettingsCommandOutput,
 } from "../commands/DisassociateNetworkSettingsCommand";
+import {
+  DisassociateSessionLoggerCommandInput,
+  DisassociateSessionLoggerCommandOutput,
+} from "../commands/DisassociateSessionLoggerCommand";
 import {
   DisassociateTrustStoreCommandInput,
   DisassociateTrustStoreCommandOutput,
@@ -157,6 +178,7 @@ import {
   GetPortalServiceProviderMetadataCommandOutput,
 } from "../commands/GetPortalServiceProviderMetadataCommand";
 import { GetSessionCommandInput, GetSessionCommandOutput } from "../commands/GetSessionCommand";
+import { GetSessionLoggerCommandInput, GetSessionLoggerCommandOutput } from "../commands/GetSessionLoggerCommand";
 import {
   GetTrustStoreCertificateCommandInput,
   GetTrustStoreCertificateCommandOutput,
@@ -188,6 +210,7 @@ import {
   ListNetworkSettingsCommandOutput,
 } from "../commands/ListNetworkSettingsCommand";
 import { ListPortalsCommandInput, ListPortalsCommandOutput } from "../commands/ListPortalsCommand";
+import { ListSessionLoggersCommandInput, ListSessionLoggersCommandOutput } from "../commands/ListSessionLoggersCommand";
 import { ListSessionsCommandInput, ListSessionsCommandOutput } from "../commands/ListSessionsCommand";
 import {
   ListTagsForResourceCommandInput,
@@ -226,6 +249,10 @@ import {
   UpdateNetworkSettingsCommandOutput,
 } from "../commands/UpdateNetworkSettingsCommand";
 import { UpdatePortalCommandInput, UpdatePortalCommandOutput } from "../commands/UpdatePortalCommand";
+import {
+  UpdateSessionLoggerCommandInput,
+  UpdateSessionLoggerCommandOutput,
+} from "../commands/UpdateSessionLoggerCommand";
 import { UpdateTrustStoreCommandInput, UpdateTrustStoreCommandOutput } from "../commands/UpdateTrustStoreCommand";
 import {
   UpdateUserAccessLoggingSettingsCommandInput,
@@ -242,24 +269,31 @@ import {
   CustomPattern,
   DataProtectionSettings,
   DataProtectionSettingsSummary,
+  Event,
+  EventFilter,
   InlineRedactionConfiguration,
   InlineRedactionPattern,
   InternalServerException,
   IpAccessSettings,
   IpAccessSettingsSummary,
   IpRule,
+  LogConfiguration,
   Portal,
   PortalSummary,
   RedactionPlaceHolder,
   ResourceNotFoundException,
+  S3LogConfiguration,
   ServiceQuotaExceededException,
   Session,
+  SessionLogger,
+  SessionLoggerSummary,
   SessionSummary,
   Tag,
   ThrottlingException,
   ToolbarConfiguration,
   ToolbarItem,
   TooManyTagsException,
+  Unit,
   ValidationException,
 } from "../models/models_0";
 import { WorkSpacesWebServiceException as __BaseException } from "../models/WorkSpacesWebServiceException";
@@ -334,6 +368,25 @@ export const se_AssociateNetworkSettingsCommand = async (
   b.p("portalArn", () => input.portalArn!, "{portalArn+}", true);
   const query: any = map({
     [_nSA]: [, __expectNonNull(input[_nSA]!, `networkSettingsArn`)],
+  });
+  let body: any;
+  b.m("PUT").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1AssociateSessionLoggerCommand
+ */
+export const se_AssociateSessionLoggerCommand = async (
+  input: AssociateSessionLoggerCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/portals/{portalArn+}/sessionLogger");
+  b.p("portalArn", () => input.portalArn!, "{portalArn+}", true);
+  const query: any = map({
+    [_sLA]: [, __expectNonNull(input[_sLA]!, `sessionLoggerArn`)],
   });
   let body: any;
   b.m("PUT").h(headers).q(query).b(body);
@@ -562,6 +615,34 @@ export const se_CreatePortalCommand = async (
 };
 
 /**
+ * serializeAws_restJson1CreateSessionLoggerCommand
+ */
+export const se_CreateSessionLoggerCommand = async (
+  input: CreateSessionLoggerCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/sessionLoggers");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      additionalEncryptionContext: (_) => _json(_),
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
+      customerManagedKey: [],
+      displayName: [],
+      eventFilter: (_) => _json(_),
+      logConfiguration: (_) => _json(_),
+      tags: (_) => _json(_),
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1CreateTrustStoreCommand
  */
 export const se_CreateTrustStoreCommand = async (
@@ -741,6 +822,22 @@ export const se_DeletePortalCommand = async (
 };
 
 /**
+ * serializeAws_restJson1DeleteSessionLoggerCommand
+ */
+export const se_DeleteSessionLoggerCommand = async (
+  input: DeleteSessionLoggerCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/sessionLoggers/{sessionLoggerArn+}");
+  b.p("sessionLoggerArn", () => input.sessionLoggerArn!, "{sessionLoggerArn+}", true);
+  let body: any;
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1DeleteTrustStoreCommand
  */
 export const se_DeleteTrustStoreCommand = async (
@@ -851,6 +948,22 @@ export const se_DisassociateNetworkSettingsCommand = async (
   const b = rb(input, context);
   const headers: any = {};
   b.bp("/portals/{portalArn+}/networkSettings");
+  b.p("portalArn", () => input.portalArn!, "{portalArn+}", true);
+  let body: any;
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1DisassociateSessionLoggerCommand
+ */
+export const se_DisassociateSessionLoggerCommand = async (
+  input: DisassociateSessionLoggerCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/portals/{portalArn+}/sessionLogger");
   b.p("portalArn", () => input.portalArn!, "{portalArn+}", true);
   let body: any;
   b.m("DELETE").h(headers).b(body);
@@ -1052,6 +1165,22 @@ export const se_GetSessionCommand = async (
 };
 
 /**
+ * serializeAws_restJson1GetSessionLoggerCommand
+ */
+export const se_GetSessionLoggerCommand = async (
+  input: GetSessionLoggerCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/sessionLoggers/{sessionLoggerArn+}");
+  b.p("sessionLoggerArn", () => input.sessionLoggerArn!, "{sessionLoggerArn+}", true);
+  let body: any;
+  b.m("GET").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1GetTrustStoreCommand
  */
 export const se_GetTrustStoreCommand = async (
@@ -1229,6 +1358,25 @@ export const se_ListPortalsCommand = async (
   const b = rb(input, context);
   const headers: any = {};
   b.bp("/portals");
+  const query: any = map({
+    [_nT]: [, input[_nT]!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
+  });
+  let body: any;
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1ListSessionLoggersCommand
+ */
+export const se_ListSessionLoggersCommand = async (
+  input: ListSessionLoggersCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/sessionLoggers");
   const query: any = map({
     [_nT]: [, input[_nT]!],
     [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
@@ -1553,6 +1701,31 @@ export const se_UpdatePortalCommand = async (
 };
 
 /**
+ * serializeAws_restJson1UpdateSessionLoggerCommand
+ */
+export const se_UpdateSessionLoggerCommand = async (
+  input: UpdateSessionLoggerCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/sessionLoggers/{sessionLoggerArn+}");
+  b.p("sessionLoggerArn", () => input.sessionLoggerArn!, "{sessionLoggerArn+}", true);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      displayName: [],
+      eventFilter: (_) => _json(_),
+      logConfiguration: (_) => _json(_),
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1UpdateTrustStoreCommand
  */
 export const se_UpdateTrustStoreCommand = async (
@@ -1722,6 +1895,28 @@ export const de_AssociateNetworkSettingsCommand = async (
   const doc = take(data, {
     networkSettingsArn: __expectString,
     portalArn: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1AssociateSessionLoggerCommand
+ */
+export const de_AssociateSessionLoggerCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<AssociateSessionLoggerCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    portalArn: __expectString,
+    sessionLoggerArn: __expectString,
   });
   Object.assign(contents, doc);
   return contents;
@@ -1921,6 +2116,27 @@ export const de_CreatePortalCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1CreateSessionLoggerCommand
+ */
+export const de_CreateSessionLoggerCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateSessionLoggerCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    sessionLoggerArn: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1CreateTrustStoreCommand
  */
 export const de_CreateTrustStoreCommand = async (
@@ -2086,6 +2302,23 @@ export const de_DeletePortalCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1DeleteSessionLoggerCommand
+ */
+export const de_DeleteSessionLoggerCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteSessionLoggerCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1DeleteTrustStoreCommand
  */
 export const de_DeleteTrustStoreCommand = async (
@@ -2194,6 +2427,23 @@ export const de_DisassociateNetworkSettingsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DisassociateNetworkSettingsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DisassociateSessionLoggerCommand
+ */
+export const de_DisassociateSessionLoggerCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DisassociateSessionLoggerCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
     return de_CommandError(output, context);
   }
@@ -2442,6 +2692,27 @@ export const de_GetSessionCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1GetSessionLoggerCommand
+ */
+export const de_GetSessionLoggerCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetSessionLoggerCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    sessionLogger: (_) => de_SessionLogger(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1GetTrustStoreCommand
  */
 export const de_GetTrustStoreCommand = async (
@@ -2653,6 +2924,28 @@ export const de_ListPortalsCommand = async (
   const doc = take(data, {
     nextToken: __expectString,
     portals: (_) => de_PortalList(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListSessionLoggersCommand
+ */
+export const de_ListSessionLoggersCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListSessionLoggersCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    nextToken: __expectString,
+    sessionLoggers: (_) => de_SessionLoggerList(_, context),
   });
   Object.assign(contents, doc);
   return contents;
@@ -2945,6 +3238,27 @@ export const de_UpdatePortalCommand = async (
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
     portal: (_) => de_Portal(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1UpdateSessionLoggerCommand
+ */
+export const de_UpdateSessionLoggerCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateSessionLoggerCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    sessionLogger: (_) => de_SessionLogger(_, context),
   });
   Object.assign(contents, doc);
   return contents;
@@ -3249,6 +3563,10 @@ const se_CertificateList = (input: Uint8Array[], context: __SerdeContext): any =
 
 // se_EncryptionContextMap omitted.
 
+// se_EventFilter omitted.
+
+// se_Events omitted.
+
 // se_GlobalInlineRedactionUrls omitted.
 
 // se_HiddenToolbarItemList omitted.
@@ -3267,7 +3585,11 @@ const se_CertificateList = (input: Uint8Array[], context: __SerdeContext): any =
 
 // se_IpRuleList omitted.
 
+// se_LogConfiguration omitted.
+
 // se_RedactionPlaceHolder omitted.
+
+// se_S3LogConfiguration omitted.
 
 // se_SecurityGroupIdList omitted.
 
@@ -3278,6 +3600,8 @@ const se_CertificateList = (input: Uint8Array[], context: __SerdeContext): any =
 // se_TagList omitted.
 
 // se_ToolbarConfiguration omitted.
+
+// se_Unit omitted.
 
 // de_ArnList omitted.
 
@@ -3376,6 +3700,10 @@ const de_DataProtectionSettingsSummary = (output: any, context: __SerdeContext):
 
 // de_EncryptionContextMap omitted.
 
+// de_EventFilter omitted.
+
+// de_Events omitted.
+
 // de_GlobalInlineRedactionUrls omitted.
 
 // de_HiddenToolbarItemList omitted.
@@ -3442,6 +3770,8 @@ const de_IpAccessSettingsSummary = (output: any, context: __SerdeContext): IpAcc
 
 // de_IpRuleList omitted.
 
+// de_LogConfiguration omitted.
+
 // de_NetworkSettings omitted.
 
 // de_NetworkSettingsList omitted.
@@ -3469,6 +3799,7 @@ const de_Portal = (output: any, context: __SerdeContext): Portal => {
     portalEndpoint: __expectString,
     portalStatus: __expectString,
     rendererType: __expectString,
+    sessionLoggerArn: __expectString,
     statusReason: __expectString,
     trustStoreArn: __expectString,
     userAccessLoggingSettingsArn: __expectString,
@@ -3507,6 +3838,7 @@ const de_PortalSummary = (output: any, context: __SerdeContext): PortalSummary =
     portalEndpoint: __expectString,
     portalStatus: __expectString,
     rendererType: __expectString,
+    sessionLoggerArn: __expectString,
     trustStoreArn: __expectString,
     userAccessLoggingSettingsArn: __expectString,
     userSettingsArn: __expectString,
@@ -3514,6 +3846,8 @@ const de_PortalSummary = (output: any, context: __SerdeContext): PortalSummary =
 };
 
 // de_RedactionPlaceHolder omitted.
+
+// de_S3LogConfiguration omitted.
 
 // de_SecurityGroupIdList omitted.
 
@@ -3529,6 +3863,46 @@ const de_Session = (output: any, context: __SerdeContext): Session => {
     startTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     status: __expectString,
     username: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1SessionLogger
+ */
+const de_SessionLogger = (output: any, context: __SerdeContext): SessionLogger => {
+  return take(output, {
+    additionalEncryptionContext: _json,
+    associatedPortalArns: _json,
+    creationDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    customerManagedKey: __expectString,
+    displayName: __expectString,
+    eventFilter: (_: any) => _json(__expectUnion(_)),
+    logConfiguration: _json,
+    sessionLoggerArn: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1SessionLoggerList
+ */
+const de_SessionLoggerList = (output: any, context: __SerdeContext): SessionLoggerSummary[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_SessionLoggerSummary(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_restJson1SessionLoggerSummary
+ */
+const de_SessionLoggerSummary = (output: any, context: __SerdeContext): SessionLoggerSummary => {
+  return take(output, {
+    creationDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    displayName: __expectString,
+    logConfiguration: _json,
+    sessionLoggerArn: __expectString,
   }) as any;
 };
 
@@ -3588,6 +3962,8 @@ const de_SessionSummaryList = (output: any, context: __SerdeContext): SessionSum
 
 // de_ValidationExceptionFieldList omitted.
 
+// de_Unit omitted.
+
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,
   requestId:
@@ -3611,6 +3987,7 @@ const _ra = "retry-after";
 const _s = "status";
 const _sB = "sortBy";
 const _sI = "sessionId";
+const _sLA = "sessionLoggerArn";
 const _t = "thumbprint";
 const _tK = "tagKeys";
 const _tSA = "trustStoreArn";

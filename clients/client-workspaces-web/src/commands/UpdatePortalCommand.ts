@@ -62,6 +62,7 @@ export interface UpdatePortalCommandOutput extends UpdatePortalResponse, __Metad
  * //     dataProtectionSettingsArn: "STRING_VALUE",
  * //     userSettingsArn: "STRING_VALUE",
  * //     networkSettingsArn: "STRING_VALUE",
+ * //     sessionLoggerArn: "STRING_VALUE",
  * //     trustStoreArn: "STRING_VALUE",
  * //     statusReason: "STRING_VALUE",
  * //     userAccessLoggingSettingsArn: "STRING_VALUE",

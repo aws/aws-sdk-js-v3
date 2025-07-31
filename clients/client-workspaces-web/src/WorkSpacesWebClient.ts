@@ -70,6 +70,10 @@ import {
   AssociateNetworkSettingsCommandOutput,
 } from "./commands/AssociateNetworkSettingsCommand";
 import {
+  AssociateSessionLoggerCommandInput,
+  AssociateSessionLoggerCommandOutput,
+} from "./commands/AssociateSessionLoggerCommand";
+import {
   AssociateTrustStoreCommandInput,
   AssociateTrustStoreCommandOutput,
 } from "./commands/AssociateTrustStoreCommand";
@@ -102,6 +106,10 @@ import {
   CreateNetworkSettingsCommandOutput,
 } from "./commands/CreateNetworkSettingsCommand";
 import { CreatePortalCommandInput, CreatePortalCommandOutput } from "./commands/CreatePortalCommand";
+import {
+  CreateSessionLoggerCommandInput,
+  CreateSessionLoggerCommandOutput,
+} from "./commands/CreateSessionLoggerCommand";
 import { CreateTrustStoreCommandInput, CreateTrustStoreCommandOutput } from "./commands/CreateTrustStoreCommand";
 import {
   CreateUserAccessLoggingSettingsCommandInput,
@@ -129,6 +137,10 @@ import {
   DeleteNetworkSettingsCommandOutput,
 } from "./commands/DeleteNetworkSettingsCommand";
 import { DeletePortalCommandInput, DeletePortalCommandOutput } from "./commands/DeletePortalCommand";
+import {
+  DeleteSessionLoggerCommandInput,
+  DeleteSessionLoggerCommandOutput,
+} from "./commands/DeleteSessionLoggerCommand";
 import { DeleteTrustStoreCommandInput, DeleteTrustStoreCommandOutput } from "./commands/DeleteTrustStoreCommand";
 import {
   DeleteUserAccessLoggingSettingsCommandInput,
@@ -151,6 +163,10 @@ import {
   DisassociateNetworkSettingsCommandInput,
   DisassociateNetworkSettingsCommandOutput,
 } from "./commands/DisassociateNetworkSettingsCommand";
+import {
+  DisassociateSessionLoggerCommandInput,
+  DisassociateSessionLoggerCommandOutput,
+} from "./commands/DisassociateSessionLoggerCommand";
 import {
   DisassociateTrustStoreCommandInput,
   DisassociateTrustStoreCommandOutput,
@@ -184,6 +200,7 @@ import {
   GetPortalServiceProviderMetadataCommandOutput,
 } from "./commands/GetPortalServiceProviderMetadataCommand";
 import { GetSessionCommandInput, GetSessionCommandOutput } from "./commands/GetSessionCommand";
+import { GetSessionLoggerCommandInput, GetSessionLoggerCommandOutput } from "./commands/GetSessionLoggerCommand";
 import {
   GetTrustStoreCertificateCommandInput,
   GetTrustStoreCertificateCommandOutput,
@@ -215,6 +232,7 @@ import {
   ListNetworkSettingsCommandOutput,
 } from "./commands/ListNetworkSettingsCommand";
 import { ListPortalsCommandInput, ListPortalsCommandOutput } from "./commands/ListPortalsCommand";
+import { ListSessionLoggersCommandInput, ListSessionLoggersCommandOutput } from "./commands/ListSessionLoggersCommand";
 import { ListSessionsCommandInput, ListSessionsCommandOutput } from "./commands/ListSessionsCommand";
 import {
   ListTagsForResourceCommandInput,
@@ -253,6 +271,10 @@ import {
   UpdateNetworkSettingsCommandOutput,
 } from "./commands/UpdateNetworkSettingsCommand";
 import { UpdatePortalCommandInput, UpdatePortalCommandOutput } from "./commands/UpdatePortalCommand";
+import {
+  UpdateSessionLoggerCommandInput,
+  UpdateSessionLoggerCommandOutput,
+} from "./commands/UpdateSessionLoggerCommand";
 import { UpdateTrustStoreCommandInput, UpdateTrustStoreCommandOutput } from "./commands/UpdateTrustStoreCommand";
 import {
   UpdateUserAccessLoggingSettingsCommandInput,
@@ -278,6 +300,7 @@ export type ServiceInputTypes =
   | AssociateDataProtectionSettingsCommandInput
   | AssociateIpAccessSettingsCommandInput
   | AssociateNetworkSettingsCommandInput
+  | AssociateSessionLoggerCommandInput
   | AssociateTrustStoreCommandInput
   | AssociateUserAccessLoggingSettingsCommandInput
   | AssociateUserSettingsCommandInput
@@ -287,6 +310,7 @@ export type ServiceInputTypes =
   | CreateIpAccessSettingsCommandInput
   | CreateNetworkSettingsCommandInput
   | CreatePortalCommandInput
+  | CreateSessionLoggerCommandInput
   | CreateTrustStoreCommandInput
   | CreateUserAccessLoggingSettingsCommandInput
   | CreateUserSettingsCommandInput
@@ -296,6 +320,7 @@ export type ServiceInputTypes =
   | DeleteIpAccessSettingsCommandInput
   | DeleteNetworkSettingsCommandInput
   | DeletePortalCommandInput
+  | DeleteSessionLoggerCommandInput
   | DeleteTrustStoreCommandInput
   | DeleteUserAccessLoggingSettingsCommandInput
   | DeleteUserSettingsCommandInput
@@ -303,6 +328,7 @@ export type ServiceInputTypes =
   | DisassociateDataProtectionSettingsCommandInput
   | DisassociateIpAccessSettingsCommandInput
   | DisassociateNetworkSettingsCommandInput
+  | DisassociateSessionLoggerCommandInput
   | DisassociateTrustStoreCommandInput
   | DisassociateUserAccessLoggingSettingsCommandInput
   | DisassociateUserSettingsCommandInput
@@ -315,6 +341,7 @@ export type ServiceInputTypes =
   | GetPortalCommandInput
   | GetPortalServiceProviderMetadataCommandInput
   | GetSessionCommandInput
+  | GetSessionLoggerCommandInput
   | GetTrustStoreCertificateCommandInput
   | GetTrustStoreCommandInput
   | GetUserAccessLoggingSettingsCommandInput
@@ -325,6 +352,7 @@ export type ServiceInputTypes =
   | ListIpAccessSettingsCommandInput
   | ListNetworkSettingsCommandInput
   | ListPortalsCommandInput
+  | ListSessionLoggersCommandInput
   | ListSessionsCommandInput
   | ListTagsForResourceCommandInput
   | ListTrustStoreCertificatesCommandInput
@@ -339,6 +367,7 @@ export type ServiceInputTypes =
   | UpdateIpAccessSettingsCommandInput
   | UpdateNetworkSettingsCommandInput
   | UpdatePortalCommandInput
+  | UpdateSessionLoggerCommandInput
   | UpdateTrustStoreCommandInput
   | UpdateUserAccessLoggingSettingsCommandInput
   | UpdateUserSettingsCommandInput;
@@ -351,6 +380,7 @@ export type ServiceOutputTypes =
   | AssociateDataProtectionSettingsCommandOutput
   | AssociateIpAccessSettingsCommandOutput
   | AssociateNetworkSettingsCommandOutput
+  | AssociateSessionLoggerCommandOutput
   | AssociateTrustStoreCommandOutput
   | AssociateUserAccessLoggingSettingsCommandOutput
   | AssociateUserSettingsCommandOutput
@@ -360,6 +390,7 @@ export type ServiceOutputTypes =
   | CreateIpAccessSettingsCommandOutput
   | CreateNetworkSettingsCommandOutput
   | CreatePortalCommandOutput
+  | CreateSessionLoggerCommandOutput
   | CreateTrustStoreCommandOutput
   | CreateUserAccessLoggingSettingsCommandOutput
   | CreateUserSettingsCommandOutput
@@ -369,6 +400,7 @@ export type ServiceOutputTypes =
   | DeleteIpAccessSettingsCommandOutput
   | DeleteNetworkSettingsCommandOutput
   | DeletePortalCommandOutput
+  | DeleteSessionLoggerCommandOutput
   | DeleteTrustStoreCommandOutput
   | DeleteUserAccessLoggingSettingsCommandOutput
   | DeleteUserSettingsCommandOutput
@@ -376,6 +408,7 @@ export type ServiceOutputTypes =
   | DisassociateDataProtectionSettingsCommandOutput
   | DisassociateIpAccessSettingsCommandOutput
   | DisassociateNetworkSettingsCommandOutput
+  | DisassociateSessionLoggerCommandOutput
   | DisassociateTrustStoreCommandOutput
   | DisassociateUserAccessLoggingSettingsCommandOutput
   | DisassociateUserSettingsCommandOutput
@@ -388,6 +421,7 @@ export type ServiceOutputTypes =
   | GetPortalCommandOutput
   | GetPortalServiceProviderMetadataCommandOutput
   | GetSessionCommandOutput
+  | GetSessionLoggerCommandOutput
   | GetTrustStoreCertificateCommandOutput
   | GetTrustStoreCommandOutput
   | GetUserAccessLoggingSettingsCommandOutput
@@ -398,6 +432,7 @@ export type ServiceOutputTypes =
   | ListIpAccessSettingsCommandOutput
   | ListNetworkSettingsCommandOutput
   | ListPortalsCommandOutput
+  | ListSessionLoggersCommandOutput
   | ListSessionsCommandOutput
   | ListTagsForResourceCommandOutput
   | ListTrustStoreCertificatesCommandOutput
@@ -412,6 +447,7 @@ export type ServiceOutputTypes =
   | UpdateIpAccessSettingsCommandOutput
   | UpdateNetworkSettingsCommandOutput
   | UpdatePortalCommandOutput
+  | UpdateSessionLoggerCommandOutput
   | UpdateTrustStoreCommandOutput
   | UpdateUserAccessLoggingSettingsCommandOutput
   | UpdateUserSettingsCommandOutput;
