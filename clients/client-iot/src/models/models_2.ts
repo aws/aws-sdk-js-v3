@@ -25,6 +25,7 @@ import {
   BillingGroupProperties,
   CertificateProviderOperation,
   ClientCertificateConfig,
+  CommandNamespace,
   CustomMetricType,
   DayOfWeek,
   DimensionType,
@@ -67,10 +68,12 @@ import {
   CACertificateStatus,
   CertificateMode,
   CertificateStatus,
+  CommandExecutionSummary,
   Configuration,
   DetectMitigationActionsTaskSummary,
   DetectMitigationActionsTaskTarget,
   DomainConfigurationStatus,
+  EncryptionType,
   EventType,
   GroupNameAndArn,
   JobExecutionStatus,
@@ -78,6 +81,7 @@ import {
   LogTargetType,
   MitigationActionType,
   RegistrationConfig,
+  SortOrder,
   Status,
   ThingGroupIndexingConfiguration,
   ThingIndexingConfiguration,
@@ -85,6 +89,155 @@ import {
   VersionUpdateByJobsConfig,
   ViolationEventOccurrenceRange,
 } from "./models_1";
+
+/**
+ * @public
+ */
+export interface ListCommandExecutionsResponse {
+  /**
+   * <p>The list of command executions.</p>
+   * @public
+   */
+  commandExecutions?: CommandExecutionSummary[] | undefined;
+
+  /**
+   * <p>The token to use to get the next set of results, or <code>null</code> if there are no
+   *             additional results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListCommandsRequest {
+  /**
+   * <p>The maximum number of results to return in this operation. By default, the API returns
+   *             up to a maximum of 25 results. You can override this default value to return up to a
+   *             maximum of 100 results for this operation.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p>To retrieve the next set of results, the <code>nextToken</code> value from a previous
+   *             response; otherwise <code>null</code> to receive the first set of results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>The namespace of the command. By default, the API returns all commands that have been
+   *             created for both <code>AWS-IoT</code> and <code>AWS-IoT-FleetWise</code> namespaces. You
+   *             can override this default value if you want to return all commands that have been
+   *             created only for a specific namespace.</p>
+   * @public
+   */
+  namespace?: CommandNamespace | undefined;
+
+  /**
+   * <p>A filter that can be used to display the list of commands that have a specific command
+   *             parameter name.</p>
+   * @public
+   */
+  commandParameterName?: string | undefined;
+
+  /**
+   * <p>Specify whether to list the commands that you have created in the ascending or
+   *             descending order. By default, the API returns all commands in the descending order based
+   *             on the time that they were created.</p>
+   * @public
+   */
+  sortOrder?: SortOrder | undefined;
+}
+
+/**
+ * <p>Summary information about a particular command resource.</p>
+ * @public
+ */
+export interface CommandSummary {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the command.</p>
+   * @public
+   */
+  commandArn?: string | undefined;
+
+  /**
+   * <p>The unique identifier of the command.</p>
+   * @public
+   */
+  commandId?: string | undefined;
+
+  /**
+   * <p>The display name of the command.</p>
+   * @public
+   */
+  displayName?: string | undefined;
+
+  /**
+   * <p>Indicates whether the command has been deprecated.</p>
+   * @public
+   */
+  deprecated?: boolean | undefined;
+
+  /**
+   * <p>The timestamp, when the command was created.</p>
+   * @public
+   */
+  createdAt?: Date | undefined;
+
+  /**
+   * <p>The timestamp, when the command was last updated.</p>
+   * @public
+   */
+  lastUpdatedAt?: Date | undefined;
+
+  /**
+   * <p>Indicates whether the command is pending deletion.</p>
+   * @public
+   */
+  pendingDeletion?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListCommandsResponse {
+  /**
+   * <p>The list of commands.</p>
+   * @public
+   */
+  commands?: CommandSummary[] | undefined;
+
+  /**
+   * <p>The token to use to get the next set of results, or <code>null</code> if there are no
+   *             additional results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListCustomMetricsRequest {
+  /**
+   * <p>
+   *       The token for the next set of results.
+   *     </p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>
+   *       The maximum number of results to return at one time. The default is 25.
+   *     </p>
+   * @public
+   */
+  maxResults?: number | undefined;
+}
 
 /**
  * @public
@@ -5615,6 +5768,35 @@ export interface UpdateDynamicThingGroupResponse {
    */
   version?: number | undefined;
 }
+
+/**
+ * @public
+ */
+export interface UpdateEncryptionConfigurationRequest {
+  /**
+   * <p>The type of the Amazon Web Services Key Management Service (KMS) key.</p>
+   * @public
+   */
+  encryptionType: EncryptionType | undefined;
+
+  /**
+   * <p>The ARN of the customer-managed KMS key.</p>
+   * @public
+   */
+  kmsKeyArn?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the IAM role assumed by Amazon Web Services IoT Core to call KMS on
+   *          behalf of the customer.</p>
+   * @public
+   */
+  kmsAccessRoleArn?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateEncryptionConfigurationResponse {}
 
 /**
  * @public

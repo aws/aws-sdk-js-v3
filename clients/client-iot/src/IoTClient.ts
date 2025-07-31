@@ -331,6 +331,10 @@ import {
   DescribeDomainConfigurationCommandInput,
   DescribeDomainConfigurationCommandOutput,
 } from "./commands/DescribeDomainConfigurationCommand";
+import {
+  DescribeEncryptionConfigurationCommandInput,
+  DescribeEncryptionConfigurationCommandOutput,
+} from "./commands/DescribeEncryptionConfigurationCommand";
 import { DescribeEndpointCommandInput, DescribeEndpointCommandOutput } from "./commands/DescribeEndpointCommand";
 import {
   DescribeEventConfigurationsCommandInput,
@@ -749,6 +753,10 @@ import {
   UpdateDynamicThingGroupCommandOutput,
 } from "./commands/UpdateDynamicThingGroupCommand";
 import {
+  UpdateEncryptionConfigurationCommandInput,
+  UpdateEncryptionConfigurationCommandOutput,
+} from "./commands/UpdateEncryptionConfigurationCommand";
+import {
   UpdateEventConfigurationsCommandInput,
   UpdateEventConfigurationsCommandOutput,
 } from "./commands/UpdateEventConfigurationsCommand";
@@ -916,6 +924,7 @@ export type ServiceInputTypes =
   | DescribeDetectMitigationActionsTaskCommandInput
   | DescribeDimensionCommandInput
   | DescribeDomainConfigurationCommandInput
+  | DescribeEncryptionConfigurationCommandInput
   | DescribeEndpointCommandInput
   | DescribeEventConfigurationsCommandInput
   | DescribeFleetMetricCommandInput
@@ -1066,6 +1075,7 @@ export type ServiceInputTypes =
   | UpdateDimensionCommandInput
   | UpdateDomainConfigurationCommandInput
   | UpdateDynamicThingGroupCommandInput
+  | UpdateEncryptionConfigurationCommandInput
   | UpdateEventConfigurationsCommandInput
   | UpdateFleetMetricCommandInput
   | UpdateIndexingConfigurationCommandInput
@@ -1191,6 +1201,7 @@ export type ServiceOutputTypes =
   | DescribeDetectMitigationActionsTaskCommandOutput
   | DescribeDimensionCommandOutput
   | DescribeDomainConfigurationCommandOutput
+  | DescribeEncryptionConfigurationCommandOutput
   | DescribeEndpointCommandOutput
   | DescribeEventConfigurationsCommandOutput
   | DescribeFleetMetricCommandOutput
@@ -1341,6 +1352,7 @@ export type ServiceOutputTypes =
   | UpdateDimensionCommandOutput
   | UpdateDomainConfigurationCommandOutput
   | UpdateDynamicThingGroupCommandOutput
+  | UpdateEncryptionConfigurationCommandOutput
   | UpdateEventConfigurationsCommandOutput
   | UpdateFleetMetricCommandOutput
   | UpdateIndexingConfigurationCommandOutput

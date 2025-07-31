@@ -103,6 +103,9 @@ export interface CreateTopicRuleDestinationCommandOutput extends CreateTopicRule
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The service is temporarily unavailable.</p>
  *
+ * @throws {@link UnauthorizedException} (client fault)
+ *  <p>You are not authorized to perform this operation.</p>
+ *
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *

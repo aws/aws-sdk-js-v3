@@ -488,6 +488,11 @@ import {
   DescribeDomainConfigurationCommandOutput,
 } from "./commands/DescribeDomainConfigurationCommand";
 import {
+  DescribeEncryptionConfigurationCommand,
+  DescribeEncryptionConfigurationCommandInput,
+  DescribeEncryptionConfigurationCommandOutput,
+} from "./commands/DescribeEncryptionConfigurationCommand";
+import {
   DescribeEndpointCommand,
   DescribeEndpointCommandInput,
   DescribeEndpointCommandOutput,
@@ -1198,6 +1203,11 @@ import {
   UpdateDynamicThingGroupCommandOutput,
 } from "./commands/UpdateDynamicThingGroupCommand";
 import {
+  UpdateEncryptionConfigurationCommand,
+  UpdateEncryptionConfigurationCommandInput,
+  UpdateEncryptionConfigurationCommandOutput,
+} from "./commands/UpdateEncryptionConfigurationCommand";
+import {
   UpdateEventConfigurationsCommand,
   UpdateEventConfigurationsCommandInput,
   UpdateEventConfigurationsCommandOutput,
@@ -1388,6 +1398,7 @@ const commands = {
   DescribeDetectMitigationActionsTaskCommand,
   DescribeDimensionCommand,
   DescribeDomainConfigurationCommand,
+  DescribeEncryptionConfigurationCommand,
   DescribeEndpointCommand,
   DescribeEventConfigurationsCommand,
   DescribeFleetMetricCommand,
@@ -1538,6 +1549,7 @@ const commands = {
   UpdateDimensionCommand,
   UpdateDomainConfigurationCommand,
   UpdateDynamicThingGroupCommand,
+  UpdateEncryptionConfigurationCommand,
   UpdateEventConfigurationsCommand,
   UpdateFleetMetricCommand,
   UpdateIndexingConfigurationCommand,
@@ -3166,6 +3178,24 @@ export interface IoT {
     args: DescribeDomainConfigurationCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DescribeDomainConfigurationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeEncryptionConfigurationCommand}
+   */
+  describeEncryptionConfiguration(): Promise<DescribeEncryptionConfigurationCommandOutput>;
+  describeEncryptionConfiguration(
+    args: DescribeEncryptionConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeEncryptionConfigurationCommandOutput>;
+  describeEncryptionConfiguration(
+    args: DescribeEncryptionConfigurationCommandInput,
+    cb: (err: any, data?: DescribeEncryptionConfigurationCommandOutput) => void
+  ): void;
+  describeEncryptionConfiguration(
+    args: DescribeEncryptionConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeEncryptionConfigurationCommandOutput) => void
   ): void;
 
   /**
@@ -5591,6 +5621,23 @@ export interface IoT {
     args: UpdateDynamicThingGroupCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateDynamicThingGroupCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateEncryptionConfigurationCommand}
+   */
+  updateEncryptionConfiguration(
+    args: UpdateEncryptionConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateEncryptionConfigurationCommandOutput>;
+  updateEncryptionConfiguration(
+    args: UpdateEncryptionConfigurationCommandInput,
+    cb: (err: any, data?: UpdateEncryptionConfigurationCommandOutput) => void
+  ): void;
+  updateEncryptionConfiguration(
+    args: UpdateEncryptionConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateEncryptionConfigurationCommandOutput) => void
   ): void;
 
   /**

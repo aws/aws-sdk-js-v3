@@ -31,12 +31,28 @@ export interface TransferCertificateCommandOutput extends TransferCertificateRes
  * <p>Transfers the specified certificate to the specified Amazon Web Services account.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">TransferCertificate</a> action.</p>
  *          <p>You can cancel the transfer until it is acknowledged by the recipient.</p>
- *          <p>No notification is sent to the transfer destination's account. It is up to the caller
+ *          <p>No notification is sent to the transfer destination's account. It's up to the caller
  *          to notify the transfer target.</p>
- *          <p>The certificate being transferred must not be in the ACTIVE state. You can use the
+ *          <p>The certificate being transferred must not be in the <code>ACTIVE</code> state. You can use the
  *          <a>UpdateCertificate</a> action to deactivate it.</p>
  *          <p>The certificate must not have any policies attached to it. You can use the
  *          <a>DetachPolicy</a> action to detach them.</p>
+ *          <p>
+ *             <b>Customer managed key behavior:</b> When you use a customer managed key to secure your data and then transfer
+ *          the key to a customer in a different account using the <a>TransferCertificate</a> operation, the certificates will no longer be protected by their
+ *          customer managed key configuration. During the transfer process, certificates are encrypted using IoT owned keys.</p>
+ *          <p>While a certificate is in the <b>PENDING_TRANSFER</b> state, it's always protected by IoT owned keys, regardless of the customer managed key configuration of either the source or destination account. </p>
+ *          <p>Once the transfer is completed through <a>AcceptCertificateTransfer</a>, <a>RejectCertificateTransfer</a>, or
+ *          <a>CancelCertificateTransfer</a>, the certificate will be protected by the customer managed key configuration of the account that owns
+ *          the certificate after the transfer operation:</p>
+ *          <ul>
+ *             <li>
+ *                <p>If the transfer is accepted: The certificate is protected by the destination account's customer managed key configuration.</p>
+ *             </li>
+ *             <li>
+ *                <p>If the transfer is rejected or cancelled: The certificate is protected by the source account's customer managed key configuration.</p>
+ *             </li>
+ *          </ul>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

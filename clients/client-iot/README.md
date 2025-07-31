@@ -1029,6 +1029,14 @@ DescribeDomainConfiguration
 </details>
 <details>
 <summary>
+DescribeEncryptionConfiguration
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iot/command/DescribeEncryptionConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iot/Interface/DescribeEncryptionConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iot/Interface/DescribeEncryptionConfigurationCommandOutput/)
+
+</details>
+<details>
+<summary>
 DescribeEndpoint
 </summary>
 
@@ -2225,6 +2233,14 @@ UpdateDynamicThingGroup
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iot/command/UpdateDynamicThingGroupCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iot/Interface/UpdateDynamicThingGroupCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iot/Interface/UpdateDynamicThingGroupCommandOutput/)
+
+</details>
+<details>
+<summary>
+UpdateEncryptionConfiguration
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iot/command/UpdateEncryptionConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iot/Interface/UpdateEncryptionConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iot/Interface/UpdateEncryptionConfigurationCommandOutput/)
 
 </details>
 <details>

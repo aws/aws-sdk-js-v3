@@ -492,6 +492,9 @@ export interface CreateTopicRuleCommandOutput extends __MetadataBearer {}
  * @throws {@link SqlParseException} (client fault)
  *  <p>The Rule-SQL expression can't be parsed correctly.</p>
  *
+ * @throws {@link UnauthorizedException} (client fault)
+ *  <p>You are not authorized to perform this operation.</p>
+ *
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *

@@ -303,6 +303,10 @@ import {
   DescribeDomainConfigurationCommandInput,
   DescribeDomainConfigurationCommandOutput,
 } from "../commands/DescribeDomainConfigurationCommand";
+import {
+  DescribeEncryptionConfigurationCommandInput,
+  DescribeEncryptionConfigurationCommandOutput,
+} from "../commands/DescribeEncryptionConfigurationCommand";
 import { DescribeEndpointCommandInput, DescribeEndpointCommandOutput } from "../commands/DescribeEndpointCommand";
 import {
   DescribeEventConfigurationsCommandInput,
@@ -721,6 +725,10 @@ import {
   UpdateDynamicThingGroupCommandOutput,
 } from "../commands/UpdateDynamicThingGroupCommand";
 import {
+  UpdateEncryptionConfigurationCommandInput,
+  UpdateEncryptionConfigurationCommandOutput,
+} from "../commands/UpdateEncryptionConfigurationCommand";
+import {
   UpdateEventConfigurationsCommandInput,
   UpdateEventConfigurationsCommandOutput,
 } from "../commands/UpdateEventConfigurationsCommand";
@@ -936,7 +944,6 @@ import {
   CertificateValidity,
   CommandExecutionResult,
   CommandExecutionSummary,
-  CommandSummary,
   Configuration,
   DeleteConflictException,
   DetectMitigationActionsTaskSummary,
@@ -968,6 +975,7 @@ import {
 } from "../models/models_1";
 import {
   CertificateConflictException,
+  CommandSummary,
   DetectMitigationActionExecution,
   HttpContext,
   InvalidResponseException,
@@ -3111,6 +3119,21 @@ export const se_DescribeDomainConfigurationCommand = async (
   const headers: any = {};
   b.bp("/domainConfigurations/{domainConfigurationName}");
   b.p("domainConfigurationName", () => input.domainConfigurationName!, "{domainConfigurationName}", false);
+  let body: any;
+  b.m("GET").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1DescribeEncryptionConfigurationCommand
+ */
+export const se_DescribeEncryptionConfigurationCommand = async (
+  input: DescribeEncryptionConfigurationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/encryption-configuration");
   let body: any;
   b.m("GET").h(headers).b(body);
   return b.build();
@@ -6252,6 +6275,30 @@ export const se_UpdateDynamicThingGroupCommand = async (
 };
 
 /**
+ * serializeAws_restJson1UpdateEncryptionConfigurationCommand
+ */
+export const se_UpdateEncryptionConfigurationCommand = async (
+  input: UpdateEncryptionConfigurationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/encryption-configuration");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      encryptionType: [],
+      kmsAccessRoleArn: [],
+      kmsKeyArn: [],
+    })
+  );
+  b.m("PATCH").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1UpdateEventConfigurationsCommand
  */
 export const se_UpdateEventConfigurationsCommand = async (
@@ -8772,6 +8819,31 @@ export const de_DescribeDomainConfigurationCommand = async (
     serverCertificates: _json,
     serviceType: __expectString,
     tlsConfig: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DescribeEncryptionConfigurationCommand
+ */
+export const de_DescribeEncryptionConfigurationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeEncryptionConfigurationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    configurationDetails: _json,
+    encryptionType: __expectString,
+    kmsAccessRoleArn: __expectString,
+    kmsKeyArn: __expectString,
+    lastModifiedDate: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
   });
   Object.assign(contents, doc);
   return contents;
@@ -12093,6 +12165,23 @@ export const de_UpdateDynamicThingGroupCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1UpdateEncryptionConfigurationCommand
+ */
+export const de_UpdateEncryptionConfigurationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateEncryptionConfigurationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1UpdateEventConfigurationsCommand
  */
 export const de_UpdateEventConfigurationsCommand = async (
@@ -14550,6 +14639,8 @@ const de_CommandSummaryList = (output: any, context: __SerdeContext): CommandSum
 };
 
 // de_Configuration omitted.
+
+// de_ConfigurationDetails omitted.
 
 /**
  * deserializeAws_restJson1CustomCodeSigning

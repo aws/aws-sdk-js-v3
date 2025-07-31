@@ -2437,6 +2437,105 @@ export interface DescribeDomainConfigurationResponse {
 }
 
 /**
+ * @public
+ */
+export interface DescribeEncryptionConfigurationRequest {}
+
+/**
+ * @public
+ * @enum
+ */
+export const ConfigurationStatus = {
+  HEALTHY: "HEALTHY",
+  UNHEALTHY: "UNHEALTHY",
+} as const;
+
+/**
+ * @public
+ */
+export type ConfigurationStatus = (typeof ConfigurationStatus)[keyof typeof ConfigurationStatus];
+
+/**
+ * <p>The encryption configuration details that include the status information of the Amazon Web Services Key Management Service (KMS) key and the KMS access role.</p>
+ * @public
+ */
+export interface ConfigurationDetails {
+  /**
+   * <p>The health status of KMS key and KMS access role. If either KMS key or KMS access role
+   *          is <code>UNHEALTHY</code>, the return value will be <code>UNHEALTHY</code>. To use a
+   *          customer-managed KMS key, the value of <code>configurationStatus</code> must be
+   *             <code>HEALTHY</code>. </p>
+   * @public
+   */
+  configurationStatus?: ConfigurationStatus | undefined;
+
+  /**
+   * <p>The error code that indicates either the KMS key or the KMS access role is <code>UNHEALTHY</code>.
+   *          Valid values: <code>KMS_KEY_VALIDATION_ERROR</code> and <code>ROLE_VALIDATION_ERROR</code>.
+   *       </p>
+   * @public
+   */
+  errorCode?: string | undefined;
+
+  /**
+   * <p>The detailed error message that corresponds to the <code>errorCode</code>.</p>
+   * @public
+   */
+  errorMessage?: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const EncryptionType = {
+  AWS_OWNED_KMS_KEY: "AWS_OWNED_KMS_KEY",
+  CUSTOMER_MANAGED_KMS_KEY: "CUSTOMER_MANAGED_KMS_KEY",
+} as const;
+
+/**
+ * @public
+ */
+export type EncryptionType = (typeof EncryptionType)[keyof typeof EncryptionType];
+
+/**
+ * @public
+ */
+export interface DescribeEncryptionConfigurationResponse {
+  /**
+   * <p>The type of the Amazon Web Services Key Management Service (KMS) key.</p>
+   * @public
+   */
+  encryptionType?: EncryptionType | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the IAM role assumed by Amazon Web Services IoT Core to call KMS on
+   *          behalf of the customer.</p>
+   * @public
+   */
+  kmsKeyArn?: string | undefined;
+
+  /**
+   * <p>The ARN of the customer-managed KMS key.</p>
+   * @public
+   */
+  kmsAccessRoleArn?: string | undefined;
+
+  /**
+   * <p>The encryption configuration details that include the status information of the KMS key
+   *          and the KMS access role.</p>
+   * @public
+   */
+  configurationDetails?: ConfigurationDetails | undefined;
+
+  /**
+   * <p>The date when encryption configuration is last updated.</p>
+   * @public
+   */
+  lastModifiedDate?: Date | undefined;
+}
+
+/**
  * <p>The input for the DescribeEndpoint operation.</p>
  * @public
  */
@@ -7324,155 +7423,6 @@ export interface CommandExecutionSummary {
    * @public
    */
   completedAt?: Date | undefined;
-}
-
-/**
- * @public
- */
-export interface ListCommandExecutionsResponse {
-  /**
-   * <p>The list of command executions.</p>
-   * @public
-   */
-  commandExecutions?: CommandExecutionSummary[] | undefined;
-
-  /**
-   * <p>The token to use to get the next set of results, or <code>null</code> if there are no
-   *             additional results.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListCommandsRequest {
-  /**
-   * <p>The maximum number of results to return in this operation. By default, the API returns
-   *             up to a maximum of 25 results. You can override this default value to return up to a
-   *             maximum of 100 results for this operation.</p>
-   * @public
-   */
-  maxResults?: number | undefined;
-
-  /**
-   * <p>To retrieve the next set of results, the <code>nextToken</code> value from a previous
-   *             response; otherwise <code>null</code> to receive the first set of results.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
-
-  /**
-   * <p>The namespace of the command. By default, the API returns all commands that have been
-   *             created for both <code>AWS-IoT</code> and <code>AWS-IoT-FleetWise</code> namespaces. You
-   *             can override this default value if you want to return all commands that have been
-   *             created only for a specific namespace.</p>
-   * @public
-   */
-  namespace?: CommandNamespace | undefined;
-
-  /**
-   * <p>A filter that can be used to display the list of commands that have a specific command
-   *             parameter name.</p>
-   * @public
-   */
-  commandParameterName?: string | undefined;
-
-  /**
-   * <p>Specify whether to list the commands that you have created in the ascending or
-   *             descending order. By default, the API returns all commands in the descending order based
-   *             on the time that they were created.</p>
-   * @public
-   */
-  sortOrder?: SortOrder | undefined;
-}
-
-/**
- * <p>Summary information about a particular command resource.</p>
- * @public
- */
-export interface CommandSummary {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the command.</p>
-   * @public
-   */
-  commandArn?: string | undefined;
-
-  /**
-   * <p>The unique identifier of the command.</p>
-   * @public
-   */
-  commandId?: string | undefined;
-
-  /**
-   * <p>The display name of the command.</p>
-   * @public
-   */
-  displayName?: string | undefined;
-
-  /**
-   * <p>Indicates whether the command has been deprecated.</p>
-   * @public
-   */
-  deprecated?: boolean | undefined;
-
-  /**
-   * <p>The timestamp, when the command was created.</p>
-   * @public
-   */
-  createdAt?: Date | undefined;
-
-  /**
-   * <p>The timestamp, when the command was last updated.</p>
-   * @public
-   */
-  lastUpdatedAt?: Date | undefined;
-
-  /**
-   * <p>Indicates whether the command is pending deletion.</p>
-   * @public
-   */
-  pendingDeletion?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface ListCommandsResponse {
-  /**
-   * <p>The list of commands.</p>
-   * @public
-   */
-  commands?: CommandSummary[] | undefined;
-
-  /**
-   * <p>The token to use to get the next set of results, or <code>null</code> if there are no
-   *             additional results.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListCustomMetricsRequest {
-  /**
-   * <p>
-   *       The token for the next set of results.
-   *     </p>
-   * @public
-   */
-  nextToken?: string | undefined;
-
-  /**
-   * <p>
-   *       The maximum number of results to return at one time. The default is 25.
-   *     </p>
-   * @public
-   */
-  maxResults?: number | undefined;
 }
 
 /**
