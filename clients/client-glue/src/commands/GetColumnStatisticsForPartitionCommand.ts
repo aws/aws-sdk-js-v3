@@ -6,8 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import { GetColumnStatisticsForPartitionRequest } from "../models/models_1";
-import { GetColumnStatisticsForPartitionResponse } from "../models/models_2";
+import { GetColumnStatisticsForPartitionRequest, GetColumnStatisticsForPartitionResponse } from "../models/models_2";
 import {
   de_GetColumnStatisticsForPartitionCommand,
   se_GetColumnStatisticsForPartitionCommand,

@@ -614,6 +614,7 @@ import {
   AuditContext,
   AuthenticationConfigurationInput,
   AuthorizationCodeProperties,
+  AutoDataQuality,
   BasicAuthenticationCredentials,
   BasicCatalogTarget,
   BatchCreatePartitionRequest,
@@ -642,6 +643,7 @@ import {
   Blueprint,
   CatalogDeltaSource,
   CatalogHudiSource,
+  CatalogIcebergSource,
   CatalogKafkaSource,
   CatalogKinesisSource,
   CatalogSchemaChangePolicy,
@@ -655,9 +657,7 @@ import {
   ConnectionsList,
   ConnectorDataSource,
   ConnectorDataTarget,
-  Crawl,
   Crawler,
-  CrawlerNodeDetails,
   CrawlerTargets,
   CustomCode,
   DataQualityAggregatedMetrics,
@@ -668,6 +668,8 @@ import {
   DataQualityRuleResult,
   DataSource,
   Datatype,
+  DDBELTCatalogAdditionalOptions,
+  DDBELTConnectionOptions,
   DeltaTarget,
   DevEndpoint,
   DirectJDBCSource,
@@ -681,6 +683,7 @@ import {
   DropNullFields,
   DynamicTransform,
   DynamoDBCatalogSource,
+  DynamoDBELTConnectorSource,
   DynamoDBTarget,
   EntityNotFoundException,
   EvaluateDataQuality,
@@ -700,6 +703,7 @@ import {
   GlueTable,
   GovernedCatalogSource,
   GovernedCatalogTarget,
+  GroupFilters,
   HudiTarget,
   IcebergCompactionConfiguration,
   IcebergCompactionMetrics,
@@ -718,8 +722,6 @@ import {
   JdbcMetadataEntry,
   JdbcTarget,
   JobCommand,
-  JobNodeDetails,
-  JobRun,
   Join,
   JoinColumn,
   KafkaStreamingSourceOptions,
@@ -735,7 +737,6 @@ import {
   MongoDBTarget,
   MySQLCatalogSource,
   MySQLCatalogTarget,
-  Node,
   NotificationProperty,
   NullCheckBoxList,
   NullValueField,
@@ -769,8 +770,10 @@ import {
   ResourceNumberLimitExceededException,
   RetentionConfiguration,
   RetentionMetrics,
+  Route,
   S3CatalogDeltaSource,
   S3CatalogHudiSource,
+  S3CatalogIcebergSource,
   S3CatalogSource,
   S3CatalogTarget,
   S3CsvSource,
@@ -785,6 +788,7 @@ import {
   S3HudiDirectTarget,
   S3HudiSource,
   S3HyperDirectTarget,
+  S3IcebergCatalogTarget,
   S3IcebergDirectTarget,
   S3JsonSource,
   S3ParquetSource,
@@ -819,7 +823,6 @@ import {
   TransformConfigParameter,
   Union,
   UpsertRedshiftTargetOptions,
-  WorkflowGraph,
 } from "../models/models_0";
 import {
   BatchGetWorkflowsResponse,
@@ -827,9 +830,7 @@ import {
   BatchStopJobRunRequest,
   BatchUpdatePartitionRequest,
   BatchUpdatePartitionRequestEntry,
-  BinaryColumnStatisticsData,
   BlueprintRun,
-  BooleanColumnStatisticsData,
   CancelDataQualityRuleRecommendationRunRequest,
   CancelDataQualityRulesetEvaluationRunRequest,
   CancelMLTaskRunRequest,
@@ -839,7 +840,6 @@ import {
   CatalogInput,
   CatalogProperties,
   CheckSchemaVersionValidityInput,
-  Classifier,
   CloudWatchEncryption,
   CodeGenEdge,
   CodeGenNode,
@@ -852,6 +852,8 @@ import {
   ConflictException,
   ConnectionInput,
   ConnectionPropertyKey,
+  Crawl,
+  CrawlerNodeDetails,
   CrawlerRunningException,
   CreateBlueprintRequest,
   CreateCatalogRequest,
@@ -897,8 +899,6 @@ import {
   DatapointInclusionAnnotation,
   DataQualityEncryption,
   DataQualityTargetTable,
-  DateColumnStatisticsData,
-  DecimalNumber,
   DeleteBlueprintRequest,
   DeleteCatalogRequest,
   DeleteClassifierRequest,
@@ -955,10 +955,6 @@ import {
   GetCatalogsRequest,
   GetCatalogsResponse,
   GetClassifierRequest,
-  GetClassifierResponse,
-  GetClassifiersRequest,
-  GetClassifiersResponse,
-  GetColumnStatisticsForPartitionRequest,
   GrokClassifier,
   IcebergInput,
   IcebergPartitionField,
@@ -980,9 +976,12 @@ import {
   InternalServerException,
   InvalidIntegrationStateFault,
   JobBookmarksEncryption,
+  JobNodeDetails,
+  JobRun,
   JsonClassifier,
   KMSKeyNotAccessibleFault,
   MLUserDataEncryption,
+  Node,
   OpenTableFormatInput,
   OperationNotSupportedException,
   PartitionIndex,
@@ -1013,11 +1012,14 @@ import {
   ViewDefinitionInput,
   ViewRepresentationInput,
   Workflow,
+  WorkflowGraph,
   WorkflowRun,
-  XMLClassifier,
 } from "../models/models_1";
 import {
+  BinaryColumnStatisticsData,
+  BooleanColumnStatisticsData,
   CatalogEntry,
+  Classifier,
   ColumnImportance,
   ColumnStatistics,
   ColumnStatisticsData,
@@ -1040,12 +1042,18 @@ import {
   DataQualityRulesetEvaluationRunFilter,
   DataQualityRulesetFilterCriteria,
   DataQualityRulesetListDetails,
+  DateColumnStatisticsData,
   DecimalColumnStatisticsData,
+  DecimalNumber,
   DoubleColumnStatisticsData,
   EncryptionAtRest,
   EvaluationMetrics,
   ExecutionAttempt,
   FindMatchesMetrics,
+  GetClassifierResponse,
+  GetClassifiersRequest,
+  GetClassifiersResponse,
+  GetColumnStatisticsForPartitionRequest,
   GetColumnStatisticsForPartitionResponse,
   GetColumnStatisticsForTableRequest,
   GetColumnStatisticsForTableResponse,
@@ -1200,15 +1208,10 @@ import {
   Location,
   LongColumnStatisticsData,
   MappingEntry,
-  MetadataKeyValuePair,
   MLTransform,
   ModifyIntegrationRequest,
-  ModifyIntegrationResponse,
   PermissionType,
   PermissionTypeMismatchException,
-  PutDataCatalogEncryptionSettingsRequest,
-  PutDataQualityProfileAnnotationRequest,
-  PutResourcePolicyRequest,
   QuerySessionContext,
   SchemaColumn,
   SchemaVersionNumber,
@@ -1230,6 +1233,7 @@ import {
   UsageProfileDefinition,
   UserDefinedFunction,
   ViewValidation,
+  XMLClassifier,
 } from "../models/models_2";
 import {
   ApplyMapping,
@@ -1256,9 +1260,14 @@ import {
   Job,
   JobUpdate,
   Mapping,
+  MetadataKeyValuePair,
   MLTransformNotReadyException,
+  ModifyIntegrationResponse,
   NoScheduleException,
   PropertyPredicate,
+  PutDataCatalogEncryptionSettingsRequest,
+  PutDataQualityProfileAnnotationRequest,
+  PutResourcePolicyRequest,
   PutSchemaVersionMetadataInput,
   PutWorkflowRunPropertiesRequest,
   QuerySchemaVersionMetadataInput,
@@ -10599,6 +10608,8 @@ const se_ApplyMapping = (input: ApplyMapping, context: __SerdeContext): any => {
 
 // se_AuthorizationCodeProperties omitted.
 
+// se_AutoDataQuality omitted.
+
 // se_BasicAuthenticationCredentials omitted.
 
 // se_BasicCatalogTarget omitted.
@@ -10730,6 +10741,8 @@ const se_BinaryColumnStatisticsData = (input: BinaryColumnStatisticsData, contex
 
 // se_CatalogHudiSource omitted.
 
+// se_CatalogIcebergSource omitted.
+
 // se_CatalogInput omitted.
 
 /**
@@ -10792,6 +10805,7 @@ const se_CodeGenConfigurationNode = (input: CodeGenConfigurationNode, context: _
     AthenaConnectorSource: _json,
     CatalogDeltaSource: _json,
     CatalogHudiSource: _json,
+    CatalogIcebergSource: _json,
     CatalogKafkaSource: (_) => se_CatalogKafkaSource(_, context),
     CatalogKinesisSource: (_) => se_CatalogKinesisSource(_, context),
     CatalogSource: _json,
@@ -10807,6 +10821,7 @@ const se_CodeGenConfigurationNode = (input: CodeGenConfigurationNode, context: _
     DropNullFields: _json,
     DynamicTransform: _json,
     DynamoDBCatalogSource: _json,
+    DynamoDBELTConnectorSource: _json,
     EvaluateDataQuality: _json,
     EvaluateDataQualityMultiFrame: _json,
     FillMissingValues: _json,
@@ -10831,8 +10846,10 @@ const se_CodeGenConfigurationNode = (input: CodeGenConfigurationNode, context: _
     RedshiftTarget: _json,
     RelationalCatalogSource: _json,
     RenameField: _json,
+    Route: _json,
     S3CatalogDeltaSource: _json,
     S3CatalogHudiSource: _json,
+    S3CatalogIcebergSource: _json,
     S3CatalogSource: _json,
     S3CatalogTarget: _json,
     S3CsvSource: _json,
@@ -10846,6 +10863,7 @@ const se_CodeGenConfigurationNode = (input: CodeGenConfigurationNode, context: _
     S3HudiDirectTarget: _json,
     S3HudiSource: _json,
     S3HyperDirectTarget: _json,
+    S3IcebergCatalogTarget: _json,
     S3IcebergDirectTarget: _json,
     S3JsonSource: _json,
     S3ParquetSource: _json,
@@ -11300,6 +11318,10 @@ const se_DateColumnStatisticsData = (input: DateColumnStatisticsData, context: _
   });
 };
 
+// se_DDBELTCatalogAdditionalOptions omitted.
+
+// se_DDBELTConnectionOptions omitted.
+
 /**
  * serializeAws_json1_1DecimalColumnStatisticsData
  */
@@ -11461,6 +11483,8 @@ const se_DoubleColumnStatisticsData = (input: DoubleColumnStatisticsData, contex
 // se_DynamicTransform omitted.
 
 // se_DynamoDBCatalogSource omitted.
+
+// se_DynamoDBELTConnectorSource omitted.
 
 /**
  * serializeAws_json1_1DynamoDBTarget
@@ -11831,6 +11855,10 @@ const se_GetUnfilteredTableMetadataRequest = (
 
 // se_GovernedCatalogTarget omitted.
 
+// se_GroupFilters omitted.
+
+// se_GroupFiltersList omitted.
+
 // se_HudiTarget omitted.
 
 // se_HudiTargetList omitted.
@@ -12056,6 +12084,7 @@ const se_KinesisStreamingSourceOptions = (input: KinesisStreamingSourceOptions, 
     DescribeShardInterval: [],
     EmitConsumerLagMetrics: [],
     EndpointUrl: [],
+    FanoutConsumerARN: [],
     IdleTimeBetweenReadsInMs: [],
     MaxFetchRecordsPerShard: [],
     MaxFetchTimeInMs: [],
@@ -12366,12 +12395,19 @@ const se_PartitionInputList = (input: PartitionInput[], context: __SerdeContext)
  */
 const se_PIIDetection = (input: PIIDetection, context: __SerdeContext): any => {
   return take(input, {
+    DetectionParameters: [],
+    DetectionSensitivity: [],
     EntityTypesToDetect: _json,
     Inputs: _json,
     MaskValue: [],
+    MatchPattern: [],
     Name: [],
+    NumLeftCharsToExclude: [],
+    NumRightCharsToExclude: [],
     OutputColumnName: [],
     PiiType: [],
+    RedactChar: [],
+    RedactText: [],
     SampleFraction: __serializeFloat,
     ThresholdFraction: __serializeFloat,
   });
@@ -12458,6 +12494,8 @@ const se_QuerySessionContext = (input: QuerySessionContext, context: __SerdeCont
 
 // se_RetentionConfiguration omitted.
 
+// se_Route omitted.
+
 // se_RulesetNames omitted.
 
 // se_RunStatementRequest omitted.
@@ -12465,6 +12503,8 @@ const se_QuerySessionContext = (input: QuerySessionContext, context: __SerdeCont
 // se_S3CatalogDeltaSource omitted.
 
 // se_S3CatalogHudiSource omitted.
+
+// se_S3CatalogIcebergSource omitted.
 
 // se_S3CatalogSource omitted.
 
@@ -12497,6 +12537,8 @@ const se_QuerySessionContext = (input: QuerySessionContext, context: __SerdeCont
 // se_S3HudiSource omitted.
 
 // se_S3HyperDirectTarget omitted.
+
+// se_S3IcebergCatalogTarget omitted.
 
 // se_S3IcebergDirectTarget omitted.
 
@@ -13104,6 +13146,8 @@ const de_ApplyMapping = (output: any, context: __SerdeContext): ApplyMapping => 
 
 // de_AuthenticationTypes omitted.
 
+// de_AutoDataQuality omitted.
+
 // de_BackfillError omitted.
 
 // de_BackfillErroredPartitionsList omitted.
@@ -13371,6 +13415,8 @@ const de_Catalog = (output: any, context: __SerdeContext): Catalog => {
 
 // de_CatalogHudiSource omitted.
 
+// de_CatalogIcebergSource omitted.
+
 /**
  * deserializeAws_json1_1CatalogImportStatus
  */
@@ -13478,6 +13524,7 @@ const de_CodeGenConfigurationNode = (output: any, context: __SerdeContext): Code
     AthenaConnectorSource: _json,
     CatalogDeltaSource: _json,
     CatalogHudiSource: _json,
+    CatalogIcebergSource: _json,
     CatalogKafkaSource: (_: any) => de_CatalogKafkaSource(_, context),
     CatalogKinesisSource: (_: any) => de_CatalogKinesisSource(_, context),
     CatalogSource: _json,
@@ -13493,6 +13540,7 @@ const de_CodeGenConfigurationNode = (output: any, context: __SerdeContext): Code
     DropNullFields: _json,
     DynamicTransform: _json,
     DynamoDBCatalogSource: _json,
+    DynamoDBELTConnectorSource: _json,
     EvaluateDataQuality: _json,
     EvaluateDataQualityMultiFrame: _json,
     FillMissingValues: _json,
@@ -13517,8 +13565,10 @@ const de_CodeGenConfigurationNode = (output: any, context: __SerdeContext): Code
     RedshiftTarget: _json,
     RelationalCatalogSource: _json,
     RenameField: _json,
+    Route: _json,
     S3CatalogDeltaSource: _json,
     S3CatalogHudiSource: _json,
+    S3CatalogIcebergSource: _json,
     S3CatalogSource: _json,
     S3CatalogTarget: _json,
     S3CsvSource: _json,
@@ -13532,6 +13582,7 @@ const de_CodeGenConfigurationNode = (output: any, context: __SerdeContext): Code
     S3HudiDirectTarget: _json,
     S3HudiSource: _json,
     S3HyperDirectTarget: _json,
+    S3IcebergCatalogTarget: _json,
     S3IcebergDirectTarget: _json,
     S3JsonSource: _json,
     S3ParquetSource: _json,
@@ -14468,6 +14519,10 @@ const de_DateColumnStatisticsData = (output: any, context: __SerdeContext): Date
   }) as any;
 };
 
+// de_DDBELTCatalogAdditionalOptions omitted.
+
+// de_DDBELTConnectionOptions omitted.
+
 /**
  * deserializeAws_json1_1DecimalColumnStatisticsData
  */
@@ -14709,6 +14764,8 @@ const de_DoubleColumnStatisticsData = (output: any, context: __SerdeContext): Do
 // de_DynamicTransform omitted.
 
 // de_DynamoDBCatalogSource omitted.
+
+// de_DynamoDBELTConnectorSource omitted.
 
 /**
  * deserializeAws_json1_1DynamoDBTarget
@@ -15667,6 +15724,10 @@ const de_GrokClassifier = (output: any, context: __SerdeContext): GrokClassifier
   }) as any;
 };
 
+// de_GroupFilters omitted.
+
+// de_GroupFiltersList omitted.
+
 // de_HudiTarget omitted.
 
 // de_HudiTargetList omitted.
@@ -16016,6 +16077,7 @@ const de_KinesisStreamingSourceOptions = (output: any, context: __SerdeContext):
     DescribeShardInterval: __expectLong,
     EmitConsumerLagMetrics: __expectString,
     EndpointUrl: __expectString,
+    FanoutConsumerARN: __expectString,
     IdleTimeBetweenReadsInMs: __expectLong,
     MaxFetchRecordsPerShard: __expectLong,
     MaxFetchTimeInMs: __expectLong,
@@ -16489,12 +16551,19 @@ const de_PartitionList = (output: any, context: __SerdeContext): Partition[] => 
  */
 const de_PIIDetection = (output: any, context: __SerdeContext): PIIDetection => {
   return take(output, {
+    DetectionParameters: __expectString,
+    DetectionSensitivity: __expectString,
     EntityTypesToDetect: _json,
     Inputs: _json,
     MaskValue: __expectString,
+    MatchPattern: __expectString,
     Name: __expectString,
+    NumLeftCharsToExclude: __expectInt32,
+    NumRightCharsToExclude: __expectInt32,
     OutputColumnName: __expectString,
     PiiType: __expectString,
+    RedactChar: __expectString,
+    RedactText: __expectString,
     SampleFraction: __limitedParseDouble,
     ThresholdFraction: __limitedParseDouble,
   }) as any;
@@ -16616,6 +16685,8 @@ const de_RetentionMetrics = (output: any, context: __SerdeContext): RetentionMet
   }) as any;
 };
 
+// de_Route omitted.
+
 /**
  * deserializeAws_json1_1RuleMetricsMap
  */
@@ -16640,6 +16711,8 @@ const de_RuleMetricsMap = (output: any, context: __SerdeContext): Record<string,
 // de_S3CatalogDeltaSource omitted.
 
 // de_S3CatalogHudiSource omitted.
+
+// de_S3CatalogIcebergSource omitted.
 
 // de_S3CatalogSource omitted.
 
@@ -16672,6 +16745,8 @@ const de_RuleMetricsMap = (output: any, context: __SerdeContext): Record<string,
 // de_S3HudiSource omitted.
 
 // de_S3HyperDirectTarget omitted.
+
+// de_S3IcebergCatalogTarget omitted.
 
 // de_S3IcebergDirectTarget omitted.
 

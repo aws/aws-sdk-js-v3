@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import { PutDataQualityProfileAnnotationRequest, PutDataQualityProfileAnnotationResponse } from "../models/models_2";
+import { PutDataQualityProfileAnnotationRequest, PutDataQualityProfileAnnotationResponse } from "../models/models_3";
 import {
   de_PutDataQualityProfileAnnotationCommand,
   se_PutDataQualityProfileAnnotationCommand,

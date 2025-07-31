@@ -92,6 +92,7 @@ export interface CreateJobCommandOutput extends CreateJobResponse, __MetadataBea
  *               { // GlueStudioSchemaColumn
  *                 Name: "STRING_VALUE", // required
  *                 Type: "STRING_VALUE",
+ *                 GlueStudioType: "STRING_VALUE",
  *               },
  *             ],
  *           },
@@ -124,6 +125,7 @@ export interface CreateJobCommandOutput extends CreateJobResponse, __MetadataBea
  *               {
  *                 Name: "STRING_VALUE", // required
  *                 Type: "STRING_VALUE",
+ *                 GlueStudioType: "STRING_VALUE",
  *               },
  *             ],
  *           },
@@ -143,6 +145,7 @@ export interface CreateJobCommandOutput extends CreateJobResponse, __MetadataBea
  *               {
  *                 Name: "STRING_VALUE", // required
  *                 Type: "STRING_VALUE",
+ *                 GlueStudioType: "STRING_VALUE",
  *               },
  *             ],
  *           },
@@ -152,6 +155,18 @@ export interface CreateJobCommandOutput extends CreateJobResponse, __MetadataBea
  *         Name: "STRING_VALUE", // required
  *         Database: "STRING_VALUE", // required
  *         Table: "STRING_VALUE", // required
+ *         PartitionPredicate: "STRING_VALUE",
+ *         OutputSchemas: [
+ *           {
+ *             Columns: [
+ *               {
+ *                 Name: "STRING_VALUE", // required
+ *                 Type: "STRING_VALUE",
+ *                 GlueStudioType: "STRING_VALUE",
+ *               },
+ *             ],
+ *           },
+ *         ],
  *       },
  *       RedshiftSource: { // RedshiftSource
  *         Name: "STRING_VALUE", // required
@@ -204,39 +219,7 @@ export interface CreateJobCommandOutput extends CreateJobResponse, __MetadataBea
  *               {
  *                 Name: "STRING_VALUE", // required
  *                 Type: "STRING_VALUE",
- *               },
- *             ],
- *           },
- *         ],
- *       },
- *       S3ExcelSource: { // S3ExcelSource
- *         Name: "STRING_VALUE", // required
- *         Paths: [ // required
- *           "STRING_VALUE",
- *         ],
- *         CompressionType: "snappy" || "lzo" || "gzip" || "brotli" || "lz4" || "uncompressed" || "none",
- *         Exclusions: [
- *           "STRING_VALUE",
- *         ],
- *         GroupSize: "STRING_VALUE",
- *         GroupFiles: "STRING_VALUE",
- *         Recurse: true || false,
- *         MaxBand: Number("int"),
- *         MaxFilesInBand: Number("int"),
- *         AdditionalOptions: {
- *           BoundedSize: Number("long"),
- *           BoundedFiles: Number("long"),
- *           EnableSamplePath: true || false,
- *           SamplePath: "STRING_VALUE",
- *         },
- *         NumberRows: Number("long"),
- *         SkipFooter: Number("int"),
- *         OutputSchemas: [
- *           {
- *             Columns: [
- *               {
- *                 Name: "STRING_VALUE", // required
- *                 Type: "STRING_VALUE",
+ *                 GlueStudioType: "STRING_VALUE",
  *               },
  *             ],
  *           },
@@ -244,9 +227,13 @@ export interface CreateJobCommandOutput extends CreateJobResponse, __MetadataBea
  *       },
  *       S3JsonSource: { // S3JsonSource
  *         Name: "STRING_VALUE", // required
- *         Paths: "<EnclosedInStringProperties>", // required
+ *         Paths: [ // required
+ *           "STRING_VALUE",
+ *         ],
  *         CompressionType: "gzip" || "bzip2",
- *         Exclusions: "<EnclosedInStringProperties>",
+ *         Exclusions: [
+ *           "STRING_VALUE",
+ *         ],
  *         GroupSize: "STRING_VALUE",
  *         GroupFiles: "STRING_VALUE",
  *         Recurse: true || false,
@@ -289,6 +276,11 @@ export interface CreateJobCommandOutput extends CreateJobResponse, __MetadataBea
  *         Name: "STRING_VALUE", // required
  *         Database: "STRING_VALUE", // required
  *         Table: "STRING_VALUE", // required
+ *         PitrEnabled: true || false,
+ *         AdditionalOptions: { // DDBELTCatalogAdditionalOptions
+ *           DynamodbExport: "STRING_VALUE",
+ *           DynamodbUnnestDDBJson: true || false,
+ *         },
  *       },
  *       JDBCConnectorTarget: { // JDBCConnectorTarget
  *         Name: "STRING_VALUE", // required
@@ -359,6 +351,10 @@ export interface CreateJobCommandOutput extends CreateJobResponse, __MetadataBea
  *           EnableUpdateCatalog: true || false,
  *           UpdateBehavior: "UPDATE_IN_DATABASE" || "LOG",
  *         },
+ *         AutoDataQuality: { // AutoDataQuality
+ *           IsEnabled: true || false,
+ *           EvaluationContext: "STRING_VALUE",
+ *         },
  *       },
  *       S3GlueParquetTarget: { // S3GlueParquetTarget
  *         Name: "STRING_VALUE", // required
@@ -375,20 +371,9 @@ export interface CreateJobCommandOutput extends CreateJobResponse, __MetadataBea
  *           Table: "STRING_VALUE",
  *           Database: "STRING_VALUE",
  *         },
- *       },
- *       S3HyperDirectTarget: { // S3HyperDirectTarget
- *         Name: "STRING_VALUE", // required
- *         Inputs: "<OneInput>", // required
- *         PartitionKeys: [
- *           "<EnclosedInStringProperties>",
- *         ],
- *         Path: "STRING_VALUE", // required
- *         Compression: "uncompressed",
- *         SchemaChangePolicy: {
- *           EnableUpdateCatalog: true || false,
- *           UpdateBehavior: "UPDATE_IN_DATABASE" || "LOG",
- *           Table: "STRING_VALUE",
- *           Database: "STRING_VALUE",
+ *         AutoDataQuality: {
+ *           IsEnabled: true || false,
+ *           EvaluationContext: "STRING_VALUE",
  *         },
  *       },
  *       S3DirectTarget: { // S3DirectTarget
@@ -407,24 +392,11 @@ export interface CreateJobCommandOutput extends CreateJobResponse, __MetadataBea
  *           Table: "STRING_VALUE",
  *           Database: "STRING_VALUE",
  *         },
- *       },
- *       S3IcebergDirectTarget: { // S3IcebergDirectTarget
- *         Name: "STRING_VALUE", // required
- *         Inputs: "<OneInput>", // required
- *         PartitionKeys: "<GlueStudioPathList>",
- *         Path: "STRING_VALUE", // required
- *         Format: "json" || "csv" || "avro" || "orc" || "parquet" || "hudi" || "delta" || "iceberg" || "hyper" || "xml", // required
- *         AdditionalOptions: {
- *           "<keys>": "STRING_VALUE",
+ *         AutoDataQuality: {
+ *           IsEnabled: true || false,
+ *           EvaluationContext: "STRING_VALUE",
  *         },
- *         SchemaChangePolicy: {
- *           EnableUpdateCatalog: true || false,
- *           UpdateBehavior: "UPDATE_IN_DATABASE" || "LOG",
- *           Table: "STRING_VALUE",
- *           Database: "STRING_VALUE",
- *         },
- *         Compression: "gzip" || "lzo" || "uncompressed" || "snappy", // required
- *         NumberTargetPartitions: "STRING_VALUE",
+ *         OutputSchemas: "<GlueSchemas>",
  *       },
  *       ApplyMapping: { // ApplyMapping
  *         Name: "STRING_VALUE", // required
@@ -452,7 +424,9 @@ export interface CreateJobCommandOutput extends CreateJobResponse, __MetadataBea
  *       SelectFields: { // SelectFields
  *         Name: "STRING_VALUE", // required
  *         Inputs: "<OneInput>", // required
- *         Paths: "<GlueStudioPathList>", // required
+ *         Paths: [ // required
+ *           "<EnclosedInStringProperties>",
+ *         ],
  *       },
  *       DropFields: { // DropFields
  *         Name: "STRING_VALUE", // required
@@ -567,6 +541,7 @@ export interface CreateJobCommandOutput extends CreateJobResponse, __MetadataBea
  *           AddRecordTimestamp: "STRING_VALUE",
  *           EmitConsumerLagMetrics: "STRING_VALUE",
  *           StartingTimestamp: new Date("TIMESTAMP"),
+ *           FanoutConsumerARN: "STRING_VALUE",
  *         },
  *         DataPreviewOptions: { // StreamingDataPreviewOptions
  *           PollingTime: Number("long"),
@@ -631,6 +606,7 @@ export interface CreateJobCommandOutput extends CreateJobResponse, __MetadataBea
  *           AddRecordTimestamp: "STRING_VALUE",
  *           EmitConsumerLagMetrics: "STRING_VALUE",
  *           StartingTimestamp: new Date("TIMESTAMP"),
+ *           FanoutConsumerARN: "STRING_VALUE",
  *         },
  *         DataPreviewOptions: {
  *           PollingTime: Number("long"),
@@ -705,12 +681,19 @@ export interface CreateJobCommandOutput extends CreateJobResponse, __MetadataBea
  *       PIIDetection: { // PIIDetection
  *         Name: "STRING_VALUE", // required
  *         Inputs: "<OneInput>", // required
- *         PiiType: "RowAudit" || "RowMasking" || "ColumnAudit" || "ColumnMasking", // required
+ *         PiiType: "RowAudit" || "RowHashing" || "RowMasking" || "RowPartialMasking" || "ColumnAudit" || "ColumnHashing" || "ColumnMasking", // required
  *         EntityTypesToDetect: "<EnclosedInStringProperties>", // required
  *         OutputColumnName: "STRING_VALUE",
  *         SampleFraction: Number("double"),
  *         ThresholdFraction: Number("double"),
  *         MaskValue: "STRING_VALUE",
+ *         RedactText: "STRING_VALUE",
+ *         RedactChar: "STRING_VALUE",
+ *         MatchPattern: "STRING_VALUE",
+ *         NumLeftCharsToExclude: Number("int"),
+ *         NumRightCharsToExclude: Number("int"),
+ *         DetectionParameters: "STRING_VALUE",
+ *         DetectionSensitivity: "STRING_VALUE",
  *       },
  *       Aggregate: { // Aggregate
  *         Name: "STRING_VALUE", // required
@@ -797,6 +780,28 @@ export interface CreateJobCommandOutput extends CreateJobResponse, __MetadataBea
  *         Database: "STRING_VALUE", // required
  *         Table: "STRING_VALUE", // required
  *       },
+ *       Route: { // Route
+ *         Name: "STRING_VALUE", // required
+ *         Inputs: "<OneInput>", // required
+ *         GroupFiltersList: [ // GroupFiltersList // required
+ *           { // GroupFilters
+ *             GroupName: "STRING_VALUE", // required
+ *             Filters: [ // required
+ *               {
+ *                 Operation: "EQ" || "LT" || "GT" || "LTE" || "GTE" || "REGEX" || "ISNULL", // required
+ *                 Negated: true || false,
+ *                 Values: [ // required
+ *                   {
+ *                     Type: "COLUMNEXTRACTED" || "CONSTANT", // required
+ *                     Value: "<EnclosedInStringProperties>", // required
+ *                   },
+ *                 ],
+ *               },
+ *             ],
+ *             LogicalOperator: "AND" || "OR", // required
+ *           },
+ *         ],
+ *       },
  *       DynamicTransform: { // DynamicTransform
  *         Name: "STRING_VALUE", // required
  *         TransformName: "STRING_VALUE", // required
@@ -845,7 +850,9 @@ export interface CreateJobCommandOutput extends CreateJobResponse, __MetadataBea
  *         Name: "STRING_VALUE", // required
  *         Database: "STRING_VALUE", // required
  *         Table: "STRING_VALUE", // required
- *         AdditionalHudiOptions: "<AdditionalOptions>",
+ *         AdditionalHudiOptions: {
+ *           "<keys>": "STRING_VALUE",
+ *         },
  *         OutputSchemas: "<GlueSchemas>",
  *       },
  *       S3HudiSource: { // S3HudiSource
@@ -871,6 +878,11 @@ export interface CreateJobCommandOutput extends CreateJobResponse, __MetadataBea
  *           EnableUpdateCatalog: true || false,
  *           UpdateBehavior: "UPDATE_IN_DATABASE" || "LOG",
  *         },
+ *         AutoDataQuality: {
+ *           IsEnabled: true || false,
+ *           EvaluationContext: "STRING_VALUE",
+ *         },
+ *         OutputSchemas: "<GlueSchemas>",
  *       },
  *       S3HudiDirectTarget: { // S3HudiDirectTarget
  *         Name: "STRING_VALUE", // required
@@ -887,6 +899,10 @@ export interface CreateJobCommandOutput extends CreateJobResponse, __MetadataBea
  *           Table: "STRING_VALUE",
  *           Database: "STRING_VALUE",
  *         },
+ *         AutoDataQuality: {
+ *           IsEnabled: true || false,
+ *           EvaluationContext: "STRING_VALUE",
+ *         },
  *       },
  *       DirectJDBCSource: { // DirectJDBCSource
  *         Name: "STRING_VALUE", // required
@@ -895,6 +911,7 @@ export interface CreateJobCommandOutput extends CreateJobResponse, __MetadataBea
  *         ConnectionName: "STRING_VALUE", // required
  *         ConnectionType: "sqlserver" || "mysql" || "oracle" || "postgresql" || "redshift", // required
  *         RedshiftTmpDir: "STRING_VALUE",
+ *         OutputSchemas: "<GlueSchemas>",
  *       },
  *       S3CatalogDeltaSource: { // S3CatalogDeltaSource
  *         Name: "STRING_VALUE", // required
@@ -914,7 +931,12 @@ export interface CreateJobCommandOutput extends CreateJobResponse, __MetadataBea
  *         Name: "STRING_VALUE", // required
  *         Paths: "<EnclosedInStringProperties>", // required
  *         AdditionalDeltaOptions: "<AdditionalOptions>",
- *         AdditionalOptions: "<S3DirectSourceAdditionalOptions>",
+ *         AdditionalOptions: {
+ *           BoundedSize: Number("long"),
+ *           BoundedFiles: Number("long"),
+ *           EnableSamplePath: true || false,
+ *           SamplePath: "STRING_VALUE",
+ *         },
  *         OutputSchemas: "<GlueSchemas>",
  *       },
  *       S3DeltaCatalogTarget: { // S3DeltaCatalogTarget
@@ -928,6 +950,8 @@ export interface CreateJobCommandOutput extends CreateJobResponse, __MetadataBea
  *           EnableUpdateCatalog: true || false,
  *           UpdateBehavior: "UPDATE_IN_DATABASE" || "LOG",
  *         },
+ *         AutoDataQuality: "<AutoDataQuality>",
+ *         OutputSchemas: "<GlueSchemas>",
  *       },
  *       S3DeltaDirectTarget: { // S3DeltaDirectTarget
  *         Name: "STRING_VALUE", // required
@@ -938,7 +962,13 @@ export interface CreateJobCommandOutput extends CreateJobResponse, __MetadataBea
  *         NumberTargetPartitions: "STRING_VALUE",
  *         Format: "json" || "csv" || "avro" || "orc" || "parquet" || "hudi" || "delta" || "iceberg" || "hyper" || "xml", // required
  *         AdditionalOptions: "<AdditionalOptions>",
- *         SchemaChangePolicy: "<DirectSchemaChangePolicy>",
+ *         SchemaChangePolicy: {
+ *           EnableUpdateCatalog: true || false,
+ *           UpdateBehavior: "UPDATE_IN_DATABASE" || "LOG",
+ *           Table: "STRING_VALUE",
+ *           Database: "STRING_VALUE",
+ *         },
+ *         AutoDataQuality: "<AutoDataQuality>",
  *       },
  *       AmazonRedshiftSource: { // AmazonRedshiftSource
  *         Name: "STRING_VALUE",
@@ -1159,6 +1189,90 @@ export interface CreateJobCommandOutput extends CreateJobResponse, __MetadataBea
  *           "<keys>": "STRING_VALUE",
  *         },
  *         Inputs: "<OneInput>",
+ *       },
+ *       S3CatalogIcebergSource: { // S3CatalogIcebergSource
+ *         Name: "STRING_VALUE", // required
+ *         Database: "STRING_VALUE", // required
+ *         Table: "STRING_VALUE", // required
+ *         AdditionalIcebergOptions: "<AdditionalOptions>",
+ *         OutputSchemas: "<GlueSchemas>",
+ *       },
+ *       CatalogIcebergSource: { // CatalogIcebergSource
+ *         Name: "STRING_VALUE", // required
+ *         Database: "STRING_VALUE", // required
+ *         Table: "STRING_VALUE", // required
+ *         AdditionalIcebergOptions: "<AdditionalOptions>",
+ *         OutputSchemas: "<GlueSchemas>",
+ *       },
+ *       S3IcebergCatalogTarget: { // S3IcebergCatalogTarget
+ *         Name: "STRING_VALUE", // required
+ *         Inputs: "<OneInput>", // required
+ *         PartitionKeys: "<GlueStudioPathList>",
+ *         Table: "STRING_VALUE", // required
+ *         Database: "STRING_VALUE", // required
+ *         AdditionalOptions: "<AdditionalOptions>",
+ *         SchemaChangePolicy: {
+ *           EnableUpdateCatalog: true || false,
+ *           UpdateBehavior: "UPDATE_IN_DATABASE" || "LOG",
+ *         },
+ *         AutoDataQuality: "<AutoDataQuality>",
+ *       },
+ *       S3IcebergDirectTarget: { // S3IcebergDirectTarget
+ *         Name: "STRING_VALUE", // required
+ *         Inputs: "<OneInput>", // required
+ *         PartitionKeys: "<GlueStudioPathList>",
+ *         Path: "STRING_VALUE", // required
+ *         Format: "json" || "csv" || "avro" || "orc" || "parquet" || "hudi" || "delta" || "iceberg" || "hyper" || "xml", // required
+ *         AdditionalOptions: "<AdditionalOptions>",
+ *         SchemaChangePolicy: {
+ *           EnableUpdateCatalog: true || false,
+ *           UpdateBehavior: "UPDATE_IN_DATABASE" || "LOG",
+ *           Table: "STRING_VALUE",
+ *           Database: "STRING_VALUE",
+ *         },
+ *         AutoDataQuality: "<AutoDataQuality>",
+ *         Compression: "gzip" || "lzo" || "uncompressed" || "snappy", // required
+ *         NumberTargetPartitions: "STRING_VALUE",
+ *         OutputSchemas: "<GlueSchemas>",
+ *       },
+ *       S3ExcelSource: { // S3ExcelSource
+ *         Name: "STRING_VALUE", // required
+ *         Paths: "<EnclosedInStringProperties>", // required
+ *         CompressionType: "snappy" || "lzo" || "gzip" || "brotli" || "lz4" || "uncompressed" || "none",
+ *         Exclusions: "<EnclosedInStringProperties>",
+ *         GroupSize: "STRING_VALUE",
+ *         GroupFiles: "STRING_VALUE",
+ *         Recurse: true || false,
+ *         MaxBand: Number("int"),
+ *         MaxFilesInBand: Number("int"),
+ *         AdditionalOptions: "<S3DirectSourceAdditionalOptions>",
+ *         NumberRows: Number("long"),
+ *         SkipFooter: Number("int"),
+ *         OutputSchemas: "<GlueSchemas>",
+ *       },
+ *       S3HyperDirectTarget: { // S3HyperDirectTarget
+ *         Name: "STRING_VALUE", // required
+ *         Inputs: "<OneInput>", // required
+ *         Format: "json" || "csv" || "avro" || "orc" || "parquet" || "hudi" || "delta" || "iceberg" || "hyper" || "xml",
+ *         PartitionKeys: "<GlueStudioPathList>",
+ *         Path: "STRING_VALUE", // required
+ *         Compression: "uncompressed",
+ *         SchemaChangePolicy: "<DirectSchemaChangePolicy>",
+ *         AutoDataQuality: "<AutoDataQuality>",
+ *         OutputSchemas: "<GlueSchemas>",
+ *       },
+ *       DynamoDBELTConnectorSource: { // DynamoDBELTConnectorSource
+ *         Name: "STRING_VALUE", // required
+ *         ConnectionOptions: { // DDBELTConnectionOptions
+ *           DynamodbExport: "ddb" || "s3",
+ *           DynamodbUnnestDDBJson: true || false,
+ *           DynamodbTableArn: "STRING_VALUE", // required
+ *           DynamodbS3Bucket: "STRING_VALUE",
+ *           DynamodbS3Prefix: "STRING_VALUE",
+ *           DynamodbS3BucketOwner: "STRING_VALUE",
+ *           DynamodbStsRoleArn: "STRING_VALUE",
+ *         },
+ *         OutputSchemas: "<GlueSchemas>",
  *       },
  *     },
  *   },

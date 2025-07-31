@@ -14,6 +14,7 @@ import {
   BasicCatalogTarget,
   CatalogDeltaSource,
   CatalogHudiSource,
+  CatalogIcebergSource,
   CatalogKafkaSource,
   CatalogKinesisSource,
   CatalogSource,
@@ -32,6 +33,7 @@ import {
   DropNullFields,
   DynamicTransform,
   DynamoDBCatalogSource,
+  DynamoDBELTConnectorSource,
   ErrorDetail,
   EvaluateDataQuality,
   EvaluateDataQualityMultiFrame,
@@ -42,6 +44,7 @@ import {
   Filter,
   GovernedCatalogSource,
   GovernedCatalogTarget,
+  InclusionAnnotationValue,
   JDBCConnectorSource,
   JDBCConnectorTarget,
   JobCommand,
@@ -68,8 +71,10 @@ import {
   RedshiftTarget,
   RelationalCatalogSource,
   RenameField,
+  Route,
   S3CatalogDeltaSource,
   S3CatalogHudiSource,
+  S3CatalogIcebergSource,
   S3CatalogSource,
   S3CatalogTarget,
   S3CsvSource,
@@ -83,6 +88,7 @@ import {
   S3HudiDirectTarget,
   S3HudiSource,
   S3HyperDirectTarget,
+  S3IcebergCatalogTarget,
   S3IcebergDirectTarget,
   S3JsonSource,
   S3ParquetSource,
@@ -121,6 +127,8 @@ import {
   IcebergPartitionSpec,
   IcebergSchema,
   IcebergSortOrder,
+  IntegrationError,
+  IntegrationStatus,
   Permission,
   ProfileConfiguration,
   RegistryId,
@@ -129,6 +137,7 @@ import {
   SourceTableConfig,
   TableIdentifier,
   TableInput,
+  Tag,
   TargetProcessingProperties,
   TargetTableConfig,
   TransformParameters,
@@ -138,10 +147,10 @@ import {
 import {
   ColumnRowFilter,
   ColumnStatistics,
+  DataCatalogEncryptionSettings,
   DataQualityEvaluationRunAdditionalRunOptions,
   FederatedTable,
   JobBookmarkEntry,
-  MetadataKeyValuePair,
   ResourceAction,
   ResourceShareType,
   ResourceState,
@@ -149,6 +158,264 @@ import {
   ViewDefinition,
   ViewValidation,
 } from "./models_2";
+
+/**
+ * @public
+ */
+export interface ModifyIntegrationResponse {
+  /**
+   * <p>The ARN of the source for the integration.</p>
+   * @public
+   */
+  SourceArn: string | undefined;
+
+  /**
+   * <p>The ARN of the target for the integration.</p>
+   * @public
+   */
+  TargetArn: string | undefined;
+
+  /**
+   * <p>A unique name for an integration in Glue.</p>
+   * @public
+   */
+  IntegrationName: string | undefined;
+
+  /**
+   * <p>A description of the integration.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) for the integration.</p>
+   * @public
+   */
+  IntegrationArn: string | undefined;
+
+  /**
+   * <p>The ARN of a KMS key used for encrypting the channel.</p>
+   * @public
+   */
+  KmsKeyId?: string | undefined;
+
+  /**
+   * <p>An optional set of non-secret key–value pairs that contains additional contextual information for encryption.</p>
+   * @public
+   */
+  AdditionalEncryptionContext?: Record<string, string> | undefined;
+
+  /**
+   * <p>Metadata assigned to the resource consisting of a list of key-value pairs.</p>
+   * @public
+   */
+  Tags?: Tag[] | undefined;
+
+  /**
+   * <p>The status of the integration being modified.</p>
+   *          <p>The possible statuses are:</p>
+   *          <ul>
+   *             <li>
+   *                <p>CREATING: The integration is being created.</p>
+   *             </li>
+   *             <li>
+   *                <p>ACTIVE: The integration creation succeeds.</p>
+   *             </li>
+   *             <li>
+   *                <p>MODIFYING: The integration is being modified.</p>
+   *             </li>
+   *             <li>
+   *                <p>FAILED: The integration creation fails. </p>
+   *             </li>
+   *             <li>
+   *                <p>DELETING: The integration is deleted.</p>
+   *             </li>
+   *             <li>
+   *                <p>SYNCING: The integration is synchronizing.</p>
+   *             </li>
+   *             <li>
+   *                <p>NEEDS_ATTENTION: The integration needs attention, such as synchronization.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Status: IntegrationStatus | undefined;
+
+  /**
+   * <p>The time when the integration was created, in UTC.</p>
+   * @public
+   */
+  CreateTime: Date | undefined;
+
+  /**
+   * <p>A list of errors associated with the integration modification.</p>
+   * @public
+   */
+  Errors?: IntegrationError[] | undefined;
+
+  /**
+   * <p>Selects source tables for the integration using Maxwell filter syntax.</p>
+   * @public
+   */
+  DataFilter?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface PutDataCatalogEncryptionSettingsRequest {
+  /**
+   * <p>The ID of the Data Catalog to set the security configuration for. If none is provided, the
+   *       Amazon Web Services account ID is used by default.</p>
+   * @public
+   */
+  CatalogId?: string | undefined;
+
+  /**
+   * <p>The security configuration to set.</p>
+   * @public
+   */
+  DataCatalogEncryptionSettings: DataCatalogEncryptionSettings | undefined;
+}
+
+/**
+ * @public
+ */
+export interface PutDataCatalogEncryptionSettingsResponse {}
+
+/**
+ * @public
+ */
+export interface PutDataQualityProfileAnnotationRequest {
+  /**
+   * <p>The ID of the data quality monitoring profile to annotate.</p>
+   * @public
+   */
+  ProfileId: string | undefined;
+
+  /**
+   * <p>The inclusion annotation value to apply to the profile.</p>
+   * @public
+   */
+  InclusionAnnotation: InclusionAnnotationValue | undefined;
+}
+
+/**
+ * <p>Left blank.</p>
+ * @public
+ */
+export interface PutDataQualityProfileAnnotationResponse {}
+
+/**
+ * @public
+ * @enum
+ */
+export const EnableHybridValues = {
+  FALSE: "FALSE",
+  TRUE: "TRUE",
+} as const;
+
+/**
+ * @public
+ */
+export type EnableHybridValues = (typeof EnableHybridValues)[keyof typeof EnableHybridValues];
+
+/**
+ * @public
+ * @enum
+ */
+export const ExistCondition = {
+  MUST_EXIST: "MUST_EXIST",
+  NONE: "NONE",
+  NOT_EXIST: "NOT_EXIST",
+} as const;
+
+/**
+ * @public
+ */
+export type ExistCondition = (typeof ExistCondition)[keyof typeof ExistCondition];
+
+/**
+ * @public
+ */
+export interface PutResourcePolicyRequest {
+  /**
+   * <p>Contains the policy document to set, in JSON format.</p>
+   * @public
+   */
+  PolicyInJson: string | undefined;
+
+  /**
+   * <p>Do not use. For internal use only.</p>
+   * @public
+   */
+  ResourceArn?: string | undefined;
+
+  /**
+   * <p>The hash value returned when the previous policy was set using
+   *         <code>PutResourcePolicy</code>. Its purpose is to prevent concurrent modifications of a
+   *       policy. Do not use this parameter if no previous policy has been set.</p>
+   * @public
+   */
+  PolicyHashCondition?: string | undefined;
+
+  /**
+   * <p>A value of <code>MUST_EXIST</code> is used to update a policy. A value of
+   *         <code>NOT_EXIST</code> is used to create a new policy. If a value of <code>NONE</code> or a
+   *       null value is used, the call does not depend on the existence of a policy.</p>
+   * @public
+   */
+  PolicyExistsCondition?: ExistCondition | undefined;
+
+  /**
+   * <p>If <code>'TRUE'</code>, indicates that you are using both methods to grant cross-account
+   *       access to Data Catalog resources:</p>
+   *          <ul>
+   *             <li>
+   *                <p>By directly updating the resource policy with <code>PutResourePolicy</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>By using the <b>Grant permissions</b> command on the Amazon Web Services Management Console.</p>
+   *             </li>
+   *          </ul>
+   *          <p>Must be set to <code>'TRUE'</code> if you have already used the Management Console to
+   *       grant cross-account access, otherwise the call fails. Default is 'FALSE'.</p>
+   * @public
+   */
+  EnableHybrid?: EnableHybridValues | undefined;
+}
+
+/**
+ * @public
+ */
+export interface PutResourcePolicyResponse {
+  /**
+   * <p>A hash of the policy that has just been set. This must
+   *       be included in a subsequent call that overwrites or updates
+   *       this policy.</p>
+   * @public
+   */
+  PolicyHash?: string | undefined;
+}
+
+/**
+ * <p>A structure containing a key value pair for metadata.</p>
+ * @public
+ */
+export interface MetadataKeyValuePair {
+  /**
+   * <p>A metadata key.</p>
+   * @public
+   */
+  MetadataKey?: string | undefined;
+
+  /**
+   * <p>A metadata key’s corresponding value.</p>
+   * @public
+   */
+  MetadataValue?: string | undefined;
+}
 
 /**
  * @public
@@ -3914,12 +4181,6 @@ export interface CodeGenConfigurationNode {
   S3CsvSource?: S3CsvSource | undefined;
 
   /**
-   * <p>Defines configuration parameters for reading Excel files from Amazon S3.</p>
-   * @public
-   */
-  S3ExcelSource?: S3ExcelSource | undefined;
-
-  /**
    * <p>Specifies a JSON data store stored in Amazon S3.</p>
    * @public
    */
@@ -3980,22 +4241,10 @@ export interface CodeGenConfigurationNode {
   S3GlueParquetTarget?: S3GlueParquetTarget | undefined;
 
   /**
-   * <p>Defines configuration parameters for writing data to Amazon S3 using HyperDirect optimization.</p>
-   * @public
-   */
-  S3HyperDirectTarget?: S3HyperDirectTarget | undefined;
-
-  /**
    * <p>Specifies a data target that writes to Amazon S3.</p>
    * @public
    */
   S3DirectTarget?: S3DirectTarget | undefined;
-
-  /**
-   * <p>Defines configuration parameters for writing data to Amazon S3 as an Apache Iceberg table.</p>
-   * @public
-   */
-  S3IcebergDirectTarget?: S3IcebergDirectTarget | undefined;
 
   /**
    * <p>Specifies a transform that maps data property keys in the data source to data property keys in the data target. You can rename keys, modify the data types for keys, and choose which keys to drop from the dataset.</p>
@@ -4191,6 +4440,12 @@ export interface CodeGenConfigurationNode {
   PostgreSQLCatalogTarget?: PostgreSQLCatalogTarget | undefined;
 
   /**
+   * <p>Specifies a route node that directs data to different output paths based on defined filtering conditions.</p>
+   * @public
+   */
+  Route?: Route | undefined;
+
+  /**
    * <p>Specifies a custom visual transform created by a user.</p>
    * @public
    */
@@ -4315,6 +4570,48 @@ export interface CodeGenConfigurationNode {
    * @public
    */
   ConnectorDataTarget?: ConnectorDataTarget | undefined;
+
+  /**
+   * <p>Specifies an Apache Iceberg data source that is registered in the Glue Data Catalog. The Iceberg data source must be stored in Amazon S3.</p>
+   * @public
+   */
+  S3CatalogIcebergSource?: S3CatalogIcebergSource | undefined;
+
+  /**
+   * <p>Specifies an Apache Iceberg data source that is registered in the Glue Data Catalog.</p>
+   * @public
+   */
+  CatalogIcebergSource?: CatalogIcebergSource | undefined;
+
+  /**
+   * <p>Specifies an Apache Iceberg catalog target that writes data to Amazon S3 and registers the table in the Glue Data Catalog.</p>
+   * @public
+   */
+  S3IcebergCatalogTarget?: S3IcebergCatalogTarget | undefined;
+
+  /**
+   * <p>Defines configuration parameters for writing data to Amazon S3 as an Apache Iceberg table.</p>
+   * @public
+   */
+  S3IcebergDirectTarget?: S3IcebergDirectTarget | undefined;
+
+  /**
+   * <p>Defines configuration parameters for reading Excel files from Amazon S3.</p>
+   * @public
+   */
+  S3ExcelSource?: S3ExcelSource | undefined;
+
+  /**
+   * <p>Defines configuration parameters for writing data to Amazon S3 using HyperDirect optimization.</p>
+   * @public
+   */
+  S3HyperDirectTarget?: S3HyperDirectTarget | undefined;
+
+  /**
+   * <p>Specifies a DynamoDB ELT connector source for extracting data from DynamoDB tables.</p>
+   * @public
+   */
+  DynamoDBELTConnectorSource?: DynamoDBELTConnectorSource | undefined;
 }
 
 /**
@@ -4666,7 +4963,7 @@ export interface CreateJobRequest {
    *                <p>For the <code>G.2X</code> worker type, each worker maps to 2 DPU (8 vCPUs, 32 GB of memory) with 138GB disk, and provides 1 executor per worker. We recommend this worker type for workloads such as data transforms, joins, and queries, to offers a scalable and cost effective way to run most jobs.</p>
    *             </li>
    *             <li>
-   *                <p>For the <code>G.4X</code> worker type, each worker maps to 4 DPU (16 vCPUs, 64 GB of memory) with 256GB disk, and provides 1 executor per worker. We recommend this worker type for jobs whose workloads contain your most demanding transforms, aggregations, joins, and queries. This worker type is available only for Glue version 3.0 or later Spark ETL jobs in the following Amazon Web Services Regions: US East (Ohio), US East (N. Virginia), US West (Oregon), Asia Pacific (Singapore), Asia Pacific (Sydney), Asia Pacific (Tokyo), Canada (Central), Europe (Frankfurt), Europe (Ireland), and Europe (Stockholm).</p>
+   *                <p>For the <code>G.4X</code> worker type, each worker maps to 4 DPU (16 vCPUs, 64 GB of memory) with 256GB disk, and provides 1 executor per worker. We recommend this worker type for jobs whose workloads contain your most demanding transforms, aggregations, joins, and queries. This worker type is available only for Glue version 3.0 or later Spark ETL jobs in the following Amazon Web Services Regions: US East (Ohio), US East (N. Virginia), US West (N. California), US West (Oregon), Asia Pacific (Mumbai), Asia Pacific (Seoul), Asia Pacific (Singapore), Asia Pacific (Sydney), Asia Pacific (Tokyo), Canada (Central), Europe (Frankfurt), Europe (Ireland), Europe (London), Europe (Spain), Europe (Stockholm), and South America (São Paulo).</p>
    *             </li>
    *             <li>
    *                <p>For the <code>G.8X</code> worker type, each worker maps to 8 DPU (32 vCPUs, 128 GB of memory) with 512GB disk, and provides 1 executor per worker. We recommend this worker type for jobs whose workloads contain your most demanding transforms, aggregations, joins, and queries. This worker type is available only for Glue version 3.0 or later Spark ETL jobs, in the same Amazon Web Services Regions as supported for the <code>G.4X</code> worker type.</p>
@@ -4902,26 +5199,42 @@ export interface Job {
   MaxCapacity?: number | undefined;
 
   /**
-   * <p>The type of predefined worker that is allocated when a job runs. Accepts a value of
-   *       G.1X, G.2X, G.4X, G.8X or G.025X for Spark jobs. Accepts the value Z.2X for Ray jobs.</p>
+   * <p>The type of predefined worker that is allocated when a job runs.</p>
+   *          <p>Glue provides multiple worker types to accommodate different workload requirements:</p>
+   *          <p>G Worker Types (General-purpose compute workers):</p>
    *          <ul>
    *             <li>
-   *                <p>For the <code>G.1X</code> worker type, each worker maps to 1 DPU (4 vCPUs, 16 GB of memory) with 94GB disk, and provides 1 executor per worker. We recommend this worker type for workloads such as data transforms, joins, and queries, to offers a scalable and cost effective way to run most jobs.</p>
+   *                <p>G.1X: 1 DPU (4 vCPUs, 16 GB memory, 94GB disk)</p>
    *             </li>
    *             <li>
-   *                <p>For the <code>G.2X</code> worker type, each worker maps to 2 DPU (8 vCPUs, 32 GB of memory) with 138GB disk, and provides 1 executor per worker. We recommend this worker type for workloads such as data transforms, joins, and queries, to offers a scalable and cost effective way to run most jobs.</p>
+   *                <p>G.2X: 2 DPU (8 vCPUs, 32 GB memory, 138GB disk)</p>
    *             </li>
    *             <li>
-   *                <p>For the <code>G.4X</code> worker type, each worker maps to 4 DPU (16 vCPUs, 64 GB of memory) with 256GB disk, and provides 1 executor per worker. We recommend this worker type for jobs whose workloads contain your most demanding transforms, aggregations, joins, and queries. This worker type is available only for Glue version 3.0 or later Spark ETL jobs in the following Amazon Web Services Regions: US East (Ohio), US East (N. Virginia), US West (Oregon), Asia Pacific (Singapore), Asia Pacific (Sydney), Asia Pacific (Tokyo), Canada (Central), Europe (Frankfurt), Europe (Ireland), and Europe (Stockholm).</p>
+   *                <p>G.4X: 4 DPU (16 vCPUs, 64 GB memory, 256GB disk)</p>
    *             </li>
    *             <li>
-   *                <p>For the <code>G.8X</code> worker type, each worker maps to 8 DPU (32 vCPUs, 128 GB of memory) with 512GB disk, and provides 1 executor per worker. We recommend this worker type for jobs whose workloads contain your most demanding transforms, aggregations, joins, and queries. This worker type is available only for Glue version 3.0 or later Spark ETL jobs, in the same Amazon Web Services Regions as supported for the <code>G.4X</code> worker type.</p>
+   *                <p>G.8X: 8 DPU (32 vCPUs, 128 GB memory, 512GB disk)</p>
    *             </li>
    *             <li>
-   *                <p>For the <code>G.025X</code> worker type, each worker maps to 0.25 DPU (2 vCPUs, 4 GB of memory) with 84GB disk, and provides 1 executor per worker. We recommend this worker type for low volume streaming jobs. This worker type is only available for Glue version 3.0 or later streaming jobs.</p>
+   *                <p>G.12X: 12 DPU (48 vCPUs, 192 GB memory, 768GB disk)</p>
    *             </li>
    *             <li>
-   *                <p>For the <code>Z.2X</code> worker type, each worker maps to 2 M-DPU (8vCPUs, 64 GB of memory) with 128 GB disk, and provides up to 8 Ray workers based on the autoscaler.</p>
+   *                <p>G.16X: 16 DPU (64 vCPUs, 256 GB memory, 1024GB disk)</p>
+   *             </li>
+   *          </ul>
+   *          <p>R Worker Types (Memory-optimized workers):</p>
+   *          <ul>
+   *             <li>
+   *                <p>R.1X: 1 M-DPU (4 vCPUs, 32 GB memory)</p>
+   *             </li>
+   *             <li>
+   *                <p>R.2X: 2 M-DPU (8 vCPUs, 64 GB memory)</p>
+   *             </li>
+   *             <li>
+   *                <p>R.4X: 4 M-DPU (16 vCPUs, 128 GB memory)</p>
+   *             </li>
+   *             <li>
+   *                <p>R.8X: 8 M-DPU (32 vCPUs, 256 GB memory)</p>
    *             </li>
    *          </ul>
    * @public

@@ -18,27 +18,514 @@ import {
   Column,
   ConnectionsList,
   CrawlerTargets,
+  CrawlState,
   DataOperation,
+  Edge,
   ErrorDetail,
   EventBatchingCondition,
+  ExecutionClass,
   GlueTable,
   InclusionAnnotationValue,
+  JobMode,
+  JobRunState,
   LakeFormationConfiguration,
   LineageConfiguration,
+  NotificationProperty,
   PartitionInput,
   Predicate,
   Property,
   RecrawlPolicy,
   SchemaChangePolicy,
   SchemaId,
-  StartingEventBatchCondition,
   StorageDescriptor,
   TableOptimizerConfiguration,
   TableOptimizerType,
+  Trigger,
   TriggerType,
   WorkerType,
-  WorkflowGraph,
 } from "./models_0";
+
+/**
+ * <p>The details of a crawl in the workflow.</p>
+ * @public
+ */
+export interface Crawl {
+  /**
+   * <p>The state of the crawler.</p>
+   * @public
+   */
+  State?: CrawlState | undefined;
+
+  /**
+   * <p>The date and time on which the crawl started.</p>
+   * @public
+   */
+  StartedOn?: Date | undefined;
+
+  /**
+   * <p>The date and time on which the crawl completed.</p>
+   * @public
+   */
+  CompletedOn?: Date | undefined;
+
+  /**
+   * <p>The error message associated with the crawl.</p>
+   * @public
+   */
+  ErrorMessage?: string | undefined;
+
+  /**
+   * <p>The log group associated with the crawl.</p>
+   * @public
+   */
+  LogGroup?: string | undefined;
+
+  /**
+   * <p>The log stream associated with the crawl.</p>
+   * @public
+   */
+  LogStream?: string | undefined;
+}
+
+/**
+ * <p>The details of a Crawler node present in the workflow.</p>
+ * @public
+ */
+export interface CrawlerNodeDetails {
+  /**
+   * <p>A list of crawls represented by the crawl node.</p>
+   * @public
+   */
+  Crawls?: Crawl[] | undefined;
+}
+
+/**
+ * <p>A job run that was used in the predicate of a conditional trigger
+ *       that triggered this job run.</p>
+ * @public
+ */
+export interface Predecessor {
+  /**
+   * <p>The name of the job definition used by the predecessor job run.</p>
+   * @public
+   */
+  JobName?: string | undefined;
+
+  /**
+   * <p>The job-run ID of the predecessor job run.</p>
+   * @public
+   */
+  RunId?: string | undefined;
+}
+
+/**
+ * <p>Contains information about a job run.</p>
+ * @public
+ */
+export interface JobRun {
+  /**
+   * <p>The ID of this job run.</p>
+   * @public
+   */
+  Id?: string | undefined;
+
+  /**
+   * <p>The number of the attempt to run this job.</p>
+   * @public
+   */
+  Attempt?: number | undefined;
+
+  /**
+   * <p>The ID of the previous run of this job. For example, the <code>JobRunId</code> specified
+   *       in the <code>StartJobRun</code> action.</p>
+   * @public
+   */
+  PreviousRunId?: string | undefined;
+
+  /**
+   * <p>The name of the trigger that started this job run.</p>
+   * @public
+   */
+  TriggerName?: string | undefined;
+
+  /**
+   * <p>The name of the job definition being used in this run.</p>
+   * @public
+   */
+  JobName?: string | undefined;
+
+  /**
+   * <p>A mode that describes how a job was created. Valid values are:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>SCRIPT</code> - The job was created using the Glue Studio script editor.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>VISUAL</code> - The job was created using the Glue Studio visual editor.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>NOTEBOOK</code> - The job was created using an interactive sessions notebook.</p>
+   *             </li>
+   *          </ul>
+   *          <p>When the <code>JobMode</code> field is missing or null, <code>SCRIPT</code> is assigned as the default value.</p>
+   * @public
+   */
+  JobMode?: JobMode | undefined;
+
+  /**
+   * <p>Specifies whether job run queuing is enabled for the job run.</p>
+   *          <p>A value of true means job run queuing is enabled for the job run. If false or not populated, the job run will not be considered for queueing.</p>
+   * @public
+   */
+  JobRunQueuingEnabled?: boolean | undefined;
+
+  /**
+   * <p>The date and time at which this job run was started.</p>
+   * @public
+   */
+  StartedOn?: Date | undefined;
+
+  /**
+   * <p>The last time that this job run was modified.</p>
+   * @public
+   */
+  LastModifiedOn?: Date | undefined;
+
+  /**
+   * <p>The date and time that this job run completed.</p>
+   * @public
+   */
+  CompletedOn?: Date | undefined;
+
+  /**
+   * <p>The current state of the job run. For more information about the statuses of jobs that have terminated abnormally, see <a href="https://docs.aws.amazon.com/glue/latest/dg/job-run-statuses.html">Glue Job Run Statuses</a>.</p>
+   * @public
+   */
+  JobRunState?: JobRunState | undefined;
+
+  /**
+   * <p>The job arguments associated with this run. For this job run, they replace the default
+   *       arguments set in the job definition itself.</p>
+   *          <p>You can specify arguments here that your own job-execution script
+   *       consumes, as well as arguments that Glue itself consumes.</p>
+   *          <p>Job arguments may be logged. Do not pass plaintext secrets as arguments. Retrieve secrets
+   *       from a Glue Connection, Secrets Manager or other secret management
+   *       mechanism if you intend to keep them within the Job. </p>
+   *          <p>For information about how to specify and consume your own Job arguments, see the <a href="https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-python-calling.html">Calling Glue APIs in Python</a> topic in the developer guide.</p>
+   *          <p>For information about the arguments you can provide to this field when configuring Spark jobs,
+   *      see the <a href="https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html">Special Parameters Used by Glue</a> topic in the developer guide.</p>
+   *          <p>For information about the arguments you can provide to this field when configuring Ray
+   *       jobs, see <a href="https://docs.aws.amazon.com/glue/latest/dg/author-job-ray-job-parameters.html">Using
+   *       job parameters in Ray jobs</a> in the developer guide.</p>
+   * @public
+   */
+  Arguments?: Record<string, string> | undefined;
+
+  /**
+   * <p>An error message associated with this job run.</p>
+   * @public
+   */
+  ErrorMessage?: string | undefined;
+
+  /**
+   * <p>A list of predecessors to this job run.</p>
+   * @public
+   */
+  PredecessorRuns?: Predecessor[] | undefined;
+
+  /**
+   * <p>This field is deprecated. Use <code>MaxCapacity</code> instead.</p>
+   *          <p>The number of Glue data processing units (DPUs) allocated to this JobRun.
+   *       From 2 to 100 DPUs can be allocated; the default is 10. A DPU is a relative measure
+   *       of processing power that consists of 4 vCPUs of compute capacity and 16 GB of memory.
+   *       For more information, see the <a href="https://aws.amazon.com/glue/pricing/">Glue
+   *         pricing page</a>.</p>
+   *
+   * @deprecated
+   * @public
+   */
+  AllocatedCapacity?: number | undefined;
+
+  /**
+   * <p>The amount of time (in seconds) that the job run consumed resources.</p>
+   * @public
+   */
+  ExecutionTime?: number | undefined;
+
+  /**
+   * <p>The <code>JobRun</code> timeout in minutes. This is the maximum time that a job run can
+   *       consume resources before it is terminated and enters <code>TIMEOUT</code> status. This value overrides the timeout value set in the parent job.</p>
+   *          <p>Jobs must have timeout values less than 7 days or 10080 minutes. Otherwise, the jobs will throw an exception.</p>
+   *          <p>When the value is left blank, the timeout is defaulted to 2880 minutes.</p>
+   *          <p>Any existing Glue jobs that had a timeout value greater than 7 days will be defaulted to 7 days. For instance if you have specified a timeout of 20 days for a batch job, it will be stopped on the 7th day.</p>
+   *          <p>For streaming jobs, if you have set up a maintenance window, it will be restarted during the maintenance window after 7 days.</p>
+   * @public
+   */
+  Timeout?: number | undefined;
+
+  /**
+   * <p>For Glue version 1.0 or earlier jobs, using the standard worker type, the number of
+   *       Glue data processing units (DPUs) that can be allocated when this job runs. A DPU is
+   *       a relative measure of processing power that consists of 4 vCPUs of compute capacity and 16 GB
+   *       of memory. For more information, see the <a href="https://aws.amazon.com/glue/pricing/">
+   *         Glue pricing page</a>.</p>
+   *          <p>For Glue version 2.0+ jobs, you cannot specify a <code>Maximum capacity</code>.
+   *       Instead, you should specify a <code>Worker type</code> and the <code>Number of workers</code>.</p>
+   *          <p>Do not set <code>MaxCapacity</code> if using <code>WorkerType</code> and <code>NumberOfWorkers</code>.</p>
+   *          <p>The value that can be allocated for <code>MaxCapacity</code> depends on whether you are
+   *       running a Python shell job, an Apache Spark ETL job, or an Apache Spark streaming ETL
+   *       job:</p>
+   *          <ul>
+   *             <li>
+   *                <p>When you specify a Python shell job (<code>JobCommand.Name</code>="pythonshell"), you can
+   *           allocate either 0.0625 or 1 DPU. The default is 0.0625 DPU.</p>
+   *             </li>
+   *             <li>
+   *                <p>When you specify an Apache Spark ETL job (<code>JobCommand.Name</code>="glueetl") or Apache
+   *         Spark streaming ETL job (<code>JobCommand.Name</code>="gluestreaming"), you can allocate from 2 to 100 DPUs.
+   *         The default is 10 DPUs. This job type cannot have a fractional DPU allocation.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  MaxCapacity?: number | undefined;
+
+  /**
+   * <p>The type of predefined worker that is allocated when a job runs. Accepts a value of
+   *           G.1X, G.2X, G.4X, G.8X or G.025X for Spark jobs. Accepts the value Z.2X for Ray jobs.</p>
+   *          <ul>
+   *             <li>
+   *                <p>For the <code>G.1X</code> worker type, each worker maps to 1 DPU (4 vCPUs, 16 GB of memory) with 94GB disk, and provides 1 executor per worker. We recommend this worker type for workloads such as data transforms, joins, and queries, to offers a scalable and cost effective way to run most jobs.</p>
+   *             </li>
+   *             <li>
+   *                <p>For the <code>G.2X</code> worker type, each worker maps to 2 DPU (8 vCPUs, 32 GB of memory) with 138GB disk, and provides 1 executor per worker. We recommend this worker type for workloads such as data transforms, joins, and queries, to offers a scalable and cost effective way to run most jobs.</p>
+   *             </li>
+   *             <li>
+   *                <p>For the <code>G.4X</code> worker type, each worker maps to 4 DPU (16 vCPUs, 64 GB of memory) with 256GB disk, and provides 1 executor per worker. We recommend this worker type for jobs whose workloads contain your most demanding transforms, aggregations, joins, and queries. This worker type is available only for Glue version 3.0 or later Spark ETL jobs in the following Amazon Web Services Regions: US East (Ohio), US East (N. Virginia), US West (Oregon), Asia Pacific (Singapore), Asia Pacific (Sydney), Asia Pacific (Tokyo), Canada (Central), Europe (Frankfurt), Europe (Ireland), and Europe (Stockholm).</p>
+   *             </li>
+   *             <li>
+   *                <p>For the <code>G.8X</code> worker type, each worker maps to 8 DPU (32 vCPUs, 128 GB of memory) with 512GB disk, and provides 1 executor per worker. We recommend this worker type for jobs whose workloads contain your most demanding transforms, aggregations, joins, and queries. This worker type is available only for Glue version 3.0 or later Spark ETL jobs, in the same Amazon Web Services Regions as supported for the <code>G.4X</code> worker type.</p>
+   *             </li>
+   *             <li>
+   *                <p>For the <code>G.025X</code> worker type, each worker maps to 0.25 DPU (2 vCPUs, 4 GB of memory) with 84GB disk, and provides 1 executor per worker. We recommend this worker type for low volume streaming jobs. This worker type is only available for Glue version 3.0 or later streaming jobs.</p>
+   *             </li>
+   *             <li>
+   *                <p>For the <code>Z.2X</code> worker type, each worker maps to 2 M-DPU (8vCPUs, 64 GB of memory) with 128 GB disk, and provides up to 8 Ray workers based on the autoscaler.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  WorkerType?: WorkerType | undefined;
+
+  /**
+   * <p>The number of workers of a defined <code>workerType</code> that are allocated when a job runs.</p>
+   * @public
+   */
+  NumberOfWorkers?: number | undefined;
+
+  /**
+   * <p>The name of the <code>SecurityConfiguration</code> structure to be used with this job
+   *       run.</p>
+   * @public
+   */
+  SecurityConfiguration?: string | undefined;
+
+  /**
+   * <p>The name of the log group for secure logging that can be server-side encrypted in Amazon
+   *       CloudWatch using KMS. This name can be <code>/aws-glue/jobs/</code>, in which case the
+   *       default encryption is <code>NONE</code>. If you add a role name and
+   *       <code>SecurityConfiguration</code> name (in other words,
+   *       <code>/aws-glue/jobs-yourRoleName-yourSecurityConfigurationName/</code>), then that security
+   *       configuration is used to encrypt the log group.</p>
+   * @public
+   */
+  LogGroupName?: string | undefined;
+
+  /**
+   * <p>Specifies configuration properties of a job run notification.</p>
+   * @public
+   */
+  NotificationProperty?: NotificationProperty | undefined;
+
+  /**
+   * <p>In Spark jobs, <code>GlueVersion</code> determines the versions of Apache Spark and Python
+   *       that Glue available in a job. The Python version indicates the version
+   *       supported for jobs of type Spark. </p>
+   *          <p>Ray jobs should set <code>GlueVersion</code> to <code>4.0</code> or greater. However,
+   *     the versions of Ray, Python and additional libraries available in your Ray job are determined
+   *     by the <code>Runtime</code> parameter of the Job command.</p>
+   *          <p>For more information about the available Glue versions and corresponding
+   *       Spark and Python versions, see <a href="https://docs.aws.amazon.com/glue/latest/dg/add-job.html">Glue version</a> in the developer
+   *       guide.</p>
+   *          <p>Jobs that are created without specifying a Glue version default to Glue 0.9.</p>
+   * @public
+   */
+  GlueVersion?: string | undefined;
+
+  /**
+   * <p>This field can be set for either job runs with execution class <code>FLEX</code> or when Auto Scaling is enabled, and represents the total time each executor ran during the lifecycle of a job run in seconds, multiplied by a DPU factor (1 for <code>G.1X</code>, 2 for <code>G.2X</code>, or 0.25 for <code>G.025X</code> workers). This value may be different than the <code>executionEngineRuntime</code> * <code>MaxCapacity</code> as in the case of Auto Scaling jobs, as the number of executors running at a given time may be less than the <code>MaxCapacity</code>. Therefore, it is possible that the value of <code>DPUSeconds</code> is less than <code>executionEngineRuntime</code> * <code>MaxCapacity</code>.</p>
+   * @public
+   */
+  DPUSeconds?: number | undefined;
+
+  /**
+   * <p>Indicates whether the job is run with a standard or flexible execution class. The standard execution-class is ideal for time-sensitive workloads that require fast job startup and dedicated resources.</p>
+   *          <p>The flexible execution class is appropriate for time-insensitive jobs whose start and completion times may vary. </p>
+   *          <p>Only jobs with Glue version 3.0 and above and command type <code>glueetl</code> will be allowed to set <code>ExecutionClass</code> to <code>FLEX</code>. The flexible execution class is available for Spark jobs.</p>
+   * @public
+   */
+  ExecutionClass?: ExecutionClass | undefined;
+
+  /**
+   * <p>This field specifies a day of the week and hour for a maintenance window for streaming jobs. Glue periodically performs maintenance activities. During these maintenance windows, Glue will need to restart your streaming jobs.</p>
+   *          <p>Glue will restart the job within 3 hours of the specified maintenance window. For instance, if you set up the maintenance window for Monday at 10:00AM GMT, your jobs will be restarted between 10:00AM GMT to 1:00PM GMT.</p>
+   * @public
+   */
+  MaintenanceWindow?: string | undefined;
+
+  /**
+   * <p>The name of an Glue usage profile associated with the job run.</p>
+   * @public
+   */
+  ProfileName?: string | undefined;
+
+  /**
+   * <p>This field holds details that pertain to the state of a job run. The field is nullable.</p>
+   *          <p>For example, when a job run is in a WAITING state as a result of job run queuing, the field has the reason why the job run is in that state.</p>
+   * @public
+   */
+  StateDetail?: string | undefined;
+
+  /**
+   * <p>This inline session policy to the StartJobRun API allows you to dynamically restrict the permissions of the specified
+   *       execution role for the scope of the job, without requiring the creation of additional IAM roles.</p>
+   * @public
+   */
+  ExecutionRoleSessionPolicy?: string | undefined;
+}
+
+/**
+ * <p>The details of a Job node present in the workflow.</p>
+ * @public
+ */
+export interface JobNodeDetails {
+  /**
+   * <p>The information for the job runs represented by the job node.</p>
+   * @public
+   */
+  JobRuns?: JobRun[] | undefined;
+}
+
+/**
+ * <p>The details of a Trigger node present in the workflow.</p>
+ * @public
+ */
+export interface TriggerNodeDetails {
+  /**
+   * <p>The information of the trigger represented by the trigger node.</p>
+   * @public
+   */
+  Trigger?: Trigger | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const NodeType = {
+  CRAWLER: "CRAWLER",
+  JOB: "JOB",
+  TRIGGER: "TRIGGER",
+} as const;
+
+/**
+ * @public
+ */
+export type NodeType = (typeof NodeType)[keyof typeof NodeType];
+
+/**
+ * <p>A node represents an Glue component (trigger, crawler, or job) on a workflow graph.</p>
+ * @public
+ */
+export interface Node {
+  /**
+   * <p>The type of Glue component represented by the node.</p>
+   * @public
+   */
+  Type?: NodeType | undefined;
+
+  /**
+   * <p>The name of the Glue component represented by the node.</p>
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * <p>The unique Id assigned to the node within the workflow.</p>
+   * @public
+   */
+  UniqueId?: string | undefined;
+
+  /**
+   * <p>Details of the Trigger when the node represents a Trigger.</p>
+   * @public
+   */
+  TriggerDetails?: TriggerNodeDetails | undefined;
+
+  /**
+   * <p>Details of the Job when the node represents a Job.</p>
+   * @public
+   */
+  JobDetails?: JobNodeDetails | undefined;
+
+  /**
+   * <p>Details of the crawler when the node represents a crawler.</p>
+   * @public
+   */
+  CrawlerDetails?: CrawlerNodeDetails | undefined;
+}
+
+/**
+ * <p>A workflow graph represents the complete workflow containing all the Glue components present in the
+ *       workflow and all the directed connections between them.</p>
+ * @public
+ */
+export interface WorkflowGraph {
+  /**
+   * <p>A list of the the Glue components belong to the workflow represented as nodes.</p>
+   * @public
+   */
+  Nodes?: Node[] | undefined;
+
+  /**
+   * <p>A list of all the directed connections between the nodes belonging to the workflow.</p>
+   * @public
+   */
+  Edges?: Edge[] | undefined;
+}
+
+/**
+ * <p>The batch condition that started the workflow run. Either the number of events in the batch size arrived,
+ *       in which case the BatchSize member is non-zero, or the batch window expired, in which case the BatchWindow
+ *       member is non-zero.</p>
+ * @public
+ */
+export interface StartingEventBatchCondition {
+  /**
+   * <p>Number of events in the batch.</p>
+   * @public
+   */
+  BatchSize?: number | undefined;
+
+  /**
+   * <p>Duration of the batch window in seconds.</p>
+   * @public
+   */
+  BatchWindow?: number | undefined;
+}
 
 /**
  * <p>Workflow run statistics provides statistics about the workflow run.</p>
@@ -7786,268 +8273,6 @@ export interface JsonClassifier {
    * @public
    */
   JsonPath: string | undefined;
-}
-
-/**
- * <p>A classifier for <code>XML</code> content.</p>
- * @public
- */
-export interface XMLClassifier {
-  /**
-   * <p>The name of the classifier.</p>
-   * @public
-   */
-  Name: string | undefined;
-
-  /**
-   * <p>An identifier of the data format that the classifier matches.</p>
-   * @public
-   */
-  Classification: string | undefined;
-
-  /**
-   * <p>The time that this classifier was registered.</p>
-   * @public
-   */
-  CreationTime?: Date | undefined;
-
-  /**
-   * <p>The time that this classifier was last updated.</p>
-   * @public
-   */
-  LastUpdated?: Date | undefined;
-
-  /**
-   * <p>The version of this classifier.</p>
-   * @public
-   */
-  Version?: number | undefined;
-
-  /**
-   * <p>The XML tag designating the element that contains each record in an XML document being
-   *       parsed. This can't identify a self-closing element (closed by <code>/></code>). An empty
-   *       row element that contains only attributes can be parsed as long as it ends with a closing tag
-   *       (for example, <code><row item_a="A" item_b="B"></row></code> is okay, but
-   *         <code><row item_a="A" item_b="B" /></code> is not).</p>
-   * @public
-   */
-  RowTag?: string | undefined;
-}
-
-/**
- * <p>Classifiers are triggered during a crawl task. A classifier checks whether a given file is
- *       in a format it can handle. If it is, the classifier creates a schema in the form of a
- *         <code>StructType</code> object that matches that data format.</p>
- *          <p>You can use the standard classifiers that Glue provides, or you can write your own
- *       classifiers to best categorize your data sources and specify the appropriate schemas to use
- *       for them. A classifier can be a <code>grok</code> classifier, an <code>XML</code> classifier,
- *       a <code>JSON</code> classifier, or a custom <code>CSV</code> classifier, as specified in one
- *       of the fields in the <code>Classifier</code> object.</p>
- * @public
- */
-export interface Classifier {
-  /**
-   * <p>A classifier that uses <code>grok</code>.</p>
-   * @public
-   */
-  GrokClassifier?: GrokClassifier | undefined;
-
-  /**
-   * <p>A classifier for XML content.</p>
-   * @public
-   */
-  XMLClassifier?: XMLClassifier | undefined;
-
-  /**
-   * <p>A classifier for JSON content.</p>
-   * @public
-   */
-  JsonClassifier?: JsonClassifier | undefined;
-
-  /**
-   * <p>A classifier for comma-separated values (CSV).</p>
-   * @public
-   */
-  CsvClassifier?: CsvClassifier | undefined;
-}
-
-/**
- * @public
- */
-export interface GetClassifierResponse {
-  /**
-   * <p>The requested classifier.</p>
-   * @public
-   */
-  Classifier?: Classifier | undefined;
-}
-
-/**
- * @public
- */
-export interface GetClassifiersRequest {
-  /**
-   * <p>The size of the list to return (optional).</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>An optional continuation token.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface GetClassifiersResponse {
-  /**
-   * <p>The requested list of classifier
-   *       objects.</p>
-   * @public
-   */
-  Classifiers?: Classifier[] | undefined;
-
-  /**
-   * <p>A continuation token.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface GetColumnStatisticsForPartitionRequest {
-  /**
-   * <p>The ID of the Data Catalog where the partitions in question reside.
-   *       If none is supplied, the Amazon Web Services account ID is used by default.</p>
-   * @public
-   */
-  CatalogId?: string | undefined;
-
-  /**
-   * <p>The name of the catalog database where the partitions reside.</p>
-   * @public
-   */
-  DatabaseName: string | undefined;
-
-  /**
-   * <p>The name of the partitions' table.</p>
-   * @public
-   */
-  TableName: string | undefined;
-
-  /**
-   * <p>A list of partition values identifying the partition.</p>
-   * @public
-   */
-  PartitionValues: string[] | undefined;
-
-  /**
-   * <p>A list of the column names.</p>
-   * @public
-   */
-  ColumnNames: string[] | undefined;
-}
-
-/**
- * <p>Defines column statistics supported for bit sequence data values.</p>
- * @public
- */
-export interface BinaryColumnStatisticsData {
-  /**
-   * <p>The size of the longest bit sequence in the column.</p>
-   * @public
-   */
-  MaximumLength: number | undefined;
-
-  /**
-   * <p>The average bit sequence length in the column.</p>
-   * @public
-   */
-  AverageLength: number | undefined;
-
-  /**
-   * <p>The number of null values in the column.</p>
-   * @public
-   */
-  NumberOfNulls: number | undefined;
-}
-
-/**
- * <p>Defines column statistics supported for Boolean data columns.</p>
- * @public
- */
-export interface BooleanColumnStatisticsData {
-  /**
-   * <p>The number of true values in the column.</p>
-   * @public
-   */
-  NumberOfTrues: number | undefined;
-
-  /**
-   * <p>The number of false values in the column.</p>
-   * @public
-   */
-  NumberOfFalses: number | undefined;
-
-  /**
-   * <p>The number of null values in the column.</p>
-   * @public
-   */
-  NumberOfNulls: number | undefined;
-}
-
-/**
- * <p>Defines column statistics supported for timestamp data columns.</p>
- * @public
- */
-export interface DateColumnStatisticsData {
-  /**
-   * <p>The lowest value in the column.</p>
-   * @public
-   */
-  MinimumValue?: Date | undefined;
-
-  /**
-   * <p>The highest value in the column.</p>
-   * @public
-   */
-  MaximumValue?: Date | undefined;
-
-  /**
-   * <p>The number of null values in the column.</p>
-   * @public
-   */
-  NumberOfNulls: number | undefined;
-
-  /**
-   * <p>The number of distinct values in a column.</p>
-   * @public
-   */
-  NumberOfDistinctValues: number | undefined;
-}
-
-/**
- * <p>Contains a numeric value in decimal format.</p>
- * @public
- */
-export interface DecimalNumber {
-  /**
-   * <p>The unscaled numeric value.</p>
-   * @public
-   */
-  UnscaledValue: Uint8Array | undefined;
-
-  /**
-   * <p>The scale that determines where the decimal point falls in the
-   *       unscaled value.</p>
-   * @public
-   */
-  Scale: number | undefined;
 }
 
 /**

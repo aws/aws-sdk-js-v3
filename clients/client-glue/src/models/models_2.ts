@@ -22,7 +22,6 @@ import {
   ErrorDetail,
   GlueTable,
   InclusionAnnotationValue,
-  JobRun,
   Partition,
   PartitionValueList,
   Schedule,
@@ -37,8 +36,6 @@ import {
 } from "./models_0";
 
 import {
-  BinaryColumnStatisticsData,
-  BooleanColumnStatisticsData,
   Capabilities,
   CodeGenEdge,
   CodeGenNode,
@@ -48,15 +45,15 @@ import {
   ConnectionPropertyKey,
   ConnectionStatus,
   ConnectionType,
+  CsvClassifier,
   DatabaseIdentifier,
   DataFormat,
   DataQualityTargetTable,
-  DateColumnStatisticsData,
-  DecimalNumber,
   EncryptionConfiguration,
   FederatedDatabase,
-  IntegrationError,
-  IntegrationStatus,
+  GrokClassifier,
+  JobRun,
+  JsonClassifier,
   Language,
   Permission,
   PhysicalConnectionRequirements,
@@ -71,7 +68,6 @@ import {
   Session,
   SourceProcessingProperties,
   SourceTableConfig,
-  Tag,
   TargetProcessingProperties,
   TargetTableConfig,
   TaskStatusType,
@@ -82,6 +78,268 @@ import {
   Workflow,
   WorkflowRun,
 } from "./models_1";
+
+/**
+ * <p>A classifier for <code>XML</code> content.</p>
+ * @public
+ */
+export interface XMLClassifier {
+  /**
+   * <p>The name of the classifier.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>An identifier of the data format that the classifier matches.</p>
+   * @public
+   */
+  Classification: string | undefined;
+
+  /**
+   * <p>The time that this classifier was registered.</p>
+   * @public
+   */
+  CreationTime?: Date | undefined;
+
+  /**
+   * <p>The time that this classifier was last updated.</p>
+   * @public
+   */
+  LastUpdated?: Date | undefined;
+
+  /**
+   * <p>The version of this classifier.</p>
+   * @public
+   */
+  Version?: number | undefined;
+
+  /**
+   * <p>The XML tag designating the element that contains each record in an XML document being
+   *       parsed. This can't identify a self-closing element (closed by <code>/></code>). An empty
+   *       row element that contains only attributes can be parsed as long as it ends with a closing tag
+   *       (for example, <code><row item_a="A" item_b="B"></row></code> is okay, but
+   *         <code><row item_a="A" item_b="B" /></code> is not).</p>
+   * @public
+   */
+  RowTag?: string | undefined;
+}
+
+/**
+ * <p>Classifiers are triggered during a crawl task. A classifier checks whether a given file is
+ *       in a format it can handle. If it is, the classifier creates a schema in the form of a
+ *         <code>StructType</code> object that matches that data format.</p>
+ *          <p>You can use the standard classifiers that Glue provides, or you can write your own
+ *       classifiers to best categorize your data sources and specify the appropriate schemas to use
+ *       for them. A classifier can be a <code>grok</code> classifier, an <code>XML</code> classifier,
+ *       a <code>JSON</code> classifier, or a custom <code>CSV</code> classifier, as specified in one
+ *       of the fields in the <code>Classifier</code> object.</p>
+ * @public
+ */
+export interface Classifier {
+  /**
+   * <p>A classifier that uses <code>grok</code>.</p>
+   * @public
+   */
+  GrokClassifier?: GrokClassifier | undefined;
+
+  /**
+   * <p>A classifier for XML content.</p>
+   * @public
+   */
+  XMLClassifier?: XMLClassifier | undefined;
+
+  /**
+   * <p>A classifier for JSON content.</p>
+   * @public
+   */
+  JsonClassifier?: JsonClassifier | undefined;
+
+  /**
+   * <p>A classifier for comma-separated values (CSV).</p>
+   * @public
+   */
+  CsvClassifier?: CsvClassifier | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetClassifierResponse {
+  /**
+   * <p>The requested classifier.</p>
+   * @public
+   */
+  Classifier?: Classifier | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetClassifiersRequest {
+  /**
+   * <p>The size of the list to return (optional).</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>An optional continuation token.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetClassifiersResponse {
+  /**
+   * <p>The requested list of classifier
+   *       objects.</p>
+   * @public
+   */
+  Classifiers?: Classifier[] | undefined;
+
+  /**
+   * <p>A continuation token.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetColumnStatisticsForPartitionRequest {
+  /**
+   * <p>The ID of the Data Catalog where the partitions in question reside.
+   *       If none is supplied, the Amazon Web Services account ID is used by default.</p>
+   * @public
+   */
+  CatalogId?: string | undefined;
+
+  /**
+   * <p>The name of the catalog database where the partitions reside.</p>
+   * @public
+   */
+  DatabaseName: string | undefined;
+
+  /**
+   * <p>The name of the partitions' table.</p>
+   * @public
+   */
+  TableName: string | undefined;
+
+  /**
+   * <p>A list of partition values identifying the partition.</p>
+   * @public
+   */
+  PartitionValues: string[] | undefined;
+
+  /**
+   * <p>A list of the column names.</p>
+   * @public
+   */
+  ColumnNames: string[] | undefined;
+}
+
+/**
+ * <p>Defines column statistics supported for bit sequence data values.</p>
+ * @public
+ */
+export interface BinaryColumnStatisticsData {
+  /**
+   * <p>The size of the longest bit sequence in the column.</p>
+   * @public
+   */
+  MaximumLength: number | undefined;
+
+  /**
+   * <p>The average bit sequence length in the column.</p>
+   * @public
+   */
+  AverageLength: number | undefined;
+
+  /**
+   * <p>The number of null values in the column.</p>
+   * @public
+   */
+  NumberOfNulls: number | undefined;
+}
+
+/**
+ * <p>Defines column statistics supported for Boolean data columns.</p>
+ * @public
+ */
+export interface BooleanColumnStatisticsData {
+  /**
+   * <p>The number of true values in the column.</p>
+   * @public
+   */
+  NumberOfTrues: number | undefined;
+
+  /**
+   * <p>The number of false values in the column.</p>
+   * @public
+   */
+  NumberOfFalses: number | undefined;
+
+  /**
+   * <p>The number of null values in the column.</p>
+   * @public
+   */
+  NumberOfNulls: number | undefined;
+}
+
+/**
+ * <p>Defines column statistics supported for timestamp data columns.</p>
+ * @public
+ */
+export interface DateColumnStatisticsData {
+  /**
+   * <p>The lowest value in the column.</p>
+   * @public
+   */
+  MinimumValue?: Date | undefined;
+
+  /**
+   * <p>The highest value in the column.</p>
+   * @public
+   */
+  MaximumValue?: Date | undefined;
+
+  /**
+   * <p>The number of null values in the column.</p>
+   * @public
+   */
+  NumberOfNulls: number | undefined;
+
+  /**
+   * <p>The number of distinct values in a column.</p>
+   * @public
+   */
+  NumberOfDistinctValues: number | undefined;
+}
+
+/**
+ * <p>Contains a numeric value in decimal format.</p>
+ * @public
+ */
+export interface DecimalNumber {
+  /**
+   * <p>The unscaled numeric value.</p>
+   * @public
+   */
+  UnscaledValue: Uint8Array | undefined;
+
+  /**
+   * <p>The scale that determines where the decimal point falls in the
+   *       unscaled value.</p>
+   * @public
+   */
+  Scale: number | undefined;
+}
 
 /**
  * <p>Defines column statistics supported for fixed-point number data columns.</p>
@@ -8462,264 +8720,6 @@ export interface ModifyIntegrationRequest {
    * @public
    */
   IntegrationName?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ModifyIntegrationResponse {
-  /**
-   * <p>The ARN of the source for the integration.</p>
-   * @public
-   */
-  SourceArn: string | undefined;
-
-  /**
-   * <p>The ARN of the target for the integration.</p>
-   * @public
-   */
-  TargetArn: string | undefined;
-
-  /**
-   * <p>A unique name for an integration in Glue.</p>
-   * @public
-   */
-  IntegrationName: string | undefined;
-
-  /**
-   * <p>A description of the integration.</p>
-   * @public
-   */
-  Description?: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) for the integration.</p>
-   * @public
-   */
-  IntegrationArn: string | undefined;
-
-  /**
-   * <p>The ARN of a KMS key used for encrypting the channel.</p>
-   * @public
-   */
-  KmsKeyId?: string | undefined;
-
-  /**
-   * <p>An optional set of non-secret key–value pairs that contains additional contextual information for encryption.</p>
-   * @public
-   */
-  AdditionalEncryptionContext?: Record<string, string> | undefined;
-
-  /**
-   * <p>Metadata assigned to the resource consisting of a list of key-value pairs.</p>
-   * @public
-   */
-  Tags?: Tag[] | undefined;
-
-  /**
-   * <p>The status of the integration being modified.</p>
-   *          <p>The possible statuses are:</p>
-   *          <ul>
-   *             <li>
-   *                <p>CREATING: The integration is being created.</p>
-   *             </li>
-   *             <li>
-   *                <p>ACTIVE: The integration creation succeeds.</p>
-   *             </li>
-   *             <li>
-   *                <p>MODIFYING: The integration is being modified.</p>
-   *             </li>
-   *             <li>
-   *                <p>FAILED: The integration creation fails. </p>
-   *             </li>
-   *             <li>
-   *                <p>DELETING: The integration is deleted.</p>
-   *             </li>
-   *             <li>
-   *                <p>SYNCING: The integration is synchronizing.</p>
-   *             </li>
-   *             <li>
-   *                <p>NEEDS_ATTENTION: The integration needs attention, such as synchronization.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  Status: IntegrationStatus | undefined;
-
-  /**
-   * <p>The time when the integration was created, in UTC.</p>
-   * @public
-   */
-  CreateTime: Date | undefined;
-
-  /**
-   * <p>A list of errors associated with the integration modification.</p>
-   * @public
-   */
-  Errors?: IntegrationError[] | undefined;
-
-  /**
-   * <p>Selects source tables for the integration using Maxwell filter syntax.</p>
-   * @public
-   */
-  DataFilter?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface PutDataCatalogEncryptionSettingsRequest {
-  /**
-   * <p>The ID of the Data Catalog to set the security configuration for. If none is provided, the
-   *       Amazon Web Services account ID is used by default.</p>
-   * @public
-   */
-  CatalogId?: string | undefined;
-
-  /**
-   * <p>The security configuration to set.</p>
-   * @public
-   */
-  DataCatalogEncryptionSettings: DataCatalogEncryptionSettings | undefined;
-}
-
-/**
- * @public
- */
-export interface PutDataCatalogEncryptionSettingsResponse {}
-
-/**
- * @public
- */
-export interface PutDataQualityProfileAnnotationRequest {
-  /**
-   * <p>The ID of the data quality monitoring profile to annotate.</p>
-   * @public
-   */
-  ProfileId: string | undefined;
-
-  /**
-   * <p>The inclusion annotation value to apply to the profile.</p>
-   * @public
-   */
-  InclusionAnnotation: InclusionAnnotationValue | undefined;
-}
-
-/**
- * <p>Left blank.</p>
- * @public
- */
-export interface PutDataQualityProfileAnnotationResponse {}
-
-/**
- * @public
- * @enum
- */
-export const EnableHybridValues = {
-  FALSE: "FALSE",
-  TRUE: "TRUE",
-} as const;
-
-/**
- * @public
- */
-export type EnableHybridValues = (typeof EnableHybridValues)[keyof typeof EnableHybridValues];
-
-/**
- * @public
- * @enum
- */
-export const ExistCondition = {
-  MUST_EXIST: "MUST_EXIST",
-  NONE: "NONE",
-  NOT_EXIST: "NOT_EXIST",
-} as const;
-
-/**
- * @public
- */
-export type ExistCondition = (typeof ExistCondition)[keyof typeof ExistCondition];
-
-/**
- * @public
- */
-export interface PutResourcePolicyRequest {
-  /**
-   * <p>Contains the policy document to set, in JSON format.</p>
-   * @public
-   */
-  PolicyInJson: string | undefined;
-
-  /**
-   * <p>Do not use. For internal use only.</p>
-   * @public
-   */
-  ResourceArn?: string | undefined;
-
-  /**
-   * <p>The hash value returned when the previous policy was set using
-   *         <code>PutResourcePolicy</code>. Its purpose is to prevent concurrent modifications of a
-   *       policy. Do not use this parameter if no previous policy has been set.</p>
-   * @public
-   */
-  PolicyHashCondition?: string | undefined;
-
-  /**
-   * <p>A value of <code>MUST_EXIST</code> is used to update a policy. A value of
-   *         <code>NOT_EXIST</code> is used to create a new policy. If a value of <code>NONE</code> or a
-   *       null value is used, the call does not depend on the existence of a policy.</p>
-   * @public
-   */
-  PolicyExistsCondition?: ExistCondition | undefined;
-
-  /**
-   * <p>If <code>'TRUE'</code>, indicates that you are using both methods to grant cross-account
-   *       access to Data Catalog resources:</p>
-   *          <ul>
-   *             <li>
-   *                <p>By directly updating the resource policy with <code>PutResourePolicy</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>By using the <b>Grant permissions</b> command on the Amazon Web Services Management Console.</p>
-   *             </li>
-   *          </ul>
-   *          <p>Must be set to <code>'TRUE'</code> if you have already used the Management Console to
-   *       grant cross-account access, otherwise the call fails. Default is 'FALSE'.</p>
-   * @public
-   */
-  EnableHybrid?: EnableHybridValues | undefined;
-}
-
-/**
- * @public
- */
-export interface PutResourcePolicyResponse {
-  /**
-   * <p>A hash of the policy that has just been set. This must
-   *       be included in a subsequent call that overwrites or updates
-   *       this policy.</p>
-   * @public
-   */
-  PolicyHash?: string | undefined;
-}
-
-/**
- * <p>A structure containing a key value pair for metadata.</p>
- * @public
- */
-export interface MetadataKeyValuePair {
-  /**
-   * <p>A metadata key.</p>
-   * @public
-   */
-  MetadataKey?: string | undefined;
-
-  /**
-   * <p>A metadata key’s corresponding value.</p>
-   * @public
-   */
-  MetadataValue?: string | undefined;
 }
 
 /**

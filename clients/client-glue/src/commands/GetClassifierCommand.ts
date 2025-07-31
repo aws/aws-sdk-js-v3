@@ -6,7 +6,8 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import { GetClassifierRequest, GetClassifierResponse } from "../models/models_1";
+import { GetClassifierRequest } from "../models/models_1";
+import { GetClassifierResponse } from "../models/models_2";
 import { de_GetClassifierCommand, se_GetClassifierCommand } from "../protocols/Aws_json1_1";
 
 /**
