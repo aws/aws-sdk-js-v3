@@ -11,6 +11,7 @@ How was this change tested?
 Add any other context about the PR here.
 
 ### Checklist
+- [ ] If the PR is a feature, add integration tests (`*.integ.spec.ts`).
 - [ ] If you wrote E2E tests, are they resilient to concurrent I/O?
 - [ ] If adding new public functions, did you add the `@public` tag and enable doc generation on the package?
 
