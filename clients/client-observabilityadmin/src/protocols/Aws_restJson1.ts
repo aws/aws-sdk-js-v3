@@ -6,6 +6,7 @@ import {
   _json,
   collectBody,
   decorateServiceException as __decorateServiceException,
+  expectLong as __expectLong,
   expectNonNull as __expectNonNull,
   expectObject as __expectObject,
   expectString as __expectString,
@@ -20,6 +21,22 @@ import {
 } from "@smithy/types";
 
 import {
+  CreateTelemetryRuleCommandInput,
+  CreateTelemetryRuleCommandOutput,
+} from "../commands/CreateTelemetryRuleCommand";
+import {
+  CreateTelemetryRuleForOrganizationCommandInput,
+  CreateTelemetryRuleForOrganizationCommandOutput,
+} from "../commands/CreateTelemetryRuleForOrganizationCommand";
+import {
+  DeleteTelemetryRuleCommandInput,
+  DeleteTelemetryRuleCommandOutput,
+} from "../commands/DeleteTelemetryRuleCommand";
+import {
+  DeleteTelemetryRuleForOrganizationCommandInput,
+  DeleteTelemetryRuleForOrganizationCommandOutput,
+} from "../commands/DeleteTelemetryRuleForOrganizationCommand";
+import {
   GetTelemetryEvaluationStatusCommandInput,
   GetTelemetryEvaluationStatusCommandOutput,
 } from "../commands/GetTelemetryEvaluationStatusCommand";
@@ -27,6 +44,11 @@ import {
   GetTelemetryEvaluationStatusForOrganizationCommandInput,
   GetTelemetryEvaluationStatusForOrganizationCommandOutput,
 } from "../commands/GetTelemetryEvaluationStatusForOrganizationCommand";
+import { GetTelemetryRuleCommandInput, GetTelemetryRuleCommandOutput } from "../commands/GetTelemetryRuleCommand";
+import {
+  GetTelemetryRuleForOrganizationCommandInput,
+  GetTelemetryRuleForOrganizationCommandOutput,
+} from "../commands/GetTelemetryRuleForOrganizationCommand";
 import {
   ListResourceTelemetryCommandInput,
   ListResourceTelemetryCommandOutput,
@@ -35,6 +57,15 @@ import {
   ListResourceTelemetryForOrganizationCommandInput,
   ListResourceTelemetryForOrganizationCommandOutput,
 } from "../commands/ListResourceTelemetryForOrganizationCommand";
+import {
+  ListTagsForResourceCommandInput,
+  ListTagsForResourceCommandOutput,
+} from "../commands/ListTagsForResourceCommand";
+import { ListTelemetryRulesCommandInput, ListTelemetryRulesCommandOutput } from "../commands/ListTelemetryRulesCommand";
+import {
+  ListTelemetryRulesForOrganizationCommandInput,
+  ListTelemetryRulesForOrganizationCommandOutput,
+} from "../commands/ListTelemetryRulesForOrganizationCommand";
 import {
   StartTelemetryEvaluationCommandInput,
   StartTelemetryEvaluationCommandOutput,
@@ -51,15 +82,124 @@ import {
   StopTelemetryEvaluationForOrganizationCommandInput,
   StopTelemetryEvaluationForOrganizationCommandOutput,
 } from "../commands/StopTelemetryEvaluationForOrganizationCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
+import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
+import {
+  UpdateTelemetryRuleCommandInput,
+  UpdateTelemetryRuleCommandOutput,
+} from "../commands/UpdateTelemetryRuleCommand";
+import {
+  UpdateTelemetryRuleForOrganizationCommandInput,
+  UpdateTelemetryRuleForOrganizationCommandOutput,
+} from "../commands/UpdateTelemetryRuleForOrganizationCommand";
 import {
   AccessDeniedException,
+  ConflictException,
   InternalServerException,
+  ResourceNotFoundException,
   ResourceType,
+  ServiceQuotaExceededException,
+  TelemetryDestinationConfiguration,
+  TelemetryRule,
   TelemetryState,
   TelemetryType,
+  TooManyRequestsException,
   ValidationException,
+  VPCFlowLogParameters,
 } from "../models/models_0";
 import { ObservabilityAdminServiceException as __BaseException } from "../models/ObservabilityAdminServiceException";
+
+/**
+ * serializeAws_restJson1CreateTelemetryRuleCommand
+ */
+export const se_CreateTelemetryRuleCommand = async (
+  input: CreateTelemetryRuleCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/CreateTelemetryRule");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      Rule: (_) => _json(_),
+      RuleName: [],
+      Tags: (_) => _json(_),
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1CreateTelemetryRuleForOrganizationCommand
+ */
+export const se_CreateTelemetryRuleForOrganizationCommand = async (
+  input: CreateTelemetryRuleForOrganizationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/CreateTelemetryRuleForOrganization");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      Rule: (_) => _json(_),
+      RuleName: [],
+      Tags: (_) => _json(_),
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1DeleteTelemetryRuleCommand
+ */
+export const se_DeleteTelemetryRuleCommand = async (
+  input: DeleteTelemetryRuleCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/DeleteTelemetryRule");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      RuleIdentifier: [],
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1DeleteTelemetryRuleForOrganizationCommand
+ */
+export const se_DeleteTelemetryRuleForOrganizationCommand = async (
+  input: DeleteTelemetryRuleForOrganizationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/DeleteTelemetryRuleForOrganization");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      RuleIdentifier: [],
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
 
 /**
  * serializeAws_restJson1GetTelemetryEvaluationStatusCommand
@@ -87,6 +227,50 @@ export const se_GetTelemetryEvaluationStatusForOrganizationCommand = async (
   const headers: any = {};
   b.bp("/GetTelemetryEvaluationStatusForOrganization");
   let body: any;
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1GetTelemetryRuleCommand
+ */
+export const se_GetTelemetryRuleCommand = async (
+  input: GetTelemetryRuleCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/GetTelemetryRule");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      RuleIdentifier: [],
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1GetTelemetryRuleForOrganizationCommand
+ */
+export const se_GetTelemetryRuleForOrganizationCommand = async (
+  input: GetTelemetryRuleForOrganizationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/GetTelemetryRuleForOrganization");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      RuleIdentifier: [],
+    })
+  );
   b.m("POST").h(headers).b(body);
   return b.build();
 };
@@ -140,6 +324,78 @@ export const se_ListResourceTelemetryForOrganizationCommand = async (
       ResourceTags: (_) => _json(_),
       ResourceTypes: (_) => _json(_),
       TelemetryConfigurationState: (_) => _json(_),
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1ListTagsForResourceCommand
+ */
+export const se_ListTagsForResourceCommand = async (
+  input: ListTagsForResourceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/ListTagsForResource");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      ResourceARN: [],
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1ListTelemetryRulesCommand
+ */
+export const se_ListTelemetryRulesCommand = async (
+  input: ListTelemetryRulesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/ListTelemetryRules");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      MaxResults: [],
+      NextToken: [],
+      RuleNamePrefix: [],
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1ListTelemetryRulesForOrganizationCommand
+ */
+export const se_ListTelemetryRulesForOrganizationCommand = async (
+  input: ListTelemetryRulesForOrganizationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/ListTelemetryRulesForOrganization");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      MaxResults: [],
+      NextToken: [],
+      RuleNamePrefix: [],
+      SourceAccountIds: (_) => _json(_),
+      SourceOrganizationUnitIds: (_) => _json(_),
     })
   );
   b.m("POST").h(headers).b(body);
@@ -207,6 +463,174 @@ export const se_StopTelemetryEvaluationForOrganizationCommand = async (
 };
 
 /**
+ * serializeAws_restJson1TagResourceCommand
+ */
+export const se_TagResourceCommand = async (
+  input: TagResourceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/TagResource");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      ResourceARN: [],
+      Tags: (_) => _json(_),
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1UntagResourceCommand
+ */
+export const se_UntagResourceCommand = async (
+  input: UntagResourceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/UntagResource");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      ResourceARN: [],
+      TagKeys: (_) => _json(_),
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1UpdateTelemetryRuleCommand
+ */
+export const se_UpdateTelemetryRuleCommand = async (
+  input: UpdateTelemetryRuleCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/UpdateTelemetryRule");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      Rule: (_) => _json(_),
+      RuleIdentifier: [],
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1UpdateTelemetryRuleForOrganizationCommand
+ */
+export const se_UpdateTelemetryRuleForOrganizationCommand = async (
+  input: UpdateTelemetryRuleForOrganizationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/UpdateTelemetryRuleForOrganization");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      Rule: (_) => _json(_),
+      RuleIdentifier: [],
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * deserializeAws_restJson1CreateTelemetryRuleCommand
+ */
+export const de_CreateTelemetryRuleCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateTelemetryRuleCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    RuleArn: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1CreateTelemetryRuleForOrganizationCommand
+ */
+export const de_CreateTelemetryRuleForOrganizationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateTelemetryRuleForOrganizationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    RuleArn: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DeleteTelemetryRuleCommand
+ */
+export const de_DeleteTelemetryRuleCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteTelemetryRuleCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DeleteTelemetryRuleForOrganizationCommand
+ */
+export const de_DeleteTelemetryRuleForOrganizationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteTelemetryRuleForOrganizationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1GetTelemetryEvaluationStatusCommand
  */
 export const de_GetTelemetryEvaluationStatusCommand = async (
@@ -251,6 +675,56 @@ export const de_GetTelemetryEvaluationStatusForOrganizationCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1GetTelemetryRuleCommand
+ */
+export const de_GetTelemetryRuleCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetTelemetryRuleCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    CreatedTimeStamp: __expectLong,
+    LastUpdateTimeStamp: __expectLong,
+    RuleArn: __expectString,
+    RuleName: __expectString,
+    TelemetryRule: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1GetTelemetryRuleForOrganizationCommand
+ */
+export const de_GetTelemetryRuleForOrganizationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetTelemetryRuleForOrganizationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    CreatedTimeStamp: __expectLong,
+    LastUpdateTimeStamp: __expectLong,
+    RuleArn: __expectString,
+    RuleName: __expectString,
+    TelemetryRule: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1ListResourceTelemetryCommand
  */
 export const de_ListResourceTelemetryCommand = async (
@@ -289,6 +763,71 @@ export const de_ListResourceTelemetryForOrganizationCommand = async (
   const doc = take(data, {
     NextToken: __expectString,
     TelemetryConfigurations: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListTagsForResourceCommand
+ */
+export const de_ListTagsForResourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListTagsForResourceCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    Tags: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListTelemetryRulesCommand
+ */
+export const de_ListTelemetryRulesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListTelemetryRulesCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    NextToken: __expectString,
+    TelemetryRuleSummaries: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListTelemetryRulesForOrganizationCommand
+ */
+export const de_ListTelemetryRulesForOrganizationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListTelemetryRulesForOrganizationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    NextToken: __expectString,
+    TelemetryRuleSummaries: _json,
   });
   Object.assign(contents, doc);
   return contents;
@@ -363,6 +902,82 @@ export const de_StopTelemetryEvaluationForOrganizationCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1TagResourceCommand
+ */
+export const de_TagResourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<TagResourceCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1UntagResourceCommand
+ */
+export const de_UntagResourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UntagResourceCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1UpdateTelemetryRuleCommand
+ */
+export const de_UpdateTelemetryRuleCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateTelemetryRuleCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    RuleArn: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1UpdateTelemetryRuleForOrganizationCommand
+ */
+export const de_UpdateTelemetryRuleForOrganizationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateTelemetryRuleForOrganizationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    RuleArn: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserialize_Aws_restJson1CommandError
  */
 const de_CommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<never> => {
@@ -375,12 +990,24 @@ const de_CommandError = async (output: __HttpResponse, context: __SerdeContext):
     case "AccessDeniedException":
     case "com.amazonaws.observabilityadmin#AccessDeniedException":
       throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.observabilityadmin#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.observabilityadmin#InternalServerException":
       throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.observabilityadmin#ServiceQuotaExceededException":
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
+    case "TooManyRequestsException":
+    case "com.amazonaws.observabilityadmin#TooManyRequestsException":
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.observabilityadmin#ValidationException":
       throw await de_ValidationExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.observabilityadmin#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
@@ -415,6 +1042,23 @@ const de_AccessDeniedExceptionRes = async (
 };
 
 /**
+ * deserializeAws_restJson1ConflictExceptionRes
+ */
+const de_ConflictExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ConflictException> => {
+  const contents: any = map({});
+  const data: any = parsedOutput.body;
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
+  const exception = new ConflictException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
+};
+
+/**
  * deserializeAws_restJson1InternalServerExceptionRes
  */
 const de_InternalServerExceptionRes = async (
@@ -430,6 +1074,68 @@ const de_InternalServerExceptionRes = async (
   });
   Object.assign(contents, doc);
   const exception = new InternalServerException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
+};
+
+/**
+ * deserializeAws_restJson1ResourceNotFoundExceptionRes
+ */
+const de_ResourceNotFoundExceptionRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<ResourceNotFoundException> => {
+  const contents: any = map({});
+  const data: any = parsedOutput.body;
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
+  const exception = new ResourceNotFoundException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
+};
+
+/**
+ * deserializeAws_restJson1ServiceQuotaExceededExceptionRes
+ */
+const de_ServiceQuotaExceededExceptionRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<ServiceQuotaExceededException> => {
+  const contents: any = map({
+    [_aET]: [, parsedOutput.headers[_xae]],
+  });
+  const data: any = parsedOutput.body;
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
+  const exception = new ServiceQuotaExceededException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
+};
+
+/**
+ * deserializeAws_restJson1TooManyRequestsExceptionRes
+ */
+const de_TooManyRequestsExceptionRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<TooManyRequestsException> => {
+  const contents: any = map({});
+  const data: any = parsedOutput.body;
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
+  const exception = new TooManyRequestsException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
   });
@@ -455,11 +1161,21 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 
 // se_AccountIdentifiers omitted.
 
+// se_OrganizationUnitIdentifiers omitted.
+
 // se_ResourceTypes omitted.
+
+// se_TagKeyList omitted.
 
 // se_TagMapInput omitted.
 
 // se_TelemetryConfigurationState omitted.
+
+// se_TelemetryDestinationConfiguration omitted.
+
+// se_TelemetryRule omitted.
+
+// se_VPCFlowLogParameters omitted.
 
 // de_TagMapOutput omitted.
 
@@ -468,6 +1184,16 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 // de_TelemetryConfigurations omitted.
 
 // de_TelemetryConfigurationState omitted.
+
+// de_TelemetryDestinationConfiguration omitted.
+
+// de_TelemetryRule omitted.
+
+// de_TelemetryRuleSummaries omitted.
+
+// de_TelemetryRuleSummary omitted.
+
+// de_VPCFlowLogParameters omitted.
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,

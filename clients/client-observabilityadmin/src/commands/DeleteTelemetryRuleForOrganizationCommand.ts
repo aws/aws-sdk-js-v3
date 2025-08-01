@@ -5,15 +5,15 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { GetTelemetryEvaluationStatusForOrganizationOutput } from "../models/models_0";
+import { DeleteTelemetryRuleForOrganizationInput } from "../models/models_0";
 import {
   ObservabilityAdminClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ObservabilityAdminClient";
 import {
-  de_GetTelemetryEvaluationStatusForOrganizationCommand,
-  se_GetTelemetryEvaluationStatusForOrganizationCommand,
+  de_DeleteTelemetryRuleForOrganizationCommand,
+  se_DeleteTelemetryRuleForOrganizationCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -24,42 +24,39 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link GetTelemetryEvaluationStatusForOrganizationCommand}.
+ * The input for {@link DeleteTelemetryRuleForOrganizationCommand}.
  */
-export interface GetTelemetryEvaluationStatusForOrganizationCommandInput {}
+export interface DeleteTelemetryRuleForOrganizationCommandInput extends DeleteTelemetryRuleForOrganizationInput {}
 /**
  * @public
  *
- * The output of {@link GetTelemetryEvaluationStatusForOrganizationCommand}.
+ * The output of {@link DeleteTelemetryRuleForOrganizationCommand}.
  */
-export interface GetTelemetryEvaluationStatusForOrganizationCommandOutput
-  extends GetTelemetryEvaluationStatusForOrganizationOutput,
-    __MetadataBearer {}
+export interface DeleteTelemetryRuleForOrganizationCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>
- *       This returns the onboarding status of the telemetry configuration feature for the organization. It can only be called by a Management Account of an Amazon Web Services Organization or an assigned Delegated Admin Account of Amazon CloudWatch telemetry config.
+ *       Deletes an organization-wide telemetry rule. This operation can only be called by the organization's management account or a delegated administrator account.
  *     </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ObservabilityAdminClient, GetTelemetryEvaluationStatusForOrganizationCommand } from "@aws-sdk/client-observabilityadmin"; // ES Modules import
- * // const { ObservabilityAdminClient, GetTelemetryEvaluationStatusForOrganizationCommand } = require("@aws-sdk/client-observabilityadmin"); // CommonJS import
+ * import { ObservabilityAdminClient, DeleteTelemetryRuleForOrganizationCommand } from "@aws-sdk/client-observabilityadmin"; // ES Modules import
+ * // const { ObservabilityAdminClient, DeleteTelemetryRuleForOrganizationCommand } = require("@aws-sdk/client-observabilityadmin"); // CommonJS import
  * const client = new ObservabilityAdminClient(config);
- * const input = {};
- * const command = new GetTelemetryEvaluationStatusForOrganizationCommand(input);
+ * const input = { // DeleteTelemetryRuleForOrganizationInput
+ *   RuleIdentifier: "STRING_VALUE", // required
+ * };
+ * const command = new DeleteTelemetryRuleForOrganizationCommand(input);
  * const response = await client.send(command);
- * // { // GetTelemetryEvaluationStatusForOrganizationOutput
- * //   Status: "NOT_STARTED" || "STARTING" || "FAILED_START" || "RUNNING" || "STOPPING" || "FAILED_STOP" || "STOPPED",
- * //   FailureReason: "STRING_VALUE",
- * // };
+ * // {};
  *
  * ```
  *
- * @param GetTelemetryEvaluationStatusForOrganizationCommandInput - {@link GetTelemetryEvaluationStatusForOrganizationCommandInput}
- * @returns {@link GetTelemetryEvaluationStatusForOrganizationCommandOutput}
- * @see {@link GetTelemetryEvaluationStatusForOrganizationCommandInput} for command's `input` shape.
- * @see {@link GetTelemetryEvaluationStatusForOrganizationCommandOutput} for command's `response` shape.
+ * @param DeleteTelemetryRuleForOrganizationCommandInput - {@link DeleteTelemetryRuleForOrganizationCommandInput}
+ * @returns {@link DeleteTelemetryRuleForOrganizationCommandOutput}
+ * @see {@link DeleteTelemetryRuleForOrganizationCommandInput} for command's `input` shape.
+ * @see {@link DeleteTelemetryRuleForOrganizationCommandOutput} for command's `response` shape.
  * @see {@link ObservabilityAdminClientResolvedConfig | config} for ObservabilityAdminClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -70,6 +67,11 @@ export interface GetTelemetryEvaluationStatusForOrganizationCommandOutput
  * @throws {@link InternalServerException} (server fault)
  *  <p>
  *       Indicates the request has failed to process because of an unknown server error, exception, or failure.
+ *     </p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>
+ *       The specified resource (such as a telemetry rule) could not be found.
  *     </p>
  *
  * @throws {@link TooManyRequestsException} (client fault)
@@ -88,10 +90,10 @@ export interface GetTelemetryEvaluationStatusForOrganizationCommandOutput
  *
  * @public
  */
-export class GetTelemetryEvaluationStatusForOrganizationCommand extends $Command
+export class DeleteTelemetryRuleForOrganizationCommand extends $Command
   .classBuilder<
-    GetTelemetryEvaluationStatusForOrganizationCommandInput,
-    GetTelemetryEvaluationStatusForOrganizationCommandOutput,
+    DeleteTelemetryRuleForOrganizationCommandInput,
+    DeleteTelemetryRuleForOrganizationCommandOutput,
     ObservabilityAdminClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -103,21 +105,21 @@ export class GetTelemetryEvaluationStatusForOrganizationCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("ObservabilityAdmin", "GetTelemetryEvaluationStatusForOrganization", {})
-  .n("ObservabilityAdminClient", "GetTelemetryEvaluationStatusForOrganizationCommand")
+  .s("ObservabilityAdmin", "DeleteTelemetryRuleForOrganization", {})
+  .n("ObservabilityAdminClient", "DeleteTelemetryRuleForOrganizationCommand")
   .f(void 0, void 0)
-  .ser(se_GetTelemetryEvaluationStatusForOrganizationCommand)
-  .de(de_GetTelemetryEvaluationStatusForOrganizationCommand)
+  .ser(se_DeleteTelemetryRuleForOrganizationCommand)
+  .de(de_DeleteTelemetryRuleForOrganizationCommand)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: {};
-      output: GetTelemetryEvaluationStatusForOrganizationOutput;
+      input: DeleteTelemetryRuleForOrganizationInput;
+      output: {};
     };
     sdk: {
-      input: GetTelemetryEvaluationStatusForOrganizationCommandInput;
-      output: GetTelemetryEvaluationStatusForOrganizationCommandOutput;
+      input: DeleteTelemetryRuleForOrganizationCommandInput;
+      output: DeleteTelemetryRuleForOrganizationCommandOutput;
     };
   };
 }

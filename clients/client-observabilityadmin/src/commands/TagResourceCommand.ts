@@ -5,16 +5,13 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { GetTelemetryEvaluationStatusOutput } from "../models/models_0";
+import { TagResourceInput } from "../models/models_0";
 import {
   ObservabilityAdminClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ObservabilityAdminClient";
-import {
-  de_GetTelemetryEvaluationStatusCommand,
-  se_GetTelemetryEvaluationStatusCommand,
-} from "../protocols/Aws_restJson1";
+import { de_TagResourceCommand, se_TagResourceCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -24,42 +21,42 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link GetTelemetryEvaluationStatusCommand}.
+ * The input for {@link TagResourceCommand}.
  */
-export interface GetTelemetryEvaluationStatusCommandInput {}
+export interface TagResourceCommandInput extends TagResourceInput {}
 /**
  * @public
  *
- * The output of {@link GetTelemetryEvaluationStatusCommand}.
+ * The output of {@link TagResourceCommand}.
  */
-export interface GetTelemetryEvaluationStatusCommandOutput
-  extends GetTelemetryEvaluationStatusOutput,
-    __MetadataBearer {}
+export interface TagResourceCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>
- *       Returns the current onboarding status of the telemetry config feature, including the status of the feature and reason the feature failed to start or stop.
+ *       Adds or updates tags for a telemetry rule resource.
  *     </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ObservabilityAdminClient, GetTelemetryEvaluationStatusCommand } from "@aws-sdk/client-observabilityadmin"; // ES Modules import
- * // const { ObservabilityAdminClient, GetTelemetryEvaluationStatusCommand } = require("@aws-sdk/client-observabilityadmin"); // CommonJS import
+ * import { ObservabilityAdminClient, TagResourceCommand } from "@aws-sdk/client-observabilityadmin"; // ES Modules import
+ * // const { ObservabilityAdminClient, TagResourceCommand } = require("@aws-sdk/client-observabilityadmin"); // CommonJS import
  * const client = new ObservabilityAdminClient(config);
- * const input = {};
- * const command = new GetTelemetryEvaluationStatusCommand(input);
+ * const input = { // TagResourceInput
+ *   ResourceARN: "STRING_VALUE", // required
+ *   Tags: { // TagMapInput // required
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
+ * const command = new TagResourceCommand(input);
  * const response = await client.send(command);
- * // { // GetTelemetryEvaluationStatusOutput
- * //   Status: "NOT_STARTED" || "STARTING" || "FAILED_START" || "RUNNING" || "STOPPING" || "FAILED_STOP" || "STOPPED",
- * //   FailureReason: "STRING_VALUE",
- * // };
+ * // {};
  *
  * ```
  *
- * @param GetTelemetryEvaluationStatusCommandInput - {@link GetTelemetryEvaluationStatusCommandInput}
- * @returns {@link GetTelemetryEvaluationStatusCommandOutput}
- * @see {@link GetTelemetryEvaluationStatusCommandInput} for command's `input` shape.
- * @see {@link GetTelemetryEvaluationStatusCommandOutput} for command's `response` shape.
+ * @param TagResourceCommandInput - {@link TagResourceCommandInput}
+ * @returns {@link TagResourceCommandOutput}
+ * @see {@link TagResourceCommandInput} for command's `input` shape.
+ * @see {@link TagResourceCommandOutput} for command's `response` shape.
  * @see {@link ObservabilityAdminClientResolvedConfig | config} for ObservabilityAdminClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -72,9 +69,24 @@ export interface GetTelemetryEvaluationStatusCommandOutput
  *       Indicates the request has failed to process because of an unknown server error, exception, or failure.
  *     </p>
  *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>
+ *       The specified resource (such as a telemetry rule) could not be found.
+ *     </p>
+ *
+ * @throws {@link ServiceQuotaExceededException} (client fault)
+ *  <p>
+ *       The requested operation would exceed the allowed quota for the specified resource type.
+ *     </p>
+ *
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>
  *       The request throughput limit was exceeded.
+ *     </p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>
+ *      Indicates input validation failed. Check your request parameters and retry the request.
  *     </p>
  *
  * @throws {@link ObservabilityAdminServiceException}
@@ -83,10 +95,10 @@ export interface GetTelemetryEvaluationStatusCommandOutput
  *
  * @public
  */
-export class GetTelemetryEvaluationStatusCommand extends $Command
+export class TagResourceCommand extends $Command
   .classBuilder<
-    GetTelemetryEvaluationStatusCommandInput,
-    GetTelemetryEvaluationStatusCommandOutput,
+    TagResourceCommandInput,
+    TagResourceCommandOutput,
     ObservabilityAdminClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -98,21 +110,21 @@ export class GetTelemetryEvaluationStatusCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("ObservabilityAdmin", "GetTelemetryEvaluationStatus", {})
-  .n("ObservabilityAdminClient", "GetTelemetryEvaluationStatusCommand")
+  .s("ObservabilityAdmin", "TagResource", {})
+  .n("ObservabilityAdminClient", "TagResourceCommand")
   .f(void 0, void 0)
-  .ser(se_GetTelemetryEvaluationStatusCommand)
-  .de(de_GetTelemetryEvaluationStatusCommand)
+  .ser(se_TagResourceCommand)
+  .de(de_TagResourceCommand)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: {};
-      output: GetTelemetryEvaluationStatusOutput;
+      input: TagResourceInput;
+      output: {};
     };
     sdk: {
-      input: GetTelemetryEvaluationStatusCommandInput;
-      output: GetTelemetryEvaluationStatusCommandOutput;
+      input: TagResourceCommandInput;
+      output: TagResourceCommandOutput;
     };
   };
 }

@@ -3,6 +3,26 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
+  CreateTelemetryRuleCommand,
+  CreateTelemetryRuleCommandInput,
+  CreateTelemetryRuleCommandOutput,
+} from "./commands/CreateTelemetryRuleCommand";
+import {
+  CreateTelemetryRuleForOrganizationCommand,
+  CreateTelemetryRuleForOrganizationCommandInput,
+  CreateTelemetryRuleForOrganizationCommandOutput,
+} from "./commands/CreateTelemetryRuleForOrganizationCommand";
+import {
+  DeleteTelemetryRuleCommand,
+  DeleteTelemetryRuleCommandInput,
+  DeleteTelemetryRuleCommandOutput,
+} from "./commands/DeleteTelemetryRuleCommand";
+import {
+  DeleteTelemetryRuleForOrganizationCommand,
+  DeleteTelemetryRuleForOrganizationCommandInput,
+  DeleteTelemetryRuleForOrganizationCommandOutput,
+} from "./commands/DeleteTelemetryRuleForOrganizationCommand";
+import {
   GetTelemetryEvaluationStatusCommand,
   GetTelemetryEvaluationStatusCommandInput,
   GetTelemetryEvaluationStatusCommandOutput,
@@ -13,6 +33,16 @@ import {
   GetTelemetryEvaluationStatusForOrganizationCommandOutput,
 } from "./commands/GetTelemetryEvaluationStatusForOrganizationCommand";
 import {
+  GetTelemetryRuleCommand,
+  GetTelemetryRuleCommandInput,
+  GetTelemetryRuleCommandOutput,
+} from "./commands/GetTelemetryRuleCommand";
+import {
+  GetTelemetryRuleForOrganizationCommand,
+  GetTelemetryRuleForOrganizationCommandInput,
+  GetTelemetryRuleForOrganizationCommandOutput,
+} from "./commands/GetTelemetryRuleForOrganizationCommand";
+import {
   ListResourceTelemetryCommand,
   ListResourceTelemetryCommandInput,
   ListResourceTelemetryCommandOutput,
@@ -22,6 +52,21 @@ import {
   ListResourceTelemetryForOrganizationCommandInput,
   ListResourceTelemetryForOrganizationCommandOutput,
 } from "./commands/ListResourceTelemetryForOrganizationCommand";
+import {
+  ListTagsForResourceCommand,
+  ListTagsForResourceCommandInput,
+  ListTagsForResourceCommandOutput,
+} from "./commands/ListTagsForResourceCommand";
+import {
+  ListTelemetryRulesCommand,
+  ListTelemetryRulesCommandInput,
+  ListTelemetryRulesCommandOutput,
+} from "./commands/ListTelemetryRulesCommand";
+import {
+  ListTelemetryRulesForOrganizationCommand,
+  ListTelemetryRulesForOrganizationCommandInput,
+  ListTelemetryRulesForOrganizationCommandOutput,
+} from "./commands/ListTelemetryRulesForOrganizationCommand";
 import {
   StartTelemetryEvaluationCommand,
   StartTelemetryEvaluationCommandInput,
@@ -42,20 +87,117 @@ import {
   StopTelemetryEvaluationForOrganizationCommandInput,
   StopTelemetryEvaluationForOrganizationCommandOutput,
 } from "./commands/StopTelemetryEvaluationForOrganizationCommand";
+import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import {
+  UntagResourceCommand,
+  UntagResourceCommandInput,
+  UntagResourceCommandOutput,
+} from "./commands/UntagResourceCommand";
+import {
+  UpdateTelemetryRuleCommand,
+  UpdateTelemetryRuleCommandInput,
+  UpdateTelemetryRuleCommandOutput,
+} from "./commands/UpdateTelemetryRuleCommand";
+import {
+  UpdateTelemetryRuleForOrganizationCommand,
+  UpdateTelemetryRuleForOrganizationCommandInput,
+  UpdateTelemetryRuleForOrganizationCommandOutput,
+} from "./commands/UpdateTelemetryRuleForOrganizationCommand";
 import { ObservabilityAdminClient, ObservabilityAdminClientConfig } from "./ObservabilityAdminClient";
 
 const commands = {
+  CreateTelemetryRuleCommand,
+  CreateTelemetryRuleForOrganizationCommand,
+  DeleteTelemetryRuleCommand,
+  DeleteTelemetryRuleForOrganizationCommand,
   GetTelemetryEvaluationStatusCommand,
   GetTelemetryEvaluationStatusForOrganizationCommand,
+  GetTelemetryRuleCommand,
+  GetTelemetryRuleForOrganizationCommand,
   ListResourceTelemetryCommand,
   ListResourceTelemetryForOrganizationCommand,
+  ListTagsForResourceCommand,
+  ListTelemetryRulesCommand,
+  ListTelemetryRulesForOrganizationCommand,
   StartTelemetryEvaluationCommand,
   StartTelemetryEvaluationForOrganizationCommand,
   StopTelemetryEvaluationCommand,
   StopTelemetryEvaluationForOrganizationCommand,
+  TagResourceCommand,
+  UntagResourceCommand,
+  UpdateTelemetryRuleCommand,
+  UpdateTelemetryRuleForOrganizationCommand,
 };
 
 export interface ObservabilityAdmin {
+  /**
+   * @see {@link CreateTelemetryRuleCommand}
+   */
+  createTelemetryRule(
+    args: CreateTelemetryRuleCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateTelemetryRuleCommandOutput>;
+  createTelemetryRule(
+    args: CreateTelemetryRuleCommandInput,
+    cb: (err: any, data?: CreateTelemetryRuleCommandOutput) => void
+  ): void;
+  createTelemetryRule(
+    args: CreateTelemetryRuleCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateTelemetryRuleCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateTelemetryRuleForOrganizationCommand}
+   */
+  createTelemetryRuleForOrganization(
+    args: CreateTelemetryRuleForOrganizationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateTelemetryRuleForOrganizationCommandOutput>;
+  createTelemetryRuleForOrganization(
+    args: CreateTelemetryRuleForOrganizationCommandInput,
+    cb: (err: any, data?: CreateTelemetryRuleForOrganizationCommandOutput) => void
+  ): void;
+  createTelemetryRuleForOrganization(
+    args: CreateTelemetryRuleForOrganizationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateTelemetryRuleForOrganizationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteTelemetryRuleCommand}
+   */
+  deleteTelemetryRule(
+    args: DeleteTelemetryRuleCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteTelemetryRuleCommandOutput>;
+  deleteTelemetryRule(
+    args: DeleteTelemetryRuleCommandInput,
+    cb: (err: any, data?: DeleteTelemetryRuleCommandOutput) => void
+  ): void;
+  deleteTelemetryRule(
+    args: DeleteTelemetryRuleCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteTelemetryRuleCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteTelemetryRuleForOrganizationCommand}
+   */
+  deleteTelemetryRuleForOrganization(
+    args: DeleteTelemetryRuleForOrganizationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteTelemetryRuleForOrganizationCommandOutput>;
+  deleteTelemetryRuleForOrganization(
+    args: DeleteTelemetryRuleForOrganizationCommandInput,
+    cb: (err: any, data?: DeleteTelemetryRuleForOrganizationCommandOutput) => void
+  ): void;
+  deleteTelemetryRuleForOrganization(
+    args: DeleteTelemetryRuleForOrganizationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteTelemetryRuleForOrganizationCommandOutput) => void
+  ): void;
+
   /**
    * @see {@link GetTelemetryEvaluationStatusCommand}
    */
@@ -93,6 +235,40 @@ export interface ObservabilityAdmin {
   ): void;
 
   /**
+   * @see {@link GetTelemetryRuleCommand}
+   */
+  getTelemetryRule(
+    args: GetTelemetryRuleCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetTelemetryRuleCommandOutput>;
+  getTelemetryRule(
+    args: GetTelemetryRuleCommandInput,
+    cb: (err: any, data?: GetTelemetryRuleCommandOutput) => void
+  ): void;
+  getTelemetryRule(
+    args: GetTelemetryRuleCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetTelemetryRuleCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetTelemetryRuleForOrganizationCommand}
+   */
+  getTelemetryRuleForOrganization(
+    args: GetTelemetryRuleForOrganizationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetTelemetryRuleForOrganizationCommandOutput>;
+  getTelemetryRuleForOrganization(
+    args: GetTelemetryRuleForOrganizationCommandInput,
+    cb: (err: any, data?: GetTelemetryRuleForOrganizationCommandOutput) => void
+  ): void;
+  getTelemetryRuleForOrganization(
+    args: GetTelemetryRuleForOrganizationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetTelemetryRuleForOrganizationCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListResourceTelemetryCommand}
    */
   listResourceTelemetry(): Promise<ListResourceTelemetryCommandOutput>;
@@ -126,6 +302,59 @@ export interface ObservabilityAdmin {
     args: ListResourceTelemetryForOrganizationCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListResourceTelemetryForOrganizationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListTagsForResourceCommand}
+   */
+  listTagsForResource(
+    args: ListTagsForResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListTagsForResourceCommandOutput>;
+  listTagsForResource(
+    args: ListTagsForResourceCommandInput,
+    cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
+  ): void;
+  listTagsForResource(
+    args: ListTagsForResourceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListTelemetryRulesCommand}
+   */
+  listTelemetryRules(): Promise<ListTelemetryRulesCommandOutput>;
+  listTelemetryRules(
+    args: ListTelemetryRulesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListTelemetryRulesCommandOutput>;
+  listTelemetryRules(
+    args: ListTelemetryRulesCommandInput,
+    cb: (err: any, data?: ListTelemetryRulesCommandOutput) => void
+  ): void;
+  listTelemetryRules(
+    args: ListTelemetryRulesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListTelemetryRulesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListTelemetryRulesForOrganizationCommand}
+   */
+  listTelemetryRulesForOrganization(): Promise<ListTelemetryRulesForOrganizationCommandOutput>;
+  listTelemetryRulesForOrganization(
+    args: ListTelemetryRulesForOrganizationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListTelemetryRulesForOrganizationCommandOutput>;
+  listTelemetryRulesForOrganization(
+    args: ListTelemetryRulesForOrganizationCommandInput,
+    cb: (err: any, data?: ListTelemetryRulesForOrganizationCommandOutput) => void
+  ): void;
+  listTelemetryRulesForOrganization(
+    args: ListTelemetryRulesForOrganizationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListTelemetryRulesForOrganizationCommandOutput) => void
   ): void;
 
   /**
@@ -199,11 +428,67 @@ export interface ObservabilityAdmin {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: StopTelemetryEvaluationForOrganizationCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link TagResourceCommand}
+   */
+  tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
+  tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
+  tagResource(
+    args: TagResourceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UntagResourceCommand}
+   */
+  untagResource(args: UntagResourceCommandInput, options?: __HttpHandlerOptions): Promise<UntagResourceCommandOutput>;
+  untagResource(args: UntagResourceCommandInput, cb: (err: any, data?: UntagResourceCommandOutput) => void): void;
+  untagResource(
+    args: UntagResourceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateTelemetryRuleCommand}
+   */
+  updateTelemetryRule(
+    args: UpdateTelemetryRuleCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateTelemetryRuleCommandOutput>;
+  updateTelemetryRule(
+    args: UpdateTelemetryRuleCommandInput,
+    cb: (err: any, data?: UpdateTelemetryRuleCommandOutput) => void
+  ): void;
+  updateTelemetryRule(
+    args: UpdateTelemetryRuleCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateTelemetryRuleCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateTelemetryRuleForOrganizationCommand}
+   */
+  updateTelemetryRuleForOrganization(
+    args: UpdateTelemetryRuleForOrganizationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateTelemetryRuleForOrganizationCommandOutput>;
+  updateTelemetryRuleForOrganization(
+    args: UpdateTelemetryRuleForOrganizationCommandInput,
+    cb: (err: any, data?: UpdateTelemetryRuleForOrganizationCommandOutput) => void
+  ): void;
+  updateTelemetryRuleForOrganization(
+    args: UpdateTelemetryRuleForOrganizationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateTelemetryRuleForOrganizationCommandOutput) => void
+  ): void;
 }
 
 /**
  * <p>
- *       Amazon CloudWatch Obsersavability Admin to control temletry config for your AWS Organization or account. Telemetry config conﬁg to discover and understand the state of telemetry conﬁguration for your AWS resources from a central view in the CloudWatch console. Telemetry conﬁg simpliﬁes the process of auditing your telemetry collection conﬁgurations across multiple resource types across your AWS Organization or account.
+ *       You can use Amazon CloudWatch Observability Admin to discover and understand the state of telemetry configuration in CloudWatch for your Amazon Web Services Organization or account. This simplifies the process of auditing your telemetry collection configurations across multiple resource types within your Amazon Web Services Organization or account. By providing a consolidated view, it allows you to easily review and manage telemetry settings, helping you ensure proper monitoring and data collection across your Amazon Web Services environment.
  *       For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/telemetry-config-cloudwatch.html">Auditing CloudWatch telemetry conﬁgurations</a> in the CloudWatch User Guide.</p>
  *          <p>For information on the permissions you need to use this API, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/auth-and-access-control-cw.html">Identity and access management for Amazon CloudWatch</a> in the CloudWatch User Guide.</p>
  * @public

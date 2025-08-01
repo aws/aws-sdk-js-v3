@@ -5,16 +5,13 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { GetTelemetryEvaluationStatusOutput } from "../models/models_0";
+import { UntagResourceInput } from "../models/models_0";
 import {
   ObservabilityAdminClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ObservabilityAdminClient";
-import {
-  de_GetTelemetryEvaluationStatusCommand,
-  se_GetTelemetryEvaluationStatusCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UntagResourceCommand, se_UntagResourceCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -24,42 +21,42 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link GetTelemetryEvaluationStatusCommand}.
+ * The input for {@link UntagResourceCommand}.
  */
-export interface GetTelemetryEvaluationStatusCommandInput {}
+export interface UntagResourceCommandInput extends UntagResourceInput {}
 /**
  * @public
  *
- * The output of {@link GetTelemetryEvaluationStatusCommand}.
+ * The output of {@link UntagResourceCommand}.
  */
-export interface GetTelemetryEvaluationStatusCommandOutput
-  extends GetTelemetryEvaluationStatusOutput,
-    __MetadataBearer {}
+export interface UntagResourceCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>
- *       Returns the current onboarding status of the telemetry config feature, including the status of the feature and reason the feature failed to start or stop.
+ *       Removes tags from a telemetry rule resource.
  *     </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ObservabilityAdminClient, GetTelemetryEvaluationStatusCommand } from "@aws-sdk/client-observabilityadmin"; // ES Modules import
- * // const { ObservabilityAdminClient, GetTelemetryEvaluationStatusCommand } = require("@aws-sdk/client-observabilityadmin"); // CommonJS import
+ * import { ObservabilityAdminClient, UntagResourceCommand } from "@aws-sdk/client-observabilityadmin"; // ES Modules import
+ * // const { ObservabilityAdminClient, UntagResourceCommand } = require("@aws-sdk/client-observabilityadmin"); // CommonJS import
  * const client = new ObservabilityAdminClient(config);
- * const input = {};
- * const command = new GetTelemetryEvaluationStatusCommand(input);
+ * const input = { // UntagResourceInput
+ *   ResourceARN: "STRING_VALUE", // required
+ *   TagKeys: [ // TagKeyList // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
+ * const command = new UntagResourceCommand(input);
  * const response = await client.send(command);
- * // { // GetTelemetryEvaluationStatusOutput
- * //   Status: "NOT_STARTED" || "STARTING" || "FAILED_START" || "RUNNING" || "STOPPING" || "FAILED_STOP" || "STOPPED",
- * //   FailureReason: "STRING_VALUE",
- * // };
+ * // {};
  *
  * ```
  *
- * @param GetTelemetryEvaluationStatusCommandInput - {@link GetTelemetryEvaluationStatusCommandInput}
- * @returns {@link GetTelemetryEvaluationStatusCommandOutput}
- * @see {@link GetTelemetryEvaluationStatusCommandInput} for command's `input` shape.
- * @see {@link GetTelemetryEvaluationStatusCommandOutput} for command's `response` shape.
+ * @param UntagResourceCommandInput - {@link UntagResourceCommandInput}
+ * @returns {@link UntagResourceCommandOutput}
+ * @see {@link UntagResourceCommandInput} for command's `input` shape.
+ * @see {@link UntagResourceCommandOutput} for command's `response` shape.
  * @see {@link ObservabilityAdminClientResolvedConfig | config} for ObservabilityAdminClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -72,9 +69,19 @@ export interface GetTelemetryEvaluationStatusCommandOutput
  *       Indicates the request has failed to process because of an unknown server error, exception, or failure.
  *     </p>
  *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>
+ *       The specified resource (such as a telemetry rule) could not be found.
+ *     </p>
+ *
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>
  *       The request throughput limit was exceeded.
+ *     </p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>
+ *      Indicates input validation failed. Check your request parameters and retry the request.
  *     </p>
  *
  * @throws {@link ObservabilityAdminServiceException}
@@ -83,10 +90,10 @@ export interface GetTelemetryEvaluationStatusCommandOutput
  *
  * @public
  */
-export class GetTelemetryEvaluationStatusCommand extends $Command
+export class UntagResourceCommand extends $Command
   .classBuilder<
-    GetTelemetryEvaluationStatusCommandInput,
-    GetTelemetryEvaluationStatusCommandOutput,
+    UntagResourceCommandInput,
+    UntagResourceCommandOutput,
     ObservabilityAdminClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -98,21 +105,21 @@ export class GetTelemetryEvaluationStatusCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("ObservabilityAdmin", "GetTelemetryEvaluationStatus", {})
-  .n("ObservabilityAdminClient", "GetTelemetryEvaluationStatusCommand")
+  .s("ObservabilityAdmin", "UntagResource", {})
+  .n("ObservabilityAdminClient", "UntagResourceCommand")
   .f(void 0, void 0)
-  .ser(se_GetTelemetryEvaluationStatusCommand)
-  .de(de_GetTelemetryEvaluationStatusCommand)
+  .ser(se_UntagResourceCommand)
+  .de(de_UntagResourceCommand)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: {};
-      output: GetTelemetryEvaluationStatusOutput;
+      input: UntagResourceInput;
+      output: {};
     };
     sdk: {
-      input: GetTelemetryEvaluationStatusCommandInput;
-      output: GetTelemetryEvaluationStatusCommandOutput;
+      input: UntagResourceCommandInput;
+      output: UntagResourceCommandOutput;
     };
   };
 }

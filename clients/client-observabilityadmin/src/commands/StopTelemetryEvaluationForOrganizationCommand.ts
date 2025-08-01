@@ -35,7 +35,7 @@ export interface StopTelemetryEvaluationForOrganizationCommandOutput extends __M
 
 /**
  * <p>
- *       This action offboards the Organization of the caller AWS account from thef telemetry config feature.
+ *       This action offboards the Organization of the caller Amazon Web Services account from the telemetry config feature.
  *     </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -58,12 +58,17 @@ export interface StopTelemetryEvaluationForOrganizationCommandOutput extends __M
  *
  * @throws {@link AccessDeniedException} (client fault)
  *  <p>
- *       Indicates you don't have permissions to perform the requested operation. The user or role that is making the request must have at least one IAM permissions policy attached that grants the required permissions. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access.html">Access management for AWS resources</a> in the IAM user guide.
+ *       Indicates you don't have permissions to perform the requested operation. The user or role that is making the request must have at least one IAM permissions policy attached that grants the required permissions. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access.html">Access management for Amazon Web Services resources</a> in the IAM user guide.
  *     </p>
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>
  *       Indicates the request has failed to process because of an unknown server error, exception, or failure.
+ *     </p>
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  <p>
+ *       The request throughput limit was exceeded.
  *     </p>
  *
  * @throws {@link ValidationException} (client fault)

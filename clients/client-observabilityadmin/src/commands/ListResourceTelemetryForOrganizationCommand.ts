@@ -41,7 +41,7 @@ export interface ListResourceTelemetryForOrganizationCommandOutput
 
 /**
  * <p>
- *       Returns a list of telemetry configurations for AWS resources supported by telemetry config in the organization.
+ *       Returns a list of telemetry configurations for Amazon Web Services resources supported by telemetry config in the organization.
  *     </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -96,12 +96,17 @@ export interface ListResourceTelemetryForOrganizationCommandOutput
  *
  * @throws {@link AccessDeniedException} (client fault)
  *  <p>
- *       Indicates you don't have permissions to perform the requested operation. The user or role that is making the request must have at least one IAM permissions policy attached that grants the required permissions. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access.html">Access management for AWS resources</a> in the IAM user guide.
+ *       Indicates you don't have permissions to perform the requested operation. The user or role that is making the request must have at least one IAM permissions policy attached that grants the required permissions. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access.html">Access management for Amazon Web Services resources</a> in the IAM user guide.
  *     </p>
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>
  *       Indicates the request has failed to process because of an unknown server error, exception, or failure.
+ *     </p>
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  <p>
+ *       The request throughput limit was exceeded.
  *     </p>
  *
  * @throws {@link ValidationException} (client fault)

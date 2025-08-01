@@ -54,6 +54,22 @@ import {
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
 import {
+  CreateTelemetryRuleCommandInput,
+  CreateTelemetryRuleCommandOutput,
+} from "./commands/CreateTelemetryRuleCommand";
+import {
+  CreateTelemetryRuleForOrganizationCommandInput,
+  CreateTelemetryRuleForOrganizationCommandOutput,
+} from "./commands/CreateTelemetryRuleForOrganizationCommand";
+import {
+  DeleteTelemetryRuleCommandInput,
+  DeleteTelemetryRuleCommandOutput,
+} from "./commands/DeleteTelemetryRuleCommand";
+import {
+  DeleteTelemetryRuleForOrganizationCommandInput,
+  DeleteTelemetryRuleForOrganizationCommandOutput,
+} from "./commands/DeleteTelemetryRuleForOrganizationCommand";
+import {
   GetTelemetryEvaluationStatusCommandInput,
   GetTelemetryEvaluationStatusCommandOutput,
 } from "./commands/GetTelemetryEvaluationStatusCommand";
@@ -61,6 +77,11 @@ import {
   GetTelemetryEvaluationStatusForOrganizationCommandInput,
   GetTelemetryEvaluationStatusForOrganizationCommandOutput,
 } from "./commands/GetTelemetryEvaluationStatusForOrganizationCommand";
+import { GetTelemetryRuleCommandInput, GetTelemetryRuleCommandOutput } from "./commands/GetTelemetryRuleCommand";
+import {
+  GetTelemetryRuleForOrganizationCommandInput,
+  GetTelemetryRuleForOrganizationCommandOutput,
+} from "./commands/GetTelemetryRuleForOrganizationCommand";
 import {
   ListResourceTelemetryCommandInput,
   ListResourceTelemetryCommandOutput,
@@ -69,6 +90,15 @@ import {
   ListResourceTelemetryForOrganizationCommandInput,
   ListResourceTelemetryForOrganizationCommandOutput,
 } from "./commands/ListResourceTelemetryForOrganizationCommand";
+import {
+  ListTagsForResourceCommandInput,
+  ListTagsForResourceCommandOutput,
+} from "./commands/ListTagsForResourceCommand";
+import { ListTelemetryRulesCommandInput, ListTelemetryRulesCommandOutput } from "./commands/ListTelemetryRulesCommand";
+import {
+  ListTelemetryRulesForOrganizationCommandInput,
+  ListTelemetryRulesForOrganizationCommandOutput,
+} from "./commands/ListTelemetryRulesForOrganizationCommand";
 import {
   StartTelemetryEvaluationCommandInput,
   StartTelemetryEvaluationCommandOutput,
@@ -85,6 +115,16 @@ import {
   StopTelemetryEvaluationForOrganizationCommandInput,
   StopTelemetryEvaluationForOrganizationCommandOutput,
 } from "./commands/StopTelemetryEvaluationForOrganizationCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import {
+  UpdateTelemetryRuleCommandInput,
+  UpdateTelemetryRuleCommandOutput,
+} from "./commands/UpdateTelemetryRuleCommand";
+import {
+  UpdateTelemetryRuleForOrganizationCommandInput,
+  UpdateTelemetryRuleForOrganizationCommandOutput,
+} from "./commands/UpdateTelemetryRuleForOrganizationCommand";
 import {
   ClientInputEndpointParameters,
   ClientResolvedEndpointParameters,
@@ -100,27 +140,53 @@ export { __Client };
  * @public
  */
 export type ServiceInputTypes =
+  | CreateTelemetryRuleCommandInput
+  | CreateTelemetryRuleForOrganizationCommandInput
+  | DeleteTelemetryRuleCommandInput
+  | DeleteTelemetryRuleForOrganizationCommandInput
   | GetTelemetryEvaluationStatusCommandInput
   | GetTelemetryEvaluationStatusForOrganizationCommandInput
+  | GetTelemetryRuleCommandInput
+  | GetTelemetryRuleForOrganizationCommandInput
   | ListResourceTelemetryCommandInput
   | ListResourceTelemetryForOrganizationCommandInput
+  | ListTagsForResourceCommandInput
+  | ListTelemetryRulesCommandInput
+  | ListTelemetryRulesForOrganizationCommandInput
   | StartTelemetryEvaluationCommandInput
   | StartTelemetryEvaluationForOrganizationCommandInput
   | StopTelemetryEvaluationCommandInput
-  | StopTelemetryEvaluationForOrganizationCommandInput;
+  | StopTelemetryEvaluationForOrganizationCommandInput
+  | TagResourceCommandInput
+  | UntagResourceCommandInput
+  | UpdateTelemetryRuleCommandInput
+  | UpdateTelemetryRuleForOrganizationCommandInput;
 
 /**
  * @public
  */
 export type ServiceOutputTypes =
+  | CreateTelemetryRuleCommandOutput
+  | CreateTelemetryRuleForOrganizationCommandOutput
+  | DeleteTelemetryRuleCommandOutput
+  | DeleteTelemetryRuleForOrganizationCommandOutput
   | GetTelemetryEvaluationStatusCommandOutput
   | GetTelemetryEvaluationStatusForOrganizationCommandOutput
+  | GetTelemetryRuleCommandOutput
+  | GetTelemetryRuleForOrganizationCommandOutput
   | ListResourceTelemetryCommandOutput
   | ListResourceTelemetryForOrganizationCommandOutput
+  | ListTagsForResourceCommandOutput
+  | ListTelemetryRulesCommandOutput
+  | ListTelemetryRulesForOrganizationCommandOutput
   | StartTelemetryEvaluationCommandOutput
   | StartTelemetryEvaluationForOrganizationCommandOutput
   | StopTelemetryEvaluationCommandOutput
-  | StopTelemetryEvaluationForOrganizationCommandOutput;
+  | StopTelemetryEvaluationForOrganizationCommandOutput
+  | TagResourceCommandOutput
+  | UntagResourceCommandOutput
+  | UpdateTelemetryRuleCommandOutput
+  | UpdateTelemetryRuleForOrganizationCommandOutput;
 
 /**
  * @public
@@ -314,7 +380,7 @@ export interface ObservabilityAdminClientResolvedConfig extends ObservabilityAdm
 
 /**
  * <p>
- *       Amazon CloudWatch Obsersavability Admin to control temletry config for your AWS Organization or account. Telemetry config conﬁg to discover and understand the state of telemetry conﬁguration for your AWS resources from a central view in the CloudWatch console. Telemetry conﬁg simpliﬁes the process of auditing your telemetry collection conﬁgurations across multiple resource types across your AWS Organization or account.
+ *       You can use Amazon CloudWatch Observability Admin to discover and understand the state of telemetry configuration in CloudWatch for your Amazon Web Services Organization or account. This simplifies the process of auditing your telemetry collection configurations across multiple resource types within your Amazon Web Services Organization or account. By providing a consolidated view, it allows you to easily review and manage telemetry settings, helping you ensure proper monitoring and data collection across your Amazon Web Services environment.
  *       For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/telemetry-config-cloudwatch.html">Auditing CloudWatch telemetry conﬁgurations</a> in the CloudWatch User Guide.</p>
  *          <p>For information on the permissions you need to use this API, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/auth-and-access-control-cw.html">Identity and access management for Amazon CloudWatch</a> in the CloudWatch User Guide.</p>
  * @public

@@ -5,16 +5,13 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { GetTelemetryEvaluationStatusForOrganizationOutput } from "../models/models_0";
+import { ListTagsForResourceInput, ListTagsForResourceOutput } from "../models/models_0";
 import {
   ObservabilityAdminClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ObservabilityAdminClient";
-import {
-  de_GetTelemetryEvaluationStatusForOrganizationCommand,
-  se_GetTelemetryEvaluationStatusForOrganizationCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListTagsForResourceCommand, se_ListTagsForResourceCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -24,42 +21,43 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link GetTelemetryEvaluationStatusForOrganizationCommand}.
+ * The input for {@link ListTagsForResourceCommand}.
  */
-export interface GetTelemetryEvaluationStatusForOrganizationCommandInput {}
+export interface ListTagsForResourceCommandInput extends ListTagsForResourceInput {}
 /**
  * @public
  *
- * The output of {@link GetTelemetryEvaluationStatusForOrganizationCommand}.
+ * The output of {@link ListTagsForResourceCommand}.
  */
-export interface GetTelemetryEvaluationStatusForOrganizationCommandOutput
-  extends GetTelemetryEvaluationStatusForOrganizationOutput,
-    __MetadataBearer {}
+export interface ListTagsForResourceCommandOutput extends ListTagsForResourceOutput, __MetadataBearer {}
 
 /**
  * <p>
- *       This returns the onboarding status of the telemetry configuration feature for the organization. It can only be called by a Management Account of an Amazon Web Services Organization or an assigned Delegated Admin Account of Amazon CloudWatch telemetry config.
+ *       Lists all tags attached to the specified telemetry rule resource.
  *     </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ObservabilityAdminClient, GetTelemetryEvaluationStatusForOrganizationCommand } from "@aws-sdk/client-observabilityadmin"; // ES Modules import
- * // const { ObservabilityAdminClient, GetTelemetryEvaluationStatusForOrganizationCommand } = require("@aws-sdk/client-observabilityadmin"); // CommonJS import
+ * import { ObservabilityAdminClient, ListTagsForResourceCommand } from "@aws-sdk/client-observabilityadmin"; // ES Modules import
+ * // const { ObservabilityAdminClient, ListTagsForResourceCommand } = require("@aws-sdk/client-observabilityadmin"); // CommonJS import
  * const client = new ObservabilityAdminClient(config);
- * const input = {};
- * const command = new GetTelemetryEvaluationStatusForOrganizationCommand(input);
+ * const input = { // ListTagsForResourceInput
+ *   ResourceARN: "STRING_VALUE", // required
+ * };
+ * const command = new ListTagsForResourceCommand(input);
  * const response = await client.send(command);
- * // { // GetTelemetryEvaluationStatusForOrganizationOutput
- * //   Status: "NOT_STARTED" || "STARTING" || "FAILED_START" || "RUNNING" || "STOPPING" || "FAILED_STOP" || "STOPPED",
- * //   FailureReason: "STRING_VALUE",
+ * // { // ListTagsForResourceOutput
+ * //   Tags: { // TagMapOutput // required
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
  * // };
  *
  * ```
  *
- * @param GetTelemetryEvaluationStatusForOrganizationCommandInput - {@link GetTelemetryEvaluationStatusForOrganizationCommandInput}
- * @returns {@link GetTelemetryEvaluationStatusForOrganizationCommandOutput}
- * @see {@link GetTelemetryEvaluationStatusForOrganizationCommandInput} for command's `input` shape.
- * @see {@link GetTelemetryEvaluationStatusForOrganizationCommandOutput} for command's `response` shape.
+ * @param ListTagsForResourceCommandInput - {@link ListTagsForResourceCommandInput}
+ * @returns {@link ListTagsForResourceCommandOutput}
+ * @see {@link ListTagsForResourceCommandInput} for command's `input` shape.
+ * @see {@link ListTagsForResourceCommandOutput} for command's `response` shape.
  * @see {@link ObservabilityAdminClientResolvedConfig | config} for ObservabilityAdminClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -70,6 +68,11 @@ export interface GetTelemetryEvaluationStatusForOrganizationCommandOutput
  * @throws {@link InternalServerException} (server fault)
  *  <p>
  *       Indicates the request has failed to process because of an unknown server error, exception, or failure.
+ *     </p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>
+ *       The specified resource (such as a telemetry rule) could not be found.
  *     </p>
  *
  * @throws {@link TooManyRequestsException} (client fault)
@@ -88,10 +91,10 @@ export interface GetTelemetryEvaluationStatusForOrganizationCommandOutput
  *
  * @public
  */
-export class GetTelemetryEvaluationStatusForOrganizationCommand extends $Command
+export class ListTagsForResourceCommand extends $Command
   .classBuilder<
-    GetTelemetryEvaluationStatusForOrganizationCommandInput,
-    GetTelemetryEvaluationStatusForOrganizationCommandOutput,
+    ListTagsForResourceCommandInput,
+    ListTagsForResourceCommandOutput,
     ObservabilityAdminClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -103,21 +106,21 @@ export class GetTelemetryEvaluationStatusForOrganizationCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("ObservabilityAdmin", "GetTelemetryEvaluationStatusForOrganization", {})
-  .n("ObservabilityAdminClient", "GetTelemetryEvaluationStatusForOrganizationCommand")
+  .s("ObservabilityAdmin", "ListTagsForResource", {})
+  .n("ObservabilityAdminClient", "ListTagsForResourceCommand")
   .f(void 0, void 0)
-  .ser(se_GetTelemetryEvaluationStatusForOrganizationCommand)
-  .de(de_GetTelemetryEvaluationStatusForOrganizationCommand)
+  .ser(se_ListTagsForResourceCommand)
+  .de(de_ListTagsForResourceCommand)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: {};
-      output: GetTelemetryEvaluationStatusForOrganizationOutput;
+      input: ListTagsForResourceInput;
+      output: ListTagsForResourceOutput;
     };
     sdk: {
-      input: GetTelemetryEvaluationStatusForOrganizationCommandInput;
-      output: GetTelemetryEvaluationStatusForOrganizationCommandOutput;
+      input: ListTagsForResourceCommandInput;
+      output: ListTagsForResourceCommandOutput;
     };
   };
 }
