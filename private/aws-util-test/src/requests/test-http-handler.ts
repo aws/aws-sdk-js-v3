@@ -122,9 +122,9 @@ export class TestHttpHandler implements HttpHandler {
     this.check(m.hostname, request.hostname);
     this.check(m.port, request.port);
     this.check(m.path, request.path);
-    this.checkAll(m.query, request.query);
+    this.checkAll(m.query ?? {}, request.query, "query");
 
-    this.checkAll(m.headers, request.headers);
+    this.checkAll(m.headers ?? {}, request.headers, "header");
     this.check(m.body, request.body);
     this.check(m.method, request.method);
 
@@ -189,7 +189,11 @@ export class TestHttpHandler implements HttpHandler {
     this.assertions++;
   }
 
-  private checkAll(matchers?: Record<string, Matcher> | Map<RegExp | string, Matcher>, observed?: any) {
+  private checkAll(
+    matchers: Record<string, Matcher> | Map<RegExp | string, Matcher>,
+    observed: any,
+    type: "header" | "query"
+  ) {
     if (matchers == null) {
       return;
     }
@@ -201,7 +205,11 @@ export class TestHttpHandler implements HttpHandler {
         if (key.startsWith("/") && key.endsWith("/")) {
           key = new RegExp(key);
         } else {
-          this.check(matcher, observed[key]);
+          const matchingValue =
+            type === "header"
+              ? observed[Object.keys(observed).find((k) => k.toLowerCase() === String(key).toLowerCase()) ?? ""]
+              : observed[key];
+          this.check(matcher, matchingValue);
         }
       }
       if (key instanceof RegExp) {
