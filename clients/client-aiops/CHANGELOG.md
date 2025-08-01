@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.859.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.858.0...v3.859.0) (2025-08-01)
+
+
+### Features
+
+* **client-aiops:** This release includes fix for InvestigationGroup timestamp conversion issue. ([ec627ae](https://github.com/aws/aws-sdk-js-v3/commit/ec627aeef6b6ea812e329a68195f76633a8b2dd6))
+
+
+
+
+
 # [3.858.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.857.0...v3.858.0) (2025-07-31)
 
 **Note:** Version bump only for package @aws-sdk/client-aiops

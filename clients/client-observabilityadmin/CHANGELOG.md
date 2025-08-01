@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.859.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.858.0...v3.859.0) (2025-08-01)
+
+
+### Features
+
+* **client-observabilityadmin:** CloudWatch Observability Admin adds the ability to enable telemetry on AWS resources such as Amazon VPCs (Flow Logs) in customers AWS Accounts and Organizations. The release introduces new APIs to manage telemetry rules, which define telemetry settings to be applied on AWS resources. ([39e204f](https://github.com/aws/aws-sdk-js-v3/commit/39e204f9e74b8a0237167a21b079fa47e533987f))
+
+
+
+
+
 # [3.858.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.857.0...v3.858.0) (2025-07-31)
 
 **Note:** Version bump only for package @aws-sdk/client-observabilityadmin

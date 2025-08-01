@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.859.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.858.0...v3.859.0) (2025-08-01)
+
+
+### Features
+
+* **client-lightsail:** This release adds support for the Asia Pacific (Jakarta) (ap-southeast-3) Region. ([32d73d7](https://github.com/aws/aws-sdk-js-v3/commit/32d73d71a4346af0ea03df351fcdb09d1c2678c1))
+
+
+
+
+
 # [3.858.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.857.0...v3.858.0) (2025-07-31)
 
 **Note:** Version bump only for package @aws-sdk/client-lightsail

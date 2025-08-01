@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.859.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.858.0...v3.859.0) (2025-08-01)
+
+
+### Features
+
+* **client-aiops:** This release includes fix for InvestigationGroup timestamp conversion issue. ([ec627ae](https://github.com/aws/aws-sdk-js-v3/commit/ec627aeef6b6ea812e329a68195f76633a8b2dd6))
+* **client-arc-region-switch:** This is the initial SDK release for Region switch ([6cc73c6](https://github.com/aws/aws-sdk-js-v3/commit/6cc73c6afdbbd453811509b24ffc7189d0d7511b))
+* **client-auditmanager:** Added a note to Framework APIs (CreateAssessmentFramework, GetAssessmentFramework, UpdateAssessmentFramework) clarifying that the Controls object returns a partial response when called through Framework APIs. Added documentation that the Framework's controlSources parameter is no longer supported. ([dbff0ec](https://github.com/aws/aws-sdk-js-v3/commit/dbff0ec320c8c43b282c508f9855cf37d58013c4))
+* **client-lightsail:** This release adds support for the Asia Pacific (Jakarta) (ap-southeast-3) Region. ([32d73d7](https://github.com/aws/aws-sdk-js-v3/commit/32d73d71a4346af0ea03df351fcdb09d1c2678c1))
+* **client-observabilityadmin:** CloudWatch Observability Admin adds the ability to enable telemetry on AWS resources such as Amazon VPCs (Flow Logs) in customers AWS Accounts and Organizations. The release introduces new APIs to manage telemetry rules, which define telemetry settings to be applied on AWS resources. ([39e204f](https://github.com/aws/aws-sdk-js-v3/commit/39e204f9e74b8a0237167a21b079fa47e533987f))
+* **client-pcs:** Add support for IPv6 Networking for Clusters. ([e8774c1](https://github.com/aws/aws-sdk-js-v3/commit/e8774c179662126253ef71e9b0e9b0d3f2258636))
+* **client-securityhub:** Release new resource detail type CodeRepository ([fb750f9](https://github.com/aws/aws-sdk-js-v3/commit/fb750f9aee146de66d24d4daf0e49bf7c02859c5))
+* **clients:** update client endpoints as of 2025-08-01 ([3c53767](https://github.com/aws/aws-sdk-js-v3/commit/3c53767b2377342c4efbd14da6ddb0fa2794308a))
+
+
+
+
+
 # [3.858.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.857.0...v3.858.0) (2025-07-31)
 
 
