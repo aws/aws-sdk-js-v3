@@ -53,6 +53,13 @@ describe("from env signing name integration", () => {
       expectBearerToken(client);
       await client.listAsyncInvokes();
     });
+
+    it("can be overridden by auth scheme preference", async () => {
+      process.env.AWS_BEARER_TOKEN_BEDROCK = mockBearerToken;
+      const client = new Bedrock({ region, credentials, authSchemePreference: ["sigv4"] });
+      expectSigV4(client);
+      await client.listCustomModels();
+    });
   });
 
   describe("when environment bearer token is not set", () => {
