@@ -58,6 +58,7 @@ export interface RegisterComputeNodeGroupInstanceCommandOutput
  * //       type: "SLURMCTLD" || "SLURMDBD", // required
  * //       privateIpAddress: "STRING_VALUE", // required
  * //       publicIpAddress: "STRING_VALUE",
+ * //       ipv6Address: "STRING_VALUE",
  * //       port: "STRING_VALUE", // required
  * //     },
  * //   ],

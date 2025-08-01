@@ -49,6 +49,7 @@ export interface CreateClusterCommandOutput extends CreateClusterResponse, __Met
  *     securityGroupIds: [ // SecurityGroupIdList
  *       "STRING_VALUE",
  *     ],
+ *     networkType: "IPV4" || "IPV6",
  *   },
  *   slurmConfiguration: { // ClusterSlurmConfigurationRequest
  *     scaleDownIdleTimeInSeconds: Number("int"),
@@ -107,12 +108,14 @@ export interface CreateClusterCommandOutput extends CreateClusterResponse, __Met
  * //       securityGroupIds: [ // SecurityGroupIdList
  * //         "STRING_VALUE",
  * //       ],
+ * //       networkType: "IPV4" || "IPV6",
  * //     },
  * //     endpoints: [ // Endpoints
  * //       { // Endpoint
  * //         type: "SLURMCTLD" || "SLURMDBD", // required
  * //         privateIpAddress: "STRING_VALUE", // required
  * //         publicIpAddress: "STRING_VALUE",
+ * //         ipv6Address: "STRING_VALUE",
  * //         port: "STRING_VALUE", // required
  * //       },
  * //     ],

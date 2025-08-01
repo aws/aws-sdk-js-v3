@@ -936,6 +936,20 @@ export interface UpdateComputeNodeGroupResponse {
 }
 
 /**
+ * @public
+ * @enum
+ */
+export const NetworkType = {
+  IPV4: "IPV4",
+  IPV6: "IPV6",
+} as const;
+
+/**
+ * @public
+ */
+export type NetworkType = (typeof NetworkType)[keyof typeof NetworkType];
+
+/**
  * <p>The networking configuration for the cluster's control plane.</p>
  * @public
  */
@@ -951,6 +965,12 @@ export interface NetworkingRequest {
    * @public
    */
   securityGroupIds?: string[] | undefined;
+
+  /**
+   * <p>The IP address version the cluster uses. The default is <code>IPV4</code>.</p>
+   * @public
+   */
+  networkType?: NetworkType | undefined;
 }
 
 /**
@@ -1096,16 +1116,22 @@ export interface Endpoint {
   type: EndpointType | undefined;
 
   /**
-   * <p>The endpoint's private IP address.</p> <p>Example: <code>2.2.2.2</code> </p>
+   * <p>For clusters that use IPv4, this is the endpoint's private IP address.</p> <p>Example: <code>10.1.2.3</code> </p> <p>For clusters configured to use IPv6, this is an empty string.</p>
    * @public
    */
   privateIpAddress: string | undefined;
 
   /**
-   * <p>The endpoint's public IP address.</p> <p>Example: <code>1.1.1.1</code> </p>
+   * <p>The endpoint's public IP address.</p> <p>Example: <code>192.0.2.1</code> </p>
    * @public
    */
   publicIpAddress?: string | undefined;
+
+  /**
+   * <p>The endpoint's IPv6 address.</p> <p>Example: <code>2001:db8::1</code> </p>
+   * @public
+   */
+  ipv6Address?: string | undefined;
 
   /**
    * <p>The endpoint's connection port number.</p> <p> Example: <code>1234</code> </p>
@@ -1126,10 +1152,16 @@ export interface Networking {
   subnetIds?: string[] | undefined;
 
   /**
-   * <p>The list of security group IDs associated with the Elastic Network Interface (ENI) created in subnets.</p> <p>The following rules are required:</p> <ul> <li> <p>Inbound rule 1</p> <ul> <li> <p>Protocol: All</p> </li> <li> <p>Ports: All</p> </li> <li> <p>Source: Self</p> </li> </ul> </li> <li> <p>Outbound rule 1</p> <ul> <li> <p>Protocol: All</p> </li> <li> <p>Ports: All</p> </li> <li> <p>Destination: 0.0.0.0/0 (IPv4)</p> </li> </ul> </li> <li> <p>Outbound rule 2</p> <ul> <li> <p>Protocol: All</p> </li> <li> <p>Ports: All</p> </li> <li> <p>Destination: Self</p> </li> </ul> </li> </ul>
+   * <p>The list of security group IDs associated with the Elastic Network Interface (ENI) created in subnets.</p> <p>The following rules are required:</p> <ul> <li> <p>Inbound rule 1</p> <ul> <li> <p>Protocol: All</p> </li> <li> <p>Ports: All</p> </li> <li> <p>Source: Self</p> </li> </ul> </li> <li> <p>Outbound rule 1</p> <ul> <li> <p>Protocol: All</p> </li> <li> <p>Ports: All</p> </li> <li> <p>Destination: 0.0.0.0/0 (IPv4) or ::/0 (IPv6)</p> </li> </ul> </li> <li> <p>Outbound rule 2</p> <ul> <li> <p>Protocol: All</p> </li> <li> <p>Ports: All</p> </li> <li> <p>Destination: Self</p> </li> </ul> </li> </ul>
    * @public
    */
   securityGroupIds?: string[] | undefined;
+
+  /**
+   * <p>The IP address version the cluster uses. The default is <code>IPV4</code>.</p>
+   * @public
+   */
+  networkType?: NetworkType | undefined;
 }
 
 /**
