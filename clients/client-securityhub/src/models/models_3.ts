@@ -58,6 +58,44 @@ import { SecurityHubServiceException as __BaseException } from "./SecurityHubSer
 /**
  * @public
  */
+export interface GetFindingsRequest {
+  /**
+   * <p>The finding attributes used to define a condition to filter the returned
+   *          findings.</p>
+   *          <p>You can filter by up to 10 finding attributes. For each attribute, you can provide up to
+   *          20 filter values.</p>
+   *          <p>Note that in the available filter fields, <code>WorkflowState</code> is deprecated. To
+   *          search for a finding based on its workflow status, use <code>WorkflowStatus</code>.</p>
+   * @public
+   */
+  Filters?: AwsSecurityFindingFilters | undefined;
+
+  /**
+   * <p>The finding attributes used to sort the list of returned findings.</p>
+   * @public
+   */
+  SortCriteria?: SortCriterion[] | undefined;
+
+  /**
+   * <p>The token that is required for pagination. On your first call to the
+   *             <code>GetFindings</code> operation, set the value of this parameter to
+   *          <code>NULL</code>.</p>
+   *          <p>For subsequent calls to the operation, to continue listing data, set the value of this
+   *          parameter to the value returned from the previous response.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of findings to return.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+}
+
+/**
+ * @public
+ */
 export interface GetFindingsResponse {
   /**
    * <p>The findings that matched the filters specified in the request.</p>

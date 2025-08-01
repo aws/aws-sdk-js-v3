@@ -5,8 +5,7 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { GetFindingsRequest } from "../models/models_2";
-import { GetFindingsResponse } from "../models/models_3";
+import { GetFindingsRequest, GetFindingsResponse } from "../models/models_3";
 import { de_GetFindingsCommand, se_GetFindingsCommand } from "../protocols/Aws_restJson1";
 import { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
 
@@ -4249,6 +4248,11 @@ export interface GetFindingsCommandOutput extends GetFindingsResponse, __Metadat
  * //                 Enabled: true || false,
  * //                 BannerText: "STRING_VALUE",
  * //               },
+ * //             },
+ * //             CodeRepository: { // CodeRepositoryDetails
+ * //               ProviderType: "STRING_VALUE",
+ * //               ProjectName: "STRING_VALUE",
+ * //               CodeSecurityIntegrationArn: "STRING_VALUE",
  * //             },
  * //           },
  * //           ApplicationName: "STRING_VALUE",

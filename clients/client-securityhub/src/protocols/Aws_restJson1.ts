@@ -953,6 +953,7 @@ import {
   AwsWafWebAclRule,
   AwsXrayEncryptionConfigDetails,
   BooleanFilter,
+  CodeRepositoryDetails,
   CodeVulnerabilitiesFilePath,
   CompositeFilter,
   ConfigurationOptions,
@@ -7728,6 +7729,8 @@ const se_BatchImportFindingsRequestFindingList = (input: AwsSecurityFinding[], c
 
 // se_CloudWatchLogsLogGroupArnConfigDetails omitted.
 
+// se_CodeRepositoryDetails omitted.
+
 // se_CodeVulnerabilitiesFilePath omitted.
 
 // se_Compliance omitted.
@@ -8320,6 +8323,7 @@ const se_ResourceDetails = (input: ResourceDetails, context: __SerdeContext): an
     AwsWafv2RuleGroup: _json,
     AwsWafv2WebAcl: _json,
     AwsXrayEncryptionConfig: _json,
+    CodeRepository: _json,
     Container: _json,
     Other: _json,
   });
@@ -10850,6 +10854,8 @@ const de_AwsSecurityFindingList = (output: any, context: __SerdeContext): AwsSec
 
 // de_CloudWatchLogsLogGroupArnConfigDetails omitted.
 
+// de_CodeRepositoryDetails omitted.
+
 // de_CodeVulnerabilitiesFilePath omitted.
 
 // de_Compliance omitted.
@@ -11814,6 +11820,7 @@ const de_ResourceDetails = (output: any, context: __SerdeContext): ResourceDetai
     AwsWafv2RuleGroup: _json,
     AwsWafv2WebAcl: _json,
     AwsXrayEncryptionConfig: _json,
+    CodeRepository: _json,
     Container: _json,
     Other: _json,
   }) as any;

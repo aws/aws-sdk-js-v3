@@ -4042,6 +4042,11 @@ export interface BatchImportFindingsCommandOutput extends BatchImportFindingsRes
  *                 BannerText: "STRING_VALUE",
  *               },
  *             },
+ *             CodeRepository: { // CodeRepositoryDetails
+ *               ProviderType: "STRING_VALUE",
+ *               ProjectName: "STRING_VALUE",
+ *               CodeSecurityIntegrationArn: "STRING_VALUE",
+ *             },
  *           },
  *           ApplicationName: "STRING_VALUE",
  *           ApplicationArn: "STRING_VALUE",

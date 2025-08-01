@@ -1935,6 +1935,39 @@ export interface AwsXrayEncryptionConfigDetails {
 }
 
 /**
+ * <p>
+ *          Details about an external code repository with which you can connect your Amazon Web Services resources.
+ *          The connection is established through Amazon Inspector.
+ *       </p>
+ * @public
+ */
+export interface CodeRepositoryDetails {
+  /**
+   * <p>
+   *          The type of repository provider.
+   *       </p>
+   * @public
+   */
+  ProviderType?: string | undefined;
+
+  /**
+   * <p>
+   *          The name of the project in the code repository.
+   *       </p>
+   * @public
+   */
+  ProjectName?: string | undefined;
+
+  /**
+   * <p>
+   *          The Amazon Resource Name (ARN) of the code security integration associated with the repository.
+   *       </p>
+   * @public
+   */
+  CodeSecurityIntegrationArn?: string | undefined;
+}
+
+/**
  * <p>Describes the mounting of a volume in a container.
  *       </p>
  * @public
@@ -2686,6 +2719,15 @@ export interface ResourceDetails {
    * @public
    */
   AwsEc2ClientVpnEndpoint?: AwsEc2ClientVpnEndpointDetails | undefined;
+
+  /**
+   * <p>
+   *          Details about an external code repository with which you can connect your Amazon Web Services resources.
+   *          The connection is established through Amazon Inspector.
+   *       </p>
+   * @public
+   */
+  CodeRepository?: CodeRepositoryDetails | undefined;
 }
 
 /**
@@ -10363,9 +10405,8 @@ export interface GetFindingHistoryRequest {
    *             which the API is called. If you provide a value for <code>EndTime</code> but not for
    *                 <code>StartTime</code>, Security Hub returns finding history from the <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_AwsSecurityFindingFilters.html#securityhub-Type-AwsSecurityFindingFilters-CreatedAt">CreatedAt</a> timestamp of the finding to the <code>EndTime</code>. If you
    *             provide neither <code>StartTime</code> nor <code>EndTime</code>, Security Hub
-   *             returns finding history from the CreatedAt timestamp of the finding to the time at which
-   *             the API is called. In all of these scenarios, the response is limited to 100 results, and the maximum time period is
-   *             limited to 90 days.</p>
+   *             returns finding history from the <code>CreatedAt</code> timestamp of the finding to the time at which
+   *             the API is called. In all of these scenarios, the response is limited to 100 results.</p>
    *          <p>For more information about the validation and formatting of timestamp fields in Security Hub, see <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps">Timestamps</a>.</p>
    * @public
    */
@@ -10380,9 +10421,8 @@ export interface GetFindingHistoryRequest {
    *             which the API is called. If you provide a value for <code>EndTime</code> but not for
    *                 <code>StartTime</code>, Security Hub returns finding history from the <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_AwsSecurityFindingFilters.html#securityhub-Type-AwsSecurityFindingFilters-CreatedAt">CreatedAt</a> timestamp of the finding to the <code>EndTime</code>. If you
    *             provide neither <code>StartTime</code> nor <code>EndTime</code>, Security Hub
-   *             returns finding history from the CreatedAt timestamp of the finding to the time at which
-   *             the API is called. In all of these scenarios, the response is limited to 100 results, and the maximum time period is
-   *             limited to 90 days.</p>
+   *             returns finding history from the <code>CreatedAt</code> timestamp of the finding to the time at which
+   *             the API is called. In all of these scenarios, the response is limited to 100 results.</p>
    *          <p>For more information about the validation and formatting of timestamp fields in Security Hub, see <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps">Timestamps</a>.</p>
    * @public
    */
@@ -10459,44 +10499,6 @@ export interface SortCriterion {
    * @public
    */
   SortOrder?: SortOrder | undefined;
-}
-
-/**
- * @public
- */
-export interface GetFindingsRequest {
-  /**
-   * <p>The finding attributes used to define a condition to filter the returned
-   *          findings.</p>
-   *          <p>You can filter by up to 10 finding attributes. For each attribute, you can provide up to
-   *          20 filter values.</p>
-   *          <p>Note that in the available filter fields, <code>WorkflowState</code> is deprecated. To
-   *          search for a finding based on its workflow status, use <code>WorkflowStatus</code>.</p>
-   * @public
-   */
-  Filters?: AwsSecurityFindingFilters | undefined;
-
-  /**
-   * <p>The finding attributes used to sort the list of returned findings.</p>
-   * @public
-   */
-  SortCriteria?: SortCriterion[] | undefined;
-
-  /**
-   * <p>The token that is required for pagination. On your first call to the
-   *             <code>GetFindings</code> operation, set the value of this parameter to
-   *          <code>NULL</code>.</p>
-   *          <p>For subsequent calls to the operation, to continue listing data, set the value of this
-   *          parameter to the value returned from the previous response.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of findings to return.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
 }
 
 /**
