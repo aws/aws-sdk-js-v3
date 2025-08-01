@@ -1885,6 +1885,10 @@ export interface CreateAssessmentFrameworkRequest {
 
   /**
    * <p> The control sets that are associated with the framework. </p>
+   *          <note>
+   *             <p>The <code>Controls</code> object returns a partial response when called through Framework
+   *             APIs. For a complete <code>Controls</code> object, use <code>GetControl</code>.</p>
+   *          </note>
    * @public
    */
   controlSets: CreateAssessmentFrameworkControlSet[] | undefined;
@@ -2452,12 +2456,22 @@ export interface Framework {
 
   /**
    * <p> The control data sources where Audit Manager collects evidence from.</p>
+   *          <important>
+   *             <p>This API parameter is no longer supported.</p>
+   *          </important>
+   *
+   * @deprecated
    * @public
    */
   controlSources?: string | undefined;
 
   /**
    * <p> The control sets that are associated with the framework. </p>
+   *          <note>
+   *             <p>The <code>Controls</code> object returns a partial response when called through
+   *             Framework APIs. For a complete <code>Controls</code> object, use
+   *             <code>GetControl</code>.</p>
+   *          </note>
    * @public
    */
   controlSets?: ControlSet[] | undefined;
@@ -2498,8 +2512,7 @@ export interface Framework {
  */
 export interface CreateAssessmentFrameworkResponse {
   /**
-   * <p> The name of the new framework that the <code>CreateAssessmentFramework</code> API
-   *          returned. </p>
+   * <p> The new framework object that the <code>CreateAssessmentFramework</code> API returned. </p>
    * @public
    */
   framework?: Framework | undefined;
@@ -2931,6 +2944,11 @@ export interface GetAssessmentFrameworkRequest {
 export interface GetAssessmentFrameworkResponse {
   /**
    * <p> The framework that the <code>GetAssessmentFramework</code> API returned. </p>
+   *          <note>
+   *             <p>The <code>Controls</code> object returns a partial response when called through
+   *             Framework APIs. For a complete <code>Controls</code> object, use
+   *             <code>GetControl</code>.</p>
+   *          </note>
    * @public
    */
   framework?: Framework | undefined;
@@ -5303,6 +5321,10 @@ export interface UpdateAssessmentFrameworkRequest {
 
   /**
    * <p> The control sets that are associated with the framework. </p>
+   *          <note>
+   *             <p>The <code>Controls</code> object returns a partial response when called through Framework
+   *             APIs. For a complete <code>Controls</code> object, use <code>GetControl</code>.</p>
+   *          </note>
    * @public
    */
   controlSets: UpdateAssessmentFrameworkControlSet[] | undefined;
@@ -5313,7 +5335,7 @@ export interface UpdateAssessmentFrameworkRequest {
  */
 export interface UpdateAssessmentFrameworkResponse {
   /**
-   * <p> The name of the framework. </p>
+   * <p> The framework object. </p>
    * @public
    */
   framework?: Framework | undefined;
