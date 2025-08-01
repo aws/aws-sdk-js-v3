@@ -280,13 +280,11 @@ __metadata:
     "@smithy/util-utf8": "npm:^4.0.0"
     "@tsconfig/node18": "npm:18.2.4"
     "@types/node": "npm:^18.19.69"
-    "@types/uuid": "npm:^9.0.1"
     concurrently: "npm:7.0.0"
     downlevel-dts: "npm:0.10.1"
     rimraf: "npm:3.0.2"
     tslib: "npm:^2.6.2"
     typescript: "npm:~5.8.3"
-    uuid: "npm:^9.0.1"
     vitest: "npm:2.1.8"
   languageName: unknown
   linkType: soft
@@ -392,13 +390,11 @@ __metadata:
     "@smithy/util-utf8": "npm:^4.0.0"
     "@tsconfig/node18": "npm:18.2.4"
     "@types/node": "npm:^18.19.69"
-    "@types/uuid": "npm:^9.0.1"
     concurrently: "npm:7.0.0"
     downlevel-dts: "npm:0.10.1"
     rimraf: "npm:3.0.2"
     tslib: "npm:^2.6.2"
     typescript: "npm:~5.8.3"
-    uuid: "npm:^9.0.1"
     vitest: "npm:2.1.8"
   languageName: unknown
   linkType: soft
@@ -616,13 +612,11 @@ __metadata:
     "@smithy/util-utf8": "npm:^4.0.0"
     "@tsconfig/node18": "npm:18.2.4"
     "@types/node": "npm:^18.19.69"
-    "@types/uuid": "npm:^9.0.1"
     concurrently: "npm:7.0.0"
     downlevel-dts: "npm:0.10.1"
     rimraf: "npm:3.0.2"
     tslib: "npm:^2.6.2"
     typescript: "npm:~5.8.3"
-    uuid: "npm:^9.0.1"
     vitest: "npm:2.1.8"
   languageName: unknown
   linkType: soft
@@ -728,13 +722,11 @@ __metadata:
     "@smithy/util-utf8": "npm:^4.0.0"
     "@tsconfig/node18": "npm:18.2.4"
     "@types/node": "npm:^18.19.69"
-    "@types/uuid": "npm:^9.0.1"
     concurrently: "npm:7.0.0"
     downlevel-dts: "npm:0.10.1"
     rimraf: "npm:3.0.2"
     tslib: "npm:^2.6.2"
     typescript: "npm:~5.8.3"
-    uuid: "npm:^9.0.1"
     vitest: "npm:2.1.8"
   languageName: unknown
   linkType: soft
@@ -1074,13 +1066,11 @@ __metadata:
     "@smithy/util-utf8": "npm:^4.0.0"
     "@tsconfig/node18": "npm:18.2.4"
     "@types/node": "npm:^18.19.69"
-    "@types/uuid": "npm:^9.0.1"
     concurrently: "npm:7.0.0"
     downlevel-dts: "npm:0.10.1"
     rimraf: "npm:3.0.2"
     tslib: "npm:^2.6.2"
     typescript: "npm:~5.8.3"
-    uuid: "npm:^9.0.1"
     vitest: "npm:2.1.8"
   languageName: unknown
   linkType: soft
@@ -1164,7 +1154,6 @@ __metadata:
     "@aws-sdk/util-endpoints": "npm:*"
     "@aws-sdk/util-user-agent-browser": "npm:*"
     "@aws-sdk/util-user-agent-node": "npm:*"
-    "@aws-sdk/xml-builder": "npm:*"
     "@smithy/config-resolver": "npm:^4.1.4"
     "@smithy/core": "npm:^3.7.2"
     "@smithy/fetch-http-handler": "npm:^5.1.0"
@@ -1195,7 +1184,6 @@ __metadata:
     "@smithy/util-utf8": "npm:^4.0.0"
     "@tsconfig/node18": "npm:18.2.4"
     "@types/node": "npm:^18.19.69"
-    "@types/uuid": "npm:^9.0.1"
     concurrently: "npm:7.0.0"
     downlevel-dts: "npm:0.10.1"
     entities: "npm:2.2.0"
@@ -1203,7 +1191,6 @@ __metadata:
     rimraf: "npm:3.0.2"
     tslib: "npm:^2.6.2"
     typescript: "npm:~5.8.3"
-    uuid: "npm:^9.0.1"
     vitest: "npm:2.1.8"
   languageName: unknown
   linkType: soft

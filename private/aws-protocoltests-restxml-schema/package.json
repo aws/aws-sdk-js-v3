@@ -31,7 +31,6 @@
     "@aws-sdk/util-endpoints": "*",
     "@aws-sdk/util-user-agent-browser": "*",
     "@aws-sdk/util-user-agent-node": "*",
-    "@aws-sdk/xml-builder": "*",
     "@smithy/config-resolver": "^4.1.4",
     "@smithy/core": "^3.7.2",
     "@smithy/fetch-http-handler": "^5.1.0",
@@ -60,11 +59,9 @@
     "@smithy/util-retry": "^4.0.6",
     "@smithy/util-stream": "^4.2.3",
     "@smithy/util-utf8": "^4.0.0",
-    "@types/uuid": "^9.0.1",
     "entities": "2.2.0",
     "fast-xml-parser": "5.2.5",
-    "tslib": "^2.6.2",
-    "uuid": "^9.0.1"
+    "tslib": "^2.6.2"
   },
   "devDependencies": {
     "@tsconfig/node18": "18.2.4",
