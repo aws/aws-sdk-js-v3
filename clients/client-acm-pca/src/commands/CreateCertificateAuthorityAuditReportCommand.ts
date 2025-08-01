@@ -37,15 +37,7 @@ export interface CreateCertificateAuthorityAuditReportCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Creates an audit report that lists every time that your CA private key is used to issue a certificate. The <a href="https://docs.aws.amazon.com/privateca/latest/APIReference/API_IssueCertificate.html">IssueCertificate</a> and <a href="https://docs.aws.amazon.com/privateca/latest/APIReference/API_RevokeCertificate.html">RevokeCertificate</a> actions use
- * 			the private key.</p>
- *          <p>To save the audit report to your designated Amazon S3 bucket, you must create a bucket policy that grants Amazon Web Services Private CA permission to access and write to it. For an example policy, see <a href="https://docs.aws.amazon.com/privateca/latest/userguide/PcaAuditReport.html#s3-access">Prepare an Amazon S3 bucket for audit reports</a>.</p>
- *          <p>Amazon Web Services Private CA assets that are stored in Amazon S3 can be protected with encryption.
- *   For more information, see <a href="https://docs.aws.amazon.com/privateca/latest/userguide/PcaAuditReport.html#audit-report-encryption">Encrypting Your Audit
- * 				Reports</a>.</p>
- *          <note>
- *             <p>You can generate a maximum of one report every 30 minutes.</p>
- *          </note>
+ * <p>Creates an audit report that lists every time that your CA private key is used to issue a certificate. The <a href="https://docs.aws.amazon.com/privateca/latest/APIReference/API_IssueCertificate.html">IssueCertificate</a> and <a href="https://docs.aws.amazon.com/privateca/latest/APIReference/API_RevokeCertificate.html">RevokeCertificate</a> actions use the private key.</p> <p>To save the audit report to your designated Amazon S3 bucket, you must create a bucket policy that grants Amazon Web Services Private CA permission to access and write to it. For an example policy, see <a href="https://docs.aws.amazon.com/privateca/latest/userguide/PcaAuditReport.html#s3-access">Prepare an Amazon S3 bucket for audit reports</a>.</p> <p>Amazon Web Services Private CA assets that are stored in Amazon S3 can be protected with encryption. For more information, see <a href="https://docs.aws.amazon.com/privateca/latest/userguide/PcaAuditReport.html#audit-report-encryption">Encrypting Your Audit Reports</a>.</p> <note> <p>You can generate a maximum of one report every 30 minutes.</p> </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -76,8 +68,7 @@ export interface CreateCertificateAuthorityAuditReportCommandOutput
  *  <p>One or more of the specified arguments was not valid.</p>
  *
  * @throws {@link InvalidArnException} (client fault)
- *  <p>The requested Amazon Resource Name (ARN) does not refer to an existing
- * 			resource.</p>
+ *  <p>The requested Amazon Resource Name (ARN) does not refer to an existing resource.</p>
  *
  * @throws {@link InvalidStateException} (client fault)
  *  <p>The state of the private CA does not allow this action to occur.</p>
@@ -89,8 +80,7 @@ export interface CreateCertificateAuthorityAuditReportCommandOutput
  *  <p>Your request is already in progress.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>A resource such as a private CA, S3 bucket, certificate, audit report, or policy
- * 			cannot be found.</p>
+ *  <p>A resource such as a private CA, S3 bucket, certificate, audit report, or policy cannot be found.</p>
  *
  * @throws {@link ACMPCAServiceException}
  * <p>Base exception class for all service exceptions from ACMPCA service.</p>

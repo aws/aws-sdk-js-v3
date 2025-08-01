@@ -28,26 +28,7 @@ export interface DeleteCertificateAuthorityCommandInput extends DeleteCertificat
 export interface DeleteCertificateAuthorityCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Deletes a private certificate authority (CA). You must provide the Amazon Resource
- * 			Name (ARN) of the private CA that you want to delete. You can find the ARN by calling
- * 			the <a href="https://docs.aws.amazon.com/privateca/latest/APIReference/API_ListCertificateAuthorities.html">ListCertificateAuthorities</a> action. </p>
- *          <note>
- *             <p>Deleting a CA will invalidate other CAs and certificates below it in your CA
- * 				hierarchy.</p>
- *          </note>
- *          <p>Before you can delete a CA that you have created and activated, you must disable it.
- * 			To do this, call the <a href="https://docs.aws.amazon.com/privateca/latest/APIReference/API_UpdateCertificateAuthority.html">UpdateCertificateAuthority</a> action and set the <b>CertificateAuthorityStatus</b> parameter to <code>DISABLED</code>. </p>
- *          <p>Additionally, you can delete a CA if you are waiting for it to be created (that is,
- * 			the status of the CA is <code>CREATING</code>). You can also delete it if the CA has
- * 			been created but you haven't yet imported the signed certificate into Amazon Web Services Private CA (that
- * 			is, the status of the CA is <code>PENDING_CERTIFICATE</code>). </p>
- *          <p>When you successfully call <a href="https://docs.aws.amazon.com/privateca/latest/APIReference/API_DeleteCertificateAuthority.html">DeleteCertificateAuthority</a>, the CA's status changes to
- * 			<code>DELETED</code>. However, the CA won't be permanently deleted until the restoration
- * 			period has passed. By default, if you do not set the
- * 				<code>PermanentDeletionTimeInDays</code> parameter, the CA remains restorable for 30
- * 			days. You can set the parameter from 7 to 30 days. The <a href="https://docs.aws.amazon.com/privateca/latest/APIReference/API_DescribeCertificateAuthority.html">DescribeCertificateAuthority</a> action returns the time remaining in the
- * 			restoration window of a private CA in the <code>DELETED</code> state. To restore an
- * 			eligible CA, call the <a href="https://docs.aws.amazon.com/privateca/latest/APIReference/API_RestoreCertificateAuthority.html">RestoreCertificateAuthority</a> action.</p>
+ * <p>Deletes a private certificate authority (CA). You must provide the Amazon Resource Name (ARN) of the private CA that you want to delete. You can find the ARN by calling the <a href="https://docs.aws.amazon.com/privateca/latest/APIReference/API_ListCertificateAuthorities.html">ListCertificateAuthorities</a> action. </p> <note> <p>Deleting a CA will invalidate other CAs and certificates below it in your CA hierarchy.</p> </note> <p>Before you can delete a CA that you have created and activated, you must disable it. To do this, call the <a href="https://docs.aws.amazon.com/privateca/latest/APIReference/API_UpdateCertificateAuthority.html">UpdateCertificateAuthority</a> action and set the <b>CertificateAuthorityStatus</b> parameter to <code>DISABLED</code>. </p> <p>Additionally, you can delete a CA if you are waiting for it to be created (that is, the status of the CA is <code>CREATING</code>). You can also delete it if the CA has been created but you haven't yet imported the signed certificate into Amazon Web Services Private CA (that is, the status of the CA is <code>PENDING_CERTIFICATE</code>). </p> <p>When you successfully call <a href="https://docs.aws.amazon.com/privateca/latest/APIReference/API_DeleteCertificateAuthority.html">DeleteCertificateAuthority</a>, the CA's status changes to <code>DELETED</code>. However, the CA won't be permanently deleted until the restoration period has passed. By default, if you do not set the <code>PermanentDeletionTimeInDays</code> parameter, the CA remains restorable for 30 days. You can set the parameter from 7 to 30 days. The <a href="https://docs.aws.amazon.com/privateca/latest/APIReference/API_DescribeCertificateAuthority.html">DescribeCertificateAuthority</a> action returns the time remaining in the restoration window of a private CA in the <code>DELETED</code> state. To restore an eligible CA, call the <a href="https://docs.aws.amazon.com/privateca/latest/APIReference/API_RestoreCertificateAuthority.html">RestoreCertificateAuthority</a> action.</p> <important> <p>A private CA can be deleted if it is in the <code>PENDING_CERTIFICATE</code>, <code>CREATING</code>, <code>EXPIRED</code>, <code>DISABLED</code>, or <code>FAILED</code> state. To delete a CA in the <code>ACTIVE</code> state, you must first disable it, or else the delete request results in an exception. If you are deleting a private CA in the <code>PENDING_CERTIFICATE</code> or <code>DISABLED</code> state, you can set the length of its restoration period to 7-30 days. The default is 30. During this time, the status is set to <code>DELETED</code> and the CA can be restored. A private CA deleted in the <code>CREATING</code> or <code>FAILED</code> state has no assigned restoration period and cannot be restored.</p> </important>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -74,15 +55,13 @@ export interface DeleteCertificateAuthorityCommandOutput extends __MetadataBeare
  *  <p>A previous update to your private CA is still ongoing.</p>
  *
  * @throws {@link InvalidArnException} (client fault)
- *  <p>The requested Amazon Resource Name (ARN) does not refer to an existing
- * 			resource.</p>
+ *  <p>The requested Amazon Resource Name (ARN) does not refer to an existing resource.</p>
  *
  * @throws {@link InvalidStateException} (client fault)
  *  <p>The state of the private CA does not allow this action to occur.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>A resource such as a private CA, S3 bucket, certificate, audit report, or policy
- * 			cannot be found.</p>
+ *  <p>A resource such as a private CA, S3 bucket, certificate, audit report, or policy cannot be found.</p>
  *
  * @throws {@link ACMPCAServiceException}
  * <p>Base exception class for all service exceptions from ACMPCA service.</p>

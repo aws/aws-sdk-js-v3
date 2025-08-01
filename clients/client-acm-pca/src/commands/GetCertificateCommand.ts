@@ -28,14 +28,7 @@ export interface GetCertificateCommandInput extends GetCertificateRequest {}
 export interface GetCertificateCommandOutput extends GetCertificateResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves a certificate from your private CA or one that has been shared with you. The
- * 			ARN of the certificate is returned when you call the <a href="https://docs.aws.amazon.com/privateca/latest/APIReference/API_IssueCertificate.html">IssueCertificate</a> action. You
- * 			must specify both the ARN of your private CA and the ARN of the issued certificate when
- * 			calling the <b>GetCertificate</b> action. You can retrieve the
- * 			certificate if it is in the <b>ISSUED</b> state. You can call
- * 			the <a href="https://docs.aws.amazon.com/privateca/latest/APIReference/API_CreateCertificateAuthorityAuditReport.html">CreateCertificateAuthorityAuditReport</a> action to create a report that
- * 			contains information about all of the certificates issued and revoked by your private
- * 			CA. </p>
+ * <p>Retrieves a certificate from your private CA or one that has been shared with you. The ARN of the certificate is returned when you call the <a href="https://docs.aws.amazon.com/privateca/latest/APIReference/API_IssueCertificate.html">IssueCertificate</a> action. You must specify both the ARN of your private CA and the ARN of the issued certificate when calling the <b>GetCertificate</b> action. You can retrieve the certificate if it is in the <b>ISSUED</b>, <b>EXPIRED</b>, or <b>REVOKED</b> state. You can call the <a href="https://docs.aws.amazon.com/privateca/latest/APIReference/API_CreateCertificateAuthorityAuditReport.html">CreateCertificateAuthorityAuditReport</a> action to create a report that contains information about all of the certificates issued and revoked by your private CA. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -62,8 +55,7 @@ export interface GetCertificateCommandOutput extends GetCertificateResponse, __M
  * @see {@link ACMPCAClientResolvedConfig | config} for ACMPCAClient's `config` shape.
  *
  * @throws {@link InvalidArnException} (client fault)
- *  <p>The requested Amazon Resource Name (ARN) does not refer to an existing
- * 			resource.</p>
+ *  <p>The requested Amazon Resource Name (ARN) does not refer to an existing resource.</p>
  *
  * @throws {@link InvalidStateException} (client fault)
  *  <p>The state of the private CA does not allow this action to occur.</p>
@@ -75,8 +67,7 @@ export interface GetCertificateCommandOutput extends GetCertificateResponse, __M
  *  <p>Your request is already in progress.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>A resource such as a private CA, S3 bucket, certificate, audit report, or policy
- * 			cannot be found.</p>
+ *  <p>A resource such as a private CA, S3 bucket, certificate, audit report, or policy cannot be found.</p>
  *
  * @throws {@link ACMPCAServiceException}
  * <p>Base exception class for all service exceptions from ACMPCA service.</p>

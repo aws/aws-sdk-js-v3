@@ -28,33 +28,7 @@ export interface CreatePermissionCommandInput extends CreatePermissionRequest {}
 export interface CreatePermissionCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Grants one or more permissions on a private CA to the Certificate Manager (ACM) service
- * 			principal (<code>acm.amazonaws.com</code>). These permissions allow ACM to issue and
- * 			renew ACM certificates that reside in the same Amazon Web Services account as the CA.</p>
- *          <p>You can list current permissions with the <a href="https://docs.aws.amazon.com/privateca/latest/APIReference/API_ListPermissions.html">ListPermissions</a> action and
- * 			revoke them with the <a href="https://docs.aws.amazon.com/privateca/latest/APIReference/API_DeletePermission.html">DeletePermission</a> action.</p>
- *          <p class="title">
- *             <b>About Permissions</b>
- *          </p>
- *          <ul>
- *             <li>
- *                <p>If the private CA and the certificates it issues reside in the same
- * 			account, you can use <code>CreatePermission</code> to grant permissions for ACM to
- * 			carry out automatic certificate renewals.</p>
- *             </li>
- *             <li>
- *                <p>For automatic certificate renewal to succeed, the ACM service principal
- * 			needs permissions to create, retrieve, and list certificates.</p>
- *             </li>
- *             <li>
- *                <p>If the private CA and the ACM certificates reside in different accounts,
- * 			then permissions cannot be used to enable automatic renewals. Instead,
- * 			the ACM certificate owner must set up a resource-based policy to enable
- * 			cross-account issuance and renewals. For more information, see
- * 			<a href="https://docs.aws.amazon.com/privateca/latest/userguide/pca-rbp.html">Using a Resource
- * 			Based Policy with Amazon Web Services Private CA</a>.</p>
- *             </li>
- *          </ul>
+ * <p>Grants one or more permissions on a private CA to the Certificate Manager (ACM) service principal (<code>acm.amazonaws.com</code>). These permissions allow ACM to issue and renew ACM certificates that reside in the same Amazon Web Services account as the CA.</p> <p>You can list current permissions with the <a href="https://docs.aws.amazon.com/privateca/latest/APIReference/API_ListPermissions.html">ListPermissions</a> action and revoke them with the <a href="https://docs.aws.amazon.com/privateca/latest/APIReference/API_DeletePermission.html">DeletePermission</a> action.</p> <p class="title"> <b>About Permissions</b> </p> <ul> <li> <p>If the private CA and the certificates it issues reside in the same account, you can use <code>CreatePermission</code> to grant permissions for ACM to carry out automatic certificate renewals.</p> </li> <li> <p>For automatic certificate renewal to succeed, the ACM service principal needs permissions to create, retrieve, and list certificates.</p> </li> <li> <p>If the private CA and the ACM certificates reside in different accounts, then permissions cannot be used to enable automatic renewals. Instead, the ACM certificate owner must set up a resource-based policy to enable cross-account issuance and renewals. For more information, see <a href="https://docs.aws.amazon.com/privateca/latest/userguide/pca-rbp.html">Using a Resource Based Policy with Amazon Web Services Private CA</a>.</p> </li> </ul>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -82,15 +56,13 @@ export interface CreatePermissionCommandOutput extends __MetadataBearer {}
  * @see {@link ACMPCAClientResolvedConfig | config} for ACMPCAClient's `config` shape.
  *
  * @throws {@link InvalidArnException} (client fault)
- *  <p>The requested Amazon Resource Name (ARN) does not refer to an existing
- * 			resource.</p>
+ *  <p>The requested Amazon Resource Name (ARN) does not refer to an existing resource.</p>
  *
  * @throws {@link InvalidStateException} (client fault)
  *  <p>The state of the private CA does not allow this action to occur.</p>
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>An Amazon Web Services Private CA quota has been exceeded. See the exception message returned to determine
- * 			the quota that was exceeded.</p>
+ *  <p>An Amazon Web Services Private CA quota has been exceeded. See the exception message returned to determine the quota that was exceeded.</p>
  *
  * @throws {@link PermissionAlreadyExistsException} (client fault)
  *  <p>The designated permission has already been given to the user.</p>
@@ -99,8 +71,7 @@ export interface CreatePermissionCommandOutput extends __MetadataBearer {}
  *  <p>The request has failed for an unspecified reason.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>A resource such as a private CA, S3 bucket, certificate, audit report, or policy
- * 			cannot be found.</p>
+ *  <p>A resource such as a private CA, S3 bucket, certificate, audit report, or policy cannot be found.</p>
  *
  * @throws {@link ACMPCAServiceException}
  * <p>Base exception class for all service exceptions from ACMPCA service.</p>

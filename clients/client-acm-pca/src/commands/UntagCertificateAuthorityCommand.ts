@@ -28,11 +28,7 @@ export interface UntagCertificateAuthorityCommandInput extends UntagCertificateA
 export interface UntagCertificateAuthorityCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Remove one or more tags from your private CA. A tag consists of a key-value pair. If
- * 			you do not specify the value portion of the tag when calling this action, the tag will
- * 			be removed regardless of value. If you specify a value, the tag is removed only if it is
- * 			associated with the specified value. To add tags to a private CA, use the <a href="https://docs.aws.amazon.com/privateca/latest/APIReference/API_TagCertificateAuthority.html">TagCertificateAuthority</a>. Call the <a href="https://docs.aws.amazon.com/privateca/latest/APIReference/API_ListTags.html">ListTags</a> action to see what tags are
- * 			associated with your CA. </p>
+ * <p>Remove one or more tags from your private CA. A tag consists of a key-value pair. If you do not specify the value portion of the tag when calling this action, the tag will be removed regardless of value. If you specify a value, the tag is removed only if it is associated with the specified value. To add tags to a private CA, use the <a href="https://docs.aws.amazon.com/privateca/latest/APIReference/API_TagCertificateAuthority.html">TagCertificateAuthority</a>. Call the <a href="https://docs.aws.amazon.com/privateca/latest/APIReference/API_ListTags.html">ListTags</a> action to see what tags are associated with your CA. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -61,19 +57,16 @@ export interface UntagCertificateAuthorityCommandOutput extends __MetadataBearer
  * @see {@link ACMPCAClientResolvedConfig | config} for ACMPCAClient's `config` shape.
  *
  * @throws {@link InvalidArnException} (client fault)
- *  <p>The requested Amazon Resource Name (ARN) does not refer to an existing
- * 			resource.</p>
+ *  <p>The requested Amazon Resource Name (ARN) does not refer to an existing resource.</p>
  *
  * @throws {@link InvalidStateException} (client fault)
  *  <p>The state of the private CA does not allow this action to occur.</p>
  *
  * @throws {@link InvalidTagException} (client fault)
- *  <p>The tag associated with the CA is not valid. The invalid argument is contained in the
- * 			message field.</p>
+ *  <p>The tag associated with the CA is not valid. The invalid argument is contained in the message field.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>A resource such as a private CA, S3 bucket, certificate, audit report, or policy
- * 			cannot be found.</p>
+ *  <p>A resource such as a private CA, S3 bucket, certificate, audit report, or policy cannot be found.</p>
  *
  * @throws {@link ACMPCAServiceException}
  * <p>Base exception class for all service exceptions from ACMPCA service.</p>

@@ -28,14 +28,7 @@ export interface IssueCertificateCommandInput extends IssueCertificateRequest {}
 export interface IssueCertificateCommandOutput extends IssueCertificateResponse, __MetadataBearer {}
 
 /**
- * <p>Uses your private certificate authority (CA), or one that has been shared with you, to
- * 			issue a client certificate. This action returns the Amazon Resource Name (ARN) of the
- * 			certificate. You can retrieve the certificate by calling the <a href="https://docs.aws.amazon.com/privateca/latest/APIReference/API_GetCertificate.html">GetCertificate</a> action and
- * 			specifying the ARN. </p>
- *          <note>
- *             <p>You cannot use the ACM <b>ListCertificateAuthorities</b> action to retrieve the ARNs of the
- * 				certificates that you issue by using Amazon Web Services Private CA.</p>
- *          </note>
+ * <p>Uses your private certificate authority (CA), or one that has been shared with you, to issue a client certificate. This action returns the Amazon Resource Name (ARN) of the certificate. You can retrieve the certificate by calling the <a href="https://docs.aws.amazon.com/privateca/latest/APIReference/API_GetCertificate.html">GetCertificate</a> action and specifying the ARN. </p> <note> <p>You cannot use the ACM <b>ListCertificateAuthorities</b> action to retrieve the ARNs of the certificates that you issue by using Amazon Web Services Private CA.</p> </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -177,22 +170,19 @@ export interface IssueCertificateCommandOutput extends IssueCertificateResponse,
  *  <p>One or more of the specified arguments was not valid.</p>
  *
  * @throws {@link InvalidArnException} (client fault)
- *  <p>The requested Amazon Resource Name (ARN) does not refer to an existing
- * 			resource.</p>
+ *  <p>The requested Amazon Resource Name (ARN) does not refer to an existing resource.</p>
  *
  * @throws {@link InvalidStateException} (client fault)
  *  <p>The state of the private CA does not allow this action to occur.</p>
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>An Amazon Web Services Private CA quota has been exceeded. See the exception message returned to determine
- * 			the quota that was exceeded.</p>
+ *  <p>An Amazon Web Services Private CA quota has been exceeded. See the exception message returned to determine the quota that was exceeded.</p>
  *
  * @throws {@link MalformedCSRException} (client fault)
  *  <p>The certificate signing request is invalid.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>A resource such as a private CA, S3 bucket, certificate, audit report, or policy
- * 			cannot be found.</p>
+ *  <p>A resource such as a private CA, S3 bucket, certificate, audit report, or policy cannot be found.</p>
  *
  * @throws {@link ACMPCAServiceException}
  * <p>Base exception class for all service exceptions from ACMPCA service.</p>

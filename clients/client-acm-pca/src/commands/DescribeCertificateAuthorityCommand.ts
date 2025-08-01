@@ -33,47 +33,7 @@ export interface DescribeCertificateAuthorityCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Lists information about your private certificate authority (CA) or one that has been
- * 			shared with you. You specify the private CA on input by its ARN (Amazon Resource Name).
- * 			The output contains the status of your CA. This can be any of the following: </p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <code>CREATING</code> - Amazon Web Services Private CA is creating your private certificate
- * 					authority.</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>PENDING_CERTIFICATE</code> - The certificate is pending. You must use
- * 					your Amazon Web Services Private CA-hosted or on-premises root or subordinate CA to sign your
- * 					private CA CSR and then import it into Amazon Web Services Private CA. </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>ACTIVE</code> - Your private CA is active.</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>DISABLED</code> - Your private CA has been disabled.</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>EXPIRED</code> - Your private CA certificate has expired.</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>FAILED</code> - Your private CA has failed. Your CA can fail because of
- * 					problems such a network outage or back-end Amazon Web Services failure or other errors. A
- * 					failed CA can never return to the pending state. You must create a new CA.
- * 				</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>DELETED</code> - Your private CA is within the restoration period, after
- * 					which it is permanently deleted. The length of time remaining in the CA's
- * 					restoration period is also included in this action's output.</p>
- *             </li>
- *          </ul>
+ * <p>Lists information about your private certificate authority (CA) or one that has been shared with you. You specify the private CA on input by its ARN (Amazon Resource Name). The output contains the status of your CA. This can be any of the following: </p> <ul> <li> <p> <code>CREATING</code> - Amazon Web Services Private CA is creating your private certificate authority.</p> </li> <li> <p> <code>PENDING_CERTIFICATE</code> - The certificate is pending. You must use your Amazon Web Services Private CA-hosted or on-premises root or subordinate CA to sign your private CA CSR and then import it into Amazon Web Services Private CA. </p> </li> <li> <p> <code>ACTIVE</code> - Your private CA is active.</p> </li> <li> <p> <code>DISABLED</code> - Your private CA has been disabled.</p> </li> <li> <p> <code>EXPIRED</code> - Your private CA certificate has expired.</p> </li> <li> <p> <code>FAILED</code> - Your private CA has failed. Your CA can fail because of problems such a network outage or back-end Amazon Web Services failure or other errors. A failed CA can never return to the pending state. You must create a new CA. </p> </li> <li> <p> <code>DELETED</code> - Your private CA is within the restoration period, after which it is permanently deleted. The length of time remaining in the CA's restoration period is also included in this action's output.</p> </li> </ul>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -214,12 +174,10 @@ export interface DescribeCertificateAuthorityCommandOutput
  * @see {@link ACMPCAClientResolvedConfig | config} for ACMPCAClient's `config` shape.
  *
  * @throws {@link InvalidArnException} (client fault)
- *  <p>The requested Amazon Resource Name (ARN) does not refer to an existing
- * 			resource.</p>
+ *  <p>The requested Amazon Resource Name (ARN) does not refer to an existing resource.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>A resource such as a private CA, S3 bucket, certificate, audit report, or policy
- * 			cannot be found.</p>
+ *  <p>A resource such as a private CA, S3 bucket, certificate, audit report, or policy cannot be found.</p>
  *
  * @throws {@link ACMPCAServiceException}
  * <p>Base exception class for all service exceptions from ACMPCA service.</p>

@@ -28,27 +28,7 @@ export interface CreateCertificateAuthorityCommandInput extends CreateCertificat
 export interface CreateCertificateAuthorityCommandOutput extends CreateCertificateAuthorityResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a root or subordinate private certificate authority (CA). You must specify the
- * 			CA configuration, an optional configuration for Online Certificate Status Protocol
- * 			(OCSP) and/or a certificate revocation list (CRL), the CA type, and an optional
- * 			idempotency token to avoid accidental creation of multiple CAs. The CA configuration
- * 			specifies the name of the algorithm and key size to be used to create the CA private
- * 			key, the type of signing algorithm that the CA uses, and X.500 subject information. The
- * 			OCSP configuration can optionally specify a custom URL for the OCSP responder. The CRL
- * 			configuration specifies the CRL expiration period in days (the validity period of the
- * 			CRL), the Amazon S3 bucket that will contain the CRL, and a CNAME alias for the S3
- * 			bucket that is included in certificates issued by the CA. If successful, this action
- * 			returns the Amazon Resource Name (ARN) of the CA.</p>
- *          <note>
- *             <p>Both Amazon Web Services Private CA and the IAM principal must have permission to write to
- *                         the S3 bucket that you specify. If the IAM principal making the call
- *                         does not have permission to write to the bucket, then an exception is
- *                         thrown. For more information, see <a href="https://docs.aws.amazon.com/privateca/latest/userguide/crl-planning.html#s3-policies">Access
- * 						policies for CRLs in Amazon S3</a>.</p>
- *          </note>
- *          <p>Amazon Web Services Private CA assets that are stored in Amazon S3 can be protected with encryption.
- *   For more information, see <a href="https://docs.aws.amazon.com/privateca/latest/userguide/crl-planning.html#crl-encryption">Encrypting Your
- * 			CRLs</a>.</p>
+ * <p>Creates a root or subordinate private certificate authority (CA). You must specify the CA configuration, an optional configuration for Online Certificate Status Protocol (OCSP) and/or a certificate revocation list (CRL), the CA type, and an optional idempotency token to avoid accidental creation of multiple CAs. The CA configuration specifies the name of the algorithm and key size to be used to create the CA private key, the type of signing algorithm that the CA uses, and X.500 subject information. The OCSP configuration can optionally specify a custom URL for the OCSP responder. The CRL configuration specifies the CRL expiration period in days (the validity period of the CRL), the Amazon S3 bucket that will contain the CRL, and a CNAME alias for the S3 bucket that is included in certificates issued by the CA. If successful, this action returns the Amazon Resource Name (ARN) of the CA.</p> <note> <p>Both Amazon Web Services Private CA and the IAM principal must have permission to write to the S3 bucket that you specify. If the IAM principal making the call does not have permission to write to the bucket, then an exception is thrown. For more information, see <a href="https://docs.aws.amazon.com/privateca/latest/userguide/crl-planning.html#s3-policies">Access policies for CRLs in Amazon S3</a>.</p> </note> <p>Amazon Web Services Private CA assets that are stored in Amazon S3 can be protected with encryption. For more information, see <a href="https://docs.aws.amazon.com/privateca/latest/userguide/crl-planning.html#crl-encryption">Encrypting Your CRLs</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -187,16 +167,13 @@ export interface CreateCertificateAuthorityCommandOutput extends CreateCertifica
  *  <p>One or more of the specified arguments was not valid.</p>
  *
  * @throws {@link InvalidPolicyException} (client fault)
- *  <p>The resource policy is invalid or is missing a required statement. For general
- * 			information about IAM policy and statement structure, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#access_policies-json">Overview of JSON Policies</a>.</p>
+ *  <p>The resource policy is invalid or is missing a required statement. For general information about IAM policy and statement structure, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#access_policies-json">Overview of JSON Policies</a>.</p>
  *
  * @throws {@link InvalidTagException} (client fault)
- *  <p>The tag associated with the CA is not valid. The invalid argument is contained in the
- * 			message field.</p>
+ *  <p>The tag associated with the CA is not valid. The invalid argument is contained in the message field.</p>
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>An Amazon Web Services Private CA quota has been exceeded. See the exception message returned to determine
- * 			the quota that was exceeded.</p>
+ *  <p>An Amazon Web Services Private CA quota has been exceeded. See the exception message returned to determine the quota that was exceeded.</p>
  *
  * @throws {@link ACMPCAServiceException}
  * <p>Base exception class for all service exceptions from ACMPCA service.</p>
