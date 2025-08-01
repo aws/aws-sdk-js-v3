@@ -53,7 +53,7 @@ export interface DeleteCertificateCommandOutput extends DeleteCertificateResult,
  * //       createdAt: new Date("TIMESTAMP"),
  * //       location: { // ResourceLocation
  * //         availabilityZone: "STRING_VALUE",
- * //         regionName: "us-east-1" || "us-east-2" || "us-west-1" || "us-west-2" || "eu-west-1" || "eu-west-2" || "eu-west-3" || "eu-central-1" || "ca-central-1" || "ap-south-1" || "ap-southeast-1" || "ap-southeast-2" || "ap-northeast-1" || "ap-northeast-2" || "eu-north-1",
+ * //         regionName: "us-east-1" || "us-east-2" || "us-west-1" || "us-west-2" || "eu-west-1" || "eu-west-2" || "eu-west-3" || "eu-central-1" || "ca-central-1" || "ap-south-1" || "ap-southeast-1" || "ap-southeast-2" || "ap-northeast-1" || "ap-northeast-2" || "eu-north-1" || "ap-southeast-3",
  * //       },
  * //       isTerminal: true || false,
  * //       operationDetails: "STRING_VALUE",
@@ -90,6 +90,10 @@ export interface DeleteCertificateCommandOutput extends DeleteCertificateResult,
  *
  * @throws {@link NotFoundException} (client fault)
  *  <p>Lightsail throws this exception when it cannot find a resource.</p>
+ *
+ * @throws {@link RegionSetupInProgressException} (client fault)
+ *  <p>Lightsail throws this exception when an operation is performed on resources in an opt-in
+ *       Region that is currently being set up.</p>
  *
  * @throws {@link ServiceException} (server fault)
  *  <p>A general service exception.</p>

@@ -51,6 +51,11 @@ import {
 /**
  * @public
  */
+export interface GetContainerServicePowersRequest {}
+
+/**
+ * @public
+ */
 export interface GetContainerServicePowersResult {
   /**
    * <p>An array of objects that describe the powers that can be specified for a container

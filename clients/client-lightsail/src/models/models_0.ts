@@ -613,6 +613,7 @@ export const RegionName = {
   AP_NORTHEAST_2: "ap-northeast-2",
   AP_SOUTHEAST_1: "ap-southeast-1",
   AP_SOUTHEAST_2: "ap-southeast-2",
+  AP_SOUTHEAST_3: "ap-southeast-3",
   AP_SOUTH_1: "ap-south-1",
   CA_CENTRAL_1: "ca-central-1",
   EU_CENTRAL_1: "eu-central-1",
@@ -1328,6 +1329,46 @@ export class OperationFailureException extends __BaseException {
       ...opts,
     });
     Object.setPrototypeOf(this, OperationFailureException.prototype);
+    this.code = opts.code;
+    this.docs = opts.docs;
+    this.tip = opts.tip;
+  }
+}
+
+/**
+ * <p>Lightsail throws this exception when an operation is performed on resources in an opt-in
+ *       Region that is currently being set up.</p>
+ * @public
+ */
+export class RegionSetupInProgressException extends __BaseException {
+  readonly name: "RegionSetupInProgressException" = "RegionSetupInProgressException";
+  readonly $fault: "client" = "client";
+  code?: string | undefined;
+  /**
+   * <p>
+   *             <a href="https://docs.aws.amazon.com/lightsail/latest/userguide/understanding-regions-and-availability-zones-in-amazon-lightsail.html">Regions
+   *       and Availability Zones for Lightsail</a>
+   *          </p>
+   * @public
+   */
+  docs?: string | undefined;
+
+  /**
+   * <p>Opt-in Regions typically take a few minutes to finish setting up before you can work with them. Wait a few minutes and try again.</p>
+   * @public
+   */
+  tip?: string | undefined;
+
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<RegionSetupInProgressException, __BaseException>) {
+    super({
+      name: "RegionSetupInProgressException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, RegionSetupInProgressException.prototype);
     this.code = opts.code;
     this.docs = opts.docs;
     this.tip = opts.tip;
@@ -9352,11 +9393,6 @@ export interface GetContainerServiceMetricDataResult {
    */
   metricData?: MetricDatapoint[] | undefined;
 }
-
-/**
- * @public
- */
-export interface GetContainerServicePowersRequest {}
 
 /**
  * @internal

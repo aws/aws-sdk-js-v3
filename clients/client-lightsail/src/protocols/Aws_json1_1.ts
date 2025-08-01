@@ -619,7 +619,6 @@ import {
   GetContainerServiceDeploymentsResult,
   GetContainerServiceMetricDataRequest,
   GetContainerServiceMetricDataResult,
-  GetContainerServicePowersRequest,
   HeaderEnum,
   HeaderObject,
   InputOrigin,
@@ -635,6 +634,7 @@ import {
   PortInfo,
   PrivateRegistryAccessRequest,
   QueryStringObject,
+  RegionSetupInProgressException,
   RenewalSummary,
   ServiceException,
   StopInstanceOnIdleRequest,
@@ -643,6 +643,7 @@ import {
   UnauthenticatedException,
 } from "../models/models_0";
 import {
+  GetContainerServicePowersRequest,
   GetContainerServicePowersResult,
   GetContainerServicesRequest,
   GetCostEstimateRequest,
@@ -6159,6 +6160,9 @@ const de_CommandError = async (output: __HttpResponse, context: __SerdeContext):
     case "OperationFailureException":
     case "com.amazonaws.lightsail#OperationFailureException":
       throw await de_OperationFailureExceptionRes(parsedOutput, context);
+    case "RegionSetupInProgressException":
+    case "com.amazonaws.lightsail#RegionSetupInProgressException":
+      throw await de_RegionSetupInProgressExceptionRes(parsedOutput, context);
     case "ServiceException":
     case "com.amazonaws.lightsail#ServiceException":
       throw await de_ServiceExceptionRes(parsedOutput, context);
@@ -6246,6 +6250,22 @@ const de_OperationFailureExceptionRes = async (
   const body = parsedOutput.body;
   const deserialized: any = _json(body);
   const exception = new OperationFailureException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+/**
+ * deserializeAws_json1_1RegionSetupInProgressExceptionRes
+ */
+const de_RegionSetupInProgressExceptionRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<RegionSetupInProgressException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = _json(body);
+  const exception = new RegionSetupInProgressException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
   });
@@ -9334,6 +9354,8 @@ const de_RebootRelationalDatabaseResult = (output: any, context: __SerdeContext)
 // de_Region omitted.
 
 // de_RegionList omitted.
+
+// de_RegionSetupInProgressException omitted.
 
 /**
  * deserializeAws_json1_1RegisterContainerImageResult

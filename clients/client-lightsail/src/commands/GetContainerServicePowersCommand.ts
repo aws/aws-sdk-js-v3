@@ -6,8 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
-import { GetContainerServicePowersRequest } from "../models/models_0";
-import { GetContainerServicePowersResult } from "../models/models_1";
+import { GetContainerServicePowersRequest, GetContainerServicePowersResult } from "../models/models_1";
 import { de_GetContainerServicePowersCommand, se_GetContainerServicePowersCommand } from "../protocols/Aws_json1_1";
 
 /**
@@ -79,6 +78,10 @@ export interface GetContainerServicePowersCommandOutput extends GetContainerServ
  *
  * @throws {@link NotFoundException} (client fault)
  *  <p>Lightsail throws this exception when it cannot find a resource.</p>
+ *
+ * @throws {@link RegionSetupInProgressException} (client fault)
+ *  <p>Lightsail throws this exception when an operation is performed on resources in an opt-in
+ *       Region that is currently being set up.</p>
  *
  * @throws {@link ServiceException} (server fault)
  *  <p>A general service exception.</p>

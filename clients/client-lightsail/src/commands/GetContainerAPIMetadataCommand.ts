@@ -59,6 +59,10 @@ export interface GetContainerAPIMetadataCommandOutput extends GetContainerAPIMet
  *  <p>Lightsail throws this exception when the user cannot be authenticated or uses invalid
  *       credentials to access a resource.</p>
  *
+ * @throws {@link RegionSetupInProgressException} (client fault)
+ *  <p>Lightsail throws this exception when an operation is performed on resources in an opt-in
+ *       Region that is currently being set up.</p>
+ *
  * @throws {@link ServiceException} (server fault)
  *  <p>A general service exception.</p>
  *

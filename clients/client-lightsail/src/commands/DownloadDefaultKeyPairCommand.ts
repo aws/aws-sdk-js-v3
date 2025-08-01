@@ -78,6 +78,10 @@ export interface DownloadDefaultKeyPairCommandOutput extends DownloadDefaultKeyP
  * @throws {@link OperationFailureException} (client fault)
  *  <p>Lightsail throws this exception when an operation fails to execute.</p>
  *
+ * @throws {@link RegionSetupInProgressException} (client fault)
+ *  <p>Lightsail throws this exception when an operation is performed on resources in an opt-in
+ *       Region that is currently being set up.</p>
+ *
  * @throws {@link ServiceException} (server fault)
  *  <p>A general service exception.</p>
  *

@@ -50,7 +50,7 @@ export interface CopySnapshotCommandOutput extends CopySnapshotResult, __Metadat
  *   restoreDate: "STRING_VALUE",
  *   useLatestRestorableAutoSnapshot: true || false,
  *   targetSnapshotName: "STRING_VALUE", // required
- *   sourceRegion: "us-east-1" || "us-east-2" || "us-west-1" || "us-west-2" || "eu-west-1" || "eu-west-2" || "eu-west-3" || "eu-central-1" || "ca-central-1" || "ap-south-1" || "ap-southeast-1" || "ap-southeast-2" || "ap-northeast-1" || "ap-northeast-2" || "eu-north-1", // required
+ *   sourceRegion: "us-east-1" || "us-east-2" || "us-west-1" || "us-west-2" || "eu-west-1" || "eu-west-2" || "eu-west-3" || "eu-central-1" || "ca-central-1" || "ap-south-1" || "ap-southeast-1" || "ap-southeast-2" || "ap-northeast-1" || "ap-northeast-2" || "eu-north-1" || "ap-southeast-3", // required
  * };
  * const command = new CopySnapshotCommand(input);
  * const response = await client.send(command);
@@ -63,7 +63,7 @@ export interface CopySnapshotCommandOutput extends CopySnapshotResult, __Metadat
  * //       createdAt: new Date("TIMESTAMP"),
  * //       location: { // ResourceLocation
  * //         availabilityZone: "STRING_VALUE",
- * //         regionName: "us-east-1" || "us-east-2" || "us-west-1" || "us-west-2" || "eu-west-1" || "eu-west-2" || "eu-west-3" || "eu-central-1" || "ca-central-1" || "ap-south-1" || "ap-southeast-1" || "ap-southeast-2" || "ap-northeast-1" || "ap-northeast-2" || "eu-north-1",
+ * //         regionName: "us-east-1" || "us-east-2" || "us-west-1" || "us-west-2" || "eu-west-1" || "eu-west-2" || "eu-west-3" || "eu-central-1" || "ca-central-1" || "ap-south-1" || "ap-southeast-1" || "ap-southeast-2" || "ap-northeast-1" || "ap-northeast-2" || "eu-north-1" || "ap-southeast-3",
  * //       },
  * //       isTerminal: true || false,
  * //       operationDetails: "STRING_VALUE",
@@ -107,6 +107,10 @@ export interface CopySnapshotCommandOutput extends CopySnapshotResult, __Metadat
  *
  * @throws {@link OperationFailureException} (client fault)
  *  <p>Lightsail throws this exception when an operation fails to execute.</p>
+ *
+ * @throws {@link RegionSetupInProgressException} (client fault)
+ *  <p>Lightsail throws this exception when an operation is performed on resources in an opt-in
+ *       Region that is currently being set up.</p>
  *
  * @throws {@link ServiceException} (server fault)
  *  <p>A general service exception.</p>
