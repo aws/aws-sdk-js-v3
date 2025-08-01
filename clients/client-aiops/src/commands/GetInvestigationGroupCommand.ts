@@ -42,9 +42,9 @@ export interface GetInvestigationGroupCommandOutput extends GetInvestigationGrou
  * const response = await client.send(command);
  * // { // GetInvestigationGroupResponse
  * //   createdBy: "STRING_VALUE",
- * //   createdAt: new Date("TIMESTAMP"),
+ * //   createdAt: Number("long"),
  * //   lastModifiedBy: "STRING_VALUE",
- * //   lastModifiedAt: new Date("TIMESTAMP"),
+ * //   lastModifiedAt: Number("long"),
  * //   name: "STRING_VALUE",
  * //   arn: "STRING_VALUE",
  * //   roleArn: "STRING_VALUE",

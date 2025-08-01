@@ -116,7 +116,7 @@ export type EncryptionConfigurationType =
  */
 export interface EncryptionConfiguration {
   /**
-   * <p>Displays whether investigation data is encrypted by a customer managed key or an Amazon Web Services owned kay.</p>
+   * <p>Displays whether investigation data is encrypted by a customer managed key or an Amazon Web Services owned key.</p>
    * @public
    */
   type?: EncryptionConfigurationType | undefined;
@@ -139,7 +139,7 @@ export interface CreateInvestigationGroupInput {
   name: string | undefined;
 
   /**
-   * <p>Specify the ARN of the IAM role that CloudWatch investigations will use when it gathers investigation data. The permissions in this role determine which of your resources that CloudWatch investigations will have access to during investigations.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Investigations-Security.html#Investigations-Security-Data">How to control what data Amazon Q has access to during investigations</a>.</p>
+   * <p>Specify the ARN of the IAM role that CloudWatch investigations will use when it gathers investigation data. The permissions in this role determine which of your resources that CloudWatch investigations will have access to during investigations.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Investigations-Security.html#Investigations-Security-Data">How to control what data CloudWatch investigations has access to during investigations</a>.</p>
    * @public
    */
   roleArn: string | undefined;
@@ -163,13 +163,13 @@ export interface CreateInvestigationGroupInput {
   tags?: Record<string, string> | undefined;
 
   /**
-   * <p>Enter the existing custom tag keys for custom applications in your system. Resource tags help Amazon Q narrow the search space when it is unable to discover definite relationships between resources. For example, to discover that an Amazon ECS service depends on an Amazon RDS database, Amazon Q can discover this relationship using data sources such as X-Ray and CloudWatch Application Signals. However, if you haven't deployed these features, Amazon Q will attempt to identify possible relationships. Tag boundaries can be used to narrow the resources that will be discovered by Amazon Q in these cases.</p> <p>You don't need to enter tags created by myApplications or CloudFormation, because Amazon Q can automatically detect those tags.</p>
+   * <p>Enter the existing custom tag keys for custom applications in your system. Resource tags help CloudWatch investigations narrow the search space when it is unable to discover definite relationships between resources. For example, to discover that an Amazon ECS service depends on an Amazon RDS database, CloudWatch investigations can discover this relationship using data sources such as X-Ray and CloudWatch Application Signals. However, if you haven't deployed these features, CloudWatch investigations will attempt to identify possible relationships. Tag boundaries can be used to narrow the resources that will be discovered by CloudWatch investigations in these cases.</p> <p>You don't need to enter tags created by myApplications or CloudFormation, because CloudWatch investigations can automatically detect those tags.</p>
    * @public
    */
   tagKeyBoundaries?: string[] | undefined;
 
   /**
-   * <p>Use this structure to integrate CloudWatch investigations with Amazon Q in chat applications. This structure is a string array. For the first string, specify the ARN of an Amazon SNS topic. For the array of strings, specify the ARNs of one or more Amazon Q in chat applications configurations that you want to associate with that topic. For more information about these configuration ARNs, see <a href="https://docs.aws.amazon.com/chatbot/latest/adminguide/getting-started.html">Getting started with Amazon Q in chat applications</a> and <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awschatbot.html#awschatbot-resources-for-iam-policies">Resource type defined by Amazon Web Services Chatbot</a>.</p>
+   * <p>Use this structure to integrate CloudWatch investigations with chat applications. This structure is a string array. For the first string, specify the ARN of an Amazon SNS topic. For the array of strings, specify the ARNs of one or more chat applications configurations that you want to associate with that topic. For more information about these configuration ARNs, see <a href="https://docs.aws.amazon.com/chatbot/latest/adminguide/getting-started.html">Getting started with Amazon Q in chat applications</a> and <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awschatbot.html#awschatbot-resources-for-iam-policies">Resource type defined by Amazon Web Services Chatbot</a>.</p>
    * @public
    */
   chatbotNotificationChannel?: Record<string, string[]> | undefined;
@@ -181,7 +181,7 @@ export interface CreateInvestigationGroupInput {
   isCloudTrailEventHistoryEnabled?: boolean | undefined;
 
   /**
-   * <p>Number of <code>sourceAccountId</code> values that have been configured for cross-account access.</p>
+   * <p>List of <code>sourceRoleArn</code> values that have been configured for cross-account access.</p>
    * @public
    */
   crossAccountConfigurations?: CrossAccountConfiguration[] | undefined;
@@ -322,7 +322,7 @@ export interface DeleteInvestigationGroupRequest {
  */
 export interface GetInvestigationGroupRequest {
   /**
-   * <p>Specify either the name or the ARN of the investigation group that you want to view.</p>
+   * <p>Specify either the name or the ARN of the investigation group that you want to view. This is used to set the name of the investigation group.</p>
    * @public
    */
   identifier: string | undefined;
@@ -342,7 +342,7 @@ export interface GetInvestigationGroupResponse {
    * <p>The date and time that the investigation group was created.</p>
    * @public
    */
-  createdAt?: Date | undefined;
+  createdAt?: number | undefined;
 
   /**
    * <p>The name of the user who created the investigation group.</p>
@@ -354,7 +354,7 @@ export interface GetInvestigationGroupResponse {
    * <p>The date and time that the investigation group was most recently modified.</p>
    * @public
    */
-  lastModifiedAt?: Date | undefined;
+  lastModifiedAt?: number | undefined;
 
   /**
    * <p>The name of the investigation group.</p>
@@ -387,13 +387,13 @@ export interface GetInvestigationGroupResponse {
   retentionInDays?: number | undefined;
 
   /**
-   * <p>This structure is a string array. The first string is the ARN of a Amazon SNS topic. The array of strings display the ARNs of Amazon Q in chat applications configurations that are associated with that topic. For more information about these configuration ARNs, see <a href="https://docs.aws.amazon.com/chatbot/latest/adminguide/getting-started.html">Getting started with Amazon Q in chat applications</a> and <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awschatbot.html#awschatbot-resources-for-iam-policies">Resource type defined by Amazon Web Services Chatbot</a>.</p>
+   * <p>This structure is a string array. The first string is the ARN of a Amazon SNS topic. The array of strings display the ARNs of chat applications configurations that are associated with that topic. For more information about these configuration ARNs, see <a href="https://docs.aws.amazon.com/chatbot/latest/adminguide/getting-started.html">Getting started with Amazon Q in chat applications</a> and <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awschatbot.html#awschatbot-resources-for-iam-policies">Resource type defined by Amazon Web Services Chatbot</a>.</p>
    * @public
    */
   chatbotNotificationChannel?: Record<string, string[]> | undefined;
 
   /**
-   * <p>Displays the custom tag keys for custom applications in your system that you have specified in the investigation group. Resource tags help Amazon Q narrow the search space when it is unable to discover definite relationships between resources. </p>
+   * <p>Displays the custom tag keys for custom applications in your system that you have specified in the investigation group. Resource tags help CloudWatch investigations narrow the search space when it is unable to discover definite relationships between resources. </p>
    * @public
    */
   tagKeyBoundaries?: string[] | undefined;
@@ -479,7 +479,7 @@ export interface UpdateInvestigationGroupRequest {
   identifier: string | undefined;
 
   /**
-   * <p>Specify this field if you want to change the IAM role that CloudWatch investigations will use when it gathers investigation data. To do so, specify the ARN of the new role.</p> <p>The permissions in this role determine which of your resources that CloudWatch investigations will have access to during investigations.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Investigations-Security.html#Investigations-Security-Data">EHow to control what data Amazon Q has access to during investigations</a>.</p>
+   * <p>Specify this field if you want to change the IAM role that CloudWatch investigations will use when it gathers investigation data. To do so, specify the ARN of the new role.</p> <p>The permissions in this role determine which of your resources that CloudWatch investigations will have access to during investigations.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Investigations-Security.html#Investigations-Security-Data">How to control what data CloudWatch investigations has access to during investigations</a>.</p>
    * @public
    */
   roleArn?: string | undefined;
@@ -491,13 +491,13 @@ export interface UpdateInvestigationGroupRequest {
   encryptionConfiguration?: EncryptionConfiguration | undefined;
 
   /**
-   * <p>Enter the existing custom tag keys for custom applications in your system. Resource tags help Amazon Q narrow the search space when it is unable to discover definite relationships between resources. For example, to discover that an Amazon ECS service depends on an Amazon RDS database, Amazon Q can discover this relationship using data sources such as X-Ray and CloudWatch Application Signals. However, if you haven't deployed these features, Amazon Q will attempt to identify possible relationships. Tag boundaries can be used to narrow the resources that will be discovered by Amazon Q in these cases.</p> <p>You don't need to enter tags created by myApplications or CloudFormation, because Amazon Q can automatically detect those tags.</p>
+   * <p>Enter the existing custom tag keys for custom applications in your system. Resource tags help CloudWatch investigations narrow the search space when it is unable to discover definite relationships between resources. For example, to discover that an Amazon ECS service depends on an Amazon RDS database, CloudWatch investigations can discover this relationship using data sources such as X-Ray and CloudWatch Application Signals. However, if you haven't deployed these features, CloudWatch investigations will attempt to identify possible relationships. Tag boundaries can be used to narrow the resources that will be discovered by CloudWatch investigations in these cases.</p> <p>You don't need to enter tags created by myApplications or CloudFormation, because CloudWatch investigations can automatically detect those tags.</p>
    * @public
    */
   tagKeyBoundaries?: string[] | undefined;
 
   /**
-   * <p>Use this structure to integrate CloudWatch investigations with Amazon Q in chat applications. This structure is a string array. For the first string, specify the ARN of an Amazon SNS topic. For the array of strings, specify the ARNs of one or more Amazon Q in chat applications configurations that you want to associate with that topic. For more information about these configuration ARNs, see <a href="https://docs.aws.amazon.com/chatbot/latest/adminguide/getting-started.html">Getting started with Amazon Q in chat applications</a> and <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awschatbot.html#awschatbot-resources-for-iam-policies">Resource type defined by Amazon Web Services Chatbot</a>.</p>
+   * <p>Use this structure to integrate CloudWatch investigations with chat applications. This structure is a string array. For the first string, specify the ARN of an Amazon SNS topic. For the array of strings, specify the ARNs of one or more chat applications configurations that you want to associate with that topic. For more information about these configuration ARNs, see <a href="https://docs.aws.amazon.com/chatbot/latest/adminguide/getting-started.html">Getting started with Amazon Q in chat applications</a> and <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awschatbot.html#awschatbot-resources-for-iam-policies">Resource type defined by Amazon Web Services Chatbot</a>.</p>
    * @public
    */
   chatbotNotificationChannel?: Record<string, string[]> | undefined;
@@ -603,7 +603,7 @@ export interface ListTagsForResourceOutput {
  */
 export interface ListTagsForResourceRequest {
   /**
-   * <p>The ARN of the CloudWatch investigations resource that you want to view tags for. You can use the <a href="https://docs.aws.amazon.com/operationalinvestigations/latest/AmazonQDeveloperOperationalInvestigationsAPIReference/API_ListInvestigationGroups.html">ListInvestigationGroups</a> operation to find the ARNs of investigation groups.</p> <p>The ARN format for an investigation group is <code>arn:aws:aiops:<i>Region</i>:<i>account-id</i>:investigation-group:<i>investigation-group-id</i> </code>.</p>
+   * <p>The ARN of the CloudWatch investigations resource that you want to view tags for. You can use the <code>ListInvestigationGroups</code> operation to find the ARNs of investigation groups.</p> <p>The ARN format for an investigation group is <code>arn:aws:aiops:<i>Region</i>:<i>account-id</i>:investigation-group:<i>investigation-group-id</i> </code>.</p>
    * @public
    */
   resourceArn: string | undefined;
@@ -614,7 +614,7 @@ export interface ListTagsForResourceRequest {
  */
 export interface TagResourceRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the resource that you want to apply the tags to. You can use the <a href="https://docs.aws.amazon.com/operationalinvestigations/latest/AmazonQDeveloperOperationalInvestigationsAPIReference/API_ListInvestigationGroups.html">ListInvestigationGroups</a> operation to find the ARNs of investigation groups.</p>
+   * <p>The Amazon Resource Name (ARN) of the resource that you want to apply the tags to. You can use the <code>ListInvestigationGroups</code> operation to find the ARNs of investigation groups.</p>
    * @public
    */
   resourceArn: string | undefined;
@@ -636,7 +636,7 @@ export interface TagResourceResponse {}
  */
 export interface UntagResourceRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the resource that you want to remove the tags from. You can use the <a href="https://docs.aws.amazon.com/operationalinvestigations/latest/AmazonQDeveloperOperationalInvestigationsAPIReference/API_ListInvestigationGroups.html">ListInvestigationGroups</a> operation to find the ARNs of investigation groups.</p>
+   * <p>The Amazon Resource Name (ARN) of the resource that you want to remove the tags from. You can use the<code>ListInvestigationGroups</code> operation to find the ARNs of investigation groups.</p>
    * @public
    */
   resourceArn: string | undefined;
