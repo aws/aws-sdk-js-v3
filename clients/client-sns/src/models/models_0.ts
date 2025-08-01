@@ -213,7 +213,7 @@ export interface ConfirmSubscriptionResponse {
 
 /**
  * <p>Indicates that the number of filter polices in your Amazon Web Services account exceeds the limit. To
- *             add more filter polices, submit an Amazon SNS Limit Increase case in the Amazon Web Services Support
+ *             add more filter polices, submit an Amazon SNS Limit Increase case in the Amazon Web ServicesSupport
  *             Center.</p>
  * @public
  */
@@ -530,20 +530,9 @@ export interface CreateTopicInput {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>FifoTopic</code> – Set to true to create a FIFO topic.</p>
-   *             </li>
-   *             <li>
-   *                <p>
    *                   <code>Policy</code> – The policy that defines who can access your
    *                     topic. By default, only the topic owner can publish or subscribe to the
    *                     topic.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>SignatureVersion</code> – The signature version corresponds to
-   *                     the hashing algorithm used while creating the signature of the notifications,
-   *                     subscription confirmations, or unsubscribe confirmation messages sent by Amazon SNS.
-   *                     By default, <code>SignatureVersion</code> is set to <code>1</code>.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -554,7 +543,139 @@ export interface CreateTopicInput {
    *                     to topic owner account if the sampled flag in the tracing header is true. This
    *                     is only supported on standard topics.</p>
    *             </li>
+   *             <li>
+   *                <p>HTTP</p>
+   *                <ul>
+   *                   <li>
+   *                      <p>
+   *                         <code>HTTPSuccessFeedbackRoleArn</code> – Indicates successful
+   *                             message delivery status for an Amazon SNS topic that is subscribed to an HTTP
+   *                             endpoint. </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>HTTPSuccessFeedbackSampleRate</code> – Indicates
+   *                             percentage of successful messages to sample for an Amazon SNS topic that is
+   *                             subscribed to an HTTP endpoint.</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>HTTPFailureFeedbackRoleArn</code> – Indicates failed
+   *                             message delivery status for an Amazon SNS topic that is subscribed to an HTTP
+   *                             endpoint.</p>
+   *                   </li>
+   *                </ul>
+   *             </li>
+   *             <li>
+   *                <p>Amazon Data Firehose</p>
+   *                <ul>
+   *                   <li>
+   *                      <p>
+   *                         <code>FirehoseSuccessFeedbackRoleArn</code> – Indicates
+   *                             successful message delivery status for an Amazon SNS topic that is subscribed
+   *                             to an Amazon Data Firehose endpoint.</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>FirehoseSuccessFeedbackSampleRate</code> – Indicates
+   *                             percentage of successful messages to sample for an Amazon SNS topic that is
+   *                             subscribed to an Amazon Data Firehose endpoint.</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>FirehoseFailureFeedbackRoleArn</code> – Indicates failed
+   *                             message delivery status for an Amazon SNS topic that is subscribed to an
+   *                             Amazon Data Firehose endpoint. </p>
+   *                   </li>
+   *                </ul>
+   *             </li>
+   *             <li>
+   *                <p>Lambda</p>
+   *                <ul>
+   *                   <li>
+   *                      <p>
+   *                         <code>LambdaSuccessFeedbackRoleArn</code> – Indicates
+   *                             successful message delivery status for an Amazon SNS topic that is subscribed
+   *                             to an Lambda endpoint.</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>LambdaSuccessFeedbackSampleRate</code> – Indicates
+   *                             percentage of successful messages to sample for an Amazon SNS topic that is
+   *                             subscribed to an Lambda endpoint.</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>LambdaFailureFeedbackRoleArn</code> – Indicates failed
+   *                             message delivery status for an Amazon SNS topic that is subscribed to an
+   *                             Lambda endpoint. </p>
+   *                   </li>
+   *                </ul>
+   *             </li>
+   *             <li>
+   *                <p>Platform application endpoint</p>
+   *                <ul>
+   *                   <li>
+   *                      <p>
+   *                         <code>ApplicationSuccessFeedbackRoleArn</code> – Indicates
+   *                             successful message delivery status for an Amazon SNS topic that is subscribed
+   *                             to a platform application endpoint.</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>ApplicationSuccessFeedbackSampleRate</code> – Indicates
+   *                             percentage of successful messages to sample for an Amazon SNS topic that is
+   *                             subscribed to an platform application endpoint.</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>ApplicationFailureFeedbackRoleArn</code> – Indicates
+   *                             failed message delivery status for an Amazon SNS topic that is subscribed to
+   *                             an platform application endpoint.</p>
+   *                   </li>
+   *                </ul>
+   *                <note>
+   *                   <p>In addition to being able to configure topic attributes for message
+   *                         delivery status of notification messages sent to Amazon SNS application
+   *                         endpoints, you can also configure application attributes for the delivery
+   *                         status of push notification messages sent to push notification
+   *                         services.</p>
+   *                   <p>For example, For more information, see <a href="https://docs.aws.amazon.com/sns/latest/dg/sns-msg-status.html">Using Amazon SNS Application
+   *                             Attributes for Message Delivery Status</a>. </p>
+   *                </note>
+   *             </li>
+   *             <li>
+   *                <p>Amazon SQS</p>
+   *                <ul>
+   *                   <li>
+   *                      <p>
+   *                         <code>SQSSuccessFeedbackRoleArn</code> – Indicates successful
+   *                             message delivery status for an Amazon SNS topic that is subscribed to an
+   *                             Amazon SQS endpoint. </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>SQSSuccessFeedbackSampleRate</code> – Indicates
+   *                             percentage of successful messages to sample for an Amazon SNS topic that is
+   *                             subscribed to an Amazon SQS endpoint. </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>SQSFailureFeedbackRoleArn</code> – Indicates failed
+   *                             message delivery status for an Amazon SNS topic that is subscribed to an
+   *                             Amazon SQS endpoint. </p>
+   *                   </li>
+   *                </ul>
+   *             </li>
    *          </ul>
+   *          <note>
+   *             <p>The <ENDPOINT>SuccessFeedbackRoleArn and <ENDPOINT>FailureFeedbackRoleArn
+   *                 attributes are used to give Amazon SNS write access to use CloudWatch Logs on your
+   *                 behalf. The <ENDPOINT>SuccessFeedbackSampleRate attribute is for specifying the
+   *                 sample rate percentage (0-100) of successfully delivered messages. After you
+   *                 configure the <ENDPOINT>FailureFeedbackRoleArn attribute, then all failed message
+   *                 deliveries generate CloudWatch Logs. </p>
+   *          </note>
    *          <p>The following attribute applies only to <a href="https://docs.aws.amazon.com/sns/latest/dg/sns-server-side-encryption.html">server-side
    *             encryption</a>:</p>
    *          <ul>
@@ -2286,14 +2407,22 @@ export interface PublishInput {
   MessageDeduplicationId?: string | undefined;
 
   /**
-   * <p>This parameter applies only to FIFO (first-in-first-out) topics. The
+   * <p>The
    *                 <code>MessageGroupId</code> can contain up to 128 alphanumeric characters
    *                 <code>(a-z, A-Z, 0-9)</code> and punctuation
    *                 <code>(!"#$%&'()*+,-./:;<=>?@[\]^_`\{|\}~)</code>.</p>
-   *          <p>The <code>MessageGroupId</code> is a tag that specifies that a message belongs to a
+   *          <p>
+   *         For FIFO topics: The <code>MessageGroupId</code> is a tag that specifies that a message belongs to a
    *             specific message group. Messages that belong to the same message group are processed in
    *             a FIFO manner (however, messages in different message groups might be processed out of
-   *             order). Every message must include a <code>MessageGroupId</code>.</p>
+   *             order). Every message must include a <code>MessageGroupId</code>.
+   *         </p>
+   *          <p>
+   *         For standard topics: The <code>MessageGroupId</code> is optional
+   *             and is forwarded only to Amazon SQS standard subscriptions to activate <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-fair-queues.html">fair queues</a>.
+   *             The <code>MessageGroupId</code> is not used for, or sent to, any other endpoint types.
+   *             When provided, the same validation rules apply as for FIFO topics.
+   *         </p>
    * @public
    */
   MessageGroupId?: string | undefined;
@@ -2447,7 +2576,7 @@ export interface PublishBatchRequestEntry {
    *             </li>
    *          </ul>
    *          <p>You can define other top-level keys that define the message you want to send to a
-   *             specific transport protocol (e.g. http). </p>
+   *             specific transport protocol (for example, http). </p>
    * @public
    */
   MessageStructure?: string | undefined;
@@ -2539,25 +2668,23 @@ export interface PublishBatchRequestEntry {
   MessageDeduplicationId?: string | undefined;
 
   /**
-   * <p>This parameter applies only to FIFO (first-in-first-out) topics.</p>
-   *          <p>The tag that specifies that a message belongs to a specific message group. Messages
-   *             that belong to the same message group are processed in a FIFO manner (however, messages
-   *             in different message groups might be processed out of order). To interleave multiple
-   *             ordered streams within a single topic, use <code>MessageGroupId</code> values (for
-   *             example, session data for multiple users). In this scenario, multiple consumers can
-   *             process the topic, but the session data of each user is processed in a FIFO fashion. </p>
-   *          <p>You must associate a non-empty <code>MessageGroupId</code> with a message. If you
-   *             don't provide a <code>MessageGroupId</code>, the action fails. </p>
+   * <p>FIFO topics: The tag that specifies that a message belongs to a specific message group.
+   *         Messages that belong to the same message group are processed in a FIFO manner
+   *          (however, messages in different message groups might be processed out of order).
+   *          To interleave multiple ordered streams within a single topic, use <code>MessageGroupId</code> values
+   *          (for example, session data for multiple users). In this scenario, multiple consumers can process the topic,
+   *          but the session data of each user is processed in a FIFO fashion.
+   *          You must associate a non-empty <code>MessageGroupId</code> with a message.
+   *           If you do not provide a <code>MessageGroupId</code>, the action fails.
+   *          </p>
+   *          <p>Standard topics: The <code>MessageGroupId</code> is optional and is forwarded only to Amazon SQS
+   *         standard subscriptions to activate <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-fair-queues.html">fair queues</a>.
+   *         The <code>MessageGroupId</code> is not used for, or sent to, any other endpoint types.</p>
    *          <p>The length of <code>MessageGroupId</code> is 128 characters.</p>
    *          <p>
    *             <code>MessageGroupId</code> can contain alphanumeric characters <code>(a-z, A-Z,
    *                 0-9)</code> and punctuation
    *                 <code>(!"#$%&'()*+,-./:;<=>?@[\]^_`\{|\}~)</code>.</p>
-   *          <important>
-   *             <p>
-   *                <code>MessageGroupId</code> is required for FIFO topics. You can't use it for
-   *                 standard topics. </p>
-   *          </important>
    * @public
    */
   MessageGroupId?: string | undefined;
@@ -2656,7 +2783,7 @@ export interface PublishBatchResponse {
 }
 
 /**
- * <p>The batch request contains more entries than permissible.</p>
+ * <p> The batch request contains more entries than permissible (more than 10).</p>
  * @public
  */
 export class TooManyEntriesInBatchRequestException extends __BaseException {
@@ -3096,12 +3223,6 @@ export interface SetTopicAttributesInput {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>ApplicationSuccessFeedbackRoleArn</code> – Indicates failed
-   *                     message delivery status for an Amazon SNS topic that is subscribed to a platform
-   *                     application endpoint.</p>
-   *             </li>
-   *             <li>
-   *                <p>
    *                   <code>DeliveryPolicy</code> – The policy that defines how Amazon SNS retries
    *                     failed deliveries to HTTP/S endpoints.</p>
    *             </li>
@@ -3149,25 +3270,25 @@ export interface SetTopicAttributesInput {
    *                </ul>
    *             </li>
    *             <li>
-   *                <p>Amazon Kinesis Data Firehose</p>
+   *                <p>Amazon Data Firehose</p>
    *                <ul>
    *                   <li>
    *                      <p>
    *                         <code>FirehoseSuccessFeedbackRoleArn</code> – Indicates
    *                             successful message delivery status for an Amazon SNS topic that is subscribed
-   *                             to an Amazon Kinesis Data Firehose endpoint.</p>
+   *                             to an Amazon Data Firehose endpoint.</p>
    *                   </li>
    *                   <li>
    *                      <p>
    *                         <code>FirehoseSuccessFeedbackSampleRate</code> – Indicates
    *                             percentage of successful messages to sample for an Amazon SNS topic that is
-   *                             subscribed to an Amazon Kinesis Data Firehose endpoint.</p>
+   *                             subscribed to an Amazon Data Firehose endpoint.</p>
    *                   </li>
    *                   <li>
    *                      <p>
    *                         <code>FirehoseFailureFeedbackRoleArn</code> – Indicates failed
    *                             message delivery status for an Amazon SNS topic that is subscribed to an
-   *                             Amazon Kinesis Data Firehose endpoint. </p>
+   *                             Amazon Data Firehose endpoint. </p>
    *                   </li>
    *                </ul>
    *             </li>
@@ -3201,19 +3322,19 @@ export interface SetTopicAttributesInput {
    *                      <p>
    *                         <code>ApplicationSuccessFeedbackRoleArn</code> – Indicates
    *                             successful message delivery status for an Amazon SNS topic that is subscribed
-   *                             to an Amazon Web Services application endpoint.</p>
+   *                             to an platform application endpoint.</p>
    *                   </li>
    *                   <li>
    *                      <p>
    *                         <code>ApplicationSuccessFeedbackSampleRate</code> – Indicates
    *                             percentage of successful messages to sample for an Amazon SNS topic that is
-   *                             subscribed to an Amazon Web Services application endpoint.</p>
+   *                             subscribed to an platform application endpoint.</p>
    *                   </li>
    *                   <li>
    *                      <p>
    *                         <code>ApplicationFailureFeedbackRoleArn</code> – Indicates
    *                             failed message delivery status for an Amazon SNS topic that is subscribed to
-   *                             an Amazon Web Services application endpoint.</p>
+   *                             an platform application endpoint.</p>
    *                   </li>
    *                </ul>
    *                <note>
@@ -3387,7 +3508,7 @@ export interface SubscribeInput {
    *             <li>
    *                <p>
    *                   <code>firehose</code> – delivery of JSON-encoded message to an Amazon
-   *                     Kinesis Data Firehose delivery stream.</p>
+   *                      Data Firehose delivery stream.</p>
    *             </li>
    *          </ul>
    * @public
@@ -3431,7 +3552,7 @@ export interface SubscribeInput {
    *             </li>
    *             <li>
    *                <p>For the <code>firehose</code> protocol, the endpoint is the ARN of an Amazon
-   *                     Kinesis Data Firehose delivery stream.</p>
+   *                  Data Firehose delivery stream.</p>
    *             </li>
    *          </ul>
    * @public

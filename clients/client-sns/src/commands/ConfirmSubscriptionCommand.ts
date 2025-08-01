@@ -63,7 +63,7 @@ export interface ConfirmSubscriptionCommandOutput extends ConfirmSubscriptionRes
  *
  * @throws {@link FilterPolicyLimitExceededException} (client fault)
  *  <p>Indicates that the number of filter polices in your Amazon Web Services account exceeds the limit. To
- *             add more filter polices, submit an Amazon SNS Limit Increase case in the Amazon Web Services Support
+ *             add more filter polices, submit an Amazon SNS Limit Increase case in the Amazon Web ServicesSupport
  *             Center.</p>
  *
  * @throws {@link InternalErrorException} (server fault)
