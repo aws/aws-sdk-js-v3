@@ -39,6 +39,10 @@ import {
   AssociateTrialComponentCommandOutput,
 } from "../commands/AssociateTrialComponentCommand";
 import {
+  AttachClusterNodeVolumeCommandInput,
+  AttachClusterNodeVolumeCommandOutput,
+} from "../commands/AttachClusterNodeVolumeCommand";
+import {
   BatchDeleteClusterNodesCommandInput,
   BatchDeleteClusterNodesCommandOutput,
 } from "../commands/BatchDeleteClusterNodesCommand";
@@ -542,6 +546,10 @@ import {
 import { DescribeWorkforceCommandInput, DescribeWorkforceCommandOutput } from "../commands/DescribeWorkforceCommand";
 import { DescribeWorkteamCommandInput, DescribeWorkteamCommandOutput } from "../commands/DescribeWorkteamCommand";
 import {
+  DetachClusterNodeVolumeCommandInput,
+  DetachClusterNodeVolumeCommandOutput,
+} from "../commands/DetachClusterNodeVolumeCommand";
+import {
   DisableSagemakerServicecatalogPortfolioCommandInput,
   DisableSagemakerServicecatalogPortfolioCommandOutput,
 } from "../commands/DisableSagemakerServicecatalogPortfolioCommand";
@@ -1013,6 +1021,8 @@ import {
   AsyncInferenceOutputConfig,
   AsyncNotificationTopicTypes,
   AthenaDatasetDefinition,
+  AttachClusterNodeVolumeRequest,
+  AttachClusterNodeVolumeResponse,
   AuthorizedUrl,
   AutoMLAlgorithm,
   AutoMLAlgorithmConfig,
@@ -1109,7 +1119,6 @@ import {
   CollectionConfiguration,
   CompilationJobSummary,
   CompressionType,
-  ComputeQuotaResourceConfig,
   ContainerConfig,
   CustomImage,
   DataSource,
@@ -1195,6 +1204,7 @@ import {
 } from "../models/models_0";
 import {
   ComputeQuotaConfig,
+  ComputeQuotaResourceConfig,
   ComputeQuotaSummary,
   ComputeQuotaTarget,
   ConditionStepMetadata,
@@ -1314,7 +1324,6 @@ import {
   EndpointInput,
   EndpointInputConfiguration,
   EnvironmentParameterRanges,
-  Explainability,
   ExplainerConfig,
   FeatureDefinition,
   FileSource,
@@ -1368,14 +1377,12 @@ import {
   ModelBiasJobInput,
   ModelCardExportOutputConfig,
   ModelCardSecurityConfig,
-  ModelDataQuality,
   ModelDeployConfig,
   ModelExplainabilityAppSpecification,
   ModelExplainabilityBaselineConfig,
   ModelExplainabilityJobInput,
   ModelInfrastructureConfig,
   ModelLatencyThreshold,
-  ModelLifeCycle,
   ModelPackageModelCard,
   ModelVariantConfig,
   MonitoringClusterConfig,
@@ -1627,12 +1634,12 @@ import {
   DescribeEdgePackagingJobResponse,
   DescribeEndpointInput,
   EbsStorageSettings,
-  Ec2CapacityReservation,
   EdgeDeploymentStatus,
   EdgeModel,
   EdgePresetDeploymentOutput,
   EFSFileSystem,
   ExperimentConfig,
+  Explainability,
   FSxLustreFileSystem,
   IamPolicyConstraints,
   InfraCheckConfig,
@@ -1641,8 +1648,10 @@ import {
   ModelArtifacts,
   ModelClientConfig,
   ModelCompilationConfig,
+  ModelDataQuality,
   ModelDeployResult,
   ModelDigests,
+  ModelLifeCycle,
   ModelMetrics,
   ModelPackageSecurityConfig,
   ModelPackageValidationProfile,
@@ -1674,8 +1683,6 @@ import {
   ParallelismConfiguration,
   PartnerAppConfig,
   PartnerAppMaintenanceConfig,
-  PendingDeploymentSummary,
-  PendingProductionVariantSummary,
   PipelineDefinitionS3Location,
   ProcessingClusterConfig,
   ProcessingFeatureStoreOutput,
@@ -1812,6 +1819,8 @@ import {
   DescribeWorkteamRequest,
   DescribeWorkteamResponse,
   DesiredWeightAndCapacity,
+  DetachClusterNodeVolumeRequest,
+  DetachClusterNodeVolumeResponse,
   Device,
   DeviceDeploymentSummary,
   DeviceFleetSummary,
@@ -1824,6 +1833,7 @@ import {
   DomainDetails,
   DomainSettingsForUpdate,
   DynamicScalingConfiguration,
+  Ec2CapacityReservation,
   Edge,
   EdgeDeploymentPlanSummary,
   EdgeModelStat,
@@ -1901,11 +1911,6 @@ import {
   LineageGroupSummary,
   LineageType,
   ListActionsRequest,
-  ListActionsResponse,
-  ListAlgorithmsInput,
-  ListAlgorithmsOutput,
-  ListAliasesRequest,
-  ListAliasesResponse,
   MetricData,
   MetricSpecification,
   ModelCardExportArtifacts,
@@ -1919,6 +1924,8 @@ import {
   OfflineStoreStatus,
   OidcConfigForResponse,
   OptimizationOutput,
+  PendingDeploymentSummary,
+  PendingProductionVariantSummary,
   PipelineExperimentConfig,
   PredefinedMetricSpecification,
   ProductionVariantCapacityReservationSummary,
@@ -1955,6 +1962,11 @@ import {
   Workteam,
 } from "../models/models_3";
 import {
+  ListActionsResponse,
+  ListAlgorithmsInput,
+  ListAlgorithmsOutput,
+  ListAliasesRequest,
+  ListAliasesResponse,
   ListAppImageConfigsRequest,
   ListAppImageConfigsResponse,
   ListAppsRequest,
@@ -2176,9 +2188,6 @@ import {
   RenderUiTemplateResponse,
   ReservedCapacityOffering,
   ResourceCatalog,
-  ResourceConfigForUpdate,
-  RetryPipelineExecutionRequest,
-  RetryPipelineExecutionResponse,
   SelectiveExecutionResult,
   SpaceDetails,
   SpaceSettingsSummary,
@@ -2197,9 +2206,11 @@ import {
   TuningJobStepMetaData,
   UserProfileDetails,
   Vertex,
-  VisibilityConditions,
 } from "../models/models_4";
 import {
+  ResourceConfigForUpdate,
+  RetryPipelineExecutionRequest,
+  RetryPipelineExecutionResponse,
   SearchExpression,
   SearchRecord,
   SearchRequest,
@@ -2337,6 +2348,7 @@ import {
   UpdateWorkteamRequest,
   UpdateWorkteamResponse,
   VariantProperty,
+  VisibilityConditions,
 } from "../models/models_5";
 import { SageMakerServiceException as __BaseException } from "../models/SageMakerServiceException";
 
@@ -2374,6 +2386,19 @@ export const se_AssociateTrialComponentCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("AssociateTrialComponent");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1AttachClusterNodeVolumeCommand
+ */
+export const se_AttachClusterNodeVolumeCommand = async (
+  input: AttachClusterNodeVolumeCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("AttachClusterNodeVolume");
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -4863,6 +4888,19 @@ export const se_DescribeWorkteamCommand = async (
 };
 
 /**
+ * serializeAws_json1_1DetachClusterNodeVolumeCommand
+ */
+export const se_DetachClusterNodeVolumeCommand = async (
+  input: DetachClusterNodeVolumeCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("DetachClusterNodeVolume");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_json1_1DisableSagemakerServicecatalogPortfolioCommand
  */
 export const se_DisableSagemakerServicecatalogPortfolioCommand = async (
@@ -7097,6 +7135,26 @@ export const de_AssociateTrialComponentCommand = async (
   let contents: any = {};
   contents = de_AssociateTrialComponentResponse(data, context);
   const response: AssociateTrialComponentCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1AttachClusterNodeVolumeCommand
+ */
+export const de_AttachClusterNodeVolumeCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<AttachClusterNodeVolumeCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_AttachClusterNodeVolumeResponse(data, context);
+  const response: AttachClusterNodeVolumeCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
@@ -10804,6 +10862,26 @@ export const de_DescribeWorkteamCommand = async (
 };
 
 /**
+ * deserializeAws_json1_1DetachClusterNodeVolumeCommand
+ */
+export const de_DetachClusterNodeVolumeCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DetachClusterNodeVolumeCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DetachClusterNodeVolumeResponse(data, context);
+  const response: DetachClusterNodeVolumeCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
  * deserializeAws_json1_1DisableSagemakerServicecatalogPortfolioCommand
  */
 export const de_DisableSagemakerServicecatalogPortfolioCommand = async (
@@ -14256,6 +14334,8 @@ const de_ResourceNotFoundRes = async (parsedOutput: any, context: __SerdeContext
 
 // se_AthenaDatasetDefinition omitted.
 
+// se_AttachClusterNodeVolumeRequest omitted.
+
 // se_AttributeNames omitted.
 
 // se_AuthenticationRequestExtraParams omitted.
@@ -15275,6 +15355,8 @@ const se_DesiredWeightAndCapacityList = (input: DesiredWeightAndCapacity[], cont
       return se_DesiredWeightAndCapacity(entry, context);
     });
 };
+
+// se_DetachClusterNodeVolumeRequest omitted.
 
 // se_Device omitted.
 
@@ -18489,6 +18571,20 @@ const de_AthenaDatasetDefinition = (output: any, context: __SerdeContext): Athen
     OutputS3Uri: __expectString,
     QueryString: __expectString,
     WorkGroup: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1AttachClusterNodeVolumeResponse
+ */
+const de_AttachClusterNodeVolumeResponse = (output: any, context: __SerdeContext): AttachClusterNodeVolumeResponse => {
+  return take(output, {
+    AttachTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    ClusterArn: __expectString,
+    DeviceName: __expectString,
+    NodeId: __expectString,
+    Status: __expectString,
+    VolumeId: __expectString,
   }) as any;
 };
 
@@ -23004,6 +23100,20 @@ const de_DescribeWorkforceResponse = (output: any, context: __SerdeContext): Des
 const de_DescribeWorkteamResponse = (output: any, context: __SerdeContext): DescribeWorkteamResponse => {
   return take(output, {
     Workteam: (_: any) => de_Workteam(_, context),
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1DetachClusterNodeVolumeResponse
+ */
+const de_DetachClusterNodeVolumeResponse = (output: any, context: __SerdeContext): DetachClusterNodeVolumeResponse => {
+  return take(output, {
+    AttachTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    ClusterArn: __expectString,
+    DeviceName: __expectString,
+    NodeId: __expectString,
+    Status: __expectString,
+    VolumeId: __expectString,
   }) as any;
 };
 

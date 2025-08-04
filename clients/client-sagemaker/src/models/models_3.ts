@@ -2,12 +2,9 @@
 import { SENSITIVE_STRING } from "@smithy/smithy-client";
 
 import {
-  ActionSummary,
   AdditionalInferenceSpecificationDefinition,
   AgentVersion,
-  AlgorithmSortBy,
   AlgorithmSpecification,
-  AlgorithmSummary,
   AmazonQSettings,
   AppSpecification,
   AssociationEdgeType,
@@ -36,6 +33,7 @@ import {
   TransformOutput,
   TransformResources,
   UserContext,
+  VolumeAttachmentStatus,
   VpcConfig,
 } from "./models_0";
 
@@ -86,7 +84,6 @@ import {
   ModelExplainabilityBaselineConfig,
   ModelExplainabilityJobInput,
   ModelInfrastructureConfig,
-  ModelLifeCycle,
   ModelPackageModelCard,
   ModelPackageModelCardFilterSensitiveLog,
   MonitoringNetworkConfig,
@@ -97,6 +94,7 @@ import {
   OnlineStoreConfig,
   Processor,
   ProductionVariant,
+  ProductionVariantAcceleratorType,
   ProductionVariantManagedInstanceScaling,
   ProductionVariantRoutingConfig,
   ProductionVariantServerlessConfig,
@@ -124,7 +122,6 @@ import {
   DeploymentRecommendation,
   DirectInternetAccess,
   DomainStatus,
-  Ec2CapacityReservation,
   EdgePackagingJobStatus,
   EndpointStatus,
   ExperimentConfig,
@@ -133,6 +130,7 @@ import {
   MemberDefinition,
   ModelArtifacts,
   ModelClientConfig,
+  ModelLifeCycle,
   ModelMetrics,
   ModelPackageSecurityConfig,
   ModelPackageValidationSpecification,
@@ -156,7 +154,6 @@ import {
   PartnerAppConfig,
   PartnerAppMaintenanceConfig,
   PartnerAppType,
-  PendingDeploymentSummary,
   ProcessingInput,
   ProcessingOutputConfig,
   ProcessingResources,
@@ -181,6 +178,150 @@ import {
   WorkerAccessConfiguration,
   WorkforceIpAddressType,
 } from "./models_2";
+
+/**
+ * <p>The production variant summary for a deployment when an endpoint is creating or updating with the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateEndpoint.html">CreateEndpoint</a> or <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_UpdateEndpoint.html">UpdateEndpoint</a> operations. Describes the <code>VariantStatus </code>, weight and capacity for a production variant associated with an endpoint. </p>
+ * @public
+ */
+export interface PendingProductionVariantSummary {
+  /**
+   * <p>The name of the variant.</p>
+   * @public
+   */
+  VariantName: string | undefined;
+
+  /**
+   * <p>An array of <code>DeployedImage</code> objects that specify the Amazon EC2 Container Registry paths of the inference images deployed on instances of this <code>ProductionVariant</code>.</p>
+   * @public
+   */
+  DeployedImages?: DeployedImage[] | undefined;
+
+  /**
+   * <p>The weight associated with the variant.</p>
+   * @public
+   */
+  CurrentWeight?: number | undefined;
+
+  /**
+   * <p>The requested weight for the variant in this deployment, as specified in the endpoint configuration for the endpoint. The value is taken from the request to the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateEndpointConfig.html">CreateEndpointConfig</a> operation.</p>
+   * @public
+   */
+  DesiredWeight?: number | undefined;
+
+  /**
+   * <p>The number of instances associated with the variant.</p>
+   * @public
+   */
+  CurrentInstanceCount?: number | undefined;
+
+  /**
+   * <p>The number of instances requested in this deployment, as specified in the endpoint configuration for the endpoint. The value is taken from the request to the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateEndpointConfig.html">CreateEndpointConfig</a> operation.</p>
+   * @public
+   */
+  DesiredInstanceCount?: number | undefined;
+
+  /**
+   * <p>The type of instances associated with the variant.</p>
+   * @public
+   */
+  InstanceType?: ProductionVariantInstanceType | undefined;
+
+  /**
+   * <p>This parameter is no longer supported. Elastic Inference (EI) is no longer available.</p> <p>This parameter was used to specify the size of the EI instance to use for the production variant.</p>
+   * @public
+   */
+  AcceleratorType?: ProductionVariantAcceleratorType | undefined;
+
+  /**
+   * <p>The endpoint variant status which describes the current deployment stage status or operational status.</p>
+   * @public
+   */
+  VariantStatus?: ProductionVariantStatus[] | undefined;
+
+  /**
+   * <p>The serverless configuration for the endpoint.</p>
+   * @public
+   */
+  CurrentServerlessConfig?: ProductionVariantServerlessConfig | undefined;
+
+  /**
+   * <p>The serverless configuration requested for this deployment, as specified in the endpoint configuration for the endpoint.</p>
+   * @public
+   */
+  DesiredServerlessConfig?: ProductionVariantServerlessConfig | undefined;
+
+  /**
+   * <p>Settings that control the range in the number of instances that the endpoint provisions as it scales up or down to accommodate traffic. </p>
+   * @public
+   */
+  ManagedInstanceScaling?: ProductionVariantManagedInstanceScaling | undefined;
+
+  /**
+   * <p>Settings that control how the endpoint routes incoming traffic to the instances that the endpoint hosts.</p>
+   * @public
+   */
+  RoutingConfig?: ProductionVariantRoutingConfig | undefined;
+}
+
+/**
+ * <p>The summary of an in-progress deployment when an endpoint is creating or updating with a new endpoint configuration.</p>
+ * @public
+ */
+export interface PendingDeploymentSummary {
+  /**
+   * <p>The name of the endpoint configuration used in the deployment. </p>
+   * @public
+   */
+  EndpointConfigName: string | undefined;
+
+  /**
+   * <p>An array of <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_PendingProductionVariantSummary.html">PendingProductionVariantSummary</a> objects, one for each model hosted behind this endpoint for the in-progress deployment.</p>
+   * @public
+   */
+  ProductionVariants?: PendingProductionVariantSummary[] | undefined;
+
+  /**
+   * <p>The start time of the deployment.</p>
+   * @public
+   */
+  StartTime?: Date | undefined;
+
+  /**
+   * <p>An array of <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_PendingProductionVariantSummary.html">PendingProductionVariantSummary</a> objects, one for each model hosted behind this endpoint in shadow mode with production traffic replicated from the model specified on <code>ProductionVariants</code> for the in-progress deployment.</p>
+   * @public
+   */
+  ShadowProductionVariants?: PendingProductionVariantSummary[] | undefined;
+}
+
+/**
+ * <p>The EC2 capacity reservations that are shared to an ML capacity reservation.</p>
+ * @public
+ */
+export interface Ec2CapacityReservation {
+  /**
+   * <p>The unique identifier for an EC2 capacity reservation that's part of the ML capacity reservation.</p>
+   * @public
+   */
+  Ec2CapacityReservationId?: string | undefined;
+
+  /**
+   * <p>The number of instances that you allocated to the EC2 capacity reservation.</p>
+   * @public
+   */
+  TotalInstanceCount?: number | undefined;
+
+  /**
+   * <p>The number of instances that are currently available in the EC2 capacity reservation.</p>
+   * @public
+   */
+  AvailableInstanceCount?: number | undefined;
+
+  /**
+   * <p>The number of instances from the EC2 capacity reservation that are being used by the endpoint.</p>
+   * @public
+   */
+  UsedByCurrentEndpoint?: number | undefined;
+}
 
 /**
  * <p>Details about an ML capacity reservation.</p>
@@ -7167,6 +7308,70 @@ export interface DesiredWeightAndCapacity {
 }
 
 /**
+ * @public
+ */
+export interface DetachClusterNodeVolumeRequest {
+  /**
+   * <p> The Amazon Resource Name (ARN) of your SageMaker HyperPod cluster containing the target node. Your cluster must use EKS as the orchestration and be in the <code>InService</code> state. </p>
+   * @public
+   */
+  ClusterArn: string | undefined;
+
+  /**
+   * <p> The unique identifier of the cluster node from which you want to detach the volume. </p>
+   * @public
+   */
+  NodeId: string | undefined;
+
+  /**
+   * <p> The unique identifier of your EBS volume that you want to detach. Your volume must be currently attached to the specified node. </p>
+   * @public
+   */
+  VolumeId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DetachClusterNodeVolumeResponse {
+  /**
+   * <p> The Amazon Resource Name (ARN) of your SageMaker HyperPod cluster where the volume detachment operation was performed. </p>
+   * @public
+   */
+  ClusterArn: string | undefined;
+
+  /**
+   * <p> The unique identifier of the cluster node from which your volume was detached. </p>
+   * @public
+   */
+  NodeId: string | undefined;
+
+  /**
+   * <p> The unique identifier of your EBS volume that was detached. </p>
+   * @public
+   */
+  VolumeId: string | undefined;
+
+  /**
+   * <p> The original timestamp when your volume was initially attached to the node. </p>
+   * @public
+   */
+  AttachTime: Date | undefined;
+
+  /**
+   * <p> The current status of your volume detachment operation. </p>
+   * @public
+   */
+  Status: VolumeAttachmentStatus | undefined;
+
+  /**
+   * <p> The device name assigned to your attached volume on the target instance. </p>
+   * @public
+   */
+  DeviceName: string | undefined;
+}
+
+/**
  * <p>Information of a particular device.</p>
  * @public
  */
@@ -10275,139 +10480,6 @@ export interface ListActionsRequest {
    * @public
    */
   MaxResults?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface ListActionsResponse {
-  /**
-   * <p>A list of actions and their properties.</p>
-   * @public
-   */
-  ActionSummaries?: ActionSummary[] | undefined;
-
-  /**
-   * <p>A token for getting the next set of actions, if there are any.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListAlgorithmsInput {
-  /**
-   * <p>A filter that returns only algorithms created after the specified time (timestamp).</p>
-   * @public
-   */
-  CreationTimeAfter?: Date | undefined;
-
-  /**
-   * <p>A filter that returns only algorithms created before the specified time (timestamp).</p>
-   * @public
-   */
-  CreationTimeBefore?: Date | undefined;
-
-  /**
-   * <p>The maximum number of algorithms to return in the response.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>A string in the algorithm name. This filter returns only algorithms whose name contains the specified string.</p>
-   * @public
-   */
-  NameContains?: string | undefined;
-
-  /**
-   * <p>If the response to a previous <code>ListAlgorithms</code> request was truncated, the response includes a <code>NextToken</code>. To retrieve the next set of algorithms, use the token in the next request.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The parameter by which to sort the results. The default is <code>CreationTime</code>.</p>
-   * @public
-   */
-  SortBy?: AlgorithmSortBy | undefined;
-
-  /**
-   * <p>The sort order for the results. The default is <code>Ascending</code>.</p>
-   * @public
-   */
-  SortOrder?: SortOrder | undefined;
-}
-
-/**
- * @public
- */
-export interface ListAlgorithmsOutput {
-  /**
-   * <p>&gt;An array of <code>AlgorithmSummary</code> objects, each of which lists an algorithm.</p>
-   * @public
-   */
-  AlgorithmSummaryList: AlgorithmSummary[] | undefined;
-
-  /**
-   * <p>If the response is truncated, SageMaker returns this token. To retrieve the next set of algorithms, use it in the subsequent request.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListAliasesRequest {
-  /**
-   * <p>The name of the image.</p>
-   * @public
-   */
-  ImageName: string | undefined;
-
-  /**
-   * <p>The alias of the image version.</p>
-   * @public
-   */
-  Alias?: string | undefined;
-
-  /**
-   * <p>The version of the image. If image version is not specified, the aliases of all versions of the image are listed.</p>
-   * @public
-   */
-  Version?: number | undefined;
-
-  /**
-   * <p>The maximum number of aliases to return.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>If the previous call to <code>ListAliases</code> didn't return the full set of aliases, the call returns a token for retrieving the next set of aliases.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListAliasesResponse {
-  /**
-   * <p>A list of SageMaker AI image version aliases.</p>
-   * @public
-   */
-  SageMakerImageVersionAliases?: string[] | undefined;
-
-  /**
-   * <p>A token for getting the next set of aliases, if more aliases exist.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
 }
 
 /**

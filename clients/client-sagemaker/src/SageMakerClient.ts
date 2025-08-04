@@ -60,6 +60,10 @@ import {
   AssociateTrialComponentCommandOutput,
 } from "./commands/AssociateTrialComponentCommand";
 import {
+  AttachClusterNodeVolumeCommandInput,
+  AttachClusterNodeVolumeCommandOutput,
+} from "./commands/AttachClusterNodeVolumeCommand";
+import {
   BatchDeleteClusterNodesCommandInput,
   BatchDeleteClusterNodesCommandOutput,
 } from "./commands/BatchDeleteClusterNodesCommand";
@@ -563,6 +567,10 @@ import {
 import { DescribeWorkforceCommandInput, DescribeWorkforceCommandOutput } from "./commands/DescribeWorkforceCommand";
 import { DescribeWorkteamCommandInput, DescribeWorkteamCommandOutput } from "./commands/DescribeWorkteamCommand";
 import {
+  DetachClusterNodeVolumeCommandInput,
+  DetachClusterNodeVolumeCommandOutput,
+} from "./commands/DetachClusterNodeVolumeCommand";
+import {
   DisableSagemakerServicecatalogPortfolioCommandInput,
   DisableSagemakerServicecatalogPortfolioCommandOutput,
 } from "./commands/DisableSagemakerServicecatalogPortfolioCommand";
@@ -1012,6 +1020,7 @@ export type ServiceInputTypes =
   | AddAssociationCommandInput
   | AddTagsCommandInput
   | AssociateTrialComponentCommandInput
+  | AttachClusterNodeVolumeCommandInput
   | BatchDeleteClusterNodesCommandInput
   | BatchDescribeModelPackageCommandInput
   | CreateActionCommandInput
@@ -1203,6 +1212,7 @@ export type ServiceInputTypes =
   | DescribeUserProfileCommandInput
   | DescribeWorkforceCommandInput
   | DescribeWorkteamCommandInput
+  | DetachClusterNodeVolumeCommandInput
   | DisableSagemakerServicecatalogPortfolioCommandInput
   | DisassociateTrialComponentCommandInput
   | EnableSagemakerServicecatalogPortfolioCommandInput
@@ -1379,6 +1389,7 @@ export type ServiceOutputTypes =
   | AddAssociationCommandOutput
   | AddTagsCommandOutput
   | AssociateTrialComponentCommandOutput
+  | AttachClusterNodeVolumeCommandOutput
   | BatchDeleteClusterNodesCommandOutput
   | BatchDescribeModelPackageCommandOutput
   | CreateActionCommandOutput
@@ -1570,6 +1581,7 @@ export type ServiceOutputTypes =
   | DescribeUserProfileCommandOutput
   | DescribeWorkforceCommandOutput
   | DescribeWorkteamCommandOutput
+  | DetachClusterNodeVolumeCommandOutput
   | DisableSagemakerServicecatalogPortfolioCommandOutput
   | DisassociateTrialComponentCommandOutput
   | EnableSagemakerServicecatalogPortfolioCommandOutput

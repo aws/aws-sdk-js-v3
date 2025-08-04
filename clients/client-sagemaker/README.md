@@ -229,6 +229,14 @@ AssociateTrialComponent
 </details>
 <details>
 <summary>
+AttachClusterNodeVolume
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/sagemaker/command/AttachClusterNodeVolumeCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sagemaker/Interface/AttachClusterNodeVolumeCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sagemaker/Interface/AttachClusterNodeVolumeCommandOutput/)
+
+</details>
+<details>
+<summary>
 BatchDeleteClusterNodes
 </summary>
 
@@ -1753,6 +1761,14 @@ DescribeWorkteam
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/sagemaker/command/DescribeWorkteamCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sagemaker/Interface/DescribeWorkteamCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sagemaker/Interface/DescribeWorkteamCommandOutput/)
+
+</details>
+<details>
+<summary>
+DetachClusterNodeVolume
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/sagemaker/command/DetachClusterNodeVolumeCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sagemaker/Interface/DetachClusterNodeVolumeCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sagemaker/Interface/DetachClusterNodeVolumeCommandOutput/)
 
 </details>
 <details>

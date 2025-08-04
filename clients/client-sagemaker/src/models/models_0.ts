@@ -3196,6 +3196,87 @@ export interface AthenaDatasetDefinition {
 
 /**
  * @public
+ */
+export interface AttachClusterNodeVolumeRequest {
+  /**
+   * <p> The Amazon Resource Name (ARN) of your SageMaker HyperPod cluster containing the target node. Your cluster must use EKS as the orchestration and be in the <code>InService</code> state. </p>
+   * @public
+   */
+  ClusterArn: string | undefined;
+
+  /**
+   * <p> The unique identifier of the cluster node to which you want to attach the volume. The node must belong to your specified HyperPod cluster and cannot be part of a Restricted Instance Group (RIG). </p>
+   * @public
+   */
+  NodeId: string | undefined;
+
+  /**
+   * <p> The unique identifier of your EBS volume to attach. The volume must be in the <code>available</code> state. </p>
+   * @public
+   */
+  VolumeId: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const VolumeAttachmentStatus = {
+  ATTACHED: "attached",
+  ATTACHING: "attaching",
+  BUSY: "busy",
+  DETACHED: "detached",
+  DETACHING: "detaching",
+} as const;
+
+/**
+ * @public
+ */
+export type VolumeAttachmentStatus = (typeof VolumeAttachmentStatus)[keyof typeof VolumeAttachmentStatus];
+
+/**
+ * @public
+ */
+export interface AttachClusterNodeVolumeResponse {
+  /**
+   * <p> The Amazon Resource Name (ARN) of your SageMaker HyperPod cluster where the volume attachment operation was performed. </p>
+   * @public
+   */
+  ClusterArn: string | undefined;
+
+  /**
+   * <p> The unique identifier of the cluster node where your volume was attached. </p>
+   * @public
+   */
+  NodeId: string | undefined;
+
+  /**
+   * <p> The unique identifier of your EBS volume that was attached. </p>
+   * @public
+   */
+  VolumeId: string | undefined;
+
+  /**
+   * <p> The timestamp when the volume attachment operation was initiated by the SageMaker HyperPod service. </p>
+   * @public
+   */
+  AttachTime: Date | undefined;
+
+  /**
+   * <p> The current status of your volume attachment operation. </p>
+   * @public
+   */
+  Status: VolumeAttachmentStatus | undefined;
+
+  /**
+   * <p> The device name assigned to your attached volume on the target instance. </p>
+   * @public
+   */
+  DeviceName: string | undefined;
+}
+
+/**
+ * @public
  * @enum
  */
 export const AuthMode = {
@@ -7855,49 +7936,3 @@ export interface CompilationJobSummary {
    */
   CompilationJobStatus: CompilationJobStatus | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const CompleteOnConvergence = {
-  DISABLED: "Disabled",
-  ENABLED: "Enabled",
-} as const;
-
-/**
- * @public
- */
-export type CompleteOnConvergence = (typeof CompleteOnConvergence)[keyof typeof CompleteOnConvergence];
-
-/**
- * <p>Configuration of the resources used for the compute allocation definition.</p>
- * @public
- */
-export interface ComputeQuotaResourceConfig {
-  /**
-   * <p>The instance type of the instance group for the cluster.</p>
-   * @public
-   */
-  InstanceType: ClusterInstanceType | undefined;
-
-  /**
-   * <p>The number of instances to add to the instance group of a SageMaker HyperPod cluster.</p>
-   * @public
-   */
-  Count?: number | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const PreemptTeamTasks = {
-  LOWERPRIORITY: "LowerPriority",
-  NEVER: "Never",
-} as const;
-
-/**
- * @public
- */
-export type PreemptTeamTasks = (typeof PreemptTeamTasks)[keyof typeof PreemptTeamTasks];

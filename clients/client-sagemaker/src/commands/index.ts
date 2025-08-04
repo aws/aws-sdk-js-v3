@@ -2,6 +2,7 @@
 export * from "./AddAssociationCommand";
 export * from "./AddTagsCommand";
 export * from "./AssociateTrialComponentCommand";
+export * from "./AttachClusterNodeVolumeCommand";
 export * from "./BatchDeleteClusterNodesCommand";
 export * from "./BatchDescribeModelPackageCommand";
 export * from "./CreateActionCommand";
@@ -193,6 +194,7 @@ export * from "./DescribeTrialComponentCommand";
 export * from "./DescribeUserProfileCommand";
 export * from "./DescribeWorkforceCommand";
 export * from "./DescribeWorkteamCommand";
+export * from "./DetachClusterNodeVolumeCommand";
 export * from "./DisableSagemakerServicecatalogPortfolioCommand";
 export * from "./DisassociateTrialComponentCommand";
 export * from "./EnableSagemakerServicecatalogPortfolioCommand";

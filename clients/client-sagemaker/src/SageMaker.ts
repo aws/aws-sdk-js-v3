@@ -14,6 +14,11 @@ import {
   AssociateTrialComponentCommandOutput,
 } from "./commands/AssociateTrialComponentCommand";
 import {
+  AttachClusterNodeVolumeCommand,
+  AttachClusterNodeVolumeCommandInput,
+  AttachClusterNodeVolumeCommandOutput,
+} from "./commands/AttachClusterNodeVolumeCommand";
+import {
   BatchDeleteClusterNodesCommand,
   BatchDeleteClusterNodesCommandInput,
   BatchDeleteClusterNodesCommandOutput,
@@ -909,6 +914,11 @@ import {
   DescribeWorkteamCommandOutput,
 } from "./commands/DescribeWorkteamCommand";
 import {
+  DetachClusterNodeVolumeCommand,
+  DetachClusterNodeVolumeCommandInput,
+  DetachClusterNodeVolumeCommandOutput,
+} from "./commands/DetachClusterNodeVolumeCommand";
+import {
   DisableSagemakerServicecatalogPortfolioCommand,
   DisableSagemakerServicecatalogPortfolioCommandInput,
   DisableSagemakerServicecatalogPortfolioCommandOutput,
@@ -1690,6 +1700,7 @@ const commands = {
   AddAssociationCommand,
   AddTagsCommand,
   AssociateTrialComponentCommand,
+  AttachClusterNodeVolumeCommand,
   BatchDeleteClusterNodesCommand,
   BatchDescribeModelPackageCommand,
   CreateActionCommand,
@@ -1881,6 +1892,7 @@ const commands = {
   DescribeUserProfileCommand,
   DescribeWorkforceCommand,
   DescribeWorkteamCommand,
+  DetachClusterNodeVolumeCommand,
   DisableSagemakerServicecatalogPortfolioCommand,
   DisassociateTrialComponentCommand,
   EnableSagemakerServicecatalogPortfolioCommand,
@@ -2092,6 +2104,23 @@ export interface SageMaker {
     args: AssociateTrialComponentCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: AssociateTrialComponentCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link AttachClusterNodeVolumeCommand}
+   */
+  attachClusterNodeVolume(
+    args: AttachClusterNodeVolumeCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<AttachClusterNodeVolumeCommandOutput>;
+  attachClusterNodeVolume(
+    args: AttachClusterNodeVolumeCommandInput,
+    cb: (err: any, data?: AttachClusterNodeVolumeCommandOutput) => void
+  ): void;
+  attachClusterNodeVolume(
+    args: AttachClusterNodeVolumeCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: AttachClusterNodeVolumeCommandOutput) => void
   ): void;
 
   /**
@@ -5104,6 +5133,23 @@ export interface SageMaker {
     args: DescribeWorkteamCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DescribeWorkteamCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DetachClusterNodeVolumeCommand}
+   */
+  detachClusterNodeVolume(
+    args: DetachClusterNodeVolumeCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DetachClusterNodeVolumeCommandOutput>;
+  detachClusterNodeVolume(
+    args: DetachClusterNodeVolumeCommandInput,
+    cb: (err: any, data?: DetachClusterNodeVolumeCommandOutput) => void
+  ): void;
+  detachClusterNodeVolume(
+    args: DetachClusterNodeVolumeCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DetachClusterNodeVolumeCommandOutput) => void
   ): void;
 
   /**

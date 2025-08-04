@@ -98,15 +98,12 @@ import {
   EdgeOutputConfig,
   EdgePresetDeploymentType,
   EndpointInput,
-  Explainability,
   HubContentType,
   InputConfig,
   JupyterServerAppSettings,
   KernelGatewayAppSettings,
   MetadataProperties,
-  ModelDataQuality,
   ModelDeployConfig,
-  ModelLifeCycle,
   ModelPackageModelCard,
   ModelPackageModelCardFilterSensitiveLog,
   MonitoringConstraintsResource,
@@ -120,16 +117,66 @@ import {
   OutputConfig,
   ProcessingInstanceType,
   ProcessingS3UploadMode,
-  ProductionVariantAcceleratorType,
-  ProductionVariantManagedInstanceScaling,
-  ProductionVariantRoutingConfig,
-  ProductionVariantServerlessConfig,
   RetryStrategy,
   SchedulerConfig,
   TagPropagation,
   TrainingSpecification,
   UserSettings,
 } from "./models_1";
+
+/**
+ * <p> A structure describing the current state of the model in its life cycle. </p>
+ * @public
+ */
+export interface ModelLifeCycle {
+  /**
+   * <p> The current stage in the model life cycle. </p>
+   * @public
+   */
+  Stage: string | undefined;
+
+  /**
+   * <p> The current status of a stage in model life cycle. </p>
+   * @public
+   */
+  StageStatus: string | undefined;
+
+  /**
+   * <p> Describes the stage related details. </p>
+   * @public
+   */
+  StageDescription?: string | undefined;
+}
+
+/**
+ * <p>Contains explainability metrics for a model.</p>
+ * @public
+ */
+export interface Explainability {
+  /**
+   * <p>The explainability report for a model.</p>
+   * @public
+   */
+  Report?: MetricsSource | undefined;
+}
+
+/**
+ * <p>Data quality constraints and statistics for a model.</p>
+ * @public
+ */
+export interface ModelDataQuality {
+  /**
+   * <p>Data quality statistics for a model.</p>
+   * @public
+   */
+  Statistics?: MetricsSource | undefined;
+
+  /**
+   * <p>Data quality constraints for a model.</p>
+   * @public
+   */
+  Constraints?: MetricsSource | undefined;
+}
 
 /**
  * <p>Model quality statistics and constraints.</p>
@@ -7493,150 +7540,6 @@ export interface ProductionVariantStatus {
    * @public
    */
   StartTime?: Date | undefined;
-}
-
-/**
- * <p>The production variant summary for a deployment when an endpoint is creating or updating with the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateEndpoint.html">CreateEndpoint</a> or <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_UpdateEndpoint.html">UpdateEndpoint</a> operations. Describes the <code>VariantStatus </code>, weight and capacity for a production variant associated with an endpoint. </p>
- * @public
- */
-export interface PendingProductionVariantSummary {
-  /**
-   * <p>The name of the variant.</p>
-   * @public
-   */
-  VariantName: string | undefined;
-
-  /**
-   * <p>An array of <code>DeployedImage</code> objects that specify the Amazon EC2 Container Registry paths of the inference images deployed on instances of this <code>ProductionVariant</code>.</p>
-   * @public
-   */
-  DeployedImages?: DeployedImage[] | undefined;
-
-  /**
-   * <p>The weight associated with the variant.</p>
-   * @public
-   */
-  CurrentWeight?: number | undefined;
-
-  /**
-   * <p>The requested weight for the variant in this deployment, as specified in the endpoint configuration for the endpoint. The value is taken from the request to the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateEndpointConfig.html">CreateEndpointConfig</a> operation.</p>
-   * @public
-   */
-  DesiredWeight?: number | undefined;
-
-  /**
-   * <p>The number of instances associated with the variant.</p>
-   * @public
-   */
-  CurrentInstanceCount?: number | undefined;
-
-  /**
-   * <p>The number of instances requested in this deployment, as specified in the endpoint configuration for the endpoint. The value is taken from the request to the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateEndpointConfig.html">CreateEndpointConfig</a> operation.</p>
-   * @public
-   */
-  DesiredInstanceCount?: number | undefined;
-
-  /**
-   * <p>The type of instances associated with the variant.</p>
-   * @public
-   */
-  InstanceType?: ProductionVariantInstanceType | undefined;
-
-  /**
-   * <p>This parameter is no longer supported. Elastic Inference (EI) is no longer available.</p> <p>This parameter was used to specify the size of the EI instance to use for the production variant.</p>
-   * @public
-   */
-  AcceleratorType?: ProductionVariantAcceleratorType | undefined;
-
-  /**
-   * <p>The endpoint variant status which describes the current deployment stage status or operational status.</p>
-   * @public
-   */
-  VariantStatus?: ProductionVariantStatus[] | undefined;
-
-  /**
-   * <p>The serverless configuration for the endpoint.</p>
-   * @public
-   */
-  CurrentServerlessConfig?: ProductionVariantServerlessConfig | undefined;
-
-  /**
-   * <p>The serverless configuration requested for this deployment, as specified in the endpoint configuration for the endpoint.</p>
-   * @public
-   */
-  DesiredServerlessConfig?: ProductionVariantServerlessConfig | undefined;
-
-  /**
-   * <p>Settings that control the range in the number of instances that the endpoint provisions as it scales up or down to accommodate traffic. </p>
-   * @public
-   */
-  ManagedInstanceScaling?: ProductionVariantManagedInstanceScaling | undefined;
-
-  /**
-   * <p>Settings that control how the endpoint routes incoming traffic to the instances that the endpoint hosts.</p>
-   * @public
-   */
-  RoutingConfig?: ProductionVariantRoutingConfig | undefined;
-}
-
-/**
- * <p>The summary of an in-progress deployment when an endpoint is creating or updating with a new endpoint configuration.</p>
- * @public
- */
-export interface PendingDeploymentSummary {
-  /**
-   * <p>The name of the endpoint configuration used in the deployment. </p>
-   * @public
-   */
-  EndpointConfigName: string | undefined;
-
-  /**
-   * <p>An array of <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_PendingProductionVariantSummary.html">PendingProductionVariantSummary</a> objects, one for each model hosted behind this endpoint for the in-progress deployment.</p>
-   * @public
-   */
-  ProductionVariants?: PendingProductionVariantSummary[] | undefined;
-
-  /**
-   * <p>The start time of the deployment.</p>
-   * @public
-   */
-  StartTime?: Date | undefined;
-
-  /**
-   * <p>An array of <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_PendingProductionVariantSummary.html">PendingProductionVariantSummary</a> objects, one for each model hosted behind this endpoint in shadow mode with production traffic replicated from the model specified on <code>ProductionVariants</code> for the in-progress deployment.</p>
-   * @public
-   */
-  ShadowProductionVariants?: PendingProductionVariantSummary[] | undefined;
-}
-
-/**
- * <p>The EC2 capacity reservations that are shared to an ML capacity reservation.</p>
- * @public
- */
-export interface Ec2CapacityReservation {
-  /**
-   * <p>The unique identifier for an EC2 capacity reservation that's part of the ML capacity reservation.</p>
-   * @public
-   */
-  Ec2CapacityReservationId?: string | undefined;
-
-  /**
-   * <p>The number of instances that you allocated to the EC2 capacity reservation.</p>
-   * @public
-   */
-  TotalInstanceCount?: number | undefined;
-
-  /**
-   * <p>The number of instances that are currently available in the EC2 capacity reservation.</p>
-   * @public
-   */
-  AvailableInstanceCount?: number | undefined;
-
-  /**
-   * <p>The number of instances from the EC2 capacity reservation that are being used by the endpoint.</p>
-   * @public
-   */
-  UsedByCurrentEndpoint?: number | undefined;
 }
 
 /**

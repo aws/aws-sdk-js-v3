@@ -46,7 +46,6 @@ import {
   JobType,
   MetadataProperties,
   ModelCardStatus,
-  ModelLifeCycle,
   ModelPackageModelCard,
   ModelPackageModelCardFilterSensitiveLog,
   ModelVariantConfig,
@@ -70,6 +69,7 @@ import {
   InstanceMetadataServiceConfiguration,
   MemberDefinition,
   ModelArtifacts,
+  ModelLifeCycle,
   MonitoringScheduleConfig,
   NotebookInstanceAcceleratorType,
   NotebookInstanceLifecycleHook,
@@ -146,11 +146,86 @@ import {
   Relation,
   RemoteDebugConfigForUpdate,
   ReservedCapacityOffering,
-  ResourceConfigForUpdate,
-  SearchSortOrder,
   TransformJob,
-  VisibilityConditions,
 } from "./models_4";
+
+/**
+ * <p>The <code>ResourceConfig</code> to update <code>KeepAlivePeriodInSeconds</code>. Other fields in the <code>ResourceConfig</code> cannot be updated.</p>
+ * @public
+ */
+export interface ResourceConfigForUpdate {
+  /**
+   * <p>The <code>KeepAlivePeriodInSeconds</code> value specified in the <code>ResourceConfig</code> to update.</p>
+   * @public
+   */
+  KeepAlivePeriodInSeconds: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface RetryPipelineExecutionRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the pipeline execution.</p>
+   * @public
+   */
+  PipelineExecutionArn: string | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the operation. An idempotent operation completes no more than once.</p>
+   * @public
+   */
+  ClientRequestToken?: string | undefined;
+
+  /**
+   * <p>This configuration, if specified, overrides the parallelism configuration of the parent pipeline.</p>
+   * @public
+   */
+  ParallelismConfiguration?: ParallelismConfiguration | undefined;
+}
+
+/**
+ * @public
+ */
+export interface RetryPipelineExecutionResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the pipeline execution.</p>
+   * @public
+   */
+  PipelineExecutionArn?: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const SearchSortOrder = {
+  ASCENDING: "Ascending",
+  DESCENDING: "Descending",
+} as const;
+
+/**
+ * @public
+ */
+export type SearchSortOrder = (typeof SearchSortOrder)[keyof typeof SearchSortOrder];
+
+/**
+ * <p>The list of key-value pairs used to filter your search results. If a search result contains a key from your list, it is included in the final search response if the value associated with the key in the result matches the value you specified. If the value doesn't match, the result is excluded from the search response. Any resources that don't have a key from the list that you've provided will also be included in the search response.</p>
+ * @public
+ */
+export interface VisibilityConditions {
+  /**
+   * <p>The key that specifies the tag that you're using to filter the search results. It must be in the following format: <code>Tags.&lt;key&gt;</code>.</p>
+   * @public
+   */
+  Key?: string | undefined;
+
+  /**
+   * <p>The value for the tag that you're using to filter the search results.</p>
+   * @public
+   */
+  Value?: string | undefined;
+}
 
 /**
  * <p>Contains information about a training job.</p>

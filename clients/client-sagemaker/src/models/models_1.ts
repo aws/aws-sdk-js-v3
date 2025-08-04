@@ -53,6 +53,7 @@ import {
   CheckpointConfig,
   ClarifyExplainerConfig,
   ClusterInstanceGroupSpecification,
+  ClusterInstanceType,
   ClusterNodeRecovery,
   ClusterOrchestrator,
   ClusterRestrictedInstanceGroupSpecification,
@@ -61,8 +62,6 @@ import {
   CodeRepository,
   CollectionConfig,
   CollectionType,
-  CompleteOnConvergence,
-  ComputeQuotaResourceConfig,
   CustomImage,
   FeatureStatus,
   GitConfig,
@@ -73,7 +72,6 @@ import {
   MetricsSource,
   ModelDataSource,
   OutputDataConfig,
-  PreemptTeamTasks,
   ProblemType,
   ProcessingS3DataDistributionType,
   ProcessingS3InputMode,
@@ -93,6 +91,52 @@ import {
 } from "./models_0";
 
 import { SageMakerServiceException as __BaseException } from "./SageMakerServiceException";
+
+/**
+ * @public
+ * @enum
+ */
+export const CompleteOnConvergence = {
+  DISABLED: "Disabled",
+  ENABLED: "Enabled",
+} as const;
+
+/**
+ * @public
+ */
+export type CompleteOnConvergence = (typeof CompleteOnConvergence)[keyof typeof CompleteOnConvergence];
+
+/**
+ * <p>Configuration of the resources used for the compute allocation definition.</p>
+ * @public
+ */
+export interface ComputeQuotaResourceConfig {
+  /**
+   * <p>The instance type of the instance group for the cluster.</p>
+   * @public
+   */
+  InstanceType: ClusterInstanceType | undefined;
+
+  /**
+   * <p>The number of instances to add to the instance group of a SageMaker HyperPod cluster.</p>
+   * @public
+   */
+  Count?: number | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const PreemptTeamTasks = {
+  LOWERPRIORITY: "LowerPriority",
+  NEVER: "Never",
+} as const;
+
+/**
+ * @public
+ */
+export type PreemptTeamTasks = (typeof PreemptTeamTasks)[keyof typeof PreemptTeamTasks];
 
 /**
  * @public
@@ -3223,7 +3267,7 @@ export interface UnifiedStudioSettings {
   ProjectS3Path?: string | undefined;
 
   /**
-   * <p>The ARN of the application managed by SageMaker AI and SageMaker Unified Studio in the Amazon Web Services IAM Identity Center.</p>
+   * <p>The ARN of the Amazon DataZone application managed by Amazon SageMaker Unified Studio in the Amazon Web Services IAM Identity Center.</p>
    * @public
    */
   SingleSignOnApplicationArn?: string | undefined;
@@ -7869,60 +7913,6 @@ export interface ModelPackageModelCard {
    * @public
    */
   ModelCardStatus?: ModelCardStatus | undefined;
-}
-
-/**
- * <p> A structure describing the current state of the model in its life cycle. </p>
- * @public
- */
-export interface ModelLifeCycle {
-  /**
-   * <p> The current stage in the model life cycle. </p>
-   * @public
-   */
-  Stage: string | undefined;
-
-  /**
-   * <p> The current status of a stage in model life cycle. </p>
-   * @public
-   */
-  StageStatus: string | undefined;
-
-  /**
-   * <p> Describes the stage related details. </p>
-   * @public
-   */
-  StageDescription?: string | undefined;
-}
-
-/**
- * <p>Contains explainability metrics for a model.</p>
- * @public
- */
-export interface Explainability {
-  /**
-   * <p>The explainability report for a model.</p>
-   * @public
-   */
-  Report?: MetricsSource | undefined;
-}
-
-/**
- * <p>Data quality constraints and statistics for a model.</p>
- * @public
- */
-export interface ModelDataQuality {
-  /**
-   * <p>Data quality statistics for a model.</p>
-   * @public
-   */
-  Statistics?: MetricsSource | undefined;
-
-  /**
-   * <p>Data quality constraints for a model.</p>
-   * @public
-   */
-  Constraints?: MetricsSource | undefined;
 }
 
 /**
