@@ -46,7 +46,7 @@ export interface ListHostsCommandOutput extends ListHostsOutput, __MetadataBeare
  * //     { // Host
  * //       Name: "STRING_VALUE",
  * //       HostArn: "STRING_VALUE",
- * //       ProviderType: "Bitbucket" || "GitHub" || "GitHubEnterpriseServer" || "GitLab" || "GitLabSelfManaged",
+ * //       ProviderType: "Bitbucket" || "GitHub" || "GitHubEnterpriseServer" || "GitLab" || "GitLabSelfManaged" || "AzureDevOps",
  * //       ProviderEndpoint: "STRING_VALUE",
  * //       VpcConfiguration: { // VpcConfiguration
  * //         VpcId: "STRING_VALUE", // required

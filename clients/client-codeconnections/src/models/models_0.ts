@@ -57,6 +57,7 @@ export type BlockerType = (typeof BlockerType)[keyof typeof BlockerType];
  * @enum
  */
 export const ProviderType = {
+  AZURE_DEV_OPS: "AzureDevOps",
   BITBUCKET: "Bitbucket",
   GITHUB: "GitHub",
   GITHUB_ENTERPRISE_SERVER: "GitHubEnterpriseServer",
@@ -868,7 +869,7 @@ export interface Connection {
 
   /**
    * <p>The Amazon Resource Name (ARN) of the connection. The ARN is used as the connection
-   *       reference when the connection is shared between Amazon Web Servicesservices.</p>
+   *       reference when the connection is shared between Amazon Web Services services.</p>
    *          <note>
    *             <p>The ARN is never reused if the connection is deleted.</p>
    *          </note>

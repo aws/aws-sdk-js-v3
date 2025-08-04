@@ -46,7 +46,7 @@ export interface GetRepositoryLinkCommandOutput extends GetRepositoryLinkOutput,
  * //     ConnectionArn: "STRING_VALUE", // required
  * //     EncryptionKeyArn: "STRING_VALUE",
  * //     OwnerId: "STRING_VALUE", // required
- * //     ProviderType: "Bitbucket" || "GitHub" || "GitHubEnterpriseServer" || "GitLab" || "GitLabSelfManaged", // required
+ * //     ProviderType: "Bitbucket" || "GitHub" || "GitHubEnterpriseServer" || "GitLab" || "GitLabSelfManaged" || "AzureDevOps", // required
  * //     RepositoryLinkArn: "STRING_VALUE", // required
  * //     RepositoryLinkId: "STRING_VALUE", // required
  * //     RepositoryName: "STRING_VALUE", // required

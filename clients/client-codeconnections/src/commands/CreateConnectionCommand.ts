@@ -38,7 +38,7 @@ export interface CreateConnectionCommandOutput extends CreateConnectionOutput, _
  * // const { CodeConnectionsClient, CreateConnectionCommand } = require("@aws-sdk/client-codeconnections"); // CommonJS import
  * const client = new CodeConnectionsClient(config);
  * const input = { // CreateConnectionInput
- *   ProviderType: "Bitbucket" || "GitHub" || "GitHubEnterpriseServer" || "GitLab" || "GitLabSelfManaged",
+ *   ProviderType: "Bitbucket" || "GitHub" || "GitHubEnterpriseServer" || "GitLab" || "GitLabSelfManaged" || "AzureDevOps",
  *   ConnectionName: "STRING_VALUE", // required
  *   Tags: [ // TagList
  *     { // Tag

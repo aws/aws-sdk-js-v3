@@ -36,7 +36,7 @@ export interface ListConnectionsCommandOutput extends ListConnectionsOutput, __M
  * // const { CodeConnectionsClient, ListConnectionsCommand } = require("@aws-sdk/client-codeconnections"); // CommonJS import
  * const client = new CodeConnectionsClient(config);
  * const input = { // ListConnectionsInput
- *   ProviderTypeFilter: "Bitbucket" || "GitHub" || "GitHubEnterpriseServer" || "GitLab" || "GitLabSelfManaged",
+ *   ProviderTypeFilter: "Bitbucket" || "GitHub" || "GitHubEnterpriseServer" || "GitLab" || "GitLabSelfManaged" || "AzureDevOps",
  *   HostArnFilter: "STRING_VALUE",
  *   MaxResults: Number("int"),
  *   NextToken: "STRING_VALUE",
@@ -48,7 +48,7 @@ export interface ListConnectionsCommandOutput extends ListConnectionsOutput, __M
  * //     { // Connection
  * //       ConnectionName: "STRING_VALUE",
  * //       ConnectionArn: "STRING_VALUE",
- * //       ProviderType: "Bitbucket" || "GitHub" || "GitHubEnterpriseServer" || "GitLab" || "GitLabSelfManaged",
+ * //       ProviderType: "Bitbucket" || "GitHub" || "GitHubEnterpriseServer" || "GitLab" || "GitLabSelfManaged" || "AzureDevOps",
  * //       OwnerAccountId: "STRING_VALUE",
  * //       ConnectionStatus: "PENDING" || "AVAILABLE" || "ERROR",
  * //       HostArn: "STRING_VALUE",

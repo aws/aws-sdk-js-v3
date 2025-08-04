@@ -44,7 +44,7 @@ export interface CreateHostCommandOutput extends CreateHostOutput, __MetadataBea
  * const client = new CodeConnectionsClient(config);
  * const input = { // CreateHostInput
  *   Name: "STRING_VALUE", // required
- *   ProviderType: "Bitbucket" || "GitHub" || "GitHubEnterpriseServer" || "GitLab" || "GitLabSelfManaged", // required
+ *   ProviderType: "Bitbucket" || "GitHub" || "GitHubEnterpriseServer" || "GitLab" || "GitLabSelfManaged" || "AzureDevOps", // required
  *   ProviderEndpoint: "STRING_VALUE", // required
  *   VpcConfiguration: { // VpcConfiguration
  *     VpcId: "STRING_VALUE", // required
