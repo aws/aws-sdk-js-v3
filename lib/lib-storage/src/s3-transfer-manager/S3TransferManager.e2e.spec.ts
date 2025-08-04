@@ -238,12 +238,18 @@ describe(S3TransferManager.name, () => {
         }).done();
         const tm: S3TransferManager = mode === "PART" ? tmPart : tmRange;
         const controller = new AbortController();
-        setTimeout(() => controller.abort(), 100);
         try {
           await tm.download(
             { Bucket, Key },
             {
               abortSignal: controller.signal,
+              eventListeners: {
+                transferInitiated: [
+                  () => {
+                    controller.abort();
+                  },
+                ],
+              },
             }
           );
           expect.fail("Download should have been aborted");
@@ -311,6 +317,243 @@ describe(S3TransferManager.name, () => {
     }, 60_000);
     it("single object: multipartDownloadType = RANGE, range = null, partNumber = null", async () => {
       await complianceTests("single", "RANGE", undefined, undefined);
+    }, 60_000);
+  });
+
+  describe("upload tests", () => {
+    it("should upload object below multipart threshold using single PutObject", async () => {
+      const Body = data(10 * 1024 * 1024); // 10MB - below 16MB threshold
+      const Key = `upload-single-${Date.now()}`;
+
+      let transferInitiated = false;
+      let bytesTransferred = 0;
+      let transferComplete = false;
+
+      const response = await tmPart.upload(
+        { Bucket, Key, Body, ChecksumAlgorithm: "CRC32" },
+        {
+          eventListeners: {
+            transferInitiated: [
+              ({ request, snapshot }) => {
+                transferInitiated = true;
+                expect(request.Bucket).toEqual(Bucket);
+                expect(request.Key).toEqual(Key);
+                expect(snapshot.transferredBytes).toEqual(0);
+                expect(snapshot.totalBytes).toEqual(Body.length);
+              },
+            ],
+            bytesTransferred: [
+              ({ snapshot }) => {
+                bytesTransferred = snapshot.transferredBytes;
+              },
+            ],
+            transferComplete: [
+              ({ snapshot, response }) => {
+                transferComplete = true;
+                expect(snapshot.transferredBytes).toEqual(Body.length);
+                expect(response.ETag).toBeDefined();
+              },
+            ],
+          },
+        }
+      );
+
+      expect(transferInitiated).toBe(true);
+      expect(bytesTransferred).toEqual(Body.length);
+      expect(transferComplete).toBe(true);
+      expect(response.ETag).toBeDefined();
+
+      // Verify upload
+      const download = await client.getObject({ Bucket, Key });
+      const downloadedData = await download.Body?.transformToString();
+      expect(downloadedData?.length).toEqual(Body.length);
+
+      await client.deleteObject({ Bucket, Key });
+    }, 60_000);
+
+    it("should upload object above multipart threshold using multipart upload", async () => {
+      const Body = data(24 * 1024 * 1024); // 24MB - above 16MB threshold, 3 parts
+      const Key = `upload-multipart-${Date.now()}`;
+
+      let transferInitiated = false;
+      let bytesTransferredEvents = 0;
+      let transferComplete = false;
+
+      const response = await tmPart.upload(
+        { Bucket, Key, Body, ChecksumAlgorithm: "CRC32" },
+        {
+          eventListeners: {
+            transferInitiated: [
+              ({ request, snapshot }) => {
+                transferInitiated = true;
+                expect(request.Bucket).toEqual(Bucket);
+                expect(request.Key).toEqual(Key);
+                expect(snapshot.transferredBytes).toEqual(0);
+                expect(snapshot.totalBytes).toEqual(Body.length);
+              },
+            ],
+            bytesTransferred: [
+              ({ snapshot }) => {
+                bytesTransferredEvents++;
+                expect(snapshot.transferredBytes).toBeGreaterThan(0);
+                expect(snapshot.transferredBytes).toBeLessThanOrEqual(Body.length);
+              },
+            ],
+            transferComplete: [
+              ({ snapshot, response }) => {
+                transferComplete = true;
+                expect(snapshot.transferredBytes).toEqual(Body.length);
+                expect(response.ETag).toBeDefined();
+              },
+            ],
+          },
+        }
+      );
+
+      expect(transferInitiated).toBe(true);
+      expect(bytesTransferredEvents).toBeGreaterThan(0);
+      expect(transferComplete).toBe(true);
+      expect(response.ETag).toBeDefined();
+
+      const download = await client.getObject({ Bucket, Key });
+      const downloadedData = await download.Body?.transformToString();
+      expect(downloadedData?.length).toEqual(Body.length);
+
+      await client.deleteObject({ Bucket, Key });
+    }, 60_000);
+
+    it("should upload multipart with uneven last part", async () => {
+      const Body = data(10 * 1024 * 1024); // 10MB - 2 parts with uneven last part
+      const Key = `upload-uneven-${Date.now()}`;
+      const customPartSize = 8 * 1024 * 1024; // 8MB parts
+      const expectedPartCount = 2;
+
+      const tmCustom = new S3TransferManager({
+        s3ClientInstance: client,
+        targetPartSizeBytes: customPartSize,
+        multipartUploadThresholdBytes: 8 * 1024 * 1024,
+      });
+
+      let partCount = 0;
+      const response = await tmCustom.upload(
+        { Bucket, Key, Body, ChecksumAlgorithm: "CRC32" },
+        {
+          eventListeners: {
+            bytesTransferred: [
+              () => {
+                partCount++;
+              },
+            ],
+          },
+        }
+      );
+
+      expect(response.ETag).toBeDefined();
+      expect(partCount).toEqual(expectedPartCount);
+
+      const download = await client.getObject({ Bucket, Key });
+      const downloadedData = await download.Body?.transformToString();
+      expect(downloadedData?.length).toEqual(Body.length);
+
+      await client.deleteObject({ Bucket, Key });
+    }, 60_000);
+
+    it("should upload single object with full object checksum", async () => {
+      const Body = data(10 * 1024 * 1024); // 10MB
+      const Key = `upload-checksum-calc-${Date.now()}`;
+
+      const response = await tmPart.upload({ Bucket, Key, Body, ChecksumAlgorithm: "CRC32" });
+
+      expect(response.ETag).toBeDefined();
+      expect(response.ChecksumCRC32).toBeDefined();
+      expect(response.ChecksumType).toBe("FULL_OBJECT");
+
+      const download = await client.getObject({ Bucket, Key });
+      const downloadedData = await download.Body?.transformToString();
+      expect(downloadedData?.length).toEqual(Body.length);
+
+      await client.deleteObject({ Bucket, Key });
+    }, 60_000);
+
+    it("should abort multipart upload on error", async () => {
+      const Body = data(24 * 1024 * 1024); // 24MB
+      const Key = `upload-abort-${Date.now()}`;
+      const controller = new AbortController();
+
+      let transferFailed = false;
+
+      try {
+        await tmPart.upload(
+          { Bucket, Key, Body, ChecksumAlgorithm: "CRC32" },
+          {
+            abortSignal: controller.signal,
+            eventListeners: {
+              transferInitiated: [
+                () => {
+                  controller.abort();
+                },
+              ],
+              transferFailed: [
+                () => {
+                  transferFailed = true;
+                },
+              ],
+            },
+          }
+        );
+        expect.fail("Upload should have been aborted");
+      } catch (error) {
+        expect(error.name).toEqual("AbortError");
+        expect(transferFailed).toBe(true);
+      }
+    }, 60_000);
+
+    it("should upload empty file", async () => {
+      const Body = "";
+      const Key = `upload-empty-${Date.now()}`;
+
+      const response = await tmPart.upload({ Bucket, Key, Body });
+
+      expect(response.ETag).toBeDefined();
+
+      const download = await client.getObject({ Bucket, Key });
+      const downloadedData = await download.Body?.transformToString();
+      expect(downloadedData?.length).toEqual(0);
+
+      await client.deleteObject({ Bucket, Key });
+    }, 60_000);
+
+    it("should upload multipart with composite checksum", async () => {
+      const Body = data(20 * 1024 * 1024); // 20MB
+      const Key = `upload-checksum-${Date.now()}`;
+
+      const clientWithChecksumCalc = new S3({
+        region,
+        requestChecksumCalculation: "WHEN_SUPPORTED",
+      });
+
+      const tmCustom = new S3TransferManager({
+        s3ClientInstance: clientWithChecksumCalc,
+        targetPartSizeBytes: 8 * 1024 * 1024,
+        multipartUploadThresholdBytes: 16 * 1024 * 1024,
+      });
+
+      const response = await tmCustom.upload({
+        Bucket,
+        Key,
+        Body,
+        ChecksumAlgorithm: "CRC32",
+      });
+
+      expect(response.ETag).toBeDefined();
+      expect(response.ChecksumCRC32).toBeDefined();
+      expect(response.ChecksumType).toBe("COMPOSITE");
+
+      const download = await client.getObject({ Bucket, Key });
+      const downloadedData = await download.Body?.transformToString();
+      expect(downloadedData?.length).toEqual(Body.length);
+
+      await client.deleteObject({ Bucket, Key });
     }, 60_000);
   });
 });
