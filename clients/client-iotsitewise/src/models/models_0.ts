@@ -262,7 +262,8 @@ export interface ResolveTo {
 }
 
 /**
- * <p>The resource the action will be taken on.</p>
+ * <p>The resource the action will be taken on. This can include asset-based resources and
+ *       computation model resources.</p>
  * @public
  */
 export interface TargetResource {
@@ -280,7 +281,8 @@ export interface TargetResource {
 }
 
 /**
- * <p>Contains the summary of the actions.</p>
+ * <p>Contains the summary of the actions, including information about where the action resolves
+ *       to.</p>
  * @public
  */
 export interface ActionSummary {
@@ -433,14 +435,14 @@ export interface Alarms {
 }
 
 /**
- * <p>A filter used to match data bindings based on a specific asset.
- *       This filter identifies all computation models referencing a particular asset in their data bindings.</p>
+ * <p>A filter used to match data bindings based on a specific asset. This filter identifies all
+ *       computation models referencing a particular asset in their data bindings.</p>
  * @public
  */
 export interface AssetBindingValueFilter {
   /**
-   * <p>The ID of the asset to filter data bindings by.
-   *       Only data bindings referencing this specific asset are matched.</p>
+   * <p>The ID of the asset to filter data bindings by. Only data bindings referencing this
+   *       specific asset are matched.</p>
    * @public
    */
   assetId: string | undefined;
@@ -782,14 +784,15 @@ export interface AssetHierarchyInfo {
 }
 
 /**
- * <p>A filter used to match data bindings based on a specific asset model.
- *       This filter identifies all computation models referencing a particular asset model in their data bindings.</p>
+ * <p>A filter used to match data bindings based on a specific asset model. This filter
+ *       identifies all computation models referencing a particular asset model in their data
+ *       bindings.</p>
  * @public
  */
 export interface AssetModelBindingValueFilter {
   /**
-   * <p>The ID of the asset model to filter data bindings by.
-   *       Only data bindings referemncing this specific asset model are matched.</p>
+   * <p>The ID of the asset model to filter data bindings by. Only data bindings referemncing this
+   *       specific asset model are matched.</p>
    * @public
    */
   assetModelId: string | undefined;
@@ -1087,13 +1090,13 @@ export interface Metric {
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html">Quotas</a> in the <i>IoT SiteWise User Guide</i>.</p>
    * @public
    */
-  expression: string | undefined;
+  expression?: string | undefined;
 
   /**
    * <p>The list of variables used in the expression.</p>
    * @public
    */
-  variables: ExpressionVariable[] | undefined;
+  variables?: ExpressionVariable[] | undefined;
 
   /**
    * <p>The window (time interval) over which IoT SiteWise computes the metric's aggregation expression.
@@ -1595,29 +1598,49 @@ export interface AssetModelPropertyBindingValue {
 }
 
 /**
- * <p>A filter used to match data bindings based on a specific asset model property.
- *       This filter identifies all computation models that
- *       reference a particular property of an asset model in their data bindings.</p>
+ * <p>A filter used to match data bindings based on a specific asset model property. This filter
+ *       identifies all computation models that reference a particular property of an asset model in
+ *       their data bindings.</p>
  * @public
  */
 export interface AssetModelPropertyBindingValueFilter {
   /**
-   * <p>The ID of the asset model containing the filter property.
-   *       This identifies the specific asset model that contains the property of interest.</p>
+   * <p>The ID of the asset model containing the filter property. This identifies the specific
+   *       asset model that contains the property of interest.</p>
    * @public
    */
   assetModelId: string | undefined;
 
   /**
-   * <p>The ID of the property within the asset model to filter by.
-   *       Only data bindings referencing this specific property of the specified asset model are matched.</p>
+   * <p>The ID of the property within the asset model to filter by. Only data bindings referencing
+   *       this specific property of the specified asset model are matched.</p>
    * @public
    */
   propertyId: string | undefined;
 }
 
 /**
- * <p>Contains a summary of a property associated with a model.</p>
+ * <p>Contains summary information about an interface that a property belongs to.</p>
+ * @public
+ */
+export interface InterfaceSummary {
+  /**
+   * <p>The ID of the interface asset model that contains this property.</p>
+   * @public
+   */
+  interfaceAssetModelId: string | undefined;
+
+  /**
+   * <p>The ID of the property in the interface asset model that corresponds to this
+   *       property.</p>
+   * @public
+   */
+  interfaceAssetModelPropertyId: string | undefined;
+}
+
+/**
+ * <p>Contains a summary of a property associated with a model. This includes information about
+ *       which interfaces the property belongs to, if any.</p>
  * @public
  */
 export interface AssetModelPropertySummary {
@@ -1676,6 +1699,14 @@ export interface AssetModelPropertySummary {
    * @public
    */
   path?: AssetModelPropertyPathSegment[] | undefined;
+
+  /**
+   * <p>A list of interface summaries that describe which interfaces this property belongs to,
+   *       including the interface asset model ID and the corresponding property ID in the
+   *       interface.</p>
+   * @public
+   */
+  interfaceSummaries?: InterfaceSummary[] | undefined;
 }
 
 /**
@@ -1792,6 +1823,7 @@ export interface AssetModelStatus {
 export const AssetModelType = {
   ASSET_MODEL: "ASSET_MODEL",
   COMPONENT_MODEL: "COMPONENT_MODEL",
+  INTERFACE: "INTERFACE",
 } as const;
 
 /**
@@ -1895,43 +1927,43 @@ export const AssetModelVersionType = {
 export type AssetModelVersionType = (typeof AssetModelVersionType)[keyof typeof AssetModelVersionType];
 
 /**
- * <p>Represents a data binding value referencing a specific asset property.
- *       It's used to bind computation model variables to actual asset property values for processing.</p>
+ * <p>Represents a data binding value referencing a specific asset property. It's used to bind
+ *       computation model variables to actual asset property values for processing.</p>
  * @public
  */
 export interface AssetPropertyBindingValue {
   /**
-   * <p>The ID of the asset containing the property.
-   *       This identifies the specific asset instance's property value used in the computation model.</p>
+   * <p>The ID of the asset containing the property. This identifies the specific asset instance's
+   *       property value used in the computation model.</p>
    * @public
    */
   assetId: string | undefined;
 
   /**
-   * <p>The ID of the property within the asset. This identifies the specific property's
-   *      value used in the computation model.</p>
+   * <p>The ID of the property within the asset. This identifies the specific property's value
+   *       used in the computation model.</p>
    * @public
    */
   propertyId: string | undefined;
 }
 
 /**
- * <p>A filter used to match data bindings based on a specific asset property.
- *       This filter helps identify all computation models referencing a
- *       particular property of an asset in their data bindings.</p>
+ * <p>A filter used to match data bindings based on a specific asset property. This filter helps
+ *       identify all computation models referencing a particular property of an asset in their data
+ *       bindings.</p>
  * @public
  */
 export interface AssetPropertyBindingValueFilter {
   /**
-   * <p>The ID of the asset containing the property to filter by.
-   *       This identifies the specific asset instance containing the property of interest.</p>
+   * <p>The ID of the asset containing the property to filter by. This identifies the specific
+   *       asset instance containing the property of interest.</p>
    * @public
    */
   assetId: string | undefined;
 
   /**
-   * <p>The ID of the property within the asset to filter by.
-   *       Only data bindings referencing this specific property of the specified asset are matched.</p>
+   * <p>The ID of the property within the asset to filter by. Only data bindings referencing this
+   *       specific property of the specified asset are matched.</p>
    * @public
    */
   propertyId: string | undefined;
@@ -4168,13 +4200,15 @@ export interface CreateBulkImportJobResponse {
  */
 export interface ComputationModelAnomalyDetectionConfiguration {
   /**
-   * <p>Define the variable name associated with input properties, with the following format <code>$\{VariableName\}</code>.</p>
+   * <p>Define the variable name associated with input properties, with the following format
+   *         <code>$\{VariableName\}</code>.</p>
    * @public
    */
   inputProperties: string | undefined;
 
   /**
-   * <p>Define the variable name associated with the result property, and the following format <code>$\{VariableName\}</code>.</p>
+   * <p>Define the variable name associated with the result property, and the following format
+   *         <code>$\{VariableName\}</code>.</p>
    * @public
    */
   resultProperty: string | undefined;
@@ -4247,7 +4281,8 @@ export interface CreateComputationModelResponse {
   computationModelArn: string | undefined;
 
   /**
-   * <p>The status of the computation model, containing a state (CREATING after successfully calling this operation) and any error messages.</p>
+   * <p>The status of the computation model, containing a state (CREATING after successfully
+   *       calling this operation) and any error messages.</p>
    * @public
    */
   computationModelStatus: ComputationModelStatus | undefined;
@@ -4585,10 +4620,15 @@ export interface SiemensIE {
 }
 
 /**
- * <p>The gateway's platform configuration. You can only specify one platform type in a gateway.</p>
- *          <p>(Legacy only) For Greengrass V1 gateways, specify the <code>greengrass</code> parameter with a valid Greengrass group ARN.</p>
- *          <p>For Greengrass V2 gateways, specify the <code>greengrassV2</code> parameter with a valid core device thing name. If creating a V3 gateway (<code>gatewayVersion=3</code>), you must also specify the <code>coreDeviceOperatingSystem</code>.</p>
- *          <p>For Siemens Industrial Edge gateways, specify the <code>siemensIE</code> parameter with a valid IoT Core thing name.</p>
+ * <p>The gateway's platform configuration. You can only specify one platform type in a
+ *       gateway.</p>
+ *          <p>(Legacy only) For Greengrass V1 gateways, specify the <code>greengrass</code> parameter
+ *       with a valid Greengrass group ARN.</p>
+ *          <p>For Greengrass V2 gateways, specify the <code>greengrassV2</code> parameter with a valid
+ *       core device thing name. If creating a V3 gateway (<code>gatewayVersion=3</code>), you must
+ *       also specify the <code>coreDeviceOperatingSystem</code>.</p>
+ *          <p>For Siemens Industrial Edge gateways, specify the <code>siemensIE</code> parameter with a
+ *       valid IoT Core thing name.</p>
  * @public
  */
 export interface GatewayPlatform {
@@ -4628,12 +4668,17 @@ export interface CreateGatewayRequest {
   gatewayPlatform: GatewayPlatform | undefined;
 
   /**
-   * <p>The version of the gateway to create. Specify <code>3</code> to create an MQTT-enabled, V3 gateway and <code>2</code> to create a Classic streams, V2 gateway. If not specified, the default is <code>2</code> (Classic streams, V2 gateway).</p>
+   * <p>The version of the gateway to create. Specify <code>3</code> to create an MQTT-enabled, V3
+   *       gateway and <code>2</code> to create a Classic streams, V2 gateway. If not specified, the
+   *       default is <code>2</code> (Classic streams, V2 gateway).</p>
    *          <note>
-   *             <p>When creating a V3 gateway (<code>gatewayVersion=3</code>) with the <code>GreengrassV2</code> platform, you must also specify the <code>coreDeviceOperatingSystem</code> parameter.</p>
+   *             <p>When creating a V3 gateway (<code>gatewayVersion=3</code>) with the
+   *           <code>GreengrassV2</code> platform, you must also specify the
+   *           <code>coreDeviceOperatingSystem</code> parameter.</p>
    *          </note>
-   *          <p> We recommend creating an MQTT-enabled gateway for self-hosted gateways and Siemens Industrial Edge gateways. For more
-   *       information on gateway versions, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/gateways.html">Use Amazon Web Services IoT SiteWise Edge Edge gateways</a>.</p>
+   *          <p> We recommend creating an MQTT-enabled gateway for self-hosted gateways and Siemens
+   *       Industrial Edge gateways. For more information on gateway versions, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/gateways.html">Use Amazon Web Services IoT SiteWise Edge Edge
+   *         gateways</a>.</p>
    * @public
    */
   gatewayVersion?: string | undefined;
@@ -5167,6 +5212,64 @@ export interface DeleteAssetModelCompositeModelResponse {
 /**
  * @public
  */
+export interface DeleteAssetModelInterfaceRelationshipRequest {
+  /**
+   * <p>The ID of the asset model. This can be either the actual ID in UUID format, or else
+   *       externalId: followed by the external ID.</p>
+   * @public
+   */
+  assetModelId: string | undefined;
+
+  /**
+   * <p>The ID of the interface asset model. This can be either the actual ID in UUID format, or
+   *       else externalId: followed by the external ID.</p>
+   * @public
+   */
+  interfaceAssetModelId: string | undefined;
+
+  /**
+   * <p>A unique case-sensitive identifier that you can provide to ensure the idempotency of the
+   *       request. Don't reuse this client token if a new idempotent request is required.</p>
+   * @public
+   */
+  clientToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteAssetModelInterfaceRelationshipResponse {
+  /**
+   * <p>The ID of the asset model.</p>
+   * @public
+   */
+  assetModelId: string | undefined;
+
+  /**
+   * <p>The ID of the interface asset model.</p>
+   * @public
+   */
+  interfaceAssetModelId: string | undefined;
+
+  /**
+   * <p>The ARN of the asset model, which has the following format.
+   *       <code>arn:$\{Partition\}:iotsitewise:$\{Region\}:$\{Account\}:asset-model/$\{AssetModelId\}</code>
+   *          </p>
+   * @public
+   */
+  assetModelArn: string | undefined;
+
+  /**
+   * <p>Contains current status information for an asset model. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/asset-and-model-states.html">Asset and model
+   *         states</a> in the <i>IoT SiteWise User Guide</i>.</p>
+   * @public
+   */
+  assetModelStatus: AssetModelStatus | undefined;
+}
+
+/**
+ * @public
+ */
 export interface DeleteComputationModelRequest {
   /**
    * <p>The ID of the computation model.</p>
@@ -5186,7 +5289,8 @@ export interface DeleteComputationModelRequest {
  */
 export interface DeleteComputationModelResponse {
   /**
-   * <p>The status of the computation model. It contains a state (DELETING after successfully calling this operation) and any error messages.</p>
+   * <p>The status of the computation model. It contains a state (DELETING after successfully
+   *       calling this operation) and any error messages.</p>
    * @public
    */
   computationModelStatus: ComputationModelStatus | undefined;
@@ -5675,6 +5779,19 @@ export interface DescribeAssetModelRequest {
 }
 
 /**
+ * <p>Contains information about the relationship between an asset model and an interface asset
+ *       model that is applied to it.</p>
+ * @public
+ */
+export interface InterfaceRelationship {
+  /**
+   * <p>The ID of the asset model that has the interface applied to it.</p>
+   * @public
+   */
+  id: string | undefined;
+}
+
+/**
  * @public
  */
 export interface DescribeAssetModelResponse {
@@ -5784,6 +5901,13 @@ export interface DescribeAssetModelResponse {
    * @public
    */
   assetModelVersion?: string | undefined;
+
+  /**
+   * <p>A list of interface details that describe the interfaces implemented by this asset model,
+   *       including interface asset model IDs and property mappings.</p>
+   * @public
+   */
+  interfaceDetails?: InterfaceRelationship[] | undefined;
 
   /**
    * <p>The entity tag (ETag) is a hash of the retrieved version of the asset model. It's used to make
@@ -5926,6 +6050,94 @@ export interface DescribeAssetModelCompositeModelResponse {
    * @public
    */
   actionDefinitions?: ActionDefinition[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeAssetModelInterfaceRelationshipRequest {
+  /**
+   * <p>The ID of the asset model. This can be either the actual ID in UUID format, or else
+   *       externalId: followed by the external ID.</p>
+   * @public
+   */
+  assetModelId: string | undefined;
+
+  /**
+   * <p>The ID of the interface asset model. This can be either the actual ID in UUID format, or
+   *       else externalId: followed by the external ID.</p>
+   * @public
+   */
+  interfaceAssetModelId: string | undefined;
+}
+
+/**
+ * <p>Maps a hierarchy from an interface asset model to a hierarchy in the asset model where the
+ *       interface is applied.</p>
+ * @public
+ */
+export interface HierarchyMapping {
+  /**
+   * <p>The ID of the hierarchy in the asset model where the interface is applied.</p>
+   * @public
+   */
+  assetModelHierarchyId: string | undefined;
+
+  /**
+   * <p>The ID of the hierarchy in the interface asset model.</p>
+   * @public
+   */
+  interfaceAssetModelHierarchyId: string | undefined;
+}
+
+/**
+ * <p>Maps a property from an interface asset model to a property in the asset model where the
+ *       interface is applied.</p>
+ * @public
+ */
+export interface PropertyMapping {
+  /**
+   * <p>The ID of the property in the asset model where the interface is applied.</p>
+   * @public
+   */
+  assetModelPropertyId: string | undefined;
+
+  /**
+   * <p>The ID of the property in the interface asset model.</p>
+   * @public
+   */
+  interfaceAssetModelPropertyId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeAssetModelInterfaceRelationshipResponse {
+  /**
+   * <p>The ID of the asset model.</p>
+   * @public
+   */
+  assetModelId: string | undefined;
+
+  /**
+   * <p>The ID of the interface asset model.</p>
+   * @public
+   */
+  interfaceAssetModelId: string | undefined;
+
+  /**
+   * <p>A list of property mappings between the interface asset model and the asset model where
+   *       the interface is applied.</p>
+   * @public
+   */
+  propertyMappings: PropertyMapping[] | undefined;
+
+  /**
+   * <p>A list of hierarchy mappings between the interface asset model and the asset model where
+   *       the interface is applied.</p>
+   * @public
+   */
+  hierarchyMappings: HierarchyMapping[] | undefined;
 }
 
 /**
@@ -6564,7 +6776,8 @@ export interface DescribeExecutionResponse {
   actionType?: string | undefined;
 
   /**
-   * <p>The resource the action will be taken on.</p>
+   * <p>The resource the action will be taken on. This can include asset-based resources and
+   *       computation model resources.</p>
    * @public
    */
   targetResource: TargetResource | undefined;
@@ -6606,23 +6819,18 @@ export interface DescribeExecutionResponse {
   executionResult?: Record<string, string> | undefined;
 
   /**
-   * <p>Provides detailed information about the execution of your anomaly detection models.
-   *       This includes model metrics and training timestamps for both training and inference actions.</p>
+   * <p>Provides detailed information about the execution of your anomaly detection models. This
+   *       includes model metrics and training timestamps for both training and inference actions.</p>
    *          <ul>
    *             <li>
-   *                <p>
-   *           The training action (Amazon Web Services/ANOMALY_DETECTION_TRAINING),
-   *           includes performance metrics that help you
-   *           compare different versions of your anomaly detection models.
-   *           These metrics provide insights into the model's performance during the training process.
-   *         </p>
+   *                <p> The training action (Amazon Web Services/ANOMALY_DETECTION_TRAINING), includes performance metrics
+   *           that help you compare different versions of your anomaly detection models. These metrics
+   *           provide insights into the model's performance during the training process. </p>
    *             </li>
    *             <li>
-   *                <p>
-   *           The inference action (Amazon Web Services/ANOMALY_DETECTION_INFERENCE), includes information
-   *           about the results of executing your anomaly detection models.
-   *           This helps you understand the output of your models and assess their performance.
-   *         </p>
+   *                <p> The inference action (Amazon Web Services/ANOMALY_DETECTION_INFERENCE), includes information about
+   *           the results of executing your anomaly detection models. This helps you understand the
+   *           output of your models and assess their performance. </p>
    *             </li>
    *          </ul>
    * @public
@@ -8087,350 +8295,6 @@ export interface Location {
 }
 
 /**
- * <p>The data source for the dataset.</p>
- * @public
- */
-export interface Source {
-  /**
-   * <p>Contains the ARN of the dataset. If the source is Kendra, it's the ARN of the Kendra index.</p>
-   * @public
-   */
-  arn?: string | undefined;
-
-  /**
-   * <p>Contains the location information where the cited text is originally stored.
-   *   For example, if the data source is Kendra, and the text synchronized is from an S3 bucket, then the location refers to an S3 object.</p>
-   * @public
-   */
-  location?: Location | undefined;
-}
-
-/**
- * <p>Contains information about the dataset use and it's source.</p>
- * @public
- */
-export interface DataSetReference {
-  /**
-   * <p>The <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html">ARN</a> of the dataset.
-   *   The format is <code>arn:$\{Partition\}:iotsitewise:$\{Region\}:$\{Account\}:dataset/$\{DatasetId\}</code>.</p>
-   * @public
-   */
-  datasetArn?: string | undefined;
-
-  /**
-   * <p>The data source for the dataset.</p>
-   * @public
-   */
-  source?: Source | undefined;
-}
-
-/**
- * <p>Contains the reference information.</p>
- * @public
- */
-export interface Reference {
-  /**
-   * <p>Contains the dataset reference information.</p>
-   * @public
-   */
-  dataset?: DataSetReference | undefined;
-}
-
-/**
- * <p>Contains text content to which the SiteWise Assistant refers to, and generate the final response.
- *   It also contains information about the source.</p>
- * @public
- */
-export interface Citation {
-  /**
-   * <p>Contains information about the data source.</p>
-   * @public
-   */
-  reference?: Reference | undefined;
-
-  /**
-   * <p>Contains the cited text from the data source.</p>
-   * @public
-   */
-  content?: Content | undefined;
-}
-
-/**
- * <p>This contains the SiteWise Assistant's response and the corresponding citation.</p>
- * @public
- */
-export interface InvocationOutput {
-  /**
-   * <p>The text message of the SiteWise Assistant's response.</p>
-   * @public
-   */
-  message?: string | undefined;
-
-  /**
-   * <p>A list of citations, and related information for the SiteWise Assistant's response.</p>
-   * @public
-   */
-  citations?: Citation[] | undefined;
-}
-
-/**
- * <p>Contains tracing information of the SiteWise Assistant's reasoning and data access.</p>
- * @public
- */
-export interface Trace {
-  /**
-   * <p>The cited text from the data source.</p>
-   * @public
-   */
-  text?: string | undefined;
-}
-
-/**
- * <p>Contains the response, citation, and trace from the SiteWise Assistant.</p>
- * @public
- */
-export type ResponseStream =
-  | ResponseStream.AccessDeniedExceptionMember
-  | ResponseStream.ConflictingOperationExceptionMember
-  | ResponseStream.InternalFailureExceptionMember
-  | ResponseStream.InvalidRequestExceptionMember
-  | ResponseStream.LimitExceededExceptionMember
-  | ResponseStream.OutputMember
-  | ResponseStream.ResourceNotFoundExceptionMember
-  | ResponseStream.ThrottlingExceptionMember
-  | ResponseStream.TraceMember
-  | ResponseStream.$UnknownMember;
-
-/**
- * @public
- */
-export namespace ResponseStream {
-  /**
-   * <p>Contains tracing information of the SiteWise Assistant's reasoning and data access.</p>
-   * @public
-   */
-  export interface TraceMember {
-    trace: Trace;
-    output?: never;
-    accessDeniedException?: never;
-    conflictingOperationException?: never;
-    internalFailureException?: never;
-    invalidRequestException?: never;
-    limitExceededException?: never;
-    resourceNotFoundException?: never;
-    throttlingException?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>Contains the SiteWise Assistant's response.</p>
-   * @public
-   */
-  export interface OutputMember {
-    trace?: never;
-    output: InvocationOutput;
-    accessDeniedException?: never;
-    conflictingOperationException?: never;
-    internalFailureException?: never;
-    invalidRequestException?: never;
-    limitExceededException?: never;
-    resourceNotFoundException?: never;
-    throttlingException?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>Access is denied.</p>
-   * @public
-   */
-  export interface AccessDeniedExceptionMember {
-    trace?: never;
-    output?: never;
-    accessDeniedException: AccessDeniedException;
-    conflictingOperationException?: never;
-    internalFailureException?: never;
-    invalidRequestException?: never;
-    limitExceededException?: never;
-    resourceNotFoundException?: never;
-    throttlingException?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>Your request has conflicting operations. This can occur if you're trying to perform more
-   *       than one operation on the same resource at the same time.</p>
-   * @public
-   */
-  export interface ConflictingOperationExceptionMember {
-    trace?: never;
-    output?: never;
-    accessDeniedException?: never;
-    conflictingOperationException: ConflictingOperationException;
-    internalFailureException?: never;
-    invalidRequestException?: never;
-    limitExceededException?: never;
-    resourceNotFoundException?: never;
-    throttlingException?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>IoT SiteWise can't process your request right now. Try again later.</p>
-   * @public
-   */
-  export interface InternalFailureExceptionMember {
-    trace?: never;
-    output?: never;
-    accessDeniedException?: never;
-    conflictingOperationException?: never;
-    internalFailureException: InternalFailureException;
-    invalidRequestException?: never;
-    limitExceededException?: never;
-    resourceNotFoundException?: never;
-    throttlingException?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>The request isn't valid. This can occur if your request contains malformed JSON or
-   *       unsupported characters. Check your request and try again.</p>
-   * @public
-   */
-  export interface InvalidRequestExceptionMember {
-    trace?: never;
-    output?: never;
-    accessDeniedException?: never;
-    conflictingOperationException?: never;
-    internalFailureException?: never;
-    invalidRequestException: InvalidRequestException;
-    limitExceededException?: never;
-    resourceNotFoundException?: never;
-    throttlingException?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>You've reached the quota for a resource. For example, this can occur if you're trying to
-   *       associate more than the allowed number of child assets or attempting to create more than the
-   *       allowed number of properties for an asset model.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html">Quotas</a> in the <i>IoT SiteWise User Guide</i>.</p>
-   * @public
-   */
-  export interface LimitExceededExceptionMember {
-    trace?: never;
-    output?: never;
-    accessDeniedException?: never;
-    conflictingOperationException?: never;
-    internalFailureException?: never;
-    invalidRequestException?: never;
-    limitExceededException: LimitExceededException;
-    resourceNotFoundException?: never;
-    throttlingException?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>The requested resource can't be found.</p>
-   * @public
-   */
-  export interface ResourceNotFoundExceptionMember {
-    trace?: never;
-    output?: never;
-    accessDeniedException?: never;
-    conflictingOperationException?: never;
-    internalFailureException?: never;
-    invalidRequestException?: never;
-    limitExceededException?: never;
-    resourceNotFoundException: ResourceNotFoundException;
-    throttlingException?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>Your request exceeded a rate limit. For example, you might have exceeded the number of
-   *       IoT SiteWise assets that can be created per second, the allowed number of messages per second, and so
-   *       on.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html">Quotas</a> in the <i>IoT SiteWise User Guide</i>.</p>
-   * @public
-   */
-  export interface ThrottlingExceptionMember {
-    trace?: never;
-    output?: never;
-    accessDeniedException?: never;
-    conflictingOperationException?: never;
-    internalFailureException?: never;
-    invalidRequestException?: never;
-    limitExceededException?: never;
-    resourceNotFoundException?: never;
-    throttlingException: ThrottlingException;
-    $unknown?: never;
-  }
-
-  /**
-   * @public
-   */
-  export interface $UnknownMember {
-    trace?: never;
-    output?: never;
-    accessDeniedException?: never;
-    conflictingOperationException?: never;
-    internalFailureException?: never;
-    invalidRequestException?: never;
-    limitExceededException?: never;
-    resourceNotFoundException?: never;
-    throttlingException?: never;
-    $unknown: [string, any];
-  }
-
-  export interface Visitor<T> {
-    trace: (value: Trace) => T;
-    output: (value: InvocationOutput) => T;
-    accessDeniedException: (value: AccessDeniedException) => T;
-    conflictingOperationException: (value: ConflictingOperationException) => T;
-    internalFailureException: (value: InternalFailureException) => T;
-    invalidRequestException: (value: InvalidRequestException) => T;
-    limitExceededException: (value: LimitExceededException) => T;
-    resourceNotFoundException: (value: ResourceNotFoundException) => T;
-    throttlingException: (value: ThrottlingException) => T;
-    _: (name: string, value: any) => T;
-  }
-
-  export const visit = <T>(value: ResponseStream, visitor: Visitor<T>): T => {
-    if (value.trace !== undefined) return visitor.trace(value.trace);
-    if (value.output !== undefined) return visitor.output(value.output);
-    if (value.accessDeniedException !== undefined) return visitor.accessDeniedException(value.accessDeniedException);
-    if (value.conflictingOperationException !== undefined)
-      return visitor.conflictingOperationException(value.conflictingOperationException);
-    if (value.internalFailureException !== undefined)
-      return visitor.internalFailureException(value.internalFailureException);
-    if (value.invalidRequestException !== undefined)
-      return visitor.invalidRequestException(value.invalidRequestException);
-    if (value.limitExceededException !== undefined) return visitor.limitExceededException(value.limitExceededException);
-    if (value.resourceNotFoundException !== undefined)
-      return visitor.resourceNotFoundException(value.resourceNotFoundException);
-    if (value.throttlingException !== undefined) return visitor.throttlingException(value.throttlingException);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
-}
-
-/**
- * @public
- */
-export interface InvokeAssistantResponse {
-  /**
-   * <p>Contains the response, citation, and trace from the SiteWise Assistant.</p>
-   * @public
-   */
-  body: AsyncIterable<ResponseStream> | undefined;
-
-  /**
-   * <p>The ID of the conversation, in UUID format. This ID uniquely identifies the conversation within IoT SiteWise.</p>
-   * @public
-   */
-  conversationId: string | undefined;
-}
-
-/**
  * @internal
  */
 export const CreatePortalRequestFilterSensitiveLog = (obj: CreatePortalRequest): any => ({
@@ -8454,29 +8318,4 @@ export const DescribePortalResponseFilterSensitiveLog = (obj: DescribePortalResp
 export const InvokeAssistantRequestFilterSensitiveLog = (obj: InvokeAssistantRequest): any => ({
   ...obj,
   ...(obj.message && { message: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const ResponseStreamFilterSensitiveLog = (obj: ResponseStream): any => {
-  if (obj.trace !== undefined) return { trace: obj.trace };
-  if (obj.output !== undefined) return { output: obj.output };
-  if (obj.accessDeniedException !== undefined) return { accessDeniedException: obj.accessDeniedException };
-  if (obj.conflictingOperationException !== undefined)
-    return { conflictingOperationException: obj.conflictingOperationException };
-  if (obj.internalFailureException !== undefined) return { internalFailureException: obj.internalFailureException };
-  if (obj.invalidRequestException !== undefined) return { invalidRequestException: obj.invalidRequestException };
-  if (obj.limitExceededException !== undefined) return { limitExceededException: obj.limitExceededException };
-  if (obj.resourceNotFoundException !== undefined) return { resourceNotFoundException: obj.resourceNotFoundException };
-  if (obj.throttlingException !== undefined) return { throttlingException: obj.throttlingException };
-  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
-};
-
-/**
- * @internal
- */
-export const InvokeAssistantResponseFilterSensitiveLog = (obj: InvokeAssistantResponse): any => ({
-  ...obj,
-  ...(obj.body && { body: "STREAMING_CONTENT" }),
 });

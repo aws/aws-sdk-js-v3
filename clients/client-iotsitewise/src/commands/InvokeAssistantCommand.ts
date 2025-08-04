@@ -6,12 +6,8 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { IoTSiteWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTSiteWiseClient";
-import {
-  InvokeAssistantRequest,
-  InvokeAssistantRequestFilterSensitiveLog,
-  InvokeAssistantResponse,
-  InvokeAssistantResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { InvokeAssistantRequest, InvokeAssistantRequestFilterSensitiveLog } from "../models/models_0";
+import { InvokeAssistantResponse, InvokeAssistantResponseFilterSensitiveLog } from "../models/models_1";
 import { de_InvokeAssistantCommand, se_InvokeAssistantCommand } from "../protocols/Aws_restJson1";
 
 /**

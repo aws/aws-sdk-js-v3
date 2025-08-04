@@ -116,6 +116,10 @@ import {
   DeleteAssetModelCompositeModelCommandOutput,
 } from "./commands/DeleteAssetModelCompositeModelCommand";
 import {
+  DeleteAssetModelInterfaceRelationshipCommandInput,
+  DeleteAssetModelInterfaceRelationshipCommandOutput,
+} from "./commands/DeleteAssetModelInterfaceRelationshipCommand";
+import {
   DeleteComputationModelCommandInput,
   DeleteComputationModelCommandOutput,
 } from "./commands/DeleteComputationModelCommand";
@@ -140,6 +144,10 @@ import {
   DescribeAssetModelCompositeModelCommandInput,
   DescribeAssetModelCompositeModelCommandOutput,
 } from "./commands/DescribeAssetModelCompositeModelCommand";
+import {
+  DescribeAssetModelInterfaceRelationshipCommandInput,
+  DescribeAssetModelInterfaceRelationshipCommandOutput,
+} from "./commands/DescribeAssetModelInterfaceRelationshipCommand";
 import {
   DescribeAssetPropertyCommandInput,
   DescribeAssetPropertyCommandOutput,
@@ -248,6 +256,10 @@ import { ListDashboardsCommandInput, ListDashboardsCommandOutput } from "./comma
 import { ListDatasetsCommandInput, ListDatasetsCommandOutput } from "./commands/ListDatasetsCommand";
 import { ListExecutionsCommandInput, ListExecutionsCommandOutput } from "./commands/ListExecutionsCommand";
 import { ListGatewaysCommandInput, ListGatewaysCommandOutput } from "./commands/ListGatewaysCommand";
+import {
+  ListInterfaceRelationshipsCommandInput,
+  ListInterfaceRelationshipsCommandOutput,
+} from "./commands/ListInterfaceRelationshipsCommand";
 import { ListPortalsCommandInput, ListPortalsCommandOutput } from "./commands/ListPortalsCommand";
 import { ListProjectAssetsCommandInput, ListProjectAssetsCommandOutput } from "./commands/ListProjectAssetsCommand";
 import { ListProjectsCommandInput, ListProjectsCommandOutput } from "./commands/ListProjectsCommand";
@@ -256,6 +268,10 @@ import {
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import { ListTimeSeriesCommandInput, ListTimeSeriesCommandOutput } from "./commands/ListTimeSeriesCommand";
+import {
+  PutAssetModelInterfaceRelationshipCommandInput,
+  PutAssetModelInterfaceRelationshipCommandOutput,
+} from "./commands/PutAssetModelInterfaceRelationshipCommand";
 import {
   PutDefaultEncryptionConfigurationCommandInput,
   PutDefaultEncryptionConfigurationCommandOutput,
@@ -329,6 +345,7 @@ export type ServiceInputTypes =
   | DeleteAssetCommandInput
   | DeleteAssetModelCommandInput
   | DeleteAssetModelCompositeModelCommandInput
+  | DeleteAssetModelInterfaceRelationshipCommandInput
   | DeleteComputationModelCommandInput
   | DeleteDashboardCommandInput
   | DeleteDatasetCommandInput
@@ -342,6 +359,7 @@ export type ServiceInputTypes =
   | DescribeAssetCompositeModelCommandInput
   | DescribeAssetModelCommandInput
   | DescribeAssetModelCompositeModelCommandInput
+  | DescribeAssetModelInterfaceRelationshipCommandInput
   | DescribeAssetPropertyCommandInput
   | DescribeBulkImportJobCommandInput
   | DescribeComputationModelCommandInput
@@ -384,11 +402,13 @@ export type ServiceInputTypes =
   | ListDatasetsCommandInput
   | ListExecutionsCommandInput
   | ListGatewaysCommandInput
+  | ListInterfaceRelationshipsCommandInput
   | ListPortalsCommandInput
   | ListProjectAssetsCommandInput
   | ListProjectsCommandInput
   | ListTagsForResourceCommandInput
   | ListTimeSeriesCommandInput
+  | PutAssetModelInterfaceRelationshipCommandInput
   | PutDefaultEncryptionConfigurationCommandInput
   | PutLoggingOptionsCommandInput
   | PutStorageConfigurationCommandInput
@@ -434,6 +454,7 @@ export type ServiceOutputTypes =
   | DeleteAssetCommandOutput
   | DeleteAssetModelCommandOutput
   | DeleteAssetModelCompositeModelCommandOutput
+  | DeleteAssetModelInterfaceRelationshipCommandOutput
   | DeleteComputationModelCommandOutput
   | DeleteDashboardCommandOutput
   | DeleteDatasetCommandOutput
@@ -447,6 +468,7 @@ export type ServiceOutputTypes =
   | DescribeAssetCompositeModelCommandOutput
   | DescribeAssetModelCommandOutput
   | DescribeAssetModelCompositeModelCommandOutput
+  | DescribeAssetModelInterfaceRelationshipCommandOutput
   | DescribeAssetPropertyCommandOutput
   | DescribeBulkImportJobCommandOutput
   | DescribeComputationModelCommandOutput
@@ -489,11 +511,13 @@ export type ServiceOutputTypes =
   | ListDatasetsCommandOutput
   | ListExecutionsCommandOutput
   | ListGatewaysCommandOutput
+  | ListInterfaceRelationshipsCommandOutput
   | ListPortalsCommandOutput
   | ListProjectAssetsCommandOutput
   | ListProjectsCommandOutput
   | ListTagsForResourceCommandOutput
   | ListTimeSeriesCommandOutput
+  | PutAssetModelInterfaceRelationshipCommandOutput
   | PutDefaultEncryptionConfigurationCommandOutput
   | PutLoggingOptionsCommandOutput
   | PutStorageConfigurationCommandOutput

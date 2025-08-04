@@ -91,8 +91,8 @@ export interface ListAssetModelPropertiesCommandOutput extends ListAssetModelPro
  * //           },
  * //         },
  * //         metric: { // Metric
- * //           expression: "STRING_VALUE", // required
- * //           variables: [ // required
+ * //           expression: "STRING_VALUE",
+ * //           variables: [
  * //             {
  * //               name: "STRING_VALUE", // required
  * //               value: {
@@ -123,6 +123,12 @@ export interface ListAssetModelPropertiesCommandOutput extends ListAssetModelPro
  * //         {
  * //           id: "STRING_VALUE",
  * //           name: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //       interfaceSummaries: [ // InterfaceSummaries
+ * //         { // InterfaceSummary
+ * //           interfaceAssetModelId: "STRING_VALUE", // required
+ * //           interfaceAssetModelPropertyId: "STRING_VALUE", // required
  * //         },
  * //       ],
  * //     },

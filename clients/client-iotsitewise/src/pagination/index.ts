@@ -30,6 +30,7 @@ export * from "./ListDashboardsPaginator";
 export * from "./ListDatasetsPaginator";
 export * from "./ListExecutionsPaginator";
 export * from "./ListGatewaysPaginator";
+export * from "./ListInterfaceRelationshipsPaginator";
 export * from "./ListPortalsPaginator";
 export * from "./ListProjectAssetsPaginator";
 export * from "./ListProjectsPaginator";

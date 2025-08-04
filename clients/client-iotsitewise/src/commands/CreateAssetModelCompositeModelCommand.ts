@@ -110,8 +110,8 @@ export interface CreateAssetModelCompositeModelCommandOutput
  *           },
  *         },
  *         metric: { // Metric
- *           expression: "STRING_VALUE", // required
- *           variables: [ // required
+ *           expression: "STRING_VALUE",
+ *           variables: [
  *             {
  *               name: "STRING_VALUE", // required
  *               value: {

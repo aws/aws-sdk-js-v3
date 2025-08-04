@@ -37,12 +37,9 @@ export interface ListComputationModelDataBindingUsagesCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>
- *       Lists all data binding usages for computation models.
- *       This allows to identify where specific data bindings are being
- *       utilized across the computation models.
- *       This track dependencies between data sources and computation models.
- *     </p>
+ * <p> Lists all data binding usages for computation models. This allows to identify where
+ *       specific data bindings are being utilized across the computation models. This track
+ *       dependencies between data sources and computation models. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

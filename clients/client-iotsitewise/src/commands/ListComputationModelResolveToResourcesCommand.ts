@@ -37,7 +37,8 @@ export interface ListComputationModelResolveToResourcesCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Lists all distinct resources that are resolved from the executed actions of the computation model.</p>
+ * <p>Lists all distinct resources that are resolved from the executed actions of the
+ *       computation model.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

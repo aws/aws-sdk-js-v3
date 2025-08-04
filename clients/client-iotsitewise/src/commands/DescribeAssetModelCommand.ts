@@ -28,7 +28,9 @@ export interface DescribeAssetModelCommandInput extends DescribeAssetModelReques
 export interface DescribeAssetModelCommandOutput extends DescribeAssetModelResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves information about an asset model.</p>
+ * <p>Retrieves information about an asset model. This includes details about the asset model's
+ *       properties, hierarchies, composite models, and any interface relationships if the asset model
+ *       implements interfaces.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -47,7 +49,7 @@ export interface DescribeAssetModelCommandOutput extends DescribeAssetModelRespo
  * //   assetModelExternalId: "STRING_VALUE",
  * //   assetModelArn: "STRING_VALUE", // required
  * //   assetModelName: "STRING_VALUE", // required
- * //   assetModelType: "ASSET_MODEL" || "COMPONENT_MODEL",
+ * //   assetModelType: "ASSET_MODEL" || "COMPONENT_MODEL" || "INTERFACE",
  * //   assetModelDescription: "STRING_VALUE", // required
  * //   assetModelProperties: [ // AssetModelProperties // required
  * //     { // AssetModelProperty
@@ -93,8 +95,8 @@ export interface DescribeAssetModelCommandOutput extends DescribeAssetModelRespo
  * //           },
  * //         },
  * //         metric: { // Metric
- * //           expression: "STRING_VALUE", // required
- * //           variables: [ // required
+ * //           expression: "STRING_VALUE",
+ * //           variables: [
  * //             {
  * //               name: "STRING_VALUE", // required
  * //               value: {
@@ -180,8 +182,8 @@ export interface DescribeAssetModelCommandOutput extends DescribeAssetModelRespo
  * //               },
  * //             },
  * //             metric: {
- * //               expression: "STRING_VALUE", // required
- * //               variables: [ // required
+ * //               expression: "STRING_VALUE",
+ * //               variables: [
  * //                 {
  * //                   name: "STRING_VALUE", // required
  * //                   value: {
@@ -240,6 +242,11 @@ export interface DescribeAssetModelCommandOutput extends DescribeAssetModelRespo
  * //     },
  * //   },
  * //   assetModelVersion: "STRING_VALUE",
+ * //   interfaceDetails: [ // InterfaceDetails
+ * //     { // InterfaceRelationship
+ * //       id: "STRING_VALUE", // required
+ * //     },
+ * //   ],
  * //   eTag: "STRING_VALUE",
  * // };
  *

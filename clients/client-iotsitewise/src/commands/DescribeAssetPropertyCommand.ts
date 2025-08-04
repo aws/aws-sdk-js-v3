@@ -100,8 +100,8 @@ export interface DescribeAssetPropertyCommandOutput extends DescribeAssetPropert
  * //         },
  * //       },
  * //       metric: { // Metric
- * //         expression: "STRING_VALUE", // required
- * //         variables: [ // required
+ * //         expression: "STRING_VALUE",
+ * //         variables: [
  * //           {
  * //             name: "STRING_VALUE", // required
  * //             value: {
@@ -184,8 +184,8 @@ export interface DescribeAssetPropertyCommandOutput extends DescribeAssetPropert
  * //           },
  * //         },
  * //         metric: {
- * //           expression: "STRING_VALUE", // required
- * //           variables: [ // required
+ * //           expression: "STRING_VALUE",
+ * //           variables: [
  * //             {
  * //               name: "STRING_VALUE", // required
  * //               value: {

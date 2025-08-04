@@ -37,7 +37,7 @@ export interface ListAssetModelsCommandOutput extends ListAssetModelsResponse, _
  * const client = new IoTSiteWiseClient(config);
  * const input = { // ListAssetModelsRequest
  *   assetModelTypes: [ // ListAssetModelsTypeFilter
- *     "ASSET_MODEL" || "COMPONENT_MODEL",
+ *     "ASSET_MODEL" || "COMPONENT_MODEL" || "INTERFACE",
  *   ],
  *   nextToken: "STRING_VALUE",
  *   maxResults: Number("int"),
@@ -52,7 +52,7 @@ export interface ListAssetModelsCommandOutput extends ListAssetModelsResponse, _
  * //       externalId: "STRING_VALUE",
  * //       arn: "STRING_VALUE", // required
  * //       name: "STRING_VALUE", // required
- * //       assetModelType: "ASSET_MODEL" || "COMPONENT_MODEL",
+ * //       assetModelType: "ASSET_MODEL" || "COMPONENT_MODEL" || "INTERFACE",
  * //       description: "STRING_VALUE", // required
  * //       creationDate: new Date("TIMESTAMP"), // required
  * //       lastUpdateDate: new Date("TIMESTAMP"), // required

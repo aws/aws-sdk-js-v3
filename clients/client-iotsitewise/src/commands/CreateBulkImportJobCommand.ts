@@ -39,8 +39,8 @@ export interface CreateBulkImportJobCommandOutput extends CreateBulkImportJobRes
  *                   <p>Newly ingested data in the hot tier triggers notifications and computations.</p>
  *                </li>
  *                <li>
- *                   <p>After data moves from the hot tier to the warm or cold tier based on retention settings,
- *             it does not trigger computations or notifications.</p>
+ *                   <p>After data moves from the hot tier to the warm or cold tier based on retention
+ *             settings, it does not trigger computations or notifications.</p>
  *                </li>
  *                <li>
  *                   <p>Data older than 7 days does not trigger computations or notifications.</p>

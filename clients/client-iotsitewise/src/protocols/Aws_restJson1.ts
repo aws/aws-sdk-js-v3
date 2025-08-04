@@ -92,6 +92,10 @@ import {
   DeleteAssetModelCompositeModelCommandOutput,
 } from "../commands/DeleteAssetModelCompositeModelCommand";
 import {
+  DeleteAssetModelInterfaceRelationshipCommandInput,
+  DeleteAssetModelInterfaceRelationshipCommandOutput,
+} from "../commands/DeleteAssetModelInterfaceRelationshipCommand";
+import {
   DeleteComputationModelCommandInput,
   DeleteComputationModelCommandOutput,
 } from "../commands/DeleteComputationModelCommand";
@@ -116,6 +120,10 @@ import {
   DescribeAssetModelCompositeModelCommandInput,
   DescribeAssetModelCompositeModelCommandOutput,
 } from "../commands/DescribeAssetModelCompositeModelCommand";
+import {
+  DescribeAssetModelInterfaceRelationshipCommandInput,
+  DescribeAssetModelInterfaceRelationshipCommandOutput,
+} from "../commands/DescribeAssetModelInterfaceRelationshipCommand";
 import {
   DescribeAssetPropertyCommandInput,
   DescribeAssetPropertyCommandOutput,
@@ -224,6 +232,10 @@ import { ListDashboardsCommandInput, ListDashboardsCommandOutput } from "../comm
 import { ListDatasetsCommandInput, ListDatasetsCommandOutput } from "../commands/ListDatasetsCommand";
 import { ListExecutionsCommandInput, ListExecutionsCommandOutput } from "../commands/ListExecutionsCommand";
 import { ListGatewaysCommandInput, ListGatewaysCommandOutput } from "../commands/ListGatewaysCommand";
+import {
+  ListInterfaceRelationshipsCommandInput,
+  ListInterfaceRelationshipsCommandOutput,
+} from "../commands/ListInterfaceRelationshipsCommand";
 import { ListPortalsCommandInput, ListPortalsCommandOutput } from "../commands/ListPortalsCommand";
 import { ListProjectAssetsCommandInput, ListProjectAssetsCommandOutput } from "../commands/ListProjectAssetsCommand";
 import { ListProjectsCommandInput, ListProjectsCommandOutput } from "../commands/ListProjectsCommand";
@@ -232,6 +244,10 @@ import {
   ListTagsForResourceCommandOutput,
 } from "../commands/ListTagsForResourceCommand";
 import { ListTimeSeriesCommandInput, ListTimeSeriesCommandOutput } from "../commands/ListTimeSeriesCommand";
+import {
+  PutAssetModelInterfaceRelationshipCommandInput,
+  PutAssetModelInterfaceRelationshipCommandOutput,
+} from "../commands/PutAssetModelInterfaceRelationshipCommand";
 import {
   PutDefaultEncryptionConfigurationCommandInput,
   PutDefaultEncryptionConfigurationCommandOutput,
@@ -329,7 +345,6 @@ import {
   InternalFailureException,
   InterpolatedAssetPropertyValue,
   InvalidRequestException,
-  InvocationOutput,
   JobConfiguration,
   KendraSourceDetail,
   LimitExceededException,
@@ -345,6 +360,7 @@ import {
   PortalTypeEntry,
   PreconditionFailedException,
   ProjectResource,
+  PropertyMapping,
   PropertyType,
   PropertyValueNullValue,
   PutAssetPropertyValueEntry,
@@ -354,7 +370,6 @@ import {
   Resource,
   ResourceAlreadyExistsException,
   ResourceNotFoundException,
-  ResponseStream,
   RetentionPeriod,
   ServiceUnavailableException,
   SiemensIE,
@@ -362,7 +377,6 @@ import {
   TargetResource,
   ThrottlingException,
   TimeInNanos,
-  Trace,
   Transform,
   TransformProcessingConfig,
   TumblingWindow,
@@ -382,11 +396,15 @@ import {
   ExecutionSummary,
   GatewaySummary,
   Image,
+  InvocationOutput,
   PortalSummary,
   ProjectSummary,
+  PropertyMappingConfiguration,
+  ResponseStream,
   Row,
   TimeSeriesSummary,
   TooManyTagsException,
+  Trace,
   UnauthorizedException,
 } from "../models/models_1";
 
@@ -1166,6 +1184,34 @@ export const se_DeleteAssetModelCompositeModelCommand = async (
 };
 
 /**
+ * serializeAws_restJson1DeleteAssetModelInterfaceRelationshipCommand
+ */
+export const se_DeleteAssetModelInterfaceRelationshipCommand = async (
+  input: DeleteAssetModelInterfaceRelationshipCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/asset-models/{assetModelId}/interface/{interfaceAssetModelId}/asset-model-interface-relationship");
+  b.p("assetModelId", () => input.assetModelId!, "{assetModelId}", false);
+  b.p("interfaceAssetModelId", () => input.interfaceAssetModelId!, "{interfaceAssetModelId}", false);
+  const query: any = map({
+    [_cT]: [, input[_cT] ?? generateIdempotencyToken()],
+  });
+  let body: any;
+  let { hostname: resolvedHostname } = await context.endpoint();
+  if (context.disableHostPrefix !== true) {
+    resolvedHostname = "api." + resolvedHostname;
+    if (!__isValidHostname(resolvedHostname)) {
+      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
+    }
+  }
+  b.hn(resolvedHostname);
+  b.m("DELETE").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1DeleteComputationModelCommand
  */
 export const se_DeleteComputationModelCommand = async (
@@ -1512,6 +1558,31 @@ export const se_DescribeAssetModelCompositeModelCommand = async (
   }
   b.hn(resolvedHostname);
   b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1DescribeAssetModelInterfaceRelationshipCommand
+ */
+export const se_DescribeAssetModelInterfaceRelationshipCommand = async (
+  input: DescribeAssetModelInterfaceRelationshipCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/asset-models/{assetModelId}/interface/{interfaceAssetModelId}/asset-model-interface-relationship");
+  b.p("assetModelId", () => input.assetModelId!, "{assetModelId}", false);
+  b.p("interfaceAssetModelId", () => input.interfaceAssetModelId!, "{interfaceAssetModelId}", false);
+  let body: any;
+  let { hostname: resolvedHostname } = await context.endpoint();
+  if (context.disableHostPrefix !== true) {
+    resolvedHostname = "api." + resolvedHostname;
+    if (!__isValidHostname(resolvedHostname)) {
+      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
+    }
+  }
+  b.hn(resolvedHostname);
+  b.m("GET").h(headers).b(body);
   return b.build();
 };
 
@@ -2713,6 +2784,34 @@ export const se_ListGatewaysCommand = async (
 };
 
 /**
+ * serializeAws_restJson1ListInterfaceRelationshipsCommand
+ */
+export const se_ListInterfaceRelationshipsCommand = async (
+  input: ListInterfaceRelationshipsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/interface/{interfaceAssetModelId}/asset-models");
+  b.p("interfaceAssetModelId", () => input.interfaceAssetModelId!, "{interfaceAssetModelId}", false);
+  const query: any = map({
+    [_nT]: [, input[_nT]!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
+  });
+  let body: any;
+  let { hostname: resolvedHostname } = await context.endpoint();
+  if (context.disableHostPrefix !== true) {
+    resolvedHostname = "api." + resolvedHostname;
+    if (!__isValidHostname(resolvedHostname)) {
+      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
+    }
+  }
+  b.hn(resolvedHostname);
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1ListPortalsCommand
  */
 export const se_ListPortalsCommand = async (
@@ -2848,6 +2947,39 @@ export const se_ListTimeSeriesCommand = async (
   }
   b.hn(resolvedHostname);
   b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1PutAssetModelInterfaceRelationshipCommand
+ */
+export const se_PutAssetModelInterfaceRelationshipCommand = async (
+  input: PutAssetModelInterfaceRelationshipCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/asset-models/{assetModelId}/interface/{interfaceAssetModelId}/asset-model-interface-relationship");
+  b.p("assetModelId", () => input.assetModelId!, "{assetModelId}", false);
+  b.p("interfaceAssetModelId", () => input.interfaceAssetModelId!, "{interfaceAssetModelId}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
+      propertyMappingConfiguration: (_) => _json(_),
+    })
+  );
+  let { hostname: resolvedHostname } = await context.endpoint();
+  if (context.disableHostPrefix !== true) {
+    resolvedHostname = "api." + resolvedHostname;
+    if (!__isValidHostname(resolvedHostname)) {
+      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
+    }
+  }
+  b.hn(resolvedHostname);
+  b.m("PUT").h(headers).b(body);
   return b.build();
 };
 
@@ -3930,6 +4062,30 @@ export const de_DeleteAssetModelCompositeModelCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1DeleteAssetModelInterfaceRelationshipCommand
+ */
+export const de_DeleteAssetModelInterfaceRelationshipCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteAssetModelInterfaceRelationshipCommandOutput> => {
+  if (output.statusCode !== 202 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    assetModelArn: __expectString,
+    assetModelId: __expectString,
+    assetModelStatus: _json,
+    interfaceAssetModelId: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1DeleteComputationModelCommand
  */
 export const de_DeleteComputationModelCommand = async (
@@ -4206,6 +4362,7 @@ export const de_DescribeAssetModelCommand = async (
     assetModelStatus: _json,
     assetModelType: __expectString,
     assetModelVersion: __expectString,
+    interfaceDetails: _json,
   });
   Object.assign(contents, doc);
   return contents;
@@ -4237,6 +4394,30 @@ export const de_DescribeAssetModelCompositeModelCommand = async (
     assetModelCompositeModelType: __expectString,
     assetModelId: __expectString,
     compositionDetails: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DescribeAssetModelInterfaceRelationshipCommand
+ */
+export const de_DescribeAssetModelInterfaceRelationshipCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeAssetModelInterfaceRelationshipCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    assetModelId: __expectString,
+    hierarchyMappings: _json,
+    interfaceAssetModelId: __expectString,
+    propertyMappings: _json,
   });
   Object.assign(contents, doc);
   return contents;
@@ -5240,6 +5421,28 @@ export const de_ListGatewaysCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1ListInterfaceRelationshipsCommand
+ */
+export const de_ListInterfaceRelationshipsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListInterfaceRelationshipsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    interfaceRelationshipSummaries: _json,
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1ListPortalsCommand
  */
 export const de_ListPortalsCommand = async (
@@ -5343,6 +5546,30 @@ export const de_ListTimeSeriesCommand = async (
   const doc = take(data, {
     TimeSeriesSummaries: (_) => de_TimeSeriesSummaries(_, context),
     nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1PutAssetModelInterfaceRelationshipCommand
+ */
+export const de_PutAssetModelInterfaceRelationshipCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutAssetModelInterfaceRelationshipCommandOutput> => {
+  if (output.statusCode !== 202 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    assetModelArn: __expectString,
+    assetModelId: __expectString,
+    assetModelStatus: _json,
+    interfaceAssetModelId: __expectString,
   });
   Object.assign(contents, doc);
   return contents;
@@ -6463,6 +6690,12 @@ const se_ImageFile = (input: ImageFile, context: __SerdeContext): any => {
 
 // se_ProjectResource omitted.
 
+// se_PropertyMapping omitted.
+
+// se_PropertyMappingConfiguration omitted.
+
+// se_PropertyMappings omitted.
+
 // se_PropertyType omitted.
 
 // se_PropertyValueNullValue omitted.
@@ -7346,6 +7579,10 @@ const de_GatewaySummary = (output: any, context: __SerdeContext): GatewaySummary
 
 // de_GroupIdentity omitted.
 
+// de_HierarchyMapping omitted.
+
+// de_HierarchyMappings omitted.
+
 // de_IAMRoleIdentity omitted.
 
 // de_IAMUserIdentity omitted.
@@ -7353,6 +7590,18 @@ const de_GatewaySummary = (output: any, context: __SerdeContext): GatewaySummary
 // de_Identity omitted.
 
 // de_ImageLocation omitted.
+
+// de_InterfaceDetails omitted.
+
+// de_InterfaceRelationship omitted.
+
+// de_InterfaceRelationshipSummaries omitted.
+
+// de_InterfaceRelationshipSummary omitted.
+
+// de_InterfaceSummaries omitted.
+
+// de_InterfaceSummary omitted.
 
 /**
  * deserializeAws_restJson1InterpolatedAssetPropertyValue
@@ -7475,6 +7724,10 @@ const de_ProjectSummary = (output: any, context: __SerdeContext): ProjectSummary
 };
 
 // de_Property omitted.
+
+// de_PropertyMapping omitted.
+
+// de_PropertyMappings omitted.
 
 // de_PropertyNotification omitted.
 

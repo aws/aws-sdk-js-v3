@@ -33,8 +33,8 @@ export interface CreateAssetModelCommandOutput extends CreateAssetModelResponse,
  *       that have standardized definitions. Each asset created from a model inherits the asset model's
  *       property and hierarchy definitions. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/define-models.html">Defining asset models</a> in the
  *         <i>IoT SiteWise User Guide</i>.</p>
- *          <p>You can create two types of asset models, <code>ASSET_MODEL</code> or
- *         <code>COMPONENT_MODEL</code>.</p>
+ *          <p>You can create three types of asset models, <code>ASSET_MODEL</code>,
+ *         <code>COMPONENT_MODEL</code>, or an <code>INTERFACE</code>.</p>
  *          <ul>
  *             <li>
  *                <p>
@@ -48,6 +48,11 @@ export interface CreateAssetModelCommandOutput extends CreateAssetModelResponse,
  *           you can include in the composite models of other asset models. You can't create
  *           assets directly from this type of asset model. </p>
  *             </li>
+ *             <li>
+ *                <p>
+ *                   <b>INTERFACE</b> – An interface is a type of model
+ *           that defines a standard structure that can be applied to different asset models.</p>
+ *             </li>
  *          </ul>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -57,7 +62,7 @@ export interface CreateAssetModelCommandOutput extends CreateAssetModelResponse,
  * const client = new IoTSiteWiseClient(config);
  * const input = { // CreateAssetModelRequest
  *   assetModelName: "STRING_VALUE", // required
- *   assetModelType: "ASSET_MODEL" || "COMPONENT_MODEL",
+ *   assetModelType: "ASSET_MODEL" || "COMPONENT_MODEL" || "INTERFACE",
  *   assetModelId: "STRING_VALUE",
  *   assetModelExternalId: "STRING_VALUE",
  *   assetModelDescription: "STRING_VALUE",
@@ -105,8 +110,8 @@ export interface CreateAssetModelCommandOutput extends CreateAssetModelResponse,
  *           },
  *         },
  *         metric: { // Metric
- *           expression: "STRING_VALUE", // required
- *           variables: [ // required
+ *           expression: "STRING_VALUE",
+ *           variables: [
  *             {
  *               name: "STRING_VALUE", // required
  *               value: {
@@ -193,8 +198,8 @@ export interface CreateAssetModelCommandOutput extends CreateAssetModelResponse,
  *               },
  *             },
  *             metric: {
- *               expression: "STRING_VALUE", // required
- *               variables: [ // required
+ *               expression: "STRING_VALUE",
+ *               variables: [
  *                 {
  *                   name: "STRING_VALUE", // required
  *                   value: {

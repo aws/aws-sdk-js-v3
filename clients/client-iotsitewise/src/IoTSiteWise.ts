@@ -110,6 +110,11 @@ import {
   DeleteAssetModelCompositeModelCommandOutput,
 } from "./commands/DeleteAssetModelCompositeModelCommand";
 import {
+  DeleteAssetModelInterfaceRelationshipCommand,
+  DeleteAssetModelInterfaceRelationshipCommandInput,
+  DeleteAssetModelInterfaceRelationshipCommandOutput,
+} from "./commands/DeleteAssetModelInterfaceRelationshipCommand";
+import {
   DeleteComputationModelCommand,
   DeleteComputationModelCommandInput,
   DeleteComputationModelCommandOutput,
@@ -174,6 +179,11 @@ import {
   DescribeAssetModelCompositeModelCommandInput,
   DescribeAssetModelCompositeModelCommandOutput,
 } from "./commands/DescribeAssetModelCompositeModelCommand";
+import {
+  DescribeAssetModelInterfaceRelationshipCommand,
+  DescribeAssetModelInterfaceRelationshipCommandInput,
+  DescribeAssetModelInterfaceRelationshipCommandOutput,
+} from "./commands/DescribeAssetModelInterfaceRelationshipCommand";
 import {
   DescribeAssetPropertyCommand,
   DescribeAssetPropertyCommandInput,
@@ -376,6 +386,11 @@ import {
   ListGatewaysCommandInput,
   ListGatewaysCommandOutput,
 } from "./commands/ListGatewaysCommand";
+import {
+  ListInterfaceRelationshipsCommand,
+  ListInterfaceRelationshipsCommandInput,
+  ListInterfaceRelationshipsCommandOutput,
+} from "./commands/ListInterfaceRelationshipsCommand";
 import { ListPortalsCommand, ListPortalsCommandInput, ListPortalsCommandOutput } from "./commands/ListPortalsCommand";
 import {
   ListProjectAssetsCommand,
@@ -397,6 +412,11 @@ import {
   ListTimeSeriesCommandInput,
   ListTimeSeriesCommandOutput,
 } from "./commands/ListTimeSeriesCommand";
+import {
+  PutAssetModelInterfaceRelationshipCommand,
+  PutAssetModelInterfaceRelationshipCommandInput,
+  PutAssetModelInterfaceRelationshipCommandOutput,
+} from "./commands/PutAssetModelInterfaceRelationshipCommand";
 import {
   PutDefaultEncryptionConfigurationCommand,
   PutDefaultEncryptionConfigurationCommandInput,
@@ -500,6 +520,7 @@ const commands = {
   DeleteAssetCommand,
   DeleteAssetModelCommand,
   DeleteAssetModelCompositeModelCommand,
+  DeleteAssetModelInterfaceRelationshipCommand,
   DeleteComputationModelCommand,
   DeleteDashboardCommand,
   DeleteDatasetCommand,
@@ -513,6 +534,7 @@ const commands = {
   DescribeAssetCompositeModelCommand,
   DescribeAssetModelCommand,
   DescribeAssetModelCompositeModelCommand,
+  DescribeAssetModelInterfaceRelationshipCommand,
   DescribeAssetPropertyCommand,
   DescribeBulkImportJobCommand,
   DescribeComputationModelCommand,
@@ -555,11 +577,13 @@ const commands = {
   ListDatasetsCommand,
   ListExecutionsCommand,
   ListGatewaysCommand,
+  ListInterfaceRelationshipsCommand,
   ListPortalsCommand,
   ListProjectAssetsCommand,
   ListProjectsCommand,
   ListTagsForResourceCommand,
   ListTimeSeriesCommand,
+  PutAssetModelInterfaceRelationshipCommand,
   PutDefaultEncryptionConfigurationCommand,
   PutLoggingOptionsCommand,
   PutStorageConfigurationCommand,
@@ -930,6 +954,23 @@ export interface IoTSiteWise {
   ): void;
 
   /**
+   * @see {@link DeleteAssetModelInterfaceRelationshipCommand}
+   */
+  deleteAssetModelInterfaceRelationship(
+    args: DeleteAssetModelInterfaceRelationshipCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteAssetModelInterfaceRelationshipCommandOutput>;
+  deleteAssetModelInterfaceRelationship(
+    args: DeleteAssetModelInterfaceRelationshipCommandInput,
+    cb: (err: any, data?: DeleteAssetModelInterfaceRelationshipCommandOutput) => void
+  ): void;
+  deleteAssetModelInterfaceRelationship(
+    args: DeleteAssetModelInterfaceRelationshipCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteAssetModelInterfaceRelationshipCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DeleteComputationModelCommand}
    */
   deleteComputationModel(
@@ -1113,6 +1154,23 @@ export interface IoTSiteWise {
     args: DescribeAssetModelCompositeModelCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DescribeAssetModelCompositeModelCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeAssetModelInterfaceRelationshipCommand}
+   */
+  describeAssetModelInterfaceRelationship(
+    args: DescribeAssetModelInterfaceRelationshipCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeAssetModelInterfaceRelationshipCommandOutput>;
+  describeAssetModelInterfaceRelationship(
+    args: DescribeAssetModelInterfaceRelationshipCommandInput,
+    cb: (err: any, data?: DescribeAssetModelInterfaceRelationshipCommandOutput) => void
+  ): void;
+  describeAssetModelInterfaceRelationship(
+    args: DescribeAssetModelInterfaceRelationshipCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeAssetModelInterfaceRelationshipCommandOutput) => void
   ): void;
 
   /**
@@ -1782,6 +1840,23 @@ export interface IoTSiteWise {
   ): void;
 
   /**
+   * @see {@link ListInterfaceRelationshipsCommand}
+   */
+  listInterfaceRelationships(
+    args: ListInterfaceRelationshipsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListInterfaceRelationshipsCommandOutput>;
+  listInterfaceRelationships(
+    args: ListInterfaceRelationshipsCommandInput,
+    cb: (err: any, data?: ListInterfaceRelationshipsCommandOutput) => void
+  ): void;
+  listInterfaceRelationships(
+    args: ListInterfaceRelationshipsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListInterfaceRelationshipsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListPortalsCommand}
    */
   listPortals(): Promise<ListPortalsCommandOutput>;
@@ -1851,6 +1926,23 @@ export interface IoTSiteWise {
     args: ListTimeSeriesCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListTimeSeriesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link PutAssetModelInterfaceRelationshipCommand}
+   */
+  putAssetModelInterfaceRelationship(
+    args: PutAssetModelInterfaceRelationshipCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutAssetModelInterfaceRelationshipCommandOutput>;
+  putAssetModelInterfaceRelationship(
+    args: PutAssetModelInterfaceRelationshipCommandInput,
+    cb: (err: any, data?: PutAssetModelInterfaceRelationshipCommandOutput) => void
+  ): void;
+  putAssetModelInterfaceRelationship(
+    args: PutAssetModelInterfaceRelationshipCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PutAssetModelInterfaceRelationshipCommandOutput) => void
   ): void;
 
   /**
