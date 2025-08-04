@@ -1,10 +1,9 @@
 import { S3, S3Client } from "@aws-sdk/client-s3";
-import { TransferCompleteEvent, TransferEvent } from "@aws-sdk/lib-storage/dist-types/s3-transfer-manager/types";
-import { StreamingBlobPayloadOutputTypes } from "@smithy/types";
+import type { TransferCompleteEvent, TransferEvent } from "@aws-sdk/lib-storage/dist-types/s3-transfer-manager/types";
+import type { StreamingBlobPayloadOutputTypes } from "@smithy/types";
 import { Readable } from "stream";
 import { beforeAll, beforeEach, describe, expect, test as it, vi } from "vitest";
 
-import { getIntegTestResources } from "../../../../tests/e2e/get-integ-test-resources";
 import { joinStreams } from "./join-streams";
 import { S3TransferManager } from "./S3TransferManager";
 
@@ -14,12 +13,8 @@ describe("S3TransferManager Unit Tests", () => {
   let region: string;
 
   beforeAll(async () => {
-    const integTestResourcesEnv = await getIntegTestResources();
-    Object.assign(process.env, integTestResourcesEnv);
-
-    region = process?.env?.AWS_SMOKE_TEST_REGION as string;
-    Bucket = process?.env?.AWS_SMOKE_TEST_BUCKET as string;
-    void getIntegTestResources;
+    region = "us-west-2";
+    Bucket = `S3TransferManager-test-${Date.now()}`;
 
     client = new S3({
       region,
@@ -674,6 +669,136 @@ describe("S3TransferManager Unit Tests", () => {
       expect(() => {
         tm.validateRangeDownload("bytes=0-5242879", "bytes 0-5242878/13631488");
       }).toThrow("Expected range to end at 5242879 but got 5242878");
+    });
+  });
+
+  describe("validateUploadPart()", () => {
+    let tm: any;
+    beforeAll(async () => {
+      tm = new S3TransferManager() as any;
+    });
+
+    it("should pass for valid non-last part with correct size", () => {
+      const partSize = 8 * 1024 * 1024; // 8MB
+      const dataPart = {
+        data: Buffer.alloc(partSize),
+        partNumber: 2,
+        lastPart: false,
+      };
+
+      expect(() => {
+        tm.validateUploadPart(dataPart, partSize);
+      }).not.toThrow();
+    });
+
+    it("should skip validation for single-part uploads", () => {
+      const partSize = 8 * 1024 * 1024;
+      const dataPart = {
+        data: Buffer.alloc(1024), // Small size
+        partNumber: 1,
+        lastPart: true,
+      };
+
+      expect(() => {
+        tm.validateUploadPart(dataPart, partSize);
+      }).not.toThrow();
+    });
+
+    it("should allow smaller size for last part", () => {
+      const partSize = 8 * 1024 * 1024;
+      const dataPart = {
+        data: Buffer.alloc(1024 * 1024), // 1MB (smaller than partSize)
+        partNumber: 5,
+        lastPart: true,
+      };
+
+      expect(() => {
+        tm.validateUploadPart(dataPart, partSize);
+      }).not.toThrow();
+    });
+
+    it("should throw error when part size doesn't match expected size except for last part", () => {
+      const partSize = 8 * 1024 * 1024;
+      const dataPart = {
+        data: Buffer.alloc(7 * 1024 * 1024), // 7MB (less than expected)
+        partNumber: 2,
+        lastPart: false,
+      };
+
+      expect(() => {
+        tm.validateUploadPart(dataPart, partSize);
+      }).toThrow(`The byte size for part number 2, size ${7 * 1024 * 1024} does not match expected size ${partSize}`);
+    });
+
+    it("should throw error when part has zero content length", () => {
+      const partSize = 8 * 1024 * 1024;
+      const dataPart = {
+        data: Buffer.alloc(0), // Empty buffer
+        partNumber: 2,
+        lastPart: false,
+      };
+
+      expect(() => {
+        tm.validateUploadPart(dataPart, partSize);
+      }).toThrow(`The byte size for part number 2, size 0 does not match expected size ${partSize}`);
+    });
+  });
+
+  describe("calculatePartSize()", () => {
+    let tm: any;
+    beforeAll(async () => {
+      tm = new S3TransferManager() as any;
+    });
+
+    it("should use targetPartSizeBytes for small files", () => {
+      const contentLength = 50 * 1024 * 1024; // 50MB
+      const { partSize, expectedPartsCount } = tm.calculatePartSize(contentLength);
+
+      expect(partSize).toBe(8 * 1024 * 1024); // Default 8MB
+      expect(expectedPartsCount).toBe(7); // ceil(50/8) = 7
+    });
+
+    it("should calculate larger part size for files approaching 10,000 parts limit", () => {
+      const contentLength = 100 * 1024 * 1024 * 1024; // 100GB
+      const { partSize, expectedPartsCount } = tm.calculatePartSize(contentLength);
+
+      expect(partSize).toBeGreaterThan(8 * 1024 * 1024);
+      expect(partSize).toBe(Math.floor(contentLength / 10_000));
+      //expectedPartsCount can be 10,001 due to Math.ceil(contentLength / partSize)
+      expect(expectedPartsCount).toBeGreaterThanOrEqual(10_000);
+      expect(expectedPartsCount).toBeLessThanOrEqual(10_001);
+    });
+
+    it("should handle very large files correctly", () => {
+      const contentLength = 5 * 1024 * 1024 * 1024 * 1024; // 5TB
+      const { partSize, expectedPartsCount } = tm.calculatePartSize(contentLength);
+
+      expect(partSize).toBe(Math.floor(contentLength / 10_000));
+      expect(expectedPartsCount).toBe(Math.ceil(contentLength / partSize));
+      // Note: expectedPartsCount can be 10,001 due to Math.ceil(contentLength / partSize)
+      expect(expectedPartsCount).toBeGreaterThanOrEqual(10_000);
+      expect(expectedPartsCount).toBeLessThanOrEqual(10_001);
+    });
+
+    it("should return correct values for minimum size file", () => {
+      const contentLength = 8 * 1024 * 1024; // 8MB (one part)
+      const { partSize, expectedPartsCount } = tm.calculatePartSize(contentLength);
+
+      expect(partSize).toBe(8 * 1024 * 1024);
+      expect(expectedPartsCount).toBe(1);
+    });
+
+    it("should calculate expectedPartsCount correctly when totalBytes is known", () => {
+      const contentLength = 15 * 1024 * 1024; // 15MB
+      const customPartSize = 5 * 1024 * 1024; // 5MB
+      const tm = new S3TransferManager({
+        targetPartSizeBytes: customPartSize,
+      }) as any;
+
+      const { partSize, expectedPartsCount } = tm.calculatePartSize(contentLength);
+
+      expect(partSize).toBe(customPartSize);
+      expect(expectedPartsCount).toBe(3); // 15MB / 5MB = 3 parts
     });
   });
 });
