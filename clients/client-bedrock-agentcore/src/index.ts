@@ -1,7 +1,7 @@
 // smithy-typescript generated code
 /* eslint-disable */
 /**
- * <note> <p>Amazon Bedrock AgentCore is in preview release and is subject to change.</p> </note> <p>Data plane operations for Amazon Bedrock AgentCore.</p>
+ * <note> <p>Amazon Bedrock AgentCore is in preview release and is subject to change.</p> </note> <p>Welcome to the Amazon Bedrock AgentCore Data Plane API reference. Data Plane actions process and handle data or workloads within Amazon Web Services services. </p>
  *
  * @packageDocumentation
  */

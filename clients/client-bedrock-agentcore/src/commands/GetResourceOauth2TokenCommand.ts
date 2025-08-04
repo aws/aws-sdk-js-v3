@@ -33,7 +33,7 @@ export interface GetResourceOauth2TokenCommandInput extends GetResourceOauth2Tok
 export interface GetResourceOauth2TokenCommandOutput extends GetResourceOauth2TokenResponse, __MetadataBearer {}
 
 /**
- * <p>Reaturns the Oauth2Token of the provided resource</p>
+ * <p>Returns the OAuth 2.0 token of the provided resource</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -42,7 +42,6 @@ export interface GetResourceOauth2TokenCommandOutput extends GetResourceOauth2To
  * const client = new BedrockAgentCoreClient(config);
  * const input = { // GetResourceOauth2TokenRequest
  *   workloadIdentityToken: "STRING_VALUE", // required
- *   userId: "STRING_VALUE",
  *   resourceCredentialProviderName: "STRING_VALUE", // required
  *   scopes: [ // ScopesListType // required
  *     "STRING_VALUE",

@@ -28,7 +28,7 @@ export interface DeleteEventCommandInput extends DeleteEventInput {}
 export interface DeleteEventCommandOutput extends DeleteEventOutput, __MetadataBearer {}
 
 /**
- * <p>Deletes an event from a memory store. When you delete an event, it is permanently removed.</p> <p>To use this operation, you must have the <code>genesismemory:DeleteEvent</code> permission.</p>
+ * <p>Deletes an event from an AgentCore Memory resource. When you delete an event, it is permanently removed.</p> <p>To use this operation, you must have the <code>bedrock-agentcore:DeleteEvent</code> permission.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

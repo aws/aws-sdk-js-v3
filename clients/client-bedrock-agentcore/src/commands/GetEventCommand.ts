@@ -28,7 +28,7 @@ export interface GetEventCommandInput extends GetEventInput {}
 export interface GetEventCommandOutput extends GetEventOutput, __MetadataBearer {}
 
 /**
- * <p>Retrieves information about a specific event in a memory store.</p> <p>To use this operation, you must have the <code>genesismemory:GetEvent</code> permission.</p>
+ * <p>Retrieves information about a specific event in an AgentCore Memory resource.</p> <p>To use this operation, you must have the <code>bedrock-agentcore:GetEvent</code> permission.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

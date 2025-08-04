@@ -46,7 +46,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>Contains summary information about an actor in a memory store.</p>"
+        "smithy.api#documentation": "<p>Contains summary information about an actor in an AgentCore Memory resource.</p>"
       }
     },
     "com.amazonaws.bedrockagentcore#ActorSummaryList": {
@@ -113,7 +113,7 @@
           "http": ["http/1.1"],
           "eventStreamHttp": ["http/1.1"]
         },
-        "smithy.api#documentation": "<note> <p>Amazon Bedrock AgentCore is in preview release and is subject to change.</p> </note> <p>Data plane operations for Amazon Bedrock AgentCore.</p>",
+        "smithy.api#documentation": "<note> <p>Amazon Bedrock AgentCore is in preview release and is subject to change.</p> </note> <p>Welcome to the Amazon Bedrock AgentCore Data Plane API reference. Data Plane actions process and handle data or workloads within Amazon Web Services services. </p>",
         "smithy.api#title": "Amazon Bedrock AgentCore Data Plane Fronting Layer",
         "smithy.rules#endpointRuleSet": {
           "version": "1.0",
@@ -871,7 +871,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>Contains information about a branch in a memory store. Branches allow for organizing events into different conversation threads or paths.</p>"
+        "smithy.api#documentation": "<p>Contains information about a branch in an AgentCore Memory resource. Branches allow for organizing events into different conversation threads or paths.</p>"
       }
     },
     "com.amazonaws.bedrockagentcore#BranchFilter": {
@@ -1408,7 +1408,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Creates an event in a memory store. Events represent interactions or activities that occur within a session and are associated with specific actors.</p> <p>To use this operation, you must have the <code>genesismemory:CreateEvent</code> permission.</p> <p>This operation is subject to request rate limiting.</p>",
+        "smithy.api#documentation": "<p>Creates an event in an AgentCore Memory resource. Events represent interactions or activities that occur within a session and are associated with specific actors.</p> <p>To use this operation, you must have the <code>bedrock-agentcore:CreateEvent</code> permission.</p> <p>This operation is subject to request rate limiting.</p>",
         "smithy.api#http": {
           "method": "POST",
           "uri": "/memories/{memoryId}/events"
@@ -1422,7 +1422,7 @@
         "memoryId": {
           "target": "com.amazonaws.bedrockagentcore#MemoryId",
           "traits": {
-            "smithy.api#documentation": "<p>The identifier of the memory store in which to create the event.</p>",
+            "smithy.api#documentation": "<p>The identifier of the AgentCore Memory resource in which to create the event.</p>",
             "smithy.api#httpLabel": {},
             "smithy.api#required": {}
           }
@@ -1564,7 +1564,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Deletes an event from a memory store. When you delete an event, it is permanently removed.</p> <p>To use this operation, you must have the <code>genesismemory:DeleteEvent</code> permission.</p>",
+        "smithy.api#documentation": "<p>Deletes an event from an AgentCore Memory resource. When you delete an event, it is permanently removed.</p> <p>To use this operation, you must have the <code>bedrock-agentcore:DeleteEvent</code> permission.</p>",
         "smithy.api#http": {
           "method": "DELETE",
           "uri": "/memories/{memoryId}/actor/{actorId}/sessions/{sessionId}/events/{eventId}"
@@ -1577,7 +1577,7 @@
         "memoryId": {
           "target": "com.amazonaws.bedrockagentcore#MemoryId",
           "traits": {
-            "smithy.api#documentation": "<p>The identifier of the memory store from which to delete the event.</p>",
+            "smithy.api#documentation": "<p>The identifier of the AgentCore Memory resource from which to delete the event.</p>",
             "smithy.api#httpLabel": {},
             "smithy.api#required": {}
           }
@@ -1658,7 +1658,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Deletes a memory record from a memory store. When you delete a memory record, it is permanently removed.</p> <p>To use this operation, you must have the <code>genesismemory:DeleteMemoryRecord</code> permission.</p>",
+        "smithy.api#documentation": "<p>Deletes a memory record from an AgentCore Memory resource. When you delete a memory record, it is permanently removed.</p> <p>To use this operation, you must have the <code>bedrock-agentcore:DeleteMemoryRecord</code> permission.</p>",
         "smithy.api#http": {
           "method": "DELETE",
           "uri": "/memories/{memoryId}/memoryRecords/{memoryRecordId}"
@@ -1671,7 +1671,7 @@
         "memoryId": {
           "target": "com.amazonaws.bedrockagentcore#MemoryId",
           "traits": {
-            "smithy.api#documentation": "<p>The identifier of the memory store from which to delete the memory record.</p>",
+            "smithy.api#documentation": "<p>The identifier of the AgentCore Memory resource from which to delete the memory record.</p>",
             "smithy.api#httpLabel": {},
             "smithy.api#required": {}
           }
@@ -1713,7 +1713,7 @@
         "memoryId": {
           "target": "com.amazonaws.bedrockagentcore#MemoryId",
           "traits": {
-            "smithy.api#documentation": "<p>The identifier of the memory store containing the event.</p>",
+            "smithy.api#documentation": "<p>The identifier of the AgentCore Memory resource containing the event.</p>",
             "smithy.api#required": {}
           }
         },
@@ -1760,7 +1760,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>Contains information about an event in a memory store.</p>"
+        "smithy.api#documentation": "<p>Contains information about an event in an AgentCore Memory resource.</p>"
       }
     },
     "com.amazonaws.bedrockagentcore#EventId": {
@@ -2054,7 +2054,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Retrieves information about a specific event in a memory store.</p> <p>To use this operation, you must have the <code>genesismemory:GetEvent</code> permission.</p>",
+        "smithy.api#documentation": "<p>Retrieves information about a specific event in an AgentCore Memory resource.</p> <p>To use this operation, you must have the <code>bedrock-agentcore:GetEvent</code> permission.</p>",
         "smithy.api#http": {
           "method": "GET",
           "uri": "/memories/{memoryId}/actor/{actorId}/sessions/{sessionId}/events/{eventId}"
@@ -2068,7 +2068,7 @@
         "memoryId": {
           "target": "com.amazonaws.bedrockagentcore#MemoryId",
           "traits": {
-            "smithy.api#documentation": "<p>The identifier of the memory store containing the event.</p>",
+            "smithy.api#documentation": "<p>The identifier of the AgentCore Memory resource containing the event.</p>",
             "smithy.api#httpLabel": {},
             "smithy.api#required": {}
           }
@@ -2149,7 +2149,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Retrieves a specific memory record from a memory store.</p> <p>To use this operation, you must have the <code>genesismemory:GetMemoryRecord</code> permission.</p>",
+        "smithy.api#documentation": "<p>Retrieves a specific memory record from an AgentCore Memory resource.</p> <p>To use this operation, you must have the <code>bedrock-agentcore:GetMemoryRecord</code> permission.</p>",
         "smithy.api#http": {
           "method": "GET",
           "uri": "/memories/{memoryId}/memoryRecord/{memoryRecordId}"
@@ -2163,7 +2163,7 @@
         "memoryId": {
           "target": "com.amazonaws.bedrockagentcore#MemoryId",
           "traits": {
-            "smithy.api#documentation": "<p>The identifier of the memory store containing the memory record.</p>",
+            "smithy.api#documentation": "<p>The identifier of the AgentCore Memory resource containing the memory record.</p>",
             "smithy.api#httpLabel": {},
             "smithy.api#required": {}
           }
@@ -2301,7 +2301,7 @@
       ],
       "traits": {
         "aws.api#dataPlane": {},
-        "smithy.api#documentation": "<p>Reaturns the Oauth2Token of the provided resource</p>",
+        "smithy.api#documentation": "<p>Returns the OAuth 2.0 token of the provided resource</p>",
         "smithy.api#http": {
           "uri": "/identities/oauth2/token",
           "method": "POST"
@@ -2317,12 +2317,6 @@
           "traits": {
             "smithy.api#documentation": "<p>The identity token of the workload you want to retrive the Oauth2 Token of.</p>",
             "smithy.api#required": {}
-          }
-        },
-        "userId": {
-          "target": "com.amazonaws.bedrockagentcore#UserIdType",
-          "traits": {
-            "smithy.api#documentation": "<p>The user ID of the user you're retrieving the token on behalf of.</p>"
           }
         },
         "resourceCredentialProviderName": {
@@ -2701,7 +2695,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Sends a request to an agent runtime in Amazon Bedrock and receives responses in real-time. The agent processes the request using the configured foundation model and any associated knowledge bases or action groups.</p> <p>To invoke an agent runtime, you must specify the agent runtime ARN and provide a payload containing your request. You can optionally specify a qualifier to target a specific version or alias of the agent.</p> <p>This operation supports streaming responses, allowing you to receive partial responses as they become available. We recommend using pagination to ensure that the operation returns quickly and successfully when processing large responses.</p>",
+        "smithy.api#documentation": "<p>Sends a request to an agent or tool hosted in an Amazon Bedrock AgentCore Runtime and receives responses in real-time. </p> <p>To invoke an agent you must specify the AgentCore Runtime ARN and provide a payload containing your request. You can optionally specify a qualifier to target a specific version or endpoint of the agent.</p> <p>This operation supports streaming responses, allowing you to receive partial responses as they become available. We recommend using pagination to ensure that the operation returns quickly and successfully when processing large responses.</p> <p>For example code, see <a href=\"https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/runtime-invoke-agent.html\">Invoke an AgentCore Runtime agent</a>. </p> <p>If you're integrating your agent with OAuth, you can't use the Amazon Web Services SDK to call <code>InvokeAgentRuntime</code>. Instead, make a HTTPS request to <code>InvokeAgentRuntime</code>. For an example, see <a href=\"https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/runtime-oauth.html\">Authenticate and authorize with Inbound Auth and Outbound Auth</a>.</p> <p>To use this operation, you must have the <code>bedrock-agentcore:InvokeAgentRuntime</code> permission.</p>",
         "smithy.api#http": {
           "method": "POST",
           "uri": "/runtimes/{agentRuntimeArn}/invocations",
@@ -2810,7 +2804,7 @@
         "qualifier": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "<p>The qualifier to use for the agent runtime. This can be a version number or an alias name that points to a specific version. If not specified, Amazon Bedrock uses the default version of the agent runtime.</p>",
+            "smithy.api#documentation": "<p>The qualifier to use for the agent runtime. This can be a version number or an endpoint name that points to a specific version. If not specified, Amazon Bedrock uses the default version of the agent runtime.</p>",
             "smithy.api#httpQuery": "qualifier"
           }
         },
@@ -3038,7 +3032,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Lists all actors in a memory store. We recommend using pagination to ensure that the operation returns quickly and successfully.</p> <p>To use this operation, you must have the <code>genesismemory:ListActors</code> permission.</p>",
+        "smithy.api#documentation": "<p>Lists all actors in an AgentCore Memory resource. We recommend using pagination to ensure that the operation returns quickly and successfully.</p> <p>To use this operation, you must have the <code>bedrock-agentcore:ListActors</code> permission.</p>",
         "smithy.api#http": {
           "method": "POST",
           "uri": "/memories/{memoryId}/actors"
@@ -3058,7 +3052,7 @@
         "memoryId": {
           "target": "com.amazonaws.bedrockagentcore#MemoryId",
           "traits": {
-            "smithy.api#documentation": "<p>The identifier of the memory store for which to list actors.</p>",
+            "smithy.api#documentation": "<p>The identifier of the AgentCore Memory resource for which to list actors.</p>",
             "smithy.api#httpLabel": {},
             "smithy.api#required": {}
           }
@@ -3314,7 +3308,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Lists events in a memory store based on specified criteria. We recommend using pagination to ensure that the operation returns quickly and successfully.</p> <p>To use this operation, you must have the <code>genesismemory:ListEvents</code> permission.</p>",
+        "smithy.api#documentation": "<p>Lists events in an AgentCore Memory resource based on specified criteria. We recommend using pagination to ensure that the operation returns quickly and successfully.</p> <p>To use this operation, you must have the <code>bedrock-agentcore:ListEvents</code> permission.</p>",
         "smithy.api#http": {
           "method": "POST",
           "uri": "/memories/{memoryId}/actor/{actorId}/sessions/{sessionId}"
@@ -3334,7 +3328,7 @@
         "memoryId": {
           "target": "com.amazonaws.bedrockagentcore#MemoryId",
           "traits": {
-            "smithy.api#documentation": "<p>The identifier of the memory store for which to list events.</p>",
+            "smithy.api#documentation": "<p>The identifier of the AgentCore Memory resource for which to list events.</p>",
             "smithy.api#httpLabel": {},
             "smithy.api#required": {}
           }
@@ -3439,7 +3433,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Lists memory records in a memory store based on specified criteria. We recommend using pagination to ensure that the operation returns quickly and successfully.</p> <p>To use this operation, you must have the <code>genesismemory:ListMemoryRecords</code> permission.</p>",
+        "smithy.api#documentation": "<p>Lists memory records in an AgentCore Memory resource based on specified criteria. We recommend using pagination to ensure that the operation returns quickly and successfully.</p> <p>To use this operation, you must have the <code>bedrock-agentcore:ListMemoryRecords</code> permission.</p>",
         "smithy.api#http": {
           "method": "POST",
           "uri": "/memories/{memoryId}/memoryRecords"
@@ -3459,7 +3453,7 @@
         "memoryId": {
           "target": "com.amazonaws.bedrockagentcore#MemoryId",
           "traits": {
-            "smithy.api#documentation": "<p>The identifier of the memory store for which to list memory records.</p>",
+            "smithy.api#documentation": "<p>The identifier of the AgentCore Memory resource for which to list memory records.</p>",
             "smithy.api#httpLabel": {},
             "smithy.api#required": {}
           }
@@ -3548,7 +3542,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Lists sessions in a memory store based on specified criteria. We recommend using pagination to ensure that the operation returns quickly and successfully.</p> <p>To use this operation, you must have the <code>genesismemory:ListSessions</code> permission.</p>",
+        "smithy.api#documentation": "<p>Lists sessions in an AgentCore Memory resource based on specified criteria. We recommend using pagination to ensure that the operation returns quickly and successfully.</p> <p>To use this operation, you must have the <code>bedrock-agentcore:ListSessions</code> permission.</p>",
         "smithy.api#http": {
           "method": "POST",
           "uri": "/memories/{memoryId}/actor/{actorId}/sessions"
@@ -3568,7 +3562,7 @@
         "memoryId": {
           "target": "com.amazonaws.bedrockagentcore#MemoryId",
           "traits": {
-            "smithy.api#documentation": "<p>The identifier of the memory store for which to list sessions.</p>",
+            "smithy.api#documentation": "<p>The identifier of the AgentCore Memory resource for which to list sessions.</p>",
             "smithy.api#httpLabel": {},
             "smithy.api#required": {}
           }
@@ -3714,7 +3708,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>Contains information about a memory record in a memory store.</p>"
+        "smithy.api#documentation": "<p>Contains information about a memory record in an AgentCore Memory resource.</p>"
       }
     },
     "com.amazonaws.bedrockagentcore#MemoryRecordId": {
@@ -4074,7 +4068,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Searches for and retrieves memory records from a memory store based on specified search criteria. We recommend using pagination to ensure that the operation returns quickly and successfully.</p> <p>To use this operation, you must have the <code>genesismemory:RetrieveMemoryRecords</code> permission.</p>",
+        "smithy.api#documentation": "<p>Searches for and retrieves memory records from an AgentCore Memory resource based on specified search criteria. We recommend using pagination to ensure that the operation returns quickly and successfully.</p> <p>To use this operation, you must have the <code>bedrock-agentcore:RetrieveMemoryRecords</code> permission.</p>",
         "smithy.api#http": {
           "method": "POST",
           "uri": "/memories/{memoryId}/retrieve"
@@ -4093,7 +4087,7 @@
         "memoryId": {
           "target": "com.amazonaws.bedrockagentcore#MemoryId",
           "traits": {
-            "smithy.api#documentation": "<p>The identifier of the memory store from which to retrieve memory records.</p>",
+            "smithy.api#documentation": "<p>The identifier of the AgentCore Memory resource from which to retrieve memory records.</p>",
             "smithy.api#httpLabel": {},
             "smithy.api#required": {}
           }
@@ -4315,7 +4309,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>Contains summary information about a session in a memory store.</p>"
+        "smithy.api#documentation": "<p>Contains summary information about a session in an AgentCore Memory resource.</p>"
       }
     },
     "com.amazonaws.bedrockagentcore#SessionSummaryList": {

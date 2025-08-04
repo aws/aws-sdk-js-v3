@@ -33,7 +33,7 @@ export interface RetrieveMemoryRecordsCommandInput extends RetrieveMemoryRecords
 export interface RetrieveMemoryRecordsCommandOutput extends RetrieveMemoryRecordsOutput, __MetadataBearer {}
 
 /**
- * <p>Searches for and retrieves memory records from a memory store based on specified search criteria. We recommend using pagination to ensure that the operation returns quickly and successfully.</p> <p>To use this operation, you must have the <code>genesismemory:RetrieveMemoryRecords</code> permission.</p>
+ * <p>Searches for and retrieves memory records from an AgentCore Memory resource based on specified search criteria. We recommend using pagination to ensure that the operation returns quickly and successfully.</p> <p>To use this operation, you must have the <code>bedrock-agentcore:RetrieveMemoryRecords</code> permission.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

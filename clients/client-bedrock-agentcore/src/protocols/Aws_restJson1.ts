@@ -324,7 +324,6 @@ export const se_GetResourceOauth2TokenCommand = async (
       resourceCredentialProviderName: [],
       resourceOauth2ReturnUrl: [],
       scopes: (_) => _json(_),
-      userId: [],
       workloadIdentityToken: [],
     })
   );

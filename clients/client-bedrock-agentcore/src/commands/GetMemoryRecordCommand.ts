@@ -32,7 +32,7 @@ export interface GetMemoryRecordCommandInput extends GetMemoryRecordInput {}
 export interface GetMemoryRecordCommandOutput extends GetMemoryRecordOutput, __MetadataBearer {}
 
 /**
- * <p>Retrieves a specific memory record from a memory store.</p> <p>To use this operation, you must have the <code>genesismemory:GetMemoryRecord</code> permission.</p>
+ * <p>Retrieves a specific memory record from an AgentCore Memory resource.</p> <p>To use this operation, you must have the <code>bedrock-agentcore:GetMemoryRecord</code> permission.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

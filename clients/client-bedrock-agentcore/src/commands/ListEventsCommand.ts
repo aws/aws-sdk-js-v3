@@ -28,7 +28,7 @@ export interface ListEventsCommandInput extends ListEventsInput {}
 export interface ListEventsCommandOutput extends ListEventsOutput, __MetadataBearer {}
 
 /**
- * <p>Lists events in a memory store based on specified criteria. We recommend using pagination to ensure that the operation returns quickly and successfully.</p> <p>To use this operation, you must have the <code>genesismemory:ListEvents</code> permission.</p>
+ * <p>Lists events in an AgentCore Memory resource based on specified criteria. We recommend using pagination to ensure that the operation returns quickly and successfully.</p> <p>To use this operation, you must have the <code>bedrock-agentcore:ListEvents</code> permission.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

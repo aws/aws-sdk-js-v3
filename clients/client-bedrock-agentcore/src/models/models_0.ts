@@ -26,7 +26,7 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
- * <p>Contains summary information about an actor in a memory store.</p>
+ * <p>Contains summary information about an actor in an AgentCore Memory resource.</p>
  * @public
  */
 export interface ActorSummary {
@@ -128,7 +128,7 @@ export interface InvokeAgentRuntimeRequest {
   agentRuntimeArn: string | undefined;
 
   /**
-   * <p>The qualifier to use for the agent runtime. This can be a version number or an alias name that points to a specific version. If not specified, Amazon Bedrock uses the default version of the agent runtime.</p>
+   * <p>The qualifier to use for the agent runtime. This can be a version number or an endpoint name that points to a specific version. If not specified, Amazon Bedrock uses the default version of the agent runtime.</p>
    * @public
    */
   qualifier?: string | undefined;
@@ -1178,12 +1178,6 @@ export interface GetResourceOauth2TokenRequest {
   workloadIdentityToken: string | undefined;
 
   /**
-   * <p>The user ID of the user you're retrieving the token on behalf of.</p>
-   * @public
-   */
-  userId?: string | undefined;
-
-  /**
    * <p>Reference to the credential provider</p>
    * @public
    */
@@ -1881,7 +1875,7 @@ export interface InvokeCodeInterpreterResponse {
 }
 
 /**
- * <p>Contains information about a branch in a memory store. Branches allow for organizing events into different conversation threads or paths.</p>
+ * <p>Contains information about a branch in an AgentCore Memory resource. Branches allow for organizing events into different conversation threads or paths.</p>
  * @public
  */
 export interface Branch {
@@ -2027,7 +2021,7 @@ export namespace PayloadType {
  */
 export interface CreateEventInput {
   /**
-   * <p>The identifier of the memory store in which to create the event.</p>
+   * <p>The identifier of the AgentCore Memory resource in which to create the event.</p>
    * @public
    */
   memoryId: string | undefined;
@@ -2070,12 +2064,12 @@ export interface CreateEventInput {
 }
 
 /**
- * <p>Contains information about an event in a memory store.</p>
+ * <p>Contains information about an event in an AgentCore Memory resource.</p>
  * @public
  */
 export interface Event {
   /**
-   * <p>The identifier of the memory store containing the event.</p>
+   * <p>The identifier of the AgentCore Memory resource containing the event.</p>
    * @public
    */
   memoryId: string | undefined;
@@ -2193,7 +2187,7 @@ export class ThrottledException extends __BaseException {
  */
 export interface DeleteEventInput {
   /**
-   * <p>The identifier of the memory store from which to delete the event.</p>
+   * <p>The identifier of the AgentCore Memory resource from which to delete the event.</p>
    * @public
    */
   memoryId: string | undefined;
@@ -2233,7 +2227,7 @@ export interface DeleteEventOutput {
  */
 export interface DeleteMemoryRecordInput {
   /**
-   * <p>The identifier of the memory store from which to delete the memory record.</p>
+   * <p>The identifier of the AgentCore Memory resource from which to delete the memory record.</p>
    * @public
    */
   memoryId: string | undefined;
@@ -2261,7 +2255,7 @@ export interface DeleteMemoryRecordOutput {
  */
 export interface GetEventInput {
   /**
-   * <p>The identifier of the memory store containing the event.</p>
+   * <p>The identifier of the AgentCore Memory resource containing the event.</p>
    * @public
    */
   memoryId: string | undefined;
@@ -2301,7 +2295,7 @@ export interface GetEventOutput {
  */
 export interface GetMemoryRecordInput {
   /**
-   * <p>The identifier of the memory store containing the memory record.</p>
+   * <p>The identifier of the AgentCore Memory resource containing the memory record.</p>
    * @public
    */
   memoryId: string | undefined;
@@ -2352,7 +2346,7 @@ export namespace MemoryContent {
 }
 
 /**
- * <p>Contains information about a memory record in a memory store.</p>
+ * <p>Contains information about a memory record in an AgentCore Memory resource.</p>
  * @public
  */
 export interface MemoryRecord {
@@ -2403,7 +2397,7 @@ export interface GetMemoryRecordOutput {
  */
 export interface ListActorsInput {
   /**
-   * <p>The identifier of the memory store for which to list actors.</p>
+   * <p>The identifier of the AgentCore Memory resource for which to list actors.</p>
    * @public
    */
   memoryId: string | undefined;
@@ -2473,7 +2467,7 @@ export interface FilterInput {
  */
 export interface ListEventsInput {
   /**
-   * <p>The identifier of the memory store for which to list events.</p>
+   * <p>The identifier of the AgentCore Memory resource for which to list events.</p>
    * @public
    */
   memoryId: string | undefined;
@@ -2537,7 +2531,7 @@ export interface ListEventsOutput {
  */
 export interface ListMemoryRecordsInput {
   /**
-   * <p>The identifier of the memory store for which to list memory records.</p>
+   * <p>The identifier of the AgentCore Memory resource for which to list memory records.</p>
    * @public
    */
   memoryId: string | undefined;
@@ -2631,7 +2625,7 @@ export interface ListMemoryRecordsOutput {
  */
 export interface ListSessionsInput {
   /**
-   * <p>The identifier of the memory store for which to list sessions.</p>
+   * <p>The identifier of the AgentCore Memory resource for which to list sessions.</p>
    * @public
    */
   memoryId: string | undefined;
@@ -2656,7 +2650,7 @@ export interface ListSessionsInput {
 }
 
 /**
- * <p>Contains summary information about a session in a memory store.</p>
+ * <p>Contains summary information about a session in an AgentCore Memory resource.</p>
  * @public
  */
 export interface SessionSummary {
@@ -2725,7 +2719,7 @@ export interface SearchCriteria {
  */
 export interface RetrieveMemoryRecordsInput {
   /**
-   * <p>The identifier of the memory store from which to retrieve memory records.</p>
+   * <p>The identifier of the AgentCore Memory resource from which to retrieve memory records.</p>
    * @public
    */
   memoryId: string | undefined;

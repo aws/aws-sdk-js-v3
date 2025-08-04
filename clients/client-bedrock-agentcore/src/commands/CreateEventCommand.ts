@@ -33,7 +33,7 @@ export interface CreateEventCommandInput extends CreateEventInput {}
 export interface CreateEventCommandOutput extends CreateEventOutput, __MetadataBearer {}
 
 /**
- * <p>Creates an event in a memory store. Events represent interactions or activities that occur within a session and are associated with specific actors.</p> <p>To use this operation, you must have the <code>genesismemory:CreateEvent</code> permission.</p> <p>This operation is subject to request rate limiting.</p>
+ * <p>Creates an event in an AgentCore Memory resource. Events represent interactions or activities that occur within a session and are associated with specific actors.</p> <p>To use this operation, you must have the <code>bedrock-agentcore:CreateEvent</code> permission.</p> <p>This operation is subject to request rate limiting.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

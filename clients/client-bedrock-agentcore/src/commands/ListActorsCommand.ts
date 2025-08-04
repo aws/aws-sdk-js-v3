@@ -28,7 +28,7 @@ export interface ListActorsCommandInput extends ListActorsInput {}
 export interface ListActorsCommandOutput extends ListActorsOutput, __MetadataBearer {}
 
 /**
- * <p>Lists all actors in a memory store. We recommend using pagination to ensure that the operation returns quickly and successfully.</p> <p>To use this operation, you must have the <code>genesismemory:ListActors</code> permission.</p>
+ * <p>Lists all actors in an AgentCore Memory resource. We recommend using pagination to ensure that the operation returns quickly and successfully.</p> <p>To use this operation, you must have the <code>bedrock-agentcore:ListActors</code> permission.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

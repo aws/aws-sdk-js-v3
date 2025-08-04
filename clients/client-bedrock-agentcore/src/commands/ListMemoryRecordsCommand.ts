@@ -32,7 +32,7 @@ export interface ListMemoryRecordsCommandInput extends ListMemoryRecordsInput {}
 export interface ListMemoryRecordsCommandOutput extends ListMemoryRecordsOutput, __MetadataBearer {}
 
 /**
- * <p>Lists memory records in a memory store based on specified criteria. We recommend using pagination to ensure that the operation returns quickly and successfully.</p> <p>To use this operation, you must have the <code>genesismemory:ListMemoryRecords</code> permission.</p>
+ * <p>Lists memory records in an AgentCore Memory resource based on specified criteria. We recommend using pagination to ensure that the operation returns quickly and successfully.</p> <p>To use this operation, you must have the <code>bedrock-agentcore:ListMemoryRecords</code> permission.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
