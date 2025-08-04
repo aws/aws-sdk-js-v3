@@ -238,12 +238,18 @@ describe(S3TransferManager.name, () => {
         }).done();
         const tm: S3TransferManager = mode === "PART" ? tmPart : tmRange;
         const controller = new AbortController();
-        setTimeout(() => controller.abort(), 100);
         try {
           await tm.download(
             { Bucket, Key },
             {
               abortSignal: controller.signal,
+              eventListeners: {
+                transferInitiated: [
+                  () => {
+                    controller.abort();
+                  },
+                ],
+              },
             }
           );
           expect.fail("Download should have been aborted");
