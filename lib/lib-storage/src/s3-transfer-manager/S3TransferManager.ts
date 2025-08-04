@@ -1,12 +1,28 @@
 import type {
   _Object as S3Object,
   ChecksumAlgorithm,
+  CompletedPart,
+  CompleteMultipartUploadCommandOutput,
+  CreateMultipartUploadCommandInput,
   GetObjectCommandInput,
   PutObjectCommandInput,
+  PutObjectCommandOutput,
+  UploadPartCommandInput,
 } from "@aws-sdk/client-s3";
-import { GetObjectCommand, HeadObjectCommand, S3Client } from "@aws-sdk/client-s3";
+import {
+  AbortMultipartUploadCommand,
+  CompleteMultipartUploadCommand,
+  CreateMultipartUploadCommand,
+  GetObjectCommand,
+  HeadObjectCommand,
+  PutObjectCommand,
+  S3Client,
+  UploadPartCommand,
+} from "@aws-sdk/client-s3";
 import { type StreamingBlobPayloadOutputTypes } from "@smithy/types";
 
+import { byteLength } from "../byteLength";
+import { getChunk } from "../chunker";
 import type { AddEventListenerOptions, EventListener, RemoveEventListenerOptions } from "./event-listener-types";
 import { joinStreams } from "./join-streams";
 import type {
@@ -243,10 +259,52 @@ export class S3TransferManager implements IS3TransferManager {
    *
    * @returns S3 PutObject or CompleteMultipartUpload response with transfer event dispatching.
    *
-   * @alpha
    */
-  public upload(request: UploadRequest, transferOptions?: TransferOptions): Promise<UploadResponse> {
-    throw new Error("Method not implemented.");
+  public async upload(request: UploadRequest, transferOptions?: TransferOptions): Promise<UploadResponse> {
+    const totalContentLength = request.ContentLength ?? byteLength(request.Body);
+
+    if (totalContentLength === undefined) {
+      throw new Error("Unable to determine content length for upload");
+    }
+
+    this.checkAborted(transferOptions);
+    this.addEventListeners(transferOptions?.eventListeners);
+    this.dispatchTransferInitiatedEvent(request, totalContentLength);
+
+    const removeLocalEventListeners = () => {
+      this.removeEventListeners(transferOptions?.eventListeners);
+      if (transferOptions?.abortSignal) {
+        this.abortCleanupFunctions.get(transferOptions.abortSignal as AbortSignal)?.();
+        this.abortCleanupFunctions.delete(transferOptions.abortSignal as AbortSignal);
+      }
+    };
+
+    try {
+      let response: UploadResponse;
+
+      if (totalContentLength < this.multipartUploadThresholdBytes) {
+        response = await this.uploadSingleObject(request, totalContentLength, transferOptions);
+      } else {
+        response = await this.uploadMultipart(request, totalContentLength, transferOptions);
+      }
+
+      this.dispatchEvent(
+        Object.assign(new Event("transferComplete"), {
+          request,
+          response,
+          snapshot: {
+            transferredBytes: totalContentLength,
+            totalBytes: totalContentLength,
+          },
+        })
+      );
+      removeLocalEventListeners();
+      return response;
+    } catch (error) {
+      this.dispatchTransferFailedEvent(request, totalContentLength, error as Error);
+      removeLocalEventListeners();
+      throw error;
+    }
   }
 
   /**
@@ -866,6 +924,223 @@ export class S3TransferManager implements IS3TransferManager {
     }
 
     throw new Error(`Expected range to end at ${expectedEnd} but got ${end}`);
+  }
+
+  /**
+   * Uploads a single object to S3 using PutObject operation.
+   * Used when content length is below the multipart upload threshold.
+   *
+   * @internal
+   */
+  private async uploadSingleObject(
+    request: UploadRequest,
+    contentLength: number,
+    transferOptions?: TransferOptions
+  ): Promise<PutObjectCommandOutput> {
+    const requestChecksumCalculation = await this.s3ClientInstance.config.requestChecksumCalculation();
+
+    const putObjectRequest = { ...request };
+    if (requestChecksumCalculation === "WHEN_SUPPORTED") {
+      putObjectRequest.ChecksumAlgorithm = this.checksumAlgorithm;
+    }
+
+    this.checkAborted(transferOptions);
+    const response = await this.s3ClientInstance.send(new PutObjectCommand(putObjectRequest), transferOptions);
+
+    this.dispatchEvent(
+      Object.assign(new Event("bytesTransferred"), {
+        request,
+        snapshot: {
+          transferredBytes: contentLength,
+          totalBytes: contentLength,
+        },
+      })
+    );
+
+    return response;
+  }
+
+  /**
+   * Uploads an object to S3 using multipart upload operation.
+   * Used when content length exceeds the multipart upload threshold.
+   *
+   * @internal
+   */
+  private async uploadMultipart(
+    request: UploadRequest,
+    contentLength: number,
+    transferOptions?: TransferOptions
+  ): Promise<CompleteMultipartUploadCommandOutput> {
+    const { partSize, expectedPartsCount } = this.calculatePartSize(contentLength);
+
+    this.checkAborted(transferOptions);
+    const requestChecksumCalculation = await this.s3ClientInstance.config.requestChecksumCalculation();
+
+    const createMpuRequest: CreateMultipartUploadCommandInput = { ...request };
+
+    const hasFullObjectChecksum =
+      request.ChecksumCRC32 || request.ChecksumCRC32C || request.ChecksumSHA1 || request.ChecksumSHA256;
+
+    if (hasFullObjectChecksum) {
+      createMpuRequest.ChecksumType = "FULL_OBJECT";
+      createMpuRequest.ChecksumAlgorithm = request.ChecksumAlgorithm ?? this.checksumAlgorithm;
+    } else if (requestChecksumCalculation === "WHEN_SUPPORTED") {
+      createMpuRequest.ChecksumAlgorithm = this.checksumAlgorithm;
+    }
+
+    const createMpuResponse = await this.s3ClientInstance.send(
+      new CreateMultipartUploadCommand(createMpuRequest),
+      transferOptions
+    );
+    const uploadId = createMpuResponse.UploadId!;
+
+    const abortController = new AbortController();
+    const uploadAbortSignal = abortController.signal;
+
+    try {
+      const completedParts: CompletedPart[] = [];
+      const dataFeeder = getChunk(request.Body, partSize);
+      let bytesUploaded = 0;
+      const queueSize = 4;
+
+      const uploadPart = async (dataFeeder: AsyncGenerator<any, void, undefined>) => {
+        for await (const dataPart of dataFeeder) {
+          if (uploadAbortSignal.aborted) {
+            throw Object.assign(new Error("Upload aborted due to part failure."), { name: "AbortError" });
+          }
+          this.checkAborted(transferOptions);
+
+          this.validateUploadPart(dataPart, partSize);
+
+          const partRequest: UploadPartCommandInput = {
+            ...request,
+            Body: dataPart.data,
+            UploadId: uploadId,
+            PartNumber: dataPart.partNumber,
+            ContentLength: undefined,
+          };
+
+          const partResponse = await this.s3ClientInstance.send(new UploadPartCommand(partRequest), transferOptions);
+
+          const completedPart: CompletedPart = {
+            PartNumber: dataPart.partNumber,
+            ETag: partResponse.ETag,
+          };
+          if (partResponse.ChecksumCRC32) completedPart.ChecksumCRC32 = partResponse.ChecksumCRC32;
+          if (partResponse.ChecksumCRC32C) completedPart.ChecksumCRC32C = partResponse.ChecksumCRC32C;
+          if (partResponse.ChecksumSHA1) completedPart.ChecksumSHA1 = partResponse.ChecksumSHA1;
+          if (partResponse.ChecksumSHA256) completedPart.ChecksumSHA256 = partResponse.ChecksumSHA256;
+
+          completedParts.push(completedPart);
+
+          const partLength = byteLength(dataPart.data) || 0;
+          bytesUploaded += partLength;
+
+          this.dispatchEvent(
+            Object.assign(new Event("bytesTransferred"), {
+              request,
+              snapshot: {
+                transferredBytes: bytesUploaded,
+                totalBytes: contentLength,
+              },
+            })
+          );
+        }
+      };
+
+      const concurrentUploaders: Promise<void>[] = [];
+      for (let i = 0; i < queueSize; i++) {
+        concurrentUploaders.push(
+          uploadPart(dataFeeder).catch((error) => {
+            abortController.abort();
+            throw error;
+          })
+        );
+      }
+
+      await Promise.all(concurrentUploaders);
+
+      if (completedParts.length !== expectedPartsCount) {
+        throw new Error(`Expected ${expectedPartsCount} parts but uploaded ${completedParts.length} parts`);
+      }
+
+      completedParts.sort((a, b) => a.PartNumber! - b.PartNumber!);
+
+      this.checkAborted(transferOptions);
+      const completeRequest: any = {
+        ...request,
+        UploadId: uploadId,
+        MultipartUpload: { Parts: completedParts },
+        MpuObjectSize: contentLength,
+      };
+      delete completeRequest.Body;
+
+      if (hasFullObjectChecksum) {
+        completeRequest.ChecksumType = "FULL_OBJECT";
+        if (request.ChecksumCRC32) completeRequest.ChecksumCRC32 = request.ChecksumCRC32;
+        if (request.ChecksumCRC32C) completeRequest.ChecksumCRC32C = request.ChecksumCRC32C;
+        if (request.ChecksumSHA1) completeRequest.ChecksumSHA1 = request.ChecksumSHA1;
+        if (request.ChecksumSHA256) completeRequest.ChecksumSHA256 = request.ChecksumSHA256;
+      }
+
+      try {
+        return await this.s3ClientInstance.send(new CompleteMultipartUploadCommand(completeRequest), transferOptions);
+      } catch (completeError) {
+        console.warn(`CompleteMultipartUpload failed for upload ID ${uploadId}: ${(completeError as Error).message}`);
+        throw completeError;
+      }
+    } catch (error) {
+      const abortRequest: any = {
+        ...request,
+        UploadId: uploadId,
+      };
+      delete abortRequest.Body;
+
+      try {
+        await this.s3ClientInstance.send(new AbortMultipartUploadCommand(abortRequest), transferOptions);
+      } catch (abortError) {
+        console.warn(`Failed to abort multipart upload ${uploadId}:`, abortError);
+      }
+      throw error;
+    }
+  }
+
+  /**
+   * Validates upload part size matches expected part size.
+   *
+   * @internal
+   */
+  private validateUploadPart(dataPart: any, partSize: number): void {
+    const actualPartSize = byteLength(dataPart.data);
+
+    if (actualPartSize === undefined) {
+      throw new Error(
+        `A dataPart was generated without a measurable data chunk size for part number ${dataPart.partNumber}`
+      );
+    }
+
+    // Skip validation for single-part uploads
+    if (dataPart.partNumber === 1 && dataPart.lastPart) {
+      return;
+    }
+
+    // Validate part size (last part may be smaller)
+    if (!dataPart.lastPart && actualPartSize !== partSize) {
+      throw new Error(
+        `The byte size for part number ${dataPart.partNumber}, size ${actualPartSize} does not match expected size ${partSize}`
+      );
+    }
+  }
+
+  /**
+   * Calculates part size and expected parts count.
+   *
+   * @internal
+   */
+  private calculatePartSize(contentLength: number): { partSize: number; expectedPartsCount: number } {
+    const partSize = Math.max(this.targetPartSizeBytes, Math.floor(contentLength / 10_000));
+    const expectedPartsCount = Math.ceil(contentLength / partSize);
+    return { partSize, expectedPartsCount };
   }
 }
 
