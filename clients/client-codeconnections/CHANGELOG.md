@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.860.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.859.0...v3.860.0) (2025-08-04)
+
+
+### Features
+
+* **client-codeconnections:** New integration with Azure DevOps provider type. ([77c6b38](https://github.com/aws/aws-sdk-js-v3/commit/77c6b385e5e2ce50f53305aefce5ec155d3eebca))
+
+
+
+
+
 # [3.859.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.858.0...v3.859.0) (2025-08-01)
 
 **Note:** Version bump only for package @aws-sdk/client-codeconnections

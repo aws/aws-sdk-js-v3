@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.860.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.859.0...v3.860.0) (2025-08-04)
+
+
+### Features
+
+* **client-bedrock-agentcore:** Remove superfluous field from API ([0f75d46](https://github.com/aws/aws-sdk-js-v3/commit/0f75d4615b031a0512cb3b2dd18ee5e21ed2cae1))
+
+
+
+
+
 # [3.859.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.858.0...v3.859.0) (2025-08-01)
 
 **Note:** Version bump only for package @aws-sdk/client-bedrock-agentcore

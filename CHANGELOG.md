@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.860.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.859.0...v3.860.0) (2025-08-04)
+
+
+### Features
+
+* **client-bedrock-agentcore:** Remove superfluous field from API ([0f75d46](https://github.com/aws/aws-sdk-js-v3/commit/0f75d4615b031a0512cb3b2dd18ee5e21ed2cae1))
+* **client-codeconnections:** New integration with Azure DevOps provider type. ([77c6b38](https://github.com/aws/aws-sdk-js-v3/commit/77c6b385e5e2ce50f53305aefce5ec155d3eebca))
+* **client-evs:** TagResource API now throws ServiceQuotaExceededException when the number of tags on the Amazon EVS resource exceeds the maximum allowed. TooManyTagsException is deprecated. ([f98eeb0](https://github.com/aws/aws-sdk-js-v3/commit/f98eeb0e0e5d0de7d1ca9720ccf628b9c56ff01c))
+* **client-iotsitewise:** Support Interface for IoT SiteWise Asset Modeling ([0b4e505](https://github.com/aws/aws-sdk-js-v3/commit/0b4e50505e5b03a6c99ebb9c3c71fcbe44efafdc))
+* **client-sagemaker:** This release adds the ability for customers to attach and detach their EBS volumes to EKS-orchestrated HyperPod cluster nodes. ([4f78a2a](https://github.com/aws/aws-sdk-js-v3/commit/4f78a2a0e4d960f7d6d0b159fe97ae1fd0ef6b29))
+* **clients:** update client endpoints as of 2025-08-04 ([a17d458](https://github.com/aws/aws-sdk-js-v3/commit/a17d458cc02af49885b70eff13ded9af93521dbc))
+
+
+
+
+
 # [3.859.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.858.0...v3.859.0) (2025-08-01)
 
 

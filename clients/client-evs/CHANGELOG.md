@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.860.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.859.0...v3.860.0) (2025-08-04)
+
+
+### Features
+
+* **client-evs:** TagResource API now throws ServiceQuotaExceededException when the number of tags on the Amazon EVS resource exceeds the maximum allowed. TooManyTagsException is deprecated. ([f98eeb0](https://github.com/aws/aws-sdk-js-v3/commit/f98eeb0e0e5d0de7d1ca9720ccf628b9c56ff01c))
+
+
+
+
+
 # [3.859.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.858.0...v3.859.0) (2025-08-01)
 
 **Note:** Version bump only for package @aws-sdk/client-evs
