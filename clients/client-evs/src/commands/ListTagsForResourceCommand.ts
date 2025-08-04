@@ -28,7 +28,7 @@ export interface ListTagsForResourceCommandInput extends ListTagsForResourceRequ
 export interface ListTagsForResourceCommandOutput extends ListTagsForResourceResponse, __MetadataBearer {}
 
 /**
- * <p>Lists the tags for an Amazon EVS resource.</p>
+ * <note> <p>Amazon EVS is in public preview release and is subject to change.</p> </note> <p>Lists the tags for an Amazon EVS resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

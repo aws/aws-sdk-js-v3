@@ -28,7 +28,7 @@ export interface UntagResourceCommandInput extends UntagResourceRequest {}
 export interface UntagResourceCommandOutput extends UntagResourceResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes specified tags from an Amazon EVS resource.</p>
+ * <note> <p>Amazon EVS is in public preview release and is subject to change.</p> </note> <p>Deletes specified tags from an Amazon EVS resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -57,7 +57,7 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
  *  <p>A service resource associated with the request could not be found. The resource might not be specified correctly, or it may have a <code>state</code> of <code>DELETED</code>.</p>
  *
  * @throws {@link TagPolicyException} (client fault)
- *  <p>The request doesn't comply with IAM tag policy. Correct your request and then retry it.</p>
+ *  <note> <p> <code>TagPolicyException</code> is deprecated. See <a href="https://docs.aws.amazon.com/evs/latest/APIReference/API_ValidationException.html"> <code>ValidationException</code> </a> instead.</p> </note> <p>The request doesn't comply with IAM tag policy. Correct your request and then retry it.</p>
  *
  * @throws {@link EvsServiceException}
  * <p>Base exception class for all service exceptions from Evs service.</p>

@@ -28,7 +28,7 @@ export interface GetEnvironmentCommandInput extends GetEnvironmentRequest {}
 export interface GetEnvironmentCommandOutput extends GetEnvironmentResponse, __MetadataBearer {}
 
 /**
- * <p>Returns a description of the specified environment.</p>
+ * <note> <p>Amazon EVS is in public preview release and is subject to change.</p> </note> <p>Returns a description of the specified environment.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

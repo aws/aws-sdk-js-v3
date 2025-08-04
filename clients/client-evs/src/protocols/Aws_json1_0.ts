@@ -79,6 +79,7 @@ import {
   ListTagsForResourceRequest,
   ResourceNotFoundException,
   ServiceAccessSecurityGroups,
+  ServiceQuotaExceededException,
   TagPolicyException,
   TagResourceRequest,
   ThrottlingException,
@@ -471,6 +472,9 @@ const de_CommandError = async (output: __HttpResponse, context: __SerdeContext):
     case "ResourceNotFoundException":
     case "com.amazonaws.evs#ResourceNotFoundException":
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.evs#ServiceQuotaExceededException":
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     case "TagPolicyException":
     case "com.amazonaws.evs#TagPolicyException":
       throw await de_TagPolicyExceptionRes(parsedOutput, context);
@@ -497,6 +501,22 @@ const de_ResourceNotFoundExceptionRes = async (
   const body = parsedOutput.body;
   const deserialized: any = _json(body);
   const exception = new ResourceNotFoundException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+/**
+ * deserializeAws_json1_0ServiceQuotaExceededExceptionRes
+ */
+const de_ServiceQuotaExceededExceptionRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<ServiceQuotaExceededException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = _json(body);
+  const exception = new ServiceQuotaExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
   });
@@ -868,6 +888,8 @@ const de_ListEnvironmentVlansResponse = (output: any, context: __SerdeContext): 
 // de_SecurityGroups omitted.
 
 // de_ServiceAccessSecurityGroups omitted.
+
+// de_ServiceQuotaExceededException omitted.
 
 // de_TagPolicyException omitted.
 
