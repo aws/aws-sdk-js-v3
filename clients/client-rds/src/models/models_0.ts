@@ -4001,7 +4001,7 @@ export interface CustomDBEngineVersionAMI {
 }
 
 /**
- * <p>Specifies any Aurora Serverless v2 properties or limits that differ between Aurora engine versions.
+ * <p>Specifies any Aurora Serverless v2 properties or limits that differ between Aurora engine versions and platform versions.
  *         You can test the values of this attribute when deciding which Aurora version to use in a new or upgraded
  *         DB cluster. You can also retrieve the version of an existing DB cluster and check whether that version
  *         supports certain Aurora Serverless v2 features before you attempt to use those features.
@@ -4010,7 +4010,7 @@ export interface CustomDBEngineVersionAMI {
  */
 export interface ServerlessV2FeaturesSupport {
   /**
-   * <p>If the minimum capacity is 0 ACUs, the engine version supports the automatic pause/resume
+   * <p>If the minimum capacity is 0 ACUs, the engine version or platform version supports the automatic pause/resume
    *          feature of Aurora Serverless v2.</p>
    * @public
    */
@@ -4018,7 +4018,7 @@ export interface ServerlessV2FeaturesSupport {
 
   /**
    * <p>
-   *          Specifies the upper Aurora Serverless v2 capacity limit for a particular engine version.
+   *          Specifies the upper Aurora Serverless v2 capacity limit for a particular engine version or platform version.
    *          Depending on the engine version, the maximum capacity for an Aurora Serverless v2 cluster might be
    *          <code>256</code> or <code>128</code>.
    *          </p>
@@ -4556,7 +4556,7 @@ export interface ServerlessV2ScalingConfiguration {
   /**
    * <p>The maximum number of Aurora capacity units (ACUs) for a DB instance in an Aurora Serverless v2 cluster.
    *             You can specify ACU values in half-step increments, such as 32, 32.5, 33, and so on. The largest value
-   *             that you can use is 256 for recent Aurora versions, or 128 for older versions.</p>
+   *             that you can use is 256 for recent Aurora versions, or 128 for older versions. You can check the attributes of your engine version or platform version to determine the specific maximum capacity supported.</p>
    * @public
    */
   MaxCapacity?: number | undefined;
@@ -5934,7 +5934,7 @@ export interface ServerlessV2ScalingConfigurationInfo {
   /**
    * <p>The maximum number of Aurora capacity units (ACUs) for a DB instance in an Aurora Serverless v2 cluster.
    *             You can specify ACU values in half-step increments, such as 32, 32.5, 33, and so on. The largest value
-   *             that you can use is 256 for recent Aurora versions, or 128 for older versions.</p>
+   *             that you can use is 256 for recent Aurora versions, or 128 for older versions. You can check the attributes of your engine version or platform version to determine the specific maximum capacity supported.</p>
    * @public
    */
   MaxCapacity?: number | undefined;
@@ -5985,7 +5985,7 @@ export interface DBClusterStatusInfo {
 }
 
 /**
- * <p>Contains the details of an Amazon Aurora DB cluster or Multi-AZ DB cluster.</p>
+ * <p>Contains the details of an Amazon Aurora DB cluster or Multi-AZ DB cluster. </p>
  *          <p>For an Amazon Aurora DB cluster, this data type is used as a response element in the operations
  *           <code>CreateDBCluster</code>, <code>DeleteDBCluster</code>, <code>DescribeDBClusters</code>,
  *           <code>FailoverDBCluster</code>, <code>ModifyDBCluster</code>, <code>PromoteReadReplicaDBCluster</code>,
@@ -6530,6 +6530,12 @@ export interface DBCluster {
   ServerlessV2ScalingConfiguration?: ServerlessV2ScalingConfigurationInfo | undefined;
 
   /**
+   * <p>The version of the Aurora Serverless V2 platform used by the DB cluster. For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless-v2.html">Using Aurora Serverless v2</a> in the <i>Amazon Aurora User Guide</i>.</p>
+   * @public
+   */
+  ServerlessV2PlatformVersion?: string | undefined;
+
+  /**
    * <p>The network type of the DB instance.</p>
    *          <p>The network type is determined by the <code>DBSubnetGroup</code> specified for the DB cluster.
    *             A <code>DBSubnetGroup</code> can support only the IPv4 protocol or the IPv4 and the IPv6
@@ -6625,7 +6631,7 @@ export interface DBCluster {
  */
 export interface CreateDBClusterResult {
   /**
-   * <p>Contains the details of an Amazon Aurora DB cluster or Multi-AZ DB cluster.</p>
+   * <p>Contains the details of an Amazon Aurora DB cluster or Multi-AZ DB cluster. </p>
    *          <p>For an Amazon Aurora DB cluster, this data type is used as a response element in the operations
    *           <code>CreateDBCluster</code>, <code>DeleteDBCluster</code>, <code>DescribeDBClusters</code>,
    *           <code>FailoverDBCluster</code>, <code>ModifyDBCluster</code>, <code>PromoteReadReplicaDBCluster</code>,
@@ -8025,8 +8031,15 @@ export interface CreateDBInstanceMessage {
   /**
    * <p>Specifies whether the DB instance is a Multi-AZ deployment. You can't set
    *           the <code>AvailabilityZone</code> parameter if the DB instance is a Multi-AZ deployment.</p>
-   *          <p>This setting doesn't apply to Amazon Aurora because the DB instance Availability Zones (AZs)
-   *           are managed by the DB cluster.</p>
+   *          <p>This setting doesn't apply to the following DB instances:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Amazon Aurora (DB instance Availability Zones (AZs) are managed by the DB cluster.)</p>
+   *             </li>
+   *             <li>
+   *                <p>RDS Custom</p>
+   *             </li>
+   *          </ul>
    * @public
    */
   MultiAZ?: boolean | undefined;
@@ -13732,7 +13745,7 @@ export interface DeleteDBClusterMessage {
  */
 export interface DeleteDBClusterResult {
   /**
-   * <p>Contains the details of an Amazon Aurora DB cluster or Multi-AZ DB cluster.</p>
+   * <p>Contains the details of an Amazon Aurora DB cluster or Multi-AZ DB cluster. </p>
    *          <p>For an Amazon Aurora DB cluster, this data type is used as a response element in the operations
    *           <code>CreateDBCluster</code>, <code>DeleteDBCluster</code>, <code>DescribeDBClusters</code>,
    *           <code>FailoverDBCluster</code>, <code>ModifyDBCluster</code>, <code>PromoteReadReplicaDBCluster</code>,

@@ -17602,6 +17602,9 @@ const de_DBCluster = (output: any, context: __SerdeContext): DBCluster => {
   if (output[_SVSC] != null) {
     contents[_SVSC] = de_ServerlessV2ScalingConfigurationInfo(output[_SVSC], context);
   }
+  if (output[_SVPV] != null) {
+    contents[_SVPV] = __expectString(output[_SVPV]);
+  }
   if (output[_NT] != null) {
     contents[_NT] = __expectString(output[_NT]);
   }
@@ -26080,6 +26083,7 @@ const _STu = "SupportedTimezones";
 const _STw = "SwitchoverTimeout";
 const _SUAP = "SecondsUntilAutoPause";
 const _SVFS = "ServerlessV2FeaturesSupport";
+const _SVPV = "ServerlessV2PlatformVersion";
 const _SVSC = "ServerlessV2ScalingConfiguration";
 const _Se = "Severity";
 const _Si = "Size";

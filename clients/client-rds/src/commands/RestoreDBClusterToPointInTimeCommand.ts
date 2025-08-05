@@ -295,6 +295,7 @@ export interface RestoreDBClusterToPointInTimeCommandOutput
  * //       MaxCapacity: Number("double"),
  * //       SecondsUntilAutoPause: Number("int"),
  * //     },
+ * //     ServerlessV2PlatformVersion: "STRING_VALUE",
  * //     NetworkType: "STRING_VALUE",
  * //     DBSystemId: "STRING_VALUE",
  * //     MasterUserSecret: { // MasterUserSecret

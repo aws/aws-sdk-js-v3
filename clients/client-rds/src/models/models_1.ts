@@ -7219,7 +7219,7 @@ export interface FailoverDBClusterMessage {
  */
 export interface FailoverDBClusterResult {
   /**
-   * <p>Contains the details of an Amazon Aurora DB cluster or Multi-AZ DB cluster.</p>
+   * <p>Contains the details of an Amazon Aurora DB cluster or Multi-AZ DB cluster. </p>
    *          <p>For an Amazon Aurora DB cluster, this data type is used as a response element in the operations
    *           <code>CreateDBCluster</code>, <code>DeleteDBCluster</code>, <code>DescribeDBClusters</code>,
    *           <code>FailoverDBCluster</code>, <code>ModifyDBCluster</code>, <code>PromoteReadReplicaDBCluster</code>,
@@ -8392,7 +8392,7 @@ export interface ModifyDBClusterMessage {
  */
 export interface ModifyDBClusterResult {
   /**
-   * <p>Contains the details of an Amazon Aurora DB cluster or Multi-AZ DB cluster.</p>
+   * <p>Contains the details of an Amazon Aurora DB cluster or Multi-AZ DB cluster. </p>
    *          <p>For an Amazon Aurora DB cluster, this data type is used as a response element in the operations
    *           <code>CreateDBCluster</code>, <code>DeleteDBCluster</code>, <code>DescribeDBClusters</code>,
    *           <code>FailoverDBCluster</code>, <code>ModifyDBCluster</code>, <code>PromoteReadReplicaDBCluster</code>,
@@ -10928,7 +10928,7 @@ export interface PromoteReadReplicaDBClusterMessage {
  */
 export interface PromoteReadReplicaDBClusterResult {
   /**
-   * <p>Contains the details of an Amazon Aurora DB cluster or Multi-AZ DB cluster.</p>
+   * <p>Contains the details of an Amazon Aurora DB cluster or Multi-AZ DB cluster. </p>
    *          <p>For an Amazon Aurora DB cluster, this data type is used as a response element in the operations
    *           <code>CreateDBCluster</code>, <code>DeleteDBCluster</code>, <code>DescribeDBClusters</code>,
    *           <code>FailoverDBCluster</code>, <code>ModifyDBCluster</code>, <code>PromoteReadReplicaDBCluster</code>,
@@ -11064,7 +11064,7 @@ export interface RebootDBClusterMessage {
  */
 export interface RebootDBClusterResult {
   /**
-   * <p>Contains the details of an Amazon Aurora DB cluster or Multi-AZ DB cluster.</p>
+   * <p>Contains the details of an Amazon Aurora DB cluster or Multi-AZ DB cluster. </p>
    *          <p>For an Amazon Aurora DB cluster, this data type is used as a response element in the operations
    *           <code>CreateDBCluster</code>, <code>DeleteDBCluster</code>, <code>DescribeDBClusters</code>,
    *           <code>FailoverDBCluster</code>, <code>ModifyDBCluster</code>, <code>PromoteReadReplicaDBCluster</code>,
@@ -11949,7 +11949,7 @@ export interface RestoreDBClusterFromS3Message {
  */
 export interface RestoreDBClusterFromS3Result {
   /**
-   * <p>Contains the details of an Amazon Aurora DB cluster or Multi-AZ DB cluster.</p>
+   * <p>Contains the details of an Amazon Aurora DB cluster or Multi-AZ DB cluster. </p>
    *          <p>For an Amazon Aurora DB cluster, this data type is used as a response element in the operations
    *           <code>CreateDBCluster</code>, <code>DeleteDBCluster</code>, <code>DescribeDBClusters</code>,
    *           <code>FailoverDBCluster</code>, <code>ModifyDBCluster</code>, <code>PromoteReadReplicaDBCluster</code>,
@@ -12522,7 +12522,7 @@ export interface RestoreDBClusterFromSnapshotMessage {
  */
 export interface RestoreDBClusterFromSnapshotResult {
   /**
-   * <p>Contains the details of an Amazon Aurora DB cluster or Multi-AZ DB cluster.</p>
+   * <p>Contains the details of an Amazon Aurora DB cluster or Multi-AZ DB cluster. </p>
    *          <p>For an Amazon Aurora DB cluster, this data type is used as a response element in the operations
    *           <code>CreateDBCluster</code>, <code>DeleteDBCluster</code>, <code>DescribeDBClusters</code>,
    *           <code>FailoverDBCluster</code>, <code>ModifyDBCluster</code>, <code>PromoteReadReplicaDBCluster</code>,
@@ -13045,7 +13045,7 @@ export interface RestoreDBClusterToPointInTimeMessage {
  */
 export interface RestoreDBClusterToPointInTimeResult {
   /**
-   * <p>Contains the details of an Amazon Aurora DB cluster or Multi-AZ DB cluster.</p>
+   * <p>Contains the details of an Amazon Aurora DB cluster or Multi-AZ DB cluster. </p>
    *          <p>For an Amazon Aurora DB cluster, this data type is used as a response element in the operations
    *           <code>CreateDBCluster</code>, <code>DeleteDBCluster</code>, <code>DescribeDBClusters</code>,
    *           <code>FailoverDBCluster</code>, <code>ModifyDBCluster</code>, <code>PromoteReadReplicaDBCluster</code>,
@@ -15312,7 +15312,7 @@ export interface StartDBClusterMessage {
  */
 export interface StartDBClusterResult {
   /**
-   * <p>Contains the details of an Amazon Aurora DB cluster or Multi-AZ DB cluster.</p>
+   * <p>Contains the details of an Amazon Aurora DB cluster or Multi-AZ DB cluster. </p>
    *          <p>For an Amazon Aurora DB cluster, this data type is used as a response element in the operations
    *           <code>CreateDBCluster</code>, <code>DeleteDBCluster</code>, <code>DescribeDBClusters</code>,
    *           <code>FailoverDBCluster</code>, <code>ModifyDBCluster</code>, <code>PromoteReadReplicaDBCluster</code>,
@@ -15704,7 +15704,7 @@ export interface StopDBClusterMessage {
  */
 export interface StopDBClusterResult {
   /**
-   * <p>Contains the details of an Amazon Aurora DB cluster or Multi-AZ DB cluster.</p>
+   * <p>Contains the details of an Amazon Aurora DB cluster or Multi-AZ DB cluster. </p>
    *          <p>For an Amazon Aurora DB cluster, this data type is used as a response element in the operations
    *           <code>CreateDBCluster</code>, <code>DeleteDBCluster</code>, <code>DescribeDBClusters</code>,
    *           <code>FailoverDBCluster</code>, <code>ModifyDBCluster</code>, <code>PromoteReadReplicaDBCluster</code>,
