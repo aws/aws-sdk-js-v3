@@ -10,14 +10,11 @@ import {
   AlgorithmStatus,
   AlgorithmStatusDetails,
   AlgorithmValidationSpecification,
-  AppNetworkAccessType,
-  AppSecurityGroupManagement,
   AppSpecification,
   AppStatus,
   AppType,
   ArtifactSource,
   AthenaDatasetDefinition,
-  AuthMode,
   AutoMLCandidate,
   AutoMLChannel,
   AutoMLComputeConfig,
@@ -43,20 +40,16 @@ import {
   CfnCreateTemplateProvider,
   Channel,
   CheckpointConfig,
+  ClusterEventDetail,
   ClusterInstanceGroupDetails,
   ClusterNodeDetails,
+  ClusterNodeProvisioningMode,
   ClusterNodeRecovery,
   ClusterOrchestrator,
   ClusterRestrictedInstanceGroupDetails,
   ClusterStatus,
   CodeEditorAppImageConfig,
-  CodeRepository,
-  CognitoConfig,
-  CognitoMemberDefinition,
-  CollectionConfiguration,
-  CompilationJobStatus,
   FeatureStatus,
-  GitConfig,
   InferenceSpecification,
   JupyterLabAppImageConfig,
   KernelGatewayImageConfig,
@@ -83,29 +76,23 @@ import {
 
 import {
   _InstanceType,
+  CodeRepository,
+  CognitoConfig,
+  CognitoMemberDefinition,
+  CollectionConfiguration,
+  CompilationJobStatus,
   ComputeQuotaConfig,
   ComputeQuotaTarget,
-  ContextSource,
-  DataQualityAppSpecification,
-  DataQualityBaselineConfig,
-  DataQualityJobInput,
-  DefaultSpaceSettings,
   DeviceSelectionConfig,
-  DomainSettings,
-  DriftCheckBaselines,
   EdgeDeploymentConfig,
-  EdgeDeploymentModelConfig,
-  EdgeOutputConfig,
-  EdgePresetDeploymentType,
   EndpointInput,
+  GitConfig,
   HubContentType,
   InputConfig,
   JupyterServerAppSettings,
   KernelGatewayAppSettings,
   MetadataProperties,
   ModelDeployConfig,
-  ModelPackageModelCard,
-  ModelPackageModelCardFilterSensitiveLog,
   MonitoringConstraintsResource,
   MonitoringGroundTruthS3Input,
   MonitoringNetworkConfig,
@@ -119,10 +106,432 @@ import {
   ProcessingS3UploadMode,
   RetryStrategy,
   SchedulerConfig,
-  TagPropagation,
   TrainingSpecification,
   UserSettings,
 } from "./models_1";
+
+/**
+ * @public
+ */
+export interface CreateModelBiasJobDefinitionResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the model bias job.</p>
+   * @public
+   */
+  JobDefinitionArn: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const ModelCardStatus = {
+  APPROVED: "Approved",
+  ARCHIVED: "Archived",
+  DRAFT: "Draft",
+  PENDINGREVIEW: "PendingReview",
+} as const;
+
+/**
+ * @public
+ */
+export type ModelCardStatus = (typeof ModelCardStatus)[keyof typeof ModelCardStatus];
+
+/**
+ * <p>Configure the security settings to protect model card data.</p>
+ * @public
+ */
+export interface ModelCardSecurityConfig {
+  /**
+   * <p>A Key Management Service <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-id">key ID</a> to use for encrypting a model card.</p>
+   * @public
+   */
+  KmsKeyId?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateModelCardRequest {
+  /**
+   * <p>The unique name of the model card.</p>
+   * @public
+   */
+  ModelCardName: string | undefined;
+
+  /**
+   * <p>An optional Key Management Service key to encrypt, decrypt, and re-encrypt model card content for regulated workloads with highly sensitive data.</p>
+   * @public
+   */
+  SecurityConfig?: ModelCardSecurityConfig | undefined;
+
+  /**
+   * <p>The content of the model card. Content must be in <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/model-cards.html#model-cards-json-schema">model card JSON schema</a> and provided as a string.</p>
+   * @public
+   */
+  Content: string | undefined;
+
+  /**
+   * <p>The approval status of the model card within your organization. Different organizations might have different criteria for model card review and approval.</p> <ul> <li> <p> <code>Draft</code>: The model card is a work in progress.</p> </li> <li> <p> <code>PendingReview</code>: The model card is pending review.</p> </li> <li> <p> <code>Approved</code>: The model card is approved.</p> </li> <li> <p> <code>Archived</code>: The model card is archived. No more updates should be made to the model card, but it can still be exported.</p> </li> </ul>
+   * @public
+   */
+  ModelCardStatus: ModelCardStatus | undefined;
+
+  /**
+   * <p>Key-value pairs used to manage metadata for model cards.</p>
+   * @public
+   */
+  Tags?: Tag[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateModelCardResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the successfully created model card.</p>
+   * @public
+   */
+  ModelCardArn: string | undefined;
+}
+
+/**
+ * <p>Configure the export output details for an Amazon SageMaker Model Card.</p>
+ * @public
+ */
+export interface ModelCardExportOutputConfig {
+  /**
+   * <p>The Amazon S3 output path to export your model card PDF.</p>
+   * @public
+   */
+  S3OutputPath: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateModelCardExportJobRequest {
+  /**
+   * <p>The name or Amazon Resource Name (ARN) of the model card to export.</p>
+   * @public
+   */
+  ModelCardName: string | undefined;
+
+  /**
+   * <p>The version of the model card to export. If a version is not provided, then the latest version of the model card is exported.</p>
+   * @public
+   */
+  ModelCardVersion?: number | undefined;
+
+  /**
+   * <p>The name of the model card export job.</p>
+   * @public
+   */
+  ModelCardExportJobName: string | undefined;
+
+  /**
+   * <p>The model card output configuration that specifies the Amazon S3 path for exporting.</p>
+   * @public
+   */
+  OutputConfig: ModelCardExportOutputConfig | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateModelCardExportJobResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the model card export job.</p>
+   * @public
+   */
+  ModelCardExportJobArn: string | undefined;
+}
+
+/**
+ * <p>Docker container image configuration object for the model explainability job.</p>
+ * @public
+ */
+export interface ModelExplainabilityAppSpecification {
+  /**
+   * <p>The container image to be run by the model explainability job.</p>
+   * @public
+   */
+  ImageUri: string | undefined;
+
+  /**
+   * <p>JSON formatted Amazon S3 file that defines explainability parameters. For more information on this JSON configuration file, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/clarify-config-json-monitor-model-explainability-parameters.html">Configure model explainability parameters</a>.</p>
+   * @public
+   */
+  ConfigUri: string | undefined;
+
+  /**
+   * <p>Sets the environment variables in the Docker container.</p>
+   * @public
+   */
+  Environment?: Record<string, string> | undefined;
+}
+
+/**
+ * <p>The configuration for a baseline model explainability job.</p>
+ * @public
+ */
+export interface ModelExplainabilityBaselineConfig {
+  /**
+   * <p>The name of the baseline model explainability job.</p>
+   * @public
+   */
+  BaseliningJobName?: string | undefined;
+
+  /**
+   * <p>The constraints resource for a monitoring job.</p>
+   * @public
+   */
+  ConstraintsResource?: MonitoringConstraintsResource | undefined;
+}
+
+/**
+ * <p>Inputs for the model explainability job.</p>
+ * @public
+ */
+export interface ModelExplainabilityJobInput {
+  /**
+   * <p>Input object for the endpoint</p>
+   * @public
+   */
+  EndpointInput?: EndpointInput | undefined;
+
+  /**
+   * <p>Input object for the batch transform job.</p>
+   * @public
+   */
+  BatchTransformInput?: BatchTransformInput | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateModelExplainabilityJobDefinitionRequest {
+  /**
+   * <p> The name of the model explainability job definition. The name must be unique within an Amazon Web Services Region in the Amazon Web Services account.</p>
+   * @public
+   */
+  JobDefinitionName: string | undefined;
+
+  /**
+   * <p>The baseline configuration for a model explainability job.</p>
+   * @public
+   */
+  ModelExplainabilityBaselineConfig?: ModelExplainabilityBaselineConfig | undefined;
+
+  /**
+   * <p>Configures the model explainability job to run a specified Docker container image.</p>
+   * @public
+   */
+  ModelExplainabilityAppSpecification: ModelExplainabilityAppSpecification | undefined;
+
+  /**
+   * <p>Inputs for the model explainability job.</p>
+   * @public
+   */
+  ModelExplainabilityJobInput: ModelExplainabilityJobInput | undefined;
+
+  /**
+   * <p>The output configuration for monitoring jobs.</p>
+   * @public
+   */
+  ModelExplainabilityJobOutputConfig: MonitoringOutputConfig | undefined;
+
+  /**
+   * <p>Identifies the resources to deploy for a monitoring job.</p>
+   * @public
+   */
+  JobResources: MonitoringResources | undefined;
+
+  /**
+   * <p>Networking options for a model explainability job.</p>
+   * @public
+   */
+  NetworkConfig?: MonitoringNetworkConfig | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker AI can assume to perform tasks on your behalf.</p>
+   * @public
+   */
+  RoleArn: string | undefined;
+
+  /**
+   * <p>A time limit for how long the monitoring job is allowed to run before stopping.</p>
+   * @public
+   */
+  StoppingCondition?: MonitoringStoppingCondition | undefined;
+
+  /**
+   * <p>(Optional) An array of key-value pairs. For more information, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-whatURL"> Using Cost Allocation Tags</a> in the <i>Amazon Web Services Billing and Cost Management User Guide</i>.</p>
+   * @public
+   */
+  Tags?: Tag[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateModelExplainabilityJobDefinitionResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the model explainability job.</p>
+   * @public
+   */
+  JobDefinitionArn: string | undefined;
+}
+
+/**
+ * <p>Contains details regarding the file source.</p>
+ * @public
+ */
+export interface FileSource {
+  /**
+   * <p>The type of content stored in the file source.</p>
+   * @public
+   */
+  ContentType?: string | undefined;
+
+  /**
+   * <p>The digest of the file source.</p>
+   * @public
+   */
+  ContentDigest?: string | undefined;
+
+  /**
+   * <p>The Amazon S3 URI for the file source.</p>
+   * @public
+   */
+  S3Uri: string | undefined;
+}
+
+/**
+ * <p>Represents the drift check bias baselines that can be used when the model monitor is set using the model package.</p>
+ * @public
+ */
+export interface DriftCheckBias {
+  /**
+   * <p>The bias config file for a model.</p>
+   * @public
+   */
+  ConfigFile?: FileSource | undefined;
+
+  /**
+   * <p>The pre-training constraints.</p>
+   * @public
+   */
+  PreTrainingConstraints?: MetricsSource | undefined;
+
+  /**
+   * <p>The post-training constraints.</p>
+   * @public
+   */
+  PostTrainingConstraints?: MetricsSource | undefined;
+}
+
+/**
+ * <p>Represents the drift check explainability baselines that can be used when the model monitor is set using the model package. </p>
+ * @public
+ */
+export interface DriftCheckExplainability {
+  /**
+   * <p>The drift check explainability constraints.</p>
+   * @public
+   */
+  Constraints?: MetricsSource | undefined;
+
+  /**
+   * <p>The explainability config file for the model.</p>
+   * @public
+   */
+  ConfigFile?: FileSource | undefined;
+}
+
+/**
+ * <p>Represents the drift check data quality baselines that can be used when the model monitor is set using the model package. </p>
+ * @public
+ */
+export interface DriftCheckModelDataQuality {
+  /**
+   * <p>The drift check model data quality statistics.</p>
+   * @public
+   */
+  Statistics?: MetricsSource | undefined;
+
+  /**
+   * <p>The drift check model data quality constraints.</p>
+   * @public
+   */
+  Constraints?: MetricsSource | undefined;
+}
+
+/**
+ * <p>Represents the drift check model quality baselines that can be used when the model monitor is set using the model package. </p>
+ * @public
+ */
+export interface DriftCheckModelQuality {
+  /**
+   * <p>The drift check model quality statistics.</p>
+   * @public
+   */
+  Statistics?: MetricsSource | undefined;
+
+  /**
+   * <p>The drift check model quality constraints.</p>
+   * @public
+   */
+  Constraints?: MetricsSource | undefined;
+}
+
+/**
+ * <p>Represents the drift check baselines that can be used when the model monitor is set using the model package. </p>
+ * @public
+ */
+export interface DriftCheckBaselines {
+  /**
+   * <p>Represents the drift check bias baselines that can be used when the model monitor is set using the model package. </p>
+   * @public
+   */
+  Bias?: DriftCheckBias | undefined;
+
+  /**
+   * <p>Represents the drift check explainability baselines that can be used when the model monitor is set using the model package. </p>
+   * @public
+   */
+  Explainability?: DriftCheckExplainability | undefined;
+
+  /**
+   * <p>Represents the drift check model quality baselines that can be used when the model monitor is set using the model package.</p>
+   * @public
+   */
+  ModelQuality?: DriftCheckModelQuality | undefined;
+
+  /**
+   * <p>Represents the drift check model data quality baselines that can be used when the model monitor is set using the model package.</p>
+   * @public
+   */
+  ModelDataQuality?: DriftCheckModelDataQuality | undefined;
+}
+
+/**
+ * <p>The model card associated with the model package. Since <code>ModelPackageModelCard</code> is tied to a model package, it is a specific usage of a model card and its schema is simplified compared to the schema of <code>ModelCard</code>. The <code>ModelPackageModelCard</code> schema does not include <code>model_package_details</code>, and <code>model_overview</code> is composed of the <code>model_creator</code> and <code>model_artifact</code> properties. For more information about the model package model card schema, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/model-registry-details.html#model-card-schema">Model package model card schema</a>. For more information about the model card associated with the model package, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/model-registry-details.html">View the Details of a Model Version</a>.</p>
+ * @public
+ */
+export interface ModelPackageModelCard {
+  /**
+   * <p>The content of the model card. The content must follow the schema described in <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/model-registry-details.html#model-card-schema">Model Package Model Card Schema</a>.</p>
+   * @public
+   */
+  ModelCardContent?: string | undefined;
+
+  /**
+   * <p>The approval status of the model card within your organization. Different organizations might have different criteria for model card review and approval.</p> <ul> <li> <p> <code>Draft</code>: The model card is a work in progress.</p> </li> <li> <p> <code>PendingReview</code>: The model card is pending review.</p> </li> <li> <p> <code>Approved</code>: The model card is approved.</p> </li> <li> <p> <code>Archived</code>: The model card is archived. No more updates can be made to the model card content. If you try to update the model card content, you will receive the message <code>Model Card is in Archived state</code>.</p> </li> </ul>
+   * @public
+   */
+  ModelCardStatus?: ModelCardStatus | undefined;
+}
 
 /**
  * <p> A structure describing the current state of the model in its life cycle. </p>
@@ -6244,6 +6653,40 @@ export interface DescribeClusterResponse {
    * @public
    */
   NodeRecovery?: ClusterNodeRecovery | undefined;
+
+  /**
+   * <p>The mode used for provisioning nodes in the cluster.</p>
+   * @public
+   */
+  NodeProvisioningMode?: ClusterNodeProvisioningMode | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeClusterEventRequest {
+  /**
+   * <p>The unique identifier (UUID) of the event to describe. This ID can be obtained from the <code>ListClusterEvents</code> operation.</p>
+   * @public
+   */
+  EventId: string | undefined;
+
+  /**
+   * <p>The name or Amazon Resource Name (ARN) of the HyperPod cluster associated with the event.</p>
+   * @public
+   */
+  ClusterName: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeClusterEventResponse {
+  /**
+   * <p>Detailed information about the requested cluster event, including event metadata for various resource types such as <code>Cluster</code>, <code>InstanceGroup</code>, <code>Instance</code>, and their associated attributes.</p>
+   * @public
+   */
+  EventDetails?: ClusterEventDetail | undefined;
 }
 
 /**
@@ -6261,6 +6704,12 @@ export interface DescribeClusterNodeRequest {
    * @public
    */
   NodeId?: string | undefined;
+
+  /**
+   * <p>The logical identifier of the node to describe. You can specify either <code>NodeLogicalId</code> or <code>InstanceId</code>, but not both. <code>NodeLogicalId</code> can be used to describe nodes that are still being provisioned and don't yet have an <code>InstanceId</code> assigned.</p>
+   * @public
+   */
+  NodeLogicalId?: string | undefined;
 }
 
 /**
@@ -6692,855 +7141,20 @@ export interface DescribeContextRequest {
 }
 
 /**
- * @public
+ * @internal
  */
-export interface DescribeContextResponse {
-  /**
-   * <p>The name of the context.</p>
-   * @public
-   */
-  ContextName?: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the context.</p>
-   * @public
-   */
-  ContextArn?: string | undefined;
-
-  /**
-   * <p>The source of the context.</p>
-   * @public
-   */
-  Source?: ContextSource | undefined;
-
-  /**
-   * <p>The type of the context.</p>
-   * @public
-   */
-  ContextType?: string | undefined;
-
-  /**
-   * <p>The description of the context.</p>
-   * @public
-   */
-  Description?: string | undefined;
-
-  /**
-   * <p>A list of the context's properties.</p>
-   * @public
-   */
-  Properties?: Record<string, string> | undefined;
-
-  /**
-   * <p>When the context was created.</p>
-   * @public
-   */
-  CreationTime?: Date | undefined;
-
-  /**
-   * <p>Information about the user who created or modified a SageMaker resource.</p>
-   * @public
-   */
-  CreatedBy?: UserContext | undefined;
-
-  /**
-   * <p>When the context was last modified.</p>
-   * @public
-   */
-  LastModifiedTime?: Date | undefined;
-
-  /**
-   * <p>Information about the user who created or modified a SageMaker resource.</p>
-   * @public
-   */
-  LastModifiedBy?: UserContext | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the lineage group.</p>
-   * @public
-   */
-  LineageGroupArn?: string | undefined;
-}
+export const CreateModelCardRequestFilterSensitiveLog = (obj: CreateModelCardRequest): any => ({
+  ...obj,
+  ...(obj.Content && { Content: SENSITIVE_STRING }),
+});
 
 /**
- * @public
+ * @internal
  */
-export interface DescribeDataQualityJobDefinitionRequest {
-  /**
-   * <p>The name of the data quality monitoring job definition to describe.</p>
-   * @public
-   */
-  JobDefinitionName: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeDataQualityJobDefinitionResponse {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the data quality monitoring job definition.</p>
-   * @public
-   */
-  JobDefinitionArn: string | undefined;
-
-  /**
-   * <p>The name of the data quality monitoring job definition.</p>
-   * @public
-   */
-  JobDefinitionName: string | undefined;
-
-  /**
-   * <p>The time that the data quality monitoring job definition was created.</p>
-   * @public
-   */
-  CreationTime: Date | undefined;
-
-  /**
-   * <p>The constraints and baselines for the data quality monitoring job definition.</p>
-   * @public
-   */
-  DataQualityBaselineConfig?: DataQualityBaselineConfig | undefined;
-
-  /**
-   * <p>Information about the container that runs the data quality monitoring job.</p>
-   * @public
-   */
-  DataQualityAppSpecification: DataQualityAppSpecification | undefined;
-
-  /**
-   * <p>The list of inputs for the data quality monitoring job. Currently endpoints are supported.</p>
-   * @public
-   */
-  DataQualityJobInput: DataQualityJobInput | undefined;
-
-  /**
-   * <p>The output configuration for monitoring jobs.</p>
-   * @public
-   */
-  DataQualityJobOutputConfig: MonitoringOutputConfig | undefined;
-
-  /**
-   * <p>Identifies the resources to deploy for a monitoring job.</p>
-   * @public
-   */
-  JobResources: MonitoringResources | undefined;
-
-  /**
-   * <p>The networking configuration for the data quality monitoring job.</p>
-   * @public
-   */
-  NetworkConfig?: MonitoringNetworkConfig | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker AI can assume to perform tasks on your behalf.</p>
-   * @public
-   */
-  RoleArn: string | undefined;
-
-  /**
-   * <p>A time limit for how long the monitoring job is allowed to run before stopping.</p>
-   * @public
-   */
-  StoppingCondition?: MonitoringStoppingCondition | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeDeviceRequest {
-  /**
-   * <p>Next token of device description.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The unique ID of the device.</p>
-   * @public
-   */
-  DeviceName: string | undefined;
-
-  /**
-   * <p>The name of the fleet the devices belong to.</p>
-   * @public
-   */
-  DeviceFleetName: string | undefined;
-}
-
-/**
- * <p>The model on the edge device.</p>
- * @public
- */
-export interface EdgeModel {
-  /**
-   * <p>The name of the model.</p>
-   * @public
-   */
-  ModelName: string | undefined;
-
-  /**
-   * <p>The model version.</p>
-   * @public
-   */
-  ModelVersion: string | undefined;
-
-  /**
-   * <p>The timestamp of the last data sample taken.</p>
-   * @public
-   */
-  LatestSampleTime?: Date | undefined;
-
-  /**
-   * <p>The timestamp of the last inference that was made.</p>
-   * @public
-   */
-  LatestInference?: Date | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeDeviceResponse {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the device.</p>
-   * @public
-   */
-  DeviceArn?: string | undefined;
-
-  /**
-   * <p>The unique identifier of the device.</p>
-   * @public
-   */
-  DeviceName: string | undefined;
-
-  /**
-   * <p>A description of the device.</p>
-   * @public
-   */
-  Description?: string | undefined;
-
-  /**
-   * <p>The name of the fleet the device belongs to.</p>
-   * @public
-   */
-  DeviceFleetName: string | undefined;
-
-  /**
-   * <p>The Amazon Web Services Internet of Things (IoT) object thing name associated with the device.</p>
-   * @public
-   */
-  IotThingName?: string | undefined;
-
-  /**
-   * <p>The timestamp of the last registration or de-reregistration.</p>
-   * @public
-   */
-  RegistrationTime: Date | undefined;
-
-  /**
-   * <p>The last heartbeat received from the device.</p>
-   * @public
-   */
-  LatestHeartbeat?: Date | undefined;
-
-  /**
-   * <p>Models on the device.</p>
-   * @public
-   */
-  Models?: EdgeModel[] | undefined;
-
-  /**
-   * <p>The maximum number of models.</p>
-   * @public
-   */
-  MaxModels?: number | undefined;
-
-  /**
-   * <p>The response from the last list when returning a list large enough to need tokening.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>Edge Manager agent version.</p>
-   * @public
-   */
-  AgentVersion?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeDeviceFleetRequest {
-  /**
-   * <p>The name of the fleet.</p>
-   * @public
-   */
-  DeviceFleetName: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeDeviceFleetResponse {
-  /**
-   * <p>The name of the fleet.</p>
-   * @public
-   */
-  DeviceFleetName: string | undefined;
-
-  /**
-   * <p>The The Amazon Resource Name (ARN) of the fleet.</p>
-   * @public
-   */
-  DeviceFleetArn: string | undefined;
-
-  /**
-   * <p>The output configuration for storing sampled data.</p>
-   * @public
-   */
-  OutputConfig: EdgeOutputConfig | undefined;
-
-  /**
-   * <p>A description of the fleet.</p>
-   * @public
-   */
-  Description?: string | undefined;
-
-  /**
-   * <p>Timestamp of when the device fleet was created.</p>
-   * @public
-   */
-  CreationTime: Date | undefined;
-
-  /**
-   * <p>Timestamp of when the device fleet was last updated.</p>
-   * @public
-   */
-  LastModifiedTime: Date | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) that has access to Amazon Web Services Internet of Things (IoT).</p>
-   * @public
-   */
-  RoleArn?: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) alias created in Amazon Web Services Internet of Things (IoT).</p>
-   * @public
-   */
-  IotRoleAlias?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeDomainRequest {
-  /**
-   * <p>The domain ID.</p>
-   * @public
-   */
-  DomainId: string | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const DomainStatus = {
-  Delete_Failed: "Delete_Failed",
-  Deleting: "Deleting",
-  Failed: "Failed",
-  InService: "InService",
-  Pending: "Pending",
-  Update_Failed: "Update_Failed",
-  Updating: "Updating",
-} as const;
-
-/**
- * @public
- */
-export type DomainStatus = (typeof DomainStatus)[keyof typeof DomainStatus];
-
-/**
- * @public
- */
-export interface DescribeDomainResponse {
-  /**
-   * <p>The domain's Amazon Resource Name (ARN).</p>
-   * @public
-   */
-  DomainArn?: string | undefined;
-
-  /**
-   * <p>The domain ID.</p>
-   * @public
-   */
-  DomainId?: string | undefined;
-
-  /**
-   * <p>The domain name.</p>
-   * @public
-   */
-  DomainName?: string | undefined;
-
-  /**
-   * <p>The ID of the Amazon Elastic File System managed by this Domain.</p>
-   * @public
-   */
-  HomeEfsFileSystemId?: string | undefined;
-
-  /**
-   * <p>The IAM Identity Center managed application instance ID.</p>
-   * @public
-   */
-  SingleSignOnManagedApplicationInstanceId?: string | undefined;
-
-  /**
-   * <p>The ARN of the application managed by SageMaker AI in IAM Identity Center. This value is only returned for domains created after October 1, 2023.</p>
-   * @public
-   */
-  SingleSignOnApplicationArn?: string | undefined;
-
-  /**
-   * <p>The status.</p>
-   * @public
-   */
-  Status?: DomainStatus | undefined;
-
-  /**
-   * <p>The creation time.</p>
-   * @public
-   */
-  CreationTime?: Date | undefined;
-
-  /**
-   * <p>The last modified time.</p>
-   * @public
-   */
-  LastModifiedTime?: Date | undefined;
-
-  /**
-   * <p>The failure reason.</p>
-   * @public
-   */
-  FailureReason?: string | undefined;
-
-  /**
-   * <p>The ID of the security group that authorizes traffic between the <code>RSessionGateway</code> apps and the <code>RStudioServerPro</code> app.</p>
-   * @public
-   */
-  SecurityGroupIdForDomainBoundary?: string | undefined;
-
-  /**
-   * <p>The domain's authentication mode.</p>
-   * @public
-   */
-  AuthMode?: AuthMode | undefined;
-
-  /**
-   * <p>Settings which are applied to UserProfiles in this domain if settings are not explicitly specified in a given UserProfile. </p>
-   * @public
-   */
-  DefaultUserSettings?: UserSettings | undefined;
-
-  /**
-   * <p>A collection of <code>Domain</code> settings.</p>
-   * @public
-   */
-  DomainSettings?: DomainSettings | undefined;
-
-  /**
-   * <p>Specifies the VPC used for non-EFS traffic. The default value is <code>PublicInternetOnly</code>.</p> <ul> <li> <p> <code>PublicInternetOnly</code> - Non-EFS traffic is through a VPC managed by Amazon SageMaker AI, which allows direct internet access</p> </li> <li> <p> <code>VpcOnly</code> - All traffic is through the specified VPC and subnets</p> </li> </ul>
-   * @public
-   */
-  AppNetworkAccessType?: AppNetworkAccessType | undefined;
-
-  /**
-   * <p>Use <code>KmsKeyId</code>.</p>
-   *
-   * @deprecated
-   * @public
-   */
-  HomeEfsFileSystemKmsKeyId?: string | undefined;
-
-  /**
-   * <p>The VPC subnets that the domain uses for communication.</p>
-   * @public
-   */
-  SubnetIds?: string[] | undefined;
-
-  /**
-   * <p>The domain's URL.</p>
-   * @public
-   */
-  Url?: string | undefined;
-
-  /**
-   * <p>The ID of the Amazon Virtual Private Cloud (VPC) that the domain uses for communication.</p>
-   * @public
-   */
-  VpcId?: string | undefined;
-
-  /**
-   * <p>The Amazon Web Services KMS customer managed key used to encrypt the EFS volume attached to the domain.</p>
-   * @public
-   */
-  KmsKeyId?: string | undefined;
-
-  /**
-   * <p>The entity that creates and manages the required security groups for inter-app communication in <code>VPCOnly</code> mode. Required when <code>CreateDomain.AppNetworkAccessType</code> is <code>VPCOnly</code> and <code>DomainSettings.RStudioServerProDomainSettings.DomainExecutionRoleArn</code> is provided.</p>
-   * @public
-   */
-  AppSecurityGroupManagement?: AppSecurityGroupManagement | undefined;
-
-  /**
-   * <p>Indicates whether custom tag propagation is supported for the domain.</p>
-   * @public
-   */
-  TagPropagation?: TagPropagation | undefined;
-
-  /**
-   * <p>The default settings for shared spaces that users create in the domain.</p>
-   * @public
-   */
-  DefaultSpaceSettings?: DefaultSpaceSettings | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeEdgeDeploymentPlanRequest {
-  /**
-   * <p>The name of the deployment plan to describe.</p>
-   * @public
-   */
-  EdgeDeploymentPlanName: string | undefined;
-
-  /**
-   * <p>If the edge deployment plan has enough stages to require tokening, then this is the response from the last list of stages returned.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of results to select (50 by default).</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeEdgeDeploymentPlanResponse {
-  /**
-   * <p>The ARN of edge deployment plan.</p>
-   * @public
-   */
-  EdgeDeploymentPlanArn: string | undefined;
-
-  /**
-   * <p>The name of the edge deployment plan.</p>
-   * @public
-   */
-  EdgeDeploymentPlanName: string | undefined;
-
-  /**
-   * <p>List of models associated with the edge deployment plan.</p>
-   * @public
-   */
-  ModelConfigs: EdgeDeploymentModelConfig[] | undefined;
-
-  /**
-   * <p>The device fleet used for this edge deployment plan.</p>
-   * @public
-   */
-  DeviceFleetName: string | undefined;
-
-  /**
-   * <p>The number of edge devices with the successful deployment.</p>
-   * @public
-   */
-  EdgeDeploymentSuccess?: number | undefined;
-
-  /**
-   * <p>The number of edge devices yet to pick up deployment, or in progress.</p>
-   * @public
-   */
-  EdgeDeploymentPending?: number | undefined;
-
-  /**
-   * <p>The number of edge devices that failed the deployment.</p>
-   * @public
-   */
-  EdgeDeploymentFailed?: number | undefined;
-
-  /**
-   * <p>List of stages in the edge deployment plan.</p>
-   * @public
-   */
-  Stages: DeploymentStageStatusSummary[] | undefined;
-
-  /**
-   * <p>Token to use when calling the next set of stages in the edge deployment plan.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The time when the edge deployment plan was created.</p>
-   * @public
-   */
-  CreationTime?: Date | undefined;
-
-  /**
-   * <p>The time when the edge deployment plan was last updated.</p>
-   * @public
-   */
-  LastModifiedTime?: Date | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeEdgePackagingJobRequest {
-  /**
-   * <p>The name of the edge packaging job.</p>
-   * @public
-   */
-  EdgePackagingJobName: string | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const EdgePackagingJobStatus = {
-  Completed: "COMPLETED",
-  Failed: "FAILED",
-  InProgress: "INPROGRESS",
-  Starting: "STARTING",
-  Stopped: "STOPPED",
-  Stopping: "STOPPING",
-} as const;
-
-/**
- * @public
- */
-export type EdgePackagingJobStatus = (typeof EdgePackagingJobStatus)[keyof typeof EdgePackagingJobStatus];
-
-/**
- * @public
- * @enum
- */
-export const EdgePresetDeploymentStatus = {
-  Completed: "COMPLETED",
-  Failed: "FAILED",
-} as const;
-
-/**
- * @public
- */
-export type EdgePresetDeploymentStatus = (typeof EdgePresetDeploymentStatus)[keyof typeof EdgePresetDeploymentStatus];
-
-/**
- * <p>The output of a SageMaker Edge Manager deployable resource.</p>
- * @public
- */
-export interface EdgePresetDeploymentOutput {
-  /**
-   * <p>The deployment type created by SageMaker Edge Manager. Currently only supports Amazon Web Services IoT Greengrass Version 2 components.</p>
-   * @public
-   */
-  Type: EdgePresetDeploymentType | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the generated deployable resource.</p>
-   * @public
-   */
-  Artifact?: string | undefined;
-
-  /**
-   * <p>The status of the deployable resource.</p>
-   * @public
-   */
-  Status?: EdgePresetDeploymentStatus | undefined;
-
-  /**
-   * <p>Returns a message describing the status of the deployed resource.</p>
-   * @public
-   */
-  StatusMessage?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeEdgePackagingJobResponse {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the edge packaging job.</p>
-   * @public
-   */
-  EdgePackagingJobArn: string | undefined;
-
-  /**
-   * <p>The name of the edge packaging job.</p>
-   * @public
-   */
-  EdgePackagingJobName: string | undefined;
-
-  /**
-   * <p>The name of the SageMaker Neo compilation job that is used to locate model artifacts that are being packaged.</p>
-   * @public
-   */
-  CompilationJobName?: string | undefined;
-
-  /**
-   * <p>The name of the model.</p>
-   * @public
-   */
-  ModelName?: string | undefined;
-
-  /**
-   * <p>The version of the model.</p>
-   * @public
-   */
-  ModelVersion?: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of an IAM role that enables Amazon SageMaker to download and upload the model, and to contact Neo.</p>
-   * @public
-   */
-  RoleArn?: string | undefined;
-
-  /**
-   * <p>The output configuration for the edge packaging job.</p>
-   * @public
-   */
-  OutputConfig?: EdgeOutputConfig | undefined;
-
-  /**
-   * <p>The Amazon Web Services KMS key to use when encrypting the EBS volume the job run on.</p>
-   * @public
-   */
-  ResourceKey?: string | undefined;
-
-  /**
-   * <p>The current status of the packaging job.</p>
-   * @public
-   */
-  EdgePackagingJobStatus: EdgePackagingJobStatus | undefined;
-
-  /**
-   * <p>Returns a message describing the job status and error messages.</p>
-   * @public
-   */
-  EdgePackagingJobStatusMessage?: string | undefined;
-
-  /**
-   * <p>The timestamp of when the packaging job was created.</p>
-   * @public
-   */
-  CreationTime?: Date | undefined;
-
-  /**
-   * <p>The timestamp of when the job was last updated.</p>
-   * @public
-   */
-  LastModifiedTime?: Date | undefined;
-
-  /**
-   * <p>The Amazon Simple Storage (S3) URI where model artifacts ares stored.</p>
-   * @public
-   */
-  ModelArtifact?: string | undefined;
-
-  /**
-   * <p>The signature document of files in the model artifact.</p>
-   * @public
-   */
-  ModelSignature?: string | undefined;
-
-  /**
-   * <p>The output of a SageMaker Edge Manager deployable resource.</p>
-   * @public
-   */
-  PresetDeploymentOutput?: EdgePresetDeploymentOutput | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeEndpointInput {
-  /**
-   * <p>The name of the endpoint.</p>
-   * @public
-   */
-  EndpointName: string | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const EndpointStatus = {
-  CREATING: "Creating",
-  DELETING: "Deleting",
-  FAILED: "Failed",
-  IN_SERVICE: "InService",
-  OUT_OF_SERVICE: "OutOfService",
-  ROLLING_BACK: "RollingBack",
-  SYSTEM_UPDATING: "SystemUpdating",
-  UPDATE_ROLLBACK_FAILED: "UpdateRollbackFailed",
-  UPDATING: "Updating",
-} as const;
-
-/**
- * @public
- */
-export type EndpointStatus = (typeof EndpointStatus)[keyof typeof EndpointStatus];
-
-/**
- * @public
- * @enum
- */
-export const VariantStatus = {
-  ACTIVATING_TRAFFIC: "ActivatingTraffic",
-  BAKING: "Baking",
-  CREATING: "Creating",
-  DELETING: "Deleting",
-  UPDATING: "Updating",
-} as const;
-
-/**
- * @public
- */
-export type VariantStatus = (typeof VariantStatus)[keyof typeof VariantStatus];
-
-/**
- * <p>Describes the status of the production variant.</p>
- * @public
- */
-export interface ProductionVariantStatus {
-  /**
-   * <p>The endpoint variant status which describes the current deployment stage status or operational status.</p> <ul> <li> <p> <code>Creating</code>: Creating inference resources for the production variant.</p> </li> <li> <p> <code>Deleting</code>: Terminating inference resources for the production variant.</p> </li> <li> <p> <code>Updating</code>: Updating capacity for the production variant.</p> </li> <li> <p> <code>ActivatingTraffic</code>: Turning on traffic for the production variant.</p> </li> <li> <p> <code>Baking</code>: Waiting period to monitor the CloudWatch alarms in the automatic rollback configuration.</p> </li> </ul>
-   * @public
-   */
-  Status: VariantStatus | undefined;
-
-  /**
-   * <p>A message that describes the status of the production variant.</p>
-   * @public
-   */
-  StatusMessage?: string | undefined;
-
-  /**
-   * <p>The start time of the current status change.</p>
-   * @public
-   */
-  StartTime?: Date | undefined;
-}
+export const ModelPackageModelCardFilterSensitiveLog = (obj: ModelPackageModelCard): any => ({
+  ...obj,
+  ...(obj.ModelCardContent && { ModelCardContent: SENSITIVE_STRING }),
+});
 
 /**
  * @internal

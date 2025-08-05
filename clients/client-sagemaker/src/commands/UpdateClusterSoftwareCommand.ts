@@ -60,6 +60,7 @@ export interface UpdateClusterSoftwareCommandOutput extends UpdateClusterSoftwar
  *       },
  *     ],
  *   },
+ *   ImageId: "STRING_VALUE",
  * };
  * const command = new UpdateClusterSoftwareCommand(input);
  * const response = await client.send(command);

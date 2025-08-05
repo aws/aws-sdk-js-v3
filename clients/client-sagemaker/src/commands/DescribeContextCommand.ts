@@ -5,7 +5,8 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DescribeContextRequest, DescribeContextResponse } from "../models/models_2";
+import { DescribeContextRequest } from "../models/models_2";
+import { DescribeContextResponse } from "../models/models_3";
 import { de_DescribeContextCommand, se_DescribeContextCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 

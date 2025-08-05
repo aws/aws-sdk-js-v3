@@ -100,6 +100,8 @@ export interface DescribeClusterCommandOutput extends DescribeClusterResponse, _
  * //           ],
  * //         },
  * //       },
+ * //       CurrentImageId: "STRING_VALUE",
+ * //       DesiredImageId: "STRING_VALUE",
  * //     },
  * //   ],
  * //   RestrictedInstanceGroups: [ // ClusterRestrictedInstanceGroupDetailsList
@@ -175,6 +177,7 @@ export interface DescribeClusterCommandOutput extends DescribeClusterResponse, _
  * //     },
  * //   },
  * //   NodeRecovery: "Automatic" || "None",
+ * //   NodeProvisioningMode: "Continuous",
  * // };
  *
  * ```

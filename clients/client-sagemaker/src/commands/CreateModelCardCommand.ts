@@ -9,7 +9,7 @@ import {
   CreateModelCardRequest,
   CreateModelCardRequestFilterSensitiveLog,
   CreateModelCardResponse,
-} from "../models/models_1";
+} from "../models/models_2";
 import { de_CreateModelCardCommand, se_CreateModelCardCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 

@@ -40,6 +40,9 @@ export interface BatchDeleteClusterNodesCommandOutput extends BatchDeleteCluster
  *   NodeIds: [ // ClusterNodeIds
  *     "STRING_VALUE",
  *   ],
+ *   NodeLogicalIds: [ // ClusterNodeLogicalIdList
+ *     "STRING_VALUE",
+ *   ],
  * };
  * const command = new BatchDeleteClusterNodesCommand(input);
  * const response = await client.send(command);
@@ -52,6 +55,16 @@ export interface BatchDeleteClusterNodesCommandOutput extends BatchDeleteCluster
  * //     },
  * //   ],
  * //   Successful: [ // ClusterNodeIds
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   FailedNodeLogicalIds: [ // BatchDeleteClusterNodeLogicalIdsErrorList
+ * //     { // BatchDeleteClusterNodeLogicalIdsError
+ * //       Code: "NodeIdNotFound" || "InvalidNodeStatus" || "NodeIdInUse", // required
+ * //       Message: "STRING_VALUE", // required
+ * //       NodeLogicalId: "STRING_VALUE", // required
+ * //     },
+ * //   ],
+ * //   SuccessfulNodeLogicalIds: [ // ClusterNodeLogicalIdList
  * //     "STRING_VALUE",
  * //   ],
  * // };

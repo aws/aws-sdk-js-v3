@@ -8,6 +8,7 @@ import {
   AlgorithmSpecification,
   AppNetworkAccessType,
   AppSecurityGroupManagement,
+  AppSpecification,
   BooleanOperator,
   CfnUpdateTemplateProvider,
   Channel,
@@ -45,9 +46,6 @@ import {
   InferenceExperimentSchedule,
   JobType,
   MetadataProperties,
-  ModelCardStatus,
-  ModelPackageModelCard,
-  ModelPackageModelCardFilterSensitiveLog,
   ModelVariantConfig,
   Processor,
   RetryStrategy,
@@ -56,6 +54,8 @@ import {
   TagPropagation,
   ThroughputMode,
   TrackingServerSize,
+  TtlDuration,
+  UiTemplate,
   UserSettings,
   VendorGuidance,
 } from "./models_1";
@@ -69,8 +69,12 @@ import {
   InstanceMetadataServiceConfiguration,
   MemberDefinition,
   ModelArtifacts,
+  ModelCardStatus,
   ModelLifeCycle,
+  ModelPackageModelCard,
+  ModelPackageModelCardFilterSensitiveLog,
   MonitoringScheduleConfig,
+  NetworkConfig,
   NotebookInstanceAcceleratorType,
   NotebookInstanceLifecycleHook,
   NotificationConfiguration,
@@ -80,10 +84,15 @@ import {
   PartnerAppConfig,
   PartnerAppMaintenanceConfig,
   PipelineDefinitionS3Location,
+  ProcessingInput,
+  ProcessingOutputConfig,
+  ProcessingResources,
+  ProcessingStoppingCondition,
   ProfilerConfig,
   ProfilerRuleConfiguration,
   ProvisioningParameter,
   RootAccess,
+  ServiceCatalogProvisioningDetails,
   SourceIpConfig,
   SpaceSettings,
   TensorBoardOutputConfig,
@@ -98,7 +107,9 @@ import {
 import {
   DesiredWeightAndCapacity,
   Device,
+  Direction,
   DomainSettingsForUpdate,
+  Edge,
   Endpoint,
   Experiment,
   FeatureGroup,
@@ -109,14 +120,21 @@ import {
   HubContentSupportStatus,
   HyperParameterTuningJobSearchEntity,
   InferenceComponentDeploymentConfig,
-  InferenceExperimentStopDesiredState,
   MetricData,
+  ModelPackageGroupStatus,
+  PipelineExecutionStatus,
+  PipelineExperimentConfig,
+  PipelineStatus,
+  ProcessingJobStatus,
+  ProjectStatus,
   ReservedCapacityInstanceType,
   ResourceType,
   SageMakerResourceName,
   SecondaryStatus,
   SecondaryStatusTransition,
   SelectiveExecutionConfig,
+  ServiceCatalogProvisionedProductDetails,
+  TemplateProviderDetail,
   TrainingJobStatus,
   TrialComponentMetricSummary,
   TrialComponentSource,
@@ -126,28 +144,980 @@ import {
 } from "./models_3";
 
 import {
+  InferenceExperimentStopDesiredState,
+  LineageType,
   ModelCard,
   ModelCardFilterSensitiveLog,
   ModelDashboardModel,
   ModelPackage,
   ModelPackageFilterSensitiveLog,
-  ModelPackageGroup,
-  ModelVariantAction,
-  NestedFilters,
-  OnlineStoreConfigUpdate,
   Parameter,
-  Parent,
-  Pipeline,
-  PipelineExecution,
-  PipelineVersion,
-  ProcessingJob,
-  ProfilerConfigForUpdate,
-  Project,
-  Relation,
-  RemoteDebugConfigForUpdate,
-  ReservedCapacityOffering,
   TransformJob,
 } from "./models_4";
+
+/**
+ * <p>A group of versioned models in the Model Registry.</p>
+ * @public
+ */
+export interface ModelPackageGroup {
+  /**
+   * <p>The name of the model group.</p>
+   * @public
+   */
+  ModelPackageGroupName?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the model group.</p>
+   * @public
+   */
+  ModelPackageGroupArn?: string | undefined;
+
+  /**
+   * <p>The description for the model group.</p>
+   * @public
+   */
+  ModelPackageGroupDescription?: string | undefined;
+
+  /**
+   * <p>The time that the model group was created.</p>
+   * @public
+   */
+  CreationTime?: Date | undefined;
+
+  /**
+   * <p>Information about the user who created or modified a SageMaker resource.</p>
+   * @public
+   */
+  CreatedBy?: UserContext | undefined;
+
+  /**
+   * <p>The status of the model group. This can be one of the following values.</p> <ul> <li> <p> <code>PENDING</code> - The model group is pending being created.</p> </li> <li> <p> <code>IN_PROGRESS</code> - The model group is in the process of being created.</p> </li> <li> <p> <code>COMPLETED</code> - The model group was successfully created.</p> </li> <li> <p> <code>FAILED</code> - The model group failed.</p> </li> <li> <p> <code>DELETING</code> - The model group is in the process of being deleted.</p> </li> <li> <p> <code>DELETE_FAILED</code> - SageMaker failed to delete the model group.</p> </li> </ul>
+   * @public
+   */
+  ModelPackageGroupStatus?: ModelPackageGroupStatus | undefined;
+
+  /**
+   * <p>A list of the tags associated with the model group. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services resources</a> in the <i>Amazon Web Services General Reference Guide</i>.</p>
+   * @public
+   */
+  Tags?: Tag[] | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const ModelVariantAction = {
+  PROMOTE: "Promote",
+  REMOVE: "Remove",
+  RETAIN: "Retain",
+} as const;
+
+/**
+ * @public
+ */
+export type ModelVariantAction = (typeof ModelVariantAction)[keyof typeof ModelVariantAction];
+
+/**
+ * <p>A list of nested <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_Filter.html">Filter</a> objects. A resource must satisfy the conditions of all filters to be included in the results returned from the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_Search.html">Search</a> API.</p> <p>For example, to filter on a training job's <code>InputDataConfig</code> property with a specific channel name and <code>S3Uri</code> prefix, define the following filters:</p> <ul> <li> <p> <code>'\{Name:"InputDataConfig.ChannelName", "Operator":"Equals", "Value":"train"\}',</code> </p> </li> <li> <p> <code>'\{Name:"InputDataConfig.DataSource.S3DataSource.S3Uri", "Operator":"Contains", "Value":"mybucket/catdata"\}'</code> </p> </li> </ul>
+ * @public
+ */
+export interface NestedFilters {
+  /**
+   * <p>The name of the property to use in the nested filters. The value must match a listed property name, such as <code>InputDataConfig</code>.</p>
+   * @public
+   */
+  NestedPropertyName: string | undefined;
+
+  /**
+   * <p>A list of filters. Each filter acts on a property. Filters must contain at least one <code>Filters</code> value. For example, a <code>NestedFilters</code> call might include a filter on the <code>PropertyName</code> parameter of the <code>InputDataConfig</code> property: <code>InputDataConfig.DataSource.S3DataSource.S3Uri</code>.</p>
+   * @public
+   */
+  Filters: Filter[] | undefined;
+}
+
+/**
+ * <p>Updates the feature group online store configuration.</p>
+ * @public
+ */
+export interface OnlineStoreConfigUpdate {
+  /**
+   * <p>Time to live duration, where the record is hard deleted after the expiration time is reached; <code>ExpiresAt</code> = <code>EventTime</code> + <code>TtlDuration</code>. For information on HardDelete, see the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_feature_store_DeleteRecord.html">DeleteRecord</a> API in the Amazon SageMaker API Reference guide.</p>
+   * @public
+   */
+  TtlDuration?: TtlDuration | undefined;
+}
+
+/**
+ * <p>The trial that a trial component is associated with and the experiment the trial is part of. A component might not be associated with a trial. A component can be associated with multiple trials.</p>
+ * @public
+ */
+export interface Parent {
+  /**
+   * <p>The name of the trial.</p>
+   * @public
+   */
+  TrialName?: string | undefined;
+
+  /**
+   * <p>The name of the experiment.</p>
+   * @public
+   */
+  ExperimentName?: string | undefined;
+}
+
+/**
+ * <p>A SageMaker Model Building Pipeline instance.</p>
+ * @public
+ */
+export interface Pipeline {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the pipeline.</p>
+   * @public
+   */
+  PipelineArn?: string | undefined;
+
+  /**
+   * <p>The name of the pipeline.</p>
+   * @public
+   */
+  PipelineName?: string | undefined;
+
+  /**
+   * <p>The display name of the pipeline.</p>
+   * @public
+   */
+  PipelineDisplayName?: string | undefined;
+
+  /**
+   * <p>The description of the pipeline.</p>
+   * @public
+   */
+  PipelineDescription?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the role that created the pipeline.</p>
+   * @public
+   */
+  RoleArn?: string | undefined;
+
+  /**
+   * <p>The status of the pipeline.</p>
+   * @public
+   */
+  PipelineStatus?: PipelineStatus | undefined;
+
+  /**
+   * <p>The creation time of the pipeline.</p>
+   * @public
+   */
+  CreationTime?: Date | undefined;
+
+  /**
+   * <p>The time that the pipeline was last modified.</p>
+   * @public
+   */
+  LastModifiedTime?: Date | undefined;
+
+  /**
+   * <p>The time when the pipeline was last run.</p>
+   * @public
+   */
+  LastRunTime?: Date | undefined;
+
+  /**
+   * <p>Information about the user who created or modified a SageMaker resource.</p>
+   * @public
+   */
+  CreatedBy?: UserContext | undefined;
+
+  /**
+   * <p>Information about the user who created or modified a SageMaker resource.</p>
+   * @public
+   */
+  LastModifiedBy?: UserContext | undefined;
+
+  /**
+   * <p>The parallelism configuration applied to the pipeline.</p>
+   * @public
+   */
+  ParallelismConfiguration?: ParallelismConfiguration | undefined;
+
+  /**
+   * <p>A list of tags that apply to the pipeline.</p>
+   * @public
+   */
+  Tags?: Tag[] | undefined;
+}
+
+/**
+ * <p>An execution of a pipeline.</p>
+ * @public
+ */
+export interface PipelineExecution {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the pipeline that was executed.</p>
+   * @public
+   */
+  PipelineArn?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the pipeline execution.</p>
+   * @public
+   */
+  PipelineExecutionArn?: string | undefined;
+
+  /**
+   * <p>The display name of the pipeline execution.</p>
+   * @public
+   */
+  PipelineExecutionDisplayName?: string | undefined;
+
+  /**
+   * <p>The status of the pipeline status.</p>
+   * @public
+   */
+  PipelineExecutionStatus?: PipelineExecutionStatus | undefined;
+
+  /**
+   * <p>The description of the pipeline execution.</p>
+   * @public
+   */
+  PipelineExecutionDescription?: string | undefined;
+
+  /**
+   * <p>Specifies the names of the experiment and trial created by a pipeline.</p>
+   * @public
+   */
+  PipelineExperimentConfig?: PipelineExperimentConfig | undefined;
+
+  /**
+   * <p>If the execution failed, a message describing why.</p>
+   * @public
+   */
+  FailureReason?: string | undefined;
+
+  /**
+   * <p>The creation time of the pipeline execution.</p>
+   * @public
+   */
+  CreationTime?: Date | undefined;
+
+  /**
+   * <p>The time that the pipeline execution was last modified.</p>
+   * @public
+   */
+  LastModifiedTime?: Date | undefined;
+
+  /**
+   * <p>Information about the user who created or modified a SageMaker resource.</p>
+   * @public
+   */
+  CreatedBy?: UserContext | undefined;
+
+  /**
+   * <p>Information about the user who created or modified a SageMaker resource.</p>
+   * @public
+   */
+  LastModifiedBy?: UserContext | undefined;
+
+  /**
+   * <p>The parallelism configuration applied to the pipeline execution.</p>
+   * @public
+   */
+  ParallelismConfiguration?: ParallelismConfiguration | undefined;
+
+  /**
+   * <p>The selective execution configuration applied to the pipeline run.</p>
+   * @public
+   */
+  SelectiveExecutionConfig?: SelectiveExecutionConfig | undefined;
+
+  /**
+   * <p>Contains a list of pipeline parameters. This list can be empty. </p>
+   * @public
+   */
+  PipelineParameters?: Parameter[] | undefined;
+
+  /**
+   * <p>The ID of the pipeline version that started this execution.</p>
+   * @public
+   */
+  PipelineVersionId?: number | undefined;
+
+  /**
+   * <p>The display name of the pipeline version that started this execution.</p>
+   * @public
+   */
+  PipelineVersionDisplayName?: string | undefined;
+}
+
+/**
+ * <p>The version of the pipeline.</p>
+ * @public
+ */
+export interface PipelineVersion {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the pipeline.</p>
+   * @public
+   */
+  PipelineArn?: string | undefined;
+
+  /**
+   * <p>The ID of the pipeline version.</p>
+   * @public
+   */
+  PipelineVersionId?: number | undefined;
+
+  /**
+   * <p>The display name of the pipeline version.</p>
+   * @public
+   */
+  PipelineVersionDisplayName?: string | undefined;
+
+  /**
+   * <p>The description of the pipeline version.</p>
+   * @public
+   */
+  PipelineVersionDescription?: string | undefined;
+
+  /**
+   * <p>The creation time of the pipeline version.</p>
+   * @public
+   */
+  CreationTime?: Date | undefined;
+
+  /**
+   * <p>The time when the pipeline version was last modified.</p>
+   * @public
+   */
+  LastModifiedTime?: Date | undefined;
+
+  /**
+   * <p>Information about the user who created or modified a SageMaker resource.</p>
+   * @public
+   */
+  CreatedBy?: UserContext | undefined;
+
+  /**
+   * <p>Information about the user who created or modified a SageMaker resource.</p>
+   * @public
+   */
+  LastModifiedBy?: UserContext | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the most recent pipeline execution created from this pipeline version.</p>
+   * @public
+   */
+  LastExecutedPipelineExecutionArn?: string | undefined;
+
+  /**
+   * <p>The display name of the most recent pipeline execution created from this pipeline version.</p>
+   * @public
+   */
+  LastExecutedPipelineExecutionDisplayName?: string | undefined;
+
+  /**
+   * <p>The status of the most recent pipeline execution created from this pipeline version.</p>
+   * @public
+   */
+  LastExecutedPipelineExecutionStatus?: PipelineExecutionStatus | undefined;
+}
+
+/**
+ * <p>An Amazon SageMaker processing job that is used to analyze data and evaluate models. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/processing-job.html">Process Data and Evaluate Models</a>.</p>
+ * @public
+ */
+export interface ProcessingJob {
+  /**
+   * <p>List of input configurations for the processing job.</p>
+   * @public
+   */
+  ProcessingInputs?: ProcessingInput[] | undefined;
+
+  /**
+   * <p>Configuration for uploading output from the processing container.</p>
+   * @public
+   */
+  ProcessingOutputConfig?: ProcessingOutputConfig | undefined;
+
+  /**
+   * <p>The name of the processing job.</p>
+   * @public
+   */
+  ProcessingJobName?: string | undefined;
+
+  /**
+   * <p>Identifies the resources, ML compute instances, and ML storage volumes to deploy for a processing job. In distributed training, you specify more than one instance.</p>
+   * @public
+   */
+  ProcessingResources?: ProcessingResources | undefined;
+
+  /**
+   * <p>Configures conditions under which the processing job should be stopped, such as how long the processing job has been running. After the condition is met, the processing job is stopped.</p>
+   * @public
+   */
+  StoppingCondition?: ProcessingStoppingCondition | undefined;
+
+  /**
+   * <p>Configuration to run a processing job in a specified container image.</p>
+   * @public
+   */
+  AppSpecification?: AppSpecification | undefined;
+
+  /**
+   * <p>Sets the environment variables in the Docker container.</p>
+   * @public
+   */
+  Environment?: Record<string, string> | undefined;
+
+  /**
+   * <p>Networking options for a job, such as network traffic encryption between containers, whether to allow inbound and outbound network calls to and from containers, and the VPC subnets and security groups to use for VPC-enabled jobs.</p>
+   * @public
+   */
+  NetworkConfig?: NetworkConfig | undefined;
+
+  /**
+   * <p>The ARN of the role used to create the processing job.</p>
+   * @public
+   */
+  RoleArn?: string | undefined;
+
+  /**
+   * <p>Associates a SageMaker job as a trial component with an experiment and trial. Specified when you call the following APIs:</p> <ul> <li> <p> <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateProcessingJob.html">CreateProcessingJob</a> </p> </li> <li> <p> <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateTrainingJob.html">CreateTrainingJob</a> </p> </li> <li> <p> <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateTransformJob.html">CreateTransformJob</a> </p> </li> </ul>
+   * @public
+   */
+  ExperimentConfig?: ExperimentConfig | undefined;
+
+  /**
+   * <p>The ARN of the processing job.</p>
+   * @public
+   */
+  ProcessingJobArn?: string | undefined;
+
+  /**
+   * <p>The status of the processing job.</p>
+   * @public
+   */
+  ProcessingJobStatus?: ProcessingJobStatus | undefined;
+
+  /**
+   * <p>A string, up to one KB in size, that contains metadata from the processing container when the processing job exits.</p>
+   * @public
+   */
+  ExitMessage?: string | undefined;
+
+  /**
+   * <p>A string, up to one KB in size, that contains the reason a processing job failed, if it failed.</p>
+   * @public
+   */
+  FailureReason?: string | undefined;
+
+  /**
+   * <p>The time that the processing job ended.</p>
+   * @public
+   */
+  ProcessingEndTime?: Date | undefined;
+
+  /**
+   * <p>The time that the processing job started.</p>
+   * @public
+   */
+  ProcessingStartTime?: Date | undefined;
+
+  /**
+   * <p>The time the processing job was last modified.</p>
+   * @public
+   */
+  LastModifiedTime?: Date | undefined;
+
+  /**
+   * <p>The time the processing job was created.</p>
+   * @public
+   */
+  CreationTime?: Date | undefined;
+
+  /**
+   * <p>The ARN of a monitoring schedule for an endpoint associated with this processing job.</p>
+   * @public
+   */
+  MonitoringScheduleArn?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the AutoML job associated with this processing job.</p>
+   * @public
+   */
+  AutoMLJobArn?: string | undefined;
+
+  /**
+   * <p>The ARN of the training job associated with this processing job.</p>
+   * @public
+   */
+  TrainingJobArn?: string | undefined;
+
+  /**
+   * <p>An array of key-value pairs. For more information, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-whatURL">Using Cost Allocation Tags</a> in the <i>Amazon Web Services Billing and Cost Management User Guide</i>.</p>
+   * @public
+   */
+  Tags?: Tag[] | undefined;
+}
+
+/**
+ * <p>Configuration information for updating the Amazon SageMaker Debugger profile parameters, system and framework metrics configurations, and storage paths.</p>
+ * @public
+ */
+export interface ProfilerConfigForUpdate {
+  /**
+   * <p>Path to Amazon S3 storage location for system and framework metrics.</p>
+   * @public
+   */
+  S3OutputPath?: string | undefined;
+
+  /**
+   * <p>A time interval for capturing system metrics in milliseconds. Available values are 100, 200, 500, 1000 (1 second), 5000 (5 seconds), and 60000 (1 minute) milliseconds. The default value is 500 milliseconds.</p>
+   * @public
+   */
+  ProfilingIntervalInMilliseconds?: number | undefined;
+
+  /**
+   * <p>Configuration information for capturing framework metrics. Available key strings for different profiling options are <code>DetailedProfilingConfig</code>, <code>PythonProfilingConfig</code>, and <code>DataLoaderProfilingConfig</code>. The following codes are configuration structures for the <code>ProfilingParameters</code> parameter. To learn more about how to configure the <code>ProfilingParameters</code> parameter, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/debugger-createtrainingjob-api.html">Use the SageMaker and Debugger Configuration API Operations to Create, Update, and Debug Your Training Job</a>. </p>
+   * @public
+   */
+  ProfilingParameters?: Record<string, string> | undefined;
+
+  /**
+   * <p>To turn off Amazon SageMaker Debugger monitoring and profiling while a training job is in progress, set to <code>True</code>.</p>
+   * @public
+   */
+  DisableProfiler?: boolean | undefined;
+}
+
+/**
+ * <p>The properties of a project as returned by the Search API.</p>
+ * @public
+ */
+export interface Project {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the project.</p>
+   * @public
+   */
+  ProjectArn?: string | undefined;
+
+  /**
+   * <p>The name of the project.</p>
+   * @public
+   */
+  ProjectName?: string | undefined;
+
+  /**
+   * <p>The ID of the project.</p>
+   * @public
+   */
+  ProjectId?: string | undefined;
+
+  /**
+   * <p>The description of the project.</p>
+   * @public
+   */
+  ProjectDescription?: string | undefined;
+
+  /**
+   * <p>Details that you specify to provision a service catalog product. For information about service catalog, see <a href="https://docs.aws.amazon.com/servicecatalog/latest/adminguide/introduction.html">What is Amazon Web Services Service Catalog</a>.</p>
+   * @public
+   */
+  ServiceCatalogProvisioningDetails?: ServiceCatalogProvisioningDetails | undefined;
+
+  /**
+   * <p>Details of a provisioned service catalog product. For information about service catalog, see <a href="https://docs.aws.amazon.com/servicecatalog/latest/adminguide/introduction.html">What is Amazon Web Services Service Catalog</a>.</p>
+   * @public
+   */
+  ServiceCatalogProvisionedProductDetails?: ServiceCatalogProvisionedProductDetails | undefined;
+
+  /**
+   * <p>The status of the project.</p>
+   * @public
+   */
+  ProjectStatus?: ProjectStatus | undefined;
+
+  /**
+   * <p>Who created the project.</p>
+   * @public
+   */
+  CreatedBy?: UserContext | undefined;
+
+  /**
+   * <p>A timestamp specifying when the project was created.</p>
+   * @public
+   */
+  CreationTime?: Date | undefined;
+
+  /**
+   * <p> An array of template providers associated with the project. </p>
+   * @public
+   */
+  TemplateProviderDetails?: TemplateProviderDetail[] | undefined;
+
+  /**
+   * <p>An array of key-value pairs. You can use tags to categorize your Amazon Web Services resources in different ways, for example, by purpose, owner, or environment. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services Resources</a>.</p>
+   * @public
+   */
+  Tags?: Tag[] | undefined;
+
+  /**
+   * <p>A timestamp container for when the project was last modified.</p>
+   * @public
+   */
+  LastModifiedTime?: Date | undefined;
+
+  /**
+   * <p>Information about the user who created or modified a SageMaker resource.</p>
+   * @public
+   */
+  LastModifiedBy?: UserContext | undefined;
+}
+
+/**
+ * @public
+ */
+export interface PutModelPackageGroupPolicyInput {
+  /**
+   * <p>The name of the model group to add a resource policy to.</p>
+   * @public
+   */
+  ModelPackageGroupName: string | undefined;
+
+  /**
+   * <p>The resource policy for the model group.</p>
+   * @public
+   */
+  ResourcePolicy: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface PutModelPackageGroupPolicyOutput {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the model package group.</p>
+   * @public
+   */
+  ModelPackageGroupArn: string | undefined;
+}
+
+/**
+ * <p>A set of filters to narrow the set of lineage entities connected to the <code>StartArn</code>(s) returned by the <code>QueryLineage</code> API action.</p>
+ * @public
+ */
+export interface QueryFilters {
+  /**
+   * <p>Filter the lineage entities connected to the <code>StartArn</code> by type. For example: <code>DataSet</code>, <code>Model</code>, <code>Endpoint</code>, or <code>ModelDeployment</code>.</p>
+   * @public
+   */
+  Types?: string[] | undefined;
+
+  /**
+   * <p>Filter the lineage entities connected to the <code>StartArn</code>(s) by the type of the lineage entity.</p>
+   * @public
+   */
+  LineageTypes?: LineageType[] | undefined;
+
+  /**
+   * <p>Filter the lineage entities connected to the <code>StartArn</code>(s) by created date.</p>
+   * @public
+   */
+  CreatedBefore?: Date | undefined;
+
+  /**
+   * <p>Filter the lineage entities connected to the <code>StartArn</code>(s) after the create date.</p>
+   * @public
+   */
+  CreatedAfter?: Date | undefined;
+
+  /**
+   * <p>Filter the lineage entities connected to the <code>StartArn</code>(s) before the last modified date.</p>
+   * @public
+   */
+  ModifiedBefore?: Date | undefined;
+
+  /**
+   * <p>Filter the lineage entities connected to the <code>StartArn</code>(s) after the last modified date.</p>
+   * @public
+   */
+  ModifiedAfter?: Date | undefined;
+
+  /**
+   * <p>Filter the lineage entities connected to the <code>StartArn</code>(s) by a set if property key value pairs. If multiple pairs are provided, an entity is included in the results if it matches any of the provided pairs.</p>
+   * @public
+   */
+  Properties?: Record<string, string> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface QueryLineageRequest {
+  /**
+   * <p>A list of resource Amazon Resource Name (ARN) that represent the starting point for your lineage query.</p>
+   * @public
+   */
+  StartArns?: string[] | undefined;
+
+  /**
+   * <p>Associations between lineage entities have a direction. This parameter determines the direction from the StartArn(s) that the query traverses.</p>
+   * @public
+   */
+  Direction?: Direction | undefined;
+
+  /**
+   * <p> Setting this value to <code>True</code> retrieves not only the entities of interest but also the <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/lineage-tracking-entities.html">Associations</a> and lineage entities on the path. Set to <code>False</code> to only return lineage entities that match your query.</p>
+   * @public
+   */
+  IncludeEdges?: boolean | undefined;
+
+  /**
+   * <p>A set of filtering parameters that allow you to specify which entities should be returned.</p> <ul> <li> <p>Properties - Key-value pairs to match on the lineage entities' properties.</p> </li> <li> <p>LineageTypes - A set of lineage entity types to match on. For example: <code>TrialComponent</code>, <code>Artifact</code>, or <code>Context</code>.</p> </li> <li> <p>CreatedBefore - Filter entities created before this date.</p> </li> <li> <p>ModifiedBefore - Filter entities modified before this date.</p> </li> <li> <p>ModifiedAfter - Filter entities modified after this date.</p> </li> </ul>
+   * @public
+   */
+  Filters?: QueryFilters | undefined;
+
+  /**
+   * <p>The maximum depth in lineage relationships from the <code>StartArns</code> that are traversed. Depth is a measure of the number of <code>Associations</code> from the <code>StartArn</code> entity to the matched results.</p>
+   * @public
+   */
+  MaxDepth?: number | undefined;
+
+  /**
+   * <p>Limits the number of vertices in the results. Use the <code>NextToken</code> in a response to to retrieve the next page of results.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>Limits the number of vertices in the request. Use the <code>NextToken</code> in a response to to retrieve the next page of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * <p>A lineage entity connected to the starting entity(ies).</p>
+ * @public
+ */
+export interface Vertex {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the lineage entity resource.</p>
+   * @public
+   */
+  Arn?: string | undefined;
+
+  /**
+   * <p>The type of the lineage entity resource. For example: <code>DataSet</code>, <code>Model</code>, <code>Endpoint</code>, etc...</p>
+   * @public
+   */
+  Type?: string | undefined;
+
+  /**
+   * <p>The type of resource of the lineage entity.</p>
+   * @public
+   */
+  LineageType?: LineageType | undefined;
+}
+
+/**
+ * @public
+ */
+export interface QueryLineageResponse {
+  /**
+   * <p>A list of vertices connected to the start entity(ies) in the lineage graph.</p>
+   * @public
+   */
+  Vertices?: Vertex[] | undefined;
+
+  /**
+   * <p>A list of edges that connect vertices in the response.</p>
+   * @public
+   */
+  Edges?: Edge[] | undefined;
+
+  /**
+   * <p>Limits the number of vertices in the response. Use the <code>NextToken</code> in a response to to retrieve the next page of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface RegisterDevicesRequest {
+  /**
+   * <p>The name of the fleet.</p>
+   * @public
+   */
+  DeviceFleetName: string | undefined;
+
+  /**
+   * <p>A list of devices to register with SageMaker Edge Manager.</p>
+   * @public
+   */
+  Devices: Device[] | undefined;
+
+  /**
+   * <p>The tags associated with devices.</p>
+   * @public
+   */
+  Tags?: Tag[] | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const Relation = {
+  EQUAL_TO: "EqualTo",
+  GREATER_THAN_OR_EQUAL_TO: "GreaterThanOrEqualTo",
+} as const;
+
+/**
+ * @public
+ */
+export type Relation = (typeof Relation)[keyof typeof Relation];
+
+/**
+ * <p>Configuration for remote debugging for the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_UpdateTrainingJob.html">UpdateTrainingJob</a> API. To learn more about the remote debugging functionality of SageMaker, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/train-remote-debugging.html">Access a training container through Amazon Web Services Systems Manager (SSM) for remote debugging</a>.</p>
+ * @public
+ */
+export interface RemoteDebugConfigForUpdate {
+  /**
+   * <p>If set to True, enables remote debugging.</p>
+   * @public
+   */
+  EnableRemoteDebug?: boolean | undefined;
+}
+
+/**
+ * <p>Contains input values for a task.</p>
+ * @public
+ */
+export interface RenderableTask {
+  /**
+   * <p>A JSON object that contains values for the variables defined in the template. It is made available to the template under the substitution variable <code>task.input</code>. For example, if you define a variable <code>task.input.text</code> in your template, you can supply the variable in the JSON object as <code>"text": "sample text"</code>.</p>
+   * @public
+   */
+  Input: string | undefined;
+}
+
+/**
+ * <p>A description of an error that occurred while rendering the template.</p>
+ * @public
+ */
+export interface RenderingError {
+  /**
+   * <p>A unique identifier for a specific class of errors.</p>
+   * @public
+   */
+  Code: string | undefined;
+
+  /**
+   * <p>A human-readable message describing the error.</p>
+   * @public
+   */
+  Message: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface RenderUiTemplateRequest {
+  /**
+   * <p>A <code>Template</code> object containing the worker UI template to render.</p>
+   * @public
+   */
+  UiTemplate?: UiTemplate | undefined;
+
+  /**
+   * <p>A <code>RenderableTask</code> object containing a representative task to render.</p>
+   * @public
+   */
+  Task: RenderableTask | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) that has access to the S3 objects that are used by the template.</p>
+   * @public
+   */
+  RoleArn: string | undefined;
+
+  /**
+   * <p>The <code>HumanTaskUiArn</code> of the worker UI that you want to render. Do not provide a <code>HumanTaskUiArn</code> if you use the <code>UiTemplate</code> parameter.</p> <p>See a list of available Human Ui Amazon Resource Names (ARNs) in <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_UiConfig.html">UiConfig</a>.</p>
+   * @public
+   */
+  HumanTaskUiArn?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface RenderUiTemplateResponse {
+  /**
+   * <p>A Liquid template that renders the HTML for the worker UI.</p>
+   * @public
+   */
+  RenderedContent: string | undefined;
+
+  /**
+   * <p>A list of one or more <code>RenderingError</code> objects if any were encountered while rendering the template. If there were no errors, the list is empty.</p>
+   * @public
+   */
+  Errors: RenderingError[] | undefined;
+}
+
+/**
+ * <p>Details about a reserved capacity offering for a training plan offering.</p> <p>For more information about how to reserve GPU capacity for your SageMaker HyperPod clusters using Amazon SageMaker Training Plan, see <code> <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateTrainingPlan.html">CreateTrainingPlan</a> </code>.</p>
+ * @public
+ */
+export interface ReservedCapacityOffering {
+  /**
+   * <p>The instance type for the reserved capacity offering.</p>
+   * @public
+   */
+  InstanceType: ReservedCapacityInstanceType | undefined;
+
+  /**
+   * <p>The number of instances in the reserved capacity offering.</p>
+   * @public
+   */
+  InstanceCount: number | undefined;
+
+  /**
+   * <p>The availability zone for the reserved capacity offering.</p>
+   * @public
+   */
+  AvailabilityZone?: string | undefined;
+
+  /**
+   * <p>The number of whole hours in the total duration for this reserved capacity offering.</p>
+   * @public
+   */
+  DurationHours?: number | undefined;
+
+  /**
+   * <p>The additional minutes beyond whole hours in the total duration for this reserved capacity offering.</p>
+   * @public
+   */
+  DurationMinutes?: number | undefined;
+
+  /**
+   * <p>The start time of the reserved capacity offering.</p>
+   * @public
+   */
+  StartTime?: Date | undefined;
+
+  /**
+   * <p>The end time of the reserved capacity offering.</p>
+   * @public
+   */
+  EndTime?: Date | undefined;
+}
 
 /**
  * <p>The <code>ResourceConfig</code> to update <code>KeepAlivePeriodInSeconds</code>. Other fields in the <code>ResourceConfig</code> cannot be updated.</p>
@@ -1737,6 +2707,12 @@ export interface UpdateClusterSoftwareRequest {
    * @public
    */
   DeploymentConfig?: DeploymentConfiguration | undefined;
+
+  /**
+   * <p>When configuring your HyperPod cluster, you can specify an image ID using one of the following options:</p> <ul> <li> <p> <code>HyperPodPublicAmiId</code>: Use a HyperPod public AMI</p> </li> <li> <p> <code>CustomAmiId</code>: Use your custom AMI</p> </li> <li> <p> <code>default</code>: Use the default latest system image</p> </li> </ul> <p>f you choose to use a custom AMI (<code>CustomAmiId</code>), ensure it meets the following requirements:</p> <ul> <li> <p>Encryption: The custom AMI must be unencrypted.</p> </li> <li> <p>Ownership: The custom AMI must be owned by the same Amazon Web Services account that is creating the HyperPod cluster.</p> </li> <li> <p>Volume support: Only the primary AMI snapshot volume is supported; additional AMI volumes are not supported.</p> </li> </ul> <p>When updating the instance group's AMI through the <code>UpdateClusterSoftware</code> operation, if an instance group uses a custom AMI, you must provide an <code>ImageId</code> or use the default as input.</p>
+   * @public
+   */
+  ImageId?: string | undefined;
 }
 
 /**

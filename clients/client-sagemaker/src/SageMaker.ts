@@ -19,6 +19,11 @@ import {
   AttachClusterNodeVolumeCommandOutput,
 } from "./commands/AttachClusterNodeVolumeCommand";
 import {
+  BatchAddClusterNodesCommand,
+  BatchAddClusterNodesCommandInput,
+  BatchAddClusterNodesCommandOutput,
+} from "./commands/BatchAddClusterNodesCommand";
+import {
   BatchDeleteClusterNodesCommand,
   BatchDeleteClusterNodesCommandInput,
   BatchDeleteClusterNodesCommandOutput,
@@ -623,6 +628,11 @@ import {
   DescribeClusterCommandOutput,
 } from "./commands/DescribeClusterCommand";
 import {
+  DescribeClusterEventCommand,
+  DescribeClusterEventCommandInput,
+  DescribeClusterEventCommandOutput,
+} from "./commands/DescribeClusterEventCommand";
+import {
   DescribeClusterNodeCommand,
   DescribeClusterNodeCommandInput,
   DescribeClusterNodeCommandOutput,
@@ -1001,6 +1011,11 @@ import {
   ListCandidatesForAutoMLJobCommandInput,
   ListCandidatesForAutoMLJobCommandOutput,
 } from "./commands/ListCandidatesForAutoMLJobCommand";
+import {
+  ListClusterEventsCommand,
+  ListClusterEventsCommandInput,
+  ListClusterEventsCommandOutput,
+} from "./commands/ListClusterEventsCommand";
 import {
   ListClusterNodesCommand,
   ListClusterNodesCommandInput,
@@ -1701,6 +1716,7 @@ const commands = {
   AddTagsCommand,
   AssociateTrialComponentCommand,
   AttachClusterNodeVolumeCommand,
+  BatchAddClusterNodesCommand,
   BatchDeleteClusterNodesCommand,
   BatchDescribeModelPackageCommand,
   CreateActionCommand,
@@ -1833,6 +1849,7 @@ const commands = {
   DescribeAutoMLJobCommand,
   DescribeAutoMLJobV2Command,
   DescribeClusterCommand,
+  DescribeClusterEventCommand,
   DescribeClusterNodeCommand,
   DescribeClusterSchedulerConfigCommand,
   DescribeCodeRepositoryCommand,
@@ -1912,6 +1929,7 @@ const commands = {
   ListAssociationsCommand,
   ListAutoMLJobsCommand,
   ListCandidatesForAutoMLJobCommand,
+  ListClusterEventsCommand,
   ListClusterNodesCommand,
   ListClustersCommand,
   ListClusterSchedulerConfigsCommand,
@@ -2121,6 +2139,23 @@ export interface SageMaker {
     args: AttachClusterNodeVolumeCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: AttachClusterNodeVolumeCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link BatchAddClusterNodesCommand}
+   */
+  batchAddClusterNodes(
+    args: BatchAddClusterNodesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<BatchAddClusterNodesCommandOutput>;
+  batchAddClusterNodes(
+    args: BatchAddClusterNodesCommandInput,
+    cb: (err: any, data?: BatchAddClusterNodesCommandOutput) => void
+  ): void;
+  batchAddClusterNodes(
+    args: BatchAddClusterNodesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: BatchAddClusterNodesCommandOutput) => void
   ): void;
 
   /**
@@ -4175,6 +4210,23 @@ export interface SageMaker {
   ): void;
 
   /**
+   * @see {@link DescribeClusterEventCommand}
+   */
+  describeClusterEvent(
+    args: DescribeClusterEventCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeClusterEventCommandOutput>;
+  describeClusterEvent(
+    args: DescribeClusterEventCommandInput,
+    cb: (err: any, data?: DescribeClusterEventCommandOutput) => void
+  ): void;
+  describeClusterEvent(
+    args: DescribeClusterEventCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeClusterEventCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DescribeClusterNodeCommand}
    */
   describeClusterNode(
@@ -5453,6 +5505,23 @@ export interface SageMaker {
     args: ListCandidatesForAutoMLJobCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListCandidatesForAutoMLJobCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListClusterEventsCommand}
+   */
+  listClusterEvents(
+    args: ListClusterEventsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListClusterEventsCommandOutput>;
+  listClusterEvents(
+    args: ListClusterEventsCommandInput,
+    cb: (err: any, data?: ListClusterEventsCommandOutput) => void
+  ): void;
+  listClusterEvents(
+    args: ListClusterEventsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListClusterEventsCommandOutput) => void
   ): void;
 
   /**

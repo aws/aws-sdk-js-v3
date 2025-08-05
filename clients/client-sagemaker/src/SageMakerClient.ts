@@ -64,6 +64,10 @@ import {
   AttachClusterNodeVolumeCommandOutput,
 } from "./commands/AttachClusterNodeVolumeCommand";
 import {
+  BatchAddClusterNodesCommandInput,
+  BatchAddClusterNodesCommandOutput,
+} from "./commands/BatchAddClusterNodesCommand";
+import {
   BatchDeleteClusterNodesCommandInput,
   BatchDeleteClusterNodesCommandOutput,
 } from "./commands/BatchDeleteClusterNodesCommand";
@@ -382,6 +386,10 @@ import {
 } from "./commands/DescribeAutoMLJobV2Command";
 import { DescribeClusterCommandInput, DescribeClusterCommandOutput } from "./commands/DescribeClusterCommand";
 import {
+  DescribeClusterEventCommandInput,
+  DescribeClusterEventCommandOutput,
+} from "./commands/DescribeClusterEventCommand";
+import {
   DescribeClusterNodeCommandInput,
   DescribeClusterNodeCommandOutput,
 } from "./commands/DescribeClusterNodeCommand";
@@ -622,6 +630,7 @@ import {
   ListCandidatesForAutoMLJobCommandInput,
   ListCandidatesForAutoMLJobCommandOutput,
 } from "./commands/ListCandidatesForAutoMLJobCommand";
+import { ListClusterEventsCommandInput, ListClusterEventsCommandOutput } from "./commands/ListClusterEventsCommand";
 import { ListClusterNodesCommandInput, ListClusterNodesCommandOutput } from "./commands/ListClusterNodesCommand";
 import {
   ListClusterSchedulerConfigsCommandInput,
@@ -1021,6 +1030,7 @@ export type ServiceInputTypes =
   | AddTagsCommandInput
   | AssociateTrialComponentCommandInput
   | AttachClusterNodeVolumeCommandInput
+  | BatchAddClusterNodesCommandInput
   | BatchDeleteClusterNodesCommandInput
   | BatchDescribeModelPackageCommandInput
   | CreateActionCommandInput
@@ -1153,6 +1163,7 @@ export type ServiceInputTypes =
   | DescribeAutoMLJobCommandInput
   | DescribeAutoMLJobV2CommandInput
   | DescribeClusterCommandInput
+  | DescribeClusterEventCommandInput
   | DescribeClusterNodeCommandInput
   | DescribeClusterSchedulerConfigCommandInput
   | DescribeCodeRepositoryCommandInput
@@ -1232,6 +1243,7 @@ export type ServiceInputTypes =
   | ListAssociationsCommandInput
   | ListAutoMLJobsCommandInput
   | ListCandidatesForAutoMLJobCommandInput
+  | ListClusterEventsCommandInput
   | ListClusterNodesCommandInput
   | ListClusterSchedulerConfigsCommandInput
   | ListClustersCommandInput
@@ -1390,6 +1402,7 @@ export type ServiceOutputTypes =
   | AddTagsCommandOutput
   | AssociateTrialComponentCommandOutput
   | AttachClusterNodeVolumeCommandOutput
+  | BatchAddClusterNodesCommandOutput
   | BatchDeleteClusterNodesCommandOutput
   | BatchDescribeModelPackageCommandOutput
   | CreateActionCommandOutput
@@ -1522,6 +1535,7 @@ export type ServiceOutputTypes =
   | DescribeAutoMLJobCommandOutput
   | DescribeAutoMLJobV2CommandOutput
   | DescribeClusterCommandOutput
+  | DescribeClusterEventCommandOutput
   | DescribeClusterNodeCommandOutput
   | DescribeClusterSchedulerConfigCommandOutput
   | DescribeCodeRepositoryCommandOutput
@@ -1601,6 +1615,7 @@ export type ServiceOutputTypes =
   | ListAssociationsCommandOutput
   | ListAutoMLJobsCommandOutput
   | ListCandidatesForAutoMLJobCommandOutput
+  | ListClusterEventsCommandOutput
   | ListClusterNodesCommandOutput
   | ListClusterSchedulerConfigsCommandOutput
   | ListClustersCommandOutput

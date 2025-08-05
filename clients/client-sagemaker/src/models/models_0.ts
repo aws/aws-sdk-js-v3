@@ -209,6 +209,36 @@ export class ResourceNotFound extends __BaseException {
 }
 
 /**
+ * <p>Specifies an instance group and the number of nodes to add to it.</p>
+ * @public
+ */
+export interface AddClusterNodeSpecification {
+  /**
+   * <p>The name of the instance group to which you want to add nodes.</p>
+   * @public
+   */
+  InstanceGroupName: string | undefined;
+
+  /**
+   * <p>The number of nodes to add to the specified instance group. The total number of nodes across all instance groups in a single request cannot exceed 50.</p>
+   * @public
+   */
+  IncrementTargetCountBy: number | undefined;
+}
+
+/**
+ * <p>Information about additional Elastic Network Interfaces (ENIs) associated with an instance.</p>
+ * @public
+ */
+export interface AdditionalEnis {
+  /**
+   * <p>A list of Elastic Fabric Adapter (EFA) ENIs associated with the instance.</p>
+   * @public
+   */
+  EfaEnis?: string[] | undefined;
+}
+
+/**
  * @public
  * @enum
  */
@@ -4854,6 +4884,134 @@ export type AwsManagedHumanLoopRequestSource =
   (typeof AwsManagedHumanLoopRequestSource)[keyof typeof AwsManagedHumanLoopRequestSource];
 
 /**
+ * @public
+ */
+export interface BatchAddClusterNodesRequest {
+  /**
+   * <p>The name of the HyperPod cluster to which you want to add nodes.</p>
+   * @public
+   */
+  ClusterName: string | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. This token is valid for 8 hours. If you retry the request with the same client token within this timeframe and the same parameters, the API returns the same set of <code>NodeLogicalIds</code> with their latest status.</p>
+   * @public
+   */
+  ClientToken?: string | undefined;
+
+  /**
+   * <p>A list of instance groups and the number of nodes to add to each. You can specify up to 5 instance groups in a single request, with a maximum of 50 nodes total across all instance groups.</p>
+   * @public
+   */
+  NodesToAdd: AddClusterNodeSpecification[] | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const BatchAddClusterNodesErrorCode = {
+  INSTANCE_GROUP_NOT_FOUND: "InstanceGroupNotFound",
+  INVALID_INSTANCE_GROUP_STATUS: "InvalidInstanceGroupStatus",
+} as const;
+
+/**
+ * @public
+ */
+export type BatchAddClusterNodesErrorCode =
+  (typeof BatchAddClusterNodesErrorCode)[keyof typeof BatchAddClusterNodesErrorCode];
+
+/**
+ * <p>Information about an error that occurred during the node addition operation.</p>
+ * @public
+ */
+export interface BatchAddClusterNodesError {
+  /**
+   * <p>The name of the instance group for which the error occurred.</p>
+   * @public
+   */
+  InstanceGroupName: string | undefined;
+
+  /**
+   * <p>The error code associated with the failure. Possible values include <code>InstanceGroupNotFound</code> and <code>InvalidInstanceGroupState</code>.</p>
+   * @public
+   */
+  ErrorCode: BatchAddClusterNodesErrorCode | undefined;
+
+  /**
+   * <p>The number of nodes that failed to be added to the specified instance group.</p>
+   * @public
+   */
+  FailedCount: number | undefined;
+
+  /**
+   * <p>A descriptive message providing additional details about the error.</p>
+   * @public
+   */
+  Message?: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const ClusterInstanceStatus = {
+  DEEP_HEALTH_CHECK_IN_PROGRESS: "DeepHealthCheckInProgress",
+  FAILURE: "Failure",
+  NOT_FOUND: "NotFound",
+  PENDING: "Pending",
+  RUNNING: "Running",
+  SHUTTING_DOWN: "ShuttingDown",
+  SYSTEM_UPDATING: "SystemUpdating",
+} as const;
+
+/**
+ * @public
+ */
+export type ClusterInstanceStatus = (typeof ClusterInstanceStatus)[keyof typeof ClusterInstanceStatus];
+
+/**
+ * <p>Information about a node that was successfully added to the cluster.</p>
+ * @public
+ */
+export interface NodeAdditionResult {
+  /**
+   * <p>A unique identifier assigned to the node that can be used to track its provisioning status through the <code>DescribeClusterNode</code> operation.</p>
+   * @public
+   */
+  NodeLogicalId: string | undefined;
+
+  /**
+   * <p>The name of the instance group to which the node was added.</p>
+   * @public
+   */
+  InstanceGroupName: string | undefined;
+
+  /**
+   * <p>The current status of the node. Possible values include <code>Pending</code>, <code>Running</code>, <code>Failed</code>, <code>ShuttingDown</code>, <code>SystemUpdating</code>, <code>DeepHealthCheckInProgress</code>, and <code>NotFound</code>.</p>
+   * @public
+   */
+  Status: ClusterInstanceStatus | undefined;
+}
+
+/**
+ * @public
+ */
+export interface BatchAddClusterNodesResponse {
+  /**
+   * <p>A list of <code>NodeLogicalIDs</code> that were successfully added to the cluster. The <code>NodeLogicalID</code> is unique per cluster and does not change between instance replacements. Each entry includes a <code>NodeLogicalId</code> that can be used to track the node's provisioning status (with <code>DescribeClusterNode</code>), the instance group name, and the current status of the node.</p>
+   * @public
+   */
+  Successful: NodeAdditionResult[] | undefined;
+
+  /**
+   * <p>A list of errors that occurred during the node addition operation. Each entry includes the instance group name, error code, number of failed additions, and an error message.</p>
+   * @public
+   */
+  Failed: BatchAddClusterNodesError[] | undefined;
+}
+
+/**
  * <p>Configuration to control how SageMaker captures inference data for batch transform jobs.</p>
  * @public
  */
@@ -4879,23 +5037,6 @@ export interface BatchDataCaptureConfig {
 
 /**
  * @public
- */
-export interface BatchDeleteClusterNodesRequest {
-  /**
-   * <p>The name of the SageMaker HyperPod cluster from which to delete the specified nodes.</p>
-   * @public
-   */
-  ClusterName: string | undefined;
-
-  /**
-   * <p>A list of node IDs to be deleted from the specified cluster.</p> <note> <ul> <li> <p>For SageMaker HyperPod clusters using the Slurm workload manager, you cannot remove instances that are configured as Slurm controller nodes.</p> </li> <li> <p>If you need to delete more than 99 instances, contact <a href="http://aws.amazon.com/contact-us/">Support</a> for assistance.</p> </li> </ul> </note>
-   * @public
-   */
-  NodeIds?: string[] | undefined;
-}
-
-/**
- * @public
  * @enum
  */
 export const BatchDeleteClusterNodesErrorCode = {
@@ -4909,6 +5050,53 @@ export const BatchDeleteClusterNodesErrorCode = {
  */
 export type BatchDeleteClusterNodesErrorCode =
   (typeof BatchDeleteClusterNodesErrorCode)[keyof typeof BatchDeleteClusterNodesErrorCode];
+
+/**
+ * <p>Information about an error that occurred when attempting to delete a node identified by its <code>NodeLogicalId</code>.</p>
+ * @public
+ */
+export interface BatchDeleteClusterNodeLogicalIdsError {
+  /**
+   * <p>The error code associated with the failure. Possible values include <code>NodeLogicalIdNotFound</code>, <code>InvalidNodeStatus</code>, and <code>InternalError</code>.</p>
+   * @public
+   */
+  Code: BatchDeleteClusterNodesErrorCode | undefined;
+
+  /**
+   * <p>A descriptive message providing additional details about the error.</p>
+   * @public
+   */
+  Message: string | undefined;
+
+  /**
+   * <p>The <code>NodeLogicalId</code> of the node that could not be deleted.</p>
+   * @public
+   */
+  NodeLogicalId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface BatchDeleteClusterNodesRequest {
+  /**
+   * <p>The name of the SageMaker HyperPod cluster from which to delete the specified nodes.</p>
+   * @public
+   */
+  ClusterName: string | undefined;
+
+  /**
+   * <p>A list of node IDs to be deleted from the specified cluster.</p> <note> <ul> <li> <p>For SageMaker HyperPod clusters using the Slurm workload manager, you cannot remove instances that are configured as Slurm controller nodes.</p> </li> <li> <p>If you need to delete more than 99 instances, contact <a href="http://aws.amazon.com/contact-us/">Support</a> for assistance.</p> </li> </ul> </note>
+   * @public
+   */
+  NodeIds?: string[] | undefined;
+
+  /**
+   * <p>A list of <code>NodeLogicalIds</code> identifying the nodes to be deleted. You can specify up to 50 <code>NodeLogicalIds</code>. You must specify either <code>NodeLogicalIds</code>, <code>InstanceIds</code>, or both, with a combined maximum of 50 identifiers.</p>
+   * @public
+   */
+  NodeLogicalIds?: string[] | undefined;
+}
 
 /**
  * <p>Represents an error encountered when deleting a node from a SageMaker HyperPod cluster.</p>
@@ -4949,6 +5137,18 @@ export interface BatchDeleteClusterNodesResponse {
    * @public
    */
   Successful?: string[] | undefined;
+
+  /**
+   * <p>A list of <code>NodeLogicalIds</code> that could not be deleted, along with error information explaining why the deletion failed.</p>
+   * @public
+   */
+  FailedNodeLogicalIds?: BatchDeleteClusterNodeLogicalIdsError[] | undefined;
+
+  /**
+   * <p>A list of <code>NodeLogicalIds</code> that were successfully deleted from the cluster.</p>
+   * @public
+   */
+  SuccessfulNodeLogicalIds?: string[] | undefined;
 }
 
 /**
@@ -5728,6 +5928,38 @@ export interface CanvasAppSettings {
  * @public
  * @enum
  */
+export const CapacityReservationType = {
+  CRG: "CRG",
+  ODCR: "ODCR",
+} as const;
+
+/**
+ * @public
+ */
+export type CapacityReservationType = (typeof CapacityReservationType)[keyof typeof CapacityReservationType];
+
+/**
+ * <p>Information about the Capacity Reservation used by an instance or instance group.</p>
+ * @public
+ */
+export interface CapacityReservation {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Capacity Reservation.</p>
+   * @public
+   */
+  Arn?: string | undefined;
+
+  /**
+   * <p>The type of Capacity Reservation. Valid values are <code>ODCR</code> (On-Demand Capacity Reservation) or <code>CRG</code> (Capacity Reservation Group).</p>
+   * @public
+   */
+  Type?: CapacityReservationType | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
 export const CapacityReservationPreference = {
   CAPACITY_RESERVATIONS_ONLY: "capacity-reservations-only",
 } as const;
@@ -6448,6 +6680,370 @@ export interface ClusterEbsVolumeConfig {
 }
 
 /**
+ * <p>Metadata information about a SageMaker HyperPod cluster showing information about the cluster level operations, such as creating, updating, and deleting.</p>
+ * @public
+ */
+export interface ClusterMetadata {
+  /**
+   * <p>An error message describing why the cluster level operation (such as creating, updating, or deleting) failed.</p>
+   * @public
+   */
+  FailureMessage?: string | undefined;
+
+  /**
+   * <p>A list of Amazon EKS IAM role ARNs associated with the cluster. This is created by SageMaker HyperPod on your behalf and only applies for EKS-orchestrated clusters.</p>
+   * @public
+   */
+  EksRoleAccessEntries?: string[] | undefined;
+
+  /**
+   * <p>The Service-Linked Role (SLR) associated with the cluster. This is created by SageMaker HyperPod on your behalf and only applies for EKS-orchestrated clusters.</p>
+   * @public
+   */
+  SlrAccessEntry?: string | undefined;
+}
+
+/**
+ * <p>Metadata information about an instance in a HyperPod cluster.</p>
+ * @public
+ */
+export interface InstanceMetadata {
+  /**
+   * <p>The ID of the customer-managed Elastic Network Interface (ENI) associated with the instance.</p>
+   * @public
+   */
+  CustomerEni?: string | undefined;
+
+  /**
+   * <p>Information about additional Elastic Network Interfaces (ENIs) associated with the instance.</p>
+   * @public
+   */
+  AdditionalEnis?: AdditionalEnis | undefined;
+
+  /**
+   * <p>Information about the Capacity Reservation used by the instance.</p>
+   * @public
+   */
+  CapacityReservation?: CapacityReservation | undefined;
+
+  /**
+   * <p>An error message describing why the instance creation or update failed, if applicable.</p>
+   * @public
+   */
+  FailureMessage?: string | undefined;
+
+  /**
+   * <p>The execution state of the Lifecycle Script (LCS) for the instance.</p>
+   * @public
+   */
+  LcsExecutionState?: string | undefined;
+
+  /**
+   * <p>The unique logical identifier of the node within the cluster. The ID used here is the same object as in the <code>BatchAddClusterNodes</code> API.</p>
+   * @public
+   */
+  NodeLogicalId?: string | undefined;
+}
+
+/**
+ * <p>Metadata information about an instance group in a SageMaker HyperPod cluster.</p>
+ * @public
+ */
+export interface InstanceGroupMetadata {
+  /**
+   * <p>An error message describing why the instance group level operation (such as creating, scaling, or deleting) failed.</p>
+   * @public
+   */
+  FailureMessage?: string | undefined;
+
+  /**
+   * <p>The ID of the Availability Zone where the instance group is located.</p>
+   * @public
+   */
+  AvailabilityZoneId?: string | undefined;
+
+  /**
+   * <p>Information about the Capacity Reservation used by the instance group.</p>
+   * @public
+   */
+  CapacityReservation?: CapacityReservation | undefined;
+
+  /**
+   * <p>The ID of the subnet where the instance group is located.</p>
+   * @public
+   */
+  SubnetId?: string | undefined;
+
+  /**
+   * <p>A list of security group IDs associated with the instance group.</p>
+   * @public
+   */
+  SecurityGroupIds?: string[] | undefined;
+
+  /**
+   * <p>If you use a custom Amazon Machine Image (AMI) for the instance group, this field shows the ID of the custom AMI.</p>
+   * @public
+   */
+  AmiOverride?: string | undefined;
+}
+
+/**
+ * <p>Metadata information about scaling operations for an instance group.</p>
+ * @public
+ */
+export interface InstanceGroupScalingMetadata {
+  /**
+   * <p>The current number of instances in the group.</p>
+   * @public
+   */
+  InstanceCount?: number | undefined;
+
+  /**
+   * <p>The desired number of instances for the group after scaling.</p>
+   * @public
+   */
+  TargetCount?: number | undefined;
+
+  /**
+   * <p>An error message describing why the scaling operation failed, if applicable.</p>
+   * @public
+   */
+  FailureMessage?: string | undefined;
+}
+
+/**
+ * <p>Metadata associated with a cluster event, which may include details about various resource types.</p>
+ * @public
+ */
+export type EventMetadata =
+  | EventMetadata.ClusterMember
+  | EventMetadata.InstanceMember
+  | EventMetadata.InstanceGroupMember
+  | EventMetadata.InstanceGroupScalingMember
+  | EventMetadata.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace EventMetadata {
+  /**
+   * <p>Metadata specific to cluster-level events.</p>
+   * @public
+   */
+  export interface ClusterMember {
+    Cluster: ClusterMetadata;
+    InstanceGroup?: never;
+    InstanceGroupScaling?: never;
+    Instance?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Metadata specific to instance group-level events.</p>
+   * @public
+   */
+  export interface InstanceGroupMember {
+    Cluster?: never;
+    InstanceGroup: InstanceGroupMetadata;
+    InstanceGroupScaling?: never;
+    Instance?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Metadata related to instance group scaling events.</p>
+   * @public
+   */
+  export interface InstanceGroupScalingMember {
+    Cluster?: never;
+    InstanceGroup?: never;
+    InstanceGroupScaling: InstanceGroupScalingMetadata;
+    Instance?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Metadata specific to instance-level events.</p>
+   * @public
+   */
+  export interface InstanceMember {
+    Cluster?: never;
+    InstanceGroup?: never;
+    InstanceGroupScaling?: never;
+    Instance: InstanceMetadata;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    Cluster?: never;
+    InstanceGroup?: never;
+    InstanceGroupScaling?: never;
+    Instance?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    Cluster: (value: ClusterMetadata) => T;
+    InstanceGroup: (value: InstanceGroupMetadata) => T;
+    InstanceGroupScaling: (value: InstanceGroupScalingMetadata) => T;
+    Instance: (value: InstanceMetadata) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: EventMetadata, visitor: Visitor<T>): T => {
+    if (value.Cluster !== undefined) return visitor.Cluster(value.Cluster);
+    if (value.InstanceGroup !== undefined) return visitor.InstanceGroup(value.InstanceGroup);
+    if (value.InstanceGroupScaling !== undefined) return visitor.InstanceGroupScaling(value.InstanceGroupScaling);
+    if (value.Instance !== undefined) return visitor.Instance(value.Instance);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
+ * <p>Detailed information about a specific event, including event metadata.</p>
+ * @public
+ */
+export interface EventDetails {
+  /**
+   * <p>Metadata specific to the event, which may include information about the cluster, instance group, or instance involved.</p>
+   * @public
+   */
+  EventMetadata?: EventMetadata | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const ClusterEventResourceType = {
+  CLUSTER: "Cluster",
+  INSTANCE: "Instance",
+  INSTANCE_GROUP: "InstanceGroup",
+} as const;
+
+/**
+ * @public
+ */
+export type ClusterEventResourceType = (typeof ClusterEventResourceType)[keyof typeof ClusterEventResourceType];
+
+/**
+ * <p>Detailed information about a specific event in a HyperPod cluster.</p>
+ * @public
+ */
+export interface ClusterEventDetail {
+  /**
+   * <p>The unique identifier (UUID) of the event.</p>
+   * @public
+   */
+  EventId: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the SageMaker HyperPod cluster associated with the event.</p>
+   * @public
+   */
+  ClusterArn: string | undefined;
+
+  /**
+   * <p>The name of the SageMaker HyperPod cluster associated with the event.</p>
+   * @public
+   */
+  ClusterName: string | undefined;
+
+  /**
+   * <p>The name of the instance group associated with the event, if applicable.</p>
+   * @public
+   */
+  InstanceGroupName?: string | undefined;
+
+  /**
+   * <p>The EC2 instance ID associated with the event, if applicable.</p>
+   * @public
+   */
+  InstanceId?: string | undefined;
+
+  /**
+   * <p>The type of resource associated with the event. Valid values are "Cluster", "InstanceGroup", or "Instance".</p>
+   * @public
+   */
+  ResourceType: ClusterEventResourceType | undefined;
+
+  /**
+   * <p>The timestamp when the event occurred.</p>
+   * @public
+   */
+  EventTime: Date | undefined;
+
+  /**
+   * <p>Additional details about the event, including event-specific metadata.</p>
+   * @public
+   */
+  EventDetails?: EventDetails | undefined;
+
+  /**
+   * <p>A human-readable description of the event.</p>
+   * @public
+   */
+  Description?: string | undefined;
+}
+
+/**
+ * <p>A summary of an event in a SageMaker HyperPod cluster.</p>
+ * @public
+ */
+export interface ClusterEventSummary {
+  /**
+   * <p>The unique identifier (UUID) of the event.</p>
+   * @public
+   */
+  EventId: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the SageMaker HyperPod cluster associated with the event.</p>
+   * @public
+   */
+  ClusterArn: string | undefined;
+
+  /**
+   * <p>The name of the SageMaker HyperPod cluster associated with the event.</p>
+   * @public
+   */
+  ClusterName: string | undefined;
+
+  /**
+   * <p>The name of the instance group associated with the event, if applicable.</p>
+   * @public
+   */
+  InstanceGroupName?: string | undefined;
+
+  /**
+   * <p>The EC2 instance ID associated with the event, if applicable.</p>
+   * @public
+   */
+  InstanceId?: string | undefined;
+
+  /**
+   * <p>The type of resource associated with the event. Valid values are "Cluster", "InstanceGroup", or "Instance".</p>
+   * @public
+   */
+  ResourceType: ClusterEventResourceType | undefined;
+
+  /**
+   * <p>The timestamp when the event occurred.</p>
+   * @public
+   */
+  EventTime: Date | undefined;
+
+  /**
+   * <p>A brief, human-readable description of the event.</p>
+   * @public
+   */
+  Description?: string | undefined;
+}
+
+/**
  * <p>Defines the configuration for attaching additional storage to the instances in the SageMaker HyperPod cluster instance group. To learn more, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-hyperpod-release-notes.html#sagemaker-hyperpod-release-notes-20240620">SageMaker HyperPod release notes: June 20, 2024</a>.</p>
  * @public
  */
@@ -6810,6 +7406,18 @@ export interface ClusterInstanceGroupDetails {
    * @public
    */
   ScheduledUpdateConfig?: ScheduledUpdateConfig | undefined;
+
+  /**
+   * <p>The ID of the Amazon Machine Image (AMI) currently in use by the instance group.</p>
+   * @public
+   */
+  CurrentImageId?: string | undefined;
+
+  /**
+   * <p>The ID of the Amazon Machine Image (AMI) desired for the instance group.</p>
+   * @public
+   */
+  DesiredImageId?: string | undefined;
 }
 
 /**
@@ -6882,6 +7490,12 @@ export interface ClusterInstanceGroupSpecification {
    * @public
    */
   ScheduledUpdateConfig?: ScheduledUpdateConfig | undefined;
+
+  /**
+   * <p>When configuring your HyperPod cluster, you can specify an image ID using one of the following options:</p> <ul> <li> <p> <code>HyperPodPublicAmiId</code>: Use a HyperPod public AMI</p> </li> <li> <p> <code>CustomAmiId</code>: Use your custom AMI</p> </li> <li> <p> <code>default</code>: Use the default latest system image</p> </li> </ul> <p>f you choose to use a custom AMI (<code>CustomAmiId</code>), ensure it meets the following requirements:</p> <ul> <li> <p>Encryption: The custom AMI must be unencrypted.</p> </li> <li> <p>Ownership: The custom AMI must be owned by the same Amazon Web Services account that is creating the HyperPod cluster.</p> </li> <li> <p>Volume support: Only the primary AMI snapshot volume is supported; additional AMI volumes are not supported.</p> </li> </ul> <p>When updating the instance group's AMI through the <code>UpdateClusterSoftware</code> operation, if an instance group uses a custom AMI, you must provide an <code>ImageId</code> or use the default as input.</p>
+   * @public
+   */
+  ImageId?: string | undefined;
 }
 
 /**
@@ -6901,24 +7515,6 @@ export interface ClusterInstancePlacement {
    */
   AvailabilityZoneId?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ClusterInstanceStatus = {
-  DEEP_HEALTH_CHECK_IN_PROGRESS: "DeepHealthCheckInProgress",
-  FAILURE: "Failure",
-  PENDING: "Pending",
-  RUNNING: "Running",
-  SHUTTING_DOWN: "ShuttingDown",
-  SYSTEM_UPDATING: "SystemUpdating",
-} as const;
-
-/**
- * @public
- */
-export type ClusterInstanceStatus = (typeof ClusterInstanceStatus)[keyof typeof ClusterInstanceStatus];
 
 /**
  * <p>Details of an instance in a SageMaker HyperPod cluster.</p>
@@ -6954,6 +7550,12 @@ export interface ClusterNodeDetails {
    * @public
    */
   InstanceId?: string | undefined;
+
+  /**
+   * <p>A unique identifier for the node that persists throughout its lifecycle, from provisioning request to termination. This identifier can be used to track the node even before it has an assigned <code>InstanceId</code>.</p>
+   * @public
+   */
+  NodeLogicalId?: string | undefined;
 
   /**
    * <p>The status of the instance.</p>
@@ -7026,7 +7628,33 @@ export interface ClusterNodeDetails {
    * @public
    */
   Placement?: ClusterInstancePlacement | undefined;
+
+  /**
+   * <p>The ID of the Amazon Machine Image (AMI) currently in use by the node.</p>
+   * @public
+   */
+  CurrentImageId?: string | undefined;
+
+  /**
+   * <p>The ID of the Amazon Machine Image (AMI) desired for the node.</p>
+   * @public
+   */
+  DesiredImageId?: string | undefined;
 }
+
+/**
+ * @public
+ * @enum
+ */
+export const ClusterNodeProvisioningMode = {
+  CONTINUOUS: "Continuous",
+} as const;
+
+/**
+ * @public
+ */
+export type ClusterNodeProvisioningMode =
+  (typeof ClusterNodeProvisioningMode)[keyof typeof ClusterNodeProvisioningMode];
 
 /**
  * @public
@@ -7058,6 +7686,12 @@ export interface ClusterNodeSummary {
    * @public
    */
   InstanceId: string | undefined;
+
+  /**
+   * <p>A unique identifier for the node that persists throughout its lifecycle, from provisioning request to termination. This identifier can be used to track the node even before it has an assigned <code>InstanceId</code>. This field is only included when <code>IncludeNodeLogicalIds</code> is set to <code>True</code> in the <code>ListClusterNodes</code> request.</p>
+   * @public
+   */
+  NodeLogicalId?: string | undefined;
 
   /**
    * <p>The type of the instance.</p>
@@ -7428,511 +8062,3 @@ export const ClusterStatus = {
  * @public
  */
 export type ClusterStatus = (typeof ClusterStatus)[keyof typeof ClusterStatus];
-
-/**
- * <p>Lists a summary of the properties of a SageMaker HyperPod cluster.</p>
- * @public
- */
-export interface ClusterSummary {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the SageMaker HyperPod cluster.</p>
-   * @public
-   */
-  ClusterArn: string | undefined;
-
-  /**
-   * <p>The name of the SageMaker HyperPod cluster.</p>
-   * @public
-   */
-  ClusterName: string | undefined;
-
-  /**
-   * <p>The time when the SageMaker HyperPod cluster is created.</p>
-   * @public
-   */
-  CreationTime: Date | undefined;
-
-  /**
-   * <p>The status of the SageMaker HyperPod cluster.</p>
-   * @public
-   */
-  ClusterStatus: ClusterStatus | undefined;
-
-  /**
-   * <p>A list of Amazon Resource Names (ARNs) of the training plans associated with this cluster.</p> <p>For more information about how to reserve GPU capacity for your SageMaker HyperPod clusters using Amazon SageMaker Training Plan, see <code> <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateTrainingPlan.html">CreateTrainingPlan</a> </code>.</p>
-   * @public
-   */
-  TrainingPlanArns?: string[] | undefined;
-}
-
-/**
- * <p>A custom SageMaker AI image. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/studio-byoi.html">Bring your own SageMaker AI image</a>.</p>
- * @public
- */
-export interface CustomImage {
-  /**
-   * <p>The name of the CustomImage. Must be unique to your account.</p>
-   * @public
-   */
-  ImageName: string | undefined;
-
-  /**
-   * <p>The version number of the CustomImage.</p>
-   * @public
-   */
-  ImageVersionNumber?: number | undefined;
-
-  /**
-   * <p>The name of the AppImageConfig.</p>
-   * @public
-   */
-  AppImageConfigName: string | undefined;
-}
-
-/**
- * <p>The Code Editor application settings.</p> <p>For more information about Code Editor, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/code-editor.html">Get started with Code Editor in Amazon SageMaker</a>.</p>
- * @public
- */
-export interface CodeEditorAppSettings {
-  /**
-   * <p>Specifies the ARN's of a SageMaker AI image and SageMaker AI image version, and the instance type that the version runs on.</p> <note> <p>When both <code>SageMakerImageVersionArn</code> and <code>SageMakerImageArn</code> are passed, <code>SageMakerImageVersionArn</code> is used. Any updates to <code>SageMakerImageArn</code> will not take effect if <code>SageMakerImageVersionArn</code> already exists in the <code>ResourceSpec</code> because <code>SageMakerImageVersionArn</code> always takes precedence. To clear the value set for <code>SageMakerImageVersionArn</code>, pass <code>None</code> as the value.</p> </note>
-   * @public
-   */
-  DefaultResourceSpec?: ResourceSpec | undefined;
-
-  /**
-   * <p>A list of custom SageMaker images that are configured to run as a Code Editor app.</p>
-   * @public
-   */
-  CustomImages?: CustomImage[] | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the Code Editor application lifecycle configuration.</p>
-   * @public
-   */
-  LifecycleConfigArns?: string[] | undefined;
-
-  /**
-   * <p>Settings that are used to configure and manage the lifecycle of CodeEditor applications.</p>
-   * @public
-   */
-  AppLifecycleManagement?: AppLifecycleManagement | undefined;
-
-  /**
-   * <p>The lifecycle configuration that runs before the default lifecycle configuration. It can override changes made in the default lifecycle configuration.</p>
-   * @public
-   */
-  BuiltInLifecycleConfigArn?: string | undefined;
-}
-
-/**
- * <p>A Git repository that SageMaker AI automatically displays to users for cloning in the JupyterServer application.</p>
- * @public
- */
-export interface CodeRepository {
-  /**
-   * <p>The URL of the Git repository.</p>
-   * @public
-   */
-  RepositoryUrl: string | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const CodeRepositorySortBy = {
-  CREATION_TIME: "CreationTime",
-  LAST_MODIFIED_TIME: "LastModifiedTime",
-  NAME: "Name",
-} as const;
-
-/**
- * @public
- */
-export type CodeRepositorySortBy = (typeof CodeRepositorySortBy)[keyof typeof CodeRepositorySortBy];
-
-/**
- * @public
- * @enum
- */
-export const CodeRepositorySortOrder = {
-  ASCENDING: "Ascending",
-  DESCENDING: "Descending",
-} as const;
-
-/**
- * @public
- */
-export type CodeRepositorySortOrder = (typeof CodeRepositorySortOrder)[keyof typeof CodeRepositorySortOrder];
-
-/**
- * <p>Specifies configuration details for a Git repository in your Amazon Web Services account.</p>
- * @public
- */
-export interface GitConfig {
-  /**
-   * <p>The URL where the Git repository is located.</p>
-   * @public
-   */
-  RepositoryUrl: string | undefined;
-
-  /**
-   * <p>The default branch for the Git repository.</p>
-   * @public
-   */
-  Branch?: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the Amazon Web Services Secrets Manager secret that contains the credentials used to access the git repository. The secret must have a staging label of <code>AWSCURRENT</code> and must be in the following format:</p> <p> <code>\{"username": <i>UserName</i>, "password": <i>Password</i>\}</code> </p>
-   * @public
-   */
-  SecretArn?: string | undefined;
-}
-
-/**
- * <p>Specifies summary information about a Git repository.</p>
- * @public
- */
-export interface CodeRepositorySummary {
-  /**
-   * <p>The name of the Git repository.</p>
-   * @public
-   */
-  CodeRepositoryName: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the Git repository.</p>
-   * @public
-   */
-  CodeRepositoryArn: string | undefined;
-
-  /**
-   * <p>The date and time that the Git repository was created.</p>
-   * @public
-   */
-  CreationTime: Date | undefined;
-
-  /**
-   * <p>The date and time that the Git repository was last modified.</p>
-   * @public
-   */
-  LastModifiedTime: Date | undefined;
-
-  /**
-   * <p>Configuration details for the Git repository, including the URL where it is located and the ARN of the Amazon Web Services Secrets Manager secret that contains the credentials used to access the repository.</p>
-   * @public
-   */
-  GitConfig?: GitConfig | undefined;
-}
-
-/**
- * <p>Use this parameter to configure your Amazon Cognito workforce. A single Cognito workforce is created using and corresponds to a single <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools.html"> Amazon Cognito user pool</a>.</p>
- * @public
- */
-export interface CognitoConfig {
-  /**
-   * <p>A <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools.html"> user pool</a> is a user directory in Amazon Cognito. With a user pool, your users can sign in to your web or mobile app through Amazon Cognito. Your users can also sign in through social identity providers like Google, Facebook, Amazon, or Apple, and through SAML identity providers.</p>
-   * @public
-   */
-  UserPool: string | undefined;
-
-  /**
-   * <p>The client ID for your Amazon Cognito user pool.</p>
-   * @public
-   */
-  ClientId: string | undefined;
-}
-
-/**
- * <p>Identifies a Amazon Cognito user group. A user group can be used in on or more work teams.</p>
- * @public
- */
-export interface CognitoMemberDefinition {
-  /**
-   * <p>An identifier for a user pool. The user pool must be in the same region as the service that you are calling.</p>
-   * @public
-   */
-  UserPool: string | undefined;
-
-  /**
-   * <p>An identifier for a user group.</p>
-   * @public
-   */
-  UserGroup: string | undefined;
-
-  /**
-   * <p>An identifier for an application client. You must create the app client ID using Amazon Cognito.</p>
-   * @public
-   */
-  ClientId: string | undefined;
-}
-
-/**
- * <p>Configuration for your vector collection type.</p>
- * @public
- */
-export interface VectorConfig {
-  /**
-   * <p>The number of elements in your vector.</p>
-   * @public
-   */
-  Dimension: number | undefined;
-}
-
-/**
- * <p>Configuration for your collection.</p>
- * @public
- */
-export type CollectionConfig = CollectionConfig.VectorConfigMember | CollectionConfig.$UnknownMember;
-
-/**
- * @public
- */
-export namespace CollectionConfig {
-  /**
-   * <p>Configuration for your vector collection type.</p> <ul> <li> <p> <code>Dimension</code>: The number of elements in your vector.</p> </li> </ul>
-   * @public
-   */
-  export interface VectorConfigMember {
-    VectorConfig: VectorConfig;
-    $unknown?: never;
-  }
-
-  /**
-   * @public
-   */
-  export interface $UnknownMember {
-    VectorConfig?: never;
-    $unknown: [string, any];
-  }
-
-  export interface Visitor<T> {
-    VectorConfig: (value: VectorConfig) => T;
-    _: (name: string, value: any) => T;
-  }
-
-  export const visit = <T>(value: CollectionConfig, visitor: Visitor<T>): T => {
-    if (value.VectorConfig !== undefined) return visitor.VectorConfig(value.VectorConfig);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
-}
-
-/**
- * <p>Configuration information for the Amazon SageMaker Debugger output tensor collections.</p>
- * @public
- */
-export interface CollectionConfiguration {
-  /**
-   * <p>The name of the tensor collection. The name must be unique relative to other rule configuration names.</p>
-   * @public
-   */
-  CollectionName?: string | undefined;
-
-  /**
-   * <p>Parameter values for the tensor collection. The allowed parameters are <code>"name"</code>, <code>"include_regex"</code>, <code>"reduction_config"</code>, <code>"save_config"</code>, <code>"tensor_names"</code>, and <code>"save_histogram"</code>.</p>
-   * @public
-   */
-  CollectionParameters?: Record<string, string> | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const CollectionType = {
-  LIST: "List",
-  SET: "Set",
-  VECTOR: "Vector",
-} as const;
-
-/**
- * @public
- */
-export type CollectionType = (typeof CollectionType)[keyof typeof CollectionType];
-
-/**
- * @public
- * @enum
- */
-export const CompilationJobStatus = {
-  COMPLETED: "COMPLETED",
-  FAILED: "FAILED",
-  INPROGRESS: "INPROGRESS",
-  STARTING: "STARTING",
-  STOPPED: "STOPPED",
-  STOPPING: "STOPPING",
-} as const;
-
-/**
- * @public
- */
-export type CompilationJobStatus = (typeof CompilationJobStatus)[keyof typeof CompilationJobStatus];
-
-/**
- * @public
- * @enum
- */
-export const TargetDevice = {
-  AISAGE: "aisage",
-  AMBA_CV2: "amba_cv2",
-  AMBA_CV22: "amba_cv22",
-  AMBA_CV25: "amba_cv25",
-  COREML: "coreml",
-  DEEPLENS: "deeplens",
-  IMX8MPLUS: "imx8mplus",
-  IMX8QM: "imx8qm",
-  JACINTO_TDA4VM: "jacinto_tda4vm",
-  JETSON_NANO: "jetson_nano",
-  JETSON_TX1: "jetson_tx1",
-  JETSON_TX2: "jetson_tx2",
-  JETSON_XAVIER: "jetson_xavier",
-  LAMBDA: "lambda",
-  ML_C4: "ml_c4",
-  ML_C5: "ml_c5",
-  ML_C6G: "ml_c6g",
-  ML_EIA2: "ml_eia2",
-  ML_G4DN: "ml_g4dn",
-  ML_INF1: "ml_inf1",
-  ML_INF2: "ml_inf2",
-  ML_M4: "ml_m4",
-  ML_M5: "ml_m5",
-  ML_M6G: "ml_m6g",
-  ML_P2: "ml_p2",
-  ML_P3: "ml_p3",
-  ML_TRN1: "ml_trn1",
-  QCS603: "qcs603",
-  QCS605: "qcs605",
-  RASP3B: "rasp3b",
-  RASP4B: "rasp4b",
-  RK3288: "rk3288",
-  RK3399: "rk3399",
-  SBE_C: "sbe_c",
-  SITARA_AM57X: "sitara_am57x",
-  X86_WIN32: "x86_win32",
-  X86_WIN64: "x86_win64",
-} as const;
-
-/**
- * @public
- */
-export type TargetDevice = (typeof TargetDevice)[keyof typeof TargetDevice];
-
-/**
- * @public
- * @enum
- */
-export const TargetPlatformAccelerator = {
-  INTEL_GRAPHICS: "INTEL_GRAPHICS",
-  MALI: "MALI",
-  NNA: "NNA",
-  NVIDIA: "NVIDIA",
-} as const;
-
-/**
- * @public
- */
-export type TargetPlatformAccelerator = (typeof TargetPlatformAccelerator)[keyof typeof TargetPlatformAccelerator];
-
-/**
- * @public
- * @enum
- */
-export const TargetPlatformArch = {
-  ARM64: "ARM64",
-  ARM_EABI: "ARM_EABI",
-  ARM_EABIHF: "ARM_EABIHF",
-  X86: "X86",
-  X86_64: "X86_64",
-} as const;
-
-/**
- * @public
- */
-export type TargetPlatformArch = (typeof TargetPlatformArch)[keyof typeof TargetPlatformArch];
-
-/**
- * @public
- * @enum
- */
-export const TargetPlatformOs = {
-  ANDROID: "ANDROID",
-  LINUX: "LINUX",
-} as const;
-
-/**
- * @public
- */
-export type TargetPlatformOs = (typeof TargetPlatformOs)[keyof typeof TargetPlatformOs];
-
-/**
- * <p>A summary of a model compilation job.</p>
- * @public
- */
-export interface CompilationJobSummary {
-  /**
-   * <p>The name of the model compilation job that you want a summary for.</p>
-   * @public
-   */
-  CompilationJobName: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the model compilation job.</p>
-   * @public
-   */
-  CompilationJobArn: string | undefined;
-
-  /**
-   * <p>The time when the model compilation job was created.</p>
-   * @public
-   */
-  CreationTime: Date | undefined;
-
-  /**
-   * <p>The time when the model compilation job started.</p>
-   * @public
-   */
-  CompilationStartTime?: Date | undefined;
-
-  /**
-   * <p>The time when the model compilation job completed.</p>
-   * @public
-   */
-  CompilationEndTime?: Date | undefined;
-
-  /**
-   * <p>The type of device that the model will run on after the compilation job has completed.</p>
-   * @public
-   */
-  CompilationTargetDevice?: TargetDevice | undefined;
-
-  /**
-   * <p>The type of OS that the model will run on after the compilation job has completed.</p>
-   * @public
-   */
-  CompilationTargetPlatformOs?: TargetPlatformOs | undefined;
-
-  /**
-   * <p>The type of architecture that the model will run on after the compilation job has completed.</p>
-   * @public
-   */
-  CompilationTargetPlatformArch?: TargetPlatformArch | undefined;
-
-  /**
-   * <p>The type of accelerator that the model will run on after the compilation job has completed.</p>
-   * @public
-   */
-  CompilationTargetPlatformAccelerator?: TargetPlatformAccelerator | undefined;
-
-  /**
-   * <p>The time when the model compilation job was last modified.</p>
-   * @public
-   */
-  LastModifiedTime?: Date | undefined;
-
-  /**
-   * <p>The status of the model compilation job.</p>
-   * @public
-   */
-  CompilationJobStatus: CompilationJobStatus | undefined;
-}

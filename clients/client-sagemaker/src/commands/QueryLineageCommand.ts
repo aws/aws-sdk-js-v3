@@ -5,7 +5,7 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { QueryLineageRequest, QueryLineageResponse } from "../models/models_4";
+import { QueryLineageRequest, QueryLineageResponse } from "../models/models_5";
 import { de_QueryLineageCommand, se_QueryLineageCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 

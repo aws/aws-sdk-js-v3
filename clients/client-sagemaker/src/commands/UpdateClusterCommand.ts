@@ -88,6 +88,7 @@ export interface UpdateClusterCommandOutput extends UpdateClusterResponse, __Met
  *           ],
  *         },
  *       },
+ *       ImageId: "STRING_VALUE",
  *     },
  *   ],
  *   RestrictedInstanceGroups: [ // ClusterRestrictedInstanceGroupSpecifications

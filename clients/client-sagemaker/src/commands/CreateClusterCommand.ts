@@ -88,6 +88,7 @@ export interface CreateClusterCommandOutput extends CreateClusterResponse, __Met
  *           ],
  *         },
  *       },
+ *       ImageId: "STRING_VALUE",
  *     },
  *   ],
  *   RestrictedInstanceGroups: [ // ClusterRestrictedInstanceGroupSpecifications
@@ -165,6 +166,7 @@ export interface CreateClusterCommandOutput extends CreateClusterResponse, __Met
  *     },
  *   },
  *   NodeRecovery: "Automatic" || "None",
+ *   NodeProvisioningMode: "Continuous",
  * };
  * const command = new CreateClusterCommand(input);
  * const response = await client.send(command);

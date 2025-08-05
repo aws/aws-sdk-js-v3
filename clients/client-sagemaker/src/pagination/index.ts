@@ -10,6 +10,7 @@ export * from "./ListArtifactsPaginator";
 export * from "./ListAssociationsPaginator";
 export * from "./ListAutoMLJobsPaginator";
 export * from "./ListCandidatesForAutoMLJobPaginator";
+export * from "./ListClusterEventsPaginator";
 export * from "./ListClusterNodesPaginator";
 export * from "./ListClusterSchedulerConfigsPaginator";
 export * from "./ListClustersPaginator";
