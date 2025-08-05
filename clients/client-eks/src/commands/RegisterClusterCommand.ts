@@ -182,6 +182,7 @@ export interface RegisterClusterCommandOutput extends RegisterClusterResponse, _
  * //         enabled: true || false,
  * //       },
  * //     },
+ * //     deletionProtection: true || false,
  * //   },
  * // };
  *

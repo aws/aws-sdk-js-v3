@@ -169,6 +169,7 @@ export interface DeleteClusterCommandOutput extends DeleteClusterResponse, __Met
  * //         enabled: true || false,
  * //       },
  * //     },
+ * //     deletionProtection: true || false,
  * //   },
  * // };
  *
@@ -184,6 +185,10 @@ export interface DeleteClusterCommandOutput extends DeleteClusterResponse, __Met
  *  <p>These errors are usually caused by a client action. Actions can include using an
  *             action or resource on behalf of an <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html">IAM principal</a> that doesn't have permissions to use
  *             the action or resource or specifying an identifier that is not valid.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>The request is invalid given the state of the cluster. Check the state of the cluster
+ *             and the associated operations.</p>
  *
  * @throws {@link ResourceInUseException} (client fault)
  *  <p>The specified resource is in use.</p>

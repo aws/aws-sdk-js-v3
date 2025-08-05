@@ -163,6 +163,7 @@ export interface CreateClusterCommandOutput extends CreateClusterResponse, __Met
  *       enabled: true || false,
  *     },
  *   },
+ *   deletionProtection: true || false,
  * };
  * const command = new CreateClusterCommand(input);
  * const response = await client.send(command);
@@ -287,6 +288,7 @@ export interface CreateClusterCommandOutput extends CreateClusterResponse, __Met
  * //         enabled: true || false,
  * //       },
  * //     },
+ * //     deletionProtection: true || false,
  * //   },
  * // };
  *

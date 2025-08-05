@@ -169,6 +169,7 @@ export interface DescribeClusterCommandOutput extends DescribeClusterResponse, _
  * //         enabled: true || false,
  * //       },
  * //     },
+ * //     deletionProtection: true || false,
  * //   },
  * // };
  *

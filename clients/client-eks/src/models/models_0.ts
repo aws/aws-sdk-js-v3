@@ -1058,6 +1058,7 @@ export const UpdateParamType = {
   CLUSTER_LOGGING: "ClusterLogging",
   COMPUTE_CONFIG: "ComputeConfig",
   CONFIGURATION_VALUES: "ConfigurationValues",
+  DELETION_PROTECTION: "DeletionProtection",
   DESIRED_SIZE: "DesiredSize",
   ENCRYPTION_CONFIG: "EncryptionConfig",
   ENDPOINT_PRIVATE_ACCESS: "EndpointPrivateAccess",
@@ -1141,6 +1142,7 @@ export const UpdateType = {
   ASSOCIATE_IDENTITY_PROVIDER_CONFIG: "AssociateIdentityProviderConfig",
   AUTO_MODE_UPDATE: "AutoModeUpdate",
   CONFIG_UPDATE: "ConfigUpdate",
+  DELETION_PROTECTION_UPDATE: "DeletionProtectionUpdate",
   DISASSOCIATE_IDENTITY_PROVIDER_CONFIG: "DisassociateIdentityProviderConfig",
   ENDPOINT_ACCESS_UPDATE: "EndpointAccessUpdate",
   LOGGING_UPDATE: "LoggingUpdate",
@@ -2522,6 +2524,14 @@ export interface CreateClusterRequest {
    * @public
    */
   storageConfig?: StorageConfigRequest | undefined;
+
+  /**
+   * <p>Indicates whether to enable deletion protection for the cluster. When enabled, the cluster
+   *             cannot be deleted unless deletion protection is first disabled. This helps prevent
+   *             accidental cluster deletion. Default value is <code>false</code>.</p>
+   * @public
+   */
+  deletionProtection?: boolean | undefined;
 }
 
 /**
@@ -3134,6 +3144,15 @@ export interface Cluster {
    * @public
    */
   storageConfig?: StorageConfigResponse | undefined;
+
+  /**
+   * <p>The current deletion protection setting for the cluster. When <code>true</code>,
+   *             deletion protection is enabled and the cluster cannot be deleted until protection is
+   *             disabled. When <code>false</code>, the cluster can be deleted normally. This setting
+   *             only applies to clusters in an active state.</p>
+   * @public
+   */
+  deletionProtection?: boolean | undefined;
 }
 
 /**
@@ -7496,6 +7515,15 @@ export interface UpdateClusterConfigRequest {
    * @public
    */
   remoteNetworkConfig?: RemoteNetworkConfigRequest | undefined;
+
+  /**
+   * <p>Specifies whether to enable or disable deletion protection for the cluster. When
+   *             enabled (<code>true</code>), the cluster cannot be deleted until deletion protection is
+   *             explicitly disabled. When disabled (<code>false</code>), the cluster can be deleted
+   *             normally.</p>
+   * @public
+   */
+  deletionProtection?: boolean | undefined;
 }
 
 /**

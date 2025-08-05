@@ -163,6 +163,7 @@ export interface DeregisterClusterCommandOutput extends DeregisterClusterRespons
  * //         enabled: true || false,
  * //       },
  * //     },
+ * //     deletionProtection: true || false,
  * //   },
  * // };
  *
