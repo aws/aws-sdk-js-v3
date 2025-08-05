@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.861.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.860.0...v3.861.0) (2025-08-05)
+
+
+### Features
+
+* **client-bedrock-runtime:** This release adds support for Automated Reasoning checks output models for the Amazon Bedrock Guardrails ApplyGuardrail API. ([860cc4f](https://github.com/aws/aws-sdk-js-v3/commit/860cc4f5e2c66080f5405589e57999e4686d5f32))
+* **client-bedrock:** This release introduces Automated Reasoning checks for Amazon Bedrock Guardrails. The feature adds new APIs for policy building, refinement, version management, and testing. Guardrail APIs now support Automated Reasoning policy configuration and validation output. ([a2ee7d5](https://github.com/aws/aws-sdk-js-v3/commit/a2ee7d5a2d1c0b8a4034a9e9b978b6362e67d3bf))
+* **client-eks:** Add support for deletion protection on EKS clusters ([99ee72f](https://github.com/aws/aws-sdk-js-v3/commit/99ee72f231b5ecc4c6bc3bdaeab444a45d282a38))
+* **client-rds:** Adds a new Aurora Serverless v2 attribute to the DBCluster resource to expose the platform version. Also updates the attribute to be part of both the engine version and platform version descriptions. ([86d2740](https://github.com/aws/aws-sdk-js-v3/commit/86d2740ab0308788ac37dcaf382aca51834f57f7))
+* **client-sagemaker:** Add support for SageMaker Hyperpod continuous scaling and custom AMI; Introduce new APIs: ListClusterEvents, DescribeClusterEvent, BatchAddClusterNodes ([0238160](https://github.com/aws/aws-sdk-js-v3/commit/02381600c4c8d19d6ce261092fd6f5eed996866e))
+* **clients:** update client endpoints as of 2025-08-05 ([e4928f8](https://github.com/aws/aws-sdk-js-v3/commit/e4928f8b69b8c8c2ac52ce97f8126d8e671a0395))
+
+
+
+
+
 # [3.860.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.859.0...v3.860.0) (2025-08-04)
 
 
