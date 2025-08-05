@@ -9,6 +9,26 @@ import {
   BatchDeleteEvaluationJobCommandOutput,
 } from "./commands/BatchDeleteEvaluationJobCommand";
 import {
+  CancelAutomatedReasoningPolicyBuildWorkflowCommand,
+  CancelAutomatedReasoningPolicyBuildWorkflowCommandInput,
+  CancelAutomatedReasoningPolicyBuildWorkflowCommandOutput,
+} from "./commands/CancelAutomatedReasoningPolicyBuildWorkflowCommand";
+import {
+  CreateAutomatedReasoningPolicyCommand,
+  CreateAutomatedReasoningPolicyCommandInput,
+  CreateAutomatedReasoningPolicyCommandOutput,
+} from "./commands/CreateAutomatedReasoningPolicyCommand";
+import {
+  CreateAutomatedReasoningPolicyTestCaseCommand,
+  CreateAutomatedReasoningPolicyTestCaseCommandInput,
+  CreateAutomatedReasoningPolicyTestCaseCommandOutput,
+} from "./commands/CreateAutomatedReasoningPolicyTestCaseCommand";
+import {
+  CreateAutomatedReasoningPolicyVersionCommand,
+  CreateAutomatedReasoningPolicyVersionCommandInput,
+  CreateAutomatedReasoningPolicyVersionCommandOutput,
+} from "./commands/CreateAutomatedReasoningPolicyVersionCommand";
+import {
   CreateCustomModelCommand,
   CreateCustomModelCommandInput,
   CreateCustomModelCommandOutput,
@@ -79,6 +99,21 @@ import {
   CreateProvisionedModelThroughputCommandOutput,
 } from "./commands/CreateProvisionedModelThroughputCommand";
 import {
+  DeleteAutomatedReasoningPolicyBuildWorkflowCommand,
+  DeleteAutomatedReasoningPolicyBuildWorkflowCommandInput,
+  DeleteAutomatedReasoningPolicyBuildWorkflowCommandOutput,
+} from "./commands/DeleteAutomatedReasoningPolicyBuildWorkflowCommand";
+import {
+  DeleteAutomatedReasoningPolicyCommand,
+  DeleteAutomatedReasoningPolicyCommandInput,
+  DeleteAutomatedReasoningPolicyCommandOutput,
+} from "./commands/DeleteAutomatedReasoningPolicyCommand";
+import {
+  DeleteAutomatedReasoningPolicyTestCaseCommand,
+  DeleteAutomatedReasoningPolicyTestCaseCommandInput,
+  DeleteAutomatedReasoningPolicyTestCaseCommandOutput,
+} from "./commands/DeleteAutomatedReasoningPolicyTestCaseCommand";
+import {
   DeleteCustomModelCommand,
   DeleteCustomModelCommandInput,
   DeleteCustomModelCommandOutput,
@@ -133,6 +168,46 @@ import {
   DeregisterMarketplaceModelEndpointCommandInput,
   DeregisterMarketplaceModelEndpointCommandOutput,
 } from "./commands/DeregisterMarketplaceModelEndpointCommand";
+import {
+  ExportAutomatedReasoningPolicyVersionCommand,
+  ExportAutomatedReasoningPolicyVersionCommandInput,
+  ExportAutomatedReasoningPolicyVersionCommandOutput,
+} from "./commands/ExportAutomatedReasoningPolicyVersionCommand";
+import {
+  GetAutomatedReasoningPolicyAnnotationsCommand,
+  GetAutomatedReasoningPolicyAnnotationsCommandInput,
+  GetAutomatedReasoningPolicyAnnotationsCommandOutput,
+} from "./commands/GetAutomatedReasoningPolicyAnnotationsCommand";
+import {
+  GetAutomatedReasoningPolicyBuildWorkflowCommand,
+  GetAutomatedReasoningPolicyBuildWorkflowCommandInput,
+  GetAutomatedReasoningPolicyBuildWorkflowCommandOutput,
+} from "./commands/GetAutomatedReasoningPolicyBuildWorkflowCommand";
+import {
+  GetAutomatedReasoningPolicyBuildWorkflowResultAssetsCommand,
+  GetAutomatedReasoningPolicyBuildWorkflowResultAssetsCommandInput,
+  GetAutomatedReasoningPolicyBuildWorkflowResultAssetsCommandOutput,
+} from "./commands/GetAutomatedReasoningPolicyBuildWorkflowResultAssetsCommand";
+import {
+  GetAutomatedReasoningPolicyCommand,
+  GetAutomatedReasoningPolicyCommandInput,
+  GetAutomatedReasoningPolicyCommandOutput,
+} from "./commands/GetAutomatedReasoningPolicyCommand";
+import {
+  GetAutomatedReasoningPolicyNextScenarioCommand,
+  GetAutomatedReasoningPolicyNextScenarioCommandInput,
+  GetAutomatedReasoningPolicyNextScenarioCommandOutput,
+} from "./commands/GetAutomatedReasoningPolicyNextScenarioCommand";
+import {
+  GetAutomatedReasoningPolicyTestCaseCommand,
+  GetAutomatedReasoningPolicyTestCaseCommandInput,
+  GetAutomatedReasoningPolicyTestCaseCommandOutput,
+} from "./commands/GetAutomatedReasoningPolicyTestCaseCommand";
+import {
+  GetAutomatedReasoningPolicyTestResultCommand,
+  GetAutomatedReasoningPolicyTestResultCommandInput,
+  GetAutomatedReasoningPolicyTestResultCommandOutput,
+} from "./commands/GetAutomatedReasoningPolicyTestResultCommand";
 import {
   GetCustomModelCommand,
   GetCustomModelCommandInput,
@@ -218,6 +293,26 @@ import {
   GetUseCaseForModelAccessCommandInput,
   GetUseCaseForModelAccessCommandOutput,
 } from "./commands/GetUseCaseForModelAccessCommand";
+import {
+  ListAutomatedReasoningPoliciesCommand,
+  ListAutomatedReasoningPoliciesCommandInput,
+  ListAutomatedReasoningPoliciesCommandOutput,
+} from "./commands/ListAutomatedReasoningPoliciesCommand";
+import {
+  ListAutomatedReasoningPolicyBuildWorkflowsCommand,
+  ListAutomatedReasoningPolicyBuildWorkflowsCommandInput,
+  ListAutomatedReasoningPolicyBuildWorkflowsCommandOutput,
+} from "./commands/ListAutomatedReasoningPolicyBuildWorkflowsCommand";
+import {
+  ListAutomatedReasoningPolicyTestCasesCommand,
+  ListAutomatedReasoningPolicyTestCasesCommandInput,
+  ListAutomatedReasoningPolicyTestCasesCommandOutput,
+} from "./commands/ListAutomatedReasoningPolicyTestCasesCommand";
+import {
+  ListAutomatedReasoningPolicyTestResultsCommand,
+  ListAutomatedReasoningPolicyTestResultsCommandInput,
+  ListAutomatedReasoningPolicyTestResultsCommandOutput,
+} from "./commands/ListAutomatedReasoningPolicyTestResultsCommand";
 import {
   ListCustomModelDeploymentsCommand,
   ListCustomModelDeploymentsCommandInput,
@@ -314,6 +409,16 @@ import {
   RegisterMarketplaceModelEndpointCommandOutput,
 } from "./commands/RegisterMarketplaceModelEndpointCommand";
 import {
+  StartAutomatedReasoningPolicyBuildWorkflowCommand,
+  StartAutomatedReasoningPolicyBuildWorkflowCommandInput,
+  StartAutomatedReasoningPolicyBuildWorkflowCommandOutput,
+} from "./commands/StartAutomatedReasoningPolicyBuildWorkflowCommand";
+import {
+  StartAutomatedReasoningPolicyTestWorkflowCommand,
+  StartAutomatedReasoningPolicyTestWorkflowCommandInput,
+  StartAutomatedReasoningPolicyTestWorkflowCommandOutput,
+} from "./commands/StartAutomatedReasoningPolicyTestWorkflowCommand";
+import {
   StopEvaluationJobCommand,
   StopEvaluationJobCommandInput,
   StopEvaluationJobCommandOutput,
@@ -335,6 +440,21 @@ import {
   UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import {
+  UpdateAutomatedReasoningPolicyAnnotationsCommand,
+  UpdateAutomatedReasoningPolicyAnnotationsCommandInput,
+  UpdateAutomatedReasoningPolicyAnnotationsCommandOutput,
+} from "./commands/UpdateAutomatedReasoningPolicyAnnotationsCommand";
+import {
+  UpdateAutomatedReasoningPolicyCommand,
+  UpdateAutomatedReasoningPolicyCommandInput,
+  UpdateAutomatedReasoningPolicyCommandOutput,
+} from "./commands/UpdateAutomatedReasoningPolicyCommand";
+import {
+  UpdateAutomatedReasoningPolicyTestCaseCommand,
+  UpdateAutomatedReasoningPolicyTestCaseCommandInput,
+  UpdateAutomatedReasoningPolicyTestCaseCommandOutput,
+} from "./commands/UpdateAutomatedReasoningPolicyTestCaseCommand";
+import {
   UpdateGuardrailCommand,
   UpdateGuardrailCommandInput,
   UpdateGuardrailCommandOutput,
@@ -352,6 +472,10 @@ import {
 
 const commands = {
   BatchDeleteEvaluationJobCommand,
+  CancelAutomatedReasoningPolicyBuildWorkflowCommand,
+  CreateAutomatedReasoningPolicyCommand,
+  CreateAutomatedReasoningPolicyTestCaseCommand,
+  CreateAutomatedReasoningPolicyVersionCommand,
   CreateCustomModelCommand,
   CreateCustomModelDeploymentCommand,
   CreateEvaluationJobCommand,
@@ -366,6 +490,9 @@ const commands = {
   CreateModelInvocationJobCommand,
   CreatePromptRouterCommand,
   CreateProvisionedModelThroughputCommand,
+  DeleteAutomatedReasoningPolicyCommand,
+  DeleteAutomatedReasoningPolicyBuildWorkflowCommand,
+  DeleteAutomatedReasoningPolicyTestCaseCommand,
   DeleteCustomModelCommand,
   DeleteCustomModelDeploymentCommand,
   DeleteFoundationModelAgreementCommand,
@@ -377,6 +504,14 @@ const commands = {
   DeletePromptRouterCommand,
   DeleteProvisionedModelThroughputCommand,
   DeregisterMarketplaceModelEndpointCommand,
+  ExportAutomatedReasoningPolicyVersionCommand,
+  GetAutomatedReasoningPolicyCommand,
+  GetAutomatedReasoningPolicyAnnotationsCommand,
+  GetAutomatedReasoningPolicyBuildWorkflowCommand,
+  GetAutomatedReasoningPolicyBuildWorkflowResultAssetsCommand,
+  GetAutomatedReasoningPolicyNextScenarioCommand,
+  GetAutomatedReasoningPolicyTestCaseCommand,
+  GetAutomatedReasoningPolicyTestResultCommand,
   GetCustomModelCommand,
   GetCustomModelDeploymentCommand,
   GetEvaluationJobCommand,
@@ -394,6 +529,10 @@ const commands = {
   GetPromptRouterCommand,
   GetProvisionedModelThroughputCommand,
   GetUseCaseForModelAccessCommand,
+  ListAutomatedReasoningPoliciesCommand,
+  ListAutomatedReasoningPolicyBuildWorkflowsCommand,
+  ListAutomatedReasoningPolicyTestCasesCommand,
+  ListAutomatedReasoningPolicyTestResultsCommand,
   ListCustomModelDeploymentsCommand,
   ListCustomModelsCommand,
   ListEvaluationJobsCommand,
@@ -413,11 +552,16 @@ const commands = {
   PutModelInvocationLoggingConfigurationCommand,
   PutUseCaseForModelAccessCommand,
   RegisterMarketplaceModelEndpointCommand,
+  StartAutomatedReasoningPolicyBuildWorkflowCommand,
+  StartAutomatedReasoningPolicyTestWorkflowCommand,
   StopEvaluationJobCommand,
   StopModelCustomizationJobCommand,
   StopModelInvocationJobCommand,
   TagResourceCommand,
   UntagResourceCommand,
+  UpdateAutomatedReasoningPolicyCommand,
+  UpdateAutomatedReasoningPolicyAnnotationsCommand,
+  UpdateAutomatedReasoningPolicyTestCaseCommand,
   UpdateGuardrailCommand,
   UpdateMarketplaceModelEndpointCommand,
   UpdateProvisionedModelThroughputCommand,
@@ -439,6 +583,74 @@ export interface Bedrock {
     args: BatchDeleteEvaluationJobCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: BatchDeleteEvaluationJobCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CancelAutomatedReasoningPolicyBuildWorkflowCommand}
+   */
+  cancelAutomatedReasoningPolicyBuildWorkflow(
+    args: CancelAutomatedReasoningPolicyBuildWorkflowCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CancelAutomatedReasoningPolicyBuildWorkflowCommandOutput>;
+  cancelAutomatedReasoningPolicyBuildWorkflow(
+    args: CancelAutomatedReasoningPolicyBuildWorkflowCommandInput,
+    cb: (err: any, data?: CancelAutomatedReasoningPolicyBuildWorkflowCommandOutput) => void
+  ): void;
+  cancelAutomatedReasoningPolicyBuildWorkflow(
+    args: CancelAutomatedReasoningPolicyBuildWorkflowCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CancelAutomatedReasoningPolicyBuildWorkflowCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateAutomatedReasoningPolicyCommand}
+   */
+  createAutomatedReasoningPolicy(
+    args: CreateAutomatedReasoningPolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateAutomatedReasoningPolicyCommandOutput>;
+  createAutomatedReasoningPolicy(
+    args: CreateAutomatedReasoningPolicyCommandInput,
+    cb: (err: any, data?: CreateAutomatedReasoningPolicyCommandOutput) => void
+  ): void;
+  createAutomatedReasoningPolicy(
+    args: CreateAutomatedReasoningPolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateAutomatedReasoningPolicyCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateAutomatedReasoningPolicyTestCaseCommand}
+   */
+  createAutomatedReasoningPolicyTestCase(
+    args: CreateAutomatedReasoningPolicyTestCaseCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateAutomatedReasoningPolicyTestCaseCommandOutput>;
+  createAutomatedReasoningPolicyTestCase(
+    args: CreateAutomatedReasoningPolicyTestCaseCommandInput,
+    cb: (err: any, data?: CreateAutomatedReasoningPolicyTestCaseCommandOutput) => void
+  ): void;
+  createAutomatedReasoningPolicyTestCase(
+    args: CreateAutomatedReasoningPolicyTestCaseCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateAutomatedReasoningPolicyTestCaseCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateAutomatedReasoningPolicyVersionCommand}
+   */
+  createAutomatedReasoningPolicyVersion(
+    args: CreateAutomatedReasoningPolicyVersionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateAutomatedReasoningPolicyVersionCommandOutput>;
+  createAutomatedReasoningPolicyVersion(
+    args: CreateAutomatedReasoningPolicyVersionCommandInput,
+    cb: (err: any, data?: CreateAutomatedReasoningPolicyVersionCommandOutput) => void
+  ): void;
+  createAutomatedReasoningPolicyVersion(
+    args: CreateAutomatedReasoningPolicyVersionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateAutomatedReasoningPolicyVersionCommandOutput) => void
   ): void;
 
   /**
@@ -677,6 +889,57 @@ export interface Bedrock {
   ): void;
 
   /**
+   * @see {@link DeleteAutomatedReasoningPolicyCommand}
+   */
+  deleteAutomatedReasoningPolicy(
+    args: DeleteAutomatedReasoningPolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteAutomatedReasoningPolicyCommandOutput>;
+  deleteAutomatedReasoningPolicy(
+    args: DeleteAutomatedReasoningPolicyCommandInput,
+    cb: (err: any, data?: DeleteAutomatedReasoningPolicyCommandOutput) => void
+  ): void;
+  deleteAutomatedReasoningPolicy(
+    args: DeleteAutomatedReasoningPolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteAutomatedReasoningPolicyCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteAutomatedReasoningPolicyBuildWorkflowCommand}
+   */
+  deleteAutomatedReasoningPolicyBuildWorkflow(
+    args: DeleteAutomatedReasoningPolicyBuildWorkflowCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteAutomatedReasoningPolicyBuildWorkflowCommandOutput>;
+  deleteAutomatedReasoningPolicyBuildWorkflow(
+    args: DeleteAutomatedReasoningPolicyBuildWorkflowCommandInput,
+    cb: (err: any, data?: DeleteAutomatedReasoningPolicyBuildWorkflowCommandOutput) => void
+  ): void;
+  deleteAutomatedReasoningPolicyBuildWorkflow(
+    args: DeleteAutomatedReasoningPolicyBuildWorkflowCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteAutomatedReasoningPolicyBuildWorkflowCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteAutomatedReasoningPolicyTestCaseCommand}
+   */
+  deleteAutomatedReasoningPolicyTestCase(
+    args: DeleteAutomatedReasoningPolicyTestCaseCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteAutomatedReasoningPolicyTestCaseCommandOutput>;
+  deleteAutomatedReasoningPolicyTestCase(
+    args: DeleteAutomatedReasoningPolicyTestCaseCommandInput,
+    cb: (err: any, data?: DeleteAutomatedReasoningPolicyTestCaseCommandOutput) => void
+  ): void;
+  deleteAutomatedReasoningPolicyTestCase(
+    args: DeleteAutomatedReasoningPolicyTestCaseCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteAutomatedReasoningPolicyTestCaseCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DeleteCustomModelCommand}
    */
   deleteCustomModel(
@@ -859,6 +1122,142 @@ export interface Bedrock {
     args: DeregisterMarketplaceModelEndpointCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeregisterMarketplaceModelEndpointCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ExportAutomatedReasoningPolicyVersionCommand}
+   */
+  exportAutomatedReasoningPolicyVersion(
+    args: ExportAutomatedReasoningPolicyVersionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ExportAutomatedReasoningPolicyVersionCommandOutput>;
+  exportAutomatedReasoningPolicyVersion(
+    args: ExportAutomatedReasoningPolicyVersionCommandInput,
+    cb: (err: any, data?: ExportAutomatedReasoningPolicyVersionCommandOutput) => void
+  ): void;
+  exportAutomatedReasoningPolicyVersion(
+    args: ExportAutomatedReasoningPolicyVersionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ExportAutomatedReasoningPolicyVersionCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetAutomatedReasoningPolicyCommand}
+   */
+  getAutomatedReasoningPolicy(
+    args: GetAutomatedReasoningPolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetAutomatedReasoningPolicyCommandOutput>;
+  getAutomatedReasoningPolicy(
+    args: GetAutomatedReasoningPolicyCommandInput,
+    cb: (err: any, data?: GetAutomatedReasoningPolicyCommandOutput) => void
+  ): void;
+  getAutomatedReasoningPolicy(
+    args: GetAutomatedReasoningPolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetAutomatedReasoningPolicyCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetAutomatedReasoningPolicyAnnotationsCommand}
+   */
+  getAutomatedReasoningPolicyAnnotations(
+    args: GetAutomatedReasoningPolicyAnnotationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetAutomatedReasoningPolicyAnnotationsCommandOutput>;
+  getAutomatedReasoningPolicyAnnotations(
+    args: GetAutomatedReasoningPolicyAnnotationsCommandInput,
+    cb: (err: any, data?: GetAutomatedReasoningPolicyAnnotationsCommandOutput) => void
+  ): void;
+  getAutomatedReasoningPolicyAnnotations(
+    args: GetAutomatedReasoningPolicyAnnotationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetAutomatedReasoningPolicyAnnotationsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetAutomatedReasoningPolicyBuildWorkflowCommand}
+   */
+  getAutomatedReasoningPolicyBuildWorkflow(
+    args: GetAutomatedReasoningPolicyBuildWorkflowCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetAutomatedReasoningPolicyBuildWorkflowCommandOutput>;
+  getAutomatedReasoningPolicyBuildWorkflow(
+    args: GetAutomatedReasoningPolicyBuildWorkflowCommandInput,
+    cb: (err: any, data?: GetAutomatedReasoningPolicyBuildWorkflowCommandOutput) => void
+  ): void;
+  getAutomatedReasoningPolicyBuildWorkflow(
+    args: GetAutomatedReasoningPolicyBuildWorkflowCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetAutomatedReasoningPolicyBuildWorkflowCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetAutomatedReasoningPolicyBuildWorkflowResultAssetsCommand}
+   */
+  getAutomatedReasoningPolicyBuildWorkflowResultAssets(
+    args: GetAutomatedReasoningPolicyBuildWorkflowResultAssetsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetAutomatedReasoningPolicyBuildWorkflowResultAssetsCommandOutput>;
+  getAutomatedReasoningPolicyBuildWorkflowResultAssets(
+    args: GetAutomatedReasoningPolicyBuildWorkflowResultAssetsCommandInput,
+    cb: (err: any, data?: GetAutomatedReasoningPolicyBuildWorkflowResultAssetsCommandOutput) => void
+  ): void;
+  getAutomatedReasoningPolicyBuildWorkflowResultAssets(
+    args: GetAutomatedReasoningPolicyBuildWorkflowResultAssetsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetAutomatedReasoningPolicyBuildWorkflowResultAssetsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetAutomatedReasoningPolicyNextScenarioCommand}
+   */
+  getAutomatedReasoningPolicyNextScenario(
+    args: GetAutomatedReasoningPolicyNextScenarioCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetAutomatedReasoningPolicyNextScenarioCommandOutput>;
+  getAutomatedReasoningPolicyNextScenario(
+    args: GetAutomatedReasoningPolicyNextScenarioCommandInput,
+    cb: (err: any, data?: GetAutomatedReasoningPolicyNextScenarioCommandOutput) => void
+  ): void;
+  getAutomatedReasoningPolicyNextScenario(
+    args: GetAutomatedReasoningPolicyNextScenarioCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetAutomatedReasoningPolicyNextScenarioCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetAutomatedReasoningPolicyTestCaseCommand}
+   */
+  getAutomatedReasoningPolicyTestCase(
+    args: GetAutomatedReasoningPolicyTestCaseCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetAutomatedReasoningPolicyTestCaseCommandOutput>;
+  getAutomatedReasoningPolicyTestCase(
+    args: GetAutomatedReasoningPolicyTestCaseCommandInput,
+    cb: (err: any, data?: GetAutomatedReasoningPolicyTestCaseCommandOutput) => void
+  ): void;
+  getAutomatedReasoningPolicyTestCase(
+    args: GetAutomatedReasoningPolicyTestCaseCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetAutomatedReasoningPolicyTestCaseCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetAutomatedReasoningPolicyTestResultCommand}
+   */
+  getAutomatedReasoningPolicyTestResult(
+    args: GetAutomatedReasoningPolicyTestResultCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetAutomatedReasoningPolicyTestResultCommandOutput>;
+  getAutomatedReasoningPolicyTestResult(
+    args: GetAutomatedReasoningPolicyTestResultCommandInput,
+    cb: (err: any, data?: GetAutomatedReasoningPolicyTestResultCommandOutput) => void
+  ): void;
+  getAutomatedReasoningPolicyTestResult(
+    args: GetAutomatedReasoningPolicyTestResultCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetAutomatedReasoningPolicyTestResultCommandOutput) => void
   ): void;
 
   /**
@@ -1135,6 +1534,75 @@ export interface Bedrock {
     args: GetUseCaseForModelAccessCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetUseCaseForModelAccessCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListAutomatedReasoningPoliciesCommand}
+   */
+  listAutomatedReasoningPolicies(): Promise<ListAutomatedReasoningPoliciesCommandOutput>;
+  listAutomatedReasoningPolicies(
+    args: ListAutomatedReasoningPoliciesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListAutomatedReasoningPoliciesCommandOutput>;
+  listAutomatedReasoningPolicies(
+    args: ListAutomatedReasoningPoliciesCommandInput,
+    cb: (err: any, data?: ListAutomatedReasoningPoliciesCommandOutput) => void
+  ): void;
+  listAutomatedReasoningPolicies(
+    args: ListAutomatedReasoningPoliciesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListAutomatedReasoningPoliciesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListAutomatedReasoningPolicyBuildWorkflowsCommand}
+   */
+  listAutomatedReasoningPolicyBuildWorkflows(
+    args: ListAutomatedReasoningPolicyBuildWorkflowsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListAutomatedReasoningPolicyBuildWorkflowsCommandOutput>;
+  listAutomatedReasoningPolicyBuildWorkflows(
+    args: ListAutomatedReasoningPolicyBuildWorkflowsCommandInput,
+    cb: (err: any, data?: ListAutomatedReasoningPolicyBuildWorkflowsCommandOutput) => void
+  ): void;
+  listAutomatedReasoningPolicyBuildWorkflows(
+    args: ListAutomatedReasoningPolicyBuildWorkflowsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListAutomatedReasoningPolicyBuildWorkflowsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListAutomatedReasoningPolicyTestCasesCommand}
+   */
+  listAutomatedReasoningPolicyTestCases(
+    args: ListAutomatedReasoningPolicyTestCasesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListAutomatedReasoningPolicyTestCasesCommandOutput>;
+  listAutomatedReasoningPolicyTestCases(
+    args: ListAutomatedReasoningPolicyTestCasesCommandInput,
+    cb: (err: any, data?: ListAutomatedReasoningPolicyTestCasesCommandOutput) => void
+  ): void;
+  listAutomatedReasoningPolicyTestCases(
+    args: ListAutomatedReasoningPolicyTestCasesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListAutomatedReasoningPolicyTestCasesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListAutomatedReasoningPolicyTestResultsCommand}
+   */
+  listAutomatedReasoningPolicyTestResults(
+    args: ListAutomatedReasoningPolicyTestResultsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListAutomatedReasoningPolicyTestResultsCommandOutput>;
+  listAutomatedReasoningPolicyTestResults(
+    args: ListAutomatedReasoningPolicyTestResultsCommandInput,
+    cb: (err: any, data?: ListAutomatedReasoningPolicyTestResultsCommandOutput) => void
+  ): void;
+  listAutomatedReasoningPolicyTestResults(
+    args: ListAutomatedReasoningPolicyTestResultsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListAutomatedReasoningPolicyTestResultsCommandOutput) => void
   ): void;
 
   /**
@@ -1472,6 +1940,40 @@ export interface Bedrock {
   ): void;
 
   /**
+   * @see {@link StartAutomatedReasoningPolicyBuildWorkflowCommand}
+   */
+  startAutomatedReasoningPolicyBuildWorkflow(
+    args: StartAutomatedReasoningPolicyBuildWorkflowCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartAutomatedReasoningPolicyBuildWorkflowCommandOutput>;
+  startAutomatedReasoningPolicyBuildWorkflow(
+    args: StartAutomatedReasoningPolicyBuildWorkflowCommandInput,
+    cb: (err: any, data?: StartAutomatedReasoningPolicyBuildWorkflowCommandOutput) => void
+  ): void;
+  startAutomatedReasoningPolicyBuildWorkflow(
+    args: StartAutomatedReasoningPolicyBuildWorkflowCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartAutomatedReasoningPolicyBuildWorkflowCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link StartAutomatedReasoningPolicyTestWorkflowCommand}
+   */
+  startAutomatedReasoningPolicyTestWorkflow(
+    args: StartAutomatedReasoningPolicyTestWorkflowCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartAutomatedReasoningPolicyTestWorkflowCommandOutput>;
+  startAutomatedReasoningPolicyTestWorkflow(
+    args: StartAutomatedReasoningPolicyTestWorkflowCommandInput,
+    cb: (err: any, data?: StartAutomatedReasoningPolicyTestWorkflowCommandOutput) => void
+  ): void;
+  startAutomatedReasoningPolicyTestWorkflow(
+    args: StartAutomatedReasoningPolicyTestWorkflowCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartAutomatedReasoningPolicyTestWorkflowCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link StopEvaluationJobCommand}
    */
   stopEvaluationJob(
@@ -1542,6 +2044,57 @@ export interface Bedrock {
     args: UntagResourceCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateAutomatedReasoningPolicyCommand}
+   */
+  updateAutomatedReasoningPolicy(
+    args: UpdateAutomatedReasoningPolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateAutomatedReasoningPolicyCommandOutput>;
+  updateAutomatedReasoningPolicy(
+    args: UpdateAutomatedReasoningPolicyCommandInput,
+    cb: (err: any, data?: UpdateAutomatedReasoningPolicyCommandOutput) => void
+  ): void;
+  updateAutomatedReasoningPolicy(
+    args: UpdateAutomatedReasoningPolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateAutomatedReasoningPolicyCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateAutomatedReasoningPolicyAnnotationsCommand}
+   */
+  updateAutomatedReasoningPolicyAnnotations(
+    args: UpdateAutomatedReasoningPolicyAnnotationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateAutomatedReasoningPolicyAnnotationsCommandOutput>;
+  updateAutomatedReasoningPolicyAnnotations(
+    args: UpdateAutomatedReasoningPolicyAnnotationsCommandInput,
+    cb: (err: any, data?: UpdateAutomatedReasoningPolicyAnnotationsCommandOutput) => void
+  ): void;
+  updateAutomatedReasoningPolicyAnnotations(
+    args: UpdateAutomatedReasoningPolicyAnnotationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateAutomatedReasoningPolicyAnnotationsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateAutomatedReasoningPolicyTestCaseCommand}
+   */
+  updateAutomatedReasoningPolicyTestCase(
+    args: UpdateAutomatedReasoningPolicyTestCaseCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateAutomatedReasoningPolicyTestCaseCommandOutput>;
+  updateAutomatedReasoningPolicyTestCase(
+    args: UpdateAutomatedReasoningPolicyTestCaseCommandInput,
+    cb: (err: any, data?: UpdateAutomatedReasoningPolicyTestCaseCommandOutput) => void
+  ): void;
+  updateAutomatedReasoningPolicyTestCase(
+    args: UpdateAutomatedReasoningPolicyTestCaseCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateAutomatedReasoningPolicyTestCaseCommandOutput) => void
   ): void;
 
   /**

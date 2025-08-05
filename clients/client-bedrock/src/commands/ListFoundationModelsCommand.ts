@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { BedrockClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BedrockClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ListFoundationModelsRequest, ListFoundationModelsResponse } from "../models/models_0";
+import { ListFoundationModelsRequest, ListFoundationModelsResponse } from "../models/models_1";
 import { de_ListFoundationModelsCommand, se_ListFoundationModelsCommand } from "../protocols/Aws_restJson1";
 
 /**

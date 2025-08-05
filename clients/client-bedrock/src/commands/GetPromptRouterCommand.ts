@@ -10,7 +10,7 @@ import {
   GetPromptRouterRequest,
   GetPromptRouterResponse,
   GetPromptRouterResponseFilterSensitiveLog,
-} from "../models/models_0";
+} from "../models/models_1";
 import { de_GetPromptRouterCommand, se_GetPromptRouterCommand } from "../protocols/Aws_restJson1";
 
 /**

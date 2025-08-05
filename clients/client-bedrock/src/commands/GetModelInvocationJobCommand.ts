@@ -10,7 +10,7 @@ import {
   GetModelInvocationJobRequest,
   GetModelInvocationJobResponse,
   GetModelInvocationJobResponseFilterSensitiveLog,
-} from "../models/models_0";
+} from "../models/models_1";
 import { de_GetModelInvocationJobCommand, se_GetModelInvocationJobCommand } from "../protocols/Aws_restJson1";
 
 /**

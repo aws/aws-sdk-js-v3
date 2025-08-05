@@ -10,7 +10,7 @@ import {
   ListModelInvocationJobsRequest,
   ListModelInvocationJobsResponse,
   ListModelInvocationJobsResponseFilterSensitiveLog,
-} from "../models/models_0";
+} from "../models/models_1";
 import { de_ListModelInvocationJobsCommand, se_ListModelInvocationJobsCommand } from "../protocols/Aws_restJson1";
 
 /**

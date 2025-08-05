@@ -17,6 +17,7 @@ import {
   expectObject as __expectObject,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
+  isSerializableHeaderValue,
   limitedParseDouble as __limitedParseDouble,
   limitedParseFloat32 as __limitedParseFloat32,
   map,
@@ -39,6 +40,22 @@ import {
   BatchDeleteEvaluationJobCommandInput,
   BatchDeleteEvaluationJobCommandOutput,
 } from "../commands/BatchDeleteEvaluationJobCommand";
+import {
+  CancelAutomatedReasoningPolicyBuildWorkflowCommandInput,
+  CancelAutomatedReasoningPolicyBuildWorkflowCommandOutput,
+} from "../commands/CancelAutomatedReasoningPolicyBuildWorkflowCommand";
+import {
+  CreateAutomatedReasoningPolicyCommandInput,
+  CreateAutomatedReasoningPolicyCommandOutput,
+} from "../commands/CreateAutomatedReasoningPolicyCommand";
+import {
+  CreateAutomatedReasoningPolicyTestCaseCommandInput,
+  CreateAutomatedReasoningPolicyTestCaseCommandOutput,
+} from "../commands/CreateAutomatedReasoningPolicyTestCaseCommand";
+import {
+  CreateAutomatedReasoningPolicyVersionCommandInput,
+  CreateAutomatedReasoningPolicyVersionCommandOutput,
+} from "../commands/CreateAutomatedReasoningPolicyVersionCommand";
 import { CreateCustomModelCommandInput, CreateCustomModelCommandOutput } from "../commands/CreateCustomModelCommand";
 import {
   CreateCustomModelDeploymentCommandInput,
@@ -83,6 +100,18 @@ import {
   CreateProvisionedModelThroughputCommandInput,
   CreateProvisionedModelThroughputCommandOutput,
 } from "../commands/CreateProvisionedModelThroughputCommand";
+import {
+  DeleteAutomatedReasoningPolicyBuildWorkflowCommandInput,
+  DeleteAutomatedReasoningPolicyBuildWorkflowCommandOutput,
+} from "../commands/DeleteAutomatedReasoningPolicyBuildWorkflowCommand";
+import {
+  DeleteAutomatedReasoningPolicyCommandInput,
+  DeleteAutomatedReasoningPolicyCommandOutput,
+} from "../commands/DeleteAutomatedReasoningPolicyCommand";
+import {
+  DeleteAutomatedReasoningPolicyTestCaseCommandInput,
+  DeleteAutomatedReasoningPolicyTestCaseCommandOutput,
+} from "../commands/DeleteAutomatedReasoningPolicyTestCaseCommand";
 import { DeleteCustomModelCommandInput, DeleteCustomModelCommandOutput } from "../commands/DeleteCustomModelCommand";
 import {
   DeleteCustomModelDeploymentCommandInput,
@@ -118,6 +147,38 @@ import {
   DeregisterMarketplaceModelEndpointCommandInput,
   DeregisterMarketplaceModelEndpointCommandOutput,
 } from "../commands/DeregisterMarketplaceModelEndpointCommand";
+import {
+  ExportAutomatedReasoningPolicyVersionCommandInput,
+  ExportAutomatedReasoningPolicyVersionCommandOutput,
+} from "../commands/ExportAutomatedReasoningPolicyVersionCommand";
+import {
+  GetAutomatedReasoningPolicyAnnotationsCommandInput,
+  GetAutomatedReasoningPolicyAnnotationsCommandOutput,
+} from "../commands/GetAutomatedReasoningPolicyAnnotationsCommand";
+import {
+  GetAutomatedReasoningPolicyBuildWorkflowCommandInput,
+  GetAutomatedReasoningPolicyBuildWorkflowCommandOutput,
+} from "../commands/GetAutomatedReasoningPolicyBuildWorkflowCommand";
+import {
+  GetAutomatedReasoningPolicyBuildWorkflowResultAssetsCommandInput,
+  GetAutomatedReasoningPolicyBuildWorkflowResultAssetsCommandOutput,
+} from "../commands/GetAutomatedReasoningPolicyBuildWorkflowResultAssetsCommand";
+import {
+  GetAutomatedReasoningPolicyCommandInput,
+  GetAutomatedReasoningPolicyCommandOutput,
+} from "../commands/GetAutomatedReasoningPolicyCommand";
+import {
+  GetAutomatedReasoningPolicyNextScenarioCommandInput,
+  GetAutomatedReasoningPolicyNextScenarioCommandOutput,
+} from "../commands/GetAutomatedReasoningPolicyNextScenarioCommand";
+import {
+  GetAutomatedReasoningPolicyTestCaseCommandInput,
+  GetAutomatedReasoningPolicyTestCaseCommandOutput,
+} from "../commands/GetAutomatedReasoningPolicyTestCaseCommand";
+import {
+  GetAutomatedReasoningPolicyTestResultCommandInput,
+  GetAutomatedReasoningPolicyTestResultCommandOutput,
+} from "../commands/GetAutomatedReasoningPolicyTestResultCommand";
 import { GetCustomModelCommandInput, GetCustomModelCommandOutput } from "../commands/GetCustomModelCommand";
 import {
   GetCustomModelDeploymentCommandInput,
@@ -162,6 +223,22 @@ import {
   GetUseCaseForModelAccessCommandInput,
   GetUseCaseForModelAccessCommandOutput,
 } from "../commands/GetUseCaseForModelAccessCommand";
+import {
+  ListAutomatedReasoningPoliciesCommandInput,
+  ListAutomatedReasoningPoliciesCommandOutput,
+} from "../commands/ListAutomatedReasoningPoliciesCommand";
+import {
+  ListAutomatedReasoningPolicyBuildWorkflowsCommandInput,
+  ListAutomatedReasoningPolicyBuildWorkflowsCommandOutput,
+} from "../commands/ListAutomatedReasoningPolicyBuildWorkflowsCommand";
+import {
+  ListAutomatedReasoningPolicyTestCasesCommandInput,
+  ListAutomatedReasoningPolicyTestCasesCommandOutput,
+} from "../commands/ListAutomatedReasoningPolicyTestCasesCommand";
+import {
+  ListAutomatedReasoningPolicyTestResultsCommandInput,
+  ListAutomatedReasoningPolicyTestResultsCommandOutput,
+} from "../commands/ListAutomatedReasoningPolicyTestResultsCommand";
 import {
   ListCustomModelDeploymentsCommandInput,
   ListCustomModelDeploymentsCommandOutput,
@@ -220,6 +297,14 @@ import {
   RegisterMarketplaceModelEndpointCommandInput,
   RegisterMarketplaceModelEndpointCommandOutput,
 } from "../commands/RegisterMarketplaceModelEndpointCommand";
+import {
+  StartAutomatedReasoningPolicyBuildWorkflowCommandInput,
+  StartAutomatedReasoningPolicyBuildWorkflowCommandOutput,
+} from "../commands/StartAutomatedReasoningPolicyBuildWorkflowCommand";
+import {
+  StartAutomatedReasoningPolicyTestWorkflowCommandInput,
+  StartAutomatedReasoningPolicyTestWorkflowCommandOutput,
+} from "../commands/StartAutomatedReasoningPolicyTestWorkflowCommand";
 import { StopEvaluationJobCommandInput, StopEvaluationJobCommandOutput } from "../commands/StopEvaluationJobCommand";
 import {
   StopModelCustomizationJobCommandInput,
@@ -231,6 +316,18 @@ import {
 } from "../commands/StopModelInvocationJobCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
+import {
+  UpdateAutomatedReasoningPolicyAnnotationsCommandInput,
+  UpdateAutomatedReasoningPolicyAnnotationsCommandOutput,
+} from "../commands/UpdateAutomatedReasoningPolicyAnnotationsCommand";
+import {
+  UpdateAutomatedReasoningPolicyCommandInput,
+  UpdateAutomatedReasoningPolicyCommandOutput,
+} from "../commands/UpdateAutomatedReasoningPolicyCommand";
+import {
+  UpdateAutomatedReasoningPolicyTestCaseCommandInput,
+  UpdateAutomatedReasoningPolicyTestCaseCommandOutput,
+} from "../commands/UpdateAutomatedReasoningPolicyTestCaseCommand";
 import { UpdateGuardrailCommandInput, UpdateGuardrailCommandOutput } from "../commands/UpdateGuardrailCommand";
 import {
   UpdateMarketplaceModelEndpointCommandInput,
@@ -246,9 +343,49 @@ import {
   AutomatedEvaluationConfig,
   AutomatedEvaluationCustomMetricConfig,
   AutomatedEvaluationCustomMetricSource,
+  AutomatedReasoningCheckFinding,
+  AutomatedReasoningCheckImpossibleFinding,
+  AutomatedReasoningCheckInvalidFinding,
+  AutomatedReasoningCheckSatisfiableFinding,
+  AutomatedReasoningCheckTranslation,
+  AutomatedReasoningCheckTranslationAmbiguousFinding,
+  AutomatedReasoningCheckTranslationOption,
+  AutomatedReasoningCheckValidFinding,
+  AutomatedReasoningPolicyAddRuleAnnotation,
+  AutomatedReasoningPolicyAddRuleFromNaturalLanguageAnnotation,
+  AutomatedReasoningPolicyAddTypeAnnotation,
+  AutomatedReasoningPolicyAddTypeValue,
+  AutomatedReasoningPolicyAddVariableAnnotation,
+  AutomatedReasoningPolicyAnnotation,
+  AutomatedReasoningPolicyBuildLog,
+  AutomatedReasoningPolicyBuildResultAssets,
+  AutomatedReasoningPolicyBuildWorkflowDocument,
+  AutomatedReasoningPolicyBuildWorkflowRepairContent,
+  AutomatedReasoningPolicyBuildWorkflowSource,
+  AutomatedReasoningPolicyBuildWorkflowSummary,
+  AutomatedReasoningPolicyDefinition,
+  AutomatedReasoningPolicyDefinitionRule,
+  AutomatedReasoningPolicyDefinitionType,
+  AutomatedReasoningPolicyDefinitionTypeValue,
+  AutomatedReasoningPolicyDefinitionVariable,
+  AutomatedReasoningPolicyDeleteRuleAnnotation,
+  AutomatedReasoningPolicyDeleteTypeAnnotation,
+  AutomatedReasoningPolicyDeleteTypeValue,
+  AutomatedReasoningPolicyDeleteVariableAnnotation,
+  AutomatedReasoningPolicyIngestContentAnnotation,
+  AutomatedReasoningPolicySummary,
+  AutomatedReasoningPolicyTestCase,
+  AutomatedReasoningPolicyTestResult,
+  AutomatedReasoningPolicyTypeValueAnnotation,
+  AutomatedReasoningPolicyUpdateFromRuleFeedbackAnnotation,
+  AutomatedReasoningPolicyUpdateFromScenarioFeedbackAnnotation,
+  AutomatedReasoningPolicyUpdateRuleAnnotation,
+  AutomatedReasoningPolicyUpdateTypeAnnotation,
+  AutomatedReasoningPolicyUpdateTypeValue,
+  AutomatedReasoningPolicyUpdateVariableAnnotation,
+  AutomatedReasoningPolicyWorkflowTypeContent,
   BedrockEvaluatorModel,
   ByteContentDoc,
-  CloudWatchConfig,
   ConflictException,
   CustomizationConfig,
   CustomMetricBedrockEvaluatorModel,
@@ -277,55 +414,37 @@ import {
   FieldForReranking,
   FilterAttribute,
   GenerationConfiguration,
+  GuardrailAutomatedReasoningPolicyConfig,
   GuardrailConfiguration,
   GuardrailContentFilterConfig,
   GuardrailContentFiltersTierConfig,
   GuardrailContentPolicyConfig,
-  GuardrailContextualGroundingFilter,
   GuardrailContextualGroundingFilterConfig,
-  GuardrailContextualGroundingPolicy,
   GuardrailContextualGroundingPolicyConfig,
   GuardrailCrossRegionConfig,
-  GuardrailManagedWordsConfig,
   GuardrailModality,
   GuardrailPiiEntityConfig,
   GuardrailRegexConfig,
   GuardrailSensitiveInformationPolicyConfig,
-  GuardrailSummary,
   GuardrailTopicConfig,
   GuardrailTopicPolicyConfig,
   GuardrailTopicsTierConfig,
-  GuardrailWordConfig,
-  GuardrailWordPolicyConfig,
   HumanEvaluationConfig,
   HumanEvaluationCustomMetric,
   HumanWorkflowConfig,
   ImplicitFilterConfiguration,
-  ImportedModelSummary,
-  InferenceProfileModelSource,
-  InferenceProfileSummary,
   InternalServerException,
   InvocationLogsConfig,
   InvocationLogSource,
   KbInferenceConfig,
-  LoggingConfig,
   MarketplaceModelEndpoint,
   MarketplaceModelEndpointSummary,
   MetadataAttributeSchema,
   MetadataConfigurationForReranking,
-  ModelCopyJobSummary,
   ModelDataSource,
-  ModelImportJobSummary,
-  ModelInvocationJobInputDataConfig,
-  ModelInvocationJobOutputDataConfig,
-  ModelInvocationJobS3InputDataConfig,
-  ModelInvocationJobS3OutputDataConfig,
-  ModelInvocationJobSummary,
   OrchestrationConfiguration,
   OutputDataConfig,
   PerformanceConfiguration,
-  PromptRouterSummary,
-  PromptRouterTargetModel,
   PromptTemplate,
   QueryTransformationConfiguration,
   RatingScaleItem,
@@ -333,9 +452,8 @@ import {
   RequestMetadataBaseFilters,
   RequestMetadataFilters,
   RerankingMetadataSelectiveModeConfiguration,
+  ResourceInUseException,
   ResourceNotFoundException,
-  RoutingCriteria,
-  S3Config,
   S3DataSource,
   S3ObjectDoc,
   SageMakerEndpoint,
@@ -358,18 +476,41 @@ import {
   VpcConfig,
 } from "../models/models_0";
 import {
+  CloudWatchConfig,
   DataProcessingDetails,
   EvaluationInferenceConfig,
+  GuardrailAutomatedReasoningPolicy,
+  GuardrailContextualGroundingFilter,
+  GuardrailContextualGroundingPolicy,
+  GuardrailManagedWordsConfig,
+  GuardrailSummary,
+  GuardrailWordConfig,
+  GuardrailWordPolicyConfig,
+  ImportedModelSummary,
+  InferenceProfileModelSource,
+  InferenceProfileSummary,
   KnowledgeBaseConfig,
   KnowledgeBaseRetrievalConfiguration,
   KnowledgeBaseRetrieveAndGenerateConfiguration,
   KnowledgeBaseVectorSearchConfiguration,
+  LoggingConfig,
+  ModelCopyJobSummary,
   ModelCustomizationJobSummary,
+  ModelImportJobSummary,
+  ModelInvocationJobInputDataConfig,
+  ModelInvocationJobOutputDataConfig,
+  ModelInvocationJobS3InputDataConfig,
+  ModelInvocationJobS3OutputDataConfig,
+  ModelInvocationJobSummary,
+  PromptRouterSummary,
+  PromptRouterTargetModel,
   ProvisionedModelSummary,
   RAGConfig,
   RetrievalFilter,
   RetrieveAndGenerateConfiguration,
   RetrieveConfig,
+  RoutingCriteria,
+  S3Config,
   StatusDetails,
   TrainingDetails,
   ValidationDetails,
@@ -391,6 +532,101 @@ export const se_BatchDeleteEvaluationJobCommand = async (
   body = JSON.stringify(
     take(input, {
       jobIdentifiers: (_) => _json(_),
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1CancelAutomatedReasoningPolicyBuildWorkflowCommand
+ */
+export const se_CancelAutomatedReasoningPolicyBuildWorkflowCommand = async (
+  input: CancelAutomatedReasoningPolicyBuildWorkflowCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/automated-reasoning-policies/{policyArn}/build-workflows/{buildWorkflowId}/cancel");
+  b.p("policyArn", () => input.policyArn!, "{policyArn}", false);
+  b.p("buildWorkflowId", () => input.buildWorkflowId!, "{buildWorkflowId}", false);
+  let body: any;
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1CreateAutomatedReasoningPolicyCommand
+ */
+export const se_CreateAutomatedReasoningPolicyCommand = async (
+  input: CreateAutomatedReasoningPolicyCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/automated-reasoning-policies");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      clientRequestToken: [true, (_) => _ ?? generateIdempotencyToken()],
+      description: [],
+      name: [],
+      policyDefinition: (_) => _json(_),
+      tags: (_) => _json(_),
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1CreateAutomatedReasoningPolicyTestCaseCommand
+ */
+export const se_CreateAutomatedReasoningPolicyTestCaseCommand = async (
+  input: CreateAutomatedReasoningPolicyTestCaseCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/automated-reasoning-policies/{policyArn}/test-cases");
+  b.p("policyArn", () => input.policyArn!, "{policyArn}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      clientRequestToken: [true, (_) => _ ?? generateIdempotencyToken()],
+      confidenceThreshold: (_) => __serializeFloat(_),
+      expectedAggregatedFindingsResult: [],
+      guardContent: [],
+      queryContent: [],
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1CreateAutomatedReasoningPolicyVersionCommand
+ */
+export const se_CreateAutomatedReasoningPolicyVersionCommand = async (
+  input: CreateAutomatedReasoningPolicyVersionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/automated-reasoning-policies/{policyArn}/versions");
+  b.p("policyArn", () => input.policyArn!, "{policyArn}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      clientRequestToken: [true, (_) => _ ?? generateIdempotencyToken()],
+      lastUpdatedDefinitionHash: [],
+      tags: (_) => _json(_),
     })
   );
   b.m("POST").h(headers).b(body);
@@ -519,6 +755,7 @@ export const se_CreateGuardrailCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
+      automatedReasoningPolicyConfig: (_) => se_GuardrailAutomatedReasoningPolicyConfig(_, context),
       blockedInputMessaging: [],
       blockedOutputsMessaging: [],
       clientRequestToken: [true, (_) => _ ?? generateIdempotencyToken()],
@@ -793,6 +1030,68 @@ export const se_CreateProvisionedModelThroughputCommand = async (
 };
 
 /**
+ * serializeAws_restJson1DeleteAutomatedReasoningPolicyCommand
+ */
+export const se_DeleteAutomatedReasoningPolicyCommand = async (
+  input: DeleteAutomatedReasoningPolicyCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/automated-reasoning-policies/{policyArn}");
+  b.p("policyArn", () => input.policyArn!, "{policyArn}", false);
+  let body: any;
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1DeleteAutomatedReasoningPolicyBuildWorkflowCommand
+ */
+export const se_DeleteAutomatedReasoningPolicyBuildWorkflowCommand = async (
+  input: DeleteAutomatedReasoningPolicyBuildWorkflowCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/automated-reasoning-policies/{policyArn}/build-workflows/{buildWorkflowId}");
+  b.p("policyArn", () => input.policyArn!, "{policyArn}", false);
+  b.p("buildWorkflowId", () => input.buildWorkflowId!, "{buildWorkflowId}", false);
+  const query: any = map({
+    [_uA]: [
+      __expectNonNull(input.lastUpdatedAt, `lastUpdatedAt`) != null,
+      () => __serializeDateTime(input[_lUA]!).toString(),
+    ],
+  });
+  let body: any;
+  b.m("DELETE").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1DeleteAutomatedReasoningPolicyTestCaseCommand
+ */
+export const se_DeleteAutomatedReasoningPolicyTestCaseCommand = async (
+  input: DeleteAutomatedReasoningPolicyTestCaseCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/automated-reasoning-policies/{policyArn}/test-cases/{testCaseId}");
+  b.p("policyArn", () => input.policyArn!, "{policyArn}", false);
+  b.p("testCaseId", () => input.testCaseId!, "{testCaseId}", false);
+  const query: any = map({
+    [_uA]: [
+      __expectNonNull(input.lastUpdatedAt, `lastUpdatedAt`) != null,
+      () => __serializeDateTime(input[_lUA]!).toString(),
+    ],
+  });
+  let body: any;
+  b.m("DELETE").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1DeleteCustomModelCommand
  */
 export const se_DeleteCustomModelCommand = async (
@@ -978,6 +1277,146 @@ export const se_DeregisterMarketplaceModelEndpointCommand = async (
   b.p("endpointArn", () => input.endpointArn!, "{endpointArn}", false);
   let body: any;
   b.m("DELETE").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1ExportAutomatedReasoningPolicyVersionCommand
+ */
+export const se_ExportAutomatedReasoningPolicyVersionCommand = async (
+  input: ExportAutomatedReasoningPolicyVersionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/automated-reasoning-policies/{policyArn}/export");
+  b.p("policyArn", () => input.policyArn!, "{policyArn}", false);
+  let body: any;
+  b.m("GET").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1GetAutomatedReasoningPolicyCommand
+ */
+export const se_GetAutomatedReasoningPolicyCommand = async (
+  input: GetAutomatedReasoningPolicyCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/automated-reasoning-policies/{policyArn}");
+  b.p("policyArn", () => input.policyArn!, "{policyArn}", false);
+  let body: any;
+  b.m("GET").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1GetAutomatedReasoningPolicyAnnotationsCommand
+ */
+export const se_GetAutomatedReasoningPolicyAnnotationsCommand = async (
+  input: GetAutomatedReasoningPolicyAnnotationsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/automated-reasoning-policies/{policyArn}/build-workflows/{buildWorkflowId}/annotations");
+  b.p("policyArn", () => input.policyArn!, "{policyArn}", false);
+  b.p("buildWorkflowId", () => input.buildWorkflowId!, "{buildWorkflowId}", false);
+  let body: any;
+  b.m("GET").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1GetAutomatedReasoningPolicyBuildWorkflowCommand
+ */
+export const se_GetAutomatedReasoningPolicyBuildWorkflowCommand = async (
+  input: GetAutomatedReasoningPolicyBuildWorkflowCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/automated-reasoning-policies/{policyArn}/build-workflows/{buildWorkflowId}");
+  b.p("policyArn", () => input.policyArn!, "{policyArn}", false);
+  b.p("buildWorkflowId", () => input.buildWorkflowId!, "{buildWorkflowId}", false);
+  let body: any;
+  b.m("GET").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1GetAutomatedReasoningPolicyBuildWorkflowResultAssetsCommand
+ */
+export const se_GetAutomatedReasoningPolicyBuildWorkflowResultAssetsCommand = async (
+  input: GetAutomatedReasoningPolicyBuildWorkflowResultAssetsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/automated-reasoning-policies/{policyArn}/build-workflows/{buildWorkflowId}/result-assets");
+  b.p("policyArn", () => input.policyArn!, "{policyArn}", false);
+  b.p("buildWorkflowId", () => input.buildWorkflowId!, "{buildWorkflowId}", false);
+  const query: any = map({
+    [_aT]: [, __expectNonNull(input[_aT]!, `assetType`)],
+  });
+  let body: any;
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1GetAutomatedReasoningPolicyNextScenarioCommand
+ */
+export const se_GetAutomatedReasoningPolicyNextScenarioCommand = async (
+  input: GetAutomatedReasoningPolicyNextScenarioCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/automated-reasoning-policies/{policyArn}/build-workflows/{buildWorkflowId}/scenarios");
+  b.p("policyArn", () => input.policyArn!, "{policyArn}", false);
+  b.p("buildWorkflowId", () => input.buildWorkflowId!, "{buildWorkflowId}", false);
+  let body: any;
+  b.m("GET").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1GetAutomatedReasoningPolicyTestCaseCommand
+ */
+export const se_GetAutomatedReasoningPolicyTestCaseCommand = async (
+  input: GetAutomatedReasoningPolicyTestCaseCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/automated-reasoning-policies/{policyArn}/test-cases/{testCaseId}");
+  b.p("policyArn", () => input.policyArn!, "{policyArn}", false);
+  b.p("testCaseId", () => input.testCaseId!, "{testCaseId}", false);
+  let body: any;
+  b.m("GET").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1GetAutomatedReasoningPolicyTestResultCommand
+ */
+export const se_GetAutomatedReasoningPolicyTestResultCommand = async (
+  input: GetAutomatedReasoningPolicyTestResultCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp(
+    "/automated-reasoning-policies/{policyArn}/build-workflows/{buildWorkflowId}/test-cases/{testCaseId}/test-results"
+  );
+  b.p("policyArn", () => input.policyArn!, "{policyArn}", false);
+  b.p("buildWorkflowId", () => input.buildWorkflowId!, "{buildWorkflowId}", false);
+  b.p("testCaseId", () => input.testCaseId!, "{testCaseId}", false);
+  let body: any;
+  b.m("GET").h(headers).b(body);
   return b.build();
 };
 
@@ -1256,6 +1695,87 @@ export const se_GetUseCaseForModelAccessCommand = async (
   b.bp("/use-case-for-model-access");
   let body: any;
   b.m("GET").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1ListAutomatedReasoningPoliciesCommand
+ */
+export const se_ListAutomatedReasoningPoliciesCommand = async (
+  input: ListAutomatedReasoningPoliciesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/automated-reasoning-policies");
+  const query: any = map({
+    [_pA]: [, input[_pA]!],
+    [_nT]: [, input[_nT]!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
+  });
+  let body: any;
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1ListAutomatedReasoningPolicyBuildWorkflowsCommand
+ */
+export const se_ListAutomatedReasoningPolicyBuildWorkflowsCommand = async (
+  input: ListAutomatedReasoningPolicyBuildWorkflowsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/automated-reasoning-policies/{policyArn}/build-workflows");
+  b.p("policyArn", () => input.policyArn!, "{policyArn}", false);
+  const query: any = map({
+    [_nT]: [, input[_nT]!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
+  });
+  let body: any;
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1ListAutomatedReasoningPolicyTestCasesCommand
+ */
+export const se_ListAutomatedReasoningPolicyTestCasesCommand = async (
+  input: ListAutomatedReasoningPolicyTestCasesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/automated-reasoning-policies/{policyArn}/test-cases");
+  b.p("policyArn", () => input.policyArn!, "{policyArn}", false);
+  const query: any = map({
+    [_nT]: [, input[_nT]!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
+  });
+  let body: any;
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1ListAutomatedReasoningPolicyTestResultsCommand
+ */
+export const se_ListAutomatedReasoningPolicyTestResultsCommand = async (
+  input: ListAutomatedReasoningPolicyTestResultsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/automated-reasoning-policies/{policyArn}/build-workflows/{buildWorkflowId}/test-results");
+  b.p("policyArn", () => input.policyArn!, "{policyArn}", false);
+  b.p("buildWorkflowId", () => input.buildWorkflowId!, "{buildWorkflowId}", false);
+  const query: any = map({
+    [_nT]: [, input[_nT]!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
+  });
+  let body: any;
+  b.m("GET").h(headers).q(query).b(body);
   return b.build();
 };
 
@@ -1701,6 +2221,58 @@ export const se_RegisterMarketplaceModelEndpointCommand = async (
 };
 
 /**
+ * serializeAws_restJson1StartAutomatedReasoningPolicyBuildWorkflowCommand
+ */
+export const se_StartAutomatedReasoningPolicyBuildWorkflowCommand = async (
+  input: StartAutomatedReasoningPolicyBuildWorkflowCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = map({}, isSerializableHeaderValue, {
+    "content-type": "application/json",
+    [_xact]: input[_cRT] ?? generateIdempotencyToken(),
+  });
+  b.bp("/automated-reasoning-policies/{policyArn}/build-workflows/{buildWorkflowType}/start");
+  b.p("policyArn", () => input.policyArn!, "{policyArn}", false);
+  b.p("buildWorkflowType", () => input.buildWorkflowType!, "{buildWorkflowType}", false);
+  let body: any;
+  if (input.sourceContent !== undefined) {
+    body = se_AutomatedReasoningPolicyBuildWorkflowSource(input.sourceContent, context);
+  }
+  if (body === undefined) {
+    body = {};
+  }
+  body = JSON.stringify(body);
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1StartAutomatedReasoningPolicyTestWorkflowCommand
+ */
+export const se_StartAutomatedReasoningPolicyTestWorkflowCommand = async (
+  input: StartAutomatedReasoningPolicyTestWorkflowCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/automated-reasoning-policies/{policyArn}/build-workflows/{buildWorkflowId}/test-workflows");
+  b.p("policyArn", () => input.policyArn!, "{policyArn}", false);
+  b.p("buildWorkflowId", () => input.buildWorkflowId!, "{buildWorkflowId}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      clientRequestToken: [true, (_) => _ ?? generateIdempotencyToken()],
+      testCaseIds: (_) => _json(_),
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1StopEvaluationJobCommand
  */
 export const se_StopEvaluationJobCommand = async (
@@ -1795,6 +2367,86 @@ export const se_UntagResourceCommand = async (
 };
 
 /**
+ * serializeAws_restJson1UpdateAutomatedReasoningPolicyCommand
+ */
+export const se_UpdateAutomatedReasoningPolicyCommand = async (
+  input: UpdateAutomatedReasoningPolicyCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/automated-reasoning-policies/{policyArn}");
+  b.p("policyArn", () => input.policyArn!, "{policyArn}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      description: [],
+      name: [],
+      policyDefinition: (_) => _json(_),
+    })
+  );
+  b.m("PATCH").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1UpdateAutomatedReasoningPolicyAnnotationsCommand
+ */
+export const se_UpdateAutomatedReasoningPolicyAnnotationsCommand = async (
+  input: UpdateAutomatedReasoningPolicyAnnotationsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/automated-reasoning-policies/{policyArn}/build-workflows/{buildWorkflowId}/annotations");
+  b.p("policyArn", () => input.policyArn!, "{policyArn}", false);
+  b.p("buildWorkflowId", () => input.buildWorkflowId!, "{buildWorkflowId}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      annotations: (_) => _json(_),
+      lastUpdatedAnnotationSetHash: [],
+    })
+  );
+  b.m("PATCH").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1UpdateAutomatedReasoningPolicyTestCaseCommand
+ */
+export const se_UpdateAutomatedReasoningPolicyTestCaseCommand = async (
+  input: UpdateAutomatedReasoningPolicyTestCaseCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/automated-reasoning-policies/{policyArn}/test-cases/{testCaseId}");
+  b.p("policyArn", () => input.policyArn!, "{policyArn}", false);
+  b.p("testCaseId", () => input.testCaseId!, "{testCaseId}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      clientRequestToken: [true, (_) => _ ?? generateIdempotencyToken()],
+      confidenceThreshold: (_) => __serializeFloat(_),
+      expectedAggregatedFindingsResult: [],
+      guardContent: [],
+      kmsKeyArn: [],
+      lastUpdatedAt: (_) => __serializeDateTime(_),
+      queryContent: [],
+    })
+  );
+  b.m("PATCH").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1UpdateGuardrailCommand
  */
 export const se_UpdateGuardrailCommand = async (
@@ -1810,6 +2462,7 @@ export const se_UpdateGuardrailCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
+      automatedReasoningPolicyConfig: (_) => se_GuardrailAutomatedReasoningPolicyConfig(_, context),
       blockedInputMessaging: [],
       blockedOutputsMessaging: [],
       contentPolicyConfig: (_) => _json(_),
@@ -1892,6 +2545,98 @@ export const de_BatchDeleteEvaluationJobCommand = async (
   const doc = take(data, {
     errors: _json,
     evaluationJobs: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1CancelAutomatedReasoningPolicyBuildWorkflowCommand
+ */
+export const de_CancelAutomatedReasoningPolicyBuildWorkflowCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CancelAutomatedReasoningPolicyBuildWorkflowCommandOutput> => {
+  if (output.statusCode !== 202 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1CreateAutomatedReasoningPolicyCommand
+ */
+export const de_CreateAutomatedReasoningPolicyCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateAutomatedReasoningPolicyCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    createdAt: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    definitionHash: __expectString,
+    description: __expectString,
+    name: __expectString,
+    policyArn: __expectString,
+    updatedAt: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    version: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1CreateAutomatedReasoningPolicyTestCaseCommand
+ */
+export const de_CreateAutomatedReasoningPolicyTestCaseCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateAutomatedReasoningPolicyTestCaseCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    policyArn: __expectString,
+    testCaseId: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1CreateAutomatedReasoningPolicyVersionCommand
+ */
+export const de_CreateAutomatedReasoningPolicyVersionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateAutomatedReasoningPolicyVersionCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    createdAt: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    definitionHash: __expectString,
+    description: __expectString,
+    name: __expectString,
+    policyArn: __expectString,
+    version: __expectString,
   });
   Object.assign(contents, doc);
   return contents;
@@ -2197,6 +2942,57 @@ export const de_CreateProvisionedModelThroughputCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1DeleteAutomatedReasoningPolicyCommand
+ */
+export const de_DeleteAutomatedReasoningPolicyCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteAutomatedReasoningPolicyCommandOutput> => {
+  if (output.statusCode !== 202 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DeleteAutomatedReasoningPolicyBuildWorkflowCommand
+ */
+export const de_DeleteAutomatedReasoningPolicyBuildWorkflowCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteAutomatedReasoningPolicyBuildWorkflowCommandOutput> => {
+  if (output.statusCode !== 202 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DeleteAutomatedReasoningPolicyTestCaseCommand
+ */
+export const de_DeleteAutomatedReasoningPolicyTestCaseCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteAutomatedReasoningPolicyTestCaseCommandOutput> => {
+  if (output.statusCode !== 202 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1DeleteCustomModelCommand
  */
 export const de_DeleteCustomModelCommand = async (
@@ -2384,6 +3180,195 @@ export const de_DeregisterMarketplaceModelEndpointCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1ExportAutomatedReasoningPolicyVersionCommand
+ */
+export const de_ExportAutomatedReasoningPolicyVersionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ExportAutomatedReasoningPolicyVersionCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
+  contents.policyDefinition = _json(data);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1GetAutomatedReasoningPolicyCommand
+ */
+export const de_GetAutomatedReasoningPolicyCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetAutomatedReasoningPolicyCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    createdAt: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    definitionHash: __expectString,
+    description: __expectString,
+    name: __expectString,
+    policyArn: __expectString,
+    policyId: __expectString,
+    updatedAt: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    version: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1GetAutomatedReasoningPolicyAnnotationsCommand
+ */
+export const de_GetAutomatedReasoningPolicyAnnotationsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetAutomatedReasoningPolicyAnnotationsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    annotationSetHash: __expectString,
+    annotations: _json,
+    buildWorkflowId: __expectString,
+    name: __expectString,
+    policyArn: __expectString,
+    updatedAt: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1GetAutomatedReasoningPolicyBuildWorkflowCommand
+ */
+export const de_GetAutomatedReasoningPolicyBuildWorkflowCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetAutomatedReasoningPolicyBuildWorkflowCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    buildWorkflowId: __expectString,
+    buildWorkflowType: __expectString,
+    createdAt: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    documentContentType: __expectString,
+    documentDescription: __expectString,
+    documentName: __expectString,
+    policyArn: __expectString,
+    status: __expectString,
+    updatedAt: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1GetAutomatedReasoningPolicyBuildWorkflowResultAssetsCommand
+ */
+export const de_GetAutomatedReasoningPolicyBuildWorkflowResultAssetsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetAutomatedReasoningPolicyBuildWorkflowResultAssetsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    buildWorkflowAssets: (_) => de_AutomatedReasoningPolicyBuildResultAssets(__expectUnion(_), context),
+    buildWorkflowId: __expectString,
+    policyArn: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1GetAutomatedReasoningPolicyNextScenarioCommand
+ */
+export const de_GetAutomatedReasoningPolicyNextScenarioCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetAutomatedReasoningPolicyNextScenarioCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    policyArn: __expectString,
+    scenario: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1GetAutomatedReasoningPolicyTestCaseCommand
+ */
+export const de_GetAutomatedReasoningPolicyTestCaseCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetAutomatedReasoningPolicyTestCaseCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    policyArn: __expectString,
+    testCase: (_) => de_AutomatedReasoningPolicyTestCase(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1GetAutomatedReasoningPolicyTestResultCommand
+ */
+export const de_GetAutomatedReasoningPolicyTestResultCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetAutomatedReasoningPolicyTestResultCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    testResult: (_) => de_AutomatedReasoningPolicyTestResult(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1GetCustomModelCommand
  */
 export const de_GetCustomModelCommand = async (
@@ -2543,6 +3528,7 @@ export const de_GetGuardrailCommand = async (
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
+    automatedReasoningPolicy: (_) => de_GuardrailAutomatedReasoningPolicy(_, context),
     blockedInputMessaging: __expectString,
     blockedOutputsMessaging: __expectString,
     contentPolicy: _json,
@@ -2889,6 +3875,95 @@ export const de_GetUseCaseForModelAccessCommand = async (
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
     formData: context.base64Decoder,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListAutomatedReasoningPoliciesCommand
+ */
+export const de_ListAutomatedReasoningPoliciesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListAutomatedReasoningPoliciesCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    automatedReasoningPolicySummaries: (_) => de_AutomatedReasoningPolicySummaries(_, context),
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListAutomatedReasoningPolicyBuildWorkflowsCommand
+ */
+export const de_ListAutomatedReasoningPolicyBuildWorkflowsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListAutomatedReasoningPolicyBuildWorkflowsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    automatedReasoningPolicyBuildWorkflowSummaries: (_) =>
+      de_AutomatedReasoningPolicyBuildWorkflowSummaries(_, context),
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListAutomatedReasoningPolicyTestCasesCommand
+ */
+export const de_ListAutomatedReasoningPolicyTestCasesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListAutomatedReasoningPolicyTestCasesCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    nextToken: __expectString,
+    testCases: (_) => de_AutomatedReasoningPolicyTestCaseList(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListAutomatedReasoningPolicyTestResultsCommand
+ */
+export const de_ListAutomatedReasoningPolicyTestResultsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListAutomatedReasoningPolicyTestResultsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    nextToken: __expectString,
+    testResults: (_) => de_AutomatedReasoningPolicyTestList(_, context),
   });
   Object.assign(contents, doc);
   return contents;
@@ -3300,6 +4375,49 @@ export const de_RegisterMarketplaceModelEndpointCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1StartAutomatedReasoningPolicyBuildWorkflowCommand
+ */
+export const de_StartAutomatedReasoningPolicyBuildWorkflowCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartAutomatedReasoningPolicyBuildWorkflowCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    buildWorkflowId: __expectString,
+    policyArn: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1StartAutomatedReasoningPolicyTestWorkflowCommand
+ */
+export const de_StartAutomatedReasoningPolicyTestWorkflowCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartAutomatedReasoningPolicyTestWorkflowCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    policyArn: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1StopEvaluationJobCommand
  */
 export const de_StopEvaluationJobCommand = async (
@@ -3381,6 +4499,76 @@ export const de_UntagResourceCommand = async (
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1UpdateAutomatedReasoningPolicyCommand
+ */
+export const de_UpdateAutomatedReasoningPolicyCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateAutomatedReasoningPolicyCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    definitionHash: __expectString,
+    name: __expectString,
+    policyArn: __expectString,
+    updatedAt: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1UpdateAutomatedReasoningPolicyAnnotationsCommand
+ */
+export const de_UpdateAutomatedReasoningPolicyAnnotationsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateAutomatedReasoningPolicyAnnotationsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    annotationSetHash: __expectString,
+    buildWorkflowId: __expectString,
+    policyArn: __expectString,
+    updatedAt: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1UpdateAutomatedReasoningPolicyTestCaseCommand
+ */
+export const de_UpdateAutomatedReasoningPolicyTestCaseCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateAutomatedReasoningPolicyTestCaseCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    policyArn: __expectString,
+    testCaseId: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3480,6 +4668,9 @@ const de_CommandError = async (output: __HttpResponse, context: __SerdeContext):
     case "TooManyTagsException":
     case "com.amazonaws.bedrock#TooManyTagsException":
       throw await de_TooManyTagsExceptionRes(parsedOutput, context);
+    case "ResourceInUseException":
+    case "com.amazonaws.bedrock#ResourceInUseException":
+      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.bedrock#ServiceUnavailableException":
       throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
@@ -3545,6 +4736,26 @@ const de_InternalServerExceptionRes = async (
   });
   Object.assign(contents, doc);
   const exception = new InternalServerException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
+};
+
+/**
+ * deserializeAws_restJson1ResourceInUseExceptionRes
+ */
+const de_ResourceInUseExceptionRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<ResourceInUseException> => {
+  const contents: any = map({});
+  const data: any = parsedOutput.body;
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
+  const exception = new ResourceInUseException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
   });
@@ -3737,6 +4948,128 @@ const se_AutomatedEvaluationCustomMetricSource = (
   });
 };
 
+// se_AutomatedReasoningPolicyAddRuleAnnotation omitted.
+
+// se_AutomatedReasoningPolicyAddRuleFromNaturalLanguageAnnotation omitted.
+
+// se_AutomatedReasoningPolicyAddTypeAnnotation omitted.
+
+// se_AutomatedReasoningPolicyAddTypeValue omitted.
+
+// se_AutomatedReasoningPolicyAddVariableAnnotation omitted.
+
+// se_AutomatedReasoningPolicyAnnotation omitted.
+
+// se_AutomatedReasoningPolicyAnnotationList omitted.
+
+// se_AutomatedReasoningPolicyArnList omitted.
+
+/**
+ * serializeAws_restJson1AutomatedReasoningPolicyBuildWorkflowDocument
+ */
+const se_AutomatedReasoningPolicyBuildWorkflowDocument = (
+  input: AutomatedReasoningPolicyBuildWorkflowDocument,
+  context: __SerdeContext
+): any => {
+  return take(input, {
+    document: context.base64Encoder,
+    documentContentType: [],
+    documentDescription: [],
+    documentName: [],
+  });
+};
+
+/**
+ * serializeAws_restJson1AutomatedReasoningPolicyBuildWorkflowDocumentList
+ */
+const se_AutomatedReasoningPolicyBuildWorkflowDocumentList = (
+  input: AutomatedReasoningPolicyBuildWorkflowDocument[],
+  context: __SerdeContext
+): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return se_AutomatedReasoningPolicyBuildWorkflowDocument(entry, context);
+    });
+};
+
+// se_AutomatedReasoningPolicyBuildWorkflowRepairContent omitted.
+
+/**
+ * serializeAws_restJson1AutomatedReasoningPolicyBuildWorkflowSource
+ */
+const se_AutomatedReasoningPolicyBuildWorkflowSource = (
+  input: AutomatedReasoningPolicyBuildWorkflowSource,
+  context: __SerdeContext
+): any => {
+  return take(input, {
+    policyDefinition: _json,
+    workflowContent: (_) => se_AutomatedReasoningPolicyWorkflowTypeContent(_, context),
+  });
+};
+
+// se_AutomatedReasoningPolicyDefinition omitted.
+
+// se_AutomatedReasoningPolicyDefinitionRule omitted.
+
+// se_AutomatedReasoningPolicyDefinitionRuleIdList omitted.
+
+// se_AutomatedReasoningPolicyDefinitionRuleList omitted.
+
+// se_AutomatedReasoningPolicyDefinitionType omitted.
+
+// se_AutomatedReasoningPolicyDefinitionTypeList omitted.
+
+// se_AutomatedReasoningPolicyDefinitionTypeValue omitted.
+
+// se_AutomatedReasoningPolicyDefinitionTypeValueList omitted.
+
+// se_AutomatedReasoningPolicyDefinitionVariable omitted.
+
+// se_AutomatedReasoningPolicyDefinitionVariableList omitted.
+
+// se_AutomatedReasoningPolicyDeleteRuleAnnotation omitted.
+
+// se_AutomatedReasoningPolicyDeleteTypeAnnotation omitted.
+
+// se_AutomatedReasoningPolicyDeleteTypeValue omitted.
+
+// se_AutomatedReasoningPolicyDeleteVariableAnnotation omitted.
+
+// se_AutomatedReasoningPolicyIngestContentAnnotation omitted.
+
+// se_AutomatedReasoningPolicyTestCaseIdList omitted.
+
+// se_AutomatedReasoningPolicyTypeValueAnnotation omitted.
+
+// se_AutomatedReasoningPolicyTypeValueAnnotationList omitted.
+
+// se_AutomatedReasoningPolicyUpdateFromRuleFeedbackAnnotation omitted.
+
+// se_AutomatedReasoningPolicyUpdateFromScenarioFeedbackAnnotation omitted.
+
+// se_AutomatedReasoningPolicyUpdateRuleAnnotation omitted.
+
+// se_AutomatedReasoningPolicyUpdateTypeAnnotation omitted.
+
+// se_AutomatedReasoningPolicyUpdateTypeValue omitted.
+
+// se_AutomatedReasoningPolicyUpdateVariableAnnotation omitted.
+
+/**
+ * serializeAws_restJson1AutomatedReasoningPolicyWorkflowTypeContent
+ */
+const se_AutomatedReasoningPolicyWorkflowTypeContent = (
+  input: AutomatedReasoningPolicyWorkflowTypeContent,
+  context: __SerdeContext
+): any => {
+  return AutomatedReasoningPolicyWorkflowTypeContent.visit(input, {
+    documents: (value) => ({ documents: se_AutomatedReasoningPolicyBuildWorkflowDocumentList(value, context) }),
+    policyRepairAssets: (value) => ({ policyRepairAssets: _json(value) }),
+    _: (name, value) => ({ [name]: value } as any),
+  });
+};
+
 // se_BedrockEvaluatorModel omitted.
 
 // se_BedrockEvaluatorModels omitted.
@@ -3910,6 +5243,19 @@ const se_GenerationConfiguration = (input: GenerationConfiguration, context: __S
     guardrailConfiguration: _json,
     kbInferenceConfig: (_) => se_KbInferenceConfig(_, context),
     promptTemplate: _json,
+  });
+};
+
+/**
+ * serializeAws_restJson1GuardrailAutomatedReasoningPolicyConfig
+ */
+const se_GuardrailAutomatedReasoningPolicyConfig = (
+  input: GuardrailAutomatedReasoningPolicyConfig,
+  context: __SerdeContext
+): any => {
+  return take(input, {
+    confidenceThreshold: __serializeFloat,
+    policies: _json,
   });
 };
 
@@ -4401,6 +5747,499 @@ const de_AutomatedEvaluationCustomMetricSource = (
   return { $unknown: Object.entries(output)[0] };
 };
 
+// de_AutomatedReasoningCheckDifferenceScenarioList omitted.
+
+/**
+ * deserializeAws_restJson1AutomatedReasoningCheckFinding
+ */
+const de_AutomatedReasoningCheckFinding = (output: any, context: __SerdeContext): AutomatedReasoningCheckFinding => {
+  if (output.impossible != null) {
+    return {
+      impossible: de_AutomatedReasoningCheckImpossibleFinding(output.impossible, context),
+    };
+  }
+  if (output.invalid != null) {
+    return {
+      invalid: de_AutomatedReasoningCheckInvalidFinding(output.invalid, context),
+    };
+  }
+  if (output.noTranslations != null) {
+    return {
+      noTranslations: _json(output.noTranslations),
+    };
+  }
+  if (output.satisfiable != null) {
+    return {
+      satisfiable: de_AutomatedReasoningCheckSatisfiableFinding(output.satisfiable, context),
+    };
+  }
+  if (output.tooComplex != null) {
+    return {
+      tooComplex: _json(output.tooComplex),
+    };
+  }
+  if (output.translationAmbiguous != null) {
+    return {
+      translationAmbiguous: de_AutomatedReasoningCheckTranslationAmbiguousFinding(output.translationAmbiguous, context),
+    };
+  }
+  if (output.valid != null) {
+    return {
+      valid: de_AutomatedReasoningCheckValidFinding(output.valid, context),
+    };
+  }
+  return { $unknown: Object.entries(output)[0] };
+};
+
+/**
+ * deserializeAws_restJson1AutomatedReasoningCheckFindingList
+ */
+const de_AutomatedReasoningCheckFindingList = (
+  output: any,
+  context: __SerdeContext
+): AutomatedReasoningCheckFinding[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_AutomatedReasoningCheckFinding(__expectUnion(entry), context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_restJson1AutomatedReasoningCheckImpossibleFinding
+ */
+const de_AutomatedReasoningCheckImpossibleFinding = (
+  output: any,
+  context: __SerdeContext
+): AutomatedReasoningCheckImpossibleFinding => {
+  return take(output, {
+    contradictingRules: _json,
+    logicWarning: _json,
+    translation: (_: any) => de_AutomatedReasoningCheckTranslation(_, context),
+  }) as any;
+};
+
+// de_AutomatedReasoningCheckInputTextReference omitted.
+
+// de_AutomatedReasoningCheckInputTextReferenceList omitted.
+
+/**
+ * deserializeAws_restJson1AutomatedReasoningCheckInvalidFinding
+ */
+const de_AutomatedReasoningCheckInvalidFinding = (
+  output: any,
+  context: __SerdeContext
+): AutomatedReasoningCheckInvalidFinding => {
+  return take(output, {
+    contradictingRules: _json,
+    logicWarning: _json,
+    translation: (_: any) => de_AutomatedReasoningCheckTranslation(_, context),
+  }) as any;
+};
+
+// de_AutomatedReasoningCheckLogicWarning omitted.
+
+// de_AutomatedReasoningCheckNoTranslationsFinding omitted.
+
+// de_AutomatedReasoningCheckRule omitted.
+
+// de_AutomatedReasoningCheckRuleList omitted.
+
+/**
+ * deserializeAws_restJson1AutomatedReasoningCheckSatisfiableFinding
+ */
+const de_AutomatedReasoningCheckSatisfiableFinding = (
+  output: any,
+  context: __SerdeContext
+): AutomatedReasoningCheckSatisfiableFinding => {
+  return take(output, {
+    claimsFalseScenario: _json,
+    claimsTrueScenario: _json,
+    logicWarning: _json,
+    translation: (_: any) => de_AutomatedReasoningCheckTranslation(_, context),
+  }) as any;
+};
+
+// de_AutomatedReasoningCheckScenario omitted.
+
+// de_AutomatedReasoningCheckTooComplexFinding omitted.
+
+/**
+ * deserializeAws_restJson1AutomatedReasoningCheckTranslation
+ */
+const de_AutomatedReasoningCheckTranslation = (
+  output: any,
+  context: __SerdeContext
+): AutomatedReasoningCheckTranslation => {
+  return take(output, {
+    claims: _json,
+    confidence: __limitedParseDouble,
+    premises: _json,
+    untranslatedClaims: _json,
+    untranslatedPremises: _json,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1AutomatedReasoningCheckTranslationAmbiguousFinding
+ */
+const de_AutomatedReasoningCheckTranslationAmbiguousFinding = (
+  output: any,
+  context: __SerdeContext
+): AutomatedReasoningCheckTranslationAmbiguousFinding => {
+  return take(output, {
+    differenceScenarios: _json,
+    options: (_: any) => de_AutomatedReasoningCheckTranslationOptionList(_, context),
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1AutomatedReasoningCheckTranslationList
+ */
+const de_AutomatedReasoningCheckTranslationList = (
+  output: any,
+  context: __SerdeContext
+): AutomatedReasoningCheckTranslation[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_AutomatedReasoningCheckTranslation(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_restJson1AutomatedReasoningCheckTranslationOption
+ */
+const de_AutomatedReasoningCheckTranslationOption = (
+  output: any,
+  context: __SerdeContext
+): AutomatedReasoningCheckTranslationOption => {
+  return take(output, {
+    translations: (_: any) => de_AutomatedReasoningCheckTranslationList(_, context),
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1AutomatedReasoningCheckTranslationOptionList
+ */
+const de_AutomatedReasoningCheckTranslationOptionList = (
+  output: any,
+  context: __SerdeContext
+): AutomatedReasoningCheckTranslationOption[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_AutomatedReasoningCheckTranslationOption(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_restJson1AutomatedReasoningCheckValidFinding
+ */
+const de_AutomatedReasoningCheckValidFinding = (
+  output: any,
+  context: __SerdeContext
+): AutomatedReasoningCheckValidFinding => {
+  return take(output, {
+    claimsTrueScenario: _json,
+    logicWarning: _json,
+    supportingRules: _json,
+    translation: (_: any) => de_AutomatedReasoningCheckTranslation(_, context),
+  }) as any;
+};
+
+// de_AutomatedReasoningLogicStatement omitted.
+
+// de_AutomatedReasoningLogicStatementList omitted.
+
+// de_AutomatedReasoningPolicyAddRuleAnnotation omitted.
+
+// de_AutomatedReasoningPolicyAddRuleFromNaturalLanguageAnnotation omitted.
+
+// de_AutomatedReasoningPolicyAddRuleMutation omitted.
+
+// de_AutomatedReasoningPolicyAddTypeAnnotation omitted.
+
+// de_AutomatedReasoningPolicyAddTypeMutation omitted.
+
+// de_AutomatedReasoningPolicyAddTypeValue omitted.
+
+// de_AutomatedReasoningPolicyAddVariableAnnotation omitted.
+
+// de_AutomatedReasoningPolicyAddVariableMutation omitted.
+
+// de_AutomatedReasoningPolicyAnnotation omitted.
+
+// de_AutomatedReasoningPolicyAnnotationList omitted.
+
+// de_AutomatedReasoningPolicyArnList omitted.
+
+/**
+ * deserializeAws_restJson1AutomatedReasoningPolicyBuildLog
+ */
+const de_AutomatedReasoningPolicyBuildLog = (
+  output: any,
+  context: __SerdeContext
+): AutomatedReasoningPolicyBuildLog => {
+  return take(output, {
+    entries: _json,
+  }) as any;
+};
+
+// de_AutomatedReasoningPolicyBuildLogEntry omitted.
+
+// de_AutomatedReasoningPolicyBuildLogEntryList omitted.
+
+/**
+ * deserializeAws_restJson1AutomatedReasoningPolicyBuildResultAssets
+ */
+const de_AutomatedReasoningPolicyBuildResultAssets = (
+  output: any,
+  context: __SerdeContext
+): AutomatedReasoningPolicyBuildResultAssets => {
+  if (output.buildLog != null) {
+    return {
+      buildLog: de_AutomatedReasoningPolicyBuildLog(output.buildLog, context),
+    };
+  }
+  if (output.policyDefinition != null) {
+    return {
+      policyDefinition: _json(output.policyDefinition),
+    };
+  }
+  if (output.qualityReport != null) {
+    return {
+      qualityReport: _json(output.qualityReport),
+    };
+  }
+  return { $unknown: Object.entries(output)[0] };
+};
+
+// de_AutomatedReasoningPolicyBuildStep omitted.
+
+// de_AutomatedReasoningPolicyBuildStepContext omitted.
+
+// de_AutomatedReasoningPolicyBuildStepList omitted.
+
+// de_AutomatedReasoningPolicyBuildStepMessage omitted.
+
+// de_AutomatedReasoningPolicyBuildStepMessageList omitted.
+
+/**
+ * deserializeAws_restJson1AutomatedReasoningPolicyBuildWorkflowSummaries
+ */
+const de_AutomatedReasoningPolicyBuildWorkflowSummaries = (
+  output: any,
+  context: __SerdeContext
+): AutomatedReasoningPolicyBuildWorkflowSummary[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_AutomatedReasoningPolicyBuildWorkflowSummary(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_restJson1AutomatedReasoningPolicyBuildWorkflowSummary
+ */
+const de_AutomatedReasoningPolicyBuildWorkflowSummary = (
+  output: any,
+  context: __SerdeContext
+): AutomatedReasoningPolicyBuildWorkflowSummary => {
+  return take(output, {
+    buildWorkflowId: __expectString,
+    buildWorkflowType: __expectString,
+    createdAt: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    policyArn: __expectString,
+    status: __expectString,
+    updatedAt: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+  }) as any;
+};
+
+// de_AutomatedReasoningPolicyConflictedRuleIdList omitted.
+
+// de_AutomatedReasoningPolicyDefinition omitted.
+
+// de_AutomatedReasoningPolicyDefinitionElement omitted.
+
+// de_AutomatedReasoningPolicyDefinitionQualityReport omitted.
+
+// de_AutomatedReasoningPolicyDefinitionRule omitted.
+
+// de_AutomatedReasoningPolicyDefinitionRuleIdList omitted.
+
+// de_AutomatedReasoningPolicyDefinitionRuleList omitted.
+
+// de_AutomatedReasoningPolicyDefinitionType omitted.
+
+// de_AutomatedReasoningPolicyDefinitionTypeList omitted.
+
+// de_AutomatedReasoningPolicyDefinitionTypeNameList omitted.
+
+// de_AutomatedReasoningPolicyDefinitionTypeValue omitted.
+
+// de_AutomatedReasoningPolicyDefinitionTypeValueList omitted.
+
+// de_AutomatedReasoningPolicyDefinitionTypeValuePair omitted.
+
+// de_AutomatedReasoningPolicyDefinitionTypeValuePairList omitted.
+
+// de_AutomatedReasoningPolicyDefinitionVariable omitted.
+
+// de_AutomatedReasoningPolicyDefinitionVariableList omitted.
+
+// de_AutomatedReasoningPolicyDefinitionVariableNameList omitted.
+
+// de_AutomatedReasoningPolicyDeleteRuleAnnotation omitted.
+
+// de_AutomatedReasoningPolicyDeleteRuleMutation omitted.
+
+// de_AutomatedReasoningPolicyDeleteTypeAnnotation omitted.
+
+// de_AutomatedReasoningPolicyDeleteTypeMutation omitted.
+
+// de_AutomatedReasoningPolicyDeleteTypeValue omitted.
+
+// de_AutomatedReasoningPolicyDeleteVariableAnnotation omitted.
+
+// de_AutomatedReasoningPolicyDeleteVariableMutation omitted.
+
+// de_AutomatedReasoningPolicyDisjointedRuleIdList omitted.
+
+// de_AutomatedReasoningPolicyDisjointRuleSet omitted.
+
+// de_AutomatedReasoningPolicyDisjointRuleSetList omitted.
+
+// de_AutomatedReasoningPolicyIngestContentAnnotation omitted.
+
+// de_AutomatedReasoningPolicyMutation omitted.
+
+// de_AutomatedReasoningPolicyPlanning omitted.
+
+// de_AutomatedReasoningPolicyScenario omitted.
+
+/**
+ * deserializeAws_restJson1AutomatedReasoningPolicySummaries
+ */
+const de_AutomatedReasoningPolicySummaries = (
+  output: any,
+  context: __SerdeContext
+): AutomatedReasoningPolicySummary[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_AutomatedReasoningPolicySummary(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_restJson1AutomatedReasoningPolicySummary
+ */
+const de_AutomatedReasoningPolicySummary = (output: any, context: __SerdeContext): AutomatedReasoningPolicySummary => {
+  return take(output, {
+    createdAt: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    description: __expectString,
+    name: __expectString,
+    policyArn: __expectString,
+    policyId: __expectString,
+    updatedAt: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    version: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1AutomatedReasoningPolicyTestCase
+ */
+const de_AutomatedReasoningPolicyTestCase = (
+  output: any,
+  context: __SerdeContext
+): AutomatedReasoningPolicyTestCase => {
+  return take(output, {
+    confidenceThreshold: __limitedParseDouble,
+    createdAt: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    expectedAggregatedFindingsResult: __expectString,
+    guardContent: __expectString,
+    queryContent: __expectString,
+    testCaseId: __expectString,
+    updatedAt: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1AutomatedReasoningPolicyTestCaseList
+ */
+const de_AutomatedReasoningPolicyTestCaseList = (
+  output: any,
+  context: __SerdeContext
+): AutomatedReasoningPolicyTestCase[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_AutomatedReasoningPolicyTestCase(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_restJson1AutomatedReasoningPolicyTestList
+ */
+const de_AutomatedReasoningPolicyTestList = (
+  output: any,
+  context: __SerdeContext
+): AutomatedReasoningPolicyTestResult[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_AutomatedReasoningPolicyTestResult(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_restJson1AutomatedReasoningPolicyTestResult
+ */
+const de_AutomatedReasoningPolicyTestResult = (
+  output: any,
+  context: __SerdeContext
+): AutomatedReasoningPolicyTestResult => {
+  return take(output, {
+    aggregatedTestFindingsResult: __expectString,
+    policyArn: __expectString,
+    testCase: (_: any) => de_AutomatedReasoningPolicyTestCase(_, context),
+    testFindings: (_: any) => de_AutomatedReasoningCheckFindingList(_, context),
+    testRunResult: __expectString,
+    testRunStatus: __expectString,
+    updatedAt: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+  }) as any;
+};
+
+// de_AutomatedReasoningPolicyTypeValueAnnotation omitted.
+
+// de_AutomatedReasoningPolicyTypeValueAnnotationList omitted.
+
+// de_AutomatedReasoningPolicyUpdateFromRuleFeedbackAnnotation omitted.
+
+// de_AutomatedReasoningPolicyUpdateFromScenarioFeedbackAnnotation omitted.
+
+// de_AutomatedReasoningPolicyUpdateRuleAnnotation omitted.
+
+// de_AutomatedReasoningPolicyUpdateRuleMutation omitted.
+
+// de_AutomatedReasoningPolicyUpdateTypeAnnotation omitted.
+
+// de_AutomatedReasoningPolicyUpdateTypeMutation omitted.
+
+// de_AutomatedReasoningPolicyUpdateTypeValue omitted.
+
+// de_AutomatedReasoningPolicyUpdateVariableAnnotation omitted.
+
+// de_AutomatedReasoningPolicyUpdateVariableMutation omitted.
+
 // de_BatchDeleteEvaluationJobError omitted.
 
 // de_BatchDeleteEvaluationJobErrors omitted.
@@ -4723,6 +6562,19 @@ const de_GenerationConfiguration = (output: any, context: __SerdeContext): Gener
     guardrailConfiguration: _json,
     kbInferenceConfig: (_: any) => de_KbInferenceConfig(_, context),
     promptTemplate: _json,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1GuardrailAutomatedReasoningPolicy
+ */
+const de_GuardrailAutomatedReasoningPolicy = (
+  output: any,
+  context: __SerdeContext
+): GuardrailAutomatedReasoningPolicy => {
+  return take(output, {
+    confidenceThreshold: __limitedParseDouble,
+    policies: _json,
   }) as any;
 };
 
@@ -5624,6 +7476,7 @@ const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
 const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then((body) => context.utf8Encoder(body));
 
+const _aT = "assetType";
 const _aTE = "applicationTypeEquals";
 const _bCT = "byCustomizationType";
 const _bIT = "byInferenceType";
@@ -5632,12 +7485,14 @@ const _bOM = "byOutputModality";
 const _bP = "byProvider";
 const _cA = "createdAfter";
 const _cB = "createdBefore";
+const _cRT = "clientRequestToken";
 const _cTA = "creationTimeAfter";
 const _cTB = "creationTimeBefore";
 const _fMAE = "foundationModelArnEquals";
 const _gI = "guardrailIdentifier";
 const _gV = "guardrailVersion";
 const _iO = "isOwned";
+const _lUA = "lastUpdatedAt";
 const _mAE = "modelArnEquals";
 const _mR = "maxResults";
 const _mS = "modelStatus";
@@ -5647,6 +7502,7 @@ const _nC = "nameContains";
 const _nT = "nextToken";
 const _oMNC = "outputModelNameContains";
 const _oT = "offerType";
+const _pA = "policyArn";
 const _sAE = "sourceAccountEquals";
 const _sB = "sortBy";
 const _sE = "statusEquals";
@@ -5657,3 +7513,5 @@ const _sTB = "submitTimeBefore";
 const _t = "type";
 const _tE = "typeEquals";
 const _tMNC = "targetModelNameContains";
+const _uA = "updatedAt";
+const _xact = "x-amz-client-token";

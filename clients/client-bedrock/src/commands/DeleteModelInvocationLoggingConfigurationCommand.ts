@@ -9,7 +9,7 @@ import { commonParams } from "../endpoint/EndpointParameters";
 import {
   DeleteModelInvocationLoggingConfigurationRequest,
   DeleteModelInvocationLoggingConfigurationResponse,
-} from "../models/models_0";
+} from "../models/models_1";
 import {
   de_DeleteModelInvocationLoggingConfigurationCommand,
   se_DeleteModelInvocationLoggingConfigurationCommand,

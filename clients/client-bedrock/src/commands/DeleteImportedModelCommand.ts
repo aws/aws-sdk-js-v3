@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { BedrockClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BedrockClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DeleteImportedModelRequest, DeleteImportedModelResponse } from "../models/models_0";
+import { DeleteImportedModelRequest, DeleteImportedModelResponse } from "../models/models_1";
 import { de_DeleteImportedModelCommand, se_DeleteImportedModelCommand } from "../protocols/Aws_restJson1";
 
 /**

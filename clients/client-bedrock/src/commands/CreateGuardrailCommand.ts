@@ -10,7 +10,7 @@ import {
   CreateGuardrailRequest,
   CreateGuardrailRequestFilterSensitiveLog,
   CreateGuardrailResponse,
-} from "../models/models_0";
+} from "../models/models_1";
 import { de_CreateGuardrailCommand, se_CreateGuardrailCommand } from "../protocols/Aws_restJson1";
 
 /**
@@ -136,6 +136,12 @@ export interface CreateGuardrailCommandOutput extends CreateGuardrailResponse, _
  *         enabled: true || false,
  *       },
  *     ],
+ *   },
+ *   automatedReasoningPolicyConfig: { // GuardrailAutomatedReasoningPolicyConfig
+ *     policies: [ // AutomatedReasoningPolicyArnList // required
+ *       "STRING_VALUE",
+ *     ],
+ *     confidenceThreshold: Number("double"),
  *   },
  *   crossRegionConfig: { // GuardrailCrossRegionConfig
  *     guardrailProfileIdentifier: "STRING_VALUE", // required

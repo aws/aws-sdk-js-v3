@@ -9,7 +9,7 @@ import { commonParams } from "../endpoint/EndpointParameters";
 import {
   PutModelInvocationLoggingConfigurationRequest,
   PutModelInvocationLoggingConfigurationResponse,
-} from "../models/models_0";
+} from "../models/models_1";
 import {
   de_PutModelInvocationLoggingConfigurationCommand,
   se_PutModelInvocationLoggingConfigurationCommand,

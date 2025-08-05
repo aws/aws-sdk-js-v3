@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { BedrockClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BedrockClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { GetProvisionedModelThroughputRequest, GetProvisionedModelThroughputResponse } from "../models/models_0";
+import { GetProvisionedModelThroughputRequest, GetProvisionedModelThroughputResponse } from "../models/models_1";
 import {
   de_GetProvisionedModelThroughputCommand,
   se_GetProvisionedModelThroughputCommand,

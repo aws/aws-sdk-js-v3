@@ -10,7 +10,7 @@ import {
   UpdateGuardrailRequest,
   UpdateGuardrailRequestFilterSensitiveLog,
   UpdateGuardrailResponse,
-} from "../models/models_0";
+} from "../models/models_1";
 import { de_UpdateGuardrailCommand, se_UpdateGuardrailCommand } from "../protocols/Aws_restJson1";
 
 /**
@@ -137,6 +137,12 @@ export interface UpdateGuardrailCommandOutput extends UpdateGuardrailResponse, _
  *         enabled: true || false,
  *       },
  *     ],
+ *   },
+ *   automatedReasoningPolicyConfig: { // GuardrailAutomatedReasoningPolicyConfig
+ *     policies: [ // AutomatedReasoningPolicyArnList // required
+ *       "STRING_VALUE",
+ *     ],
+ *     confidenceThreshold: Number("double"),
  *   },
  *   crossRegionConfig: { // GuardrailCrossRegionConfig
  *     guardrailProfileIdentifier: "STRING_VALUE", // required

@@ -10,7 +10,7 @@ import {
   ListInferenceProfilesRequest,
   ListInferenceProfilesResponse,
   ListInferenceProfilesResponseFilterSensitiveLog,
-} from "../models/models_0";
+} from "../models/models_1";
 import { de_ListInferenceProfilesCommand, se_ListInferenceProfilesCommand } from "../protocols/Aws_restJson1";
 
 /**

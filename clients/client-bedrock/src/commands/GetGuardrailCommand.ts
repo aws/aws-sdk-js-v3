@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { BedrockClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BedrockClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { GetGuardrailRequest, GetGuardrailResponse, GetGuardrailResponseFilterSensitiveLog } from "../models/models_0";
+import { GetGuardrailRequest, GetGuardrailResponse, GetGuardrailResponseFilterSensitiveLog } from "../models/models_1";
 import { de_GetGuardrailCommand, se_GetGuardrailCommand } from "../protocols/Aws_restJson1";
 
 /**
@@ -142,6 +142,12 @@ export interface GetGuardrailCommandOutput extends GetGuardrailResponse, __Metad
  * //         enabled: true || false,
  * //       },
  * //     ],
+ * //   },
+ * //   automatedReasoningPolicy: { // GuardrailAutomatedReasoningPolicy
+ * //     policies: [ // AutomatedReasoningPolicyArnList // required
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     confidenceThreshold: Number("double"),
  * //   },
  * //   crossRegionDetails: { // GuardrailCrossRegionDetails
  * //     guardrailProfileId: "STRING_VALUE",

@@ -10,7 +10,7 @@ import {
   ListGuardrailsRequest,
   ListGuardrailsResponse,
   ListGuardrailsResponseFilterSensitiveLog,
-} from "../models/models_0";
+} from "../models/models_1";
 import { de_ListGuardrailsCommand, se_ListGuardrailsCommand } from "../protocols/Aws_restJson1";
 
 /**
