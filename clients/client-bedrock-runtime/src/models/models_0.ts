@@ -765,6 +765,463 @@ export const GuardrailAction = {
 export type GuardrailAction = (typeof GuardrailAction)[keyof typeof GuardrailAction];
 
 /**
+ * <p>References a specific automated reasoning policy rule that was applied during evaluation.</p>
+ * @public
+ */
+export interface GuardrailAutomatedReasoningRule {
+  /**
+   * <p>The unique identifier of the automated reasoning rule.</p>
+   * @public
+   */
+  identifier?: string | undefined;
+
+  /**
+   * <p>The ARN of the automated reasoning policy version that contains this rule.</p>
+   * @public
+   */
+  policyVersionArn?: string | undefined;
+}
+
+/**
+ * <p>A logical statement that includes both formal logic representation and natural language explanation.</p>
+ * @public
+ */
+export interface GuardrailAutomatedReasoningStatement {
+  /**
+   * <p>The formal logical representation of the statement.</p>
+   * @public
+   */
+  logic?: string | undefined;
+
+  /**
+   * <p>The natural language explanation of the logical statement.</p>
+   * @public
+   */
+  naturalLanguage?: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const GuardrailAutomatedReasoningLogicWarningType = {
+  ALWAYS_FALSE: "ALWAYS_FALSE",
+  ALWAYS_TRUE: "ALWAYS_TRUE",
+} as const;
+
+/**
+ * @public
+ */
+export type GuardrailAutomatedReasoningLogicWarningType =
+  (typeof GuardrailAutomatedReasoningLogicWarningType)[keyof typeof GuardrailAutomatedReasoningLogicWarningType];
+
+/**
+ * <p>Identifies logical issues in the translated statements that exist independent of any policy rules, such as statements that are always true or always false.</p>
+ * @public
+ */
+export interface GuardrailAutomatedReasoningLogicWarning {
+  /**
+   * <p>The category of the detected logical issue, such as statements that are always true or always false.</p>
+   * @public
+   */
+  type?: GuardrailAutomatedReasoningLogicWarningType | undefined;
+
+  /**
+   * <p>The logical statements that serve as premises under which the claims are validated.</p>
+   * @public
+   */
+  premises?: GuardrailAutomatedReasoningStatement[] | undefined;
+
+  /**
+   * <p>The logical statements that are validated while assuming the policy and premises.</p>
+   * @public
+   */
+  claims?: GuardrailAutomatedReasoningStatement[] | undefined;
+}
+
+/**
+ * <p>References a portion of the original input text that corresponds to logical elements.</p>
+ * @public
+ */
+export interface GuardrailAutomatedReasoningInputTextReference {
+  /**
+   * <p>The specific text from the original input that this reference points to.</p>
+   * @public
+   */
+  text?: string | undefined;
+}
+
+/**
+ * <p>Contains the logical translation of natural language input into formal logical statements, including premises, claims, and confidence scores.</p>
+ * @public
+ */
+export interface GuardrailAutomatedReasoningTranslation {
+  /**
+   * <p>The logical statements that serve as the foundation or assumptions for the claims.</p>
+   * @public
+   */
+  premises?: GuardrailAutomatedReasoningStatement[] | undefined;
+
+  /**
+   * <p>The logical statements that are being validated against the premises and policy rules.</p>
+   * @public
+   */
+  claims?: GuardrailAutomatedReasoningStatement[] | undefined;
+
+  /**
+   * <p>References to portions of the original input text that correspond to the premises but could not be fully translated.</p>
+   * @public
+   */
+  untranslatedPremises?: GuardrailAutomatedReasoningInputTextReference[] | undefined;
+
+  /**
+   * <p>References to portions of the original input text that correspond to the claims but could not be fully translated.</p>
+   * @public
+   */
+  untranslatedClaims?: GuardrailAutomatedReasoningInputTextReference[] | undefined;
+
+  /**
+   * <p>A confidence score between 0 and 1 indicating how certain the system is about the logical translation.</p>
+   * @public
+   */
+  confidence?: number | undefined;
+}
+
+/**
+ * <p>Indicates that no valid claims can be made due to logical contradictions in the premises or rules.</p>
+ * @public
+ */
+export interface GuardrailAutomatedReasoningImpossibleFinding {
+  /**
+   * <p>The logical translation of the input that this finding evaluates.</p>
+   * @public
+   */
+  translation?: GuardrailAutomatedReasoningTranslation | undefined;
+
+  /**
+   * <p>The automated reasoning policy rules that contradict the claims and/or premises in the input.</p>
+   * @public
+   */
+  contradictingRules?: GuardrailAutomatedReasoningRule[] | undefined;
+
+  /**
+   * <p>Indication of a logic issue with the translation without needing to consider the automated reasoning policy rules.</p>
+   * @public
+   */
+  logicWarning?: GuardrailAutomatedReasoningLogicWarning | undefined;
+}
+
+/**
+ * <p>Indicates that the claims are logically false and contradictory to the established rules or premises.</p>
+ * @public
+ */
+export interface GuardrailAutomatedReasoningInvalidFinding {
+  /**
+   * <p>The logical translation of the input that this finding invalidates.</p>
+   * @public
+   */
+  translation?: GuardrailAutomatedReasoningTranslation | undefined;
+
+  /**
+   * <p>The automated reasoning policy rules that contradict the claims in the input.</p>
+   * @public
+   */
+  contradictingRules?: GuardrailAutomatedReasoningRule[] | undefined;
+
+  /**
+   * <p>Indication of a logic issue with the translation without needing to consider the automated reasoning policy rules.</p>
+   * @public
+   */
+  logicWarning?: GuardrailAutomatedReasoningLogicWarning | undefined;
+}
+
+/**
+ * <p>Indicates that no relevant logical information could be extracted from the input for validation.</p>
+ * @public
+ */
+export interface GuardrailAutomatedReasoningNoTranslationsFinding {}
+
+/**
+ * <p>Represents a logical scenario where claims can be evaluated as true or false, containing specific logical assignments.</p>
+ * @public
+ */
+export interface GuardrailAutomatedReasoningScenario {
+  /**
+   * <p>List of logical assignments and statements that define this scenario.</p>
+   * @public
+   */
+  statements?: GuardrailAutomatedReasoningStatement[] | undefined;
+}
+
+/**
+ * <p>Indicates that the claims could be either true or false depending on additional assumptions not provided in the input.</p>
+ * @public
+ */
+export interface GuardrailAutomatedReasoningSatisfiableFinding {
+  /**
+   * <p>The logical translation of the input that this finding evaluates.</p>
+   * @public
+   */
+  translation?: GuardrailAutomatedReasoningTranslation | undefined;
+
+  /**
+   * <p>An example scenario demonstrating how the claims could be logically true.</p>
+   * @public
+   */
+  claimsTrueScenario?: GuardrailAutomatedReasoningScenario | undefined;
+
+  /**
+   * <p>An example scenario demonstrating how the claims could be logically false.</p>
+   * @public
+   */
+  claimsFalseScenario?: GuardrailAutomatedReasoningScenario | undefined;
+
+  /**
+   * <p>Indication of a logic issue with the translation without needing to consider the automated reasoning policy rules.</p>
+   * @public
+   */
+  logicWarning?: GuardrailAutomatedReasoningLogicWarning | undefined;
+}
+
+/**
+ * <p>Indicates that the input exceeds the processing capacity due to the volume or complexity of the logical information.</p>
+ * @public
+ */
+export interface GuardrailAutomatedReasoningTooComplexFinding {}
+
+/**
+ * <p>Represents one possible logical interpretation of ambiguous input content.</p>
+ * @public
+ */
+export interface GuardrailAutomatedReasoningTranslationOption {
+  /**
+   * <p>Example translations that provide this possible interpretation of the input.</p>
+   * @public
+   */
+  translations?: GuardrailAutomatedReasoningTranslation[] | undefined;
+}
+
+/**
+ * <p>Indicates that the input has multiple valid logical interpretations, requiring additional context or clarification.</p>
+ * @public
+ */
+export interface GuardrailAutomatedReasoningTranslationAmbiguousFinding {
+  /**
+   * <p>Different logical interpretations that were detected during translation of the input.</p>
+   * @public
+   */
+  options?: GuardrailAutomatedReasoningTranslationOption[] | undefined;
+
+  /**
+   * <p>Scenarios showing how the different translation options differ in meaning.</p>
+   * @public
+   */
+  differenceScenarios?: GuardrailAutomatedReasoningScenario[] | undefined;
+}
+
+/**
+ * <p>Indicates that the claims are definitively true and logically implied by the premises, with no possible alternative interpretations.</p>
+ * @public
+ */
+export interface GuardrailAutomatedReasoningValidFinding {
+  /**
+   * <p>The logical translation of the input that this finding validates.</p>
+   * @public
+   */
+  translation?: GuardrailAutomatedReasoningTranslation | undefined;
+
+  /**
+   * <p>An example scenario demonstrating how the claims are logically true.</p>
+   * @public
+   */
+  claimsTrueScenario?: GuardrailAutomatedReasoningScenario | undefined;
+
+  /**
+   * <p>The automated reasoning policy rules that support why this result is considered valid.</p>
+   * @public
+   */
+  supportingRules?: GuardrailAutomatedReasoningRule[] | undefined;
+
+  /**
+   * <p>Indication of a logic issue with the translation without needing to consider the automated reasoning policy rules.</p>
+   * @public
+   */
+  logicWarning?: GuardrailAutomatedReasoningLogicWarning | undefined;
+}
+
+/**
+ * <p>Represents a logical validation result from automated reasoning policy evaluation. The finding indicates whether claims in the input are logically valid, invalid, satisfiable, impossible, or have other logical issues.</p>
+ * @public
+ */
+export type GuardrailAutomatedReasoningFinding =
+  | GuardrailAutomatedReasoningFinding.ImpossibleMember
+  | GuardrailAutomatedReasoningFinding.InvalidMember
+  | GuardrailAutomatedReasoningFinding.NoTranslationsMember
+  | GuardrailAutomatedReasoningFinding.SatisfiableMember
+  | GuardrailAutomatedReasoningFinding.TooComplexMember
+  | GuardrailAutomatedReasoningFinding.TranslationAmbiguousMember
+  | GuardrailAutomatedReasoningFinding.ValidMember
+  | GuardrailAutomatedReasoningFinding.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace GuardrailAutomatedReasoningFinding {
+  /**
+   * <p>Indicates that the claims are definitively true and logically implied by the premises, with no possible alternative interpretations.</p>
+   * @public
+   */
+  export interface ValidMember {
+    valid: GuardrailAutomatedReasoningValidFinding;
+    invalid?: never;
+    satisfiable?: never;
+    impossible?: never;
+    translationAmbiguous?: never;
+    tooComplex?: never;
+    noTranslations?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Indicates that the claims are logically false and contradictory to the established rules or premises.</p>
+   * @public
+   */
+  export interface InvalidMember {
+    valid?: never;
+    invalid: GuardrailAutomatedReasoningInvalidFinding;
+    satisfiable?: never;
+    impossible?: never;
+    translationAmbiguous?: never;
+    tooComplex?: never;
+    noTranslations?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Indicates that the claims could be either true or false depending on additional assumptions not provided in the input.</p>
+   * @public
+   */
+  export interface SatisfiableMember {
+    valid?: never;
+    invalid?: never;
+    satisfiable: GuardrailAutomatedReasoningSatisfiableFinding;
+    impossible?: never;
+    translationAmbiguous?: never;
+    tooComplex?: never;
+    noTranslations?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Indicates that no valid claims can be made due to logical contradictions in the premises or rules.</p>
+   * @public
+   */
+  export interface ImpossibleMember {
+    valid?: never;
+    invalid?: never;
+    satisfiable?: never;
+    impossible: GuardrailAutomatedReasoningImpossibleFinding;
+    translationAmbiguous?: never;
+    tooComplex?: never;
+    noTranslations?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Indicates that the input has multiple valid logical interpretations, requiring additional context or clarification.</p>
+   * @public
+   */
+  export interface TranslationAmbiguousMember {
+    valid?: never;
+    invalid?: never;
+    satisfiable?: never;
+    impossible?: never;
+    translationAmbiguous: GuardrailAutomatedReasoningTranslationAmbiguousFinding;
+    tooComplex?: never;
+    noTranslations?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Indicates that the input exceeds the processing capacity due to the volume or complexity of the logical information.</p>
+   * @public
+   */
+  export interface TooComplexMember {
+    valid?: never;
+    invalid?: never;
+    satisfiable?: never;
+    impossible?: never;
+    translationAmbiguous?: never;
+    tooComplex: GuardrailAutomatedReasoningTooComplexFinding;
+    noTranslations?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Indicates that no relevant logical information could be extracted from the input for validation.</p>
+   * @public
+   */
+  export interface NoTranslationsMember {
+    valid?: never;
+    invalid?: never;
+    satisfiable?: never;
+    impossible?: never;
+    translationAmbiguous?: never;
+    tooComplex?: never;
+    noTranslations: GuardrailAutomatedReasoningNoTranslationsFinding;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    valid?: never;
+    invalid?: never;
+    satisfiable?: never;
+    impossible?: never;
+    translationAmbiguous?: never;
+    tooComplex?: never;
+    noTranslations?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    valid: (value: GuardrailAutomatedReasoningValidFinding) => T;
+    invalid: (value: GuardrailAutomatedReasoningInvalidFinding) => T;
+    satisfiable: (value: GuardrailAutomatedReasoningSatisfiableFinding) => T;
+    impossible: (value: GuardrailAutomatedReasoningImpossibleFinding) => T;
+    translationAmbiguous: (value: GuardrailAutomatedReasoningTranslationAmbiguousFinding) => T;
+    tooComplex: (value: GuardrailAutomatedReasoningTooComplexFinding) => T;
+    noTranslations: (value: GuardrailAutomatedReasoningNoTranslationsFinding) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: GuardrailAutomatedReasoningFinding, visitor: Visitor<T>): T => {
+    if (value.valid !== undefined) return visitor.valid(value.valid);
+    if (value.invalid !== undefined) return visitor.invalid(value.invalid);
+    if (value.satisfiable !== undefined) return visitor.satisfiable(value.satisfiable);
+    if (value.impossible !== undefined) return visitor.impossible(value.impossible);
+    if (value.translationAmbiguous !== undefined) return visitor.translationAmbiguous(value.translationAmbiguous);
+    if (value.tooComplex !== undefined) return visitor.tooComplex(value.tooComplex);
+    if (value.noTranslations !== undefined) return visitor.noTranslations(value.noTranslations);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
+ * <p>Contains the results of automated reasoning policy evaluation, including logical findings about the validity of claims made in the input content.</p>
+ * @public
+ */
+export interface GuardrailAutomatedReasoningPolicyAssessment {
+  /**
+   * <p>List of logical validation results produced by evaluating the input content against automated reasoning policies.</p>
+   * @public
+   */
+  findings?: GuardrailAutomatedReasoningFinding[] | undefined;
+}
+
+/**
  * @public
  * @enum
  */
@@ -1057,6 +1514,18 @@ export interface GuardrailUsage {
    * @public
    */
   contentPolicyImageUnits?: number | undefined;
+
+  /**
+   * <p>The number of text units processed by the automated reasoning policy.</p>
+   * @public
+   */
+  automatedReasoningPolicyUnits?: number | undefined;
+
+  /**
+   * <p>The number of automated reasoning policies that were processed during the guardrail evaluation.</p>
+   * @public
+   */
+  automatedReasoningPolicies?: number | undefined;
 }
 
 /**
@@ -1428,6 +1897,12 @@ export interface GuardrailAssessment {
    * @public
    */
   contextualGroundingPolicy?: GuardrailContextualGroundingPolicyAssessment | undefined;
+
+  /**
+   * <p>The automated reasoning policy assessment results, including logical validation findings for the input content.</p>
+   * @public
+   */
+  automatedReasoningPolicy?: GuardrailAutomatedReasoningPolicyAssessment | undefined;
 
   /**
    * <p>The invocation metrics for the guardrail assessment.</p>
@@ -5166,6 +5641,208 @@ export const ApplyGuardrailRequestFilterSensitiveLog = (obj: ApplyGuardrailReque
 /**
  * @internal
  */
+export const GuardrailAutomatedReasoningStatementFilterSensitiveLog = (
+  obj: GuardrailAutomatedReasoningStatement
+): any => ({
+  ...obj,
+  ...(obj.logic && { logic: SENSITIVE_STRING }),
+  ...(obj.naturalLanguage && { naturalLanguage: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const GuardrailAutomatedReasoningLogicWarningFilterSensitiveLog = (
+  obj: GuardrailAutomatedReasoningLogicWarning
+): any => ({
+  ...obj,
+  ...(obj.premises && {
+    premises: obj.premises.map((item) => GuardrailAutomatedReasoningStatementFilterSensitiveLog(item)),
+  }),
+  ...(obj.claims && { claims: obj.claims.map((item) => GuardrailAutomatedReasoningStatementFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const GuardrailAutomatedReasoningInputTextReferenceFilterSensitiveLog = (
+  obj: GuardrailAutomatedReasoningInputTextReference
+): any => ({
+  ...obj,
+  ...(obj.text && { text: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const GuardrailAutomatedReasoningTranslationFilterSensitiveLog = (
+  obj: GuardrailAutomatedReasoningTranslation
+): any => ({
+  ...obj,
+  ...(obj.premises && {
+    premises: obj.premises.map((item) => GuardrailAutomatedReasoningStatementFilterSensitiveLog(item)),
+  }),
+  ...(obj.claims && { claims: obj.claims.map((item) => GuardrailAutomatedReasoningStatementFilterSensitiveLog(item)) }),
+  ...(obj.untranslatedPremises && {
+    untranslatedPremises: obj.untranslatedPremises.map((item) =>
+      GuardrailAutomatedReasoningInputTextReferenceFilterSensitiveLog(item)
+    ),
+  }),
+  ...(obj.untranslatedClaims && {
+    untranslatedClaims: obj.untranslatedClaims.map((item) =>
+      GuardrailAutomatedReasoningInputTextReferenceFilterSensitiveLog(item)
+    ),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const GuardrailAutomatedReasoningImpossibleFindingFilterSensitiveLog = (
+  obj: GuardrailAutomatedReasoningImpossibleFinding
+): any => ({
+  ...obj,
+  ...(obj.translation && { translation: GuardrailAutomatedReasoningTranslationFilterSensitiveLog(obj.translation) }),
+  ...(obj.logicWarning && {
+    logicWarning: GuardrailAutomatedReasoningLogicWarningFilterSensitiveLog(obj.logicWarning),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const GuardrailAutomatedReasoningInvalidFindingFilterSensitiveLog = (
+  obj: GuardrailAutomatedReasoningInvalidFinding
+): any => ({
+  ...obj,
+  ...(obj.translation && { translation: GuardrailAutomatedReasoningTranslationFilterSensitiveLog(obj.translation) }),
+  ...(obj.logicWarning && {
+    logicWarning: GuardrailAutomatedReasoningLogicWarningFilterSensitiveLog(obj.logicWarning),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const GuardrailAutomatedReasoningScenarioFilterSensitiveLog = (
+  obj: GuardrailAutomatedReasoningScenario
+): any => ({
+  ...obj,
+  ...(obj.statements && {
+    statements: obj.statements.map((item) => GuardrailAutomatedReasoningStatementFilterSensitiveLog(item)),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const GuardrailAutomatedReasoningSatisfiableFindingFilterSensitiveLog = (
+  obj: GuardrailAutomatedReasoningSatisfiableFinding
+): any => ({
+  ...obj,
+  ...(obj.translation && { translation: GuardrailAutomatedReasoningTranslationFilterSensitiveLog(obj.translation) }),
+  ...(obj.claimsTrueScenario && {
+    claimsTrueScenario: GuardrailAutomatedReasoningScenarioFilterSensitiveLog(obj.claimsTrueScenario),
+  }),
+  ...(obj.claimsFalseScenario && {
+    claimsFalseScenario: GuardrailAutomatedReasoningScenarioFilterSensitiveLog(obj.claimsFalseScenario),
+  }),
+  ...(obj.logicWarning && {
+    logicWarning: GuardrailAutomatedReasoningLogicWarningFilterSensitiveLog(obj.logicWarning),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const GuardrailAutomatedReasoningTranslationOptionFilterSensitiveLog = (
+  obj: GuardrailAutomatedReasoningTranslationOption
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GuardrailAutomatedReasoningTranslationAmbiguousFindingFilterSensitiveLog = (
+  obj: GuardrailAutomatedReasoningTranslationAmbiguousFinding
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GuardrailAutomatedReasoningValidFindingFilterSensitiveLog = (
+  obj: GuardrailAutomatedReasoningValidFinding
+): any => ({
+  ...obj,
+  ...(obj.translation && { translation: GuardrailAutomatedReasoningTranslationFilterSensitiveLog(obj.translation) }),
+  ...(obj.claimsTrueScenario && {
+    claimsTrueScenario: GuardrailAutomatedReasoningScenarioFilterSensitiveLog(obj.claimsTrueScenario),
+  }),
+  ...(obj.logicWarning && {
+    logicWarning: GuardrailAutomatedReasoningLogicWarningFilterSensitiveLog(obj.logicWarning),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const GuardrailAutomatedReasoningFindingFilterSensitiveLog = (obj: GuardrailAutomatedReasoningFinding): any => {
+  if (obj.valid !== undefined) return { valid: GuardrailAutomatedReasoningValidFindingFilterSensitiveLog(obj.valid) };
+  if (obj.invalid !== undefined)
+    return { invalid: GuardrailAutomatedReasoningInvalidFindingFilterSensitiveLog(obj.invalid) };
+  if (obj.satisfiable !== undefined)
+    return { satisfiable: GuardrailAutomatedReasoningSatisfiableFindingFilterSensitiveLog(obj.satisfiable) };
+  if (obj.impossible !== undefined)
+    return { impossible: GuardrailAutomatedReasoningImpossibleFindingFilterSensitiveLog(obj.impossible) };
+  if (obj.translationAmbiguous !== undefined)
+    return {
+      translationAmbiguous: GuardrailAutomatedReasoningTranslationAmbiguousFindingFilterSensitiveLog(
+        obj.translationAmbiguous
+      ),
+    };
+  if (obj.tooComplex !== undefined) return { tooComplex: obj.tooComplex };
+  if (obj.noTranslations !== undefined) return { noTranslations: obj.noTranslations };
+  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
+};
+
+/**
+ * @internal
+ */
+export const GuardrailAutomatedReasoningPolicyAssessmentFilterSensitiveLog = (
+  obj: GuardrailAutomatedReasoningPolicyAssessment
+): any => ({
+  ...obj,
+  ...(obj.findings && {
+    findings: obj.findings.map((item) => GuardrailAutomatedReasoningFindingFilterSensitiveLog(item)),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const GuardrailAssessmentFilterSensitiveLog = (obj: GuardrailAssessment): any => ({
+  ...obj,
+  ...(obj.automatedReasoningPolicy && {
+    automatedReasoningPolicy: GuardrailAutomatedReasoningPolicyAssessmentFilterSensitiveLog(
+      obj.automatedReasoningPolicy
+    ),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const ApplyGuardrailResponseFilterSensitiveLog = (obj: ApplyGuardrailResponse): any => ({
+  ...obj,
+  ...(obj.assessments && { assessments: obj.assessments.map((item) => GuardrailAssessmentFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
 export const GuardrailConverseImageSourceFilterSensitiveLog = (obj: GuardrailConverseImageSource): any => {
   if (obj.bytes !== undefined) return { bytes: obj.bytes };
   if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
@@ -5264,9 +5941,41 @@ export const ConverseOutputFilterSensitiveLog = (obj: ConverseOutput): any => {
 /**
  * @internal
  */
+export const GuardrailTraceAssessmentFilterSensitiveLog = (obj: GuardrailTraceAssessment): any => ({
+  ...obj,
+  ...(obj.inputAssessment && {
+    inputAssessment: Object.entries(obj.inputAssessment).reduce(
+      (acc: any, [key, value]: [string, GuardrailAssessment]) => (
+        (acc[key] = GuardrailAssessmentFilterSensitiveLog(value)), acc
+      ),
+      {}
+    ),
+  }),
+  ...(obj.outputAssessments && {
+    outputAssessments: Object.entries(obj.outputAssessments).reduce(
+      (acc: any, [key, value]: [string, GuardrailAssessment[]]) => (
+        (acc[key] = value.map((item) => GuardrailAssessmentFilterSensitiveLog(item))), acc
+      ),
+      {}
+    ),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const ConverseTraceFilterSensitiveLog = (obj: ConverseTrace): any => ({
+  ...obj,
+  ...(obj.guardrail && { guardrail: GuardrailTraceAssessmentFilterSensitiveLog(obj.guardrail) }),
+});
+
+/**
+ * @internal
+ */
 export const ConverseResponseFilterSensitiveLog = (obj: ConverseResponse): any => ({
   ...obj,
   ...(obj.output && { output: ConverseOutputFilterSensitiveLog(obj.output) }),
+  ...(obj.trace && { trace: ConverseTraceFilterSensitiveLog(obj.trace) }),
 });
 
 /**
@@ -5313,6 +6022,22 @@ export const ContentBlockDeltaEventFilterSensitiveLog = (obj: ContentBlockDeltaE
 /**
  * @internal
  */
+export const ConverseStreamTraceFilterSensitiveLog = (obj: ConverseStreamTrace): any => ({
+  ...obj,
+  ...(obj.guardrail && { guardrail: GuardrailTraceAssessmentFilterSensitiveLog(obj.guardrail) }),
+});
+
+/**
+ * @internal
+ */
+export const ConverseStreamMetadataEventFilterSensitiveLog = (obj: ConverseStreamMetadataEvent): any => ({
+  ...obj,
+  ...(obj.trace && { trace: ConverseStreamTraceFilterSensitiveLog(obj.trace) }),
+});
+
+/**
+ * @internal
+ */
 export const ConverseStreamOutputFilterSensitiveLog = (obj: ConverseStreamOutput): any => {
   if (obj.messageStart !== undefined) return { messageStart: obj.messageStart };
   if (obj.contentBlockStart !== undefined) return { contentBlockStart: obj.contentBlockStart };
@@ -5320,7 +6045,7 @@ export const ConverseStreamOutputFilterSensitiveLog = (obj: ConverseStreamOutput
     return { contentBlockDelta: ContentBlockDeltaEventFilterSensitiveLog(obj.contentBlockDelta) };
   if (obj.contentBlockStop !== undefined) return { contentBlockStop: obj.contentBlockStop };
   if (obj.messageStop !== undefined) return { messageStop: obj.messageStop };
-  if (obj.metadata !== undefined) return { metadata: obj.metadata };
+  if (obj.metadata !== undefined) return { metadata: ConverseStreamMetadataEventFilterSensitiveLog(obj.metadata) };
   if (obj.internalServerException !== undefined) return { internalServerException: obj.internalServerException };
   if (obj.modelStreamErrorException !== undefined) return { modelStreamErrorException: obj.modelStreamErrorException };
   if (obj.validationException !== undefined) return { validationException: obj.validationException };

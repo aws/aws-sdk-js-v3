@@ -528,6 +528,162 @@ export interface ConverseCommandOutput extends ConverseResponse, __MetadataBeare
  * //               },
  * //             ],
  * //           },
+ * //           automatedReasoningPolicy: { // GuardrailAutomatedReasoningPolicyAssessment
+ * //             findings: [ // GuardrailAutomatedReasoningFindingList
+ * //               { // GuardrailAutomatedReasoningFinding Union: only one key present
+ * //                 valid: { // GuardrailAutomatedReasoningValidFinding
+ * //                   translation: { // GuardrailAutomatedReasoningTranslation
+ * //                     premises: [ // GuardrailAutomatedReasoningStatementList
+ * //                       { // GuardrailAutomatedReasoningStatement
+ * //                         logic: "STRING_VALUE",
+ * //                         naturalLanguage: "STRING_VALUE",
+ * //                       },
+ * //                     ],
+ * //                     claims: [
+ * //                       {
+ * //                         logic: "STRING_VALUE",
+ * //                         naturalLanguage: "STRING_VALUE",
+ * //                       },
+ * //                     ],
+ * //                     untranslatedPremises: [ // GuardrailAutomatedReasoningInputTextReferenceList
+ * //                       { // GuardrailAutomatedReasoningInputTextReference
+ * //                         text: "STRING_VALUE",
+ * //                       },
+ * //                     ],
+ * //                     untranslatedClaims: [
+ * //                       {
+ * //                         text: "STRING_VALUE",
+ * //                       },
+ * //                     ],
+ * //                     confidence: Number("double"),
+ * //                   },
+ * //                   claimsTrueScenario: { // GuardrailAutomatedReasoningScenario
+ * //                     statements: [
+ * //                       {
+ * //                         logic: "STRING_VALUE",
+ * //                         naturalLanguage: "STRING_VALUE",
+ * //                       },
+ * //                     ],
+ * //                   },
+ * //                   supportingRules: [ // GuardrailAutomatedReasoningRuleList
+ * //                     { // GuardrailAutomatedReasoningRule
+ * //                       identifier: "STRING_VALUE",
+ * //                       policyVersionArn: "STRING_VALUE",
+ * //                     },
+ * //                   ],
+ * //                   logicWarning: { // GuardrailAutomatedReasoningLogicWarning
+ * //                     type: "ALWAYS_FALSE" || "ALWAYS_TRUE",
+ * //                     premises: [
+ * //                       {
+ * //                         logic: "STRING_VALUE",
+ * //                         naturalLanguage: "STRING_VALUE",
+ * //                       },
+ * //                     ],
+ * //                     claims: [
+ * //                       {
+ * //                         logic: "STRING_VALUE",
+ * //                         naturalLanguage: "STRING_VALUE",
+ * //                       },
+ * //                     ],
+ * //                   },
+ * //                 },
+ * //                 invalid: { // GuardrailAutomatedReasoningInvalidFinding
+ * //                   translation: {
+ * //                     premises: "<GuardrailAutomatedReasoningStatementList>",
+ * //                     claims: "<GuardrailAutomatedReasoningStatementList>",
+ * //                     untranslatedPremises: [
+ * //                       {
+ * //                         text: "STRING_VALUE",
+ * //                       },
+ * //                     ],
+ * //                     untranslatedClaims: [
+ * //                       {
+ * //                         text: "STRING_VALUE",
+ * //                       },
+ * //                     ],
+ * //                     confidence: Number("double"),
+ * //                   },
+ * //                   contradictingRules: [
+ * //                     {
+ * //                       identifier: "STRING_VALUE",
+ * //                       policyVersionArn: "STRING_VALUE",
+ * //                     },
+ * //                   ],
+ * //                   logicWarning: {
+ * //                     type: "ALWAYS_FALSE" || "ALWAYS_TRUE",
+ * //                     premises: "<GuardrailAutomatedReasoningStatementList>",
+ * //                     claims: "<GuardrailAutomatedReasoningStatementList>",
+ * //                   },
+ * //                 },
+ * //                 satisfiable: { // GuardrailAutomatedReasoningSatisfiableFinding
+ * //                   translation: {
+ * //                     premises: "<GuardrailAutomatedReasoningStatementList>",
+ * //                     claims: "<GuardrailAutomatedReasoningStatementList>",
+ * //                     untranslatedPremises: [
+ * //                       {
+ * //                         text: "STRING_VALUE",
+ * //                       },
+ * //                     ],
+ * //                     untranslatedClaims: "<GuardrailAutomatedReasoningInputTextReferenceList>",
+ * //                     confidence: Number("double"),
+ * //                   },
+ * //                   claimsTrueScenario: {
+ * //                     statements: "<GuardrailAutomatedReasoningStatementList>",
+ * //                   },
+ * //                   claimsFalseScenario: {
+ * //                     statements: "<GuardrailAutomatedReasoningStatementList>",
+ * //                   },
+ * //                   logicWarning: {
+ * //                     type: "ALWAYS_FALSE" || "ALWAYS_TRUE",
+ * //                     premises: "<GuardrailAutomatedReasoningStatementList>",
+ * //                     claims: "<GuardrailAutomatedReasoningStatementList>",
+ * //                   },
+ * //                 },
+ * //                 impossible: { // GuardrailAutomatedReasoningImpossibleFinding
+ * //                   translation: {
+ * //                     premises: "<GuardrailAutomatedReasoningStatementList>",
+ * //                     claims: "<GuardrailAutomatedReasoningStatementList>",
+ * //                     untranslatedPremises: "<GuardrailAutomatedReasoningInputTextReferenceList>",
+ * //                     untranslatedClaims: "<GuardrailAutomatedReasoningInputTextReferenceList>",
+ * //                     confidence: Number("double"),
+ * //                   },
+ * //                   contradictingRules: [
+ * //                     {
+ * //                       identifier: "STRING_VALUE",
+ * //                       policyVersionArn: "STRING_VALUE",
+ * //                     },
+ * //                   ],
+ * //                   logicWarning: {
+ * //                     type: "ALWAYS_FALSE" || "ALWAYS_TRUE",
+ * //                     premises: "<GuardrailAutomatedReasoningStatementList>",
+ * //                     claims: "<GuardrailAutomatedReasoningStatementList>",
+ * //                   },
+ * //                 },
+ * //                 translationAmbiguous: { // GuardrailAutomatedReasoningTranslationAmbiguousFinding
+ * //                   options: [ // GuardrailAutomatedReasoningTranslationOptionList
+ * //                     { // GuardrailAutomatedReasoningTranslationOption
+ * //                       translations: [ // GuardrailAutomatedReasoningTranslationList
+ * //                         {
+ * //                           premises: "<GuardrailAutomatedReasoningStatementList>",
+ * //                           claims: "<GuardrailAutomatedReasoningStatementList>",
+ * //                           untranslatedPremises: "<GuardrailAutomatedReasoningInputTextReferenceList>",
+ * //                           untranslatedClaims: "<GuardrailAutomatedReasoningInputTextReferenceList>",
+ * //                           confidence: Number("double"),
+ * //                         },
+ * //                       ],
+ * //                     },
+ * //                   ],
+ * //                   differenceScenarios: [ // GuardrailAutomatedReasoningDifferenceScenarioList
+ * //                     {
+ * //                       statements: "<GuardrailAutomatedReasoningStatementList>",
+ * //                     },
+ * //                   ],
+ * //                 },
+ * //                 tooComplex: {},
+ * //                 noTranslations: {},
+ * //               },
+ * //             ],
+ * //           },
  * //           invocationMetrics: { // GuardrailInvocationMetrics
  * //             guardrailProcessingLatency: Number("long"),
  * //             usage: { // GuardrailUsage
@@ -538,6 +694,8 @@ export interface ConverseCommandOutput extends ConverseResponse, __MetadataBeare
  * //               sensitiveInformationPolicyFreeUnits: Number("int"), // required
  * //               contextualGroundingPolicyUnits: Number("int"), // required
  * //               contentPolicyImageUnits: Number("int"),
+ * //               automatedReasoningPolicyUnits: Number("int"),
+ * //               automatedReasoningPolicies: Number("int"),
  * //             },
  * //             guardrailCoverage: { // GuardrailCoverage
  * //               textCharacters: { // GuardrailTextCharactersCoverage
@@ -623,6 +781,64 @@ export interface ConverseCommandOutput extends ConverseResponse, __MetadataBeare
  * //                 },
  * //               ],
  * //             },
+ * //             automatedReasoningPolicy: {
+ * //               findings: [
+ * //                 {//  Union: only one key present
+ * //                   valid: {
+ * //                     translation: "<GuardrailAutomatedReasoningTranslation>",
+ * //                     claimsTrueScenario: {
+ * //                       statements: "<GuardrailAutomatedReasoningStatementList>",
+ * //                     },
+ * //                     supportingRules: [
+ * //                       {
+ * //                         identifier: "STRING_VALUE",
+ * //                         policyVersionArn: "STRING_VALUE",
+ * //                       },
+ * //                     ],
+ * //                     logicWarning: {
+ * //                       type: "ALWAYS_FALSE" || "ALWAYS_TRUE",
+ * //                       premises: "<GuardrailAutomatedReasoningStatementList>",
+ * //                       claims: "<GuardrailAutomatedReasoningStatementList>",
+ * //                     },
+ * //                   },
+ * //                   invalid: {
+ * //                     translation: "<GuardrailAutomatedReasoningTranslation>",
+ * //                     contradictingRules: [
+ * //                       {
+ * //                         identifier: "STRING_VALUE",
+ * //                         policyVersionArn: "STRING_VALUE",
+ * //                       },
+ * //                     ],
+ * //                     logicWarning: "<GuardrailAutomatedReasoningLogicWarning>",
+ * //                   },
+ * //                   satisfiable: {
+ * //                     translation: "<GuardrailAutomatedReasoningTranslation>",
+ * //                     claimsTrueScenario: "<GuardrailAutomatedReasoningScenario>",
+ * //                     claimsFalseScenario: "<GuardrailAutomatedReasoningScenario>",
+ * //                     logicWarning: "<GuardrailAutomatedReasoningLogicWarning>",
+ * //                   },
+ * //                   impossible: {
+ * //                     translation: "<GuardrailAutomatedReasoningTranslation>",
+ * //                     contradictingRules: "<GuardrailAutomatedReasoningRuleList>",
+ * //                     logicWarning: "<GuardrailAutomatedReasoningLogicWarning>",
+ * //                   },
+ * //                   translationAmbiguous: {
+ * //                     options: [
+ * //                       {
+ * //                         translations: [
+ * //                           "<GuardrailAutomatedReasoningTranslation>",
+ * //                         ],
+ * //                       },
+ * //                     ],
+ * //                     differenceScenarios: [
+ * //                       "<GuardrailAutomatedReasoningScenario>",
+ * //                     ],
+ * //                   },
+ * //                   tooComplex: {},
+ * //                   noTranslations: {},
+ * //                 },
+ * //               ],
+ * //             },
  * //             invocationMetrics: {
  * //               guardrailProcessingLatency: Number("long"),
  * //               usage: {
@@ -633,6 +849,8 @@ export interface ConverseCommandOutput extends ConverseResponse, __MetadataBeare
  * //                 sensitiveInformationPolicyFreeUnits: Number("int"), // required
  * //                 contextualGroundingPolicyUnits: Number("int"), // required
  * //                 contentPolicyImageUnits: Number("int"),
+ * //                 automatedReasoningPolicyUnits: Number("int"),
+ * //                 automatedReasoningPolicies: Number("int"),
  * //               },
  * //               guardrailCoverage: {
  * //                 textCharacters: {

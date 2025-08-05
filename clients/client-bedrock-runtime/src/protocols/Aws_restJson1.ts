@@ -88,6 +88,15 @@ import {
   DocumentPageLocation,
   DocumentSource,
   GuardrailAssessment,
+  GuardrailAutomatedReasoningFinding,
+  GuardrailAutomatedReasoningImpossibleFinding,
+  GuardrailAutomatedReasoningInvalidFinding,
+  GuardrailAutomatedReasoningPolicyAssessment,
+  GuardrailAutomatedReasoningSatisfiableFinding,
+  GuardrailAutomatedReasoningTranslation,
+  GuardrailAutomatedReasoningTranslationAmbiguousFinding,
+  GuardrailAutomatedReasoningTranslationOption,
+  GuardrailAutomatedReasoningValidFinding,
   GuardrailConfiguration,
   GuardrailContentBlock,
   GuardrailContentQualifier,
@@ -1890,6 +1899,7 @@ const de_DocumentSource = (output: any, context: __SerdeContext): DocumentSource
  */
 const de_GuardrailAssessment = (output: any, context: __SerdeContext): GuardrailAssessment => {
   return take(output, {
+    automatedReasoningPolicy: (_: any) => de_GuardrailAutomatedReasoningPolicyAssessment(_, context),
     contentPolicy: _json,
     contextualGroundingPolicy: (_: any) => de_GuardrailContextualGroundingPolicyAssessment(_, context),
     invocationMetrics: _json,
@@ -1935,6 +1945,232 @@ const de_GuardrailAssessmentMap = (output: any, context: __SerdeContext): Record
     acc[key as string] = de_GuardrailAssessment(value, context);
     return acc;
   }, {} as Record<string, GuardrailAssessment>);
+};
+
+// de_GuardrailAutomatedReasoningDifferenceScenarioList omitted.
+
+/**
+ * deserializeAws_restJson1GuardrailAutomatedReasoningFinding
+ */
+const de_GuardrailAutomatedReasoningFinding = (
+  output: any,
+  context: __SerdeContext
+): GuardrailAutomatedReasoningFinding => {
+  if (output.impossible != null) {
+    return {
+      impossible: de_GuardrailAutomatedReasoningImpossibleFinding(output.impossible, context),
+    };
+  }
+  if (output.invalid != null) {
+    return {
+      invalid: de_GuardrailAutomatedReasoningInvalidFinding(output.invalid, context),
+    };
+  }
+  if (output.noTranslations != null) {
+    return {
+      noTranslations: _json(output.noTranslations),
+    };
+  }
+  if (output.satisfiable != null) {
+    return {
+      satisfiable: de_GuardrailAutomatedReasoningSatisfiableFinding(output.satisfiable, context),
+    };
+  }
+  if (output.tooComplex != null) {
+    return {
+      tooComplex: _json(output.tooComplex),
+    };
+  }
+  if (output.translationAmbiguous != null) {
+    return {
+      translationAmbiguous: de_GuardrailAutomatedReasoningTranslationAmbiguousFinding(
+        output.translationAmbiguous,
+        context
+      ),
+    };
+  }
+  if (output.valid != null) {
+    return {
+      valid: de_GuardrailAutomatedReasoningValidFinding(output.valid, context),
+    };
+  }
+  return { $unknown: Object.entries(output)[0] };
+};
+
+/**
+ * deserializeAws_restJson1GuardrailAutomatedReasoningFindingList
+ */
+const de_GuardrailAutomatedReasoningFindingList = (
+  output: any,
+  context: __SerdeContext
+): GuardrailAutomatedReasoningFinding[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_GuardrailAutomatedReasoningFinding(__expectUnion(entry), context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_restJson1GuardrailAutomatedReasoningImpossibleFinding
+ */
+const de_GuardrailAutomatedReasoningImpossibleFinding = (
+  output: any,
+  context: __SerdeContext
+): GuardrailAutomatedReasoningImpossibleFinding => {
+  return take(output, {
+    contradictingRules: _json,
+    logicWarning: _json,
+    translation: (_: any) => de_GuardrailAutomatedReasoningTranslation(_, context),
+  }) as any;
+};
+
+// de_GuardrailAutomatedReasoningInputTextReference omitted.
+
+// de_GuardrailAutomatedReasoningInputTextReferenceList omitted.
+
+/**
+ * deserializeAws_restJson1GuardrailAutomatedReasoningInvalidFinding
+ */
+const de_GuardrailAutomatedReasoningInvalidFinding = (
+  output: any,
+  context: __SerdeContext
+): GuardrailAutomatedReasoningInvalidFinding => {
+  return take(output, {
+    contradictingRules: _json,
+    logicWarning: _json,
+    translation: (_: any) => de_GuardrailAutomatedReasoningTranslation(_, context),
+  }) as any;
+};
+
+// de_GuardrailAutomatedReasoningLogicWarning omitted.
+
+// de_GuardrailAutomatedReasoningNoTranslationsFinding omitted.
+
+/**
+ * deserializeAws_restJson1GuardrailAutomatedReasoningPolicyAssessment
+ */
+const de_GuardrailAutomatedReasoningPolicyAssessment = (
+  output: any,
+  context: __SerdeContext
+): GuardrailAutomatedReasoningPolicyAssessment => {
+  return take(output, {
+    findings: (_: any) => de_GuardrailAutomatedReasoningFindingList(_, context),
+  }) as any;
+};
+
+// de_GuardrailAutomatedReasoningRule omitted.
+
+// de_GuardrailAutomatedReasoningRuleList omitted.
+
+/**
+ * deserializeAws_restJson1GuardrailAutomatedReasoningSatisfiableFinding
+ */
+const de_GuardrailAutomatedReasoningSatisfiableFinding = (
+  output: any,
+  context: __SerdeContext
+): GuardrailAutomatedReasoningSatisfiableFinding => {
+  return take(output, {
+    claimsFalseScenario: _json,
+    claimsTrueScenario: _json,
+    logicWarning: _json,
+    translation: (_: any) => de_GuardrailAutomatedReasoningTranslation(_, context),
+  }) as any;
+};
+
+// de_GuardrailAutomatedReasoningScenario omitted.
+
+// de_GuardrailAutomatedReasoningStatement omitted.
+
+// de_GuardrailAutomatedReasoningStatementList omitted.
+
+// de_GuardrailAutomatedReasoningTooComplexFinding omitted.
+
+/**
+ * deserializeAws_restJson1GuardrailAutomatedReasoningTranslation
+ */
+const de_GuardrailAutomatedReasoningTranslation = (
+  output: any,
+  context: __SerdeContext
+): GuardrailAutomatedReasoningTranslation => {
+  return take(output, {
+    claims: _json,
+    confidence: __limitedParseDouble,
+    premises: _json,
+    untranslatedClaims: _json,
+    untranslatedPremises: _json,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1GuardrailAutomatedReasoningTranslationAmbiguousFinding
+ */
+const de_GuardrailAutomatedReasoningTranslationAmbiguousFinding = (
+  output: any,
+  context: __SerdeContext
+): GuardrailAutomatedReasoningTranslationAmbiguousFinding => {
+  return take(output, {
+    differenceScenarios: _json,
+    options: (_: any) => de_GuardrailAutomatedReasoningTranslationOptionList(_, context),
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1GuardrailAutomatedReasoningTranslationList
+ */
+const de_GuardrailAutomatedReasoningTranslationList = (
+  output: any,
+  context: __SerdeContext
+): GuardrailAutomatedReasoningTranslation[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_GuardrailAutomatedReasoningTranslation(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_restJson1GuardrailAutomatedReasoningTranslationOption
+ */
+const de_GuardrailAutomatedReasoningTranslationOption = (
+  output: any,
+  context: __SerdeContext
+): GuardrailAutomatedReasoningTranslationOption => {
+  return take(output, {
+    translations: (_: any) => de_GuardrailAutomatedReasoningTranslationList(_, context),
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1GuardrailAutomatedReasoningTranslationOptionList
+ */
+const de_GuardrailAutomatedReasoningTranslationOptionList = (
+  output: any,
+  context: __SerdeContext
+): GuardrailAutomatedReasoningTranslationOption[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_GuardrailAutomatedReasoningTranslationOption(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_restJson1GuardrailAutomatedReasoningValidFinding
+ */
+const de_GuardrailAutomatedReasoningValidFinding = (
+  output: any,
+  context: __SerdeContext
+): GuardrailAutomatedReasoningValidFinding => {
+  return take(output, {
+    claimsTrueScenario: _json,
+    logicWarning: _json,
+    supportingRules: _json,
+    translation: (_: any) => de_GuardrailAutomatedReasoningTranslation(_, context),
+  }) as any;
 };
 
 // de_GuardrailContentFilter omitted.
