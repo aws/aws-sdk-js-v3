@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.862.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.861.0...v3.862.0) (2025-08-06)
+
+
+### Features
+
+* **client-opensearchserverless:** Features: add Index APIs in OpenSearchServerless to support managed semantic enrichment ([9b2c5e6](https://github.com/aws/aws-sdk-js-v3/commit/9b2c5e665842fc1145f403864f8459929feafdb0))
+
+
+
+
+
 # [3.859.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.858.0...v3.859.0) (2025-08-01)
 
 **Note:** Version bump only for package @aws-sdk/client-opensearchserverless

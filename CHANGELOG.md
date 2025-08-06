@@ -3,6 +3,21 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.862.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.861.0...v3.862.0) (2025-08-06)
+
+
+### Features
+
+* **client-budgets:** Adds support for billing views. Billing views let you control access to cost and usage data through an AWS resource, streamlining the process of sharing cost and usage data across account boundaries. With this release, you can now create and view budgets based on billing views. ([360bf1c](https://github.com/aws/aws-sdk-js-v3/commit/360bf1cf3f2dc804fdd28c5b1d33a26e5e3e9297))
+* **client-ec2:** Mark Elastic Inference Accelerators and Elastic Graphics Processor parameters as deprecated on the RunInstances and LaunchTemplate APIs. ([aa76eb4](https://github.com/aws/aws-sdk-js-v3/commit/aa76eb4474aaf1b4c641aecfee8a13ce2737a253))
+* **client-opensearchserverless:** Features: add Index APIs in OpenSearchServerless to support managed semantic enrichment ([9b2c5e6](https://github.com/aws/aws-sdk-js-v3/commit/9b2c5e665842fc1145f403864f8459929feafdb0))
+* **client-qbusiness:** Amazon Q Business now supports the GetDocumentContent() API that enables customers to securely access the source documents through clickable citation links at query time ([aabc7a5](https://github.com/aws/aws-sdk-js-v3/commit/aabc7a596d589c186e541a88f503b33ba4c4dea8))
+* **clients:** update client endpoints as of 2025-08-06 ([7bd2ce7](https://github.com/aws/aws-sdk-js-v3/commit/7bd2ce789b67fdfd6a92635be26ef764cfc35164))
+
+
+
+
+
 # [3.861.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.860.0...v3.861.0) (2025-08-05)
 
 
