@@ -231,6 +231,9 @@ export interface ChatSyncCommandOutput extends ChatSyncOutput, __MetadataBearer 
  * //           },
  * //         },
  * //       ],
+ * //       documentId: "STRING_VALUE",
+ * //       indexId: "STRING_VALUE",
+ * //       datasourceId: "STRING_VALUE",
  * //     },
  * //   ],
  * //   failedAttachments: [ // AttachmentsOutput

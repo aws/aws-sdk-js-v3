@@ -138,6 +138,7 @@ import {
 } from "./commands/GetChatResponseConfigurationCommand";
 import { GetDataAccessorCommandInput, GetDataAccessorCommandOutput } from "./commands/GetDataAccessorCommand";
 import { GetDataSourceCommandInput, GetDataSourceCommandOutput } from "./commands/GetDataSourceCommand";
+import { GetDocumentContentCommandInput, GetDocumentContentCommandOutput } from "./commands/GetDocumentContentCommand";
 import { GetGroupCommandInput, GetGroupCommandOutput } from "./commands/GetGroupCommand";
 import { GetIndexCommandInput, GetIndexCommandOutput } from "./commands/GetIndexCommand";
 import { GetMediaCommandInput, GetMediaCommandOutput } from "./commands/GetMediaCommand";
@@ -268,6 +269,7 @@ export type ServiceInputTypes =
   | GetChatResponseConfigurationCommandInput
   | GetDataAccessorCommandInput
   | GetDataSourceCommandInput
+  | GetDocumentContentCommandInput
   | GetGroupCommandInput
   | GetIndexCommandInput
   | GetMediaCommandInput
@@ -355,6 +357,7 @@ export type ServiceOutputTypes =
   | GetChatResponseConfigurationCommandOutput
   | GetDataAccessorCommandOutput
   | GetDataSourceCommandOutput
+  | GetDocumentContentCommandOutput
   | GetGroupCommandOutput
   | GetIndexCommandOutput
   | GetMediaCommandOutput

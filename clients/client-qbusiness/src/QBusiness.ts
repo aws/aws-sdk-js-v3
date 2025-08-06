@@ -159,6 +159,11 @@ import {
   GetDataSourceCommandInput,
   GetDataSourceCommandOutput,
 } from "./commands/GetDataSourceCommand";
+import {
+  GetDocumentContentCommand,
+  GetDocumentContentCommandInput,
+  GetDocumentContentCommandOutput,
+} from "./commands/GetDocumentContentCommand";
 import { GetGroupCommand, GetGroupCommandInput, GetGroupCommandOutput } from "./commands/GetGroupCommand";
 import { GetIndexCommand, GetIndexCommandInput, GetIndexCommandOutput } from "./commands/GetIndexCommand";
 import { GetMediaCommand, GetMediaCommandInput, GetMediaCommandOutput } from "./commands/GetMediaCommand";
@@ -368,6 +373,7 @@ const commands = {
   GetChatResponseConfigurationCommand,
   GetDataAccessorCommand,
   GetDataSourceCommand,
+  GetDocumentContentCommand,
   GetGroupCommand,
   GetIndexCommand,
   GetMediaCommand,
@@ -967,6 +973,23 @@ export interface QBusiness {
     args: GetDataSourceCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetDataSourceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetDocumentContentCommand}
+   */
+  getDocumentContent(
+    args: GetDocumentContentCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetDocumentContentCommandOutput>;
+  getDocumentContent(
+    args: GetDocumentContentCommandInput,
+    cb: (err: any, data?: GetDocumentContentCommandOutput) => void
+  ): void;
+  getDocumentContent(
+    args: GetDocumentContentCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetDocumentContentCommandOutput) => void
   ): void;
 
   /**

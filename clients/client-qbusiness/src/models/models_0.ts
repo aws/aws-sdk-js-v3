@@ -5344,7 +5344,7 @@ export interface BatchDeleteDocumentResponse {
 }
 
 /**
- * <p>The contents of a document.</p>
+ * <p>The contents of a document.</p> <note> <p>Documents have size limitations. The maximum file size for a document is 50 MB. The maximum amount of text that can be extracted from a single document is 5 MB. For more information, see <a href="https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/doc-types.html">Supported document formats in Amazon Q Business</a>.</p> </note>
  * @public
  */
 export type DocumentContent = DocumentContent.BlobMember | DocumentContent.S3Member | DocumentContent.$UnknownMember;
@@ -5966,6 +5966,24 @@ export interface SourceAttribution {
    * @public
    */
   textMessageSegments?: TextSegment[] | undefined;
+
+  /**
+   * <p>The unique identifier of the source document used in the citation, obtained from the Amazon Q Business index during chat response generation. This ID is used as input to the <code>GetDocumentContent</code> API to retrieve the actual document content for user verification.</p>
+   * @public
+   */
+  documentId?: string | undefined;
+
+  /**
+   * <p>The identifier of the index containing the source document's metadata and access control information. This links the citation back to the specific Amazon Q Business index where the document's searchable content and permissions are stored.</p>
+   * @public
+   */
+  indexId?: string | undefined;
+
+  /**
+   * <p>The identifier of the data source from which the document was ingested. This field is not present if the document is ingested by directly calling the BatchPutDocument API (similar to checkDocumentAccess). If the document is from a file-upload data source, the datasource will be "uploaded-docs-file-stat-datasourceid".</p>
+   * @public
+   */
+  datasourceId?: string | undefined;
 }
 
 /**

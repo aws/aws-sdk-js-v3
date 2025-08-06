@@ -110,6 +110,7 @@ import {
 } from "../commands/GetChatResponseConfigurationCommand";
 import { GetDataAccessorCommandInput, GetDataAccessorCommandOutput } from "../commands/GetDataAccessorCommand";
 import { GetDataSourceCommandInput, GetDataSourceCommandOutput } from "../commands/GetDataSourceCommand";
+import { GetDocumentContentCommandInput, GetDocumentContentCommandOutput } from "../commands/GetDocumentContentCommand";
 import { GetGroupCommandInput, GetGroupCommandOutput } from "../commands/GetGroupCommand";
 import { GetIndexCommandInput, GetIndexCommandOutput } from "../commands/GetIndexCommand";
 import { GetMediaCommandInput, GetMediaCommandOutput } from "../commands/GetMediaCommand";
@@ -1155,6 +1156,28 @@ export const se_GetDataSourceCommand = async (
   b.p("dataSourceId", () => input.dataSourceId!, "{dataSourceId}", false);
   let body: any;
   b.m("GET").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1GetDocumentContentCommand
+ */
+export const se_GetDocumentContentCommand = async (
+  input: GetDocumentContentCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/applications/{applicationId}/index/{indexId}/documents/{documentId}/content");
+  b.p("applicationId", () => input.applicationId!, "{applicationId}", false);
+  b.p("indexId", () => input.indexId!, "{indexId}", false);
+  b.p("documentId", () => input.documentId!, "{documentId}", false);
+  const query: any = map({
+    [_dSI]: [, input[_dSI]!],
+    [_oF]: [, input[_oF]!],
+  });
+  let body: any;
+  b.m("GET").h(headers).q(query).b(body);
   return b.build();
 };
 
@@ -2950,6 +2973,28 @@ export const de_GetDataSourceCommand = async (
     type: __expectString,
     updatedAt: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     vpcConfiguration: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1GetDocumentContentCommand
+ */
+export const de_GetDocumentContentCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetDocumentContentCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    mimeType: __expectString,
+    presignedUrl: __expectString,
   });
   Object.assign(contents, doc);
   return contents;
@@ -5737,6 +5782,9 @@ const de_RelevantContentList = (output: any, context: __SerdeContext): RelevantC
 const de_SourceAttribution = (output: any, context: __SerdeContext): SourceAttribution => {
   return take(output, {
     citationNumber: __expectInt32,
+    datasourceId: __expectString,
+    documentId: __expectString,
+    indexId: __expectString,
     snippet: __expectString,
     textMessageSegments: _json,
     title: __expectString,
@@ -5858,6 +5906,7 @@ const _dSIa = "dataSourceIds";
 const _eT = "endTime";
 const _mR = "maxResults";
 const _nT = "nextToken";
+const _oF = "outputFormat";
 const _pMI = "parentMessageId";
 const _s = "sync";
 const _sF = "statusFilter";

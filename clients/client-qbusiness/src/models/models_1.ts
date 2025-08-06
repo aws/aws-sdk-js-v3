@@ -107,6 +107,71 @@ export interface GetChatResponseConfigurationResponse {
 
 /**
  * @public
+ * @enum
+ */
+export const OutputFormat = {
+  RAW: "RAW",
+} as const;
+
+/**
+ * @public
+ */
+export type OutputFormat = (typeof OutputFormat)[keyof typeof OutputFormat];
+
+/**
+ * @public
+ */
+export interface GetDocumentContentRequest {
+  /**
+   * <p>The unique identifier of the Amazon Q Business application containing the document. This ensures the request is scoped to the correct application environment and its associated security policies.</p>
+   * @public
+   */
+  applicationId: string | undefined;
+
+  /**
+   * <p>The identifier of the index where documents are indexed.</p>
+   * @public
+   */
+  indexId: string | undefined;
+
+  /**
+   * <p>The identifier of the data source from which the document was ingested. This field is not present if the document is ingested by directly calling the BatchPutDocument API. If the document is from a file-upload data source, the datasource will be "uploaded-docs-file-stat-datasourceid".</p>
+   * @public
+   */
+  dataSourceId?: string | undefined;
+
+  /**
+   * <p>The unique identifier of the document that is indexed via BatchPutDocument API or file-upload or connector sync. It is also found in chat or chatSync response.</p>
+   * @public
+   */
+  documentId: string | undefined;
+
+  /**
+   * <p>Raw document outputFormat.</p>
+   * @public
+   */
+  outputFormat?: OutputFormat | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetDocumentContentResponse {
+  /**
+   * <p>A pre-signed URL that provides temporary access to download the document content directly from Amazon Q Business. The URL expires after 5 minutes for security purposes. This URL is generated only after successful ACL validation.</p>
+   * @public
+   */
+  presignedUrl: string | undefined;
+
+  /**
+   * <p>The MIME type of the document content (e.g., application/pdf, text/plain, application/vnd.openxmlformats-officedocument.wordprocessingml.document).</p>
+   * @public
+   */
+  mimeType: string | undefined;
+}
+
+/**
+ * @public
  */
 export interface GetGroupRequest {
   /**

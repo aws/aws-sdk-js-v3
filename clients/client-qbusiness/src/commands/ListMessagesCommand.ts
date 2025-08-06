@@ -101,6 +101,9 @@ export interface ListMessagesCommandOutput extends ListMessagesResponse, __Metad
  * //               },
  * //             },
  * //           ],
+ * //           documentId: "STRING_VALUE",
+ * //           indexId: "STRING_VALUE",
+ * //           datasourceId: "STRING_VALUE",
  * //         },
  * //       ],
  * //       actionReview: { // ActionReview

@@ -36,6 +36,7 @@ export * from "./GetChatControlsConfigurationCommand";
 export * from "./GetChatResponseConfigurationCommand";
 export * from "./GetDataAccessorCommand";
 export * from "./GetDataSourceCommand";
+export * from "./GetDocumentContentCommand";
 export * from "./GetGroupCommand";
 export * from "./GetIndexCommand";
 export * from "./GetMediaCommand";

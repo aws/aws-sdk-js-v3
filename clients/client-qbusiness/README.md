@@ -501,6 +501,14 @@ GetDataSource
 </details>
 <details>
 <summary>
+GetDocumentContent
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/qbusiness/command/GetDocumentContentCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-qbusiness/Interface/GetDocumentContentCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-qbusiness/Interface/GetDocumentContentCommandOutput/)
+
+</details>
+<details>
+<summary>
 GetGroup
 </summary>
 
