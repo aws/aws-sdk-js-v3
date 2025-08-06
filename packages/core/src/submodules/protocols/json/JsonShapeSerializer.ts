@@ -1,6 +1,5 @@
 import { NormalizedSchema, SCHEMA } from "@smithy/core/schema";
-import { dateToUtcString } from "@smithy/core/serde";
-import { LazyJsonString } from "@smithy/core/serde";
+import { dateToUtcString, generateIdempotencyToken, LazyJsonString } from "@smithy/core/serde";
 import { Schema, ShapeSerializer } from "@smithy/types";
 
 import { SerdeContextConfig } from "../ConfigurableSerdeContext";
@@ -110,11 +109,18 @@ export class JsonShapeSerializer extends SerdeContextConfig implements ShapeSeri
       }
     }
 
-    const mediaType = ns.getMergedTraits().mediaType;
-    if (ns.isStringSchema() && typeof value === "string" && mediaType) {
-      const isJson = mediaType === "application/json" || mediaType.endsWith("+json");
-      if (isJson) {
-        return LazyJsonString.from(value);
+    if (ns.isStringSchema()) {
+      if (typeof value === "undefined" && ns.isIdempotencyToken()) {
+        return generateIdempotencyToken();
+      }
+
+      const mediaType = ns.getMergedTraits().mediaType;
+
+      if (typeof value === "string" && mediaType) {
+        const isJson = mediaType === "application/json" || mediaType.endsWith("+json");
+        if (isJson) {
+          return LazyJsonString.from(value);
+        }
       }
     }
 
