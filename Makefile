@@ -46,6 +46,10 @@ test-endpoints:
 test-e2e: bundles
 	yarn g:vitest run -c vitest.config.e2e.ts --retry=4
 	yarn g:vitest run -c vitest.config.browser.e2e.ts --retry=4
+	make test-bundlers
+
+test-bundlers:
+	(cd ./tests/bundlers && make build test)
 
 build-s3-browser-bundle:
 	node ./clients/client-s3/test/browser-build/esbuild
