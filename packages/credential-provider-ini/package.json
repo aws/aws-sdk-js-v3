@@ -35,10 +35,10 @@
     "@aws-sdk/credential-provider-web-identity": "*",
     "@aws-sdk/nested-clients": "*",
     "@aws-sdk/types": "*",
-    "@smithy/credential-provider-imds": "^4.0.6",
-    "@smithy/property-provider": "^4.0.4",
-    "@smithy/shared-ini-file-loader": "^4.0.4",
-    "@smithy/types": "^4.3.1",
+    "@smithy/credential-provider-imds": "^4.0.7",
+    "@smithy/property-provider": "^4.0.5",
+    "@smithy/shared-ini-file-loader": "^4.0.5",
+    "@smithy/types": "^4.3.2",
     "tslib": "^2.6.2"
   },
   "devDependencies": {
