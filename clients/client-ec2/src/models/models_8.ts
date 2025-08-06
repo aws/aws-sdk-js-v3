@@ -2609,6 +2609,8 @@ export interface RunInstancesRequest {
    *          <note>
    *             <p>Amazon Elastic Graphics reached end of life on January 8, 2024.</p>
    *          </note>
+   *
+   * @deprecated
    * @public
    */
   ElasticGpuSpecification?: ElasticGpuSpecification[] | undefined;
@@ -2618,6 +2620,8 @@ export interface RunInstancesRequest {
    *          <note>
    *             <p>Amazon Elastic Inference is no longer available.</p>
    *          </note>
+   *
+   * @deprecated
    * @public
    */
   ElasticInferenceAccelerators?: ElasticInferenceAccelerator[] | undefined;

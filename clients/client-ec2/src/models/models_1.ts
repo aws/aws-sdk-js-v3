@@ -11686,6 +11686,8 @@ export interface RequestLaunchTemplateData {
    *          <note>
    *             <p>Amazon Elastic Graphics reached end of life on January 8, 2024.</p>
    *          </note>
+   *
+   * @deprecated
    * @public
    */
   ElasticGpuSpecifications?: ElasticGpuSpecification[] | undefined;
@@ -11698,6 +11700,8 @@ export interface RequestLaunchTemplateData {
    *             accelerators are a resource you can attach to your Amazon EC2 instances to accelerate
    *             your Deep Learning (DL) inference workloads.</p>
    *          <p>You cannot specify accelerators from different generations in the same request.</p>
+   *
+   * @deprecated
    * @public
    */
   ElasticInferenceAccelerators?: LaunchTemplateElasticInferenceAccelerator[] | undefined;
