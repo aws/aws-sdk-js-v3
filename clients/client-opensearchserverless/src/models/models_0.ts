@@ -1295,7 +1295,7 @@ export interface CreateCollectionResponse {
 
 /**
  * <p>Thrown when the collection you're attempting to create results in a number of search
- *             or indexing OCUs that exceeds the account limit.</p>
+ *             or indexing OCUs that exceeds the account limit. </p>
  * @public
  */
 export class OcuLimitExceededException extends __BaseException {
@@ -1391,7 +1391,7 @@ export interface CollectionFilters {
  */
 export interface ListCollectionsRequest {
   /**
-   * <p>A list of filter names and values that you can use for requests.</p>
+   * <p> A list of filter names and values that you can use for requests.</p>
    * @public
    */
   collectionFilters?: CollectionFilters | undefined;
@@ -1623,6 +1623,36 @@ export interface CreateIamIdentityCenterConfigOptions {
    */
   groupAttribute?: IamIdentityCenterGroupAttribute | undefined;
 }
+
+/**
+ * @public
+ */
+export interface CreateIndexRequest {
+  /**
+   * <p>The unique identifier of the collection in which to create the index.</p>
+   * @public
+   */
+  id: string | undefined;
+
+  /**
+   * <p>The name of the index to create. Index names must be lowercase and can't begin with
+   *             underscores (_) or hyphens (-).</p>
+   * @public
+   */
+  indexName: string | undefined;
+
+  /**
+   * <p>The JSON schema definition for the index, including field mappings and
+   *             settings.</p>
+   * @public
+   */
+  indexSchema?: __DocumentType | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateIndexResponse {}
 
 /**
  * @public
@@ -2119,6 +2149,28 @@ export interface CreateVpcEndpointResponse {
 /**
  * @public
  */
+export interface DeleteIndexRequest {
+  /**
+   * <p>The unique identifier of the collection containing the index to delete.</p>
+   * @public
+   */
+  id: string | undefined;
+
+  /**
+   * <p>The name of the index to delete.</p>
+   * @public
+   */
+  indexName: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteIndexResponse {}
+
+/**
+ * @public
+ */
 export interface DeleteLifecyclePolicyRequest {
   /**
    * <p>The type of lifecycle policy.</p>
@@ -2267,6 +2319,35 @@ export interface GetAccountSettingsResponse {
 /**
  * @public
  */
+export interface GetIndexRequest {
+  /**
+   * <p>The unique identifier of the collection containing the index.</p>
+   * @public
+   */
+  id: string | undefined;
+
+  /**
+   * <p>The name of the index to retrieve information about.</p>
+   * @public
+   */
+  indexName: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetIndexResponse {
+  /**
+   * <p>The JSON schema definition for the index, including field mappings and
+   *             settings.</p>
+   * @public
+   */
+  indexSchema?: __DocumentType | undefined;
+}
+
+/**
+ * @public
+ */
 export interface GetPoliciesStatsRequest {}
 
 /**
@@ -2400,6 +2481,35 @@ export interface GetSecurityPolicyResponse {
 /**
  * @public
  */
+export interface UpdateIndexRequest {
+  /**
+   * <p>The unique identifier of the collection containing the index to update.</p>
+   * @public
+   */
+  id: string | undefined;
+
+  /**
+   * <p>The name of the index to update.</p>
+   * @public
+   */
+  indexName: string | undefined;
+
+  /**
+   * <p>The updated JSON schema definition for the index, including field mappings and
+   *             settings. </p>
+   * @public
+   */
+  indexSchema?: __DocumentType | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateIndexResponse {}
+
+/**
+ * @public
+ */
 export interface ListLifecyclePoliciesRequest {
   /**
    * <p>The type of lifecycle policy.</p>
@@ -2498,7 +2608,7 @@ export interface ListLifecyclePoliciesResponse {
  */
 export interface UpdateLifecyclePolicyRequest {
   /**
-   * <p>The type of lifecycle policy.</p>
+   * <p> The type of lifecycle policy.</p>
    * @public
    */
   type: LifecyclePolicyType | undefined;
@@ -2644,7 +2754,7 @@ export interface ListSecurityPoliciesRequest {
   type: SecurityPolicyType | undefined;
 
   /**
-   * <p>Resource filters (can be collection or indexes) that policies can apply to.</p>
+   * <p>Resource filters (can be collection or indexes) that policies can apply to. </p>
    * @public
    */
   resource?: string[] | undefined;
@@ -2779,7 +2889,7 @@ export interface ListVpcEndpointsRequest {
    * <p>If your initial <code>ListVpcEndpoints</code> operation returns a
    *                 <code>nextToken</code>, you can include the returned <code>nextToken</code> in
    *             subsequent <code>ListVpcEndpoints</code> operations, which returns results in the next
-   *             page.</p>
+   *             page. </p>
    * @public
    */
   nextToken?: string | undefined;
@@ -2914,7 +3024,7 @@ export interface UpdateSecurityConfigRequest {
  */
 export interface UpdateSecurityConfigResponse {
   /**
-   * <p>Details about the updated security configuration.</p>
+   * <p>Details about the updated security configuration. </p>
    * @public
    */
   securityConfigDetail?: SecurityConfigDetail | undefined;

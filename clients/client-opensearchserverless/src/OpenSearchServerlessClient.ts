@@ -68,6 +68,7 @@ import {
 } from "./commands/BatchGetVpcEndpointCommand";
 import { CreateAccessPolicyCommandInput, CreateAccessPolicyCommandOutput } from "./commands/CreateAccessPolicyCommand";
 import { CreateCollectionCommandInput, CreateCollectionCommandOutput } from "./commands/CreateCollectionCommand";
+import { CreateIndexCommandInput, CreateIndexCommandOutput } from "./commands/CreateIndexCommand";
 import {
   CreateLifecyclePolicyCommandInput,
   CreateLifecyclePolicyCommandOutput,
@@ -83,6 +84,7 @@ import {
 import { CreateVpcEndpointCommandInput, CreateVpcEndpointCommandOutput } from "./commands/CreateVpcEndpointCommand";
 import { DeleteAccessPolicyCommandInput, DeleteAccessPolicyCommandOutput } from "./commands/DeleteAccessPolicyCommand";
 import { DeleteCollectionCommandInput, DeleteCollectionCommandOutput } from "./commands/DeleteCollectionCommand";
+import { DeleteIndexCommandInput, DeleteIndexCommandOutput } from "./commands/DeleteIndexCommand";
 import {
   DeleteLifecyclePolicyCommandInput,
   DeleteLifecyclePolicyCommandOutput,
@@ -98,6 +100,7 @@ import {
 import { DeleteVpcEndpointCommandInput, DeleteVpcEndpointCommandOutput } from "./commands/DeleteVpcEndpointCommand";
 import { GetAccessPolicyCommandInput, GetAccessPolicyCommandOutput } from "./commands/GetAccessPolicyCommand";
 import { GetAccountSettingsCommandInput, GetAccountSettingsCommandOutput } from "./commands/GetAccountSettingsCommand";
+import { GetIndexCommandInput, GetIndexCommandOutput } from "./commands/GetIndexCommand";
 import { GetPoliciesStatsCommandInput, GetPoliciesStatsCommandOutput } from "./commands/GetPoliciesStatsCommand";
 import { GetSecurityConfigCommandInput, GetSecurityConfigCommandOutput } from "./commands/GetSecurityConfigCommand";
 import { GetSecurityPolicyCommandInput, GetSecurityPolicyCommandOutput } from "./commands/GetSecurityPolicyCommand";
@@ -128,6 +131,7 @@ import {
   UpdateAccountSettingsCommandOutput,
 } from "./commands/UpdateAccountSettingsCommand";
 import { UpdateCollectionCommandInput, UpdateCollectionCommandOutput } from "./commands/UpdateCollectionCommand";
+import { UpdateIndexCommandInput, UpdateIndexCommandOutput } from "./commands/UpdateIndexCommand";
 import {
   UpdateLifecyclePolicyCommandInput,
   UpdateLifecyclePolicyCommandOutput,
@@ -162,18 +166,21 @@ export type ServiceInputTypes =
   | BatchGetVpcEndpointCommandInput
   | CreateAccessPolicyCommandInput
   | CreateCollectionCommandInput
+  | CreateIndexCommandInput
   | CreateLifecyclePolicyCommandInput
   | CreateSecurityConfigCommandInput
   | CreateSecurityPolicyCommandInput
   | CreateVpcEndpointCommandInput
   | DeleteAccessPolicyCommandInput
   | DeleteCollectionCommandInput
+  | DeleteIndexCommandInput
   | DeleteLifecyclePolicyCommandInput
   | DeleteSecurityConfigCommandInput
   | DeleteSecurityPolicyCommandInput
   | DeleteVpcEndpointCommandInput
   | GetAccessPolicyCommandInput
   | GetAccountSettingsCommandInput
+  | GetIndexCommandInput
   | GetPoliciesStatsCommandInput
   | GetSecurityConfigCommandInput
   | GetSecurityPolicyCommandInput
@@ -189,6 +196,7 @@ export type ServiceInputTypes =
   | UpdateAccessPolicyCommandInput
   | UpdateAccountSettingsCommandInput
   | UpdateCollectionCommandInput
+  | UpdateIndexCommandInput
   | UpdateLifecyclePolicyCommandInput
   | UpdateSecurityConfigCommandInput
   | UpdateSecurityPolicyCommandInput
@@ -204,18 +212,21 @@ export type ServiceOutputTypes =
   | BatchGetVpcEndpointCommandOutput
   | CreateAccessPolicyCommandOutput
   | CreateCollectionCommandOutput
+  | CreateIndexCommandOutput
   | CreateLifecyclePolicyCommandOutput
   | CreateSecurityConfigCommandOutput
   | CreateSecurityPolicyCommandOutput
   | CreateVpcEndpointCommandOutput
   | DeleteAccessPolicyCommandOutput
   | DeleteCollectionCommandOutput
+  | DeleteIndexCommandOutput
   | DeleteLifecyclePolicyCommandOutput
   | DeleteSecurityConfigCommandOutput
   | DeleteSecurityPolicyCommandOutput
   | DeleteVpcEndpointCommandOutput
   | GetAccessPolicyCommandOutput
   | GetAccountSettingsCommandOutput
+  | GetIndexCommandOutput
   | GetPoliciesStatsCommandOutput
   | GetSecurityConfigCommandOutput
   | GetSecurityPolicyCommandOutput
@@ -231,6 +242,7 @@ export type ServiceOutputTypes =
   | UpdateAccessPolicyCommandOutput
   | UpdateAccountSettingsCommandOutput
   | UpdateCollectionCommandOutput
+  | UpdateIndexCommandOutput
   | UpdateLifecyclePolicyCommandOutput
   | UpdateSecurityConfigCommandOutput
   | UpdateSecurityPolicyCommandOutput

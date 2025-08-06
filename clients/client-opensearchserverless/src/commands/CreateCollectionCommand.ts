@@ -88,7 +88,7 @@ export interface CreateCollectionCommandOutput extends CreateCollectionResponse,
  *
  * @throws {@link OcuLimitExceededException} (client fault)
  *  <p>Thrown when the collection you're attempting to create results in a number of search
- *             or indexing OCUs that exceeds the account limit.</p>
+ *             or indexing OCUs that exceeds the account limit. </p>
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
  *  <p>Thrown when you attempt to create more resources than the service allows based on

@@ -34,6 +34,7 @@ import {
 } from "../commands/BatchGetVpcEndpointCommand";
 import { CreateAccessPolicyCommandInput, CreateAccessPolicyCommandOutput } from "../commands/CreateAccessPolicyCommand";
 import { CreateCollectionCommandInput, CreateCollectionCommandOutput } from "../commands/CreateCollectionCommand";
+import { CreateIndexCommandInput, CreateIndexCommandOutput } from "../commands/CreateIndexCommand";
 import {
   CreateLifecyclePolicyCommandInput,
   CreateLifecyclePolicyCommandOutput,
@@ -49,6 +50,7 @@ import {
 import { CreateVpcEndpointCommandInput, CreateVpcEndpointCommandOutput } from "../commands/CreateVpcEndpointCommand";
 import { DeleteAccessPolicyCommandInput, DeleteAccessPolicyCommandOutput } from "../commands/DeleteAccessPolicyCommand";
 import { DeleteCollectionCommandInput, DeleteCollectionCommandOutput } from "../commands/DeleteCollectionCommand";
+import { DeleteIndexCommandInput, DeleteIndexCommandOutput } from "../commands/DeleteIndexCommand";
 import {
   DeleteLifecyclePolicyCommandInput,
   DeleteLifecyclePolicyCommandOutput,
@@ -64,6 +66,7 @@ import {
 import { DeleteVpcEndpointCommandInput, DeleteVpcEndpointCommandOutput } from "../commands/DeleteVpcEndpointCommand";
 import { GetAccessPolicyCommandInput, GetAccessPolicyCommandOutput } from "../commands/GetAccessPolicyCommand";
 import { GetAccountSettingsCommandInput, GetAccountSettingsCommandOutput } from "../commands/GetAccountSettingsCommand";
+import { GetIndexCommandInput, GetIndexCommandOutput } from "../commands/GetIndexCommand";
 import { GetPoliciesStatsCommandInput, GetPoliciesStatsCommandOutput } from "../commands/GetPoliciesStatsCommand";
 import { GetSecurityConfigCommandInput, GetSecurityConfigCommandOutput } from "../commands/GetSecurityConfigCommand";
 import { GetSecurityPolicyCommandInput, GetSecurityPolicyCommandOutput } from "../commands/GetSecurityPolicyCommand";
@@ -94,6 +97,7 @@ import {
   UpdateAccountSettingsCommandOutput,
 } from "../commands/UpdateAccountSettingsCommand";
 import { UpdateCollectionCommandInput, UpdateCollectionCommandOutput } from "../commands/UpdateCollectionCommand";
+import { UpdateIndexCommandInput, UpdateIndexCommandOutput } from "../commands/UpdateIndexCommand";
 import {
   UpdateLifecyclePolicyCommandInput,
   UpdateLifecyclePolicyCommandOutput,
@@ -121,6 +125,7 @@ import {
   CreateAccessPolicyResponse,
   CreateCollectionRequest,
   CreateIamIdentityCenterConfigOptions,
+  CreateIndexRequest,
   CreateLifecyclePolicyRequest,
   CreateLifecyclePolicyResponse,
   CreateSecurityConfigRequest,
@@ -129,6 +134,7 @@ import {
   CreateVpcEndpointRequest,
   DeleteAccessPolicyRequest,
   DeleteCollectionRequest,
+  DeleteIndexRequest,
   DeleteLifecyclePolicyRequest,
   DeleteSecurityConfigRequest,
   DeleteSecurityPolicyRequest,
@@ -136,6 +142,8 @@ import {
   GetAccessPolicyRequest,
   GetAccessPolicyResponse,
   GetAccountSettingsRequest,
+  GetIndexRequest,
+  GetIndexResponse,
   GetPoliciesStatsRequest,
   GetSecurityConfigRequest,
   GetSecurityPolicyRequest,
@@ -165,6 +173,7 @@ import {
   UpdateAccountSettingsRequest,
   UpdateCollectionRequest,
   UpdateIamIdentityCenterConfigOptions,
+  UpdateIndexRequest,
   UpdateLifecyclePolicyRequest,
   UpdateLifecyclePolicyResponse,
   UpdateSecurityConfigRequest,
@@ -255,6 +264,19 @@ export const se_CreateCollectionCommand = async (
 };
 
 /**
+ * serializeAws_json1_0CreateIndexCommand
+ */
+export const se_CreateIndexCommand = async (
+  input: CreateIndexCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("CreateIndex");
+  let body: any;
+  body = JSON.stringify(se_CreateIndexRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_json1_0CreateLifecyclePolicyCommand
  */
 export const se_CreateLifecyclePolicyCommand = async (
@@ -333,6 +355,19 @@ export const se_DeleteCollectionCommand = async (
 };
 
 /**
+ * serializeAws_json1_0DeleteIndexCommand
+ */
+export const se_DeleteIndexCommand = async (
+  input: DeleteIndexCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("DeleteIndex");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_json1_0DeleteLifecyclePolicyCommand
  */
 export const se_DeleteLifecyclePolicyCommand = async (
@@ -405,6 +440,19 @@ export const se_GetAccountSettingsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetAccountSettings");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_0GetIndexCommand
+ */
+export const se_GetIndexCommand = async (
+  input: GetIndexCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("GetIndex");
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -606,6 +654,19 @@ export const se_UpdateCollectionCommand = async (
 };
 
 /**
+ * serializeAws_json1_0UpdateIndexCommand
+ */
+export const se_UpdateIndexCommand = async (
+  input: UpdateIndexCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("UpdateIndex");
+  let body: any;
+  body = JSON.stringify(se_UpdateIndexRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_json1_0UpdateLifecyclePolicyCommand
  */
 export const se_UpdateLifecyclePolicyCommand = async (
@@ -778,6 +839,26 @@ export const de_CreateCollectionCommand = async (
 };
 
 /**
+ * deserializeAws_json1_0CreateIndexCommand
+ */
+export const de_CreateIndexCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateIndexCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: CreateIndexCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
  * deserializeAws_json1_0CreateLifecyclePolicyCommand
  */
 export const de_CreateLifecyclePolicyCommand = async (
@@ -898,6 +979,26 @@ export const de_DeleteCollectionCommand = async (
 };
 
 /**
+ * deserializeAws_json1_0DeleteIndexCommand
+ */
+export const de_DeleteIndexCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteIndexCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: DeleteIndexCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
  * deserializeAws_json1_0DeleteLifecyclePolicyCommand
  */
 export const de_DeleteLifecyclePolicyCommand = async (
@@ -1011,6 +1112,26 @@ export const de_GetAccountSettingsCommand = async (
   let contents: any = {};
   contents = _json(data);
   const response: GetAccountSettingsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_0GetIndexCommand
+ */
+export const de_GetIndexCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetIndexCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_GetIndexResponse(data, context);
+  const response: GetIndexCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
@@ -1318,6 +1439,26 @@ export const de_UpdateCollectionCommand = async (
 };
 
 /**
+ * deserializeAws_json1_0UpdateIndexCommand
+ */
+export const de_UpdateIndexCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateIndexCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: UpdateIndexCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
  * deserializeAws_json1_0UpdateLifecyclePolicyCommand
  */
 export const de_UpdateLifecyclePolicyCommand = async (
@@ -1571,6 +1712,17 @@ const se_CreateCollectionRequest = (input: CreateCollectionRequest, context: __S
 // se_CreateIamIdentityCenterConfigOptions omitted.
 
 /**
+ * serializeAws_json1_0CreateIndexRequest
+ */
+const se_CreateIndexRequest = (input: CreateIndexRequest, context: __SerdeContext): any => {
+  return take(input, {
+    id: [],
+    indexName: [],
+    indexSchema: (_) => se_IndexSchema(_, context),
+  });
+};
+
+/**
  * serializeAws_json1_0CreateLifecyclePolicyRequest
  */
 const se_CreateLifecyclePolicyRequest = (input: CreateLifecyclePolicyRequest, context: __SerdeContext): any => {
@@ -1645,6 +1797,8 @@ const se_DeleteCollectionRequest = (input: DeleteCollectionRequest, context: __S
   });
 };
 
+// se_DeleteIndexRequest omitted.
+
 /**
  * serializeAws_json1_0DeleteLifecyclePolicyRequest
  */
@@ -1691,6 +1845,8 @@ const se_DeleteVpcEndpointRequest = (input: DeleteVpcEndpointRequest, context: _
 
 // se_GetAccountSettingsRequest omitted.
 
+// se_GetIndexRequest omitted.
+
 // se_GetPoliciesStatsRequest omitted.
 
 // se_GetSecurityConfigRequest omitted.
@@ -1698,6 +1854,13 @@ const se_DeleteVpcEndpointRequest = (input: DeleteVpcEndpointRequest, context: _
 // se_GetSecurityPolicyRequest omitted.
 
 // se_IamFederationConfigOptions omitted.
+
+/**
+ * serializeAws_json1_0IndexSchema
+ */
+const se_IndexSchema = (input: __DocumentType, context: __SerdeContext): any => {
+  return input;
+};
 
 // se_LifecyclePolicyIdentifier omitted.
 
@@ -1769,6 +1932,17 @@ const se_UpdateCollectionRequest = (input: UpdateCollectionRequest, context: __S
 };
 
 // se_UpdateIamIdentityCenterConfigOptions omitted.
+
+/**
+ * serializeAws_json1_0UpdateIndexRequest
+ */
+const se_UpdateIndexRequest = (input: UpdateIndexRequest, context: __SerdeContext): any => {
+  return take(input, {
+    id: [],
+    indexName: [],
+    indexSchema: (_) => se_IndexSchema(_, context),
+  });
+};
 
 /**
  * serializeAws_json1_0UpdateLifecyclePolicyRequest
@@ -1899,6 +2073,8 @@ const de_CreateAccessPolicyResponse = (output: any, context: __SerdeContext): Cr
 
 // de_CreateCollectionResponse omitted.
 
+// de_CreateIndexResponse omitted.
+
 /**
  * deserializeAws_json1_0CreateLifecyclePolicyResponse
  */
@@ -1929,6 +2105,8 @@ const de_CreateSecurityPolicyResponse = (output: any, context: __SerdeContext): 
 
 // de_DeleteCollectionResponse omitted.
 
+// de_DeleteIndexResponse omitted.
+
 // de_DeleteLifecyclePolicyResponse omitted.
 
 // de_DeleteSecurityConfigResponse omitted.
@@ -1958,6 +2136,15 @@ const de_GetAccessPolicyResponse = (output: any, context: __SerdeContext): GetAc
 
 // de_GetAccountSettingsResponse omitted.
 
+/**
+ * deserializeAws_json1_0GetIndexResponse
+ */
+const de_GetIndexResponse = (output: any, context: __SerdeContext): GetIndexResponse => {
+  return take(output, {
+    indexSchema: (_: any) => de_IndexSchema(_, context),
+  }) as any;
+};
+
 // de_GetPoliciesStatsResponse omitted.
 
 // de_GetSecurityConfigResponse omitted.
@@ -1974,6 +2161,13 @@ const de_GetSecurityPolicyResponse = (output: any, context: __SerdeContext): Get
 // de_IamFederationConfigOptions omitted.
 
 // de_IamIdentityCenterConfigOptions omitted.
+
+/**
+ * deserializeAws_json1_0IndexSchema
+ */
+const de_IndexSchema = (output: any, context: __SerdeContext): __DocumentType => {
+  return output;
+};
 
 // de_InternalServerException omitted.
 
@@ -2091,6 +2285,8 @@ const de_UpdateAccessPolicyResponse = (output: any, context: __SerdeContext): Up
 // de_UpdateCollectionDetail omitted.
 
 // de_UpdateCollectionResponse omitted.
+
+// de_UpdateIndexResponse omitted.
 
 /**
  * deserializeAws_json1_0UpdateLifecyclePolicyResponse
