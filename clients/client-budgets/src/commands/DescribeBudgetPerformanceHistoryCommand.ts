@@ -75,6 +75,7 @@ export interface DescribeBudgetPerformanceHistoryCommandOutput
  * //       UseAmortized: true || false,
  * //     },
  * //     TimeUnit: "DAILY" || "MONTHLY" || "QUARTERLY" || "ANNUALLY",
+ * //     BillingViewArn: "STRING_VALUE",
  * //     BudgetedAndActualAmountsList: [ // BudgetedAndActualAmountsList
  * //       { // BudgetedAndActualAmounts
  * //         BudgetedAmount: { // Spend

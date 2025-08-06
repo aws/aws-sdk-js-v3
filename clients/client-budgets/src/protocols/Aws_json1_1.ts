@@ -127,6 +127,7 @@ import {
   ExpiredNextTokenException,
   Expression,
   ExpressionDimensionValues,
+  HealthStatus,
   HistoricalOptions,
   IamActionDefinition,
   InternalErrorException,
@@ -1040,15 +1041,15 @@ const de_CommandError = async (output: __HttpResponse, context: __SerdeContext):
     case "InvalidParameterException":
     case "com.amazonaws.budgets#InvalidParameterException":
       throw await de_InvalidParameterExceptionRes(parsedOutput, context);
+    case "NotFoundException":
+    case "com.amazonaws.budgets#NotFoundException":
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "ServiceQuotaExceededException":
     case "com.amazonaws.budgets#ServiceQuotaExceededException":
       throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.budgets#ThrottlingException":
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.budgets#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "ResourceLockedException":
     case "com.amazonaws.budgets#ResourceLockedException":
       throw await de_ResourceLockedExceptionRes(parsedOutput, context);
@@ -1265,6 +1266,7 @@ const se_AutoAdjustData = (input: AutoAdjustData, context: __SerdeContext): any 
 const se_Budget = (input: Budget, context: __SerdeContext): any => {
   return take(input, {
     AutoAdjustData: (_) => se_AutoAdjustData(_, context),
+    BillingViewArn: [],
     BudgetLimit: _json,
     BudgetName: [],
     BudgetType: [],
@@ -1272,6 +1274,7 @@ const se_Budget = (input: Budget, context: __SerdeContext): any => {
     CostFilters: _json,
     CostTypes: _json,
     FilterExpression: (_) => se_Expression(_, context),
+    HealthStatus: (_) => se_HealthStatus(_, context),
     LastUpdatedTime: (_) => _.getTime() / 1_000,
     Metrics: _json,
     PlannedBudgetLimits: _json,
@@ -1466,6 +1469,17 @@ const se_Expressions = (input: Expression[], context: __SerdeContext): any => {
 };
 
 // se_Groups omitted.
+
+/**
+ * serializeAws_json1_1HealthStatus
+ */
+const se_HealthStatus = (input: HealthStatus, context: __SerdeContext): any => {
+  return take(input, {
+    LastUpdatedTime: (_) => _.getTime() / 1_000,
+    Status: [],
+    StatusReason: [],
+  });
+};
 
 // se_HistoricalOptions omitted.
 
@@ -1700,6 +1714,7 @@ const de_AutoAdjustData = (output: any, context: __SerdeContext): AutoAdjustData
 const de_Budget = (output: any, context: __SerdeContext): Budget => {
   return take(output, {
     AutoAdjustData: (_: any) => de_AutoAdjustData(_, context),
+    BillingViewArn: __expectString,
     BudgetLimit: _json,
     BudgetName: __expectString,
     BudgetType: __expectString,
@@ -1707,6 +1722,7 @@ const de_Budget = (output: any, context: __SerdeContext): Budget => {
     CostFilters: _json,
     CostTypes: _json,
     FilterExpression: (_: any) => de_Expression(_, context),
+    HealthStatus: (_: any) => de_HealthStatus(_, context),
     LastUpdatedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     Metrics: _json,
     PlannedBudgetLimits: _json,
@@ -1768,6 +1784,7 @@ const de_BudgetNotificationsForAccountList = (
  */
 const de_BudgetPerformanceHistory = (output: any, context: __SerdeContext): BudgetPerformanceHistory => {
   return take(output, {
+    BillingViewArn: __expectString,
     BudgetName: __expectString,
     BudgetType: __expectString,
     BudgetedAndActualAmountsList: (_: any) => de_BudgetedAndActualAmountsList(_, context),
@@ -1973,6 +1990,17 @@ const de_Expressions = (output: any, context: __SerdeContext): Expression[] => {
 };
 
 // de_Groups omitted.
+
+/**
+ * deserializeAws_json1_1HealthStatus
+ */
+const de_HealthStatus = (output: any, context: __SerdeContext): HealthStatus => {
+  return take(output, {
+    LastUpdatedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Status: __expectString,
+    StatusReason: __expectString,
+  }) as any;
+};
 
 // de_HistoricalOptions omitted.
 

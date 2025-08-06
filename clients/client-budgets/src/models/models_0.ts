@@ -828,6 +828,77 @@ export interface TagValues {
  * @public
  * @enum
  */
+export const HealthStatusValue = {
+  HEALTHY: "HEALTHY",
+  UNHEALTHY: "UNHEALTHY",
+} as const;
+
+/**
+ * @public
+ */
+export type HealthStatusValue = (typeof HealthStatusValue)[keyof typeof HealthStatusValue];
+
+/**
+ * @public
+ * @enum
+ */
+export const HealthStatusReason = {
+  BILLING_VIEW_NO_ACCESS: "BILLING_VIEW_NO_ACCESS",
+  BILLING_VIEW_UNHEALTHY: "BILLING_VIEW_UNHEALTHY",
+  FILTER_INVALID: "FILTER_INVALID",
+} as const;
+
+/**
+ * @public
+ */
+export type HealthStatusReason = (typeof HealthStatusReason)[keyof typeof HealthStatusReason];
+
+/**
+ * <p>Provides information about the current operational state of a billing view resource,
+ * 			including its ability to access and update based on its associated billing view.</p>
+ * @public
+ */
+export interface HealthStatus {
+  /**
+   * <p>The current status of the billing view resource.</p>
+   * @public
+   */
+  Status?: HealthStatusValue | undefined;
+
+  /**
+   * <p>The reason for the current status.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>BILLING_VIEW_NO_ACCESS</code>: The billing view resource does not grant
+   * 						<code>billing:GetBillingViewData</code> permission to this account.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>BILLING_VIEW_UNHEALTHY</code>:  The billing view associated with the
+   * 					budget is unhealthy.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>FILTER_INVALID</code>: The filter contains reference to an account you
+   * 					do not have access to.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  StatusReason?: HealthStatusReason | undefined;
+
+  /**
+   * <p> A generic time stamp. In Java, it's transformed to a <code>Date</code> object.</p>
+   * @public
+   */
+  LastUpdatedTime?: Date | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
 export const Metric = {
   AMORTIZED_COST: "AmortizedCost",
   BLENDED_COST: "BlendedCost",
@@ -1140,6 +1211,32 @@ export class InvalidParameterException extends __BaseException {
 }
 
 /**
+ * <p>We can’t locate the resource that you specified.</p>
+ * @public
+ */
+export class NotFoundException extends __BaseException {
+  readonly name: "NotFoundException" = "NotFoundException";
+  readonly $fault: "client" = "client";
+  /**
+   * <p>The error message the exception carries.</p>
+   * @public
+   */
+  Message?: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<NotFoundException, __BaseException>) {
+    super({
+      name: "NotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, NotFoundException.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
  * <p>You've reached the limit on the number of tags you can associate with a resource.</p>
  * @public
  */
@@ -1289,32 +1386,6 @@ export interface CreateBudgetActionResponse {
    * @public
    */
   ActionId: string | undefined;
-}
-
-/**
- * <p>We can’t locate the resource that you specified.</p>
- * @public
- */
-export class NotFoundException extends __BaseException {
-  readonly name: "NotFoundException" = "NotFoundException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>The error message the exception carries.</p>
-   * @public
-   */
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<NotFoundException, __BaseException>) {
-    super({
-      name: "NotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, NotFoundException.prototype);
-    this.Message = opts.Message;
-  }
 }
 
 /**
@@ -2009,6 +2080,16 @@ export interface BudgetPerformanceHistory {
    * @public
    */
   TimeUnit?: TimeUnit | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) that uniquely identifies a specific billing view. The ARN is
+   * 			used to specify which particular billing view you want to interact with or retrieve
+   * 			information from when making API calls related to Amazon Web Services Billing and Cost
+   * 			Management features. The BillingViewArn can be retrieved by calling the ListBillingViews
+   * 			API.</p>
+   * @public
+   */
+  BillingViewArn?: string | undefined;
 
   /**
    * <p>A list of amounts of cost or usage that you created budgets for, which are compared to
@@ -2715,6 +2796,22 @@ export interface Budget {
    * @public
    */
   Metrics?: Metric[] | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) that uniquely identifies a specific billing view. The ARN is
+   * 			used to specify which particular billing view you want to interact with or retrieve
+   * 			information from when making API calls related to Amazon Web Services Billing and Cost
+   * 			Management features. The BillingViewArn can be retrieved by calling the ListBillingViews
+   * 			API.</p>
+   * @public
+   */
+  BillingViewArn?: string | undefined;
+
+  /**
+   * <p>The current operational state of a Billing View derived resource.</p>
+   * @public
+   */
+  HealthStatus?: HealthStatus | undefined;
 }
 
 /**

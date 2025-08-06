@@ -174,6 +174,12 @@ export interface DescribeBudgetsCommandOutput extends DescribeBudgetsResponse, _
  * //       Metrics: [ // Metrics
  * //         "BlendedCost" || "UnblendedCost" || "AmortizedCost" || "NetUnblendedCost" || "NetAmortizedCost" || "UsageQuantity" || "NormalizedUsageAmount" || "Hours",
  * //       ],
+ * //       BillingViewArn: "STRING_VALUE",
+ * //       HealthStatus: { // HealthStatus
+ * //         Status: "HEALTHY" || "UNHEALTHY",
+ * //         StatusReason: "BILLING_VIEW_NO_ACCESS" || "BILLING_VIEW_UNHEALTHY" || "FILTER_INVALID",
+ * //         LastUpdatedTime: new Date("TIMESTAMP"),
+ * //       },
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",

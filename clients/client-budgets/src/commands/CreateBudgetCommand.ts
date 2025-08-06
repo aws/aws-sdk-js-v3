@@ -174,6 +174,12 @@ export interface CreateBudgetCommandOutput extends CreateBudgetResponse, __Metad
  *     Metrics: [ // Metrics
  *       "BlendedCost" || "UnblendedCost" || "AmortizedCost" || "NetUnblendedCost" || "NetAmortizedCost" || "UsageQuantity" || "NormalizedUsageAmount" || "Hours",
  *     ],
+ *     BillingViewArn: "STRING_VALUE",
+ *     HealthStatus: { // HealthStatus
+ *       Status: "HEALTHY" || "UNHEALTHY",
+ *       StatusReason: "BILLING_VIEW_NO_ACCESS" || "BILLING_VIEW_UNHEALTHY" || "FILTER_INVALID",
+ *       LastUpdatedTime: new Date("TIMESTAMP"),
+ *     },
  *   },
  *   NotificationsWithSubscribers: [ // NotificationWithSubscribersList
  *     { // NotificationWithSubscribers
@@ -225,6 +231,9 @@ export interface CreateBudgetCommandOutput extends CreateBudgetResponse, __Metad
  *
  * @throws {@link InvalidParameterException} (client fault)
  *  <p>An error on the client occurred. Typically, the cause is an invalid input value.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>We can’t locate the resource that you specified.</p>
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
  *  <p>You've reached the limit on the number of tags you can associate with a resource.</p>
