@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { CloudWatchLogsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchLogsClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { DeleteResourcePolicyRequest } from "../models/models_0";
-import { de_DeleteResourcePolicyCommand, se_DeleteResourcePolicyCommand } from "../protocols/Aws_json1_1";
+import { DeleteResourcePolicy } from "../schemas/schemas";
 
 /**
  * @public
@@ -81,16 +80,12 @@ export class DeleteResourcePolicyCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudWatchLogsClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("Logs_20140328", "DeleteResourcePolicy", {})
   .n("CloudWatchLogsClient", "DeleteResourcePolicyCommand")
   .f(void 0, void 0)
-  .ser(se_DeleteResourcePolicyCommand)
-  .de(de_DeleteResourcePolicyCommand)
+  .sc(DeleteResourcePolicy)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

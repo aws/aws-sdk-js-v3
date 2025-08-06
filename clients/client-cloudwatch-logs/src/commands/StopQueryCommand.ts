@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { CloudWatchLogsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchLogsClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { StopQueryRequest, StopQueryResponse } from "../models/models_0";
-import { de_StopQueryCommand, se_StopQueryCommand } from "../protocols/Aws_json1_1";
+import { StopQuery } from "../schemas/schemas";
 
 /**
  * @public
@@ -79,16 +78,12 @@ export class StopQueryCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudWatchLogsClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("Logs_20140328", "StopQuery", {})
   .n("CloudWatchLogsClient", "StopQueryCommand")
   .f(void 0, void 0)
-  .ser(se_StopQueryCommand)
-  .de(de_StopQueryCommand)
+  .sc(StopQuery)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

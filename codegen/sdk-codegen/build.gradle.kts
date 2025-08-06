@@ -109,6 +109,9 @@ tasks.register("generate-smithy-build") {
             val useLegacyAuthServices = setOf<String>(
                 // e.g. "S3" - use this as exclusion list if needed.
             )
+            val useSchemaSerde = setOf<String>(
+                "CloudWatch Logs"
+            )
             val projectionContents = Node.objectNodeBuilder()
                     .withMember("imports", Node.fromStrings("${models.getAbsolutePath()}${File.separator}${file.name}"))
                     .withMember("plugins", Node.objectNode()
@@ -121,6 +124,8 @@ tasks.register("generate-smithy-build") {
                                         + clientName + " Client for Node.js, Browser and React Native")
                                     .withMember("useLegacyAuth",
                                         useLegacyAuthServices.contains(serviceTrait.sdkId))
+                                    .withMember("generateSchemas",
+                                        useSchemaSerde.contains(serviceTrait.sdkId))
                                     .build()))
                     .build()
             projectionsBuilder.withMember(sdkId + "." + version.toLowerCase(), projectionContents)
