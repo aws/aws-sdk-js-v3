@@ -33,7 +33,7 @@ export class JsonReplacer {
 
     return (key: string, value: unknown) => {
       if (value instanceof NumericValue) {
-        const v = `${NUMERIC_CONTROL_CHAR + +"nv" + this.counter++}_` + value.string;
+        const v = `${NUMERIC_CONTROL_CHAR + "nv" + this.counter++}_` + value.string;
         this.values.set(`"${v}"`, value.string);
         return v;
       }

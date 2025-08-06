@@ -1,6 +1,6 @@
 import { determineTimestampFormat, extendedEncodeURIComponent } from "@smithy/core/protocols";
 import { NormalizedSchema, SCHEMA } from "@smithy/core/schema";
-import { NumericValue } from "@smithy/core/serde";
+import { generateIdempotencyToken, NumericValue } from "@smithy/core/serde";
 import { dateToUtcString } from "@smithy/smithy-client";
 import type { Schema, ShapeSerializer } from "@smithy/types";
 import { toBase64 } from "@smithy/util-base64";
@@ -36,6 +36,9 @@ export class QueryShapeSerializer extends SerdeContextConfig implements ShapeSer
       if (value != null) {
         this.writeKey(prefix);
         this.writeValue(String(value));
+      } else if (ns.isIdempotencyToken()) {
+        this.writeKey(prefix);
+        this.writeValue(generateIdempotencyToken());
       }
     } else if (ns.isBigIntegerSchema()) {
       if (value != null) {
@@ -111,7 +114,7 @@ export class QueryShapeSerializer extends SerdeContextConfig implements ShapeSer
     } else if (ns.isStructSchema()) {
       if (value && typeof value === "object") {
         for (const [memberName, member] of ns.structIterator()) {
-          if ((value as any)[memberName] == null) {
+          if ((value as any)[memberName] == null && !member.isIdempotencyToken()) {
             continue;
           }
           const suffix = this.getKey(memberName, member.getMergedTraits().xmlName);

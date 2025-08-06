@@ -1,6 +1,6 @@
 import { XmlNode, XmlText } from "@aws-sdk/xml-builder";
 import { NormalizedSchema, SCHEMA } from "@smithy/core/schema";
-import { NumericValue } from "@smithy/core/serde";
+import { generateIdempotencyToken, NumericValue } from "@smithy/core/serde";
 import { dateToUtcString } from "@smithy/smithy-client";
 import type { Schema as ISchema, ShapeSerializer } from "@smithy/types";
 import { fromBase64, toBase64 } from "@smithy/util-base64";
@@ -86,7 +86,7 @@ export class XmlShapeSerializer extends SerdeContextConfig implements ShapeSeria
     for (const [memberName, memberSchema] of ns.structIterator()) {
       const val = (value as any)[memberName];
 
-      if (val != null) {
+      if (val != null || memberSchema.isIdempotencyToken()) {
         if (memberSchema.getMergedTraits().xmlAttribute) {
           structXmlNode.addAttribute(
             memberSchema.getMergedTraits().xmlName ?? memberName,
@@ -298,14 +298,16 @@ export class XmlShapeSerializer extends SerdeContextConfig implements ShapeSeria
       }
     }
 
-    if (
-      ns.isStringSchema() ||
-      ns.isBooleanSchema() ||
-      ns.isNumericSchema() ||
-      ns.isBigIntegerSchema() ||
-      ns.isBigDecimalSchema()
-    ) {
+    if (ns.isBooleanSchema() || ns.isNumericSchema() || ns.isBigIntegerSchema() || ns.isBigDecimalSchema()) {
       nodeContents = String(value);
+    }
+
+    if (ns.isStringSchema()) {
+      if (value === undefined && ns.isIdempotencyToken()) {
+        nodeContents = generateIdempotencyToken();
+      } else {
+        nodeContents = String(value);
+      }
     }
 
     if (nodeContents === null) {
