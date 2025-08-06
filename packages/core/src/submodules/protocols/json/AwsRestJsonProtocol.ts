@@ -81,7 +81,7 @@ export class AwsRestJsonProtocol extends HttpBindingProtocol {
         } else if (httpPayloadMember.isBlobSchema()) {
           request.headers["content-type"] = "application/octet-stream";
         } else {
-          request.headers["content-type"] = "application/json";
+          request.headers["content-type"] = this.getDefaultContentType();
         }
       } else if (!inputSchema.isUnitSchema()) {
         const hasBody = Object.values(members).find((m) => {
@@ -89,7 +89,7 @@ export class AwsRestJsonProtocol extends HttpBindingProtocol {
           return !httpQuery && !httpQueryParams && !httpHeader && !httpLabel && httpPrefixHeaders === void 0;
         });
         if (hasBody) {
-          request.headers["content-type"] = "application/json";
+          request.headers["content-type"] = this.getDefaultContentType();
         }
       }
     }
@@ -156,5 +156,9 @@ export class AwsRestJsonProtocol extends HttpBindingProtocol {
     });
 
     throw exception;
+  }
+
+  protected getDefaultContentType(): string {
+    return "application/json";
   }
 }

@@ -1,12 +1,13 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { CloudWatchLogsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchLogsClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { DeleteDeliverySourceRequest } from "../models/models_0";
-import { DeleteDeliverySource } from "../schemas/schemas";
+import { de_DeleteDeliverySourceCommand, se_DeleteDeliverySourceCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -88,12 +89,16 @@ export class DeleteDeliverySourceCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudWatchLogsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
   })
   .s("Logs_20140328", "DeleteDeliverySource", {})
   .n("CloudWatchLogsClient", "DeleteDeliverySourceCommand")
   .f(void 0, void 0)
-  .sc(DeleteDeliverySource)
+  .ser(se_DeleteDeliverySourceCommand)
+  .de(de_DeleteDeliverySourceCommand)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

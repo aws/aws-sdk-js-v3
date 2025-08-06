@@ -22,12 +22,14 @@ import { loadRestJsonErrorCode } from "./parseJsonBody";
 export abstract class AwsJsonRpcProtocol extends RpcProtocol {
   protected serializer: ShapeSerializer<string | Uint8Array>;
   protected deserializer: ShapeDeserializer<string | Uint8Array>;
+  protected serviceTarget: string;
   private codec: JsonCodec;
 
-  protected constructor({ defaultNamespace }: { defaultNamespace: string }) {
+  protected constructor({ defaultNamespace, serviceTarget }: { defaultNamespace: string; serviceTarget: string }) {
     super({
       defaultNamespace,
     });
+    this.serviceTarget = serviceTarget;
     this.codec = new JsonCodec({
       timestampFormat: {
         useTrait: true,
@@ -50,9 +52,7 @@ export abstract class AwsJsonRpcProtocol extends RpcProtocol {
     }
     Object.assign(request.headers, {
       "content-type": `application/x-amz-json-${this.getJsonRpcVersion()}`,
-      "x-amz-target":
-        (this.getJsonRpcVersion() === "1.0" ? `JsonRpc10.` : `JsonProtocol.`) +
-        NormalizedSchema.of(operationSchema).getName(),
+      "x-amz-target": `${this.serviceTarget}.${NormalizedSchema.of(operationSchema).getName()}`,
     });
     if (deref(operationSchema.input) === "unit" || !request.body) {
       request.body = "{}";

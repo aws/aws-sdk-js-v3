@@ -85,7 +85,7 @@ export class AwsRestXmlProtocol extends HttpBindingProtocol {
         } else if (httpPayloadMember.isBlobSchema()) {
           request.headers["content-type"] = "application/octet-stream";
         } else {
-          request.headers["content-type"] = "application/xml";
+          request.headers["content-type"] = this.getDefaultContentType();
         }
       } else if (!ns.isUnitSchema()) {
         const hasBody = Object.values(members).find((m) => {
@@ -93,12 +93,12 @@ export class AwsRestXmlProtocol extends HttpBindingProtocol {
           return !httpQuery && !httpQueryParams && !httpHeader && !httpLabel && httpPrefixHeaders === void 0;
         });
         if (hasBody) {
-          request.headers["content-type"] = "application/xml";
+          request.headers["content-type"] = this.getDefaultContentType();
         }
       }
     }
 
-    if (request.headers["content-type"] === "application/xml") {
+    if (request.headers["content-type"] === this.getDefaultContentType()) {
       if (typeof request.body === "string") {
         request.body = '<?xml version="1.0" encoding="UTF-8"?>' + request.body;
       }
@@ -171,5 +171,9 @@ export class AwsRestXmlProtocol extends HttpBindingProtocol {
     });
 
     throw exception;
+  }
+
+  protected getDefaultContentType(): string {
+    return "application/xml";
   }
 }

@@ -1,12 +1,13 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { CloudWatchLogsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchLogsClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { DeleteIndexPolicyRequest, DeleteIndexPolicyResponse } from "../models/models_0";
-import { DeleteIndexPolicy } from "../schemas/schemas";
+import { de_DeleteIndexPolicyCommand, se_DeleteIndexPolicyCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -86,12 +87,16 @@ export class DeleteIndexPolicyCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudWatchLogsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
   })
   .s("Logs_20140328", "DeleteIndexPolicy", {})
   .n("CloudWatchLogsClient", "DeleteIndexPolicyCommand")
   .f(void 0, void 0)
-  .sc(DeleteIndexPolicy)
+  .ser(se_DeleteIndexPolicyCommand)
+  .de(de_DeleteIndexPolicyCommand)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
