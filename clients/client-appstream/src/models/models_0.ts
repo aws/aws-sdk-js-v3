@@ -2214,6 +2214,33 @@ export interface CreateFleetRequest {
    *             <li>
    *                <p>stream.graphics-pro.16xlarge</p>
    *             </li>
+   *             <li>
+   *                <p>stream.graphics.g6.xlarge</p>
+   *             </li>
+   *             <li>
+   *                <p>stream.graphics.g6.2xlarge</p>
+   *             </li>
+   *             <li>
+   *                <p>stream.graphics.g6.4xlarge</p>
+   *             </li>
+   *             <li>
+   *                <p>stream.graphics.g6.8xlarge</p>
+   *             </li>
+   *             <li>
+   *                <p>stream.graphics.g6.16xlarge</p>
+   *             </li>
+   *             <li>
+   *                <p>stream.graphics.g6.12xlarge</p>
+   *             </li>
+   *             <li>
+   *                <p>stream.graphics.g6.24xlarge</p>
+   *             </li>
+   *             <li>
+   *                <p>stream.graphics.gr6.4xlarge</p>
+   *             </li>
+   *             <li>
+   *                <p>stream.graphics.gr6.8xlarge</p>
+   *             </li>
    *          </ul>
    *          <p>The following instance types are available for Elastic fleets:</p>
    *          <ul>
@@ -2559,6 +2586,54 @@ export interface Fleet {
    *             <li>
    *                <p>stream.graphics-pro.16xlarge</p>
    *             </li>
+   *             <li>
+   *                <p>stream.graphics.g5.xlarge</p>
+   *             </li>
+   *             <li>
+   *                <p>stream.graphics.g5.2xlarge</p>
+   *             </li>
+   *             <li>
+   *                <p>stream.graphics.g5.4xlarge</p>
+   *             </li>
+   *             <li>
+   *                <p>stream.graphics.g5.8xlarge</p>
+   *             </li>
+   *             <li>
+   *                <p>stream.graphics.g5.16xlarge</p>
+   *             </li>
+   *             <li>
+   *                <p>stream.graphics.g5.12xlarge</p>
+   *             </li>
+   *             <li>
+   *                <p>stream.graphics.g5.24xlarge</p>
+   *             </li>
+   *             <li>
+   *                <p>stream.graphics.g6.xlarge</p>
+   *             </li>
+   *             <li>
+   *                <p>stream.graphics.g6.2xlarge</p>
+   *             </li>
+   *             <li>
+   *                <p>stream.graphics.g6.4xlarge</p>
+   *             </li>
+   *             <li>
+   *                <p>stream.graphics.g6.8xlarge</p>
+   *             </li>
+   *             <li>
+   *                <p>stream.graphics.g6.16xlarge</p>
+   *             </li>
+   *             <li>
+   *                <p>stream.graphics.g6.12xlarge</p>
+   *             </li>
+   *             <li>
+   *                <p>stream.graphics.g6.24xlarge</p>
+   *             </li>
+   *             <li>
+   *                <p>stream.graphics.gr6.4xlarge</p>
+   *             </li>
+   *             <li>
+   *                <p>stream.graphics.gr6.8xlarge</p>
+   *             </li>
    *          </ul>
    * @public
    */
@@ -2837,6 +2912,54 @@ export interface CreateImageBuilderRequest {
    *             </li>
    *             <li>
    *                <p>stream.graphics-pro.16xlarge</p>
+   *             </li>
+   *             <li>
+   *                <p>stream.graphics.g5.xlarge</p>
+   *             </li>
+   *             <li>
+   *                <p>stream.graphics.g5.2xlarge</p>
+   *             </li>
+   *             <li>
+   *                <p>stream.graphics.g5.4xlarge</p>
+   *             </li>
+   *             <li>
+   *                <p>stream.graphics.g5.8xlarge</p>
+   *             </li>
+   *             <li>
+   *                <p>stream.graphics.g5.16xlarge</p>
+   *             </li>
+   *             <li>
+   *                <p>stream.graphics.g5.12xlarge</p>
+   *             </li>
+   *             <li>
+   *                <p>stream.graphics.g5.24xlarge</p>
+   *             </li>
+   *             <li>
+   *                <p>stream.graphics.g6.xlarge</p>
+   *             </li>
+   *             <li>
+   *                <p>stream.graphics.g6.2xlarge</p>
+   *             </li>
+   *             <li>
+   *                <p>stream.graphics.g6.4xlarge</p>
+   *             </li>
+   *             <li>
+   *                <p>stream.graphics.g6.8xlarge</p>
+   *             </li>
+   *             <li>
+   *                <p>stream.graphics.g6.16xlarge</p>
+   *             </li>
+   *             <li>
+   *                <p>stream.graphics.g6.12xlarge</p>
+   *             </li>
+   *             <li>
+   *                <p>stream.graphics.g6.24xlarge</p>
+   *             </li>
+   *             <li>
+   *                <p>stream.graphics.gr6.4xlarge</p>
+   *             </li>
+   *             <li>
+   *                <p>stream.graphics.gr6.8xlarge</p>
    *             </li>
    *          </ul>
    * @public
@@ -3134,6 +3257,54 @@ export interface ImageBuilder {
    *             </li>
    *             <li>
    *                <p>stream.graphics-pro.16xlarge</p>
+   *             </li>
+   *             <li>
+   *                <p>stream.graphics.g5.xlarge</p>
+   *             </li>
+   *             <li>
+   *                <p>stream.graphics.g5.2xlarge</p>
+   *             </li>
+   *             <li>
+   *                <p>stream.graphics.g5.4xlarge</p>
+   *             </li>
+   *             <li>
+   *                <p>stream.graphics.g5.8xlarge</p>
+   *             </li>
+   *             <li>
+   *                <p>stream.graphics.g5.16xlarge</p>
+   *             </li>
+   *             <li>
+   *                <p>stream.graphics.g5.12xlarge</p>
+   *             </li>
+   *             <li>
+   *                <p>stream.graphics.g5.24xlarge</p>
+   *             </li>
+   *             <li>
+   *                <p>stream.graphics.g6.xlarge</p>
+   *             </li>
+   *             <li>
+   *                <p>stream.graphics.g6.2xlarge</p>
+   *             </li>
+   *             <li>
+   *                <p>stream.graphics.g6.4xlarge</p>
+   *             </li>
+   *             <li>
+   *                <p>stream.graphics.g6.8xlarge</p>
+   *             </li>
+   *             <li>
+   *                <p>stream.graphics.g6.16xlarge</p>
+   *             </li>
+   *             <li>
+   *                <p>stream.graphics.g6.12xlarge</p>
+   *             </li>
+   *             <li>
+   *                <p>stream.graphics.g6.24xlarge</p>
+   *             </li>
+   *             <li>
+   *                <p>stream.graphics.gr6.4xlarge</p>
+   *             </li>
+   *             <li>
+   *                <p>stream.graphics.gr6.8xlarge</p>
    *             </li>
    *          </ul>
    * @public
@@ -4007,7 +4178,7 @@ export interface Image {
   ImageBuilderSupported?: boolean | undefined;
 
   /**
-   * <p>The name of the image builder that was used to create the private image. If the image is shared, this value is null.</p>
+   * <p>The name of the image builder that was used to create the private image. If the image is shared, copied, or updated by using Managed Image Updates, this value is null.</p>
    * @public
    */
   ImageBuilderName?: string | undefined;
