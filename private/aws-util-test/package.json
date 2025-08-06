@@ -21,7 +21,7 @@
   "dependencies": {
     "@aws-sdk/aws-protocoltests-json": "*",
     "@smithy/protocol-http": "^5.1.3",
-    "@smithy/shared-ini-file-loader": "^4.0.4",
+    "@smithy/shared-ini-file-loader": "^4.0.5",
     "@smithy/types": "^4.3.2",
     "tslib": "^2.6.2"
   },
