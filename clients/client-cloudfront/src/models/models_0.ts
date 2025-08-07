@@ -2394,6 +2394,7 @@ export const MinimumProtocolVersion = {
   TLSv1_2_2018: "TLSv1.2_2018",
   TLSv1_2_2019: "TLSv1.2_2019",
   TLSv1_2_2021: "TLSv1.2_2021",
+  TLSv1_3_2025: "TLSv1.3_2025",
 } as const;
 
 /**
