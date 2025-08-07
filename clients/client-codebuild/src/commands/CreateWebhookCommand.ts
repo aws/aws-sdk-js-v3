@@ -64,6 +64,12 @@ export interface CreateWebhookCommandOutput extends CreateWebhookOutput, __Metad
  *     domain: "STRING_VALUE",
  *     scope: "GITHUB_ORGANIZATION" || "GITHUB_GLOBAL" || "GITLAB_GROUP", // required
  *   },
+ *   pullRequestBuildPolicy: { // PullRequestBuildPolicy
+ *     requiresCommentApproval: "DISABLED" || "ALL_PULL_REQUESTS" || "FORK_PULL_REQUESTS", // required
+ *     approverRoles: [ // PullRequestBuildApproverRoles
+ *       "GITHUB_READ" || "GITHUB_TRIAGE" || "GITHUB_WRITE" || "GITHUB_MAINTAIN" || "GITHUB_ADMIN" || "GITLAB_GUEST" || "GITLAB_PLANNER" || "GITLAB_REPORTER" || "GITLAB_DEVELOPER" || "GITLAB_MAINTAINER" || "GITLAB_OWNER" || "BITBUCKET_READ" || "BITBUCKET_WRITE" || "BITBUCKET_ADMIN",
+ *     ],
+ *   },
  * };
  * const command = new CreateWebhookCommand(input);
  * const response = await client.send(command);

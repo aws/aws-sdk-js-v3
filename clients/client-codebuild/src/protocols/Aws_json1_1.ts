@@ -239,6 +239,8 @@ import {
   ProjectSource,
   ProjectSourceVersion,
   ProxyConfiguration,
+  PullRequestBuildApproverRole,
+  PullRequestBuildPolicy,
   PutResourcePolicyInput,
   RegistryCredential,
   Report,
@@ -2564,6 +2566,10 @@ const se_DescribeCodeCoveragesInput = (input: DescribeCodeCoveragesInput, contex
 // se_ProjectSourceVersion omitted.
 
 // se_ProxyConfiguration omitted.
+
+// se_PullRequestBuildApproverRoles omitted.
+
+// se_PullRequestBuildPolicy omitted.
 
 // se_PutResourcePolicyInput omitted.
 

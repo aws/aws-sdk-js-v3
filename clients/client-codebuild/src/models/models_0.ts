@@ -5981,6 +5981,81 @@ export interface CreateReportGroupOutput {
 
 /**
  * @public
+ * @enum
+ */
+export const PullRequestBuildApproverRole = {
+  BITBUCKET_ADMIN: "BITBUCKET_ADMIN",
+  BITBUCKET_READ: "BITBUCKET_READ",
+  BITBUCKET_WRITE: "BITBUCKET_WRITE",
+  GITHUB_ADMIN: "GITHUB_ADMIN",
+  GITHUB_MAINTAIN: "GITHUB_MAINTAIN",
+  GITHUB_READ: "GITHUB_READ",
+  GITHUB_TRIAGE: "GITHUB_TRIAGE",
+  GITHUB_WRITE: "GITHUB_WRITE",
+  GITLAB_DEVELOPER: "GITLAB_DEVELOPER",
+  GITLAB_GUEST: "GITLAB_GUEST",
+  GITLAB_MAINTAINER: "GITLAB_MAINTAINER",
+  GITLAB_OWNER: "GITLAB_OWNER",
+  GITLAB_PLANNER: "GITLAB_PLANNER",
+  GITLAB_REPORTER: "GITLAB_REPORTER",
+} as const;
+
+/**
+ * @public
+ */
+export type PullRequestBuildApproverRole =
+  (typeof PullRequestBuildApproverRole)[keyof typeof PullRequestBuildApproverRole];
+
+/**
+ * @public
+ * @enum
+ */
+export const PullRequestBuildCommentApproval = {
+  ALL_PULL_REQUESTS: "ALL_PULL_REQUESTS",
+  DISABLED: "DISABLED",
+  FORK_PULL_REQUESTS: "FORK_PULL_REQUESTS",
+} as const;
+
+/**
+ * @public
+ */
+export type PullRequestBuildCommentApproval =
+  (typeof PullRequestBuildCommentApproval)[keyof typeof PullRequestBuildCommentApproval];
+
+/**
+ * <p>Configuration policy that defines comment-based approval requirements for triggering builds on pull requests. This policy helps control when automated builds are executed based on contributor permissions and approval workflows.</p>
+ * @public
+ */
+export interface PullRequestBuildPolicy {
+  /**
+   * <p>Specifies when comment-based approval is required before triggering a build on pull requests. This setting determines whether builds run automatically or require explicit approval through comments.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <i>DISABLED</i>: Builds trigger automatically without requiring comment approval</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <i>ALL_PULL_REQUESTS</i>: All pull requests require comment approval before builds execute (unless contributor is one of the approver roles)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <i>FORK_PULL_REQUESTS</i>: Only pull requests from forked repositories require comment approval (unless contributor is one of the approver roles)</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  requiresCommentApproval: PullRequestBuildCommentApproval | undefined;
+
+  /**
+   * <p>List of repository roles that have approval privileges for pull request builds when comment approval is required. Only users with these roles can provide valid comment approvals. If a pull request contributor is one of these roles, their pull request builds will trigger automatically. This field is only applicable when <code>requiresCommentApproval</code> is not <i>DISABLED</i>.</p>
+   * @public
+   */
+  approverRoles?: PullRequestBuildApproverRole[] | undefined;
+}
+
+/**
+ * @public
  */
 export interface CreateWebhookInput {
   /**
@@ -6044,6 +6119,12 @@ export interface CreateWebhookInput {
    * @public
    */
   scopeConfiguration?: ScopeConfiguration | undefined;
+
+  /**
+   * <p>A PullRequestBuildPolicy object that defines comment-based approval requirements for triggering builds on pull requests. This policy helps control when automated builds are executed based on contributor permissions and approval workflows.</p>
+   * @public
+   */
+  pullRequestBuildPolicy?: PullRequestBuildPolicy | undefined;
 }
 
 /**
@@ -8329,7 +8410,8 @@ export interface StartBuildInput {
    *             <p>Since this property allows you to change the build commands that will run in the container,
    *             you should note that an IAM principal with the ability to call this API and set this parameter
    *             can override the default settings. Moreover, we encourage that you use a trustworthy buildspec location
-   *             like a file in your source repository or a Amazon S3 bucket.</p>
+   *             like a file in your source repository or a Amazon S3 bucket. Alternatively, you can restrict overrides
+   *             to the buildspec by using a condition key: <a href="https://docs.aws.amazon.com/codebuild/latest/userguide/action-context-keys.html#action-context-keys-example-overridebuildspec.html">Prevent unauthorized modifications to project buildspec</a>.</p>
    *          </note>
    * @public
    */
@@ -9647,6 +9729,12 @@ export interface UpdateWebhookInput {
    * @public
    */
   buildType?: WebhookBuildType | undefined;
+
+  /**
+   * <p>A PullRequestBuildPolicy object that defines comment-based approval requirements for triggering builds on pull requests. This policy helps control when automated builds are executed based on contributor permissions and approval workflows.</p>
+   * @public
+   */
+  pullRequestBuildPolicy?: PullRequestBuildPolicy | undefined;
 }
 
 /**
