@@ -2859,8 +2859,8 @@ export interface RuntimePlatform {
    *     compute environment is found.</p>
    *          </note>
    *          <note>
-   *             <p>Fargate Spot is not supported for <code>ARM64</code> and Windows-based containers on Fargate.
-   *     A job queue will be blocked if a Fargate <code>ARM64</code> or Windows job is submitted to a job
+   *             <p>Fargate Spot is not supported on Windows-based containers on Fargate.
+   *     A job queue will be blocked if a Windows job is submitted to a job
    *     queue with only Fargate Spot compute environments. However, you can attach both <code>FARGATE</code> and
    *      <code>FARGATE_SPOT</code> compute environments to the same job queue.</p>
    *          </note>
@@ -2869,14 +2869,14 @@ export interface RuntimePlatform {
   operatingSystemFamily?: string | undefined;
 
   /**
-   * <p> The vCPU architecture. The default value is <code>X86_64</code>. Valid values are
+   * <p>The vCPU architecture. The default value is <code>X86_64</code>. Valid values are
    *     <code>X86_64</code> and <code>ARM64</code>.</p>
    *          <note>
    *             <p>This parameter must be set to <code>X86_64</code> for Windows containers.</p>
    *          </note>
    *          <note>
-   *             <p>Fargate Spot is not supported for <code>ARM64</code> and Windows-based containers on
-   *     Fargate. A job queue will be blocked if a Fargate <code>ARM64</code> or Windows job is
+   *             <p>Fargate Spot is not supported on Windows-based containers on
+   *     Fargate. A job queue will be blocked if a Windows job is
    *     submitted to a job queue with only Fargate Spot compute environments. However, you can attach
    *     both <code>FARGATE</code> and <code>FARGATE_SPOT</code> compute environments to the same job
    *     queue.</p>
