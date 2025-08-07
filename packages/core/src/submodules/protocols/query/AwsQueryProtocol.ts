@@ -212,4 +212,11 @@ export class AwsQueryProtocol extends RpcProtocol {
     const errorData = this.loadQueryError(data);
     return errorData?.message ?? errorData?.Message ?? data.message ?? data.Message ?? "Unknown";
   }
+
+  /**
+   * @override
+   */
+  protected getDefaultContentType(): string {
+    return "application/x-www-form-urlencoded";
+  }
 }

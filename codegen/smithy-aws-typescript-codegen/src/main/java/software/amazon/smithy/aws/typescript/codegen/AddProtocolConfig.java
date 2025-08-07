@@ -37,6 +37,7 @@ public final class AddProtocolConfig implements TypeScriptIntegration {
         SchemaGenerationAllowlist.allow("com.amazonaws.s3#AmazonS3");
         SchemaGenerationAllowlist.allow("com.amazonaws.dynamodb#DynamoDB_20120810");
         SchemaGenerationAllowlist.allow("com.amazonaws.lambda#AWSGirApiService");
+        SchemaGenerationAllowlist.allow("com.amazonaws.cloudwatchlogs#Logs_20140328");
 
         // protocol tests
         SchemaGenerationAllowlist.allow("aws.protocoltests.json10#JsonRpc10");
@@ -69,6 +70,7 @@ public final class AddProtocolConfig implements TypeScriptIntegration {
             return Collections.emptyMap();
         }
         String namespace = settings.getService().getNamespace();
+        String rpcTarget = settings.getService().getName();
         String xmlns = settings.getService(model)
             .getTrait(XmlNamespaceTrait.class)
             .map(XmlNamespaceTrait::getUri)
@@ -144,7 +146,11 @@ public final class AddProtocolConfig implements TypeScriptIntegration {
                             writer.addImportSubmodule(
                                 "AwsJson1_0Protocol", null,
                                 AwsDependency.AWS_SDK_CORE, "/protocols");
-                            writer.write("new AwsJson1_0Protocol({ defaultNamespace: $S })", namespace);
+                            writer.write(
+                                "new AwsJson1_0Protocol({ defaultNamespace: $S, serviceTarget: $S })",
+                                namespace,
+                                rpcTarget
+                            );
                         }
                     );
                 } else if (Objects.equals(settings.getProtocol(), AwsJson1_1Trait.ID)) {
@@ -153,7 +159,11 @@ public final class AddProtocolConfig implements TypeScriptIntegration {
                             writer.addImportSubmodule(
                                 "AwsJson1_1Protocol", null,
                                 AwsDependency.AWS_SDK_CORE, "/protocols");
-                            writer.write("new AwsJson1_1Protocol({ defaultNamespace: $S })", namespace);
+                            writer.write(
+                                "new AwsJson1_1Protocol({ defaultNamespace: $S, serviceTarget: $S })",
+                                namespace,
+                                rpcTarget
+                            );
                         }
                     );
                 }

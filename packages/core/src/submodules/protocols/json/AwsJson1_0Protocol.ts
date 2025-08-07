@@ -5,9 +5,10 @@ import { AwsJsonRpcProtocol } from "./AwsJsonRpcProtocol";
  * @see https://smithy.io/2.0/aws/protocols/aws-json-1_1-protocol.html#differences-between-awsjson1-0-and-awsjson1-1
  */
 export class AwsJson1_0Protocol extends AwsJsonRpcProtocol {
-  public constructor({ defaultNamespace }: { defaultNamespace: string }) {
+  public constructor({ defaultNamespace, serviceTarget }: { defaultNamespace: string; serviceTarget: string }) {
     super({
       defaultNamespace,
+      serviceTarget,
     });
   }
 
@@ -17,5 +18,12 @@ export class AwsJson1_0Protocol extends AwsJsonRpcProtocol {
 
   protected getJsonRpcVersion() {
     return "1.0" as const;
+  }
+
+  /**
+   * @override
+   */
+  protected getDefaultContentType(): string {
+    return "application/x-amz-json-1.0";
   }
 }

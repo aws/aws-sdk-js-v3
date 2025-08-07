@@ -7,7 +7,7 @@ describe(AwsJsonRpcProtocol.name, () => {
   it("has expected codec settings", async () => {
     const protocol = new (class extends AwsJsonRpcProtocol {
       constructor() {
-        super({ defaultNamespace: "" });
+        super({ defaultNamespace: "", serviceTarget: "" });
       }
 
       getShapeId(): string {

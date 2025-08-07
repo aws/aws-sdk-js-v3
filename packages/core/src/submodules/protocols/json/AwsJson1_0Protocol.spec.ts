@@ -30,6 +30,7 @@ describe(AwsJson1_0Protocol.name, () => {
     it("serializes blobs and timestamps", () => {
       const protocol = new AwsJson1_0Protocol({
         defaultNamespace: "namespace",
+        serviceTarget: "JsonRpc10",
       });
       protocol.setSerdeContext(serdeContext);
       const codec = protocol.getPayloadCodec();
@@ -55,6 +56,7 @@ describe(AwsJson1_0Protocol.name, () => {
     it("deserializes blobs and timestamps", async () => {
       const protocol = new AwsJson1_0Protocol({
         defaultNamespace: "namespace",
+        serviceTarget: "JsonRpc10",
       });
       protocol.setSerdeContext(serdeContext);
       const codec = protocol.getPayloadCodec();
@@ -73,6 +75,7 @@ describe(AwsJson1_0Protocol.name, () => {
     it("ignores JSON name and HTTP bindings", async () => {
       const protocol = new AwsJson1_0Protocol({
         defaultNamespace: "namespace",
+        serviceTarget: "JsonRpc10",
       });
       protocol.setSerdeContext(serdeContext);
 
