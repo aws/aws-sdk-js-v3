@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.863.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.862.0...v3.863.0) (2025-08-07)
+
+
+### Features
+
+* **client-cloudfront:** Added new viewer security policy, TLSv1.3_2025, for CloudFront. ([100ddff](https://github.com/aws/aws-sdk-js-v3/commit/100ddffaa4561c7838347a856947ae27d6c2decd))
+* **client-codebuild:** AWS CodeBuild now supports comment-based pull request control. ([14bb036](https://github.com/aws/aws-sdk-js-v3/commit/14bb036761992753e9daccdc9db9f8a106531296))
+* **client-glue:** AWS Glue Data Catalog now supports Iceberg Optimization settings at the Catalog level, and supports new options to control the optimization job run rate. ([5451046](https://github.com/aws/aws-sdk-js-v3/commit/5451046b6f342fa3afe32803aa605f8e111d06e3))
+* **client-guardduty:** Added support for VPC owner account ID associated with DNS request in the GuardDuty finding. ([79364bd](https://github.com/aws/aws-sdk-js-v3/commit/79364bdb51d4ca4fee46f4156b3107f44b8e88bd))
+
+
+
+
+
 # [3.862.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.861.0...v3.862.0) (2025-08-06)
 
 

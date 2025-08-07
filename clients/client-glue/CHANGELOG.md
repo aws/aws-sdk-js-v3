@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.863.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.862.0...v3.863.0) (2025-08-07)
+
+
+### Features
+
+* **client-glue:** AWS Glue Data Catalog now supports Iceberg Optimization settings at the Catalog level, and supports new options to control the optimization job run rate. ([5451046](https://github.com/aws/aws-sdk-js-v3/commit/5451046b6f342fa3afe32803aa605f8e111d06e3))
+
+
+
+
+
 # [3.862.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.861.0...v3.862.0) (2025-08-06)
 
 **Note:** Version bump only for package @aws-sdk/client-glue

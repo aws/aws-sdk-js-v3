@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.863.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.862.0...v3.863.0) (2025-08-07)
+
+
+### Features
+
+* **client-guardduty:** Added support for VPC owner account ID associated with DNS request in the GuardDuty finding. ([79364bd](https://github.com/aws/aws-sdk-js-v3/commit/79364bdb51d4ca4fee46f4156b3107f44b8e88bd))
+
+
+
+
+
 # [3.862.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.861.0...v3.862.0) (2025-08-06)
 
 **Note:** Version bump only for package @aws-sdk/client-guardduty
