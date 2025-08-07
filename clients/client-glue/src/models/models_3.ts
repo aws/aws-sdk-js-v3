@@ -162,6 +162,69 @@ import {
 /**
  * @public
  */
+export interface ListWorkflowsRequest {
+  /**
+   * <p>A continuation token, if this is a continuation request.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum size of a list to return.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListWorkflowsResponse {
+  /**
+   * <p>List of names of workflows in the account.</p>
+   * @public
+   */
+  Workflows?: string[] | undefined;
+
+  /**
+   * <p>A continuation token, if not all workflow names have been returned.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ModifyIntegrationRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) for the integration.</p>
+   * @public
+   */
+  IntegrationIdentifier: string | undefined;
+
+  /**
+   * <p>A description of the integration.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>Selects source tables for the integration using Maxwell filter syntax.</p>
+   * @public
+   */
+  DataFilter?: string | undefined;
+
+  /**
+   * <p>A unique name for an integration in Glue.</p>
+   * @public
+   */
+  IntegrationName?: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface ModifyIntegrationResponse {
   /**
    * <p>The ARN of the source for the integration.</p>
@@ -3423,7 +3486,7 @@ export interface IcebergTableUpdate {
 }
 
 /**
- * <p>Contains the update operations to be applied to an existing Iceberg table in AWS Glue Data Catalog, defining the new state of the table metadata.
+ * <p>Contains the update operations to be applied to an existing Iceberg table inGlue Data Catalog, defining the new state of the table metadata.
  *     </p>
  * @public
  */

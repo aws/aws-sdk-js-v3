@@ -49,6 +49,8 @@ export interface UpdateTableOptimizerCommandOutput extends UpdateTableOptimizerR
  *     compactionConfiguration: { // CompactionConfiguration
  *       icebergConfiguration: { // IcebergCompactionConfiguration
  *         strategy: "binpack" || "sort" || "z-order",
+ *         minInputFiles: Number("int"),
+ *         deleteFileThreshold: Number("int"),
  *       },
  *     },
  *     retentionConfiguration: { // RetentionConfiguration
@@ -56,12 +58,14 @@ export interface UpdateTableOptimizerCommandOutput extends UpdateTableOptimizerR
  *         snapshotRetentionPeriodInDays: Number("int"),
  *         numberOfSnapshotsToRetain: Number("int"),
  *         cleanExpiredFiles: true || false,
+ *         runRateInHours: Number("int"),
  *       },
  *     },
  *     orphanFileDeletionConfiguration: { // OrphanFileDeletionConfiguration
  *       icebergConfiguration: { // IcebergOrphanFileDeletionConfiguration
  *         orphanFileRetentionPeriodInDays: Number("int"),
  *         location: "STRING_VALUE",
+ *         runRateInHours: Number("int"),
  *       },
  *     },
  *   },

@@ -839,6 +839,7 @@ import {
   CatalogImportStatus,
   CatalogInput,
   CatalogProperties,
+  CatalogPropertiesOutput,
   CheckSchemaVersionValidityInput,
   CloudWatchEncryption,
   CodeGenEdge,
@@ -891,7 +892,6 @@ import {
   CreateUserDefinedFunctionRequest,
   CreateWorkflowRequest,
   CreateXMLClassifierRequest,
-  CsvClassifier,
   DatabaseIdentifier,
   DatabaseInput,
   DataLakeAccessProperties,
@@ -955,8 +955,9 @@ import {
   GetCatalogsRequest,
   GetCatalogsResponse,
   GetClassifierRequest,
-  GrokClassifier,
   IcebergInput,
+  IcebergOptimizationProperties,
+  IcebergOptimizationPropertiesOutput,
   IcebergPartitionField,
   IcebergPartitionSpec,
   IcebergSchema,
@@ -978,7 +979,6 @@ import {
   JobBookmarksEncryption,
   JobNodeDetails,
   JobRun,
-  JsonClassifier,
   KMSKeyNotAccessibleFault,
   MLUserDataEncryption,
   Node,
@@ -1030,6 +1030,7 @@ import {
   CrawlerHistory,
   CrawlerMetrics,
   CrawlsFilter,
+  CsvClassifier,
   Database,
   DatabaseAttributes,
   DataCatalogEncryptionSettings,
@@ -1168,7 +1169,9 @@ import {
   GetWorkflowRunsRequest,
   GetWorkflowRunsResponse,
   GluePolicy,
+  GrokClassifier,
   ImportCatalogToGlueRequest,
+  JsonClassifier,
   ListBlueprintsRequest,
   ListColumnStatisticsTaskRunsRequest,
   ListConnectionTypesRequest,
@@ -1204,12 +1207,10 @@ import {
   ListTriggersRequest,
   ListUsageProfilesRequest,
   ListUsageProfilesResponse,
-  ListWorkflowsRequest,
   Location,
   LongColumnStatisticsData,
   MappingEntry,
   MLTransform,
-  ModifyIntegrationRequest,
   PermissionType,
   PermissionTypeMismatchException,
   QuerySessionContext,
@@ -1259,9 +1260,11 @@ import {
   IllegalWorkflowStateException,
   Job,
   JobUpdate,
+  ListWorkflowsRequest,
   Mapping,
   MetadataKeyValuePair,
   MLTransformNotReadyException,
+  ModifyIntegrationRequest,
   ModifyIntegrationResponse,
   NoScheduleException,
   PropertyPredicate,
@@ -11883,6 +11886,8 @@ const se_IcebergInput = (input: IcebergInput, context: __SerdeContext): any => {
   });
 };
 
+// se_IcebergOptimizationProperties omitted.
+
 // se_IcebergOrphanFileDeletionConfiguration omitted.
 
 // se_IcebergPartitionField omitted.
@@ -13397,7 +13402,7 @@ const de_Catalog = (output: any, context: __SerdeContext): Catalog => {
   return take(output, {
     AllowFullTableExternalDataAccess: __expectString,
     CatalogId: __expectString,
-    CatalogProperties: _json,
+    CatalogProperties: (_: any) => de_CatalogPropertiesOutput(_, context),
     CreateDatabaseDefaultPermissions: _json,
     CreateTableDefaultPermissions: _json,
     CreateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
@@ -13470,7 +13475,16 @@ const de_CatalogList = (output: any, context: __SerdeContext): Catalog[] => {
   return retVal;
 };
 
-// de_CatalogPropertiesOutput omitted.
+/**
+ * deserializeAws_json1_1CatalogPropertiesOutput
+ */
+const de_CatalogPropertiesOutput = (output: any, context: __SerdeContext): CatalogPropertiesOutput => {
+  return take(output, {
+    CustomProperties: _json,
+    DataLakeAccessProperties: _json,
+    IcebergOptimizationProperties: (_: any) => de_IcebergOptimizationPropertiesOutput(_, context),
+  }) as any;
+};
 
 // de_CatalogSchemaChangePolicy omitted.
 
@@ -15747,6 +15761,22 @@ const de_IcebergCompactionMetrics = (output: any, context: __SerdeContext): Iceb
   }) as any;
 };
 
+/**
+ * deserializeAws_json1_1IcebergOptimizationPropertiesOutput
+ */
+const de_IcebergOptimizationPropertiesOutput = (
+  output: any,
+  context: __SerdeContext
+): IcebergOptimizationPropertiesOutput => {
+  return take(output, {
+    Compaction: _json,
+    LastUpdatedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    OrphanFileDeletion: _json,
+    Retention: _json,
+    RoleArn: __expectString,
+  }) as any;
+};
+
 // de_IcebergOrphanFileDeletionConfiguration omitted.
 
 /**
@@ -17144,6 +17174,7 @@ const de_TableList = (output: any, context: __SerdeContext): Table[] => {
 const de_TableOptimizer = (output: any, context: __SerdeContext): TableOptimizer => {
   return take(output, {
     configuration: _json,
+    configurationSource: __expectString,
     lastRun: (_: any) => de_TableOptimizerRun(_, context),
     type: __expectString,
   }) as any;

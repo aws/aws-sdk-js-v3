@@ -57,9 +57,19 @@ export interface UpdateCatalogCommandOutput extends UpdateCatalogResponse, __Met
  *         KmsKey: "STRING_VALUE",
  *         CatalogType: "STRING_VALUE",
  *       },
- *       CustomProperties: {
- *         "<keys>": "STRING_VALUE",
+ *       IcebergOptimizationProperties: { // IcebergOptimizationProperties
+ *         RoleArn: "STRING_VALUE",
+ *         Compaction: {
+ *           "<keys>": "STRING_VALUE",
+ *         },
+ *         Retention: {
+ *           "<keys>": "STRING_VALUE",
+ *         },
+ *         OrphanFileDeletion: {
+ *           "<keys>": "STRING_VALUE",
+ *         },
  *       },
+ *       CustomProperties: "<ParametersMap>",
  *     },
  *     CreateTableDefaultPermissions: [ // PrincipalPermissionsList
  *       { // PrincipalPermissions

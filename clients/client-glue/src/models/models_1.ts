@@ -20,7 +20,6 @@ import {
   CrawlerTargets,
   CrawlState,
   DataOperation,
-  Edge,
   ErrorDetail,
   EventBatchingCondition,
   ExecutionClass,
@@ -44,6 +43,25 @@ import {
   TriggerType,
   WorkerType,
 } from "./models_0";
+
+/**
+ * <p>An edge represents a directed connection between two Glue components that are part of the workflow the
+ *       edge belongs to.</p>
+ * @public
+ */
+export interface Edge {
+  /**
+   * <p>The unique of the node within the workflow where the edge starts.</p>
+   * @public
+   */
+  SourceId?: string | undefined;
+
+  /**
+   * <p>The unique of the node within the workflow where the edge ends.</p>
+   * @public
+   */
+  DestinationId?: string | undefined;
+}
 
 /**
  * <p>The details of a crawl in the workflow.</p>
@@ -1254,6 +1272,36 @@ export interface DataLakeAccessProperties {
 }
 
 /**
+ * <p>A structure that specifies Iceberg table optimization properties for the catalog, including configurations for compaction, retention, and orphan file deletion operations.</p>
+ * @public
+ */
+export interface IcebergOptimizationProperties {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the IAM role that will be assumed to perform Iceberg table optimization operations.</p>
+   * @public
+   */
+  RoleArn?: string | undefined;
+
+  /**
+   * <p>A map of key-value pairs that specify configuration parameters for Iceberg table compaction operations, which optimize the layout of data files to improve query performance.</p>
+   * @public
+   */
+  Compaction?: Record<string, string> | undefined;
+
+  /**
+   * <p>A map of key-value pairs that specify configuration parameters for Iceberg table retention operations, which manage the lifecycle of table snapshots to control storage costs.</p>
+   * @public
+   */
+  Retention?: Record<string, string> | undefined;
+
+  /**
+   * <p>A map of key-value pairs that specify configuration parameters for Iceberg orphan file deletion operations, which identify and remove files that are no longer referenced by the table metadata.</p>
+   * @public
+   */
+  OrphanFileDeletion?: Record<string, string> | undefined;
+}
+
+/**
  * <p>A structure that specifies data lake access properties and other custom properties.</p>
  * @public
  */
@@ -1263,6 +1311,13 @@ export interface CatalogProperties {
    * @public
    */
   DataLakeAccessProperties?: DataLakeAccessProperties | undefined;
+
+  /**
+   * <p>A structure that specifies Iceberg table optimization properties for the catalog. This includes configuration for compaction, retention, and
+   *       orphan file deletion operations that can be applied to Iceberg tables in this catalog.</p>
+   * @public
+   */
+  IcebergOptimizationProperties?: IcebergOptimizationProperties | undefined;
 
   /**
    * <p>Additional key-value properties for the catalog, such as column statistics optimizations.</p>
@@ -7876,6 +7931,43 @@ export interface DataLakeAccessPropertiesOutput {
 }
 
 /**
+ * <p>A structure that contains the output properties of Iceberg table optimization configuration for your catalog resource in the Glue
+ *       Data Catalog.</p>
+ * @public
+ */
+export interface IcebergOptimizationPropertiesOutput {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the IAM role that is used to perform Iceberg table optimization operations.</p>
+   * @public
+   */
+  RoleArn?: string | undefined;
+
+  /**
+   * <p>A map of key-value pairs that specify configuration parameters for Iceberg table compaction operations, which optimize the layout of data files to improve query performance.</p>
+   * @public
+   */
+  Compaction?: Record<string, string> | undefined;
+
+  /**
+   * <p>A map of key-value pairs that specify configuration parameters for Iceberg table retention operations, which manage the lifecycle of table snapshots to control storage costs.</p>
+   * @public
+   */
+  Retention?: Record<string, string> | undefined;
+
+  /**
+   * <p>A map of key-value pairs that specify configuration parameters for Iceberg orphan file deletion operations, which identify and remove files that are no longer referenced by the table metadata.</p>
+   * @public
+   */
+  OrphanFileDeletion?: Record<string, string> | undefined;
+
+  /**
+   * <p>The timestamp when the Iceberg optimization properties were last updated.</p>
+   * @public
+   */
+  LastUpdatedTime?: Date | undefined;
+}
+
+/**
  * <p>Property attributes that include configuration properties for the catalog resource.</p>
  * @public
  */
@@ -7885,6 +7977,13 @@ export interface CatalogPropertiesOutput {
    * @public
    */
   DataLakeAccessProperties?: DataLakeAccessPropertiesOutput | undefined;
+
+  /**
+   * <p>An <code>IcebergOptimizationPropertiesOutput</code> object that specifies Iceberg table optimization settings for the catalog, including
+   *       configurations for compaction, retention, and orphan file deletion operations.</p>
+   * @public
+   */
+  IcebergOptimizationProperties?: IcebergOptimizationPropertiesOutput | undefined;
 
   /**
    * <p>Additional key-value properties for the catalog, such as column statistics optimizations.</p>
@@ -8099,180 +8198,6 @@ export interface GetClassifierRequest {
    * @public
    */
   Name: string | undefined;
-}
-
-/**
- * <p>A classifier for custom <code>CSV</code> content.</p>
- * @public
- */
-export interface CsvClassifier {
-  /**
-   * <p>The name of the classifier.</p>
-   * @public
-   */
-  Name: string | undefined;
-
-  /**
-   * <p>The time that this classifier was registered.</p>
-   * @public
-   */
-  CreationTime?: Date | undefined;
-
-  /**
-   * <p>The time that this classifier was last updated.</p>
-   * @public
-   */
-  LastUpdated?: Date | undefined;
-
-  /**
-   * <p>The version of this classifier.</p>
-   * @public
-   */
-  Version?: number | undefined;
-
-  /**
-   * <p>A custom symbol to denote what separates each column entry in the row.</p>
-   * @public
-   */
-  Delimiter?: string | undefined;
-
-  /**
-   * <p>A custom symbol to denote what combines content into a single column value. It must be
-   *       different from the column delimiter.</p>
-   * @public
-   */
-  QuoteSymbol?: string | undefined;
-
-  /**
-   * <p>Indicates whether the CSV file contains a header.</p>
-   * @public
-   */
-  ContainsHeader?: CsvHeaderOption | undefined;
-
-  /**
-   * <p>A list of strings representing column names.</p>
-   * @public
-   */
-  Header?: string[] | undefined;
-
-  /**
-   * <p>Specifies not to trim values before identifying the type of column values. The default
-   *       value is <code>true</code>.</p>
-   * @public
-   */
-  DisableValueTrimming?: boolean | undefined;
-
-  /**
-   * <p>Enables the processing of files that contain only one column.</p>
-   * @public
-   */
-  AllowSingleColumn?: boolean | undefined;
-
-  /**
-   * <p>Enables the custom datatype to be configured.</p>
-   * @public
-   */
-  CustomDatatypeConfigured?: boolean | undefined;
-
-  /**
-   * <p>A list of custom datatypes including "BINARY", "BOOLEAN", "DATE", "DECIMAL", "DOUBLE", "FLOAT", "INT", "LONG", "SHORT", "STRING", "TIMESTAMP".</p>
-   * @public
-   */
-  CustomDatatypes?: string[] | undefined;
-
-  /**
-   * <p>Sets the SerDe for processing CSV in the classifier, which will be applied in the Data Catalog. Valid values are <code>OpenCSVSerDe</code>, <code>LazySimpleSerDe</code>, and <code>None</code>. You can specify the <code>None</code> value when you want the crawler to do the detection.</p>
-   * @public
-   */
-  Serde?: CsvSerdeOption | undefined;
-}
-
-/**
- * <p>A classifier that uses <code>grok</code> patterns.</p>
- * @public
- */
-export interface GrokClassifier {
-  /**
-   * <p>The name of the classifier.</p>
-   * @public
-   */
-  Name: string | undefined;
-
-  /**
-   * <p>An identifier of the data format that the classifier matches, such as Twitter, JSON, Omniture logs, and
-   *       so on.</p>
-   * @public
-   */
-  Classification: string | undefined;
-
-  /**
-   * <p>The time that this classifier was registered.</p>
-   * @public
-   */
-  CreationTime?: Date | undefined;
-
-  /**
-   * <p>The time that this classifier was last updated.</p>
-   * @public
-   */
-  LastUpdated?: Date | undefined;
-
-  /**
-   * <p>The version of this classifier.</p>
-   * @public
-   */
-  Version?: number | undefined;
-
-  /**
-   * <p>The grok pattern applied to a data store by this classifier.
-   *        For more information, see built-in patterns in <a href="https://docs.aws.amazon.com/glue/latest/dg/custom-classifier.html">Writing Custom Classifiers</a>.</p>
-   * @public
-   */
-  GrokPattern: string | undefined;
-
-  /**
-   * <p>Optional custom grok patterns defined by this classifier.
-   *       For more information, see custom patterns in <a href="https://docs.aws.amazon.com/glue/latest/dg/custom-classifier.html">Writing Custom Classifiers</a>.</p>
-   * @public
-   */
-  CustomPatterns?: string | undefined;
-}
-
-/**
- * <p>A classifier for <code>JSON</code> content.</p>
- * @public
- */
-export interface JsonClassifier {
-  /**
-   * <p>The name of the classifier.</p>
-   * @public
-   */
-  Name: string | undefined;
-
-  /**
-   * <p>The time that this classifier was registered.</p>
-   * @public
-   */
-  CreationTime?: Date | undefined;
-
-  /**
-   * <p>The time that this classifier was last updated.</p>
-   * @public
-   */
-  LastUpdated?: Date | undefined;
-
-  /**
-   * <p>The version of this classifier.</p>
-   * @public
-   */
-  Version?: number | undefined;
-
-  /**
-   * <p>A <code>JsonPath</code> string defining the JSON data for the classifier to classify.
-   *       Glue supports a subset of JsonPath, as described in <a href="https://docs.aws.amazon.com/glue/latest/dg/custom-classifier.html#custom-classifier-json">Writing JsonPath Custom Classifiers</a>.</p>
-   * @public
-   */
-  JsonPath: string | undefined;
 }
 
 /**

@@ -45,15 +45,14 @@ import {
   ConnectionPropertyKey,
   ConnectionStatus,
   ConnectionType,
-  CsvClassifier,
+  CsvHeaderOption,
+  CsvSerdeOption,
   DatabaseIdentifier,
   DataFormat,
   DataQualityTargetTable,
   EncryptionConfiguration,
   FederatedDatabase,
-  GrokClassifier,
   JobRun,
-  JsonClassifier,
   Language,
   Permission,
   PhysicalConnectionRequirements,
@@ -78,6 +77,180 @@ import {
   Workflow,
   WorkflowRun,
 } from "./models_1";
+
+/**
+ * <p>A classifier for custom <code>CSV</code> content.</p>
+ * @public
+ */
+export interface CsvClassifier {
+  /**
+   * <p>The name of the classifier.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The time that this classifier was registered.</p>
+   * @public
+   */
+  CreationTime?: Date | undefined;
+
+  /**
+   * <p>The time that this classifier was last updated.</p>
+   * @public
+   */
+  LastUpdated?: Date | undefined;
+
+  /**
+   * <p>The version of this classifier.</p>
+   * @public
+   */
+  Version?: number | undefined;
+
+  /**
+   * <p>A custom symbol to denote what separates each column entry in the row.</p>
+   * @public
+   */
+  Delimiter?: string | undefined;
+
+  /**
+   * <p>A custom symbol to denote what combines content into a single column value. It must be
+   *       different from the column delimiter.</p>
+   * @public
+   */
+  QuoteSymbol?: string | undefined;
+
+  /**
+   * <p>Indicates whether the CSV file contains a header.</p>
+   * @public
+   */
+  ContainsHeader?: CsvHeaderOption | undefined;
+
+  /**
+   * <p>A list of strings representing column names.</p>
+   * @public
+   */
+  Header?: string[] | undefined;
+
+  /**
+   * <p>Specifies not to trim values before identifying the type of column values. The default
+   *       value is <code>true</code>.</p>
+   * @public
+   */
+  DisableValueTrimming?: boolean | undefined;
+
+  /**
+   * <p>Enables the processing of files that contain only one column.</p>
+   * @public
+   */
+  AllowSingleColumn?: boolean | undefined;
+
+  /**
+   * <p>Enables the custom datatype to be configured.</p>
+   * @public
+   */
+  CustomDatatypeConfigured?: boolean | undefined;
+
+  /**
+   * <p>A list of custom datatypes including "BINARY", "BOOLEAN", "DATE", "DECIMAL", "DOUBLE", "FLOAT", "INT", "LONG", "SHORT", "STRING", "TIMESTAMP".</p>
+   * @public
+   */
+  CustomDatatypes?: string[] | undefined;
+
+  /**
+   * <p>Sets the SerDe for processing CSV in the classifier, which will be applied in the Data Catalog. Valid values are <code>OpenCSVSerDe</code>, <code>LazySimpleSerDe</code>, and <code>None</code>. You can specify the <code>None</code> value when you want the crawler to do the detection.</p>
+   * @public
+   */
+  Serde?: CsvSerdeOption | undefined;
+}
+
+/**
+ * <p>A classifier that uses <code>grok</code> patterns.</p>
+ * @public
+ */
+export interface GrokClassifier {
+  /**
+   * <p>The name of the classifier.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>An identifier of the data format that the classifier matches, such as Twitter, JSON, Omniture logs, and
+   *       so on.</p>
+   * @public
+   */
+  Classification: string | undefined;
+
+  /**
+   * <p>The time that this classifier was registered.</p>
+   * @public
+   */
+  CreationTime?: Date | undefined;
+
+  /**
+   * <p>The time that this classifier was last updated.</p>
+   * @public
+   */
+  LastUpdated?: Date | undefined;
+
+  /**
+   * <p>The version of this classifier.</p>
+   * @public
+   */
+  Version?: number | undefined;
+
+  /**
+   * <p>The grok pattern applied to a data store by this classifier.
+   *        For more information, see built-in patterns in <a href="https://docs.aws.amazon.com/glue/latest/dg/custom-classifier.html">Writing Custom Classifiers</a>.</p>
+   * @public
+   */
+  GrokPattern: string | undefined;
+
+  /**
+   * <p>Optional custom grok patterns defined by this classifier.
+   *       For more information, see custom patterns in <a href="https://docs.aws.amazon.com/glue/latest/dg/custom-classifier.html">Writing Custom Classifiers</a>.</p>
+   * @public
+   */
+  CustomPatterns?: string | undefined;
+}
+
+/**
+ * <p>A classifier for <code>JSON</code> content.</p>
+ * @public
+ */
+export interface JsonClassifier {
+  /**
+   * <p>The name of the classifier.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The time that this classifier was registered.</p>
+   * @public
+   */
+  CreationTime?: Date | undefined;
+
+  /**
+   * <p>The time that this classifier was last updated.</p>
+   * @public
+   */
+  LastUpdated?: Date | undefined;
+
+  /**
+   * <p>The version of this classifier.</p>
+   * @public
+   */
+  Version?: number | undefined;
+
+  /**
+   * <p>A <code>JsonPath</code> string defining the JSON data for the classifier to classify.
+   *       Glue supports a subset of JsonPath, as described in <a href="https://docs.aws.amazon.com/glue/latest/dg/custom-classifier.html#custom-classifier-json">Writing JsonPath Custom Classifiers</a>.</p>
+   * @public
+   */
+  JsonPath: string | undefined;
+}
 
 /**
  * <p>A classifier for <code>XML</code> content.</p>
@@ -8657,69 +8830,6 @@ export interface ListUsageProfilesResponse {
    * @public
    */
   NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListWorkflowsRequest {
-  /**
-   * <p>A continuation token, if this is a continuation request.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The maximum size of a list to return.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface ListWorkflowsResponse {
-  /**
-   * <p>List of names of workflows in the account.</p>
-   * @public
-   */
-  Workflows?: string[] | undefined;
-
-  /**
-   * <p>A continuation token, if not all workflow names have been returned.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ModifyIntegrationRequest {
-  /**
-   * <p>The Amazon Resource Name (ARN) for the integration.</p>
-   * @public
-   */
-  IntegrationIdentifier: string | undefined;
-
-  /**
-   * <p>A description of the integration.</p>
-   * @public
-   */
-  Description?: string | undefined;
-
-  /**
-   * <p>Selects source tables for the integration using Maxwell filter syntax.</p>
-   * @public
-   */
-  DataFilter?: string | undefined;
-
-  /**
-   * <p>A unique name for an integration in Glue.</p>
-   * @public
-   */
-  IntegrationName?: string | undefined;
 }
 
 /**

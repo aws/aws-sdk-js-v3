@@ -75,9 +75,20 @@ export interface GetCatalogsCommandOutput extends GetCatalogsResponse, __Metadat
  * //           StatusMessage: "STRING_VALUE",
  * //           CatalogType: "STRING_VALUE",
  * //         },
- * //         CustomProperties: {
- * //           "<keys>": "STRING_VALUE",
+ * //         IcebergOptimizationProperties: { // IcebergOptimizationPropertiesOutput
+ * //           RoleArn: "STRING_VALUE",
+ * //           Compaction: {
+ * //             "<keys>": "STRING_VALUE",
+ * //           },
+ * //           Retention: {
+ * //             "<keys>": "STRING_VALUE",
+ * //           },
+ * //           OrphanFileDeletion: {
+ * //             "<keys>": "STRING_VALUE",
+ * //           },
+ * //           LastUpdatedTime: new Date("TIMESTAMP"),
  * //         },
+ * //         CustomProperties: "<ParametersMap>",
  * //       },
  * //       CreateTableDefaultPermissions: [ // PrincipalPermissionsList
  * //         { // PrincipalPermissions

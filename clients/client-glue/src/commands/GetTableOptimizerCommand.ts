@@ -58,6 +58,8 @@ export interface GetTableOptimizerCommandOutput extends GetTableOptimizerRespons
  * //       compactionConfiguration: { // CompactionConfiguration
  * //         icebergConfiguration: { // IcebergCompactionConfiguration
  * //           strategy: "binpack" || "sort" || "z-order",
+ * //           minInputFiles: Number("int"),
+ * //           deleteFileThreshold: Number("int"),
  * //         },
  * //       },
  * //       retentionConfiguration: { // RetentionConfiguration
@@ -65,12 +67,14 @@ export interface GetTableOptimizerCommandOutput extends GetTableOptimizerRespons
  * //           snapshotRetentionPeriodInDays: Number("int"),
  * //           numberOfSnapshotsToRetain: Number("int"),
  * //           cleanExpiredFiles: true || false,
+ * //           runRateInHours: Number("int"),
  * //         },
  * //       },
  * //       orphanFileDeletionConfiguration: { // OrphanFileDeletionConfiguration
  * //         icebergConfiguration: { // IcebergOrphanFileDeletionConfiguration
  * //           orphanFileRetentionPeriodInDays: Number("int"),
  * //           location: "STRING_VALUE",
+ * //           runRateInHours: Number("int"),
  * //         },
  * //       },
  * //     },
@@ -114,6 +118,7 @@ export interface GetTableOptimizerCommandOutput extends GetTableOptimizerRespons
  * //         },
  * //       },
  * //     },
+ * //     configurationSource: "catalog" || "table",
  * //   },
  * // };
  *

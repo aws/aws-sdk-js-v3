@@ -8618,6 +8618,18 @@ export interface IcebergCompactionConfiguration {
    * @public
    */
   strategy?: CompactionStrategy | undefined;
+
+  /**
+   * <p>The minimum number of data files that must be present in a partition before compaction will actually compact files. This parameter helps control when compaction is triggered, preventing unnecessary compaction operations on partitions with few files. If an input is not provided, the default value 100 will be used.</p>
+   * @public
+   */
+  minInputFiles?: number | undefined;
+
+  /**
+   * <p>The minimum number of deletes that must be present in a data file to make it eligible for compaction. This parameter helps optimize compaction by focusing on files that contain a significant number of delete operations, which can improve query performance by removing deleted records. If an input is not provided, the default value 1 will be used.</p>
+   * @public
+   */
+  deleteFileThreshold?: number | undefined;
 }
 
 /**
@@ -8649,6 +8661,12 @@ export interface IcebergOrphanFileDeletionConfiguration {
    * @public
    */
   location?: string | undefined;
+
+  /**
+   * <p>The interval in hours between orphan file deletion job runs. This parameter controls how frequently the orphan file deletion optimizer will run to clean up orphan files. The value must be between 3 and 168 hours (7 days). If an input is not provided, the default value 24 will be used.</p>
+   * @public
+   */
+  runRateInHours?: number | undefined;
 }
 
 /**
@@ -8685,6 +8703,12 @@ export interface IcebergRetentionConfiguration {
    * @public
    */
   cleanExpiredFiles?: boolean | undefined;
+
+  /**
+   * <p>The interval in hours between retention job runs. This parameter controls how frequently the retention optimizer will run to clean up expired snapshots. The value must be between 3 and 168 hours (7 days). If an input is not provided, the default value 24 will be used.</p>
+   * @public
+   */
+  runRateInHours?: number | undefined;
 }
 
 /**
@@ -8783,6 +8807,20 @@ export interface TableOptimizerConfiguration {
    */
   orphanFileDeletionConfiguration?: OrphanFileDeletionConfiguration | undefined;
 }
+
+/**
+ * @public
+ * @enum
+ */
+export const ConfigurationSource = {
+  CATALOG: "catalog",
+  TABLE: "table",
+} as const;
+
+/**
+ * @public
+ */
+export type ConfigurationSource = (typeof ConfigurationSource)[keyof typeof ConfigurationSource];
 
 /**
  * <p>Compaction metrics for Iceberg for the optimizer run.</p>
@@ -9097,6 +9135,15 @@ export interface TableOptimizer {
    * @public
    */
   lastRun?: TableOptimizerRun | undefined;
+
+  /**
+   * <p>
+   *       Specifies the source of the optimizer configuration. This indicates how the table optimizer was configured and which entity or service
+   *       initiated the configuration.
+   *     </p>
+   * @public
+   */
+  configurationSource?: ConfigurationSource | undefined;
 }
 
 /**
@@ -9481,25 +9528,6 @@ export interface BlueprintDetails {
    * @public
    */
   RunId?: string | undefined;
-}
-
-/**
- * <p>An edge represents a directed connection between two Glue components that are part of the workflow the
- *       edge belongs to.</p>
- * @public
- */
-export interface Edge {
-  /**
-   * <p>The unique of the node within the workflow where the edge starts.</p>
-   * @public
-   */
-  SourceId?: string | undefined;
-
-  /**
-   * <p>The unique of the node within the workflow where the edge ends.</p>
-   * @public
-   */
-  DestinationId?: string | undefined;
 }
 
 /**
