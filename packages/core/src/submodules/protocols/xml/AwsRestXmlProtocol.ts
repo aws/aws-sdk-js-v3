@@ -173,6 +173,9 @@ export class AwsRestXmlProtocol extends HttpBindingProtocol {
     throw exception;
   }
 
+  /**
+   * @override
+   */
   protected getDefaultContentType(): string {
     return "application/xml";
   }

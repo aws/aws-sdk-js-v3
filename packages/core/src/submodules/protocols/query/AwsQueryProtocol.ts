@@ -213,6 +213,9 @@ export class AwsQueryProtocol extends RpcProtocol {
     return errorData?.message ?? errorData?.Message ?? data.message ?? data.Message ?? "Unknown";
   }
 
+  /**
+   * @override
+   */
   protected getDefaultContentType(): string {
     return "application/x-www-form-urlencoded";
   }

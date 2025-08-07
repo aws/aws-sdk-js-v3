@@ -20,6 +20,9 @@ export class AwsJson1_1Protocol extends AwsJsonRpcProtocol {
     return "1.1" as const;
   }
 
+  /**
+   * @override
+   */
   protected getDefaultContentType(): string {
     return "application/x-amz-json-1.1";
   }

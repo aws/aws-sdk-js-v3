@@ -158,6 +158,9 @@ export class AwsRestJsonProtocol extends HttpBindingProtocol {
     throw exception;
   }
 
+  /**
+   * @override
+   */
   protected getDefaultContentType(): string {
     return "application/json";
   }
