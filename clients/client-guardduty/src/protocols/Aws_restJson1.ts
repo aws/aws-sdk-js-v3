@@ -5079,6 +5079,7 @@ const de_DnsRequestAction = (output: any, context: __SerdeContext): DnsRequestAc
     Domain: [, __expectString, `domain`],
     DomainWithSuffix: [, __expectString, `domainWithSuffix`],
     Protocol: [, __expectString, `protocol`],
+    VpcOwnerAccountId: [, __expectString, `vpcOwnerAccountId`],
   }) as any;
 };
 

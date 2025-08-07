@@ -767,6 +767,12 @@ export interface DnsRequestAction {
    * @public
    */
   DomainWithSuffix?: string | undefined;
+
+  /**
+   * <p>The Amazon Web Services account ID that owns the VPC through which the DNS request was made.</p>
+   * @public
+   */
+  VpcOwnerAccountId?: string | undefined;
 }
 
 /**
@@ -2946,6 +2952,9 @@ export interface CreateFilterRequest {
    *             </li>
    *             <li>
    *                <p>service.action.dnsRequestAction.domainWithSuffix</p>
+   *             </li>
+   *             <li>
+   *                <p>service.action.dnsRequestAction.vpcOwnerAccountId</p>
    *             </li>
    *             <li>
    *                <p>service.action.networkConnectionAction.blocked</p>
