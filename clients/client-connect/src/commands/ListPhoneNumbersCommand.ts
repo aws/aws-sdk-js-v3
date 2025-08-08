@@ -6,8 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ListPhoneNumbersRequest } from "../models/models_1";
-import { ListPhoneNumbersResponse } from "../models/models_2";
+import { ListPhoneNumbersRequest, ListPhoneNumbersResponse } from "../models/models_2";
 import { de_ListPhoneNumbersCommand, se_ListPhoneNumbersCommand } from "../protocols/Aws_restJson1";
 
 /**

@@ -31,8 +31,7 @@ export interface DisassociateQueueQuickConnectsCommandInput extends Disassociate
 export interface DisassociateQueueQuickConnectsCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
- *          <p>Disassociates a set of quick connects from a queue.</p>
+ * <p>Disassociates a set of quick connects from a queue.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

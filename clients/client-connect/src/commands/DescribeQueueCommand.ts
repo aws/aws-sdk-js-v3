@@ -28,8 +28,7 @@ export interface DescribeQueueCommandInput extends DescribeQueueRequest {}
 export interface DescribeQueueCommandOutput extends DescribeQueueResponse, __MetadataBearer {}
 
 /**
- * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
- *          <p>Describes the specified queue.</p>
+ * <p>Describes the specified queue.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

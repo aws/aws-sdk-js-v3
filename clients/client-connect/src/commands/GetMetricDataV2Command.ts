@@ -38,6 +38,43 @@ export interface GetMetricDataV2CommandOutput extends GetMetricDataV2Response, _
  *          <p>For a description of the historical metrics that are supported by
  *     <code>GetMetricDataV2</code> and <code>GetMetricData</code>, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html">Metrics definitions</a> in the
  *      <i>Amazon Connect Administrator Guide</i>.</p>
+ *          <note>
+ *             <p>When you make a successful API request, you can expect the following metric values in the response:</p>
+ *             <ol>
+ *                <li>
+ *                   <p>
+ *                      <b>Metric value is null</b>: The calculation cannot be performed due to divide by zero or insufficient data</p>
+ *                </li>
+ *                <li>
+ *                   <p>
+ *                      <b>Metric value is a number (including 0) of defined type</b>: The number provided is the calculation result</p>
+ *                </li>
+ *                <li>
+ *                   <p>
+ *                      <b>MetricResult list is empty</b>: The request cannot find any data in the system</p>
+ *                </li>
+ *             </ol>
+ *             <p>The following guidelines can help you work with the API:</p>
+ *             <ul>
+ *                <li>
+ *                   <p>Each dimension in the metric response must contain a value</p>
+ *                </li>
+ *                <li>
+ *                   <p>Each item in MetricResult must include all requested metrics</p>
+ *                </li>
+ *                <li>
+ *                   <p>If the response is slow due to large result sets, try these approaches:</p>
+ *                   <ul>
+ *                      <li>
+ *                         <p>Narrow the time range of your request</p>
+ *                      </li>
+ *                      <li>
+ *                         <p>Add filters to reduce the amount of data returned</p>
+ *                      </li>
+ *                   </ul>
+ *                </li>
+ *             </ul>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

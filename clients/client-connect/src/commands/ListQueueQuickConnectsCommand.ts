@@ -28,8 +28,7 @@ export interface ListQueueQuickConnectsCommandInput extends ListQueueQuickConnec
 export interface ListQueueQuickConnectsCommandOutput extends ListQueueQuickConnectsResponse, __MetadataBearer {}
 
 /**
- * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
- *          <p>Lists the quick connects associated with a queue.</p>
+ * <p>Lists the quick connects associated with a queue.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

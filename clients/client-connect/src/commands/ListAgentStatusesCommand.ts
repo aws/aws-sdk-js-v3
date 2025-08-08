@@ -28,8 +28,7 @@ export interface ListAgentStatusesCommandInput extends ListAgentStatusRequest {}
 export interface ListAgentStatusesCommandOutput extends ListAgentStatusResponse, __MetadataBearer {}
 
 /**
- * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
- *          <p>Lists agent statuses.</p>
+ * <p>Lists agent statuses.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

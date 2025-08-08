@@ -17,16 +17,20 @@ import {
   EventSourceName,
   FileStatusType,
   FileUseCaseType,
+  HierarchyGroupCondition,
   HoursOfOperationConfig,
   HoursOfOperationOverrideConfig,
   InstanceStorageConfig,
   InstanceStorageResourceType,
+  IntegrationType,
+  LexBot,
   MonitorCapability,
   ParticipantRole,
   QuickConnectType,
   Reference,
   RehydrationType,
   RulePublishStatus,
+  SourceType,
   StringComparisonType,
   StringCondition,
   TagCondition,
@@ -62,6 +66,239 @@ import {
   SortOrder,
   TrafficDistributionGroupStatus,
 } from "./models_1";
+
+/**
+ * @public
+ */
+export interface ListIntegrationAssociationsRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The integration type.</p>
+   * @public
+   */
+  IntegrationType?: IntegrationType | undefined;
+
+  /**
+   * <p>The token for the next set of results. Use the value returned in the previous
+   * response in the next request to retrieve the next set of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return per page.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the integration.</p>
+   * @public
+   */
+  IntegrationArn?: string | undefined;
+}
+
+/**
+ * <p>Contains summary information about the associated AppIntegrations.</p>
+ * @public
+ */
+export interface IntegrationAssociationSummary {
+  /**
+   * <p>The identifier for the AppIntegration association.</p>
+   * @public
+   */
+  IntegrationAssociationId?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) for the AppIntegration association.</p>
+   * @public
+   */
+  IntegrationAssociationArn?: string | undefined;
+
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * @public
+   */
+  InstanceId?: string | undefined;
+
+  /**
+   * <p>The integration type.</p>
+   * @public
+   */
+  IntegrationType?: IntegrationType | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) for the AppIntegration.</p>
+   * @public
+   */
+  IntegrationArn?: string | undefined;
+
+  /**
+   * <p>The URL for the external application.</p>
+   * @public
+   */
+  SourceApplicationUrl?: string | undefined;
+
+  /**
+   * <p>The user-provided, friendly name for the external application.</p>
+   * @public
+   */
+  SourceApplicationName?: string | undefined;
+
+  /**
+   * <p>The name of the source.</p>
+   * @public
+   */
+  SourceType?: SourceType | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListIntegrationAssociationsResponse {
+  /**
+   * <p>The associations.</p>
+   * @public
+   */
+  IntegrationAssociationSummaryList?: IntegrationAssociationSummary[] | undefined;
+
+  /**
+   * <p>If there are additional results, this is the token for the next set of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListLambdaFunctionsRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The token for the next set of results. Use the value returned in the previous
+   * response in the next request to retrieve the next set of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return per page.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListLambdaFunctionsResponse {
+  /**
+   * <p>The Lambdafunction ARNs associated with the specified instance.</p>
+   * @public
+   */
+  LambdaFunctions?: string[] | undefined;
+
+  /**
+   * <p>If there are additional results, this is the token for the next set of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListLexBotsRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The token for the next set of results. Use the value returned in the previous
+   * response in the next request to retrieve the next set of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return per page. If no value is specified, the default is 10.
+   *    </p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListLexBotsResponse {
+  /**
+   * <p>The names and Amazon Web Services Regions of the Amazon Lex bots associated with the
+   *    specified instance.</p>
+   * @public
+   */
+  LexBots?: LexBot[] | undefined;
+
+  /**
+   * <p>If there are additional results, this is the token for the next set of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListPhoneNumbersRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The type of phone number.</p>
+   *          <note>
+   *             <p>We recommend using <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_ListPhoneNumbersV2.html">ListPhoneNumbersV2</a> to
+   *     return phone number types. While ListPhoneNumbers returns number types <code>UIFN</code>,
+   *      <code>SHARED</code>, <code>THIRD_PARTY_TF</code>, and <code>THIRD_PARTY_DID</code>, it
+   *     incorrectly lists them as <code>TOLL_FREE</code> or <code>DID</code>. </p>
+   *          </note>
+   * @public
+   */
+  PhoneNumberTypes?: PhoneNumberType[] | undefined;
+
+  /**
+   * <p>The ISO country code.</p>
+   * @public
+   */
+  PhoneNumberCountryCodes?: PhoneNumberCountryCode[] | undefined;
+
+  /**
+   * <p>The token for the next set of results. Use the value returned in the previous
+   * response in the next request to retrieve the next set of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return per page. The default MaxResult size is 100.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+}
 
 /**
  * <p>Contains summary information about a phone number for a contact center.</p>
@@ -273,7 +510,7 @@ export interface ListPredefinedAttributesRequest {
   NextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of results to return per page. </p>
+   * <p>The maximum number of results to return per page.</p>
    * @public
    */
   MaxResults?: number | undefined;
@@ -3890,8 +4127,7 @@ export interface SearchHoursOfOperationOverridesResponse {
 
   /**
    * <p>The token for the next set of results. Use the value returned in the previous response in
-   *    the next request to retrieve the next set of results. Length Constraints: Minimum length of 1.
-   *    Maximum length of 2500.</p>
+   *    the next request to retrieve the next set of results. </p>
    * @public
    */
   NextToken?: string | undefined;
@@ -4455,38 +4691,6 @@ export interface SearchUserHierarchyGroupsResponse {
    * @public
    */
   ApproximateTotalCount?: number | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const HierarchyGroupMatchType = {
-  EXACT: "EXACT",
-  WITH_CHILD_GROUPS: "WITH_CHILD_GROUPS",
-} as const;
-
-/**
- * @public
- */
-export type HierarchyGroupMatchType = (typeof HierarchyGroupMatchType)[keyof typeof HierarchyGroupMatchType];
-
-/**
- * <p>A leaf node condition which can be used to specify a hierarchy group condition.</p>
- * @public
- */
-export interface HierarchyGroupCondition {
-  /**
-   * <p>The value in the hierarchy group condition.</p>
-   * @public
-   */
-  Value?: string | undefined;
-
-  /**
-   * <p>The type of hierarchy group match.</p>
-   * @public
-   */
-  HierarchyGroupMatchType?: HierarchyGroupMatchType | undefined;
 }
 
 /**
@@ -7631,177 +7835,6 @@ export const TimerEligibleParticipantRoles = {
  */
 export type TimerEligibleParticipantRoles =
   (typeof TimerEligibleParticipantRoles)[keyof typeof TimerEligibleParticipantRoles];
-
-/**
- * @public
- * @enum
- */
-export const ParticipantTimerType = {
-  DISCONNECT_NONCUSTOMER: "DISCONNECT_NONCUSTOMER",
-  IDLE: "IDLE",
-} as const;
-
-/**
- * @public
- */
-export type ParticipantTimerType = (typeof ParticipantTimerType)[keyof typeof ParticipantTimerType];
-
-/**
- * @public
- * @enum
- */
-export const ParticipantTimerAction = {
-  Unset: "Unset",
-} as const;
-
-/**
- * @public
- */
-export type ParticipantTimerAction = (typeof ParticipantTimerAction)[keyof typeof ParticipantTimerAction];
-
-/**
- * <p>The value of the timer. Either the timer action (<code>Unset</code> to delete the timer), or
- *    the duration of the timer in minutes. Only one value can be set.</p>
- *          <p>For more information about how chat timeouts work, see
- *    <a href="https://docs.aws.amazon.com/connect/latest/adminguide/setup-chat-timeouts.html">Set up chat timeouts for human participants</a>. </p>
- * @public
- */
-export type ParticipantTimerValue =
-  | ParticipantTimerValue.ParticipantTimerActionMember
-  | ParticipantTimerValue.ParticipantTimerDurationInMinutesMember
-  | ParticipantTimerValue.$UnknownMember;
-
-/**
- * @public
- */
-export namespace ParticipantTimerValue {
-  /**
-   * <p>The timer action. Currently only one value is allowed: <code>Unset</code>. It deletes a
-   *    timer.</p>
-   * @public
-   */
-  export interface ParticipantTimerActionMember {
-    ParticipantTimerAction: ParticipantTimerAction;
-    ParticipantTimerDurationInMinutes?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>The duration of a timer, in minutes. </p>
-   * @public
-   */
-  export interface ParticipantTimerDurationInMinutesMember {
-    ParticipantTimerAction?: never;
-    ParticipantTimerDurationInMinutes: number;
-    $unknown?: never;
-  }
-
-  /**
-   * @public
-   */
-  export interface $UnknownMember {
-    ParticipantTimerAction?: never;
-    ParticipantTimerDurationInMinutes?: never;
-    $unknown: [string, any];
-  }
-
-  export interface Visitor<T> {
-    ParticipantTimerAction: (value: ParticipantTimerAction) => T;
-    ParticipantTimerDurationInMinutes: (value: number) => T;
-    _: (name: string, value: any) => T;
-  }
-
-  export const visit = <T>(value: ParticipantTimerValue, visitor: Visitor<T>): T => {
-    if (value.ParticipantTimerAction !== undefined) return visitor.ParticipantTimerAction(value.ParticipantTimerAction);
-    if (value.ParticipantTimerDurationInMinutes !== undefined)
-      return visitor.ParticipantTimerDurationInMinutes(value.ParticipantTimerDurationInMinutes);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
-}
-
-/**
- * <p>Configuration information for the timer. After the timer configuration is set, it persists
- *    for the duration of the chat. It persists across new contacts in the chain, for example, transfer
- *    contacts.</p>
- *          <p>For more information about how chat timeouts work, see
- *    <a href="https://docs.aws.amazon.com/connect/latest/adminguide/setup-chat-timeouts.html">Set up chat timeouts for human participants</a>. </p>
- * @public
- */
-export interface ParticipantTimerConfiguration {
-  /**
-   * <p>The role of the participant in the chat conversation.</p>
-   * @public
-   */
-  ParticipantRole: TimerEligibleParticipantRoles | undefined;
-
-  /**
-   * <p>The type of timer. <code>IDLE</code> indicates the timer applies for considering a human
-   *    chat participant as idle. <code>DISCONNECT_NONCUSTOMER</code> indicates the timer applies to
-   *    automatically disconnecting a chat participant due to idleness.</p>
-   * @public
-   */
-  TimerType: ParticipantTimerType | undefined;
-
-  /**
-   * <p>The value of the timer. Either the timer action (Unset to delete the timer), or the duration
-   *    of the timer in minutes. Only one value can be set.</p>
-   * @public
-   */
-  TimerValue: ParticipantTimerValue | undefined;
-}
-
-/**
- * <p>Configuration information for the chat participant role.</p>
- * @public
- */
-export interface ChatParticipantRoleConfig {
-  /**
-   * <p>A list of participant timers. You can specify any unique combination of role and timer type.
-   *    Duplicate entries error out the request with a 400.</p>
-   * @public
-   */
-  ParticipantTimerConfigList: ParticipantTimerConfiguration[] | undefined;
-}
-
-/**
- * <p>Configuration information for the chat participant role.</p>
- * @public
- */
-export type UpdateParticipantRoleConfigChannelInfo =
-  | UpdateParticipantRoleConfigChannelInfo.ChatMember
-  | UpdateParticipantRoleConfigChannelInfo.$UnknownMember;
-
-/**
- * @public
- */
-export namespace UpdateParticipantRoleConfigChannelInfo {
-  /**
-   * <p>Configuration information for the chat participant role.</p>
-   * @public
-   */
-  export interface ChatMember {
-    Chat: ChatParticipantRoleConfig;
-    $unknown?: never;
-  }
-
-  /**
-   * @public
-   */
-  export interface $UnknownMember {
-    Chat?: never;
-    $unknown: [string, any];
-  }
-
-  export interface Visitor<T> {
-    Chat: (value: ChatParticipantRoleConfig) => T;
-    _: (name: string, value: any) => T;
-  }
-
-  export const visit = <T>(value: UpdateParticipantRoleConfigChannelInfo, visitor: Visitor<T>): T => {
-    if (value.Chat !== undefined) return visitor.Chat(value.Chat);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
-}
 
 /**
  * @internal

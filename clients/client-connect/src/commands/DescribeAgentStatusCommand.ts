@@ -28,8 +28,7 @@ export interface DescribeAgentStatusCommandInput extends DescribeAgentStatusRequ
 export interface DescribeAgentStatusCommandOutput extends DescribeAgentStatusResponse, __MetadataBearer {}
 
 /**
- * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
- *          <p>Describes an agent status.</p>
+ * <p>Describes an agent status.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

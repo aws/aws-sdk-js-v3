@@ -581,6 +581,11 @@ import {
   GetContactAttributesCommandOutput,
 } from "./commands/GetContactAttributesCommand";
 import {
+  GetContactMetricsCommand,
+  GetContactMetricsCommandInput,
+  GetContactMetricsCommandOutput,
+} from "./commands/GetContactMetricsCommand";
+import {
   GetCurrentMetricDataCommand,
   GetCurrentMetricDataCommandInput,
   GetCurrentMetricDataCommandOutput,
@@ -1457,6 +1462,7 @@ const commands = {
   DismissUserContactCommand,
   GetAttachedFileCommand,
   GetContactAttributesCommand,
+  GetContactMetricsCommand,
   GetCurrentMetricDataCommand,
   GetCurrentUserDataCommand,
   GetEffectiveHoursOfOperationsCommand,
@@ -3554,6 +3560,23 @@ export interface Connect {
     args: GetContactAttributesCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetContactAttributesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetContactMetricsCommand}
+   */
+  getContactMetrics(
+    args: GetContactMetricsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetContactMetricsCommandOutput>;
+  getContactMetrics(
+    args: GetContactMetricsCommandInput,
+    cb: (err: any, data?: GetContactMetricsCommandOutput) => void
+  ): void;
+  getContactMetrics(
+    args: GetContactMetricsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetContactMetricsCommandOutput) => void
   ): void;
 
   /**

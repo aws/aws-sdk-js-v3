@@ -31,8 +31,7 @@ export interface AssociateQueueQuickConnectsCommandInput extends AssociateQueueQ
 export interface AssociateQueueQuickConnectsCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
- *          <p>Associates a set of quick connects with a queue.</p>
+ * <p>Associates a set of quick connects with a queue.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

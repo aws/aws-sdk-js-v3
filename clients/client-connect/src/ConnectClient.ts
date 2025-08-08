@@ -397,6 +397,7 @@ import {
   GetContactAttributesCommandInput,
   GetContactAttributesCommandOutput,
 } from "./commands/GetContactAttributesCommand";
+import { GetContactMetricsCommandInput, GetContactMetricsCommandOutput } from "./commands/GetContactMetricsCommand";
 import {
   GetCurrentMetricDataCommandInput,
   GetCurrentMetricDataCommandOutput,
@@ -994,6 +995,7 @@ export type ServiceInputTypes =
   | DismissUserContactCommandInput
   | GetAttachedFileCommandInput
   | GetContactAttributesCommandInput
+  | GetContactMetricsCommandInput
   | GetCurrentMetricDataCommandInput
   | GetCurrentUserDataCommandInput
   | GetEffectiveHoursOfOperationsCommandInput
@@ -1281,6 +1283,7 @@ export type ServiceOutputTypes =
   | DismissUserContactCommandOutput
   | GetAttachedFileCommandOutput
   | GetContactAttributesCommandOutput
+  | GetContactMetricsCommandOutput
   | GetCurrentMetricDataCommandOutput
   | GetCurrentUserDataCommandOutput
   | GetEffectiveHoursOfOperationsCommandOutput

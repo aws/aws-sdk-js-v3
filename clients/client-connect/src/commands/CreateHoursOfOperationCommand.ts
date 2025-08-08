@@ -28,8 +28,7 @@ export interface CreateHoursOfOperationCommandInput extends CreateHoursOfOperati
 export interface CreateHoursOfOperationCommandOutput extends CreateHoursOfOperationResponse, __MetadataBearer {}
 
 /**
- * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
- *          <p>Creates hours of operation. </p>
+ * <p>Creates hours of operation. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

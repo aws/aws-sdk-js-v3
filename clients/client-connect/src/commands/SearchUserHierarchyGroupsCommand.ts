@@ -55,6 +55,10 @@ export interface SearchUserHierarchyGroupsCommandOutput extends SearchUserHierar
  *               TagValue: "STRING_VALUE",
  *             },
  *           ],
+ *           HierarchyGroupCondition: { // HierarchyGroupCondition
+ *             Value: "STRING_VALUE",
+ *             HierarchyGroupMatchType: "EXACT" || "WITH_CHILD_GROUPS",
+ *           },
  *         },
  *       ],
  *       AndCondition: {
@@ -64,6 +68,10 @@ export interface SearchUserHierarchyGroupsCommandOutput extends SearchUserHierar
  *             TagValue: "STRING_VALUE",
  *           },
  *         ],
+ *         HierarchyGroupCondition: {
+ *           Value: "STRING_VALUE",
+ *           HierarchyGroupMatchType: "EXACT" || "WITH_CHILD_GROUPS",
+ *         },
  *       },
  *       TagCondition: "<TagCondition>",
  *     },
@@ -82,6 +90,10 @@ export interface SearchUserHierarchyGroupsCommandOutput extends SearchUserHierar
  *           Value: "STRING_VALUE",
  *           ComparisonType: "STARTS_WITH" || "CONTAINS" || "EXACT",
  *         },
+ *         HierarchyGroupCondition: {
+ *           Value: "STRING_VALUE",
+ *           HierarchyGroupMatchType: "EXACT" || "WITH_CHILD_GROUPS",
+ *         },
  *       },
  *     ],
  *     AndConditions: [
@@ -92,6 +104,7 @@ export interface SearchUserHierarchyGroupsCommandOutput extends SearchUserHierar
  *       Value: "STRING_VALUE",
  *       ComparisonType: "STARTS_WITH" || "CONTAINS" || "EXACT",
  *     },
+ *     HierarchyGroupCondition: "<HierarchyGroupCondition>",
  *   },
  * };
  * const command = new SearchUserHierarchyGroupsCommand(input);

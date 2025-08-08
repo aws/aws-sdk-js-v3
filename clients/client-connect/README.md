@@ -1204,6 +1204,14 @@ GetContactAttributes
 </details>
 <details>
 <summary>
+GetContactMetrics
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/connect/command/GetContactMetricsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connect/Interface/GetContactMetricsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connect/Interface/GetContactMetricsCommandOutput/)
+
+</details>
+<details>
+<summary>
 GetCurrentMetricData
 </summary>
 

@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ListLambdaFunctionsRequest, ListLambdaFunctionsResponse } from "../models/models_1";
+import { ListLambdaFunctionsRequest, ListLambdaFunctionsResponse } from "../models/models_2";
 import { de_ListLambdaFunctionsCommand, se_ListLambdaFunctionsCommand } from "../protocols/Aws_restJson1";
 
 /**

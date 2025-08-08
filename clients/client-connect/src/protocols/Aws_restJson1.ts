@@ -380,6 +380,7 @@ import {
   GetContactAttributesCommandInput,
   GetContactAttributesCommandOutput,
 } from "../commands/GetContactAttributesCommand";
+import { GetContactMetricsCommandInput, GetContactMetricsCommandOutput } from "../commands/GetContactMetricsCommand";
 import {
   GetCurrentMetricDataCommandInput,
   GetCurrentMetricDataCommandOutput,
@@ -890,6 +891,7 @@ import {
   EventBridgeActionDefinition,
   FieldValue,
   FieldValueUnion,
+  HierarchyGroupCondition,
   HoursOfOperationConfig,
   HoursOfOperationOverrideConfig,
   HoursOfOperationTimeSlice,
@@ -968,6 +970,9 @@ import {
   ContactFilter,
   ContactFlow,
   ContactFlowNotPublishedException,
+  ContactMetricInfo,
+  ContactMetricResult,
+  ContactMetricValue,
   Credentials,
   CurrentMetric,
   CurrentMetricData,
@@ -1038,7 +1043,6 @@ import {
   AttributeAndCondition,
   ChatEvent,
   ChatMessage,
-  ChatParticipantRoleConfig,
   ChatStreamingConfiguration,
   Condition,
   ConditionalOperationFailedException,
@@ -1059,7 +1063,6 @@ import {
   EmailAttachment,
   EmailHeaderType,
   EvaluationAnswerInput,
-  HierarchyGroupCondition,
   HoursOfOperationSearchFilter,
   InboundAdditionalRecipients,
   InboundEmailContent,
@@ -1074,8 +1077,6 @@ import {
   OutboundRawMessage,
   OutputTypeNotFoundException,
   ParticipantDetails,
-  ParticipantTimerConfiguration,
-  ParticipantTimerValue,
   PersistentChat,
   PredefinedAttributeSummary,
   PromptSearchFilter,
@@ -1113,7 +1114,6 @@ import {
   TemplatedMessageConfig,
   Transcript,
   TranscriptCriteria,
-  UpdateParticipantRoleConfigChannelInfo,
   UserHierarchyGroupSearchFilter,
   UserSearchFilter,
   UserSummary,
@@ -1122,6 +1122,7 @@ import {
 } from "../models/models_2";
 import {
   AgentStatusSearchCriteria,
+  ChatParticipantRoleConfig,
   Contact,
   ContactFlowModuleSearchCriteria,
   ContactFlowSearchCriteria,
@@ -1135,6 +1136,8 @@ import {
   HierarchyStructureUpdate,
   HoursOfOperationOverrideSearchCriteria,
   HoursOfOperationSearchCriteria,
+  ParticipantTimerConfiguration,
+  ParticipantTimerValue,
   PredefinedAttributeSearchCriteria,
   PromptSearchCriteria,
   QueueSearchCriteria,
@@ -1146,6 +1149,7 @@ import {
   SecurityProfileSearchCriteria,
   SegmentAttributeValue,
   Step,
+  UpdateParticipantRoleConfigChannelInfo,
   UserHierarchyGroupSearchCriteria,
   UserSearchCriteria,
 } from "../models/models_3";
@@ -3780,6 +3784,30 @@ export const se_GetContactAttributesCommand = async (
   b.p("InitialContactId", () => input.InitialContactId!, "{InitialContactId}", false);
   let body: any;
   b.m("GET").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1GetContactMetricsCommand
+ */
+export const se_GetContactMetricsCommand = async (
+  input: GetContactMetricsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/metrics/contact");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      ContactId: [],
+      InstanceId: [],
+      Metrics: (_) => _json(_),
+    })
+  );
+  b.m("POST").h(headers).b(body);
   return b.build();
 };
 
@@ -10045,6 +10073,29 @@ export const de_GetContactAttributesCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1GetContactMetricsCommand
+ */
+export const de_GetContactMetricsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetContactMetricsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    Arn: __expectString,
+    Id: __expectString,
+    MetricResults: (_) => de_ContactMetricResults(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1GetCurrentMetricDataCommand
  */
 export const de_GetCurrentMetricDataCommand = async (
@@ -14128,6 +14179,10 @@ const se_ContactFlowSearchCriteria = (input: ContactFlowSearchCriteria, context:
 
 // se_ContactFlowSearchFilter omitted.
 
+// se_ContactMetricInfo omitted.
+
+// se_ContactMetrics omitted.
+
 // se_ContactReferences omitted.
 
 // se_ContactStates omitted.
@@ -15085,6 +15140,7 @@ const se_UserHierarchyGroupSearchConditionList = (
 const se_UserHierarchyGroupSearchCriteria = (input: UserHierarchyGroupSearchCriteria, context: __SerdeContext): any => {
   return take(input, {
     AndConditions: (_) => se_UserHierarchyGroupSearchConditionList(_, context),
+    HierarchyGroupCondition: _json,
     OrConditions: (_) => se_UserHierarchyGroupSearchConditionList(_, context),
     StringCondition: _json,
   });
@@ -15629,6 +15685,38 @@ const de_ContactFlowSearchSummaryList = (output: any, context: __SerdeContext): 
 // de_ContactFlowVersionSummary omitted.
 
 // de_ContactFlowVersionSummaryList omitted.
+
+/**
+ * deserializeAws_restJson1ContactMetricResult
+ */
+const de_ContactMetricResult = (output: any, context: __SerdeContext): ContactMetricResult => {
+  return take(output, {
+    Name: __expectString,
+    Value: (_: any) => de_ContactMetricValue(__expectUnion(_), context),
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1ContactMetricResults
+ */
+const de_ContactMetricResults = (output: any, context: __SerdeContext): ContactMetricResult[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_ContactMetricResult(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_restJson1ContactMetricValue
+ */
+const de_ContactMetricValue = (output: any, context: __SerdeContext): ContactMetricValue => {
+  if (__limitedParseDouble(output.Number) !== undefined) {
+    return { Number: __limitedParseDouble(output.Number) as any };
+  }
+  return { $unknown: Object.entries(output)[0] };
+};
 
 // de_ContactReferences omitted.
 

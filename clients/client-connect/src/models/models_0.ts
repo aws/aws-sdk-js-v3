@@ -234,16 +234,12 @@ export class ThrottlingException extends __BaseException {
 export interface EmailRecipient {
   /**
    * <p>Address of the email recipient.</p>
-   *          <p>Type: String</p>
-   *          <p>Length Constraints: Minimum length of 1. Maximum length of 256.</p>
    * @public
    */
   Address?: string | undefined;
 
   /**
    * <p>Display name of the email recipient.</p>
-   *          <p>Type: String</p>
-   *          <p>Length Constraints: Minimum length of 1. Maximum length of 256.</p>
    * @public
    */
   DisplayName?: string | undefined;
@@ -930,6 +926,38 @@ export interface StringCondition {
 }
 
 /**
+ * @public
+ * @enum
+ */
+export const HierarchyGroupMatchType = {
+  EXACT: "EXACT",
+  WITH_CHILD_GROUPS: "WITH_CHILD_GROUPS",
+} as const;
+
+/**
+ * @public
+ */
+export type HierarchyGroupMatchType = (typeof HierarchyGroupMatchType)[keyof typeof HierarchyGroupMatchType];
+
+/**
+ * <p>A leaf node condition which can be used to specify a hierarchy group condition.</p>
+ * @public
+ */
+export interface HierarchyGroupCondition {
+  /**
+   * <p>The value in the hierarchy group condition.</p>
+   * @public
+   */
+  Value?: string | undefined;
+
+  /**
+   * <p>The type of hierarchy group match.</p>
+   * @public
+   */
+  HierarchyGroupMatchType?: HierarchyGroupMatchType | undefined;
+}
+
+/**
  * <p>A leaf node condition which can be used to specify a tag condition, for example, <code>HAVE
  *     BPO = 123</code>. </p>
  * @public
@@ -959,6 +987,12 @@ export interface CommonAttributeAndCondition {
    * @public
    */
   TagConditions?: TagCondition[] | undefined;
+
+  /**
+   * <p>A leaf node condition which can be used to specify a hierarchy group condition.</p>
+   * @public
+   */
+  HierarchyGroupCondition?: HierarchyGroupCondition | undefined;
 }
 
 /**
@@ -4216,13 +4250,13 @@ export interface CreateHoursOfOperationOverrideRequest {
   Config: HoursOfOperationOverrideConfig[] | undefined;
 
   /**
-   * <p>The date from when the hours of operation override would be effective.</p>
+   * <p>The date from when the hours of operation override is effective.</p>
    * @public
    */
   EffectiveFrom: string | undefined;
 
   /**
-   * <p>The date until when the hours of operation override would be effective.</p>
+   * <p>The date until when the hours of operation override is effective.</p>
    * @public
    */
   EffectiveTill: string | undefined;
@@ -6932,7 +6966,10 @@ export const ResourceType = {
 export type ResourceType = (typeof ResourceType)[keyof typeof ResourceType];
 
 /**
- * <p>That resource is already in use. Please try another.</p>
+ * <p>That resource is already in use (for example, you're trying to add a record with the same
+ *    name as an existing record). If you are trying to delete a resource (for example,
+ *    DeleteHoursOfOperation or DeletePredefinedAttribute), remove its reference from related resources
+ *    and then try again.</p>
  * @public
  */
 export class ResourceInUseException extends __BaseException {
@@ -7393,41 +7430,6 @@ export interface DeleteInstanceRequest {
    * @public
    */
   ClientToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteIntegrationAssociationRequest {
-  /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
-   * @public
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>The identifier for the integration association.</p>
-   * @public
-   */
-  IntegrationAssociationId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeletePredefinedAttributeRequest {
-  /**
-   * <p> The identifier of the Amazon Connect instance. You can find the instance ID in the Amazon Resource
-   *    Name (ARN) of the instance.</p>
-   * @public
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p> The name of the predefined attribute.</p>
-   * @public
-   */
-  Name: string | undefined;
 }
 
 /**

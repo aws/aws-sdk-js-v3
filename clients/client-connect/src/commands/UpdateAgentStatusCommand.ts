@@ -28,8 +28,7 @@ export interface UpdateAgentStatusCommandInput extends UpdateAgentStatusRequest 
 export interface UpdateAgentStatusCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
- *          <p>Updates agent status.</p>
+ * <p>Updates agent status.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

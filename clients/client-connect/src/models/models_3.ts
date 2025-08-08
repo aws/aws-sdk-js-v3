@@ -16,6 +16,7 @@ import {
   Endpoint,
   EvaluationFormQuestion,
   EvaluationFormScoringStrategy,
+  HierarchyGroupCondition,
   InitiateAs,
   MediaConcurrency,
   OutboundCallerConfig,
@@ -78,7 +79,6 @@ import {
   EmailAddressInfoFilterSensitiveLog,
   EmailAddressSearchFilter,
   EmailAttachment,
-  HierarchyGroupCondition,
   HoursOfOperationSearchFilter,
   InboundAdditionalRecipients,
   InboundAdditionalRecipientsFilterSensitiveLog,
@@ -95,10 +95,181 @@ import {
   RoutingProfileSearchFilter,
   SearchableQueueType,
   SecurityProfilesSearchFilter,
-  UpdateParticipantRoleConfigChannelInfo,
+  TimerEligibleParticipantRoles,
   UserHierarchyGroupSearchFilter,
   UserSearchFilter,
 } from "./models_2";
+
+/**
+ * @public
+ * @enum
+ */
+export const ParticipantTimerType = {
+  DISCONNECT_NONCUSTOMER: "DISCONNECT_NONCUSTOMER",
+  IDLE: "IDLE",
+} as const;
+
+/**
+ * @public
+ */
+export type ParticipantTimerType = (typeof ParticipantTimerType)[keyof typeof ParticipantTimerType];
+
+/**
+ * @public
+ * @enum
+ */
+export const ParticipantTimerAction = {
+  Unset: "Unset",
+} as const;
+
+/**
+ * @public
+ */
+export type ParticipantTimerAction = (typeof ParticipantTimerAction)[keyof typeof ParticipantTimerAction];
+
+/**
+ * <p>The value of the timer. Either the timer action (<code>Unset</code> to delete the timer), or
+ *    the duration of the timer in minutes. Only one value can be set.</p>
+ *          <p>For more information about how chat timeouts work, see
+ *    <a href="https://docs.aws.amazon.com/connect/latest/adminguide/setup-chat-timeouts.html">Set up chat timeouts for human participants</a>. </p>
+ * @public
+ */
+export type ParticipantTimerValue =
+  | ParticipantTimerValue.ParticipantTimerActionMember
+  | ParticipantTimerValue.ParticipantTimerDurationInMinutesMember
+  | ParticipantTimerValue.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace ParticipantTimerValue {
+  /**
+   * <p>The timer action. Currently only one value is allowed: <code>Unset</code>. It deletes a
+   *    timer.</p>
+   * @public
+   */
+  export interface ParticipantTimerActionMember {
+    ParticipantTimerAction: ParticipantTimerAction;
+    ParticipantTimerDurationInMinutes?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The duration of a timer, in minutes. </p>
+   * @public
+   */
+  export interface ParticipantTimerDurationInMinutesMember {
+    ParticipantTimerAction?: never;
+    ParticipantTimerDurationInMinutes: number;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    ParticipantTimerAction?: never;
+    ParticipantTimerDurationInMinutes?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    ParticipantTimerAction: (value: ParticipantTimerAction) => T;
+    ParticipantTimerDurationInMinutes: (value: number) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: ParticipantTimerValue, visitor: Visitor<T>): T => {
+    if (value.ParticipantTimerAction !== undefined) return visitor.ParticipantTimerAction(value.ParticipantTimerAction);
+    if (value.ParticipantTimerDurationInMinutes !== undefined)
+      return visitor.ParticipantTimerDurationInMinutes(value.ParticipantTimerDurationInMinutes);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
+ * <p>Configuration information for the timer. After the timer configuration is set, it persists
+ *    for the duration of the chat. It persists across new contacts in the chain, for example, transfer
+ *    contacts.</p>
+ *          <p>For more information about how chat timeouts work, see
+ *    <a href="https://docs.aws.amazon.com/connect/latest/adminguide/setup-chat-timeouts.html">Set up chat timeouts for human participants</a>. </p>
+ * @public
+ */
+export interface ParticipantTimerConfiguration {
+  /**
+   * <p>The role of the participant in the chat conversation.</p>
+   * @public
+   */
+  ParticipantRole: TimerEligibleParticipantRoles | undefined;
+
+  /**
+   * <p>The type of timer. <code>IDLE</code> indicates the timer applies for considering a human
+   *    chat participant as idle. <code>DISCONNECT_NONCUSTOMER</code> indicates the timer applies to
+   *    automatically disconnecting a chat participant due to idleness.</p>
+   * @public
+   */
+  TimerType: ParticipantTimerType | undefined;
+
+  /**
+   * <p>The value of the timer. Either the timer action (Unset to delete the timer), or the duration
+   *    of the timer in minutes. Only one value can be set.</p>
+   * @public
+   */
+  TimerValue: ParticipantTimerValue | undefined;
+}
+
+/**
+ * <p>Configuration information for the chat participant role.</p>
+ * @public
+ */
+export interface ChatParticipantRoleConfig {
+  /**
+   * <p>A list of participant timers. You can specify any unique combination of role and timer type.
+   *    Duplicate entries error out the request with a 400.</p>
+   * @public
+   */
+  ParticipantTimerConfigList: ParticipantTimerConfiguration[] | undefined;
+}
+
+/**
+ * <p>Configuration information for the chat participant role.</p>
+ * @public
+ */
+export type UpdateParticipantRoleConfigChannelInfo =
+  | UpdateParticipantRoleConfigChannelInfo.ChatMember
+  | UpdateParticipantRoleConfigChannelInfo.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace UpdateParticipantRoleConfigChannelInfo {
+  /**
+   * <p>Configuration information for the chat participant role.</p>
+   * @public
+   */
+  export interface ChatMember {
+    Chat: ChatParticipantRoleConfig;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    Chat?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    Chat: (value: ChatParticipantRoleConfig) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: UpdateParticipantRoleConfigChannelInfo, visitor: Visitor<T>): T => {
+    if (value.Chat !== undefined) return visitor.Chat(value.Chat);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
 
 /**
  * @public
@@ -2233,7 +2404,7 @@ export interface StartEmailContactRequest {
   EmailMessage: InboundEmailContent | undefined;
 
   /**
-   * <p>The addtional recipients address of the email.</p>
+   * <p>The additional recipients address of the email.</p>
    * @public
    */
   AdditionalRecipients?: InboundAdditionalRecipients | undefined;
@@ -2746,6 +2917,12 @@ export interface UserHierarchyGroupSearchCriteria {
    * @public
    */
   StringCondition?: StringCondition | undefined;
+
+  /**
+   * <p>A leaf node condition which can be used to specify a hierarchy group condition.</p>
+   * @public
+   */
+  HierarchyGroupCondition?: HierarchyGroupCondition | undefined;
 }
 
 /**
@@ -3011,15 +3188,13 @@ export interface SearchHoursOfOperationOverridesRequest {
 
   /**
    * <p>The token for the next set of results. Use the value returned in the previous response in
-   *    the next request to retrieve the next set of results. Length Constraints: Minimum length of 1.
-   *    Maximum length of 2500.</p>
+   *    the next request to retrieve the next set of results. </p>
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of results to return per page. Valid Range: Minimum value of 1. Maximum
-   *    value of 100.</p>
+   * <p>The maximum number of results to return per page.</p>
    * @public
    */
   MaxResults?: number | undefined;

@@ -121,6 +121,7 @@ export * from "./DisassociateUserProficienciesCommand";
 export * from "./DismissUserContactCommand";
 export * from "./GetAttachedFileCommand";
 export * from "./GetContactAttributesCommand";
+export * from "./GetContactMetricsCommand";
 export * from "./GetCurrentMetricDataCommand";
 export * from "./GetCurrentUserDataCommand";
 export * from "./GetEffectiveHoursOfOperationsCommand";
