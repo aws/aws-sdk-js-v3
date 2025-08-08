@@ -315,6 +315,7 @@ import {
   CreateIntegrationDetail,
   Cvss2,
   Cvss3,
+  Cvss4,
   CvssScore,
   CvssScoreDetails,
   DailySchedule,
@@ -328,7 +329,6 @@ import {
   EcrConfigurationState,
   EcrContainerImageMetadata,
   EcrRescanDurationState,
-  Epss,
   ExploitObserved,
   FilterCriteria,
   FindingDetail,
@@ -369,6 +369,7 @@ import {
   WeeklySchedule,
 } from "../models/models_0";
 import {
+  Epss,
   EpssDetails,
   ExploitabilityDetails,
   Filter,
@@ -4848,6 +4849,16 @@ const de_Cvss3 = (output: any, context: __SerdeContext): Cvss3 => {
 };
 
 /**
+ * deserializeAws_restJson1Cvss4
+ */
+const de_Cvss4 = (output: any, context: __SerdeContext): Cvss4 => {
+  return take(output, {
+    baseScore: __limitedParseDouble,
+    scoringVector: __expectString,
+  }) as any;
+};
+
+/**
  * deserializeAws_restJson1CvssScore
  */
 const de_CvssScore = (output: any, context: __SerdeContext): CvssScore => {
@@ -5632,6 +5643,7 @@ const de_Vulnerability = (output: any, context: __SerdeContext): Vulnerability =
     cisaData: (_: any) => de_CisaData(_, context),
     cvss2: (_: any) => de_Cvss2(_, context),
     cvss3: (_: any) => de_Cvss3(_, context),
+    cvss4: (_: any) => de_Cvss4(_, context),
     cwes: _json,
     description: __expectString,
     detectionPlatforms: _json,

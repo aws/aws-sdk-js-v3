@@ -70,6 +70,10 @@ export interface SearchVulnerabilitiesCommandOutput extends SearchVulnerabilitie
  * //         ],
  * //       },
  * //       vendorSeverity: "STRING_VALUE",
+ * //       cvss4: { // Cvss4
+ * //         baseScore: Number("double"),
+ * //         scoringVector: "STRING_VALUE",
+ * //       },
  * //       cvss3: { // Cvss3
  * //         baseScore: Number("double"),
  * //         scoringVector: "STRING_VALUE",

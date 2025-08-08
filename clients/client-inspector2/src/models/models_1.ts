@@ -50,6 +50,7 @@ import {
   Currency,
   Cvss2,
   Cvss3,
+  Cvss4,
   CvssScore,
   CvssScoreDetails,
   DelegatedAdmin,
@@ -60,7 +61,6 @@ import {
   Ec2DeepInspectionStatus,
   EcrConfiguration,
   EcrConfigurationState,
-  Epss,
   ExploitObserved,
   FilterAction,
   FilterCriteria,
@@ -77,6 +77,18 @@ import {
   StringFilter,
   TagFilter,
 } from "./models_0";
+
+/**
+ * <p>Details about the Exploit Prediction Scoring System (EPSS) score.</p>
+ * @public
+ */
+export interface Epss {
+  /**
+   * <p>The Exploit Prediction Scoring System (EPSS) score.</p>
+   * @public
+   */
+  score?: number | undefined;
+}
 
 /**
  * <p>Details about the Exploit Prediction Scoring System (EPSS) score for a finding.</p>
@@ -2718,6 +2730,12 @@ export interface Vulnerability {
    * @public
    */
   vendorSeverity?: string | undefined;
+
+  /**
+   * <p>An object that contains the Common Vulnerability Scoring System (CVSS) Version 4 details for the vulnerability.</p>
+   * @public
+   */
+  cvss4?: Cvss4 | undefined;
 
   /**
    * <p>An object that contains the Common Vulnerability Scoring System (CVSS) Version 3 details

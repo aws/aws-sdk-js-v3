@@ -5280,7 +5280,7 @@ export interface ScanStatus {
    *          Amazon Inspector service will automatically resolve the issue and resume the scanning. No action
    *          required from the user.</p>
    *          <p>
-   *             <code>NO INVENTORY</code> - Amazon Inspector couldn't find software application inventory to scan
+   *             <code>NO_INVENTORY</code> - Amazon Inspector couldn't find software application inventory to scan
    *          for vulnerabilities. This might be caused due to required Amazon Inspector associations being deleted
    *          or failing to run on your resource. Please verify the status of
    *          <code>InspectorInventoryCollection-do-not-delete</code> association in the SSM console
@@ -7403,6 +7403,24 @@ export interface Cvss3 {
 }
 
 /**
+ * <p>The Common Vulnerability Scoring System (CVSS) version 4 details for the vulnerability.</p>
+ * @public
+ */
+export interface Cvss4 {
+  /**
+   * <p>The base CVSS v4 score for the vulnerability finding, which rates the severity of the vulnerability on a scale from 0 to 10.</p>
+   * @public
+   */
+  baseScore?: number | undefined;
+
+  /**
+   * <p>The CVSS v4 scoring vector, which contains the metrics and measurements that were used to calculate the base score.</p>
+   * @public
+   */
+  scoringVector?: string | undefined;
+}
+
+/**
  * <p>The CVSS score for a finding.</p>
  * @public
  */
@@ -8053,18 +8071,6 @@ export interface EnableDelegatedAdminAccountResponse {
    * @public
    */
   delegatedAdminAccountId: string | undefined;
-}
-
-/**
- * <p>Details about the Exploit Prediction Scoring System (EPSS) score.</p>
- * @public
- */
-export interface Epss {
-  /**
-   * <p>The Exploit Prediction Scoring System (EPSS) score.</p>
-   * @public
-   */
-  score?: number | undefined;
 }
 
 /**
