@@ -6,12 +6,8 @@ import type {
   InitializeHandlerOptions,
   InitializeHandlerOutput,
   MetadataBearer,
-  OperationSchema,
   Pluggable,
 } from "@smithy/types";
-import { getSmithyContext } from "@smithy/util-middleware";
-
-import { schemaLogFilter } from "./schemaLogFilter";
 
 export const loggerMiddleware =
   () =>
@@ -20,42 +16,33 @@ export const loggerMiddleware =
     context: HandlerExecutionContext
   ): InitializeHandler<any, Output> =>
   async (args: InitializeHandlerArguments<any>): Promise<InitializeHandlerOutput<Output>> => {
-    const { operationSchema } = getSmithyContext(context) as {
-      operationSchema: OperationSchema;
-    };
-
     try {
       const response = await next(args);
+      const { clientName, commandName, logger, dynamoDbDocumentClientOptions = {} } = context;
 
-      const { clientName, commandName, logger } = context;
-
-      const inputLogFilter = operationSchema
-        ? schemaLogFilter.bind(operationSchema.input)
-        : context.inputFilterSensitiveLog;
-      const outputLogFilter = operationSchema
-        ? schemaLogFilter.bind(operationSchema.output)
-        : context.outputFilterSensitiveLog;
+      const { overrideInputFilterSensitiveLog, overrideOutputFilterSensitiveLog } = dynamoDbDocumentClientOptions;
+      const inputFilterSensitiveLog = overrideInputFilterSensitiveLog ?? context.inputFilterSensitiveLog;
+      const outputFilterSensitiveLog = overrideOutputFilterSensitiveLog ?? context.outputFilterSensitiveLog;
 
       const { $metadata, ...outputWithoutMetadata } = response.output;
       logger?.info?.({
         clientName,
         commandName,
-        input: inputLogFilter(args.input),
-        output: outputLogFilter(outputWithoutMetadata),
+        input: inputFilterSensitiveLog(args.input),
+        output: outputFilterSensitiveLog(outputWithoutMetadata),
         metadata: $metadata,
       });
       return response;
     } catch (error) {
-      const { clientName, commandName, logger } = context;
+      const { clientName, commandName, logger, dynamoDbDocumentClientOptions = {} } = context;
 
-      const inputLogFilter = operationSchema
-        ? schemaLogFilter.bind(operationSchema.input)
-        : context.inputFilterSensitiveLog;
+      const { overrideInputFilterSensitiveLog } = dynamoDbDocumentClientOptions;
+      const inputFilterSensitiveLog = overrideInputFilterSensitiveLog ?? context.inputFilterSensitiveLog;
 
       logger?.error?.({
         clientName,
         commandName,
-        input: inputLogFilter(args.input),
+        input: inputFilterSensitiveLog(args.input),
         error,
         metadata: (error as any).$metadata,
       });

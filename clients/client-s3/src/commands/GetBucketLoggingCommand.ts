@@ -1,14 +1,13 @@
 // smithy-typescript generated code
 import { getThrow200ExceptionsPlugin } from "@aws-sdk/middleware-sdk-s3";
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GetBucketLoggingOutput, GetBucketLoggingRequest } from "../models/models_0";
-import { de_GetBucketLoggingCommand, se_GetBucketLoggingCommand } from "../protocols/Aws_restXml";
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
+import { GetBucketLogging } from "../schemas/schemas";
 
 /**
  * @public
@@ -119,17 +118,12 @@ export class GetBucketLoggingCommand extends $Command
     Bucket: { type: "contextParams", name: "Bucket" },
   })
   .m(function (this: any, Command: any, cs: any, config: S3ClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-      getThrow200ExceptionsPlugin(config),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions()), getThrow200ExceptionsPlugin(config)];
   })
   .s("AmazonS3", "GetBucketLogging", {})
   .n("S3Client", "GetBucketLoggingCommand")
-  .f(void 0, void 0)
-  .ser(se_GetBucketLoggingCommand)
-  .de(de_GetBucketLoggingCommand)
+
+  .sc(GetBucketLogging)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

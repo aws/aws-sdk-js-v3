@@ -34,6 +34,7 @@ import software.amazon.smithy.model.Model;
 import software.amazon.smithy.model.knowledge.OperationIndex;
 import software.amazon.smithy.model.knowledge.TopDownIndex;
 import software.amazon.smithy.model.pattern.SmithyPattern;
+import software.amazon.smithy.model.pattern.UriPattern;
 import software.amazon.smithy.model.shapes.MemberShape;
 import software.amazon.smithy.model.shapes.OperationShape;
 import software.amazon.smithy.model.shapes.ServiceShape;
@@ -47,9 +48,11 @@ import software.amazon.smithy.model.traits.DocumentationTrait;
 import software.amazon.smithy.model.traits.EndpointTrait;
 import software.amazon.smithy.model.traits.HttpHeaderTrait;
 import software.amazon.smithy.model.traits.HttpPayloadTrait;
+import software.amazon.smithy.model.traits.HttpTrait;
 import software.amazon.smithy.model.traits.StreamingTrait;
 import software.amazon.smithy.model.traits.Trait;
 import software.amazon.smithy.model.transform.ModelTransformer;
+import software.amazon.smithy.rulesengine.traits.ContextParamTrait;
 import software.amazon.smithy.rulesengine.traits.EndpointRuleSetTrait;
 import software.amazon.smithy.typescript.codegen.LanguageTarget;
 import software.amazon.smithy.typescript.codegen.TypeScriptDependency;
@@ -104,6 +107,53 @@ public final class AddS3Config implements TypeScriptIntegration {
                         )
                     ) {
                         builder.removeTrait(EndpointTrait.ID);
+                    }
+                }
+                return builder;
+            })
+            .map(OperationShape.Builder::build)
+            .map(s -> (Shape) s)
+            .orElse(shape);
+    }
+
+    /**
+     * Remove `/{Bucket}` from the operation endpoint URI IFF
+     * - it is in a prefix position.
+     * - input has a member called "Bucket".
+     * - "Bucket" input member is a contextParam.
+     */
+    public static Shape removeUriBucketPrefix(Shape shape, Model model) {
+        return shape.asOperationShape()
+            .map(OperationShape::shapeToBuilder)
+            .map((Object object) -> {
+                OperationShape.Builder builder = (OperationShape.Builder) object;
+                Trait trait = builder.getAllTraits().get(HttpTrait.ID);
+                if (trait instanceof HttpTrait httpTrait) {
+                    String uri = httpTrait.getUri().toString();
+
+                    StructureShape input = model.expectShape(
+                        shape.asOperationShape().get().getInputShape()
+                    ).asStructureShape().orElseThrow(
+                        () -> new RuntimeException("operation must have input structure")
+                    );
+
+                    boolean hasBucketPrefix = uri.startsWith("/{Bucket}") ;
+                    Optional<MemberShape> bucket = input.getMember("Bucket");
+                    boolean inputHasBucketMember = bucket.isPresent();
+                    boolean bucketIsContextParam = bucket
+                        .map(ms -> ms.getTrait(ContextParamTrait.class))
+                        .isPresent();
+
+                    if (hasBucketPrefix && inputHasBucketMember && bucketIsContextParam) {
+                        String replaced = uri
+                            .replace("/{Bucket}/", "/")
+                            .replace("/{Bucket}", "/");
+                        builder.addTrait(
+                            httpTrait
+                                .toBuilder()
+                                .uri(UriPattern.parse(replaced))
+                                .build()
+                        );
                     }
                 }
                 return builder;
@@ -243,7 +293,7 @@ public final class AddS3Config implements TypeScriptIntegration {
         Model builtModel = modelBuilder.addShapes(inputShapes).build();
         if (hasRuleset) {
             return ModelTransformer.create().mapShapes(
-                builtModel, AddS3Config::removeHostPrefixTrait
+                builtModel, (shape) -> removeUriBucketPrefix(shape, model)
             );
         }
         return builtModel;
