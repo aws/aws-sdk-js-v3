@@ -1,17 +1,13 @@
 // smithy-typescript generated code
 import { getFlexibleChecksumsPlugin } from "@aws-sdk/middleware-flexible-checksums";
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { CreateBucketMetadataConfigurationRequest } from "../models/models_0";
-import {
-  de_CreateBucketMetadataConfigurationCommand,
-  se_CreateBucketMetadataConfigurationCommand,
-} from "../protocols/Aws_restXml";
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
+import { CreateBucketMetadataConfiguration } from "../schemas/schemas";
 
 /**
  * @public
@@ -187,7 +183,6 @@ export class CreateBucketMetadataConfigurationCommand extends $Command
   })
   .m(function (this: any, Command: any, cs: any, config: S3ClientResolvedConfig, o: any) {
     return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
       getFlexibleChecksumsPlugin(config, {
         requestAlgorithmMember: { httpHeader: "x-amz-sdk-checksum-algorithm", name: "ChecksumAlgorithm" },
@@ -197,9 +192,8 @@ export class CreateBucketMetadataConfigurationCommand extends $Command
   })
   .s("AmazonS3", "CreateBucketMetadataConfiguration", {})
   .n("S3Client", "CreateBucketMetadataConfigurationCommand")
-  .f(void 0, void 0)
-  .ser(se_CreateBucketMetadataConfigurationCommand)
-  .de(de_CreateBucketMetadataConfigurationCommand)
+
+  .sc(CreateBucketMetadataConfiguration)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -47,7 +47,6 @@
     "@aws-sdk/util-endpoints": "*",
     "@aws-sdk/util-user-agent-browser": "*",
     "@aws-sdk/util-user-agent-node": "*",
-    "@aws-sdk/xml-builder": "*",
     "@smithy/config-resolver": "^4.1.5",
     "@smithy/core": "^3.8.0",
     "@smithy/eventstream-serde-browser": "^4.0.5",
@@ -81,9 +80,7 @@
     "@smithy/util-stream": "^4.2.4",
     "@smithy/util-utf8": "^4.0.0",
     "@smithy/util-waiter": "^4.0.7",
-    "@types/uuid": "^9.0.1",
-    "tslib": "^2.6.2",
-    "uuid": "^9.0.1"
+    "tslib": "^2.6.2"
   },
   "devDependencies": {
     "@aws-sdk/signature-v4-crt": "*",

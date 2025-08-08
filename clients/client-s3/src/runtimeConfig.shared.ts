@@ -1,5 +1,6 @@
 // smithy-typescript generated code
 import { AwsSdkSigV4ASigner, AwsSdkSigV4Signer } from "@aws-sdk/core";
+import { AwsRestXmlProtocol } from "@aws-sdk/core/protocols";
 import { SignatureV4MultiRegion } from "@aws-sdk/signature-v4-multi-region";
 import { NoOpLogger } from "@smithy/smithy-client";
 import { IdentityProviderConfig } from "@smithy/types";
@@ -38,6 +39,12 @@ export const getRuntimeConfig = (config: S3ClientConfig) => {
       },
     ],
     logger: config?.logger ?? new NoOpLogger(),
+    protocol:
+      config?.protocol ??
+      new AwsRestXmlProtocol({
+        defaultNamespace: "com.amazonaws.s3",
+        xmlNamespace: "http://s3.amazonaws.com/doc/2006-03-01/",
+      }),
     sdkStreamMixin: config?.sdkStreamMixin ?? sdkStreamMixin,
     serviceId: config?.serviceId ?? "S3",
     signerConstructor: config?.signerConstructor ?? SignatureV4MultiRegion,

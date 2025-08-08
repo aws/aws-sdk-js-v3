@@ -35,6 +35,7 @@ import {
   getHttpAuthSchemeEndpointRuleSetPlugin,
   getHttpSigningPlugin,
 } from "@smithy/core";
+import { getSchemaSerdePlugin } from "@smithy/core/schema";
 import {
   EventStreamSerdeInputConfig,
   EventStreamSerdeResolvedConfig,
@@ -56,6 +57,7 @@ import {
   CheckOptionalClientConfig as __CheckOptionalClientConfig,
   Checksum as __Checksum,
   ChecksumConstructor as __ChecksumConstructor,
+  ClientProtocol,
   Decoder as __Decoder,
   Encoder as __Encoder,
   EndpointV2 as __EndpointV2,
@@ -63,6 +65,8 @@ import {
   Hash as __Hash,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
+  HttpRequest,
+  HttpResponse,
   Logger as __Logger,
   Provider as __Provider,
   Provider,
@@ -773,6 +777,16 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
   extensions?: RuntimeExtension[];
 
   /**
+   * The protocol controlling the message type (e.g. HTTP) and format (e.g. JSON)
+   * may be overridden. A default will always be set by the client.
+   * Available options depend on the service's supported protocols and will not be validated by
+   * the client.
+   * @alpha
+   *
+   */
+  protocol?: ClientProtocol<HttpRequest, HttpResponse>;
+
+  /**
    * The function that provides necessary utilities for generating and parsing event stream
    */
   eventStreamSerdeProvider?: __EventStreamSerdeProvider;
@@ -874,6 +888,7 @@ export class S3Client extends __Client<
     const _config_10 = resolveS3Config(_config_9, { session: [() => this, CreateSessionCommand] });
     const _config_11 = resolveRuntimeExtensions(_config_10, configuration?.extensions || []);
     this.config = _config_11;
+    this.middlewareStack.use(getSchemaSerdePlugin(this.config));
     this.middlewareStack.use(getUserAgentPlugin(this.config));
     this.middlewareStack.use(getRetryPlugin(this.config));
     this.middlewareStack.use(getContentLengthPlugin(this.config));

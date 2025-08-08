@@ -61,16 +61,6 @@ export class AwsRestXmlProtocol extends HttpBindingProtocol {
     const ns = NormalizedSchema.of(operationSchema.input);
     const members = ns.getMemberSchemas();
 
-    request.path =
-      String(request.path)
-        .split("/")
-        .filter((segment) => {
-          // for legacy reasons,
-          // Bucket is in the http trait but is handled by endpoints ruleset.
-          return segment !== "{Bucket}";
-        })
-        .join("/") || "/";
-
     if (!request.headers["content-type"]) {
       const httpPayloadMember = Object.values(members).find((m) => {
         return !!m.getMergedTraits().httpPayload;
