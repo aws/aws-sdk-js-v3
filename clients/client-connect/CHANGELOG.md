@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.864.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.863.0...v3.864.0) (2025-08-08)
+
+
+### Features
+
+* **client-connect:** This release adds a new API GetContactMetrics for Amazon Connect. ([d2612b5](https://github.com/aws/aws-sdk-js-v3/commit/d2612b57c17d0eaf33221362ff5d0950d0a09010))
+
+
+
+
+
 # [3.863.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.862.0...v3.863.0) (2025-08-07)
 
 **Note:** Version bump only for package @aws-sdk/client-connect

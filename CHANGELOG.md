@@ -3,6 +3,38 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.864.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.863.0...v3.864.0) (2025-08-08)
+
+
+### Features
+
+* **client-application-signals:** Removed incorrect endpoint tests ([794fce3](https://github.com/aws/aws-sdk-js-v3/commit/794fce3b0cbf2c66ef8234f74c63852455fd647d))
+* **client-backupsearch:** Removed incorrect endpoint tests ([0fc50af](https://github.com/aws/aws-sdk-js-v3/commit/0fc50afd1790d83e659d07c203dee46eea5d33ba))
+* **client-bcm-pricing-calculator:** Removed incorrect endpoint tests ([68d38d8](https://github.com/aws/aws-sdk-js-v3/commit/68d38d892681db2d9d2c0b1461e47f2799b73091))
+* **client-billing:** Removed incorrect endpoint tests ([d47a2b8](https://github.com/aws/aws-sdk-js-v3/commit/d47a2b848fc1b354f7e52877f11d768c733a2683))
+* **client-connect:** This release adds a new API GetContactMetrics for Amazon Connect. ([d2612b5](https://github.com/aws/aws-sdk-js-v3/commit/d2612b57c17d0eaf33221362ff5d0950d0a09010))
+* **client-dsql:** Removed incorrect endpoint tests ([a3da540](https://github.com/aws/aws-sdk-js-v3/commit/a3da5408af0a5b4cd3150397f33a87553d9ae7fb))
+* **client-gameliftstreams:** Removed incorrect endpoint tests ([78d0339](https://github.com/aws/aws-sdk-js-v3/commit/78d0339d203181a2a2aab53fc8d7e5a99daef73d))
+* **client-inspector2:** Add CVSSV4 to Vulnerability Search API and update enable/disable account id list length to 5 ([c6f9938](https://github.com/aws/aws-sdk-js-v3/commit/c6f993820b38710642e7ef4d2d530c653bcd842a))
+* **client-invoicing:** Removed incorrect endpoint tests ([fa3eb01](https://github.com/aws/aws-sdk-js-v3/commit/fa3eb01c44772daa12576b1fc0017f51354fe311))
+* **client-iot-data-plane:** Adding DeleteConnection API to IoT Data Plane ([8fd6242](https://github.com/aws/aws-sdk-js-v3/commit/8fd624298a729f85528500779b30f79f69101a6f))
+* **client-iot-managed-integrations:** Removed incorrect endpoint tests ([48cf435](https://github.com/aws/aws-sdk-js-v3/commit/48cf435c0a46d2666ac04ef9764336bede65f90a))
+* **client-keyspacesstreams:** Removed incorrect endpoint tests ([32d8e3c](https://github.com/aws/aws-sdk-js-v3/commit/32d8e3cc172b242e22bcf70de7274b0e9cae7da4))
+* **client-mpa:** Removed incorrect endpoint tests ([bbc9d0d](https://github.com/aws/aws-sdk-js-v3/commit/bbc9d0d5ceb3cf17b7a5d139ffc59945659fe6c8))
+* **client-networkflowmonitor:** Removed incorrect endpoint tests ([1a2f352](https://github.com/aws/aws-sdk-js-v3/commit/1a2f3527caea63b3b9c4a001f45bc2bd26396b3f))
+* **client-notificationscontacts:** Removed incorrect endpoint tests ([ea09235](https://github.com/aws/aws-sdk-js-v3/commit/ea092358289c96dd63e2b84a097b4256c5658740))
+* **client-notifications:** Removed incorrect endpoint tests ([4194d2a](https://github.com/aws/aws-sdk-js-v3/commit/4194d2ad12f1b24bcb53d199698e2758c077550e))
+* **client-partnercentral-selling:** Removed incorrect endpoint tests ([4fe5c4a](https://github.com/aws/aws-sdk-js-v3/commit/4fe5c4a7dd4fdd101be5b465cfe240dcb20840d9))
+* **client-s3vectors:** Removed incorrect endpoint tests ([c14f49d](https://github.com/aws/aws-sdk-js-v3/commit/c14f49d4447502d44e0eee6018b184fd9ee2e1ee))
+* **client-sagemaker:** Adds support for GB200 UltraServers in Amazon SageMaker training jobs, training plans, and HyperPod clusters ([b5dc676](https://github.com/aws/aws-sdk-js-v3/commit/b5dc676b54aee7487922730c9387d81422c6b594))
+* **client-security-ir:** Removed incorrect endpoint tests ([2b832bf](https://github.com/aws/aws-sdk-js-v3/commit/2b832bfff57b5075de80b37c33a95160e41b8fc3))
+* **client-workspaces-instances:** Removed incorrect endpoint tests ([d412c8c](https://github.com/aws/aws-sdk-js-v3/commit/d412c8c58922a5b17d8ee3d4b23d7be04850e202))
+* **clients:** update client endpoints as of 2025-08-08 ([3540d6e](https://github.com/aws/aws-sdk-js-v3/commit/3540d6ea405e2647318c9fb295c1851cd9db1f49))
+
+
+
+
+
 # [3.863.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.862.0...v3.863.0) (2025-08-07)
 
 
