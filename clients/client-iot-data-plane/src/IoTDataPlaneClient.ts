@@ -53,6 +53,7 @@ import {
   HttpAuthSchemeResolvedConfig,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
+import { DeleteConnectionCommandInput, DeleteConnectionCommandOutput } from "./commands/DeleteConnectionCommand";
 import { DeleteThingShadowCommandInput, DeleteThingShadowCommandOutput } from "./commands/DeleteThingShadowCommand";
 import { GetRetainedMessageCommandInput, GetRetainedMessageCommandOutput } from "./commands/GetRetainedMessageCommand";
 import { GetThingShadowCommandInput, GetThingShadowCommandOutput } from "./commands/GetThingShadowCommand";
@@ -81,6 +82,7 @@ export { __Client };
  * @public
  */
 export type ServiceInputTypes =
+  | DeleteConnectionCommandInput
   | DeleteThingShadowCommandInput
   | GetRetainedMessageCommandInput
   | GetThingShadowCommandInput
@@ -93,6 +95,7 @@ export type ServiceInputTypes =
  * @public
  */
 export type ServiceOutputTypes =
+  | DeleteConnectionCommandOutput
   | DeleteThingShadowCommandOutput
   | GetRetainedMessageCommandOutput
   | GetThingShadowCommandOutput

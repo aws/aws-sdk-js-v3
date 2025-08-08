@@ -3,6 +3,11 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
+  DeleteConnectionCommand,
+  DeleteConnectionCommandInput,
+  DeleteConnectionCommandOutput,
+} from "./commands/DeleteConnectionCommand";
+import {
   DeleteThingShadowCommand,
   DeleteThingShadowCommandInput,
   DeleteThingShadowCommandOutput,
@@ -36,6 +41,7 @@ import {
 import { IoTDataPlaneClient, IoTDataPlaneClientConfig } from "./IoTDataPlaneClient";
 
 const commands = {
+  DeleteConnectionCommand,
   DeleteThingShadowCommand,
   GetRetainedMessageCommand,
   GetThingShadowCommand,
@@ -46,6 +52,23 @@ const commands = {
 };
 
 export interface IoTDataPlane {
+  /**
+   * @see {@link DeleteConnectionCommand}
+   */
+  deleteConnection(
+    args: DeleteConnectionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteConnectionCommandOutput>;
+  deleteConnection(
+    args: DeleteConnectionCommandInput,
+    cb: (err: any, data?: DeleteConnectionCommandOutput) => void
+  ): void;
+  deleteConnection(
+    args: DeleteConnectionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteConnectionCommandOutput) => void
+  ): void;
+
   /**
    * @see {@link DeleteThingShadowCommand}
    */

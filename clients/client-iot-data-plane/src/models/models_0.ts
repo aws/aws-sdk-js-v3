@@ -27,33 +27,46 @@ export class ConflictException extends __BaseException {
 }
 
 /**
- * <p>The input for the DeleteThingShadow operation.</p>
  * @public
  */
-export interface DeleteThingShadowRequest {
+export interface DeleteConnectionRequest {
   /**
-   * <p>The name of the thing.</p>
+   * <p>The unique identifier of the MQTT client to disconnect. The client ID can't start with a dollar sign ($).</p>
    * @public
    */
-  thingName: string | undefined;
+  clientId: string | undefined;
 
   /**
-   * <p>The name of the shadow.</p>
+   * <p>Specifies whether to remove the client's session state when disconnecting. Set to <code>TRUE</code> to delete all session information, including subscriptions and queued messages. Set to <code>FALSE</code> to preserve the session state. By default, this is set to <code>FALSE</code> (preserves the session state).</p>
    * @public
    */
-  shadowName?: string | undefined;
+  cleanSession?: boolean | undefined;
+
+  /**
+   * <p>Controls if Amazon Web Services IoT Core publishes the client's Last Will and Testament (LWT) message upon disconnection. Set to <code>TRUE</code> to prevent publishing the LWT message. Set to <code>FALSE</code> to allow publishing. By default, this is set to <code>FALSE</code> (allows publishing the LWT message).</p>
+   * @public
+   */
+  preventWillMessage?: boolean | undefined;
 }
 
 /**
- * <p>The output from the DeleteThingShadow operation.</p>
+ * <p>The caller isn't authorized to make the request.</p>
  * @public
  */
-export interface DeleteThingShadowResponse {
+export class ForbiddenException extends __BaseException {
+  readonly name: "ForbiddenException" = "ForbiddenException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>The state information, in JSON format.</p>
-   * @public
+   * @internal
    */
-  payload: Uint8Array | undefined;
+  constructor(opts: __ExceptionOptionType<ForbiddenException, __BaseException>) {
+    super({
+      name: "ForbiddenException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ForbiddenException.prototype);
+  }
 }
 
 /**
@@ -97,26 +110,6 @@ export class InvalidRequestException extends __BaseException {
 }
 
 /**
- * <p>The specified combination of HTTP verb and URI is not supported.</p>
- * @public
- */
-export class MethodNotAllowedException extends __BaseException {
-  readonly name: "MethodNotAllowedException" = "MethodNotAllowedException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<MethodNotAllowedException, __BaseException>) {
-    super({
-      name: "MethodNotAllowedException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, MethodNotAllowedException.prototype);
-  }
-}
-
-/**
  * <p>The specified resource does not exist.</p>
  * @public
  */
@@ -137,26 +130,6 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * <p>The service is temporarily unavailable.</p>
- * @public
- */
-export class ServiceUnavailableException extends __BaseException {
-  readonly name: "ServiceUnavailableException" = "ServiceUnavailableException";
-  readonly $fault: "server" = "server";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ServiceUnavailableException, __BaseException>) {
-    super({
-      name: "ServiceUnavailableException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ServiceUnavailableException.prototype);
-  }
-}
-
-/**
  * <p>The rate exceeds the limit.</p>
  * @public
  */
@@ -173,6 +146,76 @@ export class ThrottlingException extends __BaseException {
       ...opts,
     });
     Object.setPrototypeOf(this, ThrottlingException.prototype);
+  }
+}
+
+/**
+ * <p>The input for the DeleteThingShadow operation.</p>
+ * @public
+ */
+export interface DeleteThingShadowRequest {
+  /**
+   * <p>The name of the thing.</p>
+   * @public
+   */
+  thingName: string | undefined;
+
+  /**
+   * <p>The name of the shadow.</p>
+   * @public
+   */
+  shadowName?: string | undefined;
+}
+
+/**
+ * <p>The output from the DeleteThingShadow operation.</p>
+ * @public
+ */
+export interface DeleteThingShadowResponse {
+  /**
+   * <p>The state information, in JSON format.</p>
+   * @public
+   */
+  payload: Uint8Array | undefined;
+}
+
+/**
+ * <p>The specified combination of HTTP verb and URI is not supported.</p>
+ * @public
+ */
+export class MethodNotAllowedException extends __BaseException {
+  readonly name: "MethodNotAllowedException" = "MethodNotAllowedException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<MethodNotAllowedException, __BaseException>) {
+    super({
+      name: "MethodNotAllowedException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, MethodNotAllowedException.prototype);
+  }
+}
+
+/**
+ * <p>The service is temporarily unavailable.</p>
+ * @public
+ */
+export class ServiceUnavailableException extends __BaseException {
+  readonly name: "ServiceUnavailableException" = "ServiceUnavailableException";
+  readonly $fault: "server" = "server";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ServiceUnavailableException, __BaseException>) {
+    super({
+      name: "ServiceUnavailableException",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ServiceUnavailableException.prototype);
   }
 }
 

@@ -25,6 +25,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@smithy/types";
 
+import { DeleteConnectionCommandInput, DeleteConnectionCommandOutput } from "../commands/DeleteConnectionCommand";
 import { DeleteThingShadowCommandInput, DeleteThingShadowCommandOutput } from "../commands/DeleteThingShadowCommand";
 import { GetRetainedMessageCommandInput, GetRetainedMessageCommandOutput } from "../commands/GetRetainedMessageCommand";
 import { GetThingShadowCommandInput, GetThingShadowCommandOutput } from "../commands/GetThingShadowCommand";
@@ -41,6 +42,7 @@ import { UpdateThingShadowCommandInput, UpdateThingShadowCommandOutput } from ".
 import { IoTDataPlaneServiceException as __BaseException } from "../models/IoTDataPlaneServiceException";
 import {
   ConflictException,
+  ForbiddenException,
   InternalFailureException,
   InvalidRequestException,
   MethodNotAllowedException,
@@ -51,6 +53,26 @@ import {
   UnauthorizedException,
   UnsupportedDocumentEncodingException,
 } from "../models/models_0";
+
+/**
+ * serializeAws_restJson1DeleteConnectionCommand
+ */
+export const se_DeleteConnectionCommand = async (
+  input: DeleteConnectionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/connections/{clientId}");
+  b.p("clientId", () => input.clientId!, "{clientId}", false);
+  const query: any = map({
+    [_cS]: [() => input.cleanSession !== void 0, () => input[_cS]!.toString()],
+    [_pWM]: [() => input.preventWillMessage !== void 0, () => input[_pWM]!.toString()],
+  });
+  let body: any;
+  b.m("DELETE").h(headers).q(query).b(body);
+  return b.build();
+};
 
 /**
  * serializeAws_restJson1DeleteThingShadowCommand
@@ -204,6 +226,23 @@ export const se_UpdateThingShadowCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1DeleteConnectionCommand
+ */
+export const de_DeleteConnectionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteConnectionCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1DeleteThingShadowCommand
  */
 export const de_DeleteThingShadowCommand = async (
@@ -354,24 +393,27 @@ const de_CommandError = async (output: __HttpResponse, context: __SerdeContext):
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "ForbiddenException":
+    case "com.amazonaws.iotdataplane#ForbiddenException":
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "InternalFailureException":
     case "com.amazonaws.iotdataplane#InternalFailureException":
       throw await de_InternalFailureExceptionRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.iotdataplane#InvalidRequestException":
       throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "MethodNotAllowedException":
-    case "com.amazonaws.iotdataplane#MethodNotAllowedException":
-      throw await de_MethodNotAllowedExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.iotdataplane#ResourceNotFoundException":
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.iotdataplane#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.iotdataplane#ThrottlingException":
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "MethodNotAllowedException":
+    case "com.amazonaws.iotdataplane#MethodNotAllowedException":
+      throw await de_MethodNotAllowedExceptionRes(parsedOutput, context);
+    case "ServiceUnavailableException":
+    case "com.amazonaws.iotdataplane#ServiceUnavailableException":
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "UnauthorizedException":
     case "com.amazonaws.iotdataplane#UnauthorizedException":
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
@@ -406,6 +448,23 @@ const de_ConflictExceptionRes = async (parsedOutput: any, context: __SerdeContex
   });
   Object.assign(contents, doc);
   const exception = new ConflictException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
+};
+
+/**
+ * deserializeAws_restJson1ForbiddenExceptionRes
+ */
+const de_ForbiddenExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ForbiddenException> => {
+  const contents: any = map({});
+  const data: any = parsedOutput.body;
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
+  const exception = new ForbiddenException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
   });
@@ -608,6 +667,7 @@ const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<st
   collectBody(streamBody, context).then((body) => context.utf8Encoder(body));
 
 const _cD = "correlationData";
+const _cS = "cleanSession";
 const _cT = "contentType";
 const _mE = "messageExpiry";
 const _mR = "maxResults";
@@ -615,6 +675,7 @@ const _n = "name";
 const _nT = "nextToken";
 const _pFI = "payloadFormatIndicator";
 const _pS = "pageSize";
+const _pWM = "preventWillMessage";
 const _q = "qos";
 const _r = "retain";
 const _rT = "responseTopic";
