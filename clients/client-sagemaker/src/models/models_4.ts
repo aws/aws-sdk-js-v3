@@ -1,9 +1,6 @@
 // smithy-typescript generated code
-import { SENSITIVE_STRING } from "@smithy/smithy-client";
-
 import {
   ActionSummary,
-  AdditionalInferenceSpecificationDefinition,
   AlgorithmSortBy,
   AlgorithmSummary,
   AppDetails,
@@ -20,9 +17,6 @@ import {
   AutoMLJobSummary,
   AutoMLSortBy,
   AutoMLSortOrder,
-  BatchDataCaptureConfig,
-  BatchStrategy,
-  BatchTransformInput,
   CacheHitResult,
   CallbackStepMetadata,
   CandidateSortBy,
@@ -31,24 +25,19 @@ import {
   ClusterEventResourceType,
   ClusterEventSummary,
   ClusterNodeSummary,
-  ClusterSchedulerConfigSummary,
-  ClusterSortBy,
   FeatureStatus,
-  InferenceSpecification,
   ModelApprovalStatus,
   ModelPackageStatus,
   OutputParameter,
   SchedulerResourceStatus,
   Tag,
-  TransformInput,
-  TransformOutput,
-  TransformResources,
   UserContext,
-  VpcConfig,
 } from "./models_0";
 
 import {
   _InstanceType,
+  ClusterSchedulerConfigSummary,
+  ClusterSortBy,
   ClusterSummary,
   CodeRepositorySortBy,
   CodeRepositorySortOrder,
@@ -57,39 +46,27 @@ import {
   CompilationJobSummary,
   ComputeQuotaSummary,
   ConditionStepMetadata,
-  ContainerDefinition,
   ContextSummary,
   HubContentType,
-  InferenceExecutionConfig,
+  HyperParameterTrainingJobDefinition,
+  HyperParameterTuningJobConfig,
+  HyperParameterTuningJobStrategyType,
+  HyperParameterTuningJobWarmStartConfig,
   InferenceExperimentSchedule,
   InferenceExperimentType,
   LabelingJobInputConfig,
-  MetadataProperties,
   RecommendationJobType,
+  ResourceLimits,
 } from "./models_1";
 
 import {
   CrossAccountFilterOption,
-  DataProcessing,
-  DeploymentRecommendation,
-  DriftCheckBaselines,
-  ExperimentConfig,
-  ModelCardSecurityConfig,
   ModelCardStatus,
-  ModelClientConfig,
   ModelLifeCycle,
-  ModelMetrics,
-  ModelPackageModelCard,
-  ModelPackageModelCardFilterSensitiveLog,
-  ModelPackageSecurityConfig,
-  ModelPackageValidationSpecification,
-  MonitoringScheduleConfig,
   MonitoringType,
   OptimizationJobDeploymentInstanceType,
   PartnerAppType,
   SharingType,
-  SkipModelValidation,
-  SourceAlgorithmSpecification,
   SpaceStorageSettings,
   StudioLifecycleConfigAppType,
   TrialComponentStatus,
@@ -125,14 +102,11 @@ import {
   HubContentSortBy,
   HubContentSupportStatus,
   HubInfo,
-  HubSortBy,
-  HumanTaskUiSummary,
   HyperParameterTrainingJobSummary,
-  HyperParameterTuningJobSortByOptions,
+  HyperParameterTuningJobCompletionDetails,
+  HyperParameterTuningJobConsumedResources,
   HyperParameterTuningJobStatus,
-  HyperParameterTuningJobSummary,
-  Image,
-  ImageSortBy,
+  ImageStatus,
   ImageVersionStatus,
   InferenceComponentStatus,
   InferenceExperimentStatus,
@@ -144,9 +118,9 @@ import {
   ModelCardExportJobStatus,
   ModelConfiguration,
   ModelPackageGroupStatus,
-  ModelPackageStatusDetails,
   MonitoringExecutionSummary,
   NotebookInstanceStatus,
+  ObjectiveStatusCounters,
   OfflineStoreStatusValue,
   OptimizationJobStatus,
   PartnerAppStatus,
@@ -155,6 +129,7 @@ import {
   ProjectStatus,
   RecommendationJobStatus,
   RecommendationMetrics,
+  ReservedCapacityInstanceType,
   ReservedCapacitySummary,
   SageMakerResourceName,
   ScheduleStatus,
@@ -163,6 +138,7 @@ import {
   SubscribedWorkteam,
   TrackingServerStatus,
   TrainingJobStatus,
+  TrainingJobStatusCounters,
   TrainingPlanStatus,
   TransformJobStatus,
   TrialComponentSource,
@@ -171,8 +147,312 @@ import {
   WarmPoolResourceStatus,
   WarmPoolStatus,
   Workforce,
-  Workteam,
 } from "./models_3";
+
+/**
+ * @public
+ * @enum
+ */
+export const HubSortBy = {
+  ACCOUNT_ID_OWNER: "AccountIdOwner",
+  CREATION_TIME: "CreationTime",
+  HUB_NAME: "HubName",
+  HUB_STATUS: "HubStatus",
+} as const;
+
+/**
+ * @public
+ */
+export type HubSortBy = (typeof HubSortBy)[keyof typeof HubSortBy];
+
+/**
+ * <p>Container for human task user interface information.</p>
+ * @public
+ */
+export interface HumanTaskUiSummary {
+  /**
+   * <p>The name of the human task user interface.</p>
+   * @public
+   */
+  HumanTaskUiName: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the human task user interface.</p>
+   * @public
+   */
+  HumanTaskUiArn: string | undefined;
+
+  /**
+   * <p>A timestamp when SageMaker created the human task user interface.</p>
+   * @public
+   */
+  CreationTime: Date | undefined;
+}
+
+/**
+ * <p>An entity returned by the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_SearchRecord.html">SearchRecord</a> API containing the properties of a hyperparameter tuning job.</p>
+ * @public
+ */
+export interface HyperParameterTuningJobSearchEntity {
+  /**
+   * <p>The name of a hyperparameter tuning job.</p>
+   * @public
+   */
+  HyperParameterTuningJobName?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of a hyperparameter tuning job.</p>
+   * @public
+   */
+  HyperParameterTuningJobArn?: string | undefined;
+
+  /**
+   * <p>Configures a hyperparameter tuning job.</p>
+   * @public
+   */
+  HyperParameterTuningJobConfig?: HyperParameterTuningJobConfig | undefined;
+
+  /**
+   * <p>Defines the training jobs launched by a hyperparameter tuning job.</p>
+   * @public
+   */
+  TrainingJobDefinition?: HyperParameterTrainingJobDefinition | undefined;
+
+  /**
+   * <p>The job definitions included in a hyperparameter tuning job.</p>
+   * @public
+   */
+  TrainingJobDefinitions?: HyperParameterTrainingJobDefinition[] | undefined;
+
+  /**
+   * <p>The status of a hyperparameter tuning job.</p>
+   * @public
+   */
+  HyperParameterTuningJobStatus?: HyperParameterTuningJobStatus | undefined;
+
+  /**
+   * <p>The time that a hyperparameter tuning job was created.</p>
+   * @public
+   */
+  CreationTime?: Date | undefined;
+
+  /**
+   * <p>The time that a hyperparameter tuning job ended.</p>
+   * @public
+   */
+  HyperParameterTuningEndTime?: Date | undefined;
+
+  /**
+   * <p>The time that a hyperparameter tuning job was last modified.</p>
+   * @public
+   */
+  LastModifiedTime?: Date | undefined;
+
+  /**
+   * <p>The numbers of training jobs launched by a hyperparameter tuning job, categorized by status.</p>
+   * @public
+   */
+  TrainingJobStatusCounters?: TrainingJobStatusCounters | undefined;
+
+  /**
+   * <p>Specifies the number of training jobs that this hyperparameter tuning job launched, categorized by the status of their objective metric. The objective metric status shows whether the final objective metric for the training job has been evaluated by the tuning job and used in the hyperparameter tuning process.</p>
+   * @public
+   */
+  ObjectiveStatusCounters?: ObjectiveStatusCounters | undefined;
+
+  /**
+   * <p>The container for the summary information about a training job.</p>
+   * @public
+   */
+  BestTrainingJob?: HyperParameterTrainingJobSummary | undefined;
+
+  /**
+   * <p>The container for the summary information about a training job.</p>
+   * @public
+   */
+  OverallBestTrainingJob?: HyperParameterTrainingJobSummary | undefined;
+
+  /**
+   * <p>Specifies the configuration for a hyperparameter tuning job that uses one or more previous hyperparameter tuning jobs as a starting point. The results of previous tuning jobs are used to inform which combinations of hyperparameters to search over in the new tuning job.</p> <p>All training jobs launched by the new hyperparameter tuning job are evaluated by using the objective metric, and the training job that performs the best is compared to the best training jobs from the parent tuning jobs. From these, the training job that performs the best as measured by the objective metric is returned as the overall best training job.</p> <note> <p>All training jobs launched by parent hyperparameter tuning jobs and the new hyperparameter tuning jobs count against the limit of training jobs for the tuning job.</p> </note>
+   * @public
+   */
+  WarmStartConfig?: HyperParameterTuningJobWarmStartConfig | undefined;
+
+  /**
+   * <p>The error that was created when a hyperparameter tuning job failed.</p>
+   * @public
+   */
+  FailureReason?: string | undefined;
+
+  /**
+   * <p>Information about either a current or completed hyperparameter tuning job.</p>
+   * @public
+   */
+  TuningJobCompletionDetails?: HyperParameterTuningJobCompletionDetails | undefined;
+
+  /**
+   * <p>The total amount of resources consumed by a hyperparameter tuning job.</p>
+   * @public
+   */
+  ConsumedResources?: HyperParameterTuningJobConsumedResources | undefined;
+
+  /**
+   * <p>The tags associated with a hyperparameter tuning job. For more information see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services resources</a>.</p>
+   * @public
+   */
+  Tags?: Tag[] | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const HyperParameterTuningJobSortByOptions = {
+  CreationTime: "CreationTime",
+  Name: "Name",
+  Status: "Status",
+} as const;
+
+/**
+ * @public
+ */
+export type HyperParameterTuningJobSortByOptions =
+  (typeof HyperParameterTuningJobSortByOptions)[keyof typeof HyperParameterTuningJobSortByOptions];
+
+/**
+ * <p>Provides summary information about a hyperparameter tuning job.</p>
+ * @public
+ */
+export interface HyperParameterTuningJobSummary {
+  /**
+   * <p>The name of the tuning job.</p>
+   * @public
+   */
+  HyperParameterTuningJobName: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the tuning job.</p>
+   * @public
+   */
+  HyperParameterTuningJobArn: string | undefined;
+
+  /**
+   * <p>The status of the tuning job.</p>
+   * @public
+   */
+  HyperParameterTuningJobStatus: HyperParameterTuningJobStatus | undefined;
+
+  /**
+   * <p>Specifies the search strategy hyperparameter tuning uses to choose which hyperparameters to evaluate at each iteration.</p>
+   * @public
+   */
+  Strategy: HyperParameterTuningJobStrategyType | undefined;
+
+  /**
+   * <p>The date and time that the tuning job was created.</p>
+   * @public
+   */
+  CreationTime: Date | undefined;
+
+  /**
+   * <p>The date and time that the tuning job ended.</p>
+   * @public
+   */
+  HyperParameterTuningEndTime?: Date | undefined;
+
+  /**
+   * <p>The date and time that the tuning job was modified.</p>
+   * @public
+   */
+  LastModifiedTime?: Date | undefined;
+
+  /**
+   * <p>The <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_TrainingJobStatusCounters.html">TrainingJobStatusCounters</a> object that specifies the numbers of training jobs, categorized by status, that this tuning job launched.</p>
+   * @public
+   */
+  TrainingJobStatusCounters: TrainingJobStatusCounters | undefined;
+
+  /**
+   * <p>The <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ObjectiveStatusCounters.html">ObjectiveStatusCounters</a> object that specifies the numbers of training jobs, categorized by objective metric status, that this tuning job launched.</p>
+   * @public
+   */
+  ObjectiveStatusCounters: ObjectiveStatusCounters | undefined;
+
+  /**
+   * <p>The <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ResourceLimits.html">ResourceLimits</a> object that specifies the maximum number of training jobs and parallel training jobs allowed for this tuning job.</p>
+   * @public
+   */
+  ResourceLimits?: ResourceLimits | undefined;
+}
+
+/**
+ * <p>A SageMaker AI image. A SageMaker AI image represents a set of container images that are derived from a common base container image. Each of these container images is represented by a SageMaker AI <code>ImageVersion</code>.</p>
+ * @public
+ */
+export interface Image {
+  /**
+   * <p>When the image was created.</p>
+   * @public
+   */
+  CreationTime: Date | undefined;
+
+  /**
+   * <p>The description of the image.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>The name of the image as displayed.</p>
+   * @public
+   */
+  DisplayName?: string | undefined;
+
+  /**
+   * <p>When a create, update, or delete operation fails, the reason for the failure.</p>
+   * @public
+   */
+  FailureReason?: string | undefined;
+
+  /**
+   * <p>The ARN of the image.</p>
+   * @public
+   */
+  ImageArn: string | undefined;
+
+  /**
+   * <p>The name of the image.</p>
+   * @public
+   */
+  ImageName: string | undefined;
+
+  /**
+   * <p>The status of the image.</p>
+   * @public
+   */
+  ImageStatus: ImageStatus | undefined;
+
+  /**
+   * <p>When the image was last modified.</p>
+   * @public
+   */
+  LastModifiedTime: Date | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const ImageSortBy = {
+  CREATION_TIME: "CREATION_TIME",
+  IMAGE_NAME: "IMAGE_NAME",
+  LAST_MODIFIED_TIME: "LAST_MODIFIED_TIME",
+} as const;
+
+/**
+ * @public
+ */
+export type ImageSortBy = (typeof ImageSortBy)[keyof typeof ImageSortBy];
 
 /**
  * @public
@@ -8695,6 +8975,12 @@ export interface TrainingPlanSummary {
   InUseInstanceCount?: number | undefined;
 
   /**
+   * <p>The total number of UltraServers allocated to this training plan.</p>
+   * @public
+   */
+  TotalUltraServerCount?: number | undefined;
+
+  /**
    * <p>The target resources (e.g., training jobs, HyperPod clusters) that can use this training plan.</p> <p>Training plans are specific to their target resource.</p> <ul> <li> <p>A training plan designed for SageMaker training jobs can only be used to schedule and run training jobs.</p> </li> <li> <p>A training plan for HyperPod clusters can be used exclusively to provide compute resources to a cluster's instance group.</p> </li> </ul>
    * @public
    */
@@ -9144,6 +9430,133 @@ export interface ListTrialsResponse {
 
 /**
  * @public
+ */
+export interface ListUltraServersByReservedCapacityRequest {
+  /**
+   * <p>The ARN of the reserved capacity to list UltraServers for.</p>
+   * @public
+   */
+  ReservedCapacityArn: string | undefined;
+
+  /**
+   * <p>The maximum number of UltraServers to return in the response. The default value is 10.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>If the previous response was truncated, you receive this token. Use it in your next request to receive the next set of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const UltraServerHealthStatus = {
+  IMPAIRED: "Impaired",
+  INSUFFICIENT_DATA: "Insufficient-Data",
+  OK: "OK",
+} as const;
+
+/**
+ * @public
+ */
+export type UltraServerHealthStatus = (typeof UltraServerHealthStatus)[keyof typeof UltraServerHealthStatus];
+
+/**
+ * <p>Represents a high-performance compute server used for distributed training in SageMaker AI. An UltraServer consists of multiple instances within a shared NVLink interconnect domain.</p>
+ * @public
+ */
+export interface UltraServer {
+  /**
+   * <p>The unique identifier for the UltraServer.</p>
+   * @public
+   */
+  UltraServerId: string | undefined;
+
+  /**
+   * <p>The type of UltraServer, such as ml.u-p6e-gb200x72.</p>
+   * @public
+   */
+  UltraServerType: string | undefined;
+
+  /**
+   * <p>The name of the Availability Zone where the UltraServer is provisioned.</p>
+   * @public
+   */
+  AvailabilityZone: string | undefined;
+
+  /**
+   * <p>The Amazon EC2 instance type used in the UltraServer.</p>
+   * @public
+   */
+  InstanceType: ReservedCapacityInstanceType | undefined;
+
+  /**
+   * <p>The total number of instances in this UltraServer.</p>
+   * @public
+   */
+  TotalInstanceCount: number | undefined;
+
+  /**
+   * <p>The number of spare instances configured for this UltraServer to provide enhanced resiliency.</p>
+   * @public
+   */
+  ConfiguredSpareInstanceCount?: number | undefined;
+
+  /**
+   * <p>The number of instances currently available for use in this UltraServer.</p>
+   * @public
+   */
+  AvailableInstanceCount?: number | undefined;
+
+  /**
+   * <p>The number of instances currently in use in this UltraServer.</p>
+   * @public
+   */
+  InUseInstanceCount?: number | undefined;
+
+  /**
+   * <p>The number of available spare instances in the UltraServer.</p>
+   * @public
+   */
+  AvailableSpareInstanceCount?: number | undefined;
+
+  /**
+   * <p>The number of instances in this UltraServer that are currently in an unhealthy state.</p>
+   * @public
+   */
+  UnhealthyInstanceCount?: number | undefined;
+
+  /**
+   * <p>The overall health status of the UltraServer.</p>
+   * @public
+   */
+  HealthStatus?: UltraServerHealthStatus | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListUltraServersByReservedCapacityResponse {
+  /**
+   * <p>If the response is truncated, SageMaker returns this token. Use it in the next request to retrieve the next set of UltraServers.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>A list of UltraServers that are part of the specified reserved capacity.</p>
+   * @public
+   */
+  UltraServers: UltraServer[] | undefined;
+}
+
+/**
+ * @public
  * @enum
  */
 export const UserProfileSortKey = {
@@ -9316,805 +9729,3 @@ export interface ListWorkforcesResponse {
    */
   NextToken?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ListWorkteamsSortByOptions = {
-  CreateDate: "CreateDate",
-  Name: "Name",
-} as const;
-
-/**
- * @public
- */
-export type ListWorkteamsSortByOptions = (typeof ListWorkteamsSortByOptions)[keyof typeof ListWorkteamsSortByOptions];
-
-/**
- * @public
- */
-export interface ListWorkteamsRequest {
-  /**
-   * <p>The field to sort results by. The default is <code>CreationTime</code>.</p>
-   * @public
-   */
-  SortBy?: ListWorkteamsSortByOptions | undefined;
-
-  /**
-   * <p>The sort order for results. The default is <code>Ascending</code>.</p>
-   * @public
-   */
-  SortOrder?: SortOrder | undefined;
-
-  /**
-   * <p>A string in the work team's name. This filter returns only work teams whose name contains the specified string.</p>
-   * @public
-   */
-  NameContains?: string | undefined;
-
-  /**
-   * <p>If the result of the previous <code>ListWorkteams</code> request was truncated, the response includes a <code>NextToken</code>. To retrieve the next set of labeling jobs, use the token in the next request.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of work teams to return in each page of the response.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface ListWorkteamsResponse {
-  /**
-   * <p>An array of <code>Workteam</code> objects, each describing a work team.</p>
-   * @public
-   */
-  Workteams: Workteam[] | undefined;
-
-  /**
-   * <p>If the response is truncated, Amazon SageMaker returns this token. To retrieve the next set of work teams, use it in the subsequent request.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * <p>The properties of a model as returned by the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_Search.html">Search</a> API.</p>
- * @public
- */
-export interface Model {
-  /**
-   * <p>The name of the model.</p>
-   * @public
-   */
-  ModelName?: string | undefined;
-
-  /**
-   * <p>Describes the container, as part of model definition.</p>
-   * @public
-   */
-  PrimaryContainer?: ContainerDefinition | undefined;
-
-  /**
-   * <p>The containers in the inference pipeline.</p>
-   * @public
-   */
-  Containers?: ContainerDefinition[] | undefined;
-
-  /**
-   * <p>Specifies details about how containers in a multi-container endpoint are run.</p>
-   * @public
-   */
-  InferenceExecutionConfig?: InferenceExecutionConfig | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the IAM role that you specified for the model.</p>
-   * @public
-   */
-  ExecutionRoleArn?: string | undefined;
-
-  /**
-   * <p>Specifies an Amazon Virtual Private Cloud (VPC) that your SageMaker jobs, hosted models, and compute resources have access to. You can control access to and from your resources by configuring a VPC. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/infrastructure-give-access.html">Give SageMaker Access to Resources in your Amazon VPC</a>. </p>
-   * @public
-   */
-  VpcConfig?: VpcConfig | undefined;
-
-  /**
-   * <p>A timestamp that indicates when the model was created.</p>
-   * @public
-   */
-  CreationTime?: Date | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the model.</p>
-   * @public
-   */
-  ModelArn?: string | undefined;
-
-  /**
-   * <p>Isolates the model container. No inbound or outbound network calls can be made to or from the model container.</p>
-   * @public
-   */
-  EnableNetworkIsolation?: boolean | undefined;
-
-  /**
-   * <p>A list of key-value pairs associated with the model. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services resources</a> in the <i>Amazon Web Services General Reference Guide</i>.</p>
-   * @public
-   */
-  Tags?: Tag[] | undefined;
-
-  /**
-   * <p>A set of recommended deployment configurations for the model.</p>
-   * @public
-   */
-  DeploymentRecommendation?: DeploymentRecommendation | undefined;
-}
-
-/**
- * <p>An Amazon SageMaker Model Card.</p>
- * @public
- */
-export interface ModelCard {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the model card.</p>
-   * @public
-   */
-  ModelCardArn?: string | undefined;
-
-  /**
-   * <p>The unique name of the model card.</p>
-   * @public
-   */
-  ModelCardName?: string | undefined;
-
-  /**
-   * <p>The version of the model card.</p>
-   * @public
-   */
-  ModelCardVersion?: number | undefined;
-
-  /**
-   * <p>The content of the model card. Content uses the <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/model-cards.html#model-cards-json-schema">model card JSON schema</a> and provided as a string.</p>
-   * @public
-   */
-  Content?: string | undefined;
-
-  /**
-   * <p>The approval status of the model card within your organization. Different organizations might have different criteria for model card review and approval.</p> <ul> <li> <p> <code>Draft</code>: The model card is a work in progress.</p> </li> <li> <p> <code>PendingReview</code>: The model card is pending review.</p> </li> <li> <p> <code>Approved</code>: The model card is approved.</p> </li> <li> <p> <code>Archived</code>: The model card is archived. No more updates should be made to the model card, but it can still be exported.</p> </li> </ul>
-   * @public
-   */
-  ModelCardStatus?: ModelCardStatus | undefined;
-
-  /**
-   * <p>The security configuration used to protect model card data.</p>
-   * @public
-   */
-  SecurityConfig?: ModelCardSecurityConfig | undefined;
-
-  /**
-   * <p>The date and time that the model card was created.</p>
-   * @public
-   */
-  CreationTime?: Date | undefined;
-
-  /**
-   * <p>Information about the user who created or modified a SageMaker resource.</p>
-   * @public
-   */
-  CreatedBy?: UserContext | undefined;
-
-  /**
-   * <p>The date and time that the model card was last modified.</p>
-   * @public
-   */
-  LastModifiedTime?: Date | undefined;
-
-  /**
-   * <p>Information about the user who created or modified a SageMaker resource.</p>
-   * @public
-   */
-  LastModifiedBy?: UserContext | undefined;
-
-  /**
-   * <p>Key-value pairs used to manage metadata for the model card.</p>
-   * @public
-   */
-  Tags?: Tag[] | undefined;
-
-  /**
-   * <p>The unique name (ID) of the model.</p>
-   * @public
-   */
-  ModelId?: string | undefined;
-
-  /**
-   * <p>The risk rating of the model. Different organizations might have different criteria for model card risk ratings. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/model-cards-risk-rating.html">Risk ratings</a>.</p>
-   * @public
-   */
-  RiskRating?: string | undefined;
-
-  /**
-   * <p>The model package group that contains the model package. Only relevant for model cards created for model packages in the Amazon SageMaker Model Registry. </p>
-   * @public
-   */
-  ModelPackageGroupName?: string | undefined;
-}
-
-/**
- * <p>An endpoint that hosts a model displayed in the Amazon SageMaker Model Dashboard.</p>
- * @public
- */
-export interface ModelDashboardEndpoint {
-  /**
-   * <p>The endpoint name.</p>
-   * @public
-   */
-  EndpointName: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the endpoint.</p>
-   * @public
-   */
-  EndpointArn: string | undefined;
-
-  /**
-   * <p>A timestamp that indicates when the endpoint was created.</p>
-   * @public
-   */
-  CreationTime: Date | undefined;
-
-  /**
-   * <p>The last time the endpoint was modified.</p>
-   * @public
-   */
-  LastModifiedTime: Date | undefined;
-
-  /**
-   * <p>The endpoint status.</p>
-   * @public
-   */
-  EndpointStatus: EndpointStatus | undefined;
-}
-
-/**
- * <p>A batch transform job. For information about SageMaker batch transform, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/batch-transform.html">Use Batch Transform</a>.</p>
- * @public
- */
-export interface TransformJob {
-  /**
-   * <p>The name of the transform job.</p>
-   * @public
-   */
-  TransformJobName?: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the transform job.</p>
-   * @public
-   */
-  TransformJobArn?: string | undefined;
-
-  /**
-   * <p>The status of the transform job.</p> <p>Transform job statuses are:</p> <ul> <li> <p> <code>InProgress</code> - The job is in progress.</p> </li> <li> <p> <code>Completed</code> - The job has completed.</p> </li> <li> <p> <code>Failed</code> - The transform job has failed. To see the reason for the failure, see the <code>FailureReason</code> field in the response to a <code>DescribeTransformJob</code> call.</p> </li> <li> <p> <code>Stopping</code> - The transform job is stopping.</p> </li> <li> <p> <code>Stopped</code> - The transform job has stopped.</p> </li> </ul>
-   * @public
-   */
-  TransformJobStatus?: TransformJobStatus | undefined;
-
-  /**
-   * <p>If the transform job failed, the reason it failed.</p>
-   * @public
-   */
-  FailureReason?: string | undefined;
-
-  /**
-   * <p>The name of the model associated with the transform job.</p>
-   * @public
-   */
-  ModelName?: string | undefined;
-
-  /**
-   * <p>The maximum number of parallel requests that can be sent to each instance in a transform job. If <code>MaxConcurrentTransforms</code> is set to 0 or left unset, SageMaker checks the optional execution-parameters to determine the settings for your chosen algorithm. If the execution-parameters endpoint is not enabled, the default value is 1. For built-in algorithms, you don't need to set a value for <code>MaxConcurrentTransforms</code>.</p>
-   * @public
-   */
-  MaxConcurrentTransforms?: number | undefined;
-
-  /**
-   * <p>Configures the timeout and maximum number of retries for processing a transform job invocation.</p>
-   * @public
-   */
-  ModelClientConfig?: ModelClientConfig | undefined;
-
-  /**
-   * <p>The maximum allowed size of the payload, in MB. A payload is the data portion of a record (without metadata). The value in <code>MaxPayloadInMB</code> must be greater than, or equal to, the size of a single record. To estimate the size of a record in MB, divide the size of your dataset by the number of records. To ensure that the records fit within the maximum payload size, we recommend using a slightly larger value. The default value is 6 MB. For cases where the payload might be arbitrarily large and is transmitted using HTTP chunked encoding, set the value to 0. This feature works only in supported algorithms. Currently, SageMaker built-in algorithms do not support HTTP chunked encoding.</p>
-   * @public
-   */
-  MaxPayloadInMB?: number | undefined;
-
-  /**
-   * <p>Specifies the number of records to include in a mini-batch for an HTTP inference request. A record is a single unit of input data that inference can be made on. For example, a single line in a CSV file is a record.</p>
-   * @public
-   */
-  BatchStrategy?: BatchStrategy | undefined;
-
-  /**
-   * <p>The environment variables to set in the Docker container. We support up to 16 key and values entries in the map.</p>
-   * @public
-   */
-  Environment?: Record<string, string> | undefined;
-
-  /**
-   * <p>Describes the input source of a transform job and the way the transform job consumes it.</p>
-   * @public
-   */
-  TransformInput?: TransformInput | undefined;
-
-  /**
-   * <p>Describes the results of a transform job.</p>
-   * @public
-   */
-  TransformOutput?: TransformOutput | undefined;
-
-  /**
-   * <p>Configuration to control how SageMaker captures inference data for batch transform jobs.</p>
-   * @public
-   */
-  DataCaptureConfig?: BatchDataCaptureConfig | undefined;
-
-  /**
-   * <p>Describes the resources, including ML instance types and ML instance count, to use for transform job.</p>
-   * @public
-   */
-  TransformResources?: TransformResources | undefined;
-
-  /**
-   * <p>A timestamp that shows when the transform Job was created.</p>
-   * @public
-   */
-  CreationTime?: Date | undefined;
-
-  /**
-   * <p>Indicates when the transform job starts on ML instances. You are billed for the time interval between this time and the value of <code>TransformEndTime</code>.</p>
-   * @public
-   */
-  TransformStartTime?: Date | undefined;
-
-  /**
-   * <p>Indicates when the transform job has been completed, or has stopped or failed. You are billed for the time interval between this time and the value of <code>TransformStartTime</code>.</p>
-   * @public
-   */
-  TransformEndTime?: Date | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the labeling job that created the transform job.</p>
-   * @public
-   */
-  LabelingJobArn?: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the AutoML job that created the transform job.</p>
-   * @public
-   */
-  AutoMLJobArn?: string | undefined;
-
-  /**
-   * <p>The data structure used to specify the data to be used for inference in a batch transform job and to associate the data that is relevant to the prediction results in the output. The input filter provided allows you to exclude input data that is not needed for inference in a batch transform job. The output filter provided allows you to include input data relevant to interpreting the predictions in the output from the job. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/batch-transform-data-processing.html">Associate Prediction Results with their Corresponding Input Records</a>.</p>
-   * @public
-   */
-  DataProcessing?: DataProcessing | undefined;
-
-  /**
-   * <p>Associates a SageMaker job as a trial component with an experiment and trial. Specified when you call the following APIs:</p> <ul> <li> <p> <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateProcessingJob.html">CreateProcessingJob</a> </p> </li> <li> <p> <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateTrainingJob.html">CreateTrainingJob</a> </p> </li> <li> <p> <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateTransformJob.html">CreateTransformJob</a> </p> </li> </ul>
-   * @public
-   */
-  ExperimentConfig?: ExperimentConfig | undefined;
-
-  /**
-   * <p>A list of tags associated with the transform job.</p>
-   * @public
-   */
-  Tags?: Tag[] | undefined;
-}
-
-/**
- * <p>The model card for a model displayed in the Amazon SageMaker Model Dashboard.</p>
- * @public
- */
-export interface ModelDashboardModelCard {
-  /**
-   * <p>The Amazon Resource Name (ARN) for a model card.</p>
-   * @public
-   */
-  ModelCardArn?: string | undefined;
-
-  /**
-   * <p>The name of a model card.</p>
-   * @public
-   */
-  ModelCardName?: string | undefined;
-
-  /**
-   * <p>The model card version.</p>
-   * @public
-   */
-  ModelCardVersion?: number | undefined;
-
-  /**
-   * <p>The model card status.</p>
-   * @public
-   */
-  ModelCardStatus?: ModelCardStatus | undefined;
-
-  /**
-   * <p>The KMS Key ID (<code>KMSKeyId</code>) for encryption of model card information.</p>
-   * @public
-   */
-  SecurityConfig?: ModelCardSecurityConfig | undefined;
-
-  /**
-   * <p>A timestamp that indicates when the model card was created.</p>
-   * @public
-   */
-  CreationTime?: Date | undefined;
-
-  /**
-   * <p>Information about the user who created or modified a SageMaker resource.</p>
-   * @public
-   */
-  CreatedBy?: UserContext | undefined;
-
-  /**
-   * <p>A timestamp that indicates when the model card was last updated.</p>
-   * @public
-   */
-  LastModifiedTime?: Date | undefined;
-
-  /**
-   * <p>Information about the user who created or modified a SageMaker resource.</p>
-   * @public
-   */
-  LastModifiedBy?: UserContext | undefined;
-
-  /**
-   * <p>The tags associated with a model card.</p>
-   * @public
-   */
-  Tags?: Tag[] | undefined;
-
-  /**
-   * <p>For models created in SageMaker, this is the model ARN. For models created outside of SageMaker, this is a user-customized string.</p>
-   * @public
-   */
-  ModelId?: string | undefined;
-
-  /**
-   * <p>A model card's risk rating. Can be low, medium, or high.</p>
-   * @public
-   */
-  RiskRating?: string | undefined;
-}
-
-/**
- * <p>A monitoring schedule for a model displayed in the Amazon SageMaker Model Dashboard.</p>
- * @public
- */
-export interface ModelDashboardMonitoringSchedule {
-  /**
-   * <p>The Amazon Resource Name (ARN) of a monitoring schedule.</p>
-   * @public
-   */
-  MonitoringScheduleArn?: string | undefined;
-
-  /**
-   * <p>The name of a monitoring schedule.</p>
-   * @public
-   */
-  MonitoringScheduleName?: string | undefined;
-
-  /**
-   * <p>The status of the monitoring schedule.</p>
-   * @public
-   */
-  MonitoringScheduleStatus?: ScheduleStatus | undefined;
-
-  /**
-   * <p>The monitor type of a model monitor.</p>
-   * @public
-   */
-  MonitoringType?: MonitoringType | undefined;
-
-  /**
-   * <p>If a monitoring job failed, provides the reason.</p>
-   * @public
-   */
-  FailureReason?: string | undefined;
-
-  /**
-   * <p>A timestamp that indicates when the monitoring schedule was created.</p>
-   * @public
-   */
-  CreationTime?: Date | undefined;
-
-  /**
-   * <p>A timestamp that indicates when the monitoring schedule was last updated.</p>
-   * @public
-   */
-  LastModifiedTime?: Date | undefined;
-
-  /**
-   * <p>Configures the monitoring schedule and defines the monitoring job.</p>
-   * @public
-   */
-  MonitoringScheduleConfig?: MonitoringScheduleConfig | undefined;
-
-  /**
-   * <p>The endpoint which is monitored.</p>
-   * @public
-   */
-  EndpointName?: string | undefined;
-
-  /**
-   * <p>A JSON array where each element is a summary for a monitoring alert.</p>
-   * @public
-   */
-  MonitoringAlertSummaries?: MonitoringAlertSummary[] | undefined;
-
-  /**
-   * <p>Summary of information about the last monitoring job to run.</p>
-   * @public
-   */
-  LastMonitoringExecutionSummary?: MonitoringExecutionSummary | undefined;
-
-  /**
-   * <p>Input object for the batch transform job.</p>
-   * @public
-   */
-  BatchTransformInput?: BatchTransformInput | undefined;
-}
-
-/**
- * <p>A model displayed in the Amazon SageMaker Model Dashboard.</p>
- * @public
- */
-export interface ModelDashboardModel {
-  /**
-   * <p>A model displayed in the Model Dashboard.</p>
-   * @public
-   */
-  Model?: Model | undefined;
-
-  /**
-   * <p>The endpoints that host a model.</p>
-   * @public
-   */
-  Endpoints?: ModelDashboardEndpoint[] | undefined;
-
-  /**
-   * <p>A batch transform job. For information about SageMaker batch transform, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/batch-transform.html">Use Batch Transform</a>.</p>
-   * @public
-   */
-  LastBatchTransformJob?: TransformJob | undefined;
-
-  /**
-   * <p>The monitoring schedules for a model.</p>
-   * @public
-   */
-  MonitoringSchedules?: ModelDashboardMonitoringSchedule[] | undefined;
-
-  /**
-   * <p>The model card for a model.</p>
-   * @public
-   */
-  ModelCard?: ModelDashboardModelCard | undefined;
-}
-
-/**
- * <p>A container for your trained model that can be deployed for SageMaker inference. This can include inference code, artifacts, and metadata. The model package type can be one of the following.</p> <ul> <li> <p>Versioned model: A part of a model package group in Model Registry.</p> </li> <li> <p>Unversioned model: Not part of a model package group and used in Amazon Web Services Marketplace.</p> </li> </ul> <p>For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateModelPackage.html"> <code>CreateModelPackage</code> </a>.</p>
- * @public
- */
-export interface ModelPackage {
-  /**
-   * <p>The name of the model package. The name can be as follows:</p> <ul> <li> <p>For a versioned model, the name is automatically generated by SageMaker Model Registry and follows the format '<code>ModelPackageGroupName/ModelPackageVersion</code>'.</p> </li> <li> <p>For an unversioned model, you must provide the name.</p> </li> </ul>
-   * @public
-   */
-  ModelPackageName?: string | undefined;
-
-  /**
-   * <p>The model group to which the model belongs.</p>
-   * @public
-   */
-  ModelPackageGroupName?: string | undefined;
-
-  /**
-   * <p>The version number of a versioned model.</p>
-   * @public
-   */
-  ModelPackageVersion?: number | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the model package.</p>
-   * @public
-   */
-  ModelPackageArn?: string | undefined;
-
-  /**
-   * <p>The description of the model package.</p>
-   * @public
-   */
-  ModelPackageDescription?: string | undefined;
-
-  /**
-   * <p>The time that the model package was created.</p>
-   * @public
-   */
-  CreationTime?: Date | undefined;
-
-  /**
-   * <p>Defines how to perform inference generation after a training job is run.</p>
-   * @public
-   */
-  InferenceSpecification?: InferenceSpecification | undefined;
-
-  /**
-   * <p>A list of algorithms that were used to create a model package.</p>
-   * @public
-   */
-  SourceAlgorithmSpecification?: SourceAlgorithmSpecification | undefined;
-
-  /**
-   * <p>Specifies batch transform jobs that SageMaker runs to validate your model package.</p>
-   * @public
-   */
-  ValidationSpecification?: ModelPackageValidationSpecification | undefined;
-
-  /**
-   * <p>The status of the model package. This can be one of the following values.</p> <ul> <li> <p> <code>PENDING</code> - The model package is pending being created.</p> </li> <li> <p> <code>IN_PROGRESS</code> - The model package is in the process of being created.</p> </li> <li> <p> <code>COMPLETED</code> - The model package was successfully created.</p> </li> <li> <p> <code>FAILED</code> - The model package failed.</p> </li> <li> <p> <code>DELETING</code> - The model package is in the process of being deleted.</p> </li> </ul>
-   * @public
-   */
-  ModelPackageStatus?: ModelPackageStatus | undefined;
-
-  /**
-   * <p>Specifies the validation and image scan statuses of the model package.</p>
-   * @public
-   */
-  ModelPackageStatusDetails?: ModelPackageStatusDetails | undefined;
-
-  /**
-   * <p>Whether the model package is to be certified to be listed on Amazon Web Services Marketplace. For information about listing model packages on Amazon Web Services Marketplace, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-mkt-list.html">List Your Algorithm or Model Package on Amazon Web Services Marketplace</a>.</p>
-   * @public
-   */
-  CertifyForMarketplace?: boolean | undefined;
-
-  /**
-   * <p>The approval status of the model. This can be one of the following values.</p> <ul> <li> <p> <code>APPROVED</code> - The model is approved</p> </li> <li> <p> <code>REJECTED</code> - The model is rejected.</p> </li> <li> <p> <code>PENDING_MANUAL_APPROVAL</code> - The model is waiting for manual approval.</p> </li> </ul>
-   * @public
-   */
-  ModelApprovalStatus?: ModelApprovalStatus | undefined;
-
-  /**
-   * <p>Information about the user who created or modified an experiment, trial, trial component, lineage group, or project.</p>
-   * @public
-   */
-  CreatedBy?: UserContext | undefined;
-
-  /**
-   * <p>Metadata properties of the tracking entity, trial, or trial component.</p>
-   * @public
-   */
-  MetadataProperties?: MetadataProperties | undefined;
-
-  /**
-   * <p>Metrics for the model.</p>
-   * @public
-   */
-  ModelMetrics?: ModelMetrics | undefined;
-
-  /**
-   * <p>The last time the model package was modified.</p>
-   * @public
-   */
-  LastModifiedTime?: Date | undefined;
-
-  /**
-   * <p>Information about the user who created or modified an experiment, trial, trial component, lineage group, or project.</p>
-   * @public
-   */
-  LastModifiedBy?: UserContext | undefined;
-
-  /**
-   * <p>A description provided when the model approval is set.</p>
-   * @public
-   */
-  ApprovalDescription?: string | undefined;
-
-  /**
-   * <p>The machine learning domain of your model package and its components. Common machine learning domains include computer vision and natural language processing.</p>
-   * @public
-   */
-  Domain?: string | undefined;
-
-  /**
-   * <p>The machine learning task your model package accomplishes. Common machine learning tasks include object detection and image classification.</p>
-   * @public
-   */
-  Task?: string | undefined;
-
-  /**
-   * <p>The Amazon Simple Storage Service path where the sample payload are stored. This path must point to a single gzip compressed tar archive (.tar.gz suffix).</p>
-   * @public
-   */
-  SamplePayloadUrl?: string | undefined;
-
-  /**
-   * <p>An array of additional Inference Specification objects.</p>
-   * @public
-   */
-  AdditionalInferenceSpecifications?: AdditionalInferenceSpecificationDefinition[] | undefined;
-
-  /**
-   * <p>The URI of the source for the model package.</p>
-   * @public
-   */
-  SourceUri?: string | undefined;
-
-  /**
-   * <p>An optional Key Management Service key to encrypt, decrypt, and re-encrypt model package information for regulated workloads with highly sensitive data.</p>
-   * @public
-   */
-  SecurityConfig?: ModelPackageSecurityConfig | undefined;
-
-  /**
-   * <p>The model card associated with the model package. Since <code>ModelPackageModelCard</code> is tied to a model package, it is a specific usage of a model card and its schema is simplified compared to the schema of <code>ModelCard</code>. The <code>ModelPackageModelCard</code> schema does not include <code>model_package_details</code>, and <code>model_overview</code> is composed of the <code>model_creator</code> and <code>model_artifact</code> properties. For more information about the model package model card schema, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/model-registry-details.html#model-card-schema">Model package model card schema</a>. For more information about the model card associated with the model package, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/model-registry-details.html">View the Details of a Model Version</a>.</p>
-   * @public
-   */
-  ModelCard?: ModelPackageModelCard | undefined;
-
-  /**
-   * <p> A structure describing the current state of the model in its life cycle. </p>
-   * @public
-   */
-  ModelLifeCycle?: ModelLifeCycle | undefined;
-
-  /**
-   * <p>A list of the tags associated with the model package. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services resources</a> in the <i>Amazon Web Services General Reference Guide</i>.</p>
-   * @public
-   */
-  Tags?: Tag[] | undefined;
-
-  /**
-   * <p>The metadata properties for the model package. </p>
-   * @public
-   */
-  CustomerMetadataProperties?: Record<string, string> | undefined;
-
-  /**
-   * <p>Represents the drift check baselines that can be used when the model monitor is set using the model package.</p>
-   * @public
-   */
-  DriftCheckBaselines?: DriftCheckBaselines | undefined;
-
-  /**
-   * <p>Indicates if you want to skip model validation.</p>
-   * @public
-   */
-  SkipModelValidation?: SkipModelValidation | undefined;
-}
-
-/**
- * @internal
- */
-export const ModelCardFilterSensitiveLog = (obj: ModelCard): any => ({
-  ...obj,
-  ...(obj.Content && { Content: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const ModelPackageFilterSensitiveLog = (obj: ModelPackage): any => ({
-  ...obj,
-  ...(obj.ModelCard && { ModelCard: ModelPackageModelCardFilterSensitiveLog(obj.ModelCard) }),
-});

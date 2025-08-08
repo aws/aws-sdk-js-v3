@@ -38,6 +38,7 @@ export interface CreateTrainingPlanCommandOutput extends CreateTrainingPlanRespo
  * const input = { // CreateTrainingPlanRequest
  *   TrainingPlanName: "STRING_VALUE", // required
  *   TrainingPlanOfferingId: "STRING_VALUE", // required
+ *   SpareInstanceCountPerUltraServer: Number("int"),
  *   Tags: [ // TagList
  *     { // Tag
  *       Key: "STRING_VALUE", // required

@@ -62,6 +62,9 @@ export interface ListClusterNodesCommandOutput extends ListClusterNodesResponse,
  * //         Status: "Running" || "Failure" || "Pending" || "ShuttingDown" || "SystemUpdating" || "DeepHealthCheckInProgress" || "NotFound", // required
  * //         Message: "STRING_VALUE",
  * //       },
+ * //       UltraServerInfo: { // UltraServerInfo
+ * //         Id: "STRING_VALUE",
+ * //       },
  * //     },
  * //   ],
  * // };

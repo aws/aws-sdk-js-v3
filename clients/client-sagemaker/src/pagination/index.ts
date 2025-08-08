@@ -78,6 +78,7 @@ export * from "./ListTrainingPlansPaginator";
 export * from "./ListTransformJobsPaginator";
 export * from "./ListTrialComponentsPaginator";
 export * from "./ListTrialsPaginator";
+export * from "./ListUltraServersByReservedCapacityPaginator";
 export * from "./ListUserProfilesPaginator";
 export * from "./ListWorkforcesPaginator";
 export * from "./ListWorkteamsPaginator";

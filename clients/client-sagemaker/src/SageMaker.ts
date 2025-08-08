@@ -869,6 +869,11 @@ import {
   DescribeProjectCommandOutput,
 } from "./commands/DescribeProjectCommand";
 import {
+  DescribeReservedCapacityCommand,
+  DescribeReservedCapacityCommandInput,
+  DescribeReservedCapacityCommandOutput,
+} from "./commands/DescribeReservedCapacityCommand";
+import {
   DescribeSpaceCommand,
   DescribeSpaceCommandInput,
   DescribeSpaceCommandOutput,
@@ -1334,6 +1339,11 @@ import {
   ListTrialComponentsCommandOutput,
 } from "./commands/ListTrialComponentsCommand";
 import { ListTrialsCommand, ListTrialsCommandInput, ListTrialsCommandOutput } from "./commands/ListTrialsCommand";
+import {
+  ListUltraServersByReservedCapacityCommand,
+  ListUltraServersByReservedCapacityCommandInput,
+  ListUltraServersByReservedCapacityCommandOutput,
+} from "./commands/ListUltraServersByReservedCapacityCommand";
 import {
   ListUserProfilesCommand,
   ListUserProfilesCommandInput,
@@ -1898,6 +1908,7 @@ const commands = {
   DescribePipelineExecutionCommand,
   DescribeProcessingJobCommand,
   DescribeProjectCommand,
+  DescribeReservedCapacityCommand,
   DescribeSpaceCommand,
   DescribeStudioLifecycleConfigCommand,
   DescribeSubscribedWorkteamCommand,
@@ -2000,6 +2011,7 @@ const commands = {
   ListTransformJobsCommand,
   ListTrialComponentsCommand,
   ListTrialsCommand,
+  ListUltraServersByReservedCapacityCommand,
   ListUserProfilesCommand,
   ListWorkforcesCommand,
   ListWorkteamsCommand,
@@ -5013,6 +5025,23 @@ export interface SageMaker {
   ): void;
 
   /**
+   * @see {@link DescribeReservedCapacityCommand}
+   */
+  describeReservedCapacity(
+    args: DescribeReservedCapacityCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeReservedCapacityCommandOutput>;
+  describeReservedCapacity(
+    args: DescribeReservedCapacityCommandInput,
+    cb: (err: any, data?: DescribeReservedCapacityCommandOutput) => void
+  ): void;
+  describeReservedCapacity(
+    args: DescribeReservedCapacityCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeReservedCapacityCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DescribeSpaceCommand}
    */
   describeSpace(args: DescribeSpaceCommandInput, options?: __HttpHandlerOptions): Promise<DescribeSpaceCommandOutput>;
@@ -6677,6 +6706,23 @@ export interface SageMaker {
     args: ListTrialsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListTrialsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListUltraServersByReservedCapacityCommand}
+   */
+  listUltraServersByReservedCapacity(
+    args: ListUltraServersByReservedCapacityCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListUltraServersByReservedCapacityCommandOutput>;
+  listUltraServersByReservedCapacity(
+    args: ListUltraServersByReservedCapacityCommandInput,
+    cb: (err: any, data?: ListUltraServersByReservedCapacityCommandOutput) => void
+  ): void;
+  listUltraServersByReservedCapacity(
+    args: ListUltraServersByReservedCapacityCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListUltraServersByReservedCapacityCommandOutput) => void
   ): void;
 
   /**

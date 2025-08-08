@@ -5,8 +5,7 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { CreateModelBiasJobDefinitionRequest } from "../models/models_1";
-import { CreateModelBiasJobDefinitionResponse } from "../models/models_2";
+import { CreateModelBiasJobDefinitionRequest, CreateModelBiasJobDefinitionResponse } from "../models/models_2";
 import {
   de_CreateModelBiasJobDefinitionCommand,
   se_CreateModelBiasJobDefinitionCommand,

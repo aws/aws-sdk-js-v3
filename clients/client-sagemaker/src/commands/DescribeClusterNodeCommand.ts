@@ -83,6 +83,9 @@ export interface DescribeClusterNodeCommandOutput extends DescribeClusterNodeRes
  * //     },
  * //     CurrentImageId: "STRING_VALUE",
  * //     DesiredImageId: "STRING_VALUE",
+ * //     UltraServerInfo: { // UltraServerInfo
+ * //       Id: "STRING_VALUE",
+ * //     },
  * //   },
  * // };
  *

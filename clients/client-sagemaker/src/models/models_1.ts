@@ -57,7 +57,6 @@ import {
   ClusterNodeRecovery,
   ClusterOrchestrator,
   ClusterRestrictedInstanceGroupSpecification,
-  ClusterStatus,
   CodeEditorAppImageConfig,
   FeatureStatus,
   InferenceSpecification,
@@ -81,6 +80,93 @@ import {
 } from "./models_0";
 
 import { SageMakerServiceException as __BaseException } from "./SageMakerServiceException";
+
+/**
+ * <p>Summary of the cluster policy.</p>
+ * @public
+ */
+export interface ClusterSchedulerConfigSummary {
+  /**
+   * <p>ARN of the cluster policy.</p>
+   * @public
+   */
+  ClusterSchedulerConfigArn: string | undefined;
+
+  /**
+   * <p>ID of the cluster policy.</p>
+   * @public
+   */
+  ClusterSchedulerConfigId: string | undefined;
+
+  /**
+   * <p>Version of the cluster policy.</p>
+   * @public
+   */
+  ClusterSchedulerConfigVersion?: number | undefined;
+
+  /**
+   * <p>Name of the cluster policy.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>Creation time of the cluster policy.</p>
+   * @public
+   */
+  CreationTime: Date | undefined;
+
+  /**
+   * <p>Last modified time of the cluster policy.</p>
+   * @public
+   */
+  LastModifiedTime?: Date | undefined;
+
+  /**
+   * <p>Status of the cluster policy.</p>
+   * @public
+   */
+  Status: SchedulerResourceStatus | undefined;
+
+  /**
+   * <p>ARN of the cluster.</p>
+   * @public
+   */
+  ClusterArn?: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const ClusterSortBy = {
+  CREATION_TIME: "CREATION_TIME",
+  NAME: "NAME",
+} as const;
+
+/**
+ * @public
+ */
+export type ClusterSortBy = (typeof ClusterSortBy)[keyof typeof ClusterSortBy];
+
+/**
+ * @public
+ * @enum
+ */
+export const ClusterStatus = {
+  CREATING: "Creating",
+  DELETING: "Deleting",
+  FAILED: "Failed",
+  INSERVICE: "InService",
+  ROLLINGBACK: "RollingBack",
+  SYSTEMUPDATING: "SystemUpdating",
+  UPDATING: "Updating",
+} as const;
+
+/**
+ * @public
+ */
+export type ClusterStatus = (typeof ClusterStatus)[keyof typeof ClusterStatus];
 
 /**
  * <p>Lists a summary of the properties of a SageMaker HyperPod cluster.</p>
@@ -1889,7 +1975,7 @@ export interface CreateClusterRequest {
   Tags?: Tag[] | undefined;
 
   /**
-   * <p>The type of orchestrator to use for the SageMaker HyperPod cluster. Currently, the only supported value is <code>"eks"</code>, which is to use an Amazon Elastic Kubernetes Service (EKS) cluster as the orchestrator.</p>
+   * <p>The type of orchestrator to use for the SageMaker HyperPod cluster. Currently, the only supported value is <code>"eks"</code>, which is to use an Amazon Elastic Kubernetes Service cluster as the orchestrator.</p>
    * @public
    */
   Orchestrator?: ClusterOrchestrator | undefined;
@@ -7893,105 +7979,4 @@ export interface ModelBiasBaselineConfig {
    * @public
    */
   ConstraintsResource?: MonitoringConstraintsResource | undefined;
-}
-
-/**
- * <p>The ground truth labels for the dataset used for the monitoring job.</p>
- * @public
- */
-export interface MonitoringGroundTruthS3Input {
-  /**
-   * <p>The address of the Amazon S3 location of the ground truth labels.</p>
-   * @public
-   */
-  S3Uri?: string | undefined;
-}
-
-/**
- * <p>Inputs for the model bias job.</p>
- * @public
- */
-export interface ModelBiasJobInput {
-  /**
-   * <p>Input object for the endpoint</p>
-   * @public
-   */
-  EndpointInput?: EndpointInput | undefined;
-
-  /**
-   * <p>Input object for the batch transform job.</p>
-   * @public
-   */
-  BatchTransformInput?: BatchTransformInput | undefined;
-
-  /**
-   * <p>Location of ground truth labels to use in model bias job.</p>
-   * @public
-   */
-  GroundTruthS3Input: MonitoringGroundTruthS3Input | undefined;
-}
-
-/**
- * @public
- */
-export interface CreateModelBiasJobDefinitionRequest {
-  /**
-   * <p>The name of the bias job definition. The name must be unique within an Amazon Web Services Region in the Amazon Web Services account.</p>
-   * @public
-   */
-  JobDefinitionName: string | undefined;
-
-  /**
-   * <p>The baseline configuration for a model bias job.</p>
-   * @public
-   */
-  ModelBiasBaselineConfig?: ModelBiasBaselineConfig | undefined;
-
-  /**
-   * <p>Configures the model bias job to run a specified Docker container image.</p>
-   * @public
-   */
-  ModelBiasAppSpecification: ModelBiasAppSpecification | undefined;
-
-  /**
-   * <p>Inputs for the model bias job.</p>
-   * @public
-   */
-  ModelBiasJobInput: ModelBiasJobInput | undefined;
-
-  /**
-   * <p>The output configuration for monitoring jobs.</p>
-   * @public
-   */
-  ModelBiasJobOutputConfig: MonitoringOutputConfig | undefined;
-
-  /**
-   * <p>Identifies the resources to deploy for a monitoring job.</p>
-   * @public
-   */
-  JobResources: MonitoringResources | undefined;
-
-  /**
-   * <p>Networking options for a model bias job.</p>
-   * @public
-   */
-  NetworkConfig?: MonitoringNetworkConfig | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker AI can assume to perform tasks on your behalf.</p>
-   * @public
-   */
-  RoleArn: string | undefined;
-
-  /**
-   * <p>A time limit for how long the monitoring job is allowed to run before stopping.</p>
-   * @public
-   */
-  StoppingCondition?: MonitoringStoppingCondition | undefined;
-
-  /**
-   * <p>(Optional) An array of key-value pairs. For more information, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-whatURL"> Using Cost Allocation Tags</a> in the <i>Amazon Web Services Billing and Cost Management User Guide</i>.</p>
-   * @public
-   */
-  Tags?: Tag[] | undefined;
 }

@@ -68,13 +68,17 @@ export interface ListTrainingPlansCommandOutput extends ListTrainingPlansRespons
  * //       TotalInstanceCount: Number("int"),
  * //       AvailableInstanceCount: Number("int"),
  * //       InUseInstanceCount: Number("int"),
+ * //       TotalUltraServerCount: Number("int"),
  * //       TargetResources: [ // SageMakerResourceNames
  * //         "training-job" || "hyperpod-cluster",
  * //       ],
  * //       ReservedCapacitySummaries: [ // ReservedCapacitySummaries
  * //         { // ReservedCapacitySummary
  * //           ReservedCapacityArn: "STRING_VALUE", // required
- * //           InstanceType: "ml.p4d.24xlarge" || "ml.p5.48xlarge" || "ml.p5e.48xlarge" || "ml.p5en.48xlarge" || "ml.trn1.32xlarge" || "ml.trn2.48xlarge" || "ml.p6-b200.48xlarge" || "ml.p4de.24xlarge", // required
+ * //           ReservedCapacityType: "UltraServer" || "Instance",
+ * //           UltraServerType: "STRING_VALUE",
+ * //           UltraServerCount: Number("int"),
+ * //           InstanceType: "ml.p4d.24xlarge" || "ml.p5.48xlarge" || "ml.p5e.48xlarge" || "ml.p5en.48xlarge" || "ml.trn1.32xlarge" || "ml.trn2.48xlarge" || "ml.p6-b200.48xlarge" || "ml.p4de.24xlarge" || "ml.p6e-gb200.36xlarge", // required
  * //           TotalInstanceCount: Number("int"), // required
  * //           Status: "Pending" || "Active" || "Scheduled" || "Expired" || "Failed", // required
  * //           AvailabilityZone: "STRING_VALUE",

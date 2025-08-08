@@ -542,6 +542,10 @@ import {
   DescribeProcessingJobCommandOutput,
 } from "./commands/DescribeProcessingJobCommand";
 import { DescribeProjectCommandInput, DescribeProjectCommandOutput } from "./commands/DescribeProjectCommand";
+import {
+  DescribeReservedCapacityCommandInput,
+  DescribeReservedCapacityCommandOutput,
+} from "./commands/DescribeReservedCapacityCommand";
 import { DescribeSpaceCommandInput, DescribeSpaceCommandOutput } from "./commands/DescribeSpaceCommand";
 import {
   DescribeStudioLifecycleConfigCommandInput,
@@ -815,6 +819,10 @@ import {
   ListTrialComponentsCommandOutput,
 } from "./commands/ListTrialComponentsCommand";
 import { ListTrialsCommandInput, ListTrialsCommandOutput } from "./commands/ListTrialsCommand";
+import {
+  ListUltraServersByReservedCapacityCommandInput,
+  ListUltraServersByReservedCapacityCommandOutput,
+} from "./commands/ListUltraServersByReservedCapacityCommand";
 import { ListUserProfilesCommandInput, ListUserProfilesCommandOutput } from "./commands/ListUserProfilesCommand";
 import { ListWorkforcesCommandInput, ListWorkforcesCommandOutput } from "./commands/ListWorkforcesCommand";
 import { ListWorkteamsCommandInput, ListWorkteamsCommandOutput } from "./commands/ListWorkteamsCommand";
@@ -1212,6 +1220,7 @@ export type ServiceInputTypes =
   | DescribePipelineExecutionCommandInput
   | DescribeProcessingJobCommandInput
   | DescribeProjectCommandInput
+  | DescribeReservedCapacityCommandInput
   | DescribeSpaceCommandInput
   | DescribeStudioLifecycleConfigCommandInput
   | DescribeSubscribedWorkteamCommandInput
@@ -1314,6 +1323,7 @@ export type ServiceInputTypes =
   | ListTransformJobsCommandInput
   | ListTrialComponentsCommandInput
   | ListTrialsCommandInput
+  | ListUltraServersByReservedCapacityCommandInput
   | ListUserProfilesCommandInput
   | ListWorkforcesCommandInput
   | ListWorkteamsCommandInput
@@ -1584,6 +1594,7 @@ export type ServiceOutputTypes =
   | DescribePipelineExecutionCommandOutput
   | DescribeProcessingJobCommandOutput
   | DescribeProjectCommandOutput
+  | DescribeReservedCapacityCommandOutput
   | DescribeSpaceCommandOutput
   | DescribeStudioLifecycleConfigCommandOutput
   | DescribeSubscribedWorkteamCommandOutput
@@ -1686,6 +1697,7 @@ export type ServiceOutputTypes =
   | ListTransformJobsCommandOutput
   | ListTrialComponentsCommandOutput
   | ListTrialsCommandOutput
+  | ListUltraServersByReservedCapacityCommandOutput
   | ListUserProfilesCommandOutput
   | ListWorkforcesCommandOutput
   | ListWorkteamsCommandOutput

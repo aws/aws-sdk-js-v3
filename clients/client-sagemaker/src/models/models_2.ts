@@ -4,7 +4,6 @@ import { SENSITIVE_STRING } from "@smithy/smithy-client";
 import {
   ActionSource,
   ActionStatus,
-  ActivationState,
   AdditionalInferenceSpecificationDefinition,
   AlgorithmSpecification,
   AlgorithmStatus,
@@ -47,7 +46,6 @@ import {
   ClusterNodeRecovery,
   ClusterOrchestrator,
   ClusterRestrictedInstanceGroupDetails,
-  ClusterStatus,
   CodeEditorAppImageConfig,
   FeatureStatus,
   InferenceSpecification,
@@ -76,13 +74,12 @@ import {
 
 import {
   _InstanceType,
+  ClusterStatus,
   CodeRepository,
   CognitoConfig,
   CognitoMemberDefinition,
   CollectionConfiguration,
   CompilationJobStatus,
-  ComputeQuotaConfig,
-  ComputeQuotaTarget,
   DeviceSelectionConfig,
   EdgeDeploymentConfig,
   EndpointInput,
@@ -92,9 +89,10 @@ import {
   JupyterServerAppSettings,
   KernelGatewayAppSettings,
   MetadataProperties,
+  ModelBiasAppSpecification,
+  ModelBiasBaselineConfig,
   ModelDeployConfig,
   MonitoringConstraintsResource,
-  MonitoringGroundTruthS3Input,
   MonitoringNetworkConfig,
   MonitoringOutputConfig,
   MonitoringResources,
@@ -109,6 +107,107 @@ import {
   TrainingSpecification,
   UserSettings,
 } from "./models_1";
+
+/**
+ * <p>The ground truth labels for the dataset used for the monitoring job.</p>
+ * @public
+ */
+export interface MonitoringGroundTruthS3Input {
+  /**
+   * <p>The address of the Amazon S3 location of the ground truth labels.</p>
+   * @public
+   */
+  S3Uri?: string | undefined;
+}
+
+/**
+ * <p>Inputs for the model bias job.</p>
+ * @public
+ */
+export interface ModelBiasJobInput {
+  /**
+   * <p>Input object for the endpoint</p>
+   * @public
+   */
+  EndpointInput?: EndpointInput | undefined;
+
+  /**
+   * <p>Input object for the batch transform job.</p>
+   * @public
+   */
+  BatchTransformInput?: BatchTransformInput | undefined;
+
+  /**
+   * <p>Location of ground truth labels to use in model bias job.</p>
+   * @public
+   */
+  GroundTruthS3Input: MonitoringGroundTruthS3Input | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateModelBiasJobDefinitionRequest {
+  /**
+   * <p>The name of the bias job definition. The name must be unique within an Amazon Web Services Region in the Amazon Web Services account.</p>
+   * @public
+   */
+  JobDefinitionName: string | undefined;
+
+  /**
+   * <p>The baseline configuration for a model bias job.</p>
+   * @public
+   */
+  ModelBiasBaselineConfig?: ModelBiasBaselineConfig | undefined;
+
+  /**
+   * <p>Configures the model bias job to run a specified Docker container image.</p>
+   * @public
+   */
+  ModelBiasAppSpecification: ModelBiasAppSpecification | undefined;
+
+  /**
+   * <p>Inputs for the model bias job.</p>
+   * @public
+   */
+  ModelBiasJobInput: ModelBiasJobInput | undefined;
+
+  /**
+   * <p>The output configuration for monitoring jobs.</p>
+   * @public
+   */
+  ModelBiasJobOutputConfig: MonitoringOutputConfig | undefined;
+
+  /**
+   * <p>Identifies the resources to deploy for a monitoring job.</p>
+   * @public
+   */
+  JobResources: MonitoringResources | undefined;
+
+  /**
+   * <p>Networking options for a model bias job.</p>
+   * @public
+   */
+  NetworkConfig?: MonitoringNetworkConfig | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker AI can assume to perform tasks on your behalf.</p>
+   * @public
+   */
+  RoleArn: string | undefined;
+
+  /**
+   * <p>A time limit for how long the monitoring job is allowed to run before stopping.</p>
+   * @public
+   */
+  StoppingCondition?: MonitoringStoppingCondition | undefined;
+
+  /**
+   * <p>(Optional) An array of key-value pairs. For more information, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-whatURL"> Using Cost Allocation Tags</a> in the <i>Amazon Web Services Billing and Cost Management User Guide</i>.</p>
+   * @public
+   */
+  Tags?: Tag[] | undefined;
+}
 
 /**
  * @public
@@ -3743,6 +3842,12 @@ export interface CreateTrainingPlanRequest {
   TrainingPlanOfferingId: string | undefined;
 
   /**
+   * <p>Number of spare instances to reserve per UltraServer for enhanced resiliency. Default is 1.</p>
+   * @public
+   */
+  SpareInstanceCountPerUltraServer?: number | undefined;
+
+  /**
    * <p>An array of key-value pairs to apply to this training plan.</p>
    * @public
    */
@@ -7015,129 +7120,6 @@ export interface DescribeCompilationJobResponse {
    * @public
    */
   DerivedInformation?: DerivedInformation | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeComputeQuotaRequest {
-  /**
-   * <p>ID of the compute allocation definition.</p>
-   * @public
-   */
-  ComputeQuotaId: string | undefined;
-
-  /**
-   * <p>Version of the compute allocation definition.</p>
-   * @public
-   */
-  ComputeQuotaVersion?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeComputeQuotaResponse {
-  /**
-   * <p>ARN of the compute allocation definition.</p>
-   * @public
-   */
-  ComputeQuotaArn: string | undefined;
-
-  /**
-   * <p>ID of the compute allocation definition.</p>
-   * @public
-   */
-  ComputeQuotaId: string | undefined;
-
-  /**
-   * <p>Name of the compute allocation definition.</p>
-   * @public
-   */
-  Name: string | undefined;
-
-  /**
-   * <p>Description of the compute allocation definition.</p>
-   * @public
-   */
-  Description?: string | undefined;
-
-  /**
-   * <p>Version of the compute allocation definition.</p>
-   * @public
-   */
-  ComputeQuotaVersion: number | undefined;
-
-  /**
-   * <p>Status of the compute allocation definition.</p>
-   * @public
-   */
-  Status: SchedulerResourceStatus | undefined;
-
-  /**
-   * <p>Failure reason of the compute allocation definition.</p>
-   * @public
-   */
-  FailureReason?: string | undefined;
-
-  /**
-   * <p>ARN of the cluster.</p>
-   * @public
-   */
-  ClusterArn?: string | undefined;
-
-  /**
-   * <p>Configuration of the compute allocation definition. This includes the resource sharing option, and the setting to preempt low priority tasks.</p>
-   * @public
-   */
-  ComputeQuotaConfig?: ComputeQuotaConfig | undefined;
-
-  /**
-   * <p>The target entity to allocate compute resources to.</p>
-   * @public
-   */
-  ComputeQuotaTarget: ComputeQuotaTarget | undefined;
-
-  /**
-   * <p>The state of the compute allocation being described. Use to enable or disable compute allocation.</p> <p>Default is <code>Enabled</code>.</p>
-   * @public
-   */
-  ActivationState?: ActivationState | undefined;
-
-  /**
-   * <p>Creation time of the compute allocation configuration.</p>
-   * @public
-   */
-  CreationTime: Date | undefined;
-
-  /**
-   * <p>Information about the user who created or modified a SageMaker resource.</p>
-   * @public
-   */
-  CreatedBy?: UserContext | undefined;
-
-  /**
-   * <p>Last modified time of the compute allocation configuration.</p>
-   * @public
-   */
-  LastModifiedTime?: Date | undefined;
-
-  /**
-   * <p>Information about the user who created or modified a SageMaker resource.</p>
-   * @public
-   */
-  LastModifiedBy?: UserContext | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeContextRequest {
-  /**
-   * <p>The name of the context to describe.</p>
-   * @public
-   */
-  ContextName: string | undefined;
 }
 
 /**

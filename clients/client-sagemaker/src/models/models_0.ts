@@ -1713,6 +1713,7 @@ export const TrainingInstanceType = {
   ML_P5EN_48XLARGE: "ml.p5en.48xlarge",
   ML_P5E_48XLARGE: "ml.p5e.48xlarge",
   ML_P5_48XLARGE: "ml.p5.48xlarge",
+  ML_P6E_GB200_36XLARGE: "ml.p6e-gb200.36xlarge",
   ML_P6_B200_48XLARGE: "ml.p6-b200.48xlarge",
   ML_R5D_12XLARGE: "ml.r5d.12xlarge",
   ML_R5D_16XLARGE: "ml.r5d.16xlarge",
@@ -1779,6 +1780,42 @@ export interface InstanceGroup {
 }
 
 /**
+ * <p>Specifies how instances should be placed on a specific UltraServer.</p>
+ * @public
+ */
+export interface PlacementSpecification {
+  /**
+   * <p>The unique identifier of the UltraServer where instances should be placed.</p>
+   * @public
+   */
+  UltraServerId?: string | undefined;
+
+  /**
+   * <p>The number of ML compute instances required to be placed together on the same UltraServer. Minimum value of 1.</p>
+   * @public
+   */
+  InstanceCount: number | undefined;
+}
+
+/**
+ * <p>Configuration for how instances are placed and allocated within UltraServers. This is only applicable for UltraServer capacity.</p>
+ * @public
+ */
+export interface InstancePlacementConfig {
+  /**
+   * <p>If set to true, allows multiple jobs to share the same UltraServer instances. If set to false, ensures this job's instances are placed on an UltraServer exclusively, with no other jobs sharing the same UltraServer. Default is false.</p>
+   * @public
+   */
+  EnableMultipleJobs?: boolean | undefined;
+
+  /**
+   * <p>A list of specifications for how instances should be placed on specific UltraServers. Maximum of 10 items is supported.</p>
+   * @public
+   */
+  PlacementSpecifications?: PlacementSpecification[] | undefined;
+}
+
+/**
  * <p>Describes the resources, including machine learning (ML) compute instances and ML storage volumes, to use for model training. </p>
  * @public
  */
@@ -1824,6 +1861,12 @@ export interface ResourceConfig {
    * @public
    */
   TrainingPlanArn?: string | undefined;
+
+  /**
+   * <p>Configuration for how training job instances are placed and allocated within UltraServers. Only applicable for UltraServer capacity.</p>
+   * @public
+   */
+  InstancePlacementConfig?: InstancePlacementConfig | undefined;
 }
 
 /**
@@ -6680,7 +6723,7 @@ export interface ClusterEbsVolumeConfig {
 }
 
 /**
- * <p>Metadata information about a SageMaker HyperPod cluster showing information about the cluster level operations, such as creating, updating, and deleting.</p>
+ * <p>Metadata information about a HyperPod cluster showing information about the cluster level operations, such as creating, updating, and deleting.</p>
  * @public
  */
 export interface ClusterMetadata {
@@ -6691,13 +6734,13 @@ export interface ClusterMetadata {
   FailureMessage?: string | undefined;
 
   /**
-   * <p>A list of Amazon EKS IAM role ARNs associated with the cluster. This is created by SageMaker HyperPod on your behalf and only applies for EKS-orchestrated clusters.</p>
+   * <p>A list of Amazon EKS IAM role ARNs associated with the cluster. This is created by HyperPod on your behalf and only applies for EKS orchestrated clusters.</p>
    * @public
    */
   EksRoleAccessEntries?: string[] | undefined;
 
   /**
-   * <p>The Service-Linked Role (SLR) associated with the cluster. This is created by SageMaker HyperPod on your behalf and only applies for EKS-orchestrated clusters.</p>
+   * <p>The Service-Linked Role (SLR) associated with the cluster. This is created by HyperPod on your behalf and only applies for EKS orchestrated clusters.</p>
    * @public
    */
   SlrAccessEntry?: string | undefined;
@@ -6746,7 +6789,7 @@ export interface InstanceMetadata {
 }
 
 /**
- * <p>Metadata information about an instance group in a SageMaker HyperPod cluster.</p>
+ * <p>Metadata information about an instance group in a HyperPod cluster.</p>
  * @public
  */
 export interface InstanceGroupMetadata {
@@ -6941,13 +6984,13 @@ export interface ClusterEventDetail {
   EventId: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the SageMaker HyperPod cluster associated with the event.</p>
+   * <p>The Amazon Resource Name (ARN) of the HyperPod cluster associated with the event.</p>
    * @public
    */
   ClusterArn: string | undefined;
 
   /**
-   * <p>The name of the SageMaker HyperPod cluster associated with the event.</p>
+   * <p>The name of the HyperPod cluster associated with the event.</p>
    * @public
    */
   ClusterName: string | undefined;
@@ -6965,7 +7008,7 @@ export interface ClusterEventDetail {
   InstanceId?: string | undefined;
 
   /**
-   * <p>The type of resource associated with the event. Valid values are "Cluster", "InstanceGroup", or "Instance".</p>
+   * <p>The type of resource associated with the event. Valid values are <code>Cluster</code>, <code>InstanceGroup</code>, or <code>Instance</code>.</p>
    * @public
    */
   ResourceType: ClusterEventResourceType | undefined;
@@ -6990,7 +7033,7 @@ export interface ClusterEventDetail {
 }
 
 /**
- * <p>A summary of an event in a SageMaker HyperPod cluster.</p>
+ * <p>A summary of an event in a HyperPod cluster.</p>
  * @public
  */
 export interface ClusterEventSummary {
@@ -7001,13 +7044,13 @@ export interface ClusterEventSummary {
   EventId: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the SageMaker HyperPod cluster associated with the event.</p>
+   * <p>The Amazon Resource Name (ARN) of the HyperPod cluster associated with the event.</p>
    * @public
    */
   ClusterArn: string | undefined;
 
   /**
-   * <p>The name of the SageMaker HyperPod cluster associated with the event.</p>
+   * <p>The name of the HyperPod cluster associated with the event.</p>
    * @public
    */
   ClusterName: string | undefined;
@@ -7019,13 +7062,13 @@ export interface ClusterEventSummary {
   InstanceGroupName?: string | undefined;
 
   /**
-   * <p>The EC2 instance ID associated with the event, if applicable.</p>
+   * <p>The Amazon Elastic Compute Cloud (EC2) instance ID associated with the event, if applicable.</p>
    * @public
    */
   InstanceId?: string | undefined;
 
   /**
-   * <p>The type of resource associated with the event. Valid values are "Cluster", "InstanceGroup", or "Instance".</p>
+   * <p>The type of resource associated with the event. Valid values are <code>Cluster</code>, <code>InstanceGroup</code>, or <code>Instance</code>.</p>
    * @public
    */
   ResourceType: ClusterEventResourceType | undefined;
@@ -7535,6 +7578,18 @@ export interface ClusterInstanceStatusDetails {
 }
 
 /**
+ * <p>Contains information about the UltraServer object.</p>
+ * @public
+ */
+export interface UltraServerInfo {
+  /**
+   * <p>The unique identifier of the UltraServer.</p>
+   * @public
+   */
+  Id?: string | undefined;
+}
+
+/**
  * <p>Details of an instance (also called a <i>node</i> interchangeably) in a SageMaker HyperPod cluster.</p>
  * @public
  */
@@ -7640,6 +7695,12 @@ export interface ClusterNodeDetails {
    * @public
    */
   DesiredImageId?: string | undefined;
+
+  /**
+   * <p>Contains information about the UltraServer.</p>
+   * @public
+   */
+  UltraServerInfo?: UltraServerInfo | undefined;
 }
 
 /**
@@ -7716,6 +7777,12 @@ export interface ClusterNodeSummary {
    * @public
    */
   InstanceStatus: ClusterInstanceStatusDetails | undefined;
+
+  /**
+   * <p>Contains information about the UltraServer.</p>
+   * @public
+   */
+  UltraServerInfo?: UltraServerInfo | undefined;
 }
 
 /**
@@ -7975,90 +8042,3 @@ export const SchedulerResourceStatus = {
  * @public
  */
 export type SchedulerResourceStatus = (typeof SchedulerResourceStatus)[keyof typeof SchedulerResourceStatus];
-
-/**
- * <p>Summary of the cluster policy.</p>
- * @public
- */
-export interface ClusterSchedulerConfigSummary {
-  /**
-   * <p>ARN of the cluster policy.</p>
-   * @public
-   */
-  ClusterSchedulerConfigArn: string | undefined;
-
-  /**
-   * <p>ID of the cluster policy.</p>
-   * @public
-   */
-  ClusterSchedulerConfigId: string | undefined;
-
-  /**
-   * <p>Version of the cluster policy.</p>
-   * @public
-   */
-  ClusterSchedulerConfigVersion?: number | undefined;
-
-  /**
-   * <p>Name of the cluster policy.</p>
-   * @public
-   */
-  Name: string | undefined;
-
-  /**
-   * <p>Creation time of the cluster policy.</p>
-   * @public
-   */
-  CreationTime: Date | undefined;
-
-  /**
-   * <p>Last modified time of the cluster policy.</p>
-   * @public
-   */
-  LastModifiedTime?: Date | undefined;
-
-  /**
-   * <p>Status of the cluster policy.</p>
-   * @public
-   */
-  Status: SchedulerResourceStatus | undefined;
-
-  /**
-   * <p>ARN of the cluster.</p>
-   * @public
-   */
-  ClusterArn?: string | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const ClusterSortBy = {
-  CREATION_TIME: "CREATION_TIME",
-  NAME: "NAME",
-} as const;
-
-/**
- * @public
- */
-export type ClusterSortBy = (typeof ClusterSortBy)[keyof typeof ClusterSortBy];
-
-/**
- * @public
- * @enum
- */
-export const ClusterStatus = {
-  CREATING: "Creating",
-  DELETING: "Deleting",
-  FAILED: "Failed",
-  INSERVICE: "InService",
-  ROLLINGBACK: "RollingBack",
-  SYSTEMUPDATING: "SystemUpdating",
-  UPDATING: "Updating",
-} as const;
-
-/**
- * @public
- */
-export type ClusterStatus = (typeof ClusterStatus)[keyof typeof ClusterStatus];

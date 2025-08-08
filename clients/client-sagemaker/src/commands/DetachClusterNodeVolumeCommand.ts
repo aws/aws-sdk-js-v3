@@ -28,7 +28,7 @@ export interface DetachClusterNodeVolumeCommandInput extends DetachClusterNodeVo
 export interface DetachClusterNodeVolumeCommandOutput extends DetachClusterNodeVolumeResponse, __MetadataBearer {}
 
 /**
- * <p> Detaches your Amazon Elastic Block Store (Amazon EBS) volume from a node in your EKS-orchestrated SageMaker HyperPod cluster.</p> <p> This API works with the Amazon Elastic Block Store (Amazon EBS) Container Storage Interface (CSI) driver to manage the lifecycle of persistent storage in your HyperPod EKS clusters. </p>
+ * <p> Detaches your Amazon Elastic Block Store (Amazon EBS) volume from a node in your EKS orchestrated SageMaker HyperPod cluster.</p> <p> This API works with the Amazon Elastic Block Store (Amazon EBS) Container Storage Interface (CSI) driver to manage the lifecycle of persistent storage in your HyperPod EKS clusters. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

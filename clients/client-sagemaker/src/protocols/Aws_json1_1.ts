@@ -521,6 +521,10 @@ import {
   DescribeProcessingJobCommandOutput,
 } from "../commands/DescribeProcessingJobCommand";
 import { DescribeProjectCommandInput, DescribeProjectCommandOutput } from "../commands/DescribeProjectCommand";
+import {
+  DescribeReservedCapacityCommandInput,
+  DescribeReservedCapacityCommandOutput,
+} from "../commands/DescribeReservedCapacityCommand";
 import { DescribeSpaceCommandInput, DescribeSpaceCommandOutput } from "../commands/DescribeSpaceCommand";
 import {
   DescribeStudioLifecycleConfigCommandInput,
@@ -794,6 +798,10 @@ import {
   ListTrialComponentsCommandOutput,
 } from "../commands/ListTrialComponentsCommand";
 import { ListTrialsCommandInput, ListTrialsCommandOutput } from "../commands/ListTrialsCommand";
+import {
+  ListUltraServersByReservedCapacityCommandInput,
+  ListUltraServersByReservedCapacityCommandOutput,
+} from "../commands/ListUltraServersByReservedCapacityCommand";
 import { ListUserProfilesCommandInput, ListUserProfilesCommandOutput } from "../commands/ListUserProfilesCommand";
 import { ListWorkforcesCommandInput, ListWorkforcesCommandOutput } from "../commands/ListWorkforcesCommand";
 import { ListWorkteamsCommandInput, ListWorkteamsCommandOutput } from "../commands/ListWorkteamsCommand";
@@ -1126,7 +1134,6 @@ import {
   ClusterOrchestratorEksConfig,
   ClusterRestrictedInstanceGroupDetails,
   ClusterRestrictedInstanceGroupSpecification,
-  ClusterSchedulerConfigSummary,
   CodeEditorAppImageConfig,
   CompressionType,
   ContainerConfig,
@@ -1158,6 +1165,7 @@ import {
   InstanceGroupMetadata,
   InstanceGroupScalingMetadata,
   InstanceMetadata,
+  InstancePlacementConfig,
   JupyterLabAppImageConfig,
   KendraSettings,
   KernelGatewayImageConfig,
@@ -1177,6 +1185,7 @@ import {
   NodeAdditionResult,
   OutputDataConfig,
   OutputParameter,
+  PlacementSpecification,
   ProductionVariantInstanceType,
   ResourceConfig,
   ResourceLimitExceeded,
@@ -1211,11 +1220,13 @@ import {
   TransformOutput,
   TransformResources,
   TransformS3DataSource,
+  UltraServerInfo,
   UserContext,
   VpcConfig,
   WorkspaceSettings,
 } from "../models/models_0";
 import {
+  ClusterSchedulerConfigSummary,
   ClusterSummary,
   CodeEditorAppSettings,
   CodeRepository,
@@ -1307,7 +1318,6 @@ import {
   CreateLabelingJobResponse,
   CreateMlflowTrackingServerRequest,
   CreateMlflowTrackingServerResponse,
-  CreateModelBiasJobDefinitionRequest,
   CreateModelInput,
   CreateModelOutput,
   CustomFileSystemConfig,
@@ -1385,14 +1395,12 @@ import {
   MlTools,
   ModelBiasAppSpecification,
   ModelBiasBaselineConfig,
-  ModelBiasJobInput,
   ModelDeployConfig,
   ModelInfrastructureConfig,
   ModelLatencyThreshold,
   ModelVariantConfig,
   MonitoringClusterConfig,
   MonitoringConstraintsResource,
-  MonitoringGroundTruthS3Input,
   MonitoringNetworkConfig,
   MonitoringOutput,
   MonitoringOutputConfig,
@@ -1460,6 +1468,7 @@ import {
   VectorConfig,
 } from "../models/models_1";
 import {
+  CreateModelBiasJobDefinitionRequest,
   CreateModelBiasJobDefinitionResponse,
   CreateModelCardExportJobRequest,
   CreateModelCardExportJobResponse,
@@ -1631,9 +1640,6 @@ import {
   DescribeCodeRepositoryOutput,
   DescribeCompilationJobRequest,
   DescribeCompilationJobResponse,
-  DescribeComputeQuotaRequest,
-  DescribeComputeQuotaResponse,
-  DescribeContextRequest,
   DriftCheckBaselines,
   DriftCheckBias,
   DriftCheckExplainability,
@@ -1651,6 +1657,7 @@ import {
   InstanceMetadataServiceConfiguration,
   MemberDefinition,
   ModelArtifacts,
+  ModelBiasJobInput,
   ModelCardExportOutputConfig,
   ModelCardSecurityConfig,
   ModelClientConfig,
@@ -1675,6 +1682,7 @@ import {
   ModelShardingConfig,
   MonitoringAppSpecification,
   MonitoringBaselineConfig,
+  MonitoringGroundTruthS3Input,
   MonitoringInput,
   MonitoringJobDefinition,
   MonitoringScheduleConfig,
@@ -1735,6 +1743,9 @@ import {
   WorkforceVpcConfigRequest,
 } from "../models/models_2";
 import {
+  DescribeComputeQuotaRequest,
+  DescribeComputeQuotaResponse,
+  DescribeContextRequest,
   DescribeContextResponse,
   DescribeDataQualityJobDefinitionRequest,
   DescribeDataQualityJobDefinitionResponse,
@@ -1820,6 +1831,8 @@ import {
   DescribeProcessingJobResponse,
   DescribeProjectInput,
   DescribeProjectOutput,
+  DescribeReservedCapacityRequest,
+  DescribeReservedCapacityResponse,
   DescribeSpaceRequest,
   DescribeSpaceResponse,
   DescribeStudioLifecycleConfigRequest,
@@ -1905,13 +1918,9 @@ import {
   HubContentDependency,
   HubContentInfo,
   HubInfo,
-  HumanTaskUiSummary,
   HyperParameterTrainingJobSummary,
   HyperParameterTuningJobCompletionDetails,
   HyperParameterTuningJobConsumedResources,
-  HyperParameterTuningJobSearchEntity,
-  HyperParameterTuningJobSummary,
-  Image,
   InferenceComponentCapacitySize,
   InferenceComponentContainerSpecificationSummary,
   InferenceComponentDeploymentConfig,
@@ -1968,12 +1977,17 @@ import {
   TrialComponentSource,
   TrialSource,
   UiTemplateInfo,
+  UltraServerSummary,
   WarmPoolStatus,
   Workforce,
   WorkforceVpcConfigResponse,
   Workteam,
 } from "../models/models_3";
 import {
+  HumanTaskUiSummary,
+  HyperParameterTuningJobSearchEntity,
+  HyperParameterTuningJobSummary,
+  Image,
   ImageVersion,
   ImportHubContentRequest,
   ImportHubContentResponse,
@@ -2147,26 +2161,19 @@ import {
   ListTrialComponentsResponse,
   ListTrialsRequest,
   ListTrialsResponse,
+  ListUltraServersByReservedCapacityRequest,
+  ListUltraServersByReservedCapacityResponse,
   ListUserProfilesRequest,
   ListUserProfilesResponse,
   ListWorkforcesRequest,
   ListWorkforcesResponse,
-  ListWorkteamsRequest,
-  ListWorkteamsResponse,
-  Model,
-  ModelCard,
   ModelCardExportJobSummary,
   ModelCardSummary,
   ModelCardVersionSummary,
-  ModelDashboardEndpoint,
   ModelDashboardIndicatorAction,
-  ModelDashboardModel,
-  ModelDashboardModelCard,
-  ModelDashboardMonitoringSchedule,
   ModelMetadataFilter,
   ModelMetadataSearchExpression,
   ModelMetadataSummary,
-  ModelPackage,
   ModelPackageGroupSummary,
   ModelPackageSummary,
   ModelStepMetadata,
@@ -2204,15 +2211,24 @@ import {
   TrainingJobSummary,
   TrainingPlanFilter,
   TrainingPlanSummary,
-  TransformJob,
   TransformJobStepMetadata,
   TransformJobSummary,
   TrialComponentSummary,
   TrialSummary,
   TuningJobStepMetaData,
+  UltraServer,
   UserProfileDetails,
 } from "../models/models_4";
 import {
+  ListWorkteamsRequest,
+  ListWorkteamsResponse,
+  Model,
+  ModelCard,
+  ModelDashboardEndpoint,
+  ModelDashboardModel,
+  ModelDashboardModelCard,
+  ModelDashboardMonitoringSchedule,
+  ModelPackage,
   ModelPackageGroup,
   ModelVariantAction,
   NestedFilters,
@@ -2284,6 +2300,7 @@ import {
   TotalHits,
   TrainingJob,
   TrainingPlanOffering,
+  TransformJob,
   Trial,
   TrialComponent,
   TrialComponentSimpleSummary,
@@ -4800,6 +4817,19 @@ export const se_DescribeProjectCommand = async (
 };
 
 /**
+ * serializeAws_json1_1DescribeReservedCapacityCommand
+ */
+export const se_DescribeReservedCapacityCommand = async (
+  input: DescribeReservedCapacityCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("DescribeReservedCapacity");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_json1_1DescribeSpaceCommand
  */
 export const se_DescribeSpaceCommand = async (
@@ -6122,6 +6152,19 @@ export const se_ListTrialsCommand = async (
   const headers: __HeaderBag = sharedHeaders("ListTrials");
   let body: any;
   body = JSON.stringify(se_ListTrialsRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1ListUltraServersByReservedCapacityCommand
+ */
+export const se_ListUltraServersByReservedCapacityCommand = async (
+  input: ListUltraServersByReservedCapacityCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("ListUltraServersByReservedCapacity");
+  let body: any;
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -10750,6 +10793,26 @@ export const de_DescribeProjectCommand = async (
 };
 
 /**
+ * deserializeAws_json1_1DescribeReservedCapacityCommand
+ */
+export const de_DescribeReservedCapacityCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeReservedCapacityCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribeReservedCapacityResponse(data, context);
+  const response: DescribeReservedCapacityCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
  * deserializeAws_json1_1DescribeSpaceCommand
  */
 export const de_DescribeSpaceCommand = async (
@@ -12783,6 +12846,26 @@ export const de_ListTrialsCommand = async (
   let contents: any = {};
   contents = de_ListTrialsResponse(data, context);
   const response: ListTrialsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ListUltraServersByReservedCapacityCommand
+ */
+export const de_ListUltraServersByReservedCapacityCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListUltraServersByReservedCapacityCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ListUltraServersByReservedCapacityResponse(data, context);
+  const response: ListUltraServersByReservedCapacityCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
@@ -15458,6 +15541,8 @@ const se_DeletePipelineRequest = (input: DeletePipelineRequest, context: __Serde
 
 // se_DescribeProjectInput omitted.
 
+// se_DescribeReservedCapacityRequest omitted.
+
 // se_DescribeSpaceRequest omitted.
 
 // se_DescribeStudioLifecycleConfigRequest omitted.
@@ -15846,6 +15931,8 @@ const se_InferenceExperimentSchedule = (input: InferenceExperimentSchedule, cont
 // se_InstanceGroups omitted.
 
 // se_InstanceMetadataServiceConfiguration omitted.
+
+// se_InstancePlacementConfig omitted.
 
 // se_IntegerParameterRange omitted.
 
@@ -17060,6 +17147,8 @@ const se_ListTrialsRequest = (input: ListTrialsRequest, context: __SerdeContext)
   });
 };
 
+// se_ListUltraServersByReservedCapacityRequest omitted.
+
 // se_ListUserProfilesRequest omitted.
 
 // se_ListWorkforcesRequest omitted.
@@ -17370,6 +17459,10 @@ const se_MonitoringScheduleConfig = (input: MonitoringScheduleConfig, context: _
 
 // se_PipelineDefinitionS3Location omitted.
 
+// se_PlacementSpecification omitted.
+
+// se_PlacementSpecifications omitted.
+
 // se_PresignedUrlAccessConfig omitted.
 
 // se_PriorityClass omitted.
@@ -17667,6 +17760,8 @@ const se_SearchTrainingPlanOfferingsRequest = (
     InstanceType: [],
     StartTimeAfter: (_) => _.getTime() / 1_000,
     TargetResources: _json,
+    UltraServerCount: [],
+    UltraServerType: [],
   });
 };
 
@@ -20093,6 +20188,7 @@ const de_ClusterNodeDetails = (output: any, context: __SerdeContext): ClusterNod
     PrivatePrimaryIp: __expectString,
     PrivatePrimaryIpv6: __expectString,
     ThreadsPerCore: __expectInt32,
+    UltraServerInfo: (_: any) => de_UltraServerInfo(_, context),
   }) as any;
 };
 
@@ -20144,6 +20240,7 @@ const de_ClusterNodeSummary = (output: any, context: __SerdeContext): ClusterNod
     LastSoftwareUpdateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     LaunchTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     NodeLogicalId: __expectString,
+    UltraServerInfo: (_: any) => de_UltraServerInfo(_, context),
   }) as any;
 };
 
@@ -23204,6 +23301,30 @@ const de_DescribeProjectOutput = (output: any, context: __SerdeContext): Describ
 };
 
 /**
+ * deserializeAws_json1_1DescribeReservedCapacityResponse
+ */
+const de_DescribeReservedCapacityResponse = (
+  output: any,
+  context: __SerdeContext
+): DescribeReservedCapacityResponse => {
+  return take(output, {
+    AvailabilityZone: __expectString,
+    AvailableInstanceCount: __expectInt32,
+    DurationHours: __expectLong,
+    DurationMinutes: __expectLong,
+    EndTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    InUseInstanceCount: __expectInt32,
+    InstanceType: __expectString,
+    ReservedCapacityArn: __expectString,
+    ReservedCapacityType: __expectString,
+    StartTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Status: __expectString,
+    TotalInstanceCount: __expectInt32,
+    UltraServerSummary: (_: any) => de_UltraServerSummary(_, context),
+  }) as any;
+};
+
+/**
  * deserializeAws_json1_1DescribeSpaceResponse
  */
 const de_DescribeSpaceResponse = (output: any, context: __SerdeContext): DescribeSpaceResponse => {
@@ -23310,6 +23431,7 @@ const de_DescribeTrainingJobResponse = (output: any, context: __SerdeContext): D
 const de_DescribeTrainingPlanResponse = (output: any, context: __SerdeContext): DescribeTrainingPlanResponse => {
   return take(output, {
     AvailableInstanceCount: __expectInt32,
+    AvailableSpareInstanceCount: __expectInt32,
     CurrencyCode: __expectString,
     DurationHours: __expectLong,
     DurationMinutes: __expectLong,
@@ -23321,8 +23443,10 @@ const de_DescribeTrainingPlanResponse = (output: any, context: __SerdeContext): 
     StatusMessage: __expectString,
     TargetResources: (_: any) => de_SageMakerResourceNames(_, context),
     TotalInstanceCount: __expectInt32,
+    TotalUltraServerCount: __expectInt32,
     TrainingPlanArn: __expectString,
     TrainingPlanName: __expectString,
+    UnhealthyInstanceCount: __expectInt32,
     UpfrontFee: __expectString,
   }) as any;
 };
@@ -26163,6 +26287,16 @@ const de_InstanceMetadataServiceConfiguration = (
 };
 
 /**
+ * deserializeAws_json1_1InstancePlacementConfig
+ */
+const de_InstancePlacementConfig = (output: any, context: __SerdeContext): InstancePlacementConfig => {
+  return take(output, {
+    EnableMultipleJobs: __expectBoolean,
+    PlacementSpecifications: (_: any) => de_PlacementSpecifications(_, context),
+  }) as any;
+};
+
+/**
  * deserializeAws_json1_1IntegerParameterRange
  */
 const de_IntegerParameterRange = (output: any, context: __SerdeContext): IntegerParameterRange => {
@@ -27407,6 +27541,19 @@ const de_ListTrialsResponse = (output: any, context: __SerdeContext): ListTrials
   return take(output, {
     NextToken: __expectString,
     TrialSummaries: (_: any) => de_TrialSummaries(_, context),
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1ListUltraServersByReservedCapacityResponse
+ */
+const de_ListUltraServersByReservedCapacityResponse = (
+  output: any,
+  context: __SerdeContext
+): ListUltraServersByReservedCapacityResponse => {
+  return take(output, {
+    NextToken: __expectString,
+    UltraServers: (_: any) => de_UltraServers(_, context),
   }) as any;
 };
 
@@ -29837,6 +29984,28 @@ const de_PipelineVersionSummaryList = (output: any, context: __SerdeContext): Pi
 };
 
 /**
+ * deserializeAws_json1_1PlacementSpecification
+ */
+const de_PlacementSpecification = (output: any, context: __SerdeContext): PlacementSpecification => {
+  return take(output, {
+    InstanceCount: __expectInt32,
+    UltraServerId: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1PlacementSpecifications
+ */
+const de_PlacementSpecifications = (output: any, context: __SerdeContext): PlacementSpecification[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_PlacementSpecification(entry, context);
+    });
+  return retVal;
+};
+
+/**
  * deserializeAws_json1_1PredefinedMetricSpecification
  */
 const de_PredefinedMetricSpecification = (output: any, context: __SerdeContext): PredefinedMetricSpecification => {
@@ -30777,7 +30946,10 @@ const de_ReservedCapacityOffering = (output: any, context: __SerdeContext): Rese
     EndTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     InstanceCount: __expectInt32,
     InstanceType: __expectString,
+    ReservedCapacityType: __expectString,
     StartTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    UltraServerCount: __expectInt32,
+    UltraServerType: __expectString,
   }) as any;
 };
 
@@ -30816,9 +30988,12 @@ const de_ReservedCapacitySummary = (output: any, context: __SerdeContext): Reser
     EndTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     InstanceType: __expectString,
     ReservedCapacityArn: __expectString,
+    ReservedCapacityType: __expectString,
     StartTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     Status: __expectString,
     TotalInstanceCount: __expectInt32,
+    UltraServerCount: __expectInt32,
+    UltraServerType: __expectString,
   }) as any;
 };
 
@@ -30864,6 +31039,7 @@ const de_ResourceConfig = (output: any, context: __SerdeContext): ResourceConfig
   return take(output, {
     InstanceCount: __expectInt32,
     InstanceGroups: (_: any) => de_InstanceGroups(_, context),
+    InstancePlacementConfig: (_: any) => de_InstancePlacementConfig(_, context),
     InstanceType: __expectString,
     KeepAlivePeriodInSeconds: __expectInt32,
     TrainingPlanArn: __expectString,
@@ -32304,6 +32480,7 @@ const de_TrainingPlanSummary = (output: any, context: __SerdeContext): TrainingP
     StatusMessage: __expectString,
     TargetResources: (_: any) => de_SageMakerResourceNames(_, context),
     TotalInstanceCount: __expectInt32,
+    TotalUltraServerCount: __expectInt32,
     TrainingPlanArn: __expectString,
     TrainingPlanName: __expectString,
     UpfrontFee: __expectString,
@@ -32813,6 +32990,59 @@ const de_UiTemplateInfo = (output: any, context: __SerdeContext): UiTemplateInfo
   return take(output, {
     ContentSha256: __expectString,
     Url: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1UltraServer
+ */
+const de_UltraServer = (output: any, context: __SerdeContext): UltraServer => {
+  return take(output, {
+    AvailabilityZone: __expectString,
+    AvailableInstanceCount: __expectInt32,
+    AvailableSpareInstanceCount: __expectInt32,
+    ConfiguredSpareInstanceCount: __expectInt32,
+    HealthStatus: __expectString,
+    InUseInstanceCount: __expectInt32,
+    InstanceType: __expectString,
+    TotalInstanceCount: __expectInt32,
+    UltraServerId: __expectString,
+    UltraServerType: __expectString,
+    UnhealthyInstanceCount: __expectInt32,
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1UltraServerInfo
+ */
+const de_UltraServerInfo = (output: any, context: __SerdeContext): UltraServerInfo => {
+  return take(output, {
+    Id: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1UltraServers
+ */
+const de_UltraServers = (output: any, context: __SerdeContext): UltraServer[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_UltraServer(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_json1_1UltraServerSummary
+ */
+const de_UltraServerSummary = (output: any, context: __SerdeContext): UltraServerSummary => {
+  return take(output, {
+    AvailableSpareInstanceCount: __expectInt32,
+    InstanceType: __expectString,
+    UltraServerCount: __expectInt32,
+    UltraServerType: __expectString,
+    UnhealthyInstanceCount: __expectInt32,
   }) as any;
 };
 

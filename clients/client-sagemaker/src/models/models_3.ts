@@ -2,6 +2,7 @@
 import { SENSITIVE_STRING } from "@smithy/smithy-client";
 
 import {
+  ActivationState,
   AdditionalInferenceSpecificationDefinition,
   AgentVersion,
   AlgorithmSpecification,
@@ -28,6 +29,7 @@ import {
   ProductionVariantInstanceType,
   ResourceConfig,
   ResourceSpec,
+  SchedulerResourceStatus,
   StoppingCondition,
   Tag,
   TransformInput,
@@ -41,6 +43,8 @@ import {
 import {
   _InstanceType,
   CognitoConfig,
+  ComputeQuotaConfig,
+  ComputeQuotaTarget,
   ContainerDefinition,
   ContextSource,
   DataCaptureConfig,
@@ -69,7 +73,6 @@ import {
   HyperParameterTrainingJobDefinition,
   HyperParameterTuningJobConfig,
   HyperParameterTuningJobObjectiveType,
-  HyperParameterTuningJobStrategyType,
   HyperParameterTuningJobWarmStartConfig,
   InferenceComponentComputeResourceRequirements,
   InferenceComponentStartupParameters,
@@ -85,7 +88,6 @@ import {
   MetadataProperties,
   ModelBiasAppSpecification,
   ModelBiasBaselineConfig,
-  ModelBiasJobInput,
   ModelInfrastructureConfig,
   MonitoringNetworkConfig,
   MonitoringOutputConfig,
@@ -102,7 +104,6 @@ import {
   RecommendationJobInputConfig,
   RecommendationJobStoppingConditions,
   RecommendationJobType,
-  ResourceLimits,
   RetryStrategy,
   ShadowModeConfig,
   TagPropagation,
@@ -130,6 +131,7 @@ import {
   InstanceMetadataServiceConfiguration,
   MemberDefinition,
   ModelArtifacts,
+  ModelBiasJobInput,
   ModelCardExportOutputConfig,
   ModelCardSecurityConfig,
   ModelCardStatus,
@@ -186,6 +188,129 @@ import {
   WorkerAccessConfiguration,
   WorkforceIpAddressType,
 } from "./models_2";
+
+/**
+ * @public
+ */
+export interface DescribeComputeQuotaRequest {
+  /**
+   * <p>ID of the compute allocation definition.</p>
+   * @public
+   */
+  ComputeQuotaId: string | undefined;
+
+  /**
+   * <p>Version of the compute allocation definition.</p>
+   * @public
+   */
+  ComputeQuotaVersion?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeComputeQuotaResponse {
+  /**
+   * <p>ARN of the compute allocation definition.</p>
+   * @public
+   */
+  ComputeQuotaArn: string | undefined;
+
+  /**
+   * <p>ID of the compute allocation definition.</p>
+   * @public
+   */
+  ComputeQuotaId: string | undefined;
+
+  /**
+   * <p>Name of the compute allocation definition.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>Description of the compute allocation definition.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>Version of the compute allocation definition.</p>
+   * @public
+   */
+  ComputeQuotaVersion: number | undefined;
+
+  /**
+   * <p>Status of the compute allocation definition.</p>
+   * @public
+   */
+  Status: SchedulerResourceStatus | undefined;
+
+  /**
+   * <p>Failure reason of the compute allocation definition.</p>
+   * @public
+   */
+  FailureReason?: string | undefined;
+
+  /**
+   * <p>ARN of the cluster.</p>
+   * @public
+   */
+  ClusterArn?: string | undefined;
+
+  /**
+   * <p>Configuration of the compute allocation definition. This includes the resource sharing option, and the setting to preempt low priority tasks.</p>
+   * @public
+   */
+  ComputeQuotaConfig?: ComputeQuotaConfig | undefined;
+
+  /**
+   * <p>The target entity to allocate compute resources to.</p>
+   * @public
+   */
+  ComputeQuotaTarget: ComputeQuotaTarget | undefined;
+
+  /**
+   * <p>The state of the compute allocation being described. Use to enable or disable compute allocation.</p> <p>Default is <code>Enabled</code>.</p>
+   * @public
+   */
+  ActivationState?: ActivationState | undefined;
+
+  /**
+   * <p>Creation time of the compute allocation configuration.</p>
+   * @public
+   */
+  CreationTime: Date | undefined;
+
+  /**
+   * <p>Information about the user who created or modified a SageMaker resource.</p>
+   * @public
+   */
+  CreatedBy?: UserContext | undefined;
+
+  /**
+   * <p>Last modified time of the compute allocation configuration.</p>
+   * @public
+   */
+  LastModifiedTime?: Date | undefined;
+
+  /**
+   * <p>Information about the user who created or modified a SageMaker resource.</p>
+   * @public
+   */
+  LastModifiedBy?: UserContext | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeContextRequest {
+  /**
+   * <p>The name of the context to describe.</p>
+   * @public
+   */
+  ContextName: string | undefined;
+}
 
 /**
  * @public
@@ -6347,6 +6472,189 @@ export interface DescribeProjectOutput {
 /**
  * @public
  */
+export interface DescribeReservedCapacityRequest {
+  /**
+   * <p>ARN of the reserved capacity to describe.</p>
+   * @public
+   */
+  ReservedCapacityArn: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const ReservedCapacityInstanceType = {
+  ML_P4DE_24XLARGE: "ml.p4de.24xlarge",
+  ML_P4D_24XLARGE: "ml.p4d.24xlarge",
+  ML_P5EN_48XLARGE: "ml.p5en.48xlarge",
+  ML_P5E_48XLARGE: "ml.p5e.48xlarge",
+  ML_P5_48XLARGE: "ml.p5.48xlarge",
+  ML_P6E_GB200_36XLARGE: "ml.p6e-gb200.36xlarge",
+  ML_P6_B200_48XLARGE: "ml.p6-b200.48xlarge",
+  ML_TRN1_32XLARGE: "ml.trn1.32xlarge",
+  ML_TRN2_48XLARGE: "ml.trn2.48xlarge",
+} as const;
+
+/**
+ * @public
+ */
+export type ReservedCapacityInstanceType =
+  (typeof ReservedCapacityInstanceType)[keyof typeof ReservedCapacityInstanceType];
+
+/**
+ * @public
+ * @enum
+ */
+export const ReservedCapacityType = {
+  INSTANCE: "Instance",
+  ULTRASERVER: "UltraServer",
+} as const;
+
+/**
+ * @public
+ */
+export type ReservedCapacityType = (typeof ReservedCapacityType)[keyof typeof ReservedCapacityType];
+
+/**
+ * @public
+ * @enum
+ */
+export const ReservedCapacityStatus = {
+  ACTIVE: "Active",
+  EXPIRED: "Expired",
+  FAILED: "Failed",
+  PENDING: "Pending",
+  SCHEDULED: "Scheduled",
+} as const;
+
+/**
+ * @public
+ */
+export type ReservedCapacityStatus = (typeof ReservedCapacityStatus)[keyof typeof ReservedCapacityStatus];
+
+/**
+ * <p>A summary of UltraServer resources and their current status.</p>
+ * @public
+ */
+export interface UltraServerSummary {
+  /**
+   * <p>The type of UltraServer, such as ml.u-p6e-gb200x72.</p>
+   * @public
+   */
+  UltraServerType: string | undefined;
+
+  /**
+   * <p>The Amazon EC2 instance type used in the UltraServer.</p>
+   * @public
+   */
+  InstanceType: ReservedCapacityInstanceType | undefined;
+
+  /**
+   * <p>The number of UltraServers of this type.</p>
+   * @public
+   */
+  UltraServerCount?: number | undefined;
+
+  /**
+   * <p>The number of available spare instances in the UltraServers.</p>
+   * @public
+   */
+  AvailableSpareInstanceCount?: number | undefined;
+
+  /**
+   * <p>The total number of instances across all UltraServers of this type that are currently in an unhealthy state.</p>
+   * @public
+   */
+  UnhealthyInstanceCount?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeReservedCapacityResponse {
+  /**
+   * <p>ARN of the reserved capacity.</p>
+   * @public
+   */
+  ReservedCapacityArn: string | undefined;
+
+  /**
+   * <p>The type of reserved capacity.</p>
+   * @public
+   */
+  ReservedCapacityType?: ReservedCapacityType | undefined;
+
+  /**
+   * <p>The current status of the reserved capacity.</p>
+   * @public
+   */
+  Status?: ReservedCapacityStatus | undefined;
+
+  /**
+   * <p>The Availability Zone where the reserved capacity is provisioned.</p>
+   * @public
+   */
+  AvailabilityZone?: string | undefined;
+
+  /**
+   * <p>The total duration of the reserved capacity in hours.</p>
+   * @public
+   */
+  DurationHours?: number | undefined;
+
+  /**
+   * <p>The number of minutes for the duration of the reserved capacity. For example, if a reserved capacity starts at 08:55 and ends at 11:30, the minutes field would be 35.</p>
+   * @public
+   */
+  DurationMinutes?: number | undefined;
+
+  /**
+   * <p>The timestamp when the reserved capacity becomes active.</p>
+   * @public
+   */
+  StartTime?: Date | undefined;
+
+  /**
+   * <p>The timestamp when the reserved capacity expires.</p>
+   * @public
+   */
+  EndTime?: Date | undefined;
+
+  /**
+   * <p>The Amazon EC2 instance type used in the reserved capacity.</p>
+   * @public
+   */
+  InstanceType: ReservedCapacityInstanceType | undefined;
+
+  /**
+   * <p>The total number of instances allocated to this reserved capacity.</p>
+   * @public
+   */
+  TotalInstanceCount: number | undefined;
+
+  /**
+   * <p>The number of instances currently available for use in this reserved capacity.</p>
+   * @public
+   */
+  AvailableInstanceCount?: number | undefined;
+
+  /**
+   * <p>The number of instances currently in use from this reserved capacity.</p>
+   * @public
+   */
+  InUseInstanceCount?: number | undefined;
+
+  /**
+   * <p>A summary of the UltraServer associated with this reserved capacity.</p>
+   * @public
+   */
+  UltraServerSummary?: UltraServerSummary | undefined;
+}
+
+/**
+ * @public
+ */
 export interface DescribeSpaceRequest {
   /**
    * <p>The ID of the associated domain.</p>
@@ -7032,44 +7340,6 @@ export interface DescribeTrainingPlanRequest {
 }
 
 /**
- * @public
- * @enum
- */
-export const ReservedCapacityInstanceType = {
-  ML_P4DE_24XLARGE: "ml.p4de.24xlarge",
-  ML_P4D_24XLARGE: "ml.p4d.24xlarge",
-  ML_P5EN_48XLARGE: "ml.p5en.48xlarge",
-  ML_P5E_48XLARGE: "ml.p5e.48xlarge",
-  ML_P5_48XLARGE: "ml.p5.48xlarge",
-  ML_P6_B200_48XLARGE: "ml.p6-b200.48xlarge",
-  ML_TRN1_32XLARGE: "ml.trn1.32xlarge",
-  ML_TRN2_48XLARGE: "ml.trn2.48xlarge",
-} as const;
-
-/**
- * @public
- */
-export type ReservedCapacityInstanceType =
-  (typeof ReservedCapacityInstanceType)[keyof typeof ReservedCapacityInstanceType];
-
-/**
- * @public
- * @enum
- */
-export const ReservedCapacityStatus = {
-  ACTIVE: "Active",
-  EXPIRED: "Expired",
-  FAILED: "Failed",
-  PENDING: "Pending",
-  SCHEDULED: "Scheduled",
-} as const;
-
-/**
- * @public
- */
-export type ReservedCapacityStatus = (typeof ReservedCapacityStatus)[keyof typeof ReservedCapacityStatus];
-
-/**
  * <p>Details of a reserved capacity for the training plan.</p> <p>For more information about how to reserve GPU capacity for your SageMaker HyperPod clusters using Amazon SageMaker Training Plan, see <code> <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateTrainingPlan.html">CreateTrainingPlan</a> </code>.</p>
  * @public
  */
@@ -7079,6 +7349,24 @@ export interface ReservedCapacitySummary {
    * @public
    */
   ReservedCapacityArn: string | undefined;
+
+  /**
+   * <p>The type of reserved capacity.</p>
+   * @public
+   */
+  ReservedCapacityType?: ReservedCapacityType | undefined;
+
+  /**
+   * <p>The type of UltraServer included in this reserved capacity, such as ml.u-p6e-gb200x72.</p>
+   * @public
+   */
+  UltraServerType?: string | undefined;
+
+  /**
+   * <p>The number of UltraServers included in this reserved capacity.</p>
+   * @public
+   */
+  UltraServerCount?: number | undefined;
 
   /**
    * <p>The instance type for the reserved capacity.</p>
@@ -7241,6 +7529,24 @@ export interface DescribeTrainingPlanResponse {
    * @public
    */
   InUseInstanceCount?: number | undefined;
+
+  /**
+   * <p>The number of instances in the training plan that are currently in an unhealthy state.</p>
+   * @public
+   */
+  UnhealthyInstanceCount?: number | undefined;
+
+  /**
+   * <p>The number of available spare instances in the training plan.</p>
+   * @public
+   */
+  AvailableSpareInstanceCount?: number | undefined;
+
+  /**
+   * <p>The total number of UltraServers reserved to this training plan.</p>
+   * @public
+   */
+  TotalUltraServerCount?: number | undefined;
 
   /**
    * <p>The target resources (e.g., SageMaker Training Jobs, SageMaker HyperPod) that can use this training plan.</p> <p>Training plans are specific to their target resource.</p> <ul> <li> <p>A training plan designed for SageMaker training jobs can only be used to schedule and run training jobs.</p> </li> <li> <p>A training plan for HyperPod clusters can be used exclusively to provide compute resources to a cluster's instance group.</p> </li> </ul>
@@ -10243,311 +10549,6 @@ export interface HubInfo {
    */
   LastModifiedTime: Date | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const HubSortBy = {
-  ACCOUNT_ID_OWNER: "AccountIdOwner",
-  CREATION_TIME: "CreationTime",
-  HUB_NAME: "HubName",
-  HUB_STATUS: "HubStatus",
-} as const;
-
-/**
- * @public
- */
-export type HubSortBy = (typeof HubSortBy)[keyof typeof HubSortBy];
-
-/**
- * <p>Container for human task user interface information.</p>
- * @public
- */
-export interface HumanTaskUiSummary {
-  /**
-   * <p>The name of the human task user interface.</p>
-   * @public
-   */
-  HumanTaskUiName: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the human task user interface.</p>
-   * @public
-   */
-  HumanTaskUiArn: string | undefined;
-
-  /**
-   * <p>A timestamp when SageMaker created the human task user interface.</p>
-   * @public
-   */
-  CreationTime: Date | undefined;
-}
-
-/**
- * <p>An entity returned by the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_SearchRecord.html">SearchRecord</a> API containing the properties of a hyperparameter tuning job.</p>
- * @public
- */
-export interface HyperParameterTuningJobSearchEntity {
-  /**
-   * <p>The name of a hyperparameter tuning job.</p>
-   * @public
-   */
-  HyperParameterTuningJobName?: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of a hyperparameter tuning job.</p>
-   * @public
-   */
-  HyperParameterTuningJobArn?: string | undefined;
-
-  /**
-   * <p>Configures a hyperparameter tuning job.</p>
-   * @public
-   */
-  HyperParameterTuningJobConfig?: HyperParameterTuningJobConfig | undefined;
-
-  /**
-   * <p>Defines the training jobs launched by a hyperparameter tuning job.</p>
-   * @public
-   */
-  TrainingJobDefinition?: HyperParameterTrainingJobDefinition | undefined;
-
-  /**
-   * <p>The job definitions included in a hyperparameter tuning job.</p>
-   * @public
-   */
-  TrainingJobDefinitions?: HyperParameterTrainingJobDefinition[] | undefined;
-
-  /**
-   * <p>The status of a hyperparameter tuning job.</p>
-   * @public
-   */
-  HyperParameterTuningJobStatus?: HyperParameterTuningJobStatus | undefined;
-
-  /**
-   * <p>The time that a hyperparameter tuning job was created.</p>
-   * @public
-   */
-  CreationTime?: Date | undefined;
-
-  /**
-   * <p>The time that a hyperparameter tuning job ended.</p>
-   * @public
-   */
-  HyperParameterTuningEndTime?: Date | undefined;
-
-  /**
-   * <p>The time that a hyperparameter tuning job was last modified.</p>
-   * @public
-   */
-  LastModifiedTime?: Date | undefined;
-
-  /**
-   * <p>The numbers of training jobs launched by a hyperparameter tuning job, categorized by status.</p>
-   * @public
-   */
-  TrainingJobStatusCounters?: TrainingJobStatusCounters | undefined;
-
-  /**
-   * <p>Specifies the number of training jobs that this hyperparameter tuning job launched, categorized by the status of their objective metric. The objective metric status shows whether the final objective metric for the training job has been evaluated by the tuning job and used in the hyperparameter tuning process.</p>
-   * @public
-   */
-  ObjectiveStatusCounters?: ObjectiveStatusCounters | undefined;
-
-  /**
-   * <p>The container for the summary information about a training job.</p>
-   * @public
-   */
-  BestTrainingJob?: HyperParameterTrainingJobSummary | undefined;
-
-  /**
-   * <p>The container for the summary information about a training job.</p>
-   * @public
-   */
-  OverallBestTrainingJob?: HyperParameterTrainingJobSummary | undefined;
-
-  /**
-   * <p>Specifies the configuration for a hyperparameter tuning job that uses one or more previous hyperparameter tuning jobs as a starting point. The results of previous tuning jobs are used to inform which combinations of hyperparameters to search over in the new tuning job.</p> <p>All training jobs launched by the new hyperparameter tuning job are evaluated by using the objective metric, and the training job that performs the best is compared to the best training jobs from the parent tuning jobs. From these, the training job that performs the best as measured by the objective metric is returned as the overall best training job.</p> <note> <p>All training jobs launched by parent hyperparameter tuning jobs and the new hyperparameter tuning jobs count against the limit of training jobs for the tuning job.</p> </note>
-   * @public
-   */
-  WarmStartConfig?: HyperParameterTuningJobWarmStartConfig | undefined;
-
-  /**
-   * <p>The error that was created when a hyperparameter tuning job failed.</p>
-   * @public
-   */
-  FailureReason?: string | undefined;
-
-  /**
-   * <p>Information about either a current or completed hyperparameter tuning job.</p>
-   * @public
-   */
-  TuningJobCompletionDetails?: HyperParameterTuningJobCompletionDetails | undefined;
-
-  /**
-   * <p>The total amount of resources consumed by a hyperparameter tuning job.</p>
-   * @public
-   */
-  ConsumedResources?: HyperParameterTuningJobConsumedResources | undefined;
-
-  /**
-   * <p>The tags associated with a hyperparameter tuning job. For more information see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services resources</a>.</p>
-   * @public
-   */
-  Tags?: Tag[] | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const HyperParameterTuningJobSortByOptions = {
-  CreationTime: "CreationTime",
-  Name: "Name",
-  Status: "Status",
-} as const;
-
-/**
- * @public
- */
-export type HyperParameterTuningJobSortByOptions =
-  (typeof HyperParameterTuningJobSortByOptions)[keyof typeof HyperParameterTuningJobSortByOptions];
-
-/**
- * <p>Provides summary information about a hyperparameter tuning job.</p>
- * @public
- */
-export interface HyperParameterTuningJobSummary {
-  /**
-   * <p>The name of the tuning job.</p>
-   * @public
-   */
-  HyperParameterTuningJobName: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the tuning job.</p>
-   * @public
-   */
-  HyperParameterTuningJobArn: string | undefined;
-
-  /**
-   * <p>The status of the tuning job.</p>
-   * @public
-   */
-  HyperParameterTuningJobStatus: HyperParameterTuningJobStatus | undefined;
-
-  /**
-   * <p>Specifies the search strategy hyperparameter tuning uses to choose which hyperparameters to evaluate at each iteration.</p>
-   * @public
-   */
-  Strategy: HyperParameterTuningJobStrategyType | undefined;
-
-  /**
-   * <p>The date and time that the tuning job was created.</p>
-   * @public
-   */
-  CreationTime: Date | undefined;
-
-  /**
-   * <p>The date and time that the tuning job ended.</p>
-   * @public
-   */
-  HyperParameterTuningEndTime?: Date | undefined;
-
-  /**
-   * <p>The date and time that the tuning job was modified.</p>
-   * @public
-   */
-  LastModifiedTime?: Date | undefined;
-
-  /**
-   * <p>The <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_TrainingJobStatusCounters.html">TrainingJobStatusCounters</a> object that specifies the numbers of training jobs, categorized by status, that this tuning job launched.</p>
-   * @public
-   */
-  TrainingJobStatusCounters: TrainingJobStatusCounters | undefined;
-
-  /**
-   * <p>The <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ObjectiveStatusCounters.html">ObjectiveStatusCounters</a> object that specifies the numbers of training jobs, categorized by objective metric status, that this tuning job launched.</p>
-   * @public
-   */
-  ObjectiveStatusCounters: ObjectiveStatusCounters | undefined;
-
-  /**
-   * <p>The <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ResourceLimits.html">ResourceLimits</a> object that specifies the maximum number of training jobs and parallel training jobs allowed for this tuning job.</p>
-   * @public
-   */
-  ResourceLimits?: ResourceLimits | undefined;
-}
-
-/**
- * <p>A SageMaker AI image. A SageMaker AI image represents a set of container images that are derived from a common base container image. Each of these container images is represented by a SageMaker AI <code>ImageVersion</code>.</p>
- * @public
- */
-export interface Image {
-  /**
-   * <p>When the image was created.</p>
-   * @public
-   */
-  CreationTime: Date | undefined;
-
-  /**
-   * <p>The description of the image.</p>
-   * @public
-   */
-  Description?: string | undefined;
-
-  /**
-   * <p>The name of the image as displayed.</p>
-   * @public
-   */
-  DisplayName?: string | undefined;
-
-  /**
-   * <p>When a create, update, or delete operation fails, the reason for the failure.</p>
-   * @public
-   */
-  FailureReason?: string | undefined;
-
-  /**
-   * <p>The ARN of the image.</p>
-   * @public
-   */
-  ImageArn: string | undefined;
-
-  /**
-   * <p>The name of the image.</p>
-   * @public
-   */
-  ImageName: string | undefined;
-
-  /**
-   * <p>The status of the image.</p>
-   * @public
-   */
-  ImageStatus: ImageStatus | undefined;
-
-  /**
-   * <p>When the image was last modified.</p>
-   * @public
-   */
-  LastModifiedTime: Date | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const ImageSortBy = {
-  CREATION_TIME: "CREATION_TIME",
-  IMAGE_NAME: "IMAGE_NAME",
-  LAST_MODIFIED_TIME: "LAST_MODIFIED_TIME",
-} as const;
-
-/**
- * @public
- */
-export type ImageSortBy = (typeof ImageSortBy)[keyof typeof ImageSortBy];
 
 /**
  * @internal
