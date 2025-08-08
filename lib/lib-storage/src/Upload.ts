@@ -247,10 +247,8 @@ export class Upload extends EventEmitter {
         }
       }
 
-      // If the part is already uploaded, skip it.
-      if (this.uploadedParts.some((uploadedPart) => uploadedPart.PartNumber === dataPart.partNumber)) {
-        continue;
-      }
+      // ✅ Suggestion: Use early continue with concise condition
+      if (this.uploadedParts.some(p => p.PartNumber === dataPart.partNumber)) continue;
 
       const partSize: number = byteLength(dataPart.data) || 0;
 
