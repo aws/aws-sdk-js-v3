@@ -30,7 +30,10 @@ describe(AwsRestXmlProtocol.name, () => {
         },
         expected: {
           request: {
-            path: "/",
+            // S3 customization not active here since this is a mock.
+            // customization does model preprocessing to remove /{Bucket} prefix
+            // when it is a contextParam.
+            path: "/{Bucket}",
             method: "POST",
             headers: {
               "content-type": "application/xml",

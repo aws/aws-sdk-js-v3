@@ -1,12 +1,13 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { DeleteBucketWebsiteRequest } from "../models/models_0";
+import { de_DeleteBucketWebsiteCommand, se_DeleteBucketWebsiteCommand } from "../protocols/Aws_restXml";
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
-import { DeleteBucketWebsite } from "../schemas/schemas";
 
 /**
  * @public
@@ -108,12 +109,16 @@ export class DeleteBucketWebsiteCommand extends $Command
     Bucket: { type: "contextParams", name: "Bucket" },
   })
   .m(function (this: any, Command: any, cs: any, config: S3ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
   })
   .s("AmazonS3", "DeleteBucketWebsite", {})
   .n("S3Client", "DeleteBucketWebsiteCommand")
-
-  .sc(DeleteBucketWebsite)
+  .f(void 0, void 0)
+  .ser(se_DeleteBucketWebsiteCommand)
+  .de(de_DeleteBucketWebsiteCommand)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -1,13 +1,14 @@
 // smithy-typescript generated code
 import { getThrow200ExceptionsPlugin } from "@aws-sdk/middleware-sdk-s3";
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { ListMultipartUploadsOutput, ListMultipartUploadsRequest } from "../models/models_0";
+import { de_ListMultipartUploadsCommand, se_ListMultipartUploadsCommand } from "../protocols/Aws_restXml";
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
-import { ListMultipartUploads } from "../schemas/schemas";
 
 /**
  * @public
@@ -343,12 +344,17 @@ export class ListMultipartUploadsCommand extends $Command
     Prefix: { type: "contextParams", name: "Prefix" },
   })
   .m(function (this: any, Command: any, cs: any, config: S3ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions()), getThrow200ExceptionsPlugin(config)];
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+      getThrow200ExceptionsPlugin(config),
+    ];
   })
   .s("AmazonS3", "ListMultipartUploads", {})
   .n("S3Client", "ListMultipartUploadsCommand")
-
-  .sc(ListMultipartUploads)
+  .f(void 0, void 0)
+  .ser(se_ListMultipartUploadsCommand)
+  .de(de_ListMultipartUploadsCommand)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

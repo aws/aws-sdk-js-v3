@@ -1,5 +1,6 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
+import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@smithy/smithy-client";
+
 import { StreamingBlobTypes } from "@smithy/types";
 
 import {
@@ -19,6 +20,7 @@ import {
   Initiator,
   IntelligentTieringConfiguration,
   InventoryConfiguration,
+  InventoryConfigurationFilterSensitiveLog,
   InventoryConfigurationState,
   LifecycleRule,
   LoggingEnabled,
@@ -45,10 +47,12 @@ import {
   RoutingRule,
   ServerSideEncryption,
   ServerSideEncryptionConfiguration,
+  ServerSideEncryptionConfigurationFilterSensitiveLog,
   StorageClass,
   Tag,
   TransitionDefaultMinimumObjectSize,
 } from "./models_0";
+
 import { S3ServiceException as __BaseException } from "./S3ServiceException";
 
 /**
@@ -6178,3 +6182,163 @@ export interface WriteGetObjectResponseRequest {
    */
   BucketKeyEnabled?: boolean | undefined;
 }
+
+/**
+ * @internal
+ */
+export const ListPartsRequestFilterSensitiveLog = (obj: ListPartsRequest): any => ({
+  ...obj,
+  ...(obj.SSECustomerKey && { SSECustomerKey: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const PutBucketEncryptionRequestFilterSensitiveLog = (obj: PutBucketEncryptionRequest): any => ({
+  ...obj,
+  ...(obj.ServerSideEncryptionConfiguration && {
+    ServerSideEncryptionConfiguration: ServerSideEncryptionConfigurationFilterSensitiveLog(
+      obj.ServerSideEncryptionConfiguration
+    ),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const PutBucketInventoryConfigurationRequestFilterSensitiveLog = (
+  obj: PutBucketInventoryConfigurationRequest
+): any => ({
+  ...obj,
+  ...(obj.InventoryConfiguration && {
+    InventoryConfiguration: InventoryConfigurationFilterSensitiveLog(obj.InventoryConfiguration),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const PutObjectOutputFilterSensitiveLog = (obj: PutObjectOutput): any => ({
+  ...obj,
+  ...(obj.SSEKMSKeyId && { SSEKMSKeyId: SENSITIVE_STRING }),
+  ...(obj.SSEKMSEncryptionContext && { SSEKMSEncryptionContext: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const PutObjectRequestFilterSensitiveLog = (obj: PutObjectRequest): any => ({
+  ...obj,
+  ...(obj.SSECustomerKey && { SSECustomerKey: SENSITIVE_STRING }),
+  ...(obj.SSEKMSKeyId && { SSEKMSKeyId: SENSITIVE_STRING }),
+  ...(obj.SSEKMSEncryptionContext && { SSEKMSEncryptionContext: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const EncryptionFilterSensitiveLog = (obj: Encryption): any => ({
+  ...obj,
+  ...(obj.KMSKeyId && { KMSKeyId: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const S3LocationFilterSensitiveLog = (obj: S3Location): any => ({
+  ...obj,
+  ...(obj.Encryption && { Encryption: EncryptionFilterSensitiveLog(obj.Encryption) }),
+});
+
+/**
+ * @internal
+ */
+export const OutputLocationFilterSensitiveLog = (obj: OutputLocation): any => ({
+  ...obj,
+  ...(obj.S3 && { S3: S3LocationFilterSensitiveLog(obj.S3) }),
+});
+
+/**
+ * @internal
+ */
+export const RestoreRequestFilterSensitiveLog = (obj: RestoreRequest): any => ({
+  ...obj,
+  ...(obj.OutputLocation && { OutputLocation: OutputLocationFilterSensitiveLog(obj.OutputLocation) }),
+});
+
+/**
+ * @internal
+ */
+export const RestoreObjectRequestFilterSensitiveLog = (obj: RestoreObjectRequest): any => ({
+  ...obj,
+  ...(obj.RestoreRequest && { RestoreRequest: RestoreRequestFilterSensitiveLog(obj.RestoreRequest) }),
+});
+
+/**
+ * @internal
+ */
+export const SelectObjectContentEventStreamFilterSensitiveLog = (obj: SelectObjectContentEventStream): any => {
+  if (obj.Records !== undefined) return { Records: obj.Records };
+  if (obj.Stats !== undefined) return { Stats: obj.Stats };
+  if (obj.Progress !== undefined) return { Progress: obj.Progress };
+  if (obj.Cont !== undefined) return { Cont: obj.Cont };
+  if (obj.End !== undefined) return { End: obj.End };
+  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
+};
+
+/**
+ * @internal
+ */
+export const SelectObjectContentOutputFilterSensitiveLog = (obj: SelectObjectContentOutput): any => ({
+  ...obj,
+  ...(obj.Payload && { Payload: "STREAMING_CONTENT" }),
+});
+
+/**
+ * @internal
+ */
+export const SelectObjectContentRequestFilterSensitiveLog = (obj: SelectObjectContentRequest): any => ({
+  ...obj,
+  ...(obj.SSECustomerKey && { SSECustomerKey: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const UploadPartOutputFilterSensitiveLog = (obj: UploadPartOutput): any => ({
+  ...obj,
+  ...(obj.SSEKMSKeyId && { SSEKMSKeyId: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const UploadPartRequestFilterSensitiveLog = (obj: UploadPartRequest): any => ({
+  ...obj,
+  ...(obj.SSECustomerKey && { SSECustomerKey: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const UploadPartCopyOutputFilterSensitiveLog = (obj: UploadPartCopyOutput): any => ({
+  ...obj,
+  ...(obj.SSEKMSKeyId && { SSEKMSKeyId: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const UploadPartCopyRequestFilterSensitiveLog = (obj: UploadPartCopyRequest): any => ({
+  ...obj,
+  ...(obj.SSECustomerKey && { SSECustomerKey: SENSITIVE_STRING }),
+  ...(obj.CopySourceSSECustomerKey && { CopySourceSSECustomerKey: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const WriteGetObjectResponseRequestFilterSensitiveLog = (obj: WriteGetObjectResponseRequest): any => ({
+  ...obj,
+  ...(obj.SSEKMSKeyId && { SSEKMSKeyId: SENSITIVE_STRING }),
+});

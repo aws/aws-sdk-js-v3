@@ -116,6 +116,12 @@ describe("util-retry integration tests", () => {
       expect(error.$metadata.httpStatusCode).toBe(expectedException.$metadata.httpStatusCode);
       expect(error.$metadata.attempts).toBe(expectedException.$metadata.attempts);
       expect(error.$metadata.totalRetryDelay).toBeGreaterThan(0);
+      expect(error).toMatchObject({
+        $metadata: {
+          httpStatusCode: 429,
+        },
+        $fault: "client",
+      });
     }
   });
 

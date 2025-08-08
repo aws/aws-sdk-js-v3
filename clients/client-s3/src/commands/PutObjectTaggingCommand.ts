@@ -2,13 +2,14 @@
 import { getFlexibleChecksumsPlugin } from "@aws-sdk/middleware-flexible-checksums";
 import { getThrow200ExceptionsPlugin } from "@aws-sdk/middleware-sdk-s3";
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { PutObjectTaggingOutput, PutObjectTaggingRequest } from "../models/models_1";
+import { de_PutObjectTaggingCommand, se_PutObjectTaggingCommand } from "../protocols/Aws_restXml";
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
-import { PutObjectTagging } from "../schemas/schemas";
 
 /**
  * @public
@@ -164,6 +165,7 @@ export class PutObjectTaggingCommand extends $Command
   })
   .m(function (this: any, Command: any, cs: any, config: S3ClientResolvedConfig, o: any) {
     return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
       getFlexibleChecksumsPlugin(config, {
         requestAlgorithmMember: { httpHeader: "x-amz-sdk-checksum-algorithm", name: "ChecksumAlgorithm" },
@@ -174,8 +176,9 @@ export class PutObjectTaggingCommand extends $Command
   })
   .s("AmazonS3", "PutObjectTagging", {})
   .n("S3Client", "PutObjectTaggingCommand")
-
-  .sc(PutObjectTagging)
+  .f(void 0, void 0)
+  .ser(se_PutObjectTaggingCommand)
+  .de(de_PutObjectTaggingCommand)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

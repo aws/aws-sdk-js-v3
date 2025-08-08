@@ -4,7 +4,7 @@ import { SageMaker } from "@aws-sdk/client-sagemaker";
 import { SageMakerRuntime } from "@aws-sdk/client-sagemaker-runtime";
 import { describe, test as it } from "vitest";
 
-import { requireRequestsFrom } from "../../aws-util-test/src";
+import { requireRequestsFrom } from "@aws-sdk/aws-util-test/src";
 
 describe("middleware-serde", () => {
   describe(S3.name, () => {

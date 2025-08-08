@@ -1,13 +1,14 @@
 // smithy-typescript generated code
 import { getThrow200ExceptionsPlugin } from "@aws-sdk/middleware-sdk-s3";
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GetBucketCorsOutput, GetBucketCorsRequest } from "../models/models_0";
+import { de_GetBucketCorsCommand, se_GetBucketCorsCommand } from "../protocols/Aws_restXml";
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
-import { GetBucketCors } from "../schemas/schemas";
 
 /**
  * @public
@@ -143,12 +144,17 @@ export class GetBucketCorsCommand extends $Command
     Bucket: { type: "contextParams", name: "Bucket" },
   })
   .m(function (this: any, Command: any, cs: any, config: S3ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions()), getThrow200ExceptionsPlugin(config)];
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+      getThrow200ExceptionsPlugin(config),
+    ];
   })
   .s("AmazonS3", "GetBucketCors", {})
   .n("S3Client", "GetBucketCorsCommand")
-
-  .sc(GetBucketCors)
+  .f(void 0, void 0)
+  .ser(se_GetBucketCorsCommand)
+  .de(de_GetBucketCorsCommand)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

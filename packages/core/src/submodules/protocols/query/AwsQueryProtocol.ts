@@ -146,7 +146,12 @@ export class AwsQueryProtocol extends RpcProtocol {
       [namespace, errorName] = errorIdentifier.split("#");
     }
 
-    const errorDataSource = this.loadQueryError(dataObject);
+    const errorData = this.loadQueryError(dataObject);
+    const errorMetadata = {
+      $metadata: metadata,
+      $response: response,
+      $fault: response.statusCode <= 500 ? ("client" as const) : ("server" as const),
+    };
 
     const registry = TypeRegistry.for(namespace);
     let errorSchema: ErrorSchema;
@@ -159,12 +164,15 @@ export class AwsQueryProtocol extends RpcProtocol {
         errorSchema = registry.getSchema(errorIdentifier) as ErrorSchema;
       }
     } catch (e) {
+      if (errorData.Message) {
+        errorData.message = errorData.Message;
+      }
       const baseExceptionSchema = TypeRegistry.for("smithy.ts.sdk.synthetic." + namespace).getBaseException();
       if (baseExceptionSchema) {
         const ErrorCtor = baseExceptionSchema.ctor;
-        throw Object.assign(new ErrorCtor(errorName), errorDataSource);
+        throw Object.assign(new ErrorCtor({ name: errorName }), errorMetadata, dataObject);
       }
-      throw new Error(errorName);
+      throw Object.assign(new Error(errorName), errorMetadata, errorData);
     }
 
     const ns = NormalizedSchema.of(errorSchema);
@@ -175,19 +183,19 @@ export class AwsQueryProtocol extends RpcProtocol {
 
     for (const [name, member] of ns.structIterator()) {
       const target = member.getMergedTraits().xmlName ?? name;
-      const value = errorDataSource[target] ?? dataObject[target];
+      const value = errorData[target] ?? dataObject[target];
       output[name] = this.deserializer.readSchema(member, value);
     }
 
-    Object.assign(exception, {
-      $metadata: metadata,
-      $response: response,
-      $fault: ns.getMergedTraits().error,
-      message,
-      ...output,
-    });
-
-    throw exception;
+    throw Object.assign(
+      exception,
+      errorMetadata,
+      {
+        $fault: ns.getMergedTraits().error,
+        message,
+      },
+      output
+    );
   }
 
   /**
