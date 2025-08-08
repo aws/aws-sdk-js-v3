@@ -110,7 +110,7 @@ tasks.register("generate-smithy-build") {
                 // e.g. "S3" - use this as exclusion list if needed.
             )
             val useSchemaSerde = setOf<String>(
-                "S3"
+                // "S3"
             )
             val projectionContents = Node.objectNodeBuilder()
                     .withMember("imports", Node.fromStrings("${models.getAbsolutePath()}${File.separator}${file.name}"))

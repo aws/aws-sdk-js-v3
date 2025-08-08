@@ -126,17 +126,27 @@ export class AwsRestXmlProtocol extends HttpBindingProtocol {
       [namespace, errorName] = errorIdentifier.split("#");
     }
 
+    const errorMetadata = {
+      $metadata: metadata,
+      $response: response,
+      $fault: response.statusCode <= 500 ? ("client" as const) : ("server" as const),
+    };
+
     const registry = TypeRegistry.for(namespace);
+
     let errorSchema: ErrorSchema;
     try {
       errorSchema = registry.getSchema(errorIdentifier) as ErrorSchema;
     } catch (e) {
+      if (dataObject.Message) {
+        dataObject.message = dataObject.Message;
+      }
       const baseExceptionSchema = TypeRegistry.for("smithy.ts.sdk.synthetic." + namespace).getBaseException();
       if (baseExceptionSchema) {
         const ErrorCtor = baseExceptionSchema.ctor;
-        throw Object.assign(new ErrorCtor(errorName), dataObject);
+        throw Object.assign(new ErrorCtor({ name: errorName }), errorMetadata, dataObject);
       }
-      throw new Error(errorName);
+      throw Object.assign(new Error(errorName), errorMetadata, dataObject);
     }
 
     const ns = NormalizedSchema.of(errorSchema);
@@ -152,15 +162,15 @@ export class AwsRestXmlProtocol extends HttpBindingProtocol {
       output[name] = this.codec.createDeserializer().readSchema(member, value);
     }
 
-    Object.assign(exception, {
-      $metadata: metadata,
-      $response: response,
-      $fault: ns.getMergedTraits().error,
-      message,
-      ...output,
-    });
-
-    throw exception;
+    throw Object.assign(
+      exception,
+      errorMetadata,
+      {
+        $fault: ns.getMergedTraits().error,
+        message,
+      },
+      output
+    );
   }
 
   /**

@@ -61,6 +61,7 @@ import software.amazon.smithy.typescript.codegen.TypeScriptWriter;
 import software.amazon.smithy.typescript.codegen.auth.http.integration.AddHttpSigningPlugin;
 import software.amazon.smithy.typescript.codegen.integration.RuntimeClientPlugin;
 import software.amazon.smithy.typescript.codegen.integration.TypeScriptIntegration;
+import software.amazon.smithy.typescript.codegen.schema.SchemaGenerationAllowlist;
 import software.amazon.smithy.utils.ListUtils;
 import software.amazon.smithy.utils.MapUtils;
 import software.amazon.smithy.utils.SetUtils;
@@ -137,7 +138,7 @@ public final class AddS3Config implements TypeScriptIntegration {
                         () -> new RuntimeException("operation must have input structure")
                     );
 
-                    boolean hasBucketPrefix = uri.startsWith("/{Bucket}") ;
+                    boolean hasBucketPrefix = uri.startsWith("/{Bucket}");
                     Optional<MemberShape> bucket = input.getMember("Bucket");
                     boolean inputHasBucketMember = bucket.isPresent();
                     boolean bucketIsContextParam = bucket
@@ -293,7 +294,12 @@ public final class AddS3Config implements TypeScriptIntegration {
         Model builtModel = modelBuilder.addShapes(inputShapes).build();
         if (hasRuleset) {
             return ModelTransformer.create().mapShapes(
-                builtModel, (shape) -> removeUriBucketPrefix(shape, model)
+                builtModel, (shape) -> {
+                    if (SchemaGenerationAllowlist.allows(serviceShape.getId(), settings)) {
+                        return removeUriBucketPrefix(shape, model);
+                    }
+                    return shape;
+                }
             );
         }
         return builtModel;

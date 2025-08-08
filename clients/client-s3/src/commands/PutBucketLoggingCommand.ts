@@ -1,13 +1,14 @@
 // smithy-typescript generated code
 import { getFlexibleChecksumsPlugin } from "@aws-sdk/middleware-flexible-checksums";
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { PutBucketLoggingRequest } from "../models/models_1";
+import { de_PutBucketLoggingCommand, se_PutBucketLoggingCommand } from "../protocols/Aws_restXml";
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
-import { PutBucketLogging } from "../schemas/schemas";
 
 /**
  * @public
@@ -217,6 +218,7 @@ export class PutBucketLoggingCommand extends $Command
   })
   .m(function (this: any, Command: any, cs: any, config: S3ClientResolvedConfig, o: any) {
     return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
       getFlexibleChecksumsPlugin(config, {
         requestAlgorithmMember: { httpHeader: "x-amz-sdk-checksum-algorithm", name: "ChecksumAlgorithm" },
@@ -226,8 +228,9 @@ export class PutBucketLoggingCommand extends $Command
   })
   .s("AmazonS3", "PutBucketLogging", {})
   .n("S3Client", "PutBucketLoggingCommand")
-
-  .sc(PutBucketLogging)
+  .f(void 0, void 0)
+  .ser(se_PutBucketLoggingCommand)
+  .de(de_PutBucketLoggingCommand)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

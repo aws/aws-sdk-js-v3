@@ -1,12 +1,13 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer, StreamingBlobPayloadInputTypes } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { WriteGetObjectResponseRequest } from "../models/models_1";
+import { WriteGetObjectResponseRequest, WriteGetObjectResponseRequestFilterSensitiveLog } from "../models/models_1";
+import { de_WriteGetObjectResponseCommand, se_WriteGetObjectResponseCommand } from "../protocols/Aws_restXml";
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
-import { WriteGetObjectResponse } from "../schemas/schemas";
 
 /**
  * @public
@@ -145,12 +146,16 @@ export class WriteGetObjectResponseCommand extends $Command
     UseObjectLambdaEndpoint: { type: "staticContextParams", value: true },
   })
   .m(function (this: any, Command: any, cs: any, config: S3ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
   })
   .s("AmazonS3", "WriteGetObjectResponse", {})
   .n("S3Client", "WriteGetObjectResponseCommand")
-
-  .sc(WriteGetObjectResponse)
+  .f(WriteGetObjectResponseRequestFilterSensitiveLog, void 0)
+  .ser(se_WriteGetObjectResponseCommand)
+  .de(de_WriteGetObjectResponseCommand)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
