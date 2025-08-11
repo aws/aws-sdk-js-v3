@@ -3396,7 +3396,9 @@ export interface UpdateTemplateCommandOutput extends UpdateTemplateResponse, __M
  *                   HeatMapRowItemsLimitConfiguration: "<ItemsLimitConfiguration>",
  *                   HeatMapColumnItemsLimitConfiguration: "<ItemsLimitConfiguration>",
  *                 },
+ *                 RowAxisDisplayOptions: "<AxisDisplayOptions>",
  *                 RowLabelOptions: "<ChartAxisLabelOptions>",
+ *                 ColumnAxisDisplayOptions: "<AxisDisplayOptions>",
  *                 ColumnLabelOptions: "<ChartAxisLabelOptions>",
  *                 ColorScale: { // ColorScale
  *                   Colors: [ // ColorScaleColorList // required
@@ -4507,6 +4509,7 @@ export interface UpdateTemplateCommandOutput extends UpdateTemplateResponse, __M
  *                   },
  *                 },
  *               },
+ *               Actions: "<VisualCustomActionList>",
  *               VisualContentAltText: "STRING_VALUE",
  *             },
  *           },

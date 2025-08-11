@@ -14759,11 +14759,13 @@ const se_HeatMapAggregatedFieldWells = (input: HeatMapAggregatedFieldWells, cont
 const se_HeatMapConfiguration = (input: HeatMapConfiguration, context: __SerdeContext): any => {
   return take(input, {
     ColorScale: (_) => se_ColorScale(_, context),
+    ColumnAxisDisplayOptions: (_) => se_AxisDisplayOptions(_, context),
     ColumnLabelOptions: _json,
     DataLabels: _json,
     FieldWells: (_) => se_HeatMapFieldWells(_, context),
     Interactions: _json,
     Legend: _json,
+    RowAxisDisplayOptions: (_) => se_AxisDisplayOptions(_, context),
     RowLabelOptions: _json,
     SortConfiguration: (_) => se_HeatMapSortConfiguration(_, context),
     Tooltip: (_) => se_TooltipOptions(_, context),
@@ -16049,6 +16051,7 @@ const se_PivotTableVisual = (input: PivotTableVisual, context: __SerdeContext): 
  */
 const se_PluginVisual = (input: PluginVisual, context: __SerdeContext): any => {
   return take(input, {
+    Actions: (_) => se_VisualCustomActionList(_, context),
     ChartConfiguration: (_) => se_PluginVisualConfiguration(_, context),
     PluginArn: [],
     Subtitle: _json,
@@ -20964,11 +20967,13 @@ const de_HeatMapAggregatedFieldWells = (output: any, context: __SerdeContext): H
 const de_HeatMapConfiguration = (output: any, context: __SerdeContext): HeatMapConfiguration => {
   return take(output, {
     ColorScale: (_: any) => de_ColorScale(_, context),
+    ColumnAxisDisplayOptions: (_: any) => de_AxisDisplayOptions(_, context),
     ColumnLabelOptions: _json,
     DataLabels: _json,
     FieldWells: (_: any) => de_HeatMapFieldWells(_, context),
     Interactions: _json,
     Legend: _json,
+    RowAxisDisplayOptions: (_: any) => de_AxisDisplayOptions(_, context),
     RowLabelOptions: _json,
     SortConfiguration: (_: any) => de_HeatMapSortConfiguration(_, context),
     Tooltip: (_: any) => de_TooltipOptions(_, context),
@@ -22335,6 +22340,7 @@ const de_PivotTableVisual = (output: any, context: __SerdeContext): PivotTableVi
  */
 const de_PluginVisual = (output: any, context: __SerdeContext): PluginVisual => {
   return take(output, {
+    Actions: (_: any) => de_VisualCustomActionList(_, context),
     ChartConfiguration: (_: any) => de_PluginVisualConfiguration(_, context),
     PluginArn: __expectString,
     Subtitle: _json,

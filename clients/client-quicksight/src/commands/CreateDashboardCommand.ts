@@ -3470,7 +3470,9 @@ export interface CreateDashboardCommandOutput extends CreateDashboardResponse, _
  *                   HeatMapRowItemsLimitConfiguration: "<ItemsLimitConfiguration>",
  *                   HeatMapColumnItemsLimitConfiguration: "<ItemsLimitConfiguration>",
  *                 },
+ *                 RowAxisDisplayOptions: "<AxisDisplayOptions>",
  *                 RowLabelOptions: "<ChartAxisLabelOptions>",
+ *                 ColumnAxisDisplayOptions: "<AxisDisplayOptions>",
  *                 ColumnLabelOptions: "<ChartAxisLabelOptions>",
  *                 ColorScale: { // ColorScale
  *                   Colors: [ // ColorScaleColorList // required
@@ -4581,6 +4583,7 @@ export interface CreateDashboardCommandOutput extends CreateDashboardResponse, _
  *                   },
  *                 },
  *               },
+ *               Actions: "<VisualCustomActionList>",
  *               VisualContentAltText: "STRING_VALUE",
  *             },
  *           },

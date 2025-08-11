@@ -3817,10 +3817,22 @@ export interface HeatMapConfiguration {
   SortConfiguration?: HeatMapSortConfiguration | undefined;
 
   /**
+   * <p>The options that determine the presentation of the row axis label.</p>
+   * @public
+   */
+  RowAxisDisplayOptions?: AxisDisplayOptions | undefined;
+
+  /**
    * <p>The label options of the row that is displayed in a <code>heat map</code>.</p>
    * @public
    */
   RowLabelOptions?: ChartAxisLabelOptions | undefined;
+
+  /**
+   * <p>The options that determine the presentation of the row axis label.</p>
+   * @public
+   */
+  ColumnAxisDisplayOptions?: AxisDisplayOptions | undefined;
 
   /**
    * <p>The label options of the column that is displayed in a heat map.</p>

@@ -511,6 +511,12 @@ export interface PluginVisual {
   ChartConfiguration?: PluginVisualConfiguration | undefined;
 
   /**
+   * <p>The list of custom actions that are configured for a visual.</p>
+   * @public
+   */
+  Actions?: VisualCustomAction[] | undefined;
+
+  /**
    * <p>The alt text for the visual.</p>
    * @public
    */
