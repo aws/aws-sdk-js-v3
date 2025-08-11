@@ -30,6 +30,7 @@ export interface DescribePrefixListsCommandOutput extends DescribePrefixListsRes
 /**
  * <p>Describes available Amazon Web Services services in a prefix list format, which includes the prefix list
  *             name and prefix list ID of the service and the IP address range for the service.</p>
+ *          <p>We recommend that you use <a>DescribeManagedPrefixLists</a> instead.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

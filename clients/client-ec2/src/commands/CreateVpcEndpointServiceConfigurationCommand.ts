@@ -101,7 +101,10 @@ export interface CreateVpcEndpointServiceConfigurationCommandOutput
  * //     ServiceId: "STRING_VALUE",
  * //     ServiceName: "STRING_VALUE",
  * //     ServiceState: "Pending" || "Available" || "Deleting" || "Deleted" || "Failed",
- * //     AvailabilityZones: [ // ValueStringList
+ * //     AvailabilityZoneIds: [ // ValueStringList
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     AvailabilityZones: [
  * //       "STRING_VALUE",
  * //     ],
  * //     AcceptanceRequired: true || false,

@@ -2284,6 +2284,14 @@ export interface ImportSnapshotResult {
  */
 export interface ImportVolumeRequest {
   /**
+   * <p>The ID of the Availability Zone for the resulting EBS volume.</p>
+   *          <p>Either <code>AvailabilityZone</code> or <code>AvailabilityZoneId</code> must be specified,
+   *    but not both.</p>
+   * @public
+   */
+  AvailabilityZoneId?: string | undefined;
+
+  /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
@@ -2293,9 +2301,11 @@ export interface ImportVolumeRequest {
 
   /**
    * <p>The Availability Zone for the resulting EBS volume.</p>
+   *          <p>Either <code>AvailabilityZone</code> or <code>AvailabilityZoneId</code> must be specified,
+   *    but not both.</p>
    * @public
    */
-  AvailabilityZone: string | undefined;
+  AvailabilityZone?: string | undefined;
 
   /**
    * <p>The disk image.</p>

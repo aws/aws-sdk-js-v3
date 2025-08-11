@@ -75,6 +75,7 @@ export interface ModifyFleetCommandOutput extends ModifyFleetResult, __MetadataB
  *           WeightedCapacity: Number("double"),
  *           Priority: Number("double"),
  *           Placement: { // Placement
+ *             AvailabilityZoneId: "STRING_VALUE",
  *             Affinity: "STRING_VALUE",
  *             GroupName: "STRING_VALUE",
  *             PartitionNumber: Number("int"),

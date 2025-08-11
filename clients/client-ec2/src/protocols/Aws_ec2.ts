@@ -32918,6 +32918,9 @@ const se_CreateDefaultSubnetRequest = (input: CreateDefaultSubnetRequest, contex
   if (input[_IN] != null) {
     entries[_IN] = input[_IN];
   }
+  if (input[_AZI] != null) {
+    entries[_AZI] = input[_AZI];
+  }
   return entries;
 };
 
@@ -36028,6 +36031,9 @@ const se_CreateVolumeRequest = (input: CreateVolumeRequest, context: __SerdeCont
   const entries: any = {};
   if (input[_AZ] != null) {
     entries[_AZ] = input[_AZ];
+  }
+  if (input[_AZI] != null) {
+    entries[_AZI] = input[_AZI];
   }
   if (input[_Enc] != null) {
     entries[_Enc] = input[_Enc];
@@ -41937,6 +41943,9 @@ const se_DescribeSpotInstanceRequestsRequest = (
  */
 const se_DescribeSpotPriceHistoryRequest = (input: DescribeSpotPriceHistoryRequest, context: __SerdeContext): any => {
   const entries: any = {};
+  if (input[_AZI] != null) {
+    entries[_AZI] = input[_AZI];
+  }
   if (input[_DRr] != null) {
     entries[_DRr] = input[_DRr];
   }
@@ -47478,6 +47487,9 @@ const se_ImportTaskIdList = (input: string[], context: __SerdeContext): any => {
  */
 const se_ImportVolumeRequest = (input: ImportVolumeRequest, context: __SerdeContext): any => {
   const entries: any = {};
+  if (input[_AZI] != null) {
+    entries[_AZI] = input[_AZI];
+  }
   if (input[_DRr] != null) {
     entries[_DRr] = input[_DRr];
   }
@@ -49499,6 +49511,9 @@ const se_LaunchTemplatePlacementRequest = (input: LaunchTemplatePlacementRequest
   const entries: any = {};
   if (input[_AZ] != null) {
     entries[_AZ] = input[_AZ];
+  }
+  if (input[_AZI] != null) {
+    entries[_AZI] = input[_AZI];
   }
   if (input[_Af] != null) {
     entries[_Af] = input[_Af];
@@ -53720,6 +53735,9 @@ const se_Phase2IntegrityAlgorithmsRequestListValue = (
  */
 const se_Placement = (input: Placement, context: __SerdeContext): any => {
   const entries: any = {};
+  if (input[_AZI] != null) {
+    entries[_AZI] = input[_AZI];
+  }
   if (input[_Af] != null) {
     entries[_Af] = input[_Af];
   }
@@ -74267,6 +74285,9 @@ const de_ImportInstanceVolumeDetailItem = (output: any, context: __SerdeContext)
   if (output[_aZ] != null) {
     contents[_AZ] = __expectString(output[_aZ]);
   }
+  if (output[_aZI] != null) {
+    contents[_AZI] = __expectString(output[_aZI]);
+  }
   if (output[_bCy] != null) {
     contents[_BCyt] = __strictParseLong(output[_bCy]) as number;
   }
@@ -74394,6 +74415,9 @@ const de_ImportVolumeTaskDetails = (output: any, context: __SerdeContext): Impor
   const contents: any = {};
   if (output[_aZ] != null) {
     contents[_AZ] = __expectString(output[_aZ]);
+  }
+  if (output[_aZI] != null) {
+    contents[_AZI] = __expectString(output[_aZI]);
   }
   if (output[_bCy] != null) {
     contents[_BCyt] = __strictParseLong(output[_bCy]) as number;
@@ -75775,6 +75799,9 @@ const de_InstanceStatus = (output: any, context: __SerdeContext): InstanceStatus
   const contents: any = {};
   if (output[_aZ] != null) {
     contents[_AZ] = __expectString(output[_aZ]);
+  }
+  if (output[_aZI] != null) {
+    contents[_AZI] = __expectString(output[_aZI]);
   }
   if (output[_oA] != null) {
     contents[_OA] = __expectString(output[_oA]);
@@ -78288,6 +78315,9 @@ const de_LaunchTemplatePlacement = (output: any, context: __SerdeContext): Launc
   const contents: any = {};
   if (output[_aZ] != null) {
     contents[_AZ] = __expectString(output[_aZ]);
+  }
+  if (output[_aZI] != null) {
+    contents[_AZI] = __expectString(output[_aZI]);
   }
   if (output[_af] != null) {
     contents[_Af] = __expectString(output[_af]);
@@ -81865,6 +81895,9 @@ const de_Phase2IntegrityAlgorithmsListValue = (
  */
 const de_Placement = (output: any, context: __SerdeContext): Placement => {
   const contents: any = {};
+  if (output[_aZI] != null) {
+    contents[_AZI] = __expectString(output[_aZI]);
+  }
   if (output[_af] != null) {
     contents[_Af] = __expectString(output[_af]);
   }
@@ -85155,6 +85188,11 @@ const de_ServiceConfiguration = (output: any, context: __SerdeContext): ServiceC
   if (output[_sSer] != null) {
     contents[_SSe] = __expectString(output[_sSer]);
   }
+  if (output.availabilityZoneIdSet === "") {
+    contents[_AZIv] = [];
+  } else if (output[_aZIS] != null && output[_aZIS][_i] != null) {
+    contents[_AZIv] = de_ValueStringList(__getArrayIfSingleItem(output[_aZIS][_i]), context);
+  }
   if (output.availabilityZoneSet === "") {
     contents[_AZv] = [];
   } else if (output[_aZS] != null && output[_aZS][_i] != null) {
@@ -85240,6 +85278,11 @@ const de_ServiceDetail = (output: any, context: __SerdeContext): ServiceDetail =
   }
   if (output[_sR] != null) {
     contents[_SRe] = __expectString(output[_sR]);
+  }
+  if (output.availabilityZoneIdSet === "") {
+    contents[_AZIv] = [];
+  } else if (output[_aZIS] != null && output[_aZIS][_i] != null) {
+    contents[_AZIv] = de_ValueStringList(__getArrayIfSingleItem(output[_aZIS][_i]), context);
   }
   if (output.availabilityZoneSet === "") {
     contents[_AZv] = [];
@@ -86033,6 +86076,9 @@ const de_SpotInstanceRequest = (output: any, context: __SerdeContext): SpotInsta
   if (output[_lAZ] != null) {
     contents[_LAZ] = __expectString(output[_lAZ]);
   }
+  if (output[_lAZI] != null) {
+    contents[_LAZI] = __expectString(output[_lAZI]);
+  }
   if (output[_pDr] != null) {
     contents[_PDr] = __expectString(output[_pDr]);
   }
@@ -86205,6 +86251,9 @@ const de_SpotPrice = (output: any, context: __SerdeContext): SpotPrice => {
   const contents: any = {};
   if (output[_aZ] != null) {
     contents[_AZ] = __expectString(output[_aZ]);
+  }
+  if (output[_aZI] != null) {
+    contents[_AZI] = __expectString(output[_aZI]);
   }
   if (output[_iT] != null) {
     contents[_IT] = __expectString(output[_iT]);
@@ -90009,6 +90058,9 @@ const de_VirtualizationTypeList = (output: any, context: __SerdeContext): Virtua
  */
 const de_Volume = (output: any, context: __SerdeContext): Volume => {
   const contents: any = {};
+  if (output[_aZI] != null) {
+    contents[_AZI] = __expectString(output[_aZI]);
+  }
   if (output[_oA] != null) {
     contents[_OA] = __expectString(output[_oA]);
   }
@@ -92869,6 +92921,7 @@ const _L = "Locale";
 const _LA = "LocalAddress";
 const _LADT = "LastAttemptedDiscoveryTime";
 const _LAZ = "LaunchedAvailabilityZone";
+const _LAZI = "LaunchedAvailabilityZoneId";
 const _LAa = "LastAddress";
 const _LB = "LoadBalancers";
 const _LBA = "LocalBgpAsn";
@@ -95058,6 +95111,7 @@ const _l = "lifecycle";
 const _lA = "localAddress";
 const _lADT = "lastAttemptedDiscoveryTime";
 const _lAZ = "launchedAvailabilityZone";
+const _lAZI = "launchedAvailabilityZoneId";
 const _lAa = "lastAddress";
 const _lBA = "loadBalancerArn";
 const _lBAE = "localBgpAsnExtended";

@@ -77,6 +77,9 @@ export interface DescribeVpcEndpointServicesCommandOutput extends DescribeVpcEnd
  * //         },
  * //       ],
  * //       ServiceRegion: "STRING_VALUE",
+ * //       AvailabilityZoneIds: [
+ * //         "STRING_VALUE",
+ * //       ],
  * //       AvailabilityZones: [
  * //         "STRING_VALUE",
  * //       ],

@@ -7984,6 +7984,11 @@ export interface DescribeSpotInstanceRequestsRequest {
    *             </li>
    *             <li>
    *                <p>
+   *                   <code>launched-availability-zone-id</code> - The ID of the Availability Zone
+   *                     in which the request is launched.</p>
+   *             </li>
+   *             <li>
+   *                <p>
    *                   <code>network-interface.addresses.primary</code> - Indicates whether the IP
    *                     address is the primary private IP address.</p>
    *             </li>
@@ -8292,9 +8297,17 @@ export interface SpotInstanceRequest {
 
   /**
    * <p>The Availability Zone in which the request is launched.</p>
+   *          <p>Either <code>launchedAvailabilityZone</code> or <code>launchedAvailabilityZoneId</code> can be specified, but not both</p>
    * @public
    */
   LaunchedAvailabilityZone?: string | undefined;
+
+  /**
+   * <p>The ID of the Availability Zone in which the request is launched.</p>
+   *          <p>Either <code>launchedAvailabilityZone</code> or <code>launchedAvailabilityZoneId</code> can be specified, but not both</p>
+   * @public
+   */
+  LaunchedAvailabilityZoneId?: string | undefined;
 
   /**
    * <p>The product description associated with the Spot Instance.</p>
@@ -8403,6 +8416,13 @@ export interface DescribeSpotInstanceRequestsResult {
  */
 export interface DescribeSpotPriceHistoryRequest {
   /**
+   * <p>Filters the results by the specified ID of the Availability Zone.</p>
+   *          <p>Either <code>AvailabilityZone</code> or <code>AvailabilityZoneId</code> can be specified, but not both</p>
+   * @public
+   */
+  AvailabilityZoneId?: string | undefined;
+
+  /**
    * <p>Checks whether you have the required permissions for the action, without actually
    *             making the request, and provides an error response. If you have the required
    *             permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is
@@ -8449,6 +8469,11 @@ export interface DescribeSpotPriceHistoryRequest {
    *             </li>
    *             <li>
    *                <p>
+   *                   <code>availability-zone-id</code> - The ID of the Availability Zone for which
+   *                     prices should be returned.</p>
+   *             </li>
+   *             <li>
+   *                <p>
    *                   <code>instance-type</code> - The type of instance (for example,
    *                     <code>m3.medium</code>).</p>
    *             </li>
@@ -8482,6 +8507,7 @@ export interface DescribeSpotPriceHistoryRequest {
 
   /**
    * <p>Filters the results by the specified Availability Zone.</p>
+   *          <p>Either <code>AvailabilityZone</code> or <code>AvailabilityZoneId</code> can be specified, but not both</p>
    * @public
    */
   AvailabilityZone?: string | undefined;
@@ -8515,6 +8541,12 @@ export interface SpotPrice {
    * @public
    */
   AvailabilityZone?: string | undefined;
+
+  /**
+   * <p>The ID of the Availability Zone.</p>
+   * @public
+   */
+  AvailabilityZoneId?: string | undefined;
 
   /**
    * <p>The instance type.</p>
@@ -10961,6 +10993,11 @@ export interface DescribeVolumesRequest {
    *                <p>
    *                   <code>availability-zone</code> - The Availability Zone in which the volume was
    *           created.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>availability-zone-id</code> - The ID of the Availability Zone in which the
+   *           volume was created.</p>
    *             </li>
    *             <li>
    *                <p>

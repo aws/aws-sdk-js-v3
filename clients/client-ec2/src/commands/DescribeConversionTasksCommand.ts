@@ -61,6 +61,7 @@ export interface DescribeConversionTasksCommandOutput extends DescribeConversion
  * //         Volumes: [ // ImportInstanceVolumeDetailSet
  * //           { // ImportInstanceVolumeDetailItem
  * //             AvailabilityZone: "STRING_VALUE",
+ * //             AvailabilityZoneId: "STRING_VALUE",
  * //             BytesConverted: Number("long"),
  * //             Description: "STRING_VALUE",
  * //             Image: { // DiskImageDescription
@@ -80,6 +81,7 @@ export interface DescribeConversionTasksCommandOutput extends DescribeConversion
  * //       },
  * //       ImportVolume: { // ImportVolumeTaskDetails
  * //         AvailabilityZone: "STRING_VALUE",
+ * //         AvailabilityZoneId: "STRING_VALUE",
  * //         BytesConverted: Number("long"),
  * //         Description: "STRING_VALUE",
  * //         Image: {

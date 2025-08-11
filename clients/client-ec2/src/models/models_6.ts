@@ -377,7 +377,15 @@ export interface ServiceDetail {
   ServiceRegion?: string | undefined;
 
   /**
+   * <p>The IDs of the Availability Zones in which the service is available.</p>
+   *          <p>Either <code>AvailabilityZone</code> or <code>AvailabilityZoneId</code> can be specified, but not both</p>
+   * @public
+   */
+  AvailabilityZoneIds?: string[] | undefined;
+
+  /**
    * <p>The Availability Zones in which the service is available.</p>
+   *          <p>Either <code>AvailabilityZone</code> or <code>AvailabilityZoneId</code> can be specified, but not both</p>
    * @public
    */
   AvailabilityZones?: string[] | undefined;

@@ -48,8 +48,9 @@ export interface ImportVolumeCommandOutput extends ImportVolumeResult, __Metadat
  * // const { EC2Client, ImportVolumeCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
  * const input = { // ImportVolumeRequest
+ *   AvailabilityZoneId: "STRING_VALUE",
  *   DryRun: true || false,
- *   AvailabilityZone: "STRING_VALUE", // required
+ *   AvailabilityZone: "STRING_VALUE",
  *   Image: { // DiskImageDetail
  *     Format: "VMDK" || "RAW" || "VHD", // required
  *     Bytes: Number("long"), // required
@@ -73,6 +74,7 @@ export interface ImportVolumeCommandOutput extends ImportVolumeResult, __Metadat
  * //       Volumes: [ // ImportInstanceVolumeDetailSet
  * //         { // ImportInstanceVolumeDetailItem
  * //           AvailabilityZone: "STRING_VALUE",
+ * //           AvailabilityZoneId: "STRING_VALUE",
  * //           BytesConverted: Number("long"),
  * //           Description: "STRING_VALUE",
  * //           Image: { // DiskImageDescription
@@ -92,6 +94,7 @@ export interface ImportVolumeCommandOutput extends ImportVolumeResult, __Metadat
  * //     },
  * //     ImportVolume: { // ImportVolumeTaskDetails
  * //       AvailabilityZone: "STRING_VALUE",
+ * //       AvailabilityZoneId: "STRING_VALUE",
  * //       BytesConverted: Number("long"),
  * //       Description: "STRING_VALUE",
  * //       Image: {

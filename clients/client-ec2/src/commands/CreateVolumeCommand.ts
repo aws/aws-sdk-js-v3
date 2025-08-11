@@ -46,7 +46,8 @@ export interface CreateVolumeCommandOutput extends Volume, __MetadataBearer {}
  * // const { EC2Client, CreateVolumeCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
  * const input = { // CreateVolumeRequest
- *   AvailabilityZone: "STRING_VALUE", // required
+ *   AvailabilityZone: "STRING_VALUE",
+ *   AvailabilityZoneId: "STRING_VALUE",
  *   Encrypted: true || false,
  *   Iops: Number("int"),
  *   KmsKeyId: "STRING_VALUE",
@@ -77,6 +78,7 @@ export interface CreateVolumeCommandOutput extends Volume, __MetadataBearer {}
  * const command = new CreateVolumeCommand(input);
  * const response = await client.send(command);
  * // { // Volume
+ * //   AvailabilityZoneId: "STRING_VALUE",
  * //   OutpostArn: "STRING_VALUE",
  * //   Iops: Number("int"),
  * //   Tags: [ // TagList

@@ -38,6 +38,7 @@ export interface AdvertiseByoipCidrCommandOutput extends AdvertiseByoipCidrResul
  *          location and start advertising it through Amazon Web Services.</p>
  *          <p>It can take a few minutes before traffic to the specified addresses starts routing to Amazon Web Services
  *          because of BGP propagation delays.</p>
+ *          <p>To stop advertising the BYOIP CIDR, use <a>WithdrawByoipCidr</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

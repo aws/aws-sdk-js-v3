@@ -147,6 +147,7 @@ export interface CreateLaunchTemplateVersionCommandOutput extends CreateLaunchTe
  *     },
  *     Placement: { // LaunchTemplatePlacementRequest
  *       AvailabilityZone: "STRING_VALUE",
+ *       AvailabilityZoneId: "STRING_VALUE",
  *       Affinity: "STRING_VALUE",
  *       GroupName: "STRING_VALUE",
  *       HostId: "STRING_VALUE",
@@ -427,6 +428,7 @@ export interface CreateLaunchTemplateVersionCommandOutput extends CreateLaunchTe
  * //       },
  * //       Placement: { // LaunchTemplatePlacement
  * //         AvailabilityZone: "STRING_VALUE",
+ * //         AvailabilityZoneId: "STRING_VALUE",
  * //         Affinity: "STRING_VALUE",
  * //         GroupName: "STRING_VALUE",
  * //         HostId: "STRING_VALUE",

@@ -3448,9 +3448,11 @@ export interface CreateCustomerGatewayResult {
 export interface CreateDefaultSubnetRequest {
   /**
    * <p>The Availability Zone in which to create the default subnet.</p>
+   *          <p>Either <code>AvailabilityZone</code> or <code>AvailabilityZoneId</code> must be specified,
+   *             but not both.</p>
    * @public
    */
-  AvailabilityZone: string | undefined;
+  AvailabilityZone?: string | undefined;
 
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
@@ -3466,6 +3468,14 @@ export interface CreateDefaultSubnetRequest {
    * @public
    */
   Ipv6Native?: boolean | undefined;
+
+  /**
+   * <p>The ID of the Availability Zone.</p>
+   *          <p>Either <code>AvailabilityZone</code> or <code>AvailabilityZoneId</code> must be specified,
+   *             but not both.</p>
+   * @public
+   */
+  AvailabilityZoneId?: string | undefined;
 }
 
 /**
@@ -5493,6 +5503,16 @@ export interface InstanceRequirementsRequest {
  */
 export interface Placement {
   /**
+   * <p>The ID of the Availability Zone of the instance.</p>
+   *          <p>Either <code>AvailabilityZone</code> or <code>AvailabilityZoneId</code> can be
+   *             specified, but not both. If neither is specified, Amazon EC2 automatically selects an
+   *             Availability Zone based on the load balancing criteria for the Region.</p>
+   *          <p>This parameter is not supported for <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFleet">CreateFleet</a>.</p>
+   * @public
+   */
+  AvailabilityZoneId?: string | undefined;
+
+  /**
    * <p>The affinity setting for the instance on the Dedicated Host.</p>
    *          <p>This parameter is not supported for <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFleet">CreateFleet</a> or <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ImportInstance.html">ImportInstance</a>.</p>
    * @public
@@ -5555,8 +5575,9 @@ export interface Placement {
 
   /**
    * <p>The Availability Zone of the instance.</p>
-   *          <p>If not specified, an Availability Zone will be automatically chosen for you based on
-   *             the load balancing criteria for the Region.</p>
+   *          <p>Either <code>AvailabilityZone</code> or <code>AvailabilityZoneId</code> can be
+   *             specified, but not both. If neither is specified, Amazon EC2 automatically selects an
+   *             Availability Zone based on the load balancing criteria for the Region.</p>
    *          <p>This parameter is not supported for <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFleet">CreateFleet</a>.</p>
    * @public
    */
@@ -8226,7 +8247,7 @@ export interface CreateImageRequest {
    *                <p>You can't modify the encryption status of existing volumes or snapshots. To create an
    *           AMI with volumes or snapshots that have a different encryption status (for example, where
    *           the source volume and snapshots are unencrypted, and you want to create an AMI with
-   *           encrypted volumes or snapshots), copy the image instead.</p>
+   *           encrypted volumes or snapshots), use the <a>CopyImage</a> action.</p>
    *             </li>
    *             <li>
    *                <p>The only option that can be changed for existing mappings or snapshots is
@@ -11365,9 +11386,17 @@ export interface OperatorRequest {
 export interface LaunchTemplatePlacementRequest {
   /**
    * <p>The Availability Zone for the instance.</p>
+   *          <p>Either <code>AvailabilityZone</code> or <code>AvailabilityZoneId</code> can be specified, but not both</p>
    * @public
    */
   AvailabilityZone?: string | undefined;
+
+  /**
+   * <p>The ID of the Availability Zone for the instance.</p>
+   *          <p>Either <code>AvailabilityZone</code> or <code>AvailabilityZoneId</code> can be specified, but not both</p>
+   * @public
+   */
+  AvailabilityZoneId?: string | undefined;
 
   /**
    * <p>The affinity setting for an instance on a Dedicated Host.</p>

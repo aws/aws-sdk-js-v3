@@ -348,6 +348,12 @@ export interface LaunchTemplatePlacement {
   AvailabilityZone?: string | undefined;
 
   /**
+   * <p>The ID of the Availability Zone of the instance.</p>
+   * @public
+   */
+  AvailabilityZoneId?: string | undefined;
+
+  /**
    * <p>The affinity setting for the instance on the Dedicated Host.</p>
    * @public
    */
@@ -9882,9 +9888,19 @@ export interface CreateVerifiedAccessTrustProviderResult {
 export interface CreateVolumeRequest {
   /**
    * <p>The ID of the Availability Zone in which to create the volume. For example, <code>us-east-1a</code>.</p>
+   *          <p>Either <code>AvailabilityZone</code> or <code>AvailabilityZoneId</code> must be specified,
+   *       but not both.</p>
    * @public
    */
-  AvailabilityZone: string | undefined;
+  AvailabilityZone?: string | undefined;
+
+  /**
+   * <p>The ID of the Availability Zone in which to create the volume. For example, <code>use1-az1</code>.</p>
+   *          <p>Either <code>AvailabilityZone</code> or <code>AvailabilityZoneId</code> must be specified,
+   *       but not both.</p>
+   * @public
+   */
+  AvailabilityZoneId?: string | undefined;
 
   /**
    * <p>Indicates whether the volume should be encrypted.
@@ -10131,6 +10147,12 @@ export type VolumeState = (typeof VolumeState)[keyof typeof VolumeState];
  * @public
  */
 export interface Volume {
+  /**
+   * <p>The ID of the Availability Zone for the volume.</p>
+   * @public
+   */
+  AvailabilityZoneId?: string | undefined;
+
   /**
    * <p>The Amazon Resource Name (ARN) of the Outpost.</p>
    * @public

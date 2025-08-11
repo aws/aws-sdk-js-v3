@@ -39,9 +39,10 @@ export interface CreateDefaultSubnetCommandOutput extends CreateDefaultSubnetRes
  * // const { EC2Client, CreateDefaultSubnetCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
  * const input = { // CreateDefaultSubnetRequest
- *   AvailabilityZone: "STRING_VALUE", // required
+ *   AvailabilityZone: "STRING_VALUE",
  *   DryRun: true || false,
  *   Ipv6Native: true || false,
+ *   AvailabilityZoneId: "STRING_VALUE",
  * };
  * const command = new CreateDefaultSubnetCommand(input);
  * const response = await client.send(command);

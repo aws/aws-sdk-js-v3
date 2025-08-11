@@ -142,6 +142,7 @@ export interface GetLaunchTemplateDataCommandOutput extends GetLaunchTemplateDat
  * //     },
  * //     Placement: { // LaunchTemplatePlacement
  * //       AvailabilityZone: "STRING_VALUE",
+ * //       AvailabilityZoneId: "STRING_VALUE",
  * //       Affinity: "STRING_VALUE",
  * //       GroupName: "STRING_VALUE",
  * //       HostId: "STRING_VALUE",

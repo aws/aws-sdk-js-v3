@@ -5208,6 +5208,7 @@ export interface EC2 {
   /**
    * @see {@link CreateDefaultSubnetCommand}
    */
+  createDefaultSubnet(): Promise<CreateDefaultSubnetCommandOutput>;
   createDefaultSubnet(
     args: CreateDefaultSubnetCommandInput,
     options?: __HttpHandlerOptions
@@ -6400,6 +6401,7 @@ export interface EC2 {
   /**
    * @see {@link CreateVolumeCommand}
    */
+  createVolume(): Promise<CreateVolumeCommandOutput>;
   createVolume(args: CreateVolumeCommandInput, options?: __HttpHandlerOptions): Promise<CreateVolumeCommandOutput>;
   createVolume(args: CreateVolumeCommandInput, cb: (err: any, data?: CreateVolumeCommandOutput) => void): void;
   createVolume(

@@ -41,7 +41,7 @@ export interface DescribeImagesCommandOutput extends DescribeImagesResult, __Met
  *       results, with the <code>imageAllowed</code> field set to <code>true</code> for each image. In
  *         <code>audit-mode</code>, the <code>imageAllowed</code> field is set to <code>true</code> for
  *       images that meet the account's Allowed AMIs criteria, and <code>false</code> for images that
- *       don't meet the criteria. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-allowed-amis.html">Allowed AMIs</a>.</p>
+ *       don't meet the criteria. For more information, see <a>EnableAllowedImagesSettings</a>.</p>
  *          <p>The Amazon EC2 API follows an eventual consistency model. This means that the result of an API
  *       command you run that creates or modifies resources might not be immediately available to all
  *       subsequent commands you run. For guidance on how to manage eventual consistency, see <a href="https://docs.aws.amazon.com/ec2/latest/devguide/eventual-consistency.html">Eventual

@@ -1344,6 +1344,12 @@ export interface ImportInstanceVolumeDetailItem {
   AvailabilityZone?: string | undefined;
 
   /**
+   * <p>The ID of the Availability Zone where the resulting instance will reside.</p>
+   * @public
+   */
+  AvailabilityZoneId?: string | undefined;
+
+  /**
    * <p>The number of bytes converted so far.</p>
    * @public
    */
@@ -1420,6 +1426,12 @@ export interface ImportVolumeTaskDetails {
    * @public
    */
   AvailabilityZone?: string | undefined;
+
+  /**
+   * <p>The ID of the Availability Zone where the resulting volume will reside.</p>
+   * @public
+   */
+  AvailabilityZoneId?: string | undefined;
 
   /**
    * <p>The number of bytes converted so far.</p>
@@ -5155,7 +5167,7 @@ export interface DescribeImageAttributeRequest {
    *          <p>
    *             <b>Note</b>: The <code>blockDeviceMapping</code> attribute is
    *       deprecated. Using this attribute returns the <code>Client.AuthFailure</code> error. To get
-   *       information about the block device mappings for an AMI, describe the image instead.</p>
+   *       information about the block device mappings for an AMI, use the <a>DescribeImages</a> action.</p>
    * @public
    */
   Attribute: ImageAttributeName | undefined;
@@ -5893,12 +5905,22 @@ export interface Image {
 
   /**
    * <p>The ID of the source AMI from which the AMI was created.</p>
+   *          <p>The ID only appears if the AMI was created using <a>CreateImage</a>, <a>CopyImage</a>, or <a>CreateRestoreImageTask</a>. The ID does not appear
+   *       if the AMI was created using any other API. For some older AMIs, the ID might not be
+   *       available. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/identify-source-ami-used-to-create-new-ami.html">Identify the
+   *         source AMI used to create a new Amazon EC2 AMI</a> in the
+   *         <i>Amazon EC2 User Guide</i>.</p>
    * @public
    */
   SourceImageId?: string | undefined;
 
   /**
-   * <p>The Region of the source AMI.</p>
+   * <p>The Region of the source AMI. </p>
+   *          <p>The Region only appears if the AMI was created using <a>CreateImage</a>, <a>CopyImage</a>, or <a>CreateRestoreImageTask</a>. The Region does not
+   *       appear if the AMI was created using any other API. For some older AMIs, the Region might not
+   *       be available. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/identify-source-ami-used-to-create-new-ami.html">Identify the
+   *         source AMI used to create a new Amazon EC2 AMI</a> in the
+   *         <i>Amazon EC2 User Guide</i>.</p>
    * @public
    */
   SourceImageRegion?: string | undefined;
@@ -7385,6 +7407,11 @@ export interface DescribeInstancesRequest {
    *             <li>
    *                <p>
    *                   <code>availability-zone</code> - The Availability Zone of the instance.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>availability-zone-id</code> - The ID of the Availability Zone of the
+   *                     instance.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -9447,6 +9474,11 @@ export interface DescribeInstanceStatusRequest {
    *             </li>
    *             <li>
    *                <p>
+   *                   <code>availability-zone-id</code> - The ID of the Availability Zone of the
+   *                     instance.</p>
+   *             </li>
+   *             <li>
+   *                <p>
    *                   <code>event.code</code> - The code for the scheduled event
    *                         (<code>instance-reboot</code> | <code>system-reboot</code> |
    *                         <code>system-maintenance</code> | <code>instance-retirement</code> |
@@ -9750,6 +9782,12 @@ export interface InstanceStatus {
    * @public
    */
   AvailabilityZone?: string | undefined;
+
+  /**
+   * <p>The ID of the Availability Zone of the instance.</p>
+   * @public
+   */
+  AvailabilityZoneId?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the Outpost.</p>

@@ -194,6 +194,7 @@ export interface DescribeSpotInstanceRequestsCommandOutput
  * //         },
  * //       },
  * //       LaunchedAvailabilityZone: "STRING_VALUE",
+ * //       LaunchedAvailabilityZoneId: "STRING_VALUE",
  * //       ProductDescription: "Linux/UNIX" || "Linux/UNIX (Amazon VPC)" || "Windows" || "Windows (Amazon VPC)",
  * //       SpotInstanceRequestId: "STRING_VALUE",
  * //       SpotPrice: "STRING_VALUE",
