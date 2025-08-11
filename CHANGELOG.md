@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.865.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.864.0...v3.865.0) (2025-08-11)
+
+
+### Features
+
+* **client-bedrock:** This release includes model updates and enhanced SDK documentation for union fields in automated reasoning policy components. Added docs cover policy definitions, mutations (add/update for rules/types/variables), build assets, workflow sources, test results, and tag exception handling. ([1a741cc](https://github.com/aws/aws-sdk-js-v3/commit/1a741cc4f6e48cbdc5e1fb0494f4a4829d6972c1))
+* **client-cognito-identity-provider:** Remove SigV4 auth requirement for GetTokensFromRefreshToken ([19ebeaf](https://github.com/aws/aws-sdk-js-v3/commit/19ebeaf22b7c1e1bfa02e9b8966595043f0af337))
+* **client-connect:** Updating SearchUserHierarchyGroups API ([9fda95f](https://github.com/aws/aws-sdk-js-v3/commit/9fda95fcdc01d1f020c1c933479154500e8a07fb))
+* **client-deadline:** Adds support for Wait and Save feature in service-managed fleets ([dc94f86](https://github.com/aws/aws-sdk-js-v3/commit/dc94f868a467f83c2fea23294601b212bf90bf71))
+* **client-ec2:** This release adds AvailabilityZoneId support for CreateVolume, DescribeVolume, LaunchTemplates, RunInstances, DescribeInstances, CreateDefaultSubnet, SpotInstances, and CreateDefaultSubnet APIs. ([d130b87](https://github.com/aws/aws-sdk-js-v3/commit/d130b8710967d2ecc226b7d1b3934cb31977c6c2))
+* **client-quicksight:** Add RowAxisDisplayOptions and ColumnAxisDisplayOptions to HeatMapConfiguration, add Actions to PluginVisual, increase limit for CalculatedFields list ([a0aa8dc](https://github.com/aws/aws-sdk-js-v3/commit/a0aa8dccc16e40dd9274a88e9f96521e7d2cddba))
+* **client-sso-admin:** Added support for managing user background session for applications ([2759ed3](https://github.com/aws/aws-sdk-js-v3/commit/2759ed369219dc9ddf85893ae73bf91f59f94746))
+* **clients:** update client endpoints as of 2025-08-11 ([9e55a8d](https://github.com/aws/aws-sdk-js-v3/commit/9e55a8de830838ba969fe25cab46ff49529a8e6c))
+
+
+
+
+
 # [3.864.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.863.0...v3.864.0) (2025-08-08)
 
 

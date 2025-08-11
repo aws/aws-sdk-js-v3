@@ -1,7 +1,7 @@
 {
   "name": "@aws-sdk/aws-middleware-test",
   "description": "Integration test suite for AWS middleware",
-  "version": "3.864.0",
+  "version": "3.865.0",
   "scripts": {
     "build": "exit 0",
     "build:cjs": "exit 0",
