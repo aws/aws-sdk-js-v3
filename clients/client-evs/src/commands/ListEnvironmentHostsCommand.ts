@@ -28,7 +28,7 @@ export interface ListEnvironmentHostsCommandInput extends ListEnvironmentHostsRe
 export interface ListEnvironmentHostsCommandOutput extends ListEnvironmentHostsResponse, __MetadataBearer {}
 
 /**
- * <note> <p>Amazon EVS is in public preview release and is subject to change.</p> </note> <p>List the hosts within an environment.</p>
+ * <p>List the hosts within an environment.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

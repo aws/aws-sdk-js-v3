@@ -28,7 +28,7 @@ export interface UntagResourceCommandInput extends UntagResourceRequest {}
 export interface UntagResourceCommandOutput extends UntagResourceResponse, __MetadataBearer {}
 
 /**
- * <note> <p>Amazon EVS is in public preview release and is subject to change.</p> </note> <p>Deletes specified tags from an Amazon EVS resource.</p>
+ * <p>Deletes specified tags from an Amazon EVS resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

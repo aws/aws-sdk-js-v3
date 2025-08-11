@@ -28,7 +28,7 @@ export interface ListEnvironmentVlansCommandInput extends ListEnvironmentVlansRe
 export interface ListEnvironmentVlansCommandOutput extends ListEnvironmentVlansResponse, __MetadataBearer {}
 
 /**
- * <note> <p>Amazon EVS is in public preview release and is subject to change.</p> </note> <p>Lists environment VLANs that are associated with the specified environment.</p>
+ * <p>Lists environment VLANs that are associated with the specified environment.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

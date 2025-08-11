@@ -4,7 +4,7 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-cli
 import { EvsServiceException as __BaseException } from "./EvsServiceException";
 
 /**
- * <note> <p>Amazon EVS is in public preview release and is subject to change.</p> </note> <p>The connectivity configuration for the environment. Amazon EVS requires that you specify two route server peer IDs. During environment creation, the route server endpoints peer with the NSX uplink VLAN for connectivity to the NSX overlay network.</p>
+ * <p>The connectivity configuration for the environment. Amazon EVS requires that you specify two route server peer IDs. During environment creation, the route server endpoints peer with the NSX uplink VLAN for connectivity to the NSX overlay network.</p>
  * @public
  */
 export interface ConnectivityInfo {
@@ -29,7 +29,7 @@ export const _InstanceType = {
 export type _InstanceType = (typeof _InstanceType)[keyof typeof _InstanceType];
 
 /**
- * <note> <p>Amazon EVS is in public preview release and is subject to change.</p> </note> <p>An object that represents a host.</p> <note> <p>You cannot use <code>dedicatedHostId</code> and <code>placementGroupId</code> together in the same <code>HostInfoForCreate</code>object. This results in a <code>ValidationException</code> response.</p> </note>
+ * <p>An object that represents a host.</p> <note> <p>You cannot use <code>dedicatedHostId</code> and <code>placementGroupId</code> together in the same <code>HostInfoForCreate</code>object. This results in a <code>ValidationException</code> response.</p> </note>
  * @public
  */
 export interface HostInfoForCreate {
@@ -65,7 +65,7 @@ export interface HostInfoForCreate {
 }
 
 /**
- * <note> <p>Amazon EVS is in public preview release and is subject to change.</p> </note> <p>An object that represents an initial VLAN subnet for the Amazon EVS environment. Amazon EVS creates initial VLAN subnets when you first create the environment. Amazon EVS creates the following 10 VLAN subnets: host management VLAN, vMotion VLAN, vSAN VLAN, VTEP VLAN, Edge VTEP VLAN, Management VM VLAN, HCX uplink VLAN, NSX uplink VLAN, expansion VLAN 1, expansion VLAN 2.</p> <note> <p>For each Amazon EVS VLAN subnet, you must specify a non-overlapping CIDR block. Amazon EVS VLAN subnets have a minimum CIDR block size of /28 and a maximum size of /24.</p> </note>
+ * <p>An object that represents an initial VLAN subnet for the Amazon EVS environment. Amazon EVS creates initial VLAN subnets when you first create the environment. Amazon EVS creates the following 10 VLAN subnets: host management VLAN, vMotion VLAN, vSAN VLAN, VTEP VLAN, Edge VTEP VLAN, Management VM VLAN, HCX uplink VLAN, NSX uplink VLAN, expansion VLAN 1, expansion VLAN 2.</p> <note> <p>For each Amazon EVS VLAN subnet, you must specify a non-overlapping CIDR block. Amazon EVS VLAN subnets have a minimum CIDR block size of /28 and a maximum size of /24.</p> </note>
  * @public
  */
 export interface InitialVlanInfo {
@@ -77,7 +77,7 @@ export interface InitialVlanInfo {
 }
 
 /**
- * <note> <p>Amazon EVS is in public preview release and is subject to change.</p> </note> <p>The initial VLAN subnets for the environment. Amazon EVS VLAN subnets have a minimum CIDR block size of /28 and a maximum size of /24. Amazon EVS VLAN subnet CIDR blocks must not overlap with other subnets in the VPC.</p>
+ * <p>The initial VLAN subnets for the environment. Amazon EVS VLAN subnets have a minimum CIDR block size of /28 and a maximum size of /24. Amazon EVS VLAN subnet CIDR blocks must not overlap with other subnets in the VPC.</p>
  * @public
  */
 export interface InitialVlans {
@@ -143,7 +143,7 @@ export interface InitialVlans {
 }
 
 /**
- * <note> <p>Amazon EVS is in public preview release and is subject to change.</p> </note> <p> The license information that Amazon EVS requires to create an environment. Amazon EVS requires two license keys: a VCF solution key and a vSAN license key.</p>
+ * <p> The license information that Amazon EVS requires to create an environment. Amazon EVS requires two license keys: a VCF solution key and a vSAN license key.</p>
  * @public
  */
 export interface LicenseInfo {
@@ -161,7 +161,7 @@ export interface LicenseInfo {
 }
 
 /**
- * <note> <p>Amazon EVS is in public preview release and is subject to change.</p> </note> <p>The security groups that allow traffic between the Amazon EVS control plane and your VPC for Amazon EVS service access. If a security group is not specified, Amazon EVS uses the default security group in your account for service access.</p>
+ * <p>The security groups that allow traffic between the Amazon EVS control plane and your VPC for Amazon EVS service access. If a security group is not specified, Amazon EVS uses the default security group in your account for service access.</p>
  * @public
  */
 export interface ServiceAccessSecurityGroups {
@@ -173,7 +173,7 @@ export interface ServiceAccessSecurityGroups {
 }
 
 /**
- * <note> <p>Amazon EVS is in public preview release and is subject to change.</p> </note> <p>The DNS hostnames that Amazon EVS uses to install VMware vCenter Server, NSX, SDDC Manager, and Cloud Builder. Each hostname must be unique, and resolve to a domain name that you've registered in your DNS service of choice. Hostnames cannot be changed.</p> <p>VMware VCF requires the deployment of two NSX Edge nodes, and three NSX Manager virtual machines.</p>
+ * <p>The DNS hostnames that Amazon EVS uses to install VMware vCenter Server, NSX, SDDC Manager, and Cloud Builder. Each hostname must be unique, and resolve to a domain name that you've registered in your DNS service of choice. Hostnames cannot be changed.</p> <p>VMware VCF requires the deployment of two NSX Edge nodes, and three NSX Manager virtual machines.</p>
  * @public
  */
 export interface VcfHostnames {
@@ -372,7 +372,7 @@ export const CheckType = {
 export type CheckType = (typeof CheckType)[keyof typeof CheckType];
 
 /**
- * <note> <p>Amazon EVS is in public preview release and is subject to change.</p> </note> <p>A check on the environment to identify environment health and validate VMware VCF licensing compliance.</p>
+ * <p>A check on the environment to identify environment health and validate VMware VCF licensing compliance.</p>
  * @public
  */
 export interface Check {
@@ -396,7 +396,7 @@ export interface Check {
 }
 
 /**
- * <note> <p>Amazon EVS is in public preview release and is subject to change.</p> </note> <p>A managed secret that contains the credentials for installing vCenter Server, NSX, and SDDC Manager. During environment creation, the Amazon EVS control plane uses Amazon Web Services Secrets Manager to create, encrypt, validate, and store secrets. If you choose to delete your environment, Amazon EVS also deletes the secrets that are associated with your environment. Amazon EVS does not provide managed rotation of secrets. We recommend that you rotate secrets regularly to ensure that secrets are not long-lived.</p>
+ * <p>A managed secret that contains the credentials for installing vCenter Server, NSX, and SDDC Manager. During environment creation, the Amazon EVS control plane uses Amazon Web Services Secrets Manager to create, encrypt, validate, and store secrets. If you choose to delete your environment, Amazon EVS also deletes the secrets that are associated with your environment. Amazon EVS does not provide managed rotation of secrets. We recommend that you rotate secrets regularly to ensure that secrets are not long-lived.</p>
  * @public
  */
 export interface Secret {
@@ -425,7 +425,7 @@ export const EnvironmentState = {
 export type EnvironmentState = (typeof EnvironmentState)[keyof typeof EnvironmentState];
 
 /**
- * <note> <p>Amazon EVS is in public preview release and is subject to change.</p> </note> <p>An object that represents an Amazon EVS environment.</p>
+ * <p>An object that represents an Amazon EVS environment.</p>
  * @public
  */
 export interface Environment {
@@ -562,7 +562,7 @@ export interface CreateEnvironmentResponse {
 }
 
 /**
- * <note> <p>Amazon EVS is in public preview release and is subject to change.</p> </note> <p>Stores information about a field passed inside a request that resulted in an exception.</p>
+ * <p>Stores information about a field passed inside a request that resulted in an exception.</p>
  * @public
  */
 export interface ValidationExceptionField {
@@ -653,7 +653,7 @@ export interface CreateEnvironmentHostRequest {
 }
 
 /**
- * <note> <p>Amazon EVS is in public preview release and is subject to change.</p> </note> <p>A list of environments with summarized environment details.</p>
+ * <p>A list of environments with summarized environment details.</p>
  * @public
  */
 export interface EnvironmentSummary {
@@ -726,7 +726,7 @@ export const HostState = {
 export type HostState = (typeof HostState)[keyof typeof HostState];
 
 /**
- * <note> <p>Amazon EVS is in public preview release and is subject to change.</p> </note> <p>An elastic network interface (ENI) that connects hosts to the VLAN subnets. Amazon EVS provisions two identically configured ENIs in the VMkernel management subnet during host creation. One ENI is active, and the other is in standby mode for automatic switchover during a failure scenario.</p>
+ * <p>An elastic network interface (ENI) that connects hosts to the VLAN subnets. Amazon EVS provisions two identically configured ENIs in the VMkernel management subnet during host creation. One ENI is active, and the other is in standby mode for automatic switchover during a failure scenario.</p>
  * @public
  */
 export interface NetworkInterface {
@@ -738,7 +738,7 @@ export interface NetworkInterface {
 }
 
 /**
- * <note> <p>Amazon EVS is in public preview release and is subject to change.</p> </note> <p>An ESXi host that runs on an Amazon EC2 bare metal instance. Four hosts are created in an Amazon EVS environment during environment creation. You can add hosts to an environment using the <code>CreateEnvironmentHost</code> operation. Amazon EVS supports 4-16 hosts per environment.</p>
+ * <p>An ESXi host that runs on an Amazon EC2 bare metal instance. Four hosts are created in an Amazon EVS environment during environment creation. You can add hosts to an environment using the <code>CreateEnvironmentHost</code> operation. Amazon EVS supports 4-16 hosts per environment.</p>
  * @public
  */
 export interface Host {
@@ -1105,7 +1105,7 @@ export const VlanState = {
 export type VlanState = (typeof VlanState)[keyof typeof VlanState];
 
 /**
- * <note> <p>Amazon EVS is in public preview release and is subject to change.</p> </note> <p>The VLANs that Amazon EVS creates during environment creation.</p>
+ * <p>The VLANs that Amazon EVS creates during environment creation.</p>
  * @public
  */
 export interface Vlan {

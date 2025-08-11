@@ -28,7 +28,7 @@ export interface DeleteEnvironmentHostCommandInput extends DeleteEnvironmentHost
 export interface DeleteEnvironmentHostCommandOutput extends DeleteEnvironmentHostResponse, __MetadataBearer {}
 
 /**
- * <note> <p>Amazon EVS is in public preview release and is subject to change.</p> </note> <p>Deletes a host from an Amazon EVS environment.</p> <note> <p>Before deleting a host, you must unassign and decommission the host from within the SDDC Manager user interface. Not doing so could impact the availability of your virtual machines or result in data loss.</p> </note>
+ * <p>Deletes a host from an Amazon EVS environment.</p> <note> <p>Before deleting a host, you must unassign and decommission the host from within the SDDC Manager user interface. Not doing so could impact the availability of your virtual machines or result in data loss.</p> </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

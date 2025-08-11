@@ -28,7 +28,7 @@ export interface ListEnvironmentsCommandInput extends ListEnvironmentsRequest {}
 export interface ListEnvironmentsCommandOutput extends ListEnvironmentsResponse, __MetadataBearer {}
 
 /**
- * <note> <p>Amazon EVS is in public preview release and is subject to change.</p> </note> <p>Lists the Amazon EVS environments in your Amazon Web Services account in the specified Amazon Web Services Region.</p>
+ * <p>Lists the Amazon EVS environments in your Amazon Web Services account in the specified Amazon Web Services Region.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
