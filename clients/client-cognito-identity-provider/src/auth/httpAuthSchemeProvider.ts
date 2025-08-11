@@ -148,6 +148,10 @@ export const defaultCognitoIdentityProviderHttpAuthSchemeProvider: CognitoIdenti
       options.push(createSmithyApiNoAuthHttpAuthOption(authParameters));
       break;
     }
+    case "GetTokensFromRefreshToken": {
+      options.push(createSmithyApiNoAuthHttpAuthOption(authParameters));
+      break;
+    }
     case "GetUser": {
       options.push(createSmithyApiNoAuthHttpAuthOption(authParameters));
       break;
