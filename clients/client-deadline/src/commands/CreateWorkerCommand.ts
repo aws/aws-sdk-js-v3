@@ -28,7 +28,17 @@ export interface CreateWorkerCommandInput extends CreateWorkerRequest {}
 export interface CreateWorkerCommandOutput extends CreateWorkerResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a worker. A worker tells your instance how much processing power (vCPU), and memory (GiB) you’ll need to assemble the digital assets held within a particular instance. You can specify certain instance types to use, or let the worker know which instances types to exclude.</p> <p>Deadline Cloud limits the number of workers to less than or equal to the fleet's maximum worker count. The service maintains eventual consistency for the worker count. If you make multiple rapid calls to <code>CreateWorker</code> before the field updates, you might exceed your fleet's maximum worker count. For example, if your <code>maxWorkerCount</code> is 10 and you currently have 9 workers, making two quick <code>CreateWorker</code> calls might successfully create 2 workers instead of 1, resulting in 11 total workers.</p>
+ * <p>Creates a worker. A worker tells your instance how much processing power (vCPU), and
+ *          memory (GiB) you’ll need to assemble the digital assets held within a particular instance.
+ *          You can specify certain instance types to use, or let the worker know which instances types
+ *          to exclude.</p>
+ *          <p>Deadline Cloud limits the number of workers to less than or equal to the fleet's
+ *          maximum worker count. The service maintains eventual consistency for the worker count. If
+ *          you make multiple rapid calls to <code>CreateWorker</code> before the field updates, you
+ *          might exceed your fleet's maximum worker count. For example, if your
+ *             <code>maxWorkerCount</code> is 10 and you currently have 9 workers, making two quick
+ *             <code>CreateWorker</code> calls might successfully create 2 workers instead of 1,
+ *          resulting in 11 total workers.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -72,7 +82,8 @@ export interface CreateWorkerCommandOutput extends CreateWorkerResponse, __Metad
  *  <p>You don't have permission to perform the action.</p>
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>Your request has conflicting operations. This can occur if you're trying to perform more than one operation on the same resource at the same time.</p>
+ *  <p>Your request has conflicting operations. This can occur if you're trying to perform more
+ *          than one operation on the same resource at the same time.</p>
  *
  * @throws {@link InternalServerErrorException} (server fault)
  *  <p>Deadline Cloud can't process your request right now. Try again later.</p>
@@ -84,7 +95,8 @@ export interface CreateWorkerCommandOutput extends CreateWorkerResponse, __Metad
  *  <p>Your request exceeded a request rate quota.</p>
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters.</p>
+ *  <p>The request isn't valid. This can occur if your request contains malformed JSON or
+ *          unsupported characters.</p>
  *
  * @throws {@link DeadlineServiceException}
  * <p>Base exception class for all service exceptions from Deadline service.</p>

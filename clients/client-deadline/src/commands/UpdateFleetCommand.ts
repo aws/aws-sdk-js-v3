@@ -140,7 +140,7 @@ export interface UpdateFleetCommandOutput extends UpdateFleetResponse, __Metadat
  *         ],
  *       },
  *       instanceMarketOptions: { // ServiceManagedEc2InstanceMarketOptions
- *         type: "on-demand" || "spot", // required
+ *         type: "on-demand" || "spot" || "wait-and-save", // required
  *       },
  *       vpcConfiguration: { // VpcConfiguration
  *         resourceConfigurationArns: [ // VpcResourceConfigurationArns
@@ -177,13 +177,15 @@ export interface UpdateFleetCommandOutput extends UpdateFleetResponse, __Metadat
  *  <p>The requested resource can't be found.</p>
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>You exceeded your service quota. Service quotas, also referred to as limits, are the maximum number of service resources or operations for your Amazon Web Services account.</p>
+ *  <p>You exceeded your service quota. Service quotas, also referred to as limits, are the
+ *          maximum number of service resources or operations for your Amazon Web Services account.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>Your request exceeded a request rate quota.</p>
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters.</p>
+ *  <p>The request isn't valid. This can occur if your request contains malformed JSON or
+ *          unsupported characters.</p>
  *
  * @throws {@link DeadlineServiceException}
  * <p>Base exception class for all service exceptions from Deadline service.</p>

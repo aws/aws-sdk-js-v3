@@ -32,7 +32,8 @@ export interface AssumeFleetRoleForReadCommandInput extends AssumeFleetRoleForRe
 export interface AssumeFleetRoleForReadCommandOutput extends AssumeFleetRoleForReadResponse, __MetadataBearer {}
 
 /**
- * <p>Get Amazon Web Services credentials from the fleet role. The IAM permissions of the credentials are scoped down to have read-only access.</p>
+ * <p>Get Amazon Web Services credentials from the fleet role. The IAM permissions of the credentials are
+ *          scoped down to have read-only access.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -75,7 +76,8 @@ export interface AssumeFleetRoleForReadCommandOutput extends AssumeFleetRoleForR
  *  <p>Your request exceeded a request rate quota.</p>
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters.</p>
+ *  <p>The request isn't valid. This can occur if your request contains malformed JSON or
+ *          unsupported characters.</p>
  *
  * @throws {@link DeadlineServiceException}
  * <p>Base exception class for all service exceptions from Deadline service.</p>

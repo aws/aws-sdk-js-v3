@@ -36,7 +36,13 @@ export interface StartSessionsStatisticsAggregationCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Starts an asynchronous request for getting aggregated statistics about queues and farms. Get the statistics using the <code>GetSessionsStatisticsAggregation</code> operation. You can only have one running aggregation for your Deadline Cloud farm. Call the <code>GetSessionsStatisticsAggregation</code> operation and check the <code>status</code> field to see if an aggregation is running. Statistics are available for 1 hour after you call the <code>StartSessionsStatisticsAggregation</code> operation.</p>
+ * <p>Starts an asynchronous request for getting aggregated statistics about queues and farms.
+ *          Get the statistics using the <code>GetSessionsStatisticsAggregation</code> operation. You
+ *          can only have one running aggregation for your Deadline Cloud farm. Call the
+ *             <code>GetSessionsStatisticsAggregation</code> operation and check the
+ *             <code>status</code> field to see if an aggregation is running. Statistics are available
+ *          for 1 hour after you call the <code>StartSessionsStatisticsAggregation</code>
+ *          operation.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -91,7 +97,8 @@ export interface StartSessionsStatisticsAggregationCommandOutput
  *  <p>Your request exceeded a request rate quota.</p>
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters.</p>
+ *  <p>The request isn't valid. This can occur if your request contains malformed JSON or
+ *          unsupported characters.</p>
  *
  * @throws {@link DeadlineServiceException}
  * <p>Base exception class for all service exceptions from Deadline service.</p>

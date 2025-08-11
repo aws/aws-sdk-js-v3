@@ -33,7 +33,10 @@ export interface CreateQueueLimitAssociationCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Associates a limit with a particular queue. After the limit is associated, all workers for jobs that specify the limit associated with the queue are subject to the limit. You can't associate two limits with the same <code>amountRequirementName</code> to the same queue.</p>
+ * <p>Associates a limit with a particular queue. After the limit is associated, all workers
+ *          for jobs that specify the limit associated with the queue are subject to the limit. You
+ *          can't associate two limits with the same <code>amountRequirementName</code> to the same
+ *          queue.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -70,7 +73,8 @@ export interface CreateQueueLimitAssociationCommandOutput
  *  <p>Your request exceeded a request rate quota.</p>
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters.</p>
+ *  <p>The request isn't valid. This can occur if your request contains malformed JSON or
+ *          unsupported characters.</p>
  *
  * @throws {@link DeadlineServiceException}
  * <p>Base exception class for all service exceptions from Deadline service.</p>

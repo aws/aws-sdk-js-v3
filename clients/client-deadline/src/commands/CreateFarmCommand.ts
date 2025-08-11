@@ -28,7 +28,10 @@ export interface CreateFarmCommandInput extends CreateFarmRequest {}
 export interface CreateFarmCommandOutput extends CreateFarmResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a farm to allow space for queues and fleets. Farms are the space where the components of your renders gather and are pieced together in the cloud. Farms contain budgets and allow you to enforce permissions. Deadline Cloud farms are a useful container for large projects.</p>
+ * <p>Creates a farm to allow space for queues and fleets. Farms are the space where the
+ *          components of your renders gather and are pieced together in the cloud. Farms contain
+ *          budgets and allow you to enforce permissions. Deadline Cloud farms are a useful container for
+ *          large projects.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -68,13 +71,15 @@ export interface CreateFarmCommandOutput extends CreateFarmResponse, __MetadataB
  *  <p>The requested resource can't be found.</p>
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>You exceeded your service quota. Service quotas, also referred to as limits, are the maximum number of service resources or operations for your Amazon Web Services account.</p>
+ *  <p>You exceeded your service quota. Service quotas, also referred to as limits, are the
+ *          maximum number of service resources or operations for your Amazon Web Services account.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>Your request exceeded a request rate quota.</p>
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters.</p>
+ *  <p>The request isn't valid. This can occur if your request contains malformed JSON or
+ *          unsupported characters.</p>
  *
  * @throws {@link DeadlineServiceException}
  * <p>Base exception class for all service exceptions from Deadline service.</p>

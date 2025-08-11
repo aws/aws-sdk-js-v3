@@ -46,7 +46,8 @@ export interface GetFleetCommandOutput extends GetFleetResponse, __MetadataBeare
  * //   farmId: "STRING_VALUE", // required
  * //   displayName: "STRING_VALUE", // required
  * //   description: "STRING_VALUE",
- * //   status: "ACTIVE" || "CREATE_IN_PROGRESS" || "UPDATE_IN_PROGRESS" || "CREATE_FAILED" || "UPDATE_FAILED", // required
+ * //   status: "ACTIVE" || "CREATE_IN_PROGRESS" || "UPDATE_IN_PROGRESS" || "CREATE_FAILED" || "UPDATE_FAILED" || "SUSPENDED", // required
+ * //   statusMessage: "STRING_VALUE",
  * //   autoScalingStatus: "GROWING" || "STEADY" || "SHRINKING",
  * //   targetWorkerCount: Number("int"),
  * //   workerCount: Number("int"), // required
@@ -148,7 +149,7 @@ export interface GetFleetCommandOutput extends GetFleetResponse, __MetadataBeare
  * //         ],
  * //       },
  * //       instanceMarketOptions: { // ServiceManagedEc2InstanceMarketOptions
- * //         type: "on-demand" || "spot", // required
+ * //         type: "on-demand" || "spot" || "wait-and-save", // required
  * //       },
  * //       vpcConfiguration: { // VpcConfiguration
  * //         resourceConfigurationArns: [ // VpcResourceConfigurationArns
@@ -207,7 +208,8 @@ export interface GetFleetCommandOutput extends GetFleetResponse, __MetadataBeare
  *  <p>Your request exceeded a request rate quota.</p>
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters.</p>
+ *  <p>The request isn't valid. This can occur if your request contains malformed JSON or
+ *          unsupported characters.</p>
  *
  * @throws {@link DeadlineServiceException}
  * <p>Base exception class for all service exceptions from Deadline service.</p>
