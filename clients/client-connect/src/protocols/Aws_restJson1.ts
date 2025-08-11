@@ -891,7 +891,6 @@ import {
   EventBridgeActionDefinition,
   FieldValue,
   FieldValueUnion,
-  HierarchyGroupCondition,
   HoursOfOperationConfig,
   HoursOfOperationOverrideConfig,
   HoursOfOperationTimeSlice,
@@ -1063,6 +1062,7 @@ import {
   EmailAttachment,
   EmailHeaderType,
   EvaluationAnswerInput,
+  HierarchyGroupCondition,
   HoursOfOperationSearchFilter,
   InboundAdditionalRecipients,
   InboundEmailContent,
@@ -15140,7 +15140,6 @@ const se_UserHierarchyGroupSearchConditionList = (
 const se_UserHierarchyGroupSearchCriteria = (input: UserHierarchyGroupSearchCriteria, context: __SerdeContext): any => {
   return take(input, {
     AndConditions: (_) => se_UserHierarchyGroupSearchConditionList(_, context),
-    HierarchyGroupCondition: _json,
     OrConditions: (_) => se_UserHierarchyGroupSearchConditionList(_, context),
     StringCondition: _json,
   });

@@ -17,12 +17,10 @@ import {
   EventSourceName,
   FileStatusType,
   FileUseCaseType,
-  HierarchyGroupCondition,
   HoursOfOperationConfig,
   HoursOfOperationOverrideConfig,
   InstanceStorageConfig,
   InstanceStorageResourceType,
-  IntegrationType,
   LexBot,
   MonitorCapability,
   ParticipantRole,
@@ -30,7 +28,6 @@ import {
   Reference,
   RehydrationType,
   RulePublishStatus,
-  SourceType,
   StringComparisonType,
   StringCondition,
   TagCondition,
@@ -56,6 +53,7 @@ import {
   HoursOfOperation,
   HoursOfOperationOverride,
   InstanceAttributeType,
+  IntegrationAssociationSummary,
   PhoneNumberCountryCode,
   PhoneNumberType,
   PredefinedAttribute,
@@ -66,96 +64,6 @@ import {
   SortOrder,
   TrafficDistributionGroupStatus,
 } from "./models_1";
-
-/**
- * @public
- */
-export interface ListIntegrationAssociationsRequest {
-  /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
-   * @public
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>The integration type.</p>
-   * @public
-   */
-  IntegrationType?: IntegrationType | undefined;
-
-  /**
-   * <p>The token for the next set of results. Use the value returned in the previous
-   * response in the next request to retrieve the next set of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of results to return per page.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the integration.</p>
-   * @public
-   */
-  IntegrationArn?: string | undefined;
-}
-
-/**
- * <p>Contains summary information about the associated AppIntegrations.</p>
- * @public
- */
-export interface IntegrationAssociationSummary {
-  /**
-   * <p>The identifier for the AppIntegration association.</p>
-   * @public
-   */
-  IntegrationAssociationId?: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) for the AppIntegration association.</p>
-   * @public
-   */
-  IntegrationAssociationArn?: string | undefined;
-
-  /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
-   * @public
-   */
-  InstanceId?: string | undefined;
-
-  /**
-   * <p>The integration type.</p>
-   * @public
-   */
-  IntegrationType?: IntegrationType | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) for the AppIntegration.</p>
-   * @public
-   */
-  IntegrationArn?: string | undefined;
-
-  /**
-   * <p>The URL for the external application.</p>
-   * @public
-   */
-  SourceApplicationUrl?: string | undefined;
-
-  /**
-   * <p>The user-provided, friendly name for the external application.</p>
-   * @public
-   */
-  SourceApplicationName?: string | undefined;
-
-  /**
-   * <p>The name of the source.</p>
-   * @public
-   */
-  SourceType?: SourceType | undefined;
-}
 
 /**
  * @public
@@ -4691,6 +4599,38 @@ export interface SearchUserHierarchyGroupsResponse {
    * @public
    */
   ApproximateTotalCount?: number | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const HierarchyGroupMatchType = {
+  EXACT: "EXACT",
+  WITH_CHILD_GROUPS: "WITH_CHILD_GROUPS",
+} as const;
+
+/**
+ * @public
+ */
+export type HierarchyGroupMatchType = (typeof HierarchyGroupMatchType)[keyof typeof HierarchyGroupMatchType];
+
+/**
+ * <p>A leaf node condition which can be used to specify a hierarchy group condition.</p>
+ * @public
+ */
+export interface HierarchyGroupCondition {
+  /**
+   * <p>The value in the hierarchy group condition.</p>
+   * @public
+   */
+  Value?: string | undefined;
+
+  /**
+   * <p>The type of hierarchy group match.</p>
+   * @public
+   */
+  HierarchyGroupMatchType?: HierarchyGroupMatchType | undefined;
 }
 
 /**

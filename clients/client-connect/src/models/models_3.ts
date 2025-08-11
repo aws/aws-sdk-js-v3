@@ -16,7 +16,6 @@ import {
   Endpoint,
   EvaluationFormQuestion,
   EvaluationFormScoringStrategy,
-  HierarchyGroupCondition,
   InitiateAs,
   MediaConcurrency,
   OutboundCallerConfig,
@@ -79,6 +78,7 @@ import {
   EmailAddressInfoFilterSensitiveLog,
   EmailAddressSearchFilter,
   EmailAttachment,
+  HierarchyGroupCondition,
   HoursOfOperationSearchFilter,
   InboundAdditionalRecipients,
   InboundAdditionalRecipientsFilterSensitiveLog,
@@ -2917,12 +2917,6 @@ export interface UserHierarchyGroupSearchCriteria {
    * @public
    */
   StringCondition?: StringCondition | undefined;
-
-  /**
-   * <p>A leaf node condition which can be used to specify a hierarchy group condition.</p>
-   * @public
-   */
-  HierarchyGroupCondition?: HierarchyGroupCondition | undefined;
 }
 
 /**

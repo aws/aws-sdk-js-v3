@@ -926,38 +926,6 @@ export interface StringCondition {
 }
 
 /**
- * @public
- * @enum
- */
-export const HierarchyGroupMatchType = {
-  EXACT: "EXACT",
-  WITH_CHILD_GROUPS: "WITH_CHILD_GROUPS",
-} as const;
-
-/**
- * @public
- */
-export type HierarchyGroupMatchType = (typeof HierarchyGroupMatchType)[keyof typeof HierarchyGroupMatchType];
-
-/**
- * <p>A leaf node condition which can be used to specify a hierarchy group condition.</p>
- * @public
- */
-export interface HierarchyGroupCondition {
-  /**
-   * <p>The value in the hierarchy group condition.</p>
-   * @public
-   */
-  Value?: string | undefined;
-
-  /**
-   * <p>The type of hierarchy group match.</p>
-   * @public
-   */
-  HierarchyGroupMatchType?: HierarchyGroupMatchType | undefined;
-}
-
-/**
  * <p>A leaf node condition which can be used to specify a tag condition, for example, <code>HAVE
  *     BPO = 123</code>. </p>
  * @public
@@ -987,12 +955,6 @@ export interface CommonAttributeAndCondition {
    * @public
    */
   TagConditions?: TagCondition[] | undefined;
-
-  /**
-   * <p>A leaf node condition which can be used to specify a hierarchy group condition.</p>
-   * @public
-   */
-  HierarchyGroupCondition?: HierarchyGroupCondition | undefined;
 }
 
 /**
@@ -7430,6 +7392,41 @@ export interface DeleteInstanceRequest {
    * @public
    */
   ClientToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteIntegrationAssociationRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The identifier for the integration association.</p>
+   * @public
+   */
+  IntegrationAssociationId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeletePredefinedAttributeRequest {
+  /**
+   * <p> The identifier of the Amazon Connect instance. You can find the instance ID in the Amazon Resource
+   *    Name (ARN) of the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p> The name of the predefined attribute.</p>
+   * @public
+   */
+  Name: string | undefined;
 }
 
 /**

@@ -50,10 +50,6 @@ export interface SearchAgentStatusesCommandOutput extends SearchAgentStatusesRes
  *               TagValue: "STRING_VALUE",
  *             },
  *           ],
- *           HierarchyGroupCondition: { // HierarchyGroupCondition
- *             Value: "STRING_VALUE",
- *             HierarchyGroupMatchType: "EXACT" || "WITH_CHILD_GROUPS",
- *           },
  *         },
  *       ],
  *       AndCondition: {
@@ -63,10 +59,6 @@ export interface SearchAgentStatusesCommandOutput extends SearchAgentStatusesRes
  *             TagValue: "STRING_VALUE",
  *           },
  *         ],
- *         HierarchyGroupCondition: {
- *           Value: "STRING_VALUE",
- *           HierarchyGroupMatchType: "EXACT" || "WITH_CHILD_GROUPS",
- *         },
  *       },
  *       TagCondition: "<TagCondition>",
  *     },
