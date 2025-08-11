@@ -37,11 +37,7 @@ export interface ListApplicationAssignmentsForPrincipalCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Lists the applications to which a specified principal is assigned. You must provide a
- *             filter when calling this action from a member account against your organization instance
- *             of IAM Identity Center. A filter is not required when called from the management account against an
- *             organization instance of IAM Identity Center, or from a member account against an account instance of
- *             IAM Identity Center in the same account.</p>
+ * <p>Lists the applications to which a specified principal is assigned. You must provide a filter when calling this action from a member account against your organization instance of IAM Identity Center. A filter is not required when called from the management account against an organization instance of IAM Identity Center, or from a member account against an account instance of IAM Identity Center in the same account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -83,15 +79,13 @@ export interface ListApplicationAssignmentsForPrincipalCommandOutput
  *  <p>You do not have sufficient access to perform this action.</p>
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>The request processing has failed because of an unknown error, exception, or failure
- *             with an internal server.</p>
+ *  <p>The request processing has failed because of an unknown error, exception, or failure with an internal server.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>Indicates that a requested resource is not found.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>Indicates that the principal has crossed the throttling limits of the API
- *             operations.</p>
+ *  <p>Indicates that the principal has crossed the throttling limits of the API operations.</p>
  *
  * @throws {@link ValidationException} (client fault)
  *  <p>The request failed because it contains a syntax error.</p>

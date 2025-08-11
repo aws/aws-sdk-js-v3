@@ -160,6 +160,10 @@ import {
   GetApplicationGrantCommandOutput,
 } from "../commands/GetApplicationGrantCommand";
 import {
+  GetApplicationSessionConfigurationCommandInput,
+  GetApplicationSessionConfigurationCommandOutput,
+} from "../commands/GetApplicationSessionConfigurationCommand";
+import {
   GetInlinePolicyForPermissionSetCommandInput,
   GetInlinePolicyForPermissionSetCommandOutput,
 } from "../commands/GetInlinePolicyForPermissionSetCommand";
@@ -259,6 +263,10 @@ import {
   PutApplicationGrantCommandOutput,
 } from "../commands/PutApplicationGrantCommand";
 import {
+  PutApplicationSessionConfigurationCommandInput,
+  PutApplicationSessionConfigurationCommandOutput,
+} from "../commands/PutApplicationSessionConfigurationCommand";
+import {
   PutInlinePolicyToPermissionSetCommandInput,
   PutInlinePolicyToPermissionSetCommandOutput,
 } from "../commands/PutInlinePolicyToPermissionSetCommand";
@@ -342,6 +350,7 @@ import {
   GetApplicationAuthenticationMethodRequest,
   GetApplicationAuthenticationMethodResponse,
   GetApplicationGrantRequest,
+  GetApplicationSessionConfigurationRequest,
   GetInlinePolicyForPermissionSetRequest,
   GetPermissionsBoundaryForPermissionSetRequest,
   Grant,
@@ -393,6 +402,7 @@ import {
   PutApplicationAssignmentConfigurationRequest,
   PutApplicationAuthenticationMethodRequest,
   PutApplicationGrantRequest,
+  PutApplicationSessionConfigurationRequest,
   PutInlinePolicyToPermissionSetRequest,
   PutPermissionsBoundaryToPermissionSetRequest,
   RefreshTokenGrant,
@@ -898,6 +908,19 @@ export const se_GetApplicationGrantCommand = async (
 };
 
 /**
+ * serializeAws_json1_1GetApplicationSessionConfigurationCommand
+ */
+export const se_GetApplicationSessionConfigurationCommand = async (
+  input: GetApplicationSessionConfigurationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("GetApplicationSessionConfiguration");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_json1_1GetInlinePolicyForPermissionSetCommand
  */
 export const se_GetInlinePolicyForPermissionSetCommand = async (
@@ -1243,6 +1266,19 @@ export const se_PutApplicationGrantCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("PutApplicationGrant");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1PutApplicationSessionConfigurationCommand
+ */
+export const se_PutApplicationSessionConfigurationCommand = async (
+  input: PutApplicationSessionConfigurationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("PutApplicationSessionConfiguration");
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2097,6 +2133,26 @@ export const de_GetApplicationGrantCommand = async (
 };
 
 /**
+ * deserializeAws_json1_1GetApplicationSessionConfigurationCommand
+ */
+export const de_GetApplicationSessionConfigurationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetApplicationSessionConfigurationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: GetApplicationSessionConfigurationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
  * deserializeAws_json1_1GetInlinePolicyForPermissionSetCommand
  */
 export const de_GetInlinePolicyForPermissionSetCommand = async (
@@ -2628,6 +2684,26 @@ export const de_PutApplicationGrantCommand = async (
 };
 
 /**
+ * deserializeAws_json1_1PutApplicationSessionConfigurationCommand
+ */
+export const de_PutApplicationSessionConfigurationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutApplicationSessionConfigurationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: PutApplicationSessionConfigurationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
  * deserializeAws_json1_1PutInlinePolicyToPermissionSetCommand
  */
 export const de_PutInlinePolicyToPermissionSetCommand = async (
@@ -3093,6 +3169,8 @@ const se_CreateTrustedTokenIssuerRequest = (input: CreateTrustedTokenIssuerReque
 
 // se_GetApplicationGrantRequest omitted.
 
+// se_GetApplicationSessionConfigurationRequest omitted.
+
 // se_GetInlinePolicyForPermissionSetRequest omitted.
 
 // se_GetPermissionsBoundaryForPermissionSetRequest omitted.
@@ -3189,6 +3267,8 @@ const se_PutApplicationAuthenticationMethodRequest = (
 };
 
 // se_PutApplicationGrantRequest omitted.
+
+// se_PutApplicationSessionConfigurationRequest omitted.
 
 // se_PutInlinePolicyToPermissionSetRequest omitted.
 
@@ -3564,6 +3644,8 @@ const de_GetApplicationAuthenticationMethodResponse = (
 
 // de_GetApplicationGrantResponse omitted.
 
+// de_GetApplicationSessionConfigurationResponse omitted.
+
 // de_GetInlinePolicyForPermissionSetResponse omitted.
 
 // de_GetPermissionsBoundaryForPermissionSetResponse omitted.
@@ -3790,6 +3872,8 @@ const de_ProvisionPermissionSetResponse = (output: any, context: __SerdeContext)
 };
 
 // de_PutApplicationAssignmentConfigurationResponse omitted.
+
+// de_PutApplicationSessionConfigurationResponse omitted.
 
 // de_PutInlinePolicyToPermissionSetResponse omitted.
 

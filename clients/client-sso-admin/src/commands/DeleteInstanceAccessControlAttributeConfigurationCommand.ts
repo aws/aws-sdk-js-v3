@@ -37,10 +37,7 @@ export interface DeleteInstanceAccessControlAttributeConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Disables the attributes-based access control (ABAC) feature for the specified IAM Identity Center
- *             instance and deletes all of the attribute mappings that have been configured. Once
- *             deleted, any attributes that are received from an identity source and any custom
- *             attributes you have previously configured will not be passed. For more information about ABAC, see <a href="/singlesignon/latest/userguide/abac.html">Attribute-Based Access Control</a> in the <i>IAM Identity Center User Guide</i>.</p>
+ * <p>Disables the attributes-based access control (ABAC) feature for the specified IAM Identity Center instance and deletes all of the attribute mappings that have been configured. Once deleted, any attributes that are received from an identity source and any custom attributes you have previously configured will not be passed. For more information about ABAC, see <a href="/singlesignon/latest/userguide/abac.html">Attribute-Based Access Control</a> in the <i>IAM Identity Center User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -66,21 +63,16 @@ export interface DeleteInstanceAccessControlAttributeConfigurationCommandOutput
  *  <p>You do not have sufficient access to perform this action.</p>
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>Occurs when a conflict with a previous successful write is detected. This generally
- *             occurs when the previous write did not have time to propagate to the host serving the
- *             current request. A retry (with appropriate backoff logic) is the recommended response to
- *             this exception.</p>
+ *  <p>Occurs when a conflict with a previous successful write is detected. This generally occurs when the previous write did not have time to propagate to the host serving the current request. A retry (with appropriate backoff logic) is the recommended response to this exception.</p>
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>The request processing has failed because of an unknown error, exception, or failure
- *             with an internal server.</p>
+ *  <p>The request processing has failed because of an unknown error, exception, or failure with an internal server.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>Indicates that a requested resource is not found.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>Indicates that the principal has crossed the throttling limits of the API
- *             operations.</p>
+ *  <p>Indicates that the principal has crossed the throttling limits of the API operations.</p>
  *
  * @throws {@link ValidationException} (client fault)
  *  <p>The request failed because it contains a syntax error.</p>

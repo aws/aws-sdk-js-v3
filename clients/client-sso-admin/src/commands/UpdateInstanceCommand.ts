@@ -28,8 +28,7 @@ export interface UpdateInstanceCommandInput extends UpdateInstanceRequest {}
 export interface UpdateInstanceCommandOutput extends UpdateInstanceResponse, __MetadataBearer {}
 
 /**
- * <p>Update the details for the instance of IAM Identity Center that is owned by the
- *             Amazon Web Services account.</p>
+ * <p>Update the details for the instance of IAM Identity Center that is owned by the Amazon Web Services account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -56,18 +55,13 @@ export interface UpdateInstanceCommandOutput extends UpdateInstanceResponse, __M
  *  <p>You do not have sufficient access to perform this action.</p>
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>Occurs when a conflict with a previous successful write is detected. This generally
- *             occurs when the previous write did not have time to propagate to the host serving the
- *             current request. A retry (with appropriate backoff logic) is the recommended response to
- *             this exception.</p>
+ *  <p>Occurs when a conflict with a previous successful write is detected. This generally occurs when the previous write did not have time to propagate to the host serving the current request. A retry (with appropriate backoff logic) is the recommended response to this exception.</p>
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>The request processing has failed because of an unknown error, exception, or failure
- *             with an internal server.</p>
+ *  <p>The request processing has failed because of an unknown error, exception, or failure with an internal server.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>Indicates that the principal has crossed the throttling limits of the API
- *             operations.</p>
+ *  <p>Indicates that the principal has crossed the throttling limits of the API operations.</p>
  *
  * @throws {@link ValidationException} (client fault)
  *  <p>The request failed because it contains a syntax error.</p>

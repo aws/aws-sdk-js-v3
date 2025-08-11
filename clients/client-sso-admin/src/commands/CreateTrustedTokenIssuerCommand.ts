@@ -28,12 +28,7 @@ export interface CreateTrustedTokenIssuerCommandInput extends CreateTrustedToken
 export interface CreateTrustedTokenIssuerCommandOutput extends CreateTrustedTokenIssuerResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a connection to a trusted token issuer in an instance of IAM Identity Center. A trusted token issuer enables trusted
- *             identity propagation to be used with applications that authenticate outside of
- *             Amazon Web Services.</p>
- *          <p>This trusted token issuer describes an external identity provider (IdP) that can generate claims or
- *             assertions in the form of access tokens for a user. Applications enabled for IAM Identity Center
- *             can use these tokens for authentication. </p>
+ * <p>Creates a connection to a trusted token issuer in an instance of IAM Identity Center. A trusted token issuer enables trusted identity propagation to be used with applications that authenticate outside of Amazon Web Services.</p> <p>This trusted token issuer describes an external identity provider (IdP) that can generate claims or assertions in the form of access tokens for a user. Applications enabled for IAM Identity Center can use these tokens for authentication. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -78,22 +73,16 @@ export interface CreateTrustedTokenIssuerCommandOutput extends CreateTrustedToke
  *  <p>You do not have sufficient access to perform this action.</p>
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>Occurs when a conflict with a previous successful write is detected. This generally
- *             occurs when the previous write did not have time to propagate to the host serving the
- *             current request. A retry (with appropriate backoff logic) is the recommended response to
- *             this exception.</p>
+ *  <p>Occurs when a conflict with a previous successful write is detected. This generally occurs when the previous write did not have time to propagate to the host serving the current request. A retry (with appropriate backoff logic) is the recommended response to this exception.</p>
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>The request processing has failed because of an unknown error, exception, or failure
- *             with an internal server.</p>
+ *  <p>The request processing has failed because of an unknown error, exception, or failure with an internal server.</p>
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>Indicates that the principal has crossed the permitted number of resources that can be
- *             created.</p>
+ *  <p>Indicates that the principal has crossed the permitted number of resources that can be created.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>Indicates that the principal has crossed the throttling limits of the API
- *             operations.</p>
+ *  <p>Indicates that the principal has crossed the throttling limits of the API operations.</p>
  *
  * @throws {@link ValidationException} (client fault)
  *  <p>The request failed because it contains a syntax error.</p>

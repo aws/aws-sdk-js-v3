@@ -28,8 +28,7 @@ export interface ListInstancesCommandInput extends ListInstancesRequest {}
 export interface ListInstancesCommandOutput extends ListInstancesResponse, __MetadataBearer {}
 
 /**
- * <p>Lists the details of the organization and account instances of IAM Identity Center that
- *             were created in or visible to the account calling this API. </p>
+ * <p>Lists the details of the organization and account instances of IAM Identity Center that were created in or visible to the account calling this API. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -68,12 +67,10 @@ export interface ListInstancesCommandOutput extends ListInstancesResponse, __Met
  *  <p>You do not have sufficient access to perform this action.</p>
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>The request processing has failed because of an unknown error, exception, or failure
- *             with an internal server.</p>
+ *  <p>The request processing has failed because of an unknown error, exception, or failure with an internal server.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>Indicates that the principal has crossed the throttling limits of the API
- *             operations.</p>
+ *  <p>Indicates that the principal has crossed the throttling limits of the API operations.</p>
  *
  * @throws {@link ValidationException} (client fault)
  *  <p>The request failed because it contains a syntax error.</p>

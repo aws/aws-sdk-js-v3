@@ -36,9 +36,7 @@ export interface ListAccountAssignmentsForPrincipalCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Retrieves a list of the IAM Identity Center associated Amazon Web Services accounts that the principal has access
- *             to. This action must be called from the management account containing your organization
- *             instance of IAM Identity Center. This action is not valid for account instances of IAM Identity Center.</p>
+ * <p>Retrieves a list of the IAM Identity Center associated Amazon Web Services accounts that the principal has access to. This action must be called from the management account containing your organization instance of IAM Identity Center. This action is not valid for account instances of IAM Identity Center.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -81,15 +79,13 @@ export interface ListAccountAssignmentsForPrincipalCommandOutput
  *  <p>You do not have sufficient access to perform this action.</p>
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>The request processing has failed because of an unknown error, exception, or failure
- *             with an internal server.</p>
+ *  <p>The request processing has failed because of an unknown error, exception, or failure with an internal server.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>Indicates that a requested resource is not found.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>Indicates that the principal has crossed the throttling limits of the API
- *             operations.</p>
+ *  <p>Indicates that the principal has crossed the throttling limits of the API operations.</p>
  *
  * @throws {@link ValidationException} (client fault)
  *  <p>The request failed because it contains a syntax error.</p>

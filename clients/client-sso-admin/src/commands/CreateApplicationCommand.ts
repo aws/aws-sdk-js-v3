@@ -28,17 +28,7 @@ export interface CreateApplicationCommandInput extends CreateApplicationRequest 
 export interface CreateApplicationCommandOutput extends CreateApplicationResponse, __MetadataBearer {}
 
 /**
- * <p>Creates an OAuth 2.0 customer managed application in IAM Identity Center for the given
- *             application provider.</p>
- *          <note>
- *             <p>This API does not support creating SAML 2.0 customer managed applications or Amazon Web Services
- *                 managed applications. To learn how to create an Amazon Web Services managed application, see the
- *                 application user guide. You can create a SAML 2.0 customer managed application in
- *                 the Amazon Web Services Management Console only. See <a href="https://docs.aws.amazon.com/singlesignon/latest/userguide/customermanagedapps-saml2-setup.html">Setting
- *                     up customer managed SAML 2.0 applications</a>. For more information on these
- *                 application types, see <a href="https://docs.aws.amazon.com/singlesignon/latest/userguide/awsapps.html">Amazon Web Services managed
- *                     applications</a>.</p>
- *          </note>
+ * <p>Creates an OAuth 2.0 customer managed application in IAM Identity Center for the given application provider.</p> <note> <p>This API does not support creating SAML 2.0 customer managed applications or Amazon Web Services managed applications. To learn how to create an Amazon Web Services managed application, see the application user guide. You can create a SAML 2.0 customer managed application in the Amazon Web Services Management Console only. See <a href="https://docs.aws.amazon.com/singlesignon/latest/userguide/customermanagedapps-saml2-setup.html">Setting up customer managed SAML 2.0 applications</a>. For more information on these application types, see <a href="https://docs.aws.amazon.com/singlesignon/latest/userguide/awsapps.html">Amazon Web Services managed applications</a>.</p> </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -84,25 +74,19 @@ export interface CreateApplicationCommandOutput extends CreateApplicationRespons
  *  <p>You do not have sufficient access to perform this action.</p>
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>Occurs when a conflict with a previous successful write is detected. This generally
- *             occurs when the previous write did not have time to propagate to the host serving the
- *             current request. A retry (with appropriate backoff logic) is the recommended response to
- *             this exception.</p>
+ *  <p>Occurs when a conflict with a previous successful write is detected. This generally occurs when the previous write did not have time to propagate to the host serving the current request. A retry (with appropriate backoff logic) is the recommended response to this exception.</p>
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>The request processing has failed because of an unknown error, exception, or failure
- *             with an internal server.</p>
+ *  <p>The request processing has failed because of an unknown error, exception, or failure with an internal server.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>Indicates that a requested resource is not found.</p>
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>Indicates that the principal has crossed the permitted number of resources that can be
- *             created.</p>
+ *  <p>Indicates that the principal has crossed the permitted number of resources that can be created.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>Indicates that the principal has crossed the throttling limits of the API
- *             operations.</p>
+ *  <p>Indicates that the principal has crossed the throttling limits of the API operations.</p>
  *
  * @throws {@link ValidationException} (client fault)
  *  <p>The request failed because it contains a syntax error.</p>

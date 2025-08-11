@@ -28,11 +28,7 @@ export interface ListApplicationsCommandInput extends ListApplicationsRequest {}
 export interface ListApplicationsCommandOutput extends ListApplicationsResponse, __MetadataBearer {}
 
 /**
- * <p>Lists all applications associated with the instance of IAM Identity Center. When listing
- *             applications for an organization instance in the management account, member accounts
- *             must use the <code>applicationAccount</code> parameter to filter the list to only
- *             applications created from that account. When listing applications for an account
- *             instance in the same member account, a filter is not required.</p>
+ * <p>Lists all applications associated with the instance of IAM Identity Center. When listing applications for an organization instance in the management account, member accounts must use the <code>applicationAccount</code> parameter to filter the list to only applications created from that account. When listing applications for an account instance in the same member account, a filter is not required.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -85,12 +81,10 @@ export interface ListApplicationsCommandOutput extends ListApplicationsResponse,
  *  <p>You do not have sufficient access to perform this action.</p>
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>The request processing has failed because of an unknown error, exception, or failure
- *             with an internal server.</p>
+ *  <p>The request processing has failed because of an unknown error, exception, or failure with an internal server.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>Indicates that the principal has crossed the throttling limits of the API
- *             operations.</p>
+ *  <p>Indicates that the principal has crossed the throttling limits of the API operations.</p>
  *
  * @throws {@link ValidationException} (client fault)
  *  <p>The request failed because it contains a syntax error.</p>

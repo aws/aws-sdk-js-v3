@@ -6,9 +6,7 @@ import { DocumentType as __DocumentType } from "@smithy/types";
 import { SSOAdminServiceException as __BaseException } from "./SSOAdminServiceException";
 
 /**
- * <p>The value used for mapping a specified attribute to an identity source. For more
- *             information, see <a href="https://docs.aws.amazon.com/singlesignon/latest/userguide/attributemappingsconcept.html">Attribute
- *                 mappings</a> in the <i>IAM Identity Center User Guide</i>.</p>
+ * <p>The value used for mapping a specified attribute to an identity source. For more information, see <a href="https://docs.aws.amazon.com/singlesignon/latest/userguide/attributemappingsconcept.html">Attribute mappings</a> in the <i>IAM Identity Center User Guide</i>.</p>
  * @public
  */
 export interface AccessControlAttributeValue {
@@ -20,19 +18,12 @@ export interface AccessControlAttributeValue {
 }
 
 /**
- * <p>These are IAM Identity Center identity store attributes that you can configure for use in
- *             attributes-based access control (ABAC). You can create permissions policies that
- *             determine who can access your Amazon Web Services resources based upon the configured attribute
- *             values. When you enable ABAC and specify <code>AccessControlAttributes</code>, IAM Identity Center
- *             passes the attribute values of the authenticated user into IAM for use in policy
- *             evaluation.</p>
+ * <p>These are IAM Identity Center identity store attributes that you can configure for use in attributes-based access control (ABAC). You can create permissions policies that determine who can access your Amazon Web Services resources based upon the configured attribute values. When you enable ABAC and specify <code>AccessControlAttributes</code>, IAM Identity Center passes the attribute values of the authenticated user into IAM for use in policy evaluation.</p>
  * @public
  */
 export interface AccessControlAttribute {
   /**
-   * <p>The name of the attribute associated with your identities in your identity source.
-   *             This is used to map a specified attribute in your identity source with an attribute in
-   *             IAM Identity Center.</p>
+   * <p>The name of the attribute associated with your identities in your identity source. This is used to map a specified attribute in your identity source with an attribute in IAM Identity Center.</p>
    * @public
    */
   Key: string | undefined;
@@ -81,12 +72,7 @@ export const PrincipalType = {
 export type PrincipalType = (typeof PrincipalType)[keyof typeof PrincipalType];
 
 /**
- * <p>The assignment that indicates a principal's limited access to a specified Amazon Web Services
- *             account with a specified permission set.</p>
- *          <note>
- *             <p>The term <i>principal</i> here refers to a user or group that is
- *                 defined in IAM Identity Center.</p>
- *          </note>
+ * <p>The assignment that indicates a principal's limited access to a specified Amazon Web Services account with a specified permission set.</p> <note> <p>The term <i>principal</i> here refers to a user or group that is defined in IAM Identity Center.</p> </note>
  * @public
  */
 export interface AccountAssignment {
@@ -97,8 +83,7 @@ export interface AccountAssignment {
   AccountId?: string | undefined;
 
   /**
-   * <p>The ARN of the permission set. For more information about ARNs, see <a href="/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource
-   * Names (ARNs) and Amazon Web Services Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>.</p>
+   * <p>The ARN of the permission set. For more information about ARNs, see <a href="/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>.</p>
    * @public
    */
   PermissionSetArn?: string | undefined;
@@ -117,8 +102,7 @@ export interface AccountAssignment {
 }
 
 /**
- * <p>A structure that describes an assignment of an Amazon Web Services account to a principal and the
- *             permissions that principal has in the account.</p>
+ * <p>A structure that describes an assignment of an Amazon Web Services account to a principal and the permissions that principal has in the account.</p>
  * @public
  */
 export interface AccountAssignmentForPrincipal {
@@ -129,8 +113,7 @@ export interface AccountAssignmentForPrincipal {
   AccountId?: string | undefined;
 
   /**
-   * <p>The ARN of the IAM Identity Center permission set assigned to this principal for this
-   *             Amazon Web Services account.</p>
+   * <p>The ARN of the IAM Identity Center permission set assigned to this principal for this Amazon Web Services account.</p>
    * @public
    */
   PermissionSetArn?: string | undefined;
@@ -177,8 +160,7 @@ export const TargetType = {
 export type TargetType = (typeof TargetType)[keyof typeof TargetType];
 
 /**
- * <p>The status of the creation or deletion operation of an assignment that a principal
- *             needs to access an account.</p>
+ * <p>The status of the creation or deletion operation of an assignment that a principal needs to access an account.</p>
  * @public
  */
 export interface AccountAssignmentOperationStatus {
@@ -189,15 +171,13 @@ export interface AccountAssignmentOperationStatus {
   Status?: StatusValues | undefined;
 
   /**
-   * <p>The identifier for tracking the request operation that is generated by the universally
-   *             unique identifier (UUID) workflow.</p>
+   * <p>The identifier for tracking the request operation that is generated by the universally unique identifier (UUID) workflow.</p>
    * @public
    */
   RequestId?: string | undefined;
 
   /**
-   * <p>The message that contains an error or exception in case of an operation
-   *             failure.</p>
+   * <p>The message that contains an error or exception in case of an operation failure.</p>
    * @public
    */
   FailureReason?: string | undefined;
@@ -215,8 +195,7 @@ export interface AccountAssignmentOperationStatus {
   TargetType?: TargetType | undefined;
 
   /**
-   * <p>The ARN of the permission set. For more information about ARNs, see <a href="/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource
-   * Names (ARNs) and Amazon Web Services Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>.</p>
+   * <p>The ARN of the permission set. For more information about ARNs, see <a href="/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>.</p>
    * @public
    */
   PermissionSetArn?: string | undefined;
@@ -241,8 +220,7 @@ export interface AccountAssignmentOperationStatus {
 }
 
 /**
- * <p>Provides information about the <a>AccountAssignment</a> creation
- *             request.</p>
+ * <p>Provides information about the <a>AccountAssignment</a> creation request.</p>
  * @public
  */
 export interface AccountAssignmentOperationStatusMetadata {
@@ -253,8 +231,7 @@ export interface AccountAssignmentOperationStatusMetadata {
   Status?: StatusValues | undefined;
 
   /**
-   * <p>The identifier for tracking the request operation that is generated by the universally
-   *             unique identifier (UUID) workflow.</p>
+   * <p>The identifier for tracking the request operation that is generated by the universally unique identifier (UUID) workflow.</p>
    * @public
    */
   RequestId?: string | undefined;
@@ -286,28 +263,13 @@ export type SignInOrigin = (typeof SignInOrigin)[keyof typeof SignInOrigin];
  */
 export interface SignInOptions {
   /**
-   * <p>This determines how IAM Identity Center navigates the user to the target application. It can be one
-   *             of the following values:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>APPLICATION</code>: IAM Identity Center redirects the customer to the configured
-   *                         <code>ApplicationUrl</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>IDENTITY_CENTER</code>: IAM Identity Center uses SAML identity-provider initiated
-   *                     authentication to sign the customer directly into a SAML-based
-   *                     application.</p>
-   *             </li>
-   *          </ul>
+   * <p>This determines how IAM Identity Center navigates the user to the target application. It can be one of the following values:</p> <ul> <li> <p> <code>APPLICATION</code>: IAM Identity Center redirects the customer to the configured <code>ApplicationUrl</code>.</p> </li> <li> <p> <code>IDENTITY_CENTER</code>: IAM Identity Center uses SAML identity-provider initiated authentication to sign the customer directly into a SAML-based application.</p> </li> </ul>
    * @public
    */
   Origin: SignInOrigin | undefined;
 
   /**
-   * <p>The URL that accepts authentication requests for an application. This is a required
-   *             parameter if the <code>Origin</code> parameter is <code>APPLICATION</code>.</p>
+   * <p>The URL that accepts authentication requests for an application. This is a required parameter if the <code>Origin</code> parameter is <code>APPLICATION</code>.</p>
    * @public
    */
   ApplicationUrl?: string | undefined;
@@ -328,8 +290,7 @@ export const ApplicationVisibility = {
 export type ApplicationVisibility = (typeof ApplicationVisibility)[keyof typeof ApplicationVisibility];
 
 /**
- * <p>A structure that describes the options for the access portal associated with an
- *             application.</p>
+ * <p>A structure that describes the options for the access portal associated with an application.</p>
  * @public
  */
 export interface PortalOptions {
@@ -361,8 +322,7 @@ export const ApplicationStatus = {
 export type ApplicationStatus = (typeof ApplicationStatus)[keyof typeof ApplicationStatus];
 
 /**
- * <p>A structure that describes an application that uses IAM Identity Center for access
- *             management.</p>
+ * <p>A structure that describes an application that uses IAM Identity Center for access management.</p>
  * @public
  */
 export interface Application {
@@ -403,8 +363,7 @@ export interface Application {
   Status?: ApplicationStatus | undefined;
 
   /**
-   * <p>A structure that describes the options for the access portal associated with this
-   *             application.</p>
+   * <p>A structure that describes the options for the access portal associated with this application.</p>
    * @public
    */
   PortalOptions?: PortalOptions | undefined;
@@ -423,10 +382,7 @@ export interface Application {
 }
 
 /**
- * <p>Occurs when a conflict with a previous successful write is detected. This generally
- *             occurs when the previous write did not have time to propagate to the host serving the
- *             current request. A retry (with appropriate backoff logic) is the recommended response to
- *             this exception.</p>
+ * <p>Occurs when a conflict with a previous successful write is detected. This generally occurs when the previous write did not have time to propagate to the host serving the current request. A retry (with appropriate backoff logic) is the recommended response to this exception.</p>
  * @public
  */
 export class ConflictException extends __BaseException {
@@ -465,8 +421,7 @@ export interface DeleteApplicationAccessScopeRequest {
 }
 
 /**
- * <p>The request processing has failed because of an unknown error, exception, or failure
- *             with an internal server.</p>
+ * <p>The request processing has failed because of an unknown error, exception, or failure with an internal server.</p>
  * @public
  */
 export class InternalServerException extends __BaseException {
@@ -510,8 +465,7 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * <p>Indicates that the principal has crossed the throttling limits of the API
- *             operations.</p>
+ * <p>Indicates that the principal has crossed the throttling limits of the API operations.</p>
  * @public
  */
 export class ThrottlingException extends __BaseException {
@@ -559,15 +513,13 @@ export class ValidationException extends __BaseException {
  */
 export interface GetApplicationAccessScopeRequest {
   /**
-   * <p>Specifies the ARN of the application with the access scope that you want to
-   *             retrieve.</p>
+   * <p>Specifies the ARN of the application with the access scope that you want to retrieve.</p>
    * @public
    */
   ApplicationArn: string | undefined;
 
   /**
-   * <p>Specifies the name of the access scope for which you want the authorized
-   *             targets.</p>
+   * <p>Specifies the name of the access scope for which you want the authorized targets.</p>
    * @public
    */
   Scope: string | undefined;
@@ -601,24 +553,13 @@ export interface ListApplicationAccessScopesRequest {
   ApplicationArn: string | undefined;
 
   /**
-   * <p>Specifies the total number of results that you want included in each
-   *              response. If additional items exist beyond the number you specify, the
-   *              <code>NextToken</code> response element is returned with a value (not null). Include the
-   *              specified value as the <code>NextToken</code> request parameter in the next call to the
-   *              operation to get the next set of results. Note that the service might return fewer
-   *              results than the maximum even when there are more results available. You should check
-   *              <code>NextToken</code> after every operation to ensure that you receive all of the
-   *              results.</p>
+   * <p>Specifies the total number of results that you want included in each response. If additional items exist beyond the number you specify, the <code>NextToken</code> response element is returned with a value (not null). Include the specified value as the <code>NextToken</code> request parameter in the next call to the operation to get the next set of results. Note that the service might return fewer results than the maximum even when there are more results available. You should check <code>NextToken</code> after every operation to ensure that you receive all of the results.</p>
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p>Specifies that you want to receive the next page of results. Valid
-   *              only if you received a <code>NextToken</code> response in the previous request. If you
-   *              did, it indicates that more output is available. Set this parameter to the value
-   *              provided by the previous call's <code>NextToken</code> response to request the
-   *              next page of results.</p>
+   * <p>Specifies that you want to receive the next page of results. Valid only if you received a <code>NextToken</code> response in the previous request. If you did, it indicates that more output is available. Set this parameter to the value provided by the previous call's <code>NextToken</code> response to request the next page of results.</p>
    * @public
    */
   NextToken?: string | undefined;
@@ -647,18 +588,13 @@ export interface ScopeDetails {
  */
 export interface ListApplicationAccessScopesResponse {
   /**
-   * <p>An array list of access scopes and their authorized targets that are associated with
-   *             the application.</p>
+   * <p>An array list of access scopes and their authorized targets that are associated with the application.</p>
    * @public
    */
   Scopes: ScopeDetails[] | undefined;
 
   /**
-   * <p>If present, this value indicates that more output is available than
-   *              is included in the current response. Use this value in the <code>NextToken</code>
-   *              request parameter in a subsequent call to the operation to get the next part of the
-   *              output. You should repeat this until the <code>NextToken</code> response element comes
-   *              back as <code>null</code>. This indicates that this is the last page of results.</p>
+   * <p>If present, this value indicates that more output is available than is included in the current response. Use this value in the <code>NextToken</code> request parameter in a subsequent call to the operation to get the next part of the output. You should repeat this until the <code>NextToken</code> response element comes back as <code>null</code>. This indicates that this is the last page of results.</p>
    * @public
    */
   NextToken?: string | undefined;
@@ -669,22 +605,19 @@ export interface ListApplicationAccessScopesResponse {
  */
 export interface PutApplicationAccessScopeRequest {
   /**
-   * <p>Specifies the name of the access scope to be associated with the specified
-   *             targets.</p>
+   * <p>Specifies the name of the access scope to be associated with the specified targets.</p>
    * @public
    */
   Scope: string | undefined;
 
   /**
-   * <p>Specifies an array list of ARNs that represent the authorized targets for this access
-   *             scope.</p>
+   * <p>Specifies an array list of ARNs that represent the authorized targets for this access scope.</p>
    * @public
    */
   AuthorizedTargets?: string[] | undefined;
 
   /**
-   * <p>Specifies the ARN of the application with the access scope with the targets to add or
-   *             update.</p>
+   * <p>Specifies the ARN of the application with the access scope with the targets to add or update.</p>
    * @public
    */
   ApplicationArn: string | undefined;
@@ -798,8 +731,7 @@ export interface IamAuthenticationMethod {
 }
 
 /**
- * <p>A structure that describes an authentication method that can be used by an
- *             application.</p>
+ * <p>A structure that describes an authentication method that can be used by an application.</p>
  * @public
  */
 export type AuthenticationMethod = AuthenticationMethod.IamMember | AuthenticationMethod.$UnknownMember;
@@ -852,18 +784,13 @@ export interface GetApplicationAuthenticationMethodResponse {
  */
 export interface ListApplicationAuthenticationMethodsRequest {
   /**
-   * <p>Specifies the ARN of the application with the authentication methods you want to
-   *             list.</p>
+   * <p>Specifies the ARN of the application with the authentication methods you want to list.</p>
    * @public
    */
   ApplicationArn: string | undefined;
 
   /**
-   * <p>Specifies that you want to receive the next page of results. Valid
-   *              only if you received a <code>NextToken</code> response in the previous request. If you
-   *              did, it indicates that more output is available. Set this parameter to the value
-   *              provided by the previous call's <code>NextToken</code> response to request the
-   *              next page of results.</p>
+   * <p>Specifies that you want to receive the next page of results. Valid only if you received a <code>NextToken</code> response in the previous request. If you did, it indicates that more output is available. Set this parameter to the value provided by the previous call's <code>NextToken</code> response to request the next page of results.</p>
    * @public
    */
   NextToken?: string | undefined;
@@ -881,8 +808,7 @@ export interface AuthenticationMethodItem {
   AuthenticationMethodType?: AuthenticationMethodType | undefined;
 
   /**
-   * <p>A structure that describes an authentication method. The contents of this structure is
-   *             determined by the <code>AuthenticationMethodType</code>.</p>
+   * <p>A structure that describes an authentication method. The contents of this structure is determined by the <code>AuthenticationMethodType</code>.</p>
    * @public
    */
   AuthenticationMethod?: AuthenticationMethod | undefined;
@@ -899,11 +825,7 @@ export interface ListApplicationAuthenticationMethodsResponse {
   AuthenticationMethods?: AuthenticationMethodItem[] | undefined;
 
   /**
-   * <p>If present, this value indicates that more output is available than
-   *              is included in the current response. Use this value in the <code>NextToken</code>
-   *              request parameter in a subsequent call to the operation to get the next part of the
-   *              output. You should repeat this until the <code>NextToken</code> response element comes
-   *              back as <code>null</code>. This indicates that this is the last page of results.</p>
+   * <p>If present, this value indicates that more output is available than is included in the current response. Use this value in the <code>NextToken</code> request parameter in a subsequent call to the operation to get the next part of the output. You should repeat this until the <code>NextToken</code> response element comes back as <code>null</code>. This indicates that this is the last page of results.</p>
    * @public
    */
   NextToken?: string | undefined;
@@ -914,8 +836,7 @@ export interface ListApplicationAuthenticationMethodsResponse {
  */
 export interface PutApplicationAuthenticationMethodRequest {
   /**
-   * <p>Specifies the ARN of the application with the authentication method to add or
-   *             update.</p>
+   * <p>Specifies the ARN of the application with the authentication method to add or update.</p>
    * @public
    */
   ApplicationArn: string | undefined;
@@ -927,9 +848,7 @@ export interface PutApplicationAuthenticationMethodRequest {
   AuthenticationMethodType: AuthenticationMethodType | undefined;
 
   /**
-   * <p>Specifies a structure that describes the authentication method to add or update. The
-   *             structure type you provide is determined by the <code>AuthenticationMethodType</code>
-   *             parameter.</p>
+   * <p>Specifies a structure that describes the authentication method to add or update. The structure type you provide is determined by the <code>AuthenticationMethodType</code> parameter.</p>
    * @public
    */
   AuthenticationMethod: AuthenticationMethod | undefined;
@@ -986,26 +905,19 @@ export interface GetApplicationGrantRequest {
 }
 
 /**
- * <p>A structure that defines configuration settings for an application that supports the
- *             OAuth 2.0 Authorization Code Grant.</p>
+ * <p>A structure that defines configuration settings for an application that supports the OAuth 2.0 Authorization Code Grant.</p>
  * @public
  */
 export interface AuthorizationCodeGrant {
   /**
-   * <p>A list of URIs that are valid locations to redirect a user's browser after the user is
-   *             authorized.</p>
-   *          <note>
-   *             <p>RedirectUris is required when the grant type is
-   *                 <code>authorization_code</code>.</p>
-   *          </note>
+   * <p>A list of URIs that are valid locations to redirect a user's browser after the user is authorized.</p> <note> <p>RedirectUris is required when the grant type is <code>authorization_code</code>.</p> </note>
    * @public
    */
   RedirectUris?: string[] | undefined;
 }
 
 /**
- * <p>A structure that describes a trusted token issuer and associates it with a set of authorized
- *             audiences.</p>
+ * <p>A structure that describes a trusted token issuer and associates it with a set of authorized audiences.</p>
  * @public
  */
 export interface AuthorizedTokenIssuer {
@@ -1016,52 +928,38 @@ export interface AuthorizedTokenIssuer {
   TrustedTokenIssuerArn?: string | undefined;
 
   /**
-   * <p>An array list of authorized audiences, or applications, that can consume the tokens
-   *             generated by the associated trusted token issuer.</p>
+   * <p>An array list of authorized audiences, or applications, that can consume the tokens generated by the associated trusted token issuer.</p>
    * @public
    */
   AuthorizedAudiences?: string[] | undefined;
 }
 
 /**
- * <p>A structure that defines configuration settings for an application that supports the
- *             JWT Bearer Token Authorization Grant. The <code>AuthorizedAudience</code> field is the
- *             aud claim. For more information, see <a href="https://datatracker.ietf.org/doc/html/rfc7523">RFC 7523</a>.</p>
+ * <p>A structure that defines configuration settings for an application that supports the JWT Bearer Token Authorization Grant. The <code>AuthorizedAudience</code> field is the aud claim. For more information, see <a href="https://datatracker.ietf.org/doc/html/rfc7523">RFC 7523</a>.</p>
  * @public
  */
 export interface JwtBearerGrant {
   /**
-   * <p>A list of allowed token issuers trusted by the Identity Center instances for this
-   *             application.</p>
-   *          <note>
-   *             <p>
-   *                <code>AuthorizedTokenIssuers</code> is required when the grant type is
-   *                     <code>JwtBearerGrant</code>.</p>
-   *          </note>
+   * <p>A list of allowed token issuers trusted by the Identity Center instances for this application.</p> <note> <p> <code>AuthorizedTokenIssuers</code> is required when the grant type is <code>JwtBearerGrant</code>.</p> </note>
    * @public
    */
   AuthorizedTokenIssuers?: AuthorizedTokenIssuer[] | undefined;
 }
 
 /**
- * <p>A structure that defines configuration settings for an application that supports the
- *             OAuth 2.0 Refresh Token Grant. For more, see <a href="https://datatracker.ietf.org/doc/html/rfc6749#section-1.5">RFC
- *             6749</a>.</p>
+ * <p>A structure that defines configuration settings for an application that supports the OAuth 2.0 Refresh Token Grant. For more, see <a href="https://datatracker.ietf.org/doc/html/rfc6749#section-1.5">RFC 6749</a>.</p>
  * @public
  */
 export interface RefreshTokenGrant {}
 
 /**
- * <p>A structure that defines configuration settings for an application that supports the
- *             OAuth 2.0 Token Exchange Grant. For more information, see <a href="https://datatracker.ietf.org/doc/html/rfc8693">RFC 8693</a>.</p>
+ * <p>A structure that defines configuration settings for an application that supports the OAuth 2.0 Token Exchange Grant. For more information, see <a href="https://datatracker.ietf.org/doc/html/rfc8693">RFC 8693</a>.</p>
  * @public
  */
 export interface TokenExchangeGrant {}
 
 /**
- * <p>The Grant union represents the set of possible configuration options for the selected
- *             grant type. Exactly one member of the union must be specified, and must match the grant
- *             type selected.</p>
+ * <p>The Grant union represents the set of possible configuration options for the selected grant type. Exactly one member of the union must be specified, and must match the grant type selected.</p>
  * @public
  */
 export type Grant =
@@ -1088,8 +986,7 @@ export namespace Grant {
   }
 
   /**
-   * <p>Configuration options for the <code>urn:ietf:params:oauth:grant-type:jwt-bearer</code>
-   *             grant type.</p>
+   * <p>Configuration options for the <code>urn:ietf:params:oauth:grant-type:jwt-bearer</code> grant type.</p>
    * @public
    */
   export interface JwtBearerMember {
@@ -1113,8 +1010,7 @@ export namespace Grant {
   }
 
   /**
-   * <p>Configuration options for the
-   *                 <code>urn:ietf:params:oauth:grant-type:token-exchange</code> grant type.</p>
+   * <p>Configuration options for the <code>urn:ietf:params:oauth:grant-type:token-exchange</code> grant type.</p>
    * @public
    */
   export interface TokenExchangeMember {
@@ -1175,11 +1071,7 @@ export interface ListApplicationGrantsRequest {
   ApplicationArn: string | undefined;
 
   /**
-   * <p>Specifies that you want to receive the next page of results. Valid
-   *              only if you received a <code>NextToken</code> response in the previous request. If you
-   *              did, it indicates that more output is available. Set this parameter to the value
-   *              provided by the previous call's <code>NextToken</code> response to request the
-   *              next page of results.</p>
+   * <p>Specifies that you want to receive the next page of results. Valid only if you received a <code>NextToken</code> response in the previous request. If you did, it indicates that more output is available. Set this parameter to the value provided by the previous call's <code>NextToken</code> response to request the next page of results.</p>
    * @public
    */
   NextToken?: string | undefined;
@@ -1214,11 +1106,7 @@ export interface ListApplicationGrantsResponse {
   Grants: GrantItem[] | undefined;
 
   /**
-   * <p>If present, this value indicates that more output is available than
-   *              is included in the current response. Use this value in the <code>NextToken</code>
-   *              request parameter in a subsequent call to the operation to get the next part of the
-   *              output. You should repeat this until the <code>NextToken</code> response element comes
-   *              back as <code>null</code>. This indicates that this is the last page of results.</p>
+   * <p>If present, this value indicates that more output is available than is included in the current response. Use this value in the <code>NextToken</code> request parameter in a subsequent call to the operation to get the next part of the output. You should repeat this until the <code>NextToken</code> response element comes back as <code>null</code>. This indicates that this is the last page of results.</p>
    * @public
    */
   NextToken?: string | undefined;
@@ -1286,8 +1174,7 @@ export const FederationProtocol = {
 export type FederationProtocol = (typeof FederationProtocol)[keyof typeof FederationProtocol];
 
 /**
- * <p>A structure that describes details for an IAM Identity Center access scope that is associated with a
- *             resource server.</p>
+ * <p>A structure that describes details for an IAM Identity Center access scope that is associated with a resource server.</p>
  * @public
  */
 export interface ResourceServerScopeDetails {
@@ -1310,16 +1197,14 @@ export interface ResourceServerScopeDetails {
  */
 export interface ResourceServerConfig {
   /**
-   * <p>A list of the IAM Identity Center access scopes that are associated with this resource
-   *             server.</p>
+   * <p>A list of the IAM Identity Center access scopes that are associated with this resource server.</p>
    * @public
    */
   Scopes?: Record<string, ResourceServerScopeDetails> | undefined;
 }
 
 /**
- * <p>A structure that describes a provider that can be used to connect an Amazon Web Services managed
- *             application or customer managed application to IAM Identity Center.</p>
+ * <p>A structure that describes a provider that can be used to connect an Amazon Web Services managed application or customer managed application to IAM Identity Center.</p>
  * @public
  */
 export interface ApplicationProvider {
@@ -1336,8 +1221,7 @@ export interface ApplicationProvider {
   FederationProtocol?: FederationProtocol | undefined;
 
   /**
-   * <p>A structure that describes how IAM Identity Center represents the application provider in the
-   *             portal.</p>
+   * <p>A structure that describes how IAM Identity Center represents the application provider in the portal.</p>
    * @public
    */
   DisplayData?: DisplayData | undefined;
@@ -1355,17 +1239,13 @@ export interface ApplicationProvider {
  */
 export interface CustomerManagedPolicyReference {
   /**
-   * <p>The name of the IAM policy that you have configured in each account where you want
-   *             to deploy your permission set.</p>
+   * <p>The name of the IAM policy that you have configured in each account where you want to deploy your permission set.</p>
    * @public
    */
   Name: string | undefined;
 
   /**
-   * <p>The path to the IAM policy that you have configured in each account where you want
-   *             to deploy your permission set. The default is <code>/</code>. For more information, see
-   *                 <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html#identifiers-friendly-names">Friendly names and paths</a> in the <i>IAM User
-   *             Guide</i>.</p>
+   * <p>The path to the IAM policy that you have configured in each account where you want to deploy your permission set. The default is <code>/</code>. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html#identifiers-friendly-names">Friendly names and paths</a> in the <i>IAM User Guide</i>.</p>
    * @public
    */
   Path?: string | undefined;
@@ -1400,8 +1280,7 @@ export interface AttachCustomerManagedPolicyReferenceToPermissionSetRequest {
 export interface AttachCustomerManagedPolicyReferenceToPermissionSetResponse {}
 
 /**
- * <p>Indicates that the principal has crossed the permitted number of resources that can be
- *             created.</p>
+ * <p>Indicates that the principal has crossed the permitted number of resources that can be created.</p>
  * @public
  */
 export class ServiceQuotaExceededException extends __BaseException {
@@ -1434,8 +1313,7 @@ export interface AttachedManagedPolicy {
   Name?: string | undefined;
 
   /**
-   * <p>The ARN of the Amazon Web Services managed policy. For more information about ARNs, see <a href="/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource
-   * Names (ARNs) and Amazon Web Services Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>.</p>
+   * <p>The ARN of the Amazon Web Services managed policy. For more information about ARNs, see <a href="/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>.</p>
    * @public
    */
   Arn?: string | undefined;
@@ -1446,16 +1324,13 @@ export interface AttachedManagedPolicy {
  */
 export interface AttachManagedPolicyToPermissionSetRequest {
   /**
-   * <p>The ARN of the IAM Identity Center instance under which the operation will be executed.
-   *             For more information about ARNs, see <a href="/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource
-   * Names (ARNs) and Amazon Web Services Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>.</p>
+   * <p>The ARN of the IAM Identity Center instance under which the operation will be executed. For more information about ARNs, see <a href="/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>.</p>
    * @public
    */
   InstanceArn: string | undefined;
 
   /**
-   * <p>The ARN of the <a>PermissionSet</a> that the managed policy should be
-   *             attached to.</p>
+   * <p>The ARN of the <a>PermissionSet</a> that the managed policy should be attached to.</p>
    * @public
    */
   PermissionSetArn: string | undefined;
@@ -1477,9 +1352,7 @@ export interface AttachManagedPolicyToPermissionSetResponse {}
  */
 export interface CreateAccountAssignmentRequest {
   /**
-   * <p>The ARN of the IAM Identity Center instance under which the operation will be executed.
-   *             For more information about ARNs, see <a href="/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource
-   * Names (ARNs) and Amazon Web Services Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>.</p>
+   * <p>The ARN of the IAM Identity Center instance under which the operation will be executed. For more information about ARNs, see <a href="/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>.</p>
    * @public
    */
   InstanceArn: string | undefined;
@@ -1497,8 +1370,7 @@ export interface CreateAccountAssignmentRequest {
   TargetType: TargetType | undefined;
 
   /**
-   * <p>The ARN of the permission set that the admin wants to grant the principal access
-   *             to.</p>
+   * <p>The ARN of the permission set that the admin wants to grant the principal access to.</p>
    * @public
    */
   PermissionSetArn: string | undefined;
@@ -1528,9 +1400,7 @@ export interface CreateAccountAssignmentResponse {
 }
 
 /**
- * <p>A set of key-value pairs that are used to manage the resource. Tags can only be
- *             applied to permission sets and cannot be applied to corresponding roles that IAM Identity Center
- *             creates in Amazon Web Services accounts.</p>
+ * <p>A set of key-value pairs that are used to manage the resource. Tags can only be applied to permission sets and cannot be applied to corresponding roles that IAM Identity Center creates in Amazon Web Services accounts.</p>
  * @public
  */
 export interface Tag {
@@ -1552,8 +1422,7 @@ export interface Tag {
  */
 export interface CreateApplicationRequest {
   /**
-   * <p>The ARN of the instance of IAM Identity Center under which the operation will run. For more information about ARNs, see <a href="/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource
-   * Names (ARNs) and Amazon Web Services Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>.</p>
+   * <p>The ARN of the instance of IAM Identity Center under which the operation will run. For more information about ARNs, see <a href="/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>.</p>
    * @public
    */
   InstanceArn: string | undefined;
@@ -1577,8 +1446,7 @@ export interface CreateApplicationRequest {
   Description?: string | undefined;
 
   /**
-   * <p>A structure that describes the options for the portal associated with an
-   *             application.</p>
+   * <p>A structure that describes the options for the portal associated with an application.</p>
    * @public
    */
   PortalOptions?: PortalOptions | undefined;
@@ -1596,17 +1464,7 @@ export interface CreateApplicationRequest {
   Status?: ApplicationStatus | undefined;
 
   /**
-   * <p>Specifies a unique, case-sensitive ID that you provide to
-   *              ensure the idempotency of the request. This lets you safely retry the request without
-   *              accidentally performing the same operation a second time. Passing the same value to a
-   *              later call to an operation requires that you also pass the same value for all other
-   *              parameters. We recommend that you use a <a href="https://wikipedia.org/wiki/Universally_unique_identifier">UUID type of
-   *              value</a>.</p>
-   *          <p>If you don't provide this value, then Amazon Web Services generates a random one for
-   *              you.</p>
-   *          <p>If you retry the operation with the same <code>ClientToken</code>, but with
-   *              different parameters, the retry fails with an <code>IdempotentParameterMismatch</code>
-   *              error.</p>
+   * <p>Specifies a unique, case-sensitive ID that you provide to ensure the idempotency of the request. This lets you safely retry the request without accidentally performing the same operation a second time. Passing the same value to a later call to an operation requires that you also pass the same value for all other parameters. We recommend that you use a <a href="https://wikipedia.org/wiki/Universally_unique_identifier">UUID type of value</a>.</p> <p>If you don't provide this value, then Amazon Web Services generates a random one for you.</p> <p>If you retry the operation with the same <code>ClientToken</code>, but with different parameters, the retry fails with an <code>IdempotentParameterMismatch</code> error.</p>
    * @public
    */
   ClientToken?: string | undefined;
@@ -1662,17 +1520,7 @@ export interface CreateInstanceRequest {
   Name?: string | undefined;
 
   /**
-   * <p>Specifies a unique, case-sensitive ID that you provide to
-   *              ensure the idempotency of the request. This lets you safely retry the request without
-   *              accidentally performing the same operation a second time. Passing the same value to a
-   *              later call to an operation requires that you also pass the same value for all other
-   *              parameters. We recommend that you use a <a href="https://wikipedia.org/wiki/Universally_unique_identifier">UUID type of
-   *              value</a>.</p>
-   *          <p>If you don't provide this value, then Amazon Web Services generates a random one for
-   *              you.</p>
-   *          <p>If you retry the operation with the same <code>ClientToken</code>, but with
-   *              different parameters, the retry fails with an <code>IdempotentParameterMismatch</code>
-   *              error.</p>
+   * <p>Specifies a unique, case-sensitive ID that you provide to ensure the idempotency of the request. This lets you safely retry the request without accidentally performing the same operation a second time. Passing the same value to a later call to an operation requires that you also pass the same value for all other parameters. We recommend that you use a <a href="https://wikipedia.org/wiki/Universally_unique_identifier">UUID type of value</a>.</p> <p>If you don't provide this value, then Amazon Web Services generates a random one for you.</p> <p>If you retry the operation with the same <code>ClientToken</code>, but with different parameters, the retry fails with an <code>IdempotentParameterMismatch</code> error.</p>
    * @public
    */
   ClientToken?: string | undefined;
@@ -1689,23 +1537,19 @@ export interface CreateInstanceRequest {
  */
 export interface CreateInstanceResponse {
   /**
-   * <p>The ARN of the instance of IAM Identity Center under which the operation will run. </p>
-   *          <p>For more information about ARNs, see <a href="/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource
-   * Names (ARNs) and Amazon Web Services Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>.</p>
+   * <p>The ARN of the instance of IAM Identity Center under which the operation will run. </p> <p>For more information about ARNs, see <a href="/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>.</p>
    * @public
    */
   InstanceArn?: string | undefined;
 }
 
 /**
- * <p>Specifies the attributes to add to your attribute-based access control (ABAC)
- *             configuration.</p>
+ * <p>Specifies the attributes to add to your attribute-based access control (ABAC) configuration.</p>
  * @public
  */
 export interface InstanceAccessControlAttributeConfiguration {
   /**
-   * <p>Lists the attributes that are configured for ABAC in the specified IAM Identity Center
-   *             instance.</p>
+   * <p>Lists the attributes that are configured for ABAC in the specified IAM Identity Center instance.</p>
    * @public
    */
   AccessControlAttributes: AccessControlAttribute[] | undefined;
@@ -1722,11 +1566,7 @@ export interface CreateInstanceAccessControlAttributeConfigurationRequest {
   InstanceArn: string | undefined;
 
   /**
-   * <p>Specifies the IAM Identity Center identity store attributes to add to your ABAC configuration. When
-   *             using an external identity provider as an identity source, you can pass attributes
-   *             through the SAML assertion. Doing so provides an alternative to configuring attributes
-   *             from the IAM Identity Center identity store. If a SAML assertion passes any of these attributes, IAM Identity Center
-   *             will replace the attribute value with the value from the IAM Identity Center identity store.</p>
+   * <p>Specifies the IAM Identity Center identity store attributes to add to your ABAC configuration. When using an external identity provider as an identity source, you can pass attributes through the SAML assertion. Doing so provides an alternative to configuring attributes from the IAM Identity Center identity store. If a SAML assertion passes any of these attributes, IAM Identity Center will replace the attribute value with the value from the IAM Identity Center identity store.</p>
    * @public
    */
   InstanceAccessControlAttributeConfiguration: InstanceAccessControlAttributeConfiguration | undefined;
@@ -1754,23 +1594,19 @@ export interface CreatePermissionSetRequest {
   Description?: string | undefined;
 
   /**
-   * <p>The ARN of the IAM Identity Center instance under which the operation will be executed.
-   *             For more information about ARNs, see <a href="/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource
-   * Names (ARNs) and Amazon Web Services Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>.</p>
+   * <p>The ARN of the IAM Identity Center instance under which the operation will be executed. For more information about ARNs, see <a href="/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>.</p>
    * @public
    */
   InstanceArn: string | undefined;
 
   /**
-   * <p>The length of time that the application user sessions are valid in the ISO-8601
-   *             standard.</p>
+   * <p>The length of time that the application user sessions are valid in the ISO-8601 standard.</p>
    * @public
    */
   SessionDuration?: string | undefined;
 
   /**
-   * <p>Used to redirect users within the application during the federation authentication
-   *             process.</p>
+   * <p>Used to redirect users within the application during the federation authentication process.</p>
    * @public
    */
   RelayState?: string | undefined;
@@ -1794,8 +1630,7 @@ export interface PermissionSet {
   Name?: string | undefined;
 
   /**
-   * <p>The ARN of the permission set. For more information about ARNs, see <a href="/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource
-   * Names (ARNs) and Amazon Web Services Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>.</p>
+   * <p>The ARN of the permission set. For more information about ARNs, see <a href="/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>.</p>
    * @public
    */
   PermissionSetArn?: string | undefined;
@@ -1813,15 +1648,13 @@ export interface PermissionSet {
   CreatedDate?: Date | undefined;
 
   /**
-   * <p>The length of time that the application user sessions are valid for in the ISO-8601
-   *             standard.</p>
+   * <p>The length of time that the application user sessions are valid for in the ISO-8601 standard.</p>
    * @public
    */
   SessionDuration?: string | undefined;
 
   /**
-   * <p>Used to redirect users within the application during the federation authentication
-   *             process.</p>
+   * <p>Used to redirect users within the application during the federation authentication process.</p>
    * @public
    */
   RelayState?: string | undefined;
@@ -1852,47 +1685,37 @@ export const JwksRetrievalOption = {
 export type JwksRetrievalOption = (typeof JwksRetrievalOption)[keyof typeof JwksRetrievalOption];
 
 /**
- * <p>A structure that describes configuration settings for a trusted token issuer that supports OpenID
- *             Connect (OIDC) and JSON Web Tokens (JWTs).</p>
+ * <p>A structure that describes configuration settings for a trusted token issuer that supports OpenID Connect (OIDC) and JSON Web Tokens (JWTs).</p>
  * @public
  */
 export interface OidcJwtConfiguration {
   /**
-   * <p>The URL that IAM Identity Center uses for OpenID Discovery. OpenID Discovery is used to obtain
-   *             the information required to verify the tokens that the trusted token issuer generates.</p>
+   * <p>The URL that IAM Identity Center uses for OpenID Discovery. OpenID Discovery is used to obtain the information required to verify the tokens that the trusted token issuer generates.</p>
    * @public
    */
   IssuerUrl: string | undefined;
 
   /**
-   * <p>The path of the source attribute in the JWT from the trusted token issuer. The attribute mapped by
-   *             this JMESPath expression is compared against the attribute mapped by
-   *                 <code>IdentityStoreAttributePath</code> when a trusted token issuer token is exchanged for an
-   *             IAM Identity Center token.</p>
+   * <p>The path of the source attribute in the JWT from the trusted token issuer. The attribute mapped by this JMESPath expression is compared against the attribute mapped by <code>IdentityStoreAttributePath</code> when a trusted token issuer token is exchanged for an IAM Identity Center token.</p>
    * @public
    */
   ClaimAttributePath: string | undefined;
 
   /**
-   * <p>The path of the destination attribute in a JWT from IAM Identity Center. The attribute mapped by
-   *             this JMESPath expression is compared against the attribute mapped by
-   *                 <code>ClaimAttributePath</code> when a trusted token issuer token is exchanged for an IAM Identity Center
-   *             token. </p>
+   * <p>The path of the destination attribute in a JWT from IAM Identity Center. The attribute mapped by this JMESPath expression is compared against the attribute mapped by <code>ClaimAttributePath</code> when a trusted token issuer token is exchanged for an IAM Identity Center token. </p>
    * @public
    */
   IdentityStoreAttributePath: string | undefined;
 
   /**
-   * <p>The method that the trusted token issuer can use to retrieve the JSON Web Key Set used to verify a
-   *             JWT.</p>
+   * <p>The method that the trusted token issuer can use to retrieve the JSON Web Key Set used to verify a JWT.</p>
    * @public
    */
   JwksRetrievalOption: JwksRetrievalOption | undefined;
 }
 
 /**
- * <p>A structure that describes the configuration of a trusted token issuer. The structure and available
- *             settings are determined by the type of the trusted token issuer.</p>
+ * <p>A structure that describes the configuration of a trusted token issuer. The structure and available settings are determined by the type of the trusted token issuer.</p>
  * @public
  */
 export type TrustedTokenIssuerConfiguration =
@@ -1904,8 +1727,7 @@ export type TrustedTokenIssuerConfiguration =
  */
 export namespace TrustedTokenIssuerConfiguration {
   /**
-   * <p>A structure that describes the settings for a trusted token issuer that works with OpenID Connect
-   *             (OIDC) by using JSON Web Tokens (JWT).</p>
+   * <p>A structure that describes the settings for a trusted token issuer that works with OpenID Connect (OIDC) by using JSON Web Tokens (JWT).</p>
    * @public
    */
   export interface OidcJwtConfigurationMember {
@@ -1950,8 +1772,7 @@ export type TrustedTokenIssuerType = (typeof TrustedTokenIssuerType)[keyof typeo
  */
 export interface CreateTrustedTokenIssuerRequest {
   /**
-   * <p>Specifies the ARN of the instance of IAM Identity Center to contain the new trusted token issuer
-   *             configuration.</p>
+   * <p>Specifies the ARN of the instance of IAM Identity Center to contain the new trusted token issuer configuration.</p>
    * @public
    */
   InstanceArn: string | undefined;
@@ -1969,24 +1790,13 @@ export interface CreateTrustedTokenIssuerRequest {
   TrustedTokenIssuerType: TrustedTokenIssuerType | undefined;
 
   /**
-   * <p>Specifies settings that apply to the new trusted token issuer configuration. The settings that are
-   *             available depend on what <code>TrustedTokenIssuerType</code> you specify.</p>
+   * <p>Specifies settings that apply to the new trusted token issuer configuration. The settings that are available depend on what <code>TrustedTokenIssuerType</code> you specify.</p>
    * @public
    */
   TrustedTokenIssuerConfiguration: TrustedTokenIssuerConfiguration | undefined;
 
   /**
-   * <p>Specifies a unique, case-sensitive ID that you provide to
-   *              ensure the idempotency of the request. This lets you safely retry the request without
-   *              accidentally performing the same operation a second time. Passing the same value to a
-   *              later call to an operation requires that you also pass the same value for all other
-   *              parameters. We recommend that you use a <a href="https://wikipedia.org/wiki/Universally_unique_identifier">UUID type of
-   *              value.</a>.</p>
-   *          <p>If you don't provide this value, then Amazon Web Services generates a random one for
-   *              you.</p>
-   *          <p>If you retry the operation with the same <code>ClientToken</code>, but with
-   *              different parameters, the retry fails with an <code>IdempotentParameterMismatch</code>
-   *              error.</p>
+   * <p>Specifies a unique, case-sensitive ID that you provide to ensure the idempotency of the request. This lets you safely retry the request without accidentally performing the same operation a second time. Passing the same value to a later call to an operation requires that you also pass the same value for all other parameters. We recommend that you use a <a href="https://wikipedia.org/wiki/Universally_unique_identifier">UUID type of value.</a>.</p> <p>If you don't provide this value, then Amazon Web Services generates a random one for you.</p> <p>If you retry the operation with the same <code>ClientToken</code>, but with different parameters, the retry fails with an <code>IdempotentParameterMismatch</code> error.</p>
    * @public
    */
   ClientToken?: string | undefined;
@@ -2014,9 +1824,7 @@ export interface CreateTrustedTokenIssuerResponse {
  */
 export interface DeleteAccountAssignmentRequest {
   /**
-   * <p>The ARN of the IAM Identity Center instance under which the operation will be executed.
-   *             For more information about ARNs, see <a href="/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource
-   * Names (ARNs) and Amazon Web Services Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>.</p>
+   * <p>The ARN of the IAM Identity Center instance under which the operation will be executed. For more information about ARNs, see <a href="/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>.</p>
    * @public
    */
   InstanceArn: string | undefined;
@@ -2068,8 +1876,7 @@ export interface DeleteAccountAssignmentResponse {
  */
 export interface DeleteApplicationRequest {
   /**
-   * <p>Specifies the ARN of the application. For more information about ARNs, see <a href="/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource
-   * Names (ARNs) and Amazon Web Services Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>. </p>
+   * <p>Specifies the ARN of the application. For more information about ARNs, see <a href="/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>. </p>
    * @public
    */
   ApplicationArn: string | undefined;
@@ -2113,9 +1920,7 @@ export interface DeleteApplicationAssignmentResponse {}
  */
 export interface DeleteInlinePolicyFromPermissionSetRequest {
   /**
-   * <p>The ARN of the IAM Identity Center instance under which the operation will be executed.
-   *             For more information about ARNs, see <a href="/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource
-   * Names (ARNs) and Amazon Web Services Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>.</p>
+   * <p>The ARN of the IAM Identity Center instance under which the operation will be executed. For more information about ARNs, see <a href="/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>.</p>
    * @public
    */
   InstanceArn: string | undefined;
@@ -2191,9 +1996,7 @@ export interface DeletePermissionsBoundaryFromPermissionSetResponse {}
  */
 export interface DeletePermissionSetRequest {
   /**
-   * <p>The ARN of the IAM Identity Center instance under which the operation will be executed.
-   *             For more information about ARNs, see <a href="/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource
-   * Names (ARNs) and Amazon Web Services Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>.</p>
+   * <p>The ARN of the IAM Identity Center instance under which the operation will be executed. For more information about ARNs, see <a href="/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>.</p>
    * @public
    */
   InstanceArn: string | undefined;
@@ -2231,9 +2034,7 @@ export interface DeleteTrustedTokenIssuerResponse {}
  */
 export interface DescribeAccountAssignmentCreationStatusRequest {
   /**
-   * <p>The ARN of the IAM Identity Center instance under which the operation will be executed.
-   *             For more information about ARNs, see <a href="/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource
-   * Names (ARNs) and Amazon Web Services Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>.</p>
+   * <p>The ARN of the IAM Identity Center instance under which the operation will be executed. For more information about ARNs, see <a href="/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>.</p>
    * @public
    */
   InstanceArn: string | undefined;
@@ -2261,9 +2062,7 @@ export interface DescribeAccountAssignmentCreationStatusResponse {
  */
 export interface DescribeAccountAssignmentDeletionStatusRequest {
   /**
-   * <p>The ARN of the IAM Identity Center instance under which the operation will be executed.
-   *             For more information about ARNs, see <a href="/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource
-   * Names (ARNs) and Amazon Web Services Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>.</p>
+   * <p>The ARN of the IAM Identity Center instance under which the operation will be executed. For more information about ARNs, see <a href="/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>.</p>
    * @public
    */
   InstanceArn: string | undefined;
@@ -2291,8 +2090,7 @@ export interface DescribeAccountAssignmentDeletionStatusResponse {
  */
 export interface DescribeApplicationRequest {
   /**
-   * <p>Specifies the ARN of the application. For more information about ARNs, see <a href="/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource
-   * Names (ARNs) and Amazon Web Services Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>.</p>
+   * <p>Specifies the ARN of the application. For more information about ARNs, see <a href="/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>.</p>
    * @public
    */
   ApplicationArn: string | undefined;
@@ -2327,8 +2125,7 @@ export interface DescribeApplicationResponse {
   ApplicationAccount?: string | undefined;
 
   /**
-   * <p>The ARN of the IAM Identity Center application under which the operation will run. For more information about ARNs, see <a href="/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource
-   * Names (ARNs) and Amazon Web Services Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>.</p>
+   * <p>The ARN of the IAM Identity Center application under which the operation will run. For more information about ARNs, see <a href="/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>.</p>
    * @public
    */
   InstanceArn?: string | undefined;
@@ -2340,8 +2137,7 @@ export interface DescribeApplicationResponse {
   Status?: ApplicationStatus | undefined;
 
   /**
-   * <p>A structure that describes the options for the portal associated with an
-   *             application.</p>
+   * <p>A structure that describes the options for the portal associated with an application.</p>
    * @public
    */
   PortalOptions?: PortalOptions | undefined;
@@ -2364,8 +2160,7 @@ export interface DescribeApplicationResponse {
  */
 export interface DescribeApplicationAssignmentRequest {
   /**
-   * <p>Specifies the ARN of the application. For more information about ARNs, see <a href="/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource
-   * Names (ARNs) and Amazon Web Services Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>.</p>
+   * <p>Specifies the ARN of the application. For more information about ARNs, see <a href="/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>.</p>
    * @public
    */
   ApplicationArn: string | undefined;
@@ -2400,8 +2195,7 @@ export interface DescribeApplicationAssignmentResponse {
   PrincipalId?: string | undefined;
 
   /**
-   * <p>Specifies the ARN of the application. For more information about ARNs, see <a href="/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource
-   * Names (ARNs) and Amazon Web Services Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>.</p>
+   * <p>Specifies the ARN of the application. For more information about ARNs, see <a href="/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>.</p>
    * @public
    */
   ApplicationArn?: string | undefined;
@@ -2478,15 +2272,13 @@ export type InstanceStatus = (typeof InstanceStatus)[keyof typeof InstanceStatus
  */
 export interface DescribeInstanceResponse {
   /**
-   * <p>The ARN of the instance of IAM Identity Center under which the operation will run. For more information about ARNs, see <a href="/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource
-   * Names (ARNs) and Amazon Web Services Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>.</p>
+   * <p>The ARN of the instance of IAM Identity Center under which the operation will run. For more information about ARNs, see <a href="/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>.</p>
    * @public
    */
   InstanceArn?: string | undefined;
 
   /**
-   * <p>The identifier of the identity store that is connected to the instance of
-   *             IAM Identity Center.</p>
+   * <p>The identifier of the identity store that is connected to the instance of IAM Identity Center.</p>
    * @public
    */
   IdentityStoreId?: string | undefined;
@@ -2560,8 +2352,7 @@ export interface DescribeInstanceAccessControlAttributeConfigurationResponse {
   StatusReason?: string | undefined;
 
   /**
-   * <p>Gets the list of IAM Identity Center identity store attributes that have been added to your ABAC
-   *             configuration.</p>
+   * <p>Gets the list of IAM Identity Center identity store attributes that have been added to your ABAC configuration.</p>
    * @public
    */
   InstanceAccessControlAttributeConfiguration?: InstanceAccessControlAttributeConfiguration | undefined;
@@ -2572,9 +2363,7 @@ export interface DescribeInstanceAccessControlAttributeConfigurationResponse {
  */
 export interface DescribePermissionSetRequest {
   /**
-   * <p>The ARN of the IAM Identity Center instance under which the operation will be executed.
-   *             For more information about ARNs, see <a href="/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource
-   * Names (ARNs) and Amazon Web Services Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>.</p>
+   * <p>The ARN of the IAM Identity Center instance under which the operation will be executed. For more information about ARNs, see <a href="/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>.</p>
    * @public
    */
   InstanceArn: string | undefined;
@@ -2602,24 +2391,20 @@ export interface DescribePermissionSetResponse {
  */
 export interface DescribePermissionSetProvisioningStatusRequest {
   /**
-   * <p>The ARN of the IAM Identity Center instance under which the operation will be executed.
-   *             For more information about ARNs, see <a href="/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource
-   * Names (ARNs) and Amazon Web Services Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>.</p>
+   * <p>The ARN of the IAM Identity Center instance under which the operation will be executed. For more information about ARNs, see <a href="/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>.</p>
    * @public
    */
   InstanceArn: string | undefined;
 
   /**
-   * <p>The identifier that is provided by the <a>ProvisionPermissionSet</a> call
-   *             to retrieve the current status of the provisioning workflow.</p>
+   * <p>The identifier that is provided by the <a>ProvisionPermissionSet</a> call to retrieve the current status of the provisioning workflow.</p>
    * @public
    */
   ProvisionPermissionSetRequestId: string | undefined;
 }
 
 /**
- * <p>A structure that is used to provide the status of the provisioning operation for a
- *             specified permission set.</p>
+ * <p>A structure that is used to provide the status of the provisioning operation for a specified permission set.</p>
  * @public
  */
 export interface PermissionSetProvisioningStatus {
@@ -2630,8 +2415,7 @@ export interface PermissionSetProvisioningStatus {
   Status?: StatusValues | undefined;
 
   /**
-   * <p>The identifier for tracking the request operation that is generated by the universally
-   *             unique identifier (UUID) workflow.</p>
+   * <p>The identifier for tracking the request operation that is generated by the universally unique identifier (UUID) workflow.</p>
    * @public
    */
   RequestId?: string | undefined;
@@ -2643,15 +2427,13 @@ export interface PermissionSetProvisioningStatus {
   AccountId?: string | undefined;
 
   /**
-   * <p>The ARN of the permission set that is being provisioned. For more information about ARNs, see <a href="/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource
-   * Names (ARNs) and Amazon Web Services Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>.</p>
+   * <p>The ARN of the permission set that is being provisioned. For more information about ARNs, see <a href="/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>.</p>
    * @public
    */
   PermissionSetArn?: string | undefined;
 
   /**
-   * <p>The message that contains an error or exception in case of an operation
-   *             failure.</p>
+   * <p>The message that contains an error or exception in case of an operation failure.</p>
    * @public
    */
   FailureReason?: string | undefined;
@@ -2747,16 +2529,13 @@ export interface DetachCustomerManagedPolicyReferenceFromPermissionSetResponse {
  */
 export interface DetachManagedPolicyFromPermissionSetRequest {
   /**
-   * <p>The ARN of the IAM Identity Center instance under which the operation will be executed.
-   *             For more information about ARNs, see <a href="/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource
-   * Names (ARNs) and Amazon Web Services Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>.</p>
+   * <p>The ARN of the IAM Identity Center instance under which the operation will be executed. For more information about ARNs, see <a href="/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>.</p>
    * @public
    */
   InstanceArn: string | undefined;
 
   /**
-   * <p>The ARN of the <a>PermissionSet</a> from which the policy should be
-   *             detached.</p>
+   * <p>The ARN of the <a>PermissionSet</a> from which the policy should be detached.</p>
    * @public
    */
   PermissionSetArn: string | undefined;
@@ -2778,8 +2557,7 @@ export interface DetachManagedPolicyFromPermissionSetResponse {}
  */
 export interface GetApplicationAssignmentConfigurationRequest {
   /**
-   * <p>Specifies the ARN of the application. For more information about ARNs, see <a href="/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource
-   * Names (ARNs) and Amazon Web Services Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>.</p>
+   * <p>Specifies the ARN of the application. For more information about ARNs, see <a href="/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>.</p>
    * @public
    */
   ApplicationArn: string | undefined;
@@ -2790,9 +2568,7 @@ export interface GetApplicationAssignmentConfigurationRequest {
  */
 export interface GetApplicationAssignmentConfigurationResponse {
   /**
-   * <p>If <code>AssignmentsRequired</code> is <code>true</code> (default value), users don’t
-   *             have access to the application unless an assignment is created using the <a href="https://docs.aws.amazon.com/singlesignon/latest/APIReference/API_CreateApplicationAssignment.html">CreateApplicationAssignment API</a>. If <code>false</code>, all users have
-   *             access to the application. </p>
+   * <p>If <code>AssignmentsRequired</code> is <code>true</code> (default value), users don’t have access to the application unless an assignment is created using the <a href="https://docs.aws.amazon.com/singlesignon/latest/APIReference/API_CreateApplicationAssignment.html">CreateApplicationAssignment API</a>. If <code>false</code>, all users have access to the application. </p>
    * @public
    */
   AssignmentRequired: boolean | undefined;
@@ -2801,11 +2577,46 @@ export interface GetApplicationAssignmentConfigurationResponse {
 /**
  * @public
  */
+export interface GetApplicationSessionConfigurationRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the application for which to retrieve the session configuration.</p>
+   * @public
+   */
+  ApplicationArn: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const UserBackgroundSessionApplicationStatus = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type UserBackgroundSessionApplicationStatus =
+  (typeof UserBackgroundSessionApplicationStatus)[keyof typeof UserBackgroundSessionApplicationStatus];
+
+/**
+ * @public
+ */
+export interface GetApplicationSessionConfigurationResponse {
+  /**
+   * <p>The status of user background sessions for the application. </p>
+   * @public
+   */
+  UserBackgroundSessionApplicationStatus?: UserBackgroundSessionApplicationStatus | undefined;
+}
+
+/**
+ * @public
+ */
 export interface GetInlinePolicyForPermissionSetRequest {
   /**
-   * <p>The ARN of the IAM Identity Center instance under which the operation will be executed.
-   *             For more information about ARNs, see <a href="/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource
-   * Names (ARNs) and Amazon Web Services Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>.</p>
+   * <p>The ARN of the IAM Identity Center instance under which the operation will be executed. For more information about ARNs, see <a href="/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>.</p>
    * @public
    */
   InstanceArn: string | undefined;
@@ -2822,11 +2633,7 @@ export interface GetInlinePolicyForPermissionSetRequest {
  */
 export interface GetInlinePolicyForPermissionSetResponse {
   /**
-   * <p>The inline policy that is attached to the permission set.</p>
-   *          <note>
-   *             <p>For <code>Length Constraints</code>, if a valid ARN is provided for a permission
-   *                 set, it is possible for an empty inline policy to be returned.</p>
-   *          </note>
+   * <p>The inline policy that is attached to the permission set.</p> <note> <p>For <code>Length Constraints</code>, if a valid ARN is provided for a permission set, it is possible for an empty inline policy to be returned.</p> </note>
    * @public
    */
   InlinePolicy?: string | undefined;
@@ -2850,20 +2657,7 @@ export interface GetPermissionsBoundaryForPermissionSetRequest {
 }
 
 /**
- * <p>Specifies the configuration of the Amazon Web Services managed or customer managed policy that you
- *             want to set as a permissions boundary. Specify either
- *                 <code>CustomerManagedPolicyReference</code> to use the name and path of a customer
- *             managed policy, or <code>ManagedPolicyArn</code> to use the ARN of an Amazon Web Services managed
- *             policy. A permissions boundary represents the maximum permissions that any policy can
- *             grant your role. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html">Permissions boundaries
- *                 for IAM entities</a> in the <i>IAM User Guide</i>.</p>
- *          <important>
- *             <p>Policies used as permissions boundaries don't provide permissions. You must also
- *                 attach an IAM policy to the role. To learn how the effective permissions for a
- *                 role are evaluated, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_evaluation-logic.html">IAM JSON
- *                     policy evaluation logic</a> in the <i>IAM User
- *                 Guide</i>.</p>
- *          </important>
+ * <p>Specifies the configuration of the Amazon Web Services managed or customer managed policy that you want to set as a permissions boundary. Specify either <code>CustomerManagedPolicyReference</code> to use the name and path of a customer managed policy, or <code>ManagedPolicyArn</code> to use the ARN of an Amazon Web Services managed policy. A permissions boundary represents the maximum permissions that any policy can grant your role. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html">Permissions boundaries for IAM entities</a> in the <i>IAM User Guide</i>.</p> <important> <p>Policies used as permissions boundaries don't provide permissions. You must also attach an IAM policy to the role. To learn how the effective permissions for a role are evaluated, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_evaluation-logic.html">IAM JSON policy evaluation logic</a> in the <i>IAM User Guide</i>.</p> </important>
  * @public
  */
 export interface PermissionsBoundary {
@@ -2874,8 +2668,7 @@ export interface PermissionsBoundary {
   CustomerManagedPolicyReference?: CustomerManagedPolicyReference | undefined;
 
   /**
-   * <p>The Amazon Web Services managed policy ARN that you want to attach to a permission set as a
-   *             permissions boundary.</p>
+   * <p>The Amazon Web Services managed policy ARN that you want to attach to a permission set as a permissions boundary.</p>
    * @public
    */
   ManagedPolicyArn?: string | undefined;
@@ -2898,16 +2691,13 @@ export interface GetPermissionsBoundaryForPermissionSetResponse {
  */
 export interface InstanceMetadata {
   /**
-   * <p>The ARN of the Identity Center instance under which the operation will be executed.
-   *             For more information about ARNs, see <a href="/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource
-   * Names (ARNs) and Amazon Web Services Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>.</p>
+   * <p>The ARN of the Identity Center instance under which the operation will be executed. For more information about ARNs, see <a href="/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>.</p>
    * @public
    */
   InstanceArn?: string | undefined;
 
   /**
-   * <p>The identifier of the identity store that is connected to the Identity Center
-   *             instance.</p>
+   * <p>The identifier of the identity store that is connected to the Identity Center instance.</p>
    * @public
    */
   IdentityStoreId?: string | undefined;
@@ -2954,9 +2744,7 @@ export interface OperationStatusFilter {
  */
 export interface ListAccountAssignmentCreationStatusRequest {
   /**
-   * <p>The ARN of the IAM Identity Center instance under which the operation will be executed.
-   *             For more information about ARNs, see <a href="/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource
-   * Names (ARNs) and Amazon Web Services Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>.</p>
+   * <p>The ARN of the IAM Identity Center instance under which the operation will be executed. For more information about ARNs, see <a href="/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>.</p>
    * @public
    */
   InstanceArn: string | undefined;
@@ -3002,9 +2790,7 @@ export interface ListAccountAssignmentCreationStatusResponse {
  */
 export interface ListAccountAssignmentDeletionStatusRequest {
   /**
-   * <p>The ARN of the IAM Identity Center instance under which the operation will be executed.
-   *             For more information about ARNs, see <a href="/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource
-   * Names (ARNs) and Amazon Web Services Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>.</p>
+   * <p>The ARN of the IAM Identity Center instance under which the operation will be executed. For more information about ARNs, see <a href="/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>.</p>
    * @public
    */
   InstanceArn: string | undefined;
@@ -3050,9 +2836,7 @@ export interface ListAccountAssignmentDeletionStatusResponse {
  */
 export interface ListAccountAssignmentsRequest {
   /**
-   * <p>The ARN of the IAM Identity Center instance under which the operation will be executed.
-   *             For more information about ARNs, see <a href="/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource
-   * Names (ARNs) and Amazon Web Services Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>.</p>
+   * <p>The ARN of the IAM Identity Center instance under which the operation will be executed. For more information about ARNs, see <a href="/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>.</p>
    * @public
    */
   InstanceArn: string | undefined;
@@ -3122,8 +2906,7 @@ export interface ListAccountAssignmentsForPrincipalRequest {
   InstanceArn: string | undefined;
 
   /**
-   * <p>Specifies the principal for which you want to retrieve the list of account
-   *             assignments.</p>
+   * <p>Specifies the principal for which you want to retrieve the list of account assignments.</p>
    * @public
    */
   PrincipalId: string | undefined;
@@ -3135,31 +2918,19 @@ export interface ListAccountAssignmentsForPrincipalRequest {
   PrincipalType: PrincipalType | undefined;
 
   /**
-   * <p>Specifies an Amazon Web Services account ID number. Results are filtered to only those that match
-   *             this ID number.</p>
+   * <p>Specifies an Amazon Web Services account ID number. Results are filtered to only those that match this ID number.</p>
    * @public
    */
   Filter?: ListAccountAssignmentsFilter | undefined;
 
   /**
-   * <p>Specifies that you want to receive the next page of results. Valid
-   *              only if you received a <code>NextToken</code> response in the previous request. If you
-   *              did, it indicates that more output is available. Set this parameter to the value
-   *              provided by the previous call's <code>NextToken</code> response to request the
-   *              next page of results.</p>
+   * <p>Specifies that you want to receive the next page of results. Valid only if you received a <code>NextToken</code> response in the previous request. If you did, it indicates that more output is available. Set this parameter to the value provided by the previous call's <code>NextToken</code> response to request the next page of results.</p>
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>Specifies the total number of results that you want included in each
-   *              response. If additional items exist beyond the number you specify, the
-   *              <code>NextToken</code> response element is returned with a value (not null). Include the
-   *              specified value as the <code>NextToken</code> request parameter in the next call to the
-   *              operation to get the next set of results. Note that the service might return fewer
-   *              results than the maximum even when there are more results available. You should check
-   *              <code>NextToken</code> after every operation to ensure that you receive all of the
-   *              results.</p>
+   * <p>Specifies the total number of results that you want included in each response. If additional items exist beyond the number you specify, the <code>NextToken</code> response element is returned with a value (not null). Include the specified value as the <code>NextToken</code> request parameter in the next call to the operation to get the next set of results. Note that the service might return fewer results than the maximum even when there are more results available. You should check <code>NextToken</code> after every operation to ensure that you receive all of the results.</p>
    * @public
    */
   MaxResults?: number | undefined;
@@ -3176,11 +2947,7 @@ export interface ListAccountAssignmentsForPrincipalResponse {
   AccountAssignments?: AccountAssignmentForPrincipal[] | undefined;
 
   /**
-   * <p>If present, this value indicates that more output is available than
-   *              is included in the current response. Use this value in the <code>NextToken</code>
-   *              request parameter in a subsequent call to the operation to get the next part of the
-   *              output. You should repeat this until the <code>NextToken</code> response element comes
-   *              back as <code>null</code>. This indicates that this is the last page of results.</p>
+   * <p>If present, this value indicates that more output is available than is included in the current response. Use this value in the <code>NextToken</code> request parameter in a subsequent call to the operation to get the next part of the output. You should repeat this until the <code>NextToken</code> response element comes back as <code>null</code>. This indicates that this is the last page of results.</p>
    * @public
    */
   NextToken?: string | undefined;
@@ -3205,16 +2972,13 @@ export type ProvisioningStatus = (typeof ProvisioningStatus)[keyof typeof Provis
  */
 export interface ListAccountsForProvisionedPermissionSetRequest {
   /**
-   * <p>The ARN of the IAM Identity Center instance under which the operation will be executed.
-   *             For more information about ARNs, see <a href="/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource
-   * Names (ARNs) and Amazon Web Services Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>.</p>
+   * <p>The ARN of the IAM Identity Center instance under which the operation will be executed. For more information about ARNs, see <a href="/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>.</p>
    * @public
    */
   InstanceArn: string | undefined;
 
   /**
-   * <p>The ARN of the <a>PermissionSet</a> from which the associated Amazon Web Services
-   *             accounts will be listed.</p>
+   * <p>The ARN of the <a>PermissionSet</a> from which the associated Amazon Web Services accounts will be listed.</p>
    * @public
    */
   PermissionSetArn: string | undefined;
@@ -3266,24 +3030,13 @@ export interface ListApplicationAssignmentsRequest {
   ApplicationArn: string | undefined;
 
   /**
-   * <p>Specifies the total number of results that you want included in each
-   *              response. If additional items exist beyond the number you specify, the
-   *              <code>NextToken</code> response element is returned with a value (not null). Include the
-   *              specified value as the <code>NextToken</code> request parameter in the next call to the
-   *              operation to get the next set of results. Note that the service might return fewer
-   *              results than the maximum even when there are more results available. You should check
-   *              <code>NextToken</code> after every operation to ensure that you receive all of the
-   *              results.</p>
+   * <p>Specifies the total number of results that you want included in each response. If additional items exist beyond the number you specify, the <code>NextToken</code> response element is returned with a value (not null). Include the specified value as the <code>NextToken</code> request parameter in the next call to the operation to get the next set of results. Note that the service might return fewer results than the maximum even when there are more results available. You should check <code>NextToken</code> after every operation to ensure that you receive all of the results.</p>
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p>Specifies that you want to receive the next page of results. Valid
-   *              only if you received a <code>NextToken</code> response in the previous request. If you
-   *              did, it indicates that more output is available. Set this parameter to the value
-   *              provided by the previous call's <code>NextToken</code> response to request the
-   *              next page of results.</p>
+   * <p>Specifies that you want to receive the next page of results. Valid only if you received a <code>NextToken</code> response in the previous request. If you did, it indicates that more output is available. Set this parameter to the value provided by the previous call's <code>NextToken</code> response to request the next page of results.</p>
    * @public
    */
   NextToken?: string | undefined;
@@ -3300,11 +3053,7 @@ export interface ListApplicationAssignmentsResponse {
   ApplicationAssignments?: ApplicationAssignment[] | undefined;
 
   /**
-   * <p>If present, this value indicates that more output is available than
-   *              is included in the current response. Use this value in the <code>NextToken</code>
-   *              request parameter in a subsequent call to the operation to get the next part of the
-   *              output. You should repeat this until the <code>NextToken</code> response element comes
-   *              back as <code>null</code>. This indicates that this is the last page of results.</p>
+   * <p>If present, this value indicates that more output is available than is included in the current response. Use this value in the <code>NextToken</code> request parameter in a subsequent call to the operation to get the next part of the output. You should repeat this until the <code>NextToken</code> response element comes back as <code>null</code>. This indicates that this is the last page of results.</p>
    * @public
    */
   NextToken?: string | undefined;
@@ -3333,45 +3082,31 @@ export interface ListApplicationAssignmentsForPrincipalRequest {
   InstanceArn: string | undefined;
 
   /**
-   * <p>Specifies the unique identifier of the principal for which you want to retrieve its
-   *             assignments.</p>
+   * <p>Specifies the unique identifier of the principal for which you want to retrieve its assignments.</p>
    * @public
    */
   PrincipalId: string | undefined;
 
   /**
-   * <p>Specifies the type of the principal for which you want to retrieve its
-   *             assignments.</p>
+   * <p>Specifies the type of the principal for which you want to retrieve its assignments.</p>
    * @public
    */
   PrincipalType: PrincipalType | undefined;
 
   /**
-   * <p>Filters the output to include only assignments associated with the application that
-   *             has the specified ARN.</p>
+   * <p>Filters the output to include only assignments associated with the application that has the specified ARN.</p>
    * @public
    */
   Filter?: ListApplicationAssignmentsFilter | undefined;
 
   /**
-   * <p>Specifies that you want to receive the next page of results. Valid
-   *              only if you received a <code>NextToken</code> response in the previous request. If you
-   *              did, it indicates that more output is available. Set this parameter to the value
-   *              provided by the previous call's <code>NextToken</code> response to request the
-   *              next page of results.</p>
+   * <p>Specifies that you want to receive the next page of results. Valid only if you received a <code>NextToken</code> response in the previous request. If you did, it indicates that more output is available. Set this parameter to the value provided by the previous call's <code>NextToken</code> response to request the next page of results.</p>
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>Specifies the total number of results that you want included in each
-   *              response. If additional items exist beyond the number you specify, the
-   *              <code>NextToken</code> response element is returned with a value (not null). Include the
-   *              specified value as the <code>NextToken</code> request parameter in the next call to the
-   *              operation to get the next set of results. Note that the service might return fewer
-   *              results than the maximum even when there are more results available. You should check
-   *              <code>NextToken</code> after every operation to ensure that you receive all of the
-   *              results.</p>
+   * <p>Specifies the total number of results that you want included in each response. If additional items exist beyond the number you specify, the <code>NextToken</code> response element is returned with a value (not null). Include the specified value as the <code>NextToken</code> request parameter in the next call to the operation to get the next set of results. Note that the service might return fewer results than the maximum even when there are more results available. You should check <code>NextToken</code> after every operation to ensure that you receive all of the results.</p>
    * @public
    */
   MaxResults?: number | undefined;
@@ -3388,11 +3123,7 @@ export interface ListApplicationAssignmentsForPrincipalResponse {
   ApplicationAssignments?: ApplicationAssignmentForPrincipal[] | undefined;
 
   /**
-   * <p>If present, this value indicates that more output is available than
-   *              is included in the current response. Use this value in the <code>NextToken</code>
-   *              request parameter in a subsequent call to the operation to get the next part of the
-   *              output. You should repeat this until the <code>NextToken</code> response element comes
-   *              back as <code>null</code>. This indicates that this is the last page of results.</p>
+   * <p>If present, this value indicates that more output is available than is included in the current response. Use this value in the <code>NextToken</code> request parameter in a subsequent call to the operation to get the next part of the output. You should repeat this until the <code>NextToken</code> response element comes back as <code>null</code>. This indicates that this is the last page of results.</p>
    * @public
    */
   NextToken?: string | undefined;
@@ -3403,24 +3134,13 @@ export interface ListApplicationAssignmentsForPrincipalResponse {
  */
 export interface ListApplicationProvidersRequest {
   /**
-   * <p>Specifies the total number of results that you want included in each
-   *              response. If additional items exist beyond the number you specify, the
-   *              <code>NextToken</code> response element is returned with a value (not null). Include the
-   *              specified value as the <code>NextToken</code> request parameter in the next call to the
-   *              operation to get the next set of results. Note that the service might return fewer
-   *              results than the maximum even when there are more results available. You should check
-   *              <code>NextToken</code> after every operation to ensure that you receive all of the
-   *              results.</p>
+   * <p>Specifies the total number of results that you want included in each response. If additional items exist beyond the number you specify, the <code>NextToken</code> response element is returned with a value (not null). Include the specified value as the <code>NextToken</code> request parameter in the next call to the operation to get the next set of results. Note that the service might return fewer results than the maximum even when there are more results available. You should check <code>NextToken</code> after every operation to ensure that you receive all of the results.</p>
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p>Specifies that you want to receive the next page of results. Valid
-   *              only if you received a <code>NextToken</code> response in the previous request. If you
-   *              did, it indicates that more output is available. Set this parameter to the value
-   *              provided by the previous call's <code>NextToken</code> response to request the
-   *              next page of results.</p>
+   * <p>Specifies that you want to receive the next page of results. Valid only if you received a <code>NextToken</code> response in the previous request. If you did, it indicates that more output is available. Set this parameter to the value provided by the previous call's <code>NextToken</code> response to request the next page of results.</p>
    * @public
    */
   NextToken?: string | undefined;
@@ -3437,11 +3157,7 @@ export interface ListApplicationProvidersResponse {
   ApplicationProviders?: ApplicationProvider[] | undefined;
 
   /**
-   * <p>If present, this value indicates that more output is available than
-   *              is included in the current response. Use this value in the <code>NextToken</code>
-   *              request parameter in a subsequent call to the operation to get the next part of the
-   *              output. You should repeat this until the <code>NextToken</code> response element comes
-   *              back as <code>null</code>. This indicates that this is the last page of results.</p>
+   * <p>If present, this value indicates that more output is available than is included in the current response. Use this value in the <code>NextToken</code> request parameter in a subsequent call to the operation to get the next part of the output. You should repeat this until the <code>NextToken</code> response element comes back as <code>null</code>. This indicates that this is the last page of results.</p>
    * @public
    */
   NextToken?: string | undefined;
@@ -3470,31 +3186,19 @@ export interface ListApplicationsFilter {
  */
 export interface ListApplicationsRequest {
   /**
-   * <p>The ARN of the IAM Identity Center application under which the operation will run. For more information about ARNs, see <a href="/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource
-   * Names (ARNs) and Amazon Web Services Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>.</p>
+   * <p>The ARN of the IAM Identity Center application under which the operation will run. For more information about ARNs, see <a href="/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>.</p>
    * @public
    */
   InstanceArn: string | undefined;
 
   /**
-   * <p>Specifies the total number of results that you want included in each
-   *              response. If additional items exist beyond the number you specify, the
-   *              <code>NextToken</code> response element is returned with a value (not null). Include the
-   *              specified value as the <code>NextToken</code> request parameter in the next call to the
-   *              operation to get the next set of results. Note that the service might return fewer
-   *              results than the maximum even when there are more results available. You should check
-   *              <code>NextToken</code> after every operation to ensure that you receive all of the
-   *              results.</p>
+   * <p>Specifies the total number of results that you want included in each response. If additional items exist beyond the number you specify, the <code>NextToken</code> response element is returned with a value (not null). Include the specified value as the <code>NextToken</code> request parameter in the next call to the operation to get the next set of results. Note that the service might return fewer results than the maximum even when there are more results available. You should check <code>NextToken</code> after every operation to ensure that you receive all of the results.</p>
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p>Specifies that you want to receive the next page of results. Valid
-   *              only if you received a <code>NextToken</code> response in the previous request. If you
-   *              did, it indicates that more output is available. Set this parameter to the value
-   *              provided by the previous call's <code>NextToken</code> response to request the
-   *              next page of results.</p>
+   * <p>Specifies that you want to receive the next page of results. Valid only if you received a <code>NextToken</code> response in the previous request. If you did, it indicates that more output is available. Set this parameter to the value provided by the previous call's <code>NextToken</code> response to request the next page of results.</p>
    * @public
    */
   NextToken?: string | undefined;
@@ -3517,11 +3221,7 @@ export interface ListApplicationsResponse {
   Applications?: Application[] | undefined;
 
   /**
-   * <p>If present, this value indicates that more output is available than
-   *              is included in the current response. Use this value in the <code>NextToken</code>
-   *              request parameter in a subsequent call to the operation to get the next part of the
-   *              output. You should repeat this until the <code>NextToken</code> response element comes
-   *              back as <code>null</code>. This indicates that this is the last page of results.</p>
+   * <p>If present, this value indicates that more output is available than is included in the current response. Use this value in the <code>NextToken</code> request parameter in a subsequent call to the operation to get the next part of the output. You should repeat this until the <code>NextToken</code> response element comes back as <code>null</code>. This indicates that this is the last page of results.</p>
    * @public
    */
   NextToken?: string | undefined;
@@ -3550,8 +3250,7 @@ export interface ListCustomerManagedPolicyReferencesInPermissionSetRequest {
   MaxResults?: number | undefined;
 
   /**
-   * <p>The pagination token for the list API. Initially the value is null. Use the output of
-   *             previous API calls to make subsequent calls.</p>
+   * <p>The pagination token for the list API. Initially the value is null. Use the output of previous API calls to make subsequent calls.</p>
    * @public
    */
   NextToken?: string | undefined;
@@ -3562,15 +3261,13 @@ export interface ListCustomerManagedPolicyReferencesInPermissionSetRequest {
  */
 export interface ListCustomerManagedPolicyReferencesInPermissionSetResponse {
   /**
-   * <p>Specifies the names and paths of the customer managed policies that you have attached
-   *             to your permission set.</p>
+   * <p>Specifies the names and paths of the customer managed policies that you have attached to your permission set.</p>
    * @public
    */
   CustomerManagedPolicyReferences?: CustomerManagedPolicyReference[] | undefined;
 
   /**
-   * <p>The pagination token for the list API. Initially the value is null. Use the output of
-   *             previous API calls to make subsequent calls.</p>
+   * <p>The pagination token for the list API. Initially the value is null. Use the output of previous API calls to make subsequent calls.</p>
    * @public
    */
   NextToken?: string | undefined;
@@ -3615,16 +3312,13 @@ export interface ListInstancesResponse {
  */
 export interface ListManagedPoliciesInPermissionSetRequest {
   /**
-   * <p>The ARN of the IAM Identity Center instance under which the operation will be executed.
-   *             For more information about ARNs, see <a href="/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource
-   * Names (ARNs) and Amazon Web Services Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>.</p>
+   * <p>The ARN of the IAM Identity Center instance under which the operation will be executed. For more information about ARNs, see <a href="/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>.</p>
    * @public
    */
   InstanceArn: string | undefined;
 
   /**
-   * <p>The ARN of the <a>PermissionSet</a> whose managed policies will be
-   *             listed.</p>
+   * <p>The ARN of the <a>PermissionSet</a> whose managed policies will be listed.</p>
    * @public
    */
   PermissionSetArn: string | undefined;
@@ -3664,9 +3358,7 @@ export interface ListManagedPoliciesInPermissionSetResponse {
  */
 export interface ListPermissionSetProvisioningStatusRequest {
   /**
-   * <p>The ARN of the IAM Identity Center instance under which the operation will be executed.
-   *             For more information about ARNs, see <a href="/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource
-   * Names (ARNs) and Amazon Web Services Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>.</p>
+   * <p>The ARN of the IAM Identity Center instance under which the operation will be executed. For more information about ARNs, see <a href="/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>.</p>
    * @public
    */
   InstanceArn: string | undefined;
@@ -3702,8 +3394,7 @@ export interface PermissionSetProvisioningStatusMetadata {
   Status?: StatusValues | undefined;
 
   /**
-   * <p>The identifier for tracking the request operation that is generated by the universally
-   *             unique identifier (UUID) workflow.</p>
+   * <p>The identifier for tracking the request operation that is generated by the universally unique identifier (UUID) workflow.</p>
    * @public
    */
   RequestId?: string | undefined;
@@ -3737,9 +3428,7 @@ export interface ListPermissionSetProvisioningStatusResponse {
  */
 export interface ListPermissionSetsRequest {
   /**
-   * <p>The ARN of the IAM Identity Center instance under which the operation will be executed.
-   *             For more information about ARNs, see <a href="/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource
-   * Names (ARNs) and Amazon Web Services Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>.</p>
+   * <p>The ARN of the IAM Identity Center instance under which the operation will be executed. For more information about ARNs, see <a href="/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>.</p>
    * @public
    */
   InstanceArn: string | undefined;
@@ -3779,9 +3468,7 @@ export interface ListPermissionSetsResponse {
  */
 export interface ListPermissionSetsProvisionedToAccountRequest {
   /**
-   * <p>The ARN of the IAM Identity Center instance under which the operation will be executed.
-   *             For more information about ARNs, see <a href="/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource
-   * Names (ARNs) and Amazon Web Services Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>.</p>
+   * <p>The ARN of the IAM Identity Center instance under which the operation will be executed. For more information about ARNs, see <a href="/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>.</p>
    * @public
    */
   InstanceArn: string | undefined;
@@ -3833,9 +3520,7 @@ export interface ListPermissionSetsProvisionedToAccountResponse {
  */
 export interface ListTagsForResourceRequest {
   /**
-   * <p>The ARN of the IAM Identity Center instance under which the operation will be executed.
-   *             For more information about ARNs, see <a href="/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource
-   * Names (ARNs) and Amazon Web Services Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>.</p>
+   * <p>The ARN of the IAM Identity Center instance under which the operation will be executed. For more information about ARNs, see <a href="/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>.</p>
    * @public
    */
   InstanceArn?: string | undefined;
@@ -3875,31 +3560,19 @@ export interface ListTagsForResourceResponse {
  */
 export interface ListTrustedTokenIssuersRequest {
   /**
-   * <p>Specifies the ARN of the instance of IAM Identity Center with the trusted token issuer configurations that you want
-   *             to list.</p>
+   * <p>Specifies the ARN of the instance of IAM Identity Center with the trusted token issuer configurations that you want to list.</p>
    * @public
    */
   InstanceArn: string | undefined;
 
   /**
-   * <p>Specifies the total number of results that you want included in each
-   *              response. If additional items exist beyond the number you specify, the
-   *              <code>NextToken</code> response element is returned with a value (not null). Include the
-   *              specified value as the <code>NextToken</code> request parameter in the next call to the
-   *              operation to get the next set of results. Note that the service might return fewer
-   *              results than the maximum even when there are more results available. You should check
-   *              <code>NextToken</code> after every operation to ensure that you receive all of the
-   *              results.</p>
+   * <p>Specifies the total number of results that you want included in each response. If additional items exist beyond the number you specify, the <code>NextToken</code> response element is returned with a value (not null). Include the specified value as the <code>NextToken</code> request parameter in the next call to the operation to get the next set of results. Note that the service might return fewer results than the maximum even when there are more results available. You should check <code>NextToken</code> after every operation to ensure that you receive all of the results.</p>
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p>Specifies that you want to receive the next page of results. Valid
-   *              only if you received a <code>NextToken</code> response in the previous request. If you
-   *              did, it indicates that more output is available. Set this parameter to the value
-   *              provided by the previous call's <code>NextToken</code> response to request the
-   *              next page of results.</p>
+   * <p>Specifies that you want to receive the next page of results. Valid only if you received a <code>NextToken</code> response in the previous request. If you did, it indicates that more output is available. Set this parameter to the value provided by the previous call's <code>NextToken</code> response to request the next page of results.</p>
    * @public
    */
   NextToken?: string | undefined;
@@ -3940,43 +3613,31 @@ export interface ListTrustedTokenIssuersResponse {
   TrustedTokenIssuers?: TrustedTokenIssuerMetadata[] | undefined;
 
   /**
-   * <p>If present, this value indicates that more output is available than
-   *              is included in the current response. Use this value in the <code>NextToken</code>
-   *              request parameter in a subsequent call to the operation to get the next part of the
-   *              output. You should repeat this until the <code>NextToken</code> response element comes
-   *              back as <code>null</code>. This indicates that this is the last page of results.</p>
+   * <p>If present, this value indicates that more output is available than is included in the current response. Use this value in the <code>NextToken</code> request parameter in a subsequent call to the operation to get the next part of the output. You should repeat this until the <code>NextToken</code> response element comes back as <code>null</code>. This indicates that this is the last page of results.</p>
    * @public
    */
   NextToken?: string | undefined;
 }
 
 /**
- * <p>A structure that describes updated configuration settings for a trusted token issuer that supports
- *             OpenID Connect (OIDC) and JSON Web Tokens (JWTs).</p>
+ * <p>A structure that describes updated configuration settings for a trusted token issuer that supports OpenID Connect (OIDC) and JSON Web Tokens (JWTs).</p>
  * @public
  */
 export interface OidcJwtUpdateConfiguration {
   /**
-   * <p>The path of the source attribute in the JWT from the trusted token issuer. The attribute mapped by
-   *             this JMESPath expression is compared against the attribute mapped by
-   *                 <code>IdentityStoreAttributePath</code> when a trusted token issuer token is exchanged for an
-   *             IAM Identity Center token.</p>
+   * <p>The path of the source attribute in the JWT from the trusted token issuer. The attribute mapped by this JMESPath expression is compared against the attribute mapped by <code>IdentityStoreAttributePath</code> when a trusted token issuer token is exchanged for an IAM Identity Center token.</p>
    * @public
    */
   ClaimAttributePath?: string | undefined;
 
   /**
-   * <p>The path of the destination attribute in a JWT from IAM Identity Center. The attribute mapped by
-   *             this JMESPath expression is compared against the attribute mapped by
-   *                 <code>ClaimAttributePath</code> when a trusted token issuer token is exchanged for an IAM Identity Center
-   *             token.</p>
+   * <p>The path of the destination attribute in a JWT from IAM Identity Center. The attribute mapped by this JMESPath expression is compared against the attribute mapped by <code>ClaimAttributePath</code> when a trusted token issuer token is exchanged for an IAM Identity Center token.</p>
    * @public
    */
   IdentityStoreAttributePath?: string | undefined;
 
   /**
-   * <p>The method that the trusted token issuer can use to retrieve the JSON Web Key Set used to verify a
-   *             JWT.</p>
+   * <p>The method that the trusted token issuer can use to retrieve the JSON Web Key Set used to verify a JWT.</p>
    * @public
    */
   JwksRetrievalOption?: JwksRetrievalOption | undefined;
@@ -4001,9 +3662,7 @@ export type ProvisionTargetType = (typeof ProvisionTargetType)[keyof typeof Prov
  */
 export interface ProvisionPermissionSetRequest {
   /**
-   * <p>The ARN of the IAM Identity Center instance under which the operation will be executed.
-   *             For more information about ARNs, see <a href="/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource
-   * Names (ARNs) and Amazon Web Services Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>.</p>
+   * <p>The ARN of the IAM Identity Center instance under which the operation will be executed. For more information about ARNs, see <a href="/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>.</p>
    * @public
    */
   InstanceArn: string | undefined;
@@ -4043,16 +3702,13 @@ export interface ProvisionPermissionSetResponse {
  */
 export interface PutApplicationAssignmentConfigurationRequest {
   /**
-   * <p>Specifies the ARN of the application. For more information about ARNs, see <a href="/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource
-   * Names (ARNs) and Amazon Web Services Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>.</p>
+   * <p>Specifies the ARN of the application. For more information about ARNs, see <a href="/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>.</p>
    * @public
    */
   ApplicationArn: string | undefined;
 
   /**
-   * <p>If <code>AssignmentsRequired</code> is <code>true</code> (default value), users don’t
-   *             have access to the application unless an assignment is created using the <a href="https://docs.aws.amazon.com/singlesignon/latest/APIReference/API_CreateApplicationAssignment.html">CreateApplicationAssignment API</a>. If <code>false</code>, all users have
-   *             access to the application. </p>
+   * <p>If <code>AssignmentsRequired</code> is <code>true</code> (default value), users don’t have access to the application unless an assignment is created using the <a href="https://docs.aws.amazon.com/singlesignon/latest/APIReference/API_CreateApplicationAssignment.html">CreateApplicationAssignment API</a>. If <code>false</code>, all users have access to the application. </p>
    * @public
    */
   AssignmentRequired: boolean | undefined;
@@ -4066,11 +3722,31 @@ export interface PutApplicationAssignmentConfigurationResponse {}
 /**
  * @public
  */
+export interface PutApplicationSessionConfigurationRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the application for which to update the session configuration.</p>
+   * @public
+   */
+  ApplicationArn: string | undefined;
+
+  /**
+   * <p>The status of user background sessions for the application.</p>
+   * @public
+   */
+  UserBackgroundSessionApplicationStatus?: UserBackgroundSessionApplicationStatus | undefined;
+}
+
+/**
+ * @public
+ */
+export interface PutApplicationSessionConfigurationResponse {}
+
+/**
+ * @public
+ */
 export interface PutInlinePolicyToPermissionSetRequest {
   /**
-   * <p>The ARN of the IAM Identity Center instance under which the operation will be executed.
-   *             For more information about ARNs, see <a href="/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource
-   * Names (ARNs) and Amazon Web Services Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>.</p>
+   * <p>The ARN of the IAM Identity Center instance under which the operation will be executed. For more information about ARNs, see <a href="/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>.</p>
    * @public
    */
   InstanceArn: string | undefined;
@@ -4110,8 +3786,7 @@ export interface PutPermissionsBoundaryToPermissionSetRequest {
   PermissionSetArn: string | undefined;
 
   /**
-   * <p>The permissions boundary that you want to attach to a
-   *             <code>PermissionSet</code>.</p>
+   * <p>The permissions boundary that you want to attach to a <code>PermissionSet</code>.</p>
    * @public
    */
   PermissionsBoundary: PermissionsBoundary | undefined;
@@ -4127,9 +3802,7 @@ export interface PutPermissionsBoundaryToPermissionSetResponse {}
  */
 export interface TagResourceRequest {
   /**
-   * <p>The ARN of the IAM Identity Center instance under which the operation will be executed.
-   *             For more information about ARNs, see <a href="/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource
-   * Names (ARNs) and Amazon Web Services Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>.</p>
+   * <p>The ARN of the IAM Identity Center instance under which the operation will be executed. For more information about ARNs, see <a href="/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>.</p>
    * @public
    */
   InstanceArn?: string | undefined;
@@ -4157,9 +3830,7 @@ export interface TagResourceResponse {}
  */
 export interface UntagResourceRequest {
   /**
-   * <p>The ARN of the IAM Identity Center instance under which the operation will be executed.
-   *             For more information about ARNs, see <a href="/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource
-   * Names (ARNs) and Amazon Web Services Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>.</p>
+   * <p>The ARN of the IAM Identity Center instance under which the operation will be executed. For more information about ARNs, see <a href="/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>.</p>
    * @public
    */
   InstanceArn?: string | undefined;
@@ -4183,8 +3854,7 @@ export interface UntagResourceRequest {
 export interface UntagResourceResponse {}
 
 /**
- * <p>A structure that describes the options for the access portal associated with an
- *             application that can be updated.</p>
+ * <p>A structure that describes the options for the access portal associated with an application that can be updated.</p>
  * @public
  */
 export interface UpdateApplicationPortalOptions {
@@ -4200,8 +3870,7 @@ export interface UpdateApplicationPortalOptions {
  */
 export interface UpdateApplicationRequest {
   /**
-   * <p>Specifies the ARN of the application. For more information about ARNs, see <a href="/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource
-   * Names (ARNs) and Amazon Web Services Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>.</p>
+   * <p>Specifies the ARN of the application. For more information about ARNs, see <a href="/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>.</p>
    * @public
    */
   ApplicationArn: string | undefined;
@@ -4225,8 +3894,7 @@ export interface UpdateApplicationRequest {
   Status?: ApplicationStatus | undefined;
 
   /**
-   * <p>A structure that describes the options for the portal associated with an
-   *             application.</p>
+   * <p>A structure that describes the options for the portal associated with an application.</p>
    * @public
    */
   PortalOptions?: UpdateApplicationPortalOptions | undefined;
@@ -4248,8 +3916,7 @@ export interface UpdateInstanceRequest {
   Name: string | undefined;
 
   /**
-   * <p>The ARN of the instance of IAM Identity Center under which the operation will run. For more information about ARNs, see <a href="/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource
-   * Names (ARNs) and Amazon Web Services Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>.</p>
+   * <p>The ARN of the instance of IAM Identity Center under which the operation will run. For more information about ARNs, see <a href="/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>.</p>
    * @public
    */
   InstanceArn: string | undefined;
@@ -4287,9 +3954,7 @@ export interface UpdateInstanceAccessControlAttributeConfigurationResponse {}
  */
 export interface UpdatePermissionSetRequest {
   /**
-   * <p>The ARN of the IAM Identity Center instance under which the operation will be executed.
-   *             For more information about ARNs, see <a href="/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource
-   * Names (ARNs) and Amazon Web Services Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>.</p>
+   * <p>The ARN of the IAM Identity Center instance under which the operation will be executed. For more information about ARNs, see <a href="/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>.</p>
    * @public
    */
   InstanceArn: string | undefined;
@@ -4307,15 +3972,13 @@ export interface UpdatePermissionSetRequest {
   Description?: string | undefined;
 
   /**
-   * <p>The length of time that the application user sessions are valid for in the ISO-8601
-   *             standard.</p>
+   * <p>The length of time that the application user sessions are valid for in the ISO-8601 standard.</p>
    * @public
    */
   SessionDuration?: string | undefined;
 
   /**
-   * <p>Used to redirect users within the application during the federation authentication
-   *             process.</p>
+   * <p>Used to redirect users within the application during the federation authentication process.</p>
    * @public
    */
   RelayState?: string | undefined;
@@ -4327,9 +3990,7 @@ export interface UpdatePermissionSetRequest {
 export interface UpdatePermissionSetResponse {}
 
 /**
- * <p>A structure that contains details to be updated for a trusted token issuer configuration. The
- *             structure and settings that you can include depend on the type of the trusted token issuer being
- *             updated.</p>
+ * <p>A structure that contains details to be updated for a trusted token issuer configuration. The structure and settings that you can include depend on the type of the trusted token issuer being updated.</p>
  * @public
  */
 export type TrustedTokenIssuerUpdateConfiguration =
@@ -4341,8 +4002,7 @@ export type TrustedTokenIssuerUpdateConfiguration =
  */
 export namespace TrustedTokenIssuerUpdateConfiguration {
   /**
-   * <p>A structure that describes an updated configuration for a trusted token issuer that uses OpenID
-   *             Connect (OIDC) with JSON web tokens (JWT).</p>
+   * <p>A structure that describes an updated configuration for a trusted token issuer that uses OpenID Connect (OIDC) with JSON web tokens (JWT).</p>
    * @public
    */
   export interface OidcJwtConfigurationMember {
@@ -4386,8 +4046,7 @@ export interface UpdateTrustedTokenIssuerRequest {
   Name?: string | undefined;
 
   /**
-   * <p>Specifies a structure with settings to apply to the specified trusted token issuer. The settings that
-   *             you can provide are determined by the type of the trusted token issuer that you are updating.</p>
+   * <p>Specifies a structure with settings to apply to the specified trusted token issuer. The settings that you can provide are determined by the type of the trusted token issuer that you are updating.</p>
    * @public
    */
   TrustedTokenIssuerConfiguration?: TrustedTokenIssuerUpdateConfiguration | undefined;

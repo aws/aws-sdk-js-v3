@@ -33,10 +33,7 @@ export interface DescribeApplicationAssignmentCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Retrieves a direct assignment of a user or group to an application. If the user
- *             doesn’t have a direct assignment to the application, the user may still have access to
- *             the application through a group. Therefore, don’t use this API to test access to an
- *             application for a user. Instead use <a>ListApplicationAssignmentsForPrincipal</a>.</p>
+ * <p>Retrieves a direct assignment of a user or group to an application. If the user doesn’t have a direct assignment to the application, the user may still have access to the application through a group. Therefore, don’t use this API to test access to an application for a user. Instead use <a>ListApplicationAssignmentsForPrincipal</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -68,15 +65,13 @@ export interface DescribeApplicationAssignmentCommandOutput
  *  <p>You do not have sufficient access to perform this action.</p>
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>The request processing has failed because of an unknown error, exception, or failure
- *             with an internal server.</p>
+ *  <p>The request processing has failed because of an unknown error, exception, or failure with an internal server.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>Indicates that a requested resource is not found.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>Indicates that the principal has crossed the throttling limits of the API
- *             operations.</p>
+ *  <p>Indicates that the principal has crossed the throttling limits of the API operations.</p>
  *
  * @throws {@link ValidationException} (client fault)
  *  <p>The request failed because it contains a syntax error.</p>

@@ -28,18 +28,7 @@ export interface CreateInstanceCommandInput extends CreateInstanceRequest {}
 export interface CreateInstanceCommandOutput extends CreateInstanceResponse, __MetadataBearer {}
 
 /**
- * <p>Creates an instance of IAM Identity Center for a standalone Amazon Web Services account that is not
- *             managed by Organizations or a member Amazon Web Services account in an organization. You can create only
- *             one instance per account and across all Amazon Web Services Regions.</p>
- *          <p>The CreateInstance request is rejected if the following apply: </p>
- *          <ul>
- *             <li>
- *                <p>The instance is created within the organization management account.</p>
- *             </li>
- *             <li>
- *                <p>An instance already exists in the same account.</p>
- *             </li>
- *          </ul>
+ * <p>Creates an instance of IAM Identity Center for a standalone Amazon Web Services account that is not managed by Organizations or a member Amazon Web Services account in an organization. You can create only one instance per account and across all Amazon Web Services Regions.</p> <p>The CreateInstance request is rejected if the following apply: </p> <ul> <li> <p>The instance is created within the organization management account.</p> </li> <li> <p>An instance already exists in the same account.</p> </li> </ul>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -74,22 +63,16 @@ export interface CreateInstanceCommandOutput extends CreateInstanceResponse, __M
  *  <p>You do not have sufficient access to perform this action.</p>
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>Occurs when a conflict with a previous successful write is detected. This generally
- *             occurs when the previous write did not have time to propagate to the host serving the
- *             current request. A retry (with appropriate backoff logic) is the recommended response to
- *             this exception.</p>
+ *  <p>Occurs when a conflict with a previous successful write is detected. This generally occurs when the previous write did not have time to propagate to the host serving the current request. A retry (with appropriate backoff logic) is the recommended response to this exception.</p>
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>The request processing has failed because of an unknown error, exception, or failure
- *             with an internal server.</p>
+ *  <p>The request processing has failed because of an unknown error, exception, or failure with an internal server.</p>
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>Indicates that the principal has crossed the permitted number of resources that can be
- *             created.</p>
+ *  <p>Indicates that the principal has crossed the permitted number of resources that can be created.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>Indicates that the principal has crossed the throttling limits of the API
- *             operations.</p>
+ *  <p>Indicates that the principal has crossed the throttling limits of the API operations.</p>
  *
  * @throws {@link ValidationException} (client fault)
  *  <p>The request failed because it contains a syntax error.</p>

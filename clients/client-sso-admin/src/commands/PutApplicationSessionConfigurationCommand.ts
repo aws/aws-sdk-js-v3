@@ -6,12 +6,12 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import {
-  DeletePermissionsBoundaryFromPermissionSetRequest,
-  DeletePermissionsBoundaryFromPermissionSetResponse,
+  PutApplicationSessionConfigurationRequest,
+  PutApplicationSessionConfigurationResponse,
 } from "../models/models_0";
 import {
-  de_DeletePermissionsBoundaryFromPermissionSetCommand,
-  se_DeletePermissionsBoundaryFromPermissionSetCommand,
+  de_PutApplicationSessionConfigurationCommand,
+  se_PutApplicationSessionConfigurationCommand,
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSOAdminClientResolvedConfig } from "../SSOAdminClient";
 
@@ -23,41 +23,40 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link DeletePermissionsBoundaryFromPermissionSetCommand}.
+ * The input for {@link PutApplicationSessionConfigurationCommand}.
  */
-export interface DeletePermissionsBoundaryFromPermissionSetCommandInput
-  extends DeletePermissionsBoundaryFromPermissionSetRequest {}
+export interface PutApplicationSessionConfigurationCommandInput extends PutApplicationSessionConfigurationRequest {}
 /**
  * @public
  *
- * The output of {@link DeletePermissionsBoundaryFromPermissionSetCommand}.
+ * The output of {@link PutApplicationSessionConfigurationCommand}.
  */
-export interface DeletePermissionsBoundaryFromPermissionSetCommandOutput
-  extends DeletePermissionsBoundaryFromPermissionSetResponse,
+export interface PutApplicationSessionConfigurationCommandOutput
+  extends PutApplicationSessionConfigurationResponse,
     __MetadataBearer {}
 
 /**
- * <p>Deletes the permissions boundary from a specified <a>PermissionSet</a>.</p>
+ * <p>Updates the session configuration for an application in IAM Identity Center.</p> <p>The session configuration determines how users can access an application. This includes whether user background sessions are enabled. User background sessions allow users to start a job on a supported Amazon Web Services managed application without having to remain signed in to an active session while the job runs.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SSOAdminClient, DeletePermissionsBoundaryFromPermissionSetCommand } from "@aws-sdk/client-sso-admin"; // ES Modules import
- * // const { SSOAdminClient, DeletePermissionsBoundaryFromPermissionSetCommand } = require("@aws-sdk/client-sso-admin"); // CommonJS import
+ * import { SSOAdminClient, PutApplicationSessionConfigurationCommand } from "@aws-sdk/client-sso-admin"; // ES Modules import
+ * // const { SSOAdminClient, PutApplicationSessionConfigurationCommand } = require("@aws-sdk/client-sso-admin"); // CommonJS import
  * const client = new SSOAdminClient(config);
- * const input = { // DeletePermissionsBoundaryFromPermissionSetRequest
- *   InstanceArn: "STRING_VALUE", // required
- *   PermissionSetArn: "STRING_VALUE", // required
+ * const input = { // PutApplicationSessionConfigurationRequest
+ *   ApplicationArn: "STRING_VALUE", // required
+ *   UserBackgroundSessionApplicationStatus: "ENABLED" || "DISABLED",
  * };
- * const command = new DeletePermissionsBoundaryFromPermissionSetCommand(input);
+ * const command = new PutApplicationSessionConfigurationCommand(input);
  * const response = await client.send(command);
  * // {};
  *
  * ```
  *
- * @param DeletePermissionsBoundaryFromPermissionSetCommandInput - {@link DeletePermissionsBoundaryFromPermissionSetCommandInput}
- * @returns {@link DeletePermissionsBoundaryFromPermissionSetCommandOutput}
- * @see {@link DeletePermissionsBoundaryFromPermissionSetCommandInput} for command's `input` shape.
- * @see {@link DeletePermissionsBoundaryFromPermissionSetCommandOutput} for command's `response` shape.
+ * @param PutApplicationSessionConfigurationCommandInput - {@link PutApplicationSessionConfigurationCommandInput}
+ * @returns {@link PutApplicationSessionConfigurationCommandOutput}
+ * @see {@link PutApplicationSessionConfigurationCommandInput} for command's `input` shape.
+ * @see {@link PutApplicationSessionConfigurationCommandOutput} for command's `response` shape.
  * @see {@link SSOAdminClientResolvedConfig | config} for SSOAdminClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -84,10 +83,10 @@ export interface DeletePermissionsBoundaryFromPermissionSetCommandOutput
  *
  * @public
  */
-export class DeletePermissionsBoundaryFromPermissionSetCommand extends $Command
+export class PutApplicationSessionConfigurationCommand extends $Command
   .classBuilder<
-    DeletePermissionsBoundaryFromPermissionSetCommandInput,
-    DeletePermissionsBoundaryFromPermissionSetCommandOutput,
+    PutApplicationSessionConfigurationCommandInput,
+    PutApplicationSessionConfigurationCommandOutput,
     SSOAdminClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -99,21 +98,21 @@ export class DeletePermissionsBoundaryFromPermissionSetCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("SWBExternalService", "DeletePermissionsBoundaryFromPermissionSet", {})
-  .n("SSOAdminClient", "DeletePermissionsBoundaryFromPermissionSetCommand")
+  .s("SWBExternalService", "PutApplicationSessionConfiguration", {})
+  .n("SSOAdminClient", "PutApplicationSessionConfigurationCommand")
   .f(void 0, void 0)
-  .ser(se_DeletePermissionsBoundaryFromPermissionSetCommand)
-  .de(de_DeletePermissionsBoundaryFromPermissionSetCommand)
+  .ser(se_PutApplicationSessionConfigurationCommand)
+  .de(de_PutApplicationSessionConfigurationCommand)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: DeletePermissionsBoundaryFromPermissionSetRequest;
+      input: PutApplicationSessionConfigurationRequest;
       output: {};
     };
     sdk: {
-      input: DeletePermissionsBoundaryFromPermissionSetCommandInput;
-      output: DeletePermissionsBoundaryFromPermissionSetCommandOutput;
+      input: PutApplicationSessionConfigurationCommandInput;
+      output: PutApplicationSessionConfigurationCommandOutput;
     };
   };
 }
