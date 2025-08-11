@@ -1752,7 +1752,7 @@ export interface GetAutomatedReasoningPolicyBuildWorkflowResultAssetsRequest {
  */
 export interface AutomatedReasoningPolicyAddRuleMutation {
   /**
-   * <p>Represents a formal logic rule in an Automated Reasoning policy. For example, rules can be expressed as if-then statements that define logical constraints.</p>
+   * <p>The rule definition that specifies the formal logical expression and metadata for the new rule being added to the policy.</p>
    * @public
    */
   rule: AutomatedReasoningPolicyDefinitionRule | undefined;
@@ -1764,7 +1764,7 @@ export interface AutomatedReasoningPolicyAddRuleMutation {
  */
 export interface AutomatedReasoningPolicyAddTypeMutation {
   /**
-   * <p>Represents a custom user-defined viarble type in an Automated Reasoning policy. Types are enum-based and provide additional context beyond predefined variable types.</p>
+   * <p>The type definition that specifies the name, description, and possible values for the new custom type being added to the policy.</p>
    * @public
    */
   type: AutomatedReasoningPolicyDefinitionType | undefined;
@@ -1776,7 +1776,7 @@ export interface AutomatedReasoningPolicyAddTypeMutation {
  */
 export interface AutomatedReasoningPolicyAddVariableMutation {
   /**
-   * <p>Represents a variable in an Automated Reasoning policy. Variables represent concepts that can have values assigned during natural language translation.</p>
+   * <p>The variable definition that specifies the name, type, and description for the new variable being added to the policy.</p>
    * @public
    */
   variable: AutomatedReasoningPolicyDefinitionVariable | undefined;
@@ -1824,7 +1824,7 @@ export interface AutomatedReasoningPolicyDeleteVariableMutation {
  */
 export interface AutomatedReasoningPolicyUpdateRuleMutation {
   /**
-   * <p>Represents a formal logic rule in an Automated Reasoning policy. For example, rules can be expressed as if-then statements that define logical constraints.</p>
+   * <p>The updated rule definition containing the modified formal logical expression and any changed metadata for the existing rule.</p>
    * @public
    */
   rule: AutomatedReasoningPolicyDefinitionRule | undefined;
@@ -1836,7 +1836,7 @@ export interface AutomatedReasoningPolicyUpdateRuleMutation {
  */
 export interface AutomatedReasoningPolicyUpdateTypeMutation {
   /**
-   * <p>Represents a custom user-defined viarble type in an Automated Reasoning policy. Types are enum-based and provide additional context beyond predefined variable types.</p>
+   * <p>The updated type definition containing the modified name, description, or values for the existing custom type.</p>
    * @public
    */
   type: AutomatedReasoningPolicyDefinitionType | undefined;
@@ -1848,7 +1848,7 @@ export interface AutomatedReasoningPolicyUpdateTypeMutation {
  */
 export interface AutomatedReasoningPolicyUpdateVariableMutation {
   /**
-   * <p>Represents a variable in an Automated Reasoning policy. Variables represent concepts that can have values assigned during natural language translation.</p>
+   * <p>The updated variable definition containing the modified name, type, or description for the existing variable.</p>
    * @public
    */
   variable: AutomatedReasoningPolicyDefinitionVariable | undefined;
@@ -2180,7 +2180,7 @@ export type AutomatedReasoningPolicyDefinitionElement =
  */
 export namespace AutomatedReasoningPolicyDefinitionElement {
   /**
-   * <p>Represents a variable in an Automated Reasoning policy. Variables represent concepts that can have values assigned during natural language translation.</p>
+   * <p>A variable element within the policy definition that represents a concept used in logical expressions and rules.</p>
    * @public
    */
   export interface PolicyDefinitionVariableMember {
@@ -2191,7 +2191,7 @@ export namespace AutomatedReasoningPolicyDefinitionElement {
   }
 
   /**
-   * <p>Represents a custom user-defined viarble type in an Automated Reasoning policy. Types are enum-based and provide additional context beyond predefined variable types.</p>
+   * <p>A custom type element within the policy definition that defines a set of possible values for variables.</p>
    * @public
    */
   export interface PolicyDefinitionTypeMember {
@@ -2202,7 +2202,7 @@ export namespace AutomatedReasoningPolicyDefinitionElement {
   }
 
   /**
-   * <p>Represents a formal logic rule in an Automated Reasoning policy. For example, rules can be expressed as if-then statements that define logical constraints.</p>
+   * <p>A rule element within the policy definition that contains a formal logical expression used for validation.</p>
    * @public
    */
   export interface PolicyDefinitionRuleMember {
@@ -2418,7 +2418,7 @@ export type AutomatedReasoningPolicyBuildResultAssets =
  */
 export namespace AutomatedReasoningPolicyBuildResultAssets {
   /**
-   * <p>Contains the formal logic rules, variables, and custom variable types that define an Automated Reasoning policy. The policy definition specifies the constraints used to validate foundation model responses for accuracy and logical consistency.</p>
+   * <p>The complete policy definition generated by the build workflow, containing all rules, variables, and custom types extracted from the source documents.</p>
    * @public
    */
   export interface PolicyDefinitionMember {
@@ -3151,7 +3151,7 @@ export type AutomatedReasoningPolicyTestRunStatus =
  */
 export interface AutomatedReasoningPolicyTestResult {
   /**
-   * <p>Represents a test for validating an Automated Reasoning policy. tests contain sample inputs and expected outcomes to verify policy behavior.</p>
+   * <p>The test case that was executed, including the input content, expected results, and configuration parameters used during validation.</p>
    * @public
    */
   testCase: AutomatedReasoningPolicyTestCase | undefined;
@@ -3563,7 +3563,7 @@ export namespace AutomatedReasoningPolicyWorkflowTypeContent {
  */
 export interface AutomatedReasoningPolicyBuildWorkflowSource {
   /**
-   * <p>Contains the formal logic rules, variables, and custom variable types that define an Automated Reasoning policy. The policy definition specifies the constraints used to validate foundation model responses for accuracy and logical consistency.</p>
+   * <p>An existing policy definition that serves as the starting point for the build workflow, typically used in policy repair or update scenarios.</p>
    * @public
    */
   policyDefinition?: AutomatedReasoningPolicyDefinition | undefined;
