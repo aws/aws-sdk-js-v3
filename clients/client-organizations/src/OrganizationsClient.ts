@@ -129,6 +129,10 @@ import {
   ListAccountsForParentCommandOutput,
 } from "./commands/ListAccountsForParentCommand";
 import {
+  ListAccountsWithInvalidEffectivePolicyCommandInput,
+  ListAccountsWithInvalidEffectivePolicyCommandOutput,
+} from "./commands/ListAccountsWithInvalidEffectivePolicyCommand";
+import {
   ListAWSServiceAccessForOrganizationCommandInput,
   ListAWSServiceAccessForOrganizationCommandOutput,
 } from "./commands/ListAWSServiceAccessForOrganizationCommand";
@@ -145,6 +149,10 @@ import {
   ListDelegatedServicesForAccountCommandInput,
   ListDelegatedServicesForAccountCommandOutput,
 } from "./commands/ListDelegatedServicesForAccountCommand";
+import {
+  ListEffectivePolicyValidationErrorsCommandInput,
+  ListEffectivePolicyValidationErrorsCommandOutput,
+} from "./commands/ListEffectivePolicyValidationErrorsCommand";
 import {
   ListHandshakesForAccountCommandInput,
   ListHandshakesForAccountCommandOutput,
@@ -238,10 +246,12 @@ export type ServiceInputTypes =
   | ListAWSServiceAccessForOrganizationCommandInput
   | ListAccountsCommandInput
   | ListAccountsForParentCommandInput
+  | ListAccountsWithInvalidEffectivePolicyCommandInput
   | ListChildrenCommandInput
   | ListCreateAccountStatusCommandInput
   | ListDelegatedAdministratorsCommandInput
   | ListDelegatedServicesForAccountCommandInput
+  | ListEffectivePolicyValidationErrorsCommandInput
   | ListHandshakesForAccountCommandInput
   | ListHandshakesForOrganizationCommandInput
   | ListOrganizationalUnitsForParentCommandInput
@@ -298,10 +308,12 @@ export type ServiceOutputTypes =
   | ListAWSServiceAccessForOrganizationCommandOutput
   | ListAccountsCommandOutput
   | ListAccountsForParentCommandOutput
+  | ListAccountsWithInvalidEffectivePolicyCommandOutput
   | ListChildrenCommandOutput
   | ListCreateAccountStatusCommandOutput
   | ListDelegatedAdministratorsCommandOutput
   | ListDelegatedServicesForAccountCommandOutput
+  | ListEffectivePolicyValidationErrorsCommandOutput
   | ListHandshakesForAccountCommandOutput
   | ListHandshakesForOrganizationCommandOutput
   | ListOrganizationalUnitsForParentCommandOutput

@@ -168,6 +168,11 @@ import {
   ListAccountsForParentCommandOutput,
 } from "./commands/ListAccountsForParentCommand";
 import {
+  ListAccountsWithInvalidEffectivePolicyCommand,
+  ListAccountsWithInvalidEffectivePolicyCommandInput,
+  ListAccountsWithInvalidEffectivePolicyCommandOutput,
+} from "./commands/ListAccountsWithInvalidEffectivePolicyCommand";
+import {
   ListAWSServiceAccessForOrganizationCommand,
   ListAWSServiceAccessForOrganizationCommandInput,
   ListAWSServiceAccessForOrganizationCommandOutput,
@@ -192,6 +197,11 @@ import {
   ListDelegatedServicesForAccountCommandInput,
   ListDelegatedServicesForAccountCommandOutput,
 } from "./commands/ListDelegatedServicesForAccountCommand";
+import {
+  ListEffectivePolicyValidationErrorsCommand,
+  ListEffectivePolicyValidationErrorsCommandInput,
+  ListEffectivePolicyValidationErrorsCommandOutput,
+} from "./commands/ListEffectivePolicyValidationErrorsCommand";
 import {
   ListHandshakesForAccountCommand,
   ListHandshakesForAccountCommandInput,
@@ -297,11 +307,13 @@ const commands = {
   LeaveOrganizationCommand,
   ListAccountsCommand,
   ListAccountsForParentCommand,
+  ListAccountsWithInvalidEffectivePolicyCommand,
   ListAWSServiceAccessForOrganizationCommand,
   ListChildrenCommand,
   ListCreateAccountStatusCommand,
   ListDelegatedAdministratorsCommand,
   ListDelegatedServicesForAccountCommand,
+  ListEffectivePolicyValidationErrorsCommand,
   ListHandshakesForAccountCommand,
   ListHandshakesForOrganizationCommand,
   ListOrganizationalUnitsForParentCommand,
@@ -838,6 +850,23 @@ export interface Organizations {
   ): void;
 
   /**
+   * @see {@link ListAccountsWithInvalidEffectivePolicyCommand}
+   */
+  listAccountsWithInvalidEffectivePolicy(
+    args: ListAccountsWithInvalidEffectivePolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListAccountsWithInvalidEffectivePolicyCommandOutput>;
+  listAccountsWithInvalidEffectivePolicy(
+    args: ListAccountsWithInvalidEffectivePolicyCommandInput,
+    cb: (err: any, data?: ListAccountsWithInvalidEffectivePolicyCommandOutput) => void
+  ): void;
+  listAccountsWithInvalidEffectivePolicy(
+    args: ListAccountsWithInvalidEffectivePolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListAccountsWithInvalidEffectivePolicyCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListAWSServiceAccessForOrganizationCommand}
    */
   listAWSServiceAccessForOrganization(): Promise<ListAWSServiceAccessForOrganizationCommandOutput>;
@@ -917,6 +946,23 @@ export interface Organizations {
     args: ListDelegatedServicesForAccountCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListDelegatedServicesForAccountCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListEffectivePolicyValidationErrorsCommand}
+   */
+  listEffectivePolicyValidationErrors(
+    args: ListEffectivePolicyValidationErrorsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListEffectivePolicyValidationErrorsCommandOutput>;
+  listEffectivePolicyValidationErrors(
+    args: ListEffectivePolicyValidationErrorsCommandInput,
+    cb: (err: any, data?: ListEffectivePolicyValidationErrorsCommandOutput) => void
+  ): void;
+  listEffectivePolicyValidationErrors(
+    args: ListEffectivePolicyValidationErrorsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListEffectivePolicyValidationErrorsCommandOutput) => void
   ): void;
 
   /**

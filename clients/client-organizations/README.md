@@ -540,6 +540,14 @@ ListAccountsForParent
 </details>
 <details>
 <summary>
+ListAccountsWithInvalidEffectivePolicy
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/organizations/command/ListAccountsWithInvalidEffectivePolicyCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-organizations/Interface/ListAccountsWithInvalidEffectivePolicyCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-organizations/Interface/ListAccountsWithInvalidEffectivePolicyCommandOutput/)
+
+</details>
+<details>
+<summary>
 ListAWSServiceAccessForOrganization
 </summary>
 
@@ -576,6 +584,14 @@ ListDelegatedServicesForAccount
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/organizations/command/ListDelegatedServicesForAccountCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-organizations/Interface/ListDelegatedServicesForAccountCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-organizations/Interface/ListDelegatedServicesForAccountCommandOutput/)
+
+</details>
+<details>
+<summary>
+ListEffectivePolicyValidationErrors
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/organizations/command/ListEffectivePolicyValidationErrorsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-organizations/Interface/ListEffectivePolicyValidationErrorsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-organizations/Interface/ListEffectivePolicyValidationErrorsCommandOutput/)
 
 </details>
 <details>

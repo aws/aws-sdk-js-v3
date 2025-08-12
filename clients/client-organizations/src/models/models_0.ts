@@ -3502,6 +3502,132 @@ export interface ListAccountsForParentResponse {
 /**
  * @public
  */
+export interface ListAccountsWithInvalidEffectivePolicyRequest {
+  /**
+   * <p>The type of policy that you want information about. You can specify one of the
+   *             following values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_declarative.html">DECLARATIVE_POLICY_EC2</a>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_backup.html">BACKUP_POLICY</a>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_tag-policies.html">TAG_POLICY</a>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_chatbot.html">CHATBOT_POLICY</a>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_ai-opt-out.html">AISERVICES_OPT_OUT_POLICY</a>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_security_hub.html">SECURITYHUB_POLICY</a>
+   *                </p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  PolicyType: EffectivePolicyType | undefined;
+
+  /**
+   * <p>The parameter for receiving additional results if you receive a
+   *     <code>NextToken</code> response in a previous request. A <code>NextToken</code> response
+   *     indicates that more output is available. Set this parameter to the value of the previous
+   *     call's <code>NextToken</code> response to indicate where the output should continue
+   *     from.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The total number of results that you want included on each page of the
+   *     response. If you do not include this parameter, it defaults to a value that is specific to the
+   *     operation. If additional items exist beyond the maximum you specify, the <code>NextToken</code>
+   *     response element is present and has a value (is not null). Include that value as the
+   *     <code>NextToken</code> request parameter in the next call to the operation to get the next part
+   *     of the results. Note that Organizations might return fewer results than the maximum even when there are
+   *     more results available. You should check <code>NextToken</code> after every operation to ensure
+   *     that you receive all of the results.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListAccountsWithInvalidEffectivePolicyResponse {
+  /**
+   * <p>The accounts in the organization which have an invalid effective policy for the specified policy type.</p>
+   * @public
+   */
+  Accounts?: Account[] | undefined;
+
+  /**
+   * <p>The specified policy type. One of the
+   *             following values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_declarative.html">DECLARATIVE_POLICY_EC2</a>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_backup.html">BACKUP_POLICY</a>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_tag-policies.html">TAG_POLICY</a>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_chatbot.html">CHATBOT_POLICY</a>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_ai-opt-out.html">AISERVICES_OPT_OUT_POLICY</a>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_security_hub.html">SECURITYHUB_POLICY</a>
+   *                </p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  PolicyType?: EffectivePolicyType | undefined;
+
+  /**
+   * <p>If present, indicates that more output is available than is
+   *     included in the current response. Use this value in the <code>NextToken</code> request parameter
+   *     in a subsequent call to the operation to get the next part of the output. You should repeat this
+   *     until the <code>NextToken</code> response element comes back as <code>null</code>.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface ListAWSServiceAccessForOrganizationRequest {
   /**
    * <p>The parameter for receiving additional results if you receive a
@@ -3938,6 +4064,188 @@ export interface ListDelegatedServicesForAccountResponse {
    * @public
    */
   NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListEffectivePolicyValidationErrorsRequest {
+  /**
+   * <p>The ID of the account that you want details about. Specifying an organization root or organizational unit (OU) as the target is not supported.</p>
+   * @public
+   */
+  AccountId: string | undefined;
+
+  /**
+   * <p>The type of policy that you want information about. You can specify one of the
+   *             following values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_declarative.html">DECLARATIVE_POLICY_EC2</a>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_backup.html">BACKUP_POLICY</a>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_tag-policies.html">TAG_POLICY</a>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_chatbot.html">CHATBOT_POLICY</a>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_ai-opt-out.html">AISERVICES_OPT_OUT_POLICY</a>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_security_hub.html">SECURITYHUB_POLICY</a>
+   *                </p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  PolicyType: EffectivePolicyType | undefined;
+
+  /**
+   * <p>The parameter for receiving additional results if you receive a
+   *     <code>NextToken</code> response in a previous request. A <code>NextToken</code> response
+   *     indicates that more output is available. Set this parameter to the value of the previous
+   *     call's <code>NextToken</code> response to indicate where the output should continue
+   *     from.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The total number of results that you want included on each page of the
+   *     response. If you do not include this parameter, it defaults to a value that is specific to the
+   *     operation. If additional items exist beyond the maximum you specify, the <code>NextToken</code>
+   *     response element is present and has a value (is not null). Include that value as the
+   *     <code>NextToken</code> request parameter in the next call to the operation to get the next part
+   *     of the results. Note that Organizations might return fewer results than the maximum even when there are
+   *     more results available. You should check <code>NextToken</code> after every operation to ensure
+   *     that you receive all of the results.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+}
+
+/**
+ * <p>Contains details about the
+ *             validation errors that occurred when generating or enforcing an <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_effective.html">effective policy</a>, such as which policies contributed to the error and location of the error.</p>
+ * @public
+ */
+export interface EffectivePolicyValidationError {
+  /**
+   * <p>The error code for the validation error. For example, <code>ELEMENTS_TOO_MANY</code>.</p>
+   * @public
+   */
+  ErrorCode?: string | undefined;
+
+  /**
+   * <p>The error message for the validation error.</p>
+   * @public
+   */
+  ErrorMessage?: string | undefined;
+
+  /**
+   * <p>The path within the effective policy where the validation error occurred.</p>
+   * @public
+   */
+  PathToError?: string | undefined;
+
+  /**
+   * <p>The individual policies <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_inheritance_mgmt.html">inherited</a>  and <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_policies_attach.html">attached</a> to the account which contributed to the validation error.</p>
+   * @public
+   */
+  ContributingPolicies?: string[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListEffectivePolicyValidationErrorsResponse {
+  /**
+   * <p>The ID of the specified account.</p>
+   * @public
+   */
+  AccountId?: string | undefined;
+
+  /**
+   * <p>The specified policy type. One of the
+   *             following values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_declarative.html">DECLARATIVE_POLICY_EC2</a>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_backup.html">BACKUP_POLICY</a>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_tag-policies.html">TAG_POLICY</a>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_chatbot.html">CHATBOT_POLICY</a>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_ai-opt-out.html">AISERVICES_OPT_OUT_POLICY</a>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_security_hub.html">SECURITYHUB_POLICY</a>
+   *                </p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  PolicyType?: EffectivePolicyType | undefined;
+
+  /**
+   * <p>The path in the organization where the specified account exists.</p>
+   * @public
+   */
+  Path?: string | undefined;
+
+  /**
+   * <p>The time when the latest effective policy was generated for the specified account.</p>
+   * @public
+   */
+  EvaluationTimestamp?: Date | undefined;
+
+  /**
+   * <p>If present, indicates that more output is available than is
+   *     included in the current response. Use this value in the <code>NextToken</code> request parameter
+   *     in a subsequent call to the operation to get the next part of the output. You should repeat this
+   *     until the <code>NextToken</code> response element comes back as <code>null</code>.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The <code>EffectivePolicyValidationError</code> object contains details about the
+   *             validation errors that occurred when generating or enforcing an effective policy, such as which policies contributed to the error and location of the error.</p>
+   * @public
+   */
+  EffectivePolicyValidationErrors?: EffectivePolicyValidationError[] | undefined;
 }
 
 /**
@@ -5520,6 +5828,16 @@ export const ListAccountsResponseFilterSensitiveLog = (obj: ListAccountsResponse
  * @internal
  */
 export const ListAccountsForParentResponseFilterSensitiveLog = (obj: ListAccountsForParentResponse): any => ({
+  ...obj,
+  ...(obj.Accounts && { Accounts: obj.Accounts.map((item) => AccountFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const ListAccountsWithInvalidEffectivePolicyResponseFilterSensitiveLog = (
+  obj: ListAccountsWithInvalidEffectivePolicyResponse
+): any => ({
   ...obj,
   ...(obj.Accounts && { Accounts: obj.Accounts.map((item) => AccountFilterSensitiveLog(item)) }),
 });

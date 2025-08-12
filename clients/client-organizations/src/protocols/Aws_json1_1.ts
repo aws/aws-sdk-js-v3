@@ -95,6 +95,10 @@ import {
   ListAccountsForParentCommandOutput,
 } from "../commands/ListAccountsForParentCommand";
 import {
+  ListAccountsWithInvalidEffectivePolicyCommandInput,
+  ListAccountsWithInvalidEffectivePolicyCommandOutput,
+} from "../commands/ListAccountsWithInvalidEffectivePolicyCommand";
+import {
   ListAWSServiceAccessForOrganizationCommandInput,
   ListAWSServiceAccessForOrganizationCommandOutput,
 } from "../commands/ListAWSServiceAccessForOrganizationCommand";
@@ -111,6 +115,10 @@ import {
   ListDelegatedServicesForAccountCommandInput,
   ListDelegatedServicesForAccountCommandOutput,
 } from "../commands/ListDelegatedServicesForAccountCommand";
+import {
+  ListEffectivePolicyValidationErrorsCommandInput,
+  ListEffectivePolicyValidationErrorsCommandOutput,
+} from "../commands/ListEffectivePolicyValidationErrorsCommand";
 import {
   ListHandshakesForAccountCommandInput,
   ListHandshakesForAccountCommandOutput,
@@ -235,6 +243,8 @@ import {
   ListAccountsForParentResponse,
   ListAccountsRequest,
   ListAccountsResponse,
+  ListAccountsWithInvalidEffectivePolicyRequest,
+  ListAccountsWithInvalidEffectivePolicyResponse,
   ListAWSServiceAccessForOrganizationRequest,
   ListAWSServiceAccessForOrganizationResponse,
   ListChildrenRequest,
@@ -244,6 +254,8 @@ import {
   ListDelegatedAdministratorsResponse,
   ListDelegatedServicesForAccountRequest,
   ListDelegatedServicesForAccountResponse,
+  ListEffectivePolicyValidationErrorsRequest,
+  ListEffectivePolicyValidationErrorsResponse,
   ListHandshakesForAccountRequest,
   ListHandshakesForAccountResponse,
   ListHandshakesForOrganizationRequest,
@@ -712,6 +724,19 @@ export const se_ListAccountsForParentCommand = async (
 };
 
 /**
+ * serializeAws_json1_1ListAccountsWithInvalidEffectivePolicyCommand
+ */
+export const se_ListAccountsWithInvalidEffectivePolicyCommand = async (
+  input: ListAccountsWithInvalidEffectivePolicyCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("ListAccountsWithInvalidEffectivePolicy");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_json1_1ListAWSServiceAccessForOrganizationCommand
  */
 export const se_ListAWSServiceAccessForOrganizationCommand = async (
@@ -771,6 +796,19 @@ export const se_ListDelegatedServicesForAccountCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListDelegatedServicesForAccount");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1ListEffectivePolicyValidationErrorsCommand
+ */
+export const se_ListEffectivePolicyValidationErrorsCommand = async (
+  input: ListEffectivePolicyValidationErrorsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("ListEffectivePolicyValidationErrors");
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1625,6 +1663,26 @@ export const de_ListAccountsForParentCommand = async (
 };
 
 /**
+ * deserializeAws_json1_1ListAccountsWithInvalidEffectivePolicyCommand
+ */
+export const de_ListAccountsWithInvalidEffectivePolicyCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListAccountsWithInvalidEffectivePolicyCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ListAccountsWithInvalidEffectivePolicyResponse(data, context);
+  const response: ListAccountsWithInvalidEffectivePolicyCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
  * deserializeAws_json1_1ListAWSServiceAccessForOrganizationCommand
  */
 export const de_ListAWSServiceAccessForOrganizationCommand = async (
@@ -1718,6 +1776,26 @@ export const de_ListDelegatedServicesForAccountCommand = async (
   let contents: any = {};
   contents = de_ListDelegatedServicesForAccountResponse(data, context);
   const response: ListDelegatedServicesForAccountCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ListEffectivePolicyValidationErrorsCommand
+ */
+export const de_ListEffectivePolicyValidationErrorsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListEffectivePolicyValidationErrorsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ListEffectivePolicyValidationErrorsResponse(data, context);
+  const response: ListEffectivePolicyValidationErrorsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
@@ -3018,6 +3096,8 @@ const de_UnsupportedAPIEndpointExceptionRes = async (
 
 // se_ListAccountsRequest omitted.
 
+// se_ListAccountsWithInvalidEffectivePolicyRequest omitted.
+
 // se_ListAWSServiceAccessForOrganizationRequest omitted.
 
 // se_ListChildrenRequest omitted.
@@ -3027,6 +3107,8 @@ const de_UnsupportedAPIEndpointExceptionRes = async (
 // se_ListDelegatedAdministratorsRequest omitted.
 
 // se_ListDelegatedServicesForAccountRequest omitted.
+
+// se_ListEffectivePolicyValidationErrorsRequest omitted.
 
 // se_ListHandshakesForAccountRequest omitted.
 
@@ -3331,6 +3413,10 @@ const de_EffectivePolicy = (output: any, context: __SerdeContext): EffectivePoli
 
 // de_EffectivePolicyNotFoundException omitted.
 
+// de_EffectivePolicyValidationError omitted.
+
+// de_EffectivePolicyValidationErrors omitted.
+
 /**
  * deserializeAws_json1_1EnableAllFeaturesResponse
  */
@@ -3464,6 +3550,20 @@ const de_ListAccountsResponse = (output: any, context: __SerdeContext): ListAcco
 };
 
 /**
+ * deserializeAws_json1_1ListAccountsWithInvalidEffectivePolicyResponse
+ */
+const de_ListAccountsWithInvalidEffectivePolicyResponse = (
+  output: any,
+  context: __SerdeContext
+): ListAccountsWithInvalidEffectivePolicyResponse => {
+  return take(output, {
+    Accounts: (_: any) => de_Accounts(_, context),
+    NextToken: __expectString,
+    PolicyType: __expectString,
+  }) as any;
+};
+
+/**
  * deserializeAws_json1_1ListAWSServiceAccessForOrganizationResponse
  */
 const de_ListAWSServiceAccessForOrganizationResponse = (
@@ -3511,6 +3611,23 @@ const de_ListDelegatedServicesForAccountResponse = (
   return take(output, {
     DelegatedServices: (_: any) => de_DelegatedServices(_, context),
     NextToken: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1ListEffectivePolicyValidationErrorsResponse
+ */
+const de_ListEffectivePolicyValidationErrorsResponse = (
+  output: any,
+  context: __SerdeContext
+): ListEffectivePolicyValidationErrorsResponse => {
+  return take(output, {
+    AccountId: __expectString,
+    EffectivePolicyValidationErrors: _json,
+    EvaluationTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    NextToken: __expectString,
+    Path: __expectString,
+    PolicyType: __expectString,
   }) as any;
 };
 
@@ -3581,6 +3698,8 @@ const de_ListHandshakesForOrganizationResponse = (
 // de_Policy omitted.
 
 // de_PolicyChangesInProgressException omitted.
+
+// de_PolicyIds omitted.
 
 // de_PolicyInUseException omitted.
 
