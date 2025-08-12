@@ -3397,6 +3397,10 @@ const de_Projects = (output: any, context: __SerdeContext): Project[] => {
 
 // de_ProxyConfiguration omitted.
 
+// de_PullRequestBuildApproverRoles omitted.
+
+// de_PullRequestBuildPolicy omitted.
+
 // de_PutResourcePolicyOutput omitted.
 
 // de_RegistryCredential omitted.
@@ -3795,6 +3799,7 @@ const de_Webhook = (output: any, context: __SerdeContext): Webhook => {
     lastModifiedSecret: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     manualCreation: __expectBoolean,
     payloadUrl: __expectString,
+    pullRequestBuildPolicy: _json,
     scopeConfiguration: _json,
     secret: __expectString,
     status: __expectString,
