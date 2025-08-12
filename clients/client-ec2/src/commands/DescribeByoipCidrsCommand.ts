@@ -28,9 +28,8 @@ export interface DescribeByoipCidrsCommandInput extends DescribeByoipCidrsReques
 export interface DescribeByoipCidrsCommandOutput extends DescribeByoipCidrsResult, __MetadataBearer {}
 
 /**
- * <p>Describes the IP address ranges that were specified in calls to <a>ProvisionByoipCidr</a>.</p>
- *          <p>To describe the address pools that were created when you provisioned the address
- *           ranges, use <a>DescribePublicIpv4Pools</a> or <a>DescribeIpv6Pools</a>.</p>
+ * <p>Describes the IP address ranges that were provisioned for use with Amazon Web Services resources
+ *           through through bring your own IP addresses (BYOIP).</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

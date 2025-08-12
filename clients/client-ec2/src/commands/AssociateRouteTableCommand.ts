@@ -43,6 +43,7 @@ export interface AssociateRouteTableCommandOutput extends AssociateRouteTableRes
  * const client = new EC2Client(config);
  * const input = { // AssociateRouteTableRequest
  *   GatewayId: "STRING_VALUE",
+ *   PublicIpv4Pool: "STRING_VALUE",
  *   DryRun: true || false,
  *   SubnetId: "STRING_VALUE",
  *   RouteTableId: "STRING_VALUE", // required

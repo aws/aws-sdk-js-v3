@@ -30968,6 +30968,9 @@ const se_AssociateRouteTableRequest = (input: AssociateRouteTableRequest, contex
   if (input[_GI] != null) {
     entries[_GI] = input[_GI];
   }
+  if (input[_PIP] != null) {
+    entries[_PIP] = input[_PIP];
+  }
   if (input[_DRr] != null) {
     entries[_DRr] = input[_DRr];
   }
@@ -84530,6 +84533,9 @@ const de_RouteTableAssociation = (output: any, context: __SerdeContext): RouteTa
   }
   if (output[_gI] != null) {
     contents[_GI] = __expectString(output[_gI]);
+  }
+  if (output[_pIP] != null) {
+    contents[_PIP] = __expectString(output[_pIP]);
   }
   if (output[_aS] != null) {
     contents[_ASs] = de_RouteTableAssociationState(output[_aS], context);

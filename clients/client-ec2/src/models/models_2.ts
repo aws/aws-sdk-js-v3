@@ -5190,6 +5190,12 @@ export interface RouteTableAssociation {
   GatewayId?: string | undefined;
 
   /**
+   * <p>The ID of a public IPv4 pool. A public IPv4 pool is a pool of IPv4 addresses that you've brought to Amazon Web Services with BYOIP.</p>
+   * @public
+   */
+  PublicIpv4Pool?: string | undefined;
+
+  /**
    * <p>The state of the association.</p>
    * @public
    */

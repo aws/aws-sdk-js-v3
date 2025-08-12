@@ -68,6 +68,7 @@ export interface DescribeRouteTablesCommandOutput extends DescribeRouteTablesRes
  * //           RouteTableId: "STRING_VALUE",
  * //           SubnetId: "STRING_VALUE",
  * //           GatewayId: "STRING_VALUE",
+ * //           PublicIpv4Pool: "STRING_VALUE",
  * //           AssociationState: { // RouteTableAssociationState
  * //             State: "associating" || "associated" || "disassociating" || "disassociated" || "failed",
  * //             StatusMessage: "STRING_VALUE",

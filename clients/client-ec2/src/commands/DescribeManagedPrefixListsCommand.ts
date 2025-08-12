@@ -29,7 +29,6 @@ export interface DescribeManagedPrefixListsCommandOutput extends DescribeManaged
 
 /**
  * <p>Describes your managed prefix lists and any Amazon Web Services-managed prefix lists.</p>
- *          <p>To view the entries for your prefix list, use <a>GetManagedPrefixListEntries</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
