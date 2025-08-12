@@ -44,7 +44,7 @@ export interface StartMedicalScribeStreamCommandOutput extends StartMedicalScrib
  *       Amazon Web Services HealthScribe
  *       and the transcription results are streamed to your application.</p>
  *          <p>When you start a stream, you first specify the stream configuration in a <code>MedicalScribeConfigurationEvent</code>.
- *       This event includes channel definitions, encryption settings, and post-stream analytics settings, such as the output configuration for aggregated transcript and clinical note generation. These are additional
+ *       This event includes channel definitions, encryption settings, medical scribe context, and post-stream analytics settings, such as the output configuration for aggregated transcript and clinical note generation. These are additional
  *       streaming session configurations beyond those provided in your initial start request headers. Whether you are starting a new session or resuming an existing session,
  *       your first event must be a <code>MedicalScribeConfigurationEvent</code>. </p>
  *          <p>
@@ -119,6 +119,11 @@ export interface StartMedicalScribeStreamCommandOutput extends StartMedicalScrib
  *         ClinicalNoteGenerationSettings: { // ClinicalNoteGenerationSettings
  *           OutputBucketName: "STRING_VALUE", // required
  *           NoteTemplate: "HISTORY_AND_PHYSICAL" || "GIRPP" || "DAP" || "SIRP" || "BIRP" || "BEHAVIORAL_SOAP" || "PHYSICAL_SOAP",
+ *         },
+ *       },
+ *       MedicalScribeContext: { // MedicalScribeContext
+ *         PatientContext: { // MedicalScribePatientContext
+ *           Pronouns: "HE_HIM" || "SHE_HER" || "THEY_THEM",
  *         },
  *       },
  *     },

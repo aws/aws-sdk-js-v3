@@ -86,6 +86,7 @@ export interface GetMedicalScribeStreamCommandOutput extends GetMedicalScribeStr
  * //         FailureReason: "STRING_VALUE",
  * //       },
  * //     },
+ * //     MedicalScribeContextProvided: true || false,
  * //   },
  * // };
  *

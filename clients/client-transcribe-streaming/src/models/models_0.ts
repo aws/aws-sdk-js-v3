@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
+import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@smithy/smithy-client";
 
 import { TranscribeStreamingServiceException as __BaseException } from "./TranscribeStreamingServiceException";
 
@@ -1491,6 +1491,12 @@ export interface MedicalScribeStreamDetails {
    * @public
    */
   PostStreamAnalyticsResult?: MedicalScribePostStreamAnalyticsResult | undefined;
+
+  /**
+   * <p>Indicates whether the <code>MedicalScribeContext</code> object was provided when the stream was started.</p>
+   * @public
+   */
+  MedicalScribeContextProvided?: boolean | undefined;
 }
 
 /**
@@ -1841,6 +1847,46 @@ export interface MedicalScribeAudioEvent {
 }
 
 /**
+ * @public
+ * @enum
+ */
+export const Pronouns = {
+  HE_HIM: "HE_HIM",
+  SHE_HER: "SHE_HER",
+  THEY_THEM: "THEY_THEM",
+} as const;
+
+/**
+ * @public
+ */
+export type Pronouns = (typeof Pronouns)[keyof typeof Pronouns];
+
+/**
+ * <p>Contains patient-specific information. </p>
+ * @public
+ */
+export interface MedicalScribePatientContext {
+  /**
+   * <p>The patient's preferred pronouns that the user wants to provide as a context for clinical note generation .</p>
+   * @public
+   */
+  Pronouns?: Pronouns | undefined;
+}
+
+/**
+ * <p>The <code>MedicalScribeContext</code> object that contains contextual information which is used during clinical note generation
+ *             to add relevant context to the note.</p>
+ * @public
+ */
+export interface MedicalScribeContext {
+  /**
+   * <p>Contains patient-specific information used to customize the clinical note generation.</p>
+   * @public
+   */
+  PatientContext?: MedicalScribePatientContext | undefined;
+}
+
+/**
  * <p>Specify details to configure the streaming session, including channel definitions, encryption settings, post-stream analytics
  *       settings, resource access role ARN and vocabulary settings.
  *     </p>
@@ -1914,6 +1960,13 @@ export interface MedicalScribeConfigurationEvent {
    * @public
    */
   PostStreamAnalyticsSettings: MedicalScribePostStreamAnalyticsSettings | undefined;
+
+  /**
+   * <p>The <code>MedicalScribeContext</code> object that contains contextual information used to generate
+   *             customized clinical notes.</p>
+   * @public
+   */
+  MedicalScribeContext?: MedicalScribeContext | undefined;
 }
 
 /**
@@ -3878,10 +3931,37 @@ export const CallAnalyticsTranscriptResultStreamFilterSensitiveLog = (
 /**
  * @internal
  */
+export const MedicalScribePatientContextFilterSensitiveLog = (obj: MedicalScribePatientContext): any => ({
+  ...obj,
+  ...(obj.Pronouns && { Pronouns: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const MedicalScribeContextFilterSensitiveLog = (obj: MedicalScribeContext): any => ({
+  ...obj,
+  ...(obj.PatientContext && { PatientContext: MedicalScribePatientContextFilterSensitiveLog(obj.PatientContext) }),
+});
+
+/**
+ * @internal
+ */
+export const MedicalScribeConfigurationEventFilterSensitiveLog = (obj: MedicalScribeConfigurationEvent): any => ({
+  ...obj,
+  ...(obj.MedicalScribeContext && {
+    MedicalScribeContext: MedicalScribeContextFilterSensitiveLog(obj.MedicalScribeContext),
+  }),
+});
+
+/**
+ * @internal
+ */
 export const MedicalScribeInputStreamFilterSensitiveLog = (obj: MedicalScribeInputStream): any => {
   if (obj.AudioEvent !== undefined) return { AudioEvent: obj.AudioEvent };
   if (obj.SessionControlEvent !== undefined) return { SessionControlEvent: obj.SessionControlEvent };
-  if (obj.ConfigurationEvent !== undefined) return { ConfigurationEvent: obj.ConfigurationEvent };
+  if (obj.ConfigurationEvent !== undefined)
+    return { ConfigurationEvent: MedicalScribeConfigurationEventFilterSensitiveLog(obj.ConfigurationEvent) };
   if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
 };
 
