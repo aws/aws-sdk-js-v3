@@ -28,8 +28,7 @@ export interface ListSearchJobsCommandInput extends ListSearchJobsInput {}
 export interface ListSearchJobsCommandOutput extends ListSearchJobsOutput, __MetadataBearer {}
 
 /**
- * <p>This operation returns a list of search jobs belonging
- *       to an account.</p>
+ * <p>This operation returns a list of search jobs belonging to an account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -28,12 +28,7 @@ export interface GetSearchResultExportJobCommandInput extends GetSearchResultExp
 export interface GetSearchResultExportJobCommandOutput extends GetSearchResultExportJobOutput, __MetadataBearer {}
 
 /**
- * <p>This operation retrieves the metadata of an export job.</p>
- *          <p>An export job is an operation that transmits the results
- *       of a search job to a specified S3 bucket in a
- *       .csv file.</p>
- *          <p>An export job allows you to retain results of a search
- *       beyond the search job's scheduled retention of 7 days.</p>
+ * <p>This operation retrieves the metadata of an export job.</p> <p>An export job is an operation that transmits the results of a search job to a specified S3 bucket in a .csv file.</p> <p>An export job allows you to retain results of a search beyond the search job's scheduled retention of 7 days.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -70,9 +65,7 @@ export interface GetSearchResultExportJobCommandOutput extends GetSearchResultEx
  * @see {@link BackupSearchClientResolvedConfig | config} for BackupSearchClient's `config` shape.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The resource was not found for this request.</p>
- *          <p>Confirm the resource information, such as the ARN or type is correct
- *             and exists, then retry the request.</p>
+ *  <p>The resource was not found for this request.</p> <p>Confirm the resource information, such as the ARN or type is correct and exists, then retry the request.</p>
  *
  * @throws {@link AccessDeniedException} (client fault)
  *  <p>You do not have sufficient access to perform this action.</p>

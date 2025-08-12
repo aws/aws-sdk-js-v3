@@ -254,22 +254,7 @@ export interface BackupSearch {
 }
 
 /**
- * <fullname>Backup Search</fullname>
- *          <p>Backup Search is the recovery point and item level search for Backup.</p>
- *          <p>For additional information, see:</p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/aws-backup/latest/devguide/api-reference.html">Backup API Reference</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/aws-backup/latest/devguide/whatisbackup.html">Backup
- *             Developer Guide</a>
- *                </p>
- *             </li>
- *          </ul>
+ * <fullname>Backup Search</fullname> <p>Backup Search is the recovery point and item level search for Backup.</p> <p>For additional information, see:</p> <ul> <li> <p> <a href="https://docs.aws.amazon.com/aws-backup/latest/devguide/api-reference.html">Backup API Reference</a> </p> </li> <li> <p> <a href="https://docs.aws.amazon.com/aws-backup/latest/devguide/whatisbackup.html">Backup Developer Guide</a> </p> </li> </ul>
  * @public
  */
 export class BackupSearch extends BackupSearchClient implements BackupSearch {}

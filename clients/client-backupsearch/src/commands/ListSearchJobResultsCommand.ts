@@ -83,9 +83,7 @@ export interface ListSearchJobResultsCommandOutput extends ListSearchJobResultsO
  * @see {@link BackupSearchClientResolvedConfig | config} for BackupSearchClient's `config` shape.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The resource was not found for this request.</p>
- *          <p>Confirm the resource information, such as the ARN or type is correct
- *             and exists, then retry the request.</p>
+ *  <p>The resource was not found for this request.</p> <p>Confirm the resource information, such as the ARN or type is correct and exists, then retry the request.</p>
  *
  * @throws {@link AccessDeniedException} (client fault)
  *  <p>You do not have sufficient access to perform this action.</p>

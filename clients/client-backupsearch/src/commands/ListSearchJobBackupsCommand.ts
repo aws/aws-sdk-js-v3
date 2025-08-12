@@ -28,19 +28,7 @@ export interface ListSearchJobBackupsCommandInput extends ListSearchJobBackupsIn
 export interface ListSearchJobBackupsCommandOutput extends ListSearchJobBackupsOutput, __MetadataBearer {}
 
 /**
- * <p>This operation returns a list of all backups (recovery
- *       points) in a paginated format that were included in
- *       the search job.</p>
- *          <p>If a search does not display an expected backup in
- *       the results, you can call this operation to display each
- *       backup included in the search. Any backups that were not
- *       included because they have a <code>FAILED</code> status
- *       from a permissions issue will be displayed, along with a
- *       status message.</p>
- *          <p>Only recovery points with a backup index that has
- *       a status of <code>ACTIVE</code> will be included in search results.
- *       If the index has any other status, its status will be
- *       displayed along with a status message.</p>
+ * <p>This operation returns a list of all backups (recovery points) in a paginated format that were included in the search job.</p> <p>If a search does not display an expected backup in the results, you can call this operation to display each backup included in the search. Any backups that were not included because they have a <code>FAILED</code> status from a permissions issue will be displayed, along with a status message.</p> <p>Only recovery points with a backup index that has a status of <code>ACTIVE</code> will be included in search results. If the index has any other status, its status will be displayed along with a status message.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -78,9 +66,7 @@ export interface ListSearchJobBackupsCommandOutput extends ListSearchJobBackupsO
  * @see {@link BackupSearchClientResolvedConfig | config} for BackupSearchClient's `config` shape.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The resource was not found for this request.</p>
- *          <p>Confirm the resource information, such as the ARN or type is correct
- *             and exists, then retry the request.</p>
+ *  <p>The resource was not found for this request.</p> <p>Confirm the resource information, such as the ARN or type is correct and exists, then retry the request.</p>
  *
  * @throws {@link AccessDeniedException} (client fault)
  *  <p>You do not have sufficient access to perform this action.</p>

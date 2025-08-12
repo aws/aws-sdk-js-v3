@@ -28,8 +28,7 @@ export interface ListSearchResultExportJobsCommandInput extends ListSearchResult
 export interface ListSearchResultExportJobsCommandOutput extends ListSearchResultExportJobsOutput, __MetadataBearer {}
 
 /**
- * <p>This operation exports search results of a search job
- *       to a specified destination S3 bucket.</p>
+ * <p>This operation exports search results of a search job to a specified destination S3 bucket.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -68,9 +67,7 @@ export interface ListSearchResultExportJobsCommandOutput extends ListSearchResul
  * @see {@link BackupSearchClientResolvedConfig | config} for BackupSearchClient's `config` shape.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The resource was not found for this request.</p>
- *          <p>Confirm the resource information, such as the ARN or type is correct
- *             and exists, then retry the request.</p>
+ *  <p>The resource was not found for this request.</p> <p>Confirm the resource information, such as the ARN or type is correct and exists, then retry the request.</p>
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
  *  <p>The request denied due to exceeding the quota limits permitted.</p>

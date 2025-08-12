@@ -28,8 +28,7 @@ export interface StartSearchResultExportJobCommandInput extends StartSearchResul
 export interface StartSearchResultExportJobCommandOutput extends StartSearchResultExportJobOutput, __MetadataBearer {}
 
 /**
- * <p>This operations starts a job to export the results
- *       of search job to a designated S3 bucket.</p>
+ * <p>This operations starts a job to export the results of search job to a designated S3 bucket.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -66,17 +65,10 @@ export interface StartSearchResultExportJobCommandOutput extends StartSearchResu
  * @see {@link BackupSearchClientResolvedConfig | config} for BackupSearchClient's `config` shape.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>This exception occurs when a conflict with a previous successful
- *             operation is detected. This generally occurs when the previous
- *             operation did not have time to propagate to the host serving the
- *             current request.</p>
- *          <p>A retry (with appropriate backoff logic) is the recommended
- *             response to this exception.</p>
+ *  <p>This exception occurs when a conflict with a previous successful operation is detected. This generally occurs when the previous operation did not have time to propagate to the host serving the current request.</p> <p>A retry (with appropriate backoff logic) is the recommended response to this exception.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The resource was not found for this request.</p>
- *          <p>Confirm the resource information, such as the ARN or type is correct
- *             and exists, then retry the request.</p>
+ *  <p>The resource was not found for this request.</p> <p>Confirm the resource information, such as the ARN or type is correct and exists, then retry the request.</p>
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
  *  <p>The request denied due to exceeding the quota limits permitted.</p>

@@ -28,8 +28,7 @@ export interface GetSearchJobCommandInput extends GetSearchJobInput {}
 export interface GetSearchJobCommandOutput extends GetSearchJobOutput, __MetadataBearer {}
 
 /**
- * <p>This operation retrieves metadata of a search job,
- *       including its progress.</p>
+ * <p>This operation retrieves metadata of a search job, including its progress.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -152,9 +151,7 @@ export interface GetSearchJobCommandOutput extends GetSearchJobOutput, __Metadat
  * @see {@link BackupSearchClientResolvedConfig | config} for BackupSearchClient's `config` shape.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The resource was not found for this request.</p>
- *          <p>Confirm the resource information, such as the ARN or type is correct
- *             and exists, then retry the request.</p>
+ *  <p>The resource was not found for this request.</p> <p>Confirm the resource information, such as the ARN or type is correct and exists, then retry the request.</p>
  *
  * @throws {@link AccessDeniedException} (client fault)
  *  <p>You do not have sufficient access to perform this action.</p>
