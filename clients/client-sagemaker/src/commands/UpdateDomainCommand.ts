@@ -269,6 +269,9 @@ export interface UpdateDomainCommandOutput extends UpdateDomainResponse, __Metad
  *     SecurityGroupIds: [ // DomainSecurityGroupIds
  *       "STRING_VALUE",
  *     ],
+ *     TrustedIdentityPropagationSettings: { // TrustedIdentityPropagationSettings
+ *       Status: "ENABLED" || "DISABLED", // required
+ *     },
  *     DockerSettings: { // DockerSettings
  *       EnableDockerAccess: "ENABLED" || "DISABLED",
  *       VpcOnlyTrustedAccounts: [ // VpcOnlyTrustedAccounts

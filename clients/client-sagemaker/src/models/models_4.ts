@@ -101,7 +101,7 @@ import {
   HubContentInfo,
   HubContentSortBy,
   HubContentSupportStatus,
-  HubInfo,
+  HubStatus,
   HyperParameterTrainingJobSummary,
   HyperParameterTuningJobCompletionDetails,
   HyperParameterTuningJobConsumedResources,
@@ -146,8 +146,61 @@ import {
   UserProfileStatus,
   WarmPoolResourceStatus,
   WarmPoolStatus,
-  Workforce,
 } from "./models_3";
+
+/**
+ * <p>Information about a hub.</p>
+ * @public
+ */
+export interface HubInfo {
+  /**
+   * <p>The name of the hub.</p>
+   * @public
+   */
+  HubName: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the hub.</p>
+   * @public
+   */
+  HubArn: string | undefined;
+
+  /**
+   * <p>The display name of the hub.</p>
+   * @public
+   */
+  HubDisplayName?: string | undefined;
+
+  /**
+   * <p>A description of the hub.</p>
+   * @public
+   */
+  HubDescription?: string | undefined;
+
+  /**
+   * <p>The searchable keywords for the hub.</p>
+   * @public
+   */
+  HubSearchKeywords?: string[] | undefined;
+
+  /**
+   * <p>The status of the hub.</p>
+   * @public
+   */
+  HubStatus: HubStatus | undefined;
+
+  /**
+   * <p>The date and time that the hub was created.</p>
+   * @public
+   */
+  CreationTime: Date | undefined;
+
+  /**
+   * <p>The date and time that the hub was last modified.</p>
+   * @public
+   */
+  LastModifiedTime: Date | undefined;
+}
 
 /**
  * @public
@@ -9711,21 +9764,4 @@ export interface ListWorkforcesRequest {
    * @public
    */
   MaxResults?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface ListWorkforcesResponse {
-  /**
-   * <p>A list containing information about your workforce.</p>
-   * @public
-   */
-  Workforces: Workforce[] | undefined;
-
-  /**
-   * <p>A token to resume pagination.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
 }

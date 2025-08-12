@@ -79,18 +79,15 @@ import {
   CognitoConfig,
   CognitoMemberDefinition,
   CollectionConfiguration,
-  CompilationJobStatus,
   DeviceSelectionConfig,
   EdgeDeploymentConfig,
   EndpointInput,
   GitConfig,
   HubContentType,
-  InputConfig,
   JupyterServerAppSettings,
   KernelGatewayAppSettings,
   MetadataProperties,
   ModelBiasAppSpecification,
-  ModelBiasBaselineConfig,
   ModelDeployConfig,
   MonitoringConstraintsResource,
   MonitoringNetworkConfig,
@@ -98,8 +95,6 @@ import {
   MonitoringResources,
   MonitoringStatisticsResource,
   MonitoringStoppingCondition,
-  NeoVpcConfig,
-  OutputConfig,
   ProcessingInstanceType,
   ProcessingS3UploadMode,
   RetryStrategy,
@@ -107,6 +102,24 @@ import {
   TrainingSpecification,
   UserSettings,
 } from "./models_1";
+
+/**
+ * <p>The configuration for a baseline model bias job.</p>
+ * @public
+ */
+export interface ModelBiasBaselineConfig {
+  /**
+   * <p>The name of the baseline model bias job.</p>
+   * @public
+   */
+  BaseliningJobName?: string | undefined;
+
+  /**
+   * <p>The constraints resource for a monitoring job.</p>
+   * @public
+   */
+  ConstraintsResource?: MonitoringConstraintsResource | undefined;
+}
 
 /**
  * <p>The ground truth labels for the dataset used for the monitoring job.</p>
@@ -6170,6 +6183,12 @@ export interface DescribeAppResponse {
   Status?: AppStatus | undefined;
 
   /**
+   * <p>The effective status of Trusted Identity Propagation (TIP) for this application. When enabled, user identities from IAM Identity Center are being propagated through the application to TIP enabled Amazon Web Services services. When disabled, standard IAM role-based access is used. </p>
+   * @public
+   */
+  EffectiveTrustedIdentityPropagationStatus?: FeatureStatus | undefined;
+
+  /**
    * <p> Indicates whether the application is launched in recovery mode. </p>
    * @public
    */
@@ -7007,119 +7026,6 @@ export interface ModelDigests {
    * @public
    */
   ArtifactDigest?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeCompilationJobResponse {
-  /**
-   * <p>The name of the model compilation job.</p>
-   * @public
-   */
-  CompilationJobName: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the model compilation job.</p>
-   * @public
-   */
-  CompilationJobArn: string | undefined;
-
-  /**
-   * <p>The status of the model compilation job.</p>
-   * @public
-   */
-  CompilationJobStatus: CompilationJobStatus | undefined;
-
-  /**
-   * <p>The time when the model compilation job started the <code>CompilationJob</code> instances. </p> <p>You are billed for the time between this timestamp and the timestamp in the <code>CompilationEndTime</code> field. In Amazon CloudWatch Logs, the start time might be later than this time. That's because it takes time to download the compilation job, which depends on the size of the compilation job container. </p>
-   * @public
-   */
-  CompilationStartTime?: Date | undefined;
-
-  /**
-   * <p>The time when the model compilation job on a compilation job instance ended. For a successful or stopped job, this is when the job's model artifacts have finished uploading. For a failed job, this is when Amazon SageMaker AI detected that the job failed. </p>
-   * @public
-   */
-  CompilationEndTime?: Date | undefined;
-
-  /**
-   * <p>Specifies a limit to how long a model compilation job can run. When the job reaches the time limit, Amazon SageMaker AI ends the compilation job. Use this API to cap model training costs.</p>
-   * @public
-   */
-  StoppingCondition: StoppingCondition | undefined;
-
-  /**
-   * <p>The inference image to use when compiling a model. Specify an image only if the target device is a cloud instance.</p>
-   * @public
-   */
-  InferenceImage?: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the versioned model package that was provided to SageMaker Neo when you initiated a compilation job.</p>
-   * @public
-   */
-  ModelPackageVersionArn?: string | undefined;
-
-  /**
-   * <p>The time that the model compilation job was created.</p>
-   * @public
-   */
-  CreationTime: Date | undefined;
-
-  /**
-   * <p>The time that the status of the model compilation job was last modified.</p>
-   * @public
-   */
-  LastModifiedTime: Date | undefined;
-
-  /**
-   * <p>If a model compilation job failed, the reason it failed. </p>
-   * @public
-   */
-  FailureReason: string | undefined;
-
-  /**
-   * <p>Information about the location in Amazon S3 that has been configured for storing the model artifacts used in the compilation job.</p>
-   * @public
-   */
-  ModelArtifacts: ModelArtifacts | undefined;
-
-  /**
-   * <p>Provides a BLAKE2 hash value that identifies the compiled model artifacts in Amazon S3.</p>
-   * @public
-   */
-  ModelDigests?: ModelDigests | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker AI assumes to perform the model compilation job.</p>
-   * @public
-   */
-  RoleArn: string | undefined;
-
-  /**
-   * <p>Information about the location in Amazon S3 of the input model artifacts, the name and shape of the expected data inputs, and the framework in which the model was trained.</p>
-   * @public
-   */
-  InputConfig: InputConfig | undefined;
-
-  /**
-   * <p>Information about the output location for the compiled model and the target device that the model runs on.</p>
-   * @public
-   */
-  OutputConfig: OutputConfig | undefined;
-
-  /**
-   * <p>A <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_VpcConfig.html">VpcConfig</a> object that specifies the VPC that you want your compilation job to connect to. Control access to your models by configuring the VPC. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/neo-vpc.html">Protect Compilation Jobs by Using an Amazon Virtual Private Cloud</a>.</p>
-   * @public
-   */
-  VpcConfig?: NeoVpcConfig | undefined;
-
-  /**
-   * <p>Information that SageMaker Neo automatically derived about the model.</p>
-   * @public
-   */
-  DerivedInformation?: DerivedInformation | undefined;
 }
 
 /**

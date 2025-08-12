@@ -43,6 +43,7 @@ import {
 import {
   _InstanceType,
   CognitoConfig,
+  CompilationJobStatus,
   ComputeQuotaConfig,
   ComputeQuotaTarget,
   ContainerDefinition,
@@ -80,6 +81,7 @@ import {
   InferenceExperimentDataStorageConfig,
   InferenceExperimentSchedule,
   InferenceExperimentType,
+  InputConfig,
   JobType,
   LabelingJobAlgorithmsConfig,
   LabelingJobInputConfig,
@@ -87,14 +89,15 @@ import {
   LabelingJobStoppingConditions,
   MetadataProperties,
   ModelBiasAppSpecification,
-  ModelBiasBaselineConfig,
   ModelInfrastructureConfig,
   MonitoringNetworkConfig,
   MonitoringOutputConfig,
   MonitoringResources,
   MonitoringStoppingCondition,
+  NeoVpcConfig,
   OfflineStoreConfig,
   OnlineStoreConfig,
+  OutputConfig,
   Processor,
   ProductionVariant,
   ProductionVariantAcceleratorType,
@@ -109,6 +112,7 @@ import {
   TagPropagation,
   ThroughputMode,
   TrackingServerSize,
+  TrustedIdentityPropagationSettings,
   UnifiedStudioSettings,
   UserSettings,
   VendorGuidance,
@@ -124,6 +128,7 @@ import {
   DeployedImage,
   DeploymentRecommendation,
   DeploymentStageStatusSummary,
+  DerivedInformation,
   DirectInternetAccess,
   DriftCheckBaselines,
   ExperimentConfig,
@@ -131,11 +136,13 @@ import {
   InstanceMetadataServiceConfiguration,
   MemberDefinition,
   ModelArtifacts,
+  ModelBiasBaselineConfig,
   ModelBiasJobInput,
   ModelCardExportOutputConfig,
   ModelCardSecurityConfig,
   ModelCardStatus,
   ModelClientConfig,
+  ModelDigests,
   ModelExplainabilityAppSpecification,
   ModelExplainabilityBaselineConfig,
   ModelExplainabilityJobInput,
@@ -188,6 +195,119 @@ import {
   WorkerAccessConfiguration,
   WorkforceIpAddressType,
 } from "./models_2";
+
+/**
+ * @public
+ */
+export interface DescribeCompilationJobResponse {
+  /**
+   * <p>The name of the model compilation job.</p>
+   * @public
+   */
+  CompilationJobName: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the model compilation job.</p>
+   * @public
+   */
+  CompilationJobArn: string | undefined;
+
+  /**
+   * <p>The status of the model compilation job.</p>
+   * @public
+   */
+  CompilationJobStatus: CompilationJobStatus | undefined;
+
+  /**
+   * <p>The time when the model compilation job started the <code>CompilationJob</code> instances. </p> <p>You are billed for the time between this timestamp and the timestamp in the <code>CompilationEndTime</code> field. In Amazon CloudWatch Logs, the start time might be later than this time. That's because it takes time to download the compilation job, which depends on the size of the compilation job container. </p>
+   * @public
+   */
+  CompilationStartTime?: Date | undefined;
+
+  /**
+   * <p>The time when the model compilation job on a compilation job instance ended. For a successful or stopped job, this is when the job's model artifacts have finished uploading. For a failed job, this is when Amazon SageMaker AI detected that the job failed. </p>
+   * @public
+   */
+  CompilationEndTime?: Date | undefined;
+
+  /**
+   * <p>Specifies a limit to how long a model compilation job can run. When the job reaches the time limit, Amazon SageMaker AI ends the compilation job. Use this API to cap model training costs.</p>
+   * @public
+   */
+  StoppingCondition: StoppingCondition | undefined;
+
+  /**
+   * <p>The inference image to use when compiling a model. Specify an image only if the target device is a cloud instance.</p>
+   * @public
+   */
+  InferenceImage?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the versioned model package that was provided to SageMaker Neo when you initiated a compilation job.</p>
+   * @public
+   */
+  ModelPackageVersionArn?: string | undefined;
+
+  /**
+   * <p>The time that the model compilation job was created.</p>
+   * @public
+   */
+  CreationTime: Date | undefined;
+
+  /**
+   * <p>The time that the status of the model compilation job was last modified.</p>
+   * @public
+   */
+  LastModifiedTime: Date | undefined;
+
+  /**
+   * <p>If a model compilation job failed, the reason it failed. </p>
+   * @public
+   */
+  FailureReason: string | undefined;
+
+  /**
+   * <p>Information about the location in Amazon S3 that has been configured for storing the model artifacts used in the compilation job.</p>
+   * @public
+   */
+  ModelArtifacts: ModelArtifacts | undefined;
+
+  /**
+   * <p>Provides a BLAKE2 hash value that identifies the compiled model artifacts in Amazon S3.</p>
+   * @public
+   */
+  ModelDigests?: ModelDigests | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker AI assumes to perform the model compilation job.</p>
+   * @public
+   */
+  RoleArn: string | undefined;
+
+  /**
+   * <p>Information about the location in Amazon S3 of the input model artifacts, the name and shape of the expected data inputs, and the framework in which the model was trained.</p>
+   * @public
+   */
+  InputConfig: InputConfig | undefined;
+
+  /**
+   * <p>Information about the output location for the compiled model and the target device that the model runs on.</p>
+   * @public
+   */
+  OutputConfig: OutputConfig | undefined;
+
+  /**
+   * <p>A <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_VpcConfig.html">VpcConfig</a> object that specifies the VPC that you want your compilation job to connect to. Control access to your models by configuring the VPC. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/neo-vpc.html">Protect Compilation Jobs by Using an Amazon Virtual Private Cloud</a>.</p>
+   * @public
+   */
+  VpcConfig?: NeoVpcConfig | undefined;
+
+  /**
+   * <p>Information that SageMaker Neo automatically derived about the model.</p>
+   * @public
+   */
+  DerivedInformation?: DerivedInformation | undefined;
+}
 
 /**
  * @public
@@ -8937,6 +9057,12 @@ export interface DomainSettingsForUpdate {
   SecurityGroupIds?: string[] | undefined;
 
   /**
+   * <p>The Trusted Identity Propagation (TIP) settings for the SageMaker domain. These settings determine how user identities from IAM Identity Center are propagated through the domain to TIP enabled Amazon Web Services services.</p>
+   * @public
+   */
+  TrustedIdentityPropagationSettings?: TrustedIdentityPropagationSettings | undefined;
+
+  /**
    * <p>A collection of settings that configure the domain's Docker interaction.</p>
    * @public
    */
@@ -10495,60 +10621,6 @@ export const HubContentSortBy = {
  * @public
  */
 export type HubContentSortBy = (typeof HubContentSortBy)[keyof typeof HubContentSortBy];
-
-/**
- * <p>Information about a hub.</p>
- * @public
- */
-export interface HubInfo {
-  /**
-   * <p>The name of the hub.</p>
-   * @public
-   */
-  HubName: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the hub.</p>
-   * @public
-   */
-  HubArn: string | undefined;
-
-  /**
-   * <p>The display name of the hub.</p>
-   * @public
-   */
-  HubDisplayName?: string | undefined;
-
-  /**
-   * <p>A description of the hub.</p>
-   * @public
-   */
-  HubDescription?: string | undefined;
-
-  /**
-   * <p>The searchable keywords for the hub.</p>
-   * @public
-   */
-  HubSearchKeywords?: string[] | undefined;
-
-  /**
-   * <p>The status of the hub.</p>
-   * @public
-   */
-  HubStatus: HubStatus | undefined;
-
-  /**
-   * <p>The date and time that the hub was created.</p>
-   * @public
-   */
-  CreationTime: Date | undefined;
-
-  /**
-   * <p>The date and time that the hub was last modified.</p>
-   * @public
-   */
-  LastModifiedTime: Date | undefined;
-}
 
 /**
  * @internal

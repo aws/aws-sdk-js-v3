@@ -1394,7 +1394,6 @@ import {
   MetadataProperties,
   MlTools,
   ModelBiasAppSpecification,
-  ModelBiasBaselineConfig,
   ModelDeployConfig,
   ModelInfrastructureConfig,
   ModelLatencyThreshold,
@@ -1458,6 +1457,7 @@ import {
   ThroughputConfig,
   TrafficPattern,
   TrainingSpecification,
+  TrustedIdentityPropagationSettings,
   TtlDuration,
   TuningJobCompletionCriteria,
   UiConfig,
@@ -1639,7 +1639,6 @@ import {
   DescribeCodeRepositoryInput,
   DescribeCodeRepositoryOutput,
   DescribeCompilationJobRequest,
-  DescribeCompilationJobResponse,
   DriftCheckBaselines,
   DriftCheckBias,
   DriftCheckExplainability,
@@ -1657,6 +1656,7 @@ import {
   InstanceMetadataServiceConfiguration,
   MemberDefinition,
   ModelArtifacts,
+  ModelBiasBaselineConfig,
   ModelBiasJobInput,
   ModelCardExportOutputConfig,
   ModelCardSecurityConfig,
@@ -1743,6 +1743,7 @@ import {
   WorkforceVpcConfigRequest,
 } from "../models/models_2";
 import {
+  DescribeCompilationJobResponse,
   DescribeComputeQuotaRequest,
   DescribeComputeQuotaResponse,
   DescribeContextRequest,
@@ -1917,7 +1918,6 @@ import {
   GitConfigForUpdate,
   HubContentDependency,
   HubContentInfo,
-  HubInfo,
   HyperParameterTrainingJobSummary,
   HyperParameterTuningJobCompletionDetails,
   HyperParameterTuningJobConsumedResources,
@@ -1984,6 +1984,7 @@ import {
   Workteam,
 } from "../models/models_3";
 import {
+  HubInfo,
   HumanTaskUiSummary,
   HyperParameterTuningJobSearchEntity,
   HyperParameterTuningJobSummary,
@@ -2166,7 +2167,6 @@ import {
   ListUserProfilesRequest,
   ListUserProfilesResponse,
   ListWorkforcesRequest,
-  ListWorkforcesResponse,
   ModelCardExportJobSummary,
   ModelCardSummary,
   ModelCardVersionSummary,
@@ -2220,6 +2220,7 @@ import {
   UserProfileDetails,
 } from "../models/models_4";
 import {
+  ListWorkforcesResponse,
   ListWorkteamsRequest,
   ListWorkteamsResponse,
   Model,
@@ -18024,6 +18025,8 @@ const se_TrialComponentParameterValue = (input: TrialComponentParameterValue, co
 
 // se_TrialComponentStatus omitted.
 
+// se_TrustedIdentityPropagationSettings omitted.
+
 // se_TtlDuration omitted.
 
 /**
@@ -22137,6 +22140,7 @@ const de_DescribeAppResponse = (output: any, context: __SerdeContext): DescribeA
     BuiltInLifecycleConfigArn: __expectString,
     CreationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     DomainId: __expectString,
+    EffectiveTrustedIdentityPropagationStatus: __expectString,
     FailureReason: __expectString,
     LastHealthCheckTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     LastUserActivityTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
@@ -23784,6 +23788,7 @@ const de_DomainSettings = (output: any, context: __SerdeContext): DomainSettings
     ExecutionRoleIdentityConfig: __expectString,
     RStudioServerProDomainSettings: (_: any) => de_RStudioServerProDomainSettings(_, context),
     SecurityGroupIds: (_: any) => de_DomainSecurityGroupIds(_, context),
+    TrustedIdentityPropagationSettings: (_: any) => de_TrustedIdentityPropagationSettings(_, context),
     UnifiedStudioSettings: (_: any) => de_UnifiedStudioSettings(_, context),
   }) as any;
 };
@@ -32940,6 +32945,18 @@ const de_TrialSummary = (output: any, context: __SerdeContext): TrialSummary => 
     TrialArn: __expectString,
     TrialName: __expectString,
     TrialSource: (_: any) => de_TrialSource(_, context),
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1TrustedIdentityPropagationSettings
+ */
+const de_TrustedIdentityPropagationSettings = (
+  output: any,
+  context: __SerdeContext
+): TrustedIdentityPropagationSettings => {
+  return take(output, {
+    Status: __expectString,
   }) as any;
 };
 

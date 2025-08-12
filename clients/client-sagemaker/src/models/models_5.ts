@@ -179,6 +179,23 @@ import {
 
 /**
  * @public
+ */
+export interface ListWorkforcesResponse {
+  /**
+   * <p>A list containing information about your workforce.</p>
+   * @public
+   */
+  Workforces: Workforce[] | undefined;
+
+  /**
+   * <p>A token to resume pagination.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
  * @enum
  */
 export const ListWorkteamsSortByOptions = {
