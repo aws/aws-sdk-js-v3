@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.866.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.865.0...v3.866.0) (2025-08-12)
+
+
+### Features
+
+* **client-backupsearch:** Using recommended smithy trait to generate regional endpoints for Backup Search ([6e6a0a6](https://github.com/aws/aws-sdk-js-v3/commit/6e6a0a6e306888f80cfc95830de6a0b2bcd45b38))
+* **client-codebuild:** AWS CodeBuild now supports PullRequestBuildPolicy in webhook object. ([12e8017](https://github.com/aws/aws-sdk-js-v3/commit/12e80176dfdb4e9f52ffc5654cc874e4b0321e86))
+* **client-ec2:** Release to allow route table association with a PublicIpv4Pool. ([c62fd16](https://github.com/aws/aws-sdk-js-v3/commit/c62fd16991154bf8924f10981cfcd7d090e863be))
+* **client-organizations:** This release introduces 2 new APIs in Organizations: 1. ListAccountsWithInvalidEffectivePolicy 2. ListEffectivePolicyValidationErrors ([a4680a4](https://github.com/aws/aws-sdk-js-v3/commit/a4680a4f5298061143f3cdaad4afd0a44195648c))
+* **client-sagemaker:** IAM Identity Center trusted identity propagation is now supported in SageMaker Studio. ([acfa7e4](https://github.com/aws/aws-sdk-js-v3/commit/acfa7e4e69ab958d77ecd947fa78d91c4e54f350))
+* **client-transcribe-streaming:** AWS HealthScribe now supports specifying preferred patient pronouns through the MedicalScribeContext parameter for use in the generated clinical notes. ([af5dd74](https://github.com/aws/aws-sdk-js-v3/commit/af5dd74e0fd6786cac4bea08cf70897f7c37f558))
+* **client-transcribe:** AWS HealthScribe now supports specifying preferred patient pronouns through the MedicalScribeContext parameter for use in the generated clinical notes. ([9e823ef](https://github.com/aws/aws-sdk-js-v3/commit/9e823ef26c0d0b559a979a8277a057a4f8fe0392))
+* **clients:** update client endpoints as of 2025-08-12 ([4af70ae](https://github.com/aws/aws-sdk-js-v3/commit/4af70ae0edc749f8fb0e8719662da8cee7cbf6c3))
+
+
+
+
+
 # [3.865.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.864.0...v3.865.0) (2025-08-11)
 
 

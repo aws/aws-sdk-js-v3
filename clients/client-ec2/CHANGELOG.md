@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.866.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.865.0...v3.866.0) (2025-08-12)
+
+
+### Features
+
+* **client-ec2:** Release to allow route table association with a PublicIpv4Pool. ([c62fd16](https://github.com/aws/aws-sdk-js-v3/commit/c62fd16991154bf8924f10981cfcd7d090e863be))
+
+
+
+
+
 # [3.865.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.864.0...v3.865.0) (2025-08-11)
 
 
