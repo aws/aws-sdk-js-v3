@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
+import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@smithy/smithy-client";
 
 import { TranscribeServiceException as __BaseException } from "./TranscribeServiceException";
 
@@ -2858,7 +2858,13 @@ export interface MedicalScribeJob {
   ChannelDefinitions?: MedicalScribeChannelDefinition[] | undefined;
 
   /**
-   * <p>Adds one or more custom tags, each in the form of a key:value pair, to the Medica Scribe job.</p>
+   * <p>Indicates whether the <code>MedicalScribeContext</code> object was provided when the Medical Scribe job was started.</p>
+   * @public
+   */
+  MedicalScribeContextProvided?: boolean | undefined;
+
+  /**
+   * <p>Adds one or more custom tags, each in the form of a key:value pair, to the Medical Scribe job.</p>
    *          <p>To learn more about using tags with Amazon Transcribe, refer to <a href="https://docs.aws.amazon.com/transcribe/latest/dg/tagging.html">Tagging
    *                 resources</a>.</p>
    * @public
@@ -4918,6 +4924,46 @@ export interface ListVocabularyFiltersResponse {
 
 /**
  * @public
+ * @enum
+ */
+export const Pronouns = {
+  HE_HIM: "HE_HIM",
+  SHE_HER: "SHE_HER",
+  THEY_THEM: "THEY_THEM",
+} as const;
+
+/**
+ * @public
+ */
+export type Pronouns = (typeof Pronouns)[keyof typeof Pronouns];
+
+/**
+ * <p>Contains patient-specific information used to customize the clinical note generation.</p>
+ * @public
+ */
+export interface MedicalScribePatientContext {
+  /**
+   * <p>The patient's preferred pronouns that the user wants to provide as a context for clinical note generation.</p>
+   * @public
+   */
+  Pronouns?: Pronouns | undefined;
+}
+
+/**
+ * <p>The <code>MedicalScribeContext</code> object that contains contextual information used to generate
+ *             customized clinical notes.</p>
+ * @public
+ */
+export interface MedicalScribeContext {
+  /**
+   * <p>Contains patient-specific information.</p>
+   * @public
+   */
+  PatientContext?: MedicalScribePatientContext | undefined;
+}
+
+/**
+ * @public
  */
 export interface StartCallAnalyticsJobRequest {
   /**
@@ -4964,17 +5010,49 @@ export interface StartCallAnalyticsJobRequest {
   OutputLocation?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of a KMS key that you want to use to
-   *             encrypt your Call Analytics output.</p>
-   *          <p>KMS key ARNs have the format <code>arn:partition:kms:region:account:key/key-id</code>. For example:
-   *     	<code>arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code>.
-   *             For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN">
-   *                 KMS key ARNs</a>.</p>
+   * <p>The KMS key you want to use to encrypt your Call Analytics
+   *             output.</p>
+   *          <p>If using a key located in the <b>current</b>
+   *             Amazon Web Services account, you can specify your KMS key in one of four
+   *             ways:</p>
+   *          <ol>
+   *             <li>
+   *                <p>Use the KMS key ID itself. For example,
+   *                         <code>1234abcd-12ab-34cd-56ef-1234567890ab</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>Use an alias for the KMS key ID. For example,
+   *                         <code>alias/ExampleAlias</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>Use the Amazon Resource Name (ARN) for the KMS key ID. For
+   *                     example,
+   *                         <code>arn:aws:kms:region:account-ID:key/1234abcd-12ab-34cd-56ef-1234567890ab</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>Use the ARN for the KMS key alias. For example,
+   *                         <code>arn:aws:kms:region:account-ID:alias/ExampleAlias</code>.</p>
+   *             </li>
+   *          </ol>
+   *          <p>If using a key located in a <b>different</b>
+   *             Amazon Web Services account than the current Amazon Web Services account, you can specify
+   *             your KMS key in one of two ways:</p>
+   *          <ol>
+   *             <li>
+   *                <p>Use the ARN for the KMS key ID. For example,
+   *                         <code>arn:aws:kms:region:account-ID:key/1234abcd-12ab-34cd-56ef-1234567890ab</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>Use the ARN for the KMS key alias. For example,
+   *                         <code>arn:aws:kms:region:account-ID:alias/ExampleAlias</code>.</p>
+   *             </li>
+   *          </ol>
    *          <p>If you do not specify an encryption key, your output is encrypted with the default
-   *             Amazon S3 key (SSE-S3).</p>
-   *          <p>Note that the role making the  request and the role specified in
-   * 		the <code>DataAccessRoleArn</code> request parameter (if present) must have permission to use the
-   * 		specified KMS key.</p>
+   *                 Amazon S3 key (SSE-S3).</p>
+   *          <p>If you specify a KMS key to encrypt your output, you must also specify
+   *             an output location using the <code>OutputLocation</code> parameter.</p>
+   *          <p>Note that the role making the  request must
+   *             have permission to use the specified KMS key.</p>
    * @public
    */
   OutputEncryptionKMSKeyId?: string | undefined;
@@ -5065,17 +5143,47 @@ export interface StartMedicalScribeJobRequest {
   OutputBucketName: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of a KMS key that you want to use to
-   *             encrypt your Medical Scribe output.</p>
-   *          <p>KMS key ARNs have the format <code>arn:partition:kms:region:account:key/key-id</code>. For example:
-   * 		<code>arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code>.
-   *             	For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN">
-   *                 KMS key ARNs</a>.</p>
+   * <p>The KMS key you want to use to encrypt your Medical Scribe
+   *             output.</p>
+   *          <p>If using a key located in the <b>current</b>
+   *             Amazon Web Services account, you can specify your KMS key in one of four
+   *             ways:</p>
+   *          <ol>
+   *             <li>
+   *                <p>Use the KMS key ID itself. For example,
+   *                         <code>1234abcd-12ab-34cd-56ef-1234567890ab</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>Use an alias for the KMS key ID. For example,
+   *                         <code>alias/ExampleAlias</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>Use the Amazon Resource Name (ARN) for the KMS key ID. For
+   *                     example,
+   *                         <code>arn:aws:kms:region:account-ID:key/1234abcd-12ab-34cd-56ef-1234567890ab</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>Use the ARN for the KMS key alias. For example,
+   *                         <code>arn:aws:kms:region:account-ID:alias/ExampleAlias</code>.</p>
+   *             </li>
+   *          </ol>
+   *          <p>If using a key located in a <b>different</b>
+   *             Amazon Web Services account than the current Amazon Web Services account, you can specify
+   *             your KMS key in one of two ways:</p>
+   *          <ol>
+   *             <li>
+   *                <p>Use the ARN for the KMS key ID. For example,
+   *                         <code>arn:aws:kms:region:account-ID:key/1234abcd-12ab-34cd-56ef-1234567890ab</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>Use the ARN for the KMS key alias. For example,
+   *                         <code>arn:aws:kms:region:account-ID:alias/ExampleAlias</code>.</p>
+   *             </li>
+   *          </ol>
    *          <p>If you do not specify an encryption key, your output is encrypted with the default
    *                 Amazon S3 key (SSE-S3).</p>
-   *          <p>Note that the role making the  request and the role specified in
-   * 		the <code>DataAccessRoleArn</code> request parameter (if present)
-   * 		must have permission to use the specified KMS key.</p>
+   *          <p>Note that the role specified in the <code>DataAccessRoleArn</code> request parameter
+   *             must have permission to use the specified KMS key.</p>
    * @public
    */
   OutputEncryptionKMSKeyId?: string | undefined;
@@ -5128,12 +5236,19 @@ export interface StartMedicalScribeJobRequest {
   ChannelDefinitions?: MedicalScribeChannelDefinition[] | undefined;
 
   /**
-   * <p>Adds one or more custom tags, each in the form of a key:value pair, to the Medica Scribe job.</p>
+   * <p>Adds one or more custom tags, each in the form of a key:value pair, to the Medical Scribe job.</p>
    *          <p>To learn more about using tags with Amazon Transcribe, refer to <a href="https://docs.aws.amazon.com/transcribe/latest/dg/tagging.html">Tagging
    *                 resources</a>.</p>
    * @public
    */
   Tags?: Tag[] | undefined;
+
+  /**
+   * <p>The <code>MedicalScribeContext</code> object that contains contextual information which is used during
+   *             clinical note generation to add relevant context to the note.</p>
+   * @public
+   */
+  MedicalScribeContext?: MedicalScribeContext | undefined;
 }
 
 /**
@@ -5258,17 +5373,49 @@ export interface StartMedicalTranscriptionJobRequest {
   OutputKey?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of a KMS key that you want to use to
-   *             encrypt your medical transcription output.</p>
-   *          <p>KMS key ARNs have the format <code>arn:partition:kms:region:account:key/key-id</code>. For example:
-   *     	<code>arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code>.
-   *             For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN">
-   *                 KMS key ARNs</a>.</p>
+   * <p>The KMS key you want to use to encrypt your medical transcription
+   *             output.</p>
+   *          <p>If using a key located in the <b>current</b>
+   *             Amazon Web Services account, you can specify your KMS key in one of four
+   *             ways:</p>
+   *          <ol>
+   *             <li>
+   *                <p>Use the KMS key ID itself. For example,
+   *                         <code>1234abcd-12ab-34cd-56ef-1234567890ab</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>Use an alias for the KMS key ID. For example,
+   *                         <code>alias/ExampleAlias</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>Use the Amazon Resource Name (ARN) for the KMS key ID. For
+   *                     example,
+   *                         <code>arn:aws:kms:region:account-ID:key/1234abcd-12ab-34cd-56ef-1234567890ab</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>Use the ARN for the KMS key alias. For example,
+   *                         <code>arn:aws:kms:region:account-ID:alias/ExampleAlias</code>.</p>
+   *             </li>
+   *          </ol>
+   *          <p>If using a key located in a <b>different</b>
+   *             Amazon Web Services account than the current Amazon Web Services account, you can specify
+   *             your KMS key in one of two ways:</p>
+   *          <ol>
+   *             <li>
+   *                <p>Use the ARN for the KMS key ID. For example,
+   *                         <code>arn:aws:kms:region:account-ID:key/1234abcd-12ab-34cd-56ef-1234567890ab</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>Use the ARN for the KMS key alias. For example,
+   *                         <code>arn:aws:kms:region:account-ID:alias/ExampleAlias</code>.</p>
+   *             </li>
+   *          </ol>
    *          <p>If you do not specify an encryption key, your output is encrypted with the default
-   *             Amazon S3 key (SSE-S3).</p>
-   *          <p>Note that the role making the  request and the role specified
-   *     		in the <code>DataAccessRoleArn</code> request parameter (if present) must have permission to use the
-   * 		specified KMS key.</p>
+   *                 Amazon S3 key (SSE-S3).</p>
+   *          <p>If you specify a KMS key to encrypt your output, you must also specify
+   *             an output location using the <code>OutputLocation</code> parameter.</p>
+   *          <p>Note that the role making the  request must
+   *             have permission to use the specified KMS key.</p>
    * @public
    */
   OutputEncryptionKMSKeyId?: string | undefined;
@@ -5481,17 +5628,49 @@ export interface StartTranscriptionJobRequest {
   OutputKey?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of a KMS key that you want to use to
-   *             encrypt your transcription output.</p>
-   *          <p>KMS key ARNs have the format <code>arn:partition:kms:region:account:key/key-id</code>. For example:
-   *     	<code>arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code>.
-   *             For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN">
-   *                 KMS key ARNs</a>.</p>
+   * <p>The KMS key you want to use to encrypt your transcription
+   *             output.</p>
+   *          <p>If using a key located in the <b>current</b>
+   *             Amazon Web Services account, you can specify your KMS key in one of four
+   *             ways:</p>
+   *          <ol>
+   *             <li>
+   *                <p>Use the KMS key ID itself. For example,
+   *                         <code>1234abcd-12ab-34cd-56ef-1234567890ab</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>Use an alias for the KMS key ID. For example,
+   *                         <code>alias/ExampleAlias</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>Use the Amazon Resource Name (ARN) for the KMS key ID. For
+   *                     example,
+   *                         <code>arn:aws:kms:region:account-ID:key/1234abcd-12ab-34cd-56ef-1234567890ab</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>Use the ARN for the KMS key alias. For example,
+   *                         <code>arn:aws:kms:region:account-ID:alias/ExampleAlias</code>.</p>
+   *             </li>
+   *          </ol>
+   *          <p>If using a key located in a <b>different</b>
+   *             Amazon Web Services account than the current Amazon Web Services account, you can specify
+   *             your KMS key in one of two ways:</p>
+   *          <ol>
+   *             <li>
+   *                <p>Use the ARN for the KMS key ID. For example,
+   *                         <code>arn:aws:kms:region:account-ID:key/1234abcd-12ab-34cd-56ef-1234567890ab</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>Use the ARN for the KMS key alias. For example,
+   *                         <code>arn:aws:kms:region:account-ID:alias/ExampleAlias</code>.</p>
+   *             </li>
+   *          </ol>
    *          <p>If you do not specify an encryption key, your output is encrypted with the default
-   *             Amazon S3 key (SSE-S3).</p>
-   *          <p>Note that the role making the  request and the role specified in the
-   * 		<code>DataAccessRoleArn</code> request parameter (if present) must have permission to use the specified
-   * 		KMS key.</p>
+   *                 Amazon S3 key (SSE-S3).</p>
+   *          <p>If you specify a KMS key to encrypt your output, you must also specify
+   *             an output location using the <code>OutputLocation</code> parameter.</p>
+   *          <p>Note that the role making the  request must
+   *             have permission to use the specified KMS key.</p>
    * @public
    */
   OutputEncryptionKMSKeyId?: string | undefined;
@@ -6035,3 +6214,29 @@ export interface UpdateVocabularyFilterResponse {
    */
   LastModifiedTime?: Date | undefined;
 }
+
+/**
+ * @internal
+ */
+export const MedicalScribePatientContextFilterSensitiveLog = (obj: MedicalScribePatientContext): any => ({
+  ...obj,
+  ...(obj.Pronouns && { Pronouns: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const MedicalScribeContextFilterSensitiveLog = (obj: MedicalScribeContext): any => ({
+  ...obj,
+  ...(obj.PatientContext && { PatientContext: MedicalScribePatientContextFilterSensitiveLog(obj.PatientContext) }),
+});
+
+/**
+ * @internal
+ */
+export const StartMedicalScribeJobRequestFilterSensitiveLog = (obj: StartMedicalScribeJobRequest): any => ({
+  ...obj,
+  ...(obj.MedicalScribeContext && {
+    MedicalScribeContext: MedicalScribeContextFilterSensitiveLog(obj.MedicalScribeContext),
+  }),
+});

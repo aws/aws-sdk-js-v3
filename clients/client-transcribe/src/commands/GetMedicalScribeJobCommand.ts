@@ -82,6 +82,7 @@ export interface GetMedicalScribeJobCommandOutput extends GetMedicalScribeJobRes
  * //         ParticipantRole: "PATIENT" || "CLINICIAN", // required
  * //       },
  * //     ],
+ * //     MedicalScribeContextProvided: true || false,
  * //     Tags: [ // TagList
  * //       { // Tag
  * //         Key: "STRING_VALUE", // required

@@ -247,8 +247,10 @@ import {
   ListVocabularyFiltersResponse,
   Media,
   MedicalScribeChannelDefinition,
+  MedicalScribeContext,
   MedicalScribeJob,
   MedicalScribeJobSummary,
+  MedicalScribePatientContext,
   MedicalScribeSettings,
   MedicalTranscriptionJob,
   MedicalTranscriptionJobSummary,
@@ -1896,6 +1898,10 @@ const de_NotFoundExceptionRes = async (parsedOutput: any, context: __SerdeContex
 
 // se_MedicalScribeChannelDefinitions omitted.
 
+// se_MedicalScribeContext omitted.
+
+// se_MedicalScribePatientContext omitted.
+
 // se_MedicalScribeSettings omitted.
 
 // se_MedicalTranscriptionSetting omitted.
@@ -2397,6 +2403,7 @@ const de_MedicalScribeJob = (output: any, context: __SerdeContext): MedicalScrib
     FailureReason: __expectString,
     LanguageCode: __expectString,
     Media: _json,
+    MedicalScribeContextProvided: __expectBoolean,
     MedicalScribeJobName: __expectString,
     MedicalScribeJobStatus: __expectString,
     MedicalScribeOutput: _json,
