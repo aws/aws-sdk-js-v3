@@ -2642,7 +2642,7 @@ export const se_CreateComputeQuotaCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("CreateComputeQuota");
   let body: any;
-  body = JSON.stringify(_json(input));
+  body = JSON.stringify(se_CreateComputeQuotaRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -6721,7 +6721,7 @@ export const se_UpdateComputeQuotaCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("UpdateComputeQuota");
   let body: any;
-  body = JSON.stringify(_json(input));
+  body = JSON.stringify(se_UpdateComputeQuotaRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -14775,11 +14775,40 @@ const se_BatchTransformInput = (input: BatchTransformInput, context: __SerdeCont
 
 // se_CompressionTypes omitted.
 
-// se_ComputeQuotaConfig omitted.
+/**
+ * serializeAws_json1_1ComputeQuotaConfig
+ */
+const se_ComputeQuotaConfig = (input: ComputeQuotaConfig, context: __SerdeContext): any => {
+  return take(input, {
+    ComputeQuotaResources: (_) => se_ComputeQuotaResourceConfigList(_, context),
+    PreemptTeamTasks: [],
+    ResourceSharingConfig: _json,
+  });
+};
 
-// se_ComputeQuotaResourceConfig omitted.
+/**
+ * serializeAws_json1_1ComputeQuotaResourceConfig
+ */
+const se_ComputeQuotaResourceConfig = (input: ComputeQuotaResourceConfig, context: __SerdeContext): any => {
+  return take(input, {
+    Accelerators: [],
+    Count: [],
+    InstanceType: [],
+    MemoryInGiB: __serializeFloat,
+    VCpu: __serializeFloat,
+  });
+};
 
-// se_ComputeQuotaResourceConfigList omitted.
+/**
+ * serializeAws_json1_1ComputeQuotaResourceConfigList
+ */
+const se_ComputeQuotaResourceConfigList = (input: ComputeQuotaResourceConfig[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return se_ComputeQuotaResourceConfig(entry, context);
+    });
+};
 
 // se_ComputeQuotaTarget omitted.
 
@@ -14862,7 +14891,20 @@ const se_CreateAutoMLJobV2Request = (input: CreateAutoMLJobV2Request, context: _
 
 // se_CreateCompilationJobRequest omitted.
 
-// se_CreateComputeQuotaRequest omitted.
+/**
+ * serializeAws_json1_1CreateComputeQuotaRequest
+ */
+const se_CreateComputeQuotaRequest = (input: CreateComputeQuotaRequest, context: __SerdeContext): any => {
+  return take(input, {
+    ActivationState: [],
+    ClusterArn: [],
+    ComputeQuotaConfig: (_) => se_ComputeQuotaConfig(_, context),
+    ComputeQuotaTarget: _json,
+    Description: [],
+    Name: [],
+    Tags: _json,
+  });
+};
 
 // se_CreateContextRequest omitted.
 
@@ -18064,7 +18106,19 @@ const se_TuningJobCompletionCriteria = (input: TuningJobCompletionCriteria, cont
 
 // se_UpdateCodeRepositoryInput omitted.
 
-// se_UpdateComputeQuotaRequest omitted.
+/**
+ * serializeAws_json1_1UpdateComputeQuotaRequest
+ */
+const se_UpdateComputeQuotaRequest = (input: UpdateComputeQuotaRequest, context: __SerdeContext): any => {
+  return take(input, {
+    ActivationState: [],
+    ComputeQuotaConfig: (_) => se_ComputeQuotaConfig(_, context),
+    ComputeQuotaId: [],
+    ComputeQuotaTarget: _json,
+    Description: [],
+    TargetVersion: [],
+  });
+};
 
 // se_UpdateContextRequest omitted.
 
@@ -20557,8 +20611,11 @@ const de_ComputeQuotaConfig = (output: any, context: __SerdeContext): ComputeQuo
  */
 const de_ComputeQuotaResourceConfig = (output: any, context: __SerdeContext): ComputeQuotaResourceConfig => {
   return take(output, {
+    Accelerators: __expectInt32,
     Count: __expectInt32,
     InstanceType: __expectString,
+    MemoryInGiB: __limitedParseFloat32,
+    VCpu: __limitedParseFloat32,
   }) as any;
 };
 
