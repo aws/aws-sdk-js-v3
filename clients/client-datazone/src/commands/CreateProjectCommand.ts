@@ -52,6 +52,11 @@ export interface CreateProjectCommandOutput extends CreateProjectOutput, __Metad
  *   userParameters: [ // EnvironmentConfigurationUserParametersList
  *     { // EnvironmentConfigurationUserParameter
  *       environmentId: "STRING_VALUE",
+ *       environmentResolvedAccount: { // EnvironmentResolvedAccount
+ *         awsAccountId: "STRING_VALUE", // required
+ *         regionName: "STRING_VALUE", // required
+ *         sourceAccountPoolId: "STRING_VALUE",
+ *       },
  *       environmentConfigurationName: "STRING_VALUE",
  *       environmentParameters: [ // EnvironmentParametersList
  *         { // EnvironmentParameter
@@ -87,6 +92,11 @@ export interface CreateProjectCommandOutput extends CreateProjectOutput, __Metad
  * //   userParameters: [ // EnvironmentConfigurationUserParametersList
  * //     { // EnvironmentConfigurationUserParameter
  * //       environmentId: "STRING_VALUE",
+ * //       environmentResolvedAccount: { // EnvironmentResolvedAccount
+ * //         awsAccountId: "STRING_VALUE", // required
+ * //         regionName: "STRING_VALUE", // required
+ * //         sourceAccountPoolId: "STRING_VALUE",
+ * //       },
  * //       environmentConfigurationName: "STRING_VALUE",
  * //       environmentParameters: [ // EnvironmentParametersList
  * //         { // EnvironmentParameter

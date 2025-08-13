@@ -69,6 +69,7 @@ import {
   CancelMetadataGenerationRunCommandOutput,
 } from "./commands/CancelMetadataGenerationRunCommand";
 import { CancelSubscriptionCommandInput, CancelSubscriptionCommandOutput } from "./commands/CancelSubscriptionCommand";
+import { CreateAccountPoolCommandInput, CreateAccountPoolCommandOutput } from "./commands/CreateAccountPoolCommand";
 import { CreateAssetCommandInput, CreateAssetCommandOutput } from "./commands/CreateAssetCommand";
 import { CreateAssetFilterCommandInput, CreateAssetFilterCommandOutput } from "./commands/CreateAssetFilterCommand";
 import {
@@ -125,6 +126,7 @@ import {
   CreateSubscriptionTargetCommandOutput,
 } from "./commands/CreateSubscriptionTargetCommand";
 import { CreateUserProfileCommandInput, CreateUserProfileCommandOutput } from "./commands/CreateUserProfileCommand";
+import { DeleteAccountPoolCommandInput, DeleteAccountPoolCommandOutput } from "./commands/DeleteAccountPoolCommand";
 import { DeleteAssetCommandInput, DeleteAssetCommandOutput } from "./commands/DeleteAssetCommand";
 import { DeleteAssetFilterCommandInput, DeleteAssetFilterCommandOutput } from "./commands/DeleteAssetFilterCommand";
 import { DeleteAssetTypeCommandInput, DeleteAssetTypeCommandOutput } from "./commands/DeleteAssetTypeCommand";
@@ -180,6 +182,7 @@ import {
   DisassociateEnvironmentRoleCommandInput,
   DisassociateEnvironmentRoleCommandOutput,
 } from "./commands/DisassociateEnvironmentRoleCommand";
+import { GetAccountPoolCommandInput, GetAccountPoolCommandOutput } from "./commands/GetAccountPoolCommand";
 import { GetAssetCommandInput, GetAssetCommandOutput } from "./commands/GetAssetCommand";
 import { GetAssetFilterCommandInput, GetAssetFilterCommandOutput } from "./commands/GetAssetFilterCommand";
 import { GetAssetTypeCommandInput, GetAssetTypeCommandOutput } from "./commands/GetAssetTypeCommand";
@@ -247,6 +250,11 @@ import {
   GetTimeSeriesDataPointCommandOutput,
 } from "./commands/GetTimeSeriesDataPointCommand";
 import { GetUserProfileCommandInput, GetUserProfileCommandOutput } from "./commands/GetUserProfileCommand";
+import { ListAccountPoolsCommandInput, ListAccountPoolsCommandOutput } from "./commands/ListAccountPoolsCommand";
+import {
+  ListAccountsInAccountPoolCommandInput,
+  ListAccountsInAccountPoolCommandOutput,
+} from "./commands/ListAccountsInAccountPoolCommand";
 import { ListAssetFiltersCommandInput, ListAssetFiltersCommandOutput } from "./commands/ListAssetFiltersCommand";
 import { ListAssetRevisionsCommandInput, ListAssetRevisionsCommandOutput } from "./commands/ListAssetRevisionsCommand";
 import { ListConnectionsCommandInput, ListConnectionsCommandOutput } from "./commands/ListConnectionsCommand";
@@ -358,6 +366,7 @@ import {
 } from "./commands/StartMetadataGenerationRunCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import { UpdateAccountPoolCommandInput, UpdateAccountPoolCommandOutput } from "./commands/UpdateAccountPoolCommand";
 import { UpdateAssetFilterCommandInput, UpdateAssetFilterCommandOutput } from "./commands/UpdateAssetFilterCommand";
 import { UpdateConnectionCommandInput, UpdateConnectionCommandOutput } from "./commands/UpdateConnectionCommand";
 import { UpdateDataSourceCommandInput, UpdateDataSourceCommandOutput } from "./commands/UpdateDataSourceCommand";
@@ -416,6 +425,7 @@ export type ServiceInputTypes =
   | AssociateEnvironmentRoleCommandInput
   | CancelMetadataGenerationRunCommandInput
   | CancelSubscriptionCommandInput
+  | CreateAccountPoolCommandInput
   | CreateAssetCommandInput
   | CreateAssetFilterCommandInput
   | CreateAssetRevisionCommandInput
@@ -442,6 +452,7 @@ export type ServiceInputTypes =
   | CreateSubscriptionRequestCommandInput
   | CreateSubscriptionTargetCommandInput
   | CreateUserProfileCommandInput
+  | DeleteAccountPoolCommandInput
   | DeleteAssetCommandInput
   | DeleteAssetFilterCommandInput
   | DeleteAssetTypeCommandInput
@@ -467,6 +478,7 @@ export type ServiceInputTypes =
   | DeleteSubscriptionTargetCommandInput
   | DeleteTimeSeriesDataPointsCommandInput
   | DisassociateEnvironmentRoleCommandInput
+  | GetAccountPoolCommandInput
   | GetAssetCommandInput
   | GetAssetFilterCommandInput
   | GetAssetTypeCommandInput
@@ -501,6 +513,8 @@ export type ServiceInputTypes =
   | GetSubscriptionTargetCommandInput
   | GetTimeSeriesDataPointCommandInput
   | GetUserProfileCommandInput
+  | ListAccountPoolsCommandInput
+  | ListAccountsInAccountPoolCommandInput
   | ListAssetFiltersCommandInput
   | ListAssetRevisionsCommandInput
   | ListConnectionsCommandInput
@@ -549,6 +563,7 @@ export type ServiceInputTypes =
   | StartMetadataGenerationRunCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
+  | UpdateAccountPoolCommandInput
   | UpdateAssetFilterCommandInput
   | UpdateConnectionCommandInput
   | UpdateDataSourceCommandInput
@@ -579,6 +594,7 @@ export type ServiceOutputTypes =
   | AssociateEnvironmentRoleCommandOutput
   | CancelMetadataGenerationRunCommandOutput
   | CancelSubscriptionCommandOutput
+  | CreateAccountPoolCommandOutput
   | CreateAssetCommandOutput
   | CreateAssetFilterCommandOutput
   | CreateAssetRevisionCommandOutput
@@ -605,6 +621,7 @@ export type ServiceOutputTypes =
   | CreateSubscriptionRequestCommandOutput
   | CreateSubscriptionTargetCommandOutput
   | CreateUserProfileCommandOutput
+  | DeleteAccountPoolCommandOutput
   | DeleteAssetCommandOutput
   | DeleteAssetFilterCommandOutput
   | DeleteAssetTypeCommandOutput
@@ -630,6 +647,7 @@ export type ServiceOutputTypes =
   | DeleteSubscriptionTargetCommandOutput
   | DeleteTimeSeriesDataPointsCommandOutput
   | DisassociateEnvironmentRoleCommandOutput
+  | GetAccountPoolCommandOutput
   | GetAssetCommandOutput
   | GetAssetFilterCommandOutput
   | GetAssetTypeCommandOutput
@@ -664,6 +682,8 @@ export type ServiceOutputTypes =
   | GetSubscriptionTargetCommandOutput
   | GetTimeSeriesDataPointCommandOutput
   | GetUserProfileCommandOutput
+  | ListAccountPoolsCommandOutput
+  | ListAccountsInAccountPoolCommandOutput
   | ListAssetFiltersCommandOutput
   | ListAssetRevisionsCommandOutput
   | ListConnectionsCommandOutput
@@ -712,6 +732,7 @@ export type ServiceOutputTypes =
   | StartMetadataGenerationRunCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
+  | UpdateAccountPoolCommandOutput
   | UpdateAssetFilterCommandOutput
   | UpdateConnectionCommandOutput
   | UpdateDataSourceCommandOutput

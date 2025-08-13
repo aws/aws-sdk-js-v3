@@ -73,6 +73,9 @@ export interface CreateProjectProfileCommandOutput extends CreateProjectProfileO
  *         awsAccountId: "STRING_VALUE",
  *         awsAccountIdPath: "STRING_VALUE",
  *       },
+ *       accountPools: [ // AccountPoolList
+ *         "STRING_VALUE",
+ *       ],
  *       awsRegion: { // Region Union: only one key present
  *         regionName: "STRING_VALUE",
  *         regionNamePath: "STRING_VALUE",
@@ -118,6 +121,9 @@ export interface CreateProjectProfileCommandOutput extends CreateProjectProfileO
  * //         awsAccountId: "STRING_VALUE",
  * //         awsAccountIdPath: "STRING_VALUE",
  * //       },
+ * //       accountPools: [ // AccountPoolList
+ * //         "STRING_VALUE",
+ * //       ],
  * //       awsRegion: { // Region Union: only one key present
  * //         regionName: "STRING_VALUE",
  * //         regionNamePath: "STRING_VALUE",

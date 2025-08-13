@@ -6,8 +6,8 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { DataZoneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataZoneClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { RejectPredictionsInput, RejectPredictionsOutput } from "../models/models_2";
-import { de_RejectPredictionsCommand, se_RejectPredictionsCommand } from "../protocols/Aws_restJson1";
+import { DeleteAccountPoolInput, DeleteAccountPoolOutput } from "../models/models_1";
+import { de_DeleteAccountPoolCommand, se_DeleteAccountPoolCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -17,64 +17,42 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link RejectPredictionsCommand}.
+ * The input for {@link DeleteAccountPoolCommand}.
  */
-export interface RejectPredictionsCommandInput extends RejectPredictionsInput {}
+export interface DeleteAccountPoolCommandInput extends DeleteAccountPoolInput {}
 /**
  * @public
  *
- * The output of {@link RejectPredictionsCommand}.
+ * The output of {@link DeleteAccountPoolCommand}.
  */
-export interface RejectPredictionsCommandOutput extends RejectPredictionsOutput, __MetadataBearer {}
+export interface DeleteAccountPoolCommandOutput extends DeleteAccountPoolOutput, __MetadataBearer {}
 
 /**
- * <p>Rejects automatically generated business-friendly metadata for your Amazon DataZone
- *          assets.</p>
+ * <p>Deletes an account pool.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DataZoneClient, RejectPredictionsCommand } from "@aws-sdk/client-datazone"; // ES Modules import
- * // const { DataZoneClient, RejectPredictionsCommand } = require("@aws-sdk/client-datazone"); // CommonJS import
+ * import { DataZoneClient, DeleteAccountPoolCommand } from "@aws-sdk/client-datazone"; // ES Modules import
+ * // const { DataZoneClient, DeleteAccountPoolCommand } = require("@aws-sdk/client-datazone"); // CommonJS import
  * const client = new DataZoneClient(config);
- * const input = { // RejectPredictionsInput
+ * const input = { // DeleteAccountPoolInput
  *   domainIdentifier: "STRING_VALUE", // required
  *   identifier: "STRING_VALUE", // required
- *   revision: "STRING_VALUE",
- *   rejectRule: { // RejectRule
- *     rule: "ALL" || "NONE",
- *     threshold: Number("float"),
- *   },
- *   rejectChoices: [ // RejectChoices
- *     { // RejectChoice
- *       predictionTarget: "STRING_VALUE", // required
- *       predictionChoices: [ // PredictionChoices
- *         Number("int"),
- *       ],
- *     },
- *   ],
- *   clientToken: "STRING_VALUE",
  * };
- * const command = new RejectPredictionsCommand(input);
+ * const command = new DeleteAccountPoolCommand(input);
  * const response = await client.send(command);
- * // { // RejectPredictionsOutput
- * //   domainId: "STRING_VALUE", // required
- * //   assetId: "STRING_VALUE", // required
- * //   assetRevision: "STRING_VALUE", // required
- * // };
+ * // {};
  *
  * ```
  *
- * @param RejectPredictionsCommandInput - {@link RejectPredictionsCommandInput}
- * @returns {@link RejectPredictionsCommandOutput}
- * @see {@link RejectPredictionsCommandInput} for command's `input` shape.
- * @see {@link RejectPredictionsCommandOutput} for command's `response` shape.
+ * @param DeleteAccountPoolCommandInput - {@link DeleteAccountPoolCommandInput}
+ * @returns {@link DeleteAccountPoolCommandOutput}
+ * @see {@link DeleteAccountPoolCommandInput} for command's `input` shape.
+ * @see {@link DeleteAccountPoolCommandOutput} for command's `response` shape.
  * @see {@link DataZoneClientResolvedConfig | config} for DataZoneClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
  *  <p>You do not have sufficient access to perform this action.</p>
- *
- * @throws {@link ConflictException} (client fault)
- *  <p>There is a conflict while performing this action.</p>
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>The request has failed because of an unknown error, exception or failure.</p>
@@ -97,10 +75,10 @@ export interface RejectPredictionsCommandOutput extends RejectPredictionsOutput,
  *
  * @public
  */
-export class RejectPredictionsCommand extends $Command
+export class DeleteAccountPoolCommand extends $Command
   .classBuilder<
-    RejectPredictionsCommandInput,
-    RejectPredictionsCommandOutput,
+    DeleteAccountPoolCommandInput,
+    DeleteAccountPoolCommandOutput,
     DataZoneClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -112,21 +90,21 @@ export class RejectPredictionsCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("DataZone", "RejectPredictions", {})
-  .n("DataZoneClient", "RejectPredictionsCommand")
+  .s("DataZone", "DeleteAccountPool", {})
+  .n("DataZoneClient", "DeleteAccountPoolCommand")
   .f(void 0, void 0)
-  .ser(se_RejectPredictionsCommand)
-  .de(de_RejectPredictionsCommand)
+  .ser(se_DeleteAccountPoolCommand)
+  .de(de_DeleteAccountPoolCommand)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: RejectPredictionsInput;
-      output: RejectPredictionsOutput;
+      input: DeleteAccountPoolInput;
+      output: {};
     };
     sdk: {
-      input: RejectPredictionsCommandInput;
-      output: RejectPredictionsCommandOutput;
+      input: DeleteAccountPoolCommandInput;
+      output: DeleteAccountPoolCommandOutput;
     };
   };
 }

@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { DataZoneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataZoneClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { RemovePolicyGrantInput, RemovePolicyGrantOutput } from "../models/models_1";
+import { RemovePolicyGrantInput, RemovePolicyGrantOutput } from "../models/models_2";
 import { de_RemovePolicyGrantCommand, se_RemovePolicyGrantCommand } from "../protocols/Aws_restJson1";
 
 /**

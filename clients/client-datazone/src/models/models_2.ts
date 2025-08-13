@@ -2,6 +2,8 @@
 import { SENSITIVE_STRING } from "@smithy/smithy-client";
 
 import {
+  AccountSource,
+  AccountSourceFilterSensitiveLog,
   ActionParameters,
   AggregationListItem,
   AggregationOutput,
@@ -21,6 +23,7 @@ import {
   ConnectionType,
   CustomParameter,
   CustomParameterFilterSensitiveLog,
+  DataZoneEntityType,
   Deployment,
   DeploymentProperties,
   EnvironmentConfiguration,
@@ -39,27 +42,30 @@ import {
   GlossaryStatus,
   GlossaryTermStatus,
   GroupProfileStatus,
+  ManagedPolicyType,
   MatchRationaleItem,
   Model,
+  OwnerProperties,
   PhysicalEndpoint,
   PhysicalEndpointFilterSensitiveLog,
+  PolicyGrantPrincipal,
   ProjectDeletionError,
   ProjectStatus,
   ProvisioningProperties,
+  ResolutionStrategy,
   Resource,
   RowFilterExpression,
   RuleAction,
   RuleDetail,
   RuleScope,
-  RuleTarget,
-  RuleTargetType,
-  RuleType,
   Status,
   SubscribedListing,
   SubscribedListingFilterSensitiveLog,
   SubscribedPrincipal,
   SubscribedPrincipalFilterSensitiveLog,
   SubscriptionRequestStatus,
+  SubscriptionStatus,
+  TargetEntityType,
   TermRelations,
 } from "./models_0";
 
@@ -72,16 +78,555 @@ import {
   GrantedEntity,
   Import,
   ImportFilterSensitiveLog,
+  RuleTarget,
+  RuleTargetType,
+  RuleType,
   SortOrder,
   SubscribedAsset,
   SubscriptionGrantOverallStatus,
   SubscriptionGrantStatus,
   SubscriptionTargetForm,
+  TimeSeriesDataPointFormOutput,
+  TimeSeriesEntityType,
   UserProfileDetails,
   UserProfileDetailsFilterSensitiveLog,
   UserProfileStatus,
   UserProfileType,
 } from "./models_1";
+
+/**
+ * @public
+ */
+export interface PostLineageEventOutput {
+  /**
+   * <p>The ID of the lineage event.</p>
+   * @public
+   */
+  id?: string | undefined;
+
+  /**
+   * <p>The ID of the domain.</p>
+   * @public
+   */
+  domainId?: string | undefined;
+}
+
+/**
+ * <p>The time series data points form.</p>
+ * @public
+ */
+export interface TimeSeriesDataPointFormInput {
+  /**
+   * <p>The name of the time series data points form.</p>
+   * @public
+   */
+  formName: string | undefined;
+
+  /**
+   * <p>The ID of the type of the time series data points form.</p>
+   * @public
+   */
+  typeIdentifier: string | undefined;
+
+  /**
+   * <p>The revision type of the time series data points form.</p>
+   * @public
+   */
+  typeRevision?: string | undefined;
+
+  /**
+   * <p>The timestamp of the time series data points form.</p>
+   * @public
+   */
+  timestamp: Date | undefined;
+
+  /**
+   * <p>The content of the time series data points form.</p>
+   * @public
+   */
+  content?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface PostTimeSeriesDataPointsInput {
+  /**
+   * <p>The ID of the Amazon DataZone domain in which you want to post time series data
+   *          points.</p>
+   * @public
+   */
+  domainIdentifier: string | undefined;
+
+  /**
+   * <p>The ID of the asset for which you want to post time series data points.</p>
+   * @public
+   */
+  entityIdentifier: string | undefined;
+
+  /**
+   * <p>The type of the asset for which you want to post data points.</p>
+   * @public
+   */
+  entityType: TimeSeriesEntityType | undefined;
+
+  /**
+   * <p>The forms that contain the data points that you want to post.</p>
+   * @public
+   */
+  forms: TimeSeriesDataPointFormInput[] | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier that is provided to ensure the idempotency of the
+   *          request.</p>
+   * @public
+   */
+  clientToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface PostTimeSeriesDataPointsOutput {
+  /**
+   * <p>The ID of the Amazon DataZone domain in which you want to post time series data
+   *          points.</p>
+   * @public
+   */
+  domainId?: string | undefined;
+
+  /**
+   * <p>The ID of the asset for which you want to post time series data points.</p>
+   * @public
+   */
+  entityId?: string | undefined;
+
+  /**
+   * <p>The type of the asset for which you want to post data points.</p>
+   * @public
+   */
+  entityType?: TimeSeriesEntityType | undefined;
+
+  /**
+   * <p>The forms that contain the data points that you have posted.</p>
+   * @public
+   */
+  forms?: TimeSeriesDataPointFormOutput[] | undefined;
+}
+
+/**
+ * <p>The details of the automatically generated business metadata that is rejected.</p>
+ * @public
+ */
+export interface RejectChoice {
+  /**
+   * <p>Specifies the target (for example, a column name) where a prediction can be
+   *          rejected.</p>
+   * @public
+   */
+  predictionTarget: string | undefined;
+
+  /**
+   * <p>Specifies the the automatically generated business metadata that can be rejected.</p>
+   * @public
+   */
+  predictionChoices?: number[] | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const RejectRuleBehavior = {
+  ALL: "ALL",
+  NONE: "NONE",
+} as const;
+
+/**
+ * @public
+ */
+export type RejectRuleBehavior = (typeof RejectRuleBehavior)[keyof typeof RejectRuleBehavior];
+
+/**
+ * <p>Specifies the rule and the threshold under which a prediction can be rejected.</p>
+ * @public
+ */
+export interface RejectRule {
+  /**
+   * <p>Specifies whether you want to reject the top prediction for all targets or none.</p>
+   * @public
+   */
+  rule?: RejectRuleBehavior | undefined;
+
+  /**
+   * <p>The confidence score that specifies the condition at which a prediction can be
+   *          rejected.</p>
+   * @public
+   */
+  threshold?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface RejectPredictionsInput {
+  /**
+   * <p>The identifier of the Amazon DataZone domain.</p>
+   * @public
+   */
+  domainIdentifier: string | undefined;
+
+  /**
+   * <p>The identifier of the prediction.</p>
+   * @public
+   */
+  identifier: string | undefined;
+
+  /**
+   * <p>The revision that is to be made to the asset.</p>
+   * @public
+   */
+  revision?: string | undefined;
+
+  /**
+   * <p>Specifies the rule (or the conditions) under which a prediction can be rejected.</p>
+   * @public
+   */
+  rejectRule?: RejectRule | undefined;
+
+  /**
+   * <p>Specifies the prediction (aka, the automatically generated piece of metadata) and the
+   *          target (for example, a column name) that can be rejected.</p>
+   * @public
+   */
+  rejectChoices?: RejectChoice[] | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier that is provided to ensure the idempotency of the
+   *          request.</p>
+   * @public
+   */
+  clientToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface RejectPredictionsOutput {
+  /**
+   * <p>The ID of the Amazon DataZone domain.</p>
+   * @public
+   */
+  domainId: string | undefined;
+
+  /**
+   * <p>The ID of the asset.</p>
+   * @public
+   */
+  assetId: string | undefined;
+
+  /**
+   * <p>The revision that is to be made to the asset.</p>
+   * @public
+   */
+  assetRevision: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface RejectSubscriptionRequestInput {
+  /**
+   * <p>The identifier of the Amazon DataZone domain in which the subscription request was
+   *          rejected.</p>
+   * @public
+   */
+  domainIdentifier: string | undefined;
+
+  /**
+   * <p>The identifier of the subscription request that was rejected.</p>
+   * @public
+   */
+  identifier: string | undefined;
+
+  /**
+   * <p>The decision comment of the rejected subscription request.</p>
+   * @public
+   */
+  decisionComment?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface RejectSubscriptionRequestOutput {
+  /**
+   * <p>The identifier of the subscription request that was rejected.</p>
+   * @public
+   */
+  id: string | undefined;
+
+  /**
+   * <p>The timestamp of when the subscription request was rejected.</p>
+   * @public
+   */
+  createdBy: string | undefined;
+
+  /**
+   * <p>The Amazon DataZone user who updated the subscription request.</p>
+   * @public
+   */
+  updatedBy?: string | undefined;
+
+  /**
+   * <p>The identifier of the Amazon DataZone domain in which the subscription request was
+   *          rejected.</p>
+   * @public
+   */
+  domainId: string | undefined;
+
+  /**
+   * <p>The status of the subscription request.</p>
+   * @public
+   */
+  status: SubscriptionRequestStatus | undefined;
+
+  /**
+   * <p>The timestamp of when the subscription request was rejected.</p>
+   * @public
+   */
+  createdAt: Date | undefined;
+
+  /**
+   * <p>The timestamp of when the subscription request was updated.</p>
+   * @public
+   */
+  updatedAt: Date | undefined;
+
+  /**
+   * <p>The reason for the subscription request.</p>
+   * @public
+   */
+  requestReason: string | undefined;
+
+  /**
+   * <p>The subscribed principals of the subscription request.</p>
+   * @public
+   */
+  subscribedPrincipals: SubscribedPrincipal[] | undefined;
+
+  /**
+   * <p>The subscribed listings of the subscription request.</p>
+   * @public
+   */
+  subscribedListings: SubscribedListing[] | undefined;
+
+  /**
+   * <p>The identifier of the subscription request reviewer.</p>
+   * @public
+   */
+  reviewerId?: string | undefined;
+
+  /**
+   * <p>The decision comment of the rejected subscription request.</p>
+   * @public
+   */
+  decisionComment?: string | undefined;
+
+  /**
+   * <p>The ID of the existing subscription.</p>
+   * @public
+   */
+  existingSubscriptionId?: string | undefined;
+
+  /**
+   * <p>Metadata forms included in the subscription request.</p>
+   * @public
+   */
+  metadataForms?: FormOutput[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface RemoveEntityOwnerInput {
+  /**
+   * <p>The ID of the domain where you want to remove an owner from an entity.</p>
+   * @public
+   */
+  domainIdentifier: string | undefined;
+
+  /**
+   * <p>The type of the entity from which you want to remove an owner.</p>
+   * @public
+   */
+  entityType: DataZoneEntityType | undefined;
+
+  /**
+   * <p>The ID of the entity from which you want to remove an owner.</p>
+   * @public
+   */
+  entityIdentifier: string | undefined;
+
+  /**
+   * <p>The owner that you want to remove from an entity.</p>
+   * @public
+   */
+  owner: OwnerProperties | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier that is provided to ensure the idempotency of the
+   *          request.</p>
+   * @public
+   */
+  clientToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface RemoveEntityOwnerOutput {}
+
+/**
+ * @public
+ */
+export interface RemovePolicyGrantInput {
+  /**
+   * <p>The ID of the domain where you want to remove a policy grant.</p>
+   * @public
+   */
+  domainIdentifier: string | undefined;
+
+  /**
+   * <p>The type of the entity from which you want to remove a policy grant.</p>
+   * @public
+   */
+  entityType: TargetEntityType | undefined;
+
+  /**
+   * <p>The ID of the entity from which you want to remove a policy grant.</p>
+   * @public
+   */
+  entityIdentifier: string | undefined;
+
+  /**
+   * <p>The type of the policy that you want to remove.</p>
+   * @public
+   */
+  policyType: ManagedPolicyType | undefined;
+
+  /**
+   * <p>The principal from which you want to remove a policy grant.</p>
+   * @public
+   */
+  principal: PolicyGrantPrincipal | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier that is provided to ensure the idempotency of the
+   *          request.</p>
+   * @public
+   */
+  clientToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface RemovePolicyGrantOutput {}
+
+/**
+ * @public
+ */
+export interface RevokeSubscriptionInput {
+  /**
+   * <p>The identifier of the Amazon DataZone domain where you want to revoke a subscription.</p>
+   * @public
+   */
+  domainIdentifier: string | undefined;
+
+  /**
+   * <p>The identifier of the revoked subscription.</p>
+   * @public
+   */
+  identifier: string | undefined;
+
+  /**
+   * <p>Specifies whether permissions are retained when the subscription is revoked.</p>
+   * @public
+   */
+  retainPermissions?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface RevokeSubscriptionOutput {
+  /**
+   * <p>The identifier of the revoked subscription.</p>
+   * @public
+   */
+  id: string | undefined;
+
+  /**
+   * <p>The identifier of the user who revoked the subscription.</p>
+   * @public
+   */
+  createdBy: string | undefined;
+
+  /**
+   * <p>The Amazon DataZone user who revoked the subscription.</p>
+   * @public
+   */
+  updatedBy?: string | undefined;
+
+  /**
+   * <p>The identifier of the Amazon DataZone domain where you want to revoke a subscription.</p>
+   * @public
+   */
+  domainId: string | undefined;
+
+  /**
+   * <p>The status of the revoked subscription.</p>
+   * @public
+   */
+  status: SubscriptionStatus | undefined;
+
+  /**
+   * <p>The timestamp of when the subscription was revoked.</p>
+   * @public
+   */
+  createdAt: Date | undefined;
+
+  /**
+   * <p>The timestamp of when the subscription was revoked.</p>
+   * @public
+   */
+  updatedAt: Date | undefined;
+
+  /**
+   * <p>The subscribed principal of the revoked subscription.</p>
+   * @public
+   */
+  subscribedPrincipal: SubscribedPrincipal | undefined;
+
+  /**
+   * <p>The subscribed listing of the revoked subscription.</p>
+   * @public
+   */
+  subscribedListing: SubscribedListing | undefined;
+
+  /**
+   * <p>The identifier of the subscription request for the revoked subscription.</p>
+   * @public
+   */
+  subscriptionRequestId?: string | undefined;
+
+  /**
+   * <p>Specifies whether permissions are retained when the subscription is revoked.</p>
+   * @public
+   */
+  retainPermissions?: boolean | undefined;
+}
 
 /**
  * @public
@@ -1508,6 +2053,122 @@ export interface UntagResourceRequest {
  * @public
  */
 export interface UntagResourceResponse {}
+
+/**
+ * @public
+ */
+export interface UpdateAccountPoolInput {
+  /**
+   * <p>The domain ID where the account pool that is to be updated lives.</p>
+   * @public
+   */
+  domainIdentifier: string | undefined;
+
+  /**
+   * <p>The ID of the account pool that is to be updated.</p>
+   * @public
+   */
+  identifier: string | undefined;
+
+  /**
+   * <p>The name of the account pool that is to be updated.</p>
+   * @public
+   */
+  name?: string | undefined;
+
+  /**
+   * <p>The description of the account pool that is to be udpated.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>The mechanism used to resolve the account selection from the account pool.</p>
+   * @public
+   */
+  resolutionStrategy?: ResolutionStrategy | undefined;
+
+  /**
+   * <p>The source of accounts for the account pool. In the current release, it's either a
+   *          static list of accounts provided by the customer or a custom Amazon Web Services Lambda
+   *          handler. </p>
+   * @public
+   */
+  accountSource?: AccountSource | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateAccountPoolOutput {
+  /**
+   * <p>The domain ID where the account pool that is to be updated lives.</p>
+   * @public
+   */
+  domainId?: string | undefined;
+
+  /**
+   * <p>The name of the account pool that is to be updated.</p>
+   * @public
+   */
+  name?: string | undefined;
+
+  /**
+   * <p>The ID of the account pool that is to be updated.</p>
+   * @public
+   */
+  id?: string | undefined;
+
+  /**
+   * <p>The description of the account pool that is to be udpated.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>The mechanism used to resolve the account selection from the account pool.</p>
+   * @public
+   */
+  resolutionStrategy?: ResolutionStrategy | undefined;
+
+  /**
+   * <p>The source of accounts for the account pool. In the current release, it's either a
+   *          static list of accounts provided by the customer or a custom Amazon Web Services Lambda
+   *          handler. </p>
+   * @public
+   */
+  accountSource: AccountSource | undefined;
+
+  /**
+   * <p>The user who created the account pool.</p>
+   * @public
+   */
+  createdBy: string | undefined;
+
+  /**
+   * <p>The timestamp at which the account pool was created.</p>
+   * @public
+   */
+  createdAt?: Date | undefined;
+
+  /**
+   * <p>The timestamp at which the account pool was last updated.</p>
+   * @public
+   */
+  lastUpdatedAt?: Date | undefined;
+
+  /**
+   * <p>The user who last updated the account pool.</p>
+   * @public
+   */
+  updatedBy?: string | undefined;
+
+  /**
+   * <p>The domain ID in which the account pool that is to be updated lives.</p>
+   * @public
+   */
+  domainUnitId?: string | undefined;
+}
 
 /**
  * @public
@@ -3537,6 +4198,41 @@ export interface UpdateAssetFilterOutput {
 /**
  * @internal
  */
+export const RejectSubscriptionRequestInputFilterSensitiveLog = (obj: RejectSubscriptionRequestInput): any => ({
+  ...obj,
+  ...(obj.decisionComment && { decisionComment: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const RejectSubscriptionRequestOutputFilterSensitiveLog = (obj: RejectSubscriptionRequestOutput): any => ({
+  ...obj,
+  ...(obj.requestReason && { requestReason: SENSITIVE_STRING }),
+  ...(obj.subscribedPrincipals && {
+    subscribedPrincipals: obj.subscribedPrincipals.map((item) => SubscribedPrincipalFilterSensitiveLog(item)),
+  }),
+  ...(obj.subscribedListings && {
+    subscribedListings: obj.subscribedListings.map((item) => SubscribedListingFilterSensitiveLog(item)),
+  }),
+  ...(obj.decisionComment && { decisionComment: SENSITIVE_STRING }),
+  ...(obj.metadataForms && { metadataForms: obj.metadataForms.map((item) => FormOutputFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const RevokeSubscriptionOutputFilterSensitiveLog = (obj: RevokeSubscriptionOutput): any => ({
+  ...obj,
+  ...(obj.subscribedPrincipal && {
+    subscribedPrincipal: SubscribedPrincipalFilterSensitiveLog(obj.subscribedPrincipal),
+  }),
+  ...(obj.subscribedListing && { subscribedListing: SubscribedListingFilterSensitiveLog(obj.subscribedListing) }),
+});
+
+/**
+ * @internal
+ */
 export const GetRuleOutputFilterSensitiveLog = (obj: GetRuleOutput): any => ({
   ...obj,
   ...(obj.name && { name: SENSITIVE_STRING }),
@@ -3734,6 +4430,26 @@ export const UserProfileSummaryFilterSensitiveLog = (obj: UserProfileSummary): a
 export const SearchUserProfilesOutputFilterSensitiveLog = (obj: SearchUserProfilesOutput): any => ({
   ...obj,
   ...(obj.items && { items: obj.items.map((item) => UserProfileSummaryFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateAccountPoolInputFilterSensitiveLog = (obj: UpdateAccountPoolInput): any => ({
+  ...obj,
+  ...(obj.name && { name: SENSITIVE_STRING }),
+  ...(obj.description && { description: SENSITIVE_STRING }),
+  ...(obj.accountSource && { accountSource: AccountSourceFilterSensitiveLog(obj.accountSource) }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateAccountPoolOutputFilterSensitiveLog = (obj: UpdateAccountPoolOutput): any => ({
+  ...obj,
+  ...(obj.name && { name: SENSITIVE_STRING }),
+  ...(obj.description && { description: SENSITIVE_STRING }),
+  ...(obj.accountSource && { accountSource: AccountSourceFilterSensitiveLog(obj.accountSource) }),
 });
 
 /**

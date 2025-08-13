@@ -778,6 +778,170 @@ export interface AcceptSubscriptionRequestOutput {
 }
 
 /**
+ * <p>The account information within an account pool.</p>
+ * @public
+ */
+export interface AccountInfo {
+  /**
+   * <p>The account ID.</p>
+   * @public
+   */
+  awsAccountId: string | undefined;
+
+  /**
+   * <p>The regions supported for an account within an account pool. </p>
+   * @public
+   */
+  supportedRegions: string[] | undefined;
+
+  /**
+   * <p>The account name.</p>
+   * @public
+   */
+  awsAccountName?: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const ResolutionStrategy = {
+  MANUAL: "MANUAL",
+} as const;
+
+/**
+ * @public
+ */
+export type ResolutionStrategy = (typeof ResolutionStrategy)[keyof typeof ResolutionStrategy];
+
+/**
+ * <p>The summary of the account pool.</p>
+ * @public
+ */
+export interface AccountPoolSummary {
+  /**
+   * <p>The ID of the domain.</p>
+   * @public
+   */
+  domainId?: string | undefined;
+
+  /**
+   * <p>The ID of the account pool.</p>
+   * @public
+   */
+  id?: string | undefined;
+
+  /**
+   * <p>The name of the account pool.</p>
+   * @public
+   */
+  name?: string | undefined;
+
+  /**
+   * <p>The mechanism used to resolve the account selection from the account pool.</p>
+   * @public
+   */
+  resolutionStrategy?: ResolutionStrategy | undefined;
+
+  /**
+   * <p>The ID of the domain unit.</p>
+   * @public
+   */
+  domainUnitId?: string | undefined;
+
+  /**
+   * <p>The user who created the account pool.</p>
+   * @public
+   */
+  createdBy?: string | undefined;
+
+  /**
+   * <p>The user who updated the account pool.</p>
+   * @public
+   */
+  updatedBy?: string | undefined;
+}
+
+/**
+ * <p>The custom Amazon Web Services Lambda handler within an account pool.</p>
+ * @public
+ */
+export interface CustomAccountPoolHandler {
+  /**
+   * <p>The ARN of the Amazon Web Services Lambda function for the custom Amazon Web Services
+   *          Lambda handler.</p>
+   * @public
+   */
+  lambdaFunctionArn: string | undefined;
+
+  /**
+   * <p>The ARN of the IAM role that enables Amazon SageMaker Unified Studio to invoke the
+   *             Amazon Web Services Lambda funtion if the account source is the custom account pool
+   *          handler.</p>
+   * @public
+   */
+  lambdaExecutionRoleArn?: string | undefined;
+}
+
+/**
+ * <p>The source of accounts for the account pool. In the current release, it's either a
+ *          static list of accounts provided by the customer or a custom Amazon Web Services Lambda
+ *          handler. </p>
+ * @public
+ */
+export type AccountSource =
+  | AccountSource.AccountsMember
+  | AccountSource.CustomAccountPoolHandlerMember
+  | AccountSource.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace AccountSource {
+  /**
+   * <p>The static list of accounts within an account pool.</p>
+   * @public
+   */
+  export interface AccountsMember {
+    accounts: AccountInfo[];
+    customAccountPoolHandler?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The custom Amazon Web Services Lambda handler within an account pool.</p>
+   * @public
+   */
+  export interface CustomAccountPoolHandlerMember {
+    accounts?: never;
+    customAccountPoolHandler: CustomAccountPoolHandler;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    accounts?: never;
+    customAccountPoolHandler?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    accounts: (value: AccountInfo[]) => T;
+    customAccountPoolHandler: (value: CustomAccountPoolHandler) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: AccountSource, visitor: Visitor<T>): T => {
+    if (value.accounts !== undefined) return visitor.accounts(value.accounts);
+    if (value.customAccountPoolHandler !== undefined)
+      return visitor.customAccountPoolHandler(value.customAccountPoolHandler);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
  * <p>The parameters of the console link specified as part of the environment action.</p>
  * @public
  */
@@ -2597,9 +2761,10 @@ export interface GetAssetInput {
 
   /**
    * <p>The ID of the Amazon DataZone asset.</p>
-   *          <p>This parameter supports either the value of <code>assetId</code> or <code>externalIdentifier</code>
-   *          as input. If you are passing the value of <code>externalIdentifier</code>, you must prefix this
-   *          value with <code>externalIdentifer%2F</code>.</p>
+   *          <p>This parameter supports either the value of <code>assetId</code> or
+   *             <code>externalIdentifier</code> as input. If you are passing the value of
+   *             <code>externalIdentifier</code>, you must prefix this value with
+   *             <code>externalIdentifer%2F</code>.</p>
    * @public
    */
   identifier: string | undefined;
@@ -6613,6 +6778,116 @@ export interface ConnectionSummary {
 /**
  * @public
  */
+export interface CreateAccountPoolInput {
+  /**
+   * <p>The ID of the domain where the account pool is created.</p>
+   * @public
+   */
+  domainIdentifier: string | undefined;
+
+  /**
+   * <p>The name of the account pool.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The description of the account pool.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>The mechanism used to resolve the account selection from the account pool.</p>
+   * @public
+   */
+  resolutionStrategy: ResolutionStrategy | undefined;
+
+  /**
+   * <p>The source of accounts for the account pool. In the current release, it's either a
+   *          static list of accounts provided by the customer or a custom Amazon Web Services Lambda
+   *          handler. </p>
+   * @public
+   */
+  accountSource: AccountSource | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateAccountPoolOutput {
+  /**
+   * <p>The ID of the domain where the account pool is created.</p>
+   * @public
+   */
+  domainId?: string | undefined;
+
+  /**
+   * <p>The name of the account pool.</p>
+   * @public
+   */
+  name?: string | undefined;
+
+  /**
+   * <p>The ID of the account pool.</p>
+   * @public
+   */
+  id?: string | undefined;
+
+  /**
+   * <p>The description of the account pool.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>The mechanism used to resolve the account selection from the account pool.</p>
+   * @public
+   */
+  resolutionStrategy?: ResolutionStrategy | undefined;
+
+  /**
+   * <p>The source of accounts for the account pool. In the current release, it's either a
+   *          static list of accounts provided by the customer or a custom Amazon Web Services Lambda
+   *          handler. </p>
+   * @public
+   */
+  accountSource: AccountSource | undefined;
+
+  /**
+   * <p>The user who created the account pool.</p>
+   * @public
+   */
+  createdBy: string | undefined;
+
+  /**
+   * <p>The timestamp at which the account pool was created.</p>
+   * @public
+   */
+  createdAt?: Date | undefined;
+
+  /**
+   * <p>The timestamp at which the account pool was last updated.</p>
+   * @public
+   */
+  lastUpdatedAt?: Date | undefined;
+
+  /**
+   * <p>The user who last updated the account pool.</p>
+   * @public
+   */
+  updatedBy?: string | undefined;
+
+  /**
+   * <p>The ID of the domain where the account pool is created.</p>
+   * @public
+   */
+  domainUnitId?: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface CreateConnectionInput {
   /**
    * <p>The location where the connection is created.</p>
@@ -9606,6 +9881,31 @@ export interface CreateListingChangeSetOutput {
 }
 
 /**
+ * <p>Specifies the account/Region that is to be used during project creation for a particular
+ *          blueprint.</p>
+ * @public
+ */
+export interface EnvironmentResolvedAccount {
+  /**
+   * <p>The ID of the resolved account.</p>
+   * @public
+   */
+  awsAccountId: string | undefined;
+
+  /**
+   * <p>The name of the resolved Region.</p>
+   * @public
+   */
+  regionName: string | undefined;
+
+  /**
+   * <p>The ID of the account pool.</p>
+   * @public
+   */
+  sourceAccountPoolId?: string | undefined;
+}
+
+/**
  * <p>The environment configuration user parameters.</p>
  * @public
  */
@@ -9615,6 +9915,13 @@ export interface EnvironmentConfigurationUserParameter {
    * @public
    */
   environmentId?: string | undefined;
+
+  /**
+   * <p>Specifies the account/Region that is to be used during project creation for a particular
+   *          blueprint.</p>
+   * @public
+   */
+  environmentResolvedAccount?: EnvironmentResolvedAccount | undefined;
 
   /**
    * <p>The environment configuration name.</p>
@@ -10100,13 +10407,19 @@ export interface EnvironmentConfiguration {
    * <p>The Amazon Web Services account of the environment.</p>
    * @public
    */
-  awsAccount: AwsAccount | undefined;
+  awsAccount?: AwsAccount | undefined;
+
+  /**
+   * <p>The account pools used by a custom project profile.</p>
+   * @public
+   */
+  accountPools?: string[] | undefined;
 
   /**
    * <p>The Amazon Web Services Region of the environment.</p>
    * @public
    */
-  awsRegion: Region | undefined;
+  awsRegion?: Region | undefined;
 
   /**
    * <p>The deployment order of the environment.</p>
@@ -10361,271 +10674,6 @@ export interface RuleScope {
 }
 
 /**
- * <p>The target for the domain unit.</p>
- * @public
- */
-export interface DomainUnitTarget {
-  /**
-   * <p>The ID of the domain unit.</p>
-   * @public
-   */
-  domainUnitId: string | undefined;
-
-  /**
-   * <p>Specifies whether to apply a rule to the child domain units.</p>
-   * @public
-   */
-  includeChildDomainUnits?: boolean | undefined;
-}
-
-/**
- * <p>The target of the rule.</p>
- * @public
- */
-export type RuleTarget = RuleTarget.DomainUnitTargetMember | RuleTarget.$UnknownMember;
-
-/**
- * @public
- */
-export namespace RuleTarget {
-  /**
-   * <p>The ID of the domain unit.</p>
-   * @public
-   */
-  export interface DomainUnitTargetMember {
-    domainUnitTarget: DomainUnitTarget;
-    $unknown?: never;
-  }
-
-  /**
-   * @public
-   */
-  export interface $UnknownMember {
-    domainUnitTarget?: never;
-    $unknown: [string, any];
-  }
-
-  export interface Visitor<T> {
-    domainUnitTarget: (value: DomainUnitTarget) => T;
-    _: (name: string, value: any) => T;
-  }
-
-  export const visit = <T>(value: RuleTarget, visitor: Visitor<T>): T => {
-    if (value.domainUnitTarget !== undefined) return visitor.domainUnitTarget(value.domainUnitTarget);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
-}
-
-/**
- * @public
- */
-export interface CreateRuleInput {
-  /**
-   * <p>The ID of the domain where the rule is created.</p>
-   * @public
-   */
-  domainIdentifier: string | undefined;
-
-  /**
-   * <p>The name of the rule.</p>
-   * @public
-   */
-  name: string | undefined;
-
-  /**
-   * <p>The target of the rule.</p>
-   * @public
-   */
-  target: RuleTarget | undefined;
-
-  /**
-   * <p>The action of the rule.</p>
-   * @public
-   */
-  action: RuleAction | undefined;
-
-  /**
-   * <p>The scope of the rule.</p>
-   * @public
-   */
-  scope: RuleScope | undefined;
-
-  /**
-   * <p>The detail of the rule.</p>
-   * @public
-   */
-  detail: RuleDetail | undefined;
-
-  /**
-   * <p>The description of the rule.</p>
-   * @public
-   */
-  description?: string | undefined;
-
-  /**
-   * <p>A unique, case-sensitive identifier that is provided to ensure the idempotency of the
-   *          request.</p>
-   * @public
-   */
-  clientToken?: string | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const RuleType = {
-  METADATA_FORM_ENFORCEMENT: "METADATA_FORM_ENFORCEMENT",
-} as const;
-
-/**
- * @public
- */
-export type RuleType = (typeof RuleType)[keyof typeof RuleType];
-
-/**
- * @public
- * @enum
- */
-export const RuleTargetType = {
-  DOMAIN_UNIT: "DOMAIN_UNIT",
-} as const;
-
-/**
- * @public
- */
-export type RuleTargetType = (typeof RuleTargetType)[keyof typeof RuleTargetType];
-
-/**
- * @public
- */
-export interface CreateRuleOutput {
-  /**
-   * <p>The ID of the rule.</p>
-   * @public
-   */
-  identifier: string | undefined;
-
-  /**
-   * <p>The name of the rule.</p>
-   * @public
-   */
-  name: string | undefined;
-
-  /**
-   * <p>The type of the rule.</p>
-   * @public
-   */
-  ruleType: RuleType | undefined;
-
-  /**
-   * <p>The target of the rule.</p>
-   * @public
-   */
-  target: RuleTarget | undefined;
-
-  /**
-   * <p>The action of the rule.</p>
-   * @public
-   */
-  action: RuleAction | undefined;
-
-  /**
-   * <p>The scope of the rule.</p>
-   * @public
-   */
-  scope: RuleScope | undefined;
-
-  /**
-   * <p>The detail of the rule.</p>
-   * @public
-   */
-  detail: RuleDetail | undefined;
-
-  /**
-   * <p>The target type of the rule.</p>
-   * @public
-   */
-  targetType?: RuleTargetType | undefined;
-
-  /**
-   * <p>The description of the rule.</p>
-   * @public
-   */
-  description?: string | undefined;
-
-  /**
-   * <p>The timestamp at which the rule is created.</p>
-   * @public
-   */
-  createdAt: Date | undefined;
-
-  /**
-   * <p>The user who creates the rule.</p>
-   * @public
-   */
-  createdBy: string | undefined;
-}
-
-/**
- * <p>A revision to be made to an asset published in a Amazon DataZone catalog.</p>
- * @public
- */
-export interface ListingRevisionInput {
-  /**
-   * <p>An identifier of revision to be made to an asset published in a Amazon DataZone
-   *          catalog.</p>
-   * @public
-   */
-  identifier: string | undefined;
-
-  /**
-   * <p>The details of a revision to be made to an asset published in a Amazon DataZone
-   *          catalog.</p>
-   * @public
-   */
-  revision: string | undefined;
-}
-
-/**
- * <p>The details of a listing for which a subscription is to be granted.</p>
- * @public
- */
-export type GrantedEntityInput = GrantedEntityInput.ListingMember | GrantedEntityInput.$UnknownMember;
-
-/**
- * @public
- */
-export namespace GrantedEntityInput {
-  /**
-   * <p>The listing for which a subscription is to be granted.</p>
-   * @public
-   */
-  export interface ListingMember {
-    listing: ListingRevisionInput;
-    $unknown?: never;
-  }
-
-  /**
-   * @public
-   */
-  export interface $UnknownMember {
-    listing?: never;
-    $unknown: [string, any];
-  }
-
-  export interface Visitor<T> {
-    listing: (value: ListingRevisionInput) => T;
-    _: (name: string, value: any) => T;
-  }
-
-  export const visit = <T>(value: GrantedEntityInput, visitor: Visitor<T>): T => {
-    if (value.listing !== undefined) return visitor.listing(value.listing);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
-}
-
-/**
  * @internal
  */
 export const AcceptChoiceFilterSensitiveLog = (obj: AcceptChoice): any => ({
@@ -10737,6 +10785,31 @@ export const AcceptSubscriptionRequestOutputFilterSensitiveLog = (obj: AcceptSub
   ...(obj.decisionComment && { decisionComment: SENSITIVE_STRING }),
   ...(obj.metadataForms && { metadataForms: obj.metadataForms.map((item) => FormOutputFilterSensitiveLog(item)) }),
 });
+
+/**
+ * @internal
+ */
+export const AccountInfoFilterSensitiveLog = (obj: AccountInfo): any => ({
+  ...obj,
+  ...(obj.awsAccountName && { awsAccountName: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const AccountPoolSummaryFilterSensitiveLog = (obj: AccountPoolSummary): any => ({
+  ...obj,
+  ...(obj.name && { name: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const AccountSourceFilterSensitiveLog = (obj: AccountSource): any => {
+  if (obj.accounts !== undefined) return { accounts: obj.accounts.map((item) => AccountInfoFilterSensitiveLog(item)) };
+  if (obj.customAccountPoolHandler !== undefined) return { customAccountPoolHandler: obj.customAccountPoolHandler };
+  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
+};
 
 /**
  * @internal
@@ -11163,6 +11236,26 @@ export const ConnectionSummaryFilterSensitiveLog = (obj: ConnectionSummary): any
 /**
  * @internal
  */
+export const CreateAccountPoolInputFilterSensitiveLog = (obj: CreateAccountPoolInput): any => ({
+  ...obj,
+  ...(obj.name && { name: SENSITIVE_STRING }),
+  ...(obj.description && { description: SENSITIVE_STRING }),
+  ...(obj.accountSource && { accountSource: AccountSourceFilterSensitiveLog(obj.accountSource) }),
+});
+
+/**
+ * @internal
+ */
+export const CreateAccountPoolOutputFilterSensitiveLog = (obj: CreateAccountPoolOutput): any => ({
+  ...obj,
+  ...(obj.name && { name: SENSITIVE_STRING }),
+  ...(obj.description && { description: SENSITIVE_STRING }),
+  ...(obj.accountSource && { accountSource: AccountSourceFilterSensitiveLog(obj.accountSource) }),
+});
+
+/**
+ * @internal
+ */
 export const CreateConnectionInputFilterSensitiveLog = (obj: CreateConnectionInput): any => ({
   ...obj,
   ...(obj.description && { description: SENSITIVE_STRING }),
@@ -11461,26 +11554,4 @@ export const CreateProjectProfileOutputFilterSensitiveLog = (obj: CreateProjectP
       EnvironmentConfigurationFilterSensitiveLog(item)
     ),
   }),
-});
-
-/**
- * @internal
- */
-export const CreateRuleInputFilterSensitiveLog = (obj: CreateRuleInput): any => ({
-  ...obj,
-  ...(obj.name && { name: SENSITIVE_STRING }),
-  ...(obj.target && { target: obj.target }),
-  ...(obj.detail && { detail: obj.detail }),
-  ...(obj.description && { description: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const CreateRuleOutputFilterSensitiveLog = (obj: CreateRuleOutput): any => ({
-  ...obj,
-  ...(obj.name && { name: SENSITIVE_STRING }),
-  ...(obj.target && { target: obj.target }),
-  ...(obj.detail && { detail: obj.detail }),
-  ...(obj.description && { description: SENSITIVE_STRING }),
 });

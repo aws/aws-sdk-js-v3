@@ -64,6 +64,11 @@ export interface GetProjectCommandOutput extends GetProjectOutput, __MetadataBea
  * //   userParameters: [ // EnvironmentConfigurationUserParametersList
  * //     { // EnvironmentConfigurationUserParameter
  * //       environmentId: "STRING_VALUE",
+ * //       environmentResolvedAccount: { // EnvironmentResolvedAccount
+ * //         awsAccountId: "STRING_VALUE", // required
+ * //         regionName: "STRING_VALUE", // required
+ * //         sourceAccountPoolId: "STRING_VALUE",
+ * //       },
  * //       environmentConfigurationName: "STRING_VALUE",
  * //       environmentParameters: [ // EnvironmentParametersList
  * //         { // EnvironmentParameter

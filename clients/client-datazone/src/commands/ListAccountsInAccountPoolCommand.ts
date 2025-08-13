@@ -6,8 +6,12 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { DataZoneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataZoneClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { RejectPredictionsInput, RejectPredictionsOutput } from "../models/models_2";
-import { de_RejectPredictionsCommand, se_RejectPredictionsCommand } from "../protocols/Aws_restJson1";
+import {
+  ListAccountsInAccountPoolInput,
+  ListAccountsInAccountPoolOutput,
+  ListAccountsInAccountPoolOutputFilterSensitiveLog,
+} from "../models/models_1";
+import { de_ListAccountsInAccountPoolCommand, se_ListAccountsInAccountPoolCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -17,64 +21,55 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link RejectPredictionsCommand}.
+ * The input for {@link ListAccountsInAccountPoolCommand}.
  */
-export interface RejectPredictionsCommandInput extends RejectPredictionsInput {}
+export interface ListAccountsInAccountPoolCommandInput extends ListAccountsInAccountPoolInput {}
 /**
  * @public
  *
- * The output of {@link RejectPredictionsCommand}.
+ * The output of {@link ListAccountsInAccountPoolCommand}.
  */
-export interface RejectPredictionsCommandOutput extends RejectPredictionsOutput, __MetadataBearer {}
+export interface ListAccountsInAccountPoolCommandOutput extends ListAccountsInAccountPoolOutput, __MetadataBearer {}
 
 /**
- * <p>Rejects automatically generated business-friendly metadata for your Amazon DataZone
- *          assets.</p>
+ * <p>Lists the accounts in the specified account pool.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DataZoneClient, RejectPredictionsCommand } from "@aws-sdk/client-datazone"; // ES Modules import
- * // const { DataZoneClient, RejectPredictionsCommand } = require("@aws-sdk/client-datazone"); // CommonJS import
+ * import { DataZoneClient, ListAccountsInAccountPoolCommand } from "@aws-sdk/client-datazone"; // ES Modules import
+ * // const { DataZoneClient, ListAccountsInAccountPoolCommand } = require("@aws-sdk/client-datazone"); // CommonJS import
  * const client = new DataZoneClient(config);
- * const input = { // RejectPredictionsInput
+ * const input = { // ListAccountsInAccountPoolInput
  *   domainIdentifier: "STRING_VALUE", // required
  *   identifier: "STRING_VALUE", // required
- *   revision: "STRING_VALUE",
- *   rejectRule: { // RejectRule
- *     rule: "ALL" || "NONE",
- *     threshold: Number("float"),
- *   },
- *   rejectChoices: [ // RejectChoices
- *     { // RejectChoice
- *       predictionTarget: "STRING_VALUE", // required
- *       predictionChoices: [ // PredictionChoices
- *         Number("int"),
- *       ],
- *     },
- *   ],
- *   clientToken: "STRING_VALUE",
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
  * };
- * const command = new RejectPredictionsCommand(input);
+ * const command = new ListAccountsInAccountPoolCommand(input);
  * const response = await client.send(command);
- * // { // RejectPredictionsOutput
- * //   domainId: "STRING_VALUE", // required
- * //   assetId: "STRING_VALUE", // required
- * //   assetRevision: "STRING_VALUE", // required
+ * // { // ListAccountsInAccountPoolOutput
+ * //   items: [ // AccountInfoList
+ * //     { // AccountInfo
+ * //       awsAccountId: "STRING_VALUE", // required
+ * //       supportedRegions: [ // AwsRegionList // required
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       awsAccountName: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
  * // };
  *
  * ```
  *
- * @param RejectPredictionsCommandInput - {@link RejectPredictionsCommandInput}
- * @returns {@link RejectPredictionsCommandOutput}
- * @see {@link RejectPredictionsCommandInput} for command's `input` shape.
- * @see {@link RejectPredictionsCommandOutput} for command's `response` shape.
+ * @param ListAccountsInAccountPoolCommandInput - {@link ListAccountsInAccountPoolCommandInput}
+ * @returns {@link ListAccountsInAccountPoolCommandOutput}
+ * @see {@link ListAccountsInAccountPoolCommandInput} for command's `input` shape.
+ * @see {@link ListAccountsInAccountPoolCommandOutput} for command's `response` shape.
  * @see {@link DataZoneClientResolvedConfig | config} for DataZoneClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
  *  <p>You do not have sufficient access to perform this action.</p>
- *
- * @throws {@link ConflictException} (client fault)
- *  <p>There is a conflict while performing this action.</p>
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>The request has failed because of an unknown error, exception or failure.</p>
@@ -97,10 +92,10 @@ export interface RejectPredictionsCommandOutput extends RejectPredictionsOutput,
  *
  * @public
  */
-export class RejectPredictionsCommand extends $Command
+export class ListAccountsInAccountPoolCommand extends $Command
   .classBuilder<
-    RejectPredictionsCommandInput,
-    RejectPredictionsCommandOutput,
+    ListAccountsInAccountPoolCommandInput,
+    ListAccountsInAccountPoolCommandOutput,
     DataZoneClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -112,21 +107,21 @@ export class RejectPredictionsCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("DataZone", "RejectPredictions", {})
-  .n("DataZoneClient", "RejectPredictionsCommand")
-  .f(void 0, void 0)
-  .ser(se_RejectPredictionsCommand)
-  .de(de_RejectPredictionsCommand)
+  .s("DataZone", "ListAccountsInAccountPool", {})
+  .n("DataZoneClient", "ListAccountsInAccountPoolCommand")
+  .f(void 0, ListAccountsInAccountPoolOutputFilterSensitiveLog)
+  .ser(se_ListAccountsInAccountPoolCommand)
+  .de(de_ListAccountsInAccountPoolCommand)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: RejectPredictionsInput;
-      output: RejectPredictionsOutput;
+      input: ListAccountsInAccountPoolInput;
+      output: ListAccountsInAccountPoolOutput;
     };
     sdk: {
-      input: RejectPredictionsCommandInput;
-      output: RejectPredictionsCommandOutput;
+      input: ListAccountsInAccountPoolCommandInput;
+      output: ListAccountsInAccountPoolCommandOutput;
     };
   };
 }

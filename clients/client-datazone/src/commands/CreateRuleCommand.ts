@@ -11,7 +11,7 @@ import {
   CreateRuleInputFilterSensitiveLog,
   CreateRuleOutput,
   CreateRuleOutputFilterSensitiveLog,
-} from "../models/models_0";
+} from "../models/models_1";
 import { de_CreateRuleCommand, se_CreateRuleCommand } from "../protocols/Aws_restJson1";
 
 /**

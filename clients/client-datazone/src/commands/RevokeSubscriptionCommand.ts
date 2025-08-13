@@ -10,7 +10,7 @@ import {
   RevokeSubscriptionInput,
   RevokeSubscriptionOutput,
   RevokeSubscriptionOutputFilterSensitiveLog,
-} from "../models/models_1";
+} from "../models/models_2";
 import { de_RevokeSubscriptionCommand, se_RevokeSubscriptionCommand } from "../protocols/Aws_restJson1";
 
 /**

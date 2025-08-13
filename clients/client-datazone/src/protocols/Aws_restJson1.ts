@@ -52,6 +52,7 @@ import {
   CancelMetadataGenerationRunCommandOutput,
 } from "../commands/CancelMetadataGenerationRunCommand";
 import { CancelSubscriptionCommandInput, CancelSubscriptionCommandOutput } from "../commands/CancelSubscriptionCommand";
+import { CreateAccountPoolCommandInput, CreateAccountPoolCommandOutput } from "../commands/CreateAccountPoolCommand";
 import { CreateAssetCommandInput, CreateAssetCommandOutput } from "../commands/CreateAssetCommand";
 import { CreateAssetFilterCommandInput, CreateAssetFilterCommandOutput } from "../commands/CreateAssetFilterCommand";
 import {
@@ -108,6 +109,7 @@ import {
   CreateSubscriptionTargetCommandOutput,
 } from "../commands/CreateSubscriptionTargetCommand";
 import { CreateUserProfileCommandInput, CreateUserProfileCommandOutput } from "../commands/CreateUserProfileCommand";
+import { DeleteAccountPoolCommandInput, DeleteAccountPoolCommandOutput } from "../commands/DeleteAccountPoolCommand";
 import { DeleteAssetCommandInput, DeleteAssetCommandOutput } from "../commands/DeleteAssetCommand";
 import { DeleteAssetFilterCommandInput, DeleteAssetFilterCommandOutput } from "../commands/DeleteAssetFilterCommand";
 import { DeleteAssetTypeCommandInput, DeleteAssetTypeCommandOutput } from "../commands/DeleteAssetTypeCommand";
@@ -163,6 +165,7 @@ import {
   DisassociateEnvironmentRoleCommandInput,
   DisassociateEnvironmentRoleCommandOutput,
 } from "../commands/DisassociateEnvironmentRoleCommand";
+import { GetAccountPoolCommandInput, GetAccountPoolCommandOutput } from "../commands/GetAccountPoolCommand";
 import { GetAssetCommandInput, GetAssetCommandOutput } from "../commands/GetAssetCommand";
 import { GetAssetFilterCommandInput, GetAssetFilterCommandOutput } from "../commands/GetAssetFilterCommand";
 import { GetAssetTypeCommandInput, GetAssetTypeCommandOutput } from "../commands/GetAssetTypeCommand";
@@ -230,6 +233,11 @@ import {
   GetTimeSeriesDataPointCommandOutput,
 } from "../commands/GetTimeSeriesDataPointCommand";
 import { GetUserProfileCommandInput, GetUserProfileCommandOutput } from "../commands/GetUserProfileCommand";
+import { ListAccountPoolsCommandInput, ListAccountPoolsCommandOutput } from "../commands/ListAccountPoolsCommand";
+import {
+  ListAccountsInAccountPoolCommandInput,
+  ListAccountsInAccountPoolCommandOutput,
+} from "../commands/ListAccountsInAccountPoolCommand";
 import { ListAssetFiltersCommandInput, ListAssetFiltersCommandOutput } from "../commands/ListAssetFiltersCommand";
 import { ListAssetRevisionsCommandInput, ListAssetRevisionsCommandOutput } from "../commands/ListAssetRevisionsCommand";
 import { ListConnectionsCommandInput, ListConnectionsCommandOutput } from "../commands/ListConnectionsCommand";
@@ -341,6 +349,7 @@ import {
 } from "../commands/StartMetadataGenerationRunCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
+import { UpdateAccountPoolCommandInput, UpdateAccountPoolCommandOutput } from "../commands/UpdateAccountPoolCommand";
 import { UpdateAssetFilterCommandInput, UpdateAssetFilterCommandOutput } from "../commands/UpdateAssetFilterCommand";
 import { UpdateConnectionCommandInput, UpdateConnectionCommandOutput } from "../commands/UpdateConnectionCommand";
 import { UpdateDataSourceCommandInput, UpdateDataSourceCommandOutput } from "../commands/UpdateDataSourceCommand";
@@ -383,6 +392,8 @@ import {
   AcceptedAssetScope,
   AcceptRule,
   AccessDeniedException,
+  AccountInfo,
+  AccountSource,
   ActionParameters,
   AddToProjectMemberPoolPolicyGrantDetail,
   AggregationListItem,
@@ -423,12 +434,12 @@ import {
   CreateGlossaryPolicyGrantDetail,
   CreateProjectFromProjectProfilePolicyGrantDetail,
   CreateProjectPolicyGrantDetail,
+  CustomAccountPoolHandler,
   DataProductItem,
   DataSourceConfigurationInput,
   DomainUnitFilterForProject,
   DomainUnitGrantFilter,
   DomainUnitPolicyGrantPrincipal,
-  DomainUnitTarget,
   EnvironmentConfiguration,
   EnvironmentConfigurationParameter,
   EnvironmentConfigurationParametersDetails,
@@ -436,6 +447,7 @@ import {
   EnvironmentDeploymentDetails,
   EnvironmentError,
   EnvironmentParameter,
+  EnvironmentResolvedAccount,
   EqualToExpression,
   FilterExpression,
   FormEntryInput,
@@ -447,7 +459,6 @@ import {
   GluePropertiesInput,
   GluePropertiesPatch,
   GlueRunConfigurationInput,
-  GrantedEntityInput,
   GreaterThanExpression,
   GreaterThanOrEqualToExpression,
   GroupPolicyGrantPrincipal,
@@ -462,7 +473,6 @@ import {
   LessThanOrEqualToExpression,
   LikeExpression,
   LineageSyncSchedule,
-  ListingRevisionInput,
   Member,
   MetadataFormEnforcementDetail,
   MetadataFormReference,
@@ -502,7 +512,6 @@ import {
   RowFilterExpression,
   RuleDetail,
   RuleScope,
-  RuleTarget,
   S3PropertiesInput,
   S3PropertiesPatch,
   SageMakerRunConfigurationInput,
@@ -533,11 +542,13 @@ import {
   DataSourceRunSummary,
   DataSourceSummary,
   DomainSummary,
+  DomainUnitTarget,
   EnvironmentBlueprintConfigurationItem,
   EnvironmentBlueprintSummary,
   EnvironmentProfileSummary,
   EnvironmentSummary,
   FailureCause,
+  GrantedEntityInput,
   JobRunDetails,
   JobRunSummary,
   LakeFormationConfiguration,
@@ -547,6 +558,7 @@ import {
   LineageRunDetails,
   LineageSqlQueryRunDetails,
   ListingItem,
+  ListingRevisionInput,
   MetadataGenerationRunItem,
   MetadataGenerationRunTarget,
   NotificationOutput,
@@ -554,8 +566,7 @@ import {
   ProjectProfileSummary,
   ProjectSummary,
   ProvisioningConfiguration,
-  RejectChoice,
-  RejectRule,
+  RuleTarget,
   SubscribedAsset,
   SubscribedListingInput,
   SubscribedPrincipalInput,
@@ -565,7 +576,6 @@ import {
   SubscriptionSummary,
   SubscriptionTargetForm,
   SubscriptionTargetSummary,
-  TimeSeriesDataPointFormInput,
   TimeSeriesDataPointFormOutput,
 } from "../models/models_1";
 import {
@@ -576,6 +586,8 @@ import {
   GlossaryItem,
   GlossaryTermItem,
   LineageNodeTypeItem,
+  RejectChoice,
+  RejectRule,
   RowFilter,
   RowFilterConfiguration,
   RuleSummary,
@@ -585,6 +597,7 @@ import {
   SearchResultItem,
   SearchSort,
   SearchTypesResultItem,
+  TimeSeriesDataPointFormInput,
 } from "../models/models_2";
 
 /**
@@ -744,6 +757,32 @@ export const se_CancelSubscriptionCommand = async (
   b.p("identifier", () => input.identifier!, "{identifier}", false);
   let body: any;
   b.m("PUT").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1CreateAccountPoolCommand
+ */
+export const se_CreateAccountPoolCommand = async (
+  input: CreateAccountPoolCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/v2/domains/{domainIdentifier}/account-pools");
+  b.p("domainIdentifier", () => input.domainIdentifier!, "{domainIdentifier}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      accountSource: (_) => _json(_),
+      description: [],
+      name: [],
+      resolutionStrategy: [],
+    })
+  );
+  b.m("POST").h(headers).b(body);
   return b.build();
 };
 
@@ -1481,6 +1520,23 @@ export const se_CreateUserProfileCommand = async (
 };
 
 /**
+ * serializeAws_restJson1DeleteAccountPoolCommand
+ */
+export const se_DeleteAccountPoolCommand = async (
+  input: DeleteAccountPoolCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/v2/domains/{domainIdentifier}/account-pools/{identifier}");
+  b.p("domainIdentifier", () => input.domainIdentifier!, "{domainIdentifier}", false);
+  b.p("identifier", () => input.identifier!, "{identifier}", false);
+  let body: any;
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1DeleteAssetCommand
  */
 export const se_DeleteAssetCommand = async (
@@ -1933,6 +1989,23 @@ export const se_DisassociateEnvironmentRoleCommand = async (
   b.p("environmentRoleArn", () => input.environmentRoleArn!, "{environmentRoleArn}", false);
   let body: any;
   b.m("DELETE").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1GetAccountPoolCommand
+ */
+export const se_GetAccountPoolCommand = async (
+  input: GetAccountPoolCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/v2/domains/{domainIdentifier}/account-pools/{identifier}");
+  b.p("domainIdentifier", () => input.domainIdentifier!, "{domainIdentifier}", false);
+  b.p("identifier", () => input.identifier!, "{identifier}", false);
+  let body: any;
+  b.m("GET").h(headers).b(body);
   return b.build();
 };
 
@@ -2546,6 +2619,50 @@ export const se_GetUserProfileCommand = async (
   b.p("userIdentifier", () => input.userIdentifier!, "{userIdentifier}", false);
   const query: any = map({
     [_ty]: [, input[_ty]!],
+  });
+  let body: any;
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1ListAccountPoolsCommand
+ */
+export const se_ListAccountPoolsCommand = async (
+  input: ListAccountPoolsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/v2/domains/{domainIdentifier}/account-pools");
+  b.p("domainIdentifier", () => input.domainIdentifier!, "{domainIdentifier}", false);
+  const query: any = map({
+    [_n]: [, input[_n]!],
+    [_sB]: [, input[_sB]!],
+    [_sO]: [, input[_sO]!],
+    [_nT]: [, input[_nT]!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
+  });
+  let body: any;
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1ListAccountsInAccountPoolCommand
+ */
+export const se_ListAccountsInAccountPoolCommand = async (
+  input: ListAccountsInAccountPoolCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/v2/domains/{domainIdentifier}/account-pools/{identifier}/accounts");
+  b.p("domainIdentifier", () => input.domainIdentifier!, "{domainIdentifier}", false);
+  b.p("identifier", () => input.identifier!, "{identifier}", false);
+  const query: any = map({
+    [_nT]: [, input[_nT]!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
   });
   let body: any;
   b.m("GET").h(headers).q(query).b(body);
@@ -3719,6 +3836,33 @@ export const se_UntagResourceCommand = async (
 };
 
 /**
+ * serializeAws_restJson1UpdateAccountPoolCommand
+ */
+export const se_UpdateAccountPoolCommand = async (
+  input: UpdateAccountPoolCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/v2/domains/{domainIdentifier}/account-pools/{identifier}");
+  b.p("domainIdentifier", () => input.domainIdentifier!, "{domainIdentifier}", false);
+  b.p("identifier", () => input.identifier!, "{identifier}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      accountSource: (_) => _json(_),
+      description: [],
+      name: [],
+      resolutionStrategy: [],
+    })
+  );
+  b.m("PATCH").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1UpdateAssetFilterCommand
  */
 export const se_UpdateAssetFilterCommand = async (
@@ -4363,6 +4507,37 @@ export const de_CancelSubscriptionCommand = async (
     subscribedPrincipal: (_) => _json(__expectUnion(_)),
     subscriptionRequestId: __expectString,
     updatedAt: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    updatedBy: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1CreateAccountPoolCommand
+ */
+export const de_CreateAccountPoolCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateAccountPoolCommandOutput> => {
+  if (output.statusCode !== 201 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    accountSource: (_) => _json(__expectUnion(_)),
+    createdAt: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    createdBy: __expectString,
+    description: __expectString,
+    domainId: __expectString,
+    domainUnitId: __expectString,
+    id: __expectString,
+    lastUpdatedAt: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    name: __expectString,
+    resolutionStrategy: __expectString,
     updatedBy: __expectString,
   });
   Object.assign(contents, doc);
@@ -5177,6 +5352,23 @@ export const de_CreateUserProfileCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1DeleteAccountPoolCommand
+ */
+export const de_DeleteAccountPoolCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteAccountPoolCommandOutput> => {
+  if (output.statusCode !== 204 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1DeleteAssetCommand
  */
 export const de_DeleteAssetCommand = async (
@@ -5645,6 +5837,37 @@ export const de_DisassociateEnvironmentRoleCommand = async (
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1GetAccountPoolCommand
+ */
+export const de_GetAccountPoolCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetAccountPoolCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    accountSource: (_) => _json(__expectUnion(_)),
+    createdAt: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    createdBy: __expectString,
+    description: __expectString,
+    domainId: __expectString,
+    domainUnitId: __expectString,
+    id: __expectString,
+    lastUpdatedAt: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    name: __expectString,
+    resolutionStrategy: __expectString,
+    updatedBy: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -6705,6 +6928,50 @@ export const de_GetUserProfileCommand = async (
     id: __expectString,
     status: __expectString,
     type: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListAccountPoolsCommand
+ */
+export const de_ListAccountPoolsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListAccountPoolsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    items: _json,
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListAccountsInAccountPoolCommand
+ */
+export const de_ListAccountsInAccountPoolCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListAccountsInAccountPoolCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    items: _json,
+    nextToken: __expectString,
   });
   Object.assign(contents, doc);
   return contents;
@@ -7798,6 +8065,37 @@ export const de_UntagResourceCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1UpdateAccountPoolCommand
+ */
+export const de_UpdateAccountPoolCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateAccountPoolCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    accountSource: (_) => _json(__expectUnion(_)),
+    createdAt: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    createdBy: __expectString,
+    description: __expectString,
+    domainId: __expectString,
+    domainUnitId: __expectString,
+    id: __expectString,
+    lastUpdatedAt: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    name: __expectString,
+    resolutionStrategy: __expectString,
+    updatedBy: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1UpdateAssetFilterCommand
  */
 export const de_UpdateAssetFilterCommand = async (
@@ -8573,6 +8871,14 @@ const se_AcceptRule = (input: AcceptRule, context: __SerdeContext): any => {
   });
 };
 
+// se_AccountInfo omitted.
+
+// se_AccountInfoList omitted.
+
+// se_AccountPoolList omitted.
+
+// se_AccountSource omitted.
+
 // se_ActionParameters omitted.
 
 // se_AddToProjectMemberPoolPolicyGrantDetail omitted.
@@ -8622,6 +8928,8 @@ const se_AssetFilterConfiguration = (input: AssetFilterConfiguration, context: _
 
 // se_AwsLocation omitted.
 
+// se_AwsRegionList omitted.
+
 // se_BasicAuthenticationCredentials omitted.
 
 // se_BusinessNameGenerationConfiguration omitted.
@@ -8653,6 +8961,8 @@ const se_AssetFilterConfiguration = (input: AssetFilterConfiguration, context: _
 // se_CreateProjectPolicyGrantDetail omitted.
 
 // se_CredentialMap omitted.
+
+// se_CustomAccountPoolHandler omitted.
 
 // se_DataProductItem omitted.
 
@@ -8695,6 +9005,8 @@ const se_AssetFilterConfiguration = (input: AssetFilterConfiguration, context: _
 // se_EnvironmentParameter omitted.
 
 // se_EnvironmentParametersList omitted.
+
+// se_EnvironmentResolvedAccount omitted.
 
 // se_EqualToExpression omitted.
 
@@ -9026,6 +9338,18 @@ const se_TimeSeriesDataPointFormInputList = (input: TimeSeriesDataPointFormInput
 
 // se_UserPolicyGrantPrincipal omitted.
 
+// de_AccountInfo omitted.
+
+// de_AccountInfoList omitted.
+
+// de_AccountPoolList omitted.
+
+// de_AccountPoolSummaries omitted.
+
+// de_AccountPoolSummary omitted.
+
+// de_AccountSource omitted.
+
 // de_ActionParameters omitted.
 
 // de_AddToProjectMemberPoolPolicyGrantDetail omitted.
@@ -9245,6 +9569,8 @@ const de_AssetTypeItem = (output: any, context: __SerdeContext): AssetTypeItem =
 
 // de_AwsLocation omitted.
 
+// de_AwsRegionList omitted.
+
 // de_BusinessNameGenerationConfiguration omitted.
 
 // de_CloudFormationProperties omitted.
@@ -9364,6 +9690,8 @@ const de_ConnectionSummary = (output: any, context: __SerdeContext): ConnectionS
 // de_CreateProjectFromProjectProfilePolicyGrantDetail omitted.
 
 // de_CreateProjectPolicyGrantDetail omitted.
+
+// de_CustomAccountPoolHandler omitted.
 
 // de_CustomParameter omitted.
 
@@ -9751,6 +10079,8 @@ const de_EnvironmentProfileSummary = (output: any, context: __SerdeContext): Env
     updatedAt: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
   }) as any;
 };
+
+// de_EnvironmentResolvedAccount omitted.
 
 /**
  * deserializeAws_restJson1EnvironmentSummaries

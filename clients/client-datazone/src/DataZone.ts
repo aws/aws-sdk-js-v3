@@ -37,6 +37,11 @@ import {
   CancelSubscriptionCommandInput,
   CancelSubscriptionCommandOutput,
 } from "./commands/CancelSubscriptionCommand";
+import {
+  CreateAccountPoolCommand,
+  CreateAccountPoolCommandInput,
+  CreateAccountPoolCommandOutput,
+} from "./commands/CreateAccountPoolCommand";
 import { CreateAssetCommand, CreateAssetCommandInput, CreateAssetCommandOutput } from "./commands/CreateAssetCommand";
 import {
   CreateAssetFilterCommand,
@@ -159,6 +164,11 @@ import {
   CreateUserProfileCommandInput,
   CreateUserProfileCommandOutput,
 } from "./commands/CreateUserProfileCommand";
+import {
+  DeleteAccountPoolCommand,
+  DeleteAccountPoolCommandInput,
+  DeleteAccountPoolCommandOutput,
+} from "./commands/DeleteAccountPoolCommand";
 import { DeleteAssetCommand, DeleteAssetCommandInput, DeleteAssetCommandOutput } from "./commands/DeleteAssetCommand";
 import {
   DeleteAssetFilterCommand,
@@ -276,6 +286,11 @@ import {
   DisassociateEnvironmentRoleCommandInput,
   DisassociateEnvironmentRoleCommandOutput,
 } from "./commands/DisassociateEnvironmentRoleCommand";
+import {
+  GetAccountPoolCommand,
+  GetAccountPoolCommandInput,
+  GetAccountPoolCommandOutput,
+} from "./commands/GetAccountPoolCommand";
 import { GetAssetCommand, GetAssetCommandInput, GetAssetCommandOutput } from "./commands/GetAssetCommand";
 import {
   GetAssetFilterCommand,
@@ -414,6 +429,16 @@ import {
   GetUserProfileCommandInput,
   GetUserProfileCommandOutput,
 } from "./commands/GetUserProfileCommand";
+import {
+  ListAccountPoolsCommand,
+  ListAccountPoolsCommandInput,
+  ListAccountPoolsCommandOutput,
+} from "./commands/ListAccountPoolsCommand";
+import {
+  ListAccountsInAccountPoolCommand,
+  ListAccountsInAccountPoolCommandInput,
+  ListAccountsInAccountPoolCommandOutput,
+} from "./commands/ListAccountsInAccountPoolCommand";
 import {
   ListAssetFiltersCommand,
   ListAssetFiltersCommandInput,
@@ -631,6 +656,11 @@ import {
   UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import {
+  UpdateAccountPoolCommand,
+  UpdateAccountPoolCommandInput,
+  UpdateAccountPoolCommandOutput,
+} from "./commands/UpdateAccountPoolCommand";
+import {
   UpdateAssetFilterCommand,
   UpdateAssetFilterCommandInput,
   UpdateAssetFilterCommandOutput,
@@ -726,6 +756,7 @@ const commands = {
   AssociateEnvironmentRoleCommand,
   CancelMetadataGenerationRunCommand,
   CancelSubscriptionCommand,
+  CreateAccountPoolCommand,
   CreateAssetCommand,
   CreateAssetFilterCommand,
   CreateAssetRevisionCommand,
@@ -752,6 +783,7 @@ const commands = {
   CreateSubscriptionRequestCommand,
   CreateSubscriptionTargetCommand,
   CreateUserProfileCommand,
+  DeleteAccountPoolCommand,
   DeleteAssetCommand,
   DeleteAssetFilterCommand,
   DeleteAssetTypeCommand,
@@ -777,6 +809,7 @@ const commands = {
   DeleteSubscriptionTargetCommand,
   DeleteTimeSeriesDataPointsCommand,
   DisassociateEnvironmentRoleCommand,
+  GetAccountPoolCommand,
   GetAssetCommand,
   GetAssetFilterCommand,
   GetAssetTypeCommand,
@@ -811,6 +844,8 @@ const commands = {
   GetSubscriptionTargetCommand,
   GetTimeSeriesDataPointCommand,
   GetUserProfileCommand,
+  ListAccountPoolsCommand,
+  ListAccountsInAccountPoolCommand,
   ListAssetFiltersCommand,
   ListAssetRevisionsCommand,
   ListConnectionsCommand,
@@ -859,6 +894,7 @@ const commands = {
   StartMetadataGenerationRunCommand,
   TagResourceCommand,
   UntagResourceCommand,
+  UpdateAccountPoolCommand,
   UpdateAssetFilterCommand,
   UpdateConnectionCommand,
   UpdateDataSourceCommand,
@@ -991,6 +1027,23 @@ export interface DataZone {
     args: CancelSubscriptionCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CancelSubscriptionCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateAccountPoolCommand}
+   */
+  createAccountPool(
+    args: CreateAccountPoolCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateAccountPoolCommandOutput>;
+  createAccountPool(
+    args: CreateAccountPoolCommandInput,
+    cb: (err: any, data?: CreateAccountPoolCommandOutput) => void
+  ): void;
+  createAccountPool(
+    args: CreateAccountPoolCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateAccountPoolCommandOutput) => void
   ): void;
 
   /**
@@ -1403,6 +1456,23 @@ export interface DataZone {
   ): void;
 
   /**
+   * @see {@link DeleteAccountPoolCommand}
+   */
+  deleteAccountPool(
+    args: DeleteAccountPoolCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteAccountPoolCommandOutput>;
+  deleteAccountPool(
+    args: DeleteAccountPoolCommandInput,
+    cb: (err: any, data?: DeleteAccountPoolCommandOutput) => void
+  ): void;
+  deleteAccountPool(
+    args: DeleteAccountPoolCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteAccountPoolCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DeleteAssetCommand}
    */
   deleteAsset(args: DeleteAssetCommandInput, options?: __HttpHandlerOptions): Promise<DeleteAssetCommandOutput>;
@@ -1786,6 +1856,20 @@ export interface DataZone {
     args: DisassociateEnvironmentRoleCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DisassociateEnvironmentRoleCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetAccountPoolCommand}
+   */
+  getAccountPool(
+    args: GetAccountPoolCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetAccountPoolCommandOutput>;
+  getAccountPool(args: GetAccountPoolCommandInput, cb: (err: any, data?: GetAccountPoolCommandOutput) => void): void;
+  getAccountPool(
+    args: GetAccountPoolCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetAccountPoolCommandOutput) => void
   ): void;
 
   /**
@@ -2265,6 +2349,40 @@ export interface DataZone {
     args: GetUserProfileCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetUserProfileCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListAccountPoolsCommand}
+   */
+  listAccountPools(
+    args: ListAccountPoolsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListAccountPoolsCommandOutput>;
+  listAccountPools(
+    args: ListAccountPoolsCommandInput,
+    cb: (err: any, data?: ListAccountPoolsCommandOutput) => void
+  ): void;
+  listAccountPools(
+    args: ListAccountPoolsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListAccountPoolsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListAccountsInAccountPoolCommand}
+   */
+  listAccountsInAccountPool(
+    args: ListAccountsInAccountPoolCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListAccountsInAccountPoolCommandOutput>;
+  listAccountsInAccountPool(
+    args: ListAccountsInAccountPoolCommandInput,
+    cb: (err: any, data?: ListAccountsInAccountPoolCommandOutput) => void
+  ): void;
+  listAccountsInAccountPool(
+    args: ListAccountsInAccountPoolCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListAccountsInAccountPoolCommandOutput) => void
   ): void;
 
   /**
@@ -3025,6 +3143,23 @@ export interface DataZone {
     args: UntagResourceCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateAccountPoolCommand}
+   */
+  updateAccountPool(
+    args: UpdateAccountPoolCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateAccountPoolCommandOutput>;
+  updateAccountPool(
+    args: UpdateAccountPoolCommandInput,
+    cb: (err: any, data?: UpdateAccountPoolCommandOutput) => void
+  ): void;
+  updateAccountPool(
+    args: UpdateAccountPoolCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateAccountPoolCommandOutput) => void
   ): void;
 
   /**

@@ -11,7 +11,7 @@ import {
   RejectSubscriptionRequestInputFilterSensitiveLog,
   RejectSubscriptionRequestOutput,
   RejectSubscriptionRequestOutputFilterSensitiveLog,
-} from "../models/models_1";
+} from "../models/models_2";
 import { de_RejectSubscriptionRequestCommand, se_RejectSubscriptionRequestCommand } from "../protocols/Aws_restJson1";
 
 /**
