@@ -69,7 +69,7 @@ export interface CreateQuantumTaskCommandOutput extends CreateQuantumTaskRespons
  * @see {@link BraketClientResolvedConfig | config} for BraketClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have sufficient access to perform this action.</p>
+ *  <p>You do not have sufficient permissions to perform this action.</p>
  *
  * @throws {@link DeviceOfflineException} (client fault)
  *  <p>The specified device is currently offline.</p>
@@ -78,17 +78,16 @@ export interface CreateQuantumTaskCommandOutput extends CreateQuantumTaskRespons
  *  <p>The specified device has been retired.</p>
  *
  * @throws {@link InternalServiceException} (server fault)
- *  <p>The request processing has failed because of an unknown error, exception, or
- *          failure.</p>
+ *  <p>The request failed because of an unknown error.</p>
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
  *  <p>The request failed because a service quota is exceeded.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The throttling rate limit is met.</p>
+ *  <p>The API throttling rate limit is exceeded.</p>
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input fails to satisfy the constraints specified by an AWS service.</p>
+ *  <p>The input request failed to satisfy constraints expected by Amazon Braket.</p>
  *
  * @throws {@link BraketServiceException}
  * <p>Base exception class for all service exceptions from Braket service.</p>

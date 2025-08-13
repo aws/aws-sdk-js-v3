@@ -28,7 +28,7 @@ export interface CreateJobCommandInput extends CreateJobRequest {}
 export interface CreateJobCommandOutput extends CreateJobResponse, __MetadataBearer {}
 
 /**
- * <p>Creates an Amazon Braket job.</p>
+ * <p>Creates an Amazon Braket hybrid job.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -107,7 +107,7 @@ export interface CreateJobCommandOutput extends CreateJobResponse, __MetadataBea
  * @see {@link BraketClientResolvedConfig | config} for BraketClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have sufficient access to perform this action.</p>
+ *  <p>You do not have sufficient permissions to perform this action.</p>
  *
  * @throws {@link ConflictException} (client fault)
  *  <p>An error occurred due to a conflict.</p>
@@ -119,17 +119,16 @@ export interface CreateJobCommandOutput extends CreateJobResponse, __MetadataBea
  *  <p>The specified device has been retired.</p>
  *
  * @throws {@link InternalServiceException} (server fault)
- *  <p>The request processing has failed because of an unknown error, exception, or
- *          failure.</p>
+ *  <p>The request failed because of an unknown error.</p>
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
  *  <p>The request failed because a service quota is exceeded.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The throttling rate limit is met.</p>
+ *  <p>The API throttling rate limit is exceeded.</p>
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input fails to satisfy the constraints specified by an AWS service.</p>
+ *  <p>The input request failed to satisfy constraints expected by Amazon Braket.</p>
  *
  * @throws {@link BraketServiceException}
  * <p>Base exception class for all service exceptions from Braket service.</p>

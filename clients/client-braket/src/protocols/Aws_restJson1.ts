@@ -527,6 +527,7 @@ export const de_GetQuantumTaskCommand = async (
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
+    actionMetadata: _json,
     associations: _json,
     createdAt: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
     deviceArn: __expectString,
@@ -534,6 +535,7 @@ export const de_GetQuantumTaskCommand = async (
     endedAt: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
     failureReason: __expectString,
     jobArn: __expectString,
+    numSuccessfulShots: __expectLong,
     outputS3Bucket: __expectString,
     outputS3Directory: __expectString,
     quantumTaskArn: __expectString,
@@ -877,6 +879,8 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
   const data: any = parsedOutput.body;
   const doc = take(data, {
     message: __expectString,
+    programSetValidationFailures: _json,
+    reason: __expectString,
   });
   Object.assign(contents, doc);
   const exception = new ValidationException({
@@ -931,6 +935,8 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 // se_String256List omitted.
 
 // se_TagsMap omitted.
+
+// de_ActionMetadata omitted.
 
 // de_AlgorithmSpecification omitted.
 
@@ -1018,6 +1024,12 @@ const de_JobSummaryList = (output: any, context: __SerdeContext): JobSummary[] =
     });
   return retVal;
 };
+
+// de_ProgramSetValidationFailure omitted.
+
+// de_ProgramSetValidationFailuresList omitted.
+
+// de_ProgramValidationFailuresList omitted.
 
 // de_QuantumTaskQueueInfo omitted.
 

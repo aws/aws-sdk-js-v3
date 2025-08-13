@@ -54,14 +54,13 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
  * @see {@link BraketClientResolvedConfig | config} for BraketClient's `config` shape.
  *
  * @throws {@link InternalServiceException} (server fault)
- *  <p>The request processing has failed because of an unknown error, exception, or
- *          failure.</p>
+ *  <p>The request failed because of an unknown error.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource was not found.</p>
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input fails to satisfy the constraints specified by an AWS service.</p>
+ *  <p>The input request failed to satisfy constraints expected by Amazon Braket.</p>
  *
  * @throws {@link BraketServiceException}
  * <p>Base exception class for all service exceptions from Braket service.</p>
