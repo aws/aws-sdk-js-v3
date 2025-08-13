@@ -1265,13 +1265,13 @@ export interface ExpectedCustomerSpend {
   CurrencyCode: CurrencyCode | undefined;
 
   /**
-   * <p>Indicates how frequently the customer is expected to spend the projected amount. This can include values such as <code>Monthly</code>, <code>Quarterly</code>, or <code>Annually</code>. The default value is <code>Monthly</code>, representing recurring monthly spend.</p>
+   * <p>Indicates how frequently the customer is expected to spend the projected amount. Only the value <code>Monthly</code> is allowed for the <code>Frequency</code> field, representing recurring monthly spend.</p>
    * @public
    */
   Frequency: PaymentFrequency | undefined;
 
   /**
-   * <p>Specifies the name of the partner company that is expected to generate revenue from the opportunity. This field helps track the partner’s involvement in the opportunity.</p>
+   * <p>Specifies the name of the partner company that is expected to generate revenue from the opportunity. This field helps track the partner’s involvement in the opportunity. This field only accepts the value <code>AWS</code>. If any other value is provided, the system will automatically set it to <code>AWS</code>.</p>
    * @public
    */
   TargetCompany: string | undefined;
@@ -3300,13 +3300,13 @@ export interface LifeCycle {
   ReviewStatus?: ReviewStatus | undefined;
 
   /**
-   * <p>Indicates why an opportunity was sent back for further details. Partners must take corrective action based on the <code>ReviewComments</code>.</p>
+   * <p>Contains detailed feedback from Amazon Web Services when requesting additional information from partners. Provides specific guidance on what partners need to provide or clarify for opportunity validation, complementing the <code>ReviewStatusReason</code> field.</p>
    * @public
    */
   ReviewComments?: string | undefined;
 
   /**
-   * <p>Indicates the reason a decision was made during the opportunity review process. This field combines the reasons for both disqualified and action required statuses, and provide clarity for why an opportunity was disqualified or requires further action.</p>
+   * <p>Code indicating the validation decision during the Amazon Web Services opportunity review. Applies when status is <code>Rejected</code> or <code>Action Required</code>. Used to document validation results for AWS Partner Referrals and indicate when additional information is needed from partners as part of the APN Customer Engagement (ACE) program.</p>
    * @public
    */
   ReviewStatusReason?: string | undefined;
@@ -3739,6 +3739,12 @@ export interface CreateOpportunityRequest {
    * @public
    */
   OpportunityTeam?: Contact[] | undefined;
+
+  /**
+   * <p>A map of the key-value pairs of the tag or tags to assign.</p>
+   * @public
+   */
+  Tags?: Tag[] | undefined;
 }
 
 /**
@@ -5672,6 +5678,7 @@ export const AwsOpportunityLifeCycleFilterSensitiveLog = (obj: AwsOpportunityLif
  */
 export const ExpectedCustomerSpendFilterSensitiveLog = (obj: ExpectedCustomerSpend): any => ({
   ...obj,
+  ...(obj.Amount && { Amount: SENSITIVE_STRING }),
   ...(obj.CurrencyCode && { CurrencyCode: SENSITIVE_STRING }),
   ...(obj.EstimationUrl && { EstimationUrl: SENSITIVE_STRING }),
 });

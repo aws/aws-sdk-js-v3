@@ -40,7 +40,7 @@ export interface StartEngagementFromOpportunityTaskCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>This action initiates the engagement process from an existing opportunity by accepting the engagement invitation and creating a corresponding opportunity in the partner’s system. Similar to <code>StartEngagementByAcceptingInvitationTask</code>, this action is asynchronous and performs multiple steps before completion.</p>
+ * <p>Similar to <code>StartEngagementByAcceptingInvitationTask</code>, this action is asynchronous and performs multiple steps before completion. This action orchestrates a comprehensive workflow that combines multiple API operations into a single task to create and initiate an engagement from an existing opportunity. It automatically executes a sequence of operations including <code>GetOpportunity</code>, <code>CreateEngagement</code> (if it doesn't exist), <code>CreateResourceSnapshot</code>, <code>CreateResourceSnapshotJob</code>, <code>CreateEngagementInvitation</code> (if not already invited/accepted), and <code>SubmitOpportunity</code>. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

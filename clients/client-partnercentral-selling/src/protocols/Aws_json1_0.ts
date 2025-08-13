@@ -1702,6 +1702,7 @@ const se_CreateOpportunityRequest = (input: CreateOpportunityRequest, context: _
     PrimaryNeedsFromAws: _json,
     Project: _json,
     SoftwareRevenue: _json,
+    Tags: _json,
   });
 };
 
