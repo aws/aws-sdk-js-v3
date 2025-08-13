@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.867.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.866.0...v3.867.0) (2025-08-13)
+
+
+### Features
+
+* **client-braket:** Add support for Braket program sets. ([ead04e9](https://github.com/aws/aws-sdk-js-v3/commit/ead04e9705e1340ac48abc659e814f7b87157015))
+* **client-datazone:** Adds support for account pools and project profile account decoupling ([74fe668](https://github.com/aws/aws-sdk-js-v3/commit/74fe668e5b13109e1a793ecfafbb85356d8cbe8c))
+* **client-fsx:** Add Dual-Stack support for Amazon FSx for OpenZFS file systems ([46d94c1](https://github.com/aws/aws-sdk-js-v3/commit/46d94c15237b1066d1b22b7aea1e3e1c2d84ba3a))
+* **client-partnercentral-selling:** Add Tagging Support for Opportunity resources ([9ede01b](https://github.com/aws/aws-sdk-js-v3/commit/9ede01bc7c9c8b604c1afcb86a5ba0d3f805eb55))
+* **client-sagemaker:** This release introduces compute quota for GPU, Trainium accelerators, vCPU, and vCPU memory utilization across teams in HyperPod clusters ([0e1fe39](https://github.com/aws/aws-sdk-js-v3/commit/0e1fe398e7943436e58a6af8d58e9e586c4ed6b0))
+* **client-security-ir:** Added support for Organizational Unit-level Membership configuration and the ability to resume a cancelled membership. ([8396253](https://github.com/aws/aws-sdk-js-v3/commit/8396253ee68e0226d4660dcad10509cc3f82314c))
+
+
+
+
+
 # [3.866.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.865.0...v3.866.0) (2025-08-12)
 
 

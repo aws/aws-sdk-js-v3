@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.867.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.866.0...v3.867.0) (2025-08-13)
+
+
+### Features
+
+* **client-sagemaker:** This release introduces compute quota for GPU, Trainium accelerators, vCPU, and vCPU memory utilization across teams in HyperPod clusters ([0e1fe39](https://github.com/aws/aws-sdk-js-v3/commit/0e1fe398e7943436e58a6af8d58e9e586c4ed6b0))
+
+
+
+
+
 # [3.866.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.865.0...v3.866.0) (2025-08-12)
 
 

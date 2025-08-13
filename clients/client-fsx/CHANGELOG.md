@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.867.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.866.0...v3.867.0) (2025-08-13)
+
+
+### Features
+
+* **client-fsx:** Add Dual-Stack support for Amazon FSx for OpenZFS file systems ([46d94c1](https://github.com/aws/aws-sdk-js-v3/commit/46d94c15237b1066d1b22b7aea1e3e1c2d84ba3a))
+
+
+
+
+
 # [3.864.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.863.0...v3.864.0) (2025-08-08)
 
 **Note:** Version bump only for package @aws-sdk/client-fsx
