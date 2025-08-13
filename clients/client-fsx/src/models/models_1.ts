@@ -13,6 +13,19 @@ import {
 } from "./models_0";
 
 /**
+ * <p>The response object for the <code>CreateFileSystemFromBackup</code>
+ *             operation.</p>
+ * @public
+ */
+export interface CreateFileSystemFromBackupResponse {
+  /**
+   * <p>A description of the file system.</p>
+   * @public
+   */
+  FileSystem?: FileSystem | undefined;
+}
+
+/**
  * <p>The response object returned after the file system is created.</p>
  * @public
  */
@@ -366,6 +379,14 @@ export interface DescribeBackupsResponse {
    */
   NextToken?: string | undefined;
 }
+
+/**
+ * @internal
+ */
+export const CreateFileSystemFromBackupResponseFilterSensitiveLog = (obj: CreateFileSystemFromBackupResponse): any => ({
+  ...obj,
+  ...(obj.FileSystem && { FileSystem: FileSystemFilterSensitiveLog(obj.FileSystem) }),
+});
 
 /**
  * @internal

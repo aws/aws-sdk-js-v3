@@ -9,9 +9,11 @@ import { FSxClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "
 import {
   CreateFileSystemFromBackupRequest,
   CreateFileSystemFromBackupRequestFilterSensitiveLog,
+} from "../models/models_0";
+import {
   CreateFileSystemFromBackupResponse,
   CreateFileSystemFromBackupResponseFilterSensitiveLog,
-} from "../models/models_0";
+} from "../models/models_1";
 import { de_CreateFileSystemFromBackupCommand, se_CreateFileSystemFromBackupCommand } from "../protocols/Aws_json1_1";
 
 /**
@@ -195,6 +197,7 @@ export interface CreateFileSystemFromBackupCommandOutput extends CreateFileSyste
  *     },
  *     PreferredSubnetId: "STRING_VALUE",
  *     EndpointIpAddressRange: "STRING_VALUE",
+ *     EndpointIpv6AddressRange: "STRING_VALUE",
  *     RouteTableIds: [ // RouteTableIds
  *       "STRING_VALUE",
  *     ],
@@ -204,6 +207,7 @@ export interface CreateFileSystemFromBackupCommandOutput extends CreateFileSyste
  *     },
  *   },
  *   StorageCapacity: Number("int"),
+ *   NetworkType: "IPV4" || "DUAL",
  * };
  * const command = new CreateFileSystemFromBackupCommand(input);
  * const response = await client.send(command);
@@ -607,15 +611,18 @@ export interface CreateFileSystemFromBackupCommandOutput extends CreateFileSyste
  * //             RootVolumeId: "STRING_VALUE",
  * //             PreferredSubnetId: "STRING_VALUE",
  * //             EndpointIpAddressRange: "STRING_VALUE",
+ * //             EndpointIpv6AddressRange: "STRING_VALUE",
  * //             RouteTableIds: [
  * //               "STRING_VALUE",
  * //             ],
  * //             EndpointIpAddress: "STRING_VALUE",
+ * //             EndpointIpv6Address: "STRING_VALUE",
  * //             ReadCacheConfiguration: { // OpenZFSReadCacheConfiguration
  * //               SizingMode: "NO_CACHE" || "USER_PROVISIONED" || "PROPORTIONAL_TO_THROUGHPUT_CAPACITY",
  * //               SizeGiB: Number("int"),
  * //             },
  * //           },
+ * //           NetworkType: "IPV4" || "DUAL",
  * //         },
  * //         FailureDetails: {
  * //           Message: "STRING_VALUE",
@@ -783,15 +790,18 @@ export interface CreateFileSystemFromBackupCommandOutput extends CreateFileSyste
  * //       RootVolumeId: "STRING_VALUE",
  * //       PreferredSubnetId: "STRING_VALUE",
  * //       EndpointIpAddressRange: "STRING_VALUE",
+ * //       EndpointIpv6AddressRange: "STRING_VALUE",
  * //       RouteTableIds: [
  * //         "STRING_VALUE",
  * //       ],
  * //       EndpointIpAddress: "STRING_VALUE",
+ * //       EndpointIpv6Address: "STRING_VALUE",
  * //       ReadCacheConfiguration: {
  * //         SizingMode: "NO_CACHE" || "USER_PROVISIONED" || "PROPORTIONAL_TO_THROUGHPUT_CAPACITY",
  * //         SizeGiB: Number("int"),
  * //       },
  * //     },
+ * //     NetworkType: "IPV4" || "DUAL",
  * //   },
  * // };
  *

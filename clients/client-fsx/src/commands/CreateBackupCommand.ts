@@ -516,15 +516,18 @@ export interface CreateBackupCommandOutput extends CreateBackupResponse, __Metad
  * //               RootVolumeId: "STRING_VALUE",
  * //               PreferredSubnetId: "STRING_VALUE",
  * //               EndpointIpAddressRange: "STRING_VALUE",
+ * //               EndpointIpv6AddressRange: "STRING_VALUE",
  * //               RouteTableIds: [
  * //                 "STRING_VALUE",
  * //               ],
  * //               EndpointIpAddress: "STRING_VALUE",
+ * //               EndpointIpv6Address: "STRING_VALUE",
  * //               ReadCacheConfiguration: { // OpenZFSReadCacheConfiguration
  * //                 SizingMode: "NO_CACHE" || "USER_PROVISIONED" || "PROPORTIONAL_TO_THROUGHPUT_CAPACITY",
  * //                 SizeGiB: Number("int"),
  * //               },
  * //             },
+ * //             NetworkType: "IPV4" || "DUAL",
  * //           },
  * //           FailureDetails: {
  * //             Message: "STRING_VALUE",
@@ -692,15 +695,18 @@ export interface CreateBackupCommandOutput extends CreateBackupResponse, __Metad
  * //         RootVolumeId: "STRING_VALUE",
  * //         PreferredSubnetId: "STRING_VALUE",
  * //         EndpointIpAddressRange: "STRING_VALUE",
+ * //         EndpointIpv6AddressRange: "STRING_VALUE",
  * //         RouteTableIds: [
  * //           "STRING_VALUE",
  * //         ],
  * //         EndpointIpAddress: "STRING_VALUE",
+ * //         EndpointIpv6Address: "STRING_VALUE",
  * //         ReadCacheConfiguration: {
  * //           SizingMode: "NO_CACHE" || "USER_PROVISIONED" || "PROPORTIONAL_TO_THROUGHPUT_CAPACITY",
  * //           SizeGiB: Number("int"),
  * //         },
  * //       },
+ * //       NetworkType: "IPV4" || "DUAL",
  * //     },
  * //     DirectoryInformation: { // ActiveDirectoryBackupAttributes
  * //       DomainName: "STRING_VALUE",

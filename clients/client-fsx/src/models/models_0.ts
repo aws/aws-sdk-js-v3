@@ -841,6 +841,20 @@ export interface LustreFileSystemConfiguration {
  * @public
  * @enum
  */
+export const NetworkType = {
+  DUAL: "DUAL",
+  IPV4: "IPV4",
+} as const;
+
+/**
+ * @public
+ */
+export type NetworkType = (typeof NetworkType)[keyof typeof NetworkType];
+
+/**
+ * @public
+ * @enum
+ */
 export const OntapDeploymentType = {
   MULTI_AZ_1: "MULTI_AZ_1",
   MULTI_AZ_2: "MULTI_AZ_2",
@@ -1267,6 +1281,16 @@ export interface OpenZFSFileSystemConfiguration {
   EndpointIpAddressRange?: string | undefined;
 
   /**
+   * <p>(Multi-AZ only) Specifies the IP address range in which the endpoints to access your
+   *             file system will be created. By default in the Amazon FSx API and Amazon FSx
+   *             console, Amazon FSx selects an available /118 IP address range for you from one of the
+   *             VPC's CIDR ranges. You can have overlapping endpoint IP addresses for file systems deployed
+   *             in the same VPC/route tables, as long as they don't overlap with any subnet.</p>
+   * @public
+   */
+  EndpointIpv6AddressRange?: string | undefined;
+
+  /**
    * <p>(Multi-AZ only) The VPC route tables in which your file system's endpoints are
    *             created.</p>
    * @public
@@ -1279,6 +1303,12 @@ export interface OpenZFSFileSystemConfiguration {
    * @public
    */
   EndpointIpAddress?: string | undefined;
+
+  /**
+   * <p>The IPv6 address of the endpoint that is used to access data or to manage the file system.</p>
+   * @public
+   */
+  EndpointIpv6Address?: string | undefined;
 
   /**
    * <p>
@@ -6522,13 +6552,24 @@ export interface CreateFileSystemOpenZFSConfiguration {
 
   /**
    * <p>(Multi-AZ only) Specifies the IP address range in which the endpoints to access your
-   *             file system will be created. By default in the Amazon FSx  API and Amazon FSx console, Amazon FSx
+   *             file system will be created. By default in the Amazon FSx API and Amazon FSx console, Amazon FSx
    *             selects an available /28 IP address range for you from one of the VPC's CIDR ranges.
    *             You can have overlapping endpoint IP addresses for file systems deployed in the
    *             same VPC/route tables, as long as they don't overlap with any subnet.</p>
    * @public
    */
   EndpointIpAddressRange?: string | undefined;
+
+  /**
+   * <p>(Multi-AZ only) Specifies the IP address range in which the endpoints to access
+   *             your file system will be created. By default in the Amazon FSx API and
+   *             Amazon FSx console, Amazon FSx selects an available /118 IP address
+   *             range for you from one of the VPC's CIDR ranges. You can have overlapping endpoint
+   *             IP addresses for file systems deployed in the same VPC/route tables, as long as they
+   *             don't overlap with any subnet.</p>
+   * @public
+   */
+  EndpointIpv6AddressRange?: string | undefined;
 
   /**
    * <p>(Multi-AZ only) Specifies the route tables in which Amazon FSx  creates the rules
@@ -7103,6 +7144,16 @@ export interface CreateFileSystemRequest {
    * @public
    */
   OpenZFSConfiguration?: CreateFileSystemOpenZFSConfiguration | undefined;
+
+  /**
+   * <p>The network type of the Amazon FSx file system that you
+   *             are creating. Valid values are <code>IPV4</code> (which supports
+   *             IPv4 only) and <code>DUAL</code> (for dual-stack mode, which supports
+   *             both IPv4 and IPv6). The default is <code>IPV4</code>. Supported only
+   *             for Amazon FSx for OpenZFS file systems.</p>
+   * @public
+   */
+  NetworkType?: NetworkType | undefined;
 }
 
 /**
@@ -7356,6 +7407,13 @@ export interface CreateFileSystemFromBackupRequest {
    * @public
    */
   StorageCapacity?: number | undefined;
+
+  /**
+   * <p>Sets the network type for the Amazon FSx for OpenZFS file system
+   *             that you're creating from a backup.</p>
+   * @public
+   */
+  NetworkType?: NetworkType | undefined;
 }
 
 /**
@@ -10832,6 +10890,16 @@ export interface UpdateFileSystemOpenZFSConfiguration {
    * @public
    */
   ReadCacheConfiguration?: OpenZFSReadCacheConfiguration | undefined;
+
+  /**
+   * <p>(Multi-AZ only) Specifies the IP address range in which the endpoints to access your
+   *             file system will be created. By default in the Amazon FSx API and Amazon FSx console,
+   *             Amazon FSx selects an available /118 IP address range for you from one of the VPC's CIDR ranges.
+   *             You can have overlapping endpoint IP addresses for file systems deployed in the same VPC/route tables,
+   *             as long as they don't overlap with any subnet.</p>
+   * @public
+   */
+  EndpointIpv6AddressRange?: string | undefined;
 }
 
 /**
@@ -11046,6 +11114,12 @@ export interface UpdateFileSystemRequest {
    * @public
    */
   FileSystemTypeVersion?: string | undefined;
+
+  /**
+   * <p>Changes the network type of an FSx for OpenZFS file system.</p>
+   * @public
+   */
+  NetworkType?: NetworkType | undefined;
 }
 
 /**
@@ -11889,6 +11963,12 @@ export interface FileSystem {
    * @public
    */
   OpenZFSConfiguration?: OpenZFSFileSystemConfiguration | undefined;
+
+  /**
+   * <p>The network type of the file system.</p>
+   * @public
+   */
+  NetworkType?: NetworkType | undefined;
 }
 
 /**
@@ -12146,19 +12226,6 @@ export interface RestoreVolumeFromSnapshotResponse {
 }
 
 /**
- * <p>The response object for the <code>CreateFileSystemFromBackup</code>
- *             operation.</p>
- * @public
- */
-export interface CreateFileSystemFromBackupResponse {
-  /**
-   * <p>A description of the file system.</p>
-   * @public
-   */
-  FileSystem?: FileSystem | undefined;
-}
-
-/**
  * @internal
  */
 export const OntapFileSystemConfigurationFilterSensitiveLog = (obj: OntapFileSystemConfiguration): any => ({
@@ -12383,12 +12450,4 @@ export const RestoreVolumeFromSnapshotResponseFilterSensitiveLog = (obj: Restore
   ...(obj.AdministrativeActions && {
     AdministrativeActions: obj.AdministrativeActions.map((item) => AdministrativeActionFilterSensitiveLog(item)),
   }),
-});
-
-/**
- * @internal
- */
-export const CreateFileSystemFromBackupResponseFilterSensitiveLog = (obj: CreateFileSystemFromBackupResponse): any => ({
-  ...obj,
-  ...(obj.FileSystem && { FileSystem: FileSystemFilterSensitiveLog(obj.FileSystem) }),
 });

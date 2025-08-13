@@ -36,9 +36,9 @@ export interface DeleteFileSystemCommandOutput extends DeleteFileSystemResponse,
  *          <p>Before deleting an Amazon FSx for OpenZFS file system, make sure that there aren't
  *         any Amazon S3 access points attached to any volume. For more information on how to list S3
  *         access points that are attached to volumes, see
- *             <a href="https://docs.aws.amazon.com/fsx/latest/OpenZFSGuide/access-points-list">Listing S3 access point attachments</a>.
+ *             <a href="https://docs.aws.amazon.com/fsx/latest/OpenZFSGuide/access-points-list.html">Listing S3 access point attachments</a>.
  *         For more information on how to delete S3 access points, see
- *             <a href="https://docs.aws.amazon.com/fsx/latest/OpenZFSGuide/delete-points-list">Deleting an S3 access point attachment</a>.</p>
+ *             <a href="https://docs.aws.amazon.com/fsx/latest/OpenZFSGuide/delete-access-point.html">Deleting an S3 access point attachment</a>.</p>
  *          <p>By default, when you delete an Amazon FSx for Windows File Server file system,
  *             a final backup is created upon deletion. This final backup isn't subject to the file
  *             system's retention policy, and must be manually deleted.</p>

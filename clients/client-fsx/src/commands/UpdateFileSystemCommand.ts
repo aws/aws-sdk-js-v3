@@ -243,6 +243,11 @@ export interface UpdateFileSystemCommandOutput extends UpdateFileSystemResponse,
  *             </li>
  *             <li>
  *                <p>
+ *                   <code>EndpointIpv6AddressRange</code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
  *                   <code>ReadCacheConfiguration</code>
  *                </p>
  *             </li>
@@ -369,9 +374,11 @@ export interface UpdateFileSystemCommandOutput extends UpdateFileSystemResponse,
  *       SizingMode: "NO_CACHE" || "USER_PROVISIONED" || "PROPORTIONAL_TO_THROUGHPUT_CAPACITY",
  *       SizeGiB: Number("int"),
  *     },
+ *     EndpointIpv6AddressRange: "STRING_VALUE",
  *   },
  *   StorageType: "SSD" || "HDD" || "INTELLIGENT_TIERING",
  *   FileSystemTypeVersion: "STRING_VALUE",
+ *   NetworkType: "IPV4" || "DUAL",
  * };
  * const command = new UpdateFileSystemCommand(input);
  * const response = await client.send(command);
@@ -775,15 +782,18 @@ export interface UpdateFileSystemCommandOutput extends UpdateFileSystemResponse,
  * //             RootVolumeId: "STRING_VALUE",
  * //             PreferredSubnetId: "STRING_VALUE",
  * //             EndpointIpAddressRange: "STRING_VALUE",
+ * //             EndpointIpv6AddressRange: "STRING_VALUE",
  * //             RouteTableIds: [
  * //               "STRING_VALUE",
  * //             ],
  * //             EndpointIpAddress: "STRING_VALUE",
+ * //             EndpointIpv6Address: "STRING_VALUE",
  * //             ReadCacheConfiguration: { // OpenZFSReadCacheConfiguration
  * //               SizingMode: "NO_CACHE" || "USER_PROVISIONED" || "PROPORTIONAL_TO_THROUGHPUT_CAPACITY",
  * //               SizeGiB: Number("int"),
  * //             },
  * //           },
+ * //           NetworkType: "IPV4" || "DUAL",
  * //         },
  * //         FailureDetails: {
  * //           Message: "STRING_VALUE",
@@ -951,15 +961,18 @@ export interface UpdateFileSystemCommandOutput extends UpdateFileSystemResponse,
  * //       RootVolumeId: "STRING_VALUE",
  * //       PreferredSubnetId: "STRING_VALUE",
  * //       EndpointIpAddressRange: "STRING_VALUE",
+ * //       EndpointIpv6AddressRange: "STRING_VALUE",
  * //       RouteTableIds: [
  * //         "STRING_VALUE",
  * //       ],
  * //       EndpointIpAddress: "STRING_VALUE",
+ * //       EndpointIpv6Address: "STRING_VALUE",
  * //       ReadCacheConfiguration: {
  * //         SizingMode: "NO_CACHE" || "USER_PROVISIONED" || "PROPORTIONAL_TO_THROUGHPUT_CAPACITY",
  * //         SizeGiB: Number("int"),
  * //       },
  * //     },
+ * //     NetworkType: "IPV4" || "DUAL",
  * //   },
  * // };
  *
