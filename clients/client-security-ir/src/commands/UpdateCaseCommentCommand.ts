@@ -33,7 +33,7 @@ export interface UpdateCaseCommentCommandInput extends UpdateCaseCommentRequest 
 export interface UpdateCaseCommentCommandOutput extends UpdateCaseCommentResponse, __MetadataBearer {}
 
 /**
- * <p>Grants permission to update an existing case comment.</p>
+ * <p>Updates an existing case comment.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

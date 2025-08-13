@@ -343,7 +343,7 @@ export type SecurityIRClientResolvedConfigType = __SmithyResolvedConfiguration<_
 export interface SecurityIRClientResolvedConfig extends SecurityIRClientResolvedConfigType {}
 
 /**
- * <p>This guide provides documents the action and response elements for customer use of the service.</p>
+ * <p>This guide documents the action and response elements for use of the service.</p>
  * @public
  */
 export class SecurityIRClient extends __Client<

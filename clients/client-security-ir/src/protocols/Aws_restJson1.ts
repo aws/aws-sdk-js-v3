@@ -72,6 +72,7 @@ import {
   InvalidTokenException,
   ListCasesItem,
   ListCommentsItem,
+  MembershipAccountsConfigurationsUpdate,
   OptInFeature,
   ResourceNotFoundException,
   SecurityIncidentResponseNotActiveException,
@@ -211,6 +212,7 @@ export const se_CreateMembershipCommand = async (
   body = JSON.stringify(
     take(input, {
       clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
+      coverEntireOrganization: [],
       incidentResponseTeam: (_) => _json(_),
       membershipName: [],
       optInFeatures: (_) => _json(_),
@@ -548,8 +550,10 @@ export const se_UpdateMembershipCommand = async (
   body = JSON.stringify(
     take(input, {
       incidentResponseTeam: (_) => _json(_),
+      membershipAccountsConfigurationsUpdate: (_) => _json(_),
       membershipName: [],
       optInFeatures: (_) => _json(_),
+      undoMembershipCancellation: [],
     })
   );
   b.m("PUT").h(headers).b(body);
@@ -806,6 +810,7 @@ export const de_GetMembershipCommand = async (
     accountId: __expectString,
     customerType: __expectString,
     incidentResponseTeam: _json,
+    membershipAccountsConfigurations: _json,
     membershipActivationTimestamp: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     membershipArn: __expectString,
     membershipDeactivationTimestamp: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
@@ -1313,9 +1318,13 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 
 // se_IncidentResponseTeam omitted.
 
+// se_MembershipAccountsConfigurationsUpdate omitted.
+
 // se_OptInFeature omitted.
 
 // se_OptInFeatures omitted.
+
+// se_OrganizationalUnits omitted.
 
 // se_TagMap omitted.
 
@@ -1456,9 +1465,13 @@ const de_ListCommentsItems = (output: any, context: __SerdeContext): ListComment
 
 // de_ListMembershipItems omitted.
 
+// de_MembershipAccountsConfigurations omitted.
+
 // de_OptInFeature omitted.
 
 // de_OptInFeatures omitted.
+
+// de_OrganizationalUnits omitted.
 
 // de_TagMap omitted.
 

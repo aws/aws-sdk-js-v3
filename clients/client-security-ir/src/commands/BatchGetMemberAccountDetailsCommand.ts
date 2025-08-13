@@ -33,7 +33,7 @@ export interface BatchGetMemberAccountDetailsCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Grants permission to view an existing membership.</p>
+ * <p>Provides information on whether the supplied account IDs are associated with a membership.</p> <note> <p> AWS account ID's may appear less than 12 characters and need to be zero-prepended. An example would be <code>123123123</code> which is nine digits, and with zero-prepend would be <code>000123123123</code>. Not zero-prepending to 12 digits could result in errors. </p> </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -52,8 +52,8 @@ export interface BatchGetMemberAccountDetailsCommandOutput
  * //   items: [ // GetMembershipAccountDetailItems
  * //     { // GetMembershipAccountDetailItem
  * //       accountId: "STRING_VALUE",
- * //       relationshipStatus: "Associated" || "Disassociated",
- * //       relationshipType: "Organization",
+ * //       relationshipStatus: "Associated" || "Disassociated" || "Unassociated",
+ * //       relationshipType: "Organization" || "Unrelated",
  * //     },
  * //   ],
  * //   errors: [ // GetMembershipAccountDetailErrors

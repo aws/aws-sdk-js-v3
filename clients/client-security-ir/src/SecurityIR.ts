@@ -431,7 +431,7 @@ export interface SecurityIR {
 }
 
 /**
- * <p>This guide provides documents the action and response elements for customer use of the service.</p>
+ * <p>This guide documents the action and response elements for use of the service.</p>
  * @public
  */
 export class SecurityIR extends SecurityIRClient implements SecurityIR {}

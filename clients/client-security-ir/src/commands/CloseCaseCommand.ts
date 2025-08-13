@@ -28,7 +28,7 @@ export interface CloseCaseCommandInput extends CloseCaseRequest {}
 export interface CloseCaseCommandOutput extends CloseCaseResponse, __MetadataBearer {}
 
 /**
- * <p>Grants permission to close an existing case.</p>
+ * <p>Closes an existing case.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

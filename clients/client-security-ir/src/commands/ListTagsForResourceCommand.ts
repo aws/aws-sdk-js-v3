@@ -28,7 +28,7 @@ export interface ListTagsForResourceCommandInput extends ListTagsForResourceInpu
 export interface ListTagsForResourceCommandOutput extends ListTagsForResourceOutput, __MetadataBearer {}
 
 /**
- * <p>Grants permission to view currently configured tags on a resource.</p>
+ * <p>Returns currently configured tags on a resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

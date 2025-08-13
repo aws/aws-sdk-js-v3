@@ -37,7 +37,7 @@ export interface GetCaseAttachmentDownloadUrlCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Grants permission to obtain an Amazon S3 presigned URL to download an attachment.</p>
+ * <p>Returns a Pre-Signed URL for uploading attachments into a case.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -32,7 +32,7 @@ export interface CreateCaseCommentCommandInput extends CreateCaseCommentRequest 
 export interface CreateCaseCommentCommandOutput extends CreateCaseCommentResponse, __MetadataBearer {}
 
 /**
- * <p>Grants permission to add a comment to an existing case.</p>
+ * <p>Adds a comment to an existing case.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

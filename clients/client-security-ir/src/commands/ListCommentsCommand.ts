@@ -28,7 +28,7 @@ export interface ListCommentsCommandInput extends ListCommentsRequest {}
 export interface ListCommentsCommandOutput extends ListCommentsResponse, __MetadataBearer {}
 
 /**
- * <p>Grants permissions to list and view comments for a designated case.</p>
+ * <p>Returns comments for a designated case.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

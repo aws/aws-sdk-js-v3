@@ -28,7 +28,7 @@ export interface ListCaseEditsCommandInput extends ListCaseEditsRequest {}
 export interface ListCaseEditsCommandOutput extends ListCaseEditsResponse, __MetadataBearer {}
 
 /**
- * <p>Grants permissions to view the aidt log for edits made to a designated case.</p>
+ * <p>Views the case history for edits made to a designated case.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

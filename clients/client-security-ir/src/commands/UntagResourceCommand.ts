@@ -28,7 +28,7 @@ export interface UntagResourceCommandInput extends UntagResourceInput {}
 export interface UntagResourceCommandOutput extends UntagResourceOutput, __MetadataBearer {}
 
 /**
- * <p>Grants permission to remove a tag(s) from a designate resource.</p>
+ * <p>Removes a tag(s) from a designate resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

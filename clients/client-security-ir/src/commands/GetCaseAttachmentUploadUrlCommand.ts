@@ -33,7 +33,7 @@ export interface GetCaseAttachmentUploadUrlCommandInput extends GetCaseAttachmen
 export interface GetCaseAttachmentUploadUrlCommandOutput extends GetCaseAttachmentUploadUrlResponse, __MetadataBearer {}
 
 /**
- * <p>Grants permission to upload an attachment to a case.</p>
+ * <p>Uploads an attachment to a case.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

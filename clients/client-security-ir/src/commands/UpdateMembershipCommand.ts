@@ -32,7 +32,7 @@ export interface UpdateMembershipCommandInput extends UpdateMembershipRequest {}
 export interface UpdateMembershipCommandOutput extends UpdateMembershipResponse, __MetadataBearer {}
 
 /**
- * <p>Grants access to UpdateMembership to change membership configuration.</p>
+ * <p>Updates membership configuration.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -55,6 +55,16 @@ export interface UpdateMembershipCommandOutput extends UpdateMembershipResponse,
  *       isEnabled: true || false, // required
  *     },
  *   ],
+ *   membershipAccountsConfigurationsUpdate: { // MembershipAccountsConfigurationsUpdate
+ *     coverEntireOrganization: true || false,
+ *     organizationalUnitsToAdd: [ // OrganizationalUnits
+ *       "STRING_VALUE",
+ *     ],
+ *     organizationalUnitsToRemove: [
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ *   undoMembershipCancellation: true || false,
  * };
  * const command = new UpdateMembershipCommand(input);
  * const response = await client.send(command);

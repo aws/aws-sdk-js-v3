@@ -28,7 +28,7 @@ export interface CancelMembershipCommandInput extends CancelMembershipRequest {}
 export interface CancelMembershipCommandOutput extends CancelMembershipResponse, __MetadataBearer {}
 
 /**
- * <p>Grants permissions to cancel an existing membership.</p>
+ * <p>Cancels an existing membership.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

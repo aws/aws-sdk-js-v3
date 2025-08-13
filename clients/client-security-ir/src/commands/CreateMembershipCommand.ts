@@ -32,7 +32,7 @@ export interface CreateMembershipCommandInput extends CreateMembershipRequest {}
 export interface CreateMembershipCommandOutput extends CreateMembershipResponse, __MetadataBearer {}
 
 /**
- * <p>Grants permissions to create a new membership.</p>
+ * <p>Creates a new membership.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -58,6 +58,7 @@ export interface CreateMembershipCommandOutput extends CreateMembershipResponse,
  *   tags: { // TagMap
  *     "<keys>": "STRING_VALUE",
  *   },
+ *   coverEntireOrganization: true || false,
  * };
  * const command = new CreateMembershipCommand(input);
  * const response = await client.send(command);

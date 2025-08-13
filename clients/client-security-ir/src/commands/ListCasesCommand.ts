@@ -28,7 +28,7 @@ export interface ListCasesCommandInput extends ListCasesRequest {}
 export interface ListCasesCommandOutput extends ListCasesResponse, __MetadataBearer {}
 
 /**
- * <p>Grants permission to list all cases the requester has access to.</p>
+ * <p>Lists all cases the requester has access to.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
