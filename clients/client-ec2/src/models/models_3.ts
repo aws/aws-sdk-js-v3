@@ -26,7 +26,6 @@ import {
 } from "./models_0";
 
 import {
-  CapacityReservation,
   CapacityReservationTenancy,
   CarrierGateway,
   ClientVpnEndpointStatus,
@@ -38,6 +37,7 @@ import {
   FleetCapacityReservationTenancy,
   FleetInstanceMatchCriteria,
   GatewayType,
+  IpAddressType,
   Ipam,
   IpamExternalResourceVerificationToken,
   IpamPool,
@@ -47,6 +47,9 @@ import {
 } from "./models_1";
 
 import {
+  DnsEntry,
+  DnsOptions,
+  LastError,
   LocalGatewayRoute,
   LocalGatewayRouteTable,
   LocalGatewayRouteTableVirtualInterfaceGroupAssociation,
@@ -57,7 +60,9 @@ import {
   RouteServer,
   RouteServerEndpoint,
   RouteServerPeer,
+  SecurityGroupIdentifier,
   SubnetCidrReservation,
+  SubnetIpPrefixes,
   TransitGateway,
   TransitGatewayConnect,
   TransitGatewayConnectPeer,
@@ -70,8 +75,186 @@ import {
   VerifiedAccessEndpoint,
   VerifiedAccessGroup,
   VpcBlockPublicAccessExclusion,
-  VpcEndpoint,
+  VpcEndpointType,
 } from "./models_2";
+
+/**
+ * @public
+ * @enum
+ */
+export const State = {
+  Available: "Available",
+  Deleted: "Deleted",
+  Deleting: "Deleting",
+  Expired: "Expired",
+  Failed: "Failed",
+  Partial: "Partial",
+  Pending: "Pending",
+  PendingAcceptance: "PendingAcceptance",
+  Rejected: "Rejected",
+} as const;
+
+/**
+ * @public
+ */
+export type State = (typeof State)[keyof typeof State];
+
+/**
+ * <p>Describes a VPC endpoint.</p>
+ * @public
+ */
+export interface VpcEndpoint {
+  /**
+   * <p>The ID of the endpoint.</p>
+   * @public
+   */
+  VpcEndpointId?: string | undefined;
+
+  /**
+   * <p>The type of endpoint.</p>
+   * @public
+   */
+  VpcEndpointType?: VpcEndpointType | undefined;
+
+  /**
+   * <p>The ID of the VPC to which the endpoint is associated.</p>
+   * @public
+   */
+  VpcId?: string | undefined;
+
+  /**
+   * <p>The name of the service to which the endpoint is associated.</p>
+   * @public
+   */
+  ServiceName?: string | undefined;
+
+  /**
+   * <p>The state of the endpoint.</p>
+   * @public
+   */
+  State?: State | undefined;
+
+  /**
+   * <p>The policy document associated with the endpoint, if applicable.</p>
+   * @public
+   */
+  PolicyDocument?: string | undefined;
+
+  /**
+   * <p>(Gateway endpoint) The IDs of the route tables associated with the endpoint.</p>
+   * @public
+   */
+  RouteTableIds?: string[] | undefined;
+
+  /**
+   * <p>(Interface endpoint) The subnets for the endpoint.</p>
+   * @public
+   */
+  SubnetIds?: string[] | undefined;
+
+  /**
+   * <p>(Interface endpoint) Information about the security groups that are associated with
+   *             the network interface.</p>
+   * @public
+   */
+  Groups?: SecurityGroupIdentifier[] | undefined;
+
+  /**
+   * <p>The IP address type for the endpoint.</p>
+   * @public
+   */
+  IpAddressType?: IpAddressType | undefined;
+
+  /**
+   * <p>The DNS options for the endpoint.</p>
+   * @public
+   */
+  DnsOptions?: DnsOptions | undefined;
+
+  /**
+   * <p>(Interface endpoint) Indicates whether the VPC is associated with a private hosted zone.</p>
+   * @public
+   */
+  PrivateDnsEnabled?: boolean | undefined;
+
+  /**
+   * <p>Indicates whether the endpoint is being managed by its service.</p>
+   * @public
+   */
+  RequesterManaged?: boolean | undefined;
+
+  /**
+   * <p>(Interface endpoint) The network interfaces for the endpoint.</p>
+   * @public
+   */
+  NetworkInterfaceIds?: string[] | undefined;
+
+  /**
+   * <p>(Interface endpoint) The DNS entries for the endpoint.</p>
+   * @public
+   */
+  DnsEntries?: DnsEntry[] | undefined;
+
+  /**
+   * <p>The date and time that the endpoint was created.</p>
+   * @public
+   */
+  CreationTimestamp?: Date | undefined;
+
+  /**
+   * <p>The tags assigned to the endpoint.</p>
+   * @public
+   */
+  Tags?: Tag[] | undefined;
+
+  /**
+   * <p>The ID of the Amazon Web Services account that owns the endpoint.</p>
+   * @public
+   */
+  OwnerId?: string | undefined;
+
+  /**
+   * <p>The last error that occurred for endpoint.</p>
+   * @public
+   */
+  LastError?: LastError | undefined;
+
+  /**
+   * <p>Array of IPv4 prefixes.</p>
+   * @public
+   */
+  Ipv4Prefixes?: SubnetIpPrefixes[] | undefined;
+
+  /**
+   * <p>Array of IPv6 prefixes.</p>
+   * @public
+   */
+  Ipv6Prefixes?: SubnetIpPrefixes[] | undefined;
+
+  /**
+   * <p>Reason for the failure.</p>
+   * @public
+   */
+  FailureReason?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the service network.</p>
+   * @public
+   */
+  ServiceNetworkArn?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the resource configuration.</p>
+   * @public
+   */
+  ResourceConfigurationArn?: string | undefined;
+
+  /**
+   * <p>The Region where the service is hosted.</p>
+   * @public
+   */
+  ServiceRegion?: string | undefined;
+}
 
 /**
  * @public
@@ -7539,89 +7722,6 @@ export interface DescribeCapacityReservationsRequest {
 
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeCapacityReservationsResult {
-  /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>Information about the Capacity Reservations.</p>
-   * @public
-   */
-  CapacityReservations?: CapacityReservation[] | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeCarrierGatewaysRequest {
-  /**
-   * <p>One or more carrier gateway IDs.</p>
-   * @public
-   */
-  CarrierGatewayIds?: string[] | undefined;
-
-  /**
-   * <p>One or more filters.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>carrier-gateway-id</code> - The ID of the carrier gateway.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>state</code> - The state of the carrier gateway (<code>pending</code> |
-   *                     <code>failed</code> | <code>available</code> | <code>deleting</code> | <code>deleted</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>owner-id</code> - The Amazon Web Services account ID of the owner of the carrier gateway.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>tag</code>:<key> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value.
-   *     For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>vpc-id</code> - The ID of the VPC associated with the carrier gateway.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  Filters?: Filter[] | undefined;
-
-  /**
-   * <p>The maximum number of results to return with a single call.
-   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>The token for the next page of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
    * @public
    */
   DryRun?: boolean | undefined;

@@ -1967,6 +1967,10 @@ import {
   ModifyInstanceCapacityReservationAttributesCommandOutput,
 } from "./commands/ModifyInstanceCapacityReservationAttributesCommand";
 import {
+  ModifyInstanceConnectEndpointCommandInput,
+  ModifyInstanceConnectEndpointCommandOutput,
+} from "./commands/ModifyInstanceConnectEndpointCommand";
+import {
   ModifyInstanceCpuOptionsCommandInput,
   ModifyInstanceCpuOptionsCommandOutput,
 } from "./commands/ModifyInstanceCpuOptionsCommand";
@@ -2984,6 +2988,7 @@ export type ServiceInputTypes =
   | ModifyImageAttributeCommandInput
   | ModifyInstanceAttributeCommandInput
   | ModifyInstanceCapacityReservationAttributesCommandInput
+  | ModifyInstanceConnectEndpointCommandInput
   | ModifyInstanceCpuOptionsCommandInput
   | ModifyInstanceCreditSpecificationCommandInput
   | ModifyInstanceEventStartTimeCommandInput
@@ -3677,6 +3682,7 @@ export type ServiceOutputTypes =
   | ModifyImageAttributeCommandOutput
   | ModifyInstanceAttributeCommandOutput
   | ModifyInstanceCapacityReservationAttributesCommandOutput
+  | ModifyInstanceConnectEndpointCommandOutput
   | ModifyInstanceCpuOptionsCommandOutput
   | ModifyInstanceCreditSpecificationCommandOutput
   | ModifyInstanceEventStartTimeCommandOutput

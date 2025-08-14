@@ -37,7 +37,6 @@ import {
 
 import {
   _InstanceType,
-  ConnectionTrackingSpecification,
   ConnectionTrackingSpecificationRequest,
   CreditSpecification,
   ElasticGpuSpecificationResponse,
@@ -58,7 +57,6 @@ import {
   LaunchTemplateInstanceMarketOptions,
   LaunchTemplateInstanceMetadataOptions,
   LaunchTemplateLicenseConfiguration,
-  LaunchTemplatesMonitoring,
   MacModificationTask,
   MacSystemIntegrityProtectionSettingStatus,
   OperatorRequest,
@@ -72,6 +70,53 @@ import {
   VolumeType,
   Vpc,
 } from "./models_1";
+
+/**
+ * <p>Describes the monitoring for the instance.</p>
+ * @public
+ */
+export interface LaunchTemplatesMonitoring {
+  /**
+   * <p>Indicates whether detailed monitoring is enabled. Otherwise, basic monitoring is
+   *             enabled.</p>
+   * @public
+   */
+  Enabled?: boolean | undefined;
+}
+
+/**
+ * <p>A security group connection tracking specification that enables you to set the idle
+ *             timeout for connection tracking on an Elastic network interface. For more information,
+ *             see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/security-group-connection-tracking.html#connection-tracking-timeouts">Connection tracking timeouts</a> in the
+ *             <i>Amazon EC2 User Guide</i>.</p>
+ * @public
+ */
+export interface ConnectionTrackingSpecification {
+  /**
+   * <p>Timeout (in seconds) for idle TCP
+   * 						connections in an established state. Min: 60 seconds. Max: 432000 seconds (5
+   * 						days). Default: 432000 seconds. Recommended: Less than 432000 seconds.</p>
+   * @public
+   */
+  TcpEstablishedTimeout?: number | undefined;
+
+  /**
+   * <p>Timeout (in seconds) for idle UDP flows that
+   * 						have seen traffic only in a single direction or a single request-response
+   * 						transaction. Min: 30 seconds. Max: 60 seconds. Default: 30 seconds.</p>
+   * @public
+   */
+  UdpTimeout?: number | undefined;
+
+  /**
+   * <p>Timeout (in seconds) for idle UDP
+   * 						flows classified as streams which have seen more than one request-response
+   * 						transaction. Min: 60 seconds. Max: 180 seconds (3 minutes). Default: 180
+   * 						seconds.</p>
+   * @public
+   */
+  UdpStreamTimeout?: number | undefined;
+}
 
 /**
  * <p>ENA Express is compatible with both TCP and UDP transport protocols. When it's enabled, TCP traffic
@@ -10864,184 +10909,6 @@ export interface LastError {
    * @public
    */
   Code?: string | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const State = {
-  Available: "Available",
-  Deleted: "Deleted",
-  Deleting: "Deleting",
-  Expired: "Expired",
-  Failed: "Failed",
-  Partial: "Partial",
-  Pending: "Pending",
-  PendingAcceptance: "PendingAcceptance",
-  Rejected: "Rejected",
-} as const;
-
-/**
- * @public
- */
-export type State = (typeof State)[keyof typeof State];
-
-/**
- * <p>Describes a VPC endpoint.</p>
- * @public
- */
-export interface VpcEndpoint {
-  /**
-   * <p>The ID of the endpoint.</p>
-   * @public
-   */
-  VpcEndpointId?: string | undefined;
-
-  /**
-   * <p>The type of endpoint.</p>
-   * @public
-   */
-  VpcEndpointType?: VpcEndpointType | undefined;
-
-  /**
-   * <p>The ID of the VPC to which the endpoint is associated.</p>
-   * @public
-   */
-  VpcId?: string | undefined;
-
-  /**
-   * <p>The name of the service to which the endpoint is associated.</p>
-   * @public
-   */
-  ServiceName?: string | undefined;
-
-  /**
-   * <p>The state of the endpoint.</p>
-   * @public
-   */
-  State?: State | undefined;
-
-  /**
-   * <p>The policy document associated with the endpoint, if applicable.</p>
-   * @public
-   */
-  PolicyDocument?: string | undefined;
-
-  /**
-   * <p>(Gateway endpoint) The IDs of the route tables associated with the endpoint.</p>
-   * @public
-   */
-  RouteTableIds?: string[] | undefined;
-
-  /**
-   * <p>(Interface endpoint) The subnets for the endpoint.</p>
-   * @public
-   */
-  SubnetIds?: string[] | undefined;
-
-  /**
-   * <p>(Interface endpoint) Information about the security groups that are associated with
-   *             the network interface.</p>
-   * @public
-   */
-  Groups?: SecurityGroupIdentifier[] | undefined;
-
-  /**
-   * <p>The IP address type for the endpoint.</p>
-   * @public
-   */
-  IpAddressType?: IpAddressType | undefined;
-
-  /**
-   * <p>The DNS options for the endpoint.</p>
-   * @public
-   */
-  DnsOptions?: DnsOptions | undefined;
-
-  /**
-   * <p>(Interface endpoint) Indicates whether the VPC is associated with a private hosted zone.</p>
-   * @public
-   */
-  PrivateDnsEnabled?: boolean | undefined;
-
-  /**
-   * <p>Indicates whether the endpoint is being managed by its service.</p>
-   * @public
-   */
-  RequesterManaged?: boolean | undefined;
-
-  /**
-   * <p>(Interface endpoint) The network interfaces for the endpoint.</p>
-   * @public
-   */
-  NetworkInterfaceIds?: string[] | undefined;
-
-  /**
-   * <p>(Interface endpoint) The DNS entries for the endpoint.</p>
-   * @public
-   */
-  DnsEntries?: DnsEntry[] | undefined;
-
-  /**
-   * <p>The date and time that the endpoint was created.</p>
-   * @public
-   */
-  CreationTimestamp?: Date | undefined;
-
-  /**
-   * <p>The tags assigned to the endpoint.</p>
-   * @public
-   */
-  Tags?: Tag[] | undefined;
-
-  /**
-   * <p>The ID of the Amazon Web Services account that owns the endpoint.</p>
-   * @public
-   */
-  OwnerId?: string | undefined;
-
-  /**
-   * <p>The last error that occurred for endpoint.</p>
-   * @public
-   */
-  LastError?: LastError | undefined;
-
-  /**
-   * <p>Array of IPv4 prefixes.</p>
-   * @public
-   */
-  Ipv4Prefixes?: SubnetIpPrefixes[] | undefined;
-
-  /**
-   * <p>Array of IPv6 prefixes.</p>
-   * @public
-   */
-  Ipv6Prefixes?: SubnetIpPrefixes[] | undefined;
-
-  /**
-   * <p>Reason for the failure.</p>
-   * @public
-   */
-  FailureReason?: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the service network.</p>
-   * @public
-   */
-  ServiceNetworkArn?: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the resource configuration.</p>
-   * @public
-   */
-  ResourceConfigurationArn?: string | undefined;
-
-  /**
-   * <p>The Region where the service is hosted.</p>
-   * @public
-   */
-  ServiceRegion?: string | undefined;
 }
 
 /**

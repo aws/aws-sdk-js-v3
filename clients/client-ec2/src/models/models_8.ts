@@ -73,7 +73,89 @@ import {
   SpotPlacement,
 } from "./models_5";
 
-import { CapacityReservationSpecification, InstanceMonitoring, Status } from "./models_7";
+import {
+  CapacityReservationSpecification,
+  InstanceMonitoring,
+  Status,
+  TransitGatewayMulticastRegisteredGroupMembers,
+} from "./models_7";
+
+/**
+ * @public
+ */
+export interface RegisterTransitGatewayMulticastGroupMembersResult {
+  /**
+   * <p>Information about the registered  transit gateway multicast group members.</p>
+   * @public
+   */
+  RegisteredMulticastGroupMembers?: TransitGatewayMulticastRegisteredGroupMembers | undefined;
+}
+
+/**
+ * @public
+ */
+export interface RegisterTransitGatewayMulticastGroupSourcesRequest {
+  /**
+   * <p>The ID of the transit gateway multicast domain.</p>
+   * @public
+   */
+  TransitGatewayMulticastDomainId: string | undefined;
+
+  /**
+   * <p>The IP address assigned to the  transit gateway multicast group.</p>
+   * @public
+   */
+  GroupIpAddress?: string | undefined;
+
+  /**
+   * <p>The group sources' network interface IDs to register with the  transit gateway multicast group.</p>
+   * @public
+   */
+  NetworkInterfaceIds: string[] | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
+
+/**
+ * <p>Describes the members registered with the  transit gateway multicast group.</p>
+ * @public
+ */
+export interface TransitGatewayMulticastRegisteredGroupSources {
+  /**
+   * <p>The ID of the transit gateway multicast domain.</p>
+   * @public
+   */
+  TransitGatewayMulticastDomainId?: string | undefined;
+
+  /**
+   * <p>The IDs of the network interfaces members registered with the  transit gateway multicast group.</p>
+   * @public
+   */
+  RegisteredNetworkInterfaceIds?: string[] | undefined;
+
+  /**
+   * <p>The IP address assigned to the  transit gateway multicast group.</p>
+   * @public
+   */
+  GroupIpAddress?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface RegisterTransitGatewayMulticastGroupSourcesResult {
+  /**
+   * <p>Information about the  transit gateway multicast group sources.</p>
+   * @public
+   */
+  RegisteredMulticastGroupSources?: TransitGatewayMulticastRegisteredGroupSources | undefined;
+}
 
 /**
  * @public

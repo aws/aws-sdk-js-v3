@@ -1938,6 +1938,10 @@ import {
   ModifyInstanceCapacityReservationAttributesCommandOutput,
 } from "../commands/ModifyInstanceCapacityReservationAttributesCommand";
 import {
+  ModifyInstanceConnectEndpointCommandInput,
+  ModifyInstanceConnectEndpointCommandOutput,
+} from "../commands/ModifyInstanceConnectEndpointCommand";
+import {
   ModifyInstanceCpuOptionsCommandInput,
   ModifyInstanceCpuOptionsCommandOutput,
 } from "../commands/ModifyInstanceCpuOptionsCommand";
@@ -2652,7 +2656,6 @@ import {
   CoipCidr,
   CoipPool,
   ConnectionLogOptions,
-  ConnectionTrackingSpecification,
   ConnectionTrackingSpecificationRequest,
   CopyFpgaImageRequest,
   CopyFpgaImageResult,
@@ -2752,6 +2755,8 @@ import {
   FleetLaunchTemplateSpecificationRequest,
   FleetSpotCapacityRebalanceRequest,
   FleetSpotMaintenanceStrategiesRequest,
+  InstanceConnectEndpointDnsNames,
+  InstanceConnectEndpointPublicDnsNames,
   InstanceEventWindowTimeRangeRequest,
   InstanceExportDetails,
   InstanceGeneration,
@@ -2803,7 +2808,6 @@ import {
   LaunchTemplateNetworkPerformanceOptionsRequest,
   LaunchTemplatePlacementRequest,
   LaunchTemplatePrivateDnsNameOptionsRequest,
-  LaunchTemplatesMonitoring,
   LaunchTemplatesMonitoringRequest,
   LaunchTemplateSpotMarketOptions,
   LaunchTemplateSpotMarketOptionsRequest,
@@ -2851,6 +2855,7 @@ import {
   AttachmentEnaSrdSpecification,
   AttachmentEnaSrdUdpSpecification,
   ConnectionTrackingConfiguration,
+  ConnectionTrackingSpecification,
   CreateLaunchTemplateVersionResult,
   CreateLocalGatewayRouteRequest,
   CreateLocalGatewayRouteResult,
@@ -2989,6 +2994,7 @@ import {
   LaunchTemplateNetworkPerformanceOptions,
   LaunchTemplatePlacement,
   LaunchTemplatePrivateDnsNameOptions,
+  LaunchTemplatesMonitoring,
   LaunchTemplateTagSpecification,
   LaunchTemplateVersion,
   LocalGatewayRoute,
@@ -3079,7 +3085,6 @@ import {
   VerifiedAccessSseSpecificationRequest,
   Volume,
   VpcBlockPublicAccessExclusion,
-  VpcEndpoint,
 } from "../models/models_2";
 import {
   AvailabilityZone,
@@ -3310,8 +3315,6 @@ import {
   DescribeCapacityReservationFleetsRequest,
   DescribeCapacityReservationFleetsResult,
   DescribeCapacityReservationsRequest,
-  DescribeCapacityReservationsResult,
-  DescribeCarrierGatewaysRequest,
   FailedQueuedPurchaseDeletion,
   Filter,
   IdFormat,
@@ -3345,6 +3348,7 @@ import {
   TransitGatewayMulticastDeregisteredGroupSources,
   TunnelOption,
   VgwTelemetry,
+  VpcEndpoint,
   VpnConnection,
   VpnConnectionOptions,
   VpnConnectionOptionsSpecification,
@@ -3380,6 +3384,8 @@ import {
   ConversionTask,
   CpuOptions,
   DeclarativePoliciesReport,
+  DescribeCapacityReservationsResult,
+  DescribeCarrierGatewaysRequest,
   DescribeCarrierGatewaysResult,
   DescribeClassicLinkInstancesRequest,
   DescribeClassicLinkInstancesResult,
@@ -3480,8 +3486,6 @@ import {
   DescribeIpamPoolsRequest,
   DescribeIpamPoolsResult,
   DescribeIpamResourceDiscoveriesRequest,
-  DescribeIpamResourceDiscoveriesResult,
-  DescribeIpamResourceDiscoveryAssociationsRequest,
   DestinationOptionsResponse,
   DirectoryServiceAuthentication,
   DiskImageDescription,
@@ -3603,6 +3607,8 @@ import {
   ClassicLoadBalancer,
   ClassicLoadBalancersConfig,
   CreateVolumePermission,
+  DescribeIpamResourceDiscoveriesResult,
+  DescribeIpamResourceDiscoveryAssociationsRequest,
   DescribeIpamResourceDiscoveryAssociationsResult,
   DescribeIpamScopesRequest,
   DescribeIpamScopesResult,
@@ -3789,8 +3795,6 @@ import {
   DescribeVpcEndpointConnectionNotificationsRequest,
   DescribeVpcEndpointConnectionNotificationsResult,
   DescribeVpcEndpointConnectionsRequest,
-  DescribeVpcEndpointConnectionsResult,
-  DescribeVpcEndpointsRequest,
   HistoryRecord,
   InitializationStatusDetails,
   InstanceNetworkInterfaceSpecification,
@@ -3879,12 +3883,14 @@ import {
   CoipAddressUsage,
   DataQuery,
   DataResponse,
+  DescribeVpcEndpointConnectionsResult,
   DescribeVpcEndpointServiceConfigurationsRequest,
   DescribeVpcEndpointServiceConfigurationsResult,
   DescribeVpcEndpointServicePermissionsRequest,
   DescribeVpcEndpointServicePermissionsResult,
   DescribeVpcEndpointServicesRequest,
   DescribeVpcEndpointServicesResult,
+  DescribeVpcEndpointsRequest,
   DescribeVpcEndpointsResult,
   DescribeVpcPeeringConnectionsRequest,
   DescribeVpcPeeringConnectionsResult,
@@ -4110,8 +4116,6 @@ import {
   GetSecurityGroupsForVpcResult,
   GetSerialConsoleAccessStatusRequest,
   GetSerialConsoleAccessStatusResult,
-  GetSnapshotBlockPublicAccessStateRequest,
-  GetSnapshotBlockPublicAccessStateResult,
   ImageCriterion,
   InstanceEventWindowDisassociationRequest,
   InstanceFamilyCreditSpecification,
@@ -4160,6 +4164,8 @@ import {
   DiskImageDetail,
   DnsServersOptionsModifyStructure,
   EbsInstanceBlockDeviceSpecification,
+  GetSnapshotBlockPublicAccessStateRequest,
+  GetSnapshotBlockPublicAccessStateResult,
   GetSpotPlacementScoresRequest,
   GetSpotPlacementScoresResult,
   GetSubnetCidrReservationsRequest,
@@ -4247,6 +4253,8 @@ import {
   ModifyInstanceAttributeRequest,
   ModifyInstanceCapacityReservationAttributesRequest,
   ModifyInstanceCapacityReservationAttributesResult,
+  ModifyInstanceConnectEndpointRequest,
+  ModifyInstanceConnectEndpointResult,
   ModifyInstanceCpuOptionsRequest,
   ModifyInstanceCpuOptionsResult,
   ModifyInstanceCreditSpecificationRequest,
@@ -4402,9 +4410,6 @@ import {
   RegisterInstanceEventNotificationAttributesResult,
   RegisterInstanceTagAttributeRequest,
   RegisterTransitGatewayMulticastGroupMembersRequest,
-  RegisterTransitGatewayMulticastGroupMembersResult,
-  RegisterTransitGatewayMulticastGroupSourcesRequest,
-  RegisterTransitGatewayMulticastGroupSourcesResult,
   RemoveIpamOperatingRegion,
   RemoveIpamOrganizationalUnitExclusion,
   RemovePrefixListEntry,
@@ -4420,7 +4425,6 @@ import {
   TransitGatewayAttachmentPropagation,
   TransitGatewayMulticastDomainAssociation,
   TransitGatewayMulticastRegisteredGroupMembers,
-  TransitGatewayMulticastRegisteredGroupSources,
   TransitGatewayPolicyRule,
   TransitGatewayPolicyRuleMetaData,
   TransitGatewayPolicyTableEntry,
@@ -4452,6 +4456,9 @@ import {
   LaunchTemplateSpecification,
   LicenseConfigurationRequest,
   PrivateDnsNameOptionsRequest,
+  RegisterTransitGatewayMulticastGroupMembersResult,
+  RegisterTransitGatewayMulticastGroupSourcesRequest,
+  RegisterTransitGatewayMulticastGroupSourcesResult,
   RejectCapacityReservationBillingOwnershipRequest,
   RejectCapacityReservationBillingOwnershipResult,
   RejectTransitGatewayMulticastDomainAssociationsRequest,
@@ -4556,6 +4563,7 @@ import {
   TerminateInstancesRequest,
   TerminateInstancesResult,
   TransitGatewayMulticastGroup,
+  TransitGatewayMulticastRegisteredGroupSources,
   UnassignIpv6AddressesRequest,
   UnassignIpv6AddressesResult,
   UnassignPrivateIpAddressesRequest,
@@ -14037,6 +14045,23 @@ export const se_ModifyInstanceCapacityReservationAttributesCommand = async (
   body = buildFormUrlencodedString({
     ...se_ModifyInstanceCapacityReservationAttributesRequest(input, context),
     [_A]: _MICRA,
+    [_V]: _,
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_ec2ModifyInstanceConnectEndpointCommand
+ */
+export const se_ModifyInstanceConnectEndpointCommand = async (
+  input: ModifyInstanceConnectEndpointCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = SHARED_HEADERS;
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...se_ModifyInstanceConnectEndpointRequest(input, context),
+    [_A]: _MICE,
     [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -27292,6 +27317,26 @@ export const de_ModifyInstanceCapacityReservationAttributesCommand = async (
   let contents: any = {};
   contents = de_ModifyInstanceCapacityReservationAttributesResult(data, context);
   const response: ModifyInstanceCapacityReservationAttributesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_ec2ModifyInstanceConnectEndpointCommand
+ */
+export const de_ModifyInstanceConnectEndpointCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ModifyInstanceConnectEndpointCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ModifyInstanceConnectEndpointResult(data, context);
+  const response: ModifyInstanceConnectEndpointCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
@@ -50635,6 +50680,36 @@ const se_ModifyInstanceCapacityReservationAttributesRequest = (
 };
 
 /**
+ * serializeAws_ec2ModifyInstanceConnectEndpointRequest
+ */
+const se_ModifyInstanceConnectEndpointRequest = (
+  input: ModifyInstanceConnectEndpointRequest,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input[_DRr] != null) {
+    entries[_DRr] = input[_DRr];
+  }
+  if (input[_ICEI] != null) {
+    entries[_ICEI] = input[_ICEI];
+  }
+  if (input[_IAT] != null) {
+    entries[_IAT] = input[_IAT];
+  }
+  if (input[_SGI] != null) {
+    const memberEntries = se_SecurityGroupIdStringListRequest(input[_SGI], context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `SecurityGroupId.${key.substring(key.indexOf(".") + 1)}`;
+      entries[loc] = value;
+    });
+  }
+  if (input[_PCI] != null) {
+    entries[_PCI] = input[_PCI];
+  }
+  return entries;
+};
+
+/**
  * serializeAws_ec2ModifyInstanceCpuOptionsRequest
  */
 const se_ModifyInstanceCpuOptionsRequest = (input: ModifyInstanceCpuOptionsRequest, context: __SerdeContext): any => {
@@ -70358,6 +70433,9 @@ const de_Ec2InstanceConnectEndpoint = (output: any, context: __SerdeContext): Ec
   if (output[_iAT] != null) {
     contents[_IAT] = __expectString(output[_iAT]);
   }
+  if (output[_pDN] != null) {
+    contents[_PDNu] = de_InstanceConnectEndpointPublicDnsNames(output[_pDN], context);
+  }
   return contents;
 };
 
@@ -74674,11 +74752,11 @@ const de_Instance = (output: any, context: __SerdeContext): Instance => {
   if (output[_iSnst] != null) {
     contents[_Stat] = de_InstanceState(output[_iSnst], context);
   }
-  if (output[_pDN] != null) {
-    contents[_PDN] = __expectString(output[_pDN]);
+  if (output[_pDNr] != null) {
+    contents[_PDN] = __expectString(output[_pDNr]);
   }
   if (output[_dNn] != null) {
-    contents[_PDNu] = __expectString(output[_dNn]);
+    contents[_PDNub] = __expectString(output[_dNn]);
   }
   if (output[_rea] != null) {
     contents[_STRt] = __expectString(output[_rea]);
@@ -74864,6 +74942,37 @@ const de_InstanceCapacity = (output: any, context: __SerdeContext): InstanceCapa
   }
   if (output[_tC] != null) {
     contents[_TCo] = __strictParseInt32(output[_tC]) as number;
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_ec2InstanceConnectEndpointDnsNames
+ */
+const de_InstanceConnectEndpointDnsNames = (output: any, context: __SerdeContext): InstanceConnectEndpointDnsNames => {
+  const contents: any = {};
+  if (output[_dNn] != null) {
+    contents[_DNn] = __expectString(output[_dNn]);
+  }
+  if (output[_fDN] != null) {
+    contents[_FDN] = __expectString(output[_fDN]);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_ec2InstanceConnectEndpointPublicDnsNames
+ */
+const de_InstanceConnectEndpointPublicDnsNames = (
+  output: any,
+  context: __SerdeContext
+): InstanceConnectEndpointPublicDnsNames => {
+  const contents: any = {};
+  if (output[_ipv] != null) {
+    contents[_Ip] = de_InstanceConnectEndpointDnsNames(output[_ipv], context);
+  }
+  if (output[_dua] != null) {
+    contents[_Dua] = de_InstanceConnectEndpointDnsNames(output[_dua], context);
   }
   return contents;
 };
@@ -75377,8 +75486,8 @@ const de_InstanceNetworkInterface = (output: any, context: __SerdeContext): Inst
   if (output[_oI] != null) {
     contents[_OIwn] = __expectString(output[_oI]);
   }
-  if (output[_pDN] != null) {
-    contents[_PDN] = __expectString(output[_pDN]);
+  if (output[_pDNr] != null) {
+    contents[_PDN] = __expectString(output[_pDNr]);
   }
   if (output[_pIAr] != null) {
     contents[_PIAr] = __expectString(output[_pIAr]);
@@ -75440,7 +75549,7 @@ const de_InstanceNetworkInterfaceAssociation = (
     contents[_IOI] = __expectString(output[_iOIp]);
   }
   if (output[_pDNu] != null) {
-    contents[_PDNu] = __expectString(output[_pDNu]);
+    contents[_PDNub] = __expectString(output[_pDNu]);
   }
   if (output[_pI] != null) {
     contents[_PI] = __expectString(output[_pI]);
@@ -75623,8 +75732,8 @@ const de_InstancePrivateIpAddress = (output: any, context: __SerdeContext): Inst
   if (output[_prim] != null) {
     contents[_Prim] = __parseBoolean(output[_prim]);
   }
-  if (output[_pDN] != null) {
-    contents[_PDN] = __expectString(output[_pDN]);
+  if (output[_pDNr] != null) {
+    contents[_PDN] = __expectString(output[_pDNr]);
   }
   if (output[_pIAr] != null) {
     contents[_PIAr] = __expectString(output[_pIAr]);
@@ -79492,6 +79601,20 @@ const de_ModifyInstanceCapacityReservationAttributesResult = (
 };
 
 /**
+ * deserializeAws_ec2ModifyInstanceConnectEndpointResult
+ */
+const de_ModifyInstanceConnectEndpointResult = (
+  output: any,
+  context: __SerdeContext
+): ModifyInstanceConnectEndpointResult => {
+  const contents: any = {};
+  if (output[_r] != null) {
+    contents[_Ret] = __parseBoolean(output[_r]);
+  }
+  return contents;
+};
+
+/**
  * deserializeAws_ec2ModifyInstanceCpuOptionsResult
  */
 const de_ModifyInstanceCpuOptionsResult = (output: any, context: __SerdeContext): ModifyInstanceCpuOptionsResult => {
@@ -80962,11 +81085,11 @@ const de_NetworkInterface = (output: any, context: __SerdeContext): NetworkInter
   if (output[_oI] != null) {
     contents[_OIwn] = __expectString(output[_oI]);
   }
-  if (output[_pDN] != null) {
-    contents[_PDN] = __expectString(output[_pDN]);
+  if (output[_pDNr] != null) {
+    contents[_PDN] = __expectString(output[_pDNr]);
   }
   if (output[_pDNu] != null) {
-    contents[_PDNu] = __expectString(output[_pDNu]);
+    contents[_PDNub] = __expectString(output[_pDNu]);
   }
   if (output[_pIDNO] != null) {
     contents[_PIDNO] = de_PublicIpDnsNameOptions(output[_pIDNO], context);
@@ -81047,7 +81170,7 @@ const de_NetworkInterfaceAssociation = (output: any, context: __SerdeContext): N
     contents[_IOI] = __expectString(output[_iOIp]);
   }
   if (output[_pDNu] != null) {
-    contents[_PDNu] = __expectString(output[_pDNu]);
+    contents[_PDNub] = __expectString(output[_pDNu]);
   }
   if (output[_pI] != null) {
     contents[_PI] = __expectString(output[_pI]);
@@ -81228,8 +81351,8 @@ const de_NetworkInterfacePrivateIpAddress = (
   if (output[_prim] != null) {
     contents[_Prim] = __parseBoolean(output[_prim]);
   }
-  if (output[_pDN] != null) {
-    contents[_PDN] = __expectString(output[_pDN]);
+  if (output[_pDNr] != null) {
+    contents[_PDN] = __expectString(output[_pDNr]);
   }
   if (output[_pIAr] != null) {
     contents[_PIAr] = __expectString(output[_pIAr]);
@@ -82262,8 +82385,8 @@ const de_PrincipalIdFormatList = (output: any, context: __SerdeContext): Princip
  */
 const de_PrivateDnsDetails = (output: any, context: __SerdeContext): PrivateDnsDetails => {
   const contents: any = {};
-  if (output[_pDN] != null) {
-    contents[_PDN] = __expectString(output[_pDN]);
+  if (output[_pDNr] != null) {
+    contents[_PDN] = __expectString(output[_pDNr]);
   }
   return contents;
 };
@@ -85230,8 +85353,8 @@ const de_ServiceConfiguration = (output: any, context: __SerdeContext): ServiceC
   } else if (output[_bEDNS] != null && output[_bEDNS][_i] != null) {
     contents[_BEDN] = de_ValueStringList(__getArrayIfSingleItem(output[_bEDNS][_i]), context);
   }
-  if (output[_pDN] != null) {
-    contents[_PDN] = __expectString(output[_pDN]);
+  if (output[_pDNr] != null) {
+    contents[_PDN] = __expectString(output[_pDNr]);
   }
   if (output[_pDNC] != null) {
     contents[_PDNC] = de_PrivateDnsNameConfiguration(output[_pDNC], context);
@@ -85303,8 +85426,8 @@ const de_ServiceDetail = (output: any, context: __SerdeContext): ServiceDetail =
   } else if (output[_bEDNS] != null && output[_bEDNS][_i] != null) {
     contents[_BEDN] = de_ValueStringList(__getArrayIfSingleItem(output[_bEDNS][_i]), context);
   }
-  if (output[_pDN] != null) {
-    contents[_PDN] = __expectString(output[_pDN]);
+  if (output[_pDNr] != null) {
+    contents[_PDN] = __expectString(output[_pDNr]);
   }
   if (output.privateDnsNameSet === "") {
     contents[_PDNr] = [];
@@ -92381,6 +92504,7 @@ const _Di = "Direction";
 const _Dis = "Disks";
 const _Do = "Domain";
 const _Du = "Duration";
+const _Dua = "Dualstack";
 const _E = "Ebs";
 const _EA = "EnableAcceleration";
 const _EAIS = "EnableAllowedImagesSettings";
@@ -93089,6 +93213,7 @@ const _MI = "ModifyIpam";
 const _MIA = "ModifyImageAttribute";
 const _MIAo = "ModifyInstanceAttribute";
 const _MIC = "MaxInstanceCount";
+const _MICE = "ModifyInstanceConnectEndpoint";
 const _MICO = "ModifyInstanceCpuOptions";
 const _MICRA = "ModifyInstanceCapacityReservationAttributes";
 const _MICS = "ModifyInstanceCreditSpecification";
@@ -93382,7 +93507,8 @@ const _PDNO = "PrivateDnsNameOptions";
 const _PDNOOL = "PrivateDnsNameOptionsOnLaunch";
 const _PDNVS = "PrivateDnsNameVerificationState";
 const _PDNr = "PrivateDnsNames";
-const _PDNu = "PublicDnsName";
+const _PDNu = "PublicDnsNames";
+const _PDNub = "PublicDnsName";
 const _PDOFIRE = "PrivateDnsOnlyForInboundResolverEndpoint";
 const _PDRTI = "PropagationDefaultRouteTableId";
 const _PDSDN = "PublicDualStackDnsName";
@@ -94712,6 +94838,7 @@ const _di = "direction";
 const _dis = "disks";
 const _do = "domain";
 const _du = "duration";
+const _dua = "dualstack";
 const _e = "egress";
 const _eA = "eniAddress";
 const _eAn = "enableAcceleration";
@@ -95096,6 +95223,7 @@ const _ins = "instances";
 const _int = "interval";
 const _io = "iops";
 const _ip = "ipam";
+const _ipv = "ipv4";
 const _is = "issuer";
 const _k = "key";
 const _kDF = "kinesisDataFirehose";
@@ -95435,12 +95563,13 @@ const _pDHG = "phase1DHGroup";
 const _pDHGNS = "phase1DHGroupNumberSet";
 const _pDHGNSh = "phase2DHGroupNumberSet";
 const _pDHGh = "phase2DHGroup";
-const _pDN = "privateDnsName";
+const _pDN = "publicDnsNames";
 const _pDNC = "privateDnsNameConfiguration";
 const _pDNO = "privateDnsNameOptions";
 const _pDNOOL = "privateDnsNameOptionsOnLaunch";
 const _pDNS = "privateDnsNameSet";
 const _pDNVS = "privateDnsNameVerificationState";
+const _pDNr = "privateDnsName";
 const _pDNu = "publicDnsName";
 const _pDOFIRE = "privateDnsOnlyForInboundResolverEndpoint";
 const _pDRTI = "propagationDefaultRouteTableId";

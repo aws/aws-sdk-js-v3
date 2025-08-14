@@ -50,7 +50,6 @@ import {
   ResponseLaunchTemplateData,
   ResponseLaunchTemplateDataFilterSensitiveLog,
   SSEType,
-  VpcEndpoint,
 } from "./models_2";
 
 import {
@@ -64,6 +63,7 @@ import {
   ServiceConnectivityType,
   ServiceTypeDetail,
   StatisticType,
+  VpcEndpoint,
   VpnConnection,
   VpnConnectionFilterSensitiveLog,
   VpnGateway,
@@ -84,7 +84,105 @@ import {
   VirtualizationType,
 } from "./models_4";
 
-import { AnalysisStatus, ManagedBy } from "./models_5";
+import { AnalysisStatus, ManagedBy, VpcEndpointConnection } from "./models_5";
+
+/**
+ * @public
+ */
+export interface DescribeVpcEndpointConnectionsResult {
+  /**
+   * <p>Information about the VPC endpoint connections.</p>
+   * @public
+   */
+  VpcEndpointConnections?: VpcEndpointConnection[] | undefined;
+
+  /**
+   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeVpcEndpointsRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>The IDs of the VPC endpoints.</p>
+   * @public
+   */
+  VpcEndpointIds?: string[] | undefined;
+
+  /**
+   * <p>The filters.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>ip-address-type</code> - The IP address type (<code>ipv4</code> | <code>ipv6</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>service-name</code> - The name of the service.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>service-region</code> - The Region of the service.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>tag</code>:<key> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value. For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>vpc-id</code> - The ID of the VPC in which the endpoint resides.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>vpc-endpoint-id</code> - The ID of the endpoint.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>vpc-endpoint-state</code> - The state of the endpoint
+   *                         (<code>pendingAcceptance</code> | <code>pending</code> |
+   *                         <code>available</code> | <code>deleting</code> | <code>deleted</code> |
+   *                         <code>rejected</code> | <code>failed</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>vpc-endpoint-type</code> - The type of VPC endpoint (<code>Interface</code> |
+   *                     <code>Gateway</code> | <code>GatewayLoadBalancer</code> | <code>Resource</code> |
+   *                     <code>ServiceNetwork</code>).</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Filters?: Filter[] | undefined;
+
+  /**
+   * <p>The maximum number of items to return for this request. The request returns a token that you can specify in a subsequent call to get the next set of results.</p>
+   *          <p>Constraint: If the value is greater than 1,000, we return only 1,000 items.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>The token for the next set of items to return. (You received this token from a prior call.)</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
 
 /**
  * @public
@@ -7850,67 +7948,6 @@ export interface GetSerialConsoleAccessStatusResult {
    *                <p>
    *                   <code>declarative-policy</code> - Access is managed by a declarative policy and can't
    *             be modified by the account.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  ManagedBy?: ManagedBy | undefined;
-}
-
-/**
- * @public
- */
-export interface GetSnapshotBlockPublicAccessStateRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface GetSnapshotBlockPublicAccessStateResult {
-  /**
-   * <p>The current state of block public access for snapshots. Possible values include:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>block-all-sharing</code> - All public sharing of snapshots is blocked. Users in
-   *           the account can't request new public sharing. Additionally, snapshots that were already
-   *           publicly shared are treated as private and are not publicly available.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>block-new-sharing</code>  - Only new public sharing of snapshots is blocked.
-   *           Users in the account can't request new public sharing. However, snapshots that were
-   *           already publicly shared, remain publicly available.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>unblocked</code>  - Public sharing is not blocked. Users can publicly share
-   *           snapshots.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  State?: SnapshotBlockPublicAccessState | undefined;
-
-  /**
-   * <p>The entity that manages the state for block public access for snapshots. Possible
-   *             values include:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>account</code> - The state is managed by the account.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>declarative-policy</code> - The state is managed by a declarative policy and
-   *             can't be modified by the account.</p>
    *             </li>
    *          </ul>
    * @public

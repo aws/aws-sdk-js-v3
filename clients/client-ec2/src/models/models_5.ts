@@ -43,6 +43,7 @@ import {
   InstanceRequirements,
   IpAddressType,
   Ipam,
+  IpamResourceDiscovery,
   IpamScope,
   Ipv4PrefixSpecificationRequest,
   Ipv6PrefixSpecificationRequest,
@@ -86,7 +87,6 @@ import {
   SnapshotState,
   SpotDatafeedSubscription,
   SpotInstanceStateFault,
-  State,
   StorageTier,
   TrafficMirrorFilter,
   TrafficMirrorFilterRule,
@@ -105,9 +105,63 @@ import {
   VpcBlockPublicAccessExclusion,
 } from "./models_2";
 
-import { ConnectionNotification, Filter, IdFormat } from "./models_3";
+import { ConnectionNotification, Filter, IdFormat, State } from "./models_3";
 
 import { AttributeBooleanValue, EventInformation, PermissionGroup, ProductCode } from "./models_4";
+
+/**
+ * @public
+ */
+export interface DescribeIpamResourceDiscoveriesResult {
+  /**
+   * <p>The resource discoveries.</p>
+   * @public
+   */
+  IpamResourceDiscoveries?: IpamResourceDiscovery[] | undefined;
+
+  /**
+   * <p>Specify the pagination token from a previous request to retrieve the next page of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeIpamResourceDiscoveryAssociationsRequest {
+  /**
+   * <p>A check for whether you have the required permissions for the action without actually making the request
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>The resource discovery association IDs.</p>
+   * @public
+   */
+  IpamResourceDiscoveryAssociationIds?: string[] | undefined;
+
+  /**
+   * <p>Specify the pagination token from a previous request to retrieve the next page of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of resource discovery associations to return in one page of results.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>The resource discovery association filters.</p>
+   * @public
+   */
+  Filters?: Filter[] | undefined;
+}
 
 /**
  * @public
@@ -12253,11 +12307,6 @@ export interface DescribeVpcEndpointAssociationsRequest {
    *                   <code>resource-configuration-group-arn</code> - The Amazon Resource Name (ARN) of
    *                the resource configuration of type GROUP.</p>
    *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>service-network-resource-association-id</code> - The ID of the
-   *                association.</p>
-   *             </li>
    *          </ul>
    * @public
    */
@@ -12602,104 +12651,6 @@ export interface VpcEndpointConnection {
    * @public
    */
   VpcEndpointRegion?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeVpcEndpointConnectionsResult {
-  /**
-   * <p>Information about the VPC endpoint connections.</p>
-   * @public
-   */
-  VpcEndpointConnections?: VpcEndpointConnection[] | undefined;
-
-  /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeVpcEndpointsRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>The IDs of the VPC endpoints.</p>
-   * @public
-   */
-  VpcEndpointIds?: string[] | undefined;
-
-  /**
-   * <p>The filters.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>ip-address-type</code> - The IP address type (<code>ipv4</code> | <code>ipv6</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>service-name</code> - The name of the service.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>service-region</code> - The Region of the service.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>tag</code>:<key> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value. For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>vpc-id</code> - The ID of the VPC in which the endpoint resides.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>vpc-endpoint-id</code> - The ID of the endpoint.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>vpc-endpoint-state</code> - The state of the endpoint
-   *                         (<code>pendingAcceptance</code> | <code>pending</code> |
-   *                         <code>available</code> | <code>deleting</code> | <code>deleted</code> |
-   *                         <code>rejected</code> | <code>failed</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>vpc-endpoint-type</code> - The type of VPC endpoint (<code>Interface</code> |
-   *                     <code>Gateway</code> | <code>GatewayLoadBalancer</code> | <code>Resource</code> |
-   *                     <code>ServiceNetwork</code>).</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  Filters?: Filter[] | undefined;
-
-  /**
-   * <p>The maximum number of items to return for this request. The request returns a token that you can specify in a subsequent call to get the next set of results.</p>
-   *          <p>Constraint: If the value is greater than 1,000, we return only 1,000 items.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>The token for the next set of items to return. (You received this token from a prior call.)</p>
-   * @public
-   */
-  NextToken?: string | undefined;
 }
 
 /**

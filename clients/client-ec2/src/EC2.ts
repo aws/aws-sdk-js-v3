@@ -2724,6 +2724,11 @@ import {
   ModifyInstanceCapacityReservationAttributesCommandOutput,
 } from "./commands/ModifyInstanceCapacityReservationAttributesCommand";
 import {
+  ModifyInstanceConnectEndpointCommand,
+  ModifyInstanceConnectEndpointCommandInput,
+  ModifyInstanceConnectEndpointCommandOutput,
+} from "./commands/ModifyInstanceConnectEndpointCommand";
+import {
   ModifyInstanceCpuOptionsCommand,
   ModifyInstanceCpuOptionsCommandInput,
   ModifyInstanceCpuOptionsCommandOutput,
@@ -3934,6 +3939,7 @@ const commands = {
   ModifyImageAttributeCommand,
   ModifyInstanceAttributeCommand,
   ModifyInstanceCapacityReservationAttributesCommand,
+  ModifyInstanceConnectEndpointCommand,
   ModifyInstanceCpuOptionsCommand,
   ModifyInstanceCreditSpecificationCommand,
   ModifyInstanceEventStartTimeCommand,
@@ -13433,6 +13439,23 @@ export interface EC2 {
     args: ModifyInstanceCapacityReservationAttributesCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ModifyInstanceCapacityReservationAttributesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ModifyInstanceConnectEndpointCommand}
+   */
+  modifyInstanceConnectEndpoint(
+    args: ModifyInstanceConnectEndpointCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ModifyInstanceConnectEndpointCommandOutput>;
+  modifyInstanceConnectEndpoint(
+    args: ModifyInstanceConnectEndpointCommandInput,
+    cb: (err: any, data?: ModifyInstanceConnectEndpointCommandOutput) => void
+  ): void;
+  modifyInstanceConnectEndpoint(
+    args: ModifyInstanceConnectEndpointCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ModifyInstanceConnectEndpointCommandOutput) => void
   ): void;
 
   /**

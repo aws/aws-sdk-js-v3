@@ -159,6 +159,7 @@ import {
   InternetGatewayBlockMode,
   LaunchTemplateConfig,
   LockState,
+  ManagedBy,
   PublicIpv4PoolRange,
   ReservedInstancesConfiguration,
   ScheduledInstance,
@@ -172,9 +173,71 @@ import {
   InstanceFamilyCreditSpecification,
   IpamResourceCidr,
   Purchase,
+  SnapshotBlockPublicAccessState,
   TransitGatewayPropagationState,
   UnlimitedSupportedInstanceFamily,
 } from "./models_6";
+
+/**
+ * @public
+ */
+export interface GetSnapshotBlockPublicAccessStateRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetSnapshotBlockPublicAccessStateResult {
+  /**
+   * <p>The current state of block public access for snapshots. Possible values include:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>block-all-sharing</code> - All public sharing of snapshots is blocked. Users in
+   *           the account can't request new public sharing. Additionally, snapshots that were already
+   *           publicly shared are treated as private and are not publicly available.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>block-new-sharing</code>  - Only new public sharing of snapshots is blocked.
+   *           Users in the account can't request new public sharing. However, snapshots that were
+   *           already publicly shared, remain publicly available.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>unblocked</code>  - Public sharing is not blocked. Users can publicly share
+   *           snapshots.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  State?: SnapshotBlockPublicAccessState | undefined;
+
+  /**
+   * <p>The entity that manages the state for block public access for snapshots. Possible
+   *             values include:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>account</code> - The state is managed by the account.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>declarative-policy</code> - The state is managed by a declarative policy and
+   *             can't be modified by the account.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  ManagedBy?: ManagedBy | undefined;
+}
 
 /**
  * <p>The architecture type, virtualization type, and other attributes for the instance types.
@@ -3949,6 +4012,84 @@ export interface ModifyInstanceCapacityReservationAttributesRequest {
 export interface ModifyInstanceCapacityReservationAttributesResult {
   /**
    * <p>Returns <code>true</code> if the request succeeds; otherwise, it returns an error.</p>
+   * @public
+   */
+  Return?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ModifyInstanceConnectEndpointRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the operation, without actually making the
+   *   request, and provides an error response. If you have the required permissions, the error response is
+   *   <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>The ID of the EC2 Instance Connect Endpoint to modify.</p>
+   * @public
+   */
+  InstanceConnectEndpointId: string | undefined;
+
+  /**
+   * <p>The new IP address type for the EC2 Instance Connect Endpoint.</p>
+   *          <note>
+   *             <p>
+   *                <code>PreserveClientIp</code> is only supported on IPv4 EC2 Instance Connect
+   *                 Endpoints. To use <code>PreserveClientIp</code>, the value for
+   *                 <code>IpAddressType</code> must be <code>ipv4</code>.</p>
+   *          </note>
+   * @public
+   */
+  IpAddressType?: IpAddressType | undefined;
+
+  /**
+   * <p>Changes the security groups for the EC2 Instance Connect Endpoint. The new set of
+   *             groups you specify replaces the current set. You must specify at least one group, even
+   *             if it's just the default security group in the VPC. You must specify the ID of the
+   *             security group, not the name.</p>
+   * @public
+   */
+  SecurityGroupIds?: string[] | undefined;
+
+  /**
+   * <p>Indicates whether the client IP address is preserved as the source. The following are the possible values.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>true</code> - Use the client IP address as the source.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>false</code> - Use the network interface IP address as the source.</p>
+   *             </li>
+   *          </ul>
+   *          <note>
+   *             <p>
+   *                <code>PreserveClientIp=true</code> is only supported on IPv4 EC2 Instance Connect
+   *                 Endpoints. If modifying <code>PreserveClientIp</code> to <code>true</code>, either
+   *                 the endpoint's existing <code>IpAddressType</code> must be <code>ipv4</code>, or if
+   *                 modifying <code>IpAddressType</code> in the same request, the new value must be
+   *                     <code>ipv4</code>.</p>
+   *          </note>
+   *          <p>Default: <code>false</code>
+   *          </p>
+   * @public
+   */
+  PreserveClientIp?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ModifyInstanceConnectEndpointResult {
+  /**
+   * <p>The return value of the request. Returns <code>true</code> if the specified product
+   *             code is owned by the requester and associated with the specified instance.</p>
    * @public
    */
   Return?: boolean | undefined;
@@ -9647,83 +9788,6 @@ export interface TransitGatewayMulticastRegisteredGroupMembers {
    * @public
    */
   GroupIpAddress?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface RegisterTransitGatewayMulticastGroupMembersResult {
-  /**
-   * <p>Information about the registered  transit gateway multicast group members.</p>
-   * @public
-   */
-  RegisteredMulticastGroupMembers?: TransitGatewayMulticastRegisteredGroupMembers | undefined;
-}
-
-/**
- * @public
- */
-export interface RegisterTransitGatewayMulticastGroupSourcesRequest {
-  /**
-   * <p>The ID of the transit gateway multicast domain.</p>
-   * @public
-   */
-  TransitGatewayMulticastDomainId: string | undefined;
-
-  /**
-   * <p>The IP address assigned to the  transit gateway multicast group.</p>
-   * @public
-   */
-  GroupIpAddress?: string | undefined;
-
-  /**
-   * <p>The group sources' network interface IDs to register with the  transit gateway multicast group.</p>
-   * @public
-   */
-  NetworkInterfaceIds: string[] | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-}
-
-/**
- * <p>Describes the members registered with the  transit gateway multicast group.</p>
- * @public
- */
-export interface TransitGatewayMulticastRegisteredGroupSources {
-  /**
-   * <p>The ID of the transit gateway multicast domain.</p>
-   * @public
-   */
-  TransitGatewayMulticastDomainId?: string | undefined;
-
-  /**
-   * <p>The IDs of the network interfaces members registered with the  transit gateway multicast group.</p>
-   * @public
-   */
-  RegisteredNetworkInterfaceIds?: string[] | undefined;
-
-  /**
-   * <p>The IP address assigned to the  transit gateway multicast group.</p>
-   * @public
-   */
-  GroupIpAddress?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface RegisterTransitGatewayMulticastGroupSourcesResult {
-  /**
-   * <p>Information about the  transit gateway multicast group sources.</p>
-   * @public
-   */
-  RegisteredMulticastGroupSources?: TransitGatewayMulticastRegisteredGroupSources | undefined;
 }
 
 /**

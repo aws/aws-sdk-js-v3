@@ -69,7 +69,7 @@ export interface CreateInstanceConnectEndpointCommandOutput
  * //     OwnerId: "STRING_VALUE",
  * //     InstanceConnectEndpointId: "STRING_VALUE",
  * //     InstanceConnectEndpointArn: "STRING_VALUE",
- * //     State: "create-in-progress" || "create-complete" || "create-failed" || "delete-in-progress" || "delete-complete" || "delete-failed",
+ * //     State: "create-in-progress" || "create-complete" || "create-failed" || "delete-in-progress" || "delete-complete" || "delete-failed" || "update-in-progress" || "update-complete" || "update-failed",
  * //     StateMessage: "STRING_VALUE",
  * //     DnsName: "STRING_VALUE",
  * //     FipsDnsName: "STRING_VALUE",
@@ -91,6 +91,16 @@ export interface CreateInstanceConnectEndpointCommandOutput
  * //       },
  * //     ],
  * //     IpAddressType: "ipv4" || "dualstack" || "ipv6",
+ * //     PublicDnsNames: { // InstanceConnectEndpointPublicDnsNames
+ * //       Ipv4: { // InstanceConnectEndpointDnsNames
+ * //         DnsName: "STRING_VALUE",
+ * //         FipsDnsName: "STRING_VALUE",
+ * //       },
+ * //       Dualstack: {
+ * //         DnsName: "STRING_VALUE",
+ * //         FipsDnsName: "STRING_VALUE",
+ * //       },
+ * //     },
  * //   },
  * //   ClientToken: "STRING_VALUE",
  * // };

@@ -556,6 +556,7 @@ export * from "./ModifyIdentityIdFormatCommand";
 export * from "./ModifyImageAttributeCommand";
 export * from "./ModifyInstanceAttributeCommand";
 export * from "./ModifyInstanceCapacityReservationAttributesCommand";
+export * from "./ModifyInstanceConnectEndpointCommand";
 export * from "./ModifyInstanceCpuOptionsCommand";
 export * from "./ModifyInstanceCreditSpecificationCommand";
 export * from "./ModifyInstanceEventStartTimeCommand";

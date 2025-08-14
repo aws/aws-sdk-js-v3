@@ -8376,6 +8376,43 @@ export interface CreateInstanceConnectEndpointRequest {
 }
 
 /**
+ * <p>The DNS names of the endpoint.</p>
+ * @public
+ */
+export interface InstanceConnectEndpointDnsNames {
+  /**
+   * <p>The DNS name of the EC2 Instance Connect Endpoint.</p>
+   * @public
+   */
+  DnsName?: string | undefined;
+
+  /**
+   * <p>The Federal Information Processing Standards (FIPS) compliant DNS name of the EC2 Instance Connect Endpoint.</p>
+   * @public
+   */
+  FipsDnsName?: string | undefined;
+}
+
+/**
+ * <p>The public DNS names of the endpoint, including IPv4-only and dualstack DNS
+ *             names.</p>
+ * @public
+ */
+export interface InstanceConnectEndpointPublicDnsNames {
+  /**
+   * <p>The IPv4-only DNS name of the EC2 Instance Connect Endpoint.</p>
+   * @public
+   */
+  Ipv4?: InstanceConnectEndpointDnsNames | undefined;
+
+  /**
+   * <p>The dualstack DNS name of the EC2 Instance Connect Endpoint. A dualstack DNS name supports connections from both IPv4 and IPv6 clients.</p>
+   * @public
+   */
+  Dualstack?: InstanceConnectEndpointDnsNames | undefined;
+}
+
+/**
  * @public
  * @enum
  */
@@ -8386,6 +8423,9 @@ export const Ec2InstanceConnectEndpointState = {
   delete_complete: "delete-complete",
   delete_failed: "delete-failed",
   delete_in_progress: "delete-in-progress",
+  update_complete: "update-complete",
+  update_failed: "update-failed",
+  update_in_progress: "update-in-progress",
 } as const;
 
 /**
@@ -8508,6 +8548,12 @@ export interface Ec2InstanceConnectEndpoint {
    * @public
    */
   IpAddressType?: IpAddressType | undefined;
+
+  /**
+   * <p>The public DNS names of the endpoint.</p>
+   * @public
+   */
+  PublicDnsNames?: InstanceConnectEndpointPublicDnsNames | undefined;
 }
 
 /**
@@ -12600,53 +12646,6 @@ export interface LaunchTemplateInstanceMetadataOptions {
    * @public
    */
   InstanceMetadataTags?: LaunchTemplateInstanceMetadataTagsState | undefined;
-}
-
-/**
- * <p>Describes the monitoring for the instance.</p>
- * @public
- */
-export interface LaunchTemplatesMonitoring {
-  /**
-   * <p>Indicates whether detailed monitoring is enabled. Otherwise, basic monitoring is
-   *             enabled.</p>
-   * @public
-   */
-  Enabled?: boolean | undefined;
-}
-
-/**
- * <p>A security group connection tracking specification that enables you to set the idle
- *             timeout for connection tracking on an Elastic network interface. For more information,
- *             see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/security-group-connection-tracking.html#connection-tracking-timeouts">Connection tracking timeouts</a> in the
- *             <i>Amazon EC2 User Guide</i>.</p>
- * @public
- */
-export interface ConnectionTrackingSpecification {
-  /**
-   * <p>Timeout (in seconds) for idle TCP
-   * 						connections in an established state. Min: 60 seconds. Max: 432000 seconds (5
-   * 						days). Default: 432000 seconds. Recommended: Less than 432000 seconds.</p>
-   * @public
-   */
-  TcpEstablishedTimeout?: number | undefined;
-
-  /**
-   * <p>Timeout (in seconds) for idle UDP flows that
-   * 						have seen traffic only in a single direction or a single request-response
-   * 						transaction. Min: 30 seconds. Max: 60 seconds. Default: 30 seconds.</p>
-   * @public
-   */
-  UdpTimeout?: number | undefined;
-
-  /**
-   * <p>Timeout (in seconds) for idle UDP
-   * 						flows classified as streams which have seen more than one request-response
-   * 						transaction. Min: 60 seconds. Max: 180 seconds (3 minutes). Default: 180
-   * 						seconds.</p>
-   * @public
-   */
-  UdpStreamTimeout?: number | undefined;
 }
 
 /**
