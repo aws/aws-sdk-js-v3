@@ -42,7 +42,9 @@ export interface ModifyAccountCommandOutput extends ModifyAccountResult, __Metad
  * };
  * const command = new ModifyAccountCommand(input);
  * const response = await client.send(command);
- * // {};
+ * // { // ModifyAccountResult
+ * //   Message: "STRING_VALUE",
+ * // };
  *
  * ```
  *
@@ -98,7 +100,7 @@ export class ModifyAccountCommand extends $Command
   protected declare static __types: {
     api: {
       input: ModifyAccountRequest;
-      output: {};
+      output: ModifyAccountResult;
     };
     sdk: {
       input: ModifyAccountCommandInput;

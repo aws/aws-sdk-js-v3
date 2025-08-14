@@ -1,5 +1,10 @@
 // smithy-typescript generated code
-import { loadRestJsonErrorCode, parseJsonBody as parseBody, parseJsonErrorBody as parseErrorBody } from "@aws-sdk/core";
+import {
+  awsExpectUnion as __expectUnion,
+  loadRestJsonErrorCode,
+  parseJsonBody as parseBody,
+  parseJsonErrorBody as parseErrorBody,
+} from "@aws-sdk/core";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import {
   _json,
@@ -142,6 +147,10 @@ import {
   DescribeConnectionAliasPermissionsCommandOutput,
 } from "../commands/DescribeConnectionAliasPermissionsCommand";
 import {
+  DescribeCustomWorkspaceImageImportCommandInput,
+  DescribeCustomWorkspaceImageImportCommandOutput,
+} from "../commands/DescribeCustomWorkspaceImageImportCommand";
+import {
   DescribeImageAssociationsCommandInput,
   DescribeImageAssociationsCommandOutput,
 } from "../commands/DescribeImageAssociationsCommand";
@@ -201,6 +210,10 @@ import {
   ImportClientBrandingCommandInput,
   ImportClientBrandingCommandOutput,
 } from "../commands/ImportClientBrandingCommand";
+import {
+  ImportCustomWorkspaceImageCommandInput,
+  ImportCustomWorkspaceImageCommandOutput,
+} from "../commands/ImportCustomWorkspaceImageCommand";
 import {
   ImportWorkspaceImageCommandInput,
   ImportWorkspaceImageCommandOutput,
@@ -381,6 +394,8 @@ import {
   DescribeConnectClientAddInsRequest,
   DescribeConnectionAliasesRequest,
   DescribeConnectionAliasPermissionsRequest,
+  DescribeCustomWorkspaceImageImportRequest,
+  DescribeCustomWorkspaceImageImportResult,
   DescribeImageAssociationsRequest,
   DescribeImageAssociationsResult,
   DescribeIpGroupsRequest,
@@ -414,7 +429,9 @@ import {
   GlobalAcceleratorForWorkSpace,
   ImageAssociatedResourceType,
   ImageResourceAssociation,
+  ImageSourceIdentifier,
   ImportClientBrandingRequest,
+  ImportCustomWorkspaceImageRequest,
   ImportWorkspaceImageRequest,
   IncompatibleApplicationsException,
   InternalServerException,
@@ -434,10 +451,6 @@ import {
   ModifyEndpointEncryptionModeRequest,
   ModifySamlPropertiesRequest,
   ModifySelfservicePermissionsRequest,
-  ModifyStreamingPropertiesRequest,
-  ModifyWorkspaceAccessPropertiesRequest,
-  ModifyWorkspaceCreationPropertiesRequest,
-  ModifyWorkspacePropertiesRequest,
   OperatingSystemName,
   OperatingSystemNotCompatibleException,
   OperationInProgressException,
@@ -460,7 +473,6 @@ import {
   StreamingProperties,
   Tag,
   TimeoutSettings,
-  UnsupportedWorkspaceConfigurationException,
   UserSetting,
   UserStorage,
   ValidationException,
@@ -471,7 +483,6 @@ import {
   WorkSpaceAssociatedResourceType,
   WorkspaceBundle,
   WorkspaceConnectionStatus,
-  WorkspaceCreationProperties,
   WorkspaceImage,
   WorkspaceProperties,
   WorkspaceRequest,
@@ -480,6 +491,10 @@ import {
   WorkspacesPoolSession,
 } from "../models/models_0";
 import {
+  ModifyStreamingPropertiesRequest,
+  ModifyWorkspaceAccessPropertiesRequest,
+  ModifyWorkspaceCreationPropertiesRequest,
+  ModifyWorkspacePropertiesRequest,
   ModifyWorkspaceStateRequest,
   RebootRequest,
   RebootWorkspacesRequest,
@@ -500,6 +515,7 @@ import {
   TerminateWorkspacesPoolSessionRequest,
   TerminateWorkspacesRequest,
   UnsupportedNetworkConfigurationException,
+  UnsupportedWorkspaceConfigurationException,
   UpdateConnectClientAddInRequest,
   UpdateConnectionAliasPermissionRequest,
   UpdateRulesOfIpGroupRequest,
@@ -507,6 +523,7 @@ import {
   UpdateWorkspaceImagePermissionRequest,
   UpdateWorkspacesPoolRequest,
   UpdateWorkspacesPoolResult,
+  WorkspaceCreationProperties,
   WorkspacesDefaultRoleNotFoundException,
 } from "../models/models_1";
 import { WorkSpacesServiceException as __BaseException } from "../models/WorkSpacesServiceException";
@@ -993,6 +1010,19 @@ export const se_DescribeConnectionAliasPermissionsCommand = async (
 };
 
 /**
+ * serializeAws_json1_1DescribeCustomWorkspaceImageImportCommand
+ */
+export const se_DescribeCustomWorkspaceImageImportCommand = async (
+  input: DescribeCustomWorkspaceImageImportCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("DescribeCustomWorkspaceImageImport");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_json1_1DescribeImageAssociationsCommand
  */
 export const se_DescribeImageAssociationsCommand = async (
@@ -1223,6 +1253,19 @@ export const se_ImportClientBrandingCommand = async (
   const headers: __HeaderBag = sharedHeaders("ImportClientBranding");
   let body: any;
   body = JSON.stringify(se_ImportClientBrandingRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1ImportCustomWorkspaceImageCommand
+ */
+export const se_ImportCustomWorkspaceImageCommand = async (
+  input: ImportCustomWorkspaceImageCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("ImportCustomWorkspaceImage");
+  let body: any;
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -2409,6 +2452,26 @@ export const de_DescribeConnectionAliasPermissionsCommand = async (
 };
 
 /**
+ * deserializeAws_json1_1DescribeCustomWorkspaceImageImportCommand
+ */
+export const de_DescribeCustomWorkspaceImageImportCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeCustomWorkspaceImageImportCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribeCustomWorkspaceImageImportResult(data, context);
+  const response: DescribeCustomWorkspaceImageImportCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
  * deserializeAws_json1_1DescribeImageAssociationsCommand
  */
 export const de_DescribeImageAssociationsCommand = async (
@@ -2762,6 +2825,26 @@ export const de_ImportClientBrandingCommand = async (
   let contents: any = {};
   contents = _json(data);
   const response: ImportClientBrandingCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ImportCustomWorkspaceImageCommand
+ */
+export const de_ImportCustomWorkspaceImageCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ImportCustomWorkspaceImageCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: ImportCustomWorkspaceImageCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
@@ -4027,6 +4110,8 @@ const se_DefaultImportClientBrandingAttributes = (
 
 // se_DescribeConnectionAliasPermissionsRequest omitted.
 
+// se_DescribeCustomWorkspaceImageImportRequest omitted.
+
 // se_DescribeImageAssociationsRequest omitted.
 
 // se_DescribeIpGroupsRequest omitted.
@@ -4081,6 +4166,8 @@ const se_DefaultImportClientBrandingAttributes = (
 
 // se_ImageAssociatedResourceTypeList omitted.
 
+// se_ImageSourceIdentifier omitted.
+
 /**
  * serializeAws_json1_1ImportClientBrandingRequest
  */
@@ -4095,6 +4182,8 @@ const se_ImportClientBrandingRequest = (input: ImportClientBrandingRequest, cont
     ResourceId: [],
   });
 };
+
+// se_ImportCustomWorkspaceImageRequest omitted.
 
 // se_ImportWorkspaceImageRequest omitted.
 
@@ -4507,6 +4596,10 @@ const de_CreateWorkspacesResult = (output: any, context: __SerdeContext): Create
   }) as any;
 };
 
+// de_CustomWorkspaceImageImportErrorDetails omitted.
+
+// de_CustomWorkspaceImageImportErrorDetailsList omitted.
+
 /**
  * deserializeAws_json1_1DataReplicationSettings
  */
@@ -4612,6 +4705,25 @@ const de_DescribeBundleAssociationsResult = (
 // de_DescribeConnectionAliasesResult omitted.
 
 // de_DescribeConnectionAliasPermissionsResult omitted.
+
+/**
+ * deserializeAws_json1_1DescribeCustomWorkspaceImageImportResult
+ */
+const de_DescribeCustomWorkspaceImageImportResult = (
+  output: any,
+  context: __SerdeContext
+): DescribeCustomWorkspaceImageImportResult => {
+  return take(output, {
+    Created: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    ErrorDetails: _json,
+    ImageBuilderInstanceId: __expectString,
+    ImageId: __expectString,
+    ImageSource: (_: any) => _json(__expectUnion(_)),
+    InfrastructureConfigurationArn: __expectString,
+    LastUpdatedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    State: __expectString,
+  }) as any;
+};
 
 /**
  * deserializeAws_json1_1DescribeImageAssociationsResult
@@ -4804,7 +4916,11 @@ const de_ImageResourceAssociationList = (output: any, context: __SerdeContext): 
   return retVal;
 };
 
+// de_ImageSourceIdentifier omitted.
+
 // de_ImportClientBrandingResult omitted.
+
+// de_ImportCustomWorkspaceImageResult omitted.
 
 // de_ImportWorkspaceImageResult omitted.
 

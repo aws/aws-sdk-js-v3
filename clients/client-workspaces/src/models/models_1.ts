@@ -7,20 +7,208 @@ import {
   ApplicationSettingsRequest,
   Capacity,
   ConnectionAliasPermission,
+  DataReplication,
   FailedWorkspaceChangeRequest,
   IpRuleItem,
   MicrosoftEntraConfig,
   PoolsRunningMode,
+  StreamingProperties,
   Tag,
   Tenancy,
   TimeoutSettings,
   UserIdentityType,
+  WorkspaceAccessProperties,
   WorkspaceDirectoryState,
+  WorkspaceProperties,
   WorkspacesPool,
   WorkspaceType,
 } from "./models_0";
 
 import { WorkSpacesServiceException as __BaseException } from "./WorkSpacesServiceException";
+
+/**
+ * @public
+ */
+export interface ModifySelfservicePermissionsResult {}
+
+/**
+ * @public
+ */
+export interface ModifyStreamingPropertiesRequest {
+  /**
+   * <p>The identifier of the resource.</p>
+   * @public
+   */
+  ResourceId: string | undefined;
+
+  /**
+   * <p>The streaming properties to configure.</p>
+   * @public
+   */
+  StreamingProperties?: StreamingProperties | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ModifyStreamingPropertiesResult {}
+
+/**
+ * @public
+ */
+export interface ModifyWorkspaceAccessPropertiesRequest {
+  /**
+   * <p>The identifier of the directory.</p>
+   * @public
+   */
+  ResourceId: string | undefined;
+
+  /**
+   * <p>The device types and operating systems to enable or disable for access.</p>
+   * @public
+   */
+  WorkspaceAccessProperties: WorkspaceAccessProperties | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ModifyWorkspaceAccessPropertiesResult {}
+
+/**
+ * <p>Describes the default properties that are used for creating WorkSpaces. For more
+ *          information, see <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/update-directory-details.html">Update Directory
+ *             Details for Your WorkSpaces</a>. </p>
+ * @public
+ */
+export interface WorkspaceCreationProperties {
+  /**
+   * <p>Indicates whether internet access is enabled for your WorkSpaces.</p>
+   * @public
+   */
+  EnableInternetAccess?: boolean | undefined;
+
+  /**
+   * <p>The default organizational unit (OU) for your WorkSpaces directories. This string must
+   *          be the full Lightweight Directory Access Protocol (LDAP) distinguished name for the target
+   *          domain and OU. It must be in the form
+   *                <code>"OU=<i>value</i>,DC=<i>value</i>,DC=<i>value</i>"</code>,
+   *          where <i>value</i> is any string of characters, and the number of domain
+   *          components (DCs) is two or more. For example,
+   *             <code>OU=WorkSpaces_machines,DC=machines,DC=example,DC=com</code>. </p>
+   *          <important>
+   *             <ul>
+   *                <li>
+   *                   <p>To avoid errors, certain characters in the distinguished name must be escaped.
+   *                   For more information, see <a href="https://docs.microsoft.com/previous-versions/windows/desktop/ldap/distinguished-names"> Distinguished Names</a> in the Microsoft documentation.</p>
+   *                </li>
+   *                <li>
+   *                   <p>The API doesn't validate whether the OU exists.</p>
+   *                </li>
+   *             </ul>
+   *          </important>
+   * @public
+   */
+  DefaultOu?: string | undefined;
+
+  /**
+   * <p>The identifier of your custom security group.</p>
+   * @public
+   */
+  CustomSecurityGroupId?: string | undefined;
+
+  /**
+   * <p>Indicates whether users are local administrators of their WorkSpaces.</p>
+   * @public
+   */
+  UserEnabledAsLocalAdministrator?: boolean | undefined;
+
+  /**
+   * <p>Indicates whether maintenance mode is enabled for your WorkSpaces. For more information,
+   *          see <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/workspace-maintenance.html">WorkSpace
+   *             Maintenance</a>. </p>
+   * @public
+   */
+  EnableMaintenanceMode?: boolean | undefined;
+
+  /**
+   * <p>Indicates the IAM role ARN of the instance.</p>
+   * @public
+   */
+  InstanceIamRoleArn?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ModifyWorkspaceCreationPropertiesRequest {
+  /**
+   * <p>The identifier of the directory.</p>
+   * @public
+   */
+  ResourceId: string | undefined;
+
+  /**
+   * <p>The default properties for creating WorkSpaces.</p>
+   * @public
+   */
+  WorkspaceCreationProperties: WorkspaceCreationProperties | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ModifyWorkspaceCreationPropertiesResult {}
+
+/**
+ * @public
+ */
+export interface ModifyWorkspacePropertiesRequest {
+  /**
+   * <p>The identifier of the WorkSpace.</p>
+   * @public
+   */
+  WorkspaceId: string | undefined;
+
+  /**
+   * <p>The properties of the WorkSpace.</p>
+   * @public
+   */
+  WorkspaceProperties?: WorkspaceProperties | undefined;
+
+  /**
+   * <p>Indicates the data replication status.</p>
+   * @public
+   */
+  DataReplication?: DataReplication | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ModifyWorkspacePropertiesResult {}
+
+/**
+ * <p>The configuration of this WorkSpace is not supported for this operation. For more information, see
+ *          <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/required-service-components.html">Required
+ *             Configuration and Service Components for WorkSpaces </a>.</p>
+ * @public
+ */
+export class UnsupportedWorkspaceConfigurationException extends __BaseException {
+  readonly name: "UnsupportedWorkspaceConfigurationException" = "UnsupportedWorkspaceConfigurationException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<UnsupportedWorkspaceConfigurationException, __BaseException>) {
+    super({
+      name: "UnsupportedWorkspaceConfigurationException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, UnsupportedWorkspaceConfigurationException.prototype);
+  }
+}
 
 /**
  * @public

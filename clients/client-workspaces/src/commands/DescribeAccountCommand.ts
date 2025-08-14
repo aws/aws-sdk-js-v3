@@ -43,6 +43,7 @@ export interface DescribeAccountCommandOutput extends DescribeAccountResult, __M
  * //   DedicatedTenancySupport: "ENABLED" || "DISABLED",
  * //   DedicatedTenancyManagementCidrRange: "STRING_VALUE",
  * //   DedicatedTenancyAccountType: "SOURCE_ACCOUNT" || "TARGET_ACCOUNT",
+ * //   Message: "STRING_VALUE",
  * // };
  *
  * ```

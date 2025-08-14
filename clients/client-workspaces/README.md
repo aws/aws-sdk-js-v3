@@ -518,6 +518,14 @@ DescribeConnectionAliasPermissions
 </details>
 <details>
 <summary>
+DescribeCustomWorkspaceImageImport
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/workspaces/command/DescribeCustomWorkspaceImageImportCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-workspaces/Interface/DescribeCustomWorkspaceImageImportCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-workspaces/Interface/DescribeCustomWorkspaceImageImportCommandOutput/)
+
+</details>
+<details>
+<summary>
 DescribeImageAssociations
 </summary>
 
@@ -658,6 +666,14 @@ ImportClientBranding
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/workspaces/command/ImportClientBrandingCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-workspaces/Interface/ImportClientBrandingCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-workspaces/Interface/ImportClientBrandingCommandOutput/)
+
+</details>
+<details>
+<summary>
+ImportCustomWorkspaceImage
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/workspaces/command/ImportCustomWorkspaceImageCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-workspaces/Interface/ImportCustomWorkspaceImageCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-workspaces/Interface/ImportCustomWorkspaceImageCommandOutput/)
 
 </details>
 <details>

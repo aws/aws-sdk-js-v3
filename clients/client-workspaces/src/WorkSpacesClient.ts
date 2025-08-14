@@ -175,6 +175,10 @@ import {
   DescribeConnectionAliasPermissionsCommandOutput,
 } from "./commands/DescribeConnectionAliasPermissionsCommand";
 import {
+  DescribeCustomWorkspaceImageImportCommandInput,
+  DescribeCustomWorkspaceImageImportCommandOutput,
+} from "./commands/DescribeCustomWorkspaceImageImportCommand";
+import {
   DescribeImageAssociationsCommandInput,
   DescribeImageAssociationsCommandOutput,
 } from "./commands/DescribeImageAssociationsCommand";
@@ -234,6 +238,10 @@ import {
   ImportClientBrandingCommandInput,
   ImportClientBrandingCommandOutput,
 } from "./commands/ImportClientBrandingCommand";
+import {
+  ImportCustomWorkspaceImageCommandInput,
+  ImportCustomWorkspaceImageCommandOutput,
+} from "./commands/ImportCustomWorkspaceImageCommand";
 import {
   ImportWorkspaceImageCommandInput,
   ImportWorkspaceImageCommandOutput,
@@ -392,6 +400,7 @@ export type ServiceInputTypes =
   | DescribeConnectClientAddInsCommandInput
   | DescribeConnectionAliasPermissionsCommandInput
   | DescribeConnectionAliasesCommandInput
+  | DescribeCustomWorkspaceImageImportCommandInput
   | DescribeImageAssociationsCommandInput
   | DescribeIpGroupsCommandInput
   | DescribeTagsCommandInput
@@ -410,6 +419,7 @@ export type ServiceInputTypes =
   | DisassociateWorkspaceApplicationCommandInput
   | GetAccountLinkCommandInput
   | ImportClientBrandingCommandInput
+  | ImportCustomWorkspaceImageCommandInput
   | ImportWorkspaceImageCommandInput
   | ListAccountLinksCommandInput
   | ListAvailableManagementCidrRangesCommandInput
@@ -486,6 +496,7 @@ export type ServiceOutputTypes =
   | DescribeConnectClientAddInsCommandOutput
   | DescribeConnectionAliasPermissionsCommandOutput
   | DescribeConnectionAliasesCommandOutput
+  | DescribeCustomWorkspaceImageImportCommandOutput
   | DescribeImageAssociationsCommandOutput
   | DescribeIpGroupsCommandOutput
   | DescribeTagsCommandOutput
@@ -504,6 +515,7 @@ export type ServiceOutputTypes =
   | DisassociateWorkspaceApplicationCommandOutput
   | GetAccountLinkCommandOutput
   | ImportClientBrandingCommandOutput
+  | ImportCustomWorkspaceImageCommandOutput
   | ImportWorkspaceImageCommandOutput
   | ListAccountLinksCommandOutput
   | ListAvailableManagementCidrRangesCommandOutput

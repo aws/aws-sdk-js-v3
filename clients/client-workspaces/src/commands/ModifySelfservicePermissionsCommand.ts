@@ -5,7 +5,8 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ModifySelfservicePermissionsRequest, ModifySelfservicePermissionsResult } from "../models/models_0";
+import { ModifySelfservicePermissionsRequest } from "../models/models_0";
+import { ModifySelfservicePermissionsResult } from "../models/models_1";
 import {
   de_ModifySelfservicePermissionsCommand,
   se_ModifySelfservicePermissionsCommand,

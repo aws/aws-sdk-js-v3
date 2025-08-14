@@ -180,6 +180,11 @@ import {
   DescribeConnectionAliasPermissionsCommandOutput,
 } from "./commands/DescribeConnectionAliasPermissionsCommand";
 import {
+  DescribeCustomWorkspaceImageImportCommand,
+  DescribeCustomWorkspaceImageImportCommandInput,
+  DescribeCustomWorkspaceImageImportCommandOutput,
+} from "./commands/DescribeCustomWorkspaceImageImportCommand";
+import {
   DescribeImageAssociationsCommand,
   DescribeImageAssociationsCommandInput,
   DescribeImageAssociationsCommandOutput,
@@ -269,6 +274,11 @@ import {
   ImportClientBrandingCommandInput,
   ImportClientBrandingCommandOutput,
 } from "./commands/ImportClientBrandingCommand";
+import {
+  ImportCustomWorkspaceImageCommand,
+  ImportCustomWorkspaceImageCommandInput,
+  ImportCustomWorkspaceImageCommandOutput,
+} from "./commands/ImportCustomWorkspaceImageCommand";
 import {
   ImportWorkspaceImageCommand,
   ImportWorkspaceImageCommandInput,
@@ -479,6 +489,7 @@ const commands = {
   DescribeConnectClientAddInsCommand,
   DescribeConnectionAliasesCommand,
   DescribeConnectionAliasPermissionsCommand,
+  DescribeCustomWorkspaceImageImportCommand,
   DescribeImageAssociationsCommand,
   DescribeIpGroupsCommand,
   DescribeTagsCommand,
@@ -497,6 +508,7 @@ const commands = {
   DisassociateWorkspaceApplicationCommand,
   GetAccountLinkCommand,
   ImportClientBrandingCommand,
+  ImportCustomWorkspaceImageCommand,
   ImportWorkspaceImageCommand,
   ListAccountLinksCommand,
   ListAvailableManagementCidrRangesCommand,
@@ -1142,6 +1154,23 @@ export interface WorkSpaces {
   ): void;
 
   /**
+   * @see {@link DescribeCustomWorkspaceImageImportCommand}
+   */
+  describeCustomWorkspaceImageImport(
+    args: DescribeCustomWorkspaceImageImportCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeCustomWorkspaceImageImportCommandOutput>;
+  describeCustomWorkspaceImageImport(
+    args: DescribeCustomWorkspaceImageImportCommandInput,
+    cb: (err: any, data?: DescribeCustomWorkspaceImageImportCommandOutput) => void
+  ): void;
+  describeCustomWorkspaceImageImport(
+    args: DescribeCustomWorkspaceImageImportCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeCustomWorkspaceImageImportCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DescribeImageAssociationsCommand}
    */
   describeImageAssociations(
@@ -1444,6 +1473,23 @@ export interface WorkSpaces {
     args: ImportClientBrandingCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ImportClientBrandingCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ImportCustomWorkspaceImageCommand}
+   */
+  importCustomWorkspaceImage(
+    args: ImportCustomWorkspaceImageCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ImportCustomWorkspaceImageCommandOutput>;
+  importCustomWorkspaceImage(
+    args: ImportCustomWorkspaceImageCommandInput,
+    cb: (err: any, data?: ImportCustomWorkspaceImageCommandOutput) => void
+  ): void;
+  importCustomWorkspaceImage(
+    args: ImportCustomWorkspaceImageCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ImportCustomWorkspaceImageCommandOutput) => void
   ): void;
 
   /**
