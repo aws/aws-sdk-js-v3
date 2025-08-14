@@ -743,11 +743,45 @@ export interface NewPrivateVirtualInterfaceAllocation {
   vlan: number | undefined;
 
   /**
-   * <p>The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.</p>
-   *          <p>The valid values are 1-2147483647.</p>
+   * <p>The autonomous system number (ASN). The valid range is from 1 to 2147483646 for Border Gateway Protocol (BGP) configuration. If you provide a number greater than the maximum, an error is returned. Use <code>asnLong</code> instead.</p>
+   *          <note>
+   *             <p>You can use <code>asnLong</code> or <code>asn</code>, but not both. We recommend using <code>asnLong</code> as it supports a greater pool of numbers. </p>
+   *             <ul>
+   *                <li>
+   *                   <p>The <code>asnLong</code> attribute accepts both ASN and long ASN
+   *                             ranges.</p>
+   *                </li>
+   *                <li>
+   *                   <p>If you provide a value in the same API call for both <code>asn</code>
+   *                             and <code>asnLong</code>, the API will only accept the value for
+   *                                 <code>asnLong</code>.</p>
+   *                </li>
+   *             </ul>
+   *          </note>
+   *          <p>The valid values are 1-2147483646.</p>
    * @public
    */
-  asn: number | undefined;
+  asn?: number | undefined;
+
+  /**
+   * <p>The ASN when allocating a new private virtual interface. The valid range is from 1 to 4294967294 for BGP configuration.</p>
+   *          <note>
+   *             <p>You can use <code>asnLong</code> or <code>asn</code>, but not both. We recommend using <code>asnLong</code> as it supports a greater pool of numbers. </p>
+   *             <ul>
+   *                <li>
+   *                   <p>The <code>asnLong</code> attribute accepts both ASN and long ASN
+   *                             ranges.</p>
+   *                </li>
+   *                <li>
+   *                   <p>If you provide a value in the same API call for both <code>asn</code>
+   *                             and <code>asnLong</code>, the API will only accept the value for
+   *                                 <code>asnLong</code>.</p>
+   *                </li>
+   *             </ul>
+   *          </note>
+   * @public
+   */
+  asnLong?: number | undefined;
 
   /**
    * <p>The maximum transmission unit (MTU), in bytes. The supported values are 1500 and 8500. The default value is 1500.</p>
@@ -853,10 +887,44 @@ export interface BGPPeer {
   bgpPeerId?: string | undefined;
 
   /**
-   * <p>The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.</p>
+   * <p>The autonomous system number (ASN). The valid range is from 1 to 2147483646 for Border Gateway Protocol (BGP) configuration. If you provide a number greater than the maximum, an error is returned. Use <code>asnLong</code> instead.</p>
+   *          <note>
+   *             <p>You can use <code>asnLong</code> or <code>asn</code>, but not both. We recommend using <code>asnLong</code> as it supports a greater pool of numbers. </p>
+   *             <ul>
+   *                <li>
+   *                   <p>The <code>asnLong</code> attribute accepts both ASN and long ASN
+   *                             ranges.</p>
+   *                </li>
+   *                <li>
+   *                   <p>If you provide a value in the same API call for both <code>asn</code>
+   *                             and <code>asnLong</code>, the API will only accept the value for
+   *                                 <code>asnLong</code>.</p>
+   *                </li>
+   *             </ul>
+   *          </note>
    * @public
    */
   asn?: number | undefined;
+
+  /**
+   * <p>The long ASN for the BGP peer. The valid range is from 1 to 4294967294 for BGP configuration. </p>
+   *          <note>
+   *             <p>You can use <code>asnLong</code> or <code>asn</code>, but not both. We recommend using <code>asnLong</code> as it supports a greater pool of numbers. </p>
+   *             <ul>
+   *                <li>
+   *                   <p>The <code>asnLong</code> attribute accepts both ASN and long ASN
+   *                             ranges.</p>
+   *                </li>
+   *                <li>
+   *                   <p>If you provide a value in the same API call for both <code>asn</code>
+   *                             and <code>asnLong</code>, the API will only accept the value for
+   *                                 <code>asnLong</code>.</p>
+   *                </li>
+   *             </ul>
+   *          </note>
+   * @public
+   */
+  asnLong?: number | undefined;
 
   /**
    * <p>The authentication key for BGP configuration. This string has a minimum length of 6 characters and and a maximun lenth of 80 characters.</p>
@@ -1015,14 +1083,47 @@ export interface VirtualInterface {
   vlan?: number | undefined;
 
   /**
-   * <p>The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.</p>
-   *          <p>The valid values are 1-2147483647.</p>
+   * <p>The autonomous system number (ASN). The valid range is from 1 to 2147483646 for Border Gateway Protocol (BGP) configuration. If you provide a number greater than the maximum, an error is returned. Use <code>asnLong</code> instead.</p>
+   *          <note>
+   *             <p>You can use <code>asnLong</code> or <code>asn</code>, but not both. We recommend using <code>asnLong</code> as it supports a greater pool of numbers. </p>
+   *             <ul>
+   *                <li>
+   *                   <p>The <code>asnLong</code> attribute accepts both ASN and long ASN
+   *                             ranges.</p>
+   *                </li>
+   *                <li>
+   *                   <p>If you provide a value in the same API call for both <code>asn</code>
+   *                             and <code>asnLong</code>, the API will only accept the value for
+   *                                 <code>asnLong</code>.</p>
+   *                </li>
+   *             </ul>
+   *          </note>
    * @public
    */
   asn?: number | undefined;
 
   /**
-   * <p>The autonomous system number (ASN) for the Amazon side of the connection.</p>
+   * <p>The long ASN for the virtual interface. The valid range is from 1 to 4294967294 for BGP configuration.</p>
+   *          <note>
+   *             <p>You can use <code>asnLong</code> or <code>asn</code>, but not both. We recommend using <code>asnLong</code> as it supports a greater pool of numbers. </p>
+   *             <ul>
+   *                <li>
+   *                   <p>The <code>asnLong</code> attribute accepts both ASN and long ASN
+   *                             ranges.</p>
+   *                </li>
+   *                <li>
+   *                   <p>If you provide a value in the same API call for both <code>asn</code>
+   *                             and <code>asnLong</code>, the API will only accept the value for
+   *                                 <code>asnLong</code>.</p>
+   *                </li>
+   *             </ul>
+   *          </note>
+   * @public
+   */
+  asnLong?: number | undefined;
+
+  /**
+   * <p>The autonomous system number (AS) for the Amazon side of the connection.</p>
    * @public
    */
   amazonSideAsn?: number | undefined;
@@ -1191,11 +1292,45 @@ export interface NewPublicVirtualInterfaceAllocation {
   vlan: number | undefined;
 
   /**
-   * <p>The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.</p>
-   *          <p>The valid values are 1-2147483647.</p>
+   * <p>The autonomous system number (ASN). The valid range is from 1 to 2147483646 for Border Gateway Protocol (BGP) configuration. If you provide a number greater than the maximum, an error is returned. Use <code>asnLong</code> instead.</p>
+   *          <note>
+   *             <p>You can use <code>asnLong</code> or <code>asn</code>, but not both. We recommend using <code>asnLong</code> as it supports a greater pool of numbers. </p>
+   *             <ul>
+   *                <li>
+   *                   <p>The <code>asnLong</code> attribute accepts both ASN and long ASN
+   *                             ranges.</p>
+   *                </li>
+   *                <li>
+   *                   <p>If you provide a value in the same API call for both <code>asn</code>
+   *                             and <code>asnLong</code>, the API will only accept the value for
+   *                                 <code>asnLong</code>.</p>
+   *                </li>
+   *             </ul>
+   *          </note>
+   *          <p>The valid values are 1-2147483646.</p>
    * @public
    */
-  asn: number | undefined;
+  asn?: number | undefined;
+
+  /**
+   * <p>The ASN when allocating a new public virtual interface. The valid range is from 1 to 4294967294 for BGP configuration.</p>
+   *          <note>
+   *             <p>You can use <code>asnLong</code> or <code>asn</code>, but not both. We recommend using <code>asnLong</code> as it supports a greater pool of numbers. </p>
+   *             <ul>
+   *                <li>
+   *                   <p>The <code>asnLong</code> attribute accepts both ASN and long ASN
+   *                             ranges.</p>
+   *                </li>
+   *                <li>
+   *                   <p>If you provide a value in the same API call for both <code>asn</code>
+   *                             and <code>asnLong</code>, the API will only accept the value for
+   *                                 <code>asnLong</code>.</p>
+   *                </li>
+   *             </ul>
+   *          </note>
+   * @public
+   */
+  asnLong?: number | undefined;
 
   /**
    * <p>The authentication key for BGP configuration. This string has a minimum length of 6 characters and and a maximun lenth of 80 characters.</p>
@@ -1275,11 +1410,45 @@ export interface NewTransitVirtualInterfaceAllocation {
   vlan?: number | undefined;
 
   /**
-   * <p>The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.</p>
-   *          <p>The valid values are 1-2147483647.</p>
+   * <p>The autonomous system number (ASN). The valid range is from 1 to 2147483646 for Border Gateway Protocol (BGP) configuration. If you provide a number greater than the maximum, an error is returned. Use <code>asnLong</code> instead.</p>
+   *          <note>
+   *             <p>You can use <code>asnLong</code> or <code>asn</code>, but not both. We recommend using <code>asnLong</code> as it supports a greater pool of numbers. </p>
+   *             <ul>
+   *                <li>
+   *                   <p>The <code>asnLong</code> attribute accepts both ASN and long ASN
+   *                             ranges.</p>
+   *                </li>
+   *                <li>
+   *                   <p>If you provide a value in the same API call for both <code>asn</code>
+   *                             and <code>asnLong</code>, the API will only accept the value for
+   *                                 <code>asnLong</code>.</p>
+   *                </li>
+   *             </ul>
+   *          </note>
+   *          <p>The valid values are 1-2147483646.</p>
    * @public
    */
   asn?: number | undefined;
+
+  /**
+   * <p>The ASN when allocating a new transit virtual interface. The valid range is from 1 to 4294967294 for BGP configuration.</p>
+   *          <note>
+   *             <p>You can use <code>asnLong</code> or <code>asn</code>, but not both. We recommend using <code>asnLong</code> as it supports a greater pool of numbers. </p>
+   *             <ul>
+   *                <li>
+   *                   <p>The <code>asnLong</code> attribute accepts both ASN and long ASN
+   *                             ranges.</p>
+   *                </li>
+   *                <li>
+   *                   <p>If you provide a value in the same API call for both <code>asn</code>
+   *                             and <code>asnLong</code>, the API will only accept the value for
+   *                                 <code>asnLong</code>.</p>
+   *                </li>
+   *             </ul>
+   *          </note>
+   * @public
+   */
+  asnLong?: number | undefined;
 
   /**
    * <p>The maximum transmission unit (MTU), in bytes. The supported values are 1500 and 8500. The default value is 1500 </p>
@@ -1765,6 +1934,12 @@ export interface Connections {
    * @public
    */
   connections?: Connection[] | undefined;
+
+  /**
+   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
 }
 
 /**
@@ -1773,10 +1948,16 @@ export interface Connections {
  */
 export interface NewBGPPeer {
   /**
-   * <p>The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.</p>
+   * <p>The autonomous system number (ASN). The valid range is from 1 to 2147483646 for Border Gateway Protocol (BGP) configuration. If you provide a number greater than the maximum, an error is returned. Use <code>asnLong</code> instead.</p>
    * @public
    */
   asn?: number | undefined;
+
+  /**
+   * <p>The long ASN for a new BGP peer.  The valid range is  from 1 to 4294967294.</p>
+   * @public
+   */
+  asnLong?: number | undefined;
 
   /**
    * <p>The authentication key for BGP configuration. This string has a minimum length of 6 characters and and a maximun lenth of 80 characters.</p>
@@ -1938,7 +2119,7 @@ export interface DirectConnectGateway {
   directConnectGatewayName?: string | undefined;
 
   /**
-   * <p>The autonomous system number (ASN) for the Amazon side of the connection.</p>
+   * <p>The autonomous system number (AS) for the Amazon side of the connection.</p>
    * @public
    */
   amazonSideAsn?: number | undefined;
@@ -2657,11 +2838,45 @@ export interface NewPrivateVirtualInterface {
   vlan: number | undefined;
 
   /**
-   * <p>The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.</p>
-   *          <p>The valid values are 1-2147483647.</p>
+   * <p>The autonomous system number (ASN). The valid range is from 1 to 2147483646 for Border Gateway Protocol (BGP) configuration. If you provide a number greater than the maximum, an error is returned. Use <code>asnLong</code> instead.</p>
+   *          <note>
+   *             <p>You can use <code>asnLong</code> or <code>asn</code>, but not both. We recommend using <code>asnLong</code> as it supports a greater pool of numbers. </p>
+   *             <ul>
+   *                <li>
+   *                   <p>The <code>asnLong</code> attribute accepts both ASN and long ASN
+   *                             ranges.</p>
+   *                </li>
+   *                <li>
+   *                   <p>If you provide a value in the same API call for both <code>asn</code>
+   *                             and <code>asnLong</code>, the API will only accept the value for
+   *                                 <code>asnLong</code>.</p>
+   *                </li>
+   *             </ul>
+   *          </note>
+   *          <p>The valid values are 1-2147483646.</p>
    * @public
    */
-  asn: number | undefined;
+  asn?: number | undefined;
+
+  /**
+   * <p>The long ASN for a new private virtual interface. The valid range is from 1 to 4294967294 for BGP configuration.</p>
+   *          <note>
+   *             <p>You can use <code>asnLong</code> or <code>asn</code>, but not both. We recommend using <code>asnLong</code> as it supports a greater pool of numbers. </p>
+   *             <ul>
+   *                <li>
+   *                   <p>The <code>asnLong</code> attribute accepts both ASN and long ASN
+   *                             ranges.</p>
+   *                </li>
+   *                <li>
+   *                   <p>If you provide a value in the same API call for both <code>asn</code>
+   *                             and <code>asnLong</code>, the API will only accept the value for
+   *                                 <code>asnLong</code>.</p>
+   *                </li>
+   *             </ul>
+   *          </note>
+   * @public
+   */
+  asnLong?: number | undefined;
 
   /**
    * <p>The maximum transmission unit (MTU), in bytes. The supported values are 1500 and 8500. The default value is 1500.</p>
@@ -2753,11 +2968,44 @@ export interface NewPublicVirtualInterface {
   vlan: number | undefined;
 
   /**
-   * <p>The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.</p>
-   *          <p>The valid values are 1-2147483647.</p>
+   * <p>The autonomous system number (ASN). The valid range is from 1 to 2147483646 for Border Gateway Protocol (BGP) configuration. If you provide a number greater than the maximum, an error is returned. Use <code>asnLong</code> instead.</p>
+   *          <note>
+   *             <p>You can use <code>asnLong</code> or <code>asn</code>, but not both. We recommend using <code>asnLong</code> as it supports a greater pool of numbers. </p>
+   *             <ul>
+   *                <li>
+   *                   <p>The <code>asnLong</code> attribute accepts both ASN and long ASN
+   *                             ranges.</p>
+   *                </li>
+   *                <li>
+   *                   <p>If you provide a value in the same API call for both <code>asn</code>
+   *                             and <code>asnLong</code>, the API will only accept the value for
+   *                                 <code>asnLong</code>.</p>
+   *                </li>
+   *             </ul>
+   *          </note>
    * @public
    */
-  asn: number | undefined;
+  asn?: number | undefined;
+
+  /**
+   * <p>The long ASN for a new public virtual interface. The valid range is from 1 to 4294967294 for BGP configuration.</p>
+   *          <note>
+   *             <p>You can use <code>asnLong</code> or <code>asn</code>, but not both. We recommend using <code>asnLong</code> as it supports a greater pool of numbers. </p>
+   *             <ul>
+   *                <li>
+   *                   <p>The <code>asnLong</code> attribute accepts both ASN and long ASN
+   *                             ranges.</p>
+   *                </li>
+   *                <li>
+   *                   <p>If you provide a value in the same API call for both <code>asn</code>
+   *                             and <code>asnLong</code>, the API will only accept the value for
+   *                                 <code>asnLong</code>.</p>
+   *                </li>
+   *             </ul>
+   *          </note>
+   * @public
+   */
+  asnLong?: number | undefined;
 
   /**
    * <p>The authentication key for BGP configuration. This string has a minimum length of 6 characters and and a maximun lenth of 80 characters.</p>
@@ -2831,11 +3079,44 @@ export interface NewTransitVirtualInterface {
   vlan?: number | undefined;
 
   /**
-   * <p>The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.</p>
-   *          <p>The valid values are 1-2147483647.</p>
+   * <p>The autonomous system number (ASN). The valid range is from 1 to 2147483646 for Border Gateway Protocol (BGP) configuration. If you provide a number greater than the maximum, an error is returned. Use <code>asnLong</code> instead.</p>
+   *          <note>
+   *             <p>You can use <code>asnLong</code> or <code>asn</code>, but not both. We recommend using <code>asnLong</code> as it supports a greater pool of numbers. </p>
+   *             <ul>
+   *                <li>
+   *                   <p>The <code>asnLong</code> attribute accepts both ASN and long ASN
+   *                             ranges.</p>
+   *                </li>
+   *                <li>
+   *                   <p>If you provide a value in the same API call for both <code>asn</code>
+   *                             and <code>asnLong</code>, the API will only accept the value for
+   *                                 <code>asnLong</code>.</p>
+   *                </li>
+   *             </ul>
+   *          </note>
    * @public
    */
   asn?: number | undefined;
+
+  /**
+   * <p>The long ASN for a new transit virtual interface.The valid range is from 1 to 4294967294 for BGP configuration.</p>
+   *          <note>
+   *             <p>You can use <code>asnLong</code> or <code>asn</code>, but not both. We recommend using <code>asnLong</code> as it supports a greater pool of numbers. </p>
+   *             <ul>
+   *                <li>
+   *                   <p>The <code>asnLong</code> attribute accepts both ASN and long ASN
+   *                             ranges.</p>
+   *                </li>
+   *                <li>
+   *                   <p>If you provide a value in the same API call for both <code>asn</code>
+   *                             and <code>asnLong</code>, the API will only accept the value for
+   *                                 <code>asnLong</code>.</p>
+   *                </li>
+   *             </ul>
+   *          </note>
+   * @public
+   */
+  asnLong?: number | undefined;
 
   /**
    * <p>The maximum transmission unit (MTU), in bytes. The supported values are 1500 and 8500. The default value is 1500.</p>
@@ -2925,10 +3206,44 @@ export interface DeleteBGPPeerRequest {
   virtualInterfaceId?: string | undefined;
 
   /**
-   * <p>The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.</p>
+   * <p>The autonomous system number (ASN). The valid range is from 1 to 2147483646 for Border Gateway Protocol (BGP) configuration. If you provide a number greater than the maximum, an error is returned. Use <code>asnLong</code> instead.</p>
+   *          <note>
+   *             <p>You can use <code>asnLong</code> or <code>asn</code>, but not both. We recommend using <code>asnLong</code> as it supports a greater pool of numbers. </p>
+   *             <ul>
+   *                <li>
+   *                   <p>The <code>asnLong</code> attribute accepts both ASN and long ASN
+   *                             ranges.</p>
+   *                </li>
+   *                <li>
+   *                   <p>If you provide a value in the same API call for both <code>asn</code>
+   *                             and <code>asnLong</code>, the API will only accept the value for
+   *                                 <code>asnLong</code>.</p>
+   *                </li>
+   *             </ul>
+   *          </note>
    * @public
    */
   asn?: number | undefined;
+
+  /**
+   * <p>The long ASN for the BGP peer to be deleted from a Direct Connect virtual interface. The valid range is from 1 to 4294967294 for BGP configuration. </p>
+   *          <note>
+   *             <p>You can use <code>asnLong</code> or <code>asn</code>, but not both. We recommend using <code>asnLong</code> as it supports a greater pool of numbers. </p>
+   *             <ul>
+   *                <li>
+   *                   <p>The <code>asnLong</code> attribute accepts both ASN and long ASN
+   *                             ranges.</p>
+   *                </li>
+   *                <li>
+   *                   <p>If you provide a value in the same API call for both <code>asn</code>
+   *                             and <code>asnLong</code>, the API will only accept the value for
+   *                                 <code>asnLong</code>.</p>
+   *                </li>
+   *             </ul>
+   *          </note>
+   * @public
+   */
+  asnLong?: number | undefined;
 
   /**
    * <p>The IP address assigned to the customer interface.</p>
@@ -3246,6 +3561,21 @@ export interface DescribeConnectionsRequest {
    * @public
    */
   connectionId?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return with a single call.
+   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+   *          <p>If <code>MaxResults</code> is given a value larger than 100, only 100 results are
+   *       returned.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p>The token for the next page of results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
 }
 
 /**
@@ -3617,6 +3947,21 @@ export interface DescribeHostedConnectionsRequest {
    * @public
    */
   connectionId: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return with a single call.
+   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+   *          <p>If <code>MaxResults</code> is given a value larger than 100, only 100 results are
+   *       returned.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p>The token for the next page of results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
 }
 
 /**
@@ -3662,6 +4007,21 @@ export interface DescribeInterconnectsRequest {
    * @public
    */
   interconnectId?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return with a single call.
+   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+   *          <p>If <code>MaxResults</code> is given a value larger than 100, only 100 results are
+   *       returned.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p>The token for the next page of results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
 }
 
 /**
@@ -3673,6 +4033,12 @@ export interface Interconnects {
    * @public
    */
   interconnects?: Interconnect[] | undefined;
+
+  /**
+   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
 }
 
 /**
@@ -3684,6 +4050,21 @@ export interface DescribeLagsRequest {
    * @public
    */
   lagId?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return with a single call.
+   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+   *          <p>If <code>MaxResults</code> is given a value larger than 100, only 100 results are
+   *       returned.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p>The token for the next page of results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
 }
 
 /**
@@ -3695,6 +4076,12 @@ export interface Lags {
    * @public
    */
   lags?: Lag[] | undefined;
+
+  /**
+   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
 }
 
 /**
@@ -3965,6 +4352,21 @@ export interface DescribeVirtualInterfacesRequest {
    * @public
    */
   virtualInterfaceId?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return with a single call.
+   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+   *          <p>If <code>MaxResults</code> is given a value larger than 100, only 100 results are
+   *       returned.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p>The token for the next page of results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
 }
 
 /**
@@ -3976,6 +4378,12 @@ export interface VirtualInterfaces {
    * @public
    */
   virtualInterfaces?: VirtualInterface[] | undefined;
+
+  /**
+   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
 }
 
 /**

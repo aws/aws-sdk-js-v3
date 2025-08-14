@@ -91,6 +91,7 @@ export interface DescribeConnectionsOnInterconnectCommandOutput extends Connecti
  * //       partnerInterconnectMacSecCapable: true || false,
  * //     },
  * //   ],
+ * //   nextToken: "STRING_VALUE",
  * // };
  *
  * ```

@@ -54,6 +54,7 @@ export interface CreateBGPPeerCommandOutput extends CreateBGPPeerResponse, __Met
  *   virtualInterfaceId: "STRING_VALUE",
  *   newBGPPeer: { // NewBGPPeer
  *     asn: Number("int"),
+ *     asnLong: Number("long"),
  *     authKey: "STRING_VALUE",
  *     addressFamily: "ipv4" || "ipv6",
  *     amazonAddress: "STRING_VALUE",
@@ -72,6 +73,7 @@ export interface CreateBGPPeerCommandOutput extends CreateBGPPeerResponse, __Met
  * //     virtualInterfaceName: "STRING_VALUE",
  * //     vlan: Number("int"),
  * //     asn: Number("int"),
+ * //     asnLong: Number("long"),
  * //     amazonSideAsn: Number("long"),
  * //     authKey: "STRING_VALUE",
  * //     amazonAddress: "STRING_VALUE",
@@ -92,6 +94,7 @@ export interface CreateBGPPeerCommandOutput extends CreateBGPPeerResponse, __Met
  * //       { // BGPPeer
  * //         bgpPeerId: "STRING_VALUE",
  * //         asn: Number("int"),
+ * //         asnLong: Number("long"),
  * //         authKey: "STRING_VALUE",
  * //         addressFamily: "ipv4" || "ipv6",
  * //         amazonAddress: "STRING_VALUE",

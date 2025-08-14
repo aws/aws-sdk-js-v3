@@ -37,6 +37,8 @@ export interface DescribeInterconnectsCommandOutput extends Interconnects, __Met
  * const client = new DirectConnectClient(config);
  * const input = { // DescribeInterconnectsRequest
  *   interconnectId: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ *   nextToken: "STRING_VALUE",
  * };
  * const command = new DescribeInterconnectsCommand(input);
  * const response = await client.send(command);
@@ -76,6 +78,7 @@ export interface DescribeInterconnectsCommandOutput extends Interconnects, __Met
  * //       ],
  * //     },
  * //   ],
+ * //   nextToken: "STRING_VALUE",
  * // };
  *
  * ```

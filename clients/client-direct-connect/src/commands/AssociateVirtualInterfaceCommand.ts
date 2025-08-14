@@ -59,6 +59,7 @@ export interface AssociateVirtualInterfaceCommandOutput extends VirtualInterface
  * //   virtualInterfaceName: "STRING_VALUE",
  * //   vlan: Number("int"),
  * //   asn: Number("int"),
+ * //   asnLong: Number("long"),
  * //   amazonSideAsn: Number("long"),
  * //   authKey: "STRING_VALUE",
  * //   amazonAddress: "STRING_VALUE",
@@ -79,6 +80,7 @@ export interface AssociateVirtualInterfaceCommandOutput extends VirtualInterface
  * //     { // BGPPeer
  * //       bgpPeerId: "STRING_VALUE",
  * //       asn: Number("int"),
+ * //       asnLong: Number("long"),
  * //       authKey: "STRING_VALUE",
  * //       addressFamily: "ipv4" || "ipv6",
  * //       amazonAddress: "STRING_VALUE",

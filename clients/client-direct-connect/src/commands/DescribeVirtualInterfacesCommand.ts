@@ -33,6 +33,14 @@ export interface DescribeVirtualInterfacesCommandOutput extends VirtualInterface
  *       connection ID, only the virtual interfaces associated with the connection are returned.
  *       If you specify a virtual interface ID, then only a single virtual interface is returned.</p>
  *          <p>A virtual interface (VLAN) transmits the traffic between the Direct Connect location and the customer network.</p>
+ *          <ul>
+ *             <li>
+ *                <p>If you're using an <code>asn</code>, the response includes ASN value in both the <code>asn</code> and <code>asnLong</code> fields.</p>
+ *             </li>
+ *             <li>
+ *                <p>If you're using <code>asnLong</code>, the response returns a value of <code>0</code> (zero) for the <code>asn</code> attribute because it exceeds the highest ASN value of 2,147,483,647 that it can support</p>
+ *             </li>
+ *          </ul>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -42,6 +50,8 @@ export interface DescribeVirtualInterfacesCommandOutput extends VirtualInterface
  * const input = { // DescribeVirtualInterfacesRequest
  *   connectionId: "STRING_VALUE",
  *   virtualInterfaceId: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ *   nextToken: "STRING_VALUE",
  * };
  * const command = new DescribeVirtualInterfacesCommand(input);
  * const response = await client.send(command);
@@ -56,6 +66,7 @@ export interface DescribeVirtualInterfacesCommandOutput extends VirtualInterface
  * //       virtualInterfaceName: "STRING_VALUE",
  * //       vlan: Number("int"),
  * //       asn: Number("int"),
+ * //       asnLong: Number("long"),
  * //       amazonSideAsn: Number("long"),
  * //       authKey: "STRING_VALUE",
  * //       amazonAddress: "STRING_VALUE",
@@ -76,6 +87,7 @@ export interface DescribeVirtualInterfacesCommandOutput extends VirtualInterface
  * //         { // BGPPeer
  * //           bgpPeerId: "STRING_VALUE",
  * //           asn: Number("int"),
+ * //           asnLong: Number("long"),
  * //           authKey: "STRING_VALUE",
  * //           addressFamily: "ipv4" || "ipv6",
  * //           amazonAddress: "STRING_VALUE",
@@ -98,6 +110,7 @@ export interface DescribeVirtualInterfacesCommandOutput extends VirtualInterface
  * //       siteLinkEnabled: true || false,
  * //     },
  * //   ],
+ * //   nextToken: "STRING_VALUE",
  * // };
  *
  * ```

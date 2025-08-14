@@ -37,6 +37,8 @@ export interface DescribeLagsCommandOutput extends Lags, __MetadataBearer {}
  * const client = new DirectConnectClient(config);
  * const input = { // DescribeLagsRequest
  *   lagId: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ *   nextToken: "STRING_VALUE",
  * };
  * const command = new DescribeLagsCommand(input);
  * const response = await client.send(command);
@@ -116,6 +118,7 @@ export interface DescribeLagsCommandOutput extends Lags, __MetadataBearer {}
  * //       ],
  * //     },
  * //   ],
+ * //   nextToken: "STRING_VALUE",
  * // };
  *
  * ```

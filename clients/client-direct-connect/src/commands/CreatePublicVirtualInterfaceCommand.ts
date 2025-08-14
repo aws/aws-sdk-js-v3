@@ -46,7 +46,8 @@ export interface CreatePublicVirtualInterfaceCommandOutput extends VirtualInterf
  *   newPublicVirtualInterface: { // NewPublicVirtualInterface
  *     virtualInterfaceName: "STRING_VALUE", // required
  *     vlan: Number("int"), // required
- *     asn: Number("int"), // required
+ *     asn: Number("int"),
+ *     asnLong: Number("long"),
  *     authKey: "STRING_VALUE",
  *     amazonAddress: "STRING_VALUE",
  *     customerAddress: "STRING_VALUE",
@@ -75,6 +76,7 @@ export interface CreatePublicVirtualInterfaceCommandOutput extends VirtualInterf
  * //   virtualInterfaceName: "STRING_VALUE",
  * //   vlan: Number("int"),
  * //   asn: Number("int"),
+ * //   asnLong: Number("long"),
  * //   amazonSideAsn: Number("long"),
  * //   authKey: "STRING_VALUE",
  * //   amazonAddress: "STRING_VALUE",
@@ -95,6 +97,7 @@ export interface CreatePublicVirtualInterfaceCommandOutput extends VirtualInterf
  * //     { // BGPPeer
  * //       bgpPeerId: "STRING_VALUE",
  * //       asn: Number("int"),
+ * //       asnLong: Number("long"),
  * //       authKey: "STRING_VALUE",
  * //       addressFamily: "ipv4" || "ipv6",
  * //       amazonAddress: "STRING_VALUE",

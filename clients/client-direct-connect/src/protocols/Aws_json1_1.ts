@@ -2710,6 +2710,7 @@ const de_ConnectionList = (output: any, context: __SerdeContext): Connection[] =
 const de_Connections = (output: any, context: __SerdeContext): Connections => {
   return take(output, {
     connections: (_: any) => de_ConnectionList(_, context),
+    nextToken: __expectString,
   }) as any;
 };
 
@@ -2838,6 +2839,7 @@ const de_InterconnectList = (output: any, context: __SerdeContext): Interconnect
 const de_Interconnects = (output: any, context: __SerdeContext): Interconnects => {
   return take(output, {
     interconnects: (_: any) => de_InterconnectList(_, context),
+    nextToken: __expectString,
   }) as any;
 };
 
@@ -2888,6 +2890,7 @@ const de_LagList = (output: any, context: __SerdeContext): Lag[] => {
 const de_Lags = (output: any, context: __SerdeContext): Lags => {
   return take(output, {
     lags: (_: any) => de_LagList(_, context),
+    nextToken: __expectString,
   }) as any;
 };
 

@@ -39,6 +39,7 @@ export interface DeleteBGPPeerCommandOutput extends DeleteBGPPeerResponse, __Met
  * const input = { // DeleteBGPPeerRequest
  *   virtualInterfaceId: "STRING_VALUE",
  *   asn: Number("int"),
+ *   asnLong: Number("long"),
  *   customerAddress: "STRING_VALUE",
  *   bgpPeerId: "STRING_VALUE",
  * };
@@ -54,6 +55,7 @@ export interface DeleteBGPPeerCommandOutput extends DeleteBGPPeerResponse, __Met
  * //     virtualInterfaceName: "STRING_VALUE",
  * //     vlan: Number("int"),
  * //     asn: Number("int"),
+ * //     asnLong: Number("long"),
  * //     amazonSideAsn: Number("long"),
  * //     authKey: "STRING_VALUE",
  * //     amazonAddress: "STRING_VALUE",
@@ -74,6 +76,7 @@ export interface DeleteBGPPeerCommandOutput extends DeleteBGPPeerResponse, __Met
  * //       { // BGPPeer
  * //         bgpPeerId: "STRING_VALUE",
  * //         asn: Number("int"),
+ * //         asnLong: Number("long"),
  * //         authKey: "STRING_VALUE",
  * //         addressFamily: "ipv4" || "ipv6",
  * //         amazonAddress: "STRING_VALUE",
