@@ -1346,14 +1346,94 @@ export class InternalServerError extends __BaseException {
 }
 
 /**
- * <p>Throughput exceeds the current throughput quota for your account. Please contact
- *                 <a href="https://aws.amazon.com/support">Amazon Web ServicesSupport</a> to request a
- *             quota increase.</p>
+ * <p>Represents the specific reason why a DynamoDB request was throttled and the
+ *             ARN of the impacted resource. This helps identify exactly what resource is being throttled,
+ *             what type of operation caused it, and why the throttling occurred.</p>
+ * @public
+ */
+export interface ThrottlingReason {
+  /**
+   * <p>The reason for throttling. The throttling reason follows a specific format:
+   *                 <code>ResourceType+OperationType+LimitType</code>:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Resource Type (What is being throttled): Table or Index</p>
+   *             </li>
+   *             <li>
+   *                <p>Operation Type (What kind of operation): Read or Write</p>
+   *             </li>
+   *             <li>
+   *                <p>Limit Type (Why the throttling occurred):</p>
+   *                <ul>
+   *                   <li>
+   *                      <p>
+   *                         <code>ProvisionedThroughputExceeded</code>: The request rate is
+   *                             exceeding the <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/provisioned-capacity-mode.html">provisioned throughput capacity</a> (read or write capacity
+   *                             units) configured for a table or a global secondary index (GSI) in
+   *                             provisioned capacity mode.</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>AccountLimitExceeded</code>: The request rate has caused a table
+   *                             or global secondary index (GSI) in on-demand mode to exceed the <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ServiceQuotas.html#default-limits-throughput">per-table account-level service quotas</a> for read/write
+   *                             throughput in the current Amazon Web Services Region. </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>KeyRangeThroughputExceeded</code>: The request rate directed at
+   *                             a specific partition key value has exceeded the <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/bp-partition-key-design.html">internal partition-level throughput limits</a>, indicating
+   *                             uneven access patterns across the table's or GSI's key space.</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>MaxOnDemandThroughputExceeded</code>: The request rate has
+   *                             exceeded the <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/on-demand-capacity-mode-max-throughput.html">configured maximum throughput limits</a> set for a table or
+   *                             index in on-demand capacity mode.</p>
+   *                   </li>
+   *                </ul>
+   *             </li>
+   *          </ul>
+   *          <p>Examples of complete throttling reasons:</p>
+   *          <ul>
+   *             <li>
+   *                <p>TableReadProvisionedThroughputExceeded</p>
+   *             </li>
+   *             <li>
+   *                <p>IndexWriteAccountLimitExceeded</p>
+   *             </li>
+   *          </ul>
+   *          <p>This helps identify exactly what resource is being throttled, what type of operation
+   *             caused it, and why the throttling occurred.</p>
+   * @public
+   */
+  reason?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the DynamoDB table or index that experienced the
+   *             throttling event.</p>
+   * @public
+   */
+  resource?: string | undefined;
+}
+
+/**
+ * <p>Throughput exceeds the current throughput quota for your account. For detailed
+ *             information about why the request was throttled and the ARN of the impacted resource,
+ *             find the <a href="https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_ThrottlingReason.html">ThrottlingReason</a> field in the returned exception. Contact <a href="https://aws.amazon.com/support">Amazon Web ServicesSupport</a> to request a quota
+ *             increase.</p>
  * @public
  */
 export class RequestLimitExceeded extends __BaseException {
   readonly name: "RequestLimitExceeded" = "RequestLimitExceeded";
   readonly $fault: "client" = "client";
+  /**
+   * <p>A list of <a href="https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_ThrottlingReason.html">ThrottlingReason</a> that
+   *      provide detailed diagnostic information about why the request was throttled.
+   *     </p>
+   * @public
+   */
+  ThrottlingReasons?: ThrottlingReason[] | undefined;
+
   /**
    * @internal
    */
@@ -1364,6 +1444,37 @@ export class RequestLimitExceeded extends __BaseException {
       ...opts,
     });
     Object.setPrototypeOf(this, RequestLimitExceeded.prototype);
+    this.ThrottlingReasons = opts.ThrottlingReasons;
+  }
+}
+
+/**
+ * <p>The request was denied due to request throttling. For detailed information about why
+ *             the request was throttled and the ARN of the impacted resource, find the <a href="https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_ThrottlingReason.html">ThrottlingReason</a> field in the returned exception.</p>
+ * @public
+ */
+export class ThrottlingException extends __BaseException {
+  readonly name: "ThrottlingException" = "ThrottlingException";
+  readonly $fault: "client" = "client";
+  /**
+   * <p>A list of <a href="https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_ThrottlingReason.html">ThrottlingReason</a> that
+   *      provide detailed diagnostic information about why the request was throttled.
+   *     </p>
+   * @public
+   */
+  throttlingReasons?: ThrottlingReason[] | undefined;
+
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ThrottlingException, __BaseException>) {
+    super({
+      name: "ThrottlingException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ThrottlingException.prototype);
+    this.throttlingReasons = opts.throttlingReasons;
   }
 }
 
@@ -1389,15 +1500,25 @@ export class InvalidEndpointException extends __BaseException {
 }
 
 /**
- * <p>Your request rate is too high. The Amazon Web Services SDKs for DynamoDB
- *             automatically retry requests that receive this exception. Your request is eventually
- *             successful, unless your retry queue is too large to finish. Reduce the frequency of
- *             requests and use exponential backoff. For more information, go to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Programming.Errors.html#Programming.Errors.RetryAndBackoff">Error Retries and Exponential Backoff</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
+ * <p>The request was denied due to request throttling. For detailed information about
+ *             why the request was throttled and the ARN of the impacted resource, find the <a href="https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_ThrottlingReason.html">ThrottlingReason</a> field in the returned exception. The Amazon Web Services
+ *             SDKs for DynamoDB automatically retry requests that receive this exception.
+ *             Your request is eventually successful, unless your retry queue is too large to finish.
+ *             Reduce the frequency of requests and use exponential backoff. For more information, go
+ *             to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Programming.Errors.html#Programming.Errors.RetryAndBackoff">Error Retries and Exponential Backoff</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
  * @public
  */
 export class ProvisionedThroughputExceededException extends __BaseException {
   readonly name: "ProvisionedThroughputExceededException" = "ProvisionedThroughputExceededException";
   readonly $fault: "client" = "client";
+  /**
+   * <p>A list of <a href="https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_ThrottlingReason.html">ThrottlingReason</a> that
+   *      provide detailed diagnostic information about why the request was throttled.
+   *     </p>
+   * @public
+   */
+  ThrottlingReasons?: ThrottlingReason[] | undefined;
+
   /**
    * @internal
    */
@@ -1408,6 +1529,7 @@ export class ProvisionedThroughputExceededException extends __BaseException {
       ...opts,
     });
     Object.setPrototypeOf(this, ProvisionedThroughputExceededException.prototype);
+    this.ThrottlingReasons = opts.ThrottlingReasons;
   }
 }
 
@@ -1701,6 +1823,20 @@ export type ContributorInsightsAction = (typeof ContributorInsightsAction)[keyof
  * @public
  * @enum
  */
+export const ContributorInsightsMode = {
+  ACCESSED_AND_THROTTLED_KEYS: "ACCESSED_AND_THROTTLED_KEYS",
+  THROTTLED_KEYS: "THROTTLED_KEYS",
+} as const;
+
+/**
+ * @public
+ */
+export type ContributorInsightsMode = (typeof ContributorInsightsMode)[keyof typeof ContributorInsightsMode];
+
+/**
+ * @public
+ * @enum
+ */
 export const ContributorInsightsStatus = {
   DISABLED: "DISABLED",
   DISABLING: "DISABLING",
@@ -1737,6 +1873,14 @@ export interface ContributorInsightsSummary {
    * @public
    */
   ContributorInsightsStatus?: ContributorInsightsStatus | undefined;
+
+  /**
+   * <p>Indicates the current mode of CloudWatch Contributor Insights, specifying whether it
+   *             tracks all access and throttled events or throttled events only for the DynamoDB
+   *             table or index.</p>
+   * @public
+   */
+  ContributorInsightsMode?: ContributorInsightsMode | undefined;
 }
 
 /**
@@ -4231,6 +4375,14 @@ export interface DescribeContributorInsightsOutput {
    * @public
    */
   FailureException?: FailureException | undefined;
+
+  /**
+   * <p>The mode of CloudWatch Contributor Insights for DynamoDB that determines
+   *             which events are emitted. Can be set to track all access and throttled events or throttled
+   *             events only.</p>
+   * @public
+   */
+  ContributorInsightsMode?: ContributorInsightsMode | undefined;
 }
 
 /**
@@ -6784,6 +6936,13 @@ export interface UpdateContributorInsightsInput {
    * @public
    */
   ContributorInsightsAction: ContributorInsightsAction | undefined;
+
+  /**
+   * <p>Specifies whether to track all access and throttled events or throttled events only for
+   *             the DynamoDB table or index.</p>
+   * @public
+   */
+  ContributorInsightsMode?: ContributorInsightsMode | undefined;
 }
 
 /**
@@ -6807,6 +6966,13 @@ export interface UpdateContributorInsightsOutput {
    * @public
    */
   ContributorInsightsStatus?: ContributorInsightsStatus | undefined;
+
+  /**
+   * <p>The updated mode of CloudWatch Contributor Insights that determines whether to monitor
+   *             all access and throttled events or to track throttled events exclusively.</p>
+   * @public
+   */
+  ContributorInsightsMode?: ContributorInsightsMode | undefined;
 }
 
 /**
@@ -12287,80 +12453,4 @@ export interface TransactWriteItem {
    * @public
    */
   Update?: Update | undefined;
-}
-
-/**
- * @public
- */
-export interface TransactWriteItemsInput {
-  /**
-   * <p>An ordered array of up to 100 <code>TransactWriteItem</code> objects, each of which
-   *             contains a <code>ConditionCheck</code>, <code>Put</code>, <code>Update</code>, or
-   *                 <code>Delete</code> object. These can operate on items in different tables, but the
-   *             tables must reside in the same Amazon Web Services account and Region, and no two of them
-   *             can operate on the same item. </p>
-   * @public
-   */
-  TransactItems: TransactWriteItem[] | undefined;
-
-  /**
-   * <p>Determines the level of detail about either provisioned or on-demand throughput
-   *             consumption that is returned in the response:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>INDEXES</code> - The response includes the aggregate
-   *                         <code>ConsumedCapacity</code> for the operation, together with
-   *                         <code>ConsumedCapacity</code> for each table and secondary index that was
-   *                     accessed.</p>
-   *                <p>Note that some operations, such as <code>GetItem</code> and
-   *                         <code>BatchGetItem</code>, do not access any indexes at all. In these cases,
-   *                     specifying <code>INDEXES</code> will only return <code>ConsumedCapacity</code>
-   *                     information for table(s).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>TOTAL</code> - The response includes only the aggregate
-   *                         <code>ConsumedCapacity</code> for the operation.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>NONE</code> - No <code>ConsumedCapacity</code> details are included in the
-   *                     response.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  ReturnConsumedCapacity?: ReturnConsumedCapacity | undefined;
-
-  /**
-   * <p>Determines whether item collection metrics are returned. If set to <code>SIZE</code>,
-   *             the response includes statistics about item collections (if any), that were modified
-   *             during the operation and are returned in the response. If set to <code>NONE</code> (the
-   *             default), no statistics are returned. </p>
-   * @public
-   */
-  ReturnItemCollectionMetrics?: ReturnItemCollectionMetrics | undefined;
-
-  /**
-   * <p>Providing a <code>ClientRequestToken</code> makes the call to
-   *                 <code>TransactWriteItems</code> idempotent, meaning that multiple identical calls
-   *             have the same effect as one single call.</p>
-   *          <p>Although multiple identical calls using the same client request token produce the same
-   *             result on the server (no side effects), the responses to the calls might not be the
-   *             same. If the <code>ReturnConsumedCapacity</code> parameter is set, then the initial
-   *                 <code>TransactWriteItems</code> call returns the amount of write capacity units
-   *             consumed in making the changes. Subsequent <code>TransactWriteItems</code> calls with
-   *             the same client token return the number of read capacity units consumed in reading the
-   *             item.</p>
-   *          <p>A client request token is valid for 10 minutes after the first request that uses it is
-   *             completed. After 10 minutes, any request with the same client token is treated as a new
-   *             request. Do not resubmit the same request with the same client token for more than 10
-   *             minutes, or the result might not be idempotent.</p>
-   *          <p>If you submit a request with the same client token but a change in other parameters
-   *             within the 10-minute idempotency window, DynamoDB returns an
-   *                 <code>IdempotentParameterMismatch</code> exception.</p>
-   * @public
-   */
-  ClientRequestToken?: string | undefined;
 }

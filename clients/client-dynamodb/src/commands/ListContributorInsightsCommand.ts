@@ -49,6 +49,7 @@ export interface ListContributorInsightsCommandOutput extends ListContributorIns
  * //       TableName: "STRING_VALUE",
  * //       IndexName: "STRING_VALUE",
  * //       ContributorInsightsStatus: "ENABLING" || "ENABLED" || "DISABLING" || "DISABLED" || "FAILED",
+ * //       ContributorInsightsMode: "ACCESSED_AND_THROTTLED_KEYS" || "THROTTLED_KEYS",
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",

@@ -194,19 +194,26 @@ export interface ExecuteTransactionCommandOutput extends ExecuteTransactionOutpu
  *  <p>An error occurred on the server side.</p>
  *
  * @throws {@link ProvisionedThroughputExceededException} (client fault)
- *  <p>Your request rate is too high. The Amazon Web Services SDKs for DynamoDB
- *             automatically retry requests that receive this exception. Your request is eventually
- *             successful, unless your retry queue is too large to finish. Reduce the frequency of
- *             requests and use exponential backoff. For more information, go to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Programming.Errors.html#Programming.Errors.RetryAndBackoff">Error Retries and Exponential Backoff</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
+ *  <p>The request was denied due to request throttling. For detailed information about
+ *             why the request was throttled and the ARN of the impacted resource, find the <a href="https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_ThrottlingReason.html">ThrottlingReason</a> field in the returned exception. The Amazon Web Services
+ *             SDKs for DynamoDB automatically retry requests that receive this exception.
+ *             Your request is eventually successful, unless your retry queue is too large to finish.
+ *             Reduce the frequency of requests and use exponential backoff. For more information, go
+ *             to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Programming.Errors.html#Programming.Errors.RetryAndBackoff">Error Retries and Exponential Backoff</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
  *
  * @throws {@link RequestLimitExceeded} (client fault)
- *  <p>Throughput exceeds the current throughput quota for your account. Please contact
- *                 <a href="https://aws.amazon.com/support">Amazon Web ServicesSupport</a> to request a
- *             quota increase.</p>
+ *  <p>Throughput exceeds the current throughput quota for your account. For detailed
+ *             information about why the request was throttled and the ARN of the impacted resource,
+ *             find the <a href="https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_ThrottlingReason.html">ThrottlingReason</a> field in the returned exception. Contact <a href="https://aws.amazon.com/support">Amazon Web ServicesSupport</a> to request a quota
+ *             increase.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The operation tried to access a nonexistent table or index. The resource might not
  *             be specified correctly, or its status might not be <code>ACTIVE</code>.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was denied due to request throttling. For detailed information about why
+ *             the request was throttled and the ARN of the impacted resource, find the <a href="https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_ThrottlingReason.html">ThrottlingReason</a> field in the returned exception.</p>
  *
  * @throws {@link TransactionCanceledException} (client fault)
  *  <p>The entire transaction request was canceled.</p>

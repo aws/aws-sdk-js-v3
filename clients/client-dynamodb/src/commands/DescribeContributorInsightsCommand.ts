@@ -54,6 +54,7 @@ export interface DescribeContributorInsightsCommandOutput extends DescribeContri
  * //     ExceptionName: "STRING_VALUE",
  * //     ExceptionDescription: "STRING_VALUE",
  * //   },
+ * //   ContributorInsightsMode: "ACCESSED_AND_THROTTLED_KEYS" || "THROTTLED_KEYS",
  * // };
  *
  * ```

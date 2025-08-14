@@ -341,6 +341,7 @@ import {
   TableNotFoundException,
   Tag,
   TagResourceInput,
+  ThrottlingException,
   TimeToLiveSpecification,
   TransactGetItem,
   TransactGetItemsInput,
@@ -349,7 +350,6 @@ import {
   TransactionConflictException,
   TransactionInProgressException,
   TransactWriteItem,
-  TransactWriteItemsInput,
   TransactWriteItemsOutput,
   UntagResourceInput,
   Update,
@@ -374,6 +374,7 @@ import {
   WarmThroughput,
   WriteRequest,
 } from "../models/models_0";
+import { TransactWriteItemsInput } from "../models/models_1";
 
 /**
  * serializeAws_json1_0BatchExecuteStatementCommand
@@ -2254,6 +2255,9 @@ const de_CommandError = async (output: __HttpResponse, context: __SerdeContext):
     case "RequestLimitExceeded":
     case "com.amazonaws.dynamodb#RequestLimitExceeded":
       throw await de_RequestLimitExceededRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.dynamodb#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "InvalidEndpointException":
     case "com.amazonaws.dynamodb#InvalidEndpointException":
       throw await de_InvalidEndpointExceptionRes(parsedOutput, context);
@@ -2844,6 +2848,19 @@ const de_TableNotFoundExceptionRes = async (
   const body = parsedOutput.body;
   const deserialized: any = _json(body);
   const exception = new TableNotFoundException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+/**
+ * deserializeAws_json1_0ThrottlingExceptionRes
+ */
+const de_ThrottlingExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ThrottlingException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = _json(body);
+  const exception = new ThrottlingException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
   });
@@ -4528,6 +4545,7 @@ const de_DescribeContributorInsightsOutput = (
   context: __SerdeContext
 ): DescribeContributorInsightsOutput => {
   return take(output, {
+    ContributorInsightsMode: __expectString,
     ContributorInsightsRuleList: _json,
     ContributorInsightsStatus: __expectString,
     FailureException: _json,
@@ -5527,6 +5545,12 @@ const de_TableDescription = (output: any, context: __SerdeContext): TableDescrip
 // de_Tag omitted.
 
 // de_TagList omitted.
+
+// de_ThrottlingException omitted.
+
+// de_ThrottlingReason omitted.
+
+// de_ThrottlingReasonList omitted.
 
 // de_TimeToLiveDescription omitted.
 

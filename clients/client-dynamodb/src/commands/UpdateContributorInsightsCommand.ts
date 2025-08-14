@@ -45,6 +45,7 @@ export interface UpdateContributorInsightsCommandOutput extends UpdateContributo
  *   TableName: "STRING_VALUE", // required
  *   IndexName: "STRING_VALUE",
  *   ContributorInsightsAction: "ENABLE" || "DISABLE", // required
+ *   ContributorInsightsMode: "ACCESSED_AND_THROTTLED_KEYS" || "THROTTLED_KEYS",
  * };
  * const command = new UpdateContributorInsightsCommand(input);
  * const response = await client.send(command);
@@ -52,6 +53,7 @@ export interface UpdateContributorInsightsCommandOutput extends UpdateContributo
  * //   TableName: "STRING_VALUE",
  * //   IndexName: "STRING_VALUE",
  * //   ContributorInsightsStatus: "ENABLING" || "ENABLED" || "DISABLING" || "DISABLED" || "FAILED",
+ * //   ContributorInsightsMode: "ACCESSED_AND_THROTTLED_KEYS" || "THROTTLED_KEYS",
  * // };
  *
  * ```
