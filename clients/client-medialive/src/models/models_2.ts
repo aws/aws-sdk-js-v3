@@ -105,7 +105,9 @@ import {
   AnywhereSettings,
   AvailBlanking,
   AvailConfiguration,
+  BatchScheduleActionCreateRequest,
   BatchScheduleActionCreateResult,
+  BatchScheduleActionDeleteRequest,
   BatchScheduleActionDeleteResult,
   OutputGroup,
   PipelineDetail,
@@ -127,6 +129,30 @@ import {
   TransferringInputDeviceSummary,
   VideoDescription,
 } from "./models_1";
+
+/**
+ * List of actions to create and list of actions to delete.
+ * @public
+ */
+export interface BatchUpdateScheduleRequest {
+  /**
+   * Id of the channel whose schedule is being updated.
+   * @public
+   */
+  ChannelId: string | undefined;
+
+  /**
+   * Schedule actions to create in the schedule.
+   * @public
+   */
+  Creates?: BatchScheduleActionCreateRequest | undefined;
+
+  /**
+   * Schedule actions to delete from the schedule.
+   * @public
+   */
+  Deletes?: BatchScheduleActionDeleteRequest | undefined;
+}
 
 /**
  * Placeholder documentation for BatchUpdateScheduleResponse

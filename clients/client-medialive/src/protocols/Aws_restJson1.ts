@@ -315,6 +315,7 @@ import { MediaLiveServiceException as __BaseException } from "../models/MediaLiv
 import {
   AacSettings,
   Ac3Settings,
+  AdditionalDestinations,
   AncillarySourceSettings,
   AribDestinationSettings,
   AribSourceSettings,
@@ -438,6 +439,7 @@ import {
   Offering,
   OutputDestination,
   OutputDestinationSettings,
+  OutputLocationRef,
   PassThroughSettings,
   RemixSettings,
   ReservationResourceSpecification,
@@ -550,7 +552,6 @@ import {
   Output,
   OutputGroup,
   OutputGroupSettings,
-  OutputLocationRef,
   OutputSettings,
   PauseStateScheduleActionSettings,
   PipelineDetail,
@@ -6473,6 +6474,17 @@ const de_UnprocessableEntityExceptionRes = async (
 // se___listOf__stringPatternS omitted.
 
 /**
+ * serializeAws_restJson1__listOfAdditionalDestinations
+ */
+const se___listOfAdditionalDestinations = (input: AdditionalDestinations[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return se_AdditionalDestinations(entry, context);
+    });
+};
+
+/**
  * serializeAws_restJson1__listOfAudioChannelMapping
  */
 const se___listOfAudioChannelMapping = (input: AudioChannelMapping[], context: __SerdeContext): any => {
@@ -7042,6 +7054,15 @@ const se_AccountConfiguration = (input: AccountConfiguration, context: __SerdeCo
 };
 
 /**
+ * serializeAws_restJson1AdditionalDestinations
+ */
+const se_AdditionalDestinations = (input: AdditionalDestinations, context: __SerdeContext): any => {
+  return take(input, {
+    destination: [, (_) => se_OutputLocationRef(_, context), `Destination`],
+  });
+};
+
+/**
  * serializeAws_restJson1AncillarySourceSettings
  */
 const se_AncillarySourceSettings = (input: AncillarySourceSettings, context: __SerdeContext): any => {
@@ -7574,6 +7595,7 @@ const se_CmafIngestCaptionLanguageMapping = (input: CmafIngestCaptionLanguageMap
  */
 const se_CmafIngestGroupSettings = (input: CmafIngestGroupSettings, context: __SerdeContext): any => {
   return take(input, {
+    additionalDestinations: [, (_) => se___listOfAdditionalDestinations(_, context), `AdditionalDestinations`],
     captionLanguageMappings: [
       ,
       (_) => se___listOfCmafIngestCaptionLanguageMapping(_, context),
@@ -10096,6 +10118,18 @@ const se_WebvttDestinationSettings = (input: WebvttDestinationSettings, context:
 // de___listOf__stringMin7Max11PatternAws097 omitted.
 
 /**
+ * deserializeAws_restJson1__listOfAdditionalDestinations
+ */
+const de___listOfAdditionalDestinations = (output: any, context: __SerdeContext): AdditionalDestinations[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_AdditionalDestinations(entry, context);
+    });
+  return retVal;
+};
+
+/**
  * deserializeAws_restJson1__listOfAudioChannelMapping
  */
 const de___listOfAudioChannelMapping = (output: any, context: __SerdeContext): AudioChannelMapping[] => {
@@ -11001,6 +11035,15 @@ const de_AccountConfiguration = (output: any, context: __SerdeContext): AccountC
 };
 
 /**
+ * deserializeAws_restJson1AdditionalDestinations
+ */
+const de_AdditionalDestinations = (output: any, context: __SerdeContext): AdditionalDestinations => {
+  return take(output, {
+    Destination: [, (_: any) => de_OutputLocationRef(_, context), `destination`],
+  }) as any;
+};
+
+/**
  * deserializeAws_restJson1AncillarySourceSettings
  */
 const de_AncillarySourceSettings = (output: any, context: __SerdeContext): AncillarySourceSettings => {
@@ -11649,6 +11692,7 @@ const de_CmafIngestCaptionLanguageMapping = (
  */
 const de_CmafIngestGroupSettings = (output: any, context: __SerdeContext): CmafIngestGroupSettings => {
   return take(output, {
+    AdditionalDestinations: [, (_: any) => de___listOfAdditionalDestinations(_, context), `additionalDestinations`],
     CaptionLanguageMappings: [
       ,
       (_: any) => de___listOfCmafIngestCaptionLanguageMapping(_, context),

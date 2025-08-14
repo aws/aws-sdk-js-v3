@@ -4,6 +4,7 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-cli
 import { MediaLiveServiceException as __BaseException } from "./MediaLiveServiceException";
 
 import {
+  AdditionalDestinations,
   Algorithm,
   BatchFailedResultModel,
   BatchSuccessfulResultModel,
@@ -31,12 +32,43 @@ import {
   M2tsNielsenId3Behavior,
   M2tsPcrControl,
   M2tsRateMode,
-  M2tsScte35Control,
-  M2tsSegmentationMarkers,
   OfferingDurationUnits,
   OfferingType,
+  OutputLocationRef,
   ReservationResourceSpecification,
 } from "./models_0";
+
+/**
+ * @public
+ * @enum
+ */
+export const M2tsScte35Control = {
+  NONE: "NONE",
+  PASSTHROUGH: "PASSTHROUGH",
+} as const;
+
+/**
+ * @public
+ */
+export type M2tsScte35Control = (typeof M2tsScte35Control)[keyof typeof M2tsScte35Control];
+
+/**
+ * @public
+ * @enum
+ */
+export const M2tsSegmentationMarkers = {
+  EBP: "EBP",
+  EBP_LEGACY: "EBP_LEGACY",
+  NONE: "NONE",
+  PSI_SEGSTART: "PSI_SEGSTART",
+  RAI_ADAPT: "RAI_ADAPT",
+  RAI_SEGSTART: "RAI_SEGSTART",
+} as const;
+
+/**
+ * @public
+ */
+export type M2tsSegmentationMarkers = (typeof M2tsSegmentationMarkers)[keyof typeof M2tsSegmentationMarkers];
 
 /**
  * @public
@@ -993,18 +1025,6 @@ export interface MultiplexContainerSettings {
 }
 
 /**
- * Reference to an OutputDestination ID defined in the channel
- * @public
- */
-export interface OutputLocationRef {
-  /**
-   * Placeholder documentation for __string
-   * @public
-   */
-  DestinationRefId?: string | undefined;
-}
-
-/**
  * Multiplex Output Settings
  * @public
  */
@@ -1564,6 +1584,12 @@ export interface CmafIngestGroupSettings {
    * @public
    */
   TimedMetadataPassthrough?: CmafTimedMetadataPassthrough | undefined;
+
+  /**
+   * Optional an array of additional destinational HTTP destinations for the OutputGroup outputs
+   * @public
+   */
+  AdditionalDestinations?: AdditionalDestinations[] | undefined;
 }
 
 /**
@@ -7510,28 +7536,4 @@ export interface BatchStopResponse {
    * @public
    */
   Successful?: BatchSuccessfulResultModel[] | undefined;
-}
-
-/**
- * List of actions to create and list of actions to delete.
- * @public
- */
-export interface BatchUpdateScheduleRequest {
-  /**
-   * Id of the channel whose schedule is being updated.
-   * @public
-   */
-  ChannelId: string | undefined;
-
-  /**
-   * Schedule actions to create in the schedule.
-   * @public
-   */
-  Creates?: BatchScheduleActionCreateRequest | undefined;
-
-  /**
-   * Schedule actions to delete from the schedule.
-   * @public
-   */
-  Deletes?: BatchScheduleActionDeleteRequest | undefined;
 }

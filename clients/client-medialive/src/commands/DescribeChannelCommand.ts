@@ -551,6 +551,11 @@ export interface DescribeChannelCommandOutput extends DescribeChannelResponse, _
  * //             TimedMetadataId3Frame: "NONE" || "PRIV" || "TDRL",
  * //             TimedMetadataId3Period: Number("int"),
  * //             TimedMetadataPassthrough: "DISABLED" || "ENABLED",
+ * //             AdditionalDestinations: [ // __listOfAdditionalDestinations
+ * //               { // AdditionalDestinations
+ * //                 Destination: "<OutputLocationRef>", // required
+ * //               },
+ * //             ],
  * //           },
  * //           SrtGroupSettings: { // SrtGroupSettings
  * //             InputLossAction: "DROP_PROGRAM" || "DROP_TS" || "EMIT_PROGRAM",

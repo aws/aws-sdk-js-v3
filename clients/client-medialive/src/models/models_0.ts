@@ -1,5 +1,29 @@
 // smithy-typescript generated code
 /**
+ * Reference to an OutputDestination ID defined in the channel
+ * @public
+ */
+export interface OutputLocationRef {
+  /**
+   * Placeholder documentation for __string
+   * @public
+   */
+  DestinationRefId?: string | undefined;
+}
+
+/**
+ * Additional output destinations for a CMAF Ingest output group
+ * @public
+ */
+export interface AdditionalDestinations {
+  /**
+   * The destination location
+   * @public
+   */
+  Destination: OutputLocationRef | undefined;
+}
+
+/**
  * Input Channel Level
  * @public
  */
@@ -6813,35 +6837,3 @@ export const M2tsRateMode = {
  * @public
  */
 export type M2tsRateMode = (typeof M2tsRateMode)[keyof typeof M2tsRateMode];
-
-/**
- * @public
- * @enum
- */
-export const M2tsScte35Control = {
-  NONE: "NONE",
-  PASSTHROUGH: "PASSTHROUGH",
-} as const;
-
-/**
- * @public
- */
-export type M2tsScte35Control = (typeof M2tsScte35Control)[keyof typeof M2tsScte35Control];
-
-/**
- * @public
- * @enum
- */
-export const M2tsSegmentationMarkers = {
-  EBP: "EBP",
-  EBP_LEGACY: "EBP_LEGACY",
-  NONE: "NONE",
-  PSI_SEGSTART: "PSI_SEGSTART",
-  RAI_ADAPT: "RAI_ADAPT",
-  RAI_SEGSTART: "RAI_SEGSTART",
-} as const;
-
-/**
- * @public
- */
-export type M2tsSegmentationMarkers = (typeof M2tsSegmentationMarkers)[keyof typeof M2tsSegmentationMarkers];

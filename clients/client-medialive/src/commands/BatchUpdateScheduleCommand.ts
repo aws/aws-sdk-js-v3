@@ -6,8 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { MediaLiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaLiveClient";
-import { BatchUpdateScheduleRequest } from "../models/models_1";
-import { BatchUpdateScheduleResponse } from "../models/models_2";
+import { BatchUpdateScheduleRequest, BatchUpdateScheduleResponse } from "../models/models_2";
 import { de_BatchUpdateScheduleCommand, se_BatchUpdateScheduleCommand } from "../protocols/Aws_restJson1";
 
 /**

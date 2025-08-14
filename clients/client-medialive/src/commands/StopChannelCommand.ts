@@ -551,6 +551,11 @@ export interface StopChannelCommandOutput extends StopChannelResponse, __Metadat
  * //             TimedMetadataId3Frame: "NONE" || "PRIV" || "TDRL",
  * //             TimedMetadataId3Period: Number("int"),
  * //             TimedMetadataPassthrough: "DISABLED" || "ENABLED",
+ * //             AdditionalDestinations: [ // __listOfAdditionalDestinations
+ * //               { // AdditionalDestinations
+ * //                 Destination: "<OutputLocationRef>", // required
+ * //               },
+ * //             ],
  * //           },
  * //           SrtGroupSettings: { // SrtGroupSettings
  * //             InputLossAction: "DROP_PROGRAM" || "DROP_TS" || "EMIT_PROGRAM",
