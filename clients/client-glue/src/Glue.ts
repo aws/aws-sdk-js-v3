@@ -168,6 +168,11 @@ import {
   CreateDevEndpointCommandOutput,
 } from "./commands/CreateDevEndpointCommand";
 import {
+  CreateGlueIdentityCenterConfigurationCommand,
+  CreateGlueIdentityCenterConfigurationCommandInput,
+  CreateGlueIdentityCenterConfigurationCommandOutput,
+} from "./commands/CreateGlueIdentityCenterConfigurationCommand";
+import {
   CreateIntegrationCommand,
   CreateIntegrationCommandInput,
   CreateIntegrationCommandOutput,
@@ -309,6 +314,11 @@ import {
   DeleteDevEndpointCommandInput,
   DeleteDevEndpointCommandOutput,
 } from "./commands/DeleteDevEndpointCommand";
+import {
+  DeleteGlueIdentityCenterConfigurationCommand,
+  DeleteGlueIdentityCenterConfigurationCommandInput,
+  DeleteGlueIdentityCenterConfigurationCommandOutput,
+} from "./commands/DeleteGlueIdentityCenterConfigurationCommand";
 import {
   DeleteIntegrationCommand,
   DeleteIntegrationCommandInput,
@@ -556,6 +566,11 @@ import {
   GetEntityRecordsCommandInput,
   GetEntityRecordsCommandOutput,
 } from "./commands/GetEntityRecordsCommand";
+import {
+  GetGlueIdentityCenterConfigurationCommand,
+  GetGlueIdentityCenterConfigurationCommandInput,
+  GetGlueIdentityCenterConfigurationCommandOutput,
+} from "./commands/GetGlueIdentityCenterConfigurationCommand";
 import {
   GetIntegrationResourcePropertyCommand,
   GetIntegrationResourcePropertyCommandInput,
@@ -1065,6 +1080,11 @@ import {
   UpdateDevEndpointCommandOutput,
 } from "./commands/UpdateDevEndpointCommand";
 import {
+  UpdateGlueIdentityCenterConfigurationCommand,
+  UpdateGlueIdentityCenterConfigurationCommandInput,
+  UpdateGlueIdentityCenterConfigurationCommandOutput,
+} from "./commands/UpdateGlueIdentityCenterConfigurationCommand";
+import {
   UpdateIntegrationResourcePropertyCommand,
   UpdateIntegrationResourcePropertyCommandInput,
   UpdateIntegrationResourcePropertyCommandOutput,
@@ -1167,6 +1187,7 @@ const commands = {
   CreateDatabaseCommand,
   CreateDataQualityRulesetCommand,
   CreateDevEndpointCommand,
+  CreateGlueIdentityCenterConfigurationCommand,
   CreateIntegrationCommand,
   CreateIntegrationResourcePropertyCommand,
   CreateIntegrationTablePropertiesCommand,
@@ -1197,6 +1218,7 @@ const commands = {
   DeleteDatabaseCommand,
   DeleteDataQualityRulesetCommand,
   DeleteDevEndpointCommand,
+  DeleteGlueIdentityCenterConfigurationCommand,
   DeleteIntegrationCommand,
   DeleteIntegrationTablePropertiesCommand,
   DeleteJobCommand,
@@ -1252,6 +1274,7 @@ const commands = {
   GetDevEndpointCommand,
   GetDevEndpointsCommand,
   GetEntityRecordsCommand,
+  GetGlueIdentityCenterConfigurationCommand,
   GetIntegrationResourcePropertyCommand,
   GetIntegrationTablePropertiesCommand,
   GetJobCommand,
@@ -1372,6 +1395,7 @@ const commands = {
   UpdateDatabaseCommand,
   UpdateDataQualityRulesetCommand,
   UpdateDevEndpointCommand,
+  UpdateGlueIdentityCenterConfigurationCommand,
   UpdateIntegrationResourcePropertyCommand,
   UpdateIntegrationTablePropertiesCommand,
   UpdateJobCommand,
@@ -1920,6 +1944,23 @@ export interface Glue {
   ): void;
 
   /**
+   * @see {@link CreateGlueIdentityCenterConfigurationCommand}
+   */
+  createGlueIdentityCenterConfiguration(
+    args: CreateGlueIdentityCenterConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateGlueIdentityCenterConfigurationCommandOutput>;
+  createGlueIdentityCenterConfiguration(
+    args: CreateGlueIdentityCenterConfigurationCommandInput,
+    cb: (err: any, data?: CreateGlueIdentityCenterConfigurationCommandOutput) => void
+  ): void;
+  createGlueIdentityCenterConfiguration(
+    args: CreateGlueIdentityCenterConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateGlueIdentityCenterConfigurationCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link CreateIntegrationCommand}
    */
   createIntegration(
@@ -2365,6 +2406,24 @@ export interface Glue {
     args: DeleteDevEndpointCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteDevEndpointCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteGlueIdentityCenterConfigurationCommand}
+   */
+  deleteGlueIdentityCenterConfiguration(): Promise<DeleteGlueIdentityCenterConfigurationCommandOutput>;
+  deleteGlueIdentityCenterConfiguration(
+    args: DeleteGlueIdentityCenterConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteGlueIdentityCenterConfigurationCommandOutput>;
+  deleteGlueIdentityCenterConfiguration(
+    args: DeleteGlueIdentityCenterConfigurationCommandInput,
+    cb: (err: any, data?: DeleteGlueIdentityCenterConfigurationCommandOutput) => void
+  ): void;
+  deleteGlueIdentityCenterConfiguration(
+    args: DeleteGlueIdentityCenterConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteGlueIdentityCenterConfigurationCommandOutput) => void
   ): void;
 
   /**
@@ -3202,6 +3261,24 @@ export interface Glue {
     args: GetEntityRecordsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetEntityRecordsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetGlueIdentityCenterConfigurationCommand}
+   */
+  getGlueIdentityCenterConfiguration(): Promise<GetGlueIdentityCenterConfigurationCommandOutput>;
+  getGlueIdentityCenterConfiguration(
+    args: GetGlueIdentityCenterConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetGlueIdentityCenterConfigurationCommandOutput>;
+  getGlueIdentityCenterConfiguration(
+    args: GetGlueIdentityCenterConfigurationCommandInput,
+    cb: (err: any, data?: GetGlueIdentityCenterConfigurationCommandOutput) => void
+  ): void;
+  getGlueIdentityCenterConfiguration(
+    args: GetGlueIdentityCenterConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetGlueIdentityCenterConfigurationCommandOutput) => void
   ): void;
 
   /**
@@ -4993,6 +5070,24 @@ export interface Glue {
     args: UpdateDevEndpointCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateDevEndpointCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateGlueIdentityCenterConfigurationCommand}
+   */
+  updateGlueIdentityCenterConfiguration(): Promise<UpdateGlueIdentityCenterConfigurationCommandOutput>;
+  updateGlueIdentityCenterConfiguration(
+    args: UpdateGlueIdentityCenterConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateGlueIdentityCenterConfigurationCommandOutput>;
+  updateGlueIdentityCenterConfiguration(
+    args: UpdateGlueIdentityCenterConfigurationCommandInput,
+    cb: (err: any, data?: UpdateGlueIdentityCenterConfigurationCommandOutput) => void
+  ): void;
+  updateGlueIdentityCenterConfiguration(
+    args: UpdateGlueIdentityCenterConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateGlueIdentityCenterConfigurationCommandOutput) => void
   ): void;
 
   /**

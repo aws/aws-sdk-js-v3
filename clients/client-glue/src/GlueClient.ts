@@ -134,6 +134,10 @@ import {
   CreateDataQualityRulesetCommandOutput,
 } from "./commands/CreateDataQualityRulesetCommand";
 import { CreateDevEndpointCommandInput, CreateDevEndpointCommandOutput } from "./commands/CreateDevEndpointCommand";
+import {
+  CreateGlueIdentityCenterConfigurationCommandInput,
+  CreateGlueIdentityCenterConfigurationCommandOutput,
+} from "./commands/CreateGlueIdentityCenterConfigurationCommand";
 import { CreateIntegrationCommandInput, CreateIntegrationCommandOutput } from "./commands/CreateIntegrationCommand";
 import {
   CreateIntegrationResourcePropertyCommandInput,
@@ -197,6 +201,10 @@ import {
   DeleteDataQualityRulesetCommandOutput,
 } from "./commands/DeleteDataQualityRulesetCommand";
 import { DeleteDevEndpointCommandInput, DeleteDevEndpointCommandOutput } from "./commands/DeleteDevEndpointCommand";
+import {
+  DeleteGlueIdentityCenterConfigurationCommandInput,
+  DeleteGlueIdentityCenterConfigurationCommandOutput,
+} from "./commands/DeleteGlueIdentityCenterConfigurationCommand";
 import { DeleteIntegrationCommandInput, DeleteIntegrationCommandOutput } from "./commands/DeleteIntegrationCommand";
 import {
   DeleteIntegrationTablePropertiesCommandInput,
@@ -324,6 +332,10 @@ import {
 import { GetDevEndpointCommandInput, GetDevEndpointCommandOutput } from "./commands/GetDevEndpointCommand";
 import { GetDevEndpointsCommandInput, GetDevEndpointsCommandOutput } from "./commands/GetDevEndpointsCommand";
 import { GetEntityRecordsCommandInput, GetEntityRecordsCommandOutput } from "./commands/GetEntityRecordsCommand";
+import {
+  GetGlueIdentityCenterConfigurationCommandInput,
+  GetGlueIdentityCenterConfigurationCommandOutput,
+} from "./commands/GetGlueIdentityCenterConfigurationCommand";
 import {
   GetIntegrationResourcePropertyCommandInput,
   GetIntegrationResourcePropertyCommandOutput,
@@ -592,6 +604,10 @@ import {
 } from "./commands/UpdateDataQualityRulesetCommand";
 import { UpdateDevEndpointCommandInput, UpdateDevEndpointCommandOutput } from "./commands/UpdateDevEndpointCommand";
 import {
+  UpdateGlueIdentityCenterConfigurationCommandInput,
+  UpdateGlueIdentityCenterConfigurationCommandOutput,
+} from "./commands/UpdateGlueIdentityCenterConfigurationCommand";
+import {
   UpdateIntegrationResourcePropertyCommandInput,
   UpdateIntegrationResourcePropertyCommandOutput,
 } from "./commands/UpdateIntegrationResourcePropertyCommand";
@@ -672,6 +688,7 @@ export type ServiceInputTypes =
   | CreateDataQualityRulesetCommandInput
   | CreateDatabaseCommandInput
   | CreateDevEndpointCommandInput
+  | CreateGlueIdentityCenterConfigurationCommandInput
   | CreateIntegrationCommandInput
   | CreateIntegrationResourcePropertyCommandInput
   | CreateIntegrationTablePropertiesCommandInput
@@ -702,6 +719,7 @@ export type ServiceInputTypes =
   | DeleteDataQualityRulesetCommandInput
   | DeleteDatabaseCommandInput
   | DeleteDevEndpointCommandInput
+  | DeleteGlueIdentityCenterConfigurationCommandInput
   | DeleteIntegrationCommandInput
   | DeleteIntegrationTablePropertiesCommandInput
   | DeleteJobCommandInput
@@ -757,6 +775,7 @@ export type ServiceInputTypes =
   | GetDevEndpointCommandInput
   | GetDevEndpointsCommandInput
   | GetEntityRecordsCommandInput
+  | GetGlueIdentityCenterConfigurationCommandInput
   | GetIntegrationResourcePropertyCommandInput
   | GetIntegrationTablePropertiesCommandInput
   | GetJobBookmarkCommandInput
@@ -877,6 +896,7 @@ export type ServiceInputTypes =
   | UpdateDataQualityRulesetCommandInput
   | UpdateDatabaseCommandInput
   | UpdateDevEndpointCommandInput
+  | UpdateGlueIdentityCenterConfigurationCommandInput
   | UpdateIntegrationResourcePropertyCommandInput
   | UpdateIntegrationTablePropertiesCommandInput
   | UpdateJobCommandInput
@@ -930,6 +950,7 @@ export type ServiceOutputTypes =
   | CreateDataQualityRulesetCommandOutput
   | CreateDatabaseCommandOutput
   | CreateDevEndpointCommandOutput
+  | CreateGlueIdentityCenterConfigurationCommandOutput
   | CreateIntegrationCommandOutput
   | CreateIntegrationResourcePropertyCommandOutput
   | CreateIntegrationTablePropertiesCommandOutput
@@ -960,6 +981,7 @@ export type ServiceOutputTypes =
   | DeleteDataQualityRulesetCommandOutput
   | DeleteDatabaseCommandOutput
   | DeleteDevEndpointCommandOutput
+  | DeleteGlueIdentityCenterConfigurationCommandOutput
   | DeleteIntegrationCommandOutput
   | DeleteIntegrationTablePropertiesCommandOutput
   | DeleteJobCommandOutput
@@ -1015,6 +1037,7 @@ export type ServiceOutputTypes =
   | GetDevEndpointCommandOutput
   | GetDevEndpointsCommandOutput
   | GetEntityRecordsCommandOutput
+  | GetGlueIdentityCenterConfigurationCommandOutput
   | GetIntegrationResourcePropertyCommandOutput
   | GetIntegrationTablePropertiesCommandOutput
   | GetJobBookmarkCommandOutput
@@ -1135,6 +1158,7 @@ export type ServiceOutputTypes =
   | UpdateDataQualityRulesetCommandOutput
   | UpdateDatabaseCommandOutput
   | UpdateDevEndpointCommandOutput
+  | UpdateGlueIdentityCenterConfigurationCommandOutput
   | UpdateIntegrationResourcePropertyCommandOutput
   | UpdateIntegrationTablePropertiesCommandOutput
   | UpdateJobCommandOutput

@@ -2966,6 +2966,36 @@ export class ValidationException extends __BaseException {
 }
 
 /**
+ * <p>Request to create a new Glue Identity Center configuration.</p>
+ * @public
+ */
+export interface CreateGlueIdentityCenterConfigurationRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Identity Center instance to be associated with the Glue configuration.</p>
+   * @public
+   */
+  InstanceArn: string | undefined;
+
+  /**
+   * <p>A list of Identity Center scopes that define the permissions and access levels for the Glue configuration.</p>
+   * @public
+   */
+  Scopes?: string[] | undefined;
+}
+
+/**
+ * <p>Response from creating a new Glue Identity Center configuration.</p>
+ * @public
+ */
+export interface CreateGlueIdentityCenterConfigurationResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Identity Center application that was created for the Glue configuration.</p>
+   * @public
+   */
+  ApplicationArn?: string | undefined;
+}
+
+/**
  * <p>The <code>CreatePartitions</code> API was called on a table that has indexes enabled.	</p>
  * @public
  */
@@ -6230,6 +6260,18 @@ export interface DeleteDevEndpointRequest {
 export interface DeleteDevEndpointResponse {}
 
 /**
+ * <p>Request to delete the existing Glue Identity Center configuration.</p>
+ * @public
+ */
+export interface DeleteGlueIdentityCenterConfigurationRequest {}
+
+/**
+ * <p>Response from deleting the Glue Identity Center configuration.</p>
+ * @public
+ */
+export interface DeleteGlueIdentityCenterConfigurationResponse {}
+
+/**
  * @public
  */
 export interface DeleteIntegrationRequest {
@@ -8123,81 +8165,6 @@ export interface CatalogImportStatus {
    * @public
    */
   ImportedBy?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface GetCatalogImportStatusResponse {
-  /**
-   * <p>The status of the specified catalog migration.</p>
-   * @public
-   */
-  ImportStatus?: CatalogImportStatus | undefined;
-}
-
-/**
- * @public
- */
-export interface GetCatalogsRequest {
-  /**
-   * <p>The ID of the parent catalog in which the catalog resides. If none is provided, the Amazon Web Services Account Number is used by default.</p>
-   * @public
-   */
-  ParentCatalogId?: string | undefined;
-
-  /**
-   * <p>A continuation token, if this is a continuation call.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of catalogs to return in one response.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>Whether to list all catalogs across the catalog hierarchy, starting from the <code>ParentCatalogId</code>. Defaults to <code>false</code> . When <code>true</code>, all catalog objects in the <code>ParentCatalogID</code> hierarchy are enumerated in the response.</p>
-   * @public
-   */
-  Recursive?: boolean | undefined;
-
-  /**
-   * <p>Whether to list the default catalog in the account and region in the response. Defaults to <code>false</code>. When <code>true</code> and <code>ParentCatalogId = NULL | Amazon Web Services Account ID</code>, all catalogs and the default catalog are enumerated in the response.</p>
-   *          <p>When the <code>ParentCatalogId</code> is not equal to null, and this attribute is passed as <code>false</code> or <code>true</code>, an <code>InvalidInputException</code> is thrown.</p>
-   * @public
-   */
-  IncludeRoot?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface GetCatalogsResponse {
-  /**
-   * <p>An array of <code>Catalog</code> objects. A list of <code>Catalog</code> objects from the specified parent catalog.</p>
-   * @public
-   */
-  CatalogList: Catalog[] | undefined;
-
-  /**
-   * <p>A continuation token for paginating the returned list of tokens, returned if the current segment of the list is not the last.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface GetClassifierRequest {
-  /**
-   * <p>Name of the classifier to retrieve.</p>
-   * @public
-   */
-  Name: string | undefined;
 }
 
 /**

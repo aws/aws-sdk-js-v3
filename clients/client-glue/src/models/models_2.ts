@@ -28,7 +28,6 @@ import {
   SchemaId,
   StatisticAnnotation,
   TableOptimizer,
-  TableOptimizerRun,
   TableOptimizerType,
   TimestampedInclusionAnnotation,
   Trigger,
@@ -37,6 +36,8 @@ import {
 
 import {
   Capabilities,
+  Catalog,
+  CatalogImportStatus,
   CodeGenEdge,
   CodeGenNode,
   CodeGenNodeArg,
@@ -77,6 +78,81 @@ import {
   Workflow,
   WorkflowRun,
 } from "./models_1";
+
+/**
+ * @public
+ */
+export interface GetCatalogImportStatusResponse {
+  /**
+   * <p>The status of the specified catalog migration.</p>
+   * @public
+   */
+  ImportStatus?: CatalogImportStatus | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetCatalogsRequest {
+  /**
+   * <p>The ID of the parent catalog in which the catalog resides. If none is provided, the Amazon Web Services Account Number is used by default.</p>
+   * @public
+   */
+  ParentCatalogId?: string | undefined;
+
+  /**
+   * <p>A continuation token, if this is a continuation call.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of catalogs to return in one response.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>Whether to list all catalogs across the catalog hierarchy, starting from the <code>ParentCatalogId</code>. Defaults to <code>false</code> . When <code>true</code>, all catalog objects in the <code>ParentCatalogID</code> hierarchy are enumerated in the response.</p>
+   * @public
+   */
+  Recursive?: boolean | undefined;
+
+  /**
+   * <p>Whether to list the default catalog in the account and region in the response. Defaults to <code>false</code>. When <code>true</code> and <code>ParentCatalogId = NULL | Amazon Web Services Account ID</code>, all catalogs and the default catalog are enumerated in the response.</p>
+   *          <p>When the <code>ParentCatalogId</code> is not equal to null, and this attribute is passed as <code>false</code> or <code>true</code>, an <code>InvalidInputException</code> is thrown.</p>
+   * @public
+   */
+  IncludeRoot?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetCatalogsResponse {
+  /**
+   * <p>An array of <code>Catalog</code> objects. A list of <code>Catalog</code> objects from the specified parent catalog.</p>
+   * @public
+   */
+  CatalogList: Catalog[] | undefined;
+
+  /**
+   * <p>A continuation token for paginating the returned list of tokens, returned if the current segment of the list is not the last.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetClassifierRequest {
+  /**
+   * <p>Name of the classifier to retrieve.</p>
+   * @public
+   */
+  Name: string | undefined;
+}
 
 /**
  * <p>A classifier for custom <code>CSV</code> content.</p>
@@ -2864,6 +2940,36 @@ export interface GetEntityRecordsResponse {
    * @public
    */
   NextToken?: string | undefined;
+}
+
+/**
+ * <p>Request to retrieve the Glue Identity Center configuration.</p>
+ * @public
+ */
+export interface GetGlueIdentityCenterConfigurationRequest {}
+
+/**
+ * <p>Response containing the Glue Identity Center configuration details.</p>
+ * @public
+ */
+export interface GetGlueIdentityCenterConfigurationResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Identity Center application associated with the Glue configuration.</p>
+   * @public
+   */
+  ApplicationArn?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Identity Center instance associated with the Glue configuration.</p>
+   * @public
+   */
+  InstanceArn?: string | undefined;
+
+  /**
+   * <p>A list of Identity Center scopes that define the permissions and access levels for the Glue configuration.</p>
+   * @public
+   */
+  Scopes?: string[] | undefined;
 }
 
 /**
@@ -8680,153 +8786,6 @@ export interface ListTableOptimizerRunsRequest {
 
   /**
    * <p>A continuation token, if this is a continuation call.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListTableOptimizerRunsResponse {
-  /**
-   * <p>The Catalog ID of the table.</p>
-   * @public
-   */
-  CatalogId?: string | undefined;
-
-  /**
-   * <p>The name of the database in the catalog in which the table resides.</p>
-   * @public
-   */
-  DatabaseName?: string | undefined;
-
-  /**
-   * <p>The name of the table.</p>
-   * @public
-   */
-  TableName?: string | undefined;
-
-  /**
-   * <p>A continuation token for paginating the returned list of optimizer runs, returned if the current segment of the list is not the last.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>A list of the optimizer runs associated with a table.</p>
-   * @public
-   */
-  TableOptimizerRuns?: TableOptimizerRun[] | undefined;
-}
-
-/**
- * @public
- */
-export interface ListTriggersRequest {
-  /**
-   * <p>A continuation token, if this is a continuation request.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p> The name of the job for which to retrieve triggers. The trigger that can start this job
-   *       is returned. If there is no such trigger, all triggers are returned.</p>
-   * @public
-   */
-  DependentJobName?: string | undefined;
-
-  /**
-   * <p>The maximum size of a list to return.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>Specifies to return only these tagged resources.</p>
-   * @public
-   */
-  Tags?: Record<string, string> | undefined;
-}
-
-/**
- * @public
- */
-export interface ListTriggersResponse {
-  /**
-   * <p>The names of all triggers in the account, or the triggers with the specified tags.</p>
-   * @public
-   */
-  TriggerNames?: string[] | undefined;
-
-  /**
-   * <p>A continuation token, if the returned list does not contain the
-   *       last metric available.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListUsageProfilesRequest {
-  /**
-   * <p>A continuation token, included if this is a continuation call.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of usage profiles to return in a single response.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-}
-
-/**
- * <p>Describes an Glue usage profile.</p>
- * @public
- */
-export interface UsageProfileDefinition {
-  /**
-   * <p>The name of the usage profile.</p>
-   * @public
-   */
-  Name?: string | undefined;
-
-  /**
-   * <p>A description of the usage profile.</p>
-   * @public
-   */
-  Description?: string | undefined;
-
-  /**
-   * <p>The date and time when the usage profile was created.</p>
-   * @public
-   */
-  CreatedOn?: Date | undefined;
-
-  /**
-   * <p>The date and time when the usage profile was last modified.</p>
-   * @public
-   */
-  LastModifiedOn?: Date | undefined;
-}
-
-/**
- * @public
- */
-export interface ListUsageProfilesResponse {
-  /**
-   * <p>A list of usage profile (<code>UsageProfileDefinition</code>) objects.</p>
-   * @public
-   */
-  Profiles?: UsageProfileDefinition[] | undefined;
-
-  /**
-   * <p>A continuation token, present if the current list segment is not the last.</p>
    * @public
    */
   NextToken?: string | undefined;

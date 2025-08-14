@@ -108,6 +108,7 @@ import {
   SplitFields,
   StorageDescriptor,
   TableOptimizerConfiguration,
+  TableOptimizerRun,
   TableOptimizerType,
   Trigger,
   Union,
@@ -158,6 +159,153 @@ import {
   ViewDefinition,
   ViewValidation,
 } from "./models_2";
+
+/**
+ * @public
+ */
+export interface ListTableOptimizerRunsResponse {
+  /**
+   * <p>The Catalog ID of the table.</p>
+   * @public
+   */
+  CatalogId?: string | undefined;
+
+  /**
+   * <p>The name of the database in the catalog in which the table resides.</p>
+   * @public
+   */
+  DatabaseName?: string | undefined;
+
+  /**
+   * <p>The name of the table.</p>
+   * @public
+   */
+  TableName?: string | undefined;
+
+  /**
+   * <p>A continuation token for paginating the returned list of optimizer runs, returned if the current segment of the list is not the last.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>A list of the optimizer runs associated with a table.</p>
+   * @public
+   */
+  TableOptimizerRuns?: TableOptimizerRun[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListTriggersRequest {
+  /**
+   * <p>A continuation token, if this is a continuation request.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p> The name of the job for which to retrieve triggers. The trigger that can start this job
+   *       is returned. If there is no such trigger, all triggers are returned.</p>
+   * @public
+   */
+  DependentJobName?: string | undefined;
+
+  /**
+   * <p>The maximum size of a list to return.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>Specifies to return only these tagged resources.</p>
+   * @public
+   */
+  Tags?: Record<string, string> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListTriggersResponse {
+  /**
+   * <p>The names of all triggers in the account, or the triggers with the specified tags.</p>
+   * @public
+   */
+  TriggerNames?: string[] | undefined;
+
+  /**
+   * <p>A continuation token, if the returned list does not contain the
+   *       last metric available.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListUsageProfilesRequest {
+  /**
+   * <p>A continuation token, included if this is a continuation call.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of usage profiles to return in a single response.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+}
+
+/**
+ * <p>Describes an Glue usage profile.</p>
+ * @public
+ */
+export interface UsageProfileDefinition {
+  /**
+   * <p>The name of the usage profile.</p>
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * <p>A description of the usage profile.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>The date and time when the usage profile was created.</p>
+   * @public
+   */
+  CreatedOn?: Date | undefined;
+
+  /**
+   * <p>The date and time when the usage profile was last modified.</p>
+   * @public
+   */
+  LastModifiedOn?: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListUsageProfilesResponse {
+  /**
+   * <p>A list of usage profile (<code>UsageProfileDefinition</code>) objects.</p>
+   * @public
+   */
+  Profiles?: UsageProfileDefinition[] | undefined;
+
+  /**
+   * <p>A continuation token, present if the current list segment is not the last.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
 
 /**
  * @public
@@ -2970,6 +3118,24 @@ export interface UpdateDevEndpointRequest {
  * @public
  */
 export interface UpdateDevEndpointResponse {}
+
+/**
+ * <p>Request to update an existing Glue Identity Center configuration.</p>
+ * @public
+ */
+export interface UpdateGlueIdentityCenterConfigurationRequest {
+  /**
+   * <p>A list of Identity Center scopes that define the updated permissions and access levels for the Glue configuration.</p>
+   * @public
+   */
+  Scopes?: string[] | undefined;
+}
+
+/**
+ * <p>Response from updating an existing Glue Identity Center configuration.</p>
+ * @public
+ */
+export interface UpdateGlueIdentityCenterConfigurationResponse {}
 
 /**
  * @public

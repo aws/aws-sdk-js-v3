@@ -108,6 +108,10 @@ import {
   CreateDataQualityRulesetCommandOutput,
 } from "../commands/CreateDataQualityRulesetCommand";
 import { CreateDevEndpointCommandInput, CreateDevEndpointCommandOutput } from "../commands/CreateDevEndpointCommand";
+import {
+  CreateGlueIdentityCenterConfigurationCommandInput,
+  CreateGlueIdentityCenterConfigurationCommandOutput,
+} from "../commands/CreateGlueIdentityCenterConfigurationCommand";
 import { CreateIntegrationCommandInput, CreateIntegrationCommandOutput } from "../commands/CreateIntegrationCommand";
 import {
   CreateIntegrationResourcePropertyCommandInput,
@@ -171,6 +175,10 @@ import {
   DeleteDataQualityRulesetCommandOutput,
 } from "../commands/DeleteDataQualityRulesetCommand";
 import { DeleteDevEndpointCommandInput, DeleteDevEndpointCommandOutput } from "../commands/DeleteDevEndpointCommand";
+import {
+  DeleteGlueIdentityCenterConfigurationCommandInput,
+  DeleteGlueIdentityCenterConfigurationCommandOutput,
+} from "../commands/DeleteGlueIdentityCenterConfigurationCommand";
 import { DeleteIntegrationCommandInput, DeleteIntegrationCommandOutput } from "../commands/DeleteIntegrationCommand";
 import {
   DeleteIntegrationTablePropertiesCommandInput,
@@ -298,6 +306,10 @@ import {
 import { GetDevEndpointCommandInput, GetDevEndpointCommandOutput } from "../commands/GetDevEndpointCommand";
 import { GetDevEndpointsCommandInput, GetDevEndpointsCommandOutput } from "../commands/GetDevEndpointsCommand";
 import { GetEntityRecordsCommandInput, GetEntityRecordsCommandOutput } from "../commands/GetEntityRecordsCommand";
+import {
+  GetGlueIdentityCenterConfigurationCommandInput,
+  GetGlueIdentityCenterConfigurationCommandOutput,
+} from "../commands/GetGlueIdentityCenterConfigurationCommand";
 import {
   GetIntegrationResourcePropertyCommandInput,
   GetIntegrationResourcePropertyCommandOutput,
@@ -565,6 +577,10 @@ import {
   UpdateDataQualityRulesetCommandOutput,
 } from "../commands/UpdateDataQualityRulesetCommand";
 import { UpdateDevEndpointCommandInput, UpdateDevEndpointCommandOutput } from "../commands/UpdateDevEndpointCommand";
+import {
+  UpdateGlueIdentityCenterConfigurationCommandInput,
+  UpdateGlueIdentityCenterConfigurationCommandOutput,
+} from "../commands/UpdateGlueIdentityCenterConfigurationCommand";
 import {
   UpdateIntegrationResourcePropertyCommandInput,
   UpdateIntegrationResourcePropertyCommandOutput,
@@ -868,6 +884,7 @@ import {
   CreateDataQualityRulesetRequest,
   CreateDevEndpointRequest,
   CreateDevEndpointResponse,
+  CreateGlueIdentityCenterConfigurationRequest,
   CreateGrokClassifierRequest,
   CreateIcebergTableInput,
   CreateIntegrationRequest,
@@ -911,6 +928,7 @@ import {
   DeleteDatabaseRequest,
   DeleteDataQualityRulesetRequest,
   DeleteDevEndpointRequest,
+  DeleteGlueIdentityCenterConfigurationRequest,
   DeleteIntegrationRequest,
   DeleteIntegrationResponse,
   DeleteIntegrationTablePropertiesRequest,
@@ -949,12 +967,8 @@ import {
   GetBlueprintRunsRequest,
   GetBlueprintRunsResponse,
   GetCatalogImportStatusRequest,
-  GetCatalogImportStatusResponse,
   GetCatalogRequest,
   GetCatalogResponse,
-  GetCatalogsRequest,
-  GetCatalogsResponse,
-  GetClassifierRequest,
   IcebergInput,
   IcebergOptimizationProperties,
   IcebergOptimizationPropertiesOutput,
@@ -1051,6 +1065,10 @@ import {
   EvaluationMetrics,
   ExecutionAttempt,
   FindMatchesMetrics,
+  GetCatalogImportStatusResponse,
+  GetCatalogsRequest,
+  GetCatalogsResponse,
+  GetClassifierRequest,
   GetClassifierResponse,
   GetClassifiersRequest,
   GetClassifiersResponse,
@@ -1100,6 +1118,7 @@ import {
   GetDevEndpointsResponse,
   GetEntityRecordsRequest,
   GetEntityRecordsResponse,
+  GetGlueIdentityCenterConfigurationRequest,
   GetIntegrationResourcePropertyRequest,
   GetIntegrationTablePropertiesRequest,
   GetJobBookmarkRequest,
@@ -1203,10 +1222,6 @@ import {
   ListStatementsRequest,
   ListStatementsResponse,
   ListTableOptimizerRunsRequest,
-  ListTableOptimizerRunsResponse,
-  ListTriggersRequest,
-  ListUsageProfilesRequest,
-  ListUsageProfilesResponse,
   Location,
   LongColumnStatisticsData,
   MappingEntry,
@@ -1231,7 +1246,6 @@ import {
   TransformFilterCriteria,
   TransformSortCriteria,
   UnfilteredPartition,
-  UsageProfileDefinition,
   UserDefinedFunction,
   ViewValidation,
   XMLClassifier,
@@ -1260,6 +1274,10 @@ import {
   IllegalWorkflowStateException,
   Job,
   JobUpdate,
+  ListTableOptimizerRunsResponse,
+  ListTriggersRequest,
+  ListUsageProfilesRequest,
+  ListUsageProfilesResponse,
   ListWorkflowsRequest,
   Mapping,
   MetadataKeyValuePair,
@@ -1329,6 +1347,7 @@ import {
   UpdateDatabaseRequest,
   UpdateDataQualityRulesetRequest,
   UpdateDevEndpointRequest,
+  UpdateGlueIdentityCenterConfigurationRequest,
   UpdateGrokClassifierRequest,
   UpdateIcebergInput,
   UpdateIcebergTableInput,
@@ -1350,6 +1369,7 @@ import {
   UpdateUserDefinedFunctionRequest,
   UpdateWorkflowRequest,
   UpdateXMLClassifierRequest,
+  UsageProfileDefinition,
   VersionMismatchException,
 } from "../models/models_3";
 
@@ -1783,6 +1803,19 @@ export const se_CreateDevEndpointCommand = async (
 };
 
 /**
+ * serializeAws_json1_1CreateGlueIdentityCenterConfigurationCommand
+ */
+export const se_CreateGlueIdentityCenterConfigurationCommand = async (
+  input: CreateGlueIdentityCenterConfigurationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("CreateGlueIdentityCenterConfiguration");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_json1_1CreateIntegrationCommand
  */
 export const se_CreateIntegrationCommand = async (
@@ -2167,6 +2200,19 @@ export const se_DeleteDevEndpointCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteDevEndpoint");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1DeleteGlueIdentityCenterConfigurationCommand
+ */
+export const se_DeleteGlueIdentityCenterConfigurationCommand = async (
+  input: DeleteGlueIdentityCenterConfigurationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("DeleteGlueIdentityCenterConfiguration");
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2882,6 +2928,19 @@ export const se_GetEntityRecordsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetEntityRecords");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1GetGlueIdentityCenterConfigurationCommand
+ */
+export const se_GetGlueIdentityCenterConfigurationCommand = async (
+  input: GetGlueIdentityCenterConfigurationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("GetGlueIdentityCenterConfiguration");
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -4445,6 +4504,19 @@ export const se_UpdateDevEndpointCommand = async (
 };
 
 /**
+ * serializeAws_json1_1UpdateGlueIdentityCenterConfigurationCommand
+ */
+export const se_UpdateGlueIdentityCenterConfigurationCommand = async (
+  input: UpdateGlueIdentityCenterConfigurationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("UpdateGlueIdentityCenterConfiguration");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_json1_1UpdateIntegrationResourcePropertyCommand
  */
 export const se_UpdateIntegrationResourcePropertyCommand = async (
@@ -5300,6 +5372,26 @@ export const de_CreateDevEndpointCommand = async (
 };
 
 /**
+ * deserializeAws_json1_1CreateGlueIdentityCenterConfigurationCommand
+ */
+export const de_CreateGlueIdentityCenterConfigurationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateGlueIdentityCenterConfigurationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: CreateGlueIdentityCenterConfigurationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
  * deserializeAws_json1_1CreateIntegrationCommand
  */
 export const de_CreateIntegrationCommand = async (
@@ -5893,6 +5985,26 @@ export const de_DeleteDevEndpointCommand = async (
   let contents: any = {};
   contents = _json(data);
   const response: DeleteDevEndpointCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DeleteGlueIdentityCenterConfigurationCommand
+ */
+export const de_DeleteGlueIdentityCenterConfigurationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteGlueIdentityCenterConfigurationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: DeleteGlueIdentityCenterConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
@@ -6993,6 +7105,26 @@ export const de_GetEntityRecordsCommand = async (
   let contents: any = {};
   contents = de_GetEntityRecordsResponse(data, context);
   const response: GetEntityRecordsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1GetGlueIdentityCenterConfigurationCommand
+ */
+export const de_GetGlueIdentityCenterConfigurationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetGlueIdentityCenterConfigurationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: GetGlueIdentityCenterConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
@@ -9400,6 +9532,26 @@ export const de_UpdateDevEndpointCommand = async (
 };
 
 /**
+ * deserializeAws_json1_1UpdateGlueIdentityCenterConfigurationCommand
+ */
+export const de_UpdateGlueIdentityCenterConfigurationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateGlueIdentityCenterConfigurationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: UpdateGlueIdentityCenterConfigurationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
  * deserializeAws_json1_1UpdateIntegrationResourcePropertyCommand
  */
 export const de_UpdateIntegrationResourcePropertyCommand = async (
@@ -11062,6 +11214,8 @@ const se_CreateCrawlerRequest = (input: CreateCrawlerRequest, context: __SerdeCo
 
 // se_CreateDevEndpointRequest omitted.
 
+// se_CreateGlueIdentityCenterConfigurationRequest omitted.
+
 // se_CreateGrokClassifierRequest omitted.
 
 /**
@@ -11373,6 +11527,8 @@ const se_DecimalNumber = (input: DecimalNumber, context: __SerdeContext): any =>
 
 // se_DeleteDevEndpointRequest omitted.
 
+// se_DeleteGlueIdentityCenterConfigurationRequest omitted.
+
 // se_DeleteIntegrationRequest omitted.
 
 // se_DeleteIntegrationTablePropertiesRequest omitted.
@@ -11626,6 +11782,8 @@ const se_FindMatchesParameters = (input: FindMatchesParameters, context: __Serde
 // se_GetDevEndpointsRequest omitted.
 
 // se_GetEntityRecordsRequest omitted.
+
+// se_GetGlueIdentityCenterConfigurationRequest omitted.
 
 // se_GetIntegrationResourcePropertyRequest omitted.
 
@@ -11967,6 +12125,8 @@ const se_IcebergTableUpdateList = (input: IcebergTableUpdate[], context: __Serde
 // se_IcebergTarget omitted.
 
 // se_IcebergTargetList omitted.
+
+// se_IdentityCenterScopesList omitted.
 
 // se_ImportCatalogToGlueRequest omitted.
 
@@ -12950,6 +13110,8 @@ const se_UpdateCrawlerRequest = (input: UpdateCrawlerRequest, context: __SerdeCo
 // se_UpdateDataQualityRulesetRequest omitted.
 
 // se_UpdateDevEndpointRequest omitted.
+
+// se_UpdateGlueIdentityCenterConfigurationRequest omitted.
 
 // se_UpdateGrokClassifierRequest omitted.
 
@@ -14108,6 +14270,8 @@ const de_CreateDevEndpointResponse = (output: any, context: __SerdeContext): Cre
   }) as any;
 };
 
+// de_CreateGlueIdentityCenterConfigurationResponse omitted.
+
 // de_CreateIntegrationResourcePropertyResponse omitted.
 
 /**
@@ -14582,6 +14746,8 @@ const de_DecimalNumber = (output: any, context: __SerdeContext): DecimalNumber =
 // de_DeleteDataQualityRulesetResponse omitted.
 
 // de_DeleteDevEndpointResponse omitted.
+
+// de_DeleteGlueIdentityCenterConfigurationResponse omitted.
 
 /**
  * deserializeAws_json1_1DeleteIntegrationResponse
@@ -15289,6 +15455,8 @@ const de_GetEntityRecordsResponse = (output: any, context: __SerdeContext): GetE
     Records: (_: any) => de_Records(_, context),
   }) as any;
 };
+
+// de_GetGlueIdentityCenterConfigurationResponse omitted.
 
 // de_GetIntegrationResourcePropertyResponse omitted.
 
@@ -17417,6 +17585,8 @@ const de_UpdateColumnStatisticsForTableResponse = (
 // de_UpdateDataQualityRulesetResponse omitted.
 
 // de_UpdateDevEndpointResponse omitted.
+
+// de_UpdateGlueIdentityCenterConfigurationResponse omitted.
 
 // de_UpdateIntegrationResourcePropertyResponse omitted.
 
