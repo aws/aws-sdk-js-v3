@@ -28,10 +28,11 @@ export interface CreateHttpNamespaceCommandInput extends CreateHttpNamespaceRequ
 export interface CreateHttpNamespaceCommandOutput extends CreateHttpNamespaceResponse, __MetadataBearer {}
 
 /**
- * <p>Creates an HTTP namespace. Service instances registered using an HTTP namespace can be discovered using a
- *     <code>DiscoverInstances</code> request but can't be discovered using DNS.</p>
- *          <p>For the current quota on the number of namespaces that you can create using the same Amazon Web Services account, see <a href="https://docs.aws.amazon.com/cloud-map/latest/dg/cloud-map-limits.html">Cloud Map
- *     quotas</a> in the <i>Cloud Map Developer Guide</i>.</p>
+ * <p>Creates an HTTP namespace. Service instances registered using an HTTP namespace can be
+ *    discovered using a <code>DiscoverInstances</code> request but can't be discovered using
+ *    DNS.</p>
+ *          <p>For the current quota on the number of namespaces that you can create using the same Amazon Web Services account, see <a href="https://docs.aws.amazon.com/cloud-map/latest/dg/cloud-map-limits.html">Cloud Map quotas</a> in the
+ *     <i>Cloud Map Developer Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -67,18 +68,20 @@ export interface CreateHttpNamespaceCommandOutput extends CreateHttpNamespaceRes
  *  <p>The operation is already in progress.</p>
  *
  * @throws {@link InvalidInput} (client fault)
- *  <p>One or more specified values aren't valid. For example, a required value might be missing, a numeric value
- *    might be outside the allowed range, or a string value might exceed length constraints.</p>
+ *  <p>One or more specified values aren't valid. For example, a required value might be missing, a
+ *    numeric value might be outside the allowed range, or a string value might exceed length
+ *    constraints.</p>
  *
  * @throws {@link NamespaceAlreadyExists} (client fault)
  *  <p>The namespace that you're trying to create already exists.</p>
  *
  * @throws {@link ResourceLimitExceeded} (client fault)
- *  <p>The resource can't be created because you've reached the quota on the number of resources.</p>
+ *  <p>The resource can't be created because you've reached the quota on the number of
+ *    resources.</p>
  *
  * @throws {@link TooManyTagsException} (client fault)
- *  <p>The list of tags on the resource is over the quota. The maximum number of tags that can be applied to a
- *    resource is 50.</p>
+ *  <p>The list of tags on the resource is over the quota. The maximum number of tags that can be
+ *    applied to a resource is 50.</p>
  *
  * @throws {@link ServiceDiscoveryServiceException}
  * <p>Base exception class for all service exceptions from ServiceDiscovery service.</p>

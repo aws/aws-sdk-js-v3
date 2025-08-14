@@ -65,11 +65,11 @@ export interface CreateServiceCommandOutput extends CreateServiceResponse, __Met
  *                <p>Optionally, a health check</p>
  *             </li>
  *          </ul>
- *          <p>After you create the service, you can submit a <a href="https://docs.aws.amazon.com/cloud-map/latest/api/API_RegisterInstance.html">RegisterInstance</a> request, and Cloud Map uses the
- *    values in the configuration to create the specified entities.</p>
- *          <p>For the current quota on the number of instances that you can register using the same namespace and using
- *    the same service, see <a href="https://docs.aws.amazon.com/cloud-map/latest/dg/cloud-map-limits.html">Cloud Map
- *     quotas</a> in the <i>Cloud Map Developer Guide</i>.</p>
+ *          <p>After you create the service, you can submit a <a href="https://docs.aws.amazon.com/cloud-map/latest/api/API_RegisterInstance.html">RegisterInstance</a> request, and
+ *    Cloud Map uses the values in the configuration to create the specified entities.</p>
+ *          <p>For the current quota on the number of instances that you can register using the same
+ *    namespace and using the same service, see <a href="https://docs.aws.amazon.com/cloud-map/latest/dg/cloud-map-limits.html">Cloud Map quotas</a> in the
+ *     <i>Cloud Map Developer Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -113,6 +113,7 @@ export interface CreateServiceCommandOutput extends CreateServiceResponse, __Met
  * //   Service: { // Service
  * //     Id: "STRING_VALUE",
  * //     Arn: "STRING_VALUE",
+ * //     ResourceOwner: "STRING_VALUE",
  * //     Name: "STRING_VALUE",
  * //     NamespaceId: "STRING_VALUE",
  * //     Description: "STRING_VALUE",
@@ -138,6 +139,7 @@ export interface CreateServiceCommandOutput extends CreateServiceResponse, __Met
  * //     },
  * //     CreateDate: new Date("TIMESTAMP"),
  * //     CreatorRequestId: "STRING_VALUE",
+ * //     CreatedByAccount: "STRING_VALUE",
  * //   },
  * // };
  *
@@ -150,21 +152,23 @@ export interface CreateServiceCommandOutput extends CreateServiceResponse, __Met
  * @see {@link ServiceDiscoveryClientResolvedConfig | config} for ServiceDiscoveryClient's `config` shape.
  *
  * @throws {@link InvalidInput} (client fault)
- *  <p>One or more specified values aren't valid. For example, a required value might be missing, a numeric value
- *    might be outside the allowed range, or a string value might exceed length constraints.</p>
+ *  <p>One or more specified values aren't valid. For example, a required value might be missing, a
+ *    numeric value might be outside the allowed range, or a string value might exceed length
+ *    constraints.</p>
  *
  * @throws {@link NamespaceNotFound} (client fault)
  *  <p>No namespace exists with the specified ID.</p>
  *
  * @throws {@link ResourceLimitExceeded} (client fault)
- *  <p>The resource can't be created because you've reached the quota on the number of resources.</p>
+ *  <p>The resource can't be created because you've reached the quota on the number of
+ *    resources.</p>
  *
  * @throws {@link ServiceAlreadyExists} (client fault)
  *  <p>The service can't be created because a service with the same name already exists.</p>
  *
  * @throws {@link TooManyTagsException} (client fault)
- *  <p>The list of tags on the resource is over the quota. The maximum number of tags that can be applied to a
- *    resource is 50.</p>
+ *  <p>The list of tags on the resource is over the quota. The maximum number of tags that can be
+ *    applied to a resource is 50.</p>
  *
  * @throws {@link ServiceDiscoveryServiceException}
  * <p>Base exception class for all service exceptions from ServiceDiscovery service.</p>

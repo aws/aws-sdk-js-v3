@@ -31,10 +31,12 @@ export interface UpdateInstanceCustomHealthStatusCommandInput extends UpdateInst
 export interface UpdateInstanceCustomHealthStatusCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Submits a request to change the health status of a custom health check to healthy or unhealthy.</p>
- *          <p>You can use <code>UpdateInstanceCustomHealthStatus</code> to change the status only for custom health
- *    checks, which you define using <code>HealthCheckCustomConfig</code> when you create a service. You can't use it
- *    to change the status for Route 53 health checks, which you define using <code>HealthCheckConfig</code>.</p>
+ * <p>Submits a request to change the health status of a custom health check to healthy or
+ *    unhealthy.</p>
+ *          <p>You can use <code>UpdateInstanceCustomHealthStatus</code> to change the status only for
+ *    custom health checks, which you define using <code>HealthCheckCustomConfig</code> when you create
+ *    a service. You can't use it to change the status for Route 53 health checks, which you define using
+ *     <code>HealthCheckConfig</code>.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/cloud-map/latest/api/API_HealthCheckCustomConfig.html">HealthCheckCustomConfig</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -60,16 +62,17 @@ export interface UpdateInstanceCustomHealthStatusCommandOutput extends __Metadat
  * @see {@link ServiceDiscoveryClientResolvedConfig | config} for ServiceDiscoveryClient's `config` shape.
  *
  * @throws {@link CustomHealthNotFound} (client fault)
- *  <p>The health check for the instance that's specified by <code>ServiceId</code> and <code>InstanceId</code>
- *    isn't a custom health check. </p>
+ *  <p>The health check for the instance that's specified by <code>ServiceId</code> and
+ *     <code>InstanceId</code> isn't a custom health check. </p>
  *
  * @throws {@link InstanceNotFound} (client fault)
- *  <p>No instance exists with the specified ID, or the instance was recently registered, and information about
- *    the instance hasn't propagated yet.</p>
+ *  <p>No instance exists with the specified ID, or the instance was recently registered, and
+ *    information about the instance hasn't propagated yet.</p>
  *
  * @throws {@link InvalidInput} (client fault)
- *  <p>One or more specified values aren't valid. For example, a required value might be missing, a numeric value
- *    might be outside the allowed range, or a string value might exceed length constraints.</p>
+ *  <p>One or more specified values aren't valid. For example, a required value might be missing, a
+ *    numeric value might be outside the allowed range, or a string value might exceed length
+ *    constraints.</p>
  *
  * @throws {@link ServiceNotFound} (client fault)
  *  <p>No service exists with the specified ID.</p>

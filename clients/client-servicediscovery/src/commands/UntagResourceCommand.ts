@@ -54,8 +54,9 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
  * @see {@link ServiceDiscoveryClientResolvedConfig | config} for ServiceDiscoveryClient's `config` shape.
  *
  * @throws {@link InvalidInput} (client fault)
- *  <p>One or more specified values aren't valid. For example, a required value might be missing, a numeric value
- *    might be outside the allowed range, or a string value might exceed length constraints.</p>
+ *  <p>One or more specified values aren't valid. For example, a required value might be missing, a
+ *    numeric value might be outside the allowed range, or a string value might exceed length
+ *    constraints.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The operation can't be completed because the resource was not found.</p>

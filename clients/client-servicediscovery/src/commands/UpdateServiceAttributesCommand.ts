@@ -54,11 +54,13 @@ export interface UpdateServiceAttributesCommandOutput extends UpdateServiceAttri
  * @see {@link ServiceDiscoveryClientResolvedConfig | config} for ServiceDiscoveryClient's `config` shape.
  *
  * @throws {@link InvalidInput} (client fault)
- *  <p>One or more specified values aren't valid. For example, a required value might be missing, a numeric value
- *    might be outside the allowed range, or a string value might exceed length constraints.</p>
+ *  <p>One or more specified values aren't valid. For example, a required value might be missing, a
+ *    numeric value might be outside the allowed range, or a string value might exceed length
+ *    constraints.</p>
  *
  * @throws {@link ServiceAttributesLimitExceededException} (client fault)
- *  <p>The attribute can't be added to the service because you've exceeded the quota for the number of attributes you can add to a service.</p>
+ *  <p>The attribute can't be added to the service because you've exceeded the quota for the number
+ *    of attributes you can add to a service.</p>
  *
  * @throws {@link ServiceNotFound} (client fault)
  *  <p>No service exists with the specified ID.</p>

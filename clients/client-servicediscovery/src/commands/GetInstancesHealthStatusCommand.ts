@@ -28,11 +28,12 @@ export interface GetInstancesHealthStatusCommandInput extends GetInstancesHealth
 export interface GetInstancesHealthStatusCommandOutput extends GetInstancesHealthStatusResponse, __MetadataBearer {}
 
 /**
- * <p>Gets the current health status (<code>Healthy</code>, <code>Unhealthy</code>, or <code>Unknown</code>) of
- *    one or more instances that are associated with a specified service.</p>
+ * <p>Gets the current health status (<code>Healthy</code>, <code>Unhealthy</code>, or
+ *     <code>Unknown</code>) of one or more instances that are associated with a specified
+ *    service.</p>
  *          <note>
- *             <p>There's a brief delay between when you register an instance and when the health status for the instance is
- *     available. </p>
+ *             <p>There's a brief delay between when you register an instance and when the health status for
+ *     the instance is available. </p>
  *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -66,12 +67,13 @@ export interface GetInstancesHealthStatusCommandOutput extends GetInstancesHealt
  * @see {@link ServiceDiscoveryClientResolvedConfig | config} for ServiceDiscoveryClient's `config` shape.
  *
  * @throws {@link InstanceNotFound} (client fault)
- *  <p>No instance exists with the specified ID, or the instance was recently registered, and information about
- *    the instance hasn't propagated yet.</p>
+ *  <p>No instance exists with the specified ID, or the instance was recently registered, and
+ *    information about the instance hasn't propagated yet.</p>
  *
  * @throws {@link InvalidInput} (client fault)
- *  <p>One or more specified values aren't valid. For example, a required value might be missing, a numeric value
- *    might be outside the allowed range, or a string value might exceed length constraints.</p>
+ *  <p>One or more specified values aren't valid. For example, a required value might be missing, a
+ *    numeric value might be outside the allowed range, or a string value might exceed length
+ *    constraints.</p>
  *
  * @throws {@link ServiceNotFound} (client fault)
  *  <p>No service exists with the specified ID.</p>

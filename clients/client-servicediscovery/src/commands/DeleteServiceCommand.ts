@@ -28,8 +28,8 @@ export interface DeleteServiceCommandInput extends DeleteServiceRequest {}
 export interface DeleteServiceCommandOutput extends DeleteServiceResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes a specified service and all associated service attributes. If the service still contains one or more registered instances, the request
- *    fails.</p>
+ * <p>Deletes a specified service and all associated service attributes. If the service still
+ *    contains one or more registered instances, the request fails.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -52,12 +52,13 @@ export interface DeleteServiceCommandOutput extends DeleteServiceResponse, __Met
  * @see {@link ServiceDiscoveryClientResolvedConfig | config} for ServiceDiscoveryClient's `config` shape.
  *
  * @throws {@link InvalidInput} (client fault)
- *  <p>One or more specified values aren't valid. For example, a required value might be missing, a numeric value
- *    might be outside the allowed range, or a string value might exceed length constraints.</p>
+ *  <p>One or more specified values aren't valid. For example, a required value might be missing, a
+ *    numeric value might be outside the allowed range, or a string value might exceed length
+ *    constraints.</p>
  *
  * @throws {@link ResourceInUse} (client fault)
- *  <p>The specified resource can't be deleted because it contains other resources. For example, you can't delete
- *    a service that contains any instances.</p>
+ *  <p>The specified resource can't be deleted because it contains other resources. For example,
+ *    you can't delete a service that contains any instances.</p>
  *
  * @throws {@link ServiceNotFound} (client fault)
  *  <p>No service exists with the specified ID.</p>

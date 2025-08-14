@@ -28,7 +28,7 @@ export interface ListNamespacesCommandInput extends ListNamespacesRequest {}
 export interface ListNamespacesCommandOutput extends ListNamespacesResponse, __MetadataBearer {}
 
 /**
- * <p>Lists summary information about the namespaces that were created by the current Amazon Web Services account.</p>
+ * <p>Lists summary information about the namespaces that were created by the current Amazon Web Services account and shared with the current Amazon Web Services account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -40,7 +40,7 @@ export interface ListNamespacesCommandOutput extends ListNamespacesResponse, __M
  *   MaxResults: Number("int"),
  *   Filters: [ // NamespaceFilters
  *     { // NamespaceFilter
- *       Name: "TYPE" || "NAME" || "HTTP_NAME", // required
+ *       Name: "TYPE" || "NAME" || "HTTP_NAME" || "RESOURCE_OWNER", // required
  *       Values: [ // FilterValues // required
  *         "STRING_VALUE",
  *       ],
@@ -55,6 +55,7 @@ export interface ListNamespacesCommandOutput extends ListNamespacesResponse, __M
  * //     { // NamespaceSummary
  * //       Id: "STRING_VALUE",
  * //       Arn: "STRING_VALUE",
+ * //       ResourceOwner: "STRING_VALUE",
  * //       Name: "STRING_VALUE",
  * //       Type: "DNS_PUBLIC" || "DNS_PRIVATE" || "HTTP",
  * //       Description: "STRING_VALUE",
@@ -85,8 +86,9 @@ export interface ListNamespacesCommandOutput extends ListNamespacesResponse, __M
  * @see {@link ServiceDiscoveryClientResolvedConfig | config} for ServiceDiscoveryClient's `config` shape.
  *
  * @throws {@link InvalidInput} (client fault)
- *  <p>One or more specified values aren't valid. For example, a required value might be missing, a numeric value
- *    might be outside the allowed range, or a string value might exceed length constraints.</p>
+ *  <p>One or more specified values aren't valid. For example, a required value might be missing, a
+ *    numeric value might be outside the allowed range, or a string value might exceed length
+ *    constraints.</p>
  *
  * @throws {@link ServiceDiscoveryServiceException}
  * <p>Base exception class for all service exceptions from ServiceDiscovery service.</p>

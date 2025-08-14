@@ -41,12 +41,14 @@ export interface GetOperationCommandOutput extends GetOperationResponse, __Metad
  * const client = new ServiceDiscoveryClient(config);
  * const input = { // GetOperationRequest
  *   OperationId: "STRING_VALUE", // required
+ *   OwnerAccount: "STRING_VALUE",
  * };
  * const command = new GetOperationCommand(input);
  * const response = await client.send(command);
  * // { // GetOperationResponse
  * //   Operation: { // Operation
  * //     Id: "STRING_VALUE",
+ * //     OwnerAccount: "STRING_VALUE",
  * //     Type: "CREATE_NAMESPACE" || "DELETE_NAMESPACE" || "UPDATE_NAMESPACE" || "UPDATE_SERVICE" || "REGISTER_INSTANCE" || "DEREGISTER_INSTANCE",
  * //     Status: "SUBMITTED" || "PENDING" || "SUCCESS" || "FAIL",
  * //     ErrorMessage: "STRING_VALUE",
@@ -68,8 +70,9 @@ export interface GetOperationCommandOutput extends GetOperationResponse, __Metad
  * @see {@link ServiceDiscoveryClientResolvedConfig | config} for ServiceDiscoveryClient's `config` shape.
  *
  * @throws {@link InvalidInput} (client fault)
- *  <p>One or more specified values aren't valid. For example, a required value might be missing, a numeric value
- *    might be outside the allowed range, or a string value might exceed length constraints.</p>
+ *  <p>One or more specified values aren't valid. For example, a required value might be missing, a
+ *    numeric value might be outside the allowed range, or a string value might exceed length
+ *    constraints.</p>
  *
  * @throws {@link OperationNotFound} (client fault)
  *  <p>No operation exists with the specified ID.</p>

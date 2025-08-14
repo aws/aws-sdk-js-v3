@@ -28,8 +28,8 @@ export interface DeregisterInstanceCommandInput extends DeregisterInstanceReques
 export interface DeregisterInstanceCommandOutput extends DeregisterInstanceResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes the Amazon Route 53 DNS records and health check, if any, that Cloud Map created for the specified
- *    instance.</p>
+ * <p>Deletes the Amazon Route 53 DNS records and health check, if any, that Cloud Map created for the
+ *    specified instance.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -58,16 +58,17 @@ export interface DeregisterInstanceCommandOutput extends DeregisterInstanceRespo
  *  <p>The operation is already in progress.</p>
  *
  * @throws {@link InstanceNotFound} (client fault)
- *  <p>No instance exists with the specified ID, or the instance was recently registered, and information about
- *    the instance hasn't propagated yet.</p>
+ *  <p>No instance exists with the specified ID, or the instance was recently registered, and
+ *    information about the instance hasn't propagated yet.</p>
  *
  * @throws {@link InvalidInput} (client fault)
- *  <p>One or more specified values aren't valid. For example, a required value might be missing, a numeric value
- *    might be outside the allowed range, or a string value might exceed length constraints.</p>
+ *  <p>One or more specified values aren't valid. For example, a required value might be missing, a
+ *    numeric value might be outside the allowed range, or a string value might exceed length
+ *    constraints.</p>
  *
  * @throws {@link ResourceInUse} (client fault)
- *  <p>The specified resource can't be deleted because it contains other resources. For example, you can't delete
- *    a service that contains any instances.</p>
+ *  <p>The specified resource can't be deleted because it contains other resources. For example,
+ *    you can't delete a service that contains any instances.</p>
  *
  * @throws {@link ServiceNotFound} (client fault)
  *  <p>No service exists with the specified ID.</p>

@@ -28,16 +28,15 @@ export interface CreatePublicDnsNamespaceCommandInput extends CreatePublicDnsNam
 export interface CreatePublicDnsNamespaceCommandOutput extends CreatePublicDnsNamespaceResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a public namespace based on DNS, which is visible on the internet. The namespace defines your
- *    service naming scheme. For example, if you name your namespace <code>example.com</code> and name your service
- *     <code>backend</code>, the resulting DNS name for the service is <code>backend.example.com</code>. You can
- *    discover instances that were registered with a public DNS namespace by using either a
- *     <code>DiscoverInstances</code> request or using DNS. For the current quota on the number of namespaces that you
- *    can create using the same Amazon Web Services account, see <a href="https://docs.aws.amazon.com/cloud-map/latest/dg/cloud-map-limits.html">Cloud Map quotas</a> in the
+ * <p>Creates a public namespace based on DNS, which is visible on the internet. The namespace
+ *    defines your service naming scheme. For example, if you name your namespace
+ *     <code>example.com</code> and name your service <code>backend</code>, the resulting DNS name for
+ *    the service is <code>backend.example.com</code>. You can discover instances that were registered
+ *    with a public DNS namespace by using either a <code>DiscoverInstances</code> request or using
+ *    DNS. For the current quota on the number of namespaces that you can create using the same Amazon Web Services account, see <a href="https://docs.aws.amazon.com/cloud-map/latest/dg/cloud-map-limits.html">Cloud Map quotas</a> in the
  *     <i>Cloud Map Developer Guide</i>.</p>
  *          <important>
- *             <p>The <code>CreatePublicDnsNamespace</code> API operation is not supported in the Amazon Web Services GovCloud (US)
- *     Regions.</p>
+ *             <p>The <code>CreatePublicDnsNamespace</code> API operation is not supported in the Amazon Web Services GovCloud (US) Regions.</p>
  *          </important>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -81,18 +80,20 @@ export interface CreatePublicDnsNamespaceCommandOutput extends CreatePublicDnsNa
  *  <p>The operation is already in progress.</p>
  *
  * @throws {@link InvalidInput} (client fault)
- *  <p>One or more specified values aren't valid. For example, a required value might be missing, a numeric value
- *    might be outside the allowed range, or a string value might exceed length constraints.</p>
+ *  <p>One or more specified values aren't valid. For example, a required value might be missing, a
+ *    numeric value might be outside the allowed range, or a string value might exceed length
+ *    constraints.</p>
  *
  * @throws {@link NamespaceAlreadyExists} (client fault)
  *  <p>The namespace that you're trying to create already exists.</p>
  *
  * @throws {@link ResourceLimitExceeded} (client fault)
- *  <p>The resource can't be created because you've reached the quota on the number of resources.</p>
+ *  <p>The resource can't be created because you've reached the quota on the number of
+ *    resources.</p>
  *
  * @throws {@link TooManyTagsException} (client fault)
- *  <p>The list of tags on the resource is over the quota. The maximum number of tags that can be applied to a
- *    resource is 50.</p>
+ *  <p>The list of tags on the resource is over the quota. The maximum number of tags that can be
+ *    applied to a resource is 50.</p>
  *
  * @throws {@link ServiceDiscoveryServiceException}
  * <p>Base exception class for all service exceptions from ServiceDiscovery service.</p>

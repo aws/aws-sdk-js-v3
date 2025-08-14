@@ -38,6 +38,7 @@ export interface DiscoverInstancesRevisionCommandOutput extends DiscoverInstance
  * const input = { // DiscoverInstancesRevisionRequest
  *   NamespaceName: "STRING_VALUE", // required
  *   ServiceName: "STRING_VALUE", // required
+ *   OwnerAccount: "STRING_VALUE",
  * };
  * const command = new DiscoverInstancesRevisionCommand(input);
  * const response = await client.send(command);
@@ -54,16 +55,17 @@ export interface DiscoverInstancesRevisionCommandOutput extends DiscoverInstance
  * @see {@link ServiceDiscoveryClientResolvedConfig | config} for ServiceDiscoveryClient's `config` shape.
  *
  * @throws {@link InvalidInput} (client fault)
- *  <p>One or more specified values aren't valid. For example, a required value might be missing, a numeric value
- *    might be outside the allowed range, or a string value might exceed length constraints.</p>
+ *  <p>One or more specified values aren't valid. For example, a required value might be missing, a
+ *    numeric value might be outside the allowed range, or a string value might exceed length
+ *    constraints.</p>
  *
  * @throws {@link NamespaceNotFound} (client fault)
  *  <p>No namespace exists with the specified ID.</p>
  *
  * @throws {@link RequestLimitExceeded} (client fault)
- *  <p>The operation can't be completed because you've reached the quota for the number of requests. For more
- *    information, see <a href="https://docs.aws.amazon.com/cloud-map/latest/dg/throttling.html">Cloud Map API request
- *     throttling quota</a> in the <i>Cloud Map Developer Guide</i>.</p>
+ *  <p>The operation can't be completed because you've reached the quota for the number of
+ *    requests. For more information, see <a href="https://docs.aws.amazon.com/cloud-map/latest/dg/throttling.html">Cloud Map API request throttling quota</a> in the
+ *     <i>Cloud Map Developer Guide</i>.</p>
  *
  * @throws {@link ServiceNotFound} (client fault)
  *  <p>No service exists with the specified ID.</p>

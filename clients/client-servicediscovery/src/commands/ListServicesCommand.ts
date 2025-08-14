@@ -41,7 +41,7 @@ export interface ListServicesCommandOutput extends ListServicesResponse, __Metad
  *   MaxResults: Number("int"),
  *   Filters: [ // ServiceFilters
  *     { // ServiceFilter
- *       Name: "NAMESPACE_ID", // required
+ *       Name: "NAMESPACE_ID" || "RESOURCE_OWNER", // required
  *       Values: [ // FilterValues // required
  *         "STRING_VALUE",
  *       ],
@@ -56,6 +56,7 @@ export interface ListServicesCommandOutput extends ListServicesResponse, __Metad
  * //     { // ServiceSummary
  * //       Id: "STRING_VALUE",
  * //       Arn: "STRING_VALUE",
+ * //       ResourceOwner: "STRING_VALUE",
  * //       Name: "STRING_VALUE",
  * //       Type: "HTTP" || "DNS_HTTP" || "DNS",
  * //       Description: "STRING_VALUE",
@@ -79,6 +80,7 @@ export interface ListServicesCommandOutput extends ListServicesResponse, __Metad
  * //         FailureThreshold: Number("int"),
  * //       },
  * //       CreateDate: new Date("TIMESTAMP"),
+ * //       CreatedByAccount: "STRING_VALUE",
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",
@@ -93,8 +95,9 @@ export interface ListServicesCommandOutput extends ListServicesResponse, __Metad
  * @see {@link ServiceDiscoveryClientResolvedConfig | config} for ServiceDiscoveryClient's `config` shape.
  *
  * @throws {@link InvalidInput} (client fault)
- *  <p>One or more specified values aren't valid. For example, a required value might be missing, a numeric value
- *    might be outside the allowed range, or a string value might exceed length constraints.</p>
+ *  <p>One or more specified values aren't valid. For example, a required value might be missing, a
+ *    numeric value might be outside the allowed range, or a string value might exceed length
+ *    constraints.</p>
  *
  * @throws {@link ServiceDiscoveryServiceException}
  * <p>Base exception class for all service exceptions from ServiceDiscovery service.</p>

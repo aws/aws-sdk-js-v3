@@ -28,46 +28,50 @@ export interface RegisterInstanceCommandInput extends RegisterInstanceRequest {}
 export interface RegisterInstanceCommandOutput extends RegisterInstanceResponse, __MetadataBearer {}
 
 /**
- * <p>Creates or updates one or more records and, optionally, creates a health check based on the settings in a
- *    specified service. When you submit a <code>RegisterInstance</code> request, the following occurs:</p>
+ * <p>Creates or updates one or more records and, optionally, creates a health check based on the
+ *    settings in a specified service. When you submit a <code>RegisterInstance</code> request, the
+ *    following occurs:</p>
  *          <ul>
  *             <li>
- *                <p>For each DNS record that you define in the service that's specified by <code>ServiceId</code>, a record
- *      is created or updated in the hosted zone that's associated with the corresponding namespace.</p>
+ *                <p>For each DNS record that you define in the service that's specified by
+ *       <code>ServiceId</code>, a record is created or updated in the hosted zone that's associated
+ *      with the corresponding namespace.</p>
  *             </li>
  *             <li>
- *                <p>If the service includes <code>HealthCheckConfig</code>, a health check is created based on the settings
- *      in the health check configuration.</p>
+ *                <p>If the service includes <code>HealthCheckConfig</code>, a health check is created based on
+ *      the settings in the health check configuration.</p>
  *             </li>
  *             <li>
  *                <p>The health check, if any, is associated with each of the new or updated records.</p>
  *             </li>
  *          </ul>
  *          <important>
- *             <p>One <code>RegisterInstance</code> request must complete before you can submit another request and specify
- *     the same service ID and instance ID.</p>
+ *             <p>One <code>RegisterInstance</code> request must complete before you can submit another
+ *     request and specify the same service ID and instance ID.</p>
  *          </important>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/cloud-map/latest/api/API_CreateService.html">CreateService</a>.</p>
- *          <p>When Cloud Map receives a DNS query for the specified DNS name, it returns the applicable value:</p>
+ *          <p>When Cloud Map receives a DNS query for the specified DNS name, it returns the applicable
+ *    value:</p>
  *          <ul>
  *             <li>
  *                <p>
- *                   <b>If the health check is healthy</b>: returns all the records</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <b>If the health check is unhealthy</b>: returns the applicable value for the
- *      last healthy instance</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <b>If you didn't specify a health check configuration</b>: returns all the
+ *                   <b>If the health check is healthy</b>: returns all the
  *      records</p>
  *             </li>
+ *             <li>
+ *                <p>
+ *                   <b>If the health check is unhealthy</b>: returns the applicable
+ *      value for the last healthy instance</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <b>If you didn't specify a health check configuration</b>:
+ *      returns all the records</p>
+ *             </li>
  *          </ul>
- *          <p>For the current quota on the number of instances that you can register using the same namespace and using
- *    the same service, see <a href="https://docs.aws.amazon.com/cloud-map/latest/dg/cloud-map-limits.html">Cloud Map
- *     quotas</a> in the <i>Cloud Map Developer Guide</i>.</p>
+ *          <p>For the current quota on the number of instances that you can register using the same
+ *    namespace and using the same service, see <a href="https://docs.aws.amazon.com/cloud-map/latest/dg/cloud-map-limits.html">Cloud Map quotas</a> in the
+ *     <i>Cloud Map Developer Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -100,15 +104,17 @@ export interface RegisterInstanceCommandOutput extends RegisterInstanceResponse,
  *  <p>The operation is already in progress.</p>
  *
  * @throws {@link InvalidInput} (client fault)
- *  <p>One or more specified values aren't valid. For example, a required value might be missing, a numeric value
- *    might be outside the allowed range, or a string value might exceed length constraints.</p>
+ *  <p>One or more specified values aren't valid. For example, a required value might be missing, a
+ *    numeric value might be outside the allowed range, or a string value might exceed length
+ *    constraints.</p>
  *
  * @throws {@link ResourceInUse} (client fault)
- *  <p>The specified resource can't be deleted because it contains other resources. For example, you can't delete
- *    a service that contains any instances.</p>
+ *  <p>The specified resource can't be deleted because it contains other resources. For example,
+ *    you can't delete a service that contains any instances.</p>
  *
  * @throws {@link ResourceLimitExceeded} (client fault)
- *  <p>The resource can't be created because you've reached the quota on the number of resources.</p>
+ *  <p>The resource can't be created because you've reached the quota on the number of
+ *    resources.</p>
  *
  * @throws {@link ServiceNotFound} (client fault)
  *  <p>No service exists with the specified ID.</p>

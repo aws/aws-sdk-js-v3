@@ -1809,6 +1809,7 @@ const de_Namespace = (output: any, context: __SerdeContext): Namespace => {
     Id: __expectString,
     Name: __expectString,
     Properties: _json,
+    ResourceOwner: __expectString,
     ServiceCount: __expectInt32,
     Type: __expectString,
   }) as any;
@@ -1843,6 +1844,7 @@ const de_NamespaceSummary = (output: any, context: __SerdeContext): NamespaceSum
     Id: __expectString,
     Name: __expectString,
     Properties: _json,
+    ResourceOwner: __expectString,
     ServiceCount: __expectInt32,
     Type: __expectString,
   }) as any;
@@ -1857,6 +1859,7 @@ const de_Operation = (output: any, context: __SerdeContext): Operation => {
     ErrorCode: __expectString,
     ErrorMessage: __expectString,
     Id: __expectString,
+    OwnerAccount: __expectString,
     Status: __expectString,
     Targets: _json,
     Type: __expectString,
@@ -1889,6 +1892,7 @@ const de_Service = (output: any, context: __SerdeContext): Service => {
   return take(output, {
     Arn: __expectString,
     CreateDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    CreatedByAccount: __expectString,
     CreatorRequestId: __expectString,
     Description: __expectString,
     DnsConfig: _json,
@@ -1898,6 +1902,7 @@ const de_Service = (output: any, context: __SerdeContext): Service => {
     InstanceCount: __expectInt32,
     Name: __expectString,
     NamespaceId: __expectString,
+    ResourceOwner: __expectString,
     Type: __expectString,
   }) as any;
 };
@@ -1931,6 +1936,7 @@ const de_ServiceSummary = (output: any, context: __SerdeContext): ServiceSummary
   return take(output, {
     Arn: __expectString,
     CreateDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    CreatedByAccount: __expectString,
     Description: __expectString,
     DnsConfig: _json,
     HealthCheckConfig: _json,
@@ -1938,6 +1944,7 @@ const de_ServiceSummary = (output: any, context: __SerdeContext): ServiceSummary
     Id: __expectString,
     InstanceCount: __expectInt32,
     Name: __expectString,
+    ResourceOwner: __expectString,
     Type: __expectString,
   }) as any;
 };

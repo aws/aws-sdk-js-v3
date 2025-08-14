@@ -28,8 +28,7 @@ export interface UpdatePublicDnsNamespaceCommandInput extends UpdatePublicDnsNam
 export interface UpdatePublicDnsNamespaceCommandOutput extends UpdatePublicDnsNamespaceResponse, __MetadataBearer {}
 
 /**
- * <p>Updates a public DNS
- *    namespace.</p>
+ * <p>Updates a public DNS namespace.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -68,15 +67,16 @@ export interface UpdatePublicDnsNamespaceCommandOutput extends UpdatePublicDnsNa
  *  <p>The operation is already in progress.</p>
  *
  * @throws {@link InvalidInput} (client fault)
- *  <p>One or more specified values aren't valid. For example, a required value might be missing, a numeric value
- *    might be outside the allowed range, or a string value might exceed length constraints.</p>
+ *  <p>One or more specified values aren't valid. For example, a required value might be missing, a
+ *    numeric value might be outside the allowed range, or a string value might exceed length
+ *    constraints.</p>
  *
  * @throws {@link NamespaceNotFound} (client fault)
  *  <p>No namespace exists with the specified ID.</p>
  *
  * @throws {@link ResourceInUse} (client fault)
- *  <p>The specified resource can't be deleted because it contains other resources. For example, you can't delete
- *    a service that contains any instances.</p>
+ *  <p>The specified resource can't be deleted because it contains other resources. For example,
+ *    you can't delete a service that contains any instances.</p>
  *
  * @throws {@link ServiceDiscoveryServiceException}
  * <p>Base exception class for all service exceptions from ServiceDiscovery service.</p>
