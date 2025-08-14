@@ -76,9 +76,17 @@ import {
   CreateSampleFindingsCommandOutput,
 } from "./commands/CreateSampleFindingsCommand";
 import {
+  CreateThreatEntitySetCommandInput,
+  CreateThreatEntitySetCommandOutput,
+} from "./commands/CreateThreatEntitySetCommand";
+import {
   CreateThreatIntelSetCommandInput,
   CreateThreatIntelSetCommandOutput,
 } from "./commands/CreateThreatIntelSetCommand";
+import {
+  CreateTrustedEntitySetCommandInput,
+  CreateTrustedEntitySetCommandOutput,
+} from "./commands/CreateTrustedEntitySetCommand";
 import { DeclineInvitationsCommandInput, DeclineInvitationsCommandOutput } from "./commands/DeclineInvitationsCommand";
 import { DeleteDetectorCommandInput, DeleteDetectorCommandOutput } from "./commands/DeleteDetectorCommand";
 import { DeleteFilterCommandInput, DeleteFilterCommandOutput } from "./commands/DeleteFilterCommand";
@@ -94,9 +102,17 @@ import {
   DeletePublishingDestinationCommandOutput,
 } from "./commands/DeletePublishingDestinationCommand";
 import {
+  DeleteThreatEntitySetCommandInput,
+  DeleteThreatEntitySetCommandOutput,
+} from "./commands/DeleteThreatEntitySetCommand";
+import {
   DeleteThreatIntelSetCommandInput,
   DeleteThreatIntelSetCommandOutput,
 } from "./commands/DeleteThreatIntelSetCommand";
+import {
+  DeleteTrustedEntitySetCommandInput,
+  DeleteTrustedEntitySetCommandOutput,
+} from "./commands/DeleteTrustedEntitySetCommand";
 import {
   DescribeMalwareScansCommandInput,
   DescribeMalwareScansCommandOutput,
@@ -168,7 +184,12 @@ import {
   GetRemainingFreeTrialDaysCommandInput,
   GetRemainingFreeTrialDaysCommandOutput,
 } from "./commands/GetRemainingFreeTrialDaysCommand";
+import { GetThreatEntitySetCommandInput, GetThreatEntitySetCommandOutput } from "./commands/GetThreatEntitySetCommand";
 import { GetThreatIntelSetCommandInput, GetThreatIntelSetCommandOutput } from "./commands/GetThreatIntelSetCommand";
+import {
+  GetTrustedEntitySetCommandInput,
+  GetTrustedEntitySetCommandOutput,
+} from "./commands/GetTrustedEntitySetCommand";
 import { GetUsageStatisticsCommandInput, GetUsageStatisticsCommandOutput } from "./commands/GetUsageStatisticsCommand";
 import { InviteMembersCommandInput, InviteMembersCommandOutput } from "./commands/InviteMembersCommand";
 import { ListCoverageCommandInput, ListCoverageCommandOutput } from "./commands/ListCoverageCommand";
@@ -195,9 +216,17 @@ import {
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import {
+  ListThreatEntitySetsCommandInput,
+  ListThreatEntitySetsCommandOutput,
+} from "./commands/ListThreatEntitySetsCommand";
+import {
   ListThreatIntelSetsCommandInput,
   ListThreatIntelSetsCommandOutput,
 } from "./commands/ListThreatIntelSetsCommand";
+import {
+  ListTrustedEntitySetsCommandInput,
+  ListTrustedEntitySetsCommandOutput,
+} from "./commands/ListTrustedEntitySetsCommand";
 import { StartMalwareScanCommandInput, StartMalwareScanCommandOutput } from "./commands/StartMalwareScanCommand";
 import {
   StartMonitoringMembersCommandInput,
@@ -238,9 +267,17 @@ import {
   UpdatePublishingDestinationCommandOutput,
 } from "./commands/UpdatePublishingDestinationCommand";
 import {
+  UpdateThreatEntitySetCommandInput,
+  UpdateThreatEntitySetCommandOutput,
+} from "./commands/UpdateThreatEntitySetCommand";
+import {
   UpdateThreatIntelSetCommandInput,
   UpdateThreatIntelSetCommandOutput,
 } from "./commands/UpdateThreatIntelSetCommand";
+import {
+  UpdateTrustedEntitySetCommandInput,
+  UpdateTrustedEntitySetCommandOutput,
+} from "./commands/UpdateTrustedEntitySetCommand";
 import {
   ClientInputEndpointParameters,
   ClientResolvedEndpointParameters,
@@ -266,7 +303,9 @@ export type ServiceInputTypes =
   | CreateMembersCommandInput
   | CreatePublishingDestinationCommandInput
   | CreateSampleFindingsCommandInput
+  | CreateThreatEntitySetCommandInput
   | CreateThreatIntelSetCommandInput
+  | CreateTrustedEntitySetCommandInput
   | DeclineInvitationsCommandInput
   | DeleteDetectorCommandInput
   | DeleteFilterCommandInput
@@ -275,7 +314,9 @@ export type ServiceInputTypes =
   | DeleteMalwareProtectionPlanCommandInput
   | DeleteMembersCommandInput
   | DeletePublishingDestinationCommandInput
+  | DeleteThreatEntitySetCommandInput
   | DeleteThreatIntelSetCommandInput
+  | DeleteTrustedEntitySetCommandInput
   | DescribeMalwareScansCommandInput
   | DescribeOrganizationConfigurationCommandInput
   | DescribePublishingDestinationCommandInput
@@ -299,7 +340,9 @@ export type ServiceInputTypes =
   | GetMembersCommandInput
   | GetOrganizationStatisticsCommandInput
   | GetRemainingFreeTrialDaysCommandInput
+  | GetThreatEntitySetCommandInput
   | GetThreatIntelSetCommandInput
+  | GetTrustedEntitySetCommandInput
   | GetUsageStatisticsCommandInput
   | InviteMembersCommandInput
   | ListCoverageCommandInput
@@ -313,7 +356,9 @@ export type ServiceInputTypes =
   | ListOrganizationAdminAccountsCommandInput
   | ListPublishingDestinationsCommandInput
   | ListTagsForResourceCommandInput
+  | ListThreatEntitySetsCommandInput
   | ListThreatIntelSetsCommandInput
+  | ListTrustedEntitySetsCommandInput
   | StartMalwareScanCommandInput
   | StartMonitoringMembersCommandInput
   | StopMonitoringMembersCommandInput
@@ -329,7 +374,9 @@ export type ServiceInputTypes =
   | UpdateMemberDetectorsCommandInput
   | UpdateOrganizationConfigurationCommandInput
   | UpdatePublishingDestinationCommandInput
-  | UpdateThreatIntelSetCommandInput;
+  | UpdateThreatEntitySetCommandInput
+  | UpdateThreatIntelSetCommandInput
+  | UpdateTrustedEntitySetCommandInput;
 
 /**
  * @public
@@ -345,7 +392,9 @@ export type ServiceOutputTypes =
   | CreateMembersCommandOutput
   | CreatePublishingDestinationCommandOutput
   | CreateSampleFindingsCommandOutput
+  | CreateThreatEntitySetCommandOutput
   | CreateThreatIntelSetCommandOutput
+  | CreateTrustedEntitySetCommandOutput
   | DeclineInvitationsCommandOutput
   | DeleteDetectorCommandOutput
   | DeleteFilterCommandOutput
@@ -354,7 +403,9 @@ export type ServiceOutputTypes =
   | DeleteMalwareProtectionPlanCommandOutput
   | DeleteMembersCommandOutput
   | DeletePublishingDestinationCommandOutput
+  | DeleteThreatEntitySetCommandOutput
   | DeleteThreatIntelSetCommandOutput
+  | DeleteTrustedEntitySetCommandOutput
   | DescribeMalwareScansCommandOutput
   | DescribeOrganizationConfigurationCommandOutput
   | DescribePublishingDestinationCommandOutput
@@ -378,7 +429,9 @@ export type ServiceOutputTypes =
   | GetMembersCommandOutput
   | GetOrganizationStatisticsCommandOutput
   | GetRemainingFreeTrialDaysCommandOutput
+  | GetThreatEntitySetCommandOutput
   | GetThreatIntelSetCommandOutput
+  | GetTrustedEntitySetCommandOutput
   | GetUsageStatisticsCommandOutput
   | InviteMembersCommandOutput
   | ListCoverageCommandOutput
@@ -392,7 +445,9 @@ export type ServiceOutputTypes =
   | ListOrganizationAdminAccountsCommandOutput
   | ListPublishingDestinationsCommandOutput
   | ListTagsForResourceCommandOutput
+  | ListThreatEntitySetsCommandOutput
   | ListThreatIntelSetsCommandOutput
+  | ListTrustedEntitySetsCommandOutput
   | StartMalwareScanCommandOutput
   | StartMonitoringMembersCommandOutput
   | StopMonitoringMembersCommandOutput
@@ -408,7 +463,9 @@ export type ServiceOutputTypes =
   | UpdateMemberDetectorsCommandOutput
   | UpdateOrganizationConfigurationCommandOutput
   | UpdatePublishingDestinationCommandOutput
-  | UpdateThreatIntelSetCommandOutput;
+  | UpdateThreatEntitySetCommandOutput
+  | UpdateThreatIntelSetCommandOutput
+  | UpdateTrustedEntitySetCommandOutput;
 
 /**
  * @public

@@ -14,4 +14,6 @@ export * from "./ListInvitationsPaginator";
 export * from "./ListMembersPaginator";
 export * from "./ListOrganizationAdminAccountsPaginator";
 export * from "./ListPublishingDestinationsPaginator";
+export * from "./ListThreatEntitySetsPaginator";
 export * from "./ListThreatIntelSetsPaginator";
+export * from "./ListTrustedEntitySetsPaginator";

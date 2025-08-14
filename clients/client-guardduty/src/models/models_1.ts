@@ -4,10 +4,13 @@ import { SENSITIVE_STRING } from "@smithy/smithy-client";
 import {
   AccountFreeTrialInfo,
   AdminAccount,
+  Administrator,
   AutoEnableMembers,
   CoverageFilterCriteria,
   CoverageResource,
   CoverageSortCriteria,
+  CoverageStatistics,
+  CoverageStatisticsType,
   CreateProtectedResource,
   DataSource,
   DataSourceConfigurations,
@@ -15,6 +18,8 @@ import {
   Destination,
   DestinationProperties,
   DetectorFeatureConfiguration,
+  DetectorFeatureConfigurationResult,
+  DetectorStatus,
   EbsSnapshotPreservation,
   FeatureStatus,
   Feedback,
@@ -24,7 +29,6 @@ import {
   FindingFilterSensitiveLog,
   FindingPublishingFrequency,
   FindingStatistics,
-  FindingStatisticType,
   IpSetFormat,
   MalwareProtectionPlanActions,
   OrderBy,
@@ -32,9 +36,238 @@ import {
   OrgFeatureAdditionalConfiguration,
   OrgFeatureStatus,
   SortCriteria,
+  ThreatEntitySetFormat,
   ThreatIntelSetFormat,
+  TrustedEntitySetFormat,
   UnprocessedAccount,
 } from "./models_0";
+
+/**
+ * @public
+ * @enum
+ */
+export const FindingStatisticType = {
+  COUNT_BY_SEVERITY: "COUNT_BY_SEVERITY",
+} as const;
+
+/**
+ * @public
+ */
+export type FindingStatisticType = (typeof FindingStatisticType)[keyof typeof FindingStatisticType];
+
+/**
+ * @public
+ */
+export interface GetAdministratorAccountRequest {
+  /**
+   * <p>The unique ID of the detector of the GuardDuty member account.</p>
+   * @public
+   */
+  DetectorId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetAdministratorAccountResponse {
+  /**
+   * <p>The administrator account details.</p>
+   * @public
+   */
+  Administrator: Administrator | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetCoverageStatisticsRequest {
+  /**
+   * <p>The unique ID of the GuardDuty detector.</p>
+   *          <p>To find the <code>detectorId</code> in the current Region, see the
+   * Settings page in the GuardDuty console, or run the <a href="https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html">ListDetectors</a> API.</p>
+   * @public
+   */
+  DetectorId: string | undefined;
+
+  /**
+   * <p>Represents the criteria used to filter the coverage statistics.</p>
+   * @public
+   */
+  FilterCriteria?: CoverageFilterCriteria | undefined;
+
+  /**
+   * <p>Represents the statistics type used to aggregate the coverage details.</p>
+   * @public
+   */
+  StatisticsType: CoverageStatisticsType[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetCoverageStatisticsResponse {
+  /**
+   * <p>Represents the count aggregated by the <code>statusCode</code> and
+   *         <code>resourceType</code>.</p>
+   * @public
+   */
+  CoverageStatistics?: CoverageStatistics | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetDetectorRequest {
+  /**
+   * <p>The unique ID of the detector that you want to get.</p>
+   *          <p>To find the <code>detectorId</code> in the current Region, see the
+   * Settings page in the GuardDuty console, or run the <a href="https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html">ListDetectors</a> API.</p>
+   * @public
+   */
+  DetectorId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetDetectorResponse {
+  /**
+   * <p>The timestamp of when the detector was created.</p>
+   * @public
+   */
+  CreatedAt?: string | undefined;
+
+  /**
+   * <p>The publishing frequency of the finding.</p>
+   * @public
+   */
+  FindingPublishingFrequency?: FindingPublishingFrequency | undefined;
+
+  /**
+   * <p>The GuardDuty service role.</p>
+   * @public
+   */
+  ServiceRole: string | undefined;
+
+  /**
+   * <p>The detector status.</p>
+   * @public
+   */
+  Status: DetectorStatus | undefined;
+
+  /**
+   * <p>The last-updated timestamp for the detector.</p>
+   * @public
+   */
+  UpdatedAt?: string | undefined;
+
+  /**
+   * <p>Describes which data sources are enabled for the detector.</p>
+   *
+   * @deprecated
+   * @public
+   */
+  DataSources?: DataSourceConfigurationsResult | undefined;
+
+  /**
+   * <p>The tags of the detector resource.</p>
+   * @public
+   */
+  Tags?: Record<string, string> | undefined;
+
+  /**
+   * <p>Describes the features that have been enabled for the detector.</p>
+   * @public
+   */
+  Features?: DetectorFeatureConfigurationResult[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetFilterRequest {
+  /**
+   * <p>The unique ID of the detector that is associated with this filter.</p>
+   *          <p>To find the <code>detectorId</code> in the current Region, see the
+   * Settings page in the GuardDuty console, or run the <a href="https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html">ListDetectors</a> API.</p>
+   * @public
+   */
+  DetectorId: string | undefined;
+
+  /**
+   * <p>The name of the filter you want to get.</p>
+   * @public
+   */
+  FilterName: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetFilterResponse {
+  /**
+   * <p>The name of the filter.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The description of the filter.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>Specifies the action that is to be applied to the findings that match the filter.</p>
+   * @public
+   */
+  Action: FilterAction | undefined;
+
+  /**
+   * <p>Specifies the position of the filter in the list of current filters. Also specifies the
+   *       order in which this filter is applied to the findings.</p>
+   * @public
+   */
+  Rank?: number | undefined;
+
+  /**
+   * <p>Represents the criteria to be used in the filter for querying findings.</p>
+   * @public
+   */
+  FindingCriteria: FindingCriteria | undefined;
+
+  /**
+   * <p>The tags of the filter resource.</p>
+   * @public
+   */
+  Tags?: Record<string, string> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetFindingsRequest {
+  /**
+   * <p>The ID of the detector that specifies the GuardDuty service whose findings you want to
+   *       retrieve.</p>
+   *          <p>To find the <code>detectorId</code> in the current Region, see the
+   * Settings page in the GuardDuty console, or run the <a href="https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html">ListDetectors</a> API.</p>
+   * @public
+   */
+  DetectorId: string | undefined;
+
+  /**
+   * <p>The IDs of the findings that you want to retrieve.</p>
+   * @public
+   */
+  FindingIds: string[] | undefined;
+
+  /**
+   * <p>Represents the criteria used for sorting findings.</p>
+   * @public
+   */
+  SortCriteria?: SortCriteria | undefined;
+}
 
 /**
  * @public
@@ -863,6 +1096,104 @@ export interface GetRemainingFreeTrialDaysResponse {
 /**
  * @public
  */
+export interface GetThreatEntitySetRequest {
+  /**
+   * <p>The unique ID of the detector associated with the threat entity set resource.</p>
+   *          <p>To find the <code>detectorId</code> in the current Region, see the
+   * Settings page in the GuardDuty console, or run the <a href="https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html">ListDetectors</a> API.</p>
+   * @public
+   */
+  DetectorId: string | undefined;
+
+  /**
+   * <p>The unique ID that helps GuardDuty identify the threat entity set.</p>
+   * @public
+   */
+  ThreatEntitySetId: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const ThreatEntitySetStatus = {
+  ACTIVATING: "ACTIVATING",
+  ACTIVE: "ACTIVE",
+  DEACTIVATING: "DEACTIVATING",
+  DELETED: "DELETED",
+  DELETE_PENDING: "DELETE_PENDING",
+  ERROR: "ERROR",
+  INACTIVE: "INACTIVE",
+} as const;
+
+/**
+ * @public
+ */
+export type ThreatEntitySetStatus = (typeof ThreatEntitySetStatus)[keyof typeof ThreatEntitySetStatus];
+
+/**
+ * @public
+ */
+export interface GetThreatEntitySetResponse {
+  /**
+   * <p>The name of the threat entity set associated with the specified <code>threatEntitySetId</code>.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The format of the file that contains the threat entity set.</p>
+   * @public
+   */
+  Format: ThreatEntitySetFormat | undefined;
+
+  /**
+   * <p>The URI of the file that contains the threat entity set.</p>
+   * @public
+   */
+  Location: string | undefined;
+
+  /**
+   * <p>The Amazon Web Services account ID that owns the Amazon S3 bucket specified in the <b>location</b>
+   *        parameter.</p>
+   * @public
+   */
+  ExpectedBucketOwner?: string | undefined;
+
+  /**
+   * <p>The status of the associated threat entity set.</p>
+   * @public
+   */
+  Status: ThreatEntitySetStatus | undefined;
+
+  /**
+   * <p>The tags associated with the threat entity set resource.</p>
+   * @public
+   */
+  Tags?: Record<string, string> | undefined;
+
+  /**
+   * <p>The timestamp when the associated threat entity set was created.</p>
+   * @public
+   */
+  CreatedAt?: Date | undefined;
+
+  /**
+   * <p>The timestamp when the associated threat entity set was updated.</p>
+   * @public
+   */
+  UpdatedAt?: Date | undefined;
+
+  /**
+   * <p>The error details when the status is shown as <code>ERROR</code>.</p>
+   * @public
+   */
+  ErrorDetails?: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface GetThreatIntelSetRequest {
   /**
    * <p>The unique ID of the detector that is associated with the threatIntelSet.</p>
@@ -939,6 +1270,102 @@ export interface GetThreatIntelSetResponse {
    * @public
    */
   ExpectedBucketOwner?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetTrustedEntitySetRequest {
+  /**
+   * <p>The unique ID of the GuardDuty detector associated with this trusted entity set.</p>
+   * @public
+   */
+  DetectorId: string | undefined;
+
+  /**
+   * <p>The unique ID that helps GuardDuty identify the trusted entity set.</p>
+   * @public
+   */
+  TrustedEntitySetId: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const TrustedEntitySetStatus = {
+  ACTIVATING: "ACTIVATING",
+  ACTIVE: "ACTIVE",
+  DEACTIVATING: "DEACTIVATING",
+  DELETED: "DELETED",
+  DELETE_PENDING: "DELETE_PENDING",
+  ERROR: "ERROR",
+  INACTIVE: "INACTIVE",
+} as const;
+
+/**
+ * @public
+ */
+export type TrustedEntitySetStatus = (typeof TrustedEntitySetStatus)[keyof typeof TrustedEntitySetStatus];
+
+/**
+ * @public
+ */
+export interface GetTrustedEntitySetResponse {
+  /**
+   * <p>The name of the threat entity set associated with the specified <code>trustedEntitySetId</code>.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The format of the file that contains the trusted entity set.</p>
+   * @public
+   */
+  Format: TrustedEntitySetFormat | undefined;
+
+  /**
+   * <p>The URI of the file that contains the trusted entity set.</p>
+   * @public
+   */
+  Location: string | undefined;
+
+  /**
+   * <p>The Amazon Web Services account ID that owns the Amazon S3 bucket specified in the <b>location</b>
+   *        parameter.</p>
+   * @public
+   */
+  ExpectedBucketOwner?: string | undefined;
+
+  /**
+   * <p>The status of the associated trusted entity set.</p>
+   * @public
+   */
+  Status: TrustedEntitySetStatus | undefined;
+
+  /**
+   * <p>The tags associated with trusted entity set resource.</p>
+   * @public
+   */
+  Tags?: Record<string, string> | undefined;
+
+  /**
+   * <p>The timestamp when the associated trusted entity set was created.</p>
+   * @public
+   */
+  CreatedAt?: Date | undefined;
+
+  /**
+   * <p>The timestamp when the associated trusted entity set was updated.</p>
+   * @public
+   */
+  UpdatedAt?: Date | undefined;
+
+  /**
+   * <p>The error details when the status is shown as <code>ERROR</code>.</p>
+   * @public
+   */
+  ErrorDetails?: string | undefined;
 }
 
 /**
@@ -2006,6 +2433,52 @@ export interface ListTagsForResourceResponse {
 /**
  * @public
  */
+export interface ListThreatEntitySetsRequest {
+  /**
+   * <p>The unique ID of the GuardDuty detector that is associated with this threat entity set.</p>
+   *          <p>To find the <code>detectorId</code> in the current Region, see the
+   * Settings page in the GuardDuty console, or run the <a href="https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html">ListDetectors</a> API.</p>
+   * @public
+   */
+  DetectorId: string | undefined;
+
+  /**
+   * <p>You can use this parameter to indicate the maximum number of
+   *        items you want in the response. The default value is 50.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>You can use this parameter when paginating results. Set the value
+   *        of this parameter to null on your first call to the list action. For
+   *        subsequent calls to the action, fill nextToken in the request
+   *        with the value of NextToken from the previous response to continue listing data.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListThreatEntitySetsResponse {
+  /**
+   * <p>The IDs of the threat entity set resources.</p>
+   * @public
+   */
+  ThreatEntitySetIds: string[] | undefined;
+
+  /**
+   * <p>The pagination parameter to be used on the next list operation to retrieve more items.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface ListThreatIntelSetsRequest {
   /**
    * <p>The unique ID of the detector that is associated with the threatIntelSet.</p>
@@ -2045,6 +2518,52 @@ export interface ListThreatIntelSetsResponse {
   /**
    * <p>The pagination parameter to be used on the next list operation to retrieve more
    *       items.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListTrustedEntitySetsRequest {
+  /**
+   * <p>The unique ID of the GuardDuty detector that is associated with this threat entity set.</p>
+   *          <p>To find the <code>detectorId</code> in the current Region, see the
+   * Settings page in the GuardDuty console, or run the <a href="https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html">ListDetectors</a> API.</p>
+   * @public
+   */
+  DetectorId: string | undefined;
+
+  /**
+   * <p>You can use this parameter to indicate the maximum number of
+   *        items you want in the response. The default value is 50.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>You can use this parameter when paginating results. Set the value
+   *        of this parameter to null on your first call to the list action. For
+   *        subsequent calls to the action, fill nextToken in the request
+   *        with the value of NextToken from the previous response to continue listing data.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListTrustedEntitySetsResponse {
+  /**
+   * <p>The IDs of the trusted entity set resources.</p>
+   * @public
+   */
+  TrustedEntitySetIds: string[] | undefined;
+
+  /**
+   * <p>The pagination parameter to be used on the next list operation to retrieve more items.</p>
    * @public
    */
   NextToken?: string | undefined;
@@ -2886,6 +3405,61 @@ export interface UpdatePublishingDestinationResponse {}
 /**
  * @public
  */
+export interface UpdateThreatEntitySetRequest {
+  /**
+   * <p>The unique ID of the GuardDuty detector associated with the threat entity set that you want to
+   *       update.</p>
+   *          <p>To find the <code>detectorId</code> in the current Region, see the
+   * Settings page in the GuardDuty console, or run the <a href="https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html">ListDetectors</a> API.</p>
+   * @public
+   */
+  DetectorId: string | undefined;
+
+  /**
+   * <p>The ID returned by GuardDuty after updating the threat entity set resource.</p>
+   * @public
+   */
+  ThreatEntitySetId: string | undefined;
+
+  /**
+   * <p>A user-friendly name to identify the trusted entity set.</p>
+   *          <p>
+   *             <b>List naming constraints</b> - The name of your list can include
+   *                                 lowercase letters, uppercase letters, numbers, dash (-), and underscore (_).</p>
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * <p>The URI of the file that contains the trusted entity set.</p>
+   * @public
+   */
+  Location?: string | undefined;
+
+  /**
+   * <p>The Amazon Web Services account ID that owns the Amazon S3 bucket specified in the <b>location</b>
+   *        parameter.</p>
+   * @public
+   */
+  ExpectedBucketOwner?: string | undefined;
+
+  /**
+   * <p>A boolean value that indicates whether GuardDuty is to start using this updated threat entity set. After you
+   *       update an entity set, you will need to activate it again. It might take up to 15 minutes for the updated
+   *       entity set to be effective.</p>
+   * @public
+   */
+  Activate?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateThreatEntitySetResponse {}
+
+/**
+ * @public
+ */
 export interface UpdateThreatIntelSetRequest {
   /**
    * <p>The detectorID that specifies the GuardDuty service whose ThreatIntelSet you want to
@@ -2932,6 +3506,61 @@ export interface UpdateThreatIntelSetRequest {
  * @public
  */
 export interface UpdateThreatIntelSetResponse {}
+
+/**
+ * @public
+ */
+export interface UpdateTrustedEntitySetRequest {
+  /**
+   * <p>The unique ID of the GuardDuty detector associated with the threat entity set that you want to
+   *          update.</p>
+   *          <p>To find the <code>detectorId</code> in the current Region, see the
+   * Settings page in the GuardDuty console, or run the <a href="https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html">ListDetectors</a> API.</p>
+   * @public
+   */
+  DetectorId: string | undefined;
+
+  /**
+   * <p>The ID returned by GuardDuty after updating the trusted entity set resource.</p>
+   * @public
+   */
+  TrustedEntitySetId: string | undefined;
+
+  /**
+   * <p>A user-friendly name to identify the trusted entity set.</p>
+   *          <p>
+   *             <b>List naming constraints</b> - The name of your list can include
+   *                                 lowercase letters, uppercase letters, numbers, dash (-), and underscore (_).</p>
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * <p>The URI of the file that contains the trusted entity set.</p>
+   * @public
+   */
+  Location?: string | undefined;
+
+  /**
+   * <p>The Amazon Web Services account ID that owns the Amazon S3 bucket specified in the <b>location</b>
+   *        parameter.</p>
+   * @public
+   */
+  ExpectedBucketOwner?: string | undefined;
+
+  /**
+   * <p>A boolean value that indicates whether GuardDuty is to start using this updated trusted entity set. After you
+   *        update an entity set, you will need to activate it again. It might take up to 15 minutes for the updated
+   *        entity set to be effective.</p>
+   * @public
+   */
+  Activate?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateTrustedEntitySetResponse {}
 
 /**
  * @internal

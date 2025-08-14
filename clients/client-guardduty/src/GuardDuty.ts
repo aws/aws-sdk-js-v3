@@ -49,10 +49,20 @@ import {
   CreateSampleFindingsCommandOutput,
 } from "./commands/CreateSampleFindingsCommand";
 import {
+  CreateThreatEntitySetCommand,
+  CreateThreatEntitySetCommandInput,
+  CreateThreatEntitySetCommandOutput,
+} from "./commands/CreateThreatEntitySetCommand";
+import {
   CreateThreatIntelSetCommand,
   CreateThreatIntelSetCommandInput,
   CreateThreatIntelSetCommandOutput,
 } from "./commands/CreateThreatIntelSetCommand";
+import {
+  CreateTrustedEntitySetCommand,
+  CreateTrustedEntitySetCommandInput,
+  CreateTrustedEntitySetCommandOutput,
+} from "./commands/CreateTrustedEntitySetCommand";
 import {
   DeclineInvitationsCommand,
   DeclineInvitationsCommandInput,
@@ -90,10 +100,20 @@ import {
   DeletePublishingDestinationCommandOutput,
 } from "./commands/DeletePublishingDestinationCommand";
 import {
+  DeleteThreatEntitySetCommand,
+  DeleteThreatEntitySetCommandInput,
+  DeleteThreatEntitySetCommandOutput,
+} from "./commands/DeleteThreatEntitySetCommand";
+import {
   DeleteThreatIntelSetCommand,
   DeleteThreatIntelSetCommandInput,
   DeleteThreatIntelSetCommandOutput,
 } from "./commands/DeleteThreatIntelSetCommand";
+import {
+  DeleteTrustedEntitySetCommand,
+  DeleteTrustedEntitySetCommandInput,
+  DeleteTrustedEntitySetCommandOutput,
+} from "./commands/DeleteTrustedEntitySetCommand";
 import {
   DescribeMalwareScansCommand,
   DescribeMalwareScansCommandInput,
@@ -190,10 +210,20 @@ import {
   GetRemainingFreeTrialDaysCommandOutput,
 } from "./commands/GetRemainingFreeTrialDaysCommand";
 import {
+  GetThreatEntitySetCommand,
+  GetThreatEntitySetCommandInput,
+  GetThreatEntitySetCommandOutput,
+} from "./commands/GetThreatEntitySetCommand";
+import {
   GetThreatIntelSetCommand,
   GetThreatIntelSetCommandInput,
   GetThreatIntelSetCommandOutput,
 } from "./commands/GetThreatIntelSetCommand";
+import {
+  GetTrustedEntitySetCommand,
+  GetTrustedEntitySetCommandInput,
+  GetTrustedEntitySetCommandOutput,
+} from "./commands/GetTrustedEntitySetCommand";
 import {
   GetUsageStatisticsCommand,
   GetUsageStatisticsCommandInput,
@@ -248,10 +278,20 @@ import {
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import {
+  ListThreatEntitySetsCommand,
+  ListThreatEntitySetsCommandInput,
+  ListThreatEntitySetsCommandOutput,
+} from "./commands/ListThreatEntitySetsCommand";
+import {
   ListThreatIntelSetsCommand,
   ListThreatIntelSetsCommandInput,
   ListThreatIntelSetsCommandOutput,
 } from "./commands/ListThreatIntelSetsCommand";
+import {
+  ListTrustedEntitySetsCommand,
+  ListTrustedEntitySetsCommandInput,
+  ListTrustedEntitySetsCommandOutput,
+} from "./commands/ListTrustedEntitySetsCommand";
 import {
   StartMalwareScanCommand,
   StartMalwareScanCommandInput,
@@ -320,10 +360,20 @@ import {
   UpdatePublishingDestinationCommandOutput,
 } from "./commands/UpdatePublishingDestinationCommand";
 import {
+  UpdateThreatEntitySetCommand,
+  UpdateThreatEntitySetCommandInput,
+  UpdateThreatEntitySetCommandOutput,
+} from "./commands/UpdateThreatEntitySetCommand";
+import {
   UpdateThreatIntelSetCommand,
   UpdateThreatIntelSetCommandInput,
   UpdateThreatIntelSetCommandOutput,
 } from "./commands/UpdateThreatIntelSetCommand";
+import {
+  UpdateTrustedEntitySetCommand,
+  UpdateTrustedEntitySetCommandInput,
+  UpdateTrustedEntitySetCommandOutput,
+} from "./commands/UpdateTrustedEntitySetCommand";
 import { GuardDutyClient, GuardDutyClientConfig } from "./GuardDutyClient";
 
 const commands = {
@@ -337,7 +387,9 @@ const commands = {
   CreateMembersCommand,
   CreatePublishingDestinationCommand,
   CreateSampleFindingsCommand,
+  CreateThreatEntitySetCommand,
   CreateThreatIntelSetCommand,
+  CreateTrustedEntitySetCommand,
   DeclineInvitationsCommand,
   DeleteDetectorCommand,
   DeleteFilterCommand,
@@ -346,7 +398,9 @@ const commands = {
   DeleteMalwareProtectionPlanCommand,
   DeleteMembersCommand,
   DeletePublishingDestinationCommand,
+  DeleteThreatEntitySetCommand,
   DeleteThreatIntelSetCommand,
+  DeleteTrustedEntitySetCommand,
   DescribeMalwareScansCommand,
   DescribeOrganizationConfigurationCommand,
   DescribePublishingDestinationCommand,
@@ -370,7 +424,9 @@ const commands = {
   GetMembersCommand,
   GetOrganizationStatisticsCommand,
   GetRemainingFreeTrialDaysCommand,
+  GetThreatEntitySetCommand,
   GetThreatIntelSetCommand,
+  GetTrustedEntitySetCommand,
   GetUsageStatisticsCommand,
   InviteMembersCommand,
   ListCoverageCommand,
@@ -384,7 +440,9 @@ const commands = {
   ListOrganizationAdminAccountsCommand,
   ListPublishingDestinationsCommand,
   ListTagsForResourceCommand,
+  ListThreatEntitySetsCommand,
   ListThreatIntelSetsCommand,
+  ListTrustedEntitySetsCommand,
   StartMalwareScanCommand,
   StartMonitoringMembersCommand,
   StopMonitoringMembersCommand,
@@ -400,7 +458,9 @@ const commands = {
   UpdateMemberDetectorsCommand,
   UpdateOrganizationConfigurationCommand,
   UpdatePublishingDestinationCommand,
+  UpdateThreatEntitySetCommand,
   UpdateThreatIntelSetCommand,
+  UpdateTrustedEntitySetCommand,
 };
 
 export interface GuardDuty {
@@ -551,6 +611,23 @@ export interface GuardDuty {
   ): void;
 
   /**
+   * @see {@link CreateThreatEntitySetCommand}
+   */
+  createThreatEntitySet(
+    args: CreateThreatEntitySetCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateThreatEntitySetCommandOutput>;
+  createThreatEntitySet(
+    args: CreateThreatEntitySetCommandInput,
+    cb: (err: any, data?: CreateThreatEntitySetCommandOutput) => void
+  ): void;
+  createThreatEntitySet(
+    args: CreateThreatEntitySetCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateThreatEntitySetCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link CreateThreatIntelSetCommand}
    */
   createThreatIntelSet(
@@ -565,6 +642,23 @@ export interface GuardDuty {
     args: CreateThreatIntelSetCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateThreatIntelSetCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateTrustedEntitySetCommand}
+   */
+  createTrustedEntitySet(
+    args: CreateTrustedEntitySetCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateTrustedEntitySetCommandOutput>;
+  createTrustedEntitySet(
+    args: CreateTrustedEntitySetCommandInput,
+    cb: (err: any, data?: CreateTrustedEntitySetCommandOutput) => void
+  ): void;
+  createTrustedEntitySet(
+    args: CreateTrustedEntitySetCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateTrustedEntitySetCommandOutput) => void
   ): void;
 
   /**
@@ -683,6 +777,23 @@ export interface GuardDuty {
   ): void;
 
   /**
+   * @see {@link DeleteThreatEntitySetCommand}
+   */
+  deleteThreatEntitySet(
+    args: DeleteThreatEntitySetCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteThreatEntitySetCommandOutput>;
+  deleteThreatEntitySet(
+    args: DeleteThreatEntitySetCommandInput,
+    cb: (err: any, data?: DeleteThreatEntitySetCommandOutput) => void
+  ): void;
+  deleteThreatEntitySet(
+    args: DeleteThreatEntitySetCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteThreatEntitySetCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DeleteThreatIntelSetCommand}
    */
   deleteThreatIntelSet(
@@ -697,6 +808,23 @@ export interface GuardDuty {
     args: DeleteThreatIntelSetCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteThreatIntelSetCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteTrustedEntitySetCommand}
+   */
+  deleteTrustedEntitySet(
+    args: DeleteTrustedEntitySetCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteTrustedEntitySetCommandOutput>;
+  deleteTrustedEntitySet(
+    args: DeleteTrustedEntitySetCommandInput,
+    cb: (err: any, data?: DeleteTrustedEntitySetCommandOutput) => void
+  ): void;
+  deleteTrustedEntitySet(
+    args: DeleteTrustedEntitySetCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteTrustedEntitySetCommandOutput) => void
   ): void;
 
   /**
@@ -1063,6 +1191,23 @@ export interface GuardDuty {
   ): void;
 
   /**
+   * @see {@link GetThreatEntitySetCommand}
+   */
+  getThreatEntitySet(
+    args: GetThreatEntitySetCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetThreatEntitySetCommandOutput>;
+  getThreatEntitySet(
+    args: GetThreatEntitySetCommandInput,
+    cb: (err: any, data?: GetThreatEntitySetCommandOutput) => void
+  ): void;
+  getThreatEntitySet(
+    args: GetThreatEntitySetCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetThreatEntitySetCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetThreatIntelSetCommand}
    */
   getThreatIntelSet(
@@ -1077,6 +1222,23 @@ export interface GuardDuty {
     args: GetThreatIntelSetCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetThreatIntelSetCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetTrustedEntitySetCommand}
+   */
+  getTrustedEntitySet(
+    args: GetTrustedEntitySetCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetTrustedEntitySetCommandOutput>;
+  getTrustedEntitySet(
+    args: GetTrustedEntitySetCommandInput,
+    cb: (err: any, data?: GetTrustedEntitySetCommandOutput) => void
+  ): void;
+  getTrustedEntitySet(
+    args: GetTrustedEntitySetCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetTrustedEntitySetCommandOutput) => void
   ): void;
 
   /**
@@ -1260,6 +1422,23 @@ export interface GuardDuty {
   ): void;
 
   /**
+   * @see {@link ListThreatEntitySetsCommand}
+   */
+  listThreatEntitySets(
+    args: ListThreatEntitySetsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListThreatEntitySetsCommandOutput>;
+  listThreatEntitySets(
+    args: ListThreatEntitySetsCommandInput,
+    cb: (err: any, data?: ListThreatEntitySetsCommandOutput) => void
+  ): void;
+  listThreatEntitySets(
+    args: ListThreatEntitySetsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListThreatEntitySetsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListThreatIntelSetsCommand}
    */
   listThreatIntelSets(
@@ -1274,6 +1453,23 @@ export interface GuardDuty {
     args: ListThreatIntelSetsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListThreatIntelSetsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListTrustedEntitySetsCommand}
+   */
+  listTrustedEntitySets(
+    args: ListTrustedEntitySetsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListTrustedEntitySetsCommandOutput>;
+  listTrustedEntitySets(
+    args: ListTrustedEntitySetsCommandInput,
+    cb: (err: any, data?: ListTrustedEntitySetsCommandOutput) => void
+  ): void;
+  listTrustedEntitySets(
+    args: ListTrustedEntitySetsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListTrustedEntitySetsCommandOutput) => void
   ): void;
 
   /**
@@ -1505,6 +1701,23 @@ export interface GuardDuty {
   ): void;
 
   /**
+   * @see {@link UpdateThreatEntitySetCommand}
+   */
+  updateThreatEntitySet(
+    args: UpdateThreatEntitySetCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateThreatEntitySetCommandOutput>;
+  updateThreatEntitySet(
+    args: UpdateThreatEntitySetCommandInput,
+    cb: (err: any, data?: UpdateThreatEntitySetCommandOutput) => void
+  ): void;
+  updateThreatEntitySet(
+    args: UpdateThreatEntitySetCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateThreatEntitySetCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link UpdateThreatIntelSetCommand}
    */
   updateThreatIntelSet(
@@ -1519,6 +1732,23 @@ export interface GuardDuty {
     args: UpdateThreatIntelSetCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateThreatIntelSetCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateTrustedEntitySetCommand}
+   */
+  updateTrustedEntitySet(
+    args: UpdateTrustedEntitySetCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateTrustedEntitySetCommandOutput>;
+  updateTrustedEntitySet(
+    args: UpdateTrustedEntitySetCommandInput,
+    cb: (err: any, data?: UpdateTrustedEntitySetCommandOutput) => void
+  ): void;
+  updateTrustedEntitySet(
+    args: UpdateTrustedEntitySetCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateTrustedEntitySetCommandOutput) => void
   ): void;
 }
 

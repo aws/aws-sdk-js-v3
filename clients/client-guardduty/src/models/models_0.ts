@@ -3507,6 +3507,94 @@ export interface CreateSampleFindingsResponse {}
  * @public
  * @enum
  */
+export const ThreatEntitySetFormat = {
+  ALIEN_VAULT: "ALIEN_VAULT",
+  FIRE_EYE: "FIRE_EYE",
+  OTX_CSV: "OTX_CSV",
+  PROOF_POINT: "PROOF_POINT",
+  STIX: "STIX",
+  TXT: "TXT",
+} as const;
+
+/**
+ * @public
+ */
+export type ThreatEntitySetFormat = (typeof ThreatEntitySetFormat)[keyof typeof ThreatEntitySetFormat];
+
+/**
+ * @public
+ */
+export interface CreateThreatEntitySetRequest {
+  /**
+   * <p>The unique ID of the detector of the GuardDuty account for which you want to create a threat entity set.</p>
+   *          <p>To find the <code>detectorId</code> in the current Region, see the
+   * Settings page in the GuardDuty console, or run the <a href="https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html">ListDetectors</a> API.</p>
+   * @public
+   */
+  DetectorId: string | undefined;
+
+  /**
+   * <p>A user-friendly name to identify the threat entity set.</p>
+   *          <p>
+   *             <b>List naming constraints</b> - The name of your list can include
+   *                                 lowercase letters, uppercase letters, numbers, dash (-), and underscore (_).</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The format of the file that contains the threat entity set.</p>
+   * @public
+   */
+  Format: ThreatEntitySetFormat | undefined;
+
+  /**
+   * <p>The URI of the file that contains the threat entity set.</p>
+   * @public
+   */
+  Location: string | undefined;
+
+  /**
+   * <p>The Amazon Web Services account ID that owns the Amazon S3 bucket specified in the <b>location</b> parameter.</p>
+   * @public
+   */
+  ExpectedBucketOwner?: string | undefined;
+
+  /**
+   * <p>A boolean value that indicates whether GuardDuty should start using the uploaded threat entity set to
+   *         generate findings.</p>
+   * @public
+   */
+  Activate: boolean | undefined;
+
+  /**
+   * <p>The idempotency token for the create request.</p>
+   * @public
+   */
+  ClientToken?: string | undefined;
+
+  /**
+   * <p>The tags to be added to a new threat entity set resource.</p>
+   * @public
+   */
+  Tags?: Record<string, string> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateThreatEntitySetResponse {
+  /**
+   * <p>The ID returned by GuardDuty after creation of the threat entity set resource.</p>
+   * @public
+   */
+  ThreatEntitySetId: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
 export const ThreatIntelSetFormat = {
   ALIEN_VAULT: "ALIEN_VAULT",
   FIRE_EYE: "FIRE_EYE",
@@ -3527,7 +3615,7 @@ export type ThreatIntelSetFormat = (typeof ThreatIntelSetFormat)[keyof typeof Th
 export interface CreateThreatIntelSetRequest {
   /**
    * <p>The unique ID of the detector of the GuardDuty account for which you want to create a
-   *       <code>ThreatIntelSet</code>.</p>
+   *       <code>threatIntelSet</code>.</p>
    *          <p>To find the <code>detectorId</code> in the current Region, see the
    * Settings page in the GuardDuty console, or run the <a href="https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html">ListDetectors</a> API.</p>
    * @public
@@ -3588,6 +3676,95 @@ export interface CreateThreatIntelSetResponse {
    * @public
    */
   ThreatIntelSetId: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const TrustedEntitySetFormat = {
+  ALIEN_VAULT: "ALIEN_VAULT",
+  FIRE_EYE: "FIRE_EYE",
+  OTX_CSV: "OTX_CSV",
+  PROOF_POINT: "PROOF_POINT",
+  STIX: "STIX",
+  TXT: "TXT",
+} as const;
+
+/**
+ * @public
+ */
+export type TrustedEntitySetFormat = (typeof TrustedEntitySetFormat)[keyof typeof TrustedEntitySetFormat];
+
+/**
+ * @public
+ */
+export interface CreateTrustedEntitySetRequest {
+  /**
+   * <p>The unique ID of the detector of the GuardDuty account for which you want to create a trusted
+   *       entity set.</p>
+   *          <p>To find the <code>detectorId</code> in the current Region, see the
+   * Settings page in the GuardDuty console, or run the <a href="https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html">ListDetectors</a> API.</p>
+   * @public
+   */
+  DetectorId: string | undefined;
+
+  /**
+   * <p>A user-friendly name to identify the trusted entity set.</p>
+   *          <p>
+   *             <b>List naming constraints</b> - The name of your list can include
+   *                                 lowercase letters, uppercase letters, numbers, dash (-), and underscore (_).</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The format of the file that contains the trusted entity set.</p>
+   * @public
+   */
+  Format: TrustedEntitySetFormat | undefined;
+
+  /**
+   * <p>The URI of the file that contains the trusted entity set.</p>
+   * @public
+   */
+  Location: string | undefined;
+
+  /**
+   * <p>The Amazon Web Services account ID that owns the Amazon S3 bucket specified in the <b>location</b>
+   *       parameter.</p>
+   * @public
+   */
+  ExpectedBucketOwner?: string | undefined;
+
+  /**
+   * <p>A boolean value that indicates whether GuardDuty is to start using the uploaded trusted entity set.</p>
+   * @public
+   */
+  Activate: boolean | undefined;
+
+  /**
+   * <p>The idempotency token for the create request.</p>
+   * @public
+   */
+  ClientToken?: string | undefined;
+
+  /**
+   * <p>The tags to be added to a new trusted entity set resource.</p>
+   * @public
+   */
+  Tags?: Record<string, string> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateTrustedEntitySetResponse {
+  /**
+   * <p>The ID returned by GuardDuty after creation of the trusted entity set resource.</p>
+   * @public
+   */
+  TrustedEntitySetId: string | undefined;
 }
 
 /**
@@ -4001,6 +4178,30 @@ export interface DeletePublishingDestinationResponse {}
 /**
  * @public
  */
+export interface DeleteThreatEntitySetRequest {
+  /**
+   * <p>The unique ID of the detector associated with the threat entity set resource.</p>
+   *          <p>To find the <code>detectorId</code> in the current Region, see the
+   * Settings page in the GuardDuty console, or run the <a href="https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html">ListDetectors</a> API.</p>
+   * @public
+   */
+  DetectorId: string | undefined;
+
+  /**
+   * <p>The unique ID that helps GuardDuty identify which threat entity set needs to be deleted.</p>
+   * @public
+   */
+  ThreatEntitySetId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteThreatEntitySetResponse {}
+
+/**
+ * @public
+ */
 export interface DeleteThreatIntelSetRequest {
   /**
    * <p>The unique ID of the detector that is associated with the threatIntelSet.</p>
@@ -4021,6 +4222,30 @@ export interface DeleteThreatIntelSetRequest {
  * @public
  */
 export interface DeleteThreatIntelSetResponse {}
+
+/**
+ * @public
+ */
+export interface DeleteTrustedEntitySetRequest {
+  /**
+   * <p>The unique ID of the detector associated with the trusted entity set resource.</p>
+   *          <p>To find the <code>detectorId</code> in the current Region, see the
+   * Settings page in the GuardDuty console, or run the <a href="https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html">ListDetectors</a> API.</p>
+   * @public
+   */
+  DetectorId: string | undefined;
+
+  /**
+   * <p>The unique ID that helps GuardDuty identify which trusted entity set needs to be deleted.</p>
+   * @public
+   */
+  TrustedEntitySetId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteTrustedEntitySetResponse {}
 
 /**
  * <p>Contains information about the condition.</p>
@@ -8064,233 +8289,6 @@ export interface FindingStatistics {
    * @public
    */
   GroupedBySeverity?: SeverityStatistics[] | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const FindingStatisticType = {
-  COUNT_BY_SEVERITY: "COUNT_BY_SEVERITY",
-} as const;
-
-/**
- * @public
- */
-export type FindingStatisticType = (typeof FindingStatisticType)[keyof typeof FindingStatisticType];
-
-/**
- * @public
- */
-export interface GetAdministratorAccountRequest {
-  /**
-   * <p>The unique ID of the detector of the GuardDuty member account.</p>
-   * @public
-   */
-  DetectorId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface GetAdministratorAccountResponse {
-  /**
-   * <p>The administrator account details.</p>
-   * @public
-   */
-  Administrator: Administrator | undefined;
-}
-
-/**
- * @public
- */
-export interface GetCoverageStatisticsRequest {
-  /**
-   * <p>The unique ID of the GuardDuty detector.</p>
-   *          <p>To find the <code>detectorId</code> in the current Region, see the
-   * Settings page in the GuardDuty console, or run the <a href="https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html">ListDetectors</a> API.</p>
-   * @public
-   */
-  DetectorId: string | undefined;
-
-  /**
-   * <p>Represents the criteria used to filter the coverage statistics.</p>
-   * @public
-   */
-  FilterCriteria?: CoverageFilterCriteria | undefined;
-
-  /**
-   * <p>Represents the statistics type used to aggregate the coverage details.</p>
-   * @public
-   */
-  StatisticsType: CoverageStatisticsType[] | undefined;
-}
-
-/**
- * @public
- */
-export interface GetCoverageStatisticsResponse {
-  /**
-   * <p>Represents the count aggregated by the <code>statusCode</code> and
-   *         <code>resourceType</code>.</p>
-   * @public
-   */
-  CoverageStatistics?: CoverageStatistics | undefined;
-}
-
-/**
- * @public
- */
-export interface GetDetectorRequest {
-  /**
-   * <p>The unique ID of the detector that you want to get.</p>
-   *          <p>To find the <code>detectorId</code> in the current Region, see the
-   * Settings page in the GuardDuty console, or run the <a href="https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html">ListDetectors</a> API.</p>
-   * @public
-   */
-  DetectorId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface GetDetectorResponse {
-  /**
-   * <p>The timestamp of when the detector was created.</p>
-   * @public
-   */
-  CreatedAt?: string | undefined;
-
-  /**
-   * <p>The publishing frequency of the finding.</p>
-   * @public
-   */
-  FindingPublishingFrequency?: FindingPublishingFrequency | undefined;
-
-  /**
-   * <p>The GuardDuty service role.</p>
-   * @public
-   */
-  ServiceRole: string | undefined;
-
-  /**
-   * <p>The detector status.</p>
-   * @public
-   */
-  Status: DetectorStatus | undefined;
-
-  /**
-   * <p>The last-updated timestamp for the detector.</p>
-   * @public
-   */
-  UpdatedAt?: string | undefined;
-
-  /**
-   * <p>Describes which data sources are enabled for the detector.</p>
-   *
-   * @deprecated
-   * @public
-   */
-  DataSources?: DataSourceConfigurationsResult | undefined;
-
-  /**
-   * <p>The tags of the detector resource.</p>
-   * @public
-   */
-  Tags?: Record<string, string> | undefined;
-
-  /**
-   * <p>Describes the features that have been enabled for the detector.</p>
-   * @public
-   */
-  Features?: DetectorFeatureConfigurationResult[] | undefined;
-}
-
-/**
- * @public
- */
-export interface GetFilterRequest {
-  /**
-   * <p>The unique ID of the detector that is associated with this filter.</p>
-   *          <p>To find the <code>detectorId</code> in the current Region, see the
-   * Settings page in the GuardDuty console, or run the <a href="https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html">ListDetectors</a> API.</p>
-   * @public
-   */
-  DetectorId: string | undefined;
-
-  /**
-   * <p>The name of the filter you want to get.</p>
-   * @public
-   */
-  FilterName: string | undefined;
-}
-
-/**
- * @public
- */
-export interface GetFilterResponse {
-  /**
-   * <p>The name of the filter.</p>
-   * @public
-   */
-  Name: string | undefined;
-
-  /**
-   * <p>The description of the filter.</p>
-   * @public
-   */
-  Description?: string | undefined;
-
-  /**
-   * <p>Specifies the action that is to be applied to the findings that match the filter.</p>
-   * @public
-   */
-  Action: FilterAction | undefined;
-
-  /**
-   * <p>Specifies the position of the filter in the list of current filters. Also specifies the
-   *       order in which this filter is applied to the findings.</p>
-   * @public
-   */
-  Rank?: number | undefined;
-
-  /**
-   * <p>Represents the criteria to be used in the filter for querying findings.</p>
-   * @public
-   */
-  FindingCriteria: FindingCriteria | undefined;
-
-  /**
-   * <p>The tags of the filter resource.</p>
-   * @public
-   */
-  Tags?: Record<string, string> | undefined;
-}
-
-/**
- * @public
- */
-export interface GetFindingsRequest {
-  /**
-   * <p>The ID of the detector that specifies the GuardDuty service whose findings you want to
-   *       retrieve.</p>
-   *          <p>To find the <code>detectorId</code> in the current Region, see the
-   * Settings page in the GuardDuty console, or run the <a href="https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html">ListDetectors</a> API.</p>
-   * @public
-   */
-  DetectorId: string | undefined;
-
-  /**
-   * <p>The IDs of the findings that you want to retrieve.</p>
-   * @public
-   */
-  FindingIds: string[] | undefined;
-
-  /**
-   * <p>Represents the criteria used for sorting findings.</p>
-   * @public
-   */
-  SortCriteria?: SortCriteria | undefined;
 }
 
 /**
