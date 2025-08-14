@@ -28,9 +28,7 @@ export interface StopQAppSessionCommandInput extends StopQAppSessionInput {}
 export interface StopQAppSessionCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Stops an active session for an Amazon Q App.This deletes all data related to the session and
- *       makes it invalid for future uses. The results of the session will be persisted as part of the
- *       conversation.</p>
+ * <p>Stops an active session for an Amazon Q App.This deletes all data related to the session and makes it invalid for future uses. The results of the session will be persisted as part of the conversation.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -63,12 +61,10 @@ export interface StopQAppSessionCommandOutput extends __MetadataBearer {}
  *  <p>The requested resource could not be found.</p>
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>The requested operation could not be completed because it would exceed the service's quota
- *       or limit.</p>
+ *  <p>The requested operation could not be completed because it would exceed the service's quota or limit.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The requested operation could not be completed because too many requests were sent at
- *       once. Wait a bit and try again later.</p>
+ *  <p>The requested operation could not be completed because too many requests were sent at once. Wait a bit and try again later.</p>
  *
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>The client is not authenticated or authorized to perform the requested operation.</p>

@@ -28,12 +28,7 @@ export interface StartQAppSessionCommandInput extends StartQAppSessionInput {}
 export interface StartQAppSessionCommandOutput extends StartQAppSessionOutput, __MetadataBearer {}
 
 /**
- * <p>Starts a new session for an Amazon Q App, allowing inputs to be provided and the app to be
- *       run.</p>
- *          <note>
- *             <p>Each Q App session will be condensed into a single conversation in the web
- *         experience.</p>
- *          </note>
+ * <p>Starts a new session for an Amazon Q App, allowing inputs to be provided and the app to be run.</p> <note> <p>Each Q App session will be condensed into a single conversation in the web experience.</p> </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -84,12 +79,10 @@ export interface StartQAppSessionCommandOutput extends StartQAppSessionOutput, _
  *  <p>The requested resource could not be found.</p>
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>The requested operation could not be completed because it would exceed the service's quota
- *       or limit.</p>
+ *  <p>The requested operation could not be completed because it would exceed the service's quota or limit.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The requested operation could not be completed because too many requests were sent at
- *       once. Wait a bit and try again later.</p>
+ *  <p>The requested operation could not be completed because too many requests were sent at once. Wait a bit and try again later.</p>
  *
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>The client is not authenticated or authorized to perform the requested operation.</p>

@@ -63,8 +63,7 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
  *  <p>The requested resource could not be found.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The requested operation could not be completed because too many requests were sent at
- *       once. Wait a bit and try again later.</p>
+ *  <p>The requested operation could not be completed because too many requests were sent at once. Wait a bit and try again later.</p>
  *
  * @throws {@link ValidationException} (client fault)
  *  <p>The input failed to satisfy the constraints specified by the service.</p>

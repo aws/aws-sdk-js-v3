@@ -28,9 +28,7 @@ export interface PredictQAppCommandInput extends PredictQAppInput {}
 export interface PredictQAppCommandOutput extends PredictQAppOutput, __MetadataBearer {}
 
 /**
- * <p>Generates an Amazon Q App definition based on either a conversation or a problem statement
- *       provided as input.The resulting app definition can be used to call <code>CreateQApp</code>.
- *       This API doesn't create Amazon Q Apps directly.</p>
+ * <p>Generates an Amazon Q App definition based on either a conversation or a problem statement provided as input.The resulting app definition can be used to call <code>CreateQApp</code>. This API doesn't create Amazon Q Apps directly.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -201,8 +199,7 @@ export interface PredictQAppCommandOutput extends PredictQAppOutput, __MetadataB
  *  <p>An internal service error occurred while processing the request.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The requested operation could not be completed because too many requests were sent at
- *       once. Wait a bit and try again later.</p>
+ *  <p>The requested operation could not be completed because too many requests were sent at once. Wait a bit and try again later.</p>
  *
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>The client is not authenticated or authorized to perform the requested operation.</p>

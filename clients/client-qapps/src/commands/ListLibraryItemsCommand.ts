@@ -28,8 +28,7 @@ export interface ListLibraryItemsCommandInput extends ListLibraryItemsInput {}
 export interface ListLibraryItemsCommandOutput extends ListLibraryItemsOutput, __MetadataBearer {}
 
 /**
- * <p>Lists the library items for Amazon Q Apps that are published and available for users in your
- *         Amazon Web Services account.</p>
+ * <p>Lists the library items for Amazon Q Apps that are published and available for users in your Amazon Web Services account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -90,8 +89,7 @@ export interface ListLibraryItemsCommandOutput extends ListLibraryItemsOutput, _
  *  <p>The requested resource could not be found.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The requested operation could not be completed because too many requests were sent at
- *       once. Wait a bit and try again later.</p>
+ *  <p>The requested operation could not be completed because too many requests were sent at once. Wait a bit and try again later.</p>
  *
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>The client is not authenticated or authorized to perform the requested operation.</p>

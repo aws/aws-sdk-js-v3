@@ -28,9 +28,7 @@ export interface BatchDeleteCategoryCommandInput extends BatchDeleteCategoryInpu
 export interface BatchDeleteCategoryCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Deletes Categories for the Amazon Q Business application environment instance. Web experience users use
- *       Categories to tag and filter library items. For more information, see <a href="https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/qapps-custom-labels.html">Custom
- *         labels for Amazon Q Apps</a>.</p>
+ * <p>Deletes Categories for the Amazon Q Business application environment instance. Web experience users use Categories to tag and filter library items. For more information, see <a href="https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/qapps-custom-labels.html">Custom labels for Amazon Q Apps</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -59,8 +57,7 @@ export interface BatchDeleteCategoryCommandOutput extends __MetadataBearer {}
  *  <p>The client is not authorized to perform the requested operation.</p>
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>The requested operation could not be completed due to a conflict with the current state of
- *       the resource.</p>
+ *  <p>The requested operation could not be completed due to a conflict with the current state of the resource.</p>
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>An internal service error occurred while processing the request.</p>
@@ -69,8 +66,7 @@ export interface BatchDeleteCategoryCommandOutput extends __MetadataBearer {}
  *  <p>The requested resource could not be found.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The requested operation could not be completed because too many requests were sent at
- *       once. Wait a bit and try again later.</p>
+ *  <p>The requested operation could not be completed because too many requests were sent at once. Wait a bit and try again later.</p>
  *
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>The client is not authenticated or authorized to perform the requested operation.</p>

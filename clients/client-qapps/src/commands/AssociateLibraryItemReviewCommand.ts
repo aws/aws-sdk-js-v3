@@ -28,8 +28,7 @@ export interface AssociateLibraryItemReviewCommandInput extends AssociateLibrary
 export interface AssociateLibraryItemReviewCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Associates a rating or review for a library item with the user submitting the request.
- *       This increments the rating count for the specified library item.</p>
+ * <p>Associates a rating or review for a library item with the user submitting the request. This increments the rating count for the specified library item.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -56,8 +55,7 @@ export interface AssociateLibraryItemReviewCommandOutput extends __MetadataBeare
  *  <p>The client is not authorized to perform the requested operation.</p>
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>The requested operation could not be completed due to a conflict with the current state of
- *       the resource.</p>
+ *  <p>The requested operation could not be completed due to a conflict with the current state of the resource.</p>
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>An internal service error occurred while processing the request.</p>
@@ -66,12 +64,10 @@ export interface AssociateLibraryItemReviewCommandOutput extends __MetadataBeare
  *  <p>The requested resource could not be found.</p>
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>The requested operation could not be completed because it would exceed the service's quota
- *       or limit.</p>
+ *  <p>The requested operation could not be completed because it would exceed the service's quota or limit.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The requested operation could not be completed because too many requests were sent at
- *       once. Wait a bit and try again later.</p>
+ *  <p>The requested operation could not be completed because too many requests were sent at once. Wait a bit and try again later.</p>
  *
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>The client is not authenticated or authorized to perform the requested operation.</p>
