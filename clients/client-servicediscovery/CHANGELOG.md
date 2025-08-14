@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.868.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.867.0...v3.868.0) (2025-08-14)
+
+
+### Features
+
+* **client-servicediscovery:** Added support for cross account through Id parameter overloading with ARN and allow owner account for some APIs instead of ARN ([3002abd](https://github.com/aws/aws-sdk-js-v3/commit/3002abd86a89860fd588765abd10351329719f4a))
+
+
+
+
+
 # [3.864.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.863.0...v3.864.0) (2025-08-08)
 
 **Note:** Version bump only for package @aws-sdk/client-servicediscovery

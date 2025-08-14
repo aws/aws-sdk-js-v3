@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.868.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.867.0...v3.868.0) (2025-08-14)
+
+
+### Features
+
+* **client-fsx:** Amazon FSx for NetApp ONTAP 2nd generation file systems now support decreasing SSD storage capacity. ([8cb23ab](https://github.com/aws/aws-sdk-js-v3/commit/8cb23abd47fbb450fa3c9d1db98ac02f98b5cb6d))
+
+
+
+
+
 # [3.867.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.866.0...v3.867.0) (2025-08-13)
 
 

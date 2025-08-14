@@ -3,6 +3,29 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.868.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.867.0...v3.868.0) (2025-08-14)
+
+
+### Features
+
+* **client-arc-region-switch:** Endpoint rule test and documentation update. ([4e686d3](https://github.com/aws/aws-sdk-js-v3/commit/4e686d39fd303c3dd5095b339759a1366de18678))
+* **client-bcm-recommended-actions:** Initial SDK release for AWS Billing and Cost Management Recommended Actions. ([2443ab1](https://github.com/aws/aws-sdk-js-v3/commit/2443ab1fc3b3706bcc4f456aceb5822da709accc))
+* **client-direct-connect:** Added pagination support for DescribeHostedConnections, DescribeVirtualInterfaces, DescribeConnections, DescribeInterconnects, DescribeLags. Added asnLong support for BGP peer operations which supports a large range. ([ae2b9bc](https://github.com/aws/aws-sdk-js-v3/commit/ae2b9bca2c611571f41767fd20f07d79d39f8b4c))
+* **client-dynamodb:** This release 1/ Adds support for throttled keys mode for CloudWatch Contributor Insights, 2/ Adds throttling reasons to exceptions across dataplane APIs. 3/ Explicitly models ThrottlingException as a class in statically typed languages. Refer to the launch day blog post for more details. ([a2e4992](https://github.com/aws/aws-sdk-js-v3/commit/a2e49920c20d77c01fd5d35de48fe0699dd615f7))
+* **client-ec2:** This release adds ModifyInstanceConnectEndpoint API to update configurations on existing EC2 Instance Connect Endpoints and improves IPv6 support through dualstack DNS names for EC2 Instance Connect Endpoints. ([a8bd4d8](https://github.com/aws/aws-sdk-js-v3/commit/a8bd4d8e7d81efae58c18983559a8c88090cb0f3))
+* **client-fsx:** Amazon FSx for NetApp ONTAP 2nd generation file systems now support decreasing SSD storage capacity. ([8cb23ab](https://github.com/aws/aws-sdk-js-v3/commit/8cb23abd47fbb450fa3c9d1db98ac02f98b5cb6d))
+* **client-glue:** AWS Glue now supports Trusted Identity Propagation. ([71e32da](https://github.com/aws/aws-sdk-js-v3/commit/71e32da3d1568a8864a67f8904fac5d01869bdab))
+* **client-guardduty:** Added support for entity lists. ([709b588](https://github.com/aws/aws-sdk-js-v3/commit/709b58867ac704c03e56250f6b64e7a1bcf5e871))
+* **client-medialive:** CMAF Ingest output groups in MediaLive can now accept one additional destination url for single pipeline channels and up to two additional destination urls for standard channels. ([761c811](https://github.com/aws/aws-sdk-js-v3/commit/761c8112d37c9974d38eeeaa8e17efd82c330fe8))
+* **client-pcs:** Updated the regex pattern and description of iamInstanceProfileArn in the CreateComputeNodeGroup and UpdateComputeNodeGroup API actions. Name and path requirements apply to the ARN of the IAM role associated with the instance profile and not the ARN of the instance profile. ([b5adbbc](https://github.com/aws/aws-sdk-js-v3/commit/b5adbbce1c054c23c5972b6188409f66f3325256))
+* **client-servicediscovery:** Added support for cross account through Id parameter overloading with ARN and allow owner account for some APIs instead of ARN ([3002abd](https://github.com/aws/aws-sdk-js-v3/commit/3002abd86a89860fd588765abd10351329719f4a))
+* **client-workspaces:** New APIs introduced to import WorkSpaces BYOL image using a new process that leveraged EC2 Image Builder. WorkSpaces tests and fixes your image's compatibility issues and supports customized VM images. ([5e93ef1](https://github.com/aws/aws-sdk-js-v3/commit/5e93ef1d238bfa73c4318d551c9642d174c155aa))
+* **clients:** update client endpoints as of 2025-08-14 ([09fe885](https://github.com/aws/aws-sdk-js-v3/commit/09fe885010eccd24719cd9ff2d70ec842a32d8de))
+
+
+
+
+
 # [3.867.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.866.0...v3.867.0) (2025-08-13)
 
 
