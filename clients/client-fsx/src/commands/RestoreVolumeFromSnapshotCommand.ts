@@ -58,7 +58,7 @@ export interface RestoreVolumeFromSnapshotCommandOutput extends RestoreVolumeFro
  * //       AdministrativeActionType: "FILE_SYSTEM_UPDATE" || "STORAGE_OPTIMIZATION" || "FILE_SYSTEM_ALIAS_ASSOCIATION" || "FILE_SYSTEM_ALIAS_DISASSOCIATION" || "VOLUME_UPDATE" || "SNAPSHOT_UPDATE" || "RELEASE_NFS_V3_LOCKS" || "VOLUME_RESTORE" || "THROUGHPUT_OPTIMIZATION" || "IOPS_OPTIMIZATION" || "STORAGE_TYPE_OPTIMIZATION" || "MISCONFIGURED_STATE_RECOVERY" || "VOLUME_UPDATE_WITH_SNAPSHOT" || "VOLUME_INITIALIZE_WITH_SNAPSHOT" || "DOWNLOAD_DATA_FROM_BACKUP",
  * //       ProgressPercent: Number("int"),
  * //       RequestTime: new Date("TIMESTAMP"),
- * //       Status: "FAILED" || "IN_PROGRESS" || "PENDING" || "COMPLETED" || "UPDATED_OPTIMIZING" || "OPTIMIZING",
+ * //       Status: "FAILED" || "IN_PROGRESS" || "PENDING" || "COMPLETED" || "UPDATED_OPTIMIZING" || "OPTIMIZING" || "PAUSED" || "CANCELLED",
  * //       TargetFileSystemValues: { // FileSystem
  * //         OwnerId: "STRING_VALUE",
  * //         CreationTime: new Date("TIMESTAMP"),
@@ -171,7 +171,7 @@ export interface RestoreVolumeFromSnapshotCommandOutput extends RestoreVolumeFro
  * //             AdministrativeActionType: "FILE_SYSTEM_UPDATE" || "STORAGE_OPTIMIZATION" || "FILE_SYSTEM_ALIAS_ASSOCIATION" || "FILE_SYSTEM_ALIAS_DISASSOCIATION" || "VOLUME_UPDATE" || "SNAPSHOT_UPDATE" || "RELEASE_NFS_V3_LOCKS" || "VOLUME_RESTORE" || "THROUGHPUT_OPTIMIZATION" || "IOPS_OPTIMIZATION" || "STORAGE_TYPE_OPTIMIZATION" || "MISCONFIGURED_STATE_RECOVERY" || "VOLUME_UPDATE_WITH_SNAPSHOT" || "VOLUME_INITIALIZE_WITH_SNAPSHOT" || "DOWNLOAD_DATA_FROM_BACKUP",
  * //             ProgressPercent: Number("int"),
  * //             RequestTime: new Date("TIMESTAMP"),
- * //             Status: "FAILED" || "IN_PROGRESS" || "PENDING" || "COMPLETED" || "UPDATED_OPTIMIZING" || "OPTIMIZING",
+ * //             Status: "FAILED" || "IN_PROGRESS" || "PENDING" || "COMPLETED" || "UPDATED_OPTIMIZING" || "OPTIMIZING" || "PAUSED" || "CANCELLED",
  * //             TargetFileSystemValues: {
  * //               OwnerId: "STRING_VALUE",
  * //               CreationTime: new Date("TIMESTAMP"),
@@ -473,6 +473,7 @@ export interface RestoreVolumeFromSnapshotCommandOutput extends RestoreVolumeFro
  * //             },
  * //             TotalTransferBytes: Number("long"),
  * //             RemainingTransferBytes: Number("long"),
+ * //             Message: "STRING_VALUE",
  * //           },
  * //         ],
  * //         OntapConfiguration: {
@@ -657,6 +658,7 @@ export interface RestoreVolumeFromSnapshotCommandOutput extends RestoreVolumeFro
  * //       },
  * //       TotalTransferBytes: Number("long"),
  * //       RemainingTransferBytes: Number("long"),
+ * //       Message: "STRING_VALUE",
  * //     },
  * //   ],
  * // };

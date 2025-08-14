@@ -3409,6 +3409,7 @@ const de_AdministrativeAction = (output: any, context: __SerdeContext): Administ
   return take(output, {
     AdministrativeActionType: __expectString,
     FailureDetails: _json,
+    Message: __expectString,
     ProgressPercent: __expectInt32,
     RemainingTransferBytes: __expectLong,
     RequestTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
