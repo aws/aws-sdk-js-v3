@@ -16593,6 +16593,7 @@ const de_ModifyIntegrationResponse = (output: any, context: __SerdeContext): Mod
     Description: __expectString,
     Errors: _json,
     IntegrationArn: __expectString,
+    IntegrationConfig: _json,
     IntegrationName: __expectString,
     KmsKeyId: __expectString,
     SourceArn: __expectString,

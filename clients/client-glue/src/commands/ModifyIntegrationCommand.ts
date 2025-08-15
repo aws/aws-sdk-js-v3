@@ -39,6 +39,13 @@ export interface ModifyIntegrationCommandOutput extends ModifyIntegrationRespons
  *   IntegrationIdentifier: "STRING_VALUE", // required
  *   Description: "STRING_VALUE",
  *   DataFilter: "STRING_VALUE",
+ *   IntegrationConfig: { // IntegrationConfig
+ *     RefreshInterval: "STRING_VALUE",
+ *     SourceProperties: { // IntegrationSourcePropertiesMap
+ *       "<keys>": "STRING_VALUE",
+ *     },
+ *     ContinuousSync: true || false,
+ *   },
  *   IntegrationName: "STRING_VALUE",
  * };
  * const command = new ModifyIntegrationCommand(input);
@@ -68,6 +75,13 @@ export interface ModifyIntegrationCommandOutput extends ModifyIntegrationRespons
  * //     },
  * //   ],
  * //   DataFilter: "STRING_VALUE",
+ * //   IntegrationConfig: { // IntegrationConfig
+ * //     RefreshInterval: "STRING_VALUE",
+ * //     SourceProperties: { // IntegrationSourcePropertiesMap
+ * //       "<keys>": "STRING_VALUE",
+ * //     },
+ * //     ContinuousSync: true || false,
+ * //   },
  * // };
  *
  * ```

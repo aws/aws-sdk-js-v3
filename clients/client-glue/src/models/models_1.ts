@@ -3042,6 +3042,13 @@ export interface IntegrationConfig {
    * @public
    */
   SourceProperties?: Record<string, string> | undefined;
+
+  /**
+   * <p>Enables continuous synchronization for on-demand data extractions from SaaS applications to Amazon Web Services data services like Amazon Redshift
+   *       and Amazon S3.</p>
+   * @public
+   */
+  ContinuousSync?: boolean | undefined;
 }
 
 /**
@@ -3531,9 +3538,29 @@ export interface IntegrationPartition {
   FieldName?: string | undefined;
 
   /**
-   * <p>Specifies the function used to partition data on the target. The only accepted value for this parameter is `'identity'` (string).
-   *       The `'identity'` function ensures that the data partitioning on the target follows the same scheme as the source. In other words, the partitioning
-   *       structure of the source data is preserved in the target destination.</p>
+   * <p>Specifies the function used to partition data on the target. The accepted values for this parameter are:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>identity</code> - Uses source values directly without transformation</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>year</code> - Extracts the year from timestamp values (e.g., 2023)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>month</code> - Extracts the month from timestamp values (e.g., 2023-01)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>day</code> - Extracts the day from timestamp values (e.g., 2023-01-15)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>hour</code> - Extracts the hour from timestamp values (e.g., 2023-01-15-14)</p>
+   *             </li>
+   *          </ul>
    * @public
    */
   FunctionSpec?: string | undefined;

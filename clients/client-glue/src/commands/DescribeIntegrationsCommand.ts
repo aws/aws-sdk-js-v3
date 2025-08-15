@@ -75,6 +75,7 @@ export interface DescribeIntegrationsCommandOutput extends DescribeIntegrationsR
  * //         SourceProperties: { // IntegrationSourcePropertiesMap
  * //           "<keys>": "STRING_VALUE",
  * //         },
+ * //         ContinuousSync: true || false,
  * //       },
  * //       Errors: [ // IntegrationErrorList
  * //         { // IntegrationError

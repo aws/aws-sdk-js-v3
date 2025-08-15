@@ -128,6 +128,7 @@ import {
   IcebergPartitionSpec,
   IcebergSchema,
   IcebergSortOrder,
+  IntegrationConfig,
   IntegrationError,
   IntegrationStatus,
   Permission,
@@ -364,6 +365,12 @@ export interface ModifyIntegrationRequest {
   DataFilter?: string | undefined;
 
   /**
+   * <p>Properties associated with the integration.</p>
+   * @public
+   */
+  IntegrationConfig?: IntegrationConfig | undefined;
+
+  /**
    * <p>A unique name for an integration in Glue.</p>
    * @public
    */
@@ -469,6 +476,12 @@ export interface ModifyIntegrationResponse {
    * @public
    */
   DataFilter?: string | undefined;
+
+  /**
+   * <p>Properties associated with the integration.</p>
+   * @public
+   */
+  IntegrationConfig?: IntegrationConfig | undefined;
 }
 
 /**

@@ -58,6 +58,7 @@ export interface DescribeInboundIntegrationsCommandOutput
  * //         SourceProperties: { // IntegrationSourcePropertiesMap
  * //           "<keys>": "STRING_VALUE",
  * //         },
+ * //         ContinuousSync: true || false,
  * //       },
  * //       Errors: [ // IntegrationErrorList
  * //         { // IntegrationError

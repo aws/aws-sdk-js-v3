@@ -56,6 +56,7 @@ export interface CreateIntegrationCommandOutput extends CreateIntegrationRespons
  *     SourceProperties: { // IntegrationSourcePropertiesMap
  *       "<keys>": "STRING_VALUE",
  *     },
+ *     ContinuousSync: true || false,
  *   },
  * };
  * const command = new CreateIntegrationCommand(input);
@@ -90,6 +91,7 @@ export interface CreateIntegrationCommandOutput extends CreateIntegrationRespons
  * //     SourceProperties: { // IntegrationSourcePropertiesMap
  * //       "<keys>": "STRING_VALUE",
  * //     },
+ * //     ContinuousSync: true || false,
  * //   },
  * // };
  *
