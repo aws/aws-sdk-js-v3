@@ -2488,3 +2488,134 @@ export interface UpdateWorkspaceConfigurationResponse {
    */
   status: WorkspaceConfigurationStatus | undefined;
 }
+
+/**
+ * @public
+ */
+export interface DeleteResourcePolicyRequest {
+  /**
+   * <p>The ID of the workspace from which to delete the resource-based policy.</p>
+   * @public
+   */
+  workspaceId: string | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier that you provide to ensure the request is safe to retry (idempotent).</p>
+   * @public
+   */
+  clientToken?: string | undefined;
+
+  /**
+   * <p>The revision ID of the policy to delete. Use this parameter to ensure that you are deleting the correct version of the policy.</p>
+   * @public
+   */
+  revisionId?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeResourcePolicyRequest {
+  /**
+   * <p>The ID of the workspace to describe the resource-based policy for.</p>
+   * @public
+   */
+  workspaceId: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const WorkspacePolicyStatusCode = {
+  /**
+   * Resource-based Policy has been created/updated. Update/Deletion is disallowed until Resource-based Policy is ACTIVE and Workspace is ACTIVE.
+   */
+  ACTIVE: "ACTIVE",
+  /**
+   * Resource-based Policy is being created. Update/Deletion is disallowed until Resource-based Policy is ACTIVE and Workspace is ACTIVE.
+   */
+  CREATING: "CREATING",
+  /**
+   * Resource-based Policy is being deleting. Update/Deletion is disallowed until Resource-based Policy is ACTIVE and Workspace is ACTIVE.
+   */
+  DELETING: "DELETING",
+  /**
+   * Resource-based Policy is being updated. Update/Deletion is disallowed until Resource-based Policy is ACTIVE and Workspace is ACTIVE.
+   */
+  UPDATING: "UPDATING",
+} as const;
+
+/**
+ * @public
+ */
+export type WorkspacePolicyStatusCode = (typeof WorkspacePolicyStatusCode)[keyof typeof WorkspacePolicyStatusCode];
+
+/**
+ * @public
+ */
+export interface DescribeResourcePolicyResponse {
+  /**
+   * <p>The JSON policy document for the resource-based policy attached to the workspace.</p>
+   * @public
+   */
+  policyDocument: string | undefined;
+
+  /**
+   * <p>The current status of the resource-based policy.</p>
+   * @public
+   */
+  policyStatus: WorkspacePolicyStatusCode | undefined;
+
+  /**
+   * <p>The revision ID of the current resource-based policy.</p>
+   * @public
+   */
+  revisionId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface PutResourcePolicyRequest {
+  /**
+   * <p>The ID of the workspace to attach the resource-based policy to.</p>
+   * @public
+   */
+  workspaceId: string | undefined;
+
+  /**
+   * <p>The JSON policy document to use as the resource-based policy. This policy defines the permissions that other AWS accounts or services have to access your workspace.</p>
+   * @public
+   */
+  policyDocument: string | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier that you provide to ensure the request is safe to retry (idempotent).</p>
+   * @public
+   */
+  clientToken?: string | undefined;
+
+  /**
+   * <p>The revision ID of the policy to update. Use this parameter to ensure that you are updating the correct version of the policy. If you don't specify a revision ID, the policy is updated regardless of its current revision.</p> <p>For the first <b>PUT</b> request on a workspace that doesn't have an existing resource policy, you can specify <code>NO_POLICY</code> as the revision ID.</p>
+   * @public
+   */
+  revisionId?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface PutResourcePolicyResponse {
+  /**
+   * <p>The current status of the resource-based policy.</p>
+   * @public
+   */
+  policyStatus: WorkspacePolicyStatusCode | undefined;
+
+  /**
+   * <p>The revision ID of the newly created or updated resource-based policy.</p>
+   * @public
+   */
+  revisionId: string | undefined;
+}

@@ -49,6 +49,11 @@ import {
   DeleteQueryLoggingConfigurationCommandOutput,
 } from "./commands/DeleteQueryLoggingConfigurationCommand";
 import {
+  DeleteResourcePolicyCommand,
+  DeleteResourcePolicyCommandInput,
+  DeleteResourcePolicyCommandOutput,
+} from "./commands/DeleteResourcePolicyCommand";
+import {
   DeleteRuleGroupsNamespaceCommand,
   DeleteRuleGroupsNamespaceCommandInput,
   DeleteRuleGroupsNamespaceCommandOutput,
@@ -78,6 +83,11 @@ import {
   DescribeQueryLoggingConfigurationCommandInput,
   DescribeQueryLoggingConfigurationCommandOutput,
 } from "./commands/DescribeQueryLoggingConfigurationCommand";
+import {
+  DescribeResourcePolicyCommand,
+  DescribeResourcePolicyCommandInput,
+  DescribeResourcePolicyCommandOutput,
+} from "./commands/DescribeResourcePolicyCommand";
 import {
   DescribeRuleGroupsNamespaceCommand,
   DescribeRuleGroupsNamespaceCommandInput,
@@ -129,6 +139,11 @@ import {
   PutAlertManagerDefinitionCommandOutput,
 } from "./commands/PutAlertManagerDefinitionCommand";
 import {
+  PutResourcePolicyCommand,
+  PutResourcePolicyCommandInput,
+  PutResourcePolicyCommandOutput,
+} from "./commands/PutResourcePolicyCommand";
+import {
   PutRuleGroupsNamespaceCommand,
   PutRuleGroupsNamespaceCommandInput,
   PutRuleGroupsNamespaceCommandOutput,
@@ -175,12 +190,14 @@ const commands = {
   DeleteAlertManagerDefinitionCommand,
   DeleteLoggingConfigurationCommand,
   DeleteQueryLoggingConfigurationCommand,
+  DeleteResourcePolicyCommand,
   DeleteRuleGroupsNamespaceCommand,
   DeleteScraperCommand,
   DeleteWorkspaceCommand,
   DescribeAlertManagerDefinitionCommand,
   DescribeLoggingConfigurationCommand,
   DescribeQueryLoggingConfigurationCommand,
+  DescribeResourcePolicyCommand,
   DescribeRuleGroupsNamespaceCommand,
   DescribeScraperCommand,
   DescribeWorkspaceCommand,
@@ -191,6 +208,7 @@ const commands = {
   ListTagsForResourceCommand,
   ListWorkspacesCommand,
   PutAlertManagerDefinitionCommand,
+  PutResourcePolicyCommand,
   PutRuleGroupsNamespaceCommand,
   TagResourceCommand,
   UntagResourceCommand,
@@ -348,6 +366,23 @@ export interface Amp {
   ): void;
 
   /**
+   * @see {@link DeleteResourcePolicyCommand}
+   */
+  deleteResourcePolicy(
+    args: DeleteResourcePolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteResourcePolicyCommandOutput>;
+  deleteResourcePolicy(
+    args: DeleteResourcePolicyCommandInput,
+    cb: (err: any, data?: DeleteResourcePolicyCommandOutput) => void
+  ): void;
+  deleteResourcePolicy(
+    args: DeleteResourcePolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteResourcePolicyCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DeleteRuleGroupsNamespaceCommand}
    */
   deleteRuleGroupsNamespace(
@@ -438,6 +473,23 @@ export interface Amp {
     args: DescribeQueryLoggingConfigurationCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DescribeQueryLoggingConfigurationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeResourcePolicyCommand}
+   */
+  describeResourcePolicy(
+    args: DescribeResourcePolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeResourcePolicyCommandOutput>;
+  describeResourcePolicy(
+    args: DescribeResourcePolicyCommandInput,
+    cb: (err: any, data?: DescribeResourcePolicyCommandOutput) => void
+  ): void;
+  describeResourcePolicy(
+    args: DescribeResourcePolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeResourcePolicyCommandOutput) => void
   ): void;
 
   /**
@@ -599,6 +651,23 @@ export interface Amp {
     args: PutAlertManagerDefinitionCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: PutAlertManagerDefinitionCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link PutResourcePolicyCommand}
+   */
+  putResourcePolicy(
+    args: PutResourcePolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutResourcePolicyCommandOutput>;
+  putResourcePolicy(
+    args: PutResourcePolicyCommandInput,
+    cb: (err: any, data?: PutResourcePolicyCommandOutput) => void
+  ): void;
+  putResourcePolicy(
+    args: PutResourcePolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PutResourcePolicyCommandOutput) => void
   ): void;
 
   /**

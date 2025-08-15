@@ -62,6 +62,10 @@ import {
   DeleteQueryLoggingConfigurationCommandOutput,
 } from "../commands/DeleteQueryLoggingConfigurationCommand";
 import {
+  DeleteResourcePolicyCommandInput,
+  DeleteResourcePolicyCommandOutput,
+} from "../commands/DeleteResourcePolicyCommand";
+import {
   DeleteRuleGroupsNamespaceCommandInput,
   DeleteRuleGroupsNamespaceCommandOutput,
 } from "../commands/DeleteRuleGroupsNamespaceCommand";
@@ -79,6 +83,10 @@ import {
   DescribeQueryLoggingConfigurationCommandInput,
   DescribeQueryLoggingConfigurationCommandOutput,
 } from "../commands/DescribeQueryLoggingConfigurationCommand";
+import {
+  DescribeResourcePolicyCommandInput,
+  DescribeResourcePolicyCommandOutput,
+} from "../commands/DescribeResourcePolicyCommand";
 import {
   DescribeRuleGroupsNamespaceCommandInput,
   DescribeRuleGroupsNamespaceCommandOutput,
@@ -107,6 +115,7 @@ import {
   PutAlertManagerDefinitionCommandInput,
   PutAlertManagerDefinitionCommandOutput,
 } from "../commands/PutAlertManagerDefinitionCommand";
+import { PutResourcePolicyCommandInput, PutResourcePolicyCommandOutput } from "../commands/PutResourcePolicyCommand";
 import {
   PutRuleGroupsNamespaceCommandInput,
   PutRuleGroupsNamespaceCommandOutput,
@@ -370,6 +379,26 @@ export const se_DeleteQueryLoggingConfigurationCommand = async (
 };
 
 /**
+ * serializeAws_restJson1DeleteResourcePolicyCommand
+ */
+export const se_DeleteResourcePolicyCommand = async (
+  input: DeleteResourcePolicyCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/workspaces/{workspaceId}/policy");
+  b.p("workspaceId", () => input.workspaceId!, "{workspaceId}", false);
+  const query: any = map({
+    [_cT]: [, input[_cT] ?? generateIdempotencyToken()],
+    [_rI]: [, input[_rI]!],
+  });
+  let body: any;
+  b.m("DELETE").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1DeleteRuleGroupsNamespaceCommand
  */
 export const se_DeleteRuleGroupsNamespaceCommand = async (
@@ -469,6 +498,22 @@ export const se_DescribeQueryLoggingConfigurationCommand = async (
   const b = rb(input, context);
   const headers: any = {};
   b.bp("/workspaces/{workspaceId}/logging/query");
+  b.p("workspaceId", () => input.workspaceId!, "{workspaceId}", false);
+  let body: any;
+  b.m("GET").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1DescribeResourcePolicyCommand
+ */
+export const se_DescribeResourcePolicyCommand = async (
+  input: DescribeResourcePolicyCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/workspaces/{workspaceId}/policy");
   b.p("workspaceId", () => input.workspaceId!, "{workspaceId}", false);
   let body: any;
   b.m("GET").h(headers).b(body);
@@ -650,6 +695,31 @@ export const se_PutAlertManagerDefinitionCommand = async (
     take(input, {
       clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       data: (_) => context.base64Encoder(_),
+    })
+  );
+  b.m("PUT").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1PutResourcePolicyCommand
+ */
+export const se_PutResourcePolicyCommand = async (
+  input: PutResourcePolicyCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/workspaces/{workspaceId}/policy");
+  b.p("workspaceId", () => input.workspaceId!, "{workspaceId}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
+      policyDocument: [],
+      revisionId: [],
     })
   );
   b.m("PUT").h(headers).b(body);
@@ -1035,6 +1105,23 @@ export const de_DeleteQueryLoggingConfigurationCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1DeleteResourcePolicyCommand
+ */
+export const de_DeleteResourcePolicyCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteResourcePolicyCommandOutput> => {
+  if (output.statusCode !== 202 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1DeleteRuleGroupsNamespaceCommand
  */
 export const de_DeleteRuleGroupsNamespaceCommand = async (
@@ -1148,6 +1235,29 @@ export const de_DescribeQueryLoggingConfigurationCommand = async (
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
     queryLoggingConfiguration: (_) => de_QueryLoggingConfigurationMetadata(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DescribeResourcePolicyCommand
+ */
+export const de_DescribeResourcePolicyCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeResourcePolicyCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    policyDocument: __expectString,
+    policyStatus: __expectString,
+    revisionId: __expectString,
   });
   Object.assign(contents, doc);
   return contents;
@@ -1361,6 +1471,28 @@ export const de_PutAlertManagerDefinitionCommand = async (
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
     status: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1PutResourcePolicyCommand
+ */
+export const de_PutResourcePolicyCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutResourcePolicyCommandOutput> => {
+  if (output.statusCode !== 202 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    policyStatus: __expectString,
+    revisionId: __expectString,
   });
   Object.assign(contents, doc);
   return contents;
@@ -2022,5 +2154,6 @@ const _mR = "maxResults";
 const _n = "name";
 const _nT = "nextToken";
 const _rAS = "retryAfterSeconds";
+const _rI = "revisionId";
 const _ra = "retry-after";
 const _tK = "tagKeys";

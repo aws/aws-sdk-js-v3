@@ -84,6 +84,10 @@ import {
   DeleteQueryLoggingConfigurationCommandOutput,
 } from "./commands/DeleteQueryLoggingConfigurationCommand";
 import {
+  DeleteResourcePolicyCommandInput,
+  DeleteResourcePolicyCommandOutput,
+} from "./commands/DeleteResourcePolicyCommand";
+import {
   DeleteRuleGroupsNamespaceCommandInput,
   DeleteRuleGroupsNamespaceCommandOutput,
 } from "./commands/DeleteRuleGroupsNamespaceCommand";
@@ -101,6 +105,10 @@ import {
   DescribeQueryLoggingConfigurationCommandInput,
   DescribeQueryLoggingConfigurationCommandOutput,
 } from "./commands/DescribeQueryLoggingConfigurationCommand";
+import {
+  DescribeResourcePolicyCommandInput,
+  DescribeResourcePolicyCommandOutput,
+} from "./commands/DescribeResourcePolicyCommand";
 import {
   DescribeRuleGroupsNamespaceCommandInput,
   DescribeRuleGroupsNamespaceCommandOutput,
@@ -129,6 +137,7 @@ import {
   PutAlertManagerDefinitionCommandInput,
   PutAlertManagerDefinitionCommandOutput,
 } from "./commands/PutAlertManagerDefinitionCommand";
+import { PutResourcePolicyCommandInput, PutResourcePolicyCommandOutput } from "./commands/PutResourcePolicyCommand";
 import {
   PutRuleGroupsNamespaceCommandInput,
   PutRuleGroupsNamespaceCommandOutput,
@@ -176,12 +185,14 @@ export type ServiceInputTypes =
   | DeleteAlertManagerDefinitionCommandInput
   | DeleteLoggingConfigurationCommandInput
   | DeleteQueryLoggingConfigurationCommandInput
+  | DeleteResourcePolicyCommandInput
   | DeleteRuleGroupsNamespaceCommandInput
   | DeleteScraperCommandInput
   | DeleteWorkspaceCommandInput
   | DescribeAlertManagerDefinitionCommandInput
   | DescribeLoggingConfigurationCommandInput
   | DescribeQueryLoggingConfigurationCommandInput
+  | DescribeResourcePolicyCommandInput
   | DescribeRuleGroupsNamespaceCommandInput
   | DescribeScraperCommandInput
   | DescribeWorkspaceCommandInput
@@ -192,6 +203,7 @@ export type ServiceInputTypes =
   | ListTagsForResourceCommandInput
   | ListWorkspacesCommandInput
   | PutAlertManagerDefinitionCommandInput
+  | PutResourcePolicyCommandInput
   | PutRuleGroupsNamespaceCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
@@ -214,12 +226,14 @@ export type ServiceOutputTypes =
   | DeleteAlertManagerDefinitionCommandOutput
   | DeleteLoggingConfigurationCommandOutput
   | DeleteQueryLoggingConfigurationCommandOutput
+  | DeleteResourcePolicyCommandOutput
   | DeleteRuleGroupsNamespaceCommandOutput
   | DeleteScraperCommandOutput
   | DeleteWorkspaceCommandOutput
   | DescribeAlertManagerDefinitionCommandOutput
   | DescribeLoggingConfigurationCommandOutput
   | DescribeQueryLoggingConfigurationCommandOutput
+  | DescribeResourcePolicyCommandOutput
   | DescribeRuleGroupsNamespaceCommandOutput
   | DescribeScraperCommandOutput
   | DescribeWorkspaceCommandOutput
@@ -230,6 +244,7 @@ export type ServiceOutputTypes =
   | ListTagsForResourceCommandOutput
   | ListWorkspacesCommandOutput
   | PutAlertManagerDefinitionCommandOutput
+  | PutResourcePolicyCommandOutput
   | PutRuleGroupsNamespaceCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
