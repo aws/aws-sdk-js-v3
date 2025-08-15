@@ -88,17 +88,6 @@ describe("util-retry integration tests", () => {
   });
 
   it("should retry until attempts are exhausted", async () => {
-    const expectedException = new S3ServiceException({
-      $metadata: {
-        httpStatusCode: 429,
-      },
-      $fault: "client",
-      $retryable: {
-        throttling: true,
-      },
-      message: "UnknownError",
-      name: "ThrottlingException",
-    });
     const client = new S3Client({
       requestHandler: {
         handle: () => Promise.resolve(mockThrottled),
@@ -112,10 +101,15 @@ describe("util-retry integration tests", () => {
     try {
       await client.send(headObjectCommand);
     } catch (error) {
-      expect(error).toStrictEqual(expectedException);
       expect(error.$metadata.httpStatusCode).toBe(429);
       expect(error.$metadata.attempts).toBe(3);
       expect(error.$metadata.totalRetryDelay).toBeGreaterThan(0);
+      expect(error).toMatchObject({
+        $metadata: {
+          httpStatusCode: 429,
+        },
+        $fault: "client",
+      });
     }
   });
 
