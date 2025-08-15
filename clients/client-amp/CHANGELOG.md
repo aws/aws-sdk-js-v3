@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.869.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.868.0...v3.869.0) (2025-08-15)
+
+
+### Features
+
+* **client-amp:** Add Resource-based Policy APIs for Amazon Prometheus ([f5abdf8](https://github.com/aws/aws-sdk-js-v3/commit/f5abdf89c31427427afed2ebd7d9ddead07df886))
+
+
+
+
+
 # [3.864.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.863.0...v3.864.0) (2025-08-08)
 
 **Note:** Version bump only for package @aws-sdk/client-amp

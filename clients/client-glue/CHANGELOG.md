@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.869.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.868.0...v3.869.0) (2025-08-15)
+
+
+### Features
+
+* **client-glue:** AWS Glue Zero ETL now supports On-demand snapshot load ([703bca5](https://github.com/aws/aws-sdk-js-v3/commit/703bca5abf874dbccd489e94922e630e1e66a407))
+
+
+
+
+
 # [3.868.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.867.0...v3.868.0) (2025-08-14)
 
 

@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.869.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.868.0...v3.869.0) (2025-08-15)
+
+
+### Features
+
+* **client-amp:** Add Resource-based Policy APIs for Amazon Prometheus ([f5abdf8](https://github.com/aws/aws-sdk-js-v3/commit/f5abdf89c31427427afed2ebd7d9ddead07df886))
+* **client-bedrock-agent:** This release adds support for saving Bedrock Flows while node configuration is still in progress, even if the Flow is not yet able to be invoked ([bbe9734](https://github.com/aws/aws-sdk-js-v3/commit/bbe9734e3bbd321f90a322c3895b54cc9607c6d0))
+* **client-glue:** AWS Glue Zero ETL now supports On-demand snapshot load ([703bca5](https://github.com/aws/aws-sdk-js-v3/commit/703bca5abf874dbccd489e94922e630e1e66a407))
+
+
+
+
+
 # [3.868.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.867.0...v3.868.0) (2025-08-14)
 
 
