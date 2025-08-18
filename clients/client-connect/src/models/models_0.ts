@@ -4457,6 +4457,14 @@ export interface ParticipantDetailsToAdd {
    * @public
    */
   DisplayName?: string | undefined;
+
+  /**
+   * <p>The configuration for the allowed video and screen sharing capabilities for participants
+   *    present over the call. For more information, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/inapp-calling.html">Set up in-app, web, video calling, and screen
+   *     sharing capabilities</a> in the <i>Amazon Connect Administrator Guide</i>.</p>
+   * @public
+   */
+  ParticipantCapabilities?: ParticipantCapabilities | undefined;
 }
 
 /**
@@ -4470,7 +4478,9 @@ export interface CreateParticipantRequest {
   InstanceId: string | undefined;
 
   /**
-   * <p>The identifier of the contact in this instance of Amazon Connect.  Only contacts in the CHAT channel are supported.</p>
+   * <p>The identifier of the contact in this instance of Amazon Connect.  Supports contacts in the CHAT channel and VOICE (WebRTC) channels.
+   *    For WebRTC calls, this should be the initial contact ID that was generated when
+   *    the contact was first created (from the StartWebRTCContact API) in the VOICE channel</p>
    * @public
    */
   ContactId: string | undefined;
@@ -4487,9 +4497,8 @@ export interface CreateParticipantRequest {
   /**
    * <p>Information identifying the participant.</p>
    *          <important>
-   *             <p>The only Valid value for <code>ParticipantRole</code> is <code>CUSTOM_BOT</code>. </p>
-   *             <p>
-   *                <code>DisplayName</code> is <b>Required</b>.</p>
+   *             <p>The only valid value for <code>ParticipantRole</code> is <code>CUSTOM_BOT</code>
+   *     for chat contact and <code>CUSTOMER</code> for voice contact.</p>
    *          </important>
    * @public
    */
