@@ -4,7 +4,7 @@ import "@aws-sdk/crc64-nvme-crt";
 import { ChecksumAlgorithm, S3 } from "@aws-sdk/client-s3";
 import { HttpHandler, HttpRequest, HttpResponse } from "@smithy/protocol-http";
 import { Readable, Transform } from "stream";
-import { describe, expect, test as it } from "vitest";
+import { describe, expect, test as it, vi } from "vitest";
 
 import { requireRequestsFrom } from "../../../private/aws-util-test/src";
 import { DEFAULT_CHECKSUM_ALGORITHM, RequestChecksumCalculation, ResponseChecksumValidation } from "./constants";
@@ -101,6 +101,59 @@ describe("middleware-flexible-checksums", () => {
           });
         }
       );
+
+      it("retry doesn't recompute the checksum", async () => {
+        const maxAttempts = 3;
+        const client = new S3({ maxAttempts });
+
+        const mockFlexChecksCallsFn = vi.fn();
+        client.middlewareStack.addRelativeTo(
+          (next: any) => async (args: any) => {
+            mockFlexChecksCallsFn();
+            return next(args);
+          },
+          {
+            toMiddleware: "flexibleChecksumsMiddleware",
+            relation: "after",
+          }
+        );
+
+        const mockRetryMiddlewareCallsFn = vi.fn();
+        client.middlewareStack.addRelativeTo(
+          (next: any) => async (args: any) => {
+            mockRetryMiddlewareCallsFn();
+            return next(args);
+          },
+          {
+            toMiddleware: "retryMiddleware",
+            relation: "after",
+          }
+        );
+
+        requireRequestsFrom(client)
+          .toMatch({ method: "PUT" })
+          .respondWith(
+            new HttpResponse({
+              statusCode: 500, // Fake Trasient Error
+              headers: {},
+            })
+          );
+
+        await client
+          .putObject({
+            Bucket: "b",
+            Key: "k",
+            Body: "hello",
+          })
+          .catch((err) => {
+            // Expected, since we're faking transient error which is retried.
+          });
+
+        // Validate that flexibleChecksumsMiddleware is called once.
+        expect(mockFlexChecksCallsFn).toHaveBeenCalledTimes(1);
+        // Validate that retryMiddleware is called maxAttempts times.
+        expect(mockRetryMiddlewareCallsFn).toHaveBeenCalledTimes(maxAttempts);
+      });
     });
 
     describe("getObject", () => {
