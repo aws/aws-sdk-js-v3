@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.870.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.869.0...v3.870.0) (2025-08-18)
+
+
+### Features
+
+* **client-s3-control:** Adds support for Compute checksum functionality in Amazon S3 Batch Operations. You can now calculate checksums for a list of objects using supported algorithms in Amazon S3, without requiring a restore or download ([d595af9](https://github.com/aws/aws-sdk-js-v3/commit/d595af93704b8ea5bc80b7acff0dabeb4206fafc))
+
+
+
+
+
 # [3.864.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.863.0...v3.864.0) (2025-08-08)
 
 **Note:** Version bump only for package @aws-sdk/client-s3-control

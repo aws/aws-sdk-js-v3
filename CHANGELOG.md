@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.870.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.869.0...v3.870.0) (2025-08-18)
+
+
+### Features
+
+* **client-bcm-dashboards:** Billing and Cost Management Dashboards enables users to create dashboards that combine multiple visualizations of cost and usage data. Users can create, manage, and share dashboards. Tags are also available for dashboards. ([4f61ca9](https://github.com/aws/aws-sdk-js-v3/commit/4f61ca9a723b281d18c8de282fb0928a1757afcc))
+* **client-connect:** Amazon Connect Service Feature: Add support to enable multi-user in-app, web, and video calling. ([a7ec4aa](https://github.com/aws/aws-sdk-js-v3/commit/a7ec4aaf95e021d3f01c60cc3672b076225556db))
+* **client-connectparticipant:** Amazon Connect Service Feature: Add support to enable multi-user in-app, web, and video calling. ([35477fe](https://github.com/aws/aws-sdk-js-v3/commit/35477fe07a3514fc8652efd92935ea1b866264ec))
+* **client-s3-control:** Adds support for Compute checksum functionality in Amazon S3 Batch Operations. You can now calculate checksums for a list of objects using supported algorithms in Amazon S3, without requiring a restore or download ([d595af9](https://github.com/aws/aws-sdk-js-v3/commit/d595af93704b8ea5bc80b7acff0dabeb4206fafc))
+* **client-sagemaker:** Customer managed keys now available for volume encryption of SageMaker HyperPod clusters. ([3c753ac](https://github.com/aws/aws-sdk-js-v3/commit/3c753acdf3aca394f8e98bb0011fc36362e72520))
+* **clients:** update client endpoints as of 2025-08-18 ([bc6a69d](https://github.com/aws/aws-sdk-js-v3/commit/bc6a69dc2d9cd05f40b07d99e8976096426349d9))
+
+
+
+
+
 # [3.869.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.868.0...v3.869.0) (2025-08-15)
 
 

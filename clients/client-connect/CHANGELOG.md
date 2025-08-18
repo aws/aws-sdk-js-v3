@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.870.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.869.0...v3.870.0) (2025-08-18)
+
+
+### Features
+
+* **client-connect:** Amazon Connect Service Feature: Add support to enable multi-user in-app, web, and video calling. ([a7ec4aa](https://github.com/aws/aws-sdk-js-v3/commit/a7ec4aaf95e021d3f01c60cc3672b076225556db))
+
+
+
+
+
 # [3.865.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.864.0...v3.865.0) (2025-08-11)
 
 

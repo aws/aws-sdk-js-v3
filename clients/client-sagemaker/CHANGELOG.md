@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.870.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.869.0...v3.870.0) (2025-08-18)
+
+
+### Features
+
+* **client-sagemaker:** Customer managed keys now available for volume encryption of SageMaker HyperPod clusters. ([3c753ac](https://github.com/aws/aws-sdk-js-v3/commit/3c753acdf3aca394f8e98bb0011fc36362e72520))
+
+
+
+
+
 # [3.867.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.866.0...v3.867.0) (2025-08-13)
 
 
