@@ -35,19 +35,24 @@ export interface GetTranscriptCommandOutput extends GetTranscriptResponse, __Met
  * <p>Retrieves a transcript of the session, including details about any attachments. For
  *             information about accessing past chat contact transcripts for a persistent chat, see
  *                 <a href="https://docs.aws.amazon.com/connect/latest/adminguide/chat-persistence.html">Enable persistent chat</a>. </p>
- *          <p>For security recommendations, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/security-best-practices.html#bp-security-chat">Amazon Connect Chat security best practices</a>.</p>
+ *          <p>For security recommendations, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/security-best-practices.html#bp-security-chat">Amazon Connect Chat security best practices</a>. </p>
  *          <p>If you have a process that consumes events in the transcript of an chat that has
  *             ended, note that chat transcripts contain the following event content types if the event
  *             has occurred during the chat session:</p>
  *          <ul>
  *             <li>
  *                <p>
- *                   <code>application/vnd.amazonaws.connect.event.participant.left</code>
+ *                   <code>application/vnd.amazonaws.connect.event.participant.invited</code>
  *                </p>
  *             </li>
  *             <li>
  *                <p>
  *                   <code>application/vnd.amazonaws.connect.event.participant.joined</code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>application/vnd.amazonaws.connect.event.participant.left</code>
  *                </p>
  *             </li>
  *             <li>

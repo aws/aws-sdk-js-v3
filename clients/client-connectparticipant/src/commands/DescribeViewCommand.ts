@@ -33,7 +33,7 @@ export interface DescribeViewCommandOutput extends DescribeViewResponse, __Metad
 
 /**
  * <p>Retrieves the view for the specified view token.</p>
- *          <p>For security recommendations, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/security-best-practices.html#bp-security-chat">Amazon Connect Chat security best practices</a>.</p>
+ *          <p>For security recommendations, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/security-best-practices.html#bp-security-chat">Amazon Connect Chat security best practices</a>. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -196,6 +196,7 @@ export class ServiceQuotaExceededException extends __BaseException {
  */
 export const ConnectionType = {
   CONNECTION_CREDENTIALS: "CONNECTION_CREDENTIALS",
+  WEBRTC_CONNECTION: "WEBRTC_CONNECTION",
   WEBSOCKET: "WEBSOCKET",
 } as const;
 
@@ -254,6 +255,146 @@ export interface ConnectionCredentials {
 }
 
 /**
+ * <p>The attendee information, including attendee ID and join token.</p>
+ * @public
+ */
+export interface Attendee {
+  /**
+   * <p>The Amazon Chime SDK attendee ID.</p>
+   * @public
+   */
+  AttendeeId?: string | undefined;
+
+  /**
+   * <p>The join token used by the Amazon Chime SDK attendee.</p>
+   * @public
+   */
+  JoinToken?: string | undefined;
+}
+
+/**
+ * <p>A set of endpoints used by clients to connect to the media service group for an Amazon Chime SDK meeting.</p>
+ * @public
+ */
+export interface MediaPlacement {
+  /**
+   * <p>The audio host URL.</p>
+   * @public
+   */
+  AudioHostUrl?: string | undefined;
+
+  /**
+   * <p>The audio fallback URL.</p>
+   * @public
+   */
+  AudioFallbackUrl?: string | undefined;
+
+  /**
+   * <p>The signaling URL.</p>
+   * @public
+   */
+  SignalingUrl?: string | undefined;
+
+  /**
+   * <p>The turn control URL.</p>
+   * @public
+   */
+  TurnControlUrl?: string | undefined;
+
+  /**
+   * <p>The event ingestion URL to which you send client meeting events.</p>
+   * @public
+   */
+  EventIngestionUrl?: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const MeetingFeatureStatus = {
+  AVAILABLE: "AVAILABLE",
+  UNAVAILABLE: "UNAVAILABLE",
+} as const;
+
+/**
+ * @public
+ */
+export type MeetingFeatureStatus = (typeof MeetingFeatureStatus)[keyof typeof MeetingFeatureStatus];
+
+/**
+ * <p>Has audio-specific configurations as the operating parameter for Echo Reduction.</p>
+ * @public
+ */
+export interface AudioFeatures {
+  /**
+   * <p>Makes echo reduction available to clients who connect to the meeting.</p>
+   * @public
+   */
+  EchoReduction?: MeetingFeatureStatus | undefined;
+}
+
+/**
+ * <p>The configuration settings of the features available to a meeting.</p>
+ * @public
+ */
+export interface MeetingFeaturesConfiguration {
+  /**
+   * <p>The configuration settings for the audio features available to a meeting.</p>
+   * @public
+   */
+  Audio?: AudioFeatures | undefined;
+}
+
+/**
+ * <p>A meeting created using the Amazon Chime SDK.</p>
+ * @public
+ */
+export interface Meeting {
+  /**
+   * <p>The Amazon Web Services Region in which you create the meeting.</p>
+   * @public
+   */
+  MediaRegion?: string | undefined;
+
+  /**
+   * <p>The media placement for the meeting.</p>
+   * @public
+   */
+  MediaPlacement?: MediaPlacement | undefined;
+
+  /**
+   * <p>The configuration settings of the features available to a meeting.</p>
+   * @public
+   */
+  MeetingFeatures?: MeetingFeaturesConfiguration | undefined;
+
+  /**
+   * <p>The Amazon Chime SDK meeting ID.</p>
+   * @public
+   */
+  MeetingId?: string | undefined;
+}
+
+/**
+ * <p>Information required to join the call.</p>
+ * @public
+ */
+export interface ConnectionData {
+  /**
+   * <p>The attendee information, including attendee ID and join token.</p>
+   * @public
+   */
+  Attendee?: Attendee | undefined;
+
+  /**
+   * <p>A meeting created using the Amazon Chime SDK.</p>
+   * @public
+   */
+  Meeting?: Meeting | undefined;
+}
+
+/**
  * <p>The websocket for the participant's connection.</p>
  * @public
  */
@@ -289,6 +430,13 @@ export interface CreateParticipantConnectionResponse {
    * @public
    */
   ConnectionCredentials?: ConnectionCredentials | undefined;
+
+  /**
+   * <p>Creates the participant's WebRTC connection data required for the client application
+   *             (mobile application or website) to connect to the call. </p>
+   * @public
+   */
+  WebRTCConnection?: ConnectionData | undefined;
 }
 
 /**
@@ -902,8 +1050,8 @@ export interface SendEventRequest {
    *                <p>application/vnd.amazonaws.connect.event.typing</p>
    *             </li>
    *             <li>
-   *                <p>application/vnd.amazonaws.connect.event.connection.acknowledged (will be
-   *                     deprecated on December 31, 2024) </p>
+   *                <p>application/vnd.amazonaws.connect.event.connection.acknowledged (is no longer
+   *                     maintained since December 31, 2024) </p>
    *             </li>
    *             <li>
    *                <p>application/vnd.amazonaws.connect.event.message.delivered</p>
@@ -964,9 +1112,15 @@ export interface SendEventResponse {
  */
 export interface SendMessageRequest {
   /**
-   * <p>The type of the content. Supported types are <code>text/plain</code>,
+   * <p>The type of the content. Possible types are <code>text/plain</code>,
    *                 <code>text/markdown</code>, <code>application/json</code>, and
-   *                 <code>application/vnd.amazonaws.connect.message.interactive.response</code>.</p>
+   *                 <code>application/vnd.amazonaws.connect.message.interactive.response</code>.
+   *             </p>
+   *          <p>Supported types on the contact are configured through
+   *                 <code>SupportedMessagingContentTypes</code> on <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_StartChatContact.html">StartChatContact</a>
+   *             and <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_StartOutboundChatContact.html">StartOutboundChatContact</a>.</p>
+   *          <p> For Apple Messages for Business, SMS, and WhatsApp Business Messaging contacts, only
+   *                 <code>text/plain</code> is supported.</p>
    * @public
    */
   ContentType: string | undefined;
@@ -1106,6 +1260,32 @@ export interface StartAttachmentUploadResponse {
    */
   UploadMetadata?: UploadMetadata | undefined;
 }
+
+/**
+ * @internal
+ */
+export const AttendeeFilterSensitiveLog = (obj: Attendee): any => ({
+  ...obj,
+  ...(obj.JoinToken && { JoinToken: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ConnectionDataFilterSensitiveLog = (obj: ConnectionData): any => ({
+  ...obj,
+  ...(obj.Attendee && { Attendee: AttendeeFilterSensitiveLog(obj.Attendee) }),
+});
+
+/**
+ * @internal
+ */
+export const CreateParticipantConnectionResponseFilterSensitiveLog = (
+  obj: CreateParticipantConnectionResponse
+): any => ({
+  ...obj,
+  ...(obj.WebRTCConnection && { WebRTCConnection: ConnectionDataFilterSensitiveLog(obj.WebRTCConnection) }),
+});
 
 /**
  * @internal

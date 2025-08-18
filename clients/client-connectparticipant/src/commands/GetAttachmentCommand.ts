@@ -34,11 +34,21 @@ export interface GetAttachmentCommandOutput extends GetAttachmentResponse, __Met
 /**
  * <p>Provides a pre-signed URL for download of a completed attachment. This is an
  *             asynchronous API for use with active contacts.</p>
- *          <p>For security recommendations, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/security-best-practices.html#bp-security-chat">Amazon Connect Chat security best practices</a>.</p>
+ *          <p>For security recommendations, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/security-best-practices.html#bp-security-chat">Amazon Connect Chat security best practices</a>. </p>
  *          <note>
- *             <p>
- *                <code>ConnectionToken</code> is used for invoking this API instead of
- *                     <code>ParticipantToken</code>.</p>
+ *             <ul>
+ *                <li>
+ *                   <p>The participant role <code>CUSTOM_BOT</code> is not permitted to access
+ *                         attachments customers may upload. An <code>AccessDeniedException</code> can
+ *                         indicate that the participant may be a CUSTOM_BOT, and it doesn't have
+ *                         access to attachments.</p>
+ *                </li>
+ *                <li>
+ *                   <p>
+ *                      <code>ConnectionToken</code> is used for invoking this API instead of
+ *                             <code>ParticipantToken</code>.</p>
+ *                </li>
+ *             </ul>
  *          </note>
  *          <p>The Amazon Connect Participant Service APIs do not use <a href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">Signature Version 4
  *                     authentication</a>.</p>

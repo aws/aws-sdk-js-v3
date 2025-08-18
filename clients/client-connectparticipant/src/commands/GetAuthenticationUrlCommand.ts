@@ -47,6 +47,13 @@ export interface GetAuthenticationUrlCommandOutput extends GetAuthenticationUrlR
  *                </li>
  *             </ul>
  *          </note>
+ *          <note>
+ *             <p>
+ *                <code>ConnectionToken</code> is used for invoking this API instead of
+ *                     <code>ParticipantToken</code>.</p>
+ *          </note>
+ *          <p>The Amazon Connect Participant Service APIs do not use <a href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">Signature Version 4
+ *                     authentication</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

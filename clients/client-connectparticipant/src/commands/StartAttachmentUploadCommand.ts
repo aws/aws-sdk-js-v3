@@ -34,7 +34,7 @@ export interface StartAttachmentUploadCommandOutput extends StartAttachmentUploa
 /**
  * <p>Provides a pre-signed Amazon S3 URL in response for uploading the file directly to
  *             S3.</p>
- *          <p>For security recommendations, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/security-best-practices.html#bp-security-chat">Amazon Connect Chat security best practices</a>.</p>
+ *          <p>For security recommendations, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/security-best-practices.html#bp-security-chat">Amazon Connect Chat security best practices</a>. </p>
  *          <note>
  *             <p>
  *                <code>ConnectionToken</code> is used for invoking this API instead of

@@ -379,6 +379,7 @@ export const de_CreateParticipantConnectionCommand = async (
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
     ConnectionCredentials: _json,
+    WebRTCConnection: _json,
     Websocket: _json,
   });
   Object.assign(contents, doc);
@@ -741,9 +742,21 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 
 // de_Attachments omitted.
 
+// de_Attendee omitted.
+
+// de_AudioFeatures omitted.
+
 // de_ConnectionCredentials omitted.
 
+// de_ConnectionData omitted.
+
 // de_Item omitted.
+
+// de_MediaPlacement omitted.
+
+// de_Meeting omitted.
+
+// de_MeetingFeaturesConfiguration omitted.
 
 // de_MessageMetadata omitted.
 

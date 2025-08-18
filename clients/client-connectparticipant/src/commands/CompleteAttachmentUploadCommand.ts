@@ -35,7 +35,7 @@ export interface CompleteAttachmentUploadCommandOutput extends CompleteAttachmen
  * <p>Allows you to confirm that the attachment has been uploaded using the pre-signed URL
  *             provided in StartAttachmentUpload API. A conflict exception is thrown when an attachment
  *             with that identifier is already being uploaded.</p>
- *          <p>For security recommendations, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/security-best-practices.html#bp-security-chat">Amazon Connect Chat security best practices</a>.</p>
+ *          <p>For security recommendations, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/security-best-practices.html#bp-security-chat">Amazon Connect Chat security best practices</a>. </p>
  *          <note>
  *             <p>
  *                <code>ConnectionToken</code> is used for invoking this API instead of
