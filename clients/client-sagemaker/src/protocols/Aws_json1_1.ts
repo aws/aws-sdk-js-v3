@@ -20073,6 +20073,8 @@ const de_ClarifyTextConfig = (output: any, context: __SerdeContext): ClarifyText
  */
 const de_ClusterEbsVolumeConfig = (output: any, context: __SerdeContext): ClusterEbsVolumeConfig => {
   return take(output, {
+    RootVolume: __expectBoolean,
+    VolumeKmsKeyId: __expectString,
     VolumeSizeInGB: __expectInt32,
   }) as any;
 };

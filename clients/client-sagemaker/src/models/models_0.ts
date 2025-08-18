@@ -6720,6 +6720,18 @@ export interface ClusterEbsVolumeConfig {
    * @public
    */
   VolumeSizeInGB?: number | undefined;
+
+  /**
+   * <p>The ID of a KMS key to encrypt the Amazon EBS volume.</p>
+   * @public
+   */
+  VolumeKmsKeyId?: string | undefined;
+
+  /**
+   * <p>Specifies whether the configuration is for the cluster's root or secondary Amazon EBS volume. You can specify two <code>ClusterEbsVolumeConfig</code> fields to configure both the root and secondary volumes. Set the value to <code>True</code> if you'd like to provide your own customer managed Amazon Web Services KMS key to encrypt the root volume. When <code>True</code>:</p> <ul> <li> <p>The configuration is applied to the root volume.</p> </li> <li> <p>You can't specify the <code>VolumeSizeInGB</code> field. The size of the root volume is determined for you.</p> </li> <li> <p>You must specify a KMS key ID for <code>VolumeKmsKeyId</code> to encrypt the root volume with your own KMS key instead of an Amazon Web Services owned KMS key.</p> </li> </ul> <p>Otherwise, by default, the value is <code>False</code>, and the following applies:</p> <ul> <li> <p>The configuration is applied to the secondary volume, while the root volume is encrypted with an Amazon Web Services owned key.</p> </li> <li> <p>You must specify the <code>VolumeSizeInGB</code> field.</p> </li> <li> <p>You can optionally specify the <code>VolumeKmsKeyId</code> to encrypt the secondary volume with your own KMS key instead of an Amazon Web Services owned KMS key.</p> </li> </ul>
+   * @public
+   */
+  RootVolume?: boolean | undefined;
 }
 
 /**
@@ -7217,6 +7229,7 @@ export const ClusterInstanceType = {
   ML_P5EN_48XLARGE: "ml.p5en.48xlarge",
   ML_P5E_48XLARGE: "ml.p5e.48xlarge",
   ML_P5_48XLARGE: "ml.p5.48xlarge",
+  ML_P6E_GB200_36XLARGE: "ml.p6e-gb200.36xlarge",
   ML_P6_B200_48XLARGE: "ml.p6-b200.48xlarge",
   ML_R6I_12XLARGE: "ml.r6i.12xlarge",
   ML_R6I_16XLARGE: "ml.r6i.16xlarge",
