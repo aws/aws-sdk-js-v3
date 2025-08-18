@@ -34,8 +34,7 @@ export interface UpdateJobStatusCommandOutput extends UpdateJobStatusResult, __M
  *          <dl>
  *             <dt>Permissions</dt>
  *             <dd>
- *                <p>To use the
- *                   <code>UpdateJobStatus</code> operation, you must have permission to
+ *                <p>To use the <code>UpdateJobStatus</code> operation, you must have permission to
  *                   perform the <code>s3:UpdateJobStatus</code> action.</p>
  *             </dd>
  *          </dl>
@@ -62,6 +61,9 @@ export interface UpdateJobStatusCommandOutput extends UpdateJobStatusResult, __M
  *                </p>
  *             </li>
  *          </ul>
+ *          <important>
+ *             <p>You must URL encode any signed header values that contain spaces. For example, if your header value is <code>my  file.txt</code>, containing two spaces after <code>my</code>, you must URL encode this value to <code>my%20%20file.txt</code>.</p>
+ *          </important>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

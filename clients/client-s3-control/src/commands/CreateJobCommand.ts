@@ -36,8 +36,9 @@ export interface CreateJobCommandOutput extends CreateJobResult, __MetadataBeare
  *          <dl>
  *             <dt>Permissions</dt>
  *             <dd>
- *                <p>For information about permissions required to use the Batch Operations, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/batch-ops-iam-role-policies.html">Granting permissions for S3 Batch Operations</a> in the <i>Amazon S3
- *                      User Guide</i>.</p>
+ *                <p>For information about permissions required to use the Batch Operations, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/batch-ops-iam-role-policies.html">Granting
+ *                      permissions for S3 Batch Operations</a> in the <i>Amazon S3 User
+ *                      Guide</i>.</p>
  *             </dd>
  *          </dl>
  *          <p></p>
@@ -69,6 +70,9 @@ export interface CreateJobCommandOutput extends CreateJobResult, __MetadataBeare
  *                </p>
  *             </li>
  *          </ul>
+ *          <important>
+ *             <p>You must URL encode any signed header values that contain spaces. For example, if your header value is <code>my  file.txt</code>, containing two spaces after <code>my</code>, you must URL encode this value to <code>my%20%20file.txt</code>.</p>
+ *          </important>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -181,6 +185,10 @@ export interface CreateJobCommandOutput extends CreateJobResult, __MetadataBeare
  *       },
  *     },
  *     S3ReplicateObject: {},
+ *     S3ComputeObjectChecksum: { // S3ComputeObjectChecksumOperation
+ *       ChecksumAlgorithm: "CRC32" || "CRC32C" || "CRC64NVME" || "MD5" || "SHA1" || "SHA256",
+ *       ChecksumType: "FULL_OBJECT" || "COMPOSITE",
+ *     },
  *   },
  *   Report: { // JobReport
  *     Bucket: "STRING_VALUE",
@@ -188,6 +196,7 @@ export interface CreateJobCommandOutput extends CreateJobResult, __MetadataBeare
  *     Enabled: true || false, // required
  *     Prefix: "STRING_VALUE",
  *     ReportScope: "AllTasks" || "FailedTasksOnly",
+ *     ExpectedBucketOwner: "STRING_VALUE",
  *   },
  *   ClientRequestToken: "STRING_VALUE", // required
  *   Manifest: { // JobManifest

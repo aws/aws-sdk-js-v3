@@ -30,13 +30,26 @@ export interface ListCallerAccessGrantsCommandInput extends ListCallerAccessGran
 export interface ListCallerAccessGrantsCommandOutput extends ListCallerAccessGrantsResult, __MetadataBearer {}
 
 /**
- * <p>Use this API to list the access grants that grant the caller access to Amazon S3 data through S3 Access Grants. The caller (grantee) can be an Identity and Access Management (IAM) identity or Amazon Web Services Identity Center corporate directory identity. You must pass the Amazon Web Services account of the S3 data owner (grantor) in the request. You can, optionally, narrow the results by <code>GrantScope</code>, using a fragment of the data's S3 path, and S3 Access Grants will return only the grants with a path that contains the path fragment. You can also pass the <code>AllowedByApplication</code> filter in the request, which returns only the grants authorized for applications, whether the application is the caller's Identity Center application or any other application (<code>ALL</code>). For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-grants-list-grants.html">List the caller's access grants</a> in the <i>Amazon S3 User Guide</i>.</p>
+ * <p>Use this API to list the access grants that grant the caller access to Amazon S3 data through
+ *          S3 Access Grants. The caller (grantee) can be an Identity and Access Management (IAM) identity or Amazon Web Services Identity Center
+ *          corporate directory identity. You must pass the Amazon Web Services account of the S3 data owner
+ *          (grantor) in the request. You can, optionally, narrow the results by
+ *             <code>GrantScope</code>, using a fragment of the data's S3 path, and S3 Access Grants will return
+ *          only the grants with a path that contains the path fragment. You can also pass the
+ *             <code>AllowedByApplication</code> filter in the request, which returns only the grants
+ *          authorized for applications, whether the application is the caller's Identity Center
+ *          application or any other application (<code>ALL</code>). For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-grants-list-grants.html">List
+ *             the caller's access grants</a> in the <i>Amazon S3 User Guide</i>.</p>
  *          <dl>
  *             <dt>Permissions</dt>
  *             <dd>
- *                <p>You must have the <code>s3:ListCallerAccessGrants</code> permission to use this operation. </p>
+ *                <p>You must have the <code>s3:ListCallerAccessGrants</code> permission to use this
+ *                   operation. </p>
  *             </dd>
  *          </dl>
+ *          <important>
+ *             <p>You must URL encode any signed header values that contain spaces. For example, if your header value is <code>my  file.txt</code>, containing two spaces after <code>my</code>, you must URL encode this value to <code>my%20%20file.txt</code>.</p>
+ *          </important>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

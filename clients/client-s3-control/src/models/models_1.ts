@@ -3,7 +3,7 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-cli
 
 import {
   BucketVersioningStatus,
-  JobListDescriptor,
+  JobProgressSummary,
   JobStatus,
   LifecycleRule,
   MultiRegionAccessPointReport,
@@ -21,6 +21,122 @@ import {
 } from "./models_0";
 
 import { S3ControlServiceException as __BaseException } from "./S3ControlServiceException";
+
+/**
+ * @public
+ */
+export interface ListJobsRequest {
+  /**
+   * <p>The Amazon Web Services account ID associated with the S3 Batch Operations job.</p>
+   * @public
+   */
+  AccountId?: string | undefined;
+
+  /**
+   * <p>The <code>List Jobs</code> request returns jobs that match the statuses listed in this
+   *          element.</p>
+   * @public
+   */
+  JobStatuses?: JobStatus[] | undefined;
+
+  /**
+   * <p>A pagination token to request the next page of results. Use the token that Amazon S3 returned
+   *          in the <code>NextToken</code> element of the <code>ListJobsResult</code> from the previous
+   *             <code>List Jobs</code> request.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of jobs that Amazon S3 will include in the <code>List Jobs</code>
+   *          response. If there are more jobs than this number, the response will include a pagination
+   *          token in the <code>NextToken</code> field to enable you to retrieve the next page of
+   *          results.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const OperationName = {
+  LambdaInvoke: "LambdaInvoke",
+  S3ComputeObjectChecksum: "S3ComputeObjectChecksum",
+  S3DeleteObjectTagging: "S3DeleteObjectTagging",
+  S3InitiateRestoreObject: "S3InitiateRestoreObject",
+  S3PutObjectAcl: "S3PutObjectAcl",
+  S3PutObjectCopy: "S3PutObjectCopy",
+  S3PutObjectLegalHold: "S3PutObjectLegalHold",
+  S3PutObjectRetention: "S3PutObjectRetention",
+  S3PutObjectTagging: "S3PutObjectTagging",
+  S3ReplicateObject: "S3ReplicateObject",
+} as const;
+
+/**
+ * @public
+ */
+export type OperationName = (typeof OperationName)[keyof typeof OperationName];
+
+/**
+ * <p>Contains the configuration and status information for a single job retrieved as part of
+ *          a job list.</p>
+ * @public
+ */
+export interface JobListDescriptor {
+  /**
+   * <p>The ID for the specified job.</p>
+   * @public
+   */
+  JobId?: string | undefined;
+
+  /**
+   * <p>The user-specified description that was included in the specified job's <code>Create
+   *             Job</code> request.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>The operation that the specified job is configured to run on every object listed in the
+   *          manifest.</p>
+   * @public
+   */
+  Operation?: OperationName | undefined;
+
+  /**
+   * <p>The current priority for the specified job.</p>
+   * @public
+   */
+  Priority?: number | undefined;
+
+  /**
+   * <p>The specified job's current status.</p>
+   * @public
+   */
+  Status?: JobStatus | undefined;
+
+  /**
+   * <p>A timestamp indicating when the specified job was created.</p>
+   * @public
+   */
+  CreationTime?: Date | undefined;
+
+  /**
+   * <p>A timestamp indicating when the specified job terminated. A job's termination date is
+   *          the date and time when it succeeded, failed, or was canceled.</p>
+   * @public
+   */
+  TerminationDate?: Date | undefined;
+
+  /**
+   * <p>Describes the total number of tasks that the specified job has run, the number of tasks
+   *          that succeeded, and the number of tasks that failed.</p>
+   * @public
+   */
+  ProgressSummary?: JobProgressSummary | undefined;
+}
 
 /**
  * @public
@@ -323,17 +439,15 @@ export interface ListStorageLensGroupsResult {
  */
 export interface ListTagsForResourceRequest {
   /**
-   * <p>
-   * The Amazon Web Services account ID of the resource owner.
-   * </p>
+   * <p> The Amazon Web Services account ID of the resource owner. </p>
    * @public
    */
   AccountId?: string | undefined;
 
   /**
-   * <p>
-   * The Amazon Resource Name (ARN) of the S3 resource that you want to list tags for. The tagged resource can be a directory bucket, S3 Storage Lens group or S3 Access Grants instance, registered location, or grant.
-   * </p>
+   * <p> The Amazon Resource Name (ARN) of the S3 resource that you want to list tags for. The
+   *          tagged resource can be a directory bucket, S3 Storage Lens group or S3 Access Grants instance,
+   *          registered location, or grant. </p>
    * @public
    */
   ResourceArn: string | undefined;
@@ -344,9 +458,7 @@ export interface ListTagsForResourceRequest {
  */
 export interface ListTagsForResourceResult {
   /**
-   * <p>
-   * The Amazon Web Services resource tags that are associated with the resource.
-   * </p>
+   * <p> The Amazon Web Services resource tags that are associated with the resource. </p>
    * @public
    */
   Tags?: Tag[] | undefined;
@@ -442,7 +554,9 @@ export interface PutAccessPointPolicyRequest {
   /**
    * <p>The policy that you want to apply to the specified access point. For more information about access point
    *          policies, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-points.html">Managing data access with Amazon S3
-   *             access points</a> or <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-points-directory-buckets.html">Managing access to shared datasets in directory buckets with access points</a> in the <i>Amazon S3 User Guide</i>.</p>
+   *             access points</a> or <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-points-directory-buckets.html">Managing access to
+   *             shared datasets in directory buckets with access points</a> in the
+   *             <i>Amazon S3 User Guide</i>.</p>
    * @public
    */
   Policy: string | undefined;
@@ -476,8 +590,7 @@ export interface PutAccessPointPolicyForObjectLambdaRequest {
  */
 export interface PutAccessPointScopeRequest {
   /**
-   * <p>
-   *          The Amazon Web Services account ID that owns the access point with scope that you want to create or replace.
+   * <p> The Amazon Web Services account ID that owns the access point with scope that you want to create or replace.
    *       </p>
    * @public
    */
@@ -902,15 +1015,15 @@ export interface TagResourceRequest {
   AccountId?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the S3 resource that you're applying tags to. The tagged resource can be a directory bucket, S3 Storage Lens group or S3 Access Grants instance, registered location, or grant.</p>
+   * <p>The Amazon Resource Name (ARN) of the S3 resource that you're applying tags to. The
+   *          tagged resource can be a directory bucket, S3 Storage Lens group or S3 Access Grants instance,
+   *          registered location, or grant.</p>
    * @public
    */
   ResourceArn: string | undefined;
 
   /**
-   * <p>
-   * The Amazon Web Services resource tags that you want to add to the specified S3 resource.
-   * </p>
+   * <p> The Amazon Web Services resource tags that you want to add to the specified S3 resource. </p>
    * @public
    */
   Tags: Tag[] | undefined;
@@ -926,23 +1039,23 @@ export interface TagResourceResult {}
  */
 export interface UntagResourceRequest {
   /**
-   * <p>
-   *    The Amazon Web Services account ID that owns the resource that you're trying to remove the tags from.
-   *    </p>
+   * <p> The Amazon Web Services account ID that owns the resource that you're trying to remove the tags from.
+   *       </p>
    * @public
    */
   AccountId?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the S3 resource that you're removing tags from. The tagged resource can be a directory bucket, S3 Storage Lens group or S3 Access Grants instance, registered location, or grant.</p>
+   * <p>The Amazon Resource Name (ARN) of the S3 resource that you're removing tags from. The
+   *          tagged resource can be a directory bucket, S3 Storage Lens group or S3 Access Grants instance,
+   *          registered location, or grant.</p>
    * @public
    */
   ResourceArn: string | undefined;
 
   /**
-   * <p>
-   *    The array of tag key-value pairs that you're trying to remove from of the S3 resource.
-   *    </p>
+   * <p> The array of tag key-value pairs that you're trying to remove from of the S3 resource.
+   *       </p>
    * @public
    */
   TagKeys: string[] | undefined;
@@ -964,15 +1077,24 @@ export interface UpdateAccessGrantsLocationRequest {
   AccountId?: string | undefined;
 
   /**
-   * <p>The ID of the registered location that you are updating. S3 Access Grants assigns this ID when you register the location. S3 Access Grants assigns the ID <code>default</code> to the default location <code>s3://</code> and assigns an auto-generated ID to other locations that you register.  </p>
-   *          <p>The ID of the registered location to which you are granting access. S3 Access Grants assigned this ID when you registered the location. S3 Access Grants assigns the ID <code>default</code> to the default location <code>s3://</code> and assigns an auto-generated ID to other locations that you register.  </p>
-   *          <p>If you are passing the <code>default</code> location, you cannot create an access grant for the entire default location. You must also specify a bucket or a bucket and prefix in the <code>Subprefix</code> field. </p>
+   * <p>The ID of the registered location that you are updating. S3 Access Grants assigns this ID when you
+   *          register the location. S3 Access Grants assigns the ID <code>default</code> to the default location
+   *             <code>s3://</code> and assigns an auto-generated ID to other locations that you
+   *          register. </p>
+   *          <p>The ID of the registered location to which you are granting access. S3 Access Grants assigned this
+   *          ID when you registered the location. S3 Access Grants assigns the ID <code>default</code> to the
+   *          default location <code>s3://</code> and assigns an auto-generated ID to other locations
+   *          that you register. </p>
+   *          <p>If you are passing the <code>default</code> location, you cannot create an access grant
+   *          for the entire default location. You must also specify a bucket or a bucket and prefix in
+   *          the <code>Subprefix</code> field. </p>
    * @public
    */
   AccessGrantsLocationId: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the IAM role for the registered location. S3 Access Grants assumes this role to manage access to the registered location. </p>
+   * <p>The Amazon Resource Name (ARN) of the IAM role for the registered location. S3 Access Grants
+   *          assumes this role to manage access to the registered location. </p>
    * @public
    */
   IAMRoleArn: string | undefined;
@@ -989,7 +1111,10 @@ export interface UpdateAccessGrantsLocationResult {
   CreatedAt?: Date | undefined;
 
   /**
-   * <p>The ID of the registered location to which you are granting access. S3 Access Grants assigned this ID when you registered the location. S3 Access Grants assigns the ID <code>default</code> to the default location <code>s3://</code> and assigns an auto-generated ID to other locations that you register.  </p>
+   * <p>The ID of the registered location to which you are granting access. S3 Access Grants assigned this
+   *          ID when you registered the location. S3 Access Grants assigns the ID <code>default</code> to the
+   *          default location <code>s3://</code> and assigns an auto-generated ID to other locations
+   *          that you register. </p>
    * @public
    */
   AccessGrantsLocationId?: string | undefined;
@@ -1001,13 +1126,17 @@ export interface UpdateAccessGrantsLocationResult {
   AccessGrantsLocationArn?: string | undefined;
 
   /**
-   * <p>The S3 URI path of the location that you are updating. You cannot update the scope of the registered location. The location scope can be the default S3 location <code>s3://</code>, the S3 path to a bucket <code>s3://<bucket></code>, or the S3 path to a bucket and prefix <code>s3://<bucket>/<prefix></code>. </p>
+   * <p>The S3 URI path of the location that you are updating. You cannot update the scope of
+   *          the registered location. The location scope can be the default S3 location
+   *             <code>s3://</code>, the S3 path to a bucket <code>s3://<bucket></code>, or the S3
+   *          path to a bucket and prefix <code>s3://<bucket>/<prefix></code>. </p>
    * @public
    */
   LocationScope?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the IAM role of the registered location. S3 Access Grants assumes this role to manage access to the registered location. </p>
+   * <p>The Amazon Resource Name (ARN) of the IAM role of the registered location. S3 Access Grants
+   *          assumes this role to manage access to the registered location. </p>
    * @public
    */
   IAMRoleArn?: string | undefined;

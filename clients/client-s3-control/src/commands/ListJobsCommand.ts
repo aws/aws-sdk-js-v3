@@ -6,8 +6,7 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ListJobsRequest } from "../models/models_0";
-import { ListJobsResult } from "../models/models_1";
+import { ListJobsRequest, ListJobsResult } from "../models/models_1";
 import { de_ListJobsCommand, se_ListJobsCommand } from "../protocols/Aws_restXml";
 import { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3ControlClient";
 
@@ -35,9 +34,8 @@ export interface ListJobsCommandOutput extends ListJobsResult, __MetadataBearer 
  *          <dl>
  *             <dt>Permissions</dt>
  *             <dd>
- *                <p>To use the
- *                   <code>ListJobs</code> operation, you must have permission to
- *                   perform the <code>s3:ListJobs</code> action.</p>
+ *                <p>To use the <code>ListJobs</code> operation, you must have permission to perform
+ *                   the <code>s3:ListJobs</code> action.</p>
  *             </dd>
  *          </dl>
  *          <p>Related actions include:</p>
@@ -64,6 +62,9 @@ export interface ListJobsCommandOutput extends ListJobsResult, __MetadataBearer 
  *                </p>
  *             </li>
  *          </ul>
+ *          <important>
+ *             <p>You must URL encode any signed header values that contain spaces. For example, if your header value is <code>my  file.txt</code>, containing two spaces after <code>my</code>, you must URL encode this value to <code>my%20%20file.txt</code>.</p>
+ *          </important>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -86,7 +87,7 @@ export interface ListJobsCommandOutput extends ListJobsResult, __MetadataBearer 
  * //     { // JobListDescriptor
  * //       JobId: "STRING_VALUE",
  * //       Description: "STRING_VALUE",
- * //       Operation: "LambdaInvoke" || "S3PutObjectCopy" || "S3PutObjectAcl" || "S3PutObjectTagging" || "S3DeleteObjectTagging" || "S3InitiateRestoreObject" || "S3PutObjectLegalHold" || "S3PutObjectRetention" || "S3ReplicateObject",
+ * //       Operation: "LambdaInvoke" || "S3PutObjectCopy" || "S3PutObjectAcl" || "S3PutObjectTagging" || "S3DeleteObjectTagging" || "S3InitiateRestoreObject" || "S3PutObjectLegalHold" || "S3PutObjectRetention" || "S3ReplicateObject" || "S3ComputeObjectChecksum",
  * //       Priority: Number("int"),
  * //       Status: "Active" || "Cancelled" || "Cancelling" || "Complete" || "Completing" || "Failed" || "Failing" || "New" || "Paused" || "Pausing" || "Preparing" || "Ready" || "Suspended",
  * //       CreationTime: new Date("TIMESTAMP"),

@@ -376,7 +376,6 @@ import {
   InvalidRequestException,
   JobDescriptor,
   JobFailure,
-  JobListDescriptor,
   JobManifest,
   JobManifestFieldName,
   JobManifestGenerator,
@@ -435,6 +434,7 @@ import {
   S3AccessControlList,
   S3AccessControlPolicy,
   S3BucketDestination,
+  S3ComputeObjectChecksumOperation,
   S3CopyObjectOperation,
   S3DeleteObjectTaggingOperation,
   S3GeneratedManifestDescriptor,
@@ -480,6 +480,7 @@ import {
   VpcConfiguration,
 } from "../models/models_0";
 import {
+  JobListDescriptor,
   JobStatusException,
   LifecycleConfiguration,
   ListStorageLensConfigurationEntry,
@@ -5405,6 +5406,9 @@ const se_JobOperation = (input: JobOperation, context: __SerdeContext): any => {
   if (input[_SRO] != null) {
     bn.c(se_S3ReplicateObjectOperation(input[_SRO], context).n(_SRO));
   }
+  if (input[_SCOC] != null) {
+    bn.c(se_S3ComputeObjectChecksumOperation(input[_SCOC], context).n(_SCOC));
+  }
   return bn;
 };
 
@@ -5427,6 +5431,9 @@ const se_JobReport = (input: JobReport, context: __SerdeContext): any => {
   }
   if (input[_RS] != null) {
     bn.c(__XmlNode.of(_JRS, input[_RS]).n(_RS));
+  }
+  if (input[_EBO] != null) {
+    bn.c(__XmlNode.of(_AI, input[_EBO]).n(_EBO));
   }
   return bn;
 };
@@ -6101,6 +6108,20 @@ const se_S3BucketDestination = (input: S3BucketDestination, context: __SerdeCont
   bn.cc(input, _Pre);
   if (input[_Enc] != null) {
     bn.c(se_StorageLensDataExportEncryption(input[_Enc], context).n(_Enc));
+  }
+  return bn;
+};
+
+/**
+ * serializeAws_restXmlS3ComputeObjectChecksumOperation
+ */
+const se_S3ComputeObjectChecksumOperation = (input: S3ComputeObjectChecksumOperation, context: __SerdeContext): any => {
+  const bn = new __XmlNode(_SCOCO);
+  if (input[_CAh] != null) {
+    bn.c(__XmlNode.of(_COCA, input[_CAh]).n(_CAh));
+  }
+  if (input[_CTh] != null) {
+    bn.c(__XmlNode.of(_COCT, input[_CTh]).n(_CTh));
   }
   return bn;
 };
@@ -7697,6 +7718,9 @@ const de_JobOperation = (output: any, context: __SerdeContext): JobOperation => 
   if (output[_SRO] != null) {
     contents[_SRO] = de_S3ReplicateObjectOperation(output[_SRO], context);
   }
+  if (output[_SCOC] != null) {
+    contents[_SCOC] = de_S3ComputeObjectChecksumOperation(output[_SCOC], context);
+  }
   return contents;
 };
 
@@ -7739,6 +7763,9 @@ const de_JobReport = (output: any, context: __SerdeContext): JobReport => {
   }
   if (output[_RS] != null) {
     contents[_RS] = __expectString(output[_RS]);
+  }
+  if (output[_EBO] != null) {
+    contents[_EBO] = __expectString(output[_EBO]);
   }
   return contents;
 };
@@ -8844,6 +8871,23 @@ const de_S3BucketDestination = (output: any, context: __SerdeContext): S3BucketD
 };
 
 /**
+ * deserializeAws_restXmlS3ComputeObjectChecksumOperation
+ */
+const de_S3ComputeObjectChecksumOperation = (
+  output: any,
+  context: __SerdeContext
+): S3ComputeObjectChecksumOperation => {
+  const contents: any = {};
+  if (output[_CAh] != null) {
+    contents[_CAh] = __expectString(output[_CAh]);
+  }
+  if (output[_CTh] != null) {
+    contents[_CTh] = __expectString(output[_CTh]);
+  }
+  return contents;
+};
+
+/**
  * deserializeAws_restXmlS3CopyObjectOperation
  */
 const de_S3CopyObjectOperation = (output: any, context: __SerdeContext): S3CopyObjectOperation => {
@@ -9790,11 +9834,14 @@ const _CLo = "ContentLength";
 const _CMD = "ContentMD5";
 const _CMRAPI = "CreateMultiRegionAccessPointInput";
 const _CMRAPR = "CreateMultiRegionAccessPointRequest";
+const _COCA = "ComputeObjectChecksumAlgorithm";
+const _COCT = "ComputeObjectChecksumType";
 const _CR = "ConfirmationRequired";
 const _CRSBA = "ConfirmRemoveSelfBucketAccess";
 const _CRT = "ClientRequestToken";
 const _CSLGR = "CreateStorageLensGroupRequest";
 const _CT = "ClientToken";
+const _CTh = "ChecksumType";
 const _CTo = "ContentTransformation";
 const _CTon = "ContentType";
 const _CTr = "CreationTime";
@@ -10074,6 +10121,8 @@ const _SC = "StorageClass";
 const _SCA = "S3ChecksumAlgorithm";
 const _SCACL = "S3CannedAccessControlList";
 const _SCL = "S3ContentLength";
+const _SCOC = "S3ComputeObjectChecksum";
+const _SCOCO = "S3ComputeObjectChecksumOperation";
 const _SCOO = "S3CopyObjectOperation";
 const _SCe = "SelectionCriteria";
 const _SCu = "SuspendedCause";

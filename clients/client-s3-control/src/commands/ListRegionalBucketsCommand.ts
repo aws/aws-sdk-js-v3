@@ -37,6 +37,9 @@ export interface ListRegionalBucketsCommandOutput extends ListRegionalBucketsRes
  *             <i>Amazon S3 User Guide</i>.</p>
  *          <p>For an example of the request syntax for Amazon S3 on Outposts that uses the S3 on Outposts
  *          endpoint hostname prefix and <code>x-amz-outpost-id</code> in your request, see the <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_ListRegionalBuckets.html#API_control_ListRegionalBuckets_Examples">Examples</a> section.</p>
+ *          <important>
+ *             <p>You must URL encode any signed header values that contain spaces. For example, if your header value is <code>my  file.txt</code>, containing two spaces after <code>my</code>, you must URL encode this value to <code>my%20%20file.txt</code>.</p>
+ *          </important>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
