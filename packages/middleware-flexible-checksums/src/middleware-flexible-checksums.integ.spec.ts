@@ -2,6 +2,7 @@
 import "@aws-sdk/crc64-nvme-crt";
 
 import { ChecksumAlgorithm, S3 } from "@aws-sdk/client-s3";
+import { NodeHttpHandler } from "@smithy/node-http-handler";
 import { HttpHandler, HttpRequest, HttpResponse } from "@smithy/protocol-http";
 import { Readable, Transform } from "stream";
 import { describe, expect, test as it } from "vitest";
@@ -104,7 +105,18 @@ describe("middleware-flexible-checksums", () => {
 
       it("retry doesn't recompute the checksum", async () => {
         const maxAttempts = 3;
-        const client = new S3({ maxAttempts });
+        class CustomHandler extends NodeHttpHandler {
+          async handle() {
+            return {
+              response: new HttpResponse({
+                statusCode: 500, // Fake Trasient Error
+                headers: {},
+              }),
+            };
+          }
+        }
+        const requestHandler = new CustomHandler();
+        const client = new S3({ maxAttempts, requestHandler });
 
         let flexChecksCalls = 0;
         client.middlewareStack.addRelativeTo(
@@ -130,15 +142,6 @@ describe("middleware-flexible-checksums", () => {
           }
         );
 
-        requireRequestsFrom(client)
-          .toMatch({ method: "PUT" })
-          .respondWith(
-            new HttpResponse({
-              statusCode: 500, // Fake Trasient Error
-              headers: {},
-            })
-          );
-
         await client
           .putObject({
             Bucket: "b",
@@ -147,12 +150,12 @@ describe("middleware-flexible-checksums", () => {
           })
           .catch(() => {
             // Expected, since we're faking transient error which is retried.
-            // Validate that flexibleChecksumsMiddleware is called once.
-            expect(flexChecksCalls).toEqual(1);
-            // Validate that retryMiddleware is called maxAttempts times.
-            expect(retryMiddlewareCalls).toEqual(maxAttempts);
           });
-        expect.hasAssertions();
+
+        // Validate that flexibleChecksumsMiddleware is called once.
+        expect(flexChecksCalls).toEqual(1);
+        // Validate that retryMiddleware is called maxAttempts times.
+        expect(retryMiddlewareCalls).toEqual(maxAttempts);
       });
     });
 
