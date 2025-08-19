@@ -4,7 +4,7 @@ import "@aws-sdk/crc64-nvme-crt";
 import { ChecksumAlgorithm, S3 } from "@aws-sdk/client-s3";
 import { HttpHandler, HttpRequest, HttpResponse } from "@smithy/protocol-http";
 import { Readable, Transform } from "stream";
-import { describe, expect, test as it, vi } from "vitest";
+import { describe, expect, test as it } from "vitest";
 
 import { requireRequestsFrom } from "../../../private/aws-util-test/src";
 import { DEFAULT_CHECKSUM_ALGORITHM, RequestChecksumCalculation, ResponseChecksumValidation } from "./constants";
@@ -106,10 +106,10 @@ describe("middleware-flexible-checksums", () => {
         const maxAttempts = 3;
         const client = new S3({ maxAttempts });
 
-        const mockFlexChecksCallsFn = vi.fn();
+        let flexChecksCalls = 0;
         client.middlewareStack.addRelativeTo(
           (next: any) => async (args: any) => {
-            mockFlexChecksCallsFn();
+            flexChecksCalls++;
             return next(args);
           },
           {
@@ -118,10 +118,10 @@ describe("middleware-flexible-checksums", () => {
           }
         );
 
-        const mockRetryMiddlewareCallsFn = vi.fn();
+        let retryMiddlewareCalls = 0;
         client.middlewareStack.addRelativeTo(
           (next: any) => async (args: any) => {
-            mockRetryMiddlewareCallsFn();
+            retryMiddlewareCalls++;
             return next(args);
           },
           {
@@ -150,9 +150,9 @@ describe("middleware-flexible-checksums", () => {
           });
 
         // Validate that flexibleChecksumsMiddleware is called once.
-        expect(mockFlexChecksCallsFn).toHaveBeenCalledTimes(1);
+        expect(flexChecksCalls).toEqual(1);
         // Validate that retryMiddleware is called maxAttempts times.
-        expect(mockRetryMiddlewareCallsFn).toHaveBeenCalledTimes(maxAttempts);
+        expect(retryMiddlewareCalls).toEqual(maxAttempts);
       });
     });
 
