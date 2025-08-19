@@ -140,7 +140,6 @@ export class OperationWithDefaultsCommand extends $Command
   })
   .s("RestJson", "OperationWithDefaults", {})
   .n("RestJsonProtocolClient", "OperationWithDefaultsCommand")
-  .f(void 0, void 0)
   .sc(OperationWithDefaults)
   .build() {
   /** @internal type navigation helper, not in runtime. */

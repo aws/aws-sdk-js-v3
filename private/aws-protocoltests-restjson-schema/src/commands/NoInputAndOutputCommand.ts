@@ -70,7 +70,6 @@ export class NoInputAndOutputCommand extends $Command
   })
   .s("RestJson", "NoInputAndOutput", {})
   .n("RestJsonProtocolClient", "NoInputAndOutputCommand")
-  .f(void 0, void 0)
   .sc(NoInputAndOutput)
   .build() {
   /** @internal type navigation helper, not in runtime. */

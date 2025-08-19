@@ -79,7 +79,6 @@ export class MalformedAcceptWithPayloadCommand extends $Command
   })
   .s("RestJson", "MalformedAcceptWithPayload", {})
   .n("RestJsonProtocolClient", "MalformedAcceptWithPayloadCommand")
-  .f(void 0, void 0)
   .sc(MalformedAcceptWithPayload)
   .build() {
   /** @internal type navigation helper, not in runtime. */

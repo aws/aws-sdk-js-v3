@@ -66,7 +66,6 @@ export class UnitInputAndOutputCommand extends $Command
   })
   .s("RestJson", "UnitInputAndOutput", {})
   .n("RestJsonProtocolClient", "UnitInputAndOutputCommand")
-  .f(void 0, void 0)
   .sc(UnitInputAndOutput)
   .build() {
   /** @internal type navigation helper, not in runtime. */

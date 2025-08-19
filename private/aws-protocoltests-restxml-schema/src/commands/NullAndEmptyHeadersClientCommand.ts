@@ -79,7 +79,6 @@ export class NullAndEmptyHeadersClientCommand extends $Command
   })
   .s("RestXml", "NullAndEmptyHeadersClient", {})
   .n("RestXmlProtocolClient", "NullAndEmptyHeadersClientCommand")
-  .f(void 0, void 0)
   .sc(NullAndEmptyHeadersClient)
   .build() {
   /** @internal type navigation helper, not in runtime. */

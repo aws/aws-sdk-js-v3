@@ -72,7 +72,6 @@ export class MalformedIntegerCommand extends $Command
   })
   .s("RestJson", "MalformedInteger", {})
   .n("RestJsonProtocolClient", "MalformedIntegerCommand")
-  .f(void 0, void 0)
   .sc(MalformedInteger)
   .build() {
   /** @internal type navigation helper, not in runtime. */

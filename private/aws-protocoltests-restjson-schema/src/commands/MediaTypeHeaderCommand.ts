@@ -71,7 +71,6 @@ export class MediaTypeHeaderCommand extends $Command
   })
   .s("RestJson", "MediaTypeHeader", {})
   .n("RestJsonProtocolClient", "MediaTypeHeaderCommand")
-  .f(void 0, void 0)
   .sc(MediaTypeHeader)
   .build() {
   /** @internal type navigation helper, not in runtime. */

@@ -73,7 +73,6 @@ export class XmlEmptyMapsCommand extends $Command
   })
   .s("AwsQuery", "XmlEmptyMaps", {})
   .n("QueryProtocolClient", "XmlEmptyMapsCommand")
-  .f(void 0, void 0)
   .sc(XmlEmptyMaps)
   .build() {
   /** @internal type navigation helper, not in runtime. */

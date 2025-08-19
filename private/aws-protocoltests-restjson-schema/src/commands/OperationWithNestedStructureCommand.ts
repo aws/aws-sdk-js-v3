@@ -123,7 +123,6 @@ export class OperationWithNestedStructureCommand extends $Command
   })
   .s("RestJson", "OperationWithNestedStructure", {})
   .n("RestJsonProtocolClient", "OperationWithNestedStructureCommand")
-  .f(void 0, void 0)
   .sc(OperationWithNestedStructure)
   .build() {
   /** @internal type navigation helper, not in runtime. */

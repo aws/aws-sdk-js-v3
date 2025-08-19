@@ -70,7 +70,6 @@ export class OmitsNullSerializesEmptyStringCommand extends $Command
   })
   .s("RestJson", "OmitsNullSerializesEmptyString", {})
   .n("RestJsonProtocolClient", "OmitsNullSerializesEmptyStringCommand")
-  .f(void 0, void 0)
   .sc(OmitsNullSerializesEmptyString)
   .build() {
   /** @internal type navigation helper, not in runtime. */

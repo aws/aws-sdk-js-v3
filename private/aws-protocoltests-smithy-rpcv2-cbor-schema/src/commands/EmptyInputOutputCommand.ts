@@ -67,7 +67,6 @@ export class EmptyInputOutputCommand extends $Command
   })
   .s("RpcV2Protocol", "EmptyInputOutput", {})
   .n("RpcV2ProtocolClient", "EmptyInputOutputCommand")
-  .f(void 0, void 0)
   .sc(EmptyInputOutput)
   .build() {
   /** @internal type navigation helper, not in runtime. */

@@ -69,7 +69,6 @@ export class MalformedAcceptWithBodyCommand extends $Command
   })
   .s("RestJson", "MalformedAcceptWithBody", {})
   .n("RestJsonProtocolClient", "MalformedAcceptWithBodyCommand")
-  .f(void 0, void 0)
   .sc(MalformedAcceptWithBody)
   .build() {
   /** @internal type navigation helper, not in runtime. */

@@ -75,7 +75,6 @@ export class FlattenedXmlMapWithXmlNameCommand extends $Command
   })
   .s("RestXml", "FlattenedXmlMapWithXmlName", {})
   .n("RestXmlProtocolClient", "FlattenedXmlMapWithXmlNameCommand")
-  .f(void 0, void 0)
   .sc(FlattenedXmlMapWithXmlName)
   .build() {
   /** @internal type navigation helper, not in runtime. */

@@ -112,7 +112,6 @@ export class RpcV2CborDenseMapsCommand extends $Command
   })
   .s("RpcV2Protocol", "RpcV2CborDenseMaps", {})
   .n("RpcV2ProtocolClient", "RpcV2CborDenseMapsCommand")
-  .f(void 0, void 0)
   .sc(RpcV2CborDenseMaps)
   .build() {
   /** @internal type navigation helper, not in runtime. */

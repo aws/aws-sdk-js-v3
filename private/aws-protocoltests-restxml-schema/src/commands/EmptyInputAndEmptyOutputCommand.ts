@@ -70,7 +70,6 @@ export class EmptyInputAndEmptyOutputCommand extends $Command
   })
   .s("RestXml", "EmptyInputAndEmptyOutput", {})
   .n("RestXmlProtocolClient", "EmptyInputAndEmptyOutputCommand")
-  .f(void 0, void 0)
   .sc(EmptyInputAndEmptyOutput)
   .build() {
   /** @internal type navigation helper, not in runtime. */

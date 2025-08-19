@@ -75,7 +75,6 @@ export class DocumentTypeAsMapValueCommand extends $Command
   })
   .s("RestJson", "DocumentTypeAsMapValue", {})
   .n("RestJsonProtocolClient", "DocumentTypeAsMapValueCommand")
-  .f(void 0, void 0)
   .sc(DocumentTypeAsMapValue)
   .build() {
   /** @internal type navigation helper, not in runtime. */

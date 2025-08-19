@@ -80,7 +80,6 @@ export class XmlEnumsCommand extends $Command
   })
   .s("AwsEc2", "XmlEnums", {})
   .n("EC2ProtocolClient", "XmlEnumsCommand")
-  .f(void 0, void 0)
   .sc(XmlEnums)
   .build() {
   /** @internal type navigation helper, not in runtime. */

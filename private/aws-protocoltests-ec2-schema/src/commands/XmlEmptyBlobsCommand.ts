@@ -69,7 +69,6 @@ export class XmlEmptyBlobsCommand extends $Command
   })
   .s("AwsEc2", "XmlEmptyBlobs", {})
   .n("EC2ProtocolClient", "XmlEmptyBlobsCommand")
-  .f(void 0, void 0)
   .sc(XmlEmptyBlobs)
   .build() {
   /** @internal type navigation helper, not in runtime. */

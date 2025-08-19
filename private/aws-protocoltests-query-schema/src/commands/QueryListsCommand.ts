@@ -90,7 +90,6 @@ export class QueryListsCommand extends $Command
   })
   .s("AwsQuery", "QueryLists", {})
   .n("QueryProtocolClient", "QueryListsCommand")
-  .f(void 0, void 0)
   .sc(QueryLists)
   .build() {
   /** @internal type navigation helper, not in runtime. */

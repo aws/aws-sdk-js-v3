@@ -88,7 +88,6 @@ export class OperationWithRequiredMembersWithDefaultsCommand extends $Command
   })
   .s("JsonRpc10", "OperationWithRequiredMembersWithDefaults", {})
   .n("JSONRPC10Client", "OperationWithRequiredMembersWithDefaultsCommand")
-  .f(void 0, void 0)
   .sc(OperationWithRequiredMembersWithDefaults)
   .build() {
   /** @internal type navigation helper, not in runtime. */

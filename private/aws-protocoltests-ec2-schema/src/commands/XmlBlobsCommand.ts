@@ -69,7 +69,6 @@ export class XmlBlobsCommand extends $Command
   })
   .s("AwsEc2", "XmlBlobs", {})
   .n("EC2ProtocolClient", "XmlBlobsCommand")
-  .f(void 0, void 0)
   .sc(XmlBlobs)
   .build() {
   /** @internal type navigation helper, not in runtime. */

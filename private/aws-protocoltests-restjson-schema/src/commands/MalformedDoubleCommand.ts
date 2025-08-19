@@ -72,7 +72,6 @@ export class MalformedDoubleCommand extends $Command
   })
   .s("RestJson", "MalformedDouble", {})
   .n("RestJsonProtocolClient", "MalformedDoubleCommand")
-  .f(void 0, void 0)
   .sc(MalformedDouble)
   .build() {
   /** @internal type navigation helper, not in runtime. */

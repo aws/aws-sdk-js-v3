@@ -69,7 +69,6 @@ export class Float16Command extends $Command
   })
   .s("RpcV2Protocol", "Float16", {})
   .n("RpcV2ProtocolClient", "Float16Command")
-  .f(void 0, void 0)
   .sc(Float16)
   .build() {
   /** @internal type navigation helper, not in runtime. */

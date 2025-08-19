@@ -66,7 +66,6 @@ export class EndpointOperationCommand extends $Command
   })
   .s("JsonProtocol", "EndpointOperation", {})
   .n("JsonProtocolClient", "EndpointOperationCommand")
-  .f(void 0, void 0)
   .sc(EndpointOperation)
   .build() {
   /** @internal type navigation helper, not in runtime. */

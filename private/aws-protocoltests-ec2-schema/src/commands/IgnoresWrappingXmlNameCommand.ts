@@ -71,7 +71,6 @@ export class IgnoresWrappingXmlNameCommand extends $Command
   })
   .s("AwsEc2", "IgnoresWrappingXmlName", {})
   .n("EC2ProtocolClient", "IgnoresWrappingXmlNameCommand")
-  .f(void 0, void 0)
   .sc(IgnoresWrappingXmlName)
   .build() {
   /** @internal type navigation helper, not in runtime. */

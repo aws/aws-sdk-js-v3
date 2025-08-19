@@ -74,7 +74,6 @@ export class XmlNamespacesCommand extends $Command
   })
   .s("AwsEc2", "XmlNamespaces", {})
   .n("EC2ProtocolClient", "XmlNamespacesCommand")
-  .f(void 0, void 0)
   .sc(XmlNamespaces)
   .build() {
   /** @internal type navigation helper, not in runtime. */

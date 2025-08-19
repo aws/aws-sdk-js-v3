@@ -71,7 +71,6 @@ export class FlattenedXmlMapCommand extends $Command
   })
   .s("AwsQuery", "FlattenedXmlMap", {})
   .n("QueryProtocolClient", "FlattenedXmlMapCommand")
-  .f(void 0, void 0)
   .sc(FlattenedXmlMap)
   .build() {
   /** @internal type navigation helper, not in runtime. */

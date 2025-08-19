@@ -291,7 +291,6 @@ export class KitchenSinkOperationCommand extends $Command
   })
   .s("JsonProtocol", "KitchenSinkOperation", {})
   .n("JsonProtocolClient", "KitchenSinkOperationCommand")
-  .f(void 0, void 0)
   .sc(KitchenSinkOperation)
   .build() {
   /** @internal type navigation helper, not in runtime. */

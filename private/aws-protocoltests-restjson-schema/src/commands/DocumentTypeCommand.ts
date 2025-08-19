@@ -73,7 +73,6 @@ export class DocumentTypeCommand extends $Command
   })
   .s("RestJson", "DocumentType", {})
   .n("RestJsonProtocolClient", "DocumentTypeCommand")
-  .f(void 0, void 0)
   .sc(DocumentType)
   .build() {
   /** @internal type navigation helper, not in runtime. */

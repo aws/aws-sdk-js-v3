@@ -69,7 +69,6 @@ export class HttpRequestWithRegexLiteralCommand extends $Command
   })
   .s("RestJson", "HttpRequestWithRegexLiteral", {})
   .n("RestJsonProtocolClient", "HttpRequestWithRegexLiteralCommand")
-  .f(void 0, void 0)
   .sc(HttpRequestWithRegexLiteral)
   .build() {
   /** @internal type navigation helper, not in runtime. */

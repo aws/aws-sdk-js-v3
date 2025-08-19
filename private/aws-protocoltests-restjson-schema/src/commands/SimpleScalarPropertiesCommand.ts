@@ -89,7 +89,6 @@ export class SimpleScalarPropertiesCommand extends $Command
   })
   .s("RestJson", "SimpleScalarProperties", {})
   .n("RestJsonProtocolClient", "SimpleScalarPropertiesCommand")
-  .f(void 0, void 0)
   .sc(SimpleScalarProperties)
   .build() {
   /** @internal type navigation helper, not in runtime. */

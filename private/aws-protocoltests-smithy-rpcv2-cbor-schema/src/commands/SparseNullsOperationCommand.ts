@@ -81,7 +81,6 @@ export class SparseNullsOperationCommand extends $Command
   })
   .s("RpcV2Protocol", "SparseNullsOperation", {})
   .n("RpcV2ProtocolClient", "SparseNullsOperationCommand")
-  .f(void 0, void 0)
   .sc(SparseNullsOperation)
   .build() {
   /** @internal type navigation helper, not in runtime. */

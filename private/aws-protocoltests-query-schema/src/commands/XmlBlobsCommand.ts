@@ -69,7 +69,6 @@ export class XmlBlobsCommand extends $Command
   })
   .s("AwsQuery", "XmlBlobs", {})
   .n("QueryProtocolClient", "XmlBlobsCommand")
-  .f(void 0, void 0)
   .sc(XmlBlobs)
   .build() {
   /** @internal type navigation helper, not in runtime. */

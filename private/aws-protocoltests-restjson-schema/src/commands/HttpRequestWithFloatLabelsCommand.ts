@@ -70,7 +70,6 @@ export class HttpRequestWithFloatLabelsCommand extends $Command
   })
   .s("RestJson", "HttpRequestWithFloatLabels", {})
   .n("RestJsonProtocolClient", "HttpRequestWithFloatLabelsCommand")
-  .f(void 0, void 0)
   .sc(HttpRequestWithFloatLabels)
   .build() {
   /** @internal type navigation helper, not in runtime. */

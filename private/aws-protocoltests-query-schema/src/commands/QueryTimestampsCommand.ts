@@ -75,7 +75,6 @@ export class QueryTimestampsCommand extends $Command
   })
   .s("AwsQuery", "QueryTimestamps", {})
   .n("QueryProtocolClient", "QueryTimestampsCommand")
-  .f(void 0, void 0)
   .sc(QueryTimestamps)
   .build() {
   /** @internal type navigation helper, not in runtime. */

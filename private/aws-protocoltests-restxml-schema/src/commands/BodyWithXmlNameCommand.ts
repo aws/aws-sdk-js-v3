@@ -76,7 +76,6 @@ export class BodyWithXmlNameCommand extends $Command
   })
   .s("RestXml", "BodyWithXmlName", {})
   .n("RestXmlProtocolClient", "BodyWithXmlNameCommand")
-  .f(void 0, void 0)
   .sc(BodyWithXmlName)
   .build() {
   /** @internal type navigation helper, not in runtime. */

@@ -77,7 +77,6 @@ export class SimpleInputParamsCommand extends $Command
   })
   .s("AwsQuery", "SimpleInputParams", {})
   .n("QueryProtocolClient", "SimpleInputParamsCommand")
-  .f(void 0, void 0)
   .sc(SimpleInputParams)
   .build() {
   /** @internal type navigation helper, not in runtime. */

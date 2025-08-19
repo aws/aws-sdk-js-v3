@@ -134,7 +134,6 @@ export class InputAndOutputWithHeadersCommand extends $Command
   })
   .s("RestJson", "InputAndOutputWithHeaders", {})
   .n("RestJsonProtocolClient", "InputAndOutputWithHeadersCommand")
-  .f(void 0, void 0)
   .sc(InputAndOutputWithHeaders)
   .build() {
   /** @internal type navigation helper, not in runtime. */

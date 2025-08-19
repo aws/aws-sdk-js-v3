@@ -77,7 +77,6 @@ export class HttpRequestWithLabelsCommand extends $Command
   })
   .s("RestJson", "HttpRequestWithLabels", {})
   .n("RestJsonProtocolClient", "HttpRequestWithLabelsCommand")
-  .f(void 0, void 0)
   .sc(HttpRequestWithLabels)
   .build() {
   /** @internal type navigation helper, not in runtime. */

@@ -175,7 +175,6 @@ export class XmlEmptyListsCommand extends $Command
   })
   .s("RestXml", "XmlEmptyLists", {})
   .n("RestXmlProtocolClient", "XmlEmptyListsCommand")
-  .f(void 0, void 0)
   .sc(XmlEmptyLists)
   .build() {
   /** @internal type navigation helper, not in runtime. */

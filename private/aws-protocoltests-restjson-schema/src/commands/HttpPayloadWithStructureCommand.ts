@@ -80,7 +80,6 @@ export class HttpPayloadWithStructureCommand extends $Command
   })
   .s("RestJson", "HttpPayloadWithStructure", {})
   .n("RestJsonProtocolClient", "HttpPayloadWithStructureCommand")
-  .f(void 0, void 0)
   .sc(HttpPayloadWithStructure)
   .build() {
   /** @internal type navigation helper, not in runtime. */

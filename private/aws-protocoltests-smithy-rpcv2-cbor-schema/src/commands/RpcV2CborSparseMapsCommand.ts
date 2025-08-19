@@ -112,7 +112,6 @@ export class RpcV2CborSparseMapsCommand extends $Command
   })
   .s("RpcV2Protocol", "RpcV2CborSparseMaps", {})
   .n("RpcV2ProtocolClient", "RpcV2CborSparseMapsCommand")
-  .f(void 0, void 0)
   .sc(RpcV2CborSparseMaps)
   .build() {
   /** @internal type navigation helper, not in runtime. */

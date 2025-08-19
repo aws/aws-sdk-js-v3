@@ -81,7 +81,6 @@ export class RecursiveXmlShapesCommand extends $Command
   })
   .s("AwsEc2", "RecursiveXmlShapes", {})
   .n("EC2ProtocolClient", "RecursiveXmlShapesCommand")
-  .f(void 0, void 0)
   .sc(RecursiveXmlShapes)
   .build() {
   /** @internal type navigation helper, not in runtime. */

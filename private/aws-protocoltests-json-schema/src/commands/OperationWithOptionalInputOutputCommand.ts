@@ -73,7 +73,6 @@ export class OperationWithOptionalInputOutputCommand extends $Command
   })
   .s("JsonProtocol", "OperationWithOptionalInputOutput", {})
   .n("JsonProtocolClient", "OperationWithOptionalInputOutputCommand")
-  .f(void 0, void 0)
   .sc(OperationWithOptionalInputOutput)
   .build() {
   /** @internal type navigation helper, not in runtime. */

@@ -80,7 +80,6 @@ export class XmlIntEnumsCommand extends $Command
   })
   .s("AwsQuery", "XmlIntEnums", {})
   .n("QueryProtocolClient", "XmlIntEnumsCommand")
-  .f(void 0, void 0)
   .sc(XmlIntEnums)
   .build() {
   /** @internal type navigation helper, not in runtime. */

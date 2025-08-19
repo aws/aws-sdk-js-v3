@@ -75,7 +75,6 @@ export class PostPlayerActionCommand extends $Command
   })
   .s("RestJson", "PostPlayerAction", {})
   .n("RestJsonProtocolClient", "PostPlayerActionCommand")
-  .f(void 0, void 0)
   .sc(PostPlayerAction)
   .build() {
   /** @internal type navigation helper, not in runtime. */

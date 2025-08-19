@@ -77,7 +77,6 @@ export class XmlTimestampsCommand extends $Command
   })
   .s("AwsEc2", "XmlTimestamps", {})
   .n("EC2ProtocolClient", "XmlTimestampsCommand")
-  .f(void 0, void 0)
   .sc(XmlTimestamps)
   .build() {
   /** @internal type navigation helper, not in runtime. */

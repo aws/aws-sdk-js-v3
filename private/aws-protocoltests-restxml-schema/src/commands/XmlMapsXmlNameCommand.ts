@@ -79,7 +79,6 @@ export class XmlMapsXmlNameCommand extends $Command
   })
   .s("RestXml", "XmlMapsXmlName", {})
   .n("RestXmlProtocolClient", "XmlMapsXmlNameCommand")
-  .f(void 0, void 0)
   .sc(XmlMapsXmlName)
   .build() {
   /** @internal type navigation helper, not in runtime. */

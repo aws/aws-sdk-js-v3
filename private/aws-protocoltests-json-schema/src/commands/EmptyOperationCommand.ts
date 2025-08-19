@@ -66,7 +66,6 @@ export class EmptyOperationCommand extends $Command
   })
   .s("JsonProtocol", "EmptyOperation", {})
   .n("JsonProtocolClient", "EmptyOperationCommand")
-  .f(void 0, void 0)
   .sc(EmptyOperation)
   .build() {
   /** @internal type navigation helper, not in runtime. */

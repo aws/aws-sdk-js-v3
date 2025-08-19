@@ -74,7 +74,6 @@ export class QueryParamsAsStringListMapCommand extends $Command
   })
   .s("RestJson", "QueryParamsAsStringListMap", {})
   .n("RestJsonProtocolClient", "QueryParamsAsStringListMapCommand")
-  .f(void 0, void 0)
   .sc(QueryParamsAsStringListMap)
   .build() {
   /** @internal type navigation helper, not in runtime. */

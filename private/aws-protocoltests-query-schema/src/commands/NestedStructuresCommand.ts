@@ -77,7 +77,6 @@ export class NestedStructuresCommand extends $Command
   })
   .s("AwsQuery", "NestedStructures", {})
   .n("QueryProtocolClient", "NestedStructuresCommand")
-  .f(void 0, void 0)
   .sc(NestedStructures)
   .build() {
   /** @internal type navigation helper, not in runtime. */

@@ -98,7 +98,6 @@ export class QueryMapsCommand extends $Command
   })
   .s("AwsQuery", "QueryMaps", {})
   .n("QueryProtocolClient", "QueryMapsCommand")
-  .f(void 0, void 0)
   .sc(QueryMaps)
   .build() {
   /** @internal type navigation helper, not in runtime. */

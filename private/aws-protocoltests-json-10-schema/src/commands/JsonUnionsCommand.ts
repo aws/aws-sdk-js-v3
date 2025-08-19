@@ -105,7 +105,6 @@ export class JsonUnionsCommand extends $Command
   })
   .s("JsonRpc10", "JsonUnions", {})
   .n("JSONRPC10Client", "JsonUnionsCommand")
-  .f(void 0, void 0)
   .sc(JsonUnions)
   .build() {
   /** @internal type navigation helper, not in runtime. */

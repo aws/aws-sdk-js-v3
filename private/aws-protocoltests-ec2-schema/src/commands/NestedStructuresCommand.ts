@@ -77,7 +77,6 @@ export class NestedStructuresCommand extends $Command
   })
   .s("AwsEc2", "NestedStructures", {})
   .n("EC2ProtocolClient", "NestedStructuresCommand")
-  .f(void 0, void 0)
   .sc(NestedStructures)
   .build() {
   /** @internal type navigation helper, not in runtime. */

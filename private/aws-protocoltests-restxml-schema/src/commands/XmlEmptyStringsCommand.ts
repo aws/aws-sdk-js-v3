@@ -71,7 +71,6 @@ export class XmlEmptyStringsCommand extends $Command
   })
   .s("RestXml", "XmlEmptyStrings", {})
   .n("RestXmlProtocolClient", "XmlEmptyStringsCommand")
-  .f(void 0, void 0)
   .sc(XmlEmptyStrings)
   .build() {
   /** @internal type navigation helper, not in runtime. */

@@ -69,7 +69,6 @@ export class MalformedTimestampPathHttpDateCommand extends $Command
   })
   .s("RestJson", "MalformedTimestampPathHttpDate", {})
   .n("RestJsonProtocolClient", "MalformedTimestampPathHttpDateCommand")
-  .f(void 0, void 0)
   .sc(MalformedTimestampPathHttpDate)
   .build() {
   /** @internal type navigation helper, not in runtime. */

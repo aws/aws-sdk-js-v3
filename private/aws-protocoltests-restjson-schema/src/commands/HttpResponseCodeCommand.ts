@@ -69,7 +69,6 @@ export class HttpResponseCodeCommand extends $Command
   })
   .s("RestJson", "HttpResponseCode", {})
   .n("RestJsonProtocolClient", "HttpResponseCodeCommand")
-  .f(void 0, void 0)
   .sc(HttpResponseCode)
   .build() {
   /** @internal type navigation helper, not in runtime. */

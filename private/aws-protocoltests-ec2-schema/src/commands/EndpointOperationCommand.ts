@@ -66,7 +66,6 @@ export class EndpointOperationCommand extends $Command
   })
   .s("AwsEc2", "EndpointOperation", {})
   .n("EC2ProtocolClient", "EndpointOperationCommand")
-  .f(void 0, void 0)
   .sc(EndpointOperation)
   .build() {
   /** @internal type navigation helper, not in runtime. */

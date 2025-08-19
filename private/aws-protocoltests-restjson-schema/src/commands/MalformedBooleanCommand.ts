@@ -72,7 +72,6 @@ export class MalformedBooleanCommand extends $Command
   })
   .s("RestJson", "MalformedBoolean", {})
   .n("RestJsonProtocolClient", "MalformedBooleanCommand")
-  .f(void 0, void 0)
   .sc(MalformedBoolean)
   .build() {
   /** @internal type navigation helper, not in runtime. */

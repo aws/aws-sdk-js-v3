@@ -71,7 +71,6 @@ export class HttpStringPayloadCommand extends $Command
   })
   .s("RestXml", "HttpStringPayload", {})
   .n("RestXmlProtocolClient", "HttpStringPayloadCommand")
-  .f(void 0, void 0)
   .sc(HttpStringPayload)
   .build() {
   /** @internal type navigation helper, not in runtime. */

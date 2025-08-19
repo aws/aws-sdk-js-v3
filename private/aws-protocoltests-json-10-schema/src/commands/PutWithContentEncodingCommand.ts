@@ -76,7 +76,6 @@ export class PutWithContentEncodingCommand extends $Command
   })
   .s("JsonRpc10", "PutWithContentEncoding", {})
   .n("JSONRPC10Client", "PutWithContentEncodingCommand")
-  .f(void 0, void 0)
   .sc(PutWithContentEncoding)
   .build() {
   /** @internal type navigation helper, not in runtime. */

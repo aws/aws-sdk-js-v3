@@ -70,7 +70,6 @@ export class NoInputAndOutputCommand extends $Command
   })
   .s("JsonRpc10", "NoInputAndOutput", {})
   .n("JSONRPC10Client", "NoInputAndOutputCommand")
-  .f(void 0, void 0)
   .sc(NoInputAndOutput)
   .build() {
   /** @internal type navigation helper, not in runtime. */

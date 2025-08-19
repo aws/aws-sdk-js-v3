@@ -66,7 +66,6 @@ export class QueryIncompatibleOperationCommand extends $Command
   })
   .s("JsonRpc10", "QueryIncompatibleOperation", {})
   .n("JSONRPC10Client", "QueryIncompatibleOperationCommand")
-  .f(void 0, void 0)
   .sc(QueryIncompatibleOperation)
   .build() {
   /** @internal type navigation helper, not in runtime. */

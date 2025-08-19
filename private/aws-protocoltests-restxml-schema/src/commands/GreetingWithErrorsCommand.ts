@@ -83,7 +83,6 @@ export class GreetingWithErrorsCommand extends $Command
   })
   .s("RestXml", "GreetingWithErrors", {})
   .n("RestXmlProtocolClient", "GreetingWithErrorsCommand")
-  .f(void 0, void 0)
   .sc(GreetingWithErrors)
   .build() {
   /** @internal type navigation helper, not in runtime. */

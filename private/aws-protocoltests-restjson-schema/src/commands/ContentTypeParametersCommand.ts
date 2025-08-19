@@ -70,7 +70,6 @@ export class ContentTypeParametersCommand extends $Command
   })
   .s("RestJson", "ContentTypeParameters", {})
   .n("RestJsonProtocolClient", "ContentTypeParametersCommand")
-  .f(void 0, void 0)
   .sc(ContentTypeParameters)
   .build() {
   /** @internal type navigation helper, not in runtime. */

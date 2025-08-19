@@ -93,7 +93,6 @@ export class XmlIntEnumsCommand extends $Command
   })
   .s("RestXml", "XmlIntEnums", {})
   .n("RestXmlProtocolClient", "XmlIntEnumsCommand")
-  .f(void 0, void 0)
   .sc(XmlIntEnums)
   .build() {
   /** @internal type navigation helper, not in runtime. */

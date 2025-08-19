@@ -93,7 +93,6 @@ export class JsonEnumsCommand extends $Command
   })
   .s("JsonProtocol", "JsonEnums", {})
   .n("JsonProtocolClient", "JsonEnumsCommand")
-  .f(void 0, void 0)
   .sc(JsonEnums)
   .build() {
   /** @internal type navigation helper, not in runtime. */

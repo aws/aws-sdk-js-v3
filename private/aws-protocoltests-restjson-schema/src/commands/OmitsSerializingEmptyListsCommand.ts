@@ -91,7 +91,6 @@ export class OmitsSerializingEmptyListsCommand extends $Command
   })
   .s("RestJson", "OmitsSerializingEmptyLists", {})
   .n("RestJsonProtocolClient", "OmitsSerializingEmptyListsCommand")
-  .f(void 0, void 0)
   .sc(OmitsSerializingEmptyLists)
   .build() {
   /** @internal type navigation helper, not in runtime. */

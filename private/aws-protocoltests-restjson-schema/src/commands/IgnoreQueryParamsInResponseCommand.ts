@@ -71,7 +71,6 @@ export class IgnoreQueryParamsInResponseCommand extends $Command
   })
   .s("RestJson", "IgnoreQueryParamsInResponse", {})
   .n("RestJsonProtocolClient", "IgnoreQueryParamsInResponseCommand")
-  .f(void 0, void 0)
   .sc(IgnoreQueryParamsInResponse)
   .build() {
   /** @internal type navigation helper, not in runtime. */

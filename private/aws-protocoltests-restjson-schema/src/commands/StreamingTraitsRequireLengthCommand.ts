@@ -4,10 +4,7 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer, StreamingBlobPayloadInputTypes } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  StreamingTraitsRequireLengthInput,
-  StreamingTraitsRequireLengthInputFilterSensitiveLog,
-} from "../models/models_0";
+import { StreamingTraitsRequireLengthInput } from "../models/models_0";
 import { RestJsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestJsonProtocolClient";
 import { StreamingTraitsRequireLength } from "../schemas/schemas";
 
@@ -80,7 +77,6 @@ export class StreamingTraitsRequireLengthCommand extends $Command
   })
   .s("RestJson", "StreamingTraitsRequireLength", {})
   .n("RestJsonProtocolClient", "StreamingTraitsRequireLengthCommand")
-  .f(StreamingTraitsRequireLengthInputFilterSensitiveLog, void 0)
   .sc(StreamingTraitsRequireLength)
   .build() {
   /** @internal type navigation helper, not in runtime. */

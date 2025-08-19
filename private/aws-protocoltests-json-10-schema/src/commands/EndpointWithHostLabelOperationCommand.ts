@@ -69,7 +69,6 @@ export class EndpointWithHostLabelOperationCommand extends $Command
   })
   .s("JsonRpc10", "EndpointWithHostLabelOperation", {})
   .n("JSONRPC10Client", "EndpointWithHostLabelOperationCommand")
-  .f(void 0, void 0)
   .sc(EndpointWithHostLabelOperation)
   .build() {
   /** @internal type navigation helper, not in runtime. */

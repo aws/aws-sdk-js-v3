@@ -8,7 +8,7 @@ import {
 } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { StreamingTraitsInputOutput, StreamingTraitsInputOutputFilterSensitiveLog } from "../models/models_0";
+import { StreamingTraitsInputOutput } from "../models/models_0";
 import { RestJsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestJsonProtocolClient";
 import { StreamingTraits } from "../schemas/schemas";
 
@@ -90,7 +90,6 @@ export class StreamingTraitsCommand extends $Command
   })
   .s("RestJson", "StreamingTraits", {})
   .n("RestJsonProtocolClient", "StreamingTraitsCommand")
-  .f(StreamingTraitsInputOutputFilterSensitiveLog, StreamingTraitsInputOutputFilterSensitiveLog)
   .sc(StreamingTraits)
   .build() {
   /** @internal type navigation helper, not in runtime. */

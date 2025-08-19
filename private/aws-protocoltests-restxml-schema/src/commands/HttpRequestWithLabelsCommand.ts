@@ -77,7 +77,6 @@ export class HttpRequestWithLabelsCommand extends $Command
   })
   .s("RestXml", "HttpRequestWithLabels", {})
   .n("RestXmlProtocolClient", "HttpRequestWithLabelsCommand")
-  .f(void 0, void 0)
   .sc(HttpRequestWithLabels)
   .build() {
   /** @internal type navigation helper, not in runtime. */

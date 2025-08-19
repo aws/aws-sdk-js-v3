@@ -109,7 +109,6 @@ export class AllQueryStringTypesCommand extends $Command
   })
   .s("RestXml", "AllQueryStringTypes", {})
   .n("RestXmlProtocolClient", "AllQueryStringTypesCommand")
-  .f(void 0, void 0)
   .sc(AllQueryStringTypes)
   .build() {
   /** @internal type navigation helper, not in runtime. */

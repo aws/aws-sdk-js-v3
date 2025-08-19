@@ -72,7 +72,6 @@ export class IgnoresWrappingXmlNameCommand extends $Command
   })
   .s("AwsQuery", "IgnoresWrappingXmlName", {})
   .n("QueryProtocolClient", "IgnoresWrappingXmlNameCommand")
-  .f(void 0, void 0)
   .sc(IgnoresWrappingXmlName)
   .build() {
   /** @internal type navigation helper, not in runtime. */

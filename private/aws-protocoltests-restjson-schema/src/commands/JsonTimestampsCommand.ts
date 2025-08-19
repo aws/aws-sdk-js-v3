@@ -85,7 +85,6 @@ export class JsonTimestampsCommand extends $Command
   })
   .s("RestJson", "JsonTimestamps", {})
   .n("RestJsonProtocolClient", "JsonTimestampsCommand")
-  .f(void 0, void 0)
   .sc(JsonTimestamps)
   .build() {
   /** @internal type navigation helper, not in runtime. */

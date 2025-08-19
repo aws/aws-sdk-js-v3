@@ -69,7 +69,6 @@ export class NoInputAndNoOutputCommand extends $Command
   })
   .s("AwsQuery", "NoInputAndNoOutput", {})
   .n("QueryProtocolClient", "NoInputAndNoOutputCommand")
-  .f(void 0, void 0)
   .sc(NoInputAndNoOutput)
   .build() {
   /** @internal type navigation helper, not in runtime. */

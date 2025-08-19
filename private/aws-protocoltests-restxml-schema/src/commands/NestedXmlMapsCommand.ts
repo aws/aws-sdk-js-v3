@@ -89,7 +89,6 @@ export class NestedXmlMapsCommand extends $Command
   })
   .s("RestXml", "NestedXmlMaps", {})
   .n("RestXmlProtocolClient", "NestedXmlMapsCommand")
-  .f(void 0, void 0)
   .sc(NestedXmlMaps)
   .build() {
   /** @internal type navigation helper, not in runtime. */

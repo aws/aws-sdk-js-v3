@@ -69,7 +69,6 @@ export class MalformedStringCommand extends $Command
   })
   .s("RestJson", "MalformedString", {})
   .n("RestJsonProtocolClient", "MalformedStringCommand")
-  .f(void 0, void 0)
   .sc(MalformedString)
   .build() {
   /** @internal type navigation helper, not in runtime. */

@@ -74,7 +74,6 @@ export class TestGetNoInputNoPayloadCommand extends $Command
   })
   .s("RestJson", "TestGetNoInputNoPayload", {})
   .n("RestJsonProtocolClient", "TestGetNoInputNoPayloadCommand")
-  .f(void 0, void 0)
   .sc(TestGetNoInputNoPayload)
   .build() {
   /** @internal type navigation helper, not in runtime. */
