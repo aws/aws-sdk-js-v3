@@ -50,7 +50,7 @@ export interface StartSpeechSynthesisTaskCommandOutput extends StartSpeechSynthe
  *   LexiconNames: [ // LexiconNameList
  *     "STRING_VALUE",
  *   ],
- *   OutputFormat: "json" || "mp3" || "ogg_vorbis" || "pcm", // required
+ *   OutputFormat: "json" || "mp3" || "ogg_opus" || "ogg_vorbis" || "pcm", // required
  *   OutputS3BucketName: "STRING_VALUE", // required
  *   OutputS3KeyPrefix: "STRING_VALUE",
  *   SampleRate: "STRING_VALUE",
@@ -77,7 +77,7 @@ export interface StartSpeechSynthesisTaskCommandOutput extends StartSpeechSynthe
  * //     LexiconNames: [ // LexiconNameList
  * //       "STRING_VALUE",
  * //     ],
- * //     OutputFormat: "json" || "mp3" || "ogg_vorbis" || "pcm",
+ * //     OutputFormat: "json" || "mp3" || "ogg_opus" || "ogg_vorbis" || "pcm",
  * //     SampleRate: "STRING_VALUE",
  * //     SpeechMarkTypes: [ // SpeechMarkTypeList
  * //       "sentence" || "ssml" || "viseme" || "word",

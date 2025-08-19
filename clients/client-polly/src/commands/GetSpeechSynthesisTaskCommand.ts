@@ -56,7 +56,7 @@ export interface GetSpeechSynthesisTaskCommandOutput extends GetSpeechSynthesisT
  * //     LexiconNames: [ // LexiconNameList
  * //       "STRING_VALUE",
  * //     ],
- * //     OutputFormat: "json" || "mp3" || "ogg_vorbis" || "pcm",
+ * //     OutputFormat: "json" || "mp3" || "ogg_opus" || "ogg_vorbis" || "pcm",
  * //     SampleRate: "STRING_VALUE",
  * //     SpeechMarkTypes: [ // SpeechMarkTypeList
  * //       "sentence" || "ssml" || "viseme" || "word",
