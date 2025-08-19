@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.871.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.870.0...v3.871.0) (2025-08-19)
+
+
+### Features
+
+* **client-cleanrooms:** Support error message configuration for analysis templates ([e425ae4](https://github.com/aws/aws-sdk-js-v3/commit/e425ae46117f5bf83d2c324cc024ea4596910519))
+
+
+
+
+
 # [3.864.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.863.0...v3.864.0) (2025-08-08)
 
 **Note:** Version bump only for package @aws-sdk/client-cleanrooms

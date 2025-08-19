@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.871.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.870.0...v3.871.0) (2025-08-19)
+
+
+### Features
+
+* **client-cleanrooms:** Support error message configuration for analysis templates ([e425ae4](https://github.com/aws/aws-sdk-js-v3/commit/e425ae46117f5bf83d2c324cc024ea4596910519))
+* **client-ec2:** Add support for "warning" volume status. ([7cf835a](https://github.com/aws/aws-sdk-js-v3/commit/7cf835a0c4d72eca66f31fccda2724c7aa0b64e0))
+* **client-polly:** Added support for new output format - Opus. ([1c78990](https://github.com/aws/aws-sdk-js-v3/commit/1c7899095e2fa0622589e6c454f94edbc528f325))
+
+
+
+
+
 # [3.870.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.869.0...v3.870.0) (2025-08-18)
 
 

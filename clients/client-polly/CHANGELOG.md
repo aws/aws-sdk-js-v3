@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.871.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.870.0...v3.871.0) (2025-08-19)
+
+
+### Features
+
+* **client-polly:** Added support for new output format - Opus. ([1c78990](https://github.com/aws/aws-sdk-js-v3/commit/1c7899095e2fa0622589e6c454f94edbc528f325))
+
+
+
+
+
 # [3.864.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.863.0...v3.864.0) (2025-08-08)
 
 **Note:** Version bump only for package @aws-sdk/client-polly
