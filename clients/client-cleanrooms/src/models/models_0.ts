@@ -1325,6 +1325,31 @@ export namespace AnalysisSourceMetadata {
 }
 
 /**
+ * @public
+ * @enum
+ */
+export const ErrorMessageType = {
+  DETAILED: "DETAILED",
+} as const;
+
+/**
+ * @public
+ */
+export type ErrorMessageType = (typeof ErrorMessageType)[keyof typeof ErrorMessageType];
+
+/**
+ * <p>A structure that defines the level of detail included in error messages returned by PySpark jobs. This configuration allows you to control the verbosity of error messages to help with troubleshooting PySpark jobs while maintaining appropriate security controls.</p>
+ * @public
+ */
+export interface ErrorMessageConfiguration {
+  /**
+   * <p>The level of detail for error messages returned by the PySpark job. When set to DETAILED, error messages include more information to help troubleshoot issues with your PySpark job.</p> <p>Because this setting may expose sensitive data, it is recommended for development and testing environments.</p>
+   * @public
+   */
+  type: ErrorMessageType | undefined;
+}
+
+/**
  * <p>The reasons for the validation results.</p>
  * @public
  */
@@ -1490,6 +1515,12 @@ export interface AnalysisTemplate {
    * @public
    */
   validations?: AnalysisTemplateValidationStatusDetail[] | undefined;
+
+  /**
+   * <p>The configuration that specifies the level of detail in error messages returned by analyses using this template. When set to <code>DETAILED</code>, error messages include more information to help troubleshoot issues with PySpark jobs. Detailed error messages may expose underlying data, including sensitive information. Recommended for faster troubleshooting in development and testing environments.</p>
+   * @public
+   */
+  errorMessageConfiguration?: ErrorMessageConfiguration | undefined;
 }
 
 /**
@@ -1615,6 +1646,12 @@ export interface CreateAnalysisTemplateInput {
    * @public
    */
   schema?: AnalysisSchema | undefined;
+
+  /**
+   * <p>The configuration that specifies the level of detail in error messages returned by analyses using this template. When set to <code>DETAILED</code>, error messages include more information to help troubleshoot issues with PySpark jobs. Detailed error messages may expose underlying data, including sensitive information. Recommended for faster troubleshooting in development and testing environments.</p>
+   * @public
+   */
+  errorMessageConfiguration?: ErrorMessageConfiguration | undefined;
 }
 
 /**
@@ -2163,6 +2200,12 @@ export interface CollaborationAnalysisTemplate {
    * @public
    */
   validations?: AnalysisTemplateValidationStatusDetail[] | undefined;
+
+  /**
+   * <p>The configuration that specifies the level of detail in error messages returned by analyses using this template. When set to <code>DETAILED</code>, error messages include more information to help troubleshoot issues with PySpark jobs. Detailed error messages may expose underlying data, including sensitive information. Recommended for faster troubleshooting in development and testing environments.</p>
+   * @public
+   */
+  errorMessageConfiguration?: ErrorMessageConfiguration | undefined;
 }
 
 /**
@@ -7773,79 +7816,6 @@ export interface ProtectedJobMemberOutputConfigurationOutput {
    * @public
    */
   accountId: string | undefined;
-}
-
-/**
- * <p> The output configuration for a protected job's S3 output.</p>
- * @public
- */
-export interface ProtectedJobS3OutputConfigurationOutput {
-  /**
-   * <p> The S3 bucket for job output.</p>
-   * @public
-   */
-  bucket: string | undefined;
-
-  /**
-   * <p>The S3 prefix to unload the protected job results.</p>
-   * @public
-   */
-  keyPrefix?: string | undefined;
-}
-
-/**
- * <p> The protected job output configuration output.</p>
- * @public
- */
-export type ProtectedJobOutputConfigurationOutput =
-  | ProtectedJobOutputConfigurationOutput.MemberMember
-  | ProtectedJobOutputConfigurationOutput.S3Member
-  | ProtectedJobOutputConfigurationOutput.$UnknownMember;
-
-/**
- * @public
- */
-export namespace ProtectedJobOutputConfigurationOutput {
-  /**
-   * <p>If present, the output for a protected job with an `S3` output type.</p>
-   * @public
-   */
-  export interface S3Member {
-    s3: ProtectedJobS3OutputConfigurationOutput;
-    member?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p> The member output configuration for a protected job.</p>
-   * @public
-   */
-  export interface MemberMember {
-    s3?: never;
-    member: ProtectedJobMemberOutputConfigurationOutput;
-    $unknown?: never;
-  }
-
-  /**
-   * @public
-   */
-  export interface $UnknownMember {
-    s3?: never;
-    member?: never;
-    $unknown: [string, any];
-  }
-
-  export interface Visitor<T> {
-    s3: (value: ProtectedJobS3OutputConfigurationOutput) => T;
-    member: (value: ProtectedJobMemberOutputConfigurationOutput) => T;
-    _: (name: string, value: any) => T;
-  }
-
-  export const visit = <T>(value: ProtectedJobOutputConfigurationOutput, visitor: Visitor<T>): T => {
-    if (value.s3 !== undefined) return visitor.s3(value.s3);
-    if (value.member !== undefined) return visitor.member(value.member);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**

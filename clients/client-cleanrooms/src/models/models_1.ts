@@ -18,11 +18,84 @@ import {
   PrivacyBudgetTemplateParametersOutput,
   PrivacyBudgetType,
   ProtectedJobError,
-  ProtectedJobOutputConfigurationOutput,
+  ProtectedJobMemberOutputConfigurationOutput,
   ProtectedJobParameters,
   ProtectedJobResult,
   ProtectedQueryS3OutputConfiguration,
 } from "./models_0";
+
+/**
+ * <p> The output configuration for a protected job's S3 output.</p>
+ * @public
+ */
+export interface ProtectedJobS3OutputConfigurationOutput {
+  /**
+   * <p> The S3 bucket for job output.</p>
+   * @public
+   */
+  bucket: string | undefined;
+
+  /**
+   * <p>The S3 prefix to unload the protected job results.</p>
+   * @public
+   */
+  keyPrefix?: string | undefined;
+}
+
+/**
+ * <p> The protected job output configuration output.</p>
+ * @public
+ */
+export type ProtectedJobOutputConfigurationOutput =
+  | ProtectedJobOutputConfigurationOutput.MemberMember
+  | ProtectedJobOutputConfigurationOutput.S3Member
+  | ProtectedJobOutputConfigurationOutput.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace ProtectedJobOutputConfigurationOutput {
+  /**
+   * <p>If present, the output for a protected job with an `S3` output type.</p>
+   * @public
+   */
+  export interface S3Member {
+    s3: ProtectedJobS3OutputConfigurationOutput;
+    member?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p> The member output configuration for a protected job.</p>
+   * @public
+   */
+  export interface MemberMember {
+    s3?: never;
+    member: ProtectedJobMemberOutputConfigurationOutput;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    s3?: never;
+    member?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    s3: (value: ProtectedJobS3OutputConfigurationOutput) => T;
+    member: (value: ProtectedJobMemberOutputConfigurationOutput) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: ProtectedJobOutputConfigurationOutput, visitor: Visitor<T>): T => {
+    if (value.s3 !== undefined) return visitor.s3(value.s3);
+    if (value.member !== undefined) return visitor.member(value.member);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
 
 /**
  * <p>The output configuration for a protected job result.</p>

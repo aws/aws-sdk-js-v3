@@ -120,6 +120,9 @@ export interface BatchGetCollaborationAnalysisTemplateCommandOutput
  * //           ],
  * //         },
  * //       ],
+ * //       errorMessageConfiguration: { // ErrorMessageConfiguration
+ * //         type: "DETAILED", // required
+ * //       },
  * //     },
  * //   ],
  * //   errors: [ // BatchGetCollaborationAnalysisTemplateErrorList // required

@@ -113,6 +113,9 @@ export interface GetAnalysisTemplateCommandOutput extends GetAnalysisTemplateOut
  * //         ],
  * //       },
  * //     ],
+ * //     errorMessageConfiguration: { // ErrorMessageConfiguration
+ * //       type: "DETAILED", // required
+ * //     },
  * //   },
  * // };
  *

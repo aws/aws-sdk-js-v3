@@ -114,6 +114,9 @@ export interface UpdateAnalysisTemplateCommandOutput extends UpdateAnalysisTempl
  * //         ],
  * //       },
  * //     ],
+ * //     errorMessageConfiguration: { // ErrorMessageConfiguration
+ * //       type: "DETAILED", // required
+ * //     },
  * //   },
  * // };
  *

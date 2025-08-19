@@ -117,6 +117,9 @@ export interface GetCollaborationAnalysisTemplateCommandOutput
  * //         ],
  * //       },
  * //     ],
+ * //     errorMessageConfiguration: { // ErrorMessageConfiguration
+ * //       type: "DETAILED", // required
+ * //     },
  * //   },
  * // };
  *

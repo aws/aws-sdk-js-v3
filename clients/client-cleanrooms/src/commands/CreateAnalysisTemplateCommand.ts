@@ -80,6 +80,9 @@ export interface CreateAnalysisTemplateCommandOutput extends CreateAnalysisTempl
  *       "STRING_VALUE",
  *     ],
  *   },
+ *   errorMessageConfiguration: { // ErrorMessageConfiguration
+ *     type: "DETAILED", // required
+ *   },
  * };
  * const command = new CreateAnalysisTemplateCommand(input);
  * const response = await client.send(command);
@@ -151,6 +154,9 @@ export interface CreateAnalysisTemplateCommandOutput extends CreateAnalysisTempl
  * //         ],
  * //       },
  * //     ],
+ * //     errorMessageConfiguration: { // ErrorMessageConfiguration
+ * //       type: "DETAILED", // required
+ * //     },
  * //   },
  * // };
  *

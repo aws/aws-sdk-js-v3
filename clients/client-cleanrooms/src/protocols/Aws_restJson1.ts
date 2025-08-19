@@ -352,6 +352,7 @@ import {
   DataEncryptionMetadata,
   DifferentialPrivacyColumn,
   DifferentialPrivacyConfiguration,
+  ErrorMessageConfiguration,
   GlueTableReference,
   IdMappingConfig,
   IdMappingTable,
@@ -523,6 +524,7 @@ export const se_CreateAnalysisTemplateCommand = async (
     take(input, {
       analysisParameters: (_) => _json(_),
       description: [],
+      errorMessageConfiguration: (_) => _json(_),
       format: [],
       name: [],
       schema: (_) => _json(_),
@@ -4293,6 +4295,8 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 
 // se_DifferentialPrivacyTemplateUpdateParameters omitted.
 
+// se_ErrorMessageConfiguration omitted.
+
 // se_GlueTableReference omitted.
 
 // se_IdMappingConfig omitted.
@@ -4478,6 +4482,7 @@ const de_AnalysisTemplate = (output: any, context: __SerdeContext): AnalysisTemp
     collaborationId: __expectString,
     createTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     description: __expectString,
+    errorMessageConfiguration: _json,
     format: __expectString,
     id: __expectString,
     membershipArn: __expectString,
@@ -4604,6 +4609,7 @@ const de_CollaborationAnalysisTemplate = (output: any, context: __SerdeContext):
     createTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     creatorAccountId: __expectString,
     description: __expectString,
+    errorMessageConfiguration: _json,
     format: __expectString,
     id: __expectString,
     name: __expectString,
@@ -5198,6 +5204,8 @@ const de_DifferentialPrivacySensitivityParametersList = (
 // de_DifferentialPrivacyTemplateParametersOutput omitted.
 
 // de_DirectAnalysisConfigurationDetails omitted.
+
+// de_ErrorMessageConfiguration omitted.
 
 // de_GlueTableReference omitted.
 
