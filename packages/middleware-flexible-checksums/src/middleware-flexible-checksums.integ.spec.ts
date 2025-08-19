@@ -145,14 +145,14 @@ describe("middleware-flexible-checksums", () => {
             Key: "k",
             Body: "hello",
           })
-          .catch((err) => {
+          .catch(() => {
             // Expected, since we're faking transient error which is retried.
+            // Validate that flexibleChecksumsMiddleware is called once.
+            expect(flexChecksCalls).toEqual(1);
+            // Validate that retryMiddleware is called maxAttempts times.
+            expect(retryMiddlewareCalls).toEqual(maxAttempts);
           });
-
-        // Validate that flexibleChecksumsMiddleware is called once.
-        expect(flexChecksCalls).toEqual(1);
-        // Validate that retryMiddleware is called maxAttempts times.
-        expect(retryMiddlewareCalls).toEqual(maxAttempts);
+        expect.hasAssertions();
       });
     });
 
