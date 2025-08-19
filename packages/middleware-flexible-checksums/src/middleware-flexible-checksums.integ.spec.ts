@@ -121,7 +121,7 @@ describe("middleware-flexible-checksums", () => {
         let flexChecksCalls = 0;
         client.middlewareStack.addRelativeTo(
           (next: any) => async (args: any) => {
-            flexChecksCalls++;
+            flexChecksCalls = flexChecksCalls + 1;
             return next(args);
           },
           {
@@ -133,7 +133,7 @@ describe("middleware-flexible-checksums", () => {
         let retryMiddlewareCalls = 0;
         client.middlewareStack.addRelativeTo(
           (next: any) => async (args: any) => {
-            retryMiddlewareCalls++;
+            retryMiddlewareCalls = retryMiddlewareCalls + 1;
             return next(args);
           },
           {
