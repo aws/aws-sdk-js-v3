@@ -123,7 +123,7 @@ export interface DescribeVolumeStatusCommandOutput extends DescribeVolumeStatusR
  * //             Status: "STRING_VALUE",
  * //           },
  * //         ],
- * //         Status: "ok" || "impaired" || "insufficient-data",
+ * //         Status: "ok" || "impaired" || "insufficient-data" || "warning",
  * //       },
  * //       AttachmentStatuses: [ // VolumeStatusAttachmentStatusList
  * //         { // VolumeStatusAttachmentStatus

@@ -11683,6 +11683,7 @@ export const VolumeStatusInfoStatus = {
   impaired: "impaired",
   insufficient_data: "insufficient-data",
   ok: "ok",
+  warning: "warning",
 } as const;
 
 /**
