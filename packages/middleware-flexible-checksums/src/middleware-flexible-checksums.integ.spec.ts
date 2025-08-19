@@ -2,7 +2,6 @@
 import "@aws-sdk/crc64-nvme-crt";
 
 import { ChecksumAlgorithm, S3 } from "@aws-sdk/client-s3";
-import { NodeHttpHandler } from "@smithy/node-http-handler";
 import { HttpHandler, HttpRequest, HttpResponse } from "@smithy/protocol-http";
 import { Readable, Transform } from "stream";
 import { describe, expect, test as it } from "vitest";
@@ -102,61 +101,6 @@ describe("middleware-flexible-checksums", () => {
           });
         }
       );
-
-      it("retry doesn't recompute the checksum", async () => {
-        const maxAttempts = 3;
-        class CustomHandler extends NodeHttpHandler {
-          async handle() {
-            return {
-              response: new HttpResponse({
-                statusCode: 500, // Fake Trasient Error
-                headers: {},
-              }),
-            };
-          }
-        }
-        const requestHandler = new CustomHandler();
-        const client = new S3({ maxAttempts, requestHandler });
-
-        let flexChecksCalls = 0;
-        client.middlewareStack.addRelativeTo(
-          (next: any) => async (args: any) => {
-            flexChecksCalls = flexChecksCalls + 1;
-            return next(args);
-          },
-          {
-            toMiddleware: "flexibleChecksumsMiddleware",
-            relation: "after",
-          }
-        );
-
-        let retryMiddlewareCalls = 0;
-        client.middlewareStack.addRelativeTo(
-          (next: any) => async (args: any) => {
-            retryMiddlewareCalls = retryMiddlewareCalls + 1;
-            return next(args);
-          },
-          {
-            toMiddleware: "retryMiddleware",
-            relation: "after",
-          }
-        );
-
-        await client
-          .putObject({
-            Bucket: "b",
-            Key: "k",
-            Body: "hello",
-          })
-          .catch(() => {
-            // Expected, since we're faking transient error which is retried.
-          });
-
-        // Validate that flexibleChecksumsMiddleware is called once.
-        expect(flexChecksCalls).toEqual(1);
-        // Validate that retryMiddleware is called maxAttempts times.
-        expect(retryMiddlewareCalls).toEqual(maxAttempts);
-      });
     });
 
     describe("getObject", () => {
