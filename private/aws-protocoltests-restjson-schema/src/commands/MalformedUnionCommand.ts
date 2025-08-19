@@ -72,7 +72,6 @@ export class MalformedUnionCommand extends $Command
   })
   .s("RestJson", "MalformedUnion", {})
   .n("RestJsonProtocolClient", "MalformedUnionCommand")
-  .f(void 0, void 0)
   .sc(MalformedUnion)
   .build() {
   /** @internal type navigation helper, not in runtime. */

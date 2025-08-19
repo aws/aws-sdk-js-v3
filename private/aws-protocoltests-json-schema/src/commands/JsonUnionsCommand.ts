@@ -103,7 +103,6 @@ export class JsonUnionsCommand extends $Command
   })
   .s("JsonProtocol", "JsonUnions", {})
   .n("JsonProtocolClient", "JsonUnionsCommand")
-  .f(void 0, void 0)
   .sc(JsonUnions)
   .build() {
   /** @internal type navigation helper, not in runtime. */

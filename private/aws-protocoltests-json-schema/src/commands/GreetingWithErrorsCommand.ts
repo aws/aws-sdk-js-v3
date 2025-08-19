@@ -86,7 +86,6 @@ export class GreetingWithErrorsCommand extends $Command
   })
   .s("JsonProtocol", "GreetingWithErrors", {})
   .n("JsonProtocolClient", "GreetingWithErrorsCommand")
-  .f(void 0, void 0)
   .sc(GreetingWithErrors)
   .build() {
   /** @internal type navigation helper, not in runtime. */

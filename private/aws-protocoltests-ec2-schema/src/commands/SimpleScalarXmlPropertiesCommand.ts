@@ -78,7 +78,6 @@ export class SimpleScalarXmlPropertiesCommand extends $Command
   })
   .s("AwsEc2", "SimpleScalarXmlProperties", {})
   .n("EC2ProtocolClient", "SimpleScalarXmlPropertiesCommand")
-  .f(void 0, void 0)
   .sc(SimpleScalarXmlProperties)
   .build() {
   /** @internal type navigation helper, not in runtime. */

@@ -69,7 +69,6 @@ export class MalformedContentTypeWithGenericStringCommand extends $Command
   })
   .s("RestJson", "MalformedContentTypeWithGenericString", {})
   .n("RestJsonProtocolClient", "MalformedContentTypeWithGenericStringCommand")
-  .f(void 0, void 0)
   .sc(MalformedContentTypeWithGenericString)
   .build() {
   /** @internal type navigation helper, not in runtime. */

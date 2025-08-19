@@ -70,7 +70,6 @@ export class NoInputAndOutputCommand extends $Command
   })
   .s("AwsEc2", "NoInputAndOutput", {})
   .n("EC2ProtocolClient", "NoInputAndOutputCommand")
-  .f(void 0, void 0)
   .sc(NoInputAndOutput)
   .build() {
   /** @internal type navigation helper, not in runtime. */

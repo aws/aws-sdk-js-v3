@@ -72,7 +72,6 @@ export class MalformedFloatCommand extends $Command
   })
   .s("RestJson", "MalformedFloat", {})
   .n("RestJsonProtocolClient", "MalformedFloatCommand")
-  .f(void 0, void 0)
   .sc(MalformedFloat)
   .build() {
   /** @internal type navigation helper, not in runtime. */

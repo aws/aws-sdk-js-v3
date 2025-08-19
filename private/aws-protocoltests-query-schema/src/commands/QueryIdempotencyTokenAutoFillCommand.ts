@@ -69,7 +69,6 @@ export class QueryIdempotencyTokenAutoFillCommand extends $Command
   })
   .s("AwsQuery", "QueryIdempotencyTokenAutoFill", {})
   .n("QueryProtocolClient", "QueryIdempotencyTokenAutoFillCommand")
-  .f(void 0, void 0)
   .sc(QueryIdempotencyTokenAutoFill)
   .build() {
   /** @internal type navigation helper, not in runtime. */

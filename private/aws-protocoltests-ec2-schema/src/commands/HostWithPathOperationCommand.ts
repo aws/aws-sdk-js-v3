@@ -66,7 +66,6 @@ export class HostWithPathOperationCommand extends $Command
   })
   .s("AwsEc2", "HostWithPathOperation", {})
   .n("EC2ProtocolClient", "HostWithPathOperationCommand")
-  .f(void 0, void 0)
   .sc(HostWithPathOperation)
   .build() {
   /** @internal type navigation helper, not in runtime. */

@@ -95,7 +95,6 @@ export class RecursiveShapesCommand extends $Command
   })
   .s("RestXml", "RecursiveShapes", {})
   .n("RestXmlProtocolClient", "RecursiveShapesCommand")
-  .f(void 0, void 0)
   .sc(RecursiveShapes)
   .build() {
   /** @internal type navigation helper, not in runtime. */

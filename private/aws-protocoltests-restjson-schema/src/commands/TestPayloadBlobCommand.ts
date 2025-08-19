@@ -95,7 +95,6 @@ export class TestPayloadBlobCommand extends $Command
   })
   .s("RestJson", "TestPayloadBlob", {})
   .n("RestJsonProtocolClient", "TestPayloadBlobCommand")
-  .f(void 0, void 0)
   .sc(TestPayloadBlob)
   .build() {
   /** @internal type navigation helper, not in runtime. */

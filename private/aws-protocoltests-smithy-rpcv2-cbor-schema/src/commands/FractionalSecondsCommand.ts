@@ -69,7 +69,6 @@ export class FractionalSecondsCommand extends $Command
   })
   .s("RpcV2Protocol", "FractionalSeconds", {})
   .n("RpcV2ProtocolClient", "FractionalSecondsCommand")
-  .f(void 0, void 0)
   .sc(FractionalSeconds)
   .build() {
   /** @internal type navigation helper, not in runtime. */

@@ -73,7 +73,6 @@ export class XmlAttributesCommand extends $Command
   })
   .s("RestXml", "XmlAttributes", {})
   .n("RestXmlProtocolClient", "XmlAttributesCommand")
-  .f(void 0, void 0)
   .sc(XmlAttributes)
   .build() {
   /** @internal type navigation helper, not in runtime. */

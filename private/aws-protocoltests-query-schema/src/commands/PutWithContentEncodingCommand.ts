@@ -76,7 +76,6 @@ export class PutWithContentEncodingCommand extends $Command
   })
   .s("AwsQuery", "PutWithContentEncoding", {})
   .n("QueryProtocolClient", "PutWithContentEncodingCommand")
-  .f(void 0, void 0)
   .sc(PutWithContentEncoding)
   .build() {
   /** @internal type navigation helper, not in runtime. */

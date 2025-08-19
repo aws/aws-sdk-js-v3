@@ -107,7 +107,6 @@ export class SparseJsonMapsCommand extends $Command
   })
   .s("RestJson", "SparseJsonMaps", {})
   .n("RestJsonProtocolClient", "SparseJsonMapsCommand")
-  .f(void 0, void 0)
   .sc(SparseJsonMaps)
   .build() {
   /** @internal type navigation helper, not in runtime. */

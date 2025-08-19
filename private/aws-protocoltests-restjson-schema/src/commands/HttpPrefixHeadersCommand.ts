@@ -77,7 +77,6 @@ export class HttpPrefixHeadersCommand extends $Command
   })
   .s("RestJson", "HttpPrefixHeaders", {})
   .n("RestJsonProtocolClient", "HttpPrefixHeadersCommand")
-  .f(void 0, void 0)
   .sc(HttpPrefixHeaders)
   .build() {
   /** @internal type navigation helper, not in runtime. */

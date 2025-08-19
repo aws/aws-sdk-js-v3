@@ -71,7 +71,6 @@ export class OptionalInputOutputCommand extends $Command
   })
   .s("RpcV2Protocol", "OptionalInputOutput", {})
   .n("RpcV2ProtocolClient", "OptionalInputOutputCommand")
-  .f(void 0, void 0)
   .sc(OptionalInputOutput)
   .build() {
   /** @internal type navigation helper, not in runtime. */

@@ -79,7 +79,6 @@ export class GreetingWithErrorsCommand extends $Command
   })
   .s("AwsEc2", "GreetingWithErrors", {})
   .n("EC2ProtocolClient", "GreetingWithErrorsCommand")
-  .f(void 0, void 0)
   .sc(GreetingWithErrors)
   .build() {
   /** @internal type navigation helper, not in runtime. */

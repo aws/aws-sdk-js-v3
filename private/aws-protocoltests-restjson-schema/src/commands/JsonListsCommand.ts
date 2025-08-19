@@ -139,7 +139,6 @@ export class JsonListsCommand extends $Command
   })
   .s("RestJson", "JsonLists", {})
   .n("RestJsonProtocolClient", "JsonListsCommand")
-  .f(void 0, void 0)
   .sc(JsonLists)
   .build() {
   /** @internal type navigation helper, not in runtime. */

@@ -135,7 +135,6 @@ export class OperationWithDefaultsCommand extends $Command
   })
   .s("RpcV2Protocol", "OperationWithDefaults", {})
   .n("RpcV2ProtocolClient", "OperationWithDefaultsCommand")
-  .f(void 0, void 0)
   .sc(OperationWithDefaults)
   .build() {
   /** @internal type navigation helper, not in runtime. */

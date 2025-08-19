@@ -91,7 +91,6 @@ export class HttpPayloadTraitsCommand extends $Command
   })
   .s("RestXml", "HttpPayloadTraits", {})
   .n("RestXmlProtocolClient", "HttpPayloadTraitsCommand")
-  .f(void 0, void 0)
   .sc(HttpPayloadTraits)
   .build() {
   /** @internal type navigation helper, not in runtime. */

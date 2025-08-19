@@ -77,7 +77,6 @@ export class XmlAttributesOnPayloadCommand extends $Command
   })
   .s("RestXml", "XmlAttributesOnPayload", {})
   .n("RestXmlProtocolClient", "XmlAttributesOnPayloadCommand")
-  .f(void 0, void 0)
   .sc(XmlAttributesOnPayload)
   .build() {
   /** @internal type navigation helper, not in runtime. */

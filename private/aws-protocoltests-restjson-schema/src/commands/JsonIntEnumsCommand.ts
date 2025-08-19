@@ -93,7 +93,6 @@ export class JsonIntEnumsCommand extends $Command
   })
   .s("RestJson", "JsonIntEnums", {})
   .n("RestJsonProtocolClient", "JsonIntEnumsCommand")
-  .f(void 0, void 0)
   .sc(JsonIntEnums)
   .build() {
   /** @internal type navigation helper, not in runtime. */

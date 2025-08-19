@@ -140,7 +140,6 @@ export class OperationWithDefaultsCommand extends $Command
   })
   .s("JsonRpc10", "OperationWithDefaults", {})
   .n("JSONRPC10Client", "OperationWithDefaultsCommand")
-  .f(void 0, void 0)
   .sc(OperationWithDefaults)
   .build() {
   /** @internal type navigation helper, not in runtime. */

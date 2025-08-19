@@ -66,7 +66,6 @@ export class HostWithPathOperationCommand extends $Command
   })
   .s("AwsQuery", "HostWithPathOperation", {})
   .n("QueryProtocolClient", "HostWithPathOperationCommand")
-  .f(void 0, void 0)
   .sc(HostWithPathOperation)
   .build() {
   /** @internal type navigation helper, not in runtime. */

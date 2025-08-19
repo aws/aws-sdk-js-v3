@@ -66,7 +66,6 @@ export class MalformedContentTypeWithoutBodyCommand extends $Command
   })
   .s("RestJson", "MalformedContentTypeWithoutBody", {})
   .n("RestJsonProtocolClient", "MalformedContentTypeWithoutBodyCommand")
-  .f(void 0, void 0)
   .sc(MalformedContentTypeWithoutBody)
   .build() {
   /** @internal type navigation helper, not in runtime. */

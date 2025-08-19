@@ -81,7 +81,6 @@ export class GreetingWithErrorsCommand extends $Command
   })
   .s("AwsQuery", "GreetingWithErrors", {})
   .n("QueryProtocolClient", "GreetingWithErrorsCommand")
-  .f(void 0, void 0)
   .sc(GreetingWithErrors)
   .build() {
   /** @internal type navigation helper, not in runtime. */

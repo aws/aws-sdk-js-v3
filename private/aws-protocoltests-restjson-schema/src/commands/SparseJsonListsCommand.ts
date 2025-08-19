@@ -81,7 +81,6 @@ export class SparseJsonListsCommand extends $Command
   })
   .s("RestJson", "SparseJsonLists", {})
   .n("RestJsonProtocolClient", "SparseJsonListsCommand")
-  .f(void 0, void 0)
   .sc(SparseJsonLists)
   .build() {
   /** @internal type navigation helper, not in runtime. */

@@ -77,7 +77,6 @@ export class HttpRequestWithLabelsAndTimestampFormatCommand extends $Command
   })
   .s("RestXml", "HttpRequestWithLabelsAndTimestampFormat", {})
   .n("RestXmlProtocolClient", "HttpRequestWithLabelsAndTimestampFormatCommand")
-  .f(void 0, void 0)
   .sc(HttpRequestWithLabelsAndTimestampFormat)
   .build() {
   /** @internal type navigation helper, not in runtime. */

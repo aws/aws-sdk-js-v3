@@ -72,7 +72,6 @@ export class MalformedLongCommand extends $Command
   })
   .s("RestJson", "MalformedLong", {})
   .n("RestJsonProtocolClient", "MalformedLongCommand")
-  .f(void 0, void 0)
   .sc(MalformedLong)
   .build() {
   /** @internal type navigation helper, not in runtime. */

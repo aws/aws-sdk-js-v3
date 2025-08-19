@@ -115,7 +115,6 @@ export class XmlEmptyListsCommand extends $Command
   })
   .s("AwsEc2", "XmlEmptyLists", {})
   .n("EC2ProtocolClient", "XmlEmptyListsCommand")
-  .f(void 0, void 0)
   .sc(XmlEmptyLists)
   .build() {
   /** @internal type navigation helper, not in runtime. */

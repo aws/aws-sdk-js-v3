@@ -69,7 +69,6 @@ export class MalformedTimestampHeaderEpochCommand extends $Command
   })
   .s("RestJson", "MalformedTimestampHeaderEpoch", {})
   .n("RestJsonProtocolClient", "MalformedTimestampHeaderEpochCommand")
-  .f(void 0, void 0)
   .sc(MalformedTimestampHeaderEpoch)
   .build() {
   /** @internal type navigation helper, not in runtime. */

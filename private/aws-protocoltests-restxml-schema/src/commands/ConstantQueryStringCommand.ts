@@ -72,7 +72,6 @@ export class ConstantQueryStringCommand extends $Command
   })
   .s("RestXml", "ConstantQueryString", {})
   .n("RestXmlProtocolClient", "ConstantQueryStringCommand")
-  .f(void 0, void 0)
   .sc(ConstantQueryString)
   .build() {
   /** @internal type navigation helper, not in runtime. */

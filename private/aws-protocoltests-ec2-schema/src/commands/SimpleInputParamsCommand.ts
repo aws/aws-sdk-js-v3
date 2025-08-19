@@ -79,7 +79,6 @@ export class SimpleInputParamsCommand extends $Command
   })
   .s("AwsEc2", "SimpleInputParams", {})
   .n("EC2ProtocolClient", "SimpleInputParamsCommand")
-  .f(void 0, void 0)
   .sc(SimpleInputParams)
   .build() {
   /** @internal type navigation helper, not in runtime. */

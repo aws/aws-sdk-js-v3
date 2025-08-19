@@ -71,7 +71,6 @@ export class MalformedMapCommand extends $Command
   })
   .s("RestJson", "MalformedMap", {})
   .n("RestJsonProtocolClient", "MalformedMapCommand")
-  .f(void 0, void 0)
   .sc(MalformedMap)
   .build() {
   /** @internal type navigation helper, not in runtime. */

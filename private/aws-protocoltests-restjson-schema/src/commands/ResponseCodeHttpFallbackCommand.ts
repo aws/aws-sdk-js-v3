@@ -67,7 +67,6 @@ export class ResponseCodeHttpFallbackCommand extends $Command
   })
   .s("RestJson", "ResponseCodeHttpFallback", {})
   .n("RestJsonProtocolClient", "ResponseCodeHttpFallbackCommand")
-  .f(void 0, void 0)
   .sc(ResponseCodeHttpFallback)
   .build() {
   /** @internal type navigation helper, not in runtime. */

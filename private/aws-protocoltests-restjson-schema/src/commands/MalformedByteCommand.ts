@@ -72,7 +72,6 @@ export class MalformedByteCommand extends $Command
   })
   .s("RestJson", "MalformedByte", {})
   .n("RestJsonProtocolClient", "MalformedByteCommand")
-  .f(void 0, void 0)
   .sc(MalformedByte)
   .build() {
   /** @internal type navigation helper, not in runtime. */

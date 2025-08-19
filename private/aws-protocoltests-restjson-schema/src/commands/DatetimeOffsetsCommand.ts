@@ -69,7 +69,6 @@ export class DatetimeOffsetsCommand extends $Command
   })
   .s("RestJson", "DatetimeOffsets", {})
   .n("RestJsonProtocolClient", "DatetimeOffsetsCommand")
-  .f(void 0, void 0)
   .sc(DatetimeOffsets)
   .build() {
   /** @internal type navigation helper, not in runtime. */

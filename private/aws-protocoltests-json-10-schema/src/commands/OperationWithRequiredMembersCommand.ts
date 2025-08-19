@@ -86,7 +86,6 @@ export class OperationWithRequiredMembersCommand extends $Command
   })
   .s("JsonRpc10", "OperationWithRequiredMembers", {})
   .n("JSONRPC10Client", "OperationWithRequiredMembersCommand")
-  .f(void 0, void 0)
   .sc(OperationWithRequiredMembers)
   .build() {
   /** @internal type navigation helper, not in runtime. */

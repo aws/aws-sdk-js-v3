@@ -88,7 +88,6 @@ export class GreetingWithErrorsCommand extends $Command
   })
   .s("JsonRpc10", "GreetingWithErrors", {})
   .n("JSONRPC10Client", "GreetingWithErrorsCommand")
-  .f(void 0, void 0)
   .sc(GreetingWithErrors)
   .build() {
   /** @internal type navigation helper, not in runtime. */

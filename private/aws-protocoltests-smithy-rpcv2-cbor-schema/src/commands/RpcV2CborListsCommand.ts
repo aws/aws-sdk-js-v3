@@ -150,7 +150,6 @@ export class RpcV2CborListsCommand extends $Command
   })
   .s("RpcV2Protocol", "RpcV2CborLists", {})
   .n("RpcV2ProtocolClient", "RpcV2CborListsCommand")
-  .f(void 0, void 0)
   .sc(RpcV2CborLists)
   .build() {
   /** @internal type navigation helper, not in runtime. */

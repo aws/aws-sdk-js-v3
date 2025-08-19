@@ -186,7 +186,6 @@ export class XmlListsCommand extends $Command
   })
   .s("RestXml", "XmlLists", {})
   .n("RestXmlProtocolClient", "XmlListsCommand")
-  .f(void 0, void 0)
   .sc(XmlLists)
   .build() {
   /** @internal type navigation helper, not in runtime. */

@@ -123,7 +123,6 @@ export class OperationWithNestedStructureCommand extends $Command
   })
   .s("JsonRpc10", "OperationWithNestedStructure", {})
   .n("JSONRPC10Client", "OperationWithNestedStructureCommand")
-  .f(void 0, void 0)
   .sc(OperationWithNestedStructure)
   .build() {
   /** @internal type navigation helper, not in runtime. */

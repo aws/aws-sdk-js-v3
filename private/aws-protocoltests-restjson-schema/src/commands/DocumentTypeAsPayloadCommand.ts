@@ -71,7 +71,6 @@ export class DocumentTypeAsPayloadCommand extends $Command
   })
   .s("RestJson", "DocumentTypeAsPayload", {})
   .n("RestJsonProtocolClient", "DocumentTypeAsPayloadCommand")
-  .f(void 0, void 0)
   .sc(DocumentTypeAsPayload)
   .build() {
   /** @internal type navigation helper, not in runtime. */

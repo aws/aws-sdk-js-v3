@@ -75,7 +75,6 @@ export class HttpPayloadWithUnionCommand extends $Command
   })
   .s("RestXml", "HttpPayloadWithUnion", {})
   .n("RestXmlProtocolClient", "HttpPayloadWithUnionCommand")
-  .f(void 0, void 0)
   .sc(HttpPayloadWithUnion)
   .build() {
   /** @internal type navigation helper, not in runtime. */

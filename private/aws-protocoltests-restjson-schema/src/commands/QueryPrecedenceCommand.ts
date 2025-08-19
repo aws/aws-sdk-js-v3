@@ -72,7 +72,6 @@ export class QueryPrecedenceCommand extends $Command
   })
   .s("RestJson", "QueryPrecedence", {})
   .n("RestJsonProtocolClient", "QueryPrecedenceCommand")
-  .f(void 0, void 0)
   .sc(QueryPrecedence)
   .build() {
   /** @internal type navigation helper, not in runtime. */

@@ -82,7 +82,6 @@ export class GreetingWithErrorsCommand extends $Command
   })
   .s("RpcV2Protocol", "GreetingWithErrors", {})
   .n("RpcV2ProtocolClient", "GreetingWithErrorsCommand")
-  .f(void 0, void 0)
   .sc(GreetingWithErrors)
   .build() {
   /** @internal type navigation helper, not in runtime. */

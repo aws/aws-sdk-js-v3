@@ -70,7 +70,6 @@ export class ContentTypeParametersCommand extends $Command
   })
   .s("JsonProtocol", "ContentTypeParameters", {})
   .n("JsonProtocolClient", "ContentTypeParametersCommand")
-  .f(void 0, void 0)
   .sc(ContentTypeParameters)
   .build() {
   /** @internal type navigation helper, not in runtime. */

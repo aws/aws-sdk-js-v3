@@ -71,7 +71,6 @@ export class XmlBlobsCommand extends $Command
   })
   .s("RestXml", "XmlBlobs", {})
   .n("RestXmlProtocolClient", "XmlBlobsCommand")
-  .f(void 0, void 0)
   .sc(XmlBlobs)
   .build() {
   /** @internal type navigation helper, not in runtime. */

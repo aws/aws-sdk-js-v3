@@ -73,7 +73,6 @@ export class SimpleScalarPropertiesCommand extends $Command
   })
   .s("JsonRpc10", "SimpleScalarProperties", {})
   .n("JSONRPC10Client", "SimpleScalarPropertiesCommand")
-  .f(void 0, void 0)
   .sc(SimpleScalarProperties)
   .build() {
   /** @internal type navigation helper, not in runtime. */

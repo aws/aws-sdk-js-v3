@@ -75,7 +75,6 @@ export class TestPostNoPayloadCommand extends $Command
   })
   .s("RestJson", "TestPostNoPayload", {})
   .n("RestJsonProtocolClient", "TestPostNoPayloadCommand")
-  .f(void 0, void 0)
   .sc(TestPostNoPayload)
   .build() {
   /** @internal type navigation helper, not in runtime. */

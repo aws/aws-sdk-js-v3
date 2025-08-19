@@ -75,7 +75,6 @@ export class HttpChecksumRequiredCommand extends $Command
   })
   .s("RestJson", "HttpChecksumRequired", {})
   .n("RestJsonProtocolClient", "HttpChecksumRequiredCommand")
-  .f(void 0, void 0)
   .sc(HttpChecksumRequired)
   .build() {
   /** @internal type navigation helper, not in runtime. */

@@ -71,7 +71,6 @@ export class NullOperationCommand extends $Command
   })
   .s("JsonProtocol", "NullOperation", {})
   .n("JsonProtocolClient", "NullOperationCommand")
-  .f(void 0, void 0)
   .sc(NullOperation)
   .build() {
   /** @internal type navigation helper, not in runtime. */

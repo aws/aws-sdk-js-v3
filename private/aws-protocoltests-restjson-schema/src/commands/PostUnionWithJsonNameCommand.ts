@@ -79,7 +79,6 @@ export class PostUnionWithJsonNameCommand extends $Command
   })
   .s("RestJson", "PostUnionWithJsonName", {})
   .n("RestJsonProtocolClient", "PostUnionWithJsonNameCommand")
-  .f(void 0, void 0)
   .sc(PostUnionWithJsonName)
   .build() {
   /** @internal type navigation helper, not in runtime. */

@@ -125,7 +125,6 @@ export class XmlListsCommand extends $Command
   })
   .s("AwsEc2", "XmlLists", {})
   .n("EC2ProtocolClient", "XmlListsCommand")
-  .f(void 0, void 0)
   .sc(XmlLists)
   .build() {
   /** @internal type navigation helper, not in runtime. */

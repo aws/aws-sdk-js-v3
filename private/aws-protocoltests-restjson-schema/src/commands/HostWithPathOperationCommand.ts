@@ -66,7 +66,6 @@ export class HostWithPathOperationCommand extends $Command
   })
   .s("RestJson", "HostWithPathOperation", {})
   .n("RestJsonProtocolClient", "HostWithPathOperationCommand")
-  .f(void 0, void 0)
   .sc(HostWithPathOperation)
   .build() {
   /** @internal type navigation helper, not in runtime. */

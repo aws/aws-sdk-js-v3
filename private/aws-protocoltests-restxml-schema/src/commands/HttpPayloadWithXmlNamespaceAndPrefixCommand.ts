@@ -78,7 +78,6 @@ export class HttpPayloadWithXmlNamespaceAndPrefixCommand extends $Command
   })
   .s("RestXml", "HttpPayloadWithXmlNamespaceAndPrefix", {})
   .n("RestXmlProtocolClient", "HttpPayloadWithXmlNamespaceAndPrefixCommand")
-  .f(void 0, void 0)
   .sc(HttpPayloadWithXmlNamespaceAndPrefix)
   .build() {
   /** @internal type navigation helper, not in runtime. */

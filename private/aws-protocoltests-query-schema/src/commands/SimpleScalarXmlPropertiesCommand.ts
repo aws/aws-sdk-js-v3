@@ -78,7 +78,6 @@ export class SimpleScalarXmlPropertiesCommand extends $Command
   })
   .s("AwsQuery", "SimpleScalarXmlProperties", {})
   .n("QueryProtocolClient", "SimpleScalarXmlPropertiesCommand")
-  .f(void 0, void 0)
   .sc(SimpleScalarXmlProperties)
   .build() {
   /** @internal type navigation helper, not in runtime. */

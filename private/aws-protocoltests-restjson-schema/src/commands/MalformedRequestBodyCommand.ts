@@ -70,7 +70,6 @@ export class MalformedRequestBodyCommand extends $Command
   })
   .s("RestJson", "MalformedRequestBody", {})
   .n("RestJsonProtocolClient", "MalformedRequestBodyCommand")
-  .f(void 0, void 0)
   .sc(MalformedRequestBody)
   .build() {
   /** @internal type navigation helper, not in runtime. */

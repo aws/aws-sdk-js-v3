@@ -71,7 +71,6 @@ export class HttpEnumPayloadCommand extends $Command
   })
   .s("RestJson", "HttpEnumPayload", {})
   .n("RestJsonProtocolClient", "HttpEnumPayloadCommand")
-  .f(void 0, void 0)
   .sc(HttpEnumPayload)
   .build() {
   /** @internal type navigation helper, not in runtime. */

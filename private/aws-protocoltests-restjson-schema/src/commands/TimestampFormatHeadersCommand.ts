@@ -83,7 +83,6 @@ export class TimestampFormatHeadersCommand extends $Command
   })
   .s("RestJson", "TimestampFormatHeaders", {})
   .n("RestJsonProtocolClient", "TimestampFormatHeadersCommand")
-  .f(void 0, void 0)
   .sc(TimestampFormatHeaders)
   .build() {
   /** @internal type navigation helper, not in runtime. */

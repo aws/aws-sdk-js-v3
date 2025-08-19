@@ -77,7 +77,6 @@ export class HttpEmptyPrefixHeadersCommand extends $Command
   })
   .s("RestXml", "HttpEmptyPrefixHeaders", {})
   .n("RestXmlProtocolClient", "HttpEmptyPrefixHeadersCommand")
-  .f(void 0, void 0)
   .sc(HttpEmptyPrefixHeaders)
   .build() {
   /** @internal type navigation helper, not in runtime. */

@@ -115,7 +115,6 @@ export class XmlEmptyListsCommand extends $Command
   })
   .s("AwsQuery", "XmlEmptyLists", {})
   .n("QueryProtocolClient", "XmlEmptyListsCommand")
-  .f(void 0, void 0)
   .sc(XmlEmptyLists)
   .build() {
   /** @internal type navigation helper, not in runtime. */

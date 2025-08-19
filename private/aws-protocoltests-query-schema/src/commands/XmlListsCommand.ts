@@ -124,7 +124,6 @@ export class XmlListsCommand extends $Command
   })
   .s("AwsQuery", "XmlLists", {})
   .n("QueryProtocolClient", "XmlListsCommand")
-  .f(void 0, void 0)
   .sc(XmlLists)
   .build() {
   /** @internal type navigation helper, not in runtime. */

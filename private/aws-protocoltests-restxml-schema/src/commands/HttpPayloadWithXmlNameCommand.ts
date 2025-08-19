@@ -76,7 +76,6 @@ export class HttpPayloadWithXmlNameCommand extends $Command
   })
   .s("RestXml", "HttpPayloadWithXmlName", {})
   .n("RestXmlProtocolClient", "HttpPayloadWithXmlNameCommand")
-  .f(void 0, void 0)
   .sc(HttpPayloadWithXmlName)
   .build() {
   /** @internal type navigation helper, not in runtime. */

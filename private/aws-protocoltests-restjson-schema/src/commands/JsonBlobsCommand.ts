@@ -71,7 +71,6 @@ export class JsonBlobsCommand extends $Command
   })
   .s("RestJson", "JsonBlobs", {})
   .n("RestJsonProtocolClient", "JsonBlobsCommand")
-  .f(void 0, void 0)
   .sc(JsonBlobs)
   .build() {
   /** @internal type navigation helper, not in runtime. */

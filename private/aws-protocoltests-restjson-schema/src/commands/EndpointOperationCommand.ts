@@ -66,7 +66,6 @@ export class EndpointOperationCommand extends $Command
   })
   .s("RestJson", "EndpointOperation", {})
   .n("RestJsonProtocolClient", "EndpointOperationCommand")
-  .f(void 0, void 0)
   .sc(EndpointOperation)
   .build() {
   /** @internal type navigation helper, not in runtime. */

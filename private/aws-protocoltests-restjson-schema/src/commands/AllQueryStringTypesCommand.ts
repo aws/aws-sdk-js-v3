@@ -111,7 +111,6 @@ export class AllQueryStringTypesCommand extends $Command
   })
   .s("RestJson", "AllQueryStringTypes", {})
   .n("RestJsonProtocolClient", "AllQueryStringTypesCommand")
-  .f(void 0, void 0)
   .sc(AllQueryStringTypes)
   .build() {
   /** @internal type navigation helper, not in runtime. */

@@ -151,7 +151,6 @@ export class XmlUnionsCommand extends $Command
   })
   .s("RestXml", "XmlUnions", {})
   .n("RestXmlProtocolClient", "XmlUnionsCommand")
-  .f(void 0, void 0)
   .sc(XmlUnions)
   .build() {
   /** @internal type navigation helper, not in runtime. */

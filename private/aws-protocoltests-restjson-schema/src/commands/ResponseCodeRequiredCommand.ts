@@ -69,7 +69,6 @@ export class ResponseCodeRequiredCommand extends $Command
   })
   .s("RestJson", "ResponseCodeRequired", {})
   .n("RestJsonProtocolClient", "ResponseCodeRequiredCommand")
-  .f(void 0, void 0)
   .sc(ResponseCodeRequired)
   .build() {
   /** @internal type navigation helper, not in runtime. */

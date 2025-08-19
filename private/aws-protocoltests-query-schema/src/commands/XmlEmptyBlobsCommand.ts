@@ -69,7 +69,6 @@ export class XmlEmptyBlobsCommand extends $Command
   })
   .s("AwsQuery", "XmlEmptyBlobs", {})
   .n("QueryProtocolClient", "XmlEmptyBlobsCommand")
-  .f(void 0, void 0)
   .sc(XmlEmptyBlobs)
   .build() {
   /** @internal type navigation helper, not in runtime. */

@@ -81,7 +81,6 @@ export class XmlNamespacesCommand extends $Command
   })
   .s("RestXml", "XmlNamespaces", {})
   .n("RestXmlProtocolClient", "XmlNamespacesCommand")
-  .f(void 0, void 0)
   .sc(XmlNamespaces)
   .build() {
   /** @internal type navigation helper, not in runtime. */

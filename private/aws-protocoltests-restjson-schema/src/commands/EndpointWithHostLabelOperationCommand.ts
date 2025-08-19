@@ -69,7 +69,6 @@ export class EndpointWithHostLabelOperationCommand extends $Command
   })
   .s("RestJson", "EndpointWithHostLabelOperation", {})
   .n("RestJsonProtocolClient", "EndpointWithHostLabelOperationCommand")
-  .f(void 0, void 0)
   .sc(EndpointWithHostLabelOperation)
   .build() {
   /** @internal type navigation helper, not in runtime. */

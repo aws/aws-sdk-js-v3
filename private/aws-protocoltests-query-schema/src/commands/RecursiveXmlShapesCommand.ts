@@ -81,7 +81,6 @@ export class RecursiveXmlShapesCommand extends $Command
   })
   .s("AwsQuery", "RecursiveXmlShapes", {})
   .n("QueryProtocolClient", "RecursiveXmlShapesCommand")
-  .f(void 0, void 0)
   .sc(RecursiveXmlShapes)
   .build() {
   /** @internal type navigation helper, not in runtime. */

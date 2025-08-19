@@ -69,7 +69,6 @@ export class MalformedBlobCommand extends $Command
   })
   .s("RestJson", "MalformedBlob", {})
   .n("RestJsonProtocolClient", "MalformedBlobCommand")
-  .f(void 0, void 0)
   .sc(MalformedBlob)
   .build() {
   /** @internal type navigation helper, not in runtime. */

@@ -69,7 +69,6 @@ export class EndpointWithHostLabelHeaderOperationCommand extends $Command
   })
   .s("RestXml", "EndpointWithHostLabelHeaderOperation", {})
   .n("RestXmlProtocolClient", "EndpointWithHostLabelHeaderOperationCommand")
-  .f(void 0, void 0)
   .sc(EndpointWithHostLabelHeaderOperation)
   .build() {
   /** @internal type navigation helper, not in runtime. */

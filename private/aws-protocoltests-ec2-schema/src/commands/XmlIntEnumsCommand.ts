@@ -80,7 +80,6 @@ export class XmlIntEnumsCommand extends $Command
   })
   .s("AwsEc2", "XmlIntEnums", {})
   .n("EC2ProtocolClient", "XmlIntEnumsCommand")
-  .f(void 0, void 0)
   .sc(XmlIntEnums)
   .build() {
   /** @internal type navigation helper, not in runtime. */

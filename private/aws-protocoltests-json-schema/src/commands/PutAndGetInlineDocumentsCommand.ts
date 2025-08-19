@@ -71,7 +71,6 @@ export class PutAndGetInlineDocumentsCommand extends $Command
   })
   .s("JsonProtocol", "PutAndGetInlineDocuments", {})
   .n("JsonProtocolClient", "PutAndGetInlineDocumentsCommand")
-  .f(void 0, void 0)
   .sc(PutAndGetInlineDocuments)
   .build() {
   /** @internal type navigation helper, not in runtime. */

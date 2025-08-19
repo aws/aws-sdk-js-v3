@@ -70,7 +70,6 @@ export class HttpRequestWithGreedyLabelInPathCommand extends $Command
   })
   .s("RestJson", "HttpRequestWithGreedyLabelInPath", {})
   .n("RestJsonProtocolClient", "HttpRequestWithGreedyLabelInPathCommand")
-  .f(void 0, void 0)
   .sc(HttpRequestWithGreedyLabelInPath)
   .build() {
   /** @internal type navigation helper, not in runtime. */

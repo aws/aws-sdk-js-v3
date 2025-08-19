@@ -82,7 +82,6 @@ export class TestBodyStructureCommand extends $Command
   })
   .s("RestJson", "TestBodyStructure", {})
   .n("RestJsonProtocolClient", "TestBodyStructureCommand")
-  .f(void 0, void 0)
   .sc(TestBodyStructure)
   .build() {
   /** @internal type navigation helper, not in runtime. */

@@ -79,7 +79,6 @@ export class XmlEmptyMapsCommand extends $Command
   })
   .s("RestXml", "XmlEmptyMaps", {})
   .n("RestXmlProtocolClient", "XmlEmptyMapsCommand")
-  .f(void 0, void 0)
   .sc(XmlEmptyMaps)
   .build() {
   /** @internal type navigation helper, not in runtime. */
