@@ -3,6 +3,42 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.872.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.871.0...v3.872.0) (2025-08-20)
+
+
+### Bug Fixes
+
+* **aws-util-test:** exclude '**/*.spec.ts' ([#7268](https://github.com/aws/aws-sdk-js-v3/issues/7268)) ([0267438](https://github.com/aws/aws-sdk-js-v3/commit/02674380ef07928757339f1160b44440ac36fef4))
+
+
+### Features
+
+* **client-bedrock-runtime:** Launch CountTokens API to allow token counting ([e9e8d2d](https://github.com/aws/aws-sdk-js-v3/commit/e9e8d2d595abdb8fa7a16f9366395601357eae0e))
+* **client-billing:** Clarify IPv4 and IPv6 endpoints ([a5ebd35](https://github.com/aws/aws-sdk-js-v3/commit/a5ebd35da1282a1ce9d1ab184a227611ffcd0172))
+* **client-budgets:** Remove incorrect endpoint tests ([384a8db](https://github.com/aws/aws-sdk-js-v3/commit/384a8db5c2b5ce2a8512bb3ddc340d59f720bdf3))
+* **client-cognito-identity-provider:** This release adds support for the new Terms APIs which allow displaying Terms of Use and Privacy Policy on the Managed Login user-registration page. ([d7b8b11](https://github.com/aws/aws-sdk-js-v3/commit/d7b8b115d72b71e34a7c9bca36b392ab510336fd))
+* **client-cost-explorer:** Remove incorrect endpoint tests ([6fcdfaa](https://github.com/aws/aws-sdk-js-v3/commit/6fcdfaa6f3887d5ab0194120e8b02ea484f2327b))
+* **client-datazone:** This release supports policy grant identifier for cloud formation integration ([385adca](https://github.com/aws/aws-sdk-js-v3/commit/385adca11fe88d8940b279bc695f2b4583700309))
+* **client-detective:** Remove incorrect endpoint tests ([43a4451](https://github.com/aws/aws-sdk-js-v3/commit/43a4451a679b7231382c8370228941fa274cda0e))
+* **client-dynamodb:** Remove incorrect endpoint tests ([16a3ca8](https://github.com/aws/aws-sdk-js-v3/commit/16a3ca86b5e5c78712ee05269e0e7367754fb31e))
+* **client-efs:** Remove incorrect endpoint tests ([fd49ae0](https://github.com/aws/aws-sdk-js-v3/commit/fd49ae016bb9e2972e91f59a649db0703c2c1b18))
+* **client-eks:** EKS Add-ons Custom Namespace Support ([b612613](https://github.com/aws/aws-sdk-js-v3/commit/b612613140f9c9b4fba3f930d491114400bd0753))
+* **client-iam:** Remove incorrect endpoint tests ([7be4068](https://github.com/aws/aws-sdk-js-v3/commit/7be4068f6de452059b1714da934ba4975147ce39))
+* **client-kinesis-analytics-v2:** Adds Key Management Service (KMS) support allowing customer-managed key (CMK) encryption for Flink application data. ([e39ef0e](https://github.com/aws/aws-sdk-js-v3/commit/e39ef0e4d22f8ea9d6a5c36397f027b3866f10a9))
+* **client-kinesis:** Remove incorrect endpoint tests ([569d9f8](https://github.com/aws/aws-sdk-js-v3/commit/569d9f89fbde9d8f5150295a2b9b1a6e341ae91a))
+* **client-marketplace-entitlement-service:** Remove incorrect endpoint tests ([a3abef0](https://github.com/aws/aws-sdk-js-v3/commit/a3abef00ae3fe39b6391724b7ea8a8c91ef2bc8e))
+* **client-marketplace-metering:** Remove incorrect endpoint tests ([3febc57](https://github.com/aws/aws-sdk-js-v3/commit/3febc5755b35f692eaa4f822551d22c07ab490d5))
+* **client-networkmanager:** Remove incorrect endpoint tests ([2d0793e](https://github.com/aws/aws-sdk-js-v3/commit/2d0793e7162c69d8c5df92105e3e9f25b635cbe9))
+* **client-pinpoint-sms-voice-v2:** This change added InternationalSendingEnbaled as part of describe/Update/Request phone number API response, and as part of update/Request phone number API request ([8ea0605](https://github.com/aws/aws-sdk-js-v3/commit/8ea0605208848b908e4b586c2e116ed3b4c5c90d))
+* **client-route53-recovery-control-config:** Remove incorrect endpoint tests ([41b859a](https://github.com/aws/aws-sdk-js-v3/commit/41b859ac6aff979057527ca61cd390dee5324f84))
+* **client-sagemaker:** This release adds 1/ Launch ml.p5.4xlarge instance in Processing jobs, Training jobs and Training Plan 2/ Makes S3Uri to be required for S3FileSystem and S3FileSystemConfig. ([bfd2fd2](https://github.com/aws/aws-sdk-js-v3/commit/bfd2fd252cffb95be99da17d6e0461503d2c09f9))
+* **client-sesv2:** Remove incorrect endpoint tests ([a4b659e](https://github.com/aws/aws-sdk-js-v3/commit/a4b659edcf8d983046387c7610070ae1bf83cf7d))
+* **clients:** update client endpoints as of 2025-08-20 ([87f1668](https://github.com/aws/aws-sdk-js-v3/commit/87f1668640ad45a9688676fbb7841f77e6ee95a6))
+
+
+
+
+
 # [3.871.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.870.0...v3.871.0) (2025-08-19)
 
 

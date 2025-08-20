@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.872.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.871.0...v3.872.0) (2025-08-20)
+
+
+### Features
+
+* **client-dynamodb:** Remove incorrect endpoint tests ([16a3ca8](https://github.com/aws/aws-sdk-js-v3/commit/16a3ca86b5e5c78712ee05269e0e7367754fb31e))
+
+
+
+
+
 # [3.868.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.867.0...v3.868.0) (2025-08-14)
 
 

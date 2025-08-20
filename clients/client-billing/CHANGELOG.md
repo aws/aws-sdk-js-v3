@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.872.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.871.0...v3.872.0) (2025-08-20)
+
+
+### Features
+
+* **client-billing:** Clarify IPv4 and IPv6 endpoints ([a5ebd35](https://github.com/aws/aws-sdk-js-v3/commit/a5ebd35da1282a1ce9d1ab184a227611ffcd0172))
+
+
+
+
+
 # [3.864.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.863.0...v3.864.0) (2025-08-08)
 
 **Note:** Version bump only for package @aws-sdk/client-billing

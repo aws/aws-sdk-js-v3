@@ -1,7 +1,7 @@
 {
   "name": "@aws-sdk/client-directory-service",
   "description": "AWS SDK for JavaScript Directory Service Client for Node.js, Browser and React Native",
-  "version": "3.864.0",
+  "version": "3.872.0",
   "scripts": {
     "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types'",
     "build:cjs": "node ../../scripts/compilation/inline client-directory-service",

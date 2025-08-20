@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.872.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.871.0...v3.872.0) (2025-08-20)
+
+
+### Features
+
+* **client-datazone:** This release supports policy grant identifier for cloud formation integration ([385adca](https://github.com/aws/aws-sdk-js-v3/commit/385adca11fe88d8940b279bc695f2b4583700309))
+
+
+
+
+
 # [3.867.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.866.0...v3.867.0) (2025-08-13)
 
 
