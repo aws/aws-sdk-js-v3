@@ -11,8 +11,8 @@
     "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
     "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo",
     "test": "yarn g:vitest run",
-    "test:e2e": "yarn g:vitest run -c vitest.config.e2e.ts",
-    "test:browser": "yarn build:browser && yarn g:vitest run -c vitest.config.browser.ts",
+    "test:e2e": "yarn g:vitest run -c vitest.config.e2e.mts",
+    "test:browser": "yarn build:browser && yarn g:vitest run -c vitest.config.browser.mts",
     "test:watch": "yarn g:vitest watch"
   },
   "main": "./dist-cjs/index.js",

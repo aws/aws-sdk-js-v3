@@ -17,9 +17,9 @@ sync:
 bundles: build-s3-browser-bundle build-signature-v4-multi-region-browser-bundle
 
 test-unit: bundles
-	yarn g:vitest run -c vitest.config.ts
-	yarn g:vitest run -c vitest.config.browser.ts
-	yarn g:vitest run -c vitest.config.clients.unit.ts
+	yarn g:vitest run -c vitest.config.mts
+	yarn g:vitest run -c vitest.config.browser.mts
+	yarn g:vitest run -c vitest.config.clients.unit.mts
 	npx jest -c jest.config.js
 
 # typecheck for test code.
@@ -27,14 +27,14 @@ test-types:
 	npx tsc -p tsconfig.test.json
 
 test-protocols: bundles
-	yarn g:vitest run -c vitest.config.protocols.integ.ts
+	yarn g:vitest run -c vitest.config.protocols.integ.mts
 
 test-schema: bundles
-	yarn g:vitest run -c vitest.config.protocols-schema.integ.ts
+	yarn g:vitest run -c vitest.config.protocols-schema.integ.mts
 
 test-integration: bundles
 	rm -rf ./clients/client-sso/node_modules/\@smithy # todo(yarn) incompatible redundant nesting.
-	yarn g:vitest run -c vitest.config.integ.ts
+	yarn g:vitest run -c vitest.config.integ.mts
 	npx jest -c jest.config.integ.js
 	make test-protocols
 	make test-types
@@ -44,8 +44,8 @@ test-endpoints:
 	npx jest -c ./tests/endpoints-2.0/jest.config.js --bail --verbose false
 
 test-e2e: bundles
-	yarn g:vitest run -c vitest.config.e2e.ts --retry=4
-	yarn g:vitest run -c vitest.config.browser.e2e.ts --retry=4
+	yarn g:vitest run -c vitest.config.e2e.mts --retry=4
+	yarn g:vitest run -c vitest.config.browser.e2e.mts --retry=4
 	make test-bundlers
 
 test-bundlers:
