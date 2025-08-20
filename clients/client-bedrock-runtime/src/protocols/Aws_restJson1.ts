@@ -41,6 +41,7 @@ import { v4 as generateIdempotencyToken } from "uuid";
 import { ApplyGuardrailCommandInput, ApplyGuardrailCommandOutput } from "../commands/ApplyGuardrailCommand";
 import { ConverseCommandInput, ConverseCommandOutput } from "../commands/ConverseCommand";
 import { ConverseStreamCommandInput, ConverseStreamCommandOutput } from "../commands/ConverseStreamCommand";
+import { CountTokensCommandInput, CountTokensCommandOutput } from "../commands/CountTokensCommand";
 import { GetAsyncInvokeCommandInput, GetAsyncInvokeCommandOutput } from "../commands/GetAsyncInvokeCommand";
 import { InvokeModelCommandInput, InvokeModelCommandOutput } from "../commands/InvokeModelCommand";
 import {
@@ -80,7 +81,9 @@ import {
   ConverseStreamMetadataEvent,
   ConverseStreamOutput,
   ConverseStreamTrace,
+  ConverseTokensRequest,
   ConverseTrace,
+  CountTokensInput,
   DocumentBlock,
   DocumentCharLocation,
   DocumentChunkLocation,
@@ -116,6 +119,7 @@ import {
   ImageSource,
   InferenceConfiguration,
   InternalServerException,
+  InvokeModelTokensRequest,
   InvokeModelWithBidirectionalStreamInput,
   InvokeModelWithBidirectionalStreamOutput,
   Message,
@@ -237,6 +241,29 @@ export const se_ConverseStreamCommand = async (
       requestMetadata: (_) => _json(_),
       system: (_) => se_SystemContentBlocks(_, context),
       toolConfig: (_) => se_ToolConfiguration(_, context),
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1CountTokensCommand
+ */
+export const se_CountTokensCommand = async (
+  input: CountTokensCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/model/{modelId}/count-tokens");
+  b.p("modelId", () => input.modelId!, "{modelId}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      input: (_) => se_CountTokensInput(_, context),
     })
   );
   b.m("POST").h(headers).b(body);
@@ -450,6 +477,27 @@ export const de_ConverseStreamCommand = async (
   });
   const data: any = output.body;
   contents.stream = de_ConverseStreamOutput(data, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1CountTokensCommand
+ */
+export const de_CountTokensCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CountTokensCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    inputTokens: __expectInt32,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1257,6 +1305,27 @@ const se_ContentBlocks = (input: ContentBlock[], context: __SerdeContext): any =
 };
 
 /**
+ * serializeAws_restJson1ConverseTokensRequest
+ */
+const se_ConverseTokensRequest = (input: ConverseTokensRequest, context: __SerdeContext): any => {
+  return take(input, {
+    messages: (_) => se_Messages(_, context),
+    system: (_) => se_SystemContentBlocks(_, context),
+  });
+};
+
+/**
+ * serializeAws_restJson1CountTokensInput
+ */
+const se_CountTokensInput = (input: CountTokensInput, context: __SerdeContext): any => {
+  return CountTokensInput.visit(input, {
+    converse: (value) => ({ converse: se_ConverseTokensRequest(value, context) }),
+    invokeModel: (value) => ({ invokeModel: se_InvokeModelTokensRequest(value, context) }),
+    _: (name, value) => ({ [name]: value } as any),
+  });
+};
+
+/**
  * serializeAws_restJson1DocumentBlock
  */
 const se_DocumentBlock = (input: DocumentBlock, context: __SerdeContext): any => {
@@ -1407,6 +1476,15 @@ const se_InferenceConfiguration = (input: InferenceConfiguration, context: __Ser
     stopSequences: _json,
     temperature: __serializeFloat,
     topP: __serializeFloat,
+  });
+};
+
+/**
+ * serializeAws_restJson1InvokeModelTokensRequest
+ */
+const se_InvokeModelTokensRequest = (input: InvokeModelTokensRequest, context: __SerdeContext): any => {
+  return take(input, {
+    body: context.base64Encoder,
   });
 };
 

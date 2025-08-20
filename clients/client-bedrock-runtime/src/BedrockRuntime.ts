@@ -14,6 +14,7 @@ import {
   ConverseStreamCommandInput,
   ConverseStreamCommandOutput,
 } from "./commands/ConverseStreamCommand";
+import { CountTokensCommand, CountTokensCommandInput, CountTokensCommandOutput } from "./commands/CountTokensCommand";
 import {
   GetAsyncInvokeCommand,
   GetAsyncInvokeCommandInput,
@@ -45,6 +46,7 @@ const commands = {
   ApplyGuardrailCommand,
   ConverseCommand,
   ConverseStreamCommand,
+  CountTokensCommand,
   GetAsyncInvokeCommand,
   InvokeModelCommand,
   InvokeModelWithBidirectionalStreamCommand,
@@ -91,6 +93,17 @@ export interface BedrockRuntime {
     args: ConverseStreamCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ConverseStreamCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CountTokensCommand}
+   */
+  countTokens(args: CountTokensCommandInput, options?: __HttpHandlerOptions): Promise<CountTokensCommandOutput>;
+  countTokens(args: CountTokensCommandInput, cb: (err: any, data?: CountTokensCommandOutput) => void): void;
+  countTokens(
+    args: CountTokensCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CountTokensCommandOutput) => void
   ): void;
 
   /**

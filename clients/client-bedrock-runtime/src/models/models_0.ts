@@ -1068,7 +1068,7 @@ export type GuardrailAutomatedReasoningFinding =
  */
 export namespace GuardrailAutomatedReasoningFinding {
   /**
-   * <p>Indicates that the claims are definitively true and logically implied by the premises, with no possible alternative interpretations.</p>
+   * <p>Contains the result when the automated reasoning evaluation determines that the claims in the input are logically valid and definitively true based on the provided premises and policy rules.</p>
    * @public
    */
   export interface ValidMember {
@@ -1083,7 +1083,7 @@ export namespace GuardrailAutomatedReasoningFinding {
   }
 
   /**
-   * <p>Indicates that the claims are logically false and contradictory to the established rules or premises.</p>
+   * <p>Contains the result when the automated reasoning evaluation determines that the claims in the input are logically invalid and contradict the established premises or policy rules.</p>
    * @public
    */
   export interface InvalidMember {
@@ -1098,7 +1098,7 @@ export namespace GuardrailAutomatedReasoningFinding {
   }
 
   /**
-   * <p>Indicates that the claims could be either true or false depending on additional assumptions not provided in the input.</p>
+   * <p>Contains the result when the automated reasoning evaluation determines that the claims in the input could be either true or false depending on additional assumptions not provided in the input context.</p>
    * @public
    */
   export interface SatisfiableMember {
@@ -1113,7 +1113,7 @@ export namespace GuardrailAutomatedReasoningFinding {
   }
 
   /**
-   * <p>Indicates that no valid claims can be made due to logical contradictions in the premises or rules.</p>
+   * <p>Contains the result when the automated reasoning evaluation determines that no valid logical conclusions can be drawn due to contradictions in the premises or policy rules themselves.</p>
    * @public
    */
   export interface ImpossibleMember {
@@ -1128,7 +1128,7 @@ export namespace GuardrailAutomatedReasoningFinding {
   }
 
   /**
-   * <p>Indicates that the input has multiple valid logical interpretations, requiring additional context or clarification.</p>
+   * <p>Contains the result when the automated reasoning evaluation detects that the input has multiple valid logical interpretations, requiring additional context or clarification to proceed with validation.</p>
    * @public
    */
   export interface TranslationAmbiguousMember {
@@ -1143,7 +1143,7 @@ export namespace GuardrailAutomatedReasoningFinding {
   }
 
   /**
-   * <p>Indicates that the input exceeds the processing capacity due to the volume or complexity of the logical information.</p>
+   * <p>Contains the result when the automated reasoning evaluation cannot process the input due to its complexity or volume exceeding the system's processing capacity for logical analysis.</p>
    * @public
    */
   export interface TooComplexMember {
@@ -1158,7 +1158,7 @@ export namespace GuardrailAutomatedReasoningFinding {
   }
 
   /**
-   * <p>Indicates that no relevant logical information could be extracted from the input for validation.</p>
+   * <p>Contains the result when the automated reasoning evaluation cannot extract any relevant logical information from the input that can be validated against the policy rules.</p>
    * @public
    */
   export interface NoTranslationsMember {
@@ -5569,6 +5569,119 @@ export interface InvokeModelWithResponseStreamResponse {
 }
 
 /**
+ * <p>The inputs from a <code>Converse</code> API request for token counting.</p> <p>This structure mirrors the input format for the <code>Converse</code> operation, allowing you to count tokens for conversation-based inference requests.</p>
+ * @public
+ */
+export interface ConverseTokensRequest {
+  /**
+   * <p>An array of messages to count tokens for.</p>
+   * @public
+   */
+  messages?: Message[] | undefined;
+
+  /**
+   * <p>The system content blocks to count tokens for. System content provides instructions or context to the model about how it should behave or respond. The token count will include any system content provided.</p>
+   * @public
+   */
+  system?: SystemContentBlock[] | undefined;
+}
+
+/**
+ * <p>The body of an <code>InvokeModel</code> API request for token counting. This structure mirrors the input format for the <code>InvokeModel</code> operation, allowing you to count tokens for raw text inference requests.</p>
+ * @public
+ */
+export interface InvokeModelTokensRequest {
+  /**
+   * <p>The request body to count tokens for, formatted according to the model's expected input format. To learn about the input format for different models, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html">Model inference parameters and responses</a>.</p>
+   * @public
+   */
+  body: Uint8Array | undefined;
+}
+
+/**
+ * <p>The input value for token counting. The value should be either an <code>InvokeModel</code> or <code>Converse</code> request body. </p>
+ * @public
+ */
+export type CountTokensInput =
+  | CountTokensInput.ConverseMember
+  | CountTokensInput.InvokeModelMember
+  | CountTokensInput.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace CountTokensInput {
+  /**
+   * <p>An <code>InvokeModel</code> request for which to count tokens. Use this field when you want to count tokens for a raw text input that would be sent to the <code>InvokeModel</code> operation.</p>
+   * @public
+   */
+  export interface InvokeModelMember {
+    invokeModel: InvokeModelTokensRequest;
+    converse?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>A <code>Converse</code> request for which to count tokens. Use this field when you want to count tokens for a conversation-based input that would be sent to the <code>Converse</code> operation.</p>
+   * @public
+   */
+  export interface ConverseMember {
+    invokeModel?: never;
+    converse: ConverseTokensRequest;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    invokeModel?: never;
+    converse?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    invokeModel: (value: InvokeModelTokensRequest) => T;
+    converse: (value: ConverseTokensRequest) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: CountTokensInput, visitor: Visitor<T>): T => {
+    if (value.invokeModel !== undefined) return visitor.invokeModel(value.invokeModel);
+    if (value.converse !== undefined) return visitor.converse(value.converse);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
+ * @public
+ */
+export interface CountTokensRequest {
+  /**
+   * <p>The unique identifier or ARN of the foundation model to use for token counting. Each model processes tokens differently, so the token count is specific to the model you specify.</p>
+   * @public
+   */
+  modelId: string | undefined;
+
+  /**
+   * <p>The input for which to count tokens. The structure of this parameter depends on whether you're counting tokens for an <code>InvokeModel</code> or <code>Converse</code> request:</p> <ul> <li> <p>For <code>InvokeModel</code> requests, provide the request body in the <code>invokeModel</code> field</p> </li> <li> <p>For <code>Converse</code> requests, provide the messages and system content in the <code>converse</code> field</p> </li> </ul> <p>The input format must be compatible with the model specified in the <code>modelId</code> parameter.</p>
+   * @public
+   */
+  input: CountTokensInput | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CountTokensResponse {
+  /**
+   * <p>The number of tokens in the provided input according to the specified model's tokenization rules. This count represents the number of input tokens that would be processed if the same input were sent to the model in an inference request. Use this value to estimate costs and ensure your inputs stay within model token limits.</p>
+   * @public
+   */
+  inputTokens: number | undefined;
+}
+
+/**
  * @internal
  */
 export const GetAsyncInvokeResponseFilterSensitiveLog = (obj: GetAsyncInvokeResponse): any => ({
@@ -6183,4 +6296,39 @@ export const InvokeModelWithResponseStreamResponseFilterSensitiveLog = (
 ): any => ({
   ...obj,
   ...(obj.body && { body: "STREAMING_CONTENT" }),
+});
+
+/**
+ * @internal
+ */
+export const ConverseTokensRequestFilterSensitiveLog = (obj: ConverseTokensRequest): any => ({
+  ...obj,
+  ...(obj.messages && { messages: obj.messages.map((item) => MessageFilterSensitiveLog(item)) }),
+  ...(obj.system && { system: obj.system.map((item) => SystemContentBlockFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const InvokeModelTokensRequestFilterSensitiveLog = (obj: InvokeModelTokensRequest): any => ({
+  ...obj,
+  ...(obj.body && { body: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const CountTokensInputFilterSensitiveLog = (obj: CountTokensInput): any => {
+  if (obj.invokeModel !== undefined)
+    return { invokeModel: InvokeModelTokensRequestFilterSensitiveLog(obj.invokeModel) };
+  if (obj.converse !== undefined) return { converse: ConverseTokensRequestFilterSensitiveLog(obj.converse) };
+  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
+};
+
+/**
+ * @internal
+ */
+export const CountTokensRequestFilterSensitiveLog = (obj: CountTokensRequest): any => ({
+  ...obj,
+  ...(obj.input && { input: CountTokensInputFilterSensitiveLog(obj.input) }),
 });

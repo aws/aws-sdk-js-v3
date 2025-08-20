@@ -229,6 +229,14 @@ ConverseStream
 </details>
 <details>
 <summary>
+CountTokens
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/bedrock-runtime/command/CountTokensCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bedrock-runtime/Interface/CountTokensCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bedrock-runtime/Interface/CountTokensCommandOutput/)
+
+</details>
+<details>
+<summary>
 GetAsyncInvoke
 </summary>
 

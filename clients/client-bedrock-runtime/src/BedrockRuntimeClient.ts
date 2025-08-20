@@ -69,6 +69,7 @@ import {
 import { ApplyGuardrailCommandInput, ApplyGuardrailCommandOutput } from "./commands/ApplyGuardrailCommand";
 import { ConverseCommandInput, ConverseCommandOutput } from "./commands/ConverseCommand";
 import { ConverseStreamCommandInput, ConverseStreamCommandOutput } from "./commands/ConverseStreamCommand";
+import { CountTokensCommandInput, CountTokensCommandOutput } from "./commands/CountTokensCommand";
 import { GetAsyncInvokeCommandInput, GetAsyncInvokeCommandOutput } from "./commands/GetAsyncInvokeCommand";
 import { InvokeModelCommandInput, InvokeModelCommandOutput } from "./commands/InvokeModelCommand";
 import {
@@ -99,6 +100,7 @@ export type ServiceInputTypes =
   | ApplyGuardrailCommandInput
   | ConverseCommandInput
   | ConverseStreamCommandInput
+  | CountTokensCommandInput
   | GetAsyncInvokeCommandInput
   | InvokeModelCommandInput
   | InvokeModelWithBidirectionalStreamCommandInput
@@ -113,6 +115,7 @@ export type ServiceOutputTypes =
   | ApplyGuardrailCommandOutput
   | ConverseCommandOutput
   | ConverseStreamCommandOutput
+  | CountTokensCommandOutput
   | GetAsyncInvokeCommandOutput
   | InvokeModelCommandOutput
   | InvokeModelWithBidirectionalStreamCommandOutput
