@@ -55,6 +55,9 @@ export interface CreateAddonCommandOutput extends CreateAddonResponse, __Metadat
  *       roleArn: "STRING_VALUE", // required
  *     },
  *   ],
+ *   namespaceConfig: { // AddonNamespaceConfigRequest
+ *     namespace: "STRING_VALUE",
+ *   },
  * };
  * const command = new CreateAddonCommand(input);
  * const response = await client.send(command);
@@ -92,6 +95,9 @@ export interface CreateAddonCommandOutput extends CreateAddonResponse, __Metadat
  * //     podIdentityAssociations: [
  * //       "STRING_VALUE",
  * //     ],
+ * //     namespaceConfig: { // AddonNamespaceConfigResponse
+ * //       namespace: "STRING_VALUE",
+ * //     },
  * //   },
  * // };
  *

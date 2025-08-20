@@ -78,6 +78,9 @@ export interface DeleteAddonCommandOutput extends DeleteAddonResponse, __Metadat
  * //     podIdentityAssociations: [
  * //       "STRING_VALUE",
  * //     ],
+ * //     namespaceConfig: { // AddonNamespaceConfigResponse
+ * //       namespace: "STRING_VALUE",
+ * //     },
  * //   },
  * // };
  *

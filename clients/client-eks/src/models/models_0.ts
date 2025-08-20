@@ -275,6 +275,18 @@ export interface MarketplaceInformation {
 }
 
 /**
+ * <p>The namespace configuration response object containing information about the namespace where an addon is installed.</p>
+ * @public
+ */
+export interface AddonNamespaceConfigResponse {
+  /**
+   * <p>The name of the Kubernetes namespace where the addon is installed.</p>
+   * @public
+   */
+  namespace?: string | undefined;
+}
+
+/**
  * @public
  * @enum
  */
@@ -395,6 +407,12 @@ export interface Addon {
    * @public
    */
   podIdentityAssociations?: string[] | undefined;
+
+  /**
+   * <p>The namespace configuration for the addon. This specifies the Kubernetes namespace where the addon is installed.</p>
+   * @public
+   */
+  namespaceConfig?: AddonNamespaceConfigResponse | undefined;
 }
 
 /**
@@ -524,6 +542,24 @@ export interface AddonInfo {
    * @public
    */
   marketplaceInformation?: MarketplaceInformation | undefined;
+
+  /**
+   * <p>The default Kubernetes namespace where this addon is typically installed if no custom namespace is specified.</p>
+   * @public
+   */
+  defaultNamespace?: string | undefined;
+}
+
+/**
+ * <p>The namespace configuration request object for specifying a custom namespace when creating an addon.</p>
+ * @public
+ */
+export interface AddonNamespaceConfigRequest {
+  /**
+   * <p>The name of the Kubernetes namespace to install the addon in. Must be a valid RFC 1123 DNS label.</p>
+   * @public
+   */
+  namespace?: string | undefined;
 }
 
 /**
@@ -1746,6 +1782,12 @@ export interface CreateAddonRequest {
    * @public
    */
   podIdentityAssociations?: AddonPodIdentityAssociations[] | undefined;
+
+  /**
+   * <p>The namespace configuration for the addon. If specified, this will override the default namespace for the addon.</p>
+   * @public
+   */
+  namespaceConfig?: AddonNamespaceConfigRequest | undefined;
 }
 
 /**

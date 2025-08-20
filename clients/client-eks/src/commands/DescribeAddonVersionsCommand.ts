@@ -88,6 +88,7 @@ export interface DescribeAddonVersionsCommandOutput extends DescribeAddonVersion
  * //         productId: "STRING_VALUE",
  * //         productUrl: "STRING_VALUE",
  * //       },
+ * //       defaultNamespace: "STRING_VALUE",
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",

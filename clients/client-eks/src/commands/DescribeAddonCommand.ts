@@ -75,6 +75,9 @@ export interface DescribeAddonCommandOutput extends DescribeAddonResponse, __Met
  * //     podIdentityAssociations: [
  * //       "STRING_VALUE",
  * //     ],
+ * //     namespaceConfig: { // AddonNamespaceConfigResponse
+ * //       namespace: "STRING_VALUE",
+ * //     },
  * //   },
  * // };
  *

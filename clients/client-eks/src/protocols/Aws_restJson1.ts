@@ -182,6 +182,7 @@ import {
   AccessEntry,
   AccessScope,
   Addon,
+  AddonNamespaceConfigRequest,
   AddonPodIdentityAssociations,
   AssociatedAccessPolicy,
   BadRequestException,
@@ -371,6 +372,7 @@ export const se_CreateAddonCommand = async (
       addonVersion: [],
       clientRequestToken: [true, (_) => _ ?? generateIdempotencyToken()],
       configurationValues: [],
+      namespaceConfig: (_) => _json(_),
       podIdentityAssociations: (_) => _json(_),
       resolveConflicts: [],
       serviceAccountRoleArn: [],
@@ -3112,6 +3114,8 @@ const de_UnsupportedAvailabilityZoneExceptionRes = async (
 
 // se_AccessScope omitted.
 
+// se_AddonNamespaceConfigRequest omitted.
+
 // se_AddonPodIdentityAssociations omitted.
 
 // se_AddonPodIdentityAssociationsList omitted.
@@ -3253,6 +3257,7 @@ const de_Addon = (output: any, context: __SerdeContext): Addon => {
     health: _json,
     marketplaceInformation: _json,
     modifiedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    namespaceConfig: _json,
     owner: __expectString,
     podIdentityAssociations: _json,
     publisher: __expectString,
@@ -3273,6 +3278,8 @@ const de_Addon = (output: any, context: __SerdeContext): Addon => {
 // de_AddonIssue omitted.
 
 // de_AddonIssueList omitted.
+
+// de_AddonNamespaceConfigResponse omitted.
 
 // de_AddonPodIdentityConfiguration omitted.
 
