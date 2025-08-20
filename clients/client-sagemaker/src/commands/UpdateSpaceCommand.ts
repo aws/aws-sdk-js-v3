@@ -124,7 +124,7 @@ export interface UpdateSpaceCommandOutput extends UpdateSpaceResponse, __Metadat
  *           FileSystemId: "STRING_VALUE", // required
  *         },
  *         S3FileSystem: { // S3FileSystem
- *           S3Uri: "STRING_VALUE",
+ *           S3Uri: "STRING_VALUE", // required
  *         },
  *       },
  *     ],

@@ -136,7 +136,7 @@ export interface DescribeSpaceCommandOutput extends DescribeSpaceResponse, __Met
  * //           FileSystemId: "STRING_VALUE", // required
  * //         },
  * //         S3FileSystem: { // S3FileSystem
- * //           S3Uri: "STRING_VALUE",
+ * //           S3Uri: "STRING_VALUE", // required
  * //         },
  * //       },
  * //     ],

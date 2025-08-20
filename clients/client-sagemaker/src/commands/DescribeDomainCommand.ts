@@ -249,7 +249,7 @@ export interface DescribeDomainCommandOutput extends DescribeDomainResponse, __M
  * //         },
  * //         S3FileSystemConfig: { // S3FileSystemConfig
  * //           MountPath: "STRING_VALUE",
- * //           S3Uri: "STRING_VALUE",
+ * //           S3Uri: "STRING_VALUE", // required
  * //         },
  * //       },
  * //     ],
@@ -395,7 +395,7 @@ export interface DescribeDomainCommandOutput extends DescribeDomainResponse, __M
  * //         },
  * //         S3FileSystemConfig: {
  * //           MountPath: "STRING_VALUE",
- * //           S3Uri: "STRING_VALUE",
+ * //           S3Uri: "STRING_VALUE", // required
  * //         },
  * //       },
  * //     ],

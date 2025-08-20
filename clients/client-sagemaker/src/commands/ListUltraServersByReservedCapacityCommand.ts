@@ -57,7 +57,7 @@ export interface ListUltraServersByReservedCapacityCommandOutput
  * //       UltraServerId: "STRING_VALUE", // required
  * //       UltraServerType: "STRING_VALUE", // required
  * //       AvailabilityZone: "STRING_VALUE", // required
- * //       InstanceType: "ml.p4d.24xlarge" || "ml.p5.48xlarge" || "ml.p5e.48xlarge" || "ml.p5en.48xlarge" || "ml.trn1.32xlarge" || "ml.trn2.48xlarge" || "ml.p6-b200.48xlarge" || "ml.p4de.24xlarge" || "ml.p6e-gb200.36xlarge", // required
+ * //       InstanceType: "ml.p4d.24xlarge" || "ml.p5.48xlarge" || "ml.p5e.48xlarge" || "ml.p5en.48xlarge" || "ml.trn1.32xlarge" || "ml.trn2.48xlarge" || "ml.p6-b200.48xlarge" || "ml.p4de.24xlarge" || "ml.p6e-gb200.36xlarge" || "ml.p5.4xlarge", // required
  * //       TotalInstanceCount: Number("int"), // required
  * //       ConfiguredSpareInstanceCount: Number("int"),
  * //       AvailableInstanceCount: Number("int"),

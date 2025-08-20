@@ -3138,7 +3138,7 @@ export interface S3FileSystem {
    * <p>The Amazon S3 URI that specifies the location in S3 where files are stored, which is mounted within the Studio environment. For example: <code>s3://&lt;bucket-name&gt;/&lt;prefix&gt;/</code>.</p>
    * @public
    */
-  S3Uri?: string | undefined;
+  S3Uri: string | undefined;
 }
 
 /**

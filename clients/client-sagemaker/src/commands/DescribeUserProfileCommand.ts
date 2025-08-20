@@ -248,7 +248,7 @@ export interface DescribeUserProfileCommandOutput extends DescribeUserProfileRes
  * //         },
  * //         S3FileSystemConfig: { // S3FileSystemConfig
  * //           MountPath: "STRING_VALUE",
- * //           S3Uri: "STRING_VALUE",
+ * //           S3Uri: "STRING_VALUE", // required
  * //         },
  * //       },
  * //     ],

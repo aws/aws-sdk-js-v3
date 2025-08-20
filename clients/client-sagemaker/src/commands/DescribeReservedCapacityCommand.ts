@@ -49,13 +49,13 @@ export interface DescribeReservedCapacityCommandOutput extends DescribeReservedC
  * //   DurationMinutes: Number("long"),
  * //   StartTime: new Date("TIMESTAMP"),
  * //   EndTime: new Date("TIMESTAMP"),
- * //   InstanceType: "ml.p4d.24xlarge" || "ml.p5.48xlarge" || "ml.p5e.48xlarge" || "ml.p5en.48xlarge" || "ml.trn1.32xlarge" || "ml.trn2.48xlarge" || "ml.p6-b200.48xlarge" || "ml.p4de.24xlarge" || "ml.p6e-gb200.36xlarge", // required
+ * //   InstanceType: "ml.p4d.24xlarge" || "ml.p5.48xlarge" || "ml.p5e.48xlarge" || "ml.p5en.48xlarge" || "ml.trn1.32xlarge" || "ml.trn2.48xlarge" || "ml.p6-b200.48xlarge" || "ml.p4de.24xlarge" || "ml.p6e-gb200.36xlarge" || "ml.p5.4xlarge", // required
  * //   TotalInstanceCount: Number("int"), // required
  * //   AvailableInstanceCount: Number("int"),
  * //   InUseInstanceCount: Number("int"),
  * //   UltraServerSummary: { // UltraServerSummary
  * //     UltraServerType: "STRING_VALUE", // required
- * //     InstanceType: "ml.p4d.24xlarge" || "ml.p5.48xlarge" || "ml.p5e.48xlarge" || "ml.p5en.48xlarge" || "ml.trn1.32xlarge" || "ml.trn2.48xlarge" || "ml.p6-b200.48xlarge" || "ml.p4de.24xlarge" || "ml.p6e-gb200.36xlarge", // required
+ * //     InstanceType: "ml.p4d.24xlarge" || "ml.p5.48xlarge" || "ml.p5e.48xlarge" || "ml.p5en.48xlarge" || "ml.trn1.32xlarge" || "ml.trn2.48xlarge" || "ml.p6-b200.48xlarge" || "ml.p4de.24xlarge" || "ml.p6e-gb200.36xlarge" || "ml.p5.4xlarge", // required
  * //     UltraServerCount: Number("int"),
  * //     AvailableSpareInstanceCount: Number("int"),
  * //     UnhealthyInstanceCount: Number("int"),

@@ -233,7 +233,7 @@ export interface UpdateDomainCommandOutput extends UpdateDomainResponse, __Metad
  *         },
  *         S3FileSystemConfig: { // S3FileSystemConfig
  *           MountPath: "STRING_VALUE",
- *           S3Uri: "STRING_VALUE",
+ *           S3Uri: "STRING_VALUE", // required
  *         },
  *       },
  *     ],
@@ -370,7 +370,7 @@ export interface UpdateDomainCommandOutput extends UpdateDomainResponse, __Metad
  *         },
  *         S3FileSystemConfig: {
  *           MountPath: "STRING_VALUE",
- *           S3Uri: "STRING_VALUE",
+ *           S3Uri: "STRING_VALUE", // required
  *         },
  *       },
  *     ],

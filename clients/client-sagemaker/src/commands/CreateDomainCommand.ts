@@ -234,7 +234,7 @@ export interface CreateDomainCommandOutput extends CreateDomainResponse, __Metad
  *         },
  *         S3FileSystemConfig: { // S3FileSystemConfig
  *           MountPath: "STRING_VALUE",
- *           S3Uri: "STRING_VALUE",
+ *           S3Uri: "STRING_VALUE", // required
  *         },
  *       },
  *     ],
@@ -385,7 +385,7 @@ export interface CreateDomainCommandOutput extends CreateDomainResponse, __Metad
  *         },
  *         S3FileSystemConfig: {
  *           MountPath: "STRING_VALUE",
- *           S3Uri: "STRING_VALUE",
+ *           S3Uri: "STRING_VALUE", // required
  *         },
  *       },
  *     ],

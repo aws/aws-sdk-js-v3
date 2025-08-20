@@ -2811,6 +2811,7 @@ export const ProcessingInstanceType = {
   ML_P3_16XLARGE: "ml.p3.16xlarge",
   ML_P3_2XLARGE: "ml.p3.2xlarge",
   ML_P3_8XLARGE: "ml.p3.8xlarge",
+  ML_P5_4XLARGE: "ml.p5.4xlarge",
   ML_R5D_12XLARGE: "ml.r5d.12xlarge",
   ML_R5D_16XLARGE: "ml.r5d.16xlarge",
   ML_R5D_24XLARGE: "ml.r5d.24xlarge",
@@ -3136,7 +3137,7 @@ export interface S3FileSystemConfig {
    * <p>The Amazon S3 URI of the S3 file system configuration.</p>
    * @public
    */
-  S3Uri?: string | undefined;
+  S3Uri: string | undefined;
 }
 
 /**
