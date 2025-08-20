@@ -18,7 +18,7 @@ bundles: build-s3-browser-bundle build-signature-v4-multi-region-browser-bundle
 
 test-unit: bundles
 	yarn g:vitest run -c vitest.config.ts
-	yarn g:vitest run -c vitest.config.browser.ts
+	yarn g:vitest run -c vitest.config.browser.mts
 	yarn g:vitest run -c vitest.config.clients.unit.ts
 	npx jest -c jest.config.js
 
