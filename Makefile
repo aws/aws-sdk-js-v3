@@ -34,7 +34,7 @@ test-schema: bundles
 
 test-integration: bundles
 	rm -rf ./clients/client-sso/node_modules/\@smithy # todo(yarn) incompatible redundant nesting.
-	yarn g:vitest run -c vitest.config.integ.ts
+	yarn g:vitest run -c vitest.config.integ.mts
 	npx jest -c jest.config.integ.js
 	make test-protocols
 	make test-types

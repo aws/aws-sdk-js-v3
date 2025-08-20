@@ -10,9 +10,9 @@
     "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
     "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo",
     "test": "yarn g:vitest run",
-    "test:integration": "yarn g:vitest run -c vitest.config.integ.ts",
+    "test:integration": "yarn g:vitest run -c vitest.config.integ.mts",
     "test:watch": "yarn g:vitest watch",
-    "test:integration:watch": "yarn g:vitest watch -c vitest.config.integ.ts"
+    "test:integration:watch": "yarn g:vitest watch -c vitest.config.integ.mts"
   },
   "author": {
     "name": "AWS SDK for JavaScript Team",
