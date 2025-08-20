@@ -32,9 +32,7 @@ export interface ListBillingViewsCommandInput extends ListBillingViewsRequest {}
 export interface ListBillingViewsCommandOutput extends ListBillingViewsResponse, __MetadataBearer {}
 
 /**
- * <p>Lists the billing views available for a given time period.
- *       </p>
- *          <p>Every Amazon Web Services account has a unique <code>PRIMARY</code> billing view that represents the billing data available by default. Accounts that use Billing Conductor also have <code>BILLING_GROUP</code> billing views representing pro forma costs associated with each created billing group.</p>
+ * <p>Lists the billing views available for a given time period. </p> <p>Every Amazon Web Services account has a unique <code>PRIMARY</code> billing view that represents the billing data available by default. Accounts that use Billing Conductor also have <code>BILLING_GROUP</code> billing views representing pro forma costs associated with each created billing group.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -83,16 +81,13 @@ export interface ListBillingViewsCommandOutput extends ListBillingViewsResponse,
  *  <p>You don't have sufficient access to perform this action.</p>
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>The request processing failed because of an unknown error, exception, or failure.
- *       </p>
+ *  <p>The request processing failed because of an unknown error, exception, or failure. </p>
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied due to request throttling.
- *       </p>
+ *  <p>The request was denied due to request throttling. </p>
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.
- *       </p>
+ *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services service. </p>
  *
  * @throws {@link BillingServiceException}
  * <p>Base exception class for all service exceptions from Billing service.</p>

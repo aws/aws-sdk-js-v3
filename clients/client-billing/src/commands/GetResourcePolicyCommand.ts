@@ -28,8 +28,7 @@ export interface GetResourcePolicyCommandInput extends GetResourcePolicyRequest 
 export interface GetResourcePolicyCommandOutput extends GetResourcePolicyResponse, __MetadataBearer {}
 
 /**
- * <p>Returns the resource-based policy document attached to the resource in <code>JSON</code> format.
- *     </p>
+ * <p>Returns the resource-based policy document attached to the resource in <code>JSON</code> format. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -58,21 +57,16 @@ export interface GetResourcePolicyCommandOutput extends GetResourcePolicyRespons
  *  <p>You don't have sufficient access to perform this action.</p>
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>The request processing failed because of an unknown error, exception, or failure.
- *       </p>
+ *  <p>The request processing failed because of an unknown error, exception, or failure. </p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>
- *       The specified ARN in the request doesn't exist.
- *     </p>
+ *  <p> The specified ARN in the request doesn't exist. </p>
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied due to request throttling.
- *       </p>
+ *  <p>The request was denied due to request throttling. </p>
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.
- *       </p>
+ *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services service. </p>
  *
  * @throws {@link BillingServiceException}
  * <p>Base exception class for all service exceptions from Billing service.</p>

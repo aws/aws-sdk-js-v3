@@ -35,35 +35,27 @@ export interface ActiveTimeRange {
   activeAfterInclusive: Date | undefined;
 
   /**
-   * <p>
-   *       The inclusive time range end date.
-   *     </p>
+   * <p> The inclusive time range end date. </p>
    * @public
    */
   activeBeforeInclusive: Date | undefined;
 }
 
 /**
- * <p>
- *       The requested operation would cause a conflict with the current state of a service resource associated with the request. Resolve the conflict before retrying this request.
- *     </p>
+ * <p> The requested operation would cause a conflict with the current state of a service resource associated with the request. Resolve the conflict before retrying this request. </p>
  * @public
  */
 export class ConflictException extends __BaseException {
   readonly name: "ConflictException" = "ConflictException";
   readonly $fault: "client" = "client";
   /**
-   * <p>
-   *       The identifier for the service resource associated with the request.
-   *     </p>
+   * <p> The identifier for the service resource associated with the request. </p>
    * @public
    */
   resourceId: string | undefined;
 
   /**
-   * <p>
-   *       The type of resource associated with the request.
-   *     </p>
+   * <p> The type of resource associated with the request. </p>
    * @public
    */
   resourceType: string | undefined;
@@ -97,96 +89,72 @@ export const Dimension = {
 export type Dimension = (typeof Dimension)[keyof typeof Dimension];
 
 /**
- * <p>
- *       The metadata that you can use to filter and group your results.
- *     </p>
+ * <p> The metadata that you can use to filter and group your results. </p>
  * @public
  */
 export interface DimensionValues {
   /**
-   * <p>
-   *       The names of the metadata types that you can use to filter and group your results.
-   *     </p>
+   * <p> The names of the metadata types that you can use to filter and group your results. </p>
    * @public
    */
   key: Dimension | undefined;
 
   /**
-   * <p>
-   *       The metadata values that you can use to filter and group your results.
-   *     </p>
+   * <p> The metadata values that you can use to filter and group your results. </p>
    * @public
    */
   values: string[] | undefined;
 }
 
 /**
- * <p>
- *       The values that are available for a tag.
- *     </p>
+ * <p> The values that are available for a tag. </p>
  * @public
  */
 export interface TagValues {
   /**
-   * <p>
-   *       The key for the tag.
-   *     </p>
+   * <p> The key for the tag. </p>
    * @public
    */
   key: string | undefined;
 
   /**
-   * <p>
-   *       The specific value of the tag.
-   *     </p>
+   * <p> The specific value of the tag. </p>
    * @public
    */
   values: string[] | undefined;
 }
 
 /**
- * <p>
- *       See <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Expression.html">Expression</a>. Billing view only supports <code>LINKED_ACCOUNT</code> and <code>Tags</code>.
- *     </p>
+ * <p> See <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_billing_Expression.html">Expression</a>. Billing view only supports <code>LINKED_ACCOUNT</code> and <code>Tags</code>. </p>
  * @public
  */
 export interface Expression {
   /**
-   * <p>
-   *       The specific <code>Dimension</code> to use for <code>Expression</code>.
-   *     </p>
+   * <p> The specific <code>Dimension</code> to use for <code>Expression</code>. </p>
    * @public
    */
   dimensions?: DimensionValues | undefined;
 
   /**
-   * <p>
-   *       The specific <code>Tag</code> to use for <code>Expression</code>.
-   *     </p>
+   * <p> The specific <code>Tag</code> to use for <code>Expression</code>. </p>
    * @public
    */
   tags?: TagValues | undefined;
 }
 
 /**
- * <p>
- *       The tag structure that contains a tag key and value.
- *     </p>
+ * <p> The tag structure that contains a tag key and value. </p>
  * @public
  */
 export interface ResourceTag {
   /**
-   * <p>
-   *       The key that's associated with the tag.
-   *     </p>
+   * <p> The key that's associated with the tag. </p>
    * @public
    */
   key: string | undefined;
 
   /**
-   * <p>
-   *       The value that's associated with the tag.
-   *     </p>
+   * <p> The value that's associated with the tag. </p>
    * @public
    */
   value?: string | undefined;
@@ -197,17 +165,13 @@ export interface ResourceTag {
  */
 export interface CreateBillingViewRequest {
   /**
-   * <p>
-   *      The name of the billing view.
-   *     </p>
+   * <p> The name of the billing view. </p>
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>
-   *       The description of the billing view.
-   *     </p>
+   * <p> The description of the billing view. </p>
    * @public
    */
   description?: string | undefined;
@@ -219,23 +183,19 @@ export interface CreateBillingViewRequest {
   sourceViews: string[] | undefined;
 
   /**
-   * <p>
-   *       See <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Expression.html">Expression</a>. Billing view only supports <code>LINKED_ACCOUNT</code> and <code>Tags</code>.
-   *     </p>
+   * <p> See <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_billing_Expression.html">Expression</a>. Billing view only supports <code>LINKED_ACCOUNT</code> and <code>Tags</code>. </p>
    * @public
    */
   dataFilterExpression?: Expression | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier you specify to ensure idempotency of the request. Idempotency ensures that an API request completes no more than one time. If the original request completes successfully, any subsequent retries complete successfully without performing any further actions with an idempotent request.
-   *     </p>
+   * <p>A unique, case-sensitive identifier you specify to ensure idempotency of the request. Idempotency ensures that an API request completes no more than one time. If the original request completes successfully, any subsequent retries complete successfully without performing any further actions with an idempotent request. </p>
    * @public
    */
   clientToken?: string | undefined;
 
   /**
-   * <p>A list of key value map specifying tags associated to the billing view being created.
-   *     </p>
+   * <p>A list of key value map specifying tags associated to the billing view being created. </p>
    * @public
    */
   resourceTags?: ResourceTag[] | undefined;
@@ -246,25 +206,20 @@ export interface CreateBillingViewRequest {
  */
 export interface CreateBillingViewResponse {
   /**
-   * <p>
-   *       The Amazon Resource Name (ARN) that can be used to uniquely identify the billing view.
-   *     </p>
+   * <p> The Amazon Resource Name (ARN) that can be used to uniquely identify the billing view. </p>
    * @public
    */
   arn: string | undefined;
 
   /**
-   * <p>
-   *       The time when the billing view was created.
-   *     </p>
+   * <p> The time when the billing view was created. </p>
    * @public
    */
   createdAt?: Date | undefined;
 }
 
 /**
- * <p>The request processing failed because of an unknown error, exception, or failure.
- *       </p>
+ * <p>The request processing failed because of an unknown error, exception, or failure. </p>
  * @public
  */
 export class InternalServerException extends __BaseException {
@@ -284,42 +239,32 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
- * <p>
- *       You've reached the limit of resources you can create, or exceeded the size of an individual resource.
- *     </p>
+ * <p> You've reached the limit of resources you can create, or exceeded the size of an individual resource. </p>
  * @public
  */
 export class ServiceQuotaExceededException extends __BaseException {
   readonly name: "ServiceQuotaExceededException" = "ServiceQuotaExceededException";
   readonly $fault: "client" = "client";
   /**
-   * <p>
-   *       The ID of the resource.
-   *     </p>
+   * <p> The ID of the resource. </p>
    * @public
    */
   resourceId: string | undefined;
 
   /**
-   * <p>
-   *       The type of Amazon Web Services resource.
-   *     </p>
+   * <p> The type of Amazon Web Services resource. </p>
    * @public
    */
   resourceType: string | undefined;
 
   /**
-   * <p>
-   *       The container for the <code>serviceCode</code>.
-   *     </p>
+   * <p> The container for the <code>serviceCode</code>. </p>
    * @public
    */
   serviceCode: string | undefined;
 
   /**
-   * <p>
-   *       The container for the <code>quotaCode</code>.
-   *     </p>
+   * <p> The container for the <code>quotaCode</code>. </p>
    * @public
    */
   quotaCode: string | undefined;
@@ -342,8 +287,7 @@ export class ServiceQuotaExceededException extends __BaseException {
 }
 
 /**
- * <p>The request was denied due to request throttling.
- *       </p>
+ * <p>The request was denied due to request throttling. </p>
  * @public
  */
 export class ThrottlingException extends __BaseException {
@@ -363,8 +307,7 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
- * <p>The field's information of a request that resulted in an exception.
- *       </p>
+ * <p>The field's information of a request that resulted in an exception. </p>
  * @public
  */
 export interface ValidationExceptionField {
@@ -398,8 +341,7 @@ export const ValidationExceptionReason = {
 export type ValidationExceptionReason = (typeof ValidationExceptionReason)[keyof typeof ValidationExceptionReason];
 
 /**
- * <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.
- *       </p>
+ * <p>The input fails to satisfy the constraints specified by an Amazon Web Services service. </p>
  * @public
  */
 export class ValidationException extends __BaseException {
@@ -437,9 +379,7 @@ export class ValidationException extends __BaseException {
  */
 export interface DeleteBillingViewRequest {
   /**
-   * <p>
-   *       The Amazon Resource Name (ARN) that can be used to uniquely identify the billing view.
-   *     </p>
+   * <p> The Amazon Resource Name (ARN) that can be used to uniquely identify the billing view. </p>
    * @public
    */
   arn: string | undefined;
@@ -450,9 +390,7 @@ export interface DeleteBillingViewRequest {
  */
 export interface DeleteBillingViewResponse {
   /**
-   * <p>
-   *       The Amazon Resource Name (ARN) that can be used to uniquely identify the billing view.
-   *     </p>
+   * <p> The Amazon Resource Name (ARN) that can be used to uniquely identify the billing view. </p>
    * @public
    */
   arn: string | undefined;
@@ -463,9 +401,7 @@ export interface DeleteBillingViewResponse {
  */
 export interface GetBillingViewRequest {
   /**
-   * <p>
-   *       The Amazon Resource Name (ARN) that can be used to uniquely identify the billing view.
-   *     </p>
+   * <p> The Amazon Resource Name (ARN) that can be used to uniquely identify the billing view. </p>
    * @public
    */
   arn: string | undefined;
@@ -487,68 +423,54 @@ export const BillingViewType = {
 export type BillingViewType = (typeof BillingViewType)[keyof typeof BillingViewType];
 
 /**
- * <p>The metadata associated to the billing view.
- *     </p>
+ * <p>The metadata associated to the billing view. </p>
  * @public
  */
 export interface BillingViewElement {
   /**
-   * <p>
-   *       The Amazon Resource Name (ARN) that can be used to uniquely identify the billing view.
-   *     </p>
+   * <p> The Amazon Resource Name (ARN) that can be used to uniquely identify the billing view. </p>
    * @public
    */
   arn?: string | undefined;
 
   /**
-   * <p>
-   *       A list of names of the billing view.
-   *     </p>
+   * <p> The account name of the billing view. </p>
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>
-   *       The description of the billing view.
-   *     </p>
+   * <p> The description of the billing view. </p>
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The type of billing group.
-   *     </p>
+   * <p>The type of billing group. </p>
    * @public
    */
   billingViewType?: BillingViewType | undefined;
 
   /**
-   * <p>
-   *       The list of owners of the billing view.
-   *     </p>
+   * <p>The account owner of the billing view. </p>
    * @public
    */
   ownerAccountId?: string | undefined;
 
   /**
-   * <p>
-   *       See <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Expression.html">Expression</a>. Billing view only supports <code>LINKED_ACCOUNT</code> and <code>Tags</code>.
-   *     </p>
+   * <p> See <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_billing_Expression.html">Expression</a>. Billing view only supports <code>LINKED_ACCOUNT</code> and <code>Tags</code>. </p>
    * @public
    */
   dataFilterExpression?: Expression | undefined;
 
   /**
-   * <p>The time when the billing view was created.
-   *     </p>
+   * <p>The time when the billing view was created. </p>
    * @public
    */
   createdAt?: Date | undefined;
 
   /**
-   * <p>The time when the billing view was last updated.
-   *     </p>
+   * <p>The time when the billing view was last updated. </p>
    * @public
    */
   updatedAt?: Date | undefined;
@@ -559,34 +481,27 @@ export interface BillingViewElement {
  */
 export interface GetBillingViewResponse {
   /**
-   * <p>The billing view element associated with the specified ARN.
-   *     </p>
+   * <p>The billing view element associated with the specified ARN. </p>
    * @public
    */
   billingView: BillingViewElement | undefined;
 }
 
 /**
- * <p>
- *       The specified ARN in the request doesn't exist.
- *     </p>
+ * <p> The specified ARN in the request doesn't exist. </p>
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
   readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
   readonly $fault: "client" = "client";
   /**
-   * <p>
-   *       Value is a list of resource IDs that were not found.
-   *     </p>
+   * <p> Value is a list of resource IDs that were not found. </p>
    * @public
    */
   resourceId: string | undefined;
 
   /**
-   * <p>
-   *       Value is the type of resource that was not found.
-   *     </p>
+   * <p> Value is the type of resource that was not found. </p>
    * @public
    */
   resourceType: string | undefined;
@@ -611,8 +526,7 @@ export class ResourceNotFoundException extends __BaseException {
  */
 export interface GetResourcePolicyRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the billing view resource to which the policy is attached to.
-   *     </p>
+   * <p>The Amazon Resource Name (ARN) of the billing view resource to which the policy is attached to. </p>
    * @public
    */
   resourceArn: string | undefined;
@@ -623,15 +537,13 @@ export interface GetResourcePolicyRequest {
  */
 export interface GetResourcePolicyResponse {
   /**
-   * <p>The Amazon Resource Name (ARN) of the billing view resource to which the policy is attached to.
-   *     </p>
+   * <p>The Amazon Resource Name (ARN) of the billing view resource to which the policy is attached to. </p>
    * @public
    */
   resourceArn: string | undefined;
 
   /**
-   * <p>The resource-based policy document attached to the resource in <code>JSON</code> format.
-   *     </p>
+   * <p>The resource-based policy document attached to the resource in <code>JSON</code> format. </p>
    * @public
    */
   policy?: string | undefined;
@@ -642,16 +554,13 @@ export interface GetResourcePolicyResponse {
  */
 export interface ListBillingViewsRequest {
   /**
-   * <p>
-   *       The time range for the billing views listed. <code>PRIMARY</code> billing view is always listed. <code>BILLING_GROUP</code> billing views are listed for time ranges when the associated billing group resource in Billing Conductor is active. The time range must be within one calendar month.
-   *     </p>
+   * <p> The time range for the billing views listed. <code>PRIMARY</code> billing view is always listed. <code>BILLING_GROUP</code> billing views are listed for time ranges when the associated billing group resource in Billing Conductor is active. The time range must be within one calendar month. </p>
    * @public
    */
   activeTimeRange?: ActiveTimeRange | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) that can be used to uniquely identify the billing view.
-   *       </p>
+   * <p>The Amazon Resource Name (ARN) that can be used to uniquely identify the billing view. </p>
    * @public
    */
   arns?: string[] | undefined;
@@ -663,16 +572,13 @@ export interface ListBillingViewsRequest {
   billingViewTypes?: BillingViewType[] | undefined;
 
   /**
-   * <p>
-   *       The list of owners of the billing view.
-   *     </p>
+   * <p> The list of owners of the billing view. </p>
    * @public
    */
   ownerAccountId?: string | undefined;
 
   /**
-   * <p>The maximum number of billing views to retrieve. Default is 100.
-   *       </p>
+   * <p>The maximum number of billing views to retrieve. Default is 100. </p>
    * @public
    */
   maxResults?: number | undefined;
@@ -690,32 +596,25 @@ export interface ListBillingViewsRequest {
  */
 export interface BillingViewListElement {
   /**
-   * <p>The Amazon Resource Name (ARN) that can be used to uniquely identify the billing view.
-   *       </p>
+   * <p>The Amazon Resource Name (ARN) that can be used to uniquely identify the billing view. </p>
    * @public
    */
   arn?: string | undefined;
 
   /**
-   * <p>
-   *       A list of names of the Billing view.
-   *     </p>
+   * <p> A list of names of the Billing view. </p>
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>
-   *       The description of the billing view.
-   *     </p>
+   * <p> The description of the billing view. </p>
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>
-   *       The list of owners of the Billing view.
-   *     </p>
+   * <p> The list of owners of the Billing view. </p>
    * @public
    */
   ownerAccountId?: string | undefined;
@@ -738,8 +637,7 @@ export interface ListBillingViewsResponse {
   billingViews: BillingViewListElement[] | undefined;
 
   /**
-   * <p>The pagination token to use on subsequent calls to list billing views.
-   *       </p>
+   * <p>The pagination token to use on subsequent calls to list billing views. </p>
    * @public
    */
   nextToken?: string | undefined;
@@ -750,25 +648,19 @@ export interface ListBillingViewsResponse {
  */
 export interface ListSourceViewsForBillingViewRequest {
   /**
-   * <p>
-   *       The Amazon Resource Name (ARN) that can be used to uniquely identify the billing view.
-   *     </p>
+   * <p> The Amazon Resource Name (ARN) that can be used to uniquely identify the billing view. </p>
    * @public
    */
   arn: string | undefined;
 
   /**
-   * <p>
-   *       The number of entries a paginated response contains.
-   *     </p>
+   * <p> The number of entries a paginated response contains. </p>
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>
-   *       The pagination token that is used on subsequent calls to list billing views.
-   *     </p>
+   * <p> The pagination token that is used on subsequent calls to list billing views. </p>
    * @public
    */
   nextToken?: string | undefined;
@@ -779,16 +671,13 @@ export interface ListSourceViewsForBillingViewRequest {
  */
 export interface ListSourceViewsForBillingViewResponse {
   /**
-   * <p>A list of billing views used as the data source for the custom billing view.
-   *     </p>
+   * <p>A list of billing views used as the data source for the custom billing view. </p>
    * @public
    */
   sourceViews: string[] | undefined;
 
   /**
-   * <p>
-   *       The pagination token that is used on subsequent calls to list billing views.
-   *     </p>
+   * <p> The pagination token that is used on subsequent calls to list billing views. </p>
    * @public
    */
   nextToken?: string | undefined;
@@ -799,9 +688,7 @@ export interface ListSourceViewsForBillingViewResponse {
  */
 export interface ListTagsForResourceRequest {
   /**
-   * <p>
-   *       The Amazon Resource Name (ARN) of the resource.
-   *     </p>
+   * <p> The Amazon Resource Name (ARN) of the resource. </p>
    * @public
    */
   resourceArn: string | undefined;
@@ -812,9 +699,7 @@ export interface ListTagsForResourceRequest {
  */
 export interface ListTagsForResourceResponse {
   /**
-   * <p>
-   *       A list of tag key value pairs that are associated with the resource.
-   *     </p>
+   * <p> A list of tag key value pairs that are associated with the resource. </p>
    * @public
    */
   resourceTags?: ResourceTag[] | undefined;
@@ -825,17 +710,13 @@ export interface ListTagsForResourceResponse {
  */
 export interface TagResourceRequest {
   /**
-   * <p>
-   *       The Amazon Resource Name (ARN) of the resource.
-   *     </p>
+   * <p> The Amazon Resource Name (ARN) of the resource. </p>
    * @public
    */
   resourceArn: string | undefined;
 
   /**
-   * <p>
-   *       A list of tag key value pairs that are associated with the resource.
-   *     </p>
+   * <p> A list of tag key value pairs that are associated with the resource. </p>
    * @public
    */
   resourceTags: ResourceTag[] | undefined;
@@ -851,17 +732,13 @@ export interface TagResourceResponse {}
  */
 export interface UntagResourceRequest {
   /**
-   * <p>
-   *       The Amazon Resource Name (ARN) of the resource.
-   *     </p>
+   * <p> The Amazon Resource Name (ARN) of the resource. </p>
    * @public
    */
   resourceArn: string | undefined;
 
   /**
-   * <p>
-   *       A list of tag key value pairs that are associated with the resource.
-   *     </p>
+   * <p> A list of tag key value pairs that are associated with the resource. </p>
    * @public
    */
   resourceTagKeys: string[] | undefined;
@@ -877,32 +754,25 @@ export interface UntagResourceResponse {}
  */
 export interface UpdateBillingViewRequest {
   /**
-   * <p>
-   *       The Amazon Resource Name (ARN) that can be used to uniquely identify the billing view.
-   *     </p>
+   * <p> The Amazon Resource Name (ARN) that can be used to uniquely identify the billing view. </p>
    * @public
    */
   arn: string | undefined;
 
   /**
-   * <p>
-   *       The name of the billing view.
-   *     </p>
+   * <p> The name of the billing view. </p>
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>
-   *       The description of the billing view.
-   *     </p>
+   * <p> The description of the billing view. </p>
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>See <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Expression.html">Expression</a>. Billing view only supports <code>LINKED_ACCOUNT</code> and <code>Tags</code>.
-   *     </p>
+   * <p>See <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_billing_Expression.html">Expression</a>. Billing view only supports <code>LINKED_ACCOUNT</code> and <code>Tags</code>. </p>
    * @public
    */
   dataFilterExpression?: Expression | undefined;
@@ -913,17 +783,13 @@ export interface UpdateBillingViewRequest {
  */
 export interface UpdateBillingViewResponse {
   /**
-   * <p>
-   *       The Amazon Resource Name (ARN) that can be used to uniquely identify the billing view.
-   *     </p>
+   * <p> The Amazon Resource Name (ARN) that can be used to uniquely identify the billing view. </p>
    * @public
    */
   arn: string | undefined;
 
   /**
-   * <p>
-   *       The time when the billing view was last updated.
-   *     </p>
+   * <p> The time when the billing view was last updated. </p>
    * @public
    */
   updatedAt?: Date | undefined;

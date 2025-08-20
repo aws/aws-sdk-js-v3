@@ -32,9 +32,7 @@ export interface CreateBillingViewCommandInput extends CreateBillingViewRequest 
 export interface CreateBillingViewCommandOutput extends CreateBillingViewResponse, __MetadataBearer {}
 
 /**
- * <p>
- * Creates a billing view with the specified billing view attributes.
- *     </p>
+ * <p> Creates a billing view with the specified billing view attributes. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -88,26 +86,19 @@ export interface CreateBillingViewCommandOutput extends CreateBillingViewRespons
  *  <p>You don't have sufficient access to perform this action.</p>
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>
- *       The requested operation would cause a conflict with the current state of a service resource associated with the request. Resolve the conflict before retrying this request.
- *     </p>
+ *  <p> The requested operation would cause a conflict with the current state of a service resource associated with the request. Resolve the conflict before retrying this request. </p>
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>The request processing failed because of an unknown error, exception, or failure.
- *       </p>
+ *  <p>The request processing failed because of an unknown error, exception, or failure. </p>
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>
- *       You've reached the limit of resources you can create, or exceeded the size of an individual resource.
- *     </p>
+ *  <p> You've reached the limit of resources you can create, or exceeded the size of an individual resource. </p>
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied due to request throttling.
- *       </p>
+ *  <p>The request was denied due to request throttling. </p>
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.
- *       </p>
+ *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services service. </p>
  *
  * @throws {@link BillingServiceException}
  * <p>Base exception class for all service exceptions from Billing service.</p>
