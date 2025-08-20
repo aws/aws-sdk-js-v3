@@ -6,6 +6,5 @@
     "declarationDir": "dist-types",
     "emitDeclarationOnly": true,
     "noCheck": false
-  },
-  "exclude": ["test/**/*", "dist-types/**/*"]
+  }
 }

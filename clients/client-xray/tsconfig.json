@@ -9,5 +9,5 @@
     "rootDir": "src",
     "useUnknownInCatchVariables": false
   },
-  "exclude": ["test/"]
+  "include": ["src"]
 }
