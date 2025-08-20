@@ -28,8 +28,7 @@ export interface AddPolicyGrantCommandInput extends AddPolicyGrantInput {}
 export interface AddPolicyGrantCommandOutput extends AddPolicyGrantOutput, __MetadataBearer {}
 
 /**
- * <p>Adds a policy grant (an authorization policy) to a specified entity, including domain
- *          units, environment blueprint configurations, or environment profiles.</p>
+ * <p>Adds a policy grant (an authorization policy) to a specified entity, including domain units, environment blueprint configurations, or environment profiles.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -112,7 +111,9 @@ export interface AddPolicyGrantCommandOutput extends AddPolicyGrantOutput, __Met
  * };
  * const command = new AddPolicyGrantCommand(input);
  * const response = await client.send(command);
- * // {};
+ * // { // AddPolicyGrantOutput
+ * //   grantId: "STRING_VALUE",
+ * // };
  *
  * ```
  *
@@ -174,7 +175,7 @@ export class AddPolicyGrantCommand extends $Command
   protected declare static __types: {
     api: {
       input: AddPolicyGrantInput;
-      output: {};
+      output: AddPolicyGrantOutput;
     };
     sdk: {
       input: AddPolicyGrantCommandInput;

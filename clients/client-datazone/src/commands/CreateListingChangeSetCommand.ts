@@ -28,8 +28,7 @@ export interface CreateListingChangeSetCommandInput extends CreateListingChangeS
 export interface CreateListingChangeSetCommandOutput extends CreateListingChangeSetOutput, __MetadataBearer {}
 
 /**
- * <p>Publishes a listing (a record of an asset at a given time) or removes a listing from the
- *          catalog. </p>
+ * <p>Publishes a listing (a record of an asset at a given time) or removes a listing from the catalog. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

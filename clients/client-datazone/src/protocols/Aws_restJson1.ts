@@ -3571,6 +3571,7 @@ export const se_RemovePolicyGrantCommand = async (
   body = JSON.stringify(
     take(input, {
       clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
+      grantIdentifier: [],
       policyType: [],
       principal: (_) => _json(_),
     })
@@ -4444,7 +4445,11 @@ export const de_AddPolicyGrantCommand = async (
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
-  await collectBody(output.body, context);
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    grantId: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -10644,6 +10649,7 @@ const de_PolicyGrantMember = (output: any, context: __SerdeContext): PolicyGrant
     createdAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     createdBy: __expectString,
     detail: (_: any) => _json(__expectUnion(_)),
+    grantId: __expectString,
     principal: (_: any) => _json(__expectUnion(_)),
   }) as any;
 };

@@ -191,8 +191,7 @@ export interface CreateRuleInput {
   description?: string | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier that is provided to ensure the idempotency of the
-   *          request.</p>
+   * <p>A unique, case-sensitive identifier that is provided to ensure the idempotency of the request.</p>
    * @public
    */
   clientToken?: string | undefined;
@@ -301,15 +300,13 @@ export interface CreateRuleOutput {
  */
 export interface ListingRevisionInput {
   /**
-   * <p>An identifier of revision to be made to an asset published in a Amazon DataZone
-   *          catalog.</p>
+   * <p>An identifier of revision to be made to an asset published in a Amazon DataZone catalog.</p>
    * @public
    */
   identifier: string | undefined;
 
   /**
-   * <p>The details of a revision to be made to an asset published in a Amazon DataZone
-   *          catalog.</p>
+   * <p>The details of a revision to be made to an asset published in a Amazon DataZone catalog.</p>
    * @public
    */
   revision: string | undefined;
@@ -388,16 +385,14 @@ export interface CreateSubscriptionGrantInput {
   assetTargetNames?: AssetTargetNameMap[] | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier that is provided to ensure the idempotency of the
-   *          request.</p>
+   * <p>A unique, case-sensitive identifier that is provided to ensure the idempotency of the request.</p>
    * @public
    */
   clientToken?: string | undefined;
 }
 
 /**
- * <p>Specifies the error message that is returned if the operation cannot be successfully
- *          completed.</p>
+ * <p>Specifies the error message that is returned if the operation cannot be successfully completed.</p>
  * @public
  */
 export interface FailureCause {
@@ -458,8 +453,7 @@ export interface SubscribedAsset {
   targetName?: string | undefined;
 
   /**
-   * <p>The failure cause included in the details of the asset for which the subscription grant
-   *          is created.</p>
+   * <p>The failure cause included in the details of the asset for which the subscription grant is created.</p>
    * @public
    */
   failureCause?: FailureCause | undefined;
@@ -471,8 +465,7 @@ export interface SubscribedAsset {
   grantedTimestamp?: Date | undefined;
 
   /**
-   * <p>The failure timestamp included in the details of the asset for which the subscription
-   *          grant is created.</p>
+   * <p>The failure timestamp included in the details of the asset for which the subscription grant is created.</p>
    * @public
    */
   failureTimestamp?: Date | undefined;
@@ -639,8 +632,7 @@ export interface CreateSubscriptionGrantOutput {
  */
 export interface SubscribedListingInput {
   /**
-   * <p>The identifier of the published asset for which the subscription grant is to be
-   *          created.</p>
+   * <p>The identifier of the published asset for which the subscription grant is to be created.</p>
    * @public
    */
   identifier: string | undefined;
@@ -725,8 +717,7 @@ export interface CreateSubscriptionRequestInput {
   requestReason: string | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier that is provided to ensure the idempotency of the
-   *          request.</p>
+   * <p>A unique, case-sensitive identifier that is provided to ensure the idempotency of the request.</p>
    * @public
    */
   clientToken?: string | undefined;
@@ -904,8 +895,7 @@ export interface CreateSubscriptionTargetInput {
   provider?: string | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier that is provided to ensure the idempotency of the
-   *          request.</p>
+   * <p>A unique, case-sensitive identifier that is provided to ensure the idempotency of the request.</p>
    * @public
    */
   clientToken?: string | undefined;
@@ -1044,8 +1034,7 @@ export interface CreateUserProfileInput {
   userType?: UserType | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier that is provided to ensure the idempotency of the
-   *          request.</p>
+   * <p>A unique, case-sensitive identifier that is provided to ensure the idempotency of the request.</p>
    * @public
    */
   clientToken?: string | undefined;
@@ -1696,8 +1685,7 @@ export interface DeleteDataSourceInput {
   identifier: string | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier that is provided to ensure the idempotency of the
-   *          request.</p>
+   * <p>A unique, case-sensitive identifier that is provided to ensure the idempotency of the request.</p>
    *
    * @deprecated
    * @public
@@ -1705,8 +1693,7 @@ export interface DeleteDataSourceInput {
   clientToken?: string | undefined;
 
   /**
-   * <p>Specifies that the granted permissions are retained in case of a self-subscribe
-   *          functionality failure for a data source.</p>
+   * <p>Specifies that the granted permissions are retained in case of a self-subscribe functionality failure for a data source.</p>
    * @public
    */
   retainPermissionsOnRevokeFailure?: boolean | undefined;
@@ -1882,8 +1869,7 @@ export interface DeleteDataSourceOutput {
   domainId: string | undefined;
 
   /**
-   * <p>The ID of the project in which this data source exists and from which it's
-   *          deleted.</p>
+   * <p>The ID of the project in which this data source exists and from which it's deleted.</p>
    * @public
    */
   projectId: string | undefined;
@@ -1907,15 +1893,13 @@ export interface DeleteDataSourceOutput {
   configuration?: DataSourceConfigurationOutput | undefined;
 
   /**
-   * <p>The enable setting of the data source that specifies whether the data source is enabled
-   *          or disabled.</p>
+   * <p>The enable setting of the data source that specifies whether the data source is enabled or disabled.</p>
    * @public
    */
   enableSetting?: EnableSetting | undefined;
 
   /**
-   * <p>Specifies whether the assets that this data source creates in the inventory are to be
-   *          also automatically published to the catalog.</p>
+   * <p>Specifies whether the assets that this data source creates in the inventory are to be also automatically published to the catalog.</p>
    * @public
    */
   publishOnImport?: boolean | undefined;
@@ -1945,15 +1929,13 @@ export interface DeleteDataSourceOutput {
   lastRunAt?: Date | undefined;
 
   /**
-   * <p>Specifies the error message that is returned if the operation cannot be successfully
-   *          completed.</p>
+   * <p>Specifies the error message that is returned if the operation cannot be successfully completed.</p>
    * @public
    */
   lastRunErrorMessage?: DataSourceErrorMessage | undefined;
 
   /**
-   * <p>Specifies the error message that is returned if the operation cannot be successfully
-   *          completed.</p>
+   * <p>Specifies the error message that is returned if the operation cannot be successfully completed.</p>
    * @public
    */
   errorMessage?: DataSourceErrorMessage | undefined;
@@ -1977,8 +1959,7 @@ export interface DeleteDataSourceOutput {
   selfGrantStatus?: SelfGrantStatusOutput | undefined;
 
   /**
-   * <p>Specifies that the granted permissions are retained in case of a self-subscribe
-   *          functionality failure for a data source.</p>
+   * <p>Specifies that the granted permissions are retained in case of a self-subscribe functionality failure for a data source.</p>
    * @public
    */
   retainPermissionsOnRevokeFailure?: boolean | undefined;
@@ -2078,8 +2059,7 @@ export interface GetDataSourceOutput {
   enableSetting?: EnableSetting | undefined;
 
   /**
-   * <p>Specifies whether the assets that this data source creates in the inventory are to be
-   *          also automatically published to the catalog.</p>
+   * <p>Specifies whether the assets that this data source creates in the inventory are to be also automatically published to the catalog.</p>
    * @public
    */
   publishOnImport?: boolean | undefined;
@@ -2109,8 +2089,7 @@ export interface GetDataSourceOutput {
   lastRunAt?: Date | undefined;
 
   /**
-   * <p>Specifies the error message that is returned if the operation cannot be successfully
-   *          completed.</p>
+   * <p>Specifies the error message that is returned if the operation cannot be successfully completed.</p>
    * @public
    */
   lastRunErrorMessage?: DataSourceErrorMessage | undefined;
@@ -2122,8 +2101,7 @@ export interface GetDataSourceOutput {
   lastRunAssetCount?: number | undefined;
 
   /**
-   * <p>Specifies the error message that is returned if the operation cannot be successfully
-   *          completed.</p>
+   * <p>Specifies the error message that is returned if the operation cannot be successfully completed.</p>
    * @public
    */
   errorMessage?: DataSourceErrorMessage | undefined;
@@ -2194,22 +2172,13 @@ export interface ListDataSourcesInput {
   name?: string | undefined;
 
   /**
-   * <p>When the number of data sources is greater than the default value for the
-   *             <code>MaxResults</code> parameter, or if you explicitly specify a value for
-   *             <code>MaxResults</code> that is less than the number of data sources, the response
-   *          includes a pagination token named <code>NextToken</code>. You can specify this
-   *             <code>NextToken</code> value in a subsequent call to <code>ListDataSources</code> to
-   *          list the next set of data sources.</p>
+   * <p>When the number of data sources is greater than the default value for the <code>MaxResults</code> parameter, or if you explicitly specify a value for <code>MaxResults</code> that is less than the number of data sources, the response includes a pagination token named <code>NextToken</code>. You can specify this <code>NextToken</code> value in a subsequent call to <code>ListDataSources</code> to list the next set of data sources.</p>
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of data sources to return in a single call to
-   *             <code>ListDataSources</code>. When the number of data sources to be listed is greater
-   *          than the value of <code>MaxResults</code>, the response contains a <code>NextToken</code>
-   *          value that you can use in a subsequent call to <code>ListDataSources</code> to list the
-   *          next set of data sources.</p>
+   * <p>The maximum number of data sources to return in a single call to <code>ListDataSources</code>. When the number of data sources to be listed is greater than the value of <code>MaxResults</code>, the response contains a <code>NextToken</code> value that you can use in a subsequent call to <code>ListDataSources</code> to list the next set of data sources.</p>
    * @public
    */
   maxResults?: number | undefined;
@@ -2287,8 +2256,7 @@ export interface DataSourceSummary {
   lastRunAt?: Date | undefined;
 
   /**
-   * <p>The details of the error message that is returned if the operation cannot be
-   *          successfully completed.</p>
+   * <p>The details of the error message that is returned if the operation cannot be successfully completed.</p>
    * @public
    */
   lastRunErrorMessage?: DataSourceErrorMessage | undefined;
@@ -2329,12 +2297,7 @@ export interface ListDataSourcesOutput {
   items: DataSourceSummary[] | undefined;
 
   /**
-   * <p>When the number of data sources is greater than the default value for the
-   *             <code>MaxResults</code> parameter, or if you explicitly specify a value for
-   *             <code>MaxResults</code> that is less than the number of data sources, the response
-   *          includes a pagination token named <code>NextToken</code>. You can specify this
-   *             <code>NextToken</code> value in a subsequent call to <code>ListDataSources</code> to
-   *          list the next set of data sources.</p>
+   * <p>When the number of data sources is greater than the default value for the <code>MaxResults</code> parameter, or if you explicitly specify a value for <code>MaxResults</code> that is less than the number of data sources, the response includes a pagination token named <code>NextToken</code>. You can specify this <code>NextToken</code> value in a subsequent call to <code>ListDataSources</code> to list the next set of data sources.</p>
    * @public
    */
   nextToken?: string | undefined;
@@ -2363,29 +2326,25 @@ export interface UpdateDataSourceInput {
   name?: string | undefined;
 
   /**
-   * <p>The description to be updated as part of the <code>UpdateDataSource</code>
-   *          action.</p>
+   * <p>The description to be updated as part of the <code>UpdateDataSource</code> action.</p>
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The enable setting to be updated as part of the <code>UpdateDataSource</code>
-   *          action.</p>
+   * <p>The enable setting to be updated as part of the <code>UpdateDataSource</code> action.</p>
    * @public
    */
   enableSetting?: EnableSetting | undefined;
 
   /**
-   * <p>The publish on import setting to be updated as part of the <code>UpdateDataSource</code>
-   *          action.</p>
+   * <p>The publish on import setting to be updated as part of the <code>UpdateDataSource</code> action.</p>
    * @public
    */
   publishOnImport?: boolean | undefined;
 
   /**
-   * <p>The asset forms to be updated as part of the <code>UpdateDataSource</code>
-   *          action.</p>
+   * <p>The asset forms to be updated as part of the <code>UpdateDataSource</code> action.</p>
    * @public
    */
   assetFormsInput?: FormInput[] | undefined;
@@ -2397,22 +2356,19 @@ export interface UpdateDataSourceInput {
   schedule?: ScheduleConfiguration | undefined;
 
   /**
-   * <p>The configuration to be updated as part of the <code>UpdateDataSource</code>
-   *          action.</p>
+   * <p>The configuration to be updated as part of the <code>UpdateDataSource</code> action.</p>
    * @public
    */
   configuration?: DataSourceConfigurationInput | undefined;
 
   /**
-   * <p>The recommendation to be updated as part of the <code>UpdateDataSource</code>
-   *          action.</p>
+   * <p>The recommendation to be updated as part of the <code>UpdateDataSource</code> action.</p>
    * @public
    */
   recommendation?: RecommendationConfiguration | undefined;
 
   /**
-   * <p>Specifies that the granted permissions are retained in case of a self-subscribe
-   *          functionality failure for a data source.</p>
+   * <p>Specifies that the granted permissions are retained in case of a self-subscribe functionality failure for a data source.</p>
    * @public
    */
   retainPermissionsOnRevokeFailure?: boolean | undefined;
@@ -2447,8 +2403,7 @@ export interface UpdateDataSourceOutput {
   name: string | undefined;
 
   /**
-   * <p>The description to be updated as part of the <code>UpdateDataSource</code>
-   *          action.</p>
+   * <p>The description to be updated as part of the <code>UpdateDataSource</code> action.</p>
    * @public
    */
   description?: string | undefined;
@@ -2478,36 +2433,31 @@ export interface UpdateDataSourceOutput {
   connectionId?: string | undefined;
 
   /**
-   * <p>The configuration to be updated as part of the <code>UpdateDataSource</code>
-   *          action.</p>
+   * <p>The configuration to be updated as part of the <code>UpdateDataSource</code> action.</p>
    * @public
    */
   configuration?: DataSourceConfigurationOutput | undefined;
 
   /**
-   * <p>The recommendation to be updated as part of the <code>UpdateDataSource</code>
-   *          action.</p>
+   * <p>The recommendation to be updated as part of the <code>UpdateDataSource</code> action.</p>
    * @public
    */
   recommendation?: RecommendationConfiguration | undefined;
 
   /**
-   * <p>The enable setting to be updated as part of the <code>UpdateDataSource</code>
-   *          action.</p>
+   * <p>The enable setting to be updated as part of the <code>UpdateDataSource</code> action.</p>
    * @public
    */
   enableSetting?: EnableSetting | undefined;
 
   /**
-   * <p>The publish on import setting to be updated as part of the <code>UpdateDataSource</code>
-   *          action.</p>
+   * <p>The publish on import setting to be updated as part of the <code>UpdateDataSource</code> action.</p>
    * @public
    */
   publishOnImport?: boolean | undefined;
 
   /**
-   * <p>The asset forms to be updated as part of the <code>UpdateDataSource</code>
-   *          action.</p>
+   * <p>The asset forms to be updated as part of the <code>UpdateDataSource</code> action.</p>
    * @public
    */
   assetFormsOutput?: FormOutput[] | undefined;
@@ -2537,8 +2487,7 @@ export interface UpdateDataSourceOutput {
   lastRunErrorMessage?: DataSourceErrorMessage | undefined;
 
   /**
-   * <p>Specifies the error message that is returned if the operation cannot be successfully
-   *          completed.</p>
+   * <p>Specifies the error message that is returned if the operation cannot be successfully completed.</p>
    * @public
    */
   errorMessage?: DataSourceErrorMessage | undefined;
@@ -2562,8 +2511,7 @@ export interface UpdateDataSourceOutput {
   selfGrantStatus?: SelfGrantStatusOutput | undefined;
 
   /**
-   * <p>Specifies that the granted permissions are retained in case of a self-subscribe
-   *          functionality failure for a data source.</p>
+   * <p>Specifies that the granted permissions are retained in case of a self-subscribe functionality failure for a data source.</p>
    * @public
    */
   retainPermissionsOnRevokeFailure?: boolean | undefined;
@@ -2723,8 +2671,7 @@ export interface GetDataSourceRunOutput {
   lineageSummary?: DataSourceRunLineageSummary | undefined;
 
   /**
-   * <p>Specifies the error message that is returned if the operation cannot be successfully
-   *          completed.</p>
+   * <p>Specifies the error message that is returned if the operation cannot be successfully completed.</p>
    * @public
    */
   errorMessage?: DataSourceErrorMessage | undefined;
@@ -2759,8 +2706,7 @@ export interface GetDataSourceRunOutput {
  */
 export interface ListDataSourceRunsInput {
   /**
-   * <p>The identifier of the Amazon DataZone domain in which to invoke the
-   *             <code>ListDataSourceRuns</code> action.</p>
+   * <p>The identifier of the Amazon DataZone domain in which to invoke the <code>ListDataSourceRuns</code> action.</p>
    * @public
    */
   domainIdentifier: string | undefined;
@@ -2778,22 +2724,13 @@ export interface ListDataSourceRunsInput {
   status?: DataSourceRunStatus | undefined;
 
   /**
-   * <p>When the number of runs is greater than the default value for the
-   *             <code>MaxResults</code> parameter, or if you explicitly specify a value for
-   *             <code>MaxResults</code> that is less than the number of runs, the response includes a
-   *          pagination token named <code>NextToken</code>. You can specify this <code>NextToken</code>
-   *          value in a subsequent call to <code>ListDataSourceRuns</code> to list the next set of
-   *          runs.</p>
+   * <p>When the number of runs is greater than the default value for the <code>MaxResults</code> parameter, or if you explicitly specify a value for <code>MaxResults</code> that is less than the number of runs, the response includes a pagination token named <code>NextToken</code>. You can specify this <code>NextToken</code> value in a subsequent call to <code>ListDataSourceRuns</code> to list the next set of runs.</p>
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of runs to return in a single call to
-   *          <code>ListDataSourceRuns</code>. When the number of runs to be listed is greater than the
-   *          value of <code>MaxResults</code>, the response contains a <code>NextToken</code> value that
-   *          you can use in a subsequent call to <code>ListDataSourceRuns</code> to list the next set of
-   *          runs.</p>
+   * <p>The maximum number of runs to return in a single call to <code>ListDataSourceRuns</code>. When the number of runs to be listed is greater than the value of <code>MaxResults</code>, the response contains a <code>NextToken</code> value that you can use in a subsequent call to <code>ListDataSourceRuns</code> to list the next set of runs.</p>
    * @public
    */
   maxResults?: number | undefined;
@@ -2841,8 +2778,7 @@ export interface DataSourceRunSummary {
   runStatisticsForAssets?: RunStatisticsForAssets | undefined;
 
   /**
-   * <p>The details of the error message that is returned if the operation cannot be
-   *          successfully completed.</p>
+   * <p>The details of the error message that is returned if the operation cannot be successfully completed.</p>
    * @public
    */
   errorMessage?: DataSourceErrorMessage | undefined;
@@ -2889,12 +2825,7 @@ export interface ListDataSourceRunsOutput {
   items: DataSourceRunSummary[] | undefined;
 
   /**
-   * <p>When the number of runs is greater than the default value for the
-   *             <code>MaxResults</code> parameter, or if you explicitly specify a value for
-   *             <code>MaxResults</code> that is less than the number of runs, the response includes a
-   *          pagination token named <code>NextToken</code>. You can specify this <code>NextToken</code>
-   *          value in a subsequent call to <code>ListDataSourceRuns</code> to list the next set of
-   *          runs.</p>
+   * <p>When the number of runs is greater than the default value for the <code>MaxResults</code> parameter, or if you explicitly specify a value for <code>MaxResults</code> that is less than the number of runs, the response includes a pagination token named <code>NextToken</code>. You can specify this <code>NextToken</code> value in a subsequent call to <code>ListDataSourceRuns</code> to list the next set of runs.</p>
    * @public
    */
   nextToken?: string | undefined;
@@ -2917,8 +2848,7 @@ export interface StartDataSourceRunInput {
   dataSourceIdentifier: string | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier that is provided to ensure the idempotency of the
-   *          request.</p>
+   * <p>A unique, case-sensitive identifier that is provided to ensure the idempotency of the request.</p>
    * @public
    */
   clientToken?: string | undefined;
@@ -2977,8 +2907,7 @@ export interface StartDataSourceRunOutput {
   runStatisticsForAssets?: RunStatisticsForAssets | undefined;
 
   /**
-   * <p>Specifies the error message that is returned if the operation cannot be successfully
-   *          completed.</p>
+   * <p>Specifies the error message that is returned if the operation cannot be successfully completed.</p>
    * @public
    */
   errorMessage?: DataSourceErrorMessage | undefined;
@@ -3097,8 +3026,7 @@ export interface DataSourceRunActivity {
   technicalDescription?: string | undefined;
 
   /**
-   * <p>The details of the error message that is returned if the operation cannot be
-   *          successfully completed.</p>
+   * <p>The details of the error message that is returned if the operation cannot be successfully completed.</p>
    * @public
    */
   errorMessage?: DataSourceErrorMessage | undefined;
@@ -3388,8 +3316,7 @@ export interface DeleteSubscriptionGrantOutput {
   updatedAt: Date | undefined;
 
   /**
-   * <p>The ID of the subscription target associated with the subscription grant that is
-   *          deleted.</p>
+   * <p>The ID of the subscription target associated with the subscription grant that is deleted.</p>
    * @public
    */
   subscriptionTargetId: string | undefined;
@@ -3480,8 +3407,7 @@ export type TimeSeriesEntityType = (typeof TimeSeriesEntityType)[keyof typeof Ti
  */
 export interface DeleteTimeSeriesDataPointsInput {
   /**
-   * <p>The ID of the Amazon DataZone domain that houses the asset for which you want to delete
-   *          a time series form.</p>
+   * <p>The ID of the Amazon DataZone domain that houses the asset for which you want to delete a time series form.</p>
    * @public
    */
   domainIdentifier: string | undefined;
@@ -3505,8 +3431,7 @@ export interface DeleteTimeSeriesDataPointsInput {
   formName: string | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier to ensure idempotency of the request. This field is
-   *          automatically populated if not provided.</p>
+   * <p>A unique, case-sensitive identifier to ensure idempotency of the request. This field is automatically populated if not provided.</p>
    * @public
    */
   clientToken?: string | undefined;
@@ -3556,8 +3481,7 @@ export interface DeleteDomainInput {
   identifier: string | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier that is provided to ensure the idempotency of the
-   *          request.</p>
+   * <p>A unique, case-sensitive identifier that is provided to ensure the idempotency of the request.</p>
    * @public
    */
   clientToken?: string | undefined;
@@ -3638,8 +3562,7 @@ export interface GetDomainOutput {
   arn?: string | undefined;
 
   /**
-   * <p>The identifier of the Amazon Web Services Key Management Service (KMS) key that is used
-   *          to encrypt the Amazon DataZone domain, metadata, and reporting data. </p>
+   * <p>The identifier of the Amazon Web Services Key Management Service (KMS) key that is used to encrypt the Amazon DataZone domain, metadata, and reporting data. </p>
    * @public
    */
   kmsKeyIdentifier?: string | undefined;
@@ -3698,22 +3621,13 @@ export interface ListDomainsInput {
   status?: DomainStatus | undefined;
 
   /**
-   * <p>The maximum number of domains to return in a single call to <code>ListDomains</code>.
-   *          When the number of domains to be listed is greater than the value of
-   *             <code>MaxResults</code>, the response contains a <code>NextToken</code> value that you
-   *          can use in a subsequent call to <code>ListDomains</code> to list the next set of
-   *          domains.</p>
+   * <p>The maximum number of domains to return in a single call to <code>ListDomains</code>. When the number of domains to be listed is greater than the value of <code>MaxResults</code>, the response contains a <code>NextToken</code> value that you can use in a subsequent call to <code>ListDomains</code> to list the next set of domains.</p>
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>When the number of domains is greater than the default value for the
-   *             <code>MaxResults</code> parameter, or if you explicitly specify a value for
-   *             <code>MaxResults</code> that is less than the number of domains, the response includes a
-   *          pagination token named <code>NextToken</code>. You can specify this <code>NextToken</code>
-   *          value in a subsequent call to <code>ListDomains</code> to list the next set of
-   *          domains.</p>
+   * <p>When the number of domains is greater than the default value for the <code>MaxResults</code> parameter, or if you explicitly specify a value for <code>MaxResults</code> that is less than the number of domains, the response includes a pagination token named <code>NextToken</code>. You can specify this <code>NextToken</code> value in a subsequent call to <code>ListDomains</code> to list the next set of domains.</p>
    * @public
    */
   nextToken?: string | undefined;
@@ -3796,12 +3710,7 @@ export interface ListDomainsOutput {
   items: DomainSummary[] | undefined;
 
   /**
-   * <p>When the number of domains is greater than the default value for the
-   *             <code>MaxResults</code> parameter, or if you explicitly specify a value for
-   *             <code>MaxResults</code> that is less than the number of domains, the response includes a
-   *          pagination token named <code>NextToken</code>. You can specify this <code>NextToken</code>
-   *          value in a subsequent call to <code>ListDomains</code> to list the next set of
-   *          domains.</p>
+   * <p>When the number of domains is greater than the default value for the <code>MaxResults</code> parameter, or if you explicitly specify a value for <code>MaxResults</code> that is less than the number of domains, the response includes a pagination token named <code>NextToken</code>. You can specify this <code>NextToken</code> value in a subsequent call to <code>ListDomains</code> to list the next set of domains.</p>
    * @public
    */
   nextToken?: string | undefined;
@@ -3824,15 +3733,13 @@ export interface UpdateDomainInput {
   description?: string | undefined;
 
   /**
-   * <p>The single sign-on option to be updated as part of the <code>UpdateDomain</code>
-   *          action.</p>
+   * <p>The single sign-on option to be updated as part of the <code>UpdateDomain</code> action.</p>
    * @public
    */
   singleSignOn?: SingleSignOn | undefined;
 
   /**
-   * <p>The domain execution role to be updated as part of the <code>UpdateDomain</code>
-   *          action.</p>
+   * <p>The domain execution role to be updated as part of the <code>UpdateDomain</code> action.</p>
    * @public
    */
   domainExecutionRole?: string | undefined;
@@ -3850,8 +3757,7 @@ export interface UpdateDomainInput {
   name?: string | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier that is provided to ensure the idempotency of the
-   *          request.</p>
+   * <p>A unique, case-sensitive identifier that is provided to ensure the idempotency of the request.</p>
    * @public
    */
   clientToken?: string | undefined;
@@ -3886,8 +3792,7 @@ export interface UpdateDomainOutput {
   singleSignOn?: SingleSignOn | undefined;
 
   /**
-   * <p>The domain execution role to be updated as part of the <code>UpdateDomain</code>
-   *          action.</p>
+   * <p>The domain execution role to be updated as part of the <code>UpdateDomain</code> action.</p>
    * @public
    */
   domainExecutionRole?: string | undefined;
@@ -4020,8 +3925,7 @@ export interface GetDomainUnitOutput {
  */
 export interface ListDomainUnitsForParentInput {
   /**
-   * <p>The ID of the domain in which you want to list domain units for a parent domain
-   *          unit.</p>
+   * <p>The ID of the domain in which you want to list domain units for a parent domain unit.</p>
    * @public
    */
   domainIdentifier: string | undefined;
@@ -4033,20 +3937,13 @@ export interface ListDomainUnitsForParentInput {
   parentDomainUnitIdentifier: string | undefined;
 
   /**
-   * <p>The maximum number of domain units to return in a single call to
-   *          ListDomainUnitsForParent. When the number of domain units to be listed is greater than the
-   *          value of MaxResults, the response contains a NextToken value that you can use in a
-   *          subsequent call to ListDomainUnitsForParent to list the next set of domain units.</p>
+   * <p>The maximum number of domain units to return in a single call to ListDomainUnitsForParent. When the number of domain units to be listed is greater than the value of MaxResults, the response contains a NextToken value that you can use in a subsequent call to ListDomainUnitsForParent to list the next set of domain units.</p>
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>When the number of domain units is greater than the default value for the MaxResults
-   *          parameter, or if you explicitly specify a value for MaxResults that is less than the number
-   *          of domain units, the response includes a pagination token named NextToken. You can specify
-   *          this NextToken value in a subsequent call to ListDomainUnitsForParent to list the next set
-   *          of domain units.</p>
+   * <p>When the number of domain units is greater than the default value for the MaxResults parameter, or if you explicitly specify a value for MaxResults that is less than the number of domain units, the response includes a pagination token named NextToken. You can specify this NextToken value in a subsequent call to ListDomainUnitsForParent to list the next set of domain units.</p>
    * @public
    */
   nextToken?: string | undefined;
@@ -4081,11 +3978,7 @@ export interface ListDomainUnitsForParentOutput {
   items: DomainUnitSummary[] | undefined;
 
   /**
-   * <p>When the number of domain units is greater than the default value for the MaxResults
-   *          parameter, or if you explicitly specify a value for MaxResults that is less than the number
-   *          of domain units, the response includes a pagination token named NextToken. You can specify
-   *          this NextToken value in a subsequent call to ListDomainUnitsForParent to list the next set
-   *          of domain units.</p>
+   * <p>When the number of domain units is greater than the default value for the MaxResults parameter, or if you explicitly specify a value for MaxResults that is less than the number of domain units, the response includes a pagination token named NextToken. You can specify this NextToken value in a subsequent call to ListDomainUnitsForParent to list the next set of domain units.</p>
    * @public
    */
   nextToken?: string | undefined;
@@ -4230,15 +4123,13 @@ export interface GetEnvironmentBlueprintConfigurationInput {
  */
 export interface LakeFormationConfiguration {
   /**
-   * <p>The role that is used to manage read/write access to the chosen Amazon S3 bucket(s) for
-   *          Data Lake using Amazon Web Services Lake Formation hybrid access mode.</p>
+   * <p>The role that is used to manage read/write access to the chosen Amazon S3 bucket(s) for Data Lake using Amazon Web Services Lake Formation hybrid access mode.</p>
    * @public
    */
   locationRegistrationRole?: string | undefined;
 
   /**
-   * <p>Specifies certain Amazon S3 locations if you do not want Amazon DataZone to
-   *          automatically register them in hybrid mode. </p>
+   * <p>Specifies certain Amazon S3 locations if you do not want Amazon DataZone to automatically register them in hybrid mode. </p>
    * @public
    */
   locationRegistrationExcludeS3Locations?: string[] | undefined;
@@ -4361,24 +4252,13 @@ export interface ListEnvironmentBlueprintConfigurationsInput {
   domainIdentifier: string | undefined;
 
   /**
-   * <p>The maximum number of blueprint configurations to return in a single call to
-   *             <code>ListEnvironmentBlueprintConfigurations</code>. When the number of configurations
-   *          to be listed is greater than the value of <code>MaxResults</code>, the response contains a
-   *             <code>NextToken</code> value that you can use in a subsequent call to
-   *             <code>ListEnvironmentBlueprintConfigurations</code> to list the next set of
-   *          configurations.</p>
+   * <p>The maximum number of blueprint configurations to return in a single call to <code>ListEnvironmentBlueprintConfigurations</code>. When the number of configurations to be listed is greater than the value of <code>MaxResults</code>, the response contains a <code>NextToken</code> value that you can use in a subsequent call to <code>ListEnvironmentBlueprintConfigurations</code> to list the next set of configurations.</p>
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>When the number of blueprint configurations is greater than the default value for the
-   *             <code>MaxResults</code> parameter, or if you explicitly specify a value for
-   *             <code>MaxResults</code> that is less than the number of configurations, the response
-   *          includes a pagination token named <code>NextToken</code>. You can specify this
-   *             <code>NextToken</code> value in a subsequent call to
-   *             <code>ListEnvironmentBlueprintConfigurations</code> to list the next set of
-   *          configurations.</p>
+   * <p>When the number of blueprint configurations is greater than the default value for the <code>MaxResults</code> parameter, or if you explicitly specify a value for <code>MaxResults</code> that is less than the number of configurations, the response includes a pagination token named <code>NextToken</code>. You can specify this <code>NextToken</code> value in a subsequent call to <code>ListEnvironmentBlueprintConfigurations</code> to list the next set of configurations.</p>
    * @public
    */
   nextToken?: string | undefined;
@@ -4402,8 +4282,7 @@ export interface EnvironmentBlueprintConfigurationItem {
   environmentBlueprintId: string | undefined;
 
   /**
-   * <p>The ARN of the provisioning role specified in the environment blueprint
-   *          configuration.</p>
+   * <p>The ARN of the provisioning role specified in the environment blueprint configuration.</p>
    * @public
    */
   provisioningRoleArn?: string | undefined;
@@ -4415,8 +4294,7 @@ export interface EnvironmentBlueprintConfigurationItem {
   environmentRolePermissionBoundary?: string | undefined;
 
   /**
-   * <p>The ARN of the manage access role specified in the environment blueprint
-   *          configuration.</p>
+   * <p>The ARN of the manage access role specified in the environment blueprint configuration.</p>
    * @public
    */
   manageAccessRoleArn?: string | undefined;
@@ -4463,13 +4341,7 @@ export interface ListEnvironmentBlueprintConfigurationsOutput {
   items?: EnvironmentBlueprintConfigurationItem[] | undefined;
 
   /**
-   * <p>When the number of blueprint configurations is greater than the default value for the
-   *             <code>MaxResults</code> parameter, or if you explicitly specify a value for
-   *             <code>MaxResults</code> that is less than the number of configurations, the response
-   *          includes a pagination token named <code>NextToken</code>. You can specify this
-   *             <code>NextToken</code> value in a subsequent call to
-   *             <code>ListEnvironmentBlueprintConfigurations</code> to list the next set of
-   *          configurations.</p>
+   * <p>When the number of blueprint configurations is greater than the default value for the <code>MaxResults</code> parameter, or if you explicitly specify a value for <code>MaxResults</code> that is less than the number of configurations, the response includes a pagination token named <code>NextToken</code>. You can specify this <code>NextToken</code> value in a subsequent call to <code>ListEnvironmentBlueprintConfigurations</code> to list the next set of configurations.</p>
    * @public
    */
   nextToken?: string | undefined;
@@ -4691,8 +4563,7 @@ export interface GetFormTypeOutput {
   owningProjectId?: string | undefined;
 
   /**
-   * <p>The ID of the Amazon DataZone domain in which the metadata form type was originally
-   *          created.</p>
+   * <p>The ID of the Amazon DataZone domain in which the metadata form type was originally created.</p>
    * @public
    */
   originDomainId?: string | undefined;
@@ -4739,8 +4610,7 @@ export interface GetFormTypeOutput {
  */
 export interface GetAccountPoolInput {
   /**
-   * <p>The ID of the domain in which the account pool lives whose details are to be
-   *          displayed.</p>
+   * <p>The ID of the domain in which the account pool lives whose details are to be displayed.</p>
    * @public
    */
   domainIdentifier: string | undefined;
@@ -4757,8 +4627,7 @@ export interface GetAccountPoolInput {
  */
 export interface GetAccountPoolOutput {
   /**
-   * <p>The ID of the domain in which the account pool lives whose details are to be
-   *          displayed.</p>
+   * <p>The ID of the domain in which the account pool lives whose details are to be displayed.</p>
    * @public
    */
   domainId?: string | undefined;
@@ -4788,9 +4657,7 @@ export interface GetAccountPoolOutput {
   resolutionStrategy?: ResolutionStrategy | undefined;
 
   /**
-   * <p>The source of accounts for the account pool. In the current release, it's either a
-   *          static list of accounts provided by the customer or a custom Amazon Web Services Lambda
-   *          handler. </p>
+   * <p>The source of accounts for the account pool. In the current release, it's either a static list of accounts provided by the customer or a custom Amazon Web Services Lambda handler. </p>
    * @public
    */
   accountSource: AccountSource | undefined;
@@ -5108,8 +4975,7 @@ export interface GetEnvironmentOutput {
  */
 export interface GetEnvironmentActionInput {
   /**
-   * <p>The ID of the Amazon DataZone domain in which the <code>GetEnvironmentAction</code> API is
-   *          invoked. </p>
+   * <p>The ID of the Amazon DataZone domain in which the <code>GetEnvironmentAction</code> API is invoked. </p>
    * @public
    */
   domainIdentifier: string | undefined;
@@ -5255,8 +5121,7 @@ export interface GetEnvironmentBlueprintOutput {
  */
 export interface GetEnvironmentCredentialsInput {
   /**
-   * <p>The ID of the Amazon DataZone domain in which this environment and its credentials
-   *          exist.</p>
+   * <p>The ID of the Amazon DataZone domain in which this environment and its credentials exist.</p>
    * @public
    */
   domainIdentifier: string | undefined;
@@ -5506,8 +5371,7 @@ export interface LineageSqlQueryRunDetails {
   totalQueriesProcessed?: number | undefined;
 
   /**
-   * <p>The number of queries that failed in the SQL query run details of a data lineage
-   *          run.</p>
+   * <p>The number of queries that failed in the SQL query run details of a data lineage run.</p>
    * @public
    */
   numQueriesFailed?: number | undefined;
@@ -5780,11 +5644,7 @@ export interface GetLineageNodeInput {
   domainIdentifier: string | undefined;
 
   /**
-   * <p>The ID of the data lineage node that you want to get.</p>
-   *          <p>Both, a lineage node identifier generated by Amazon DataZone and a
-   *             <code>sourceIdentifier</code> of the lineage node are supported. If
-   *             <code>sourceIdentifier</code> is greater than 1800 characters, you can use lineage node
-   *          identifier generated by Amazon DataZone to get the node details.</p>
+   * <p>The ID of the data lineage node that you want to get.</p> <p>Both, a lineage node identifier generated by Amazon DataZone and a <code>sourceIdentifier</code> of the lineage node are supported. If <code>sourceIdentifier</code> is greater than 1800 characters, you can use lineage node identifier generated by Amazon DataZone to get the node details.</p>
    * @public
    */
   identifier: string | undefined;
@@ -5961,8 +5821,7 @@ export interface GetProjectOutput {
   projectStatus?: ProjectStatus | undefined;
 
   /**
-   * <p>Specifies the error message that is returned if the operation cannot be successfully
-   *          completed.</p>
+   * <p>Specifies the error message that is returned if the operation cannot be successfully completed.</p>
    * @public
    */
   failureReasons?: ProjectDeletionError[] | undefined;
@@ -6281,8 +6140,7 @@ export interface GetSubscriptionGrantOutput {
  */
 export interface GetSubscriptionRequestDetailsInput {
   /**
-   * <p>The identifier of the Amazon DataZone domain in which to get the subscription request
-   *          details.</p>
+   * <p>The identifier of the Amazon DataZone domain in which to get the subscription request details.</p>
    * @public
    */
   domainIdentifier: string | undefined;
@@ -6506,8 +6364,7 @@ export interface GetSubscriptionTargetOutput {
  */
 export interface GetTimeSeriesDataPointInput {
   /**
-   * <p>The ID of the Amazon DataZone domain that houses the asset for which you want to get the
-   *          data point.</p>
+   * <p>The ID of the Amazon DataZone domain that houses the asset for which you want to get the data point.</p>
    * @public
    */
   domainIdentifier: string | undefined;
@@ -6584,8 +6441,7 @@ export interface TimeSeriesDataPointFormOutput {
  */
 export interface GetTimeSeriesDataPointOutput {
   /**
-   * <p>The ID of the Amazon DataZone domain that houses the asset data point that you want to
-   *          get.</p>
+   * <p>The ID of the Amazon DataZone domain that houses the asset data point that you want to get.</p>
    * @public
    */
   domainId?: string | undefined;
@@ -6643,8 +6499,7 @@ export interface GetUserProfileInput {
  */
 export interface GetUserProfileOutput {
   /**
-   * <p>the identifier of the Amazon DataZone domain of which you want to get the user
-   *          profile.</p>
+   * <p>the identifier of the Amazon DataZone domain of which you want to get the user profile.</p>
    * @public
    */
   domainId?: string | undefined;
@@ -6783,8 +6638,7 @@ export interface GetGlossaryOutput {
  */
 export interface UpdateGlossaryInput {
   /**
-   * <p>The identifier of the Amazon DataZone domain in which a business glossary is to be
-   *          updated.</p>
+   * <p>The identifier of the Amazon DataZone domain in which a business glossary is to be updated.</p>
    * @public
    */
   domainIdentifier: string | undefined;
@@ -6814,8 +6668,7 @@ export interface UpdateGlossaryInput {
   status?: GlossaryStatus | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier that is provided to ensure the idempotency of the
-   *          request.</p>
+   * <p>A unique, case-sensitive identifier that is provided to ensure the idempotency of the request.</p>
    * @public
    */
   clientToken?: string | undefined;
@@ -6826,8 +6679,7 @@ export interface UpdateGlossaryInput {
  */
 export interface UpdateGlossaryOutput {
   /**
-   * <p>The identifier of the Amazon DataZone domain in which a business glossary is to be
-   *          updated.</p>
+   * <p>The identifier of the Amazon DataZone domain in which a business glossary is to be updated.</p>
    * @public
    */
   domainId: string | undefined;
@@ -6984,8 +6836,7 @@ export interface GetGlossaryTermOutput {
  */
 export interface UpdateGlossaryTermInput {
   /**
-   * <p>The identifier of the Amazon DataZone domain in which a business glossary term is to be
-   *          updated.</p>
+   * <p>The identifier of the Amazon DataZone domain in which a business glossary term is to be updated.</p>
    * @public
    */
   domainIdentifier: string | undefined;
@@ -7009,22 +6860,19 @@ export interface UpdateGlossaryTermInput {
   name?: string | undefined;
 
   /**
-   * <p>The short description to be updated as part of the <code>UpdateGlossaryTerm</code>
-   *          action.</p>
+   * <p>The short description to be updated as part of the <code>UpdateGlossaryTerm</code> action.</p>
    * @public
    */
   shortDescription?: string | undefined;
 
   /**
-   * <p>The long description to be updated as part of the <code>UpdateGlossaryTerm</code>
-   *          action.</p>
+   * <p>The long description to be updated as part of the <code>UpdateGlossaryTerm</code> action.</p>
    * @public
    */
   longDescription?: string | undefined;
 
   /**
-   * <p>The term relations to be updated as part of the <code>UpdateGlossaryTerm</code>
-   *          action.</p>
+   * <p>The term relations to be updated as part of the <code>UpdateGlossaryTerm</code> action.</p>
    * @public
    */
   termRelations?: TermRelations | undefined;
@@ -7047,8 +6895,7 @@ export interface UpdateGlossaryTermOutput {
   id: string | undefined;
 
   /**
-   * <p>The identifier of the Amazon DataZone domain in which a business glossary term is to be
-   *          updated.</p>
+   * <p>The identifier of the Amazon DataZone domain in which a business glossary term is to be updated.</p>
    * @public
    */
   domainId: string | undefined;
@@ -7072,22 +6919,19 @@ export interface UpdateGlossaryTermOutput {
   status: GlossaryTermStatus | undefined;
 
   /**
-   * <p>The short description to be updated as part of the <code>UpdateGlossaryTerm</code>
-   *          action.</p>
+   * <p>The short description to be updated as part of the <code>UpdateGlossaryTerm</code> action.</p>
    * @public
    */
   shortDescription?: string | undefined;
 
   /**
-   * <p>The long description to be updated as part of the <code>UpdateGlossaryTerm</code>
-   *          action.</p>
+   * <p>The long description to be updated as part of the <code>UpdateGlossaryTerm</code> action.</p>
    * @public
    */
   longDescription?: string | undefined;
 
   /**
-   * <p>The term relations to be updated as part of the <code>UpdateGlossaryTerm</code>
-   *          action.</p>
+   * <p>The term relations to be updated as part of the <code>UpdateGlossaryTerm</code> action.</p>
    * @public
    */
   termRelations?: TermRelations | undefined;
@@ -7149,20 +6993,13 @@ export interface ListAccountPoolsInput {
   sortOrder?: SortOrder | undefined;
 
   /**
-   * <p>When the number of account pools is greater than the default value for the MaxResults
-   *          parameter, or if you explicitly specify a value for MaxResults that is less than the number
-   *          of account pools, the response includes a pagination token named NextToken. You can specify
-   *          this NextToken value in a subsequent call to ListAccountPools to list the next set of
-   *          account pools.</p>
+   * <p>When the number of account pools is greater than the default value for the MaxResults parameter, or if you explicitly specify a value for MaxResults that is less than the number of account pools, the response includes a pagination token named NextToken. You can specify this NextToken value in a subsequent call to ListAccountPools to list the next set of account pools.</p>
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of account pools to return in a single call to ListAccountPools. When
-   *          the number of account pools to be listed is greater than the value of MaxResults, the
-   *          response contains a NextToken value that you can use in a subsequent call to
-   *          ListAccountPools to list the next set of account pools.</p>
+   * <p>The maximum number of account pools to return in a single call to ListAccountPools. When the number of account pools to be listed is greater than the value of MaxResults, the response contains a NextToken value that you can use in a subsequent call to ListAccountPools to list the next set of account pools.</p>
    * @public
    */
   maxResults?: number | undefined;
@@ -7179,11 +7016,7 @@ export interface ListAccountPoolsOutput {
   items?: AccountPoolSummary[] | undefined;
 
   /**
-   * <p>When the number of account pools is greater than the default value for the MaxResults
-   *          parameter, or if you explicitly specify a value for MaxResults that is less than the number
-   *          of account pools, the response includes a pagination token named NextToken. You can specify
-   *          this NextToken value in a subsequent call to ListAccountPools to list the next set of
-   *          account pools.</p>
+   * <p>When the number of account pools is greater than the default value for the MaxResults parameter, or if you explicitly specify a value for MaxResults that is less than the number of account pools, the response includes a pagination token named NextToken. You can specify this NextToken value in a subsequent call to ListAccountPools to list the next set of account pools.</p>
    * @public
    */
   nextToken?: string | undefined;
@@ -7194,8 +7027,7 @@ export interface ListAccountPoolsOutput {
  */
 export interface ListAccountsInAccountPoolInput {
   /**
-   * <p>The ID of the domain in which the accounts in the specified account pool are to be
-   *          listed.</p>
+   * <p>The ID of the domain in which the accounts in the specified account pool are to be listed.</p>
    * @public
    */
   domainIdentifier: string | undefined;
@@ -7207,20 +7039,13 @@ export interface ListAccountsInAccountPoolInput {
   identifier: string | undefined;
 
   /**
-   * <p>When the number of accounts is greater than the default value for the MaxResults
-   *          parameter, or if you explicitly specify a value for MaxResults that is less than the number
-   *          of accounts, the response includes a pagination token named NextToken. You can specify this
-   *          NextToken value in a subsequent call to ListAccountsInAccountPool to list the next set of
-   *          accounts.</p>
+   * <p>When the number of accounts is greater than the default value for the MaxResults parameter, or if you explicitly specify a value for MaxResults that is less than the number of accounts, the response includes a pagination token named NextToken. You can specify this NextToken value in a subsequent call to ListAccountsInAccountPool to list the next set of accounts.</p>
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of accounts to return in a single call to ListAccountsInAccountPool.
-   *          When the number of accounts to be listed is greater than the value of MaxResults, the
-   *          response contains a NextToken value that you can use in a subsequent call to
-   *          ListAccountsInAccountPool to list the next set of accounts.</p>
+   * <p>The maximum number of accounts to return in a single call to ListAccountsInAccountPool. When the number of accounts to be listed is greater than the value of MaxResults, the response contains a NextToken value that you can use in a subsequent call to ListAccountsInAccountPool to list the next set of accounts.</p>
    * @public
    */
   maxResults?: number | undefined;
@@ -7237,11 +7062,7 @@ export interface ListAccountsInAccountPoolOutput {
   items?: AccountInfo[] | undefined;
 
   /**
-   * <p>When the number of accounts is greater than the default value for the MaxResults
-   *          parameter, or if you explicitly specify a value for MaxResults that is less than the number
-   *          of accounts, the response includes a pagination token named NextToken. You can specify this
-   *          NextToken value in a subsequent call to ListAccountsInAccountPool to list the next set of
-   *          accounts.</p>
+   * <p>When the number of accounts is greater than the default value for the MaxResults parameter, or if you explicitly specify a value for MaxResults that is less than the number of accounts, the response includes a pagination token named NextToken. You can specify this NextToken value in a subsequent call to ListAccountsInAccountPool to list the next set of accounts.</p>
    * @public
    */
   nextToken?: string | undefined;
@@ -7270,22 +7091,13 @@ export interface ListAssetFiltersInput {
   status?: FilterStatus | undefined;
 
   /**
-   * <p>When the number of asset filters is greater than the default value for the
-   *             <code>MaxResults</code> parameter, or if you explicitly specify a value for
-   *             <code>MaxResults</code> that is less than the number of asset filters, the response
-   *          includes a pagination token named <code>NextToken</code>. You can specify this
-   *             <code>NextToken</code> value in a subsequent call to <code>ListAssetFilters</code> to
-   *          list the next set of asset filters.</p>
+   * <p>When the number of asset filters is greater than the default value for the <code>MaxResults</code> parameter, or if you explicitly specify a value for <code>MaxResults</code> that is less than the number of asset filters, the response includes a pagination token named <code>NextToken</code>. You can specify this <code>NextToken</code> value in a subsequent call to <code>ListAssetFilters</code> to list the next set of asset filters.</p>
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of asset filters to return in a single call to
-   *             <code>ListAssetFilters</code>. When the number of asset filters to be listed is greater
-   *          than the value of <code>MaxResults</code>, the response contains a <code>NextToken</code>
-   *          value that you can use in a subsequent call to <code>ListAssetFilters</code> to list the
-   *          next set of asset filters.</p>
+   * <p>The maximum number of asset filters to return in a single call to <code>ListAssetFilters</code>. When the number of asset filters to be listed is greater than the value of <code>MaxResults</code>, the response contains a <code>NextToken</code> value that you can use in a subsequent call to <code>ListAssetFilters</code> to list the next set of asset filters.</p>
    * @public
    */
   maxResults?: number | undefined;
@@ -7302,12 +7114,7 @@ export interface ListAssetFiltersOutput {
   items: AssetFilterSummary[] | undefined;
 
   /**
-   * <p>When the number of asset filters is greater than the default value for the
-   *             <code>MaxResults</code> parameter, or if you explicitly specify a value for
-   *             <code>MaxResults</code> that is less than the number of asset filters, the response
-   *          includes a pagination token named <code>NextToken</code>. You can specify this
-   *             <code>NextToken</code> value in a subsequent call to <code>ListAssetFilters</code> to
-   *          list the next set of asset filters.</p>
+   * <p>When the number of asset filters is greater than the default value for the <code>MaxResults</code> parameter, or if you explicitly specify a value for <code>MaxResults</code> that is less than the number of asset filters, the response includes a pagination token named <code>NextToken</code>. You can specify this <code>NextToken</code> value in a subsequent call to <code>ListAssetFilters</code> to list the next set of asset filters.</p>
    * @public
    */
   nextToken?: string | undefined;
@@ -7330,22 +7137,13 @@ export interface ListAssetRevisionsInput {
   identifier: string | undefined;
 
   /**
-   * <p>When the number of revisions is greater than the default value for the
-   *             <code>MaxResults</code> parameter, or if you explicitly specify a value for
-   *             <code>MaxResults</code> that is less than the number of revisions, the response includes
-   *          a pagination token named <code>NextToken</code>. You can specify this
-   *             <code>NextToken</code> value in a subsequent call to <code>ListAssetRevisions</code> to
-   *          list the next set of revisions.</p>
+   * <p>When the number of revisions is greater than the default value for the <code>MaxResults</code> parameter, or if you explicitly specify a value for <code>MaxResults</code> that is less than the number of revisions, the response includes a pagination token named <code>NextToken</code>. You can specify this <code>NextToken</code> value in a subsequent call to <code>ListAssetRevisions</code> to list the next set of revisions.</p>
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of revisions to return in a single call to
-   *             <code>ListAssetRevisions</code>. When the number of revisions to be listed is greater
-   *          than the value of <code>MaxResults</code>, the response contains a <code>NextToken</code>
-   *          value that you can use in a subsequent call to <code>ListAssetRevisions</code> to list the
-   *          next set of revisions.</p>
+   * <p>The maximum number of revisions to return in a single call to <code>ListAssetRevisions</code>. When the number of revisions to be listed is greater than the value of <code>MaxResults</code>, the response contains a <code>NextToken</code> value that you can use in a subsequent call to <code>ListAssetRevisions</code> to list the next set of revisions.</p>
    * @public
    */
   maxResults?: number | undefined;
@@ -7362,12 +7160,7 @@ export interface ListAssetRevisionsOutput {
   items?: AssetRevision[] | undefined;
 
   /**
-   * <p>When the number of revisions is greater than the default value for the
-   *             <code>MaxResults</code> parameter, or if you explicitly specify a value for
-   *             <code>MaxResults</code> that is less than the number of revisions, the response includes
-   *          a pagination token named <code>NextToken</code>. You can specify this
-   *             <code>NextToken</code> value in a subsequent call to <code>ListAssetRevisions</code> to
-   *          list the next set of revisions.</p>
+   * <p>When the number of revisions is greater than the default value for the <code>MaxResults</code> parameter, or if you explicitly specify a value for <code>MaxResults</code> that is less than the number of revisions, the response includes a pagination token named <code>NextToken</code>. You can specify this <code>NextToken</code> value in a subsequent call to <code>ListAssetRevisions</code> to list the next set of revisions.</p>
    * @public
    */
   nextToken?: string | undefined;
@@ -7397,20 +7190,13 @@ export interface ListConnectionsInput {
   domainIdentifier: string | undefined;
 
   /**
-   * <p>The maximum number of connections to return in a single call to ListConnections. When
-   *          the number of connections to be listed is greater than the value of MaxResults, the
-   *          response contains a NextToken value that you can use in a subsequent call to
-   *          ListConnections to list the next set of connections.</p>
+   * <p>The maximum number of connections to return in a single call to ListConnections. When the number of connections to be listed is greater than the value of MaxResults, the response contains a NextToken value that you can use in a subsequent call to ListConnections to list the next set of connections.</p>
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>When the number of connections is greater than the default value for the MaxResults
-   *          parameter, or if you explicitly specify a value for MaxResults that is less than the number
-   *          of connections, the response includes a pagination token named NextToken. You can specify
-   *          this NextToken value in a subsequent call to ListConnections to list the next set of
-   *          connections.</p>
+   * <p>When the number of connections is greater than the default value for the MaxResults parameter, or if you explicitly specify a value for MaxResults that is less than the number of connections, the response includes a pagination token named NextToken. You can specify this NextToken value in a subsequent call to ListConnections to list the next set of connections.</p>
    * @public
    */
   nextToken?: string | undefined;
@@ -7463,11 +7249,7 @@ export interface ListConnectionsOutput {
   items: ConnectionSummary[] | undefined;
 
   /**
-   * <p>When the number of connections is greater than the default value for the MaxResults
-   *          parameter, or if you explicitly specify a value for MaxResults that is less than the number
-   *          of connections, the response includes a pagination token named NextToken. You can specify
-   *          this NextToken value in a subsequent call to ListConnections to list the next set of
-   *          connections.</p>
+   * <p>When the number of connections is greater than the default value for the MaxResults parameter, or if you explicitly specify a value for MaxResults that is less than the number of connections, the response includes a pagination token named NextToken. You can specify this NextToken value in a subsequent call to ListConnections to list the next set of connections.</p>
    * @public
    */
   nextToken?: string | undefined;
@@ -7490,24 +7272,13 @@ export interface ListDataProductRevisionsInput {
   identifier: string | undefined;
 
   /**
-   * <p>The maximum number of asset filters to return in a single call to
-   *             <code>ListDataProductRevisions</code>. When the number of data product revisions to be
-   *          listed is greater than the value of <code>MaxResults</code>, the response contains a
-   *             <code>NextToken</code> value that you can use in a subsequent call to
-   *             <code>ListDataProductRevisions</code> to list the next set of data product
-   *          revisions.</p>
+   * <p>The maximum number of asset filters to return in a single call to <code>ListDataProductRevisions</code>. When the number of data product revisions to be listed is greater than the value of <code>MaxResults</code>, the response contains a <code>NextToken</code> value that you can use in a subsequent call to <code>ListDataProductRevisions</code> to list the next set of data product revisions.</p>
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>When the number of data product revisions is greater than the default value for the
-   *             <code>MaxResults</code> parameter, or if you explicitly specify a value for
-   *             <code>MaxResults</code> that is less than the number of data product revisions, the
-   *          response includes a pagination token named <code>NextToken</code>. You can specify this
-   *             <code>NextToken</code> value in a subsequent call to
-   *             <code>ListDataProductRevisions</code> to list the next set of data product
-   *          revisions.</p>
+   * <p>When the number of data product revisions is greater than the default value for the <code>MaxResults</code> parameter, or if you explicitly specify a value for <code>MaxResults</code> that is less than the number of data product revisions, the response includes a pagination token named <code>NextToken</code>. You can specify this <code>NextToken</code> value in a subsequent call to <code>ListDataProductRevisions</code> to list the next set of data product revisions.</p>
    * @public
    */
   nextToken?: string | undefined;
@@ -7524,13 +7295,7 @@ export interface ListDataProductRevisionsOutput {
   items: DataProductRevision[] | undefined;
 
   /**
-   * <p>When the number of data product revisions is greater than the default value for the
-   *             <code>MaxResults</code> parameter, or if you explicitly specify a value for
-   *             <code>MaxResults</code> that is less than the number of data product revisions, the
-   *          response includes a pagination token named <code>NextToken</code>. You can specify this
-   *             <code>NextToken</code> value in a subsequent call to
-   *             <code>ListDataProductRevisions</code> to list the next set of data product
-   *          revisions.</p>
+   * <p>When the number of data product revisions is greater than the default value for the <code>MaxResults</code> parameter, or if you explicitly specify a value for <code>MaxResults</code> that is less than the number of data product revisions, the response includes a pagination token named <code>NextToken</code>. You can specify this <code>NextToken</code> value in a subsequent call to <code>ListDataProductRevisions</code> to list the next set of data product revisions.</p>
    * @public
    */
   nextToken?: string | undefined;
@@ -7541,8 +7306,7 @@ export interface ListDataProductRevisionsOutput {
  */
 export interface ListDataSourceRunActivitiesInput {
   /**
-   * <p>The identifier of the Amazon DataZone domain in which to list data source run
-   *          activities.</p>
+   * <p>The identifier of the Amazon DataZone domain in which to list data source run activities.</p>
    * @public
    */
   domainIdentifier: string | undefined;
@@ -7560,22 +7324,13 @@ export interface ListDataSourceRunActivitiesInput {
   status?: DataAssetActivityStatus | undefined;
 
   /**
-   * <p>When the number of activities is greater than the default value for the
-   *             <code>MaxResults</code> parameter, or if you explicitly specify a value for
-   *             <code>MaxResults</code> that is less than the number of activities, the response
-   *          includes a pagination token named <code>NextToken</code>. You can specify this
-   *             <code>NextToken</code> value in a subsequent call to
-   *             <code>ListDataSourceRunActivities</code> to list the next set of activities.</p>
+   * <p>When the number of activities is greater than the default value for the <code>MaxResults</code> parameter, or if you explicitly specify a value for <code>MaxResults</code> that is less than the number of activities, the response includes a pagination token named <code>NextToken</code>. You can specify this <code>NextToken</code> value in a subsequent call to <code>ListDataSourceRunActivities</code> to list the next set of activities.</p>
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of activities to return in a single call to
-   *             <code>ListDataSourceRunActivities</code>. When the number of activities to be listed is
-   *          greater than the value of <code>MaxResults</code>, the response contains a
-   *             <code>NextToken</code> value that you can use in a subsequent call to
-   *             <code>ListDataSourceRunActivities</code> to list the next set of activities.</p>
+   * <p>The maximum number of activities to return in a single call to <code>ListDataSourceRunActivities</code>. When the number of activities to be listed is greater than the value of <code>MaxResults</code>, the response contains a <code>NextToken</code> value that you can use in a subsequent call to <code>ListDataSourceRunActivities</code> to list the next set of activities.</p>
    * @public
    */
   maxResults?: number | undefined;
@@ -7592,12 +7347,7 @@ export interface ListDataSourceRunActivitiesOutput {
   items: DataSourceRunActivity[] | undefined;
 
   /**
-   * <p>When the number of activities is greater than the default value for the
-   *             <code>MaxResults</code> parameter, or if you explicitly specify a value for
-   *             <code>MaxResults</code> that is less than the number of activities, the response
-   *          includes a pagination token named <code>NextToken</code>. You can specify this
-   *             <code>NextToken</code> value in a subsequent call to
-   *             <code>ListDataSourceRunActivities</code> to list the next set of activities.</p>
+   * <p>When the number of activities is greater than the default value for the <code>MaxResults</code> parameter, or if you explicitly specify a value for <code>MaxResults</code> that is less than the number of activities, the response includes a pagination token named <code>NextToken</code>. You can specify this <code>NextToken</code> value in a subsequent call to <code>ListDataSourceRunActivities</code> to list the next set of activities.</p>
    * @public
    */
   nextToken?: string | undefined;
@@ -7626,22 +7376,13 @@ export interface ListEntityOwnersInput {
   entityIdentifier: string | undefined;
 
   /**
-   * <p>The maximum number of entities to return in a single call to
-   *             <code>ListEntityOwners</code>. When the number of entities to be listed is greater than
-   *          the value of <code>MaxResults</code>, the response contains a <code>NextToken</code> value
-   *          that you can use in a subsequent call to <code>ListEntityOwners</code> to list the next set
-   *          of entities.</p>
+   * <p>The maximum number of entities to return in a single call to <code>ListEntityOwners</code>. When the number of entities to be listed is greater than the value of <code>MaxResults</code>, the response contains a <code>NextToken</code> value that you can use in a subsequent call to <code>ListEntityOwners</code> to list the next set of entities.</p>
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>When the number of entities is greater than the default value for the
-   *             <code>MaxResults</code> parameter, or if you explicitly specify a value for
-   *             <code>MaxResults</code> that is less than the number of entities, the response includes
-   *          a pagination token named <code>NextToken</code>. You can specify this
-   *             <code>NextToken</code> value in a subsequent call to <code>ListEntityOwners</code> to
-   *          list the next set of entities.</p>
+   * <p>When the number of entities is greater than the default value for the <code>MaxResults</code> parameter, or if you explicitly specify a value for <code>MaxResults</code> that is less than the number of entities, the response includes a pagination token named <code>NextToken</code>. You can specify this <code>NextToken</code> value in a subsequent call to <code>ListEntityOwners</code> to list the next set of entities.</p>
    * @public
    */
   nextToken?: string | undefined;
@@ -7737,12 +7478,7 @@ export interface ListEntityOwnersOutput {
   owners: OwnerPropertiesOutput[] | undefined;
 
   /**
-   * <p>When the number of entities is greater than the default value for the
-   *             <code>MaxResults</code> parameter, or if you explicitly specify a value for
-   *             <code>MaxResults</code> that is less than the number of entities, the response includes
-   *          a pagination token named <code>NextToken</code>. You can specify this
-   *             <code>NextToken</code> value in a subsequent call to <code>ListEntityOwners</code> to
-   *          list the next set of entities.</p>
+   * <p>When the number of entities is greater than the default value for the <code>MaxResults</code> parameter, or if you explicitly specify a value for <code>MaxResults</code> that is less than the number of entities, the response includes a pagination token named <code>NextToken</code>. You can specify this <code>NextToken</code> value in a subsequent call to <code>ListEntityOwners</code> to list the next set of entities.</p>
    * @public
    */
   nextToken?: string | undefined;
@@ -7765,31 +7501,20 @@ export interface ListEnvironmentActionsInput {
   environmentIdentifier: string | undefined;
 
   /**
-   * <p>When the number of environment actions is greater than the default value for the
-   *             <code>MaxResults</code> parameter, or if you explicitly specify a value for
-   *             <code>MaxResults</code> that is less than the number of environment actions, the
-   *          response includes a pagination token named <code>NextToken</code>. You can specify this
-   *             <code>NextToken</code> value in a subsequent call to <code>ListEnvironmentActions</code>
-   *          to list the next set of environment actions.</p>
+   * <p>When the number of environment actions is greater than the default value for the <code>MaxResults</code> parameter, or if you explicitly specify a value for <code>MaxResults</code> that is less than the number of environment actions, the response includes a pagination token named <code>NextToken</code>. You can specify this <code>NextToken</code> value in a subsequent call to <code>ListEnvironmentActions</code> to list the next set of environment actions.</p>
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of environment actions to return in a single call to
-   *             <code>ListEnvironmentActions</code>. When the number of environment actions to be listed
-   *          is greater than the value of <code>MaxResults</code>, the response contains a
-   *             <code>NextToken</code> value that you can use in a subsequent call to
-   *             <code>ListEnvironmentActions</code> to list the next set of environment actions.</p>
+   * <p>The maximum number of environment actions to return in a single call to <code>ListEnvironmentActions</code>. When the number of environment actions to be listed is greater than the value of <code>MaxResults</code>, the response contains a <code>NextToken</code> value that you can use in a subsequent call to <code>ListEnvironmentActions</code> to list the next set of environment actions.</p>
    * @public
    */
   maxResults?: number | undefined;
 }
 
 /**
- * <p>The details about the specified action configured for an environment. For example, the
- *          details of the specified console links for an analytics tool that is available in this
- *          environment.</p>
+ * <p>The details about the specified action configured for an environment. For example, the details of the specified console links for an analytics tool that is available in this environment.</p>
  * @public
  */
 export interface EnvironmentActionSummary {
@@ -7841,12 +7566,7 @@ export interface ListEnvironmentActionsOutput {
   items?: EnvironmentActionSummary[] | undefined;
 
   /**
-   * <p>When the number of environment actions is greater than the default value for the
-   *             <code>MaxResults</code> parameter, or if you explicitly specify a value for
-   *             <code>MaxResults</code> that is less than the number of environment actions, the
-   *          response includes a pagination token named <code>NextToken</code>. You can specify this
-   *             <code>NextToken</code> value in a subsequent call to <code>ListEnvironmentActions</code>
-   *          to list the next set of environment actions.</p>
+   * <p>When the number of environment actions is greater than the default value for the <code>MaxResults</code> parameter, or if you explicitly specify a value for <code>MaxResults</code> that is less than the number of environment actions, the response includes a pagination token named <code>NextToken</code>. You can specify this <code>NextToken</code> value in a subsequent call to <code>ListEnvironmentActions</code> to list the next set of environment actions.</p>
    * @public
    */
   nextToken?: string | undefined;
@@ -7863,22 +7583,13 @@ export interface ListEnvironmentBlueprintsInput {
   domainIdentifier: string | undefined;
 
   /**
-   * <p>The maximum number of blueprints to return in a single call to
-   *             <code>ListEnvironmentBlueprints</code>. When the number of blueprints to be listed is
-   *          greater than the value of <code>MaxResults</code>, the response contains a
-   *             <code>NextToken</code> value that you can use in a subsequent call to
-   *             <code>ListEnvironmentBlueprints</code> to list the next set of blueprints.</p>
+   * <p>The maximum number of blueprints to return in a single call to <code>ListEnvironmentBlueprints</code>. When the number of blueprints to be listed is greater than the value of <code>MaxResults</code>, the response contains a <code>NextToken</code> value that you can use in a subsequent call to <code>ListEnvironmentBlueprints</code> to list the next set of blueprints.</p>
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>When the number of blueprints in the environment is greater than the default value for
-   *          the <code>MaxResults</code> parameter, or if you explicitly specify a value for
-   *             <code>MaxResults</code> that is less than the number of blueprints in the environment,
-   *          the response includes a pagination token named <code>NextToken</code>. You can specify this
-   *             <code>NextToken</code> value in a subsequent call to
-   *             <code>ListEnvironmentBlueprints</code>to list the next set of blueprints.</p>
+   * <p>When the number of blueprints in the environment is greater than the default value for the <code>MaxResults</code> parameter, or if you explicitly specify a value for <code>MaxResults</code> that is less than the number of blueprints in the environment, the response includes a pagination token named <code>NextToken</code>. You can specify this <code>NextToken</code> value in a subsequent call to <code>ListEnvironmentBlueprints</code>to list the next set of blueprints.</p>
    * @public
    */
   nextToken?: string | undefined;
@@ -7955,12 +7666,7 @@ export interface ListEnvironmentBlueprintsOutput {
   items: EnvironmentBlueprintSummary[] | undefined;
 
   /**
-   * <p>When the number of blueprints in the environment is greater than the default value for
-   *          the <code>MaxResults</code> parameter, or if you explicitly specify a value for
-   *             <code>MaxResults</code> that is less than the number of blueprints in the environment,
-   *          the response includes a pagination token named <code>NextToken</code>. You can specify this
-   *             <code>NextToken</code> value in a subsequent call to
-   *             <code>ListEnvironmentBlueprints</code>to list the next set of blueprints.</p>
+   * <p>When the number of blueprints in the environment is greater than the default value for the <code>MaxResults</code> parameter, or if you explicitly specify a value for <code>MaxResults</code> that is less than the number of blueprints in the environment, the response includes a pagination token named <code>NextToken</code>. You can specify this <code>NextToken</code> value in a subsequent call to <code>ListEnvironmentBlueprints</code>to list the next set of blueprints.</p>
    * @public
    */
   nextToken?: string | undefined;
@@ -7977,8 +7683,7 @@ export interface ListEnvironmentProfilesInput {
   domainIdentifier: string | undefined;
 
   /**
-   * <p>The identifier of the Amazon Web Services account where you want to list environment
-   *          profiles.</p>
+   * <p>The identifier of the Amazon Web Services account where you want to list environment profiles.</p>
    * @public
    */
   awsAccountId?: string | undefined;
@@ -7990,8 +7695,7 @@ export interface ListEnvironmentProfilesInput {
   awsAccountRegion?: string | undefined;
 
   /**
-   * <p>The identifier of the blueprint that was used to create the environment profiles that
-   *          you want to list.</p>
+   * <p>The identifier of the blueprint that was used to create the environment profiles that you want to list.</p>
    * @public
    */
   environmentBlueprintIdentifier?: string | undefined;
@@ -8009,24 +7713,13 @@ export interface ListEnvironmentProfilesInput {
   name?: string | undefined;
 
   /**
-   * <p>When the number of environment profiles is greater than the default value for the
-   *             <code>MaxResults</code> parameter, or if you explicitly specify a value for
-   *             <code>MaxResults</code> that is less than the number of environment profiles, the
-   *          response includes a pagination token named <code>NextToken</code>. You can specify this
-   *             <code>NextToken</code> value in a subsequent call to
-   *             <code>ListEnvironmentProfiles</code> to list the next set of environment
-   *          profiles.</p>
+   * <p>When the number of environment profiles is greater than the default value for the <code>MaxResults</code> parameter, or if you explicitly specify a value for <code>MaxResults</code> that is less than the number of environment profiles, the response includes a pagination token named <code>NextToken</code>. You can specify this <code>NextToken</code> value in a subsequent call to <code>ListEnvironmentProfiles</code> to list the next set of environment profiles.</p>
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of environment profiles to return in a single call to
-   *             <code>ListEnvironmentProfiles</code>. When the number of environment profiles to be
-   *          listed is greater than the value of <code>MaxResults</code>, the response contains a
-   *             <code>NextToken</code> value that you can use in a subsequent call to
-   *             <code>ListEnvironmentProfiles</code> to list the next set of environment
-   *          profiles.</p>
+   * <p>The maximum number of environment profiles to return in a single call to <code>ListEnvironmentProfiles</code>. When the number of environment profiles to be listed is greater than the value of <code>MaxResults</code>, the response contains a <code>NextToken</code> value that you can use in a subsequent call to <code>ListEnvironmentProfiles</code> to list the next set of environment profiles.</p>
    * @public
    */
   maxResults?: number | undefined;
@@ -8115,13 +7808,7 @@ export interface ListEnvironmentProfilesOutput {
   items: EnvironmentProfileSummary[] | undefined;
 
   /**
-   * <p>When the number of environment profiles is greater than the default value for the
-   *             <code>MaxResults</code> parameter, or if you explicitly specify a value for
-   *             <code>MaxResults</code> that is less than the number of environment profiles, the
-   *          response includes a pagination token named <code>NextToken</code>. You can specify this
-   *             <code>NextToken</code> value in a subsequent call to
-   *             <code>ListEnvironmentProfiles</code> to list the next set of environment
-   *          profiles.</p>
+   * <p>When the number of environment profiles is greater than the default value for the <code>MaxResults</code> parameter, or if you explicitly specify a value for <code>MaxResults</code> that is less than the number of environment profiles, the response includes a pagination token named <code>NextToken</code>. You can specify this <code>NextToken</code> value in a subsequent call to <code>ListEnvironmentProfiles</code> to list the next set of environment profiles.</p>
    * @public
    */
   nextToken?: string | undefined;
@@ -8138,8 +7825,7 @@ export interface ListEnvironmentsInput {
   domainIdentifier: string | undefined;
 
   /**
-   * <p>The identifier of the Amazon Web Services account where you want to list
-   *          environments.</p>
+   * <p>The identifier of the Amazon Web Services account where you want to list environments.</p>
    * @public
    */
   awsAccountId?: string | undefined;
@@ -8187,22 +7873,13 @@ export interface ListEnvironmentsInput {
   name?: string | undefined;
 
   /**
-   * <p>The maximum number of environments to return in a single call to
-   *             <code>ListEnvironments</code>. When the number of environments to be listed is greater
-   *          than the value of <code>MaxResults</code>, the response contains a <code>NextToken</code>
-   *          value that you can use in a subsequent call to <code>ListEnvironments</code> to list the
-   *          next set of environments.</p>
+   * <p>The maximum number of environments to return in a single call to <code>ListEnvironments</code>. When the number of environments to be listed is greater than the value of <code>MaxResults</code>, the response contains a <code>NextToken</code> value that you can use in a subsequent call to <code>ListEnvironments</code> to list the next set of environments.</p>
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>When the number of environments is greater than the default value for the
-   *             <code>MaxResults</code> parameter, or if you explicitly specify a value for
-   *             <code>MaxResults</code> that is less than the number of environments, the response
-   *          includes a pagination token named <code>NextToken</code>. You can specify this
-   *             <code>NextToken</code> value in a subsequent call to <code>ListEnvironments</code> to
-   *          list the next set of environments.</p>
+   * <p>When the number of environments is greater than the default value for the <code>MaxResults</code> parameter, or if you explicitly specify a value for <code>MaxResults</code> that is less than the number of environments, the response includes a pagination token named <code>NextToken</code>. You can specify this <code>NextToken</code> value in a subsequent call to <code>ListEnvironments</code> to list the next set of environments.</p>
    * @public
    */
   nextToken?: string | undefined;
@@ -8309,12 +7986,7 @@ export interface ListEnvironmentsOutput {
   items: EnvironmentSummary[] | undefined;
 
   /**
-   * <p>When the number of environments is greater than the default value for the
-   *             <code>MaxResults</code> parameter, or if you explicitly specify a value for
-   *             <code>MaxResults</code> that is less than the number of environments, the response
-   *          includes a pagination token named <code>NextToken</code>. You can specify this
-   *             <code>NextToken</code> value in a subsequent call to <code>ListEnvironments</code> to
-   *          list the next set of environments.</p>
+   * <p>When the number of environments is greater than the default value for the <code>MaxResults</code> parameter, or if you explicitly specify a value for <code>MaxResults</code> that is less than the number of environments, the response includes a pagination token named <code>NextToken</code>. You can specify this <code>NextToken</code> value in a subsequent call to <code>ListEnvironments</code> to list the next set of environments.</p>
    * @public
    */
   nextToken?: string | undefined;
@@ -8520,20 +8192,13 @@ export interface ListJobRunsInput {
   sortOrder?: SortOrder | undefined;
 
   /**
-   * <p>When the number of job runs is greater than the default value for the MaxResults
-   *          parameter, or if you explicitly specify a value for MaxResults that is less than the number
-   *          of job runs, the response includes a pagination token named NextToken. You can specify this
-   *          NextToken value in a subsequent call to ListJobRuns to list the next set of job
-   *          runs.</p>
+   * <p>When the number of job runs is greater than the default value for the MaxResults parameter, or if you explicitly specify a value for MaxResults that is less than the number of job runs, the response includes a pagination token named NextToken. You can specify this NextToken value in a subsequent call to ListJobRuns to list the next set of job runs.</p>
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of job runs to return in a single call to ListJobRuns. When the
-   *          number of job runs to be listed is greater than the value of MaxResults, the response
-   *          contains a NextToken value that you can use in a subsequent call to ListJobRuns to list the
-   *          next set of job runs.</p>
+   * <p>The maximum number of job runs to return in a single call to ListJobRuns. When the number of job runs to be listed is greater than the value of MaxResults, the response contains a NextToken value that you can use in a subsequent call to ListJobRuns to list the next set of job runs.</p>
    * @public
    */
   maxResults?: number | undefined;
@@ -8622,11 +8287,7 @@ export interface ListJobRunsOutput {
   items?: JobRunSummary[] | undefined;
 
   /**
-   * <p>When the number of job runs is greater than the default value for the MaxResults
-   *          parameter, or if you explicitly specify a value for MaxResults that is less than the number
-   *          of job runs, the response includes a pagination token named NextToken. You can specify this
-   *          NextToken value in a subsequent call to ListJobRuns to list the next set of job
-   *          runs.</p>
+   * <p>When the number of job runs is greater than the default value for the MaxResults parameter, or if you explicitly specify a value for MaxResults that is less than the number of job runs, the response includes a pagination token named NextToken. You can specify this NextToken value in a subsequent call to ListJobRuns to list the next set of job runs.</p>
    * @public
    */
   nextToken?: string | undefined;
@@ -8643,10 +8304,7 @@ export interface ListLineageEventsInput {
   domainIdentifier: string | undefined;
 
   /**
-   * <p>The maximum number of lineage events to return in a single call to ListLineageEvents.
-   *          When the number of lineage events to be listed is greater than the value of MaxResults, the
-   *          response contains a NextToken value that you can use in a subsequent call to
-   *          ListLineageEvents to list the next set of lineage events.</p>
+   * <p>The maximum number of lineage events to return in a single call to ListLineageEvents. When the number of lineage events to be listed is greater than the value of MaxResults, the response contains a NextToken value that you can use in a subsequent call to ListLineageEvents to list the next set of lineage events.</p>
    * @public
    */
   maxResults?: number | undefined;
@@ -8676,11 +8334,7 @@ export interface ListLineageEventsInput {
   sortOrder?: SortOrder | undefined;
 
   /**
-   * <p>When the number of lineage events is greater than the default value for the MaxResults
-   *          parameter, or if you explicitly specify a value for MaxResults that is less than the number
-   *          of lineage events, the response includes a pagination token named NextToken. You can
-   *          specify this NextToken value in a subsequent call to ListLineageEvents to list the next set
-   *          of lineage events.</p>
+   * <p>When the number of lineage events is greater than the default value for the MaxResults parameter, or if you explicitly specify a value for MaxResults that is less than the number of lineage events, the response includes a pagination token named NextToken. You can specify this NextToken value in a subsequent call to ListLineageEvents to list the next set of lineage events.</p>
    * @public
    */
   nextToken?: string | undefined;
@@ -8856,11 +8510,7 @@ export interface ListLineageEventsOutput {
   items?: LineageEventSummary[] | undefined;
 
   /**
-   * <p>When the number of lineage events is greater than the default value for the MaxResults
-   *          parameter, or if you explicitly specify a value for MaxResults that is less than the number
-   *          of lineage events, the response includes a pagination token named NextToken. You can
-   *          specify this NextToken value in a subsequent call to ListLineageEvents to list the next set
-   *          of lineage events.</p>
+   * <p>When the number of lineage events is greater than the default value for the MaxResults parameter, or if you explicitly specify a value for MaxResults that is less than the number of lineage events, the response includes a pagination token named NextToken. You can specify this NextToken value in a subsequent call to ListLineageEvents to list the next set of lineage events.</p>
    * @public
    */
   nextToken?: string | undefined;
@@ -8885,27 +8535,19 @@ export type EdgeDirection = (typeof EdgeDirection)[keyof typeof EdgeDirection];
  */
 export interface ListLineageNodeHistoryInput {
   /**
-   * <p>The ID of the domain where you want to list the history of the specified data lineage
-   *          node.</p>
+   * <p>The ID of the domain where you want to list the history of the specified data lineage node.</p>
    * @public
    */
   domainIdentifier: string | undefined;
 
   /**
-   * <p>The maximum number of history items to return in a single call to
-   *          ListLineageNodeHistory. When the number of memberships to be listed is greater than the
-   *          value of MaxResults, the response contains a NextToken value that you can use in a
-   *          subsequent call to ListLineageNodeHistory to list the next set of items.</p>
+   * <p>The maximum number of history items to return in a single call to ListLineageNodeHistory. When the number of memberships to be listed is greater than the value of MaxResults, the response contains a NextToken value that you can use in a subsequent call to ListLineageNodeHistory to list the next set of items.</p>
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>When the number of history items is greater than the default value for the MaxResults
-   *          parameter, or if you explicitly specify a value for MaxResults that is less than the number
-   *          of items, the response includes a pagination token named NextToken. You can specify this
-   *          NextToken value in a subsequent call to ListLineageNodeHistory to list the next set of
-   *          items.</p>
+   * <p>When the number of history items is greater than the default value for the MaxResults parameter, or if you explicitly specify a value for MaxResults that is less than the number of items, the response includes a pagination token named NextToken. You can specify this NextToken value in a subsequent call to ListLineageNodeHistory to list the next set of items.</p>
    * @public
    */
   nextToken?: string | undefined;
@@ -8917,24 +8559,19 @@ export interface ListLineageNodeHistoryInput {
   identifier: string | undefined;
 
   /**
-   * <p>The direction of the data lineage node refers to the lineage node having neighbors in
-   *          that direction. For example, if direction is <code>UPSTREAM</code>, the
-   *             <code>ListLineageNodeHistory</code> API responds with historical versions with upstream
-   *          neighbors only.</p>
+   * <p>The direction of the data lineage node refers to the lineage node having neighbors in that direction. For example, if direction is <code>UPSTREAM</code>, the <code>ListLineageNodeHistory</code> API responds with historical versions with upstream neighbors only.</p>
    * @public
    */
   direction?: EdgeDirection | undefined;
 
   /**
-   * <p>Specifies whether the action is to return data lineage node history from the time after
-   *          the event timestamp.</p>
+   * <p>Specifies whether the action is to return data lineage node history from the time after the event timestamp.</p>
    * @public
    */
   eventTimestampGTE?: Date | undefined;
 
   /**
-   * <p>Specifies whether the action is to return data lineage node history from the time prior
-   *          of the event timestamp.</p>
+   * <p>Specifies whether the action is to return data lineage node history from the time prior of the event timestamp.</p>
    * @public
    */
   eventTimestampLTE?: Date | undefined;
@@ -9035,11 +8672,7 @@ export interface ListLineageNodeHistoryOutput {
   nodes?: LineageNodeSummary[] | undefined;
 
   /**
-   * <p>When the number of history items is greater than the default value for the MaxResults
-   *          parameter, or if you explicitly specify a value for MaxResults that is less than the number
-   *          of items, the response includes a pagination token named NextToken. You can specify this
-   *          NextToken value in a subsequent call to ListLineageNodeHistory to list the next set of
-   *          items.</p>
+   * <p>When the number of history items is greater than the default value for the MaxResults parameter, or if you explicitly specify a value for MaxResults that is less than the number of items, the response includes a pagination token named NextToken. You can specify this NextToken value in a subsequent call to ListLineageNodeHistory to list the next set of items.</p>
    * @public
    */
   nextToken?: string | undefined;
@@ -9114,22 +8747,13 @@ export interface ListNotificationsInput {
   taskStatus?: TaskStatus | undefined;
 
   /**
-   * <p>The maximum number of notifications to return in a single call to
-   *             <code>ListNotifications</code>. When the number of notifications to be listed is greater
-   *          than the value of <code>MaxResults</code>, the response contains a <code>NextToken</code>
-   *          value that you can use in a subsequent call to <code>ListNotifications</code> to list the
-   *          next set of notifications.</p>
+   * <p>The maximum number of notifications to return in a single call to <code>ListNotifications</code>. When the number of notifications to be listed is greater than the value of <code>MaxResults</code>, the response contains a <code>NextToken</code> value that you can use in a subsequent call to <code>ListNotifications</code> to list the next set of notifications.</p>
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>When the number of notifications is greater than the default value for the
-   *             <code>MaxResults</code> parameter, or if you explicitly specify a value for
-   *             <code>MaxResults</code> that is less than the number of notifications, the response
-   *          includes a pagination token named <code>NextToken</code>. You can specify this
-   *             <code>NextToken</code> value in a subsequent call to <code>ListNotifications</code> to
-   *          list the next set of notifications.</p>
+   * <p>When the number of notifications is greater than the default value for the <code>MaxResults</code> parameter, or if you explicitly specify a value for <code>MaxResults</code> that is less than the number of notifications, the response includes a pagination token named <code>NextToken</code>. You can specify this <code>NextToken</code> value in a subsequent call to <code>ListNotifications</code> to list the next set of notifications.</p>
    * @public
    */
   nextToken?: string | undefined;
@@ -9296,12 +8920,7 @@ export interface ListNotificationsOutput {
   notifications?: NotificationOutput[] | undefined;
 
   /**
-   * <p>When the number of notifications is greater than the default value for the
-   *             <code>MaxResults</code> parameter, or if you explicitly specify a value for
-   *             <code>MaxResults</code> that is less than the number of notifications, the response
-   *          includes a pagination token named <code>NextToken</code>. You can specify this
-   *             <code>NextToken</code> value in a subsequent call to <code>ListNotifications</code> to
-   *          list the next set of notifications.</p>
+   * <p>When the number of notifications is greater than the default value for the <code>MaxResults</code> parameter, or if you explicitly specify a value for <code>MaxResults</code> that is less than the number of notifications, the response includes a pagination token named <code>NextToken</code>. You can specify this <code>NextToken</code> value in a subsequent call to <code>ListNotifications</code> to list the next set of notifications.</p>
    * @public
    */
   nextToken?: string | undefined;
@@ -9336,22 +8955,13 @@ export interface ListPolicyGrantsInput {
   policyType: ManagedPolicyType | undefined;
 
   /**
-   * <p>The maximum number of grants to return in a single call to
-   *          <code>ListPolicyGrants</code>. When the number of grants to be listed is greater than the
-   *          value of <code>MaxResults</code>, the response contains a <code>NextToken</code> value that
-   *          you can use in a subsequent call to <code>ListPolicyGrants</code> to list the next set of
-   *          grants.</p>
+   * <p>The maximum number of grants to return in a single call to <code>ListPolicyGrants</code>. When the number of grants to be listed is greater than the value of <code>MaxResults</code>, the response contains a <code>NextToken</code> value that you can use in a subsequent call to <code>ListPolicyGrants</code> to list the next set of grants.</p>
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>When the number of grants is greater than the default value for the
-   *             <code>MaxResults</code> parameter, or if you explicitly specify a value for
-   *             <code>MaxResults</code> that is less than the number of grants, the response includes a
-   *          pagination token named <code>NextToken</code>. You can specify this <code>NextToken</code>
-   *          value in a subsequent call to <code>ListPolicyGrants</code> to list the next set of
-   *          grants.</p>
+   * <p>When the number of grants is greater than the default value for the <code>MaxResults</code> parameter, or if you explicitly specify a value for <code>MaxResults</code> that is less than the number of grants, the response includes a pagination token named <code>NextToken</code>. You can specify this <code>NextToken</code> value in a subsequent call to <code>ListPolicyGrants</code> to list the next set of grants.</p>
    * @public
    */
   nextToken?: string | undefined;
@@ -9385,6 +8995,12 @@ export interface PolicyGrantMember {
    * @public
    */
   createdBy?: string | undefined;
+
+  /**
+   * <p>The ID of the policy grant.</p>
+   * @public
+   */
+  grantId?: string | undefined;
 }
 
 /**
@@ -9398,12 +9014,7 @@ export interface ListPolicyGrantsOutput {
   grantList: PolicyGrantMember[] | undefined;
 
   /**
-   * <p>When the number of grants is greater than the default value for the
-   *             <code>MaxResults</code> parameter, or if you explicitly specify a value for
-   *             <code>MaxResults</code> that is less than the number of grants, the response includes a
-   *          pagination token named <code>NextToken</code>. You can specify this <code>NextToken</code>
-   *          value in a subsequent call to <code>ListPolicyGrants</code> to list the next set of
-   *          grants.</p>
+   * <p>When the number of grants is greater than the default value for the <code>MaxResults</code> parameter, or if you explicitly specify a value for <code>MaxResults</code> that is less than the number of grants, the response includes a pagination token named <code>NextToken</code>. You can specify this <code>NextToken</code> value in a subsequent call to <code>ListPolicyGrants</code> to list the next set of grants.</p>
    * @public
    */
   nextToken?: string | undefined;
@@ -9427,8 +9038,7 @@ export type SortFieldProject = (typeof SortFieldProject)[keyof typeof SortFieldP
  */
 export interface ListProjectMembershipsInput {
   /**
-   * <p>The identifier of the Amazon DataZone domain in which you want to list project
-   *          memberships.</p>
+   * <p>The identifier of the Amazon DataZone domain in which you want to list project memberships.</p>
    * @public
    */
   domainIdentifier: string | undefined;
@@ -9452,22 +9062,13 @@ export interface ListProjectMembershipsInput {
   sortOrder?: SortOrder | undefined;
 
   /**
-   * <p>When the number of memberships is greater than the default value for the
-   *             <code>MaxResults</code> parameter, or if you explicitly specify a value for
-   *             <code>MaxResults</code> that is less than the number of memberships, the response
-   *          includes a pagination token named <code>NextToken</code>. You can specify this
-   *             <code>NextToken</code> value in a subsequent call to <code>ListProjectMemberships</code>
-   *          to list the next set of memberships.</p>
+   * <p>When the number of memberships is greater than the default value for the <code>MaxResults</code> parameter, or if you explicitly specify a value for <code>MaxResults</code> that is less than the number of memberships, the response includes a pagination token named <code>NextToken</code>. You can specify this <code>NextToken</code> value in a subsequent call to <code>ListProjectMemberships</code> to list the next set of memberships.</p>
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of memberships to return in a single call to
-   *             <code>ListProjectMemberships</code>. When the number of memberships to be listed is
-   *          greater than the value of <code>MaxResults</code>, the response contains a
-   *             <code>NextToken</code> value that you can use in a subsequent call to
-   *             <code>ListProjectMemberships</code> to list the next set of memberships.</p>
+   * <p>The maximum number of memberships to return in a single call to <code>ListProjectMemberships</code>. When the number of memberships to be listed is greater than the value of <code>MaxResults</code>, the response contains a <code>NextToken</code> value that you can use in a subsequent call to <code>ListProjectMemberships</code> to list the next set of memberships.</p>
    * @public
    */
   maxResults?: number | undefined;
@@ -9578,12 +9179,7 @@ export interface ListProjectMembershipsOutput {
   members: ProjectMember[] | undefined;
 
   /**
-   * <p>When the number of memberships is greater than the default value for the
-   *             <code>MaxResults</code> parameter, or if you explicitly specify a value for
-   *             <code>MaxResults</code> that is less than the number of memberships, the response
-   *          includes a pagination token named <code>NextToken</code>. You can specify this
-   *             <code>NextToken</code> value in a subsequent call to <code>ListProjectMemberships</code>
-   *          to list the next set of memberships.</p>
+   * <p>When the number of memberships is greater than the default value for the <code>MaxResults</code> parameter, or if you explicitly specify a value for <code>MaxResults</code> that is less than the number of memberships, the response includes a pagination token named <code>NextToken</code>. You can specify this <code>NextToken</code> value in a subsequent call to <code>ListProjectMemberships</code> to list the next set of memberships.</p>
    * @public
    */
   nextToken?: string | undefined;
@@ -9618,20 +9214,13 @@ export interface ListProjectProfilesInput {
   sortOrder?: SortOrder | undefined;
 
   /**
-   * <p>When the number of project profiles is greater than the default value for the MaxResults
-   *          parameter, or if you explicitly specify a value for MaxResults that is less than the number
-   *          of project profiles, the response includes a pagination token named NextToken. You can
-   *          specify this NextToken value in a subsequent call to ListProjectProfiles to list the next
-   *          set of project profiles.</p>
+   * <p>When the number of project profiles is greater than the default value for the MaxResults parameter, or if you explicitly specify a value for MaxResults that is less than the number of project profiles, the response includes a pagination token named NextToken. You can specify this NextToken value in a subsequent call to ListProjectProfiles to list the next set of project profiles.</p>
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of project profiles to return in a single call to
-   *          ListProjectProfiles. When the number of project profiles to be listed is greater than the
-   *          value of MaxResults, the response contains a NextToken value that you can use in a
-   *          subsequent call to ListProjectProfiles to list the next set of project profiles.</p>
+   * <p>The maximum number of project profiles to return in a single call to ListProjectProfiles. When the number of project profiles to be listed is greater than the value of MaxResults, the response contains a NextToken value that you can use in a subsequent call to ListProjectProfiles to list the next set of project profiles.</p>
    * @public
    */
   maxResults?: number | undefined;
@@ -9708,11 +9297,7 @@ export interface ListProjectProfilesOutput {
   items?: ProjectProfileSummary[] | undefined;
 
   /**
-   * <p>When the number of project profiles is greater than the default value for the MaxResults
-   *          parameter, or if you explicitly specify a value for MaxResults that is less than the number
-   *          of project profiles, the response includes a pagination token named NextToken. You can
-   *          specify this NextToken value in a subsequent call to ListProjectProfiles to list the next
-   *          set of project profiles.</p>
+   * <p>When the number of project profiles is greater than the default value for the MaxResults parameter, or if you explicitly specify a value for MaxResults that is less than the number of project profiles, the response includes a pagination token named NextToken. You can specify this NextToken value in a subsequent call to ListProjectProfiles to list the next set of project profiles.</p>
    * @public
    */
   nextToken?: string | undefined;
@@ -9747,22 +9332,13 @@ export interface ListProjectsInput {
   name?: string | undefined;
 
   /**
-   * <p>When the number of projects is greater than the default value for the
-   *             <code>MaxResults</code> parameter, or if you explicitly specify a value for
-   *             <code>MaxResults</code> that is less than the number of projects, the response includes
-   *          a pagination token named <code>NextToken</code>. You can specify this
-   *             <code>NextToken</code> value in a subsequent call to <code>ListProjects</code> to list
-   *          the next set of projects.</p>
+   * <p>When the number of projects is greater than the default value for the <code>MaxResults</code> parameter, or if you explicitly specify a value for <code>MaxResults</code> that is less than the number of projects, the response includes a pagination token named <code>NextToken</code>. You can specify this <code>NextToken</code> value in a subsequent call to <code>ListProjects</code> to list the next set of projects.</p>
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of projects to return in a single call to <code>ListProjects</code>.
-   *          When the number of projects to be listed is greater than the value of
-   *             <code>MaxResults</code>, the response contains a <code>NextToken</code> value that you
-   *          can use in a subsequent call to <code>ListProjects</code> to list the next set of
-   *          projects.</p>
+   * <p>The maximum number of projects to return in a single call to <code>ListProjects</code>. When the number of projects to be listed is greater than the value of <code>MaxResults</code>, the response contains a <code>NextToken</code> value that you can use in a subsequent call to <code>ListProjects</code> to list the next set of projects.</p>
    * @public
    */
   maxResults?: number | undefined;
@@ -9804,8 +9380,7 @@ export interface ProjectSummary {
   projectStatus?: ProjectStatus | undefined;
 
   /**
-   * <p>Specifies the error message that is returned if the operation cannot be successfully
-   *          completed.</p>
+   * <p>Specifies the error message that is returned if the operation cannot be successfully completed.</p>
    * @public
    */
   failureReasons?: ProjectDeletionError[] | undefined;
@@ -9846,12 +9421,7 @@ export interface ListProjectsOutput {
   items?: ProjectSummary[] | undefined;
 
   /**
-   * <p>When the number of projects is greater than the default value for the
-   *             <code>MaxResults</code> parameter, or if you explicitly specify a value for
-   *             <code>MaxResults</code> that is less than the number of projects, the response includes
-   *          a pagination token named <code>NextToken</code>. You can specify this
-   *             <code>NextToken</code> value in a subsequent call to <code>ListProjects</code> to list
-   *          the next set of projects.</p>
+   * <p>When the number of projects is greater than the default value for the <code>MaxResults</code> parameter, or if you explicitly specify a value for <code>MaxResults</code> that is less than the number of projects, the response includes a pagination token named <code>NextToken</code>. You can specify this <code>NextToken</code> value in a subsequent call to <code>ListProjects</code> to list the next set of projects.</p>
    * @public
    */
   nextToken?: string | undefined;
@@ -9924,22 +9494,13 @@ export interface ListSubscriptionGrantsInput {
   sortOrder?: SortOrder | undefined;
 
   /**
-   * <p>The maximum number of subscription grants to return in a single call to
-   *             <code>ListSubscriptionGrants</code>. When the number of subscription grants to be listed
-   *          is greater than the value of <code>MaxResults</code>, the response contains a
-   *             <code>NextToken</code> value that you can use in a subsequent call to
-   *             <code>ListSubscriptionGrants</code> to list the next set of subscription grants.</p>
+   * <p>The maximum number of subscription grants to return in a single call to <code>ListSubscriptionGrants</code>. When the number of subscription grants to be listed is greater than the value of <code>MaxResults</code>, the response contains a <code>NextToken</code> value that you can use in a subsequent call to <code>ListSubscriptionGrants</code> to list the next set of subscription grants.</p>
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>When the number of subscription grants is greater than the default value for the
-   *             <code>MaxResults</code> parameter, or if you explicitly specify a value for
-   *             <code>MaxResults</code> that is less than the number of subscription grants, the
-   *          response includes a pagination token named <code>NextToken</code>. You can specify this
-   *             <code>NextToken</code> value in a subsequent call to <code>ListSubscriptionGrants</code>
-   *          to list the next set of subscription grants.</p>
+   * <p>When the number of subscription grants is greater than the default value for the <code>MaxResults</code> parameter, or if you explicitly specify a value for <code>MaxResults</code> that is less than the number of subscription grants, the response includes a pagination token named <code>NextToken</code>. You can specify this <code>NextToken</code> value in a subsequent call to <code>ListSubscriptionGrants</code> to list the next set of subscription grants.</p>
    * @public
    */
   nextToken?: string | undefined;
@@ -10030,12 +9591,7 @@ export interface ListSubscriptionGrantsOutput {
   items: SubscriptionGrantSummary[] | undefined;
 
   /**
-   * <p>When the number of subscription grants is greater than the default value for the
-   *             <code>MaxResults</code> parameter, or if you explicitly specify a value for
-   *             <code>MaxResults</code> that is less than the number of subscription grants, the
-   *          response includes a pagination token named <code>NextToken</code>. You can specify this
-   *             <code>NextToken</code> value in a subsequent call to <code>ListSubscriptionGrants</code>
-   *          to list the next set of subscription grants.</p>
+   * <p>When the number of subscription grants is greater than the default value for the <code>MaxResults</code> parameter, or if you explicitly specify a value for <code>MaxResults</code> that is less than the number of subscription grants, the response includes a pagination token named <code>NextToken</code>. You can specify this <code>NextToken</code> value in a subsequent call to <code>ListSubscriptionGrants</code> to list the next set of subscription grants.</p>
    * @public
    */
   nextToken?: string | undefined;
@@ -10052,11 +9608,7 @@ export interface ListSubscriptionRequestsInput {
   domainIdentifier: string | undefined;
 
   /**
-   * <p>Specifies the status of the subscription requests.</p>
-   *          <note>
-   *             <p>This is not a required parameter, but if not specified, by default, Amazon DataZone
-   *             returns only <code>PENDING</code> subscription requests. </p>
-   *          </note>
+   * <p>Specifies the status of the subscription requests.</p> <note> <p>This is not a required parameter, but if not specified, by default, Amazon DataZone returns only <code>PENDING</code> subscription requests. </p> </note>
    * @public
    */
   status?: SubscriptionRequestStatus | undefined;
@@ -10092,24 +9644,13 @@ export interface ListSubscriptionRequestsInput {
   sortOrder?: SortOrder | undefined;
 
   /**
-   * <p>The maximum number of subscription requests to return in a single call to
-   *             <code>ListSubscriptionRequests</code>. When the number of subscription requests to be
-   *          listed is greater than the value of <code>MaxResults</code>, the response contains a
-   *             <code>NextToken</code> value that you can use in a subsequent call to
-   *             <code>ListSubscriptionRequests</code> to list the next set of subscription
-   *          requests.</p>
+   * <p>The maximum number of subscription requests to return in a single call to <code>ListSubscriptionRequests</code>. When the number of subscription requests to be listed is greater than the value of <code>MaxResults</code>, the response contains a <code>NextToken</code> value that you can use in a subsequent call to <code>ListSubscriptionRequests</code> to list the next set of subscription requests.</p>
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>When the number of subscription requests is greater than the default value for the
-   *             <code>MaxResults</code> parameter, or if you explicitly specify a value for
-   *             <code>MaxResults</code> that is less than the number of subscription requests, the
-   *          response includes a pagination token named <code>NextToken</code>. You can specify this
-   *             <code>NextToken</code> value in a subsequent call to
-   *             <code>ListSubscriptionRequests</code> to list the next set of subscription
-   *          requests.</p>
+   * <p>When the number of subscription requests is greater than the default value for the <code>MaxResults</code> parameter, or if you explicitly specify a value for <code>MaxResults</code> that is less than the number of subscription requests, the response includes a pagination token named <code>NextToken</code>. You can specify this <code>NextToken</code> value in a subsequent call to <code>ListSubscriptionRequests</code> to list the next set of subscription requests.</p>
    * @public
    */
   nextToken?: string | undefined;
@@ -10240,13 +9781,7 @@ export interface ListSubscriptionRequestsOutput {
   items: SubscriptionRequestSummary[] | undefined;
 
   /**
-   * <p>When the number of subscription requests is greater than the default value for the
-   *             <code>MaxResults</code> parameter, or if you explicitly specify a value for
-   *             <code>MaxResults</code> that is less than the number of subscription requests, the
-   *          response includes a pagination token named <code>NextToken</code>. You can specify this
-   *             <code>NextToken</code> value in a subsequent call to
-   *             <code>ListSubscriptionRequests</code> to list the next set of subscription
-   *          requests.</p>
+   * <p>When the number of subscription requests is greater than the default value for the <code>MaxResults</code> parameter, or if you explicitly specify a value for <code>MaxResults</code> that is less than the number of subscription requests, the response includes a pagination token named <code>NextToken</code>. You can specify this <code>NextToken</code> value in a subsequent call to <code>ListSubscriptionRequests</code> to list the next set of subscription requests.</p>
    * @public
    */
   nextToken?: string | undefined;
@@ -10263,25 +9798,19 @@ export interface ListSubscriptionsInput {
   domainIdentifier: string | undefined;
 
   /**
-   * <p>The identifier of the subscription request for the subscriptions that you want to
-   *          list.</p>
+   * <p>The identifier of the subscription request for the subscriptions that you want to list.</p>
    * @public
    */
   subscriptionRequestIdentifier?: string | undefined;
 
   /**
-   * <p>The status of the subscriptions that you want to list.</p>
-   *          <note>
-   *             <p>This is not a required parameter, but if not provided, by default, Amazon DataZone
-   *             returns only <code>APPROVED</code> subscriptions. </p>
-   *          </note>
+   * <p>The status of the subscriptions that you want to list.</p> <note> <p>This is not a required parameter, but if not provided, by default, Amazon DataZone returns only <code>APPROVED</code> subscriptions. </p> </note>
    * @public
    */
   status?: SubscriptionStatus | undefined;
 
   /**
-   * <p>The identifier of the subscribed listing for the subscriptions that you want to
-   *          list.</p>
+   * <p>The identifier of the subscribed listing for the subscriptions that you want to list.</p>
    * @public
    */
   subscribedListingId?: string | undefined;
@@ -10311,22 +9840,13 @@ export interface ListSubscriptionsInput {
   sortOrder?: SortOrder | undefined;
 
   /**
-   * <p>The maximum number of subscriptions to return in a single call to
-   *             <code>ListSubscriptions</code>. When the number of subscriptions to be listed is greater
-   *          than the value of <code>MaxResults</code>, the response contains a <code>NextToken</code>
-   *          value that you can use in a subsequent call to <code>ListSubscriptions</code> to list the
-   *          next set of Subscriptions. </p>
+   * <p>The maximum number of subscriptions to return in a single call to <code>ListSubscriptions</code>. When the number of subscriptions to be listed is greater than the value of <code>MaxResults</code>, the response contains a <code>NextToken</code> value that you can use in a subsequent call to <code>ListSubscriptions</code> to list the next set of Subscriptions. </p>
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>When the number of subscriptions is greater than the default value for the
-   *             <code>MaxResults</code> parameter, or if you explicitly specify a value for
-   *             <code>MaxResults</code> that is less than the number of subscriptions, the response
-   *          includes a pagination token named <code>NextToken</code>. You can specify this
-   *             <code>NextToken</code> value in a subsequent call to <code>ListSubscriptions</code> to
-   *          list the next set of subscriptions.</p>
+   * <p>When the number of subscriptions is greater than the default value for the <code>MaxResults</code> parameter, or if you explicitly specify a value for <code>MaxResults</code> that is less than the number of subscriptions, the response includes a pagination token named <code>NextToken</code>. You can specify this <code>NextToken</code> value in a subsequent call to <code>ListSubscriptions</code> to list the next set of subscriptions.</p>
    * @public
    */
   nextToken?: string | undefined;
@@ -10415,12 +9935,7 @@ export interface ListSubscriptionsOutput {
   items: SubscriptionSummary[] | undefined;
 
   /**
-   * <p>When the number of subscriptions is greater than the default value for the
-   *             <code>MaxResults</code> parameter, or if you explicitly specify a value for
-   *             <code>MaxResults</code> that is less than the number of subscriptions, the response
-   *          includes a pagination token named <code>NextToken</code>. You can specify this
-   *             <code>NextToken</code> value in a subsequent call to <code>ListSubscriptions</code> to
-   *          list the next set of subscriptions.</p>
+   * <p>When the number of subscriptions is greater than the default value for the <code>MaxResults</code> parameter, or if you explicitly specify a value for <code>MaxResults</code> that is less than the number of subscriptions, the response includes a pagination token named <code>NextToken</code>. You can specify this <code>NextToken</code> value in a subsequent call to <code>ListSubscriptions</code> to list the next set of subscriptions.</p>
    * @public
    */
   nextToken?: string | undefined;
@@ -10431,8 +9946,7 @@ export interface ListSubscriptionsOutput {
  */
 export interface ListSubscriptionTargetsInput {
   /**
-   * <p>The identifier of the Amazon DataZone domain where you want to list subscription
-   *          targets.</p>
+   * <p>The identifier of the Amazon DataZone domain where you want to list subscription targets.</p>
    * @public
    */
   domainIdentifier: string | undefined;
@@ -10456,24 +9970,13 @@ export interface ListSubscriptionTargetsInput {
   sortOrder?: SortOrder | undefined;
 
   /**
-   * <p>The maximum number of subscription targets to return in a single call to
-   *             <code>ListSubscriptionTargets</code>. When the number of subscription targets to be
-   *          listed is greater than the value of <code>MaxResults</code>, the response contains a
-   *             <code>NextToken</code> value that you can use in a subsequent call to
-   *             <code>ListSubscriptionTargets</code> to list the next set of subscription targets.
-   *       </p>
+   * <p>The maximum number of subscription targets to return in a single call to <code>ListSubscriptionTargets</code>. When the number of subscription targets to be listed is greater than the value of <code>MaxResults</code>, the response contains a <code>NextToken</code> value that you can use in a subsequent call to <code>ListSubscriptionTargets</code> to list the next set of subscription targets. </p>
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>When the number of subscription targets is greater than the default value for the
-   *             <code>MaxResults</code> parameter, or if you explicitly specify a value for
-   *             <code>MaxResults</code> that is less than the number of subscription targets, the
-   *          response includes a pagination token named <code>NextToken</code>. You can specify this
-   *             <code>NextToken</code> value in a subsequent call to
-   *             <code>ListSubscriptionTargets</code> to list the next set of subscription
-   *          targets.</p>
+   * <p>When the number of subscription targets is greater than the default value for the <code>MaxResults</code> parameter, or if you explicitly specify a value for <code>MaxResults</code> that is less than the number of subscription targets, the response includes a pagination token named <code>NextToken</code>. You can specify this <code>NextToken</code> value in a subsequent call to <code>ListSubscriptionTargets</code> to list the next set of subscription targets.</p>
    * @public
    */
   nextToken?: string | undefined;
@@ -10586,13 +10089,7 @@ export interface ListSubscriptionTargetsOutput {
   items: SubscriptionTargetSummary[] | undefined;
 
   /**
-   * <p>When the number of subscription targets is greater than the default value for the
-   *             <code>MaxResults</code> parameter, or if you explicitly specify a value for
-   *             <code>MaxResults</code> that is less than the number of subscription targets, the
-   *          response includes a pagination token named <code>NextToken</code>. You can specify this
-   *             <code>NextToken</code> value in a subsequent call to
-   *             <code>ListSubscriptionTargets</code> to list the next set of subscription
-   *          targets.</p>
+   * <p>When the number of subscription targets is greater than the default value for the <code>MaxResults</code> parameter, or if you explicitly specify a value for <code>MaxResults</code> that is less than the number of subscription targets, the response includes a pagination token named <code>NextToken</code>. You can specify this <code>NextToken</code> value in a subsequent call to <code>ListSubscriptionTargets</code> to list the next set of subscription targets.</p>
    * @public
    */
   nextToken?: string | undefined;
@@ -10625,8 +10122,7 @@ export interface ListTagsForResourceResponse {
  */
 export interface ListTimeSeriesDataPointsInput {
   /**
-   * <p>The ID of the Amazon DataZone domain that houses the assets for which you want to list
-   *          time series data points.</p>
+   * <p>The ID of the Amazon DataZone domain that houses the assets for which you want to list time series data points.</p>
    * @public
    */
   domainIdentifier: string | undefined;
@@ -10662,20 +10158,13 @@ export interface ListTimeSeriesDataPointsInput {
   endedAt?: Date | undefined;
 
   /**
-   * <p>When the number of data points is greater than the default value for the MaxResults
-   *          parameter, or if you explicitly specify a value for MaxResults that is less than the number
-   *          of data points, the response includes a pagination token named NextToken. You can specify
-   *          this NextToken value in a subsequent call to ListTimeSeriesDataPoints to list the next set
-   *          of data points.</p>
+   * <p>When the number of data points is greater than the default value for the MaxResults parameter, or if you explicitly specify a value for MaxResults that is less than the number of data points, the response includes a pagination token named NextToken. You can specify this NextToken value in a subsequent call to ListTimeSeriesDataPoints to list the next set of data points.</p>
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of data points to return in a single call to
-   *          ListTimeSeriesDataPoints. When the number of data points to be listed is greater than the
-   *          value of MaxResults, the response contains a NextToken value that you can use in a
-   *          subsequent call to ListTimeSeriesDataPoints to list the next set of data points.</p>
+   * <p>The maximum number of data points to return in a single call to ListTimeSeriesDataPoints. When the number of data points to be listed is greater than the value of MaxResults, the response contains a NextToken value that you can use in a subsequent call to ListTimeSeriesDataPoints to list the next set of data points.</p>
    * @public
    */
   maxResults?: number | undefined;
@@ -10692,11 +10181,7 @@ export interface ListTimeSeriesDataPointsOutput {
   items?: TimeSeriesDataPointSummaryFormOutput[] | undefined;
 
   /**
-   * <p>When the number of data points is greater than the default value for the MaxResults
-   *          parameter, or if you explicitly specify a value for MaxResults that is less than the number
-   *          of data points, the response includes a pagination token named NextToken. You can specify
-   *          this NextToken value in a subsequent call to ListTimeSeriesDataPoints to list the next set
-   *          of data points.</p>
+   * <p>When the number of data points is greater than the default value for the MaxResults parameter, or if you explicitly specify a value for MaxResults that is less than the number of data points, the response includes a pagination token named NextToken. You can specify this NextToken value in a subsequent call to ListTimeSeriesDataPoints to list the next set of data points.</p>
    * @public
    */
   nextToken?: string | undefined;
@@ -10707,8 +10192,7 @@ export interface ListTimeSeriesDataPointsOutput {
  */
 export interface GetMetadataGenerationRunInput {
   /**
-   * <p>The ID of the Amazon DataZone domain the metadata generation run of which you want to
-   *          get.</p>
+   * <p>The ID of the Amazon DataZone domain the metadata generation run of which you want to get.</p>
    * @public
    */
   domainIdentifier: string | undefined;
@@ -10794,8 +10278,7 @@ export type MetadataGenerationRunType = (typeof MetadataGenerationRunType)[keyof
  */
 export interface GetMetadataGenerationRunOutput {
   /**
-   * <p>The ID of the Amazon DataZone domain the metadata generation run of which you want to
-   *          get.</p>
+   * <p>The ID of the Amazon DataZone domain the metadata generation run of which you want to get.</p>
    * @public
    */
   domainId: string | undefined;
@@ -10837,8 +10320,7 @@ export interface GetMetadataGenerationRunOutput {
   createdBy?: string | undefined;
 
   /**
-   * <p>The ID of the project that owns the assets for which you're running metadata
-   *          generation.</p>
+   * <p>The ID of the project that owns the assets for which you're running metadata generation.</p>
    * @public
    */
   owningProjectId: string | undefined;
@@ -10849,8 +10331,7 @@ export interface GetMetadataGenerationRunOutput {
  */
 export interface ListMetadataGenerationRunsInput {
   /**
-   * <p>The ID of the Amazon DataZone domain where you want to list metadata generation
-   *          runs.</p>
+   * <p>The ID of the Amazon DataZone domain where you want to list metadata generation runs.</p>
    * @public
    */
   domainIdentifier: string | undefined;
@@ -10868,21 +10349,13 @@ export interface ListMetadataGenerationRunsInput {
   type?: MetadataGenerationRunType | undefined;
 
   /**
-   * <p>When the number of metadata generation runs is greater than the default value for the
-   *          MaxResults parameter, or if you explicitly specify a value for MaxResults that is less than
-   *          the number of metadata generation runs, the response includes a pagination token named
-   *          NextToken. You can specify this NextToken value in a subsequent call to
-   *          ListMetadataGenerationRuns to list the next set of revisions.</p>
+   * <p>When the number of metadata generation runs is greater than the default value for the MaxResults parameter, or if you explicitly specify a value for MaxResults that is less than the number of metadata generation runs, the response includes a pagination token named NextToken. You can specify this NextToken value in a subsequent call to ListMetadataGenerationRuns to list the next set of revisions.</p>
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of metadata generation runs to return in a single call to
-   *          ListMetadataGenerationRuns. When the number of metadata generation runs to be listed is
-   *          greater than the value of MaxResults, the response contains a NextToken value that you can
-   *          use in a subsequent call to ListMetadataGenerationRuns to list the next set of
-   *          revisions.</p>
+   * <p>The maximum number of metadata generation runs to return in a single call to ListMetadataGenerationRuns. When the number of metadata generation runs to be listed is greater than the value of MaxResults, the response contains a NextToken value that you can use in a subsequent call to ListMetadataGenerationRuns to list the next set of revisions.</p>
    * @public
    */
   maxResults?: number | undefined;
@@ -10894,8 +10367,7 @@ export interface ListMetadataGenerationRunsInput {
  */
 export interface MetadataGenerationRunItem {
   /**
-   * <p>The ID of the Amazon DataZone domain in which the metadata generation run was
-   *          created.</p>
+   * <p>The ID of the Amazon DataZone domain in which the metadata generation run was created.</p>
    * @public
    */
   domainId: string | undefined;
@@ -10937,8 +10409,7 @@ export interface MetadataGenerationRunItem {
   createdBy?: string | undefined;
 
   /**
-   * <p>The ID of the project that owns the asset for which the metadata generation was
-   *          ran.</p>
+   * <p>The ID of the project that owns the asset for which the metadata generation was ran.</p>
    * @public
    */
   owningProjectId: string | undefined;
@@ -10955,11 +10426,7 @@ export interface ListMetadataGenerationRunsOutput {
   items?: MetadataGenerationRunItem[] | undefined;
 
   /**
-   * <p>When the number of metadata generation runs is greater than the default value for the
-   *          MaxResults parameter, or if you explicitly specify a value for MaxResults that is less than
-   *          the number of metadata generation runs, the response includes a pagination token named
-   *          NextToken. You can specify this NextToken value in a subsequent call to
-   *          ListMetadataGenerationRuns to list the next set of revisions.</p>
+   * <p>When the number of metadata generation runs is greater than the default value for the MaxResults parameter, or if you explicitly specify a value for MaxResults that is less than the number of metadata generation runs, the response includes a pagination token named NextToken. You can specify this NextToken value in a subsequent call to ListMetadataGenerationRuns to list the next set of revisions.</p>
    * @public
    */
   nextToken?: string | undefined;
@@ -10970,8 +10437,7 @@ export interface ListMetadataGenerationRunsOutput {
  */
 export interface StartMetadataGenerationRunInput {
   /**
-   * <p>The ID of the Amazon DataZone domain where you want to start a metadata generation
-   *          run.</p>
+   * <p>The ID of the Amazon DataZone domain where you want to start a metadata generation run.</p>
    * @public
    */
   domainIdentifier: string | undefined;
@@ -10989,15 +10455,13 @@ export interface StartMetadataGenerationRunInput {
   target: MetadataGenerationRunTarget | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier to ensure idempotency of the request. This field is
-   *          automatically populated if not provided.</p>
+   * <p>A unique, case-sensitive identifier to ensure idempotency of the request. This field is automatically populated if not provided.</p>
    * @public
    */
   clientToken?: string | undefined;
 
   /**
-   * <p>The ID of the project that owns the asset for which you want to start a metadata
-   *          generation run.</p>
+   * <p>The ID of the project that owns the asset for which you want to start a metadata generation run.</p>
    * @public
    */
   owningProjectIdentifier: string | undefined;
@@ -11008,8 +10472,7 @@ export interface StartMetadataGenerationRunInput {
  */
 export interface StartMetadataGenerationRunOutput {
   /**
-   * <p>The ID of the Amazon DataZone domain in which the metadata generation run was
-   *          started.</p>
+   * <p>The ID of the Amazon DataZone domain in which the metadata generation run was started.</p>
    * @public
    */
   domainId: string | undefined;
@@ -11045,8 +10508,7 @@ export interface StartMetadataGenerationRunOutput {
   createdBy?: string | undefined;
 
   /**
-   * <p>The ID of the project that owns the asset for which the metadata generation run was
-   *          started.</p>
+   * <p>The ID of the project that owns the asset for which the metadata generation run was started.</p>
    * @public
    */
   owningProjectId?: string | undefined;
@@ -11063,15 +10525,13 @@ export interface PostLineageEventInput {
   domainIdentifier: string | undefined;
 
   /**
-   * <p>The data lineage event that you want to post. Only open-lineage run event are supported
-   *          as events. </p>
+   * <p>The data lineage event that you want to post. Only open-lineage run event are supported as events. </p>
    * @public
    */
   event: Uint8Array | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier that is provided to ensure the idempotency of the
-   *          request.</p>
+   * <p>A unique, case-sensitive identifier that is provided to ensure the idempotency of the request.</p>
    * @public
    */
   clientToken?: string | undefined;

@@ -943,11 +943,7 @@ export type DataZoneClientResolvedConfigType = __SmithyResolvedConfiguration<__H
 export interface DataZoneClientResolvedConfig extends DataZoneClientResolvedConfigType {}
 
 /**
- * <p>Amazon DataZone is a data management service that enables you to catalog, discover,
- *          govern, share, and analyze your data. With Amazon DataZone, you can share and access your
- *          data across accounts and supported regions. Amazon DataZone simplifies your experience
- *          across Amazon Web Services services, including, but not limited to, Amazon Redshift, Amazon
- *          Athena, Amazon Web Services Glue, and Amazon Web Services Lake Formation.</p>
+ * <p>Amazon DataZone is a data management service that enables you to catalog, discover, govern, share, and analyze your data. With Amazon DataZone, you can share and access your data across accounts and supported regions. Amazon DataZone simplifies your experience across Amazon Web Services services, including, but not limited to, Amazon Redshift, Amazon Athena, Amazon Web Services Glue, and Amazon Web Services Lake Formation.</p>
  * @public
  */
 export class DataZoneClient extends __Client<

@@ -152,8 +152,7 @@ export interface TimeSeriesDataPointFormInput {
  */
 export interface PostTimeSeriesDataPointsInput {
   /**
-   * <p>The ID of the Amazon DataZone domain in which you want to post time series data
-   *          points.</p>
+   * <p>The ID of the Amazon DataZone domain in which you want to post time series data points.</p>
    * @public
    */
   domainIdentifier: string | undefined;
@@ -177,8 +176,7 @@ export interface PostTimeSeriesDataPointsInput {
   forms: TimeSeriesDataPointFormInput[] | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier that is provided to ensure the idempotency of the
-   *          request.</p>
+   * <p>A unique, case-sensitive identifier that is provided to ensure the idempotency of the request.</p>
    * @public
    */
   clientToken?: string | undefined;
@@ -189,8 +187,7 @@ export interface PostTimeSeriesDataPointsInput {
  */
 export interface PostTimeSeriesDataPointsOutput {
   /**
-   * <p>The ID of the Amazon DataZone domain in which you want to post time series data
-   *          points.</p>
+   * <p>The ID of the Amazon DataZone domain in which you want to post time series data points.</p>
    * @public
    */
   domainId?: string | undefined;
@@ -220,8 +217,7 @@ export interface PostTimeSeriesDataPointsOutput {
  */
 export interface RejectChoice {
   /**
-   * <p>Specifies the target (for example, a column name) where a prediction can be
-   *          rejected.</p>
+   * <p>Specifies the target (for example, a column name) where a prediction can be rejected.</p>
    * @public
    */
   predictionTarget: string | undefined;
@@ -259,8 +255,7 @@ export interface RejectRule {
   rule?: RejectRuleBehavior | undefined;
 
   /**
-   * <p>The confidence score that specifies the condition at which a prediction can be
-   *          rejected.</p>
+   * <p>The confidence score that specifies the condition at which a prediction can be rejected.</p>
    * @public
    */
   threshold?: number | undefined;
@@ -295,15 +290,13 @@ export interface RejectPredictionsInput {
   rejectRule?: RejectRule | undefined;
 
   /**
-   * <p>Specifies the prediction (aka, the automatically generated piece of metadata) and the
-   *          target (for example, a column name) that can be rejected.</p>
+   * <p>Specifies the prediction (aka, the automatically generated piece of metadata) and the target (for example, a column name) that can be rejected.</p>
    * @public
    */
   rejectChoices?: RejectChoice[] | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier that is provided to ensure the idempotency of the
-   *          request.</p>
+   * <p>A unique, case-sensitive identifier that is provided to ensure the idempotency of the request.</p>
    * @public
    */
   clientToken?: string | undefined;
@@ -337,8 +330,7 @@ export interface RejectPredictionsOutput {
  */
 export interface RejectSubscriptionRequestInput {
   /**
-   * <p>The identifier of the Amazon DataZone domain in which the subscription request was
-   *          rejected.</p>
+   * <p>The identifier of the Amazon DataZone domain in which the subscription request was rejected.</p>
    * @public
    */
   domainIdentifier: string | undefined;
@@ -379,8 +371,7 @@ export interface RejectSubscriptionRequestOutput {
   updatedBy?: string | undefined;
 
   /**
-   * <p>The identifier of the Amazon DataZone domain in which the subscription request was
-   *          rejected.</p>
+   * <p>The identifier of the Amazon DataZone domain in which the subscription request was rejected.</p>
    * @public
    */
   domainId: string | undefined;
@@ -475,8 +466,7 @@ export interface RemoveEntityOwnerInput {
   owner: OwnerProperties | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier that is provided to ensure the idempotency of the
-   *          request.</p>
+   * <p>A unique, case-sensitive identifier that is provided to ensure the idempotency of the request.</p>
    * @public
    */
   clientToken?: string | undefined;
@@ -522,8 +512,13 @@ export interface RemovePolicyGrantInput {
   principal: PolicyGrantPrincipal | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier that is provided to ensure the idempotency of the
-   *          request.</p>
+   * <p>The ID of the policy grant that is to be removed from a specified entity.</p>
+   * @public
+   */
+  grantIdentifier?: string | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier that is provided to ensure the idempotency of the request.</p>
    * @public
    */
   clientToken?: string | undefined;
@@ -821,20 +816,13 @@ export interface ListRulesInput {
   includeCascaded?: boolean | undefined;
 
   /**
-   * <p>The maximum number of rules to return in a single call to <code>ListRules</code>. When
-   *          the number of rules to be listed is greater than the value of <code>MaxResults</code>, the
-   *          response contains a <code>NextToken</code> value that you can use in a subsequent call to
-   *             <code>ListRules</code> to list the next set of rules.</p>
+   * <p>The maximum number of rules to return in a single call to <code>ListRules</code>. When the number of rules to be listed is greater than the value of <code>MaxResults</code>, the response contains a <code>NextToken</code> value that you can use in a subsequent call to <code>ListRules</code> to list the next set of rules.</p>
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>When the number of rules is greater than the default value for the
-   *             <code>MaxResults</code> parameter, or if you explicitly specify a value for
-   *             <code>MaxResults</code> that is less than the number of rules, the response includes a
-   *          pagination token named <code>NextToken</code>. You can specify this <code>NextToken</code>
-   *          value in a subsequent call to <code>ListRules</code> to list the next set of rules.</p>
+   * <p>When the number of rules is greater than the default value for the <code>MaxResults</code> parameter, or if you explicitly specify a value for <code>MaxResults</code> that is less than the number of rules, the response includes a pagination token named <code>NextToken</code>. You can specify this <code>NextToken</code> value in a subsequent call to <code>ListRules</code> to list the next set of rules.</p>
    * @public
    */
   nextToken?: string | undefined;
@@ -917,11 +905,7 @@ export interface ListRulesOutput {
   items: RuleSummary[] | undefined;
 
   /**
-   * <p>When the number of rules is greater than the default value for the
-   *             <code>MaxResults</code> parameter, or if you explicitly specify a value for
-   *             <code>MaxResults</code> that is less than the number of rules, the response includes a
-   *          pagination token named <code>NextToken</code>. You can specify this <code>NextToken</code>
-   *          value in a subsequent call to <code>ListRules</code> to list the next set of rules.</p>
+   * <p>When the number of rules is greater than the default value for the <code>MaxResults</code> parameter, or if you explicitly specify a value for <code>MaxResults</code> that is less than the number of rules, the response includes a pagination token named <code>NextToken</code>. You can specify this <code>NextToken</code> value in a subsequent call to <code>ListRules</code> to list the next set of rules.</p>
    * @public
    */
   nextToken?: string | undefined;
@@ -1419,11 +1403,7 @@ export interface SearchOutput {
   items?: SearchInventoryResultItem[] | undefined;
 
   /**
-   * <p>When the number of results is greater than the default value for the
-   *             <code>MaxResults</code> parameter, or if you explicitly specify a value for
-   *             <code>MaxResults</code> that is less than the number of results, the response includes a
-   *          pagination token named <code>NextToken</code>. You can specify this <code>NextToken</code>
-   *          value in a subsequent call to <code>Search</code> to list the next set of results.</p>
+   * <p>When the number of results is greater than the default value for the <code>MaxResults</code> parameter, or if you explicitly specify a value for <code>MaxResults</code> that is less than the number of results, the response includes a pagination token named <code>NextToken</code>. You can specify this <code>NextToken</code> value in a subsequent call to <code>Search</code> to list the next set of results.</p>
    * @public
    */
   nextToken?: string | undefined;
@@ -1454,8 +1434,7 @@ export type GroupSearchType = (typeof GroupSearchType)[keyof typeof GroupSearchT
  */
 export interface SearchGroupProfilesInput {
   /**
-   * <p>The identifier of the Amazon DataZone domain in which you want to search group
-   *          profiles.</p>
+   * <p>The identifier of the Amazon DataZone domain in which you want to search group profiles.</p>
    * @public
    */
   domainIdentifier: string | undefined;
@@ -1473,22 +1452,13 @@ export interface SearchGroupProfilesInput {
   searchText?: string | undefined;
 
   /**
-   * <p>The maximum number of results to return in a single call to
-   *             <code>SearchGroupProfiles</code>. When the number of results to be listed is greater
-   *          than the value of <code>MaxResults</code>, the response contains a <code>NextToken</code>
-   *          value that you can use in a subsequent call to <code>SearchGroupProfiles</code> to list the
-   *          next set of results. </p>
+   * <p>The maximum number of results to return in a single call to <code>SearchGroupProfiles</code>. When the number of results to be listed is greater than the value of <code>MaxResults</code>, the response contains a <code>NextToken</code> value that you can use in a subsequent call to <code>SearchGroupProfiles</code> to list the next set of results. </p>
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>When the number of results is greater than the default value for the
-   *             <code>MaxResults</code> parameter, or if you explicitly specify a value for
-   *             <code>MaxResults</code> that is less than the number of results, the response includes a
-   *          pagination token named <code>NextToken</code>. You can specify this <code>NextToken</code>
-   *          value in a subsequent call to <code>SearchGroupProfiles</code> to list the next set of
-   *          results.</p>
+   * <p>When the number of results is greater than the default value for the <code>MaxResults</code> parameter, or if you explicitly specify a value for <code>MaxResults</code> that is less than the number of results, the response includes a pagination token named <code>NextToken</code>. You can specify this <code>NextToken</code> value in a subsequent call to <code>SearchGroupProfiles</code> to list the next set of results.</p>
    * @public
    */
   nextToken?: string | undefined;
@@ -1535,12 +1505,7 @@ export interface SearchGroupProfilesOutput {
   items?: GroupProfileSummary[] | undefined;
 
   /**
-   * <p>When the number of results is greater than the default value for the
-   *             <code>MaxResults</code> parameter, or if you explicitly specify a value for
-   *             <code>MaxResults</code> that is less than the number of results, the response includes a
-   *          pagination token named <code>NextToken</code>. You can specify this <code>NextToken</code>
-   *          value in a subsequent call to <code>SearchGroupProfiles</code> to list the next set of
-   *          results.</p>
+   * <p>When the number of results is greater than the default value for the <code>MaxResults</code> parameter, or if you explicitly specify a value for <code>MaxResults</code> that is less than the number of results, the response includes a pagination token named <code>NextToken</code>. You can specify this <code>NextToken</code> value in a subsequent call to <code>SearchGroupProfiles</code> to list the next set of results.</p>
    * @public
    */
   nextToken?: string | undefined;
@@ -1560,8 +1525,7 @@ export type SearchResultItem =
  */
 export namespace SearchResultItem {
   /**
-   * <p>The asset listing included in the results of the <code>SearchListings</code>
-   *          action.</p>
+   * <p>The asset listing included in the results of the <code>SearchListings</code> action.</p>
    * @public
    */
   export interface AssetListingMember {
@@ -1613,12 +1577,7 @@ export interface SearchListingsOutput {
   items?: SearchResultItem[] | undefined;
 
   /**
-   * <p>When the number of results is greater than the default value for the
-   *             <code>MaxResults</code> parameter, or if you explicitly specify a value for
-   *             <code>MaxResults</code> that is less than the number of results, the response includes a
-   *          pagination token named <code>NextToken</code>. You can specify this <code>NextToken</code>
-   *          value in a subsequent call to <code>SearchListings</code> to list the next set of
-   *          results.</p>
+   * <p>When the number of results is greater than the default value for the <code>MaxResults</code> parameter, or if you explicitly specify a value for <code>MaxResults</code> that is less than the number of results, the response includes a pagination token named <code>NextToken</code>. You can specify this <code>NextToken</code> value in a subsequent call to <code>SearchListings</code> to list the next set of results.</p>
    * @public
    */
   nextToken?: string | undefined;
@@ -1630,8 +1589,7 @@ export interface SearchListingsOutput {
   totalMatchCount?: number | undefined;
 
   /**
-   * <p>Contains computed counts grouped by field values based on the requested aggregation
-   *          attributes for the matching listings.</p>
+   * <p>Contains computed counts grouped by field values based on the requested aggregation attributes for the matching listings.</p>
    * @public
    */
   aggregates?: AggregationOutput[] | undefined;
@@ -1694,8 +1652,7 @@ export interface FormTypeData {
   owningProjectId?: string | undefined;
 
   /**
-   * <p>The identifier of the Amazon DataZone domain in which the form type was originally
-   *          created.</p>
+   * <p>The identifier of the Amazon DataZone domain in which the form type was originally created.</p>
    * @public
    */
   originDomainId?: string | undefined;
@@ -1874,12 +1831,7 @@ export interface SearchTypesOutput {
   items?: SearchTypesResultItem[] | undefined;
 
   /**
-   * <p>When the number of results is greater than the default value for the
-   *             <code>MaxResults</code> parameter, or if you explicitly specify a value for
-   *             <code>MaxResults</code> that is less than the number of results, the response includes a
-   *          pagination token named <code>NextToken</code>. You can specify this <code>NextToken</code>
-   *          value in a subsequent call to <code>SearchTypes</code> to list the next set of
-   *          results.</p>
+   * <p>When the number of results is greater than the default value for the <code>MaxResults</code> parameter, or if you explicitly specify a value for <code>MaxResults</code> that is less than the number of results, the response includes a pagination token named <code>NextToken</code>. You can specify this <code>NextToken</code> value in a subsequent call to <code>SearchTypes</code> to list the next set of results.</p>
    * @public
    */
   nextToken?: string | undefined;
@@ -1912,8 +1864,7 @@ export type UserSearchType = (typeof UserSearchType)[keyof typeof UserSearchType
  */
 export interface SearchUserProfilesInput {
   /**
-   * <p>The identifier of the Amazon DataZone domain in which you want to search user
-   *          profiles.</p>
+   * <p>The identifier of the Amazon DataZone domain in which you want to search user profiles.</p>
    * @public
    */
   domainIdentifier: string | undefined;
@@ -1931,22 +1882,13 @@ export interface SearchUserProfilesInput {
   searchText?: string | undefined;
 
   /**
-   * <p>The maximum number of results to return in a single call to
-   *             <code>SearchUserProfiles</code>. When the number of results to be listed is greater than
-   *          the value of <code>MaxResults</code>, the response contains a <code>NextToken</code> value
-   *          that you can use in a subsequent call to <code>SearchUserProfiles</code> to list the next
-   *          set of results. </p>
+   * <p>The maximum number of results to return in a single call to <code>SearchUserProfiles</code>. When the number of results to be listed is greater than the value of <code>MaxResults</code>, the response contains a <code>NextToken</code> value that you can use in a subsequent call to <code>SearchUserProfiles</code> to list the next set of results. </p>
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>When the number of results is greater than the default value for the
-   *             <code>MaxResults</code> parameter, or if you explicitly specify a value for
-   *             <code>MaxResults</code> that is less than the number of results, the response includes a
-   *          pagination token named <code>NextToken</code>. You can specify this <code>NextToken</code>
-   *          value in a subsequent call to <code>SearchUserProfiles</code> to list the next set of
-   *          results.</p>
+   * <p>When the number of results is greater than the default value for the <code>MaxResults</code> parameter, or if you explicitly specify a value for <code>MaxResults</code> that is less than the number of results, the response includes a pagination token named <code>NextToken</code>. You can specify this <code>NextToken</code> value in a subsequent call to <code>SearchUserProfiles</code> to list the next set of results.</p>
    * @public
    */
   nextToken?: string | undefined;
@@ -1999,12 +1941,7 @@ export interface SearchUserProfilesOutput {
   items?: UserProfileSummary[] | undefined;
 
   /**
-   * <p>When the number of results is greater than the default value for the
-   *             <code>MaxResults</code> parameter, or if you explicitly specify a value for
-   *             <code>MaxResults</code> that is less than the number of results, the response includes a
-   *          pagination token named <code>NextToken</code>. You can specify this <code>NextToken</code>
-   *          value in a subsequent call to <code>SearchUserProfiles</code> to list the next set of
-   *          results.</p>
+   * <p>When the number of results is greater than the default value for the <code>MaxResults</code> parameter, or if you explicitly specify a value for <code>MaxResults</code> that is less than the number of results, the response includes a pagination token named <code>NextToken</code>. You can specify this <code>NextToken</code> value in a subsequent call to <code>SearchUserProfiles</code> to list the next set of results.</p>
    * @public
    */
   nextToken?: string | undefined;
@@ -2089,9 +2026,7 @@ export interface UpdateAccountPoolInput {
   resolutionStrategy?: ResolutionStrategy | undefined;
 
   /**
-   * <p>The source of accounts for the account pool. In the current release, it's either a
-   *          static list of accounts provided by the customer or a custom Amazon Web Services Lambda
-   *          handler. </p>
+   * <p>The source of accounts for the account pool. In the current release, it's either a static list of accounts provided by the customer or a custom Amazon Web Services Lambda handler. </p>
    * @public
    */
   accountSource?: AccountSource | undefined;
@@ -2132,9 +2067,7 @@ export interface UpdateAccountPoolOutput {
   resolutionStrategy?: ResolutionStrategy | undefined;
 
   /**
-   * <p>The source of accounts for the account pool. In the current release, it's either a
-   *          static list of accounts provided by the customer or a custom Amazon Web Services Lambda
-   *          handler. </p>
+   * <p>The source of accounts for the account pool. In the current release, it's either a static list of accounts provided by the customer or a custom Amazon Web Services Lambda handler. </p>
    * @public
    */
   accountSource: AccountSource | undefined;
@@ -2293,22 +2226,19 @@ export interface UpdateEnvironmentInput {
   name?: string | undefined;
 
   /**
-   * <p>The description to be updated as part of the <code>UpdateEnvironment</code>
-   *          action.</p>
+   * <p>The description to be updated as part of the <code>UpdateEnvironment</code> action.</p>
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The glossary terms to be updated as part of the <code>UpdateEnvironment</code>
-   *          action.</p>
+   * <p>The glossary terms to be updated as part of the <code>UpdateEnvironment</code> action.</p>
    * @public
    */
   glossaryTerms?: string[] | undefined;
 
   /**
-   * <p>The blueprint version to which the environment should be updated. You can only specify
-   *          the following string for this parameter: <code>latest</code>.</p>
+   * <p>The blueprint version to which the environment should be updated. You can only specify the following string for this parameter: <code>latest</code>.</p>
    * @public
    */
   blueprintVersion?: string | undefined;
@@ -2367,8 +2297,7 @@ export interface UpdateEnvironmentOutput {
   name: string | undefined;
 
   /**
-   * <p>The description to be updated as part of the <code>UpdateEnvironment</code>
-   *          action.</p>
+   * <p>The description to be updated as part of the <code>UpdateEnvironment</code> action.</p>
    * @public
    */
   description?: string | undefined;
@@ -2380,8 +2309,7 @@ export interface UpdateEnvironmentOutput {
   environmentProfileId?: string | undefined;
 
   /**
-   * <p>The identifier of the Amazon Web Services account in which the environment is to be
-   *          updated.</p>
+   * <p>The identifier of the Amazon Web Services account in which the environment is to be updated.</p>
    * @public
    */
   awsAccountId?: string | undefined;
@@ -2399,8 +2327,7 @@ export interface UpdateEnvironmentOutput {
   provider: string | undefined;
 
   /**
-   * <p>The provisioned resources to be updated as part of the <code>UpdateEnvironment</code>
-   *          action.</p>
+   * <p>The provisioned resources to be updated as part of the <code>UpdateEnvironment</code> action.</p>
    * @public
    */
   provisionedResources?: Resource[] | undefined;
@@ -2412,22 +2339,19 @@ export interface UpdateEnvironmentOutput {
   status?: EnvironmentStatus | undefined;
 
   /**
-   * <p>The environment actions to be updated as part of the <code>UpdateEnvironment</code>
-   *          action.</p>
+   * <p>The environment actions to be updated as part of the <code>UpdateEnvironment</code> action.</p>
    * @public
    */
   environmentActions?: ConfigurableEnvironmentAction[] | undefined;
 
   /**
-   * <p>The glossary terms to be updated as part of the <code>UpdateEnvironment</code>
-   *          action.</p>
+   * <p>The glossary terms to be updated as part of the <code>UpdateEnvironment</code> action.</p>
    * @public
    */
   glossaryTerms?: string[] | undefined;
 
   /**
-   * <p>The user parameters to be updated as part of the <code>UpdateEnvironment</code>
-   *          action.</p>
+   * <p>The user parameters to be updated as part of the <code>UpdateEnvironment</code> action.</p>
    * @public
    */
   userParameters?: CustomParameter[] | undefined;
@@ -2439,15 +2363,13 @@ export interface UpdateEnvironmentOutput {
   lastDeployment?: Deployment | undefined;
 
   /**
-   * <p>The provisioning properties to be updated as part of the <code>UpdateEnvironment</code>
-   *          action.</p>
+   * <p>The provisioning properties to be updated as part of the <code>UpdateEnvironment</code> action.</p>
    * @public
    */
   provisioningProperties?: ProvisioningProperties | undefined;
 
   /**
-   * <p>The deployment properties to be updated as part of the <code>UpdateEnvironment</code>
-   *          action.</p>
+   * <p>The deployment properties to be updated as part of the <code>UpdateEnvironment</code> action.</p>
    * @public
    */
   deploymentProperties?: DeploymentProperties | undefined;
@@ -2552,8 +2474,7 @@ export interface UpdateEnvironmentActionOutput {
  */
 export interface UpdateEnvironmentProfileInput {
   /**
-   * <p>The identifier of the Amazon DataZone domain in which an environment profile is to be
-   *          updated.</p>
+   * <p>The identifier of the Amazon DataZone domain in which an environment profile is to be updated.</p>
    * @public
    */
   domainIdentifier: string | undefined;
@@ -2565,36 +2486,31 @@ export interface UpdateEnvironmentProfileInput {
   identifier: string | undefined;
 
   /**
-   * <p>The name to be updated as part of the <code>UpdateEnvironmentProfile</code>
-   *          action.</p>
+   * <p>The name to be updated as part of the <code>UpdateEnvironmentProfile</code> action.</p>
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>The description to be updated as part of the <code>UpdateEnvironmentProfile</code>
-   *          action.</p>
+   * <p>The description to be updated as part of the <code>UpdateEnvironmentProfile</code> action.</p>
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The user parameters to be updated as part of the <code>UpdateEnvironmentProfile</code>
-   *          action.</p>
+   * <p>The user parameters to be updated as part of the <code>UpdateEnvironmentProfile</code> action.</p>
    * @public
    */
   userParameters?: EnvironmentParameter[] | undefined;
 
   /**
-   * <p>The Amazon Web Services account in which a specified environment profile is to be
-   *          udpated.</p>
+   * <p>The Amazon Web Services account in which a specified environment profile is to be udpated.</p>
    * @public
    */
   awsAccountId?: string | undefined;
 
   /**
-   * <p>The Amazon Web Services Region in which a specified environment profile is to be
-   *          updated.</p>
+   * <p>The Amazon Web Services Region in which a specified environment profile is to be updated.</p>
    * @public
    */
   awsAccountRegion?: string | undefined;
@@ -2611,22 +2527,19 @@ export interface UpdateEnvironmentProfileOutput {
   id: string | undefined;
 
   /**
-   * <p>The identifier of the Amazon DataZone domain in which the environment profile is to be
-   *          updated.</p>
+   * <p>The identifier of the Amazon DataZone domain in which the environment profile is to be updated.</p>
    * @public
    */
   domainId: string | undefined;
 
   /**
-   * <p>The Amazon Web Services account in which a specified environment profile is to be
-   *          udpated.</p>
+   * <p>The Amazon Web Services account in which a specified environment profile is to be udpated.</p>
    * @public
    */
   awsAccountId?: string | undefined;
 
   /**
-   * <p>The Amazon Web Services Region in which a specified environment profile is to be
-   *          updated.</p>
+   * <p>The Amazon Web Services Region in which a specified environment profile is to be updated.</p>
    * @public
    */
   awsAccountRegion?: string | undefined;
@@ -2650,15 +2563,13 @@ export interface UpdateEnvironmentProfileOutput {
   updatedAt?: Date | undefined;
 
   /**
-   * <p>The name to be updated as part of the <code>UpdateEnvironmentProfile</code>
-   *          action.</p>
+   * <p>The name to be updated as part of the <code>UpdateEnvironmentProfile</code> action.</p>
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The description to be updated as part of the <code>UpdateEnvironmentProfile</code>
-   *          action.</p>
+   * <p>The description to be updated as part of the <code>UpdateEnvironmentProfile</code> action.</p>
    * @public
    */
   description?: string | undefined;
@@ -2676,8 +2587,7 @@ export interface UpdateEnvironmentProfileOutput {
   projectId?: string | undefined;
 
   /**
-   * <p>The user parameters to be updated as part of the <code>UpdateEnvironmentProfile</code>
-   *          action.</p>
+   * <p>The user parameters to be updated as part of the <code>UpdateEnvironmentProfile</code> action.</p>
    * @public
    */
   userParameters?: CustomParameter[] | undefined;
@@ -2764,8 +2674,7 @@ export interface UpdateProjectInput {
   description?: string | undefined;
 
   /**
-   * <p>The glossary terms to be updated as part of the <code>UpdateProject</code>
-   *          action.</p>
+   * <p>The glossary terms to be updated as part of the <code>UpdateProject</code> action.</p>
    * @public
    */
   glossaryTerms?: string[] | undefined;
@@ -2789,8 +2698,7 @@ export interface UpdateProjectInput {
   userParameters?: EnvironmentConfigurationUserParameter[] | undefined;
 
   /**
-   * <p>The project profile version to which the project should be updated. You can only specify
-   *          the following string for this parameter: <code>latest</code>.</p>
+   * <p>The project profile version to which the project should be updated. You can only specify the following string for this parameter: <code>latest</code>.</p>
    * @public
    */
   projectProfileVersion?: string | undefined;
@@ -2831,8 +2739,7 @@ export interface UpdateProjectOutput {
   projectStatus?: ProjectStatus | undefined;
 
   /**
-   * <p>Specifies the error message that is returned if the operation cannot be successfully
-   *          completed.</p>
+   * <p>Specifies the error message that is returned if the operation cannot be successfully completed.</p>
    * @public
    */
   failureReasons?: ProjectDeletionError[] | undefined;
@@ -3003,8 +2910,7 @@ export interface UpdateProjectProfileOutput {
  */
 export interface UpdateSubscriptionGrantStatusInput {
   /**
-   * <p>The identifier of the Amazon DataZone domain in which a subscription grant status is to be
-   *          updated.</p>
+   * <p>The identifier of the Amazon DataZone domain in which a subscription grant status is to be updated.</p>
    * @public
    */
   domainIdentifier: string | undefined;
@@ -3016,29 +2922,25 @@ export interface UpdateSubscriptionGrantStatusInput {
   identifier: string | undefined;
 
   /**
-   * <p>The identifier of the asset the subscription grant status of which is to be
-   *          updated.</p>
+   * <p>The identifier of the asset the subscription grant status of which is to be updated.</p>
    * @public
    */
   assetIdentifier: string | undefined;
 
   /**
-   * <p>The status to be updated as part of the <code>UpdateSubscriptionGrantStatus</code>
-   *          action.</p>
+   * <p>The status to be updated as part of the <code>UpdateSubscriptionGrantStatus</code> action.</p>
    * @public
    */
   status: SubscriptionGrantStatus | undefined;
 
   /**
-   * <p>Specifies the error message that is returned if the operation cannot be successfully
-   *          completed.</p>
+   * <p>Specifies the error message that is returned if the operation cannot be successfully completed.</p>
    * @public
    */
   failureCause?: FailureCause | undefined;
 
   /**
-   * <p>The target name to be updated as part of the <code>UpdateSubscriptionGrantStatus</code>
-   *          action.</p>
+   * <p>The target name to be updated as part of the <code>UpdateSubscriptionGrantStatus</code> action.</p>
    * @public
    */
   targetName?: string | undefined;
@@ -3067,8 +2969,7 @@ export interface UpdateSubscriptionGrantStatusOutput {
   updatedBy?: string | undefined;
 
   /**
-   * <p>The identifier of the Amazon DataZone domain in which a subscription grant status is to be
-   *          updated.</p>
+   * <p>The identifier of the Amazon DataZone domain in which a subscription grant status is to be updated.</p>
    * @public
    */
   domainId: string | undefined;
@@ -3086,22 +2987,19 @@ export interface UpdateSubscriptionGrantStatusOutput {
   updatedAt: Date | undefined;
 
   /**
-   * <p>The identifier of the subscription target whose subscription grant status is to be
-   *          updated.</p>
+   * <p>The identifier of the subscription target whose subscription grant status is to be updated.</p>
    * @public
    */
   subscriptionTargetId: string | undefined;
 
   /**
-   * <p>The granted entity to be updated as part of the
-   *             <code>UpdateSubscriptionGrantStatus</code> action.</p>
+   * <p>The granted entity to be updated as part of the <code>UpdateSubscriptionGrantStatus</code> action.</p>
    * @public
    */
   grantedEntity: GrantedEntity | undefined;
 
   /**
-   * <p>The status to be updated as part of the <code>UpdateSubscriptionGrantStatus</code>
-   *          action.</p>
+   * <p>The status to be updated as part of the <code>UpdateSubscriptionGrantStatus</code> action.</p>
    * @public
    */
   status: SubscriptionGrantOverallStatus | undefined;
@@ -3126,8 +3024,7 @@ export interface UpdateSubscriptionGrantStatusOutput {
  */
 export interface UpdateSubscriptionRequestInput {
   /**
-   * <p>The identifier of the Amazon DataZone domain in which a subscription request is to be
-   *          updated.</p>
+   * <p>The identifier of the Amazon DataZone domain in which a subscription request is to be updated.</p>
    * @public
    */
   domainIdentifier: string | undefined;
@@ -3168,8 +3065,7 @@ export interface UpdateSubscriptionRequestOutput {
   updatedBy?: string | undefined;
 
   /**
-   * <p>The identifier of the Amazon DataZone domain in which a subscription request is to be
-   *          updated.</p>
+   * <p>The identifier of the Amazon DataZone domain in which a subscription request is to be updated.</p>
    * @public
    */
   domainId: string | undefined;
@@ -3240,15 +3136,13 @@ export interface UpdateSubscriptionRequestOutput {
  */
 export interface UpdateSubscriptionTargetInput {
   /**
-   * <p>The identifier of the Amazon DataZone domain in which a subscription target is to be
-   *          updated.</p>
+   * <p>The identifier of the Amazon DataZone domain in which a subscription target is to be updated.</p>
    * @public
    */
   domainIdentifier: string | undefined;
 
   /**
-   * <p>The identifier of the environment in which a subscription target is to be
-   *          updated.</p>
+   * <p>The identifier of the environment in which a subscription target is to be updated.</p>
    * @public
    */
   environmentIdentifier: string | undefined;
@@ -3260,43 +3154,37 @@ export interface UpdateSubscriptionTargetInput {
   identifier: string | undefined;
 
   /**
-   * <p>The name to be updated as part of the <code>UpdateSubscriptionTarget</code>
-   *          action.</p>
+   * <p>The name to be updated as part of the <code>UpdateSubscriptionTarget</code> action.</p>
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>The authorized principals to be updated as part of the
-   *             <code>UpdateSubscriptionTarget</code> action.</p>
+   * <p>The authorized principals to be updated as part of the <code>UpdateSubscriptionTarget</code> action.</p>
    * @public
    */
   authorizedPrincipals?: string[] | undefined;
 
   /**
-   * <p>The applicable asset types to be updated as part of the
-   *             <code>UpdateSubscriptionTarget</code> action.</p>
+   * <p>The applicable asset types to be updated as part of the <code>UpdateSubscriptionTarget</code> action.</p>
    * @public
    */
   applicableAssetTypes?: string[] | undefined;
 
   /**
-   * <p>The configuration to be updated as part of the <code>UpdateSubscriptionTarget</code>
-   *          action.</p>
+   * <p>The configuration to be updated as part of the <code>UpdateSubscriptionTarget</code> action.</p>
    * @public
    */
   subscriptionTargetConfig?: SubscriptionTargetForm[] | undefined;
 
   /**
-   * <p>The manage access role to be updated as part of the
-   *             <code>UpdateSubscriptionTarget</code> action.</p>
+   * <p>The manage access role to be updated as part of the <code>UpdateSubscriptionTarget</code> action.</p>
    * @public
    */
   manageAccessRole?: string | undefined;
 
   /**
-   * <p>The provider to be updated as part of the <code>UpdateSubscriptionTarget</code>
-   *          action.</p>
+   * <p>The provider to be updated as part of the <code>UpdateSubscriptionTarget</code> action.</p>
    * @public
    */
   provider?: string | undefined;
@@ -3313,16 +3201,13 @@ export interface UpdateSubscriptionTargetOutput {
   id: string | undefined;
 
   /**
-   * <p>The authorized principals to be updated as part of the
-   *             <code>UpdateSubscriptionTarget</code> action. Updates are supported in batches of 5 at a
-   *          time.</p>
+   * <p>The authorized principals to be updated as part of the <code>UpdateSubscriptionTarget</code> action. Updates are supported in batches of 5 at a time.</p>
    * @public
    */
   authorizedPrincipals: string[] | undefined;
 
   /**
-   * <p>The identifier of the Amazon DataZone domain in which a subscription target is to be
-   *          updated.</p>
+   * <p>The identifier of the Amazon DataZone domain in which a subscription target is to be updated.</p>
    * @public
    */
   domainId: string | undefined;
@@ -3334,22 +3219,19 @@ export interface UpdateSubscriptionTargetOutput {
   projectId: string | undefined;
 
   /**
-   * <p>The identifier of the environment in which a subscription target is to be
-   *          updated.</p>
+   * <p>The identifier of the environment in which a subscription target is to be updated.</p>
    * @public
    */
   environmentId: string | undefined;
 
   /**
-   * <p>The name to be updated as part of the <code>UpdateSubscriptionTarget</code>
-   *          action.</p>
+   * <p>The name to be updated as part of the <code>UpdateSubscriptionTarget</code> action.</p>
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The type to be updated as part of the <code>UpdateSubscriptionTarget</code>
-   *          action.</p>
+   * <p>The type to be updated as part of the <code>UpdateSubscriptionTarget</code> action.</p>
    * @public
    */
   type: string | undefined;
@@ -3379,29 +3261,25 @@ export interface UpdateSubscriptionTargetOutput {
   updatedAt?: Date | undefined;
 
   /**
-   * <p>The manage access role to be updated as part of the
-   *             <code>UpdateSubscriptionTarget</code> action.</p>
+   * <p>The manage access role to be updated as part of the <code>UpdateSubscriptionTarget</code> action.</p>
    * @public
    */
   manageAccessRole?: string | undefined;
 
   /**
-   * <p>The applicable asset types to be updated as part of the
-   *             <code>UpdateSubscriptionTarget</code> action.</p>
+   * <p>The applicable asset types to be updated as part of the <code>UpdateSubscriptionTarget</code> action.</p>
    * @public
    */
   applicableAssetTypes: string[] | undefined;
 
   /**
-   * <p>The configuration to be updated as part of the <code>UpdateSubscriptionTarget</code>
-   *          action.</p>
+   * <p>The configuration to be updated as part of the <code>UpdateSubscriptionTarget</code> action.</p>
    * @public
    */
   subscriptionTargetConfig: SubscriptionTargetForm[] | undefined;
 
   /**
-   * <p>The provider to be updated as part of the <code>UpdateSubscriptionTarget</code>
-   *          action.</p>
+   * <p>The provider to be updated as part of the <code>UpdateSubscriptionTarget</code> action.</p>
    * @public
    */
   provider: string | undefined;
@@ -3650,20 +3528,13 @@ export interface SearchInput {
   owningProjectIdentifier?: string | undefined;
 
   /**
-   * <p>The maximum number of results to return in a single call to <code>Search</code>. When
-   *          the number of results to be listed is greater than the value of <code>MaxResults</code>,
-   *          the response contains a <code>NextToken</code> value that you can use in a subsequent call
-   *          to <code>Search</code> to list the next set of results.</p>
+   * <p>The maximum number of results to return in a single call to <code>Search</code>. When the number of results to be listed is greater than the value of <code>MaxResults</code>, the response contains a <code>NextToken</code> value that you can use in a subsequent call to <code>Search</code> to list the next set of results.</p>
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>When the number of results is greater than the default value for the
-   *             <code>MaxResults</code> parameter, or if you explicitly specify a value for
-   *             <code>MaxResults</code> that is less than the number of results, the response includes a
-   *          pagination token named <code>NextToken</code>. You can specify this <code>NextToken</code>
-   *          value in a subsequent call to <code>Search</code> to list the next set of results.</p>
+   * <p>When the number of results is greater than the default value for the <code>MaxResults</code> parameter, or if you explicitly specify a value for <code>MaxResults</code> that is less than the number of results, the response includes a pagination token named <code>NextToken</code>. You can specify this <code>NextToken</code> value in a subsequent call to <code>Search</code> to list the next set of results.</p>
    * @public
    */
   nextToken?: string | undefined;
@@ -3728,22 +3599,13 @@ export interface SearchListingsInput {
   searchIn?: SearchInItem[] | undefined;
 
   /**
-   * <p>The maximum number of results to return in a single call to <code>SearchListings</code>.
-   *          When the number of results to be listed is greater than the value of
-   *             <code>MaxResults</code>, the response contains a <code>NextToken</code> value that you
-   *          can use in a subsequent call to <code>SearchListings</code> to list the next set of
-   *          results. </p>
+   * <p>The maximum number of results to return in a single call to <code>SearchListings</code>. When the number of results to be listed is greater than the value of <code>MaxResults</code>, the response contains a <code>NextToken</code> value that you can use in a subsequent call to <code>SearchListings</code> to list the next set of results. </p>
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>When the number of results is greater than the default value for the
-   *             <code>MaxResults</code> parameter, or if you explicitly specify a value for
-   *             <code>MaxResults</code> that is less than the number of results, the response includes a
-   *          pagination token named <code>NextToken</code>. You can specify this <code>NextToken</code>
-   *          value in a subsequent call to <code>SearchListings</code> to list the next set of
-   *          results.</p>
+   * <p>When the number of results is greater than the default value for the <code>MaxResults</code> parameter, or if you explicitly specify a value for <code>MaxResults</code> that is less than the number of results, the response includes a pagination token named <code>NextToken</code>. You can specify this <code>NextToken</code> value in a subsequent call to <code>SearchListings</code> to list the next set of results.</p>
    * @public
    */
   nextToken?: string | undefined;
@@ -3755,8 +3617,7 @@ export interface SearchListingsInput {
   filters?: FilterClause | undefined;
 
   /**
-   * <p>Enables you to specify one or more attributes to compute and return counts grouped by
-   *          field values.</p>
+   * <p>Enables you to specify one or more attributes to compute and return counts grouped by field values.</p>
    * @public
    */
   aggregations?: AggregationListItem[] | undefined;
@@ -3779,29 +3640,19 @@ export interface SearchListingsInput {
  */
 export interface SearchTypesInput {
   /**
-   * <p>The identifier of the Amazon DataZone domain in which to invoke the <code>SearchTypes</code>
-   *          action.</p>
+   * <p>The identifier of the Amazon DataZone domain in which to invoke the <code>SearchTypes</code> action.</p>
    * @public
    */
   domainIdentifier: string | undefined;
 
   /**
-   * <p>The maximum number of results to return in a single call to <code>SearchTypes</code>.
-   *          When the number of results to be listed is greater than the value of
-   *             <code>MaxResults</code>, the response contains a <code>NextToken</code> value that you
-   *          can use in a subsequent call to <code>SearchTypes</code> to list the next set of results.
-   *       </p>
+   * <p>The maximum number of results to return in a single call to <code>SearchTypes</code>. When the number of results to be listed is greater than the value of <code>MaxResults</code>, the response contains a <code>NextToken</code> value that you can use in a subsequent call to <code>SearchTypes</code> to list the next set of results. </p>
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>When the number of results is greater than the default value for the
-   *             <code>MaxResults</code> parameter, or if you explicitly specify a value for
-   *             <code>MaxResults</code> that is less than the number of results, the response includes a
-   *          pagination token named <code>NextToken</code>. You can specify this <code>NextToken</code>
-   *          value in a subsequent call to <code>SearchTypes</code> to list the next set of
-   *          results.</p>
+   * <p>When the number of results is greater than the default value for the <code>MaxResults</code> parameter, or if you explicitly specify a value for <code>MaxResults</code> that is less than the number of results, the response includes a pagination token named <code>NextToken</code>. You can specify this <code>NextToken</code> value in a subsequent call to <code>SearchTypes</code> to list the next set of results.</p>
    * @public
    */
   nextToken?: string | undefined;
@@ -3933,8 +3784,7 @@ export interface CreateAssetFilterInput {
   configuration: AssetFilterConfiguration | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier that is provided to ensure the idempotency of the
-   *          request.</p>
+   * <p>A unique, case-sensitive identifier that is provided to ensure the idempotency of the request.</p>
    * @public
    */
   clientToken?: string | undefined;
@@ -3993,8 +3843,7 @@ export interface CreateAssetFilterOutput {
   createdAt?: Date | undefined;
 
   /**
-   * <p>The error message that is displayed if the asset filter is not created
-   *          successfully.</p>
+   * <p>The error message that is displayed if the asset filter is not created successfully.</p>
    * @public
    */
   errorMessage?: string | undefined;

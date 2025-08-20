@@ -28,8 +28,7 @@ export interface CreateEnvironmentActionCommandInput extends CreateEnvironmentAc
 export interface CreateEnvironmentActionCommandOutput extends CreateEnvironmentActionOutput, __MetadataBearer {}
 
 /**
- * <p>Creates an action for the environment, for example, creates a console link for an
- *          analytics tool that is available in this environment.</p>
+ * <p>Creates an action for the environment, for example, creates a console link for an analytics tool that is available in this environment.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -66,6 +66,7 @@ export interface RemovePolicyGrantCommandOutput extends RemovePolicyGrantOutput,
  *       },
  *     },
  *   },
+ *   grantIdentifier: "STRING_VALUE",
  *   clientToken: "STRING_VALUE",
  * };
  * const command = new RemovePolicyGrantCommand(input);

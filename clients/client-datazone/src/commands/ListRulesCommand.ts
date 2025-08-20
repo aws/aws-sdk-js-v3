@@ -28,13 +28,7 @@ export interface ListRulesCommandInput extends ListRulesInput {}
 export interface ListRulesCommandOutput extends ListRulesOutput, __MetadataBearer {}
 
 /**
- * <p>Lists existing rules. In Amazon DataZone, a rule is a formal agreement that enforces
- *          specific requirements across user workflows (e.g., publishing assets to the catalog,
- *          requesting subscriptions, creating projects) within the Amazon DataZone data portal. These
- *          rules help maintain consistency, ensure compliance, and uphold governance standards in data
- *          management processes. For instance, a metadata enforcement rule can specify the required
- *          information for creating a subscription request or publishing a data asset to the catalog,
- *          ensuring alignment with organizational standards.</p>
+ * <p>Lists existing rules. In Amazon DataZone, a rule is a formal agreement that enforces specific requirements across user workflows (e.g., publishing assets to the catalog, requesting subscriptions, creating projects) within the Amazon DataZone data portal. These rules help maintain consistency, ensure compliance, and uphold governance standards in data management processes. For instance, a metadata enforcement rule can specify the required information for creating a subscription request or publishing a data asset to the catalog, ensuring alignment with organizational standards.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -33,8 +33,7 @@ export interface CreateConnectionCommandInput extends CreateConnectionInput {}
 export interface CreateConnectionCommandOutput extends CreateConnectionOutput, __MetadataBearer {}
 
 /**
- * <p>Creates a new connection. In Amazon DataZone, a connection enables you to connect your
- *          resources (domains, projects, and environments) to external resources and services.</p>
+ * <p>Creates a new connection. In Amazon DataZone, a connection enables you to connect your resources (domains, projects, and environments) to external resources and services.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

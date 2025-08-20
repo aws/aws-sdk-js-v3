@@ -28,8 +28,7 @@ export interface DeleteConnectionCommandInput extends DeleteConnectionInput {}
 export interface DeleteConnectionCommandOutput extends DeleteConnectionOutput, __MetadataBearer {}
 
 /**
- * <p>Deletes and connection. In Amazon DataZone, a connection enables you to connect your
- *          resources (domains, projects, and environments) to external resources and services.</p>
+ * <p>Deletes and connection. In Amazon DataZone, a connection enables you to connect your resources (domains, projects, and environments) to external resources and services.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

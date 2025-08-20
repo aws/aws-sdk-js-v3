@@ -32,8 +32,7 @@ export interface ListConnectionsCommandInput extends ListConnectionsInput {}
 export interface ListConnectionsCommandOutput extends ListConnectionsOutput, __MetadataBearer {}
 
 /**
- * <p>Lists connections. In Amazon DataZone, a connection enables you to connect your
- *          resources (domains, projects, and environments) to external resources and services.</p>
+ * <p>Lists connections. In Amazon DataZone, a connection enables you to connect your resources (domains, projects, and environments) to external resources and services.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

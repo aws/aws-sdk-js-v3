@@ -4,21 +4,18 @@ import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "
 import { DataZoneServiceException as __BaseException } from "./DataZoneServiceException";
 
 /**
- * <p>Specifies the prediction (aka, the automatically generated piece of metadata) and the
- *          target (for example, a column name) that can be accepted.</p>
+ * <p>Specifies the prediction (aka, the automatically generated piece of metadata) and the target (for example, a column name) that can be accepted.</p>
  * @public
  */
 export interface AcceptChoice {
   /**
-   * <p>Specifies the target (for example, a column name) where a prediction can be
-   *          accepted.</p>
+   * <p>Specifies the target (for example, a column name) where a prediction can be accepted.</p>
    * @public
    */
   predictionTarget: string | undefined;
 
   /**
-   * <p>Specifies the prediction (aka, the automatically generated piece of metadata) that can
-   *          be accepted.</p>
+   * <p>Specifies the prediction (aka, the automatically generated piece of metadata) that can be accepted.</p>
    * @public
    */
   predictionChoice?: number | undefined;
@@ -74,8 +71,7 @@ export interface AcceptRule {
   rule?: AcceptRuleBehavior | undefined;
 
   /**
-   * <p>The confidence score that specifies the condition at which a prediction can be
-   *          accepted.</p>
+   * <p>The confidence score that specifies the condition at which a prediction can be accepted.</p>
    * @public
    */
   threshold?: number | undefined;
@@ -110,15 +106,13 @@ export interface AcceptPredictionsInput {
   acceptRule?: AcceptRule | undefined;
 
   /**
-   * <p>Specifies the prediction (aka, the automatically generated piece of metadata) and the
-   *          target (for example, a column name) that can be accepted.</p>
+   * <p>Specifies the prediction (aka, the automatically generated piece of metadata) and the target (for example, a column name) that can be accepted.</p>
    * @public
    */
   acceptChoices?: AcceptChoice[] | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier to ensure idempotency of the request. This field is
-   *          automatically populated if not provided.</p>
+   * <p>A unique, case-sensitive identifier to ensure idempotency of the request. This field is automatically populated if not provided.</p>
    * @public
    */
   clientToken?: string | undefined;
@@ -306,8 +300,7 @@ export interface AcceptSubscriptionRequestInput {
   identifier: string | undefined;
 
   /**
-   * <p>A description that specifies the reason for accepting the specified subscription
-   *          request.</p>
+   * <p>A description that specifies the reason for accepting the specified subscription request.</p>
    * @public
    */
   decisionComment?: string | undefined;
@@ -418,8 +411,7 @@ export interface DetailedGlossaryTerm {
  */
 export interface SubscribedAssetListing {
   /**
-   * <p>The identifier of the published asset for which the subscription grant is
-   *          created.</p>
+   * <p>The identifier of the published asset for which the subscription grant is created.</p>
    * @public
    */
   entityId?: string | undefined;
@@ -437,15 +429,13 @@ export interface SubscribedAssetListing {
   entityType?: string | undefined;
 
   /**
-   * <p>The forms attached to the published asset for which the subscription grant is
-   *          created.</p>
+   * <p>The forms attached to the published asset for which the subscription grant is created.</p>
    * @public
    */
   forms?: string | undefined;
 
   /**
-   * <p>The glossary terms attached to the published asset for which the subscription grant is
-   *          created.</p>
+   * <p>The glossary terms attached to the published asset for which the subscription grant is created.</p>
    * @public
    */
   glossaryTerms?: DetailedGlossaryTerm[] | undefined;
@@ -584,8 +574,7 @@ export namespace SubscribedListingItem {
  */
 export interface SubscribedListing {
   /**
-   * <p>The identifier of the published asset for which the subscription grant is
-   *          created.</p>
+   * <p>The identifier of the published asset for which the subscription grant is created.</p>
    * @public
    */
   id: string | undefined;
@@ -603,8 +592,7 @@ export interface SubscribedListing {
   name: string | undefined;
 
   /**
-   * <p>The description of the published asset for which the subscription grant is
-   *          created.</p>
+   * <p>The description of the published asset for which the subscription grant is created.</p>
    * @public
    */
   description: string | undefined;
@@ -616,15 +604,13 @@ export interface SubscribedListing {
   item: SubscribedListingItem | undefined;
 
   /**
-   * <p>The identifier of the project of the published asset for which the subscription grant is
-   *          created.</p>
+   * <p>The identifier of the project of the published asset for which the subscription grant is created.</p>
    * @public
    */
   ownerProjectId: string | undefined;
 
   /**
-   * <p>The name of the project that owns the published asset for which the subscription grant
-   *          is created.</p>
+   * <p>The name of the project that owns the published asset for which the subscription grant is created.</p>
    * @public
    */
   ownerProjectName?: string | undefined;
@@ -709,8 +695,7 @@ export interface AcceptSubscriptionRequestOutput {
   updatedBy?: string | undefined;
 
   /**
-   * <p>The unique identifier of the Amazon DataZone domain where the specified subscription request
-   *          was accepted.</p>
+   * <p>The unique identifier of the Amazon DataZone domain where the specified subscription request was accepted.</p>
    * @public
    */
   domainId: string | undefined;
@@ -740,8 +725,7 @@ export interface AcceptSubscriptionRequestOutput {
   requestReason: string | undefined;
 
   /**
-   * <p>Specifies the Amazon DataZone users who are subscribed to the asset specified in the
-   *          subscription request.</p>
+   * <p>Specifies the Amazon DataZone users who are subscribed to the asset specified in the subscription request.</p>
    * @public
    */
   subscribedPrincipals: SubscribedPrincipal[] | undefined;
@@ -868,25 +852,20 @@ export interface AccountPoolSummary {
  */
 export interface CustomAccountPoolHandler {
   /**
-   * <p>The ARN of the Amazon Web Services Lambda function for the custom Amazon Web Services
-   *          Lambda handler.</p>
+   * <p>The ARN of the Amazon Web Services Lambda function for the custom Amazon Web Services Lambda handler.</p>
    * @public
    */
   lambdaFunctionArn: string | undefined;
 
   /**
-   * <p>The ARN of the IAM role that enables Amazon SageMaker Unified Studio to invoke the
-   *             Amazon Web Services Lambda funtion if the account source is the custom account pool
-   *          handler.</p>
+   * <p>The ARN of the IAM role that enables Amazon SageMaker Unified Studio to invoke the Amazon Web Services Lambda funtion if the account source is the custom account pool handler.</p>
    * @public
    */
   lambdaExecutionRoleArn?: string | undefined;
 }
 
 /**
- * <p>The source of accounts for the account pool. In the current release, it's either a
- *          static list of accounts provided by the customer or a custom Amazon Web Services Lambda
- *          handler. </p>
+ * <p>The source of accounts for the account pool. In the current release, it's either a static list of accounts provided by the customer or a custom Amazon Web Services Lambda handler. </p>
  * @public
  */
 export type AccountSource =
@@ -1109,8 +1088,7 @@ export interface AddEntityOwnerInput {
   owner: OwnerProperties | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier that is provided to ensure the idempotency of the
-   *          request.</p>
+   * <p>A unique, case-sensitive identifier that is provided to ensure the idempotency of the request.</p>
    * @public
    */
   clientToken?: string | undefined;
@@ -1237,15 +1215,13 @@ export interface CreateProjectPolicyGrantDetail {
  */
 export interface CreateProjectFromProjectProfilePolicyGrantDetail {
   /**
-   * <p>Specifies whether to include child domain units when creating a project from project
-   *          profile policy grant details</p>
+   * <p>Specifies whether to include child domain units when creating a project from project profile policy grant details</p>
    * @public
    */
   includeChildDomainUnits?: boolean | undefined;
 
   /**
-   * <p>Specifies project profiles when creating a project from project profile policy grant
-   *          details</p>
+   * <p>Specifies project profiles when creating a project from project profile policy grant details</p>
    * @public
    */
   projectProfiles?: string[] | undefined;
@@ -1276,8 +1252,7 @@ export interface OverrideProjectOwnersPolicyGrantDetail {
 }
 
 /**
- * <p>Specifies the domain unit(s) whose projects can use this asset type while creating asset
- *          or asset revisions.</p>
+ * <p>Specifies the domain unit(s) whose projects can use this asset type while creating asset or asset revisions.</p>
  * @public
  */
 export interface UseAssetTypePolicyGrantDetail {
@@ -1600,8 +1575,7 @@ export namespace PolicyGrantDetail {
   }
 
   /**
-   * <p> Specifies the domain unit(s) whose projects can use this asset type while creating
-   *          asset or asset revisions.</p>
+   * <p> Specifies the domain unit(s) whose projects can use this asset type while creating asset or asset revisions.</p>
    * @public
    */
   export interface UseAssetTypeMember {
@@ -1747,8 +1721,7 @@ export type DomainUnitDesignation = (typeof DomainUnitDesignation)[keyof typeof 
 export interface AllDomainUnitsGrantFilter {}
 
 /**
- * <p>The grant filter for the domain unit. In the current release of Amazon DataZone, the
- *          only supported filter is the <code>allDomainUnitsGrantFilter</code>.</p>
+ * <p>The grant filter for the domain unit. In the current release of Amazon DataZone, the only supported filter is the <code>allDomainUnitsGrantFilter</code>.</p>
  * @public
  */
 export type DomainUnitGrantFilter =
@@ -2140,8 +2113,7 @@ export interface AddPolicyGrantInput {
   detail: PolicyGrantDetail | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier that is provided to ensure the idempotency of the
-   *          request.</p>
+   * <p>A unique, case-sensitive identifier that is provided to ensure the idempotency of the request.</p>
    * @public
    */
   clientToken?: string | undefined;
@@ -2150,7 +2122,13 @@ export interface AddPolicyGrantInput {
 /**
  * @public
  */
-export interface AddPolicyGrantOutput {}
+export interface AddPolicyGrantOutput {
+  /**
+   * <p>The ID of the policy grant that was added to a specified entity.</p>
+   * @public
+   */
+  grantId?: string | undefined;
+}
 
 /**
  * <p>An aggregation list item.</p>
@@ -2164,8 +2142,7 @@ export interface AggregationListItem {
   attribute: string | undefined;
 
   /**
-   * <p>The display value of the aggregation list item. Supported values include
-   *             <code>value</code> and <code>glossaryTerm.name</code>.</p>
+   * <p>The display value of the aggregation list item. Supported values include <code>value</code> and <code>glossaryTerm.name</code>.</p>
    * @public
    */
   displayValue?: string | undefined;
@@ -2189,9 +2166,7 @@ export interface AggregationOutputItem {
   count?: number | undefined;
 
   /**
-   * <p>The display value of the aggregation. If the attribute being aggregated corresponds to
-   *          the id of a public resource, the service automatically resolves the id to the provided
-   *          display value.</p>
+   * <p>The display value of the aggregation. If the attribute being aggregated corresponds to the id of a public resource, the service automatically resolves the id to the provided display value.</p>
    * @public
    */
   displayValue?: string | undefined;
@@ -2325,9 +2300,7 @@ export interface CreateAssetInput {
   domainIdentifier: string | undefined;
 
   /**
-   * <p>The external identifier of the asset.</p>
-   *          <p>If the value for the <code>externalIdentifier</code> parameter is specified, it must be
-   *          a unique value.</p>
+   * <p>The external identifier of the asset.</p> <p>If the value for the <code>externalIdentifier</code> parameter is specified, it must be a unique value.</p>
    * @public
    */
   externalIdentifier?: string | undefined;
@@ -2369,15 +2342,13 @@ export interface CreateAssetInput {
   owningProjectIdentifier: string | undefined;
 
   /**
-   * <p>The configuration of the automatically generated business-friendly metadata for the
-   *          asset.</p>
+   * <p>The configuration of the automatically generated business-friendly metadata for the asset.</p>
    * @public
    */
   predictionConfiguration?: PredictionConfiguration | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier that is provided to ensure the idempotency of the
-   *          request.</p>
+   * <p>A unique, case-sensitive identifier that is provided to ensure the idempotency of the request.</p>
    * @public
    */
   clientToken?: string | undefined;
@@ -2538,8 +2509,7 @@ export interface CreateAssetOutput {
   latestTimeSeriesDataPointFormsOutput?: TimeSeriesDataPointSummaryFormOutput[] | undefined;
 
   /**
-   * <p>The configuration of the automatically generated business-friendly metadata for the
-   *          asset.</p>
+   * <p>The configuration of the automatically generated business-friendly metadata for the asset.</p>
    * @public
    */
   predictionConfiguration?: PredictionConfiguration | undefined;
@@ -2592,15 +2562,13 @@ export interface CreateAssetRevisionInput {
   formsInput?: FormInput[] | undefined;
 
   /**
-   * <p>The configuration of the automatically generated business-friendly metadata for the
-   *          asset.</p>
+   * <p>The configuration of the automatically generated business-friendly metadata for the asset.</p>
    * @public
    */
   predictionConfiguration?: PredictionConfiguration | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier that is provided to ensure the idempotency of the
-   *          request.</p>
+   * <p>A unique, case-sensitive identifier that is provided to ensure the idempotency of the request.</p>
    * @public
    */
   clientToken?: string | undefined;
@@ -2707,8 +2675,7 @@ export interface CreateAssetRevisionOutput {
   formsOutput: FormOutput[] | undefined;
 
   /**
-   * <p>The read-only metadata forms that were attached to the asset as part of the asset
-   *          revision.</p>
+   * <p>The read-only metadata forms that were attached to the asset as part of the asset revision.</p>
    * @public
    */
   readOnlyFormsOutput?: FormOutput[] | undefined;
@@ -2720,8 +2687,7 @@ export interface CreateAssetRevisionOutput {
   latestTimeSeriesDataPointFormsOutput?: TimeSeriesDataPointSummaryFormOutput[] | undefined;
 
   /**
-   * <p>The configuration of the automatically generated business-friendly metadata for the
-   *          asset.</p>
+   * <p>The configuration of the automatically generated business-friendly metadata for the asset.</p>
    * @public
    */
   predictionConfiguration?: PredictionConfiguration | undefined;
@@ -2760,11 +2726,7 @@ export interface GetAssetInput {
   domainIdentifier: string | undefined;
 
   /**
-   * <p>The ID of the Amazon DataZone asset.</p>
-   *          <p>This parameter supports either the value of <code>assetId</code> or
-   *             <code>externalIdentifier</code> as input. If you are passing the value of
-   *             <code>externalIdentifier</code>, you must prefix this value with
-   *             <code>externalIdentifer%2F</code>.</p>
+   * <p>The ID of the Amazon DataZone asset.</p> <p>This parameter supports either the value of <code>assetId</code> or <code>externalIdentifier</code> as input. If you are passing the value of <code>externalIdentifier</code>, you must prefix this value with <code>externalIdentifer%2F</code>.</p>
    * @public
    */
   identifier: string | undefined;
@@ -3598,8 +3560,7 @@ export interface AssetItemAdditionalAttributes {
   readOnlyFormsOutput?: FormOutput[] | undefined;
 
   /**
-   * <p>The latest time series data points forms included in the additional attributes of an
-   *          asset.</p>
+   * <p>The latest time series data points forms included in the additional attributes of an asset.</p>
    * @public
    */
   latestTimeSeriesDataPointFormsOutput?: TimeSeriesDataPointSummaryFormOutput[] | undefined;
@@ -3737,8 +3698,7 @@ export interface AssetListing {
   forms?: string | undefined;
 
   /**
-   * <p>The latest time series data points forms included in the additional attributes of an
-   *          asset.</p>
+   * <p>The latest time series data points forms included in the additional attributes of an asset.</p>
    * @public
    */
   latestTimeSeriesDataPointForms?: TimeSeriesDataPointSummaryFormOutput[] | undefined;
@@ -3750,8 +3710,7 @@ export interface AssetListing {
   glossaryTerms?: DetailedGlossaryTerm[] | undefined;
 
   /**
-   * <p>The identifier of the project where an asset published in an Amazon DataZone catalog exists.
-   *       </p>
+   * <p>The identifier of the project where an asset published in an Amazon DataZone catalog exists. </p>
    * @public
    */
   owningProjectId?: string | undefined;
@@ -3775,8 +3734,7 @@ export interface AssetListingItemAdditionalAttributes {
   matchRationale?: MatchRationaleItem[] | undefined;
 
   /**
-   * <p>The latest time series data points forms included in the additional attributes of an
-   *          asset.</p>
+   * <p>The latest time series data points forms included in the additional attributes of an asset.</p>
    * @public
    */
   latestTimeSeriesDataPointForms?: TimeSeriesDataPointSummaryFormOutput[] | undefined;
@@ -3949,8 +3907,7 @@ export interface FormEntryInput {
  */
 export interface CreateAssetTypeInput {
   /**
-   * <p>The unique identifier of the Amazon DataZone domain where the custom asset type is being
-   *          created.</p>
+   * <p>The unique identifier of the Amazon DataZone domain where the custom asset type is being created.</p>
    * @public
    */
   domainIdentifier: string | undefined;
@@ -4245,8 +4202,7 @@ export interface AssetTypeItem {
   owningProjectId: string | undefined;
 
   /**
-   * <p>The identifier of the Amazon DataZone domain where the asset type was originally
-   *          created.</p>
+   * <p>The identifier of the Amazon DataZone domain where the asset type was originally created.</p>
    * @public
    */
   originDomainId?: string | undefined;
@@ -4423,8 +4379,7 @@ export interface OAuth2ClientApplication {
   userManagedClientApplicationClientId?: string | undefined;
 
   /**
-   * <p>The Amazon Web Services managed client application reference in the OAuth2Client
-   *          application.</p>
+   * <p>The Amazon Web Services managed client application reference in the OAuth2Client application.</p>
    * @public
    */
   aWSManagedClientApplicationReference?: string | undefined;
@@ -4720,8 +4675,7 @@ export interface AwsLocation {
  */
 export interface CancelMetadataGenerationRunInput {
   /**
-   * <p>The ID of the Amazon DataZone domain in which the metadata generation run is to be
-   *          cancelled.</p>
+   * <p>The ID of the Amazon DataZone domain in which the metadata generation run is to be cancelled.</p>
    * @public
    */
   domainIdentifier: string | undefined;
@@ -4743,8 +4697,7 @@ export interface CancelMetadataGenerationRunOutput {}
  */
 export interface CancelSubscriptionInput {
   /**
-   * <p>The unique identifier of the Amazon DataZone domain where the subscription request is being
-   *          cancelled.</p>
+   * <p>The unique identifier of the Amazon DataZone domain where the subscription request is being cancelled.</p>
    * @public
    */
   domainIdentifier: string | undefined;
@@ -4794,8 +4747,7 @@ export interface CancelSubscriptionOutput {
   updatedBy?: string | undefined;
 
   /**
-   * <p>The unique identifier of the Amazon DataZone domain where the subscription is being
-   *          cancelled.</p>
+   * <p>The unique identifier of the Amazon DataZone domain where the subscription is being cancelled.</p>
    * @public
    */
   domainId: string | undefined;
@@ -4807,8 +4759,7 @@ export interface CancelSubscriptionOutput {
   status: SubscriptionStatus | undefined;
 
   /**
-   * <p>The timestamp that specifies when the request to cancel the subscription was
-   *          created.</p>
+   * <p>The timestamp that specifies when the request to cancel the subscription was created.</p>
    * @public
    */
   createdAt: Date | undefined;
@@ -4820,8 +4771,7 @@ export interface CancelSubscriptionOutput {
   updatedAt: Date | undefined;
 
   /**
-   * <p>The Amazon DataZone user who is made a subscriber to the specified asset by the subscription
-   *          that is being cancelled.</p>
+   * <p>The Amazon DataZone user who is made a subscriber to the specified asset by the subscription that is being cancelled.</p>
    * @public
    */
   subscribedPrincipal: SubscribedPrincipal | undefined;
@@ -4833,15 +4783,13 @@ export interface CancelSubscriptionOutput {
   subscribedListing: SubscribedListing | undefined;
 
   /**
-   * <p>The unique ID of the subscripton request for the subscription that is being
-   *          cancelled.</p>
+   * <p>The unique ID of the subscripton request for the subscription that is being cancelled.</p>
    * @public
    */
   subscriptionRequestId?: string | undefined;
 
   /**
-   * <p>Specifies whether the permissions to the asset are retained after the subscription is
-   *          cancelled.</p>
+   * <p>Specifies whether the permissions to the asset are retained after the subscription is cancelled.</p>
    * @public
    */
   retainPermissions?: boolean | undefined;
@@ -4867,8 +4815,7 @@ export type ChangeAction = (typeof ChangeAction)[keyof typeof ChangeAction];
  */
 export interface CloudFormationProperties {
   /**
-   * <p>The template URL of the cloud formation provisioning properties of the environment
-   *          blueprint.</p>
+   * <p>The template URL of the cloud formation provisioning properties of the environment blueprint.</p>
    * @public
    */
   templateUrl: string | undefined;
@@ -5073,15 +5020,13 @@ export interface GlueConnectionInput {
   matchCriteria?: string | undefined;
 
   /**
-   * <p>Speciefies whether to validate credentials of the Amazon Web Services Glue
-   *          connection.</p>
+   * <p>Speciefies whether to validate credentials of the Amazon Web Services Glue connection.</p>
    * @public
    */
   validateCredentials?: boolean | undefined;
 
   /**
-   * <p>Speciefies whether to validate for compute environments of the Amazon Web Services Glue
-   *          connection.</p>
+   * <p>Speciefies whether to validate for compute environments of the Amazon Web Services Glue connection.</p>
    * @public
    */
   validateForComputeEnvironments?: ComputeEnvironments[] | undefined;
@@ -5141,8 +5086,7 @@ export interface HyperPodPropertiesInput {
  */
 export interface IamPropertiesInput {
   /**
-   * <p>Specifies whether Amazon Web Services Glue lineage sync is enabled for a
-   *          connection.</p>
+   * <p>Specifies whether Amazon Web Services Glue lineage sync is enabled for a connection.</p>
    * @public
    */
   glueLineageSyncEnabled?: boolean | undefined;
@@ -5360,8 +5304,7 @@ export interface S3PropertiesInput {
   s3Uri: string | undefined;
 
   /**
-   * <p>The Amazon S3 Access Grant location ID that's part of the Amazon S3 properties of a
-   *          connection.</p>
+   * <p>The Amazon S3 Access Grant location ID that's part of the Amazon S3 properties of a connection.</p>
    * @public
    */
   s3AccessGrantLocationId?: string | undefined;
@@ -5439,15 +5382,13 @@ export interface SparkGluePropertiesInput {
   additionalArgs?: SparkGlueArgs | undefined;
 
   /**
-   * <p>The Amazon Web Services Glue connection name in the Spark Amazon Web Services Glue
-   *          properties.</p>
+   * <p>The Amazon Web Services Glue connection name in the Spark Amazon Web Services Glue properties.</p>
    * @public
    */
   glueConnectionName?: string | undefined;
 
   /**
-   * <p>The Amazon Web Services Glue version in the Spark Amazon Web Services Glue
-   *          properties.</p>
+   * <p>The Amazon Web Services Glue version in the Spark Amazon Web Services Glue properties.</p>
    * @public
    */
   glueVersion?: string | undefined;
@@ -5758,8 +5699,7 @@ export interface IamPropertiesOutput {
   environmentId?: string | undefined;
 
   /**
-   * <p>Specifies whether Amazon Web Services Glue lineage sync is enabled for a
-   *          connection.</p>
+   * <p>Specifies whether Amazon Web Services Glue lineage sync is enabled for a connection.</p>
    * @public
    */
   glueLineageSyncEnabled?: boolean | undefined;
@@ -5861,8 +5801,7 @@ export interface S3PropertiesOutput {
   s3Uri: string | undefined;
 
   /**
-   * <p>The Amazon S3 Access Grant location ID that's part of the Amazon S3 properties of a
-   *          connection.</p>
+   * <p>The Amazon S3 Access Grant location ID that's part of the Amazon S3 properties of a connection.</p>
    * @public
    */
   s3AccessGrantLocationId?: string | undefined;
@@ -5978,15 +5917,13 @@ export interface SparkGluePropertiesOutput {
   additionalArgs?: SparkGlueArgs | undefined;
 
   /**
-   * <p>The Amazon Web Services Glue connection name in the Spark Amazon Web Services Glue
-   *          properties. </p>
+   * <p>The Amazon Web Services Glue connection name in the Spark Amazon Web Services Glue properties. </p>
    * @public
    */
   glueConnectionName?: string | undefined;
 
   /**
-   * <p>The Amazon Web Services Glue version in the Spark Amazon Web Services Glue properties.
-   *       </p>
+   * <p>The Amazon Web Services Glue version in the Spark Amazon Web Services Glue properties. </p>
    * @public
    */
   glueVersion?: string | undefined;
@@ -6251,8 +6188,7 @@ export interface GluePropertiesPatch {
  */
 export interface IamPropertiesPatch {
   /**
-   * <p>Specifies whether Amazon Web Services Glue lineage sync is enabled for a
-   *          connection.</p>
+   * <p>Specifies whether Amazon Web Services Glue lineage sync is enabled for a connection.</p>
    * @public
    */
   glueLineageSyncEnabled?: boolean | undefined;
@@ -6312,8 +6248,7 @@ export interface S3PropertiesPatch {
   s3Uri: string | undefined;
 
   /**
-   * <p>The Amazon S3 Access Grant location ID that's part of the Amazon S3 properties patch of
-   *          a connection.</p>
+   * <p>The Amazon S3 Access Grant location ID that's part of the Amazon S3 properties patch of a connection.</p>
    * @public
    */
   s3AccessGrantLocationId?: string | undefined;
@@ -6804,9 +6739,7 @@ export interface CreateAccountPoolInput {
   resolutionStrategy: ResolutionStrategy | undefined;
 
   /**
-   * <p>The source of accounts for the account pool. In the current release, it's either a
-   *          static list of accounts provided by the customer or a custom Amazon Web Services Lambda
-   *          handler. </p>
+   * <p>The source of accounts for the account pool. In the current release, it's either a static list of accounts provided by the customer or a custom Amazon Web Services Lambda handler. </p>
    * @public
    */
   accountSource: AccountSource | undefined;
@@ -6847,9 +6780,7 @@ export interface CreateAccountPoolOutput {
   resolutionStrategy?: ResolutionStrategy | undefined;
 
   /**
-   * <p>The source of accounts for the account pool. In the current release, it's either a
-   *          static list of accounts provided by the customer or a custom Amazon Web Services Lambda
-   *          handler. </p>
+   * <p>The source of accounts for the account pool. In the current release, it's either a static list of accounts provided by the customer or a custom Amazon Web Services Lambda handler. </p>
    * @public
    */
   accountSource: AccountSource | undefined;
@@ -6896,8 +6827,7 @@ export interface CreateConnectionInput {
   awsLocation?: AwsLocation | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier that is provided to ensure the idempotency of the
-   *          request.</p>
+   * <p>A unique, case-sensitive identifier that is provided to ensure the idempotency of the request.</p>
    * @public
    */
   clientToken?: string | undefined;
@@ -7088,8 +7018,7 @@ export interface CreateDataProductInput {
   items?: DataProductItem[] | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier that is provided to ensure the idempotency of the
-   *          request.</p>
+   * <p>A unique, case-sensitive identifier that is provided to ensure the idempotency of the request.</p>
    * @public
    */
   clientToken?: string | undefined;
@@ -7246,8 +7175,7 @@ export interface CreateDataProductRevisionInput {
   formsInput?: FormInput[] | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier that is provided to ensure the idempotency of the
-   *          request.</p>
+   * <p>A unique, case-sensitive identifier that is provided to ensure the idempotency of the request.</p>
    * @public
    */
   clientToken?: string | undefined;
@@ -7380,22 +7308,19 @@ export interface FilterExpression {
  */
 export interface RelationalFilterConfiguration {
   /**
-   * <p>The database name specified in the relational filter configuration for the data
-   *          source.</p>
+   * <p>The database name specified in the relational filter configuration for the data source.</p>
    * @public
    */
   databaseName: string | undefined;
 
   /**
-   * <p>The schema name specified in the relational filter configuration for the data
-   *          source.</p>
+   * <p>The schema name specified in the relational filter configuration for the data source.</p>
    * @public
    */
   schemaName?: string | undefined;
 
   /**
-   * <p>The filter expressions specified in the relational filter configuration for the data
-   *          source.</p>
+   * <p>The filter expressions specified in the relational filter configuration for the data source.</p>
    * @public
    */
   filterExpressions?: FilterExpression[] | undefined;
@@ -7407,22 +7332,19 @@ export interface RelationalFilterConfiguration {
  */
 export interface GlueRunConfigurationInput {
   /**
-   * <p>The data access role included in the configuration details of the Amazon Web Services Glue data
-   *          source.</p>
+   * <p>The data access role included in the configuration details of the Amazon Web Services Glue data source.</p>
    * @public
    */
   dataAccessRole?: string | undefined;
 
   /**
-   * <p>The relational filter configurations included in the configuration details of the Amazon Web Services
-   *          Glue data source.</p>
+   * <p>The relational filter configurations included in the configuration details of the Amazon Web Services Glue data source.</p>
    * @public
    */
   relationalFilterConfigurations: RelationalFilterConfiguration[] | undefined;
 
   /**
-   * <p>Specifies whether to automatically import data quality metrics as part of the data
-   *          source run.</p>
+   * <p>Specifies whether to automatically import data quality metrics as part of the data source run.</p>
    * @public
    */
   autoImportDataQualityResult?: boolean | undefined;
@@ -7471,8 +7393,7 @@ export interface RedshiftServerlessStorage {
 }
 
 /**
- * <p>The details of the Amazon Redshift storage as part of the configuration of an Amazon
- *          Redshift data source run.</p>
+ * <p>The details of the Amazon Redshift storage as part of the configuration of an Amazon Redshift data source run.</p>
  * @public
  */
 export type RedshiftStorage =
@@ -7533,15 +7454,13 @@ export namespace RedshiftStorage {
  */
 export interface RedshiftRunConfigurationInput {
   /**
-   * <p>The data access role included in the configuration details of the Amazon Redshift data
-   *          source.</p>
+   * <p>The data access role included in the configuration details of the Amazon Redshift data source.</p>
    * @public
    */
   dataAccessRole?: string | undefined;
 
   /**
-   * <p>The relational filger configurations included in the configuration details of the Amazon
-   *          Redshift data source.</p>
+   * <p>The relational filger configurations included in the configuration details of the Amazon Redshift data source.</p>
    * @public
    */
   relationalFilterConfigurations: RelationalFilterConfiguration[] | undefined;
@@ -7553,8 +7472,7 @@ export interface RedshiftRunConfigurationInput {
   redshiftCredentialConfiguration?: RedshiftCredentialConfiguration | undefined;
 
   /**
-   * <p>The details of the Amazon Redshift storage as part of the configuration of an Amazon
-   *          Redshift data source run.</p>
+   * <p>The details of the Amazon Redshift storage as part of the configuration of an Amazon Redshift data source run.</p>
    * @public
    */
   redshiftStorage?: RedshiftStorage | undefined;
@@ -7661,14 +7579,12 @@ export const EnableSetting = {
 export type EnableSetting = (typeof EnableSetting)[keyof typeof EnableSetting];
 
 /**
- * <p>The recommendation to be updated as part of the <code>UpdateDataSource</code>
- *          action.</p>
+ * <p>The recommendation to be updated as part of the <code>UpdateDataSource</code> action.</p>
  * @public
  */
 export interface RecommendationConfiguration {
   /**
-   * <p>Specifies whether automatic business name generation is to be enabled or not as part of
-   *          the recommendation configuration.</p>
+   * <p>Specifies whether automatic business name generation is to be enabled or not as part of the recommendation configuration.</p>
    * @public
    */
   enableBusinessNameGeneration?: boolean | undefined;
@@ -7791,15 +7707,13 @@ export interface CreateDataSourceInput {
   domainIdentifier: string | undefined;
 
   /**
-   * <p>The identifier of the Amazon DataZone project in which you want to add this data
-   *          source.</p>
+   * <p>The identifier of the Amazon DataZone project in which you want to add this data source.</p>
    * @public
    */
   projectIdentifier: string | undefined;
 
   /**
-   * <p>The unique identifier of the Amazon DataZone environment to which the data source publishes
-   *          assets. </p>
+   * <p>The unique identifier of the Amazon DataZone environment to which the data source publishes assets. </p>
    * @public
    */
   environmentIdentifier?: string | undefined;
@@ -7811,24 +7725,19 @@ export interface CreateDataSourceInput {
   connectionIdentifier?: string | undefined;
 
   /**
-   * <p>The type of the data source. In Amazon DataZone, you can use data sources to import
-   *          technical metadata of assets (data) from the source databases or data warehouses into
-   *          Amazon DataZone. In the current release of Amazon DataZone, you can create and run data
-   *          sources for Amazon Web Services Glue and Amazon Redshift.</p>
+   * <p>The type of the data source. In Amazon DataZone, you can use data sources to import technical metadata of assets (data) from the source databases or data warehouses into Amazon DataZone. In the current release of Amazon DataZone, you can create and run data sources for Amazon Web Services Glue and Amazon Redshift.</p>
    * @public
    */
   type: string | undefined;
 
   /**
-   * <p>Specifies the configuration of the data source. It can be set to either
-   *             <code>glueRunConfiguration</code> or <code>redshiftRunConfiguration</code>.</p>
+   * <p>Specifies the configuration of the data source. It can be set to either <code>glueRunConfiguration</code> or <code>redshiftRunConfiguration</code>.</p>
    * @public
    */
   configuration?: DataSourceConfigurationInput | undefined;
 
   /**
-   * <p>Specifies whether the business name generation is to be enabled for this data
-   *          source.</p>
+   * <p>Specifies whether the business name generation is to be enabled for this data source.</p>
    * @public
    */
   recommendation?: RecommendationConfiguration | undefined;
@@ -7846,22 +7755,19 @@ export interface CreateDataSourceInput {
   schedule?: ScheduleConfiguration | undefined;
 
   /**
-   * <p>Specifies whether the assets that this data source creates in the inventory are to be
-   *          also automatically published to the catalog.</p>
+   * <p>Specifies whether the assets that this data source creates in the inventory are to be also automatically published to the catalog.</p>
    * @public
    */
   publishOnImport?: boolean | undefined;
 
   /**
-   * <p>The metadata forms that are to be attached to the assets that this data source works
-   *          with.</p>
+   * <p>The metadata forms that are to be attached to the assets that this data source works with.</p>
    * @public
    */
   assetFormsInput?: FormInput[] | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier that is provided to ensure the idempotency of the
-   *          request.</p>
+   * <p>A unique, case-sensitive identifier that is provided to ensure the idempotency of the request.</p>
    * @public
    */
   clientToken?: string | undefined;
@@ -7873,36 +7779,31 @@ export interface CreateDataSourceInput {
  */
 export interface GlueRunConfigurationOutput {
   /**
-   * <p>The Amazon Web Services account ID included in the configuration details of the Amazon Web Services Glue data
-   *          source. </p>
+   * <p>The Amazon Web Services account ID included in the configuration details of the Amazon Web Services Glue data source. </p>
    * @public
    */
   accountId?: string | undefined;
 
   /**
-   * <p>The Amazon Web Services region included in the configuration details of the Amazon Web Services Glue data source.
-   *       </p>
+   * <p>The Amazon Web Services region included in the configuration details of the Amazon Web Services Glue data source. </p>
    * @public
    */
   region?: string | undefined;
 
   /**
-   * <p>The data access role included in the configuration details of the Amazon Web Services Glue data
-   *          source. </p>
+   * <p>The data access role included in the configuration details of the Amazon Web Services Glue data source. </p>
    * @public
    */
   dataAccessRole?: string | undefined;
 
   /**
-   * <p>The relational filter configurations included in the configuration details of the Amazon Web Services
-   *          Glue data source.</p>
+   * <p>The relational filter configurations included in the configuration details of the Amazon Web Services Glue data source.</p>
    * @public
    */
   relationalFilterConfigurations: RelationalFilterConfiguration[] | undefined;
 
   /**
-   * <p>Specifies whether to automatically import data quality metrics as part of the data
-   *          source run.</p>
+   * <p>Specifies whether to automatically import data quality metrics as part of the data source run.</p>
    * @public
    */
   autoImportDataQualityResult?: boolean | undefined;
@@ -7920,29 +7821,25 @@ export interface GlueRunConfigurationOutput {
  */
 export interface RedshiftRunConfigurationOutput {
   /**
-   * <p>The ID of the Amazon Web Services account included in the configuration details of the Amazon Redshift
-   *          data source.</p>
+   * <p>The ID of the Amazon Web Services account included in the configuration details of the Amazon Redshift data source.</p>
    * @public
    */
   accountId?: string | undefined;
 
   /**
-   * <p>The Amazon Web Services region included in the configuration details of the Amazon Redshift data
-   *          source.</p>
+   * <p>The Amazon Web Services region included in the configuration details of the Amazon Redshift data source.</p>
    * @public
    */
   region?: string | undefined;
 
   /**
-   * <p>The data access role included in the configuration details of the Amazon Redshift data
-   *          source.</p>
+   * <p>The data access role included in the configuration details of the Amazon Redshift data source.</p>
    * @public
    */
   dataAccessRole?: string | undefined;
 
   /**
-   * <p>The relational filger configurations included in the configuration details of the Amazon
-   *          Redshift data source.</p>
+   * <p>The relational filger configurations included in the configuration details of the Amazon Redshift data source.</p>
    * @public
    */
   relationalFilterConfigurations: RelationalFilterConfiguration[] | undefined;
@@ -7954,8 +7851,7 @@ export interface RedshiftRunConfigurationOutput {
   redshiftCredentialConfiguration?: RedshiftCredentialConfiguration | undefined;
 
   /**
-   * <p>The details of the Amazon Redshift storage as part of the configuration of an Amazon
-   *          Redshift data source run.</p>
+   * <p>The details of the Amazon Redshift storage as part of the configuration of an Amazon Redshift data source run.</p>
    * @public
    */
   redshiftStorage: RedshiftStorage | undefined;
@@ -8079,21 +7975,18 @@ export const DataSourceErrorType = {
 export type DataSourceErrorType = (typeof DataSourceErrorType)[keyof typeof DataSourceErrorType];
 
 /**
- * <p>The details of the error message that is returned if the operation cannot be
- *          successfully completed.</p>
+ * <p>The details of the error message that is returned if the operation cannot be successfully completed.</p>
  * @public
  */
 export interface DataSourceErrorMessage {
   /**
-   * <p>The type of the error message that is returned if the operation cannot be successfully
-   *          completed.</p>
+   * <p>The type of the error message that is returned if the operation cannot be successfully completed.</p>
    * @public
    */
   errorType: DataSourceErrorType | undefined;
 
   /**
-   * <p>The details of the error message that is returned if the operation cannot be
-   *          successfully completed.</p>
+   * <p>The details of the error message that is returned if the operation cannot be successfully completed.</p>
    * @public
    */
   errorDetail?: string | undefined;
@@ -8183,8 +8076,7 @@ export interface CreateDataSourceOutput {
   projectId: string | undefined;
 
   /**
-   * <p>The unique identifier of the Amazon DataZone environment to which the data source publishes
-   *          assets. </p>
+   * <p>The unique identifier of the Amazon DataZone environment to which the data source publishes assets. </p>
    * @public
    */
   environmentId?: string | undefined;
@@ -8196,15 +8088,13 @@ export interface CreateDataSourceOutput {
   connectionId?: string | undefined;
 
   /**
-   * <p>Specifies the configuration of the data source. It can be set to either
-   *             <code>glueRunConfiguration</code> or <code>redshiftRunConfiguration</code>.</p>
+   * <p>Specifies the configuration of the data source. It can be set to either <code>glueRunConfiguration</code> or <code>redshiftRunConfiguration</code>.</p>
    * @public
    */
   configuration?: DataSourceConfigurationOutput | undefined;
 
   /**
-   * <p>Specifies whether the business name generation is to be enabled for this data
-   *          source.</p>
+   * <p>Specifies whether the business name generation is to be enabled for this data source.</p>
    * @public
    */
   recommendation?: RecommendationConfiguration | undefined;
@@ -8216,8 +8106,7 @@ export interface CreateDataSourceOutput {
   enableSetting?: EnableSetting | undefined;
 
   /**
-   * <p>Specifies whether the assets that this data source creates in the inventory are to be
-   *          also automatically published to the catalog.</p>
+   * <p>Specifies whether the assets that this data source creates in the inventory are to be also automatically published to the catalog.</p>
    * @public
    */
   publishOnImport?: boolean | undefined;
@@ -8247,15 +8136,13 @@ export interface CreateDataSourceOutput {
   lastRunAt?: Date | undefined;
 
   /**
-   * <p>Specifies the error message that is returned if the operation cannot be successfully
-   *          completed.</p>
+   * <p>Specifies the error message that is returned if the operation cannot be successfully completed.</p>
    * @public
    */
   lastRunErrorMessage?: DataSourceErrorMessage | undefined;
 
   /**
-   * <p>Specifies the error message that is returned if the operation cannot be successfully
-   *          completed.</p>
+   * <p>Specifies the error message that is returned if the operation cannot be successfully completed.</p>
    * @public
    */
   errorMessage?: DataSourceErrorMessage | undefined;
@@ -8348,16 +8235,13 @@ export interface CreateDomainInput {
   singleSignOn?: SingleSignOn | undefined;
 
   /**
-   * <p>The domain execution role that is created when an Amazon DataZone domain is created. The
-   *          domain execution role is created in the Amazon Web Services account that houses the
-   *          Amazon DataZone domain.</p>
+   * <p>The domain execution role that is created when an Amazon DataZone domain is created. The domain execution role is created in the Amazon Web Services account that houses the Amazon DataZone domain.</p>
    * @public
    */
   domainExecutionRole: string | undefined;
 
   /**
-   * <p>The identifier of the Amazon Web Services Key Management Service (KMS) key that is used
-   *          to encrypt the Amazon DataZone domain, metadata, and reporting data. </p>
+   * <p>The identifier of the Amazon Web Services Key Management Service (KMS) key that is used to encrypt the Amazon DataZone domain, metadata, and reporting data. </p>
    * @public
    */
   kmsKeyIdentifier?: string | undefined;
@@ -8381,8 +8265,7 @@ export interface CreateDomainInput {
   serviceRole?: string | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier that is provided to ensure the idempotency of the
-   *          request.</p>
+   * <p>A unique, case-sensitive identifier that is provided to ensure the idempotency of the request.</p>
    * @public
    */
   clientToken?: string | undefined;
@@ -8441,9 +8324,7 @@ export interface CreateDomainOutput {
   singleSignOn?: SingleSignOn | undefined;
 
   /**
-   * <p>The domain execution role that is created when an Amazon DataZone domain is created. The
-   *          domain execution role is created in the Amazon Web Services account that houses the
-   *          Amazon DataZone domain.</p>
+   * <p>The domain execution role that is created when an Amazon DataZone domain is created. The domain execution role is created in the Amazon Web Services account that houses the Amazon DataZone domain.</p>
    * @public
    */
   domainExecutionRole?: string | undefined;
@@ -8455,8 +8336,7 @@ export interface CreateDomainOutput {
   arn?: string | undefined;
 
   /**
-   * <p>The identifier of the Amazon Web Services Key Management Service (KMS) key that is used
-   *          to encrypt the Amazon DataZone domain, metadata, and reporting data. </p>
+   * <p>The identifier of the Amazon Web Services Key Management Service (KMS) key that is used to encrypt the Amazon DataZone domain, metadata, and reporting data. </p>
    * @public
    */
   kmsKeyIdentifier?: string | undefined;
@@ -8521,8 +8401,7 @@ export interface CreateDomainUnitInput {
   description?: string | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier that is provided to ensure the idempotency of the
-   *          request.</p>
+   * <p>A unique, case-sensitive identifier that is provided to ensure the idempotency of the request.</p>
    * @public
    */
   clientToken?: string | undefined;
@@ -8713,8 +8592,7 @@ export interface CreateEnvironmentInput {
   name: string | undefined;
 
   /**
-   * <p>The identifier of the environment profile that is used to create this Amazon DataZone
-   *          environment.</p>
+   * <p>The identifier of the environment profile that is used to create this Amazon DataZone environment.</p>
    * @public
    */
   environmentProfileIdentifier?: string | undefined;
@@ -8914,8 +8792,7 @@ export type ProvisioningProperties =
  */
 export namespace ProvisioningProperties {
   /**
-   * <p>The cloud formation properties included as part of the provisioning properties of an
-   *          environment blueprint.</p>
+   * <p>The cloud formation properties included as part of the provisioning properties of an environment blueprint.</p>
    * @public
    */
   export interface CloudFormationMember {
@@ -9062,8 +8939,7 @@ export interface CreateEnvironmentOutput {
   description?: string | undefined;
 
   /**
-   * <p>The ID of the environment profile with which this Amazon DataZone environment was
-   *          created.</p>
+   * <p>The ID of the environment profile with which this Amazon DataZone environment was created.</p>
    * @public
    */
   environmentProfileId?: string | undefined;
@@ -9176,8 +9052,7 @@ export interface CreateEnvironmentActionInput {
   parameters: ActionParameters | undefined;
 
   /**
-   * <p>The description of the environment action that is being created in the
-   *          environment.</p>
+   * <p>The description of the environment action that is being created in the environment.</p>
    * @public
    */
   description?: string | undefined;
@@ -9294,15 +9169,13 @@ export interface CreateEnvironmentProfileOutput {
   domainId: string | undefined;
 
   /**
-   * <p>The Amazon Web Services account ID in which this Amazon DataZone environment profile is
-   *          created.</p>
+   * <p>The Amazon Web Services account ID in which this Amazon DataZone environment profile is created.</p>
    * @public
    */
   awsAccountId?: string | undefined;
 
   /**
-   * <p>The Amazon Web Services region in which this Amazon DataZone environment profile is
-   *          created.</p>
+   * <p>The Amazon Web Services region in which this Amazon DataZone environment profile is created.</p>
    * @public
    */
   awsAccountRegion?: string | undefined;
@@ -9484,15 +9357,13 @@ export interface CreateFormTypeOutput {
   owningProjectId?: string | undefined;
 
   /**
-   * <p>The ID of the Amazon DataZone domain in which this metadata form type was originally
-   *          created.</p>
+   * <p>The ID of the Amazon DataZone domain in which this metadata form type was originally created.</p>
    * @public
    */
   originDomainId?: string | undefined;
 
   /**
-   * <p>The ID of the project in which this Amazon DataZone metadata form type was originally
-   *          created.</p>
+   * <p>The ID of the project in which this Amazon DataZone metadata form type was originally created.</p>
    * @public
    */
   originProjectId?: string | undefined;
@@ -9547,8 +9418,7 @@ export interface CreateGlossaryInput {
   status?: GlossaryStatus | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier that is provided to ensure the idempotency of the
-   *          request.</p>
+   * <p>A unique, case-sensitive identifier that is provided to ensure the idempotency of the request.</p>
    * @public
    */
   clientToken?: string | undefined;
@@ -9674,8 +9544,7 @@ export interface CreateGlossaryTermInput {
   termRelations?: TermRelations | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier that is provided to ensure the idempotency of the
-   *          request.</p>
+   * <p>A unique, case-sensitive identifier that is provided to ensure the idempotency of the request.</p>
    * @public
    */
   clientToken?: string | undefined;
@@ -9751,8 +9620,7 @@ export interface CreateGroupProfileInput {
   groupIdentifier: string | undefined;
 
   /**
-   * <p> A unique, case-sensitive identifier that is provided to ensure the idempotency of the
-   *          request.</p>
+   * <p> A unique, case-sensitive identifier that is provided to ensure the idempotency of the request.</p>
    * @public
    */
   clientToken?: string | undefined;
@@ -9850,8 +9718,7 @@ export interface CreateListingChangeSetInput {
   action: ChangeAction | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier that is provided to ensure the idempotency of the
-   *          request.</p>
+   * <p>A unique, case-sensitive identifier that is provided to ensure the idempotency of the request.</p>
    * @public
    */
   clientToken?: string | undefined;
@@ -9881,8 +9748,7 @@ export interface CreateListingChangeSetOutput {
 }
 
 /**
- * <p>Specifies the account/Region that is to be used during project creation for a particular
- *          blueprint.</p>
+ * <p>Specifies the account/Region that is to be used during project creation for a particular blueprint.</p>
  * @public
  */
 export interface EnvironmentResolvedAccount {
@@ -9917,8 +9783,7 @@ export interface EnvironmentConfigurationUserParameter {
   environmentId?: string | undefined;
 
   /**
-   * <p>Specifies the account/Region that is to be used during project creation for a particular
-   *          blueprint.</p>
+   * <p>Specifies the account/Region that is to be used during project creation for a particular blueprint.</p>
    * @public
    */
   environmentResolvedAccount?: EnvironmentResolvedAccount | undefined;
@@ -9965,8 +9830,7 @@ export interface CreateProjectInput {
   glossaryTerms?: string[] | undefined;
 
   /**
-   * <p>The ID of the domain unit. This parameter is not required and if it is not specified,
-   *          then the project is created at the root domain unit level.</p>
+   * <p>The ID of the domain unit. This parameter is not required and if it is not specified, then the project is created at the root domain unit level.</p>
    * @public
    */
   domainUnitId?: string | undefined;
@@ -10020,8 +9884,7 @@ export interface EnvironmentDeploymentDetails {
 }
 
 /**
- * <p>Specifies the error message that is returned if the operation cannot be successfully
- *          completed.</p>
+ * <p>Specifies the error message that is returned if the operation cannot be successfully completed.</p>
  * @public
  */
 export interface ProjectDeletionError {
@@ -10090,8 +9953,7 @@ export interface CreateProjectOutput {
   projectStatus?: ProjectStatus | undefined;
 
   /**
-   * <p>Specifies the error message that is returned if the operation cannot be successfully
-   *          completed.</p>
+   * <p>Specifies the error message that is returned if the operation cannot be successfully completed.</p>
    * @public
    */
   failureReasons?: ProjectDeletionError[] | undefined;

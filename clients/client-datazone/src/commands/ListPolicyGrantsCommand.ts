@@ -117,6 +117,7 @@ export interface ListPolicyGrantsCommandOutput extends ListPolicyGrantsOutput, _
  * //       },
  * //       createdAt: new Date("TIMESTAMP"),
  * //       createdBy: "STRING_VALUE",
+ * //       grantId: "STRING_VALUE",
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",

@@ -28,8 +28,7 @@ export interface DeleteEnvironmentActionCommandInput extends DeleteEnvironmentAc
 export interface DeleteEnvironmentActionCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Deletes an action for the environment, for example, deletes a console link for an
- *          analytics tool that is available in this environment.</p>
+ * <p>Deletes an action for the environment, for example, deletes a console link for an analytics tool that is available in this environment.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

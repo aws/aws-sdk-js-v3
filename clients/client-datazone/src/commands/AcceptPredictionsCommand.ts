@@ -32,8 +32,7 @@ export interface AcceptPredictionsCommandInput extends AcceptPredictionsInput {}
 export interface AcceptPredictionsCommandOutput extends AcceptPredictionsOutput, __MetadataBearer {}
 
 /**
- * <p>Accepts automatically generated business-friendly metadata for your Amazon DataZone
- *          assets.</p>
+ * <p>Accepts automatically generated business-friendly metadata for your Amazon DataZone assets.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
