@@ -246,6 +246,7 @@ export const ResourceType = {
   EVENT_DESTINATION: "event-destination",
   KEYWORD: "keyword",
   MESSAGE: "message",
+  MESSAGE_TEMPLATE: "message-template",
   OPTED_OUT_NUMBER: "opted-out-number",
   OPT_OUT_LIST: "opt-out-list",
   PHONE_NUMBER: "phone-number",
@@ -487,6 +488,7 @@ export const ValidationExceptionReason = {
   COUNTRY_CODE_MISMATCH: "COUNTRY_CODE_MISMATCH",
   DESTINATION_COUNTRY_BLOCKED: "DESTINATION_COUNTRY_BLOCKED",
   FIELD_VALIDATION_FAILED: "FIELD_VALIDATION_FAILED",
+  INTERNATIONAL_SENDING_NOT_SUPPORTED: "INTERNATIONAL_SENDING_NOT_SUPPORTED",
   INVALID_ARN: "INVALID_ARN",
   INVALID_FILTER_VALUES: "INVALID_FILTER_VALUES",
   INVALID_IDENTITY_FOR_DESTINATION_COUNTRY: "INVALID_IDENTITY_FOR_DESTINATION_COUNTRY",
@@ -3217,6 +3219,12 @@ export interface PhoneNumberInformation {
    * @public
    */
   OptOutListName: string | undefined;
+
+  /**
+   * <p>When set to true the international sending of phone number is Enabled.</p>
+   * @public
+   */
+  InternationalSendingEnabled?: boolean | undefined;
 
   /**
    * <p>When set to true the phone number can't be deleted.</p>
@@ -6326,6 +6334,12 @@ export interface RequestPhoneNumberRequest {
   RegistrationId?: string | undefined;
 
   /**
+   * <p>By default this is set to false. When set to true the international sending of phone number is Enabled. </p>
+   * @public
+   */
+  InternationalSendingEnabled?: boolean | undefined;
+
+  /**
    * <p>By default this is set to false. When set to true the phone number can't be deleted.</p>
    * @public
    */
@@ -6431,6 +6445,12 @@ export interface RequestPhoneNumberResult {
    * @public
    */
   OptOutListName?: string | undefined;
+
+  /**
+   * <p>By default this is set to false. When set to true the international sending of phone number is Enabled. </p>
+   * @public
+   */
+  InternationalSendingEnabled?: boolean | undefined;
 
   /**
    * <p>By default this is set to false. When set to true the phone number can't be deleted. </p>
@@ -7393,6 +7413,12 @@ export interface UpdatePhoneNumberRequest {
   OptOutListName?: string | undefined;
 
   /**
+   * <p>By default this is set to false. When set to true the international sending of phone number is Enabled. </p>
+   * @public
+   */
+  InternationalSendingEnabled?: boolean | undefined;
+
+  /**
    * <p>By default this is set to false. When set to true the phone number can't be deleted. </p>
    * @public
    */
@@ -7486,6 +7512,12 @@ export interface UpdatePhoneNumberResult {
    * @public
    */
   OptOutListName?: string | undefined;
+
+  /**
+   * <p>When set to true the international sending of phone number is Enabled.</p>
+   * @public
+   */
+  InternationalSendingEnabled?: boolean | undefined;
 
   /**
    * <p>When set to true the phone number can't be deleted.</p>

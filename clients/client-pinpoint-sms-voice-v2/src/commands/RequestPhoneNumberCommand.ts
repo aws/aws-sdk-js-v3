@@ -49,6 +49,7 @@ export interface RequestPhoneNumberCommandOutput extends RequestPhoneNumberResul
  *   OptOutListName: "STRING_VALUE",
  *   PoolId: "STRING_VALUE",
  *   RegistrationId: "STRING_VALUE",
+ *   InternationalSendingEnabled: true || false,
  *   DeletionProtectionEnabled: true || false,
  *   Tags: [ // TagList
  *     { // Tag
@@ -77,6 +78,7 @@ export interface RequestPhoneNumberCommandOutput extends RequestPhoneNumberResul
  * //   TwoWayChannelRole: "STRING_VALUE",
  * //   SelfManagedOptOutsEnabled: true || false,
  * //   OptOutListName: "STRING_VALUE",
+ * //   InternationalSendingEnabled: true || false,
  * //   DeletionProtectionEnabled: true || false,
  * //   PoolId: "STRING_VALUE",
  * //   RegistrationId: "STRING_VALUE",

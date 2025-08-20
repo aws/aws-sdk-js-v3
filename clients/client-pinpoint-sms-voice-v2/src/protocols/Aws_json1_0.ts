@@ -3963,6 +3963,7 @@ const se_RequestPhoneNumberRequest = (input: RequestPhoneNumberRequest, context:
   return take(input, {
     ClientToken: [true, (_) => _ ?? generateIdempotencyToken()],
     DeletionProtectionEnabled: [],
+    InternationalSendingEnabled: [],
     IsoCountryCode: [],
     MessageType: [],
     NumberCapabilities: _json,
@@ -4662,6 +4663,7 @@ const de_PhoneNumberInformation = (output: any, context: __SerdeContext): PhoneN
   return take(output, {
     CreatedTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     DeletionProtectionEnabled: __expectBoolean,
+    InternationalSendingEnabled: __expectBoolean,
     IsoCountryCode: __expectString,
     MessageType: __expectString,
     MonthlyLeasingPrice: __expectString,
@@ -5006,6 +5008,7 @@ const de_RequestPhoneNumberResult = (output: any, context: __SerdeContext): Requ
   return take(output, {
     CreatedTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     DeletionProtectionEnabled: __expectBoolean,
+    InternationalSendingEnabled: __expectBoolean,
     IsoCountryCode: __expectString,
     MessageType: __expectString,
     MonthlyLeasingPrice: __expectString,
@@ -5114,6 +5117,7 @@ const de_UpdatePhoneNumberResult = (output: any, context: __SerdeContext): Updat
   return take(output, {
     CreatedTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     DeletionProtectionEnabled: __expectBoolean,
+    InternationalSendingEnabled: __expectBoolean,
     IsoCountryCode: __expectString,
     MessageType: __expectString,
     MonthlyLeasingPrice: __expectString,

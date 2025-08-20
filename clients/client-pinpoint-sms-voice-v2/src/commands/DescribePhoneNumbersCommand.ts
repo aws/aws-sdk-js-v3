@@ -76,6 +76,7 @@ export interface DescribePhoneNumbersCommandOutput extends DescribePhoneNumbersR
  * //       TwoWayChannelRole: "STRING_VALUE",
  * //       SelfManagedOptOutsEnabled: true || false, // required
  * //       OptOutListName: "STRING_VALUE", // required
+ * //       InternationalSendingEnabled: true || false,
  * //       DeletionProtectionEnabled: true || false, // required
  * //       PoolId: "STRING_VALUE",
  * //       RegistrationId: "STRING_VALUE",
