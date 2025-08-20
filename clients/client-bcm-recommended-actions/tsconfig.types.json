@@ -6,6 +6,5 @@
     "declarationDir": "dist-types",
     "emitDeclarationOnly": true,
     "noCheck": false
-  },
-  "include": ["src"]
+  }
 }
