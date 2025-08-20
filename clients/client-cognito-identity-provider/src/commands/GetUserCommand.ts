@@ -15,7 +15,7 @@ import {
   GetUserRequestFilterSensitiveLog,
   GetUserResponse,
   GetUserResponseFilterSensitiveLog,
-} from "../models/models_0";
+} from "../models/models_1";
 import { de_GetUserCommand, se_GetUserCommand } from "../protocols/Aws_json1_1";
 
 /**

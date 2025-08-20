@@ -13,9 +13,11 @@ import { commonParams } from "../endpoint/EndpointParameters";
 import {
   GetTokensFromRefreshTokenRequest,
   GetTokensFromRefreshTokenRequestFilterSensitiveLog,
+} from "../models/models_0";
+import {
   GetTokensFromRefreshTokenResponse,
   GetTokensFromRefreshTokenResponseFilterSensitiveLog,
-} from "../models/models_0";
+} from "../models/models_1";
 import { de_GetTokensFromRefreshTokenCommand, se_GetTokensFromRefreshTokenCommand } from "../protocols/Aws_json1_1";
 
 /**

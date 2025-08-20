@@ -36,8 +36,12 @@ export interface AdminResetUserPasswordCommandInput extends AdminResetUserPasswo
 export interface AdminResetUserPasswordCommandOutput extends AdminResetUserPasswordResponse, __MetadataBearer {}
 
 /**
- * <p>Resets the specified user's password in a user pool. This operation doesn't
- *             change the user's password, but sends a password-reset code.</p>
+ * <p>Begins the password reset process. Sets the requested user’s account into a
+ *                 <code>RESET_REQUIRED</code> status, and sends them a password-reset code. Your user
+ *             pool also sends the user a notification with a reset code and the information that their
+ *             password has been reset. At sign-in, your application or the managed login session
+ *             receives a challenge to complete the reset by confirming the code and setting a new
+ *             password.</p>
  *          <p>To use this API operation, your user pool must have self-service account recovery
  *             configured.</p>
  *          <note>

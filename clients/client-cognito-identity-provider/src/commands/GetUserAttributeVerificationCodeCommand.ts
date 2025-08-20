@@ -14,7 +14,7 @@ import {
   GetUserAttributeVerificationCodeRequest,
   GetUserAttributeVerificationCodeRequestFilterSensitiveLog,
   GetUserAttributeVerificationCodeResponse,
-} from "../models/models_0";
+} from "../models/models_1";
 import {
   de_GetUserAttributeVerificationCodeCommand,
   se_GetUserAttributeVerificationCodeCommand,

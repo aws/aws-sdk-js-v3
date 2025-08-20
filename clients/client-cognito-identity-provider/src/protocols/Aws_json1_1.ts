@@ -129,6 +129,7 @@ import {
   CreateResourceServerCommandInput,
   CreateResourceServerCommandOutput,
 } from "../commands/CreateResourceServerCommand";
+import { CreateTermsCommandInput, CreateTermsCommandOutput } from "../commands/CreateTermsCommand";
 import {
   CreateUserImportJobCommandInput,
   CreateUserImportJobCommandOutput,
@@ -155,6 +156,7 @@ import {
   DeleteResourceServerCommandInput,
   DeleteResourceServerCommandOutput,
 } from "../commands/DeleteResourceServerCommand";
+import { DeleteTermsCommandInput, DeleteTermsCommandOutput } from "../commands/DeleteTermsCommand";
 import {
   DeleteUserAttributesCommandInput,
   DeleteUserAttributesCommandOutput,
@@ -193,6 +195,7 @@ import {
   DescribeRiskConfigurationCommandInput,
   DescribeRiskConfigurationCommandOutput,
 } from "../commands/DescribeRiskConfigurationCommand";
+import { DescribeTermsCommandInput, DescribeTermsCommandOutput } from "../commands/DescribeTermsCommand";
 import {
   DescribeUserImportJobCommandInput,
   DescribeUserImportJobCommandOutput,
@@ -254,6 +257,7 @@ import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "../commands/ListTagsForResourceCommand";
+import { ListTermsCommandInput, ListTermsCommandOutput } from "../commands/ListTermsCommand";
 import { ListUserImportJobsCommandInput, ListUserImportJobsCommandOutput } from "../commands/ListUserImportJobsCommand";
 import {
   ListUserPoolClientsCommandInput,
@@ -320,6 +324,7 @@ import {
   UpdateResourceServerCommandInput,
   UpdateResourceServerCommandOutput,
 } from "../commands/UpdateResourceServerCommand";
+import { UpdateTermsCommandInput, UpdateTermsCommandOutput } from "../commands/UpdateTermsCommand";
 import {
   UpdateUserAttributesCommandInput,
   UpdateUserAttributesCommandOutput,
@@ -410,6 +415,8 @@ import {
   CreateManagedLoginBrandingRequest,
   CreateManagedLoginBrandingResponse,
   CreateResourceServerRequest,
+  CreateTermsRequest,
+  CreateTermsResponse,
   CreateUserImportJobRequest,
   CreateUserImportJobResponse,
   CreateUserPoolClientRequest,
@@ -424,6 +431,7 @@ import {
   DeleteIdentityProviderRequest,
   DeleteManagedLoginBrandingRequest,
   DeleteResourceServerRequest,
+  DeleteTermsRequest,
   DeleteUserAttributesRequest,
   DeleteUserPoolClientRequest,
   DeleteUserPoolDomainRequest,
@@ -440,6 +448,8 @@ import {
   DescribeResourceServerRequest,
   DescribeRiskConfigurationRequest,
   DescribeRiskConfigurationResponse,
+  DescribeTermsRequest,
+  DescribeTermsResponse,
   DescribeUserImportJobRequest,
   DescribeUserImportJobResponse,
   DescribeUserPoolClientRequest,
@@ -473,10 +483,6 @@ import {
   GetLogDeliveryConfigurationRequest,
   GetSigningCertificateRequest,
   GetTokensFromRefreshTokenRequest,
-  GetUICustomizationRequest,
-  GetUICustomizationResponse,
-  GetUserAttributeVerificationCodeRequest,
-  GetUserRequest,
   GroupExistsException,
   GroupType,
   HttpHeader,
@@ -510,7 +516,6 @@ import {
   PreTokenGenerationVersionConfigType,
   ProviderUserIdentifierType,
   RecoveryOptionType,
-  RefreshTokenReuseException,
   RefreshTokenRotationType,
   ResourceNotFoundException,
   ResourceServerScopeType,
@@ -525,11 +530,12 @@ import {
   SoftwareTokenMFANotFoundException,
   SoftwareTokenMfaSettingsType,
   StringAttributeConstraintsType,
+  TermsExistsException,
+  TermsType,
   TierChangeNotAllowedException,
   TokenValidityUnitsType,
   TooManyFailedAttemptsException,
   TooManyRequestsException,
-  UICustomizationType,
   UnexpectedLambdaException,
   UnsupportedIdentityProviderException,
   UnsupportedOperationException,
@@ -563,8 +569,12 @@ import {
 import {
   EmailMfaConfigType,
   EnableSoftwareTokenMFAException,
+  GetUICustomizationRequest,
+  GetUICustomizationResponse,
+  GetUserAttributeVerificationCodeRequest,
   GetUserAuthFactorsRequest,
   GetUserPoolMfaConfigRequest,
+  GetUserRequest,
   GlobalSignOutRequest,
   InitiateAuthRequest,
   ListDevicesRequest,
@@ -575,6 +585,8 @@ import {
   ListIdentityProvidersResponse,
   ListResourceServersRequest,
   ListTagsForResourceRequest,
+  ListTermsRequest,
+  ListTermsResponse,
   ListUserImportJobsRequest,
   ListUserImportJobsResponse,
   ListUserPoolClientsRequest,
@@ -587,6 +599,7 @@ import {
   ListWebAuthnCredentialsRequest,
   ListWebAuthnCredentialsResponse,
   ProviderDescription,
+  RefreshTokenReuseException,
   ResendConfirmationCodeRequest,
   RespondToAuthChallengeRequest,
   RevokeTokenRequest,
@@ -608,6 +621,8 @@ import {
   StopUserImportJobRequest,
   StopUserImportJobResponse,
   TagResourceRequest,
+  TermsDescriptionType,
+  UICustomizationType,
   UnauthorizedException,
   UnsupportedTokenTypeException,
   UntagResourceRequest,
@@ -620,6 +635,8 @@ import {
   UpdateManagedLoginBrandingRequest,
   UpdateManagedLoginBrandingResponse,
   UpdateResourceServerRequest,
+  UpdateTermsRequest,
+  UpdateTermsResponse,
   UpdateUserAttributesRequest,
   UpdateUserPoolClientRequest,
   UpdateUserPoolClientResponse,
@@ -1115,6 +1132,19 @@ export const se_CreateResourceServerCommand = async (
 };
 
 /**
+ * serializeAws_json1_1CreateTermsCommand
+ */
+export const se_CreateTermsCommand = async (
+  input: CreateTermsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("CreateTerms");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_json1_1CreateUserImportJobCommand
  */
 export const se_CreateUserImportJobCommand = async (
@@ -1213,6 +1243,19 @@ export const se_DeleteResourceServerCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteResourceServer");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1DeleteTermsCommand
+ */
+export const se_DeleteTermsCommand = async (
+  input: DeleteTermsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("DeleteTerms");
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1356,6 +1399,19 @@ export const se_DescribeRiskConfigurationCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeRiskConfiguration");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1DescribeTermsCommand
+ */
+export const se_DescribeTermsCommand = async (
+  input: DescribeTermsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("DescribeTerms");
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1681,6 +1737,19 @@ export const se_ListTagsForResourceCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListTagsForResource");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1ListTermsCommand
+ */
+export const se_ListTermsCommand = async (
+  input: ListTermsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("ListTerms");
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2029,6 +2098,19 @@ export const se_UpdateResourceServerCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("UpdateResourceServer");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1UpdateTermsCommand
+ */
+export const se_UpdateTermsCommand = async (
+  input: UpdateTermsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("UpdateTerms");
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2841,6 +2923,26 @@ export const de_CreateResourceServerCommand = async (
 };
 
 /**
+ * deserializeAws_json1_1CreateTermsCommand
+ */
+export const de_CreateTermsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateTermsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_CreateTermsResponse(data, context);
+  const response: CreateTermsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
  * deserializeAws_json1_1CreateUserImportJobCommand
  */
 export const de_CreateUserImportJobCommand = async (
@@ -2983,6 +3085,23 @@ export const de_DeleteResourceServerCommand = async (
   }
   await collectBody(output.body, context);
   const response: DeleteResourceServerCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DeleteTermsCommand
+ */
+export const de_DeleteTermsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteTermsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  await collectBody(output.body, context);
+  const response: DeleteTermsCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
@@ -3193,6 +3312,26 @@ export const de_DescribeRiskConfigurationCommand = async (
   let contents: any = {};
   contents = de_DescribeRiskConfigurationResponse(data, context);
   const response: DescribeRiskConfigurationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DescribeTermsCommand
+ */
+export const de_DescribeTermsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeTermsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribeTermsResponse(data, context);
+  const response: DescribeTermsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
@@ -3690,6 +3829,26 @@ export const de_ListTagsForResourceCommand = async (
   let contents: any = {};
   contents = _json(data);
   const response: ListTagsForResourceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ListTermsCommand
+ */
+export const de_ListTermsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListTermsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ListTermsResponse(data, context);
+  const response: ListTermsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
@@ -4237,6 +4396,26 @@ export const de_UpdateResourceServerCommand = async (
 };
 
 /**
+ * deserializeAws_json1_1UpdateTermsCommand
+ */
+export const de_UpdateTermsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateTermsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_UpdateTermsResponse(data, context);
+  const response: UpdateTermsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
  * deserializeAws_json1_1UpdateUserAttributesCommand
  */
 export const de_UpdateUserAttributesCommand = async (
@@ -4495,6 +4674,9 @@ const de_CommandError = async (output: __HttpResponse, context: __SerdeContext):
     case "ManagedLoginBrandingExistsException":
     case "com.amazonaws.cognitoidentityprovider#ManagedLoginBrandingExistsException":
       throw await de_ManagedLoginBrandingExistsExceptionRes(parsedOutput, context);
+    case "TermsExistsException":
+    case "com.amazonaws.cognitoidentityprovider#TermsExistsException":
+      throw await de_TermsExistsExceptionRes(parsedOutput, context);
     case "FeatureUnavailableInTierException":
     case "com.amazonaws.cognitoidentityprovider#FeatureUnavailableInTierException":
       throw await de_FeatureUnavailableInTierExceptionRes(parsedOutput, context);
@@ -5025,6 +5207,22 @@ const de_SoftwareTokenMFANotFoundExceptionRes = async (
   const body = parsedOutput.body;
   const deserialized: any = _json(body);
   const exception = new SoftwareTokenMFANotFoundException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+/**
+ * deserializeAws_json1_1TermsExistsExceptionRes
+ */
+const de_TermsExistsExceptionRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<TermsExistsException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = _json(body);
+  const exception = new TermsExistsException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
   });
@@ -5572,6 +5770,8 @@ const se_CreateManagedLoginBrandingRequest = (
 
 // se_CreateResourceServerRequest omitted.
 
+// se_CreateTermsRequest omitted.
+
 // se_CreateUserImportJobRequest omitted.
 
 // se_CreateUserPoolClientRequest omitted.
@@ -5596,6 +5796,8 @@ const se_CreateManagedLoginBrandingRequest = (
 
 // se_DeleteResourceServerRequest omitted.
 
+// se_DeleteTermsRequest omitted.
+
 // se_DeleteUserAttributesRequest omitted.
 
 // se_DeleteUserPoolClientRequest omitted.
@@ -5619,6 +5821,8 @@ const se_CreateManagedLoginBrandingRequest = (
 // se_DescribeResourceServerRequest omitted.
 
 // se_DescribeRiskConfigurationRequest omitted.
+
+// se_DescribeTermsRequest omitted.
 
 // se_DescribeUserImportJobRequest omitted.
 
@@ -5691,6 +5895,8 @@ const se_Document = (input: __DocumentType, context: __SerdeContext): any => {
 
 // se_LambdaConfigType omitted.
 
+// se_LinksType omitted.
+
 // se_ListDevicesRequest omitted.
 
 // se_ListGroupsRequest omitted.
@@ -5700,6 +5906,8 @@ const se_Document = (input: __DocumentType, context: __SerdeContext): any => {
 // se_ListResourceServersRequest omitted.
 
 // se_ListTagsForResourceRequest omitted.
+
+// se_ListTermsRequest omitted.
 
 // se_ListUserImportJobsRequest omitted.
 
@@ -5848,6 +6056,8 @@ const se_UpdateManagedLoginBrandingRequest = (
 };
 
 // se_UpdateResourceServerRequest omitted.
+
+// se_UpdateTermsRequest omitted.
 
 // se_UpdateUserAttributesRequest omitted.
 
@@ -6142,6 +6352,15 @@ const de_CreateManagedLoginBrandingResponse = (
 // de_CreateResourceServerResponse omitted.
 
 /**
+ * deserializeAws_json1_1CreateTermsResponse
+ */
+const de_CreateTermsResponse = (output: any, context: __SerdeContext): CreateTermsResponse => {
+  return take(output, {
+    Terms: (_: any) => de_TermsType(_, context),
+  }) as any;
+};
+
+/**
  * deserializeAws_json1_1CreateUserImportJobResponse
  */
 const de_CreateUserImportJobResponse = (output: any, context: __SerdeContext): CreateUserImportJobResponse => {
@@ -6229,6 +6448,15 @@ const de_DescribeRiskConfigurationResponse = (
 ): DescribeRiskConfigurationResponse => {
   return take(output, {
     RiskConfiguration: (_: any) => de_RiskConfigurationType(_, context),
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1DescribeTermsResponse
+ */
+const de_DescribeTermsResponse = (output: any, context: __SerdeContext): DescribeTermsResponse => {
+  return take(output, {
+    Terms: (_: any) => de_TermsType(_, context),
   }) as any;
 };
 
@@ -6464,6 +6692,8 @@ const de_IdentityProviderType = (output: any, context: __SerdeContext): Identity
 
 // de_LimitExceededException omitted.
 
+// de_LinksType omitted.
+
 /**
  * deserializeAws_json1_1ListDevicesResponse
  */
@@ -6499,6 +6729,16 @@ const de_ListIdentityProvidersResponse = (output: any, context: __SerdeContext):
 // de_ListResourceServersResponse omitted.
 
 // de_ListTagsForResourceResponse omitted.
+
+/**
+ * deserializeAws_json1_1ListTermsResponse
+ */
+const de_ListTermsResponse = (output: any, context: __SerdeContext): ListTermsResponse => {
+  return take(output, {
+    NextToken: __expectString,
+    Terms: (_: any) => de_TermsDescriptionListType(_, context),
+  }) as any;
+};
 
 /**
  * deserializeAws_json1_1ListUserImportJobsResponse
@@ -6759,6 +6999,50 @@ const de_StopUserImportJobResponse = (output: any, context: __SerdeContext): Sto
 
 // de_TagResourceResponse omitted.
 
+/**
+ * deserializeAws_json1_1TermsDescriptionListType
+ */
+const de_TermsDescriptionListType = (output: any, context: __SerdeContext): TermsDescriptionType[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_TermsDescriptionType(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_json1_1TermsDescriptionType
+ */
+const de_TermsDescriptionType = (output: any, context: __SerdeContext): TermsDescriptionType => {
+  return take(output, {
+    CreationDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Enforcement: __expectString,
+    LastModifiedDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    TermsId: __expectString,
+    TermsName: __expectString,
+  }) as any;
+};
+
+// de_TermsExistsException omitted.
+
+/**
+ * deserializeAws_json1_1TermsType
+ */
+const de_TermsType = (output: any, context: __SerdeContext): TermsType => {
+  return take(output, {
+    ClientId: __expectString,
+    CreationDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Enforcement: __expectString,
+    LastModifiedDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Links: _json,
+    TermsId: __expectString,
+    TermsName: __expectString,
+    TermsSource: __expectString,
+    UserPoolId: __expectString,
+  }) as any;
+};
+
 // de_TierChangeNotAllowedException omitted.
 
 // de_TokenValidityUnitsType omitted.
@@ -6831,6 +7115,15 @@ const de_UpdateManagedLoginBrandingResponse = (
 };
 
 // de_UpdateResourceServerResponse omitted.
+
+/**
+ * deserializeAws_json1_1UpdateTermsResponse
+ */
+const de_UpdateTermsResponse = (output: any, context: __SerdeContext): UpdateTermsResponse => {
+  return take(output, {
+    Terms: (_: any) => de_TermsType(_, context),
+  }) as any;
+};
 
 // de_UpdateUserAttributesResponse omitted.
 

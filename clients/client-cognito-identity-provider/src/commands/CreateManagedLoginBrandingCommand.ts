@@ -38,7 +38,7 @@ export interface CreateManagedLoginBrandingCommandOutput extends CreateManagedLo
 /**
  * <p>Creates a new set of branding settings for a user pool style and associates it with an
  *             app client. This operation is the programmatic option for the creation of a new style in
- *             the branding designer.</p>
+ *             the branding editor.</p>
  *          <p>Provides values for UI customization in a <code>Settings</code> JSON object and image
  *             files in an <code>Assets</code> array. To send the JSON object <code>Document</code>
  *             type parameter in <code>Settings</code>, you might need to update to the most recent

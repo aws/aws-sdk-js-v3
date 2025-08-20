@@ -33,7 +33,7 @@ export interface UpdateManagedLoginBrandingCommandOutput extends UpdateManagedLo
 
 /**
  * <p>Configures the branding settings for a user pool style. This operation is the
- *             programmatic option for the configuration of a style in the branding designer.</p>
+ *             programmatic option for the configuration of a style in the branding editor.</p>
  *          <p>Provides values for UI customization in a <code>Settings</code> JSON object and image
  *             files in an <code>Assets</code> array.</p>
  *          <p> This operation has a 2-megabyte request-size limit and include the CSS settings and

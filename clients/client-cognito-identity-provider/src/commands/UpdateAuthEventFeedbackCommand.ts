@@ -47,7 +47,7 @@ export interface UpdateAuthEventFeedbackCommandOutput extends UpdateAuthEventFee
  *             invoke this operation when they select the link that corresponds to
  *                 <code>\{one-click-link-valid\}</code> or <code>\{one-click-link-invalid\}</code> in your
  *             notification template. Because <code>FeedbackToken</code> is a required parameter, you
- *             can' make requests to <code>UpdateAuthEventFeedback</code> without the contents of
+ *             can't make requests to <code>UpdateAuthEventFeedback</code> without the contents of
  *             the notification email message.</p>
  *          <note>
  *             <p>Amazon Cognito doesn't evaluate Identity and Access Management (IAM) policies in requests for this API operation. For

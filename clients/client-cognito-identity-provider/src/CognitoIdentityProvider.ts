@@ -184,6 +184,7 @@ import {
   CreateResourceServerCommandInput,
   CreateResourceServerCommandOutput,
 } from "./commands/CreateResourceServerCommand";
+import { CreateTermsCommand, CreateTermsCommandInput, CreateTermsCommandOutput } from "./commands/CreateTermsCommand";
 import {
   CreateUserImportJobCommand,
   CreateUserImportJobCommandInput,
@@ -220,6 +221,7 @@ import {
   DeleteResourceServerCommandInput,
   DeleteResourceServerCommandOutput,
 } from "./commands/DeleteResourceServerCommand";
+import { DeleteTermsCommand, DeleteTermsCommandInput, DeleteTermsCommandOutput } from "./commands/DeleteTermsCommand";
 import {
   DeleteUserAttributesCommand,
   DeleteUserAttributesCommandInput,
@@ -271,6 +273,11 @@ import {
   DescribeRiskConfigurationCommandInput,
   DescribeRiskConfigurationCommandOutput,
 } from "./commands/DescribeRiskConfigurationCommand";
+import {
+  DescribeTermsCommand,
+  DescribeTermsCommandInput,
+  DescribeTermsCommandOutput,
+} from "./commands/DescribeTermsCommand";
 import {
   DescribeUserImportJobCommand,
   DescribeUserImportJobCommandInput,
@@ -376,6 +383,7 @@ import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
+import { ListTermsCommand, ListTermsCommandInput, ListTermsCommandOutput } from "./commands/ListTermsCommand";
 import {
   ListUserImportJobsCommand,
   ListUserImportJobsCommandInput,
@@ -491,6 +499,7 @@ import {
   UpdateResourceServerCommandInput,
   UpdateResourceServerCommandOutput,
 } from "./commands/UpdateResourceServerCommand";
+import { UpdateTermsCommand, UpdateTermsCommandInput, UpdateTermsCommandOutput } from "./commands/UpdateTermsCommand";
 import {
   UpdateUserAttributesCommand,
   UpdateUserAttributesCommandInput,
@@ -560,6 +569,7 @@ const commands = {
   CreateIdentityProviderCommand,
   CreateManagedLoginBrandingCommand,
   CreateResourceServerCommand,
+  CreateTermsCommand,
   CreateUserImportJobCommand,
   CreateUserPoolCommand,
   CreateUserPoolClientCommand,
@@ -568,6 +578,7 @@ const commands = {
   DeleteIdentityProviderCommand,
   DeleteManagedLoginBrandingCommand,
   DeleteResourceServerCommand,
+  DeleteTermsCommand,
   DeleteUserCommand,
   DeleteUserAttributesCommand,
   DeleteUserPoolCommand,
@@ -579,6 +590,7 @@ const commands = {
   DescribeManagedLoginBrandingByClientCommand,
   DescribeResourceServerCommand,
   DescribeRiskConfigurationCommand,
+  DescribeTermsCommand,
   DescribeUserImportJobCommand,
   DescribeUserPoolCommand,
   DescribeUserPoolClientCommand,
@@ -604,6 +616,7 @@ const commands = {
   ListIdentityProvidersCommand,
   ListResourceServersCommand,
   ListTagsForResourceCommand,
+  ListTermsCommand,
   ListUserImportJobsCommand,
   ListUserPoolClientsCommand,
   ListUserPoolsCommand,
@@ -631,6 +644,7 @@ const commands = {
   UpdateIdentityProviderCommand,
   UpdateManagedLoginBrandingCommand,
   UpdateResourceServerCommand,
+  UpdateTermsCommand,
   UpdateUserAttributesCommand,
   UpdateUserPoolCommand,
   UpdateUserPoolClientCommand,
@@ -1232,6 +1246,17 @@ export interface CognitoIdentityProvider {
   ): void;
 
   /**
+   * @see {@link CreateTermsCommand}
+   */
+  createTerms(args: CreateTermsCommandInput, options?: __HttpHandlerOptions): Promise<CreateTermsCommandOutput>;
+  createTerms(args: CreateTermsCommandInput, cb: (err: any, data?: CreateTermsCommandOutput) => void): void;
+  createTerms(
+    args: CreateTermsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateTermsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link CreateUserImportJobCommand}
    */
   createUserImportJob(
@@ -1356,6 +1381,17 @@ export interface CognitoIdentityProvider {
     args: DeleteResourceServerCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteResourceServerCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteTermsCommand}
+   */
+  deleteTerms(args: DeleteTermsCommandInput, options?: __HttpHandlerOptions): Promise<DeleteTermsCommandOutput>;
+  deleteTerms(args: DeleteTermsCommandInput, cb: (err: any, data?: DeleteTermsCommandOutput) => void): void;
+  deleteTerms(
+    args: DeleteTermsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteTermsCommandOutput) => void
   ): void;
 
   /**
@@ -1534,6 +1570,17 @@ export interface CognitoIdentityProvider {
     args: DescribeRiskConfigurationCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DescribeRiskConfigurationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeTermsCommand}
+   */
+  describeTerms(args: DescribeTermsCommandInput, options?: __HttpHandlerOptions): Promise<DescribeTermsCommandOutput>;
+  describeTerms(args: DescribeTermsCommandInput, cb: (err: any, data?: DescribeTermsCommandOutput) => void): void;
+  describeTerms(
+    args: DescribeTermsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeTermsCommandOutput) => void
   ): void;
 
   /**
@@ -1902,6 +1949,17 @@ export interface CognitoIdentityProvider {
     args: ListTagsForResourceCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListTermsCommand}
+   */
+  listTerms(args: ListTermsCommandInput, options?: __HttpHandlerOptions): Promise<ListTermsCommandOutput>;
+  listTerms(args: ListTermsCommandInput, cb: (err: any, data?: ListTermsCommandOutput) => void): void;
+  listTerms(
+    args: ListTermsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListTermsCommandOutput) => void
   ): void;
 
   /**
@@ -2317,6 +2375,17 @@ export interface CognitoIdentityProvider {
     args: UpdateResourceServerCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateResourceServerCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateTermsCommand}
+   */
+  updateTerms(args: UpdateTermsCommandInput, options?: __HttpHandlerOptions): Promise<UpdateTermsCommandOutput>;
+  updateTerms(args: UpdateTermsCommandInput, cb: (err: any, data?: UpdateTermsCommandOutput) => void): void;
+  updateTerms(
+    args: UpdateTermsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateTermsCommandOutput) => void
   ): void;
 
   /**

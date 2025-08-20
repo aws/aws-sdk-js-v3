@@ -159,6 +159,7 @@ import {
   CreateResourceServerCommandInput,
   CreateResourceServerCommandOutput,
 } from "./commands/CreateResourceServerCommand";
+import { CreateTermsCommandInput, CreateTermsCommandOutput } from "./commands/CreateTermsCommand";
 import {
   CreateUserImportJobCommandInput,
   CreateUserImportJobCommandOutput,
@@ -185,6 +186,7 @@ import {
   DeleteResourceServerCommandInput,
   DeleteResourceServerCommandOutput,
 } from "./commands/DeleteResourceServerCommand";
+import { DeleteTermsCommandInput, DeleteTermsCommandOutput } from "./commands/DeleteTermsCommand";
 import {
   DeleteUserAttributesCommandInput,
   DeleteUserAttributesCommandOutput,
@@ -223,6 +225,7 @@ import {
   DescribeRiskConfigurationCommandInput,
   DescribeRiskConfigurationCommandOutput,
 } from "./commands/DescribeRiskConfigurationCommand";
+import { DescribeTermsCommandInput, DescribeTermsCommandOutput } from "./commands/DescribeTermsCommand";
 import {
   DescribeUserImportJobCommandInput,
   DescribeUserImportJobCommandOutput,
@@ -284,6 +287,7 @@ import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
+import { ListTermsCommandInput, ListTermsCommandOutput } from "./commands/ListTermsCommand";
 import { ListUserImportJobsCommandInput, ListUserImportJobsCommandOutput } from "./commands/ListUserImportJobsCommand";
 import {
   ListUserPoolClientsCommandInput,
@@ -350,6 +354,7 @@ import {
   UpdateResourceServerCommandInput,
   UpdateResourceServerCommandOutput,
 } from "./commands/UpdateResourceServerCommand";
+import { UpdateTermsCommandInput, UpdateTermsCommandOutput } from "./commands/UpdateTermsCommand";
 import {
   UpdateUserAttributesCommandInput,
   UpdateUserAttributesCommandOutput,
@@ -423,6 +428,7 @@ export type ServiceInputTypes =
   | CreateIdentityProviderCommandInput
   | CreateManagedLoginBrandingCommandInput
   | CreateResourceServerCommandInput
+  | CreateTermsCommandInput
   | CreateUserImportJobCommandInput
   | CreateUserPoolClientCommandInput
   | CreateUserPoolCommandInput
@@ -431,6 +437,7 @@ export type ServiceInputTypes =
   | DeleteIdentityProviderCommandInput
   | DeleteManagedLoginBrandingCommandInput
   | DeleteResourceServerCommandInput
+  | DeleteTermsCommandInput
   | DeleteUserAttributesCommandInput
   | DeleteUserCommandInput
   | DeleteUserPoolClientCommandInput
@@ -442,6 +449,7 @@ export type ServiceInputTypes =
   | DescribeManagedLoginBrandingCommandInput
   | DescribeResourceServerCommandInput
   | DescribeRiskConfigurationCommandInput
+  | DescribeTermsCommandInput
   | DescribeUserImportJobCommandInput
   | DescribeUserPoolClientCommandInput
   | DescribeUserPoolCommandInput
@@ -467,6 +475,7 @@ export type ServiceInputTypes =
   | ListIdentityProvidersCommandInput
   | ListResourceServersCommandInput
   | ListTagsForResourceCommandInput
+  | ListTermsCommandInput
   | ListUserImportJobsCommandInput
   | ListUserPoolClientsCommandInput
   | ListUserPoolsCommandInput
@@ -494,6 +503,7 @@ export type ServiceInputTypes =
   | UpdateIdentityProviderCommandInput
   | UpdateManagedLoginBrandingCommandInput
   | UpdateResourceServerCommandInput
+  | UpdateTermsCommandInput
   | UpdateUserAttributesCommandInput
   | UpdateUserPoolClientCommandInput
   | UpdateUserPoolCommandInput
@@ -542,6 +552,7 @@ export type ServiceOutputTypes =
   | CreateIdentityProviderCommandOutput
   | CreateManagedLoginBrandingCommandOutput
   | CreateResourceServerCommandOutput
+  | CreateTermsCommandOutput
   | CreateUserImportJobCommandOutput
   | CreateUserPoolClientCommandOutput
   | CreateUserPoolCommandOutput
@@ -550,6 +561,7 @@ export type ServiceOutputTypes =
   | DeleteIdentityProviderCommandOutput
   | DeleteManagedLoginBrandingCommandOutput
   | DeleteResourceServerCommandOutput
+  | DeleteTermsCommandOutput
   | DeleteUserAttributesCommandOutput
   | DeleteUserCommandOutput
   | DeleteUserPoolClientCommandOutput
@@ -561,6 +573,7 @@ export type ServiceOutputTypes =
   | DescribeManagedLoginBrandingCommandOutput
   | DescribeResourceServerCommandOutput
   | DescribeRiskConfigurationCommandOutput
+  | DescribeTermsCommandOutput
   | DescribeUserImportJobCommandOutput
   | DescribeUserPoolClientCommandOutput
   | DescribeUserPoolCommandOutput
@@ -586,6 +599,7 @@ export type ServiceOutputTypes =
   | ListIdentityProvidersCommandOutput
   | ListResourceServersCommandOutput
   | ListTagsForResourceCommandOutput
+  | ListTermsCommandOutput
   | ListUserImportJobsCommandOutput
   | ListUserPoolClientsCommandOutput
   | ListUserPoolsCommandOutput
@@ -613,6 +627,7 @@ export type ServiceOutputTypes =
   | UpdateIdentityProviderCommandOutput
   | UpdateManagedLoginBrandingCommandOutput
   | UpdateResourceServerCommandOutput
+  | UpdateTermsCommandOutput
   | UpdateUserAttributesCommandOutput
   | UpdateUserPoolClientCommandOutput
   | UpdateUserPoolCommandOutput
