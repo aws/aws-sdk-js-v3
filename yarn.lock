@@ -1439,6 +1439,7 @@ __metadata:
   resolution: "@aws-sdk/aws-util-test@workspace:private/aws-util-test"
   dependencies:
     "@aws-sdk/aws-protocoltests-json": "npm:*"
+    "@aws-sdk/weather": "npm:*"
     "@smithy/protocol-http": "npm:^5.1.3"
     "@smithy/shared-ini-file-loader": "npm:^4.0.5"
     "@smithy/types": "npm:^4.3.2"
@@ -25085,7 +25086,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@aws-sdk/weather@workspace:private/weather":
+"@aws-sdk/weather@npm:*, @aws-sdk/weather@workspace:private/weather":
   version: 0.0.0-use.local
   resolution: "@aws-sdk/weather@workspace:private/weather"
   dependencies:
