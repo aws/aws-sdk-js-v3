@@ -54,6 +54,10 @@ export interface ListApplicationSnapshotsCommandOutput extends ListApplicationSn
  * //       ApplicationVersionId: Number("long"), // required
  * //       SnapshotCreationTimestamp: new Date("TIMESTAMP"),
  * //       RuntimeEnvironment: "SQL-1_0" || "FLINK-1_6" || "FLINK-1_8" || "ZEPPELIN-FLINK-1_0" || "FLINK-1_11" || "FLINK-1_13" || "ZEPPELIN-FLINK-2_0" || "FLINK-1_15" || "ZEPPELIN-FLINK-3_0" || "FLINK-1_18" || "FLINK-1_19" || "FLINK-1_20",
+ * //       ApplicationEncryptionConfigurationDescription: { // ApplicationEncryptionConfigurationDescription
+ * //         KeyId: "STRING_VALUE",
+ * //         KeyType: "AWS_OWNED_KEY" || "CUSTOMER_MANAGED_KEY", // required
+ * //       },
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",

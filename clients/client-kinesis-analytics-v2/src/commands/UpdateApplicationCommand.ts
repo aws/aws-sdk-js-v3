@@ -229,6 +229,10 @@ export interface UpdateApplicationCommandOutput extends UpdateApplicationRespons
  *         },
  *       ],
  *     },
+ *     ApplicationEncryptionConfigurationUpdate: { // ApplicationEncryptionConfigurationUpdate
+ *       KeyIdUpdate: "STRING_VALUE",
+ *       KeyTypeUpdate: "AWS_OWNED_KEY" || "CUSTOMER_MANAGED_KEY", // required
+ *     },
  *   },
  *   ServiceExecutionRoleUpdate: "STRING_VALUE",
  *   RunConfigurationUpdate: { // RunConfigurationUpdate
@@ -471,6 +475,10 @@ export interface UpdateApplicationCommandOutput extends UpdateApplicationRespons
  * //             },
  * //           },
  * //         ],
+ * //       },
+ * //       ApplicationEncryptionConfigurationDescription: { // ApplicationEncryptionConfigurationDescription
+ * //         KeyId: "STRING_VALUE",
+ * //         KeyType: "AWS_OWNED_KEY" || "CUSTOMER_MANAGED_KEY", // required
  * //       },
  * //     },
  * //     CloudWatchLoggingOptionDescriptions: [ // CloudWatchLoggingOptionDescriptions

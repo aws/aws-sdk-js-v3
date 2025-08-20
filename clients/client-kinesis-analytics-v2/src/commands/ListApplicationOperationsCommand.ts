@@ -32,7 +32,12 @@ export interface ListApplicationOperationsCommandInput extends ListApplicationOp
 export interface ListApplicationOperationsCommandOutput extends ListApplicationOperationsResponse, __MetadataBearer {}
 
 /**
- * Lists information about operations performed on a Managed Service for Apache Flink application
+ * <p>Lists all the operations performed for the specified application such as UpdateApplication, StartApplication etc.
+ *       The response also includes a summary of the operation.</p>
+ *          <p>To get the complete description of a specific operation, invoke the <a>DescribeApplicationOperation</a> operation.</p>
+ *          <note>
+ *             <p>This operation is supported only for Managed Service for Apache Flink.</p>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -226,6 +226,10 @@ export interface CreateApplicationCommandOutput extends CreateApplicationRespons
  *         },
  *       ],
  *     },
+ *     ApplicationEncryptionConfiguration: { // ApplicationEncryptionConfiguration
+ *       KeyId: "STRING_VALUE",
+ *       KeyType: "AWS_OWNED_KEY" || "CUSTOMER_MANAGED_KEY", // required
+ *     },
  *   },
  *   CloudWatchLoggingOptions: [ // CloudWatchLoggingOptions
  *     { // CloudWatchLoggingOption
@@ -462,6 +466,10 @@ export interface CreateApplicationCommandOutput extends CreateApplicationRespons
  * //             },
  * //           },
  * //         ],
+ * //       },
+ * //       ApplicationEncryptionConfigurationDescription: { // ApplicationEncryptionConfigurationDescription
+ * //         KeyId: "STRING_VALUE",
+ * //         KeyType: "AWS_OWNED_KEY" || "CUSTOMER_MANAGED_KEY", // required
  * //       },
  * //     },
  * //     CloudWatchLoggingOptionDescriptions: [ // CloudWatchLoggingOptionDescriptions

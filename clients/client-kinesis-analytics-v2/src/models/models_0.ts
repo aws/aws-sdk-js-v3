@@ -107,7 +107,7 @@ export interface AddApplicationCloudWatchLoggingOptionResponse {
   CloudWatchLoggingOptionDescriptions?: CloudWatchLoggingOptionDescription[] | undefined;
 
   /**
-   * Operation ID for tracking AddApplicationCloudWatchLoggingOption request
+   * <p>The operation ID that can be used to track the request.</p>
    * @public
    */
   OperationId?: string | undefined;
@@ -1432,7 +1432,7 @@ export interface AddApplicationVpcConfigurationResponse {
   VpcConfigurationDescription?: VpcConfigurationDescription | undefined;
 
   /**
-   * Operation ID for tracking AddApplicationVpcConfiguration request
+   * <p>The operation ID that can be used to track the request.</p>
    * @public
    */
   OperationId?: string | undefined;
@@ -1662,6 +1662,38 @@ export interface ApplicationCodeConfigurationUpdate {
 }
 
 /**
+ * @public
+ * @enum
+ */
+export const KeyType = {
+  AWS_OWNED_KEY: "AWS_OWNED_KEY",
+  CUSTOMER_MANAGED_KEY: "CUSTOMER_MANAGED_KEY",
+} as const;
+
+/**
+ * @public
+ */
+export type KeyType = (typeof KeyType)[keyof typeof KeyType];
+
+/**
+ * <p>Specifies the configuration to manage encryption at rest.</p>
+ * @public
+ */
+export interface ApplicationEncryptionConfiguration {
+  /**
+   * <p>The key ARN, key ID, alias ARN, or alias name of the KMS key used for encryption at rest.</p>
+   * @public
+   */
+  KeyId?: string | undefined;
+
+  /**
+   * <p>Specifies the type of key used for encryption at rest.</p>
+   * @public
+   */
+  KeyType: KeyType | undefined;
+}
+
+/**
  * <p>Describes whether snapshots are enabled for a Managed Service for Apache Flink application.</p>
  * @public
  */
@@ -1674,12 +1706,12 @@ export interface ApplicationSnapshotConfiguration {
 }
 
 /**
- * Describes system rollback configuration for a Managed Service for Apache Flink application
+ * <p>Describes the system rollback configuration for a Managed Service for Apache Flink application.</p>
  * @public
  */
 export interface ApplicationSystemRollbackConfiguration {
   /**
-   * Describes whether system rollbacks are enabled for a Managed Service for Apache Flink application
+   * <p>Describes whether system rollbacks are enabled for a Managed Service for Apache Flink application.</p>
    * @public
    */
   RollbackEnabled: boolean | undefined;
@@ -1733,9 +1765,9 @@ export type ConfigurationType = (typeof ConfigurationType)[keyof typeof Configur
  * <p>Describes an application's checkpointing configuration. Checkpointing is the process of persisting application state for fault
  *       tolerance.
  *       For more information, see
- *       <a href="https://nightlies.apache.org/flink/flink-docs-release-1.19/docs/dev/datastream/fault-tolerance/checkpointing/#enabling-and-configuring-checkpointing">
+ *       <a href="https://nightlies.apache.org/flink/flink-docs-release-1.20/docs/dev/datastream/fault-tolerance/checkpointing/#enabling-and-configuring-checkpointing">
  *         Checkpoints for Fault Tolerance</a> in the
- *       <a href="https://nightlies.apache.org/flink/flink-docs-release-1.19/">Apache Flink Documentation</a>.</p>
+ *       <a href="https://nightlies.apache.org/flink/flink-docs-release-1.20/">Apache Flink Documentation</a>.</p>
  * @public
  */
 export interface CheckpointConfiguration {
@@ -1791,7 +1823,7 @@ export interface CheckpointConfiguration {
    * <p>Describes the minimum time in milliseconds after a checkpoint operation completes that a
    *       new checkpoint operation can start. If a checkpoint operation takes longer than the
    *         <code>CheckpointInterval</code>, the application otherwise performs continual checkpoint
-   *       operations. For more information, see <a href="https://nightlies.apache.org/flink/flink-docs-release-1.19/docs/ops/state/large_state_tuning/#tuning-checkpointing"> Tuning Checkpointing</a> in the <a href="https://nightlies.apache.org/flink/flink-docs-release-1.19/">Apache Flink
+   *       operations. For more information, see <a href="https://nightlies.apache.org/flink/flink-docs-release-1.20/docs/ops/state/large_state_tuning/#tuning-checkpointing"> Tuning Checkpointing</a> in the <a href="https://nightlies.apache.org/flink/flink-docs-release-1.20/">Apache Flink
    *         Documentation</a>.</p>
    *          <note>
    *             <p>If <code>CheckpointConfiguration.ConfigurationType</code> is <code>DEFAULT</code>,
@@ -1865,7 +1897,7 @@ export interface MonitoringConfiguration {
 /**
  * <p>Describes parameters for how a Managed Service for Apache Flink application
  *       executes multiple tasks simultaneously. For more information about parallelism,
- *       see <a href="https://nightlies.apache.org/flink/flink-docs-release-1.19/dev/parallel.html">Parallel Execution</a> in the <a href="https://nightlies.apache.org/flink/flink-docs-release-1.19/">Apache Flink
+ *       see <a href="https://nightlies.apache.org/flink/flink-docs-release-1.20/dev/parallel.html">Parallel Execution</a> in the <a href="https://nightlies.apache.org/flink/flink-docs-release-1.20/">Apache Flink
  *         Documentation</a>.</p>
  * @public
  */
@@ -1878,13 +1910,14 @@ export interface ParallelismConfiguration {
   ConfigurationType: ConfigurationType | undefined;
 
   /**
-   * <p>Describes the initial number of parallel tasks that a Managed Service for Apache Flink application can perform. If <code>AutoScalingEnabled</code>
-   *       is set to True, Managed Service for Apache Flink increases the <code>CurrentParallelism</code> value in response to application
-   *     load. The service can increase the <code>CurrentParallelism</code> value up to the maximum parallelism, which is
-   *       <code>ParalellismPerKPU</code> times the maximum KPUs for the application.
-   *     The maximum KPUs for an application is 32 by default, and can be increased by requesting a limit increase. If
-   *     application load is reduced, the service can
-   *     reduce the <code>CurrentParallelism</code> value down to the <code>Parallelism</code> setting.</p>
+   * <p>Describes the initial number of parallel tasks that a Managed Service for Apache Flink application can perform. If
+   *         <code>AutoScalingEnabled</code> is set to True, Managed Service for Apache Flink increases the
+   *         <code>CurrentParallelism</code> value in response to application load. The service can
+   *       increase the <code>CurrentParallelism</code> value up to the maximum parallelism, which is
+   *         <code>ParalellismPerKPU</code> times the maximum KPUs for the application. The maximum KPUs
+   *       for an application is 64 by default, and can be increased by requesting a limit increase. If
+   *       application load is reduced, the service can reduce the <code>CurrentParallelism</code> value
+   *       down to the <code>Parallelism</code> setting.</p>
    * @public
    */
   Parallelism?: number | undefined;
@@ -1913,9 +1946,9 @@ export interface FlinkApplicationConfiguration {
    * <p>Describes an application's checkpointing configuration. Checkpointing is the
    *       process of persisting application state for fault tolerance.
    *       For more information, see
-   *       <a href="https://nightlies.apache.org/flink/flink-docs-release-1.19/docs/dev/datastream/fault-tolerance/checkpointing/#enabling-and-configuring-checkpointing">
+   *       <a href="https://nightlies.apache.org/flink/flink-docs-release-1.20/docs/dev/datastream/fault-tolerance/checkpointing/#enabling-and-configuring-checkpointing">
    *         Checkpoints for Fault Tolerance</a> in the
-   *       <a href="https://nightlies.apache.org/flink/flink-docs-release-1.19/">Apache Flink Documentation</a>. </p>
+   *       <a href="https://nightlies.apache.org/flink/flink-docs-release-1.20/">Apache Flink Documentation</a>. </p>
    * @public
    */
   CheckpointConfiguration?: CheckpointConfiguration | undefined;
@@ -2160,7 +2193,7 @@ export interface ApplicationConfiguration {
   ApplicationSnapshotConfiguration?: ApplicationSnapshotConfiguration | undefined;
 
   /**
-   * Describes system rollback configuration for a Managed Service for Apache Flink application
+   * <p>Describes whether system rollbacks are enabled for a Managed Service for Apache Flink application.</p>
    * @public
    */
   ApplicationSystemRollbackConfiguration?: ApplicationSystemRollbackConfiguration | undefined;
@@ -2176,6 +2209,30 @@ export interface ApplicationConfiguration {
    * @public
    */
   ZeppelinApplicationConfiguration?: ZeppelinApplicationConfiguration | undefined;
+
+  /**
+   * <p>The configuration to manage encryption at rest.</p>
+   * @public
+   */
+  ApplicationEncryptionConfiguration?: ApplicationEncryptionConfiguration | undefined;
+}
+
+/**
+ * <p>Describes the encryption at rest configuration.</p>
+ * @public
+ */
+export interface ApplicationEncryptionConfigurationDescription {
+  /**
+   * <p>The key ARN, key ID, alias ARN, or alias name of the KMS key used for encryption at rest.</p>
+   * @public
+   */
+  KeyId?: string | undefined;
+
+  /**
+   * <p>Specifies the type of key used for encryption at rest.</p>
+   * @public
+   */
+  KeyType: KeyType | undefined;
 }
 
 /**
@@ -2191,12 +2248,12 @@ export interface ApplicationSnapshotConfigurationDescription {
 }
 
 /**
- * Describes system rollback configuration for a Managed Service for Apache Flink application
+ * <p>Describes the system rollback configuration for a Managed Service for Apache Flink application.</p>
  * @public
  */
 export interface ApplicationSystemRollbackConfigurationDescription {
   /**
-   * Describes whether system rollbacks are enabled for a Managed Service for Apache Flink application
+   * <p>Describes whether system rollbacks are enabled for a Managed Service for Apache Flink application.</p>
    * @public
    */
   RollbackEnabled: boolean | undefined;
@@ -2316,11 +2373,14 @@ export interface ParallelismConfigurationDescription {
   ConfigurationType?: ConfigurationType | undefined;
 
   /**
-   * <p>Describes the initial number of parallel tasks that a Managed Service for Apache Flink application can perform.
-   *       If <code>AutoScalingEnabled</code> is set to True, then Managed Service for Apache Flink can increase the <code>CurrentParallelism</code> value in response to application
-   *     load. The service can increase <code>CurrentParallelism</code> up to the maximum parallelism, which is <code>ParalellismPerKPU</code> times the maximum KPUs for the application.
-   *     The maximum KPUs for an application is 32 by default, and can be increased by requesting a limit increase. If application load is reduced, the service can
-   *     reduce the <code>CurrentParallelism</code> value down to the <code>Parallelism</code> setting.</p>
+   * <p>Describes the initial number of parallel tasks that a Managed Service for Apache Flink application can perform. If
+   *         <code>AutoScalingEnabled</code> is set to True, then Managed Service for Apache Flink can increase the
+   *         <code>CurrentParallelism</code> value in response to application load. The service can
+   *       increase <code>CurrentParallelism</code> up to the maximum parallelism, which is
+   *         <code>ParalellismPerKPU</code> times the maximum KPUs for the application. The maximum KPUs
+   *       for an application is 64 by default, and can be increased by requesting a limit increase. If
+   *       application load is reduced, the service can reduce the <code>CurrentParallelism</code> value
+   *       down to the <code>Parallelism</code> setting.</p>
    * @public
    */
   Parallelism?: number | undefined;
@@ -2375,7 +2435,7 @@ export interface FlinkApplicationConfigurationDescription {
   ParallelismConfigurationDescription?: ParallelismConfigurationDescription | undefined;
 
   /**
-   * <p>The job plan for an application. For more information about the job plan, see <a href="https://nightlies.apache.org/flink/flink-docs-release-1.19/internals/job_scheduling.html">Jobs and Scheduling</a> in the <a href="https://nightlies.apache.org/flink/flink-docs-release-1.19/">Apache Flink
+   * <p>The job plan for an application. For more information about the job plan, see <a href="https://nightlies.apache.org/flink/flink-docs-release-1.20/internals/job_scheduling.html">Jobs and Scheduling</a> in the <a href="https://nightlies.apache.org/flink/flink-docs-release-1.20/">Apache Flink
    *         Documentation</a>. To retrieve the job plan for the application, use the <a>DescribeApplicationRequest$IncludeAdditionalDetails</a> parameter of the <a>DescribeApplication</a> operation.</p>
    * @public
    */
@@ -2428,8 +2488,8 @@ export interface FlinkRunConfiguration {
    *      This will happen if the program is updated between snapshots to remove stateful parameters, and
    *      state data in the snapshot no longer
    *      corresponds to valid application data. For more information, see
-   *      <a href="https://nightlies.apache.org/flink/flink-docs-release-1.19/docs/ops/state/savepoints/#allowing-non-restored-state">
-   *        Allowing Non-Restored State</a> in the <a href="https://nightlies.apache.org/flink/flink-docs-release-1.19/">Apache Flink
+   *      <a href="https://nightlies.apache.org/flink/flink-docs-release-1.20/docs/ops/state/savepoints/#allowing-non-restored-state">
+   *        Allowing Non-Restored State</a> in the <a href="https://nightlies.apache.org/flink/flink-docs-release-1.20/">Apache Flink
    *          documentation</a>.</p>
    *          <note>
    *             <p>This value defaults to <code>false</code>. If you update your application without
@@ -2652,7 +2712,7 @@ export interface ApplicationConfigurationDescription {
   ApplicationSnapshotConfigurationDescription?: ApplicationSnapshotConfigurationDescription | undefined;
 
   /**
-   * Describes system rollback configuration for a Managed Service for Apache Flink application
+   * <p>Describes whether system rollbacks are enabled for a Managed Service for Apache Flink application.</p>
    * @public
    */
   ApplicationSystemRollbackConfigurationDescription?: ApplicationSystemRollbackConfigurationDescription | undefined;
@@ -2668,6 +2728,30 @@ export interface ApplicationConfigurationDescription {
    * @public
    */
   ZeppelinApplicationConfigurationDescription?: ZeppelinApplicationConfigurationDescription | undefined;
+
+  /**
+   * <p>Describes the encryption at rest configuration.</p>
+   * @public
+   */
+  ApplicationEncryptionConfigurationDescription?: ApplicationEncryptionConfigurationDescription | undefined;
+}
+
+/**
+ * <p>Describes configuration updates to encryption at rest.</p>
+ * @public
+ */
+export interface ApplicationEncryptionConfigurationUpdate {
+  /**
+   * <p>The key ARN, key ID, alias ARN, or alias name of the KMS key to be used for encryption at rest.</p>
+   * @public
+   */
+  KeyIdUpdate?: string | undefined;
+
+  /**
+   * <p>Specifies the type of key to be used for encryption at rest.</p>
+   * @public
+   */
+  KeyTypeUpdate: KeyType | undefined;
 }
 
 /**
@@ -2683,12 +2767,12 @@ export interface ApplicationSnapshotConfigurationUpdate {
 }
 
 /**
- * Describes system rollback configuration for a Managed Service for Apache Flink application
+ * <p>Describes the system rollback configuration for a Managed Service for Apache Flink application.</p>
  * @public
  */
 export interface ApplicationSystemRollbackConfigurationUpdate {
   /**
-   * Describes whether system rollbacks are enabled for a Managed Service for Apache Flink application
+   * <p>Describes whether system rollbacks are enabled for a Managed Service for Apache Flink application.</p>
    * @public
    */
   RollbackEnabledUpdate: boolean | undefined;
@@ -3352,7 +3436,7 @@ export interface ApplicationConfigurationUpdate {
   ApplicationSnapshotConfigurationUpdate?: ApplicationSnapshotConfigurationUpdate | undefined;
 
   /**
-   * Describes system rollback configuration for a Managed Service for Apache Flink application
+   * <p>Describes whether system rollbacks are enabled for a Managed Service for Apache Flink application.</p>
    * @public
    */
   ApplicationSystemRollbackConfigurationUpdate?: ApplicationSystemRollbackConfigurationUpdate | undefined;
@@ -3368,6 +3452,12 @@ export interface ApplicationConfigurationUpdate {
    * @public
    */
   ZeppelinApplicationConfigurationUpdate?: ZeppelinApplicationConfigurationUpdate | undefined;
+
+  /**
+   * <p>Represents an update for encryption at rest configuration.</p>
+   * @public
+   */
+  ApplicationEncryptionConfigurationUpdate?: ApplicationEncryptionConfigurationUpdate | undefined;
 }
 
 /**
@@ -3543,7 +3633,7 @@ export interface ApplicationDetail {
   ApplicationVersionRolledBackFrom?: number | undefined;
 
   /**
-   * The current timestamp when the application version was created.
+   * <p>The timestamp that indicates when the application version was created.</p>
    * @public
    */
   ApplicationVersionCreateTimestamp?: Date | undefined;
@@ -3596,126 +3686,126 @@ export const OperationStatus = {
 export type OperationStatus = (typeof OperationStatus)[keyof typeof OperationStatus];
 
 /**
- * Provides a description of the operation, such as the type and status of operation
+ * <p>A description of the aplication operation that provides information about the updates that were made to the application.</p>
  * @public
  */
 export interface ApplicationOperationInfo {
   /**
-   * Type of operation performed on an application
+   * <p>The type of operation that is performed on an application.</p>
    * @public
    */
   Operation?: string | undefined;
 
   /**
-   * Identifier of the Operation
+   * <p>The operation ID of the request.</p>
    * @public
    */
   OperationId?: string | undefined;
 
   /**
-   * The timestamp at which the operation was created
+   * <p>The timestamp that indicates when the operation was created.</p>
    * @public
    */
   StartTime?: Date | undefined;
 
   /**
-   * The timestamp at which the operation finished for the application
+   * <p>The timestamp that indicates when the operation finished.</p>
    * @public
    */
   EndTime?: Date | undefined;
 
   /**
-   * Status of the operation performed on an application
+   * <p>The status of the operation.</p>
    * @public
    */
   OperationStatus?: OperationStatus | undefined;
 }
 
 /**
- * Contains information about the application version changes due to an operation
+ * <p>Contains information about the version changes that the operation applied to the application.</p>
  * @public
  */
 export interface ApplicationVersionChangeDetails {
   /**
-   * The operation was performed on this version of the application
+   * <p>The new version that the application was updated to.</p>
    * @public
    */
   ApplicationVersionUpdatedFrom: number | undefined;
 
   /**
-   * The operation execution resulted in the transition to the following version of the application
+   * <p>The version that the operation execution applied to the applicartion.</p>
    * @public
    */
   ApplicationVersionUpdatedTo: number | undefined;
 }
 
 /**
- * Provides a description of the operation failure error
+ * <p>A description of the error that caused an operation to fail.</p>
  * @public
  */
 export interface ErrorInfo {
   /**
-   * Error message resulting in failure of the operation
+   * <p>An error message that is returned when an operation fails.</p>
    * @public
    */
   ErrorString?: string | undefined;
 }
 
 /**
- * Provides a description of the operation failure
+ * <p>Provides a description of the operation failure.</p>
  * @public
  */
 export interface OperationFailureDetails {
   /**
-   * Provides the operation ID of a system-rollback operation executed due to failure in the current operation
+   * <p>The rollback operation ID of the system-rollback operation that executed due to failure in the current operation.</p>
    * @public
    */
   RollbackOperationId?: string | undefined;
 
   /**
-   * Provides a description of the operation failure error
+   * <p>A description of the error that caused an operation to fail.</p>
    * @public
    */
   ErrorInfo?: ErrorInfo | undefined;
 }
 
 /**
- * Provides a description of the operation, such as the operation-type and status
+ * <p>A description of the application operation that provides information about the updates that were made to the application.</p>
  * @public
  */
 export interface ApplicationOperationInfoDetails {
   /**
-   * Type of operation performed on an application
+   * <p>The type of operation that is performed on an application.</p>
    * @public
    */
   Operation: string | undefined;
 
   /**
-   * The timestamp at which the operation was created
+   * <p>The timestamp that indicates when the operation was created.</p>
    * @public
    */
   StartTime: Date | undefined;
 
   /**
-   * The timestamp at which the operation finished for the application
+   * <p>The timestamp that indicates when the operation finished.</p>
    * @public
    */
   EndTime: Date | undefined;
 
   /**
-   * Status of the operation performed on an application
+   * <p>The status of the operation.</p>
    * @public
    */
   OperationStatus: OperationStatus | undefined;
 
   /**
-   * Contains information about the application version changes due to an operation
+   * <p>Contains information about the version changes that the operation applied to the application.</p>
    * @public
    */
   ApplicationVersionChangeDetails?: ApplicationVersionChangeDetails | undefined;
 
   /**
-   * Provides a description of the operation failure
+   * <p>Provides a description of the operation failure.</p>
    * @public
    */
   OperationFailureDetails?: OperationFailureDetails | undefined;
@@ -4118,7 +4208,7 @@ export interface DeleteApplicationCloudWatchLoggingOptionResponse {
   CloudWatchLoggingOptionDescriptions?: CloudWatchLoggingOptionDescription[] | undefined;
 
   /**
-   * Operation ID for tracking DeleteApplicationCloudWatchLoggingOption request
+   * <p>The operation ID that can be used to track the request.</p>
    * @public
    */
   OperationId?: string | undefined;
@@ -4346,7 +4436,7 @@ export interface DeleteApplicationVpcConfigurationResponse {
   ApplicationVersionId?: number | undefined;
 
   /**
-   * Operation ID for tracking DeleteApplicationVpcConfiguration request
+   * <p>The operation ID that can be used to track the request.</p>
    * @public
    */
   OperationId?: string | undefined;
@@ -4382,30 +4472,30 @@ export interface DescribeApplicationResponse {
 }
 
 /**
- * Request for information about a specific operation performed on a Managed Service for Apache Flink application
+ * <p>A request for information about a specific operation that was performed on a Managed Service for Apache Flink application.</p>
  * @public
  */
 export interface DescribeApplicationOperationRequest {
   /**
-   * The name of the application
+   * <p>The name of the application.</p>
    * @public
    */
   ApplicationName: string | undefined;
 
   /**
-   * Identifier of the Operation
+   * <p>The operation ID of the request.</p>
    * @public
    */
   OperationId: string | undefined;
 }
 
 /**
- * Provides details of the operation corresponding to the operation-ID on a Managed Service for Apache Flink application
+ * <p>Provides details of the operation that corresponds to the operation ID on a Managed Service for Apache Flink application.</p>
  * @public
  */
 export interface DescribeApplicationOperationResponse {
   /**
-   * Provides a description of the operation, such as the operation-type and status
+   * <p>A description of the application operation that provides information about the updates that were made to the application.</p>
    * @public
    */
   ApplicationOperationInfoDetails?: ApplicationOperationInfoDetails | undefined;
@@ -4479,6 +4569,12 @@ export interface SnapshotDetails {
    * @public
    */
   RuntimeEnvironment?: RuntimeEnvironment | undefined;
+
+  /**
+   * <p>Specifies the encryption settings of data at rest for the application snapshot.</p>
+   * @public
+   */
+  ApplicationEncryptionConfigurationDescription?: ApplicationEncryptionConfigurationDescription | undefined;
 }
 
 /**
@@ -4694,54 +4790,54 @@ export class UnableToDetectSchemaException extends __BaseException {
 }
 
 /**
- * Request to list operations performed on an application
+ * <p>A request for a list of operations performed on an application.</p>
  * @public
  */
 export interface ListApplicationOperationsRequest {
   /**
-   * The name of the application
+   * <p>The name of the application.</p>
    * @public
    */
   ApplicationName: string | undefined;
 
   /**
-   * Limit on the number of records returned in the response
+   * <p>The limit on the number of records to be returned in the response.</p>
    * @public
    */
   Limit?: number | undefined;
 
   /**
-   * If a previous command returned a pagination token, pass it into this value to retrieve the next set of results
+   * <p>A pagination token that can be used in a subsequent request.</p>
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * Type of operation performed on an application
+   * <p>The type of operation that is performed on an application.</p>
    * @public
    */
   Operation?: string | undefined;
 
   /**
-   * Status of the operation performed on an application
+   * <p>The status of the operation.</p>
    * @public
    */
   OperationStatus?: OperationStatus | undefined;
 }
 
 /**
- * Response with the list of operations for an application
+ * <p>A response that returns a list of operations for an application.</p>
  * @public
  */
 export interface ListApplicationOperationsResponse {
   /**
-   * List of ApplicationOperationInfo for an application
+   * <p>A list of <code>ApplicationOperationInfo</code> objects that are associated with an application.</p>
    * @public
    */
   ApplicationOperationInfoList?: ApplicationOperationInfo[] | undefined;
 
   /**
-   * If a previous command returned a pagination token, pass it into this value to retrieve the next set of results
+   * <p>A pagination token that can be used in a subsequent request.</p>
    * @public
    */
   NextToken?: string | undefined;
@@ -4925,7 +5021,7 @@ export interface RollbackApplicationResponse {
   ApplicationDetail: ApplicationDetail | undefined;
 
   /**
-   * Operation ID for tracking RollbackApplication request
+   * <p>The operation ID that can be used to track the request.</p>
    * @public
    */
   OperationId?: string | undefined;
@@ -4997,7 +5093,7 @@ export interface StartApplicationRequest {
  */
 export interface StartApplicationResponse {
   /**
-   * Operation ID for tracking StartApplication request
+   * <p>The operation ID that can be used to track the request.</p>
    * @public
    */
   OperationId?: string | undefined;
@@ -5036,7 +5132,7 @@ export interface StopApplicationRequest {
  */
 export interface StopApplicationResponse {
   /**
-   * Operation ID for tracking StopApplication request
+   * <p>The operation ID that can be used to track the request.</p>
    * @public
    */
   OperationId?: string | undefined;
@@ -5186,7 +5282,7 @@ export interface UpdateApplicationResponse {
   ApplicationDetail: ApplicationDetail | undefined;
 
   /**
-   * Operation ID for tracking UpdateApplication request
+   * <p>The operation ID that can be used to track the request.</p>
    * @public
    */
   OperationId?: string | undefined;

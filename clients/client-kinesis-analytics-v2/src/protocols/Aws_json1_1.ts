@@ -141,6 +141,8 @@ import {
   ApplicationConfiguration,
   ApplicationConfigurationUpdate,
   ApplicationDetail,
+  ApplicationEncryptionConfiguration,
+  ApplicationEncryptionConfigurationUpdate,
   ApplicationMaintenanceConfigurationUpdate,
   ApplicationOperationInfo,
   ApplicationOperationInfoDetails,
@@ -1672,6 +1674,7 @@ const se_ApplicationCodeConfigurationUpdate = (
 const se_ApplicationConfiguration = (input: ApplicationConfiguration, context: __SerdeContext): any => {
   return take(input, {
     ApplicationCodeConfiguration: (_) => se_ApplicationCodeConfiguration(_, context),
+    ApplicationEncryptionConfiguration: _json,
     ApplicationSnapshotConfiguration: _json,
     ApplicationSystemRollbackConfiguration: _json,
     EnvironmentProperties: _json,
@@ -1688,6 +1691,7 @@ const se_ApplicationConfiguration = (input: ApplicationConfiguration, context: _
 const se_ApplicationConfigurationUpdate = (input: ApplicationConfigurationUpdate, context: __SerdeContext): any => {
   return take(input, {
     ApplicationCodeConfigurationUpdate: (_) => se_ApplicationCodeConfigurationUpdate(_, context),
+    ApplicationEncryptionConfigurationUpdate: _json,
     ApplicationSnapshotConfigurationUpdate: _json,
     ApplicationSystemRollbackConfigurationUpdate: _json,
     EnvironmentPropertyUpdates: _json,
@@ -1697,6 +1701,10 @@ const se_ApplicationConfigurationUpdate = (input: ApplicationConfigurationUpdate
     ZeppelinApplicationConfigurationUpdate: _json,
   });
 };
+
+// se_ApplicationEncryptionConfiguration omitted.
+
+// se_ApplicationEncryptionConfigurationUpdate omitted.
 
 // se_ApplicationMaintenanceConfigurationUpdate omitted.
 
@@ -2055,6 +2063,8 @@ const de_ApplicationDetail = (output: any, context: __SerdeContext): Application
   }) as any;
 };
 
+// de_ApplicationEncryptionConfigurationDescription omitted.
+
 // de_ApplicationMaintenanceConfigurationDescription omitted.
 
 /**
@@ -2359,6 +2369,7 @@ const de_RollbackApplicationResponse = (output: any, context: __SerdeContext): R
  */
 const de_SnapshotDetails = (output: any, context: __SerdeContext): SnapshotDetails => {
   return take(output, {
+    ApplicationEncryptionConfigurationDescription: _json,
     ApplicationVersionId: __expectLong,
     RuntimeEnvironment: __expectString,
     SnapshotCreationTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),

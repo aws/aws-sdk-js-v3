@@ -37,7 +37,10 @@ export interface DescribeApplicationOperationCommandOutput
     __MetadataBearer {}
 
 /**
- * Returns information about a specific operation performed on a Managed Service for Apache Flink application
+ * <p>Provides a detailed description of a specified application operation. To see a list of all the operations of an application, invoke the <a>ListApplicationOperations</a> operation.</p>
+ *          <note>
+ *             <p>This operation is supported only for Managed Service for Apache Flink.</p>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

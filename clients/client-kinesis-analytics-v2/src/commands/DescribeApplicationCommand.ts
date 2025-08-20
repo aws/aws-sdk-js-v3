@@ -268,6 +268,10 @@ export interface DescribeApplicationCommandOutput extends DescribeApplicationRes
  * //           },
  * //         ],
  * //       },
+ * //       ApplicationEncryptionConfigurationDescription: { // ApplicationEncryptionConfigurationDescription
+ * //         KeyId: "STRING_VALUE",
+ * //         KeyType: "AWS_OWNED_KEY" || "CUSTOMER_MANAGED_KEY", // required
+ * //       },
  * //     },
  * //     CloudWatchLoggingOptionDescriptions: [ // CloudWatchLoggingOptionDescriptions
  * //       { // CloudWatchLoggingOptionDescription
