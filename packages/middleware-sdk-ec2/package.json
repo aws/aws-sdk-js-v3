@@ -13,8 +13,8 @@
     "test:watch": "yarn g:vitest watch",
     "test:integration": "yarn g:vitest run -c vitest.config.integ.ts",
     "test:integration:watch": "yarn g:vitest watch -c vitest.config.integ.ts",
-    "test:e2e": "yarn g:vitest run -c vitest.config.e2e.ts",
-    "test:e2e:watch": "yarn g:vitest watch -c vitest.config.e2e.ts"
+    "test:e2e": "yarn g:vitest run -c vitest.config.e2e.mts",
+    "test:e2e:watch": "yarn g:vitest watch -c vitest.config.e2e.mts"
   },
   "main": "./dist-cjs/index.js",
   "module": "./dist-es/index.js",

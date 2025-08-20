@@ -10,9 +10,9 @@
     "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
     "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo",
     "test": "yarn g:vitest run --passWithNoTests",
-    "test:e2e": "yarn g:vitest run -c vitest.config.e2e.ts --mode development",
+    "test:e2e": "yarn g:vitest run -c vitest.config.e2e.mts --mode development",
     "test:watch": "yarn g:vitest watch --passWithNoTests",
-    "test:e2e:watch": "yarn g:vitest watch -c vitest.config.e2e.ts"
+    "test:e2e:watch": "yarn g:vitest watch -c vitest.config.e2e.mts"
   },
   "author": {
     "name": "AWS SDK for JavaScript Team",

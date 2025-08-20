@@ -12,11 +12,11 @@
     "test": "yarn g:vitest run",
     "test:types": "tsc -p tsconfig.test.json",
     "test:integration": "yarn g:vitest run -c vitest.config.integ.ts && yarn test:types",
-    "test:e2e": "yarn g:vitest run -c vitest.config.e2e.ts --mode development",
+    "test:e2e": "yarn g:vitest run -c vitest.config.e2e.mts --mode development",
     "extract:docs": "api-extractor run --local",
     "test:watch": "yarn g:vitest watch",
     "test:integration:watch": "yarn g:vitest watch -c vitest.config.integ.ts",
-    "test:e2e:watch": "yarn g:vitest watch -c vitest.config.e2e.ts"
+    "test:e2e:watch": "yarn g:vitest watch -c vitest.config.e2e.mts"
   },
   "main": "./dist-cjs/index.js",
   "module": "./dist-es/index.js",

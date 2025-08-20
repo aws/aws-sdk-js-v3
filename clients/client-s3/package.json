@@ -15,8 +15,8 @@
     "test": "yarn g:vitest run",
     "test:browser": "node ./test/browser-build/esbuild && yarn g:vitest run -c vitest.config.browser.ts",
     "test:browser:watch": "node ./test/browser-build/esbuild && yarn g:vitest watch -c vitest.config.browser.ts",
-    "test:e2e": "yarn g:vitest run -c vitest.config.e2e.ts && yarn test:browser",
-    "test:e2e:watch": "yarn g:vitest watch -c vitest.config.e2e.ts",
+    "test:e2e": "yarn g:vitest run -c vitest.config.e2e.mts && yarn test:browser",
+    "test:e2e:watch": "yarn g:vitest watch -c vitest.config.e2e.mts",
     "test:integration": "yarn g:vitest run -c vitest.config.integ.ts",
     "test:integration:watch": "yarn g:vitest watch -c vitest.config.integ.ts",
     "test:watch": "yarn g:vitest watch"

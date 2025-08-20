@@ -16,8 +16,8 @@
     "extract:docs": "api-extractor run --local",
     "test": "yarn g:vitest run",
     "test:watch": "yarn g:vitest watch",
-    "test:e2e": "yarn g:vitest run -c vitest.config.e2e.ts --mode development",
-    "test:e2e:watch": "yarn g:vitest watch -c vitest.config.e2e.ts",
+    "test:e2e": "yarn g:vitest run -c vitest.config.e2e.mts --mode development",
+    "test:e2e:watch": "yarn g:vitest watch -c vitest.config.e2e.mts",
     "test:integration": "yarn g:vitest run -c vitest.config.integ.ts --mode development",
     "test:integration:watch": "yarn g:vitest watch -c vitest.config.integ.ts"
   },
