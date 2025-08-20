@@ -4192,9 +4192,9 @@
                             "properties": {
                               "authSchemes": [
                                 {
-                                  "signingRegion": "us-east-1",
+                                  "name": "sigv4",
                                   "signingName": "dynamodb",
-                                  "name": "sigv4"
+                                  "signingRegion": "us-east-1"
                                 }
                               ]
                             },
@@ -5683,17 +5683,6 @@
               }
             },
             {
-              "documentation": "For region us-iso-east-1 with FIPS enabled and DualStack enabled",
-              "expect": {
-                "error": "FIPS and DualStack are enabled, but this partition does not support one or both"
-              },
-              "params": {
-                "Region": "us-iso-east-1",
-                "UseFIPS": true,
-                "UseDualStack": true
-              }
-            },
-            {
               "documentation": "For region us-iso-east-1 with FIPS enabled and DualStack disabled",
               "expect": {
                 "endpoint": {
@@ -5704,17 +5693,6 @@
                 "Region": "us-iso-east-1",
                 "UseFIPS": true,
                 "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region us-iso-east-1 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "error": "DualStack is enabled but this partition does not support DualStack"
-              },
-              "params": {
-                "Region": "us-iso-east-1",
-                "UseFIPS": false,
-                "UseDualStack": true
               }
             },
             {
@@ -5731,17 +5709,6 @@
               }
             },
             {
-              "documentation": "For region us-isob-east-1 with FIPS enabled and DualStack enabled",
-              "expect": {
-                "error": "FIPS and DualStack are enabled, but this partition does not support one or both"
-              },
-              "params": {
-                "Region": "us-isob-east-1",
-                "UseFIPS": true,
-                "UseDualStack": true
-              }
-            },
-            {
               "documentation": "For region us-isob-east-1 with FIPS enabled and DualStack disabled",
               "expect": {
                 "endpoint": {
@@ -5752,17 +5719,6 @@
                 "Region": "us-isob-east-1",
                 "UseFIPS": true,
                 "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region us-isob-east-1 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "error": "DualStack is enabled but this partition does not support DualStack"
-              },
-              "params": {
-                "Region": "us-isob-east-1",
-                "UseFIPS": false,
-                "UseDualStack": true
               }
             },
             {
@@ -7842,9 +7798,9 @@
                   "properties": {
                     "authSchemes": [
                       {
-                        "signingRegion": "us-east-1",
+                        "name": "sigv4",
                         "signingName": "dynamodb",
-                        "name": "sigv4"
+                        "signingRegion": "us-east-1"
                       }
                     ]
                   },
@@ -7878,9 +7834,9 @@
                   "properties": {
                     "authSchemes": [
                       {
-                        "signingRegion": "us-east-1",
+                        "name": "sigv4",
                         "signingName": "dynamodb",
-                        "name": "sigv4"
+                        "signingRegion": "us-east-1"
                       }
                     ]
                   },
@@ -7928,9 +7884,9 @@
                   "properties": {
                     "authSchemes": [
                       {
-                        "signingRegion": "us-east-1",
+                        "name": "sigv4",
                         "signingName": "dynamodb",
-                        "name": "sigv4"
+                        "signingRegion": "us-east-1"
                       }
                     ]
                   },
@@ -7954,9 +7910,9 @@
                   "properties": {
                     "authSchemes": [
                       {
-                        "signingRegion": "us-east-1",
+                        "name": "sigv4",
                         "signingName": "dynamodb",
-                        "name": "sigv4"
+                        "signingRegion": "us-east-1"
                       }
                     ]
                   },
@@ -7980,9 +7936,9 @@
                   "properties": {
                     "authSchemes": [
                       {
-                        "signingRegion": "us-east-1",
+                        "name": "sigv4",
                         "signingName": "dynamodb",
-                        "name": "sigv4"
+                        "signingRegion": "us-east-1"
                       }
                     ]
                   },
@@ -8006,9 +7962,9 @@
                   "properties": {
                     "authSchemes": [
                       {
-                        "signingRegion": "us-east-1",
+                        "name": "sigv4",
                         "signingName": "dynamodb",
-                        "name": "sigv4"
+                        "signingRegion": "us-east-1"
                       }
                     ]
                   },
@@ -8032,9 +7988,9 @@
                   "properties": {
                     "authSchemes": [
                       {
-                        "signingRegion": "us-east-1",
+                        "name": "sigv4",
                         "signingName": "dynamodb",
-                        "name": "sigv4"
+                        "signingRegion": "us-east-1"
                       }
                     ]
                   },
@@ -8058,9 +8014,9 @@
                   "properties": {
                     "authSchemes": [
                       {
-                        "signingRegion": "us-east-1",
+                        "name": "sigv4",
                         "signingName": "dynamodb",
-                        "name": "sigv4"
+                        "signingRegion": "us-east-1"
                       }
                     ]
                   },
@@ -8133,9 +8089,9 @@
                   "properties": {
                     "authSchemes": [
                       {
-                        "signingRegion": "us-east-1",
+                        "name": "sigv4",
                         "signingName": "dynamodb",
-                        "name": "sigv4"
+                        "signingRegion": "us-east-1"
                       }
                     ]
                   },
@@ -8171,9 +8127,9 @@
                   "properties": {
                     "authSchemes": [
                       {
-                        "signingRegion": "us-east-1",
+                        "name": "sigv4",
                         "signingName": "dynamodb",
-                        "name": "sigv4"
+                        "signingRegion": "us-east-1"
                       }
                     ]
                   },
@@ -8209,9 +8165,9 @@
                   "properties": {
                     "authSchemes": [
                       {
-                        "signingRegion": "us-east-1",
+                        "name": "sigv4",
                         "signingName": "dynamodb",
-                        "name": "sigv4"
+                        "signingRegion": "us-east-1"
                       }
                     ]
                   },
@@ -8247,9 +8203,9 @@
                   "properties": {
                     "authSchemes": [
                       {
-                        "signingRegion": "us-east-1",
+                        "name": "sigv4",
                         "signingName": "dynamodb",
-                        "name": "sigv4"
+                        "signingRegion": "us-east-1"
                       }
                     ]
                   },
@@ -8310,9 +8266,9 @@
                   "properties": {
                     "authSchemes": [
                       {
-                        "signingRegion": "us-east-1",
+                        "name": "sigv4",
                         "signingName": "dynamodb",
-                        "name": "sigv4"
+                        "signingRegion": "us-east-1"
                       }
                     ]
                   },
@@ -8358,9 +8314,9 @@
                   "properties": {
                     "authSchemes": [
                       {
-                        "signingRegion": "us-east-1",
+                        "name": "sigv4",
                         "signingName": "dynamodb",
-                        "name": "sigv4"
+                        "signingRegion": "us-east-1"
                       }
                     ]
                   },
@@ -8383,9 +8339,9 @@
                   "properties": {
                     "authSchemes": [
                       {
-                        "signingRegion": "us-east-1",
+                        "name": "sigv4",
                         "signingName": "dynamodb",
-                        "name": "sigv4"
+                        "signingRegion": "us-east-1"
                       }
                     ]
                   },
@@ -8445,9 +8401,9 @@
                   "properties": {
                     "authSchemes": [
                       {
-                        "signingRegion": "us-east-1",
+                        "name": "sigv4",
                         "signingName": "dynamodb",
-                        "name": "sigv4"
+                        "signingRegion": "us-east-1"
                       }
                     ]
                   },
@@ -8481,9 +8437,9 @@
                   "properties": {
                     "authSchemes": [
                       {
-                        "signingRegion": "us-east-1",
+                        "name": "sigv4",
                         "signingName": "dynamodb",
-                        "name": "sigv4"
+                        "signingRegion": "us-east-1"
                       }
                     ]
                   },
@@ -8531,9 +8487,9 @@
                   "properties": {
                     "authSchemes": [
                       {
-                        "signingRegion": "us-east-1",
+                        "name": "sigv4",
                         "signingName": "dynamodb",
-                        "name": "sigv4"
+                        "signingRegion": "us-east-1"
                       }
                     ]
                   },
@@ -8557,9 +8513,9 @@
                   "properties": {
                     "authSchemes": [
                       {
-                        "signingRegion": "us-east-1",
+                        "name": "sigv4",
                         "signingName": "dynamodb",
-                        "name": "sigv4"
+                        "signingRegion": "us-east-1"
                       }
                     ]
                   },
@@ -8583,9 +8539,9 @@
                   "properties": {
                     "authSchemes": [
                       {
-                        "signingRegion": "us-east-1",
+                        "name": "sigv4",
                         "signingName": "dynamodb",
-                        "name": "sigv4"
+                        "signingRegion": "us-east-1"
                       }
                     ]
                   },
@@ -8609,9 +8565,9 @@
                   "properties": {
                     "authSchemes": [
                       {
-                        "signingRegion": "us-east-1",
+                        "name": "sigv4",
                         "signingName": "dynamodb",
-                        "name": "sigv4"
+                        "signingRegion": "us-east-1"
                       }
                     ]
                   },
@@ -8635,9 +8591,9 @@
                   "properties": {
                     "authSchemes": [
                       {
-                        "signingRegion": "us-east-1",
+                        "name": "sigv4",
                         "signingName": "dynamodb",
-                        "name": "sigv4"
+                        "signingRegion": "us-east-1"
                       }
                     ]
                   },
@@ -8661,9 +8617,9 @@
                   "properties": {
                     "authSchemes": [
                       {
-                        "signingRegion": "us-east-1",
+                        "name": "sigv4",
                         "signingName": "dynamodb",
-                        "name": "sigv4"
+                        "signingRegion": "us-east-1"
                       }
                     ]
                   },
@@ -8736,9 +8692,9 @@
                   "properties": {
                     "authSchemes": [
                       {
-                        "signingRegion": "us-east-1",
+                        "name": "sigv4",
                         "signingName": "dynamodb",
-                        "name": "sigv4"
+                        "signingRegion": "us-east-1"
                       }
                     ]
                   },
@@ -8774,9 +8730,9 @@
                   "properties": {
                     "authSchemes": [
                       {
-                        "signingRegion": "us-east-1",
+                        "name": "sigv4",
                         "signingName": "dynamodb",
-                        "name": "sigv4"
+                        "signingRegion": "us-east-1"
                       }
                     ]
                   },
@@ -8812,9 +8768,9 @@
                   "properties": {
                     "authSchemes": [
                       {
-                        "signingRegion": "us-east-1",
+                        "name": "sigv4",
                         "signingName": "dynamodb",
-                        "name": "sigv4"
+                        "signingRegion": "us-east-1"
                       }
                     ]
                   },
@@ -8850,9 +8806,9 @@
                   "properties": {
                     "authSchemes": [
                       {
-                        "signingRegion": "us-east-1",
+                        "name": "sigv4",
                         "signingName": "dynamodb",
-                        "name": "sigv4"
+                        "signingRegion": "us-east-1"
                       }
                     ]
                   },
@@ -8913,9 +8869,9 @@
                   "properties": {
                     "authSchemes": [
                       {
-                        "signingRegion": "us-east-1",
+                        "name": "sigv4",
                         "signingName": "dynamodb",
-                        "name": "sigv4"
+                        "signingRegion": "us-east-1"
                       }
                     ]
                   },
@@ -8961,9 +8917,9 @@
                   "properties": {
                     "authSchemes": [
                       {
-                        "signingRegion": "us-east-1",
+                        "name": "sigv4",
                         "signingName": "dynamodb",
-                        "name": "sigv4"
+                        "signingRegion": "us-east-1"
                       }
                     ]
                   },
@@ -8986,9 +8942,9 @@
                   "properties": {
                     "authSchemes": [
                       {
-                        "signingRegion": "us-east-1",
+                        "name": "sigv4",
                         "signingName": "dynamodb",
-                        "name": "sigv4"
+                        "signingRegion": "us-east-1"
                       }
                     ]
                   },
@@ -9048,9 +9004,9 @@
                   "properties": {
                     "authSchemes": [
                       {
-                        "signingRegion": "us-east-1",
+                        "name": "sigv4",
                         "signingName": "dynamodb",
-                        "name": "sigv4"
+                        "signingRegion": "us-east-1"
                       }
                     ]
                   },
@@ -9084,9 +9040,9 @@
                   "properties": {
                     "authSchemes": [
                       {
-                        "signingRegion": "us-east-1",
+                        "name": "sigv4",
                         "signingName": "dynamodb",
-                        "name": "sigv4"
+                        "signingRegion": "us-east-1"
                       }
                     ]
                   },
@@ -9134,9 +9090,9 @@
                   "properties": {
                     "authSchemes": [
                       {
-                        "signingRegion": "us-east-1",
+                        "name": "sigv4",
                         "signingName": "dynamodb",
-                        "name": "sigv4"
+                        "signingRegion": "us-east-1"
                       }
                     ]
                   },
@@ -9160,9 +9116,9 @@
                   "properties": {
                     "authSchemes": [
                       {
-                        "signingRegion": "us-east-1",
+                        "name": "sigv4",
                         "signingName": "dynamodb",
-                        "name": "sigv4"
+                        "signingRegion": "us-east-1"
                       }
                     ]
                   },
@@ -9186,9 +9142,9 @@
                   "properties": {
                     "authSchemes": [
                       {
-                        "signingRegion": "us-east-1",
+                        "name": "sigv4",
                         "signingName": "dynamodb",
-                        "name": "sigv4"
+                        "signingRegion": "us-east-1"
                       }
                     ]
                   },
@@ -9212,9 +9168,9 @@
                   "properties": {
                     "authSchemes": [
                       {
-                        "signingRegion": "us-east-1",
+                        "name": "sigv4",
                         "signingName": "dynamodb",
-                        "name": "sigv4"
+                        "signingRegion": "us-east-1"
                       }
                     ]
                   },
@@ -9238,9 +9194,9 @@
                   "properties": {
                     "authSchemes": [
                       {
-                        "signingRegion": "us-east-1",
+                        "name": "sigv4",
                         "signingName": "dynamodb",
-                        "name": "sigv4"
+                        "signingRegion": "us-east-1"
                       }
                     ]
                   },
@@ -9264,9 +9220,9 @@
                   "properties": {
                     "authSchemes": [
                       {
-                        "signingRegion": "us-east-1",
+                        "name": "sigv4",
                         "signingName": "dynamodb",
-                        "name": "sigv4"
+                        "signingRegion": "us-east-1"
                       }
                     ]
                   },
@@ -9339,9 +9295,9 @@
                   "properties": {
                     "authSchemes": [
                       {
-                        "signingRegion": "us-east-1",
+                        "name": "sigv4",
                         "signingName": "dynamodb",
-                        "name": "sigv4"
+                        "signingRegion": "us-east-1"
                       }
                     ]
                   },
@@ -9377,9 +9333,9 @@
                   "properties": {
                     "authSchemes": [
                       {
-                        "signingRegion": "us-east-1",
+                        "name": "sigv4",
                         "signingName": "dynamodb",
-                        "name": "sigv4"
+                        "signingRegion": "us-east-1"
                       }
                     ]
                   },
@@ -9415,9 +9371,9 @@
                   "properties": {
                     "authSchemes": [
                       {
-                        "signingRegion": "us-east-1",
+                        "name": "sigv4",
                         "signingName": "dynamodb",
-                        "name": "sigv4"
+                        "signingRegion": "us-east-1"
                       }
                     ]
                   },
@@ -9453,9 +9409,9 @@
                   "properties": {
                     "authSchemes": [
                       {
-                        "signingRegion": "us-east-1",
+                        "name": "sigv4",
                         "signingName": "dynamodb",
-                        "name": "sigv4"
+                        "signingRegion": "us-east-1"
                       }
                     ]
                   },
@@ -9516,9 +9472,9 @@
                   "properties": {
                     "authSchemes": [
                       {
-                        "signingRegion": "us-east-1",
+                        "name": "sigv4",
                         "signingName": "dynamodb",
-                        "name": "sigv4"
+                        "signingRegion": "us-east-1"
                       }
                     ]
                   },
@@ -9564,9 +9520,9 @@
                   "properties": {
                     "authSchemes": [
                       {
-                        "signingRegion": "us-east-1",
+                        "name": "sigv4",
                         "signingName": "dynamodb",
-                        "name": "sigv4"
+                        "signingRegion": "us-east-1"
                       }
                     ]
                   },
@@ -9589,9 +9545,9 @@
                   "properties": {
                     "authSchemes": [
                       {
-                        "signingRegion": "us-east-1",
+                        "name": "sigv4",
                         "signingName": "dynamodb",
-                        "name": "sigv4"
+                        "signingRegion": "us-east-1"
                       }
                     ]
                   },
