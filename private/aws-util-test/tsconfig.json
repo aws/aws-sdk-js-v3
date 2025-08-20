@@ -9,5 +9,6 @@
     "rootDir": "src",
     "useUnknownInCatchVariables": false
   },
-  "include": ["src"]
+  "include": ["src"],
+  "exclude": ["**/*.spec.ts"]
 }
