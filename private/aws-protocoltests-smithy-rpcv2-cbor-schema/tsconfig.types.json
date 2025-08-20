@@ -7,5 +7,5 @@
     "emitDeclarationOnly": true,
     "noCheck": false
   },
-  "exclude": ["test/**/*", "dist-types/**/*"]
+  "include": ["src"]
 }
