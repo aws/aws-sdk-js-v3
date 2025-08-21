@@ -130,7 +130,8 @@ describe(fromSSO.name, () => {
     it.each(["ssoStartUrl", "ssoAccountId", "ssoRegion", "ssoRoleName"])("missing '%s'", async (key) => {
       const expectedError = new CredentialsProviderError(
         'Incomplete configuration. The fromSSO() argument hash must include "ssoStartUrl",' +
-          ' "ssoAccountId", "ssoRegion", "ssoRoleName"'
+          ' "ssoAccountId", "ssoRegion", "ssoRoleName"',
+        { tryNextLink: false }
       );
       try {
         await fromSSO({ ...mockSsoProfile, [key]: undefined })();
