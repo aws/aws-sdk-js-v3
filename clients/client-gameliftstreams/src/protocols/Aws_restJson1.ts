@@ -596,6 +596,7 @@ export const se_UpdateStreamGroupCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
+      DefaultApplicationIdentifier: [],
       Description: [],
       LocationConfigurations: (_) => _json(_),
     })

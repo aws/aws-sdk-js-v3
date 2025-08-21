@@ -41,13 +41,13 @@ export interface LocationConfiguration {
   LocationName: string | undefined;
 
   /**
-   * <p>The streaming capacity that is allocated and ready to handle stream requests without delay. You pay for this capacity whether it's in use or not. Best for quickest time from streaming request to streaming session.</p>
+   * <p>The streaming capacity that is allocated and ready to handle stream requests without delay. You pay for this capacity whether it's in use or not. Best for quickest time from streaming request to streaming session. Default is 1 when creating a stream group or adding a location.</p>
    * @public
    */
   AlwaysOnCapacity?: number | undefined;
 
   /**
-   * <p>The streaming capacity that Amazon GameLift Streams can allocate in response to stream requests, and then de-allocate when the session has terminated. This offers a cost control measure at the expense of a greater startup time (typically under 5 minutes).</p>
+   * <p>The streaming capacity that Amazon GameLift Streams can allocate in response to stream requests, and then de-allocate when the session has terminated. This offers a cost control measure at the expense of a greater startup time (typically under 5 minutes). Default is 0 when creating a stream group or adding a location.</p>
    * @public
    */
   OnDemandCapacity?: number | undefined;
@@ -98,19 +98,19 @@ export interface LocationState {
   LocationName?: string | undefined;
 
   /**
-   * <p>This value is set of locations, including their name, current status, and capacities. </p> <p> A location can be in one of the following states: </p> <ul> <li> <p> <b>ACTIVATING</b>: Amazon GameLift Streams is preparing the location. You cannot stream from, scale the capacity of, or remove this location yet. </p> </li> <li> <p> <b>ACTIVE</b>: The location is provisioned with initial capacity. You can now stream from, scale the capacity of, or remove this location. </p> </li> <li> <p> <b>ERROR</b>: Amazon GameLift Streams failed to set up this location. The StatusReason field describes the error. You can remove this location and try to add it again. </p> </li> <li> <p> <b>REMOVING</b>: Amazon GameLift Streams is working to remove this location. It releases all provisioned capacity for this location in this stream group. </p> </li> </ul>
+   * <p>This value is set of locations, including their name, current status, and capacities. </p> <p>A location can be in one of the following states:</p> <ul> <li> <p> <code>ACTIVATING</code>: Amazon GameLift Streams is preparing the location. You cannot stream from, scale the capacity of, or remove this location yet.</p> </li> <li> <p> <code>ACTIVE</code>: The location is provisioned with initial capacity. You can now stream from, scale the capacity of, or remove this location.</p> </li> <li> <p> <code>ERROR</code>: Amazon GameLift Streams failed to set up this location. The <code>StatusReason</code> field describes the error. You can remove this location and try to add it again.</p> </li> <li> <p> <code>REMOVING</code>: Amazon GameLift Streams is working to remove this location. This will release all provisioned capacity for this location in this stream group.</p> </li> </ul>
    * @public
    */
   Status?: StreamGroupLocationStatus | undefined;
 
   /**
-   * <p>The streaming capacity that is allocated and ready to handle stream requests without delay. You pay for this capacity whether it's in use or not. Best for quickest time from streaming request to streaming session.</p>
+   * <p>The streaming capacity that is allocated and ready to handle stream requests without delay. You pay for this capacity whether it's in use or not. Best for quickest time from streaming request to streaming session. Default is 1 when creating a stream group or adding a location.</p>
    * @public
    */
   AlwaysOnCapacity?: number | undefined;
 
   /**
-   * <p>The streaming capacity that Amazon GameLift Streams can allocate in response to stream requests, and then de-allocate when the session has terminated. This offers a cost control measure at the expense of a greater startup time (typically under 5 minutes).</p>
+   * <p>The streaming capacity that Amazon GameLift Streams can allocate in response to stream requests, and then de-allocate when the session has terminated. This offers a cost control measure at the expense of a greater startup time (typically under 5 minutes). Default is 0 when creating a stream group or adding a location.</p>
    * @public
    */
   OnDemandCapacity?: number | undefined;
@@ -145,7 +145,7 @@ export interface AddStreamGroupLocationsOutput {
   Identifier: string | undefined;
 
   /**
-   * <p>This value is set of locations, including their name, current status, and capacities. </p> <p> A location can be in one of the following states: </p> <ul> <li> <p> <b>ACTIVATING</b>: Amazon GameLift Streams is preparing the location. You cannot stream from, scale the capacity of, or remove this location yet. </p> </li> <li> <p> <b>ACTIVE</b>: The location is provisioned with initial capacity. You can now stream from, scale the capacity of, or remove this location. </p> </li> <li> <p> <b>ERROR</b>: Amazon GameLift Streams failed to set up this location. The StatusReason field describes the error. You can remove this location and try to add it again. </p> </li> <li> <p> <b>REMOVING</b>: Amazon GameLift Streams is working to remove this location. It releases all provisioned capacity for this location in this stream group. </p> </li> </ul>
+   * <p>This value is set of locations, including their name, current status, and capacities. </p> <p>A location can be in one of the following states:</p> <ul> <li> <p> <code>ACTIVATING</code>: Amazon GameLift Streams is preparing the location. You cannot stream from, scale the capacity of, or remove this location yet.</p> </li> <li> <p> <code>ACTIVE</code>: The location is provisioned with initial capacity. You can now stream from, scale the capacity of, or remove this location.</p> </li> <li> <p> <code>ERROR</code>: Amazon GameLift Streams failed to set up this location. The <code>StatusReason</code> field describes the error. You can remove this location and try to add it again.</p> </li> <li> <p> <code>REMOVING</code>: Amazon GameLift Streams is working to remove this location. This will release all provisioned capacity for this location in this stream group.</p> </li> </ul>
    * @public
    */
   Locations: LocationState[] | undefined;
@@ -929,7 +929,7 @@ export interface CreateStreamGroupInput {
   StreamClass: StreamClass | undefined;
 
   /**
-   * <p>The unique identifier of the Amazon GameLift Streams application that you want to associate to a stream group as the default application. The application must be in <code>READY</code> status. By setting the default application identifier, you will optimize startup performance of this application in your stream group. Once set, this application cannot be disassociated from the stream group, unlike applications that are associated using AssociateApplications. If not set when creating a stream group, you will need to call AssociateApplications later, before you can start streaming.</p> <p>This value is an <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html">Amazon Resource Name (ARN)</a> or ID that uniquely identifies the application resource. Example ARN: <code>arn:aws:gameliftstreams:us-west-2:111122223333:application/a-9ZY8X7Wv6</code>. Example ID: <code>a-9ZY8X7Wv6</code>. </p>
+   * <p>The unique identifier of the Amazon GameLift Streams application that you want to set as the default application in a stream group. The application that you specify must be in <code>READY</code> status. The default application is pre-cached on always-on compute resources, reducing stream startup times. Other applications are automatically cached as needed.</p> <p>If you do not link an application when you create a stream group, you will need to link one later, before you can start streaming, using <a href="https://docs.aws.amazon.com/gameliftstreams/latest/apireference/API_AssociateApplications.html">AssociateApplications</a>.</p> <p>This value is an <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html">Amazon Resource Name (ARN)</a> or ID that uniquely identifies the application resource. Example ARN: <code>arn:aws:gameliftstreams:us-west-2:111122223333:application/a-9ZY8X7Wv6</code>. Example ID: <code>a-9ZY8X7Wv6</code>. </p>
    * @public
    */
   DefaultApplicationIdentifier?: string | undefined;
@@ -1026,7 +1026,7 @@ export interface CreateStreamGroupOutput {
   DefaultApplication?: DefaultApplication | undefined;
 
   /**
-   * <p>This value is the set of locations, including their name, current status, and capacities. </p> <p> A location can be in one of the following states: </p> <ul> <li> <p> <b>ACTIVATING</b>: Amazon GameLift Streams is preparing the location. You cannot stream from, scale the capacity of, or remove this location yet. </p> </li> <li> <p> <b>ACTIVE</b>: The location is provisioned with initial capacity. You can now stream from, scale the capacity of, or remove this location. </p> </li> <li> <p> <b>ERROR</b>: Amazon GameLift Streams failed to set up this location. The StatusReason field describes the error. You can remove this location and try to add it again. </p> </li> <li> <p> <b>REMOVING</b>: Amazon GameLift Streams is working to remove this location. It releases all provisioned capacity for this location in this stream group. </p> </li> </ul>
+   * <p>This value is the set of locations, including their name, current status, and capacities. </p> <p>A location can be in one of the following states:</p> <ul> <li> <p> <code>ACTIVATING</code>: Amazon GameLift Streams is preparing the location. You cannot stream from, scale the capacity of, or remove this location yet.</p> </li> <li> <p> <code>ACTIVE</code>: The location is provisioned with initial capacity. You can now stream from, scale the capacity of, or remove this location.</p> </li> <li> <p> <code>ERROR</code>: Amazon GameLift Streams failed to set up this location. The <code>StatusReason</code> field describes the error. You can remove this location and try to add it again.</p> </li> <li> <p> <code>REMOVING</code>: Amazon GameLift Streams is working to remove this location. This will release all provisioned capacity for this location in this stream group.</p> </li> </ul>
    * @public
    */
   LocationStates?: LocationState[] | undefined;
@@ -1085,7 +1085,7 @@ export interface CreateStreamSessionConnectionInput {
   ClientToken?: string | undefined;
 
   /**
-   * <p> <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html">Amazon Resource Name (ARN)</a> or ID that uniquely identifies the stream group resource. Example ARN: <code>arn:aws:gameliftstreams:us-west-2:111122223333:streamgroup/sg-1AB2C3De4</code>. Example ID: <code>sg-1AB2C3De4</code>. </p> <p> The stream group that you want to run this stream session with. The stream group must be in <code>ACTIVE</code> status and have idle stream capacity. </p>
+   * <p> <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html">Amazon Resource Name (ARN)</a> or ID that uniquely identifies the stream group resource. Example ARN: <code>arn:aws:gameliftstreams:us-west-2:111122223333:streamgroup/sg-1AB2C3De4</code>. Example ID: <code>sg-1AB2C3De4</code>. </p> <p> The stream group that you want to run this stream session with. The stream group must be in <code>ACTIVE</code> status. </p>
    * @public
    */
   Identifier: string | undefined;
@@ -1321,7 +1321,7 @@ export interface GetStreamSessionOutput {
   UserId?: string | undefined;
 
   /**
-   * <p>The current status of the stream session. A stream session can host clients when in <code>ACTIVE</code> status.</p>
+   * <p>The current status of the stream session. A stream session is ready for a client to connect when in <code>ACTIVE</code> status.</p> <ul> <li> <p> <code>ACTIVATING</code>: The stream session is starting and preparing to stream.</p> </li> <li> <p> <code>ACTIVE</code>: The stream session is ready and waiting for a client connection. A client has <code>ConnectionTimeoutSeconds</code> (specified in <code>StartStreamSession</code>) from when the session reaches <code>ACTIVE</code> state to establish a connection. If no client connects within this timeframe, the session automatically terminates.</p> </li> <li> <p> <code>CONNECTED</code>: The stream session has a connected client. A session will automatically terminate if there is no user input for 60 minutes, or if the maximum length of a session specified by <code>SessionLengthSeconds</code> in <code>StartStreamSession</code> is exceeded.</p> </li> <li> <p> <code>ERROR</code>: The stream session failed to activate.</p> </li> <li> <p> <code>PENDING_CLIENT_RECONNECTION</code>: A client has recently disconnected and the stream session is waiting for the client to reconnect. A client has <code>ConnectionTimeoutSeconds</code> (specified in <code>StartStreamSession</code>) from when the session reaches <code>PENDING_CLIENT_RECONNECTION</code> state to re-establish a connection. If no client connects within this timeframe, the session automatically terminates.</p> </li> <li> <p> <code>RECONNECTING</code>: A client has initiated a reconnect to a session that was in <code>PENDING_CLIENT_RECONNECTION</code> state.</p> </li> <li> <p> <code>TERMINATING</code>: The stream session is ending.</p> </li> <li> <p> <code>TERMINATED</code>: The stream session has ended.</p> </li> </ul>
    * @public
    */
   Status?: StreamSessionStatus | undefined;
@@ -1339,7 +1339,7 @@ export interface GetStreamSessionOutput {
   Protocol?: Protocol | undefined;
 
   /**
-   * <p>The location where Amazon GameLift Streams is hosting the stream session.</p> <p> A location's name. For example, <code>us-east-1</code>. For a complete list of locations that Amazon GameLift Streams supports, refer to <a href="https://docs.aws.amazon.com/gameliftstreams/latest/developerguide/regions-quotas.html">Regions, quotas, and limitations</a> in the <i>Amazon GameLift Streams Developer Guide</i>. </p>
+   * <p>The location where Amazon GameLift Streams hosts and streams your application. For example, <code>us-east-1</code>. For a complete list of locations that Amazon GameLift Streams supports, refer to <a href="https://docs.aws.amazon.com/gameliftstreams/latest/developerguide/regions-quotas.html">Regions, quotas, and limitations</a> in the <i>Amazon GameLift Streams Developer Guide</i>. </p>
    * @public
    */
   Location?: string | undefined;
@@ -1357,13 +1357,13 @@ export interface GetStreamSessionOutput {
   SignalResponse?: string | undefined;
 
   /**
-   * <p>The maximum length of time (in seconds) that Amazon GameLift Streams keeps the stream session open. At this point, Amazon GameLift Streams ends the stream session regardless of any existing client connections.</p>
+   * <p>The length of time that Amazon GameLift Streams should wait for a client to connect or reconnect to the stream session. This time span starts when the stream session reaches <code>ACTIVE</code> or <code>PENDING_CLIENT_RECONNECTION</code> state. If no client connects (or reconnects) before the timeout, Amazon GameLift Streams terminates the stream session.</p>
    * @public
    */
   ConnectionTimeoutSeconds?: number | undefined;
 
   /**
-   * <p>The length of time that Amazon GameLift Streams keeps the game session open.</p>
+   * <p>The maximum duration of a session. Amazon GameLift Streams will automatically terminate a session after this amount of time has elapsed, regardless of any existing client connections.</p>
    * @public
    */
   SessionLengthSeconds?: number | undefined;
@@ -1428,7 +1428,7 @@ export interface ListStreamSessionsInput {
   Status?: StreamSessionStatus | undefined;
 
   /**
-   * <p>Filter by the exported files status. You can specify one status in each request to retrieve only sessions that currently have that exported files status.</p> <p> Exported files can be in one of the following states: </p> <ul> <li> <p> <b>SUCCEEDED</b>: The exported files are successfully stored in S3 bucket. </p> </li> <li> <p> <b>FAILED</b>: The session ended but Amazon GameLift Streams couldn't collect and upload the to S3. </p> </li> <li> <p> <b>PENDING</b>: Either the stream session is still in progress, or uploading the exported files to the S3 bucket is in progress. </p> </li> </ul>
+   * <p>Filter by the exported files status. You can specify one status in each request to retrieve only sessions that currently have that exported files status.</p> <p> Exported files can be in one of the following states: </p> <ul> <li> <p> <code>SUCCEEDED</code>: The exported files are successfully stored in an S3 bucket.</p> </li> <li> <p> <code>FAILED</code>: The session ended but Amazon GameLift Streams couldn't collect and upload the files to S3.</p> </li> <li> <p> <code>PENDING</code>: Either the stream session is still in progress, or uploading the exported files to the S3 bucket is in progress.</p> </li> </ul>
    * @public
    */
   ExportFilesStatus?: ExportFilesStatus | undefined;
@@ -1453,7 +1453,7 @@ export interface ListStreamSessionsInput {
 }
 
 /**
- * <p>Describes a Amazon GameLift Streams stream session. To retrieve additional details for the stream session, call <a href="https://docs.aws.amazon.com/gameliftstreams/latest/apireference/API_GetStreamSession.html">GetStreamSession</a>.</p>
+ * <p>Describes an Amazon GameLift Streams stream session. To retrieve additional details for the stream session, call <a href="https://docs.aws.amazon.com/gameliftstreams/latest/apireference/API_GetStreamSession.html">GetStreamSession</a>.</p>
  * @public
  */
 export interface StreamSessionSummary {
@@ -1470,7 +1470,7 @@ export interface StreamSessionSummary {
   UserId?: string | undefined;
 
   /**
-   * <p>The current status of the stream session resource. Possible statuses include the following: </p> <ul> <li> <p> <code>ACTIVATING</code>: The stream session is starting and preparing to stream.</p> </li> <li> <p> <code>ACTIVE</code>: The stream session is ready to accept client connections.</p> </li> <li> <p> <code>CONNECTED</code>: The stream session has a connected client.</p> </li> <li> <p> <code>PENDING_CLIENT_RECONNECTION</code>: A client has recently disconnected, and the stream session is waiting for the client to reconnect. After a short time, if the client doesn't reconnect, the stream session status transitions to <code>TERMINATED</code>.</p> </li> <li> <p> <code>TERMINATING</code>: The stream session is ending.</p> </li> <li> <p> <code>TERMINATED</code>: The stream session has ended.</p> </li> <li> <p> <code>ERROR</code>: The stream session failed to activate.</p> </li> </ul>
+   * <p>The current status of the stream session resource.</p> <ul> <li> <p> <code>ACTIVATING</code>: The stream session is starting and preparing to stream.</p> </li> <li> <p> <code>ACTIVE</code>: The stream session is ready and waiting for a client connection. A client has <code>ConnectionTimeoutSeconds</code> (specified in <code>StartStreamSession</code>) from when the session reaches <code>ACTIVE</code> state to establish a connection. If no client connects within this timeframe, the session automatically terminates.</p> </li> <li> <p> <code>CONNECTED</code>: The stream session has a connected client. A session will automatically terminate if there is no user input for 60 minutes, or if the maximum length of a session specified by <code>SessionLengthSeconds</code> in <code>StartStreamSession</code> is exceeded.</p> </li> <li> <p> <code>ERROR</code>: The stream session failed to activate.</p> </li> <li> <p> <code>PENDING_CLIENT_RECONNECTION</code>: A client has recently disconnected and the stream session is waiting for the client to reconnect. A client has <code>ConnectionTimeoutSeconds</code> (specified in <code>StartStreamSession</code>) from when the session reaches <code>PENDING_CLIENT_RECONNECTION</code> state to re-establish a connection. If no client connects within this timeframe, the session automatically terminates.</p> </li> <li> <p> <code>RECONNECTING</code>: A client has initiated a reconnect to a session that was in <code>PENDING_CLIENT_RECONNECTION</code> state.</p> </li> <li> <p> <code>TERMINATING</code>: The stream session is ending.</p> </li> <li> <p> <code>TERMINATED</code>: The stream session has ended.</p> </li> </ul>
    * @public
    */
   Status?: StreamSessionStatus | undefined;
@@ -1506,7 +1506,7 @@ export interface StreamSessionSummary {
   ExportFilesMetadata?: ExportFilesMetadata | undefined;
 
   /**
-   * <p>The location where Amazon GameLift Streams is hosting the stream session.</p> <p> A location's name. For example, <code>us-east-1</code>. For a complete list of locations that Amazon GameLift Streams supports, refer to <a href="https://docs.aws.amazon.com/gameliftstreams/latest/developerguide/regions-quotas.html">Regions, quotas, and limitations</a> in the <i>Amazon GameLift Streams Developer Guide</i>. </p>
+   * <p>The location where Amazon GameLift Streams hosts and streams your application. For example, <code>us-east-1</code>. For a complete list of locations that Amazon GameLift Streams supports, refer to <a href="https://docs.aws.amazon.com/gameliftstreams/latest/developerguide/regions-quotas.html">Regions, quotas, and limitations</a> in the <i>Amazon GameLift Streams Developer Guide</i>. </p>
    * @public
    */
   Location?: string | undefined;
@@ -1608,7 +1608,7 @@ export interface RemoveStreamGroupLocationsInput {
   Identifier: string | undefined;
 
   /**
-   * <p> A set of locations to remove this stream group. </p> <p> A set of location names. For example, <code>us-east-1</code>. For a complete list of locations that Amazon GameLift Streams supports, refer to <a href="https://docs.aws.amazon.com/gameliftstreams/latest/developerguide/regions-quotas.html">Regions, quotas, and limitations</a> in the <i>Amazon GameLift Streams Developer Guide</i>. </p>
+   * <p> A set of locations to remove this stream group. For example, <code>us-east-1</code>.</p> <p> For a complete list of locations that Amazon GameLift Streams supports, refer to <a href="https://docs.aws.amazon.com/gameliftstreams/latest/developerguide/regions-quotas.html">Regions, quotas, and limitations</a> in the <i>Amazon GameLift Streams Developer Guide</i>. </p>
    * @public
    */
   Locations: string[] | undefined;
@@ -1661,19 +1661,19 @@ export interface StartStreamSessionInput {
   UserId?: string | undefined;
 
   /**
-   * <p> A list of locations, in order of priority, where you want Amazon GameLift Streams to start a stream from. Amazon GameLift Streams selects the location with the next available capacity to start a single stream session in. If this value is empty, Amazon GameLift Streams attempts to start a stream session in the primary location. </p> <p> This value is A set of location names. For example, <code>us-east-1</code>. For a complete list of locations that Amazon GameLift Streams supports, refer to <a href="https://docs.aws.amazon.com/gameliftstreams/latest/developerguide/regions-quotas.html">Regions, quotas, and limitations</a> in the <i>Amazon GameLift Streams Developer Guide</i>. </p>
+   * <p> A list of locations, in order of priority, where you want Amazon GameLift Streams to start a stream from. For example, <code>us-east-1</code>. Amazon GameLift Streams selects the location with the next available capacity to start a single stream session in. If this value is empty, Amazon GameLift Streams attempts to start a stream session in the primary location. </p> <p> For a complete list of locations that Amazon GameLift Streams supports, refer to <a href="https://docs.aws.amazon.com/gameliftstreams/latest/developerguide/regions-quotas.html">Regions, quotas, and limitations</a> in the <i>Amazon GameLift Streams Developer Guide</i>. </p>
    * @public
    */
   Locations?: string[] | undefined;
 
   /**
-   * <p>Length of time (in seconds) that Amazon GameLift Streams should wait for a client to connect or reconnect to the stream session. This time span starts when the stream session reaches <code>ACTIVE</code> status. If no client connects before the timeout, Amazon GameLift Streams stops the stream session with status of <code>TERMINATED</code>. Default value is 120.</p>
+   * <p>Length of time (in seconds) that Amazon GameLift Streams should wait for a client to connect or reconnect to the stream session. Applies to both connection and reconnection scenarios. This time span starts when the stream session reaches <code>ACTIVE</code> state. If no client connects before the timeout, Amazon GameLift Streams terminates the stream session. Default value is 120.</p>
    * @public
    */
   ConnectionTimeoutSeconds?: number | undefined;
 
   /**
-   * <p>The maximum length of time (in seconds) that Amazon GameLift Streams keeps the stream session open. At this point, Amazon GameLift Streams ends the stream session regardless of any existing client connections. Default value is 43200.</p>
+   * <p>The maximum duration of a session. Amazon GameLift Streams will automatically terminate a session after this amount of time has elapsed, regardless of any existing client connections. Default value is 43200 (12 hours).</p>
    * @public
    */
   SessionLengthSeconds?: number | undefined;
@@ -1720,7 +1720,7 @@ export interface StartStreamSessionOutput {
   UserId?: string | undefined;
 
   /**
-   * <p>The current status of the stream session. A stream session can host clients when in <code>ACTIVE</code> status.</p>
+   * <p>The current status of the stream session. A stream session is ready for a client to connect when in <code>ACTIVE</code> status.</p> <ul> <li> <p> <code>ACTIVATING</code>: The stream session is starting and preparing to stream.</p> </li> <li> <p> <code>ACTIVE</code>: The stream session is ready and waiting for a client connection. A client has <code>ConnectionTimeoutSeconds</code> (specified in <code>StartStreamSession</code>) from when the session reaches <code>ACTIVE</code> state to establish a connection. If no client connects within this timeframe, the session automatically terminates.</p> </li> <li> <p> <code>CONNECTED</code>: The stream session has a connected client. A session will automatically terminate if there is no user input for 60 minutes, or if the maximum length of a session specified by <code>SessionLengthSeconds</code> in <code>StartStreamSession</code> is exceeded.</p> </li> <li> <p> <code>ERROR</code>: The stream session failed to activate.</p> </li> <li> <p> <code>PENDING_CLIENT_RECONNECTION</code>: A client has recently disconnected and the stream session is waiting for the client to reconnect. A client has <code>ConnectionTimeoutSeconds</code> (specified in <code>StartStreamSession</code>) from when the session reaches <code>PENDING_CLIENT_RECONNECTION</code> state to re-establish a connection. If no client connects within this timeframe, the session automatically terminates.</p> </li> <li> <p> <code>RECONNECTING</code>: A client has initiated a reconnect to a session that was in <code>PENDING_CLIENT_RECONNECTION</code> state.</p> </li> <li> <p> <code>TERMINATING</code>: The stream session is ending.</p> </li> <li> <p> <code>TERMINATED</code>: The stream session has ended.</p> </li> </ul>
    * @public
    */
   Status?: StreamSessionStatus | undefined;
@@ -1738,7 +1738,7 @@ export interface StartStreamSessionOutput {
   Protocol?: Protocol | undefined;
 
   /**
-   * <p> The location where Amazon GameLift Streams is streaming your application from. </p> <p> A location's name. For example, <code>us-east-1</code>. For a complete list of locations that Amazon GameLift Streams supports, refer to <a href="https://docs.aws.amazon.com/gameliftstreams/latest/developerguide/regions-quotas.html">Regions, quotas, and limitations</a> in the <i>Amazon GameLift Streams Developer Guide</i>. </p>
+   * <p>The location where Amazon GameLift Streams hosts and streams your application. For example, <code>us-east-1</code>. For a complete list of locations that Amazon GameLift Streams supports, refer to <a href="https://docs.aws.amazon.com/gameliftstreams/latest/developerguide/regions-quotas.html">Regions, quotas, and limitations</a> in the <i>Amazon GameLift Streams Developer Guide</i>. </p>
    * @public
    */
   Location?: string | undefined;
@@ -1756,13 +1756,13 @@ export interface StartStreamSessionOutput {
   SignalResponse?: string | undefined;
 
   /**
-   * <p>The maximum length of time (in seconds) that Amazon GameLift Streams keeps the stream session open. At this point, Amazon GameLift Streams ends the stream session regardless of any existing client connections.</p>
+   * <p>The length of time that Amazon GameLift Streams should wait for a client to connect or reconnect to the stream session. This time span starts when the stream session reaches <code>ACTIVE</code> or <code>PENDING_CLIENT_RECONNECTION</code> state. If no client connects (or reconnects) before the timeout, Amazon GameLift Streams terminates the stream session.</p>
    * @public
    */
   ConnectionTimeoutSeconds?: number | undefined;
 
   /**
-   * <p>The length of time that Amazon GameLift Streams keeps the game session open.</p>
+   * <p>The maximum duration of a session. Amazon GameLift Streams will automatically terminate a session after this amount of time has elapsed, regardless of any existing client connections.</p>
    * @public
    */
   SessionLengthSeconds?: number | undefined;
@@ -1804,7 +1804,7 @@ export interface StartStreamSessionOutput {
   CreatedAt?: Date | undefined;
 
   /**
-   * <p>An <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html">Amazon Resource Name (ARN)</a> that uniquely identifies the application resource. Example ARN: <code>arn:aws:gameliftstreams:us-west-2:111122223333:application/a-9ZY8X7Wv6</code>. </p>
+   * <p>The application streaming in this session.</p> <p>This value is an <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html">Amazon Resource Name (ARN)</a> that uniquely identifies the application resource. Example ARN: <code>arn:aws:gameliftstreams:us-west-2:111122223333:application/a-9ZY8X7Wv6</code>. </p>
    * @public
    */
   ApplicationArn?: string | undefined;
@@ -1850,7 +1850,7 @@ export interface GetStreamGroupOutput {
   DefaultApplication?: DefaultApplication | undefined;
 
   /**
-   * <p>This value is the set of locations, including their name, current status, and capacities. </p> <p> A location can be in one of the following states: </p> <ul> <li> <p> <b>ACTIVATING</b>: Amazon GameLift Streams is preparing the location. You cannot stream from, scale the capacity of, or remove this location yet. </p> </li> <li> <p> <b>ACTIVE</b>: The location is provisioned with initial capacity. You can now stream from, scale the capacity of, or remove this location. </p> </li> <li> <p> <b>ERROR</b>: Amazon GameLift Streams failed to set up this location. The StatusReason field describes the error. You can remove this location and try to add it again. </p> </li> <li> <p> <b>REMOVING</b>: Amazon GameLift Streams is working to remove this location. It releases all provisioned capacity for this location in this stream group. </p> </li> </ul>
+   * <p>This value is the set of locations, including their name, current status, and capacities. </p> <p>A location can be in one of the following states:</p> <ul> <li> <p> <code>ACTIVATING</code>: Amazon GameLift Streams is preparing the location. You cannot stream from, scale the capacity of, or remove this location yet.</p> </li> <li> <p> <code>ACTIVE</code>: The location is provisioned with initial capacity. You can now stream from, scale the capacity of, or remove this location.</p> </li> <li> <p> <code>ERROR</code>: Amazon GameLift Streams failed to set up this location. The <code>StatusReason</code> field describes the error. You can remove this location and try to add it again.</p> </li> <li> <p> <code>REMOVING</code>: Amazon GameLift Streams is working to remove this location. This will release all provisioned capacity for this location in this stream group.</p> </li> </ul>
    * @public
    */
   LocationStates?: LocationState[] | undefined;
@@ -2007,6 +2007,12 @@ export interface UpdateStreamGroupInput {
    * @public
    */
   Description?: string | undefined;
+
+  /**
+   * <p>The unique identifier of the Amazon GameLift Streams application that you want to set as the default application in a stream group. The application that you specify must be in <code>READY</code> status. The default application is pre-cached on always-on compute resources, reducing stream startup times. Other applications are automatically cached as needed.</p> <p>Note that this parameter only sets the default application in a stream group. To associate a new application to an existing stream group, you must use <a href="https://docs.aws.amazon.com/gameliftstreams/latest/apireference/API_AssociateApplications.html">AssociateApplications</a>.</p> <p>When you switch default applications in a stream group, it can take up to a few hours for the new default application to be pre-cached.</p> <p>This value is an <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html">Amazon Resource Name (ARN)</a> or ID that uniquely identifies the application resource. Example ARN: <code>arn:aws:gameliftstreams:us-west-2:111122223333:application/a-9ZY8X7Wv6</code>. Example ID: <code>a-9ZY8X7Wv6</code>. </p>
+   * @public
+   */
+  DefaultApplicationIdentifier?: string | undefined;
 }
 
 /**
@@ -2032,7 +2038,7 @@ export interface UpdateStreamGroupOutput {
   DefaultApplication?: DefaultApplication | undefined;
 
   /**
-   * <p>This value is set of locations, including their name, current status, and capacities. </p> <p> A location can be in one of the following states: </p> <ul> <li> <p> <b>ACTIVATING</b>: Amazon GameLift Streams is preparing the location. You cannot stream from, scale the capacity of, or remove this location yet. </p> </li> <li> <p> <b>ACTIVE</b>: The location is provisioned with initial capacity. You can now stream from, scale the capacity of, or remove this location. </p> </li> <li> <p> <b>ERROR</b>: Amazon GameLift Streams failed to set up this location. The StatusReason field describes the error. You can remove this location and try to add it again. </p> </li> <li> <p> <b>REMOVING</b>: Amazon GameLift Streams is working to remove this location. It releases all provisioned capacity for this location in this stream group. </p> </li> </ul>
+   * <p>This value is set of locations, including their name, current status, and capacities. </p> <p>A location can be in one of the following states:</p> <ul> <li> <p> <code>ACTIVATING</code>: Amazon GameLift Streams is preparing the location. You cannot stream from, scale the capacity of, or remove this location yet.</p> </li> <li> <p> <code>ACTIVE</code>: The location is provisioned with initial capacity. You can now stream from, scale the capacity of, or remove this location.</p> </li> <li> <p> <code>ERROR</code>: Amazon GameLift Streams failed to set up this location. The <code>StatusReason</code> field describes the error. You can remove this location and try to add it again.</p> </li> <li> <p> <code>REMOVING</code>: Amazon GameLift Streams is working to remove this location. This will release all provisioned capacity for this location in this stream group.</p> </li> </ul>
    * @public
    */
   LocationStates?: LocationState[] | undefined;
