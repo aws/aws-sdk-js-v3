@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/util-arn-parser",
-  "version": "3.804.0",
+  "version": "3.873.0",
   "description": "A parser to Amazon Resource Names",
   "main": "./dist-cjs/index.js",
   "module": "./dist-es/index.js",

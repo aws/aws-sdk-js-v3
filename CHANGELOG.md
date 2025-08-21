@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.873.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.872.0...v3.873.0) (2025-08-21)
+
+
+### Features
+
+* **client-gameliftstreams:** The default application in a stream group can now be changed at any time using UpdateStreamGroup to update the DefaultApplicationIdentifier. ([9341cdc](https://github.com/aws/aws-sdk-js-v3/commit/9341cdc13382713b2a28edc75f3f17c90687fef5))
+* **client-glue:** Added support for preprocessing queries in Data Quality operations through new DataQualityGlueTable structure. ([1ed0871](https://github.com/aws/aws-sdk-js-v3/commit/1ed08716522bcf57d8d9d707302eef83dea4bdfa))
+* **client-guardduty:** Remove Pattern trait from email field ([1d689d7](https://github.com/aws/aws-sdk-js-v3/commit/1d689d7f319e70c104d6da49e1e1ec4c8c3224d6))
+
+
+
+
+
 # [3.872.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.871.0...v3.872.0) (2025-08-20)
 
 
