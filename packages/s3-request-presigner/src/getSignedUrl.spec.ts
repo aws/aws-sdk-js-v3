@@ -196,9 +196,10 @@ describe("getSignedUrl", () => {
     });
   });
 
-  it("should throw if presign request with MRAP ARN and disableMultiregionAccessPoints option", () => {
+  it("should throw if presign request with MRAP ARN and disableMultiregionAccessPoints option", async () => {
     const mockPresigned = "a presigned url";
     vi.mocked(mockS3RequestPresigner.presign).mockReturnValue(mockPresigned as any);
+
     const client = new S3Client({
       ...clientParams,
       disableMultiregionAccessPoints: true,
@@ -207,13 +208,9 @@ describe("getSignedUrl", () => {
       Bucket: "arn:aws:s3::123456789012:accesspoint:mfzwi23gnjvgw.mrap",
       Key: "Key",
     });
-    return expect(getSignedUrl(client, command)).rejects.toEqual(
-      new (class EndpointError extends Error {
-        constructor(...args: any[]) {
-          super(...args);
-          this.name = "EndpointError";
-        }
-      })("Invalid configuration: Multi-Region Access Point ARNs are disabled.")
-    );
+
+    const error = await getSignedUrl(client, command).catch((e) => e);
+    expect(error.name).toEqual("EndpointError");
+    expect(error.message).toEqual("Invalid configuration: Multi-Region Access Point ARNs are disabled.");
   });
 });
