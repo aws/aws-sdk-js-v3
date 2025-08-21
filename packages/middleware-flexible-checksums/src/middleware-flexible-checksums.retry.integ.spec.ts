@@ -19,6 +19,7 @@ describe("middleware-flexible-checksums.retry", () => {
     let flexChecksCalls = 0;
     client.middlewareStack.addRelativeTo(
       (next: any) => async (args: any) => {
+        console.log("after flexChecks");
         flexChecksCalls++;
         return next(args);
       },
@@ -31,6 +32,7 @@ describe("middleware-flexible-checksums.retry", () => {
     let retryMiddlewareCalls = 0;
     client.middlewareStack.addRelativeTo(
       (next: any) => async (args: any) => {
+        console.log("after retryMiddleware");
         retryMiddlewareCalls++;
         return next(args);
       },
@@ -46,7 +48,8 @@ describe("middleware-flexible-checksums.retry", () => {
         Key: "k",
         Body: "hello",
       })
-      .catch(() => {
+      .catch((err) => {
+        console.log({ err });
         // Expected, since we're faking transient error which is retried.
       });
 
