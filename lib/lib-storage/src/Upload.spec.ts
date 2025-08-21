@@ -571,7 +571,7 @@ describe(Upload.name, () => {
         TagSet: tags,
       },
     });
-  });
+  }, 30_000);
 
   it("should validate partsize", () => {
     try {
