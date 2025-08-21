@@ -1,1782 +1,1738 @@
 {
-  "smithy": "2.0",
-  "metadata": {
-    "suppressions": [
-      {
-        "id": "HttpMethodSemantics",
-        "namespace": "*"
-      },
-      {
-        "id": "HttpResponseCodeSemantics",
-        "namespace": "*"
-      },
-      {
-        "id": "PaginatedTrait",
-        "namespace": "*"
-      },
-      {
-        "id": "HttpHeaderTrait",
-        "namespace": "*"
-      },
-      {
-        "id": "HttpUriConflict",
-        "namespace": "*"
-      },
-      {
-        "id": "Service",
-        "namespace": "*"
-      }
-    ]
-  },
-  "shapes": {
-    "com.amazonaws.s3outposts#AccessDeniedException": {
-      "type": "structure",
-      "members": {
-        "Message": {
-          "target": "com.amazonaws.s3outposts#ErrorMessage"
-        }
-      },
-      "traits": {
-        "smithy.api#documentation": "<p>Access was denied for this action.</p>",
-        "smithy.api#error": "client",
-        "smithy.api#httpError": 403
-      }
-    },
-    "com.amazonaws.s3outposts#AwsAccountId": {
-      "type": "string",
-      "traits": {
-        "smithy.api#pattern": "^\\d{12}$"
-      }
-    },
-    "com.amazonaws.s3outposts#CapacityInBytes": {
-      "type": "long",
-      "traits": {
-        "smithy.api#default": 0
-      }
-    },
-    "com.amazonaws.s3outposts#CidrBlock": {
-      "type": "string"
-    },
-    "com.amazonaws.s3outposts#ConflictException": {
-      "type": "structure",
-      "members": {
-        "Message": {
-          "target": "com.amazonaws.s3outposts#ErrorMessage"
-        }
-      },
-      "traits": {
-        "smithy.api#documentation": "<p>There was a conflict with this action, and it could not be completed.</p>",
-        "smithy.api#error": "client",
-        "smithy.api#httpError": 409
-      }
-    },
-    "com.amazonaws.s3outposts#CreateEndpoint": {
-      "type": "operation",
-      "input": {
-        "target": "com.amazonaws.s3outposts#CreateEndpointRequest"
-      },
-      "output": {
-        "target": "com.amazonaws.s3outposts#CreateEndpointResult"
-      },
-      "errors": [
-        {
-          "target": "com.amazonaws.s3outposts#AccessDeniedException"
-        },
-        {
-          "target": "com.amazonaws.s3outposts#ConflictException"
-        },
-        {
-          "target": "com.amazonaws.s3outposts#InternalServerException"
-        },
-        {
-          "target": "com.amazonaws.s3outposts#OutpostOfflineException"
-        },
-        {
-          "target": "com.amazonaws.s3outposts#ResourceNotFoundException"
-        },
-        {
-          "target": "com.amazonaws.s3outposts#ThrottlingException"
-        },
-        {
-          "target": "com.amazonaws.s3outposts#ValidationException"
-        }
-      ],
-      "traits": {
-        "smithy.api#documentation": "<p>Creates an endpoint and associates it with the specified Outpost.</p>\n         <note>\n            <p>It can take up to 5 minutes for this action to finish.</p>\n         </note>\n         <p></p>\n         <p>Related actions include:</p>\n         <ul>\n            <li>\n               <p>\n                  <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/API/API_s3outposts_DeleteEndpoint.html\">DeleteEndpoint</a>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/API/API_s3outposts_ListEndpoints.html\">ListEndpoints</a>\n               </p>\n            </li>\n         </ul>",
-        "smithy.api#http": {
-          "method": "POST",
-          "uri": "/S3Outposts/CreateEndpoint",
-          "code": 200
-        }
-      }
-    },
-    "com.amazonaws.s3outposts#CreateEndpointRequest": {
-      "type": "structure",
-      "members": {
-        "OutpostId": {
-          "target": "com.amazonaws.s3outposts#OutpostId",
-          "traits": {
-            "smithy.api#documentation": "<p>The ID of the Outposts. </p>",
-            "smithy.api#required": {}
-          }
-        },
-        "SubnetId": {
-          "target": "com.amazonaws.s3outposts#SubnetId",
-          "traits": {
-            "smithy.api#documentation": "<p>The ID of the subnet in the selected VPC. The endpoint subnet must belong to the Outpost\n            that has Amazon S3 on Outposts provisioned.</p>",
-            "smithy.api#required": {}
-          }
-        },
-        "SecurityGroupId": {
-          "target": "com.amazonaws.s3outposts#SecurityGroupId",
-          "traits": {
-            "smithy.api#documentation": "<p>The ID of the security group to use with the endpoint.</p>",
-            "smithy.api#required": {}
-          }
-        },
-        "AccessType": {
-          "target": "com.amazonaws.s3outposts#EndpointAccessType",
-          "traits": {
-            "smithy.api#documentation": "<p>The type of access for the network connectivity for the Amazon S3 on Outposts endpoint. To use\n            the Amazon Web Services VPC, choose <code>Private</code>. To use the endpoint with an on-premises\n            network, choose <code>CustomerOwnedIp</code>.  If you choose\n                <code>CustomerOwnedIp</code>, you must also provide the customer-owned IP address\n            pool (CoIP pool).</p>\n         <note>\n            <p>\n               <code>Private</code> is the default access type value.</p>\n         </note>"
-          }
-        },
-        "CustomerOwnedIpv4Pool": {
-          "target": "com.amazonaws.s3outposts#CustomerOwnedIpv4Pool",
-          "traits": {
-            "smithy.api#documentation": "<p>The ID of the customer-owned IPv4 address pool (CoIP pool) for the endpoint. IP addresses\n            are allocated from this pool for the endpoint.</p>"
-          }
-        }
-      },
-      "traits": {
-        "smithy.api#input": {}
-      }
-    },
-    "com.amazonaws.s3outposts#CreateEndpointResult": {
-      "type": "structure",
-      "members": {
-        "EndpointArn": {
-          "target": "com.amazonaws.s3outposts#EndpointArn",
-          "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the endpoint.</p>"
-          }
-        }
-      },
-      "traits": {
-        "smithy.api#output": {}
-      }
-    },
-    "com.amazonaws.s3outposts#CreationTime": {
-      "type": "timestamp"
-    },
-    "com.amazonaws.s3outposts#CustomerOwnedIpv4Pool": {
-      "type": "string",
-      "traits": {
-        "smithy.api#pattern": "^ipv4pool-coip-([0-9a-f]{17})$"
-      }
-    },
-    "com.amazonaws.s3outposts#DeleteEndpoint": {
-      "type": "operation",
-      "input": {
-        "target": "com.amazonaws.s3outposts#DeleteEndpointRequest"
-      },
-      "output": {
-        "target": "smithy.api#Unit"
-      },
-      "errors": [
-        {
-          "target": "com.amazonaws.s3outposts#AccessDeniedException"
-        },
-        {
-          "target": "com.amazonaws.s3outposts#InternalServerException"
-        },
-        {
-          "target": "com.amazonaws.s3outposts#OutpostOfflineException"
-        },
-        {
-          "target": "com.amazonaws.s3outposts#ResourceNotFoundException"
-        },
-        {
-          "target": "com.amazonaws.s3outposts#ThrottlingException"
-        },
-        {
-          "target": "com.amazonaws.s3outposts#ValidationException"
-        }
-      ],
-      "traits": {
-        "smithy.api#documentation": "<p>Deletes an endpoint.</p>\n         <note>\n            <p>It can take up to 5 minutes for this action to finish.</p>\n         </note>\n         <p></p>\n         <p>Related actions include:</p>\n         <ul>\n            <li>\n               <p>\n                  <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/API/API_s3outposts_CreateEndpoint.html\">CreateEndpoint</a>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/API/API_s3outposts_ListEndpoints.html\">ListEndpoints</a>\n               </p>\n            </li>\n         </ul>",
-        "smithy.api#http": {
-          "method": "DELETE",
-          "uri": "/S3Outposts/DeleteEndpoint",
-          "code": 200
-        }
-      }
-    },
-    "com.amazonaws.s3outposts#DeleteEndpointRequest": {
-      "type": "structure",
-      "members": {
-        "EndpointId": {
-          "target": "com.amazonaws.s3outposts#EndpointId",
-          "traits": {
-            "smithy.api#documentation": "<p>The ID of the endpoint.</p>",
-            "smithy.api#httpQuery": "endpointId",
-            "smithy.api#required": {}
-          }
-        },
-        "OutpostId": {
-          "target": "com.amazonaws.s3outposts#OutpostId",
-          "traits": {
-            "smithy.api#documentation": "<p>The ID of the Outposts. </p>",
-            "smithy.api#httpQuery": "outpostId",
-            "smithy.api#required": {}
-          }
-        }
-      },
-      "traits": {
-        "smithy.api#input": {}
-      }
-    },
-    "com.amazonaws.s3outposts#Endpoint": {
-      "type": "structure",
-      "members": {
-        "EndpointArn": {
-          "target": "com.amazonaws.s3outposts#EndpointArn",
-          "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the endpoint.</p>"
-          }
-        },
-        "OutpostsId": {
-          "target": "com.amazonaws.s3outposts#OutpostId",
-          "traits": {
-            "smithy.api#documentation": "<p>The ID of the Outposts.</p>"
-          }
-        },
-        "CidrBlock": {
-          "target": "com.amazonaws.s3outposts#CidrBlock",
-          "traits": {
-            "smithy.api#documentation": "<p>The VPC CIDR committed by this endpoint.</p>"
-          }
-        },
-        "Status": {
-          "target": "com.amazonaws.s3outposts#EndpointStatus",
-          "traits": {
-            "smithy.api#documentation": "<p>The status of the endpoint.</p>"
-          }
-        },
-        "CreationTime": {
-          "target": "com.amazonaws.s3outposts#CreationTime",
-          "traits": {
-            "smithy.api#documentation": "<p>The time the endpoint was created.</p>"
-          }
-        },
-        "NetworkInterfaces": {
-          "target": "com.amazonaws.s3outposts#NetworkInterfaces",
-          "traits": {
-            "smithy.api#documentation": "<p>The network interface of the endpoint.</p>"
-          }
-        },
-        "VpcId": {
-          "target": "com.amazonaws.s3outposts#VpcId",
-          "traits": {
-            "smithy.api#documentation": "<p>The ID of the VPC used for the endpoint.</p>"
-          }
-        },
-        "SubnetId": {
-          "target": "com.amazonaws.s3outposts#SubnetId",
-          "traits": {
-            "smithy.api#documentation": "<p>The ID of the subnet used for the endpoint.</p>"
-          }
-        },
-        "SecurityGroupId": {
-          "target": "com.amazonaws.s3outposts#SecurityGroupId",
-          "traits": {
-            "smithy.api#documentation": "<p>The ID of the security group used for the endpoint.</p>"
-          }
-        },
-        "AccessType": {
-          "target": "com.amazonaws.s3outposts#EndpointAccessType",
-          "traits": {
-            "smithy.api#documentation": "<p>The type of connectivity used to access the Amazon S3 on Outposts endpoint.</p>"
-          }
-        },
-        "CustomerOwnedIpv4Pool": {
-          "target": "com.amazonaws.s3outposts#CustomerOwnedIpv4Pool",
-          "traits": {
-            "smithy.api#documentation": "<p>The ID of the customer-owned IPv4 address pool used for the endpoint.</p>"
-          }
-        },
-        "FailedReason": {
-          "target": "com.amazonaws.s3outposts#FailedReason",
-          "traits": {
-            "smithy.api#documentation": "<p>The failure reason, if any, for a create or delete endpoint operation.</p>"
-          }
-        }
-      },
-      "traits": {
-        "smithy.api#documentation": "<p>Amazon S3 on Outposts Access Points simplify managing data access at scale for shared datasets in S3 on Outposts. \n            S3 on Outposts uses endpoints to connect to Outposts buckets so that you can perform actions within your \n               virtual private cloud (VPC). For more information, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/userguide/WorkingWithS3Outposts.html\">\n        Accessing S3 on Outposts using VPC-only access points</a> in the <i>Amazon Simple Storage Service User Guide</i>.</p>"
-      }
-    },
-    "com.amazonaws.s3outposts#EndpointAccessType": {
-      "type": "enum",
-      "members": {
-        "PRIVATE": {
-          "target": "smithy.api#Unit",
-          "traits": {
-            "smithy.api#enumValue": "Private"
-          }
-        },
-        "CUSTOMER_OWNED_IP": {
-          "target": "smithy.api#Unit",
-          "traits": {
-            "smithy.api#enumValue": "CustomerOwnedIp"
-          }
-        }
-      }
-    },
-    "com.amazonaws.s3outposts#EndpointArn": {
-      "type": "string",
-      "traits": {
-        "smithy.api#pattern": "^arn:(aws|aws-cn|aws-us-gov|aws-iso|aws-iso-b):s3-outposts:[a-z\\-0-9]*:[0-9]{12}:outpost/(op-[a-f0-9]{17}|ec2)/endpoint/[a-zA-Z0-9]{19}$"
-      }
-    },
-    "com.amazonaws.s3outposts#EndpointId": {
-      "type": "string",
-      "traits": {
-        "smithy.api#pattern": "^[a-zA-Z0-9]{19}$"
-      }
-    },
-    "com.amazonaws.s3outposts#EndpointStatus": {
-      "type": "enum",
-      "members": {
-        "PENDING": {
-          "target": "smithy.api#Unit",
-          "traits": {
-            "smithy.api#enumValue": "Pending"
-          }
-        },
-        "AVAILABLE": {
-          "target": "smithy.api#Unit",
-          "traits": {
-            "smithy.api#enumValue": "Available"
-          }
-        },
-        "DELETING": {
-          "target": "smithy.api#Unit",
-          "traits": {
-            "smithy.api#enumValue": "Deleting"
-          }
-        },
-        "CREATE_FAILED": {
-          "target": "smithy.api#Unit",
-          "traits": {
-            "smithy.api#enumValue": "Create_Failed"
-          }
-        },
-        "DELETE_FAILED": {
-          "target": "smithy.api#Unit",
-          "traits": {
-            "smithy.api#enumValue": "Delete_Failed"
-          }
-        }
-      }
-    },
-    "com.amazonaws.s3outposts#Endpoints": {
-      "type": "list",
-      "member": {
-        "target": "com.amazonaws.s3outposts#Endpoint"
-      }
-    },
-    "com.amazonaws.s3outposts#ErrorCode": {
-      "type": "string"
-    },
-    "com.amazonaws.s3outposts#ErrorMessage": {
-      "type": "string"
-    },
-    "com.amazonaws.s3outposts#FailedReason": {
-      "type": "structure",
-      "members": {
-        "ErrorCode": {
-          "target": "com.amazonaws.s3outposts#ErrorCode",
-          "traits": {
-            "smithy.api#documentation": "<p>The failure code, if any, for a create or delete endpoint operation.</p>"
-          }
-        },
-        "Message": {
-          "target": "com.amazonaws.s3outposts#Message",
-          "traits": {
-            "smithy.api#documentation": "<p>Additional error details describing the endpoint failure and recommended action.</p>"
-          }
-        }
-      },
-      "traits": {
-        "smithy.api#documentation": "<p>The failure reason, if any, for a create or delete endpoint operation.</p>"
-      }
-    },
-    "com.amazonaws.s3outposts#InternalServerException": {
-      "type": "structure",
-      "members": {
-        "Message": {
-          "target": "com.amazonaws.s3outposts#ErrorMessage"
-        }
-      },
-      "traits": {
-        "smithy.api#documentation": "<p>There was an exception with the internal server.</p>",
-        "smithy.api#error": "server",
-        "smithy.api#httpError": 500
-      }
-    },
-    "com.amazonaws.s3outposts#ListEndpoints": {
-      "type": "operation",
-      "input": {
-        "target": "com.amazonaws.s3outposts#ListEndpointsRequest"
-      },
-      "output": {
-        "target": "com.amazonaws.s3outposts#ListEndpointsResult"
-      },
-      "errors": [
-        {
-          "target": "com.amazonaws.s3outposts#AccessDeniedException"
-        },
-        {
-          "target": "com.amazonaws.s3outposts#InternalServerException"
-        },
-        {
-          "target": "com.amazonaws.s3outposts#ResourceNotFoundException"
-        },
-        {
-          "target": "com.amazonaws.s3outposts#ThrottlingException"
-        },
-        {
-          "target": "com.amazonaws.s3outposts#ValidationException"
-        }
-      ],
-      "traits": {
-        "smithy.api#documentation": "<p>Lists endpoints associated with the specified Outpost. </p>\n         <p>Related actions include:</p>\n         <ul>\n            <li>\n               <p>\n                  <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/API/API_s3outposts_CreateEndpoint.html\">CreateEndpoint</a>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/API/API_s3outposts_DeleteEndpoint.html\">DeleteEndpoint</a>\n               </p>\n            </li>\n         </ul>",
-        "smithy.api#http": {
-          "method": "GET",
-          "uri": "/S3Outposts/ListEndpoints",
-          "code": 200
-        },
-        "smithy.api#paginated": {
-          "inputToken": "NextToken",
-          "outputToken": "NextToken",
-          "items": "Endpoints",
-          "pageSize": "MaxResults"
-        }
-      }
-    },
-    "com.amazonaws.s3outposts#ListEndpointsRequest": {
-      "type": "structure",
-      "members": {
-        "NextToken": {
-          "target": "com.amazonaws.s3outposts#NextToken",
-          "traits": {
-            "smithy.api#documentation": "<p>If a previous response from this operation included a <code>NextToken</code> value, \n            provide that value here to retrieve the next page of results.</p>",
-            "smithy.api#httpQuery": "nextToken"
-          }
-        },
-        "MaxResults": {
-          "target": "com.amazonaws.s3outposts#MaxResults",
-          "traits": {
-            "smithy.api#default": 0,
-            "smithy.api#documentation": "<p>The maximum number of endpoints that will be returned in the response.</p>",
-            "smithy.api#httpQuery": "maxResults"
-          }
-        }
-      },
-      "traits": {
-        "smithy.api#input": {}
-      }
-    },
-    "com.amazonaws.s3outposts#ListEndpointsResult": {
-      "type": "structure",
-      "members": {
-        "Endpoints": {
-          "target": "com.amazonaws.s3outposts#Endpoints",
-          "traits": {
-            "smithy.api#documentation": "<p>The list of endpoints associated with the specified Outpost.</p>"
-          }
-        },
-        "NextToken": {
-          "target": "com.amazonaws.s3outposts#NextToken",
-          "traits": {
-            "smithy.api#documentation": "<p>If the number of endpoints associated with the specified Outpost exceeds <code>MaxResults</code>, \n            you can include this value in subsequent calls to this operation to retrieve more results.</p>"
-          }
-        }
-      },
-      "traits": {
-        "smithy.api#output": {}
-      }
-    },
-    "com.amazonaws.s3outposts#ListOutpostsWithS3": {
-      "type": "operation",
-      "input": {
-        "target": "com.amazonaws.s3outposts#ListOutpostsWithS3Request"
-      },
-      "output": {
-        "target": "com.amazonaws.s3outposts#ListOutpostsWithS3Result"
-      },
-      "errors": [
-        {
-          "target": "com.amazonaws.s3outposts#AccessDeniedException"
-        },
-        {
-          "target": "com.amazonaws.s3outposts#InternalServerException"
-        },
-        {
-          "target": "com.amazonaws.s3outposts#ThrottlingException"
-        },
-        {
-          "target": "com.amazonaws.s3outposts#ValidationException"
-        }
-      ],
-      "traits": {
-        "smithy.api#documentation": "<p>Lists the Outposts with S3 on Outposts capacity for your Amazon Web Services account.\n            Includes S3 on Outposts that you have access to as the Outposts owner, or as a shared user\n            from Resource Access Manager (RAM). </p>",
-        "smithy.api#http": {
-          "method": "GET",
-          "uri": "/S3Outposts/ListOutpostsWithS3",
-          "code": 200
-        },
-        "smithy.api#paginated": {
-          "inputToken": "NextToken",
-          "outputToken": "NextToken",
-          "items": "Outposts",
-          "pageSize": "MaxResults"
-        }
-      }
-    },
-    "com.amazonaws.s3outposts#ListOutpostsWithS3Request": {
-      "type": "structure",
-      "members": {
-        "NextToken": {
-          "target": "com.amazonaws.s3outposts#NextToken",
-          "traits": {
-            "smithy.api#documentation": "<p>When you can get additional results from the <code>ListOutpostsWithS3</code> call, a\n                <code>NextToken</code> parameter is returned in the output. You can then pass in a\n            subsequent command to the <code>NextToken</code> parameter to continue listing\n            additional Outposts.</p>",
-            "smithy.api#httpQuery": "nextToken"
-          }
-        },
-        "MaxResults": {
-          "target": "com.amazonaws.s3outposts#MaxResults",
-          "traits": {
-            "smithy.api#default": 0,
-            "smithy.api#documentation": "<p>The maximum number of Outposts to return. The limit is 100.</p>",
-            "smithy.api#httpQuery": "maxResults"
-          }
-        }
-      },
-      "traits": {
-        "smithy.api#input": {}
-      }
-    },
-    "com.amazonaws.s3outposts#ListOutpostsWithS3Result": {
-      "type": "structure",
-      "members": {
-        "Outposts": {
-          "target": "com.amazonaws.s3outposts#Outposts",
-          "traits": {
-            "smithy.api#documentation": "<p>Returns the list of Outposts that have the following characteristics:</p>\n         <ul>\n            <li>\n               <p>outposts that have S3 provisioned</p>\n            </li>\n            <li>\n               <p>outposts that are <code>Active</code> (not pending any provisioning nor decommissioned)</p>\n            </li>\n            <li>\n               <p>outposts to which the the calling Amazon Web Services account has access</p>\n            </li>\n         </ul>"
-          }
-        },
-        "NextToken": {
-          "target": "com.amazonaws.s3outposts#NextToken",
-          "traits": {
-            "smithy.api#documentation": "<p>Returns a token that you can use to call <code>ListOutpostsWithS3</code> again and receive additional results, if there are any.</p>"
-          }
-        }
-      },
-      "traits": {
-        "smithy.api#output": {}
-      }
-    },
-    "com.amazonaws.s3outposts#ListSharedEndpoints": {
-      "type": "operation",
-      "input": {
-        "target": "com.amazonaws.s3outposts#ListSharedEndpointsRequest"
-      },
-      "output": {
-        "target": "com.amazonaws.s3outposts#ListSharedEndpointsResult"
-      },
-      "errors": [
-        {
-          "target": "com.amazonaws.s3outposts#AccessDeniedException"
-        },
-        {
-          "target": "com.amazonaws.s3outposts#InternalServerException"
-        },
-        {
-          "target": "com.amazonaws.s3outposts#ResourceNotFoundException"
-        },
-        {
-          "target": "com.amazonaws.s3outposts#ThrottlingException"
-        },
-        {
-          "target": "com.amazonaws.s3outposts#ValidationException"
-        }
-      ],
-      "traits": {
-        "smithy.api#documentation": "<p>Lists all endpoints associated with an Outpost that has been shared by Amazon Web Services Resource Access Manager (RAM).</p>\n         <p>Related actions include:</p>\n         <ul>\n            <li>\n               <p>\n                  <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/API/API_s3outposts_CreateEndpoint.html\">CreateEndpoint</a>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/API/API_s3outposts_DeleteEndpoint.html\">DeleteEndpoint</a>\n               </p>\n            </li>\n         </ul>",
-        "smithy.api#http": {
-          "method": "GET",
-          "uri": "/S3Outposts/ListSharedEndpoints",
-          "code": 200
-        },
-        "smithy.api#paginated": {
-          "inputToken": "NextToken",
-          "outputToken": "NextToken",
-          "items": "Endpoints",
-          "pageSize": "MaxResults"
-        }
-      }
-    },
-    "com.amazonaws.s3outposts#ListSharedEndpointsRequest": {
-      "type": "structure",
-      "members": {
-        "NextToken": {
-          "target": "com.amazonaws.s3outposts#NextToken",
-          "traits": {
-            "smithy.api#documentation": "<p>If a previous response from this operation included a <code>NextToken</code> value, you\n            can provide that value here to retrieve the next page of results.</p>",
-            "smithy.api#httpQuery": "nextToken"
-          }
-        },
-        "MaxResults": {
-          "target": "com.amazonaws.s3outposts#MaxResults",
-          "traits": {
-            "smithy.api#default": 0,
-            "smithy.api#documentation": "<p>The maximum number of endpoints that will be returned in the response.</p>",
-            "smithy.api#httpQuery": "maxResults"
-          }
-        },
-        "OutpostId": {
-          "target": "com.amazonaws.s3outposts#OutpostId",
-          "traits": {
-            "smithy.api#documentation": "<p>The ID of the Amazon Web Services Outpost.</p>",
-            "smithy.api#httpQuery": "outpostId",
-            "smithy.api#required": {}
-          }
-        }
-      },
-      "traits": {
-        "smithy.api#input": {}
-      }
-    },
-    "com.amazonaws.s3outposts#ListSharedEndpointsResult": {
-      "type": "structure",
-      "members": {
-        "Endpoints": {
-          "target": "com.amazonaws.s3outposts#Endpoints",
-          "traits": {
-            "smithy.api#documentation": "<p>The list of endpoints associated with the specified Outpost that have been shared by Amazon Web Services Resource Access Manager (RAM).</p>"
-          }
-        },
-        "NextToken": {
-          "target": "com.amazonaws.s3outposts#NextToken",
-          "traits": {
-            "smithy.api#documentation": "<p>If the number of endpoints associated with the specified Outpost exceeds <code>MaxResults</code>, \n            you can include this value in subsequent calls to this operation to retrieve more results.</p>"
-          }
-        }
-      },
-      "traits": {
-        "smithy.api#output": {}
-      }
-    },
-    "com.amazonaws.s3outposts#MaxResults": {
-      "type": "integer",
-      "traits": {
-        "smithy.api#default": 0,
-        "smithy.api#range": {
-          "min": 0,
-          "max": 100
-        }
-      }
-    },
-    "com.amazonaws.s3outposts#Message": {
-      "type": "string"
-    },
-    "com.amazonaws.s3outposts#NetworkInterface": {
-      "type": "structure",
-      "members": {
-        "NetworkInterfaceId": {
-          "target": "com.amazonaws.s3outposts#NetworkInterfaceId",
-          "traits": {
-            "smithy.api#documentation": "<p>The ID for the network interface.</p>"
-          }
-        }
-      },
-      "traits": {
-        "smithy.api#documentation": "<p>The container for the network interface.</p>"
-      }
-    },
-    "com.amazonaws.s3outposts#NetworkInterfaceId": {
-      "type": "string"
-    },
-    "com.amazonaws.s3outposts#NetworkInterfaces": {
-      "type": "list",
-      "member": {
-        "target": "com.amazonaws.s3outposts#NetworkInterface"
-      }
-    },
-    "com.amazonaws.s3outposts#NextToken": {
-      "type": "string",
-      "traits": {
-        "smithy.api#length": {
-          "min": 1,
-          "max": 1024
-        },
-        "smithy.api#pattern": "^[A-Za-z0-9\\+\\:\\/\\=\\?\\#-_]+$"
-      }
-    },
-    "com.amazonaws.s3outposts#Outpost": {
-      "type": "structure",
-      "members": {
-        "OutpostArn": {
-          "target": "com.amazonaws.s3outposts#OutpostArn",
-          "traits": {
-            "smithy.api#documentation": "<p>Specifies the unique Amazon Resource Name (ARN) for the outpost.</p>"
-          }
-        },
-        "S3OutpostArn": {
-          "target": "com.amazonaws.s3outposts#S3OutpostArn",
-          "traits": {
-            "smithy.api#documentation": "<p>Specifies the unique S3 on Outposts ARN for use with Resource Access Manager (RAM).</p>"
-          }
-        },
-        "OutpostId": {
-          "target": "com.amazonaws.s3outposts#OutpostId",
-          "traits": {
-            "smithy.api#documentation": "<p>Specifies the unique identifier for the outpost.</p>"
-          }
-        },
-        "OwnerId": {
-          "target": "com.amazonaws.s3outposts#AwsAccountId",
-          "traits": {
-            "smithy.api#documentation": "<p>Returns the Amazon Web Services account ID of the outpost owner. Useful for comparing owned versus shared outposts.</p>"
-          }
-        },
-        "CapacityInBytes": {
-          "target": "com.amazonaws.s3outposts#CapacityInBytes",
-          "traits": {
-            "smithy.api#default": 0,
-            "smithy.api#documentation": "<p>The Amazon S3 capacity of the outpost in bytes.</p>"
-          }
-        }
-      },
-      "traits": {
-        "smithy.api#documentation": "<p>Contains the details for the Outpost object.</p>"
-      }
-    },
-    "com.amazonaws.s3outposts#OutpostArn": {
-      "type": "string",
-      "traits": {
-        "smithy.api#pattern": "^arn:(aws|aws-cn|aws-us-gov|aws-iso|aws-iso-b):outposts:[a-z\\-0-9]*:[0-9]{12}:outpost/(op-[a-f0-9]{17}|ec2)$"
-      }
-    },
-    "com.amazonaws.s3outposts#OutpostId": {
-      "type": "string",
-      "traits": {
-        "smithy.api#pattern": "^(op-[a-f0-9]{17}|\\d{12}|ec2)$"
-      }
-    },
-    "com.amazonaws.s3outposts#OutpostOfflineException": {
-      "type": "structure",
-      "members": {
-        "Message": {
-          "target": "com.amazonaws.s3outposts#ErrorMessage"
-        }
-      },
-      "traits": {
-        "smithy.api#documentation": "<p>The service link connection to your Outposts home Region is down. Check your connection and try again.</p>",
-        "smithy.api#error": "client",
-        "smithy.api#httpError": 400
-      }
-    },
-    "com.amazonaws.s3outposts#Outposts": {
-      "type": "list",
-      "member": {
-        "target": "com.amazonaws.s3outposts#Outpost"
-      }
-    },
-    "com.amazonaws.s3outposts#ResourceNotFoundException": {
-      "type": "structure",
-      "members": {
-        "Message": {
-          "target": "com.amazonaws.s3outposts#ErrorMessage"
-        }
-      },
-      "traits": {
-        "smithy.api#documentation": "<p>The requested resource was not found.</p>",
-        "smithy.api#error": "client",
-        "smithy.api#httpError": 404
-      }
-    },
-    "com.amazonaws.s3outposts#S3OutpostArn": {
-      "type": "string",
-      "traits": {
-        "smithy.api#pattern": "^arn:(aws|aws-cn|aws-us-gov|aws-iso|aws-iso-b):s3-outposts:[a-z\\-0-9]*:[0-9]{12}:outpost/(op-[a-f0-9]{17}|\\d{12})/s3$"
-      }
-    },
-    "com.amazonaws.s3outposts#S3Outposts": {
-      "type": "service",
-      "version": "2017-07-25",
-      "operations": [
-        {
-          "target": "com.amazonaws.s3outposts#CreateEndpoint"
-        },
-        {
-          "target": "com.amazonaws.s3outposts#DeleteEndpoint"
-        },
-        {
-          "target": "com.amazonaws.s3outposts#ListEndpoints"
-        },
-        {
-          "target": "com.amazonaws.s3outposts#ListOutpostsWithS3"
-        },
-        {
-          "target": "com.amazonaws.s3outposts#ListSharedEndpoints"
-        }
-      ],
-      "traits": {
-        "aws.api#service": {
-          "sdkId": "S3Outposts",
-          "arnNamespace": "s3-outposts",
-          "cloudFormationName": "S3Outposts",
-          "cloudTrailEventSource": "s3outposts.amazonaws.com",
-          "endpointPrefix": "s3-outposts"
-        },
-        "aws.auth#sigv4": {
-          "name": "s3-outposts"
-        },
-        "aws.protocols#restJson1": {},
-        "smithy.api#documentation": "<p>Amazon S3 on Outposts provides access to S3 on Outposts operations.</p>",
-        "smithy.api#title": "Amazon S3 on Outposts",
-        "smithy.rules#endpointRuleSet": {
-          "version": "1.0",
-          "parameters": {
-            "Region": {
-              "builtIn": "AWS::Region",
-              "required": false,
-              "documentation": "The AWS region used to dispatch the request.",
-              "type": "String"
+    "smithy": "2.0",
+    "metadata": {
+        "suppressions": [
+            {
+                "id": "HttpMethodSemantics",
+                "namespace": "*"
             },
-            "UseDualStack": {
-              "builtIn": "AWS::UseDualStack",
-              "required": true,
-              "default": false,
-              "documentation": "When true, use the dual-stack endpoint. If the configured endpoint does not support dual-stack, dispatching the request MAY return an error.",
-              "type": "Boolean"
+            {
+                "id": "HttpResponseCodeSemantics",
+                "namespace": "*"
             },
-            "UseFIPS": {
-              "builtIn": "AWS::UseFIPS",
-              "required": true,
-              "default": false,
-              "documentation": "When true, send this request to the FIPS-compliant regional endpoint. If the configured endpoint does not have a FIPS compliant endpoint, dispatching the request will return an error.",
-              "type": "Boolean"
+            {
+                "id": "PaginatedTrait",
+                "namespace": "*"
             },
-            "Endpoint": {
-              "builtIn": "SDK::Endpoint",
-              "required": false,
-              "documentation": "Override the endpoint used to send this request",
-              "type": "String"
+            {
+                "id": "HttpHeaderTrait",
+                "namespace": "*"
+            },
+            {
+                "id": "HttpUriConflict",
+                "namespace": "*"
+            },
+            {
+                "id": "Service",
+                "namespace": "*"
             }
-          },
-          "rules": [
-            {
-              "conditions": [
-                {
-                  "fn": "isSet",
-                  "argv": [
-                    {
-                      "ref": "Endpoint"
-                    }
-                  ]
+        ]
+    },
+    "shapes": {
+        "com.amazonaws.s3outposts#AccessDeniedException": {
+            "type": "structure",
+            "members": {
+                "Message": {
+                    "target": "com.amazonaws.s3outposts#ErrorMessage"
                 }
-              ],
-              "rules": [
-                {
-                  "conditions": [
-                    {
-                      "fn": "booleanEquals",
-                      "argv": [
-                        {
-                          "ref": "UseFIPS"
-                        },
-                        true
-                      ]
-                    }
-                  ],
-                  "error": "Invalid Configuration: FIPS and custom endpoint are not supported",
-                  "type": "error"
-                },
-                {
-                  "conditions": [
-                    {
-                      "fn": "booleanEquals",
-                      "argv": [
-                        {
-                          "ref": "UseDualStack"
-                        },
-                        true
-                      ]
-                    }
-                  ],
-                  "error": "Invalid Configuration: Dualstack and custom endpoint are not supported",
-                  "type": "error"
-                },
-                {
-                  "conditions": [],
-                  "endpoint": {
-                    "url": {
-                      "ref": "Endpoint"
-                    },
-                    "properties": {},
-                    "headers": {}
-                  },
-                  "type": "endpoint"
-                }
-              ],
-              "type": "tree"
             },
-            {
-              "conditions": [
-                {
-                  "fn": "isSet",
-                  "argv": [
-                    {
-                      "ref": "Region"
-                    }
-                  ]
+            "traits": {
+                "smithy.api#documentation": "<p>Access was denied for this action.</p>",
+                "smithy.api#error": "client",
+                "smithy.api#httpError": 403
+            }
+        },
+        "com.amazonaws.s3outposts#AwsAccountId": {
+            "type": "string",
+            "traits": {
+                "smithy.api#pattern": "^\\d{12}$"
+            }
+        },
+        "com.amazonaws.s3outposts#CapacityInBytes": {
+            "type": "long",
+            "traits": {
+                "smithy.api#default": 0
+            }
+        },
+        "com.amazonaws.s3outposts#CidrBlock": {
+            "type": "string"
+        },
+        "com.amazonaws.s3outposts#ConflictException": {
+            "type": "structure",
+            "members": {
+                "Message": {
+                    "target": "com.amazonaws.s3outposts#ErrorMessage"
                 }
-              ],
-              "rules": [
+            },
+            "traits": {
+                "smithy.api#documentation": "<p>There was a conflict with this action, and it could not be completed.</p>",
+                "smithy.api#error": "client",
+                "smithy.api#httpError": 409
+            }
+        },
+        "com.amazonaws.s3outposts#CreateEndpoint": {
+            "type": "operation",
+            "input": {
+                "target": "com.amazonaws.s3outposts#CreateEndpointRequest"
+            },
+            "output": {
+                "target": "com.amazonaws.s3outposts#CreateEndpointResult"
+            },
+            "errors": [
                 {
-                  "conditions": [
-                    {
-                      "fn": "aws.partition",
-                      "argv": [
-                        {
-                          "ref": "Region"
-                        }
-                      ],
-                      "assign": "PartitionResult"
+                    "target": "com.amazonaws.s3outposts#AccessDeniedException"
+                },
+                {
+                    "target": "com.amazonaws.s3outposts#ConflictException"
+                },
+                {
+                    "target": "com.amazonaws.s3outposts#InternalServerException"
+                },
+                {
+                    "target": "com.amazonaws.s3outposts#OutpostOfflineException"
+                },
+                {
+                    "target": "com.amazonaws.s3outposts#ResourceNotFoundException"
+                },
+                {
+                    "target": "com.amazonaws.s3outposts#ThrottlingException"
+                },
+                {
+                    "target": "com.amazonaws.s3outposts#ValidationException"
+                }
+            ],
+            "traits": {
+                "smithy.api#documentation": "<p>Creates an endpoint and associates it with the specified Outpost.</p>\n         <note>\n            <p>It can take up to 5 minutes for this action to finish.</p>\n         </note>\n         <p></p>\n         <p>Related actions include:</p>\n         <ul>\n            <li>\n               <p>\n                  <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/API/API_s3outposts_DeleteEndpoint.html\">DeleteEndpoint</a>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/API/API_s3outposts_ListEndpoints.html\">ListEndpoints</a>\n               </p>\n            </li>\n         </ul>",
+                "smithy.api#http": {
+                    "method": "POST",
+                    "uri": "/S3Outposts/CreateEndpoint",
+                    "code": 200
+                }
+            }
+        },
+        "com.amazonaws.s3outposts#CreateEndpointRequest": {
+            "type": "structure",
+            "members": {
+                "OutpostId": {
+                    "target": "com.amazonaws.s3outposts#OutpostId",
+                    "traits": {
+                        "smithy.api#documentation": "<p>The ID of the Outposts. </p>",
+                        "smithy.api#required": {}
                     }
-                  ],
-                  "rules": [
-                    {
-                      "conditions": [
-                        {
-                          "fn": "booleanEquals",
-                          "argv": [
-                            {
-                              "ref": "UseFIPS"
-                            },
-                            true
-                          ]
+                },
+                "SubnetId": {
+                    "target": "com.amazonaws.s3outposts#SubnetId",
+                    "traits": {
+                        "smithy.api#documentation": "<p>The ID of the subnet in the selected VPC. The endpoint subnet must belong to the Outpost\n            that has Amazon S3 on Outposts provisioned.</p>",
+                        "smithy.api#required": {}
+                    }
+                },
+                "SecurityGroupId": {
+                    "target": "com.amazonaws.s3outposts#SecurityGroupId",
+                    "traits": {
+                        "smithy.api#documentation": "<p>The ID of the security group to use with the endpoint.</p>",
+                        "smithy.api#required": {}
+                    }
+                },
+                "AccessType": {
+                    "target": "com.amazonaws.s3outposts#EndpointAccessType",
+                    "traits": {
+                        "smithy.api#documentation": "<p>The type of access for the network connectivity for the Amazon S3 on Outposts endpoint. To use\n            the Amazon Web Services VPC, choose <code>Private</code>. To use the endpoint with an on-premises\n            network, choose <code>CustomerOwnedIp</code>.  If you choose\n                <code>CustomerOwnedIp</code>, you must also provide the customer-owned IP address\n            pool (CoIP pool).</p>\n         <note>\n            <p>\n               <code>Private</code> is the default access type value.</p>\n         </note>"
+                    }
+                },
+                "CustomerOwnedIpv4Pool": {
+                    "target": "com.amazonaws.s3outposts#CustomerOwnedIpv4Pool",
+                    "traits": {
+                        "smithy.api#documentation": "<p>The ID of the customer-owned IPv4 address pool (CoIP pool) for the endpoint. IP addresses\n            are allocated from this pool for the endpoint.</p>"
+                    }
+                }
+            },
+            "traits": {
+                "smithy.api#input": {}
+            }
+        },
+        "com.amazonaws.s3outposts#CreateEndpointResult": {
+            "type": "structure",
+            "members": {
+                "EndpointArn": {
+                    "target": "com.amazonaws.s3outposts#EndpointArn",
+                    "traits": {
+                        "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the endpoint.</p>"
+                    }
+                }
+            },
+            "traits": {
+                "smithy.api#output": {}
+            }
+        },
+        "com.amazonaws.s3outposts#CreationTime": {
+            "type": "timestamp"
+        },
+        "com.amazonaws.s3outposts#CustomerOwnedIpv4Pool": {
+            "type": "string",
+            "traits": {
+                "smithy.api#pattern": "^ipv4pool-coip-([0-9a-f]{17})$"
+            }
+        },
+        "com.amazonaws.s3outposts#DeleteEndpoint": {
+            "type": "operation",
+            "input": {
+                "target": "com.amazonaws.s3outposts#DeleteEndpointRequest"
+            },
+            "output": {
+                "target": "smithy.api#Unit"
+            },
+            "errors": [
+                {
+                    "target": "com.amazonaws.s3outposts#AccessDeniedException"
+                },
+                {
+                    "target": "com.amazonaws.s3outposts#InternalServerException"
+                },
+                {
+                    "target": "com.amazonaws.s3outposts#OutpostOfflineException"
+                },
+                {
+                    "target": "com.amazonaws.s3outposts#ResourceNotFoundException"
+                },
+                {
+                    "target": "com.amazonaws.s3outposts#ThrottlingException"
+                },
+                {
+                    "target": "com.amazonaws.s3outposts#ValidationException"
+                }
+            ],
+            "traits": {
+                "smithy.api#documentation": "<p>Deletes an endpoint.</p>\n         <note>\n            <p>It can take up to 5 minutes for this action to finish.</p>\n         </note>\n         <p></p>\n         <p>Related actions include:</p>\n         <ul>\n            <li>\n               <p>\n                  <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/API/API_s3outposts_CreateEndpoint.html\">CreateEndpoint</a>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/API/API_s3outposts_ListEndpoints.html\">ListEndpoints</a>\n               </p>\n            </li>\n         </ul>",
+                "smithy.api#http": {
+                    "method": "DELETE",
+                    "uri": "/S3Outposts/DeleteEndpoint",
+                    "code": 200
+                }
+            }
+        },
+        "com.amazonaws.s3outposts#DeleteEndpointRequest": {
+            "type": "structure",
+            "members": {
+                "EndpointId": {
+                    "target": "com.amazonaws.s3outposts#EndpointId",
+                    "traits": {
+                        "smithy.api#documentation": "<p>The ID of the endpoint.</p>",
+                        "smithy.api#httpQuery": "endpointId",
+                        "smithy.api#required": {}
+                    }
+                },
+                "OutpostId": {
+                    "target": "com.amazonaws.s3outposts#OutpostId",
+                    "traits": {
+                        "smithy.api#documentation": "<p>The ID of the Outposts. </p>",
+                        "smithy.api#httpQuery": "outpostId",
+                        "smithy.api#required": {}
+                    }
+                }
+            },
+            "traits": {
+                "smithy.api#input": {}
+            }
+        },
+        "com.amazonaws.s3outposts#Endpoint": {
+            "type": "structure",
+            "members": {
+                "EndpointArn": {
+                    "target": "com.amazonaws.s3outposts#EndpointArn",
+                    "traits": {
+                        "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the endpoint.</p>"
+                    }
+                },
+                "OutpostsId": {
+                    "target": "com.amazonaws.s3outposts#OutpostId",
+                    "traits": {
+                        "smithy.api#documentation": "<p>The ID of the Outposts.</p>"
+                    }
+                },
+                "CidrBlock": {
+                    "target": "com.amazonaws.s3outposts#CidrBlock",
+                    "traits": {
+                        "smithy.api#documentation": "<p>The VPC CIDR committed by this endpoint.</p>"
+                    }
+                },
+                "Status": {
+                    "target": "com.amazonaws.s3outposts#EndpointStatus",
+                    "traits": {
+                        "smithy.api#documentation": "<p>The status of the endpoint.</p>"
+                    }
+                },
+                "CreationTime": {
+                    "target": "com.amazonaws.s3outposts#CreationTime",
+                    "traits": {
+                        "smithy.api#documentation": "<p>The time the endpoint was created.</p>"
+                    }
+                },
+                "NetworkInterfaces": {
+                    "target": "com.amazonaws.s3outposts#NetworkInterfaces",
+                    "traits": {
+                        "smithy.api#documentation": "<p>The network interface of the endpoint.</p>"
+                    }
+                },
+                "VpcId": {
+                    "target": "com.amazonaws.s3outposts#VpcId",
+                    "traits": {
+                        "smithy.api#documentation": "<p>The ID of the VPC used for the endpoint.</p>"
+                    }
+                },
+                "SubnetId": {
+                    "target": "com.amazonaws.s3outposts#SubnetId",
+                    "traits": {
+                        "smithy.api#documentation": "<p>The ID of the subnet used for the endpoint.</p>"
+                    }
+                },
+                "SecurityGroupId": {
+                    "target": "com.amazonaws.s3outposts#SecurityGroupId",
+                    "traits": {
+                        "smithy.api#documentation": "<p>The ID of the security group used for the endpoint.</p>"
+                    }
+                },
+                "AccessType": {
+                    "target": "com.amazonaws.s3outposts#EndpointAccessType",
+                    "traits": {
+                        "smithy.api#documentation": "<p>The type of connectivity used to access the Amazon S3 on Outposts endpoint.</p>"
+                    }
+                },
+                "CustomerOwnedIpv4Pool": {
+                    "target": "com.amazonaws.s3outposts#CustomerOwnedIpv4Pool",
+                    "traits": {
+                        "smithy.api#documentation": "<p>The ID of the customer-owned IPv4 address pool used for the endpoint.</p>"
+                    }
+                },
+                "FailedReason": {
+                    "target": "com.amazonaws.s3outposts#FailedReason",
+                    "traits": {
+                        "smithy.api#documentation": "<p>The failure reason, if any, for a create or delete endpoint operation.</p>"
+                    }
+                }
+            },
+            "traits": {
+                "smithy.api#documentation": "<p>Amazon S3 on Outposts Access Points simplify managing data access at scale for shared datasets in S3 on Outposts. \n            S3 on Outposts uses endpoints to connect to Outposts buckets so that you can perform actions within your \n               virtual private cloud (VPC). For more information, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/userguide/WorkingWithS3Outposts.html\">\n        Accessing S3 on Outposts using VPC-only access points</a> in the <i>Amazon Simple Storage Service User Guide</i>.</p>"
+            }
+        },
+        "com.amazonaws.s3outposts#EndpointAccessType": {
+            "type": "enum",
+            "members": {
+                "PRIVATE": {
+                    "target": "smithy.api#Unit",
+                    "traits": {
+                        "smithy.api#enumValue": "Private"
+                    }
+                },
+                "CUSTOMER_OWNED_IP": {
+                    "target": "smithy.api#Unit",
+                    "traits": {
+                        "smithy.api#enumValue": "CustomerOwnedIp"
+                    }
+                }
+            }
+        },
+        "com.amazonaws.s3outposts#EndpointArn": {
+            "type": "string",
+            "traits": {
+                "smithy.api#pattern": "^arn:(aws|aws-cn|aws-us-gov|aws-iso|aws-iso-b):s3-outposts:[a-z\\-0-9]*:[0-9]{12}:outpost/(op-[a-f0-9]{17}|ec2)/endpoint/[a-zA-Z0-9]{19}$"
+            }
+        },
+        "com.amazonaws.s3outposts#EndpointId": {
+            "type": "string",
+            "traits": {
+                "smithy.api#pattern": "^[a-zA-Z0-9]{19}$"
+            }
+        },
+        "com.amazonaws.s3outposts#EndpointStatus": {
+            "type": "enum",
+            "members": {
+                "PENDING": {
+                    "target": "smithy.api#Unit",
+                    "traits": {
+                        "smithy.api#enumValue": "Pending"
+                    }
+                },
+                "AVAILABLE": {
+                    "target": "smithy.api#Unit",
+                    "traits": {
+                        "smithy.api#enumValue": "Available"
+                    }
+                },
+                "DELETING": {
+                    "target": "smithy.api#Unit",
+                    "traits": {
+                        "smithy.api#enumValue": "Deleting"
+                    }
+                },
+                "CREATE_FAILED": {
+                    "target": "smithy.api#Unit",
+                    "traits": {
+                        "smithy.api#enumValue": "Create_Failed"
+                    }
+                },
+                "DELETE_FAILED": {
+                    "target": "smithy.api#Unit",
+                    "traits": {
+                        "smithy.api#enumValue": "Delete_Failed"
+                    }
+                }
+            }
+        },
+        "com.amazonaws.s3outposts#Endpoints": {
+            "type": "list",
+            "member": {
+                "target": "com.amazonaws.s3outposts#Endpoint"
+            }
+        },
+        "com.amazonaws.s3outposts#ErrorCode": {
+            "type": "string"
+        },
+        "com.amazonaws.s3outposts#ErrorMessage": {
+            "type": "string"
+        },
+        "com.amazonaws.s3outposts#FailedReason": {
+            "type": "structure",
+            "members": {
+                "ErrorCode": {
+                    "target": "com.amazonaws.s3outposts#ErrorCode",
+                    "traits": {
+                        "smithy.api#documentation": "<p>The failure code, if any, for a create or delete endpoint operation.</p>"
+                    }
+                },
+                "Message": {
+                    "target": "com.amazonaws.s3outposts#Message",
+                    "traits": {
+                        "smithy.api#documentation": "<p>Additional error details describing the endpoint failure and recommended action.</p>"
+                    }
+                }
+            },
+            "traits": {
+                "smithy.api#documentation": "<p>The failure reason, if any, for a create or delete endpoint operation.</p>"
+            }
+        },
+        "com.amazonaws.s3outposts#InternalServerException": {
+            "type": "structure",
+            "members": {
+                "Message": {
+                    "target": "com.amazonaws.s3outposts#ErrorMessage"
+                }
+            },
+            "traits": {
+                "smithy.api#documentation": "<p>There was an exception with the internal server.</p>",
+                "smithy.api#error": "server",
+                "smithy.api#httpError": 500
+            }
+        },
+        "com.amazonaws.s3outposts#ListEndpoints": {
+            "type": "operation",
+            "input": {
+                "target": "com.amazonaws.s3outposts#ListEndpointsRequest"
+            },
+            "output": {
+                "target": "com.amazonaws.s3outposts#ListEndpointsResult"
+            },
+            "errors": [
+                {
+                    "target": "com.amazonaws.s3outposts#AccessDeniedException"
+                },
+                {
+                    "target": "com.amazonaws.s3outposts#InternalServerException"
+                },
+                {
+                    "target": "com.amazonaws.s3outposts#ResourceNotFoundException"
+                },
+                {
+                    "target": "com.amazonaws.s3outposts#ThrottlingException"
+                },
+                {
+                    "target": "com.amazonaws.s3outposts#ValidationException"
+                }
+            ],
+            "traits": {
+                "smithy.api#documentation": "<p>Lists endpoints associated with the specified Outpost. </p>\n         <p>Related actions include:</p>\n         <ul>\n            <li>\n               <p>\n                  <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/API/API_s3outposts_CreateEndpoint.html\">CreateEndpoint</a>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/API/API_s3outposts_DeleteEndpoint.html\">DeleteEndpoint</a>\n               </p>\n            </li>\n         </ul>",
+                "smithy.api#http": {
+                    "method": "GET",
+                    "uri": "/S3Outposts/ListEndpoints",
+                    "code": 200
+                },
+                "smithy.api#paginated": {
+                    "inputToken": "NextToken",
+                    "outputToken": "NextToken",
+                    "items": "Endpoints",
+                    "pageSize": "MaxResults"
+                }
+            }
+        },
+        "com.amazonaws.s3outposts#ListEndpointsRequest": {
+            "type": "structure",
+            "members": {
+                "NextToken": {
+                    "target": "com.amazonaws.s3outposts#NextToken",
+                    "traits": {
+                        "smithy.api#documentation": "<p>If a previous response from this operation included a <code>NextToken</code> value, \n            provide that value here to retrieve the next page of results.</p>",
+                        "smithy.api#httpQuery": "nextToken"
+                    }
+                },
+                "MaxResults": {
+                    "target": "com.amazonaws.s3outposts#MaxResults",
+                    "traits": {
+                        "smithy.api#default": 0,
+                        "smithy.api#documentation": "<p>The maximum number of endpoints that will be returned in the response.</p>",
+                        "smithy.api#httpQuery": "maxResults"
+                    }
+                }
+            },
+            "traits": {
+                "smithy.api#input": {}
+            }
+        },
+        "com.amazonaws.s3outposts#ListEndpointsResult": {
+            "type": "structure",
+            "members": {
+                "Endpoints": {
+                    "target": "com.amazonaws.s3outposts#Endpoints",
+                    "traits": {
+                        "smithy.api#documentation": "<p>The list of endpoints associated with the specified Outpost.</p>"
+                    }
+                },
+                "NextToken": {
+                    "target": "com.amazonaws.s3outposts#NextToken",
+                    "traits": {
+                        "smithy.api#documentation": "<p>If the number of endpoints associated with the specified Outpost exceeds <code>MaxResults</code>, \n            you can include this value in subsequent calls to this operation to retrieve more results.</p>"
+                    }
+                }
+            },
+            "traits": {
+                "smithy.api#output": {}
+            }
+        },
+        "com.amazonaws.s3outposts#ListOutpostsWithS3": {
+            "type": "operation",
+            "input": {
+                "target": "com.amazonaws.s3outposts#ListOutpostsWithS3Request"
+            },
+            "output": {
+                "target": "com.amazonaws.s3outposts#ListOutpostsWithS3Result"
+            },
+            "errors": [
+                {
+                    "target": "com.amazonaws.s3outposts#AccessDeniedException"
+                },
+                {
+                    "target": "com.amazonaws.s3outposts#InternalServerException"
+                },
+                {
+                    "target": "com.amazonaws.s3outposts#ThrottlingException"
+                },
+                {
+                    "target": "com.amazonaws.s3outposts#ValidationException"
+                }
+            ],
+            "traits": {
+                "smithy.api#documentation": "<p>Lists the Outposts with S3 on Outposts capacity for your Amazon Web Services account.\n            Includes S3 on Outposts that you have access to as the Outposts owner, or as a shared user\n            from Resource Access Manager (RAM). </p>",
+                "smithy.api#http": {
+                    "method": "GET",
+                    "uri": "/S3Outposts/ListOutpostsWithS3",
+                    "code": 200
+                },
+                "smithy.api#paginated": {
+                    "inputToken": "NextToken",
+                    "outputToken": "NextToken",
+                    "items": "Outposts",
+                    "pageSize": "MaxResults"
+                }
+            }
+        },
+        "com.amazonaws.s3outposts#ListOutpostsWithS3Request": {
+            "type": "structure",
+            "members": {
+                "NextToken": {
+                    "target": "com.amazonaws.s3outposts#NextToken",
+                    "traits": {
+                        "smithy.api#documentation": "<p>When you can get additional results from the <code>ListOutpostsWithS3</code> call, a\n                <code>NextToken</code> parameter is returned in the output. You can then pass in a\n            subsequent command to the <code>NextToken</code> parameter to continue listing\n            additional Outposts.</p>",
+                        "smithy.api#httpQuery": "nextToken"
+                    }
+                },
+                "MaxResults": {
+                    "target": "com.amazonaws.s3outposts#MaxResults",
+                    "traits": {
+                        "smithy.api#default": 0,
+                        "smithy.api#documentation": "<p>The maximum number of Outposts to return. The limit is 100.</p>",
+                        "smithy.api#httpQuery": "maxResults"
+                    }
+                }
+            },
+            "traits": {
+                "smithy.api#input": {}
+            }
+        },
+        "com.amazonaws.s3outposts#ListOutpostsWithS3Result": {
+            "type": "structure",
+            "members": {
+                "Outposts": {
+                    "target": "com.amazonaws.s3outposts#Outposts",
+                    "traits": {
+                        "smithy.api#documentation": "<p>Returns the list of Outposts that have the following characteristics:</p>\n         <ul>\n            <li>\n               <p>outposts that have S3 provisioned</p>\n            </li>\n            <li>\n               <p>outposts that are <code>Active</code> (not pending any provisioning nor decommissioned)</p>\n            </li>\n            <li>\n               <p>outposts to which the the calling Amazon Web Services account has access</p>\n            </li>\n         </ul>"
+                    }
+                },
+                "NextToken": {
+                    "target": "com.amazonaws.s3outposts#NextToken",
+                    "traits": {
+                        "smithy.api#documentation": "<p>Returns a token that you can use to call <code>ListOutpostsWithS3</code> again and receive additional results, if there are any.</p>"
+                    }
+                }
+            },
+            "traits": {
+                "smithy.api#output": {}
+            }
+        },
+        "com.amazonaws.s3outposts#ListSharedEndpoints": {
+            "type": "operation",
+            "input": {
+                "target": "com.amazonaws.s3outposts#ListSharedEndpointsRequest"
+            },
+            "output": {
+                "target": "com.amazonaws.s3outposts#ListSharedEndpointsResult"
+            },
+            "errors": [
+                {
+                    "target": "com.amazonaws.s3outposts#AccessDeniedException"
+                },
+                {
+                    "target": "com.amazonaws.s3outposts#InternalServerException"
+                },
+                {
+                    "target": "com.amazonaws.s3outposts#ResourceNotFoundException"
+                },
+                {
+                    "target": "com.amazonaws.s3outposts#ThrottlingException"
+                },
+                {
+                    "target": "com.amazonaws.s3outposts#ValidationException"
+                }
+            ],
+            "traits": {
+                "smithy.api#documentation": "<p>Lists all endpoints associated with an Outpost that has been shared by Amazon Web Services Resource Access Manager (RAM).</p>\n         <p>Related actions include:</p>\n         <ul>\n            <li>\n               <p>\n                  <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/API/API_s3outposts_CreateEndpoint.html\">CreateEndpoint</a>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/API/API_s3outposts_DeleteEndpoint.html\">DeleteEndpoint</a>\n               </p>\n            </li>\n         </ul>",
+                "smithy.api#http": {
+                    "method": "GET",
+                    "uri": "/S3Outposts/ListSharedEndpoints",
+                    "code": 200
+                },
+                "smithy.api#paginated": {
+                    "inputToken": "NextToken",
+                    "outputToken": "NextToken",
+                    "items": "Endpoints",
+                    "pageSize": "MaxResults"
+                }
+            }
+        },
+        "com.amazonaws.s3outposts#ListSharedEndpointsRequest": {
+            "type": "structure",
+            "members": {
+                "NextToken": {
+                    "target": "com.amazonaws.s3outposts#NextToken",
+                    "traits": {
+                        "smithy.api#documentation": "<p>If a previous response from this operation included a <code>NextToken</code> value, you\n            can provide that value here to retrieve the next page of results.</p>",
+                        "smithy.api#httpQuery": "nextToken"
+                    }
+                },
+                "MaxResults": {
+                    "target": "com.amazonaws.s3outposts#MaxResults",
+                    "traits": {
+                        "smithy.api#default": 0,
+                        "smithy.api#documentation": "<p>The maximum number of endpoints that will be returned in the response.</p>",
+                        "smithy.api#httpQuery": "maxResults"
+                    }
+                },
+                "OutpostId": {
+                    "target": "com.amazonaws.s3outposts#OutpostId",
+                    "traits": {
+                        "smithy.api#documentation": "<p>The ID of the Amazon Web Services Outpost.</p>",
+                        "smithy.api#httpQuery": "outpostId",
+                        "smithy.api#required": {}
+                    }
+                }
+            },
+            "traits": {
+                "smithy.api#input": {}
+            }
+        },
+        "com.amazonaws.s3outposts#ListSharedEndpointsResult": {
+            "type": "structure",
+            "members": {
+                "Endpoints": {
+                    "target": "com.amazonaws.s3outposts#Endpoints",
+                    "traits": {
+                        "smithy.api#documentation": "<p>The list of endpoints associated with the specified Outpost that have been shared by Amazon Web Services Resource Access Manager (RAM).</p>"
+                    }
+                },
+                "NextToken": {
+                    "target": "com.amazonaws.s3outposts#NextToken",
+                    "traits": {
+                        "smithy.api#documentation": "<p>If the number of endpoints associated with the specified Outpost exceeds <code>MaxResults</code>, \n            you can include this value in subsequent calls to this operation to retrieve more results.</p>"
+                    }
+                }
+            },
+            "traits": {
+                "smithy.api#output": {}
+            }
+        },
+        "com.amazonaws.s3outposts#MaxResults": {
+            "type": "integer",
+            "traits": {
+                "smithy.api#default": 0,
+                "smithy.api#range": {
+                    "min": 0,
+                    "max": 100
+                }
+            }
+        },
+        "com.amazonaws.s3outposts#Message": {
+            "type": "string"
+        },
+        "com.amazonaws.s3outposts#NetworkInterface": {
+            "type": "structure",
+            "members": {
+                "NetworkInterfaceId": {
+                    "target": "com.amazonaws.s3outposts#NetworkInterfaceId",
+                    "traits": {
+                        "smithy.api#documentation": "<p>The ID for the network interface.</p>"
+                    }
+                }
+            },
+            "traits": {
+                "smithy.api#documentation": "<p>The container for the network interface.</p>"
+            }
+        },
+        "com.amazonaws.s3outposts#NetworkInterfaceId": {
+            "type": "string"
+        },
+        "com.amazonaws.s3outposts#NetworkInterfaces": {
+            "type": "list",
+            "member": {
+                "target": "com.amazonaws.s3outposts#NetworkInterface"
+            }
+        },
+        "com.amazonaws.s3outposts#NextToken": {
+            "type": "string",
+            "traits": {
+                "smithy.api#length": {
+                    "min": 1,
+                    "max": 1024
+                },
+                "smithy.api#pattern": "^[A-Za-z0-9\\+\\:\\/\\=\\?\\#-_]+$"
+            }
+        },
+        "com.amazonaws.s3outposts#Outpost": {
+            "type": "structure",
+            "members": {
+                "OutpostArn": {
+                    "target": "com.amazonaws.s3outposts#OutpostArn",
+                    "traits": {
+                        "smithy.api#documentation": "<p>Specifies the unique Amazon Resource Name (ARN) for the outpost.</p>"
+                    }
+                },
+                "S3OutpostArn": {
+                    "target": "com.amazonaws.s3outposts#S3OutpostArn",
+                    "traits": {
+                        "smithy.api#documentation": "<p>Specifies the unique S3 on Outposts ARN for use with Resource Access Manager (RAM).</p>"
+                    }
+                },
+                "OutpostId": {
+                    "target": "com.amazonaws.s3outposts#OutpostId",
+                    "traits": {
+                        "smithy.api#documentation": "<p>Specifies the unique identifier for the outpost.</p>"
+                    }
+                },
+                "OwnerId": {
+                    "target": "com.amazonaws.s3outposts#AwsAccountId",
+                    "traits": {
+                        "smithy.api#documentation": "<p>Returns the Amazon Web Services account ID of the outpost owner. Useful for comparing owned versus shared outposts.</p>"
+                    }
+                },
+                "CapacityInBytes": {
+                    "target": "com.amazonaws.s3outposts#CapacityInBytes",
+                    "traits": {
+                        "smithy.api#default": 0,
+                        "smithy.api#documentation": "<p>The Amazon S3 capacity of the outpost in bytes.</p>"
+                    }
+                }
+            },
+            "traits": {
+                "smithy.api#documentation": "<p>Contains the details for the Outpost object.</p>"
+            }
+        },
+        "com.amazonaws.s3outposts#OutpostArn": {
+            "type": "string",
+            "traits": {
+                "smithy.api#pattern": "^arn:(aws|aws-cn|aws-us-gov|aws-iso|aws-iso-b):outposts:[a-z\\-0-9]*:[0-9]{12}:outpost/(op-[a-f0-9]{17}|ec2)$"
+            }
+        },
+        "com.amazonaws.s3outposts#OutpostId": {
+            "type": "string",
+            "traits": {
+                "smithy.api#pattern": "^(op-[a-f0-9]{17}|\\d{12}|ec2)$"
+            }
+        },
+        "com.amazonaws.s3outposts#OutpostOfflineException": {
+            "type": "structure",
+            "members": {
+                "Message": {
+                    "target": "com.amazonaws.s3outposts#ErrorMessage"
+                }
+            },
+            "traits": {
+                "smithy.api#documentation": "<p>The service link connection to your Outposts home Region is down. Check your connection and try again.</p>",
+                "smithy.api#error": "client",
+                "smithy.api#httpError": 400
+            }
+        },
+        "com.amazonaws.s3outposts#Outposts": {
+            "type": "list",
+            "member": {
+                "target": "com.amazonaws.s3outposts#Outpost"
+            }
+        },
+        "com.amazonaws.s3outposts#ResourceNotFoundException": {
+            "type": "structure",
+            "members": {
+                "Message": {
+                    "target": "com.amazonaws.s3outposts#ErrorMessage"
+                }
+            },
+            "traits": {
+                "smithy.api#documentation": "<p>The requested resource was not found.</p>",
+                "smithy.api#error": "client",
+                "smithy.api#httpError": 404
+            }
+        },
+        "com.amazonaws.s3outposts#S3OutpostArn": {
+            "type": "string",
+            "traits": {
+                "smithy.api#pattern": "^arn:(aws|aws-cn|aws-us-gov|aws-iso|aws-iso-b):s3-outposts:[a-z\\-0-9]*:[0-9]{12}:outpost/(op-[a-f0-9]{17}|\\d{12})/s3$"
+            }
+        },
+        "com.amazonaws.s3outposts#S3Outposts": {
+            "type": "service",
+            "version": "2017-07-25",
+            "operations": [
+                {
+                    "target": "com.amazonaws.s3outposts#CreateEndpoint"
+                },
+                {
+                    "target": "com.amazonaws.s3outposts#DeleteEndpoint"
+                },
+                {
+                    "target": "com.amazonaws.s3outposts#ListEndpoints"
+                },
+                {
+                    "target": "com.amazonaws.s3outposts#ListOutpostsWithS3"
+                },
+                {
+                    "target": "com.amazonaws.s3outposts#ListSharedEndpoints"
+                }
+            ],
+            "traits": {
+                "aws.api#service": {
+                    "sdkId": "S3Outposts",
+                    "arnNamespace": "s3-outposts",
+                    "cloudFormationName": "S3Outposts",
+                    "cloudTrailEventSource": "s3outposts.amazonaws.com",
+                    "endpointPrefix": "s3-outposts"
+                },
+                "aws.auth#sigv4": {
+                    "name": "s3-outposts"
+                },
+                "aws.protocols#restJson1": {},
+                "smithy.api#documentation": "<p>Amazon S3 on Outposts provides access to S3 on Outposts operations.</p>",
+                "smithy.api#title": "Amazon S3 on Outposts",
+                "smithy.rules#endpointRuleSet": {
+                    "version": "1.0",
+                    "parameters": {
+                        "Region": {
+                            "builtIn": "AWS::Region",
+                            "required": false,
+                            "documentation": "The AWS region used to dispatch the request.",
+                            "type": "String"
                         },
-                        {
-                          "fn": "booleanEquals",
-                          "argv": [
-                            {
-                              "ref": "UseDualStack"
-                            },
-                            true
-                          ]
-                        }
-                      ],
-                      "rules": [
-                        {
-                          "conditions": [
-                            {
-                              "fn": "booleanEquals",
-                              "argv": [
-                                true,
-                                {
-                                  "fn": "getAttr",
-                                  "argv": [
-                                    {
-                                      "ref": "PartitionResult"
-                                    },
-                                    "supportsFIPS"
-                                  ]
-                                }
-                              ]
-                            },
-                            {
-                              "fn": "booleanEquals",
-                              "argv": [
-                                true,
-                                {
-                                  "fn": "getAttr",
-                                  "argv": [
-                                    {
-                                      "ref": "PartitionResult"
-                                    },
-                                    "supportsDualStack"
-                                  ]
-                                }
-                              ]
-                            }
-                          ],
-                          "rules": [
-                            {
-                              "conditions": [],
-                              "endpoint": {
-                                "url": "https://s3-outposts-fips.{Region}.{PartitionResult#dualStackDnsSuffix}",
-                                "properties": {},
-                                "headers": {}
-                              },
-                              "type": "endpoint"
-                            }
-                          ],
-                          "type": "tree"
+                        "UseDualStack": {
+                            "builtIn": "AWS::UseDualStack",
+                            "required": true,
+                            "default": false,
+                            "documentation": "When true, use the dual-stack endpoint. If the configured endpoint does not support dual-stack, dispatching the request MAY return an error.",
+                            "type": "Boolean"
                         },
-                        {
-                          "conditions": [],
-                          "error": "FIPS and DualStack are enabled, but this partition does not support one or both",
-                          "type": "error"
+                        "UseFIPS": {
+                            "builtIn": "AWS::UseFIPS",
+                            "required": true,
+                            "default": false,
+                            "documentation": "When true, send this request to the FIPS-compliant regional endpoint. If the configured endpoint does not have a FIPS compliant endpoint, dispatching the request will return an error.",
+                            "type": "Boolean"
+                        },
+                        "Endpoint": {
+                            "builtIn": "SDK::Endpoint",
+                            "required": false,
+                            "documentation": "Override the endpoint used to send this request",
+                            "type": "String"
                         }
-                      ],
-                      "type": "tree"
                     },
-                    {
-                      "conditions": [
+                    "rules": [
                         {
-                          "fn": "booleanEquals",
-                          "argv": [
-                            {
-                              "ref": "UseFIPS"
-                            },
-                            true
-                          ]
-                        }
-                      ],
-                      "rules": [
-                        {
-                          "conditions": [
-                            {
-                              "fn": "booleanEquals",
-                              "argv": [
+                            "conditions": [
                                 {
-                                  "fn": "getAttr",
-                                  "argv": [
-                                    {
-                                      "ref": "PartitionResult"
-                                    },
-                                    "supportsFIPS"
-                                  ]
+                                    "fn": "isSet",
+                                    "argv": [
+                                        {
+                                            "ref": "Endpoint"
+                                        }
+                                    ]
+                                }
+                            ],
+                            "rules": [
+                                {
+                                    "conditions": [
+                                        {
+                                            "fn": "booleanEquals",
+                                            "argv": [
+                                                {
+                                                    "ref": "UseFIPS"
+                                                },
+                                                true
+                                            ]
+                                        }
+                                    ],
+                                    "error": "Invalid Configuration: FIPS and custom endpoint are not supported",
+                                    "type": "error"
                                 },
-                                true
-                              ]
-                            }
-                          ],
-                          "rules": [
-                            {
-                              "conditions": [],
-                              "endpoint": {
-                                "url": "https://s3-outposts-fips.{Region}.{PartitionResult#dnsSuffix}",
-                                "properties": {},
-                                "headers": {}
-                              },
-                              "type": "endpoint"
-                            }
-                          ],
-                          "type": "tree"
-                        },
-                        {
-                          "conditions": [],
-                          "error": "FIPS is enabled but this partition does not support FIPS",
-                          "type": "error"
-                        }
-                      ],
-                      "type": "tree"
-                    },
-                    {
-                      "conditions": [
-                        {
-                          "fn": "booleanEquals",
-                          "argv": [
-                            {
-                              "ref": "UseDualStack"
-                            },
-                            true
-                          ]
-                        }
-                      ],
-                      "rules": [
-                        {
-                          "conditions": [
-                            {
-                              "fn": "booleanEquals",
-                              "argv": [
-                                true,
                                 {
-                                  "fn": "getAttr",
-                                  "argv": [
-                                    {
-                                      "ref": "PartitionResult"
+                                    "conditions": [
+                                        {
+                                            "fn": "booleanEquals",
+                                            "argv": [
+                                                {
+                                                    "ref": "UseDualStack"
+                                                },
+                                                true
+                                            ]
+                                        }
+                                    ],
+                                    "error": "Invalid Configuration: Dualstack and custom endpoint are not supported",
+                                    "type": "error"
+                                },
+                                {
+                                    "conditions": [],
+                                    "endpoint": {
+                                        "url": {
+                                            "ref": "Endpoint"
+                                        },
+                                        "properties": {},
+                                        "headers": {}
                                     },
-                                    "supportsDualStack"
-                                  ]
+                                    "type": "endpoint"
                                 }
-                              ]
-                            }
-                          ],
-                          "rules": [
-                            {
-                              "conditions": [],
-                              "endpoint": {
-                                "url": "https://s3-outposts.{Region}.{PartitionResult#dualStackDnsSuffix}",
-                                "properties": {},
-                                "headers": {}
-                              },
-                              "type": "endpoint"
-                            }
-                          ],
-                          "type": "tree"
+                            ],
+                            "type": "tree"
                         },
                         {
-                          "conditions": [],
-                          "error": "DualStack is enabled but this partition does not support DualStack",
-                          "type": "error"
+                            "conditions": [
+                                {
+                                    "fn": "isSet",
+                                    "argv": [
+                                        {
+                                            "ref": "Region"
+                                        }
+                                    ]
+                                }
+                            ],
+                            "rules": [
+                                {
+                                    "conditions": [
+                                        {
+                                            "fn": "aws.partition",
+                                            "argv": [
+                                                {
+                                                    "ref": "Region"
+                                                }
+                                            ],
+                                            "assign": "PartitionResult"
+                                        }
+                                    ],
+                                    "rules": [
+                                        {
+                                            "conditions": [
+                                                {
+                                                    "fn": "booleanEquals",
+                                                    "argv": [
+                                                        {
+                                                            "ref": "UseFIPS"
+                                                        },
+                                                        true
+                                                    ]
+                                                },
+                                                {
+                                                    "fn": "booleanEquals",
+                                                    "argv": [
+                                                        {
+                                                            "ref": "UseDualStack"
+                                                        },
+                                                        true
+                                                    ]
+                                                }
+                                            ],
+                                            "rules": [
+                                                {
+                                                    "conditions": [
+                                                        {
+                                                            "fn": "booleanEquals",
+                                                            "argv": [
+                                                                true,
+                                                                {
+                                                                    "fn": "getAttr",
+                                                                    "argv": [
+                                                                        {
+                                                                            "ref": "PartitionResult"
+                                                                        },
+                                                                        "supportsFIPS"
+                                                                    ]
+                                                                }
+                                                            ]
+                                                        },
+                                                        {
+                                                            "fn": "booleanEquals",
+                                                            "argv": [
+                                                                true,
+                                                                {
+                                                                    "fn": "getAttr",
+                                                                    "argv": [
+                                                                        {
+                                                                            "ref": "PartitionResult"
+                                                                        },
+                                                                        "supportsDualStack"
+                                                                    ]
+                                                                }
+                                                            ]
+                                                        }
+                                                    ],
+                                                    "rules": [
+                                                        {
+                                                            "conditions": [],
+                                                            "endpoint": {
+                                                                "url": "https://s3-outposts-fips.{Region}.{PartitionResult#dualStackDnsSuffix}",
+                                                                "properties": {},
+                                                                "headers": {}
+                                                            },
+                                                            "type": "endpoint"
+                                                        }
+                                                    ],
+                                                    "type": "tree"
+                                                },
+                                                {
+                                                    "conditions": [],
+                                                    "error": "FIPS and DualStack are enabled, but this partition does not support one or both",
+                                                    "type": "error"
+                                                }
+                                            ],
+                                            "type": "tree"
+                                        },
+                                        {
+                                            "conditions": [
+                                                {
+                                                    "fn": "booleanEquals",
+                                                    "argv": [
+                                                        {
+                                                            "ref": "UseFIPS"
+                                                        },
+                                                        true
+                                                    ]
+                                                }
+                                            ],
+                                            "rules": [
+                                                {
+                                                    "conditions": [
+                                                        {
+                                                            "fn": "booleanEquals",
+                                                            "argv": [
+                                                                {
+                                                                    "fn": "getAttr",
+                                                                    "argv": [
+                                                                        {
+                                                                            "ref": "PartitionResult"
+                                                                        },
+                                                                        "supportsFIPS"
+                                                                    ]
+                                                                },
+                                                                true
+                                                            ]
+                                                        }
+                                                    ],
+                                                    "rules": [
+                                                        {
+                                                            "conditions": [],
+                                                            "endpoint": {
+                                                                "url": "https://s3-outposts-fips.{Region}.{PartitionResult#dnsSuffix}",
+                                                                "properties": {},
+                                                                "headers": {}
+                                                            },
+                                                            "type": "endpoint"
+                                                        }
+                                                    ],
+                                                    "type": "tree"
+                                                },
+                                                {
+                                                    "conditions": [],
+                                                    "error": "FIPS is enabled but this partition does not support FIPS",
+                                                    "type": "error"
+                                                }
+                                            ],
+                                            "type": "tree"
+                                        },
+                                        {
+                                            "conditions": [
+                                                {
+                                                    "fn": "booleanEquals",
+                                                    "argv": [
+                                                        {
+                                                            "ref": "UseDualStack"
+                                                        },
+                                                        true
+                                                    ]
+                                                }
+                                            ],
+                                            "rules": [
+                                                {
+                                                    "conditions": [
+                                                        {
+                                                            "fn": "booleanEquals",
+                                                            "argv": [
+                                                                true,
+                                                                {
+                                                                    "fn": "getAttr",
+                                                                    "argv": [
+                                                                        {
+                                                                            "ref": "PartitionResult"
+                                                                        },
+                                                                        "supportsDualStack"
+                                                                    ]
+                                                                }
+                                                            ]
+                                                        }
+                                                    ],
+                                                    "rules": [
+                                                        {
+                                                            "conditions": [],
+                                                            "endpoint": {
+                                                                "url": "https://s3-outposts.{Region}.{PartitionResult#dualStackDnsSuffix}",
+                                                                "properties": {},
+                                                                "headers": {}
+                                                            },
+                                                            "type": "endpoint"
+                                                        }
+                                                    ],
+                                                    "type": "tree"
+                                                },
+                                                {
+                                                    "conditions": [],
+                                                    "error": "DualStack is enabled but this partition does not support DualStack",
+                                                    "type": "error"
+                                                }
+                                            ],
+                                            "type": "tree"
+                                        },
+                                        {
+                                            "conditions": [],
+                                            "endpoint": {
+                                                "url": "https://s3-outposts.{Region}.{PartitionResult#dnsSuffix}",
+                                                "properties": {},
+                                                "headers": {}
+                                            },
+                                            "type": "endpoint"
+                                        }
+                                    ],
+                                    "type": "tree"
+                                }
+                            ],
+                            "type": "tree"
+                        },
+                        {
+                            "conditions": [],
+                            "error": "Invalid Configuration: Missing Region",
+                            "type": "error"
                         }
-                      ],
-                      "type": "tree"
-                    },
-                    {
-                      "conditions": [],
-                      "endpoint": {
-                        "url": "https://s3-outposts.{Region}.{PartitionResult#dnsSuffix}",
-                        "properties": {},
-                        "headers": {}
-                      },
-                      "type": "endpoint"
-                    }
-                  ],
-                  "type": "tree"
+                    ]
+                },
+                "smithy.rules#endpointTests": {
+                    "testCases": [
+                        {
+                            "documentation": "For region af-south-1 with FIPS disabled and DualStack disabled",
+                            "expect": {
+                                "endpoint": {
+                                    "url": "https://s3-outposts.af-south-1.amazonaws.com"
+                                }
+                            },
+                            "params": {
+                                "Region": "af-south-1",
+                                "UseFIPS": false,
+                                "UseDualStack": false
+                            }
+                        },
+                        {
+                            "documentation": "For region ap-east-1 with FIPS disabled and DualStack disabled",
+                            "expect": {
+                                "endpoint": {
+                                    "url": "https://s3-outposts.ap-east-1.amazonaws.com"
+                                }
+                            },
+                            "params": {
+                                "Region": "ap-east-1",
+                                "UseFIPS": false,
+                                "UseDualStack": false
+                            }
+                        },
+                        {
+                            "documentation": "For region ap-northeast-1 with FIPS disabled and DualStack disabled",
+                            "expect": {
+                                "endpoint": {
+                                    "url": "https://s3-outposts.ap-northeast-1.amazonaws.com"
+                                }
+                            },
+                            "params": {
+                                "Region": "ap-northeast-1",
+                                "UseFIPS": false,
+                                "UseDualStack": false
+                            }
+                        },
+                        {
+                            "documentation": "For region ap-northeast-2 with FIPS disabled and DualStack disabled",
+                            "expect": {
+                                "endpoint": {
+                                    "url": "https://s3-outposts.ap-northeast-2.amazonaws.com"
+                                }
+                            },
+                            "params": {
+                                "Region": "ap-northeast-2",
+                                "UseFIPS": false,
+                                "UseDualStack": false
+                            }
+                        },
+                        {
+                            "documentation": "For region ap-northeast-3 with FIPS disabled and DualStack disabled",
+                            "expect": {
+                                "endpoint": {
+                                    "url": "https://s3-outposts.ap-northeast-3.amazonaws.com"
+                                }
+                            },
+                            "params": {
+                                "Region": "ap-northeast-3",
+                                "UseFIPS": false,
+                                "UseDualStack": false
+                            }
+                        },
+                        {
+                            "documentation": "For region ap-south-1 with FIPS disabled and DualStack disabled",
+                            "expect": {
+                                "endpoint": {
+                                    "url": "https://s3-outposts.ap-south-1.amazonaws.com"
+                                }
+                            },
+                            "params": {
+                                "Region": "ap-south-1",
+                                "UseFIPS": false,
+                                "UseDualStack": false
+                            }
+                        },
+                        {
+                            "documentation": "For region ap-southeast-1 with FIPS disabled and DualStack disabled",
+                            "expect": {
+                                "endpoint": {
+                                    "url": "https://s3-outposts.ap-southeast-1.amazonaws.com"
+                                }
+                            },
+                            "params": {
+                                "Region": "ap-southeast-1",
+                                "UseFIPS": false,
+                                "UseDualStack": false
+                            }
+                        },
+                        {
+                            "documentation": "For region ap-southeast-2 with FIPS disabled and DualStack disabled",
+                            "expect": {
+                                "endpoint": {
+                                    "url": "https://s3-outposts.ap-southeast-2.amazonaws.com"
+                                }
+                            },
+                            "params": {
+                                "Region": "ap-southeast-2",
+                                "UseFIPS": false,
+                                "UseDualStack": false
+                            }
+                        },
+                        {
+                            "documentation": "For region ca-central-1 with FIPS disabled and DualStack disabled",
+                            "expect": {
+                                "endpoint": {
+                                    "url": "https://s3-outposts.ca-central-1.amazonaws.com"
+                                }
+                            },
+                            "params": {
+                                "Region": "ca-central-1",
+                                "UseFIPS": false,
+                                "UseDualStack": false
+                            }
+                        },
+                        {
+                            "documentation": "For region eu-central-1 with FIPS disabled and DualStack disabled",
+                            "expect": {
+                                "endpoint": {
+                                    "url": "https://s3-outposts.eu-central-1.amazonaws.com"
+                                }
+                            },
+                            "params": {
+                                "Region": "eu-central-1",
+                                "UseFIPS": false,
+                                "UseDualStack": false
+                            }
+                        },
+                        {
+                            "documentation": "For region eu-north-1 with FIPS disabled and DualStack disabled",
+                            "expect": {
+                                "endpoint": {
+                                    "url": "https://s3-outposts.eu-north-1.amazonaws.com"
+                                }
+                            },
+                            "params": {
+                                "Region": "eu-north-1",
+                                "UseFIPS": false,
+                                "UseDualStack": false
+                            }
+                        },
+                        {
+                            "documentation": "For region eu-south-1 with FIPS disabled and DualStack disabled",
+                            "expect": {
+                                "endpoint": {
+                                    "url": "https://s3-outposts.eu-south-1.amazonaws.com"
+                                }
+                            },
+                            "params": {
+                                "Region": "eu-south-1",
+                                "UseFIPS": false,
+                                "UseDualStack": false
+                            }
+                        },
+                        {
+                            "documentation": "For region eu-west-1 with FIPS disabled and DualStack disabled",
+                            "expect": {
+                                "endpoint": {
+                                    "url": "https://s3-outposts.eu-west-1.amazonaws.com"
+                                }
+                            },
+                            "params": {
+                                "Region": "eu-west-1",
+                                "UseFIPS": false,
+                                "UseDualStack": false
+                            }
+                        },
+                        {
+                            "documentation": "For region eu-west-2 with FIPS disabled and DualStack disabled",
+                            "expect": {
+                                "endpoint": {
+                                    "url": "https://s3-outposts.eu-west-2.amazonaws.com"
+                                }
+                            },
+                            "params": {
+                                "Region": "eu-west-2",
+                                "UseFIPS": false,
+                                "UseDualStack": false
+                            }
+                        },
+                        {
+                            "documentation": "For region eu-west-3 with FIPS disabled and DualStack disabled",
+                            "expect": {
+                                "endpoint": {
+                                    "url": "https://s3-outposts.eu-west-3.amazonaws.com"
+                                }
+                            },
+                            "params": {
+                                "Region": "eu-west-3",
+                                "UseFIPS": false,
+                                "UseDualStack": false
+                            }
+                        },
+                        {
+                            "documentation": "For region me-south-1 with FIPS disabled and DualStack disabled",
+                            "expect": {
+                                "endpoint": {
+                                    "url": "https://s3-outposts.me-south-1.amazonaws.com"
+                                }
+                            },
+                            "params": {
+                                "Region": "me-south-1",
+                                "UseFIPS": false,
+                                "UseDualStack": false
+                            }
+                        },
+                        {
+                            "documentation": "For region sa-east-1 with FIPS disabled and DualStack disabled",
+                            "expect": {
+                                "endpoint": {
+                                    "url": "https://s3-outposts.sa-east-1.amazonaws.com"
+                                }
+                            },
+                            "params": {
+                                "Region": "sa-east-1",
+                                "UseFIPS": false,
+                                "UseDualStack": false
+                            }
+                        },
+                        {
+                            "documentation": "For region us-east-1 with FIPS disabled and DualStack disabled",
+                            "expect": {
+                                "endpoint": {
+                                    "url": "https://s3-outposts.us-east-1.amazonaws.com"
+                                }
+                            },
+                            "params": {
+                                "Region": "us-east-1",
+                                "UseFIPS": false,
+                                "UseDualStack": false
+                            }
+                        },
+                        {
+                            "documentation": "For region us-east-2 with FIPS disabled and DualStack disabled",
+                            "expect": {
+                                "endpoint": {
+                                    "url": "https://s3-outposts.us-east-2.amazonaws.com"
+                                }
+                            },
+                            "params": {
+                                "Region": "us-east-2",
+                                "UseFIPS": false,
+                                "UseDualStack": false
+                            }
+                        },
+                        {
+                            "documentation": "For region us-west-1 with FIPS disabled and DualStack disabled",
+                            "expect": {
+                                "endpoint": {
+                                    "url": "https://s3-outposts.us-west-1.amazonaws.com"
+                                }
+                            },
+                            "params": {
+                                "Region": "us-west-1",
+                                "UseFIPS": false,
+                                "UseDualStack": false
+                            }
+                        },
+                        {
+                            "documentation": "For region us-west-2 with FIPS disabled and DualStack disabled",
+                            "expect": {
+                                "endpoint": {
+                                    "url": "https://s3-outposts.us-west-2.amazonaws.com"
+                                }
+                            },
+                            "params": {
+                                "Region": "us-west-2",
+                                "UseFIPS": false,
+                                "UseDualStack": false
+                            }
+                        },
+                        {
+                            "documentation": "For region us-east-1 with FIPS enabled and DualStack enabled",
+                            "expect": {
+                                "endpoint": {
+                                    "url": "https://s3-outposts-fips.us-east-1.api.aws"
+                                }
+                            },
+                            "params": {
+                                "Region": "us-east-1",
+                                "UseFIPS": true,
+                                "UseDualStack": true
+                            }
+                        },
+                        {
+                            "documentation": "For region us-east-1 with FIPS enabled and DualStack disabled",
+                            "expect": {
+                                "endpoint": {
+                                    "url": "https://s3-outposts-fips.us-east-1.amazonaws.com"
+                                }
+                            },
+                            "params": {
+                                "Region": "us-east-1",
+                                "UseFIPS": true,
+                                "UseDualStack": false
+                            }
+                        },
+                        {
+                            "documentation": "For region us-east-1 with FIPS disabled and DualStack enabled",
+                            "expect": {
+                                "endpoint": {
+                                    "url": "https://s3-outposts.us-east-1.api.aws"
+                                }
+                            },
+                            "params": {
+                                "Region": "us-east-1",
+                                "UseFIPS": false,
+                                "UseDualStack": true
+                            }
+                        },
+                        {
+                            "documentation": "For region cn-north-1 with FIPS enabled and DualStack enabled",
+                            "expect": {
+                                "endpoint": {
+                                    "url": "https://s3-outposts-fips.cn-north-1.api.amazonwebservices.com.cn"
+                                }
+                            },
+                            "params": {
+                                "Region": "cn-north-1",
+                                "UseFIPS": true,
+                                "UseDualStack": true
+                            }
+                        },
+                        {
+                            "documentation": "For region cn-north-1 with FIPS enabled and DualStack disabled",
+                            "expect": {
+                                "endpoint": {
+                                    "url": "https://s3-outposts-fips.cn-north-1.amazonaws.com.cn"
+                                }
+                            },
+                            "params": {
+                                "Region": "cn-north-1",
+                                "UseFIPS": true,
+                                "UseDualStack": false
+                            }
+                        },
+                        {
+                            "documentation": "For region cn-north-1 with FIPS disabled and DualStack enabled",
+                            "expect": {
+                                "endpoint": {
+                                    "url": "https://s3-outposts.cn-north-1.api.amazonwebservices.com.cn"
+                                }
+                            },
+                            "params": {
+                                "Region": "cn-north-1",
+                                "UseFIPS": false,
+                                "UseDualStack": true
+                            }
+                        },
+                        {
+                            "documentation": "For region cn-north-1 with FIPS disabled and DualStack disabled",
+                            "expect": {
+                                "endpoint": {
+                                    "url": "https://s3-outposts.cn-north-1.amazonaws.com.cn"
+                                }
+                            },
+                            "params": {
+                                "Region": "cn-north-1",
+                                "UseFIPS": false,
+                                "UseDualStack": false
+                            }
+                        },
+                        {
+                            "documentation": "For region us-gov-east-1 with FIPS enabled and DualStack enabled",
+                            "expect": {
+                                "endpoint": {
+                                    "url": "https://s3-outposts-fips.us-gov-east-1.api.aws"
+                                }
+                            },
+                            "params": {
+                                "Region": "us-gov-east-1",
+                                "UseFIPS": true,
+                                "UseDualStack": true
+                            }
+                        },
+                        {
+                            "documentation": "For region us-gov-east-1 with FIPS enabled and DualStack disabled",
+                            "expect": {
+                                "endpoint": {
+                                    "url": "https://s3-outposts-fips.us-gov-east-1.amazonaws.com"
+                                }
+                            },
+                            "params": {
+                                "Region": "us-gov-east-1",
+                                "UseFIPS": true,
+                                "UseDualStack": false
+                            }
+                        },
+                        {
+                            "documentation": "For region us-gov-east-1 with FIPS disabled and DualStack enabled",
+                            "expect": {
+                                "endpoint": {
+                                    "url": "https://s3-outposts.us-gov-east-1.api.aws"
+                                }
+                            },
+                            "params": {
+                                "Region": "us-gov-east-1",
+                                "UseFIPS": false,
+                                "UseDualStack": true
+                            }
+                        },
+                        {
+                            "documentation": "For region us-gov-east-1 with FIPS disabled and DualStack disabled",
+                            "expect": {
+                                "endpoint": {
+                                    "url": "https://s3-outposts.us-gov-east-1.amazonaws.com"
+                                }
+                            },
+                            "params": {
+                                "Region": "us-gov-east-1",
+                                "UseFIPS": false,
+                                "UseDualStack": false
+                            }
+                        },
+                        {
+                            "documentation": "For region us-iso-east-1 with FIPS enabled and DualStack disabled",
+                            "expect": {
+                                "endpoint": {
+                                    "url": "https://s3-outposts-fips.us-iso-east-1.c2s.ic.gov"
+                                }
+                            },
+                            "params": {
+                                "Region": "us-iso-east-1",
+                                "UseFIPS": true,
+                                "UseDualStack": false
+                            }
+                        },
+                        {
+                            "documentation": "For region us-iso-east-1 with FIPS disabled and DualStack disabled",
+                            "expect": {
+                                "endpoint": {
+                                    "url": "https://s3-outposts.us-iso-east-1.c2s.ic.gov"
+                                }
+                            },
+                            "params": {
+                                "Region": "us-iso-east-1",
+                                "UseFIPS": false,
+                                "UseDualStack": false
+                            }
+                        },
+                        {
+                            "documentation": "For region us-isob-east-1 with FIPS enabled and DualStack disabled",
+                            "expect": {
+                                "endpoint": {
+                                    "url": "https://s3-outposts-fips.us-isob-east-1.sc2s.sgov.gov"
+                                }
+                            },
+                            "params": {
+                                "Region": "us-isob-east-1",
+                                "UseFIPS": true,
+                                "UseDualStack": false
+                            }
+                        },
+                        {
+                            "documentation": "For region us-isob-east-1 with FIPS disabled and DualStack disabled",
+                            "expect": {
+                                "endpoint": {
+                                    "url": "https://s3-outposts.us-isob-east-1.sc2s.sgov.gov"
+                                }
+                            },
+                            "params": {
+                                "Region": "us-isob-east-1",
+                                "UseFIPS": false,
+                                "UseDualStack": false
+                            }
+                        },
+                        {
+                            "documentation": "For custom endpoint with region set and fips disabled and dualstack disabled",
+                            "expect": {
+                                "endpoint": {
+                                    "url": "https://example.com"
+                                }
+                            },
+                            "params": {
+                                "Region": "us-east-1",
+                                "UseFIPS": false,
+                                "UseDualStack": false,
+                                "Endpoint": "https://example.com"
+                            }
+                        },
+                        {
+                            "documentation": "For custom endpoint with region not set and fips disabled and dualstack disabled",
+                            "expect": {
+                                "endpoint": {
+                                    "url": "https://example.com"
+                                }
+                            },
+                            "params": {
+                                "UseFIPS": false,
+                                "UseDualStack": false,
+                                "Endpoint": "https://example.com"
+                            }
+                        },
+                        {
+                            "documentation": "For custom endpoint with fips enabled and dualstack disabled",
+                            "expect": {
+                                "error": "Invalid Configuration: FIPS and custom endpoint are not supported"
+                            },
+                            "params": {
+                                "Region": "us-east-1",
+                                "UseFIPS": true,
+                                "UseDualStack": false,
+                                "Endpoint": "https://example.com"
+                            }
+                        },
+                        {
+                            "documentation": "For custom endpoint with fips disabled and dualstack enabled",
+                            "expect": {
+                                "error": "Invalid Configuration: Dualstack and custom endpoint are not supported"
+                            },
+                            "params": {
+                                "Region": "us-east-1",
+                                "UseFIPS": false,
+                                "UseDualStack": true,
+                                "Endpoint": "https://example.com"
+                            }
+                        },
+                        {
+                            "documentation": "Missing region",
+                            "expect": {
+                                "error": "Invalid Configuration: Missing Region"
+                            }
+                        }
+                    ],
+                    "version": "1.0"
                 }
-              ],
-              "type": "tree"
-            },
-            {
-              "conditions": [],
-              "error": "Invalid Configuration: Missing Region",
-              "type": "error"
             }
-          ]
         },
-        "smithy.rules#endpointTests": {
-          "testCases": [
-            {
-              "documentation": "For region af-south-1 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://s3-outposts.af-south-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "Region": "af-south-1",
-                "UseFIPS": false,
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region ap-east-1 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://s3-outposts.ap-east-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "Region": "ap-east-1",
-                "UseFIPS": false,
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region ap-northeast-1 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://s3-outposts.ap-northeast-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "Region": "ap-northeast-1",
-                "UseFIPS": false,
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region ap-northeast-2 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://s3-outposts.ap-northeast-2.amazonaws.com"
-                }
-              },
-              "params": {
-                "Region": "ap-northeast-2",
-                "UseFIPS": false,
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region ap-northeast-3 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://s3-outposts.ap-northeast-3.amazonaws.com"
-                }
-              },
-              "params": {
-                "Region": "ap-northeast-3",
-                "UseFIPS": false,
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region ap-south-1 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://s3-outposts.ap-south-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "Region": "ap-south-1",
-                "UseFIPS": false,
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region ap-southeast-1 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://s3-outposts.ap-southeast-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "Region": "ap-southeast-1",
-                "UseFIPS": false,
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region ap-southeast-2 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://s3-outposts.ap-southeast-2.amazonaws.com"
-                }
-              },
-              "params": {
-                "Region": "ap-southeast-2",
-                "UseFIPS": false,
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region ca-central-1 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://s3-outposts.ca-central-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "Region": "ca-central-1",
-                "UseFIPS": false,
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region eu-central-1 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://s3-outposts.eu-central-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "Region": "eu-central-1",
-                "UseFIPS": false,
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region eu-north-1 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://s3-outposts.eu-north-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "Region": "eu-north-1",
-                "UseFIPS": false,
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region eu-south-1 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://s3-outposts.eu-south-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "Region": "eu-south-1",
-                "UseFIPS": false,
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region eu-west-1 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://s3-outposts.eu-west-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "Region": "eu-west-1",
-                "UseFIPS": false,
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region eu-west-2 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://s3-outposts.eu-west-2.amazonaws.com"
-                }
-              },
-              "params": {
-                "Region": "eu-west-2",
-                "UseFIPS": false,
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region eu-west-3 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://s3-outposts.eu-west-3.amazonaws.com"
-                }
-              },
-              "params": {
-                "Region": "eu-west-3",
-                "UseFIPS": false,
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region me-south-1 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://s3-outposts.me-south-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "Region": "me-south-1",
-                "UseFIPS": false,
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region sa-east-1 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://s3-outposts.sa-east-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "Region": "sa-east-1",
-                "UseFIPS": false,
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region us-east-1 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://s3-outposts.us-east-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "Region": "us-east-1",
-                "UseFIPS": false,
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region us-east-2 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://s3-outposts.us-east-2.amazonaws.com"
-                }
-              },
-              "params": {
-                "Region": "us-east-2",
-                "UseFIPS": false,
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region us-west-1 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://s3-outposts.us-west-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "Region": "us-west-1",
-                "UseFIPS": false,
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region us-west-2 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://s3-outposts.us-west-2.amazonaws.com"
-                }
-              },
-              "params": {
-                "Region": "us-west-2",
-                "UseFIPS": false,
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region us-east-1 with FIPS enabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://s3-outposts-fips.us-east-1.api.aws"
-                }
-              },
-              "params": {
-                "Region": "us-east-1",
-                "UseFIPS": true,
-                "UseDualStack": true
-              }
-            },
-            {
-              "documentation": "For region us-east-1 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://s3-outposts-fips.us-east-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "Region": "us-east-1",
-                "UseFIPS": true,
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region us-east-1 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://s3-outposts.us-east-1.api.aws"
-                }
-              },
-              "params": {
-                "Region": "us-east-1",
-                "UseFIPS": false,
-                "UseDualStack": true
-              }
-            },
-            {
-              "documentation": "For region cn-north-1 with FIPS enabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://s3-outposts-fips.cn-north-1.api.amazonwebservices.com.cn"
-                }
-              },
-              "params": {
-                "Region": "cn-north-1",
-                "UseFIPS": true,
-                "UseDualStack": true
-              }
-            },
-            {
-              "documentation": "For region cn-north-1 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://s3-outposts-fips.cn-north-1.amazonaws.com.cn"
-                }
-              },
-              "params": {
-                "Region": "cn-north-1",
-                "UseFIPS": true,
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region cn-north-1 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://s3-outposts.cn-north-1.api.amazonwebservices.com.cn"
-                }
-              },
-              "params": {
-                "Region": "cn-north-1",
-                "UseFIPS": false,
-                "UseDualStack": true
-              }
-            },
-            {
-              "documentation": "For region cn-north-1 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://s3-outposts.cn-north-1.amazonaws.com.cn"
-                }
-              },
-              "params": {
-                "Region": "cn-north-1",
-                "UseFIPS": false,
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region us-gov-east-1 with FIPS enabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://s3-outposts-fips.us-gov-east-1.api.aws"
-                }
-              },
-              "params": {
-                "Region": "us-gov-east-1",
-                "UseFIPS": true,
-                "UseDualStack": true
-              }
-            },
-            {
-              "documentation": "For region us-gov-east-1 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://s3-outposts-fips.us-gov-east-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "Region": "us-gov-east-1",
-                "UseFIPS": true,
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region us-gov-east-1 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://s3-outposts.us-gov-east-1.api.aws"
-                }
-              },
-              "params": {
-                "Region": "us-gov-east-1",
-                "UseFIPS": false,
-                "UseDualStack": true
-              }
-            },
-            {
-              "documentation": "For region us-gov-east-1 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://s3-outposts.us-gov-east-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "Region": "us-gov-east-1",
-                "UseFIPS": false,
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region us-iso-east-1 with FIPS enabled and DualStack enabled",
-              "expect": {
-                "error": "FIPS and DualStack are enabled, but this partition does not support one or both"
-              },
-              "params": {
-                "Region": "us-iso-east-1",
-                "UseFIPS": true,
-                "UseDualStack": true
-              }
-            },
-            {
-              "documentation": "For region us-iso-east-1 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://s3-outposts-fips.us-iso-east-1.c2s.ic.gov"
-                }
-              },
-              "params": {
-                "Region": "us-iso-east-1",
-                "UseFIPS": true,
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region us-iso-east-1 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "error": "DualStack is enabled but this partition does not support DualStack"
-              },
-              "params": {
-                "Region": "us-iso-east-1",
-                "UseFIPS": false,
-                "UseDualStack": true
-              }
-            },
-            {
-              "documentation": "For region us-iso-east-1 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://s3-outposts.us-iso-east-1.c2s.ic.gov"
-                }
-              },
-              "params": {
-                "Region": "us-iso-east-1",
-                "UseFIPS": false,
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region us-isob-east-1 with FIPS enabled and DualStack enabled",
-              "expect": {
-                "error": "FIPS and DualStack are enabled, but this partition does not support one or both"
-              },
-              "params": {
-                "Region": "us-isob-east-1",
-                "UseFIPS": true,
-                "UseDualStack": true
-              }
-            },
-            {
-              "documentation": "For region us-isob-east-1 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://s3-outposts-fips.us-isob-east-1.sc2s.sgov.gov"
-                }
-              },
-              "params": {
-                "Region": "us-isob-east-1",
-                "UseFIPS": true,
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region us-isob-east-1 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "error": "DualStack is enabled but this partition does not support DualStack"
-              },
-              "params": {
-                "Region": "us-isob-east-1",
-                "UseFIPS": false,
-                "UseDualStack": true
-              }
-            },
-            {
-              "documentation": "For region us-isob-east-1 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://s3-outposts.us-isob-east-1.sc2s.sgov.gov"
-                }
-              },
-              "params": {
-                "Region": "us-isob-east-1",
-                "UseFIPS": false,
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For custom endpoint with region set and fips disabled and dualstack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://example.com"
-                }
-              },
-              "params": {
-                "Region": "us-east-1",
-                "UseFIPS": false,
-                "UseDualStack": false,
-                "Endpoint": "https://example.com"
-              }
-            },
-            {
-              "documentation": "For custom endpoint with region not set and fips disabled and dualstack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://example.com"
-                }
-              },
-              "params": {
-                "UseFIPS": false,
-                "UseDualStack": false,
-                "Endpoint": "https://example.com"
-              }
-            },
-            {
-              "documentation": "For custom endpoint with fips enabled and dualstack disabled",
-              "expect": {
-                "error": "Invalid Configuration: FIPS and custom endpoint are not supported"
-              },
-              "params": {
-                "Region": "us-east-1",
-                "UseFIPS": true,
-                "UseDualStack": false,
-                "Endpoint": "https://example.com"
-              }
-            },
-            {
-              "documentation": "For custom endpoint with fips disabled and dualstack enabled",
-              "expect": {
-                "error": "Invalid Configuration: Dualstack and custom endpoint are not supported"
-              },
-              "params": {
-                "Region": "us-east-1",
-                "UseFIPS": false,
-                "UseDualStack": true,
-                "Endpoint": "https://example.com"
-              }
-            },
-            {
-              "documentation": "Missing region",
-              "expect": {
-                "error": "Invalid Configuration: Missing Region"
-              }
+        "com.amazonaws.s3outposts#SecurityGroupId": {
+            "type": "string",
+            "traits": {
+                "smithy.api#pattern": "^sg-([0-9a-f]{8}|[0-9a-f]{17})$"
             }
-          ],
-          "version": "1.0"
+        },
+        "com.amazonaws.s3outposts#SubnetId": {
+            "type": "string",
+            "traits": {
+                "smithy.api#pattern": "^subnet-([0-9a-f]{8}|[0-9a-f]{17})$"
+            }
+        },
+        "com.amazonaws.s3outposts#ThrottlingException": {
+            "type": "structure",
+            "members": {
+                "Message": {
+                    "target": "com.amazonaws.s3outposts#ErrorMessage"
+                }
+            },
+            "traits": {
+                "smithy.api#documentation": "<p>The request was denied due to request throttling.</p>",
+                "smithy.api#error": "client",
+                "smithy.api#httpError": 429
+            }
+        },
+        "com.amazonaws.s3outposts#ValidationException": {
+            "type": "structure",
+            "members": {
+                "Message": {
+                    "target": "com.amazonaws.s3outposts#ErrorMessage"
+                }
+            },
+            "traits": {
+                "smithy.api#documentation": "<p>There was an exception validating this data.</p>",
+                "smithy.api#error": "client",
+                "smithy.api#httpError": 400
+            }
+        },
+        "com.amazonaws.s3outposts#VpcId": {
+            "type": "string"
         }
-      }
-    },
-    "com.amazonaws.s3outposts#SecurityGroupId": {
-      "type": "string",
-      "traits": {
-        "smithy.api#pattern": "^sg-([0-9a-f]{8}|[0-9a-f]{17})$"
-      }
-    },
-    "com.amazonaws.s3outposts#SubnetId": {
-      "type": "string",
-      "traits": {
-        "smithy.api#pattern": "^subnet-([0-9a-f]{8}|[0-9a-f]{17})$"
-      }
-    },
-    "com.amazonaws.s3outposts#ThrottlingException": {
-      "type": "structure",
-      "members": {
-        "Message": {
-          "target": "com.amazonaws.s3outposts#ErrorMessage"
-        }
-      },
-      "traits": {
-        "smithy.api#documentation": "<p>The request was denied due to request throttling.</p>",
-        "smithy.api#error": "client",
-        "smithy.api#httpError": 429
-      }
-    },
-    "com.amazonaws.s3outposts#ValidationException": {
-      "type": "structure",
-      "members": {
-        "Message": {
-          "target": "com.amazonaws.s3outposts#ErrorMessage"
-        }
-      },
-      "traits": {
-        "smithy.api#documentation": "<p>There was an exception validating this data.</p>",
-        "smithy.api#error": "client",
-        "smithy.api#httpError": 400
-      }
-    },
-    "com.amazonaws.s3outposts#VpcId": {
-      "type": "string"
     }
-  }
 }
