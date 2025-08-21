@@ -330,8 +330,8 @@ export interface ChannelTargetInfo {
   ContactChannelId: string | undefined;
 
   /**
-   * <p>The number of minutes to wait to retry sending engagement in the case the engagement
-   *          initially fails.</p>
+   * <p>The number of minutes to wait before retrying to send engagement if the engagement
+   *          initially failed.</p>
    * @public
    */
   RetryIntervalInMinutes?: number | undefined;
@@ -455,8 +455,21 @@ export interface Contact {
   DisplayName?: string | undefined;
 
   /**
-   * <p>Refers to the type of contact. A single contact is type <code>PERSONAL</code> and an
-   *          escalation plan is type <code>ESCALATION</code>.</p>
+   * <p>The type of contact.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>PERSONAL</code>: A single, individual contact.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ESCALATION</code>: An escalation plan.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ONCALL_SCHEDULE</code>: An on-call schedule.</p>
+   *             </li>
+   *          </ul>
    * @public
    */
   Type: ContactType | undefined;
@@ -601,13 +614,13 @@ export interface CoverageTime {
  */
 export interface Target {
   /**
-   * <p>Information about the contact channel Incident Manager is engaging.</p>
+   * <p>Information about the contact channel that Incident Manager engages.</p>
    * @public
    */
   ChannelTargetInfo?: ChannelTargetInfo | undefined;
 
   /**
-   * <p>Information about the contact that Incident Manager is engaging.</p>
+   * <p>Information about the contact that Incident Manager engages.</p>
    * @public
    */
   ContactTargetInfo?: ContactTargetInfo | undefined;
@@ -692,8 +705,21 @@ export interface CreateContactRequest {
   DisplayName?: string | undefined;
 
   /**
-   * <p>To create an escalation plan use <code>ESCALATION</code>. To create a contact use
-   *             <code>PERSONAL</code>.</p>
+   * <p>The type of contact to create.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>PERSONAL</code>: A single, individual contact.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ESCALATION</code>: An escalation plan.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ONCALL_SCHEDULE</code>: An on-call schedule.</p>
+   *             </li>
+   *          </ul>
    * @public
    */
   Type: ContactType | undefined;
@@ -968,14 +994,15 @@ export interface RecurrenceSettings {
 
   /**
    * <p>The number of contacts, or shift team members designated to be on call concurrently
-   *          during a shift. For example, in an on-call schedule containing ten contacts, a value of
+   *          during a shift. For example, in an on-call schedule that contains ten contacts, a value of
    *             <code>2</code> designates that two of them are on call at any given time.</p>
    * @public
    */
   NumberOfOnCalls: number | undefined;
 
   /**
-   * <p>Information about the days of the week included in on-call rotation coverage.</p>
+   * <p>Information about the days of the week that the on-call rotation coverage
+   *          includes.</p>
    * @public
    */
   ShiftCoverages?: Partial<Record<DayOfWeek, CoverageTime[]>> | undefined;
@@ -999,6 +1026,11 @@ export interface CreateRotationRequest {
 
   /**
    * <p>The Amazon Resource Names (ARNs) of the contacts to add to the rotation.</p>
+   *          <note>
+   *             <p>Only the <code>PERSONAL</code> contact type is supported. The contact types
+   *                <code>ESCALATION</code> and <code>ONCALL_SCHEDULE</code> are not supported for this
+   *             operation. </p>
+   *          </note>
    *          <p>The order that you list the contacts in is their shift order in the rotation schedule.
    *          To change the order of the contact's shifts, use the <a>UpdateRotation</a>
    *          operation.</p>
@@ -1019,7 +1051,7 @@ export interface CreateRotationRequest {
    *             Database</a> on the IANA website.</p>
    *          <note>
    *             <p>Designators for time zones that don’t support Daylight Savings Time rules, such as
-   *             Pacific Standard Time (PST) and Pacific Daylight Time (PDT), are not supported.</p>
+   *             Pacific Standard Time (PST), are not supported.</p>
    *          </note>
    * @public
    */
@@ -1445,7 +1477,7 @@ export interface GetContactResult {
   DisplayName?: string | undefined;
 
   /**
-   * <p>The type of contact, either <code>PERSONAL</code> or <code>ESCALATION</code>.</p>
+   * <p>The type of contact.</p>
    * @public
    */
   Type: ContactType | undefined;
@@ -1719,8 +1751,7 @@ export interface ListContactsRequest {
   AliasPrefix?: string | undefined;
 
   /**
-   * <p>The type of contact. A contact is type <code>PERSONAL</code> and an escalation plan is
-   *          type <code>ESCALATION</code>.</p>
+   * <p>The type of contact.</p>
    * @public
    */
   Type?: ContactType | undefined;
@@ -2510,7 +2541,8 @@ export interface ListRotationShiftsResult {
  */
 export interface ListTagsForResourceRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the contact or escalation plan.</p>
+   * <p>The Amazon Resource Name (ARN) of the contact, escalation plan, rotation, or on-call
+   *          schedule.</p>
    * @public
    */
   ResourceARN: string | undefined;
@@ -2769,6 +2801,11 @@ export interface UpdateRotationRequest {
 
   /**
    * <p>The Amazon Resource Names (ARNs) of the contacts to include in the updated rotation. </p>
+   *          <note>
+   *             <p>Only the <code>PERSONAL</code> contact type is supported. The contact types
+   *                <code>ESCALATION</code> and <code>ONCALL_SCHEDULE</code> are not supported for this
+   *             operation. </p>
+   *          </note>
    *          <p>The order in which you list the contacts is their shift order in the rotation
    *          schedule.</p>
    * @public
@@ -2788,7 +2825,7 @@ export interface UpdateRotationRequest {
    *             Database</a> on the IANA website.</p>
    *          <note>
    *             <p>Designators for time zones that don’t support Daylight Savings Time Rules, such as
-   *             Pacific Standard Time (PST) and Pacific Daylight Time (PDT), aren't supported.</p>
+   *             Pacific Standard Time (PST), aren't supported.</p>
    *          </note>
    * @public
    */

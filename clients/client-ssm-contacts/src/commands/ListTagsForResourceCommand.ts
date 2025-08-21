@@ -28,7 +28,7 @@ export interface ListTagsForResourceCommandInput extends ListTagsForResourceRequ
 export interface ListTagsForResourceCommandOutput extends ListTagsForResourceResult, __MetadataBearer {}
 
 /**
- * <p>Lists the tags of an escalation plan or contact.</p>
+ * <p>Lists the tags of a contact, escalation plan, rotation, or on-call schedule.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -28,10 +28,11 @@ export interface DeleteContactCommandInput extends DeleteContactRequest {}
 export interface DeleteContactCommandOutput extends DeleteContactResult, __MetadataBearer {}
 
 /**
- * <p>To remove a contact from Incident Manager, you can delete the contact. Deleting a contact
- *          removes them from all escalation plans and related response plans. Deleting an escalation
- *          plan removes it from all related response plans. You will have to recreate the contact and
- *          its contact channels before you can use it again.</p>
+ * <p>To remove a contact from Incident Manager, you can delete the contact. However, deleting a
+ *          contact does not remove it from escalation plans and related response plans. Deleting an
+ *          escalation plan also does not remove it from all related response plans. To modify an
+ *          escalation plan, we recommend using the <a>UpdateContact</a> action to specify a
+ *          different existing contact.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
