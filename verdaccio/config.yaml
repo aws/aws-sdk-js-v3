@@ -30,6 +30,7 @@ web:
 uplinks:
   npmjs:
     url: https://registry.npmjs.org/
+    timeout: 300s
 
 packages:
   "@aws-sdk/*":
