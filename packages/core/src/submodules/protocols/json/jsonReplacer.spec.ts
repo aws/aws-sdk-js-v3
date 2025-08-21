@@ -24,7 +24,10 @@ describe(JsonReplacer.name, () => {
     const serialized = jsonReplacer.replaceInJson(JSON.stringify(data, jsonReplacer.createReplacer(), 2));
 
     expect(serialized).toEqual(`{
-  "numericValue": 0.1000000000000000000000000000054321
+  "numericValue": {
+    "string": "0.1000000000000000000000000000054321",
+    "type": "bigDecimal"
+  }
 }`);
   });
 
