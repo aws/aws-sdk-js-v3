@@ -142,7 +142,7 @@ describe(resolveAssumeRoleCredentials.name, () => {
       `Detected a cycle attempting to resolve credentials for profile` +
         ` ${mockProfileName}. Profiles visited: ` +
         Object.keys({ mockProfileName: true }).join(", "),
-      false
+      { tryNextLink: true }
     );
 
     try {
