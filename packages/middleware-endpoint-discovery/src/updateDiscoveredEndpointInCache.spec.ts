@@ -117,7 +117,7 @@ describe(updateDiscoveredEndpointInCache.name, () => {
                 `The operation to discover endpoint failed.` +
                   ` Please retry, or provide a custom endpoint and disable endpoint discovery to proceed.`
               ),
-              { reason: error }
+              { reason: new Error("rejected") }
             )
           );
         }
