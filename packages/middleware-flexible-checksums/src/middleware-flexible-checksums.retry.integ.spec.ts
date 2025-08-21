@@ -42,6 +42,8 @@ describe("middleware-flexible-checksums.retry", () => {
       }
     );
 
+    client.middlewareStack.identifyOnResolve(true);
+
     await client
       .putObject({
         Bucket: "b",
