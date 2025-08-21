@@ -51,13 +51,15 @@ describe("middleware-flexible-checksums.retry", () => {
         Body: "hello",
       })
       .catch((err) => {
-        console.log({ err });
+        console.log({ err, flexChecksCalls, retryMiddlewareCalls });
         // Expected, since we're faking transient error which is retried.
+
+        // Validate that flexibleChecksumsMiddleware is called once.
+        expect(flexChecksCalls).toEqual(1);
+        // Validate that retryMiddleware is called maxAttempts times.
+        expect(retryMiddlewareCalls).toEqual(maxAttempts);
       });
 
-    // Validate that flexibleChecksumsMiddleware is called once.
-    expect(flexChecksCalls).toEqual(1);
-    // Validate that retryMiddleware is called maxAttempts times.
-    expect(retryMiddlewareCalls).toEqual(maxAttempts);
+    expect.assertions(2);
   });
 });
