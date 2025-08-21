@@ -60,7 +60,7 @@ describe(regionRedirectMiddleware.name, () => {
       await handler({ input: null });
     }).rejects.toThrowError(
       Object.assign(new Error(), {
-        Code: "PermanentRedirect",
+        name: "PermanentRedirect",
         $metadata: { httpStatusCode: 301 },
         $response: { headers: { "x-amz-bucket-region": redirectRegion } },
       })
