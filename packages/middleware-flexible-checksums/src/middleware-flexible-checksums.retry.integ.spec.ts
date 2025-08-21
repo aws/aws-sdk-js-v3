@@ -1,23 +1,20 @@
 import { S3 } from "@aws-sdk/client-s3";
-import { NodeHttpHandler } from "@smithy/node-http-handler";
 import { HttpResponse } from "@smithy/protocol-http";
 import { describe, expect, test as it } from "vitest";
 
 describe("middleware-flexible-checksums.retry", () => {
   it("retry reuses the checksum", async () => {
     const maxAttempts = 3;
-    class CustomHandler extends NodeHttpHandler {
-      async handle() {
-        return {
+    const client = new S3({
+      maxAttempts,
+      requestHandler: {
+        handle: async () => ({
           response: new HttpResponse({
             statusCode: 500, // Fake Trasient Error
-            headers: {},
           }),
-        };
-      }
-    }
-    const requestHandler = new CustomHandler();
-    const client = new S3({ maxAttempts, requestHandler });
+        }),
+      },
+    });
 
     let flexChecksCalls = 0;
     client.middlewareStack.addRelativeTo(
