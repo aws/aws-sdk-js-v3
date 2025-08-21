@@ -26,7 +26,7 @@ describe(JsonShapeSerializer.name, () => {
     serializer.write(widget, data);
     const serialization = serializer.flush();
     expect(serialization).toEqual(
-      `{"blob":"AAAAAQ==","timestamp":0,"bigint":10000000000000000000000054321,"bigdecimal":0.10000000000000000000000054321}`
+      `{"blob":"AAAAAQ==","timestamp":0,"bigint":10000000000000000000000054321,"bigdecimal":{"string":"0.10000000000000000000000054321","type":"bigDecimal"}}`
     );
   });
 });
