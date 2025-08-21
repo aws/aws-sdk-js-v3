@@ -3423,8 +3423,7 @@ export interface UpdateThreatEntitySetRequest {
 
   /**
    * <p>A user-friendly name to identify the trusted entity set.</p>
-   *          <p>
-   *             <b>List naming constraints</b> - The name of your list can include
+   *          <p>The name of your list can include
    *                                 lowercase letters, uppercase letters, numbers, dash (-), and underscore (_).</p>
    * @public
    */
@@ -3528,8 +3527,7 @@ export interface UpdateTrustedEntitySetRequest {
 
   /**
    * <p>A user-friendly name to identify the trusted entity set.</p>
-   *          <p>
-   *             <b>List naming constraints</b> - The name of your list can include
+   *          <p>The name of your list can include
    *                                 lowercase letters, uppercase letters, numbers, dash (-), and underscore (_).</p>
    * @public
    */
