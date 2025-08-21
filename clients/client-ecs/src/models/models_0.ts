@@ -161,10 +161,6 @@ export interface ManagedScaling {
    * 			value of <code>1</code> is used.</p>
    *          <p>When additional capacity is required, Amazon ECS will scale up the minimum scaling step
    * 			size even if the actual demand is less than the minimum scaling step size.</p>
-   *          <p>If you use a capacity provider with an Auto Scaling group configured with more than
-   * 			one Amazon EC2 instance type or Availability Zone, Amazon ECS will scale up by the exact minimum
-   * 			scaling step size value and will ignore both the maximum scaling step size as well as
-   * 			the capacity demand.</p>
    * @public
    */
   minimumScalingStepSize?: number | undefined;
@@ -774,7 +770,7 @@ export interface CapacityProviderStrategyItem {
   /**
    * <p>The <i>weight</i> value designates the relative percentage of the total
    * 			number of tasks launched that should use the specified capacity provider. The
-   * 				<code>weight</code> value is taken into consideration after the <code>base</code>
+   * 			<code>weight</code> value is taken into consideration after the <code>base</code>
    * 			value, if defined, is satisfied.</p>
    *          <p>If no <code>weight</code> value is specified, the default value of <code>0</code> is
    * 			used. When multiple capacity providers are specified within a capacity provider
@@ -783,23 +779,60 @@ export interface CapacityProviderStrategyItem {
    * 			tasks. If you specify multiple capacity providers in a strategy that all have a weight
    * 			of <code>0</code>, any <code>RunTask</code> or <code>CreateService</code> actions using
    * 			the capacity provider strategy will fail.</p>
-   *          <p>An example scenario for using weights is defining a strategy that contains two
-   * 			capacity providers and both have a weight of <code>1</code>, then when the
-   * 				<code>base</code> is satisfied, the tasks will be split evenly across the two
-   * 			capacity providers. Using that same logic, if you specify a weight of <code>1</code> for
-   * 				<i>capacityProviderA</i> and a weight of <code>4</code> for
-   * 				<i>capacityProviderB</i>, then for every one task that's run using
-   * 				<i>capacityProviderA</i>, four tasks would use
-   * 				<i>capacityProviderB</i>.</p>
+   *          <p>Weight value characteristics:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Weight is considered after the base value is satisfied</p>
+   *             </li>
+   *             <li>
+   *                <p>Default value is <code>0</code> if not specified</p>
+   *             </li>
+   *             <li>
+   *                <p>Valid range: 0 to 1,000</p>
+   *             </li>
+   *             <li>
+   *                <p>At least one capacity provider must have a weight greater than zero</p>
+   *             </li>
+   *             <li>
+   *                <p>Capacity providers with weight of <code>0</code> cannot place tasks</p>
+   *             </li>
+   *          </ul>
+   *          <p>Task distribution logic:</p>
+   *          <ol>
+   *             <li>
+   *                <p>Base satisfaction: The minimum number of tasks specified by the base value are placed on that capacity provider</p>
+   *             </li>
+   *             <li>
+   *                <p>Weight distribution: After base requirements are met, additional tasks are distributed according to weight ratios</p>
+   *             </li>
+   *          </ol>
+   *          <p>Examples:</p>
+   *          <p>Equal Distribution: Two capacity providers both with weight <code>1</code> will split tasks evenly after base requirements are met.</p>
+   *          <p>Weighted Distribution: If capacityProviderA has weight <code>1</code> and capacityProviderB has weight <code>4</code>, then for every 1 task on A, 4 tasks will run on B.</p>
    * @public
    */
   weight?: number | undefined;
 
   /**
    * <p>The <i>base</i> value designates how many tasks, at a minimum, to run on
-   * 			the specified capacity provider. Only one capacity provider in a capacity provider
+   * 			the specified capacity provider for each service. Only one capacity provider in a capacity provider
    * 			strategy can have a <i>base</i> defined. If no value is specified, the
    * 			default value of <code>0</code> is used.</p>
+   *          <p>Base value characteristics:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Only one capacity provider in a strategy can have a base defined</p>
+   *             </li>
+   *             <li>
+   *                <p>Default value is <code>0</code> if not specified</p>
+   *             </li>
+   *             <li>
+   *                <p>Valid range: 0 to 100,000</p>
+   *             </li>
+   *             <li>
+   *                <p>Base requirements are satisfied first before weight distribution</p>
+   *             </li>
+   *          </ul>
    * @public
    */
   base?: number | undefined;
@@ -1175,7 +1208,7 @@ export interface Cluster {
 
   /**
    * <p>The number of services that are running on the cluster in an <code>ACTIVE</code>
-   * 			state. You can view these services with <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ListServices.html">PListServices</a>.</p>
+   * 			state. You can view these services with <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ListServices.html">ListServices</a>.</p>
    * @public
    */
   activeServicesCount?: number | undefined;
@@ -2412,7 +2445,7 @@ export interface LogConfiguration {
    *             <dt>max-buffer-size</dt>
    *             <dd>
    *                <p>Required: No</p>
-   *                <p>Default value: <code>1m</code>
+   *                <p>Default value: <code>10m</code>
    *                </p>
    *                <p>When <code>non-blocking</code> mode is used, the
    * 							<code>max-buffer-size</code> log option controls the size of the buffer
@@ -9484,8 +9517,7 @@ export type TaskField = (typeof TaskField)[keyof typeof TaskField];
 export interface DescribeTasksRequest {
   /**
    * <p>The short name or full Amazon Resource Name (ARN) of the cluster that hosts the task or tasks to
-   * 			describe. If you do not specify a cluster, the default cluster is assumed. If you do not specify a
-   * 			value, the <code>default</code> cluster is used.</p>
+   * 			describe. If you do not specify a cluster, the default cluster is assumed.</p>
    * @public
    */
   cluster?: string | undefined;
