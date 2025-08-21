@@ -146,7 +146,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@aws-sdk/aws-client-retry-test@workspace:private/aws-client-retry-test"
   dependencies:
-    "@aws-sdk/client-s3": "npm:*"
+    "@aws-sdk/client-lambda": "npm:*"
     "@smithy/protocol-http": "npm:^5.1.3"
     "@smithy/types": "npm:^4.3.2"
     "@smithy/util-retry": "npm:^4.0.7"

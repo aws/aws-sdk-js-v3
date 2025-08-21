@@ -1,4 +1,4 @@
-import { HeadObjectCommand, S3, S3Client, S3ServiceException } from "@aws-sdk/client-s3";
+import { ListFunctionsCommand, Lambda, LambdaClient, LambdaServiceException } from "@aws-sdk/client-lambda";
 import { HttpHandler, HttpResponse } from "@smithy/protocol-http";
 import { AwsCredentialIdentity, RequestHandlerOutput } from "@smithy/types";
 import { ConfiguredRetryStrategy, StandardRetryStrategy } from "@smithy/util-retry";
@@ -32,7 +32,7 @@ describe("util-retry integration tests", () => {
   const mockThrottled: RequestHandlerOutput<HttpResponse> = {
     response: new HttpResponse({
       statusCode: 429,
-      headers: { "x-amzn-errortype": "ThrottledException" },
+      headers: { "x-amzn-errortype": "ThrottlingException" },
       body: Readable.from([""]),
     }),
   };
@@ -42,13 +42,10 @@ describe("util-retry integration tests", () => {
       body: Readable.from(""),
     }),
   };
-  const headObjectCommand = new HeadObjectCommand({
-    Bucket: "TEST_BUCKET",
-    Key: "TEST_KEY",
-  });
+  const command = new ListFunctionsCommand();
 
   it("should not retry on 200", async () => {
-    const client = new S3Client({
+    const client = new LambdaClient({
       requestHandler: {
         handle: () => Promise.resolve(mockSuccess),
         updateHttpClientConfig: () => {},
@@ -58,7 +55,7 @@ describe("util-retry integration tests", () => {
       credentials,
     });
     expect(await client.config.retryStrategy()).toBeInstanceOf(StandardRetryStrategy);
-    const response = await client.send(headObjectCommand);
+    const response = await client.send(command);
     expect(response.$metadata.httpStatusCode).toBe(200);
     expect(response.$metadata.attempts).toBe(1);
     expect(response.$metadata.totalRetryDelay).toBe(0);
@@ -70,7 +67,7 @@ describe("util-retry integration tests", () => {
       .mockResolvedValueOnce(mockThrottled)
       .mockResolvedValueOnce(mockThrottled)
       .mockResolvedValueOnce(mockSuccess);
-    const client = new S3Client({
+    const client = new LambdaClient({
       requestHandler: {
         handle: mockHandle,
         httpHandlerConfigs: () => ({}),
@@ -80,7 +77,7 @@ describe("util-retry integration tests", () => {
       credentials,
     });
     expect(await client.config.retryStrategy()).toBeInstanceOf(StandardRetryStrategy);
-    const response = await client.send(headObjectCommand);
+    const response = await client.send(command);
     expect(response.$metadata.httpStatusCode).toBe(200);
     expect(mockHandle).toBeCalledTimes(3);
     expect(response.$metadata.attempts).toBe(3);
@@ -88,9 +85,10 @@ describe("util-retry integration tests", () => {
   });
 
   it("should retry until attempts are exhausted", async () => {
-    const expectedException = new S3ServiceException({
+    const expectedException = new LambdaServiceException({
       $metadata: {
         httpStatusCode: 429,
+        attempts: 3,
       },
       $fault: "client",
       $retryable: {
@@ -99,7 +97,7 @@ describe("util-retry integration tests", () => {
       message: "UnknownError",
       name: "ThrottlingException",
     });
-    const client = new S3Client({
+    const client = new LambdaClient({
       requestHandler: {
         handle: () => Promise.resolve(mockThrottled),
         httpHandlerConfigs: () => ({}),
@@ -110,11 +108,13 @@ describe("util-retry integration tests", () => {
     });
     expect(await client.config.retryStrategy()).toBeInstanceOf(StandardRetryStrategy);
     try {
-      await client.send(headObjectCommand);
+      await client.send(command);
     } catch (error) {
-      expect(error).toStrictEqual(expectedException);
-      expect(error.$metadata.httpStatusCode).toBe(429);
-      expect(error.$metadata.attempts).toBe(3);
+      expect(error.name).toBe(expectedException.name);
+      expect(error.message).toBe(expectedException.message);
+      expect(error.$fault).toBe(expectedException.$fault);
+      expect(error.$metadata.httpStatusCode).toBe(expectedException.$metadata.httpStatusCode);
+      expect(error.$metadata.attempts).toBe(expectedException.$metadata.attempts);
       expect(error.$metadata.totalRetryDelay).toBeGreaterThan(0);
     }
   });
@@ -131,7 +131,7 @@ describe("util-retry integration tests", () => {
       expectedInitialCapacity - expectedDrainPerAttempt * expectedRetryAttemptsPerRequest * expectedRequests;
 
     const retryStrategy = new ConfiguredRetryStrategy(maxAttempts, delayPerRetry);
-    const s3 = new S3({
+    const client = new Lambda({
       requestHandler: new MockRequestHandler(),
       retryStrategy,
       region: MOCK_REGION,
@@ -141,10 +141,10 @@ describe("util-retry integration tests", () => {
     expect(retryStrategy.getCapacity()).toEqual(expectedInitialCapacity);
 
     await Promise.all([
-      s3.headBucket({ Bucket: "undefined" }),
-      s3.headBucket({ Bucket: "undefined" }),
-      s3.headBucket({ Bucket: "undefined" }),
-      s3.headBucket({ Bucket: "undefined" }),
+      client.listFunctions(),
+      client.listFunctions(),
+      client.listFunctions(),
+      client.listFunctions(),
     ]).catch((e) => {
       expect(e.$metadata.attempts).toBe(1 + expectedRetryAttemptsPerRequest);
       expect(e.$metadata.totalRetryDelay).toBe(expectedRetryAttemptsPerRequest * delayPerRetry);
