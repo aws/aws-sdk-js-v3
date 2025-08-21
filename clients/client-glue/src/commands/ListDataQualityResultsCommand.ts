@@ -47,6 +47,16 @@ export interface ListDataQualityResultsCommandOutput extends ListDataQualityResu
  *           "<keys>": "STRING_VALUE",
  *         },
  *       },
+ *       DataQualityGlueTable: { // DataQualityGlueTable
+ *         DatabaseName: "STRING_VALUE", // required
+ *         TableName: "STRING_VALUE", // required
+ *         CatalogId: "STRING_VALUE",
+ *         ConnectionName: "STRING_VALUE",
+ *         AdditionalOptions: {
+ *           "<keys>": "STRING_VALUE",
+ *         },
+ *         PreProcessingQuery: "STRING_VALUE",
+ *       },
  *     },
  *     JobName: "STRING_VALUE",
  *     JobRunId: "STRING_VALUE",
@@ -71,6 +81,16 @@ export interface ListDataQualityResultsCommandOutput extends ListDataQualityResu
  * //           AdditionalOptions: { // GlueTableAdditionalOptions
  * //             "<keys>": "STRING_VALUE",
  * //           },
+ * //         },
+ * //         DataQualityGlueTable: { // DataQualityGlueTable
+ * //           DatabaseName: "STRING_VALUE", // required
+ * //           TableName: "STRING_VALUE", // required
+ * //           CatalogId: "STRING_VALUE",
+ * //           ConnectionName: "STRING_VALUE",
+ * //           AdditionalOptions: {
+ * //             "<keys>": "STRING_VALUE",
+ * //           },
+ * //           PreProcessingQuery: "STRING_VALUE",
  * //         },
  * //       },
  * //       JobName: "STRING_VALUE",

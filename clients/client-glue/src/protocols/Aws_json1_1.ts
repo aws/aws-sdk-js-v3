@@ -678,6 +678,7 @@ import {
   CustomCode,
   DataQualityAggregatedMetrics,
   DataQualityAnalyzerResult,
+  DataQualityGlueTable,
   DataQualityMetricValues,
   DataQualityObservation,
   DataQualityResult,
@@ -852,7 +853,6 @@ import {
   CancelMLTaskRunRequest,
   CancelStatementRequest,
   Catalog,
-  CatalogImportStatus,
   CatalogInput,
   CatalogProperties,
   CatalogPropertiesOutput,
@@ -1033,6 +1033,7 @@ import {
   BinaryColumnStatisticsData,
   BooleanColumnStatisticsData,
   CatalogEntry,
+  CatalogImportStatus,
   Classifier,
   ColumnImportance,
   ColumnStatistics,
@@ -1221,7 +1222,6 @@ import {
   ListSessionsResponse,
   ListStatementsRequest,
   ListStatementsResponse,
-  ListTableOptimizerRunsRequest,
   Location,
   LongColumnStatisticsData,
   MappingEntry,
@@ -1274,6 +1274,7 @@ import {
   IllegalWorkflowStateException,
   Job,
   JobUpdate,
+  ListTableOptimizerRunsRequest,
   ListTableOptimizerRunsResponse,
   ListTriggersRequest,
   ListUsageProfilesRequest,
@@ -11397,6 +11398,8 @@ const se_CreateTableRequest = (input: CreateTableRequest, context: __SerdeContex
 
 // se_DataQualityEvaluationRunAdditionalRunOptions omitted.
 
+// se_DataQualityGlueTable omitted.
+
 /**
  * serializeAws_json1_1DataQualityResultFilterCriteria
  */
@@ -14464,6 +14467,8 @@ const de_DataQualityAnalyzerResults = (output: any, context: __SerdeContext): Da
 // de_DataQualityEncryption omitted.
 
 // de_DataQualityEvaluationRunAdditionalRunOptions omitted.
+
+// de_DataQualityGlueTable omitted.
 
 /**
  * deserializeAws_json1_1DataQualityMetricValues

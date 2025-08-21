@@ -14,7 +14,6 @@ import {
   AuthenticationConfigurationInputFilterSensitiveLog,
   AuthenticationType,
   Blueprint,
-  BlueprintDetails,
   Column,
   ConnectionsList,
   CrawlerTargets,
@@ -43,6 +42,24 @@ import {
   TriggerType,
   WorkerType,
 } from "./models_0";
+
+/**
+ * <p>The details of a blueprint.</p>
+ * @public
+ */
+export interface BlueprintDetails {
+  /**
+   * <p>The name of the blueprint.</p>
+   * @public
+   */
+  BlueprintName?: string | undefined;
+
+  /**
+   * <p>The run ID for this blueprint.</p>
+   * @public
+   */
+  RunId?: string | undefined;
+}
 
 /**
  * <p>An edge represents a directed connection between two Glue components that are part of the workflow the
@@ -800,7 +817,8 @@ export interface DatapointInclusionAnnotation {
  */
 export interface BatchPutDataQualityStatisticAnnotationRequest {
   /**
-   * <p>A list of <code>DatapointInclusionAnnotation</code>'s.</p>
+   * <p>A list of <code>DatapointInclusionAnnotation</code>'s. The InclusionAnnotations must contain a profileId and statisticId.
+   *         If there are multiple InclusionAnnotations, the list must refer to a single statisticId across multiple profileIds.</p>
    * @public
    */
   InclusionAnnotations: DatapointInclusionAnnotation[] | undefined;
@@ -8167,31 +8185,6 @@ export interface GetCatalogImportStatusRequest {
    * @public
    */
   CatalogId?: string | undefined;
-}
-
-/**
- * <p>A structure containing migration status information.</p>
- * @public
- */
-export interface CatalogImportStatus {
-  /**
-   * <p>
-   *             <code>True</code> if the migration has completed, or <code>False</code> otherwise.</p>
-   * @public
-   */
-  ImportCompleted?: boolean | undefined;
-
-  /**
-   * <p>The time that the migration was started.</p>
-   * @public
-   */
-  ImportTime?: Date | undefined;
-
-  /**
-   * <p>The name of the person who initiated the migration.</p>
-   * @public
-   */
-  ImportedBy?: string | undefined;
 }
 
 /**

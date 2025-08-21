@@ -164,6 +164,47 @@ import {
 /**
  * @public
  */
+export interface ListTableOptimizerRunsRequest {
+  /**
+   * <p>The Catalog ID of the table.</p>
+   * @public
+   */
+  CatalogId: string | undefined;
+
+  /**
+   * <p>The name of the database in the catalog in which the table resides.</p>
+   * @public
+   */
+  DatabaseName: string | undefined;
+
+  /**
+   * <p>The name of the table.</p>
+   * @public
+   */
+  TableName: string | undefined;
+
+  /**
+   * <p>The type of table optimizer.</p>
+   * @public
+   */
+  Type: TableOptimizerType | undefined;
+
+  /**
+   * <p>The maximum number of optimizer runs to return on each call.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>A continuation token, if this is a continuation call.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface ListTableOptimizerRunsResponse {
   /**
    * <p>The Catalog ID of the table.</p>

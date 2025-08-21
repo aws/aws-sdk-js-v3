@@ -37,7 +37,6 @@ import {
 import {
   Capabilities,
   Catalog,
-  CatalogImportStatus,
   CodeGenEdge,
   CodeGenNode,
   CodeGenNodeArg,
@@ -78,6 +77,31 @@ import {
   Workflow,
   WorkflowRun,
 } from "./models_1";
+
+/**
+ * <p>A structure containing migration status information.</p>
+ * @public
+ */
+export interface CatalogImportStatus {
+  /**
+   * <p>
+   *             <code>True</code> if the migration has completed, or <code>False</code> otherwise.</p>
+   * @public
+   */
+  ImportCompleted?: boolean | undefined;
+
+  /**
+   * <p>The time that the migration was started.</p>
+   * @public
+   */
+  ImportTime?: Date | undefined;
+
+  /**
+   * <p>The name of the person who initiated the migration.</p>
+   * @public
+   */
+  ImportedBy?: string | undefined;
+}
 
 /**
  * @public
@@ -8745,47 +8769,6 @@ export interface ListStatementsResponse {
 
   /**
    * <p>A continuation token, if not all statements have yet been returned.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListTableOptimizerRunsRequest {
-  /**
-   * <p>The Catalog ID of the table.</p>
-   * @public
-   */
-  CatalogId: string | undefined;
-
-  /**
-   * <p>The name of the database in the catalog in which the table resides.</p>
-   * @public
-   */
-  DatabaseName: string | undefined;
-
-  /**
-   * <p>The name of the table.</p>
-   * @public
-   */
-  TableName: string | undefined;
-
-  /**
-   * <p>The type of table optimizer.</p>
-   * @public
-   */
-  Type: TableOptimizerType | undefined;
-
-  /**
-   * <p>The maximum number of optimizer runs to return on each call.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>A continuation token, if this is a continuation call.</p>
    * @public
    */
   NextToken?: string | undefined;

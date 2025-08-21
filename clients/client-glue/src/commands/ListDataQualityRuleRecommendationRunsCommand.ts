@@ -56,6 +56,16 @@ export interface ListDataQualityRuleRecommendationRunsCommandOutput
  *           "<keys>": "STRING_VALUE",
  *         },
  *       },
+ *       DataQualityGlueTable: { // DataQualityGlueTable
+ *         DatabaseName: "STRING_VALUE", // required
+ *         TableName: "STRING_VALUE", // required
+ *         CatalogId: "STRING_VALUE",
+ *         ConnectionName: "STRING_VALUE",
+ *         AdditionalOptions: {
+ *           "<keys>": "STRING_VALUE",
+ *         },
+ *         PreProcessingQuery: "STRING_VALUE",
+ *       },
  *     },
  *     StartedBefore: new Date("TIMESTAMP"),
  *     StartedAfter: new Date("TIMESTAMP"),
@@ -80,6 +90,16 @@ export interface ListDataQualityRuleRecommendationRunsCommandOutput
  * //           AdditionalOptions: { // GlueTableAdditionalOptions
  * //             "<keys>": "STRING_VALUE",
  * //           },
+ * //         },
+ * //         DataQualityGlueTable: { // DataQualityGlueTable
+ * //           DatabaseName: "STRING_VALUE", // required
+ * //           TableName: "STRING_VALUE", // required
+ * //           CatalogId: "STRING_VALUE",
+ * //           ConnectionName: "STRING_VALUE",
+ * //           AdditionalOptions: {
+ * //             "<keys>": "STRING_VALUE",
+ * //           },
+ * //           PreProcessingQuery: "STRING_VALUE",
  * //         },
  * //       },
  * //     },

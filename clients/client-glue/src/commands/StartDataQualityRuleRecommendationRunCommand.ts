@@ -56,6 +56,16 @@ export interface StartDataQualityRuleRecommendationRunCommandOutput
  *         "<keys>": "STRING_VALUE",
  *       },
  *     },
+ *     DataQualityGlueTable: { // DataQualityGlueTable
+ *       DatabaseName: "STRING_VALUE", // required
+ *       TableName: "STRING_VALUE", // required
+ *       CatalogId: "STRING_VALUE",
+ *       ConnectionName: "STRING_VALUE",
+ *       AdditionalOptions: {
+ *         "<keys>": "STRING_VALUE",
+ *       },
+ *       PreProcessingQuery: "STRING_VALUE",
+ *     },
  *   },
  *   Role: "STRING_VALUE", // required
  *   NumberOfWorkers: Number("int"),

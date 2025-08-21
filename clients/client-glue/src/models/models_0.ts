@@ -2885,6 +2885,60 @@ export interface DataQualityAnalyzerResult {
 }
 
 /**
+ * <p>The database and table in the Glue Data Catalog that is used for input or output data
+ *             for Data Quality Operations.</p>
+ * @public
+ */
+export interface DataQualityGlueTable {
+  /**
+   * <p>A database name in the Glue Data Catalog.</p>
+   * @public
+   */
+  DatabaseName: string | undefined;
+
+  /**
+   * <p>A table name in the Glue Data Catalog.</p>
+   * @public
+   */
+  TableName: string | undefined;
+
+  /**
+   * <p>A unique identifier for the Glue Data Catalog.</p>
+   * @public
+   */
+  CatalogId?: string | undefined;
+
+  /**
+   * <p>The name of the connection to the Glue Data Catalog.</p>
+   * @public
+   */
+  ConnectionName?: string | undefined;
+
+  /**
+   * <p>Additional options for the table. Currently there are two keys supported:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>pushDownPredicate</code>: to filter on partitions without having to list and read all the files in your dataset.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>catalogPartitionPredicate</code>: to use server-side partition pruning using partition indexes in the Glue Data Catalog.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  AdditionalOptions?: Record<string, string> | undefined;
+
+  /**
+   * <p>SQL Query of SparkSQL format that can be used to pre-process the data for the table in Glue Data Catalog,
+   *             before running the Data Quality Operation.</p>
+   * @public
+   */
+  PreProcessingQuery?: string | undefined;
+}
+
+/**
  * <p>The database and table in the Glue Data Catalog that is used for input or output data.</p>
  * @public
  */
@@ -2939,7 +2993,13 @@ export interface DataSource {
    * <p>An Glue table.</p>
    * @public
    */
-  GlueTable: GlueTable | undefined;
+  GlueTable?: GlueTable | undefined;
+
+  /**
+   * <p>An Glue table for Data Quality Operations.</p>
+   * @public
+   */
+  DataQualityGlueTable?: DataQualityGlueTable | undefined;
 }
 
 /**
@@ -9510,24 +9570,6 @@ export interface BatchGetWorkflowsRequest {
    * @public
    */
   IncludeGraph?: boolean | undefined;
-}
-
-/**
- * <p>The details of a blueprint.</p>
- * @public
- */
-export interface BlueprintDetails {
-  /**
-   * <p>The name of the blueprint.</p>
-   * @public
-   */
-  BlueprintName?: string | undefined;
-
-  /**
-   * <p>The run ID for this blueprint.</p>
-   * @public
-   */
-  RunId?: string | undefined;
 }
 
 /**
