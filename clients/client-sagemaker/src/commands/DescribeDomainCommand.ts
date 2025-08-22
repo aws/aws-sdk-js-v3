@@ -293,6 +293,7 @@ export interface DescribeDomainCommandOutput extends DescribeDomainResponse, __M
  * //       VpcOnlyTrustedAccounts: [ // VpcOnlyTrustedAccounts
  * //         "STRING_VALUE",
  * //       ],
+ * //       RootlessDocker: "ENABLED" || "DISABLED",
  * //     },
  * //     AmazonQSettings: { // AmazonQSettings
  * //       Status: "ENABLED" || "DISABLED",

@@ -23794,6 +23794,7 @@ const de_DisassociateTrialComponentResponse = (
 const de_DockerSettings = (output: any, context: __SerdeContext): DockerSettings => {
   return take(output, {
     EnableDockerAccess: __expectString,
+    RootlessDocker: __expectString,
     VpcOnlyTrustedAccounts: (_: any) => de_VpcOnlyTrustedAccounts(_, context),
   }) as any;
 };

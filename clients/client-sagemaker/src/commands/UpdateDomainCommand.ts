@@ -277,6 +277,7 @@ export interface UpdateDomainCommandOutput extends UpdateDomainResponse, __Metad
  *       VpcOnlyTrustedAccounts: [ // VpcOnlyTrustedAccounts
  *         "STRING_VALUE",
  *       ],
+ *       RootlessDocker: "ENABLED" || "DISABLED",
  *     },
  *     AmazonQSettings: { // AmazonQSettings
  *       Status: "ENABLED" || "DISABLED",

@@ -278,6 +278,7 @@ export interface CreateDomainCommandOutput extends CreateDomainResponse, __Metad
  *       VpcOnlyTrustedAccounts: [ // VpcOnlyTrustedAccounts
  *         "STRING_VALUE",
  *       ],
+ *       RootlessDocker: "ENABLED" || "DISABLED",
  *     },
  *     AmazonQSettings: { // AmazonQSettings
  *       Status: "ENABLED" || "DISABLED",
