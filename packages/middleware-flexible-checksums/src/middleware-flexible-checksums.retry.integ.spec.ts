@@ -16,31 +16,16 @@ describe("middleware-flexible-checksums.retry", () => {
       },
     });
 
-    let flexChecksCalls = 0;
-    client.middlewareStack.addRelativeTo(
-      (next: any) => async (args: any) => {
-        console.log("after flexChecks");
-        flexChecksCalls++;
-        return next(args);
-      },
-      {
-        toMiddleware: "flexibleChecksumsMiddleware",
-        relation: "after",
-      }
-    );
-
-    let retryMiddlewareCalls = 0;
-    client.middlewareStack.addRelativeTo(
-      (next: any) => async (args: any) => {
-        console.log("after retryMiddleware");
-        retryMiddlewareCalls++;
-        return next(args);
-      },
-      {
-        toMiddleware: "retryMiddleware",
-        relation: "after",
-      }
-    );
+    let flexChecksCallCount = 0;
+    const flexChecksCallCountMiddleware = (next: any) => async (args: any) => {
+      console.log("after flexChecks");
+      flexChecksCallCount++;
+      return next(args);
+    };
+    client.middlewareStack.addRelativeTo(flexChecksCallCountMiddleware, {
+      toMiddleware: "flexibleChecksumsMiddleware",
+      relation: "after",
+    });
 
     client.middlewareStack.identifyOnResolve(true);
 
@@ -51,13 +36,13 @@ describe("middleware-flexible-checksums.retry", () => {
         Body: "hello",
       })
       .catch((err) => {
-        console.log({ err, flexChecksCalls, retryMiddlewareCalls });
+        console.log({ err, flexChecksCallCount });
         // Expected, since we're faking transient error which is retried.
 
         // Validate that flexibleChecksumsMiddleware is called once.
-        expect(flexChecksCalls).toEqual(1);
+        expect(flexChecksCallCount).toEqual(1);
         // Validate that retryMiddleware is called maxAttempts times.
-        expect(retryMiddlewareCalls).toEqual(maxAttempts);
+        expect(err.$metadata.attempts).toEqual(maxAttempts);
       });
 
     expect.assertions(2);
