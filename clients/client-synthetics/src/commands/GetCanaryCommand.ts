@@ -107,8 +107,34 @@ export interface GetCanaryCommandOutput extends GetCanaryResponse, __MetadataBea
  * //         },
  * //       ],
  * //       BaseCanaryRunId: "STRING_VALUE",
+ * //       BrowserType: "CHROME" || "FIREFOX",
  * //     },
  * //     ProvisionedResourceCleanup: "AUTOMATIC" || "OFF",
+ * //     BrowserConfigs: [ // BrowserConfigs
+ * //       { // BrowserConfig
+ * //         BrowserType: "CHROME" || "FIREFOX",
+ * //       },
+ * //     ],
+ * //     EngineConfigs: [ // EngineConfigs
+ * //       { // EngineConfig
+ * //         EngineArn: "STRING_VALUE",
+ * //         BrowserType: "CHROME" || "FIREFOX",
+ * //       },
+ * //     ],
+ * //     VisualReferences: [ // VisualReferencesOutput
+ * //       {
+ * //         BaseScreenshots: [
+ * //           {
+ * //             ScreenshotName: "STRING_VALUE", // required
+ * //             IgnoreCoordinates: [
+ * //               "STRING_VALUE",
+ * //             ],
+ * //           },
+ * //         ],
+ * //         BaseCanaryRunId: "STRING_VALUE",
+ * //         BrowserType: "CHROME" || "FIREFOX",
+ * //       },
+ * //     ],
  * //     Tags: { // TagMap
  * //       "<keys>": "STRING_VALUE",
  * //     },

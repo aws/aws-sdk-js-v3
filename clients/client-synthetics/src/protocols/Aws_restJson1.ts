@@ -66,6 +66,7 @@ import {
   ArtifactConfigInput,
   BadRequestException,
   BaseScreenshot,
+  BrowserConfig,
   Canary,
   CanaryCodeInput,
   CanaryLastRun,
@@ -134,6 +135,7 @@ export const se_CreateCanaryCommand = async (
     take(input, {
       ArtifactConfig: (_) => _json(_),
       ArtifactS3Location: [],
+      BrowserConfigs: (_) => _json(_),
       Code: (_) => se_CanaryCodeInput(_, context),
       ExecutionRoleArn: [],
       FailureRetentionPeriodInDays: [],
@@ -249,6 +251,7 @@ export const se_DescribeCanariesLastRunCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
+      BrowserType: [],
       MaxResults: [],
       Names: (_) => _json(_),
       NextToken: [],
@@ -486,6 +489,7 @@ export const se_StartCanaryDryRunCommand = async (
     take(input, {
       ArtifactConfig: (_) => _json(_),
       ArtifactS3Location: [],
+      BrowserConfigs: (_) => _json(_),
       Code: (_) => se_CanaryCodeInput(_, context),
       ExecutionRoleArn: [],
       FailureRetentionPeriodInDays: [],
@@ -494,6 +498,7 @@ export const se_StartCanaryDryRunCommand = async (
       RuntimeVersion: [],
       SuccessRetentionPeriodInDays: [],
       VisualReference: (_) => _json(_),
+      VisualReferences: (_) => _json(_),
       VpcConfig: (_) => _json(_),
     })
   );
@@ -577,6 +582,7 @@ export const se_UpdateCanaryCommand = async (
     take(input, {
       ArtifactConfig: (_) => _json(_),
       ArtifactS3Location: [],
+      BrowserConfigs: (_) => _json(_),
       Code: (_) => se_CanaryCodeInput(_, context),
       DryRunId: [],
       ExecutionRoleArn: [],
@@ -587,6 +593,7 @@ export const se_UpdateCanaryCommand = async (
       Schedule: (_) => _json(_),
       SuccessRetentionPeriodInDays: [],
       VisualReference: (_) => _json(_),
+      VisualReferences: (_) => _json(_),
       VpcConfig: (_) => _json(_),
     })
   );
@@ -1297,6 +1304,10 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 
 // se_BaseScreenshots omitted.
 
+// se_BrowserConfig omitted.
+
+// se_BrowserConfigs omitted.
+
 /**
  * serializeAws_restJson1CanaryCodeInput
  */
@@ -1339,6 +1350,8 @@ const se_CanaryCodeInput = (input: CanaryCodeInput, context: __SerdeContext): an
 
 // se_VisualReferenceInput omitted.
 
+// se_VisualReferences omitted.
+
 // se_VpcConfigInput omitted.
 
 // de_ArtifactConfigOutput omitted.
@@ -1348,6 +1361,10 @@ const se_CanaryCodeInput = (input: CanaryCodeInput, context: __SerdeContext): an
 // de_BaseScreenshotIgnoreCoordinates omitted.
 
 // de_BaseScreenshots omitted.
+
+// de_BrowserConfig omitted.
+
+// de_BrowserConfigs omitted.
 
 /**
  * deserializeAws_restJson1Canaries
@@ -1380,9 +1397,11 @@ const de_Canary = (output: any, context: __SerdeContext): Canary => {
   return take(output, {
     ArtifactConfig: _json,
     ArtifactS3Location: __expectString,
+    BrowserConfigs: _json,
     Code: _json,
     DryRunConfig: _json,
     EngineArn: __expectString,
+    EngineConfigs: _json,
     ExecutionRoleArn: __expectString,
     FailureRetentionPeriodInDays: __expectInt32,
     Id: __expectString,
@@ -1396,6 +1415,7 @@ const de_Canary = (output: any, context: __SerdeContext): Canary => {
     Tags: _json,
     Timeline: (_: any) => de_CanaryTimeline(_, context),
     VisualReference: _json,
+    VisualReferences: _json,
     VpcConfig: _json,
   }) as any;
 };
@@ -1420,6 +1440,7 @@ const de_CanaryLastRun = (output: any, context: __SerdeContext): CanaryLastRun =
 const de_CanaryRun = (output: any, context: __SerdeContext): CanaryRun => {
   return take(output, {
     ArtifactS3Location: __expectString,
+    BrowserType: __expectString,
     DryRunConfig: _json,
     Id: __expectString,
     Name: __expectString,
@@ -1479,6 +1500,10 @@ const de_CanaryTimeline = (output: any, context: __SerdeContext): CanaryTimeline
 
 // de_DryRunConfigOutput omitted.
 
+// de_EngineConfig omitted.
+
+// de_EngineConfigs omitted.
+
 /**
  * deserializeAws_restJson1Group
  */
@@ -1534,6 +1559,8 @@ const de_RuntimeVersionList = (output: any, context: __SerdeContext): RuntimeVer
 // de_TagMap omitted.
 
 // de_VisualReferenceOutput omitted.
+
+// de_VisualReferencesOutput omitted.
 
 // de_VpcConfigOutput omitted.
 

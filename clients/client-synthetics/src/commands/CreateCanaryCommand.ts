@@ -97,6 +97,11 @@ export interface CreateCanaryCommandOutput extends CreateCanaryResponse, __Metad
  *     "lambda-function",
  *   ],
  *   ProvisionedResourceCleanup: "AUTOMATIC" || "OFF",
+ *   BrowserConfigs: [ // BrowserConfigs
+ *     { // BrowserConfig
+ *       BrowserType: "CHROME" || "FIREFOX",
+ *     },
+ *   ],
  *   Tags: { // TagMap
  *     "<keys>": "STRING_VALUE",
  *   },
@@ -173,8 +178,34 @@ export interface CreateCanaryCommandOutput extends CreateCanaryResponse, __Metad
  * //         },
  * //       ],
  * //       BaseCanaryRunId: "STRING_VALUE",
+ * //       BrowserType: "CHROME" || "FIREFOX",
  * //     },
  * //     ProvisionedResourceCleanup: "AUTOMATIC" || "OFF",
+ * //     BrowserConfigs: [ // BrowserConfigs
+ * //       { // BrowserConfig
+ * //         BrowserType: "CHROME" || "FIREFOX",
+ * //       },
+ * //     ],
+ * //     EngineConfigs: [ // EngineConfigs
+ * //       { // EngineConfig
+ * //         EngineArn: "STRING_VALUE",
+ * //         BrowserType: "CHROME" || "FIREFOX",
+ * //       },
+ * //     ],
+ * //     VisualReferences: [ // VisualReferencesOutput
+ * //       {
+ * //         BaseScreenshots: [
+ * //           {
+ * //             ScreenshotName: "STRING_VALUE", // required
+ * //             IgnoreCoordinates: [
+ * //               "STRING_VALUE",
+ * //             ],
+ * //           },
+ * //         ],
+ * //         BaseCanaryRunId: "STRING_VALUE",
+ * //         BrowserType: "CHROME" || "FIREFOX",
+ * //       },
+ * //     ],
  * //     Tags: { // TagMap
  * //       "<keys>": "STRING_VALUE",
  * //     },

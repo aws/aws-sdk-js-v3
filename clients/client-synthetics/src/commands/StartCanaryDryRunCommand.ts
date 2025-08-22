@@ -82,6 +82,7 @@ export interface StartCanaryDryRunCommandOutput extends StartCanaryDryRunRespons
  *       },
  *     ],
  *     BaseCanaryRunId: "STRING_VALUE", // required
+ *     BrowserType: "CHROME" || "FIREFOX",
  *   },
  *   ArtifactS3Location: "STRING_VALUE",
  *   ArtifactConfig: { // ArtifactConfigInput
@@ -91,6 +92,25 @@ export interface StartCanaryDryRunCommandOutput extends StartCanaryDryRunRespons
  *     },
  *   },
  *   ProvisionedResourceCleanup: "AUTOMATIC" || "OFF",
+ *   BrowserConfigs: [ // BrowserConfigs
+ *     { // BrowserConfig
+ *       BrowserType: "CHROME" || "FIREFOX",
+ *     },
+ *   ],
+ *   VisualReferences: [ // VisualReferences
+ *     {
+ *       BaseScreenshots: [
+ *         {
+ *           ScreenshotName: "STRING_VALUE", // required
+ *           IgnoreCoordinates: [
+ *             "STRING_VALUE",
+ *           ],
+ *         },
+ *       ],
+ *       BaseCanaryRunId: "STRING_VALUE", // required
+ *       BrowserType: "CHROME" || "FIREFOX",
+ *     },
+ *   ],
  * };
  * const command = new StartCanaryDryRunCommand(input);
  * const response = await client.send(command);

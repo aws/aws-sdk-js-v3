@@ -49,6 +49,7 @@ export interface DescribeCanariesLastRunCommandOutput extends DescribeCanariesLa
  *   Names: [ // DescribeCanariesLastRunNameFilter
  *     "STRING_VALUE",
  *   ],
+ *   BrowserType: "CHROME" || "FIREFOX",
  * };
  * const command = new DescribeCanariesLastRunCommand(input);
  * const response = await client.send(command);
@@ -76,6 +77,7 @@ export interface DescribeCanariesLastRunCommandOutput extends DescribeCanariesLa
  * //         DryRunConfig: { // CanaryDryRunConfigOutput
  * //           DryRunId: "STRING_VALUE",
  * //         },
+ * //         BrowserType: "CHROME" || "FIREFOX",
  * //       },
  * //     },
  * //   ],

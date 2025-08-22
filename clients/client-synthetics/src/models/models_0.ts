@@ -282,6 +282,32 @@ export interface BaseScreenshot {
  * @public
  * @enum
  */
+export const BrowserType = {
+  CHROME: "CHROME",
+  FIREFOX: "FIREFOX",
+} as const;
+
+/**
+ * @public
+ */
+export type BrowserType = (typeof BrowserType)[keyof typeof BrowserType];
+
+/**
+ * <p>A structure that specifies the browser type to use for a canary run.</p>
+ * @public
+ */
+export interface BrowserConfig {
+  /**
+   * <p>The browser type associated with this browser configuration.</p>
+   * @public
+   */
+  BrowserType?: BrowserType | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
 export const DependencyType = {
   LambdaLayer: "LambdaLayer",
 } as const;
@@ -351,6 +377,25 @@ export interface DryRunConfigOutput {
    * @public
    */
   LastDryRunExecutionStatus?: string | undefined;
+}
+
+/**
+ * <p>A structure of engine configurations for the canary, one for each browser type that the canary is configured to run on.</p>
+ * @public
+ */
+export interface EngineConfig {
+  /**
+   * <p>Each engine configuration contains the ARN of the Lambda function that is used as the canary's engine for a specific browser type.
+   *          </p>
+   * @public
+   */
+  EngineArn?: string | undefined;
+
+  /**
+   * <p>The browser type associated with this engine configuration.</p>
+   * @public
+   */
+  BrowserType?: BrowserType | undefined;
 }
 
 /**
@@ -569,6 +614,12 @@ export interface VisualReferenceOutput {
    * @public
    */
   BaseCanaryRunId?: string | undefined;
+
+  /**
+   * <p>The browser type associated with this visual reference.</p>
+   * @public
+   */
+  BrowserType?: BrowserType | undefined;
 }
 
 /**
@@ -727,6 +778,34 @@ export interface Canary {
    * @public
    */
   ProvisionedResourceCleanup?: ProvisionedResourceCleanupSetting | undefined;
+
+  /**
+   * <p>A structure that specifies the browser type to use for a canary run. CloudWatch Synthetics supports running canaries on both <code>CHROME</code> and <code>FIREFOX</code> browsers.</p>
+   *          <note>
+   *             <p>If not specified, <code>browserConfigs</code> defaults to Chrome.</p>
+   *          </note>
+   * @public
+   */
+  BrowserConfigs?: BrowserConfig[] | undefined;
+
+  /**
+   * <p>A list of engine configurations for the canary, one for each browser type that the canary is configured to run on.</p>
+   *          <p>All runtime versions <code>syn-nodejs-puppeteer-11.0</code> and above, and <code>syn-nodejs-playwright-3.0</code> and above, use <code>engineConfigs</code> only.
+   *          You can no longer use <code>engineArn</code> in these versions.</p>
+   *          <p>Runtime versions older than <code>syn-nodejs-puppeteer-11.0</code> and <code>syn-nodejs-playwright-3.0</code> continue to support <code>engineArn</code> to ensure backward compatibility.</p>
+   * @public
+   */
+  EngineConfigs?: EngineConfig[] | undefined;
+
+  /**
+   * <p>A list of visual reference configurations for the canary, one for each browser type that the canary is configured to run on. Visual references are used for visual monitoring comparisons.</p>
+   *          <p>
+   *             <code>syn-nodejs-puppeteer-11.0</code> and above, and <code>syn-nodejs-playwright-3.0</code> and above, only supports <code>visualReferences</code>. <code>visualReference</code> field is not supported.</p>
+   *          <p>Versions older than <code>syn-nodejs-puppeteer-11.0</code> supports both <code>visualReference</code> and <code>visualReferences</code> for backward compatibility. It is recommended to use <code>visualReferences</code>
+   *          for consistency and future compatibility.</p>
+   * @public
+   */
+  VisualReferences?: VisualReferenceOutput[] | undefined;
 
   /**
    * <p>The list of key-value pairs that are associated with the canary.</p>
@@ -915,6 +994,12 @@ export interface CanaryRun {
    * @public
    */
   DryRunConfig?: CanaryDryRunConfigOutput | undefined;
+
+  /**
+   * <p>The browser type associated with this canary run.</p>
+   * @public
+   */
+  BrowserType?: BrowserType | undefined;
 }
 
 /**
@@ -1328,6 +1413,16 @@ export interface CreateCanaryRequest {
   ProvisionedResourceCleanup?: ProvisionedResourceCleanupSetting | undefined;
 
   /**
+   * <p>CloudWatch Synthetics now supports multibrowser canaries for <code>syn-nodejs-puppeteer-11.0</code> and <code>syn-nodejs-playwright-3.0</code> runtimes. This feature allows you to run your canaries on both
+   *          Firefox and Chrome browsers. To create a multibrowser canary, you need to specify the BrowserConfigs with a list of browsers you want to use.</p>
+   *          <note>
+   *             <p>If not specified, <code>browserConfigs</code> defaults to Chrome.</p>
+   *          </note>
+   * @public
+   */
+  BrowserConfigs?: BrowserConfig[] | undefined;
+
+  /**
    * <p>A list of key-value pairs to associate with the canary.
    *          You can associate as many as 50 tags with a canary.</p>
    *          <p>Tags can help you organize and categorize your
@@ -1587,6 +1682,12 @@ export interface DescribeCanariesLastRunRequest {
    * @public
    */
   Names?: string[] | undefined;
+
+  /**
+   * <p>The type of browser to use for the canary run.</p>
+   * @public
+   */
+  BrowserType?: BrowserType | undefined;
 }
 
 /**
@@ -2143,6 +2244,12 @@ export interface VisualReferenceInput {
    * @public
    */
   BaseCanaryRunId: string | undefined;
+
+  /**
+   * <p>The browser type associated with this visual reference.</p>
+   * @public
+   */
+  BrowserType?: BrowserType | undefined;
 }
 
 /**
@@ -2274,6 +2381,25 @@ export interface StartCanaryDryRunRequest {
    * @public
    */
   ProvisionedResourceCleanup?: ProvisionedResourceCleanupSetting | undefined;
+
+  /**
+   * <p>A structure that specifies the browser type to use for a canary run. CloudWatch Synthetics supports running canaries on both <code>CHROME</code> and <code>FIREFOX</code> browsers.</p>
+   *          <note>
+   *             <p>If not specified, <code>browserConfigs</code> defaults to Chrome.</p>
+   *          </note>
+   * @public
+   */
+  BrowserConfigs?: BrowserConfig[] | undefined;
+
+  /**
+   * <p>A list of visual reference configurations for the canary, one for each browser type that the canary is configured to run on. Visual references are used for visual monitoring comparisons.</p>
+   *          <p>
+   *             <code>syn-nodejs-puppeteer-11.0</code> and above, and <code>syn-nodejs-playwright-3.0</code> and above, only supports <code>visualReferences</code>. <code>visualReference</code> field is not supported.</p>
+   *          <p>Versions older than <code>syn-nodejs-puppeteer-11.0</code> supports both <code>visualReference</code> and <code>visualReferences</code> for backward compatibility. It is recommended to use <code>visualReferences</code>
+   *          for consistency and future compatibility.</p>
+   * @public
+   */
+  VisualReferences?: VisualReferenceInput[] | undefined;
 }
 
 /**
@@ -2529,6 +2655,29 @@ export interface UpdateCanaryRequest {
    * @public
    */
   DryRunId?: string | undefined;
+
+  /**
+   * <p>A list of visual reference configurations for the canary, one for each browser type that the canary is configured to run on. Visual references are used for visual monitoring comparisons.</p>
+   *          <p>
+   *             <code>syn-nodejs-puppeteer-11.0</code> and above, and <code>syn-nodejs-playwright-3.0</code> and above, only supports <code>visualReferences</code>. <code>visualReference</code> field is not supported.</p>
+   *          <p>Versions older than <code>syn-nodejs-puppeteer-11.0</code> supports both <code>visualReference</code> and <code>visualReferences</code> for backward compatibility. It is recommended to use <code>visualReferences</code>
+   *          for consistency and future compatibility.</p>
+   *          <p>For multibrowser visual monitoring,  you can update the baseline for all configured browsers in a single update call by specifying a list of VisualReference objects, one per browser.
+   *          Each VisualReference object maps to a specific browser configuration, allowing you to manage visual baselines for multiple browsers simultaneously.</p>
+   *          <p>For single configuration canaries using Chrome browser (default browser), use visualReferences for <code>syn-nodejs-puppeteer-11.0</code> and above, and <code>syn-nodejs-playwright-3.0</code> and
+   *          above canaries. The browserType in the visualReference object is not mandatory.</p>
+   * @public
+   */
+  VisualReferences?: VisualReferenceInput[] | undefined;
+
+  /**
+   * <p>A structure that specifies the browser type to use for a canary run. CloudWatch Synthetics supports running canaries on both <code>CHROME</code> and <code>FIREFOX</code> browsers.</p>
+   *          <note>
+   *             <p>If not specified, <code>browserConfigs</code> defaults to Chrome.</p>
+   *          </note>
+   * @public
+   */
+  BrowserConfigs?: BrowserConfig[] | undefined;
 }
 
 /**

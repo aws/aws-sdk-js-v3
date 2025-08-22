@@ -66,6 +66,7 @@ export interface GetCanaryRunsCommandOutput extends GetCanaryRunsResponse, __Met
  * //       DryRunConfig: { // CanaryDryRunConfigOutput
  * //         DryRunId: "STRING_VALUE",
  * //       },
+ * //       BrowserType: "CHROME" || "FIREFOX",
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",
