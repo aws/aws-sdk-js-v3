@@ -102,21 +102,20 @@ export interface UpdatePrivateDnsNamespaceCommandOutput extends UpdatePrivateDns
  * *\/
  * ```
  *
- * @example To update a public DNS namespace
+ * @example Update private DNS namespace using namespace ARN for shared namespace
  * ```javascript
- * // The following example updates the description of a public DNS namespace.
+ * // This example updates a private DNS namespace using a namespace ARN instead of namespace ID.
  * const input = {
- *   Id: "ns-bk3aEXAMPLE",
+ *   Id: "arn:aws:servicediscovery:us-west-2:123456789012:namespace/ns-bk3aexample",
  *   Namespace: {
- *     Description: "The updated namespace description."
- *   },
- *   UpdaterRequestId: ""
+ *     Description: "Updated description for shared private DNS namespace."
+ *   }
  * };
  * const command = new UpdatePrivateDnsNamespaceCommand(input);
  * const response = await client.send(command);
  * /* response is
  * {
- *   OperationId: "ft52xe2koxhoeormaceymagglsdjEXAMPLE"
+ *   OperationId: "ft52xe2koxhoeormaceymagglsdjyvexample"
  * }
  * *\/
  * ```

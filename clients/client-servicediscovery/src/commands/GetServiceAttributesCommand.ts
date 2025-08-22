@@ -70,6 +70,27 @@ export interface GetServiceAttributesCommandOutput extends GetServiceAttributesR
  * <p>Base exception class for all service exceptions from ServiceDiscovery service.</p>
  *
  *
+ * @example Get service attributes using service ARN
+ * ```javascript
+ * // Gets service attributes using a service ARN instead of service ID, useful when working with shared namespaces. Shows attributes for a service created by a sharee in a namespace owned by another account.
+ * const input = {
+ *   ServiceId: "arn:aws:servicediscovery:us-west-2:123456789012:service/srv-abcd1234xmpl5678"
+ * };
+ * const command = new GetServiceAttributesCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   ServiceAttributes: {
+ *     Attributes: {
+ *       Port: "80"
+ *     },
+ *     ResourceOwner: "123456789012",
+ *     ServiceArn: "arn:aws:servicediscovery:us-west-2:123456789012:service/srv-abcd1234xmpl5678"
+ *   }
+ * }
+ * *\/
+ * ```
+ *
  * @example GetServiceAttributes Example
  * ```javascript
  * // This example gets the attributes for a specified service.
@@ -84,6 +105,7 @@ export interface GetServiceAttributesCommandOutput extends GetServiceAttributesR
  *     Attributes: {
  *       port: "80"
  *     },
+ *     ResourceOwner: "123456789012",
  *     ServiceArn: "arn:aws:servicediscovery:us-west-2:123456789012:service/srv-e4anhexample0004"
  *   }
  * }

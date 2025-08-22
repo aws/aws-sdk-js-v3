@@ -100,6 +100,24 @@ export interface GetInstancesHealthStatusCommandOutput extends GetInstancesHealt
  * *\/
  * ```
  *
+ * @example Get instances health status using service ARN for shared namespace
+ * ```javascript
+ * // This example gets the current health status of instances using a service ARN instead of service ID. This is useful for checking health status of instances associated with shared namespaces.
+ * const input = {
+ *   ServiceId: "arn:aws:servicediscovery:us-west-2:123456789012:service/srv-e4anhexample0004"
+ * };
+ * const command = new GetInstancesHealthStatusCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   Status: {
+ *     i-abcd1234: "HEALTHY",
+ *     i-abcd1235: "UNHEALTHY"
+ *   }
+ * }
+ * *\/
+ * ```
+ *
  * @public
  */
 export class GetInstancesHealthStatusCommand extends $Command

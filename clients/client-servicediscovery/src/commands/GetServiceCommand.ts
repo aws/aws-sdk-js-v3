@@ -94,6 +94,43 @@ export interface GetServiceCommandOutput extends GetServiceResponse, __MetadataB
  * <p>Base exception class for all service exceptions from ServiceDiscovery service.</p>
  *
  *
+ * @example Get service using service ARN
+ * ```javascript
+ * // Gets service settings using a service ARN instead of service ID, useful when working with shared namespaces. Shows a service created by a sharee (111122223333) in a namespace owned by another account (123456789012).
+ * const input = {
+ *   Id: "arn:aws:servicediscovery:us-west-2:123456789012:service/srv-abcd1234xmpl5678"
+ * };
+ * const command = new GetServiceCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   Service: {
+ *     Arn: "arn:aws:servicediscovery:us-west-2:123456789012:service/srv-abcd1234xmpl5678",
+ *     CreateDate: 1.7051616E9,
+ *     CreatedByAccount: "111122223333",
+ *     CreatorRequestId: "abcd1234-xmpl-5678-9012-abcd1234xmpl",
+ *     Description: "Example service",
+ *     DnsConfig: {
+ *       DnsRecords: [
+ *         {
+ *           TTL: 300,
+ *           Type: "A"
+ *         }
+ *       ],
+ *       NamespaceId: "ns-abcd1234xmpl5678",
+ *       RoutingPolicy: "MULTIVALUE"
+ *     },
+ *     Id: "srv-abcd1234xmpl5678",
+ *     InstanceCount: 2,
+ *     Name: "example-service",
+ *     NamespaceId: "ns-abcd1234xmpl5678",
+ *     ResourceOwner: "123456789012",
+ *     Type: "DNS_HTTP"
+ *   }
+ * }
+ * *\/
+ * ```
+ *
  * @public
  */
 export class GetServiceCommand extends $Command

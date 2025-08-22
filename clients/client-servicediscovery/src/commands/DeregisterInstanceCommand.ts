@@ -93,6 +93,22 @@ export interface DeregisterInstanceCommandOutput extends DeregisterInstanceRespo
  * *\/
  * ```
  *
+ * @example Deregister instance using service ARN
+ * ```javascript
+ * // Deregisters an instance using a service ARN instead of service ID, useful when working with shared namespaces.
+ * const input = {
+ *   InstanceId: "i-abcd1234xmpl5678",
+ *   ServiceId: "arn:aws:servicediscovery:us-west-2:123456789012:service/srv-abcd1234xmpl5678"
+ * };
+ * const command = new DeregisterInstanceCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   OperationId: "abcd1234-xmpl-5678-9012-abcd1234xmpl"
+ * }
+ * *\/
+ * ```
+ *
  * @public
  */
 export class DeregisterInstanceCommand extends $Command

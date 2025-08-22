@@ -100,6 +100,30 @@ export interface ListInstancesCommandOutput extends ListInstancesResponse, __Met
  * *\/
  * ```
  *
+ * @example List instances using service ARN for shared namespace
+ * ```javascript
+ * // This example lists instances using a service ARN instead of service ID. This is useful for listing instances associated with shared namespaces.
+ * const input = {
+ *   ServiceId: "arn:aws:servicediscovery:us-west-2:123456789012:service/srv-e4anhexample0004"
+ * };
+ * const command = new ListInstancesCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   Instances: [
+ *     {
+ *       Attributes: {
+ *         AWS_INSTANCE_IPV4: "192.0.2.44",
+ *         AWS_INSTANCE_PORT: "80"
+ *       },
+ *       Id: "i-abcd1234"
+ *     }
+ *   ],
+ *   ResourceOwner: "123456789012"
+ * }
+ * *\/
+ * ```
+ *
  * @public
  */
 export class ListInstancesCommand extends $Command

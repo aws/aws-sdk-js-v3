@@ -199,6 +199,7 @@ export interface CreateServiceCommandOutput extends CreateServiceResponse, __Met
  *   Service: {
  *     Arn: "arn:aws:servicediscovery:us-west-2:123456789012:service/srv-p5zdwlg5uvvzjita",
  *     CreateDate: 1.587081768334E9,
+ *     CreatedByAccount: "123456789012",
  *     CreatorRequestId: "567c1193-6b00-4308-bd57-ad38a8822d25",
  *     DnsConfig: {
  *       DnsRecords: [
@@ -211,8 +212,59 @@ export interface CreateServiceCommandOutput extends CreateServiceResponse, __Met
  *       RoutingPolicy: "MULTIVALUE"
  *     },
  *     Id: "srv-p5zdwlg5uvvzjita",
+ *     InstanceCount: 0,
  *     Name: "myservice",
- *     NamespaceId: "ns-ylexjili4cdxy3xm"
+ *     NamespaceId: "ns-ylexjili4cdxy3xm",
+ *     ResourceOwner: "123456789012",
+ *     Type: "DNS_HTTP"
+ *   }
+ * }
+ * *\/
+ * ```
+ *
+ * @example Create service using namespace ARN
+ * ```javascript
+ * // Namespace sharee creates a service using a namespace ARN instead of namespace ID, useful when working with shared namespaces.
+ * const input = {
+ *   Description: "Example service using namespace ARN",
+ *   DnsConfig: {
+ *     DnsRecords: [
+ *       {
+ *         TTL: 300,
+ *         Type: "A"
+ *       }
+ *     ],
+ *     RoutingPolicy: "MULTIVALUE"
+ *   },
+ *   Name: "example-service",
+ *   NamespaceId: "arn:aws:servicediscovery:us-west-2:123456789012:namespace/ns-abcd1234xmpl5678"
+ * };
+ * const command = new CreateServiceCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   Service: {
+ *     Arn: "arn:aws:servicediscovery:us-west-2:123456789012:service/srv-abcd1234xmpl5678",
+ *     CreateDate: 1.7051616E9,
+ *     CreatedByAccount: "111122223333",
+ *     CreatorRequestId: "abcd1234-xmpl-5678-9012-abcd1234xmpl",
+ *     Description: "Example service using namespace ARN",
+ *     DnsConfig: {
+ *       DnsRecords: [
+ *         {
+ *           TTL: 300,
+ *           Type: "A"
+ *         }
+ *       ],
+ *       NamespaceId: "ns-abcd1234xmpl5678",
+ *       RoutingPolicy: "MULTIVALUE"
+ *     },
+ *     Id: "srv-abcd1234xmpl5678",
+ *     InstanceCount: 0,
+ *     Name: "example-service",
+ *     NamespaceId: "ns-abcd1234xmpl5678",
+ *     ResourceOwner: "123456789012",
+ *     Type: "DNS_HTTP"
  *   }
  * }
  * *\/

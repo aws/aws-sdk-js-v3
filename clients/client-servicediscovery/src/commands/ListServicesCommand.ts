@@ -115,6 +115,7 @@ export interface ListServicesCommandOutput extends ListServicesResponse, __Metad
  *     {
  *       Arn: "arn:aws:servicediscovery:us-west-2:123456789012:service/srv-p5zdwlg5uvvzjita",
  *       CreateDate: 1.587081768334E9,
+ *       CreatedByAccount: "123456789012",
  *       DnsConfig: {
  *         DnsRecords: [
  *           {
@@ -125,7 +126,9 @@ export interface ListServicesCommandOutput extends ListServicesResponse, __Metad
  *         RoutingPolicy: "MULTIVALUE"
  *       },
  *       Id: "srv-p5zdwlg5uvvzjita",
- *       Name: "myservice"
+ *       Name: "myservice",
+ *       ResourceOwner: "123456789012",
+ *       Type: "DNS"
  *     }
  *   ]
  * }

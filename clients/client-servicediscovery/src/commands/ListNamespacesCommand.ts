@@ -105,46 +105,106 @@ export interface ListNamespacesCommandOutput extends ListNamespacesResponse, __M
  *   Namespaces: [
  *     {
  *       Arn: "arn:aws:servicediscovery:us-west-2:123456789012:namespace/ns-a3ccy2e7e3a7rile",
- *       CreateDate: 1.585354387357E9,
+ *       CreateDate: 1.7051616E9,
  *       Id: "ns-a3ccy2e7e3a7rile",
  *       Name: "local",
  *       Properties: {
  *         DnsProperties: {
- *           HostedZoneId: "Z06752353VBUDTC32S84S"
+ *           HostedZoneId: "Z06752353VBUDTC32S84S",
+ *           SOA: {
+ *             TTL: 60
+ *           }
  *         },
  *         HttpProperties: {
  *           HttpName: "local"
  *         }
  *       },
+ *       ResourceOwner: "123456789012",
+ *       ServiceCount: 2,
  *       Type: "DNS_PRIVATE"
  *     },
  *     {
  *       Arn: "arn:aws:servicediscovery:us-west-2:123456789012:namespace/ns-pocfyjtrsmwtvcxx",
- *       CreateDate: 1.586468974698E9,
+ *       CreateDate: 1.7051616E9,
  *       Description: "My second namespace",
  *       Id: "ns-pocfyjtrsmwtvcxx",
  *       Name: "My-second-namespace",
  *       Properties: {
- *         DnsProperties:         { /* empty *\/ },
+ *         DnsProperties: {
+ *           SOA: {
+ *             TTL: 60
+ *           }
+ *         },
  *         HttpProperties: {
  *           HttpName: "My-second-namespace"
  *         }
  *       },
+ *       ResourceOwner: "123456789012",
+ *       ServiceCount: 1,
  *       Type: "HTTP"
  *     },
  *     {
  *       Arn: "arn:aws:servicediscovery:us-west-2:123456789012:namespace/ns-ylexjili4cdxy3xm",
- *       CreateDate: 1.587055896798E9,
+ *       CreateDate: 1.7051616E9,
  *       Id: "ns-ylexjili4cdxy3xm",
  *       Name: "example.com",
  *       Properties: {
  *         DnsProperties: {
- *           HostedZoneId: "Z09983722P0QME1B3KC8I"
+ *           HostedZoneId: "Z09983722P0QME1B3KC8I",
+ *           SOA: {
+ *             TTL: 60
+ *           }
  *         },
  *         HttpProperties: {
  *           HttpName: "example.com"
  *         }
  *       },
+ *       ResourceOwner: "123456789012",
+ *       ServiceCount: 3,
+ *       Type: "DNS_PRIVATE"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * ```
+ *
+ * @example List namespaces filtered by resource owner
+ * ```javascript
+ * // This example shows how to list namespaces that are shared with you from other AWS accounts using the RESOURCE_OWNER filter.
+ * const input = {
+ *   Filters: [
+ *     {
+ *       Name: "RESOURCE_OWNER",
+ *       Values: [
+ *         "OTHER_ACCOUNTS"
+ *       ]
+ *     }
+ *   ]
+ * };
+ * const command = new ListNamespacesCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   Namespaces: [
+ *     {
+ *       Arn: "arn:aws:servicediscovery:us-west-2:111122223333:namespace/ns-abcd1234xmpl5678",
+ *       CreateDate: 1.7051616E9,
+ *       Description: "Example private DNS namespace",
+ *       Id: "ns-abcd1234xmpl5678",
+ *       Name: "example-namespace",
+ *       Properties: {
+ *         DnsProperties: {
+ *           HostedZoneId: "Z1D633PJN98FT9",
+ *           SOA: {
+ *             TTL: 60
+ *           }
+ *         },
+ *         HttpProperties: {
+ *           HttpName: "example-namespace"
+ *         }
+ *       },
+ *       ResourceOwner: "111122223333",
+ *       ServiceCount: 2,
  *       Type: "DNS_PRIVATE"
  *     }
  *   ]

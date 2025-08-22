@@ -97,6 +97,44 @@ export interface DiscoverInstancesCommandOutput extends DiscoverInstancesRespons
  * <p>Base exception class for all service exceptions from ServiceDiscovery service.</p>
  *
  *
+ * @example Discover instances using owner account
+ * ```javascript
+ * // Discovers instances in a shared namespace by specifying the OwnerAccount parameter, useful when working with shared namespaces.
+ * const input = {
+ *   NamespaceName: "example-shared-namespace",
+ *   OwnerAccount: "123456789012",
+ *   ServiceName: "shared-namespace-service"
+ * };
+ * const command = new DiscoverInstancesCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   Instances: [
+ *     {
+ *       Attributes: {
+ *         AWS_INSTANCE_IPV4: "192.0.2.44",
+ *         AWS_INSTANCE_PORT: "80"
+ *       },
+ *       HealthStatus: "HEALTHY",
+ *       InstanceId: "i-abcd1234xmpl5678",
+ *       NamespaceName: "example-shared-namespace",
+ *       ServiceName: "shared-service"
+ *     },
+ *     {
+ *       Attributes: {
+ *         AWS_INSTANCE_IPV4: "192.0.2.45",
+ *         AWS_INSTANCE_PORT: "80"
+ *       },
+ *       HealthStatus: "HEALTHY",
+ *       InstanceId: "i-efgh5678xmpl9012",
+ *       NamespaceName: "example-shared-namespace",
+ *       ServiceName: "shared-service"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * ```
+ *
  * @example Example: Discover registered instances
  * ```javascript
  * // Example: Discover registered instances

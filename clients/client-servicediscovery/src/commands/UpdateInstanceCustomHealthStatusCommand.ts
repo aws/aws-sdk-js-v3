@@ -81,6 +81,21 @@ export interface UpdateInstanceCustomHealthStatusCommandOutput extends __Metadat
  * <p>Base exception class for all service exceptions from ServiceDiscovery service.</p>
  *
  *
+ * @example Update instance custom health status using service ARN
+ * ```javascript
+ * // Updates instance custom health status using a service ARN instead of service ID, useful when working with shared namespaces.
+ * const input = {
+ *   InstanceId: "i-abcd1234xmpl5678",
+ *   ServiceId: "arn:aws:servicediscovery:us-west-2:123456789012:service/srv-abcd1234xmpl5678",
+ *   Status: "HEALTHY"
+ * };
+ * const command = new UpdateInstanceCustomHealthStatusCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * { /* empty *\/ }
+ * *\/
+ * ```
+ *
  * @example UpdateInstanceCustomHealthStatus Example
  * ```javascript
  * // This example submits a request to change the health status of an instance associated with a service with a custom health check to HEALTHY.

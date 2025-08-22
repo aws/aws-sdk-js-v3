@@ -96,8 +96,37 @@ export interface GetInstanceCommandOutput extends GetInstanceResponse, __Metadat
  *       region: "us-west-2",
  *       stage: "beta"
  *     },
+ *     CreatedByAccount: "123456789012",
  *     Id: "i-abcd1234"
- *   }
+ *   },
+ *   ResourceOwner: "123456789012"
+ * }
+ * *\/
+ * ```
+ *
+ * @example Get instance details using service ARN for shared namespace
+ * ```javascript
+ * // This example gets information about an instance using a service ARN instead of service ID. This is useful for listing instances associated with shared namespaces.
+ * const input = {
+ *   InstanceId: "i-abcd1234",
+ *   ServiceId: "arn:aws:servicediscovery:us-west-2:123456789012:service/srv-e4anhexample0004"
+ * };
+ * const command = new GetInstanceCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   Instance: {
+ *     Attributes: {
+ *       AWS_INSTANCE_IPV4: "192.0.2.44",
+ *       AWS_INSTANCE_PORT: "80",
+ *       color: "green",
+ *       region: "us-west-2",
+ *       stage: "beta"
+ *     },
+ *     CreatedByAccount: "111122223333",
+ *     Id: "i-abcd1234"
+ *   },
+ *   ResourceOwner: "123456789012"
  * }
  * *\/
  * ```

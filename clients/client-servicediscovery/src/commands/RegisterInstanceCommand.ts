@@ -144,6 +144,26 @@ export interface RegisterInstanceCommandOutput extends RegisterInstanceResponse,
  * *\/
  * ```
  *
+ * @example Register instance using service ARN
+ * ```javascript
+ * // Registers an instance using a service ARN instead of service ID, useful when working with shared namespaces. Shows registering an instance to a service created by a sharee in a namespace owned by another account.
+ * const input = {
+ *   Attributes: {
+ *     AWS_INSTANCE_IPV4: "192.0.2.44",
+ *     AWS_INSTANCE_PORT: "80"
+ *   },
+ *   InstanceId: "i-abcd1234xmpl5678",
+ *   ServiceId: "arn:aws:servicediscovery:us-west-2:123456789012:service/srv-abcd1234xmpl5678"
+ * };
+ * const command = new RegisterInstanceCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   OperationId: "abcd1234-xmpl-5678-9012-abcd1234xmpl"
+ * }
+ * *\/
+ * ```
+ *
  * @public
  */
 export class RegisterInstanceCommand extends $Command

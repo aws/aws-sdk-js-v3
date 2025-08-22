@@ -153,6 +153,24 @@ export interface UpdateServiceCommandOutput extends UpdateServiceResponse, __Met
  * *\/
  * ```
  *
+ * @example Update service using service ARN for shared namespace
+ * ```javascript
+ * // This example updates a service using a service ARN instead of service ID. This is useful for updating services associated with shared namespaces.
+ * const input = {
+ *   Id: "arn:aws:servicediscovery:us-west-2:123456789012:service/srv-e4anhexample0004",
+ *   Service: {
+ *     Description: "Updated service description for shared namespace"
+ *   }
+ * };
+ * const command = new UpdateServiceCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   OperationId: "m35hsdrkxwjffm3xef4bxyy6vc3ewakx-jdn3y5g5"
+ * }
+ * *\/
+ * ```
+ *
  * @public
  */
 export class UpdateServiceCommand extends $Command

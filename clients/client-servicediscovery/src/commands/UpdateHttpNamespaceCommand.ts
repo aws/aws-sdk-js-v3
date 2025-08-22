@@ -94,6 +94,24 @@ export interface UpdateHttpNamespaceCommandOutput extends UpdateHttpNamespaceRes
  * *\/
  * ```
  *
+ * @example Update HTTP namespace using namespace ARN for shared namespace
+ * ```javascript
+ * // This example updates an HTTP namespace using a namespace ARN instead of namespace ID.
+ * const input = {
+ *   Id: "arn:aws:servicediscovery:us-west-2:123456789012:namespace/ns-vh4nbmexample",
+ *   Namespace: {
+ *     Description: "Updated description for shared HTTP namespace."
+ *   }
+ * };
+ * const command = new UpdateHttpNamespaceCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   OperationId: "ft52xe2koxhoeormaceymagglsdjyvexample"
+ * }
+ * *\/
+ * ```
+ *
  * @public
  */
 export class UpdateHttpNamespaceCommand extends $Command

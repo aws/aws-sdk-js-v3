@@ -82,6 +82,43 @@ export interface UpdatePublicDnsNamespaceCommandOutput extends UpdatePublicDnsNa
  * <p>Base exception class for all service exceptions from ServiceDiscovery service.</p>
  *
  *
+ * @example To update a public DNS namespace
+ * ```javascript
+ * // The following example updates the description of a public DNS namespace.
+ * const input = {
+ *   Id: "ns-bk3aEXAMPLE",
+ *   Namespace: {
+ *     Description: "The updated namespace description."
+ *   },
+ *   UpdaterRequestId: ""
+ * };
+ * const command = new UpdatePublicDnsNamespaceCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   OperationId: "ft52xe2koxhoeormaceymagglsdjEXAMPLE"
+ * }
+ * *\/
+ * ```
+ *
+ * @example Update public DNS namespace using namespace ARN for shared namespace
+ * ```javascript
+ * // This example updates a public DNS namespace using a namespace ARN instead of namespace ID.
+ * const input = {
+ *   Id: "arn:aws:servicediscovery:us-west-2:123456789012:namespace/ns-bk3aexample",
+ *   Namespace: {
+ *     Description: "Updated description for shared public DNS namespace."
+ *   }
+ * };
+ * const command = new UpdatePublicDnsNamespaceCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   OperationId: "ft52xe2koxhoeormaceymagglsdjexample"
+ * }
+ * *\/
+ * ```
+ *
  * @public
  */
 export class UpdatePublicDnsNamespaceCommand extends $Command

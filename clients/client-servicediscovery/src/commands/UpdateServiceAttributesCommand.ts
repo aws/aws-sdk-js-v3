@@ -69,6 +69,23 @@ export interface UpdateServiceAttributesCommandOutput extends UpdateServiceAttri
  * <p>Base exception class for all service exceptions from ServiceDiscovery service.</p>
  *
  *
+ * @example Update service attributes using service ARN
+ * ```javascript
+ * // Updates service attributes using a service ARN instead of service ID, useful when working with shared namespaces.
+ * const input = {
+ *   Attributes: {
+ *     Port: "8080",
+ *     Protocol: "HTTP"
+ *   },
+ *   ServiceId: "arn:aws:servicediscovery:us-west-2:123456789012:service/srv-abcd1234xmpl5678"
+ * };
+ * const command = new UpdateServiceAttributesCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * { /* empty *\/ }
+ * *\/
+ * ```
+ *
  * @example UpdateServiceAttributes Example
  * ```javascript
  * // This example submits a request to update the specified service to add a port attribute with the value 80.

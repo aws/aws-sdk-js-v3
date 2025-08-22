@@ -82,7 +82,22 @@ export interface DeleteNamespaceCommandOutput extends DeleteNamespaceResponse, _
  * const response = await client.send(command);
  * /* response is
  * {
- *   OperationId: "gv4g5meo7ndmeh4fqskygvk23d2fijwa-k98y6drk"
+ *   OperationId: "abcd1234-xmpl-5678-9012-abcd1234xmplabcd"
+ * }
+ * *\/
+ * ```
+ *
+ * @example Delete namespace using namespace ARN
+ * ```javascript
+ * // Deletes a namespace using a namespace ARN instead of namespace ID, useful when working with shared namespaces.
+ * const input = {
+ *   Id: "arn:aws:servicediscovery:us-west-2:123456789012:namespace/ns-abcd1234xmpl5678"
+ * };
+ * const command = new DeleteNamespaceCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   OperationId: "abcd1234-xmpl-5678-9012-abcd1234xmplabcd"
  * }
  * *\/
  * ```

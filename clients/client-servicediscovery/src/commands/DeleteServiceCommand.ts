@@ -80,6 +80,19 @@ export interface DeleteServiceCommandOutput extends DeleteServiceResponse, __Met
  * *\/
  * ```
  *
+ * @example Delete service using service ARN
+ * ```javascript
+ * // Deletes a service using a service ARN instead of service ID, useful when working with shared namespaces.
+ * const input = {
+ *   Id: "arn:aws:servicediscovery:us-west-2:123456789012:service/srv-abcd1234xmpl5678"
+ * };
+ * const command = new DeleteServiceCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * { /* empty *\/ }
+ * *\/
+ * ```
+ *
  * @public
  */
 export class DeleteServiceCommand extends $Command

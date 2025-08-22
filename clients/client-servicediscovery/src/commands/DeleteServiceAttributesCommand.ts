@@ -81,6 +81,22 @@ export interface DeleteServiceAttributesCommandOutput extends DeleteServiceAttri
  * *\/
  * ```
  *
+ * @example Delete service attributes using service ARN
+ * ```javascript
+ * // Deletes service attributes using a service ARN instead of service ID, useful for cross-account scenarios or when working with shared namespaces.
+ * const input = {
+ *   Attributes: [
+ *     "Port"
+ *   ],
+ *   ServiceId: "arn:aws:servicediscovery:us-west-2:123456789012:service/srv-abcd1234xmpl5678"
+ * };
+ * const command = new DeleteServiceAttributesCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * { /* empty *\/ }
+ * *\/
+ * ```
+ *
  * @public
  */
 export class DeleteServiceAttributesCommand extends $Command

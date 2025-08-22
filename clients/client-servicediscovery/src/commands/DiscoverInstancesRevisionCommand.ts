@@ -74,6 +74,23 @@ export interface DiscoverInstancesRevisionCommandOutput extends DiscoverInstance
  * <p>Base exception class for all service exceptions from ServiceDiscovery service.</p>
  *
  *
+ * @example Discover instances revision using owner account
+ * ```javascript
+ * // Discovers the instances revision in a shared namespace by specifying the OwnerAccount parameter, useful when working with shared namespaces.
+ * const input = {
+ *   NamespaceName: "example-shared-namespace",
+ *   OwnerAccount: "123456789012",
+ *   ServiceName: "shared-service"
+ * };
+ * const command = new DiscoverInstancesRevisionCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   InstancesRevision: 1001
+ * }
+ * *\/
+ * ```
+ *
  * @example To discover the revision for a registered instance
  * ```javascript
  * // The following example discovers the revision ID for a registered instance.
