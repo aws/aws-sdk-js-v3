@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.874.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.873.0...v3.874.0) (2025-08-22)
+
+
+### Features
+
+* **client-wafv2:** test and verified, safe to release ([d30039c](https://github.com/aws/aws-sdk-js-v3/commit/d30039c4f7fc147bc06bf3662edb0f96d544d7a0))
+
+
+
+
+
 # [3.873.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.872.0...v3.873.0) (2025-08-21)
 
 **Note:** Version bump only for package @aws-sdk/client-wafv2

@@ -3,6 +3,55 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.874.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.873.0...v3.874.0) (2025-08-22)
+
+
+### Features
+
+* **client-account:** Remove incorrect endpoint tests ([2e04900](https://github.com/aws/aws-sdk-js-v3/commit/2e049006d15f155e4882fa81de8588826df0d3af))
+* **client-api-gateway:** Remove incorrect endpoint tests ([b3be856](https://github.com/aws/aws-sdk-js-v3/commit/b3be856ffa5de1cb035fbfcd4eb1d49f83d19732))
+* **client-apigatewayv2:** Remove incorrect endpoint tests ([9d8a6be](https://github.com/aws/aws-sdk-js-v3/commit/9d8a6befc3c83869e70c3be7bc04f86c734029ab))
+* **client-b2bi:** Remove incorrect endpoint tests ([b5bc499](https://github.com/aws/aws-sdk-js-v3/commit/b5bc499bcf150a065c39117f36454072ecffd723))
+* **client-clouddirectory:** Remove incorrect endpoint tests ([6c4d9f8](https://github.com/aws/aws-sdk-js-v3/commit/6c4d9f898bff0aa5b48de23e785cf36f80a6cba1))
+* **client-codepipeline:** Remove incorrect endpoint tests ([ac6cee0](https://github.com/aws/aws-sdk-js-v3/commit/ac6cee041091de886c44abe537e811edf9a305e7))
+* **client-cognito-sync:** Remove incorrect endpoint tests ([fab38a9](https://github.com/aws/aws-sdk-js-v3/commit/fab38a9ee0522fdbdc08b2239f2fc7b08a19b4b4))
+* **client-dataexchange:** Remove incorrect endpoint tests ([c862ea1](https://github.com/aws/aws-sdk-js-v3/commit/c862ea120705adddb21c174aea3aafbf6f1ab4fa))
+* **client-docdb:** Remove incorrect endpoint tests ([a14273b](https://github.com/aws/aws-sdk-js-v3/commit/a14273b7b2c28003da4ecdef869101579590144a))
+* **client-elastic-load-balancing:** Remove incorrect endpoint tests ([f9e7fcc](https://github.com/aws/aws-sdk-js-v3/commit/f9e7fcc493845ede27176c68612cb717ef5dcbcb))
+* **client-emr-serverless:** Remove incorrect endpoint tests ([e0f8de8](https://github.com/aws/aws-sdk-js-v3/commit/e0f8de8c1ecdae0d6607a9c67233db07b5c3bc38))
+* **client-firehose:** Remove incorrect endpoint tests ([0dddda5](https://github.com/aws/aws-sdk-js-v3/commit/0dddda5f68a0dd7c9e5aac6ee8585cc60633aefb))
+* **client-healthlake:** Remove incorrect endpoint tests ([cc3247a](https://github.com/aws/aws-sdk-js-v3/commit/cc3247a27fc9afa2b1d8e8c87772c9345d864466))
+* **client-iotanalytics:** Remove incorrect endpoint tests ([5141aa2](https://github.com/aws/aws-sdk-js-v3/commit/5141aa2becaf40f655b7f83a48f0ccb8709ced94))
+* **client-launch-wizard:** Remove incorrect endpoint tests ([5f0c671](https://github.com/aws/aws-sdk-js-v3/commit/5f0c6710b70923449f3a978a32adb5e68a99e8f0))
+* **client-location:** Remove incorrect endpoint tests ([16e72ff](https://github.com/aws/aws-sdk-js-v3/commit/16e72ffc940a062ea26e02d93389627ccbf041cb))
+* **client-macie2:** Remove incorrect endpoint tests ([8426d8f](https://github.com/aws/aws-sdk-js-v3/commit/8426d8f6b7a7b3a5f9fe7a978d2913a73d8f5701))
+* **client-marketplace-commerce-analytics:** Remove incorrect endpoint tests ([16a3ab0](https://github.com/aws/aws-sdk-js-v3/commit/16a3ab096f907339b7f230fa312e0743ba7431fc))
+* **client-medialive:** AWS Elemental MediaLive now has a field called "SubtitleRows" for controlling subtitle row count for DVB-Sub and Burn-In captions outputs ([e3fb3ad](https://github.com/aws/aws-sdk-js-v3/commit/e3fb3ad420a9a5635ad60c1cae13530618c49d70))
+* **client-memorydb:** Remove incorrect endpoint tests ([83ab568](https://github.com/aws/aws-sdk-js-v3/commit/83ab5684ef94a1c2486cca55c7f8c02398dcfc95))
+* **client-migrationhuborchestrator:** Remove incorrect endpoint tests ([6120518](https://github.com/aws/aws-sdk-js-v3/commit/61205187ee82d41ce848e5302816b4c0fb4e7048))
+* **client-networkmonitor:** Remove incorrect endpoint tests ([3ff964d](https://github.com/aws/aws-sdk-js-v3/commit/3ff964d9de3e016ad47baea8541188fb0a533616))
+* **client-organizations:** Remove incorrect endpoint tests ([ac05ac2](https://github.com/aws/aws-sdk-js-v3/commit/ac05ac2ea36199d44669bcf0eb5d68c9c8f57453))
+* **client-payment-cryptography:** Remove incorrect endpoint tests ([6acdec8](https://github.com/aws/aws-sdk-js-v3/commit/6acdec82432c0f645095807fef0c51b06671bcac))
+* **client-pricing:** Remove incorrect endpoint tests ([0959d97](https://github.com/aws/aws-sdk-js-v3/commit/0959d97fac09f918e0a9b7d7abf6de6613740297))
+* **client-proton:** Remove incorrect endpoint tests ([436639e](https://github.com/aws/aws-sdk-js-v3/commit/436639e0cfeccaf1efe3d2bcbb931c723f95d064))
+* **client-qconnect:** Releasing model ID support for UpdateAIPrompt ([399a1c8](https://github.com/aws/aws-sdk-js-v3/commit/399a1c82fc2680bafeedababbaa27320c74732c1))
+* **client-qldb:** Remove incorrect endpoint tests ([442fb13](https://github.com/aws/aws-sdk-js-v3/commit/442fb13463057a658336789676c8efd288a8a2c5))
+* **client-redshift-data:** Remove incorrect endpoint tests ([6d21a6c](https://github.com/aws/aws-sdk-js-v3/commit/6d21a6c9d0d6f955eb392171a459e7f2dcf6e796))
+* **client-rolesanywhere:** Remove incorrect endpoint tests ([b5711e0](https://github.com/aws/aws-sdk-js-v3/commit/b5711e0d5bf8a321cb5e1e59b3d34e201e8a29d0))
+* **client-route53-recovery-readiness:** Remove incorrect endpoint tests ([ddb81bb](https://github.com/aws/aws-sdk-js-v3/commit/ddb81bbdc4c2b0eed4a9aca60698d892d6322210))
+* **client-rum:** Remove incorrect endpoint tests ([c031581](https://github.com/aws/aws-sdk-js-v3/commit/c031581114e6815dc0f0d6abe4c94892a6a12b37))
+* **client-sagemaker-a2i-runtime:** Remove incorrect endpoint tests ([72526a7](https://github.com/aws/aws-sdk-js-v3/commit/72526a7780fbd4de61a09a694a2f764b33b07f27))
+* **client-sagemaker-metrics:** Remove incorrect endpoint tests ([3a5371c](https://github.com/aws/aws-sdk-js-v3/commit/3a5371c4de379ca3db77adf9b275f926158ba16f))
+* **client-sagemaker:** Launch SageMaker Notebook Instances support for AL2023 along with P6-B200 instance type and Rootless Docker support for SageMaker Studio. ([ee5cf95](https://github.com/aws/aws-sdk-js-v3/commit/ee5cf9501bc0d8e5db4ac28f881e4846372e634f))
+* **client-simspaceweaver:** Remove incorrect endpoint tests ([62aec22](https://github.com/aws/aws-sdk-js-v3/commit/62aec22336604d47a9deee9c0a51e50e31981aed))
+* **client-sqs:** Remove incorrect endpoint tests ([6651b54](https://github.com/aws/aws-sdk-js-v3/commit/6651b54840db03e81c3b5899c3b0e30bf3141537))
+* **client-synthetics:** Added multi browser support for synthetics canaries, Increased ephemeral storage limit from 5GB to 10GB ([b09e934](https://github.com/aws/aws-sdk-js-v3/commit/b09e93496d23cd7a438817e7f71abbacb2c6a2d5))
+* **client-wafv2:** test and verified, safe to release ([d30039c](https://github.com/aws/aws-sdk-js-v3/commit/d30039c4f7fc147bc06bf3662edb0f96d544d7a0))
+
+
+
+
+
 # [3.873.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.872.0...v3.873.0) (2025-08-21)
 
 

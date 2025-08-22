@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.874.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.873.0...v3.874.0) (2025-08-22)
+
+
+### Features
+
+* **client-qconnect:** Releasing model ID support for UpdateAIPrompt ([399a1c8](https://github.com/aws/aws-sdk-js-v3/commit/399a1c82fc2680bafeedababbaa27320c74732c1))
+
+
+
+
+
 # [3.873.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.872.0...v3.873.0) (2025-08-21)
 
 **Note:** Version bump only for package @aws-sdk/client-qconnect

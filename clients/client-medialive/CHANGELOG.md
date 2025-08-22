@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.874.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.873.0...v3.874.0) (2025-08-22)
+
+
+### Features
+
+* **client-medialive:** AWS Elemental MediaLive now has a field called "SubtitleRows" for controlling subtitle row count for DVB-Sub and Burn-In captions outputs ([e3fb3ad](https://github.com/aws/aws-sdk-js-v3/commit/e3fb3ad420a9a5635ad60c1cae13530618c49d70))
+
+
+
+
+
 # [3.873.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.872.0...v3.873.0) (2025-08-21)
 
 **Note:** Version bump only for package @aws-sdk/client-medialive
