@@ -1153,6 +1153,16 @@ export interface UpdateWebACLCommandOutput extends UpdateWebACLResponse, __Metad
  *   OnSourceDDoSProtectionConfig: { // OnSourceDDoSProtectionConfig
  *     ALBLowReputationMode: "ACTIVE_UNDER_DDOS" || "ALWAYS_ON", // required
  *   },
+ *   ApplicationConfig: { // ApplicationConfig
+ *     Attributes: [ // ApplicationAttributes
+ *       { // ApplicationAttribute
+ *         Name: "STRING_VALUE",
+ *         Values: [ // AttributeValues
+ *           "STRING_VALUE",
+ *         ],
+ *       },
+ *     ],
+ *   },
  * };
  * const command = new UpdateWebACLCommand(input);
  * const response = await client.send(command);

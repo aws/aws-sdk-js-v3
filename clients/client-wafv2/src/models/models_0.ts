@@ -2899,7 +2899,7 @@ export interface RuleAction {
 /**
  * <p>Action setting to use in the place of a rule action that is configured inside the rule group. You specify one override for each rule whose action you want to change. </p>
  *          <note>
- *             <p>Take care to verify the rule names in your overrides. If you provide a rule name that doesn't match the name of any rule in the rule group, WAF doesn't return an error and doesn't apply the override setting.</p>
+ *             <p>Verify the rule names in your overrides carefully. With managed rule groups, WAF silently ignores any override that uses an invalid rule name. With customer-owned rule groups, invalid rule names in your overrides will cause web ACL updates to fail. An invalid rule name is any name that doesn't exactly match the case-sensitive name of an existing rule in the rule group.</p>
  *          </note>
  *          <p>You can use overrides for testing, for example you can override all of rule actions to <code>Count</code> and then monitor the resulting count metrics to understand how the rule group would handle your web traffic. You can also permanently override some or all actions, to modify how the rule group manages your web traffic.</p>
  * @public
@@ -2908,7 +2908,7 @@ export interface RuleActionOverride {
   /**
    * <p>The name of the rule to override.</p>
    *          <note>
-   *             <p>Take care to verify the rule names in your overrides. If you provide a rule name that doesn't match the name of any rule in the rule group, WAF doesn't return an error and doesn't apply the override setting.</p>
+   *             <p>Verify the rule names in your overrides carefully. With managed rule groups, WAF silently ignores any override that uses an invalid rule name. With customer-owned rule groups, invalid rule names in your overrides will cause web ACL updates to fail. An invalid rule name is any name that doesn't exactly match the case-sensitive name of an existing rule in the rule group.</p>
    *          </note>
    * @public
    */
@@ -9542,6 +9542,22 @@ export interface UpdateWebACLRequest {
    * @public
    */
   OnSourceDDoSProtectionConfig?: OnSourceDDoSProtectionConfig | undefined;
+
+  /**
+   * <p>Configures the ability for the WAF console to store and retrieve application attributes.
+   *          Application attributes help WAF give recommendations for protection packs.</p>
+   *          <p>When using <code>UpdateWebACL</code>, <code>ApplicationConfig</code> follows these rules:</p>
+   *          <ul>
+   *             <li>
+   *                <p>If you omit <code>ApplicationConfig</code> from the request, all existing entries in the web ACL are retained.</p>
+   *             </li>
+   *             <li>
+   *                <p>If you include <code>ApplicationConfig</code>, entries must match the existing values exactly. Any attempt to modify existing entries will result in an error.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  ApplicationConfig?: ApplicationConfig | undefined;
 }
 
 /**

@@ -3132,6 +3132,7 @@ const se_UpdateRuleGroupRequest = (input: UpdateRuleGroupRequest, context: __Ser
  */
 const se_UpdateWebACLRequest = (input: UpdateWebACLRequest, context: __SerdeContext): any => {
   return take(input, {
+    ApplicationConfig: _json,
     AssociationConfig: _json,
     CaptchaConfig: _json,
     ChallengeConfig: _json,
