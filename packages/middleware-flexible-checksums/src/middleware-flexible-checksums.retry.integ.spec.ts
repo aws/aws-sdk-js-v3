@@ -17,13 +17,11 @@ describe("middleware-flexible-checksums.retry", () => {
     });
 
     let flexChecksCallCount = 0;
-    function flexChecksCallCountMiddleware(next: any) {
-      return async function (args: any) {
-        console.log("after flexChecks");
-        flexChecksCallCount++;
-        return next(args);
-      };
-    }
+    const flexChecksCallCountMiddleware = (next: any) => async (args: any) => {
+      console.log("after flexChecks");
+      flexChecksCallCount++;
+      return next(args);
+    };
     client.middlewareStack.addRelativeTo(flexChecksCallCountMiddleware, {
       name: flexChecksCallCountMiddleware.name,
       toMiddleware: "flexibleChecksumsMiddleware",
