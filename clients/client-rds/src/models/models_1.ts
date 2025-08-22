@@ -9532,10 +9532,8 @@ export interface ModifyDBInstanceMessage {
 
   /**
    * <p>The open mode of a replica database.</p>
-   *          <note>
-   *             <p>This parameter is only supported for Db2 DB instances and Oracle DB
-   *                 instances.</p>
-   *          </note>
+   *          <p>This parameter is only supported for Db2 DB instances and Oracle DB
+   *             instances.</p>
    *          <dl>
    *             <dt>Db2</dt>
    *             <dd>
@@ -9544,9 +9542,9 @@ export interface ModifyDBInstanceMessage {
    *                         cross-Region disaster recovery. Because it doesn't accept user
    *                         connections, a standby replica can't serve a read-only workload.</p>
    *                <p>You can create a combination of standby and read-only DB replicas for the
-   *                         same primary DB instance. For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/db2-replication.html">Working with read
+   *                         same primary DB instance. For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/db2-replication.html">Working with
    *                             replicas for Amazon RDS for Db2</a> in the <i>Amazon RDS User
-   *                                 Guide</i>.</p>
+   *                             Guide</i>.</p>
    *                <p>To create standby DB replicas for RDS for Db2, set this parameter to
    *                         <code>mounted</code>.</p>
    *             </dd>
@@ -9600,8 +9598,8 @@ export interface ModifyDBInstanceMessage {
   AutomationMode?: AutomationMode | undefined;
 
   /**
-   * <p>The number of minutes to pause the automation. When the time period ends, RDS Custom resumes
-   *             full automation.</p>
+   * <p>The number of minutes to pause the automation. When the time period ends, RDS Custom
+   *             resumes full automation.</p>
    *          <p>Default: <code>60</code>
    *          </p>
    *          <p>Constraints:</p>
@@ -9883,12 +9881,11 @@ export interface ModifyDBProxyRequest {
   IdleClientTimeout?: number | undefined;
 
   /**
-   * <p>Whether the proxy includes detailed information about SQL statements in its logs.
-   *         This information helps you to debug issues involving SQL behavior or the performance
-   *         and scalability of the proxy connections. The debug information includes the text of
-   *         SQL statements that you submit through the proxy. Thus, only enable this setting
-   *         when needed for debugging, and only when you have security measures in place to
-   *         safeguard any sensitive information that appears in the logs.</p>
+   * <p>Specifies whether the proxy logs detailed connection and query information.
+   *             When you enable <code>DebugLogging</code>, the proxy captures connection details
+   *             and connection pool behavior from your queries. Debug logging increases CloudWatch costs
+   *             and can impact proxy performance. Enable this option only when you need
+   *             to troubleshoot connection or performance issues.</p>
    * @public
    */
   DebugLogging?: boolean | undefined;
@@ -10209,6 +10206,13 @@ export interface ModifyDBSnapshotMessage {
    * <p>The engine version to upgrade the DB snapshot to.</p>
    *          <p>The following are the database engines and engine versions that are available when you upgrade a DB snapshot.</p>
    *          <p>
+   *             <b>MariaDB</b>
+   *          </p>
+   *          <p>For the list of engine versions that are available for upgrading a DB snapshot, see
+   *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/mariadb-upgrade-snapshot.html">
+   *                 Upgrading a MariaDB DB snapshot engine version</a> in the <i>Amazon RDS User Guide.</i>
+   *          </p>
+   *          <p>
    *             <b>MySQL</b>
    *          </p>
    *          <p>For the list of engine versions that are available for upgrading a DB snapshot, see
@@ -10219,6 +10223,14 @@ export interface ModifyDBSnapshotMessage {
    *             <b>Oracle</b>
    *          </p>
    *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>21.0.0.0.ru-2025-04.rur-2025-04.r1</code> (supported for 21.0.0.0.ru-2022-01.rur-2022-01.r1, 21.0.0.0.ru-2022-04.rur-2022-04.r1, 21.0.0.0.ru-2022-07.rur-2022-07.r1, 21.0.0.0.ru-2022-10.rur-2022-10.r1, 21.0.0.0.ru-2023-01.rur-2023-01.r1 and 21.0.0.0.ru-2023-01.rur-2023-01.r2 DB snapshots)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>19.0.0.0.ru-2025-04.rur-2025-04.r1</code> (supported for 19.0.0.0.ru-2019-07.rur-2019-07.r1, 19.0.0.0.ru-2019-10.rur-2019-10.r1 and 0.0.0.ru-2020-01.rur-2020-01.r1 DB snapshots)</p>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>19.0.0.0.ru-2022-01.rur-2022-01.r1</code> (supported for 12.2.0.1 DB
@@ -13192,11 +13204,12 @@ export interface RestoreDBInstanceFromDBSnapshotMessage {
   /**
    * <p>License model information for the restored DB instance.</p>
    *          <note>
-   *             <p>License models for RDS for Db2 require additional configuration. The Bring Your
-   *                 Own License (BYOL) model requires a custom parameter group and an Amazon Web Services License Manager self-managed license. The Db2 license through
-   *                 Amazon Web Services Marketplace model requires an Amazon Web Services Marketplace subscription. For more
-   *                 information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/db2-licensing.html">Amazon RDS for Db2 licensing
-   *                     options</a> in the <i>Amazon RDS User Guide</i>.</p>
+   *             <p>License models for RDS for Db2 require additional configuration. The bring your
+   *                 own license (BYOL) model requires a custom parameter group and an Amazon Web Services License
+   *                 Manager self-managed license. The Db2 license through Amazon Web Services Marketplace model
+   *                 requires an Amazon Web Services Marketplace subscription. For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/db2-licensing.html">Amazon
+   *                     RDS for Db2 licensing options</a> in the <i>Amazon RDS User
+   *                     Guide</i>.</p>
    *          </note>
    *          <p>This setting doesn't apply to Amazon Aurora or RDS Custom DB instances.</p>
    *          <p>Valid Values:</p>
@@ -14571,11 +14584,12 @@ export interface RestoreDBInstanceToPointInTimeMessage {
   /**
    * <p>The license model information for the restored DB instance.</p>
    *          <note>
-   *             <p>License models for RDS for Db2 require additional configuration. The Bring Your
-   *                 Own License (BYOL) model requires a custom parameter group and an Amazon Web Services License Manager self-managed license. The Db2 license through
-   *                 Amazon Web Services Marketplace model requires an Amazon Web Services Marketplace subscription. For more
-   *                 information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/db2-licensing.html">Amazon RDS for Db2 licensing
-   *                     options</a> in the <i>Amazon RDS User Guide</i>.</p>
+   *             <p>License models for RDS for Db2 require additional configuration. The bring your
+   *                 own license (BYOL) model requires a custom parameter group and an Amazon Web Services License
+   *                 Manager self-managed license. The Db2 license through Amazon Web Services Marketplace model
+   *                 requires an Amazon Web Services Marketplace subscription. For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/db2-licensing.html">Amazon
+   *                     RDS for Db2 licensing options</a> in the <i>Amazon RDS User
+   *                     Guide</i>.</p>
    *          </note>
    *          <p>This setting doesn't apply to Amazon Aurora or RDS Custom DB instances.</p>
    *          <p>Valid Values:</p>

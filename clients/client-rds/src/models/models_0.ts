@@ -4578,9 +4578,14 @@ export interface ServerlessV2ScalingConfiguration {
 export interface CreateDBClusterMessage {
   /**
    * <p>A list of Availability Zones (AZs) where you specifically want to create DB instances in the DB cluster.</p>
-   *          <p>For information on AZs, see
-   *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Concepts.RegionsAndAvailabilityZones.html#Concepts.RegionsAndAvailabilityZones.AvailabilityZones">Availability Zones</a>
-   *             in the <i>Amazon Aurora User Guide</i>.</p>
+   *          <p>For the first three DB instances that you create, RDS distributes each DB instance to
+   *             a different AZ that you specify. For additional DB instances that you create, RDS
+   *             randomly distributes them to the AZs that you specified. For example, if you create a DB
+   *             cluster with one writer instance and three reader instances, RDS might distribute the
+   *             writer instance to AZ 1, the first reader instance to AZ 2, the second reader instance
+   *             to AZ 3, and the third reader instance to either AZ 1, AZ 2, or AZ 3. </p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Concepts.RegionsAndAvailabilityZones.html#Concepts.RegionsAndAvailabilityZones.AvailabilityZones">Availability Zones</a> and <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Concepts.AuroraHighAvailability.html#Concepts.AuroraHighAvailability.Instances">High availability for Aurora DB instances</a> in the <i>Amazon Aurora
+   *                 User Guide</i>.</p>
    *          <p>Valid for Cluster Type: Aurora DB clusters only</p>
    *          <p>Constraints:</p>
    *          <ul>
@@ -8031,15 +8036,8 @@ export interface CreateDBInstanceMessage {
   /**
    * <p>Specifies whether the DB instance is a Multi-AZ deployment. You can't set
    *           the <code>AvailabilityZone</code> parameter if the DB instance is a Multi-AZ deployment.</p>
-   *          <p>This setting doesn't apply to the following DB instances:</p>
-   *          <ul>
-   *             <li>
-   *                <p>Amazon Aurora (DB instance Availability Zones (AZs) are managed by the DB cluster.)</p>
-   *             </li>
-   *             <li>
-   *                <p>RDS Custom</p>
-   *             </li>
-   *          </ul>
+   *          <p>This setting doesn't apply to Amazon Aurora because the DB instance Availability Zones (AZs)
+   *           are managed by the DB cluster.</p>
    * @public
    */
   MultiAZ?: boolean | undefined;
@@ -8113,11 +8111,12 @@ export interface CreateDBInstanceMessage {
   /**
    * <p>The license model information for this DB instance.</p>
    *          <note>
-   *             <p>License models for RDS for Db2 require additional configuration. The Bring Your
-   *                 Own License (BYOL) model requires a custom parameter group and an Amazon Web Services License Manager self-managed license. The Db2 license through
-   *                 Amazon Web Services Marketplace model requires an Amazon Web Services Marketplace subscription. For more
-   *                 information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/db2-licensing.html">Amazon RDS for Db2 licensing
-   *                     options</a> in the <i>Amazon RDS User Guide</i>.</p>
+   *             <p>License models for RDS for Db2 require additional configuration. The bring your
+   *                 own license (BYOL) model requires a custom parameter group and an Amazon Web Services License
+   *                 Manager self-managed license. The Db2 license through Amazon Web Services Marketplace model
+   *                 requires an Amazon Web Services Marketplace subscription. For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/db2-licensing.html">Amazon
+   *                     RDS for Db2 licensing options</a> in the <i>Amazon RDS User
+   *                     Guide</i>.</p>
    *             <p>The default for RDS for Db2 is <code>bring-your-own-license</code>.</p>
    *          </note>
    *          <p>This setting doesn't apply to Amazon Aurora or RDS Custom DB instances.</p>
@@ -9512,9 +9511,10 @@ export interface DBInstance {
 
   /**
    * <p>The open mode of a Db2 or an Oracle read replica. The default is
-   *                 <code>open-read-only</code>. For more information, see  <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/db2-replication.html">Working with read replicas for
-   *                 Amazon RDS for Db2</a>  and <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/oracle-read-replicas.html">Working with read replicas
-   *                 for Amazon RDS for Oracle</a> in the <i>Amazon RDS User Guide</i>. </p>
+   *                 <code>open-read-only</code>. For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/db2-replication.html">Working with replicas for
+   *                 Amazon RDS for Db2</a> and <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/oracle-read-replicas.html">Working with read
+   *                 replicas for Amazon RDS for Oracle</a> in the <i>Amazon RDS User
+   *                 Guide</i>. </p>
    *          <note>
    *             <p>This attribute is only supported in RDS for Db2, RDS for Oracle, and RDS Custom
    *                 for Oracle.</p>
@@ -10651,10 +10651,8 @@ export interface CreateDBInstanceReadReplicaMessage {
 
   /**
    * <p>The open mode of the replica database.</p>
-   *          <note>
-   *             <p>This parameter is only supported for Db2 DB instances and Oracle DB
-   *                 instances.</p>
-   *          </note>
+   *          <p>This parameter is only supported for Db2 DB instances and Oracle DB
+   *             instances.</p>
    *          <dl>
    *             <dt>Db2</dt>
    *             <dd>
@@ -10663,8 +10661,7 @@ export interface CreateDBInstanceReadReplicaMessage {
    *                         cross-Region disaster recovery. Because it doesn't accept user
    *                         connections, a standby replica can't serve a read-only workload.</p>
    *                <p>You can create a combination of standby and read-only DB replicas for the
-   *                         same primary DB instance. For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/db2-replication.html">Working with read
-   *                             replicas for Amazon RDS for Db2</a> in the <i>Amazon RDS User
+   *                         same primary DB instance. For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/db2-replication.html">Working with replicas for Amazon RDS for Db2</a> in the <i>Amazon RDS User
    *                             Guide</i>.</p>
    *                <p>To create standby DB replicas for RDS for Db2, set this parameter to
    *                             <code>mounted</code>.</p>
@@ -11202,12 +11199,11 @@ export interface CreateDBProxyRequest {
   IdleClientTimeout?: number | undefined;
 
   /**
-   * <p>Specifies whether the proxy includes detailed information about SQL statements in its logs.
-   *         This information helps you to debug issues involving SQL behavior or the performance
-   *         and scalability of the proxy connections. The debug information includes the text of
-   *         SQL statements that you submit through the proxy. Thus, only enable this setting
-   *         when needed for debugging, and only when you have security measures in place to
-   *         safeguard any sensitive information that appears in the logs.</p>
+   * <p>Specifies whether the proxy logs detailed connection and query information.
+   *             When you enable <code>DebugLogging</code>, the proxy captures connection details
+   *             and connection pool behavior from your queries. Debug logging increases CloudWatch costs
+   *             and can impact proxy performance. Enable this option only when you need
+   *             to troubleshoot connection or performance issues.</p>
    * @public
    */
   DebugLogging?: boolean | undefined;
@@ -11373,12 +11369,11 @@ export interface DBProxy {
   IdleClientTimeout?: number | undefined;
 
   /**
-   * <p>Indicates whether the proxy includes detailed information about SQL statements in its logs.
-   *         This information helps you to debug issues involving SQL behavior or the performance
-   *         and scalability of the proxy connections. The debug information includes the text of
-   *         SQL statements that you submit through the proxy. Thus, only enable this setting
-   *         when needed for debugging, and only when you have security measures in place to
-   *         safeguard any sensitive information that appears in the logs.</p>
+   * <p>Specifies whether the proxy logs detailed connection and query information.
+   *             When you enable <code>DebugLogging</code>, the proxy captures connection details
+   *             and connection pool behavior from your queries. Debug logging increases CloudWatch costs
+   *             and can impact proxy performance. Enable this option only when you need
+   *             to troubleshoot connection or performance issues.</p>
    * @public
    */
   DebugLogging?: boolean | undefined;

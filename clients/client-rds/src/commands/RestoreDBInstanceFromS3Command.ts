@@ -33,7 +33,7 @@ export interface RestoreDBInstanceFromS3CommandOutput extends RestoreDBInstanceF
  *             You can create a backup of your on-premises database,
  *             store it on Amazon Simple Storage Service (Amazon S3),
  *             and then restore the backup file onto a new Amazon RDS DB instance running MySQL.
- *             For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/MySQL.Procedural.Importing.html">Importing Data into an Amazon RDS MySQL DB Instance</a>
+ *             For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/MySQL.Procedural.Importing.html">Restoring a backup into an Amazon RDS for MySQL DB instance</a>
  *             in the <i>Amazon RDS User Guide.</i>
  *          </p>
  *          <p>This operation doesn't apply to RDS Custom.</p>
