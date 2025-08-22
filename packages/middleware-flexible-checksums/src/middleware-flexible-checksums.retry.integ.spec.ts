@@ -22,7 +22,7 @@ describe("middleware-flexible-checksums.retry", () => {
     const flexChecksCallCountMiddleware = (next: any) => async (args: any) => {
       console.log("after flexChecks");
       flexChecksCallCount++;
-      return next(args);
+      return await next(args);
     };
     client.middlewareStack.addRelativeTo(flexChecksCallCountMiddleware, {
       name: flexChecksCallCountMiddleware.name,
