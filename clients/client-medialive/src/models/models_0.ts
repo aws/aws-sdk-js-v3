@@ -1712,6 +1712,22 @@ export type BurnInShadowColor = (typeof BurnInShadowColor)[keyof typeof BurnInSh
  * @public
  * @enum
  */
+export const BurnInDestinationSubtitleRows = {
+  ROWS_16: "ROWS_16",
+  ROWS_20: "ROWS_20",
+  ROWS_24: "ROWS_24",
+} as const;
+
+/**
+ * @public
+ */
+export type BurnInDestinationSubtitleRows =
+  (typeof BurnInDestinationSubtitleRows)[keyof typeof BurnInDestinationSubtitleRows];
+
+/**
+ * @public
+ * @enum
+ */
 export const BurnInTeletextGridControl = {
   FIXED: "FIXED",
   SCALED: "SCALED",
@@ -1828,6 +1844,12 @@ export interface BurnInDestinationSettings {
    * @public
    */
   YPosition?: number | undefined;
+
+  /**
+   * Applies only when the input captions are Teletext and the output captions are DVB-Sub or Burn-In. Choose the number of lines for the captions bitmap. The captions bitmap is 700 wide × 576 high and will be laid over the video. For example, a value of 16 divides the bitmap into 16 lines, with each line 36 pixels high (16 × 36 = 576). The default is 24 (24 pixels high). Enter the same number in every encode in every output that converts the same Teletext source to DVB-Sub or Burn-in.
+   * @public
+   */
+  SubtitleRows?: BurnInDestinationSubtitleRows | undefined;
 }
 
 /**
@@ -1913,6 +1935,22 @@ export const DvbSubDestinationShadowColor = {
  */
 export type DvbSubDestinationShadowColor =
   (typeof DvbSubDestinationShadowColor)[keyof typeof DvbSubDestinationShadowColor];
+
+/**
+ * @public
+ * @enum
+ */
+export const DvbSubDestinationSubtitleRows = {
+  ROWS_16: "ROWS_16",
+  ROWS_20: "ROWS_20",
+  ROWS_24: "ROWS_24",
+} as const;
+
+/**
+ * @public
+ */
+export type DvbSubDestinationSubtitleRows =
+  (typeof DvbSubDestinationSubtitleRows)[keyof typeof DvbSubDestinationSubtitleRows];
 
 /**
  * @public
@@ -2035,6 +2073,12 @@ export interface DvbSubDestinationSettings {
    * @public
    */
   YPosition?: number | undefined;
+
+  /**
+   * Applies only when the input captions are Teletext and the output captions are DVB-Sub or Burn-In. Choose the number of lines for the captions bitmap. The captions bitmap is 700 wide × 576 high and will be laid over the video. For example, a value of 16 divides the bitmap into 16 lines, with each line 36 pixels high (16 × 36 = 576). The default is 24 (24 pixels high). Enter the same number in every encode in every output that converts the same Teletext source to DVB-Sub or Burn-in.
+   * @public
+   */
+  SubtitleRows?: DvbSubDestinationSubtitleRows | undefined;
 }
 
 /**
@@ -6809,31 +6853,3 @@ export const M2tsNielsenId3Behavior = {
  * @public
  */
 export type M2tsNielsenId3Behavior = (typeof M2tsNielsenId3Behavior)[keyof typeof M2tsNielsenId3Behavior];
-
-/**
- * @public
- * @enum
- */
-export const M2tsPcrControl = {
-  CONFIGURED_PCR_PERIOD: "CONFIGURED_PCR_PERIOD",
-  PCR_EVERY_PES_PACKET: "PCR_EVERY_PES_PACKET",
-} as const;
-
-/**
- * @public
- */
-export type M2tsPcrControl = (typeof M2tsPcrControl)[keyof typeof M2tsPcrControl];
-
-/**
- * @public
- * @enum
- */
-export const M2tsRateMode = {
-  CBR: "CBR",
-  VBR: "VBR",
-} as const;
-
-/**
- * @public
- */
-export type M2tsRateMode = (typeof M2tsRateMode)[keyof typeof M2tsRateMode];

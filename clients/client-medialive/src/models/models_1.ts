@@ -30,13 +30,39 @@ import {
   M2tsEsRateInPes,
   M2tsKlv,
   M2tsNielsenId3Behavior,
-  M2tsPcrControl,
-  M2tsRateMode,
   OfferingDurationUnits,
   OfferingType,
   OutputLocationRef,
   ReservationResourceSpecification,
 } from "./models_0";
+
+/**
+ * @public
+ * @enum
+ */
+export const M2tsPcrControl = {
+  CONFIGURED_PCR_PERIOD: "CONFIGURED_PCR_PERIOD",
+  PCR_EVERY_PES_PACKET: "PCR_EVERY_PES_PACKET",
+} as const;
+
+/**
+ * @public
+ */
+export type M2tsPcrControl = (typeof M2tsPcrControl)[keyof typeof M2tsPcrControl];
+
+/**
+ * @public
+ * @enum
+ */
+export const M2tsRateMode = {
+  CBR: "CBR",
+  VBR: "VBR",
+} as const;
+
+/**
+ * @public
+ */
+export type M2tsRateMode = (typeof M2tsRateMode)[keyof typeof M2tsRateMode];
 
 /**
  * @public
@@ -7489,42 +7515,6 @@ export interface BatchStartRequest {
  * @public
  */
 export interface BatchStartResponse {
-  /**
-   * List of failed operations
-   * @public
-   */
-  Failed?: BatchFailedResultModel[] | undefined;
-
-  /**
-   * List of successful operations
-   * @public
-   */
-  Successful?: BatchSuccessfulResultModel[] | undefined;
-}
-
-/**
- * A request to stop resources
- * @public
- */
-export interface BatchStopRequest {
-  /**
-   * List of channel IDs
-   * @public
-   */
-  ChannelIds?: string[] | undefined;
-
-  /**
-   * List of multiplex IDs
-   * @public
-   */
-  MultiplexIds?: string[] | undefined;
-}
-
-/**
- * Placeholder documentation for BatchStopResponse
- * @public
- */
-export interface BatchStopResponse {
   /**
    * List of failed operations
    * @public

@@ -311,6 +311,7 @@ export interface UpdateChannelClassCommandOutput extends UpdateChannelClassRespo
  * //               TeletextGridControl: "FIXED" || "SCALED",
  * //               XPosition: Number("int"),
  * //               YPosition: Number("int"),
+ * //               SubtitleRows: "ROWS_16" || "ROWS_20" || "ROWS_24",
  * //             },
  * //             DvbSubDestinationSettings: { // DvbSubDestinationSettings
  * //               Alignment: "CENTERED" || "LEFT" || "SMART",
@@ -334,6 +335,7 @@ export interface UpdateChannelClassCommandOutput extends UpdateChannelClassRespo
  * //               TeletextGridControl: "FIXED" || "SCALED",
  * //               XPosition: Number("int"),
  * //               YPosition: Number("int"),
+ * //               SubtitleRows: "ROWS_16" || "ROWS_20" || "ROWS_24",
  * //             },
  * //             EbuTtDDestinationSettings: { // EbuTtDDestinationSettings
  * //               CopyrightHolder: "STRING_VALUE",

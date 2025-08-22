@@ -3,6 +3,8 @@ import { StreamingBlobTypes } from "@smithy/types";
 
 import {
   AudioDescription,
+  BatchFailedResultModel,
+  BatchSuccessfulResultModel,
   CaptionDescription,
   CdiInputSpecification,
   ChannelClass,
@@ -129,6 +131,42 @@ import {
   TransferringInputDeviceSummary,
   VideoDescription,
 } from "./models_1";
+
+/**
+ * A request to stop resources
+ * @public
+ */
+export interface BatchStopRequest {
+  /**
+   * List of channel IDs
+   * @public
+   */
+  ChannelIds?: string[] | undefined;
+
+  /**
+   * List of multiplex IDs
+   * @public
+   */
+  MultiplexIds?: string[] | undefined;
+}
+
+/**
+ * Placeholder documentation for BatchStopResponse
+ * @public
+ */
+export interface BatchStopResponse {
+  /**
+   * List of failed operations
+   * @public
+   */
+  Failed?: BatchFailedResultModel[] | undefined;
+
+  /**
+   * List of successful operations
+   * @public
+   */
+  Successful?: BatchSuccessfulResultModel[] | undefined;
+}
 
 /**
  * List of actions to create and list of actions to delete.
