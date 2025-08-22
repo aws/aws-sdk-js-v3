@@ -23,6 +23,7 @@ describe("middleware-flexible-checksums.retry", () => {
       return next(args);
     };
     client.middlewareStack.addRelativeTo(flexChecksCallCountMiddleware, {
+      name: flexChecksCallCountMiddleware.name,
       toMiddleware: "flexibleChecksumsMiddleware",
       relation: "after",
     });
