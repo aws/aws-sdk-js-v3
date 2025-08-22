@@ -2857,6 +2857,12 @@ export interface UpdateAIPromptRequest {
    * @public
    */
   description?: string | undefined;
+
+  /**
+   * <p>The identifier of the model used for this AI Prompt.</p> <note> <p>For more information on supported models, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/create-ai-prompts.html#cli-create-aiprompt">Supported models for system and custom prompts</a>.</p> </note>
+   * @public
+   */
+  modelId?: string | undefined;
 }
 
 /**

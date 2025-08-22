@@ -2197,6 +2197,7 @@ export const se_UpdateAIPromptCommand = async (
     take(input, {
       clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       description: [],
+      modelId: [],
       templateConfiguration: (_) => _json(_),
       visibilityStatus: [],
     })

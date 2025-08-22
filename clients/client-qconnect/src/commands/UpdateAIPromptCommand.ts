@@ -51,6 +51,7 @@ export interface UpdateAIPromptCommandOutput extends UpdateAIPromptResponse, __M
  *     },
  *   },
  *   description: "STRING_VALUE",
+ *   modelId: "STRING_VALUE",
  * };
  * const command = new UpdateAIPromptCommand(input);
  * const response = await client.send(command);
