@@ -212,8 +212,8 @@ export const validateRegionalClient = (region: string) => {
  * @internal
  */
 export const validateAccountId = (accountId: string) => {
-  if (!/[0-9]{12}/.exec(accountId)) {
-    throw new Error("Access point ARN accountID does not match regex '[0-9]{12}'");
+  if (!/^[0-9]{12}$/.exec(accountId)) {
+    throw new Error("Access point ARN accountID does not match regex '^[0-9]{12}$'");
   }
 };
 
