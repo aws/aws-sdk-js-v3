@@ -128,6 +128,8 @@ export interface DescribeClientVpnEndpointsCommandOutput extends DescribeClientV
  * //         Enforced: true || false,
  * //       },
  * //       DisconnectOnSessionTimeout: true || false,
+ * //       EndpointIpAddressType: "ipv4" || "ipv6" || "dual-stack",
+ * //       TrafficIpAddressType: "ipv4" || "ipv6" || "dual-stack",
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",

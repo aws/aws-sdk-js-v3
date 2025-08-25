@@ -6,8 +6,10 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { RegisterTransitGatewayMulticastGroupMembersRequest } from "../models/models_7";
-import { RegisterTransitGatewayMulticastGroupMembersResult } from "../models/models_8";
+import {
+  RegisterTransitGatewayMulticastGroupMembersRequest,
+  RegisterTransitGatewayMulticastGroupMembersResult,
+} from "../models/models_8";
 import {
   de_RegisterTransitGatewayMulticastGroupMembersCommand,
   se_RegisterTransitGatewayMulticastGroupMembersCommand,

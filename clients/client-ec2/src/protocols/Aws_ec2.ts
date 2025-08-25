@@ -2800,7 +2800,6 @@ import {
   LaunchTemplateInstanceMaintenanceOptionsRequest,
   LaunchTemplateInstanceMarketOptions,
   LaunchTemplateInstanceMarketOptionsRequest,
-  LaunchTemplateInstanceMetadataOptions,
   LaunchTemplateInstanceMetadataOptionsRequest,
   LaunchTemplateInstanceNetworkInterfaceSpecificationRequest,
   LaunchTemplateLicenseConfiguration,
@@ -2987,9 +2986,9 @@ import {
   Ipv4PrefixSpecificationResponse,
   Ipv6PrefixSpecification,
   Ipv6PrefixSpecificationResponse,
-  LastError,
   LaunchTemplateEnaSrdSpecification,
   LaunchTemplateEnaSrdUdpSpecification,
+  LaunchTemplateInstanceMetadataOptions,
   LaunchTemplateInstanceNetworkInterfaceSpecification,
   LaunchTemplateNetworkPerformanceOptions,
   LaunchTemplatePlacement,
@@ -3048,7 +3047,6 @@ import {
   StateReason,
   SubnetCidrReservation,
   SubnetConfiguration,
-  SubnetIpPrefixes,
   TrafficMirrorFilter,
   TrafficMirrorFilterRule,
   TrafficMirrorNetworkService,
@@ -3313,8 +3311,6 @@ import {
   DescribeCapacityReservationBillingRequestsRequest,
   DescribeCapacityReservationBillingRequestsResult,
   DescribeCapacityReservationFleetsRequest,
-  DescribeCapacityReservationFleetsResult,
-  DescribeCapacityReservationsRequest,
   FailedQueuedPurchaseDeletion,
   Filter,
   IdFormat,
@@ -3324,6 +3320,7 @@ import {
   InstanceTagNotificationAttribute,
   IpamPoolCidr,
   IpamPoolCidrFailureReason,
+  LastError,
   Phase1DHGroupNumbersListValue,
   Phase1DHGroupNumbersRequestListValue,
   Phase1EncryptionAlgorithmsListValue,
@@ -3341,6 +3338,7 @@ import {
   ServiceConfiguration,
   ServiceConnectivityType,
   ServiceTypeDetail,
+  SubnetIpPrefixes,
   Subscription,
   SuccessfulQueuedPurchaseDeletion,
   SupportedRegionDetail,
@@ -3384,6 +3382,8 @@ import {
   ConversionTask,
   CpuOptions,
   DeclarativePoliciesReport,
+  DescribeCapacityReservationFleetsResult,
+  DescribeCapacityReservationsRequest,
   DescribeCapacityReservationsResult,
   DescribeCarrierGatewaysRequest,
   DescribeCarrierGatewaysResult,
@@ -3484,8 +3484,6 @@ import {
   DescribeIpamExternalResourceVerificationTokensRequest,
   DescribeIpamExternalResourceVerificationTokensResult,
   DescribeIpamPoolsRequest,
-  DescribeIpamPoolsResult,
-  DescribeIpamResourceDiscoveriesRequest,
   DestinationOptionsResponse,
   DirectoryServiceAuthentication,
   DiskImageDescription,
@@ -3607,6 +3605,8 @@ import {
   ClassicLoadBalancer,
   ClassicLoadBalancersConfig,
   CreateVolumePermission,
+  DescribeIpamPoolsResult,
+  DescribeIpamResourceDiscoveriesRequest,
   DescribeIpamResourceDiscoveriesResult,
   DescribeIpamResourceDiscoveryAssociationsRequest,
   DescribeIpamResourceDiscoveryAssociationsResult,
@@ -3794,7 +3794,6 @@ import {
   DescribeVpcEndpointAssociationsResult,
   DescribeVpcEndpointConnectionNotificationsRequest,
   DescribeVpcEndpointConnectionNotificationsResult,
-  DescribeVpcEndpointConnectionsRequest,
   HistoryRecord,
   InitializationStatusDetails,
   InstanceNetworkInterfaceSpecification,
@@ -3872,7 +3871,6 @@ import {
   VpcBlockPublicAccessOptions,
   VpcClassicLink,
   VpcEndpointAssociation,
-  VpcEndpointConnection,
 } from "../models/models_5";
 import {
   AssociatedRole,
@@ -3883,6 +3881,7 @@ import {
   CoipAddressUsage,
   DataQuery,
   DataResponse,
+  DescribeVpcEndpointConnectionsRequest,
   DescribeVpcEndpointConnectionsResult,
   DescribeVpcEndpointServiceConfigurationsRequest,
   DescribeVpcEndpointServiceConfigurationsResult,
@@ -4114,8 +4113,6 @@ import {
   GetRouteServerRoutingDatabaseResult,
   GetSecurityGroupsForVpcRequest,
   GetSecurityGroupsForVpcResult,
-  GetSerialConsoleAccessStatusRequest,
-  GetSerialConsoleAccessStatusResult,
   ImageCriterion,
   InstanceEventWindowDisassociationRequest,
   InstanceFamilyCreditSpecification,
@@ -4152,6 +4149,7 @@ import {
   VerifiedAccessInstanceOpenVpnClientConfiguration,
   VerifiedAccessInstanceOpenVpnClientConfigurationRoute,
   VerifiedAccessInstanceUserTrustProviderClientConfiguration,
+  VpcEndpointConnection,
 } from "../models/models_6";
 import {
   AsnAuthorizationContext,
@@ -4164,6 +4162,8 @@ import {
   DiskImageDetail,
   DnsServersOptionsModifyStructure,
   EbsInstanceBlockDeviceSpecification,
+  GetSerialConsoleAccessStatusRequest,
+  GetSerialConsoleAccessStatusResult,
   GetSnapshotBlockPublicAccessStateRequest,
   GetSnapshotBlockPublicAccessStateResult,
   GetSpotPlacementScoresRequest,
@@ -4409,7 +4409,6 @@ import {
   RegisterInstanceEventNotificationAttributesRequest,
   RegisterInstanceEventNotificationAttributesResult,
   RegisterInstanceTagAttributeRequest,
-  RegisterTransitGatewayMulticastGroupMembersRequest,
   RemoveIpamOperatingRegion,
   RemoveIpamOrganizationalUnitExclusion,
   RemovePrefixListEntry,
@@ -4424,7 +4423,6 @@ import {
   TrafficMirrorSessionField,
   TransitGatewayAttachmentPropagation,
   TransitGatewayMulticastDomainAssociation,
-  TransitGatewayMulticastRegisteredGroupMembers,
   TransitGatewayPolicyRule,
   TransitGatewayPolicyRuleMetaData,
   TransitGatewayPolicyTableEntry,
@@ -4456,6 +4454,7 @@ import {
   LaunchTemplateSpecification,
   LicenseConfigurationRequest,
   PrivateDnsNameOptionsRequest,
+  RegisterTransitGatewayMulticastGroupMembersRequest,
   RegisterTransitGatewayMulticastGroupMembersResult,
   RegisterTransitGatewayMulticastGroupSourcesRequest,
   RegisterTransitGatewayMulticastGroupSourcesResult,
@@ -4563,6 +4562,7 @@ import {
   TerminateInstancesRequest,
   TerminateInstancesResult,
   TransitGatewayMulticastGroup,
+  TransitGatewayMulticastRegisteredGroupMembers,
   TransitGatewayMulticastRegisteredGroupSources,
   UnassignIpv6AddressesRequest,
   UnassignIpv6AddressesResult,
@@ -32842,6 +32842,12 @@ const se_CreateClientVpnEndpointRequest = (input: CreateClientVpnEndpointRequest
   }
   if (input[_DOST] != null) {
     entries[_DOST] = input[_DOST];
+  }
+  if (input[_EIAT] != null) {
+    entries[_EIAT] = input[_EIAT];
+  }
+  if (input[_TIAT] != null) {
+    entries[_TIAT] = input[_TIAT];
   }
   return entries;
 };
@@ -62983,6 +62989,9 @@ const de_ClientVpnConnection = (output: any, context: __SerdeContext): ClientVpn
   if (output[_cIl] != null) {
     contents[_CIli] = __expectString(output[_cIl]);
   }
+  if (output[_cIA] != null) {
+    contents[_CIA] = __expectString(output[_cIA]);
+  }
   if (output[_cN] != null) {
     contents[_CN] = __expectString(output[_cN]);
   }
@@ -63114,6 +63123,12 @@ const de_ClientVpnEndpoint = (output: any, context: __SerdeContext): ClientVpnEn
   }
   if (output[_dOST] != null) {
     contents[_DOST] = __parseBoolean(output[_dOST]);
+  }
+  if (output[_eIAT] != null) {
+    contents[_EIAT] = __expectString(output[_eIAT]);
+  }
+  if (output[_tIAT] != null) {
+    contents[_TIAT] = __expectString(output[_tIAT]);
   }
   return contents;
 };
@@ -91882,6 +91897,7 @@ const _CGu = "CustomerGateway";
 const _CGur = "CurrentGeneration";
 const _CGus = "CustomerGateways";
 const _CI = "CopyImage";
+const _CIA = "ClientIpv6Address";
 const _CIBM = "CurrentInstanceBootMode";
 const _CIC = "CommittedInstanceCount";
 const _CICE = "CreateInstanceConnectEndpoint";
@@ -92559,6 +92575,7 @@ const _EIAAI = "ElasticInferenceAcceleratorAssociationId";
 const _EIAAS = "ElasticInferenceAcceleratorAssociationState";
 const _EIAAT = "ElasticInferenceAcceleratorAssociationTime";
 const _EIAAl = "ElasticInferenceAcceleratorAssociations";
+const _EIAT = "EndpointIpAddressType";
 const _EIBPA = "EnableImageBlockPublicAccess";
 const _EID = "EnableImageDeprecation";
 const _EIDP = "EnableImageDeregistrationProtection";
@@ -94157,6 +94174,7 @@ const _TGr = "TransitGateway";
 const _TGra = "TransitGateways";
 const _THP = "TotalHourlyPrice";
 const _TI = "TerminateInstances";
+const _TIAT = "TrafficIpAddressType";
 const _TIC = "TunnelInsideCidr";
 const _TICo = "TotalInstanceCount";
 const _TII = "TrunkInterfaceId";
@@ -94634,6 +94652,7 @@ const _cGSu = "customerGatewaySet";
 const _cGu = "customerGateway";
 const _cGur = "currentGeneration";
 const _cI = "carrierIp";
+const _cIA = "clientIpv6Address";
 const _cIBM = "currentInstanceBootMode";
 const _cIC = "committedInstanceCount";
 const _cIi = "cidrIp";
@@ -94878,6 +94897,7 @@ const _eIAAS = "elasticInferenceAcceleratorAssociationState";
 const _eIAASl = "elasticInferenceAcceleratorAssociationSet";
 const _eIAAT = "elasticInferenceAcceleratorAssociationTime";
 const _eIAS = "elasticInferenceAcceleratorSet";
+const _eIAT = "endpointIpAddressType";
 const _eITI = "exportImageTaskId";
 const _eITS = "exportImageTaskSet";
 const _eITSn = "encryptionInTransitSupported";
@@ -96062,6 +96082,7 @@ const _tGVAr = "transitGatewayVpcAttachments";
 const _tGa = "targetGroups";
 const _tHP = "totalHourlyPrice";
 const _tI = "targetId";
+const _tIAT = "trafficIpAddressType";
 const _tIC = "totalInstanceCount";
 const _tICu = "tunnelInsideCidr";
 const _tII = "trunkInterfaceId";

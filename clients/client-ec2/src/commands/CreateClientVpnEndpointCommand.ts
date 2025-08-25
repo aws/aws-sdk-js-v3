@@ -38,7 +38,7 @@ export interface CreateClientVpnEndpointCommandOutput extends CreateClientVpnEnd
  * // const { EC2Client, CreateClientVpnEndpointCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
  * const input = { // CreateClientVpnEndpointRequest
- *   ClientCidrBlock: "STRING_VALUE", // required
+ *   ClientCidrBlock: "STRING_VALUE",
  *   ServerCertificateArn: "STRING_VALUE", // required
  *   AuthenticationOptions: [ // ClientVpnAuthenticationRequestList // required
  *     { // ClientVpnAuthenticationRequest
@@ -98,6 +98,8 @@ export interface CreateClientVpnEndpointCommandOutput extends CreateClientVpnEnd
  *     Enforced: true || false,
  *   },
  *   DisconnectOnSessionTimeout: true || false,
+ *   EndpointIpAddressType: "ipv4" || "ipv6" || "dual-stack",
+ *   TrafficIpAddressType: "ipv4" || "ipv6" || "dual-stack",
  * };
  * const command = new CreateClientVpnEndpointCommand(input);
  * const response = await client.send(command);

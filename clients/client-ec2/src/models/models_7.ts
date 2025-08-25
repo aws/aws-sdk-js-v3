@@ -181,6 +181,47 @@ import {
 /**
  * @public
  */
+export interface GetSerialConsoleAccessStatusRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetSerialConsoleAccessStatusResult {
+  /**
+   * <p>If <code>true</code>, access to the EC2 serial console of all instances is enabled for
+   * 			your account. If <code>false</code>, access to the EC2 serial console of all instances
+   * 			is disabled for your account.</p>
+   * @public
+   */
+  SerialConsoleAccessEnabled?: boolean | undefined;
+
+  /**
+   * <p>The entity that manages access to the serial console. Possible values include:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>account</code> - Access is managed by the account.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>declarative-policy</code> - Access is managed by a declarative policy and can't
+   *             be modified by the account.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  ManagedBy?: ManagedBy | undefined;
+}
+
+/**
+ * @public
+ */
 export interface GetSnapshotBlockPublicAccessStateRequest {
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
@@ -9733,61 +9774,6 @@ export interface RegisterInstanceEventNotificationAttributesResult {
    * @public
    */
   InstanceTagAttribute?: InstanceTagNotificationAttribute | undefined;
-}
-
-/**
- * @public
- */
-export interface RegisterTransitGatewayMulticastGroupMembersRequest {
-  /**
-   * <p>The ID of the transit gateway multicast domain.</p>
-   * @public
-   */
-  TransitGatewayMulticastDomainId: string | undefined;
-
-  /**
-   * <p>The IP address assigned to the  transit gateway multicast group.</p>
-   * @public
-   */
-  GroupIpAddress?: string | undefined;
-
-  /**
-   * <p>The group members' network interface IDs to register with the  transit gateway multicast group.</p>
-   * @public
-   */
-  NetworkInterfaceIds: string[] | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-}
-
-/**
- * <p>Describes the registered  transit gateway multicast group members.</p>
- * @public
- */
-export interface TransitGatewayMulticastRegisteredGroupMembers {
-  /**
-   * <p>The ID of the transit gateway multicast domain.</p>
-   * @public
-   */
-  TransitGatewayMulticastDomainId?: string | undefined;
-
-  /**
-   * <p>The ID of the registered network interfaces.</p>
-   * @public
-   */
-  RegisteredNetworkInterfaceIds?: string[] | undefined;
-
-  /**
-   * <p>The IP address assigned to the  transit gateway multicast group.</p>
-   * @public
-   */
-  GroupIpAddress?: string | undefined;
 }
 
 /**

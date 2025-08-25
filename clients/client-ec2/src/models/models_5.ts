@@ -41,8 +41,8 @@ import {
   FleetType,
   InstanceInterruptionBehavior,
   InstanceRequirements,
-  IpAddressType,
   Ipam,
+  IpamPool,
   IpamResourceDiscovery,
   IpamScope,
   Ipv4PrefixSpecificationRequest,
@@ -105,9 +105,63 @@ import {
   VpcBlockPublicAccessExclusion,
 } from "./models_2";
 
-import { ConnectionNotification, Filter, IdFormat, State } from "./models_3";
+import { ConnectionNotification, Filter, IdFormat } from "./models_3";
 
 import { AttributeBooleanValue, EventInformation, PermissionGroup, ProductCode } from "./models_4";
+
+/**
+ * @public
+ */
+export interface DescribeIpamPoolsResult {
+  /**
+   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>Information about the IPAM pools.</p>
+   * @public
+   */
+  IpamPools?: IpamPool[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeIpamResourceDiscoveriesRequest {
+  /**
+   * <p>A check for whether you have the required permissions for the action without actually making the request
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>The IPAM resource discovery IDs.</p>
+   * @public
+   */
+  IpamResourceDiscoveryIds?: string[] | undefined;
+
+  /**
+   * <p>Specify the pagination token from a previous request to retrieve the next page of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of resource discoveries to return in one page of results.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>The resource discovery filters.</p>
+   * @public
+   */
+  Filters?: Filter[] | undefined;
+}
 
 /**
  * @public
@@ -12508,150 +12562,6 @@ export interface DescribeVpcEndpointConnectionNotificationsResult {
    * @public
    */
   NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeVpcEndpointConnectionsRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>The filters.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>ip-address-type</code> - The IP address type (<code>ipv4</code> | <code>ipv6</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>service-id</code> - The ID of the service.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>vpc-endpoint-owner</code> - The ID of the Amazon Web Services account ID
-   * 		            that owns the endpoint.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>vpc-endpoint-region</code> - The Region of the endpoint or <code>cross-region</code>
-   * 		            to find endpoints for other Regions.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>vpc-endpoint-state</code> - The state of the endpoint
-   * 			        (<code>pendingAcceptance</code> | <code>pending</code> |
-   * 			        <code>available</code> | <code>deleting</code> | <code>deleted</code> |
-   * 			        <code>rejected</code> | <code>failed</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>vpc-endpoint-id</code> - The ID of the endpoint.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  Filters?: Filter[] | undefined;
-
-  /**
-   * <p>The maximum number of results to return for the request in a single page. The remaining
-   *             results of the initial request can be seen by sending another request with the returned
-   *                 <code>NextToken</code> value. This value can be between 5 and 1,000; if
-   *                 <code>MaxResults</code> is given a value larger than 1,000, only 1,000 results are
-   *             returned.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>The token to retrieve the next page of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * <p>Describes a VPC endpoint connection to a service.</p>
- * @public
- */
-export interface VpcEndpointConnection {
-  /**
-   * <p>The ID of the service to which the endpoint is connected.</p>
-   * @public
-   */
-  ServiceId?: string | undefined;
-
-  /**
-   * <p>The ID of the VPC endpoint.</p>
-   * @public
-   */
-  VpcEndpointId?: string | undefined;
-
-  /**
-   * <p>The ID of the Amazon Web Services account that owns the VPC endpoint.</p>
-   * @public
-   */
-  VpcEndpointOwner?: string | undefined;
-
-  /**
-   * <p>The state of the VPC endpoint.</p>
-   * @public
-   */
-  VpcEndpointState?: State | undefined;
-
-  /**
-   * <p>The date and time that the VPC endpoint was created.</p>
-   * @public
-   */
-  CreationTimestamp?: Date | undefined;
-
-  /**
-   * <p>The DNS entries for the VPC endpoint.</p>
-   * @public
-   */
-  DnsEntries?: DnsEntry[] | undefined;
-
-  /**
-   * <p>The Amazon Resource Names (ARNs) of the network load balancers for the service.</p>
-   * @public
-   */
-  NetworkLoadBalancerArns?: string[] | undefined;
-
-  /**
-   * <p>The Amazon Resource Names (ARNs) of the Gateway Load Balancers for the service.</p>
-   * @public
-   */
-  GatewayLoadBalancerArns?: string[] | undefined;
-
-  /**
-   * <p>The IP address type for the endpoint.</p>
-   * @public
-   */
-  IpAddressType?: IpAddressType | undefined;
-
-  /**
-   * <p>The ID of the VPC endpoint connection.</p>
-   * @public
-   */
-  VpcEndpointConnectionId?: string | undefined;
-
-  /**
-   * <p>The tags.</p>
-   * @public
-   */
-  Tags?: Tag[] | undefined;
-
-  /**
-   * <p>The Region of the endpoint.</p>
-   * @public
-   */
-  VpcEndpointRegion?: string | undefined;
 }
 
 /**

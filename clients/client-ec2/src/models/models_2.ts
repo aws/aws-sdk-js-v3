@@ -52,10 +52,13 @@ import {
   LaunchTemplateElasticInferenceAcceleratorResponse,
   LaunchTemplateEnclaveOptions,
   LaunchTemplateHibernationOptions,
+  LaunchTemplateHttpTokensState,
   LaunchTemplateIamInstanceProfileSpecification,
   LaunchTemplateInstanceMaintenanceOptions,
   LaunchTemplateInstanceMarketOptions,
-  LaunchTemplateInstanceMetadataOptions,
+  LaunchTemplateInstanceMetadataEndpointState,
+  LaunchTemplateInstanceMetadataProtocolIpv6,
+  LaunchTemplateInstanceMetadataTagsState,
   LaunchTemplateLicenseConfiguration,
   MacModificationTask,
   MacSystemIntegrityProtectionSettingStatus,
@@ -70,6 +73,103 @@ import {
   VolumeType,
   Vpc,
 } from "./models_1";
+
+/**
+ * @public
+ * @enum
+ */
+export const LaunchTemplateInstanceMetadataOptionsState = {
+  applied: "applied",
+  pending: "pending",
+} as const;
+
+/**
+ * @public
+ */
+export type LaunchTemplateInstanceMetadataOptionsState =
+  (typeof LaunchTemplateInstanceMetadataOptionsState)[keyof typeof LaunchTemplateInstanceMetadataOptionsState];
+
+/**
+ * <p>The metadata options for the instance. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html">Use
+ *                 instance metadata to manage your EC2 instance</a> in the
+ *                 <i>Amazon EC2 User Guide</i>.</p>
+ * @public
+ */
+export interface LaunchTemplateInstanceMetadataOptions {
+  /**
+   * <p>The state of the metadata option changes.</p>
+   *          <p>
+   *             <code>pending</code> - The metadata options are being updated and the instance is not
+   *             ready to process metadata traffic with the new selection.</p>
+   *          <p>
+   *             <code>applied</code> - The metadata options have been successfully applied on the
+   *             instance.</p>
+   * @public
+   */
+  State?: LaunchTemplateInstanceMetadataOptionsState | undefined;
+
+  /**
+   * <p>Indicates whether IMDSv2 is required.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>optional</code> - IMDSv2 is optional. You can choose whether to send a
+   *                     session token in your instance metadata retrieval requests. If you retrieve IAM
+   *                     role credentials without a session token, you receive the IMDSv1 role
+   *                     credentials. If you retrieve IAM role credentials using a valid session token,
+   *                     you receive the IMDSv2 role credentials.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>required</code> - IMDSv2 is required. You must send a session token in
+   *                     your instance metadata retrieval requests. With this option, retrieving the IAM
+   *                     role credentials always returns IMDSv2 credentials; IMDSv1 credentials are not
+   *                     available.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  HttpTokens?: LaunchTemplateHttpTokensState | undefined;
+
+  /**
+   * <p>The desired HTTP PUT response hop limit for instance metadata requests. The larger the
+   *             number, the further instance metadata requests can travel.</p>
+   *          <p>Default: 1</p>
+   *          <p>Possible values: Integers from 1 to 64</p>
+   * @public
+   */
+  HttpPutResponseHopLimit?: number | undefined;
+
+  /**
+   * <p>Enables or disables the HTTP metadata endpoint on your instances. If the parameter is
+   *             not specified, the default state is <code>enabled</code>.</p>
+   *          <note>
+   *             <p>If you specify a value of <code>disabled</code>, you will not be able to access
+   *                 your instance metadata. </p>
+   *          </note>
+   * @public
+   */
+  HttpEndpoint?: LaunchTemplateInstanceMetadataEndpointState | undefined;
+
+  /**
+   * <p>Enables or disables the IPv6 endpoint for the instance metadata service.</p>
+   *          <p>Default: <code>disabled</code>
+   *          </p>
+   * @public
+   */
+  HttpProtocolIpv6?: LaunchTemplateInstanceMetadataProtocolIpv6 | undefined;
+
+  /**
+   * <p>Set to <code>enabled</code> to allow access to instance tags from the instance
+   *             metadata. Set to <code>disabled</code> to turn off access to instance tags from the
+   *             instance metadata. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/work-with-tags-in-IMDS.html">View tags for your EC2
+   *                 instances using instance metadata</a>.</p>
+   *          <p>Default: <code>disabled</code>
+   *          </p>
+   * @public
+   */
+  InstanceMetadataTags?: LaunchTemplateInstanceMetadataTagsState | undefined;
+}
 
 /**
  * <p>Describes the monitoring for the instance.</p>
@@ -10873,42 +10973,6 @@ export interface SecurityGroupIdentifier {
    * @public
    */
   GroupName?: string | undefined;
-}
-
-/**
- * <p>Prefixes of the subnet IP.</p>
- * @public
- */
-export interface SubnetIpPrefixes {
-  /**
-   * <p>ID of the subnet.</p>
-   * @public
-   */
-  SubnetId?: string | undefined;
-
-  /**
-   * <p>Array of SubnetIpPrefixes objects.</p>
-   * @public
-   */
-  IpPrefixes?: string[] | undefined;
-}
-
-/**
- * <p>The last error that occurred for a VPC endpoint.</p>
- * @public
- */
-export interface LastError {
-  /**
-   * <p>The error message for the VPC endpoint error.</p>
-   * @public
-   */
-  Message?: string | undefined;
-
-  /**
-   * <p>The error code for the VPC endpoint error.</p>
-   * @public
-   */
-  Code?: string | undefined;
 }
 
 /**

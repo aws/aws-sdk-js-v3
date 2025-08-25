@@ -67,6 +67,7 @@ export interface DescribeClientVpnConnectionsCommandOutput
  * //       IngressPackets: "STRING_VALUE",
  * //       EgressPackets: "STRING_VALUE",
  * //       ClientIp: "STRING_VALUE",
+ * //       ClientIpv6Address: "STRING_VALUE",
  * //       CommonName: "STRING_VALUE",
  * //       Status: { // ClientVpnConnectionStatus
  * //         Code: "active" || "failed-to-terminate" || "terminating" || "terminated",
