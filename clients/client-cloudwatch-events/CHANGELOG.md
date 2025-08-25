@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.875.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.874.0...v3.875.0) (2025-08-25)
+
+
+### Features
+
+* **client-cloudwatch-events:** Remove incorrect endpoint tests ([e2927cf](https://github.com/aws/aws-sdk-js-v3/commit/e2927cf7bc8b1b778461b39444e702c74a42e1b4))
+
+
+
+
+
 # [3.873.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.872.0...v3.873.0) (2025-08-21)
 
 **Note:** Version bump only for package @aws-sdk/client-cloudwatch-events

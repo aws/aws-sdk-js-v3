@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.875.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.874.0...v3.875.0) (2025-08-25)
+
+
+### Features
+
+* **client-sagemaker-runtime:** Remove incorrect endpoint tests ([c9c6ddc](https://github.com/aws/aws-sdk-js-v3/commit/c9c6ddcec3d7511f1b77f2241f2930b579640e04))
+
+
+
+
+
 # [3.873.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.872.0...v3.873.0) (2025-08-21)
 
 **Note:** Version bump only for package @aws-sdk/client-sagemaker-runtime

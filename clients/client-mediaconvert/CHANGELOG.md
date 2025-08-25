@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.875.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.874.0...v3.875.0) (2025-08-25)
+
+
+### Features
+
+* **client-mediaconvert:** This release adds support for input rendition selection for HLS input, adds new Share API to enable sharing jobs with AWS Support for support investigations, and adds INCLUDE_AS_TS to iFrameOnlyManifest setting for HLS outputs. ([11dde2a](https://github.com/aws/aws-sdk-js-v3/commit/11dde2a2428890d9e14e1465a63f54380e744ef7))
+
+
+
+
+
 # [3.873.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.872.0...v3.873.0) (2025-08-21)
 
 **Note:** Version bump only for package @aws-sdk/client-mediaconvert

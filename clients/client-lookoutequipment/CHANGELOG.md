@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.875.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.874.0...v3.875.0) (2025-08-25)
+
+
+### Features
+
+* **client-lookoutequipment:** Remove incorrect endpoint tests ([f17baaf](https://github.com/aws/aws-sdk-js-v3/commit/f17baaf7bc7983e20e560f502f4d85198cb5f77b))
+
+
+
+
+
 # [3.873.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.872.0...v3.873.0) (2025-08-21)
 
 **Note:** Version bump only for package @aws-sdk/client-lookoutequipment
