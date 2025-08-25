@@ -110,6 +110,7 @@ export interface GetChatResponseConfigurationResponse {
  * @enum
  */
 export const OutputFormat = {
+  EXTRACTED: "EXTRACTED",
   RAW: "RAW",
 } as const;
 
@@ -147,7 +148,7 @@ export interface GetDocumentContentRequest {
   documentId: string | undefined;
 
   /**
-   * <p>Raw document outputFormat.</p>
+   * <p>Document outputFormat. Defaults to RAW if not selected.</p>
    * @public
    */
   outputFormat?: OutputFormat | undefined;
@@ -164,7 +165,7 @@ export interface GetDocumentContentResponse {
   presignedUrl: string | undefined;
 
   /**
-   * <p>The MIME type of the document content (e.g., application/pdf, text/plain, application/vnd.openxmlformats-officedocument.wordprocessingml.document).</p>
+   * <p>The MIME type of the document content. When outputFormat is RAW, this corresponds to the original document's MIME type (e.g., application/pdf, text/plain, application/vnd.openxmlformats-officedocument.wordprocessingml.document). When outputFormat is EXTRACTED, the MIME type is always application/json.</p>
    * @public
    */
   mimeType: string | undefined;

@@ -2133,7 +2133,7 @@ export interface CreateDataSourceRequest {
   syncSchedule?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of an IAM role with permission to access the data source and required resources.</p>
+   * <p>The Amazon Resource Name (ARN) of an IAM role with permission to access the data source and required resources. This field is required for all connector types except custom connectors, where it is optional.</p>
    * @public
    */
   roleArn?: string | undefined;
@@ -4335,7 +4335,7 @@ export interface CreateWebExperienceRequest {
   origins?: string[] | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the service role attached to your web experience.</p> <note> <p>You must provide this value if you're using IAM Identity Center to manage end user access to your application. If you're using legacy identity management to manage user access, you don't need to provide this value.</p> </note>
+   * <p>The Amazon Resource Name (ARN) of the service role attached to your web experience.</p> <note> <p>The <code>roleArn</code> parameter is required when your Amazon Q Business application is created with IAM Identity Center. It is not required for SAML-based applications.</p> </note>
    * @public
    */
   roleArn?: string | undefined;
@@ -5490,7 +5490,7 @@ export interface BatchPutDocumentRequest {
   indexId: string | undefined;
 
   /**
-   * <p>One or more documents to add to the index.</p>
+   * <p>One or more documents to add to the index.</p> <important> <p>Ensure that the name of your document doesn't contain any confidential information. Amazon Q Business returns document names in chat responses and citations when relevant.</p> </important>
    * @public
    */
   documents: Document[] | undefined;
@@ -5525,7 +5525,7 @@ export interface BatchPutDocumentResponse {
  */
 export interface BlockedPhrasesConfiguration {
   /**
-   * <p>A list of phrases blocked from a Amazon Q Business web experience chat.</p>
+   * <p>A list of phrases blocked from a Amazon Q Business web experience chat.</p> <note> <p>Each phrase can contain a maximum of 36 characters. The list can contain a maximum of 20 phrases.</p> </note>
    * @public
    */
   blockedPhrases?: string[] | undefined;

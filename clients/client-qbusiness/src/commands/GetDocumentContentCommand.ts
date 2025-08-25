@@ -40,7 +40,7 @@ export interface GetDocumentContentCommandOutput extends GetDocumentContentRespo
  *   indexId: "STRING_VALUE", // required
  *   dataSourceId: "STRING_VALUE",
  *   documentId: "STRING_VALUE", // required
- *   outputFormat: "RAW",
+ *   outputFormat: "RAW" || "EXTRACTED",
  * };
  * const command = new GetDocumentContentCommand(input);
  * const response = await client.send(command);
