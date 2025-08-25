@@ -37,8 +37,8 @@ export interface SendMessageBatchCommandOutput extends SendMessageBatchResult, _
  *          <p>The result of sending each message is reported individually in the response.
  *             Because the batch request can result in a combination of successful and unsuccessful actions, you should check for batch errors even when the call returns an HTTP status code of <code>200</code>.</p>
  *          <p>The maximum allowed individual message size and the maximum total payload size (the
- *             sum of the individual lengths of all of the batched messages) are both 256 KiB (262,144
- *             bytes).</p>
+ *             sum of the individual lengths of all of the batched messages) are both 1 MiB
+ *             1,048,576 bytes.</p>
  *          <important>
  *             <p>A message can include only XML, JSON, and unformatted text. The following Unicode characters are allowed. For more information, see the <a href="http://www.w3.org/TR/REC-xml/#charsets">W3C specification for characters</a>.</p>
  *             <p>

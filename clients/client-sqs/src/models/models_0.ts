@@ -573,7 +573,7 @@ export interface CreateQueueRequest {
    *                <p>
    *                   <code>MaximumMessageSize</code> – The limit of how many bytes a message
    *                     can contain before Amazon SQS rejects it. Valid values: An integer from 1,024 bytes
-   *                     (1 KiB) to 262,144 bytes (256 KiB). Default: 262,144 (256 KiB). </p>
+   *                     (1 KiB) to 1,048,576 bytes (1 MiB). Default: 1,048,576 bytes (1 MiB). </p>
    *             </li>
    *             <li>
    *                <p>
@@ -2134,7 +2134,7 @@ export interface ReceiveMessageRequest {
  *             <code>Name</code>, <code>type</code>, <code>value</code> and the message body must not
  *             be empty or null. All parts of the message attribute, including <code>Name</code>,
  *                 <code>Type</code>, and <code>Value</code>, are part of the message size restriction
- *             (256 KiB or 262,144 bytes).</p>
+ *             (1 MiB or 1,048,576 bytes).</p>
  * @public
  */
 export interface MessageAttributeValue {
@@ -2403,8 +2403,8 @@ export interface SendMessageRequest {
   QueueUrl: string | undefined;
 
   /**
-   * <p>The message to send. The minimum size is one character. The maximum size is 256
-   *             KiB.</p>
+   * <p>The message to send. The minimum size is one character. The maximum size is
+   *         1 MiB or 1,048,576 bytes</p>
    *          <important>
    *             <p>A message can include only XML, JSON, and unformatted text. The following Unicode characters are allowed. For more information, see the <a href="http://www.w3.org/TR/REC-xml/#charsets">W3C specification for characters</a>.</p>
    *             <p>
@@ -2936,7 +2936,7 @@ export interface SetQueueAttributesRequest {
    *                <p>
    *                   <code>MaximumMessageSize</code> – The limit of how many bytes a message
    *                     can contain before Amazon SQS rejects it. Valid values: An integer from 1,024 bytes
-   *                     (1 KiB) up to 262,144 bytes (256 KiB). Default: 262,144 (256 KiB). </p>
+   *                     (1 KiB) up to 1,048,576 bytes (1 MiB). Default: 1,048,576 bytes (1 MiB). </p>
    *             </li>
    *             <li>
    *                <p>
