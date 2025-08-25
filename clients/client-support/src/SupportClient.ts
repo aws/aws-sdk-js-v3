@@ -379,7 +379,7 @@ export interface SupportClientResolvedConfig extends SupportClientResolvedConfig
  *                     cases.</p>
  *             </li>
  *             <li>
- *                <p>The <a>DescribeServices</a> and <a>DescribeSeverityLevels</a> operations return Amazon Web Service names, service codes, service categories, and problem
+ *                <p>The <a>DescribeServices</a> and <a>DescribeSeverityLevels</a> operations return Amazon Web Services service names, service codes, service categories, and problem
  *                     severity levels. You use these values when you call the <a>CreateCase</a> operation.</p>
  *             </li>
  *          </ul>
