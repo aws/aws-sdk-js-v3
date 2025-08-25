@@ -1125,24 +1125,24 @@ export class ClusterLimitExceededException extends __BaseException {
 }
 
 /**
- * <p>Configures the wireless connection on an Snowcone device.</p>
+ * <p>Configures the wireless connection on an Snowball Edge device.</p>
  * @public
  */
 export interface WirelessConnection {
   /**
-   * <p>Enables the Wi-Fi adapter on an Snowcone device.</p>
+   * <p>Enables the Wi-Fi adapter on an Snowball Edge device.</p>
    * @public
    */
   IsWifiEnabled?: boolean | undefined;
 }
 
 /**
- * <p>Specifies the device configuration for an Snowcone job.</p>
+ * <p>Specifies the device configuration for an Snowball Edge job.</p>
  * @public
  */
 export interface SnowconeDeviceConfiguration {
   /**
-   * <p>Configures the wireless connection for the Snowcone device.</p>
+   * <p>Configures the wireless connection for the Snowball Edge device.</p>
    * @public
    */
   WirelessConnection?: WirelessConnection | undefined;
@@ -1154,7 +1154,7 @@ export interface SnowconeDeviceConfiguration {
  */
 export interface DeviceConfiguration {
   /**
-   * <p>Returns information about the device configuration for an Snowcone
+   * <p>Returns information about the device configuration for an Snowball Edge
    *       job.</p>
    * @public
    */
@@ -1375,7 +1375,7 @@ export interface CreateJobRequest {
   TaxDocuments?: TaxDocuments | undefined;
 
   /**
-   * <p>Defines the device configuration for an Snowcone job.</p>
+   * <p>Defines the device configuration for an Snowball Edge job.</p>
    *          <p>For more information, see
    *       "https://docs.aws.amazon.com/snowball/latest/snowcone-guide/snow-device-types.html" (Snow
    *       Family Devices and Capacity) in the <i>Snowcone User Guide</i> or
@@ -1735,7 +1735,7 @@ export interface ClusterMetadata {
   JobType?: JobType | undefined;
 
   /**
-   * <p>The type of Snowcone device to use for this cluster.
+   * <p>The type of Snowball Edge device to use for this cluster.
    *       </p>
    *          <note>
    *             <p>For cluster jobs, Amazon Web Services Snow Family currently supports only the
