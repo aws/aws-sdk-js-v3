@@ -78,7 +78,7 @@ export interface PutTargetsCommandOutput extends PutTargetsResponse, __MetadataB
  *           us-west-2, or Europe (Ireland) eu-west-1 Regions as a target for a rule.</p>
  *             </li>
  *             <li>
- *                <p>Firehose delivery stream (Kinesis Data Firehose)</p>
+ *                <p>Firehose delivery stream (Firehose)</p>
  *             </li>
  *             <li>
  *                <p>Inspector assessment template (Amazon Inspector)</p>
