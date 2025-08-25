@@ -52,6 +52,30 @@ export interface TestParsingCommandOutput extends TestParsingResponse, __Metadat
  *       splitOptions: { // X12SplitOptions
  *         splitBy: "NONE" || "TRANSACTION", // required
  *       },
+ *       validationOptions: { // X12ValidationOptions
+ *         validationRules: [ // X12ValidationRules
+ *           { // X12ValidationRule Union: only one key present
+ *             codeListValidationRule: { // X12CodeListValidationRule
+ *               elementId: "STRING_VALUE", // required
+ *               codesToAdd: [ // CodeList
+ *                 "STRING_VALUE",
+ *               ],
+ *               codesToRemove: [
+ *                 "STRING_VALUE",
+ *               ],
+ *             },
+ *             elementLengthValidationRule: { // X12ElementLengthValidationRule
+ *               elementId: "STRING_VALUE", // required
+ *               maxLength: Number("int"), // required
+ *               minLength: Number("int"), // required
+ *             },
+ *             elementRequirementValidationRule: { // X12ElementRequirementValidationRule
+ *               elementPosition: "STRING_VALUE", // required
+ *               requirement: "OPTIONAL" || "MANDATORY", // required
+ *             },
+ *           },
+ *         ],
+ *       },
  *     },
  *   },
  * };
@@ -60,6 +84,9 @@ export interface TestParsingCommandOutput extends TestParsingResponse, __Metadat
  * // { // TestParsingResponse
  * //   parsedFileContent: "STRING_VALUE", // required
  * //   parsedSplitFileContents: [ // ParsedSplitFileContentsList
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   validationMessages: [ // ValidationMessages
  * //     "STRING_VALUE",
  * //   ],
  * // };
@@ -85,7 +112,7 @@ export interface TestParsingCommandOutput extends TestParsingResponse, __Metadat
  *  <p>The request was denied due to throttling: the data speed and rendering may be limited depending on various parameters and conditions.</p>
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>Occurs when a B2BI object cannot be validated against a request from another object.</p>
+ *  <p>Occurs when a B2BI object cannot be validated against a request from another object. This exception can be thrown during standard EDI validation or when custom validation rules fail, such as when element length constraints are violated, invalid codes are used in code list validations, or required elements are missing based on configured element requirement rules.</p>
  *
  * @throws {@link B2biServiceException}
  * <p>Base exception class for all service exceptions from B2bi service.</p>
@@ -156,6 +183,71 @@ export interface TestParsingCommandOutput extends TestParsingResponse, __Metadat
  *     x12: {
  *       splitOptions: {
  *         splitBy: "TRANSACTION"
+ *       }
+ *     }
+ *   },
+ *   ediType: {
+ *     x12Details: {
+ *       transactionSet: "X12_110",
+ *       version: "VERSION_4010"
+ *     }
+ *   },
+ *   fileFormat: "JSON",
+ *   inputFile: {
+ *     bucketName: "test-bucket",
+ *     key: "sampleFile.txt"
+ *   }
+ * };
+ * const command = new TestParsingCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   parsedFileContent: "",
+ *   parsedSplitFileContents: [
+ *     "sample split parsed file content",
+ *     "sample split parsed file content"
+ *   ]
+ * }
+ * *\/
+ * ```
+ *
+ * @example Sample TestParsing call with Validation Options
+ * ```javascript
+ * //
+ * const input = {
+ *   advancedOptions: {
+ *     x12: {
+ *       validationOptions: {
+ *         validationRules: [
+ *           {
+ *             codeListValidationRule: {
+ *               codesToAdd: [
+ *                 "X",
+ *                 "Y",
+ *                 "Z"
+ *               ],
+ *               codesToRemove: [
+ *                 "A",
+ *                 "B",
+ *                 "C"
+ *               ],
+ *               elementId: "1280"
+ *             }
+ *           },
+ *           {
+ *             elementRequirementValidationRule: {
+ *               elementPosition: "NM1-01",
+ *               requirement: "OPTIONAL"
+ *             }
+ *           },
+ *           {
+ *             elementLengthValidationRule: {
+ *               elementId: "0803",
+ *               maxLength: 30,
+ *               minLength: 5
+ *             }
+ *           }
+ *         ]
  *       }
  *     }
  *   },

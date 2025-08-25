@@ -56,6 +56,37 @@ export interface TestConversionCommandOutput extends TestConversionResponse, __M
  *         key: "STRING_VALUE",
  *       },
  *     },
+ *     advancedOptions: { // AdvancedOptions
+ *       x12: { // X12AdvancedOptions
+ *         splitOptions: { // X12SplitOptions
+ *           splitBy: "NONE" || "TRANSACTION", // required
+ *         },
+ *         validationOptions: { // X12ValidationOptions
+ *           validationRules: [ // X12ValidationRules
+ *             { // X12ValidationRule Union: only one key present
+ *               codeListValidationRule: { // X12CodeListValidationRule
+ *                 elementId: "STRING_VALUE", // required
+ *                 codesToAdd: [ // CodeList
+ *                   "STRING_VALUE",
+ *                 ],
+ *                 codesToRemove: [
+ *                   "STRING_VALUE",
+ *                 ],
+ *               },
+ *               elementLengthValidationRule: { // X12ElementLengthValidationRule
+ *                 elementId: "STRING_VALUE", // required
+ *                 maxLength: Number("int"), // required
+ *                 minLength: Number("int"), // required
+ *               },
+ *               elementRequirementValidationRule: { // X12ElementRequirementValidationRule
+ *                 elementPosition: "STRING_VALUE", // required
+ *                 requirement: "OPTIONAL" || "MANDATORY", // required
+ *               },
+ *             },
+ *           ],
+ *         },
+ *       },
+ *     },
  *   },
  * };
  * const command = new TestConversionCommand(input);
@@ -88,7 +119,7 @@ export interface TestConversionCommandOutput extends TestConversionResponse, __M
  *  <p>The request was denied due to throttling: the data speed and rendering may be limited depending on various parameters and conditions.</p>
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>Occurs when a B2BI object cannot be validated against a request from another object.</p>
+ *  <p>Occurs when a B2BI object cannot be validated against a request from another object. This exception can be thrown during standard EDI validation or when custom validation rules fail, such as when element length constraints are violated, invalid codes are used in code list validations, or required elements are missing based on configured element requirement rules.</p>
  *
  * @throws {@link B2biServiceException}
  * <p>Base exception class for all service exceptions from B2bi service.</p>
@@ -105,6 +136,42 @@ export interface TestConversionCommandOutput extends TestConversionResponse, __M
  *     }
  *   },
  *   target: {
+ *     advancedOptions: {
+ *       x12: {
+ *         validationOptions: {
+ *           validationRules: [
+ *             {
+ *               codeListValidationRule: {
+ *                 codesToAdd: [
+ *                   "X",
+ *                   "Y",
+ *                   "Z"
+ *                 ],
+ *                 codesToRemove: [
+ *                   "A",
+ *                   "B",
+ *                   "C"
+ *                 ],
+ *                 elementId: "1280"
+ *               }
+ *             },
+ *             {
+ *               elementRequirementValidationRule: {
+ *                 elementPosition: "NM1-01",
+ *                 requirement: "OPTIONAL"
+ *               }
+ *             },
+ *             {
+ *               elementLengthValidationRule: {
+ *                 elementId: "0803",
+ *                 maxLength: 30,
+ *                 minLength: 5
+ *               }
+ *             }
+ *           ]
+ *         }
+ *       }
+ *     },
  *     fileFormat: "X12",
  *     formatDetails: {
  *       x12: {

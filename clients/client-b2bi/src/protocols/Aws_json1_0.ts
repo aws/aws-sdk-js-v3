@@ -148,15 +148,20 @@ import {
   WrapOptions,
   X12AcknowledgmentOptions,
   X12AdvancedOptions,
+  X12CodeListValidationRule,
   X12ControlNumbers,
   X12Delimiters,
   X12Details,
+  X12ElementLengthValidationRule,
+  X12ElementRequirementValidationRule,
   X12Envelope,
   X12FunctionalGroupHeaders,
   X12InboundEdiOptions,
   X12InterchangeControlHeaders,
   X12OutboundEdiHeaders,
   X12SplitOptions,
+  X12ValidationOptions,
+  X12ValidationRule,
 } from "../models/models_0";
 
 /**
@@ -1281,6 +1286,8 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 
 // se_CapabilityOptions omitted.
 
+// se_CodeList omitted.
+
 // se_ConversionSource omitted.
 
 // se_ConversionTarget omitted.
@@ -1459,11 +1466,17 @@ const se_StartTransformerJobRequest = (input: StartTransformerJobRequest, contex
 
 // se_X12AdvancedOptions omitted.
 
+// se_X12CodeListValidationRule omitted.
+
 // se_X12ControlNumbers omitted.
 
 // se_X12Delimiters omitted.
 
 // se_X12Details omitted.
+
+// se_X12ElementLengthValidationRule omitted.
+
+// se_X12ElementRequirementValidationRule omitted.
 
 // se_X12Envelope omitted.
 
@@ -1476,6 +1489,12 @@ const se_StartTransformerJobRequest = (input: StartTransformerJobRequest, contex
 // se_X12OutboundEdiHeaders omitted.
 
 // se_X12SplitOptions omitted.
+
+// se_X12ValidationOptions omitted.
+
+// se_X12ValidationRule omitted.
+
+// se_X12ValidationRules omitted.
 
 // de_AccessDeniedException omitted.
 
@@ -1509,6 +1528,8 @@ const de_CapabilitySummary = (output: any, context: __SerdeContext): CapabilityS
     type: __expectString,
   }) as any;
 };
+
+// de_CodeList omitted.
 
 // de_ConflictException omitted.
 
@@ -1939,11 +1960,17 @@ const de_UpdateTransformerResponse = (output: any, context: __SerdeContext): Upd
 
 // de_X12AdvancedOptions omitted.
 
+// de_X12CodeListValidationRule omitted.
+
 // de_X12ControlNumbers omitted.
 
 // de_X12Delimiters omitted.
 
 // de_X12Details omitted.
+
+// de_X12ElementLengthValidationRule omitted.
+
+// de_X12ElementRequirementValidationRule omitted.
 
 // de_X12Envelope omitted.
 
@@ -1956,6 +1983,12 @@ const de_UpdateTransformerResponse = (output: any, context: __SerdeContext): Upd
 // de_X12OutboundEdiHeaders omitted.
 
 // de_X12SplitOptions omitted.
+
+// de_X12ValidationOptions omitted.
+
+// de_X12ValidationRule omitted.
+
+// de_X12ValidationRules omitted.
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,

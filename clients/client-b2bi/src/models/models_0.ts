@@ -50,6 +50,172 @@ export interface X12SplitOptions {
 }
 
 /**
+ * <p>Defines a validation rule that modifies the allowed code values for a specific X12 element. This rule allows you to add or remove valid codes from an element's standard code list, providing flexibility to accommodate trading partner-specific requirements or industry variations. You can specify codes to add to expand the allowed values beyond the X12 standard, or codes to remove to restrict the allowed values for stricter validation.</p>
+ * @public
+ */
+export interface X12CodeListValidationRule {
+  /**
+   * <p>Specifies the four-digit element ID to which the code list modifications apply. This identifies which X12 element will have its allowed code values modified.</p>
+   * @public
+   */
+  elementId: string | undefined;
+
+  /**
+   * <p>Specifies a list of code values to add to the element's allowed values. These codes will be considered valid for the specified element in addition to the standard codes defined by the X12 specification.</p>
+   * @public
+   */
+  codesToAdd?: string[] | undefined;
+
+  /**
+   * <p>Specifies a list of code values to remove from the element's allowed values. These codes will be considered invalid for the specified element, even if they are part of the standard codes defined by the X12 specification.</p>
+   * @public
+   */
+  codesToRemove?: string[] | undefined;
+}
+
+/**
+ * <p>Defines a validation rule that specifies custom length constraints for a specific X12 element. This rule allows you to override the standard minimum and maximum length requirements for an element, enabling validation of trading partner-specific length requirements that may differ from the X12 specification. Both minimum and maximum length values must be specified and must be between 1 and 200 characters.</p>
+ * @public
+ */
+export interface X12ElementLengthValidationRule {
+  /**
+   * <p>Specifies the four-digit element ID to which the length constraints will be applied. This identifies which X12 element will have its length requirements modified.</p>
+   * @public
+   */
+  elementId: string | undefined;
+
+  /**
+   * <p>Specifies the maximum allowed length for the identified element. This value must be between 1 and 200 characters and defines the upper limit for the element's content length.</p>
+   * @public
+   */
+  maxLength: number | undefined;
+
+  /**
+   * <p>Specifies the minimum required length for the identified element. This value must be between 1 and 200 characters and defines the lower limit for the element's content length.</p>
+   * @public
+   */
+  minLength: number | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const ElementRequirement = {
+  MANDATORY: "MANDATORY",
+  OPTIONAL: "OPTIONAL",
+} as const;
+
+/**
+ * @public
+ */
+export type ElementRequirement = (typeof ElementRequirement)[keyof typeof ElementRequirement];
+
+/**
+ * <p>Defines a validation rule that modifies the requirement status of a specific X12 element within a segment. This rule allows you to make optional elements mandatory or mandatory elements optional, providing flexibility to accommodate different trading partner requirements and business rules. The rule targets a specific element position within a segment and sets its requirement status to either OPTIONAL or MANDATORY.</p>
+ * @public
+ */
+export interface X12ElementRequirementValidationRule {
+  /**
+   * <p>Specifies the position of the element within an X12 segment for which the requirement status will be modified. The format follows the pattern of segment identifier followed by element position (e.g., "ST-01" for the first element of the ST segment).</p>
+   * @public
+   */
+  elementPosition: string | undefined;
+
+  /**
+   * <p>Specifies the requirement status for the element at the specified position. Valid values are OPTIONAL (the element may be omitted) or MANDATORY (the element must be present).</p>
+   * @public
+   */
+  requirement: ElementRequirement | undefined;
+}
+
+/**
+ * <p>Represents a single validation rule that can be applied during X12 EDI processing. This is a union type that can contain one of several specific validation rule types: code list validation rules for modifying allowed element codes, element length validation rules for enforcing custom length constraints, or element requirement validation rules for changing mandatory/optional status. Each validation rule targets specific aspects of EDI document validation to ensure compliance with trading partner requirements and business rules.</p>
+ * @public
+ */
+export type X12ValidationRule =
+  | X12ValidationRule.CodeListValidationRuleMember
+  | X12ValidationRule.ElementLengthValidationRuleMember
+  | X12ValidationRule.ElementRequirementValidationRuleMember
+  | X12ValidationRule.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace X12ValidationRule {
+  /**
+   * <p>Specifies a code list validation rule that modifies the allowed code values for a specific X12 element. This rule enables you to customize which codes are considered valid for an element, allowing for trading partner-specific code requirements.</p>
+   * @public
+   */
+  export interface CodeListValidationRuleMember {
+    codeListValidationRule: X12CodeListValidationRule;
+    elementLengthValidationRule?: never;
+    elementRequirementValidationRule?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Specifies an element length validation rule that defines custom length constraints for a specific X12 element. This rule allows you to enforce minimum and maximum length requirements that may differ from the standard X12 specification.</p>
+   * @public
+   */
+  export interface ElementLengthValidationRuleMember {
+    codeListValidationRule?: never;
+    elementLengthValidationRule: X12ElementLengthValidationRule;
+    elementRequirementValidationRule?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Specifies an element requirement validation rule that modifies whether a specific X12 element is required or optional within a segment. This rule provides flexibility to accommodate different trading partner requirements for element presence.</p>
+   * @public
+   */
+  export interface ElementRequirementValidationRuleMember {
+    codeListValidationRule?: never;
+    elementLengthValidationRule?: never;
+    elementRequirementValidationRule: X12ElementRequirementValidationRule;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    codeListValidationRule?: never;
+    elementLengthValidationRule?: never;
+    elementRequirementValidationRule?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    codeListValidationRule: (value: X12CodeListValidationRule) => T;
+    elementLengthValidationRule: (value: X12ElementLengthValidationRule) => T;
+    elementRequirementValidationRule: (value: X12ElementRequirementValidationRule) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: X12ValidationRule, visitor: Visitor<T>): T => {
+    if (value.codeListValidationRule !== undefined) return visitor.codeListValidationRule(value.codeListValidationRule);
+    if (value.elementLengthValidationRule !== undefined)
+      return visitor.elementLengthValidationRule(value.elementLengthValidationRule);
+    if (value.elementRequirementValidationRule !== undefined)
+      return visitor.elementRequirementValidationRule(value.elementRequirementValidationRule);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
+ * <p>Contains configuration options for X12 EDI validation. This structure allows you to specify custom validation rules that will be applied during EDI document processing, including element length constraints, code list modifications, and element requirement changes. These validation options provide flexibility to accommodate trading partner-specific requirements while maintaining EDI compliance. The validation rules are applied in addition to standard X12 validation to ensure documents meet both standard and custom requirements.</p>
+ * @public
+ */
+export interface X12ValidationOptions {
+  /**
+   * <p>Specifies a list of validation rules to apply during EDI document processing. These rules can include code list modifications, element length constraints, and element requirement changes.</p>
+   * @public
+   */
+  validationRules?: X12ValidationRule[] | undefined;
+}
+
+/**
  * <p>Contains advanced options specific to X12 EDI processing, such as splitting large X12 files into smaller units.</p>
  * @public
  */
@@ -59,6 +225,12 @@ export interface X12AdvancedOptions {
    * @public
    */
   splitOptions?: X12SplitOptions | undefined;
+
+  /**
+   * <p>Specifies validation options for X12 EDI processing. These options control how validation rules are applied during EDI document processing, including custom validation rules for element length constraints, code list validations, and element requirement checks.</p>
+   * @public
+   */
+  validationOptions?: X12ValidationOptions | undefined;
 }
 
 /**
@@ -871,7 +1043,7 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
- * <p>Occurs when a B2BI object cannot be validated against a request from another object.</p>
+ * <p>Occurs when a B2BI object cannot be validated against a request from another object. This exception can be thrown during standard EDI validation or when custom validation rules fail, such as when element length constraints are violated, invalid codes are used in code list validations, or required elements are missing based on configured element requirement rules.</p>
  * @public
  */
 export class ValidationException extends __BaseException {
@@ -1553,7 +1725,7 @@ export interface X12OutboundEdiHeaders {
   delimiters?: X12Delimiters | undefined;
 
   /**
-   * <p>Specifies whether or not to validate the EDI for this X12 object: <code>TRUE</code> or <code>FALSE</code>.</p>
+   * <p>Specifies whether or not to validate the EDI for this X12 object: <code>TRUE</code> or <code>FALSE</code>. When enabled, this performs both standard EDI validation and applies any configured custom validation rules including element length constraints, code list validations, and element requirement checks. Validation results are returned in the response validation messages.</p>
    * @public
    */
   validateEdi?: boolean | undefined;
@@ -2734,6 +2906,12 @@ export interface ConversionTarget {
    * @public
    */
   outputSampleFile?: OutputSampleFileSource | undefined;
+
+  /**
+   * <p>A structure that contains advanced options for EDI processing. Currently, only X12 advanced options are supported.</p>
+   * @public
+   */
+  advancedOptions?: AdvancedOptions | undefined;
 }
 
 /**
@@ -2764,7 +2942,7 @@ export interface TestConversionResponse {
   convertedFileContent: string | undefined;
 
   /**
-   * <p>Returns an array of strings, each containing a message that Amazon Web Services B2B Data Interchange generates during the conversion.</p>
+   * <p>Returns an array of validation messages that Amazon Web Services B2B Data Interchange generates during the conversion process. These messages include both standard EDI validation results and custom validation messages when custom validation rules are configured. Custom validation messages provide detailed feedback on element length constraints, code list validations, and element requirement checks applied during the outbound EDI generation process.</p>
    * @public
    */
   validationMessages?: string[] | undefined;
@@ -2863,6 +3041,12 @@ export interface TestParsingResponse {
    * @public
    */
   parsedSplitFileContents?: string[] | undefined;
+
+  /**
+   * <p>Returns an array of validation messages generated during EDI validation. These messages provide detailed information about validation errors, warnings, or confirmations based on the configured X12 validation rules such as element length constraints, code list validations, and element requirement checks. This field is populated when the <code>TestParsing</code> API validates EDI documents.</p>
+   * @public
+   */
+  validationMessages?: string[] | undefined;
 }
 
 /**
@@ -3001,6 +3185,12 @@ export interface OutputConversion {
    * @public
    */
   formatOptions?: FormatOptions | undefined;
+
+  /**
+   * <p>A structure that contains advanced options for EDI processing. Currently, only X12 advanced options are supported.</p>
+   * @public
+   */
+  advancedOptions?: AdvancedOptions | undefined;
 }
 
 /**
