@@ -28,9 +28,7 @@ export interface GetMetricsSummaryCommandInput extends GetMetricsSummaryRequest 
 export interface GetMetricsSummaryCommandOutput extends GetMetricsSummaryResponse, __MetadataBearer {}
 
 /**
- * <p>Returns a summary of metrics for an account from a specified date, including number of open
- *       findings, the categories with most findings, the scans with most open findings, and scans with
- *       most open critical findings. </p>
+ * <p>Returns a summary of metrics for an account from a specified date, including number of open findings, the categories with most findings, the scans with most open findings, and scans with most open critical findings. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
