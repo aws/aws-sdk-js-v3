@@ -48,11 +48,11 @@ export type InvokeEndpointCommandOutputType = Omit<InvokeEndpointOutput, "Body">
 export interface InvokeEndpointCommandOutput extends InvokeEndpointCommandOutputType, __MetadataBearer {}
 
 /**
- * <p>After you deploy a model into production using Amazon SageMaker hosting services,
+ * <p>After you deploy a model into production using Amazon SageMaker AI hosting services,
  *             your client applications use this API to get inferences from the model hosted at the
  *             specified endpoint. </p>
- *          <p>For an overview of Amazon SageMaker, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/how-it-works.html">How It Works</a>. </p>
- *          <p>Amazon SageMaker strips all POST headers except those supported by the API. Amazon SageMaker might add
+ *          <p>For an overview of Amazon SageMaker AI, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/how-it-works.html">How It Works</a>. </p>
+ *          <p>Amazon SageMaker AI strips all POST headers except those supported by the API. Amazon SageMaker AI might add
  *     additional headers. You should not rely on the behavior of headers outside those
  *     enumerated in the request syntax. </p>
  *          <p>Calls to <code>InvokeEndpoint</code> are authenticated by using Amazon Web Services
@@ -64,7 +64,7 @@ export interface InvokeEndpointCommandOutput extends InvokeEndpointCommandOutput
  *             socket timeout should be set to be 70 seconds.</p>
  *          <note>
  *             <p>Endpoints are scoped to an individual account, and are not public. The URL does
- *                 not contain the account ID, but Amazon SageMaker determines the account ID from
+ *                 not contain the account ID, but Amazon SageMaker AI determines the account ID from
  *                 the authentication token that is supplied by the caller.</p>
  *          </note>
  * @example

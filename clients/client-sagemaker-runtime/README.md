@@ -6,7 +6,7 @@
 
 AWS SDK for JavaScript SageMakerRuntime Client for Node.js, Browser and React Native.
 
-<p> The Amazon SageMaker runtime API. </p>
+<p> The Amazon SageMaker AI runtime API. </p>
 
 ## Installing
 

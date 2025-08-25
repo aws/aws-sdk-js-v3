@@ -49,10 +49,10 @@ export interface InvokeEndpointWithResponseStreamCommandOutput
  * <p>Invokes a model at the specified endpoint to return the inference response as a
  *             stream. The inference stream provides the response payload incrementally as a series of
  *             parts. Before you can get an inference stream, you must have access to a model that's
- *             deployed using Amazon SageMaker hosting services, and the container for that model
+ *             deployed using Amazon SageMaker AI hosting services, and the container for that model
  *             must support inference streaming.</p>
  *          <p>For more information that can help you use this API, see the following sections in the
- *                     <i>Amazon SageMaker Developer Guide</i>:</p>
+ *                     <i>Amazon SageMaker AI Developer Guide</i>:</p>
  *          <ul>
  *             <li>
  *                <p>For information about how to add streaming support to a model, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-inference-code.html#your-algorithms-inference-code-how-containe-serves-requests">How Containers Serve Requests</a>.</p>
@@ -62,9 +62,9 @@ export interface InvokeEndpointWithResponseStreamCommandOutput
  *             </li>
  *          </ul>
  *          <p>Before you can use this operation, your IAM permissions must allow the
- *                 <code>sagemaker:InvokeEndpoint</code> action. For more information about Amazon SageMaker actions for IAM policies, see <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazonsagemaker.html">Actions, resources, and condition keys for Amazon SageMaker</a> in the <i>IAM Service Authorization
+ *                 <code>sagemaker:InvokeEndpoint</code> action. For more information about Amazon SageMaker AI actions for IAM policies, see <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazonsagemaker.html">Actions, resources, and condition keys for Amazon SageMaker AI</a> in the <i>IAM Service Authorization
  *                 Reference</i>.</p>
- *          <p>Amazon SageMaker strips all POST headers except those supported by the API. Amazon SageMaker might add
+ *          <p>Amazon SageMaker AI strips all POST headers except those supported by the API. Amazon SageMaker AI might add
  *     additional headers. You should not rely on the behavior of headers outside those
  *     enumerated in the request syntax. </p>
  *          <p>Calls to <code>InvokeEndpointWithResponseStream</code> are authenticated by using
@@ -132,7 +132,7 @@ export interface InvokeEndpointWithResponseStreamCommandOutput
  *          <dl>
  *             <dt>ModelInvocationTimeExceeded</dt>
  *             <dd>
- *                <p>The model failed to finish sending the response within the timeout period allowed by Amazon SageMaker.</p>
+ *                <p>The model failed to finish sending the response within the timeout period allowed by Amazon SageMaker AI.</p>
  *             </dd>
  *             <dt>StreamBroken</dt>
  *             <dd>

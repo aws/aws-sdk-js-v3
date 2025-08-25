@@ -61,7 +61,7 @@ export interface InvokeEndpointInput {
 
   /**
    * <p>Provides input data, in the format specified in the <code>ContentType</code>
-   *     request header. Amazon SageMaker passes all of the data in the body to the model. </p>
+   *     request header. Amazon SageMaker AI passes all of the data in the body to the model. </p>
    *          <p>For information about the format of the request body, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/cdf-inference.html">Common Data
    *         Formats-Inference</a>.</p>
    * @public
@@ -82,7 +82,7 @@ export interface InvokeEndpointInput {
 
   /**
    * <p>Provides additional information about a request for an inference submitted to a model
-   *         hosted at an Amazon SageMaker endpoint. The information is an opaque value that is forwarded
+   *         hosted at an Amazon SageMaker AI endpoint. The information is an opaque value that is forwarded
    *         verbatim. You could use this value, for example, to provide an ID that you can use to
    *         track a request or to provide other metadata that a service endpoint was programmed to
    *         process. The value must consist of no more than 1024 visible US-ASCII characters as
@@ -93,7 +93,7 @@ export interface InvokeEndpointInput {
    *         returned. For example, if a custom attribute represents the trace ID, your model can
    *         prepend the custom attribute with <code>Trace ID:</code> in your post-processing
    *         function. </p>
-   *          <p>This feature is currently supported in the Amazon Web Services SDKs but not in the Amazon SageMaker
+   *          <p>This feature is currently supported in the Amazon Web Services SDKs but not in the Amazon SageMaker AI
    *         Python SDK. </p>
    * @public
    */
@@ -164,7 +164,7 @@ export interface InvokeEndpointInput {
    *             create a session with a stateful model, the model must create the session ID and set the
    *             expiration time. The model must also provide that information in the response to your
    *             request. You can get the ID and timestamp from the <code>NewSessionId</code> response
-   *             parameter. For any subsequent request where you specify that session ID, SageMaker routes the request to the same instance that supports the session.</p>
+   *             parameter. For any subsequent request where you specify that session ID, SageMaker AI routes the request to the same instance that supports the session.</p>
    * @public
    */
   SessionId?: string | undefined;
@@ -199,7 +199,7 @@ export interface InvokeEndpointOutput {
 
   /**
    * <p>Provides additional information in the response about the inference returned by a
-   *         model hosted at an Amazon SageMaker endpoint. The information is an opaque value that is
+   *         model hosted at an Amazon SageMaker AI endpoint. The information is an opaque value that is
    *         forwarded verbatim. You could use this value, for example, to return an ID received in
    *         the <code>CustomAttributes</code> header of a request or other metadata that a service
    *         endpoint was programmed to produce. The value must consist of no more than 1024 visible
@@ -212,7 +212,7 @@ export interface InvokeEndpointOutput {
    *         returned. For example, if a custom attribute represents the trace ID, your model can
    *         prepend the custom attribute with <code>Trace ID:</code> in your post-processing
    *         function.</p>
-   *          <p>This feature is currently supported in the Amazon Web Services SDKs but not in the Amazon SageMaker
+   *          <p>This feature is currently supported in the Amazon Web Services SDKs but not in the Amazon SageMaker AI
    *         Python SDK.</p>
    * @public
    */
@@ -368,7 +368,7 @@ export interface InvokeEndpointAsyncInput {
 
   /**
    * <p>Provides additional information about a request for an inference submitted to a model
-   *         hosted at an Amazon SageMaker endpoint. The information is an opaque value that is forwarded
+   *         hosted at an Amazon SageMaker AI endpoint. The information is an opaque value that is forwarded
    *         verbatim. You could use this value, for example, to provide an ID that you can use to
    *         track a request or to provide other metadata that a service endpoint was programmed to
    *         process. The value must consist of no more than 1024 visible US-ASCII characters as
@@ -379,14 +379,14 @@ export interface InvokeEndpointAsyncInput {
    *         returned. For example, if a custom attribute represents the trace ID, your model can
    *         prepend the custom attribute with <code>Trace ID:</code> in your post-processing
    *         function. </p>
-   *          <p>This feature is currently supported in the Amazon Web Services SDKs but not in the Amazon SageMaker
+   *          <p>This feature is currently supported in the Amazon Web Services SDKs but not in the Amazon SageMaker AI
    *         Python SDK. </p>
    * @public
    */
   CustomAttributes?: string | undefined;
 
   /**
-   * <p>The identifier for the inference request. Amazon SageMaker will generate an
+   * <p>The identifier for the inference request. Amazon SageMaker AI will generate an
    *             identifier for you if none is specified. </p>
    * @public
    */
@@ -419,7 +419,7 @@ export interface InvokeEndpointAsyncInput {
 export interface InvokeEndpointAsyncOutput {
   /**
    * <p>Identifier for an inference request. This will be the same as the
-   *                 <code>InferenceId</code> specified in the input. Amazon SageMaker will generate
+   *                 <code>InferenceId</code> specified in the input. Amazon SageMaker AI will generate
    *             an identifier for you if you do not specify one.</p>
    * @public
    */
@@ -474,7 +474,7 @@ export interface InvokeEndpointWithResponseStreamInput {
 
   /**
    * <p>Provides input data, in the format specified in the <code>ContentType</code>
-   *     request header. Amazon SageMaker passes all of the data in the body to the model. </p>
+   *     request header. Amazon SageMaker AI passes all of the data in the body to the model. </p>
    *          <p>For information about the format of the request body, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/cdf-inference.html">Common Data
    *         Formats-Inference</a>.</p>
    * @public
@@ -495,7 +495,7 @@ export interface InvokeEndpointWithResponseStreamInput {
 
   /**
    * <p>Provides additional information about a request for an inference submitted to a model
-   *         hosted at an Amazon SageMaker endpoint. The information is an opaque value that is forwarded
+   *         hosted at an Amazon SageMaker AI endpoint. The information is an opaque value that is forwarded
    *         verbatim. You could use this value, for example, to provide an ID that you can use to
    *         track a request or to provide other metadata that a service endpoint was programmed to
    *         process. The value must consist of no more than 1024 visible US-ASCII characters as
@@ -506,7 +506,7 @@ export interface InvokeEndpointWithResponseStreamInput {
    *         returned. For example, if a custom attribute represents the trace ID, your model can
    *         prepend the custom attribute with <code>Trace ID:</code> in your post-processing
    *         function. </p>
-   *          <p>This feature is currently supported in the Amazon Web Services SDKs but not in the Amazon SageMaker
+   *          <p>This feature is currently supported in the Amazon Web Services SDKs but not in the Amazon SageMaker AI
    *         Python SDK. </p>
    * @public
    */
@@ -565,7 +565,7 @@ export interface InvokeEndpointWithResponseStreamInput {
  *          <dl>
  *             <dt>ModelInvocationTimeExceeded</dt>
  *             <dd>
- *                <p>The model failed to finish sending the response within the timeout period allowed by Amazon SageMaker.</p>
+ *                <p>The model failed to finish sending the response within the timeout period allowed by Amazon SageMaker AI.</p>
  *             </dd>
  *             <dt>StreamBroken</dt>
  *             <dd>
@@ -585,7 +585,7 @@ export class ModelStreamError extends __BaseException {
    *             <dt>ModelInvocationTimeExceeded</dt>
    *             <dd>
    *                <p>The model failed to finish sending the response within the timeout period
-   *                         allowed by Amazon SageMaker.</p>
+   *                         allowed by Amazon SageMaker AI.</p>
    *             </dd>
    *             <dt>StreamBroken</dt>
    *             <dd>
@@ -659,7 +659,7 @@ export namespace ResponseStream {
    *          <dl>
    *             <dt>ModelInvocationTimeExceeded</dt>
    *             <dd>
-   *                <p>The model failed to finish sending the response within the timeout period allowed by Amazon SageMaker.</p>
+   *                <p>The model failed to finish sending the response within the timeout period allowed by Amazon SageMaker AI.</p>
    *             </dd>
    *             <dt>StreamBroken</dt>
    *             <dd>
@@ -737,7 +737,7 @@ export interface InvokeEndpointWithResponseStreamOutput {
 
   /**
    * <p>Provides additional information in the response about the inference returned by a
-   *         model hosted at an Amazon SageMaker endpoint. The information is an opaque value that is
+   *         model hosted at an Amazon SageMaker AI endpoint. The information is an opaque value that is
    *         forwarded verbatim. You could use this value, for example, to return an ID received in
    *         the <code>CustomAttributes</code> header of a request or other metadata that a service
    *         endpoint was programmed to produce. The value must consist of no more than 1024 visible
@@ -750,7 +750,7 @@ export interface InvokeEndpointWithResponseStreamOutput {
    *         returned. For example, if a custom attribute represents the trace ID, your model can
    *         prepend the custom attribute with <code>Trace ID:</code> in your post-processing
    *         function.</p>
-   *          <p>This feature is currently supported in the Amazon Web Services SDKs but not in the Amazon SageMaker
+   *          <p>This feature is currently supported in the Amazon Web Services SDKs but not in the Amazon SageMaker AI
    *         Python SDK.</p>
    * @public
    */
