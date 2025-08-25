@@ -86,15 +86,15 @@ export interface CreateRetrainingSchedulerCommandOutput extends CreateRetraining
  * <p>Base exception class for all service exceptions from LookoutEquipment service.</p>
  *
  *
- * @example Creates a retraining scheduler with manual promote mode
+ * @example Creates a retraining scheduler with a specific start date
  * ```javascript
  * //
  * const input = {
  *   ClientToken: "sample-client-token",
  *   LookbackWindow: "P360D",
  *   ModelName: "sample-model",
- *   PromoteMode: "MANUAL",
- *   RetrainingFrequency: "P1M"
+ *   RetrainingFrequency: "P1M",
+ *   RetrainingStartDate: "2024-01-01T00:00:00Z"
  * };
  * const command = new CreateRetrainingSchedulerCommand(input);
  * const response = await client.send(command);
@@ -107,15 +107,15 @@ export interface CreateRetrainingSchedulerCommandOutput extends CreateRetraining
  * *\/
  * ```
  *
- * @example Creates a retraining scheduler with a specific start date
+ * @example Creates a retraining scheduler with manual promote mode
  * ```javascript
  * //
  * const input = {
  *   ClientToken: "sample-client-token",
  *   LookbackWindow: "P360D",
  *   ModelName: "sample-model",
- *   RetrainingFrequency: "P1M",
- *   RetrainingStartDate: "2024-01-01T00:00:00Z"
+ *   PromoteMode: "MANUAL",
+ *   RetrainingFrequency: "P1M"
  * };
  * const command = new CreateRetrainingSchedulerCommand(input);
  * const response = await client.send(command);
