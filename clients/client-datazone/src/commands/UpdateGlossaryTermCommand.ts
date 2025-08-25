@@ -75,6 +75,9 @@ export interface UpdateGlossaryTermCommandOutput extends UpdateGlossaryTermOutpu
  * //       "STRING_VALUE",
  * //     ],
  * //   },
+ * //   usageRestrictions: [ // GlossaryUsageRestrictions
+ * //     "ASSET_GOVERNED_TERMS",
+ * //   ],
  * // };
  *
  * ```

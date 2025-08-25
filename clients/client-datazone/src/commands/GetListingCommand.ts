@@ -73,6 +73,12 @@ export interface GetListingCommandOutput extends GetListingOutput, __MetadataBea
  * //           shortDescription: "STRING_VALUE",
  * //         },
  * //       ],
+ * //       governedGlossaryTerms: [
+ * //         {
+ * //           name: "STRING_VALUE",
+ * //           shortDescription: "STRING_VALUE",
+ * //         },
+ * //       ],
  * //       owningProjectId: "STRING_VALUE",
  * //     },
  * //     dataProductListing: { // DataProductListing

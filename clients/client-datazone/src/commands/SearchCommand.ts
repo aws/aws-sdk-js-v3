@@ -90,6 +90,9 @@ export interface SearchCommandOutput extends SearchOutput, __MetadataBearer {}
  * //         owningProjectId: "STRING_VALUE", // required
  * //         description: "STRING_VALUE",
  * //         status: "DISABLED" || "ENABLED", // required
+ * //         usageRestrictions: [ // GlossaryUsageRestrictions
+ * //           "ASSET_GOVERNED_TERMS",
+ * //         ],
  * //         createdAt: new Date("TIMESTAMP"),
  * //         createdBy: "STRING_VALUE",
  * //         updatedAt: new Date("TIMESTAMP"),
@@ -119,6 +122,9 @@ export interface SearchCommandOutput extends SearchOutput, __MetadataBearer {}
  * //         id: "STRING_VALUE", // required
  * //         name: "STRING_VALUE", // required
  * //         shortDescription: "STRING_VALUE",
+ * //         usageRestrictions: [
+ * //           "ASSET_GOVERNED_TERMS",
+ * //         ],
  * //         longDescription: "STRING_VALUE",
  * //         termRelations: { // TermRelations
  * //           isA: [ // GlossaryTerms
@@ -212,6 +218,9 @@ export interface SearchCommandOutput extends SearchOutput, __MetadataBearer {}
  * //             },
  * //           ],
  * //         },
+ * //         governedGlossaryTerms: [ // GovernedGlossaryTerms
+ * //           "STRING_VALUE",
+ * //         ],
  * //       },
  * //       dataProductItem: { // DataProductResultItem
  * //         domainId: "STRING_VALUE", // required

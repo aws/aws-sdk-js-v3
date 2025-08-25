@@ -28,6 +28,11 @@ import {
   AssociateEnvironmentRoleCommandOutput,
 } from "./commands/AssociateEnvironmentRoleCommand";
 import {
+  AssociateGovernedTermsCommand,
+  AssociateGovernedTermsCommandInput,
+  AssociateGovernedTermsCommandOutput,
+} from "./commands/AssociateGovernedTermsCommand";
+import {
   CancelMetadataGenerationRunCommand,
   CancelMetadataGenerationRunCommandInput,
   CancelMetadataGenerationRunCommandOutput,
@@ -286,6 +291,11 @@ import {
   DisassociateEnvironmentRoleCommandInput,
   DisassociateEnvironmentRoleCommandOutput,
 } from "./commands/DisassociateEnvironmentRoleCommand";
+import {
+  DisassociateGovernedTermsCommand,
+  DisassociateGovernedTermsCommandInput,
+  DisassociateGovernedTermsCommandOutput,
+} from "./commands/DisassociateGovernedTermsCommand";
 import {
   GetAccountPoolCommand,
   GetAccountPoolCommandInput,
@@ -754,6 +764,7 @@ const commands = {
   AddEntityOwnerCommand,
   AddPolicyGrantCommand,
   AssociateEnvironmentRoleCommand,
+  AssociateGovernedTermsCommand,
   CancelMetadataGenerationRunCommand,
   CancelSubscriptionCommand,
   CreateAccountPoolCommand,
@@ -809,6 +820,7 @@ const commands = {
   DeleteSubscriptionTargetCommand,
   DeleteTimeSeriesDataPointsCommand,
   DisassociateEnvironmentRoleCommand,
+  DisassociateGovernedTermsCommand,
   GetAccountPoolCommand,
   GetAssetCommand,
   GetAssetFilterCommand,
@@ -993,6 +1005,23 @@ export interface DataZone {
     args: AssociateEnvironmentRoleCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: AssociateEnvironmentRoleCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link AssociateGovernedTermsCommand}
+   */
+  associateGovernedTerms(
+    args: AssociateGovernedTermsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<AssociateGovernedTermsCommandOutput>;
+  associateGovernedTerms(
+    args: AssociateGovernedTermsCommandInput,
+    cb: (err: any, data?: AssociateGovernedTermsCommandOutput) => void
+  ): void;
+  associateGovernedTerms(
+    args: AssociateGovernedTermsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: AssociateGovernedTermsCommandOutput) => void
   ): void;
 
   /**
@@ -1856,6 +1885,23 @@ export interface DataZone {
     args: DisassociateEnvironmentRoleCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DisassociateEnvironmentRoleCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DisassociateGovernedTermsCommand}
+   */
+  disassociateGovernedTerms(
+    args: DisassociateGovernedTermsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DisassociateGovernedTermsCommandOutput>;
+  disassociateGovernedTerms(
+    args: DisassociateGovernedTermsCommandInput,
+    cb: (err: any, data?: DisassociateGovernedTermsCommandOutput) => void
+  ): void;
+  disassociateGovernedTerms(
+    args: DisassociateGovernedTermsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DisassociateGovernedTermsCommandOutput) => void
   ): void;
 
   /**

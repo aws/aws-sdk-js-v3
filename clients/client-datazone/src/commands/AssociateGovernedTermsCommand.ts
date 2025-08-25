@@ -6,13 +6,8 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { DataZoneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataZoneClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  UpdateGlossaryInput,
-  UpdateGlossaryInputFilterSensitiveLog,
-  UpdateGlossaryOutput,
-  UpdateGlossaryOutputFilterSensitiveLog,
-} from "../models/models_1";
-import { de_UpdateGlossaryCommand, se_UpdateGlossaryCommand } from "../protocols/Aws_restJson1";
+import { AssociateGovernedTermsInput, AssociateGovernedTermsOutput } from "../models/models_0";
+import { de_AssociateGovernedTermsCommand, se_AssociateGovernedTermsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -22,52 +17,42 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link UpdateGlossaryCommand}.
+ * The input for {@link AssociateGovernedTermsCommand}.
  */
-export interface UpdateGlossaryCommandInput extends UpdateGlossaryInput {}
+export interface AssociateGovernedTermsCommandInput extends AssociateGovernedTermsInput {}
 /**
  * @public
  *
- * The output of {@link UpdateGlossaryCommand}.
+ * The output of {@link AssociateGovernedTermsCommand}.
  */
-export interface UpdateGlossaryCommandOutput extends UpdateGlossaryOutput, __MetadataBearer {}
+export interface AssociateGovernedTermsCommandOutput extends AssociateGovernedTermsOutput, __MetadataBearer {}
 
 /**
- * <p>Updates the business glossary in Amazon DataZone.</p>
+ * <p>Associates governed terms with an asset.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DataZoneClient, UpdateGlossaryCommand } from "@aws-sdk/client-datazone"; // ES Modules import
- * // const { DataZoneClient, UpdateGlossaryCommand } = require("@aws-sdk/client-datazone"); // CommonJS import
+ * import { DataZoneClient, AssociateGovernedTermsCommand } from "@aws-sdk/client-datazone"; // ES Modules import
+ * // const { DataZoneClient, AssociateGovernedTermsCommand } = require("@aws-sdk/client-datazone"); // CommonJS import
  * const client = new DataZoneClient(config);
- * const input = { // UpdateGlossaryInput
+ * const input = { // AssociateGovernedTermsInput
  *   domainIdentifier: "STRING_VALUE", // required
- *   identifier: "STRING_VALUE", // required
- *   name: "STRING_VALUE",
- *   description: "STRING_VALUE",
- *   status: "DISABLED" || "ENABLED",
- *   clientToken: "STRING_VALUE",
+ *   entityIdentifier: "STRING_VALUE", // required
+ *   entityType: "ASSET", // required
+ *   governedGlossaryTerms: [ // GovernedGlossaryTerms // required
+ *     "STRING_VALUE",
+ *   ],
  * };
- * const command = new UpdateGlossaryCommand(input);
+ * const command = new AssociateGovernedTermsCommand(input);
  * const response = await client.send(command);
- * // { // UpdateGlossaryOutput
- * //   domainId: "STRING_VALUE", // required
- * //   id: "STRING_VALUE", // required
- * //   name: "STRING_VALUE", // required
- * //   owningProjectId: "STRING_VALUE", // required
- * //   description: "STRING_VALUE",
- * //   status: "DISABLED" || "ENABLED",
- * //   usageRestrictions: [ // GlossaryUsageRestrictions
- * //     "ASSET_GOVERNED_TERMS",
- * //   ],
- * // };
+ * // {};
  *
  * ```
  *
- * @param UpdateGlossaryCommandInput - {@link UpdateGlossaryCommandInput}
- * @returns {@link UpdateGlossaryCommandOutput}
- * @see {@link UpdateGlossaryCommandInput} for command's `input` shape.
- * @see {@link UpdateGlossaryCommandOutput} for command's `response` shape.
+ * @param AssociateGovernedTermsCommandInput - {@link AssociateGovernedTermsCommandInput}
+ * @returns {@link AssociateGovernedTermsCommandOutput}
+ * @see {@link AssociateGovernedTermsCommandInput} for command's `input` shape.
+ * @see {@link AssociateGovernedTermsCommandOutput} for command's `response` shape.
  * @see {@link DataZoneClientResolvedConfig | config} for DataZoneClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -97,10 +82,10 @@ export interface UpdateGlossaryCommandOutput extends UpdateGlossaryOutput, __Met
  *
  * @public
  */
-export class UpdateGlossaryCommand extends $Command
+export class AssociateGovernedTermsCommand extends $Command
   .classBuilder<
-    UpdateGlossaryCommandInput,
-    UpdateGlossaryCommandOutput,
+    AssociateGovernedTermsCommandInput,
+    AssociateGovernedTermsCommandOutput,
     DataZoneClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -112,21 +97,21 @@ export class UpdateGlossaryCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("DataZone", "UpdateGlossary", {})
-  .n("DataZoneClient", "UpdateGlossaryCommand")
-  .f(UpdateGlossaryInputFilterSensitiveLog, UpdateGlossaryOutputFilterSensitiveLog)
-  .ser(se_UpdateGlossaryCommand)
-  .de(de_UpdateGlossaryCommand)
+  .s("DataZone", "AssociateGovernedTerms", {})
+  .n("DataZoneClient", "AssociateGovernedTermsCommand")
+  .f(void 0, void 0)
+  .ser(se_AssociateGovernedTermsCommand)
+  .de(de_AssociateGovernedTermsCommand)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: UpdateGlossaryInput;
-      output: UpdateGlossaryOutput;
+      input: AssociateGovernedTermsInput;
+      output: {};
     };
     sdk: {
-      input: UpdateGlossaryCommandInput;
-      output: UpdateGlossaryCommandOutput;
+      input: AssociateGovernedTermsCommandInput;
+      output: AssociateGovernedTermsCommandOutput;
     };
   };
 }

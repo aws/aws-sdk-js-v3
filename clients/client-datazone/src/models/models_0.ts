@@ -2473,6 +2473,12 @@ export interface CreateAssetOutput {
   glossaryTerms?: string[] | undefined;
 
   /**
+   * <p>The glossary terms in a restricted glossary.</p>
+   * @public
+   */
+  governedGlossaryTerms?: string[] | undefined;
+
+  /**
    * <p>The ID of the Amazon DataZone project that owns the created asset. </p>
    * @public
    */
@@ -2651,6 +2657,12 @@ export interface CreateAssetRevisionOutput {
   glossaryTerms?: string[] | undefined;
 
   /**
+   * <p>The glossary terms in a restricted glossary.</p>
+   * @public
+   */
+  governedGlossaryTerms?: string[] | undefined;
+
+  /**
    * <p>The unique identifier of the revised project that owns the asset.</p>
    * @public
    */
@@ -2813,6 +2825,12 @@ export interface GetAssetOutput {
    * @public
    */
   glossaryTerms?: string[] | undefined;
+
+  /**
+   * <p>The restricted glossary terms attached to an asset.</p>
+   * @public
+   */
+  governedGlossaryTerms?: string[] | undefined;
 
   /**
    * <p>The ID of the project that owns the asset.</p>
@@ -3660,6 +3678,12 @@ export interface AssetItem {
    * @public
    */
   additionalAttributes?: AssetItemAdditionalAttributes | undefined;
+
+  /**
+   * <p>The restricted glossary terms accociated with an asset.</p>
+   * @public
+   */
+  governedGlossaryTerms?: string[] | undefined;
 }
 
 /**
@@ -3708,6 +3732,12 @@ export interface AssetListing {
    * @public
    */
   glossaryTerms?: DetailedGlossaryTerm[] | undefined;
+
+  /**
+   * <p>The restricted glossary terms associated with an asset.</p>
+   * @public
+   */
+  governedGlossaryTerms?: DetailedGlossaryTerm[] | undefined;
 
   /**
    * <p>The identifier of the project where an asset published in an Amazon DataZone catalog exists. </p>
@@ -3810,6 +3840,12 @@ export interface AssetListingItem {
    * @public
    */
   glossaryTerms?: DetailedGlossaryTerm[] | undefined;
+
+  /**
+   * <p>The restricted glossary terms associated with an asset.</p>
+   * @public
+   */
+  governedGlossaryTerms?: DetailedGlossaryTerm[] | undefined;
 
   /**
    * <p>The identifier of the project that owns the inventory asset.</p>
@@ -4297,6 +4333,53 @@ export interface AssociateEnvironmentRoleInput {
  * @public
  */
 export interface AssociateEnvironmentRoleOutput {}
+
+/**
+ * @public
+ * @enum
+ */
+export const GovernedEntityType = {
+  ASSET: "ASSET",
+} as const;
+
+/**
+ * @public
+ */
+export type GovernedEntityType = (typeof GovernedEntityType)[keyof typeof GovernedEntityType];
+
+/**
+ * @public
+ */
+export interface AssociateGovernedTermsInput {
+  /**
+   * <p>The ID of the domain where governed terms are to be associated with an asset.</p>
+   * @public
+   */
+  domainIdentifier: string | undefined;
+
+  /**
+   * <p>The ID of the asset with which you want to associate a governed term.</p>
+   * @public
+   */
+  entityIdentifier: string | undefined;
+
+  /**
+   * <p>The type of the asset with which you want to associate a governed term.</p>
+   * @public
+   */
+  entityType: GovernedEntityType | undefined;
+
+  /**
+   * <p>The glossary terms in a restricted glossary.</p>
+   * @public
+   */
+  governedGlossaryTerms: string[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface AssociateGovernedTermsOutput {}
 
 /**
  * <p>The Amazon Athena properties of a connection.</p>
@@ -9385,6 +9468,19 @@ export type GlossaryStatus = (typeof GlossaryStatus)[keyof typeof GlossaryStatus
 
 /**
  * @public
+ * @enum
+ */
+export const GlossaryUsageRestriction = {
+  ASSET_GOVERNED_TERMS: "ASSET_GOVERNED_TERMS",
+} as const;
+
+/**
+ * @public
+ */
+export type GlossaryUsageRestriction = (typeof GlossaryUsageRestriction)[keyof typeof GlossaryUsageRestriction];
+
+/**
+ * @public
  */
 export interface CreateGlossaryInput {
   /**
@@ -9416,6 +9512,12 @@ export interface CreateGlossaryInput {
    * @public
    */
   status?: GlossaryStatus | undefined;
+
+  /**
+   * <p>The usage restriction of the restricted glossary.</p>
+   * @public
+   */
+  usageRestrictions?: GlossaryUsageRestriction[] | undefined;
 
   /**
    * <p>A unique, case-sensitive identifier that is provided to ensure the idempotency of the request.</p>
@@ -9463,6 +9565,12 @@ export interface CreateGlossaryOutput {
    * @public
    */
   status?: GlossaryStatus | undefined;
+
+  /**
+   * <p>The usage restriction of the restricted glossary.</p>
+   * @public
+   */
+  usageRestrictions?: GlossaryUsageRestriction[] | undefined;
 }
 
 /**
@@ -9601,6 +9709,12 @@ export interface CreateGlossaryTermOutput {
    * @public
    */
   termRelations?: TermRelations | undefined;
+
+  /**
+   * <p>The usage restriction of the restricted glossary.</p>
+   * @public
+   */
+  usageRestrictions?: GlossaryUsageRestriction[] | undefined;
 }
 
 /**
@@ -9909,6 +10023,7 @@ export const ProjectStatus = {
   ACTIVE: "ACTIVE",
   DELETE_FAILED: "DELETE_FAILED",
   DELETING: "DELETING",
+  MOVING: "MOVING",
   UPDATE_FAILED: "UPDATE_FAILED",
   UPDATING: "UPDATING",
 } as const;
@@ -10443,99 +10558,6 @@ export interface MetadataFormReference {
 }
 
 /**
- * <p>The enforcement details of a metadata form.</p>
- * @public
- */
-export interface MetadataFormEnforcementDetail {
-  /**
-   * <p>The required metadata forms.</p>
-   * @public
-   */
-  requiredMetadataForms?: MetadataFormReference[] | undefined;
-}
-
-/**
- * <p>The details of a rule.</p>
- * @public
- */
-export type RuleDetail = RuleDetail.MetadataFormEnforcementDetailMember | RuleDetail.$UnknownMember;
-
-/**
- * @public
- */
-export namespace RuleDetail {
-  /**
-   * <p>The enforcement detail of the metadata form.</p>
-   * @public
-   */
-  export interface MetadataFormEnforcementDetailMember {
-    metadataFormEnforcementDetail: MetadataFormEnforcementDetail;
-    $unknown?: never;
-  }
-
-  /**
-   * @public
-   */
-  export interface $UnknownMember {
-    metadataFormEnforcementDetail?: never;
-    $unknown: [string, any];
-  }
-
-  export interface Visitor<T> {
-    metadataFormEnforcementDetail: (value: MetadataFormEnforcementDetail) => T;
-    _: (name: string, value: any) => T;
-  }
-
-  export const visit = <T>(value: RuleDetail, visitor: Visitor<T>): T => {
-    if (value.metadataFormEnforcementDetail !== undefined)
-      return visitor.metadataFormEnforcementDetail(value.metadataFormEnforcementDetail);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
-}
-
-/**
- * <p>Specifies projects in which the rule is created.</p>
- * @public
- */
-export interface ProjectsForRule {
-  /**
-   * <p>The selection mode of the rule.</p>
-   * @public
-   */
-  selectionMode: RuleScopeSelectionMode | undefined;
-
-  /**
-   * <p>The specific projects in which the rule is created.</p>
-   * @public
-   */
-  specificProjects?: string[] | undefined;
-}
-
-/**
- * <p>The scope of a rule.</p>
- * @public
- */
-export interface RuleScope {
-  /**
-   * <p>The asset type included in the rule scope.</p>
-   * @public
-   */
-  assetType?: AssetTypesForRule | undefined;
-
-  /**
-   * <p>The data product included in the rule scope.</p>
-   * @public
-   */
-  dataProduct?: boolean | undefined;
-
-  /**
-   * <p>The project included in the rule scope.</p>
-   * @public
-   */
-  project?: ProjectsForRule | undefined;
-}
-
-/**
  * @internal
  */
 export const AcceptChoiceFilterSensitiveLog = (obj: AcceptChoice): any => ({
@@ -10780,6 +10802,9 @@ export const AssetListingFilterSensitiveLog = (obj: AssetListing): any => ({
   ...(obj.glossaryTerms && {
     glossaryTerms: obj.glossaryTerms.map((item) => DetailedGlossaryTermFilterSensitiveLog(item)),
   }),
+  ...(obj.governedGlossaryTerms && {
+    governedGlossaryTerms: obj.governedGlossaryTerms.map((item) => DetailedGlossaryTermFilterSensitiveLog(item)),
+  }),
 });
 
 /**
@@ -10791,6 +10816,9 @@ export const AssetListingItemFilterSensitiveLog = (obj: AssetListingItem): any =
   ...(obj.description && { description: SENSITIVE_STRING }),
   ...(obj.glossaryTerms && {
     glossaryTerms: obj.glossaryTerms.map((item) => DetailedGlossaryTermFilterSensitiveLog(item)),
+  }),
+  ...(obj.governedGlossaryTerms && {
+    governedGlossaryTerms: obj.governedGlossaryTerms.map((item) => DetailedGlossaryTermFilterSensitiveLog(item)),
   }),
   ...(obj.additionalAttributes && { additionalAttributes: obj.additionalAttributes }),
 });

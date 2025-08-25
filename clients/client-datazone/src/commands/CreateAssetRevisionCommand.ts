@@ -81,6 +81,9 @@ export interface CreateAssetRevisionCommandOutput extends CreateAssetRevisionOut
  * //   glossaryTerms: [ // GlossaryTerms
  * //     "STRING_VALUE",
  * //   ],
+ * //   governedGlossaryTerms: [ // GovernedGlossaryTerms
+ * //     "STRING_VALUE",
+ * //   ],
  * //   owningProjectId: "STRING_VALUE", // required
  * //   domainId: "STRING_VALUE", // required
  * //   listing: { // AssetListingDetails

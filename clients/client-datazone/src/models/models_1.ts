@@ -16,6 +16,7 @@ import {
   AssetRevision,
   AssetScope,
   AssetTargetNameMap,
+  AssetTypesForRule,
   ConfigurableEnvironmentAction,
   ConnectionCredentials,
   ConnectionPropertiesOutput,
@@ -54,11 +55,14 @@ import {
   FormTypeStatus,
   GlossaryStatus,
   GlossaryTermStatus,
+  GlossaryUsageRestriction,
+  GovernedEntityType,
   GroupProfileStatus,
   ListingStatus,
   ManagedPolicyType,
   MatchRationaleItem,
   Member,
+  MetadataFormReference,
   Model,
   PhysicalEndpoint,
   PhysicalEndpointFilterSensitiveLog,
@@ -71,8 +75,7 @@ import {
   ResolutionStrategy,
   Resource,
   RuleAction,
-  RuleDetail,
-  RuleScope,
+  RuleScopeSelectionMode,
   ScheduleConfiguration,
   SingleSignOn,
   Status,
@@ -87,6 +90,99 @@ import {
   TimeSeriesDataPointSummaryFormOutput,
   UserDesignation,
 } from "./models_0";
+
+/**
+ * <p>The enforcement details of a metadata form.</p>
+ * @public
+ */
+export interface MetadataFormEnforcementDetail {
+  /**
+   * <p>The required metadata forms.</p>
+   * @public
+   */
+  requiredMetadataForms?: MetadataFormReference[] | undefined;
+}
+
+/**
+ * <p>The details of a rule.</p>
+ * @public
+ */
+export type RuleDetail = RuleDetail.MetadataFormEnforcementDetailMember | RuleDetail.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace RuleDetail {
+  /**
+   * <p>The enforcement detail of the metadata form.</p>
+   * @public
+   */
+  export interface MetadataFormEnforcementDetailMember {
+    metadataFormEnforcementDetail: MetadataFormEnforcementDetail;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    metadataFormEnforcementDetail?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    metadataFormEnforcementDetail: (value: MetadataFormEnforcementDetail) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: RuleDetail, visitor: Visitor<T>): T => {
+    if (value.metadataFormEnforcementDetail !== undefined)
+      return visitor.metadataFormEnforcementDetail(value.metadataFormEnforcementDetail);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
+ * <p>Specifies projects in which the rule is created.</p>
+ * @public
+ */
+export interface ProjectsForRule {
+  /**
+   * <p>The selection mode of the rule.</p>
+   * @public
+   */
+  selectionMode: RuleScopeSelectionMode | undefined;
+
+  /**
+   * <p>The specific projects in which the rule is created.</p>
+   * @public
+   */
+  specificProjects?: string[] | undefined;
+}
+
+/**
+ * <p>The scope of a rule.</p>
+ * @public
+ */
+export interface RuleScope {
+  /**
+   * <p>The asset type included in the rule scope.</p>
+   * @public
+   */
+  assetType?: AssetTypesForRule | undefined;
+
+  /**
+   * <p>The data product included in the rule scope.</p>
+   * @public
+   */
+  dataProduct?: boolean | undefined;
+
+  /**
+   * <p>The project included in the rule scope.</p>
+   * @public
+   */
+  project?: ProjectsForRule | undefined;
+}
 
 /**
  * <p>The target for the domain unit.</p>
@@ -3473,6 +3569,40 @@ export interface DisassociateEnvironmentRoleOutput {}
 /**
  * @public
  */
+export interface DisassociateGovernedTermsInput {
+  /**
+   * <p>The ID of the domain where you want to disassociate restricted terms from an asset.</p>
+   * @public
+   */
+  domainIdentifier: string | undefined;
+
+  /**
+   * <p>The ID of an asset from which you want to disassociate restricted terms.</p>
+   * @public
+   */
+  entityIdentifier: string | undefined;
+
+  /**
+   * <p>The type of the asset from which you want to disassociate restricted terms.</p>
+   * @public
+   */
+  entityType: GovernedEntityType | undefined;
+
+  /**
+   * <p>The restricted glossary terms that you want to disassociate from an asset.</p>
+   * @public
+   */
+  governedGlossaryTerms: string[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DisassociateGovernedTermsOutput {}
+
+/**
+ * @public
+ */
 export interface DeleteDomainInput {
   /**
    * <p>The identifier of the Amazon Web Services domain that is to be deleted.</p>
@@ -6631,6 +6761,12 @@ export interface GetGlossaryOutput {
    * @public
    */
   updatedBy?: string | undefined;
+
+  /**
+   * <p>The usage restriction of the restricted glossary.</p>
+   * @public
+   */
+  usageRestrictions?: GlossaryUsageRestriction[] | undefined;
 }
 
 /**
@@ -6713,6 +6849,12 @@ export interface UpdateGlossaryOutput {
    * @public
    */
   status?: GlossaryStatus | undefined;
+
+  /**
+   * <p>The usage restriction of the restricted glossary.</p>
+   * @public
+   */
+  usageRestrictions?: GlossaryUsageRestriction[] | undefined;
 }
 
 /**
@@ -6829,6 +6971,12 @@ export interface GetGlossaryTermOutput {
    * @public
    */
   updatedBy?: string | undefined;
+
+  /**
+   * <p>The usage restriction of a term within a restricted glossary.</p>
+   * @public
+   */
+  usageRestrictions?: GlossaryUsageRestriction[] | undefined;
 }
 
 /**
@@ -6935,6 +7083,12 @@ export interface UpdateGlossaryTermOutput {
    * @public
    */
   termRelations?: TermRelations | undefined;
+
+  /**
+   * <p>The usage restriction of a term within a restricted glossary.</p>
+   * @public
+   */
+  usageRestrictions?: GlossaryUsageRestriction[] | undefined;
 }
 
 /**
@@ -10327,217 +10481,6 @@ export interface GetMetadataGenerationRunOutput {
 }
 
 /**
- * @public
- */
-export interface ListMetadataGenerationRunsInput {
-  /**
-   * <p>The ID of the Amazon DataZone domain where you want to list metadata generation runs.</p>
-   * @public
-   */
-  domainIdentifier: string | undefined;
-
-  /**
-   * <p>The status of the metadata generation runs.</p>
-   * @public
-   */
-  status?: MetadataGenerationRunStatus | undefined;
-
-  /**
-   * <p>The type of the metadata generation runs.</p>
-   * @public
-   */
-  type?: MetadataGenerationRunType | undefined;
-
-  /**
-   * <p>When the number of metadata generation runs is greater than the default value for the MaxResults parameter, or if you explicitly specify a value for MaxResults that is less than the number of metadata generation runs, the response includes a pagination token named NextToken. You can specify this NextToken value in a subsequent call to ListMetadataGenerationRuns to list the next set of revisions.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of metadata generation runs to return in a single call to ListMetadataGenerationRuns. When the number of metadata generation runs to be listed is greater than the value of MaxResults, the response contains a NextToken value that you can use in a subsequent call to ListMetadataGenerationRuns to list the next set of revisions.</p>
-   * @public
-   */
-  maxResults?: number | undefined;
-}
-
-/**
- * <p>The metadata generation run.</p>
- * @public
- */
-export interface MetadataGenerationRunItem {
-  /**
-   * <p>The ID of the Amazon DataZone domain in which the metadata generation run was created.</p>
-   * @public
-   */
-  domainId: string | undefined;
-
-  /**
-   * <p>The ID of the metadata generation run.</p>
-   * @public
-   */
-  id: string | undefined;
-
-  /**
-   * <p>The asset for which metadata was generated.</p>
-   * @public
-   */
-  target?: MetadataGenerationRunTarget | undefined;
-
-  /**
-   * <p>The status of the metadata generation run.</p>
-   * @public
-   */
-  status?: MetadataGenerationRunStatus | undefined;
-
-  /**
-   * <p>The type of the metadata generation run.</p>
-   * @public
-   */
-  type?: MetadataGenerationRunType | undefined;
-
-  /**
-   * <p>The timestamp at which the metadata generation run was created.</p>
-   * @public
-   */
-  createdAt?: Date | undefined;
-
-  /**
-   * <p>The user who created the metadata generation run.</p>
-   * @public
-   */
-  createdBy?: string | undefined;
-
-  /**
-   * <p>The ID of the project that owns the asset for which the metadata generation was ran.</p>
-   * @public
-   */
-  owningProjectId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListMetadataGenerationRunsOutput {
-  /**
-   * <p>The results of the ListMetadataGenerationRuns action.</p>
-   * @public
-   */
-  items?: MetadataGenerationRunItem[] | undefined;
-
-  /**
-   * <p>When the number of metadata generation runs is greater than the default value for the MaxResults parameter, or if you explicitly specify a value for MaxResults that is less than the number of metadata generation runs, the response includes a pagination token named NextToken. You can specify this NextToken value in a subsequent call to ListMetadataGenerationRuns to list the next set of revisions.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface StartMetadataGenerationRunInput {
-  /**
-   * <p>The ID of the Amazon DataZone domain where you want to start a metadata generation run.</p>
-   * @public
-   */
-  domainIdentifier: string | undefined;
-
-  /**
-   * <p>The type of the metadata generation run.</p>
-   * @public
-   */
-  type: MetadataGenerationRunType | undefined;
-
-  /**
-   * <p>The asset for which you want to start a metadata generation run.</p>
-   * @public
-   */
-  target: MetadataGenerationRunTarget | undefined;
-
-  /**
-   * <p>A unique, case-sensitive identifier to ensure idempotency of the request. This field is automatically populated if not provided.</p>
-   * @public
-   */
-  clientToken?: string | undefined;
-
-  /**
-   * <p>The ID of the project that owns the asset for which you want to start a metadata generation run.</p>
-   * @public
-   */
-  owningProjectIdentifier: string | undefined;
-}
-
-/**
- * @public
- */
-export interface StartMetadataGenerationRunOutput {
-  /**
-   * <p>The ID of the Amazon DataZone domain in which the metadata generation run was started.</p>
-   * @public
-   */
-  domainId: string | undefined;
-
-  /**
-   * <p>The ID of the metadata generation run.</p>
-   * @public
-   */
-  id: string | undefined;
-
-  /**
-   * <p>The status of the metadata generation run.</p>
-   * @public
-   */
-  status?: MetadataGenerationRunStatus | undefined;
-
-  /**
-   * <p>The type of the metadata generation run.</p>
-   * @public
-   */
-  type?: MetadataGenerationRunType | undefined;
-
-  /**
-   * <p>The timestamp at which the metadata generation run was started.</p>
-   * @public
-   */
-  createdAt?: Date | undefined;
-
-  /**
-   * <p>The ID of the user who started the metadata generation run.</p>
-   * @public
-   */
-  createdBy?: string | undefined;
-
-  /**
-   * <p>The ID of the project that owns the asset for which the metadata generation run was started.</p>
-   * @public
-   */
-  owningProjectId?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface PostLineageEventInput {
-  /**
-   * <p>The ID of the domain where you want to post a data lineage event.</p>
-   * @public
-   */
-  domainIdentifier: string | undefined;
-
-  /**
-   * <p>The data lineage event that you want to post. Only open-lineage run event are supported as events. </p>
-   * @public
-   */
-  event: Uint8Array | undefined;
-
-  /**
-   * <p>A unique, case-sensitive identifier that is provided to ensure the idempotency of the request.</p>
-   * @public
-   */
-  clientToken?: string | undefined;
-}
-
-/**
  * @internal
  */
 export const CreateRuleInputFilterSensitiveLog = (obj: CreateRuleInput): any => ({
@@ -11333,12 +11276,4 @@ export const SubscriptionTargetSummaryFilterSensitiveLog = (obj: SubscriptionTar
 export const ListSubscriptionTargetsOutputFilterSensitiveLog = (obj: ListSubscriptionTargetsOutput): any => ({
   ...obj,
   ...(obj.items && { items: obj.items.map((item) => SubscriptionTargetSummaryFilterSensitiveLog(item)) }),
-});
-
-/**
- * @internal
- */
-export const PostLineageEventInputFilterSensitiveLog = (obj: PostLineageEventInput): any => ({
-  ...obj,
-  ...(obj.event && { event: SENSITIVE_STRING }),
 });

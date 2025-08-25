@@ -75,6 +75,9 @@ export interface CreateGlossaryTermCommandOutput extends CreateGlossaryTermOutpu
  * //       "STRING_VALUE",
  * //     ],
  * //   },
+ * //   usageRestrictions: [ // GlossaryUsageRestrictions
+ * //     "ASSET_GOVERNED_TERMS",
+ * //   ],
  * // };
  *
  * ```

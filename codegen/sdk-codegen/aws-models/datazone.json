@@ -1005,6 +1005,9 @@
         },
         "firstRevisionCreatedBy": {
           "target": "com.amazonaws.datazone#CreatedBy"
+        },
+        "governedGlossaryTerms": {
+          "target": "com.amazonaws.datazone#GovernedGlossaryTerms"
         }
       },
       "create": {
@@ -1256,6 +1259,16 @@
           "traits": {
             "smithy.api#documentation": "<p>The additional attributes of a Amazon DataZone inventory asset. </p>"
           }
+        },
+        "governedGlossaryTerms": {
+          "target": "com.amazonaws.datazone#GovernedGlossaryTerms",
+          "traits": {
+            "smithy.api#documentation": "<p>The restricted glossary terms accociated with an asset.</p>",
+            "smithy.api#length": {
+              "min": 0,
+              "max": 20
+            }
+          }
         }
       },
       "traits": {
@@ -1342,6 +1355,16 @@
           "target": "com.amazonaws.datazone#DetailedGlossaryTerms",
           "traits": {
             "smithy.api#documentation": "<p>The glossary terms attached to an asset published in an Amazon DataZone catalog. </p>"
+          }
+        },
+        "governedGlossaryTerms": {
+          "target": "com.amazonaws.datazone#DetailedGlossaryTerms",
+          "traits": {
+            "smithy.api#documentation": "<p>The restricted glossary terms associated with an asset.</p>",
+            "smithy.api#length": {
+              "min": 0,
+              "max": 20
+            }
           }
         },
         "owningProjectId": {
@@ -1444,6 +1467,16 @@
           "target": "com.amazonaws.datazone#DetailedGlossaryTerms",
           "traits": {
             "smithy.api#documentation": "<p>Glossary terms attached to the inventory asset.</p>"
+          }
+        },
+        "governedGlossaryTerms": {
+          "target": "com.amazonaws.datazone#DetailedGlossaryTerms",
+          "traits": {
+            "smithy.api#documentation": "<p>The restricted glossary terms associated with an asset.</p>",
+            "smithy.api#length": {
+              "min": 0,
+              "max": 20
+            }
           }
         },
         "owningProjectId": {
@@ -1861,6 +1894,93 @@
       }
     },
     "com.amazonaws.datazone#AssociateEnvironmentRoleOutput": {
+      "type": "structure",
+      "members": {},
+      "traits": {
+        "smithy.api#output": {}
+      }
+    },
+    "com.amazonaws.datazone#AssociateGovernedTerms": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.datazone#AssociateGovernedTermsInput"
+      },
+      "output": {
+        "target": "com.amazonaws.datazone#AssociateGovernedTermsOutput"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.datazone#AccessDeniedException"
+        },
+        {
+          "target": "com.amazonaws.datazone#ConflictException"
+        },
+        {
+          "target": "com.amazonaws.datazone#InternalServerException"
+        },
+        {
+          "target": "com.amazonaws.datazone#ResourceNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.datazone#ThrottlingException"
+        },
+        {
+          "target": "com.amazonaws.datazone#ValidationException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Associates governed terms with an asset.</p>",
+        "smithy.api#http": {
+          "code": 200,
+          "method": "PATCH",
+          "uri": "/v2/domains/{domainIdentifier}/entities/{entityType}/{entityIdentifier}/associate-governed-terms"
+        }
+      }
+    },
+    "com.amazonaws.datazone#AssociateGovernedTermsInput": {
+      "type": "structure",
+      "members": {
+        "domainIdentifier": {
+          "target": "com.amazonaws.datazone#DomainId",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID of the domain where governed terms are to be associated with an asset.</p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        },
+        "entityIdentifier": {
+          "target": "com.amazonaws.datazone#EntityIdentifier",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID of the asset with which you want to associate a governed term.</p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        },
+        "entityType": {
+          "target": "com.amazonaws.datazone#GovernedEntityType",
+          "traits": {
+            "smithy.api#documentation": "<p>The type of the asset with which you want to associate a governed term.</p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        },
+        "governedGlossaryTerms": {
+          "target": "com.amazonaws.datazone#GovernedGlossaryTerms",
+          "traits": {
+            "smithy.api#documentation": "<p>The glossary terms in a restricted glossary.</p>",
+            "smithy.api#length": {
+              "min": 1,
+              "max": 5
+            },
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#input": {}
+      }
+    },
+    "com.amazonaws.datazone#AssociateGovernedTermsOutput": {
       "type": "structure",
       "members": {},
       "traits": {
@@ -3653,6 +3773,16 @@
             "smithy.api#documentation": "<p>The glossary terms that are attached to the created asset.</p>"
           }
         },
+        "governedGlossaryTerms": {
+          "target": "com.amazonaws.datazone#GovernedGlossaryTerms",
+          "traits": {
+            "smithy.api#documentation": "<p>The glossary terms in a restricted glossary.</p>",
+            "smithy.api#length": {
+              "min": 0,
+              "max": 20
+            }
+          }
+        },
         "owningProjectId": {
           "target": "com.amazonaws.datazone#ProjectId",
           "traits": {
@@ -3889,6 +4019,16 @@
           "target": "com.amazonaws.datazone#GlossaryTerms",
           "traits": {
             "smithy.api#documentation": "<p>The glossary terms that were attached to the asset as part of asset revision.</p>"
+          }
+        },
+        "governedGlossaryTerms": {
+          "target": "com.amazonaws.datazone#GovernedGlossaryTerms",
+          "traits": {
+            "smithy.api#documentation": "<p>The glossary terms in a restricted glossary.</p>",
+            "smithy.api#length": {
+              "min": 0,
+              "max": 20
+            }
           }
         },
         "owningProjectId": {
@@ -6165,6 +6305,12 @@
             "smithy.api#documentation": "<p>The status of this business glossary.</p>"
           }
         },
+        "usageRestrictions": {
+          "target": "com.amazonaws.datazone#GlossaryUsageRestrictions",
+          "traits": {
+            "smithy.api#documentation": "<p>The usage restriction of the restricted glossary.</p>"
+          }
+        },
         "clientToken": {
           "target": "com.amazonaws.datazone#ClientToken",
           "traits": {
@@ -6218,6 +6364,12 @@
           "target": "com.amazonaws.datazone#GlossaryStatus",
           "traits": {
             "smithy.api#documentation": "<p>The status of this business glossary.</p>"
+          }
+        },
+        "usageRestrictions": {
+          "target": "com.amazonaws.datazone#GlossaryUsageRestrictions",
+          "traits": {
+            "smithy.api#documentation": "<p>The usage restriction of the restricted glossary.</p>"
           }
         }
       },
@@ -6395,6 +6547,12 @@
           "target": "com.amazonaws.datazone#TermRelations",
           "traits": {
             "smithy.api#documentation": "<p>The term relations of this business glossary term.</p>"
+          }
+        },
+        "usageRestrictions": {
+          "target": "com.amazonaws.datazone#GlossaryUsageRestrictions",
+          "traits": {
+            "smithy.api#documentation": "<p>The usage restriction of the restricted glossary.</p>"
           }
         }
       },
@@ -9341,6 +9499,9 @@
           "target": "com.amazonaws.datazone#AssociateEnvironmentRole"
         },
         {
+          "target": "com.amazonaws.datazone#AssociateGovernedTerms"
+        },
+        {
           "target": "com.amazonaws.datazone#CancelSubscription"
         },
         {
@@ -9429,6 +9590,9 @@
         },
         {
           "target": "com.amazonaws.datazone#DisassociateEnvironmentRole"
+        },
+        {
+          "target": "com.amazonaws.datazone#DisassociateGovernedTerms"
         },
         {
           "target": "com.amazonaws.datazone#GetAccountPool"
@@ -12394,6 +12558,93 @@
         "smithy.api#output": {}
       }
     },
+    "com.amazonaws.datazone#DisassociateGovernedTerms": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.datazone#DisassociateGovernedTermsInput"
+      },
+      "output": {
+        "target": "com.amazonaws.datazone#DisassociateGovernedTermsOutput"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.datazone#AccessDeniedException"
+        },
+        {
+          "target": "com.amazonaws.datazone#ConflictException"
+        },
+        {
+          "target": "com.amazonaws.datazone#InternalServerException"
+        },
+        {
+          "target": "com.amazonaws.datazone#ResourceNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.datazone#ThrottlingException"
+        },
+        {
+          "target": "com.amazonaws.datazone#ValidationException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Disassociates restricted terms from an asset.</p>",
+        "smithy.api#http": {
+          "code": 200,
+          "method": "PATCH",
+          "uri": "/v2/domains/{domainIdentifier}/entities/{entityType}/{entityIdentifier}/disassociate-governed-terms"
+        }
+      }
+    },
+    "com.amazonaws.datazone#DisassociateGovernedTermsInput": {
+      "type": "structure",
+      "members": {
+        "domainIdentifier": {
+          "target": "com.amazonaws.datazone#DomainId",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID of the domain where you want to disassociate restricted terms from an asset.</p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        },
+        "entityIdentifier": {
+          "target": "com.amazonaws.datazone#EntityIdentifier",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID of an asset from which you want to disassociate restricted terms.</p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        },
+        "entityType": {
+          "target": "com.amazonaws.datazone#GovernedEntityType",
+          "traits": {
+            "smithy.api#documentation": "<p>The type of the asset from which you want to disassociate restricted terms.</p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        },
+        "governedGlossaryTerms": {
+          "target": "com.amazonaws.datazone#GovernedGlossaryTerms",
+          "traits": {
+            "smithy.api#documentation": "<p>The restricted glossary terms that you want to disassociate from an asset.</p>",
+            "smithy.api#length": {
+              "min": 1,
+              "max": 5
+            },
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#input": {}
+      }
+    },
+    "com.amazonaws.datazone#DisassociateGovernedTermsOutput": {
+      "type": "structure",
+      "members": {},
+      "traits": {
+        "smithy.api#output": {}
+      }
+    },
     "com.amazonaws.datazone#Domain": {
       "type": "resource",
       "identifiers": {
@@ -14918,6 +15169,16 @@
             "smithy.api#documentation": "<p>The business glossary terms attached to the asset.</p>"
           }
         },
+        "governedGlossaryTerms": {
+          "target": "com.amazonaws.datazone#GovernedGlossaryTerms",
+          "traits": {
+            "smithy.api#documentation": "<p>The restricted glossary terms attached to an asset.</p>",
+            "smithy.api#length": {
+              "min": 0,
+              "max": 20
+            }
+          }
+        },
         "owningProjectId": {
           "target": "com.amazonaws.datazone#ProjectId",
           "traits": {
@@ -17202,6 +17463,12 @@
           "traits": {
             "smithy.api#documentation": "<p>The Amazon DataZone user who updated the business glossary.</p>"
           }
+        },
+        "usageRestrictions": {
+          "target": "com.amazonaws.datazone#GlossaryUsageRestrictions",
+          "traits": {
+            "smithy.api#documentation": "<p>The usage restriction of the restricted glossary.</p>"
+          }
         }
       },
       "traits": {
@@ -17345,6 +17612,12 @@
           "target": "com.amazonaws.datazone#UpdatedBy",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon DataZone user who updated the business glossary term.</p>"
+          }
+        },
+        "usageRestrictions": {
+          "target": "com.amazonaws.datazone#GlossaryUsageRestrictions",
+          "traits": {
+            "smithy.api#documentation": "<p>The usage restriction of a term within a restricted glossary.</p>"
           }
         }
       },
@@ -19552,6 +19825,9 @@
         },
         "updatedBy": {
           "target": "com.amazonaws.datazone#UpdatedBy"
+        },
+        "usageRestrictions": {
+          "target": "com.amazonaws.datazone#GlossaryUsageRestrictions"
         }
       },
       "create": {
@@ -19624,6 +19900,12 @@
           "traits": {
             "smithy.api#documentation": "<p>The business glossary status.</p>",
             "smithy.api#required": {}
+          }
+        },
+        "usageRestrictions": {
+          "target": "com.amazonaws.datazone#GlossaryUsageRestrictions",
+          "traits": {
+            "smithy.api#documentation": "<p>The usage restrictions associated with a goverened glossary term.</p>"
           }
         },
         "createdAt": {
@@ -19751,6 +20033,9 @@
         },
         "updatedBy": {
           "target": "com.amazonaws.datazone#UpdatedBy"
+        },
+        "usageRestrictions": {
+          "target": "com.amazonaws.datazone#GlossaryUsageRestrictions"
         }
       },
       "create": {
@@ -19807,6 +20092,12 @@
           "target": "com.amazonaws.datazone#ShortDescription",
           "traits": {
             "smithy.api#documentation": "<p>The short description of the business glossary term.</p>"
+          }
+        },
+        "usageRestrictions": {
+          "target": "com.amazonaws.datazone#GlossaryUsageRestrictions",
+          "traits": {
+            "smithy.api#documentation": "<p>The usage restrictions associated with a goverened glossary term.</p>"
           }
         },
         "longDescription": {
@@ -19913,6 +20204,29 @@
         "smithy.api#length": {
           "min": 1,
           "max": 20
+        }
+      }
+    },
+    "com.amazonaws.datazone#GlossaryUsageRestriction": {
+      "type": "enum",
+      "members": {
+        "ASSET_GOVERNED_TERMS": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ASSET_GOVERNED_TERMS"
+          }
+        }
+      }
+    },
+    "com.amazonaws.datazone#GlossaryUsageRestrictions": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.datazone#GlossaryUsageRestriction"
+      },
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 1
         }
       }
     },
@@ -20466,6 +20780,23 @@
             "smithy.api#enumValue": "USER_MANAGED"
           }
         }
+      }
+    },
+    "com.amazonaws.datazone#GovernedEntityType": {
+      "type": "enum",
+      "members": {
+        "ASSET": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ASSET"
+          }
+        }
+      }
+    },
+    "com.amazonaws.datazone#GovernedGlossaryTerms": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.datazone#GlossaryTermId"
       }
     },
     "com.amazonaws.datazone#GrantIdentifier": {
@@ -27629,6 +27960,12 @@
           "target": "smithy.api#Unit",
           "traits": {
             "smithy.api#enumValue": "UPDATE_FAILED"
+          }
+        },
+        "MOVING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "MOVING"
           }
         }
       }
@@ -35505,6 +35842,12 @@
           "traits": {
             "smithy.api#documentation": "<p>The status to be updated as part of the <code>UpdateGlossary</code> action.</p>"
           }
+        },
+        "usageRestrictions": {
+          "target": "com.amazonaws.datazone#GlossaryUsageRestrictions",
+          "traits": {
+            "smithy.api#documentation": "<p>The usage restriction of the restricted glossary.</p>"
+          }
         }
       },
       "traits": {
@@ -35663,6 +36006,12 @@
           "target": "com.amazonaws.datazone#TermRelations",
           "traits": {
             "smithy.api#documentation": "<p>The term relations to be updated as part of the <code>UpdateGlossaryTerm</code> action.</p>"
+          }
+        },
+        "usageRestrictions": {
+          "target": "com.amazonaws.datazone#GlossaryUsageRestrictions",
+          "traits": {
+            "smithy.api#documentation": "<p>The usage restriction of a term within a restricted glossary.</p>"
           }
         }
       },

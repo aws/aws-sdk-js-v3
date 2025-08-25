@@ -46,6 +46,9 @@ export interface CreateGlossaryCommandOutput extends CreateGlossaryOutput, __Met
  *   owningProjectIdentifier: "STRING_VALUE", // required
  *   description: "STRING_VALUE",
  *   status: "DISABLED" || "ENABLED",
+ *   usageRestrictions: [ // GlossaryUsageRestrictions
+ *     "ASSET_GOVERNED_TERMS",
+ *   ],
  *   clientToken: "STRING_VALUE",
  * };
  * const command = new CreateGlossaryCommand(input);
@@ -57,6 +60,9 @@ export interface CreateGlossaryCommandOutput extends CreateGlossaryOutput, __Met
  * //   owningProjectId: "STRING_VALUE", // required
  * //   description: "STRING_VALUE",
  * //   status: "DISABLED" || "ENABLED",
+ * //   usageRestrictions: [ // GlossaryUsageRestrictions
+ * //     "ASSET_GOVERNED_TERMS",
+ * //   ],
  * // };
  *
  * ```

@@ -245,6 +245,14 @@ AssociateEnvironmentRole
 </details>
 <details>
 <summary>
+AssociateGovernedTerms
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/datazone/command/AssociateGovernedTermsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-datazone/Interface/AssociateGovernedTermsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-datazone/Interface/AssociateGovernedTermsCommandOutput/)
+
+</details>
+<details>
+<summary>
 CancelMetadataGenerationRun
 </summary>
 
@@ -681,6 +689,14 @@ DisassociateEnvironmentRole
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/datazone/command/DisassociateEnvironmentRoleCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-datazone/Interface/DisassociateEnvironmentRoleCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-datazone/Interface/DisassociateEnvironmentRoleCommandOutput/)
+
+</details>
+<details>
+<summary>
+DisassociateGovernedTerms
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/datazone/command/DisassociateGovernedTermsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-datazone/Interface/DisassociateGovernedTermsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-datazone/Interface/DisassociateGovernedTermsCommandOutput/)
 
 </details>
 <details>

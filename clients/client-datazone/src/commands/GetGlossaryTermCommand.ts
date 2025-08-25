@@ -65,6 +65,9 @@ export interface GetGlossaryTermCommandOutput extends GetGlossaryTermOutput, __M
  * //   createdBy: "STRING_VALUE",
  * //   updatedAt: new Date("TIMESTAMP"),
  * //   updatedBy: "STRING_VALUE",
+ * //   usageRestrictions: [ // GlossaryUsageRestrictions
+ * //     "ASSET_GOVERNED_TERMS",
+ * //   ],
  * // };
  *
  * ```

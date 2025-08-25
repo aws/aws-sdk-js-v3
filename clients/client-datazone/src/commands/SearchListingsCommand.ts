@@ -104,6 +104,12 @@ export interface SearchListingsCommandOutput extends SearchListingsOutput, __Met
  * //             shortDescription: "STRING_VALUE",
  * //           },
  * //         ],
+ * //         governedGlossaryTerms: [
+ * //           {
+ * //             name: "STRING_VALUE",
+ * //             shortDescription: "STRING_VALUE",
+ * //           },
+ * //         ],
  * //         owningProjectId: "STRING_VALUE",
  * //         additionalAttributes: { // AssetListingItemAdditionalAttributes
  * //           forms: "STRING_VALUE",

@@ -65,6 +65,10 @@ import {
   AssociateEnvironmentRoleCommandOutput,
 } from "./commands/AssociateEnvironmentRoleCommand";
 import {
+  AssociateGovernedTermsCommandInput,
+  AssociateGovernedTermsCommandOutput,
+} from "./commands/AssociateGovernedTermsCommand";
+import {
   CancelMetadataGenerationRunCommandInput,
   CancelMetadataGenerationRunCommandOutput,
 } from "./commands/CancelMetadataGenerationRunCommand";
@@ -182,6 +186,10 @@ import {
   DisassociateEnvironmentRoleCommandInput,
   DisassociateEnvironmentRoleCommandOutput,
 } from "./commands/DisassociateEnvironmentRoleCommand";
+import {
+  DisassociateGovernedTermsCommandInput,
+  DisassociateGovernedTermsCommandOutput,
+} from "./commands/DisassociateGovernedTermsCommand";
 import { GetAccountPoolCommandInput, GetAccountPoolCommandOutput } from "./commands/GetAccountPoolCommand";
 import { GetAssetCommandInput, GetAssetCommandOutput } from "./commands/GetAssetCommand";
 import { GetAssetFilterCommandInput, GetAssetFilterCommandOutput } from "./commands/GetAssetFilterCommand";
@@ -423,6 +431,7 @@ export type ServiceInputTypes =
   | AddEntityOwnerCommandInput
   | AddPolicyGrantCommandInput
   | AssociateEnvironmentRoleCommandInput
+  | AssociateGovernedTermsCommandInput
   | CancelMetadataGenerationRunCommandInput
   | CancelSubscriptionCommandInput
   | CreateAccountPoolCommandInput
@@ -478,6 +487,7 @@ export type ServiceInputTypes =
   | DeleteSubscriptionTargetCommandInput
   | DeleteTimeSeriesDataPointsCommandInput
   | DisassociateEnvironmentRoleCommandInput
+  | DisassociateGovernedTermsCommandInput
   | GetAccountPoolCommandInput
   | GetAssetCommandInput
   | GetAssetFilterCommandInput
@@ -592,6 +602,7 @@ export type ServiceOutputTypes =
   | AddEntityOwnerCommandOutput
   | AddPolicyGrantCommandOutput
   | AssociateEnvironmentRoleCommandOutput
+  | AssociateGovernedTermsCommandOutput
   | CancelMetadataGenerationRunCommandOutput
   | CancelSubscriptionCommandOutput
   | CreateAccountPoolCommandOutput
@@ -647,6 +658,7 @@ export type ServiceOutputTypes =
   | DeleteSubscriptionTargetCommandOutput
   | DeleteTimeSeriesDataPointsCommandOutput
   | DisassociateEnvironmentRoleCommandOutput
+  | DisassociateGovernedTermsCommandOutput
   | GetAccountPoolCommandOutput
   | GetAssetCommandOutput
   | GetAssetFilterCommandOutput

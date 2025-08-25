@@ -57,7 +57,7 @@ export interface ListProjectsCommandOutput extends ListProjectsOutput, __Metadat
  * //       id: "STRING_VALUE", // required
  * //       name: "STRING_VALUE", // required
  * //       description: "STRING_VALUE",
- * //       projectStatus: "ACTIVE" || "DELETING" || "DELETE_FAILED" || "UPDATING" || "UPDATE_FAILED",
+ * //       projectStatus: "ACTIVE" || "DELETING" || "DELETE_FAILED" || "UPDATING" || "UPDATE_FAILED" || "MOVING",
  * //       failureReasons: [ // FailureReasons
  * //         { // ProjectDeletionError
  * //           code: "STRING_VALUE",

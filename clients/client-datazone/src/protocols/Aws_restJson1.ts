@@ -48,6 +48,10 @@ import {
   AssociateEnvironmentRoleCommandOutput,
 } from "../commands/AssociateEnvironmentRoleCommand";
 import {
+  AssociateGovernedTermsCommandInput,
+  AssociateGovernedTermsCommandOutput,
+} from "../commands/AssociateGovernedTermsCommand";
+import {
   CancelMetadataGenerationRunCommandInput,
   CancelMetadataGenerationRunCommandOutput,
 } from "../commands/CancelMetadataGenerationRunCommand";
@@ -165,6 +169,10 @@ import {
   DisassociateEnvironmentRoleCommandInput,
   DisassociateEnvironmentRoleCommandOutput,
 } from "../commands/DisassociateEnvironmentRoleCommand";
+import {
+  DisassociateGovernedTermsCommandInput,
+  DisassociateGovernedTermsCommandOutput,
+} from "../commands/DisassociateGovernedTermsCommand";
 import { GetAccountPoolCommandInput, GetAccountPoolCommandOutput } from "../commands/GetAccountPoolCommand";
 import { GetAssetCommandInput, GetAssetCommandOutput } from "../commands/GetAssetCommand";
 import { GetAssetFilterCommandInput, GetAssetFilterCommandOutput } from "../commands/GetAssetFilterCommand";
@@ -452,6 +460,7 @@ import {
   FilterExpression,
   FormEntryInput,
   FormInput,
+  GlossaryUsageRestriction,
   GlueConnection,
   GlueConnectionInput,
   GlueConnectionPatch,
@@ -474,7 +483,6 @@ import {
   LikeExpression,
   LineageSyncSchedule,
   Member,
-  MetadataFormEnforcementDetail,
   MetadataFormReference,
   Model,
   NotEqualToExpression,
@@ -494,7 +502,6 @@ import {
   PredictionConfiguration,
   ProjectGrantFilter,
   ProjectPolicyGrantPrincipal,
-  ProjectsForRule,
   RecommendationConfiguration,
   RedshiftClusterStorage,
   RedshiftCredentialConfiguration,
@@ -510,8 +517,6 @@ import {
   RelationalFilterConfiguration,
   ResourceNotFoundException,
   RowFilterExpression,
-  RuleDetail,
-  RuleScope,
   S3PropertiesInput,
   S3PropertiesPatch,
   SageMakerRunConfigurationInput,
@@ -559,13 +564,16 @@ import {
   LineageSqlQueryRunDetails,
   ListingItem,
   ListingRevisionInput,
-  MetadataGenerationRunItem,
+  MetadataFormEnforcementDetail,
   MetadataGenerationRunTarget,
   NotificationOutput,
   PolicyGrantMember,
   ProjectProfileSummary,
+  ProjectsForRule,
   ProjectSummary,
   ProvisioningConfiguration,
+  RuleDetail,
+  RuleScope,
   RuleTarget,
   SubscribedAsset,
   SubscribedListingInput,
@@ -586,6 +594,7 @@ import {
   GlossaryItem,
   GlossaryTermItem,
   LineageNodeTypeItem,
+  MetadataGenerationRunItem,
   RejectChoice,
   RejectRule,
   RowFilter,
@@ -723,6 +732,31 @@ export const se_AssociateEnvironmentRoleCommand = async (
   b.p("environmentRoleArn", () => input.environmentRoleArn!, "{environmentRoleArn}", false);
   let body: any;
   b.m("PUT").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1AssociateGovernedTermsCommand
+ */
+export const se_AssociateGovernedTermsCommand = async (
+  input: AssociateGovernedTermsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/v2/domains/{domainIdentifier}/entities/{entityType}/{entityIdentifier}/associate-governed-terms");
+  b.p("domainIdentifier", () => input.domainIdentifier!, "{domainIdentifier}", false);
+  b.p("entityIdentifier", () => input.entityIdentifier!, "{entityIdentifier}", false);
+  b.p("entityType", () => input.entityType!, "{entityType}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      governedGlossaryTerms: (_) => _json(_),
+    })
+  );
+  b.m("PATCH").h(headers).b(body);
   return b.build();
 };
 
@@ -1214,6 +1248,7 @@ export const se_CreateGlossaryCommand = async (
       name: [],
       owningProjectIdentifier: [],
       status: [],
+      usageRestrictions: (_) => _json(_),
     })
   );
   b.m("POST").h(headers).b(body);
@@ -1989,6 +2024,31 @@ export const se_DisassociateEnvironmentRoleCommand = async (
   b.p("environmentRoleArn", () => input.environmentRoleArn!, "{environmentRoleArn}", false);
   let body: any;
   b.m("DELETE").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1DisassociateGovernedTermsCommand
+ */
+export const se_DisassociateGovernedTermsCommand = async (
+  input: DisassociateGovernedTermsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/v2/domains/{domainIdentifier}/entities/{entityType}/{entityIdentifier}/disassociate-governed-terms");
+  b.p("domainIdentifier", () => input.domainIdentifier!, "{domainIdentifier}", false);
+  b.p("entityIdentifier", () => input.entityIdentifier!, "{entityIdentifier}", false);
+  b.p("entityType", () => input.entityType!, "{entityType}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      governedGlossaryTerms: (_) => _json(_),
+    })
+  );
+  b.m("PATCH").h(headers).b(body);
   return b.build();
 };
 
@@ -4471,6 +4531,23 @@ export const de_AssociateEnvironmentRoleCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1AssociateGovernedTermsCommand
+ */
+export const de_AssociateGovernedTermsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<AssociateGovernedTermsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1CancelMetadataGenerationRunCommand
  */
 export const de_CancelMetadataGenerationRunCommand = async (
@@ -4573,6 +4650,7 @@ export const de_CreateAssetCommand = async (
     firstRevisionCreatedBy: __expectString,
     formsOutput: _json,
     glossaryTerms: _json,
+    governedGlossaryTerms: _json,
     id: __expectString,
     latestTimeSeriesDataPointFormsOutput: (_) => de_TimeSeriesDataPointSummaryFormOutputList(_, context),
     listing: _json,
@@ -4643,6 +4721,7 @@ export const de_CreateAssetRevisionCommand = async (
     firstRevisionCreatedBy: __expectString,
     formsOutput: _json,
     glossaryTerms: _json,
+    governedGlossaryTerms: _json,
     id: __expectString,
     latestTimeSeriesDataPointFormsOutput: (_) => de_TimeSeriesDataPointSummaryFormOutputList(_, context),
     listing: _json,
@@ -5039,6 +5118,7 @@ export const de_CreateGlossaryCommand = async (
     name: __expectString,
     owningProjectId: __expectString,
     status: __expectString,
+    usageRestrictions: _json,
   });
   Object.assign(contents, doc);
   return contents;
@@ -5067,6 +5147,7 @@ export const de_CreateGlossaryTermCommand = async (
     shortDescription: __expectString,
     status: __expectString,
     termRelations: _json,
+    usageRestrictions: _json,
   });
   Object.assign(contents, doc);
   return contents;
@@ -5846,6 +5927,23 @@ export const de_DisassociateEnvironmentRoleCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1DisassociateGovernedTermsCommand
+ */
+export const de_DisassociateGovernedTermsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DisassociateGovernedTermsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1GetAccountPoolCommand
  */
 export const de_GetAccountPoolCommand = async (
@@ -5900,6 +5998,7 @@ export const de_GetAssetCommand = async (
     firstRevisionCreatedBy: __expectString,
     formsOutput: _json,
     glossaryTerms: _json,
+    governedGlossaryTerms: _json,
     id: __expectString,
     latestTimeSeriesDataPointFormsOutput: (_) => de_TimeSeriesDataPointSummaryFormOutputList(_, context),
     listing: _json,
@@ -6426,6 +6525,7 @@ export const de_GetGlossaryCommand = async (
     status: __expectString,
     updatedAt: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     updatedBy: __expectString,
+    usageRestrictions: _json,
   });
   Object.assign(contents, doc);
   return contents;
@@ -6458,6 +6558,7 @@ export const de_GetGlossaryTermCommand = async (
     termRelations: _json,
     updatedAt: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     updatedBy: __expectString,
+    usageRestrictions: _json,
   });
   Object.assign(contents, doc);
   return contents;
@@ -8383,6 +8484,7 @@ export const de_UpdateGlossaryCommand = async (
     name: __expectString,
     owningProjectId: __expectString,
     status: __expectString,
+    usageRestrictions: _json,
   });
   Object.assign(contents, doc);
   return contents;
@@ -8411,6 +8513,7 @@ export const de_UpdateGlossaryTermCommand = async (
     shortDescription: __expectString,
     status: __expectString,
     termRelations: _json,
+    usageRestrictions: _json,
   });
   Object.assign(contents, doc);
   return contents;
@@ -9058,6 +9161,8 @@ const se_FilterList = (input: FilterClause[], context: __SerdeContext): any => {
 
 // se_GlossaryTerms omitted.
 
+// se_GlossaryUsageRestrictions omitted.
+
 // se_GlueConnectionInput omitted.
 
 // se_GlueConnectionPatch omitted.
@@ -9069,6 +9174,8 @@ const se_FilterList = (input: FilterClause[], context: __SerdeContext): any => {
 // se_GluePropertiesPatch omitted.
 
 // se_GlueRunConfigurationInput omitted.
+
+// se_GovernedGlossaryTerms omitted.
 
 // se_GrantedEntityInput omitted.
 
@@ -9438,6 +9545,7 @@ const de_AssetItem = (output: any, context: __SerdeContext): AssetItem => {
     firstRevisionCreatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     firstRevisionCreatedBy: __expectString,
     glossaryTerms: _json,
+    governedGlossaryTerms: _json,
     identifier: __expectString,
     name: __expectString,
     owningProjectId: __expectString,
@@ -9469,6 +9577,7 @@ const de_AssetListing = (output: any, context: __SerdeContext): AssetListing => 
     createdAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     forms: __expectString,
     glossaryTerms: _json,
+    governedGlossaryTerms: _json,
     latestTimeSeriesDataPointForms: (_: any) => de_TimeSeriesDataPointSummaryFormOutputList(_, context),
     owningProjectId: __expectString,
   }) as any;
@@ -9488,6 +9597,7 @@ const de_AssetListingItem = (output: any, context: __SerdeContext): AssetListing
     entityRevision: __expectString,
     entityType: __expectString,
     glossaryTerms: _json,
+    governedGlossaryTerms: _json,
     listingCreatedBy: __expectString,
     listingId: __expectString,
     listingRevision: __expectString,
@@ -10181,6 +10291,7 @@ const de_GlossaryItem = (output: any, context: __SerdeContext): GlossaryItem => 
     status: __expectString,
     updatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     updatedBy: __expectString,
+    usageRestrictions: _json,
   }) as any;
 };
 
@@ -10204,12 +10315,15 @@ const de_GlossaryTermItem = (output: any, context: __SerdeContext): GlossaryTerm
     termRelations: _json,
     updatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     updatedBy: __expectString,
+    usageRestrictions: _json,
   }) as any;
 };
 
 // de_GlossaryTermItemAdditionalAttributes omitted.
 
 // de_GlossaryTerms omitted.
+
+// de_GlossaryUsageRestrictions omitted.
 
 /**
  * deserializeAws_restJson1GlueConnection
@@ -10244,6 +10358,8 @@ const de_GlueConnection = (output: any, context: __SerdeContext): GlueConnection
 // de_GlueRunConfigurationOutput omitted.
 
 // de_GlueSelfGrantStatusOutput omitted.
+
+// de_GovernedGlossaryTerms omitted.
 
 // de_GrantedEntity omitted.
 

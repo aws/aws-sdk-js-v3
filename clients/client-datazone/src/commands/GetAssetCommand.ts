@@ -57,6 +57,9 @@ export interface GetAssetCommandOutput extends GetAssetOutput, __MetadataBearer 
  * //   glossaryTerms: [ // GlossaryTerms
  * //     "STRING_VALUE",
  * //   ],
+ * //   governedGlossaryTerms: [ // GovernedGlossaryTerms
+ * //     "STRING_VALUE",
+ * //   ],
  * //   owningProjectId: "STRING_VALUE", // required
  * //   domainId: "STRING_VALUE", // required
  * //   listing: { // AssetListingDetails

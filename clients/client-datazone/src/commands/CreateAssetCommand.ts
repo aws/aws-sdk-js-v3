@@ -83,6 +83,9 @@ export interface CreateAssetCommandOutput extends CreateAssetOutput, __MetadataB
  * //   glossaryTerms: [ // GlossaryTerms
  * //     "STRING_VALUE",
  * //   ],
+ * //   governedGlossaryTerms: [ // GovernedGlossaryTerms
+ * //     "STRING_VALUE",
+ * //   ],
  * //   owningProjectId: "STRING_VALUE", // required
  * //   domainId: "STRING_VALUE", // required
  * //   listing: { // AssetListingDetails

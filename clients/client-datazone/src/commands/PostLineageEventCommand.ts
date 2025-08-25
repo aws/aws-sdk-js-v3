@@ -6,8 +6,11 @@ import { BlobPayloadInputTypes, MetadataBearer as __MetadataBearer } from "@smit
 
 import { DataZoneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataZoneClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { PostLineageEventInput, PostLineageEventInputFilterSensitiveLog } from "../models/models_1";
-import { PostLineageEventOutput } from "../models/models_2";
+import {
+  PostLineageEventInput,
+  PostLineageEventInputFilterSensitiveLog,
+  PostLineageEventOutput,
+} from "../models/models_2";
 import { de_PostLineageEventCommand, se_PostLineageEventCommand } from "../protocols/Aws_restJson1";
 
 /**
