@@ -59,7 +59,7 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * @see {@link CodestarNotificationsClientResolvedConfig | config} for CodestarNotificationsClient's `config` shape.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>AWS CodeStar Notifications can't find a resource that matches the provided ARN. </p>
+ *  <p>CodeStar Notifications can't find a resource that matches the provided ARN. </p>
  *
  * @throws {@link ValidationException} (client fault)
  *  <p>One or more parameter values are not valid.</p>

@@ -4,7 +4,7 @@ import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "
 import { CodestarNotificationsServiceException as __BaseException } from "./CodestarNotificationsServiceException";
 
 /**
- * <p>AWS CodeStar Notifications can't create the notification rule because you do not have sufficient
+ * <p>CodeStar Notifications can't create the notification rule because you do not have sufficient
  *       permissions.</p>
  * @public
  */
@@ -27,7 +27,7 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
- * <p>AWS CodeStar Notifications can't complete the request because the resource is being modified by
+ * <p>CodeStar Notifications can't complete the request because the resource is being modified by
  *       another process. Wait a few minutes and try again.</p>
  * @public
  */
@@ -100,18 +100,18 @@ export const NotificationRuleStatus = {
 export type NotificationRuleStatus = (typeof NotificationRuleStatus)[keyof typeof NotificationRuleStatus];
 
 /**
- * <p>Information about the Chatbot topics or Chatbot clients associated with a  notification rule.</p>
+ * <p>Information about the Amazon Q Developer in chat applications topics or Amazon Q Developer in chat applications clients associated with a  notification rule.</p>
  * @public
  */
 export interface Target {
   /**
-   * <p>The target type. Can be an Chatbot topic or Chatbot client.</p>
+   * <p>The target type. Can be an Amazon Q Developer in chat applications topic or Amazon Q Developer in chat applications client.</p>
    *          <ul>
    *             <li>
-   *                <p>Chatbot topics are specified as <code>SNS</code>.</p>
+   *                <p>Amazon Q Developer in chat applications topics are specified as <code>SNS</code>.</p>
    *             </li>
    *             <li>
-   *                <p>Chatbot clients are specified as <code>AWSChatbotSlack</code>.</p>
+   *                <p>Amazon Q Developer in chat applications clients are specified as <code>AWSChatbotSlack</code>.</p>
    *             </li>
    *          </ul>
    * @public
@@ -119,7 +119,7 @@ export interface Target {
   TargetType?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the Chatbot topic or Chatbot client.</p>
+   * <p>The Amazon Resource Name (ARN) of the Amazon Q Developer in chat applications topic or Amazon Q Developer in chat applications client.</p>
    * @public
    */
   TargetAddress?: string | undefined;
@@ -150,7 +150,7 @@ export interface CreateNotificationRuleRequest {
   Resource: string | undefined;
 
   /**
-   * <p>A list of Amazon Resource Names (ARNs) of Amazon Simple Notification Service topics and Chatbot clients to associate with the
+   * <p>A list of Amazon Resource Names (ARNs) of Amazon Simple Notification Service topics and Amazon Q Developer in chat applications clients to associate with the
    *       notification rule.</p>
    * @public
    */
@@ -159,7 +159,7 @@ export interface CreateNotificationRuleRequest {
   /**
    * <p>The level of detail to include in the notifications for this resource. <code>BASIC</code> will include only the
    *         contents of the event as it would appear in Amazon CloudWatch. <code>FULL</code> will include any supplemental information
-   *         provided by AWS CodeStar Notifications and/or the service for the resource for which the notification is created.</p>
+   *         provided by CodeStar Notifications and/or the service for the resource for which the notification is created.</p>
    * @public
    */
   DetailType: DetailType | undefined;
@@ -203,7 +203,7 @@ export interface CreateNotificationRuleResult {
 }
 
 /**
- * <p>One of the AWS CodeStar Notifications limits has been exceeded. Limits apply to
+ * <p>One of the CodeStar Notifications limits has been exceeded. Limits apply to
  *             accounts, notification rules, notifications, resources, and targets. For more
  *             information, see Limits.</p>
  * @public
@@ -298,13 +298,13 @@ export interface DeleteNotificationRuleResult {
  */
 export interface DeleteTargetRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the Chatbot topic or Chatbot client to delete.</p>
+   * <p>The Amazon Resource Name (ARN) of the Amazon Q Developer in chat applications topic or Amazon Q Developer in chat applications client to delete.</p>
    * @public
    */
   TargetAddress: string | undefined;
 
   /**
-   * <p>A Boolean value that can be used to delete all associations with this Chatbot topic. The
+   * <p>A Boolean value that can be used to delete all associations with this Amazon Q Developer in chat applications topic. The
    *             default value is FALSE. If set to TRUE, all associations between that target and every
    *             notification rule in your Amazon Web Services account are deleted.</p>
    * @public
@@ -383,7 +383,7 @@ export type TargetStatus = (typeof TargetStatus)[keyof typeof TargetStatus];
  */
 export interface TargetSummary {
   /**
-   * <p>The Amazon Resource Name (ARN) of the Chatbot topic or Chatbot client.</p>
+   * <p>The Amazon Resource Name (ARN) of the Amazon Q Developer in chat applications topic or Amazon Q Developer in chat applications client.</p>
    * @public
    */
   TargetAddress?: string | undefined;
@@ -392,10 +392,10 @@ export interface TargetSummary {
    * <p>The type of the target (for example, <code>SNS</code>).</p>
    *          <ul>
    *             <li>
-   *                <p>Chatbot topics are specified as <code>SNS</code>.</p>
+   *                <p>Amazon Q Developer in chat applications topics are specified as <code>SNS</code>.</p>
    *             </li>
    *             <li>
-   *                <p>Chatbot clients are specified as <code>AWSChatbotSlack</code>.</p>
+   *                <p>Amazon Q Developer in chat applications clients are specified as <code>AWSChatbotSlack</code>.</p>
    *             </li>
    *          </ul>
    * @public
@@ -439,7 +439,7 @@ export interface DescribeNotificationRuleResult {
   Resource?: string | undefined;
 
   /**
-   * <p>A list of the Chatbot topics and Chatbot clients associated with the notification rule.</p>
+   * <p>A list of the Amazon Q Developer in chat applications topics and Amazon Q Developer in chat applications clients associated with the notification rule.</p>
    * @public
    */
   Targets?: TargetSummary[] | undefined;
@@ -447,7 +447,7 @@ export interface DescribeNotificationRuleResult {
   /**
    * <p>The level of detail included in the notifications for this resource. BASIC will include only the
    *             contents of the event as it would appear in Amazon CloudWatch. FULL will include any supplemental information
-   *             provided by AWS CodeStar Notifications and/or the service for the resource for which the notification is created.</p>
+   *             provided by CodeStar Notifications and/or the service for the resource for which the notification is created.</p>
    * @public
    */
   DetailType?: DetailType | undefined;
@@ -486,7 +486,7 @@ export interface DescribeNotificationRuleResult {
 }
 
 /**
- * <p>AWS CodeStar Notifications can't find a resource that matches the provided ARN. </p>
+ * <p>CodeStar Notifications can't find a resource that matches the provided ARN. </p>
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -747,7 +747,7 @@ export type ListTargetsFilterName = (typeof ListTargetsFilterName)[keyof typeof 
 /**
  * <p>Information about a filter to apply to the list of returned targets. You can filter by
  *             target type, address, or status. For example, to filter results to notification rules
- *             that have active Chatbot topics as targets, you could specify a ListTargetsFilter
+ *             that have active Amazon Q Developer in chat applications topics as targets, you could specify a ListTargetsFilter
  *             Name as <code>TargetType</code> and a Value of <code>SNS</code>, and a Name of <code>TARGET_STATUS</code> and a Value of
  *             <code>ACTIVE</code>.</p>
  * @public
@@ -826,7 +826,7 @@ export interface SubscribeRequest {
   Arn: string | undefined;
 
   /**
-   * <p>Information about the Chatbot topics or Chatbot clients associated with a  notification rule.</p>
+   * <p>Information about the Amazon Q Developer in chat applications topics or Amazon Q Developer in chat applications clients associated with a  notification rule.</p>
    * @public
    */
   Target: Target | undefined;
@@ -889,7 +889,7 @@ export interface UnsubscribeRequest {
   Arn: string | undefined;
 
   /**
-   * <p>The ARN of the Chatbot topic to unsubscribe from the notification rule.</p>
+   * <p>The ARN of the Amazon Q Developer in chat applications topic to unsubscribe from the notification rule.</p>
    * @public
    */
   TargetAddress: string | undefined;
@@ -970,7 +970,7 @@ export interface UpdateNotificationRuleRequest {
   /**
    * <p>The level of detail to include in the notifications for this resource. BASIC will include only the
    *             contents of the event as it would appear in Amazon CloudWatch. FULL will include any supplemental information
-   *             provided by AWS CodeStar Notifications and/or the service for the resource for which the notification is created.</p>
+   *             provided by CodeStar Notifications and/or the service for the resource for which the notification is created.</p>
    * @public
    */
   DetailType?: DetailType | undefined;

@@ -37,7 +37,7 @@ export interface CreateNotificationRuleCommandOutput extends CreateNotificationR
 
 /**
  * <p>Creates a notification rule for a resource. The rule specifies the events you want
- *             notifications about and the targets (such as Chatbot topics or Chatbot clients configured for Slack) where you want to receive
+ *             notifications about and the targets (such as Amazon Q Developer in chat applications topics or Amazon Q Developer in chat applications clients configured for Slack) where you want to receive
  *             them.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -79,18 +79,18 @@ export interface CreateNotificationRuleCommandOutput extends CreateNotificationR
  * @see {@link CodestarNotificationsClientResolvedConfig | config} for CodestarNotificationsClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>AWS CodeStar Notifications can't create the notification rule because you do not have sufficient
+ *  <p>CodeStar Notifications can't create the notification rule because you do not have sufficient
  *       permissions.</p>
  *
  * @throws {@link ConcurrentModificationException} (client fault)
- *  <p>AWS CodeStar Notifications can't complete the request because the resource is being modified by
+ *  <p>CodeStar Notifications can't complete the request because the resource is being modified by
  *       another process. Wait a few minutes and try again.</p>
  *
  * @throws {@link ConfigurationException} (client fault)
  *  <p>Some or all of the configuration is incomplete, missing, or not valid.</p>
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>One of the AWS CodeStar Notifications limits has been exceeded. Limits apply to
+ *  <p>One of the CodeStar Notifications limits has been exceeded. Limits apply to
  *             accounts, notification rules, notifications, resources, and targets. For more
  *             information, see Limits.</p>
  *

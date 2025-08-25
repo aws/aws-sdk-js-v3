@@ -32,7 +32,7 @@ export interface SubscribeCommandInput extends SubscribeRequest {}
 export interface SubscribeCommandOutput extends SubscribeResult, __MetadataBearer {}
 
 /**
- * <p>Creates an association between a notification rule and an Chatbot topic or Chatbot client so that the
+ * <p>Creates an association between a notification rule and an Amazon Q Developer in chat applications topic or Amazon Q Developer in chat applications client so that the
  *             associated target can receive notifications when the events described in the rule are
  *             triggered.</p>
  * @example
@@ -67,7 +67,7 @@ export interface SubscribeCommandOutput extends SubscribeResult, __MetadataBeare
  *  <p>Some or all of the configuration is incomplete, missing, or not valid.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>AWS CodeStar Notifications can't find a resource that matches the provided ARN. </p>
+ *  <p>CodeStar Notifications can't find a resource that matches the provided ARN. </p>
  *
  * @throws {@link ValidationException} (client fault)
  *  <p>One or more parameter values are not valid.</p>

@@ -6,8 +6,8 @@
 
 AWS SDK for JavaScript CodestarNotifications Client for Node.js, Browser and React Native.
 
-<p>This AWS CodeStar Notifications API Reference provides descriptions and usage examples of the
-operations and data types for the AWS CodeStar Notifications API. You can use the AWS CodeStar Notifications API
+<p>This CodeStar Notifications API Reference provides descriptions and usage examples of the
+operations and data types for the CodeStar Notifications API. You can use the CodeStar Notifications API
 to work with the following objects:</p>
 <p>Notification rules, by calling the following: </p>
 <ul>
@@ -82,7 +82,7 @@ notification rule in your account. </p>
 your account. </p>
 </li>
 </ul>
-<p> For information about how to use AWS CodeStar Notifications, see the <a href="https://docs.aws.amazon.com/dtconsole/latest/userguide/what-is-dtconsole.html">Amazon Web Services Developer Tools Console User Guide</a>.
+<p> For information about how to use CodeStar Notifications, see the <a href="https://docs.aws.amazon.com/dtconsole/latest/userguide/what-is-dtconsole.html">Amazon Web Services Developer Tools Console User Guide</a>.
 </p>
 
 ## Installing

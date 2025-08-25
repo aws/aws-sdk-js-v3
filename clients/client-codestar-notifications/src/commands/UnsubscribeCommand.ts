@@ -32,7 +32,7 @@ export interface UnsubscribeCommandInput extends UnsubscribeRequest {}
 export interface UnsubscribeCommandOutput extends UnsubscribeResult, __MetadataBearer {}
 
 /**
- * <p>Removes an association between a notification rule and an Chatbot topic so that
+ * <p>Removes an association between a notification rule and an Amazon Q Developer in chat applications topic so that
  *             subscribers to that topic stop receiving notifications when the events described in the
  *             rule are triggered.</p>
  * @example

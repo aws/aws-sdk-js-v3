@@ -79,7 +79,7 @@ export interface UpdateNotificationRuleCommandOutput extends UpdateNotificationR
  *  <p>Some or all of the configuration is incomplete, missing, or not valid.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>AWS CodeStar Notifications can't find a resource that matches the provided ARN. </p>
+ *  <p>CodeStar Notifications can't find a resource that matches the provided ARN. </p>
  *
  * @throws {@link ValidationException} (client fault)
  *  <p>One or more parameter values are not valid.</p>
