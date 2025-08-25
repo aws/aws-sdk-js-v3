@@ -78,7 +78,7 @@ export interface CreateDbClusterCommandOutput extends CreateDbClusterOutput, __M
  * const response = await client.send(command);
  * // { // CreateDbClusterOutput
  * //   dbClusterId: "STRING_VALUE",
- * //   dbClusterStatus: "CREATING" || "UPDATING" || "DELETING" || "AVAILABLE" || "FAILED" || "DELETED",
+ * //   dbClusterStatus: "CREATING" || "UPDATING" || "DELETING" || "AVAILABLE" || "FAILED" || "DELETED" || "MAINTENANCE",
  * // };
  *
  * ```

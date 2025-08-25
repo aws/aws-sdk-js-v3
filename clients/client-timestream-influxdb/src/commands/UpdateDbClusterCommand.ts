@@ -55,7 +55,7 @@ export interface UpdateDbClusterCommandOutput extends UpdateDbClusterOutput, __M
  * const command = new UpdateDbClusterCommand(input);
  * const response = await client.send(command);
  * // { // UpdateDbClusterOutput
- * //   dbClusterStatus: "CREATING" || "UPDATING" || "DELETING" || "AVAILABLE" || "FAILED" || "DELETED",
+ * //   dbClusterStatus: "CREATING" || "UPDATING" || "DELETING" || "AVAILABLE" || "FAILED" || "DELETED" || "MAINTENANCE",
  * // };
  *
  * ```

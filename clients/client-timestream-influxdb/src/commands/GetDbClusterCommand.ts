@@ -48,7 +48,7 @@ export interface GetDbClusterCommandOutput extends GetDbClusterOutput, __Metadat
  * //   id: "STRING_VALUE", // required
  * //   name: "STRING_VALUE", // required
  * //   arn: "STRING_VALUE", // required
- * //   status: "CREATING" || "UPDATING" || "DELETING" || "AVAILABLE" || "FAILED" || "DELETED",
+ * //   status: "CREATING" || "UPDATING" || "DELETING" || "AVAILABLE" || "FAILED" || "DELETED" || "MAINTENANCE",
  * //   endpoint: "STRING_VALUE",
  * //   readerEndpoint: "STRING_VALUE",
  * //   port: Number("int"),

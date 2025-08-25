@@ -45,7 +45,7 @@ export interface DeleteDbClusterCommandOutput extends DeleteDbClusterOutput, __M
  * const command = new DeleteDbClusterCommand(input);
  * const response = await client.send(command);
  * // { // DeleteDbClusterOutput
- * //   dbClusterStatus: "CREATING" || "UPDATING" || "DELETING" || "AVAILABLE" || "FAILED" || "DELETED",
+ * //   dbClusterStatus: "CREATING" || "UPDATING" || "DELETING" || "AVAILABLE" || "FAILED" || "DELETED" || "MAINTENANCE",
  * // };
  *
  * ```
