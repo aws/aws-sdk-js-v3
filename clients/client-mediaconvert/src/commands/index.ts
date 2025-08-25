@@ -5,6 +5,7 @@ export * from "./CreateJobCommand";
 export * from "./CreateJobTemplateCommand";
 export * from "./CreatePresetCommand";
 export * from "./CreateQueueCommand";
+export * from "./CreateResourceShareCommand";
 export * from "./DeleteJobTemplateCommand";
 export * from "./DeletePolicyCommand";
 export * from "./DeletePresetCommand";

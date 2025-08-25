@@ -71,6 +71,7 @@ export interface SearchJobsCommandOutput extends SearchJobsResponse, __MetadataB
  * //       JobEngineVersionUsed: "STRING_VALUE",
  * //       JobPercentComplete: Number("int"),
  * //       JobTemplate: "STRING_VALUE",
+ * //       LastShareDetails: "STRING_VALUE",
  * //       Messages: { // JobMessages
  * //         Info: [ // __listOf__string
  * //           "STRING_VALUE",
@@ -381,6 +382,10 @@ export interface SearchJobsCommandOutput extends SearchJobsResponse, __MetadataB
  * //               ProgramNumber: Number("int"),
  * //               Rotate: "DEGREE_0" || "DEGREES_90" || "DEGREES_180" || "DEGREES_270" || "AUTO",
  * //               SampleRange: "FOLLOW" || "FULL_RANGE" || "LIMITED_RANGE",
+ * //               SelectorType: "AUTO" || "STREAM",
+ * //               Streams: [
+ * //                 Number("int"),
+ * //               ],
  * //             },
  * //           },
  * //         ],
@@ -874,6 +879,7 @@ export interface SearchJobsCommandOutput extends SearchJobsResponse, __MetadataB
  * //                         SampleRate: Number("int"),
  * //                       },
  * //                       Mp2Settings: { // Mp2Settings
+ * //                         AudioDescriptionMix: "BROADCASTER_MIXED_AD" || "NONE",
  * //                         Bitrate: Number("int"),
  * //                         Channels: Number("int"),
  * //                         SampleRate: Number("int"),
@@ -1183,7 +1189,7 @@ export interface SearchJobsCommandOutput extends SearchJobsResponse, __MetadataB
  * //                     AudioRenditionSets: "STRING_VALUE",
  * //                     AudioTrackType: "ALTERNATE_AUDIO_AUTO_SELECT_DEFAULT" || "ALTERNATE_AUDIO_AUTO_SELECT" || "ALTERNATE_AUDIO_NOT_AUTO_SELECT" || "AUDIO_ONLY_VARIANT_STREAM",
  * //                     DescriptiveVideoServiceFlag: "DONT_FLAG" || "FLAG",
- * //                     IFrameOnlyManifest: "INCLUDE" || "EXCLUDE",
+ * //                     IFrameOnlyManifest: "INCLUDE" || "INCLUDE_AS_TS" || "EXCLUDE",
  * //                     SegmentModifier: "STRING_VALUE",
  * //                   },
  * //                 },
@@ -1649,6 +1655,7 @@ export interface SearchJobsCommandOutput extends SearchJobsResponse, __MetadataB
  * //           ],
  * //         },
  * //       },
+ * //       ShareStatus: "NOT_SHARED" || "INITIATED" || "SHARED",
  * //       SimulateReservedQueue: "DISABLED" || "ENABLED",
  * //       Status: "SUBMITTED" || "PROGRESSING" || "COMPLETE" || "CANCELED" || "ERROR",
  * //       StatusUpdateInterval: "SECONDS_10" || "SECONDS_12" || "SECONDS_15" || "SECONDS_20" || "SECONDS_30" || "SECONDS_60" || "SECONDS_120" || "SECONDS_180" || "SECONDS_240" || "SECONDS_300" || "SECONDS_360" || "SECONDS_420" || "SECONDS_480" || "SECONDS_540" || "SECONDS_600",

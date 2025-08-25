@@ -141,6 +141,7 @@ export interface CreatePresetCommandOutput extends CreatePresetResponse, __Metad
  *             SampleRate: Number("int"),
  *           },
  *           Mp2Settings: { // Mp2Settings
+ *             AudioDescriptionMix: "BROADCASTER_MIXED_AD" || "NONE",
  *             Bitrate: Number("int"),
  *             Channels: Number("int"),
  *             SampleRate: Number("int"),
@@ -1001,6 +1002,7 @@ export interface CreatePresetCommandOutput extends CreatePresetResponse, __Metad
  * //               SampleRate: Number("int"),
  * //             },
  * //             Mp2Settings: { // Mp2Settings
+ * //               AudioDescriptionMix: "BROADCASTER_MIXED_AD" || "NONE",
  * //               Bitrate: Number("int"),
  * //               Channels: Number("int"),
  * //               SampleRate: Number("int"),

@@ -253,6 +253,14 @@ CreateQueue
 </details>
 <details>
 <summary>
+CreateResourceShare
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/mediaconvert/command/CreateResourceShareCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-mediaconvert/Interface/CreateResourceShareCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-mediaconvert/Interface/CreateResourceShareCommandOutput/)
+
+</details>
+<details>
+<summary>
 DeleteJobTemplate
 </summary>
 

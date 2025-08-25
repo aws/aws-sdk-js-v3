@@ -28,13 +28,39 @@ import {
   HlsProgressiveWriteHlsManifest,
   HlsSegmentControl,
   HlsSegmentLengthControl,
-  HlsStreamInfResolution,
-  HlsTargetDurationCompatibilityMode,
-  Id3Insertion,
   ImageInserter,
   Rectangle,
   SpekeKeyProvider,
 } from "./models_0";
+
+/**
+ * @public
+ * @enum
+ */
+export const HlsStreamInfResolution = {
+  EXCLUDE: "EXCLUDE",
+  INCLUDE: "INCLUDE",
+} as const;
+
+/**
+ * @public
+ */
+export type HlsStreamInfResolution = (typeof HlsStreamInfResolution)[keyof typeof HlsStreamInfResolution];
+
+/**
+ * @public
+ * @enum
+ */
+export const HlsTargetDurationCompatibilityMode = {
+  LEGACY: "LEGACY",
+  SPEC_COMPLIANT: "SPEC_COMPLIANT",
+} as const;
+
+/**
+ * @public
+ */
+export type HlsTargetDurationCompatibilityMode =
+  (typeof HlsTargetDurationCompatibilityMode)[keyof typeof HlsTargetDurationCompatibilityMode];
 
 /**
  * @public
@@ -2178,6 +2204,7 @@ export type HlsDescriptiveVideoServiceFlag =
 export const HlsIFrameOnlyManifest = {
   EXCLUDE: "EXCLUDE",
   INCLUDE: "INCLUDE",
+  INCLUDE_AS_TS: "INCLUDE_AS_TS",
 } as const;
 
 /**
@@ -2221,7 +2248,7 @@ export interface HlsSettings {
   DescriptiveVideoServiceFlag?: HlsDescriptiveVideoServiceFlag | undefined;
 
   /**
-   * Choose Include to have MediaConvert generate a child manifest that lists only the I-frames for this rendition, in addition to your regular manifest for this rendition. You might use this manifest as part of a workflow that creates preview functions for your video. MediaConvert adds both the I-frame only child manifest and the regular child manifest to the parent manifest. When you don't need the I-frame only child manifest, keep the default value Exclude.
+   * Generate a variant manifest that lists only the I-frames for this rendition. You might use this manifest as part of a workflow that creates preview functions for your video. MediaConvert adds both the I-frame only variant manifest and the regular variant manifest to the multivariant manifest. To have MediaConvert write a variant manifest that references I-frames from your output content using EXT-X-BYTERANGE tags: Choose Include. To have MediaConvert output I-frames as single frame TS files and a corresponding variant manifest that references them: Choose Include as TS. When you don't need the I-frame only variant manifest: Keep the default value, Exclude.
    * @public
    */
   IFrameOnlyManifest?: HlsIFrameOnlyManifest | undefined;
@@ -7289,45 +7316,3 @@ export const TimecodeSource = {
  * @public
  */
 export type TimecodeSource = (typeof TimecodeSource)[keyof typeof TimecodeSource];
-
-/**
- * These settings control how the service handles timecodes throughout the job. These settings don't affect input clipping.
- * @public
- */
-export interface TimecodeConfig {
-  /**
-   * If you use an editing platform that relies on an anchor timecode, use Anchor Timecode to specify a timecode that will match the input video frame to the output video frame. Use 24-hour format with frame number, (HH:MM:SS:FF) or (HH:MM:SS;FF). This setting ignores frame rate conversion. System behavior for Anchor Timecode varies depending on your setting for Source. * If Source is set to Specified Start, the first input frame is the specified value in Start Timecode. Anchor Timecode and Start Timecode are used calculate output timecode. * If Source is set to Start at 0 the first frame is 00:00:00:00. * If Source is set to Embedded, the first frame is the timecode value on the first input frame of the input.
-   * @public
-   */
-  Anchor?: string | undefined;
-
-  /**
-   * Use Source to set how timecodes are handled within this job. To make sure that your video, audio, captions, and markers are synchronized and that time-based features, such as image inserter, work correctly, choose the Timecode source option that matches your assets. All timecodes are in a 24-hour format with frame number (HH:MM:SS:FF). * Embedded - Use the timecode that is in the input video. If no embedded timecode is in the source, the service will use Start at 0 instead. * Start at 0 - Set the timecode of the initial frame to 00:00:00:00. * Specified Start - Set the timecode of the initial frame to a value other than zero. You use Start timecode to provide this value.
-   * @public
-   */
-  Source?: TimecodeSource | undefined;
-
-  /**
-   * Only use when you set Source to Specified start. Use Start timecode to specify the timecode for the initial frame. Use 24-hour format with frame number, (HH:MM:SS:FF) or (HH:MM:SS;FF).
-   * @public
-   */
-  Start?: string | undefined;
-
-  /**
-   * Only applies to outputs that support program-date-time stamp. Use Timestamp offset to overwrite the timecode date without affecting the time and frame number. Provide the new date as a string in the format "yyyy-mm-dd". To use Timestamp offset, you must also enable Insert program-date-time in the output settings. For example, if the date part of your timecodes is 2002-1-25 and you want to change it to one year later, set Timestamp offset to 2003-1-25.
-   * @public
-   */
-  TimestampOffset?: string | undefined;
-}
-
-/**
- * Insert user-defined custom ID3 metadata at timecodes that you specify. In each output that you want to include this metadata, you must set ID3 metadata to Passthrough.
- * @public
- */
-export interface TimedMetadataInsertion {
-  /**
-   * Id3Insertions contains the array of Id3Insertion instances.
-   * @public
-   */
-  Id3Insertions?: Id3Insertion[] | undefined;
-}

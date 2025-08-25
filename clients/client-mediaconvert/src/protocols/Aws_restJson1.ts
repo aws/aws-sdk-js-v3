@@ -37,6 +37,10 @@ import { CreateJobCommandInput, CreateJobCommandOutput } from "../commands/Creat
 import { CreateJobTemplateCommandInput, CreateJobTemplateCommandOutput } from "../commands/CreateJobTemplateCommand";
 import { CreatePresetCommandInput, CreatePresetCommandOutput } from "../commands/CreatePresetCommand";
 import { CreateQueueCommandInput, CreateQueueCommandOutput } from "../commands/CreateQueueCommand";
+import {
+  CreateResourceShareCommandInput,
+  CreateResourceShareCommandOutput,
+} from "../commands/CreateResourceShareCommand";
 import { DeleteJobTemplateCommandInput, DeleteJobTemplateCommandOutput } from "../commands/DeleteJobTemplateCommand";
 import { DeletePolicyCommandInput, DeletePolicyCommandOutput } from "../commands/DeletePolicyCommand";
 import { DeletePresetCommandInput, DeletePresetCommandOutput } from "../commands/DeletePresetCommand";
@@ -236,8 +240,6 @@ import {
   PartnerWatermarking,
   ProresSettings,
   TimecodeBurnin,
-  TimecodeConfig,
-  TimedMetadataInsertion,
   UncompressedSettings,
   Vc3Settings,
   VideoCodecSettings,
@@ -278,6 +280,8 @@ import {
   ReservationPlanSettings,
   ResourceTags,
   ServiceOverride,
+  TimecodeConfig,
+  TimedMetadataInsertion,
   Timing,
   TooManyRequestsException,
   Track,
@@ -438,6 +442,29 @@ export const se_CreateQueueCommand = async (
       reservationPlanSettings: [, (_) => se_ReservationPlanSettings(_, context), `ReservationPlanSettings`],
       status: [, , `Status`],
       tags: [, (_) => _json(_), `Tags`],
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1CreateResourceShareCommand
+ */
+export const se_CreateResourceShareCommand = async (
+  input: CreateResourceShareCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/2017-08-29/resourceShares");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      jobId: [, , `JobId`],
+      supportCaseId: [, , `SupportCaseId`],
     })
   );
   b.m("POST").h(headers).b(body);
@@ -1051,6 +1078,23 @@ export const de_CreateQueueCommand = async (
     Queue: [, (_) => de_Queue(_, context), `queue`],
   });
   Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1CreateResourceShareCommand
+ */
+export const de_CreateResourceShareCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateResourceShareCommandOutput> => {
+  if (output.statusCode !== 202 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
   return contents;
 };
 
@@ -3759,6 +3803,7 @@ const se_MovSettings = (input: MovSettings, context: __SerdeContext): any => {
  */
 const se_Mp2Settings = (input: Mp2Settings, context: __SerdeContext): any => {
   return take(input, {
+    audioDescriptionMix: [, , `AudioDescriptionMix`],
     bitrate: [, , `Bitrate`],
     channels: [, , `Channels`],
     sampleRate: [, , `SampleRate`],
@@ -4532,6 +4577,8 @@ const se_VideoSelector = (input: VideoSelector, context: __SerdeContext): any =>
     programNumber: [, , `ProgramNumber`],
     rotate: [, , `Rotate`],
     sampleRange: [, , `SampleRange`],
+    selectorType: [, , `SelectorType`],
+    streams: [, _json, `Streams`],
   });
 };
 
@@ -6825,6 +6872,7 @@ const de_Job = (output: any, context: __SerdeContext): Job => {
     JobEngineVersionUsed: [, __expectString, `jobEngineVersionUsed`],
     JobPercentComplete: [, __expectInt32, `jobPercentComplete`],
     JobTemplate: [, __expectString, `jobTemplate`],
+    LastShareDetails: [, __expectString, `lastShareDetails`],
     Messages: [, (_: any) => de_JobMessages(_, context), `messages`],
     OutputGroupDetails: [, (_: any) => de___listOfOutputGroupDetail(_, context), `outputGroupDetails`],
     Priority: [, __expectInt32, `priority`],
@@ -6833,6 +6881,7 @@ const de_Job = (output: any, context: __SerdeContext): Job => {
     RetryCount: [, __expectInt32, `retryCount`],
     Role: [, __expectString, `role`],
     Settings: [, (_: any) => de_JobSettings(_, context), `settings`],
+    ShareStatus: [, __expectString, `shareStatus`],
     SimulateReservedQueue: [, __expectString, `simulateReservedQueue`],
     Status: [, __expectString, `status`],
     StatusUpdateInterval: [, __expectString, `statusUpdateInterval`],
@@ -7138,6 +7187,7 @@ const de_MovSettings = (output: any, context: __SerdeContext): MovSettings => {
  */
 const de_Mp2Settings = (output: any, context: __SerdeContext): Mp2Settings => {
   return take(output, {
+    AudioDescriptionMix: [, __expectString, `audioDescriptionMix`],
     Bitrate: [, __expectInt32, `bitrate`],
     Channels: [, __expectInt32, `channels`],
     SampleRate: [, __expectInt32, `sampleRate`],
@@ -8068,6 +8118,8 @@ const de_VideoSelector = (output: any, context: __SerdeContext): VideoSelector =
     ProgramNumber: [, __expectInt32, `programNumber`],
     Rotate: [, __expectString, `rotate`],
     SampleRange: [, __expectString, `sampleRange`],
+    SelectorType: [, __expectString, `selectorType`],
+    Streams: [, _json, `streams`],
   }) as any;
 };
 

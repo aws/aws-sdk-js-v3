@@ -15,6 +15,7 @@ import {
   EsamSettings,
   ExtendedDataServices,
   HopDestination,
+  Id3Insertion,
   Input,
   InputTemplate,
   JobMessages,
@@ -27,7 +28,49 @@ import {
   QueueTransition,
 } from "./models_0";
 
-import { ContainerSettings, OutputGroup, TimecodeConfig, TimedMetadataInsertion, VideoDescription } from "./models_1";
+import { ContainerSettings, OutputGroup, TimecodeSource, VideoDescription } from "./models_1";
+
+/**
+ * These settings control how the service handles timecodes throughout the job. These settings don't affect input clipping.
+ * @public
+ */
+export interface TimecodeConfig {
+  /**
+   * If you use an editing platform that relies on an anchor timecode, use Anchor Timecode to specify a timecode that will match the input video frame to the output video frame. Use 24-hour format with frame number, (HH:MM:SS:FF) or (HH:MM:SS;FF). This setting ignores frame rate conversion. System behavior for Anchor Timecode varies depending on your setting for Source. * If Source is set to Specified Start, the first input frame is the specified value in Start Timecode. Anchor Timecode and Start Timecode are used calculate output timecode. * If Source is set to Start at 0 the first frame is 00:00:00:00. * If Source is set to Embedded, the first frame is the timecode value on the first input frame of the input.
+   * @public
+   */
+  Anchor?: string | undefined;
+
+  /**
+   * Use Source to set how timecodes are handled within this job. To make sure that your video, audio, captions, and markers are synchronized and that time-based features, such as image inserter, work correctly, choose the Timecode source option that matches your assets. All timecodes are in a 24-hour format with frame number (HH:MM:SS:FF). * Embedded - Use the timecode that is in the input video. If no embedded timecode is in the source, the service will use Start at 0 instead. * Start at 0 - Set the timecode of the initial frame to 00:00:00:00. * Specified Start - Set the timecode of the initial frame to a value other than zero. You use Start timecode to provide this value.
+   * @public
+   */
+  Source?: TimecodeSource | undefined;
+
+  /**
+   * Only use when you set Source to Specified start. Use Start timecode to specify the timecode for the initial frame. Use 24-hour format with frame number, (HH:MM:SS:FF) or (HH:MM:SS;FF).
+   * @public
+   */
+  Start?: string | undefined;
+
+  /**
+   * Only applies to outputs that support program-date-time stamp. Use Timestamp offset to overwrite the timecode date without affecting the time and frame number. Provide the new date as a string in the format "yyyy-mm-dd". To use Timestamp offset, you must also enable Insert program-date-time in the output settings. For example, if the date part of your timecodes is 2002-1-25 and you want to change it to one year later, set Timestamp offset to 2003-1-25.
+   * @public
+   */
+  TimestampOffset?: string | undefined;
+}
+
+/**
+ * Insert user-defined custom ID3 metadata at timecodes that you specify. In each output that you want to include this metadata, you must set ID3 metadata to Passthrough.
+ * @public
+ */
+export interface TimedMetadataInsertion {
+  /**
+   * Id3Insertions contains the array of Id3Insertion instances.
+   * @public
+   */
+  Id3Insertions?: Id3Insertion[] | undefined;
+}
 
 /**
  * JobSettings contains all the transcode settings for a job.
@@ -118,6 +161,21 @@ export interface JobSettings {
    */
   TimedMetadataInsertion?: TimedMetadataInsertion | undefined;
 }
+
+/**
+ * @public
+ * @enum
+ */
+export const ShareStatus = {
+  INITIATED: "INITIATED",
+  NOT_SHARED: "NOT_SHARED",
+  SHARED: "SHARED",
+} as const;
+
+/**
+ * @public
+ */
+export type ShareStatus = (typeof ShareStatus)[keyof typeof ShareStatus];
 
 /**
  * @public
@@ -315,6 +373,12 @@ export interface Job {
   JobTemplate?: string | undefined;
 
   /**
+   * Contains information about the most recent share attempt for the job. For more information, see https://docs.aws.amazon.com/mediaconvert/latest/ug/creating-resource-share.html
+   * @public
+   */
+  LastShareDetails?: string | undefined;
+
+  /**
    * Provides messages from the service about jobs that you have already successfully submitted.
    * @public
    */
@@ -361,6 +425,12 @@ export interface Job {
    * @public
    */
   Settings: JobSettings | undefined;
+
+  /**
+   * A job's share status can be NOT_SHARED, INITIATED, or SHARED
+   * @public
+   */
+  ShareStatus?: ShareStatus | undefined;
 
   /**
    * Enable this setting when you run a test job to estimate how many reserved transcoding slots (RTS) you need. When this is enabled, MediaConvert runs your job from an on-demand queue with similar performance to what you will see with one RTS in a reserved queue. This setting is disabled by default.
@@ -1825,6 +1895,28 @@ export interface CreateQueueResponse {
    */
   Queue?: Queue | undefined;
 }
+
+/**
+ * @public
+ */
+export interface CreateResourceShareRequest {
+  /**
+   * Specify MediaConvert Job ID or ARN to share
+   * @public
+   */
+  JobId: string | undefined;
+
+  /**
+   * AWS Support case identifier
+   * @public
+   */
+  SupportCaseId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateResourceShareResponse {}
 
 /**
  * @public

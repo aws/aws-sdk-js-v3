@@ -62,6 +62,10 @@ import { CreateJobCommandInput, CreateJobCommandOutput } from "./commands/Create
 import { CreateJobTemplateCommandInput, CreateJobTemplateCommandOutput } from "./commands/CreateJobTemplateCommand";
 import { CreatePresetCommandInput, CreatePresetCommandOutput } from "./commands/CreatePresetCommand";
 import { CreateQueueCommandInput, CreateQueueCommandOutput } from "./commands/CreateQueueCommand";
+import {
+  CreateResourceShareCommandInput,
+  CreateResourceShareCommandOutput,
+} from "./commands/CreateResourceShareCommand";
 import { DeleteJobTemplateCommandInput, DeleteJobTemplateCommandOutput } from "./commands/DeleteJobTemplateCommand";
 import { DeletePolicyCommandInput, DeletePolicyCommandOutput } from "./commands/DeletePolicyCommand";
 import { DeletePresetCommandInput, DeletePresetCommandOutput } from "./commands/DeletePresetCommand";
@@ -114,6 +118,7 @@ export type ServiceInputTypes =
   | CreateJobTemplateCommandInput
   | CreatePresetCommandInput
   | CreateQueueCommandInput
+  | CreateResourceShareCommandInput
   | DeleteJobTemplateCommandInput
   | DeletePolicyCommandInput
   | DeletePresetCommandInput
@@ -150,6 +155,7 @@ export type ServiceOutputTypes =
   | CreateJobTemplateCommandOutput
   | CreatePresetCommandOutput
   | CreateQueueCommandOutput
+  | CreateResourceShareCommandOutput
   | DeleteJobTemplateCommandOutput
   | DeletePolicyCommandOutput
   | DeletePresetCommandOutput

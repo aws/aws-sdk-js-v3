@@ -357,7 +357,7 @@ export interface AacSettings {
   Bitrate?: number | undefined;
 
   /**
-   * Specify the AAC profile. For the widest player compatibility and where higher bitrates are acceptable: Keep the default profile, LC (AAC-LC) For improved audio performance at lower bitrates: Choose HEV1 or HEV2. HEV1 (AAC-HE v1) adds spectral band replication to improve speech audio at low bitrates. HEV2 (AAC-HE v2) adds parametric stereo, which optimizes for encoding stereo audio at very low bitrates.
+   * Specify the AAC profile. For the widest player compatibility and where higher bitrates are acceptable: Keep the default profile, LC (AAC-LC) For improved audio performance at lower bitrates: Choose HEV1 or HEV2. HEV1 (AAC-HE v1) adds spectral band replication to improve speech audio at low bitrates. HEV2 (AAC-HE v2) adds parametric stereo, which optimizes for encoding stereo audio at very low bitrates. For improved audio quality at lower bitrates, adaptive audio bitrate switching, and loudness control: Choose XHE.
    * @public
    */
   CodecProfile?: AacCodecProfile | undefined;
@@ -1286,10 +1286,30 @@ export interface FlacSettings {
 }
 
 /**
+ * @public
+ * @enum
+ */
+export const Mp2AudioDescriptionMix = {
+  BROADCASTER_MIXED_AD: "BROADCASTER_MIXED_AD",
+  NONE: "NONE",
+} as const;
+
+/**
+ * @public
+ */
+export type Mp2AudioDescriptionMix = (typeof Mp2AudioDescriptionMix)[keyof typeof Mp2AudioDescriptionMix];
+
+/**
  * Required when you set Codec to the value MP2.
  * @public
  */
 export interface Mp2Settings {
+  /**
+   * Choose BROADCASTER_MIXED_AD when the input contains pre-mixed main audio + audio description (AD) as a stereo pair. The value for AudioType will be set to 3, which signals to downstream systems that this stream contains "broadcaster mixed AD". Note that the input received by the encoder must contain pre-mixed audio; the encoder does not perform the mixing. When you choose BROADCASTER_MIXED_AD, the encoder ignores any values you provide in AudioType and FollowInputAudioType. Choose NONE when the input does not contain pre-mixed audio + audio description (AD). In this case, the encoder will use any values you provide for AudioType and FollowInputAudioType.
+   * @public
+   */
+  AudioDescriptionMix?: Mp2AudioDescriptionMix | undefined;
+
   /**
    * Specify the average bitrate in bits per second.
    * @public
@@ -4290,7 +4310,7 @@ export type TamsGapHandling = (typeof TamsGapHandling)[keyof typeof TamsGapHandl
  */
 export interface InputTamsSettings {
   /**
-   * Specify the ARN (Amazon Resource Name) of an EventBridge Connection to authenticate with your TAMS server. The EventBridge Connection stores your authentication credentials securely. MediaConvert assumes your job's IAM role to access this connection, so ensure the role has the events:RetrieveConnectionCredentials, secretsmanager:DescribeSecret, and secretsmanager:GetSecretValue permissions. Format: arn:aws:events:region:account-id:connection/connection-name/unique-id
+   * Specify the ARN (Amazon Resource Name) of an EventBridge Connection to authenticate with your TAMS server. The EventBridge Connection stores your authentication credentials securely. MediaConvert assumes your job's IAM role to access this connection, so ensure the role has the events:RetrieveConnectionCredentials, secretsmanager:DescribeSecret, and secretsmanager:GetSecretValue permissions. Format: arn:aws:events:region:account-id:connection/connection-name/unique-id This setting is required when you include TAMS settings in your job.
    * @public
    */
   AuthConnectionArn?: string | undefined;
@@ -4302,13 +4322,13 @@ export interface InputTamsSettings {
   GapHandling?: TamsGapHandling | undefined;
 
   /**
-   * Specify the unique identifier for the media source in your TAMS server. MediaConvert uses this source ID to locate the appropriate flows containing the media segments you want to process. The source ID corresponds to a specific media source registered in your TAMS server. This source must be of type urn:x-nmos:format:multi, and can can reference multiple flows for audio, video, or combined audio/video content. MediaConvert automatically selects the highest quality flows available for your job. This setting is required when include TAMS settings in your job.
+   * Specify the unique identifier for the media source in your TAMS server. MediaConvert uses this source ID to locate the appropriate flows containing the media segments you want to process. The source ID corresponds to a specific media source registered in your TAMS server. This source must be of type urn:x-nmos:format:multi, and can can reference multiple flows for audio, video, or combined audio/video content. MediaConvert automatically selects the highest quality flows available for your job. This setting is required when you include TAMS settings in your job.
    * @public
    */
   SourceId?: string | undefined;
 
   /**
-   * Specify the time range of media segments to retrieve from your TAMS server. MediaConvert fetches only the segments that fall within this range. Use the format specified by your TAMS server implementation. This must be two timestamp values with the format \{sign?\}\{seconds\}:\{nanoseconds\}, separated by an underscore, surrounded by either parentheses or square brackets.  Example: [15:0_35:0) This setting is required when include TAMS settings in your job.
+   * Specify the time range of media segments to retrieve from your TAMS server. MediaConvert fetches only the segments that fall within this range. Use the format specified by your TAMS server implementation. This must be two timestamp values with the format \{sign?\}\{seconds\}:\{nanoseconds\}, separated by an underscore, surrounded by either parentheses or square brackets.  Example: [15:0_35:0) This setting is required when you include TAMS settings in your job.
    * @public
    */
   Timerange?: string | undefined;
@@ -4755,6 +4775,20 @@ export const InputSampleRange = {
 export type InputSampleRange = (typeof InputSampleRange)[keyof typeof InputSampleRange];
 
 /**
+ * @public
+ * @enum
+ */
+export const VideoSelectorType = {
+  AUTO: "AUTO",
+  STREAM: "STREAM",
+} as const;
+
+/**
+ * @public
+ */
+export type VideoSelectorType = (typeof VideoSelectorType)[keyof typeof VideoSelectorType];
+
+/**
  * Input video selectors contain the video settings for the input. Each of your inputs can have up to one video selector.
  * @public
  */
@@ -4829,6 +4863,18 @@ export interface VideoSelector {
    * @public
    */
   SampleRange?: InputSampleRange | undefined;
+
+  /**
+   * Choose the video selector type for your HLS input. Use to specify which video rendition MediaConvert uses from your HLS input. To have MediaConvert automatically use the highest bitrate rendition from your HLS input: Keep the default value, Auto. To manually specify a rendition: Choose Stream. Then enter the unique stream number in the Streams array, starting at 1, corresponding to the stream order in the manifest.
+   * @public
+   */
+  SelectorType?: VideoSelectorType | undefined;
+
+  /**
+   * Specify a stream for MediaConvert to use from your HLS input. Enter an integer corresponding to the stream order in your HLS manifest.
+   * @public
+   */
+  Streams?: number[] | undefined;
 }
 
 /**
@@ -7389,32 +7435,3 @@ export const HlsSegmentLengthControl = {
  * @public
  */
 export type HlsSegmentLengthControl = (typeof HlsSegmentLengthControl)[keyof typeof HlsSegmentLengthControl];
-
-/**
- * @public
- * @enum
- */
-export const HlsStreamInfResolution = {
-  EXCLUDE: "EXCLUDE",
-  INCLUDE: "INCLUDE",
-} as const;
-
-/**
- * @public
- */
-export type HlsStreamInfResolution = (typeof HlsStreamInfResolution)[keyof typeof HlsStreamInfResolution];
-
-/**
- * @public
- * @enum
- */
-export const HlsTargetDurationCompatibilityMode = {
-  LEGACY: "LEGACY",
-  SPEC_COMPLIANT: "SPEC_COMPLIANT",
-} as const;
-
-/**
- * @public
- */
-export type HlsTargetDurationCompatibilityMode =
-  (typeof HlsTargetDurationCompatibilityMode)[keyof typeof HlsTargetDurationCompatibilityMode];

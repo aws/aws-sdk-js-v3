@@ -21,6 +21,11 @@ import {
 } from "./commands/CreatePresetCommand";
 import { CreateQueueCommand, CreateQueueCommandInput, CreateQueueCommandOutput } from "./commands/CreateQueueCommand";
 import {
+  CreateResourceShareCommand,
+  CreateResourceShareCommandInput,
+  CreateResourceShareCommandOutput,
+} from "./commands/CreateResourceShareCommand";
+import {
   DeleteJobTemplateCommand,
   DeleteJobTemplateCommandInput,
   DeleteJobTemplateCommandOutput,
@@ -102,6 +107,7 @@ const commands = {
   CreateJobTemplateCommand,
   CreatePresetCommand,
   CreateQueueCommand,
+  CreateResourceShareCommand,
   DeleteJobTemplateCommand,
   DeletePolicyCommand,
   DeletePresetCommand,
@@ -206,6 +212,23 @@ export interface MediaConvert {
     args: CreateQueueCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateQueueCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateResourceShareCommand}
+   */
+  createResourceShare(
+    args: CreateResourceShareCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateResourceShareCommandOutput>;
+  createResourceShare(
+    args: CreateResourceShareCommandInput,
+    cb: (err: any, data?: CreateResourceShareCommandOutput) => void
+  ): void;
+  createResourceShare(
+    args: CreateResourceShareCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateResourceShareCommandOutput) => void
   ): void;
 
   /**
