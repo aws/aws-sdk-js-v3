@@ -33,8 +33,7 @@ export interface CalculateIsolinesCommandInput extends CalculateIsolinesRequest 
 export interface CalculateIsolinesCommandOutput extends CalculateIsolinesResponse, __MetadataBearer {}
 
 /**
- * <p>Use the <code>CalculateIsolines</code> action to find service areas that can be reached
- *          in a given threshold of time, distance.</p>
+ * <p>Use the <code>CalculateIsolines</code> action to find service areas that can be reached in a given threshold of time, distance.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -293,8 +292,7 @@ export interface CalculateIsolinesCommandOutput extends CalculateIsolinesRespons
  *  <p>You don't have sufficient access to perform this action.</p>
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>The request processing has failed because of an unknown error, exception or
- *          failure.</p>
+ *  <p>The request processing has failed because of an unknown error, exception or failure.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request was denied due to request throttling.</p>

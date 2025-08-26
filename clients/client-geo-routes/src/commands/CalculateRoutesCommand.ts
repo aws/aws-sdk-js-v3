@@ -33,9 +33,7 @@ export interface CalculateRoutesCommandInput extends CalculateRoutesRequest {}
 export interface CalculateRoutesCommandOutput extends CalculateRoutesResponse, __MetadataBearer {}
 
 /**
- * <p>
- *             <code>CalculateRoutes</code> computes routes given the following required parameters:
- *             <code>Origin</code> and <code>Destination</code>.</p>
+ * <p> <code>CalculateRoutes</code> computes routes given the following required parameters: <code>Origin</code> and <code>Destination</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -948,8 +946,7 @@ export interface CalculateRoutesCommandOutput extends CalculateRoutesResponse, _
  *  <p>You don't have sufficient access to perform this action.</p>
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>The request processing has failed because of an unknown error, exception or
- *          failure.</p>
+ *  <p>The request processing has failed because of an unknown error, exception or failure.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request was denied due to request throttling.</p>

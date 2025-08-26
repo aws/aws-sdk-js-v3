@@ -33,10 +33,7 @@ export interface CalculateRouteMatrixCommandInput extends CalculateRouteMatrixRe
 export interface CalculateRouteMatrixCommandOutput extends CalculateRouteMatrixResponse, __MetadataBearer {}
 
 /**
- * <p> Use <code>CalculateRouteMatrix</code> to compute results for all pairs of Origins to
- *          Destinations. Each row corresponds to one entry in Origins. Each entry in the row
- *          corresponds to the route from that entry in Origins to an entry in Destinations
- *          positions.</p>
+ * <p> Use <code>CalculateRouteMatrix</code> to compute results for all pairs of Origins to Destinations. Each row corresponds to one entry in Origins. Each entry in the row corresponds to the route from that entry in Origins to an entry in Destinations positions.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -260,8 +257,7 @@ export interface CalculateRouteMatrixCommandOutput extends CalculateRouteMatrixR
  *  <p>You don't have sufficient access to perform this action.</p>
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>The request processing has failed because of an unknown error, exception or
- *          failure.</p>
+ *  <p>The request processing has failed because of an unknown error, exception or failure.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request was denied due to request throttling.</p>
