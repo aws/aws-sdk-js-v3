@@ -165,6 +165,7 @@ export const ResourceType = {
   fpga_image: "fpga-image",
   host_reservation: "host-reservation",
   image: "image",
+  image_usage_report: "image-usage-report",
   import_image_task: "import-image-task",
   import_snapshot_task: "import-snapshot-task",
   instance: "instance",

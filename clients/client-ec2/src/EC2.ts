@@ -381,6 +381,11 @@ import {
 } from "./commands/CreateFpgaImageCommand";
 import { CreateImageCommand, CreateImageCommandInput, CreateImageCommandOutput } from "./commands/CreateImageCommand";
 import {
+  CreateImageUsageReportCommand,
+  CreateImageUsageReportCommandInput,
+  CreateImageUsageReportCommandOutput,
+} from "./commands/CreateImageUsageReportCommand";
+import {
   CreateInstanceConnectEndpointCommand,
   CreateInstanceConnectEndpointCommandInput,
   CreateInstanceConnectEndpointCommandOutput,
@@ -789,6 +794,11 @@ import {
   DeleteFpgaImageCommandInput,
   DeleteFpgaImageCommandOutput,
 } from "./commands/DeleteFpgaImageCommand";
+import {
+  DeleteImageUsageReportCommand,
+  DeleteImageUsageReportCommandInput,
+  DeleteImageUsageReportCommandOutput,
+} from "./commands/DeleteImageUsageReportCommand";
 import {
   DeleteInstanceConnectEndpointCommand,
   DeleteInstanceConnectEndpointCommandInput,
@@ -1404,10 +1414,25 @@ import {
   DescribeImageAttributeCommandOutput,
 } from "./commands/DescribeImageAttributeCommand";
 import {
+  DescribeImageReferencesCommand,
+  DescribeImageReferencesCommandInput,
+  DescribeImageReferencesCommandOutput,
+} from "./commands/DescribeImageReferencesCommand";
+import {
   DescribeImagesCommand,
   DescribeImagesCommandInput,
   DescribeImagesCommandOutput,
 } from "./commands/DescribeImagesCommand";
+import {
+  DescribeImageUsageReportEntriesCommand,
+  DescribeImageUsageReportEntriesCommandInput,
+  DescribeImageUsageReportEntriesCommandOutput,
+} from "./commands/DescribeImageUsageReportEntriesCommand";
+import {
+  DescribeImageUsageReportsCommand,
+  DescribeImageUsageReportsCommandInput,
+  DescribeImageUsageReportsCommandOutput,
+} from "./commands/DescribeImageUsageReportsCommand";
 import {
   DescribeImportImageTasksCommand,
   DescribeImportImageTasksCommandInput,
@@ -3460,6 +3485,7 @@ const commands = {
   CreateFlowLogsCommand,
   CreateFpgaImageCommand,
   CreateImageCommand,
+  CreateImageUsageReportCommand,
   CreateInstanceConnectEndpointCommand,
   CreateInstanceEventWindowCommand,
   CreateInstanceExportTaskCommand,
@@ -3545,6 +3571,7 @@ const commands = {
   DeleteFleetsCommand,
   DeleteFlowLogsCommand,
   DeleteFpgaImageCommand,
+  DeleteImageUsageReportCommand,
   DeleteInstanceConnectEndpointCommand,
   DeleteInstanceEventWindowCommand,
   DeleteInternetGatewayCommand,
@@ -3671,7 +3698,10 @@ const commands = {
   DescribeIdentityIdFormatCommand,
   DescribeIdFormatCommand,
   DescribeImageAttributeCommand,
+  DescribeImageReferencesCommand,
   DescribeImagesCommand,
+  DescribeImageUsageReportEntriesCommand,
+  DescribeImageUsageReportsCommand,
   DescribeImportImageTasksCommand,
   DescribeImportSnapshotTasksCommand,
   DescribeInstanceAttributeCommand,
@@ -5349,6 +5379,23 @@ export interface EC2 {
   ): void;
 
   /**
+   * @see {@link CreateImageUsageReportCommand}
+   */
+  createImageUsageReport(
+    args: CreateImageUsageReportCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateImageUsageReportCommandOutput>;
+  createImageUsageReport(
+    args: CreateImageUsageReportCommandInput,
+    cb: (err: any, data?: CreateImageUsageReportCommandOutput) => void
+  ): void;
+  createImageUsageReport(
+    args: CreateImageUsageReportCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateImageUsageReportCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link CreateInstanceConnectEndpointCommand}
    */
   createInstanceConnectEndpoint(
@@ -6732,6 +6779,23 @@ export interface EC2 {
     args: DeleteFpgaImageCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteFpgaImageCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteImageUsageReportCommand}
+   */
+  deleteImageUsageReport(
+    args: DeleteImageUsageReportCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteImageUsageReportCommandOutput>;
+  deleteImageUsageReport(
+    args: DeleteImageUsageReportCommandInput,
+    cb: (err: any, data?: DeleteImageUsageReportCommandOutput) => void
+  ): void;
+  deleteImageUsageReport(
+    args: DeleteImageUsageReportCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteImageUsageReportCommandOutput) => void
   ): void;
 
   /**
@@ -8855,6 +8919,23 @@ export interface EC2 {
   ): void;
 
   /**
+   * @see {@link DescribeImageReferencesCommand}
+   */
+  describeImageReferences(
+    args: DescribeImageReferencesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeImageReferencesCommandOutput>;
+  describeImageReferences(
+    args: DescribeImageReferencesCommandInput,
+    cb: (err: any, data?: DescribeImageReferencesCommandOutput) => void
+  ): void;
+  describeImageReferences(
+    args: DescribeImageReferencesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeImageReferencesCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DescribeImagesCommand}
    */
   describeImages(): Promise<DescribeImagesCommandOutput>;
@@ -8867,6 +8948,42 @@ export interface EC2 {
     args: DescribeImagesCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DescribeImagesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeImageUsageReportEntriesCommand}
+   */
+  describeImageUsageReportEntries(): Promise<DescribeImageUsageReportEntriesCommandOutput>;
+  describeImageUsageReportEntries(
+    args: DescribeImageUsageReportEntriesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeImageUsageReportEntriesCommandOutput>;
+  describeImageUsageReportEntries(
+    args: DescribeImageUsageReportEntriesCommandInput,
+    cb: (err: any, data?: DescribeImageUsageReportEntriesCommandOutput) => void
+  ): void;
+  describeImageUsageReportEntries(
+    args: DescribeImageUsageReportEntriesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeImageUsageReportEntriesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeImageUsageReportsCommand}
+   */
+  describeImageUsageReports(): Promise<DescribeImageUsageReportsCommandOutput>;
+  describeImageUsageReports(
+    args: DescribeImageUsageReportsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeImageUsageReportsCommandOutput>;
+  describeImageUsageReports(
+    args: DescribeImageUsageReportsCommandInput,
+    cb: (err: any, data?: DescribeImageUsageReportsCommandOutput) => void
+  ): void;
+  describeImageUsageReports(
+    args: DescribeImageUsageReportsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeImageUsageReportsCommandOutput) => void
   ): void;
 
   /**

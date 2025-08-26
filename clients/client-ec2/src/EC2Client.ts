@@ -303,6 +303,10 @@ import { CreateFlowLogsCommandInput, CreateFlowLogsCommandOutput } from "./comma
 import { CreateFpgaImageCommandInput, CreateFpgaImageCommandOutput } from "./commands/CreateFpgaImageCommand";
 import { CreateImageCommandInput, CreateImageCommandOutput } from "./commands/CreateImageCommand";
 import {
+  CreateImageUsageReportCommandInput,
+  CreateImageUsageReportCommandOutput,
+} from "./commands/CreateImageUsageReportCommand";
+import {
   CreateInstanceConnectEndpointCommandInput,
   CreateInstanceConnectEndpointCommandOutput,
 } from "./commands/CreateInstanceConnectEndpointCommand";
@@ -573,6 +577,10 @@ import {
 import { DeleteFleetsCommandInput, DeleteFleetsCommandOutput } from "./commands/DeleteFleetsCommand";
 import { DeleteFlowLogsCommandInput, DeleteFlowLogsCommandOutput } from "./commands/DeleteFlowLogsCommand";
 import { DeleteFpgaImageCommandInput, DeleteFpgaImageCommandOutput } from "./commands/DeleteFpgaImageCommand";
+import {
+  DeleteImageUsageReportCommandInput,
+  DeleteImageUsageReportCommandOutput,
+} from "./commands/DeleteImageUsageReportCommand";
 import {
   DeleteInstanceConnectEndpointCommandInput,
   DeleteInstanceConnectEndpointCommandOutput,
@@ -1002,7 +1010,19 @@ import {
   DescribeImageAttributeCommandInput,
   DescribeImageAttributeCommandOutput,
 } from "./commands/DescribeImageAttributeCommand";
+import {
+  DescribeImageReferencesCommandInput,
+  DescribeImageReferencesCommandOutput,
+} from "./commands/DescribeImageReferencesCommand";
 import { DescribeImagesCommandInput, DescribeImagesCommandOutput } from "./commands/DescribeImagesCommand";
+import {
+  DescribeImageUsageReportEntriesCommandInput,
+  DescribeImageUsageReportEntriesCommandOutput,
+} from "./commands/DescribeImageUsageReportEntriesCommand";
+import {
+  DescribeImageUsageReportsCommandInput,
+  DescribeImageUsageReportsCommandOutput,
+} from "./commands/DescribeImageUsageReportsCommand";
 import {
   DescribeImportImageTasksCommandInput,
   DescribeImportImageTasksCommandOutput,
@@ -2509,6 +2529,7 @@ export type ServiceInputTypes =
   | CreateFlowLogsCommandInput
   | CreateFpgaImageCommandInput
   | CreateImageCommandInput
+  | CreateImageUsageReportCommandInput
   | CreateInstanceConnectEndpointCommandInput
   | CreateInstanceEventWindowCommandInput
   | CreateInstanceExportTaskCommandInput
@@ -2594,6 +2615,7 @@ export type ServiceInputTypes =
   | DeleteFleetsCommandInput
   | DeleteFlowLogsCommandInput
   | DeleteFpgaImageCommandInput
+  | DeleteImageUsageReportCommandInput
   | DeleteInstanceConnectEndpointCommandInput
   | DeleteInstanceEventWindowCommandInput
   | DeleteInternetGatewayCommandInput
@@ -2720,6 +2742,9 @@ export type ServiceInputTypes =
   | DescribeIdFormatCommandInput
   | DescribeIdentityIdFormatCommandInput
   | DescribeImageAttributeCommandInput
+  | DescribeImageReferencesCommandInput
+  | DescribeImageUsageReportEntriesCommandInput
+  | DescribeImageUsageReportsCommandInput
   | DescribeImagesCommandInput
   | DescribeImportImageTasksCommandInput
   | DescribeImportSnapshotTasksCommandInput
@@ -3203,6 +3228,7 @@ export type ServiceOutputTypes =
   | CreateFlowLogsCommandOutput
   | CreateFpgaImageCommandOutput
   | CreateImageCommandOutput
+  | CreateImageUsageReportCommandOutput
   | CreateInstanceConnectEndpointCommandOutput
   | CreateInstanceEventWindowCommandOutput
   | CreateInstanceExportTaskCommandOutput
@@ -3288,6 +3314,7 @@ export type ServiceOutputTypes =
   | DeleteFleetsCommandOutput
   | DeleteFlowLogsCommandOutput
   | DeleteFpgaImageCommandOutput
+  | DeleteImageUsageReportCommandOutput
   | DeleteInstanceConnectEndpointCommandOutput
   | DeleteInstanceEventWindowCommandOutput
   | DeleteInternetGatewayCommandOutput
@@ -3414,6 +3441,9 @@ export type ServiceOutputTypes =
   | DescribeIdFormatCommandOutput
   | DescribeIdentityIdFormatCommandOutput
   | DescribeImageAttributeCommandOutput
+  | DescribeImageReferencesCommandOutput
+  | DescribeImageUsageReportEntriesCommandOutput
+  | DescribeImageUsageReportsCommandOutput
   | DescribeImagesCommandOutput
   | DescribeImportImageTasksCommandOutput
   | DescribeImportSnapshotTasksCommandOutput

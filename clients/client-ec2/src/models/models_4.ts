@@ -8,6 +8,7 @@ import {
   AssociationStatus,
   AttachmentStatus,
   AutoPlacement,
+  CapacityReservationFleetState,
   ClientVpnAuthorizationRuleStatus,
   CurrencyCodeValues,
   HostMaintenance,
@@ -26,6 +27,7 @@ import {
   CapacityReservation,
   CapacityReservationPreference,
   CapacityReservationTargetResponse,
+  CapacityReservationTenancy,
   CarrierGateway,
   ClientVpnAuthenticationType,
   ClientVpnEndpointStatus,
@@ -40,8 +42,11 @@ import {
   EgressOnlyInternetGateway,
   EndpointIpAddressType,
   ExportTask,
+  FleetCapacityReservation,
+  FleetCapacityReservationTenancy,
   FleetCapacityReservationUsageStrategy,
   FleetExcessCapacityTerminationPolicy,
+  FleetInstanceMatchCriteria,
   FleetLaunchTemplateOverrides,
   FleetLaunchTemplateSpecification,
   FleetOnDemandAllocationStrategy,
@@ -50,8 +55,6 @@ import {
   HostnameType,
   InstanceBandwidthWeighting,
   InstanceLifecycle,
-  InternetGateway,
-  IpamExternalResourceVerificationToken,
   LaunchTemplateAndOverridesResponse,
   LogDestinationType,
   OperatorResponse,
@@ -67,14 +70,339 @@ import {
 
 import { GroupIdentifier, InstanceIpv6Address, NetworkInterfaceStatus, StateReason } from "./models_2";
 
-import {
-  Byoasn,
-  CapacityReservationFleet,
-  Filter,
-  FleetStateCode,
-  IdFormat,
-  InstanceTagNotificationAttribute,
-} from "./models_3";
+import { Filter, FleetStateCode, IdFormat, InstanceTagNotificationAttribute } from "./models_3";
+
+/**
+ * <p>Information about a Capacity Reservation.</p>
+ * @public
+ */
+export interface CapacityReservationInfo {
+  /**
+   * <p>The instance type for the Capacity Reservation.</p>
+   * @public
+   */
+  InstanceType?: string | undefined;
+
+  /**
+   * <p>The Availability Zone for the Capacity Reservation.</p>
+   * @public
+   */
+  AvailabilityZone?: string | undefined;
+
+  /**
+   * <p>The tenancy of the Capacity Reservation.</p>
+   * @public
+   */
+  Tenancy?: CapacityReservationTenancy | undefined;
+
+  /**
+   * <p>The ID of the Availability Zone.</p>
+   * @public
+   */
+  AvailabilityZoneId?: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const CapacityReservationBillingRequestStatus = {
+  accepted: "accepted",
+  cancelled: "cancelled",
+  expired: "expired",
+  pending: "pending",
+  rejected: "rejected",
+  revoked: "revoked",
+} as const;
+
+/**
+ * @public
+ */
+export type CapacityReservationBillingRequestStatus =
+  (typeof CapacityReservationBillingRequestStatus)[keyof typeof CapacityReservationBillingRequestStatus];
+
+/**
+ * <p>Information about a request to assign billing of the unused capacity of a Capacity
+ * 			Reservation.</p>
+ * @public
+ */
+export interface CapacityReservationBillingRequest {
+  /**
+   * <p>The ID of the Capacity Reservation.</p>
+   * @public
+   */
+  CapacityReservationId?: string | undefined;
+
+  /**
+   * <p>The ID of the Amazon Web Services account that initiated the request.</p>
+   * @public
+   */
+  RequestedBy?: string | undefined;
+
+  /**
+   * <p>The ID of the Amazon Web Services account to which the request was sent.</p>
+   * @public
+   */
+  UnusedReservationBillingOwnerId?: string | undefined;
+
+  /**
+   * <p>The date and time, in UTC time format, at which the request was initiated.</p>
+   * @public
+   */
+  LastUpdateTime?: Date | undefined;
+
+  /**
+   * <p>The status of the request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/view-billing-transfers.html"> View billing assignment
+   * 				requests for a shared Amazon EC2 Capacity Reservation</a>.</p>
+   * @public
+   */
+  Status?: CapacityReservationBillingRequestStatus | undefined;
+
+  /**
+   * <p>Information about the status.</p>
+   * @public
+   */
+  StatusMessage?: string | undefined;
+
+  /**
+   * <p>Information about the Capacity Reservation.</p>
+   * @public
+   */
+  CapacityReservationInfo?: CapacityReservationInfo | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeCapacityReservationBillingRequestsResult {
+  /**
+   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>Information about the request.</p>
+   * @public
+   */
+  CapacityReservationBillingRequests?: CapacityReservationBillingRequest[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeCapacityReservationFleetsRequest {
+  /**
+   * <p>The IDs of the Capacity Reservation Fleets to describe.</p>
+   * @public
+   */
+  CapacityReservationFleetIds?: string[] | undefined;
+
+  /**
+   * <p>The token to use to retrieve the next page of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of items to return for this request. To get the next page of items, make another request with the token returned in the output. For more information,
+   *     see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>One or more filters.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>state</code> - The state of the Fleet (<code>submitted</code> |
+   * 						<code>modifying</code> | <code>active</code> |
+   * 						<code>partially_fulfilled</code> | <code>expiring</code> |
+   * 						<code>expired</code> | <code>cancelling</code> | <code>cancelled</code> |
+   * 						<code>failed</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>instance-match-criteria</code> - The instance matching criteria for the
+   * 					Fleet. Only <code>open</code> is supported.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>tenancy</code> - The tenancy of the Fleet (<code>default</code> |
+   * 						<code>dedicated</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>allocation-strategy</code> - The allocation strategy used by the Fleet.
+   * 					Only <code>prioritized</code> is supported.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Filters?: Filter[] | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
+
+/**
+ * <p>Information about a Capacity Reservation Fleet.</p>
+ * @public
+ */
+export interface CapacityReservationFleet {
+  /**
+   * <p>The ID of the Capacity Reservation Fleet.</p>
+   * @public
+   */
+  CapacityReservationFleetId?: string | undefined;
+
+  /**
+   * <p>The ARN of the Capacity Reservation Fleet.</p>
+   * @public
+   */
+  CapacityReservationFleetArn?: string | undefined;
+
+  /**
+   * <p>The state of the Capacity Reservation Fleet. Possible states include:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>submitted</code> - The Capacity Reservation Fleet request has been
+   * 					submitted and Amazon Elastic Compute Cloud is preparing to create the Capacity
+   * 					Reservations.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>modifying</code> - The Capacity Reservation Fleet is being modified. The
+   * 					Fleet remains in this state until the modification is complete.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>active</code> - The Capacity Reservation Fleet has fulfilled its total
+   * 					target capacity and it is attempting to maintain this capacity. The Fleet
+   * 					remains in this state until it is modified or deleted.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>partially_fulfilled</code> - The Capacity Reservation Fleet has
+   * 					partially fulfilled its total target capacity. There is insufficient Amazon EC2 to fulfill the total target capacity. The Fleet is attempting to
+   * 					asynchronously fulfill its total target capacity.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>expiring</code> - The Capacity Reservation Fleet has reach its end date
+   * 					and it is in the process of expiring. One or more of its Capacity reservations
+   * 					might still be active.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>expired</code> - The Capacity Reservation Fleet has reach its end date.
+   * 					The Fleet and its Capacity Reservations are expired. The Fleet can't create new
+   * 					Capacity Reservations.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>cancelling</code> - The Capacity Reservation Fleet is in the process of
+   * 					being cancelled. One or more of its Capacity reservations might still be
+   * 					active.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>cancelled</code> - The Capacity Reservation Fleet has been manually
+   * 					cancelled. The Fleet and its Capacity Reservations are cancelled and the Fleet
+   * 					can't create new Capacity Reservations.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>failed</code> - The Capacity Reservation Fleet failed to reserve
+   * 					capacity for the specified instance types.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  State?: CapacityReservationFleetState | undefined;
+
+  /**
+   * <p>The total number of capacity units for which the Capacity Reservation Fleet reserves
+   * 			capacity. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/crfleet-concepts.html#target-capacity">Total target
+   * 				capacity</a> in the <i>Amazon EC2 User Guide</i>.</p>
+   * @public
+   */
+  TotalTargetCapacity?: number | undefined;
+
+  /**
+   * <p>The capacity units that have been fulfilled.</p>
+   * @public
+   */
+  TotalFulfilledCapacity?: number | undefined;
+
+  /**
+   * <p>The tenancy of the Capacity Reservation Fleet. Tenancies include:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>default</code> - The Capacity Reservation Fleet is created on hardware
+   * 					that is shared with other Amazon Web Services accounts.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>dedicated</code> - The Capacity Reservation Fleet is created on
+   * 					single-tenant hardware that is dedicated to a single Amazon Web Services account.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Tenancy?: FleetCapacityReservationTenancy | undefined;
+
+  /**
+   * <p>The date and time at which the Capacity Reservation Fleet expires.</p>
+   * @public
+   */
+  EndDate?: Date | undefined;
+
+  /**
+   * <p>The date and time at which the Capacity Reservation Fleet was created.</p>
+   * @public
+   */
+  CreateTime?: Date | undefined;
+
+  /**
+   * <p>Indicates the type of instance launches that the Capacity Reservation Fleet accepts.
+   * 			All Capacity Reservations in the Fleet inherit this instance matching criteria.</p>
+   *          <p>Currently, Capacity Reservation Fleets support <code>open</code> instance matching
+   * 			criteria only. This means that instances that have matching attributes (instance type,
+   * 			platform, and Availability Zone) run in the Capacity Reservations automatically.
+   * 			Instances do not need to explicitly target a Capacity Reservation Fleet to use its
+   * 			reserved capacity.</p>
+   * @public
+   */
+  InstanceMatchCriteria?: FleetInstanceMatchCriteria | undefined;
+
+  /**
+   * <p>The strategy used by the Capacity Reservation Fleet to determine which of the
+   * 			specified instance types to use. For more information, see For more information, see
+   * 				<a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/crfleet-concepts.html#allocation-strategy">Allocation
+   * 				strategy</a> in the <i>Amazon EC2 User Guide</i>.</p>
+   * @public
+   */
+  AllocationStrategy?: string | undefined;
+
+  /**
+   * <p>Information about the instance types for which to reserve the capacity.</p>
+   * @public
+   */
+  InstanceTypeSpecifications?: FleetCapacityReservation[] | undefined;
+
+  /**
+   * <p>The tags assigned to the Capacity Reservation Fleet.</p>
+   * @public
+   */
+  Tags?: Tag[] | undefined;
+}
 
 /**
  * @public
@@ -3791,11 +4119,15 @@ export interface TargetCapacitySpecification {
  */
 export interface FleetData {
   /**
-   * <p>The progress of the EC2 Fleet. If there is an error, the status is <code>error</code>. After
-   *          all requests are placed, the status is <code>pending_fulfillment</code>. If the size of the
-   *          EC2 Fleet is equal to or greater than its target capacity, the status is <code>fulfilled</code>.
-   *          If the size of the EC2 Fleet is decreased, the status is <code>pending_termination</code> while
-   *          instances are terminating.</p>
+   * <p>The progress of the EC2 Fleet.</p>
+   *          <p>For fleets of type <code>instant</code>, the status is <code>fulfilled</code> after all
+   *          requests are placed, regardless of whether target capacity is met (this is the only
+   *          possible status for <code>instant</code> fleets).</p>
+   *          <p>For fleets of type <code>request</code> or <code>maintain</code>, the status is
+   *             <code>pending_fulfillment</code> after all requests are placed, <code>fulfilled</code>
+   *          when the fleet size meets or exceeds target capacity, <code>pending_termination</code>
+   *          while instances are terminating when fleet size is decreased, and <code>error</code> if
+   *          there's an error.</p>
    * @public
    */
   ActivityStatus?: FleetActivityStatus | undefined;
@@ -5624,6 +5956,217 @@ export interface ImageAttribute {
 
 /**
  * @public
+ * @enum
+ */
+export const ImageReferenceResourceType = {
+  EC2_INSTANCE: "ec2:Instance",
+  EC2_LAUNCH_TEMPLATE: "ec2:LaunchTemplate",
+  IMAGE_BUILDER_CONTAINER_RECIPE: "imagebuilder:ContainerRecipe",
+  IMAGE_BUILDER_IMAGE_RECIPE: "imagebuilder:ImageRecipe",
+  SSM_PARAMETER: "ssm:Parameter",
+} as const;
+
+/**
+ * @public
+ */
+export type ImageReferenceResourceType = (typeof ImageReferenceResourceType)[keyof typeof ImageReferenceResourceType];
+
+/**
+ * @public
+ * @enum
+ */
+export const ImageReferenceOptionName = {
+  STATE_NAME: "state-name",
+  VERSION_DEPTH: "version-depth",
+} as const;
+
+/**
+ * @public
+ */
+export type ImageReferenceOptionName = (typeof ImageReferenceOptionName)[keyof typeof ImageReferenceOptionName];
+
+/**
+ * <p>The options that affect the scope of the response.</p>
+ * @public
+ */
+export interface ResourceTypeOption {
+  /**
+   * <p>The name of the option.</p>
+   *          <ul>
+   *             <li>
+   *                <p>For <code>ec2:Instance</code>:</p>
+   *                <p>Specify <code>state-name</code> - The current state of the EC2 instance.</p>
+   *             </li>
+   *             <li>
+   *                <p>For <code>ec2:LaunchTemplate</code>:</p>
+   *                <p>Specify <code>version-depth</code> - The number of launch template versions to check,
+   *           starting from the most recent version.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  OptionName?: ImageReferenceOptionName | undefined;
+
+  /**
+   * <p>A value for the specified option.</p>
+   *          <ul>
+   *             <li>
+   *                <p>For <code>state-name</code>:</p>
+   *                <ul>
+   *                   <li>
+   *                      <p>Valid values: <code>pending</code> | <code>running</code> | <code>shutting-down</code> |
+   *             <code>terminated</code> | <code>stopping</code> | <code>stopped</code>
+   *                      </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>Default: All states</p>
+   *                   </li>
+   *                </ul>
+   *             </li>
+   *             <li>
+   *                <p>For <code>version-depth</code>:</p>
+   *                <ul>
+   *                   <li>
+   *                      <p>Valid values: Integers between <code>1</code> and <code>10000</code>
+   *                      </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>Default: <code>10</code>
+   *                      </p>
+   *                   </li>
+   *                </ul>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  OptionValues?: string[] | undefined;
+}
+
+/**
+ * <p>A resource type to check for image references. Associated options can also be specified if the
+ *       resource type is an EC2 instance or launch template.</p>
+ * @public
+ */
+export interface ResourceTypeRequest {
+  /**
+   * <p>The resource type.</p>
+   * @public
+   */
+  ResourceType?: ImageReferenceResourceType | undefined;
+
+  /**
+   * <p>The options that affect the scope of the response. Valid only when
+   *         <code>ResourceType</code> is <code>ec2:Instance</code> or
+   *       <code>ec2:LaunchTemplate</code>.</p>
+   * @public
+   */
+  ResourceTypeOptions?: ResourceTypeOption[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeImageReferencesRequest {
+  /**
+   * <p>The IDs of the images to check for resource references.</p>
+   * @public
+   */
+  ImageIds: string[] | undefined;
+
+  /**
+   * <p>Specifies whether to check all supported Amazon Web Services resource types for image references. When
+   *       specified, default values are applied for <code>ResourceTypeOptions</code>. For the default
+   *       values, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/how-ami-references-works.html">How AMI reference checks
+   *         work</a> in the <i>Amazon EC2 User Guide</i>. If you also specify
+   *         <code>ResourceTypes</code> with <code>ResourceTypeOptions</code>, your specified values
+   *       override the default values.</p>
+   *          <p>Supported resource types: <code>ec2:Instance</code> | <code>ec2:LaunchTemplate</code> |
+   *         <code>ssm:Parameter</code> | <code>imagebuilder:ImageRecipe</code> |
+   *         <code>imagebuilder:ContainerRecipe</code>
+   *          </p>
+   *          <p>Either <code>IncludeAllResourceTypes</code> or <code>ResourceTypes</code> must be
+   *       specified.</p>
+   * @public
+   */
+  IncludeAllResourceTypes?: boolean | undefined;
+
+  /**
+   * <p>The Amazon Web Services resource types to check for image references.</p>
+   *          <p>Either <code>IncludeAllResourceTypes</code> or <code>ResourceTypes</code> must be
+   *       specified.</p>
+   * @public
+   */
+  ResourceTypes?: ResourceTypeRequest[] | undefined;
+
+  /**
+   * <p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   * 			and provides an error response. If you have the required permissions, the error response is
+   * 			<code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>
+   *       The maximum number of items to return for this request.
+   *          To get the next page of items, make another request with the token returned in the output.
+   * 	        For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.
+   *     </p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+}
+
+/**
+ * <p>A resource that is referencing an image.</p>
+ * @public
+ */
+export interface ImageReference {
+  /**
+   * <p>The ID of the referenced image.</p>
+   * @public
+   */
+  ImageId?: string | undefined;
+
+  /**
+   * <p>The type of resource referencing the image.</p>
+   * @public
+   */
+  ResourceType?: ImageReferenceResourceType | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the resource referencing the image.</p>
+   * @public
+   */
+  Arn?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeImageReferencesResult {
+  /**
+   * <p>The token to include in another request to get the next page of items. This value is <code>null</code> when there
+   *          are no more items to return.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The resources that are referencing the specified images.</p>
+   * @public
+   */
+  ImageReferences?: ImageReference[] | undefined;
+}
+
+/**
+ * @public
  */
 export interface DescribeImagesRequest {
   /**
@@ -6321,6 +6864,325 @@ export interface DescribeImagesResult {
    * @public
    */
   Images?: Image[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeImageUsageReportEntriesRequest {
+  /**
+   * <p>The IDs of the images for filtering the report entries. If specified, only report entries
+   *       containing these images are returned.</p>
+   * @public
+   */
+  ImageIds?: string[] | undefined;
+
+  /**
+   * <p>The IDs of the usage reports.</p>
+   * @public
+   */
+  ReportIds?: string[] | undefined;
+
+  /**
+   * <p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The filters.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>account-id</code> - A 12-digit Amazon Web Services account ID.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>creation-time</code> - The time when the report was created, in the ISO 8601
+   *           format in the UTC time zone (YYYY-MM-DDThh:mm:ss.sssZ), for example,
+   *           <code>2025-11-29T11:04:43.305Z</code>. You can use a wildcard (<code>*</code>), for
+   *           example, <code>2025-11-29T*</code>, which matches an entire day.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>resource-type</code> - The resource type (<code>ec2:Instance</code> |
+   *             <code>ec2:LaunchTemplate</code>).</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Filters?: Filter[] | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   * 			and provides an error response. If you have the required permissions, the error response is
+   * 			<code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>The maximum number of items to return for this request.
+   *          To get the next page of items, make another request with the token returned in the output.
+   * 	        For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+}
+
+/**
+ * <p>A single entry in an image usage report, detailing how an image is being used by a
+ *       specific Amazon Web Services account and resource type.</p>
+ * @public
+ */
+export interface ImageUsageReportEntry {
+  /**
+   * <p>The type of resource (<code>ec2:Instance</code> or
+   *       <code>ec2:LaunchTemplate</code>).</p>
+   * @public
+   */
+  ResourceType?: string | undefined;
+
+  /**
+   * <p>The ID of the report.</p>
+   * @public
+   */
+  ReportId?: string | undefined;
+
+  /**
+   * <p>The number of times resources of this type reference this image in the account.</p>
+   * @public
+   */
+  UsageCount?: number | undefined;
+
+  /**
+   * <p>The ID of the account that uses the image.</p>
+   * @public
+   */
+  AccountId?: string | undefined;
+
+  /**
+   * <p>The ID of the image.</p>
+   * @public
+   */
+  ImageId?: string | undefined;
+
+  /**
+   * <p>The date and time the report creation was initiated.</p>
+   * @public
+   */
+  ReportCreationTime?: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeImageUsageReportEntriesResult {
+  /**
+   * <p>The token to include in another request to get the next page of items. This value is <code>null</code> when there
+   *          are no more items to return.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The content of the usage reports.</p>
+   * @public
+   */
+  ImageUsageReportEntries?: ImageUsageReportEntry[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeImageUsageReportsRequest {
+  /**
+   * <p>The IDs of the images for filtering the reports. If specified, only reports containing
+   *       these images are returned.</p>
+   * @public
+   */
+  ImageIds?: string[] | undefined;
+
+  /**
+   * <p>The IDs of the image usage reports.</p>
+   * @public
+   */
+  ReportIds?: string[] | undefined;
+
+  /**
+   * <p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The filters.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>creation-time</code> - The time when the report was created, in the ISO 8601
+   *           format in the UTC time zone (YYYY-MM-DDThh:mm:ss.sssZ), for example,
+   *           <code>2025-11-29T11:04:43.305Z</code>. You can use a wildcard (<code>*</code>), for
+   *           example, <code>2025-11-29T*</code>, which matches an entire day.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>state</code> - The state of the report (<code>available</code> |
+   *             <code>pending</code> | <code>error</code>).</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Filters?: Filter[] | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   * 			and provides an error response. If you have the required permissions, the error response is
+   * 			<code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>The maximum number of items to return for this request.
+   *          To get the next page of items, make another request with the token returned in the output.
+   * 	        For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+}
+
+/**
+ * <p>The options that affect the scope of the report.</p>
+ * @public
+ */
+export interface ImageUsageResourceTypeOption {
+  /**
+   * <p>The name of the option.</p>
+   * @public
+   */
+  OptionName?: string | undefined;
+
+  /**
+   * <p>The number of launch template versions to check.</p>
+   * @public
+   */
+  OptionValues?: string[] | undefined;
+}
+
+/**
+ * <p>A resource type to include in the report. Associated options can also be specified if the
+ *       resource type is a launch template.</p>
+ * @public
+ */
+export interface ImageUsageResourceType {
+  /**
+   * <p>The resource type.</p>
+   *          <p>Valid values: <code>ec2:Instance</code> | <code>ec2:LaunchTemplate</code>
+   *          </p>
+   * @public
+   */
+  ResourceType?: string | undefined;
+
+  /**
+   * <p>The options that affect the scope of the report. Valid only when <code>ResourceType</code>
+   *       is <code>ec2:LaunchTemplate</code>.</p>
+   * @public
+   */
+  ResourceTypeOptions?: ImageUsageResourceTypeOption[] | undefined;
+}
+
+/**
+ * <p>The configuration and status of an image usage report.</p>
+ * @public
+ */
+export interface ImageUsageReport {
+  /**
+   * <p>The ID of the image that was specified when the report was created.</p>
+   * @public
+   */
+  ImageId?: string | undefined;
+
+  /**
+   * <p>The ID of the report.</p>
+   * @public
+   */
+  ReportId?: string | undefined;
+
+  /**
+   * <p>The resource types that were specified when the report was created.</p>
+   * @public
+   */
+  ResourceTypes?: ImageUsageResourceType[] | undefined;
+
+  /**
+   * <p>The IDs of the Amazon Web Services accounts that were specified when the report was created.</p>
+   * @public
+   */
+  AccountIds?: string[] | undefined;
+
+  /**
+   * <p>The current state of the report. Possible values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>available</code> - The report is available to view.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>pending</code> - The report is being created and not available to view.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>error</code> - The report could not be created.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  State?: string | undefined;
+
+  /**
+   * <p>Provides additional details when the report is in an <code>error</code> state.</p>
+   * @public
+   */
+  StateReason?: string | undefined;
+
+  /**
+   * <p>The date and time when the report was created.</p>
+   * @public
+   */
+  CreationTime?: Date | undefined;
+
+  /**
+   * <p>The date and time when Amazon EC2 will delete the report (30 days after the report was
+   *       created).</p>
+   * @public
+   */
+  ExpirationTime?: Date | undefined;
+
+  /**
+   * <p>Any tags assigned to the report.</p>
+   * @public
+   */
+  Tags?: Tag[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeImageUsageReportsResult {
+  /**
+   * <p>The token to include in another request to get the next page of items. This value is <code>null</code> when there
+   *          are no more items to return.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The image usage reports.</p>
+   * @public
+   */
+  ImageUsageReports?: ImageUsageReport[] | undefined;
 }
 
 /**
@@ -11543,704 +12405,6 @@ export interface NitroTpmInfo {
    * @public
    */
   SupportedVersions?: string[] | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const NitroTpmSupport = {
-  SUPPORTED: "supported",
-  UNSUPPORTED: "unsupported",
-} as const;
-
-/**
- * @public
- */
-export type NitroTpmSupport = (typeof NitroTpmSupport)[keyof typeof NitroTpmSupport];
-
-/**
- * @public
- * @enum
- */
-export const PhcSupport = {
-  SUPPORTED: "supported",
-  UNSUPPORTED: "unsupported",
-} as const;
-
-/**
- * @public
- */
-export type PhcSupport = (typeof PhcSupport)[keyof typeof PhcSupport];
-
-/**
- * @public
- * @enum
- */
-export const PlacementGroupStrategy = {
-  cluster: "cluster",
-  partition: "partition",
-  spread: "spread",
-} as const;
-
-/**
- * @public
- */
-export type PlacementGroupStrategy = (typeof PlacementGroupStrategy)[keyof typeof PlacementGroupStrategy];
-
-/**
- * <p>Describes the placement group support of the instance type.</p>
- * @public
- */
-export interface PlacementGroupInfo {
-  /**
-   * <p>The supported placement group types.</p>
-   * @public
-   */
-  SupportedStrategies?: PlacementGroupStrategy[] | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const ArchitectureType = {
-  arm64: "arm64",
-  arm64_mac: "arm64_mac",
-  i386: "i386",
-  x86_64: "x86_64",
-  x86_64_mac: "x86_64_mac",
-} as const;
-
-/**
- * @public
- */
-export type ArchitectureType = (typeof ArchitectureType)[keyof typeof ArchitectureType];
-
-/**
- * @public
- * @enum
- */
-export const SupportedAdditionalProcessorFeature = {
-  AMD_SEV_SNP: "amd-sev-snp",
-} as const;
-
-/**
- * @public
- */
-export type SupportedAdditionalProcessorFeature =
-  (typeof SupportedAdditionalProcessorFeature)[keyof typeof SupportedAdditionalProcessorFeature];
-
-/**
- * <p>Describes the processor used by the instance type.</p>
- * @public
- */
-export interface ProcessorInfo {
-  /**
-   * <p>The architectures supported by the instance type.</p>
-   * @public
-   */
-  SupportedArchitectures?: ArchitectureType[] | undefined;
-
-  /**
-   * <p>The speed of the processor, in GHz.</p>
-   * @public
-   */
-  SustainedClockSpeedInGhz?: number | undefined;
-
-  /**
-   * <p>Indicates whether the instance type supports AMD SEV-SNP. If the request returns
-   *     <code>amd-sev-snp</code>, AMD SEV-SNP is supported. Otherwise, it is not supported. For more
-   *    information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/sev-snp.html"> AMD
-   *     SEV-SNP</a>.</p>
-   * @public
-   */
-  SupportedFeatures?: SupportedAdditionalProcessorFeature[] | undefined;
-
-  /**
-   * <p>The manufacturer of the processor.</p>
-   * @public
-   */
-  Manufacturer?: string | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const RebootMigrationSupport = {
-  SUPPORTED: "supported",
-  UNSUPPORTED: "unsupported",
-} as const;
-
-/**
- * @public
- */
-export type RebootMigrationSupport = (typeof RebootMigrationSupport)[keyof typeof RebootMigrationSupport];
-
-/**
- * @public
- * @enum
- */
-export const BootModeType = {
-  legacy_bios: "legacy-bios",
-  uefi: "uefi",
-} as const;
-
-/**
- * @public
- */
-export type BootModeType = (typeof BootModeType)[keyof typeof BootModeType];
-
-/**
- * @public
- * @enum
- */
-export const RootDeviceType = {
-  ebs: "ebs",
-  instance_store: "instance-store",
-} as const;
-
-/**
- * @public
- */
-export type RootDeviceType = (typeof RootDeviceType)[keyof typeof RootDeviceType];
-
-/**
- * @public
- * @enum
- */
-export const UsageClassType = {
-  capacity_block: "capacity-block",
-  on_demand: "on-demand",
-  spot: "spot",
-} as const;
-
-/**
- * @public
- */
-export type UsageClassType = (typeof UsageClassType)[keyof typeof UsageClassType];
-
-/**
- * <p>Describes the vCPU configurations for the instance type.</p>
- * @public
- */
-export interface VCpuInfo {
-  /**
-   * <p>The default number of vCPUs for the instance type.</p>
-   * @public
-   */
-  DefaultVCpus?: number | undefined;
-
-  /**
-   * <p>The default number of cores for the instance type.</p>
-   * @public
-   */
-  DefaultCores?: number | undefined;
-
-  /**
-   * <p>The default number of threads per core for the instance type.</p>
-   * @public
-   */
-  DefaultThreadsPerCore?: number | undefined;
-
-  /**
-   * <p>The valid number of cores that can be configured for the instance type.</p>
-   * @public
-   */
-  ValidCores?: number[] | undefined;
-
-  /**
-   * <p>The valid number of threads per core that can be configured for the instance type.</p>
-   * @public
-   */
-  ValidThreadsPerCore?: number[] | undefined;
-}
-
-/**
- * <p>Describes the instance type.</p>
- * @public
- */
-export interface InstanceTypeInfo {
-  /**
-   * <p>The instance type. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html">Instance types</a> in the <i>Amazon EC2
-   *     User Guide</i>.</p>
-   * @public
-   */
-  InstanceType?: _InstanceType | undefined;
-
-  /**
-   * <p>Indicates whether the instance type is current generation.</p>
-   * @public
-   */
-  CurrentGeneration?: boolean | undefined;
-
-  /**
-   * <p>Indicates whether the instance type is eligible for the free tier.</p>
-   * @public
-   */
-  FreeTierEligible?: boolean | undefined;
-
-  /**
-   * <p>Indicates whether the instance type is offered for spot, On-Demand, or Capacity
-   *    Blocks.</p>
-   * @public
-   */
-  SupportedUsageClasses?: UsageClassType[] | undefined;
-
-  /**
-   * <p>The supported root device types.</p>
-   * @public
-   */
-  SupportedRootDeviceTypes?: RootDeviceType[] | undefined;
-
-  /**
-   * <p>The supported virtualization types.</p>
-   * @public
-   */
-  SupportedVirtualizationTypes?: VirtualizationType[] | undefined;
-
-  /**
-   * <p>Indicates whether the instance is a bare metal instance type.</p>
-   * @public
-   */
-  BareMetal?: boolean | undefined;
-
-  /**
-   * <p>The hypervisor for the instance type.</p>
-   * @public
-   */
-  Hypervisor?: InstanceTypeHypervisor | undefined;
-
-  /**
-   * <p>Describes the processor.</p>
-   * @public
-   */
-  ProcessorInfo?: ProcessorInfo | undefined;
-
-  /**
-   * <p>Describes the vCPU configurations for the instance type.</p>
-   * @public
-   */
-  VCpuInfo?: VCpuInfo | undefined;
-
-  /**
-   * <p>Describes the memory for the instance type.</p>
-   * @public
-   */
-  MemoryInfo?: MemoryInfo | undefined;
-
-  /**
-   * <p>Indicates whether instance storage is supported.</p>
-   * @public
-   */
-  InstanceStorageSupported?: boolean | undefined;
-
-  /**
-   * <p>Describes the instance storage for the instance type.</p>
-   * @public
-   */
-  InstanceStorageInfo?: InstanceStorageInfo | undefined;
-
-  /**
-   * <p>Describes the Amazon EBS settings for the instance type.</p>
-   * @public
-   */
-  EbsInfo?: EbsInfo | undefined;
-
-  /**
-   * <p>Describes the network settings for the instance type.</p>
-   * @public
-   */
-  NetworkInfo?: NetworkInfo | undefined;
-
-  /**
-   * <p>Describes the GPU accelerator settings for the instance type.</p>
-   * @public
-   */
-  GpuInfo?: GpuInfo | undefined;
-
-  /**
-   * <p>Describes the FPGA accelerator settings for the instance type.</p>
-   * @public
-   */
-  FpgaInfo?: FpgaInfo | undefined;
-
-  /**
-   * <p>Describes the placement group settings for the instance type.</p>
-   * @public
-   */
-  PlacementGroupInfo?: PlacementGroupInfo | undefined;
-
-  /**
-   * <p>Describes the Inference accelerator settings for the instance type.</p>
-   * @public
-   */
-  InferenceAcceleratorInfo?: InferenceAcceleratorInfo | undefined;
-
-  /**
-   * <p>Indicates whether On-Demand hibernation is supported.</p>
-   * @public
-   */
-  HibernationSupported?: boolean | undefined;
-
-  /**
-   * <p>Indicates whether the instance type is a burstable performance T instance type. For more
-   *    information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances.html">Burstable performance
-   *     instances</a>.</p>
-   * @public
-   */
-  BurstablePerformanceSupported?: boolean | undefined;
-
-  /**
-   * <p>Indicates whether Dedicated Hosts are supported on the instance type.</p>
-   * @public
-   */
-  DedicatedHostsSupported?: boolean | undefined;
-
-  /**
-   * <p>Indicates whether Amazon CloudWatch action based recovery is supported.</p>
-   * @public
-   */
-  AutoRecoverySupported?: boolean | undefined;
-
-  /**
-   * <p>The supported boot modes. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html">Boot modes</a> in the <i>Amazon EC2 User
-   *     Guide</i>.</p>
-   * @public
-   */
-  SupportedBootModes?: BootModeType[] | undefined;
-
-  /**
-   * <p>Indicates whether Nitro Enclaves is supported.</p>
-   * @public
-   */
-  NitroEnclavesSupport?: NitroEnclavesSupport | undefined;
-
-  /**
-   * <p>Indicates whether NitroTPM is supported.</p>
-   * @public
-   */
-  NitroTpmSupport?: NitroTpmSupport | undefined;
-
-  /**
-   * <p>Describes the supported NitroTPM versions for the instance type.</p>
-   * @public
-   */
-  NitroTpmInfo?: NitroTpmInfo | undefined;
-
-  /**
-   * <p>Describes the media accelerator settings for the instance type.</p>
-   * @public
-   */
-  MediaAcceleratorInfo?: MediaAcceleratorInfo | undefined;
-
-  /**
-   * <p>Describes the Neuron accelerator settings for the instance type.</p>
-   * @public
-   */
-  NeuronInfo?: NeuronInfo | undefined;
-
-  /**
-   * <p>Indicates whether a local Precision Time Protocol (PTP) hardware clock (PHC) is
-   *    supported.</p>
-   * @public
-   */
-  PhcSupport?: PhcSupport | undefined;
-
-  /**
-   * <p>Indicates whether reboot migration during a user-initiated reboot is supported for
-   *    instances that have a scheduled <code>system-reboot</code> event. For more information,
-   *    see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/schedevents_actions_reboot.html#reboot-migration">Enable or disable reboot migration</a> in the
-   *    <i>Amazon EC2 User Guide</i>.</p>
-   * @public
-   */
-  RebootMigrationSupport?: RebootMigrationSupport | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeInstanceTypesResult {
-  /**
-   * <p>The instance type.</p>
-   * @public
-   */
-  InstanceTypes?: InstanceTypeInfo[] | undefined;
-
-  /**
-   * <p>The token to include in another request to get the next page of items. This value is <code>null</code> when there
-   *          are no more items to return.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeInternetGatewaysRequest {
-  /**
-   * <p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of items to return for this request.
-   * 	To get the next page of items, make another request with the token returned in the output.
-   * 	For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>The IDs of the internet gateways.</p>
-   *          <p>Default: Describes all your internet gateways.</p>
-   * @public
-   */
-  InternetGatewayIds?: string[] | undefined;
-
-  /**
-   * <p>The filters.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>attachment.state</code> - The current state of the attachment between the gateway
-   *                     and the VPC (<code>available</code>). Present only if a VPC is attached.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>attachment.vpc-id</code> - The ID of an attached VPC.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>internet-gateway-id</code> - The ID of the Internet gateway.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>owner-id</code> - The ID of the Amazon Web Services account that owns the internet gateway.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>tag</code> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value.
-   *     For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  Filters?: Filter[] | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeInternetGatewaysResult {
-  /**
-   * <p>Information about the internet gateways.</p>
-   * @public
-   */
-  InternetGateways?: InternetGateway[] | undefined;
-
-  /**
-   * <p>The token to include in another request to get the next page of items. This value is <code>null</code> when there are no more items to return.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeIpamByoasnRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>The maximum number of results to return with a single call.
-   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>The token for the next page of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeIpamByoasnResult {
-  /**
-   * <p>ASN and BYOIP CIDR associations.</p>
-   * @public
-   */
-  Byoasns?: Byoasn[] | undefined;
-
-  /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeIpamExternalResourceVerificationTokensRequest {
-  /**
-   * <p>A check for whether you have the required permissions for the action without actually making the request
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>One or more filters for the request. For more information about filtering, see <a href="https://docs.aws.amazon.com/cli/latest/userguide/cli-usage-filter.html">Filtering CLI output</a>.</p>
-   *          <p>Available filters:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>ipam-arn</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>ipam-external-resource-verification-token-arn</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>ipam-external-resource-verification-token-id</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>ipam-id</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>ipam-region</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>state</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>status</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>token-name</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>token-value</code>
-   *                </p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  Filters?: Filter[] | undefined;
-
-  /**
-   * <p>The token for the next page of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of tokens to return in one page of results.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>Verification token IDs.</p>
-   * @public
-   */
-  IpamExternalResourceVerificationTokenIds?: string[] | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeIpamExternalResourceVerificationTokensResult {
-  /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>Verification tokens.</p>
-   * @public
-   */
-  IpamExternalResourceVerificationTokens?: IpamExternalResourceVerificationToken[] | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeIpamPoolsRequest {
-  /**
-   * <p>A check for whether you have the required permissions for the action without actually making the request
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>One or more filters for the request. For more information about filtering, see <a href="https://docs.aws.amazon.com/cli/latest/userguide/cli-usage-filter.html">Filtering CLI output</a>.</p>
-   * @public
-   */
-  Filters?: Filter[] | undefined;
-
-  /**
-   * <p>The maximum number of results to return in the request.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>The token for the next page of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The IDs of the IPAM pools you would like information on.</p>
-   * @public
-   */
-  IpamPoolIds?: string[] | undefined;
 }
 
 /**

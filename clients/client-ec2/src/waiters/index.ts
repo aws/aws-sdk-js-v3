@@ -8,6 +8,7 @@ export * from "./waitForExportTaskCancelled";
 export * from "./waitForExportTaskCompleted";
 export * from "./waitForImageAvailable";
 export * from "./waitForImageExists";
+export * from "./waitForImageUsageReportAvailable";
 export * from "./waitForInstanceExists";
 export * from "./waitForInstanceRunning";
 export * from "./waitForInstanceStatusOk";

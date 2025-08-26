@@ -9,7 +9,7 @@ import { commonParams } from "../endpoint/EndpointParameters";
 import {
   DescribeIpamExternalResourceVerificationTokensRequest,
   DescribeIpamExternalResourceVerificationTokensResult,
-} from "../models/models_4";
+} from "../models/models_5";
 import {
   de_DescribeIpamExternalResourceVerificationTokensCommand,
   se_DescribeIpamExternalResourceVerificationTokensCommand,

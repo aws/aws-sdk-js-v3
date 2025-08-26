@@ -6,10 +6,8 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  DescribeCapacityReservationBillingRequestsRequest,
-  DescribeCapacityReservationBillingRequestsResult,
-} from "../models/models_3";
+import { DescribeCapacityReservationBillingRequestsRequest } from "../models/models_3";
+import { DescribeCapacityReservationBillingRequestsResult } from "../models/models_4";
 import {
   de_DescribeCapacityReservationBillingRequestsCommand,
   se_DescribeCapacityReservationBillingRequestsCommand,

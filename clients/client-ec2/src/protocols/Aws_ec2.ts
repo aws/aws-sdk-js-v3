@@ -274,6 +274,10 @@ import { CreateFlowLogsCommandInput, CreateFlowLogsCommandOutput } from "../comm
 import { CreateFpgaImageCommandInput, CreateFpgaImageCommandOutput } from "../commands/CreateFpgaImageCommand";
 import { CreateImageCommandInput, CreateImageCommandOutput } from "../commands/CreateImageCommand";
 import {
+  CreateImageUsageReportCommandInput,
+  CreateImageUsageReportCommandOutput,
+} from "../commands/CreateImageUsageReportCommand";
+import {
   CreateInstanceConnectEndpointCommandInput,
   CreateInstanceConnectEndpointCommandOutput,
 } from "../commands/CreateInstanceConnectEndpointCommand";
@@ -544,6 +548,10 @@ import {
 import { DeleteFleetsCommandInput, DeleteFleetsCommandOutput } from "../commands/DeleteFleetsCommand";
 import { DeleteFlowLogsCommandInput, DeleteFlowLogsCommandOutput } from "../commands/DeleteFlowLogsCommand";
 import { DeleteFpgaImageCommandInput, DeleteFpgaImageCommandOutput } from "../commands/DeleteFpgaImageCommand";
+import {
+  DeleteImageUsageReportCommandInput,
+  DeleteImageUsageReportCommandOutput,
+} from "../commands/DeleteImageUsageReportCommand";
 import {
   DeleteInstanceConnectEndpointCommandInput,
   DeleteInstanceConnectEndpointCommandOutput,
@@ -973,7 +981,19 @@ import {
   DescribeImageAttributeCommandInput,
   DescribeImageAttributeCommandOutput,
 } from "../commands/DescribeImageAttributeCommand";
+import {
+  DescribeImageReferencesCommandInput,
+  DescribeImageReferencesCommandOutput,
+} from "../commands/DescribeImageReferencesCommand";
 import { DescribeImagesCommandInput, DescribeImagesCommandOutput } from "../commands/DescribeImagesCommand";
+import {
+  DescribeImageUsageReportEntriesCommandInput,
+  DescribeImageUsageReportEntriesCommandOutput,
+} from "../commands/DescribeImageUsageReportEntriesCommand";
+import {
+  DescribeImageUsageReportsCommandInput,
+  DescribeImageUsageReportsCommandOutput,
+} from "../commands/DescribeImageUsageReportsCommand";
 import {
   DescribeImportImageTasksCommandInput,
   DescribeImportImageTasksCommandOutput,
@@ -2704,6 +2724,8 @@ import {
   CreateFpgaImageResult,
   CreateImageRequest,
   CreateImageResult,
+  CreateImageUsageReportRequest,
+  CreateImageUsageReportResult,
   CreateInstanceConnectEndpointRequest,
   CreateInstanceConnectEndpointResult,
   CreateInstanceEventWindowRequest,
@@ -2755,6 +2777,8 @@ import {
   FleetLaunchTemplateSpecificationRequest,
   FleetSpotCapacityRebalanceRequest,
   FleetSpotMaintenanceStrategiesRequest,
+  ImageUsageResourceTypeOptionRequest,
+  ImageUsageResourceTypeRequest,
   InstanceConnectEndpointDnsNames,
   InstanceConnectEndpointPublicDnsNames,
   InstanceEventWindowTimeRangeRequest,
@@ -2796,19 +2820,15 @@ import {
   LaunchTemplateHibernationOptionsRequest,
   LaunchTemplateIamInstanceProfileSpecification,
   LaunchTemplateIamInstanceProfileSpecificationRequest,
-  LaunchTemplateInstanceMaintenanceOptions,
   LaunchTemplateInstanceMaintenanceOptionsRequest,
-  LaunchTemplateInstanceMarketOptions,
   LaunchTemplateInstanceMarketOptionsRequest,
   LaunchTemplateInstanceMetadataOptionsRequest,
   LaunchTemplateInstanceNetworkInterfaceSpecificationRequest,
-  LaunchTemplateLicenseConfiguration,
   LaunchTemplateLicenseConfigurationRequest,
   LaunchTemplateNetworkPerformanceOptionsRequest,
   LaunchTemplatePlacementRequest,
   LaunchTemplatePrivateDnsNameOptionsRequest,
   LaunchTemplatesMonitoringRequest,
-  LaunchTemplateSpotMarketOptions,
   LaunchTemplateSpotMarketOptionsRequest,
   LaunchTemplateTagSpecificationRequest,
   LocalStorageType,
@@ -2972,11 +2992,8 @@ import {
   CreateVolumeRequest,
   CreateVpcBlockPublicAccessExclusionRequest,
   CreateVpcBlockPublicAccessExclusionResult,
-  CreateVpcEndpointRequest,
   CreateVpcRequest,
   CreateVpcResult,
-  DnsEntry,
-  DnsOptions,
   DnsOptionsSpecification,
   FilterPortRange,
   GroupIdentifier,
@@ -2988,12 +3005,16 @@ import {
   Ipv6PrefixSpecificationResponse,
   LaunchTemplateEnaSrdSpecification,
   LaunchTemplateEnaSrdUdpSpecification,
+  LaunchTemplateInstanceMaintenanceOptions,
+  LaunchTemplateInstanceMarketOptions,
   LaunchTemplateInstanceMetadataOptions,
   LaunchTemplateInstanceNetworkInterfaceSpecification,
+  LaunchTemplateLicenseConfiguration,
   LaunchTemplateNetworkPerformanceOptions,
   LaunchTemplatePlacement,
   LaunchTemplatePrivateDnsNameOptions,
   LaunchTemplatesMonitoring,
+  LaunchTemplateSpotMarketOptions,
   LaunchTemplateTagSpecification,
   LaunchTemplateVersion,
   LocalGatewayRoute,
@@ -3039,7 +3060,6 @@ import {
   RouteTable,
   RouteTableAssociation,
   S3ObjectTag,
-  SecurityGroupIdentifier,
   Snapshot,
   SnapshotInfo,
   SpotDatafeedSubscription,
@@ -3093,15 +3113,13 @@ import {
   CapacityBlockExtensionOffering,
   CapacityBlockOffering,
   CapacityBlockStatus,
-  CapacityReservationBillingRequest,
-  CapacityReservationFleet,
-  CapacityReservationInfo,
   CapacityReservationStatus,
   CloudWatchLogOptions,
   CloudWatchLogOptionsSpecification,
   ConnectionNotification,
   CreateVpcEndpointConnectionNotificationRequest,
   CreateVpcEndpointConnectionNotificationResult,
+  CreateVpcEndpointRequest,
   CreateVpcEndpointResult,
   CreateVpcEndpointServiceConfigurationRequest,
   CreateVpcEndpointServiceConfigurationResult,
@@ -3135,6 +3153,8 @@ import {
   DeleteFlowLogsResult,
   DeleteFpgaImageRequest,
   DeleteFpgaImageResult,
+  DeleteImageUsageReportRequest,
+  DeleteImageUsageReportResult,
   DeleteInstanceConnectEndpointRequest,
   DeleteInstanceConnectEndpointResult,
   DeleteInstanceEventWindowRequest,
@@ -3309,8 +3329,8 @@ import {
   DescribeCapacityBlockStatusRequest,
   DescribeCapacityBlockStatusResult,
   DescribeCapacityReservationBillingRequestsRequest,
-  DescribeCapacityReservationBillingRequestsResult,
-  DescribeCapacityReservationFleetsRequest,
+  DnsEntry,
+  DnsOptions,
   FailedQueuedPurchaseDeletion,
   Filter,
   IdFormat,
@@ -3335,6 +3355,7 @@ import {
   Phase2IntegrityAlgorithmsRequestListValue,
   PrivateDnsNameConfiguration,
   ResponseError,
+  SecurityGroupIdentifier,
   ServiceConfiguration,
   ServiceConnectivityType,
   ServiceTypeDetail,
@@ -3357,13 +3378,14 @@ import {
   VpnTunnelOptionsSpecification,
 } from "../models/models_3";
 import {
-  ArchitectureType,
   AssociatedTargetNetwork,
   AttributeBooleanValue,
   AuthorizationRule,
   AvailableCapacity,
   BandwidthWeightingType,
-  BootModeType,
+  CapacityReservationBillingRequest,
+  CapacityReservationFleet,
+  CapacityReservationInfo,
   CapacityReservationOptions,
   CapacityReservationSpecificationResponse,
   CertificateAuthentication,
@@ -3382,6 +3404,8 @@ import {
   ConversionTask,
   CpuOptions,
   DeclarativePoliciesReport,
+  DescribeCapacityReservationBillingRequestsResult,
+  DescribeCapacityReservationFleetsRequest,
   DescribeCapacityReservationFleetsResult,
   DescribeCapacityReservationsRequest,
   DescribeCapacityReservationsResult,
@@ -3450,8 +3474,14 @@ import {
   DescribeIdFormatRequest,
   DescribeIdFormatResult,
   DescribeImageAttributeRequest,
+  DescribeImageReferencesRequest,
+  DescribeImageReferencesResult,
   DescribeImagesRequest,
   DescribeImagesResult,
+  DescribeImageUsageReportEntriesRequest,
+  DescribeImageUsageReportEntriesResult,
+  DescribeImageUsageReportsRequest,
+  DescribeImageUsageReportsResult,
   DescribeImportImageTasksRequest,
   DescribeImportImageTasksResult,
   DescribeImportSnapshotTasksRequest,
@@ -3476,14 +3506,6 @@ import {
   DescribeInstanceTypeOfferingsRequest,
   DescribeInstanceTypeOfferingsResult,
   DescribeInstanceTypesRequest,
-  DescribeInstanceTypesResult,
-  DescribeInternetGatewaysRequest,
-  DescribeInternetGatewaysResult,
-  DescribeIpamByoasnRequest,
-  DescribeIpamByoasnResult,
-  DescribeIpamExternalResourceVerificationTokensRequest,
-  DescribeIpamExternalResourceVerificationTokensResult,
-  DescribeIpamPoolsRequest,
   DestinationOptionsResponse,
   DirectoryServiceAuthentication,
   DiskImageDescription,
@@ -3530,6 +3552,11 @@ import {
   Image,
   ImageAttribute,
   ImageMetadata,
+  ImageReference,
+  ImageUsageReport,
+  ImageUsageReportEntry,
+  ImageUsageResourceType,
+  ImageUsageResourceTypeOption,
   ImportImageLicenseConfigurationResponse,
   ImportImageTask,
   ImportInstanceTaskDetails,
@@ -3563,7 +3590,6 @@ import {
   InstanceStatusSummary,
   InstanceStorageInfo,
   InstanceTopology,
-  InstanceTypeInfo,
   InstanceTypeOffering,
   LaunchPermission,
   LicenseConfiguration,
@@ -3582,29 +3608,33 @@ import {
   NitroTpmInfo,
   OnDemandOptions,
   PciId,
-  PlacementGroupInfo,
-  PlacementGroupStrategy,
   PrivateDnsNameOptionsResponse,
-  ProcessorInfo,
   ProductCode,
   Reservation,
-  RootDeviceType,
+  ResourceTypeOption,
+  ResourceTypeRequest,
   SnapshotDetail,
   SnapshotTaskDetail,
   SpotOptions,
-  SupportedAdditionalProcessorFeature,
   TargetCapacitySpecification,
   TargetNetwork,
-  UsageClassType,
   UserBucketDetails,
-  VCpuInfo,
   VirtualizationType,
 } from "../models/models_4";
 import {
-  ClassicLinkDnsSupport,
+  ArchitectureType,
+  BootModeType,
   ClassicLoadBalancer,
   ClassicLoadBalancersConfig,
   CreateVolumePermission,
+  DescribeInstanceTypesResult,
+  DescribeInternetGatewaysRequest,
+  DescribeInternetGatewaysResult,
+  DescribeIpamByoasnRequest,
+  DescribeIpamByoasnResult,
+  DescribeIpamExternalResourceVerificationTokensRequest,
+  DescribeIpamExternalResourceVerificationTokensResult,
+  DescribeIpamPoolsRequest,
   DescribeIpamPoolsResult,
   DescribeIpamResourceDiscoveriesRequest,
   DescribeIpamResourceDiscoveriesResult,
@@ -3781,22 +3811,10 @@ import {
   DescribeVolumeStatusRequest,
   DescribeVolumeStatusResult,
   DescribeVpcAttributeRequest,
-  DescribeVpcAttributeResult,
-  DescribeVpcBlockPublicAccessExclusionsRequest,
-  DescribeVpcBlockPublicAccessExclusionsResult,
-  DescribeVpcBlockPublicAccessOptionsRequest,
-  DescribeVpcBlockPublicAccessOptionsResult,
-  DescribeVpcClassicLinkDnsSupportRequest,
-  DescribeVpcClassicLinkDnsSupportResult,
-  DescribeVpcClassicLinkRequest,
-  DescribeVpcClassicLinkResult,
-  DescribeVpcEndpointAssociationsRequest,
-  DescribeVpcEndpointAssociationsResult,
-  DescribeVpcEndpointConnectionNotificationsRequest,
-  DescribeVpcEndpointConnectionNotificationsResult,
   HistoryRecord,
   InitializationStatusDetails,
   InstanceNetworkInterfaceSpecification,
+  InstanceTypeInfo,
   Ipv6Pool,
   KeyPairInfo,
   LaunchSpecification,
@@ -3810,10 +3828,13 @@ import {
   NetworkInsightsAccessScopeAnalysis,
   NetworkInsightsAnalysis,
   OutpostLag,
+  PlacementGroupInfo,
+  PlacementGroupStrategy,
   PoolCidrBlock,
   PrefixList,
   PricingDetail,
   PrincipalIdFormat,
+  ProcessorInfo,
   PublicIpv4Pool,
   PublicIpv4PoolRange,
   RecurringCharge,
@@ -3824,6 +3845,7 @@ import {
   ReservedInstancesModification,
   ReservedInstancesModificationResult,
   ReservedInstancesOffering,
+  RootDeviceType,
   RunInstancesMonitoringEnabled,
   ScheduledInstance,
   ScheduledInstanceAvailability,
@@ -3850,11 +3872,14 @@ import {
   StaleIpPermission,
   StaleSecurityGroup,
   StoreImageTaskResult,
+  SupportedAdditionalProcessorFeature,
   TagDescription,
   TargetGroup,
   TargetGroupsConfig,
   TransitGatewayAttachment,
   TransitGatewayAttachmentAssociation,
+  UsageClassType,
+  VCpuInfo,
   VerifiedAccessInstanceLoggingConfiguration,
   VerifiedAccessLogCloudWatchLogsDestination,
   VerifiedAccessLogDeliveryStatus,
@@ -3868,19 +3893,30 @@ import {
   VolumeStatusEvent,
   VolumeStatusInfo,
   VolumeStatusItem,
-  VpcBlockPublicAccessOptions,
-  VpcClassicLink,
-  VpcEndpointAssociation,
 } from "../models/models_5";
 import {
   AssociatedRole,
   AthenaIntegration,
   AttributeSummary,
   CapacityReservationGroup,
+  ClassicLinkDnsSupport,
   ClientCertificateRevocationListStatus,
   CoipAddressUsage,
   DataQuery,
   DataResponse,
+  DescribeVpcAttributeResult,
+  DescribeVpcBlockPublicAccessExclusionsRequest,
+  DescribeVpcBlockPublicAccessExclusionsResult,
+  DescribeVpcBlockPublicAccessOptionsRequest,
+  DescribeVpcBlockPublicAccessOptionsResult,
+  DescribeVpcClassicLinkDnsSupportRequest,
+  DescribeVpcClassicLinkDnsSupportResult,
+  DescribeVpcClassicLinkRequest,
+  DescribeVpcClassicLinkResult,
+  DescribeVpcEndpointAssociationsRequest,
+  DescribeVpcEndpointAssociationsResult,
+  DescribeVpcEndpointConnectionNotificationsRequest,
+  DescribeVpcEndpointConnectionNotificationsResult,
   DescribeVpcEndpointConnectionsRequest,
   DescribeVpcEndpointConnectionsResult,
   DescribeVpcEndpointServiceConfigurationsRequest,
@@ -4101,18 +4137,6 @@ import {
   GetNetworkInsightsAccessScopeAnalysisFindingsResult,
   GetNetworkInsightsAccessScopeContentRequest,
   GetNetworkInsightsAccessScopeContentResult,
-  GetPasswordDataRequest,
-  GetPasswordDataResult,
-  GetReservedInstancesExchangeQuoteRequest,
-  GetReservedInstancesExchangeQuoteResult,
-  GetRouteServerAssociationsRequest,
-  GetRouteServerAssociationsResult,
-  GetRouteServerPropagationsRequest,
-  GetRouteServerPropagationsResult,
-  GetRouteServerRoutingDatabaseRequest,
-  GetRouteServerRoutingDatabaseResult,
-  GetSecurityGroupsForVpcRequest,
-  GetSecurityGroupsForVpcResult,
   ImageCriterion,
   InstanceEventWindowDisassociationRequest,
   InstanceFamilyCreditSpecification,
@@ -4136,19 +4160,15 @@ import {
   PrivateDnsDetails,
   Purchase,
   RegionalSummary,
-  ReservationValue,
-  ReservedInstanceReservationValue,
   RouteServerPropagation,
-  RouteServerRoute,
-  RouteServerRouteInstallationDetail,
-  SecurityGroupForVpc,
   ServiceDetail,
-  TargetConfiguration,
-  TargetReservationValue,
   TransitGatewayPropagation,
   VerifiedAccessInstanceOpenVpnClientConfiguration,
   VerifiedAccessInstanceOpenVpnClientConfigurationRoute,
   VerifiedAccessInstanceUserTrustProviderClientConfiguration,
+  VpcBlockPublicAccessOptions,
+  VpcClassicLink,
+  VpcEndpointAssociation,
   VpcEndpointConnection,
 } from "../models/models_6";
 import {
@@ -4162,6 +4182,18 @@ import {
   DiskImageDetail,
   DnsServersOptionsModifyStructure,
   EbsInstanceBlockDeviceSpecification,
+  GetPasswordDataRequest,
+  GetPasswordDataResult,
+  GetReservedInstancesExchangeQuoteRequest,
+  GetReservedInstancesExchangeQuoteResult,
+  GetRouteServerAssociationsRequest,
+  GetRouteServerAssociationsResult,
+  GetRouteServerPropagationsRequest,
+  GetRouteServerPropagationsResult,
+  GetRouteServerRoutingDatabaseRequest,
+  GetRouteServerRoutingDatabaseResult,
+  GetSecurityGroupsForVpcRequest,
+  GetSecurityGroupsForVpcResult,
   GetSerialConsoleAccessStatusRequest,
   GetSerialConsoleAccessStatusResult,
   GetSnapshotBlockPublicAccessStateRequest,
@@ -4389,36 +4421,22 @@ import {
   ProvisionIpamByoasnRequest,
   ProvisionIpamByoasnResult,
   ProvisionIpamPoolCidrRequest,
-  ProvisionIpamPoolCidrResult,
-  ProvisionPublicIpv4PoolCidrRequest,
-  ProvisionPublicIpv4PoolCidrResult,
-  PurchaseCapacityBlockExtensionRequest,
-  PurchaseCapacityBlockExtensionResult,
-  PurchaseCapacityBlockRequest,
-  PurchaseCapacityBlockResult,
-  PurchaseHostReservationRequest,
-  PurchaseHostReservationResult,
-  PurchaseRequest,
-  PurchaseReservedInstancesOfferingRequest,
-  PurchaseReservedInstancesOfferingResult,
-  PurchaseScheduledInstancesRequest,
-  PurchaseScheduledInstancesResult,
-  RebootInstancesRequest,
-  RegisterImageRequest,
-  RegisterImageResult,
-  RegisterInstanceEventNotificationAttributesRequest,
-  RegisterInstanceEventNotificationAttributesResult,
-  RegisterInstanceTagAttributeRequest,
   RemoveIpamOperatingRegion,
   RemoveIpamOrganizationalUnitExclusion,
   RemovePrefixListEntry,
-  ReservedInstanceLimitPrice,
+  ReservationValue,
+  ReservedInstanceReservationValue,
+  RouteServerRoute,
+  RouteServerRouteInstallationDetail,
+  SecurityGroupForVpc,
   SecurityGroupRuleRequest,
   SecurityGroupRuleUpdate,
   SnapshotDiskContainer,
   SnapshotRecycleBinInfo,
   SpotPlacementScore,
   SuccessfulInstanceCreditSpecificationItem,
+  TargetConfiguration,
+  TargetReservationValue,
   TrafficMirrorFilterRuleField,
   TrafficMirrorSessionField,
   TransitGatewayAttachmentPropagation,
@@ -4454,6 +4472,26 @@ import {
   LaunchTemplateSpecification,
   LicenseConfigurationRequest,
   PrivateDnsNameOptionsRequest,
+  ProvisionIpamPoolCidrResult,
+  ProvisionPublicIpv4PoolCidrRequest,
+  ProvisionPublicIpv4PoolCidrResult,
+  PurchaseCapacityBlockExtensionRequest,
+  PurchaseCapacityBlockExtensionResult,
+  PurchaseCapacityBlockRequest,
+  PurchaseCapacityBlockResult,
+  PurchaseHostReservationRequest,
+  PurchaseHostReservationResult,
+  PurchaseRequest,
+  PurchaseReservedInstancesOfferingRequest,
+  PurchaseReservedInstancesOfferingResult,
+  PurchaseScheduledInstancesRequest,
+  PurchaseScheduledInstancesResult,
+  RebootInstancesRequest,
+  RegisterImageRequest,
+  RegisterImageResult,
+  RegisterInstanceEventNotificationAttributesRequest,
+  RegisterInstanceEventNotificationAttributesResult,
+  RegisterInstanceTagAttributeRequest,
   RegisterTransitGatewayMulticastGroupMembersRequest,
   RegisterTransitGatewayMulticastGroupMembersResult,
   RegisterTransitGatewayMulticastGroupSourcesRequest,
@@ -4496,6 +4534,7 @@ import {
   RequestSpotInstancesRequest,
   RequestSpotInstancesResult,
   RequestSpotLaunchSpecification,
+  ReservedInstanceLimitPrice,
   ResetAddressAttributeRequest,
   ResetAddressAttributeResult,
   ResetEbsDefaultKmsKeyIdRequest,
@@ -5902,6 +5941,23 @@ export const se_CreateImageCommand = async (
   body = buildFormUrlencodedString({
     ...se_CreateImageRequest(input, context),
     [_A]: _CIr,
+    [_V]: _,
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_ec2CreateImageUsageReportCommand
+ */
+export const se_CreateImageUsageReportCommand = async (
+  input: CreateImageUsageReportCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = SHARED_HEADERS;
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...se_CreateImageUsageReportRequest(input, context),
+    [_A]: _CIUR,
     [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -7347,6 +7403,23 @@ export const se_DeleteFpgaImageCommand = async (
   body = buildFormUrlencodedString({
     ...se_DeleteFpgaImageRequest(input, context),
     [_A]: _DFI,
+    [_V]: _,
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_ec2DeleteImageUsageReportCommand
+ */
+export const se_DeleteImageUsageReportCommand = async (
+  input: DeleteImageUsageReportCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = SHARED_HEADERS;
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...se_DeleteImageUsageReportRequest(input, context),
+    [_A]: _DIUR,
     [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -9495,6 +9568,23 @@ export const se_DescribeImageAttributeCommand = async (
 };
 
 /**
+ * serializeAws_ec2DescribeImageReferencesCommand
+ */
+export const se_DescribeImageReferencesCommand = async (
+  input: DescribeImageReferencesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = SHARED_HEADERS;
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...se_DescribeImageReferencesRequest(input, context),
+    [_A]: _DIR,
+    [_V]: _,
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_ec2DescribeImagesCommand
  */
 export const se_DescribeImagesCommand = async (
@@ -9506,6 +9596,40 @@ export const se_DescribeImagesCommand = async (
   body = buildFormUrlencodedString({
     ...se_DescribeImagesRequest(input, context),
     [_A]: _DIes,
+    [_V]: _,
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_ec2DescribeImageUsageReportEntriesCommand
+ */
+export const se_DescribeImageUsageReportEntriesCommand = async (
+  input: DescribeImageUsageReportEntriesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = SHARED_HEADERS;
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...se_DescribeImageUsageReportEntriesRequest(input, context),
+    [_A]: _DIURE,
+    [_V]: _,
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_ec2DescribeImageUsageReportsCommand
+ */
+export const se_DescribeImageUsageReportsCommand = async (
+  input: DescribeImageUsageReportsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = SHARED_HEADERS;
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...se_DescribeImageUsageReportsRequest(input, context),
+    [_A]: _DIURe,
     [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -17843,6 +17967,26 @@ export const de_CreateImageCommand = async (
 };
 
 /**
+ * deserializeAws_ec2CreateImageUsageReportCommand
+ */
+export const de_CreateImageUsageReportCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateImageUsageReportCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_CreateImageUsageReportResult(data, context);
+  const response: CreateImageUsageReportCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
  * deserializeAws_ec2CreateInstanceConnectEndpointCommand
  */
 export const de_CreateInstanceConnectEndpointCommand = async (
@@ -19521,6 +19665,26 @@ export const de_DeleteFpgaImageCommand = async (
   let contents: any = {};
   contents = de_DeleteFpgaImageResult(data, context);
   const response: DeleteFpgaImageCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_ec2DeleteImageUsageReportCommand
+ */
+export const de_DeleteImageUsageReportCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteImageUsageReportCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DeleteImageUsageReportResult(data, context);
+  const response: DeleteImageUsageReportCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
@@ -22000,6 +22164,26 @@ export const de_DescribeImageAttributeCommand = async (
 };
 
 /**
+ * deserializeAws_ec2DescribeImageReferencesCommand
+ */
+export const de_DescribeImageReferencesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeImageReferencesCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribeImageReferencesResult(data, context);
+  const response: DescribeImageReferencesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
  * deserializeAws_ec2DescribeImagesCommand
  */
 export const de_DescribeImagesCommand = async (
@@ -22013,6 +22197,46 @@ export const de_DescribeImagesCommand = async (
   let contents: any = {};
   contents = de_DescribeImagesResult(data, context);
   const response: DescribeImagesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_ec2DescribeImageUsageReportEntriesCommand
+ */
+export const de_DescribeImageUsageReportEntriesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeImageUsageReportEntriesCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribeImageUsageReportEntriesResult(data, context);
+  const response: DescribeImageUsageReportEntriesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_ec2DescribeImageUsageReportsCommand
+ */
+export const de_DescribeImageUsageReportsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeImageUsageReportsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribeImageUsageReportsResult(data, context);
+  const response: DescribeImageUsageReportsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
@@ -33291,6 +33515,47 @@ const se_CreateImageRequest = (input: CreateImageRequest, context: __SerdeContex
 };
 
 /**
+ * serializeAws_ec2CreateImageUsageReportRequest
+ */
+const se_CreateImageUsageReportRequest = (input: CreateImageUsageReportRequest, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input[_IIma] != null) {
+    entries[_IIma] = input[_IIma];
+  }
+  if (input[_DRr] != null) {
+    entries[_DRr] = input[_DRr];
+  }
+  if (input[_RTe] != null) {
+    const memberEntries = se_ImageUsageResourceTypeRequestList(input[_RTe], context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `ResourceType.${key.substring(key.indexOf(".") + 1)}`;
+      entries[loc] = value;
+    });
+  }
+  if (input[_AIc] != null) {
+    const memberEntries = se_ImageUsageReportUserIdStringList(input[_AIc], context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `AccountId.${key.substring(key.indexOf(".") + 1)}`;
+      entries[loc] = value;
+    });
+  }
+  if (input[_CTl] === undefined) {
+    input[_CTl] = generateIdempotencyToken();
+  }
+  if (input[_CTl] != null) {
+    entries[_CTl] = input[_CTl];
+  }
+  if (input[_TS] != null) {
+    const memberEntries = se_TagSpecificationList(input[_TS], context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `TagSpecification.${key.substring(key.indexOf(".") + 1)}`;
+      entries[loc] = value;
+    });
+  }
+  return entries;
+};
+
+/**
  * serializeAws_ec2CreateInstanceConnectEndpointRequest
  */
 const se_CreateInstanceConnectEndpointRequest = (
@@ -34833,8 +35098,8 @@ const se_CreateSubnetCidrReservationRequest = (
   if (input[_C] != null) {
     entries[_C] = input[_C];
   }
-  if (input[_RTe] != null) {
-    entries[_RTe] = input[_RTe];
+  if (input[_RTes] != null) {
+    entries[_RTes] = input[_RTes];
   }
   if (input[_De] != null) {
     entries[_De] = input[_De];
@@ -36772,6 +37037,20 @@ const se_DeleteFpgaImageRequest = (input: DeleteFpgaImageRequest, context: __Ser
   }
   if (input[_FII] != null) {
     entries[_FII] = input[_FII];
+  }
+  return entries;
+};
+
+/**
+ * serializeAws_ec2DeleteImageUsageReportRequest
+ */
+const se_DeleteImageUsageReportRequest = (input: DeleteImageUsageReportRequest, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input[_RIep] != null) {
+    entries[_RIep] = input[_RIep];
+  }
+  if (input[_DRr] != null) {
+    entries[_DRr] = input[_DRr];
   }
   return entries;
 };
@@ -39521,6 +39800,56 @@ const se_DescribeImageAttributeRequest = (input: DescribeImageAttributeRequest, 
 };
 
 /**
+ * serializeAws_ec2DescribeImageReferencesImageIdStringList
+ */
+const se_DescribeImageReferencesImageIdStringList = (input: string[], context: __SerdeContext): any => {
+  const entries: any = {};
+  let counter = 1;
+  for (const entry of input) {
+    if (entry === null) {
+      continue;
+    }
+    entries[`Member.${counter}`] = entry;
+    counter++;
+  }
+  return entries;
+};
+
+/**
+ * serializeAws_ec2DescribeImageReferencesRequest
+ */
+const se_DescribeImageReferencesRequest = (input: DescribeImageReferencesRequest, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input[_IImag] != null) {
+    const memberEntries = se_DescribeImageReferencesImageIdStringList(input[_IImag], context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `ImageId.${key.substring(key.indexOf(".") + 1)}`;
+      entries[loc] = value;
+    });
+  }
+  if (input[_IART] != null) {
+    entries[_IART] = input[_IART];
+  }
+  if (input[_RTe] != null) {
+    const memberEntries = se_ResourceTypeRequestList(input[_RTe], context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `ResourceType.${key.substring(key.indexOf(".") + 1)}`;
+      entries[loc] = value;
+    });
+  }
+  if (input[_NT] != null) {
+    entries[_NT] = input[_NT];
+  }
+  if (input[_DRr] != null) {
+    entries[_DRr] = input[_DRr];
+  }
+  if (input[_MR] != null) {
+    entries[_MR] = input[_MR];
+  }
+  return entries;
+};
+
+/**
  * serializeAws_ec2DescribeImagesRequest
  */
 const se_DescribeImagesRequest = (input: DescribeImagesRequest, context: __SerdeContext): any => {
@@ -39567,6 +39896,101 @@ const se_DescribeImagesRequest = (input: DescribeImagesRequest, context: __Serde
       const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
     });
+  }
+  return entries;
+};
+
+/**
+ * serializeAws_ec2DescribeImageUsageReportEntriesRequest
+ */
+const se_DescribeImageUsageReportEntriesRequest = (
+  input: DescribeImageUsageReportEntriesRequest,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input[_IImag] != null) {
+    const memberEntries = se_DescribeImageUsageReportsImageIdStringList(input[_IImag], context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `ImageId.${key.substring(key.indexOf(".") + 1)}`;
+      entries[loc] = value;
+    });
+  }
+  if (input[_RIepo] != null) {
+    const memberEntries = se_ImageUsageReportIdStringList(input[_RIepo], context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `ReportId.${key.substring(key.indexOf(".") + 1)}`;
+      entries[loc] = value;
+    });
+  }
+  if (input[_NT] != null) {
+    entries[_NT] = input[_NT];
+  }
+  if (input[_Fi] != null) {
+    const memberEntries = se_FilterList(input[_Fi], context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
+      entries[loc] = value;
+    });
+  }
+  if (input[_DRr] != null) {
+    entries[_DRr] = input[_DRr];
+  }
+  if (input[_MR] != null) {
+    entries[_MR] = input[_MR];
+  }
+  return entries;
+};
+
+/**
+ * serializeAws_ec2DescribeImageUsageReportsImageIdStringList
+ */
+const se_DescribeImageUsageReportsImageIdStringList = (input: string[], context: __SerdeContext): any => {
+  const entries: any = {};
+  let counter = 1;
+  for (const entry of input) {
+    if (entry === null) {
+      continue;
+    }
+    entries[`Member.${counter}`] = entry;
+    counter++;
+  }
+  return entries;
+};
+
+/**
+ * serializeAws_ec2DescribeImageUsageReportsRequest
+ */
+const se_DescribeImageUsageReportsRequest = (input: DescribeImageUsageReportsRequest, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input[_IImag] != null) {
+    const memberEntries = se_DescribeImageUsageReportsImageIdStringList(input[_IImag], context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `ImageId.${key.substring(key.indexOf(".") + 1)}`;
+      entries[loc] = value;
+    });
+  }
+  if (input[_RIepo] != null) {
+    const memberEntries = se_ImageUsageReportIdStringList(input[_RIepo], context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `ReportId.${key.substring(key.indexOf(".") + 1)}`;
+      entries[loc] = value;
+    });
+  }
+  if (input[_NT] != null) {
+    entries[_NT] = input[_NT];
+  }
+  if (input[_Fi] != null) {
+    const memberEntries = se_FilterList(input[_Fi], context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
+      entries[loc] = value;
+    });
+  }
+  if (input[_DRr] != null) {
+    entries[_DRr] = input[_DRr];
+  }
+  if (input[_MR] != null) {
+    entries[_MR] = input[_MR];
   }
   return entries;
 };
@@ -46230,8 +46654,8 @@ const se_GetIpamResourceCidrsRequest = (input: GetIpamResourceCidrsRequest, cont
   if (input[_RT] != null) {
     entries[_RT] = input[_RT];
   }
-  if (input[_RTes] != null) {
-    const memberEntries = se_RequestIpamResourceTag(input[_RTes], context);
+  if (input[_RTeso] != null) {
+    const memberEntries = se_RequestIpamResourceTag(input[_RTeso], context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ResourceTag.${key}`;
       entries[loc] = value;
@@ -47209,6 +47633,134 @@ const se_ImageProviderRequestList = (input: string[], context: __SerdeContext): 
       continue;
     }
     entries[`Item.${counter}`] = entry;
+    counter++;
+  }
+  return entries;
+};
+
+/**
+ * serializeAws_ec2ImageUsageReportIdStringList
+ */
+const se_ImageUsageReportIdStringList = (input: string[], context: __SerdeContext): any => {
+  const entries: any = {};
+  let counter = 1;
+  for (const entry of input) {
+    if (entry === null) {
+      continue;
+    }
+    entries[`Member.${counter}`] = entry;
+    counter++;
+  }
+  return entries;
+};
+
+/**
+ * serializeAws_ec2ImageUsageReportUserIdStringList
+ */
+const se_ImageUsageReportUserIdStringList = (input: string[], context: __SerdeContext): any => {
+  const entries: any = {};
+  let counter = 1;
+  for (const entry of input) {
+    if (entry === null) {
+      continue;
+    }
+    entries[`UserId.${counter}`] = entry;
+    counter++;
+  }
+  return entries;
+};
+
+/**
+ * serializeAws_ec2ImageUsageResourceTypeOptionRequest
+ */
+const se_ImageUsageResourceTypeOptionRequest = (
+  input: ImageUsageResourceTypeOptionRequest,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input[_ON] != null) {
+    entries[_ON] = input[_ON];
+  }
+  if (input[_OV] != null) {
+    const memberEntries = se_ImageUsageResourceTypeOptionValuesList(input[_OV], context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `OptionValue.${key.substring(key.indexOf(".") + 1)}`;
+      entries[loc] = value;
+    });
+  }
+  return entries;
+};
+
+/**
+ * serializeAws_ec2ImageUsageResourceTypeOptionRequestList
+ */
+const se_ImageUsageResourceTypeOptionRequestList = (
+  input: ImageUsageResourceTypeOptionRequest[],
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  let counter = 1;
+  for (const entry of input) {
+    if (entry === null) {
+      continue;
+    }
+    const memberEntries = se_ImageUsageResourceTypeOptionRequest(entry, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      entries[`Member.${counter}.${key}`] = value;
+    });
+    counter++;
+  }
+  return entries;
+};
+
+/**
+ * serializeAws_ec2ImageUsageResourceTypeOptionValuesList
+ */
+const se_ImageUsageResourceTypeOptionValuesList = (input: string[], context: __SerdeContext): any => {
+  const entries: any = {};
+  let counter = 1;
+  for (const entry of input) {
+    if (entry === null) {
+      continue;
+    }
+    entries[`Item.${counter}`] = entry;
+    counter++;
+  }
+  return entries;
+};
+
+/**
+ * serializeAws_ec2ImageUsageResourceTypeRequest
+ */
+const se_ImageUsageResourceTypeRequest = (input: ImageUsageResourceTypeRequest, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input[_RT] != null) {
+    entries[_RT] = input[_RT];
+  }
+  if (input[_RTO] != null) {
+    const memberEntries = se_ImageUsageResourceTypeOptionRequestList(input[_RTO], context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `ResourceTypeOption.${key.substring(key.indexOf(".") + 1)}`;
+      entries[loc] = value;
+    });
+  }
+  return entries;
+};
+
+/**
+ * serializeAws_ec2ImageUsageResourceTypeRequestList
+ */
+const se_ImageUsageResourceTypeRequestList = (input: ImageUsageResourceTypeRequest[], context: __SerdeContext): any => {
+  const entries: any = {};
+  let counter = 1;
+  for (const entry of input) {
+    if (entry === null) {
+      continue;
+    }
+    const memberEntries = se_ImageUsageResourceTypeRequest(entry, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      entries[`Member.${counter}.${key}`] = value;
+    });
     counter++;
   }
   return entries;
@@ -56066,12 +56618,102 @@ const se_ResourceStatementRequest = (input: ResourceStatementRequest, context: _
       entries[loc] = value;
     });
   }
-  if (input[_RTeso] != null) {
-    const memberEntries = se_ValueStringList(input[_RTeso], context);
+  if (input[_RTe] != null) {
+    const memberEntries = se_ValueStringList(input[_RTe], context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ResourceType.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
     });
+  }
+  return entries;
+};
+
+/**
+ * serializeAws_ec2ResourceTypeOption
+ */
+const se_ResourceTypeOption = (input: ResourceTypeOption, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input[_ON] != null) {
+    entries[_ON] = input[_ON];
+  }
+  if (input[_OV] != null) {
+    const memberEntries = se_ResourceTypeOptionValuesList(input[_OV], context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `OptionValue.${key.substring(key.indexOf(".") + 1)}`;
+      entries[loc] = value;
+    });
+  }
+  return entries;
+};
+
+/**
+ * serializeAws_ec2ResourceTypeOptionList
+ */
+const se_ResourceTypeOptionList = (input: ResourceTypeOption[], context: __SerdeContext): any => {
+  const entries: any = {};
+  let counter = 1;
+  for (const entry of input) {
+    if (entry === null) {
+      continue;
+    }
+    const memberEntries = se_ResourceTypeOption(entry, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      entries[`Member.${counter}.${key}`] = value;
+    });
+    counter++;
+  }
+  return entries;
+};
+
+/**
+ * serializeAws_ec2ResourceTypeOptionValuesList
+ */
+const se_ResourceTypeOptionValuesList = (input: string[], context: __SerdeContext): any => {
+  const entries: any = {};
+  let counter = 1;
+  for (const entry of input) {
+    if (entry === null) {
+      continue;
+    }
+    entries[`Member.${counter}`] = entry;
+    counter++;
+  }
+  return entries;
+};
+
+/**
+ * serializeAws_ec2ResourceTypeRequest
+ */
+const se_ResourceTypeRequest = (input: ResourceTypeRequest, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input[_RT] != null) {
+    entries[_RT] = input[_RT];
+  }
+  if (input[_RTO] != null) {
+    const memberEntries = se_ResourceTypeOptionList(input[_RTO], context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `ResourceTypeOption.${key.substring(key.indexOf(".") + 1)}`;
+      entries[loc] = value;
+    });
+  }
+  return entries;
+};
+
+/**
+ * serializeAws_ec2ResourceTypeRequestList
+ */
+const se_ResourceTypeRequestList = (input: ResourceTypeRequest[], context: __SerdeContext): any => {
+  const entries: any = {};
+  let counter = 1;
+  for (const entry of input) {
+    if (entry === null) {
+      continue;
+    }
+    const memberEntries = se_ResourceTypeRequest(entry, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      entries[`Member.${counter}.${key}`] = value;
+    });
+    counter++;
   }
   return entries;
 };
@@ -62361,7 +63003,7 @@ const de_CapacityReservation = (output: any, context: __SerdeContext): CapacityR
     contents[_CAa] = de_CapacityAllocations(__getArrayIfSingleItem(output[_cAS][_i]), context);
   }
   if (output[_rT] != null) {
-    contents[_RTe] = __expectString(output[_rT]);
+    contents[_RTes] = __expectString(output[_rT]);
   }
   if (output[_uRBOI] != null) {
     contents[_URBOI] = __expectString(output[_uRBOI]);
@@ -63953,6 +64595,17 @@ const de_CreateImageResult = (output: any, context: __SerdeContext): CreateImage
 };
 
 /**
+ * deserializeAws_ec2CreateImageUsageReportResult
+ */
+const de_CreateImageUsageReportResult = (output: any, context: __SerdeContext): CreateImageUsageReportResult => {
+  const contents: any = {};
+  if (output[_rI] != null) {
+    contents[_RIep] = __expectString(output[_rI]);
+  }
+  return contents;
+};
+
+/**
  * deserializeAws_ec2CreateInstanceConnectEndpointResult
  */
 const de_CreateInstanceConnectEndpointResult = (
@@ -65212,6 +65865,17 @@ const de_DeleteFlowLogsResult = (output: any, context: __SerdeContext): DeleteFl
  * deserializeAws_ec2DeleteFpgaImageResult
  */
 const de_DeleteFpgaImageResult = (output: any, context: __SerdeContext): DeleteFpgaImageResult => {
+  const contents: any = {};
+  if (output[_r] != null) {
+    contents[_Ret] = __parseBoolean(output[_r]);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_ec2DeleteImageUsageReportResult
+ */
+const de_DeleteImageUsageReportResult = (output: any, context: __SerdeContext): DeleteImageUsageReportResult => {
   const contents: any = {};
   if (output[_r] != null) {
     contents[_Ret] = __parseBoolean(output[_r]);
@@ -66943,9 +67607,9 @@ const de_DescribeFleetHistoryResult = (output: any, context: __SerdeContext): De
 const de_DescribeFleetInstancesResult = (output: any, context: __SerdeContext): DescribeFleetInstancesResult => {
   const contents: any = {};
   if (output.activeInstanceSet === "") {
-    contents[_AIc] = [];
+    contents[_AIct] = [];
   } else if (output[_aIS] != null && output[_aIS][_i] != null) {
-    contents[_AIc] = de_ActiveInstanceSet(__getArrayIfSingleItem(output[_aIS][_i]), context);
+    contents[_AIct] = de_ActiveInstanceSet(__getArrayIfSingleItem(output[_aIS][_i]), context);
   }
   if (output[_nTe] != null) {
     contents[_NT] = __expectString(output[_nTe]);
@@ -67162,6 +67826,22 @@ const de_DescribeIdFormatResult = (output: any, context: __SerdeContext): Descri
 };
 
 /**
+ * deserializeAws_ec2DescribeImageReferencesResult
+ */
+const de_DescribeImageReferencesResult = (output: any, context: __SerdeContext): DescribeImageReferencesResult => {
+  const contents: any = {};
+  if (output[_nTe] != null) {
+    contents[_NT] = __expectString(output[_nTe]);
+  }
+  if (output.imageReferenceSet === "") {
+    contents[_IRm] = [];
+  } else if (output[_iRS] != null && output[_iRS][_i] != null) {
+    contents[_IRm] = de_ImageReferenceList(__getArrayIfSingleItem(output[_iRS][_i]), context);
+  }
+  return contents;
+};
+
+/**
  * deserializeAws_ec2DescribeImagesResult
  */
 const de_DescribeImagesResult = (output: any, context: __SerdeContext): DescribeImagesResult => {
@@ -67173,6 +67853,41 @@ const de_DescribeImagesResult = (output: any, context: __SerdeContext): Describe
     contents[_Ima] = [];
   } else if (output[_iSm] != null && output[_iSm][_i] != null) {
     contents[_Ima] = de_ImageList(__getArrayIfSingleItem(output[_iSm][_i]), context);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_ec2DescribeImageUsageReportEntriesResult
+ */
+const de_DescribeImageUsageReportEntriesResult = (
+  output: any,
+  context: __SerdeContext
+): DescribeImageUsageReportEntriesResult => {
+  const contents: any = {};
+  if (output[_nTe] != null) {
+    contents[_NT] = __expectString(output[_nTe]);
+  }
+  if (output.imageUsageReportEntrySet === "") {
+    contents[_IURE] = [];
+  } else if (output[_iURES] != null && output[_iURES][_i] != null) {
+    contents[_IURE] = de_ImageUsageReportEntryList(__getArrayIfSingleItem(output[_iURES][_i]), context);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_ec2DescribeImageUsageReportsResult
+ */
+const de_DescribeImageUsageReportsResult = (output: any, context: __SerdeContext): DescribeImageUsageReportsResult => {
+  const contents: any = {};
+  if (output[_nTe] != null) {
+    contents[_NT] = __expectString(output[_nTe]);
+  }
+  if (output.imageUsageReportSet === "") {
+    contents[_IUR] = [];
+  } else if (output[_iURS] != null && output[_iURS][_i] != null) {
+    contents[_IUR] = de_ImageUsageReportList(__getArrayIfSingleItem(output[_iURS][_i]), context);
   }
   return contents;
 };
@@ -68415,9 +69130,9 @@ const de_DescribeSpotFleetInstancesResponse = (
 ): DescribeSpotFleetInstancesResponse => {
   const contents: any = {};
   if (output.activeInstanceSet === "") {
-    contents[_AIc] = [];
+    contents[_AIct] = [];
   } else if (output[_aIS] != null && output[_aIS][_i] != null) {
-    contents[_AIc] = de_ActiveInstanceSet(__getArrayIfSingleItem(output[_aIS][_i]), context);
+    contents[_AIct] = de_ActiveInstanceSet(__getArrayIfSingleItem(output[_aIS][_i]), context);
   }
   if (output[_nTe] != null) {
     contents[_NT] = __expectString(output[_nTe]);
@@ -74161,6 +74876,188 @@ const de_ImageRecycleBinInfoList = (output: any, context: __SerdeContext): Image
 };
 
 /**
+ * deserializeAws_ec2ImageReference
+ */
+const de_ImageReference = (output: any, context: __SerdeContext): ImageReference => {
+  const contents: any = {};
+  if (output[_iIma] != null) {
+    contents[_IIma] = __expectString(output[_iIma]);
+  }
+  if (output[_rTe] != null) {
+    contents[_RT] = __expectString(output[_rTe]);
+  }
+  if (output[_ar] != null) {
+    contents[_Ar] = __expectString(output[_ar]);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_ec2ImageReferenceList
+ */
+const de_ImageReferenceList = (output: any, context: __SerdeContext): ImageReference[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_ImageReference(entry, context);
+    });
+};
+
+/**
+ * deserializeAws_ec2ImageUsageReport
+ */
+const de_ImageUsageReport = (output: any, context: __SerdeContext): ImageUsageReport => {
+  const contents: any = {};
+  if (output[_iIma] != null) {
+    contents[_IIma] = __expectString(output[_iIma]);
+  }
+  if (output[_rI] != null) {
+    contents[_RIep] = __expectString(output[_rI]);
+  }
+  if (output.resourceTypeSet === "") {
+    contents[_RTe] = [];
+  } else if (output[_rTSe] != null && output[_rTSe][_i] != null) {
+    contents[_RTe] = de_ImageUsageResourceTypeList(__getArrayIfSingleItem(output[_rTSe][_i]), context);
+  }
+  if (output.accountIdSet === "") {
+    contents[_AIc] = [];
+  } else if (output[_aISc] != null && output[_aISc][_i] != null) {
+    contents[_AIc] = de_UserIdList(__getArrayIfSingleItem(output[_aISc][_i]), context);
+  }
+  if (output[_st] != null) {
+    contents[_Stat] = __expectString(output[_st]);
+  }
+  if (output[_sRt] != null) {
+    contents[_SRt] = __expectString(output[_sRt]);
+  }
+  if (output[_cTre] != null) {
+    contents[_CTre] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_cTre]));
+  }
+  if (output[_eT] != null) {
+    contents[_ETx] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_eT]));
+  }
+  if (output.tagSet === "") {
+    contents[_Ta] = [];
+  } else if (output[_tS] != null && output[_tS][_i] != null) {
+    contents[_Ta] = de_TagList(__getArrayIfSingleItem(output[_tS][_i]), context);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_ec2ImageUsageReportEntry
+ */
+const de_ImageUsageReportEntry = (output: any, context: __SerdeContext): ImageUsageReportEntry => {
+  const contents: any = {};
+  if (output[_rTe] != null) {
+    contents[_RT] = __expectString(output[_rTe]);
+  }
+  if (output[_rI] != null) {
+    contents[_RIep] = __expectString(output[_rI]);
+  }
+  if (output[_uCs] != null) {
+    contents[_UCs] = __strictParseLong(output[_uCs]) as number;
+  }
+  if (output[_aIc] != null) {
+    contents[_AIcc] = __expectString(output[_aIc]);
+  }
+  if (output[_iIma] != null) {
+    contents[_IIma] = __expectString(output[_iIma]);
+  }
+  if (output[_rCT] != null) {
+    contents[_RCT] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_rCT]));
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_ec2ImageUsageReportEntryList
+ */
+const de_ImageUsageReportEntryList = (output: any, context: __SerdeContext): ImageUsageReportEntry[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_ImageUsageReportEntry(entry, context);
+    });
+};
+
+/**
+ * deserializeAws_ec2ImageUsageReportList
+ */
+const de_ImageUsageReportList = (output: any, context: __SerdeContext): ImageUsageReport[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_ImageUsageReport(entry, context);
+    });
+};
+
+/**
+ * deserializeAws_ec2ImageUsageResourceType
+ */
+const de_ImageUsageResourceType = (output: any, context: __SerdeContext): ImageUsageResourceType => {
+  const contents: any = {};
+  if (output[_rTe] != null) {
+    contents[_RT] = __expectString(output[_rTe]);
+  }
+  if (output.resourceTypeOptionSet === "") {
+    contents[_RTO] = [];
+  } else if (output[_rTOS] != null && output[_rTOS][_i] != null) {
+    contents[_RTO] = de_ImageUsageResourceTypeOptionList(__getArrayIfSingleItem(output[_rTOS][_i]), context);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_ec2ImageUsageResourceTypeList
+ */
+const de_ImageUsageResourceTypeList = (output: any, context: __SerdeContext): ImageUsageResourceType[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_ImageUsageResourceType(entry, context);
+    });
+};
+
+/**
+ * deserializeAws_ec2ImageUsageResourceTypeOption
+ */
+const de_ImageUsageResourceTypeOption = (output: any, context: __SerdeContext): ImageUsageResourceTypeOption => {
+  const contents: any = {};
+  if (output[_oN] != null) {
+    contents[_ON] = __expectString(output[_oN]);
+  }
+  if (output.optionValueSet === "") {
+    contents[_OV] = [];
+  } else if (output[_oVS] != null && output[_oVS][_i] != null) {
+    contents[_OV] = de_ImageUsageResourceTypeOptionValuesList(__getArrayIfSingleItem(output[_oVS][_i]), context);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_ec2ImageUsageResourceTypeOptionList
+ */
+const de_ImageUsageResourceTypeOptionList = (output: any, context: __SerdeContext): ImageUsageResourceTypeOption[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_ImageUsageResourceTypeOption(entry, context);
+    });
+};
+
+/**
+ * deserializeAws_ec2ImageUsageResourceTypeOptionValuesList
+ */
+const de_ImageUsageResourceTypeOptionValuesList = (output: any, context: __SerdeContext): string[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return __expectString(entry) as any;
+    });
+};
+
+/**
  * deserializeAws_ec2ImportClientVpnClientCertificateRevocationListResult
  */
 const de_ImportClientVpnClientCertificateRevocationListResult = (
@@ -76678,8 +77575,8 @@ const de_IpamDiscoveredResourceCidr = (output: any, context: __SerdeContext): Ip
   }
   if (output.resourceTagSet === "") {
     contents[_RTesou] = [];
-  } else if (output[_rTSe] != null && output[_rTSe][_i] != null) {
-    contents[_RTesou] = de_IpamResourceTagList(__getArrayIfSingleItem(output[_rTSe][_i]), context);
+  } else if (output[_rTSes] != null && output[_rTSes][_i] != null) {
+    contents[_RTesou] = de_IpamResourceTagList(__getArrayIfSingleItem(output[_rTSes][_i]), context);
   }
   if (output[_iU] != null) {
     contents[_IUp] = __strictParseFloat(output[_iU]) as number;
@@ -77137,8 +78034,8 @@ const de_IpamResourceCidr = (output: any, context: __SerdeContext): IpamResource
   }
   if (output.resourceTagSet === "") {
     contents[_RTesou] = [];
-  } else if (output[_rTSe] != null && output[_rTSe][_i] != null) {
-    contents[_RTesou] = de_IpamResourceTagList(__getArrayIfSingleItem(output[_rTSe][_i]), context);
+  } else if (output[_rTSes] != null && output[_rTSes][_i] != null) {
+    contents[_RTesou] = de_IpamResourceTagList(__getArrayIfSingleItem(output[_rTSes][_i]), context);
   }
   if (output[_iU] != null) {
     contents[_IUp] = __strictParseFloat(output[_iU]) as number;
@@ -83816,9 +84713,9 @@ const de_ResourceStatement = (output: any, context: __SerdeContext): ResourceSta
     contents[_Re] = de_ValueStringList(__getArrayIfSingleItem(output[_rSesou][_i]), context);
   }
   if (output.resourceTypeSet === "") {
-    contents[_RTeso] = [];
-  } else if (output[_rTSes] != null && output[_rTSes][_i] != null) {
-    contents[_RTeso] = de_ValueStringList(__getArrayIfSingleItem(output[_rTSes][_i]), context);
+    contents[_RTe] = [];
+  } else if (output[_rTSe] != null && output[_rTSe][_i] != null) {
+    contents[_RTe] = de_ValueStringList(__getArrayIfSingleItem(output[_rTSe][_i]), context);
   }
   return contents;
 };
@@ -86802,7 +87699,7 @@ const de_SubnetCidrReservation = (output: any, context: __SerdeContext): SubnetC
     contents[_C] = __expectString(output[_ci]);
   }
   if (output[_rT] != null) {
-    contents[_RTe] = __expectString(output[_rT]);
+    contents[_RTes] = __expectString(output[_rT]);
   }
   if (output[_oI] != null) {
     contents[_OIwn] = __expectString(output[_oI]);
@@ -89318,6 +90215,17 @@ const de_UserIdGroupPairSet = (output: any, context: __SerdeContext): UserIdGrou
 };
 
 /**
+ * deserializeAws_ec2UserIdList
+ */
+const de_UserIdList = (output: any, context: __SerdeContext): string[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return __expectString(entry) as any;
+    });
+};
+
+/**
  * deserializeAws_ec2ValidationError
  */
 const de_ValidationError = (output: any, context: __SerdeContext): ValidationError => {
@@ -91613,8 +92521,9 @@ const _AIPs = "AssignedIpv4Prefixes";
 const _AIRD = "AssociateIpamResourceDiscovery";
 const _AISS = "AllowedImagesSettingsState";
 const _AIT = "AllowedInstanceTypes";
-const _AIc = "ActiveInstances";
+const _AIc = "AccountIds";
 const _AIcc = "AccountId";
+const _AIct = "ActiveInstances";
 const _AId = "AdditionalInfo";
 const _AIl = "AllocationId";
 const _AIll = "AllocationIds";
@@ -91912,6 +92821,7 @@ const _CIS = "CreateIpamScope";
 const _CISI = "CurrentIpamScopeId";
 const _CIT = "CancelImportTask";
 const _CITo = "CopyImageTags";
+const _CIUR = "CreateImageUsageReport";
 const _CIa = "CarrierIp";
 const _CIi = "CidrIp";
 const _CIid = "CidrIpv6";
@@ -92234,6 +93144,7 @@ const _DIP = "DeleteIpamPool";
 const _DIPC = "DeprovisionIpamPoolCidr";
 const _DIPe = "DescribeIpamPools";
 const _DIPes = "DescribeIpv6Pools";
+const _DIR = "DescribeImageReferences";
 const _DIRD = "DeleteIpamResourceDiscovery";
 const _DIRDA = "DescribeIpamResourceDiscoveryAssociations";
 const _DIRDe = "DescribeIpamResourceDiscoveries";
@@ -92247,6 +93158,9 @@ const _DISi = "DiskImageSize";
 const _DIT = "DescribeInstanceTopology";
 const _DITO = "DescribeInstanceTypeOfferings";
 const _DITe = "DescribeInstanceTypes";
+const _DIUR = "DeleteImageUsageReport";
+const _DIURE = "DescribeImageUsageReportEntries";
+const _DIURe = "DescribeImageUsageReports";
 const _DIe = "DeregisterImage";
 const _DIes = "DescribeImages";
 const _DIesc = "DescribeInstances";
@@ -92833,6 +93747,7 @@ const _IAI = "IncludeAllInstances";
 const _IAIn = "InferenceAcceleratorInfo";
 const _IAPI = "Ipv4AddressesPerInterface";
 const _IAPIp = "Ipv6AddressesPerInterface";
+const _IART = "IncludeAllResourceTypes";
 const _IAT = "IpAddressType";
 const _IATOI = "IncludeAllTagsOfInstance";
 const _IAm = "ImageAllowed";
@@ -92987,6 +93902,7 @@ const _IRDp = "IpamResourceDiscoveries";
 const _IRSDA = "IntegrationResultS3DestinationArn";
 const _IRT = "IngressRouteTable";
 const _IRWM = "InstanceRequirementsWithMetadata";
+const _IRm = "ImageReferences";
 const _IRp = "IpRanges";
 const _IRpa = "IpamRegion";
 const _IRpv = "Ipv6Ranges";
@@ -93030,6 +93946,8 @@ const _ITns = "InstanceTenancy";
 const _ITnst = "InstanceTypes";
 const _ITnsta = "InstanceTags";
 const _IU = "InstanceUsages";
+const _IUR = "ImageUsageReports";
+const _IURE = "ImageUsageReportEntries";
 const _IUp = "IpUsage";
 const _IV = "ImportVolume";
 const _IVE = "IsValidExchange";
@@ -93455,6 +94373,7 @@ const _OL = "OutpostLags";
 const _OLI = "OutpostLagId";
 const _OLIu = "OutpostLagIds";
 const _OMAE = "OriginalMultiAttachEnabled";
+const _ON = "OptionName";
 const _ONA = "OdbNetworkArn";
 const _OO = "OidcOptions";
 const _OR = "OperatingRegions";
@@ -93473,6 +94392,7 @@ const _OUA = "OrganizationalUnitArn";
 const _OUAr = "OrganizationalUnitArns";
 const _OUE = "OrganizationalUnitExclusions";
 const _OUI = "OrganizationalUnitId";
+const _OV = "OptionValues";
 const _OVC = "OpenVpnConfigurations";
 const _OVT = "OriginalVolumeType";
 const _Op = "Options";
@@ -93687,6 +94607,7 @@ const _RCA = "ResourceConfigurationArn";
 const _RCGA = "ResourceConfigurationGroupArn";
 const _RCRBO = "RejectCapacityReservationBillingOwnership";
 const _RCS = "ResourceComplianceStatus";
+const _RCT = "ReportCreationTime";
 const _RCVI = "RevokeClientVpnIngress";
 const _RCe = "ReasonCodes";
 const _RCec = "RecurringCharges";
@@ -93842,13 +94763,14 @@ const _RTGVA = "RejectTransitGatewayVpcAttachment";
 const _RTI = "RouteTableId";
 const _RTIe = "RequesterTgwInfo";
 const _RTIo = "RouteTableIds";
+const _RTO = "ResourceTypeOptions";
 const _RTR = "RouteTableRoute";
 const _RTV = "RemainingTotalValue";
-const _RTe = "ReservationType";
+const _RTe = "ResourceTypes";
 const _RTel = "ReleaseTime";
 const _RTeq = "RequestTime";
-const _RTes = "ResourceTag";
-const _RTeso = "ResourceTypes";
+const _RTes = "ReservationType";
+const _RTeso = "ResourceTag";
 const _RTesou = "ResourceTags";
 const _RTo = "RouteTable";
 const _RTou = "RouteTables";
@@ -94257,6 +95179,7 @@ const _To = "To";
 const _U = "Url";
 const _UB = "UserBucket";
 const _UC = "UltraserverCount";
+const _UCs = "UsageCount";
 const _UD = "UserData";
 const _UDLTV = "UnsuccessfullyDeletedLaunchTemplateVersions";
 const _UDe = "UefiData";
@@ -94458,6 +95381,7 @@ const _aIPS = "assignedIpv6PrefixSet";
 const _aIPSs = "assignedIpv4PrefixSet";
 const _aIS = "activeInstanceSet";
 const _aISS = "allowedImagesSettingsState";
+const _aISc = "accountIdSet";
 const _aITS = "allowedInstanceTypeSet";
 const _aIc = "accountId";
 const _aIm = "amiId";
@@ -95187,6 +96111,7 @@ const _iRDAp = "ipamResourceDiscoveryArn";
 const _iRDI = "ipamResourceDiscoveryId";
 const _iRDR = "ipamResourceDiscoveryRegion";
 const _iRDS = "ipamResourceDiscoverySet";
+const _iRS = "imageReferenceSet";
 const _iRT = "ingressRouteTable";
 const _iRp = "ipamRegion";
 const _iRpa = "ipRanges";
@@ -95231,6 +96156,8 @@ const _iTni = "initializationType";
 const _iTns = "instanceTenancy";
 const _iTnt = "interfaceType";
 const _iU = "ipUsage";
+const _iURES = "imageUsageReportEntrySet";
+const _iURS = "imageUsageReportSet";
 const _iUS = "instanceUsageSet";
 const _iV = "ikeVersion";
 const _iVE = "isValidExchange";
@@ -95531,6 +96458,7 @@ const _oK = "objectKey";
 const _oLI = "outpostLagId";
 const _oLS = "outpostLagSet";
 const _oMAE = "originalMultiAttachEnabled";
+const _oN = "optionName";
 const _oNA = "odbNetworkArn";
 const _oO = "oidcOptions";
 const _oRIWEA = "outputReservedInstancesWillExpireAt";
@@ -95548,6 +96476,7 @@ const _oUA = "organizationalUnitArn";
 const _oUES = "organizationalUnitExclusionSet";
 const _oUI = "organizationalUnitId";
 const _oVCS = "openVpnConfigurationSet";
+const _oVS = "optionValueSet";
 const _oVT = "originalVolumeType";
 const _op = "operator";
 const _opt = "options";
@@ -95713,6 +96642,7 @@ const _rC = "returnCode";
 const _rCA = "resourceConfigurationArn";
 const _rCGA = "resourceConfigurationGroupArn";
 const _rCS = "resourceComplianceStatus";
+const _rCT = "reportCreationTime";
 const _rCe = "resourceCidr";
 const _rCec = "recurringCharges";
 const _rD = "restoreDuration";
@@ -95811,10 +96741,11 @@ const _rTAI = "routeTableAssociationId";
 const _rTI = "routeTableId";
 const _rTIS = "routeTableIdSet";
 const _rTIe = "requesterTgwInfo";
+const _rTOS = "resourceTypeOptionSet";
 const _rTR = "routeTableRoute";
 const _rTS = "routeTableSet";
-const _rTSe = "resourceTagSet";
-const _rTSes = "resourceTypeSet";
+const _rTSe = "resourceTypeSet";
+const _rTSes = "resourceTagSet";
 const _rTV = "remainingTotalValue";
 const _rTe = "resourceType";
 const _rTel = "releaseTime";
@@ -96154,6 +97085,7 @@ const _ty = "type";
 const _u = "unsuccessful";
 const _uB = "userBucket";
 const _uC = "ultraserverCount";
+const _uCs = "usageCount";
 const _uD = "uefiData";
 const _uDLTVS = "unsuccessfullyDeletedLaunchTemplateVersionSet";
 const _uDp = "updatedDate";

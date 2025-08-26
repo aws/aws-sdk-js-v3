@@ -8316,6 +8316,110 @@ export interface CreateImageResult {
 }
 
 /**
+ * <p>The options that affect the scope of the report.</p>
+ * @public
+ */
+export interface ImageUsageResourceTypeOptionRequest {
+  /**
+   * <p>The name of the option.</p>
+   *          <p>Valid value: <code>version-depth</code> - The number of launch template versions to
+   *       check.</p>
+   * @public
+   */
+  OptionName?: string | undefined;
+
+  /**
+   * <p>A value for the specified option.</p>
+   *          <p>Valid values: Integers between <code>1</code> and <code>10000</code>
+   *          </p>
+   *          <p>Default: <code>20</code>
+   *          </p>
+   * @public
+   */
+  OptionValues?: string[] | undefined;
+}
+
+/**
+ * <p>A resource type to include in the report. Associated options can also be specified if the
+ *       resource type is a launch template.</p>
+ * @public
+ */
+export interface ImageUsageResourceTypeRequest {
+  /**
+   * <p>The resource type.</p>
+   *          <p>Valid values: <code>ec2:Instance</code> | <code>ec2:LaunchTemplate</code>
+   *          </p>
+   * @public
+   */
+  ResourceType?: string | undefined;
+
+  /**
+   * <p>The options that affect the scope of the report. Valid only when <code>ResourceType</code>
+   *       is <code>ec2:LaunchTemplate</code>.</p>
+   * @public
+   */
+  ResourceTypeOptions?: ImageUsageResourceTypeOptionRequest[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateImageUsageReportRequest {
+  /**
+   * <p>The ID of the image to report on.</p>
+   * @public
+   */
+  ImageId: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   * 			and provides an error response. If you have the required permissions, the error response is
+   * 			<code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>The resource types to include in the report.</p>
+   * @public
+   */
+  ResourceTypes: ImageUsageResourceTypeRequest[] | undefined;
+
+  /**
+   * <p>The Amazon Web Services account IDs to include in the report. To include all accounts, omit this
+   *       parameter.</p>
+   * @public
+   */
+  AccountIds?: string[] | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier that you provide to ensure idempotency of the request.</p>
+   * @public
+   */
+  ClientToken?: string | undefined;
+
+  /**
+   * <p>The tags to apply to the report on creation. The <code>ResourceType</code> must be set to
+   *         <code>image-usage-report</code>; any other value will cause the report creation to
+   *       fail.</p>
+   *          <p>To tag a report after it has been created, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTags.html">CreateTags</a>.</p>
+   * @public
+   */
+  TagSpecifications?: TagSpecification[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateImageUsageReportResult {
+  /**
+   * <p>The ID of the report.</p>
+   * @public
+   */
+  ReportId?: string | undefined;
+}
+
+/**
  * @public
  * @enum
  */
@@ -12506,94 +12610,6 @@ export interface LaunchTemplateIamInstanceProfileSpecification {
    * @public
    */
   Name?: string | undefined;
-}
-
-/**
- * <p>The options for Spot Instances.</p>
- * @public
- */
-export interface LaunchTemplateSpotMarketOptions {
-  /**
-   * <p>The maximum hourly price you're willing to pay for a Spot Instance. We do not
-   *             recommend using this parameter because it can lead to increased interruptions. If you do
-   *             not specify this parameter, you will pay the current Spot price. If you do specify this
-   *             parameter, it must be more than USD $0.001. Specifying a value below USD $0.001 will
-   *             result in an <code>InvalidParameterValue</code> error message when the launch template
-   *             is used to launch an instance.</p>
-   * @public
-   */
-  MaxPrice?: string | undefined;
-
-  /**
-   * <p>The Spot Instance request type.</p>
-   * @public
-   */
-  SpotInstanceType?: SpotInstanceType | undefined;
-
-  /**
-   * <p>The required duration for the Spot Instances (also known as Spot blocks), in minutes.
-   *             This value must be a multiple of 60 (60, 120, 180, 240, 300, or 360).</p>
-   * @public
-   */
-  BlockDurationMinutes?: number | undefined;
-
-  /**
-   * <p>The end date of the request. For a one-time request, the request remains active until
-   *             all instances launch, the request is canceled, or this date is reached. If the request
-   *             is persistent, it remains active until it is canceled or this date and time is
-   *             reached.</p>
-   * @public
-   */
-  ValidUntil?: Date | undefined;
-
-  /**
-   * <p>The behavior when a Spot Instance is interrupted.</p>
-   * @public
-   */
-  InstanceInterruptionBehavior?: InstanceInterruptionBehavior | undefined;
-}
-
-/**
- * <p>The market (purchasing) option for the instances.</p>
- * @public
- */
-export interface LaunchTemplateInstanceMarketOptions {
-  /**
-   * <p>The market type.</p>
-   * @public
-   */
-  MarketType?: MarketType | undefined;
-
-  /**
-   * <p>The options for Spot Instances.</p>
-   * @public
-   */
-  SpotOptions?: LaunchTemplateSpotMarketOptions | undefined;
-}
-
-/**
- * <p>Describes a license configuration.</p>
- * @public
- */
-export interface LaunchTemplateLicenseConfiguration {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the license configuration.</p>
-   * @public
-   */
-  LicenseConfigurationArn?: string | undefined;
-}
-
-/**
- * <p>The maintenance options of your instance.</p>
- * @public
- */
-export interface LaunchTemplateInstanceMaintenanceOptions {
-  /**
-   * <p>Disables the automatic recovery behavior of your instance or sets it to
-   *             default.</p>
-   * @public
-   */
-  AutoRecovery?: LaunchTemplateAutoRecoveryState | undefined;
 }
 
 /**

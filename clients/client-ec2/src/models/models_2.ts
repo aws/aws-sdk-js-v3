@@ -42,10 +42,11 @@ import {
   ElasticGpuSpecificationResponse,
   HostnameType,
   InstanceBandwidthWeighting,
+  InstanceInterruptionBehavior,
   InstanceRequirements,
-  IpAddressType,
   Ipv4PrefixSpecificationRequest,
   Ipv6PrefixSpecificationRequest,
+  LaunchTemplateAutoRecoveryState,
   LaunchTemplateBlockDeviceMapping,
   LaunchTemplateCapacityReservationSpecificationResponse,
   LaunchTemplateCpuOptions,
@@ -54,25 +55,112 @@ import {
   LaunchTemplateHibernationOptions,
   LaunchTemplateHttpTokensState,
   LaunchTemplateIamInstanceProfileSpecification,
-  LaunchTemplateInstanceMaintenanceOptions,
-  LaunchTemplateInstanceMarketOptions,
   LaunchTemplateInstanceMetadataEndpointState,
   LaunchTemplateInstanceMetadataProtocolIpv6,
   LaunchTemplateInstanceMetadataTagsState,
-  LaunchTemplateLicenseConfiguration,
   MacModificationTask,
   MacSystemIntegrityProtectionSettingStatus,
+  MarketType,
   OperatorRequest,
   OperatorResponse,
   PrivateIpAddressSpecification,
   ShutdownBehavior,
   SnapshotLocationEnum,
+  SpotInstanceType,
   Subnet,
   Tenancy,
   ValidationWarning,
   VolumeType,
   Vpc,
 } from "./models_1";
+
+/**
+ * <p>The options for Spot Instances.</p>
+ * @public
+ */
+export interface LaunchTemplateSpotMarketOptions {
+  /**
+   * <p>The maximum hourly price you're willing to pay for a Spot Instance. We do not
+   *             recommend using this parameter because it can lead to increased interruptions. If you do
+   *             not specify this parameter, you will pay the current Spot price. If you do specify this
+   *             parameter, it must be more than USD $0.001. Specifying a value below USD $0.001 will
+   *             result in an <code>InvalidParameterValue</code> error message when the launch template
+   *             is used to launch an instance.</p>
+   * @public
+   */
+  MaxPrice?: string | undefined;
+
+  /**
+   * <p>The Spot Instance request type.</p>
+   * @public
+   */
+  SpotInstanceType?: SpotInstanceType | undefined;
+
+  /**
+   * <p>The required duration for the Spot Instances (also known as Spot blocks), in minutes.
+   *             This value must be a multiple of 60 (60, 120, 180, 240, 300, or 360).</p>
+   * @public
+   */
+  BlockDurationMinutes?: number | undefined;
+
+  /**
+   * <p>The end date of the request. For a one-time request, the request remains active until
+   *             all instances launch, the request is canceled, or this date is reached. If the request
+   *             is persistent, it remains active until it is canceled or this date and time is
+   *             reached.</p>
+   * @public
+   */
+  ValidUntil?: Date | undefined;
+
+  /**
+   * <p>The behavior when a Spot Instance is interrupted.</p>
+   * @public
+   */
+  InstanceInterruptionBehavior?: InstanceInterruptionBehavior | undefined;
+}
+
+/**
+ * <p>The market (purchasing) option for the instances.</p>
+ * @public
+ */
+export interface LaunchTemplateInstanceMarketOptions {
+  /**
+   * <p>The market type.</p>
+   * @public
+   */
+  MarketType?: MarketType | undefined;
+
+  /**
+   * <p>The options for Spot Instances.</p>
+   * @public
+   */
+  SpotOptions?: LaunchTemplateSpotMarketOptions | undefined;
+}
+
+/**
+ * <p>Describes a license configuration.</p>
+ * @public
+ */
+export interface LaunchTemplateLicenseConfiguration {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the license configuration.</p>
+   * @public
+   */
+  LicenseConfigurationArn?: string | undefined;
+}
+
+/**
+ * <p>The maintenance options of your instance.</p>
+ * @public
+ */
+export interface LaunchTemplateInstanceMaintenanceOptions {
+  /**
+   * <p>Disables the automatic recovery behavior of your instance or sets it to
+   *             default.</p>
+   * @public
+   */
+  AutoRecovery?: LaunchTemplateAutoRecoveryState | undefined;
+}
 
 /**
  * @public
@@ -10791,189 +10879,6 @@ export const VpcEndpointType = {
  * @public
  */
 export type VpcEndpointType = (typeof VpcEndpointType)[keyof typeof VpcEndpointType];
-
-/**
- * @public
- */
-export interface CreateVpcEndpointRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>The type of endpoint.</p>
-   *          <p>Default: Gateway</p>
-   * @public
-   */
-  VpcEndpointType?: VpcEndpointType | undefined;
-
-  /**
-   * <p>The ID of the VPC.</p>
-   * @public
-   */
-  VpcId: string | undefined;
-
-  /**
-   * <p>The name of the endpoint service.</p>
-   * @public
-   */
-  ServiceName?: string | undefined;
-
-  /**
-   * <p>(Interface and gateway endpoints) A policy to attach to the endpoint that controls access to the
-   *             service. The policy must be in valid JSON format. If this parameter is not specified, we
-   *             attach a default policy that allows full access to the service.</p>
-   * @public
-   */
-  PolicyDocument?: string | undefined;
-
-  /**
-   * <p>(Gateway endpoint) The route table IDs.</p>
-   * @public
-   */
-  RouteTableIds?: string[] | undefined;
-
-  /**
-   * <p>(Interface and Gateway Load Balancer endpoints) The IDs of the subnets in which to create endpoint
-   *             network interfaces. For a Gateway Load Balancer endpoint, you can specify only one subnet.</p>
-   * @public
-   */
-  SubnetIds?: string[] | undefined;
-
-  /**
-   * <p>(Interface endpoint) The IDs of the security groups to associate with the
-   *             endpoint network interfaces. If this parameter is not specified, we use the default
-   *             security group for the VPC.</p>
-   * @public
-   */
-  SecurityGroupIds?: string[] | undefined;
-
-  /**
-   * <p>The IP address type for the endpoint.</p>
-   * @public
-   */
-  IpAddressType?: IpAddressType | undefined;
-
-  /**
-   * <p>The DNS options for the endpoint.</p>
-   * @public
-   */
-  DnsOptions?: DnsOptionsSpecification | undefined;
-
-  /**
-   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
-   *             request. For more information, see <a href="https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html">How to ensure
-   *                 idempotency</a>.</p>
-   * @public
-   */
-  ClientToken?: string | undefined;
-
-  /**
-   * <p>(Interface endpoint) Indicates whether to associate a private hosted zone with the
-   *             specified VPC. The private hosted zone contains a record set for the default public DNS
-   *             name for the service for the Region (for example,
-   *                 <code>kinesis.us-east-1.amazonaws.com</code>), which resolves to the private IP
-   *             addresses of the endpoint network interfaces in the VPC. This enables you to make
-   *             requests to the default public DNS name for the service instead of the public DNS names
-   *             that are automatically generated by the VPC endpoint service.</p>
-   *          <p>To use a private hosted zone, you must set the following VPC attributes to
-   *             <code>true</code>: <code>enableDnsHostnames</code> and
-   *             <code>enableDnsSupport</code>. Use <a>ModifyVpcAttribute</a> to set the VPC
-   *             attributes.</p>
-   * @public
-   */
-  PrivateDnsEnabled?: boolean | undefined;
-
-  /**
-   * <p>The tags to associate with the endpoint.</p>
-   * @public
-   */
-  TagSpecifications?: TagSpecification[] | undefined;
-
-  /**
-   * <p>The subnet configurations for the endpoint.</p>
-   * @public
-   */
-  SubnetConfigurations?: SubnetConfiguration[] | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of a service network that will be associated with the VPC
-   *          endpoint of type service-network.</p>
-   * @public
-   */
-  ServiceNetworkArn?: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of a resource configuration that will be associated with
-   *          the VPC endpoint of type resource.</p>
-   * @public
-   */
-  ResourceConfigurationArn?: string | undefined;
-
-  /**
-   * <p>The Region where the service is hosted. The default is the current Region.</p>
-   * @public
-   */
-  ServiceRegion?: string | undefined;
-}
-
-/**
- * <p>Describes a DNS entry.</p>
- * @public
- */
-export interface DnsEntry {
-  /**
-   * <p>The DNS name.</p>
-   * @public
-   */
-  DnsName?: string | undefined;
-
-  /**
-   * <p>The ID of the private hosted zone.</p>
-   * @public
-   */
-  HostedZoneId?: string | undefined;
-}
-
-/**
- * <p>Describes the DNS options for an endpoint.</p>
- * @public
- */
-export interface DnsOptions {
-  /**
-   * <p>The DNS records created for the endpoint.</p>
-   * @public
-   */
-  DnsRecordIpType?: DnsRecordIpType | undefined;
-
-  /**
-   * <p>Indicates whether to enable private DNS only for inbound endpoints.</p>
-   * @public
-   */
-  PrivateDnsOnlyForInboundResolverEndpoint?: boolean | undefined;
-}
-
-/**
- * <p>Describes a security group.</p>
- * @public
- */
-export interface SecurityGroupIdentifier {
-  /**
-   * <p>The ID of the security group.</p>
-   * @public
-   */
-  GroupId?: string | undefined;
-
-  /**
-   * <p>The name of the security group.</p>
-   * @public
-   */
-  GroupName?: string | undefined;
-}
 
 /**
  * @internal
