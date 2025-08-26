@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.876.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.875.0...v3.876.0) (2025-08-26)
+
+
+### Features
+
+* **client-arc-zonal-shift:** This release adds new API options to enable allowed windows and multiple alarms for practice runs. ([9f56f09](https://github.com/aws/aws-sdk-js-v3/commit/9f56f09e92f99897e41dacc4cd7ae46763869620))
+
+
+
+
+
 # [3.873.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.872.0...v3.873.0) (2025-08-21)
 
 **Note:** Version bump only for package @aws-sdk/client-arc-zonal-shift

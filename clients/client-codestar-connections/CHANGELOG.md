@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.876.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.875.0...v3.876.0) (2025-08-26)
+
+
+### Features
+
+* **client-codestar-connections:** Remove incorrect endpoint tests ([f0faf9b](https://github.com/aws/aws-sdk-js-v3/commit/f0faf9b335bc9282bb4296fcb6d16ab3d8534c9b))
+
+
+
+
+
 # [3.873.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.872.0...v3.873.0) (2025-08-21)
 
 **Note:** Version bump only for package @aws-sdk/client-codestar-connections
