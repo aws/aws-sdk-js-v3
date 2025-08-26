@@ -20853,13 +20853,6 @@
             }
           }
         },
-        "opsworks-cm": {
-          "endpoints": {
-            "ap-southeast-2": {},
-            "eu-west-1": {},
-            "us-east-1": {}
-          }
-        },
         "organizations": {
           "endpoints": {
             "aws-global": {
