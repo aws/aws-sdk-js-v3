@@ -79,10 +79,6 @@ export class XmlShapeSerializer extends SerdeContextConfig implements ShapeSeria
 
     const [xmlnsAttr, xmlns] = this.getXmlnsAttribute(ns, parentXmlns);
 
-    if (xmlns) {
-      structXmlNode.addAttribute(xmlnsAttr as string, xmlns);
-    }
-
     for (const [memberName, memberSchema] of ns.structIterator()) {
       const val = (value as any)[memberName];
 
@@ -106,6 +102,10 @@ export class XmlShapeSerializer extends SerdeContextConfig implements ShapeSeria
           structXmlNode.addChildNode(memberNode);
         }
       }
+    }
+
+    if (xmlns) {
+      structXmlNode.addAttribute(xmlnsAttr as string, xmlns);
     }
 
     return structXmlNode;
