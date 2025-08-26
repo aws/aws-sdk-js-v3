@@ -842,7 +842,7 @@ export interface Connection {
 
   /**
    * <p>The Amazon Resource Name (ARN) of the connection. The ARN is used as the connection
-   *       reference when the connection is shared between Amazon Web Services.</p>
+   *       reference when the connection is shared between Amazon Web Services services.</p>
    *          <note>
    *             <p>The ARN is never reused if the connection is deleted.</p>
    *          </note>
