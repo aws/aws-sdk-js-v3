@@ -32,7 +32,6 @@
   { "package": "@aws-sdk/client-codedeploy" },
   { "package": "@aws-sdk/client-eventbridge" },
   { "package": "@aws-sdk/client-cloudwatch-logs" },
-  { "package": "@aws-sdk/client-opsworks" },
   { "package": "@aws-sdk/credential-providers" },
   { "package": "@aws-sdk/credential-provider-cognito-identity" },
   { "package": "@aws-sdk/credential-provider-env", "skipBundlerTests": true },
