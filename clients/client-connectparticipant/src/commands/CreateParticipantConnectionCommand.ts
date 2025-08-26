@@ -123,18 +123,16 @@ export interface CreateParticipantConnectionCommandOutput
  * //     ConnectionToken: "STRING_VALUE",
  * //     Expiry: "STRING_VALUE",
  * //   },
- * //   WebRTCConnection: { // ConnectionData
+ * //   WebRTCConnection: { // WebRTCConnection
  * //     Attendee: { // Attendee
  * //       AttendeeId: "STRING_VALUE",
  * //       JoinToken: "STRING_VALUE",
  * //     },
- * //     Meeting: { // Meeting
- * //       MediaRegion: "STRING_VALUE",
- * //       MediaPlacement: { // MediaPlacement
+ * //     Meeting: { // WebRTCMeeting
+ * //       MediaPlacement: { // WebRTCMediaPlacement
  * //         AudioHostUrl: "STRING_VALUE",
  * //         AudioFallbackUrl: "STRING_VALUE",
  * //         SignalingUrl: "STRING_VALUE",
- * //         TurnControlUrl: "STRING_VALUE",
  * //         EventIngestionUrl: "STRING_VALUE",
  * //       },
  * //       MeetingFeatures: { // MeetingFeaturesConfiguration

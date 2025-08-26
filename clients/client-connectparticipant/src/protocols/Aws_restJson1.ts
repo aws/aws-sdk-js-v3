@@ -748,13 +748,7 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 
 // de_ConnectionCredentials omitted.
 
-// de_ConnectionData omitted.
-
 // de_Item omitted.
-
-// de_MediaPlacement omitted.
-
-// de_Meeting omitted.
 
 // de_MeetingFeaturesConfiguration omitted.
 
@@ -775,6 +769,12 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 // de_ViewActions omitted.
 
 // de_ViewContent omitted.
+
+// de_WebRTCConnection omitted.
+
+// de_WebRTCMediaPlacement omitted.
+
+// de_WebRTCMeeting omitted.
 
 // de_Websocket omitted.
 

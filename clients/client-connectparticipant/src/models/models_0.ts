@@ -273,10 +273,11 @@ export interface Attendee {
 }
 
 /**
- * <p>A set of endpoints used by clients to connect to the media service group for an Amazon Chime SDK meeting.</p>
+ * <p>A set of endpoints used by clients to connect to the media service group for an
+ *             Amazon Chime SDK meeting.</p>
  * @public
  */
-export interface MediaPlacement {
+export interface WebRTCMediaPlacement {
   /**
    * <p>The audio host URL.</p>
    * @public
@@ -294,12 +295,6 @@ export interface MediaPlacement {
    * @public
    */
   SignalingUrl?: string | undefined;
-
-  /**
-   * <p>The turn control URL.</p>
-   * @public
-   */
-  TurnControlUrl?: string | undefined;
 
   /**
    * <p>The event ingestion URL to which you send client meeting events.</p>
@@ -350,18 +345,12 @@ export interface MeetingFeaturesConfiguration {
  * <p>A meeting created using the Amazon Chime SDK.</p>
  * @public
  */
-export interface Meeting {
-  /**
-   * <p>The Amazon Web Services Region in which you create the meeting.</p>
-   * @public
-   */
-  MediaRegion?: string | undefined;
-
+export interface WebRTCMeeting {
   /**
    * <p>The media placement for the meeting.</p>
    * @public
    */
-  MediaPlacement?: MediaPlacement | undefined;
+  MediaPlacement?: WebRTCMediaPlacement | undefined;
 
   /**
    * <p>The configuration settings of the features available to a meeting.</p>
@@ -377,10 +366,11 @@ export interface Meeting {
 }
 
 /**
- * <p>Information required to join the call.</p>
+ * <p>Creates the participant’s WebRTC connection data required for the client application
+ *             (mobile or web) to connect to the call.</p>
  * @public
  */
-export interface ConnectionData {
+export interface WebRTCConnection {
   /**
    * <p>The attendee information, including attendee ID and join token.</p>
    * @public
@@ -391,7 +381,7 @@ export interface ConnectionData {
    * <p>A meeting created using the Amazon Chime SDK.</p>
    * @public
    */
-  Meeting?: Meeting | undefined;
+  Meeting?: WebRTCMeeting | undefined;
 }
 
 /**
@@ -436,7 +426,7 @@ export interface CreateParticipantConnectionResponse {
    *             (mobile application or website) to connect to the call. </p>
    * @public
    */
-  WebRTCConnection?: ConnectionData | undefined;
+  WebRTCConnection?: WebRTCConnection | undefined;
 }
 
 /**
@@ -1272,7 +1262,7 @@ export const AttendeeFilterSensitiveLog = (obj: Attendee): any => ({
 /**
  * @internal
  */
-export const ConnectionDataFilterSensitiveLog = (obj: ConnectionData): any => ({
+export const WebRTCConnectionFilterSensitiveLog = (obj: WebRTCConnection): any => ({
   ...obj,
   ...(obj.Attendee && { Attendee: AttendeeFilterSensitiveLog(obj.Attendee) }),
 });
@@ -1284,7 +1274,7 @@ export const CreateParticipantConnectionResponseFilterSensitiveLog = (
   obj: CreateParticipantConnectionResponse
 ): any => ({
   ...obj,
-  ...(obj.WebRTCConnection && { WebRTCConnection: ConnectionDataFilterSensitiveLog(obj.WebRTCConnection) }),
+  ...(obj.WebRTCConnection && { WebRTCConnection: WebRTCConnectionFilterSensitiveLog(obj.WebRTCConnection) }),
 });
 
 /**
