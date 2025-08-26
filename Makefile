@@ -99,6 +99,11 @@ turbo-build:
 tpk:
 	npx turbo run build --filter='./packages/*'
 
+# builds only packages that have no build at all.
+# for development only - packages may be stale.
+unbuilt:
+	node scripts/build-only-unbuilt.js
+
 # Clears the Turborepo local build cache
 turbo-clean:
 	@read -p "Are you sure you want to delete your local cache? [y/N]: " ans && [ $${ans:-N} = y ]
