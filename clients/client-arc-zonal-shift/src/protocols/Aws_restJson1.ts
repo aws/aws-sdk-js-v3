@@ -123,6 +123,7 @@ export const se_CreatePracticeRunConfigurationCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
+      allowedWindows: (_) => _json(_),
       blockedDates: (_) => _json(_),
       blockedWindows: (_) => _json(_),
       blockingAlarms: (_) => _json(_),
@@ -328,6 +329,7 @@ export const se_UpdatePracticeRunConfigurationCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
+      allowedWindows: (_) => _json(_),
       blockedDates: (_) => _json(_),
       blockedWindows: (_) => _json(_),
       blockingAlarms: (_) => _json(_),
@@ -901,13 +903,19 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
+// se_AllowedWindows omitted.
+
 // se_BlockedDates omitted.
 
 // se_BlockedWindows omitted.
 
+// se_BlockingAlarms omitted.
+
 // se_ControlCondition omitted.
 
-// se_ControlConditions omitted.
+// se_OutcomeAlarms omitted.
+
+// de_AllowedWindows omitted.
 
 /**
  * deserializeAws_restJson1AppliedWeights
@@ -975,9 +983,9 @@ const de_AutoshiftSummary = (output: any, context: __SerdeContext): AutoshiftSum
 
 // de_BlockedWindows omitted.
 
-// de_ControlCondition omitted.
+// de_BlockingAlarms omitted.
 
-// de_ControlConditions omitted.
+// de_ControlCondition omitted.
 
 /**
  * deserializeAws_restJson1ManagedResourceSummaries
@@ -1006,6 +1014,8 @@ const de_ManagedResourceSummary = (output: any, context: __SerdeContext): Manage
     zonalShifts: (_: any) => de_ZonalShiftsInResource(_, context),
   }) as any;
 };
+
+// de_OutcomeAlarms omitted.
 
 // de_PracticeRunConfiguration omitted.
 

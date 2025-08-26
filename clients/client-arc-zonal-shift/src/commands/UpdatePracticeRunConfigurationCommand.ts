@@ -48,13 +48,16 @@ export interface UpdatePracticeRunConfigurationCommandOutput
  *   blockedDates: [ // BlockedDates
  *     "STRING_VALUE",
  *   ],
- *   blockingAlarms: [ // ControlConditions
+ *   blockingAlarms: [ // BlockingAlarms
  *     { // ControlCondition
  *       type: "CLOUDWATCH", // required
  *       alarmIdentifier: "STRING_VALUE", // required
  *     },
  *   ],
- *   outcomeAlarms: [
+ *   allowedWindows: [ // AllowedWindows
+ *     "STRING_VALUE",
+ *   ],
+ *   outcomeAlarms: [ // OutcomeAlarms
  *     {
  *       type: "CLOUDWATCH", // required
  *       alarmIdentifier: "STRING_VALUE", // required
@@ -68,19 +71,22 @@ export interface UpdatePracticeRunConfigurationCommandOutput
  * //   name: "STRING_VALUE", // required
  * //   zonalAutoshiftStatus: "ENABLED" || "DISABLED", // required
  * //   practiceRunConfiguration: { // PracticeRunConfiguration
- * //     blockingAlarms: [ // ControlConditions
+ * //     blockingAlarms: [ // BlockingAlarms
  * //       { // ControlCondition
  * //         type: "CLOUDWATCH", // required
  * //         alarmIdentifier: "STRING_VALUE", // required
  * //       },
  * //     ],
- * //     outcomeAlarms: [ // required
+ * //     outcomeAlarms: [ // OutcomeAlarms // required
  * //       {
  * //         type: "CLOUDWATCH", // required
  * //         alarmIdentifier: "STRING_VALUE", // required
  * //       },
  * //     ],
  * //     blockedWindows: [ // BlockedWindows
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     allowedWindows: [ // AllowedWindows
  * //       "STRING_VALUE",
  * //     ],
  * //     blockedDates: [ // BlockedDates

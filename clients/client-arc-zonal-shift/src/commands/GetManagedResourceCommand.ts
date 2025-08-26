@@ -67,19 +67,22 @@ export interface GetManagedResourceCommandOutput extends GetManagedResourceRespo
  * //     },
  * //   ],
  * //   practiceRunConfiguration: { // PracticeRunConfiguration
- * //     blockingAlarms: [ // ControlConditions
+ * //     blockingAlarms: [ // BlockingAlarms
  * //       { // ControlCondition
  * //         type: "CLOUDWATCH", // required
  * //         alarmIdentifier: "STRING_VALUE", // required
  * //       },
  * //     ],
- * //     outcomeAlarms: [ // required
+ * //     outcomeAlarms: [ // OutcomeAlarms // required
  * //       {
  * //         type: "CLOUDWATCH", // required
  * //         alarmIdentifier: "STRING_VALUE", // required
  * //       },
  * //     ],
  * //     blockedWindows: [ // BlockedWindows
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     allowedWindows: [ // AllowedWindows
  * //       "STRING_VALUE",
  * //     ],
  * //     blockedDates: [ // BlockedDates

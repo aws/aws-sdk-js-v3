@@ -167,11 +167,13 @@ export class ThrottlingException extends __BaseException {
  */
 export const ValidationExceptionReason = {
   AUTOSHIFT_UPDATE_NOT_ALLOWED: "AutoshiftUpdateNotAllowed",
+  CONFLICTING_PRACTICE_WINDOWS: "InvalidPracticeWindows",
   FIS_EXPERIMENT_UPDATE_NOT_ALLOWED: "FISExperimentUpdateNotAllowed",
   INVALID_ALARM_CONDITION: "InvalidAlarmCondition",
   INVALID_AZ: "InvalidAz",
   INVALID_CONDITION_TYPE: "InvalidConditionType",
   INVALID_EXPIRES_IN: "InvalidExpiresIn",
+  INVALID_PRACTICE_ALLOWED_WINDOW: "InvalidPracticeAllowedWindow",
   INVALID_PRACTICE_BLOCKER: "InvalidPracticeBlocker",
   INVALID_RESOURCE_IDENTIFIER: "InvalidResourceIdentifier",
   INVALID_STATUS: "InvalidStatus",
@@ -306,6 +308,37 @@ export interface UpdateAutoshiftObserverNotificationStatusResponse {
 
 /**
  * @public
+ * @enum
+ */
+export const ControlConditionType = {
+  CLOUDWATCH: "CLOUDWATCH",
+} as const;
+
+/**
+ * @public
+ */
+export type ControlConditionType = (typeof ControlConditionType)[keyof typeof ControlConditionType];
+
+/**
+ * <p>A control condition is an alarm that you specify for a practice run. When you configure practice runs with zonal autoshift for a resource, you specify Amazon CloudWatch alarms, which you create in CloudWatch to use with the practice run. The alarms that you specify are an <i>outcome alarm</i>, to monitor application health during practice runs and, optionally, a <i>blocking alarm</i>, to block practice runs from starting or to interrupt a practice run in progress.</p> <p>Control condition alarms do not apply for autoshifts.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/r53recovery/latest/dg/arc-zonal-autoshift.considerations.html"> Considerations when you configure zonal autoshift</a> in the Amazon Application Recovery Controller Developer Guide.</p>
+ * @public
+ */
+export interface ControlCondition {
+  /**
+   * <p>The type of alarm specified for a practice run. You can only specify Amazon CloudWatch alarms for practice runs, so the only valid value is <code>CLOUDWATCH</code>.</p>
+   * @public
+   */
+  type: ControlConditionType | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) for an Amazon CloudWatch alarm that you specify as a control condition for a practice run.</p>
+   * @public
+   */
+  alarmIdentifier: string | undefined;
+}
+
+/**
+ * @public
  */
 export interface CancelPracticeRunRequest {
   /**
@@ -389,6 +422,7 @@ export const ConflictExceptionReason = {
   PRACTICE_IN_BLOCKED_DATES: "PracticeInBlockedDates",
   PRACTICE_IN_BLOCKED_WINDOWS: "PracticeInBlockedWindows",
   PRACTICE_OUTCOME_ALARMS_RED: "PracticeOutcomeAlarmsRed",
+  PRACTICE_OUTSIDE_ALLOWED_WINDOWS: "PracticeOutsideAllowedWindows",
   SIMULTANEOUS_ZONAL_SHIFTS_CONFLICT: "SimultaneousZonalShiftsConflict",
   ZONAL_AUTOSHIFT_ACTIVE: "ZonalAutoshiftActive",
   ZONAL_SHIFT_ALREADY_EXISTS: "ZonalShiftAlreadyExists",
@@ -514,37 +548,6 @@ export interface ZonalShift {
 
 /**
  * @public
- * @enum
- */
-export const ControlConditionType = {
-  CLOUDWATCH: "CLOUDWATCH",
-} as const;
-
-/**
- * @public
- */
-export type ControlConditionType = (typeof ControlConditionType)[keyof typeof ControlConditionType];
-
-/**
- * <p>A control condition is an alarm that you specify for a practice run. When you configure practice runs with zonal autoshift for a resource, you specify Amazon CloudWatch alarms, which you create in CloudWatch to use with the practice run. The alarms that you specify are an <i>outcome alarm</i>, to monitor application health during practice runs and, optionally, a <i>blocking alarm</i>, to block practice runs from starting or to interrupt a practice run in progress.</p> <p>Control condition alarms do not apply for autoshifts.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/r53recovery/latest/dg/arc-zonal-autoshift.considerations.html"> Considerations when you configure zonal autoshift</a> in the Amazon Application Recovery Controller Developer Guide.</p>
- * @public
- */
-export interface ControlCondition {
-  /**
-   * <p>The type of alarm specified for a practice run. You can only specify Amazon CloudWatch alarms for practice runs, so the only valid value is <code>CLOUDWATCH</code>.</p>
-   * @public
-   */
-  type: ControlConditionType | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) for an Amazon CloudWatch alarm that you specify as a control condition for a practice run.</p>
-   * @public
-   */
-  alarmIdentifier: string | undefined;
-}
-
-/**
- * @public
  */
 export interface CreatePracticeRunConfigurationRequest {
   /**
@@ -554,7 +557,7 @@ export interface CreatePracticeRunConfigurationRequest {
   resourceIdentifier: string | undefined;
 
   /**
-   * <p>Optionally, you can block ARC from starting practice runs for specific windows of days and times. </p> <p>The format for blocked windows is: DAY:HH:SS-DAY:HH:SS. Keep in mind, when you specify dates, that dates and times for practice runs are in UTC. Also, be aware of potential time adjustments that might be required for daylight saving time differences. Separate multiple blocked windows with spaces.</p> <p>For example, say you run business report summaries three days a week. For this scenario, you might set the following recurring days and times as blocked windows, for example: <code>MON-20:30-21:30 WED-20:30-21:30 FRI-20:30-21:30</code>.</p>
+   * <p>Optionally, you can block ARC from starting practice runs for specific windows of days and times. </p> <p>The format for blocked windows is: DAY:HH:SS-DAY:HH:SS. Keep in mind, when you specify dates, that dates and times for practice runs are in UTC. Also, be aware of potential time adjustments that might be required for daylight saving time differences. Separate multiple blocked windows with spaces.</p> <p>For example, say you run business report summaries three days a week. For this scenario, you could set the following recurring days and times as blocked windows, for example: <code>Mon:00:00-Mon:10:00 Wed-20:30-Wed:21:30 Fri-20:30-Fri:21:30</code>.</p> <important> <p>The <code>blockedWindows</code> have to start and end on the same day. Windows that span multiple days aren't supported.</p> </important>
    * @public
    */
   blockedWindows?: string[] | undefined;
@@ -566,13 +569,19 @@ export interface CreatePracticeRunConfigurationRequest {
   blockedDates?: string[] | undefined;
 
   /**
-   * <p>An Amazon CloudWatch alarm that you can specify for zonal autoshift practice runs. This alarm blocks ARC from starting practice run zonal shifts, and ends a practice run that's in progress, when the alarm is in an <code>ALARM</code> state. </p>
+   * <p> <i>Blocking alarms</i> for practice runs are optional alarms that you can specify that block practice runs when one or more of the alarms is in an <code>ALARM</code> state.</p>
    * @public
    */
   blockingAlarms?: ControlCondition[] | undefined;
 
   /**
-   * <p>The <i>outcome alarm</i> for practice runs is a required Amazon CloudWatch alarm that you specify that ends a practice run when the alarm is in an <code>ALARM</code> state.</p> <p>Configure the alarm to monitor the health of your application when traffic is shifted away from an Availability Zone during each practice run. You should configure the alarm to go into an <code>ALARM</code> state if your application is impacted by the zonal shift, and you want to stop the zonal shift, to let traffic for the resource return to the Availability Zone.</p>
+   * <p>Optionally, you can allow ARC to start practice runs for specific windows of days and times. </p> <p>The format for allowed windows is: DAY:HH:SS-DAY:HH:SS. Keep in mind, when you specify dates, that dates and times for practice runs are in UTC. Also, be aware of potential time adjustments that might be required for daylight saving time differences. Separate multiple allowed windows with spaces.</p> <p>For example, say you want to allow practice runs only on Wednesdays and Fridays from noon to 5 p.m. For this scenario, you could set the following recurring days and times as allowed windows, for example: <code>Wed-12:00-Wed:17:00 Fri-12:00-Fri:17:00</code>.</p> <important> <p>The <code>allowedWindows</code> have to start and end on the same day. Windows that span multiple days aren't supported.</p> </important>
+   * @public
+   */
+  allowedWindows?: string[] | undefined;
+
+  /**
+   * <p> <i>Outcome alarms</i> for practice runs are alarms that you specify that end a practice run when one or more of the alarms is in an <code>ALARM</code> state.</p> <p>Configure one or more of these alarms to monitor the health of your application when traffic is shifted away from an Availability Zone during each practice run. You should configure these alarms to go into an <code>ALARM</code> state if you want to stop a zonal shift, to let traffic for the resource return to the original Availability Zone.</p>
    * @public
    */
   outcomeAlarms: ControlCondition[] | undefined;
@@ -584,22 +593,28 @@ export interface CreatePracticeRunConfigurationRequest {
  */
 export interface PracticeRunConfiguration {
   /**
-   * <p>The <i>blocking alarm</i> for practice runs is an optional alarm that you can specify that blocks practice runs when the alarm is in an <code>ALARM</code> state.</p>
+   * <p> <i>Blocking alarms</i> for practice runs are optional alarms that you can specify that block practice runs when one or more of the alarms is in an <code>ALARM</code> state.</p>
    * @public
    */
   blockingAlarms?: ControlCondition[] | undefined;
 
   /**
-   * <p>The <i>outcome alarm</i> for practice runs is an alarm that you specify that ends a practice run when the alarm is in an <code>ALARM</code> state.</p>
+   * <p> <i>Outcome alarms</i> for practice runs are alarms that you specify that end a practice run when one or more of the alarms is in an <code>ALARM</code> state.</p>
    * @public
    */
   outcomeAlarms: ControlCondition[] | undefined;
 
   /**
-   * <p>An array of one or more windows of days and times that you can block ARC from starting practice runs for a resource.</p> <p>Specify the blocked windows in UTC, using the format <code>DAY:HH:MM-DAY:HH:MM</code>, separated by spaces. For example, <code>MON:18:30-MON:19:30 TUE:18:30-TUE:19:30</code>.</p>
+   * <p>An array of one or more windows of days and times that you can block ARC from starting practice runs for a resource.</p> <p>Specify the blocked windows in UTC, using the format <code>DAY:HH:MM-DAY:HH:MM</code>, separated by spaces. For example, <code>MON:18:30-MON:19:30 TUE:18:30-TUE:19:30</code>.</p> <p>The <code>blockedWindows</code> have to start and end on the same day. Windows that span multiple days aren't supported.</p>
    * @public
    */
   blockedWindows?: string[] | undefined;
+
+  /**
+   * <p>An array of one or more windows of days and times that you can allow ARC to start practice runs for a resource.</p> <p>For example, say you want to allow practice runs only on Wednesdays and Fridays from noon to 5 p.m. For this scenario, you could set the following recurring days and times as allowed windows, for example: <code>Wed-12:00-Wed:17:00 Fri-12:00-Fri:17:00</code>.</p> <p>The <code>allowedWindows</code> have to start and end on the same day. Windows that span multiple days aren't supported.</p>
+   * @public
+   */
+  allowedWindows?: string[] | undefined;
 
   /**
    * <p>An array of one or more dates that you can specify when Amazon Web Services does not start practice runs for a resource.</p> <p>Specify blocked dates, in UTC, in the format <code>YYYY-MM-DD</code>, separated by spaces. </p>
@@ -1087,13 +1102,19 @@ export interface UpdatePracticeRunConfigurationRequest {
   blockedDates?: string[] | undefined;
 
   /**
-   * <p>Add, change, or remove the Amazon CloudWatch alarm that you optionally specify as the blocking alarm for practice runs.</p>
+   * <p>Add, change, or remove the Amazon CloudWatch alarms that you optionally specify as the blocking alarms for practice runs.</p>
    * @public
    */
   blockingAlarms?: ControlCondition[] | undefined;
 
   /**
-   * <p>Specify a new the Amazon CloudWatch alarm as the outcome alarm for practice runs.</p>
+   * <p>Add, change, or remove windows of days and times for when you can, optionally, allow ARC to start a practice run for a resource.</p> <p>The format for allowed windows is: DAY:HH:SS-DAY:HH:SS. Keep in mind, when you specify dates, that dates and times for practice runs are in UTC. Also, be aware of potential time adjustments that might be required for daylight saving time differences. Separate multiple allowed windows with spaces.</p> <p>For example, say you want to allow practice runs only on Wednesdays and Fridays from noon to 5 p.m. For this scenario, you could set the following recurring days and times as allowed windows, for example: <code>Wed-12:00-Wed:17:00 Fri-12:00-Fri:17:00</code>.</p> <important> <p>The <code>allowedWindows</code> have to start and end on the same day. Windows that span multiple days aren't supported.</p> </important>
+   * @public
+   */
+  allowedWindows?: string[] | undefined;
+
+  /**
+   * <p>Specify one or more Amazon CloudWatch alarms as the outcome alarms for practice runs.</p>
    * @public
    */
   outcomeAlarms?: ControlCondition[] | undefined;
