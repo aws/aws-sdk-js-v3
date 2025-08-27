@@ -5941,6 +5941,61 @@ export interface DescribeInsightResponse {
 /**
  * @public
  */
+export interface DescribeInsightsRefreshRequest {
+  /**
+   * <p>The name of the cluster associated with the insights refresh operation.</p>
+   * @public
+   */
+  clusterName: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const InsightsRefreshStatus = {
+  COMPLETED: "COMPLETED",
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+} as const;
+
+/**
+ * @public
+ */
+export type InsightsRefreshStatus = (typeof InsightsRefreshStatus)[keyof typeof InsightsRefreshStatus];
+
+/**
+ * @public
+ */
+export interface DescribeInsightsRefreshResponse {
+  /**
+   * <p>The message associated with the insights refresh operation.</p>
+   * @public
+   */
+  message?: string | undefined;
+
+  /**
+   * <p>The current status of the insights refresh operation.</p>
+   * @public
+   */
+  status?: InsightsRefreshStatus | undefined;
+
+  /**
+   * <p>The date and time when the insights refresh operation started.</p>
+   * @public
+   */
+  startedAt?: Date | undefined;
+
+  /**
+   * <p>The date and time when the insights refresh operation ended.</p>
+   * @public
+   */
+  endedAt?: Date | undefined;
+}
+
+/**
+ * @public
+ */
 export interface DescribeNodegroupRequest {
   /**
    * <p>The name of your cluster.</p>
@@ -7225,6 +7280,34 @@ export class ResourcePropagationDelayException extends __BaseException {
     });
     Object.setPrototypeOf(this, ResourcePropagationDelayException.prototype);
   }
+}
+
+/**
+ * @public
+ */
+export interface StartInsightsRefreshRequest {
+  /**
+   * <p>The name of the cluster for the refresh insights operation.</p>
+   * @public
+   */
+  clusterName: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StartInsightsRefreshResponse {
+  /**
+   * <p>The message associated with the insights refresh operation.</p>
+   * @public
+   */
+  message?: string | undefined;
+
+  /**
+   * <p>The current status of the insights refresh operation.</p>
+   * @public
+   */
+  status?: InsightsRefreshStatus | undefined;
 }
 
 /**

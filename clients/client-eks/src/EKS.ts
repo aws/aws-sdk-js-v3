@@ -135,6 +135,11 @@ import {
   DescribeInsightCommandOutput,
 } from "./commands/DescribeInsightCommand";
 import {
+  DescribeInsightsRefreshCommand,
+  DescribeInsightsRefreshCommandInput,
+  DescribeInsightsRefreshCommandOutput,
+} from "./commands/DescribeInsightsRefreshCommand";
+import {
   DescribeNodegroupCommand,
   DescribeNodegroupCommandInput,
   DescribeNodegroupCommandOutput,
@@ -221,6 +226,11 @@ import {
   RegisterClusterCommandInput,
   RegisterClusterCommandOutput,
 } from "./commands/RegisterClusterCommand";
+import {
+  StartInsightsRefreshCommand,
+  StartInsightsRefreshCommandInput,
+  StartInsightsRefreshCommandOutput,
+} from "./commands/StartInsightsRefreshCommand";
 import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
   UntagResourceCommand,
@@ -294,6 +304,7 @@ const commands = {
   DescribeFargateProfileCommand,
   DescribeIdentityProviderConfigCommand,
   DescribeInsightCommand,
+  DescribeInsightsRefreshCommand,
   DescribeNodegroupCommand,
   DescribePodIdentityAssociationCommand,
   DescribeUpdateCommand,
@@ -313,6 +324,7 @@ const commands = {
   ListTagsForResourceCommand,
   ListUpdatesCommand,
   RegisterClusterCommand,
+  StartInsightsRefreshCommand,
   TagResourceCommand,
   UntagResourceCommand,
   UpdateAccessEntryCommand,
@@ -763,6 +775,23 @@ export interface EKS {
   ): void;
 
   /**
+   * @see {@link DescribeInsightsRefreshCommand}
+   */
+  describeInsightsRefresh(
+    args: DescribeInsightsRefreshCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeInsightsRefreshCommandOutput>;
+  describeInsightsRefresh(
+    args: DescribeInsightsRefreshCommandInput,
+    cb: (err: any, data?: DescribeInsightsRefreshCommandOutput) => void
+  ): void;
+  describeInsightsRefresh(
+    args: DescribeInsightsRefreshCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeInsightsRefreshCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DescribeNodegroupCommand}
    */
   describeNodegroup(
@@ -1053,6 +1082,23 @@ export interface EKS {
     args: RegisterClusterCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: RegisterClusterCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link StartInsightsRefreshCommand}
+   */
+  startInsightsRefresh(
+    args: StartInsightsRefreshCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartInsightsRefreshCommandOutput>;
+  startInsightsRefresh(
+    args: StartInsightsRefreshCommandInput,
+    cb: (err: any, data?: StartInsightsRefreshCommandOutput) => void
+  ): void;
+  startInsightsRefresh(
+    args: StartInsightsRefreshCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartInsightsRefreshCommandOutput) => void
   ): void;
 
   /**

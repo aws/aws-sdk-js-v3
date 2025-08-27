@@ -102,6 +102,10 @@ import {
   DescribeIdentityProviderConfigCommandOutput,
 } from "../commands/DescribeIdentityProviderConfigCommand";
 import { DescribeInsightCommandInput, DescribeInsightCommandOutput } from "../commands/DescribeInsightCommand";
+import {
+  DescribeInsightsRefreshCommandInput,
+  DescribeInsightsRefreshCommandOutput,
+} from "../commands/DescribeInsightsRefreshCommand";
 import { DescribeNodegroupCommandInput, DescribeNodegroupCommandOutput } from "../commands/DescribeNodegroupCommand";
 import {
   DescribePodIdentityAssociationCommandInput,
@@ -148,6 +152,10 @@ import {
 } from "../commands/ListTagsForResourceCommand";
 import { ListUpdatesCommandInput, ListUpdatesCommandOutput } from "../commands/ListUpdatesCommand";
 import { RegisterClusterCommandInput, RegisterClusterCommandOutput } from "../commands/RegisterClusterCommand";
+import {
+  StartInsightsRefreshCommandInput,
+  StartInsightsRefreshCommandOutput,
+} from "../commands/StartInsightsRefreshCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
 import { UpdateAccessEntryCommandInput, UpdateAccessEntryCommandOutput } from "../commands/UpdateAccessEntryCommand";
@@ -875,6 +883,22 @@ export const se_DescribeInsightCommand = async (
 };
 
 /**
+ * serializeAws_restJson1DescribeInsightsRefreshCommand
+ */
+export const se_DescribeInsightsRefreshCommand = async (
+  input: DescribeInsightsRefreshCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/clusters/{clusterName}/insights-refresh");
+  b.p("clusterName", () => input.clusterName!, "{clusterName}", false);
+  let body: any;
+  b.m("GET").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1DescribeNodegroupCommand
  */
 export const se_DescribeNodegroupCommand = async (
@@ -1258,6 +1282,22 @@ export const se_RegisterClusterCommand = async (
       tags: (_) => _json(_),
     })
   );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1StartInsightsRefreshCommand
+ */
+export const se_StartInsightsRefreshCommand = async (
+  input: StartInsightsRefreshCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/clusters/{clusterName}/insights-refresh");
+  b.p("clusterName", () => input.clusterName!, "{clusterName}", false);
+  let body: any;
   b.m("POST").h(headers).b(body);
   return b.build();
 };
@@ -2118,6 +2158,30 @@ export const de_DescribeInsightCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1DescribeInsightsRefreshCommand
+ */
+export const de_DescribeInsightsRefreshCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeInsightsRefreshCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    endedAt: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    message: __expectString,
+    startedAt: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    status: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1DescribeNodegroupCommand
  */
 export const de_DescribeNodegroupCommand = async (
@@ -2521,6 +2585,28 @@ export const de_RegisterClusterCommand = async (
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
     cluster: (_) => de_Cluster(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1StartInsightsRefreshCommand
+ */
+export const de_StartInsightsRefreshCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartInsightsRefreshCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    message: __expectString,
+    status: __expectString,
   });
   Object.assign(contents, doc);
   return contents;

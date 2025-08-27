@@ -129,6 +129,10 @@ import {
   DescribeIdentityProviderConfigCommandOutput,
 } from "./commands/DescribeIdentityProviderConfigCommand";
 import { DescribeInsightCommandInput, DescribeInsightCommandOutput } from "./commands/DescribeInsightCommand";
+import {
+  DescribeInsightsRefreshCommandInput,
+  DescribeInsightsRefreshCommandOutput,
+} from "./commands/DescribeInsightsRefreshCommand";
 import { DescribeNodegroupCommandInput, DescribeNodegroupCommandOutput } from "./commands/DescribeNodegroupCommand";
 import {
   DescribePodIdentityAssociationCommandInput,
@@ -175,6 +179,10 @@ import {
 } from "./commands/ListTagsForResourceCommand";
 import { ListUpdatesCommandInput, ListUpdatesCommandOutput } from "./commands/ListUpdatesCommand";
 import { RegisterClusterCommandInput, RegisterClusterCommandOutput } from "./commands/RegisterClusterCommand";
+import {
+  StartInsightsRefreshCommandInput,
+  StartInsightsRefreshCommandOutput,
+} from "./commands/StartInsightsRefreshCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import { UpdateAccessEntryCommandInput, UpdateAccessEntryCommandOutput } from "./commands/UpdateAccessEntryCommand";
@@ -246,6 +254,7 @@ export type ServiceInputTypes =
   | DescribeFargateProfileCommandInput
   | DescribeIdentityProviderConfigCommandInput
   | DescribeInsightCommandInput
+  | DescribeInsightsRefreshCommandInput
   | DescribeNodegroupCommandInput
   | DescribePodIdentityAssociationCommandInput
   | DescribeUpdateCommandInput
@@ -265,6 +274,7 @@ export type ServiceInputTypes =
   | ListTagsForResourceCommandInput
   | ListUpdatesCommandInput
   | RegisterClusterCommandInput
+  | StartInsightsRefreshCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
   | UpdateAccessEntryCommandInput
@@ -308,6 +318,7 @@ export type ServiceOutputTypes =
   | DescribeFargateProfileCommandOutput
   | DescribeIdentityProviderConfigCommandOutput
   | DescribeInsightCommandOutput
+  | DescribeInsightsRefreshCommandOutput
   | DescribeNodegroupCommandOutput
   | DescribePodIdentityAssociationCommandOutput
   | DescribeUpdateCommandOutput
@@ -327,6 +338,7 @@ export type ServiceOutputTypes =
   | ListTagsForResourceCommandOutput
   | ListUpdatesCommandOutput
   | RegisterClusterCommandOutput
+  | StartInsightsRefreshCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
   | UpdateAccessEntryCommandOutput
