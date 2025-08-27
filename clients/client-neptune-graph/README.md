@@ -6,9 +6,7 @@
 
 AWS SDK for JavaScript NeptuneGraph Client for Node.js, Browser and React Native.
 
-<p>Neptune Analytics is a new analytics database engine for Amazon Neptune that helps customers get to
-insights faster by quickly processing large amounts of graph data, invoking popular graph analytic
-algorithms in low-latency queries, and getting analytics results in seconds.</p>
+<p>Neptune Analytics is a new analytics database engine for Amazon Neptune that helps customers get to insights faster by quickly processing large amounts of graph data, invoking popular graph analytic algorithms in low-latency queries, and getting analytics results in seconds.</p>
 
 ## Installing
 
@@ -431,10 +429,26 @@ StartExportTask
 </details>
 <details>
 <summary>
+StartGraph
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/neptune-graph/command/StartGraphCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-neptune-graph/Interface/StartGraphCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-neptune-graph/Interface/StartGraphCommandOutput/)
+
+</details>
+<details>
+<summary>
 StartImportTask
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/neptune-graph/command/StartImportTaskCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-neptune-graph/Interface/StartImportTaskCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-neptune-graph/Interface/StartImportTaskCommandOutput/)
+
+</details>
+<details>
+<summary>
+StopGraph
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/neptune-graph/command/StopGraphCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-neptune-graph/Interface/StopGraphCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-neptune-graph/Interface/StopGraphCommandOutput/)
 
 </details>
 <details>

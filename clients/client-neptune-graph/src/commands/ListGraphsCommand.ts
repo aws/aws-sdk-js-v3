@@ -47,7 +47,7 @@ export interface ListGraphsCommandOutput extends ListGraphsOutput, __MetadataBea
  * //       id: "STRING_VALUE", // required
  * //       name: "STRING_VALUE", // required
  * //       arn: "STRING_VALUE", // required
- * //       status: "CREATING" || "AVAILABLE" || "DELETING" || "RESETTING" || "UPDATING" || "SNAPSHOTTING" || "FAILED" || "IMPORTING",
+ * //       status: "CREATING" || "AVAILABLE" || "DELETING" || "RESETTING" || "UPDATING" || "SNAPSHOTTING" || "FAILED" || "IMPORTING" || "STARTING" || "STOPPING" || "STOPPED",
  * //       provisionedMemory: Number("int"),
  * //       publicConnectivity: true || false,
  * //       endpoint: "STRING_VALUE",

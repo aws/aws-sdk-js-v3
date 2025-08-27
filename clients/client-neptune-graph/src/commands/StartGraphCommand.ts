@@ -5,9 +5,9 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { RestoreGraphFromSnapshotInput, RestoreGraphFromSnapshotOutput } from "../models/models_0";
+import { StartGraphInput, StartGraphOutput } from "../models/models_0";
 import { NeptuneGraphClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NeptuneGraphClient";
-import { de_RestoreGraphFromSnapshotCommand, se_RestoreGraphFromSnapshotCommand } from "../protocols/Aws_restJson1";
+import { de_StartGraphCommand, se_StartGraphCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -17,38 +17,30 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link RestoreGraphFromSnapshotCommand}.
+ * The input for {@link StartGraphCommand}.
  */
-export interface RestoreGraphFromSnapshotCommandInput extends RestoreGraphFromSnapshotInput {}
+export interface StartGraphCommandInput extends StartGraphInput {}
 /**
  * @public
  *
- * The output of {@link RestoreGraphFromSnapshotCommand}.
+ * The output of {@link StartGraphCommand}.
  */
-export interface RestoreGraphFromSnapshotCommandOutput extends RestoreGraphFromSnapshotOutput, __MetadataBearer {}
+export interface StartGraphCommandOutput extends StartGraphOutput, __MetadataBearer {}
 
 /**
- * <p>Restores a graph from a snapshot.</p>
+ * <p>Starts the specific graph.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { NeptuneGraphClient, RestoreGraphFromSnapshotCommand } from "@aws-sdk/client-neptune-graph"; // ES Modules import
- * // const { NeptuneGraphClient, RestoreGraphFromSnapshotCommand } = require("@aws-sdk/client-neptune-graph"); // CommonJS import
+ * import { NeptuneGraphClient, StartGraphCommand } from "@aws-sdk/client-neptune-graph"; // ES Modules import
+ * // const { NeptuneGraphClient, StartGraphCommand } = require("@aws-sdk/client-neptune-graph"); // CommonJS import
  * const client = new NeptuneGraphClient(config);
- * const input = { // RestoreGraphFromSnapshotInput
- *   snapshotIdentifier: "STRING_VALUE", // required
- *   graphName: "STRING_VALUE", // required
- *   provisionedMemory: Number("int"),
- *   deletionProtection: true || false,
- *   tags: { // TagMap
- *     "<keys>": "STRING_VALUE",
- *   },
- *   replicaCount: Number("int"),
- *   publicConnectivity: true || false,
+ * const input = { // StartGraphInput
+ *   graphIdentifier: "STRING_VALUE", // required
  * };
- * const command = new RestoreGraphFromSnapshotCommand(input);
+ * const command = new StartGraphCommand(input);
  * const response = await client.send(command);
- * // { // RestoreGraphFromSnapshotOutput
+ * // { // StartGraphOutput
  * //   id: "STRING_VALUE", // required
  * //   name: "STRING_VALUE", // required
  * //   arn: "STRING_VALUE", // required
@@ -70,10 +62,10 @@ export interface RestoreGraphFromSnapshotCommandOutput extends RestoreGraphFromS
  *
  * ```
  *
- * @param RestoreGraphFromSnapshotCommandInput - {@link RestoreGraphFromSnapshotCommandInput}
- * @returns {@link RestoreGraphFromSnapshotCommandOutput}
- * @see {@link RestoreGraphFromSnapshotCommandInput} for command's `input` shape.
- * @see {@link RestoreGraphFromSnapshotCommandOutput} for command's `response` shape.
+ * @param StartGraphCommandInput - {@link StartGraphCommandInput}
+ * @returns {@link StartGraphCommandOutput}
+ * @see {@link StartGraphCommandInput} for command's `input` shape.
+ * @see {@link StartGraphCommandOutput} for command's `response` shape.
  * @see {@link NeptuneGraphClientResolvedConfig | config} for NeptuneGraphClient's `config` shape.
  *
  * @throws {@link ConflictException} (client fault)
@@ -84,9 +76,6 @@ export interface RestoreGraphFromSnapshotCommandOutput extends RestoreGraphFromS
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>A specified resource could not be located.</p>
- *
- * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>A service quota was exceeded.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The exception was interrupted by throttling.</p>
@@ -100,10 +89,10 @@ export interface RestoreGraphFromSnapshotCommandOutput extends RestoreGraphFromS
  *
  * @public
  */
-export class RestoreGraphFromSnapshotCommand extends $Command
+export class StartGraphCommand extends $Command
   .classBuilder<
-    RestoreGraphFromSnapshotCommandInput,
-    RestoreGraphFromSnapshotCommandOutput,
+    StartGraphCommandInput,
+    StartGraphCommandOutput,
     NeptuneGraphClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -118,21 +107,21 @@ export class RestoreGraphFromSnapshotCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("AmazonNeptuneGraph", "RestoreGraphFromSnapshot", {})
-  .n("NeptuneGraphClient", "RestoreGraphFromSnapshotCommand")
+  .s("AmazonNeptuneGraph", "StartGraph", {})
+  .n("NeptuneGraphClient", "StartGraphCommand")
   .f(void 0, void 0)
-  .ser(se_RestoreGraphFromSnapshotCommand)
-  .de(de_RestoreGraphFromSnapshotCommand)
+  .ser(se_StartGraphCommand)
+  .de(de_StartGraphCommand)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: RestoreGraphFromSnapshotInput;
-      output: RestoreGraphFromSnapshotOutput;
+      input: StartGraphInput;
+      output: StartGraphOutput;
     };
     sdk: {
-      input: RestoreGraphFromSnapshotCommandInput;
-      output: RestoreGraphFromSnapshotCommandOutput;
+      input: StartGraphCommandInput;
+      output: StartGraphCommandOutput;
     };
   };
 }

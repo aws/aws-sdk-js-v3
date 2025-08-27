@@ -28,11 +28,7 @@ export interface CreatePrivateGraphEndpointCommandInput extends CreatePrivateGra
 export interface CreatePrivateGraphEndpointCommandOutput extends CreatePrivateGraphEndpointOutput, __MetadataBearer {}
 
 /**
- * <p>Create a private graph endpoint to allow private access from to the graph from within
- *     a VPC. You can attach security groups to the private graph endpoint.</p>
- *          <note>
- *             <p>VPC endpoint charges apply.</p>
- *          </note>
+ * <p>Create a private graph endpoint to allow private access from to the graph from within a VPC. You can attach security groups to the private graph endpoint.</p> <note> <p>VPC endpoint charges apply.</p> </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

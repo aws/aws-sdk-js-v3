@@ -94,7 +94,9 @@ import {
   RestoreGraphFromSnapshotCommandOutput,
 } from "../commands/RestoreGraphFromSnapshotCommand";
 import { StartExportTaskCommandInput, StartExportTaskCommandOutput } from "../commands/StartExportTaskCommand";
+import { StartGraphCommandInput, StartGraphCommandOutput } from "../commands/StartGraphCommand";
 import { StartImportTaskCommandInput, StartImportTaskCommandOutput } from "../commands/StartImportTaskCommand";
+import { StopGraphCommandInput, StopGraphCommandOutput } from "../commands/StopGraphCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
 import { UpdateGraphCommandInput, UpdateGraphCommandOutput } from "../commands/UpdateGraphCommand";
@@ -759,6 +761,22 @@ export const se_StartExportTaskCommand = async (
 };
 
 /**
+ * serializeAws_restJson1StartGraphCommand
+ */
+export const se_StartGraphCommand = async (
+  input: StartGraphCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/graphs/{graphIdentifier}/start");
+  b.p("graphIdentifier", () => input.graphIdentifier!, "{graphIdentifier}", false);
+  let body: any;
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1StartImportTaskCommand
  */
 export const se_StartImportTaskCommand = async (
@@ -783,6 +801,22 @@ export const se_StartImportTaskCommand = async (
       source: [],
     })
   );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1StopGraphCommand
+ */
+export const se_StopGraphCommand = async (
+  input: StopGraphCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/graphs/{graphIdentifier}/stop");
+  b.p("graphIdentifier", () => input.graphIdentifier!, "{graphIdentifier}", false);
+  let body: any;
   b.m("POST").h(headers).b(body);
   return b.build();
 };
@@ -1595,6 +1629,41 @@ export const de_StartExportTaskCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1StartGraphCommand
+ */
+export const de_StartGraphCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartGraphCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    arn: __expectString,
+    buildNumber: __expectString,
+    createTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    deletionProtection: __expectBoolean,
+    endpoint: __expectString,
+    id: __expectString,
+    kmsKeyIdentifier: __expectString,
+    name: __expectString,
+    provisionedMemory: __expectInt32,
+    publicConnectivity: __expectBoolean,
+    replicaCount: __expectInt32,
+    sourceSnapshotId: __expectString,
+    status: __expectString,
+    statusReason: __expectString,
+    vectorSearchConfiguration: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1StartImportTaskCommand
  */
 export const de_StartImportTaskCommand = async (
@@ -1617,6 +1686,41 @@ export const de_StartImportTaskCommand = async (
     source: __expectString,
     status: __expectString,
     taskId: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1StopGraphCommand
+ */
+export const de_StopGraphCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StopGraphCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    arn: __expectString,
+    buildNumber: __expectString,
+    createTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    deletionProtection: __expectBoolean,
+    endpoint: __expectString,
+    id: __expectString,
+    kmsKeyIdentifier: __expectString,
+    name: __expectString,
+    provisionedMemory: __expectInt32,
+    publicConnectivity: __expectBoolean,
+    replicaCount: __expectInt32,
+    sourceSnapshotId: __expectString,
+    status: __expectString,
+    statusReason: __expectString,
+    vectorSearchConfiguration: _json,
   });
   Object.assign(contents, doc);
   return contents;

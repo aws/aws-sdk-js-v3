@@ -109,7 +109,9 @@ import {
   RestoreGraphFromSnapshotCommandOutput,
 } from "./commands/RestoreGraphFromSnapshotCommand";
 import { StartExportTaskCommandInput, StartExportTaskCommandOutput } from "./commands/StartExportTaskCommand";
+import { StartGraphCommandInput, StartGraphCommandOutput } from "./commands/StartGraphCommand";
 import { StartImportTaskCommandInput, StartImportTaskCommandOutput } from "./commands/StartImportTaskCommand";
+import { StopGraphCommandInput, StopGraphCommandOutput } from "./commands/StopGraphCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import { UpdateGraphCommandInput, UpdateGraphCommandOutput } from "./commands/UpdateGraphCommand";
@@ -156,7 +158,9 @@ export type ServiceInputTypes =
   | ResetGraphCommandInput
   | RestoreGraphFromSnapshotCommandInput
   | StartExportTaskCommandInput
+  | StartGraphCommandInput
   | StartImportTaskCommandInput
+  | StopGraphCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
   | UpdateGraphCommandInput;
@@ -193,7 +197,9 @@ export type ServiceOutputTypes =
   | ResetGraphCommandOutput
   | RestoreGraphFromSnapshotCommandOutput
   | StartExportTaskCommandOutput
+  | StartGraphCommandOutput
   | StartImportTaskCommandOutput
+  | StopGraphCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
   | UpdateGraphCommandOutput;
@@ -395,9 +401,7 @@ export type NeptuneGraphClientResolvedConfigType = __SmithyResolvedConfiguration
 export interface NeptuneGraphClientResolvedConfig extends NeptuneGraphClientResolvedConfigType {}
 
 /**
- * <p>Neptune Analytics is a new analytics database engine for Amazon Neptune that helps customers get to
- *     insights faster by quickly processing large amounts of graph data, invoking popular graph analytic
- *     algorithms in low-latency queries, and getting analytics results in seconds.</p>
+ * <p>Neptune Analytics is a new analytics database engine for Amazon Neptune that helps customers get to insights faster by quickly processing large amounts of graph data, invoking popular graph analytic algorithms in low-latency queries, and getting analytics results in seconds.</p>
  * @public
  */
 export class NeptuneGraphClient extends __Client<

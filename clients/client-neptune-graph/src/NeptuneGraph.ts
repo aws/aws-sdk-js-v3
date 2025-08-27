@@ -110,11 +110,13 @@ import {
   StartExportTaskCommandInput,
   StartExportTaskCommandOutput,
 } from "./commands/StartExportTaskCommand";
+import { StartGraphCommand, StartGraphCommandInput, StartGraphCommandOutput } from "./commands/StartGraphCommand";
 import {
   StartImportTaskCommand,
   StartImportTaskCommandInput,
   StartImportTaskCommandOutput,
 } from "./commands/StartImportTaskCommand";
+import { StopGraphCommand, StopGraphCommandInput, StopGraphCommandOutput } from "./commands/StopGraphCommand";
 import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
   UntagResourceCommand,
@@ -153,7 +155,9 @@ const commands = {
   ResetGraphCommand,
   RestoreGraphFromSnapshotCommand,
   StartExportTaskCommand,
+  StartGraphCommand,
   StartImportTaskCommand,
+  StopGraphCommand,
   TagResourceCommand,
   UntagResourceCommand,
   UpdateGraphCommand,
@@ -563,6 +567,17 @@ export interface NeptuneGraph {
   ): void;
 
   /**
+   * @see {@link StartGraphCommand}
+   */
+  startGraph(args: StartGraphCommandInput, options?: __HttpHandlerOptions): Promise<StartGraphCommandOutput>;
+  startGraph(args: StartGraphCommandInput, cb: (err: any, data?: StartGraphCommandOutput) => void): void;
+  startGraph(
+    args: StartGraphCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartGraphCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link StartImportTaskCommand}
    */
   startImportTask(
@@ -574,6 +589,17 @@ export interface NeptuneGraph {
     args: StartImportTaskCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: StartImportTaskCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link StopGraphCommand}
+   */
+  stopGraph(args: StopGraphCommandInput, options?: __HttpHandlerOptions): Promise<StopGraphCommandOutput>;
+  stopGraph(args: StopGraphCommandInput, cb: (err: any, data?: StopGraphCommandOutput) => void): void;
+  stopGraph(
+    args: StopGraphCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StopGraphCommandOutput) => void
   ): void;
 
   /**
@@ -611,9 +637,7 @@ export interface NeptuneGraph {
 }
 
 /**
- * <p>Neptune Analytics is a new analytics database engine for Amazon Neptune that helps customers get to
- *     insights faster by quickly processing large amounts of graph data, invoking popular graph analytic
- *     algorithms in low-latency queries, and getting analytics results in seconds.</p>
+ * <p>Neptune Analytics is a new analytics database engine for Amazon Neptune that helps customers get to insights faster by quickly processing large amounts of graph data, invoking popular graph analytic algorithms in low-latency queries, and getting analytics results in seconds.</p>
  * @public
  */
 export class NeptuneGraph extends NeptuneGraphClient implements NeptuneGraph {}

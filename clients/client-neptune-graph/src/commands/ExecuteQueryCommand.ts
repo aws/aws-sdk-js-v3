@@ -30,22 +30,7 @@ export interface ExecuteQueryCommandOutput extends Omit<ExecuteQueryOutput, "pay
 }
 
 /**
- * <p>Execute an openCypher query.</p>
- *          <p>
- *       When invoking this operation in a Neptune Analytics cluster, the IAM user or role making the request must have a policy attached
- *       that allows one of the following IAM actions in that cluster, depending on the query:
- *     </p>
- *          <ul>
- *             <li>
- *                <p>neptune-graph:ReadDataViaQuery</p>
- *             </li>
- *             <li>
- *                <p>neptune-graph:WriteDataViaQuery</p>
- *             </li>
- *             <li>
- *                <p>neptune-graph:DeleteDataViaQuery</p>
- *             </li>
- *          </ul>
+ * <p>Execute an openCypher query.</p> <p> When invoking this operation in a Neptune Analytics cluster, the IAM user or role making the request must have a policy attached that allows one of the following IAM actions in that cluster, depending on the query: </p> <ul> <li> <p>neptune-graph:ReadDataViaQuery</p> </li> <li> <p>neptune-graph:WriteDataViaQuery</p> </li> <li> <p>neptune-graph:DeleteDataViaQuery</p> </li> </ul>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

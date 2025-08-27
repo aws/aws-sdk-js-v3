@@ -5,6 +5,7 @@ export * from "./waitForGraphAvailable";
 export * from "./waitForGraphDeleted";
 export * from "./waitForGraphSnapshotAvailable";
 export * from "./waitForGraphSnapshotDeleted";
+export * from "./waitForGraphStopped";
 export * from "./waitForImportTaskCancelled";
 export * from "./waitForImportTaskSuccessful";
 export * from "./waitForPrivateGraphEndpointAvailable";
