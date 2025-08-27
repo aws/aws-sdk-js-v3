@@ -105,6 +105,10 @@ import {
   DescribeADAssessmentCommandOutput,
 } from "./commands/DescribeADAssessmentCommand";
 import {
+  DescribeCAEnrollmentPolicyCommandInput,
+  DescribeCAEnrollmentPolicyCommandOutput,
+} from "./commands/DescribeCAEnrollmentPolicyCommand";
+import {
   DescribeCertificateCommandInput,
   DescribeCertificateCommandOutput,
 } from "./commands/DescribeCertificateCommand";
@@ -153,6 +157,10 @@ import {
   DescribeUpdateDirectoryCommandOutput,
 } from "./commands/DescribeUpdateDirectoryCommand";
 import {
+  DisableCAEnrollmentPolicyCommandInput,
+  DisableCAEnrollmentPolicyCommandOutput,
+} from "./commands/DisableCAEnrollmentPolicyCommand";
+import {
   DisableClientAuthenticationCommandInput,
   DisableClientAuthenticationCommandOutput,
 } from "./commands/DisableClientAuthenticationCommand";
@@ -163,6 +171,10 @@ import {
 import { DisableLDAPSCommandInput, DisableLDAPSCommandOutput } from "./commands/DisableLDAPSCommand";
 import { DisableRadiusCommandInput, DisableRadiusCommandOutput } from "./commands/DisableRadiusCommand";
 import { DisableSsoCommandInput, DisableSsoCommandOutput } from "./commands/DisableSsoCommand";
+import {
+  EnableCAEnrollmentPolicyCommandInput,
+  EnableCAEnrollmentPolicyCommandOutput,
+} from "./commands/EnableCAEnrollmentPolicyCommand";
 import {
   EnableClientAuthenticationCommandInput,
   EnableClientAuthenticationCommandOutput,
@@ -274,6 +286,7 @@ export type ServiceInputTypes =
   | DeregisterCertificateCommandInput
   | DeregisterEventTopicCommandInput
   | DescribeADAssessmentCommandInput
+  | DescribeCAEnrollmentPolicyCommandInput
   | DescribeCertificateCommandInput
   | DescribeClientAuthenticationSettingsCommandInput
   | DescribeConditionalForwardersCommandInput
@@ -289,11 +302,13 @@ export type ServiceInputTypes =
   | DescribeSnapshotsCommandInput
   | DescribeTrustsCommandInput
   | DescribeUpdateDirectoryCommandInput
+  | DisableCAEnrollmentPolicyCommandInput
   | DisableClientAuthenticationCommandInput
   | DisableDirectoryDataAccessCommandInput
   | DisableLDAPSCommandInput
   | DisableRadiusCommandInput
   | DisableSsoCommandInput
+  | EnableCAEnrollmentPolicyCommandInput
   | EnableClientAuthenticationCommandInput
   | EnableDirectoryDataAccessCommandInput
   | EnableLDAPSCommandInput
@@ -356,6 +371,7 @@ export type ServiceOutputTypes =
   | DeregisterCertificateCommandOutput
   | DeregisterEventTopicCommandOutput
   | DescribeADAssessmentCommandOutput
+  | DescribeCAEnrollmentPolicyCommandOutput
   | DescribeCertificateCommandOutput
   | DescribeClientAuthenticationSettingsCommandOutput
   | DescribeConditionalForwardersCommandOutput
@@ -371,11 +387,13 @@ export type ServiceOutputTypes =
   | DescribeSnapshotsCommandOutput
   | DescribeTrustsCommandOutput
   | DescribeUpdateDirectoryCommandOutput
+  | DisableCAEnrollmentPolicyCommandOutput
   | DisableClientAuthenticationCommandOutput
   | DisableDirectoryDataAccessCommandOutput
   | DisableLDAPSCommandOutput
   | DisableRadiusCommandOutput
   | DisableSsoCommandOutput
+  | EnableCAEnrollmentPolicyCommandOutput
   | EnableClientAuthenticationCommandOutput
   | EnableDirectoryDataAccessCommandOutput
   | EnableLDAPSCommandOutput

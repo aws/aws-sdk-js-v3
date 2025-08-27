@@ -1177,6 +1177,24 @@ export class AuthenticationFailedException extends __BaseException {
 
 /**
  * @public
+ * @enum
+ */
+export const CaEnrollmentPolicyStatus = {
+  DISABLED: "Disabled",
+  DISABLING: "Disabling",
+  FAILED: "Failed",
+  IMPAIRED: "Impaired",
+  IN_PROGRESS: "InProgress",
+  SUCCESS: "Success",
+} as const;
+
+/**
+ * @public
+ */
+export type CaEnrollmentPolicyStatus = (typeof CaEnrollmentPolicyStatus)[keyof typeof CaEnrollmentPolicyStatus];
+
+/**
+ * @public
  */
 export interface CancelSchemaExtensionRequest {
   /**
@@ -2552,6 +2570,87 @@ export interface DescribeADAssessmentResult {
    * @public
    */
   AssessmentReports?: AssessmentReport[] | undefined;
+}
+
+/**
+ * <p>Contains the inputs for the <a>DescribeCAEnrollmentPolicy</a> operation.</p>
+ * @public
+ */
+export interface DescribeCAEnrollmentPolicyRequest {
+  /**
+   * <p>The identifier of the directory for which to retrieve the CA enrollment policy
+   *       information.</p>
+   * @public
+   */
+  DirectoryId: string | undefined;
+}
+
+/**
+ * <p>Contains the results of the <a>DescribeCAEnrollmentPolicy</a> operation.</p>
+ * @public
+ */
+export interface DescribeCAEnrollmentPolicyResult {
+  /**
+   * <p>The identifier of the directory associated with this CA enrollment policy.</p>
+   * @public
+   */
+  DirectoryId?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Amazon Web Services Private Certificate Authority (PCA) connector
+   *       that is configured for automatic certificate enrollment in this directory.</p>
+   * @public
+   */
+  PcaConnectorArn?: string | undefined;
+
+  /**
+   * <p>The current status of the CA enrollment policy. This indicates if automatic certificate
+   *       enrollment is currently active, inactive, or in a transitional state.</p>
+   *          <p>Valid values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>IN_PROGRESS</code> - The policy is being activated T</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>SUCCESS</code> - The policy is active and automatic certificate enrollment is
+   *           operational</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>FAILED</code> - The policy activation or deactivation failed</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DISABLING</code> - The policy is being deactivated</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DISABLED</code> - The policy is inactive and automatic certificate enrollment is
+   *           not available</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>IMPAIRED</code> - Network connectivity is impaired.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  CaEnrollmentPolicyStatus?: CaEnrollmentPolicyStatus | undefined;
+
+  /**
+   * <p>The date and time when the CA enrollment policy was last modified or updated.</p>
+   * @public
+   */
+  LastUpdatedDateTime?: Date | undefined;
+
+  /**
+   * <p>Additional information explaining the current status of the CA enrollment policy,
+   *       particularly useful when the policy is in an error or transitional state.</p>
+   * @public
+   */
+  CaEnrollmentPolicyStatusReason?: string | undefined;
 }
 
 /**
@@ -4636,6 +4735,57 @@ export class DirectoryNotSharedException extends __BaseException {
 }
 
 /**
+ * <p>A disable operation for CA enrollment policy is already in progress for this directory.</p>
+ * @public
+ */
+export class DisableAlreadyInProgressException extends __BaseException {
+  readonly name: "DisableAlreadyInProgressException" = "DisableAlreadyInProgressException";
+  readonly $fault: "client" = "client";
+  /**
+   * <p>The descriptive message for the exception.</p>
+   * @public
+   */
+  Message?: string | undefined;
+
+  /**
+   * <p>The Amazon Web Services request identifier.</p>
+   * @public
+   */
+  RequestId?: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<DisableAlreadyInProgressException, __BaseException>) {
+    super({
+      name: "DisableAlreadyInProgressException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, DisableAlreadyInProgressException.prototype);
+    this.Message = opts.Message;
+    this.RequestId = opts.RequestId;
+  }
+}
+
+/**
+ * <p>Contains the inputs for the <a>DisableCAEnrollmentPolicy</a> operation.</p>
+ * @public
+ */
+export interface DisableCAEnrollmentPolicyRequest {
+  /**
+   * <p>The identifier of the directory for which to disable the CA enrollment policy.</p>
+   * @public
+   */
+  DirectoryId: string | undefined;
+}
+
+/**
+ * <p>Contains the results of the <a>DisableCAEnrollmentPolicy</a> operation.</p>
+ * @public
+ */
+export interface DisableCAEnrollmentPolicyResult {}
+
+/**
  * @public
  */
 export interface DisableClientAuthenticationRequest {
@@ -4820,6 +4970,69 @@ export interface DisableSsoRequest {
  * @public
  */
 export interface DisableSsoResult {}
+
+/**
+ * <p>An enable operation for CA enrollment policy is already in progress for this directory.</p>
+ * @public
+ */
+export class EnableAlreadyInProgressException extends __BaseException {
+  readonly name: "EnableAlreadyInProgressException" = "EnableAlreadyInProgressException";
+  readonly $fault: "client" = "client";
+  /**
+   * <p>The descriptive message for the exception.</p>
+   * @public
+   */
+  Message?: string | undefined;
+
+  /**
+   * <p>The Amazon Web Services request identifier.</p>
+   * @public
+   */
+  RequestId?: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<EnableAlreadyInProgressException, __BaseException>) {
+    super({
+      name: "EnableAlreadyInProgressException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, EnableAlreadyInProgressException.prototype);
+    this.Message = opts.Message;
+    this.RequestId = opts.RequestId;
+  }
+}
+
+/**
+ * <p>Contains the inputs for the <a>EnableCAEnrollmentPolicy</a> operation.</p>
+ * @public
+ */
+export interface EnableCAEnrollmentPolicyRequest {
+  /**
+   * <p>The identifier of the directory for which to enable the CA enrollment policy.</p>
+   * @public
+   */
+  DirectoryId: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Private Certificate Authority (PCA) connector to use
+   *       for automatic certificate enrollment. This connector must be properly configured and
+   *       accessible from the directory.</p>
+   *          <p>The ARN format is:
+   *       <code>arn:aws:pca-connector-ad:<i>region</i>:<i>account-id</i>:connector/<i>connector-id</i>
+   *             </code>
+   *          </p>
+   * @public
+   */
+  PcaConnectorArn: string | undefined;
+}
+
+/**
+ * <p>Contains the results of the <a>EnableCAEnrollmentPolicy</a> operation.</p>
+ * @public
+ */
+export interface EnableCAEnrollmentPolicyResult {}
 
 /**
  * @public

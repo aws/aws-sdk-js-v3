@@ -411,6 +411,14 @@ DescribeADAssessment
 </details>
 <details>
 <summary>
+DescribeCAEnrollmentPolicy
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/directory-service/command/DescribeCAEnrollmentPolicyCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-directory-service/Interface/DescribeCAEnrollmentPolicyCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-directory-service/Interface/DescribeCAEnrollmentPolicyCommandOutput/)
+
+</details>
+<details>
+<summary>
 DescribeCertificate
 </summary>
 
@@ -531,6 +539,14 @@ DescribeUpdateDirectory
 </details>
 <details>
 <summary>
+DisableCAEnrollmentPolicy
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/directory-service/command/DisableCAEnrollmentPolicyCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-directory-service/Interface/DisableCAEnrollmentPolicyCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-directory-service/Interface/DisableCAEnrollmentPolicyCommandOutput/)
+
+</details>
+<details>
+<summary>
 DisableClientAuthentication
 </summary>
 
@@ -567,6 +583,14 @@ DisableSso
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/directory-service/command/DisableSsoCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-directory-service/Interface/DisableSsoCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-directory-service/Interface/DisableSsoCommandOutput/)
+
+</details>
+<details>
+<summary>
+EnableCAEnrollmentPolicy
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/directory-service/command/EnableCAEnrollmentPolicyCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-directory-service/Interface/EnableCAEnrollmentPolicyCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-directory-service/Interface/EnableCAEnrollmentPolicyCommandOutput/)
 
 </details>
 <details>

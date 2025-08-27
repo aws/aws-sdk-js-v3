@@ -103,6 +103,11 @@ import {
   DescribeADAssessmentCommandOutput,
 } from "./commands/DescribeADAssessmentCommand";
 import {
+  DescribeCAEnrollmentPolicyCommand,
+  DescribeCAEnrollmentPolicyCommandInput,
+  DescribeCAEnrollmentPolicyCommandOutput,
+} from "./commands/DescribeCAEnrollmentPolicyCommand";
+import {
   DescribeCertificateCommand,
   DescribeCertificateCommandInput,
   DescribeCertificateCommandOutput,
@@ -178,6 +183,11 @@ import {
   DescribeUpdateDirectoryCommandOutput,
 } from "./commands/DescribeUpdateDirectoryCommand";
 import {
+  DisableCAEnrollmentPolicyCommand,
+  DisableCAEnrollmentPolicyCommandInput,
+  DisableCAEnrollmentPolicyCommandOutput,
+} from "./commands/DisableCAEnrollmentPolicyCommand";
+import {
   DisableClientAuthenticationCommand,
   DisableClientAuthenticationCommandInput,
   DisableClientAuthenticationCommandOutput,
@@ -198,6 +208,11 @@ import {
   DisableRadiusCommandOutput,
 } from "./commands/DisableRadiusCommand";
 import { DisableSsoCommand, DisableSsoCommandInput, DisableSsoCommandOutput } from "./commands/DisableSsoCommand";
+import {
+  EnableCAEnrollmentPolicyCommand,
+  EnableCAEnrollmentPolicyCommandInput,
+  EnableCAEnrollmentPolicyCommandOutput,
+} from "./commands/EnableCAEnrollmentPolicyCommand";
 import {
   EnableClientAuthenticationCommand,
   EnableClientAuthenticationCommandInput,
@@ -374,6 +389,7 @@ const commands = {
   DeregisterCertificateCommand,
   DeregisterEventTopicCommand,
   DescribeADAssessmentCommand,
+  DescribeCAEnrollmentPolicyCommand,
   DescribeCertificateCommand,
   DescribeClientAuthenticationSettingsCommand,
   DescribeConditionalForwardersCommand,
@@ -389,11 +405,13 @@ const commands = {
   DescribeSnapshotsCommand,
   DescribeTrustsCommand,
   DescribeUpdateDirectoryCommand,
+  DisableCAEnrollmentPolicyCommand,
   DisableClientAuthenticationCommand,
   DisableDirectoryDataAccessCommand,
   DisableLDAPSCommand,
   DisableRadiusCommand,
   DisableSsoCommand,
+  EnableCAEnrollmentPolicyCommand,
   EnableClientAuthenticationCommand,
   EnableDirectoryDataAccessCommand,
   EnableLDAPSCommand,
@@ -791,6 +809,23 @@ export interface DirectoryService {
   ): void;
 
   /**
+   * @see {@link DescribeCAEnrollmentPolicyCommand}
+   */
+  describeCAEnrollmentPolicy(
+    args: DescribeCAEnrollmentPolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeCAEnrollmentPolicyCommandOutput>;
+  describeCAEnrollmentPolicy(
+    args: DescribeCAEnrollmentPolicyCommandInput,
+    cb: (err: any, data?: DescribeCAEnrollmentPolicyCommandOutput) => void
+  ): void;
+  describeCAEnrollmentPolicy(
+    args: DescribeCAEnrollmentPolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeCAEnrollmentPolicyCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DescribeCertificateCommand}
    */
   describeCertificate(
@@ -1044,6 +1079,23 @@ export interface DirectoryService {
   ): void;
 
   /**
+   * @see {@link DisableCAEnrollmentPolicyCommand}
+   */
+  disableCAEnrollmentPolicy(
+    args: DisableCAEnrollmentPolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DisableCAEnrollmentPolicyCommandOutput>;
+  disableCAEnrollmentPolicy(
+    args: DisableCAEnrollmentPolicyCommandInput,
+    cb: (err: any, data?: DisableCAEnrollmentPolicyCommandOutput) => void
+  ): void;
+  disableCAEnrollmentPolicy(
+    args: DisableCAEnrollmentPolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DisableCAEnrollmentPolicyCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DisableClientAuthenticationCommand}
    */
   disableClientAuthentication(
@@ -1108,6 +1160,23 @@ export interface DirectoryService {
     args: DisableSsoCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DisableSsoCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link EnableCAEnrollmentPolicyCommand}
+   */
+  enableCAEnrollmentPolicy(
+    args: EnableCAEnrollmentPolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<EnableCAEnrollmentPolicyCommandOutput>;
+  enableCAEnrollmentPolicy(
+    args: EnableCAEnrollmentPolicyCommandInput,
+    cb: (err: any, data?: EnableCAEnrollmentPolicyCommandOutput) => void
+  ): void;
+  enableCAEnrollmentPolicy(
+    args: EnableCAEnrollmentPolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: EnableCAEnrollmentPolicyCommandOutput) => void
   ): void;
 
   /**

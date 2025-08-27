@@ -73,6 +73,10 @@ import {
   DescribeADAssessmentCommandOutput,
 } from "../commands/DescribeADAssessmentCommand";
 import {
+  DescribeCAEnrollmentPolicyCommandInput,
+  DescribeCAEnrollmentPolicyCommandOutput,
+} from "../commands/DescribeCAEnrollmentPolicyCommand";
+import {
   DescribeCertificateCommandInput,
   DescribeCertificateCommandOutput,
 } from "../commands/DescribeCertificateCommand";
@@ -121,6 +125,10 @@ import {
   DescribeUpdateDirectoryCommandOutput,
 } from "../commands/DescribeUpdateDirectoryCommand";
 import {
+  DisableCAEnrollmentPolicyCommandInput,
+  DisableCAEnrollmentPolicyCommandOutput,
+} from "../commands/DisableCAEnrollmentPolicyCommand";
+import {
   DisableClientAuthenticationCommandInput,
   DisableClientAuthenticationCommandOutput,
 } from "../commands/DisableClientAuthenticationCommand";
@@ -131,6 +139,10 @@ import {
 import { DisableLDAPSCommandInput, DisableLDAPSCommandOutput } from "../commands/DisableLDAPSCommand";
 import { DisableRadiusCommandInput, DisableRadiusCommandOutput } from "../commands/DisableRadiusCommand";
 import { DisableSsoCommandInput, DisableSsoCommandOutput } from "../commands/DisableSsoCommand";
+import {
+  EnableCAEnrollmentPolicyCommandInput,
+  EnableCAEnrollmentPolicyCommandOutput,
+} from "../commands/EnableCAEnrollmentPolicyCommand";
 import {
   EnableClientAuthenticationCommandInput,
   EnableClientAuthenticationCommandOutput,
@@ -249,6 +261,8 @@ import {
   DeregisterEventTopicRequest,
   DescribeADAssessmentRequest,
   DescribeADAssessmentResult,
+  DescribeCAEnrollmentPolicyRequest,
+  DescribeCAEnrollmentPolicyResult,
   DescribeCertificateRequest,
   DescribeCertificateResult,
   DescribeClientAuthenticationSettingsRequest,
@@ -287,6 +301,8 @@ import {
   DirectoryNotSharedException,
   DirectoryUnavailableException,
   DirectoryVpcSettings,
+  DisableAlreadyInProgressException,
+  DisableCAEnrollmentPolicyRequest,
   DisableClientAuthenticationRequest,
   DisableDirectoryDataAccessRequest,
   DisableLDAPSRequest,
@@ -294,6 +310,8 @@ import {
   DisableSsoRequest,
   DomainController,
   DomainControllerLimitExceededException,
+  EnableAlreadyInProgressException,
+  EnableCAEnrollmentPolicyRequest,
   EnableClientAuthenticationRequest,
   EnableDirectoryDataAccessRequest,
   EnableLDAPSRequest,
@@ -691,6 +709,19 @@ export const se_DescribeADAssessmentCommand = async (
 };
 
 /**
+ * serializeAws_json1_1DescribeCAEnrollmentPolicyCommand
+ */
+export const se_DescribeCAEnrollmentPolicyCommand = async (
+  input: DescribeCAEnrollmentPolicyCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("DescribeCAEnrollmentPolicy");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_json1_1DescribeCertificateCommand
  */
 export const se_DescribeCertificateCommand = async (
@@ -886,6 +917,19 @@ export const se_DescribeUpdateDirectoryCommand = async (
 };
 
 /**
+ * serializeAws_json1_1DisableCAEnrollmentPolicyCommand
+ */
+export const se_DisableCAEnrollmentPolicyCommand = async (
+  input: DisableCAEnrollmentPolicyCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("DisableCAEnrollmentPolicy");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_json1_1DisableClientAuthenticationCommand
  */
 export const se_DisableClientAuthenticationCommand = async (
@@ -945,6 +989,19 @@ export const se_DisableSsoCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DisableSso");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1EnableCAEnrollmentPolicyCommand
+ */
+export const se_EnableCAEnrollmentPolicyCommand = async (
+  input: EnableCAEnrollmentPolicyCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("EnableCAEnrollmentPolicy");
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1860,6 +1917,26 @@ export const de_DescribeADAssessmentCommand = async (
 };
 
 /**
+ * deserializeAws_json1_1DescribeCAEnrollmentPolicyCommand
+ */
+export const de_DescribeCAEnrollmentPolicyCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeCAEnrollmentPolicyCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribeCAEnrollmentPolicyResult(data, context);
+  const response: DescribeCAEnrollmentPolicyCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
  * deserializeAws_json1_1DescribeCertificateCommand
  */
 export const de_DescribeCertificateCommand = async (
@@ -2160,6 +2237,26 @@ export const de_DescribeUpdateDirectoryCommand = async (
 };
 
 /**
+ * deserializeAws_json1_1DisableCAEnrollmentPolicyCommand
+ */
+export const de_DisableCAEnrollmentPolicyCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DisableCAEnrollmentPolicyCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: DisableCAEnrollmentPolicyCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
  * deserializeAws_json1_1DisableClientAuthenticationCommand
  */
 export const de_DisableClientAuthenticationCommand = async (
@@ -2253,6 +2350,26 @@ export const de_DisableSsoCommand = async (
   let contents: any = {};
   contents = _json(data);
   const response: DisableSsoCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1EnableCAEnrollmentPolicyCommand
+ */
+export const de_EnableCAEnrollmentPolicyCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<EnableCAEnrollmentPolicyCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: EnableCAEnrollmentPolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
@@ -2995,6 +3112,9 @@ const de_CommandError = async (output: __HttpResponse, context: __SerdeContext):
     case "InvalidNextTokenException":
     case "com.amazonaws.directoryservice#InvalidNextTokenException":
       throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
+    case "DisableAlreadyInProgressException":
+    case "com.amazonaws.directoryservice#DisableAlreadyInProgressException":
+      throw await de_DisableAlreadyInProgressExceptionRes(parsedOutput, context);
     case "InvalidClientAuthStatusException":
     case "com.amazonaws.directoryservice#InvalidClientAuthStatusException":
       throw await de_InvalidClientAuthStatusExceptionRes(parsedOutput, context);
@@ -3004,6 +3124,9 @@ const de_CommandError = async (output: __HttpResponse, context: __SerdeContext):
     case "InvalidLDAPSStatusException":
     case "com.amazonaws.directoryservice#InvalidLDAPSStatusException":
       throw await de_InvalidLDAPSStatusExceptionRes(parsedOutput, context);
+    case "EnableAlreadyInProgressException":
+    case "com.amazonaws.directoryservice#EnableAlreadyInProgressException":
+      throw await de_EnableAlreadyInProgressExceptionRes(parsedOutput, context);
     case "NoAvailableCertificateException":
     case "com.amazonaws.directoryservice#NoAvailableCertificateException":
       throw await de_NoAvailableCertificateExceptionRes(parsedOutput, context);
@@ -3291,6 +3414,22 @@ const de_DirectoryUnavailableExceptionRes = async (
 };
 
 /**
+ * deserializeAws_json1_1DisableAlreadyInProgressExceptionRes
+ */
+const de_DisableAlreadyInProgressExceptionRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<DisableAlreadyInProgressException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = _json(body);
+  const exception = new DisableAlreadyInProgressException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+/**
  * deserializeAws_json1_1DomainControllerLimitExceededExceptionRes
  */
 const de_DomainControllerLimitExceededExceptionRes = async (
@@ -3300,6 +3439,22 @@ const de_DomainControllerLimitExceededExceptionRes = async (
   const body = parsedOutput.body;
   const deserialized: any = _json(body);
   const exception = new DomainControllerLimitExceededException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+/**
+ * deserializeAws_json1_1EnableAlreadyInProgressExceptionRes
+ */
+const de_EnableAlreadyInProgressExceptionRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<EnableAlreadyInProgressException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = _json(body);
+  const exception = new EnableAlreadyInProgressException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
   });
@@ -3717,6 +3872,8 @@ const de_UserDoesNotExistExceptionRes = async (
 
 // se_DescribeADAssessmentRequest omitted.
 
+// se_DescribeCAEnrollmentPolicyRequest omitted.
+
 // se_DescribeCertificateRequest omitted.
 
 // se_DescribeClientAuthenticationSettingsRequest omitted.
@@ -3753,6 +3910,8 @@ const de_UserDoesNotExistExceptionRes = async (
 
 // se_DirectoryVpcSettings omitted.
 
+// se_DisableCAEnrollmentPolicyRequest omitted.
+
 // se_DisableClientAuthenticationRequest omitted.
 
 // se_DisableDirectoryDataAccessRequest omitted.
@@ -3766,6 +3925,8 @@ const de_UserDoesNotExistExceptionRes = async (
 // se_DnsIpAddrs omitted.
 
 // se_DomainControllerIds omitted.
+
+// se_EnableCAEnrollmentPolicyRequest omitted.
 
 // se_EnableClientAuthenticationRequest omitted.
 
@@ -4140,6 +4301,22 @@ const de_DescribeADAssessmentResult = (output: any, context: __SerdeContext): De
 };
 
 /**
+ * deserializeAws_json1_1DescribeCAEnrollmentPolicyResult
+ */
+const de_DescribeCAEnrollmentPolicyResult = (
+  output: any,
+  context: __SerdeContext
+): DescribeCAEnrollmentPolicyResult => {
+  return take(output, {
+    CaEnrollmentPolicyStatus: __expectString,
+    CaEnrollmentPolicyStatusReason: __expectString,
+    DirectoryId: __expectString,
+    LastUpdatedDateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    PcaConnectorArn: __expectString,
+  }) as any;
+};
+
+/**
  * deserializeAws_json1_1DescribeCertificateResult
  */
 const de_DescribeCertificateResult = (output: any, context: __SerdeContext): DescribeCertificateResult => {
@@ -4346,6 +4523,10 @@ const de_DirectoryDescriptions = (output: any, context: __SerdeContext): Directo
 
 // de_DirectoryVpcSettingsDescription omitted.
 
+// de_DisableAlreadyInProgressException omitted.
+
+// de_DisableCAEnrollmentPolicyResult omitted.
+
 // de_DisableClientAuthenticationResult omitted.
 
 // de_DisableDirectoryDataAccessResult omitted.
@@ -4389,6 +4570,10 @@ const de_DomainControllers = (output: any, context: __SerdeContext): DomainContr
     });
   return retVal;
 };
+
+// de_EnableAlreadyInProgressException omitted.
+
+// de_EnableCAEnrollmentPolicyResult omitted.
 
 // de_EnableClientAuthenticationResult omitted.
 
