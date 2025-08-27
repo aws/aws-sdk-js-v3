@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.877.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.876.0...v3.877.0) (2025-08-27)
+
+
+### Features
+
+* **client-directory-service:** Add APIs for CA AutoEnrollment support: DescribeCAEnrollmentPolicy, EnableCAEnrollmentPolicy and DisableCAEnrollmentPolicy. ([ef470de](https://github.com/aws/aws-sdk-js-v3/commit/ef470deff6bd3429e3c0539899da990aab314301))
+
+
+
+
+
 # [3.876.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.875.0...v3.876.0) (2025-08-26)
 
 **Note:** Version bump only for package @aws-sdk/client-directory-service

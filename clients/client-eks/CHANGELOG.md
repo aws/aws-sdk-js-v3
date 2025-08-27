@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.877.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.876.0...v3.877.0) (2025-08-27)
+
+
+### Features
+
+* **client-eks:** Add support for on-demand refresh of EKS cluster insights ([9b9b9f4](https://github.com/aws/aws-sdk-js-v3/commit/9b9b9f4d44cdf76edb08f47bf0eedebbebbe3e82))
+
+
+
+
+
 # [3.876.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.875.0...v3.876.0) (2025-08-26)
 
 **Note:** Version bump only for package @aws-sdk/client-eks

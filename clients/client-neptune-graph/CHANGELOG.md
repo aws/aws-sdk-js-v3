@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.877.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.876.0...v3.877.0) (2025-08-27)
+
+
+### Features
+
+* **client-neptune-graph:** Add StartGraph and StopGraph operations to Neptune Analytics ([4129303](https://github.com/aws/aws-sdk-js-v3/commit/4129303a07716f23b5c1c2a050bf3f3b886c812d))
+
+
+
+
+
 # [3.876.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.875.0...v3.876.0) (2025-08-26)
 
 **Note:** Version bump only for package @aws-sdk/client-neptune-graph

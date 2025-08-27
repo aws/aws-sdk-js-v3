@@ -3,6 +3,77 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.877.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.876.0...v3.877.0) (2025-08-27)
+
+
+### Features
+
+* **client-acm-pca:** Remove incorrect endpoint tests ([4e40302](https://github.com/aws/aws-sdk-js-v3/commit/4e4030231e69d98f06a718a150d6f310548011f3))
+* **client-amplifybackend:** Remove incorrect endpoint tests ([1a1fd97](https://github.com/aws/aws-sdk-js-v3/commit/1a1fd975dfec8a79517cec02a3e227ae5b8e0d80))
+* **client-amplifyuibuilder:** Remove incorrect endpoint tests ([ce879bc](https://github.com/aws/aws-sdk-js-v3/commit/ce879bc78d25c1c8cfbd9e3d0d19c0963bf68f7e))
+* **client-appconfigdata:** Remove incorrect endpoint tests ([700ecef](https://github.com/aws/aws-sdk-js-v3/commit/700ecefa0da8ebadfc61dde08bd1d446a760423c))
+* **client-application-discovery-service:** Remove incorrect endpoint tests ([009e237](https://github.com/aws/aws-sdk-js-v3/commit/009e2375725b0556d9b8ce2bf386654c2e75df68))
+* **client-application-insights:** Remove incorrect endpoint tests ([1cd78ce](https://github.com/aws/aws-sdk-js-v3/commit/1cd78ce30f8f4e8549210b7d6dc5a17adc471109))
+* **client-apptest:** Remove incorrect endpoint tests ([e3407e9](https://github.com/aws/aws-sdk-js-v3/commit/e3407e92269d7a4ebc0aa19796efc549feaffc4d))
+* **client-bedrock-agentcore:** Remove incorrect endpoint tests ([f81fb5d](https://github.com/aws/aws-sdk-js-v3/commit/f81fb5d62cdf13555c81aebb15be8fed49695ff2))
+* **client-chime-sdk-identity:** Remove incorrect endpoint tests ([1e1ec60](https://github.com/aws/aws-sdk-js-v3/commit/1e1ec6069ef872d2f3cb8d68a223f003c7109572))
+* **client-chime-sdk-meetings:** Remove incorrect endpoint tests ([49eb6bb](https://github.com/aws/aws-sdk-js-v3/commit/49eb6bb5c80c0344cc248d501279f0d6c2eda367))
+* **client-chime-sdk-voice:** Remove incorrect endpoint tests ([7a0fb10](https://github.com/aws/aws-sdk-js-v3/commit/7a0fb10d15310c041ef23fc67865c102141cfc42))
+* **client-chime:** Remove incorrect endpoint tests ([1e2ca62](https://github.com/aws/aws-sdk-js-v3/commit/1e2ca62b819a8125cb3c71faf1d55761a447396d))
+* **client-cleanroomsml:** Remove incorrect endpoint tests ([62024c4](https://github.com/aws/aws-sdk-js-v3/commit/62024c46cba482a0ca34f009b81a26fb1da981fd))
+* **client-codebuild:** Remove incorrect endpoint tests ([3d3019c](https://github.com/aws/aws-sdk-js-v3/commit/3d3019cfda93a4cd22a1651193eaedb698480660))
+* **client-codeconnections:** Remove incorrect endpoint tests ([54a6d6c](https://github.com/aws/aws-sdk-js-v3/commit/54a6d6c5ec5ba456bfa3e718e22652b2c5041d1b))
+* **client-codeguruprofiler:** Remove incorrect endpoint tests ([c03234c](https://github.com/aws/aws-sdk-js-v3/commit/c03234c5f200e12435d04de0028c578ea492c93e))
+* **client-compute-optimizer:** Remove incorrect endpoint tests ([93ff00a](https://github.com/aws/aws-sdk-js-v3/commit/93ff00aeeb79bb40f39776d0b547e9fc9271286e))
+* **client-data-pipeline:** Remove incorrect endpoint tests ([a79f7fa](https://github.com/aws/aws-sdk-js-v3/commit/a79f7fa86d76a7d30bdf5e6b028f214d5a78fb5f))
+* **client-directory-service:** Add APIs for CA AutoEnrollment support: DescribeCAEnrollmentPolicy, EnableCAEnrollmentPolicy and DisableCAEnrollmentPolicy. ([ef470de](https://github.com/aws/aws-sdk-js-v3/commit/ef470deff6bd3429e3c0539899da990aab314301))
+* **client-eks:** Add support for on-demand refresh of EKS cluster insights ([9b9b9f4](https://github.com/aws/aws-sdk-js-v3/commit/9b9b9f4d44cdf76edb08f47bf0eedebbebbe3e82))
+* **client-elasticache:** Remove incorrect endpoint tests ([6b86926](https://github.com/aws/aws-sdk-js-v3/commit/6b8692670abbafc18c92b414164fb73d5a55c738))
+* **client-evidently:** Remove incorrect endpoint tests ([3059537](https://github.com/aws/aws-sdk-js-v3/commit/3059537a8e1de6d1081851d0e54e364aafa649f0))
+* **client-frauddetector:** Remove incorrect endpoint tests ([54f4bc2](https://github.com/aws/aws-sdk-js-v3/commit/54f4bc2ff0bfae28c35652f7144958f7acfe4039))
+* **client-inspector:** Remove incorrect endpoint tests ([a48182c](https://github.com/aws/aws-sdk-js-v3/commit/a48182c08a9eafc3570aee2b5c172d9eb1d1c0ea))
+* **client-iot-wireless:** Remove incorrect endpoint tests ([78f7b0b](https://github.com/aws/aws-sdk-js-v3/commit/78f7b0be7904130a5058e4f2953011994c8ab3f8))
+* **client-iotfleetwise:** Remove incorrect endpoint tests ([a744b53](https://github.com/aws/aws-sdk-js-v3/commit/a744b53287e0ac26949fbab2c1b4412da3d2c6a5))
+* **client-iot:** Remove incorrect endpoint tests ([3f73c65](https://github.com/aws/aws-sdk-js-v3/commit/3f73c65b5d207360ff1f12301c827fdb9238b067))
+* **client-ivs-realtime:** Remove incorrect endpoint tests ([4cf1261](https://github.com/aws/aws-sdk-js-v3/commit/4cf1261ef63609b24937335b88e6da9df860a820))
+* **client-ivschat:** Remove incorrect endpoint tests ([0688f23](https://github.com/aws/aws-sdk-js-v3/commit/0688f23d39ebe02b7078dd4182109f8b2a0838db))
+* **client-kafkaconnect:** Remove incorrect endpoint tests ([272f942](https://github.com/aws/aws-sdk-js-v3/commit/272f94237193b7e987e8d30ffbdbb333e0cc8560))
+* **client-kinesis-video-media:** Remove incorrect endpoint tests ([64ac82b](https://github.com/aws/aws-sdk-js-v3/commit/64ac82b892431bbdb9c549e61640b8a4f4b5cba7))
+* **client-kinesis-video:** Remove incorrect endpoint tests ([26b5167](https://github.com/aws/aws-sdk-js-v3/commit/26b51679332664eee01f83fdfeb12e2b2e3e2c7c))
+* **client-kms:** Remove incorrect endpoint tests ([c794333](https://github.com/aws/aws-sdk-js-v3/commit/c7943339d47dee714a99bb332465fbfc6997d8d0))
+* **client-lakeformation:** Remove incorrect endpoint tests ([7abcdb8](https://github.com/aws/aws-sdk-js-v3/commit/7abcdb826a0fb48b610f87c27a2fa5755f0e9fb5))
+* **client-lex-model-building-service:** Remove incorrect endpoint tests ([ac9807f](https://github.com/aws/aws-sdk-js-v3/commit/ac9807faebfd0521cf5c0ed35d1addf4e9c29f42))
+* **client-marketplace-reporting:** Remove incorrect endpoint tests ([7d0338d](https://github.com/aws/aws-sdk-js-v3/commit/7d0338de30c4580584b28a61b8fdc41f5e170797))
+* **client-medical-imaging:** Remove incorrect endpoint tests ([639c730](https://github.com/aws/aws-sdk-js-v3/commit/639c7308171110a482c7990f6eaeece607d1d556))
+* **client-mgn:** Remove incorrect endpoint tests ([684a0ff](https://github.com/aws/aws-sdk-js-v3/commit/684a0ff55fe002851103e74df516fc78f245e799))
+* **client-migrationhub-config:** Remove incorrect endpoint tests ([cc22868](https://github.com/aws/aws-sdk-js-v3/commit/cc22868f12db8632e642da54883503d4c8838d84))
+* **client-neptune-graph:** Add StartGraph and StopGraph operations to Neptune Analytics ([4129303](https://github.com/aws/aws-sdk-js-v3/commit/4129303a07716f23b5c1c2a050bf3f3b886c812d))
+* **client-neptune:** Remove incorrect endpoint tests ([e4e1e29](https://github.com/aws/aws-sdk-js-v3/commit/e4e1e29d8fa1b55c33b3a238ec7d2183ecd913d6))
+* **client-omics:** Remove incorrect endpoint tests ([60168b3](https://github.com/aws/aws-sdk-js-v3/commit/60168b36c0819dfdefbcf828746bafdb15b37af0))
+* **client-payment-cryptography-data:** Remove incorrect endpoint tests ([a4d31fc](https://github.com/aws/aws-sdk-js-v3/commit/a4d31fc3f1b0c4d2a79ba136a27144a249b7678f))
+* **client-personalize:** Remove incorrect endpoint tests ([5a19d66](https://github.com/aws/aws-sdk-js-v3/commit/5a19d66f7675b717f6a38003303860d9f6ebbd99))
+* **client-pi:** Remove incorrect endpoint tests ([ff8a1ba](https://github.com/aws/aws-sdk-js-v3/commit/ff8a1ba03928a244ac436b5e2527e0b4f0b08263))
+* **client-qapps:** Remove incorrect endpoint tests ([ffc0a01](https://github.com/aws/aws-sdk-js-v3/commit/ffc0a017d58a399ffc948be9717370efd9f0ded5))
+* **client-qldb-session:** Remove incorrect endpoint tests ([42836ef](https://github.com/aws/aws-sdk-js-v3/commit/42836ef70ec8b421cb882d3fed2a2b8947fdd477))
+* **client-redshift:** Remove incorrect endpoint tests ([4d03fdd](https://github.com/aws/aws-sdk-js-v3/commit/4d03fdd385d4529f7eca4d533d9bc8528ec1f59b))
+* **client-robomaker:** Remove incorrect endpoint tests ([1f42fdf](https://github.com/aws/aws-sdk-js-v3/commit/1f42fdf09af9413d8331e1a1a65fbc0b19d664f8))
+* **client-s3tables:** Remove incorrect endpoint tests ([2dd2fc6](https://github.com/aws/aws-sdk-js-v3/commit/2dd2fc698c22978bb461658e16f56655ba0cf07b))
+* **client-sagemaker:** This release adds support for AutoScaling on SageMaker HyperPod. ([c3af996](https://github.com/aws/aws-sdk-js-v3/commit/c3af99615f03f7c34d07d49541255bbd0c6e63bb))
+* **client-schemas:** Remove incorrect endpoint tests ([bc461ac](https://github.com/aws/aws-sdk-js-v3/commit/bc461aca4962d1cc0311eebb42bf91cb2cde34ae))
+* **client-snow-device-management:** Remove incorrect endpoint tests ([472f3e0](https://github.com/aws/aws-sdk-js-v3/commit/472f3e05fc544fa7217f7fb6b5441229f15b1460))
+* **client-sns:** Remove incorrect endpoint tests ([d23afd1](https://github.com/aws/aws-sdk-js-v3/commit/d23afd1253d47644208b4c4aa8ed8ebc550a22bb))
+* **client-supplychain:** Remove incorrect endpoint tests ([d232e6c](https://github.com/aws/aws-sdk-js-v3/commit/d232e6c74698df2470d3fac1b8b7589cf095ce59))
+* **client-textract:** Remove incorrect endpoint tests ([5d94f9b](https://github.com/aws/aws-sdk-js-v3/commit/5d94f9b7faeddb53d0882481d7366a979f3d3678))
+* **client-timestream-write:** Remove incorrect endpoint tests ([fdda57c](https://github.com/aws/aws-sdk-js-v3/commit/fdda57cad461e3b044267904c15b54d875ff07b2))
+* **client-voice-id:** Remove incorrect endpoint tests ([447123a](https://github.com/aws/aws-sdk-js-v3/commit/447123a7d5857fa8d619deebc79dec15a1a4fee8))
+* **client-vpc-lattice:** Remove incorrect endpoint tests ([8d0b736](https://github.com/aws/aws-sdk-js-v3/commit/8d0b736333c4e57bb82af2308ce9bcd4c9f46880))
+* **client-workdocs:** Remove incorrect endpoint tests ([254bdc6](https://github.com/aws/aws-sdk-js-v3/commit/254bdc6da017615e3a1f3815f76d0ccbf80cdb0b))
+* **client-workmail:** Remove incorrect endpoint tests ([d370eea](https://github.com/aws/aws-sdk-js-v3/commit/d370eea981ef9f2b936625f157a9c617151b6674))
+
+
+
+
+
 # [3.876.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.875.0...v3.876.0) (2025-08-26)
 
 

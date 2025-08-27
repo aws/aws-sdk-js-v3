@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.877.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.876.0...v3.877.0) (2025-08-27)
+
+
+### Features
+
+* **client-sagemaker:** This release adds support for AutoScaling on SageMaker HyperPod. ([c3af996](https://github.com/aws/aws-sdk-js-v3/commit/c3af99615f03f7c34d07d49541255bbd0c6e63bb))
+
+
+
+
+
 # [3.876.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.875.0...v3.876.0) (2025-08-26)
 
 **Note:** Version bump only for package @aws-sdk/client-sagemaker
