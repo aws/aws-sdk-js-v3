@@ -9,7 +9,14 @@ import { flexibleChecksumsMiddleware } from "./flexibleChecksumsMiddleware";
 describe("middleware-flexible-checksums.retry", () => {
   it("retry reuses the checksum", async () => {
     const maxAttempts = 3;
-    const client = new S3({ maxAttempts });
+    const client = new S3({
+      region: "us-west-2",
+      credentials: {
+        accessKeyId: "INTEG",
+        secretAccessKey: "INTEG",
+      },
+      maxAttempts,
+    });
 
     let flexChecksCallCount = 0;
     client.middlewareStack.addRelativeTo(
