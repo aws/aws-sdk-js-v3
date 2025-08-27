@@ -182,6 +182,13 @@ export interface DescribeClusterCommandOutput extends DescribeClusterResponse, _
  * //   },
  * //   NodeRecovery: "Automatic" || "None",
  * //   NodeProvisioningMode: "Continuous",
+ * //   ClusterRole: "STRING_VALUE",
+ * //   AutoScaling: { // ClusterAutoScalingConfigOutput
+ * //     Mode: "Enable" || "Disable", // required
+ * //     AutoScalerType: "Karpenter",
+ * //     Status: "InService" || "Failed" || "Creating" || "Deleting", // required
+ * //     FailureMessage: "STRING_VALUE",
+ * //   },
  * // };
  *
  * ```

@@ -16,9 +16,9 @@ import {
   CfnUpdateTemplateProvider,
   Channel,
   CheckpointConfig,
+  ClusterAutoScalingConfig,
   ClusterInstanceGroupSpecification,
   ClusterNodeRecovery,
-  ClusterRestrictedInstanceGroupSpecification,
   CodeEditorAppImageConfig,
   DeploymentConfiguration,
   InferenceSpecification,
@@ -40,6 +40,7 @@ import {
 
 import {
   _InstanceType,
+  ClusterRestrictedInstanceGroupSpecification,
   ComputeQuotaConfig,
   ComputeQuotaTarget,
   ContainerDefinition,
@@ -50,7 +51,6 @@ import {
   HubContentType,
   InferenceComponentRuntimeConfig,
   InferenceComponentSpecification,
-  InferenceExecutionConfig,
   InferenceExperimentDataStorageConfig,
   InferenceExperimentSchedule,
   JobType,
@@ -78,9 +78,9 @@ import {
   DeploymentRecommendation,
   DriftCheckBaselines,
   ExperimentConfig,
+  InferenceExecutionConfig,
   InstanceMetadataServiceConfiguration,
   MemberDefinition,
-  ModelArtifacts,
   ModelCardSecurityConfig,
   ModelCardStatus,
   ModelClientConfig,
@@ -137,10 +137,10 @@ import {
   FeatureMetadata,
   FeatureParameter,
   Filter,
-  GitConfigForUpdate,
   HubContentSupportStatus,
   InferenceComponentDeploymentConfig,
   MetricData,
+  ModelArtifacts,
   ModelPackageGroupStatus,
   ModelPackageStatusDetails,
   MonitoringExecutionSummary,
@@ -164,18 +164,165 @@ import {
   TrialComponentMetricSummary,
   TrialComponentSource,
   TrialSource,
+  UserProfileStatus,
   Workforce,
   Workteam,
 } from "./models_3";
 
 import {
+  GitConfigForUpdate,
   HyperParameterTuningJobSearchEntity,
   InferenceExperimentStopDesiredState,
   LineageType,
   MonitoringAlertSummary,
   Parameter,
   SortOrder,
+  UserProfileSortKey,
 } from "./models_4";
+
+/**
+ * @public
+ */
+export interface ListUserProfilesRequest {
+  /**
+   * <p>If the previous response was truncated, you will receive this token. Use it in your next request to receive the next set of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>This parameter defines the maximum number of results that can be return in a single response. The <code>MaxResults</code> parameter is an upper bound, not a target. If there are more results available than the value specified, a <code>NextToken</code> is provided in the response. The <code>NextToken</code> indicates that the user should get the next set of results by providing this token as a part of a subsequent call. The default value for <code>MaxResults</code> is 10.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>The sort order for the results. The default is Ascending.</p>
+   * @public
+   */
+  SortOrder?: SortOrder | undefined;
+
+  /**
+   * <p>The parameter by which to sort the results. The default is CreationTime.</p>
+   * @public
+   */
+  SortBy?: UserProfileSortKey | undefined;
+
+  /**
+   * <p>A parameter by which to filter the results.</p>
+   * @public
+   */
+  DomainIdEquals?: string | undefined;
+
+  /**
+   * <p>A parameter by which to filter the results.</p>
+   * @public
+   */
+  UserProfileNameContains?: string | undefined;
+}
+
+/**
+ * <p>The user profile details.</p>
+ * @public
+ */
+export interface UserProfileDetails {
+  /**
+   * <p>The domain ID.</p>
+   * @public
+   */
+  DomainId?: string | undefined;
+
+  /**
+   * <p>The user profile name.</p>
+   * @public
+   */
+  UserProfileName?: string | undefined;
+
+  /**
+   * <p>The status.</p>
+   * @public
+   */
+  Status?: UserProfileStatus | undefined;
+
+  /**
+   * <p>The creation time.</p>
+   * @public
+   */
+  CreationTime?: Date | undefined;
+
+  /**
+   * <p>The last modified time.</p>
+   * @public
+   */
+  LastModifiedTime?: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListUserProfilesResponse {
+  /**
+   * <p>The list of user profiles.</p>
+   * @public
+   */
+  UserProfiles?: UserProfileDetails[] | undefined;
+
+  /**
+   * <p>If the previous response was truncated, you will receive this token. Use it in your next request to receive the next set of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const ListWorkforcesSortByOptions = {
+  CreateDate: "CreateDate",
+  Name: "Name",
+} as const;
+
+/**
+ * @public
+ */
+export type ListWorkforcesSortByOptions =
+  (typeof ListWorkforcesSortByOptions)[keyof typeof ListWorkforcesSortByOptions];
+
+/**
+ * @public
+ */
+export interface ListWorkforcesRequest {
+  /**
+   * <p>Sort workforces using the workforce name or creation date.</p>
+   * @public
+   */
+  SortBy?: ListWorkforcesSortByOptions | undefined;
+
+  /**
+   * <p>Sort workforces in ascending or descending order.</p>
+   * @public
+   */
+  SortOrder?: SortOrder | undefined;
+
+  /**
+   * <p>A filter you can use to search for workforces using part of the workforce name.</p>
+   * @public
+   */
+  NameContains?: string | undefined;
+
+  /**
+   * <p>A token to resume pagination.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of workforces returned in the response.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+}
 
 /**
  * @public
@@ -3470,6 +3617,18 @@ export interface UpdateClusterRequest {
    * @public
    */
   InstanceGroupsToDelete?: string[] | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the IAM role that HyperPod assumes for cluster autoscaling operations. Cannot be updated while autoscaling is enabled.</p>
+   * @public
+   */
+  ClusterRole?: string | undefined;
+
+  /**
+   * <p>Updates the autoscaling configuration for the cluster. Use to enable or disable automatic node scaling.</p>
+   * @public
+   */
+  AutoScaling?: ClusterAutoScalingConfig | undefined;
 }
 
 /**

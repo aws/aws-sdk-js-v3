@@ -51,15 +51,19 @@ import {
   ChannelSpecification,
   CheckpointConfig,
   ClarifyExplainerConfig,
+  ClusterAutoScalingConfig,
   ClusterInstanceGroupSpecification,
+  ClusterInstanceStorageConfig,
   ClusterInstanceType,
   ClusterNodeProvisioningMode,
   ClusterNodeRecovery,
   ClusterOrchestrator,
-  ClusterRestrictedInstanceGroupSpecification,
   CodeEditorAppImageConfig,
+  DeepHealthCheckType,
   FeatureStatus,
+  FSxLustreConfig,
   InferenceSpecification,
+  InstanceGroupStatus,
   JupyterLabAppImageConfig,
   KernelGatewayImageConfig,
   MetricDefinition,
@@ -71,7 +75,7 @@ import {
   ProductionVariantInstanceType,
   ResourceConfig,
   ResourceSpec,
-  SchedulerResourceStatus,
+  ScheduledUpdateConfig,
   StoppingCondition,
   Tag,
   TrainingInputMode,
@@ -80,6 +84,222 @@ import {
 } from "./models_0";
 
 import { SageMakerServiceException as __BaseException } from "./SageMakerServiceException";
+
+/**
+ * <p>The configuration details for the restricted instance groups (RIG) environment.</p>
+ * @public
+ */
+export interface EnvironmentConfigDetails {
+  /**
+   * <p>Configuration settings for an Amazon FSx for Lustre file system to be used with the cluster.</p>
+   * @public
+   */
+  FSxLustreConfig?: FSxLustreConfig | undefined;
+
+  /**
+   * <p>The Amazon S3 path where output data from the restricted instance group (RIG) environment will be stored.</p>
+   * @public
+   */
+  S3OutputPath?: string | undefined;
+}
+
+/**
+ * <p>The instance group details of the restricted instance group (RIG).</p>
+ * @public
+ */
+export interface ClusterRestrictedInstanceGroupDetails {
+  /**
+   * <p>The number of instances that are currently in the restricted instance group of a SageMaker HyperPod cluster.</p>
+   * @public
+   */
+  CurrentCount?: number | undefined;
+
+  /**
+   * <p>The number of instances you specified to add to the restricted instance group of a SageMaker HyperPod cluster.</p>
+   * @public
+   */
+  TargetCount?: number | undefined;
+
+  /**
+   * <p>The name of the restricted instance group of a SageMaker HyperPod cluster.</p>
+   * @public
+   */
+  InstanceGroupName?: string | undefined;
+
+  /**
+   * <p>The instance type of the restricted instance group of a SageMaker HyperPod cluster.</p>
+   * @public
+   */
+  InstanceType?: ClusterInstanceType | undefined;
+
+  /**
+   * <p>The execution role for the restricted instance group to assume.</p>
+   * @public
+   */
+  ExecutionRole?: string | undefined;
+
+  /**
+   * <p>The number you specified to <code>TreadsPerCore</code> in <code>CreateCluster</code> for enabling or disabling multithreading. For instance types that support multithreading, you can specify 1 for disabling multithreading and 2 for enabling multithreading. For more information, see the reference table of <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/cpu-options-supported-instances-values.html">CPU cores and threads per CPU core per instance type</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   * @public
+   */
+  ThreadsPerCore?: number | undefined;
+
+  /**
+   * <p>The additional storage configurations for the instances in the SageMaker HyperPod cluster restricted instance group.</p>
+   * @public
+   */
+  InstanceStorageConfigs?: ClusterInstanceStorageConfig[] | undefined;
+
+  /**
+   * <p>A flag indicating whether deep health checks should be performed when the cluster's restricted instance group is created or updated.</p>
+   * @public
+   */
+  OnStartDeepHealthChecks?: DeepHealthCheckType[] | undefined;
+
+  /**
+   * <p>The current status of the cluster's restricted instance group.</p> <ul> <li> <p> <code>InService</code>: The restricted instance group is active and healthy.</p> </li> <li> <p> <code>Creating</code>: The restricted instance group is being provisioned.</p> </li> <li> <p> <code>Updating</code>: The restricted instance group is being updated.</p> </li> <li> <p> <code>Failed</code>: The restricted instance group has failed to provision or is no longer healthy.</p> </li> <li> <p> <code>Degraded</code>: The restricted instance group is degraded, meaning that some instances have failed to provision or are no longer healthy.</p> </li> <li> <p> <code>Deleting</code>: The restricted instance group is being deleted.</p> </li> </ul>
+   * @public
+   */
+  Status?: InstanceGroupStatus | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the training plan to filter clusters by. For more information about reserving GPU capacity for your SageMaker HyperPod clusters using Amazon SageMaker Training Plan, see <code> <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateTrainingPlan.html">CreateTrainingPlan</a> </code>.</p>
+   * @public
+   */
+  TrainingPlanArn?: string | undefined;
+
+  /**
+   * <p>The current status of the training plan associated with this cluster restricted instance group.</p>
+   * @public
+   */
+  TrainingPlanStatus?: string | undefined;
+
+  /**
+   * <p>Specifies an Amazon Virtual Private Cloud (VPC) that your SageMaker jobs, hosted models, and compute resources have access to. You can control access to and from your resources by configuring a VPC. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/infrastructure-give-access.html">Give SageMaker Access to Resources in your Amazon VPC</a>. </p>
+   * @public
+   */
+  OverrideVpcConfig?: VpcConfig | undefined;
+
+  /**
+   * <p>The configuration object of the schedule that SageMaker follows when updating the AMI.</p>
+   * @public
+   */
+  ScheduledUpdateConfig?: ScheduledUpdateConfig | undefined;
+
+  /**
+   * <p>The configuration for the restricted instance groups (RIG) environment.</p>
+   * @public
+   */
+  EnvironmentConfig?: EnvironmentConfigDetails | undefined;
+}
+
+/**
+ * <p>The configuration for the restricted instance groups (RIG) environment.</p>
+ * @public
+ */
+export interface EnvironmentConfig {
+  /**
+   * <p>Configuration settings for an Amazon FSx for Lustre file system to be used with the cluster.</p>
+   * @public
+   */
+  FSxLustreConfig?: FSxLustreConfig | undefined;
+}
+
+/**
+ * <p>The specifications of a restricted instance group that you need to define.</p>
+ * @public
+ */
+export interface ClusterRestrictedInstanceGroupSpecification {
+  /**
+   * <p>Specifies the number of instances to add to the restricted instance group of a SageMaker HyperPod cluster.</p>
+   * @public
+   */
+  InstanceCount: number | undefined;
+
+  /**
+   * <p>Specifies the name of the restricted instance group.</p>
+   * @public
+   */
+  InstanceGroupName: string | undefined;
+
+  /**
+   * <p>Specifies the instance type of the restricted instance group.</p>
+   * @public
+   */
+  InstanceType: ClusterInstanceType | undefined;
+
+  /**
+   * <p>Specifies an IAM execution role to be assumed by the restricted instance group.</p>
+   * @public
+   */
+  ExecutionRole: string | undefined;
+
+  /**
+   * <p>The number you specified to <code>TreadsPerCore</code> in <code>CreateCluster</code> for enabling or disabling multithreading. For instance types that support multithreading, you can specify 1 for disabling multithreading and 2 for enabling multithreading. For more information, see the reference table of <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/cpu-options-supported-instances-values.html">CPU cores and threads per CPU core per instance type</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   * @public
+   */
+  ThreadsPerCore?: number | undefined;
+
+  /**
+   * <p>Specifies the additional storage configurations for the instances in the SageMaker HyperPod cluster restricted instance group.</p>
+   * @public
+   */
+  InstanceStorageConfigs?: ClusterInstanceStorageConfig[] | undefined;
+
+  /**
+   * <p>A flag indicating whether deep health checks should be performed when the cluster restricted instance group is created or updated.</p>
+   * @public
+   */
+  OnStartDeepHealthChecks?: DeepHealthCheckType[] | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the training plan to filter clusters by. For more information about reserving GPU capacity for your SageMaker HyperPod clusters using Amazon SageMaker Training Plan, see <code> <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateTrainingPlan.html">CreateTrainingPlan</a> </code>.</p>
+   * @public
+   */
+  TrainingPlanArn?: string | undefined;
+
+  /**
+   * <p>Specifies an Amazon Virtual Private Cloud (VPC) that your SageMaker jobs, hosted models, and compute resources have access to. You can control access to and from your resources by configuring a VPC. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/infrastructure-give-access.html">Give SageMaker Access to Resources in your Amazon VPC</a>. </p>
+   * @public
+   */
+  OverrideVpcConfig?: VpcConfig | undefined;
+
+  /**
+   * <p>The configuration object of the schedule that SageMaker follows when updating the AMI.</p>
+   * @public
+   */
+  ScheduledUpdateConfig?: ScheduledUpdateConfig | undefined;
+
+  /**
+   * <p>The configuration for the restricted instance groups (RIG) environment.</p>
+   * @public
+   */
+  EnvironmentConfig: EnvironmentConfig | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const SchedulerResourceStatus = {
+  CREATED: "Created",
+  CREATE_FAILED: "CreateFailed",
+  CREATE_ROLLBACK_FAILED: "CreateRollbackFailed",
+  CREATING: "Creating",
+  DELETED: "Deleted",
+  DELETE_FAILED: "DeleteFailed",
+  DELETE_ROLLBACK_FAILED: "DeleteRollbackFailed",
+  DELETING: "Deleting",
+  UPDATED: "Updated",
+  UPDATE_FAILED: "UpdateFailed",
+  UPDATE_ROLLBACK_FAILED: "UpdateRollbackFailed",
+  UPDATING: "Updating",
+} as const;
+
+/**
+ * @public
+ */
+export type SchedulerResourceStatus = (typeof SchedulerResourceStatus)[keyof typeof SchedulerResourceStatus];
 
 /**
  * <p>Summary of the cluster policy.</p>
@@ -2009,6 +2229,18 @@ export interface CreateClusterRequest {
    * @public
    */
   NodeProvisioningMode?: ClusterNodeProvisioningMode | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the IAM role that HyperPod assumes to perform cluster autoscaling operations. This role must have permissions for <code>sagemaker:BatchAddClusterNodes</code> and <code>sagemaker:BatchDeleteClusterNodes</code>. This is only required when autoscaling is enabled and when HyperPod is performing autoscaling operations.</p>
+   * @public
+   */
+  ClusterRole?: string | undefined;
+
+  /**
+   * <p>The autoscaling configuration for the cluster. Enables automatic scaling of cluster nodes based on workload demand using a Karpenter-based system.</p>
+   * @public
+   */
+  AutoScaling?: ClusterAutoScalingConfig | undefined;
 }
 
 /**
@@ -7891,118 +8123,4 @@ export interface CreateMlflowTrackingServerResponse {
    * @public
    */
   TrackingServerArn?: string | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const InferenceExecutionMode = {
-  DIRECT: "Direct",
-  SERIAL: "Serial",
-} as const;
-
-/**
- * @public
- */
-export type InferenceExecutionMode = (typeof InferenceExecutionMode)[keyof typeof InferenceExecutionMode];
-
-/**
- * <p>Specifies details about how containers in a multi-container endpoint are run.</p>
- * @public
- */
-export interface InferenceExecutionConfig {
-  /**
-   * <p>How containers in a multi-container are run. The following values are valid.</p> <ul> <li> <p> <code>SERIAL</code> - Containers run as a serial pipeline.</p> </li> <li> <p> <code>DIRECT</code> - Only the individual container that you specify is run.</p> </li> </ul>
-   * @public
-   */
-  Mode: InferenceExecutionMode | undefined;
-}
-
-/**
- * @public
- */
-export interface CreateModelInput {
-  /**
-   * <p>The name of the new model.</p>
-   * @public
-   */
-  ModelName: string | undefined;
-
-  /**
-   * <p>The location of the primary docker image containing inference code, associated artifacts, and custom environment map that the inference code uses when the model is deployed for predictions. </p>
-   * @public
-   */
-  PrimaryContainer?: ContainerDefinition | undefined;
-
-  /**
-   * <p>Specifies the containers in the inference pipeline.</p>
-   * @public
-   */
-  Containers?: ContainerDefinition[] | undefined;
-
-  /**
-   * <p>Specifies details of how containers in a multi-container endpoint are called.</p>
-   * @public
-   */
-  InferenceExecutionConfig?: InferenceExecutionConfig | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the IAM role that SageMaker can assume to access model artifacts and docker image for deployment on ML compute instances or for batch transform jobs. Deploying on ML compute instances is part of model hosting. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-roles.html">SageMaker Roles</a>. </p> <note> <p>To be able to pass this role to SageMaker, the caller of this API must have the <code>iam:PassRole</code> permission.</p> </note>
-   * @public
-   */
-  ExecutionRoleArn?: string | undefined;
-
-  /**
-   * <p>An array of key-value pairs. You can use tags to categorize your Amazon Web Services resources in different ways, for example, by purpose, owner, or environment. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services Resources</a>.</p>
-   * @public
-   */
-  Tags?: Tag[] | undefined;
-
-  /**
-   * <p>A <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_VpcConfig.html">VpcConfig</a> object that specifies the VPC that you want your model to connect to. Control access to and from your model container by configuring the VPC. <code>VpcConfig</code> is used in hosting services and in batch transform. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/host-vpc.html">Protect Endpoints by Using an Amazon Virtual Private Cloud</a> and <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/batch-vpc.html">Protect Data in Batch Transform Jobs by Using an Amazon Virtual Private Cloud</a>.</p>
-   * @public
-   */
-  VpcConfig?: VpcConfig | undefined;
-
-  /**
-   * <p>Isolates the model container. No inbound or outbound network calls can be made to or from the model container.</p>
-   * @public
-   */
-  EnableNetworkIsolation?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface CreateModelOutput {
-  /**
-   * <p>The ARN of the model created in SageMaker.</p>
-   * @public
-   */
-  ModelArn: string | undefined;
-}
-
-/**
- * <p>Docker container image configuration object for the model bias job.</p>
- * @public
- */
-export interface ModelBiasAppSpecification {
-  /**
-   * <p>The container image to be run by the model bias job.</p>
-   * @public
-   */
-  ImageUri: string | undefined;
-
-  /**
-   * <p>JSON formatted S3 file that defines bias parameters. For more information on this JSON configuration file, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/clarify-config-json-monitor-bias-parameters.html">Configure bias parameters</a>.</p>
-   * @public
-   */
-  ConfigUri: string | undefined;
-
-  /**
-   * <p>Sets the environment variables in the Docker container.</p>
-   * @public
-   */
-  Environment?: Record<string, string> | undefined;
 }

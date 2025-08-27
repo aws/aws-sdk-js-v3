@@ -39,13 +39,13 @@ import {
   CfnCreateTemplateProvider,
   Channel,
   CheckpointConfig,
+  ClusterAutoScalingConfigOutput,
   ClusterEventDetail,
   ClusterInstanceGroupDetails,
   ClusterNodeDetails,
   ClusterNodeProvisioningMode,
   ClusterNodeRecovery,
   ClusterOrchestrator,
-  ClusterRestrictedInstanceGroupDetails,
   CodeEditorAppImageConfig,
   FeatureStatus,
   InferenceSpecification,
@@ -61,7 +61,6 @@ import {
   ProductionVariantInstanceType,
   ResourceConfig,
   ResourceSpec,
-  SchedulerResourceStatus,
   StoppingCondition,
   Tag,
   TransformInput,
@@ -74,20 +73,20 @@ import {
 
 import {
   _InstanceType,
+  ClusterRestrictedInstanceGroupDetails,
   ClusterStatus,
   CodeRepository,
   CognitoConfig,
   CognitoMemberDefinition,
   CollectionConfiguration,
+  ContainerDefinition,
   DeviceSelectionConfig,
   EdgeDeploymentConfig,
   EndpointInput,
-  GitConfig,
   HubContentType,
   JupyterServerAppSettings,
   KernelGatewayAppSettings,
   MetadataProperties,
-  ModelBiasAppSpecification,
   ModelDeployConfig,
   MonitoringConstraintsResource,
   MonitoringNetworkConfig,
@@ -99,9 +98,124 @@ import {
   ProcessingS3UploadMode,
   RetryStrategy,
   SchedulerConfig,
+  SchedulerResourceStatus,
   TrainingSpecification,
   UserSettings,
 } from "./models_1";
+
+/**
+ * @public
+ * @enum
+ */
+export const InferenceExecutionMode = {
+  DIRECT: "Direct",
+  SERIAL: "Serial",
+} as const;
+
+/**
+ * @public
+ */
+export type InferenceExecutionMode = (typeof InferenceExecutionMode)[keyof typeof InferenceExecutionMode];
+
+/**
+ * <p>Specifies details about how containers in a multi-container endpoint are run.</p>
+ * @public
+ */
+export interface InferenceExecutionConfig {
+  /**
+   * <p>How containers in a multi-container are run. The following values are valid.</p> <ul> <li> <p> <code>SERIAL</code> - Containers run as a serial pipeline.</p> </li> <li> <p> <code>DIRECT</code> - Only the individual container that you specify is run.</p> </li> </ul>
+   * @public
+   */
+  Mode: InferenceExecutionMode | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateModelInput {
+  /**
+   * <p>The name of the new model.</p>
+   * @public
+   */
+  ModelName: string | undefined;
+
+  /**
+   * <p>The location of the primary docker image containing inference code, associated artifacts, and custom environment map that the inference code uses when the model is deployed for predictions. </p>
+   * @public
+   */
+  PrimaryContainer?: ContainerDefinition | undefined;
+
+  /**
+   * <p>Specifies the containers in the inference pipeline.</p>
+   * @public
+   */
+  Containers?: ContainerDefinition[] | undefined;
+
+  /**
+   * <p>Specifies details of how containers in a multi-container endpoint are called.</p>
+   * @public
+   */
+  InferenceExecutionConfig?: InferenceExecutionConfig | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the IAM role that SageMaker can assume to access model artifacts and docker image for deployment on ML compute instances or for batch transform jobs. Deploying on ML compute instances is part of model hosting. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-roles.html">SageMaker Roles</a>. </p> <note> <p>To be able to pass this role to SageMaker, the caller of this API must have the <code>iam:PassRole</code> permission.</p> </note>
+   * @public
+   */
+  ExecutionRoleArn?: string | undefined;
+
+  /**
+   * <p>An array of key-value pairs. You can use tags to categorize your Amazon Web Services resources in different ways, for example, by purpose, owner, or environment. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services Resources</a>.</p>
+   * @public
+   */
+  Tags?: Tag[] | undefined;
+
+  /**
+   * <p>A <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_VpcConfig.html">VpcConfig</a> object that specifies the VPC that you want your model to connect to. Control access to and from your model container by configuring the VPC. <code>VpcConfig</code> is used in hosting services and in batch transform. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/host-vpc.html">Protect Endpoints by Using an Amazon Virtual Private Cloud</a> and <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/batch-vpc.html">Protect Data in Batch Transform Jobs by Using an Amazon Virtual Private Cloud</a>.</p>
+   * @public
+   */
+  VpcConfig?: VpcConfig | undefined;
+
+  /**
+   * <p>Isolates the model container. No inbound or outbound network calls can be made to or from the model container.</p>
+   * @public
+   */
+  EnableNetworkIsolation?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateModelOutput {
+  /**
+   * <p>The ARN of the model created in SageMaker.</p>
+   * @public
+   */
+  ModelArn: string | undefined;
+}
+
+/**
+ * <p>Docker container image configuration object for the model bias job.</p>
+ * @public
+ */
+export interface ModelBiasAppSpecification {
+  /**
+   * <p>The container image to be run by the model bias job.</p>
+   * @public
+   */
+  ImageUri: string | undefined;
+
+  /**
+   * <p>JSON formatted S3 file that defines bias parameters. For more information on this JSON configuration file, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/clarify-config-json-monitor-bias-parameters.html">Configure bias parameters</a>.</p>
+   * @public
+   */
+  ConfigUri: string | undefined;
+
+  /**
+   * <p>Sets the environment variables in the Docker container.</p>
+   * @public
+   */
+  Environment?: Record<string, string> | undefined;
+}
 
 /**
  * <p>The configuration for a baseline model bias job.</p>
@@ -6783,6 +6897,18 @@ export interface DescribeClusterResponse {
    * @public
    */
   NodeProvisioningMode?: ClusterNodeProvisioningMode | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the IAM role that HyperPod uses for cluster autoscaling operations.</p>
+   * @public
+   */
+  ClusterRole?: string | undefined;
+
+  /**
+   * <p>The current autoscaling configuration and status for the autoscaler.</p>
+   * @public
+   */
+  AutoScaling?: ClusterAutoScalingConfigOutput | undefined;
 }
 
 /**
@@ -6945,87 +7071,6 @@ export interface DescribeClusterSchedulerConfigResponse {
    * @public
    */
   LastModifiedBy?: UserContext | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeCodeRepositoryInput {
-  /**
-   * <p>The name of the Git repository to describe.</p>
-   * @public
-   */
-  CodeRepositoryName: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeCodeRepositoryOutput {
-  /**
-   * <p>The name of the Git repository.</p>
-   * @public
-   */
-  CodeRepositoryName: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the Git repository.</p>
-   * @public
-   */
-  CodeRepositoryArn: string | undefined;
-
-  /**
-   * <p>The date and time that the repository was created.</p>
-   * @public
-   */
-  CreationTime: Date | undefined;
-
-  /**
-   * <p>The date and time that the repository was last changed.</p>
-   * @public
-   */
-  LastModifiedTime: Date | undefined;
-
-  /**
-   * <p>Configuration details about the repository, including the URL where the repository is located, the default branch, and the Amazon Resource Name (ARN) of the Amazon Web Services Secrets Manager secret that contains the credentials used to access the repository.</p>
-   * @public
-   */
-  GitConfig?: GitConfig | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeCompilationJobRequest {
-  /**
-   * <p>The name of the model compilation job that you want information about.</p>
-   * @public
-   */
-  CompilationJobName: string | undefined;
-}
-
-/**
- * <p>Provides information about the location that is configured for storing model artifacts. </p> <p>Model artifacts are outputs that result from training a model. They typically consist of trained parameters, a model definition that describes how to compute inferences, and other metadata. A SageMaker container stores your trained model artifacts in the <code>/opt/ml/model</code> directory. After training has completed, by default, these artifacts are uploaded to your Amazon S3 bucket as compressed files.</p>
- * @public
- */
-export interface ModelArtifacts {
-  /**
-   * <p>The path of the S3 object that contains the model artifacts. For example, <code>s3://bucket-name/keynameprefix/model.tar.gz</code>.</p>
-   * @public
-   */
-  S3ModelArtifacts: string | undefined;
-}
-
-/**
- * <p>Provides information to verify the integrity of stored model artifacts. </p>
- * @public
- */
-export interface ModelDigests {
-  /**
-   * <p>Provides a hash value that uniquely identifies the stored model artifacts.</p>
-   * @public
-   */
-  ArtifactDigest?: string | undefined;
 }
 
 /**

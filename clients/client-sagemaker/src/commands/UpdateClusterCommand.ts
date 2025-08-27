@@ -154,6 +154,11 @@ export interface UpdateClusterCommandOutput extends UpdateClusterResponse, __Met
  *   InstanceGroupsToDelete: [ // ClusterInstanceGroupsToDelete
  *     "STRING_VALUE",
  *   ],
+ *   ClusterRole: "STRING_VALUE",
+ *   AutoScaling: { // ClusterAutoScalingConfig
+ *     Mode: "Enable" || "Disable", // required
+ *     AutoScalerType: "Karpenter",
+ *   },
  * };
  * const command = new UpdateClusterCommand(input);
  * const response = await client.send(command);

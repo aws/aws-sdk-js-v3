@@ -29,7 +29,6 @@ import {
   ModelApprovalStatus,
   ModelPackageStatus,
   OutputParameter,
-  SchedulerResourceStatus,
   Tag,
   UserContext,
 } from "./models_0";
@@ -57,6 +56,7 @@ import {
   LabelingJobInputConfig,
   RecommendationJobType,
   ResourceLimits,
+  SchedulerResourceStatus,
 } from "./models_1";
 
 import {
@@ -98,8 +98,7 @@ import {
   FeatureGroupStatus,
   FeatureGroupSummary,
   FlowDefinitionSummary,
-  HubContentInfo,
-  HubContentSortBy,
+  HubContentStatus,
   HubContentSupportStatus,
   HubStatus,
   HyperParameterTrainingJobSummary,
@@ -143,10 +142,143 @@ import {
   TransformJobStatus,
   TrialComponentSource,
   TrialSource,
-  UserProfileStatus,
   WarmPoolResourceStatus,
   WarmPoolStatus,
 } from "./models_3";
+
+/**
+ * <p>A property name returned from a <code>GetSearchSuggestions</code> call that specifies a value in the <code>PropertyNameQuery</code> field.</p>
+ * @public
+ */
+export interface PropertyNameSuggestion {
+  /**
+   * <p>A suggested property name based on what you entered in the search textbox in the SageMaker console.</p>
+   * @public
+   */
+  PropertyName?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetSearchSuggestionsResponse {
+  /**
+   * <p>A list of property names for a <code>Resource</code> that match a <code>SuggestionQuery</code>.</p>
+   * @public
+   */
+  PropertyNameSuggestions?: PropertyNameSuggestion[] | undefined;
+}
+
+/**
+ * <p>Specifies configuration details for a Git repository when the repository is updated.</p>
+ * @public
+ */
+export interface GitConfigForUpdate {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Amazon Web Services Secrets Manager secret that contains the credentials used to access the git repository. The secret must have a staging label of <code>AWSCURRENT</code> and must be in the following format:</p> <p> <code>\{"username": <i>UserName</i>, "password": <i>Password</i>\}</code> </p>
+   * @public
+   */
+  SecretArn?: string | undefined;
+}
+
+/**
+ * <p>Information about hub content.</p>
+ * @public
+ */
+export interface HubContentInfo {
+  /**
+   * <p>The name of the hub content.</p>
+   * @public
+   */
+  HubContentName: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the hub content.</p>
+   * @public
+   */
+  HubContentArn: string | undefined;
+
+  /**
+   * <p>The ARN of the public hub content.</p>
+   * @public
+   */
+  SageMakerPublicHubContentArn?: string | undefined;
+
+  /**
+   * <p>The version of the hub content.</p>
+   * @public
+   */
+  HubContentVersion: string | undefined;
+
+  /**
+   * <p>The type of hub content.</p>
+   * @public
+   */
+  HubContentType: HubContentType | undefined;
+
+  /**
+   * <p>The version of the hub content document schema.</p>
+   * @public
+   */
+  DocumentSchemaVersion: string | undefined;
+
+  /**
+   * <p>The display name of the hub content.</p>
+   * @public
+   */
+  HubContentDisplayName?: string | undefined;
+
+  /**
+   * <p>A description of the hub content.</p>
+   * @public
+   */
+  HubContentDescription?: string | undefined;
+
+  /**
+   * <p>The support status of the hub content.</p>
+   * @public
+   */
+  SupportStatus?: HubContentSupportStatus | undefined;
+
+  /**
+   * <p>The searchable keywords for the hub content.</p>
+   * @public
+   */
+  HubContentSearchKeywords?: string[] | undefined;
+
+  /**
+   * <p>The status of the hub content.</p>
+   * @public
+   */
+  HubContentStatus: HubContentStatus | undefined;
+
+  /**
+   * <p>The date and time that the hub content was created.</p>
+   * @public
+   */
+  CreationTime: Date | undefined;
+
+  /**
+   * <p>The date and time when the hub content was originally created, before any updates or revisions.</p>
+   * @public
+   */
+  OriginalCreationTime?: Date | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const HubContentSortBy = {
+  CREATION_TIME: "CreationTime",
+  HUB_CONTENT_NAME: "HubContentName",
+  HUB_CONTENT_STATUS: "HubContentStatus",
+} as const;
+
+/**
+ * @public
+ */
+export type HubContentSortBy = (typeof HubContentSortBy)[keyof typeof HubContentSortBy];
 
 /**
  * <p>Information about a hub.</p>
@@ -9621,147 +9753,3 @@ export const UserProfileSortKey = {
  * @public
  */
 export type UserProfileSortKey = (typeof UserProfileSortKey)[keyof typeof UserProfileSortKey];
-
-/**
- * @public
- */
-export interface ListUserProfilesRequest {
-  /**
-   * <p>If the previous response was truncated, you will receive this token. Use it in your next request to receive the next set of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>This parameter defines the maximum number of results that can be return in a single response. The <code>MaxResults</code> parameter is an upper bound, not a target. If there are more results available than the value specified, a <code>NextToken</code> is provided in the response. The <code>NextToken</code> indicates that the user should get the next set of results by providing this token as a part of a subsequent call. The default value for <code>MaxResults</code> is 10.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>The sort order for the results. The default is Ascending.</p>
-   * @public
-   */
-  SortOrder?: SortOrder | undefined;
-
-  /**
-   * <p>The parameter by which to sort the results. The default is CreationTime.</p>
-   * @public
-   */
-  SortBy?: UserProfileSortKey | undefined;
-
-  /**
-   * <p>A parameter by which to filter the results.</p>
-   * @public
-   */
-  DomainIdEquals?: string | undefined;
-
-  /**
-   * <p>A parameter by which to filter the results.</p>
-   * @public
-   */
-  UserProfileNameContains?: string | undefined;
-}
-
-/**
- * <p>The user profile details.</p>
- * @public
- */
-export interface UserProfileDetails {
-  /**
-   * <p>The domain ID.</p>
-   * @public
-   */
-  DomainId?: string | undefined;
-
-  /**
-   * <p>The user profile name.</p>
-   * @public
-   */
-  UserProfileName?: string | undefined;
-
-  /**
-   * <p>The status.</p>
-   * @public
-   */
-  Status?: UserProfileStatus | undefined;
-
-  /**
-   * <p>The creation time.</p>
-   * @public
-   */
-  CreationTime?: Date | undefined;
-
-  /**
-   * <p>The last modified time.</p>
-   * @public
-   */
-  LastModifiedTime?: Date | undefined;
-}
-
-/**
- * @public
- */
-export interface ListUserProfilesResponse {
-  /**
-   * <p>The list of user profiles.</p>
-   * @public
-   */
-  UserProfiles?: UserProfileDetails[] | undefined;
-
-  /**
-   * <p>If the previous response was truncated, you will receive this token. Use it in your next request to receive the next set of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const ListWorkforcesSortByOptions = {
-  CreateDate: "CreateDate",
-  Name: "Name",
-} as const;
-
-/**
- * @public
- */
-export type ListWorkforcesSortByOptions =
-  (typeof ListWorkforcesSortByOptions)[keyof typeof ListWorkforcesSortByOptions];
-
-/**
- * @public
- */
-export interface ListWorkforcesRequest {
-  /**
-   * <p>Sort workforces using the workforce name or creation date.</p>
-   * @public
-   */
-  SortBy?: ListWorkforcesSortByOptions | undefined;
-
-  /**
-   * <p>Sort workforces in ascending or descending order.</p>
-   * @public
-   */
-  SortOrder?: SortOrder | undefined;
-
-  /**
-   * <p>A filter you can use to search for workforces using part of the workforce name.</p>
-   * @public
-   */
-  NameContains?: string | undefined;
-
-  /**
-   * <p>A token to resume pagination.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of workforces returned in the response.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-}

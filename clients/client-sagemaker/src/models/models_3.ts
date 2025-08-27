@@ -29,7 +29,6 @@ import {
   ProductionVariantInstanceType,
   ResourceConfig,
   ResourceSpec,
-  SchedulerResourceStatus,
   StoppingCondition,
   Tag,
   TransformInput,
@@ -65,6 +64,7 @@ import {
   FeatureDefinition,
   FeatureType,
   FlowDefinitionOutputConfig,
+  GitConfig,
   HubContentType,
   HubS3StorageConfig,
   HumanLoopActivationConfig,
@@ -77,7 +77,6 @@ import {
   HyperParameterTuningJobWarmStartConfig,
   InferenceComponentComputeResourceRequirements,
   InferenceComponentStartupParameters,
-  InferenceExecutionConfig,
   InferenceExperimentDataStorageConfig,
   InferenceExperimentSchedule,
   InferenceExperimentType,
@@ -88,7 +87,6 @@ import {
   LabelingJobOutputConfig,
   LabelingJobStoppingConditions,
   MetadataProperties,
-  ModelBiasAppSpecification,
   ModelInfrastructureConfig,
   MonitoringNetworkConfig,
   MonitoringOutputConfig,
@@ -108,6 +106,7 @@ import {
   RecommendationJobStoppingConditions,
   RecommendationJobType,
   RetryStrategy,
+  SchedulerResourceStatus,
   ShadowModeConfig,
   TagPropagation,
   ThroughputMode,
@@ -132,17 +131,17 @@ import {
   DirectInternetAccess,
   DriftCheckBaselines,
   ExperimentConfig,
+  InferenceExecutionConfig,
   InfraCheckConfig,
   InstanceMetadataServiceConfiguration,
   MemberDefinition,
-  ModelArtifacts,
+  ModelBiasAppSpecification,
   ModelBiasBaselineConfig,
   ModelBiasJobInput,
   ModelCardExportOutputConfig,
   ModelCardSecurityConfig,
   ModelCardStatus,
   ModelClientConfig,
-  ModelDigests,
   ModelExplainabilityAppSpecification,
   ModelExplainabilityBaselineConfig,
   ModelExplainabilityJobInput,
@@ -195,6 +194,87 @@ import {
   WorkerAccessConfiguration,
   WorkforceIpAddressType,
 } from "./models_2";
+
+/**
+ * @public
+ */
+export interface DescribeCodeRepositoryInput {
+  /**
+   * <p>The name of the Git repository to describe.</p>
+   * @public
+   */
+  CodeRepositoryName: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeCodeRepositoryOutput {
+  /**
+   * <p>The name of the Git repository.</p>
+   * @public
+   */
+  CodeRepositoryName: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Git repository.</p>
+   * @public
+   */
+  CodeRepositoryArn: string | undefined;
+
+  /**
+   * <p>The date and time that the repository was created.</p>
+   * @public
+   */
+  CreationTime: Date | undefined;
+
+  /**
+   * <p>The date and time that the repository was last changed.</p>
+   * @public
+   */
+  LastModifiedTime: Date | undefined;
+
+  /**
+   * <p>Configuration details about the repository, including the URL where the repository is located, the default branch, and the Amazon Resource Name (ARN) of the Amazon Web Services Secrets Manager secret that contains the credentials used to access the repository.</p>
+   * @public
+   */
+  GitConfig?: GitConfig | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeCompilationJobRequest {
+  /**
+   * <p>The name of the model compilation job that you want information about.</p>
+   * @public
+   */
+  CompilationJobName: string | undefined;
+}
+
+/**
+ * <p>Provides information about the location that is configured for storing model artifacts. </p> <p>Model artifacts are outputs that result from training a model. They typically consist of trained parameters, a model definition that describes how to compute inferences, and other metadata. A SageMaker container stores your trained model artifacts in the <code>/opt/ml/model</code> directory. After training has completed, by default, these artifacts are uploaded to your Amazon S3 bucket as compressed files.</p>
+ * @public
+ */
+export interface ModelArtifacts {
+  /**
+   * <p>The path of the S3 object that contains the model artifacts. For example, <code>s3://bucket-name/keynameprefix/model.tar.gz</code>.</p>
+   * @public
+   */
+  S3ModelArtifacts: string | undefined;
+}
+
+/**
+ * <p>Provides information to verify the integrity of stored model artifacts. </p>
+ * @public
+ */
+export interface ModelDigests {
+  /**
+   * <p>Provides a hash value that uniquely identifies the stored model artifacts.</p>
+   * @public
+   */
+  ArtifactDigest?: string | undefined;
+}
 
 /**
  * @public
@@ -10488,140 +10568,6 @@ export interface GetSearchSuggestionsRequest {
    */
   SuggestionQuery?: SuggestionQuery | undefined;
 }
-
-/**
- * <p>A property name returned from a <code>GetSearchSuggestions</code> call that specifies a value in the <code>PropertyNameQuery</code> field.</p>
- * @public
- */
-export interface PropertyNameSuggestion {
-  /**
-   * <p>A suggested property name based on what you entered in the search textbox in the SageMaker console.</p>
-   * @public
-   */
-  PropertyName?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface GetSearchSuggestionsResponse {
-  /**
-   * <p>A list of property names for a <code>Resource</code> that match a <code>SuggestionQuery</code>.</p>
-   * @public
-   */
-  PropertyNameSuggestions?: PropertyNameSuggestion[] | undefined;
-}
-
-/**
- * <p>Specifies configuration details for a Git repository when the repository is updated.</p>
- * @public
- */
-export interface GitConfigForUpdate {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the Amazon Web Services Secrets Manager secret that contains the credentials used to access the git repository. The secret must have a staging label of <code>AWSCURRENT</code> and must be in the following format:</p> <p> <code>\{"username": <i>UserName</i>, "password": <i>Password</i>\}</code> </p>
-   * @public
-   */
-  SecretArn?: string | undefined;
-}
-
-/**
- * <p>Information about hub content.</p>
- * @public
- */
-export interface HubContentInfo {
-  /**
-   * <p>The name of the hub content.</p>
-   * @public
-   */
-  HubContentName: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the hub content.</p>
-   * @public
-   */
-  HubContentArn: string | undefined;
-
-  /**
-   * <p>The ARN of the public hub content.</p>
-   * @public
-   */
-  SageMakerPublicHubContentArn?: string | undefined;
-
-  /**
-   * <p>The version of the hub content.</p>
-   * @public
-   */
-  HubContentVersion: string | undefined;
-
-  /**
-   * <p>The type of hub content.</p>
-   * @public
-   */
-  HubContentType: HubContentType | undefined;
-
-  /**
-   * <p>The version of the hub content document schema.</p>
-   * @public
-   */
-  DocumentSchemaVersion: string | undefined;
-
-  /**
-   * <p>The display name of the hub content.</p>
-   * @public
-   */
-  HubContentDisplayName?: string | undefined;
-
-  /**
-   * <p>A description of the hub content.</p>
-   * @public
-   */
-  HubContentDescription?: string | undefined;
-
-  /**
-   * <p>The support status of the hub content.</p>
-   * @public
-   */
-  SupportStatus?: HubContentSupportStatus | undefined;
-
-  /**
-   * <p>The searchable keywords for the hub content.</p>
-   * @public
-   */
-  HubContentSearchKeywords?: string[] | undefined;
-
-  /**
-   * <p>The status of the hub content.</p>
-   * @public
-   */
-  HubContentStatus: HubContentStatus | undefined;
-
-  /**
-   * <p>The date and time that the hub content was created.</p>
-   * @public
-   */
-  CreationTime: Date | undefined;
-
-  /**
-   * <p>The date and time when the hub content was originally created, before any updates or revisions.</p>
-   * @public
-   */
-  OriginalCreationTime?: Date | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const HubContentSortBy = {
-  CREATION_TIME: "CreationTime",
-  HUB_CONTENT_NAME: "HubContentName",
-  HUB_CONTENT_STATUS: "HubContentStatus",
-} as const;
-
-/**
- * @public
- */
-export type HubContentSortBy = (typeof HubContentSortBy)[keyof typeof HubContentSortBy];
 
 /**
  * @internal

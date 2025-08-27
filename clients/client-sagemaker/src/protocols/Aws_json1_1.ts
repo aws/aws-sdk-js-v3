@@ -1118,6 +1118,8 @@ import {
   ClarifyShapBaselineConfig,
   ClarifyShapConfig,
   ClarifyTextConfig,
+  ClusterAutoScalingConfig,
+  ClusterAutoScalingConfigOutput,
   ClusterEbsVolumeConfig,
   ClusterEventDetail,
   ClusterEventSummary,
@@ -1132,8 +1134,6 @@ import {
   ClusterNodeSummary,
   ClusterOrchestrator,
   ClusterOrchestratorEksConfig,
-  ClusterRestrictedInstanceGroupDetails,
-  ClusterRestrictedInstanceGroupSpecification,
   CodeEditorAppImageConfig,
   CompressionType,
   ContainerConfig,
@@ -1143,8 +1143,6 @@ import {
   DirectDeploySettings,
   EmrServerlessComputeConfig,
   EmrServerlessSettings,
-  EnvironmentConfig,
-  EnvironmentConfigDetails,
   EventDetails,
   EventMetadata,
   FileSystemConfig,
@@ -1226,6 +1224,8 @@ import {
   WorkspaceSettings,
 } from "../models/models_0";
 import {
+  ClusterRestrictedInstanceGroupDetails,
+  ClusterRestrictedInstanceGroupSpecification,
   ClusterSchedulerConfigSummary,
   ClusterSummary,
   CodeEditorAppSettings,
@@ -1318,8 +1318,6 @@ import {
   CreateLabelingJobResponse,
   CreateMlflowTrackingServerRequest,
   CreateMlflowTrackingServerResponse,
-  CreateModelInput,
-  CreateModelOutput,
   CustomFileSystemConfig,
   CustomImage,
   CustomPosixUserConfig,
@@ -1344,6 +1342,8 @@ import {
   EndpointInfo,
   EndpointInput,
   EndpointInputConfiguration,
+  EnvironmentConfig,
+  EnvironmentConfigDetails,
   EnvironmentParameterRanges,
   ExplainerConfig,
   FeatureDefinition,
@@ -1373,7 +1373,6 @@ import {
   InferenceComponentRuntimeConfig,
   InferenceComponentSpecification,
   InferenceComponentStartupParameters,
-  InferenceExecutionConfig,
   InferenceExperimentDataStorageConfig,
   InferenceExperimentSchedule,
   InputConfig,
@@ -1393,7 +1392,6 @@ import {
   LabelingJobStoppingConditions,
   MetadataProperties,
   MlTools,
-  ModelBiasAppSpecification,
   ModelDeployConfig,
   ModelInfrastructureConfig,
   ModelLatencyThreshold,
@@ -1476,6 +1474,8 @@ import {
   CreateModelCardResponse,
   CreateModelExplainabilityJobDefinitionRequest,
   CreateModelExplainabilityJobDefinitionResponse,
+  CreateModelInput,
+  CreateModelOutput,
   CreateModelPackageGroupInput,
   CreateModelPackageGroupOutput,
   CreateModelPackageInput,
@@ -1636,9 +1636,6 @@ import {
   DescribeClusterResponse,
   DescribeClusterSchedulerConfigRequest,
   DescribeClusterSchedulerConfigResponse,
-  DescribeCodeRepositoryInput,
-  DescribeCodeRepositoryOutput,
-  DescribeCompilationJobRequest,
   DriftCheckBaselines,
   DriftCheckBias,
   DriftCheckExplainability,
@@ -1652,10 +1649,11 @@ import {
   FileSource,
   FSxLustreFileSystem,
   IamPolicyConstraints,
+  InferenceExecutionConfig,
   InfraCheckConfig,
   InstanceMetadataServiceConfiguration,
   MemberDefinition,
-  ModelArtifacts,
+  ModelBiasAppSpecification,
   ModelBiasBaselineConfig,
   ModelBiasJobInput,
   ModelCardExportOutputConfig,
@@ -1664,7 +1662,6 @@ import {
   ModelCompilationConfig,
   ModelDataQuality,
   ModelDeployResult,
-  ModelDigests,
   ModelExplainabilityAppSpecification,
   ModelExplainabilityBaselineConfig,
   ModelExplainabilityJobInput,
@@ -1743,6 +1740,9 @@ import {
   WorkforceVpcConfigRequest,
 } from "../models/models_2";
 import {
+  DescribeCodeRepositoryInput,
+  DescribeCodeRepositoryOutput,
+  DescribeCompilationJobRequest,
   DescribeCompilationJobResponse,
   DescribeComputeQuotaRequest,
   DescribeComputeQuotaResponse,
@@ -1914,10 +1914,7 @@ import {
   GetScalingConfigurationRecommendationRequest,
   GetScalingConfigurationRecommendationResponse,
   GetSearchSuggestionsRequest,
-  GetSearchSuggestionsResponse,
-  GitConfigForUpdate,
   HubContentDependency,
-  HubContentInfo,
   HyperParameterTrainingJobSummary,
   HyperParameterTuningJobCompletionDetails,
   HyperParameterTuningJobConsumedResources,
@@ -1934,8 +1931,10 @@ import {
   LastUpdateStatus,
   MetricData,
   MetricSpecification,
+  ModelArtifacts,
   ModelCardExportArtifacts,
   ModelConfiguration,
+  ModelDigests,
   ModelPackageStatusDetails,
   ModelPackageStatusItem,
   ModelVariantConfigSummary,
@@ -1955,7 +1954,6 @@ import {
   ProductionVariantSummary,
   ProfilerRuleEvaluationStatus,
   PropertyNameQuery,
-  PropertyNameSuggestion,
   RecommendationMetrics,
   ReservedCapacitySummary,
   RStudioServerProDomainSettingsForUpdate,
@@ -1984,6 +1982,9 @@ import {
   Workteam,
 } from "../models/models_3";
 import {
+  GetSearchSuggestionsResponse,
+  GitConfigForUpdate,
+  HubContentInfo,
   HubInfo,
   HumanTaskUiSummary,
   HyperParameterTuningJobSearchEntity,
@@ -2164,9 +2165,6 @@ import {
   ListTrialsResponse,
   ListUltraServersByReservedCapacityRequest,
   ListUltraServersByReservedCapacityResponse,
-  ListUserProfilesRequest,
-  ListUserProfilesResponse,
-  ListWorkforcesRequest,
   ModelCardExportJobSummary,
   ModelCardSummary,
   ModelCardVersionSummary,
@@ -2197,6 +2195,7 @@ import {
   ProcessingJobStepMetadata,
   ProcessingJobSummary,
   ProjectSummary,
+  PropertyNameSuggestion,
   QualityCheckStepMetadata,
   RecommendationJobInferenceBenchmark,
   RegisterModelStepMetadata,
@@ -2217,9 +2216,11 @@ import {
   TrialSummary,
   TuningJobStepMetaData,
   UltraServer,
-  UserProfileDetails,
 } from "../models/models_4";
 import {
+  ListUserProfilesRequest,
+  ListUserProfilesResponse,
+  ListWorkforcesRequest,
   ListWorkforcesResponse,
   ListWorkteamsRequest,
   ListWorkteamsResponse,
@@ -2393,6 +2394,7 @@ import {
   UpdateWorkforceResponse,
   UpdateWorkteamRequest,
   UpdateWorkteamResponse,
+  UserProfileDetails,
   VariantProperty,
   Vertex,
   VisibilityConditions,
@@ -14727,6 +14729,8 @@ const se_BatchTransformInput = (input: BatchTransformInput, context: __SerdeCont
 
 // se_ClarifyTextConfig omitted.
 
+// se_ClusterAutoScalingConfig omitted.
+
 // se_ClusterEbsVolumeConfig omitted.
 
 // se_ClusterInstanceGroupSpecification omitted.
@@ -20069,6 +20073,18 @@ const de_ClarifyTextConfig = (output: any, context: __SerdeContext): ClarifyText
 };
 
 /**
+ * deserializeAws_json1_1ClusterAutoScalingConfigOutput
+ */
+const de_ClusterAutoScalingConfigOutput = (output: any, context: __SerdeContext): ClusterAutoScalingConfigOutput => {
+  return take(output, {
+    AutoScalerType: __expectString,
+    FailureMessage: __expectString,
+    Mode: __expectString,
+    Status: __expectString,
+  }) as any;
+};
+
+/**
  * deserializeAws_json1_1ClusterEbsVolumeConfig
  */
 const de_ClusterEbsVolumeConfig = (output: any, context: __SerdeContext): ClusterEbsVolumeConfig => {
@@ -22313,8 +22329,10 @@ const de_DescribeClusterNodeResponse = (output: any, context: __SerdeContext): D
  */
 const de_DescribeClusterResponse = (output: any, context: __SerdeContext): DescribeClusterResponse => {
   return take(output, {
+    AutoScaling: (_: any) => de_ClusterAutoScalingConfigOutput(_, context),
     ClusterArn: __expectString,
     ClusterName: __expectString,
+    ClusterRole: __expectString,
     ClusterStatus: __expectString,
     CreationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     FailureMessage: __expectString,

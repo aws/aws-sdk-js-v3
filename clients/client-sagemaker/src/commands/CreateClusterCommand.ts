@@ -171,6 +171,11 @@ export interface CreateClusterCommandOutput extends CreateClusterResponse, __Met
  *   },
  *   NodeRecovery: "Automatic" || "None",
  *   NodeProvisioningMode: "Continuous",
+ *   ClusterRole: "STRING_VALUE",
+ *   AutoScaling: { // ClusterAutoScalingConfig
+ *     Mode: "Enable" || "Disable", // required
+ *     AutoScalerType: "Karpenter",
+ *   },
  * };
  * const command = new CreateClusterCommand(input);
  * const response = await client.send(command);

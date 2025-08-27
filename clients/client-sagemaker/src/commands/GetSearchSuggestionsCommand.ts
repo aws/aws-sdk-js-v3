@@ -5,7 +5,8 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { GetSearchSuggestionsRequest, GetSearchSuggestionsResponse } from "../models/models_3";
+import { GetSearchSuggestionsRequest } from "../models/models_3";
+import { GetSearchSuggestionsResponse } from "../models/models_4";
 import { de_GetSearchSuggestionsCommand, se_GetSearchSuggestionsCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
