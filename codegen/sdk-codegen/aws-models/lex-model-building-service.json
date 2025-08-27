@@ -878,17 +878,6 @@
               }
             },
             {
-              "documentation": "For region us-iso-east-1 with FIPS enabled and DualStack enabled",
-              "expect": {
-                "error": "FIPS and DualStack are enabled, but this partition does not support one or both"
-              },
-              "params": {
-                "Region": "us-iso-east-1",
-                "UseFIPS": true,
-                "UseDualStack": true
-              }
-            },
-            {
               "documentation": "For region us-iso-east-1 with FIPS enabled and DualStack disabled",
               "expect": {
                 "endpoint": {
@@ -899,17 +888,6 @@
                 "Region": "us-iso-east-1",
                 "UseFIPS": true,
                 "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region us-iso-east-1 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "error": "DualStack is enabled but this partition does not support DualStack"
-              },
-              "params": {
-                "Region": "us-iso-east-1",
-                "UseFIPS": false,
-                "UseDualStack": true
               }
             },
             {
@@ -926,17 +904,6 @@
               }
             },
             {
-              "documentation": "For region us-isob-east-1 with FIPS enabled and DualStack enabled",
-              "expect": {
-                "error": "FIPS and DualStack are enabled, but this partition does not support one or both"
-              },
-              "params": {
-                "Region": "us-isob-east-1",
-                "UseFIPS": true,
-                "UseDualStack": true
-              }
-            },
-            {
               "documentation": "For region us-isob-east-1 with FIPS enabled and DualStack disabled",
               "expect": {
                 "endpoint": {
@@ -947,17 +914,6 @@
                 "Region": "us-isob-east-1",
                 "UseFIPS": true,
                 "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region us-isob-east-1 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "error": "DualStack is enabled but this partition does not support DualStack"
-              },
-              "params": {
-                "Region": "us-isob-east-1",
-                "UseFIPS": false,
-                "UseDualStack": true
               }
             },
             {
@@ -2813,8 +2769,8 @@
                 ]
               },
               "version": "$LATEST",
-              "lastUpdatedDate": 1494360160.133,
-              "createdDate": 1494360160.133,
+              "lastUpdatedDate": 1.494360160133e9,
+              "createdDate": 1.494360160133e9,
               "clarificationPrompt": {
                 "maxAttempts": 1,
                 "messages": [
@@ -3529,8 +3485,8 @@
                   "status": "NOT_BUILT",
                   "name": "DocOrderPizzaBot",
                   "version": "$LATEST",
-                  "lastUpdatedDate": 1494360160.133,
-                  "createdDate": 1494360160.133,
+                  "lastUpdatedDate": 1.494360160133e9,
+                  "createdDate": 1.494360160133e9,
                   "description": "Orders a pizza from a local pizzeria."
                 }
               ]
@@ -4137,8 +4093,8 @@
                   }
                 ]
               },
-              "createdDate": 1494359783.453,
-              "lastUpdatedDate": 1494359783.453,
+              "createdDate": 1.494359783453e9,
+              "lastUpdatedDate": 1.494359783453e9,
               "sampleUtterances": [
                 "Order me a pizza.",
                 "Order me a {Type} pizza.",
@@ -4493,9 +4449,9 @@
               "intents": [
                 {
                   "version": "$LATEST",
-                  "createdDate": 1494359783.453,
+                  "createdDate": 1.494359783453e9,
                   "name": "DocOrderPizza",
-                  "lastUpdatedDate": 1494359783.453,
+                  "lastUpdatedDate": 1.494359783453e9,
                   "description": "Order a pizza from a local pizzeria."
                 }
               ]
@@ -4825,8 +4781,8 @@
               "name": "DocPizzaCrustType",
               "checksum": "210b3d5a-90a3-4b22-ac7e-f50c2c71095f",
               "version": "$LATEST",
-              "lastUpdatedDate": 1494359274.403,
-              "createdDate": 1494359274.403,
+              "lastUpdatedDate": 1.494359274403e9,
+              "createdDate": 1.494359274403e9,
               "description": "Available crust types"
             }
           }
@@ -5052,23 +5008,23 @@
               "slotTypes": [
                 {
                   "version": "$LATEST",
-                  "createdDate": 1494359274.403,
+                  "createdDate": 1.494359274403e9,
                   "name": "DocPizzaCrustType",
-                  "lastUpdatedDate": 1494359274.403,
+                  "lastUpdatedDate": 1.494359274403e9,
                   "description": "Available crust types"
                 },
                 {
                   "version": "$LATEST",
-                  "createdDate": 1494356442.23,
+                  "createdDate": 1.49435644223e9,
                   "name": "DocPizzaSauceType",
-                  "lastUpdatedDate": 1494356442.23,
+                  "lastUpdatedDate": 1.49435644223e9,
                   "description": "Available pizza sauces"
                 },
                 {
                   "version": "$LATEST",
-                  "createdDate": 1494359198.656,
+                  "createdDate": 1.494359198656e9,
                   "name": "DocPizzaType",
-                  "lastUpdatedDate": 1494359198.656,
+                  "lastUpdatedDate": 1.494359198656e9,
                   "description": "Available pizzas"
                 }
               ]
@@ -6303,8 +6259,8 @@
                 ]
               },
               "version": "$LATEST",
-              "lastUpdatedDate": 1494360160.133,
-              "createdDate": 1494360160.133,
+              "lastUpdatedDate": 1.494360160133e9,
+              "createdDate": 1.494360160133e9,
               "clarificationPrompt": {
                 "maxAttempts": 1,
                 "messages": [
@@ -6906,8 +6862,8 @@
                   }
                 ]
               },
-              "createdDate": 1494359783.453,
-              "lastUpdatedDate": 1494359783.453,
+              "createdDate": 1.494359783453e9,
+              "lastUpdatedDate": 1.494359783453e9,
               "sampleUtterances": [
                 "Order me a pizza.",
                 "Order me a {Type} pizza.",
@@ -7283,8 +7239,8 @@
               "name": "DocPizzaSauceType",
               "checksum": "cfd00ed1-775d-4357-947c-aca7e73b44ba",
               "version": "$LATEST",
-              "lastUpdatedDate": 1494356442.23,
-              "createdDate": 1494356442.23,
+              "lastUpdatedDate": 1.49435644223e9,
+              "createdDate": 1.49435644223e9,
               "description": "Available pizza sauces"
             }
           }
