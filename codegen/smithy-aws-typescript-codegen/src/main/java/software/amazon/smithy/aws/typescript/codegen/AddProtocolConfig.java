@@ -22,7 +22,6 @@ import software.amazon.smithy.model.Model;
 import software.amazon.smithy.model.traits.XmlNamespaceTrait;
 import software.amazon.smithy.protocol.traits.Rpcv2CborTrait;
 import software.amazon.smithy.typescript.codegen.LanguageTarget;
-import software.amazon.smithy.typescript.codegen.TypeScriptDependency;
 import software.amazon.smithy.typescript.codegen.TypeScriptSettings;
 import software.amazon.smithy.typescript.codegen.TypeScriptWriter;
 import software.amazon.smithy.typescript.codegen.integration.TypeScriptIntegration;
