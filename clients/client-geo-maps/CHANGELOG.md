@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.878.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.877.0...v3.878.0) (2025-08-28)
+
+
+### Features
+
+* **client-geo-maps:** Remove incorrect endpoint tests ([857b727](https://github.com/aws/aws-sdk-js-v3/commit/857b7279967bd041ed8c861d2978bbc827cd0441))
+
+
+
+
+
 # [3.876.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.875.0...v3.876.0) (2025-08-26)
 
 **Note:** Version bump only for package @aws-sdk/client-geo-maps

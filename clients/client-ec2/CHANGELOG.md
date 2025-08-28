@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.878.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.877.0...v3.878.0) (2025-08-28)
+
+
+### Features
+
+* **client-ec2:** This release adds support for copying Amazon EBS snapshot and AMIs to and from Local Zones. ([a43fb6c](https://github.com/aws/aws-sdk-js-v3/commit/a43fb6c01c6dd0c04ba57924535837b2a88e34c3))
+
+
+
+
+
 # [3.876.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.875.0...v3.876.0) (2025-08-26)
 
 

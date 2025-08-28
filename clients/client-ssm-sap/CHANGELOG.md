@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.878.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.877.0...v3.878.0) (2025-08-28)
+
+
+### Features
+
+* **client-ssm-sap:** Added support for Configuration Checks on SAP HANA Applications. ([b674111](https://github.com/aws/aws-sdk-js-v3/commit/b674111250e4263de7741b86fa54d766083248d6))
+
+
+
+
+
 # [3.876.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.875.0...v3.876.0) (2025-08-26)
 
 **Note:** Version bump only for package @aws-sdk/client-ssm-sap
