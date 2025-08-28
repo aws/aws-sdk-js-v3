@@ -115,6 +115,7 @@ export interface DescribeOrderableDBInstanceOptionsCommandOutput
  * //       MinStorageThroughputPerIops: Number("double"),
  * //       MaxStorageThroughputPerIops: Number("double"),
  * //       SupportsDedicatedLogVolume: true || false,
+ * //       SupportsHttpEndpoint: true || false,
  * //     },
  * //   ],
  * //   Marker: "STRING_VALUE",

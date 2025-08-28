@@ -23199,6 +23199,9 @@ const de_OrderableDBInstanceOption = (output: any, context: __SerdeContext): Ord
   if (output[_SDLV] != null) {
     contents[_SDLV] = __parseBoolean(output[_SDLV]);
   }
+  if (output[_SHE] != null) {
+    contents[_SHE] = __parseBoolean(output[_SHE]);
+  }
   return contents;
 };
 
@@ -26027,6 +26030,7 @@ const _SG = "SecurityGroups";
 const _SGC = "SwitchoverGlobalCluster";
 const _SGD = "SupportsGlobalDatabases";
 const _SGS = "SubnetGroupStatus";
+const _SHE = "SupportsHttpEndpoint";
 const _SI = "SourceIdentifier";
 const _SIAMDA = "SupportsIAMDatabaseAuthentication";
 const _SIL = "SourceIdsList";

@@ -6131,6 +6131,12 @@ export interface OrderableDBInstanceOption {
    * @public
    */
   SupportsDedicatedLogVolume?: boolean | undefined;
+
+  /**
+   * <p>Indicates whether a DB instance supports HTTP endpoints.</p>
+   * @public
+   */
+  SupportsHttpEndpoint?: boolean | undefined;
 }
 
 /**

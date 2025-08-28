@@ -10246,14 +10246,14 @@ export interface CreateDBInstanceReadReplicaMessage {
   /**
    * <p>The name of the DB parameter group to associate with this read replica DB
    *             instance.</p>
-   *          <p>For the Db2 DB engine, if your source DB instance uses the Bring Your Own License
-   *             model, then a custom parameter group must be associated with the replica. For a same
-   *             Amazon Web Services Region replica, if you don't specify a custom parameter group, Amazon RDS
+   *          <p>For the Db2 DB engine, if your source DB instance uses the bring your own license
+   *             (BYOL) model, then a custom parameter group must be associated with the replica. For a
+   *             same Amazon Web Services Region replica, if you don't specify a custom parameter group, Amazon RDS
    *             associates the custom parameter group associated with the source DB instance. For a
    *             cross-Region replica, you must specify a custom parameter group. This custom parameter
    *             group must include your IBM Site ID and IBM Customer ID. For more information, see
-   *                 <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/db2-licensing.html#db2-prereqs-ibm-info"> IBM IDs
-   *                 for Bring Your Own License for Db2</a>. </p>
+   *                 <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/db2-licensing.html#db2-prereqs-ibm-info">IBM IDs
+   *                 for bring your own license (BYOL) for Db2</a>. </p>
    *          <p>For Single-AZ or Multi-AZ DB instance read replica instances, if you don't specify a
    *             value for <code>DBParameterGroupName</code>, then Amazon RDS uses the
    *                 <code>DBParameterGroup</code> of the source DB instance for a same Region read
@@ -12712,7 +12712,7 @@ export interface GlobalCluster {
   GlobalClusterIdentifier?: string | undefined;
 
   /**
-   * <p>The Amazon Web Services Region-unique, immutable identifier for the global database cluster. This identifier is found in
+   * <p>The Amazon Web Services <a href="https://docs.aws.amazon.com/glossary/latest/reference/glos-chap.html?id=docs_gateway#partition">partition</a>-unique, immutable identifier for the global database cluster. This identifier is found in
    *         Amazon Web Services CloudTrail log entries whenever the Amazon Web Services KMS key for the DB cluster is accessed.</p>
    * @public
    */
