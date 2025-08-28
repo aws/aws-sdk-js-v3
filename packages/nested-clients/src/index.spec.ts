@@ -32,3 +32,15 @@ describe("@aws-sdk/nested-clients/*", () => {
     }
   });
 });
+
+describe("@aws-sdk/nested-clients/sts", () => {
+  /**
+   * This is to validate that the rewrite happened as expected in
+   * runtimeConfig.ts. This is not the case with the canonical STS client from
+   * \@aws-sdk/client-sts.
+   */
+  it("has no credentialDefaultProvider", async () => {
+    const client = new STSClient({});
+    expect(client.config.credentialDefaultProvider).toBeUndefined();
+  });
+});
