@@ -3,8 +3,8 @@ import {
   HttpInterceptingShapeDeserializer,
   HttpInterceptingShapeSerializer,
 } from "@smithy/core/protocols";
-import { ErrorSchema, NormalizedSchema, SCHEMA, TypeRegistry } from "@smithy/core/schema";
-import {
+import { NormalizedSchema, SCHEMA } from "@smithy/core/schema";
+import type {
   EndpointBearer,
   HandlerExecutionContext,
   HttpRequest,
@@ -15,8 +15,8 @@ import {
   ShapeDeserializer,
   ShapeSerializer,
 } from "@smithy/types";
-import { calculateBodyLength } from "@smithy/util-body-length-browser";
 
+import { ProtocolLib } from "../ProtocolLib";
 import { JsonCodec, JsonSettings } from "./JsonCodec";
 import { loadRestJsonErrorCode } from "./parseJsonBody";
 
@@ -27,6 +27,7 @@ export class AwsRestJsonProtocol extends HttpBindingProtocol {
   protected serializer: ShapeSerializer<string | Uint8Array>;
   protected deserializer: ShapeDeserializer<string | Uint8Array>;
   private readonly codec: JsonCodec;
+  private readonly mixin = new ProtocolLib();
 
   public constructor({ defaultNamespace }: { defaultNamespace: string }) {
     super({
@@ -65,32 +66,11 @@ export class AwsRestJsonProtocol extends HttpBindingProtocol {
   ): Promise<HttpRequest> {
     const request = await super.serializeRequest(operationSchema, input, context);
     const inputSchema = NormalizedSchema.of(operationSchema.input);
-    const members = inputSchema.getMemberSchemas();
 
     if (!request.headers["content-type"]) {
-      const httpPayloadMember = Object.values(members).find((m) => {
-        return !!m.getMergedTraits().httpPayload;
-      });
-
-      if (httpPayloadMember) {
-        const mediaType = httpPayloadMember.getMergedTraits().mediaType as string;
-        if (mediaType) {
-          request.headers["content-type"] = mediaType;
-        } else if (httpPayloadMember.isStringSchema()) {
-          request.headers["content-type"] = "text/plain";
-        } else if (httpPayloadMember.isBlobSchema()) {
-          request.headers["content-type"] = "application/octet-stream";
-        } else {
-          request.headers["content-type"] = this.getDefaultContentType();
-        }
-      } else if (!inputSchema.isUnitSchema()) {
-        const hasBody = Object.values(members).find((m) => {
-          const { httpQuery, httpQueryParams, httpHeader, httpLabel, httpPrefixHeaders } = m.getMergedTraits();
-          return !httpQuery && !httpQueryParams && !httpHeader && !httpLabel && httpPrefixHeaders === void 0;
-        });
-        if (hasBody) {
-          request.headers["content-type"] = this.getDefaultContentType();
-        }
+      const contentType = this.mixin.resolveRestContentType(this.getDefaultContentType(), inputSchema);
+      if (contentType) {
+        request.headers["content-type"] = contentType;
       }
     }
 
@@ -100,8 +80,7 @@ export class AwsRestJsonProtocol extends HttpBindingProtocol {
 
     if (request.body) {
       try {
-        // todo(schema): use config.bodyLengthChecker or move that into serdeContext.
-        request.headers["content-length"] = String(calculateBodyLength(request.body));
+        request.headers["content-length"] = this.mixin.calculateContentLength(request.body, this.serdeContext);
       } catch (e) {}
     }
 
@@ -117,33 +96,13 @@ export class AwsRestJsonProtocol extends HttpBindingProtocol {
   ): Promise<never> {
     const errorIdentifier = loadRestJsonErrorCode(response, dataObject) ?? "Unknown";
 
-    let namespace = this.options.defaultNamespace;
-    let errorName = errorIdentifier;
-    if (errorIdentifier.includes("#")) {
-      [namespace, errorName] = errorIdentifier.split("#");
-    }
-
-    const errorMetadata = {
-      $metadata: metadata,
-      $response: response,
-      $fault: response.statusCode <= 500 ? ("client" as const) : ("server" as const),
-    };
-
-    const registry = TypeRegistry.for(namespace);
-    let errorSchema: ErrorSchema;
-    try {
-      errorSchema = registry.getSchema(errorIdentifier) as ErrorSchema;
-    } catch (e) {
-      if (dataObject.Message) {
-        dataObject.message = dataObject.Message;
-      }
-      const baseExceptionSchema = TypeRegistry.for("smithy.ts.sdk.synthetic." + namespace).getBaseException();
-      if (baseExceptionSchema) {
-        const ErrorCtor = baseExceptionSchema.ctor;
-        throw Object.assign(new ErrorCtor({ name: errorName }), errorMetadata, dataObject);
-      }
-      throw Object.assign(new Error(errorName), errorMetadata, dataObject);
-    }
+    const { errorSchema, errorMetadata } = await this.mixin.getErrorSchemaOrThrowBaseException(
+      errorIdentifier,
+      this.options.defaultNamespace,
+      response,
+      dataObject,
+      metadata
+    );
 
     const ns = NormalizedSchema.of(errorSchema);
     const message = dataObject.message ?? dataObject.Message ?? "Unknown";
