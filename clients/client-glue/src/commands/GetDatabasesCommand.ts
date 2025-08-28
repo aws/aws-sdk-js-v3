@@ -41,7 +41,7 @@ export interface GetDatabasesCommandOutput extends GetDatabasesResponse, __Metad
  *   MaxResults: Number("int"),
  *   ResourceShareType: "FOREIGN" || "ALL" || "FEDERATED",
  *   AttributesToGet: [ // DatabaseAttributesList
- *     "NAME",
+ *     "NAME" || "TARGET_DATABASE",
  *   ],
  * };
  * const command = new GetDatabasesCommand(input);

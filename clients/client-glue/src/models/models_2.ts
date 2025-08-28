@@ -2041,6 +2041,7 @@ export interface GetDatabaseResponse {
  */
 export const DatabaseAttributes = {
   NAME: "NAME",
+  TARGET_DATABASE: "TARGET_DATABASE",
 } as const;
 
 /**
