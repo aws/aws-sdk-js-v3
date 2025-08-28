@@ -40,7 +40,8 @@
     }
   },
   "files": [
-    "dist-*/**"
+    "dist-*/**",
+    "aws-lambda-invoke-store-*.tgz"
   ],
   "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/packages/middleware-recursion-detection",
   "repository": {
