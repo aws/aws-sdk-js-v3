@@ -32,14 +32,7 @@ export interface RegisterApplicationCommandInput extends RegisterApplicationInpu
 export interface RegisterApplicationCommandOutput extends RegisterApplicationOutput, __MetadataBearer {}
 
 /**
- * <p>Register an SAP application with AWS Systems Manager for SAP. You must meet the
- *          following requirements before registering. </p>
- *          <p>The SAP application you want to register with AWS Systems Manager for SAP is running
- *          on Amazon EC2.</p>
- *          <p>AWS Systems Manager Agent must be setup on an Amazon EC2 instance along with the required
- *          IAM permissions.</p>
- *          <p>Amazon EC2 instance(s) must have access to the secrets created in AWS Secrets Manager to
- *          manage SAP applications and components.</p>
+ * <p>Register an SAP application with AWS Systems Manager for SAP. You must meet the following requirements before registering. </p> <p>The SAP application you want to register with AWS Systems Manager for SAP is running on Amazon EC2.</p> <p>AWS Systems Manager Agent must be setup on an Amazon EC2 instance along with the required IAM permissions.</p> <p>Amazon EC2 instance(s) must have access to the secrets created in AWS Secrets Manager to manage SAP applications and components.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

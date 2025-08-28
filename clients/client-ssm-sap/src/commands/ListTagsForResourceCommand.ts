@@ -28,8 +28,7 @@ export interface ListTagsForResourceCommandInput extends ListTagsForResourceRequ
 export interface ListTagsForResourceCommandOutput extends ListTagsForResourceResponse, __MetadataBearer {}
 
 /**
- * <p>Lists all tags on an SAP HANA application and/or database registered with AWS Systems
- *          Manager for SAP.</p>
+ * <p>Lists all tags on an SAP HANA application and/or database registered with AWS Systems Manager for SAP.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

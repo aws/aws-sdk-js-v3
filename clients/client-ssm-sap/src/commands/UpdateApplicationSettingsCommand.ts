@@ -32,8 +32,7 @@ export interface UpdateApplicationSettingsCommandInput extends UpdateApplication
 export interface UpdateApplicationSettingsCommandOutput extends UpdateApplicationSettingsOutput, __MetadataBearer {}
 
 /**
- * <p>Updates the settings of an application registered with AWS Systems Manager for
- *          SAP.</p>
+ * <p>Updates the settings of an application registered with AWS Systems Manager for SAP.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -34,6 +34,10 @@ import {
 } from "../commands/DeregisterApplicationCommand";
 import { GetApplicationCommandInput, GetApplicationCommandOutput } from "../commands/GetApplicationCommand";
 import { GetComponentCommandInput, GetComponentCommandOutput } from "../commands/GetComponentCommand";
+import {
+  GetConfigurationCheckOperationCommandInput,
+  GetConfigurationCheckOperationCommandOutput,
+} from "../commands/GetConfigurationCheckOperationCommand";
 import { GetDatabaseCommandInput, GetDatabaseCommandOutput } from "../commands/GetDatabaseCommand";
 import { GetOperationCommandInput, GetOperationCommandOutput } from "../commands/GetOperationCommand";
 import {
@@ -42,12 +46,28 @@ import {
 } from "../commands/GetResourcePermissionCommand";
 import { ListApplicationsCommandInput, ListApplicationsCommandOutput } from "../commands/ListApplicationsCommand";
 import { ListComponentsCommandInput, ListComponentsCommandOutput } from "../commands/ListComponentsCommand";
+import {
+  ListConfigurationCheckDefinitionsCommandInput,
+  ListConfigurationCheckDefinitionsCommandOutput,
+} from "../commands/ListConfigurationCheckDefinitionsCommand";
+import {
+  ListConfigurationCheckOperationsCommandInput,
+  ListConfigurationCheckOperationsCommandOutput,
+} from "../commands/ListConfigurationCheckOperationsCommand";
 import { ListDatabasesCommandInput, ListDatabasesCommandOutput } from "../commands/ListDatabasesCommand";
 import {
   ListOperationEventsCommandInput,
   ListOperationEventsCommandOutput,
 } from "../commands/ListOperationEventsCommand";
 import { ListOperationsCommandInput, ListOperationsCommandOutput } from "../commands/ListOperationsCommand";
+import {
+  ListSubCheckResultsCommandInput,
+  ListSubCheckResultsCommandOutput,
+} from "../commands/ListSubCheckResultsCommand";
+import {
+  ListSubCheckRuleResultsCommandInput,
+  ListSubCheckRuleResultsCommandOutput,
+} from "../commands/ListSubCheckRuleResultsCommand";
 import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
@@ -65,6 +85,10 @@ import {
   StartApplicationRefreshCommandInput,
   StartApplicationRefreshCommandOutput,
 } from "../commands/StartApplicationRefreshCommand";
+import {
+  StartConfigurationChecksCommandInput,
+  StartConfigurationChecksCommandOutput,
+} from "../commands/StartConfigurationChecksCommand";
 import { StopApplicationCommandInput, StopApplicationCommandOutput } from "../commands/StopApplicationCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
@@ -78,6 +102,8 @@ import {
   BackintConfig,
   Component,
   ComponentInfo,
+  ConfigurationCheckOperation,
+  ConfigurationCheckType,
   ConflictException,
   Database,
   Filter,
@@ -177,6 +203,28 @@ export const se_GetComponentCommand = async (
     take(input, {
       ApplicationId: [],
       ComponentId: [],
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1GetConfigurationCheckOperationCommand
+ */
+export const se_GetConfigurationCheckOperationCommand = async (
+  input: GetConfigurationCheckOperationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/get-configuration-check-operation");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      OperationId: [],
     })
   );
   b.m("POST").h(headers).b(body);
@@ -302,6 +350,55 @@ export const se_ListComponentsCommand = async (
 };
 
 /**
+ * serializeAws_restJson1ListConfigurationCheckDefinitionsCommand
+ */
+export const se_ListConfigurationCheckDefinitionsCommand = async (
+  input: ListConfigurationCheckDefinitionsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/list-configuration-check-definitions");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      MaxResults: [],
+      NextToken: [],
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1ListConfigurationCheckOperationsCommand
+ */
+export const se_ListConfigurationCheckOperationsCommand = async (
+  input: ListConfigurationCheckOperationsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/list-configuration-check-operations");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      ApplicationId: [],
+      Filters: (_) => _json(_),
+      ListMode: [],
+      MaxResults: [],
+      NextToken: [],
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1ListDatabasesCommand
  */
 export const se_ListDatabasesCommand = async (
@@ -370,6 +467,54 @@ export const se_ListOperationsCommand = async (
       Filters: (_) => _json(_),
       MaxResults: [],
       NextToken: [],
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1ListSubCheckResultsCommand
+ */
+export const se_ListSubCheckResultsCommand = async (
+  input: ListSubCheckResultsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/list-sub-check-results");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      MaxResults: [],
+      NextToken: [],
+      OperationId: [],
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1ListSubCheckRuleResultsCommand
+ */
+export const se_ListSubCheckRuleResultsCommand = async (
+  input: ListSubCheckRuleResultsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/list-sub-check-rule-results");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      MaxResults: [],
+      NextToken: [],
+      SubCheckResultId: [],
     })
   );
   b.m("POST").h(headers).b(body);
@@ -484,6 +629,29 @@ export const se_StartApplicationRefreshCommand = async (
   body = JSON.stringify(
     take(input, {
       ApplicationId: [],
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1StartConfigurationChecksCommand
+ */
+export const se_StartConfigurationChecksCommand = async (
+  input: StartConfigurationChecksCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/start-configuration-checks");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      ApplicationId: [],
+      ConfigurationCheckIds: (_) => _json(_),
     })
   );
   b.m("POST").h(headers).b(body);
@@ -665,6 +833,27 @@ export const de_GetComponentCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1GetConfigurationCheckOperationCommand
+ */
+export const de_GetConfigurationCheckOperationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetConfigurationCheckOperationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    ConfigurationCheckOperation: (_) => de_ConfigurationCheckOperation(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1GetDatabaseCommand
  */
 export const de_GetDatabaseCommand = async (
@@ -773,6 +962,50 @@ export const de_ListComponentsCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1ListConfigurationCheckDefinitionsCommand
+ */
+export const de_ListConfigurationCheckDefinitionsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListConfigurationCheckDefinitionsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    ConfigurationChecks: _json,
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListConfigurationCheckOperationsCommand
+ */
+export const de_ListConfigurationCheckOperationsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListConfigurationCheckOperationsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    ConfigurationCheckOperations: (_) => de_ConfigurationCheckOperationList(_, context),
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1ListDatabasesCommand
  */
 export const de_ListDatabasesCommand = async (
@@ -833,6 +1066,50 @@ export const de_ListOperationsCommand = async (
   const doc = take(data, {
     NextToken: __expectString,
     Operations: (_) => de_OperationList(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListSubCheckResultsCommand
+ */
+export const de_ListSubCheckResultsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListSubCheckResultsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    NextToken: __expectString,
+    SubCheckResults: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListSubCheckRuleResultsCommand
+ */
+export const de_ListSubCheckRuleResultsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListSubCheckRuleResultsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    NextToken: __expectString,
+    RuleResults: _json,
   });
   Object.assign(contents, doc);
   return contents;
@@ -939,6 +1216,27 @@ export const de_StartApplicationRefreshCommand = async (
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
     OperationId: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1StartConfigurationChecksCommand
+ */
+export const de_StartConfigurationChecksCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartConfigurationChecksCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    ConfigurationCheckOperations: (_) => de_ConfigurationCheckOperationList(_, context),
   });
   Object.assign(contents, doc);
   return contents;
@@ -1161,6 +1459,8 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 
 // se_ComponentInfoList omitted.
 
+// se_ConfigurationCheckTypeList omitted.
+
 // se_Filter omitted.
 
 // se_FilterList omitted.
@@ -1196,6 +1496,8 @@ const de_Application = (output: any, context: __SerdeContext): Application => {
 // de_ApplicationSummary omitted.
 
 // de_ApplicationSummaryList omitted.
+
+// de_ApplicationTypeList omitted.
 
 // de_AssociatedHost omitted.
 
@@ -1234,6 +1536,40 @@ const de_Component = (output: any, context: __SerdeContext): Component => {
 // de_ComponentSummary omitted.
 
 // de_ComponentSummaryList omitted.
+
+// de_ConfigurationCheckDefinition omitted.
+
+// de_ConfigurationCheckDefinitionList omitted.
+
+/**
+ * deserializeAws_restJson1ConfigurationCheckOperation
+ */
+const de_ConfigurationCheckOperation = (output: any, context: __SerdeContext): ConfigurationCheckOperation => {
+  return take(output, {
+    ApplicationId: __expectString,
+    ConfigurationCheckDescription: __expectString,
+    ConfigurationCheckId: __expectString,
+    ConfigurationCheckName: __expectString,
+    EndTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Id: __expectString,
+    RuleStatusCounts: _json,
+    StartTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Status: __expectString,
+    StatusMessage: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1ConfigurationCheckOperationList
+ */
+const de_ConfigurationCheckOperationList = (output: any, context: __SerdeContext): ConfigurationCheckOperation[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_ConfigurationCheckOperation(entry, context);
+    });
+  return retVal;
+};
 
 /**
  * deserializeAws_restJson1Database
@@ -1346,6 +1682,20 @@ const de_OperationProperties = (output: any, context: __SerdeContext): Record<st
 // de_Resilience omitted.
 
 // de_Resource omitted.
+
+// de_RuleResult omitted.
+
+// de_RuleResultList omitted.
+
+// de_RuleResultMetadata omitted.
+
+// de_RuleStatusCounts omitted.
+
+// de_SubCheckReferencesList omitted.
+
+// de_SubCheckResult omitted.
+
+// de_SubCheckResultList omitted.
 
 // de_TagMap omitted.
 

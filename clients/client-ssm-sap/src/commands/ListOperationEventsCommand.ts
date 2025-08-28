@@ -28,9 +28,7 @@ export interface ListOperationEventsCommandInput extends ListOperationEventsInpu
 export interface ListOperationEventsCommandOutput extends ListOperationEventsOutput, __MetadataBearer {}
 
 /**
- * <p>Returns a list of operations events.</p>
- *          <p>Available parameters include <code>OperationID</code>, as well as optional parameters
- *             <code>MaxResults</code>, <code>NextToken</code>, and <code>Filters</code>.</p>
+ * <p>Returns a list of operations events.</p> <p>Available parameters include <code>OperationID</code>, as well as optional parameters <code>MaxResults</code>, <code>NextToken</code>, and <code>Filters</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

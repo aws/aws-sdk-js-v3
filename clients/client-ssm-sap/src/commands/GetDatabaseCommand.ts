@@ -28,8 +28,7 @@ export interface GetDatabaseCommandInput extends GetDatabaseInput {}
 export interface GetDatabaseCommandOutput extends GetDatabaseOutput, __MetadataBearer {}
 
 /**
- * <p>Gets the SAP HANA database of an application registered with AWS Systems Manager for
- *          SAP.</p>
+ * <p>Gets the SAP HANA database of an application registered with AWS Systems Manager for SAP.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

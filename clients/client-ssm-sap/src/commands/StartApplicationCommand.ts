@@ -28,8 +28,7 @@ export interface StartApplicationCommandInput extends StartApplicationInput {}
 export interface StartApplicationCommandOutput extends StartApplicationOutput, __MetadataBearer {}
 
 /**
- * <p>Request is an operation which starts an application.</p>
- *          <p>Parameter <code>ApplicationId</code> is required.</p>
+ * <p>Request is an operation which starts an application.</p> <p>Parameter <code>ApplicationId</code> is required.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

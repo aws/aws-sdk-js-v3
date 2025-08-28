@@ -22,6 +22,11 @@ import {
   GetComponentCommandInput,
   GetComponentCommandOutput,
 } from "./commands/GetComponentCommand";
+import {
+  GetConfigurationCheckOperationCommand,
+  GetConfigurationCheckOperationCommandInput,
+  GetConfigurationCheckOperationCommandOutput,
+} from "./commands/GetConfigurationCheckOperationCommand";
 import { GetDatabaseCommand, GetDatabaseCommandInput, GetDatabaseCommandOutput } from "./commands/GetDatabaseCommand";
 import {
   GetOperationCommand,
@@ -44,6 +49,16 @@ import {
   ListComponentsCommandOutput,
 } from "./commands/ListComponentsCommand";
 import {
+  ListConfigurationCheckDefinitionsCommand,
+  ListConfigurationCheckDefinitionsCommandInput,
+  ListConfigurationCheckDefinitionsCommandOutput,
+} from "./commands/ListConfigurationCheckDefinitionsCommand";
+import {
+  ListConfigurationCheckOperationsCommand,
+  ListConfigurationCheckOperationsCommandInput,
+  ListConfigurationCheckOperationsCommandOutput,
+} from "./commands/ListConfigurationCheckOperationsCommand";
+import {
   ListDatabasesCommand,
   ListDatabasesCommandInput,
   ListDatabasesCommandOutput,
@@ -58,6 +73,16 @@ import {
   ListOperationsCommandInput,
   ListOperationsCommandOutput,
 } from "./commands/ListOperationsCommand";
+import {
+  ListSubCheckResultsCommand,
+  ListSubCheckResultsCommandInput,
+  ListSubCheckResultsCommandOutput,
+} from "./commands/ListSubCheckResultsCommand";
+import {
+  ListSubCheckRuleResultsCommand,
+  ListSubCheckRuleResultsCommandInput,
+  ListSubCheckRuleResultsCommandOutput,
+} from "./commands/ListSubCheckRuleResultsCommand";
 import {
   ListTagsForResourceCommand,
   ListTagsForResourceCommandInput,
@@ -84,6 +109,11 @@ import {
   StartApplicationRefreshCommandOutput,
 } from "./commands/StartApplicationRefreshCommand";
 import {
+  StartConfigurationChecksCommand,
+  StartConfigurationChecksCommandInput,
+  StartConfigurationChecksCommandOutput,
+} from "./commands/StartConfigurationChecksCommand";
+import {
   StopApplicationCommand,
   StopApplicationCommandInput,
   StopApplicationCommandOutput,
@@ -106,19 +136,25 @@ const commands = {
   DeregisterApplicationCommand,
   GetApplicationCommand,
   GetComponentCommand,
+  GetConfigurationCheckOperationCommand,
   GetDatabaseCommand,
   GetOperationCommand,
   GetResourcePermissionCommand,
   ListApplicationsCommand,
   ListComponentsCommand,
+  ListConfigurationCheckDefinitionsCommand,
+  ListConfigurationCheckOperationsCommand,
   ListDatabasesCommand,
   ListOperationEventsCommand,
   ListOperationsCommand,
+  ListSubCheckResultsCommand,
+  ListSubCheckRuleResultsCommand,
   ListTagsForResourceCommand,
   PutResourcePermissionCommand,
   RegisterApplicationCommand,
   StartApplicationCommand,
   StartApplicationRefreshCommand,
+  StartConfigurationChecksCommand,
   StopApplicationCommand,
   TagResourceCommand,
   UntagResourceCommand,
@@ -184,6 +220,23 @@ export interface SsmSap {
     args: GetComponentCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetComponentCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetConfigurationCheckOperationCommand}
+   */
+  getConfigurationCheckOperation(
+    args: GetConfigurationCheckOperationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetConfigurationCheckOperationCommandOutput>;
+  getConfigurationCheckOperation(
+    args: GetConfigurationCheckOperationCommandInput,
+    cb: (err: any, data?: GetConfigurationCheckOperationCommandOutput) => void
+  ): void;
+  getConfigurationCheckOperation(
+    args: GetConfigurationCheckOperationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetConfigurationCheckOperationCommandOutput) => void
   ): void;
 
   /**
@@ -260,6 +313,41 @@ export interface SsmSap {
   ): void;
 
   /**
+   * @see {@link ListConfigurationCheckDefinitionsCommand}
+   */
+  listConfigurationCheckDefinitions(): Promise<ListConfigurationCheckDefinitionsCommandOutput>;
+  listConfigurationCheckDefinitions(
+    args: ListConfigurationCheckDefinitionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListConfigurationCheckDefinitionsCommandOutput>;
+  listConfigurationCheckDefinitions(
+    args: ListConfigurationCheckDefinitionsCommandInput,
+    cb: (err: any, data?: ListConfigurationCheckDefinitionsCommandOutput) => void
+  ): void;
+  listConfigurationCheckDefinitions(
+    args: ListConfigurationCheckDefinitionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListConfigurationCheckDefinitionsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListConfigurationCheckOperationsCommand}
+   */
+  listConfigurationCheckOperations(
+    args: ListConfigurationCheckOperationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListConfigurationCheckOperationsCommandOutput>;
+  listConfigurationCheckOperations(
+    args: ListConfigurationCheckOperationsCommandInput,
+    cb: (err: any, data?: ListConfigurationCheckOperationsCommandOutput) => void
+  ): void;
+  listConfigurationCheckOperations(
+    args: ListConfigurationCheckOperationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListConfigurationCheckOperationsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListDatabasesCommand}
    */
   listDatabases(): Promise<ListDatabasesCommandOutput>;
@@ -300,6 +388,40 @@ export interface SsmSap {
     args: ListOperationsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListOperationsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListSubCheckResultsCommand}
+   */
+  listSubCheckResults(
+    args: ListSubCheckResultsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListSubCheckResultsCommandOutput>;
+  listSubCheckResults(
+    args: ListSubCheckResultsCommandInput,
+    cb: (err: any, data?: ListSubCheckResultsCommandOutput) => void
+  ): void;
+  listSubCheckResults(
+    args: ListSubCheckResultsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListSubCheckResultsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListSubCheckRuleResultsCommand}
+   */
+  listSubCheckRuleResults(
+    args: ListSubCheckRuleResultsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListSubCheckRuleResultsCommandOutput>;
+  listSubCheckRuleResults(
+    args: ListSubCheckRuleResultsCommandInput,
+    cb: (err: any, data?: ListSubCheckRuleResultsCommandOutput) => void
+  ): void;
+  listSubCheckRuleResults(
+    args: ListSubCheckRuleResultsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListSubCheckRuleResultsCommandOutput) => void
   ): void;
 
   /**
@@ -388,6 +510,23 @@ export interface SsmSap {
   ): void;
 
   /**
+   * @see {@link StartConfigurationChecksCommand}
+   */
+  startConfigurationChecks(
+    args: StartConfigurationChecksCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartConfigurationChecksCommandOutput>;
+  startConfigurationChecks(
+    args: StartConfigurationChecksCommandInput,
+    cb: (err: any, data?: StartConfigurationChecksCommandOutput) => void
+  ): void;
+  startConfigurationChecks(
+    args: StartConfigurationChecksCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartConfigurationChecksCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link StopApplicationCommand}
    */
   stopApplication(
@@ -442,9 +581,7 @@ export interface SsmSap {
 }
 
 /**
- * <p>This API reference provides descriptions, syntax, and other details about each of the
- *          actions and data types for AWS Systems Manager for SAP. The topic for each action shows
- *          the API request parameters and responses. </p>
+ * <p>This API reference provides descriptions, syntax, and other details about each of the actions and data types for AWS Systems Manager for SAP. The topic for each action shows the API request parameters and responses. </p>
  * @public
  */
 export class SsmSap extends SsmSapClient implements SsmSap {}

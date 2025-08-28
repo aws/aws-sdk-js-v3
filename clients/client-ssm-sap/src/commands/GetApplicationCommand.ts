@@ -28,8 +28,7 @@ export interface GetApplicationCommandInput extends GetApplicationInput {}
 export interface GetApplicationCommandOutput extends GetApplicationOutput, __MetadataBearer {}
 
 /**
- * <p>Gets an application registered with AWS Systems Manager for SAP. It also returns the
- *          components of the application.</p>
+ * <p>Gets an application registered with AWS Systems Manager for SAP. It also returns the components of the application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

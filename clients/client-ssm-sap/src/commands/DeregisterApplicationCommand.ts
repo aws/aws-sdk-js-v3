@@ -28,8 +28,7 @@ export interface DeregisterApplicationCommandInput extends DeregisterApplication
 export interface DeregisterApplicationCommandOutput extends DeregisterApplicationOutput, __MetadataBearer {}
 
 /**
- * <p>Deregister an SAP application with AWS Systems Manager for SAP. This action does not
- *          aﬀect the existing setup of your SAP workloads on Amazon EC2.</p>
+ * <p>Deregister an SAP application with AWS Systems Manager for SAP. This action does not aﬀect the existing setup of your SAP workloads on Amazon EC2.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

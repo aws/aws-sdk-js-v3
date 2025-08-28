@@ -63,6 +63,10 @@ import {
 } from "./commands/DeregisterApplicationCommand";
 import { GetApplicationCommandInput, GetApplicationCommandOutput } from "./commands/GetApplicationCommand";
 import { GetComponentCommandInput, GetComponentCommandOutput } from "./commands/GetComponentCommand";
+import {
+  GetConfigurationCheckOperationCommandInput,
+  GetConfigurationCheckOperationCommandOutput,
+} from "./commands/GetConfigurationCheckOperationCommand";
 import { GetDatabaseCommandInput, GetDatabaseCommandOutput } from "./commands/GetDatabaseCommand";
 import { GetOperationCommandInput, GetOperationCommandOutput } from "./commands/GetOperationCommand";
 import {
@@ -71,12 +75,28 @@ import {
 } from "./commands/GetResourcePermissionCommand";
 import { ListApplicationsCommandInput, ListApplicationsCommandOutput } from "./commands/ListApplicationsCommand";
 import { ListComponentsCommandInput, ListComponentsCommandOutput } from "./commands/ListComponentsCommand";
+import {
+  ListConfigurationCheckDefinitionsCommandInput,
+  ListConfigurationCheckDefinitionsCommandOutput,
+} from "./commands/ListConfigurationCheckDefinitionsCommand";
+import {
+  ListConfigurationCheckOperationsCommandInput,
+  ListConfigurationCheckOperationsCommandOutput,
+} from "./commands/ListConfigurationCheckOperationsCommand";
 import { ListDatabasesCommandInput, ListDatabasesCommandOutput } from "./commands/ListDatabasesCommand";
 import {
   ListOperationEventsCommandInput,
   ListOperationEventsCommandOutput,
 } from "./commands/ListOperationEventsCommand";
 import { ListOperationsCommandInput, ListOperationsCommandOutput } from "./commands/ListOperationsCommand";
+import {
+  ListSubCheckResultsCommandInput,
+  ListSubCheckResultsCommandOutput,
+} from "./commands/ListSubCheckResultsCommand";
+import {
+  ListSubCheckRuleResultsCommandInput,
+  ListSubCheckRuleResultsCommandOutput,
+} from "./commands/ListSubCheckRuleResultsCommand";
 import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
@@ -94,6 +114,10 @@ import {
   StartApplicationRefreshCommandInput,
   StartApplicationRefreshCommandOutput,
 } from "./commands/StartApplicationRefreshCommand";
+import {
+  StartConfigurationChecksCommandInput,
+  StartConfigurationChecksCommandOutput,
+} from "./commands/StartConfigurationChecksCommand";
 import { StopApplicationCommandInput, StopApplicationCommandOutput } from "./commands/StopApplicationCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
@@ -120,19 +144,25 @@ export type ServiceInputTypes =
   | DeregisterApplicationCommandInput
   | GetApplicationCommandInput
   | GetComponentCommandInput
+  | GetConfigurationCheckOperationCommandInput
   | GetDatabaseCommandInput
   | GetOperationCommandInput
   | GetResourcePermissionCommandInput
   | ListApplicationsCommandInput
   | ListComponentsCommandInput
+  | ListConfigurationCheckDefinitionsCommandInput
+  | ListConfigurationCheckOperationsCommandInput
   | ListDatabasesCommandInput
   | ListOperationEventsCommandInput
   | ListOperationsCommandInput
+  | ListSubCheckResultsCommandInput
+  | ListSubCheckRuleResultsCommandInput
   | ListTagsForResourceCommandInput
   | PutResourcePermissionCommandInput
   | RegisterApplicationCommandInput
   | StartApplicationCommandInput
   | StartApplicationRefreshCommandInput
+  | StartConfigurationChecksCommandInput
   | StopApplicationCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
@@ -146,19 +176,25 @@ export type ServiceOutputTypes =
   | DeregisterApplicationCommandOutput
   | GetApplicationCommandOutput
   | GetComponentCommandOutput
+  | GetConfigurationCheckOperationCommandOutput
   | GetDatabaseCommandOutput
   | GetOperationCommandOutput
   | GetResourcePermissionCommandOutput
   | ListApplicationsCommandOutput
   | ListComponentsCommandOutput
+  | ListConfigurationCheckDefinitionsCommandOutput
+  | ListConfigurationCheckOperationsCommandOutput
   | ListDatabasesCommandOutput
   | ListOperationEventsCommandOutput
   | ListOperationsCommandOutput
+  | ListSubCheckResultsCommandOutput
+  | ListSubCheckRuleResultsCommandOutput
   | ListTagsForResourceCommandOutput
   | PutResourcePermissionCommandOutput
   | RegisterApplicationCommandOutput
   | StartApplicationCommandOutput
   | StartApplicationRefreshCommandOutput
+  | StartConfigurationChecksCommandOutput
   | StopApplicationCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
@@ -355,9 +391,7 @@ export type SsmSapClientResolvedConfigType = __SmithyResolvedConfiguration<__Htt
 export interface SsmSapClientResolvedConfig extends SsmSapClientResolvedConfigType {}
 
 /**
- * <p>This API reference provides descriptions, syntax, and other details about each of the
- *          actions and data types for AWS Systems Manager for SAP. The topic for each action shows
- *          the API request parameters and responses. </p>
+ * <p>This API reference provides descriptions, syntax, and other details about each of the actions and data types for AWS Systems Manager for SAP. The topic for each action shows the API request parameters and responses. </p>
  * @public
  */
 export class SsmSapClient extends __Client<

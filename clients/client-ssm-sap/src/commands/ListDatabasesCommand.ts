@@ -28,8 +28,7 @@ export interface ListDatabasesCommandInput extends ListDatabasesInput {}
 export interface ListDatabasesCommandOutput extends ListDatabasesOutput, __MetadataBearer {}
 
 /**
- * <p>Lists the SAP HANA databases of an application registered with AWS Systems Manager for
- *          SAP.</p>
+ * <p>Lists the SAP HANA databases of an application registered with AWS Systems Manager for SAP.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

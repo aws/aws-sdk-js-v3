@@ -6,9 +6,7 @@
 
 AWS SDK for JavaScript SsmSap Client for Node.js, Browser and React Native.
 
-<p>This API reference provides descriptions, syntax, and other details about each of the
-actions and data types for AWS Systems Manager for SAP. The topic for each action shows
-the API request parameters and responses. </p>
+<p>This API reference provides descriptions, syntax, and other details about each of the actions and data types for AWS Systems Manager for SAP. The topic for each action shows the API request parameters and responses. </p>
 
 ## Installing
 
@@ -239,6 +237,14 @@ GetComponent
 </details>
 <details>
 <summary>
+GetConfigurationCheckOperation
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ssm-sap/command/GetConfigurationCheckOperationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ssm-sap/Interface/GetConfigurationCheckOperationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ssm-sap/Interface/GetConfigurationCheckOperationCommandOutput/)
+
+</details>
+<details>
+<summary>
 GetDatabase
 </summary>
 
@@ -279,6 +285,22 @@ ListComponents
 </details>
 <details>
 <summary>
+ListConfigurationCheckDefinitions
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ssm-sap/command/ListConfigurationCheckDefinitionsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ssm-sap/Interface/ListConfigurationCheckDefinitionsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ssm-sap/Interface/ListConfigurationCheckDefinitionsCommandOutput/)
+
+</details>
+<details>
+<summary>
+ListConfigurationCheckOperations
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ssm-sap/command/ListConfigurationCheckOperationsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ssm-sap/Interface/ListConfigurationCheckOperationsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ssm-sap/Interface/ListConfigurationCheckOperationsCommandOutput/)
+
+</details>
+<details>
+<summary>
 ListDatabases
 </summary>
 
@@ -299,6 +321,22 @@ ListOperations
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ssm-sap/command/ListOperationsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ssm-sap/Interface/ListOperationsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ssm-sap/Interface/ListOperationsCommandOutput/)
+
+</details>
+<details>
+<summary>
+ListSubCheckResults
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ssm-sap/command/ListSubCheckResultsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ssm-sap/Interface/ListSubCheckResultsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ssm-sap/Interface/ListSubCheckResultsCommandOutput/)
+
+</details>
+<details>
+<summary>
+ListSubCheckRuleResults
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ssm-sap/command/ListSubCheckRuleResultsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ssm-sap/Interface/ListSubCheckRuleResultsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ssm-sap/Interface/ListSubCheckRuleResultsCommandOutput/)
 
 </details>
 <details>
@@ -339,6 +377,14 @@ StartApplicationRefresh
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ssm-sap/command/StartApplicationRefreshCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ssm-sap/Interface/StartApplicationRefreshCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ssm-sap/Interface/StartApplicationRefreshCommandOutput/)
+
+</details>
+<details>
+<summary>
+StartConfigurationChecks
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ssm-sap/command/StartConfigurationChecksCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ssm-sap/Interface/StartConfigurationChecksCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ssm-sap/Interface/StartConfigurationChecksCommandOutput/)
 
 </details>
 <details>
