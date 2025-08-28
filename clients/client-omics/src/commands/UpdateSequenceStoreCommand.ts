@@ -5,7 +5,7 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { UpdateSequenceStoreRequest, UpdateSequenceStoreResponse } from "../models/models_0";
+import { UpdateSequenceStoreRequest, UpdateSequenceStoreResponse } from "../models/models_1";
 import { OmicsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OmicsClient";
 import { de_UpdateSequenceStoreCommand, se_UpdateSequenceStoreCommand } from "../protocols/Aws_restJson1";
 

@@ -28,7 +28,7 @@ export interface ListSequenceStoresCommandInput extends ListSequenceStoresReques
 export interface ListSequenceStoresCommandOutput extends ListSequenceStoresResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves a list of sequence stores.</p>
+ * <p>Retrieves a list of sequence stores and returns each sequence store's metadata.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/omics/latest/dev/create-sequence-store.html">Creating a HealthOmics sequence store</a> in the <i>Amazon Web Services HealthOmics User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

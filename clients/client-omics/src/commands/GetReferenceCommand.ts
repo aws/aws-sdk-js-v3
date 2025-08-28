@@ -30,7 +30,7 @@ export interface GetReferenceCommandOutput extends Omit<GetReferenceResponse, "p
 }
 
 /**
- * <p>Gets a reference file.</p>
+ * <p>Downloads parts of data from a reference genome and returns the reference file in the same format that it was uploaded.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/omics/latest/dev/create-reference-store.html">Creating a HealthOmics reference store</a> in the <i>Amazon Web Services HealthOmics User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

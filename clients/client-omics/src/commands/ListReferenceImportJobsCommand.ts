@@ -28,7 +28,7 @@ export interface ListReferenceImportJobsCommandInput extends ListReferenceImport
 export interface ListReferenceImportJobsCommandOutput extends ListReferenceImportJobsResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves a list of reference import jobs.</p>
+ * <p>Retrieves the metadata of one or more reference import jobs for a reference store.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

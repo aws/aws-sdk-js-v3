@@ -28,7 +28,7 @@ export interface GetReadSetExportJobCommandInput extends GetReadSetExportJobRequ
 export interface GetReadSetExportJobCommandOutput extends GetReadSetExportJobResponse, __MetadataBearer {}
 
 /**
- * <p>Gets information about a read set export job.</p>
+ * <p>Retrieves status information about a read set export job and returns the data in JSON format. Use this operation to actively monitor the progress of an export job.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

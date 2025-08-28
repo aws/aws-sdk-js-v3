@@ -28,7 +28,7 @@ export interface GetReadSetImportJobCommandInput extends GetReadSetImportJobRequ
 export interface GetReadSetImportJobCommandOutput extends GetReadSetImportJobResponse, __MetadataBearer {}
 
 /**
- * <p>Gets information about a read set import job.</p>
+ * <p>Gets detailed and status information about a read set import job and returns the data in JSON format.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

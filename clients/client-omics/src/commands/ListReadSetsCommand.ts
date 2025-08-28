@@ -28,7 +28,7 @@ export interface ListReadSetsCommandInput extends ListReadSetsRequest {}
 export interface ListReadSetsCommandOutput extends ListReadSetsResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves a list of read sets.</p>
+ * <p>Retrieves a list of read sets from a sequence store ID and returns the metadata in JSON format.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

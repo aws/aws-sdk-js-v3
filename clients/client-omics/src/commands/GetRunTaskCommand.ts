@@ -57,6 +57,11 @@ export interface GetRunTaskCommandOutput extends GetRunTaskResponse, __MetadataB
  * //   gpus: Number("int"),
  * //   instanceType: "STRING_VALUE",
  * //   failureReason: "STRING_VALUE",
+ * //   imageDetails: { // ImageDetails
+ * //     image: "STRING_VALUE",
+ * //     imageDigest: "STRING_VALUE",
+ * //     sourceImage: "STRING_VALUE",
+ * //   },
  * // };
  *
  * ```

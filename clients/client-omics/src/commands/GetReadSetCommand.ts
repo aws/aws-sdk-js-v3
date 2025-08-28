@@ -30,7 +30,7 @@ export interface GetReadSetCommandOutput extends Omit<GetReadSetResponse, "paylo
 }
 
 /**
- * <p>Gets a file from a read set.</p>
+ * <p>Retrieves detailed information from parts of a read set and returns the read set in the same format that it was uploaded. You must have read sets uploaded to your sequence store in order to run this operation.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

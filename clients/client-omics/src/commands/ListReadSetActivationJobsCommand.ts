@@ -28,7 +28,7 @@ export interface ListReadSetActivationJobsCommandInput extends ListReadSetActiva
 export interface ListReadSetActivationJobsCommandOutput extends ListReadSetActivationJobsResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves a list of read set activation jobs.</p>
+ * <p>Retrieves a list of read set activation jobs and returns the metadata in a JSON formatted output. To extract metadata from a read set activation job, use the <code>GetReadSetActivationJob</code> API operation.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

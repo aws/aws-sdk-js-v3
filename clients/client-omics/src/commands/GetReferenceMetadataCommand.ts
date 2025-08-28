@@ -28,7 +28,7 @@ export interface GetReferenceMetadataCommandInput extends GetReferenceMetadataRe
 export interface GetReferenceMetadataCommandOutput extends GetReferenceMetadataResponse, __MetadataBearer {}
 
 /**
- * <p>Gets information about a genome reference's metadata.</p>
+ * <p>Retrieves metadata for a reference genome. This operation returns the number of parts, part size, and MD5 of an entire file. This operation does not return tags. To retrieve the list of tags for a read set, use the <code>ListTagsForResource</code> API operation.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

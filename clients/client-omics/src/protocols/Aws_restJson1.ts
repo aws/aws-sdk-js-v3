@@ -287,6 +287,7 @@ import {
   AnnotationStoreVersionItem,
   CompleteReadSetUploadPartListItem,
   ConflictException,
+  ContainerRegistryMap,
   DefinitionRepository,
   ExportReadSet,
   ExportReadSetFilter,
@@ -294,6 +295,7 @@ import {
   Filter,
   FormatOptions,
   FormatToHeaderKey,
+  ImageMapping,
   ImportReadSetFilter,
   ImportReadSetJobItem,
   ImportReferenceFilter,
@@ -317,6 +319,7 @@ import {
   ReferenceListItem,
   ReferenceStoreDetail,
   ReferenceStoreFilter,
+  RegistryMapping,
   RequestTimeoutException,
   ResourceNotFoundException,
   RunCacheListItem,
@@ -874,6 +877,8 @@ export const se_CreateWorkflowCommand = async (
   body = JSON.stringify(
     take(input, {
       accelerators: [],
+      containerRegistryMap: (_) => _json(_),
+      containerRegistryMapUri: [],
       definitionRepository: (_) => _json(_),
       definitionUri: [],
       definitionZip: (_) => context.base64Encoder(_),
@@ -922,6 +927,8 @@ export const se_CreateWorkflowVersionCommand = async (
   body = JSON.stringify(
     take(input, {
       accelerators: [],
+      containerRegistryMap: (_) => _json(_),
+      containerRegistryMapUri: [],
       definitionRepository: (_) => _json(_),
       definitionUri: [],
       definitionZip: (_) => context.base64Encoder(_),
@@ -4397,6 +4404,7 @@ export const de_GetRunTaskCommand = async (
     creationTime: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
     failureReason: __expectString,
     gpus: __expectInt32,
+    imageDetails: _json,
     instanceType: __expectString,
     logStream: __expectString,
     memory: __expectInt32,
@@ -4570,6 +4578,7 @@ export const de_GetWorkflowCommand = async (
   const doc = take(data, {
     accelerators: __expectString,
     arn: __expectString,
+    containerRegistryMap: _json,
     creationTime: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
     definition: __expectString,
     definitionRepositoryDetails: _json,
@@ -4612,6 +4621,7 @@ export const de_GetWorkflowVersionCommand = async (
   const doc = take(data, {
     accelerators: __expectString,
     arn: __expectString,
+    containerRegistryMap: _json,
     creationTime: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
     definition: __expectString,
     definitionRepositoryDetails: _json,
@@ -5838,6 +5848,8 @@ const se_ActivateReadSetFilter = (input: ActivateReadSetFilter, context: __Serde
 
 // se_CompleteReadSetUploadPartListItem omitted.
 
+// se_ContainerRegistryMap omitted.
+
 // se_DefinitionRepository omitted.
 
 // se_ExcludeFilePatternList omitted.
@@ -5864,6 +5876,10 @@ const se_ExportReadSetFilter = (input: ExportReadSetFilter, context: __SerdeCont
 // se_FormatToHeader omitted.
 
 // se_IdList omitted.
+
+// se_ImageMapping omitted.
+
+// se_ImageMappingsList omitted.
 
 /**
  * serializeAws_restJson1ImportReadSetFilter
@@ -5954,6 +5970,10 @@ const se_ReferenceStoreFilter = (input: ReferenceStoreFilter, context: __SerdeCo
     name: [],
   });
 };
+
+// se_RegistryMapping omitted.
+
+// se_RegistryMappingsList omitted.
 
 /**
  * serializeAws_restJson1RunParameters
@@ -6156,6 +6176,8 @@ const de_AnnotationStoreVersionItems = (output: any, context: __SerdeContext): A
   return retVal;
 };
 
+// de_ContainerRegistryMap omitted.
+
 // de_DefinitionRepositoryDetails omitted.
 
 // de_ETag omitted.
@@ -6195,6 +6217,12 @@ const de_ExportReadSetJobDetailList = (output: any, context: __SerdeContext): Ex
 // de_FormatOptions omitted.
 
 // de_FormatToHeader omitted.
+
+// de_ImageDetails omitted.
+
+// de_ImageMapping omitted.
+
+// de_ImageMappingsList omitted.
 
 /**
  * deserializeAws_restJson1ImportReadSetJobItem
@@ -6418,6 +6446,10 @@ const de_ReferenceStoreDetailList = (output: any, context: __SerdeContext): Refe
     });
   return retVal;
 };
+
+// de_RegistryMapping omitted.
+
+// de_RegistryMappingsList omitted.
 
 /**
  * deserializeAws_restJson1RunCacheList

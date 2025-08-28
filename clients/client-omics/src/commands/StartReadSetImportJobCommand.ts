@@ -5,7 +5,7 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { StartReadSetImportJobRequest, StartReadSetImportJobResponse } from "../models/models_0";
+import { StartReadSetImportJobRequest, StartReadSetImportJobResponse } from "../models/models_1";
 import { OmicsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OmicsClient";
 import { de_StartReadSetImportJobCommand, se_StartReadSetImportJobCommand } from "../protocols/Aws_restJson1";
 
@@ -28,7 +28,7 @@ export interface StartReadSetImportJobCommandInput extends StartReadSetImportJob
 export interface StartReadSetImportJobCommandOutput extends StartReadSetImportJobResponse, __MetadataBearer {}
 
 /**
- * <p>Starts a read set import job.</p>
+ * <p>Imports a read set from the sequence store. Read set import jobs support a maximum of 100 read sets of different types. Monitor the progress of your read set import job by calling the <code>GetReadSetImportJob</code> API operation.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

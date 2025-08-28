@@ -28,7 +28,7 @@ export interface GetReadSetActivationJobCommandInput extends GetReadSetActivatio
 export interface GetReadSetActivationJobCommandOutput extends GetReadSetActivationJobResponse, __MetadataBearer {}
 
 /**
- * <p>Gets information about a read set activation job.</p>
+ * <p>Returns detailed information about the status of a read set activation job in JSON format.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

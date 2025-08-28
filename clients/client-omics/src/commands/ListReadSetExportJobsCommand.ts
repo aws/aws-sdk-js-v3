@@ -28,7 +28,7 @@ export interface ListReadSetExportJobsCommandInput extends ListReadSetExportJobs
 export interface ListReadSetExportJobsCommandOutput extends ListReadSetExportJobsResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves a list of read set export jobs.</p>
+ * <p>Retrieves a list of read set export jobs in a JSON formatted response. This API operation is used to check the status of a read set export job initiated by the <code>StartReadSetExportJob</code> API operation.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

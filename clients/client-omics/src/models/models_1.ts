@@ -1,7 +1,213 @@
 // smithy-typescript generated code
 import { StreamingBlobTypes } from "@smithy/types";
 
-import { ReadSetPartSource, ReferenceItem, StorageType, StoreStatus } from "./models_0";
+import {
+  ETagAlgorithmFamily,
+  ReadSetImportJobStatus,
+  ReadSetPartSource,
+  ReferenceItem,
+  S3AccessConfig,
+  SequenceStoreS3Access,
+  SequenceStoreStatus,
+  SseConfig,
+  StartReadSetImportJobSourceItem,
+  StorageType,
+  StoreStatus,
+} from "./models_0";
+
+/**
+ * @public
+ */
+export interface StartReadSetImportJobRequest {
+  /**
+   * <p>The read set's sequence store ID.</p>
+   * @public
+   */
+  sequenceStoreId: string | undefined;
+
+  /**
+   * <p>A service role for the job.</p>
+   * @public
+   */
+  roleArn: string | undefined;
+
+  /**
+   * <p>To ensure that jobs don't run multiple times, specify a unique token for each job.</p>
+   * @public
+   */
+  clientToken?: string | undefined;
+
+  /**
+   * <p>The job's source files.</p>
+   * @public
+   */
+  sources: StartReadSetImportJobSourceItem[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StartReadSetImportJobResponse {
+  /**
+   * <p>The job's ID.</p>
+   * @public
+   */
+  id: string | undefined;
+
+  /**
+   * <p>The read set's sequence store ID.</p>
+   * @public
+   */
+  sequenceStoreId: string | undefined;
+
+  /**
+   * <p>The job's service role ARN.</p>
+   * @public
+   */
+  roleArn: string | undefined;
+
+  /**
+   * <p>The job's status.</p>
+   * @public
+   */
+  status: ReadSetImportJobStatus | undefined;
+
+  /**
+   * <p>When the job was created.</p>
+   * @public
+   */
+  creationTime: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateSequenceStoreRequest {
+  /**
+   * <p>The ID of the sequence store.</p>
+   * @public
+   */
+  id: string | undefined;
+
+  /**
+   * <p>A name for the sequence store.</p>
+   * @public
+   */
+  name?: string | undefined;
+
+  /**
+   * <p>A description for the sequence store.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>To ensure that requests don't run multiple times, specify a unique token for each request.</p>
+   * @public
+   */
+  clientToken?: string | undefined;
+
+  /**
+   * <p>The S3 URI of a bucket and folder to store Read Sets that fail to upload.</p>
+   * @public
+   */
+  fallbackLocation?: string | undefined;
+
+  /**
+   * <p>The tags keys to propagate to the S3 objects associated with read sets in the sequence store.</p>
+   * @public
+   */
+  propagatedSetLevelTags?: string[] | undefined;
+
+  /**
+   * <p>S3 access configuration parameters.</p>
+   * @public
+   */
+  s3AccessConfig?: S3AccessConfig | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateSequenceStoreResponse {
+  /**
+   * <p>The ID of the sequence store.</p>
+   * @public
+   */
+  id: string | undefined;
+
+  /**
+   * <p>The ARN of the sequence store.</p>
+   * @public
+   */
+  arn: string | undefined;
+
+  /**
+   * <p>The name of the sequence store.</p>
+   * @public
+   */
+  name?: string | undefined;
+
+  /**
+   * <p>Description of the sequence store.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>Server-side encryption (SSE) settings for a store.</p>
+   * @public
+   */
+  sseConfig?: SseConfig | undefined;
+
+  /**
+   * <p>The time when the store was created.</p>
+   * @public
+   */
+  creationTime: Date | undefined;
+
+  /**
+   * <p>The last-updated time of the Sequence Store.</p>
+   * @public
+   */
+  updateTime?: Date | undefined;
+
+  /**
+   * <p>The tags keys to propagate to the S3 objects associated with read sets in the sequence store.</p>
+   * @public
+   */
+  propagatedSetLevelTags?: string[] | undefined;
+
+  /**
+   * <p>The status of the sequence store.</p>
+   * @public
+   */
+  status?: SequenceStoreStatus | undefined;
+
+  /**
+   * <p>The status message of the sequence store.</p>
+   * @public
+   */
+  statusMessage?: string | undefined;
+
+  /**
+   * <p>The S3 URI of a bucket and folder to store Read Sets that fail to upload.</p>
+   * @public
+   */
+  fallbackLocation?: string | undefined;
+
+  /**
+   * <p>The S3 access metadata of the sequence store.</p>
+   * @public
+   */
+  s3Access?: SequenceStoreS3Access | undefined;
+
+  /**
+   * <p>The ETag algorithm family to use on ingested read sets.</p>
+   * @public
+   */
+  eTagAlgorithmFamily?: ETagAlgorithmFamily | undefined;
+}
 
 /**
  * @public
@@ -261,7 +467,7 @@ export interface UpdateWorkflowRequest {
  */
 export interface UpdateWorkflowVersionRequest {
   /**
-   * <p>The workflow's ID.</p>
+   * <p>The workflow's ID. The <code>workflowId</code> is not the UUID.</p>
    * @public
    */
   workflowId: string | undefined;
@@ -279,13 +485,13 @@ export interface UpdateWorkflowVersionRequest {
   description?: string | undefined;
 
   /**
-   * <p>The default storage type for runs that use this workflow. STATIC storage allocates a fixed amount of storage. DYNAMIC storage dynamically scales the storage up or down, based on file system utilization. For more information about static and dynamic storage, see <a href="https://docs.aws.amazon.com/omics/latest/dev/Using-workflows.html">Running workflows</a> in the <i>Amazon Web Services HealthOmics User Guide</i>.</p>
+   * <p>The default storage type for runs that use this workflow version. The <code>storageType</code> can be overridden at run time. <code>DYNAMIC</code> storage dynamically scales the storage up or down, based on file system utilization. STATIC storage allocates a fixed amount of storage. For more information about dynamic and static storage types, see <a href="https://docs.aws.amazon.com/omics/latest/dev/workflows-run-types.html">Run storage types</a> in the <i>in the <i>Amazon Web Services HealthOmics User Guide</i> </i>.</p>
    * @public
    */
   storageType?: StorageType | undefined;
 
   /**
-   * <p>The default static storage capacity (in gibibytes) for runs that use this workflow or workflow version.</p>
+   * <p>The default static storage capacity (in gibibytes) for runs that use this workflow version. The <code>storageCapacity</code> can be overwritten at run time. The storage capacity is not required for runs with a <code>DYNAMIC</code> storage type.</p>
    * @public
    */
   storageCapacity?: number | undefined;

@@ -33,7 +33,7 @@ export interface AbortMultipartReadSetUploadCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Stops a multipart upload.</p>
+ * <p>Stops a multipart read set upload into a sequence store and returns a response with no body if the operation is successful. To confirm that a multipart read set upload has been stopped, use the <code>ListMultipartReadSetUploads</code> API operation to view all active multipart read set uploads.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

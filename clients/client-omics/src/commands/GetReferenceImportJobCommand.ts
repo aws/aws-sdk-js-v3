@@ -28,7 +28,7 @@ export interface GetReferenceImportJobCommandInput extends GetReferenceImportJob
 export interface GetReferenceImportJobCommandOutput extends GetReferenceImportJobResponse, __MetadataBearer {}
 
 /**
- * <p>Gets information about a reference import job.</p>
+ * <p>Monitors the status of a reference import job. This operation can be called after calling the <code>StartReferenceImportJob</code> operation.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

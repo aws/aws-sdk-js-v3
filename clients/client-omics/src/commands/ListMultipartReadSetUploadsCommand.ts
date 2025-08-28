@@ -33,7 +33,7 @@ export interface ListMultipartReadSetUploadsCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Lists multipart read set uploads and for in progress uploads. Once the upload is completed, a read set is created and the upload will no longer be returned in the response.</p>
+ * <p>Lists in-progress multipart read set uploads for a sequence store and returns it in a JSON formatted output. Multipart read set uploads are initiated by the <code>CreateMultipartReadSetUploads</code> API operation. This operation returns a response with no body when the upload is complete. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

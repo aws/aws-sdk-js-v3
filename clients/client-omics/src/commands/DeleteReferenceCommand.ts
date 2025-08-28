@@ -28,7 +28,7 @@ export interface DeleteReferenceCommandInput extends DeleteReferenceRequest {}
 export interface DeleteReferenceCommandOutput extends DeleteReferenceResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes a genome reference.</p>
+ * <p>Deletes a reference genome and returns a response with no body if the operation is successful. The read set associated with the reference genome must first be deleted before deleting the reference genome. After the reference genome is deleted, you can delete the reference store using the <code>DeleteReferenceStore</code> API operation.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/omics/latest/dev/deleting-reference-and-sequence-stores.html">Deleting HealthOmics reference and sequence stores</a> in the <i>Amazon Web Services HealthOmics User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

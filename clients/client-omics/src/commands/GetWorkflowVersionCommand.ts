@@ -76,6 +76,22 @@ export interface GetWorkflowVersionCommandOutput extends GetWorkflowVersionRespo
  * //   },
  * //   uuid: "STRING_VALUE",
  * //   workflowBucketOwnerId: "STRING_VALUE",
+ * //   containerRegistryMap: { // ContainerRegistryMap
+ * //     registryMappings: [ // RegistryMappingsList
+ * //       { // RegistryMapping
+ * //         upstreamRegistryUrl: "STRING_VALUE",
+ * //         ecrRepositoryPrefix: "STRING_VALUE",
+ * //         upstreamRepositoryPrefix: "STRING_VALUE",
+ * //         ecrAccountId: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //     imageMappings: [ // ImageMappingsList
+ * //       { // ImageMapping
+ * //         sourceImage: "STRING_VALUE",
+ * //         destinationImage: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //   },
  * //   readme: "STRING_VALUE",
  * //   definitionRepositoryDetails: { // DefinitionRepositoryDetails
  * //     connectionArn: "STRING_VALUE",

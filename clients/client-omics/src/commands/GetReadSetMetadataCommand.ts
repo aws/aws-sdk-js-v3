@@ -28,7 +28,7 @@ export interface GetReadSetMetadataCommandInput extends GetReadSetMetadataReques
 export interface GetReadSetMetadataCommandOutput extends GetReadSetMetadataResponse, __MetadataBearer {}
 
 /**
- * <p>Gets details about a read set.</p>
+ * <p>Retrieves the metadata for a read set from a sequence store in JSON format. This operation does not return tags. To retrieve the list of tags for a read set, use the <code>ListTagsForResource</code> API operation.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

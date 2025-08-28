@@ -47,7 +47,7 @@ export interface StartRunCommandOutput extends StartRunResponse, __MetadataBeare
  *   priority: Number("int"),
  *   parameters: "DOCUMENT_VALUE",
  *   storageCapacity: Number("int"),
- *   outputUri: "STRING_VALUE",
+ *   outputUri: "STRING_VALUE", // required
  *   logLevel: "STRING_VALUE",
  *   tags: { // TagMap
  *     "<keys>": "STRING_VALUE",

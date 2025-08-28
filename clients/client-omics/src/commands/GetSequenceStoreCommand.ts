@@ -28,7 +28,7 @@ export interface GetSequenceStoreCommandInput extends GetSequenceStoreRequest {}
 export interface GetSequenceStoreCommandOutput extends GetSequenceStoreResponse, __MetadataBearer {}
 
 /**
- * <p>Gets information about a sequence store.</p>
+ * <p>Retrieves metadata for a sequence store using its ID and returns it in JSON format.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

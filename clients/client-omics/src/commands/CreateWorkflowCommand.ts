@@ -28,7 +28,7 @@ export interface CreateWorkflowCommandInput extends CreateWorkflowRequest {}
 export interface CreateWorkflowCommandOutput extends CreateWorkflowResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a private workflow. Before you create a private workflow, you must create and configure these required resources:</p> <ul> <li> <p> <i>Workflow definition files</i>: Define your workflow in one or more workflow definition files, written in WDL, Nextflow, or CWL. The workflow definition specifies the inputs and outputs for runs that use the workflow. It also includes specifications for the runs and run tasks for your workflow, including compute and memory requirements. The workflow definition file must be in .zip format.</p> </li> <li> <p>(Optional) <i>Parameter template</i>: You can create a parameter template file that defines the run parameters, or Amazon Web Services HealthOmics can generate the parameter template for you.</p> </li> <li> <p> <i>ECR container images</i>: Create one or more container images for the workflow. Store the images in a private ECR repository.</p> </li> <li> <p>(Optional) <i>Sentieon licenses</i>: Request a Sentieon license if using the Sentieon software in a private workflow.</p> </li> </ul> <p>For more information, see <a href="https://docs.aws.amazon.com/omics/latest/dev/creating-private-workflows.html">Creating or updating a private workflow in Amazon Web Services HealthOmics</a> in the <i>Amazon Web Services HealthOmics User Guide</i>.</p>
+ * <p>Creates a private workflow. Before you create a private workflow, you must create and configure these required resources:</p> <ul> <li> <p> <i>Workflow definition files</i>: Define your workflow in one or more workflow definition files, written in WDL, Nextflow, or CWL. The workflow definition specifies the inputs and outputs for runs that use the workflow. It also includes specifications for the runs and run tasks for your workflow, including compute and memory requirements. The workflow definition file must be in .zip format.</p> </li> <li> <p>(Optional) <i>Parameter template</i>: You can create a parameter template file that defines the run parameters, or Amazon Web Services HealthOmics can generate the parameter template for you.</p> </li> <li> <p> <i>ECR container images</i>: Create container images for the workflow in a private ECR repository, or synchronize images from a supported upstream registry with your Amazon ECR private repository.</p> </li> <li> <p>(Optional) <i>Sentieon licenses</i>: Request a Sentieon license if using the Sentieon software in a private workflow.</p> </li> </ul> <p>For more information, see <a href="https://docs.aws.amazon.com/omics/latest/dev/creating-private-workflows.html">Creating or updating a private workflow in Amazon Web Services HealthOmics</a> in the <i>Amazon Web Services HealthOmics User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -55,6 +55,23 @@ export interface CreateWorkflowCommandOutput extends CreateWorkflowResponse, __M
  *   requestId: "STRING_VALUE", // required
  *   accelerators: "STRING_VALUE",
  *   storageType: "STRING_VALUE",
+ *   containerRegistryMap: { // ContainerRegistryMap
+ *     registryMappings: [ // RegistryMappingsList
+ *       { // RegistryMapping
+ *         upstreamRegistryUrl: "STRING_VALUE",
+ *         ecrRepositoryPrefix: "STRING_VALUE",
+ *         upstreamRepositoryPrefix: "STRING_VALUE",
+ *         ecrAccountId: "STRING_VALUE",
+ *       },
+ *     ],
+ *     imageMappings: [ // ImageMappingsList
+ *       { // ImageMapping
+ *         sourceImage: "STRING_VALUE",
+ *         destinationImage: "STRING_VALUE",
+ *       },
+ *     ],
+ *   },
+ *   containerRegistryMapUri: "STRING_VALUE",
  *   readmeMarkdown: "STRING_VALUE",
  *   parameterTemplatePath: "STRING_VALUE",
  *   readmePath: "STRING_VALUE",

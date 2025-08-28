@@ -2350,6 +2350,72 @@ export interface CompleteMultipartReadSetUploadResponse {
 }
 
 /**
+ * <p>Specifies image mappings that workflow tasks can use. For example, you can replace all the task references of a public image to use an equivalent image in your private ECR repository. You can use image mappings with upstream registries that don't support pull through cache. You need to manually synchronize the upstream registry with your private repository. </p>
+ * @public
+ */
+export interface ImageMapping {
+  /**
+   * <p>Specifies the URI of the source image in the upstream registry.</p>
+   * @public
+   */
+  sourceImage?: string | undefined;
+
+  /**
+   * <p>Specifies the URI of the corresponding image in the private ECR registry.</p>
+   * @public
+   */
+  destinationImage?: string | undefined;
+}
+
+/**
+ * <p>If you are using the ECR pull through cache feature, the registry mapping maps between the ECR repository and the upstream registry where container images are pulled and synchronized.</p>
+ * @public
+ */
+export interface RegistryMapping {
+  /**
+   * <p>The URI of the upstream registry.</p>
+   * @public
+   */
+  upstreamRegistryUrl?: string | undefined;
+
+  /**
+   * <p>The repository prefix to use in the ECR private repository.</p>
+   * @public
+   */
+  ecrRepositoryPrefix?: string | undefined;
+
+  /**
+   * <p>The repository prefix of the corresponding repository in the upstream registry.</p>
+   * @public
+   */
+  upstreamRepositoryPrefix?: string | undefined;
+
+  /**
+   * <p>Account ID of the account that owns the upstream container image.</p>
+   * @public
+   */
+  ecrAccountId?: string | undefined;
+}
+
+/**
+ * <p>Use a container registry map to specify mappings between the ECR private repository and one or more upstream registries. For more information, see <a href="https://docs.aws.amazon.com/omics/latest/dev/workflows-ecr.html">Container images</a> in the <i>Amazon Web Services HealthOmics User Guide</i>. </p>
+ * @public
+ */
+export interface ContainerRegistryMap {
+  /**
+   * <p>Mapping that provides the ECR repository path where upstream container images are pulled and synchronized.</p>
+   * @public
+   */
+  registryMappings?: RegistryMapping[] | undefined;
+
+  /**
+   * <p>Image mappings specify path mappings between the ECR private repository and their corresponding external repositories.</p>
+   * @public
+   */
+  imageMappings?: ImageMapping[] | undefined;
+}
+
+/**
  * @public
  * @enum
  */
@@ -2788,37 +2854,37 @@ export interface CreateSequenceStoreRequest {
   sseConfig?: SseConfig | undefined;
 
   /**
-   * <p>Tags for the store.</p>
+   * <p>Tags for the store. You can configure up to 50 tags.</p>
    * @public
    */
   tags?: Record<string, string> | undefined;
 
   /**
-   * <p>To ensure that requests don't run multiple times, specify a unique token for each request.</p>
+   * <p>An idempotency token used to dedupe retry requests so that duplicate runs are not created.</p>
    * @public
    */
   clientToken?: string | undefined;
 
   /**
-   * <p>An S3 location that is used to store files that have failed a direct upload.</p>
+   * <p>An S3 location that is used to store files that have failed a direct upload. You can add or change the <code>fallbackLocation</code> after creating a sequence store. This is not required if you are uploading files from a different S3 bucket.</p>
    * @public
    */
   fallbackLocation?: string | undefined;
 
   /**
-   * <p>The ETag algorithm family to use for ingested read sets.</p>
+   * <p>The ETag algorithm family to use for ingested read sets. The default value is MD5up. For more information on ETags, see <a href="https://docs.aws.amazon.com/omics/latest/dev/etags-and-provenance.html">ETags and data provenance</a> in the <i>Amazon Web Services HealthOmics User Guide</i>.</p>
    * @public
    */
   eTagAlgorithmFamily?: ETagAlgorithmFamily | undefined;
 
   /**
-   * <p>The tags keys to propagate to the S3 objects associated with read sets in the sequence store.</p>
+   * <p>The tags keys to propagate to the S3 objects associated with read sets in the sequence store. These tags can be used as input to add metadata to your read sets.</p>
    * @public
    */
   propagatedSetLevelTags?: string[] | undefined;
 
   /**
-   * <p>S3 access configuration parameters</p>
+   * <p>S3 access configuration parameters. This specifies the parameters needed to access logs stored in S3 buckets. The S3 bucket must be in the same region and account as the sequence store. </p>
    * @public
    */
   s3AccessConfig?: S3AccessConfig | undefined;
@@ -2894,7 +2960,7 @@ export interface CreateSequenceStoreResponse {
   description?: string | undefined;
 
   /**
-   * <p>The store's SSE settings.</p>
+   * <p>Server-side encryption (SSE) settings for the store. This contains the KMS key ARN that is used to encrypt read set objects.</p>
    * @public
    */
   sseConfig?: SseConfig | undefined;
@@ -3245,6 +3311,18 @@ export interface CreateWorkflowRequest {
   storageType?: StorageType | undefined;
 
   /**
+   * <p>(Optional) Use a container registry map to specify mappings between the ECR private repository and one or more upstream registries. For more information, see <a href="https://docs.aws.amazon.com/omics/latest/dev/workflows-ecr.html">Container images</a> in the <i>Amazon Web Services HealthOmics User Guide</i>. </p>
+   * @public
+   */
+  containerRegistryMap?: ContainerRegistryMap | undefined;
+
+  /**
+   * <p>(Optional) URI of the S3 location for the registry mapping file.</p>
+   * @public
+   */
+  containerRegistryMapUri?: string | undefined;
+
+  /**
    * <p>The markdown content for the workflow's README file. This provides documentation and usage information for users of the workflow.</p>
    * @public
    */
@@ -3339,7 +3417,7 @@ export interface CreateWorkflowResponse {
  */
 export interface CreateWorkflowVersionRequest {
   /**
-   * <p>The ID of the workflow where you are creating the new version.</p>
+   * <p>The ID of the workflow where you are creating the new version. The <code>workflowId</code> is not the UUID.</p>
    * @public
    */
   workflowId: string | undefined;
@@ -3351,13 +3429,13 @@ export interface CreateWorkflowVersionRequest {
   versionName: string | undefined;
 
   /**
-   * <p>A zip archive containing the workflow definition for this workflow version.</p>
+   * <p>A ZIP archive containing the main workflow definition file and dependencies that it imports for this workflow version. You can use a file with a ://fileb prefix instead of the Base64 string. For more information, see Workflow definition requirements in the <i>Amazon Web Services HealthOmics User Guide</i>.</p>
    * @public
    */
   definitionZip?: Uint8Array | undefined;
 
   /**
-   * <p>The URI specifies the location of the workflow definition for this workflow version.</p>
+   * <p>The S3 URI of a definition for this workflow version. The S3 bucket must be in the same region as this workflow version.</p>
    * @public
    */
   definitionUri?: string | undefined;
@@ -3375,43 +3453,43 @@ export interface CreateWorkflowVersionRequest {
   description?: string | undefined;
 
   /**
-   * <p>The workflow engine for this workflow version.</p>
+   * <p>The workflow engine for this workflow version. This is only required if you have workflow definition files from more than one engine in your zip file. Otherwise, the service can detect the engine automatically from your workflow definition.</p>
    * @public
    */
   engine?: WorkflowEngine | undefined;
 
   /**
-   * <p>The path of the main definition file for this workflow version.</p>
+   * <p>The path of the main definition file for this workflow version. This parameter is not required if the ZIP archive contains only one workflow definition file, or if the main definition file is named “main”. An example path is: <code>workflow-definition/main-file.wdl</code>. </p>
    * @public
    */
   main?: string | undefined;
 
   /**
-   * <p>The parameter template defines the input parameters for runs that use this workflow version.</p>
+   * <p>A parameter template for this workflow version. If this field is blank, Amazon Web Services HealthOmics will automatically parse the parameter template values from your workflow definition file. To override these service generated default values, provide a parameter template. To view an example of a parameter template, see <a href="https://docs.aws.amazon.com/omics/latest/dev/parameter-templates.html">Parameter template files</a> in the <i>Amazon Web Services HealthOmics User Guide</i>.</p>
    * @public
    */
   parameterTemplate?: Record<string, WorkflowParameter> | undefined;
 
   /**
-   * <p>To ensure that requests don't run multiple times, specify a unique ID for each request.</p>
+   * <p>An idempotency token to ensure that duplicate workflows are not created when Amazon Web Services HealthOmics submits retry requests.</p>
    * @public
    */
   requestId?: string | undefined;
 
   /**
-   * <p>The default storage type for runs that use this workflow. STATIC storage allocates a fixed amount of storage. DYNAMIC storage dynamically scales the storage up or down, based on file system utilization. For more information about static and dynamic storage, see <a href="https://docs.aws.amazon.com/omics/latest/dev/Using-workflows.html">Running workflows</a> in the <i>Amazon Web Services HealthOmics User Guide</i>.</p>
+   * <p>The default storage type for runs that use this workflow version. The <code>storageType</code> can be overridden at run time. <code>DYNAMIC</code> storage dynamically scales the storage up or down, based on file system utilization. STATIC storage allocates a fixed amount of storage. For more information about dynamic and static storage types, see <a href="https://docs.aws.amazon.com/omics/latest/dev/workflows-run-types.html">Run storage types</a> in the <i>Amazon Web Services HealthOmics User Guide</i>.</p>
    * @public
    */
   storageType?: StorageType | undefined;
 
   /**
-   * <p>The default static storage capacity (in gibibytes) for runs that use this workflow or workflow version.</p>
+   * <p>The default static storage capacity (in gibibytes) for runs that use this workflow version. The <code>storageCapacity</code> can be overwritten at run time. The storage capacity is not required for runs with a <code>DYNAMIC</code> storage type.</p>
    * @public
    */
   storageCapacity?: number | undefined;
 
   /**
-   * <p>Optional tags to associate with this workflow version.</p>
+   * <p>Tags for this workflow version. You can define up to 50 tags for the workflow. For more information, see <a href="https://docs.aws.amazon.com/omics/latest/dev/add-a-tag.html">Adding a tag</a> in the <i>Amazon Web Services HealthOmics User Guide</i>.</p>
    * @public
    */
   tags?: Record<string, string> | undefined;
@@ -3421,6 +3499,18 @@ export interface CreateWorkflowVersionRequest {
    * @public
    */
   workflowBucketOwnerId?: string | undefined;
+
+  /**
+   * <p>(Optional) Use a container registry map to specify mappings between the ECR private repository and one or more upstream registries. For more information, see <a href="https://docs.aws.amazon.com/omics/latest/dev/workflows-ecr.html">Container images</a> in the <i>Amazon Web Services HealthOmics User Guide</i>. </p>
+   * @public
+   */
+  containerRegistryMap?: ContainerRegistryMap | undefined;
+
+  /**
+   * <p>(Optional) URI of the S3 location for the registry mapping file.</p>
+   * @public
+   */
+  containerRegistryMapUri?: string | undefined;
 
   /**
    * <p>The markdown content for the workflow version's README file. This provides documentation and usage information for users of this specific workflow version.</p>
@@ -5508,6 +5598,30 @@ export interface GetRunTaskRequest {
 }
 
 /**
+ * <p>Information about the container image used for a task.</p>
+ * @public
+ */
+export interface ImageDetails {
+  /**
+   * <p>The URI of the container image.</p>
+   * @public
+   */
+  image?: string | undefined;
+
+  /**
+   * <p>The container image digest. If the image URI was transformed, this will be the digest of the container image referenced by the transformed URI.</p>
+   * @public
+   */
+  imageDigest?: string | undefined;
+
+  /**
+   * <p>URI of the source registry. If the URI is from a third-party registry, Amazon Web Services HealthOmics transforms the URI to the corresponding ECR path, using the pull-through cache mapping rules.</p>
+   * @public
+   */
+  sourceImage?: string | undefined;
+}
+
+/**
  * @public
  * @enum
  */
@@ -5619,6 +5733,12 @@ export interface GetRunTaskResponse {
    * @public
    */
   failureReason?: string | undefined;
+
+  /**
+   * <p>Details about the container image that this task uses.</p>
+   * @public
+   */
+  imageDetails?: ImageDetails | undefined;
 }
 
 /**
@@ -6219,6 +6339,12 @@ export interface GetWorkflowResponse {
   uuid?: string | undefined;
 
   /**
+   * <p>The registry map that this workflow is using.</p>
+   * @public
+   */
+  containerRegistryMap?: ContainerRegistryMap | undefined;
+
+  /**
    * <p>The README content for the workflow, providing documentation and usage information.</p>
    * @public
    */
@@ -6242,7 +6368,7 @@ export interface GetWorkflowResponse {
  */
 export interface GetWorkflowVersionRequest {
   /**
-   * <p>The workflow's ID.</p>
+   * <p>The workflow's ID. The <code>workflowId</code> is not the UUID.</p>
    * @public
    */
   workflowId: string | undefined;
@@ -6266,7 +6392,7 @@ export interface GetWorkflowVersionRequest {
   export?: WorkflowExport[] | undefined;
 
   /**
-   * <p>Amazon Web Services Id of the owner of the workflow.</p>
+   * <p>The 12-digit account ID of the workflow owner. The workflow owner ID can be retrieved using the <code>GetShare</code> API operation. If you are the workflow owner, you do not need to include this ID.</p>
    * @public
    */
   workflowOwnerId?: string | undefined;
@@ -6395,6 +6521,12 @@ export interface GetWorkflowVersionResponse {
    * @public
    */
   workflowBucketOwnerId?: string | undefined;
+
+  /**
+   * <p>The registry map that this workflow version uses.</p>
+   * @public
+   */
+  containerRegistryMap?: ContainerRegistryMap | undefined;
 
   /**
    * <p>The README content for the workflow version, providing documentation and usage information specific to this version.</p>
@@ -8436,7 +8568,7 @@ export interface ListWorkflowsResponse {
  */
 export interface ListWorkflowVersionsRequest {
   /**
-   * <p>The workflow's ID.</p>
+   * <p>The workflow's ID. The <code>workflowId</code> is not the UUID.</p>
    * @public
    */
   workflowId: string | undefined;
@@ -8448,7 +8580,7 @@ export interface ListWorkflowVersionsRequest {
   type?: WorkflowType | undefined;
 
   /**
-   * <p>Amazon Web Services Id of the owner of the workflow.</p>
+   * <p>The 12-digit account ID of the workflow owner. The workflow owner ID can be retrieved using the <code>GetShare</code> API operation. If you are the workflow owner, you do not need to include this ID.</p>
    * @public
    */
   workflowOwnerId?: string | undefined;
@@ -8821,7 +8953,7 @@ export interface StartRunRequest {
    * <p>An output S3 URI for the run. The S3 bucket must be in the same region as the workflow. The role ARN must have permission to write to this S3 bucket.</p>
    * @public
    */
-  outputUri?: string | undefined;
+  outputUri: string | undefined;
 
   /**
    * <p>A log level for the run.</p>
@@ -9099,200 +9231,6 @@ export interface StartReadSetImportJobSourceItem {
    * @public
    */
   tags?: Record<string, string> | undefined;
-}
-
-/**
- * @public
- */
-export interface StartReadSetImportJobRequest {
-  /**
-   * <p>The read set's sequence store ID.</p>
-   * @public
-   */
-  sequenceStoreId: string | undefined;
-
-  /**
-   * <p>A service role for the job.</p>
-   * @public
-   */
-  roleArn: string | undefined;
-
-  /**
-   * <p>To ensure that jobs don't run multiple times, specify a unique token for each job.</p>
-   * @public
-   */
-  clientToken?: string | undefined;
-
-  /**
-   * <p>The job's source files.</p>
-   * @public
-   */
-  sources: StartReadSetImportJobSourceItem[] | undefined;
-}
-
-/**
- * @public
- */
-export interface StartReadSetImportJobResponse {
-  /**
-   * <p>The job's ID.</p>
-   * @public
-   */
-  id: string | undefined;
-
-  /**
-   * <p>The read set's sequence store ID.</p>
-   * @public
-   */
-  sequenceStoreId: string | undefined;
-
-  /**
-   * <p>The job's service role ARN.</p>
-   * @public
-   */
-  roleArn: string | undefined;
-
-  /**
-   * <p>The job's status.</p>
-   * @public
-   */
-  status: ReadSetImportJobStatus | undefined;
-
-  /**
-   * <p>When the job was created.</p>
-   * @public
-   */
-  creationTime: Date | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateSequenceStoreRequest {
-  /**
-   * <p>The ID of the sequence store.</p>
-   * @public
-   */
-  id: string | undefined;
-
-  /**
-   * <p>A name for the sequence store.</p>
-   * @public
-   */
-  name?: string | undefined;
-
-  /**
-   * <p>A description for the sequence store.</p>
-   * @public
-   */
-  description?: string | undefined;
-
-  /**
-   * <p>To ensure that requests don't run multiple times, specify a unique token for each request.</p>
-   * @public
-   */
-  clientToken?: string | undefined;
-
-  /**
-   * <p>The S3 URI of a bucket and folder to store Read Sets that fail to upload.</p>
-   * @public
-   */
-  fallbackLocation?: string | undefined;
-
-  /**
-   * <p>The tags keys to propagate to the S3 objects associated with read sets in the sequence store.</p>
-   * @public
-   */
-  propagatedSetLevelTags?: string[] | undefined;
-
-  /**
-   * <p>S3 access configuration parameters.</p>
-   * @public
-   */
-  s3AccessConfig?: S3AccessConfig | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateSequenceStoreResponse {
-  /**
-   * <p>The ID of the sequence store.</p>
-   * @public
-   */
-  id: string | undefined;
-
-  /**
-   * <p>The ARN of the sequence store.</p>
-   * @public
-   */
-  arn: string | undefined;
-
-  /**
-   * <p>The name of the sequence store.</p>
-   * @public
-   */
-  name?: string | undefined;
-
-  /**
-   * <p>Description of the sequence store.</p>
-   * @public
-   */
-  description?: string | undefined;
-
-  /**
-   * <p>Server-side encryption (SSE) settings for a store.</p>
-   * @public
-   */
-  sseConfig?: SseConfig | undefined;
-
-  /**
-   * <p>The time when the store was created.</p>
-   * @public
-   */
-  creationTime: Date | undefined;
-
-  /**
-   * <p>The last-updated time of the Sequence Store.</p>
-   * @public
-   */
-  updateTime?: Date | undefined;
-
-  /**
-   * <p>The tags keys to propagate to the S3 objects associated with read sets in the sequence store.</p>
-   * @public
-   */
-  propagatedSetLevelTags?: string[] | undefined;
-
-  /**
-   * <p>The status of the sequence store.</p>
-   * @public
-   */
-  status?: SequenceStoreStatus | undefined;
-
-  /**
-   * <p>The status message of the sequence store.</p>
-   * @public
-   */
-  statusMessage?: string | undefined;
-
-  /**
-   * <p>The S3 URI of a bucket and folder to store Read Sets that fail to upload.</p>
-   * @public
-   */
-  fallbackLocation?: string | undefined;
-
-  /**
-   * <p>The S3 access metadata of the sequence store.</p>
-   * @public
-   */
-  s3Access?: SequenceStoreS3Access | undefined;
-
-  /**
-   * <p>The ETag algorithm family to use on ingested read sets.</p>
-   * @public
-   */
-  eTagAlgorithmFamily?: ETagAlgorithmFamily | undefined;
 }
 
 /**

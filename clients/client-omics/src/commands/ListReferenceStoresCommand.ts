@@ -28,7 +28,7 @@ export interface ListReferenceStoresCommandInput extends ListReferenceStoresRequ
 export interface ListReferenceStoresCommandOutput extends ListReferenceStoresResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves a list of reference stores.</p>
+ * <p>Retrieves a list of reference stores linked to your account and returns their metadata in JSON format.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/omics/latest/dev/create-reference-store.html">Creating a reference store</a> in the <i>Amazon Web Services HealthOmics User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

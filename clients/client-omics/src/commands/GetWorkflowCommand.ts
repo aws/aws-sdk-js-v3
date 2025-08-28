@@ -74,6 +74,22 @@ export interface GetWorkflowCommandOutput extends GetWorkflowResponse, __Metadat
  * //   accelerators: "STRING_VALUE",
  * //   storageType: "STRING_VALUE",
  * //   uuid: "STRING_VALUE",
+ * //   containerRegistryMap: { // ContainerRegistryMap
+ * //     registryMappings: [ // RegistryMappingsList
+ * //       { // RegistryMapping
+ * //         upstreamRegistryUrl: "STRING_VALUE",
+ * //         ecrRepositoryPrefix: "STRING_VALUE",
+ * //         upstreamRepositoryPrefix: "STRING_VALUE",
+ * //         ecrAccountId: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //     imageMappings: [ // ImageMappingsList
+ * //       { // ImageMapping
+ * //         sourceImage: "STRING_VALUE",
+ * //         destinationImage: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //   },
  * //   readme: "STRING_VALUE",
  * //   definitionRepositoryDetails: { // DefinitionRepositoryDetails
  * //     connectionArn: "STRING_VALUE",
