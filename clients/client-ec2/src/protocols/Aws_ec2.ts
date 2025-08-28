@@ -32675,6 +32675,12 @@ const se_CopyImageRequest = (input: CopyImageRequest, context: __SerdeContext): 
   if (input[_SCCDM] != null) {
     entries[_SCCDM] = input[_SCCDM];
   }
+  if (input[_DAZe] != null) {
+    entries[_DAZe] = input[_DAZe];
+  }
+  if (input[_DAZI] != null) {
+    entries[_DAZI] = input[_DAZI];
+  }
   if (input[_DRr] != null) {
     entries[_DRr] = input[_DRr];
   }
@@ -32719,6 +32725,9 @@ const se_CopySnapshotRequest = (input: CopySnapshotRequest, context: __SerdeCont
   }
   if (input[_CDM] != null) {
     entries[_CDM] = input[_CDM];
+  }
+  if (input[_DAZe] != null) {
+    entries[_DAZe] = input[_DAZe];
   }
   if (input[_DRr] != null) {
     entries[_DRr] = input[_DRr];
@@ -93027,6 +93036,8 @@ const _DAT = "DescribeAddressTransfers";
 const _DATi = "DisableAddressTransfer";
 const _DATis = "DisableApiTermination";
 const _DAZ = "DescribeAvailabilityZones";
+const _DAZI = "DestinationAvailabilityZoneId";
+const _DAZe = "DestinationAvailabilityZone";
 const _DAe = "DeprecateAt";
 const _DAep = "DeprovisionedAddresses";
 const _DAes = "DestinationAddresses";

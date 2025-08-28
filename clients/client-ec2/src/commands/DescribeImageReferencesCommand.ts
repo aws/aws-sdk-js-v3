@@ -28,9 +28,9 @@ export interface DescribeImageReferencesCommandInput extends DescribeImageRefere
 export interface DescribeImageReferencesCommandOutput extends DescribeImageReferencesResult, __MetadataBearer {}
 
 /**
- * <p>Describes your Amazon Web Services resources that are referencing the specified images. </p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-ami-references.html">Identiy your resources referencing
- *         selected AMIs</a> in the <i>Amazon EC2 User Guide</i>.</p>
+ * <p>Describes your Amazon Web Services resources that are referencing the specified images.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-ami-references.html">Identify your resources referencing
+ *         specified AMIs</a> in the <i>Amazon EC2 User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

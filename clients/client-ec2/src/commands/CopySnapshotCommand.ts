@@ -29,11 +29,24 @@ export interface CopySnapshotCommandInput extends CopySnapshotRequest {}
 export interface CopySnapshotCommandOutput extends CopySnapshotResult, __MetadataBearer {}
 
 /**
- * <p>Copies a point-in-time snapshot of an EBS volume and stores it in Amazon S3. You can copy a
- *       snapshot within the same Region, from one Region to another, or from a Region to an Outpost.
- *       You can't copy a snapshot from an Outpost to a Region, from one Outpost to another, or within
- *       the same Outpost.</p>
- *          <p>You can use the snapshot to create EBS volumes or Amazon Machine Images (AMIs).</p>
+ * <p>Creates an exact copy of an Amazon EBS snapshot.</p>
+ *          <p>The location of the source snapshot determines whether you can copy it or not,
+ *       and the allowed destinations for the snapshot copy.</p>
+ *          <ul>
+ *             <li>
+ *                <p>If the source snapshot is in a Region, you can copy it within that Region,
+ *           to another Region, to an Outpost associated with that Region, or to a Local
+ *           Zone in that Region.</p>
+ *             </li>
+ *             <li>
+ *                <p>If the source snapshot is in a Local Zone, you can copy it within that Local Zone,
+ *           to another Local Zone in the same zone group, or to the parent Region of the Local
+ *           Zone.</p>
+ *             </li>
+ *             <li>
+ *                <p>If the source snapshot is on an Outpost, you can't copy it.</p>
+ *             </li>
+ *          </ul>
  *          <p>When copying snapshots to a Region, copies of encrypted EBS snapshots remain encrypted.
  *     	Copies of unencrypted snapshots remain unencrypted, unless you enable encryption for the
  *     	snapshot copy operation. By default, encrypted snapshot copies use the default KMS key;
@@ -44,8 +57,10 @@ export interface CopySnapshotCommandOutput extends CopySnapshotResult, __Metadat
  *       for the Region, or a different key that you specify in the request using <b>KmsKeyId</b>. Outposts do not support unencrypted snapshots. For more information,
  *       see <a href="https://docs.aws.amazon.com/ebs/latest/userguide/snapshots-outposts.html#ami">Amazon EBS
  *         local snapshots on Outposts</a> in the <i>Amazon EBS User Guide</i>.</p>
- *          <p>Snapshots created by copying another snapshot have an arbitrary volume ID that should not
- *       be used for any purpose.</p>
+ *          <note>
+ *             <p>Snapshots copies have an arbitrary source volume ID. Do not use this volume ID for
+ *         any purpose.</p>
+ *          </note>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/ebs/latest/userguide/ebs-copy-snapshot.html">Copy an Amazon EBS snapshot</a> in the
  *         <i>Amazon EBS User Guide</i>.</p>
  * @example
@@ -75,6 +90,7 @@ export interface CopySnapshotCommandOutput extends CopySnapshotResult, __Metadat
  *     },
  *   ],
  *   CompletionDurationMinutes: Number("int"),
+ *   DestinationAvailabilityZone: "STRING_VALUE",
  *   DryRun: true || false,
  * };
  * const command = new CopySnapshotCommand(input);

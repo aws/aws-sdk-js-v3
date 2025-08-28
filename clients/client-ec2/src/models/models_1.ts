@@ -95,16 +95,16 @@ export interface CopyImageRequest {
   ClientToken?: string | undefined;
 
   /**
-   * <p>A description for the new AMI in the destination Region.</p>
+   * <p>A description for the new AMI.</p>
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * <p>Specifies whether the destination snapshots of the copied image should be encrypted. You
-   *       can encrypt a copy of an unencrypted snapshot, but you cannot create an unencrypted copy of an
-   *       encrypted snapshot. The default KMS key for Amazon EBS is used unless you specify a non-default
-   *       Key Management Service (KMS) KMS key using <code>KmsKeyId</code>. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AMIEncryption.html">Use encryption with
+   * <p>Specifies whether to encrypt the snapshots of the copied image.</p>
+   *          <p>You can encrypt a copy of an unencrypted snapshot, but you cannot create an unencrypted
+   *       copy of an encrypted snapshot. The default KMS key for Amazon EBS is used unless you specify a
+   *       non-default Key Management Service (KMS) KMS key using <code>KmsKeyId</code>. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AMIEncryption.html">Use encryption with
    *         EBS-backed AMIs</a> in the <i>Amazon EC2 User Guide</i>.</p>
    * @public
    */
@@ -138,7 +138,7 @@ export interface CopyImageRequest {
   KmsKeyId?: string | undefined;
 
   /**
-   * <p>The name of the new AMI in the destination Region.</p>
+   * <p>The name of the new AMI.</p>
    * @public
    */
   Name: string | undefined;
@@ -156,19 +156,22 @@ export interface CopyImageRequest {
   SourceRegion: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the Outpost to which to copy the AMI. Only specify this
-   *       parameter when copying an AMI from an Amazon Web Services Region to an Outpost. The AMI must be in the
-   *       Region of the destination Outpost. You cannot copy an AMI from an Outpost to a Region, from
-   *       one Outpost to another, or within the same Outpost.</p>
+   * <p>The Amazon Resource Name (ARN) of the Outpost for the new AMI.</p>
+   *          <p>Only specify this parameter when copying an AMI from an Amazon Web Services Region to an Outpost. The
+   *       AMI must be in the Region of the destination Outpost. You can't copy an AMI from an Outpost to
+   *       a Region, from one Outpost to another, or within the same Outpost.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/ebs/latest/userguide/snapshots-outposts.html#copy-amis">Copy AMIs from an Amazon Web Services Region
    *         to an Outpost</a> in the <i>Amazon EBS User Guide</i>.</p>
+   *          <p>Only one of <code>DestinationAvailabilityZone</code>,
+   *         <code>DestinationAvailabilityZoneId</code>, or <code>DestinationOutpostArn</code> can be
+   *       specified.</p>
    * @public
    */
   DestinationOutpostArn?: string | undefined;
 
   /**
-   * <p>Indicates whether to include your user-defined AMI tags when copying the AMI.</p>
-   *          <p>The following tags will not be copied:</p>
+   * <p>Specifies whether to copy your user-defined AMI tags to the new AMI.</p>
+   *          <p>The following tags are not be copied:</p>
    *          <ul>
    *             <li>
    *                <p>System tags (prefixed with <code>aws:</code>)</p>
@@ -210,11 +213,33 @@ export interface CopyImageRequest {
    *       meet the timing target.</p>
    *          <p>If you do not specify a value, the AMI copy operation is completed on a best-effort
    *       basis.</p>
+   *          <note>
+   *             <p>This parameter is not supported when copying an AMI to or from a Local Zone, or to an
+   *         Outpost.</p>
+   *          </note>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/ebs/latest/userguide/time-based-copies.html">Time-based copies for Amazon EBS snapshots and
    *         EBS-backed AMIs</a>.</p>
    * @public
    */
   SnapshotCopyCompletionDurationMinutes?: number | undefined;
+
+  /**
+   * <p>The Local Zone for the new AMI (for example, <code>cn-north-1-pkx-1a</code>).</p>
+   *          <p>Only one of <code>DestinationAvailabilityZone</code>,
+   *         <code>DestinationAvailabilityZoneId</code>, or <code>DestinationOutpostArn</code> can be
+   *       specified.</p>
+   * @public
+   */
+  DestinationAvailabilityZone?: string | undefined;
+
+  /**
+   * <p>The ID of the Local Zone for the new AMI (for example, <code>cnn1-pkx1-az1</code>).</p>
+   *          <p>Only one of <code>DestinationAvailabilityZone</code>,
+   *         <code>DestinationAvailabilityZoneId</code>, or <code>DestinationOutpostArn</code> can be
+   *       specified.</p>
+   * @public
+   */
+  DestinationAvailabilityZoneId?: string | undefined;
 
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
@@ -248,14 +273,13 @@ export interface CopySnapshotRequest {
   Description?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the Outpost to which to copy the snapshot. Only
-   * 		specify this parameter when copying a snapshot from an Amazon Web Services Region to an Outpost.
-   * 		The snapshot must be in the Region for the destination Outpost. You cannot copy a
-   * 		snapshot from an Outpost to a Region, from one Outpost to another, or within the same
-   * 		Outpost.</p>
+   * <p>The Amazon Resource Name (ARN) of the Outpost to which to copy the snapshot.</p>
+   *          <note>
+   *             <p>Only supported when copying a snapshot to an Outpost.</p>
+   *          </note>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/ebs/latest/userguide/snapshots-outposts.html#copy-snapshots">
    *   		Copy snapshots from an Amazon Web Services Region to an Outpost</a> in the
-   *   		<i>Amazon EBS User Guide</i>.</p>
+   *       <i>Amazon EBS User Guide</i>.</p>
    * @public
    */
   DestinationOutpostArn?: string | undefined;
@@ -344,7 +368,10 @@ export interface CopySnapshotRequest {
   TagSpecifications?: TagSpecification[] | undefined;
 
   /**
-   * <p>Specify a completion duration, in 15 minute increments, to initiate a time-based snapshot
+   * <note>
+   *             <p>Not supported when copying snapshots to or from Local Zones or Outposts.</p>
+   *          </note>
+   *          <p>Specify a completion duration, in 15 minute increments, to initiate a time-based snapshot
    *       copy. Time-based snapshot copy operations complete within the specified duration. For more
    *       information, see <a href="https://docs.aws.amazon.com/ebs/latest/userguide/time-based-copies.html">
    *         Time-based copies</a>.</p>
@@ -353,6 +380,16 @@ export interface CopySnapshotRequest {
    * @public
    */
   CompletionDurationMinutes?: number | undefined;
+
+  /**
+   * <p>The Local Zone, for example, <code>cn-north-1-pkx-1a</code> to which to copy the
+   *       snapshot.</p>
+   *          <note>
+   *             <p>Only supported when copying a snapshot to a Local Zone.</p>
+   *          </note>
+   * @public
+   */
+  DestinationAvailabilityZone?: string | undefined;
 
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
