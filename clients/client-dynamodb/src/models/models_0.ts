@@ -1419,7 +1419,7 @@ export interface ThrottlingReason {
 /**
  * <p>Throughput exceeds the current throughput quota for your account. For detailed
  *             information about why the request was throttled and the ARN of the impacted resource,
- *             find the <a href="https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_ThrottlingReason.html">ThrottlingReason</a> field in the returned exception. Contact <a href="https://aws.amazon.com/support">Amazon Web ServicesSupport</a> to request a quota
+ *             find the <a href="https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_ThrottlingReason.html">ThrottlingReason</a> field in the returned exception. Contact <a href="https://aws.amazon.com/support">Amazon Web Services Support</a> to request a quota
  *             increase.</p>
  * @public
  */
