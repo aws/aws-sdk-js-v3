@@ -16,6 +16,7 @@ jspm_packages
 .eslintcache
 .node_repl_history
 *.tgz
+!*aws-lambda-invoke-store-0.0.1.tgz
 .yarn-integrity
 .yarn/*
 **/.yarn/*
