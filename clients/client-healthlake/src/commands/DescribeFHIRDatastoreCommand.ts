@@ -28,8 +28,7 @@ export interface DescribeFHIRDatastoreCommandInput extends DescribeFHIRDatastore
 export interface DescribeFHIRDatastoreCommandOutput extends DescribeFHIRDatastoreResponse, __MetadataBearer {}
 
 /**
- * <p>Gets the properties associated with the FHIR data store, including the data store ID,
- *          data store ARN, data store name, data store status, when the data store was created, data store type version, and the data store's endpoint.</p>
+ * <p>Get properties for a FHIR-enabled data store.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -81,10 +80,10 @@ export interface DescribeFHIRDatastoreCommandOutput extends DescribeFHIRDatastor
  * @see {@link HealthLakeClientResolvedConfig | config} for HealthLakeClient's `config` shape.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>Unknown error occurs in the service.</p>
+ *  <p>An unknown internal error occurred in the service.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p> The requested data store was not found.</p>
+ *  <p>The requested data store was not found.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The user has exceeded their maximum number of allowed calls to the given API. </p>

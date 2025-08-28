@@ -28,7 +28,7 @@ export interface CreateFHIRDatastoreCommandInput extends CreateFHIRDatastoreRequ
 export interface CreateFHIRDatastoreCommandOutput extends CreateFHIRDatastoreResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a data store that can ingest and export FHIR formatted data.</p>
+ * <p>Create a FHIR-enabled data store.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -82,7 +82,7 @@ export interface CreateFHIRDatastoreCommandOutput extends CreateFHIRDatastoreRes
  *  <p>Access is denied. Your account is not authorized to perform this operation.</p>
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>Unknown error occurs in the service.</p>
+ *  <p>An unknown internal error occurred in the service.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The user has exceeded their maximum number of allowed calls to the given API. </p>

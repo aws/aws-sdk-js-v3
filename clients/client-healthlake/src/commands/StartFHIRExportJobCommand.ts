@@ -28,7 +28,7 @@ export interface StartFHIRExportJobCommandInput extends StartFHIRExportJobReques
 export interface StartFHIRExportJobCommandOutput extends StartFHIRExportJobResponse, __MetadataBearer {}
 
 /**
- * <p>Begins a FHIR export job.</p>
+ * <p>Start a FHIR export job.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -67,10 +67,10 @@ export interface StartFHIRExportJobCommandOutput extends StartFHIRExportJobRespo
  *  <p>Access is denied. Your account is not authorized to perform this operation.</p>
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>Unknown error occurs in the service.</p>
+ *  <p>An unknown internal error occurred in the service.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p> The requested data store was not found.</p>
+ *  <p>The requested data store was not found.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The user has exceeded their maximum number of allowed calls to the given API. </p>

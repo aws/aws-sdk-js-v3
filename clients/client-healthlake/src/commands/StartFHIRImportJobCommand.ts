@@ -28,7 +28,9 @@ export interface StartFHIRImportJobCommandInput extends StartFHIRImportJobReques
 export interface StartFHIRImportJobCommandOutput extends StartFHIRImportJobResponse, __MetadataBearer {}
 
 /**
- * <p>Begins a FHIR Import job.</p>
+ * <p>Start importing bulk FHIR data into an ACTIVE data store. The import job imports FHIR
+ *          data found in the <code>InputDataConfig</code> object and stores processing results in the
+ *             <code>JobOutputDataConfig</code> object.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -49,6 +51,7 @@ export interface StartFHIRImportJobCommandOutput extends StartFHIRImportJobRespo
  *   DatastoreId: "STRING_VALUE", // required
  *   DataAccessRoleArn: "STRING_VALUE", // required
  *   ClientToken: "STRING_VALUE",
+ *   ValidationLevel: "strict" || "structure-only" || "minimal",
  * };
  * const command = new StartFHIRImportJobCommand(input);
  * const response = await client.send(command);
@@ -70,10 +73,10 @@ export interface StartFHIRImportJobCommandOutput extends StartFHIRImportJobRespo
  *  <p>Access is denied. Your account is not authorized to perform this operation.</p>
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>Unknown error occurs in the service.</p>
+ *  <p>An unknown internal error occurred in the service.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p> The requested data store was not found.</p>
+ *  <p>The requested data store was not found.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The user has exceeded their maximum number of allowed calls to the given API. </p>

@@ -28,7 +28,7 @@ export interface DescribeFHIRImportJobCommandInput extends DescribeFHIRImportJob
 export interface DescribeFHIRImportJobCommandOutput extends DescribeFHIRImportJobResponse, __MetadataBearer {}
 
 /**
- * <p>Displays the properties of a FHIR import job, including the ID, ARN, name, and the status of the job. </p>
+ * <p>Get the import job properties to learn more about the job or job progress.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -70,6 +70,7 @@ export interface DescribeFHIRImportJobCommandOutput extends DescribeFHIRImportJo
  * //     },
  * //     DataAccessRoleArn: "STRING_VALUE",
  * //     Message: "STRING_VALUE",
+ * //     ValidationLevel: "strict" || "structure-only" || "minimal",
  * //   },
  * // };
  *
@@ -82,10 +83,10 @@ export interface DescribeFHIRImportJobCommandOutput extends DescribeFHIRImportJo
  * @see {@link HealthLakeClientResolvedConfig | config} for HealthLakeClient's `config` shape.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>Unknown error occurs in the service.</p>
+ *  <p>An unknown internal error occurred in the service.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p> The requested data store was not found.</p>
+ *  <p>The requested data store was not found.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The user has exceeded their maximum number of allowed calls to the given API. </p>

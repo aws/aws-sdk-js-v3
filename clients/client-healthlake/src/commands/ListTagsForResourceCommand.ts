@@ -28,9 +28,7 @@ export interface ListTagsForResourceCommandInput extends ListTagsForResourceRequ
 export interface ListTagsForResourceCommandOutput extends ListTagsForResourceResponse, __MetadataBearer {}
 
 /**
- * <p>
- *             Returns a list of all existing tags associated with a data store.
- *          </p>
+ * <p>Returns a list of all existing tags associated with a data store.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -60,7 +58,7 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * @see {@link HealthLakeClientResolvedConfig | config} for HealthLakeClient's `config` shape.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p> The requested data store was not found.</p>
+ *  <p>The requested data store was not found.</p>
  *
  * @throws {@link ValidationException} (client fault)
  *  <p>The user input parameter was invalid.</p>

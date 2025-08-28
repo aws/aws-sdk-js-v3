@@ -770,6 +770,7 @@ const se_StartFHIRImportJobRequest = (input: StartFHIRImportJobRequest, context:
     InputDataConfig: _json,
     JobName: [],
     JobOutputDataConfig: _json,
+    ValidationLevel: [],
   });
 };
 
@@ -898,6 +899,7 @@ const de_ImportJobProperties = (output: any, context: __SerdeContext): ImportJob
     JobStatus: __expectString,
     Message: __expectString,
     SubmitTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    ValidationLevel: __expectString,
   }) as any;
 };
 

@@ -28,9 +28,7 @@ export interface ListFHIRImportJobsCommandInput extends ListFHIRImportJobsReques
 export interface ListFHIRImportJobsCommandOutput extends ListFHIRImportJobsResponse, __MetadataBearer {}
 
 /**
- * <p>
- *             Lists all FHIR import jobs associated with an account and their statuses.
- *          </p>
+ * <p>List all FHIR import jobs associated with an account and their statuses.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -78,6 +76,7 @@ export interface ListFHIRImportJobsCommandOutput extends ListFHIRImportJobsRespo
  * //       },
  * //       DataAccessRoleArn: "STRING_VALUE",
  * //       Message: "STRING_VALUE",
+ * //       ValidationLevel: "strict" || "structure-only" || "minimal",
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",
@@ -95,10 +94,10 @@ export interface ListFHIRImportJobsCommandOutput extends ListFHIRImportJobsRespo
  *  <p>Access is denied. Your account is not authorized to perform this operation.</p>
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>Unknown error occurs in the service.</p>
+ *  <p>An unknown internal error occurred in the service.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p> The requested data store was not found.</p>
+ *  <p>The requested data store was not found.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The user has exceeded their maximum number of allowed calls to the given API. </p>

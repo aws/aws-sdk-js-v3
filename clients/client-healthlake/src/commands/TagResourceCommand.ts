@@ -28,9 +28,7 @@ export interface TagResourceCommandInput extends TagResourceRequest {}
 export interface TagResourceCommandOutput extends TagResourceResponse, __MetadataBearer {}
 
 /**
- * <p>
- *             Adds a user specified key and value tag to a data store.
- *          </p>
+ * <p>Add a user-specifed key and value tag to a data store.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -59,7 +57,7 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * @see {@link HealthLakeClientResolvedConfig | config} for HealthLakeClient's `config` shape.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p> The requested data store was not found.</p>
+ *  <p>The requested data store was not found.</p>
  *
  * @throws {@link ValidationException} (client fault)
  *  <p>The user input parameter was invalid.</p>

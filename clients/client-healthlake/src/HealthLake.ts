@@ -294,8 +294,9 @@ export interface HealthLake {
 }
 
 /**
- * <p>AWS HealthLake is a HIPAA eligibile service that allows customers to store,
- *          transform, query, and analyze their FHIR-formatted data in a consistent fashion in the cloud.</p>
+ * <p>This is the <i>AWS HealthLake API Reference</i>. For an introduction to
+ *          the service, see <a href="https://docs.aws.amazon.com/healthlake/latest/devguide/what-is.html">What is AWS HealthLake?</a> in the <i>AWS HealthLake Developer
+ *             Guide</i>.</p>
  * @public
  */
 export class HealthLake extends HealthLakeClient implements HealthLake {}
