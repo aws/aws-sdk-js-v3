@@ -36,8 +36,7 @@ export type GetGlyphsCommandOutputType = Omit<GetGlyphsResponse, "Blob"> & {
 export interface GetGlyphsCommandOutput extends GetGlyphsCommandOutputType, __MetadataBearer {}
 
 /**
- * <p>
- *             <code>GetGlyphs</code> returns the map's glyphs.</p>
+ * <p> <code>GetGlyphs</code> returns the map's glyphs.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
