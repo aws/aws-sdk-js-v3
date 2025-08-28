@@ -863,6 +863,24 @@ export interface AgentStatus {
 }
 
 /**
+ * <p>Information about the agent status assigned to the user.</p>
+ * @public
+ */
+export interface AgentStatusIdentifier {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the agent status.</p>
+   * @public
+   */
+  Arn?: string | undefined;
+
+  /**
+   * <p>The identifier of the agent status.</p>
+   * @public
+   */
+  Id?: string | undefined;
+}
+
+/**
  * <p>Information about the agent's status.</p>
  * @public
  */
@@ -4478,9 +4496,9 @@ export interface CreateParticipantRequest {
   InstanceId: string | undefined;
 
   /**
-   * <p>The identifier of the contact in this instance of Amazon Connect.  Supports contacts in the CHAT channel and VOICE (WebRTC) channels.
-   *    For WebRTC calls, this should be the initial contact ID that was generated when
-   *    the contact was first created (from the StartWebRTCContact API) in the VOICE channel</p>
+   * <p>The identifier of the contact in this instance of Amazon Connect.  Supports contacts in the CHAT channel and VOICE (WebRTC) channels. For WebRTC
+   *    calls, this should be the initial contact ID that was generated when the contact was first
+   *    created (from the StartWebRTCContact API) in the VOICE channel</p>
    * @public
    */
   ContactId: string | undefined;
@@ -4497,8 +4515,8 @@ export interface CreateParticipantRequest {
   /**
    * <p>Information identifying the participant.</p>
    *          <important>
-   *             <p>The only valid value for <code>ParticipantRole</code> is <code>CUSTOM_BOT</code>
-   *     for chat contact and <code>CUSTOMER</code> for voice contact.</p>
+   *             <p>The only valid value for <code>ParticipantRole</code> is <code>CUSTOM_BOT</code> for chat
+   *     contact and <code>CUSTOMER</code> for voice contact.</p>
    *          </important>
    * @public
    */
@@ -7418,24 +7436,6 @@ export interface DeleteIntegrationAssociationRequest {
    * @public
    */
   IntegrationAssociationId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeletePredefinedAttributeRequest {
-  /**
-   * <p> The identifier of the Amazon Connect instance. You can find the instance ID in the Amazon Resource
-   *    Name (ARN) of the instance.</p>
-   * @public
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p> The name of the predefined attribute.</p>
-   * @public
-   */
-  Name: string | undefined;
 }
 
 /**

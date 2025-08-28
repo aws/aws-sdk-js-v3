@@ -63,9 +63,12 @@ export interface GetMetricDataCommandOutput extends GetMetricDataResponse, __Met
  *     RoutingStepExpressions: [ // RoutingExpressions
  *       "STRING_VALUE",
  *     ],
+ *     AgentStatuses: [ // AgentStatuses
+ *       "STRING_VALUE",
+ *     ],
  *   },
  *   Groupings: [ // Groupings
- *     "QUEUE" || "CHANNEL" || "ROUTING_PROFILE" || "ROUTING_STEP_EXPRESSION",
+ *     "QUEUE" || "CHANNEL" || "ROUTING_PROFILE" || "ROUTING_STEP_EXPRESSION" || "AGENT_STATUS",
  *   ],
  *   HistoricalMetrics: [ // HistoricalMetrics // required
  *     { // HistoricalMetric
@@ -98,6 +101,10 @@ export interface GetMetricDataCommandOutput extends GetMetricDataResponse, __Met
  * //           Arn: "STRING_VALUE",
  * //         },
  * //         RoutingStepExpression: "STRING_VALUE",
+ * //         AgentStatus: { // AgentStatusIdentifier
+ * //           Arn: "STRING_VALUE",
+ * //           Id: "STRING_VALUE",
+ * //         },
  * //       },
  * //       Collections: [ // HistoricalMetricDataCollections
  * //         { // HistoricalMetricData

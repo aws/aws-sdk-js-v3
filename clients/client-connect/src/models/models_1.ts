@@ -10,6 +10,7 @@ import {
   AgentQualityMetrics,
   AgentsCriteria,
   AgentStatus,
+  AgentStatusIdentifier,
   AgentStatusReference,
   AgentStatusSummary,
   AgentStatusType,
@@ -51,7 +52,6 @@ import {
   RuleAction,
   RulePublishStatus,
   RuleTriggerEventSource,
-  SourceType,
   StorageType,
   TaskTemplateConstraints,
   TaskTemplateDefaults,
@@ -65,6 +65,24 @@ import {
   VocabularyLanguageCode,
   VocabularyState,
 } from "./models_0";
+
+/**
+ * @public
+ */
+export interface DeletePredefinedAttributeRequest {
+  /**
+   * <p> The identifier of the Amazon Connect instance. You can find the instance ID in the Amazon Resource
+   *    Name (ARN) of the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p> The name of the predefined attribute.</p>
+   * @public
+   */
+  Name: string | undefined;
+}
 
 /**
  * @public
@@ -434,7 +452,7 @@ export interface DescribeAuthenticationProfileRequest {
 
 /**
  * <p>This API is in preview release for Amazon Connect and is subject to change. To
- * request access to this API, contact Amazon Web ServicesSupport.</p>
+ * request access to this API, contact Amazon Web Services Support.</p>
  *          <p>Information about an authentication profile. An authentication profile is a resource that
  *    stores the authentication settings for users in your contact center. You use authentication
  *    profiles to set up IP address range restrictions and session timeouts. For more information, see
@@ -4844,6 +4862,12 @@ export interface Filters {
    * @public
    */
   RoutingStepExpressions?: string[] | undefined;
+
+  /**
+   * <p>A list of up to 50 agent status IDs or ARNs.</p>
+   * @public
+   */
+  AgentStatuses?: string[] | undefined;
 }
 
 /**
@@ -4851,6 +4875,7 @@ export interface Filters {
  * @enum
  */
 export const Grouping = {
+  AGENT_STATUS: "AGENT_STATUS",
   CHANNEL: "CHANNEL",
   QUEUE: "QUEUE",
   ROUTING_PROFILE: "ROUTING_PROFILE",
@@ -4921,10 +4946,15 @@ export interface GetCurrentMetricDataRequest {
    *             <li>
    *                <p>RoutingStepExpressions: 50</p>
    *             </li>
+   *             <li>
+   *                <p>AgentStatuses: 50</p>
+   *             </li>
    *          </ul>
    *          <p>Metric data is retrieved only for the resources associated with the queues or routing
    *    profiles, and by any channels included in the filter. (You cannot filter by both queue AND
    *    routing profile.) You can include both resource IDs and resource ARNs in the same request.</p>
+   *          <p>When using <code>AgentStatuses</code> as filter make sure Queues is added as primary
+   *    filter.</p>
    *          <p>When using the <code>RoutingStepExpression</code> filter, you need to pass exactly one
    *     <code>QueueId</code>. The filter is also case sensitive so when using the
    *     <code>RoutingStepExpression</code> filter, grouping by <code>ROUTING_STEP_EXPRESSION</code> is
@@ -4935,23 +4965,28 @@ export interface GetCurrentMetricDataRequest {
   Filters: Filters | undefined;
 
   /**
-   * <p>The grouping applied to the metrics returned. For example, when grouped by
-   *     <code>QUEUE</code>, the metrics returned apply to each queue rather than aggregated for all
-   *    queues. </p>
+   * <p>Defines the level of aggregation for metrics data by a dimension(s). Its similar to sorting
+   *    items into buckets based on a common characteristic, then counting or calculating something for
+   *    each bucket. For example, when grouped by <code>QUEUE</code>, the metrics returned apply to each
+   *    queue rather than aggregated for all queues. </p>
+   *          <p>The grouping list is an ordered list, with the first item in the list defined as the primary
+   *    grouping. If no grouping is included in the request, the aggregation happens at the
+   *    instance-level.</p>
    *          <ul>
    *             <li>
    *                <p>If you group by <code>CHANNEL</code>, you should include a Channels filter.
    *      VOICE, CHAT, and TASK channels are supported.</p>
    *             </li>
    *             <li>
+   *                <p>If you group by <code>AGENT_STATUS</code>, you must include the <code>QUEUE</code> as the
+   *      primary grouping and use queue filter. When you group by <code>AGENT_STATUS</code>, the only
+   *      metric available is the <code>AGENTS_ONLINE</code> metric.</p>
+   *             </li>
+   *             <li>
    *                <p>If you group by <code>ROUTING_PROFILE</code>, you must include either a queue or routing
    *      profile filter. In addition, a routing profile filter is required for metrics
    *       <code>CONTACTS_SCHEDULED</code>, <code>CONTACTS_IN_QUEUE</code>, and <code>
    *       OLDEST_CONTACT_AGE</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>If no <code>Grouping</code> is included in the request, a summary of metrics is
-   *      returned.</p>
    *             </li>
    *             <li>
    *                <p>When using the <code>RoutingStepExpression</code> filter, group by
@@ -5161,6 +5196,12 @@ export interface Dimensions {
    * @public
    */
   RoutingStepExpression?: string | undefined;
+
+  /**
+   * <p>Information about the agent status assigned to the user.</p>
+   * @public
+   */
+  AgentStatus?: AgentStatusIdentifier | undefined;
 }
 
 /**
@@ -8755,7 +8796,7 @@ export interface ListAuthenticationProfilesRequest {
 
 /**
  * <p>This API is in preview release for Amazon Connect and is subject to change. To
- * request access to this API, contact Amazon Web ServicesSupport.</p>
+ * request access to this API, contact Amazon Web Services Support.</p>
  *          <p>A summary of a given authentication profile.</p>
  * @public
  */
@@ -10318,60 +10359,6 @@ export interface ListIntegrationAssociationsRequest {
    * @public
    */
   IntegrationArn?: string | undefined;
-}
-
-/**
- * <p>Contains summary information about the associated AppIntegrations.</p>
- * @public
- */
-export interface IntegrationAssociationSummary {
-  /**
-   * <p>The identifier for the AppIntegration association.</p>
-   * @public
-   */
-  IntegrationAssociationId?: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) for the AppIntegration association.</p>
-   * @public
-   */
-  IntegrationAssociationArn?: string | undefined;
-
-  /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
-   * @public
-   */
-  InstanceId?: string | undefined;
-
-  /**
-   * <p>The integration type.</p>
-   * @public
-   */
-  IntegrationType?: IntegrationType | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) for the AppIntegration.</p>
-   * @public
-   */
-  IntegrationArn?: string | undefined;
-
-  /**
-   * <p>The URL for the external application.</p>
-   * @public
-   */
-  SourceApplicationUrl?: string | undefined;
-
-  /**
-   * <p>The user-provided, friendly name for the external application.</p>
-   * @public
-   */
-  SourceApplicationName?: string | undefined;
-
-  /**
-   * <p>The name of the source.</p>
-   * @public
-   */
-  SourceType?: SourceType | undefined;
 }
 
 /**

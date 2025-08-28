@@ -21,6 +21,7 @@ import {
   HoursOfOperationOverrideConfig,
   InstanceStorageConfig,
   InstanceStorageResourceType,
+  IntegrationType,
   LexBot,
   MonitorCapability,
   ParticipantRole,
@@ -28,6 +29,7 @@ import {
   Reference,
   RehydrationType,
   RulePublishStatus,
+  SourceType,
   StringComparisonType,
   StringCondition,
   TagCondition,
@@ -53,7 +55,6 @@ import {
   HoursOfOperation,
   HoursOfOperationOverride,
   InstanceAttributeType,
-  IntegrationAssociationSummary,
   PhoneNumberCountryCode,
   PhoneNumberType,
   PredefinedAttribute,
@@ -64,6 +65,60 @@ import {
   SortOrder,
   TrafficDistributionGroupStatus,
 } from "./models_1";
+
+/**
+ * <p>Contains summary information about the associated AppIntegrations.</p>
+ * @public
+ */
+export interface IntegrationAssociationSummary {
+  /**
+   * <p>The identifier for the AppIntegration association.</p>
+   * @public
+   */
+  IntegrationAssociationId?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) for the AppIntegration association.</p>
+   * @public
+   */
+  IntegrationAssociationArn?: string | undefined;
+
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * @public
+   */
+  InstanceId?: string | undefined;
+
+  /**
+   * <p>The integration type.</p>
+   * @public
+   */
+  IntegrationType?: IntegrationType | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) for the AppIntegration.</p>
+   * @public
+   */
+  IntegrationArn?: string | undefined;
+
+  /**
+   * <p>The URL for the external application.</p>
+   * @public
+   */
+  SourceApplicationUrl?: string | undefined;
+
+  /**
+   * <p>The user-provided, friendly name for the external application.</p>
+   * @public
+   */
+  SourceApplicationName?: string | undefined;
+
+  /**
+   * <p>The name of the source.</p>
+   * @public
+   */
+  SourceType?: SourceType | undefined;
+}
 
 /**
  * @public
@@ -7655,7 +7710,7 @@ export interface UpdateInstanceAttributeRequest {
    * <p>The type of attribute.</p>
    *          <note>
    *             <p>Only allowlisted customers can consume USE_CUSTOM_TTS_VOICES. To access this feature,
-   *     contact Amazon Web ServicesSupport for allowlisting.</p>
+   *     contact Amazon Web Services Support for allowlisting.</p>
    *          </note>
    * @public
    */
@@ -7760,21 +7815,6 @@ export interface UpdateParticipantAuthenticationRequest {
  * @public
  */
 export interface UpdateParticipantAuthenticationResponse {}
-
-/**
- * @public
- * @enum
- */
-export const TimerEligibleParticipantRoles = {
-  AGENT: "AGENT",
-  CUSTOMER: "CUSTOMER",
-} as const;
-
-/**
- * @public
- */
-export type TimerEligibleParticipantRoles =
-  (typeof TimerEligibleParticipantRoles)[keyof typeof TimerEligibleParticipantRoles];
 
 /**
  * @internal

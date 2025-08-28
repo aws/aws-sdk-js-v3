@@ -14008,6 +14008,8 @@ const de_UserNotFoundExceptionRes = async (
 
 // se_AgentsMinOneMaxHundred omitted.
 
+// se_AgentStatuses omitted.
+
 /**
  * serializeAws_restJson1AgentStatusSearchConditionList
  */
@@ -15303,6 +15305,8 @@ const de_AgentStatus = (output: any, context: __SerdeContext): AgentStatus => {
     Type: __expectString,
   }) as any;
 };
+
+// de_AgentStatusIdentifier omitted.
 
 /**
  * deserializeAws_restJson1AgentStatusList

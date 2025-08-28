@@ -95,10 +95,24 @@ import {
   RoutingProfileSearchFilter,
   SearchableQueueType,
   SecurityProfilesSearchFilter,
-  TimerEligibleParticipantRoles,
   UserHierarchyGroupSearchFilter,
   UserSearchFilter,
 } from "./models_2";
+
+/**
+ * @public
+ * @enum
+ */
+export const TimerEligibleParticipantRoles = {
+  AGENT: "AGENT",
+  CUSTOMER: "CUSTOMER",
+} as const;
+
+/**
+ * @public
+ */
+export type TimerEligibleParticipantRoles =
+  (typeof TimerEligibleParticipantRoles)[keyof typeof TimerEligibleParticipantRoles];
 
 /**
  * @public

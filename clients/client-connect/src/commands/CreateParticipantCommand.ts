@@ -28,9 +28,9 @@ export interface CreateParticipantCommandInput extends CreateParticipantRequest 
 export interface CreateParticipantCommandOutput extends CreateParticipantResponse, __MetadataBearer {}
 
 /**
- * <p>Adds a new participant into an on-going chat contact or webRTC call. For more information, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/chat-customize-flow.html">Customize chat
- *    flow experiences by integrating custom participants</a>
- *    or <a href="https://docs.aws.amazon.com/connect/latest/adminguide/enable-multiuser-inapp.html">Enable multi-user web, in-app, and video calling</a>.</p>
+ * <p>Adds a new participant into an on-going chat contact or webRTC call. For more information,
+ *    see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/chat-customize-flow.html">Customize chat flow experiences by integrating custom participants</a> or <a href="https://docs.aws.amazon.com/connect/latest/adminguide/enable-multiuser-inapp.html">Enable
+ *     multi-user web, in-app, and video calling</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

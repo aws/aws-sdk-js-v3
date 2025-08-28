@@ -47,7 +47,7 @@ export interface StartChatContactCommandOutput extends StartChatContactResponse,
  *          </ul>
  *          <p>If you use the <code>ChatDurationInMinutes</code> parameter and receive a 400 error, your
  *    account may not support the ability to configure custom chat durations. For more information,
- *    contact Amazon Web ServicesSupport. </p>
+ *    contact Amazon Web Services Support. </p>
  *          <p>For more information about chat, see the following topics in the <i>Amazon Connect
  *    Administrator Guide</i>: </p>
  *          <ul>
