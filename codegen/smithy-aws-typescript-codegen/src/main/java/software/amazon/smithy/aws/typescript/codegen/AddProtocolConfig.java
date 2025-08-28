@@ -6,11 +6,13 @@
 package software.amazon.smithy.aws.typescript.codegen;
 
 import java.util.Collections;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 import java.util.function.Consumer;
 import software.amazon.smithy.aws.traits.protocols.AwsJson1_0Trait;
 import software.amazon.smithy.aws.traits.protocols.AwsJson1_1Trait;
+import software.amazon.smithy.aws.traits.protocols.AwsQueryCompatibleTrait;
 import software.amazon.smithy.aws.traits.protocols.AwsQueryTrait;
 import software.amazon.smithy.aws.traits.protocols.Ec2QueryTrait;
 import software.amazon.smithy.aws.traits.protocols.RestJson1Trait;
@@ -18,7 +20,9 @@ import software.amazon.smithy.aws.traits.protocols.RestXmlTrait;
 import software.amazon.smithy.codegen.core.SymbolProvider;
 import software.amazon.smithy.model.Model;
 import software.amazon.smithy.model.traits.XmlNamespaceTrait;
+import software.amazon.smithy.protocol.traits.Rpcv2CborTrait;
 import software.amazon.smithy.typescript.codegen.LanguageTarget;
+import software.amazon.smithy.typescript.codegen.TypeScriptDependency;
 import software.amazon.smithy.typescript.codegen.TypeScriptSettings;
 import software.amazon.smithy.typescript.codegen.TypeScriptWriter;
 import software.amazon.smithy.typescript.codegen.integration.TypeScriptIntegration;
@@ -61,6 +65,13 @@ public final class AddProtocolConfig implements TypeScriptIntegration {
     }
 
     @Override
+    public List<String> runAfter() {
+        return List.of(
+            software.amazon.smithy.typescript.codegen.integration.AddProtocolConfig.class.getCanonicalName()
+        );
+    }
+
+    @Override
     public Map<String, Consumer<TypeScriptWriter>> getRuntimeConfigWriters(
         TypeScriptSettings settings,
         Model model,
@@ -76,6 +87,7 @@ public final class AddProtocolConfig implements TypeScriptIntegration {
             .getTrait(XmlNamespaceTrait.class)
             .map(XmlNamespaceTrait::getUri)
             .orElse("");
+        String awsQueryCompat = settings.getService(model).hasTrait(AwsQueryCompatibleTrait.class) ? "true" : "false";
 
         switch (target) {
             case SHARED:
@@ -148,9 +160,15 @@ public final class AddProtocolConfig implements TypeScriptIntegration {
                                 "AwsJson1_0Protocol", null,
                                 AwsDependency.AWS_SDK_CORE, "/protocols");
                             writer.write(
-                                "new AwsJson1_0Protocol({ defaultNamespace: $S, serviceTarget: $S })",
+                                """
+                                    new AwsJson1_0Protocol({
+                                        defaultNamespace: $S,
+                                        serviceTarget: $S,
+                                        awsQueryCompatible: $L
+                                    })""",
                                 namespace,
-                                rpcTarget
+                                rpcTarget,
+                                awsQueryCompat
                             );
                         }
                     );
@@ -161,9 +179,32 @@ public final class AddProtocolConfig implements TypeScriptIntegration {
                                 "AwsJson1_1Protocol", null,
                                 AwsDependency.AWS_SDK_CORE, "/protocols");
                             writer.write(
-                                "new AwsJson1_1Protocol({ defaultNamespace: $S, serviceTarget: $S })",
+                                """
+                                    new AwsJson1_1Protocol({
+                                        defaultNamespace: $S,
+                                        serviceTarget: $S,
+                                        awsQueryCompatible: $L
+                                    })""",
                                 namespace,
-                                rpcTarget
+                                rpcTarget,
+                                awsQueryCompat
+                            );
+                        }
+                    );
+                } else if (Objects.equals(settings.getProtocol(), Rpcv2CborTrait.ID)) {
+                    return MapUtils.of(
+                        "protocol", writer -> {
+                            writer.addImportSubmodule(
+                                "AwsSmithyRpcV2CborProtocol", null,
+                                AwsDependency.AWS_SDK_CORE, "/protocols");
+                            writer.write(
+                                """
+                                   new AwsSmithyRpcV2CborProtocol({
+                                       defaultNamespace: $S,
+                                       awsQueryCompatible: $L
+                                   })""",
+                                namespace,
+                                awsQueryCompat
                             );
                         }
                     );

@@ -33,7 +33,11 @@ export const getRuntimeConfig = (config: JsonProtocolClientConfig) => {
     logger: config?.logger ?? new NoOpLogger(),
     protocol:
       config?.protocol ??
-      new AwsJson1_1Protocol({ defaultNamespace: "aws.protocoltests.json", serviceTarget: "JsonProtocol" }),
+      new AwsJson1_1Protocol({
+        defaultNamespace: "aws.protocoltests.json",
+        serviceTarget: "JsonProtocol",
+        awsQueryCompatible: false,
+      }),
     serviceId: config?.serviceId ?? "Json Protocol",
     urlParser: config?.urlParser ?? parseUrl,
     utf8Decoder: config?.utf8Decoder ?? fromUtf8,

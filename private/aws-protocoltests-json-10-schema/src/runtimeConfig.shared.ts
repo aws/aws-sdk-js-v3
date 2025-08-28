@@ -33,7 +33,11 @@ export const getRuntimeConfig = (config: JSONRPC10ClientConfig) => {
     logger: config?.logger ?? new NoOpLogger(),
     protocol:
       config?.protocol ??
-      new AwsJson1_0Protocol({ defaultNamespace: "aws.protocoltests.json10", serviceTarget: "JsonRpc10" }),
+      new AwsJson1_0Protocol({
+        defaultNamespace: "aws.protocoltests.json10",
+        serviceTarget: "JsonRpc10",
+        awsQueryCompatible: false,
+      }),
     serviceId: config?.serviceId ?? "JSON RPC 10",
     urlParser: config?.urlParser ?? parseUrl,
     utf8Decoder: config?.utf8Decoder ?? fromUtf8,

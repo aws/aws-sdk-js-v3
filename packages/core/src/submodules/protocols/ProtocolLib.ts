@@ -98,7 +98,7 @@ export class ProtocolLib {
     const errorMetadata: ErrorMetadataBearer = {
       $metadata: metadata,
       $response: response,
-      $fault: response.statusCode <= 500 ? ("client" as const) : ("server" as const),
+      $fault: response.statusCode < 500 ? ("client" as const) : ("server" as const),
     };
 
     const registry = TypeRegistry.for(namespace);
@@ -116,6 +116,48 @@ export class ProtocolLib {
         throw Object.assign(new ErrorCtor({ name: errorName }), errorMetadata, dataObject);
       }
       throw Object.assign(new Error(errorName), errorMetadata, dataObject);
+    }
+  }
+
+  /**
+   * Reads the x-amzn-query-error header for awsQuery compatibility.
+   *
+   * @param output - values that will be assigned to an error object.
+   * @param response - from which to read awsQueryError headers.
+   */
+  public setQueryCompatError(output: Record<string, any>, response: IHttpResponse) {
+    const queryErrorHeader = response.headers?.["x-amzn-query-error"];
+
+    if (output !== undefined && queryErrorHeader != null) {
+      const [Code, Type] = queryErrorHeader.split(";");
+      const entries = Object.entries(output);
+      const Error = {
+        Code,
+        Type,
+      } as any;
+      Object.assign(output, Error);
+      for (const [k, v] of entries) {
+        Error[k] = v;
+      }
+      delete Error.__type;
+      output.Error = Error;
+    }
+  }
+
+  /**
+   * Assigns Error, Type, Code from the awsQuery error object to the output error object.
+   * @param queryCompatErrorData - query compat error object.
+   * @param errorData - canonical error object returned to the caller.
+   */
+  public queryCompatOutput(queryCompatErrorData: any, errorData: any) {
+    if (queryCompatErrorData.Error) {
+      errorData.Error = queryCompatErrorData.Error;
+    }
+    if (queryCompatErrorData.Type) {
+      errorData.Type = queryCompatErrorData.Type;
+    }
+    if (queryCompatErrorData.Code) {
+      errorData.Code = queryCompatErrorData.Code;
     }
   }
 }

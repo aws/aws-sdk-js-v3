@@ -1,3 +1,4 @@
+export * from "./cbor/AwsSmithyRpcV2CborProtocol";
 export * from "./coercing-serializers";
 export * from "./json/AwsJson1_0Protocol";
 export * from "./json/AwsJson1_1Protocol";

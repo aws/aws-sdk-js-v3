@@ -25,8 +25,17 @@ export abstract class AwsJsonRpcProtocol extends RpcProtocol {
   protected serviceTarget: string;
   private readonly codec: JsonCodec;
   private readonly mixin = new ProtocolLib();
+  private readonly awsQueryCompatible: boolean;
 
-  protected constructor({ defaultNamespace, serviceTarget }: { defaultNamespace: string; serviceTarget: string }) {
+  protected constructor({
+    defaultNamespace,
+    serviceTarget,
+    awsQueryCompatible,
+  }: {
+    defaultNamespace: string;
+    serviceTarget: string;
+    awsQueryCompatible?: boolean;
+  }) {
     super({
       defaultNamespace,
     });
@@ -40,6 +49,7 @@ export abstract class AwsJsonRpcProtocol extends RpcProtocol {
     });
     this.serializer = this.codec.createSerializer();
     this.deserializer = this.codec.createDeserializer();
+    this.awsQueryCompatible = !!awsQueryCompatible;
   }
 
   public async serializeRequest<Input extends object>(
@@ -55,6 +65,9 @@ export abstract class AwsJsonRpcProtocol extends RpcProtocol {
       "content-type": `application/x-amz-json-${this.getJsonRpcVersion()}`,
       "x-amz-target": `${this.serviceTarget}.${NormalizedSchema.of(operationSchema).getName()}`,
     });
+    if (this.awsQueryCompatible) {
+      request.headers["x-amzn-query-mode"] = "true";
+    }
     if (deref(operationSchema.input) === "unit" || !request.body) {
       request.body = "{}";
     }
@@ -78,6 +91,9 @@ export abstract class AwsJsonRpcProtocol extends RpcProtocol {
     metadata: ResponseMetadata
   ): Promise<never> {
     // loadRestJsonErrorCode is still used in JSON RPC.
+    if (this.awsQueryCompatible) {
+      this.mixin.setQueryCompatError(dataObject, response);
+    }
     const errorIdentifier = loadRestJsonErrorCode(response, dataObject) ?? "Unknown";
 
     const { errorSchema, errorMetadata } = await this.mixin.getErrorSchemaOrThrowBaseException(
@@ -92,11 +108,14 @@ export abstract class AwsJsonRpcProtocol extends RpcProtocol {
     const message = dataObject.message ?? dataObject.Message ?? "Unknown";
     const exception = new errorSchema.ctor(message);
 
-    await this.deserializeHttpMessage(errorSchema, context, response, dataObject);
     const output = {} as any;
     for (const [name, member] of ns.structIterator()) {
       const target = member.getMergedTraits().jsonName ?? name;
       output[name] = this.codec.createDeserializer().readObject(member, dataObject[target]);
+    }
+
+    if (this.awsQueryCompatible) {
+      this.mixin.queryCompatOutput(dataObject, output);
     }
 
     throw Object.assign(
