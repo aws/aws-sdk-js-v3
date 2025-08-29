@@ -1262,6 +1262,7 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
+    "@aws-sdk/core": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
     "@aws-sdk/middleware-logger": "npm:*"
     "@aws-sdk/middleware-recursion-detection": "npm:*"

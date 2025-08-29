@@ -1,37 +1,18 @@
-import { error as registerError, op, SCHEMA } from "@smithy/core/schema";
+import { cbor } from "@smithy/core/cbor";
+import { op, SCHEMA } from "@smithy/core/schema";
+import { error as registerError } from "@smithy/core/schema";
 import { HttpResponse } from "@smithy/protocol-http";
-import { fromUtf8 } from "@smithy/util-utf8";
 import { describe, expect, test as it } from "vitest";
 
-import { AwsJsonRpcProtocol } from "./AwsJsonRpcProtocol";
+import { AwsSmithyRpcV2CborProtocol } from "./AwsSmithyRpcV2CborProtocol";
 
-describe(AwsJsonRpcProtocol.name, () => {
-  const protocol = new (class extends AwsJsonRpcProtocol {
-    constructor() {
-      super({ defaultNamespace: "ns", serviceTarget: "", awsQueryCompatible: true });
-    }
-
-    getShapeId(): string {
-      throw new Error("Method not implemented.");
-    }
-
-    protected getJsonRpcVersion(): "1.1" | "1.0" {
-      throw new Error("Method not implemented.");
-    }
-  })();
-
-  it("has expected codec settings", async () => {
-    const codec = protocol.getPayloadCodec();
-    expect(codec.settings).toEqual({
-      jsonName: false,
-      timestampFormat: {
-        default: SCHEMA.TIMESTAMP_EPOCH_SECONDS,
-        useTrait: true,
-      },
-    });
-  });
-
+describe(AwsSmithyRpcV2CborProtocol.name, () => {
   it("should support awsQueryCompatible", async () => {
+    const protocol = new AwsSmithyRpcV2CborProtocol({
+      defaultNamespace: "ns",
+      awsQueryCompatible: true,
+    });
+
     class MyQueryError extends Error {}
 
     registerError(
@@ -43,12 +24,10 @@ describe(AwsJsonRpcProtocol.name, () => {
       MyQueryError
     );
 
-    const body = fromUtf8(
-      JSON.stringify({
-        Message: "oh no",
-        Prop2: 9999,
-      })
-    );
+    const body = cbor.serialize({
+      Message: "oh no",
+      Prop2: 9999,
+    });
 
     const error = await (async () => {
       return protocol.deserializeResponse(

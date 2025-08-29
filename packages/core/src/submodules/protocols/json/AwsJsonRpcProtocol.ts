@@ -1,6 +1,6 @@
 import { RpcProtocol } from "@smithy/core/protocols";
-import { deref, ErrorSchema, NormalizedSchema, SCHEMA, TypeRegistry } from "@smithy/core/schema";
-import {
+import { deref, NormalizedSchema, SCHEMA } from "@smithy/core/schema";
+import type {
   EndpointBearer,
   HandlerExecutionContext,
   HttpRequest,
@@ -11,8 +11,8 @@ import {
   ShapeDeserializer,
   ShapeSerializer,
 } from "@smithy/types";
-import { calculateBodyLength } from "@smithy/util-body-length-browser";
 
+import { ProtocolLib } from "../ProtocolLib";
 import { JsonCodec } from "./JsonCodec";
 import { loadRestJsonErrorCode } from "./parseJsonBody";
 
@@ -23,9 +23,19 @@ export abstract class AwsJsonRpcProtocol extends RpcProtocol {
   protected serializer: ShapeSerializer<string | Uint8Array>;
   protected deserializer: ShapeDeserializer<string | Uint8Array>;
   protected serviceTarget: string;
-  private codec: JsonCodec;
+  private readonly codec: JsonCodec;
+  private readonly mixin = new ProtocolLib();
+  private readonly awsQueryCompatible: boolean;
 
-  protected constructor({ defaultNamespace, serviceTarget }: { defaultNamespace: string; serviceTarget: string }) {
+  protected constructor({
+    defaultNamespace,
+    serviceTarget,
+    awsQueryCompatible,
+  }: {
+    defaultNamespace: string;
+    serviceTarget: string;
+    awsQueryCompatible?: boolean;
+  }) {
     super({
       defaultNamespace,
     });
@@ -39,6 +49,7 @@ export abstract class AwsJsonRpcProtocol extends RpcProtocol {
     });
     this.serializer = this.codec.createSerializer();
     this.deserializer = this.codec.createDeserializer();
+    this.awsQueryCompatible = !!awsQueryCompatible;
   }
 
   public async serializeRequest<Input extends object>(
@@ -54,11 +65,14 @@ export abstract class AwsJsonRpcProtocol extends RpcProtocol {
       "content-type": `application/x-amz-json-${this.getJsonRpcVersion()}`,
       "x-amz-target": `${this.serviceTarget}.${NormalizedSchema.of(operationSchema).getName()}`,
     });
+    if (this.awsQueryCompatible) {
+      request.headers["x-amzn-query-mode"] = "true";
+    }
     if (deref(operationSchema.input) === "unit" || !request.body) {
       request.body = "{}";
     }
     try {
-      request.headers["content-length"] = String(calculateBodyLength(request.body));
+      request.headers["content-length"] = this.mixin.calculateContentLength(request.body, this.serdeContext);
     } catch (e) {}
     return request;
   }
@@ -77,45 +91,31 @@ export abstract class AwsJsonRpcProtocol extends RpcProtocol {
     metadata: ResponseMetadata
   ): Promise<never> {
     // loadRestJsonErrorCode is still used in JSON RPC.
+    if (this.awsQueryCompatible) {
+      this.mixin.setQueryCompatError(dataObject, response);
+    }
     const errorIdentifier = loadRestJsonErrorCode(response, dataObject) ?? "Unknown";
 
-    let namespace = this.options.defaultNamespace;
-    let errorName = errorIdentifier;
-    if (errorIdentifier.includes("#")) {
-      [namespace, errorName] = errorIdentifier.split("#");
-    }
-
-    const errorMetadata = {
-      $metadata: metadata,
-      $response: response,
-      $fault: response.statusCode <= 500 ? ("client" as const) : ("server" as const),
-    };
-
-    const registry = TypeRegistry.for(namespace);
-    let errorSchema: ErrorSchema;
-    try {
-      errorSchema = registry.getSchema(errorIdentifier) as ErrorSchema;
-    } catch (e) {
-      if (dataObject.Message) {
-        dataObject.message = dataObject.Message;
-      }
-      const baseExceptionSchema = TypeRegistry.for("smithy.ts.sdk.synthetic." + namespace).getBaseException();
-      if (baseExceptionSchema) {
-        const ErrorCtor = baseExceptionSchema.ctor;
-        throw Object.assign(new ErrorCtor({ name: errorName }), errorMetadata, dataObject);
-      }
-      throw Object.assign(new Error(errorName), errorMetadata, dataObject);
-    }
+    const { errorSchema, errorMetadata } = await this.mixin.getErrorSchemaOrThrowBaseException(
+      errorIdentifier,
+      this.options.defaultNamespace,
+      response,
+      dataObject,
+      metadata
+    );
 
     const ns = NormalizedSchema.of(errorSchema);
     const message = dataObject.message ?? dataObject.Message ?? "Unknown";
     const exception = new errorSchema.ctor(message);
 
-    await this.deserializeHttpMessage(errorSchema, context, response, dataObject);
     const output = {} as any;
     for (const [name, member] of ns.structIterator()) {
       const target = member.getMergedTraits().jsonName ?? name;
       output[name] = this.codec.createDeserializer().readObject(member, dataObject[target]);
+    }
+
+    if (this.awsQueryCompatible) {
+      this.mixin.queryCompatOutput(dataObject, output);
     }
 
     throw Object.assign(

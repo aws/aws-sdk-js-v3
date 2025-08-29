@@ -1,18 +1,18 @@
 import { collectBody, RpcProtocol } from "@smithy/core/protocols";
 import { deref, ErrorSchema, NormalizedSchema, SCHEMA, TypeRegistry } from "@smithy/core/schema";
-import {
+import type {
   Codec,
   EndpointBearer,
   HandlerExecutionContext,
   HttpRequest,
+  HttpResponse as IHttpResponse,
   MetadataBearer,
   OperationSchema,
   ResponseMetadata,
   SerdeFunctions,
 } from "@smithy/types";
-import type { HttpResponse as IHttpResponse } from "@smithy/types/dist-types/http";
-import { calculateBodyLength } from "@smithy/util-body-length-browser";
 
+import { ProtocolLib } from "../ProtocolLib";
 import { XmlShapeDeserializer } from "../xml/XmlShapeDeserializer";
 import { QueryShapeSerializer } from "./QueryShapeSerializer";
 
@@ -22,6 +22,7 @@ import { QueryShapeSerializer } from "./QueryShapeSerializer";
 export class AwsQueryProtocol extends RpcProtocol {
   protected serializer: QueryShapeSerializer;
   protected deserializer: XmlShapeDeserializer;
+  private readonly mixin = new ProtocolLib();
 
   public constructor(
     public options: {
@@ -81,7 +82,7 @@ export class AwsQueryProtocol extends RpcProtocol {
     }
 
     try {
-      request.headers["content-length"] = String(calculateBodyLength(request.body));
+      request.headers["content-length"] = this.mixin.calculateContentLength(request.body, this.serdeContext);
     } catch (e) {}
     return request;
   }
@@ -140,40 +141,19 @@ export class AwsQueryProtocol extends RpcProtocol {
     metadata: ResponseMetadata
   ): Promise<never> {
     const errorIdentifier = this.loadQueryErrorCode(response, dataObject) ?? "Unknown";
-    let namespace = this.options.defaultNamespace;
-    let errorName = errorIdentifier;
-    if (errorIdentifier.includes("#")) {
-      [namespace, errorName] = errorIdentifier.split("#");
-    }
-
     const errorData = this.loadQueryError(dataObject);
-    const errorMetadata = {
-      $metadata: metadata,
-      $response: response,
-      $fault: response.statusCode <= 500 ? ("client" as const) : ("server" as const),
-    };
 
-    const registry = TypeRegistry.for(namespace);
-    let errorSchema: ErrorSchema;
-
-    try {
-      errorSchema = registry.find(
-        (schema) => (NormalizedSchema.of(schema).getMergedTraits().awsQueryError as any)?.[0] === errorName
-      ) as ErrorSchema;
-      if (!errorSchema) {
-        errorSchema = registry.getSchema(errorIdentifier) as ErrorSchema;
-      }
-    } catch (e) {
-      if (errorData.Message) {
-        errorData.message = errorData.Message;
-      }
-      const baseExceptionSchema = TypeRegistry.for("smithy.ts.sdk.synthetic." + namespace).getBaseException();
-      if (baseExceptionSchema) {
-        const ErrorCtor = baseExceptionSchema.ctor;
-        throw Object.assign(new ErrorCtor({ name: errorName }), errorMetadata, dataObject);
-      }
-      throw Object.assign(new Error(errorName), errorMetadata, errorData);
-    }
+    const { errorSchema, errorMetadata } = await this.mixin.getErrorSchemaOrThrowBaseException(
+      errorIdentifier,
+      this.options.defaultNamespace,
+      response,
+      errorData,
+      metadata,
+      (registry: TypeRegistry, errorName: string) =>
+        registry.find(
+          (schema) => (NormalizedSchema.of(schema).getMergedTraits().awsQueryError as any)?.[0] === errorName
+        ) as ErrorSchema
+    );
 
     const ns = NormalizedSchema.of(errorSchema);
     const message = this.loadQueryErrorMessage(dataObject);
