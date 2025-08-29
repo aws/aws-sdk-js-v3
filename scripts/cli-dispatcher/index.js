@@ -1,6 +1,5 @@
 #!/usr/bin/env node
 
-const fs = require("fs");
 const path = require("path");
 const readline = require("readline");
 
@@ -37,31 +36,21 @@ async function main() {
   const [node, dispatcher, ...rest] = argv;
   const flags = rest.filter((f) => f.startsWith("--"));
   const options = {
-    dry: flags.includes("--dry"),
     help: flags.includes("--help") || rest.length === 0,
-    confirm: flags.includes("--c"),
   };
 
   if (options.help) {
     console.info(`
     Usage:
       b [package query words] - [command query words]
-      b c s3 c - b t
+      b c s3 c - b t, b cjs
 
       matches to:
-      (cd clients/client-s3-control && yarn build:types)
+      (cd clients/client-s3-control && yarn build:types && yarn build:cjs)
 
       Query words are substrings that match against the package name and npm scripts.
       The substrings must appear in order for a match.
       Match priority goes to whole-word matching and initial matching.
-
-    Options:
-      --dry
-        dry run with no command execution.
-      --help
-        show this message.
-      --c
-        ask for confirmation before executing command.
 `);
     return 0;
   }
@@ -70,6 +59,10 @@ async function main() {
   const separatorIndex = rest.indexOf("-") !== -1 ? rest.indexOf("-") : rest.length;
   const query = nonFlags.slice(0, separatorIndex);
   const commands = nonFlags.slice(separatorIndex + 1);
+  const multiCommands = commands
+    .join(" ")
+    .split(/,\s?/)
+    .map((c) => c.split(" "));
 
   const matchedPackages = findFolders(allPackages, ...query);
 
@@ -85,58 +78,41 @@ async function main() {
   );
 
   const [target] = matchedPackages;
-
   const targetPkgJson = require(path.join(target.location, "package.json"));
-  const matchedScripts = findScripts(Object.keys(targetPkgJson.scripts || {}), ...commands);
-  const [script] = matchedScripts;
 
-  if (commands.length === 0) {
-    console.info("No commands entered");
-    return 0;
+  for (const commands of multiCommands) {
+    const matchedScripts = findScripts(Object.keys(targetPkgJson.scripts || {}), ...commands);
+
+    if (commands.length === 0) {
+      console.info("No commands entered");
+      return 0;
+    }
+
+    if (matchedScripts.length === 0) {
+      console.error("No matching scripts for command query:", commands);
+      return 0;
+    }
+
+    console.log("commands:", ...commands);
+    console.log("matched commands:", matchedScripts);
   }
 
-  if (matchedScripts.length === 0) {
-    console.error("No matching scripts for command query:", commands);
-    return 0;
+  for (const commands of multiCommands) {
+    const matchedScripts = findScripts(Object.keys(targetPkgJson.scripts || {}), ...commands);
+    const [script] = matchedScripts;
+
+    const execute = async () => {
+      const { spawnProcess } = require("../utils/spawn-process");
+      console.info("Running:", "yarn", script);
+      console.info("Location:", target.location);
+      await spawnProcess("yarn", [script], {
+        cwd: target.location,
+        stdio: "inherit",
+      });
+    };
+
+    await execute();
   }
-
-  console.log("commands:", ...commands);
-  console.log("matched commands:", matchedScripts);
-
-  const command = `yarn ${script} in ${target.location}`;
-
-  if (options.dry) {
-    console.log("DRYRUN:", command);
-    return 0;
-  }
-
-  const execute = async () => {
-    const { spawnProcess } = require("../utils/spawn-process");
-    console.info("Running:", "yarn", script);
-    console.info("Location:", target.location);
-    await spawnProcess("yarn", [script], {
-      cwd: target.location,
-      stdio: "inherit",
-    });
-    return;
-  };
-
-  if (options.confirm) {
-    const rl = readline.createInterface({
-      input: process.stdin,
-      output: process.stdout,
-    });
-
-    rl.question(`run script "${script}" in ${target.location} (y)/n?:`, async (confirm) => {
-      if (confirm.toLowerCase().trim() === "y" || confirm === "") {
-        await execute();
-      }
-      rl.close();
-    });
-    return 0;
-  }
-
-  await execute();
 
   return 0;
 }

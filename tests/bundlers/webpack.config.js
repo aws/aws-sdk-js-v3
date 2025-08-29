@@ -6,6 +6,7 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 export default {
   mode: "production",
   entry: "./source.ts",
+  target: "web",
   output: {
     path: path.resolve(__dirname, "dist"),
     filename: "webpack-dist.js",
@@ -13,5 +14,12 @@ export default {
   },
   optimization: {
     minimize: false,
+    splitChunks: false,
+    runtimeChunk: false,
+    sideEffects: true,
+    usedExports: true,
+  },
+  stats: {
+    optimizationBailout: false,
   },
 };

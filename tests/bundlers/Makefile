@@ -6,10 +6,13 @@ test:
 
 # create bundles
 build:
-	make vite webpack
+	make vite webpack esbuild
 
 vite:
 	npx vite build
 
 webpack:
 	npx webpack
+
+esbuild:
+	npx esbuild ./source.ts --bundle --outfile=./dist/esbuild-dist.js --format=esm --tree-shaking=true
