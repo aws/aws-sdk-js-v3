@@ -59,6 +59,10 @@ export interface GetSamplingRulesCommandOutput extends GetSamplingRulesResult, _
  * //         Attributes: { // AttributeMap
  * //           "<keys>": "STRING_VALUE",
  * //         },
+ * //         SamplingRateBoost: { // SamplingRateBoost
+ * //           MaxRate: Number("double"), // required
+ * //           CooldownWindowMinutes: Number("int"), // required
+ * //         },
  * //       },
  * //       CreatedAt: new Date("TIMESTAMP"),
  * //       ModifiedAt: new Date("TIMESTAMP"),

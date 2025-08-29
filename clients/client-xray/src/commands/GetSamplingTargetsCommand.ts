@@ -47,6 +47,16 @@ export interface GetSamplingTargetsCommandOutput extends GetSamplingTargetsResul
  *       BorrowCount: Number("int"),
  *     },
  *   ],
+ *   SamplingBoostStatisticsDocuments: [ // SamplingBoostStatisticsDocumentList
+ *     { // SamplingBoostStatisticsDocument
+ *       RuleName: "STRING_VALUE", // required
+ *       ServiceName: "STRING_VALUE", // required
+ *       Timestamp: new Date("TIMESTAMP"), // required
+ *       AnomalyCount: Number("int"), // required
+ *       TotalCount: Number("int"), // required
+ *       SampledAnomalyCount: Number("int"), // required
+ *     },
+ *   ],
  * };
  * const command = new GetSamplingTargetsCommand(input);
  * const response = await client.send(command);
@@ -58,11 +68,22 @@ export interface GetSamplingTargetsCommandOutput extends GetSamplingTargetsResul
  * //       ReservoirQuota: Number("int"),
  * //       ReservoirQuotaTTL: new Date("TIMESTAMP"),
  * //       Interval: Number("int"),
+ * //       SamplingBoost: { // SamplingBoost
+ * //         BoostRate: Number("double"), // required
+ * //         BoostRateTTL: new Date("TIMESTAMP"), // required
+ * //       },
  * //     },
  * //   ],
  * //   LastRuleModification: new Date("TIMESTAMP"),
  * //   UnprocessedStatistics: [ // UnprocessedStatisticsList
  * //     { // UnprocessedStatistics
+ * //       RuleName: "STRING_VALUE",
+ * //       ErrorCode: "STRING_VALUE",
+ * //       Message: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   UnprocessedBoostStatistics: [
+ * //     {
  * //       RuleName: "STRING_VALUE",
  * //       ErrorCode: "STRING_VALUE",
  * //       Message: "STRING_VALUE",

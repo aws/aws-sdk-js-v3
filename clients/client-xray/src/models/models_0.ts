@@ -224,8 +224,7 @@ export interface Trace {
   Id?: string | undefined;
 
   /**
-   * <p>The length of time in seconds between the start time of the root segment and the end
-   *       time of the last segment that completed.</p>
+   * <p>The length of time in seconds between the start time of the earliest segment that started and the end time of the last segment that completed.</p>
    * @public
    */
   Duration?: number | undefined;
@@ -533,6 +532,26 @@ export interface CreateGroupResult {
 }
 
 /**
+ * <p>Enable temporary sampling rate increases when you detect anomalies to improve visibility.</p>
+ * @public
+ */
+export interface SamplingRateBoost {
+  /**
+   * <p>Defines max temporary sampling rate to apply when a boost is triggered.
+   *       Calculated boost rate by X-Ray will be less than or equal to this max rate.</p>
+   * @public
+   */
+  MaxRate: number | undefined;
+
+  /**
+   * <p>Sets the time window (in minutes) in which only one sampling rate boost can be triggered.
+   *       After a boost occurs, no further boosts are allowed until the next window.</p>
+   * @public
+   */
+  CooldownWindowMinutes: number | undefined;
+}
+
+/**
  * <p>A sampling rule that services use to decide whether to instrument a request. Rule
  *       fields can match properties of the service, or properties of a request. The service can ignore
  *       rules that don't match its properties.</p>
@@ -618,6 +637,13 @@ export interface SamplingRule {
    * @public
    */
   Attributes?: Record<string, string> | undefined;
+
+  /**
+   * <p>Specifies the multiplier applied to the base sampling rate.
+   *       This boost allows you to temporarily increase sampling without changing the rule's configuration.</p>
+   * @public
+   */
+  SamplingRateBoost?: SamplingRateBoost | undefined;
 }
 
 /**
@@ -2173,6 +2199,50 @@ export interface GetSamplingStatisticSummariesResult {
 }
 
 /**
+ * <p>Request anomaly stats for a single rule from a service. Results are for the last 10
+ *       seconds unless the service has been assigned a longer reporting interval after a previous call
+ *       to <a href="https://docs.aws.amazon.com/xray/latest/api/API_GetSamplingTargets.html">GetSamplingTargets</a>.</p>
+ * @public
+ */
+export interface SamplingBoostStatisticsDocument {
+  /**
+   * <p>The name of the sampling rule.</p>
+   * @public
+   */
+  RuleName: string | undefined;
+
+  /**
+   * <p>Matches the <code>name</code> that the service uses to identify itself in segments.</p>
+   * @public
+   */
+  ServiceName: string | undefined;
+
+  /**
+   * <p>The current time.</p>
+   * @public
+   */
+  Timestamp: Date | undefined;
+
+  /**
+   * <p>The number of requests with anomaly.</p>
+   * @public
+   */
+  AnomalyCount: number | undefined;
+
+  /**
+   * <p>The number of requests that associated to the rule.</p>
+   * @public
+   */
+  TotalCount: number | undefined;
+
+  /**
+   * <p>The number of requests with anomaly recorded.</p>
+   * @public
+   */
+  SampledAnomalyCount: number | undefined;
+}
+
+/**
  * <p>Request sampling results for a single rule from a service. Results are for the last 10
  *       seconds unless the service has been assigned a longer reporting interval after a previous call
  *       to <a href="https://docs.aws.amazon.com/xray/latest/api/API_GetSamplingTargets.html">GetSamplingTargets</a>.</p>
@@ -2225,6 +2295,31 @@ export interface GetSamplingTargetsRequest {
    * @public
    */
   SamplingStatisticsDocuments: SamplingStatisticsDocument[] | undefined;
+
+  /**
+   * <p>Information about rules that the service is using to boost sampling rate.</p>
+   * @public
+   */
+  SamplingBoostStatisticsDocuments?: SamplingBoostStatisticsDocument[] | undefined;
+}
+
+/**
+ * <p>Temporary boost sampling rate. X-Ray calculates sampling boost for each service based on the recent sampling boost stats of all services that called
+ *       <a href="https://docs.aws.amazon.com/xray/latest/api/API_GetSamplingTargets.html">GetSamplingTargets</a>.</p>
+ * @public
+ */
+export interface SamplingBoost {
+  /**
+   * <p>The calculated sampling boost rate for this service </p>
+   * @public
+   */
+  BoostRate: number | undefined;
+
+  /**
+   * <p>When the sampling boost expires.</p>
+   * @public
+   */
+  BoostRateTTL: Date | undefined;
 }
 
 /**
@@ -2265,6 +2360,12 @@ export interface SamplingTargetDocument {
    * @public
    */
   Interval?: number | undefined;
+
+  /**
+   * <p>The sampling boost that X-Ray allocated for this service.</p>
+   * @public
+   */
+  SamplingBoost?: SamplingBoost | undefined;
 }
 
 /**
@@ -2316,6 +2417,13 @@ export interface GetSamplingTargetsResult {
    * @public
    */
   UnprocessedStatistics?: UnprocessedStatistics[] | undefined;
+
+  /**
+   * <p>Information about <a href="https://docs.aws.amazon.com/xray/latest/api/API_SamplingBoostStatisticsDocument.html">SamplingBoostStatisticsDocument</a> that X-Ray could not
+   *          process.</p>
+   * @public
+   */
+  UnprocessedBoostStatistics?: UnprocessedStatistics[] | undefined;
 }
 
 /**
@@ -3086,8 +3194,7 @@ export interface TraceSummary {
   StartTime?: Date | undefined;
 
   /**
-   * <p>The length of time in seconds between the start time of the root segment and the end
-   *       time of the last segment that completed.</p>
+   * <p> The length of time in seconds between the start time of the earliest segment that started and the end time of the last segment that completed.</p>
    * @public
    */
   Duration?: number | undefined;
@@ -4183,6 +4290,13 @@ export interface SamplingRuleUpdate {
    * @public
    */
   Attributes?: Record<string, string> | undefined;
+
+  /**
+   * <p>Specifies the multiplier applied to the base sampling rate.
+   *       This boost allows you to temporarily increase sampling without changing the rule's configuration.</p>
+   * @public
+   */
+  SamplingRateBoost?: SamplingRateBoost | undefined;
 }
 
 /**

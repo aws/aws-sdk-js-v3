@@ -147,6 +147,9 @@ import {
   RetrievedService,
   RetrievedTrace,
   RuleLimitExceededException,
+  SamplingBoost,
+  SamplingBoostStatisticsDocument,
+  SamplingRateBoost,
   SamplingRule,
   SamplingRuleRecord,
   SamplingRuleUpdate,
@@ -592,6 +595,7 @@ export const se_GetSamplingTargetsCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
+      SamplingBoostStatisticsDocuments: (_) => se_SamplingBoostStatisticsDocumentList(_, context),
       SamplingStatisticsDocuments: (_) => se_SamplingStatisticsDocumentList(_, context),
     })
   );
@@ -1445,6 +1449,7 @@ export const de_GetSamplingTargetsCommand = async (
   const doc = take(data, {
     LastRuleModification: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     SamplingTargetDocuments: (_) => de_SamplingTargetDocumentList(_, context),
+    UnprocessedBoostStatistics: _json,
     UnprocessedStatistics: _json,
   });
   Object.assign(contents, doc);
@@ -2133,6 +2138,44 @@ const se_ProbabilisticRuleValueUpdate = (input: ProbabilisticRuleValueUpdate, co
 };
 
 /**
+ * serializeAws_restJson1SamplingBoostStatisticsDocument
+ */
+const se_SamplingBoostStatisticsDocument = (input: SamplingBoostStatisticsDocument, context: __SerdeContext): any => {
+  return take(input, {
+    AnomalyCount: [],
+    RuleName: [],
+    SampledAnomalyCount: [],
+    ServiceName: [],
+    Timestamp: (_) => _.getTime() / 1_000,
+    TotalCount: [],
+  });
+};
+
+/**
+ * serializeAws_restJson1SamplingBoostStatisticsDocumentList
+ */
+const se_SamplingBoostStatisticsDocumentList = (
+  input: SamplingBoostStatisticsDocument[],
+  context: __SerdeContext
+): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return se_SamplingBoostStatisticsDocument(entry, context);
+    });
+};
+
+/**
+ * serializeAws_restJson1SamplingRateBoost
+ */
+const se_SamplingRateBoost = (input: SamplingRateBoost, context: __SerdeContext): any => {
+  return take(input, {
+    CooldownWindowMinutes: [],
+    MaxRate: __serializeFloat,
+  });
+};
+
+/**
  * serializeAws_restJson1SamplingRule
  */
 const se_SamplingRule = (input: SamplingRule, context: __SerdeContext): any => {
@@ -2146,6 +2189,7 @@ const se_SamplingRule = (input: SamplingRule, context: __SerdeContext): any => {
     ResourceARN: [],
     RuleARN: [],
     RuleName: [],
+    SamplingRateBoost: (_) => se_SamplingRateBoost(_, context),
     ServiceName: [],
     ServiceType: [],
     URLPath: [],
@@ -2167,6 +2211,7 @@ const se_SamplingRuleUpdate = (input: SamplingRuleUpdate, context: __SerdeContex
     ResourceARN: [],
     RuleARN: [],
     RuleName: [],
+    SamplingRateBoost: (_) => se_SamplingRateBoost(_, context),
     ServiceName: [],
     ServiceType: [],
     URLPath: [],
@@ -2669,6 +2714,26 @@ const de_RetrievedTrace = (output: any, context: __SerdeContext): RetrievedTrace
 // de_RootCauseExceptions omitted.
 
 /**
+ * deserializeAws_restJson1SamplingBoost
+ */
+const de_SamplingBoost = (output: any, context: __SerdeContext): SamplingBoost => {
+  return take(output, {
+    BoostRate: __limitedParseDouble,
+    BoostRateTTL: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1SamplingRateBoost
+ */
+const de_SamplingRateBoost = (output: any, context: __SerdeContext): SamplingRateBoost => {
+  return take(output, {
+    CooldownWindowMinutes: __expectInt32,
+    MaxRate: __limitedParseDouble,
+  }) as any;
+};
+
+/**
  * deserializeAws_restJson1SamplingRule
  */
 const de_SamplingRule = (output: any, context: __SerdeContext): SamplingRule => {
@@ -2682,6 +2747,7 @@ const de_SamplingRule = (output: any, context: __SerdeContext): SamplingRule => 
     ResourceARN: __expectString,
     RuleARN: __expectString,
     RuleName: __expectString,
+    SamplingRateBoost: (_: any) => de_SamplingRateBoost(_, context),
     ServiceName: __expectString,
     ServiceType: __expectString,
     URLPath: __expectString,
@@ -2747,6 +2813,7 @@ const de_SamplingTargetDocument = (output: any, context: __SerdeContext): Sampli
     ReservoirQuota: __expectInt32,
     ReservoirQuotaTTL: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     RuleName: __expectString,
+    SamplingBoost: (_: any) => de_SamplingBoost(_, context),
   }) as any;
 };
 

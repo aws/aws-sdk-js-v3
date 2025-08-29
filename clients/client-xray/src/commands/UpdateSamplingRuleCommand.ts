@@ -51,6 +51,10 @@ export interface UpdateSamplingRuleCommandOutput extends UpdateSamplingRuleResul
  *     Attributes: { // AttributeMap
  *       "<keys>": "STRING_VALUE",
  *     },
+ *     SamplingRateBoost: { // SamplingRateBoost
+ *       MaxRate: Number("double"), // required
+ *       CooldownWindowMinutes: Number("int"), // required
+ *     },
  *   },
  * };
  * const command = new UpdateSamplingRuleCommand(input);
@@ -72,6 +76,10 @@ export interface UpdateSamplingRuleCommandOutput extends UpdateSamplingRuleResul
  * //       Version: Number("int"), // required
  * //       Attributes: { // AttributeMap
  * //         "<keys>": "STRING_VALUE",
+ * //       },
+ * //       SamplingRateBoost: { // SamplingRateBoost
+ * //         MaxRate: Number("double"), // required
+ * //         CooldownWindowMinutes: Number("int"), // required
  * //       },
  * //     },
  * //     CreatedAt: new Date("TIMESTAMP"),

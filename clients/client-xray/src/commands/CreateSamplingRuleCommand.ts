@@ -58,6 +58,10 @@ export interface CreateSamplingRuleCommandOutput extends CreateSamplingRuleResul
  *     Attributes: { // AttributeMap
  *       "<keys>": "STRING_VALUE",
  *     },
+ *     SamplingRateBoost: { // SamplingRateBoost
+ *       MaxRate: Number("double"), // required
+ *       CooldownWindowMinutes: Number("int"), // required
+ *     },
  *   },
  *   Tags: [ // TagList
  *     { // Tag
@@ -85,6 +89,10 @@ export interface CreateSamplingRuleCommandOutput extends CreateSamplingRuleResul
  * //       Version: Number("int"), // required
  * //       Attributes: { // AttributeMap
  * //         "<keys>": "STRING_VALUE",
+ * //       },
+ * //       SamplingRateBoost: { // SamplingRateBoost
+ * //         MaxRate: Number("double"), // required
+ * //         CooldownWindowMinutes: Number("int"), // required
  * //       },
  * //     },
  * //     CreatedAt: new Date("TIMESTAMP"),
