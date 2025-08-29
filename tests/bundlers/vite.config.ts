@@ -17,6 +17,8 @@ export default defineConfig({
         // Provide global variables to use in the UMD build
         // for externalized deps
         globals: {},
+        // to get an easier aggregate accounting of bundle contents
+        inlineDynamicImports: true,
       },
     },
     minify: false,
