@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.879.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.878.0...v3.879.0) (2025-08-29)
+
+
+### Features
+
+* **client-ec2:** Release shows new route types such as filtered and advertisement. ([6f9b4a6](https://github.com/aws/aws-sdk-js-v3/commit/6f9b4a61e46ce9c61e32bd180ee1462490f6ca29))
+
+
+
+
+
 # [3.878.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.877.0...v3.878.0) (2025-08-28)
 
 

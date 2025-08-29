@@ -1,7 +1,7 @@
 {
   "name": "@aws-sdk/client-workmailmessageflow",
   "description": "AWS SDK for JavaScript Workmailmessageflow Client for Node.js, Browser and React Native",
-  "version": "3.876.0",
+  "version": "3.879.0",
   "scripts": {
     "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types'",
     "build:cjs": "node ../../scripts/compilation/inline client-workmailmessageflow",
