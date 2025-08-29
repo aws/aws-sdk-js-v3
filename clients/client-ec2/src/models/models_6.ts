@@ -565,11 +565,6 @@ export interface DescribeVpcEndpointAssociationsRequest {
    *                   <code>resource-configuration-group-arn</code> - The Amazon Resource Name (ARN) of
    *                the resource configuration of type GROUP.</p>
    *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>service-network-resource-association-id</code> - The ID of the
-   *                association.</p>
-   *             </li>
    *          </ul>
    * @public
    */

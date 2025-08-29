@@ -5452,6 +5452,7 @@ export interface PropagatingVgw {
  * @enum
  */
 export const RouteOrigin = {
+  Advertisement: "Advertisement",
   CreateRoute: "CreateRoute",
   CreateRouteTable: "CreateRouteTable",
   EnableVgwRoutePropagation: "EnableVgwRoutePropagation",
@@ -5469,6 +5470,7 @@ export type RouteOrigin = (typeof RouteOrigin)[keyof typeof RouteOrigin];
 export const RouteState = {
   active: "active",
   blackhole: "blackhole",
+  filtered: "filtered",
 } as const;
 
 /**
@@ -7552,10 +7554,7 @@ export interface TransitGatewayOptions {
 
   /**
    * <p>Indicates whether resource attachments are automatically associated with the default
-   *          association route table. Enabled by default. If <code>defaultRouteTableAssociation</code>
-   *          is set to <code>enable</code>,
-   *          Amazon Web Services Transit Gateway will create the default transit gateway route
-   *          table.</p>
+   *          association route table. Enabled by default. Either <code>defaultRouteTableAssociation</code> or <code>defaultRouteTablePropagation</code> must be set to <code>enable</code> for Amazon Web Services Transit Gateway to create the default transit gateway route table.</p>
    * @public
    */
   DefaultRouteTableAssociation?: DefaultRouteTableAssociationValue | undefined;
@@ -7570,7 +7569,7 @@ export interface TransitGatewayOptions {
    * <p>Indicates whether resource attachments automatically propagate routes to the default
    *          propagation route table. Enabled by default. If <code>defaultRouteTablePropagation</code>
    *          is set to <code>enable</code>,
-   *          Amazon Web Services Transit Gateway will create the default transit gateway route
+   *          Amazon Web Services Transit Gateway creates the default transit gateway route
    *          table.</p>
    * @public
    */
