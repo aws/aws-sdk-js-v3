@@ -28,8 +28,7 @@ export interface AssociateChannelCommandInput extends AssociateChannelRequest {}
 export interface AssociateChannelCommandOutput extends AssociateChannelResponse, __MetadataBearer {}
 
 /**
- * <p>Associates a delivery <a href="https://docs.aws.amazon.com/notifications/latest/userguide/managing-delivery-channels.html">Channel</a> with a particular <code>NotificationConfiguration</code>. Supported Channels include Chatbot,
- * the Console Mobile Application, and emails (notifications-contacts).</p>
+ * <p>Associates a delivery <a href="https://docs.aws.amazon.com/notifications/latest/userguide/managing-delivery-channels.html">Channel</a> with a particular <code>NotificationConfiguration</code>. Supported Channels include Amazon Q Developer in chat applications, the Console Mobile Application, and emails (notifications-contacts).</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

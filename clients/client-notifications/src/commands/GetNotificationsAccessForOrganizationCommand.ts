@@ -49,7 +49,7 @@ export interface GetNotificationsAccessForOrganizationCommandOutput
  * const response = await client.send(command);
  * // { // GetNotificationsAccessForOrganizationResponse
  * //   notificationsAccessForOrganization: { // NotificationsAccessForOrganization
- * //     accessStatus: "ENABLED" || "DISABLED" || "PENDING", // required
+ * //     accessStatus: "ENABLED" || "DISABLED" || "PENDING" || "FAILED", // required
  * //   },
  * // };
  *

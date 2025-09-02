@@ -6,6 +6,8 @@ export * from "./ListManagedNotificationChannelAssociationsPaginator";
 export * from "./ListManagedNotificationChildEventsPaginator";
 export * from "./ListManagedNotificationConfigurationsPaginator";
 export * from "./ListManagedNotificationEventsPaginator";
+export * from "./ListMemberAccountsPaginator";
 export * from "./ListNotificationConfigurationsPaginator";
 export * from "./ListNotificationEventsPaginator";
 export * from "./ListNotificationHubsPaginator";
+export * from "./ListOrganizationalUnitsPaginator";

@@ -5,9 +5,12 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { CreateEventRuleRequest, CreateEventRuleResponse } from "../models/models_0";
+import { AssociateOrganizationalUnitRequest, AssociateOrganizationalUnitResponse } from "../models/models_0";
 import { NotificationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NotificationsClient";
-import { de_CreateEventRuleCommand, se_CreateEventRuleCommand } from "../protocols/Aws_restJson1";
+import {
+  de_AssociateOrganizationalUnitCommand,
+  se_AssociateOrganizationalUnitCommand,
+} from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -17,52 +20,40 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link CreateEventRuleCommand}.
+ * The input for {@link AssociateOrganizationalUnitCommand}.
  */
-export interface CreateEventRuleCommandInput extends CreateEventRuleRequest {}
+export interface AssociateOrganizationalUnitCommandInput extends AssociateOrganizationalUnitRequest {}
 /**
  * @public
  *
- * The output of {@link CreateEventRuleCommand}.
+ * The output of {@link AssociateOrganizationalUnitCommand}.
  */
-export interface CreateEventRuleCommandOutput extends CreateEventRuleResponse, __MetadataBearer {}
+export interface AssociateOrganizationalUnitCommandOutput
+  extends AssociateOrganizationalUnitResponse,
+    __MetadataBearer {}
 
 /**
- * <p>Creates an <a href="https://docs.aws.amazon.com/notifications/latest/userguide/glossary.html"> <code>EventRule</code> </a> that is associated with a specified <code>NotificationConfiguration</code>.</p>
+ * <p>Associates an organizational unit with a notification configuration.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { NotificationsClient, CreateEventRuleCommand } from "@aws-sdk/client-notifications"; // ES Modules import
- * // const { NotificationsClient, CreateEventRuleCommand } = require("@aws-sdk/client-notifications"); // CommonJS import
+ * import { NotificationsClient, AssociateOrganizationalUnitCommand } from "@aws-sdk/client-notifications"; // ES Modules import
+ * // const { NotificationsClient, AssociateOrganizationalUnitCommand } = require("@aws-sdk/client-notifications"); // CommonJS import
  * const client = new NotificationsClient(config);
- * const input = { // CreateEventRuleRequest
+ * const input = { // AssociateOrganizationalUnitRequest
+ *   organizationalUnitId: "STRING_VALUE", // required
  *   notificationConfigurationArn: "STRING_VALUE", // required
- *   source: "STRING_VALUE", // required
- *   eventType: "STRING_VALUE", // required
- *   eventPattern: "STRING_VALUE",
- *   regions: [ // Regions // required
- *     "STRING_VALUE",
- *   ],
  * };
- * const command = new CreateEventRuleCommand(input);
+ * const command = new AssociateOrganizationalUnitCommand(input);
  * const response = await client.send(command);
- * // { // CreateEventRuleResponse
- * //   arn: "STRING_VALUE", // required
- * //   notificationConfigurationArn: "STRING_VALUE", // required
- * //   statusSummaryByRegion: { // StatusSummaryByRegion // required
- * //     "<keys>": { // EventRuleStatusSummary
- * //       status: "STRING_VALUE", // required
- * //       reason: "STRING_VALUE", // required
- * //     },
- * //   },
- * // };
+ * // {};
  *
  * ```
  *
- * @param CreateEventRuleCommandInput - {@link CreateEventRuleCommandInput}
- * @returns {@link CreateEventRuleCommandOutput}
- * @see {@link CreateEventRuleCommandInput} for command's `input` shape.
- * @see {@link CreateEventRuleCommandOutput} for command's `response` shape.
+ * @param AssociateOrganizationalUnitCommandInput - {@link AssociateOrganizationalUnitCommandInput}
+ * @returns {@link AssociateOrganizationalUnitCommandOutput}
+ * @see {@link AssociateOrganizationalUnitCommandInput} for command's `input` shape.
+ * @see {@link AssociateOrganizationalUnitCommandOutput} for command's `response` shape.
  * @see {@link NotificationsClientResolvedConfig | config} for NotificationsClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -92,10 +83,10 @@ export interface CreateEventRuleCommandOutput extends CreateEventRuleResponse, _
  *
  * @public
  */
-export class CreateEventRuleCommand extends $Command
+export class AssociateOrganizationalUnitCommand extends $Command
   .classBuilder<
-    CreateEventRuleCommandInput,
-    CreateEventRuleCommandOutput,
+    AssociateOrganizationalUnitCommandInput,
+    AssociateOrganizationalUnitCommandOutput,
     NotificationsClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -107,21 +98,21 @@ export class CreateEventRuleCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("Notifications", "CreateEventRule", {})
-  .n("NotificationsClient", "CreateEventRuleCommand")
+  .s("Notifications", "AssociateOrganizationalUnit", {})
+  .n("NotificationsClient", "AssociateOrganizationalUnitCommand")
   .f(void 0, void 0)
-  .ser(se_CreateEventRuleCommand)
-  .de(de_CreateEventRuleCommand)
+  .ser(se_AssociateOrganizationalUnitCommand)
+  .de(de_AssociateOrganizationalUnitCommand)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: CreateEventRuleRequest;
-      output: CreateEventRuleResponse;
+      input: AssociateOrganizationalUnitRequest;
+      output: {};
     };
     sdk: {
-      input: CreateEventRuleCommandInput;
-      output: CreateEventRuleCommandOutput;
+      input: AssociateOrganizationalUnitCommandInput;
+      output: AssociateOrganizationalUnitCommandOutput;
     };
   };
 }

@@ -52,6 +52,7 @@ export interface GetNotificationConfigurationCommandOutput
  * //   status: "STRING_VALUE", // required
  * //   creationTime: new Date("TIMESTAMP"), // required
  * //   aggregationDuration: "STRING_VALUE",
+ * //   subtype: "STRING_VALUE",
  * // };
  *
  * ```

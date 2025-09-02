@@ -33,8 +33,7 @@ export interface ListNotificationConfigurationsCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Returns a list of abbreviated <code>NotificationConfigurations</code> according to
- *          specified filters, in reverse chronological order (newest first).</p>
+ * <p>Returns a list of abbreviated <code>NotificationConfigurations</code> according to specified filters, in reverse chronological order (newest first).</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -45,6 +44,7 @@ export interface ListNotificationConfigurationsCommandOutput
  *   eventRuleSource: "STRING_VALUE",
  *   channelArn: "STRING_VALUE",
  *   status: "STRING_VALUE",
+ *   subtype: "STRING_VALUE",
  *   maxResults: Number("int"),
  *   nextToken: "STRING_VALUE",
  * };
@@ -60,6 +60,7 @@ export interface ListNotificationConfigurationsCommandOutput
  * //       status: "STRING_VALUE", // required
  * //       creationTime: new Date("TIMESTAMP"), // required
  * //       aggregationDuration: "STRING_VALUE",
+ * //       subtype: "STRING_VALUE",
  * //     },
  * //   ],
  * // };

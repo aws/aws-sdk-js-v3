@@ -18,6 +18,11 @@ import {
   AssociateManagedNotificationAdditionalChannelCommandOutput,
 } from "./commands/AssociateManagedNotificationAdditionalChannelCommand";
 import {
+  AssociateOrganizationalUnitCommand,
+  AssociateOrganizationalUnitCommandInput,
+  AssociateOrganizationalUnitCommandOutput,
+} from "./commands/AssociateOrganizationalUnitCommand";
+import {
   CreateEventRuleCommand,
   CreateEventRuleCommandInput,
   CreateEventRuleCommandOutput,
@@ -62,6 +67,11 @@ import {
   DisassociateManagedNotificationAdditionalChannelCommandInput,
   DisassociateManagedNotificationAdditionalChannelCommandOutput,
 } from "./commands/DisassociateManagedNotificationAdditionalChannelCommand";
+import {
+  DisassociateOrganizationalUnitCommand,
+  DisassociateOrganizationalUnitCommandInput,
+  DisassociateOrganizationalUnitCommandOutput,
+} from "./commands/DisassociateOrganizationalUnitCommand";
 import {
   EnableNotificationsAccessForOrganizationCommand,
   EnableNotificationsAccessForOrganizationCommandInput,
@@ -133,6 +143,11 @@ import {
   ListManagedNotificationEventsCommandOutput,
 } from "./commands/ListManagedNotificationEventsCommand";
 import {
+  ListMemberAccountsCommand,
+  ListMemberAccountsCommandInput,
+  ListMemberAccountsCommandOutput,
+} from "./commands/ListMemberAccountsCommand";
+import {
   ListNotificationConfigurationsCommand,
   ListNotificationConfigurationsCommandInput,
   ListNotificationConfigurationsCommandOutput,
@@ -147,6 +162,11 @@ import {
   ListNotificationHubsCommandInput,
   ListNotificationHubsCommandOutput,
 } from "./commands/ListNotificationHubsCommand";
+import {
+  ListOrganizationalUnitsCommand,
+  ListOrganizationalUnitsCommandInput,
+  ListOrganizationalUnitsCommandOutput,
+} from "./commands/ListOrganizationalUnitsCommand";
 import {
   ListTagsForResourceCommand,
   ListTagsForResourceCommandInput,
@@ -179,6 +199,7 @@ const commands = {
   AssociateChannelCommand,
   AssociateManagedNotificationAccountContactCommand,
   AssociateManagedNotificationAdditionalChannelCommand,
+  AssociateOrganizationalUnitCommand,
   CreateEventRuleCommand,
   CreateNotificationConfigurationCommand,
   DeleteEventRuleCommand,
@@ -188,6 +209,7 @@ const commands = {
   DisassociateChannelCommand,
   DisassociateManagedNotificationAccountContactCommand,
   DisassociateManagedNotificationAdditionalChannelCommand,
+  DisassociateOrganizationalUnitCommand,
   EnableNotificationsAccessForOrganizationCommand,
   GetEventRuleCommand,
   GetManagedNotificationChildEventCommand,
@@ -202,9 +224,11 @@ const commands = {
   ListManagedNotificationChildEventsCommand,
   ListManagedNotificationConfigurationsCommand,
   ListManagedNotificationEventsCommand,
+  ListMemberAccountsCommand,
   ListNotificationConfigurationsCommand,
   ListNotificationEventsCommand,
   ListNotificationHubsCommand,
+  ListOrganizationalUnitsCommand,
   ListTagsForResourceCommand,
   RegisterNotificationHubCommand,
   TagResourceCommand,
@@ -263,6 +287,23 @@ export interface Notifications {
     args: AssociateManagedNotificationAdditionalChannelCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: AssociateManagedNotificationAdditionalChannelCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link AssociateOrganizationalUnitCommand}
+   */
+  associateOrganizationalUnit(
+    args: AssociateOrganizationalUnitCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<AssociateOrganizationalUnitCommandOutput>;
+  associateOrganizationalUnit(
+    args: AssociateOrganizationalUnitCommandInput,
+    cb: (err: any, data?: AssociateOrganizationalUnitCommandOutput) => void
+  ): void;
+  associateOrganizationalUnit(
+    args: AssociateOrganizationalUnitCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: AssociateOrganizationalUnitCommandOutput) => void
   ): void;
 
   /**
@@ -411,6 +452,23 @@ export interface Notifications {
     args: DisassociateManagedNotificationAdditionalChannelCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DisassociateManagedNotificationAdditionalChannelCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DisassociateOrganizationalUnitCommand}
+   */
+  disassociateOrganizationalUnit(
+    args: DisassociateOrganizationalUnitCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DisassociateOrganizationalUnitCommandOutput>;
+  disassociateOrganizationalUnit(
+    args: DisassociateOrganizationalUnitCommandInput,
+    cb: (err: any, data?: DisassociateOrganizationalUnitCommandOutput) => void
+  ): void;
+  disassociateOrganizationalUnit(
+    args: DisassociateOrganizationalUnitCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DisassociateOrganizationalUnitCommandOutput) => void
   ): void;
 
   /**
@@ -641,6 +699,23 @@ export interface Notifications {
   ): void;
 
   /**
+   * @see {@link ListMemberAccountsCommand}
+   */
+  listMemberAccounts(
+    args: ListMemberAccountsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListMemberAccountsCommandOutput>;
+  listMemberAccounts(
+    args: ListMemberAccountsCommandInput,
+    cb: (err: any, data?: ListMemberAccountsCommandOutput) => void
+  ): void;
+  listMemberAccounts(
+    args: ListMemberAccountsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListMemberAccountsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListNotificationConfigurationsCommand}
    */
   listNotificationConfigurations(): Promise<ListNotificationConfigurationsCommandOutput>;
@@ -692,6 +767,23 @@ export interface Notifications {
     args: ListNotificationHubsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListNotificationHubsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListOrganizationalUnitsCommand}
+   */
+  listOrganizationalUnits(
+    args: ListOrganizationalUnitsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListOrganizationalUnitsCommandOutput>;
+  listOrganizationalUnits(
+    args: ListOrganizationalUnitsCommandInput,
+    cb: (err: any, data?: ListOrganizationalUnitsCommandOutput) => void
+  ): void;
+  listOrganizationalUnits(
+    args: ListOrganizationalUnitsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListOrganizationalUnitsCommandOutput) => void
   ): void;
 
   /**
@@ -783,14 +875,7 @@ export interface Notifications {
 }
 
 /**
- * <p>The <i>Amazon Web Services User Notifications API Reference</i> provides descriptions, API request parameters, and the JSON response for each of the User Notification API actions.</p>
- *          <p>User Notification control plane APIs are currently available in US East (Virginia) - <code>us-east-1</code>.</p>
- *          <p>
- *             <a href="https://docs.aws.amazon.com/notifications/latest/APIReference/API_GetNotificationEvent.html">GetNotificationEvent</a>
- * 	 and <a href="https://docs.aws.amazon.com/notifications/latest/APIReference/API_ListNotificationEvents.html">ListNotificationEvents</a> APIs are currently available in
- * 	 <a href="https://docs.aws.amazon.com/notifications/latest/userguide/supported-regions.html">commercial partition Regions</a> and only return notifications stored in the same Region in which they're called.</p>
- *          <p>The User Notifications console can only be used in US East (Virginia). Your data however, is stored in each Region chosen as a
- * 	 <a href="https://docs.aws.amazon.com/notifications/latest/userguide/notification-hubs.html">notification hub</a> in addition to US East (Virginia).</p>
+ * <p>The <i>User Notifications API Reference</i> provides descriptions, API request parameters, and the JSON response for each of the User Notifications API actions.</p> <p>User Notification control plane APIs are currently available in US East (Virginia) - <code>us-east-1</code>.</p> <p> <a href="https://docs.aws.amazon.com/notifications/latest/APIReference/API_GetNotificationEvent.html">GetNotificationEvent</a> and <a href="https://docs.aws.amazon.com/notifications/latest/APIReference/API_ListNotificationEvents.html">ListNotificationEvents</a> APIs are currently available in <a href="https://docs.aws.amazon.com/notifications/latest/userguide/supported-regions.html">commercial partition Regions</a> and only return notifications stored in the same Region in which they're called.</p> <p>The User Notifications console can only be used in US East (Virginia). Your data however, is stored in each Region chosen as a <a href="https://docs.aws.amazon.com/notifications/latest/userguide/notification-hubs.html">notification hub</a> in addition to US East (Virginia).</p> <note> <p>For information about descriptions, API request parameters, and the JSON response for email contact related API actions, see the <a href="https://docs.aws.amazon.com/notificationscontacts/latest/APIReference/Welcome.html">User Notifications Contacts API Reference Guide</a>.</p> </note>
  * @public
  */
 export class Notifications extends NotificationsClient implements Notifications {}

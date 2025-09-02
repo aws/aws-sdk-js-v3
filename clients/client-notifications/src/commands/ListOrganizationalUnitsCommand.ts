@@ -5,9 +5,9 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { UntagResourceRequest, UntagResourceResponse } from "../models/models_0";
+import { ListOrganizationalUnitsRequest, ListOrganizationalUnitsResponse } from "../models/models_0";
 import { NotificationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NotificationsClient";
-import { de_UntagResourceCommand, se_UntagResourceCommand } from "../protocols/Aws_restJson1";
+import { de_ListOrganizationalUnitsCommand, se_ListOrganizationalUnitsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -17,40 +17,44 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link UntagResourceCommand}.
+ * The input for {@link ListOrganizationalUnitsCommand}.
  */
-export interface UntagResourceCommandInput extends UntagResourceRequest {}
+export interface ListOrganizationalUnitsCommandInput extends ListOrganizationalUnitsRequest {}
 /**
  * @public
  *
- * The output of {@link UntagResourceCommand}.
+ * The output of {@link ListOrganizationalUnitsCommand}.
  */
-export interface UntagResourceCommandOutput extends UntagResourceResponse, __MetadataBearer {}
+export interface ListOrganizationalUnitsCommandOutput extends ListOrganizationalUnitsResponse, __MetadataBearer {}
 
 /**
- * <p>Untags a resource with a specified Amazon Resource Name (ARN).</p> <p>For more information, see <a href="https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html">Tagging your Amazon Web Services resources</a> in the <i>Tagging Amazon Web Services Resources User Guide</i>.</p>
+ * <p>Returns a list of organizational units associated with a notification configuration.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { NotificationsClient, UntagResourceCommand } from "@aws-sdk/client-notifications"; // ES Modules import
- * // const { NotificationsClient, UntagResourceCommand } = require("@aws-sdk/client-notifications"); // CommonJS import
+ * import { NotificationsClient, ListOrganizationalUnitsCommand } from "@aws-sdk/client-notifications"; // ES Modules import
+ * // const { NotificationsClient, ListOrganizationalUnitsCommand } = require("@aws-sdk/client-notifications"); // CommonJS import
  * const client = new NotificationsClient(config);
- * const input = { // UntagResourceRequest
- *   arn: "STRING_VALUE", // required
- *   tagKeys: [ // TagKeys // required
- *     "STRING_VALUE",
- *   ],
+ * const input = { // ListOrganizationalUnitsRequest
+ *   notificationConfigurationArn: "STRING_VALUE", // required
+ *   maxResults: Number("int"),
+ *   nextToken: "STRING_VALUE",
  * };
- * const command = new UntagResourceCommand(input);
+ * const command = new ListOrganizationalUnitsCommand(input);
  * const response = await client.send(command);
- * // {};
+ * // { // ListOrganizationalUnitsResponse
+ * //   organizationalUnits: [ // OrganizationalUnits // required
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *
- * @param UntagResourceCommandInput - {@link UntagResourceCommandInput}
- * @returns {@link UntagResourceCommandOutput}
- * @see {@link UntagResourceCommandInput} for command's `input` shape.
- * @see {@link UntagResourceCommandOutput} for command's `response` shape.
+ * @param ListOrganizationalUnitsCommandInput - {@link ListOrganizationalUnitsCommandInput}
+ * @returns {@link ListOrganizationalUnitsCommandOutput}
+ * @see {@link ListOrganizationalUnitsCommandInput} for command's `input` shape.
+ * @see {@link ListOrganizationalUnitsCommandOutput} for command's `response` shape.
  * @see {@link NotificationsClientResolvedConfig | config} for NotificationsClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -74,10 +78,10 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
  *
  * @public
  */
-export class UntagResourceCommand extends $Command
+export class ListOrganizationalUnitsCommand extends $Command
   .classBuilder<
-    UntagResourceCommandInput,
-    UntagResourceCommandOutput,
+    ListOrganizationalUnitsCommandInput,
+    ListOrganizationalUnitsCommandOutput,
     NotificationsClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -89,21 +93,21 @@ export class UntagResourceCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("Notifications", "UntagResource", {})
-  .n("NotificationsClient", "UntagResourceCommand")
+  .s("Notifications", "ListOrganizationalUnits", {})
+  .n("NotificationsClient", "ListOrganizationalUnitsCommand")
   .f(void 0, void 0)
-  .ser(se_UntagResourceCommand)
-  .de(de_UntagResourceCommand)
+  .ser(se_ListOrganizationalUnitsCommand)
+  .de(de_ListOrganizationalUnitsCommand)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: UntagResourceRequest;
-      output: {};
+      input: ListOrganizationalUnitsRequest;
+      output: ListOrganizationalUnitsResponse;
     };
     sdk: {
-      input: UntagResourceCommandInput;
-      output: UntagResourceCommandOutput;
+      input: ListOrganizationalUnitsCommandInput;
+      output: ListOrganizationalUnitsCommandOutput;
     };
   };
 }

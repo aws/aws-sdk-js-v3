@@ -33,6 +33,10 @@ import {
   AssociateManagedNotificationAdditionalChannelCommandInput,
   AssociateManagedNotificationAdditionalChannelCommandOutput,
 } from "../commands/AssociateManagedNotificationAdditionalChannelCommand";
+import {
+  AssociateOrganizationalUnitCommandInput,
+  AssociateOrganizationalUnitCommandOutput,
+} from "../commands/AssociateOrganizationalUnitCommand";
 import { CreateEventRuleCommandInput, CreateEventRuleCommandOutput } from "../commands/CreateEventRuleCommand";
 import {
   CreateNotificationConfigurationCommandInput,
@@ -63,6 +67,10 @@ import {
   DisassociateManagedNotificationAdditionalChannelCommandInput,
   DisassociateManagedNotificationAdditionalChannelCommandOutput,
 } from "../commands/DisassociateManagedNotificationAdditionalChannelCommand";
+import {
+  DisassociateOrganizationalUnitCommandInput,
+  DisassociateOrganizationalUnitCommandOutput,
+} from "../commands/DisassociateOrganizationalUnitCommand";
 import {
   EnableNotificationsAccessForOrganizationCommandInput,
   EnableNotificationsAccessForOrganizationCommandOutput,
@@ -110,6 +118,7 @@ import {
   ListManagedNotificationEventsCommandInput,
   ListManagedNotificationEventsCommandOutput,
 } from "../commands/ListManagedNotificationEventsCommand";
+import { ListMemberAccountsCommandInput, ListMemberAccountsCommandOutput } from "../commands/ListMemberAccountsCommand";
 import {
   ListNotificationConfigurationsCommandInput,
   ListNotificationConfigurationsCommandOutput,
@@ -122,6 +131,10 @@ import {
   ListNotificationHubsCommandInput,
   ListNotificationHubsCommandOutput,
 } from "../commands/ListNotificationHubsCommand";
+import {
+  ListOrganizationalUnitsCommandInput,
+  ListOrganizationalUnitsCommandOutput,
+} from "../commands/ListOrganizationalUnitsCommand";
 import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
@@ -224,6 +237,29 @@ export const se_AssociateManagedNotificationAdditionalChannelCommand = async (
     })
   );
   b.m("PUT").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1AssociateOrganizationalUnitCommand
+ */
+export const se_AssociateOrganizationalUnitCommand = async (
+  input: AssociateOrganizationalUnitCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/organizational-units/associate/{organizationalUnitId}");
+  b.p("organizationalUnitId", () => input.organizationalUnitId!, "{organizationalUnitId}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      notificationConfigurationArn: [],
+    })
+  );
+  b.m("POST").h(headers).b(body);
   return b.build();
 };
 
@@ -407,6 +443,29 @@ export const se_DisassociateManagedNotificationAdditionalChannelCommand = async 
     })
   );
   b.m("PUT").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1DisassociateOrganizationalUnitCommand
+ */
+export const se_DisassociateOrganizationalUnitCommand = async (
+  input: DisassociateOrganizationalUnitCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/organizational-units/disassociate/{organizationalUnitId}");
+  b.p("organizationalUnitId", () => input.organizationalUnitId!, "{organizationalUnitId}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      notificationConfigurationArn: [],
+    })
+  );
+  b.m("POST").h(headers).b(body);
   return b.build();
 };
 
@@ -681,6 +740,29 @@ export const se_ListManagedNotificationEventsCommand = async (
 };
 
 /**
+ * serializeAws_restJson1ListMemberAccountsCommand
+ */
+export const se_ListMemberAccountsCommand = async (
+  input: ListMemberAccountsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/list-member-accounts");
+  const query: any = map({
+    [_nCA]: [, __expectNonNull(input[_nCA]!, `notificationConfigurationArn`)],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
+    [_nT]: [, input[_nT]!],
+    [_mA]: [, input[_mA]!],
+    [_st]: [, input[_st]!],
+    [_oUI]: [, input[_oUI]!],
+  });
+  let body: any;
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1ListNotificationConfigurationsCommand
  */
 export const se_ListNotificationConfigurationsCommand = async (
@@ -694,6 +776,7 @@ export const se_ListNotificationConfigurationsCommand = async (
     [_eRS]: [, input[_eRS]!],
     [_cA]: [, input[_cA]!],
     [_st]: [, input[_st]!],
+    [_su]: [, input[_su]!],
     [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
     [_nT]: [, input[_nT]!],
   });
@@ -721,6 +804,7 @@ export const se_ListNotificationEventsCommand = async (
     [_aNEA]: [, input[_aNEA]!],
     [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
     [_nT]: [, input[_nT]!],
+    [_oUI]: [, input[_oUI]!],
   });
   let body: any;
   b.m("GET").h(headers).q(query).b(body);
@@ -738,6 +822,26 @@ export const se_ListNotificationHubsCommand = async (
   const headers: any = {};
   b.bp("/notification-hubs");
   const query: any = map({
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
+    [_nT]: [, input[_nT]!],
+  });
+  let body: any;
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1ListOrganizationalUnitsCommand
+ */
+export const se_ListOrganizationalUnitsCommand = async (
+  input: ListOrganizationalUnitsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/organizational-units");
+  const query: any = map({
+    [_nCA]: [, __expectNonNull(input[_nCA]!, `notificationConfigurationArn`)],
     [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
     [_nT]: [, input[_nT]!],
   });
@@ -927,6 +1031,23 @@ export const de_AssociateManagedNotificationAdditionalChannelCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1AssociateOrganizationalUnitCommand
+ */
+export const de_AssociateOrganizationalUnitCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<AssociateOrganizationalUnitCommandOutput> => {
+  if (output.statusCode !== 201 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1CreateEventRuleCommand
  */
 export const de_CreateEventRuleCommand = async (
@@ -1096,6 +1217,23 @@ export const de_DisassociateManagedNotificationAdditionalChannelCommand = async 
 };
 
 /**
+ * deserializeAws_restJson1DisassociateOrganizationalUnitCommand
+ */
+export const de_DisassociateOrganizationalUnitCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DisassociateOrganizationalUnitCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1EnableNotificationsAccessForOrganizationCommand
  */
 export const de_EnableNotificationsAccessForOrganizationCommand = async (
@@ -1235,6 +1373,7 @@ export const de_GetNotificationConfigurationCommand = async (
     description: __expectString,
     name: __expectString,
     status: __expectString,
+    subtype: __expectString,
   });
   Object.assign(contents, doc);
   return contents;
@@ -1418,6 +1557,28 @@ export const de_ListManagedNotificationEventsCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1ListMemberAccountsCommand
+ */
+export const de_ListMemberAccountsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListMemberAccountsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    memberAccounts: _json,
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1ListNotificationConfigurationsCommand
  */
 export const de_ListNotificationConfigurationsCommand = async (
@@ -1478,6 +1639,28 @@ export const de_ListNotificationHubsCommand = async (
   const doc = take(data, {
     nextToken: __expectString,
     notificationHubs: (_) => de_NotificationHubs(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListOrganizationalUnitsCommand
+ */
+export const de_ListOrganizationalUnitsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListOrganizationalUnitsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    nextToken: __expectString,
+    organizationalUnits: _json,
   });
   Object.assign(contents, doc);
   return contents;
@@ -1969,6 +2152,10 @@ const de_ManagedNotificationEvents = (output: any, context: __SerdeContext): Man
 
 // de_MediaElement omitted.
 
+// de_MemberAccount omitted.
+
+// de_MemberAccounts omitted.
+
 // de_MessageComponents omitted.
 
 // de_MessageComponentsSummary omitted.
@@ -1999,6 +2186,7 @@ const de_NotificationConfigurationStructure = (
     description: __expectString,
     name: __expectString,
     status: __expectString,
+    subtype: __expectString,
   }) as any;
 };
 
@@ -2014,6 +2202,7 @@ const de_NotificationEventOverview = (output: any, context: __SerdeContext): Not
     creationTime: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
     notificationConfigurationArn: __expectString,
     notificationEvent: _json,
+    organizationalUnitId: __expectString,
     relatedAccount: __expectString,
   }) as any;
 };
@@ -2044,6 +2233,7 @@ const de_NotificationEventSchema = (output: any, context: __SerdeContext): Notif
     media: _json,
     messageComponents: _json,
     notificationType: __expectString,
+    organizationalUnitId: __expectString,
     schemaVersion: __expectString,
     sourceEventDetailUrl: __expectString,
     sourceEventDetailUrlDisplayText: __expectString,
@@ -2082,6 +2272,8 @@ const de_NotificationHubs = (output: any, context: __SerdeContext): Notification
 // de_NotificationHubStatusSummary omitted.
 
 // de_NotificationsAccessForOrganization omitted.
+
+// de_OrganizationalUnits omitted.
 
 // de_Regions omitted.
 
@@ -2152,6 +2344,7 @@ const _eRS = "eventRuleSource";
 const _eT = "endTime";
 const _iCE = "includeChildEvents";
 const _l = "locale";
+const _mA = "memberAccount";
 const _mNCA = "managedNotificationConfigurationArn";
 const _mR = "maxResults";
 const _nCA = "notificationConfigurationArn";
@@ -2163,4 +2356,5 @@ const _ra = "retry-after";
 const _s = "source";
 const _sT = "startTime";
 const _st = "status";
+const _su = "subtype";
 const _tK = "tagKeys";

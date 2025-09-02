@@ -28,12 +28,7 @@ export interface ListNotificationEventsCommandInput extends ListNotificationEven
 export interface ListNotificationEventsCommandOutput extends ListNotificationEventsResponse, __MetadataBearer {}
 
 /**
- * <p>Returns a list of <code>NotificationEvents</code> according to specified filters, in reverse chronological order (newest first).</p>
- *          <important>
- *             <p>User Notifications stores notifications in the individual Regions you register as notification hubs and the Region of the source event rule. ListNotificationEvents only returns notifications stored in the same Region in which the action is called.
- * 	  User Notifications doesn't backfill notifications to new Regions selected as notification hubs. For this reason, we recommend that you make calls in your oldest registered notification hub.
- * 	  For more information, see <a href="https://docs.aws.amazon.com/notifications/latest/userguide/notification-hubs.html">Notification hubs</a> in the <i>Amazon Web Services User Notifications User Guide</i>.</p>
- *          </important>
+ * <p>Returns a list of <code>NotificationEvents</code> according to specified filters, in reverse chronological order (newest first).</p> <important> <p>User Notifications stores notifications in the individual Regions you register as notification hubs and the Region of the source event rule. ListNotificationEvents only returns notifications stored in the same Region in which the action is called. User Notifications doesn't backfill notifications to new Regions selected as notification hubs. For this reason, we recommend that you make calls in your oldest registered notification hub. For more information, see <a href="https://docs.aws.amazon.com/notifications/latest/userguide/notification-hubs.html">Notification hubs</a> in the <i>Amazon Web Services User Notifications User Guide</i>.</p> </important>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -49,6 +44,7 @@ export interface ListNotificationEventsCommandOutput extends ListNotificationEve
  *   aggregateNotificationEventArn: "STRING_VALUE",
  *   maxResults: Number("int"),
  *   nextToken: "STRING_VALUE",
+ *   organizationalUnitId: "STRING_VALUE",
  * };
  * const command = new ListNotificationEventsCommand(input);
  * const response = await client.send(command);
@@ -114,6 +110,7 @@ export interface ListNotificationEventsCommandOutput extends ListNotificationEve
  * //           },
  * //         ],
  * //       },
+ * //       organizationalUnitId: "STRING_VALUE",
  * //     },
  * //   ],
  * // };

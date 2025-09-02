@@ -62,6 +62,10 @@ import {
   AssociateManagedNotificationAdditionalChannelCommandInput,
   AssociateManagedNotificationAdditionalChannelCommandOutput,
 } from "./commands/AssociateManagedNotificationAdditionalChannelCommand";
+import {
+  AssociateOrganizationalUnitCommandInput,
+  AssociateOrganizationalUnitCommandOutput,
+} from "./commands/AssociateOrganizationalUnitCommand";
 import { CreateEventRuleCommandInput, CreateEventRuleCommandOutput } from "./commands/CreateEventRuleCommand";
 import {
   CreateNotificationConfigurationCommandInput,
@@ -92,6 +96,10 @@ import {
   DisassociateManagedNotificationAdditionalChannelCommandInput,
   DisassociateManagedNotificationAdditionalChannelCommandOutput,
 } from "./commands/DisassociateManagedNotificationAdditionalChannelCommand";
+import {
+  DisassociateOrganizationalUnitCommandInput,
+  DisassociateOrganizationalUnitCommandOutput,
+} from "./commands/DisassociateOrganizationalUnitCommand";
 import {
   EnableNotificationsAccessForOrganizationCommandInput,
   EnableNotificationsAccessForOrganizationCommandOutput,
@@ -139,6 +147,7 @@ import {
   ListManagedNotificationEventsCommandInput,
   ListManagedNotificationEventsCommandOutput,
 } from "./commands/ListManagedNotificationEventsCommand";
+import { ListMemberAccountsCommandInput, ListMemberAccountsCommandOutput } from "./commands/ListMemberAccountsCommand";
 import {
   ListNotificationConfigurationsCommandInput,
   ListNotificationConfigurationsCommandOutput,
@@ -151,6 +160,10 @@ import {
   ListNotificationHubsCommandInput,
   ListNotificationHubsCommandOutput,
 } from "./commands/ListNotificationHubsCommand";
+import {
+  ListOrganizationalUnitsCommandInput,
+  ListOrganizationalUnitsCommandOutput,
+} from "./commands/ListOrganizationalUnitsCommand";
 import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
@@ -184,6 +197,7 @@ export type ServiceInputTypes =
   | AssociateChannelCommandInput
   | AssociateManagedNotificationAccountContactCommandInput
   | AssociateManagedNotificationAdditionalChannelCommandInput
+  | AssociateOrganizationalUnitCommandInput
   | CreateEventRuleCommandInput
   | CreateNotificationConfigurationCommandInput
   | DeleteEventRuleCommandInput
@@ -193,6 +207,7 @@ export type ServiceInputTypes =
   | DisassociateChannelCommandInput
   | DisassociateManagedNotificationAccountContactCommandInput
   | DisassociateManagedNotificationAdditionalChannelCommandInput
+  | DisassociateOrganizationalUnitCommandInput
   | EnableNotificationsAccessForOrganizationCommandInput
   | GetEventRuleCommandInput
   | GetManagedNotificationChildEventCommandInput
@@ -207,9 +222,11 @@ export type ServiceInputTypes =
   | ListManagedNotificationChildEventsCommandInput
   | ListManagedNotificationConfigurationsCommandInput
   | ListManagedNotificationEventsCommandInput
+  | ListMemberAccountsCommandInput
   | ListNotificationConfigurationsCommandInput
   | ListNotificationEventsCommandInput
   | ListNotificationHubsCommandInput
+  | ListOrganizationalUnitsCommandInput
   | ListTagsForResourceCommandInput
   | RegisterNotificationHubCommandInput
   | TagResourceCommandInput
@@ -224,6 +241,7 @@ export type ServiceOutputTypes =
   | AssociateChannelCommandOutput
   | AssociateManagedNotificationAccountContactCommandOutput
   | AssociateManagedNotificationAdditionalChannelCommandOutput
+  | AssociateOrganizationalUnitCommandOutput
   | CreateEventRuleCommandOutput
   | CreateNotificationConfigurationCommandOutput
   | DeleteEventRuleCommandOutput
@@ -233,6 +251,7 @@ export type ServiceOutputTypes =
   | DisassociateChannelCommandOutput
   | DisassociateManagedNotificationAccountContactCommandOutput
   | DisassociateManagedNotificationAdditionalChannelCommandOutput
+  | DisassociateOrganizationalUnitCommandOutput
   | EnableNotificationsAccessForOrganizationCommandOutput
   | GetEventRuleCommandOutput
   | GetManagedNotificationChildEventCommandOutput
@@ -247,9 +266,11 @@ export type ServiceOutputTypes =
   | ListManagedNotificationChildEventsCommandOutput
   | ListManagedNotificationConfigurationsCommandOutput
   | ListManagedNotificationEventsCommandOutput
+  | ListMemberAccountsCommandOutput
   | ListNotificationConfigurationsCommandOutput
   | ListNotificationEventsCommandOutput
   | ListNotificationHubsCommandOutput
+  | ListOrganizationalUnitsCommandOutput
   | ListTagsForResourceCommandOutput
   | RegisterNotificationHubCommandOutput
   | TagResourceCommandOutput
@@ -448,14 +469,7 @@ export type NotificationsClientResolvedConfigType = __SmithyResolvedConfiguratio
 export interface NotificationsClientResolvedConfig extends NotificationsClientResolvedConfigType {}
 
 /**
- * <p>The <i>Amazon Web Services User Notifications API Reference</i> provides descriptions, API request parameters, and the JSON response for each of the User Notification API actions.</p>
- *          <p>User Notification control plane APIs are currently available in US East (Virginia) - <code>us-east-1</code>.</p>
- *          <p>
- *             <a href="https://docs.aws.amazon.com/notifications/latest/APIReference/API_GetNotificationEvent.html">GetNotificationEvent</a>
- * 	 and <a href="https://docs.aws.amazon.com/notifications/latest/APIReference/API_ListNotificationEvents.html">ListNotificationEvents</a> APIs are currently available in
- * 	 <a href="https://docs.aws.amazon.com/notifications/latest/userguide/supported-regions.html">commercial partition Regions</a> and only return notifications stored in the same Region in which they're called.</p>
- *          <p>The User Notifications console can only be used in US East (Virginia). Your data however, is stored in each Region chosen as a
- * 	 <a href="https://docs.aws.amazon.com/notifications/latest/userguide/notification-hubs.html">notification hub</a> in addition to US East (Virginia).</p>
+ * <p>The <i>User Notifications API Reference</i> provides descriptions, API request parameters, and the JSON response for each of the User Notifications API actions.</p> <p>User Notification control plane APIs are currently available in US East (Virginia) - <code>us-east-1</code>.</p> <p> <a href="https://docs.aws.amazon.com/notifications/latest/APIReference/API_GetNotificationEvent.html">GetNotificationEvent</a> and <a href="https://docs.aws.amazon.com/notifications/latest/APIReference/API_ListNotificationEvents.html">ListNotificationEvents</a> APIs are currently available in <a href="https://docs.aws.amazon.com/notifications/latest/userguide/supported-regions.html">commercial partition Regions</a> and only return notifications stored in the same Region in which they're called.</p> <p>The User Notifications console can only be used in US East (Virginia). Your data however, is stored in each Region chosen as a <a href="https://docs.aws.amazon.com/notifications/latest/userguide/notification-hubs.html">notification hub</a> in addition to US East (Virginia).</p> <note> <p>For information about descriptions, API request parameters, and the JSON response for email contact related API actions, see the <a href="https://docs.aws.amazon.com/notificationscontacts/latest/APIReference/Welcome.html">User Notifications Contacts API Reference Guide</a>.</p> </note>
  * @public
  */
 export class NotificationsClient extends __Client<

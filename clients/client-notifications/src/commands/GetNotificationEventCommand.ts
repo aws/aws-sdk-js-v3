@@ -28,12 +28,7 @@ export interface GetNotificationEventCommandInput extends GetNotificationEventRe
 export interface GetNotificationEventCommandOutput extends GetNotificationEventResponse, __MetadataBearer {}
 
 /**
- * <p>Returns a specified <code>NotificationEvent</code>.</p>
- *          <important>
- *             <p>User Notifications stores notifications in the individual Regions you register as notification hubs and the Region of the source event rule. <code>GetNotificationEvent</code> only returns notifications stored in the same Region in which the action is called.
- * 	  User Notifications doesn't backfill notifications to new Regions selected as notification hubs. For this reason, we recommend that you make calls in your oldest registered notification hub.
- * 	  For more information, see <a href="https://docs.aws.amazon.com/notifications/latest/userguide/notification-hubs.html">Notification hubs</a> in the <i>Amazon Web Services User Notifications User Guide</i>.</p>
- *          </important>
+ * <p>Returns a specified <code>NotificationEvent</code>.</p> <important> <p>User Notifications stores notifications in the individual Regions you register as notification hubs and the Region of the source event rule. <code>GetNotificationEvent</code> only returns notifications stored in the same Region in which the action is called. User Notifications doesn't backfill notifications to new Regions selected as notification hubs. For this reason, we recommend that you make calls in your oldest registered notification hub. For more information, see <a href="https://docs.aws.amazon.com/notifications/latest/userguide/notification-hubs.html">Notification hubs</a> in the <i>Amazon Web Services User Notifications User Guide</i>.</p> </important>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -148,6 +143,7 @@ export interface GetNotificationEventCommandOutput extends GetNotificationEventR
  * //         caption: "STRING_VALUE", // required
  * //       },
  * //     ],
+ * //     organizationalUnitId: "STRING_VALUE",
  * //   },
  * // };
  *
