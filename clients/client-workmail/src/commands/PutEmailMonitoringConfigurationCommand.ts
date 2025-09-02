@@ -42,7 +42,7 @@ export interface PutEmailMonitoringConfigurationCommandOutput
  * const client = new WorkMailClient(config);
  * const input = { // PutEmailMonitoringConfigurationRequest
  *   OrganizationId: "STRING_VALUE", // required
- *   RoleArn: "STRING_VALUE", // required
+ *   RoleArn: "STRING_VALUE",
  *   LogGroupArn: "STRING_VALUE", // required
  * };
  * const command = new PutEmailMonitoringConfigurationCommand(input);

@@ -5276,10 +5276,10 @@ export interface PutEmailMonitoringConfigurationRequest {
   OrganizationId: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the IAM Role associated with the email monitoring configuration.</p>
+   * <p>The Amazon Resource Name (ARN) of the IAM Role associated with the email monitoring configuration. If absent, the IAM Role Arn of AWSServiceRoleForAmazonWorkMailEvents will be used.</p>
    * @public
    */
-  RoleArn: string | undefined;
+  RoleArn?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the CloudWatch Log group associated with the email monitoring configuration.</p>
