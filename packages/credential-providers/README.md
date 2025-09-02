@@ -948,35 +948,6 @@ new S3({
 });
 ```
 
-## Add Custom Headers to STS assume-role calls
-
-You can specify the plugins--groups of middleware, to inject to the STS client.
-For example, you can inject custom headers to each STS assume-role calls. It's
-available in [`fromTemporaryCredentials()`](#fromtemporarycredentials),
-[`fromWebToken()`](#fromwebtoken), [`fromTokenFile()`](#fromtokenfile), [`fromIni()`](#fromini).
-
-Code example:
-
-```javascript
-const addConfusedDeputyMiddleware = (next) => (args) => {
-  args.request.headers["x-amz-source-account"] = account;
-  args.request.headers["x-amz-source-arn"] = sourceArn;
-  return next(args);
-};
-const confusedDeputyPlugin = {
-  applyToStack: (stack) => {
-    stack.add(addConfusedDeputyMiddleware, { step: "finalizeRequest" });
-  },
-};
-const provider = fromTemporaryCredentials({
-  // Required. Options passed to STS AssumeRole operation.
-  params: {
-    RoleArn: "arn:aws:iam::1234567890:role/Role",
-  },
-  clientPlugins: [confusedDeputyPlugin],
-});
-```
-
 [getcredentialsforidentity_api]: https://docs.aws.amazon.com/cognitoidentity/latest/APIReference/API_GetCredentialsForIdentity.html
 [getid_api]: https://docs.aws.amazon.com/cognitoidentity/latest/APIReference/API_GetId.html
 [assumerole_api]: https://docs.aws.amazon.com/STS/latest/APIReference/API_AssumeRole.html
