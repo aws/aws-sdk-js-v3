@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.880.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.879.0...v3.880.0) (2025-09-02)
+
+
+### Features
+
+* **client-ec2:** MaximumEbsAttachments and AttachmentLimitType fields added to DescribeInstanceTypesResponse. G6f, Gr6f, R8i, R8i-flex and p5.4xlarge instance types added to InstanceTypes enum. ([3a0683c](https://github.com/aws/aws-sdk-js-v3/commit/3a0683cfcb0668f7301b46d27b5cb5932e7cf638))
+
+
+
+
+
 # [3.879.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.878.0...v3.879.0) (2025-08-29)
 
 

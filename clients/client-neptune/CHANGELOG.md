@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.880.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.879.0...v3.880.0) (2025-09-02)
+
+
+### Features
+
+* **client-neptune:** Removed the deprecated marker from publiclyAccessible parameter from DbInstance, CreateDbInstance and ModifyDbInstance and added relevant usage information for the parameter. ([a6ab72b](https://github.com/aws/aws-sdk-js-v3/commit/a6ab72b1a6bd71db241a4f6fffae254de109b13b))
+
+
+
+
+
 # [3.879.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.878.0...v3.879.0) (2025-08-29)
 
 **Note:** Version bump only for package @aws-sdk/client-neptune

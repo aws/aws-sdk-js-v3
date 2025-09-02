@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.880.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.879.0...v3.880.0) (2025-09-02)
+
+
+### Features
+
+* **client-notifications:** Added Org support for notifications:  - `ListMemberAccounts` gets member accounts list, `AssociateOrganizationalUnit` links OU to notification configuration, `DisassociateOrganizationalUnit` removes OU from notification configuration, `ListOrganizationalUnits` shows OUs configured for notifications. ([17eaf6b](https://github.com/aws/aws-sdk-js-v3/commit/17eaf6ba6318f66c50256d753da2215fc79b8be9))
+
+
+
+
+
 # [3.879.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.878.0...v3.879.0) (2025-08-29)
 
 **Note:** Version bump only for package @aws-sdk/client-notifications

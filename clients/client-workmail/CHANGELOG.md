@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.880.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.879.0...v3.880.0) (2025-09-02)
+
+
+### Features
+
+* **client-workmail:** Make RoleArn an optional parameter for the PutEmailMonitoringConfiguration API, and add UnsupportedOperationException to RegisterToWorkMail. ([af38f9a](https://github.com/aws/aws-sdk-js-v3/commit/af38f9aaa3b27c940b369b13c35f2d6b28f12348))
+
+
+
+
+
 # [3.879.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.878.0...v3.879.0) (2025-08-29)
 
 **Note:** Version bump only for package @aws-sdk/client-workmail

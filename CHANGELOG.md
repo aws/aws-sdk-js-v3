@@ -3,6 +3,21 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.880.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.879.0...v3.880.0) (2025-09-02)
+
+
+### Features
+
+* **client-ec2:** MaximumEbsAttachments and AttachmentLimitType fields added to DescribeInstanceTypesResponse. G6f, Gr6f, R8i, R8i-flex and p5.4xlarge instance types added to InstanceTypes enum. ([3a0683c](https://github.com/aws/aws-sdk-js-v3/commit/3a0683cfcb0668f7301b46d27b5cb5932e7cf638))
+* **client-neptune:** Removed the deprecated marker from publiclyAccessible parameter from DbInstance, CreateDbInstance and ModifyDbInstance and added relevant usage information for the parameter. ([a6ab72b](https://github.com/aws/aws-sdk-js-v3/commit/a6ab72b1a6bd71db241a4f6fffae254de109b13b))
+* **client-notifications:** Added Org support for notifications:  - `ListMemberAccounts` gets member accounts list, `AssociateOrganizationalUnit` links OU to notification configuration, `DisassociateOrganizationalUnit` removes OU from notification configuration, `ListOrganizationalUnits` shows OUs configured for notifications. ([17eaf6b](https://github.com/aws/aws-sdk-js-v3/commit/17eaf6ba6318f66c50256d753da2215fc79b8be9))
+* **client-workmail:** Make RoleArn an optional parameter for the PutEmailMonitoringConfiguration API, and add UnsupportedOperationException to RegisterToWorkMail. ([af38f9a](https://github.com/aws/aws-sdk-js-v3/commit/af38f9aaa3b27c940b369b13c35f2d6b28f12348))
+* **clients:** update client endpoints as of 2025-09-02 ([b9d9d96](https://github.com/aws/aws-sdk-js-v3/commit/b9d9d965ecb66012941af0cbd0bdea31d2eebdfd))
+
+
+
+
+
 # [3.879.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.878.0...v3.879.0) (2025-08-29)
 
 
