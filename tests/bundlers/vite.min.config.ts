@@ -3,12 +3,12 @@ import * as path from "node:path";
 
 export default defineConfig({
   build: {
-    outDir: "./dist",
+    outDir: "./dist-min",
     lib: {
       entry: path.join(__dirname, "source.ts"),
-      name: "dist",
+      name: "dist-min",
       // the proper extensions will be added
-      fileName: "vite-dist",
+      fileName: "vite-dist.min",
     },
     rollupOptions: {
       // make sure to externalize deps that shouldn't be bundled
@@ -22,9 +22,9 @@ export default defineConfig({
         inlineDynamicImports: true,
       },
     },
-    minify: false,
+    minify: true,
     terserOptions: {
-      mangle: false,
+      mangle: true,
     },
   },
 });

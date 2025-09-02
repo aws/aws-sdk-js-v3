@@ -34,6 +34,7 @@ package-lock.json
 
 !serviceModels/logs
 dist
+tests/bundlers/dist-min
 
 .idea/
 *.iml
@@ -53,7 +54,6 @@ workspace
 .turbo
 turbo.dev.json
 coverage
-dist
 dist-*
 
 /verdaccio/*
