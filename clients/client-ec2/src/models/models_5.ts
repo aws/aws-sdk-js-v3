@@ -121,11 +121,22 @@ import {
   NetworkInfo,
   NeuronInfo,
   NitroEnclavesSupport,
-  NitroTpmInfo,
   PermissionGroup,
   ProductCode,
   VirtualizationType,
 } from "./models_4";
+
+/**
+ * <p>Describes the supported NitroTPM versions for the instance type.</p>
+ * @public
+ */
+export interface NitroTpmInfo {
+  /**
+   * <p>Indicates the supported NitroTPM versions.</p>
+   * @public
+   */
+  SupportedVersions?: string[] | undefined;
+}
 
 /**
  * @public
@@ -12577,31 +12588,6 @@ export const VpcAttributeName = {
  * @public
  */
 export type VpcAttributeName = (typeof VpcAttributeName)[keyof typeof VpcAttributeName];
-
-/**
- * @public
- */
-export interface DescribeVpcAttributeRequest {
-  /**
-   * <p>The VPC attribute.</p>
-   * @public
-   */
-  Attribute: VpcAttributeName | undefined;
-
-  /**
-   * <p>The ID of the VPC.</p>
-   * @public
-   */
-  VpcId: string | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-}
 
 /**
  * @internal

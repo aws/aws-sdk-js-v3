@@ -80,6 +80,7 @@ import {
   InternetGatewayExclusionMode,
   LocalGatewayRoute,
   ManagedPrefixList,
+  NetworkInsightsAccessScopeContent,
   RouteServer,
   RouteServerPersistRoutesAction,
   SubnetCidrReservation,
@@ -168,6 +169,17 @@ import {
   UnlimitedSupportedInstanceFamily,
   VpcBlockPublicAccessOptions,
 } from "./models_6";
+
+/**
+ * @public
+ */
+export interface GetNetworkInsightsAccessScopeContentResult {
+  /**
+   * <p>The Network Access Scope content.</p>
+   * @public
+   */
+  NetworkInsightsAccessScopeContent?: NetworkInsightsAccessScopeContent | undefined;
+}
 
 /**
  * @public
@@ -4337,7 +4349,7 @@ export interface EbsInstanceBlockDeviceSpecification {
  */
 export interface InstanceBlockDeviceMappingSpecification {
   /**
-   * <p>The device name (for example, <code>/dev/sdh</code> or <code>xvdh</code>).</p>
+   * <p>The device name. For available device names, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/device_naming.html">Device names for volumes</a>.</p>
    * @public
    */
   DeviceName?: string | undefined;
@@ -9674,61 +9686,6 @@ export const VerificationMethod = {
  * @public
  */
 export type VerificationMethod = (typeof VerificationMethod)[keyof typeof VerificationMethod];
-
-/**
- * @public
- */
-export interface ProvisionIpamPoolCidrRequest {
-  /**
-   * <p>A check for whether you have the required permissions for the action without actually making the request
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>The ID of the IPAM pool to which you want to assign a CIDR.</p>
-   * @public
-   */
-  IpamPoolId: string | undefined;
-
-  /**
-   * <p>The CIDR you want to assign to the IPAM pool. Either "NetmaskLength" or "Cidr" is required. This value will be null if you specify "NetmaskLength" and will be filled in during the provisioning process.</p>
-   * @public
-   */
-  Cidr?: string | undefined;
-
-  /**
-   * <p>A signed document that proves that you are authorized to bring a specified IP address range to Amazon using BYOIP. This option only applies to IPv4 and IPv6 pools in the public scope.</p>
-   * @public
-   */
-  CidrAuthorizationContext?: IpamCidrAuthorizationContext | undefined;
-
-  /**
-   * <p>The netmask length of the CIDR you'd like to provision to a pool. Can be used for provisioning Amazon-provided IPv6 CIDRs to top-level pools and for provisioning CIDRs to pools with source pools. Cannot be used to provision BYOIP CIDRs to top-level pools. Either "NetmaskLength" or "Cidr" is required.</p>
-   * @public
-   */
-  NetmaskLength?: number | undefined;
-
-  /**
-   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href="https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html">Ensuring idempotency</a>.</p>
-   * @public
-   */
-  ClientToken?: string | undefined;
-
-  /**
-   * <p>The method for verifying control of a public IP address range. Defaults to <code>remarks-x509</code> if not specified. This option only applies to IPv4 and IPv6 pools in the public scope.</p>
-   * @public
-   */
-  VerificationMethod?: VerificationMethod | undefined;
-
-  /**
-   * <p>Verification token ID. This option only applies to IPv4 and IPv6 pools in the public scope.</p>
-   * @public
-   */
-  IpamExternalResourceVerificationTokenId?: string | undefined;
-}
 
 /**
  * @internal

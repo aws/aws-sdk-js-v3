@@ -46,7 +46,6 @@ import {
 } from "./models_1";
 
 import {
-  NetworkInsightsAccessScopeContent,
   ResponseLaunchTemplateData,
   ResponseLaunchTemplateDataFilterSensitiveLog,
   SSEType,
@@ -88,7 +87,32 @@ import {
   VirtualizationType,
 } from "./models_4";
 
-import { AnalysisStatus, ArchitectureType } from "./models_5";
+import { AnalysisStatus, ArchitectureType, VpcAttributeName } from "./models_5";
+
+/**
+ * @public
+ */
+export interface DescribeVpcAttributeRequest {
+  /**
+   * <p>The VPC attribute.</p>
+   * @public
+   */
+  Attribute: VpcAttributeName | undefined;
+
+  /**
+   * <p>The ID of the VPC.</p>
+   * @public
+   */
+  VpcId: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
 
 /**
  * @public
@@ -8157,17 +8181,6 @@ export interface GetNetworkInsightsAccessScopeContentRequest {
    * @public
    */
   DryRun?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface GetNetworkInsightsAccessScopeContentResult {
-  /**
-   * <p>The Network Access Scope content.</p>
-   * @public
-   */
-  NetworkInsightsAccessScopeContent?: NetworkInsightsAccessScopeContent | undefined;
 }
 
 /**

@@ -7720,7 +7720,7 @@ export interface EbsInstanceBlockDevice {
  */
 export interface InstanceBlockDeviceMapping {
   /**
-   * <p>The device name (for example, <code>/dev/sdh</code> or <code>xvdh</code>).</p>
+   * <p>The device name.</p>
    * @public
    */
   DeviceName?: string | undefined;
@@ -11333,6 +11333,16 @@ export interface DescribeInstanceTypesRequest {
    *             </li>
    *             <li>
    *                <p>
+   *                   <code>ebs-info.attachment-limit-type</code> - The type of Amazon EBS volume attachment limit
+   *      (<code>shared</code> | <code>dedicated</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ebs-info.maximum-ebs-attachments</code> - The maximum number of Amazon EBS volumes that
+   *      can be attached to the instance type.</p>
+   *             </li>
+   *             <li>
+   *                <p>
    *                   <code>ebs-info.ebs-optimized-info.baseline-bandwidth-in-mbps</code> - The baseline
    *      bandwidth performance for an EBS-optimized instance type, in Mbps.</p>
    *             </li>
@@ -11600,6 +11610,20 @@ export interface DescribeInstanceTypesRequest {
 }
 
 /**
+ * @public
+ * @enum
+ */
+export const AttachmentLimitType = {
+  DEDICATED: "dedicated",
+  SHARED: "shared",
+} as const;
+
+/**
+ * @public
+ */
+export type AttachmentLimitType = (typeof AttachmentLimitType)[keyof typeof AttachmentLimitType];
+
+/**
  * <p>Describes the optimized EBS performance for supported instance types.</p>
  * @public
  */
@@ -11716,6 +11740,22 @@ export interface EbsInfo {
    * @public
    */
   NvmeSupport?: EbsNvmeSupport | undefined;
+
+  /**
+   * <p>Indicates the maximum number of Amazon EBS volumes that can be attached to
+   *    the instance type. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/volume_limits.html">Amazon EBS volume limits for
+   *     Amazon EC2 instances</a> in the <i>Amazon EC2 User Guide</i>.</p>
+   * @public
+   */
+  MaximumEbsAttachments?: number | undefined;
+
+  /**
+   * <p>Indicates whether the instance type features a shared or dedicated Amazon EBS
+   *    volume attachment limit. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/volume_limits.html">Amazon EBS volume limits for
+   *     Amazon EC2 instances</a> in the <i>Amazon EC2 User Guide</i>.</p>
+   * @public
+   */
+  AttachmentLimitType?: AttachmentLimitType | undefined;
 }
 
 /**
@@ -12394,18 +12434,6 @@ export const NitroEnclavesSupport = {
  * @public
  */
 export type NitroEnclavesSupport = (typeof NitroEnclavesSupport)[keyof typeof NitroEnclavesSupport];
-
-/**
- * <p>Describes the supported NitroTPM versions for the instance type.</p>
- * @public
- */
-export interface NitroTpmInfo {
-  /**
-   * <p>Indicates the supported NitroTPM versions.</p>
-   * @public
-   */
-  SupportedVersions?: string[] | undefined;
-}
 
 /**
  * @internal

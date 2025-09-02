@@ -6,8 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ProvisionIpamPoolCidrRequest } from "../models/models_7";
-import { ProvisionIpamPoolCidrResult } from "../models/models_8";
+import { ProvisionIpamPoolCidrRequest, ProvisionIpamPoolCidrResult } from "../models/models_8";
 import { de_ProvisionIpamPoolCidrCommand, se_ProvisionIpamPoolCidrCommand } from "../protocols/Aws_ec2";
 
 /**

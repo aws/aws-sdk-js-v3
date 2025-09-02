@@ -3605,7 +3605,6 @@ import {
   NeuronDeviceInfo,
   NeuronDeviceMemoryInfo,
   NeuronInfo,
-  NitroTpmInfo,
   OnDemandOptions,
   PciId,
   PrivateDnsNameOptionsResponse,
@@ -3810,7 +3809,6 @@ import {
   DescribeVolumesResult,
   DescribeVolumeStatusRequest,
   DescribeVolumeStatusResult,
-  DescribeVpcAttributeRequest,
   HistoryRecord,
   InitializationStatusDetails,
   InstanceNetworkInterfaceSpecification,
@@ -3827,6 +3825,7 @@ import {
   MovingAddressStatus,
   NetworkInsightsAccessScopeAnalysis,
   NetworkInsightsAnalysis,
+  NitroTpmInfo,
   OutpostLag,
   PlacementGroupInfo,
   PlacementGroupStrategy,
@@ -3904,6 +3903,7 @@ import {
   CoipAddressUsage,
   DataQuery,
   DataResponse,
+  DescribeVpcAttributeRequest,
   DescribeVpcAttributeResult,
   DescribeVpcBlockPublicAccessExclusionsRequest,
   DescribeVpcBlockPublicAccessExclusionsResult,
@@ -4136,7 +4136,6 @@ import {
   GetNetworkInsightsAccessScopeAnalysisFindingsRequest,
   GetNetworkInsightsAccessScopeAnalysisFindingsResult,
   GetNetworkInsightsAccessScopeContentRequest,
-  GetNetworkInsightsAccessScopeContentResult,
   ImageCriterion,
   InstanceEventWindowDisassociationRequest,
   InstanceFamilyCreditSpecification,
@@ -4182,6 +4181,7 @@ import {
   DiskImageDetail,
   DnsServersOptionsModifyStructure,
   EbsInstanceBlockDeviceSpecification,
+  GetNetworkInsightsAccessScopeContentResult,
   GetPasswordDataRequest,
   GetPasswordDataResult,
   GetReservedInstancesExchangeQuoteRequest,
@@ -4420,7 +4420,6 @@ import {
   ProvisionByoipCidrResult,
   ProvisionIpamByoasnRequest,
   ProvisionIpamByoasnResult,
-  ProvisionIpamPoolCidrRequest,
   RemoveIpamOperatingRegion,
   RemoveIpamOrganizationalUnitExclusion,
   RemovePrefixListEntry,
@@ -4472,6 +4471,7 @@ import {
   LaunchTemplateSpecification,
   LicenseConfigurationRequest,
   PrivateDnsNameOptionsRequest,
+  ProvisionIpamPoolCidrRequest,
   ProvisionIpamPoolCidrResult,
   ProvisionPublicIpv4PoolCidrRequest,
   ProvisionPublicIpv4PoolCidrResult,
@@ -71011,6 +71011,12 @@ const de_EbsInfo = (output: any, context: __SerdeContext): EbsInfo => {
   if (output[_nS] != null) {
     contents[_NS] = __expectString(output[_nS]);
   }
+  if (output[_mEA] != null) {
+    contents[_MEA] = __strictParseInt32(output[_mEA]) as number;
+  }
+  if (output[_aLT] != null) {
+    contents[_ALT] = __expectString(output[_aLT]);
+  }
   return contents;
 };
 
@@ -92546,6 +92552,7 @@ const _AIth = "AthenaIntegrations";
 const _AIu = "AutoImport";
 const _AL = "AccessLogs";
 const _ALI = "AmiLaunchIndex";
+const _ALT = "AttachmentLimitType";
 const _ALc = "AccountLevel";
 const _AM = "AcceleratorManufacturers";
 const _AMIT = "AllowsMultipleInstanceTypes";
@@ -94143,6 +94150,7 @@ const _MDa = "MaintenanceDetails";
 const _MDe = "MetaData";
 const _MDi = "MinDuration";
 const _ME = "MaxEntries";
+const _MEA = "MaximumEbsAttachments";
 const _MEDKKI = "ModifyEbsDefaultKmsKeyId";
 const _MEI = "MaximumEfaInterfaces";
 const _MEM = "ManagedExceptionMessage";
@@ -95403,6 +95411,7 @@ const _aIt = "attachmentId";
 const _aIu = "autoImport";
 const _aL = "accountLevel";
 const _aLI = "amiLaunchIndex";
+const _aLT = "attachmentLimitType";
 const _aLc = "accessLogs";
 const _aMIT = "allowsMultipleInstanceTypes";
 const _aMNL = "allocationMinNetmaskLength";
@@ -96316,6 +96325,7 @@ const _mDK = "metaDataKey";
 const _mDV = "metaDataValue";
 const _mDe = "metaData";
 const _mE = "maxEntries";
+const _mEA = "maximumEbsAttachments";
 const _mEI = "maximumEfaInterfaces";
 const _mEM = "managedExceptionMessage";
 const _mEQC = "maximumEnaQueueCount";

@@ -1500,8 +1500,13 @@ export const _InstanceType = {
   g6e_4xlarge: "g6e.4xlarge",
   g6e_8xlarge: "g6e.8xlarge",
   g6e_xlarge: "g6e.xlarge",
+  g6f_2xlarge: "g6f.2xlarge",
+  g6f_4xlarge: "g6f.4xlarge",
+  g6f_large: "g6f.large",
+  g6f_xlarge: "g6f.xlarge",
   gr6_4xlarge: "gr6.4xlarge",
   gr6_8xlarge: "gr6.8xlarge",
+  gr6f_4xlarge: "gr6f.4xlarge",
   h1_16xlarge: "h1.16xlarge",
   h1_2xlarge: "h1.2xlarge",
   h1_4xlarge: "h1.4xlarge",
@@ -1836,6 +1841,7 @@ export const _InstanceType = {
   p4d_24xlarge: "p4d.24xlarge",
   p4de_24xlarge: "p4de.24xlarge",
   p5_48xlarge: "p5.48xlarge",
+  p5_4xlarge: "p5.4xlarge",
   p5e_48xlarge: "p5e.48xlarge",
   p5en_48xlarge: "p5en.48xlarge",
   p6_b200_48xlarge: "p6-b200.48xlarge",
@@ -2056,6 +2062,26 @@ export const _InstanceType = {
   r8gd_metal_24xl: "r8gd.metal-24xl",
   r8gd_metal_48xl: "r8gd.metal-48xl",
   r8gd_xlarge: "r8gd.xlarge",
+  r8i_12xlarge: "r8i.12xlarge",
+  r8i_16xlarge: "r8i.16xlarge",
+  r8i_24xlarge: "r8i.24xlarge",
+  r8i_2xlarge: "r8i.2xlarge",
+  r8i_32xlarge: "r8i.32xlarge",
+  r8i_48xlarge: "r8i.48xlarge",
+  r8i_4xlarge: "r8i.4xlarge",
+  r8i_8xlarge: "r8i.8xlarge",
+  r8i_96xlarge: "r8i.96xlarge",
+  r8i_flex_12xlarge: "r8i-flex.12xlarge",
+  r8i_flex_16xlarge: "r8i-flex.16xlarge",
+  r8i_flex_2xlarge: "r8i-flex.2xlarge",
+  r8i_flex_4xlarge: "r8i-flex.4xlarge",
+  r8i_flex_8xlarge: "r8i-flex.8xlarge",
+  r8i_flex_large: "r8i-flex.large",
+  r8i_flex_xlarge: "r8i-flex.xlarge",
+  r8i_large: "r8i.large",
+  r8i_metal_48xl: "r8i.metal-48xl",
+  r8i_metal_96xl: "r8i.metal-96xl",
+  r8i_xlarge: "r8i.xlarge",
   t1_micro: "t1.micro",
   t2_2xlarge: "t2.2xlarge",
   t2_large: "t2.large",
@@ -5586,9 +5612,9 @@ export interface InstanceRequirementsRequest {
 export interface Placement {
   /**
    * <p>The ID of the Availability Zone of the instance.</p>
-   *          <p>Either <code>AvailabilityZone</code> or <code>AvailabilityZoneId</code> can be
-   *             specified, but not both. If neither is specified, Amazon EC2 automatically selects an
-   *             Availability Zone based on the load balancing criteria for the Region.</p>
+   *          <p>On input, you can specify <code>AvailabilityZone</code> or <code>AvailabilityZoneId</code>,
+   *             but not both. If you specify neither one, Amazon EC2 automatically selects an Availability Zone
+   *             for you.</p>
    *          <p>This parameter is not supported for <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFleet">CreateFleet</a>.</p>
    * @public
    */
@@ -5602,8 +5628,9 @@ export interface Placement {
   Affinity?: string | undefined;
 
   /**
-   * <p>The name of the placement group that the instance is in. If you specify
-   *                 <code>GroupName</code>, you can't specify <code>GroupId</code>.</p>
+   * <p>The name of the placement group that the instance is in.</p>
+   *          <p>On input, you can specify <code>GroupId</code> or <code>GroupName</code>,
+   *             but not both.</p>
    * @public
    */
   GroupName?: string | undefined;
@@ -5642,24 +5669,25 @@ export interface Placement {
 
   /**
    * <p>The ARN of the host resource group in which to launch the instances.</p>
-   *          <p>If you specify this parameter, either omit the <b>Tenancy</b> parameter or set it to <code>host</code>.</p>
+   *          <p>On input, if you specify this parameter, either omit the <b>Tenancy</b> parameter or set it to <code>host</code>.</p>
    *          <p>This parameter is not supported for <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFleet">CreateFleet</a>.</p>
    * @public
    */
   HostResourceGroupArn?: string | undefined;
 
   /**
-   * <p>The ID of the placement group that the instance is in. If you specify
-   *                 <code>GroupId</code>, you can't specify <code>GroupName</code>.</p>
+   * <p>The ID of the placement group that the instance is in.</p>
+   *          <p>On input, you can specify <code>GroupId</code> or <code>GroupName</code>,
+   *             but not both.</p>
    * @public
    */
   GroupId?: string | undefined;
 
   /**
    * <p>The Availability Zone of the instance.</p>
-   *          <p>Either <code>AvailabilityZone</code> or <code>AvailabilityZoneId</code> can be
-   *             specified, but not both. If neither is specified, Amazon EC2 automatically selects an
-   *             Availability Zone based on the load balancing criteria for the Region.</p>
+   *          <p>On input, you can specify <code>AvailabilityZone</code> or <code>AvailabilityZoneId</code>,
+   *             but not both. If you specify neither one, Amazon EC2 automatically selects an Availability Zone
+   *             for you.</p>
    *          <p>This parameter is not supported for <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFleet">CreateFleet</a>.</p>
    * @public
    */
@@ -8181,7 +8209,7 @@ export interface BlockDeviceMapping {
   NoDevice?: string | undefined;
 
   /**
-   * <p>The device name (for example, <code>/dev/sdh</code> or <code>xvdh</code>).</p>
+   * <p>The device name. For available device names, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/device_naming.html">Device names for volumes</a>.</p>
    * @public
    */
   DeviceName?: string | undefined;
