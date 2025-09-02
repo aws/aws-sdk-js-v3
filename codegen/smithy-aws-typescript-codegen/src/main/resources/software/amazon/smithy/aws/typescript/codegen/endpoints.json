@@ -28108,25 +28108,6 @@
             "us-west-2": {}
           }
         },
-        "sms": {
-          "endpoints": {
-            "fips-us-west-2": {
-              "credentialScope": {
-                "region": "us-west-2"
-              },
-              "deprecated": true,
-              "hostname": "sms-fips.us-west-2.amazonaws.com"
-            },
-            "us-west-2": {
-              "variants": [
-                {
-                  "hostname": "sms-fips.us-west-2.amazonaws.com",
-                  "tags": ["fips"]
-                }
-              ]
-            }
-          }
-        },
         "sms-voice": {
           "endpoints": {
             "af-south-1": {
