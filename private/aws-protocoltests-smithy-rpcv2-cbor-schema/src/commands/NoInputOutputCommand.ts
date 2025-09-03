@@ -5,7 +5,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { RpcV2ProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RpcV2ProtocolClient";
-import { NoInputOutput } from "../schemas/schemas";
+import { NoInputOutput } from "../schemas/schemas_5_NoInputOutput";
 
 /**
  * @public

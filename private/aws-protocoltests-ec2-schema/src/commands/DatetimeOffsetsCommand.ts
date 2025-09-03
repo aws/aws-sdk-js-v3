@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { EC2ProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2ProtocolClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { DatetimeOffsetsOutput } from "../models/models_0";
-import { DatetimeOffsets } from "../schemas/schemas";
+import { DatetimeOffsets } from "../schemas/schemas_9_";
 
 /**
  * @public

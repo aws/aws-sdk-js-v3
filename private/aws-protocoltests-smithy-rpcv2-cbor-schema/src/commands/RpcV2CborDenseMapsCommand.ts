@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { RpcV2CborDenseMapsInputOutput } from "../models/models_0";
 import { RpcV2ProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RpcV2ProtocolClient";
-import { RpcV2CborDenseMaps } from "../schemas/schemas";
+import { RpcV2CborDenseMaps } from "../schemas/schemas_1_Rpc";
 
 /**
  * @public

@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { NestedStructuresInput } from "../models/models_0";
 import { QueryProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QueryProtocolClient";
-import { NestedStructures } from "../schemas/schemas";
+import { NestedStructures } from "../schemas/schemas_3_Xml";
 
 /**
  * @public

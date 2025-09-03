@@ -5,7 +5,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { EC2ProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2ProtocolClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { HostWithPathOperation } from "../schemas/schemas";
+import { HostWithPathOperation } from "../schemas/schemas_11_HostWithPathOperation";
 
 /**
  * @public

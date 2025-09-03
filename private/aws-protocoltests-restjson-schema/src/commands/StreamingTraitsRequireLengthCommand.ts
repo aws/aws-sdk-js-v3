@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer, StreamingBlobPayloadInputTypes } fr
 import { commonParams } from "../endpoint/EndpointParameters";
 import { StreamingTraitsRequireLengthInput } from "../models/models_0";
 import { RestJsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestJsonProtocolClient";
-import { StreamingTraitsRequireLength } from "../schemas/schemas";
+import { StreamingTraitsRequireLength } from "../schemas/schemas_34_StreamingTraitsRequireLength";
 
 /**
  * @public

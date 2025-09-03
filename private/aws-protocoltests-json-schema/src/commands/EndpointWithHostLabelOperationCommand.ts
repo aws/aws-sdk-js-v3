@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { JsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../JsonProtocolClient";
 import { HostLabelInput } from "../models/models_0";
-import { EndpointWithHostLabelOperation } from "../schemas/schemas";
+import { EndpointWithHostLabelOperation } from "../schemas/schemas_1_Operation";
 
 /**
  * @public

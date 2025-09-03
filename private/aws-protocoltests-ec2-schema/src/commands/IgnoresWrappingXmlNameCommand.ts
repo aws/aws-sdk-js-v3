@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { EC2ProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2ProtocolClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { IgnoresWrappingXmlNameOutput } from "../models/models_0";
-import { IgnoresWrappingXmlName } from "../schemas/schemas";
+import { IgnoresWrappingXmlName } from "../schemas/schemas_16_IgnoresWrappingXmlName";
 
 /**
  * @public

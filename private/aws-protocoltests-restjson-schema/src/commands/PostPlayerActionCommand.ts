@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { PostPlayerActionInput, PostPlayerActionOutput } from "../models/models_0";
 import { RestJsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestJsonProtocolClient";
-import { PostPlayerAction } from "../schemas/schemas";
+import { PostPlayerAction } from "../schemas/schemas_15_Json";
 
 /**
  * @public

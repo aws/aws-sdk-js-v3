@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { SimpleScalarPropertiesRequest, SimpleScalarPropertiesResponse } from "../models/models_0";
 import { RestXmlProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestXmlProtocolClient";
-import { SimpleScalarProperties } from "../schemas/schemas";
+import { SimpleScalarProperties } from "../schemas/schemas_17_Xml";
 
 /**
  * @public

@@ -7,7 +7,7 @@ import { Uint8ArrayBlobAdapter } from "@smithy/util-stream";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { HttpPayloadTraitsInputOutput } from "../models/models_0";
 import { RestXmlProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestXmlProtocolClient";
-import { HttpPayloadTraits } from "../schemas/schemas";
+import { HttpPayloadTraits } from "../schemas/schemas_19_Blobs";
 
 /**
  * @public

@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { ContentTypeParametersInput, ContentTypeParametersOutput } from "../models/models_0";
 import { RestXmlProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestXmlProtocolClient";
-import { ContentTypeParameters } from "../schemas/schemas";
+import { ContentTypeParameters } from "../schemas/schemas_17_Xml";
 
 /**
  * @public

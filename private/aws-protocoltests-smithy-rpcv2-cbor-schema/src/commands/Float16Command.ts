@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { Float16Output } from "../models/models_0";
 import { RpcV2ProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RpcV2ProtocolClient";
-import { Float16 } from "../schemas/schemas";
+import { Float16 } from "../schemas/schemas_4_";
 
 /**
  * @public

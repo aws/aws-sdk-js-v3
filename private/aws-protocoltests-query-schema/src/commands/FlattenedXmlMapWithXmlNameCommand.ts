@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { FlattenedXmlMapWithXmlNameOutput } from "../models/models_0";
 import { QueryProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QueryProtocolClient";
-import { FlattenedXmlMapWithXmlName } from "../schemas/schemas";
+import { FlattenedXmlMapWithXmlName } from "../schemas/schemas_15_FlattenedXmlMapWithXmlName";
 
 /**
  * @public

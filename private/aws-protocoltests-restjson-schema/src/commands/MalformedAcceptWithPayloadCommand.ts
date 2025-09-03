@@ -7,7 +7,7 @@ import { Uint8ArrayBlobAdapter } from "@smithy/util-stream";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { MalformedAcceptWithPayloadOutput } from "../models/models_0";
 import { RestJsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestJsonProtocolClient";
-import { MalformedAcceptWithPayload } from "../schemas/schemas";
+import { MalformedAcceptWithPayload } from "../schemas/schemas_4_WithPayload";
 
 /**
  * @public

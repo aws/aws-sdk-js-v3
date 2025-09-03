@@ -1,0 +1,146 @@
+export const _CE = "ComplexError";
+export const _CNED = "ComplexNestedErrorData";
+export const _COD = "ClientOptionalDefaults";
+export const _D = "Defaults";
+export const _DSM = "DenseSetMap";
+export const _DSMe = "DenseStructMap";
+export const _EIO = "EmptyInputOutput";
+export const _ES = "EmptyStructure";
+export const _F = "Foo";
+export const _FO = "Float16Output";
+export const _FS = "FractionalSeconds";
+export const _FSO = "FractionalSecondsOutput";
+export const _Fl = "Float16";
+export const _GS = "GreetingStruct";
+export const _GWE = "GreetingWithErrors";
+export const _GWEO = "GreetingWithErrorsOutput";
+export const _IG = "InvalidGreeting";
+export const _M = "Message";
+export const _N = "Nested";
+export const _NIO = "NoInputOutput";
+export const _NSL = "NestedStringList";
+export const _OIO = "OptionalInputOutput";
+export const _OWD = "OperationWithDefaults";
+export const _OWDI = "OperationWithDefaultsInput";
+export const _OWDO = "OperationWithDefaultsOutput";
+export const _RS = "RecursiveShapes";
+export const _RSIO = "RecursiveShapesInputOutput";
+export const _RSION = "RecursiveShapesInputOutputNested1";
+export const _RSIONe = "RecursiveShapesInputOutputNested2";
+export const _RVCDM = "RpcV2CborDenseMaps";
+export const _RVCDMIO = "RpcV2CborDenseMapsInputOutput";
+export const _RVCL = "RpcV2CborLists";
+export const _RVCLIO = "RpcV2CborListInputOutput";
+export const _RVCSM = "RpcV2CborSparseMaps";
+export const _RVCSMIO = "RpcV2CborSparseMapsInputOutput";
+export const _SBM = "SparseBooleanMap";
+export const _SL = "StructureList";
+export const _SLM = "StructureListMember";
+export const _SNM = "SparseNumberMap";
+export const _SNO = "SparseNullsOperation";
+export const _SNOIO = "SparseNullsOperationInputOutput";
+export const _SS = "SimpleStructure";
+export const _SSL = "SparseStringList";
+export const _SSM = "SparseSetMap";
+export const _SSMp = "SparseStructMap";
+export const _SSMpa = "SparseStringMap";
+export const _SSP = "SimpleScalarProperties";
+export const _SSS = "SimpleScalarStructure";
+export const _TL = "TopLevel";
+export const _VE = "ValidationException";
+export const _VEF = "ValidationExceptionField";
+export const _VEFL = "ValidationExceptionFieldList";
+export const _a = "a";
+export const _b = "bar";
+export const _bL = "booleanList";
+export const _bLl = "blobList";
+export const _bV = "byteValue";
+export const _bVl = "blobValue";
+export const _b_ = "b";
+export const _c = "client";
+export const _cOD = "clientOptionalDefaults";
+export const _d = "datetime";
+export const _dB = "defaultBoolean";
+export const _dBM = "denseBooleanMap";
+export const _dBe = "defaultBlob";
+export const _dBef = "defaultByte";
+export const _dD = "defaultDouble";
+export const _dE = "defaultEnum";
+export const _dF = "defaultFloat";
+export const _dI = "defaultInteger";
+export const _dIE = "defaultIntEnum";
+export const _dL = "defaultList";
+export const _dLe = "defaultLong";
+export const _dM = "defaultMap";
+export const _dNM = "denseNumberMap";
+export const _dS = "defaultString";
+export const _dSM = "denseStructMap";
+export const _dSMe = "denseStringMap";
+export const _dSMen = "denseSetMap";
+export const _dSe = "defaultShort";
+export const _dT = "defaultTimestamp";
+export const _dV = "doubleValue";
+export const _de = "defaults";
+export const _e = "error";
+export const _eB = "emptyBlob";
+export const _eL = "enumList";
+export const _eS = "emptyString";
+export const _f = "foo";
+export const _fB = "falseBoolean";
+export const _fBV = "falseBooleanValue";
+export const _fL = "fieldList";
+export const _fV = "floatValue";
+export const _g = "greeting";
+export const _h = "hi";
+export const _iEL = "intEnumList";
+export const _iL = "integerList";
+export const _iV = "integerValue";
+export const _lV = "longValue";
+export const _m = "message";
+export const _me = "member";
+export const _n = "nested";
+export const _nSL = "nestedStringList";
+export const _oTLD = "otherTopLevelDefault";
+export const _p = "path";
+export const _rM = "recursiveMember";
+export const _s = "sparse";
+export const _sBM = "sparseBooleanMap";
+export const _sL = "stringList";
+export const _sLt = "structureList";
+export const _sNM = "sparseNumberMap";
+export const _sS = "stringSet";
+export const _sSL = "sparseStringList";
+export const _sSM = "sparseStructMap";
+export const _sSMp = "sparseStringMap";
+export const _sSMpa = "sparseSetMap";
+export const _sV = "shortValue";
+export const _sVt = "stringValue";
+export const _tBV = "trueBooleanValue";
+export const _tL = "timestampList";
+export const _tLD = "topLevelDefault";
+export const _v = "value";
+export const _zB = "zeroByte";
+export const _zD = "zeroDouble";
+export const _zF = "zeroFloat";
+export const _zI = "zeroInteger";
+export const _zL = "zeroLong";
+export const _zS = "zeroShort";
+export const n0 = "smithy.framework";
+export const n1 = "smithy.protocoltests.rpcv2Cbor";
+export const n2 = "smithy.protocoltests.shared";
+
+// smithy-typescript generated code
+import { error } from "@smithy/core/schema";
+
+import { RpcV2ProtocolServiceException as __RpcV2ProtocolServiceException } from "../models/RpcV2ProtocolServiceException";
+
+/* eslint no-var: 0 */
+
+export var RpcV2ProtocolServiceException = error(
+  "smithy.ts.sdk.synthetic.smithy.protocoltests.rpcv2Cbor",
+  "RpcV2ProtocolServiceException",
+  0,
+  [],
+  [],
+  __RpcV2ProtocolServiceException
+);

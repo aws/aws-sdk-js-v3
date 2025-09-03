@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { QueryIdempotencyTokenAutoFillInput } from "../models/models_0";
 import { RestJsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestJsonProtocolClient";
-import { QueryIdempotencyTokenAutoFill } from "../schemas/schemas";
+import { QueryIdempotencyTokenAutoFill } from "../schemas/schemas_64_QueryIdempotencyTokenAutoFill";
 
 /**
  * @public

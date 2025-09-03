@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { XmlIntEnumsOutput } from "../models/models_0";
 import { QueryProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QueryProtocolClient";
-import { XmlIntEnums } from "../schemas/schemas";
+import { XmlIntEnums } from "../schemas/schemas_1_Xml";
 
 /**
  * @public

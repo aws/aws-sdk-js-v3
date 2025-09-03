@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { QueryTimestampsInput } from "../models/models_0";
 import { QueryProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QueryProtocolClient";
-import { QueryTimestamps } from "../schemas/schemas";
+import { QueryTimestamps } from "../schemas/schemas_2_Xml";
 
 /**
  * @public

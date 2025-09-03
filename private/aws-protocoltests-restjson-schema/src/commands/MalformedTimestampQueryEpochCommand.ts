@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { MalformedTimestampQueryEpochInput } from "../models/models_0";
 import { RestJsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestJsonProtocolClient";
-import { MalformedTimestampQueryEpoch } from "../schemas/schemas";
+import { MalformedTimestampQueryEpoch } from "../schemas/schemas_43_MalformedTimestampQueryEpoch";
 
 /**
  * @public

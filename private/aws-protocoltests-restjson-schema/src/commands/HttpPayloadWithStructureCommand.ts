@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { HttpPayloadWithStructureInputOutput } from "../models/models_0";
 import { RestJsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestJsonProtocolClient";
-import { HttpPayloadWithStructure } from "../schemas/schemas";
+import { HttpPayloadWithStructure } from "../schemas/schemas_44_HttpPayloadWithStructure";
 
 /**
  * @public

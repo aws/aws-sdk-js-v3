@@ -6,7 +6,7 @@ import { BlobPayloadInputTypes, MetadataBearer as __MetadataBearer } from "@smit
 import { commonParams } from "../endpoint/EndpointParameters";
 import { MalformedContentTypeWithPayloadInput } from "../models/models_0";
 import { RestJsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestJsonProtocolClient";
-import { MalformedContentTypeWithPayload } from "../schemas/schemas";
+import { MalformedContentTypeWithPayload } from "../schemas/schemas_4_WithPayload";
 
 /**
  * @public
