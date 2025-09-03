@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.881.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.880.0...v3.881.0) (2025-09-03)
+
+
+### Features
+
+* **client-rds:** This release adds support for MasterUserAuthenticationType parameter on CreateDBInstance, ModifyDBInstance, CreateDBCluster, and ModifyDBCluster operations. ([ff60909](https://github.com/aws/aws-sdk-js-v3/commit/ff60909bbc74c3351da0483abf4b23698946418e))
+
+
+
+
+
 # [3.879.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.878.0...v3.879.0) (2025-08-29)
 
 **Note:** Version bump only for package @aws-sdk/client-rds

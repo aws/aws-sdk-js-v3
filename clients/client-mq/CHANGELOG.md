@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.881.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.880.0...v3.881.0) (2025-09-03)
+
+
+### Features
+
+* **client-mq:** Add CONFIG_MANAGED as a supported AuthenticationStrategy for Amazon MQ for RabbitMQ brokers. Make username and password optional on broker creation for CONFIG_MANAGED brokers. ([245d676](https://github.com/aws/aws-sdk-js-v3/commit/245d676ce6c400e3a003c3d53e2523323d23a3c7))
+
+
+
+
+
 # [3.879.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.878.0...v3.879.0) (2025-08-29)
 
 **Note:** Version bump only for package @aws-sdk/client-mq

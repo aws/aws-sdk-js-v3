@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.881.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.880.0...v3.881.0) (2025-09-03)
+
+
+### Features
+
+* **client-cleanrooms:** Added support for adding new data provider members to an existing collaboration. ([57c9c4a](https://github.com/aws/aws-sdk-js-v3/commit/57c9c4a9c60cf5df45c1d1b4c589e08947275038))
+
+
+
+
+
 # [3.879.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.878.0...v3.879.0) (2025-08-29)
 
 **Note:** Version bump only for package @aws-sdk/client-cleanrooms

@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.881.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.880.0...v3.881.0) (2025-09-03)
+
+
+### Features
+
+* **client-cleanrooms:** Added support for adding new data provider members to an existing collaboration. ([57c9c4a](https://github.com/aws/aws-sdk-js-v3/commit/57c9c4a9c60cf5df45c1d1b4c589e08947275038))
+* **client-cleanroomsml:** AWS Clean Rooms ML adds log sanitization for privacy-enhanced error summaries, supports new instance types for custom models providing better performance and lower costs, and deprecates P3-series instances. ([ee27575](https://github.com/aws/aws-sdk-js-v3/commit/ee27575e60862b452cb292e6d26fe215031ae5f6))
+* **client-cloudfront:** Adding an optional field IpAddressType in CustomOriginConfig ([2bbd084](https://github.com/aws/aws-sdk-js-v3/commit/2bbd08449000a17dde6a1df53cf6a206c3fd1f64))
+* **client-mq:** Add CONFIG_MANAGED as a supported AuthenticationStrategy for Amazon MQ for RabbitMQ brokers. Make username and password optional on broker creation for CONFIG_MANAGED brokers. ([245d676](https://github.com/aws/aws-sdk-js-v3/commit/245d676ce6c400e3a003c3d53e2523323d23a3c7))
+* **client-rds:** This release adds support for MasterUserAuthenticationType parameter on CreateDBInstance, ModifyDBInstance, CreateDBCluster, and ModifyDBCluster operations. ([ff60909](https://github.com/aws/aws-sdk-js-v3/commit/ff60909bbc74c3351da0483abf4b23698946418e))
+* **client-route-53-domains:** Added new ExtraParams AU_ELIGIBILITY_TYPE, AU_POLICY_REASON, and AU_REGISTRANT_NAME ([c198875](https://github.com/aws/aws-sdk-js-v3/commit/c198875903efbd5cdac53ee85d1dcd261137dd3b))
+* **client-route-53:** Amazon Route 53 now supports the Asia Pacific (New Zealand) Region (ap-southeast-6) for latency records, geoproximity records, and private DNS for Amazon VPCs in that region. ([92e1585](https://github.com/aws/aws-sdk-js-v3/commit/92e1585d89085068df0490c307e2d2134700e1b5))
+* **client-transcribe-streaming:** This release adds support for automatic language identification in AWS Transcribe Call Analytics ([2e3a613](https://github.com/aws/aws-sdk-js-v3/commit/2e3a61383fdc3720b4a836f29086e2ed4a628ebd))
+* **clients:** update client endpoints as of 2025-09-03 ([f43aa69](https://github.com/aws/aws-sdk-js-v3/commit/f43aa69a02dc1a9a4b79f85789a42c5523297419))
+
+
+
+
+
 # [3.880.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.879.0...v3.880.0) (2025-09-02)
 
 

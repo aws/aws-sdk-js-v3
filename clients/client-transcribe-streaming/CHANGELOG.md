@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.881.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.880.0...v3.881.0) (2025-09-03)
+
+
+### Features
+
+* **client-transcribe-streaming:** This release adds support for automatic language identification in AWS Transcribe Call Analytics ([2e3a613](https://github.com/aws/aws-sdk-js-v3/commit/2e3a61383fdc3720b4a836f29086e2ed4a628ebd))
+
+
+
+
+
 # [3.879.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.878.0...v3.879.0) (2025-08-29)
 
 **Note:** Version bump only for package @aws-sdk/client-transcribe-streaming
