@@ -28,7 +28,9 @@ export const fromHttp = (options: FromHttpOptions = {}): AwsCredentialIdentityPr
   const tokenFile = options.awsContainerAuthorizationTokenFile ?? process.env[AWS_CONTAINER_AUTHORIZATION_TOKEN_FILE];
 
   const warn: (warning: string) => void =
-    options.logger?.constructor?.name === "NoOpLogger" || !options.logger ? console.warn : options.logger.warn;
+    options.logger?.constructor?.name === "NoOpLogger" || !options.logger?.warn
+      ? console.warn
+      : options.logger.warn.bind(options.logger);
 
   if (relative && full) {
     warn(

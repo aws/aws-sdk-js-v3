@@ -70,7 +70,9 @@ export const defaultProvider = (init: DefaultProviderInit = {}): MemoizedProvide
           if (envStaticCredentialsAreSet) {
             if (!multipleCredentialSourceWarningEmitted) {
               const warnFn =
-                init.logger?.warn && init.logger?.constructor?.name !== "NoOpLogger" ? init.logger.warn : console.warn;
+                init.logger?.warn && init.logger?.constructor?.name !== "NoOpLogger"
+                  ? init.logger.warn.bind(init.logger)
+                  : console.warn;
               warnFn(
                 `@aws-sdk/credential-provider-node - defaultProvider::fromEnv WARNING:
     Multiple credential sources detected: 
