@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { JsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../JsonProtocolClient";
 import { FractionalSecondsOutput } from "../models/models_0";
-import { FractionalSeconds } from "../schemas/schemas";
+import { FractionalSeconds } from "../schemas/schemas_5_";
 
 /**
  * @public

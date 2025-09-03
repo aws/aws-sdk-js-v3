@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { SparseJsonListsInputOutput } from "../models/models_0";
 import { RestJsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestJsonProtocolClient";
-import { SparseJsonLists } from "../schemas/schemas";
+import { SparseJsonLists } from "../schemas/schemas_20_With";
 
 /**
  * @public

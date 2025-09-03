@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { XmlEmptyBlobsRequest, XmlEmptyBlobsResponse } from "../models/models_0";
 import { RestXmlProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestXmlProtocolClient";
-import { XmlEmptyBlobs } from "../schemas/schemas";
+import { XmlEmptyBlobs } from "../schemas/schemas_19_Blobs";
 
 /**
  * @public

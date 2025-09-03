@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { EC2ProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2ProtocolClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { NestedStructuresInput } from "../models/models_0";
-import { NestedStructures } from "../schemas/schemas";
+import { NestedStructures } from "../schemas/schemas_2_Xml";
 
 /**
  * @public

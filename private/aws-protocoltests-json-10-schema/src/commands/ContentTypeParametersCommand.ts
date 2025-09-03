@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { JSONRPC10ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../JSONRPC10Client";
 import { ContentTypeParametersInput, ContentTypeParametersOutput } from "../models/models_0";
-import { ContentTypeParameters } from "../schemas/schemas";
+import { ContentTypeParameters } from "../schemas/schemas_3_OperationWith";
 
 /**
  * @public

@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { OmitsNullSerializesEmptyStringInput } from "../models/models_0";
 import { RestXmlProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestXmlProtocolClient";
-import { OmitsNullSerializesEmptyString } from "../schemas/schemas";
+import { OmitsNullSerializesEmptyString } from "../schemas/schemas_29_OmitsNullSerializesEmptyString";
 
 /**
  * @public

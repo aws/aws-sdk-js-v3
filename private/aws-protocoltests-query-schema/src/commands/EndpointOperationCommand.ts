@@ -5,7 +5,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { QueryProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QueryProtocolClient";
-import { EndpointOperation } from "../schemas/schemas";
+import { EndpointOperation } from "../schemas/schemas_21_EndpointOperation";
 
 /**
  * @public

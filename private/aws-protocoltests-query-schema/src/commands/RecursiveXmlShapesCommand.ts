@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { RecursiveXmlShapesOutput } from "../models/models_0";
 import { QueryProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QueryProtocolClient";
-import { RecursiveXmlShapes } from "../schemas/schemas";
+import { RecursiveXmlShapes } from "../schemas/schemas_4_RecursiveXmlShapes";
 
 /**
  * @public

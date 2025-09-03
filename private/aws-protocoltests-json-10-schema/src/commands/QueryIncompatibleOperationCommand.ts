@@ -5,7 +5,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { JSONRPC10ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../JSONRPC10Client";
-import { QueryIncompatibleOperation } from "../schemas/schemas";
+import { QueryIncompatibleOperation } from "../schemas/schemas_7_QueryIncompatibleOperation";
 
 /**
  * @public

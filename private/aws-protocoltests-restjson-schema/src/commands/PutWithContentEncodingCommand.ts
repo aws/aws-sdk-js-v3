@@ -7,7 +7,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { PutWithContentEncodingInput } from "../models/models_0";
 import { RestJsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestJsonProtocolClient";
-import { PutWithContentEncoding } from "../schemas/schemas";
+import { PutWithContentEncoding } from "../schemas/schemas_56_PutWithContentEncoding";
 
 /**
  * @public

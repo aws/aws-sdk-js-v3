@@ -24,7 +24,7 @@
   "license": "Apache-2.0",
   "dependencies": {
     "@aws-sdk/types": "*",
-    "@smithy/smithy-client": "^4.5.0",
+    "@smithy/smithy-client": "^4.5.1",
     "@smithy/types": "^4.3.2",
     "@smithy/util-hex-encoding": "^4.0.0",
     "@smithy/util-utf8": "^4.0.0",

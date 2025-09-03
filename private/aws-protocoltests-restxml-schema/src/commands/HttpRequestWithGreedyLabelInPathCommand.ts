@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { HttpRequestWithGreedyLabelInPathInput } from "../models/models_0";
 import { RestXmlProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestXmlProtocolClient";
-import { HttpRequestWithGreedyLabelInPath } from "../schemas/schemas";
+import { HttpRequestWithGreedyLabelInPath } from "../schemas/schemas_31_HttpRequestWithGreedyLabelInPath";
 
 /**
  * @public

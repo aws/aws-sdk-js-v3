@@ -5,7 +5,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { RestJsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestJsonProtocolClient";
-import { NoInputAndNoOutput } from "../schemas/schemas";
+import { NoInputAndNoOutput } from "../schemas/schemas_27_NoInputAndNoOutput";
 
 /**
  * @public
