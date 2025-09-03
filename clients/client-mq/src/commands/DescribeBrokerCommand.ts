@@ -47,7 +47,7 @@ export interface DescribeBrokerCommandOutput extends DescribeBrokerResponse, __M
  * //       ActionRequiredInfo: "STRING_VALUE",
  * //     },
  * //   ],
- * //   AuthenticationStrategy: "SIMPLE" || "LDAP",
+ * //   AuthenticationStrategy: "SIMPLE" || "LDAP" || "CONFIG_MANAGED",
  * //   AutoMinorVersionUpgrade: true || false,
  * //   BrokerArn: "STRING_VALUE",
  * //   BrokerId: "STRING_VALUE",
@@ -116,7 +116,7 @@ export interface DescribeBrokerCommandOutput extends DescribeBrokerResponse, __M
  * //     TimeOfDay: "STRING_VALUE", // required
  * //     TimeZone: "STRING_VALUE",
  * //   },
- * //   PendingAuthenticationStrategy: "SIMPLE" || "LDAP",
+ * //   PendingAuthenticationStrategy: "SIMPLE" || "LDAP" || "CONFIG_MANAGED",
  * //   PendingEngineVersion: "STRING_VALUE",
  * //   PendingHostInstanceType: "STRING_VALUE",
  * //   PendingLdapServerMetadata: {

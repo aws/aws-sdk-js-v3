@@ -36,7 +36,7 @@ export interface CreateConfigurationCommandOutput extends CreateConfigurationRes
  * // const { MqClient, CreateConfigurationCommand } = require("@aws-sdk/client-mq"); // CommonJS import
  * const client = new MqClient(config);
  * const input = { // CreateConfigurationRequest
- *   AuthenticationStrategy: "SIMPLE" || "LDAP",
+ *   AuthenticationStrategy: "SIMPLE" || "LDAP" || "CONFIG_MANAGED",
  *   EngineType: "ACTIVEMQ" || "RABBITMQ", // required
  *   EngineVersion: "STRING_VALUE",
  *   Name: "STRING_VALUE", // required
@@ -48,7 +48,7 @@ export interface CreateConfigurationCommandOutput extends CreateConfigurationRes
  * const response = await client.send(command);
  * // { // CreateConfigurationResponse
  * //   Arn: "STRING_VALUE",
- * //   AuthenticationStrategy: "SIMPLE" || "LDAP",
+ * //   AuthenticationStrategy: "SIMPLE" || "LDAP" || "CONFIG_MANAGED",
  * //   Created: new Date("TIMESTAMP"),
  * //   Id: "STRING_VALUE",
  * //   LatestRevision: { // ConfigurationRevision

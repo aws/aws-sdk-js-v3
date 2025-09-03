@@ -36,7 +36,7 @@ export interface CreateBrokerCommandOutput extends CreateBrokerResponse, __Metad
  * // const { MqClient, CreateBrokerCommand } = require("@aws-sdk/client-mq"); // CommonJS import
  * const client = new MqClient(config);
  * const input = { // CreateBrokerRequest
- *   AuthenticationStrategy: "SIMPLE" || "LDAP",
+ *   AuthenticationStrategy: "SIMPLE" || "LDAP" || "CONFIG_MANAGED",
  *   AutoMinorVersionUpgrade: true || false,
  *   BrokerName: "STRING_VALUE", // required
  *   Configuration: { // ConfigurationId
@@ -87,7 +87,7 @@ export interface CreateBrokerCommandOutput extends CreateBrokerResponse, __Metad
  *   Tags: { // __mapOf__string
  *     "<keys>": "STRING_VALUE",
  *   },
- *   Users: [ // __listOfUser // required
+ *   Users: [ // __listOfUser
  *     { // User
  *       ConsoleAccess: true || false,
  *       Groups: "<__listOf__string>",

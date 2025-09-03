@@ -36,7 +36,7 @@ export interface UpdateBrokerCommandOutput extends UpdateBrokerResponse, __Metad
  * // const { MqClient, UpdateBrokerCommand } = require("@aws-sdk/client-mq"); // CommonJS import
  * const client = new MqClient(config);
  * const input = { // UpdateBrokerRequest
- *   AuthenticationStrategy: "SIMPLE" || "LDAP",
+ *   AuthenticationStrategy: "SIMPLE" || "LDAP" || "CONFIG_MANAGED",
  *   AutoMinorVersionUpgrade: true || false,
  *   BrokerId: "STRING_VALUE", // required
  *   Configuration: { // ConfigurationId
@@ -77,7 +77,7 @@ export interface UpdateBrokerCommandOutput extends UpdateBrokerResponse, __Metad
  * const command = new UpdateBrokerCommand(input);
  * const response = await client.send(command);
  * // { // UpdateBrokerResponse
- * //   AuthenticationStrategy: "SIMPLE" || "LDAP",
+ * //   AuthenticationStrategy: "SIMPLE" || "LDAP" || "CONFIG_MANAGED",
  * //   AutoMinorVersionUpgrade: true || false,
  * //   BrokerId: "STRING_VALUE",
  * //   Configuration: { // ConfigurationId

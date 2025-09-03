@@ -45,7 +45,7 @@ export interface ListConfigurationsCommandOutput extends ListConfigurationsRespo
  * //   Configurations: [ // __listOfConfiguration
  * //     { // Configuration
  * //       Arn: "STRING_VALUE", // required
- * //       AuthenticationStrategy: "SIMPLE" || "LDAP", // required
+ * //       AuthenticationStrategy: "SIMPLE" || "LDAP" || "CONFIG_MANAGED", // required
  * //       Created: new Date("TIMESTAMP"), // required
  * //       Description: "STRING_VALUE", // required
  * //       EngineType: "ACTIVEMQ" || "RABBITMQ", // required
