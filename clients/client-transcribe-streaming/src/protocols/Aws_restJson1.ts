@@ -59,6 +59,7 @@ import {
   BadRequestException,
   CallAnalyticsEntity,
   CallAnalyticsItem,
+  CallAnalyticsLanguageWithScore,
   CallAnalyticsTranscriptResultStream,
   CategoryEvent,
   ChannelDefinition,
@@ -136,6 +137,11 @@ export const se_StartCallAnalyticsStreamTranscriptionCommand = async (
     [_xatvfn]: input[_VFN]!,
     [_xatvfm]: input[_VFM]!,
     [_xatlmn]: input[_LMN]!,
+    [_xatil]: [() => isSerializableHeaderValue(input[_IL]), () => input[_IL]!.toString()],
+    [_xatlo]: input[_LO]!,
+    [_xatpl]: input[_PL]!,
+    [_xatvn_]: input[_VNo]!,
+    [_xatvfn_]: input[_VFNo]!,
     [_xateprs]: [() => isSerializableHeaderValue(input[_EPRS]), () => input[_EPRS]!.toString()],
     [_xatprs]: input[_PRS]!,
     [_xatcit]: input[_CIT]!,
@@ -290,6 +296,11 @@ export const de_StartCallAnalyticsStreamTranscriptionCommand = async (
     [_VFN]: [, output.headers[_xatvfn]],
     [_VFM]: [, output.headers[_xatvfm]],
     [_LMN]: [, output.headers[_xatlmn]],
+    [_IL]: [() => void 0 !== output.headers[_xatil], () => __parseBoolean(output.headers[_xatil])],
+    [_LO]: [, output.headers[_xatlo]],
+    [_PL]: [, output.headers[_xatpl]],
+    [_VNo]: [, output.headers[_xatvn_]],
+    [_VFNo]: [, output.headers[_xatvfn_]],
     [_EPRS]: [() => void 0 !== output.headers[_xateprs], () => __parseBoolean(output.headers[_xateprs])],
     [_PRS]: [, output.headers[_xatprs]],
     [_CIT]: [, output.headers[_xatcit]],
@@ -1001,6 +1012,31 @@ const de_CallAnalyticsItemList = (output: any, context: __SerdeContext): CallAna
   return retVal;
 };
 
+/**
+ * deserializeAws_restJson1CallAnalyticsLanguageIdentification
+ */
+const de_CallAnalyticsLanguageIdentification = (
+  output: any,
+  context: __SerdeContext
+): CallAnalyticsLanguageWithScore[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_CallAnalyticsLanguageWithScore(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_restJson1CallAnalyticsLanguageWithScore
+ */
+const de_CallAnalyticsLanguageWithScore = (output: any, context: __SerdeContext): CallAnalyticsLanguageWithScore => {
+  return take(output, {
+    LanguageCode: __expectString,
+    Score: __limitedParseDouble,
+  }) as any;
+};
+
 // de_CategoryEvent omitted.
 
 // de_CharacterOffsets omitted.
@@ -1360,6 +1396,8 @@ const de_UtteranceEvent = (output: any, context: __SerdeContext): UtteranceEvent
     IsPartial: __expectBoolean,
     IssuesDetected: _json,
     Items: (_: any) => de_CallAnalyticsItemList(_, context),
+    LanguageCode: __expectString,
+    LanguageIdentification: (_: any) => de_CallAnalyticsLanguageIdentification(_, context),
     ParticipantRole: __expectString,
     Sentiment: __expectString,
     Transcript: __expectString,

@@ -53,7 +53,7 @@ export interface StartCallAnalyticsStreamTranscriptionCommandOutput
  *          <ul>
  *             <li>
  *                <p>
- *                   <code>language-code</code>
+ *                   <code>language-code</code> or <code>identify-language</code>
  *                </p>
  *             </li>
  *             <li>
@@ -75,7 +75,7 @@ export interface StartCallAnalyticsStreamTranscriptionCommandOutput
  * // const { TranscribeStreamingClient, StartCallAnalyticsStreamTranscriptionCommand } = require("@aws-sdk/client-transcribe-streaming"); // CommonJS import
  * const client = new TranscribeStreamingClient(config);
  * const input = { // StartCallAnalyticsStreamTranscriptionRequest
- *   LanguageCode: "en-US" || "en-GB" || "es-US" || "fr-CA" || "fr-FR" || "en-AU" || "it-IT" || "de-DE" || "pt-BR", // required
+ *   LanguageCode: "en-US" || "en-GB" || "es-US" || "fr-CA" || "fr-FR" || "en-AU" || "it-IT" || "de-DE" || "pt-BR",
  *   MediaSampleRateHertz: Number("int"), // required
  *   MediaEncoding: "pcm" || "ogg-opus" || "flac", // required
  *   VocabularyName: "STRING_VALUE",
@@ -102,6 +102,11 @@ export interface StartCallAnalyticsStreamTranscriptionCommandOutput
  *   VocabularyFilterName: "STRING_VALUE",
  *   VocabularyFilterMethod: "remove" || "mask" || "tag",
  *   LanguageModelName: "STRING_VALUE",
+ *   IdentifyLanguage: true || false,
+ *   LanguageOptions: "STRING_VALUE",
+ *   PreferredLanguage: "en-US" || "en-GB" || "es-US" || "fr-CA" || "fr-FR" || "en-AU" || "it-IT" || "de-DE" || "pt-BR",
+ *   VocabularyNames: "STRING_VALUE",
+ *   VocabularyFilterNames: "STRING_VALUE",
  *   EnablePartialResultsStabilization: true || false,
  *   PartialResultsStability: "high" || "medium" || "low",
  *   ContentIdentificationType: "PII",
@@ -155,6 +160,13 @@ export interface StartCallAnalyticsStreamTranscriptionCommandOutput
  * //           },
  * //         },
  * //       ],
+ * //       LanguageCode: "en-US" || "en-GB" || "es-US" || "fr-CA" || "fr-FR" || "en-AU" || "it-IT" || "de-DE" || "pt-BR",
+ * //       LanguageIdentification: [ // CallAnalyticsLanguageIdentification
+ * //         { // CallAnalyticsLanguageWithScore
+ * //           LanguageCode: "en-US" || "en-GB" || "es-US" || "fr-CA" || "fr-FR" || "en-AU" || "it-IT" || "de-DE" || "pt-BR",
+ * //           Score: Number("double"),
+ * //         },
+ * //       ],
  * //     },
  * //     CategoryEvent: { // CategoryEvent
  * //       MatchedCategories: [ // StringList
@@ -190,6 +202,11 @@ export interface StartCallAnalyticsStreamTranscriptionCommandOutput
  * //   VocabularyFilterName: "STRING_VALUE",
  * //   VocabularyFilterMethod: "remove" || "mask" || "tag",
  * //   LanguageModelName: "STRING_VALUE",
+ * //   IdentifyLanguage: true || false,
+ * //   LanguageOptions: "STRING_VALUE",
+ * //   PreferredLanguage: "en-US" || "en-GB" || "es-US" || "fr-CA" || "fr-FR" || "en-AU" || "it-IT" || "de-DE" || "pt-BR",
+ * //   VocabularyNames: "STRING_VALUE",
+ * //   VocabularyFilterNames: "STRING_VALUE",
  * //   EnablePartialResultsStabilization: true || false,
  * //   PartialResultsStability: "high" || "medium" || "low",
  * //   ContentIdentificationType: "PII",
