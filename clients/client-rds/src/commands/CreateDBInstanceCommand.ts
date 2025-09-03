@@ -126,6 +126,7 @@ export interface CreateDBInstanceCommandOutput extends CreateDBInstanceResult, _
  *   DedicatedLogVolume: true || false,
  *   MultiTenant: true || false,
  *   EngineLifecycleSupport: "STRING_VALUE",
+ *   MasterUserAuthenticationType: "password" || "iam-db-auth",
  * };
  * const command = new CreateDBInstanceCommand(input);
  * const response = await client.send(command);

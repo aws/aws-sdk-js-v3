@@ -4434,6 +4434,21 @@ export type DatabaseInsightsMode = (typeof DatabaseInsightsMode)[keyof typeof Da
  * @public
  * @enum
  */
+export const MasterUserAuthenticationType = {
+  IAM_DB_AUTH: "iam-db-auth",
+  PASSWORD: "password",
+} as const;
+
+/**
+ * @public
+ */
+export type MasterUserAuthenticationType =
+  (typeof MasterUserAuthenticationType)[keyof typeof MasterUserAuthenticationType];
+
+/**
+ * @public
+ * @enum
+ */
 export const ReplicaMode = {
   MOUNTED: "mounted",
   OPEN_READ_ONLY: "open-read-only",
@@ -5474,6 +5489,25 @@ export interface CreateDBClusterMessage {
    * @public
    */
   EngineLifecycleSupport?: string | undefined;
+
+  /**
+   * <p>Specifies the authentication type for the master user. With IAM master user authentication, you can configure the master DB user with IAM database authentication when you create a DB cluster.</p>
+   *          <p>You can specify one of the following values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>password</code> - Use standard database authentication with a password.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>iam-db-auth</code> - Use IAM database authentication for the master user.</p>
+   *             </li>
+   *          </ul>
+   *          <p>Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters</p>
+   *          <p>This option is only valid for RDS for PostgreSQL and Aurora PostgreSQL engines.</p>
+   * @public
+   */
+  MasterUserAuthenticationType?: MasterUserAuthenticationType | undefined;
 }
 
 /**
@@ -8782,6 +8816,24 @@ export interface CreateDBInstanceMessage {
    * @public
    */
   EngineLifecycleSupport?: string | undefined;
+
+  /**
+   * <p>Specifies the authentication type for the master user. With IAM master user authentication, you can configure the master DB user with IAM database authentication when you create a DB instance.</p>
+   *          <p>You can specify one of the following values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>password</code> - Use standard database authentication with a password.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>iam-db-auth</code> - Use IAM database authentication for the master user.</p>
+   *             </li>
+   *          </ul>
+   *          <p>This option is only valid for RDS for PostgreSQL and Aurora PostgreSQL engines.</p>
+   * @public
+   */
+  MasterUserAuthenticationType?: MasterUserAuthenticationType | undefined;
 }
 
 /**
@@ -14887,21 +14939,6 @@ export class InvalidIntegrationStateFault extends __BaseException {
     });
     Object.setPrototypeOf(this, InvalidIntegrationStateFault.prototype);
   }
-}
-
-/**
- * <p></p>
- * @public
- */
-export interface DeleteOptionGroupMessage {
-  /**
-   * <p>The name of the option group to be deleted.</p>
-   *          <note>
-   *             <p>You can't delete default option groups.</p>
-   *          </note>
-   * @public
-   */
-  OptionGroupName: string | undefined;
 }
 
 /**

@@ -110,6 +110,7 @@ export interface ModifyDBClusterCommandOutput extends ModifyDBClusterResult, __M
  *   AwsBackupRecoveryPointArn: "STRING_VALUE",
  *   EnableLimitlessDatabase: true || false,
  *   CACertificateIdentifier: "STRING_VALUE",
+ *   MasterUserAuthenticationType: "password" || "iam-db-auth",
  * };
  * const command = new ModifyDBClusterCommand(input);
  * const response = await client.send(command);

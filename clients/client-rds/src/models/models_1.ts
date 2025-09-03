@@ -30,6 +30,7 @@ import {
   ExportTask,
   GlobalCluster,
   Integration,
+  MasterUserAuthenticationType,
   OptionGroup,
   OptionSetting,
   ProcessorFeature,
@@ -45,6 +46,21 @@ import {
 } from "./models_0";
 
 import { RDSServiceException as __BaseException } from "./RDSServiceException";
+
+/**
+ * <p></p>
+ * @public
+ */
+export interface DeleteOptionGroupMessage {
+  /**
+   * <p>The name of the option group to be deleted.</p>
+   *          <note>
+   *             <p>You can't delete default option groups.</p>
+   *          </note>
+   * @public
+   */
+  OptionGroupName: string | undefined;
+}
 
 /**
  * <p>The option group isn't in the <i>available</i> state.</p>
@@ -8188,8 +8204,7 @@ export interface ModifyDBClusterMessage {
    *          <p>If you change the value from <code>standard</code> to <code>advanced</code>, you must set the
    *             <code>PerformanceInsightsEnabled</code> parameter to <code>true</code> and the
    *             <code>PerformanceInsightsRetentionPeriod</code> parameter to 465.</p>
-   *          <p>If you change the value from <code>advanced</code> to <code>standard</code>, you must
-   *             set the <code>PerformanceInsightsEnabled</code> parameter to <code>false</code>.</p>
+   *          <p>If you change the value from <code>advanced</code> to <code>standard</code>, you can set the <code>PerformanceInsightsEnabled</code> parameter to <code>true</code> to collect detailed database counter and per-query metrics.</p>
    *          <p>Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters</p>
    * @public
    */
@@ -8391,6 +8406,25 @@ export interface ModifyDBClusterMessage {
    * @public
    */
   CACertificateIdentifier?: string | undefined;
+
+  /**
+   * <p>Specifies the authentication type for the master user. With IAM master user authentication, you can change the master DB user to use IAM database authentication.</p>
+   *          <p>You can specify one of the following values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>password</code> - Use standard database authentication with a password.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>iam-db-auth</code> - Use IAM database authentication for the master user.</p>
+   *             </li>
+   *          </ul>
+   *          <p>Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters</p>
+   *          <p>This option is only valid for RDS for PostgreSQL and Aurora PostgreSQL engines.</p>
+   * @public
+   */
+  MasterUserAuthenticationType?: MasterUserAuthenticationType | undefined;
 }
 
 /**
@@ -9780,6 +9814,24 @@ export interface ModifyDBInstanceMessage {
    * @public
    */
   MultiTenant?: boolean | undefined;
+
+  /**
+   * <p>Specifies the authentication type for the master user. With IAM master user authentication, you can change the master DB user to use IAM database authentication.</p>
+   *          <p>You can specify one of the following values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>password</code> - Use standard database authentication with a password.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>iam-db-auth</code> - Use IAM database authentication for the master user.</p>
+   *             </li>
+   *          </ul>
+   *          <p>This option is only valid for RDS for PostgreSQL and Aurora PostgreSQL engines.</p>
+   * @public
+   */
+  MasterUserAuthenticationType?: MasterUserAuthenticationType | undefined;
 }
 
 /**

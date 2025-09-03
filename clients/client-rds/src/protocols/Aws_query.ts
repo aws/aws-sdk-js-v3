@@ -722,7 +722,6 @@ import {
   DeleteGlobalClusterMessage,
   DeleteGlobalClusterResult,
   DeleteIntegrationMessage,
-  DeleteOptionGroupMessage,
   DomainMembership,
   DomainNotFoundFault,
   Ec2ImagePropertiesNotSupportedFault,
@@ -871,6 +870,7 @@ import {
   DBSnapshotTenantDatabasesMessage,
   DBSubnetGroupMessage,
   DBUpgradeDependencyFailureFault,
+  DeleteOptionGroupMessage,
   DeleteTenantDatabaseMessage,
   DeleteTenantDatabaseResult,
   DeregisterDBProxyTargetsRequest,
@@ -10654,6 +10654,9 @@ const se_CreateDBClusterMessage = (input: CreateDBClusterMessage, context: __Ser
   if (input[_ELS] != null) {
     entries[_ELS] = input[_ELS];
   }
+  if (input[_MUAT] != null) {
+    entries[_MUAT] = input[_MUAT];
+  }
   return entries;
 };
 
@@ -10949,6 +10952,9 @@ const se_CreateDBInstanceMessage = (input: CreateDBInstanceMessage, context: __S
   }
   if (input[_ELS] != null) {
     entries[_ELS] = input[_ELS];
+  }
+  if (input[_MUAT] != null) {
+    entries[_MUAT] = input[_MUAT];
   }
   return entries;
 };
@@ -13861,6 +13867,9 @@ const se_ModifyDBClusterMessage = (input: ModifyDBClusterMessage, context: __Ser
   if (input[_CACI] != null) {
     entries[_CACI] = input[_CACI];
   }
+  if (input[_MUAT] != null) {
+    entries[_MUAT] = input[_MUAT];
+  }
   return entries;
 };
 
@@ -14144,6 +14153,9 @@ const se_ModifyDBInstanceMessage = (input: ModifyDBInstanceMessage, context: __S
   }
   if (input[_MT] != null) {
     entries[_MT] = input[_MT];
+  }
+  if (input[_MUAT] != null) {
+    entries[_MUAT] = input[_MUAT];
   }
   return entries;
 };
@@ -25807,6 +25819,7 @@ const _MSTPIa = "MaxStorageThroughputPerIops";
 const _MT = "MultiTenant";
 const _MTD = "ModifyTenantDatabase";
 const _MU = "MasterUsername";
+const _MUAT = "MasterUserAuthenticationType";
 const _MUP = "MasterUserPassword";
 const _MUS = "MasterUserSecret";
 const _MUSKKI = "MasterUserSecretKmsKeyId";

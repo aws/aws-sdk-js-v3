@@ -119,6 +119,7 @@ export interface ModifyDBInstanceCommandOutput extends ModifyDBInstanceResult, _
  *   Engine: "STRING_VALUE",
  *   DedicatedLogVolume: true || false,
  *   MultiTenant: true || false,
+ *   MasterUserAuthenticationType: "password" || "iam-db-auth",
  * };
  * const command = new ModifyDBInstanceCommand(input);
  * const response = await client.send(command);
