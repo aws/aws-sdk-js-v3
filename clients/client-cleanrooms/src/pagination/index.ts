@@ -2,6 +2,7 @@
 export * from "./Interfaces";
 export * from "./ListAnalysisTemplatesPaginator";
 export * from "./ListCollaborationAnalysisTemplatesPaginator";
+export * from "./ListCollaborationChangeRequestsPaginator";
 export * from "./ListCollaborationConfiguredAudienceModelAssociationsPaginator";
 export * from "./ListCollaborationIdNamespaceAssociationsPaginator";
 export * from "./ListCollaborationPrivacyBudgetTemplatesPaginator";

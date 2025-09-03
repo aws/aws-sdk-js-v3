@@ -105,6 +105,9 @@ export interface CreateCollaborationCommandOutput extends CreateCollaborationOut
  *     },
  *   },
  *   analyticsEngine: "SPARK" || "CLEAN_ROOMS_SQL",
+ *   autoApprovedChangeRequestTypes: [ // AutoApprovedChangeTypeList
+ *     "ADD_MEMBER",
+ *   ],
  * };
  * const command = new CreateCollaborationCommand(input);
  * const response = await client.send(command);
@@ -130,6 +133,9 @@ export interface CreateCollaborationCommandOutput extends CreateCollaborationOut
  * //     queryLogStatus: "ENABLED" || "DISABLED", // required
  * //     jobLogStatus: "ENABLED" || "DISABLED",
  * //     analyticsEngine: "SPARK" || "CLEAN_ROOMS_SQL",
+ * //     autoApprovedChangeTypes: [ // AutoApprovedChangeTypeList
+ * //       "ADD_MEMBER",
+ * //     ],
  * //   },
  * // };
  *

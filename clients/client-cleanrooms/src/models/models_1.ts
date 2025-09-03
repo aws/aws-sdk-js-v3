@@ -5,24 +5,387 @@ import {
   AnalysisType,
   DifferentialPrivacyAggregationType,
   MemberAbility,
-  Membership,
   MembershipJobLogStatus,
   MembershipPaymentConfiguration,
   MembershipProtectedJobResultConfiguration,
   MembershipProtectedQueryResultConfiguration,
   MembershipQueryLogStatus,
-  MembershipStatus,
   MLMemberAbilities,
   PrivacyBudget,
   PrivacyBudgetTemplateAutoRefresh,
   PrivacyBudgetTemplateParametersOutput,
   PrivacyBudgetType,
-  ProtectedJobError,
-  ProtectedJobMemberOutputConfigurationOutput,
-  ProtectedJobParameters,
-  ProtectedJobResult,
   ProtectedQueryS3OutputConfiguration,
 } from "./models_0";
+
+/**
+ * @public
+ */
+export interface CreateMembershipInput {
+  /**
+   * <p>The unique ID for the associated collaboration.</p>
+   * @public
+   */
+  collaborationIdentifier: string | undefined;
+
+  /**
+   * <p>An indicator as to whether query logging has been enabled or disabled for the membership.</p> <p>When <code>ENABLED</code>, Clean Rooms logs details about queries run within this collaboration and those logs can be viewed in Amazon CloudWatch Logs. The default value is <code>DISABLED</code>.</p>
+   * @public
+   */
+  queryLogStatus: MembershipQueryLogStatus | undefined;
+
+  /**
+   * <p>An indicator as to whether job logging has been enabled or disabled for the collaboration. </p> <p>When <code>ENABLED</code>, Clean Rooms logs details about jobs run within this collaboration and those logs can be viewed in Amazon CloudWatch Logs. The default value is <code>DISABLED</code>.</p>
+   * @public
+   */
+  jobLogStatus?: MembershipJobLogStatus | undefined;
+
+  /**
+   * <p>An optional label that you can assign to a resource when you create it. Each tag consists of a key and an optional value, both of which you define. When you use tagging, you can also use tag-based access control in IAM policies to control access to this resource.</p>
+   * @public
+   */
+  tags?: Record<string, string> | undefined;
+
+  /**
+   * <p>The default protected query result configuration as specified by the member who can receive results.</p>
+   * @public
+   */
+  defaultResultConfiguration?: MembershipProtectedQueryResultConfiguration | undefined;
+
+  /**
+   * <p>The default job result configuration that determines how job results are protected and managed within this membership. This configuration applies to all jobs.</p>
+   * @public
+   */
+  defaultJobResultConfiguration?: MembershipProtectedJobResultConfiguration | undefined;
+
+  /**
+   * <p>The payment responsibilities accepted by the collaboration member.</p> <p>Not required if the collaboration member has the member ability to run queries. </p> <p>Required if the collaboration member doesn't have the member ability to run queries but is configured as a payer by the collaboration creator. </p>
+   * @public
+   */
+  paymentConfiguration?: MembershipPaymentConfiguration | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const MembershipStatus = {
+  ACTIVE: "ACTIVE",
+  COLLABORATION_DELETED: "COLLABORATION_DELETED",
+  REMOVED: "REMOVED",
+} as const;
+
+/**
+ * @public
+ */
+export type MembershipStatus = (typeof MembershipStatus)[keyof typeof MembershipStatus];
+
+/**
+ * <p>The membership object.</p>
+ * @public
+ */
+export interface Membership {
+  /**
+   * <p>The unique ID of the membership.</p>
+   * @public
+   */
+  id: string | undefined;
+
+  /**
+   * <p>The unique ARN for the membership.</p>
+   * @public
+   */
+  arn: string | undefined;
+
+  /**
+   * <p>The unique ARN for the membership's associated collaboration.</p>
+   * @public
+   */
+  collaborationArn: string | undefined;
+
+  /**
+   * <p>The unique ID for the membership's collaboration.</p>
+   * @public
+   */
+  collaborationId: string | undefined;
+
+  /**
+   * <p>The identifier used to reference members of the collaboration. Currently only supports Amazon Web Services account ID.</p>
+   * @public
+   */
+  collaborationCreatorAccountId: string | undefined;
+
+  /**
+   * <p>The display name of the collaboration creator.</p>
+   * @public
+   */
+  collaborationCreatorDisplayName: string | undefined;
+
+  /**
+   * <p>The name of the membership's collaboration.</p>
+   * @public
+   */
+  collaborationName: string | undefined;
+
+  /**
+   * <p>The time when the membership was created.</p>
+   * @public
+   */
+  createTime: Date | undefined;
+
+  /**
+   * <p>The time the membership metadata was last updated.</p>
+   * @public
+   */
+  updateTime: Date | undefined;
+
+  /**
+   * <p>The status of the membership.</p>
+   * @public
+   */
+  status: MembershipStatus | undefined;
+
+  /**
+   * <p>The abilities granted to the collaboration member.</p>
+   * @public
+   */
+  memberAbilities: MemberAbility[] | undefined;
+
+  /**
+   * <p>Specifies the ML member abilities that are granted to a collaboration member.</p>
+   * @public
+   */
+  mlMemberAbilities?: MLMemberAbilities | undefined;
+
+  /**
+   * <p>An indicator as to whether query logging has been enabled or disabled for the membership.</p> <p>When <code>ENABLED</code>, Clean Rooms logs details about queries run within this collaboration and those logs can be viewed in Amazon CloudWatch Logs. The default value is <code>DISABLED</code>.</p>
+   * @public
+   */
+  queryLogStatus: MembershipQueryLogStatus | undefined;
+
+  /**
+   * <p>An indicator as to whether job logging has been enabled or disabled for the collaboration. </p> <p>When <code>ENABLED</code>, Clean Rooms logs details about jobs run within this collaboration and those logs can be viewed in Amazon CloudWatch Logs. The default value is <code>DISABLED</code>.</p>
+   * @public
+   */
+  jobLogStatus?: MembershipJobLogStatus | undefined;
+
+  /**
+   * <p>The default protected query result configuration as specified by the member who can receive results.</p>
+   * @public
+   */
+  defaultResultConfiguration?: MembershipProtectedQueryResultConfiguration | undefined;
+
+  /**
+   * <p> The default job result configuration for the membership.</p>
+   * @public
+   */
+  defaultJobResultConfiguration?: MembershipProtectedJobResultConfiguration | undefined;
+
+  /**
+   * <p>The payment responsibilities accepted by the collaboration member.</p>
+   * @public
+   */
+  paymentConfiguration: MembershipPaymentConfiguration | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateMembershipOutput {
+  /**
+   * <p>The membership that was created.</p>
+   * @public
+   */
+  membership: Membership | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteMembershipInput {
+  /**
+   * <p>The identifier for a membership resource.</p>
+   * @public
+   */
+  membershipIdentifier: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteMembershipOutput {}
+
+/**
+ * @public
+ */
+export interface GetMembershipInput {
+  /**
+   * <p>The identifier for a membership resource.</p>
+   * @public
+   */
+  membershipIdentifier: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetMembershipOutput {
+  /**
+   * <p>The membership retrieved for the provided identifier.</p>
+   * @public
+   */
+  membership: Membership | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetProtectedJobInput {
+  /**
+   * <p> The identifier for a membership in a protected job instance.</p>
+   * @public
+   */
+  membershipIdentifier: string | undefined;
+
+  /**
+   * <p> The identifier for the protected job instance.</p>
+   * @public
+   */
+  protectedJobIdentifier: string | undefined;
+}
+
+/**
+ * <p>The protected job error.</p>
+ * @public
+ */
+export interface ProtectedJobError {
+  /**
+   * <p> The message for the protected job error.</p>
+   * @public
+   */
+  message: string | undefined;
+
+  /**
+   * <p> The error code for the protected job.</p>
+   * @public
+   */
+  code: string | undefined;
+}
+
+/**
+ * <p>The parameters for the protected job.</p>
+ * @public
+ */
+export interface ProtectedJobParameters {
+  /**
+   * <p> The ARN of the analysis template.</p>
+   * @public
+   */
+  analysisTemplateArn?: string | undefined;
+}
+
+/**
+ * <p>Details about the member who received the job result.</p>
+ * @public
+ */
+export interface ProtectedJobSingleMemberOutput {
+  /**
+   * <p>The Amazon Web Services account ID of the member in the collaboration who can receive results from analyses.</p>
+   * @public
+   */
+  accountId: string | undefined;
+}
+
+/**
+ * <p>Contains output information for protected jobs with an S3 output type.</p>
+ * @public
+ */
+export interface ProtectedJobS3Output {
+  /**
+   * <p> The S3 location for the protected job output.</p>
+   * @public
+   */
+  location: string | undefined;
+}
+
+/**
+ * <p>Contains details about the protected job output.</p>
+ * @public
+ */
+export type ProtectedJobOutput =
+  | ProtectedJobOutput.MemberListMember
+  | ProtectedJobOutput.S3Member
+  | ProtectedJobOutput.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace ProtectedJobOutput {
+  /**
+   * <p>If present, the output for a protected job with an `S3` output type.</p>
+   * @public
+   */
+  export interface S3Member {
+    s3: ProtectedJobS3Output;
+    memberList?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The list of member Amazon Web Services account(s) that received the results of the job. </p>
+   * @public
+   */
+  export interface MemberListMember {
+    s3?: never;
+    memberList: ProtectedJobSingleMemberOutput[];
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    s3?: never;
+    memberList?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    s3: (value: ProtectedJobS3Output) => T;
+    memberList: (value: ProtectedJobSingleMemberOutput[]) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: ProtectedJobOutput, visitor: Visitor<T>): T => {
+    if (value.s3 !== undefined) return visitor.s3(value.s3);
+    if (value.memberList !== undefined) return visitor.memberList(value.memberList);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
+ * <p>Details about the job results.</p>
+ * @public
+ */
+export interface ProtectedJobResult {
+  /**
+   * <p> The output of the protected job.</p>
+   * @public
+   */
+  output: ProtectedJobOutput | undefined;
+}
+
+/**
+ * <p> The protected job member output configuration output.</p>
+ * @public
+ */
+export interface ProtectedJobMemberOutputConfigurationOutput {
+  /**
+   * <p> The account ID.</p>
+   * @public
+   */
+  accountId: string | undefined;
+}
 
 /**
  * <p> The output configuration for a protected job's S3 output.</p>

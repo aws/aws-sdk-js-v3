@@ -245,6 +245,14 @@ CreateCollaboration
 </details>
 <details>
 <summary>
+CreateCollaborationChangeRequest
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cleanrooms/command/CreateCollaborationChangeRequestCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cleanrooms/Interface/CreateCollaborationChangeRequestCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cleanrooms/Interface/CreateCollaborationChangeRequestCommandOutput/)
+
+</details>
+<details>
+<summary>
 CreateConfiguredAudienceModelAssociation
 </summary>
 
@@ -437,6 +445,14 @@ GetCollaborationAnalysisTemplate
 </details>
 <details>
 <summary>
+GetCollaborationChangeRequest
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cleanrooms/command/GetCollaborationChangeRequestCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cleanrooms/Interface/GetCollaborationChangeRequestCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cleanrooms/Interface/GetCollaborationChangeRequestCommandOutput/)
+
+</details>
+<details>
+<summary>
 GetCollaborationConfiguredAudienceModelAssociation
 </summary>
 
@@ -577,6 +593,14 @@ ListCollaborationAnalysisTemplates
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cleanrooms/command/ListCollaborationAnalysisTemplatesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cleanrooms/Interface/ListCollaborationAnalysisTemplatesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cleanrooms/Interface/ListCollaborationAnalysisTemplatesCommandOutput/)
+
+</details>
+<details>
+<summary>
+ListCollaborationChangeRequests
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cleanrooms/command/ListCollaborationChangeRequestsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cleanrooms/Interface/ListCollaborationChangeRequestsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cleanrooms/Interface/ListCollaborationChangeRequestsCommandOutput/)
 
 </details>
 <details>

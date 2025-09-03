@@ -2091,6 +2091,19 @@ export interface AthenaTableReference {
 
 /**
  * @public
+ * @enum
+ */
+export const AutoApprovedChangeType = {
+  ADD_MEMBER: "ADD_MEMBER",
+} as const;
+
+/**
+ * @public
+ */
+export type AutoApprovedChangeType = (typeof AutoApprovedChangeType)[keyof typeof AutoApprovedChangeType];
+
+/**
+ * @public
  */
 export interface BatchGetCollaborationAnalysisTemplateInput {
   /**
@@ -3018,6 +3031,12 @@ export interface CreateCollaborationInput {
    * @public
    */
   analyticsEngine?: AnalyticsEngine | undefined;
+
+  /**
+   * <p>The types of change requests that are automatically approved for this collaboration.</p>
+   * @public
+   */
+  autoApprovedChangeRequestTypes?: AutoApprovedChangeType[] | undefined;
 }
 
 /**
@@ -3130,6 +3149,12 @@ export interface Collaboration {
    * @public
    */
   analyticsEngine?: AnalyticsEngine | undefined;
+
+  /**
+   * <p>The types of change requests that are automatically approved for this collaboration.</p>
+   * @public
+   */
+  autoApprovedChangeTypes?: AutoApprovedChangeType[] | undefined;
 }
 
 /**
@@ -3141,6 +3166,229 @@ export interface CreateCollaborationOutput {
    * @public
    */
   collaboration: Collaboration | undefined;
+}
+
+/**
+ * <p>Specifies changes to collaboration membership, including adding new members with their abilities and display names.</p>
+ * @public
+ */
+export interface MemberChangeSpecification {
+  /**
+   * <p>The Amazon Web Services account ID of the member to add to the collaboration.</p>
+   * @public
+   */
+  accountId: string | undefined;
+
+  /**
+   * <p>The abilities granted to the collaboration member. These determine what actions the member can perform within the collaboration.</p> <note> <p>The following values are currently not supported: <code>CAN_QUERY</code>, <code>CAN_RECEIVE_RESULTS,</code> and <code>CAN_RUN_JOB</code>. </p> <p>Set the value of <code>memberAbilities</code> to <code>[]</code> to allow a member to contribute data.</p> </note>
+   * @public
+   */
+  memberAbilities: MemberAbility[] | undefined;
+
+  /**
+   * <p>Specifies the display name that will be shown for this member in the collaboration. While this field is required when inviting new members, it becomes optional when modifying abilities of existing collaboration members. </p>
+   * @public
+   */
+  displayName?: string | undefined;
+}
+
+/**
+ * <p>A union that contains the specification details for different types of changes.</p>
+ * @public
+ */
+export type ChangeSpecification = ChangeSpecification.MemberMember | ChangeSpecification.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace ChangeSpecification {
+  /**
+   * <p>The member change specification when the change type is <code>MEMBER</code>.</p>
+   * @public
+   */
+  export interface MemberMember {
+    member: MemberChangeSpecification;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    member?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    member: (value: MemberChangeSpecification) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: ChangeSpecification, visitor: Visitor<T>): T => {
+    if (value.member !== undefined) return visitor.member(value.member);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const ChangeSpecificationType = {
+  MEMBER: "MEMBER",
+} as const;
+
+/**
+ * @public
+ */
+export type ChangeSpecificationType = (typeof ChangeSpecificationType)[keyof typeof ChangeSpecificationType];
+
+/**
+ * <p>Specifies a change to apply to a collaboration.</p>
+ * @public
+ */
+export interface ChangeInput {
+  /**
+   * <p>The type of specification for the change. Currently supports <code>MEMBER</code> for member-related changes.</p>
+   * @public
+   */
+  specificationType: ChangeSpecificationType | undefined;
+
+  /**
+   * <p>The specification details for the change. The structure depends on the specification type.</p>
+   * @public
+   */
+  specification: ChangeSpecification | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateCollaborationChangeRequestInput {
+  /**
+   * <p>The identifier of the collaboration that the change request is made against.</p>
+   * @public
+   */
+  collaborationIdentifier: string | undefined;
+
+  /**
+   * <p>The list of changes to apply to the collaboration. Each change specifies the type of modification and the details of what should be changed.</p>
+   * @public
+   */
+  changes: ChangeInput[] | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const ChangeType = {
+  ADD_MEMBER: "ADD_MEMBER",
+} as const;
+
+/**
+ * @public
+ */
+export type ChangeType = (typeof ChangeType)[keyof typeof ChangeType];
+
+/**
+ * <p>Represents a single change within a collaboration change request, containing the change identifier and specification.</p>
+ * @public
+ */
+export interface Change {
+  /**
+   * <p>The type of specification for this change.</p>
+   * @public
+   */
+  specificationType: ChangeSpecificationType | undefined;
+
+  /**
+   * <p>The specification details for this change.</p>
+   * @public
+   */
+  specification: ChangeSpecification | undefined;
+
+  /**
+   * <p>The list of change types that were applied.</p>
+   * @public
+   */
+  types: ChangeType[] | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const ChangeRequestStatus = {
+  APPROVED: "APPROVED",
+  CANCELLED: "CANCELLED",
+  COMMITTED: "COMMITTED",
+  DENIED: "DENIED",
+  PENDING: "PENDING",
+} as const;
+
+/**
+ * @public
+ */
+export type ChangeRequestStatus = (typeof ChangeRequestStatus)[keyof typeof ChangeRequestStatus];
+
+/**
+ * <p>Represents a request to modify a collaboration. Change requests enable structured modifications to collaborations after they have been created.</p>
+ * @public
+ */
+export interface CollaborationChangeRequest {
+  /**
+   * <p>The unique identifier for the change request.</p>
+   * @public
+   */
+  id: string | undefined;
+
+  /**
+   * <p>The unique identifier for the collaboration being modified.</p>
+   * @public
+   */
+  collaborationId: string | undefined;
+
+  /**
+   * <p>The time when the change request was created.</p>
+   * @public
+   */
+  createTime: Date | undefined;
+
+  /**
+   * <p>The time when the change request was last updated.</p>
+   * @public
+   */
+  updateTime: Date | undefined;
+
+  /**
+   * <p>The current status of the change request. Valid values are <code>PENDING</code>, <code>APPROVED</code>, <code>DENIED</code>, <code>COMMITTED</code>, and <code>CANCELLED</code>.</p>
+   * @public
+   */
+  status: ChangeRequestStatus | undefined;
+
+  /**
+   * <p>Whether the change request was automatically approved based on the collaboration's auto-approval settings.</p>
+   * @public
+   */
+  isAutoApproved: boolean | undefined;
+
+  /**
+   * <p>The list of changes specified in this change request.</p>
+   * @public
+   */
+  changes: Change[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateCollaborationChangeRequestOutput {
+  /**
+   * <p>Represents a request to modify a collaboration. Change requests enable structured modifications to collaborations after they have been created.</p>
+   * @public
+   */
+  collaborationChangeRequest: CollaborationChangeRequest | undefined;
 }
 
 /**
@@ -3229,6 +3477,34 @@ export interface GetCollaborationAnalysisTemplateOutput {
    * @public
    */
   collaborationAnalysisTemplate: CollaborationAnalysisTemplate | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetCollaborationChangeRequestInput {
+  /**
+   * <p>The identifier of the collaboration that the change request is made against.</p>
+   * @public
+   */
+  collaborationIdentifier: string | undefined;
+
+  /**
+   * <p>A unique identifier for the change request to retrieve.</p>
+   * @public
+   */
+  changeRequestIdentifier: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetCollaborationChangeRequestOutput {
+  /**
+   * <p>The collaboration change request that was requested.</p>
+   * @public
+   */
+  collaborationChangeRequest: CollaborationChangeRequest | undefined;
 }
 
 /**
@@ -3819,6 +4095,100 @@ export interface ListCollaborationAnalysisTemplatesOutput {
    * @public
    */
   collaborationAnalysisTemplateSummaries: CollaborationAnalysisTemplateSummary[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListCollaborationChangeRequestsInput {
+  /**
+   * <p>The identifier of the collaboration that the change request is made against.</p>
+   * @public
+   */
+  collaborationIdentifier: string | undefined;
+
+  /**
+   * <p>A filter to only return change requests with the specified status.</p>
+   * @public
+   */
+  status?: ChangeRequestStatus | undefined;
+
+  /**
+   * <p>The pagination token that's used to fetch the next set of results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of results that are returned for an API request call.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+}
+
+/**
+ * <p>Summary information about a collaboration change request.</p>
+ * @public
+ */
+export interface CollaborationChangeRequestSummary {
+  /**
+   * <p>The unique identifier for the change request.</p>
+   * @public
+   */
+  id: string | undefined;
+
+  /**
+   * <p>The unique identifier for the collaboration.</p>
+   * @public
+   */
+  collaborationId: string | undefined;
+
+  /**
+   * <p>The time when the change request was created.</p>
+   * @public
+   */
+  createTime: Date | undefined;
+
+  /**
+   * <p>The time when the change request was last updated.</p>
+   * @public
+   */
+  updateTime: Date | undefined;
+
+  /**
+   * <p>The current status of the change request.</p>
+   * @public
+   */
+  status: ChangeRequestStatus | undefined;
+
+  /**
+   * <p>Whether the change request was automatically approved.</p>
+   * @public
+   */
+  isAutoApproved: boolean | undefined;
+
+  /**
+   * <p>Summary of the changes in this change request.</p>
+   * @public
+   */
+  changes: Change[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListCollaborationChangeRequestsOutput {
+  /**
+   * <p>The list of collaboration change request summaries.</p>
+   * @public
+   */
+  collaborationChangeRequestSummaries: CollaborationChangeRequestSummary[] | undefined;
+
+  /**
+   * <p>The pagination token that's used to fetch the next set of results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
 }
 
 /**
@@ -7448,375 +7818,6 @@ export const MembershipQueryLogStatus = {
  * @public
  */
 export type MembershipQueryLogStatus = (typeof MembershipQueryLogStatus)[keyof typeof MembershipQueryLogStatus];
-
-/**
- * @public
- */
-export interface CreateMembershipInput {
-  /**
-   * <p>The unique ID for the associated collaboration.</p>
-   * @public
-   */
-  collaborationIdentifier: string | undefined;
-
-  /**
-   * <p>An indicator as to whether query logging has been enabled or disabled for the membership.</p> <p>When <code>ENABLED</code>, Clean Rooms logs details about queries run within this collaboration and those logs can be viewed in Amazon CloudWatch Logs. The default value is <code>DISABLED</code>.</p>
-   * @public
-   */
-  queryLogStatus: MembershipQueryLogStatus | undefined;
-
-  /**
-   * <p>An indicator as to whether job logging has been enabled or disabled for the collaboration. </p> <p>When <code>ENABLED</code>, Clean Rooms logs details about jobs run within this collaboration and those logs can be viewed in Amazon CloudWatch Logs. The default value is <code>DISABLED</code>.</p>
-   * @public
-   */
-  jobLogStatus?: MembershipJobLogStatus | undefined;
-
-  /**
-   * <p>An optional label that you can assign to a resource when you create it. Each tag consists of a key and an optional value, both of which you define. When you use tagging, you can also use tag-based access control in IAM policies to control access to this resource.</p>
-   * @public
-   */
-  tags?: Record<string, string> | undefined;
-
-  /**
-   * <p>The default protected query result configuration as specified by the member who can receive results.</p>
-   * @public
-   */
-  defaultResultConfiguration?: MembershipProtectedQueryResultConfiguration | undefined;
-
-  /**
-   * <p>The default job result configuration that determines how job results are protected and managed within this membership. This configuration applies to all jobs.</p>
-   * @public
-   */
-  defaultJobResultConfiguration?: MembershipProtectedJobResultConfiguration | undefined;
-
-  /**
-   * <p>The payment responsibilities accepted by the collaboration member.</p> <p>Not required if the collaboration member has the member ability to run queries. </p> <p>Required if the collaboration member doesn't have the member ability to run queries but is configured as a payer by the collaboration creator. </p>
-   * @public
-   */
-  paymentConfiguration?: MembershipPaymentConfiguration | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const MembershipStatus = {
-  ACTIVE: "ACTIVE",
-  COLLABORATION_DELETED: "COLLABORATION_DELETED",
-  REMOVED: "REMOVED",
-} as const;
-
-/**
- * @public
- */
-export type MembershipStatus = (typeof MembershipStatus)[keyof typeof MembershipStatus];
-
-/**
- * <p>The membership object.</p>
- * @public
- */
-export interface Membership {
-  /**
-   * <p>The unique ID of the membership.</p>
-   * @public
-   */
-  id: string | undefined;
-
-  /**
-   * <p>The unique ARN for the membership.</p>
-   * @public
-   */
-  arn: string | undefined;
-
-  /**
-   * <p>The unique ARN for the membership's associated collaboration.</p>
-   * @public
-   */
-  collaborationArn: string | undefined;
-
-  /**
-   * <p>The unique ID for the membership's collaboration.</p>
-   * @public
-   */
-  collaborationId: string | undefined;
-
-  /**
-   * <p>The identifier used to reference members of the collaboration. Currently only supports Amazon Web Services account ID.</p>
-   * @public
-   */
-  collaborationCreatorAccountId: string | undefined;
-
-  /**
-   * <p>The display name of the collaboration creator.</p>
-   * @public
-   */
-  collaborationCreatorDisplayName: string | undefined;
-
-  /**
-   * <p>The name of the membership's collaboration.</p>
-   * @public
-   */
-  collaborationName: string | undefined;
-
-  /**
-   * <p>The time when the membership was created.</p>
-   * @public
-   */
-  createTime: Date | undefined;
-
-  /**
-   * <p>The time the membership metadata was last updated.</p>
-   * @public
-   */
-  updateTime: Date | undefined;
-
-  /**
-   * <p>The status of the membership.</p>
-   * @public
-   */
-  status: MembershipStatus | undefined;
-
-  /**
-   * <p>The abilities granted to the collaboration member.</p>
-   * @public
-   */
-  memberAbilities: MemberAbility[] | undefined;
-
-  /**
-   * <p>Specifies the ML member abilities that are granted to a collaboration member.</p>
-   * @public
-   */
-  mlMemberAbilities?: MLMemberAbilities | undefined;
-
-  /**
-   * <p>An indicator as to whether query logging has been enabled or disabled for the membership.</p> <p>When <code>ENABLED</code>, Clean Rooms logs details about queries run within this collaboration and those logs can be viewed in Amazon CloudWatch Logs. The default value is <code>DISABLED</code>.</p>
-   * @public
-   */
-  queryLogStatus: MembershipQueryLogStatus | undefined;
-
-  /**
-   * <p>An indicator as to whether job logging has been enabled or disabled for the collaboration. </p> <p>When <code>ENABLED</code>, Clean Rooms logs details about jobs run within this collaboration and those logs can be viewed in Amazon CloudWatch Logs. The default value is <code>DISABLED</code>.</p>
-   * @public
-   */
-  jobLogStatus?: MembershipJobLogStatus | undefined;
-
-  /**
-   * <p>The default protected query result configuration as specified by the member who can receive results.</p>
-   * @public
-   */
-  defaultResultConfiguration?: MembershipProtectedQueryResultConfiguration | undefined;
-
-  /**
-   * <p> The default job result configuration for the membership.</p>
-   * @public
-   */
-  defaultJobResultConfiguration?: MembershipProtectedJobResultConfiguration | undefined;
-
-  /**
-   * <p>The payment responsibilities accepted by the collaboration member.</p>
-   * @public
-   */
-  paymentConfiguration: MembershipPaymentConfiguration | undefined;
-}
-
-/**
- * @public
- */
-export interface CreateMembershipOutput {
-  /**
-   * <p>The membership that was created.</p>
-   * @public
-   */
-  membership: Membership | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteMembershipInput {
-  /**
-   * <p>The identifier for a membership resource.</p>
-   * @public
-   */
-  membershipIdentifier: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteMembershipOutput {}
-
-/**
- * @public
- */
-export interface GetMembershipInput {
-  /**
-   * <p>The identifier for a membership resource.</p>
-   * @public
-   */
-  membershipIdentifier: string | undefined;
-}
-
-/**
- * @public
- */
-export interface GetMembershipOutput {
-  /**
-   * <p>The membership retrieved for the provided identifier.</p>
-   * @public
-   */
-  membership: Membership | undefined;
-}
-
-/**
- * @public
- */
-export interface GetProtectedJobInput {
-  /**
-   * <p> The identifier for a membership in a protected job instance.</p>
-   * @public
-   */
-  membershipIdentifier: string | undefined;
-
-  /**
-   * <p> The identifier for the protected job instance.</p>
-   * @public
-   */
-  protectedJobIdentifier: string | undefined;
-}
-
-/**
- * <p>The protected job error.</p>
- * @public
- */
-export interface ProtectedJobError {
-  /**
-   * <p> The message for the protected job error.</p>
-   * @public
-   */
-  message: string | undefined;
-
-  /**
-   * <p> The error code for the protected job.</p>
-   * @public
-   */
-  code: string | undefined;
-}
-
-/**
- * <p>The parameters for the protected job.</p>
- * @public
- */
-export interface ProtectedJobParameters {
-  /**
-   * <p> The ARN of the analysis template.</p>
-   * @public
-   */
-  analysisTemplateArn?: string | undefined;
-}
-
-/**
- * <p>Details about the member who received the job result.</p>
- * @public
- */
-export interface ProtectedJobSingleMemberOutput {
-  /**
-   * <p>The Amazon Web Services account ID of the member in the collaboration who can receive results from analyses.</p>
-   * @public
-   */
-  accountId: string | undefined;
-}
-
-/**
- * <p>Contains output information for protected jobs with an S3 output type.</p>
- * @public
- */
-export interface ProtectedJobS3Output {
-  /**
-   * <p> The S3 location for the protected job output.</p>
-   * @public
-   */
-  location: string | undefined;
-}
-
-/**
- * <p>Contains details about the protected job output.</p>
- * @public
- */
-export type ProtectedJobOutput =
-  | ProtectedJobOutput.MemberListMember
-  | ProtectedJobOutput.S3Member
-  | ProtectedJobOutput.$UnknownMember;
-
-/**
- * @public
- */
-export namespace ProtectedJobOutput {
-  /**
-   * <p>If present, the output for a protected job with an `S3` output type.</p>
-   * @public
-   */
-  export interface S3Member {
-    s3: ProtectedJobS3Output;
-    memberList?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>The list of member Amazon Web Services account(s) that received the results of the job. </p>
-   * @public
-   */
-  export interface MemberListMember {
-    s3?: never;
-    memberList: ProtectedJobSingleMemberOutput[];
-    $unknown?: never;
-  }
-
-  /**
-   * @public
-   */
-  export interface $UnknownMember {
-    s3?: never;
-    memberList?: never;
-    $unknown: [string, any];
-  }
-
-  export interface Visitor<T> {
-    s3: (value: ProtectedJobS3Output) => T;
-    memberList: (value: ProtectedJobSingleMemberOutput[]) => T;
-    _: (name: string, value: any) => T;
-  }
-
-  export const visit = <T>(value: ProtectedJobOutput, visitor: Visitor<T>): T => {
-    if (value.s3 !== undefined) return visitor.s3(value.s3);
-    if (value.memberList !== undefined) return visitor.memberList(value.memberList);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
-}
-
-/**
- * <p>Details about the job results.</p>
- * @public
- */
-export interface ProtectedJobResult {
-  /**
-   * <p> The output of the protected job.</p>
-   * @public
-   */
-  output: ProtectedJobOutput | undefined;
-}
-
-/**
- * <p> The protected job member output configuration output.</p>
- * @public
- */
-export interface ProtectedJobMemberOutputConfigurationOutput {
-  /**
-   * <p> The account ID.</p>
-   * @public
-   */
-  accountId: string | undefined;
-}
 
 /**
  * @internal

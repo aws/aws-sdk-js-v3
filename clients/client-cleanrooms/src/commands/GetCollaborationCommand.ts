@@ -62,6 +62,9 @@ export interface GetCollaborationCommandOutput extends GetCollaborationOutput, _
  * //     queryLogStatus: "ENABLED" || "DISABLED", // required
  * //     jobLogStatus: "ENABLED" || "DISABLED",
  * //     analyticsEngine: "SPARK" || "CLEAN_ROOMS_SQL",
+ * //     autoApprovedChangeTypes: [ // AutoApprovedChangeTypeList
+ * //       "ADD_MEMBER",
+ * //     ],
  * //   },
  * // };
  *

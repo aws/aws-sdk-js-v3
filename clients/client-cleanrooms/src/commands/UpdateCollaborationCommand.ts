@@ -65,6 +65,9 @@ export interface UpdateCollaborationCommandOutput extends UpdateCollaborationOut
  * //     queryLogStatus: "ENABLED" || "DISABLED", // required
  * //     jobLogStatus: "ENABLED" || "DISABLED",
  * //     analyticsEngine: "SPARK" || "CLEAN_ROOMS_SQL",
+ * //     autoApprovedChangeTypes: [ // AutoApprovedChangeTypeList
+ * //       "ADD_MEMBER",
+ * //     ],
  * //   },
  * // };
  *

@@ -67,6 +67,10 @@ import {
   CreateAnalysisTemplateCommandOutput,
 } from "./commands/CreateAnalysisTemplateCommand";
 import {
+  CreateCollaborationChangeRequestCommandInput,
+  CreateCollaborationChangeRequestCommandOutput,
+} from "./commands/CreateCollaborationChangeRequestCommand";
+import {
   CreateCollaborationCommandInput,
   CreateCollaborationCommandOutput,
 } from "./commands/CreateCollaborationCommand";
@@ -153,6 +157,10 @@ import {
   GetCollaborationAnalysisTemplateCommandInput,
   GetCollaborationAnalysisTemplateCommandOutput,
 } from "./commands/GetCollaborationAnalysisTemplateCommand";
+import {
+  GetCollaborationChangeRequestCommandInput,
+  GetCollaborationChangeRequestCommandOutput,
+} from "./commands/GetCollaborationChangeRequestCommand";
 import { GetCollaborationCommandInput, GetCollaborationCommandOutput } from "./commands/GetCollaborationCommand";
 import {
   GetCollaborationConfiguredAudienceModelAssociationCommandInput,
@@ -208,6 +216,10 @@ import {
   ListCollaborationAnalysisTemplatesCommandInput,
   ListCollaborationAnalysisTemplatesCommandOutput,
 } from "./commands/ListCollaborationAnalysisTemplatesCommand";
+import {
+  ListCollaborationChangeRequestsCommandInput,
+  ListCollaborationChangeRequestsCommandOutput,
+} from "./commands/ListCollaborationChangeRequestsCommand";
 import {
   ListCollaborationConfiguredAudienceModelAssociationsCommandInput,
   ListCollaborationConfiguredAudienceModelAssociationsCommandOutput,
@@ -342,6 +354,7 @@ export type ServiceInputTypes =
   | BatchGetSchemaAnalysisRuleCommandInput
   | BatchGetSchemaCommandInput
   | CreateAnalysisTemplateCommandInput
+  | CreateCollaborationChangeRequestCommandInput
   | CreateCollaborationCommandInput
   | CreateConfiguredAudienceModelAssociationCommandInput
   | CreateConfiguredTableAnalysisRuleCommandInput
@@ -366,6 +379,7 @@ export type ServiceInputTypes =
   | DeletePrivacyBudgetTemplateCommandInput
   | GetAnalysisTemplateCommandInput
   | GetCollaborationAnalysisTemplateCommandInput
+  | GetCollaborationChangeRequestCommandInput
   | GetCollaborationCommandInput
   | GetCollaborationConfiguredAudienceModelAssociationCommandInput
   | GetCollaborationIdNamespaceAssociationCommandInput
@@ -385,6 +399,7 @@ export type ServiceInputTypes =
   | GetSchemaCommandInput
   | ListAnalysisTemplatesCommandInput
   | ListCollaborationAnalysisTemplatesCommandInput
+  | ListCollaborationChangeRequestsCommandInput
   | ListCollaborationConfiguredAudienceModelAssociationsCommandInput
   | ListCollaborationIdNamespaceAssociationsCommandInput
   | ListCollaborationPrivacyBudgetTemplatesCommandInput
@@ -431,6 +446,7 @@ export type ServiceOutputTypes =
   | BatchGetSchemaAnalysisRuleCommandOutput
   | BatchGetSchemaCommandOutput
   | CreateAnalysisTemplateCommandOutput
+  | CreateCollaborationChangeRequestCommandOutput
   | CreateCollaborationCommandOutput
   | CreateConfiguredAudienceModelAssociationCommandOutput
   | CreateConfiguredTableAnalysisRuleCommandOutput
@@ -455,6 +471,7 @@ export type ServiceOutputTypes =
   | DeletePrivacyBudgetTemplateCommandOutput
   | GetAnalysisTemplateCommandOutput
   | GetCollaborationAnalysisTemplateCommandOutput
+  | GetCollaborationChangeRequestCommandOutput
   | GetCollaborationCommandOutput
   | GetCollaborationConfiguredAudienceModelAssociationCommandOutput
   | GetCollaborationIdNamespaceAssociationCommandOutput
@@ -474,6 +491,7 @@ export type ServiceOutputTypes =
   | GetSchemaCommandOutput
   | ListAnalysisTemplatesCommandOutput
   | ListCollaborationAnalysisTemplatesCommandOutput
+  | ListCollaborationChangeRequestsCommandOutput
   | ListCollaborationConfiguredAudienceModelAssociationsCommandOutput
   | ListCollaborationIdNamespaceAssociationsCommandOutput
   | ListCollaborationPrivacyBudgetTemplatesCommandOutput

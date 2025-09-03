@@ -48,6 +48,10 @@ import {
   CreateAnalysisTemplateCommandOutput,
 } from "../commands/CreateAnalysisTemplateCommand";
 import {
+  CreateCollaborationChangeRequestCommandInput,
+  CreateCollaborationChangeRequestCommandOutput,
+} from "../commands/CreateCollaborationChangeRequestCommand";
+import {
   CreateCollaborationCommandInput,
   CreateCollaborationCommandOutput,
 } from "../commands/CreateCollaborationCommand";
@@ -134,6 +138,10 @@ import {
   GetCollaborationAnalysisTemplateCommandInput,
   GetCollaborationAnalysisTemplateCommandOutput,
 } from "../commands/GetCollaborationAnalysisTemplateCommand";
+import {
+  GetCollaborationChangeRequestCommandInput,
+  GetCollaborationChangeRequestCommandOutput,
+} from "../commands/GetCollaborationChangeRequestCommand";
 import { GetCollaborationCommandInput, GetCollaborationCommandOutput } from "../commands/GetCollaborationCommand";
 import {
   GetCollaborationConfiguredAudienceModelAssociationCommandInput,
@@ -189,6 +197,10 @@ import {
   ListCollaborationAnalysisTemplatesCommandInput,
   ListCollaborationAnalysisTemplatesCommandOutput,
 } from "../commands/ListCollaborationAnalysisTemplatesCommand";
+import {
+  ListCollaborationChangeRequestsCommandInput,
+  ListCollaborationChangeRequestsCommandOutput,
+} from "../commands/ListCollaborationChangeRequestsCommand";
 import {
   ListCollaborationConfiguredAudienceModelAssociationsCommandInput,
   ListCollaborationConfiguredAudienceModelAssociationsCommandOutput,
@@ -321,9 +333,14 @@ import {
   AnalysisTemplateArtifacts,
   AnalysisTemplateSummary,
   AthenaTableReference,
+  AutoApprovedChangeType,
+  ChangeInput,
+  ChangeSpecification,
   Collaboration,
   CollaborationAnalysisTemplate,
   CollaborationAnalysisTemplateSummary,
+  CollaborationChangeRequest,
+  CollaborationChangeRequestSummary,
   CollaborationConfiguredAudienceModelAssociation,
   CollaborationConfiguredAudienceModelAssociationSummary,
   CollaborationIdNamespaceAssociation,
@@ -366,7 +383,7 @@ import {
   JobComputePaymentConfig,
   JoinOperator,
   MemberAbility,
-  Membership,
+  MemberChangeSpecification,
   MembershipJobComputePaymentConfig,
   MembershipMLPaymentConfig,
   MembershipModelInferencePaymentConfig,
@@ -384,7 +401,6 @@ import {
   ModelInferencePaymentConfig,
   ModelTrainingPaymentConfig,
   PaymentConfiguration,
-  ProtectedJobParameters,
   ProtectedJobS3OutputConfigurationInput,
   ProtectedQueryS3OutputConfiguration,
   QueryComputePaymentConfig,
@@ -412,6 +428,7 @@ import {
   DifferentialPrivacySensitivityParameters,
   DifferentialPrivacyTemplateParametersInput,
   DifferentialPrivacyTemplateUpdateParameters,
+  Membership,
   MembershipSummary,
   PreviewPrivacyImpactParametersInput,
   PrivacyBudgetSummary,
@@ -422,6 +439,7 @@ import {
   ProtectedJob,
   ProtectedJobMemberOutputConfigurationInput,
   ProtectedJobOutputConfigurationInput,
+  ProtectedJobParameters,
   ProtectedJobResultConfigurationInput,
   ProtectedJobStatistics,
   ProtectedJobSummary,
@@ -552,6 +570,7 @@ export const se_CreateCollaborationCommand = async (
   body = JSON.stringify(
     take(input, {
       analyticsEngine: [],
+      autoApprovedChangeRequestTypes: (_) => _json(_),
       creatorDisplayName: [],
       creatorMLMemberAbilities: (_) => _json(_),
       creatorMemberAbilities: (_) => _json(_),
@@ -563,6 +582,29 @@ export const se_CreateCollaborationCommand = async (
       name: [],
       queryLogStatus: [],
       tags: (_) => _json(_),
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1CreateCollaborationChangeRequestCommand
+ */
+export const se_CreateCollaborationChangeRequestCommand = async (
+  input: CreateCollaborationChangeRequestCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/collaborations/{collaborationIdentifier}/changeRequests");
+  b.p("collaborationIdentifier", () => input.collaborationIdentifier!, "{collaborationIdentifier}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      changes: (_) => _json(_),
     })
   );
   b.m("POST").h(headers).b(body);
@@ -1097,6 +1139,23 @@ export const se_GetCollaborationAnalysisTemplateCommand = async (
 };
 
 /**
+ * serializeAws_restJson1GetCollaborationChangeRequestCommand
+ */
+export const se_GetCollaborationChangeRequestCommand = async (
+  input: GetCollaborationChangeRequestCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/collaborations/{collaborationIdentifier}/changeRequests/{changeRequestIdentifier}");
+  b.p("collaborationIdentifier", () => input.collaborationIdentifier!, "{collaborationIdentifier}", false);
+  b.p("changeRequestIdentifier", () => input.changeRequestIdentifier!, "{changeRequestIdentifier}", false);
+  let body: any;
+  b.m("GET").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1GetCollaborationConfiguredAudienceModelAssociationCommand
  */
 export const se_GetCollaborationConfiguredAudienceModelAssociationCommand = async (
@@ -1446,6 +1505,27 @@ export const se_ListCollaborationAnalysisTemplatesCommand = async (
   b.bp("/collaborations/{collaborationIdentifier}/analysistemplates");
   b.p("collaborationIdentifier", () => input.collaborationIdentifier!, "{collaborationIdentifier}", false);
   const query: any = map({
+    [_nT]: [, input[_nT]!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
+  });
+  let body: any;
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1ListCollaborationChangeRequestsCommand
+ */
+export const se_ListCollaborationChangeRequestsCommand = async (
+  input: ListCollaborationChangeRequestsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/collaborations/{collaborationIdentifier}/changeRequests");
+  b.p("collaborationIdentifier", () => input.collaborationIdentifier!, "{collaborationIdentifier}", false);
+  const query: any = map({
+    [_s]: [, input[_s]!],
     [_nT]: [, input[_nT]!],
     [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
   });
@@ -2411,6 +2491,27 @@ export const de_CreateCollaborationCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1CreateCollaborationChangeRequestCommand
+ */
+export const de_CreateCollaborationChangeRequestCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateCollaborationChangeRequestCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    collaborationChangeRequest: (_) => de_CollaborationChangeRequest(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1CreateConfiguredAudienceModelAssociationCommand
  */
 export const de_CreateConfiguredAudienceModelAssociationCommand = async (
@@ -2867,6 +2968,27 @@ export const de_GetCollaborationAnalysisTemplateCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1GetCollaborationChangeRequestCommand
+ */
+export const de_GetCollaborationChangeRequestCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetCollaborationChangeRequestCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    collaborationChangeRequest: (_) => de_CollaborationChangeRequest(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1GetCollaborationConfiguredAudienceModelAssociationCommand
  */
 export const de_GetCollaborationConfiguredAudienceModelAssociationCommand = async (
@@ -3241,6 +3363,28 @@ export const de_ListCollaborationAnalysisTemplatesCommand = async (
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
     collaborationAnalysisTemplateSummaries: (_) => de_CollaborationAnalysisTemplateSummaryList(_, context),
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListCollaborationChangeRequestsCommand
+ */
+export const de_ListCollaborationChangeRequestsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListCollaborationChangeRequestsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    collaborationChangeRequestSummaries: (_) => de_CollaborationChangeRequestSummaryList(_, context),
     nextToken: __expectString,
   });
   Object.assign(contents, doc);
@@ -4263,6 +4407,14 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 
 // se_AthenaTableReference omitted.
 
+// se_AutoApprovedChangeTypeList omitted.
+
+// se_ChangeInput omitted.
+
+// se_ChangeInputList omitted.
+
+// se_ChangeSpecification omitted.
+
 // se_ComputeConfiguration omitted.
 
 // se_ConfiguredTableAnalysisRulePolicy omitted.
@@ -4310,6 +4462,8 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 // se_JoinOperatorsList omitted.
 
 // se_MemberAbilities omitted.
+
+// se_MemberChangeSpecification omitted.
 
 // se_MemberList omitted.
 
@@ -4544,6 +4698,8 @@ const de_AnalysisTemplateSummaryList = (output: any, context: __SerdeContext): A
 
 // de_AthenaTableReference omitted.
 
+// de_AutoApprovedChangeTypeList omitted.
+
 // de_BatchGetCollaborationAnalysisTemplateError omitted.
 
 // de_BatchGetCollaborationAnalysisTemplateErrorList omitted.
@@ -4574,6 +4730,14 @@ const de_BilledResourceUtilization = (output: any, context: __SerdeContext): Bil
   }) as any;
 };
 
+// de_Change omitted.
+
+// de_ChangeList omitted.
+
+// de_ChangeSpecification omitted.
+
+// de_ChangeTypeList omitted.
+
 /**
  * deserializeAws_restJson1Collaboration
  */
@@ -4581,6 +4745,7 @@ const de_Collaboration = (output: any, context: __SerdeContext): Collaboration =
   return take(output, {
     analyticsEngine: __expectString,
     arn: __expectString,
+    autoApprovedChangeTypes: _json,
     createTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     creatorAccountId: __expectString,
     creatorDisplayName: __expectString,
@@ -4667,6 +4832,54 @@ const de_CollaborationAnalysisTemplateSummaryList = (
     .filter((e: any) => e != null)
     .map((entry: any) => {
       return de_CollaborationAnalysisTemplateSummary(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_restJson1CollaborationChangeRequest
+ */
+const de_CollaborationChangeRequest = (output: any, context: __SerdeContext): CollaborationChangeRequest => {
+  return take(output, {
+    changes: _json,
+    collaborationId: __expectString,
+    createTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    id: __expectString,
+    isAutoApproved: __expectBoolean,
+    status: __expectString,
+    updateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1CollaborationChangeRequestSummary
+ */
+const de_CollaborationChangeRequestSummary = (
+  output: any,
+  context: __SerdeContext
+): CollaborationChangeRequestSummary => {
+  return take(output, {
+    changes: _json,
+    collaborationId: __expectString,
+    createTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    id: __expectString,
+    isAutoApproved: __expectBoolean,
+    status: __expectString,
+    updateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1CollaborationChangeRequestSummaryList
+ */
+const de_CollaborationChangeRequestSummaryList = (
+  output: any,
+  context: __SerdeContext
+): CollaborationChangeRequestSummary[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_CollaborationChangeRequestSummary(entry, context);
     });
   return retVal;
 };
@@ -5367,6 +5580,8 @@ const de_IdNamespaceAssociationSummaryList = (
 // de_JoinOperatorsList omitted.
 
 // de_MemberAbilities omitted.
+
+// de_MemberChangeSpecification omitted.
 
 /**
  * deserializeAws_restJson1Membership

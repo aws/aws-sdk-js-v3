@@ -24,6 +24,11 @@ import {
   CreateAnalysisTemplateCommandOutput,
 } from "./commands/CreateAnalysisTemplateCommand";
 import {
+  CreateCollaborationChangeRequestCommand,
+  CreateCollaborationChangeRequestCommandInput,
+  CreateCollaborationChangeRequestCommandOutput,
+} from "./commands/CreateCollaborationChangeRequestCommand";
+import {
   CreateCollaborationCommand,
   CreateCollaborationCommandInput,
   CreateCollaborationCommandOutput,
@@ -144,6 +149,11 @@ import {
   GetCollaborationAnalysisTemplateCommandOutput,
 } from "./commands/GetCollaborationAnalysisTemplateCommand";
 import {
+  GetCollaborationChangeRequestCommand,
+  GetCollaborationChangeRequestCommandInput,
+  GetCollaborationChangeRequestCommandOutput,
+} from "./commands/GetCollaborationChangeRequestCommand";
+import {
   GetCollaborationCommand,
   GetCollaborationCommandInput,
   GetCollaborationCommandOutput,
@@ -234,6 +244,11 @@ import {
   ListCollaborationAnalysisTemplatesCommandInput,
   ListCollaborationAnalysisTemplatesCommandOutput,
 } from "./commands/ListCollaborationAnalysisTemplatesCommand";
+import {
+  ListCollaborationChangeRequestsCommand,
+  ListCollaborationChangeRequestsCommandInput,
+  ListCollaborationChangeRequestsCommandOutput,
+} from "./commands/ListCollaborationChangeRequestsCommand";
 import {
   ListCollaborationConfiguredAudienceModelAssociationsCommand,
   ListCollaborationConfiguredAudienceModelAssociationsCommandInput,
@@ -414,6 +429,7 @@ const commands = {
   BatchGetSchemaAnalysisRuleCommand,
   CreateAnalysisTemplateCommand,
   CreateCollaborationCommand,
+  CreateCollaborationChangeRequestCommand,
   CreateConfiguredAudienceModelAssociationCommand,
   CreateConfiguredTableCommand,
   CreateConfiguredTableAnalysisRuleCommand,
@@ -438,6 +454,7 @@ const commands = {
   GetAnalysisTemplateCommand,
   GetCollaborationCommand,
   GetCollaborationAnalysisTemplateCommand,
+  GetCollaborationChangeRequestCommand,
   GetCollaborationConfiguredAudienceModelAssociationCommand,
   GetCollaborationIdNamespaceAssociationCommand,
   GetCollaborationPrivacyBudgetTemplateCommand,
@@ -456,6 +473,7 @@ const commands = {
   GetSchemaAnalysisRuleCommand,
   ListAnalysisTemplatesCommand,
   ListCollaborationAnalysisTemplatesCommand,
+  ListCollaborationChangeRequestsCommand,
   ListCollaborationConfiguredAudienceModelAssociationsCommand,
   ListCollaborationIdNamespaceAssociationsCommand,
   ListCollaborationPrivacyBudgetsCommand,
@@ -576,6 +594,23 @@ export interface CleanRooms {
     args: CreateCollaborationCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateCollaborationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateCollaborationChangeRequestCommand}
+   */
+  createCollaborationChangeRequest(
+    args: CreateCollaborationChangeRequestCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateCollaborationChangeRequestCommandOutput>;
+  createCollaborationChangeRequest(
+    args: CreateCollaborationChangeRequestCommandInput,
+    cb: (err: any, data?: CreateCollaborationChangeRequestCommandOutput) => void
+  ): void;
+  createCollaborationChangeRequest(
+    args: CreateCollaborationChangeRequestCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateCollaborationChangeRequestCommandOutput) => void
   ): void;
 
   /**
@@ -981,6 +1016,23 @@ export interface CleanRooms {
   ): void;
 
   /**
+   * @see {@link GetCollaborationChangeRequestCommand}
+   */
+  getCollaborationChangeRequest(
+    args: GetCollaborationChangeRequestCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetCollaborationChangeRequestCommandOutput>;
+  getCollaborationChangeRequest(
+    args: GetCollaborationChangeRequestCommandInput,
+    cb: (err: any, data?: GetCollaborationChangeRequestCommandOutput) => void
+  ): void;
+  getCollaborationChangeRequest(
+    args: GetCollaborationChangeRequestCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetCollaborationChangeRequestCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetCollaborationConfiguredAudienceModelAssociationCommand}
    */
   getCollaborationConfiguredAudienceModelAssociation(
@@ -1269,6 +1321,23 @@ export interface CleanRooms {
     args: ListCollaborationAnalysisTemplatesCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListCollaborationAnalysisTemplatesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListCollaborationChangeRequestsCommand}
+   */
+  listCollaborationChangeRequests(
+    args: ListCollaborationChangeRequestsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListCollaborationChangeRequestsCommandOutput>;
+  listCollaborationChangeRequests(
+    args: ListCollaborationChangeRequestsCommandInput,
+    cb: (err: any, data?: ListCollaborationChangeRequestsCommandOutput) => void
+  ): void;
+  listCollaborationChangeRequests(
+    args: ListCollaborationChangeRequestsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListCollaborationChangeRequestsCommandOutput) => void
   ): void;
 
   /**

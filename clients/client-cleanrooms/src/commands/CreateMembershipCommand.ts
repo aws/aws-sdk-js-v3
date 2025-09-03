@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { CleanRoomsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CleanRoomsClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { CreateMembershipInput, CreateMembershipOutput } from "../models/models_0";
+import { CreateMembershipInput, CreateMembershipOutput } from "../models/models_1";
 import { de_CreateMembershipCommand, se_CreateMembershipCommand } from "../protocols/Aws_restJson1";
 
 /**
