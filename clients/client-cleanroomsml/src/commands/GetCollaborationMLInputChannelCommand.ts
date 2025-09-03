@@ -47,9 +47,6 @@ export interface GetCollaborationMLInputChannelCommandOutput
  * const command = new GetCollaborationMLInputChannelCommand(input);
  * const response = await client.send(command);
  * // { // GetCollaborationMLInputChannelResponse
- * //   createTime: new Date("TIMESTAMP"), // required
- * //   updateTime: new Date("TIMESTAMP"), // required
- * //   creatorAccountId: "STRING_VALUE", // required
  * //   membershipIdentifier: "STRING_VALUE", // required
  * //   collaborationIdentifier: "STRING_VALUE", // required
  * //   mlInputChannelArn: "STRING_VALUE", // required
@@ -65,6 +62,9 @@ export interface GetCollaborationMLInputChannelCommandOutput
  * //   retentionInDays: Number("int"), // required
  * //   numberOfRecords: Number("long"),
  * //   description: "STRING_VALUE",
+ * //   createTime: new Date("TIMESTAMP"), // required
+ * //   updateTime: new Date("TIMESTAMP"), // required
+ * //   creatorAccountId: "STRING_VALUE", // required
  * // };
  *
  * ```

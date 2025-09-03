@@ -1919,6 +1919,65 @@ export interface TrainedModelExportsConfigurationPolicy {
 }
 
 /**
+ * <p>The configuration for defining custom patterns to be redacted from logs and error messages. This is for the CUSTOM config under entitiesToRedact. Both CustomEntityConfig and entitiesToRedact need to be present or not present.</p>
+ * @public
+ */
+export interface CustomEntityConfig {
+  /**
+   * <p>Defines data identifiers for the custom entity configuration. Provide this only if CUSTOM redaction is configured. </p>
+   * @public
+   */
+  customDataIdentifiers: string[] | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const EntityType = {
+  ALL_PERSONALLY_IDENTIFIABLE_INFORMATION: "ALL_PERSONALLY_IDENTIFIABLE_INFORMATION",
+  CUSTOM: "CUSTOM",
+  NUMBERS: "NUMBERS",
+} as const;
+
+/**
+ * @public
+ */
+export type EntityType = (typeof EntityType)[keyof typeof EntityType];
+
+/**
+ * <p>The configuration for log redaction.</p>
+ * @public
+ */
+export interface LogRedactionConfiguration {
+  /**
+   * <p>Specifies the entities to be redacted from logs. Entities to redact are "ALL_PERSONALLY_IDENTIFIABLE_INFORMATION", "NUMBERS","CUSTOM". If CUSTOM is supplied or configured, custom patterns (customDataIdentifiers) should be provided, and the patterns will be redacted in logs or error messages.</p>
+   * @public
+   */
+  entitiesToRedact: EntityType[] | undefined;
+
+  /**
+   * <p>Specifies the configuration for custom entities in the context of log redaction.</p>
+   * @public
+   */
+  customEntityConfig?: CustomEntityConfig | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const LogType = {
+  ALL: "ALL",
+  ERROR_SUMMARY: "ERROR_SUMMARY",
+} as const;
+
+/**
+ * @public
+ */
+export type LogType = (typeof LogType)[keyof typeof LogType];
+
+/**
  * <p>Provides the information necessary for a user to access the logs.</p>
  * @public
  */
@@ -1934,6 +1993,18 @@ export interface LogsConfigurationPolicy {
    * @public
    */
   filterPattern?: string | undefined;
+
+  /**
+   * <p>Specifies the type of log this policy applies to. The currently supported policies are ALL or ERROR_SUMMARY.</p>
+   * @public
+   */
+  logType?: LogType | undefined;
+
+  /**
+   * <p>Specifies the log redaction configuration for this policy.</p>
+   * @public
+   */
+  logRedactionConfiguration?: LogRedactionConfiguration | undefined;
 }
 
 /**
@@ -3556,24 +3627,6 @@ export interface GetCollaborationMLInputChannelRequest {
  */
 export interface GetCollaborationMLInputChannelResponse {
   /**
-   * <p>The time at which the ML input channel was created.</p>
-   * @public
-   */
-  createTime: Date | undefined;
-
-  /**
-   * <p>The most recent time at which the ML input channel was updated.</p>
-   * @public
-   */
-  updateTime: Date | undefined;
-
-  /**
-   * <p>The account ID of the member who created the ML input channel.</p>
-   * @public
-   */
-  creatorAccountId: string | undefined;
-
-  /**
    * <p>The membership ID of the membership that contains the ML input channel.</p>
    * @public
    */
@@ -3632,6 +3685,24 @@ export interface GetCollaborationMLInputChannelResponse {
    * @public
    */
   description?: string | undefined;
+
+  /**
+   * <p>The time at which the ML input channel was created.</p>
+   * @public
+   */
+  createTime: Date | undefined;
+
+  /**
+   * <p>The most recent time at which the ML input channel was updated.</p>
+   * @public
+   */
+  updateTime: Date | undefined;
+
+  /**
+   * <p>The account ID of the member who created the ML input channel.</p>
+   * @public
+   */
+  creatorAccountId: string | undefined;
 }
 
 /**
@@ -3656,18 +3727,6 @@ export interface GetMLInputChannelRequest {
  */
 export interface GetMLInputChannelResponse {
   /**
-   * <p>The time at which the ML input channel was created.</p>
-   * @public
-   */
-  createTime: Date | undefined;
-
-  /**
-   * <p>The most recent time at which the ML input channel was updated.</p>
-   * @public
-   */
-  updateTime: Date | undefined;
-
-  /**
    * <p>The membership ID of the membership that contains the ML input channel.</p>
    * @public
    */
@@ -3678,18 +3737,6 @@ export interface GetMLInputChannelResponse {
    * @public
    */
   collaborationIdentifier: string | undefined;
-
-  /**
-   * <p>The input channel that was used to create the ML input channel.</p>
-   * @public
-   */
-  inputChannel: InputChannel | undefined;
-
-  /**
-   * <p>The ID of the protected query that was used to create the ML input channel.</p>
-   * @public
-   */
-  protectedQueryIdentifier?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the ML input channel.</p>
@@ -3734,6 +3781,36 @@ export interface GetMLInputChannelResponse {
   numberOfRecords?: number | undefined;
 
   /**
+   * <p>The description of the ML input channel.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>The time at which the ML input channel was created.</p>
+   * @public
+   */
+  createTime: Date | undefined;
+
+  /**
+   * <p>The most recent time at which the ML input channel was updated.</p>
+   * @public
+   */
+  updateTime: Date | undefined;
+
+  /**
+   * <p>The input channel that was used to create the ML input channel.</p>
+   * @public
+   */
+  inputChannel: InputChannel | undefined;
+
+  /**
+   * <p>The ID of the protected query that was used to create the ML input channel.</p>
+   * @public
+   */
+  protectedQueryIdentifier?: string | undefined;
+
+  /**
    * <p>The number of files in the ML input channel.</p>
    * @public
    */
@@ -3744,12 +3821,6 @@ export interface GetMLInputChannelResponse {
    * @public
    */
   sizeInGb?: number | undefined;
-
-  /**
-   * <p>The description of the ML input channel.</p>
-   * @public
-   */
-  description?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the KMS key that was used to create the ML input channel.</p>
@@ -4004,6 +4075,15 @@ export const _InstanceType = {
   ML_C6I_4XLARGE: "ml.c6i.4xlarge",
   ML_C6I_8XLARGE: "ml.c6i.8xlarge",
   ML_C6I_XLARGE: "ml.c6i.xlarge",
+  ML_C7I_12XLARGE: "ml.c7i.12xlarge",
+  ML_C7I_16XLARGE: "ml.c7i.16xlarge",
+  ML_C7I_24XLARGE: "ml.c7i.24xlarge",
+  ML_C7I_2XLARGE: "ml.c7i.2xlarge",
+  ML_C7I_48XLARGE: "ml.c7i.48xlarge",
+  ML_C7I_4XLARGE: "ml.c7i.4xlarge",
+  ML_C7I_8XLARGE: "ml.c7i.8xlarge",
+  ML_C7I_LARGE: "ml.c7i.large",
+  ML_C7I_XLARGE: "ml.c7i.xlarge",
   ML_G4DN_12XLARGE: "ml.g4dn.12xlarge",
   ML_G4DN_16XLARGE: "ml.g4dn.16xlarge",
   ML_G4DN_2XLARGE: "ml.g4dn.2xlarge",
@@ -4018,6 +4098,22 @@ export const _InstanceType = {
   ML_G5_4XLARGE: "ml.g5.4xlarge",
   ML_G5_8XLARGE: "ml.g5.8xlarge",
   ML_G5_XLARGE: "ml.g5.xlarge",
+  ML_G6E_12XLARGE: "ml.g6e.12xlarge",
+  ML_G6E_16XLARGE: "ml.g6e.16xlarge",
+  ML_G6E_24XLARGE: "ml.g6e.24xlarge",
+  ML_G6E_2XLARGE: "ml.g6e.2xlarge",
+  ML_G6E_48XLARGE: "ml.g6e.48xlarge",
+  ML_G6E_4XLARGE: "ml.g6e.4xlarge",
+  ML_G6E_8XLARGE: "ml.g6e.8xlarge",
+  ML_G6E_XLARGE: "ml.g6e.xlarge",
+  ML_G6_12XLARGE: "ml.g6.12xlarge",
+  ML_G6_16XLARGE: "ml.g6.16xlarge",
+  ML_G6_24XLARGE: "ml.g6.24xlarge",
+  ML_G6_2XLARGE: "ml.g6.2xlarge",
+  ML_G6_48XLARGE: "ml.g6.48xlarge",
+  ML_G6_4XLARGE: "ml.g6.4xlarge",
+  ML_G6_8XLARGE: "ml.g6.8xlarge",
+  ML_G6_XLARGE: "ml.g6.xlarge",
   ML_M4_10XLARGE: "ml.m4.10xlarge",
   ML_M4_16XLARGE: "ml.m4.16xlarge",
   ML_M4_2XLARGE: "ml.m4.2xlarge",
@@ -4038,6 +4134,15 @@ export const _InstanceType = {
   ML_M6I_8XLARGE: "ml.m6i.8xlarge",
   ML_M6I_LARGE: "ml.m6i.large",
   ML_M6I_XLARGE: "ml.m6i.xlarge",
+  ML_M7I_12XLARGE: "ml.m7i.12xlarge",
+  ML_M7I_16XLARGE: "ml.m7i.16xlarge",
+  ML_M7I_24XLARGE: "ml.m7i.24xlarge",
+  ML_M7I_2XLARGE: "ml.m7i.2xlarge",
+  ML_M7I_48XLARGE: "ml.m7i.48xlarge",
+  ML_M7I_4XLARGE: "ml.m7i.4xlarge",
+  ML_M7I_8XLARGE: "ml.m7i.8xlarge",
+  ML_M7I_LARGE: "ml.m7i.large",
+  ML_M7I_XLARGE: "ml.m7i.xlarge",
   ML_P2_16XLARGE: "ml.p2.16xlarge",
   ML_P2_8XLARGE: "ml.p2.8xlarge",
   ML_P2_XLARGE: "ml.p2.xlarge",
@@ -4047,6 +4152,7 @@ export const _InstanceType = {
   ML_P3_8XLARGE: "ml.p3.8xlarge",
   ML_P4DE_24XLARGE: "ml.p4de.24xlarge",
   ML_P4D_24XLARGE: "ml.p4d.24xlarge",
+  ML_P5EN_48XLARGE: "ml.p5en.48xlarge",
   ML_P5_48XLARGE: "ml.p5.48xlarge",
   ML_R5D_12XLARGE: "ml.r5d.12xlarge",
   ML_R5D_16XLARGE: "ml.r5d.16xlarge",
@@ -4064,6 +4170,15 @@ export const _InstanceType = {
   ML_R5_8XLARGE: "ml.r5.8xlarge",
   ML_R5_LARGE: "ml.r5.large",
   ML_R5_XLARGE: "ml.r5.xlarge",
+  ML_R7I_12XLARGE: "ml.r7i.12xlarge",
+  ML_R7I_16XLARGE: "ml.r7i.16xlarge",
+  ML_R7I_24XLARGE: "ml.r7i.24xlarge",
+  ML_R7I_2XLARGE: "ml.r7i.2xlarge",
+  ML_R7I_48XLARGE: "ml.r7i.48xlarge",
+  ML_R7I_4XLARGE: "ml.r7i.4xlarge",
+  ML_R7I_8XLARGE: "ml.r7i.8xlarge",
+  ML_R7I_LARGE: "ml.r7i.large",
+  ML_R7I_XLARGE: "ml.r7i.xlarge",
   ML_T3_2XLARGE: "ml.t3.2xlarge",
   ML_T3_LARGE: "ml.t3.large",
   ML_T3_MEDIUM: "ml.t3.medium",

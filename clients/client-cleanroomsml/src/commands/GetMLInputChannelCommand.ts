@@ -46,10 +46,23 @@ export interface GetMLInputChannelCommandOutput extends GetMLInputChannelRespons
  * const command = new GetMLInputChannelCommand(input);
  * const response = await client.send(command);
  * // { // GetMLInputChannelResponse
- * //   createTime: new Date("TIMESTAMP"), // required
- * //   updateTime: new Date("TIMESTAMP"), // required
  * //   membershipIdentifier: "STRING_VALUE", // required
  * //   collaborationIdentifier: "STRING_VALUE", // required
+ * //   mlInputChannelArn: "STRING_VALUE", // required
+ * //   name: "STRING_VALUE", // required
+ * //   configuredModelAlgorithmAssociations: [ // ConfiguredModelAlgorithmAssociationArnList // required
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   status: "CREATE_PENDING" || "CREATE_IN_PROGRESS" || "CREATE_FAILED" || "ACTIVE" || "DELETE_PENDING" || "DELETE_IN_PROGRESS" || "DELETE_FAILED" || "INACTIVE", // required
+ * //   statusDetails: { // StatusDetails
+ * //     statusCode: "STRING_VALUE",
+ * //     message: "STRING_VALUE",
+ * //   },
+ * //   retentionInDays: Number("int"), // required
+ * //   numberOfRecords: Number("long"),
+ * //   description: "STRING_VALUE",
+ * //   createTime: new Date("TIMESTAMP"), // required
+ * //   updateTime: new Date("TIMESTAMP"), // required
  * //   inputChannel: { // InputChannel
  * //     dataSource: { // InputChannelDataSource Union: only one key present
  * //       protectedQueryInputParameters: { // ProtectedQueryInputParameters
@@ -72,21 +85,8 @@ export interface GetMLInputChannelCommandOutput extends GetMLInputChannelRespons
  * //     roleArn: "STRING_VALUE", // required
  * //   },
  * //   protectedQueryIdentifier: "STRING_VALUE",
- * //   mlInputChannelArn: "STRING_VALUE", // required
- * //   name: "STRING_VALUE", // required
- * //   configuredModelAlgorithmAssociations: [ // ConfiguredModelAlgorithmAssociationArnList // required
- * //     "STRING_VALUE",
- * //   ],
- * //   status: "CREATE_PENDING" || "CREATE_IN_PROGRESS" || "CREATE_FAILED" || "ACTIVE" || "DELETE_PENDING" || "DELETE_IN_PROGRESS" || "DELETE_FAILED" || "INACTIVE", // required
- * //   statusDetails: { // StatusDetails
- * //     statusCode: "STRING_VALUE",
- * //     message: "STRING_VALUE",
- * //   },
- * //   retentionInDays: Number("int"), // required
- * //   numberOfRecords: Number("long"),
  * //   numberOfFiles: Number("double"),
  * //   sizeInGb: Number("double"),
- * //   description: "STRING_VALUE",
  * //   kmsKeyArn: "STRING_VALUE",
  * //   tags: { // TagMap
  * //     "<keys>": "STRING_VALUE",

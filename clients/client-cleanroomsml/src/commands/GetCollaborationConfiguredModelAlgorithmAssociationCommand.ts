@@ -69,6 +69,17 @@ export interface GetCollaborationConfiguredModelAlgorithmAssociationCommandOutpu
  * //               "STRING_VALUE",
  * //             ],
  * //             filterPattern: "STRING_VALUE",
+ * //             logType: "ALL" || "ERROR_SUMMARY",
+ * //             logRedactionConfiguration: { // LogRedactionConfiguration
+ * //               entitiesToRedact: [ // EntityTypeList // required
+ * //                 "ALL_PERSONALLY_IDENTIFIABLE_INFORMATION" || "NUMBERS" || "CUSTOM",
+ * //               ],
+ * //               customEntityConfig: { // CustomEntityConfig
+ * //                 customDataIdentifiers: [ // CustomDataIdentifierList // required
+ * //                   "STRING_VALUE",
+ * //                 ],
+ * //               },
+ * //             },
  * //           },
  * //         ],
  * //         containerMetrics: { // MetricsConfigurationPolicy
@@ -95,6 +106,17 @@ export interface GetCollaborationConfiguredModelAlgorithmAssociationCommandOutpu
  * //               "STRING_VALUE",
  * //             ],
  * //             filterPattern: "STRING_VALUE",
+ * //             logType: "ALL" || "ERROR_SUMMARY",
+ * //             logRedactionConfiguration: {
+ * //               entitiesToRedact: [ // required
+ * //                 "ALL_PERSONALLY_IDENTIFIABLE_INFORMATION" || "NUMBERS" || "CUSTOM",
+ * //               ],
+ * //               customEntityConfig: {
+ * //                 customDataIdentifiers: [ // required
+ * //                   "STRING_VALUE",
+ * //                 ],
+ * //               },
+ * //             },
  * //           },
  * //         ],
  * //         maxOutputSize: { // TrainedModelInferenceMaxOutputSize

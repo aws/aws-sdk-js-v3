@@ -253,10 +253,12 @@ import {
   ConfiguredModelAlgorithmSummary,
   ConflictException,
   ContainerConfig,
+  CustomEntityConfig,
   Dataset,
   DatasetInputConfig,
   DataSource,
   Destination,
+  EntityType,
   GlueDataSource,
   IncrementalTrainingDataChannel,
   InferenceContainerConfig,
@@ -267,6 +269,7 @@ import {
   InputChannel,
   InputChannelDataSource,
   InternalServiceException,
+  LogRedactionConfiguration,
   LogsConfigurationPolicy,
   MetricDefinition,
   MetricsConfigurationPolicy,
@@ -3103,6 +3106,10 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 
 // se_ContainerEntrypoint omitted.
 
+// se_CustomDataIdentifierList omitted.
+
+// se_CustomEntityConfig omitted.
+
 // se_Dataset omitted.
 
 // se_DatasetInputConfig omitted.
@@ -3114,6 +3121,8 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 // se_DataSource omitted.
 
 // se_Destination omitted.
+
+// se_EntityTypeList omitted.
 
 // se_Environment omitted.
 
@@ -3142,6 +3151,8 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 // se_InputChannel omitted.
 
 // se_InputChannelDataSource omitted.
+
+// se_LogRedactionConfiguration omitted.
 
 // se_LogsConfigurationPolicy omitted.
 
@@ -3674,6 +3685,10 @@ const de_ConfiguredModelAlgorithmSummary = (output: any, context: __SerdeContext
 
 // de_ContainerEntrypoint omitted.
 
+// de_CustomDataIdentifierList omitted.
+
+// de_CustomEntityConfig omitted.
+
 // de_Dataset omitted.
 
 // de_DatasetInputConfig omitted.
@@ -3685,6 +3700,8 @@ const de_ConfiguredModelAlgorithmSummary = (output: any, context: __SerdeContext
 // de_DataSource omitted.
 
 // de_Destination omitted.
+
+// de_EntityTypeList omitted.
 
 // de_Environment omitted.
 
@@ -3713,6 +3730,8 @@ const de_ConfiguredModelAlgorithmSummary = (output: any, context: __SerdeContext
 // de_InputChannel omitted.
 
 // de_InputChannelDataSource omitted.
+
+// de_LogRedactionConfiguration omitted.
 
 // de_LogsConfigurationPolicy omitted.
 
