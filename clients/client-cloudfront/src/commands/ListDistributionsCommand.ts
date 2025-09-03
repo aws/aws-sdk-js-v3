@@ -98,6 +98,7 @@ export interface ListDistributionsCommandOutput extends ListDistributionsResult,
  * //                 },
  * //                 OriginReadTimeout: Number("int"),
  * //                 OriginKeepaliveTimeout: Number("int"),
+ * //                 IpAddressType: "ipv4" || "ipv6" || "dualstack",
  * //               },
  * //               VpcOriginConfig: { // VpcOriginConfig
  * //                 VpcOriginId: "STRING_VALUE", // required

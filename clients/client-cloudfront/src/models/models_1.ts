@@ -66,6 +66,28 @@ import {
 } from "./models_0";
 
 /**
+ * <p>An origin access control with the specified parameters already exists.</p>
+ * @public
+ */
+export class OriginAccessControlAlreadyExists extends __BaseException {
+  readonly name: "OriginAccessControlAlreadyExists" = "OriginAccessControlAlreadyExists";
+  readonly $fault: "client" = "client";
+  Message?: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<OriginAccessControlAlreadyExists, __BaseException>) {
+    super({
+      name: "OriginAccessControlAlreadyExists",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, OriginAccessControlAlreadyExists.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
  * <p>The number of origin access controls in your Amazon Web Services account exceeds the maximum allowed.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html">Quotas</a> (formerly known as limits) in the <i>Amazon CloudFront Developer Guide</i>.</p>
  * @public
  */
@@ -6097,78 +6119,6 @@ export interface ListStreamingDistributionsRequest {
    * @public
    */
   MaxItems?: number | undefined;
-}
-
-/**
- * <p>A summary of the information for a CloudFront streaming distribution.</p>
- * @public
- */
-export interface StreamingDistributionSummary {
-  /**
-   * <p>The identifier for the distribution, for example, <code>EDFDVBD632BHDS5</code>.</p>
-   * @public
-   */
-  Id: string | undefined;
-
-  /**
-   * <p>The ARN (Amazon Resource Name) for the streaming distribution. For example: <code>arn:aws:cloudfront::123456789012:streaming-distribution/EDFDVBD632BHDS5</code>, where <code>123456789012</code> is your Amazon Web Services account ID.</p>
-   * @public
-   */
-  ARN: string | undefined;
-
-  /**
-   * <p>Indicates the current status of the distribution. When the status is <code>Deployed</code>, the distribution's information is fully propagated throughout the Amazon CloudFront system.</p>
-   * @public
-   */
-  Status: string | undefined;
-
-  /**
-   * <p>The date and time the distribution was last modified.</p>
-   * @public
-   */
-  LastModifiedTime: Date | undefined;
-
-  /**
-   * <p>The domain name corresponding to the distribution, for example, <code>d111111abcdef8.cloudfront.net</code>.</p>
-   * @public
-   */
-  DomainName: string | undefined;
-
-  /**
-   * <p>A complex type that contains information about the Amazon S3 bucket from which you want CloudFront to get your media files for distribution.</p>
-   * @public
-   */
-  S3Origin: S3Origin | undefined;
-
-  /**
-   * <p>A complex type that contains information about CNAMEs (alternate domain names), if any, for this streaming distribution.</p>
-   * @public
-   */
-  Aliases: Aliases | undefined;
-
-  /**
-   * <p>A complex type that specifies the Amazon Web Services accounts, if any, that you want to allow to create signed URLs for private content. If you want to require signed URLs in requests for objects in the target origin that match the <code>PathPattern</code> for this cache behavior, specify <code>true</code> for <code>Enabled</code>, and specify the applicable values for <code>Quantity</code> and <code>Items</code>.If you don't want to require signed URLs in requests for objects that match <code>PathPattern</code>, specify <code>false</code> for <code>Enabled</code> and <code>0</code> for <code>Quantity</code>. Omit <code>Items</code>. To add, change, or remove one or more trusted signers, change <code>Enabled</code> to <code>true</code> (if it's currently <code>false</code>), change <code>Quantity</code> as applicable, and specify all of the trusted signers that you want to include in the updated distribution.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html">Serving Private Content through CloudFront</a> in the <i>Amazon CloudFront Developer Guide</i>.</p>
-   * @public
-   */
-  TrustedSigners: TrustedSigners | undefined;
-
-  /**
-   * <p>The comment originally specified when this distribution was created.</p>
-   * @public
-   */
-  Comment: string | undefined;
-
-  /**
-   * <p>A complex type that contains information about price class for this streaming distribution.</p>
-   * @public
-   */
-  PriceClass: PriceClass | undefined;
-
-  /**
-   * <p>Whether the distribution is enabled to accept end user requests for content.</p>
-   * @public
-   */
-  Enabled: boolean | undefined;
 }
 
 /**

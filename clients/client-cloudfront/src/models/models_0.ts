@@ -2006,6 +2006,21 @@ export interface CustomHeaders {
  * @public
  * @enum
  */
+export const IpAddressType = {
+  DualStack: "dualstack",
+  Ipv4: "ipv4",
+  Ipv6: "ipv6",
+} as const;
+
+/**
+ * @public
+ */
+export type IpAddressType = (typeof IpAddressType)[keyof typeof IpAddressType];
+
+/**
+ * @public
+ * @enum
+ */
 export const OriginProtocolPolicy = {
   http_only: "http-only",
   https_only: "https-only",
@@ -2091,6 +2106,12 @@ export interface CustomOriginConfig {
    * @public
    */
   OriginKeepaliveTimeout?: number | undefined;
+
+  /**
+   * <p>Specifies which IP protocol CloudFront uses when connecting to your origin. If your origin uses both IPv4 and IPv6 protocols, you can choose <code>dualstack</code> to help optimize reliability.</p>
+   * @public
+   */
+  IpAddressType?: IpAddressType | undefined;
 }
 
 /**
@@ -6834,28 +6855,6 @@ export interface CreateOriginAccessControlResult {
    * @public
    */
   ETag?: string | undefined;
-}
-
-/**
- * <p>An origin access control with the specified parameters already exists.</p>
- * @public
- */
-export class OriginAccessControlAlreadyExists extends __BaseException {
-  readonly name: "OriginAccessControlAlreadyExists" = "OriginAccessControlAlreadyExists";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<OriginAccessControlAlreadyExists, __BaseException>) {
-    super({
-      name: "OriginAccessControlAlreadyExists",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, OriginAccessControlAlreadyExists.prototype);
-    this.Message = opts.Message;
-  }
 }
 
 /**

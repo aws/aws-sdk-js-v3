@@ -622,7 +622,6 @@ import {
   NoSuchResponseHeadersPolicy,
   Origin,
   OriginAccessControl,
-  OriginAccessControlAlreadyExists,
   OriginAccessControlConfig,
   OriginCustomHeader,
   OriginGroup,
@@ -751,6 +750,7 @@ import {
   NoSuchOriginAccessControl,
   NoSuchResource,
   NoSuchStreamingDistribution,
+  OriginAccessControlAlreadyExists,
   OriginAccessControlInUse,
   OriginAccessControlList,
   OriginAccessControlSummary,
@@ -804,7 +804,6 @@ import {
   StreamingDistributionConfig,
   StreamingDistributionConfigWithTags,
   StreamingDistributionNotDisabled,
-  StreamingDistributionSummary,
   StreamingLoggingConfig,
   TooLongCSPInResponseHeadersPolicy,
   TooManyCookiesInOriginRequestPolicy,
@@ -826,6 +825,7 @@ import {
 import {
   DnsConfiguration,
   StreamingDistributionList,
+  StreamingDistributionSummary,
   TagKeys,
   TestFunctionFailed,
   TestResult,
@@ -10594,6 +10594,7 @@ const se_CustomOriginConfig = (input: CustomOriginConfig, context: __SerdeContex
   if (input[_OKT] != null) {
     bn.c(__XmlNode.of(_i, String(input[_OKT])).n(_OKT));
   }
+  bn.cc(input, _IAT);
   return bn;
 };
 
@@ -13686,6 +13687,9 @@ const de_CustomOriginConfig = (output: any, context: __SerdeContext): CustomOrig
   }
   if (output[_OKT] != null) {
     contents[_OKT] = __strictParseInt32(output[_OKT]) as number;
+  }
+  if (output[_IAT] != null) {
+    contents[_IAT] = __expectString(output[_IAT]);
   }
   return contents;
 };
@@ -17398,6 +17402,7 @@ const _HVe = "HeaderValue";
 const _He = "Headers";
 const _I = "Identifier";
 const _IAMCI = "IAMCertificateId";
+const _IAT = "IpAddressType";
 const _IB = "InvalidationBatch";
 const _IBn = "IncludeBody";
 const _IC = "IpCount";
