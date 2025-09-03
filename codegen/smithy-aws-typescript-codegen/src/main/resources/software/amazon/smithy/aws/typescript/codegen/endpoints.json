@@ -28108,6 +28108,25 @@
             "us-west-2": {}
           }
         },
+        "sms": {
+          "endpoints": {
+            "fips-us-west-2": {
+              "credentialScope": {
+                "region": "us-west-2"
+              },
+              "deprecated": true,
+              "hostname": "sms-fips.us-west-2.amazonaws.com"
+            },
+            "us-west-2": {
+              "variants": [
+                {
+                  "hostname": "sms-fips.us-west-2.amazonaws.com",
+                  "tags": ["fips"]
+                }
+              ]
+            }
+          }
+        },
         "sms-voice": {
           "endpoints": {
             "af-south-1": {
@@ -35789,6 +35808,11 @@
             }
           }
         },
+        "sms": {
+          "endpoints": {
+            "cn-north-1": {}
+          }
+        },
         "snowball": {
           "endpoints": {
             "cn-north-1": {
@@ -41565,6 +41589,25 @@
               "variants": [
                 {
                   "hostname": "simspaceweaver.us-gov-west-1.amazonaws.com",
+                  "tags": ["fips"]
+                }
+              ]
+            }
+          }
+        },
+        "sms": {
+          "endpoints": {
+            "fips-us-gov-west-1": {
+              "credentialScope": {
+                "region": "us-gov-west-1"
+              },
+              "deprecated": true,
+              "hostname": "sms-fips.us-gov-west-1.amazonaws.com"
+            },
+            "us-gov-west-1": {
+              "variants": [
+                {
+                  "hostname": "sms-fips.us-gov-west-1.amazonaws.com",
                   "tags": ["fips"]
                 }
               ]
