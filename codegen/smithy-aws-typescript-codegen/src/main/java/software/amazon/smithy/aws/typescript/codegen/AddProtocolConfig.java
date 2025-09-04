@@ -46,7 +46,10 @@ public final class AddProtocolConfig implements TypeScriptIntegration {
         // protocol tests
         SchemaGenerationAllowlist.allow("aws.protocoltests.json10#JsonRpc10");
         SchemaGenerationAllowlist.allow("aws.protocoltests.json#JsonProtocol");
+        SchemaGenerationAllowlist.allow("com.amazonaws.machinelearning#AmazonML_20141212");
         SchemaGenerationAllowlist.allow("aws.protocoltests.restjson#RestJson");
+        SchemaGenerationAllowlist.allow("com.amazonaws.glacier#Glacier");
+        SchemaGenerationAllowlist.allow("com.amazonaws.apigateway#BackplaneControlService");
         SchemaGenerationAllowlist.allow("aws.protocoltests.restxml#RestXml");
         SchemaGenerationAllowlist.allow("aws.protocoltests.query#AwsQuery");
         SchemaGenerationAllowlist.allow("aws.protocoltests.ec2#AwsEc2");
