@@ -31,6 +31,17 @@ describe(regionRedirectMiddleware.name, () => {
     return null as any;
   };
 
+  const nextHeadBucket400 = (arg: any) => {
+    if (call === 0) {
+      call++;
+      throw Object.assign(new Error(), {
+        $metadata: { httpStatusCode: 400 },
+        $response: { headers: { "x-amz-bucket-region": redirectRegion } },
+      });
+    }
+    return null as any;
+  };
+
   beforeEach(() => {
     call = 0;
   });
@@ -47,6 +58,14 @@ describe(regionRedirectMiddleware.name, () => {
     const middleware = regionRedirectMiddleware({ region, followRegionRedirects: true });
     const context = {} as HandlerExecutionContext;
     const handler = middleware(next400, context);
+    await handler({ input: null });
+    expect(context.__s3RegionRedirect).toEqual(redirectRegion);
+  });
+
+  it("set S3 region redirect on context for HeadBucket with 400 status and x-amz-bucket-region header", async () => {
+    const middleware = regionRedirectMiddleware({ region, followRegionRedirects: true });
+    const context = { commandName: "HeadBucketCommand" } as HandlerExecutionContext;
+    const handler = middleware(nextHeadBucket400, context);
     await handler({ input: null });
     expect(context.__s3RegionRedirect).toEqual(redirectRegion);
   });
