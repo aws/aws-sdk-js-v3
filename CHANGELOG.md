@@ -3,6 +3,29 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.882.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.881.0...v3.882.0) (2025-09-04)
+
+
+### Bug Fixes
+
+* **ci:** rename pull-request-build-yml to pull-request-build.yml ([#7307](https://github.com/aws/aws-sdk-js-v3/issues/7307)) ([b3364f7](https://github.com/aws/aws-sdk-js-v3/commit/b3364f73f1dadd1ae7f8533a22fc27720c82eb9d))
+* **credential-provider-node:** fix logger binding issue ([#7302](https://github.com/aws/aws-sdk-js-v3/issues/7302)) ([b5ca7c4](https://github.com/aws/aws-sdk-js-v3/commit/b5ca7c4690201dc1182a2e29ee89f087ba4728fd))
+
+
+### Features
+
+* **client-cleanrooms:** Add support for configurable compute sizes for PySpark jobs. ([9a69161](https://github.com/aws/aws-sdk-js-v3/commit/9a69161173b1802b169259c90693501e3c33a1f2))
+* **client-cloudformation:** ListHookResults API now supports retrieving invocation results for all CloudFormation Hooks (previously limited to create change set and Cloud Control operations) with new optional parameters for filtering by Hook status and ARN. ([61ad5ad](https://github.com/aws/aws-sdk-js-v3/commit/61ad5ad524c2410ec88a9c0fc6a90f6c8eb2e0c0))
+* **client-ec2:** Add m8i, m8i-flex and i8ge instance types. ([19e055a](https://github.com/aws/aws-sdk-js-v3/commit/19e055a6279e7ef06bf7cb67f2ed569f5418e65d))
+* **client-opensearchserverless:** Add support for Federal Information Processing Standards (FIPS) and Federal Risk and Authorization Management Program (FedRAMP) compliance ([0bdbd8e](https://github.com/aws/aws-sdk-js-v3/commit/0bdbd8e9555430f5d0509f4b4852f2669fec3bb7))
+* **client-rds:** Added new EndpointNetworkType and TargetConnectionNetworkType fields in Proxy APIs to support IPv6 ([38f10e0](https://github.com/aws/aws-sdk-js-v3/commit/38f10e0b447dadb66d368eb7858226f8c1ea28cb))
+* **client-verifiedpermissions:** Amazon Verified Permissions / Features : Adds support for datetime and duration attribute values. ([d4b1d36](https://github.com/aws/aws-sdk-js-v3/commit/d4b1d3614b6ce04089150b6765a2db2bb48daa4d))
+* **clients:** update client endpoints as of 2025-09-04 ([c19b98d](https://github.com/aws/aws-sdk-js-v3/commit/c19b98decc4fcfda2a522c173c3a7896758508d1))
+
+
+
+
+
 # [3.881.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.880.0...v3.881.0) (2025-09-03)
 
 

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.882.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.881.0...v3.882.0) (2025-09-04)
+
+
+### Features
+
+* **client-cleanrooms:** Add support for configurable compute sizes for PySpark jobs. ([9a69161](https://github.com/aws/aws-sdk-js-v3/commit/9a69161173b1802b169259c90693501e3c33a1f2))
+
+
+
+
+
 # [3.881.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.880.0...v3.881.0) (2025-09-03)
 
 

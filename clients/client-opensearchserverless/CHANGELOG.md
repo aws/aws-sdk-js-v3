@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.882.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.881.0...v3.882.0) (2025-09-04)
+
+
+### Features
+
+* **client-opensearchserverless:** Add support for Federal Information Processing Standards (FIPS) and Federal Risk and Authorization Management Program (FedRAMP) compliance ([0bdbd8e](https://github.com/aws/aws-sdk-js-v3/commit/0bdbd8e9555430f5d0509f4b4852f2669fec3bb7))
+
+
+
+
+
 # [3.879.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.878.0...v3.879.0) (2025-08-29)
 
 **Note:** Version bump only for package @aws-sdk/client-opensearchserverless

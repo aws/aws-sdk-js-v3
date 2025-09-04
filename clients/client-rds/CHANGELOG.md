@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.882.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.881.0...v3.882.0) (2025-09-04)
+
+
+### Features
+
+* **client-rds:** Added new EndpointNetworkType and TargetConnectionNetworkType fields in Proxy APIs to support IPv6 ([38f10e0](https://github.com/aws/aws-sdk-js-v3/commit/38f10e0b447dadb66d368eb7858226f8c1ea28cb))
+
+
+
+
+
 # [3.881.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.880.0...v3.881.0) (2025-09-03)
 
 

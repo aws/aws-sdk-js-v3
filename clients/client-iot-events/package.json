@@ -1,7 +1,7 @@
 {
   "name": "@aws-sdk/client-iot-events",
   "description": "AWS SDK for JavaScript Iot Events Client for Node.js, Browser and React Native",
-  "version": "3.879.0",
+  "version": "3.882.0",
   "scripts": {
     "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types'",
     "build:cjs": "node ../../scripts/compilation/inline client-iot-events",
