@@ -38,14 +38,14 @@ export function regionRedirectMiddleware(clientConfig: PreviouslyResolved): Init
         if (clientConfig.followRegionRedirects) {
           const statusCode = err?.$metadata?.httpStatusCode;
           const isHeadBucket = context.commandName === "HeadBucketCommand";
-          const hasBucketRegionHeader = err?.$response?.headers?.["x-amz-bucket-region"];
+          const bucketRegionHeader = err?.$response?.headers?.["x-amz-bucket-region"];
           if (
             statusCode === 301 ||
             (statusCode === 400 &&
-              (err?.name === "IllegalLocationConstraintException" || (isHeadBucket && hasBucketRegionHeader)))
+              (err?.name === "IllegalLocationConstraintException" || (isHeadBucket && bucketRegionHeader)))
           ) {
             try {
-              const actualRegion = err.$response.headers["x-amz-bucket-region"];
+              const actualRegion = bucketRegionHeader;
               context.logger?.debug(`Redirecting from ${await clientConfig.region()} to ${actualRegion}`);
               context.__s3RegionRedirect = actualRegion;
             } catch (e) {
