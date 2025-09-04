@@ -255,6 +255,79 @@ export interface GetProtectedJobInput {
 }
 
 /**
+ * @public
+ * @enum
+ */
+export const ProtectedJobWorkerComputeType = {
+  CR1X: "CR.1X",
+  CR4X: "CR.4X",
+} as const;
+
+/**
+ * @public
+ */
+export type ProtectedJobWorkerComputeType =
+  (typeof ProtectedJobWorkerComputeType)[keyof typeof ProtectedJobWorkerComputeType];
+
+/**
+ * <p>The configuration of the compute resources for a PySpark job.</p>
+ * @public
+ */
+export interface ProtectedJobWorkerComputeConfiguration {
+  /**
+   * <p>The worker compute configuration type.</p>
+   * @public
+   */
+  type: ProtectedJobWorkerComputeType | undefined;
+
+  /**
+   * <p>The number of workers for a PySpark job.</p>
+   * @public
+   */
+  number: number | undefined;
+}
+
+/**
+ * <p>The configuration of the compute resources for a PySpark job.</p>
+ * @public
+ */
+export type ProtectedJobComputeConfiguration =
+  | ProtectedJobComputeConfiguration.WorkerMember
+  | ProtectedJobComputeConfiguration.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace ProtectedJobComputeConfiguration {
+  /**
+   * <p>The worker configuration for the compute environment.</p>
+   * @public
+   */
+  export interface WorkerMember {
+    worker: ProtectedJobWorkerComputeConfiguration;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    worker?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    worker: (value: ProtectedJobWorkerComputeConfiguration) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: ProtectedJobComputeConfiguration, visitor: Visitor<T>): T => {
+    if (value.worker !== undefined) return visitor.worker(value.worker);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
  * <p>The protected job error.</p>
  * @public
  */
@@ -584,6 +657,12 @@ export interface ProtectedJob {
    * @public
    */
   error?: ProtectedJobError | undefined;
+
+  /**
+   * <p>The compute configuration for the protected job.</p>
+   * @public
+   */
+  computeConfiguration?: ProtectedJobComputeConfiguration | undefined;
 }
 
 /**
@@ -640,7 +719,7 @@ export interface WorkerComputeConfiguration {
   type?: WorkerComputeType | undefined;
 
   /**
-   * <p> The number of workers.</p>
+   * <p> The number of workers.</p> <p>SQL queries support a minimum value of 2 and a maximum value of 400. </p> <p>PySpark jobs support a minimum value of 4 and a maximum value of 128.</p>
    * @public
    */
   number?: number | undefined;
@@ -2032,6 +2111,12 @@ export interface StartProtectedJobInput {
    * @public
    */
   resultConfiguration?: ProtectedJobResultConfigurationInput | undefined;
+
+  /**
+   * <p>The compute configuration for the protected job.</p>
+   * @public
+   */
+  computeConfiguration?: ProtectedJobComputeConfiguration | undefined;
 }
 
 /**

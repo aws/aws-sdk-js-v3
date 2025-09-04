@@ -84,6 +84,12 @@ export interface GetProtectedJobCommandOutput extends GetProtectedJobOutput, __M
  * //       message: "STRING_VALUE", // required
  * //       code: "STRING_VALUE", // required
  * //     },
+ * //     computeConfiguration: { // ProtectedJobComputeConfiguration Union: only one key present
+ * //       worker: { // ProtectedJobWorkerComputeConfiguration
+ * //         type: "CR.1X" || "CR.4X", // required
+ * //         number: Number("int"), // required
+ * //       },
+ * //     },
  * //   },
  * // };
  *

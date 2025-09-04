@@ -48,6 +48,12 @@ export interface StartProtectedJobCommandOutput extends StartProtectedJobOutput,
  *       },
  *     },
  *   },
+ *   computeConfiguration: { // ProtectedJobComputeConfiguration Union: only one key present
+ *     worker: { // ProtectedJobWorkerComputeConfiguration
+ *       type: "CR.1X" || "CR.4X", // required
+ *       number: Number("int"), // required
+ *     },
+ *   },
  * };
  * const command = new StartProtectedJobCommand(input);
  * const response = await client.send(command);
@@ -93,6 +99,12 @@ export interface StartProtectedJobCommandOutput extends StartProtectedJobOutput,
  * //     error: { // ProtectedJobError
  * //       message: "STRING_VALUE", // required
  * //       code: "STRING_VALUE", // required
+ * //     },
+ * //     computeConfiguration: { // ProtectedJobComputeConfiguration Union: only one key present
+ * //       worker: { // ProtectedJobWorkerComputeConfiguration
+ * //         type: "CR.1X" || "CR.4X", // required
+ * //         number: Number("int"), // required
+ * //       },
  * //     },
  * //   },
  * // };

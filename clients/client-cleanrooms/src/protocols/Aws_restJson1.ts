@@ -437,12 +437,14 @@ import {
   PrivacyBudgetTemplateSummary,
   PrivacyBudgetTemplateUpdateParameters,
   ProtectedJob,
+  ProtectedJobComputeConfiguration,
   ProtectedJobMemberOutputConfigurationInput,
   ProtectedJobOutputConfigurationInput,
   ProtectedJobParameters,
   ProtectedJobResultConfigurationInput,
   ProtectedJobStatistics,
   ProtectedJobSummary,
+  ProtectedJobWorkerComputeConfiguration,
   ProtectedQuery,
   ProtectedQueryDistributeOutputConfiguration,
   ProtectedQueryDistributeOutputConfigurationLocation,
@@ -1950,6 +1952,7 @@ export const se_StartProtectedJobCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
+      computeConfiguration: (_) => _json(_),
       jobParameters: (_) => _json(_),
       resultConfiguration: (_) => _json(_),
       type: [],
@@ -4507,6 +4510,8 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 
 // se_PrivacyBudgetTemplateUpdateParameters omitted.
 
+// se_ProtectedJobComputeConfiguration omitted.
+
 // se_ProtectedJobMemberOutputConfigurationInput omitted.
 
 // se_ProtectedJobOutputConfigurationInput omitted.
@@ -4516,6 +4521,8 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 // se_ProtectedJobResultConfigurationInput omitted.
 
 // se_ProtectedJobS3OutputConfigurationInput omitted.
+
+// se_ProtectedJobWorkerComputeConfiguration omitted.
 
 // se_ProtectedQueryDistributeOutputConfiguration omitted.
 
@@ -5793,6 +5800,7 @@ const de_PrivacyBudgetTemplateSummaryList = (output: any, context: __SerdeContex
  */
 const de_ProtectedJob = (output: any, context: __SerdeContext): ProtectedJob => {
   return take(output, {
+    computeConfiguration: (_: any) => _json(__expectUnion(_)),
     createTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     error: _json,
     id: __expectString,
@@ -5805,6 +5813,8 @@ const de_ProtectedJob = (output: any, context: __SerdeContext): ProtectedJob => 
     status: __expectString,
   }) as any;
 };
+
+// de_ProtectedJobComputeConfiguration omitted.
 
 // de_ProtectedJobConfigurationDetails omitted.
 
@@ -5875,6 +5885,8 @@ const de_ProtectedJobSummaryList = (output: any, context: __SerdeContext): Prote
     });
   return retVal;
 };
+
+// de_ProtectedJobWorkerComputeConfiguration omitted.
 
 /**
  * deserializeAws_restJson1ProtectedQuery
