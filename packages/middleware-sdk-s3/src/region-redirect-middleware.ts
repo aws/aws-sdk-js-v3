@@ -36,13 +36,13 @@ export function regionRedirectMiddleware(clientConfig: PreviouslyResolved): Init
         return await next(args);
       } catch (err) {
         if (clientConfig.followRegionRedirects) {
+          const statusCode = err?.$metadata?.httpStatusCode;
+          const isHeadBucket = context.commandName === "HeadBucketCommand";
+          const hasBucketRegionHeader = err?.$response?.headers?.["x-amz-bucket-region"];
           if (
-            err?.$metadata?.httpStatusCode === 301 ||
-            // err.name === "PermanentRedirect" && --> removing the error name check, as that allows for HEAD operations (which have the 301 status code, but not the same error name) to be covered for region redirection as well
-            (err?.$metadata?.httpStatusCode === 400 && err?.name === "IllegalLocationConstraintException") ||
-            (err?.$metadata?.httpStatusCode === 400 &&
-              context.commandName === "HeadBucketCommand" &&
-              err?.$response?.headers?.["x-amz-bucket-region"])
+            statusCode === 301 ||
+            (statusCode === 400 &&
+              (err?.name === "IllegalLocationConstraintException" || (isHeadBucket && hasBucketRegionHeader)))
           ) {
             try {
               const actualRegion = err.$response.headers["x-amz-bucket-region"];
