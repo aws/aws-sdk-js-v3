@@ -1375,7 +1375,9 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 const se_AttributeValue = (input: AttributeValue, context: __SerdeContext): any => {
   return AttributeValue.visit(input, {
     boolean: (value) => ({ boolean: value }),
+    datetime: (value) => ({ datetime: value }),
     decimal: (value) => ({ decimal: value }),
+    duration: (value) => ({ duration: value }),
     entityIdentifier: (value) => ({ entityIdentifier: _json(value) }),
     ipaddr: (value) => ({ ipaddr: value }),
     long: (value) => ({ long: value }),
@@ -1759,8 +1761,14 @@ const de_AttributeValue = (output: any, context: __SerdeContext): AttributeValue
   if (__expectBoolean(output.boolean) !== undefined) {
     return { boolean: __expectBoolean(output.boolean) as any };
   }
+  if (__expectString(output.datetime) !== undefined) {
+    return { datetime: __expectString(output.datetime) as any };
+  }
   if (__expectString(output.decimal) !== undefined) {
     return { decimal: __expectString(output.decimal) as any };
+  }
+  if (__expectString(output.duration) !== undefined) {
+    return { duration: __expectString(output.duration) as any };
   }
   if (output.entityIdentifier != null) {
     return {

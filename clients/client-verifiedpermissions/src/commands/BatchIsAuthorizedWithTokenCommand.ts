@@ -78,6 +78,8 @@ export interface BatchIsAuthorizedWithTokenCommandOutput extends BatchIsAuthoriz
  *                 },
  *                 ipaddr: "STRING_VALUE",
  *                 decimal: "STRING_VALUE",
+ *                 datetime: "STRING_VALUE",
+ *                 duration: "STRING_VALUE",
  *               },
  *             ],
  *             record: {
@@ -85,6 +87,8 @@ export interface BatchIsAuthorizedWithTokenCommandOutput extends BatchIsAuthoriz
  *             },
  *             ipaddr: "STRING_VALUE",
  *             decimal: "STRING_VALUE",
+ *             datetime: "STRING_VALUE",
+ *             duration: "STRING_VALUE",
  *           },
  *         },
  *         parents: [ // ParentList
@@ -149,6 +153,8 @@ export interface BatchIsAuthorizedWithTokenCommandOutput extends BatchIsAuthoriz
  * //                   },
  * //                   ipaddr: "STRING_VALUE",
  * //                   decimal: "STRING_VALUE",
+ * //                   datetime: "STRING_VALUE",
+ * //                   duration: "STRING_VALUE",
  * //                 },
  * //               ],
  * //               record: {
@@ -156,6 +162,8 @@ export interface BatchIsAuthorizedWithTokenCommandOutput extends BatchIsAuthoriz
  * //               },
  * //               ipaddr: "STRING_VALUE",
  * //               decimal: "STRING_VALUE",
+ * //               datetime: "STRING_VALUE",
+ * //               duration: "STRING_VALUE",
  * //             },
  * //           },
  * //           cedarJson: "STRING_VALUE",

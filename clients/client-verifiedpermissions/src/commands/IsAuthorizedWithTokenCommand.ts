@@ -80,6 +80,8 @@ export interface IsAuthorizedWithTokenCommandOutput extends IsAuthorizedWithToke
  *             },
  *             ipaddr: "STRING_VALUE",
  *             decimal: "STRING_VALUE",
+ *             datetime: "STRING_VALUE",
+ *             duration: "STRING_VALUE",
  *           },
  *         ],
  *         record: {
@@ -87,6 +89,8 @@ export interface IsAuthorizedWithTokenCommandOutput extends IsAuthorizedWithToke
  *         },
  *         ipaddr: "STRING_VALUE",
  *         decimal: "STRING_VALUE",
+ *         datetime: "STRING_VALUE",
+ *         duration: "STRING_VALUE",
  *       },
  *     },
  *     cedarJson: "STRING_VALUE",

@@ -82,6 +82,8 @@ export interface IsAuthorizedCommandOutput extends IsAuthorizedOutput, __Metadat
  *             },
  *             ipaddr: "STRING_VALUE",
  *             decimal: "STRING_VALUE",
+ *             datetime: "STRING_VALUE",
+ *             duration: "STRING_VALUE",
  *           },
  *         ],
  *         record: {
@@ -89,6 +91,8 @@ export interface IsAuthorizedCommandOutput extends IsAuthorizedOutput, __Metadat
  *         },
  *         ipaddr: "STRING_VALUE",
  *         decimal: "STRING_VALUE",
+ *         datetime: "STRING_VALUE",
+ *         duration: "STRING_VALUE",
  *       },
  *     },
  *     cedarJson: "STRING_VALUE",

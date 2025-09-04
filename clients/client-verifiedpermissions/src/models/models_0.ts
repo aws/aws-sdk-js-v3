@@ -2822,7 +2822,7 @@ export interface StaticPolicyDefinitionItem {
 }
 
 /**
- * <p>Contains information about a policy created by instantiating a policy template. </p> <p>This </p>
+ * <p>Contains information about a policy created by instantiating a policy template. </p>
  * @public
  */
 export interface TemplateLinkedPolicyDefinitionItem {
@@ -3566,7 +3566,9 @@ export interface UntagResourceOutput {}
  */
 export type AttributeValue =
   | AttributeValue.BooleanMember
+  | AttributeValue.DatetimeMember
   | AttributeValue.DecimalMember
+  | AttributeValue.DurationMember
   | AttributeValue.EntityIdentifierMember
   | AttributeValue.IpaddrMember
   | AttributeValue.LongMember
@@ -3592,6 +3594,8 @@ export namespace AttributeValue {
     record?: never;
     ipaddr?: never;
     decimal?: never;
+    datetime?: never;
+    duration?: never;
     $unknown?: never;
   }
 
@@ -3608,6 +3612,8 @@ export namespace AttributeValue {
     record?: never;
     ipaddr?: never;
     decimal?: never;
+    datetime?: never;
+    duration?: never;
     $unknown?: never;
   }
 
@@ -3624,6 +3630,8 @@ export namespace AttributeValue {
     record?: never;
     ipaddr?: never;
     decimal?: never;
+    datetime?: never;
+    duration?: never;
     $unknown?: never;
   }
 
@@ -3640,6 +3648,8 @@ export namespace AttributeValue {
     record?: never;
     ipaddr?: never;
     decimal?: never;
+    datetime?: never;
+    duration?: never;
     $unknown?: never;
   }
 
@@ -3656,6 +3666,8 @@ export namespace AttributeValue {
     record?: never;
     ipaddr?: never;
     decimal?: never;
+    datetime?: never;
+    duration?: never;
     $unknown?: never;
   }
 
@@ -3672,6 +3684,8 @@ export namespace AttributeValue {
     record: Record<string, AttributeValue>;
     ipaddr?: never;
     decimal?: never;
+    datetime?: never;
+    duration?: never;
     $unknown?: never;
   }
 
@@ -3688,6 +3702,8 @@ export namespace AttributeValue {
     record?: never;
     ipaddr: string;
     decimal?: never;
+    datetime?: never;
+    duration?: never;
     $unknown?: never;
   }
 
@@ -3704,6 +3720,44 @@ export namespace AttributeValue {
     record?: never;
     ipaddr?: never;
     decimal: string;
+    datetime?: never;
+    duration?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>An attribute value of <a href="https://docs.cedarpolicy.com/policies/syntax-datatypes.html#datatype-datetime">datetime</a> type.</p> <p>Example: <code>\{"datetime": "2024-10-15T11:35:00Z"\}</code> </p>
+   * @public
+   */
+  export interface DatetimeMember {
+    boolean?: never;
+    entityIdentifier?: never;
+    long?: never;
+    string?: never;
+    set?: never;
+    record?: never;
+    ipaddr?: never;
+    decimal?: never;
+    datetime: string;
+    duration?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>An attribute value of <a href="https://docs.cedarpolicy.com/policies/syntax-datatypes.html#datatype-duration">duration</a> type.</p> <p>Example: <code>\{"duration": "1h30m"\}</code> </p>
+   * @public
+   */
+  export interface DurationMember {
+    boolean?: never;
+    entityIdentifier?: never;
+    long?: never;
+    string?: never;
+    set?: never;
+    record?: never;
+    ipaddr?: never;
+    decimal?: never;
+    datetime?: never;
+    duration: string;
     $unknown?: never;
   }
 
@@ -3719,6 +3773,8 @@ export namespace AttributeValue {
     record?: never;
     ipaddr?: never;
     decimal?: never;
+    datetime?: never;
+    duration?: never;
     $unknown: [string, any];
   }
 
@@ -3731,6 +3787,8 @@ export namespace AttributeValue {
     record: (value: Record<string, AttributeValue>) => T;
     ipaddr: (value: string) => T;
     decimal: (value: string) => T;
+    datetime: (value: string) => T;
+    duration: (value: string) => T;
     _: (name: string, value: any) => T;
   }
 
@@ -3743,6 +3801,8 @@ export namespace AttributeValue {
     if (value.record !== undefined) return visitor.record(value.record);
     if (value.ipaddr !== undefined) return visitor.ipaddr(value.ipaddr);
     if (value.decimal !== undefined) return visitor.decimal(value.decimal);
+    if (value.datetime !== undefined) return visitor.datetime(value.datetime);
+    if (value.duration !== undefined) return visitor.duration(value.duration);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
 }
@@ -5008,6 +5068,8 @@ export const AttributeValueFilterSensitiveLog = (obj: AttributeValue): any => {
     };
   if (obj.ipaddr !== undefined) return { ipaddr: SENSITIVE_STRING };
   if (obj.decimal !== undefined) return { decimal: SENSITIVE_STRING };
+  if (obj.datetime !== undefined) return { datetime: SENSITIVE_STRING };
+  if (obj.duration !== undefined) return { duration: SENSITIVE_STRING };
   if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
 };
 
