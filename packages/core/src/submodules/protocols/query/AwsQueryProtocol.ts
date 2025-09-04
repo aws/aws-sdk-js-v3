@@ -76,7 +76,8 @@ export class AwsQueryProtocol extends RpcProtocol {
     if (deref(operationSchema.input) === "unit" || !request.body) {
       request.body = "";
     }
-    request.body = `Action=${operationSchema.name.split("#")[1]}&Version=${this.options.version}` + request.body;
+    const action = operationSchema.name.split("#")[1] ?? operationSchema.name;
+    request.body = `Action=${action}&Version=${this.options.version}` + request.body;
     if (request.body.endsWith("&")) {
       request.body = request.body.slice(-1);
     }
@@ -110,9 +111,8 @@ export class AwsQueryProtocol extends RpcProtocol {
       delete response.headers[header];
       response.headers[header.toLowerCase()] = value;
     }
-
-    const awsQueryResultKey =
-      ns.isStructSchema() && this.useNestedResult() ? operationSchema.name.split("#")[1] + "Result" : undefined;
+    const shortName = operationSchema.name.split("#")[1] ?? operationSchema.name;
+    const awsQueryResultKey = ns.isStructSchema() && this.useNestedResult() ? shortName + "Result" : undefined;
     const bytes: Uint8Array = await collectBody(response.body, context as SerdeFunctions);
     if (bytes.byteLength > 0) {
       Object.assign(dataObject, await deserializer.read(ns, bytes, awsQueryResultKey));
