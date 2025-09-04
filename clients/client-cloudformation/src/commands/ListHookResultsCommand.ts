@@ -28,8 +28,28 @@ export interface ListHookResultsCommandInput extends ListHookResultsInput {}
 export interface ListHookResultsCommandOutput extends ListHookResultsOutput, __MetadataBearer {}
 
 /**
- * <p>Returns summaries of invoked Hooks when a change set or Cloud Control API operation target is
- *       provided.</p>
+ * <p>Returns summaries of invoked Hooks. For more information, see <a href="https://docs.aws.amazon.com/cloudformation-cli/latest/hooks-userguide/hooks-view-invocations.html">View CloudFormation Hooks
+ *         invocations</a> in the <i>CloudFormation Hooks User Guide</i>.</p>
+ *          <p>This operation supports the following parameter combinations:</p>
+ *          <ul>
+ *             <li>
+ *                <p>No parameters: Returns all Hook invocation summaries.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>TypeArn</code> only: Returns summaries for a specific Hook.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>TypeArn</code> and <code>Status</code>: Returns summaries for a specific
+ *           Hook filtered by status.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>TargetId</code> and <code>TargetType</code>: Returns summaries for a specific
+ *           Hook invocation target.</p>
+ *             </li>
+ *          </ul>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -37,8 +57,10 @@ export interface ListHookResultsCommandOutput extends ListHookResultsOutput, __M
  * // const { CloudFormationClient, ListHookResultsCommand } = require("@aws-sdk/client-cloudformation"); // CommonJS import
  * const client = new CloudFormationClient(config);
  * const input = { // ListHookResultsInput
- *   TargetType: "CHANGE_SET" || "STACK" || "RESOURCE" || "CLOUD_CONTROL", // required
- *   TargetId: "STRING_VALUE", // required
+ *   TargetType: "CHANGE_SET" || "STACK" || "RESOURCE" || "CLOUD_CONTROL",
+ *   TargetId: "STRING_VALUE",
+ *   TypeArn: "STRING_VALUE",
+ *   Status: "HOOK_IN_PROGRESS" || "HOOK_COMPLETE_SUCCEEDED" || "HOOK_COMPLETE_FAILED" || "HOOK_FAILED",
  *   NextToken: "STRING_VALUE",
  * };
  * const command = new ListHookResultsCommand(input);
@@ -48,6 +70,7 @@ export interface ListHookResultsCommandOutput extends ListHookResultsOutput, __M
  * //   TargetId: "STRING_VALUE",
  * //   HookResults: [ // HookResultSummaries
  * //     { // HookResultSummary
+ * //       HookResultId: "STRING_VALUE",
  * //       InvocationPoint: "PRE_PROVISION",
  * //       FailureMode: "FAIL" || "WARN",
  * //       TypeName: "STRING_VALUE",
@@ -55,6 +78,11 @@ export interface ListHookResultsCommandOutput extends ListHookResultsOutput, __M
  * //       TypeConfigurationVersionId: "STRING_VALUE",
  * //       Status: "HOOK_IN_PROGRESS" || "HOOK_COMPLETE_SUCCEEDED" || "HOOK_COMPLETE_FAILED" || "HOOK_FAILED",
  * //       HookStatusReason: "STRING_VALUE",
+ * //       InvokedAt: new Date("TIMESTAMP"),
+ * //       TargetType: "CHANGE_SET" || "STACK" || "RESOURCE" || "CLOUD_CONTROL",
+ * //       TargetId: "STRING_VALUE",
+ * //       TypeArn: "STRING_VALUE",
+ * //       HookExecutionTarget: "STRING_VALUE",
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",

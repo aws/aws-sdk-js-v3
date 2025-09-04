@@ -103,7 +103,7 @@ export interface ListStackInstanceResourceDriftsCommandOutput
  *  <p>The specified stack instance doesn't exist.</p>
  *
  * @throws {@link StackSetNotFoundException} (client fault)
- *  <p>The specified stack set doesn't exist.</p>
+ *  <p>The specified StackSet doesn't exist.</p>
  *
  * @throws {@link CloudFormationServiceException}
  * <p>Base exception class for all service exceptions from CloudFormation service.</p>

@@ -33,15 +33,15 @@ export interface UpdateStackInstancesCommandOutput extends UpdateStackInstancesO
  *       Region.</p>
  *          <p>You can only update stack instances in Amazon Web Services Regions and accounts where they already
  *       exist; to create additional stack instances, use <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_CreateStackInstances.html">CreateStackInstances</a>.</p>
- *          <p>During stack set updates, any parameters overridden for a stack instance aren't updated,
+ *          <p>During StackSet updates, any parameters overridden for a stack instance aren't updated,
  *       but retain their overridden value.</p>
  *          <p>You can only update the parameter <i>values</i> that are specified in the
- *       stack set; to add or delete a parameter itself, use <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_UpdateStackSet.html">UpdateStackSet</a>
- *       to update the stack set template. If you add a parameter to a template, before you can
- *       override the parameter value specified in the stack set you must first use <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_UpdateStackSet.html">UpdateStackSet</a> to update all stack instances with the updated template and
- *       parameter value specified in the stack set. Once a stack instance has been updated with the
- *       new parameter, you can then override the parameter value using
- *         <code>UpdateStackInstances</code>.</p>
+ *       StackSet. To add or delete a parameter itself, use <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_UpdateStackSet.html">UpdateStackSet</a>
+ *       to update the StackSet template. If you add a parameter to a template, before you can override
+ *       the parameter value specified in the StackSet you must first use <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_UpdateStackSet.html">UpdateStackSet</a>
+ *       to update all stack instances with the updated template and parameter value specified in the
+ *       StackSet. Once a stack instance has been updated with the new parameter, you can then override
+ *       the parameter value using <code>UpdateStackInstances</code>.</p>
  *          <note>
  *             <p>The maximum number of organizational unit (OUs) supported by a
  *           <code>UpdateStackInstances</code> operation is 50.</p>
@@ -127,17 +127,17 @@ export interface UpdateStackInstancesCommandOutput extends UpdateStackInstancesO
  *  <p>The specified operation ID already exists.</p>
  *
  * @throws {@link OperationInProgressException} (client fault)
- *  <p>Another operation is currently in progress for this stack set. Only one operation can be performed for a stack
+ *  <p>Another operation is currently in progress for this StackSet. Only one operation can be performed for a stack
  *    set at a given time.</p>
  *
  * @throws {@link StackInstanceNotFoundException} (client fault)
  *  <p>The specified stack instance doesn't exist.</p>
  *
  * @throws {@link StackSetNotFoundException} (client fault)
- *  <p>The specified stack set doesn't exist.</p>
+ *  <p>The specified StackSet doesn't exist.</p>
  *
  * @throws {@link StaleRequestException} (client fault)
- *  <p>Another operation has been performed on this stack set since the specified operation was performed.</p>
+ *  <p>Another operation has been performed on this StackSet since the specified operation was performed.</p>
  *
  * @throws {@link CloudFormationServiceException}
  * <p>Base exception class for all service exceptions from CloudFormation service.</p>

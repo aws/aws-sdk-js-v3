@@ -30,9 +30,9 @@ export interface GetTemplateSummaryCommandOutput extends GetTemplateSummaryOutpu
 /**
  * <p>Returns information about a new or existing template. The <code>GetTemplateSummary</code>
  *       action is useful for viewing parameter information, such as default parameter values and
- *       parameter types, before you create or update a stack or stack set.</p>
+ *       parameter types, before you create or update a stack or StackSet.</p>
  *          <p>You can use the <code>GetTemplateSummary</code> action when you submit a template, or you
- *       can get template information for a stack set, or a running or deleted stack.</p>
+ *       can get template information for a StackSet, or a running or deleted stack.</p>
  *          <p>For deleted stacks, <code>GetTemplateSummary</code> returns the template information for
  *       up to 90 days after the stack has been deleted. If the template doesn't exist, a
  *         <code>ValidationError</code> is returned.</p>
@@ -109,7 +109,7 @@ export interface GetTemplateSummaryCommandOutput extends GetTemplateSummaryOutpu
  * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.
  *
  * @throws {@link StackSetNotFoundException} (client fault)
- *  <p>The specified stack set doesn't exist.</p>
+ *  <p>The specified StackSet doesn't exist.</p>
  *
  * @throws {@link CloudFormationServiceException}
  * <p>Base exception class for all service exceptions from CloudFormation service.</p>

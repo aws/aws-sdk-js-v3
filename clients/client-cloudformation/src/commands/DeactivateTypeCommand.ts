@@ -28,12 +28,15 @@ export interface DeactivateTypeCommandInput extends DeactivateTypeInput {}
 export interface DeactivateTypeCommandOutput extends DeactivateTypeOutput, __MetadataBearer {}
 
 /**
- * <p>Deactivates a public extension that was previously activated in this account and
- *       Region.</p>
+ * <p>Deactivates a public third-party extension, such as a resource or module, or a CloudFormation
+ *       Hook when you no longer use it.</p>
+ *          <p>Deactivating an extension deletes the configuration details that are associated with it.
+ *       To temporary disable a CloudFormation Hook instead, you can use <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_SetTypeConfiguration.html">SetTypeConfiguration</a>.</p>
  *          <p>Once deactivated, an extension can't be used in any CloudFormation operation. This includes
  *       stack update operations where the stack template includes the extension, even if no updates
  *       are being made to the extension. In addition, deactivated extensions aren't automatically
  *       updated if a new version of the extension is released.</p>
+ *          <p>To see which extensions are currently activated, use <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_ListTypes.html">ListTypes</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

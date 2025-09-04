@@ -30,7 +30,7 @@ export interface ListStackSetOperationResultsCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Returns summary information about the results of a stack set operation.</p>
+ * <p>Returns summary information about the results of a StackSet operation.</p>
  *          <note>
  *             <p>This API provides <i>eventually consistent</i> reads meaning it may take
  *         some time but will eventually return the most up-to-date data.</p>
@@ -85,7 +85,7 @@ export interface ListStackSetOperationResultsCommandOutput
  *  <p>The specified ID refers to an operation that doesn't exist.</p>
  *
  * @throws {@link StackSetNotFoundException} (client fault)
- *  <p>The specified stack set doesn't exist.</p>
+ *  <p>The specified StackSet doesn't exist.</p>
  *
  * @throws {@link CloudFormationServiceException}
  * <p>Base exception class for all service exceptions from CloudFormation service.</p>

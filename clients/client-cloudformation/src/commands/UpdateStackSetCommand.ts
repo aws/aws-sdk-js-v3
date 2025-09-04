@@ -28,12 +28,12 @@ export interface UpdateStackSetCommandInput extends UpdateStackSetInput {}
 export interface UpdateStackSetCommandOutput extends UpdateStackSetOutput, __MetadataBearer {}
 
 /**
- * <p>Updates the stack set and associated stack instances in the specified accounts and
+ * <p>Updates the StackSet and associated stack instances in the specified accounts and
  *       Amazon Web Services Regions.</p>
- *          <p>Even if the stack set operation created by updating the stack set fails (completely or
- *       partially, below or above a specified failure tolerance), the stack set is updated with your
- *       changes. Subsequent <a>CreateStackInstances</a> calls on the specified stack set
- *       use the updated stack set.</p>
+ *          <p>Even if the StackSet operation created by updating the StackSet fails (completely or
+ *       partially, below or above a specified failure tolerance), the StackSet is updated with your
+ *       changes. Subsequent <a>CreateStackInstances</a> calls on the specified StackSet use
+ *       the updated StackSet.</p>
  *          <note>
  *             <p>The maximum number of organizational unit (OUs) supported by a
  *           <code>UpdateStackSet</code> operation is 50.</p>
@@ -142,17 +142,17 @@ export interface UpdateStackSetCommandOutput extends UpdateStackSetOutput, __Met
  *  <p>The specified operation ID already exists.</p>
  *
  * @throws {@link OperationInProgressException} (client fault)
- *  <p>Another operation is currently in progress for this stack set. Only one operation can be performed for a stack
+ *  <p>Another operation is currently in progress for this StackSet. Only one operation can be performed for a stack
  *    set at a given time.</p>
  *
  * @throws {@link StackInstanceNotFoundException} (client fault)
  *  <p>The specified stack instance doesn't exist.</p>
  *
  * @throws {@link StackSetNotFoundException} (client fault)
- *  <p>The specified stack set doesn't exist.</p>
+ *  <p>The specified StackSet doesn't exist.</p>
  *
  * @throws {@link StaleRequestException} (client fault)
- *  <p>Another operation has been performed on this stack set since the specified operation was performed.</p>
+ *  <p>Another operation has been performed on this StackSet since the specified operation was performed.</p>
  *
  * @throws {@link CloudFormationServiceException}
  * <p>Base exception class for all service exceptions from CloudFormation service.</p>

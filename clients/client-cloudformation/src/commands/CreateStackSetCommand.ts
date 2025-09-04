@@ -28,7 +28,7 @@ export interface CreateStackSetCommandInput extends CreateStackSetInput {}
 export interface CreateStackSetCommandOutput extends CreateStackSetOutput, __MetadataBearer {}
 
 /**
- * <p>Creates a stack set.</p>
+ * <p>Creates a StackSet.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

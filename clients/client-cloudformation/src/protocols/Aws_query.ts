@@ -5755,6 +5755,12 @@ const se_ListHookResultsInput = (input: ListHookResultsInput, context: __SerdeCo
   if (input[_TI] != null) {
     entries[_TI] = input[_TI];
   }
+  if (input[_TA] != null) {
+    entries[_TA] = input[_TA];
+  }
+  if (input[_S] != null) {
+    entries[_S] = input[_S];
+  }
   if (input[_NT] != null) {
     entries[_NT] = input[_NT];
   }
@@ -8869,6 +8875,9 @@ const de_HookResultSummaries = (output: any, context: __SerdeContext): HookResul
  */
 const de_HookResultSummary = (output: any, context: __SerdeContext): HookResultSummary => {
   const contents: any = {};
+  if (output[_HRI] != null) {
+    contents[_HRI] = __expectString(output[_HRI]);
+  }
   if (output[_IP] != null) {
     contents[_IP] = __expectString(output[_IP]);
   }
@@ -8889,6 +8898,21 @@ const de_HookResultSummary = (output: any, context: __SerdeContext): HookResultS
   }
   if (output[_HSR] != null) {
     contents[_HSR] = __expectString(output[_HSR]);
+  }
+  if (output[_IAn] != null) {
+    contents[_IAn] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_IAn]));
+  }
+  if (output[_TTa] != null) {
+    contents[_TTa] = __expectString(output[_TTa]);
+  }
+  if (output[_TI] != null) {
+    contents[_TI] = __expectString(output[_TI]);
+  }
+  if (output[_TA] != null) {
+    contents[_TA] = __expectString(output[_TA]);
+  }
+  if (output[_HET] != null) {
+    contents[_HET] = __expectString(output[_HET]);
   }
   return contents;
 };
@@ -10391,6 +10415,9 @@ const de_StackEvent = (output: any, context: __SerdeContext): StackEvent => {
   }
   if (output[_HIP] != null) {
     contents[_HIP] = __expectString(output[_HIP]);
+  }
+  if (output[_HII] != null) {
+    contents[_HII] = __expectString(output[_HII]);
   }
   if (output[_HFM] != null) {
     contents[_HFM] = __expectString(output[_HFM]);
@@ -12163,15 +12190,19 @@ const _GTI = "GeneratedTemplateId";
 const _GTN = "GeneratedTemplateName";
 const _GTS = "GetTemplateSummary";
 const _H = "Hooks";
+const _HET = "HookExecutionTarget";
 const _HFM = "HookFailureMode";
 const _HIC = "HookInvocationCount";
+const _HII = "HookInvocationId";
 const _HIP = "HookInvocationPoint";
 const _HR = "HookResults";
+const _HRI = "HookResultId";
 const _HS = "HookStatus";
 const _HSR = "HookStatusReason";
 const _HT = "HookType";
 const _I = "Id";
 const _IA = "IsActivated";
+const _IAn = "InvokedAt";
 const _IDC = "IsDefaultConfiguration";
 const _IDV = "IsDefaultVersion";
 const _IER = "ImportExistingResources";

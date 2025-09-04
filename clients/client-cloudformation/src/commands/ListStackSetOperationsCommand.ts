@@ -28,7 +28,7 @@ export interface ListStackSetOperationsCommandInput extends ListStackSetOperatio
 export interface ListStackSetOperationsCommandOutput extends ListStackSetOperationsOutput, __MetadataBearer {}
 
 /**
- * <p>Returns summary information about operations performed on a stack set.</p>
+ * <p>Returns summary information about operations performed on a StackSet.</p>
  *          <note>
  *             <p>This API provides <i>eventually consistent</i> reads meaning it may take
  *         some time but will eventually return the most up-to-date data.</p>
@@ -84,7 +84,7 @@ export interface ListStackSetOperationsCommandOutput extends ListStackSetOperati
  * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.
  *
  * @throws {@link StackSetNotFoundException} (client fault)
- *  <p>The specified stack set doesn't exist.</p>
+ *  <p>The specified StackSet doesn't exist.</p>
  *
  * @throws {@link CloudFormationServiceException}
  * <p>Base exception class for all service exceptions from CloudFormation service.</p>

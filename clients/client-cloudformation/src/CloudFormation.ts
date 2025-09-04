@@ -1337,6 +1337,7 @@ export interface CloudFormation {
   /**
    * @see {@link ListHookResultsCommand}
    */
+  listHookResults(): Promise<ListHookResultsCommandOutput>;
   listHookResults(
     args: ListHookResultsCommandInput,
     options?: __HttpHandlerOptions

@@ -28,10 +28,18 @@ export interface ActivateTypeCommandInput extends ActivateTypeInput {}
 export interface ActivateTypeCommandOutput extends ActivateTypeOutput, __MetadataBearer {}
 
 /**
- * <p>Activates a public third-party extension, making it available for use in stack templates.
- *       Once you have activated a public third-party extension in your account and Region, use <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_SetTypeConfiguration.html">SetTypeConfiguration</a> to specify configuration properties for the extension. For
- *       more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/registry-public.html">Using public
- *         extensions</a> in the <i>CloudFormation User Guide</i>.</p>
+ * <p>Activates a public third-party extension, such as a resource or module, to make it
+ *       available for use in stack templates in your current account and Region. It can also create
+ *       CloudFormation Hooks, which allow you to evaluate resource configurations before CloudFormation
+ *       provisions them. Hooks integrate with both CloudFormation and Cloud Control API operations.</p>
+ *          <p>After you activate an extension, you can use <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_SetTypeConfiguration.html">SetTypeConfiguration</a> to set specific properties for the extension.</p>
+ *          <p>To see which extensions have been activated, use <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_ListTypes.html">ListTypes</a>. To see
+ *       configuration details for an extension, use <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_DescribeType.html">DescribeType</a>.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/registry-public-activate-extension.html">Activate a
+ *         third-party public extension in your account</a> in the
+ *         <i>CloudFormation User Guide</i>. For information about creating Hooks, see the
+ *         <a href="https://docs.aws.amazon.com/cloudformation-cli/latest/hooks-userguide/what-is-cloudformation-hooks.html">CloudFormation
+ *         Hooks User Guide</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

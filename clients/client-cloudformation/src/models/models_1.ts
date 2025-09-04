@@ -54,7 +54,7 @@ export interface ListStackSetsInput {
   MaxResults?: number | undefined;
 
   /**
-   * <p>The status of the stack sets that you want to get summary information about.</p>
+   * <p>The status of the StackSets that you want to get summary information about.</p>
    * @public
    */
   Status?: StackSetStatus | undefined;
@@ -63,7 +63,7 @@ export interface ListStackSetsInput {
    * <p>[Service-managed permissions] Specifies whether you are acting as an account administrator
    *       in the management account or as a delegated administrator in a member
    *       account.</p>
-   *          <p>By default, <code>SELF</code> is specified. Use <code>SELF</code> for stack sets with
+   *          <p>By default, <code>SELF</code> is specified. Use <code>SELF</code> for StackSets with
    *       self-managed permissions.</p>
    *          <ul>
    *             <li>
@@ -83,31 +83,31 @@ export interface ListStackSetsInput {
 }
 
 /**
- * <p>The structures that contain summary information about the specified stack set.</p>
+ * <p>The structures that contain summary information about the specified StackSet.</p>
  * @public
  */
 export interface StackSetSummary {
   /**
-   * <p>The name of the stack set.</p>
+   * <p>The name of the StackSet.</p>
    * @public
    */
   StackSetName?: string | undefined;
 
   /**
-   * <p>The ID of the stack set.</p>
+   * <p>The ID of the StackSet.</p>
    * @public
    */
   StackSetId?: string | undefined;
 
   /**
-   * <p>A description of the stack set that you specify when the stack set is created or
+   * <p>A description of the StackSet that you specify when the StackSet is created or
    *    updated.</p>
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * <p>The status of the stack set.</p>
+   * <p>The status of the StackSet.</p>
    * @public
    */
   Status?: StackSetStatus | undefined;
@@ -119,7 +119,7 @@ export interface StackSetSummary {
   AutoDeployment?: AutoDeployment | undefined;
 
   /**
-   * <p>Describes how the IAM roles required for stack set operations are created.</p>
+   * <p>Describes how the IAM roles required for StackSet operations are created.</p>
    *          <ul>
    *             <li>
    *                <p>With <code>self-managed</code> permissions, you must create the administrator and
@@ -130,7 +130,7 @@ export interface StackSetSummary {
    *                <p>With <code>service-managed</code> permissions, StackSets automatically creates the IAM
    *      roles required to deploy to accounts managed by Organizations. For more information,
    *      see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-orgs-activate-trusted-access.html">Activate
-   *       trusted access for stack sets with Organizations</a>.</p>
+   *       trusted access for StackSets with Organizations</a>.</p>
    *             </li>
    *          </ul>
    * @public
@@ -138,24 +138,23 @@ export interface StackSetSummary {
   PermissionModel?: PermissionModels | undefined;
 
   /**
-   * <p>Status of the stack set's actual configuration compared to its expected template and
-   *    parameter configuration. A stack set is considered to have drifted if one or more of its stack
-   *    instances have drifted from their expected template and parameter configuration.</p>
+   * <p>Status of the StackSet's actual configuration compared to its expected template and
+   *    parameter configuration.</p>
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>DRIFTED</code>: One or more of the stack instances belonging to the stack set stack
-   *      differs from the expected template and parameter configuration. A stack instance is considered
-   *      to have drifted if one or more of the resources in the associated stack have drifted.</p>
+   *                   <code>DRIFTED</code>: One or more of the stack instances belonging to the StackSet differs
+   *      from the expected template and parameter configuration. A stack instance is considered to have
+   *      drifted if one or more of the resources in the associated stack have drifted.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>NOT_CHECKED</code>: CloudFormation hasn't checked the stack set for drift.</p>
+   *                   <code>NOT_CHECKED</code>: CloudFormation hasn't checked the StackSet for drift.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>IN_SYNC</code>: All the stack instances belonging to the stack set stack match from
-   *      the expected template and parameter configuration.</p>
+   *                   <code>IN_SYNC</code>: All the stack instances belonging to the StackSet match the expected
+   *      template and parameter configuration.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -167,9 +166,9 @@ export interface StackSetSummary {
   DriftStatus?: StackDriftStatus | undefined;
 
   /**
-   * <p>Most recent time when CloudFormation performed a drift detection operation on the stack set.
-   *    This value will be <code>NULL</code> for any stack set on which drift detection hasn't yet been
-   *    performed.</p>
+   * <p>Most recent time when CloudFormation performed a drift detection operation on the StackSet. This
+   *    value will be <code>NULL</code> for any StackSet that drift detection hasn't yet been performed
+   *    on.</p>
    * @public
    */
   LastDriftCheckTimestamp?: Date | undefined;
@@ -188,7 +187,7 @@ export interface StackSetSummary {
 export interface ListStackSetsOutput {
   /**
    * <p>A list of <code>StackSetSummary</code> structures that contain information about the
-   *       user's stack sets.</p>
+   *       user's StackSets.</p>
    * @public
    */
   Summaries?: StackSetSummary[] | undefined;
@@ -482,7 +481,7 @@ export interface TypeSummary {
   DefaultVersionId?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the extension.</p>
+   * <p>The ARN of the extension.</p>
    * @public
    */
   TypeArn?: string | undefined;
@@ -691,7 +690,7 @@ export interface TypeVersionSummary {
 
   /**
    * <p>The ID of a specific version of the extension. The version ID is the value at the end of the
-   *    Amazon Resource Name (ARN) assigned to the extension version when it's registered.</p>
+   *    ARN assigned to the extension version when it's registered.</p>
    * @public
    */
   VersionId?: string | undefined;
@@ -706,7 +705,7 @@ export interface TypeVersionSummary {
   IsDefaultVersion?: boolean | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the extension version.</p>
+   * <p>The ARN of the extension version.</p>
    * @public
    */
   Arn?: string | undefined;
@@ -1436,7 +1435,7 @@ export interface StartResourceScanOutput {
  */
 export interface StopStackSetOperationInput {
   /**
-   * <p>The name or unique ID of the stack set that you want to stop the operation for.</p>
+   * <p>The name or unique ID of the StackSet that you want to stop the operation for.</p>
    * @public
    */
   StackSetName: string | undefined;
@@ -1448,10 +1447,9 @@ export interface StopStackSetOperationInput {
   OperationId: string | undefined;
 
   /**
-   * <p>[Service-managed permissions] Specifies whether you are acting as an account administrator
-   *    in the organization's management account or as a delegated administrator in a member
-   *    account.</p>
-   *          <p>By default, <code>SELF</code> is specified. Use <code>SELF</code> for stack sets with
+   * <p>Specifies whether you are acting as an account administrator in the organization's management account or as a delegated administrator in a member account. Valid only if the
+   *    StackSet uses service-managed permissions.</p>
+   *          <p>By default, <code>SELF</code> is specified. Use <code>SELF</code> for StackSets with
    *    self-managed permissions.</p>
    *          <ul>
    *             <li>
@@ -1732,8 +1730,7 @@ export interface UpdateStackInput {
    *                   </li>
    *                   <li>
    *                      <p>
-   *                         <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-iam-managedpolicy.html">
-   *                 AWS::IAM::ManagedPolicy</a>
+   *                         <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-iam-managedpolicy.html"> AWS::IAM::ManagedPolicy</a>
    *                      </p>
    *                   </li>
    *                   <li>
@@ -1930,14 +1927,14 @@ export interface UpdateStackOutput {
  */
 export interface UpdateStackInstancesInput {
   /**
-   * <p>The name or unique ID of the stack set associated with the stack instances.</p>
+   * <p>The name or unique ID of the StackSet associated with the stack instances.</p>
    * @public
    */
   StackSetName: string | undefined;
 
   /**
-   * <p>[Self-managed permissions] The account IDs of one or more Amazon Web Services accounts for which you
-   *       want to update parameter values for stack instances. The overridden parameter values will be
+   * <p>[Self-managed permissions] The account IDs of one or more Amazon Web Services accounts in which you want
+   *       to update parameter values for stack instances. The overridden parameter values will be
    *       applied to all stack instances in the specified accounts and Amazon Web Services Regions.</p>
    *          <p>You can specify <code>Accounts</code> or <code>DeploymentTargets</code>, but not
    *       both.</p>
@@ -1946,7 +1943,7 @@ export interface UpdateStackInstancesInput {
   Accounts?: string[] | undefined;
 
   /**
-   * <p>[Service-managed permissions] The Organizations accounts for which you want to
+   * <p>[Service-managed permissions] The Organizations accounts in which you want to
    *       update parameter values for stack instances. If your update targets OUs, the overridden
    *       parameter values only apply to the accounts that are currently in the target OUs and their
    *       child OUs. Accounts added to the target OUs and their child OUs in the future won't use the
@@ -1982,7 +1979,7 @@ export interface UpdateStackInstancesInput {
    *           value and set <code>UsePreviousValue</code> to <code>true</code>.)</p>
    *             </li>
    *             <li>
-   *                <p>To set an overridden parameter back to the value specified in the stack set, specify a
+   *                <p>To set an overridden parameter back to the value specified in the StackSet, specify a
    *           parameter list but don't include the parameter in the list.</p>
    *             </li>
    *             <li>
@@ -1990,30 +1987,30 @@ export interface UpdateStackInstancesInput {
    *           all.</p>
    *             </li>
    *          </ul>
-   *          <p>During stack set updates, any parameter values overridden for a stack instance aren't
+   *          <p>During StackSet updates, any parameter values overridden for a stack instance aren't
    *       updated, but retain their overridden value.</p>
    *          <p>You can only override the parameter <i>values</i> that are specified in the
-   *       stack set; to add or delete a parameter itself, use <code>UpdateStackSet</code> to update the
-   *       stack set template. If you add a parameter to a template, before you can override the
-   *       parameter value specified in the stack set you must first use <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_UpdateStackSet.html">UpdateStackSet</a>
+   *       StackSet. To add or delete a parameter itself, use <code>UpdateStackSet</code> to update the
+   *       StackSet template. If you add a parameter to a template, before you can override the parameter
+   *       value specified in the StackSet you must first use <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_UpdateStackSet.html">UpdateStackSet</a>
    *       to update all stack instances with the updated template and parameter value specified in the
-   *       stack set. Once a stack instance has been updated with the new parameter, you can then
-   *       override the parameter value using <code>UpdateStackInstances</code>.</p>
+   *       StackSet. Once a stack instance has been updated with the new parameter, you can then override
+   *       the parameter value using <code>UpdateStackInstances</code>.</p>
    * @public
    */
   ParameterOverrides?: Parameter[] | undefined;
 
   /**
-   * <p>Preferences for how CloudFormation performs this stack set operation.</p>
+   * <p>Preferences for how CloudFormation performs this StackSet operation.</p>
    * @public
    */
   OperationPreferences?: StackSetOperationPreferences | undefined;
 
   /**
-   * <p>The unique identifier for this stack set operation.</p>
+   * <p>The unique identifier for this StackSet operation.</p>
    *          <p>The operation ID also functions as an idempotency token, to ensure that CloudFormation
-   *       performs the stack set operation only once, even if you retry the request multiple times. You
-   *       might retry stack set operation requests to ensure that CloudFormation successfully received
+   *       performs the StackSet operation only once, even if you retry the request multiple times. You
+   *       might retry StackSet operation requests to ensure that CloudFormation successfully received
    *       them.</p>
    *          <p>If you don't specify an operation ID, the SDK generates one
    *       automatically.</p>
@@ -2025,7 +2022,7 @@ export interface UpdateStackInstancesInput {
    * <p>[Service-managed permissions] Specifies whether you are acting as an account administrator
    *       in the organization's management account or as a delegated administrator in a
    *       member account.</p>
-   *          <p>By default, <code>SELF</code> is specified. Use <code>SELF</code> for stack sets with
+   *          <p>By default, <code>SELF</code> is specified. Use <code>SELF</code> for StackSets with
    *       self-managed permissions.</p>
    *          <ul>
    *             <li>
@@ -2049,7 +2046,7 @@ export interface UpdateStackInstancesInput {
  */
 export interface UpdateStackInstancesOutput {
   /**
-   * <p>The unique identifier for this stack set operation.</p>
+   * <p>The unique identifier for this StackSet operation.</p>
    * @public
    */
   OperationId?: string | undefined;
@@ -2060,7 +2057,7 @@ export interface UpdateStackInstancesOutput {
  */
 export interface UpdateStackSetInput {
   /**
-   * <p>The name or unique ID of the stack set that you want to update.</p>
+   * <p>The name or unique ID of the StackSet that you want to update.</p>
    * @public
    */
   StackSetName: string | undefined;
@@ -2094,8 +2091,7 @@ export interface UpdateStackSetInput {
   TemplateURL?: string | undefined;
 
   /**
-   * <p>Use the existing template that's associated with the stack set that you're
-   *       updating.</p>
+   * <p>Use the existing template that's associated with the StackSet that you're updating.</p>
    *          <p>Conditional: You must specify only one of the following parameters:
    *         <code>TemplateBody</code> or <code>TemplateURL</code>—or set
    *         <code>UsePreviousTemplate</code> to true.</p>
@@ -2104,14 +2100,14 @@ export interface UpdateStackSetInput {
   UsePreviousTemplate?: boolean | undefined;
 
   /**
-   * <p>A list of input parameters for the stack set template.</p>
+   * <p>A list of input parameters for the StackSet template.</p>
    * @public
    */
   Parameters?: Parameter[] | undefined;
 
   /**
    * <p>In some cases, you must explicitly acknowledge that your stack template contains certain
-   *       capabilities in order for CloudFormation to update the stack set and its associated stack
+   *       capabilities in order for CloudFormation to update the StackSet and its associated stack
    *       instances.</p>
    *          <ul>
    *             <li>
@@ -2181,16 +2177,16 @@ export interface UpdateStackSetInput {
    *                <p>
    *                   <code>CAPABILITY_AUTO_EXPAND</code>
    *                </p>
-   *                <p>Some templates reference macros. If your stack set template references one or more
-   *           macros, you must update the stack set directly from the processed template, without first
-   *           reviewing the resulting changes in a change set. To update the stack set directly, you
-   *           must acknowledge this capability. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-macros.html">Perform custom processing
+   *                <p>Some templates reference macros. If your StackSet template references one or more
+   *           macros, you must update the StackSet directly from the processed template, without first
+   *           reviewing the resulting changes in a change set. To update the StackSet directly, you must
+   *           acknowledge this capability. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-macros.html">Perform custom processing
    *             on CloudFormation templates with template macros</a>.</p>
    *                <important>
-   *                   <p>Stack sets with service-managed permissions do not currently support the use of
+   *                   <p>StackSets with service-managed permissions do not currently support the use of
    *             macros in templates. (This includes the <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/transform-aws-include.html">AWS::Include</a> and <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/transform-aws-serverless.html">AWS::Serverless</a> transforms, which are macros hosted by CloudFormation.) Even if
-   *             you specify this capability for a stack set with service-managed permissions, if you
-   *             reference a macro in your template the stack set operation will fail.</p>
+   *             you specify this capability for a StackSet with service-managed permissions, if you
+   *             reference a macro in your template the StackSet operation will fail.</p>
    *                </important>
    *             </li>
    *          </ul>
@@ -2199,11 +2195,11 @@ export interface UpdateStackSetInput {
   Capabilities?: Capability[] | undefined;
 
   /**
-   * <p>The key-value pairs to associate with this stack set and the stacks created from it.
+   * <p>The key-value pairs to associate with this StackSet and the stacks created from it.
    *       CloudFormation also propagates these tags to supported resources that are created in the stacks.
    *       You can specify a maximum number of 50 tags.</p>
    *          <p>If you specify tags for this parameter, those tags replace any list of tags that are
-   *       currently associated with this stack set. This means:</p>
+   *       currently associated with this StackSet. This means:</p>
    *          <ul>
    *             <li>
    *                <p>If you don't specify this parameter, CloudFormation doesn't modify the stack's
@@ -2211,11 +2207,10 @@ export interface UpdateStackSetInput {
    *             </li>
    *             <li>
    *                <p>If you specify <i>any</i> tags using this parameter, you must specify
-   *             <i>all</i> the tags that you want associated with this stack set, even
-   *           tags you've specified before (for example, when creating the stack set or during a
-   *           previous update of the stack set.). Any tags that you don't include in the updated list of
-   *           tags are removed from the stack set, and therefore from the stacks and resources as
-   *           well.</p>
+   *             <i>all</i> the tags that you want associated with this StackSet, even tags
+   *           you've specified before (for example, when creating the StackSet or during a previous
+   *           update of the StackSet.). Any tags that you don't include in the updated list of tags are
+   *           removed from the StackSet, and therefore from the stacks and resources as well.</p>
    *             </li>
    *             <li>
    *                <p>If you specify an empty value, CloudFormation removes all currently associated
@@ -2224,31 +2219,31 @@ export interface UpdateStackSetInput {
    *          </ul>
    *          <p>If you specify new tags as part of an <code>UpdateStackSet</code> action, CloudFormation
    *       checks to see if you have the required IAM permission to tag resources. If you omit tags
-   *       that are currently associated with the stack set from the list of tags you specify, CloudFormation
-   *       assumes that you want to remove those tags from the stack set, and checks to see if you have
+   *       that are currently associated with the StackSet from the list of tags you specify, CloudFormation
+   *       assumes that you want to remove those tags from the StackSet, and checks to see if you have
    *       permission to untag resources. If you don't have the necessary permission(s), the entire
    *         <code>UpdateStackSet</code> action fails with an <code>access denied</code> error, and the
-   *       stack set is not updated.</p>
+   *       StackSet is not updated.</p>
    * @public
    */
   Tags?: Tag[] | undefined;
 
   /**
-   * <p>Preferences for how CloudFormation performs this stack set operation.</p>
+   * <p>Preferences for how CloudFormation performs this StackSet operation.</p>
    * @public
    */
   OperationPreferences?: StackSetOperationPreferences | undefined;
 
   /**
    * <p>[Self-managed permissions] The Amazon Resource Name (ARN) of the IAM role to use to
-   *       update this stack set.</p>
+   *       update this StackSet.</p>
    *          <p>Specify an IAM role only if you are using customized administrator roles to control
-   *       which users or groups can manage specific stack sets within the same administrator account.
-   *       For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-prereqs-self-managed.html">Grant
+   *       which users or groups can manage specific StackSets within the same administrator account. For
+   *       more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-prereqs-self-managed.html">Grant
    *         self-managed permissions</a> in the <i>CloudFormation User Guide</i>.</p>
-   *          <p>If you specified a customized administrator role when you created the stack set, you must
+   *          <p>If you specified a customized administrator role when you created the StackSet, you must
    *       specify a customized administrator role, even if it is the same customized administrator role
-   *       used with this stack set previously.</p>
+   *       used with this StackSet previously.</p>
    * @public
    */
   AdministrationRoleARN?: string | undefined;
@@ -2256,13 +2251,13 @@ export interface UpdateStackSetInput {
   /**
    * <p>[Self-managed permissions] The name of the IAM execution role to use to update the stack
    *       set. If you do not specify an execution role, CloudFormation uses the
-   *         <code>AWSCloudFormationStackSetExecutionRole</code> role for the stack set operation.</p>
+   *         <code>AWSCloudFormationStackSetExecutionRole</code> role for the StackSet operation.</p>
    *          <p>Specify an IAM role only if you are using customized execution roles to control which
-   *       stack resources users and groups can include in their stack sets.</p>
+   *       stack resources users and groups can include in their StackSets.</p>
    *          <p>If you specify a customized execution role, CloudFormation uses that role to update the stack.
    *       If you do not specify a customized execution role, CloudFormation performs the update using the
-   *       role previously associated with the stack set, so long as you have permissions to perform
-   *       operations on the stack set.</p>
+   *       role previously associated with the StackSet, so long as you have permissions to perform
+   *       operations on the StackSet.</p>
    * @public
    */
   ExecutionRoleName?: string | undefined;
@@ -2270,13 +2265,13 @@ export interface UpdateStackSetInput {
   /**
    * <p>[Service-managed permissions] The Organizations accounts in which to update
    *       associated stack instances.</p>
-   *          <p>To update all the stack instances associated with this stack set, do not specify
+   *          <p>To update all the stack instances associated with this StackSet, do not specify
    *         <code>DeploymentTargets</code> or <code>Regions</code>.</p>
-   *          <p>If the stack set update includes changes to the template (that is, if
+   *          <p>If the StackSet update includes changes to the template (that is, if
    *         <code>TemplateBody</code> or <code>TemplateURL</code> is specified), or the
    *         <code>Parameters</code>, CloudFormation marks all stack instances with a status of
    *         <code>OUTDATED</code> prior to updating the stack instances in the specified accounts and
-   *       Amazon Web Services Regions. If the stack set update doesn't include changes to the template or parameters,
+   *       Amazon Web Services Regions. If the StackSet update doesn't include changes to the template or parameters,
    *       CloudFormation updates the stack instances in the specified accounts and Regions, while leaving
    *       all other stack instances with their existing stack instance status.</p>
    * @public
@@ -2284,7 +2279,7 @@ export interface UpdateStackSetInput {
   DeploymentTargets?: DeploymentTargets | undefined;
 
   /**
-   * <p>Describes how the IAM roles required for stack set operations are created. You cannot
+   * <p>Describes how the IAM roles required for StackSet operations are created. You cannot
    *       modify <code>PermissionModel</code> if there are stack instances associated with your stack
    *       set.</p>
    *          <ul>
@@ -2296,7 +2291,7 @@ export interface UpdateStackSetInput {
    *             <li>
    *                <p>With <code>service-managed</code> permissions, StackSets automatically creates the
    *           IAM roles required to deploy to accounts managed by Organizations. For more
-   *           information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-orgs-activate-trusted-access.html">Activate trusted access for stack sets with Organizations</a>.</p>
+   *           information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-orgs-activate-trusted-access.html">Activate trusted access for StackSets with Organizations</a>.</p>
    *             </li>
    *          </ul>
    * @public
@@ -2305,8 +2300,7 @@ export interface UpdateStackSetInput {
 
   /**
    * <p>[Service-managed permissions] Describes whether StackSets automatically deploys to Organizations accounts that are added to a target organization or organizational unit (OU).
-   *       For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-orgs-manage-auto-deployment.html">Manage
-   *         automatic deployments for CloudFormation StackSets that use service-managed permissions</a>
+   *       For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-orgs-manage-auto-deployment.html">Enable or disable automatic deployments for StackSets in Organizations</a>
    *       in the <i>CloudFormation User Guide</i>.</p>
    *          <p>If you specify <code>AutoDeployment</code>, don't specify <code>DeploymentTargets</code>
    *       or <code>Regions</code>.</p>
@@ -2315,14 +2309,14 @@ export interface UpdateStackSetInput {
   AutoDeployment?: AutoDeployment | undefined;
 
   /**
-   * <p>The unique ID for this stack set operation.</p>
+   * <p>The unique ID for this StackSet operation.</p>
    *          <p>The operation ID also functions as an idempotency token, to ensure that CloudFormation
-   *       performs the stack set operation only once, even if you retry the request multiple times. You
-   *       might retry stack set operation requests to ensure that CloudFormation successfully received
+   *       performs the StackSet operation only once, even if you retry the request multiple times. You
+   *       might retry StackSet operation requests to ensure that CloudFormation successfully received
    *       them.</p>
    *          <p>If you don't specify an operation ID, CloudFormation generates one
    *       automatically.</p>
-   *          <p>Repeating this stack set operation with a new operation ID retries all stack instances
+   *          <p>Repeating this StackSet operation with a new operation ID retries all stack instances
    *       whose status is <code>OUTDATED</code>.</p>
    * @public
    */
@@ -2330,15 +2324,15 @@ export interface UpdateStackSetInput {
 
   /**
    * <p>[Self-managed permissions] The accounts in which to update associated stack instances. If
-   *       you specify accounts, you must also specify the Amazon Web Services Regions in which to update stack set
+   *       you specify accounts, you must also specify the Amazon Web Services Regions in which to update StackSet
    *       instances.</p>
-   *          <p>To update <i>all</i> the stack instances associated with this stack set,
+   *          <p>To update <i>all</i> the stack instances associated with this StackSet,
    *       don't specify the <code>Accounts</code> or <code>Regions</code> properties.</p>
-   *          <p>If the stack set update includes changes to the template (that is, if the
+   *          <p>If the StackSet update includes changes to the template (that is, if the
    *         <code>TemplateBody</code> or <code>TemplateURL</code> properties are specified), or the
    *         <code>Parameters</code> property, CloudFormation marks all stack instances with a status of
    *         <code>OUTDATED</code> prior to updating the stack instances in the specified accounts and
-   *       Amazon Web Services Regions. If the stack set update does not include changes to the template or parameters,
+   *       Amazon Web Services Regions. If the StackSet update does not include changes to the template or parameters,
    *       CloudFormation updates the stack instances in the specified accounts and Amazon Web Services Regions, while
    *       leaving all other stack instances with their existing stack instance status.</p>
    * @public
@@ -2347,14 +2341,14 @@ export interface UpdateStackSetInput {
 
   /**
    * <p>The Amazon Web Services Regions in which to update associated stack instances. If you specify Regions,
-   *       you must also specify accounts in which to update stack set instances.</p>
-   *          <p>To update <i>all</i> the stack instances associated with this stack set, do
+   *       you must also specify accounts in which to update StackSet instances.</p>
+   *          <p>To update <i>all</i> the stack instances associated with this StackSet, do
    *       not specify the <code>Accounts</code> or <code>Regions</code> properties.</p>
-   *          <p>If the stack set update includes changes to the template (that is, if the
+   *          <p>If the StackSet update includes changes to the template (that is, if the
    *         <code>TemplateBody</code> or <code>TemplateURL</code> properties are specified), or the
    *         <code>Parameters</code> property, CloudFormation marks all stack instances with a status of
    *         <code>OUTDATED</code> prior to updating the stack instances in the specified accounts and
-   *       Regions. If the stack set update does not include changes to the template or parameters,
+   *       Regions. If the StackSet update does not include changes to the template or parameters,
    *       CloudFormation updates the stack instances in the specified accounts and Regions, while leaving
    *       all other stack instances with their existing stack instance status.</p>
    * @public
@@ -2365,7 +2359,7 @@ export interface UpdateStackSetInput {
    * <p>[Service-managed permissions] Specifies whether you are acting as an account administrator
    *       in the organization's management account or as a delegated administrator in a
    *       member account.</p>
-   *          <p>By default, <code>SELF</code> is specified. Use <code>SELF</code> for stack sets with
+   *          <p>By default, <code>SELF</code> is specified. Use <code>SELF</code> for StackSets with
    *       self-managed permissions.</p>
    *          <ul>
    *             <li>
@@ -2384,7 +2378,7 @@ export interface UpdateStackSetInput {
   CallAs?: CallAs | undefined;
 
   /**
-   * <p>Describes whether StackSets performs non-conflicting operations concurrently and queues
+   * <p>Describes whether CloudFormation performs non-conflicting operations concurrently and queues
    *       conflicting operations.</p>
    * @public
    */
@@ -2396,7 +2390,7 @@ export interface UpdateStackSetInput {
  */
 export interface UpdateStackSetOutput {
   /**
-   * <p>The unique ID for this stack set operation.</p>
+   * <p>The unique ID for this StackSet operation.</p>
    * @public
    */
   OperationId?: string | undefined;
