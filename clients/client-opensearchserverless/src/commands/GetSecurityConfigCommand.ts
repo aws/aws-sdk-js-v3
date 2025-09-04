@@ -32,9 +32,7 @@ export interface GetSecurityConfigCommandInput extends GetSecurityConfigRequest 
 export interface GetSecurityConfigCommandOutput extends GetSecurityConfigResponse, __MetadataBearer {}
 
 /**
- * <p>Returns information about an OpenSearch Serverless security configuration. For more information, see
- *                 <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-saml.html">SAML
- *                 authentication for Amazon OpenSearch Serverless</a>.</p>
+ * <p>Returns information about an OpenSearch Serverless security configuration. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-saml.html">SAML authentication for Amazon OpenSearch Serverless</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -91,8 +89,7 @@ export interface GetSecurityConfigCommandOutput extends GetSecurityConfigRespons
  *  <p>Thrown when accessing or deleting a resource that does not exist.</p>
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>Thrown when the HTTP request contains invalid input or is missing required
- *             input.</p>
+ *  <p>Thrown when the HTTP request contains invalid input or is missing required input.</p>
  *
  * @throws {@link OpenSearchServerlessServiceException}
  * <p>Base exception class for all service exceptions from OpenSearchServerless service.</p>

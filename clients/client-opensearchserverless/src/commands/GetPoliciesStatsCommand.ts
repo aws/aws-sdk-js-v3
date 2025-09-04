@@ -32,8 +32,7 @@ export interface GetPoliciesStatsCommandInput extends GetPoliciesStatsRequest {}
 export interface GetPoliciesStatsCommandOutput extends GetPoliciesStatsResponse, __MetadataBearer {}
 
 /**
- * <p>Returns statistical information about your OpenSearch Serverless access policies, security
- *             configurations, and security policies.</p>
+ * <p>Returns statistical information about your OpenSearch Serverless access policies, security configurations, and security policies.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

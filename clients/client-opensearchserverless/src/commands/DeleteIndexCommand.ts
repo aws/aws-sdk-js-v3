@@ -32,9 +32,7 @@ export interface DeleteIndexCommandInput extends DeleteIndexRequest {}
 export interface DeleteIndexCommandOutput extends DeleteIndexResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes an index from an OpenSearch Serverless collection. Be aware that the index might be
- *             configured to conduct automatic semantic enrichment ingestion and search. For more
- *             information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-manage.html#serverless-semantic-enrichment">About automatic semantic enrichment</a>.</p>
+ * <p>Deletes an index from an OpenSearch Serverless collection. Be aware that the index might be configured to conduct automatic semantic enrichment ingestion and search. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-manage.html#serverless-semantic-enrichment">About automatic semantic enrichment</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -64,8 +62,7 @@ export interface DeleteIndexCommandOutput extends DeleteIndexResponse, __Metadat
  *  <p>Thrown when accessing or deleting a resource that does not exist.</p>
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>Thrown when the HTTP request contains invalid input or is missing required
- *             input.</p>
+ *  <p>Thrown when the HTTP request contains invalid input or is missing required input.</p>
  *
  * @throws {@link OpenSearchServerlessServiceException}
  * <p>Base exception class for all service exceptions from OpenSearchServerless service.</p>

@@ -75,8 +75,7 @@ export interface ListLifecyclePoliciesCommandOutput extends ListLifecyclePolicie
  *  <p>Thrown when an error internal to the service occurs while processing a request.</p>
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>Thrown when the HTTP request contains invalid input or is missing required
- *             input.</p>
+ *  <p>Thrown when the HTTP request contains invalid input or is missing required input.</p>
  *
  * @throws {@link OpenSearchServerlessServiceException}
  * <p>Base exception class for all service exceptions from OpenSearchServerless service.</p>

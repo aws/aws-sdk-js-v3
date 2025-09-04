@@ -32,9 +32,7 @@ export interface GetIndexCommandInput extends GetIndexRequest {}
 export interface GetIndexCommandOutput extends GetIndexResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves information about an index in an OpenSearch Serverless collection, including its schema
- *             definition. The index might be configured to conduct automatic semantic enrichment
- *             ingestion and search. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-manage.html#serverless-semantic-enrichment">About automatic semantic enrichment</a>.</p>
+ * <p>Retrieves information about an index in an OpenSearch Serverless collection, including its schema definition. The index might be configured to conduct automatic semantic enrichment ingestion and search. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-manage.html#serverless-semantic-enrichment">About automatic semantic enrichment</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -66,8 +64,7 @@ export interface GetIndexCommandOutput extends GetIndexResponse, __MetadataBeare
  *  <p>Thrown when accessing or deleting a resource that does not exist.</p>
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>Thrown when the HTTP request contains invalid input or is missing required
- *             input.</p>
+ *  <p>Thrown when the HTTP request contains invalid input or is missing required input.</p>
  *
  * @throws {@link OpenSearchServerlessServiceException}
  * <p>Base exception class for all service exceptions from OpenSearchServerless service.</p>

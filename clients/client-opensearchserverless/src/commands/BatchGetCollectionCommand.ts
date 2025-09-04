@@ -32,9 +32,7 @@ export interface BatchGetCollectionCommandInput extends BatchGetCollectionReques
 export interface BatchGetCollectionCommandOutput extends BatchGetCollectionResponse, __MetadataBearer {}
 
 /**
- * <p>Returns attributes for one or more collections, including the collection endpoint and
- *             the OpenSearch Dashboards endpoint. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-manage.html">Creating and
- *                 managing Amazon OpenSearch Serverless collections</a>.</p>
+ * <p>Returns attributes for one or more collections, including the collection endpoint, the OpenSearch Dashboards endpoint, and FIPS-compliant endpoints. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-manage.html">Creating and managing Amazon OpenSearch Serverless collections</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -66,6 +64,10 @@ export interface BatchGetCollectionCommandOutput extends BatchGetCollectionRespo
  * //       lastModifiedDate: Number("long"),
  * //       collectionEndpoint: "STRING_VALUE",
  * //       dashboardEndpoint: "STRING_VALUE",
+ * //       fipsEndpoints: { // FipsEndpoints
+ * //         collectionEndpoint: "STRING_VALUE",
+ * //         dashboardEndpoint: "STRING_VALUE",
+ * //       },
  * //       failureCode: "STRING_VALUE",
  * //       failureMessage: "STRING_VALUE",
  * //     },
@@ -92,8 +94,7 @@ export interface BatchGetCollectionCommandOutput extends BatchGetCollectionRespo
  *  <p>Thrown when an error internal to the service occurs while processing a request.</p>
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>Thrown when the HTTP request contains invalid input or is missing required
- *             input.</p>
+ *  <p>Thrown when the HTTP request contains invalid input or is missing required input.</p>
  *
  * @throws {@link OpenSearchServerlessServiceException}
  * <p>Base exception class for all service exceptions from OpenSearchServerless service.</p>

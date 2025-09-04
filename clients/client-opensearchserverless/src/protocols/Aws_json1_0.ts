@@ -2125,6 +2125,8 @@ const de_CreateSecurityPolicyResponse = (output: any, context: __SerdeContext): 
 
 // de_EffectiveLifecyclePolicyErrorDetails omitted.
 
+// de_FipsEndpoints omitted.
+
 /**
  * deserializeAws_json1_0GetAccessPolicyResponse
  */

@@ -32,12 +32,7 @@ export interface ListCollectionsCommandInput extends ListCollectionsRequest {}
 export interface ListCollectionsCommandOutput extends ListCollectionsResponse, __MetadataBearer {}
 
 /**
- * <p>Lists all OpenSearch Serverless collections. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-manage.html">Creating and
- *                 managing Amazon OpenSearch Serverless collections</a>.</p>
- *          <note>
- *             <p>Make sure to include an empty request body \{\} if you don't include any collection
- *                 filters in the request.</p>
- *          </note>
+ * <p>Lists all OpenSearch Serverless collections. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-manage.html">Creating and managing Amazon OpenSearch Serverless collections</a>.</p> <note> <p>Make sure to include an empty request body \{\} if you don't include any collection filters in the request.</p> </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -78,8 +73,7 @@ export interface ListCollectionsCommandOutput extends ListCollectionsResponse, _
  *  <p>Thrown when an error internal to the service occurs while processing a request.</p>
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>Thrown when the HTTP request contains invalid input or is missing required
- *             input.</p>
+ *  <p>Thrown when the HTTP request contains invalid input or is missing required input.</p>
  *
  * @throws {@link OpenSearchServerlessServiceException}
  * <p>Base exception class for all service exceptions from OpenSearchServerless service.</p>

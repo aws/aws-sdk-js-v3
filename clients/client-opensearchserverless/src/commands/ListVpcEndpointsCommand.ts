@@ -32,9 +32,7 @@ export interface ListVpcEndpointsCommandInput extends ListVpcEndpointsRequest {}
 export interface ListVpcEndpointsCommandOutput extends ListVpcEndpointsResponse, __MetadataBearer {}
 
 /**
- * <p>Returns the OpenSearch Serverless-managed interface VPC endpoints associated with the current
- *             account. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-vpc.html">Access
- *                 Amazon OpenSearch Serverless using an interface endpoint</a>.</p>
+ * <p>Returns the OpenSearch Serverless-managed interface VPC endpoints associated with the current account. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-vpc.html">Access Amazon OpenSearch Serverless using an interface endpoint</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -73,8 +71,7 @@ export interface ListVpcEndpointsCommandOutput extends ListVpcEndpointsResponse,
  *  <p>Thrown when an error internal to the service occurs while processing a request.</p>
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>Thrown when the HTTP request contains invalid input or is missing required
- *             input.</p>
+ *  <p>Thrown when the HTTP request contains invalid input or is missing required input.</p>
  *
  * @throws {@link OpenSearchServerlessServiceException}
  * <p>Base exception class for all service exceptions from OpenSearchServerless service.</p>

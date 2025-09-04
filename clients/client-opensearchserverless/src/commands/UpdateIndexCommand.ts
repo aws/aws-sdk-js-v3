@@ -32,10 +32,7 @@ export interface UpdateIndexCommandInput extends UpdateIndexRequest {}
 export interface UpdateIndexCommandOutput extends UpdateIndexResponse, __MetadataBearer {}
 
 /**
- * <p>Updates an existing index in an OpenSearch Serverless collection. This operation allows you to modify
- *             the index schema, including adding new fields or changing field mappings. You can also
- *             enable automatic semantic enrichment ingestion and search. For more information, see
- *                 <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-manage.html#serverless-semantic-enrichment">About automatic semantic enrichment</a>.</p>
+ * <p>Updates an existing index in an OpenSearch Serverless collection. This operation allows you to modify the index schema, including adding new fields or changing field mappings. You can also enable automatic semantic enrichment ingestion and search. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-manage.html#serverless-semantic-enrichment">About automatic semantic enrichment</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -66,8 +63,7 @@ export interface UpdateIndexCommandOutput extends UpdateIndexResponse, __Metadat
  *  <p>Thrown when accessing or deleting a resource that does not exist.</p>
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>Thrown when the HTTP request contains invalid input or is missing required
- *             input.</p>
+ *  <p>Thrown when the HTTP request contains invalid input or is missing required input.</p>
  *
  * @throws {@link OpenSearchServerlessServiceException}
  * <p>Base exception class for all service exceptions from OpenSearchServerless service.</p>
