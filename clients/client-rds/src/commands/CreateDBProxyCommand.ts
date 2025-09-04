@@ -64,6 +64,8 @@ export interface CreateDBProxyCommandOutput extends CreateDBProxyResponse, __Met
  *       Value: "STRING_VALUE",
  *     },
  *   ],
+ *   EndpointNetworkType: "IPV4" || "IPV6" || "DUAL",
+ *   TargetConnectionNetworkType: "IPV4" || "IPV6",
  * };
  * const command = new CreateDBProxyCommand(input);
  * const response = await client.send(command);
@@ -97,6 +99,8 @@ export interface CreateDBProxyCommandOutput extends CreateDBProxyResponse, __Met
  * //     DebugLogging: true || false,
  * //     CreatedDate: new Date("TIMESTAMP"),
  * //     UpdatedDate: new Date("TIMESTAMP"),
+ * //     EndpointNetworkType: "IPV4" || "IPV6" || "DUAL",
+ * //     TargetConnectionNetworkType: "IPV4" || "IPV6",
  * //   },
  * // };
  *

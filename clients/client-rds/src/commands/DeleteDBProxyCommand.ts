@@ -70,6 +70,8 @@ export interface DeleteDBProxyCommandOutput extends DeleteDBProxyResponse, __Met
  * //     DebugLogging: true || false,
  * //     CreatedDate: new Date("TIMESTAMP"),
  * //     UpdatedDate: new Date("TIMESTAMP"),
+ * //     EndpointNetworkType: "IPV4" || "IPV6" || "DUAL",
+ * //     TargetConnectionNetworkType: "IPV4" || "IPV6",
  * //   },
  * // };
  *

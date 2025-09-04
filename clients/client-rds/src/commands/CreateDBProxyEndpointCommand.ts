@@ -53,6 +53,7 @@ export interface CreateDBProxyEndpointCommandOutput extends CreateDBProxyEndpoin
  *       Value: "STRING_VALUE",
  *     },
  *   ],
+ *   EndpointNetworkType: "IPV4" || "IPV6" || "DUAL",
  * };
  * const command = new CreateDBProxyEndpointCommand(input);
  * const response = await client.send(command);
@@ -73,6 +74,7 @@ export interface CreateDBProxyEndpointCommandOutput extends CreateDBProxyEndpoin
  * //     CreatedDate: new Date("TIMESTAMP"),
  * //     TargetRole: "READ_WRITE" || "READ_ONLY",
  * //     IsDefault: true || false,
+ * //     EndpointNetworkType: "IPV4" || "IPV6" || "DUAL",
  * //   },
  * // };
  *

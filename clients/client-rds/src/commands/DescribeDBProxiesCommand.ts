@@ -81,6 +81,8 @@ export interface DescribeDBProxiesCommandOutput extends DescribeDBProxiesRespons
  * //       DebugLogging: true || false,
  * //       CreatedDate: new Date("TIMESTAMP"),
  * //       UpdatedDate: new Date("TIMESTAMP"),
+ * //       EndpointNetworkType: "IPV4" || "IPV6" || "DUAL",
+ * //       TargetConnectionNetworkType: "IPV4" || "IPV6",
  * //     },
  * //   ],
  * //   Marker: "STRING_VALUE",

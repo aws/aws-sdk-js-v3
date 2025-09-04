@@ -48,6 +48,37 @@ import {
 import { RDSServiceException as __BaseException } from "./RDSServiceException";
 
 /**
+ * @public
+ */
+export interface DeleteIntegrationMessage {
+  /**
+   * <p>The unique identifier of the integration.</p>
+   * @public
+   */
+  IntegrationIdentifier: string | undefined;
+}
+
+/**
+ * <p>The integration is in an invalid state and can't perform the requested operation.</p>
+ * @public
+ */
+export class InvalidIntegrationStateFault extends __BaseException {
+  readonly name: "InvalidIntegrationStateFault" = "InvalidIntegrationStateFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidIntegrationStateFault, __BaseException>) {
+    super({
+      name: "InvalidIntegrationStateFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidIntegrationStateFault.prototype);
+  }
+}
+
+/**
  * <p></p>
  * @public
  */

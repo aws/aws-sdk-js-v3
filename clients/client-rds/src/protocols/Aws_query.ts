@@ -721,7 +721,6 @@ import {
   DeleteEventSubscriptionResult,
   DeleteGlobalClusterMessage,
   DeleteGlobalClusterResult,
-  DeleteIntegrationMessage,
   DomainMembership,
   DomainNotFoundFault,
   Ec2ImagePropertiesNotSupportedFault,
@@ -766,7 +765,6 @@ import {
   InvalidEventSubscriptionStateFault,
   InvalidExportTaskStateFault,
   InvalidGlobalClusterStateFault,
-  InvalidIntegrationStateFault,
   InvalidSubnet,
   InvalidVPCNetworkStateFault,
   IPRange,
@@ -870,6 +868,7 @@ import {
   DBSnapshotTenantDatabasesMessage,
   DBSubnetGroupMessage,
   DBUpgradeDependencyFailureFault,
+  DeleteIntegrationMessage,
   DeleteOptionGroupMessage,
   DeleteTenantDatabaseMessage,
   DeleteTenantDatabaseResult,
@@ -965,6 +964,7 @@ import {
   InvalidDBClusterCapacityFault,
   InvalidExportOnlyFault,
   InvalidExportSourceStateFault,
+  InvalidIntegrationStateFault,
   InvalidOptionGroupStateFault,
   InvalidResourceStateFault,
   InvalidRestoreFault,
@@ -11217,6 +11217,9 @@ const se_CreateDBProxyEndpointRequest = (input: CreateDBProxyEndpointRequest, co
       entries[loc] = value;
     });
   }
+  if (input[_ENT] != null) {
+    entries[_ENT] = input[_ENT];
+  }
   return entries;
 };
 
@@ -11282,6 +11285,12 @@ const se_CreateDBProxyRequest = (input: CreateDBProxyRequest, context: __SerdeCo
       const loc = `Tags.${key}`;
       entries[loc] = value;
     });
+  }
+  if (input[_ENT] != null) {
+    entries[_ENT] = input[_ENT];
+  }
+  if (input[_TCNT] != null) {
+    entries[_TCNT] = input[_TCNT];
   }
   return entries;
 };
@@ -19522,6 +19531,12 @@ const de_DBProxy = (output: any, context: __SerdeContext): DBProxy => {
   if (output[_UD] != null) {
     contents[_UD] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_UD]));
   }
+  if (output[_ENT] != null) {
+    contents[_ENT] = __expectString(output[_ENT]);
+  }
+  if (output[_TCNT] != null) {
+    contents[_TCNT] = __expectString(output[_TCNT]);
+  }
   return contents;
 };
 
@@ -19577,6 +19592,9 @@ const de_DBProxyEndpoint = (output: any, context: __SerdeContext): DBProxyEndpoi
   }
   if (output[_ID] != null) {
     contents[_ID] = __parseBoolean(output[_ID]);
+  }
+  if (output[_ENT] != null) {
+    contents[_ENT] = __expectString(output[_ENT]);
   }
   return contents;
 };
@@ -25653,6 +25671,7 @@ const _EMn = "EngineMode";
 const _EMr = "ErrorMessage";
 const _EN = "EngineName";
 const _ENAFI = "EngineNativeAuditFieldsIncluded";
+const _ENT = "EndpointNetworkType";
 const _EO = "ExportOnly";
 const _EPI = "EnablePerformanceInsights";
 const _ERT = "EarliestRestorableTime";
@@ -26118,6 +26137,7 @@ const _TAi = "TimeoutAction";
 const _TCA = "TdeCredentialArn";
 const _TCAZ = "TargetCustomAvailabilityZone";
 const _TCI = "TrackedClusterId";
+const _TCNT = "TargetConnectionNetworkType";
 const _TCP = "TdeCredentialPassword";
 const _TD = "TenantDatabase";
 const _TDARN = "TenantDatabaseARN";

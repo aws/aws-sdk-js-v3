@@ -61,6 +61,7 @@ export interface ModifyDBProxyEndpointCommandOutput extends ModifyDBProxyEndpoin
  * //     CreatedDate: new Date("TIMESTAMP"),
  * //     TargetRole: "READ_WRITE" || "READ_ONLY",
  * //     IsDefault: true || false,
+ * //     EndpointNetworkType: "IPV4" || "IPV6" || "DUAL",
  * //   },
  * // };
  *

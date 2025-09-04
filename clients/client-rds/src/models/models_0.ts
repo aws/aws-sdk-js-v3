@@ -11181,6 +11181,21 @@ export interface UserAuthConfig {
  * @public
  * @enum
  */
+export const EndpointNetworkType = {
+  DUAL: "DUAL",
+  IPV4: "IPV4",
+  IPV6: "IPV6",
+} as const;
+
+/**
+ * @public
+ */
+export type EndpointNetworkType = (typeof EndpointNetworkType)[keyof typeof EndpointNetworkType];
+
+/**
+ * @public
+ * @enum
+ */
 export const EngineFamily = {
   MYSQL: "MYSQL",
   POSTGRESQL: "POSTGRESQL",
@@ -11191,6 +11206,21 @@ export const EngineFamily = {
  * @public
  */
 export type EngineFamily = (typeof EngineFamily)[keyof typeof EngineFamily];
+
+/**
+ * @public
+ * @enum
+ */
+export const TargetConnectionNetworkType = {
+  IPV4: "IPV4",
+  IPV6: "IPV6",
+} as const;
+
+/**
+ * @public
+ */
+export type TargetConnectionNetworkType =
+  (typeof TargetConnectionNetworkType)[keyof typeof TargetConnectionNetworkType];
 
 /**
  * @public
@@ -11265,6 +11295,66 @@ export interface CreateDBProxyRequest {
    * @public
    */
   Tags?: Tag[] | undefined;
+
+  /**
+   * <p>The network type of the DB proxy endpoint. The network type determines the IP version that the proxy endpoint supports.</p>
+   *          <p>Valid values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>IPV4</code> - The proxy endpoint supports IPv4 only.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>IPV6</code> - The proxy endpoint supports IPv6 only.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DUAL</code> - The proxy endpoint supports both IPv4 and IPv6.</p>
+   *             </li>
+   *          </ul>
+   *          <p>Default: <code>IPV4</code>
+   *          </p>
+   *          <p>Constraints:</p>
+   *          <ul>
+   *             <li>
+   *                <p>If you specify <code>IPV6</code> or <code>DUAL</code>, the VPC and all subnets must have an IPv6 CIDR block.</p>
+   *             </li>
+   *             <li>
+   *                <p>If you specify <code>IPV6</code> or <code>DUAL</code>, the VPC tenancy cannot be <code>dedicated</code>.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  EndpointNetworkType?: EndpointNetworkType | undefined;
+
+  /**
+   * <p>The network type that the proxy uses to connect to the target database. The network type determines the IP version that the proxy uses for connections to the database.</p>
+   *          <p>Valid values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>IPV4</code> - The proxy connects to the database using IPv4 only.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>IPV6</code> - The proxy connects to the database using IPv6 only.</p>
+   *             </li>
+   *          </ul>
+   *          <p>Default: <code>IPV4</code>
+   *          </p>
+   *          <p>Constraints:</p>
+   *          <ul>
+   *             <li>
+   *                <p>If you specify <code>IPV6</code>, the database must support dual-stack mode. RDS doesn't support IPv6-only databases.</p>
+   *             </li>
+   *             <li>
+   *                <p>All targets registered with the proxy must be compatible with the specified network type.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  TargetConnectionNetworkType?: TargetConnectionNetworkType | undefined;
 }
 
 /**
@@ -11441,6 +11531,44 @@ export interface DBProxy {
    * @public
    */
   UpdatedDate?: Date | undefined;
+
+  /**
+   * <p>The network type of the DB proxy endpoint. The network type determines the IP version that the proxy endpoint supports.</p>
+   *          <p>Valid values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>IPV4</code> - The proxy endpoint supports IPv4 only.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>IPV6</code> - The proxy endpoint supports IPv6 only.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DUAL</code> - The proxy endpoint supports both IPv4 and IPv6.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  EndpointNetworkType?: EndpointNetworkType | undefined;
+
+  /**
+   * <p>The network type that the proxy uses to connect to the target database. The network type determines the IP version that the proxy uses for connections to the database.</p>
+   *          <p>Valid values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>IPV4</code> - The proxy connects to the database using IPv4 only.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>IPV6</code> - The proxy connects to the database using IPv6 only.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  TargetConnectionNetworkType?: TargetConnectionNetworkType | undefined;
 }
 
 /**
@@ -11556,6 +11684,38 @@ export interface CreateDBProxyEndpointRequest {
    * @public
    */
   Tags?: Tag[] | undefined;
+
+  /**
+   * <p>The network type of the DB proxy endpoint. The network type determines the IP version that the proxy endpoint supports.</p>
+   *          <p>Valid values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>IPV4</code> - The proxy endpoint supports IPv4 only.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>IPV6</code> - The proxy endpoint supports IPv6 only.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DUAL</code> - The proxy endpoint supports both IPv4 and IPv6.</p>
+   *             </li>
+   *          </ul>
+   *          <p>Default: <code>IPV4</code>
+   *          </p>
+   *          <p>Constraints:</p>
+   *          <ul>
+   *             <li>
+   *                <p>If you specify <code>IPV6</code> or <code>DUAL</code>, the VPC and all subnets must have an IPv6 CIDR block.</p>
+   *             </li>
+   *             <li>
+   *                <p>If you specify <code>IPV6</code> or <code>DUAL</code>, the VPC tenancy cannot be <code>dedicated</code>.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  EndpointNetworkType?: EndpointNetworkType | undefined;
 }
 
 /**
@@ -11657,6 +11817,27 @@ export interface DBProxyEndpoint {
    * @public
    */
   IsDefault?: boolean | undefined;
+
+  /**
+   * <p>The network type of the DB proxy endpoint. The network type determines the IP version that the proxy endpoint supports.</p>
+   *          <p>Valid values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>IPV4</code> - The proxy endpoint supports IPv4 only.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>IPV6</code> - The proxy endpoint supports IPv6 only.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DUAL</code> - The proxy endpoint supports both IPv4 and IPv6.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  EndpointNetworkType?: EndpointNetworkType | undefined;
 }
 
 /**
@@ -14908,37 +15089,6 @@ export interface DeleteGlobalClusterResult {
    * @public
    */
   GlobalCluster?: GlobalCluster | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteIntegrationMessage {
-  /**
-   * <p>The unique identifier of the integration.</p>
-   * @public
-   */
-  IntegrationIdentifier: string | undefined;
-}
-
-/**
- * <p>The integration is in an invalid state and can't perform the requested operation.</p>
- * @public
- */
-export class InvalidIntegrationStateFault extends __BaseException {
-  readonly name: "InvalidIntegrationStateFault" = "InvalidIntegrationStateFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidIntegrationStateFault, __BaseException>) {
-    super({
-      name: "InvalidIntegrationStateFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidIntegrationStateFault.prototype);
-  }
 }
 
 /**
