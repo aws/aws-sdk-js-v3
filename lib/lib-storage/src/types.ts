@@ -1,4 +1,11 @@
-import { PutObjectCommandInput, S3Client, Tag } from "@aws-sdk/client-s3";
+import {
+  CompleteMultipartUploadCommandInput,
+  CreateMultipartUploadCommandInput,
+  PutObjectCommandInput,
+  S3Client,
+  Tag,
+  UploadPartCommandInput,
+} from "@aws-sdk/client-s3";
 import type { AbortController } from "@smithy/types";
 
 export interface Progress {
@@ -52,7 +59,8 @@ export interface Options extends Partial<Configuration> {
   /**
    * This is the data that is uploaded.
    */
-  params: PutObjectCommandInput;
+  params: PutObjectCommandInput &
+    Partial<CreateMultipartUploadCommandInput & UploadPartCommandInput & CompleteMultipartUploadCommandInput>;
 
   /**
    * A service client.
