@@ -28,7 +28,7 @@ export interface ListTagsForResourceCommandInput extends ListTagsForResourceRequ
 export interface ListTagsForResourceCommandOutput extends ListTagsForResourceResponse, __MetadataBearer {}
 
 /**
- * <p>Returns a list of all tags on an Amazon Web Services PCS resource.</p>
+ * <p>Returns a list of all tags on an PCS resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

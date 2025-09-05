@@ -108,7 +108,7 @@ export class ConflictException extends __BaseException {
 }
 
 /**
- * <p>An Amazon EC2 launch template Amazon Web Services PCS uses to launch compute nodes.</p>
+ * <p>An Amazon EC2 launch template PCS uses to launch compute nodes.</p>
  * @public
  */
 export interface CustomLaunchTemplate {
@@ -126,12 +126,12 @@ export interface CustomLaunchTemplate {
 }
 
 /**
- * <p>An EC2 instance configuration Amazon Web Services PCS uses to launch compute nodes.</p>
+ * <p>An EC2 instance configuration PCS uses to launch compute nodes.</p>
  * @public
  */
 export interface InstanceConfig {
   /**
-   * <p>The EC2 instance type that Amazon Web Services PCS can provision in the compute node group.</p> <p> Example: <code>t2.xlarge</code> </p>
+   * <p>The EC2 instance type that PCS can provision in the compute node group.</p> <p> Example: <code>t2.xlarge</code> </p>
    * @public
    */
   instanceType?: string | undefined;
@@ -175,7 +175,7 @@ export interface ScalingConfigurationRequest {
  */
 export interface SlurmCustomSetting {
   /**
-   * <p>Amazon Web Services PCS supports configuration of the following Slurm parameters:</p> <ul> <li> <p>For <b>clusters</b> </p> <ul> <li> <p> <a href="https://slurm.schedmd.com/slurm.conf.html#OPT_Prolog_1"> <code>Prolog</code> </a> </p> </li> <li> <p> <a href="https://slurm.schedmd.com/slurm.conf.html#OPT_Epilog_1"> <code>Epilog</code> </a> </p> </li> <li> <p> <a href="https://slurm.schedmd.com/slurm.conf.html#OPT_SelectTypeParameters"> <code>SelectTypeParameters</code> </a> </p> </li> </ul> </li> <li> <p>For <b>compute node groups</b> </p> <ul> <li> <p> <a href="https://slurm.schedmd.com/slurm.conf.html#OPT_Weight"> <code>Weight</code> </a> </p> </li> <li> <p> <a href="https://slurm.schedmd.com/slurm.conf.html#OPT_Weight"> <code>RealMemory</code> </a> </p> </li> </ul> </li> </ul>
+   * <p>PCS supports configuration of the following Slurm parameters:</p> <ul> <li> <p>For <b>clusters</b> </p> <ul> <li> <p> <a href="https://slurm.schedmd.com/slurm.conf.html#OPT_Prolog_1"> <code>Prolog</code> </a> </p> </li> <li> <p> <a href="https://slurm.schedmd.com/slurm.conf.html#OPT_Epilog_1"> <code>Epilog</code> </a> </p> </li> <li> <p> <a href="https://slurm.schedmd.com/slurm.conf.html#OPT_SelectTypeParameters"> <code>SelectTypeParameters</code> </a> </p> </li> <li> <p> <a href="https://slurm.schedmd.com/slurm.conf.html#OPT_AccountingStorageEnforce"> <code>AccountingStorageEnforce</code> </a> </p> <important> <p>PCS supports a subset of the options for <code>AccountingStorageEnforce</code>. For more information, see <a href="https://docs.aws.amazon.com/pcs/latest/userguide/slurm-accounting.html">Slurm accounting in PCS</a> in the <i>PCS User Guide</i>.</p> </important> </li> </ul> </li> <li> <p>For <b>compute node groups</b> </p> <ul> <li> <p> <a href="https://slurm.schedmd.com/slurm.conf.html#OPT_Weight"> <code>Weight</code> </a> </p> </li> <li> <p> <a href="https://slurm.schedmd.com/slurm.conf.html#OPT_Weight"> <code>RealMemory</code> </a> </p> </li> </ul> </li> </ul>
    * @public
    */
   parameterName: string | undefined;
@@ -243,7 +243,7 @@ export interface CreateComputeNodeGroupRequest {
   computeNodeGroupName: string | undefined;
 
   /**
-   * <p> The ID of the Amazon Machine Image (AMI) that Amazon Web Services PCS uses to launch compute nodes (Amazon EC2 instances). If you don't provide this value, Amazon Web Services PCS uses the AMI ID specified in the custom launch template.</p>
+   * <p> The ID of the Amazon Machine Image (AMI) that PCS uses to launch compute nodes (Amazon EC2 instances). If you don't provide this value, PCS uses the AMI ID specified in the custom launch template.</p>
    * @public
    */
   amiId?: string | undefined;
@@ -261,7 +261,7 @@ export interface CreateComputeNodeGroupRequest {
   purchaseOption?: PurchaseOption | undefined;
 
   /**
-   * <p>An Amazon EC2 launch template Amazon Web Services PCS uses to launch compute nodes.</p>
+   * <p>An Amazon EC2 launch template PCS uses to launch compute nodes.</p>
    * @public
    */
   customLaunchTemplate: CustomLaunchTemplate | undefined;
@@ -427,7 +427,7 @@ export interface ComputeNodeGroup {
   status: ComputeNodeGroupStatus | undefined;
 
   /**
-   * <p>The ID of the Amazon Machine Image (AMI) that Amazon Web Services PCS uses to launch instances. If not provided, Amazon Web Services PCS uses the AMI ID specified in the custom launch template.</p>
+   * <p>The ID of the Amazon Machine Image (AMI) that PCS uses to launch instances. If not provided, PCS uses the AMI ID specified in the custom launch template.</p>
    * @public
    */
   amiId?: string | undefined;
@@ -445,7 +445,7 @@ export interface ComputeNodeGroup {
   purchaseOption?: PurchaseOption | undefined;
 
   /**
-   * <p>An Amazon EC2 launch template Amazon Web Services PCS uses to launch compute nodes.</p>
+   * <p>An Amazon EC2 launch template PCS uses to launch compute nodes.</p>
    * @public
    */
   customLaunchTemplate: CustomLaunchTemplate | undefined;
@@ -499,7 +499,7 @@ export interface CreateComputeNodeGroupResponse {
 }
 
 /**
- * <p>Amazon Web Services PCS can't process your request right now. Try again later.</p>
+ * <p>PCS can't process your request right now. Try again later.</p>
  * @public
  */
 export class InternalServerException extends __BaseException {
@@ -870,7 +870,7 @@ export interface UpdateComputeNodeGroupRequest {
   computeNodeGroupIdentifier: string | undefined;
 
   /**
-   * <p>The ID of the Amazon Machine Image (AMI) that Amazon Web Services PCS uses to launch instances. If not provided, Amazon Web Services PCS uses the AMI ID specified in the custom launch template.</p>
+   * <p>The ID of the Amazon Machine Image (AMI) that PCS uses to launch instances. If not provided, PCS uses the AMI ID specified in the custom launch template.</p>
    * @public
    */
   amiId?: string | undefined;
@@ -882,7 +882,7 @@ export interface UpdateComputeNodeGroupRequest {
   subnetIds?: string[] | undefined;
 
   /**
-   * <p>An Amazon EC2 launch template Amazon Web Services PCS uses to launch compute nodes.</p>
+   * <p>An Amazon EC2 launch template PCS uses to launch compute nodes.</p>
    * @public
    */
   customLaunchTemplate?: CustomLaunchTemplate | undefined;
@@ -992,13 +992,13 @@ export type SchedulerType = (typeof SchedulerType)[keyof typeof SchedulerType];
  */
 export interface SchedulerRequest {
   /**
-   * <p>The software Amazon Web Services PCS uses to manage cluster scaling and job scheduling.</p>
+   * <p>The software PCS uses to manage cluster scaling and job scheduling.</p>
    * @public
    */
   type: SchedulerType | undefined;
 
   /**
-   * <p>The version of the specified scheduling software that Amazon Web Services PCS uses to manage cluster scaling and job scheduling. For more information, see <a href="https://docs.aws.amazon.com/pcs/latest/userguide/slurm-versions.html">Slurm versions in Amazon Web Services PCS</a> in the <i>Amazon Web Services PCS User Guide</i>.</p> <p>Valid Values: <code>23.11 | 24.05 | 24.11</code> </p>
+   * <p>The version of the specified scheduling software that PCS uses to manage cluster scaling and job scheduling. For more information, see <a href="https://docs.aws.amazon.com/pcs/latest/userguide/slurm-versions.html">Slurm versions in PCS</a> in the <i>PCS User Guide</i>.</p> <p>Valid Values: <code>23.11 | 24.05 | 24.11</code> </p>
    * @public
    */
   version: string | undefined;
@@ -1146,7 +1146,7 @@ export interface Endpoint {
  */
 export interface Networking {
   /**
-   * <p>The ID of the subnet where Amazon Web Services PCS creates an Elastic Network Interface (ENI) to enable communication between managed controllers and Amazon Web Services PCS resources. The subnet must have an available IP address, cannot reside in AWS Outposts, AWS Wavelength, or an AWS Local Zone.</p> <p> Example: <code>subnet-abcd1234</code> </p>
+   * <p>The ID of the subnet where PCS creates an Elastic Network Interface (ENI) to enable communication between managed controllers and PCS resources. The subnet must have an available IP address, cannot reside in Outposts, Wavelength, or an Amazon Web Services Local Zone.</p> <p> Example: <code>subnet-abcd1234</code> </p>
    * @public
    */
   subnetIds?: string[] | undefined;
@@ -1170,13 +1170,13 @@ export interface Networking {
  */
 export interface Scheduler {
   /**
-   * <p>The software Amazon Web Services PCS uses to manage cluster scaling and job scheduling.</p>
+   * <p>The software PCS uses to manage cluster scaling and job scheduling.</p>
    * @public
    */
   type: SchedulerType | undefined;
 
   /**
-   * <p>The version of the specified scheduling software that Amazon Web Services PCS uses to manage cluster scaling and job scheduling. For more information, see <a href="https://docs.aws.amazon.com/pcs/latest/userguide/slurm-versions.html">Slurm versions in Amazon Web Services PCS</a> in the <i>Amazon Web Services PCS User Guide</i>.</p> <p>Valid Values: <code>23.11 | 24.05 | 24.11</code> </p>
+   * <p>The version of the specified scheduling software that PCS uses to manage cluster scaling and job scheduling. For more information, see <a href="https://docs.aws.amazon.com/pcs/latest/userguide/slurm-versions.html">Slurm versions in PCS</a> in the <i>PCS User Guide</i>.</p> <p>Valid Values: <code>23.11 | 24.05 | 24.11</code> </p>
    * @public
    */
   version: string | undefined;
