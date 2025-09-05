@@ -67,7 +67,8 @@ export class ProtocolLib {
     } else if (!inputSchema.isUnitSchema()) {
       const hasBody = Object.values(members).find((m) => {
         const { httpQuery, httpQueryParams, httpHeader, httpLabel, httpPrefixHeaders } = m.getMergedTraits();
-        return !httpQuery && !httpQueryParams && !httpHeader && !httpLabel && httpPrefixHeaders === void 0;
+        const noPrefixHeaders = httpPrefixHeaders === void 0;
+        return !httpQuery && !httpQueryParams && !httpHeader && !httpLabel && noPrefixHeaders;
       });
       if (hasBody) {
         return defaultContentType;
