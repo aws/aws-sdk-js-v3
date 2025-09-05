@@ -1,7 +1,7 @@
 {
   "name": "@aws-sdk/aws-protocoltests-query-schema",
   "description": "@aws-sdk/aws-protocoltests-query-schema client",
-  "version": "3.882.0",
+  "version": "3.883.0",
   "scripts": {
     "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types'",
     "build:cjs": "tsc -p tsconfig.cjs.json",

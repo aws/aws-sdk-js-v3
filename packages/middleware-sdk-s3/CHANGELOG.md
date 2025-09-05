@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.883.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.882.0...v3.883.0) (2025-09-05)
+
+
+### Bug Fixes
+
+* **middleware-sdk-s3:** handle cross-region redirects for HeadBucket with 400 status ([#7313](https://github.com/aws/aws-sdk-js-v3/issues/7313)) ([bb9e455](https://github.com/aws/aws-sdk-js-v3/commit/bb9e455dae853139682334f515e1452969ec11e6))
+
+
+
+
+
 # [3.882.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.881.0...v3.882.0) (2025-09-04)
 
 **Note:** Version bump only for package @aws-sdk/middleware-sdk-s3

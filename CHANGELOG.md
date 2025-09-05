@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.883.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.882.0...v3.883.0) (2025-09-05)
+
+
+### Bug Fixes
+
+* **ci:** sanitize HEAD_REF using environment variable ([#7315](https://github.com/aws/aws-sdk-js-v3/issues/7315)) ([39f1713](https://github.com/aws/aws-sdk-js-v3/commit/39f1713358504d91b5b61da2197d333dac87c5c1))
+* **lib-storage:** update Upload params type to intersection of all S3 upload command inputs ([#7316](https://github.com/aws/aws-sdk-js-v3/issues/7316)) ([1f7ccf0](https://github.com/aws/aws-sdk-js-v3/commit/1f7ccf09cad7cd4f0c0804fc291654d21253feb1))
+* **middleware-sdk-s3:** handle cross-region redirects for HeadBucket with 400 status ([#7313](https://github.com/aws/aws-sdk-js-v3/issues/7313)) ([bb9e455](https://github.com/aws/aws-sdk-js-v3/commit/bb9e455dae853139682334f515e1452969ec11e6))
+
+
+### Features
+
+* **client-sagemaker:** Release IPv6 support with dualstack in SageMaker Notebooks, Tiered Storage Checkpointing Support in SageMaker HyperPod and P5.4xlarge instance type for SageMaker Hosting. ([308df6e](https://github.com/aws/aws-sdk-js-v3/commit/308df6ee90a1dee414d77477894d59a01f1140d3))
+
+
+
+
+
 # [3.882.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.881.0...v3.882.0) (2025-09-04)
 
 

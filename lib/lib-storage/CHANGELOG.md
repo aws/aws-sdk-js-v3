@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.883.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.882.0...v3.883.0) (2025-09-05)
+
+
+### Bug Fixes
+
+* **lib-storage:** update Upload params type to intersection of all S3 upload command inputs ([#7316](https://github.com/aws/aws-sdk-js-v3/issues/7316)) ([1f7ccf0](https://github.com/aws/aws-sdk-js-v3/commit/1f7ccf09cad7cd4f0c0804fc291654d21253feb1))
+
+
+
+
+
 # [3.882.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.881.0...v3.882.0) (2025-09-04)
 
 **Note:** Version bump only for package @aws-sdk/lib-storage
