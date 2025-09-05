@@ -180,6 +180,10 @@ export interface DescribeClusterCommandOutput extends DescribeClusterResponse, _
  * //       ClusterArn: "STRING_VALUE", // required
  * //     },
  * //   },
+ * //   TieredStorageConfig: { // ClusterTieredStorageConfig
+ * //     Mode: "Enable" || "Disable", // required
+ * //     InstanceMemoryAllocationPercentage: Number("int"),
+ * //   },
  * //   NodeRecovery: "Automatic" || "None",
  * //   NodeProvisioningMode: "Continuous",
  * //   ClusterRole: "STRING_VALUE",

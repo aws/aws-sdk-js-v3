@@ -42,6 +42,7 @@ export interface CreateNotebookInstanceCommandOutput extends CreateNotebookInsta
  *   SecurityGroupIds: [ // SecurityGroupIds
  *     "STRING_VALUE",
  *   ],
+ *   IpAddressType: "ipv4" || "dualstack",
  *   RoleArn: "STRING_VALUE", // required
  *   KmsKeyId: "STRING_VALUE",
  *   Tags: [ // TagList

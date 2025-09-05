@@ -41,6 +41,7 @@ import {
 import {
   _InstanceType,
   ClusterRestrictedInstanceGroupSpecification,
+  ClusterTieredStorageConfig,
   ComputeQuotaConfig,
   ComputeQuotaTarget,
   ContainerDefinition,
@@ -80,6 +81,7 @@ import {
   ExperimentConfig,
   InferenceExecutionConfig,
   InstanceMetadataServiceConfiguration,
+  IPAddressType,
   MemberDefinition,
   ModelCardSecurityConfig,
   ModelCardStatus,
@@ -177,8 +179,111 @@ import {
   MonitoringAlertSummary,
   Parameter,
   SortOrder,
-  UserProfileSortKey,
+  UltraServerHealthStatus,
 } from "./models_4";
+
+/**
+ * <p>Represents a high-performance compute server used for distributed training in SageMaker AI. An UltraServer consists of multiple instances within a shared NVLink interconnect domain.</p>
+ * @public
+ */
+export interface UltraServer {
+  /**
+   * <p>The unique identifier for the UltraServer.</p>
+   * @public
+   */
+  UltraServerId: string | undefined;
+
+  /**
+   * <p>The type of UltraServer, such as ml.u-p6e-gb200x72.</p>
+   * @public
+   */
+  UltraServerType: string | undefined;
+
+  /**
+   * <p>The name of the Availability Zone where the UltraServer is provisioned.</p>
+   * @public
+   */
+  AvailabilityZone: string | undefined;
+
+  /**
+   * <p>The Amazon EC2 instance type used in the UltraServer.</p>
+   * @public
+   */
+  InstanceType: ReservedCapacityInstanceType | undefined;
+
+  /**
+   * <p>The total number of instances in this UltraServer.</p>
+   * @public
+   */
+  TotalInstanceCount: number | undefined;
+
+  /**
+   * <p>The number of spare instances configured for this UltraServer to provide enhanced resiliency.</p>
+   * @public
+   */
+  ConfiguredSpareInstanceCount?: number | undefined;
+
+  /**
+   * <p>The number of instances currently available for use in this UltraServer.</p>
+   * @public
+   */
+  AvailableInstanceCount?: number | undefined;
+
+  /**
+   * <p>The number of instances currently in use in this UltraServer.</p>
+   * @public
+   */
+  InUseInstanceCount?: number | undefined;
+
+  /**
+   * <p>The number of available spare instances in the UltraServer.</p>
+   * @public
+   */
+  AvailableSpareInstanceCount?: number | undefined;
+
+  /**
+   * <p>The number of instances in this UltraServer that are currently in an unhealthy state.</p>
+   * @public
+   */
+  UnhealthyInstanceCount?: number | undefined;
+
+  /**
+   * <p>The overall health status of the UltraServer.</p>
+   * @public
+   */
+  HealthStatus?: UltraServerHealthStatus | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListUltraServersByReservedCapacityResponse {
+  /**
+   * <p>If the response is truncated, SageMaker returns this token. Use it in the next request to retrieve the next set of UltraServers.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>A list of UltraServers that are part of the specified reserved capacity.</p>
+   * @public
+   */
+  UltraServers: UltraServer[] | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const UserProfileSortKey = {
+  CreationTime: "CreationTime",
+  LastModifiedTime: "LastModifiedTime",
+} as const;
+
+/**
+ * @public
+ */
+export type UserProfileSortKey = (typeof UserProfileSortKey)[keyof typeof UserProfileSortKey];
 
 /**
  * @public
@@ -3607,6 +3712,12 @@ export interface UpdateClusterRequest {
   RestrictedInstanceGroups?: ClusterRestrictedInstanceGroupSpecification[] | undefined;
 
   /**
+   * <p>Updates the configuration for managed tier checkpointing on the HyperPod cluster. For example, you can enable or disable the feature and modify the percentage of cluster memory allocated for checkpoint storage.</p>
+   * @public
+   */
+  TieredStorageConfig?: ClusterTieredStorageConfig | undefined;
+
+  /**
    * <p>The node recovery mode to be applied to the SageMaker HyperPod cluster.</p>
    * @public
    */
@@ -4889,6 +5000,12 @@ export interface UpdateNotebookInstanceInput {
    * @public
    */
   InstanceType?: _InstanceType | undefined;
+
+  /**
+   * <p>The IP address type for the notebook instance. Specify <code>ipv4</code> for IPv4-only connectivity or <code>dualstack</code> for both IPv4 and IPv6 connectivity. The notebook instance must be stopped before updating this setting. When you specify <code>dualstack</code>, the subnet must support IPv6 addressing.</p>
+   * @public
+   */
+  IpAddressType?: IPAddressType | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the IAM role that SageMaker AI can assume to access the notebook instance. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-roles.html">SageMaker AI Roles</a>. </p> <note> <p>To be able to pass this role to SageMaker AI, the caller of this API must have the <code>iam:PassRole</code> permission.</p> </note>

@@ -128,8 +128,8 @@ import {
   ProjectStatus,
   RecommendationJobStatus,
   RecommendationMetrics,
-  ReservedCapacityInstanceType,
   ReservedCapacitySummary,
+  ResourceType,
   SageMakerResourceName,
   ScheduleStatus,
   SecondaryStatus,
@@ -145,6 +145,47 @@ import {
   WarmPoolResourceStatus,
   WarmPoolStatus,
 } from "./models_3";
+
+/**
+ * <p>Part of the <code>SuggestionQuery</code> type. Specifies a hint for retrieving property names that begin with the specified text.</p>
+ * @public
+ */
+export interface PropertyNameQuery {
+  /**
+   * <p>Text that begins a property's name.</p>
+   * @public
+   */
+  PropertyNameHint: string | undefined;
+}
+
+/**
+ * <p>Specified in the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_GetSearchSuggestions.html">GetSearchSuggestions</a> request. Limits the property names that are included in the response.</p>
+ * @public
+ */
+export interface SuggestionQuery {
+  /**
+   * <p>Defines a property name hint. Only property names that begin with the specified hint are included in the response.</p>
+   * @public
+   */
+  PropertyNameQuery?: PropertyNameQuery | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetSearchSuggestionsRequest {
+  /**
+   * <p>The name of the SageMaker resource to search for.</p>
+   * @public
+   */
+  Resource: ResourceType | undefined;
+
+  /**
+   * <p>Limits the property names that are included in the response.</p>
+   * @public
+   */
+  SuggestionQuery?: SuggestionQuery | undefined;
+}
 
 /**
  * <p>A property name returned from a <code>GetSearchSuggestions</code> call that specifies a value in the <code>PropertyNameQuery</code> field.</p>
@@ -9650,106 +9691,3 @@ export const UltraServerHealthStatus = {
  * @public
  */
 export type UltraServerHealthStatus = (typeof UltraServerHealthStatus)[keyof typeof UltraServerHealthStatus];
-
-/**
- * <p>Represents a high-performance compute server used for distributed training in SageMaker AI. An UltraServer consists of multiple instances within a shared NVLink interconnect domain.</p>
- * @public
- */
-export interface UltraServer {
-  /**
-   * <p>The unique identifier for the UltraServer.</p>
-   * @public
-   */
-  UltraServerId: string | undefined;
-
-  /**
-   * <p>The type of UltraServer, such as ml.u-p6e-gb200x72.</p>
-   * @public
-   */
-  UltraServerType: string | undefined;
-
-  /**
-   * <p>The name of the Availability Zone where the UltraServer is provisioned.</p>
-   * @public
-   */
-  AvailabilityZone: string | undefined;
-
-  /**
-   * <p>The Amazon EC2 instance type used in the UltraServer.</p>
-   * @public
-   */
-  InstanceType: ReservedCapacityInstanceType | undefined;
-
-  /**
-   * <p>The total number of instances in this UltraServer.</p>
-   * @public
-   */
-  TotalInstanceCount: number | undefined;
-
-  /**
-   * <p>The number of spare instances configured for this UltraServer to provide enhanced resiliency.</p>
-   * @public
-   */
-  ConfiguredSpareInstanceCount?: number | undefined;
-
-  /**
-   * <p>The number of instances currently available for use in this UltraServer.</p>
-   * @public
-   */
-  AvailableInstanceCount?: number | undefined;
-
-  /**
-   * <p>The number of instances currently in use in this UltraServer.</p>
-   * @public
-   */
-  InUseInstanceCount?: number | undefined;
-
-  /**
-   * <p>The number of available spare instances in the UltraServer.</p>
-   * @public
-   */
-  AvailableSpareInstanceCount?: number | undefined;
-
-  /**
-   * <p>The number of instances in this UltraServer that are currently in an unhealthy state.</p>
-   * @public
-   */
-  UnhealthyInstanceCount?: number | undefined;
-
-  /**
-   * <p>The overall health status of the UltraServer.</p>
-   * @public
-   */
-  HealthStatus?: UltraServerHealthStatus | undefined;
-}
-
-/**
- * @public
- */
-export interface ListUltraServersByReservedCapacityResponse {
-  /**
-   * <p>If the response is truncated, SageMaker returns this token. Use it in the next request to retrieve the next set of UltraServers.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>A list of UltraServers that are part of the specified reserved capacity.</p>
-   * @public
-   */
-  UltraServers: UltraServer[] | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const UserProfileSortKey = {
-  CreationTime: "CreationTime",
-  LastModifiedTime: "LastModifiedTime",
-} as const;
-
-/**
- * @public
- */
-export type UserProfileSortKey = (typeof UserProfileSortKey)[keyof typeof UserProfileSortKey];

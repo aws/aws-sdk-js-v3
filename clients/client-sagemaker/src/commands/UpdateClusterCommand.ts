@@ -150,6 +150,10 @@ export interface UpdateClusterCommandOutput extends UpdateClusterResponse, __Met
  *       },
  *     },
  *   ],
+ *   TieredStorageConfig: { // ClusterTieredStorageConfig
+ *     Mode: "Enable" || "Disable", // required
+ *     InstanceMemoryAllocationPercentage: Number("int"),
+ *   },
  *   NodeRecovery: "Automatic" || "None",
  *   InstanceGroupsToDelete: [ // ClusterInstanceGroupsToDelete
  *     "STRING_VALUE",

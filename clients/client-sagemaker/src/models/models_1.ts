@@ -52,6 +52,7 @@ import {
   CheckpointConfig,
   ClarifyExplainerConfig,
   ClusterAutoScalingConfig,
+  ClusterConfigMode,
   ClusterInstanceGroupSpecification,
   ClusterInstanceStorageConfig,
   ClusterInstanceType,
@@ -61,7 +62,6 @@ import {
   CodeEditorAppImageConfig,
   DeepHealthCheckType,
   FeatureStatus,
-  FSxLustreConfig,
   InferenceSpecification,
   InstanceGroupStatus,
   JupyterLabAppImageConfig,
@@ -84,6 +84,24 @@ import {
 } from "./models_0";
 
 import { SageMakerServiceException as __BaseException } from "./SageMakerServiceException";
+
+/**
+ * <p>Configuration settings for an Amazon FSx for Lustre file system to be used with the cluster.</p>
+ * @public
+ */
+export interface FSxLustreConfig {
+  /**
+   * <p>The storage capacity of the Amazon FSx for Lustre file system, specified in gibibytes (GiB).</p>
+   * @public
+   */
+  SizeInGiB: number | undefined;
+
+  /**
+   * <p>The throughput capacity of the Amazon FSx for Lustre file system, measured in MB/s per TiB of storage.</p>
+   * @public
+   */
+  PerUnitStorageThroughput: number | undefined;
+}
 
 /**
  * <p>The configuration details for the restricted instance groups (RIG) environment.</p>
@@ -422,6 +440,24 @@ export interface ClusterSummary {
    * @public
    */
   TrainingPlanArns?: string[] | undefined;
+}
+
+/**
+ * <p>Defines the configuration for managed tier checkpointing in a HyperPod cluster. Managed tier checkpointing uses multiple storage tiers, including cluster CPU memory, to provide faster checkpoint operations and improved fault tolerance for large-scale model training. The system automatically saves checkpoints at high frequency to memory and periodically persists them to durable storage, like Amazon S3.</p>
+ * @public
+ */
+export interface ClusterTieredStorageConfig {
+  /**
+   * <p>Specifies whether managed tier checkpointing is enabled or disabled for the HyperPod cluster. When set to <code>Enable</code>, the system installs a memory management daemon that provides disaggregated memory as a service for checkpoint storage. When set to <code>Disable</code>, the feature is turned off and the memory management daemon is removed from the cluster.</p>
+   * @public
+   */
+  Mode: ClusterConfigMode | undefined;
+
+  /**
+   * <p>The percentage (int) of cluster memory to allocate for checkpointing.</p>
+   * @public
+   */
+  InstanceMemoryAllocationPercentage?: number | undefined;
 }
 
 /**
@@ -2225,6 +2261,12 @@ export interface CreateClusterRequest {
   NodeRecovery?: ClusterNodeRecovery | undefined;
 
   /**
+   * <p>The configuration for managed tier checkpointing on the HyperPod cluster. When enabled, this feature uses a multi-tier storage approach for storing model checkpoints, providing faster checkpoint operations and improved fault tolerance across cluster nodes.</p>
+   * @public
+   */
+  TieredStorageConfig?: ClusterTieredStorageConfig | undefined;
+
+  /**
    * <p>The mode for provisioning nodes in the cluster. You can specify the following modes:</p> <ul> <li> <p> <b>Continuous</b>: Scaling behavior that enables 1) concurrent operation execution within instance groups, 2) continuous retry mechanisms for failed operations, 3) enhanced customer visibility into cluster events through detailed event streams, 4) partial provisioning capabilities. Your clusters and instance groups remain <code>InService</code> while scaling. This mode is only supported for EKS orchestrated clusters.</p> </li> </ul>
    * @public
    */
@@ -4015,7 +4057,7 @@ export interface DockerSettings {
   VpcOnlyTrustedAccounts?: string[] | undefined;
 
   /**
-   * <p>Indicates whether to use rootless Docker. Default value is <code>DISABLED</code>.</p>
+   * <p>Indicates whether to use rootless Docker.</p>
    * @public
    */
   RootlessDocker?: FeatureStatus | undefined;
@@ -7981,7 +8023,7 @@ export interface CreateLabelingJobRequest {
   LabelingJobName: string | undefined;
 
   /**
-   * <p>The attribute name to use for the label in the output manifest file. This is the key for the key/value pair formed with the label that a worker assigns to the object. The <code>LabelAttributeName</code> must meet the following requirements.</p> <ul> <li> <p>The name can't end with "-metadata". </p> </li> <li> <p>If you are using one of the following <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sms-task-types.html">built-in task types</a>, the attribute name <i>must</i> end with "-ref". If the task type you are using is not listed below, the attribute name <i>must not</i> end with "-ref".</p> <ul> <li> <p>Verification (<code>VerificationSemanticSegmentation</code>) labeling jobs for this task type.</p> </li> <li> <p>Video frame object detection (<code>VideoObjectDetection</code>), and adjustment and verification (<code>AdjustmentVideoObjectDetection</code>) labeling jobs for this task type.</p> </li> <li> <p>Video frame object tracking (<code>VideoObjectTracking</code>), and adjustment and verification (<code>AdjustmentVideoObjectTracking</code>) labeling jobs for this task type.</p> </li> <li> <p>3D point cloud semantic segmentation (<code>3DPointCloudSemanticSegmentation</code>), and adjustment and verification (<code>Adjustment3DPointCloudSemanticSegmentation</code>) labeling jobs for this task type. </p> </li> <li> <p>3D point cloud object tracking (<code>3DPointCloudObjectTracking</code>), and adjustment and verification (<code>Adjustment3DPointCloudObjectTracking</code>) labeling jobs for this task type. </p> </li> </ul> </li> </ul> <p/> <important> <p>If you are creating an adjustment or verification labeling job, you must use a <i>different</i> <code>LabelAttributeName</code> than the one used in the original labeling job. The original labeling job is the Ground Truth labeling job that produced the labels that you want verified or adjusted. To learn more about adjustment and verification labeling jobs, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sms-verification-data.html">Verify and Adjust Labels</a>.</p> </important>
+   * <p>The attribute name to use for the label in the output manifest file. This is the key for the key/value pair formed with the label that a worker assigns to the object. The <code>LabelAttributeName</code> must meet the following requirements.</p> <ul> <li> <p>The name can't end with "-metadata". </p> </li> <li> <p>If you are using one of the <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sms-task-types.html">built-in task types</a> or one of the following, the attribute name <i>must</i> end with "-ref".</p> <ul> <li> <p>Image semantic segmentation (<code>SemanticSegmentation)</code> and adjustment (<code>AdjustmentSemanticSegmentation</code>) labeling jobs for this task type. One exception is that verification (<code>VerificationSemanticSegmentation</code>) <i>must not</i> end with -"ref".</p> </li> <li> <p>Video frame object detection (<code>VideoObjectDetection</code>), and adjustment and verification (<code>AdjustmentVideoObjectDetection</code>) labeling jobs for this task type.</p> </li> <li> <p>Video frame object tracking (<code>VideoObjectTracking</code>), and adjustment and verification (<code>AdjustmentVideoObjectTracking</code>) labeling jobs for this task type.</p> </li> <li> <p>3D point cloud semantic segmentation (<code>3DPointCloudSemanticSegmentation</code>), and adjustment and verification (<code>Adjustment3DPointCloudSemanticSegmentation</code>) labeling jobs for this task type. </p> </li> <li> <p>3D point cloud object tracking (<code>3DPointCloudObjectTracking</code>), and adjustment and verification (<code>Adjustment3DPointCloudObjectTracking</code>) labeling jobs for this task type. </p> </li> </ul> </li> </ul> <p/> <important> <p>If you are creating an adjustment or verification labeling job, you must use a <i>different</i> <code>LabelAttributeName</code> than the one used in the original labeling job. The original labeling job is the Ground Truth labeling job that produced the labels that you want verified or adjusted. To learn more about adjustment and verification labeling jobs, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sms-verification-data.html">Verify and Adjust Labels</a>.</p> </important>
    * @public
    */
   LabelAttributeName: string | undefined;
@@ -8060,67 +8102,3 @@ export const TrackingServerSize = {
  * @public
  */
 export type TrackingServerSize = (typeof TrackingServerSize)[keyof typeof TrackingServerSize];
-
-/**
- * @public
- */
-export interface CreateMlflowTrackingServerRequest {
-  /**
-   * <p>A unique string identifying the tracking server name. This string is part of the tracking server ARN.</p>
-   * @public
-   */
-  TrackingServerName: string | undefined;
-
-  /**
-   * <p>The S3 URI for a general purpose bucket to use as the MLflow Tracking Server artifact store.</p>
-   * @public
-   */
-  ArtifactStoreUri: string | undefined;
-
-  /**
-   * <p>The size of the tracking server you want to create. You can choose between <code>"Small"</code>, <code>"Medium"</code>, and <code>"Large"</code>. The default MLflow Tracking Server configuration size is <code>"Small"</code>. You can choose a size depending on the projected use of the tracking server such as the volume of data logged, number of users, and frequency of use. </p> <p>We recommend using a small tracking server for teams of up to 25 users, a medium tracking server for teams of up to 50 users, and a large tracking server for teams of up to 100 users. </p>
-   * @public
-   */
-  TrackingServerSize?: TrackingServerSize | undefined;
-
-  /**
-   * <p>The version of MLflow that the tracking server uses. To see which MLflow versions are available to use, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/mlflow.html#mlflow-create-tracking-server-how-it-works">How it works</a>.</p>
-   * @public
-   */
-  MlflowVersion?: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) for an IAM role in your account that the MLflow Tracking Server uses to access the artifact store in Amazon S3. The role should have <code>AmazonS3FullAccess</code> permissions. For more information on IAM permissions for tracking server creation, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/mlflow-create-tracking-server-iam.html">Set up IAM permissions for MLflow</a>.</p>
-   * @public
-   */
-  RoleArn: string | undefined;
-
-  /**
-   * <p>Whether to enable or disable automatic registration of new MLflow models to the SageMaker Model Registry. To enable automatic model registration, set this value to <code>True</code>. To disable automatic model registration, set this value to <code>False</code>. If not specified, <code>AutomaticModelRegistration</code> defaults to <code>False</code>.</p>
-   * @public
-   */
-  AutomaticModelRegistration?: boolean | undefined;
-
-  /**
-   * <p>The day and time of the week in Coordinated Universal Time (UTC) 24-hour standard time that weekly maintenance updates are scheduled. For example: TUE:03:30.</p>
-   * @public
-   */
-  WeeklyMaintenanceWindowStart?: string | undefined;
-
-  /**
-   * <p>Tags consisting of key-value pairs used to manage metadata for the tracking server.</p>
-   * @public
-   */
-  Tags?: Tag[] | undefined;
-}
-
-/**
- * @public
- */
-export interface CreateMlflowTrackingServerResponse {
-  /**
-   * <p>The ARN of the tracking server.</p>
-   * @public
-   */
-  TrackingServerArn?: string | undefined;
-}

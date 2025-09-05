@@ -707,6 +707,7 @@ export const ProductionVariantInstanceType = {
   ML_P5EN_48XLARGE: "ml.p5en.48xlarge",
   ML_P5E_48XLARGE: "ml.p5e.48xlarge",
   ML_P5_48XLARGE: "ml.p5.48xlarge",
+  ML_P5_4XLARGE: "ml.p5.4xlarge",
   ML_P6E_GB200_36XLARGE: "ml.p6e-gb200.36xlarge",
   ML_P6_B200_48XLARGE: "ml.p6-b200.48xlarge",
   ML_R5D_12XLARGE: "ml.r5d.12xlarge",
@@ -6803,6 +6804,20 @@ export interface ClusterAutoScalingConfigOutput {
 }
 
 /**
+ * @public
+ * @enum
+ */
+export const ClusterConfigMode = {
+  DISABLE: "Disable",
+  ENABLE: "Enable",
+} as const;
+
+/**
+ * @public
+ */
+export type ClusterConfigMode = (typeof ClusterConfigMode)[keyof typeof ClusterConfigMode];
+
+/**
  * <p>Defines the configuration for attaching an additional Amazon Elastic Block Store (EBS) volume to each instance of the SageMaker HyperPod cluster instance group. To learn more, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-hyperpod-release-notes.html#sagemaker-hyperpod-release-notes-20240620">SageMaker HyperPod release notes: June 20, 2024</a>.</p>
  * @public
  */
@@ -7912,22 +7927,4 @@ export interface ClusterOrchestrator {
    * @public
    */
   Eks: ClusterOrchestratorEksConfig | undefined;
-}
-
-/**
- * <p>Configuration settings for an Amazon FSx for Lustre file system to be used with the cluster.</p>
- * @public
- */
-export interface FSxLustreConfig {
-  /**
-   * <p>The storage capacity of the Amazon FSx for Lustre file system, specified in gibibytes (GiB).</p>
-   * @public
-   */
-  SizeInGiB: number | undefined;
-
-  /**
-   * <p>The throughput capacity of the Amazon FSx for Lustre file system, measured in MB/s per TiB of storage.</p>
-   * @public
-   */
-  PerUnitStorageThroughput: number | undefined;
 }

@@ -5,7 +5,8 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DescribeClusterNodeRequest, DescribeClusterNodeResponse } from "../models/models_2";
+import { DescribeClusterNodeRequest } from "../models/models_2";
+import { DescribeClusterNodeResponse } from "../models/models_3";
 import { de_DescribeClusterNodeCommand, se_DescribeClusterNodeCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 

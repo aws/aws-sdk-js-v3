@@ -42,7 +42,6 @@ import {
   ClusterAutoScalingConfigOutput,
   ClusterEventDetail,
   ClusterInstanceGroupDetails,
-  ClusterNodeDetails,
   ClusterNodeProvisioningMode,
   ClusterNodeRecovery,
   ClusterOrchestrator,
@@ -75,6 +74,7 @@ import {
   _InstanceType,
   ClusterRestrictedInstanceGroupDetails,
   ClusterStatus,
+  ClusterTieredStorageConfig,
   CodeRepository,
   CognitoConfig,
   CognitoMemberDefinition,
@@ -97,11 +97,74 @@ import {
   ProcessingInstanceType,
   ProcessingS3UploadMode,
   RetryStrategy,
-  SchedulerConfig,
-  SchedulerResourceStatus,
+  TrackingServerSize,
   TrainingSpecification,
   UserSettings,
 } from "./models_1";
+
+/**
+ * @public
+ */
+export interface CreateMlflowTrackingServerRequest {
+  /**
+   * <p>A unique string identifying the tracking server name. This string is part of the tracking server ARN.</p>
+   * @public
+   */
+  TrackingServerName: string | undefined;
+
+  /**
+   * <p>The S3 URI for a general purpose bucket to use as the MLflow Tracking Server artifact store.</p>
+   * @public
+   */
+  ArtifactStoreUri: string | undefined;
+
+  /**
+   * <p>The size of the tracking server you want to create. You can choose between <code>"Small"</code>, <code>"Medium"</code>, and <code>"Large"</code>. The default MLflow Tracking Server configuration size is <code>"Small"</code>. You can choose a size depending on the projected use of the tracking server such as the volume of data logged, number of users, and frequency of use. </p> <p>We recommend using a small tracking server for teams of up to 25 users, a medium tracking server for teams of up to 50 users, and a large tracking server for teams of up to 100 users. </p>
+   * @public
+   */
+  TrackingServerSize?: TrackingServerSize | undefined;
+
+  /**
+   * <p>The version of MLflow that the tracking server uses. To see which MLflow versions are available to use, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/mlflow.html#mlflow-create-tracking-server-how-it-works">How it works</a>.</p>
+   * @public
+   */
+  MlflowVersion?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) for an IAM role in your account that the MLflow Tracking Server uses to access the artifact store in Amazon S3. The role should have <code>AmazonS3FullAccess</code> permissions. For more information on IAM permissions for tracking server creation, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/mlflow-create-tracking-server-iam.html">Set up IAM permissions for MLflow</a>.</p>
+   * @public
+   */
+  RoleArn: string | undefined;
+
+  /**
+   * <p>Whether to enable or disable automatic registration of new MLflow models to the SageMaker Model Registry. To enable automatic model registration, set this value to <code>True</code>. To disable automatic model registration, set this value to <code>False</code>. If not specified, <code>AutomaticModelRegistration</code> defaults to <code>False</code>.</p>
+   * @public
+   */
+  AutomaticModelRegistration?: boolean | undefined;
+
+  /**
+   * <p>The day and time of the week in Coordinated Universal Time (UTC) 24-hour standard time that weekly maintenance updates are scheduled. For example: TUE:03:30.</p>
+   * @public
+   */
+  WeeklyMaintenanceWindowStart?: string | undefined;
+
+  /**
+   * <p>Tags consisting of key-value pairs used to manage metadata for the tracking server.</p>
+   * @public
+   */
+  Tags?: Tag[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateMlflowTrackingServerResponse {
+  /**
+   * <p>The ARN of the tracking server.</p>
+   * @public
+   */
+  TrackingServerArn?: string | undefined;
+}
 
 /**
  * @public
@@ -1649,6 +1712,20 @@ export interface InstanceMetadataServiceConfiguration {
  * @public
  * @enum
  */
+export const IPAddressType = {
+  DUALSTACK: "dualstack",
+  IPV4: "ipv4",
+} as const;
+
+/**
+ * @public
+ */
+export type IPAddressType = (typeof IPAddressType)[keyof typeof IPAddressType];
+
+/**
+ * @public
+ * @enum
+ */
 export const RootAccess = {
   DISABLED: "Disabled",
   ENABLED: "Enabled",
@@ -1686,6 +1763,12 @@ export interface CreateNotebookInstanceInput {
    * @public
    */
   SecurityGroupIds?: string[] | undefined;
+
+  /**
+   * <p>The IP address type for the notebook instance. Specify <code>ipv4</code> for IPv4-only connectivity or <code>dualstack</code> for both IPv4 and IPv6 connectivity. When you specify <code>dualstack</code>, the subnet must support IPv6 CIDR blocks. If not specified, defaults to <code>ipv4</code>.</p>
+   * @public
+   */
+  IpAddressType?: IPAddressType | undefined;
 
   /**
    * <p> When you send any requests to Amazon Web Services resources from the notebook instance, SageMaker AI assumes this role to perform tasks on your behalf. You must grant this role necessary permissions so SageMaker AI can perform these tasks. The policy must allow the SageMaker AI service principal (sagemaker.amazonaws.com) permissions to assume this role. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-roles.html">SageMaker AI Roles</a>. </p> <note> <p>To be able to pass this role to SageMaker AI, the caller of this API must have the <code>iam:PassRole</code> permission.</p> </note>
@@ -6887,6 +6970,12 @@ export interface DescribeClusterResponse {
   Orchestrator?: ClusterOrchestrator | undefined;
 
   /**
+   * <p>The current configuration for managed tier checkpointing on the HyperPod cluster. For example, this shows whether the feature is enabled and the percentage of cluster memory allocated for checkpoint storage.</p>
+   * @public
+   */
+  TieredStorageConfig?: ClusterTieredStorageConfig | undefined;
+
+  /**
    * <p>The node recovery mode configured for the SageMaker HyperPod cluster.</p>
    * @public
    */
@@ -6960,117 +7049,6 @@ export interface DescribeClusterNodeRequest {
    * @public
    */
   NodeLogicalId?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeClusterNodeResponse {
-  /**
-   * <p>The details of the SageMaker HyperPod cluster node.</p>
-   * @public
-   */
-  NodeDetails: ClusterNodeDetails | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeClusterSchedulerConfigRequest {
-  /**
-   * <p>ID of the cluster policy.</p>
-   * @public
-   */
-  ClusterSchedulerConfigId: string | undefined;
-
-  /**
-   * <p>Version of the cluster policy.</p>
-   * @public
-   */
-  ClusterSchedulerConfigVersion?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeClusterSchedulerConfigResponse {
-  /**
-   * <p>ARN of the cluster policy.</p>
-   * @public
-   */
-  ClusterSchedulerConfigArn: string | undefined;
-
-  /**
-   * <p>ID of the cluster policy.</p>
-   * @public
-   */
-  ClusterSchedulerConfigId: string | undefined;
-
-  /**
-   * <p>Name of the cluster policy.</p>
-   * @public
-   */
-  Name: string | undefined;
-
-  /**
-   * <p>Version of the cluster policy.</p>
-   * @public
-   */
-  ClusterSchedulerConfigVersion: number | undefined;
-
-  /**
-   * <p>Status of the cluster policy.</p>
-   * @public
-   */
-  Status: SchedulerResourceStatus | undefined;
-
-  /**
-   * <p>Failure reason of the cluster policy.</p>
-   * @public
-   */
-  FailureReason?: string | undefined;
-
-  /**
-   * <p>ARN of the cluster where the cluster policy is applied.</p>
-   * @public
-   */
-  ClusterArn?: string | undefined;
-
-  /**
-   * <p>Cluster policy configuration. This policy is used for task prioritization and fair-share allocation. This helps prioritize critical workloads and distributes idle compute across entities.</p>
-   * @public
-   */
-  SchedulerConfig?: SchedulerConfig | undefined;
-
-  /**
-   * <p>Description of the cluster policy.</p>
-   * @public
-   */
-  Description?: string | undefined;
-
-  /**
-   * <p>Creation time of the cluster policy.</p>
-   * @public
-   */
-  CreationTime: Date | undefined;
-
-  /**
-   * <p>Information about the user who created or modified a SageMaker resource.</p>
-   * @public
-   */
-  CreatedBy?: UserContext | undefined;
-
-  /**
-   * <p>Last modified time of the cluster policy.</p>
-   * @public
-   */
-  LastModifiedTime?: Date | undefined;
-
-  /**
-   * <p>Information about the user who created or modified a SageMaker resource.</p>
-   * @public
-   */
-  LastModifiedBy?: UserContext | undefined;
 }
 
 /**

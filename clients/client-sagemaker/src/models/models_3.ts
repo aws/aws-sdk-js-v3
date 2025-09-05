@@ -21,6 +21,7 @@ import {
   CfnTemplateProviderDetail,
   Channel,
   CheckpointConfig,
+  ClusterNodeDetails,
   InferenceSpecification,
   ModelApprovalStatus,
   ModelPackageStatus,
@@ -106,6 +107,7 @@ import {
   RecommendationJobStoppingConditions,
   RecommendationJobType,
   RetryStrategy,
+  SchedulerConfig,
   SchedulerResourceStatus,
   ShadowModeConfig,
   TagPropagation,
@@ -134,6 +136,7 @@ import {
   InferenceExecutionConfig,
   InfraCheckConfig,
   InstanceMetadataServiceConfiguration,
+  IPAddressType,
   MemberDefinition,
   ModelBiasAppSpecification,
   ModelBiasBaselineConfig,
@@ -194,6 +197,117 @@ import {
   WorkerAccessConfiguration,
   WorkforceIpAddressType,
 } from "./models_2";
+
+/**
+ * @public
+ */
+export interface DescribeClusterNodeResponse {
+  /**
+   * <p>The details of the SageMaker HyperPod cluster node.</p>
+   * @public
+   */
+  NodeDetails: ClusterNodeDetails | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeClusterSchedulerConfigRequest {
+  /**
+   * <p>ID of the cluster policy.</p>
+   * @public
+   */
+  ClusterSchedulerConfigId: string | undefined;
+
+  /**
+   * <p>Version of the cluster policy.</p>
+   * @public
+   */
+  ClusterSchedulerConfigVersion?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeClusterSchedulerConfigResponse {
+  /**
+   * <p>ARN of the cluster policy.</p>
+   * @public
+   */
+  ClusterSchedulerConfigArn: string | undefined;
+
+  /**
+   * <p>ID of the cluster policy.</p>
+   * @public
+   */
+  ClusterSchedulerConfigId: string | undefined;
+
+  /**
+   * <p>Name of the cluster policy.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>Version of the cluster policy.</p>
+   * @public
+   */
+  ClusterSchedulerConfigVersion: number | undefined;
+
+  /**
+   * <p>Status of the cluster policy.</p>
+   * @public
+   */
+  Status: SchedulerResourceStatus | undefined;
+
+  /**
+   * <p>Failure reason of the cluster policy.</p>
+   * @public
+   */
+  FailureReason?: string | undefined;
+
+  /**
+   * <p>ARN of the cluster where the cluster policy is applied.</p>
+   * @public
+   */
+  ClusterArn?: string | undefined;
+
+  /**
+   * <p>Cluster policy configuration. This policy is used for task prioritization and fair-share allocation. This helps prioritize critical workloads and distributes idle compute across entities.</p>
+   * @public
+   */
+  SchedulerConfig?: SchedulerConfig | undefined;
+
+  /**
+   * <p>Description of the cluster policy.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>Creation time of the cluster policy.</p>
+   * @public
+   */
+  CreationTime: Date | undefined;
+
+  /**
+   * <p>Information about the user who created or modified a SageMaker resource.</p>
+   * @public
+   */
+  CreatedBy?: UserContext | undefined;
+
+  /**
+   * <p>Last modified time of the cluster policy.</p>
+   * @public
+   */
+  LastModifiedTime?: Date | undefined;
+
+  /**
+   * <p>Information about the user who created or modified a SageMaker resource.</p>
+   * @public
+   */
+  LastModifiedBy?: UserContext | undefined;
+}
 
 /**
  * @public
@@ -5606,6 +5720,12 @@ export interface DescribeNotebookInstanceOutput {
   InstanceType?: _InstanceType | undefined;
 
   /**
+   * <p>The IP address type configured for the notebook instance. Returns <code>ipv4</code> for IPv4-only connectivity or <code>dualstack</code> for both IPv4 and IPv6 connectivity.</p>
+   * @public
+   */
+  IpAddressType?: IPAddressType | undefined;
+
+  /**
    * <p>The ID of the VPC subnet.</p>
    * @public
    */
@@ -5973,7 +6093,7 @@ export interface DescribePartnerAppResponse {
   Type?: PartnerAppType | undefined;
 
   /**
-   * <p>The status of the SageMaker Partner AI App.</p>
+   * <p>The status of the SageMaker Partner AI App.</p> <ul> <li> <p>Creating: SageMaker AI is creating the partner AI app. The partner AI app is not available during creation.</p> </li> <li> <p>Updating: SageMaker AI is updating the partner AI app. The partner AI app is not available when updating.</p> </li> <li> <p>Deleting: SageMaker AI is deleting the partner AI app. The partner AI app is not available during deletion.</p> </li> <li> <p>Available: The partner AI app is provisioned and accessible.</p> </li> <li> <p>Failed: The partner AI app is in a failed state and isn't available. SageMaker AI is investigating the issue. For further guidance, contact Amazon Web Services Support.</p> </li> <li> <p>UpdateFailed: The partner AI app couldn't be updated but is available.</p> </li> <li> <p>Deleted: The partner AI app is permanently deleted and not available.</p> </li> </ul>
    * @public
    */
   Status?: PartnerAppStatus | undefined;
@@ -10527,47 +10647,6 @@ export const ResourceType = {
  * @public
  */
 export type ResourceType = (typeof ResourceType)[keyof typeof ResourceType];
-
-/**
- * <p>Part of the <code>SuggestionQuery</code> type. Specifies a hint for retrieving property names that begin with the specified text.</p>
- * @public
- */
-export interface PropertyNameQuery {
-  /**
-   * <p>Text that begins a property's name.</p>
-   * @public
-   */
-  PropertyNameHint: string | undefined;
-}
-
-/**
- * <p>Specified in the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_GetSearchSuggestions.html">GetSearchSuggestions</a> request. Limits the property names that are included in the response.</p>
- * @public
- */
-export interface SuggestionQuery {
-  /**
-   * <p>Defines a property name hint. Only property names that begin with the specified hint are included in the response.</p>
-   * @public
-   */
-  PropertyNameQuery?: PropertyNameQuery | undefined;
-}
-
-/**
- * @public
- */
-export interface GetSearchSuggestionsRequest {
-  /**
-   * <p>The name of the SageMaker resource to search for.</p>
-   * @public
-   */
-  Resource: ResourceType | undefined;
-
-  /**
-   * <p>Limits the property names that are included in the response.</p>
-   * @public
-   */
-  SuggestionQuery?: SuggestionQuery | undefined;
-}
 
 /**
  * @internal

@@ -1149,7 +1149,6 @@ import {
   FileSystemDataSource,
   FillingType,
   FinalAutoMLJobObjectiveMetric,
-  FSxLustreConfig,
   GenerativeAiSettings,
   HolidayConfigAttributes,
   HubAccessConfig,
@@ -1228,6 +1227,7 @@ import {
   ClusterRestrictedInstanceGroupSpecification,
   ClusterSchedulerConfigSummary,
   ClusterSummary,
+  ClusterTieredStorageConfig,
   CodeEditorAppSettings,
   CodeRepository,
   CodeRepositorySummary,
@@ -1316,8 +1316,6 @@ import {
   CreateInferenceRecommendationsJobResponse,
   CreateLabelingJobRequest,
   CreateLabelingJobResponse,
-  CreateMlflowTrackingServerRequest,
-  CreateMlflowTrackingServerResponse,
   CustomFileSystemConfig,
   CustomImage,
   CustomPosixUserConfig,
@@ -1348,6 +1346,7 @@ import {
   ExplainerConfig,
   FeatureDefinition,
   FlowDefinitionOutputConfig,
+  FSxLustreConfig,
   FSxLustreFileSystemConfig,
   GitConfig,
   HiddenSageMakerImage,
@@ -1466,6 +1465,8 @@ import {
   VectorConfig,
 } from "../models/models_1";
 import {
+  CreateMlflowTrackingServerRequest,
+  CreateMlflowTrackingServerResponse,
   CreateModelBiasJobDefinitionRequest,
   CreateModelBiasJobDefinitionResponse,
   CreateModelCardExportJobRequest,
@@ -1631,11 +1632,8 @@ import {
   DescribeClusterEventRequest,
   DescribeClusterEventResponse,
   DescribeClusterNodeRequest,
-  DescribeClusterNodeResponse,
   DescribeClusterRequest,
   DescribeClusterResponse,
-  DescribeClusterSchedulerConfigRequest,
-  DescribeClusterSchedulerConfigResponse,
   DriftCheckBaselines,
   DriftCheckBias,
   DriftCheckExplainability,
@@ -1740,6 +1738,9 @@ import {
   WorkforceVpcConfigRequest,
 } from "../models/models_2";
 import {
+  DescribeClusterNodeResponse,
+  DescribeClusterSchedulerConfigRequest,
+  DescribeClusterSchedulerConfigResponse,
   DescribeCodeRepositoryInput,
   DescribeCodeRepositoryOutput,
   DescribeCompilationJobRequest,
@@ -1913,7 +1914,6 @@ import {
   GetSagemakerServicecatalogPortfolioStatusOutput,
   GetScalingConfigurationRecommendationRequest,
   GetScalingConfigurationRecommendationResponse,
-  GetSearchSuggestionsRequest,
   HubContentDependency,
   HyperParameterTrainingJobSummary,
   HyperParameterTuningJobCompletionDetails,
@@ -1953,7 +1953,6 @@ import {
   ProductionVariantStatus,
   ProductionVariantSummary,
   ProfilerRuleEvaluationStatus,
-  PropertyNameQuery,
   RecommendationMetrics,
   ReservedCapacitySummary,
   RStudioServerProDomainSettingsForUpdate,
@@ -1966,7 +1965,6 @@ import {
   SelectiveExecutionConfig,
   ServiceCatalogProvisionedProductDetails,
   SubscribedWorkteam,
-  SuggestionQuery,
   TargetTrackingScalingPolicyConfiguration,
   TemplateProviderDetail,
   ThroughputConfigDescription,
@@ -1982,6 +1980,7 @@ import {
   Workteam,
 } from "../models/models_3";
 import {
+  GetSearchSuggestionsRequest,
   GetSearchSuggestionsResponse,
   GitConfigForUpdate,
   HubContentInfo,
@@ -2164,7 +2163,6 @@ import {
   ListTrialsRequest,
   ListTrialsResponse,
   ListUltraServersByReservedCapacityRequest,
-  ListUltraServersByReservedCapacityResponse,
   ModelCardExportJobSummary,
   ModelCardSummary,
   ModelCardVersionSummary,
@@ -2195,6 +2193,7 @@ import {
   ProcessingJobStepMetadata,
   ProcessingJobSummary,
   ProjectSummary,
+  PropertyNameQuery,
   PropertyNameSuggestion,
   QualityCheckStepMetadata,
   RecommendationJobInferenceBenchmark,
@@ -2205,6 +2204,7 @@ import {
   SpaceSettingsSummary,
   SpaceSharingSettingsSummary,
   StudioLifecycleConfigDetails,
+  SuggestionQuery,
   TrackingServerSummary,
   TrainingJobStepMetadata,
   TrainingJobSummary,
@@ -2215,9 +2215,9 @@ import {
   TrialComponentSummary,
   TrialSummary,
   TuningJobStepMetaData,
-  UltraServer,
 } from "../models/models_4";
 import {
+  ListUltraServersByReservedCapacityResponse,
   ListUserProfilesRequest,
   ListUserProfilesResponse,
   ListWorkforcesRequest,
@@ -2307,6 +2307,7 @@ import {
   TrialComponent,
   TrialComponentSimpleSummary,
   TrialComponentSourceDetail,
+  UltraServer,
   UpdateActionRequest,
   UpdateActionResponse,
   UpdateAppImageConfigRequest,
@@ -14757,6 +14758,8 @@ const se_BatchTransformInput = (input: BatchTransformInput, context: __SerdeCont
 
 // se_ClusterRestrictedInstanceGroupSpecifications omitted.
 
+// se_ClusterTieredStorageConfig omitted.
+
 // se_CodeEditorAppImageConfig omitted.
 
 // se_CodeEditorAppSettings omitted.
@@ -20434,6 +20437,16 @@ const de_ClusterSummary = (output: any, context: __SerdeContext): ClusterSummary
 };
 
 /**
+ * deserializeAws_json1_1ClusterTieredStorageConfig
+ */
+const de_ClusterTieredStorageConfig = (output: any, context: __SerdeContext): ClusterTieredStorageConfig => {
+  return take(output, {
+    InstanceMemoryAllocationPercentage: __expectInt32,
+    Mode: __expectString,
+  }) as any;
+};
+
+/**
  * deserializeAws_json1_1CodeEditorAppImageConfig
  */
 const de_CodeEditorAppImageConfig = (output: any, context: __SerdeContext): CodeEditorAppImageConfig => {
@@ -22341,6 +22354,7 @@ const de_DescribeClusterResponse = (output: any, context: __SerdeContext): Descr
     NodeRecovery: __expectString,
     Orchestrator: (_: any) => de_ClusterOrchestrator(_, context),
     RestrictedInstanceGroups: (_: any) => de_ClusterRestrictedInstanceGroupDetailsList(_, context),
+    TieredStorageConfig: (_: any) => de_ClusterTieredStorageConfig(_, context),
     VpcConfig: (_: any) => de_VpcConfig(_, context),
   }) as any;
 };
@@ -23205,6 +23219,7 @@ const de_DescribeNotebookInstanceOutput = (output: any, context: __SerdeContext)
     FailureReason: __expectString,
     InstanceMetadataServiceConfiguration: (_: any) => de_InstanceMetadataServiceConfiguration(_, context),
     InstanceType: __expectString,
+    IpAddressType: __expectString,
     KmsKeyId: __expectString,
     LastModifiedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     NetworkInterfaceId: __expectString,

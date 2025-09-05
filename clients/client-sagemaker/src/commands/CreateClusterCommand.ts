@@ -170,6 +170,10 @@ export interface CreateClusterCommandOutput extends CreateClusterResponse, __Met
  *     },
  *   },
  *   NodeRecovery: "Automatic" || "None",
+ *   TieredStorageConfig: { // ClusterTieredStorageConfig
+ *     Mode: "Enable" || "Disable", // required
+ *     InstanceMemoryAllocationPercentage: Number("int"),
+ *   },
  *   NodeProvisioningMode: "Continuous",
  *   ClusterRole: "STRING_VALUE",
  *   AutoScaling: { // ClusterAutoScalingConfig
