@@ -907,7 +907,7 @@ export type ClusterSettingName = (typeof ClusterSettingName)[keyof typeof Cluste
  */
 export interface ClusterSetting {
   /**
-   * <p>The name of the cluster setting. The value is <code>containerInsights</code> .</p>
+   * <p>The name of the cluster setting. The value is <code>containerInsights</code>.</p>
    * @public
    */
   name?: ClusterSettingName | undefined;
@@ -1663,7 +1663,7 @@ export interface DeploymentConfiguration {
    * 			scheduler to start replacement tasks, the scheduler stops the unhealthy tasks one-by-one
    * 			— using the <code>minimumHealthyPercent</code> as a constraint — to clear up capacity to
    * 			launch replacement tasks. For more information about how the scheduler replaces
-   * 			unhealthy tasks, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs_services.html">Amazon ECS services</a> . </p>
+   * 			unhealthy tasks, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs_services.html">Amazon ECS services</a>. </p>
    *          <p>For services that <i>do not</i> use a load balancer, the following
    * 			should be noted:</p>
    *          <ul>
@@ -3198,6 +3198,15 @@ export interface CreateServiceRequest {
    * 			the <i>
    *                <i>Amazon Elastic Container Service Developer Guide</i>
    *             </i>.</p>
+   *          <p>The default behavior of <code>AvailabilityZoneRebalancing</code> differs between create and update requests:</p>
+   *          <ul>
+   *             <li>
+   *                <p>For create service requests, when when no value is specified for <code>AvailabilityZoneRebalancing</code>, Amazon ECS defaults the value to to <code>ENABLED</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>For update service requests, when no value is specified for <code>AvailabilityZoneRebalancing</code>, Amazon ECS defaults to the existing service’s <code>AvailabilityZoneRebalancing</code> value. If the service never had an <code>AvailabilityZoneRebalancing</code> value set, Amazon ECS treats this as <code>DISABLED</code>.</p>
+   *             </li>
+   *          </ul>
    * @public
    */
   availabilityZoneRebalancing?: AvailabilityZoneRebalancing | undefined;
@@ -3205,7 +3214,7 @@ export interface CreateServiceRequest {
   /**
    * <p>A load balancer object representing the load balancers to use with your service. For
    * 			more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-load-balancing.html">Service load balancing</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
-   *          <p>If the service uses the rolling update (<code>ECS</code>) deployment controller and
+   *          <p>If the service uses the <code>ECS</code> deployment controller and
    * 			using either an Application Load Balancer or Network Load Balancer, you must specify one or more target group ARNs to attach
    * 			to the service. The service-linked role is required for services that use multiple
    * 			target groups. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using-service-linked-roles.html">Using service-linked roles for Amazon ECS</a> in the
@@ -3371,16 +3380,7 @@ export interface CreateServiceRequest {
   networkConfiguration?: NetworkConfiguration | undefined;
 
   /**
-   * <p>The period of time, in seconds, that the Amazon ECS service scheduler ignores unhealthy
-   * 			Elastic Load Balancing, VPC Lattice, and container health checks after a task has first started. If you don't
-   * 			specify a health check grace period value, the default value of <code>0</code> is used.
-   * 			If you don't use any of the health checks, then
-   * 				<code>healthCheckGracePeriodSeconds</code> is unused.</p>
-   *          <p>If your service's tasks take a while to start and respond to health checks, you can
-   * 			specify a health check grace period of up to 2,147,483,647 seconds (about 69 years).
-   * 			During that time, the Amazon ECS service scheduler ignores health check status. This grace
-   * 			period can prevent the service scheduler from marking tasks as unhealthy and stopping
-   * 			them before they have time to come up.</p>
+   * <p>The period of time, in seconds, that the Amazon Amazon ECS service scheduler ignores unhealthy Elastic Load Balancing, VPC Lattice, and container health checks after a task has first started. If you do not specify a health check grace period value, the default value of 0 is used. If you do not use any of the health checks, then <code>healthCheckGracePeriodSeconds</code> is unused.</p>
    * @public
    */
   healthCheckGracePeriodSeconds?: number | undefined;
@@ -4263,7 +4263,7 @@ export interface Service {
 
   /**
    * <p>The period of time, in seconds, that the Amazon ECS service scheduler ignores unhealthy
-   * 			Elastic Load Balancing target health checks after a task has first started.</p>
+   * 			Elastic Load Balancing, VPC Lattice, and container health checks after a task has first started.</p>
    * @public
    */
   healthCheckGracePeriodSeconds?: number | undefined;
@@ -4377,6 +4377,15 @@ export interface Service {
    * 			the <i>
    *                <i>Amazon Elastic Container Service Developer Guide</i>
    *             </i>.</p>
+   *          <p>The default behavior of <code>AvailabilityZoneRebalancing</code> differs between create and update requests:</p>
+   *          <ul>
+   *             <li>
+   *                <p>For create service requests, when when no value is specified for <code>AvailabilityZoneRebalancing</code>, Amazon ECS defaults the value to to <code>ENABLED</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>For update service requests, when no value is specified for <code>AvailabilityZoneRebalancing</code>, Amazon ECS defaults to the existing service’s <code>AvailabilityZoneRebalancing</code> value. If the service never had an <code>AvailabilityZoneRebalancing</code> value set, Amazon ECS treats this as <code>DISABLED</code>.</p>
+   *             </li>
+   *          </ul>
    * @public
    */
   availabilityZoneRebalancing?: AvailabilityZoneRebalancing | undefined;
@@ -12717,7 +12726,7 @@ export interface RegisterTaskDefinitionResponse {
 
 /**
  * <p>Your Amazon Web Services account was blocked. For more information, contact <a href="http://aws.amazon.com/contact-us/">
- * 				Amazon Web ServicesSupport</a>.</p>
+ * 				Amazon Web Services Support</a>.</p>
  * @public
  */
 export class BlockedException extends __BaseException {
