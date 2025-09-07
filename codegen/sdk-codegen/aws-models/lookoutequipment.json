@@ -3003,7 +3003,7 @@
         "DatasetArn": {
           "target": "com.amazonaws.lookoutequipment#DatasetArn",
           "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resouce Name (ARN) of the dataset used to create the machine learning model\n         being described. </p>"
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the dataset used to create the machine learning model\n         being described. </p>"
           }
         },
         "Schema": {
