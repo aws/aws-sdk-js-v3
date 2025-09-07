@@ -1225,7 +1225,7 @@ export interface AssociateResourceTypesRequest {
  *             <p>Unless specifically listed as exclusions,
  * 				<code>AWS::RDS::GlobalCluster</code> will be recorded automatically in all supported  Config Regions were the configuration recorder is enabled.</p>
  *             <p>IAM users, groups, roles, and customer managed policies will be recorded in the Region where you set up the configuration recorder if that is a Region where Config was available before February 2022.
- * 				You cannot be record the global IAM resouce types in Regions supported by Config after February 2022. For a list of those Regions,
+ * 				You cannot be record the global IAM resource types in Regions supported by Config after February 2022. For a list of those Regions,
  * 				see <a href="https://docs.aws.amazon.com/config/latest/developerguide/select-resources.html#select-resources-all">Recording Amazon Web Services Resources | Global Resources</a>.</p>
  *          </note>
  * @public
@@ -1308,7 +1308,7 @@ export interface RecordingStrategy {
    *             <p>Unless specifically listed as exclusions,
    * 				<code>AWS::RDS::GlobalCluster</code> will be recorded automatically in all supported Config Regions were the configuration recorder is enabled.</p>
    *             <p>IAM users, groups, roles, and customer managed policies will be recorded in the Region where you set up the configuration recorder if that is a Region where Config was available before February 2022.
-   * 				You cannot be record the global IAM resouce types in Regions supported by Config after February 2022. This list where you cannot record the global IAM resource types includes the following Regions:</p>
+   * 				You cannot be record the global IAM resource types in Regions supported by Config after February 2022. This list where you cannot record the global IAM resource types includes the following Regions:</p>
    *             <ul>
    *                <li>
    *                   <p>Asia Pacific (Hyderabad)</p>
@@ -1389,7 +1389,7 @@ export interface RecordingGroup {
    * <p>This option is a bundle which only applies to the global IAM resource types:
    * 			IAM users, groups, roles, and customer managed policies. These global IAM resource types can only be recorded
    * 			by Config in Regions where Config was available before February 2022.
-   * 			You cannot be record the global IAM resouce types in Regions supported by Config after February 2022. For a list of those Regions,
+   * 			You cannot be record the global IAM resource types in Regions supported by Config after February 2022. For a list of those Regions,
    * 			see <a href="https://docs.aws.amazon.com/config/latest/developerguide/select-resources.html#select-resources-all">Recording Amazon Web Services Resources | Global Resources</a>.</p>
    *          <important>
    *             <p>
@@ -1530,7 +1530,7 @@ export interface RecordingGroup {
    *             <p>Unless specifically listed as exclusions,
    * 				<code>AWS::RDS::GlobalCluster</code> will be recorded automatically in all supported Config Regions were the configuration recorder is enabled.</p>
    *             <p>IAM users, groups, roles, and customer managed policies will be recorded in the Region where you set up the configuration recorder if that is a Region where Config  was available before February 2022.
-   * 				You cannot be record the global IAM resouce types in Regions supported by Config after February 2022. For a list of those Regions,
+   * 				You cannot be record the global IAM resource types in Regions supported by Config after February 2022. For a list of those Regions,
    * 				see <a href="https://docs.aws.amazon.com/config/latest/developerguide/select-resources.html#select-resources-all">Recording Amazon Web Services Resources | Global Resources</a>.</p>
    *          </note>
    * @public
@@ -3957,7 +3957,7 @@ export interface DeleteConfigRuleRequest {
 }
 
 /**
- * <p>The Config rule in the request is not valid. Verify that the rule is an Config Process Check rule, that the rule name is correct, and that valid Amazon Resouce Names (ARNs) are used before trying again.</p>
+ * <p>The Config rule in the request is not valid. Verify that the rule is an Config Process Check rule, that the rule name is correct, and that valid Amazon Resource Names (ARNs) are used before trying again.</p>
  * @public
  */
 export class NoSuchConfigRuleException extends __BaseException {
@@ -4190,7 +4190,7 @@ export interface DeleteOrganizationConfigRuleRequest {
 }
 
 /**
- * <p>The Config rule in the request is not valid. Verify that the rule is an organization Config Process Check rule, that the rule name is correct, and that valid Amazon Resouce Names (ARNs) are used before trying again.</p>
+ * <p>The Config rule in the request is not valid. Verify that the rule is an organization Config Process Check rule, that the rule name is correct, and that valid Amazon Resource Names (ARNs) are used before trying again.</p>
  * @public
  */
 export class NoSuchOrganizationConfigRuleException extends __BaseException {
