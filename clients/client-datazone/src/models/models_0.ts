@@ -5261,12 +5261,12 @@ export interface LineageSyncSchedule {
 }
 
 /**
- * <p>The Amaon Redshift lineage sync configuration.</p>
+ * <p>The Amazon Redshift lineage sync configuration.</p>
  * @public
  */
 export interface RedshiftLineageSyncConfigurationInput {
   /**
-   * <p>Specifies whether the Amaon Redshift lineage sync configuration is enabled.</p>
+   * <p>Specifies whether the Amazon Redshift lineage sync configuration is enabled.</p>
    * @public
    */
   enabled?: boolean | undefined;
