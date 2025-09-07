@@ -4513,7 +4513,7 @@ export interface ListPlatformVersionsResult {
  */
 export interface ListTagsForResourceMessage {
   /**
-   * <p>The Amazon Resource Name (ARN) of the resouce for which a tag list is requested.</p>
+   * <p>The Amazon Resource Name (ARN) of the resource for which a tag list is requested.</p>
    *          <p>Must be the ARN of an Elastic Beanstalk resource.</p>
    * @public
    */
@@ -5094,7 +5094,7 @@ export class TooManyTagsException extends __BaseException {
  */
 export interface UpdateTagsForResourceMessage {
   /**
-   * <p>The Amazon Resource Name (ARN) of the resouce to be updated.</p>
+   * <p>The Amazon Resource Name (ARN) of the resource to be updated.</p>
    *          <p>Must be the ARN of an Elastic Beanstalk resource.</p>
    * @public
    */
