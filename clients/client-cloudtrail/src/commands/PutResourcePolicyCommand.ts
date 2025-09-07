@@ -86,7 +86,7 @@ export interface PutResourcePolicyCommandOutput extends PutResourcePolicyRespons
  *
  * @throws {@link ResourcePolicyNotValidException} (client fault)
  *  <p>
- *          This exception is thrown when the resouce-based policy has syntax errors, or contains a principal that is not valid.
+ *          This exception is thrown when the resource-based policy has syntax errors, or contains a principal that is not valid.
  *       </p>
  *
  * @throws {@link ResourceTypeNotSupportedException} (client fault)
