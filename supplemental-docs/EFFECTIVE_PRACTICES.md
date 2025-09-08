@@ -32,7 +32,7 @@ import {
 
 ### (1) Minimize creating new copies of AWS SDK Clients for multiple operation calls
 
-The following example creates a client prior to making a request.
+The following example creates a new client in every iteration of the loop.
 
 ```ts
 // ⚠️
