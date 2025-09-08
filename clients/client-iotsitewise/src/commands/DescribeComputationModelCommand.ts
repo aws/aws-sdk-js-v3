@@ -38,6 +38,7 @@ export interface DescribeComputationModelCommandOutput extends DescribeComputati
  * const client = new IoTSiteWiseClient(config);
  * const input = { // DescribeComputationModelRequest
  *   computationModelId: "STRING_VALUE", // required
+ *   computationModelVersion: "STRING_VALUE",
  * };
  * const command = new DescribeComputationModelCommand(input);
  * const response = await client.send(command);
