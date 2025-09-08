@@ -46,7 +46,7 @@ for (const item of items) {
 ```
 
 In cases where the operations being called are to the same client configuration, i.e. the same region
-and with the same credentials, creating a new client is unnecessary. It adds additional work for the calling program,
+and with the same credentials, creating a new client is not necessary. It increases work for the calling program,
 since the client may need to re-compute credentials, endpoints, and other components needed to make a request.
 
 Our recommended way is to create one client per set of credentials and region, and reuse it for
