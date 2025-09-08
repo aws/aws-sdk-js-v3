@@ -26,6 +26,7 @@ import {
   - [Incompatible read](#incompatible-read)
   - [Recommended alternatives](#recommended-alternatives)
 - [(3) Always read streaming responses to completion or discard them](#3-always-read-streaming-responses-to-completion-or-discard-them)
+- [(4) Allow more time to establish connections when making requests cross-region](#4-allow-more-time-to-establish-connections-when-making-requests-cross-region)
 
 <!-- TOC end -->
 
@@ -229,3 +230,29 @@ if (case1) {
   await(getObjectResponse.destroy?.() ?? getObjectResponse.cancel?.());
 }
 ```
+
+### (4) Allow more time to establish connections when making requests cross-region
+
+This is outside the AWS SDK interfaces but an important consideration when making cross-region requests in AWS when
+using the Node.js runtime. For Node.js v20 and later, there is an
+option for TCP connections called `autoSelectFamilyAttemptTimeout <number>`.
+
+The [documentation](https://nodejs.org/dist/latest-v20.x/docs/api/net.html#netsetdefaultautoselectfamilyattempttimeoutvalue)
+states:
+
+> The amount of time in milliseconds to wait for a connection attempt to finish before trying the next address
+
+The default value of 250ms may be too low for some cross-region pairs within AWS, like those that are on
+opposite sides of the world, or simply in conditions of low network speed. This may manifest as an `AggregateError` with
+code `ETIMEDOUT` in Node.js.
+
+To increase this value within your application, use a `node` launch parameter such as `--network-family-autoselection-attempt-timeout=500` or
+the `node:net` API:
+
+```ts
+import net from "node:net";
+
+net.setDefaultAutoSelectFamilyAttemptTimeout(500);
+```
+
+The content of this item is based on the author's reading of this reported issue: https://github.com/nodejs/node/issues/54359.
