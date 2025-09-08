@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.884.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.883.0...v3.884.0) (2025-09-08)
+
+
+### Features
+
+* **client-securityhub:** This release adds the RESOURCE_NOT_FOUND error code as a possible value in responses to the following operations: BatchGetStandardsControlAssociations, BatchUpdateStandardsControlAssociations, and BatchGetSecurityControls. ([6069734](https://github.com/aws/aws-sdk-js-v3/commit/6069734f70788fb71538aadb53f36fae8267fc5d))
+
+
+
+
+
 # [3.883.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.882.0...v3.883.0) (2025-09-05)
 
 **Note:** Version bump only for package @aws-sdk/client-securityhub

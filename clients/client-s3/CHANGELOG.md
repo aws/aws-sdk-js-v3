@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.884.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.883.0...v3.884.0) (2025-09-08)
+
+
+### Features
+
+* **client-s3:** This release includes backward compatibility work on the "Expires" parameter. ([11d390e](https://github.com/aws/aws-sdk-js-v3/commit/11d390e1c84b7ac00d3b27fae7dda67404ff7818))
+
+
+
+
+
 # [3.883.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.882.0...v3.883.0) (2025-09-05)
 
 **Note:** Version bump only for package @aws-sdk/client-s3

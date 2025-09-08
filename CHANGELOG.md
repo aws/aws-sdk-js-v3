@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.884.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.883.0...v3.884.0) (2025-09-08)
+
+
+### Features
+
+* **client-iotsitewise:** Add ComputationModelVersion support in IoT SiteWise APIs ([96c925c](https://github.com/aws/aws-sdk-js-v3/commit/96c925cb3828c1843cb5837c514d7d9412455d25))
+* **client-s3:** This release includes backward compatibility work on the "Expires" parameter. ([11d390e](https://github.com/aws/aws-sdk-js-v3/commit/11d390e1c84b7ac00d3b27fae7dda67404ff7818))
+* **client-securityhub:** This release adds the RESOURCE_NOT_FOUND error code as a possible value in responses to the following operations: BatchGetStandardsControlAssociations, BatchUpdateStandardsControlAssociations, and BatchGetSecurityControls. ([6069734](https://github.com/aws/aws-sdk-js-v3/commit/6069734f70788fb71538aadb53f36fae8267fc5d))
+* **clients:** update client endpoints as of 2025-09-08 ([6f0c981](https://github.com/aws/aws-sdk-js-v3/commit/6f0c981f47537db21da8e2196adc55ed9c724d23))
+
+
+
+
+
 # [3.883.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.882.0...v3.883.0) (2025-09-05)
 
 
