@@ -191,7 +191,7 @@ return a byte stream.
 Although awaiting such a request will return an HTTP status code and response headers,
 
 ```ts
-const getObjectResponse = client.send(GetObjectCommand({ Bucket, Key }));
+const getObjectResponse = await client.send(GetObjectCommand({ Bucket, Key }));
 
 console.log(getObjectResponse.$metadata.httpStatusCode);
 // ⚠️ byte stream is unhandled, leaving a socket in use.
