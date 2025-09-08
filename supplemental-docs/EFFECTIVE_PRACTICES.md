@@ -197,7 +197,8 @@ console.log(getObjectResponse.$metadata.httpStatusCode);
 // ⚠️ byte stream is unhandled, leaving a socket in use.
 ```
 
-Although the API call is performed and you have access to response, the connection will remain open until the byte stream, or payload, is read or discarded.
+Although the API call is performed, and you have access to response, the connection will remain open until the byte
+stream, or payload, is read or discarded.
 Not doing so will leave the connection open, and in Node.js this can lead to a condition we call socket exhaustion. In
 the worst cases this can cause your application to slow, leak memory, and/or deadlock.
 
@@ -231,6 +232,21 @@ if (case1) {
 }
 ```
 
+To identify _which_ operations contain byte stream response payloads, refer to our API documentation. In the
+"Example Syntax" section of each operation's API reference page, the field that constitutes a byte stream will be marked
+as such:
+
+```ts
+// { // GetObjectOutput
+//   Body: "<SdkStream>", // see \@smithy/types -> StreamingBlobPayloadOutputTypes
+//   ... other fields ...
+// };
+```
+
+in the same way
+as [GetObjectCommand](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/s3/command/GetObjectCommand/).
+The byte stream field will always be a top-level property of the response object.
+
 ### (4) Allow more time to establish connections when making requests cross-region
 
 This is outside the AWS SDK interfaces but an important consideration when making cross-region requests in AWS when
@@ -246,7 +262,8 @@ The default value of 250ms may be too low for some cross-region pairs within AWS
 opposite sides of the world, or simply in conditions of low network speed. This may manifest as an `AggregateError` with
 code `ETIMEDOUT` in Node.js.
 
-To increase this value within your application, use a `node` launch parameter such as `--network-family-autoselection-attempt-timeout=500` or
+To increase this value within your application, use a `node` launch parameter such as
+`--network-family-autoselection-attempt-timeout=500` or
 the `node:net` API:
 
 ```ts
@@ -255,4 +272,5 @@ import net from "node:net";
 net.setDefaultAutoSelectFamilyAttemptTimeout(500);
 ```
 
-The content of this item is based on the author's reading of this reported issue: https://github.com/nodejs/node/issues/54359.
+The content of this item is based on the author's reading of this reported
+issue: https://github.com/nodejs/node/issues/54359.
