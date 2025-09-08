@@ -67,7 +67,7 @@ export interface BatchUpdateStandardsControlAssociationsCommandOutput
  * //         AssociationStatus: "ENABLED" || "DISABLED", // required
  * //         UpdatedReason: "STRING_VALUE",
  * //       },
- * //       ErrorCode: "INVALID_INPUT" || "ACCESS_DENIED" || "NOT_FOUND" || "LIMIT_EXCEEDED", // required
+ * //       ErrorCode: "INVALID_INPUT" || "ACCESS_DENIED" || "NOT_FOUND" || "RESOURCE_NOT_FOUND" || "LIMIT_EXCEEDED", // required
  * //       ErrorReason: "STRING_VALUE",
  * //     },
  * //   ],

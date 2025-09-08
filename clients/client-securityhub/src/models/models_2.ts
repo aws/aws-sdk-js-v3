@@ -5654,6 +5654,7 @@ export const UnprocessedErrorCode = {
   INVALID_INPUT: "INVALID_INPUT",
   LIMIT_EXCEEDED: "LIMIT_EXCEEDED",
   NOT_FOUND: "NOT_FOUND",
+  RESOURCE_NOT_FOUND: "RESOURCE_NOT_FOUND",
 } as const;
 
 /**

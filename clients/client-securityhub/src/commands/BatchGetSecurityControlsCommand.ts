@@ -82,7 +82,7 @@ export interface BatchGetSecurityControlsCommandOutput extends BatchGetSecurityC
  * //   UnprocessedIds: [ // UnprocessedSecurityControls
  * //     { // UnprocessedSecurityControl
  * //       SecurityControlId: "STRING_VALUE", // required
- * //       ErrorCode: "INVALID_INPUT" || "ACCESS_DENIED" || "NOT_FOUND" || "LIMIT_EXCEEDED", // required
+ * //       ErrorCode: "INVALID_INPUT" || "ACCESS_DENIED" || "NOT_FOUND" || "RESOURCE_NOT_FOUND" || "LIMIT_EXCEEDED", // required
  * //       ErrorReason: "STRING_VALUE",
  * //     },
  * //   ],
