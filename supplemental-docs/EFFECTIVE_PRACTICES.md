@@ -68,7 +68,7 @@ for (const item of items) {
 const objects = await client.send(new ListObjectsV2Command({ Bucket }));
 ```
 
-If you find a need to create a new client because of capacity issues with a single client,
+If you need to create a new client because of capacity issues with a single client,
 see [parallel workloads in Node.js](./performance/parallel-workloads-node-js.md).
 
 ### (2) Avoid reading or mutating the AWS SDK client configuration object after instantiating the client
