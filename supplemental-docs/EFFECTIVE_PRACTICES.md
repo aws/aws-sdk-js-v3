@@ -197,7 +197,7 @@ console.log(getObjectResponse.$metadata.httpStatusCode);
 // ⚠️ byte stream is unhandled, leaving a socket in use.
 ```
 
-the request is incomplete. The connection will remain open until the byte stream, or payload, is read or discarded.
+Although the API call is performed and you have access to response, the connection will remain open until the byte stream, or payload, is read or discarded.
 Not doing so will leave the connection open, and in Node.js this can lead to a condition we call socket exhaustion. In
 the worst cases this can cause your application to slow, leak memory, and/or deadlock.
 
