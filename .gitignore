@@ -35,6 +35,7 @@ package-lock.json
 !serviceModels/logs
 dist
 tests/bundlers/dist-min
+tests/bundlers/dist-vite
 
 .idea/
 *.iml

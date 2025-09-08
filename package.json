@@ -7,6 +7,7 @@
   "scripts": {
     "bootstrap": "yarn",
     "bootstrap:ci": "yarn install --frozen-lockfile",
+    "benchmark:bundlers": "node ./tests/bundlers/runner/run.mjs",
     "build:all": "node ./scripts/turbo build",
     "build:ci": "node ./scripts/turbo build",
     "build:clients:generic": "node ./scripts/turbo build -F=@aws-sdk/aws-echo-service",
