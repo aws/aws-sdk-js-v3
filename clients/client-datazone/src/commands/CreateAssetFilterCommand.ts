@@ -33,7 +33,7 @@ export interface CreateAssetFilterCommandInput extends CreateAssetFilterInput {}
 export interface CreateAssetFilterCommandOutput extends CreateAssetFilterOutput, __MetadataBearer {}
 
 /**
- * <p>Creates a data asset filter.</p>
+ * <p>Creates a data asset filter.</p> <p>Asset filters provide a sophisticated way to create controlled views of data assets by selecting specific columns or applying row-level filters. This capability is crucial for organizations that need to share data while maintaining security and privacy controls. For example, your database might be filtered to show only non-PII fields to certain users, or sales data might be filtered by region for different regional teams. Asset filters enable fine-grained access control while maintaining a single source of truth.</p> <p>Prerequisites:</p> <ul> <li> <p>A valid domain (<code>--domain-identifier</code>) must exist. </p> </li> <li> <p>A data asset (<code>--asset-identifier</code>) must already be created under that domain.</p> </li> <li> <p>The asset must have the referenced columns available in its schema for column-based filtering.</p> </li> <li> <p>You cannot specify both (<code>columnConfiguration</code>, <code>rowConfiguration</code>)at the same time.</p> </li> </ul>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

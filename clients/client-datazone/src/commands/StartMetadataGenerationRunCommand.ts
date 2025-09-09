@@ -28,7 +28,7 @@ export interface StartMetadataGenerationRunCommandInput extends StartMetadataGen
 export interface StartMetadataGenerationRunCommandOutput extends StartMetadataGenerationRunOutput, __MetadataBearer {}
 
 /**
- * <p>Starts the metadata generation run.</p>
+ * <p>Starts the metadata generation run.</p> <p>Prerequisites:</p> <ul> <li> <p>Asset must be created and belong to the specified domain and project. </p> </li> <li> <p>Asset type must be supported for metadata generation (e.g., Amazon Web Services Glue table).</p> </li> <li> <p>Asset must have a structured schema with valid rows and columns.</p> </li> <li> <p>Valid values for --type: BUSINESS_DESCRIPTIONS, BUSINESS_NAMES.</p> </li> <li> <p>The user must have permission to run metadata generation in the domain/project.</p> </li> </ul>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

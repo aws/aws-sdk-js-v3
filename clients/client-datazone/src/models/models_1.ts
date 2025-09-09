@@ -62,7 +62,6 @@ import {
   ManagedPolicyType,
   MatchRationaleItem,
   Member,
-  MetadataFormReference,
   Model,
   PhysicalEndpoint,
   PhysicalEndpointFilterSensitiveLog,
@@ -74,7 +73,6 @@ import {
   RecommendationConfiguration,
   ResolutionStrategy,
   Resource,
-  RuleAction,
   RuleScopeSelectionMode,
   ScheduleConfiguration,
   SingleSignOn,
@@ -90,6 +88,38 @@ import {
   TimeSeriesDataPointSummaryFormOutput,
   UserDesignation,
 } from "./models_0";
+
+/**
+ * @public
+ * @enum
+ */
+export const RuleAction = {
+  CREATE_LISTING_CHANGE_SET: "CREATE_LISTING_CHANGE_SET",
+  CREATE_SUBSCRIPTION_REQUEST: "CREATE_SUBSCRIPTION_REQUEST",
+} as const;
+
+/**
+ * @public
+ */
+export type RuleAction = (typeof RuleAction)[keyof typeof RuleAction];
+
+/**
+ * <p>The reference of a metadata form.</p>
+ * @public
+ */
+export interface MetadataFormReference {
+  /**
+   * <p>The type ID of the metadata form reference.</p>
+   * @public
+   */
+  typeIdentifier: string | undefined;
+
+  /**
+   * <p>The type revision of the metadata form reference.</p>
+   * @public
+   */
+  typeRevision: string | undefined;
+}
 
 /**
  * <p>The enforcement details of a metadata form.</p>
@@ -3262,6 +3292,23 @@ export interface DeleteEnvironmentActionInput {
 /**
  * @public
  */
+export interface DeleteEnvironmentBlueprintInput {
+  /**
+   * <p>The ID of the Amazon DataZone domain in which the blueprint is deleted.</p>
+   * @public
+   */
+  domainIdentifier: string | undefined;
+
+  /**
+   * <p>The ID of the blueprint that is deleted.</p>
+   * @public
+   */
+  identifier: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface DeleteEnvironmentProfileInput {
   /**
    * <p>The ID of the Amazon DataZone domain in which the environment profile is deleted.</p>
@@ -4522,6 +4569,12 @@ export interface PutEnvironmentBlueprintConfigurationInput {
    * @public
    */
   regionalParameters?: Record<string, Record<string, string>> | undefined;
+
+  /**
+   * <p>Region-agnostic environment blueprint parameters. </p>
+   * @public
+   */
+  globalParameters?: Record<string, string> | undefined;
 
   /**
    * <p>The provisioning configuration of a blueprint.</p>
@@ -9696,7 +9749,7 @@ export interface SubscriptionGrantSummary {
   createdAt: Date | undefined;
 
   /**
-   * <p>The timestampf of when the subscription grant was updated.</p>
+   * <p>The timestamp of when the subscription grant was updated.</p>
    * @public
    */
   updatedAt: Date | undefined;
@@ -10389,96 +10442,6 @@ export const MetadataGenerationTargetType = {
  */
 export type MetadataGenerationTargetType =
   (typeof MetadataGenerationTargetType)[keyof typeof MetadataGenerationTargetType];
-
-/**
- * <p>The asset for which metadata was generated.</p>
- * @public
- */
-export interface MetadataGenerationRunTarget {
-  /**
-   * <p>The type of the asset for which metadata was generated.</p>
-   * @public
-   */
-  type: MetadataGenerationTargetType | undefined;
-
-  /**
-   * <p>The ID of the metadata generation run's target.</p>
-   * @public
-   */
-  identifier: string | undefined;
-
-  /**
-   * <p>The revision of the asset for which metadata was generated.</p>
-   * @public
-   */
-  revision?: string | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const MetadataGenerationRunType = {
-  BUSINESS_DESCRIPTIONS: "BUSINESS_DESCRIPTIONS",
-} as const;
-
-/**
- * @public
- */
-export type MetadataGenerationRunType = (typeof MetadataGenerationRunType)[keyof typeof MetadataGenerationRunType];
-
-/**
- * @public
- */
-export interface GetMetadataGenerationRunOutput {
-  /**
-   * <p>The ID of the Amazon DataZone domain the metadata generation run of which you want to get.</p>
-   * @public
-   */
-  domainId: string | undefined;
-
-  /**
-   * <p>The ID of the metadata generation run.</p>
-   * @public
-   */
-  id: string | undefined;
-
-  /**
-   * <p>The asset for which you're generating metadata.</p>
-   * @public
-   */
-  target?: MetadataGenerationRunTarget | undefined;
-
-  /**
-   * <p>The status of the metadata generation run.</p>
-   * @public
-   */
-  status?: MetadataGenerationRunStatus | undefined;
-
-  /**
-   * <p>The type of metadata generation run.</p>
-   * @public
-   */
-  type?: MetadataGenerationRunType | undefined;
-
-  /**
-   * <p>The timestamp of when the metadata generation run was start.</p>
-   * @public
-   */
-  createdAt?: Date | undefined;
-
-  /**
-   * <p>The Amazon DataZone user who started the metadata generation run.</p>
-   * @public
-   */
-  createdBy?: string | undefined;
-
-  /**
-   * <p>The ID of the project that owns the assets for which you're running metadata generation.</p>
-   * @public
-   */
-  owningProjectId: string | undefined;
-}
 
 /**
  * @internal

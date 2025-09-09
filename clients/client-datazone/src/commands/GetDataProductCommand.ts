@@ -28,7 +28,7 @@ export interface GetDataProductCommandInput extends GetDataProductInput {}
 export interface GetDataProductCommandOutput extends GetDataProductOutput, __MetadataBearer {}
 
 /**
- * <p>Gets the data product.</p>
+ * <p>Gets the data product.</p> <p>Prerequisites:</p> <ul> <li> <p>The data product ID must exist. </p> </li> <li> <p>The domain must be valid and accessible.</p> </li> <li> <p>User must have read or discovery permissions for the data product.</p> </li> </ul>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

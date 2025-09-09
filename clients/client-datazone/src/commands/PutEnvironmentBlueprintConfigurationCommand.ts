@@ -57,6 +57,9 @@ export interface PutEnvironmentBlueprintConfigurationCommandOutput
  *       "<keys>": "STRING_VALUE",
  *     },
  *   },
+ *   globalParameters: { // GlobalParameterMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
  *   provisioningConfigurations: [ // ProvisioningConfigurationList
  *     { // ProvisioningConfiguration Union: only one key present
  *       lakeFormationConfiguration: { // LakeFormationConfiguration

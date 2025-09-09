@@ -28,7 +28,7 @@ export interface DeleteGlossaryCommandInput extends DeleteGlossaryInput {}
 export interface DeleteGlossaryCommandOutput extends DeleteGlossaryOutput, __MetadataBearer {}
 
 /**
- * <p>Deletes a business glossary in Amazon DataZone.</p>
+ * <p>Deletes a business glossary in Amazon DataZone.</p> <p>Prerequisites:</p> <ul> <li> <p>The glossary must be in DISABLED state. </p> </li> <li> <p>The glossary must not have any glossary terms associated with it.</p> </li> <li> <p>The glossary must exist in the specified domain.</p> </li> <li> <p>The caller must have the <code>datazone:DeleteGlossary</code> permission in the domain and glossary.</p> </li> <li> <p>There should be no active assets or metadata linked to the glossary.</p> </li> </ul>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

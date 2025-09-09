@@ -67,6 +67,7 @@ export interface GetEnvironmentBlueprintCommandOutput extends GetEnvironmentBlue
  * //       defaultValue: "STRING_VALUE",
  * //       isEditable: true || false,
  * //       isOptional: true || false,
+ * //       isUpdateSupported: true || false,
  * //     },
  * //   ],
  * //   glossaryTerms: [ // GlossaryTerms

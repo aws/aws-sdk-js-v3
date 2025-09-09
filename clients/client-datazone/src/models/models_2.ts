@@ -56,7 +56,6 @@ import {
   ResolutionStrategy,
   Resource,
   RowFilterExpression,
-  RuleAction,
   Status,
   SubscribedListing,
   SubscribedListingFilterSensitiveLog,
@@ -78,8 +77,8 @@ import {
   Import,
   ImportFilterSensitiveLog,
   MetadataGenerationRunStatus,
-  MetadataGenerationRunTarget,
-  MetadataGenerationRunType,
+  MetadataGenerationTargetType,
+  RuleAction,
   RuleDetail,
   RuleScope,
   RuleTarget,
@@ -97,6 +96,96 @@ import {
   UserProfileStatus,
   UserProfileType,
 } from "./models_1";
+
+/**
+ * <p>The asset for which metadata was generated.</p>
+ * @public
+ */
+export interface MetadataGenerationRunTarget {
+  /**
+   * <p>The type of the asset for which metadata was generated.</p>
+   * @public
+   */
+  type: MetadataGenerationTargetType | undefined;
+
+  /**
+   * <p>The ID of the metadata generation run's target.</p>
+   * @public
+   */
+  identifier: string | undefined;
+
+  /**
+   * <p>The revision of the asset for which metadata was generated.</p>
+   * @public
+   */
+  revision?: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const MetadataGenerationRunType = {
+  BUSINESS_DESCRIPTIONS: "BUSINESS_DESCRIPTIONS",
+} as const;
+
+/**
+ * @public
+ */
+export type MetadataGenerationRunType = (typeof MetadataGenerationRunType)[keyof typeof MetadataGenerationRunType];
+
+/**
+ * @public
+ */
+export interface GetMetadataGenerationRunOutput {
+  /**
+   * <p>The ID of the Amazon DataZone domain the metadata generation run of which you want to get.</p>
+   * @public
+   */
+  domainId: string | undefined;
+
+  /**
+   * <p>The ID of the metadata generation run.</p>
+   * @public
+   */
+  id: string | undefined;
+
+  /**
+   * <p>The asset for which you're generating metadata.</p>
+   * @public
+   */
+  target?: MetadataGenerationRunTarget | undefined;
+
+  /**
+   * <p>The status of the metadata generation run.</p>
+   * @public
+   */
+  status?: MetadataGenerationRunStatus | undefined;
+
+  /**
+   * <p>The type of metadata generation run.</p>
+   * @public
+   */
+  type?: MetadataGenerationRunType | undefined;
+
+  /**
+   * <p>The timestamp of when the metadata generation run was start.</p>
+   * @public
+   */
+  createdAt?: Date | undefined;
+
+  /**
+   * <p>The Amazon DataZone user who started the metadata generation run.</p>
+   * @public
+   */
+  createdBy?: string | undefined;
+
+  /**
+   * <p>The ID of the project that owns the assets for which you're running metadata generation.</p>
+   * @public
+   */
+  owningProjectId: string | undefined;
+}
 
 /**
  * @public
@@ -2699,6 +2788,106 @@ export interface UpdateEnvironmentActionOutput {
 /**
  * @public
  */
+export interface UpdateEnvironmentBlueprintInput {
+  /**
+   * <p>The identifier of the Amazon DataZone domain in which an environment blueprint is to be updated.</p>
+   * @public
+   */
+  domainIdentifier: string | undefined;
+
+  /**
+   * <p>The identifier of the environment blueprint to be updated.</p>
+   * @public
+   */
+  identifier: string | undefined;
+
+  /**
+   * <p>The description to be updated as part of the <code>UpdateEnvironmentBlueprint</code> action.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>The provisioning properties to be updated as part of the <code>UpdateEnvironmentBlueprint</code> action.</p>
+   * @public
+   */
+  provisioningProperties?: ProvisioningProperties | undefined;
+
+  /**
+   * <p>The user parameters to be updated as part of the <code>UpdateEnvironmentBlueprint</code> action.</p>
+   * @public
+   */
+  userParameters?: CustomParameter[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateEnvironmentBlueprintOutput {
+  /**
+   * <p>The identifier of the blueprint to be updated.</p>
+   * @public
+   */
+  id: string | undefined;
+
+  /**
+   * <p>The name to be updated as part of the <code>UpdateEnvironmentBlueprint</code> action.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The description to be updated as part of the <code>UpdateEnvironmentBlueprint</code> action.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>The provider of the blueprint to be udpated.</p>
+   * @public
+   */
+  provider: string | undefined;
+
+  /**
+   * <p>The provisioning properties to be updated as part of the <code>UpdateEnvironmentBlueprint</code> action.</p>
+   * @public
+   */
+  provisioningProperties: ProvisioningProperties | undefined;
+
+  /**
+   * <p>The deployment properties to be updated as part of the <code>UpdateEnvironmentBlueprint</code> action.</p>
+   * @public
+   */
+  deploymentProperties?: DeploymentProperties | undefined;
+
+  /**
+   * <p>The user parameters to be updated as part of the <code>UpdateEnvironmentBlueprint</code> action.</p>
+   * @public
+   */
+  userParameters?: CustomParameter[] | undefined;
+
+  /**
+   * <p>The glossary terms to be updated as part of the <code>UpdateEnvironmentBlueprint</code> action.</p>
+   * @public
+   */
+  glossaryTerms?: string[] | undefined;
+
+  /**
+   * <p>The timestamp of when the environment blueprint was created.</p>
+   * @public
+   */
+  createdAt?: Date | undefined;
+
+  /**
+   * <p>The timestamp of when the blueprint was updated.</p>
+   * @public
+   */
+  updatedAt?: Date | undefined;
+}
+
+/**
+ * @public
+ */
 export interface UpdateEnvironmentProfileInput {
   /**
    * <p>The identifier of the Amazon DataZone domain in which an environment profile is to be updated.</p>
@@ -4569,6 +4758,29 @@ export const UpdateEnvironmentOutputFilterSensitiveLog = (obj: UpdateEnvironment
   }),
   ...(obj.provisioningProperties && { provisioningProperties: obj.provisioningProperties }),
   ...(obj.environmentConfigurationId && { environmentConfigurationId: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateEnvironmentBlueprintInputFilterSensitiveLog = (obj: UpdateEnvironmentBlueprintInput): any => ({
+  ...obj,
+  ...(obj.provisioningProperties && { provisioningProperties: obj.provisioningProperties }),
+  ...(obj.userParameters && {
+    userParameters: obj.userParameters.map((item) => CustomParameterFilterSensitiveLog(item)),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateEnvironmentBlueprintOutputFilterSensitiveLog = (obj: UpdateEnvironmentBlueprintOutput): any => ({
+  ...obj,
+  ...(obj.description && { description: SENSITIVE_STRING }),
+  ...(obj.provisioningProperties && { provisioningProperties: obj.provisioningProperties }),
+  ...(obj.userParameters && {
+    userParameters: obj.userParameters.map((item) => CustomParameterFilterSensitiveLog(item)),
+  }),
 });
 
 /**

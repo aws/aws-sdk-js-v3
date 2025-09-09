@@ -33,7 +33,7 @@ export interface UpdateGlossaryTermCommandInput extends UpdateGlossaryTermInput 
 export interface UpdateGlossaryTermCommandOutput extends UpdateGlossaryTermOutput, __MetadataBearer {}
 
 /**
- * <p>Updates a business glossary term in Amazon DataZone.</p>
+ * <p>Updates a business glossary term in Amazon DataZone.</p> <p>Prerequisites:</p> <ul> <li> <p>Glossary term must exist in the specified domain. </p> </li> <li> <p>New name must not conflict with existing terms in the same glossary.</p> </li> <li> <p>User must have permissions on the term.</p> </li> <li> <p>The term must not be in DELETED status.</p> </li> </ul>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -107,6 +107,7 @@ export interface CreateEnvironmentCommandOutput extends CreateEnvironmentOutput,
  * //       defaultValue: "STRING_VALUE",
  * //       isEditable: true || false,
  * //       isOptional: true || false,
+ * //       isUpdateSupported: true || false,
  * //     },
  * //   ],
  * //   lastDeployment: { // Deployment

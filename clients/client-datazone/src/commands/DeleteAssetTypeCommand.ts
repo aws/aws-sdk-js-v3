@@ -28,7 +28,7 @@ export interface DeleteAssetTypeCommandInput extends DeleteAssetTypeInput {}
 export interface DeleteAssetTypeCommandOutput extends DeleteAssetTypeOutput, __MetadataBearer {}
 
 /**
- * <p>Deletes an asset type in Amazon DataZone.</p>
+ * <p>Deletes an asset type in Amazon DataZone.</p> <p>Prerequisites:</p> <ul> <li> <p>The asset type must exist in the domain. </p> </li> <li> <p>You must have DeleteAssetType permission.</p> </li> <li> <p>The asset type must not be in use (e.g., assigned to any asset). If used, deletion will fail.</p> </li> <li> <p>You should retrieve the asset type using get-asset-type to confirm its presence before deletion.</p> </li> </ul>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

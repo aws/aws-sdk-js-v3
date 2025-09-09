@@ -6,7 +6,8 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { DataZoneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataZoneClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { GetMetadataGenerationRunInput, GetMetadataGenerationRunOutput } from "../models/models_1";
+import { GetMetadataGenerationRunInput } from "../models/models_1";
+import { GetMetadataGenerationRunOutput } from "../models/models_2";
 import { de_GetMetadataGenerationRunCommand, se_GetMetadataGenerationRunCommand } from "../protocols/Aws_restJson1";
 
 /**
@@ -28,7 +29,7 @@ export interface GetMetadataGenerationRunCommandInput extends GetMetadataGenerat
 export interface GetMetadataGenerationRunCommandOutput extends GetMetadataGenerationRunOutput, __MetadataBearer {}
 
 /**
- * <p>Gets a metadata generation run in Amazon DataZone.</p>
+ * <p>Gets a metadata generation run in Amazon DataZone.</p> <p>Prerequisites:</p> <ul> <li> <p>Valid domain and run identifier. </p> </li> <li> <p>The metadata generation run must exist.</p> </li> <li> <p>User must have read access to the metadata run.</p> </li> </ul>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -33,7 +33,7 @@ export interface CreateAssetRevisionCommandInput extends CreateAssetRevisionInpu
 export interface CreateAssetRevisionCommandOutput extends CreateAssetRevisionOutput, __MetadataBearer {}
 
 /**
- * <p>Creates a revision of the asset.</p>
+ * <p>Creates a revision of the asset.</p> <p>Asset revisions represent new versions of existing assets, capturing changes to either the underlying data or its metadata. They maintain a historical record of how assets evolve over time, who made changes, and when those changes occurred. This versioning capability is crucial for governance and compliance, allowing organizations to track changes, understand their impact, and roll back if necessary.</p> <p>Prerequisites:</p> <ul> <li> <p>Asset must already exist in the domain with identifier. </p> </li> <li> <p>The form type with correct revision must be registered in the same domain.</p> </li> <li> <p>The form content must include all required fields (e.g., <code>bucketArn</code> for <code>S3ObjectCollectionForm</code>).</p> </li> <li> <p>The owning project of the original asset must still exist and be active.</p> </li> <li> <p>User must have write access to the project and domain.</p> </li> </ul>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

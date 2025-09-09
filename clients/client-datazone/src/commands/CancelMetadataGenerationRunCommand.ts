@@ -31,7 +31,7 @@ export interface CancelMetadataGenerationRunCommandInput extends CancelMetadataG
 export interface CancelMetadataGenerationRunCommandOutput extends CancelMetadataGenerationRunOutput, __MetadataBearer {}
 
 /**
- * <p>Cancels the metadata generation run.</p>
+ * <p>Cancels the metadata generation run.</p> <p>Prerequisites:</p> <ul> <li> <p>The run must exist and be in a cancelable status (e.g., SUBMITTED, IN_PROGRESS). </p> </li> <li> <p>Runs in SUCCEEDED status cannot be cancelled.</p> </li> <li> <p>User must have access to the run and cancel permissions.</p> </li> </ul>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

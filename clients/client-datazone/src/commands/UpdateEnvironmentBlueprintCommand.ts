@@ -7,12 +7,12 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { DataZoneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataZoneClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import {
-  UpdateEnvironmentProfileInput,
-  UpdateEnvironmentProfileInputFilterSensitiveLog,
-  UpdateEnvironmentProfileOutput,
-  UpdateEnvironmentProfileOutputFilterSensitiveLog,
+  UpdateEnvironmentBlueprintInput,
+  UpdateEnvironmentBlueprintInputFilterSensitiveLog,
+  UpdateEnvironmentBlueprintOutput,
+  UpdateEnvironmentBlueprintOutputFilterSensitiveLog,
 } from "../models/models_2";
-import { de_UpdateEnvironmentProfileCommand, se_UpdateEnvironmentProfileCommand } from "../protocols/Aws_restJson1";
+import { de_UpdateEnvironmentBlueprintCommand, se_UpdateEnvironmentBlueprintCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -22,52 +22,61 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link UpdateEnvironmentProfileCommand}.
+ * The input for {@link UpdateEnvironmentBlueprintCommand}.
  */
-export interface UpdateEnvironmentProfileCommandInput extends UpdateEnvironmentProfileInput {}
+export interface UpdateEnvironmentBlueprintCommandInput extends UpdateEnvironmentBlueprintInput {}
 /**
  * @public
  *
- * The output of {@link UpdateEnvironmentProfileCommand}.
+ * The output of {@link UpdateEnvironmentBlueprintCommand}.
  */
-export interface UpdateEnvironmentProfileCommandOutput extends UpdateEnvironmentProfileOutput, __MetadataBearer {}
+export interface UpdateEnvironmentBlueprintCommandOutput extends UpdateEnvironmentBlueprintOutput, __MetadataBearer {}
 
 /**
- * <p>Updates the specified environment profile in Amazon DataZone.</p>
+ * <p>Updates an environment blueprint in Amazon DataZone.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DataZoneClient, UpdateEnvironmentProfileCommand } from "@aws-sdk/client-datazone"; // ES Modules import
- * // const { DataZoneClient, UpdateEnvironmentProfileCommand } = require("@aws-sdk/client-datazone"); // CommonJS import
+ * import { DataZoneClient, UpdateEnvironmentBlueprintCommand } from "@aws-sdk/client-datazone"; // ES Modules import
+ * // const { DataZoneClient, UpdateEnvironmentBlueprintCommand } = require("@aws-sdk/client-datazone"); // CommonJS import
  * const client = new DataZoneClient(config);
- * const input = { // UpdateEnvironmentProfileInput
+ * const input = { // UpdateEnvironmentBlueprintInput
  *   domainIdentifier: "STRING_VALUE", // required
  *   identifier: "STRING_VALUE", // required
- *   name: "STRING_VALUE",
  *   description: "STRING_VALUE",
- *   userParameters: [ // EnvironmentParametersList
- *     { // EnvironmentParameter
- *       name: "STRING_VALUE",
- *       value: "STRING_VALUE",
+ *   provisioningProperties: { // ProvisioningProperties Union: only one key present
+ *     cloudFormation: { // CloudFormationProperties
+ *       templateUrl: "STRING_VALUE", // required
+ *     },
+ *   },
+ *   userParameters: [ // CustomParameterList
+ *     { // CustomParameter
+ *       keyName: "STRING_VALUE", // required
+ *       description: "STRING_VALUE",
+ *       fieldType: "STRING_VALUE", // required
+ *       defaultValue: "STRING_VALUE",
+ *       isEditable: true || false,
+ *       isOptional: true || false,
+ *       isUpdateSupported: true || false,
  *     },
  *   ],
- *   awsAccountId: "STRING_VALUE",
- *   awsAccountRegion: "STRING_VALUE",
  * };
- * const command = new UpdateEnvironmentProfileCommand(input);
+ * const command = new UpdateEnvironmentBlueprintCommand(input);
  * const response = await client.send(command);
- * // { // UpdateEnvironmentProfileOutput
+ * // { // UpdateEnvironmentBlueprintOutput
  * //   id: "STRING_VALUE", // required
- * //   domainId: "STRING_VALUE", // required
- * //   awsAccountId: "STRING_VALUE",
- * //   awsAccountRegion: "STRING_VALUE",
- * //   createdBy: "STRING_VALUE", // required
- * //   createdAt: new Date("TIMESTAMP"),
- * //   updatedAt: new Date("TIMESTAMP"),
  * //   name: "STRING_VALUE", // required
  * //   description: "STRING_VALUE",
- * //   environmentBlueprintId: "STRING_VALUE", // required
- * //   projectId: "STRING_VALUE",
+ * //   provider: "STRING_VALUE", // required
+ * //   provisioningProperties: { // ProvisioningProperties Union: only one key present
+ * //     cloudFormation: { // CloudFormationProperties
+ * //       templateUrl: "STRING_VALUE", // required
+ * //     },
+ * //   },
+ * //   deploymentProperties: { // DeploymentProperties
+ * //     startTimeoutMinutes: Number("int"),
+ * //     endTimeoutMinutes: Number("int"),
+ * //   },
  * //   userParameters: [ // CustomParameterList
  * //     { // CustomParameter
  * //       keyName: "STRING_VALUE", // required
@@ -79,14 +88,19 @@ export interface UpdateEnvironmentProfileCommandOutput extends UpdateEnvironment
  * //       isUpdateSupported: true || false,
  * //     },
  * //   ],
+ * //   glossaryTerms: [ // GlossaryTerms
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   createdAt: new Date("TIMESTAMP"),
+ * //   updatedAt: new Date("TIMESTAMP"),
  * // };
  *
  * ```
  *
- * @param UpdateEnvironmentProfileCommandInput - {@link UpdateEnvironmentProfileCommandInput}
- * @returns {@link UpdateEnvironmentProfileCommandOutput}
- * @see {@link UpdateEnvironmentProfileCommandInput} for command's `input` shape.
- * @see {@link UpdateEnvironmentProfileCommandOutput} for command's `response` shape.
+ * @param UpdateEnvironmentBlueprintCommandInput - {@link UpdateEnvironmentBlueprintCommandInput}
+ * @returns {@link UpdateEnvironmentBlueprintCommandOutput}
+ * @see {@link UpdateEnvironmentBlueprintCommandInput} for command's `input` shape.
+ * @see {@link UpdateEnvironmentBlueprintCommandOutput} for command's `response` shape.
  * @see {@link DataZoneClientResolvedConfig | config} for DataZoneClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -119,10 +133,10 @@ export interface UpdateEnvironmentProfileCommandOutput extends UpdateEnvironment
  *
  * @public
  */
-export class UpdateEnvironmentProfileCommand extends $Command
+export class UpdateEnvironmentBlueprintCommand extends $Command
   .classBuilder<
-    UpdateEnvironmentProfileCommandInput,
-    UpdateEnvironmentProfileCommandOutput,
+    UpdateEnvironmentBlueprintCommandInput,
+    UpdateEnvironmentBlueprintCommandOutput,
     DataZoneClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -134,21 +148,21 @@ export class UpdateEnvironmentProfileCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("DataZone", "UpdateEnvironmentProfile", {})
-  .n("DataZoneClient", "UpdateEnvironmentProfileCommand")
-  .f(UpdateEnvironmentProfileInputFilterSensitiveLog, UpdateEnvironmentProfileOutputFilterSensitiveLog)
-  .ser(se_UpdateEnvironmentProfileCommand)
-  .de(de_UpdateEnvironmentProfileCommand)
+  .s("DataZone", "UpdateEnvironmentBlueprint", {})
+  .n("DataZoneClient", "UpdateEnvironmentBlueprintCommand")
+  .f(UpdateEnvironmentBlueprintInputFilterSensitiveLog, UpdateEnvironmentBlueprintOutputFilterSensitiveLog)
+  .ser(se_UpdateEnvironmentBlueprintCommand)
+  .de(de_UpdateEnvironmentBlueprintCommand)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: UpdateEnvironmentProfileInput;
-      output: UpdateEnvironmentProfileOutput;
+      input: UpdateEnvironmentBlueprintInput;
+      output: UpdateEnvironmentBlueprintOutput;
     };
     sdk: {
-      input: UpdateEnvironmentProfileCommandInput;
-      output: UpdateEnvironmentProfileCommandOutput;
+      input: UpdateEnvironmentBlueprintCommandInput;
+      output: UpdateEnvironmentBlueprintCommandOutput;
     };
   };
 }

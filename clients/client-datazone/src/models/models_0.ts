@@ -1377,7 +1377,7 @@ export namespace PolicyGrantDetail {
   }
 
   /**
-   * <p>Specifies that this is a create glossary policy.</p>
+   * <p> Specifies that this is a create glossary policy.</p>
    * @public
    */
   export interface CreateGlossaryMember {
@@ -8967,6 +8967,12 @@ export interface CustomParameter {
    * @public
    */
   isOptional?: boolean | undefined;
+
+  /**
+   * <p>Specifies whether a parameter value can be updated after creation. </p>
+   * @public
+   */
+  isUpdateSupported?: boolean | undefined;
 }
 
 /**
@@ -9180,6 +9186,106 @@ export interface CreateEnvironmentActionOutput {
    * @public
    */
   description?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateEnvironmentBlueprintInput {
+  /**
+   * <p>The identifier of the domain in which this blueprint is created.</p>
+   * @public
+   */
+  domainIdentifier: string | undefined;
+
+  /**
+   * <p>The name of this Amazon DataZone blueprint.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The description of the Amazon DataZone blueprint.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>The provisioning properties of this Amazon DataZone blueprint.</p>
+   * @public
+   */
+  provisioningProperties: ProvisioningProperties | undefined;
+
+  /**
+   * <p>The user parameters of this Amazon DataZone blueprint.</p>
+   * @public
+   */
+  userParameters?: CustomParameter[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateEnvironmentBlueprintOutput {
+  /**
+   * <p>The ID of this Amazon DataZone blueprint.</p>
+   * @public
+   */
+  id: string | undefined;
+
+  /**
+   * <p>The name of this Amazon DataZone blueprint.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The description of this Amazon DataZone blueprint.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>The provider of this Amazon DataZone blueprint.</p>
+   * @public
+   */
+  provider: string | undefined;
+
+  /**
+   * <p>The provisioning properties of this Amazon DataZone blueprint.</p>
+   * @public
+   */
+  provisioningProperties: ProvisioningProperties | undefined;
+
+  /**
+   * <p>The deployment properties of this Amazon DataZone blueprint.</p>
+   * @public
+   */
+  deploymentProperties?: DeploymentProperties | undefined;
+
+  /**
+   * <p>The user parameters of this Amazon DataZone blueprint.</p>
+   * @public
+   */
+  userParameters?: CustomParameter[] | undefined;
+
+  /**
+   * <p>The glossary terms attached to this Amazon DataZone blueprint.</p>
+   * @public
+   */
+  glossaryTerms?: string[] | undefined;
+
+  /**
+   * <p>The timestamp at which the environment blueprint was created.</p>
+   * @public
+   */
+  createdAt?: Date | undefined;
+
+  /**
+   * <p>The timestamp of when this blueprint was updated.</p>
+   * @public
+   */
+  updatedAt?: Date | undefined;
 }
 
 /**
@@ -10526,38 +10632,6 @@ export interface CreateProjectProfileOutput {
 }
 
 /**
- * @public
- * @enum
- */
-export const RuleAction = {
-  CREATE_LISTING_CHANGE_SET: "CREATE_LISTING_CHANGE_SET",
-  CREATE_SUBSCRIPTION_REQUEST: "CREATE_SUBSCRIPTION_REQUEST",
-} as const;
-
-/**
- * @public
- */
-export type RuleAction = (typeof RuleAction)[keyof typeof RuleAction];
-
-/**
- * <p>The reference of a metadata form.</p>
- * @public
- */
-export interface MetadataFormReference {
-  /**
-   * <p>The type ID of the metadata form reference.</p>
-   * @public
-   */
-  typeIdentifier: string | undefined;
-
-  /**
-   * <p>The type revision of the metadata form reference.</p>
-   * @public
-   */
-  typeRevision: string | undefined;
-}
-
-/**
  * @internal
  */
 export const AcceptChoiceFilterSensitiveLog = (obj: AcceptChoice): any => ({
@@ -11276,6 +11350,30 @@ export const CreateEnvironmentOutputFilterSensitiveLog = (obj: CreateEnvironment
   }),
   ...(obj.provisioningProperties && { provisioningProperties: obj.provisioningProperties }),
   ...(obj.environmentConfigurationId && { environmentConfigurationId: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const CreateEnvironmentBlueprintInputFilterSensitiveLog = (obj: CreateEnvironmentBlueprintInput): any => ({
+  ...obj,
+  ...(obj.description && { description: SENSITIVE_STRING }),
+  ...(obj.provisioningProperties && { provisioningProperties: obj.provisioningProperties }),
+  ...(obj.userParameters && {
+    userParameters: obj.userParameters.map((item) => CustomParameterFilterSensitiveLog(item)),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const CreateEnvironmentBlueprintOutputFilterSensitiveLog = (obj: CreateEnvironmentBlueprintOutput): any => ({
+  ...obj,
+  ...(obj.description && { description: SENSITIVE_STRING }),
+  ...(obj.provisioningProperties && { provisioningProperties: obj.provisioningProperties }),
+  ...(obj.userParameters && {
+    userParameters: obj.userParameters.map((item) => CustomParameterFilterSensitiveLog(item)),
+  }),
 });
 
 /**

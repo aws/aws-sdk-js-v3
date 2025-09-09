@@ -65,6 +65,7 @@ export interface GetEnvironmentProfileCommandOutput extends GetEnvironmentProfil
  * //       defaultValue: "STRING_VALUE",
  * //       isEditable: true || false,
  * //       isOptional: true || false,
+ * //       isUpdateSupported: true || false,
  * //     },
  * //   ],
  * // };

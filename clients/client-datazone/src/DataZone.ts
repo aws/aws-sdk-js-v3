@@ -99,6 +99,11 @@ import {
   CreateEnvironmentActionCommandOutput,
 } from "./commands/CreateEnvironmentActionCommand";
 import {
+  CreateEnvironmentBlueprintCommand,
+  CreateEnvironmentBlueprintCommandInput,
+  CreateEnvironmentBlueprintCommandOutput,
+} from "./commands/CreateEnvironmentBlueprintCommand";
+import {
   CreateEnvironmentCommand,
   CreateEnvironmentCommandInput,
   CreateEnvironmentCommandOutput,
@@ -215,6 +220,11 @@ import {
   DeleteEnvironmentActionCommandInput,
   DeleteEnvironmentActionCommandOutput,
 } from "./commands/DeleteEnvironmentActionCommand";
+import {
+  DeleteEnvironmentBlueprintCommand,
+  DeleteEnvironmentBlueprintCommandInput,
+  DeleteEnvironmentBlueprintCommandOutput,
+} from "./commands/DeleteEnvironmentBlueprintCommand";
 import {
   DeleteEnvironmentBlueprintConfigurationCommand,
   DeleteEnvironmentBlueprintConfigurationCommandInput,
@@ -701,6 +711,11 @@ import {
   UpdateEnvironmentActionCommandOutput,
 } from "./commands/UpdateEnvironmentActionCommand";
 import {
+  UpdateEnvironmentBlueprintCommand,
+  UpdateEnvironmentBlueprintCommandInput,
+  UpdateEnvironmentBlueprintCommandOutput,
+} from "./commands/UpdateEnvironmentBlueprintCommand";
+import {
   UpdateEnvironmentCommand,
   UpdateEnvironmentCommandInput,
   UpdateEnvironmentCommandOutput,
@@ -780,6 +795,7 @@ const commands = {
   CreateDomainUnitCommand,
   CreateEnvironmentCommand,
   CreateEnvironmentActionCommand,
+  CreateEnvironmentBlueprintCommand,
   CreateEnvironmentProfileCommand,
   CreateFormTypeCommand,
   CreateGlossaryCommand,
@@ -805,6 +821,7 @@ const commands = {
   DeleteDomainUnitCommand,
   DeleteEnvironmentCommand,
   DeleteEnvironmentActionCommand,
+  DeleteEnvironmentBlueprintCommand,
   DeleteEnvironmentBlueprintConfigurationCommand,
   DeleteEnvironmentProfileCommand,
   DeleteFormTypeCommand,
@@ -914,6 +931,7 @@ const commands = {
   UpdateDomainUnitCommand,
   UpdateEnvironmentCommand,
   UpdateEnvironmentActionCommand,
+  UpdateEnvironmentBlueprintCommand,
   UpdateEnvironmentProfileCommand,
   UpdateGlossaryCommand,
   UpdateGlossaryTermCommand,
@@ -1262,6 +1280,23 @@ export interface DataZone {
     args: CreateEnvironmentActionCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateEnvironmentActionCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateEnvironmentBlueprintCommand}
+   */
+  createEnvironmentBlueprint(
+    args: CreateEnvironmentBlueprintCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateEnvironmentBlueprintCommandOutput>;
+  createEnvironmentBlueprint(
+    args: CreateEnvironmentBlueprintCommandInput,
+    cb: (err: any, data?: CreateEnvironmentBlueprintCommandOutput) => void
+  ): void;
+  createEnvironmentBlueprint(
+    args: CreateEnvironmentBlueprintCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateEnvironmentBlueprintCommandOutput) => void
   ): void;
 
   /**
@@ -1654,6 +1689,23 @@ export interface DataZone {
     args: DeleteEnvironmentActionCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteEnvironmentActionCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteEnvironmentBlueprintCommand}
+   */
+  deleteEnvironmentBlueprint(
+    args: DeleteEnvironmentBlueprintCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteEnvironmentBlueprintCommandOutput>;
+  deleteEnvironmentBlueprint(
+    args: DeleteEnvironmentBlueprintCommandInput,
+    cb: (err: any, data?: DeleteEnvironmentBlueprintCommandOutput) => void
+  ): void;
+  deleteEnvironmentBlueprint(
+    args: DeleteEnvironmentBlueprintCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteEnvironmentBlueprintCommandOutput) => void
   ): void;
 
   /**
@@ -3319,6 +3371,23 @@ export interface DataZone {
     args: UpdateEnvironmentActionCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateEnvironmentActionCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateEnvironmentBlueprintCommand}
+   */
+  updateEnvironmentBlueprint(
+    args: UpdateEnvironmentBlueprintCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateEnvironmentBlueprintCommandOutput>;
+  updateEnvironmentBlueprint(
+    args: UpdateEnvironmentBlueprintCommandInput,
+    cb: (err: any, data?: UpdateEnvironmentBlueprintCommandOutput) => void
+  ): void;
+  updateEnvironmentBlueprint(
+    args: UpdateEnvironmentBlueprintCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateEnvironmentBlueprintCommandOutput) => void
   ): void;
 
   /**
