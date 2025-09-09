@@ -4720,6 +4720,21 @@ export interface CreatePersistentContactAssociationResponse {
 }
 
 /**
+ * <p>Custom metadata that is associated to predefined attributes to control behavior in upstream
+ *    services, such as controlling how a predefined attribute should be displayed in the Amazon Connect admin website.</p>
+ * @public
+ */
+export interface InputPredefinedAttributeConfiguration {
+  /**
+   * <p>When this parameter is set to true, Amazon Connect enforces strict validation on the
+   *    specific values, if the values are predefined in attributes. The contact will store only valid
+   *    and predefined values for the predefined attribute key.</p>
+   * @public
+   */
+  EnableValueValidationOnAssociation?: boolean | undefined;
+}
+
+/**
  * <p>Information about values of a predefined attribute.</p>
  * @public
  */
@@ -4780,7 +4795,21 @@ export interface CreatePredefinedAttributeRequest {
    * <p> The values of the predefined attribute. </p>
    * @public
    */
-  Values: PredefinedAttributeValues | undefined;
+  Values?: PredefinedAttributeValues | undefined;
+
+  /**
+   * <p>Values that enable you to categorize your predefined attributes. You can use them in custom UI elements across the Amazon Connect admin website.</p>
+   * @public
+   */
+  Purposes?: string[] | undefined;
+
+  /**
+   * <p>Custom metadata that is associated to predefined attributes to control behavior
+   * in upstream services, such as controlling
+   * how a predefined attribute should be displayed in the Amazon Connect admin website.</p>
+   * @public
+   */
+  AttributeConfiguration?: InputPredefinedAttributeConfiguration | undefined;
 }
 
 /**
@@ -7419,23 +7448,6 @@ export interface DeleteInstanceRequest {
    * @public
    */
   ClientToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteIntegrationAssociationRequest {
-  /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
-   * @public
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>The identifier for the integration association.</p>
-   * @public
-   */
-  IntegrationAssociationId: string | undefined;
 }
 
 /**

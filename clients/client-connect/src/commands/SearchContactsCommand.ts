@@ -10,6 +10,7 @@ import {
   SearchContactsRequest,
   SearchContactsRequestFilterSensitiveLog,
   SearchContactsResponse,
+  SearchContactsResponseFilterSensitiveLog,
 } from "../models/models_2";
 import { de_SearchContactsCommand, se_SearchContactsCommand } from "../protocols/Aws_restJson1";
 
@@ -199,7 +200,7 @@ export class SearchContactsCommand extends $Command
   })
   .s("AmazonConnectService", "SearchContacts", {})
   .n("ConnectClient", "SearchContactsCommand")
-  .f(SearchContactsRequestFilterSensitiveLog, void 0)
+  .f(SearchContactsRequestFilterSensitiveLog, SearchContactsResponseFilterSensitiveLog)
   .ser(se_SearchContactsCommand)
   .de(de_SearchContactsCommand)
   .build() {

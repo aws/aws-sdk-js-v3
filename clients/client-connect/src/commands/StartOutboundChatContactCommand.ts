@@ -80,9 +80,17 @@ export interface StartOutboundChatContactCommandOutput extends StartOutboundChat
  *             "<keys>": "<SegmentAttributeValue>",
  *           },
  *           ValueInteger: Number("int"),
+ *           ValueList: [ // SegmentAttributeValueList
+ *             "<SegmentAttributeValue>",
+ *           ],
+ *           ValueArn: "STRING_VALUE",
  *         },
  *       },
  *       ValueInteger: Number("int"),
+ *       ValueList: [
+ *         "<SegmentAttributeValue>",
+ *       ],
+ *       ValueArn: "STRING_VALUE",
  *     },
  *   },
  *   Attributes: { // Attributes

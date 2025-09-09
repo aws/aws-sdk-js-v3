@@ -67,6 +67,59 @@ import {
 } from "./models_1";
 
 /**
+ * @public
+ */
+export interface ListInstanceStorageConfigsResponse {
+  /**
+   * <p>A valid storage type.</p>
+   * @public
+   */
+  StorageConfigs?: InstanceStorageConfig[] | undefined;
+
+  /**
+   * <p>If there are additional results, this is the token for the next set of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListIntegrationAssociationsRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The integration type.</p>
+   * @public
+   */
+  IntegrationType?: IntegrationType | undefined;
+
+  /**
+   * <p>The token for the next set of results. Use the value returned in the previous
+   * response in the next request to retrieve the next set of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return per page.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the integration.</p>
+   * @public
+   */
+  IntegrationArn?: string | undefined;
+}
+
+/**
  * <p>Contains summary information about the associated AppIntegrations.</p>
  * @public
  */
@@ -7771,52 +7824,6 @@ export interface UpdateInstanceStorageConfigRequest {
 }
 
 /**
- * @public
- */
-export interface UpdateParticipantAuthenticationRequest {
-  /**
-   * <p>The <code>state</code> query parameter that was provided by Cognito in the
-   *     <code>redirectUri</code>. This will also match the <code>state</code> parameter provided in the
-   *     <code>AuthenticationUrl</code> from the <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_GetAuthenticationUrl.html">GetAuthenticationUrl</a>
-   *    response.</p>
-   * @public
-   */
-  State: string | undefined;
-
-  /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
-   * @public
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>The <code>code</code> query parameter provided by Cognito in the
-   *    <code>redirectUri</code>.</p>
-   * @public
-   */
-  Code?: string | undefined;
-
-  /**
-   * <p>The <code>error</code> query parameter provided by Cognito in the
-   *    <code>redirectUri</code>.</p>
-   * @public
-   */
-  Error?: string | undefined;
-
-  /**
-   * <p>The <code>error_description</code> parameter provided by Cognito in the
-   *     <code>redirectUri</code>.</p>
-   * @public
-   */
-  ErrorDescription?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateParticipantAuthenticationResponse {}
-
-/**
  * @internal
  */
 export const ViewSummaryFilterSensitiveLog = (obj: ViewSummary): any => ({
@@ -7946,6 +7953,22 @@ export const SearchCriteriaFilterSensitiveLog = (obj: SearchCriteria): any => ({
 export const SearchContactsRequestFilterSensitiveLog = (obj: SearchContactsRequest): any => ({
   ...obj,
   ...(obj.SearchCriteria && { SearchCriteria: SearchCriteriaFilterSensitiveLog(obj.SearchCriteria) }),
+});
+
+/**
+ * @internal
+ */
+export const ContactSearchSummaryFilterSensitiveLog = (obj: ContactSearchSummary): any => ({
+  ...obj,
+  ...(obj.SegmentAttributes && { SegmentAttributes: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const SearchContactsResponseFilterSensitiveLog = (obj: SearchContactsResponse): any => ({
+  ...obj,
+  ...(obj.Contacts && { Contacts: obj.Contacts.map((item) => ContactSearchSummaryFilterSensitiveLog(item)) }),
 });
 
 /**
@@ -8133,16 +8156,4 @@ export const UpdateEmailAddressMetadataRequestFilterSensitiveLog = (obj: UpdateE
   ...obj,
   ...(obj.Description && { Description: SENSITIVE_STRING }),
   ...(obj.DisplayName && { DisplayName: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const UpdateParticipantAuthenticationRequestFilterSensitiveLog = (
-  obj: UpdateParticipantAuthenticationRequest
-): any => ({
-  ...obj,
-  ...(obj.Code && { Code: SENSITIVE_STRING }),
-  ...(obj.Error && { Error: SENSITIVE_STRING }),
-  ...(obj.ErrorDescription && { ErrorDescription: SENSITIVE_STRING }),
 });

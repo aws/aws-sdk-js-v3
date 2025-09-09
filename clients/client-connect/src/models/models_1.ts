@@ -34,7 +34,6 @@ import {
   HoursOfOperationOverrideConfig,
   InstanceStorageConfig,
   InstanceStorageResourceType,
-  IntegrationType,
   LexBot,
   LexV2Bot,
   ListFlowAssociationResourceType,
@@ -65,6 +64,23 @@ import {
   VocabularyLanguageCode,
   VocabularyState,
 } from "./models_0";
+
+/**
+ * @public
+ */
+export interface DeleteIntegrationAssociationRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The identifier for the integration association.</p>
+   * @public
+   */
+  IntegrationAssociationId: string | undefined;
+}
 
 /**
  * @public
@@ -2814,6 +2830,28 @@ export interface DescribePredefinedAttributeRequest {
 }
 
 /**
+ * <p>Custom metadata that is associated to predefined attributes to control behavior in upstream
+ *    services, such as controlling how a predefined attribute should be displayed in the Amazon Connect admin website.</p>
+ * @public
+ */
+export interface PredefinedAttributeConfiguration {
+  /**
+   * <p>When this parameter is set to true, Amazon Connect enforces strict validation on the
+   *    specific values, if the values are predefined in attributes. The contact will store only valid
+   *    and predefined values for teh predefined attribute key.</p>
+   * @public
+   */
+  EnableValueValidationOnAssociation?: boolean | undefined;
+
+  /**
+   * <p>A boolean flag used to indicate whether a predefined attribute should be displayed in the
+   *    Amazon Connect admin website.</p>
+   * @public
+   */
+  IsReadOnly?: boolean | undefined;
+}
+
+/**
  * <p>Information about a predefined attribute.</p>
  * @public
  */
@@ -2829,6 +2867,20 @@ export interface PredefinedAttribute {
    * @public
    */
   Values?: PredefinedAttributeValues | undefined;
+
+  /**
+   * <p>Values that enable you to categorize your predefined attributes. You can use them in custom UI elements across the Amazon Connect admin website.</p>
+   * @public
+   */
+  Purposes?: string[] | undefined;
+
+  /**
+   * <p>Custom metadata that is associated to predefined attributes to control behavior
+   * in upstream services, such as controlling
+   * how a predefined attribute should be displayed in the Amazon Connect admin website.</p>
+   * @public
+   */
+  AttributeConfiguration?: PredefinedAttributeConfiguration | undefined;
 
   /**
    * <p>Last modified time.</p>
@@ -10306,59 +10358,6 @@ export interface ListInstanceStorageConfigsRequest {
    * @public
    */
   MaxResults?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface ListInstanceStorageConfigsResponse {
-  /**
-   * <p>A valid storage type.</p>
-   * @public
-   */
-  StorageConfigs?: InstanceStorageConfig[] | undefined;
-
-  /**
-   * <p>If there are additional results, this is the token for the next set of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListIntegrationAssociationsRequest {
-  /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
-   * @public
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>The integration type.</p>
-   * @public
-   */
-  IntegrationType?: IntegrationType | undefined;
-
-  /**
-   * <p>The token for the next set of results. Use the value returned in the previous
-   * response in the next request to retrieve the next set of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of results to return per page.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the integration.</p>
-   * @public
-   */
-  IntegrationArn?: string | undefined;
 }
 
 /**

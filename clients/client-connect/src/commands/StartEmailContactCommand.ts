@@ -101,9 +101,17 @@ export interface StartEmailContactCommandOutput extends StartEmailContactRespons
  *             "<keys>": "<SegmentAttributeValue>",
  *           },
  *           ValueInteger: Number("int"),
+ *           ValueList: [ // SegmentAttributeValueList
+ *             "<SegmentAttributeValue>",
+ *           ],
+ *           ValueArn: "STRING_VALUE",
  *         },
  *       },
  *       ValueInteger: Number("int"),
+ *       ValueList: [
+ *         "<SegmentAttributeValue>",
+ *       ],
+ *       ValueArn: "STRING_VALUE",
  *     },
  *   },
  *   ClientToken: "STRING_VALUE",

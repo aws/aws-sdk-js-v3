@@ -895,6 +895,7 @@ import {
   HoursOfOperationOverrideConfig,
   HoursOfOperationTimeSlice,
   IdempotencyException,
+  InputPredefinedAttributeConfiguration,
   InstanceStorageConfig,
   InternalServiceException,
   InvalidContactFlowException,
@@ -2063,7 +2064,9 @@ export const se_CreatePredefinedAttributeCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
+      AttributeConfiguration: (_) => _json(_),
       Name: [],
+      Purposes: (_) => _json(_),
       Values: (_) => _json(_),
     })
   );
@@ -6962,6 +6965,8 @@ export const se_UpdatePredefinedAttributeCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
+      AttributeConfiguration: (_) => _json(_),
+      Purposes: (_) => _json(_),
       Values: (_) => _json(_),
     })
   );
@@ -14562,6 +14567,8 @@ const se_HoursOfOperationSearchCriteria = (input: HoursOfOperationSearchCriteria
 
 // se_InitiationMethodList omitted.
 
+// se_InputPredefinedAttributeConfiguration omitted.
+
 // se_InstanceStorageConfig omitted.
 
 // se_IntervalDetails omitted.
@@ -14659,6 +14666,8 @@ const se_MetricV2 = (input: MetricV2, context: __SerdeContext): any => {
 // se_PhoneNumberQuickConnectConfig omitted.
 
 // se_PhoneNumberTypes omitted.
+
+// se_PredefinedAttributePurposeNameList omitted.
 
 /**
  * serializeAws_restJson1PredefinedAttributeSearchConditionList
@@ -14984,10 +14993,23 @@ const se_SegmentAttributes = (input: Record<string, SegmentAttributeValue>, cont
  */
 const se_SegmentAttributeValue = (input: SegmentAttributeValue, context: __SerdeContext): any => {
   return take(input, {
+    ValueArn: [],
     ValueInteger: [],
+    ValueList: (_) => se_SegmentAttributeValueList(_, context),
     ValueMap: (_) => se_SegmentAttributeValueMap(_, context),
     ValueString: [],
   });
+};
+
+/**
+ * serializeAws_restJson1SegmentAttributeValueList
+ */
+const se_SegmentAttributeValueList = (input: SegmentAttributeValue[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return se_SegmentAttributeValue(entry, context);
+    });
 };
 
 /**
@@ -16752,12 +16774,18 @@ const de_ParticipantMetrics = (output: any, context: __SerdeContext): Participan
  */
 const de_PredefinedAttribute = (output: any, context: __SerdeContext): PredefinedAttribute => {
   return take(output, {
+    AttributeConfiguration: _json,
     LastModifiedRegion: __expectString,
     LastModifiedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     Name: __expectString,
+    Purposes: _json,
     Values: (_: any) => _json(__expectUnion(_)),
   }) as any;
 };
+
+// de_PredefinedAttributeConfiguration omitted.
+
+// de_PredefinedAttributePurposeNameList omitted.
 
 /**
  * deserializeAws_restJson1PredefinedAttributeSearchSummaryList
@@ -17457,10 +17485,24 @@ const de_SegmentAttributes = (output: any, context: __SerdeContext): Record<stri
  */
 const de_SegmentAttributeValue = (output: any, context: __SerdeContext): SegmentAttributeValue => {
   return take(output, {
+    ValueArn: __expectString,
     ValueInteger: __expectInt32,
+    ValueList: (_: any) => de_SegmentAttributeValueList(_, context),
     ValueMap: (_: any) => de_SegmentAttributeValueMap(_, context),
     ValueString: __expectString,
   }) as any;
+};
+
+/**
+ * deserializeAws_restJson1SegmentAttributeValueList
+ */
+const de_SegmentAttributeValueList = (output: any, context: __SerdeContext): SegmentAttributeValue[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_SegmentAttributeValue(entry, context);
+    });
+  return retVal;
 };
 
 /**
