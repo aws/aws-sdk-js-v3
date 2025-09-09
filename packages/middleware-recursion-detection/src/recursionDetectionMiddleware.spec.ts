@@ -1,7 +1,7 @@
 import { HttpRequest } from "@smithy/protocol-http";
 import { afterAll, beforeEach, describe, expect, test as it, vi } from "vitest";
 
-import { recursionDetectionMiddleware } from "./index";
+import { recursionDetectionMiddleware } from "./recursionDetectionMiddleware";
 
 describe(recursionDetectionMiddleware.name, () => {
   const mockNextHandler = vi.fn();
