@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.885.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.884.0...v3.885.0) (2025-09-09)
+
+
+### Features
+
+* **client-auto-scaling:** Added WaitForTransitioningInstances parameter to the CancelInstanceRefresh API, allowing the caller to cancel an instance refresh without waiting for on-going launches and terminations. ([aee23c8](https://github.com/aws/aws-sdk-js-v3/commit/aee23c88c8bb06b205f982e50b72fa35737996c0))
+* **client-cloudwatch:** Added a new API - DescribeAlarmContributors API, to retrieve alarm contributors in ALARM state. Added support in DescribeAlarmHistory API to query alarm contributor history ([de42572](https://github.com/aws/aws-sdk-js-v3/commit/de425726fc70798236b2b08ae1ea81abe9284364))
+* **client-connect:** SDK release for user defined predefined attributes. ([3e7b610](https://github.com/aws/aws-sdk-js-v3/commit/3e7b610c7217afd020963abd0553c482a7cf2547))
+* **client-datazone:** Adds support for custom blueprints ([8ba331f](https://github.com/aws/aws-sdk-js-v3/commit/8ba331f319af44d91c8d0e2166e387649409f12c))
+* **client-mediapackagev2:** Added CUE tag SCTE output to MediaPackageV2 HLS and LL-HLS manifests. ([653470b](https://github.com/aws/aws-sdk-js-v3/commit/653470b9a5c92f03f3daed596b439fe288d8796c))
+* **client-organizations:** Documentation updates for AWS Organizations APIs. ([aea4623](https://github.com/aws/aws-sdk-js-v3/commit/aea462303379755b8ca161efbc14b3efb0bdb634))
+* **client-sagemaker:** Released IPv6 support with dual-stack domain options on SageMaker Studio and introduced support for p6-b200.48xlarge instance type on SageMaker Studio for JupyterLab and CodeEditor applications. ([6553aca](https://github.com/aws/aws-sdk-js-v3/commit/6553acaf203a11ef8cd47f87a43da8fdb54f7db7))
+* **clients:** update client endpoints as of 2025-09-09 ([a2f7bf4](https://github.com/aws/aws-sdk-js-v3/commit/a2f7bf4dfbd3d24ef20221e6b57b64b24b46714d))
+
+
+
+
+
 # [3.884.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.883.0...v3.884.0) (2025-09-08)
 
 

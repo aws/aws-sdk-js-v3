@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.885.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.884.0...v3.885.0) (2025-09-09)
+
+
+### Features
+
+* **client-connect:** SDK release for user defined predefined attributes. ([3e7b610](https://github.com/aws/aws-sdk-js-v3/commit/3e7b610c7217afd020963abd0553c482a7cf2547))
+
+
+
+
+
 # [3.883.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.882.0...v3.883.0) (2025-09-05)
 
 **Note:** Version bump only for package @aws-sdk/client-connect

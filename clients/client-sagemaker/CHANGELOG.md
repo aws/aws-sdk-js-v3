@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.885.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.884.0...v3.885.0) (2025-09-09)
+
+
+### Features
+
+* **client-sagemaker:** Released IPv6 support with dual-stack domain options on SageMaker Studio and introduced support for p6-b200.48xlarge instance type on SageMaker Studio for JupyterLab and CodeEditor applications. ([6553aca](https://github.com/aws/aws-sdk-js-v3/commit/6553acaf203a11ef8cd47f87a43da8fdb54f7db7))
+
+
+
+
+
 # [3.883.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.882.0...v3.883.0) (2025-09-05)
 
 
