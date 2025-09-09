@@ -44,6 +44,7 @@ export interface CancelInstanceRefreshCommandOutput extends CancelInstanceRefres
  * const client = new AutoScalingClient(config);
  * const input = { // CancelInstanceRefreshType
  *   AutoScalingGroupName: "STRING_VALUE", // required
+ *   WaitForTransitioningInstances: true || false,
  * };
  * const command = new CancelInstanceRefreshCommand(input);
  * const response = await client.send(command);

@@ -3430,6 +3430,9 @@ const se_CancelInstanceRefreshType = (input: CancelInstanceRefreshType, context:
   if (input[_ASGN] != null) {
     entries[_ASGN] = input[_ASGN];
   }
+  if (input[_WFTI] != null) {
+    entries[_WFTI] = input[_WFTI];
+  }
   return entries;
 };
 
@@ -10180,6 +10183,7 @@ const _VT = "VolumeType";
 const _Va = "Values";
 const _Val = "Value";
 const _WC = "WeightedCapacity";
+const _WFTI = "WaitForTransitioningInstances";
 const _WPC = "WarmPoolConfiguration";
 const _WPP = "WarmPoolProgress";
 const _WPS = "WarmPoolSize";
