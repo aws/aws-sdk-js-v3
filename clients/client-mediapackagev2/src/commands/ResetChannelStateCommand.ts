@@ -28,8 +28,7 @@ export interface ResetChannelStateCommandInput extends ResetChannelStateRequest 
 export interface ResetChannelStateCommandOutput extends ResetChannelStateResponse, __MetadataBearer {}
 
 /**
- * <p>Resetting the channel can help to clear errors from misconfigurations in the encoder. A reset refreshes the ingest stream and removes previous content. </p>
- *          <p> Be sure to stop the encoder before you reset the channel, and wait at least 30 seconds before you restart the encoder. </p>
+ * <p>Resetting the channel can help to clear errors from misconfigurations in the encoder. A reset refreshes the ingest stream and removes previous content. </p> <p> Be sure to stop the encoder before you reset the channel, and wait at least 30 seconds before you restart the encoder. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -58,9 +57,7 @@ export interface ResetChannelStateCommandOutput extends ResetChannelStateRespons
  * @see {@link MediaPackageV2ClientResolvedConfig | config} for MediaPackageV2Client's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>Access is denied because either you don't have permissions to perform the requested operation or MediaPackage is getting throttling errors with CDN authorization. The user or role that is making the request must have at least
- *          one IAM permissions policy attached that grants the required permissions. For more information, see Access Management in the IAM User Guide. Or, if you're using CDN authorization, you will receive this exception
- *          if MediaPackage receives a throttling error from Secrets Manager.</p>
+ *  <p>Access is denied because either you don't have permissions to perform the requested operation or MediaPackage is getting throttling errors with CDN authorization. The user or role that is making the request must have at least one IAM permissions policy attached that grants the required permissions. For more information, see Access Management in the IAM User Guide. Or, if you're using CDN authorization, you will receive this exception if MediaPackage receives a throttling error from Secrets Manager.</p>
  *
  * @throws {@link ConflictException} (client fault)
  *  <p>Updating or deleting this resource can cause an inconsistent state.</p>

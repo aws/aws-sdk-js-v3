@@ -28,8 +28,7 @@ export interface UpdateChannelCommandInput extends UpdateChannelRequest {}
 export interface UpdateChannelCommandOutput extends UpdateChannelResponse, __MetadataBearer {}
 
 /**
- * <p>Update the specified channel. You can edit if MediaPackage sends ingest or egress access logs to the CloudWatch log group, if content will be encrypted, the description on a channel, and your channel's policy settings. You can't edit the name of the channel or CloudFront distribution details.</p>
- *          <p>Any edits you make that impact the video output may not be reflected for a few minutes.</p>
+ * <p>Update the specified channel. You can edit if MediaPackage sends ingest or egress access logs to the CloudWatch log group, if content will be encrypted, the description on a channel, and your channel's policy settings. You can't edit the name of the channel or CloudFront distribution details.</p> <p>Any edits you make that impact the video output may not be reflected for a few minutes.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -87,9 +86,7 @@ export interface UpdateChannelCommandOutput extends UpdateChannelResponse, __Met
  * @see {@link MediaPackageV2ClientResolvedConfig | config} for MediaPackageV2Client's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>Access is denied because either you don't have permissions to perform the requested operation or MediaPackage is getting throttling errors with CDN authorization. The user or role that is making the request must have at least
- *          one IAM permissions policy attached that grants the required permissions. For more information, see Access Management in the IAM User Guide. Or, if you're using CDN authorization, you will receive this exception
- *          if MediaPackage receives a throttling error from Secrets Manager.</p>
+ *  <p>Access is denied because either you don't have permissions to perform the requested operation or MediaPackage is getting throttling errors with CDN authorization. The user or role that is making the request must have at least one IAM permissions policy attached that grants the required permissions. For more information, see Access Management in the IAM User Guide. Or, if you're using CDN authorization, you will receive this exception if MediaPackage receives a throttling error from Secrets Manager.</p>
  *
  * @throws {@link ConflictException} (client fault)
  *  <p>Updating or deleting this resource can cause an inconsistent state.</p>

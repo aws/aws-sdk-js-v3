@@ -4,9 +4,7 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-cli
 import { MediaPackageV2ServiceException as __BaseException } from "./MediaPackageV2ServiceException";
 
 /**
- * <p>Access is denied because either you don't have permissions to perform the requested operation or MediaPackage is getting throttling errors with CDN authorization. The user or role that is making the request must have at least
- *          one IAM permissions policy attached that grants the required permissions. For more information, see Access Management in the IAM User Guide. Or, if you're using CDN authorization, you will receive this exception
- *          if MediaPackage receives a throttling error from Secrets Manager.</p>
+ * <p>Access is denied because either you don't have permissions to perform the requested operation or MediaPackage is getting throttling errors with CDN authorization. The user or role that is making the request must have at least one IAM permissions policy attached that grants the required permissions. For more information, see Access Management in the IAM User Guide. Or, if you're using CDN authorization, you will receive this exception if MediaPackage receives a throttling error from Secrets Manager.</p>
  * @public
  */
 export class AccessDeniedException extends __BaseException {
@@ -47,6 +45,7 @@ export type AdMarkerDash = (typeof AdMarkerDash)[keyof typeof AdMarkerDash];
  */
 export const AdMarkerHls = {
   DATERANGE: "DATERANGE",
+  SCTE35_ENHANCED: "SCTE35_ENHANCED",
 } as const;
 
 /**
@@ -567,18 +566,7 @@ export interface CreateChannelRequest {
   ClientToken?: string | undefined;
 
   /**
-   * <p>The input type will be an immutable field which will be used to define whether the channel will allow CMAF ingest or HLS ingest. If unprovided, it will default to HLS to preserve current behavior.</p>
-   *          <p>The allowed values are:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>HLS</code> - The HLS streaming specification (which defines M3U8 manifests and TS segments).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>CMAF</code> - The DASH-IF CMAF Ingest specification (which defines CMAF segments with optional DASH manifests).</p>
-   *             </li>
-   *          </ul>
+   * <p>The input type will be an immutable field which will be used to define whether the channel will allow CMAF ingest or HLS ingest. If unprovided, it will default to HLS to preserve current behavior.</p> <p>The allowed values are:</p> <ul> <li> <p> <code>HLS</code> - The HLS streaming specification (which defines M3U8 manifests and TS segments).</p> </li> <li> <p> <code>CMAF</code> - The DASH-IF CMAF Ingest specification (which defines CMAF segments with optional DASH manifests).</p> </li> </ul>
    * @public
    */
   InputType?: InputType | undefined;
@@ -602,13 +590,7 @@ export interface CreateChannelRequest {
   OutputHeaderConfiguration?: OutputHeaderConfiguration | undefined;
 
   /**
-   * <p>A comma-separated list of tag key:value pairs that you define. For example:</p>
-   *          <p>
-   *             <code>"Key1": "Value1",</code>
-   *          </p>
-   *          <p>
-   *             <code>"Key2": "Value2"</code>
-   *          </p>
+   * <p>A comma-separated list of tag key:value pairs that you define. For example:</p> <p> <code>"Key1": "Value1",</code> </p> <p> <code>"Key2": "Value2"</code> </p>
    * @public
    */
   Tags?: Record<string, string> | undefined;
@@ -679,18 +661,7 @@ export interface CreateChannelResponse {
   IngestEndpoints?: IngestEndpoint[] | undefined;
 
   /**
-   * <p>The input type will be an immutable field which will be used to define whether the channel will allow CMAF ingest or HLS ingest. If unprovided, it will default to HLS to preserve current behavior.</p>
-   *          <p>The allowed values are:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>HLS</code> - The HLS streaming specification (which defines M3U8 manifests and TS segments).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>CMAF</code> - The DASH-IF CMAF Ingest specification (which defines CMAF segments with optional DASH manifests).</p>
-   *             </li>
-   *          </ul>
+   * <p>The input type will be an immutable field which will be used to define whether the channel will allow CMAF ingest or HLS ingest. If unprovided, it will default to HLS to preserve current behavior.</p> <p>The allowed values are:</p> <ul> <li> <p> <code>HLS</code> - The HLS streaming specification (which defines M3U8 manifests and TS segments).</p> </li> <li> <p> <code>CMAF</code> - The DASH-IF CMAF Ingest specification (which defines CMAF segments with optional DASH manifests).</p> </li> </ul>
    * @public
    */
   InputType?: InputType | undefined;
@@ -834,18 +805,7 @@ export interface GetChannelResponse {
   IngestEndpoints?: IngestEndpoint[] | undefined;
 
   /**
-   * <p>The input type will be an immutable field which will be used to define whether the channel will allow CMAF ingest or HLS ingest. If unprovided, it will default to HLS to preserve current behavior.</p>
-   *          <p>The allowed values are:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>HLS</code> - The HLS streaming specification (which defines M3U8 manifests and TS segments).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>CMAF</code> - The DASH-IF CMAF Ingest specification (which defines CMAF segments with optional DASH manifests).</p>
-   *             </li>
-   *          </ul>
+   * <p>The input type will be an immutable field which will be used to define whether the channel will allow CMAF ingest or HLS ingest. If unprovided, it will default to HLS to preserve current behavior.</p> <p>The allowed values are:</p> <ul> <li> <p> <code>HLS</code> - The HLS streaming specification (which defines M3U8 manifests and TS segments).</p> </li> <li> <p> <code>CMAF</code> - The DASH-IF CMAF Ingest specification (which defines CMAF segments with optional DASH manifests).</p> </li> </ul>
    * @public
    */
   InputType?: InputType | undefined;
@@ -940,18 +900,7 @@ export interface ChannelListConfiguration {
   Description?: string | undefined;
 
   /**
-   * <p>The input type will be an immutable field which will be used to define whether the channel will allow CMAF ingest or HLS ingest. If unprovided, it will default to HLS to preserve current behavior.</p>
-   *          <p>The allowed values are:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>HLS</code> - The HLS streaming specification (which defines M3U8 manifests and TS segments).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>CMAF</code> - The DASH-IF CMAF Ingest specification (which defines CMAF segments with optional DASH manifests).</p>
-   *             </li>
-   *          </ul>
+   * <p>The input type will be an immutable field which will be used to define whether the channel will allow CMAF ingest or HLS ingest. If unprovided, it will default to HLS to preserve current behavior.</p> <p>The allowed values are:</p> <ul> <li> <p> <code>HLS</code> - The HLS streaming specification (which defines M3U8 manifests and TS segments).</p> </li> <li> <p> <code>CMAF</code> - The DASH-IF CMAF Ingest specification (which defines CMAF segments with optional DASH manifests).</p> </li> </ul>
    * @public
    */
   InputType?: InputType | undefined;
@@ -1077,8 +1026,7 @@ export interface DashDvbFontDownload {
   Url?: string | undefined;
 
   /**
-   * <p>The <code>mimeType</code> of the resource that's at the font download URL.</p>
-   *          <p>For information about font MIME types, see the <a href="https://dvb.org/wp-content/uploads/2021/06/A168r4_MPEG-DASH-Profile-for-Transport-of-ISO-BMFF-Based-DVB-Services_Draft-ts_103-285-v140_November_2021.pdf">MPEG-DASH Profile for Transport of ISO BMFF Based DVB Services over IP Based Networks</a> document. </p>
+   * <p>The <code>mimeType</code> of the resource that's at the font download URL.</p> <p>For information about font MIME types, see the <a href="https://dvb.org/wp-content/uploads/2021/06/A168r4_MPEG-DASH-Profile-for-Transport-of-ISO-BMFF-Based-DVB-Services_Draft-ts_103-285-v140_November_2021.pdf">MPEG-DASH Profile for Transport of ISO BMFF Based DVB Services over IP Based Networks</a> document. </p>
    * @public
    */
   MimeType?: string | undefined;
@@ -1216,18 +1164,7 @@ export interface DashProgramInformation {
  */
 export interface ScteDash {
   /**
-   * <p>Choose how ad markers are included in the packaged content. If you include ad markers in the content stream in your upstream encoders, then you need to inform MediaPackage what to do with the ad markers in the output.</p>
-   *          <p>Value description:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>Binary</code> - The SCTE-35 marker is expressed as a hex-string (Base64 string) rather than full XML.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>XML</code> - The SCTE marker is expressed fully in XML.</p>
-   *             </li>
-   *          </ul>
+   * <p>Choose how ad markers are included in the packaged content. If you include ad markers in the content stream in your upstream encoders, then you need to inform MediaPackage what to do with the ad markers in the output.</p> <p>Value description:</p> <ul> <li> <p> <code>Binary</code> - The SCTE-35 marker is expressed as a hex-string (Base64 string) rather than full XML.</p> </li> <li> <p> <code>XML</code> - The SCTE marker is expressed fully in XML.</p> </li> </ul>
    * @public
    */
   AdMarkerDash?: AdMarkerDash | undefined;
@@ -1266,9 +1203,7 @@ export type DashTtmlProfile = (typeof DashTtmlProfile)[keyof typeof DashTtmlProf
  */
 export interface DashTtmlConfiguration {
   /**
-   * <p>The profile that MediaPackage uses when signaling subtitles in the manifest. <code>IMSC</code> is the default profile.
-   *          <code>EBU-TT-D</code> produces subtitles that are compliant with the EBU-TT-D TTML profile.
-   *          MediaPackage passes through subtitle styles to the manifest. For more information about EBU-TT-D subtitles, see <a href="https://tech.ebu.ch/publications/tech3380">EBU-TT-D Subtitling Distribution Format</a>.</p>
+   * <p>The profile that MediaPackage uses when signaling subtitles in the manifest. <code>IMSC</code> is the default profile. <code>EBU-TT-D</code> produces subtitles that are compliant with the EBU-TT-D TTML profile. MediaPackage passes through subtitle styles to the manifest. For more information about EBU-TT-D subtitles, see <a href="https://tech.ebu.ch/publications/tech3380">EBU-TT-D Subtitling Distribution Format</a>.</p>
    * @public
    */
   TtmlProfile: DashTtmlProfile | undefined;
@@ -1362,21 +1297,13 @@ export interface CreateDashManifestConfiguration {
   SuggestedPresentationDelaySeconds?: number | undefined;
 
   /**
-   * <p>Determines the type of variable used in the <code>media</code> URL of the <code>SegmentTemplate</code> tag in the manifest. Also specifies if segment timeline information is included in <code>SegmentTimeline</code> or <code>SegmentTemplate</code>.</p>
-   *          <p>Value description:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>NUMBER_WITH_TIMELINE</code> - The <code>$Number$</code> variable is used in the <code>media</code> URL. The value of this variable is the sequential number of the segment. A full <code>SegmentTimeline</code> object is presented in each <code>SegmentTemplate</code>.</p>
-   *             </li>
-   *          </ul>
+   * <p>Determines the type of variable used in the <code>media</code> URL of the <code>SegmentTemplate</code> tag in the manifest. Also specifies if segment timeline information is included in <code>SegmentTimeline</code> or <code>SegmentTemplate</code>.</p> <p>Value description:</p> <ul> <li> <p> <code>NUMBER_WITH_TIMELINE</code> - The <code>$Number$</code> variable is used in the <code>media</code> URL. The value of this variable is the sequential number of the segment. A full <code>SegmentTimeline</code> object is presented in each <code>SegmentTemplate</code>.</p> </li> </ul>
    * @public
    */
   SegmentTemplateFormat?: DashSegmentTemplateFormat | undefined;
 
   /**
-   * <p>A list of triggers that controls when AWS Elemental MediaPackage separates the MPEG-DASH manifest into multiple periods. Type <code>ADS</code> to indicate that AWS Elemental MediaPackage must create periods in the output manifest that correspond to SCTE-35 ad markers in the input source. Leave this value empty to indicate that the manifest is contained all in one period.
-   *          For more information about periods in the DASH manifest, see <a href="https://docs.aws.amazon.com/mediapackage/latest/userguide/multi-period.html">Multi-period DASH in AWS Elemental MediaPackage</a>.</p>
+   * <p>A list of triggers that controls when AWS Elemental MediaPackage separates the MPEG-DASH manifest into multiple periods. Type <code>ADS</code> to indicate that AWS Elemental MediaPackage must create periods in the output manifest that correspond to SCTE-35 ad markers in the input source. Leave this value empty to indicate that the manifest is contained all in one period. For more information about periods in the DASH manifest, see <a href="https://docs.aws.amazon.com/mediapackage/latest/userguide/multi-period.html">Multi-period DASH in AWS Elemental MediaPackage</a>.</p>
    * @public
    */
   PeriodTriggers?: DashPeriodTrigger[] | undefined;
@@ -1424,8 +1351,7 @@ export interface CreateDashManifestConfiguration {
   DvbSettings?: DashDvbSettings | undefined;
 
   /**
-   * <p>The layout of the DASH manifest that MediaPackage produces. <code>STANDARD</code> indicates a default manifest, which is compacted. <code>NONE</code> indicates a full manifest.</p>
-   *          <p>For information about compactness, see <a href="https://docs.aws.amazon.com/mediapackage/latest/userguide/compacted.html">DASH manifest compactness</a> in the <i>Elemental MediaPackage v2 User Guide</i>.</p>
+   * <p>The layout of the DASH manifest that MediaPackage produces. <code>STANDARD</code> indicates a default manifest, which is compacted. <code>NONE</code> indicates a full manifest.</p> <p>For information about compactness, see <a href="https://docs.aws.amazon.com/mediapackage/latest/userguide/compacted.html">DASH manifest compactness</a> in the <i>Elemental MediaPackage v2 User Guide</i>.</p>
    * @public
    */
   Compactness?: DashCompactness | undefined;
@@ -1459,25 +1385,7 @@ export type EndpointErrorCondition = (typeof EndpointErrorCondition)[keyof typeo
  */
 export interface ForceEndpointErrorConfiguration {
   /**
-   * <p>The failover conditions for the endpoint. The options are:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>STALE_MANIFEST</code> - The manifest stalled and there are no new segments or parts.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>INCOMPLETE_MANIFEST</code> - There is a gap in the manifest.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>MISSING_DRM_KEY</code> - Key rotation is enabled but we're unable to fetch the key for the current key period.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>SLATE_INPUT</code> - The segments which contain slate content are considered to be missing content.</p>
-   *             </li>
-   *          </ul>
+   * <p>The failover conditions for the endpoint. The options are:</p> <ul> <li> <p> <code>STALE_MANIFEST</code> - The manifest stalled and there are no new segments or parts.</p> </li> <li> <p> <code>INCOMPLETE_MANIFEST</code> - There is a gap in the manifest.</p> </li> <li> <p> <code>MISSING_DRM_KEY</code> - Key rotation is enabled but we're unable to fetch the key for the current key period.</p> </li> <li> <p> <code>SLATE_INPUT</code> - The segments which contain slate content are considered to be missing content.</p> </li> </ul>
    * @public
    */
   EndpointErrorConditions?: EndpointErrorCondition[] | undefined;
@@ -1489,13 +1397,7 @@ export interface ForceEndpointErrorConfiguration {
  */
 export interface ScteHls {
   /**
-   * <p>Ad markers indicate when ads should be inserted during playback. If you include ad markers in the content stream in your upstream encoders, then you need to inform MediaPackage what to do with the ad markers in the output. Choose what you want MediaPackage to do with the ad markers.</p>
-   *          <p>Value description: </p>
-   *          <ul>
-   *             <li>
-   *                <p>DATERANGE - Insert EXT-X-DATERANGE tags to signal ad and program transition events in TS and CMAF manifests. If you use DATERANGE, you must set a programDateTimeIntervalSeconds value of 1 or higher. To learn more about DATERANGE, see <a href="http://docs.aws.amazon.com/mediapackage/latest/ug/scte-35-ad-marker-ext-x-daterange.html">SCTE-35 Ad Marker EXT-X-DATERANGE</a>.</p>
-   *             </li>
-   *          </ul>
+   * <p>Ad markers indicate when ads should be inserted during playback. If you include ad markers in the content stream in your upstream encoders, then you need to inform MediaPackage what to do with the ad markers in the output. Choose what you want MediaPackage to do with the ad markers.</p> <p>Value description: </p> <ul> <li> <p>DATERANGE - Insert EXT-X-DATERANGE tags to signal ad and program transition events in TS and CMAF manifests. If you use DATERANGE, you must set a programDateTimeIntervalSeconds value of 1 or higher. To learn more about DATERANGE, see <a href="http://docs.aws.amazon.com/mediapackage/latest/ug/scte-35-ad-marker-ext-x-daterange.html">SCTE-35 Ad Marker EXT-X-DATERANGE</a>.</p> </li> </ul>
    * @public
    */
   AdMarkerHls?: AdMarkerHls | undefined;
@@ -1555,10 +1457,7 @@ export interface CreateHlsManifestConfiguration {
   ManifestWindowSeconds?: number | undefined;
 
   /**
-   * <p>Inserts EXT-X-PROGRAM-DATE-TIME tags in the output manifest at the interval that you specify. If you don't enter an interval,
-   *          EXT-X-PROGRAM-DATE-TIME tags aren't included in the manifest.
-   *          The tags sync the stream to the wall clock so that viewers can seek to a specific time in the playback timeline on the player.</p>
-   *          <p>Irrespective of this parameter, if any ID3Timed metadata is in the HLS input, it is passed through to the HLS output.</p>
+   * <p>Inserts EXT-X-PROGRAM-DATE-TIME tags in the output manifest at the interval that you specify. If you don't enter an interval, EXT-X-PROGRAM-DATE-TIME tags aren't included in the manifest. The tags sync the stream to the wall clock so that viewers can seek to a specific time in the playback timeline on the player.</p> <p>Irrespective of this parameter, if any ID3Timed metadata is in the HLS input, it is passed through to the HLS output.</p>
    * @public
    */
   ProgramDateTimeIntervalSeconds?: number | undefined;
@@ -1570,8 +1469,7 @@ export interface CreateHlsManifestConfiguration {
   FilterConfiguration?: FilterConfiguration | undefined;
 
   /**
-   * <p>When enabled, MediaPackage URL-encodes the query string for API requests for HLS child manifests to comply with Amazon Web Services Signature Version 4 (SigV4) signature signing protocol.
-   *          For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_sigv.html">Amazon Web Services Signature Version 4 for API requests</a> in <i>Identity and Access Management User Guide</i>.</p>
+   * <p>When enabled, MediaPackage URL-encodes the query string for API requests for HLS child manifests to comply with Amazon Web Services Signature Version 4 (SigV4) signature signing protocol. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_sigv.html">Amazon Web Services Signature Version 4 for API requests</a> in <i>Identity and Access Management User Guide</i>.</p>
    * @public
    */
   UrlEncodeChildManifest?: boolean | undefined;
@@ -1613,10 +1511,7 @@ export interface CreateLowLatencyHlsManifestConfiguration {
   ManifestWindowSeconds?: number | undefined;
 
   /**
-   * <p>Inserts EXT-X-PROGRAM-DATE-TIME tags in the output manifest at the interval that you specify. If you don't enter an interval,
-   *          EXT-X-PROGRAM-DATE-TIME tags aren't included in the manifest.
-   *          The tags sync the stream to the wall clock so that viewers can seek to a specific time in the playback timeline on the player.</p>
-   *          <p>Irrespective of this parameter, if any ID3Timed metadata is in the HLS input, it is passed through to the HLS output.</p>
+   * <p>Inserts EXT-X-PROGRAM-DATE-TIME tags in the output manifest at the interval that you specify. If you don't enter an interval, EXT-X-PROGRAM-DATE-TIME tags aren't included in the manifest. The tags sync the stream to the wall clock so that viewers can seek to a specific time in the playback timeline on the player.</p> <p>Irrespective of this parameter, if any ID3Timed metadata is in the HLS input, it is passed through to the HLS output.</p>
    * @public
    */
   ProgramDateTimeIntervalSeconds?: number | undefined;
@@ -1628,8 +1523,7 @@ export interface CreateLowLatencyHlsManifestConfiguration {
   FilterConfiguration?: FilterConfiguration | undefined;
 
   /**
-   * <p>When enabled, MediaPackage URL-encodes the query string for API requests for LL-HLS child manifests to comply with Amazon Web Services Signature Version 4 (SigV4) signature signing protocol.
-   *          For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_sigv.html">Amazon Web Services Signature Version 4 for API requests</a> in <i>Identity and Access Management User Guide</i>.</p>
+   * <p>When enabled, MediaPackage URL-encodes the query string for API requests for LL-HLS child manifests to comply with Amazon Web Services Signature Version 4 (SigV4) signature signing protocol. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_sigv.html">Amazon Web Services Signature Version 4 for API requests</a> in <i>Identity and Access Management User Guide</i>.</p>
    * @public
    */
   UrlEncodeChildManifest?: boolean | undefined;
@@ -1806,89 +1700,13 @@ export type PresetSpeke20Video = (typeof PresetSpeke20Video)[keyof typeof Preset
  */
 export interface EncryptionContractConfiguration {
   /**
-   * <p>A collection of audio encryption presets.</p>
-   *          <p>Value description: </p>
-   *          <ul>
-   *             <li>
-   *                <p>PRESET-AUDIO-1 - Use one content key to encrypt all of the
-   *                audio tracks in your stream.</p>
-   *             </li>
-   *             <li>
-   *                <p>PRESET-AUDIO-2 - Use one content key to encrypt all of the
-   *                stereo audio tracks and one content key to encrypt all of the multichannel
-   *                audio tracks.</p>
-   *             </li>
-   *             <li>
-   *                <p>PRESET-AUDIO-3 - Use one content key to encrypt all of the
-   *                stereo audio tracks, one content key to encrypt all of the multichannel audio
-   *                tracks with 3 to 6 channels, and one content key to encrypt all of the
-   *                multichannel audio tracks with more than 6 channels.</p>
-   *             </li>
-   *             <li>
-   *                <p>SHARED - Use the same content key for all of the audio and
-   *                video tracks in your stream.</p>
-   *             </li>
-   *             <li>
-   *                <p>UNENCRYPTED - Don't encrypt any of the audio tracks in your
-   *                stream.</p>
-   *             </li>
-   *          </ul>
+   * <p>A collection of audio encryption presets.</p> <p>Value description: </p> <ul> <li> <p>PRESET-AUDIO-1 - Use one content key to encrypt all of the audio tracks in your stream.</p> </li> <li> <p>PRESET-AUDIO-2 - Use one content key to encrypt all of the stereo audio tracks and one content key to encrypt all of the multichannel audio tracks.</p> </li> <li> <p>PRESET-AUDIO-3 - Use one content key to encrypt all of the stereo audio tracks, one content key to encrypt all of the multichannel audio tracks with 3 to 6 channels, and one content key to encrypt all of the multichannel audio tracks with more than 6 channels.</p> </li> <li> <p>SHARED - Use the same content key for all of the audio and video tracks in your stream.</p> </li> <li> <p>UNENCRYPTED - Don't encrypt any of the audio tracks in your stream.</p> </li> </ul>
    * @public
    */
   PresetSpeke20Audio: PresetSpeke20Audio | undefined;
 
   /**
-   * <p>A collection of video encryption presets.</p>
-   *          <p>Value description: </p>
-   *          <ul>
-   *             <li>
-   *                <p>PRESET-VIDEO-1 - Use one content key to encrypt all of the video
-   *                tracks in your stream.</p>
-   *             </li>
-   *             <li>
-   *                <p>PRESET-VIDEO-2 - Use one content key to encrypt all of the SD
-   *                video tracks and one content key for all HD and higher resolutions video
-   *                tracks.</p>
-   *             </li>
-   *             <li>
-   *                <p>PRESET-VIDEO-3 - Use one content key to encrypt all of the SD
-   *                video tracks, one content key for HD video tracks and one content key for all
-   *                UHD video tracks.</p>
-   *             </li>
-   *             <li>
-   *                <p>PRESET-VIDEO-4 - Use one content key to encrypt all of the SD
-   *                video tracks, one content key for HD video tracks, one content key for all UHD1
-   *                video tracks and one content key for all UHD2 video tracks.</p>
-   *             </li>
-   *             <li>
-   *                <p>PRESET-VIDEO-5 - Use one content key to encrypt all of the SD
-   *                video tracks, one content key for HD1 video tracks, one content key for HD2
-   *                video tracks, one content key for all UHD1 video tracks and one content key for
-   *                all UHD2 video tracks.</p>
-   *             </li>
-   *             <li>
-   *                <p>PRESET-VIDEO-6 - Use one content key to encrypt all of the SD
-   *                video tracks, one content key for HD1 video tracks, one content key for HD2
-   *                video tracks and one content key for all UHD video tracks.</p>
-   *             </li>
-   *             <li>
-   *                <p>PRESET-VIDEO-7 - Use one content key to encrypt all of the SD+HD1
-   *                video tracks, one content key for HD2 video tracks and one content key for all
-   *                UHD video tracks.</p>
-   *             </li>
-   *             <li>
-   *                <p>PRESET-VIDEO-8 - Use one content key to encrypt all of the SD+HD1
-   *                video tracks, one content key for HD2 video tracks, one content key for all
-   *                UHD1 video tracks and one content key for all UHD2 video tracks.</p>
-   *             </li>
-   *             <li>
-   *                <p>SHARED - Use the same content key for all of the video and audio
-   *                tracks in your stream.</p>
-   *             </li>
-   *             <li>
-   *                <p>UNENCRYPTED - Don't encrypt any of the video tracks in your stream.</p>
-   *             </li>
-   *          </ul>
+   * <p>A collection of video encryption presets.</p> <p>Value description: </p> <ul> <li> <p>PRESET-VIDEO-1 - Use one content key to encrypt all of the video tracks in your stream.</p> </li> <li> <p>PRESET-VIDEO-2 - Use one content key to encrypt all of the SD video tracks and one content key for all HD and higher resolutions video tracks.</p> </li> <li> <p>PRESET-VIDEO-3 - Use one content key to encrypt all of the SD video tracks, one content key for HD video tracks and one content key for all UHD video tracks.</p> </li> <li> <p>PRESET-VIDEO-4 - Use one content key to encrypt all of the SD video tracks, one content key for HD video tracks, one content key for all UHD1 video tracks and one content key for all UHD2 video tracks.</p> </li> <li> <p>PRESET-VIDEO-5 - Use one content key to encrypt all of the SD video tracks, one content key for HD1 video tracks, one content key for HD2 video tracks, one content key for all UHD1 video tracks and one content key for all UHD2 video tracks.</p> </li> <li> <p>PRESET-VIDEO-6 - Use one content key to encrypt all of the SD video tracks, one content key for HD1 video tracks, one content key for HD2 video tracks and one content key for all UHD video tracks.</p> </li> <li> <p>PRESET-VIDEO-7 - Use one content key to encrypt all of the SD+HD1 video tracks, one content key for HD2 video tracks and one content key for all UHD video tracks.</p> </li> <li> <p>PRESET-VIDEO-8 - Use one content key to encrypt all of the SD+HD1 video tracks, one content key for HD2 video tracks, one content key for all UHD1 video tracks and one content key for all UHD2 video tracks.</p> </li> <li> <p>SHARED - Use the same content key for all of the video and audio tracks in your stream.</p> </li> <li> <p>UNENCRYPTED - Don't encrypt any of the video tracks in your stream.</p> </li> </ul>
    * @public
    */
   PresetSpeke20Video: PresetSpeke20Video | undefined;
@@ -1906,9 +1724,7 @@ export interface SpekeKeyProvider {
   EncryptionContractConfiguration: EncryptionContractConfiguration | undefined;
 
   /**
-   * <p>The unique identifier for the content. The service sends this to the key server to identify the current endpoint. How unique you make this depends on how fine-grained you want access controls to be. The service does not permit you to use the same ID for two simultaneous encryption processes. The resource ID is also known as the content ID.</p>
-   *          <p>The following example shows a resource ID: <code>MovieNight20171126093045</code>
-   *          </p>
+   * <p>The unique identifier for the content. The service sends this to the key server to identify the current endpoint. How unique you make this depends on how fine-grained you want access controls to be. The service does not permit you to use the same ID for two simultaneous encryption processes. The resource ID is also known as the content ID.</p> <p>The following example shows a resource ID: <code>MovieNight20171126093045</code> </p>
    * @public
    */
   ResourceId: string | undefined;
@@ -1920,17 +1736,13 @@ export interface SpekeKeyProvider {
   DrmSystems: DrmSystem[] | undefined;
 
   /**
-   * <p>The ARN for the IAM role granted by the key provider that provides access to the key provider API. This role must have a trust policy that allows MediaPackage to assume the role, and it must have a sufficient permissions policy to allow access to the specific key retrieval URL. Get this from your DRM solution provider.</p>
-   *          <p>Valid format: <code>arn:aws:iam::\{accountID\}:role/\{name\}</code>. The following example shows a role ARN: <code>arn:aws:iam::444455556666:role/SpekeAccess</code>
-   *          </p>
+   * <p>The ARN for the IAM role granted by the key provider that provides access to the key provider API. This role must have a trust policy that allows MediaPackage to assume the role, and it must have a sufficient permissions policy to allow access to the specific key retrieval URL. Get this from your DRM solution provider.</p> <p>Valid format: <code>arn:aws:iam::\{accountID\}:role/\{name\}</code>. The following example shows a role ARN: <code>arn:aws:iam::444455556666:role/SpekeAccess</code> </p>
    * @public
    */
   RoleArn: string | undefined;
 
   /**
-   * <p>The URL of the API Gateway proxy that you set up to talk to your key server. The API Gateway proxy must reside in the same AWS Region as MediaPackage and must start with https://.</p>
-   *          <p>The following example shows a URL: <code>https://1wm2dx1f33.execute-api.us-west-2.amazonaws.com/SpekeSample/copyProtection</code>
-   *          </p>
+   * <p>The URL of the API Gateway proxy that you set up to talk to your key server. The API Gateway proxy must reside in the same AWS Region as MediaPackage and must start with https://.</p> <p>The following example shows a URL: <code>https://1wm2dx1f33.execute-api.us-west-2.amazonaws.com/SpekeSample/copyProtection</code> </p>
    * @public
    */
   Url: string | undefined;
@@ -1954,35 +1766,13 @@ export interface Encryption {
   EncryptionMethod: EncryptionMethod | undefined;
 
   /**
-   * <p>The frequency (in seconds) of key changes for live workflows, in which content is streamed real time. The service retrieves content keys before the live content begins streaming, and then retrieves them as needed over the lifetime of the workflow. By default, key rotation is set to 300 seconds (5 minutes), the minimum rotation interval, which is equivalent to setting it to 300. If you don't enter an interval, content keys aren't rotated.</p>
-   *          <p>The following example setting causes the service to rotate keys every thirty minutes: <code>1800</code>
-   *          </p>
+   * <p>The frequency (in seconds) of key changes for live workflows, in which content is streamed real time. The service retrieves content keys before the live content begins streaming, and then retrieves them as needed over the lifetime of the workflow. By default, key rotation is set to 300 seconds (5 minutes), the minimum rotation interval, which is equivalent to setting it to 300. If you don't enter an interval, content keys aren't rotated.</p> <p>The following example setting causes the service to rotate keys every thirty minutes: <code>1800</code> </p>
    * @public
    */
   KeyRotationIntervalSeconds?: number | undefined;
 
   /**
-   * <p>Excludes SEIG and SGPD boxes from segment metadata in CMAF containers.</p>
-   *          <p>When set to <code>true</code>, MediaPackage omits these DRM metadata boxes from CMAF segments, which can improve compatibility with certain devices and players that don't support these boxes.</p>
-   *          <p>Important considerations:</p>
-   *          <ul>
-   *             <li>
-   *                <p>This setting only affects CMAF container formats</p>
-   *             </li>
-   *             <li>
-   *                <p>Key rotation can still be handled through media playlist signaling</p>
-   *             </li>
-   *             <li>
-   *                <p>PSSH and TENC boxes remain unaffected</p>
-   *             </li>
-   *             <li>
-   *                <p>Default behavior is preserved when this setting is disabled</p>
-   *             </li>
-   *          </ul>
-   *          <p>Valid values: <code>true</code> | <code>false</code>
-   *          </p>
-   *          <p>Default: <code>false</code>
-   *          </p>
+   * <p>Excludes SEIG and SGPD boxes from segment metadata in CMAF containers.</p> <p>When set to <code>true</code>, MediaPackage omits these DRM metadata boxes from CMAF segments, which can improve compatibility with certain devices and players that don't support these boxes.</p> <p>Important considerations:</p> <ul> <li> <p>This setting only affects CMAF container formats</p> </li> <li> <p>Key rotation can still be handled through media playlist signaling</p> </li> <li> <p>PSSH and TENC boxes remain unaffected</p> </li> <li> <p>Default behavior is preserved when this setting is disabled</p> </li> </ul> <p>Valid values: <code>true</code> | <code>false</code> </p> <p>Default: <code>false</code> </p>
    * @public
    */
   CmafExcludeSegmentDrmMetadata?: boolean | undefined;
@@ -2158,13 +1948,7 @@ export interface CreateOriginEndpointRequest {
   ForceEndpointErrorConfiguration?: ForceEndpointErrorConfiguration | undefined;
 
   /**
-   * <p>A comma-separated list of tag key:value pairs that you define. For example:</p>
-   *          <p>
-   *             <code>"Key1": "Value1",</code>
-   *          </p>
-   *          <p>
-   *             <code>"Key2": "Value2"</code>
-   *          </p>
+   * <p>A comma-separated list of tag key:value pairs that you define. For example:</p> <p> <code>"Key1": "Value1",</code> </p> <p> <code>"Key2": "Value2"</code> </p>
    * @public
    */
   Tags?: Record<string, string> | undefined;
@@ -2218,21 +2002,13 @@ export interface GetDashManifestConfiguration {
   SuggestedPresentationDelaySeconds?: number | undefined;
 
   /**
-   * <p>Determines the type of variable used in the <code>media</code> URL of the <code>SegmentTemplate</code> tag in the manifest. Also specifies if segment timeline information is included in <code>SegmentTimeline</code> or <code>SegmentTemplate</code>.</p>
-   *          <p>Value description:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>NUMBER_WITH_TIMELINE</code> - The <code>$Number$</code> variable is used in the <code>media</code> URL. The value of this variable is the sequential number of the segment. A full <code>SegmentTimeline</code> object is presented in each <code>SegmentTemplate</code>.</p>
-   *             </li>
-   *          </ul>
+   * <p>Determines the type of variable used in the <code>media</code> URL of the <code>SegmentTemplate</code> tag in the manifest. Also specifies if segment timeline information is included in <code>SegmentTimeline</code> or <code>SegmentTemplate</code>.</p> <p>Value description:</p> <ul> <li> <p> <code>NUMBER_WITH_TIMELINE</code> - The <code>$Number$</code> variable is used in the <code>media</code> URL. The value of this variable is the sequential number of the segment. A full <code>SegmentTimeline</code> object is presented in each <code>SegmentTemplate</code>.</p> </li> </ul>
    * @public
    */
   SegmentTemplateFormat?: DashSegmentTemplateFormat | undefined;
 
   /**
-   * <p>A list of triggers that controls when AWS Elemental MediaPackage separates the MPEG-DASH manifest into multiple periods. Leave this value empty to indicate that the manifest is contained all in one period.
-   *          For more information about periods in the DASH manifest, see <a href="https://docs.aws.amazon.com/mediapackage/latest/userguide/multi-period.html">Multi-period DASH in AWS Elemental MediaPackage</a>.</p>
+   * <p>A list of triggers that controls when AWS Elemental MediaPackage separates the MPEG-DASH manifest into multiple periods. Leave this value empty to indicate that the manifest is contained all in one period. For more information about periods in the DASH manifest, see <a href="https://docs.aws.amazon.com/mediapackage/latest/userguide/multi-period.html">Multi-period DASH in AWS Elemental MediaPackage</a>.</p>
    * @public
    */
   PeriodTriggers?: DashPeriodTrigger[] | undefined;
@@ -2322,10 +2098,7 @@ export interface GetHlsManifestConfiguration {
   ManifestWindowSeconds?: number | undefined;
 
   /**
-   * <p>Inserts EXT-X-PROGRAM-DATE-TIME tags in the output manifest at the interval that you specify. If you don't enter an interval,
-   *          EXT-X-PROGRAM-DATE-TIME tags aren't included in the manifest.
-   *          The tags sync the stream to the wall clock so that viewers can seek to a specific time in the playback timeline on the player.</p>
-   *          <p>Irrespective of this parameter, if any ID3Timed metadata is in the HLS input, it is passed through to the HLS output.</p>
+   * <p>Inserts EXT-X-PROGRAM-DATE-TIME tags in the output manifest at the interval that you specify. If you don't enter an interval, EXT-X-PROGRAM-DATE-TIME tags aren't included in the manifest. The tags sync the stream to the wall clock so that viewers can seek to a specific time in the playback timeline on the player.</p> <p>Irrespective of this parameter, if any ID3Timed metadata is in the HLS input, it is passed through to the HLS output.</p>
    * @public
    */
   ProgramDateTimeIntervalSeconds?: number | undefined;
@@ -2349,8 +2122,7 @@ export interface GetHlsManifestConfiguration {
   StartTag?: StartTag | undefined;
 
   /**
-   * <p>When enabled, MediaPackage URL-encodes the query string for API requests for HLS child manifests to comply with Amazon Web Services Signature Version 4 (SigV4) signature signing protocol.
-   *          For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_sigv.html">Amazon Web Services Signature Version 4 for API requests</a> in <i>Identity and Access Management User Guide</i>.</p>
+   * <p>When enabled, MediaPackage URL-encodes the query string for API requests for HLS child manifests to comply with Amazon Web Services Signature Version 4 (SigV4) signature signing protocol. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_sigv.html">Amazon Web Services Signature Version 4 for API requests</a> in <i>Identity and Access Management User Guide</i>.</p>
    * @public
    */
   UrlEncodeChildManifest?: boolean | undefined;
@@ -2386,10 +2158,7 @@ export interface GetLowLatencyHlsManifestConfiguration {
   ManifestWindowSeconds?: number | undefined;
 
   /**
-   * <p>Inserts EXT-X-PROGRAM-DATE-TIME tags in the output manifest at the interval that you specify. If you don't enter an interval,
-   *          EXT-X-PROGRAM-DATE-TIME tags aren't included in the manifest.
-   *          The tags sync the stream to the wall clock so that viewers can seek to a specific time in the playback timeline on the player.</p>
-   *          <p>Irrespective of this parameter, if any ID3Timed metadata is in the HLS input, it is passed through to the HLS output.</p>
+   * <p>Inserts EXT-X-PROGRAM-DATE-TIME tags in the output manifest at the interval that you specify. If you don't enter an interval, EXT-X-PROGRAM-DATE-TIME tags aren't included in the manifest. The tags sync the stream to the wall clock so that viewers can seek to a specific time in the playback timeline on the player.</p> <p>Irrespective of this parameter, if any ID3Timed metadata is in the HLS input, it is passed through to the HLS output.</p>
    * @public
    */
   ProgramDateTimeIntervalSeconds?: number | undefined;
@@ -2413,8 +2182,7 @@ export interface GetLowLatencyHlsManifestConfiguration {
   StartTag?: StartTag | undefined;
 
   /**
-   * <p>When enabled, MediaPackage URL-encodes the query string for API requests for LL-HLS child manifests to comply with Amazon Web Services Signature Version 4 (SigV4) signature signing protocol.
-   *          For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_sigv.html">Amazon Web Services Signature Version 4 for API requests</a> in <i>Identity and Access Management User Guide</i>.</p>
+   * <p>When enabled, MediaPackage URL-encodes the query string for API requests for LL-HLS child manifests to comply with Amazon Web Services Signature Version 4 (SigV4) signature signing protocol. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_sigv.html">Amazon Web Services Signature Version 4 for API requests</a> in <i>Identity and Access Management User Guide</i>.</p>
    * @public
    */
   UrlEncodeChildManifest?: boolean | undefined;
@@ -3021,9 +2789,7 @@ export interface GetOriginEndpointPolicyResponse {
   Policy: string | undefined;
 
   /**
-   * <p>The settings for using authorization headers between the MediaPackage endpoint and your CDN. </p>
-   *          <p>For information about CDN authorization, see <a href="https://docs.aws.amazon.com/mediapackage/latest/userguide/cdn-auth.html">CDN authorization
-   *             in Elemental MediaPackage</a>  in the MediaPackage user guide.</p>
+   * <p>The settings for using authorization headers between the MediaPackage endpoint and your CDN. </p> <p>For information about CDN authorization, see <a href="https://docs.aws.amazon.com/mediapackage/latest/userguide/cdn-auth.html">CDN authorization in Elemental MediaPackage</a> in the MediaPackage user guide.</p>
    * @public
    */
   CdnAuthConfiguration?: CdnAuthConfiguration | undefined;
@@ -3058,9 +2824,7 @@ export interface PutOriginEndpointPolicyRequest {
   Policy: string | undefined;
 
   /**
-   * <p>The settings for using authorization headers between the MediaPackage endpoint and your CDN. </p>
-   *          <p>For information about CDN authorization, see <a href="https://docs.aws.amazon.com/mediapackage/latest/userguide/cdn-auth.html">CDN authorization
-   *             in Elemental MediaPackage</a>  in the MediaPackage user guide. </p>
+   * <p>The settings for using authorization headers between the MediaPackage endpoint and your CDN. </p> <p>For information about CDN authorization, see <a href="https://docs.aws.amazon.com/mediapackage/latest/userguide/cdn-auth.html">CDN authorization in Elemental MediaPackage</a> in the MediaPackage user guide. </p>
    * @public
    */
   CdnAuthConfiguration?: CdnAuthConfiguration | undefined;
@@ -3453,18 +3217,7 @@ export interface UpdateChannelResponse {
   IngestEndpoints?: IngestEndpoint[] | undefined;
 
   /**
-   * <p>The input type will be an immutable field which will be used to define whether the channel will allow CMAF ingest or HLS ingest. If unprovided, it will default to HLS to preserve current behavior.</p>
-   *          <p>The allowed values are:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>HLS</code> - The HLS streaming specification (which defines M3U8 manifests and TS segments).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>CMAF</code> - The DASH-IF CMAF Ingest specification (which defines CMAF segments with optional DASH manifests).</p>
-   *             </li>
-   *          </ul>
+   * <p>The input type will be an immutable field which will be used to define whether the channel will allow CMAF ingest or HLS ingest. If unprovided, it will default to HLS to preserve current behavior.</p> <p>The allowed values are:</p> <ul> <li> <p> <code>HLS</code> - The HLS streaming specification (which defines M3U8 manifests and TS segments).</p> </li> <li> <p> <code>CMAF</code> - The DASH-IF CMAF Ingest specification (which defines CMAF segments with optional DASH manifests).</p> </li> </ul>
    * @public
    */
   InputType?: InputType | undefined;
@@ -3517,13 +3270,7 @@ export interface CreateChannelGroupRequest {
   Description?: string | undefined;
 
   /**
-   * <p>A comma-separated list of tag key:value pairs that you define. For example:</p>
-   *          <p>
-   *             <code>"Key1": "Value1",</code>
-   *          </p>
-   *          <p>
-   *             <code>"Key2": "Value2"</code>
-   *          </p>
+   * <p>A comma-separated list of tag key:value pairs that you define. For example:</p> <p> <code>"Key1": "Value1",</code> </p> <p> <code>"Key2": "Value2"</code> </p>
    * @public
    */
   Tags?: Record<string, string> | undefined;
