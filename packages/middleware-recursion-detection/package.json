@@ -55,10 +55,7 @@
     "typescript": "~5.8.3"
   },
   "browser": {
-    "./dist-es/recursionDetectionMiddleware": "./dist-es/recursionDetectionMiddleware.no-op"
+    "./dist-es/recursionDetectionMiddleware": "./dist-es/recursionDetectionMiddleware.browser"
   },
-  "react-native": {
-    "./dist-es/recursionDetectionMiddleware": "./dist-es/recursionDetectionMiddleware.no-op",
-    "./dist-cjs/recursionDetectionMiddleware": "./dist-cjs/recursionDetectionMiddleware.no-op"
-  }
+  "react-native": {}
 }
