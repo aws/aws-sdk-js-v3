@@ -1,3 +1,4 @@
+import { InvokeStore } from "@aws/lambda-invoke-store";
 import { HttpRequest } from "@smithy/protocol-http";
 import {
   BuildHandler,
@@ -31,7 +32,11 @@ export const recursionDetectionMiddleware =
       return next(args);
     }
     const functionName = process.env[ENV_LAMBDA_FUNCTION_NAME];
-    const traceId = process.env[ENV_TRACE_ID];
+
+    const traceIdFromEnv = process.env[ENV_TRACE_ID];
+    const traceIdFromInvokeStore = InvokeStore.getXRayTraceId();
+    const traceId = traceIdFromInvokeStore ?? traceIdFromEnv;
+
     const nonEmptyString = (str: unknown): str is string => typeof str === "string" && str.length > 0;
     if (nonEmptyString(functionName) && nonEmptyString(traceId)) {
       request.headers[TRACE_ID_HEADER_NAME] = traceId;
