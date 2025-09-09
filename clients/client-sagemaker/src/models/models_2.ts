@@ -84,6 +84,7 @@ import {
   EdgeDeploymentConfig,
   EndpointInput,
   HubContentType,
+  IPAddressType,
   JupyterServerAppSettings,
   KernelGatewayAppSettings,
   MetadataProperties,
@@ -97,10 +98,24 @@ import {
   ProcessingInstanceType,
   ProcessingS3UploadMode,
   RetryStrategy,
-  TrackingServerSize,
   TrainingSpecification,
   UserSettings,
 } from "./models_1";
+
+/**
+ * @public
+ * @enum
+ */
+export const TrackingServerSize = {
+  L: "Large",
+  M: "Medium",
+  S: "Small",
+} as const;
+
+/**
+ * @public
+ */
+export type TrackingServerSize = (typeof TrackingServerSize)[keyof typeof TrackingServerSize];
 
 /**
  * @public
@@ -1707,20 +1722,6 @@ export interface InstanceMetadataServiceConfiguration {
    */
   MinimumInstanceMetadataServiceVersion: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const IPAddressType = {
-  DUALSTACK: "dualstack",
-  IPV4: "ipv4",
-} as const;
-
-/**
- * @public
- */
-export type IPAddressType = (typeof IPAddressType)[keyof typeof IPAddressType];
 
 /**
  * @public

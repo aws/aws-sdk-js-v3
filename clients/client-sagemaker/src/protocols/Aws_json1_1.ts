@@ -23879,6 +23879,7 @@ const de_DomainSettings = (output: any, context: __SerdeContext): DomainSettings
     AmazonQSettings: (_: any) => de_AmazonQSettings(_, context),
     DockerSettings: (_: any) => de_DockerSettings(_, context),
     ExecutionRoleIdentityConfig: __expectString,
+    IpAddressType: __expectString,
     RStudioServerProDomainSettings: (_: any) => de_RStudioServerProDomainSettings(_, context),
     SecurityGroupIds: (_: any) => de_DomainSecurityGroupIds(_, context),
     TrustedIdentityPropagationSettings: (_: any) => de_TrustedIdentityPropagationSettings(_, context),
