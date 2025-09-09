@@ -22,7 +22,7 @@ describe(recursionDetectionMiddleware.name, () => {
       AWS_LAMBDA_FUNCTION_NAME: "some-function",
       _X_AMZN_TRACE_ID: "some-trace-id",
     };
-    const handler = recursionDetectionMiddleware({ runtime: "node" })(mockNextHandler, {} as any);
+    const handler = recursionDetectionMiddleware()(mockNextHandler, {} as any);
     await handler({
       input: {},
       request: new HttpRequest({}),
@@ -37,7 +37,7 @@ describe(recursionDetectionMiddleware.name, () => {
     process.env = {
       _X_AMZN_TRACE_ID: "some-trace-id",
     };
-    const handler = recursionDetectionMiddleware({ runtime: "node" })(mockNextHandler, {} as any);
+    const handler = recursionDetectionMiddleware()(mockNextHandler, {} as any);
     await handler({
       input: {},
       request: new HttpRequest({}),
@@ -54,7 +54,7 @@ describe(recursionDetectionMiddleware.name, () => {
       AWS_LAMBDA_FUNCTION_NAME: "some-function",
       _X_AMZN_TRACE_ID: "some-trace-id",
     };
-    const handler = recursionDetectionMiddleware({ runtime: "node" })(mockNextHandler, {} as any);
+    const handler = recursionDetectionMiddleware()(mockNextHandler, {} as any);
     await handler({
       input: {},
       request: new HttpRequest({
@@ -75,7 +75,7 @@ describe(recursionDetectionMiddleware.name, () => {
       AWS_LAMBDA_FUNCTION_NAME: "some-function",
       _X_AMZN_TRACE_ID: "some-trace-id",
     };
-    const handler = recursionDetectionMiddleware({ runtime: "node" })(mockNextHandler, {} as any);
+    const handler = recursionDetectionMiddleware()(mockNextHandler, {} as any);
     await handler({
       input: {},
       request: new HttpRequest({
@@ -100,7 +100,7 @@ describe(recursionDetectionMiddleware.name, () => {
       AWS_LAMBDA_FUNCTION_NAME: "some-function",
       _X_AMZN_TRACE_ID: "some-trace-id",
     };
-    const handler = recursionDetectionMiddleware({ runtime: "node" })(mockNextHandler, {} as any);
+    const handler = recursionDetectionMiddleware()(mockNextHandler, {} as any);
     await handler({
       input: {},
       request: new HttpRequest({
@@ -125,7 +125,7 @@ describe(recursionDetectionMiddleware.name, () => {
       AWS_LAMBDA_FUNCTION_NAME: "some-function",
       _X_AMZN_TRACE_ID: "some-trace-id",
     };
-    const handler = recursionDetectionMiddleware({ runtime: "node" })(mockNextHandler, {} as any);
+    const handler = recursionDetectionMiddleware()(mockNextHandler, {} as any);
     await handler({
       input: {},
       request: new HttpRequest({
@@ -143,22 +143,5 @@ describe(recursionDetectionMiddleware.name, () => {
     );
     expect(existingTraceHeader).toBeDefined();
     expect(request.headers[existingTraceHeader!]).toBe("some-real-trace-id");
-  });
-
-  it("has no effect for browser runtime", async () => {
-    process.env = {
-      AWS_LAMBDA_FUNCTION_NAME: "some-function",
-      _X_AMZN_TRACE_ID: "some-trace-id",
-    };
-    const handler = recursionDetectionMiddleware({ runtime: "browser" })(mockNextHandler, {} as any);
-    await handler({
-      input: {},
-      request: new HttpRequest({}),
-    });
-
-    const { calls } = (mockNextHandler as any).mock;
-    expect(calls.length).toBe(1);
-    const { request } = mockNextHandler.mock.calls[0][0];
-    expect(request.headers[TRACE_ID_HEADER_NAME]).toBeUndefined();
   });
 });

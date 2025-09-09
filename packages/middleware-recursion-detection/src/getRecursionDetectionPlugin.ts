@@ -1,15 +1,15 @@
 import { Pluggable } from "@smithy/types";
 
-import { PreviouslyResolved } from "./configuration";
-import { recursionDetectionMiddleware, recursionDetectionMiddlewareOptions } from "./recursionDetectionMiddleware";
+import { recursionDetectionMiddlewareOptions } from "./configuration";
+import { recursionDetectionMiddleware } from "./recursionDetectionMiddleware";
 
 // @internal
 /**
  * @internal
  */
 
-export const getRecursionDetectionPlugin = (options: PreviouslyResolved): Pluggable<any, any> => ({
+export const getRecursionDetectionPlugin = (): Pluggable<any, any> => ({
   applyToStack: (clientStack) => {
-    clientStack.add(recursionDetectionMiddleware(options), recursionDetectionMiddlewareOptions);
+    clientStack.add(recursionDetectionMiddleware(), recursionDetectionMiddlewareOptions);
   },
 });

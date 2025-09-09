@@ -1,15 +1,11 @@
 import { HttpRequest } from "@smithy/protocol-http";
 import {
-  AbsoluteLocation,
   BuildHandler,
   BuildHandlerArguments,
-  BuildHandlerOptions,
   BuildHandlerOutput,
   BuildMiddleware,
   MetadataBearer,
 } from "@smithy/types";
-
-import { PreviouslyResolved } from "./configuration";
 
 const TRACE_ID_HEADER_NAME = "X-Amzn-Trace-Id";
 const ENV_LAMBDA_FUNCTION_NAME = "AWS_LAMBDA_FUNCTION_NAME";
@@ -20,11 +16,11 @@ const ENV_TRACE_ID = "_X_AMZN_TRACE_ID";
  * @internal
  */
 export const recursionDetectionMiddleware =
-  (options: PreviouslyResolved): BuildMiddleware<any, any> =>
+  (): BuildMiddleware<any, any> =>
   <Output extends MetadataBearer>(next: BuildHandler<any, Output>): BuildHandler<any, Output> =>
   async (args: BuildHandlerArguments<any>): Promise<BuildHandlerOutput<Output>> => {
     const { request } = args;
-    if (!HttpRequest.isInstance(request) || options.runtime !== "node") {
+    if (!HttpRequest.isInstance(request)) {
       return next(args);
     }
     const traceIdHeader =
@@ -45,15 +41,3 @@ export const recursionDetectionMiddleware =
       request,
     });
   };
-
-// @internal
-/**
- * @internal
- */
-export const recursionDetectionMiddlewareOptions: BuildHandlerOptions & AbsoluteLocation = {
-  step: "build",
-  tags: ["RECURSION_DETECTION"],
-  name: "recursionDetectionMiddleware",
-  override: true,
-  priority: "low",
-};

@@ -53,5 +53,12 @@
     "downlevel-dts": "0.10.1",
     "rimraf": "3.0.2",
     "typescript": "~5.8.3"
+  },
+  "browser": {
+    "./dist-es/recursionDetectionMiddleware": "./dist-es/recursionDetectionMiddleware.no-op"
+  },
+  "react-native": {
+    "./dist-es/recursionDetectionMiddleware": "./dist-es/recursionDetectionMiddleware.no-op",
+    "./dist-cjs/recursionDetectionMiddleware": "./dist-cjs/recursionDetectionMiddleware.no-op"
   }
 }
