@@ -32,8 +32,8 @@ export interface DescribeEffectivePolicyCommandOutput extends DescribeEffectiveP
  *             The effective policy is the aggregation of any policies of the specified type that the
  *             account inherits, plus any policy of that type that is directly attached to the
  *             account.</p>
- *          <p>This operation applies only to management policies. It does not apply to authorization policies: service
- *             control policies (SCPs) and resource control policies (RCPs).</p>
+ *          <p>This operation applies only to management policies. It does not apply to authorization
+ *             policies: service control policies (SCPs) and resource control policies (RCPs).</p>
  *          <p>For more information about policy inheritance, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_inheritance_mgmt.html">Understanding
  *                 management policy inheritance</a> in the
  *             <i>Organizations User Guide</i>.</p>

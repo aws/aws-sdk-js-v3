@@ -71,10 +71,10 @@ export interface CreateAccountCommandOutput extends CreateAccountResponse, __Met
  *                <li>
  *                   <p>When you create an account in an organization using the Organizations console,
  *                         API, or CLI commands, the information required for the account to operate
- *                         as a standalone account, such as a payment method is <i>not</i> automatically
- *                         collected. If you must remove an account from your organization later, you
- *                         can do so only after you provide the missing information. For more
- *                         information, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_account-before-remove.html">Considerations before removing an account from an organization</a>
+ *                         as a standalone account, such as a payment method is
+ *                             <i>not</i> automatically collected. If you must remove an
+ *                         account from your organization later, you can do so only after you provide
+ *                         the missing information. For more information, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_account-before-remove.html">Considerations before removing an account from an organization</a>
  *                         in the <i>Organizations User Guide</i>.</p>
  *                </li>
  *                <li>
@@ -87,9 +87,10 @@ export interface CreateAccountCommandOutput extends CreateAccountResponse, __Met
  *                         If the error persists, contact <a href="https://console.aws.amazon.com/support/home#/">Amazon Web Services Support</a>.</p>
  *                </li>
  *                <li>
- *                   <p>It isn't recommended to use <code>CreateAccount</code> to create multiple temporary accounts, and using
- *                         the <code>CreateAccount</code> API to close accounts is subject to a 30-day usage quota. For information on the requirements
- *                         and process for closing an account, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_close.html">Closing a member
+ *                   <p>It isn't recommended to use <code>CreateAccount</code> to create multiple
+ *                         temporary accounts, and using the <code>CreateAccount</code> API to close
+ *                         accounts is subject to a 30-day usage quota. For information on the
+ *                         requirements and process for closing an account, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_close.html">Closing a member
  *                             account in your organization</a> in the
  *                             <i>Organizations User Guide</i>.</p>
  *                </li>

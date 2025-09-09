@@ -57,8 +57,8 @@ export interface CloseAccountCommandOutput extends __MetadataBearer {}
  *                <li>
  *                   <p>You can close only 10% of member accounts, between 10 and 1000, within a
  *                         rolling 30 day period. This quota is not bound by a calendar month, but
- *                         starts when you close an account. After you reach this limit, you can't close
- *                         additional accounts. For more information, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_close.html">Closing a member
+ *                         starts when you close an account. After you reach this limit, you can't
+ *                         close additional accounts. For more information, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_close.html">Closing a member
  *                             account in your organization</a> and <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_reference_limits.html">Quotas for
  *                             Organizations</a> in the <i>Organizations User Guide</i>. </p>
  *                </li>

@@ -29,11 +29,11 @@ export interface EnableAWSServiceAccessCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Provides an Amazon Web Services service (the service that is specified by
- *             <code>ServicePrincipal</code>) with permissions to view the structure of an organization,
- *         create a <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/using-service-linked-roles.html">service-linked role</a> in all the accounts in the organization,
- *             and allow the service to perform operations
- *         on behalf of the organization and its accounts. Establishing these permissions can be a first step
- *         in enabling the integration of an Amazon Web Services service with Organizations.</p>
+ *                 <code>ServicePrincipal</code>) with permissions to view the structure of an
+ *             organization, create a <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/using-service-linked-roles.html">service-linked role</a> in
+ *             all the accounts in the organization, and allow the service to perform operations on
+ *             behalf of the organization and its accounts. Establishing these permissions can be a
+ *             first step in enabling the integration of an Amazon Web Services service with Organizations.</p>
  *          <important>
  *             <p>We recommend that you enable integration between Organizations and the specified Amazon Web Services
  *                 service by using the console or commands that are provided by the specified service.

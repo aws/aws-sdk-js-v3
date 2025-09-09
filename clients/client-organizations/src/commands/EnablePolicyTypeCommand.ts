@@ -39,7 +39,7 @@ export interface EnablePolicyTypeCommandOutput extends EnablePolicyTypeResponse,
  * management account or by a member account that is a delegated administrator.</p>
  *          <p>You can enable a policy type in a root only if that policy type is available in the
  *             organization. To view the status of available policy types in the organization, use
- *                 <a>DescribeOrganization</a>.</p>
+ *                 <a>ListRoots</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

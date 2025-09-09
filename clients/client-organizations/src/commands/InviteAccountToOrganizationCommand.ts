@@ -40,10 +40,11 @@ export interface InviteAccountToOrganizationCommandOutput
  *             other account's owner. The invitation is implemented as a <a>Handshake</a>
  *             whose details are in the response.</p>
  *          <important>
- *             <p>If you receive an exception that indicates that you exceeded your account
- *                         limits for the organization or that the operation failed because your
- *                         organization is still initializing, wait one hour and then try again. If the
- *                         error persists after an hour, contact <a href="https://console.aws.amazon.com/support/home#/">Amazon Web Services Support</a>.</p>
+ *             <p>If you receive an exception that indicates that you exceeded your account limits
+ *                 for the organization or that the operation failed because your organization is still
+ *                 initializing, wait one hour and then try again. If the error persists after an hour,
+ *                 contact <a href="https://console.aws.amazon.com/support/home#/">Amazon Web Services
+ *                 Support</a>.</p>
  *          </important>
  *          <p>If the request includes tags, then the requester must have the
  *                 <code>organizations:TagResource</code> permission.</p>

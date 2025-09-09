@@ -3174,6 +3174,7 @@ const de_Account = (output: any, context: __SerdeContext): Account => {
     JoinedMethod: __expectString,
     JoinedTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     Name: __expectString,
+    State: __expectString,
     Status: __expectString,
   }) as any;
 };

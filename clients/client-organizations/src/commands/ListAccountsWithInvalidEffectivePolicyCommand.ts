@@ -38,8 +38,10 @@ export interface ListAccountsWithInvalidEffectivePolicyCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Lists all the accounts in an organization that have invalid effective policies.
- *             An <i>invalid effective policy</i> is an <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_effective.html">effective policy</a> that fails validation checks, resulting in the effective policy not being fully enforced on all the intended accounts within an organization.</p>
+ * <p>Lists all the accounts in an organization that have invalid effective policies. An
+ *                 <i>invalid effective policy</i> is an <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_effective.html">effective
+ *                 policy</a> that fails validation checks, resulting in the effective policy not
+ *             being fully enforced on all the intended accounts within an organization.</p>
  *          <p>This operation can be called only from the organization's
  * management account or by a member account that is a delegated administrator.</p>
  * @example
@@ -63,6 +65,7 @@ export interface ListAccountsWithInvalidEffectivePolicyCommandOutput
  * //       Email: "STRING_VALUE",
  * //       Name: "STRING_VALUE",
  * //       Status: "ACTIVE" || "SUSPENDED" || "PENDING_CLOSURE",
+ * //       State: "PENDING_ACTIVATION" || "ACTIVE" || "SUSPENDED" || "PENDING_CLOSURE" || "CLOSED",
  * //       JoinedMethod: "INVITED" || "CREATED",
  * //       JoinedTimestamp: new Date("TIMESTAMP"),
  * //     },

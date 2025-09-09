@@ -36,7 +36,8 @@ export interface ListEffectivePolicyValidationErrorsCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Lists all the validation errors on an <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_effective.html">effective policy</a> for a specified account and policy type.</p>
+ * <p>Lists all the validation errors on an <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_effective.html">effective
+ *                 policy</a> for a specified account and policy type.</p>
  *          <p>This operation can be called only from the organization's
  * management account or by a member account that is a delegated administrator.</p>
  * @example

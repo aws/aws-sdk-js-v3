@@ -53,6 +53,7 @@ export interface DescribeAccountCommandOutput extends DescribeAccountResponse, _
  * //     Email: "STRING_VALUE",
  * //     Name: "STRING_VALUE",
  * //     Status: "ACTIVE" || "SUSPENDED" || "PENDING_CLOSURE",
+ * //     State: "PENDING_ACTIVATION" || "ACTIVE" || "SUSPENDED" || "PENDING_CLOSURE" || "CLOSED",
  * //     JoinedMethod: "INVITED" || "CREATED",
  * //     JoinedTimestamp: new Date("TIMESTAMP"),
  * //   },

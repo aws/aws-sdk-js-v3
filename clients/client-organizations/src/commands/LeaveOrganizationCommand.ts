@@ -79,8 +79,8 @@ export interface LeaveOrganizationCommandOutput extends __MetadataBearer {}
  *                </li>
  *                <li>
  *                   <p>A newly created account has a waiting period before it can be removed from
- *                         its organization.
- *                         You must wait until at least seven days after the account was created. Invited accounts aren't subject to this waiting period.</p>
+ *                         its organization. You must wait until at least seven days after the account
+ *                         was created. Invited accounts aren't subject to this waiting period.</p>
  *                </li>
  *                <li>
  *                   <p>If you are using an organization principal to call
