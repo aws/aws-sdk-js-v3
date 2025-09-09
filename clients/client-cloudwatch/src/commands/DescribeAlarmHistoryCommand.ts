@@ -44,10 +44,11 @@ export interface DescribeAlarmHistoryCommandOutput extends DescribeAlarmHistoryO
  * const client = new CloudWatchClient(config);
  * const input = { // DescribeAlarmHistoryInput
  *   AlarmName: "STRING_VALUE",
+ *   AlarmContributorId: "STRING_VALUE",
  *   AlarmTypes: [ // AlarmTypes
  *     "CompositeAlarm" || "MetricAlarm",
  *   ],
- *   HistoryItemType: "ConfigurationUpdate" || "StateUpdate" || "Action",
+ *   HistoryItemType: "ConfigurationUpdate" || "StateUpdate" || "Action" || "AlarmContributorStateUpdate" || "AlarmContributorAction",
  *   StartDate: new Date("TIMESTAMP"),
  *   EndDate: new Date("TIMESTAMP"),
  *   MaxRecords: Number("int"),
@@ -60,11 +61,15 @@ export interface DescribeAlarmHistoryCommandOutput extends DescribeAlarmHistoryO
  * //   AlarmHistoryItems: [ // AlarmHistoryItems
  * //     { // AlarmHistoryItem
  * //       AlarmName: "STRING_VALUE",
+ * //       AlarmContributorId: "STRING_VALUE",
  * //       AlarmType: "CompositeAlarm" || "MetricAlarm",
  * //       Timestamp: new Date("TIMESTAMP"),
- * //       HistoryItemType: "ConfigurationUpdate" || "StateUpdate" || "Action",
+ * //       HistoryItemType: "ConfigurationUpdate" || "StateUpdate" || "Action" || "AlarmContributorStateUpdate" || "AlarmContributorAction",
  * //       HistorySummary: "STRING_VALUE",
  * //       HistoryData: "STRING_VALUE",
+ * //       AlarmContributorAttributes: { // ContributorAttributes
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",

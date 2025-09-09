@@ -33,6 +33,10 @@ import { DeleteDashboardsCommandInput, DeleteDashboardsCommandOutput } from "../
 import { DeleteInsightRulesCommandInput, DeleteInsightRulesCommandOutput } from "../commands/DeleteInsightRulesCommand";
 import { DeleteMetricStreamCommandInput, DeleteMetricStreamCommandOutput } from "../commands/DeleteMetricStreamCommand";
 import {
+  DescribeAlarmContributorsCommandInput,
+  DescribeAlarmContributorsCommandOutput,
+} from "../commands/DescribeAlarmContributorsCommand";
+import {
   DescribeAlarmHistoryCommandInput,
   DescribeAlarmHistoryCommandOutput,
 } from "../commands/DescribeAlarmHistoryCommand";
@@ -103,6 +107,7 @@ import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/T
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
 import { CloudWatchServiceException as __BaseException } from "../models/CloudWatchServiceException";
 import {
+  AlarmContributor,
   AlarmHistoryItem,
   AlarmType,
   AnomalyDetector,
@@ -124,6 +129,8 @@ import {
   DeleteInsightRulesOutput,
   DeleteMetricStreamInput,
   DeleteMetricStreamOutput,
+  DescribeAlarmContributorsInput,
+  DescribeAlarmContributorsOutput,
   DescribeAlarmHistoryInput,
   DescribeAlarmHistoryOutput,
   DescribeAlarmsForMetricInput,
@@ -307,6 +314,23 @@ export const se_DeleteMetricStreamCommand = async (
   body = buildFormUrlencodedString({
     ...se_DeleteMetricStreamInput(input, context),
     [_A]: _DMS,
+    [_V]: _,
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_queryDescribeAlarmContributorsCommand
+ */
+export const se_DescribeAlarmContributorsCommand = async (
+  input: DescribeAlarmContributorsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = SHARED_HEADERS;
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...se_DescribeAlarmContributorsInput(input, context),
+    [_A]: _DAC,
     [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -964,6 +988,26 @@ export const de_DeleteMetricStreamCommand = async (
   let contents: any = {};
   contents = de_DeleteMetricStreamOutput(data.DeleteMetricStreamResult, context);
   const response: DeleteMetricStreamCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryDescribeAlarmContributorsCommand
+ */
+export const de_DescribeAlarmContributorsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeAlarmContributorsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribeAlarmContributorsOutput(data.DescribeAlarmContributorsResult, context);
+  const response: DescribeAlarmContributorsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
@@ -2091,12 +2135,29 @@ const se_DeleteMetricStreamInput = (input: DeleteMetricStreamInput, context: __S
 };
 
 /**
+ * serializeAws_queryDescribeAlarmContributorsInput
+ */
+const se_DescribeAlarmContributorsInput = (input: DescribeAlarmContributorsInput, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input[_ANl] != null) {
+    entries[_ANl] = input[_ANl];
+  }
+  if (input[_NT] != null) {
+    entries[_NT] = input[_NT];
+  }
+  return entries;
+};
+
+/**
  * serializeAws_queryDescribeAlarmHistoryInput
  */
 const se_DescribeAlarmHistoryInput = (input: DescribeAlarmHistoryInput, context: __SerdeContext): any => {
   const entries: any = {};
   if (input[_ANl] != null) {
     entries[_ANl] = input[_ANl];
+  }
+  if (input[_ACI] != null) {
+    entries[_ACI] = input[_ACI];
   }
   if (input[_AT] != null) {
     const memberEntries = se_AlarmTypes(input[_AT], context);
@@ -3910,12 +3971,48 @@ const se_Values = (input: number[], context: __SerdeContext): any => {
 };
 
 /**
+ * deserializeAws_queryAlarmContributor
+ */
+const de_AlarmContributor = (output: any, context: __SerdeContext): AlarmContributor => {
+  const contents: any = {};
+  if (output[_CI] != null) {
+    contents[_CI] = __expectString(output[_CI]);
+  }
+  if (output.ContributorAttributes === "") {
+    contents[_CA] = {};
+  } else if (output[_CA] != null && output[_CA][_e] != null) {
+    contents[_CA] = de_ContributorAttributes(__getArrayIfSingleItem(output[_CA][_e]), context);
+  }
+  if (output[_SRt] != null) {
+    contents[_SRt] = __expectString(output[_SRt]);
+  }
+  if (output[_STT] != null) {
+    contents[_STT] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_STT]));
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_queryAlarmContributors
+ */
+const de_AlarmContributors = (output: any, context: __SerdeContext): AlarmContributor[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_AlarmContributor(entry, context);
+    });
+};
+
+/**
  * deserializeAws_queryAlarmHistoryItem
  */
 const de_AlarmHistoryItem = (output: any, context: __SerdeContext): AlarmHistoryItem => {
   const contents: any = {};
   if (output[_ANl] != null) {
     contents[_ANl] = __expectString(output[_ANl]);
+  }
+  if (output[_ACI] != null) {
+    contents[_ACI] = __expectString(output[_ACI]);
   }
   if (output[_ATl] != null) {
     contents[_ATl] = __expectString(output[_ATl]);
@@ -3931,6 +4028,11 @@ const de_AlarmHistoryItem = (output: any, context: __SerdeContext): AlarmHistory
   }
   if (output[_HD] != null) {
     contents[_HD] = __expectString(output[_HD]);
+  }
+  if (output.AlarmContributorAttributes === "") {
+    contents[_ACA] = {};
+  } else if (output[_ACA] != null && output[_ACA][_e] != null) {
+    contents[_ACA] = de_ContributorAttributes(__getArrayIfSingleItem(output[_ACA][_e]), context);
   }
   return contents;
 };
@@ -4137,6 +4239,19 @@ const de_ConflictException = (output: any, context: __SerdeContext): ConflictExc
 };
 
 /**
+ * deserializeAws_queryContributorAttributes
+ */
+const de_ContributorAttributes = (output: any, context: __SerdeContext): Record<string, string> => {
+  return output.reduce((acc: any, pair: any) => {
+    if (pair["value"] === null) {
+      return acc;
+    }
+    acc[pair["key"]] = __expectString(pair["value"]) as any;
+    return acc;
+  }, {});
+};
+
+/**
  * deserializeAws_queryDashboardEntries
  */
 const de_DashboardEntries = (output: any, context: __SerdeContext): DashboardEntry[] => {
@@ -4315,6 +4430,22 @@ const de_DeleteMetricStreamOutput = (output: any, context: __SerdeContext): Dele
 };
 
 /**
+ * deserializeAws_queryDescribeAlarmContributorsOutput
+ */
+const de_DescribeAlarmContributorsOutput = (output: any, context: __SerdeContext): DescribeAlarmContributorsOutput => {
+  const contents: any = {};
+  if (output.AlarmContributors === "") {
+    contents[_AC] = [];
+  } else if (output[_AC] != null && output[_AC][_m] != null) {
+    contents[_AC] = de_AlarmContributors(__getArrayIfSingleItem(output[_AC][_m]), context);
+  }
+  if (output[_NT] != null) {
+    contents[_NT] = __expectString(output[_NT]);
+  }
+  return contents;
+};
+
+/**
  * deserializeAws_queryDescribeAlarmHistoryOutput
  */
 const de_DescribeAlarmHistoryOutput = (output: any, context: __SerdeContext): DescribeAlarmHistoryOutput => {
@@ -4349,9 +4480,9 @@ const de_DescribeAlarmsForMetricOutput = (output: any, context: __SerdeContext):
 const de_DescribeAlarmsOutput = (output: any, context: __SerdeContext): DescribeAlarmsOutput => {
   const contents: any = {};
   if (output.CompositeAlarms === "") {
-    contents[_CA] = [];
-  } else if (output[_CA] != null && output[_CA][_m] != null) {
-    contents[_CA] = de_CompositeAlarms(__getArrayIfSingleItem(output[_CA][_m]), context);
+    contents[_CAo] = [];
+  } else if (output[_CAo] != null && output[_CAo][_m] != null) {
+    contents[_CAo] = de_CompositeAlarms(__getArrayIfSingleItem(output[_CAo][_m]), context);
   }
   if (output.MetricAlarms === "") {
     contents[_MA] = [];
@@ -5700,6 +5831,9 @@ const _A = "Action";
 const _AA = "AlarmActions";
 const _AAV = "ApproximateAggregateValue";
 const _AAl = "AlarmArn";
+const _AC = "AlarmContributors";
+const _ACA = "AlarmContributorAttributes";
+const _ACI = "AlarmContributorId";
 const _ACUT = "AlarmConfigurationUpdatedTimestamp";
 const _AD = "AlarmDescription";
 const _ADT = "AnomalyDetectorTypes";
@@ -5729,8 +5863,10 @@ const _Ar = "Arn";
 const _At = "Attributes";
 const _Av = "Average";
 const _C = "Counts";
-const _CA = "CompositeAlarms";
+const _CA = "ContributorAttributes";
+const _CAo = "CompositeAlarms";
 const _CD = "CreationDate";
+const _CI = "ContributorId";
 const _CO = "ComparisonOperator";
 const _COAN = "ChildrenOfAlarmName";
 const _Co = "Configuration";
@@ -5739,6 +5875,7 @@ const _Con = "Contributors";
 const _D = "Dimensions";
 const _DA = "DeleteAlarms";
 const _DAA = "DisableAlarmActions";
+const _DAC = "DescribeAlarmContributors";
 const _DAD = "DeleteAnomalyDetector";
 const _DADe = "DescribeAnomalyDetectors";
 const _DAFM = "DescribeAlarmsForMetric";

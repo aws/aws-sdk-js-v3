@@ -4,6 +4,7 @@ export * from "./DeleteAnomalyDetectorCommand";
 export * from "./DeleteDashboardsCommand";
 export * from "./DeleteInsightRulesCommand";
 export * from "./DeleteMetricStreamCommand";
+export * from "./DescribeAlarmContributorsCommand";
 export * from "./DescribeAlarmHistoryCommand";
 export * from "./DescribeAlarmsCommand";
 export * from "./DescribeAlarmsForMetricCommand";

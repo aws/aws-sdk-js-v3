@@ -67,6 +67,10 @@ import { DeleteDashboardsCommandInput, DeleteDashboardsCommandOutput } from "./c
 import { DeleteInsightRulesCommandInput, DeleteInsightRulesCommandOutput } from "./commands/DeleteInsightRulesCommand";
 import { DeleteMetricStreamCommandInput, DeleteMetricStreamCommandOutput } from "./commands/DeleteMetricStreamCommand";
 import {
+  DescribeAlarmContributorsCommandInput,
+  DescribeAlarmContributorsCommandOutput,
+} from "./commands/DescribeAlarmContributorsCommand";
+import {
   DescribeAlarmHistoryCommandInput,
   DescribeAlarmHistoryCommandOutput,
 } from "./commands/DescribeAlarmHistoryCommand";
@@ -155,6 +159,7 @@ export type ServiceInputTypes =
   | DeleteDashboardsCommandInput
   | DeleteInsightRulesCommandInput
   | DeleteMetricStreamCommandInput
+  | DescribeAlarmContributorsCommandInput
   | DescribeAlarmHistoryCommandInput
   | DescribeAlarmsCommandInput
   | DescribeAlarmsForMetricCommandInput
@@ -198,6 +203,7 @@ export type ServiceOutputTypes =
   | DeleteDashboardsCommandOutput
   | DeleteInsightRulesCommandOutput
   | DeleteMetricStreamCommandOutput
+  | DescribeAlarmContributorsCommandOutput
   | DescribeAlarmHistoryCommandOutput
   | DescribeAlarmsCommandOutput
   | DescribeAlarmsForMetricCommandOutput
