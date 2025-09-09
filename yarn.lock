@@ -31125,7 +31125,7 @@ __metadata:
     turbo: "npm:2.5.3"
     typescript: "npm:~5.8.3"
     verdaccio: "npm:5.25.0"
-    vite: "npm:7.0.6"
+    vite: "npm:7.0.7"
     vitest: "npm:^3.2.4"
     webpack: "npm:5.101.0"
     webpack-cli: "npm:4.10.0"
@@ -41973,9 +41973,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vite@npm:7.0.6":
-  version: 7.0.6
-  resolution: "vite@npm:7.0.6"
+"vite@npm:7.0.7":
+  version: 7.0.7
+  resolution: "vite@npm:7.0.7"
   dependencies:
     esbuild: "npm:^0.25.0"
     fdir: "npm:^6.4.6"
@@ -42024,7 +42024,7 @@ __metadata:
       optional: true
   bin:
     vite: bin/vite.js
-  checksum: 10c0/3b14dfa661281b4843789884199ba2a9cca940a7666970036fe3fb1abff52b88e63e8be5ab419dd04d9f96c0415ee0f1e3ec8ebe357041648af7ccd8e348b6ad
+  checksum: 10c0/ccede60fced8a738f10c804a47d82b551a4250114ceb3026dc65a7ef8ba4700154ad59a85674862271a53eecc3c300bfe4d41672ae26212d9f0a99fb995344fc
   languageName: node
   linkType: hard
 
