@@ -1,4 +1,5 @@
-import { NormalizedSchema, SCHEMA } from "@smithy/core/schema";
+import { determineTimestampFormat } from "@smithy/core/protocols";
+import { NormalizedSchema, SCHEMA, TypeRegistry } from "@smithy/core/schema";
 import {
   LazyJsonString,
   NumericValue,
@@ -84,13 +85,8 @@ export class JsonShapeDeserializer extends SerdeContextConfig implements ShapeDe
       }
     }
 
-    if (ns.isTimestampSchema()) {
-      const options = this.settings.timestampFormat;
-      const format = options.useTrait
-        ? ns.getSchema() === SCHEMA.TIMESTAMP_DEFAULT
-          ? options.default
-          : ns.getSchema() ?? options.default
-        : options.default;
+    if (ns.isTimestampSchema() && value != null) {
+      const format = determineTimestampFormat(ns, this.settings);
       switch (format) {
         case SCHEMA.TIMESTAMP_DATE_TIME:
           return parseRfc3339DateTimeWithOffset(value);
@@ -124,6 +120,10 @@ export class JsonShapeDeserializer extends SerdeContextConfig implements ShapeDe
         case "NaN":
           return NaN;
       }
+    }
+
+    if (ns.isDocumentSchema()) {
+      return structuredClone(value);
     }
 
     // covers string, numeric, boolean, document, bigDecimal
