@@ -278,7 +278,7 @@ describe("credential-provider-node integration test", () => {
       });
     });
 
-    it.only("should optionally use session token and/or expiration", async () => {
+    it("should optionally use session token and/or expiration", async () => {
       process.env.AWS_ACCESS_KEY_ID = "ENV_ACCESS_KEY";
       process.env.AWS_SECRET_ACCESS_KEY = "ENV_SECRET_KEY";
       process.env.AWS_SESSION_TOKEN = "ENV_SESSION_TOKEN";
