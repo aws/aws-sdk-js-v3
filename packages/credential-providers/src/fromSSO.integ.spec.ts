@@ -1,6 +1,7 @@
-import fs from "fs";
+import { promises } from "fs";
 import { homedir } from "os";
 import { join } from "path";
+import { afterEach, beforeEach, describe, expect, test as it, vi } from "vitest";
 
 import { fromSSO } from "./fromSSO";
 
@@ -15,22 +16,18 @@ sso_start_url = https://my-sso-portal.awsapps.com/start
 sso_registration_scopes = sso:account:access
 `;
 
-jest.mock("fs", () => {
-  return {
-    promises: {
-      readFile: jest.fn(),
-    },
-  };
-});
+vi.mock("fs", () => ({ promises: { readFile: vi.fn() } }));
 
 describe("fromSSO integration test", () => {
   beforeEach(() => {
-    jest.resetAllMocks();
+    vi.mocked(promises.readFile).mockResolvedValue(SAMPLE_CONFIG);
+  });
+
+  afterEach(() => {
+    vi.clearAllMocks();
   });
 
   it("should expand relative homedir", async () => {
-    const mockReadFile = (fs.promises.readFile as jest.Mock).mockResolvedValue(SAMPLE_CONFIG);
-
     try {
       await fromSSO({
         profile: "dev",
@@ -39,7 +36,7 @@ describe("fromSSO integration test", () => {
       })();
     } catch (ignored) {}
 
-    expect(mockReadFile).toHaveBeenCalledWith(join(homedir(), "custom/path/to/credentials"), "utf8");
-    expect(mockReadFile).toHaveBeenCalledWith(join(homedir(), "custom/path/to/config"), "utf8");
+    expect(promises.readFile).toHaveBeenCalledWith(join(homedir(), "custom/path/to/credentials"), "utf8");
+    expect(promises.readFile).toHaveBeenCalledWith(join(homedir(), "custom/path/to/config"), "utf8");
   });
 });
