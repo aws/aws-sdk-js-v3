@@ -1,5 +1,10 @@
 # Smithy AWS Typescript Codegen Changelog
 
+## 0.34.1 (2025-09-10)
+
+### Bug Fixes
+- Upgraded to smithy-typescript 0.34.1 ([Release Notes](https://github.com/smithy-lang/smithy-typescript/blob/main/CHANGELOG.md#0330-2025-09-10))
+
 ## 0.34.0 (2025-07-30)
 
 ### Features
