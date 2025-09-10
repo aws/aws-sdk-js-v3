@@ -5,13 +5,19 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { TagResourceInput, TagResourceOutput } from "../models/models_0";
+import {
+  DisableDefaultKeyReplicationRegionsInput,
+  DisableDefaultKeyReplicationRegionsOutput,
+} from "../models/models_0";
 import {
   PaymentCryptographyClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../PaymentCryptographyClient";
-import { de_TagResourceCommand, se_TagResourceCommand } from "../protocols/Aws_json1_0";
+import {
+  de_DisableDefaultKeyReplicationRegionsCommand,
+  se_DisableDefaultKeyReplicationRegionsCommand,
+} from "../protocols/Aws_json1_0";
 
 /**
  * @public
@@ -21,43 +27,45 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link TagResourceCommand}.
+ * The input for {@link DisableDefaultKeyReplicationRegionsCommand}.
  */
-export interface TagResourceCommandInput extends TagResourceInput {}
+export interface DisableDefaultKeyReplicationRegionsCommandInput extends DisableDefaultKeyReplicationRegionsInput {}
 /**
  * @public
  *
- * The output of {@link TagResourceCommand}.
+ * The output of {@link DisableDefaultKeyReplicationRegionsCommand}.
  */
-export interface TagResourceCommandOutput extends TagResourceOutput, __MetadataBearer {}
+export interface DisableDefaultKeyReplicationRegionsCommandOutput
+  extends DisableDefaultKeyReplicationRegionsOutput,
+    __MetadataBearer {}
 
 /**
- * <p>Adds or edits tags on an Amazon Web Services Payment Cryptography key.</p> <note> <p>Tagging or untagging an Amazon Web Services Payment Cryptography key can allow or deny permission to the key.</p> </note> <p>Each tag consists of a tag key and a tag value, both of which are case-sensitive strings. The tag value can be an empty (null) string. To add a tag, specify a new tag key and a tag value. To edit a tag, specify an existing tag key and a new tag value. You can also add tags to an Amazon Web Services Payment Cryptography key when you create it with <a href="https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_CreateKey.html">CreateKey</a>.</p> <p> <b>Cross-account use:</b> This operation can't be used across different Amazon Web Services accounts.</p> <p> <b>Related operations:</b> </p> <ul> <li> <p> <a href="https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_ListTagsForResource.html">ListTagsForResource</a> </p> </li> <li> <p> <a href="https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_UntagResource.html">UntagResource</a> </p> </li> </ul>
+ * <p>Disables multi-region key replication settings for the specified Amazon Web Services Regions in your account, preventing new keys from being automatically replicated to those regions.</p> <p>After disabling default replication for specific regions, new keys created in your account will not be automatically replicated to those regions. You can still manually add replication to those regions for individual keys using the AddKeyReplicationRegions operation.</p> <p>This operation does not affect existing keys or their current replication configuration.</p> <p> <b>Cross-account use:</b> This operation can't be used across different Amazon Web Services accounts.</p> <p> <b>Related operations:</b> </p> <ul> <li> <p> <a href="https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_EnableDefaultKeyReplicationRegions.html">EnableDefaultKeyReplicationRegions</a> </p> </li> <li> <p> <a href="https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_GetDefaultKeyReplicationRegions.html">GetDefaultKeyReplicationRegions</a> </p> </li> </ul>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { PaymentCryptographyClient, TagResourceCommand } from "@aws-sdk/client-payment-cryptography"; // ES Modules import
- * // const { PaymentCryptographyClient, TagResourceCommand } = require("@aws-sdk/client-payment-cryptography"); // CommonJS import
+ * import { PaymentCryptographyClient, DisableDefaultKeyReplicationRegionsCommand } from "@aws-sdk/client-payment-cryptography"; // ES Modules import
+ * // const { PaymentCryptographyClient, DisableDefaultKeyReplicationRegionsCommand } = require("@aws-sdk/client-payment-cryptography"); // CommonJS import
  * const client = new PaymentCryptographyClient(config);
- * const input = { // TagResourceInput
- *   ResourceArn: "STRING_VALUE", // required
- *   Tags: [ // Tags // required
- *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
- *     },
+ * const input = { // DisableDefaultKeyReplicationRegionsInput
+ *   ReplicationRegions: [ // Regions // required
+ *     "STRING_VALUE",
  *   ],
  * };
- * const command = new TagResourceCommand(input);
+ * const command = new DisableDefaultKeyReplicationRegionsCommand(input);
  * const response = await client.send(command);
- * // {};
+ * // { // DisableDefaultKeyReplicationRegionsOutput
+ * //   EnabledReplicationRegions: [ // Regions // required
+ * //     "STRING_VALUE",
+ * //   ],
+ * // };
  *
  * ```
  *
- * @param TagResourceCommandInput - {@link TagResourceCommandInput}
- * @returns {@link TagResourceCommandOutput}
- * @see {@link TagResourceCommandInput} for command's `input` shape.
- * @see {@link TagResourceCommandOutput} for command's `response` shape.
+ * @param DisableDefaultKeyReplicationRegionsCommandInput - {@link DisableDefaultKeyReplicationRegionsCommandInput}
+ * @returns {@link DisableDefaultKeyReplicationRegionsCommandOutput}
+ * @see {@link DisableDefaultKeyReplicationRegionsCommandInput} for command's `input` shape.
+ * @see {@link DisableDefaultKeyReplicationRegionsCommandOutput} for command's `response` shape.
  * @see {@link PaymentCryptographyClientResolvedConfig | config} for PaymentCryptographyClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -75,9 +83,6 @@ export interface TagResourceCommandOutput extends TagResourceOutput, __MetadataB
  * @throws {@link ServiceQuotaExceededException} (client fault)
  *  <p>This request would cause a service quota to be exceeded.</p> <p>You have reached the maximum number of keys, aliases, or other resources allowed in your account. Review your current usage and consider deleting unused resources or requesting a quota increase.</p>
  *
- * @throws {@link ServiceUnavailableException} (server fault)
- *  <p>The service cannot complete the request.</p> <p>The Amazon Web Services Payment Cryptography service is temporarily unavailable. This is typically a temporary condition - retry your request after a brief delay.</p>
- *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request was denied due to request throttling.</p> <p>You have exceeded the rate limits for Amazon Web Services Payment Cryptography API calls. Implement exponential backoff and retry logic in your application to handle throttling gracefully.</p>
  *
@@ -90,10 +95,10 @@ export interface TagResourceCommandOutput extends TagResourceOutput, __MetadataB
  *
  * @public
  */
-export class TagResourceCommand extends $Command
+export class DisableDefaultKeyReplicationRegionsCommand extends $Command
   .classBuilder<
-    TagResourceCommandInput,
-    TagResourceCommandOutput,
+    DisableDefaultKeyReplicationRegionsCommandInput,
+    DisableDefaultKeyReplicationRegionsCommandOutput,
     PaymentCryptographyClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -105,21 +110,21 @@ export class TagResourceCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("PaymentCryptographyControlPlane", "TagResource", {})
-  .n("PaymentCryptographyClient", "TagResourceCommand")
+  .s("PaymentCryptographyControlPlane", "DisableDefaultKeyReplicationRegions", {})
+  .n("PaymentCryptographyClient", "DisableDefaultKeyReplicationRegionsCommand")
   .f(void 0, void 0)
-  .ser(se_TagResourceCommand)
-  .de(de_TagResourceCommand)
+  .ser(se_DisableDefaultKeyReplicationRegionsCommand)
+  .de(de_DisableDefaultKeyReplicationRegionsCommand)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: TagResourceInput;
-      output: {};
+      input: DisableDefaultKeyReplicationRegionsInput;
+      output: DisableDefaultKeyReplicationRegionsOutput;
     };
     sdk: {
-      input: TagResourceCommandInput;
-      output: TagResourceCommandOutput;
+      input: DisableDefaultKeyReplicationRegionsCommandInput;
+      output: DisableDefaultKeyReplicationRegionsCommandOutput;
     };
   };
 }

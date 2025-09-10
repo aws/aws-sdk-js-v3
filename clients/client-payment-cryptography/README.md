@@ -205,6 +205,14 @@ see LICENSE for more information.
 
 <details>
 <summary>
+AddKeyReplicationRegions
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/payment-cryptography/command/AddKeyReplicationRegionsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-payment-cryptography/Interface/AddKeyReplicationRegionsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-payment-cryptography/Interface/AddKeyReplicationRegionsCommandOutput/)
+
+</details>
+<details>
+<summary>
 CreateAlias
 </summary>
 
@@ -237,6 +245,22 @@ DeleteKey
 </details>
 <details>
 <summary>
+DisableDefaultKeyReplicationRegions
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/payment-cryptography/command/DisableDefaultKeyReplicationRegionsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-payment-cryptography/Interface/DisableDefaultKeyReplicationRegionsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-payment-cryptography/Interface/DisableDefaultKeyReplicationRegionsCommandOutput/)
+
+</details>
+<details>
+<summary>
+EnableDefaultKeyReplicationRegions
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/payment-cryptography/command/EnableDefaultKeyReplicationRegionsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-payment-cryptography/Interface/EnableDefaultKeyReplicationRegionsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-payment-cryptography/Interface/EnableDefaultKeyReplicationRegionsCommandOutput/)
+
+</details>
+<details>
+<summary>
 ExportKey
 </summary>
 
@@ -249,6 +273,14 @@ GetAlias
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/payment-cryptography/command/GetAliasCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-payment-cryptography/Interface/GetAliasCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-payment-cryptography/Interface/GetAliasCommandOutput/)
+
+</details>
+<details>
+<summary>
+GetDefaultKeyReplicationRegions
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/payment-cryptography/command/GetDefaultKeyReplicationRegionsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-payment-cryptography/Interface/GetDefaultKeyReplicationRegionsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-payment-cryptography/Interface/GetDefaultKeyReplicationRegionsCommandOutput/)
 
 </details>
 <details>
@@ -313,6 +345,14 @@ ListTagsForResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/payment-cryptography/command/ListTagsForResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-payment-cryptography/Interface/ListTagsForResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-payment-cryptography/Interface/ListTagsForResourceCommandOutput/)
+
+</details>
+<details>
+<summary>
+RemoveKeyReplicationRegions
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/payment-cryptography/command/RemoveKeyReplicationRegionsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-payment-cryptography/Interface/RemoveKeyReplicationRegionsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-payment-cryptography/Interface/RemoveKeyReplicationRegionsCommandOutput/)
 
 </details>
 <details>

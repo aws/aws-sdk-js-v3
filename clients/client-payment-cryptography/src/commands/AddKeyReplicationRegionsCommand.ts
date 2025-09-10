@@ -5,13 +5,13 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { RestoreKeyInput, RestoreKeyOutput } from "../models/models_0";
+import { AddKeyReplicationRegionsInput, AddKeyReplicationRegionsOutput } from "../models/models_0";
 import {
   PaymentCryptographyClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../PaymentCryptographyClient";
-import { de_RestoreKeyCommand, se_RestoreKeyCommand } from "../protocols/Aws_json1_0";
+import { de_AddKeyReplicationRegionsCommand, se_AddKeyReplicationRegionsCommand } from "../protocols/Aws_json1_0";
 
 /**
  * @public
@@ -21,30 +21,33 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link RestoreKeyCommand}.
+ * The input for {@link AddKeyReplicationRegionsCommand}.
  */
-export interface RestoreKeyCommandInput extends RestoreKeyInput {}
+export interface AddKeyReplicationRegionsCommandInput extends AddKeyReplicationRegionsInput {}
 /**
  * @public
  *
- * The output of {@link RestoreKeyCommand}.
+ * The output of {@link AddKeyReplicationRegionsCommand}.
  */
-export interface RestoreKeyCommandOutput extends RestoreKeyOutput, __MetadataBearer {}
+export interface AddKeyReplicationRegionsCommandOutput extends AddKeyReplicationRegionsOutput, __MetadataBearer {}
 
 /**
- * <p>Cancels a scheduled key deletion during the waiting period. Use this operation to restore a <code>Key</code> that is scheduled for deletion.</p> <p>During the waiting period, the <code>KeyState</code> is <code>DELETE_PENDING</code> and <code>deletePendingTimestamp</code> contains the date and time after which the <code>Key</code> will be deleted. After <code>Key</code> is restored, the <code>KeyState</code> is <code>CREATE_COMPLETE</code>, and the value for <code>deletePendingTimestamp</code> is removed.</p> <p> <b>Cross-account use:</b> This operation can't be used across different Amazon Web Services accounts.</p> <p> <b>Related operations:</b> </p> <ul> <li> <p> <a href="https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_DeleteKey.html">DeleteKey</a> </p> </li> <li> <p> <a href="https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_StartKeyUsage.html">StartKeyUsage</a> </p> </li> <li> <p> <a href="https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_StopKeyUsage.html">StopKeyUsage</a> </p> </li> </ul>
+ * <p>Adds replication Amazon Web Services Regions to an existing Amazon Web Services Payment Cryptography key, enabling the key to be used for cryptographic operations in additional Amazon Web Services Regions.</p> <p>Multi-region keys allow you to use the same key material across multiple Amazon Web Services Regions, providing lower latency for applications distributed across regions. When you add Replication Regions, Amazon Web Services Payment Cryptography securely replicates the key material to the specified Amazon Web Services Regions.</p> <p>The key must be in an active state to add Replication Regions. You can add multiple regions in a single operation, and the key will be available for use in those regions once replication is complete.</p> <p> <b>Cross-account use:</b> This operation can't be used across different Amazon Web Services accounts.</p> <p> <b>Related operations:</b> </p> <ul> <li> <p> <a href="https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_RemoveKeyReplicationRegions.html">RemoveKeyReplicationRegions</a> </p> </li> <li> <p> <a href="https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_EnableDefaultKeyReplicationRegions.html">EnableDefaultKeyReplicationRegions</a> </p> </li> <li> <p> <a href="https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_GetDefaultKeyReplicationRegions.html">GetDefaultKeyReplicationRegions</a> </p> </li> </ul>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { PaymentCryptographyClient, RestoreKeyCommand } from "@aws-sdk/client-payment-cryptography"; // ES Modules import
- * // const { PaymentCryptographyClient, RestoreKeyCommand } = require("@aws-sdk/client-payment-cryptography"); // CommonJS import
+ * import { PaymentCryptographyClient, AddKeyReplicationRegionsCommand } from "@aws-sdk/client-payment-cryptography"; // ES Modules import
+ * // const { PaymentCryptographyClient, AddKeyReplicationRegionsCommand } = require("@aws-sdk/client-payment-cryptography"); // CommonJS import
  * const client = new PaymentCryptographyClient(config);
- * const input = { // RestoreKeyInput
+ * const input = { // AddKeyReplicationRegionsInput
  *   KeyIdentifier: "STRING_VALUE", // required
+ *   ReplicationRegions: [ // Regions // required
+ *     "STRING_VALUE",
+ *   ],
  * };
- * const command = new RestoreKeyCommand(input);
+ * const command = new AddKeyReplicationRegionsCommand(input);
  * const response = await client.send(command);
- * // { // RestoreKeyOutput
+ * // { // AddKeyReplicationRegionsOutput
  * //   Key: { // Key
  * //     KeyArn: "STRING_VALUE", // required
  * //     KeyAttributes: { // KeyAttributes
@@ -89,10 +92,10 @@ export interface RestoreKeyCommandOutput extends RestoreKeyOutput, __MetadataBea
  *
  * ```
  *
- * @param RestoreKeyCommandInput - {@link RestoreKeyCommandInput}
- * @returns {@link RestoreKeyCommandOutput}
- * @see {@link RestoreKeyCommandInput} for command's `input` shape.
- * @see {@link RestoreKeyCommandOutput} for command's `response` shape.
+ * @param AddKeyReplicationRegionsCommandInput - {@link AddKeyReplicationRegionsCommandInput}
+ * @returns {@link AddKeyReplicationRegionsCommandOutput}
+ * @see {@link AddKeyReplicationRegionsCommandInput} for command's `input` shape.
+ * @see {@link AddKeyReplicationRegionsCommandOutput} for command's `response` shape.
  * @see {@link PaymentCryptographyClientResolvedConfig | config} for PaymentCryptographyClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -110,9 +113,6 @@ export interface RestoreKeyCommandOutput extends RestoreKeyOutput, __MetadataBea
  * @throws {@link ServiceQuotaExceededException} (client fault)
  *  <p>This request would cause a service quota to be exceeded.</p> <p>You have reached the maximum number of keys, aliases, or other resources allowed in your account. Review your current usage and consider deleting unused resources or requesting a quota increase.</p>
  *
- * @throws {@link ServiceUnavailableException} (server fault)
- *  <p>The service cannot complete the request.</p> <p>The Amazon Web Services Payment Cryptography service is temporarily unavailable. This is typically a temporary condition - retry your request after a brief delay.</p>
- *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request was denied due to request throttling.</p> <p>You have exceeded the rate limits for Amazon Web Services Payment Cryptography API calls. Implement exponential backoff and retry logic in your application to handle throttling gracefully.</p>
  *
@@ -125,10 +125,10 @@ export interface RestoreKeyCommandOutput extends RestoreKeyOutput, __MetadataBea
  *
  * @public
  */
-export class RestoreKeyCommand extends $Command
+export class AddKeyReplicationRegionsCommand extends $Command
   .classBuilder<
-    RestoreKeyCommandInput,
-    RestoreKeyCommandOutput,
+    AddKeyReplicationRegionsCommandInput,
+    AddKeyReplicationRegionsCommandOutput,
     PaymentCryptographyClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -140,21 +140,21 @@ export class RestoreKeyCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("PaymentCryptographyControlPlane", "RestoreKey", {})
-  .n("PaymentCryptographyClient", "RestoreKeyCommand")
+  .s("PaymentCryptographyControlPlane", "AddKeyReplicationRegions", {})
+  .n("PaymentCryptographyClient", "AddKeyReplicationRegionsCommand")
   .f(void 0, void 0)
-  .ser(se_RestoreKeyCommand)
-  .de(de_RestoreKeyCommand)
+  .ser(se_AddKeyReplicationRegionsCommand)
+  .de(de_AddKeyReplicationRegionsCommand)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: RestoreKeyInput;
-      output: RestoreKeyOutput;
+      input: AddKeyReplicationRegionsInput;
+      output: AddKeyReplicationRegionsOutput;
     };
     sdk: {
-      input: RestoreKeyCommandInput;
-      output: RestoreKeyCommandOutput;
+      input: AddKeyReplicationRegionsCommandInput;
+      output: AddKeyReplicationRegionsCommandOutput;
     };
   };
 }
