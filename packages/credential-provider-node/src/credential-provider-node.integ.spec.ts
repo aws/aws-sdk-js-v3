@@ -6,61 +6,51 @@ import type { SharedConfigInit, SourceProfileInit } from "@smithy/shared-ini-fil
 import type { HttpRequest, NodeHttpHandlerOptions, ParsedIniData, SharedConfigFiles } from "@smithy/types";
 import { AdaptiveRetryStrategy, StandardRetryStrategy } from "@smithy/util-retry";
 import { PassThrough } from "stream";
+import { afterAll, afterEach, beforeAll, beforeEach, describe, expect, test as it, vi } from "vitest";
 
 import { defaultProvider } from "./defaultProvider";
 
-jest.mock("fs", () => {
-  const actual = jest.requireActual("fs");
-  return {
-    ...actual,
-    readFileSync(file: string, ...options: any[]) {
-      if (file === "token-filepath") {
-        return "token-contents";
-      }
-      return actual.readFileSync(file, ...options);
-    },
-  };
-});
+vi.mock("fs", async () => ({
+  readFileSync: vi.fn((file: string, ...options: any[]) => {
+    if (file === "token-filepath") {
+      return "token-contents";
+    }
+  }),
+}));
 
 let iniProfileData: ParsedIniData = null as any;
-jest.mock("@smithy/shared-ini-file-loader", () => {
-  const actual = jest.requireActual("@smithy/shared-ini-file-loader");
-  return {
-    ...actual,
-    async loadSsoSessionData() {
-      return Object.entries(iniProfileData)
-        .filter(([key]) => key.startsWith("sso-session."))
-        .reduce(
-          (acc, [key, value]) => ({
-            ...acc,
-            [key.split("sso-session.")[1]]: value,
-          }),
-          {}
-        );
-    },
-    async parseKnownFiles(init: SourceProfileInit): Promise<ParsedIniData> {
-      return iniProfileData;
-    },
-    async loadSharedConfigFiles(init: SharedConfigInit): Promise<SharedConfigFiles> {
-      return {
-        configFile: iniProfileData,
-        credentialsFile: iniProfileData,
-      };
-    },
-    async getSSOTokenFromFile() {
-      return {
-        accessToken: "mock_sso_token",
-        expiresAt: "3000-01-01T00:00:00.000Z",
-      };
-    },
-  };
-});
+vi.mock("@smithy/shared-ini-file-loader", () => ({
+  loadSsoSessionData: vi.fn(async () => {
+    return Object.entries(iniProfileData)
+      .filter(([key]) => key.startsWith("sso-session."))
+      .reduce(
+        (acc, [key, value]) => ({
+          ...acc,
+          [key.split("sso-session.")[1]]: value,
+        }),
+        {}
+      );
+  }),
+  parseKnownFiles: vi.fn(async (init: SourceProfileInit): Promise<ParsedIniData> => {
+    return iniProfileData;
+  }),
+  loadSharedConfigFiles: vi.fn(async (init: SharedConfigInit): Promise<SharedConfigFiles> => {
+    return {
+      configFile: iniProfileData,
+      credentialsFile: iniProfileData,
+    };
+  }),
+  getSSOTokenFromFile: vi.fn(async () => {
+    return {
+      accessToken: "mock_sso_token",
+      expiresAt: "3000-01-01T00:00:00.000Z",
+    };
+  }),
+}));
 
 const assumeRoleArns: string[] = [];
 
-jest.mock("@smithy/node-http-handler", () => {
-  const actual = jest.requireActual("@smithy/node-http-handler");
-
+vi.mock("@smithy/node-http-handler", async () => {
   class MockNodeHttpHandler {
     static create(instanceOrOptions?: any) {
       if (typeof instanceOrOptions?.handle === "function") {
@@ -68,7 +58,8 @@ jest.mock("@smithy/node-http-handler", () => {
       }
       return new MockNodeHttpHandler();
     }
-    async handle(request: HttpRequest) {
+
+    handle = vi.fn(async (request: HttpRequest) => {
       const body = new PassThrough({});
 
       if (request.body?.includes("RoleArn=")) {
@@ -165,38 +156,36 @@ jest.mock("@smithy/node-http-handler", () => {
           headers: {},
         }),
       };
-    }
-    updateHttpClientConfig(key: keyof NodeHttpHandlerOptions, value: NodeHttpHandlerOptions[typeof key]): void {}
-    httpHandlerConfigs(): NodeHttpHandlerOptions {
+    });
+
+    updateHttpClientConfig = vi.fn(
+      (key: keyof NodeHttpHandlerOptions, value: NodeHttpHandlerOptions[typeof key]): void => {}
+    );
+
+    httpHandlerConfigs = vi.fn((): NodeHttpHandlerOptions => {
       return null as any;
-    }
+    });
   }
 
   return {
-    ...actual,
     NodeHttpHandler: MockNodeHttpHandler,
   };
 });
 
-jest.mock("child_process", () => {
-  const actual = jest.requireActual("child_process");
-  return {
-    ...actual,
-    exec(bin: string, cb: (err: unknown, data: any) => void, ...args: any[]) {
-      if (bin === "credential-process") {
-        return cb(null, {
-          stdout: JSON.stringify({
-            Version: 1,
-            AccessKeyId: "PROCESS_ACCESS_KEY_ID",
-            SecretAccessKey: "PROCESS_SECRET_ACCESS_KEY",
-            SessionToken: "PROCESS_SESSION_TOKEN",
-          }),
-        });
-      }
-      return actual.exec(bin, cb, ...args);
-    },
-  };
-});
+vi.mock("child_process", () => ({
+  exec: vi.fn((bin: string, cb: (err: unknown, data: any) => void, ...args: any[]) => {
+    if (bin === "credential-process") {
+      return cb(null, {
+        stdout: JSON.stringify({
+          Version: 1,
+          AccessKeyId: "PROCESS_ACCESS_KEY_ID",
+          SecretAccessKey: "PROCESS_SECRET_ACCESS_KEY",
+          SessionToken: "PROCESS_SESSION_TOKEN",
+        }),
+      });
+    }
+  }),
+}));
 
 describe("credential-provider-node integration test", () => {
   let sts: STS = null as any;
@@ -271,8 +260,8 @@ describe("credential-provider-node integration test", () => {
   });
 
   afterAll(async () => {
-    jest.clearAllMocks();
-    jest.clearAllTimers();
+    vi.clearAllMocks();
+    vi.clearAllTimers();
   });
 
   describe("fromEnv", () => {
@@ -570,7 +559,7 @@ describe("credential-provider-node integration test", () => {
       iniProfileData.credential_source_profile = {
         credential_source: "EcsContainer",
       };
-      const spy = jest.spyOn(credentialProviderHttp, "fromHttp");
+      const spy = vi.spyOn(credentialProviderHttp, "fromHttp");
       sts = new STS({
         region: "us-west-2",
         credentials: defaultProvider({
@@ -658,7 +647,7 @@ describe("credential-provider-node integration test", () => {
         role_arn: "ROLE_ARN_1",
       };
 
-      const spy = jest.spyOn(credentialProviderHttp, "fromHttp");
+      const spy = vi.spyOn(credentialProviderHttp, "fromHttp");
       sts = new STS({
         region: "us-west-2",
         credentials: defaultProvider({
@@ -710,7 +699,7 @@ describe("credential-provider-node integration test", () => {
         // This scenario tests the option of having no role_arn in this step of the chain.
       };
 
-      const spy = jest.spyOn(credentialProviderHttp, "fromHttp");
+      const spy = vi.spyOn(credentialProviderHttp, "fromHttp");
       sts = new STS({
         region: "us-west-2",
         credentials: defaultProvider({
@@ -805,7 +794,7 @@ describe("credential-provider-node integration test", () => {
       });
     });
 
-    xit("should use instance metadata unless IMDS is disabled", async () => {
+    it.skip("should use instance metadata unless IMDS is disabled", async () => {
       // TODO
     });
   });
