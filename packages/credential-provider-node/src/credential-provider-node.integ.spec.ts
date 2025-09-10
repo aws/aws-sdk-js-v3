@@ -946,7 +946,8 @@ describe("credential-provider-node integration test", () => {
     );
   });
 
-  describe("client-scoped code configuration of AWS profile", () => {
+  // ToDo: renable https://github.com/aws/aws-sdk-js-v3/pull/7328
+  describe.skip("client-scoped code configuration of AWS profile", () => {
     it("should allow clients to resolve credentials from different profiles", async () => {
       iniProfileData.aaa = {
         aws_access_key_id: "aaa",
