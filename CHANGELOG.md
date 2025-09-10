@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.886.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.885.0...v3.886.0) (2025-09-10)
+
+
+### Features
+
+* **client-networkflowmonitor:** Added new enum value (AWS::Region) for type field under MonitorLocalResource and MonitorRemoteResource. Workload Insights and Monitor top contributors queries now support a new DestinationCategory (INTER_REGION). ([0838059](https://github.com/aws/aws-sdk-js-v3/commit/083805955da6cc805d01d5113cdcf2215609da29))
+* **client-payment-cryptography:** AWS Payment Cryptography Service now supports Multi-Region key replication. Customers can choose to automatically distribute keys across AWS Regions. ([6e51152](https://github.com/aws/aws-sdk-js-v3/commit/6e51152f33720c97b29986920feb7304db5c77ed))
+* **clients:** update client endpoints as of 2025-09-10 ([dc8054d](https://github.com/aws/aws-sdk-js-v3/commit/dc8054d1c66aa7459a04073f9db57a58b301f570))
+
+
+
+
+
 # [3.885.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.884.0...v3.885.0) (2025-09-09)
 
 

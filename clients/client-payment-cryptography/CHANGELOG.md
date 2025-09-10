@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.886.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.885.0...v3.886.0) (2025-09-10)
+
+
+### Features
+
+* **client-payment-cryptography:** AWS Payment Cryptography Service now supports Multi-Region key replication. Customers can choose to automatically distribute keys across AWS Regions. ([6e51152](https://github.com/aws/aws-sdk-js-v3/commit/6e51152f33720c97b29986920feb7304db5c77ed))
+
+
+
+
+
 # [3.883.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.882.0...v3.883.0) (2025-09-05)
 
 **Note:** Version bump only for package @aws-sdk/client-payment-cryptography

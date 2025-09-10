@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.886.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.885.0...v3.886.0) (2025-09-10)
+
+
+### Features
+
+* **client-networkflowmonitor:** Added new enum value (AWS::Region) for type field under MonitorLocalResource and MonitorRemoteResource. Workload Insights and Monitor top contributors queries now support a new DestinationCategory (INTER_REGION). ([0838059](https://github.com/aws/aws-sdk-js-v3/commit/083805955da6cc805d01d5113cdcf2215609da29))
+
+
+
+
+
 # [3.883.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.882.0...v3.883.0) (2025-09-05)
 
 **Note:** Version bump only for package @aws-sdk/client-networkflowmonitor
