@@ -53,7 +53,7 @@ export interface StartQueryWorkloadInsightsTopContributorsCommandOutput
  *   startTime: new Date("TIMESTAMP"), // required
  *   endTime: new Date("TIMESTAMP"), // required
  *   metricName: "TIMEOUTS" || "RETRANSMISSIONS" || "DATA_TRANSFERRED", // required
- *   destinationCategory: "INTRA_AZ" || "INTER_AZ" || "INTER_VPC" || "UNCLASSIFIED" || "AMAZON_S3" || "AMAZON_DYNAMODB", // required
+ *   destinationCategory: "INTRA_AZ" || "INTER_AZ" || "INTER_VPC" || "UNCLASSIFIED" || "AMAZON_S3" || "AMAZON_DYNAMODB" || "INTER_REGION", // required
  *   limit: Number("int"),
  * };
  * const command = new StartQueryWorkloadInsightsTopContributorsCommand(input);

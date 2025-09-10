@@ -43,25 +43,25 @@ export interface UpdateMonitorCommandOutput extends UpdateMonitorOutput, __Metad
  *   monitorName: "STRING_VALUE", // required
  *   localResourcesToAdd: [ // MonitorLocalResources
  *     { // MonitorLocalResource
- *       type: "AWS::EC2::VPC" || "AWS::AvailabilityZone" || "AWS::EC2::Subnet", // required
+ *       type: "AWS::EC2::VPC" || "AWS::AvailabilityZone" || "AWS::EC2::Subnet" || "AWS::Region", // required
  *       identifier: "STRING_VALUE", // required
  *     },
  *   ],
  *   localResourcesToRemove: [
  *     {
- *       type: "AWS::EC2::VPC" || "AWS::AvailabilityZone" || "AWS::EC2::Subnet", // required
+ *       type: "AWS::EC2::VPC" || "AWS::AvailabilityZone" || "AWS::EC2::Subnet" || "AWS::Region", // required
  *       identifier: "STRING_VALUE", // required
  *     },
  *   ],
  *   remoteResourcesToAdd: [ // MonitorRemoteResources
  *     { // MonitorRemoteResource
- *       type: "AWS::EC2::VPC" || "AWS::AvailabilityZone" || "AWS::EC2::Subnet" || "AWS::AWSService", // required
+ *       type: "AWS::EC2::VPC" || "AWS::AvailabilityZone" || "AWS::EC2::Subnet" || "AWS::AWSService" || "AWS::Region", // required
  *       identifier: "STRING_VALUE", // required
  *     },
  *   ],
  *   remoteResourcesToRemove: [
  *     {
- *       type: "AWS::EC2::VPC" || "AWS::AvailabilityZone" || "AWS::EC2::Subnet" || "AWS::AWSService", // required
+ *       type: "AWS::EC2::VPC" || "AWS::AvailabilityZone" || "AWS::EC2::Subnet" || "AWS::AWSService" || "AWS::Region", // required
  *       identifier: "STRING_VALUE", // required
  *     },
  *   ],
@@ -75,13 +75,13 @@ export interface UpdateMonitorCommandOutput extends UpdateMonitorOutput, __Metad
  * //   monitorStatus: "PENDING" || "ACTIVE" || "INACTIVE" || "ERROR" || "DELETING", // required
  * //   localResources: [ // MonitorLocalResources // required
  * //     { // MonitorLocalResource
- * //       type: "AWS::EC2::VPC" || "AWS::AvailabilityZone" || "AWS::EC2::Subnet", // required
+ * //       type: "AWS::EC2::VPC" || "AWS::AvailabilityZone" || "AWS::EC2::Subnet" || "AWS::Region", // required
  * //       identifier: "STRING_VALUE", // required
  * //     },
  * //   ],
  * //   remoteResources: [ // MonitorRemoteResources // required
  * //     { // MonitorRemoteResource
- * //       type: "AWS::EC2::VPC" || "AWS::AvailabilityZone" || "AWS::EC2::Subnet" || "AWS::AWSService", // required
+ * //       type: "AWS::EC2::VPC" || "AWS::AvailabilityZone" || "AWS::EC2::Subnet" || "AWS::AWSService" || "AWS::Region", // required
  * //       identifier: "STRING_VALUE", // required
  * //     },
  * //   ],

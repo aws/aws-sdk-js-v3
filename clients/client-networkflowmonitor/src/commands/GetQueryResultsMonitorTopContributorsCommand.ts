@@ -67,7 +67,7 @@ export interface GetQueryResultsMonitorTopContributorsCommandOutput
  * //       localAz: "STRING_VALUE",
  * //       localSubnetId: "STRING_VALUE",
  * //       targetPort: Number("int"),
- * //       destinationCategory: "INTRA_AZ" || "INTER_AZ" || "INTER_VPC" || "UNCLASSIFIED" || "AMAZON_S3" || "AMAZON_DYNAMODB",
+ * //       destinationCategory: "INTRA_AZ" || "INTER_AZ" || "INTER_VPC" || "UNCLASSIFIED" || "AMAZON_S3" || "AMAZON_DYNAMODB" || "INTER_REGION",
  * //       remoteVpcId: "STRING_VALUE",
  * //       remoteRegion: "STRING_VALUE",
  * //       remoteAz: "STRING_VALUE",
