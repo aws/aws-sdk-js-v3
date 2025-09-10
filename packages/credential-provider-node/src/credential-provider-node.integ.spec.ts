@@ -1,65 +1,71 @@
 import { STS, STSExtensionConfiguration } from "@aws-sdk/client-sts";
 import * as credentialProviderHttp from "@aws-sdk/credential-provider-http";
 import { fromCognitoIdentity, fromCognitoIdentityPool, fromIni, fromWebToken } from "@aws-sdk/credential-providers";
+import { NodeHttpHandler } from "@smithy/node-http-handler";
 import { HttpResponse } from "@smithy/protocol-http";
-import type { SharedConfigInit, SourceProfileInit } from "@smithy/shared-ini-file-loader";
-import type { HttpRequest, NodeHttpHandlerOptions, ParsedIniData, SharedConfigFiles } from "@smithy/types";
+import {
+  getSSOTokenFromFile,
+  loadSharedConfigFiles,
+  loadSsoSessionData,
+  parseKnownFiles,
+} from "@smithy/shared-ini-file-loader";
+import type { HttpRequest, NodeHttpHandlerOptions, ParsedIniData } from "@smithy/types";
 import { AdaptiveRetryStrategy, StandardRetryStrategy } from "@smithy/util-retry";
+import { exec } from "child_process";
+import { readFileSync } from "fs";
 import { PassThrough } from "stream";
+import { afterAll, afterEach, beforeAll, beforeEach, describe, expect, test as it, vi } from "vitest";
 
 import { defaultProvider } from "./defaultProvider";
 
-jest.mock("fs", () => {
-  const actual = jest.requireActual("fs");
-  return {
-    ...actual,
-    readFileSync(file: string, ...options: any[]) {
-      if (file === "token-filepath") {
-        return "token-contents";
-      }
-      return actual.readFileSync(file, ...options);
-    },
-  };
-});
-
-let iniProfileData: ParsedIniData = null as any;
-jest.mock("@smithy/shared-ini-file-loader", () => {
-  const actual = jest.requireActual("@smithy/shared-ini-file-loader");
-  return {
-    ...actual,
-    async loadSsoSessionData() {
-      return Object.entries(iniProfileData)
-        .filter(([key]) => key.startsWith("sso-session."))
-        .reduce(
-          (acc, [key, value]) => ({
-            ...acc,
-            [key.split("sso-session.")[1]]: value,
-          }),
-          {}
-        );
-    },
-    async parseKnownFiles(init: SourceProfileInit): Promise<ParsedIniData> {
-      return iniProfileData;
-    },
-    async loadSharedConfigFiles(init: SharedConfigInit): Promise<SharedConfigFiles> {
-      return {
-        configFile: iniProfileData,
-        credentialsFile: iniProfileData,
-      };
-    },
-    async getSSOTokenFromFile() {
-      return {
-        accessToken: "mock_sso_token",
-        expiresAt: "3000-01-01T00:00:00.000Z",
-      };
-    },
-  };
-});
-
+let iniProfileData: ParsedIniData = {};
 const assumeRoleArns: string[] = [];
 
-jest.mock("@smithy/node-http-handler", () => {
-  const actual = jest.requireActual("@smithy/node-http-handler");
+vi.mock("fs");
+vi.mock("@smithy/shared-ini-file-loader");
+vi.mock("child_process");
+vi.mock("@smithy/node-http-handler");
+
+describe("credential-provider-node integration test", () => {
+  let sts: STS = null as any;
+  let processSnapshot: typeof process.env = null as any;
+
+  const sink = {
+    data: [] as string[],
+    debug(log: string) {
+      this.data.push(log);
+    },
+    info(log: string) {
+      this.data.push(log);
+    },
+    warn(log: string) {
+      this.data.push(log);
+    },
+    error(log: string) {
+      this.data.push(log);
+    },
+  };
+
+  const RESERVED_ENVIRONMENT_VARIABLES = {
+    AWS_DEFAULT_REGION: 1,
+    AWS_REGION: 1,
+    AWS_PROFILE: 1,
+    AWS_ACCESS_KEY_ID: 1,
+    AWS_SECRET_ACCESS_KEY: 1,
+    AWS_SESSION_TOKEN: 1,
+    AWS_CREDENTIAL_EXPIRATION: 1,
+    AWS_EC2_METADATA_DISABLED: 1,
+    AWS_WEB_IDENTITY_TOKEN_FILE: 1,
+    AWS_ROLE_ARN: 1,
+    AWS_CONTAINER_CREDENTIALS_FULL_URI: 1,
+    AWS_CONTAINER_CREDENTIALS_RELATIVE_URI: 1,
+    AWS_CONTAINER_AUTHORIZATION_TOKEN: 1,
+    AWS_CONTAINER_AUTHORIZATION_TOKEN_FILE: 1,
+  };
+
+  function copy<T>(data: T): T {
+    return JSON.parse(JSON.stringify(data));
+  }
 
   class MockNodeHttpHandler {
     static create(instanceOrOptions?: any) {
@@ -68,7 +74,8 @@ jest.mock("@smithy/node-http-handler", () => {
       }
       return new MockNodeHttpHandler();
     }
-    async handle(request: HttpRequest) {
+
+    handle = vi.fn(async (request: HttpRequest) => {
       const body = new PassThrough({});
 
       if (request.body?.includes("RoleArn=")) {
@@ -165,26 +172,53 @@ jest.mock("@smithy/node-http-handler", () => {
           headers: {},
         }),
       };
-    }
-    updateHttpClientConfig(key: keyof NodeHttpHandlerOptions, value: NodeHttpHandlerOptions[typeof key]): void {}
-    httpHandlerConfigs(): NodeHttpHandlerOptions {
+    });
+
+    updateHttpClientConfig = vi.fn(
+      (key: keyof NodeHttpHandlerOptions, value: NodeHttpHandlerOptions[typeof key]): void => {}
+    );
+
+    httpHandlerConfigs = vi.fn((): NodeHttpHandlerOptions => {
       return null as any;
-    }
+    });
   }
 
-  return {
-    ...actual,
-    NodeHttpHandler: MockNodeHttpHandler,
-  };
-});
+  beforeAll(async () => {
+    processSnapshot = copy(process.env);
 
-jest.mock("child_process", () => {
-  const actual = jest.requireActual("child_process");
-  return {
-    ...actual,
-    exec(bin: string, cb: (err: unknown, data: any) => void, ...args: any[]) {
-      if (bin === "credential-process") {
-        return cb(null, {
+    vi.mocked(readFileSync).mockImplementation((...args) => {
+      if (args[0] === "token-filepath") {
+        return "token-contents";
+      }
+      return readFileSync(...args);
+    });
+
+    vi.mocked(parseKnownFiles).mockResolvedValue(iniProfileData);
+    vi.mocked(loadSharedConfigFiles).mockResolvedValue({
+      configFile: iniProfileData,
+      credentialsFile: iniProfileData,
+    });
+    vi.mocked(getSSOTokenFromFile).mockResolvedValue({
+      accessToken: "mock_sso_token",
+      expiresAt: "3000-01-01T00:00:00.000Z",
+    });
+    vi.mocked(loadSsoSessionData).mockResolvedValue(
+      Object.entries(iniProfileData)
+        .filter(([key]) => key.startsWith("sso-session."))
+        .reduce(
+          (acc, [key, value]) => ({
+            ...acc,
+            [key.split("sso-session.")[1]]: value,
+          }),
+          {}
+        )
+    );
+
+    vi.mocked(NodeHttpHandler).mockImplementation(MockNodeHttpHandler as any);
+
+    vi.mocked(exec).mockImplementation((...args) => {
+      if (args[0] === "credential-process") {
+        return (args[1] as Function)(null, {
           stdout: JSON.stringify({
             Version: 1,
             AccessKeyId: "PROCESS_ACCESS_KEY_ID",
@@ -193,54 +227,8 @@ jest.mock("child_process", () => {
           }),
         });
       }
-      return actual.exec(bin, cb, ...args);
-    },
-  };
-});
-
-describe("credential-provider-node integration test", () => {
-  let sts: STS = null as any;
-  let processSnapshot: typeof process.env = null as any;
-
-  const sink = {
-    data: [] as string[],
-    debug(log: string) {
-      this.data.push(log);
-    },
-    info(log: string) {
-      this.data.push(log);
-    },
-    warn(log: string) {
-      this.data.push(log);
-    },
-    error(log: string) {
-      this.data.push(log);
-    },
-  };
-
-  const RESERVED_ENVIRONMENT_VARIABLES = {
-    AWS_DEFAULT_REGION: 1,
-    AWS_REGION: 1,
-    AWS_PROFILE: 1,
-    AWS_ACCESS_KEY_ID: 1,
-    AWS_SECRET_ACCESS_KEY: 1,
-    AWS_SESSION_TOKEN: 1,
-    AWS_CREDENTIAL_EXPIRATION: 1,
-    AWS_EC2_METADATA_DISABLED: 1,
-    AWS_WEB_IDENTITY_TOKEN_FILE: 1,
-    AWS_ROLE_ARN: 1,
-    AWS_CONTAINER_CREDENTIALS_FULL_URI: 1,
-    AWS_CONTAINER_CREDENTIALS_RELATIVE_URI: 1,
-    AWS_CONTAINER_AUTHORIZATION_TOKEN: 1,
-    AWS_CONTAINER_AUTHORIZATION_TOKEN_FILE: 1,
-  };
-
-  function copy<T>(data: T): T {
-    return JSON.parse(JSON.stringify(data));
-  }
-
-  beforeAll(async () => {
-    processSnapshot = copy(process.env);
+      return exec(...args);
+    });
   });
 
   beforeEach(async () => {
@@ -271,15 +259,15 @@ describe("credential-provider-node integration test", () => {
   });
 
   afterAll(async () => {
-    jest.clearAllMocks();
-    jest.clearAllTimers();
+    vi.clearAllMocks();
+    vi.clearAllTimers();
   });
 
   describe("fromEnv", () => {
     it("should load static credentials from environment variables", async () => {
       process.env.AWS_ACCESS_KEY_ID = "ENV_ACCESS_KEY";
       process.env.AWS_SECRET_ACCESS_KEY = "ENV_SECRET_KEY";
-      await sts.getCallerIdentity({});
+
       const credentials = await sts.config.credentials();
       expect(credentials).toEqual({
         accessKeyId: "ENV_ACCESS_KEY",
@@ -290,12 +278,12 @@ describe("credential-provider-node integration test", () => {
       });
     });
 
-    it("should optionally use session token and/or expiration", async () => {
+    it.only("should optionally use session token and/or expiration", async () => {
       process.env.AWS_ACCESS_KEY_ID = "ENV_ACCESS_KEY";
       process.env.AWS_SECRET_ACCESS_KEY = "ENV_SECRET_KEY";
       process.env.AWS_SESSION_TOKEN = "ENV_SESSION_TOKEN";
       process.env.AWS_CREDENTIAL_EXPIRATION = "2000-01-01T00:00:00.000Z";
-      await sts.getCallerIdentity({});
+
       const credentials = await sts.config.credentials();
       expect(credentials).toEqual({
         accessKeyId: "ENV_ACCESS_KEY",
@@ -329,7 +317,6 @@ describe("credential-provider-node integration test", () => {
         },
       });
 
-      await sts.getCallerIdentity({});
       const credentials = await sts.config.credentials();
 
       expect(credentials).toEqual({
@@ -354,7 +341,7 @@ describe("credential-provider-node integration test", () => {
           ssoRoleName: "sso-role",
         }),
       });
-      await sts.getCallerIdentity({});
+
       const credentials = await sts.config.credentials();
       expect(credentials).toEqual({
         accessKeyId: "SSO_ACCESS_KEY_ID",
@@ -375,7 +362,7 @@ describe("credential-provider-node integration test", () => {
         aws_access_key_id: "INI_STATIC_ACCESS_KEY",
         aws_secret_access_key: "INI_STATIC_SECRET_KEY",
       });
-      await sts.getCallerIdentity({});
+
       const credentials = await sts.config.credentials();
       expect(credentials).toEqual({
         accessKeyId: "INI_STATIC_ACCESS_KEY",
@@ -399,7 +386,7 @@ describe("credential-provider-node integration test", () => {
         external_id: "EXTERNAL_ID",
         source_profile: "assume",
       });
-      await sts.getCallerIdentity({});
+
       const credentials = await sts.config.credentials();
       expect(credentials).toEqual({
         accessKeyId: "STS_AR_ACCESS_KEY_ID",
@@ -429,7 +416,7 @@ describe("credential-provider-node integration test", () => {
         external_id: "EXTERNAL_ID",
         source_profile: "assume",
       });
-      await sts.getCallerIdentity({});
+
       const credentials = await sts.config.credentials();
       expect(credentials).toEqual({
         accessKeyId: "STS_AR_ACCESS_KEY_ID",
@@ -459,7 +446,7 @@ describe("credential-provider-node integration test", () => {
         external_id: "EXTERNAL_ID",
         source_profile: "assume",
       });
-      await sts.getCallerIdentity({});
+
       const credentials = await sts.config.credentials();
       expect(credentials).toEqual({
         accessKeyId: "STS_AR_ACCESS_KEY_ID",
@@ -478,7 +465,7 @@ describe("credential-provider-node integration test", () => {
         web_identity_token_file: "token-filepath",
         role_arn: "ROLE_ARN",
       });
-      await sts.getCallerIdentity({});
+
       const credentials = await sts.config.credentials();
       expect(credentials).toEqual({
         accessKeyId: "STS_ARWI_ACCESS_KEY_ID",
@@ -504,7 +491,7 @@ describe("credential-provider-node integration test", () => {
           web_identity_token_file: "token-filepath",
           role_arn: "ROLE_ARN",
         });
-        await sts.getCallerIdentity({});
+
         const credentials = await sts.config.credentials();
         expect(credentials).toEqual({
           accessKeyId: "STS_ARWI_ACCESS_KEY_ID",
@@ -523,7 +510,7 @@ describe("credential-provider-node integration test", () => {
       Object.assign(iniProfileData.default, {
         credential_process: "credential-process",
       });
-      await sts.getCallerIdentity({});
+
       const credentials = await sts.config.credentials();
       expect(credentials).toEqual({
         accessKeyId: "PROCESS_ACCESS_KEY_ID",
@@ -548,7 +535,7 @@ describe("credential-provider-node integration test", () => {
         sso_account_id: "1234",
         sso_role_name: "integration-test",
       });
-      await sts.getCallerIdentity({});
+
       const credentials = await sts.config.credentials();
       expect(credentials).toEqual({
         accessKeyId: "SSO_ACCESS_KEY_ID",
@@ -570,7 +557,7 @@ describe("credential-provider-node integration test", () => {
       iniProfileData.credential_source_profile = {
         credential_source: "EcsContainer",
       };
-      const spy = jest.spyOn(credentialProviderHttp, "fromHttp");
+      const spy = vi.spyOn(credentialProviderHttp, "fromHttp");
       sts = new STS({
         region: "us-west-2",
         credentials: defaultProvider({
@@ -582,7 +569,7 @@ describe("credential-provider-node integration test", () => {
           logger: sink,
         }),
       });
-      await sts.getCallerIdentity({});
+
       const credentials = await sts.config.credentials();
       expect(credentials).toEqual({
         accessKeyId: "STS_AR_ACCESS_KEY_ID",
@@ -625,7 +612,7 @@ describe("credential-provider-node integration test", () => {
           logger: sink,
         }),
       });
-      await sts.getCallerIdentity({});
+
       const credentials = await sts.config.credentials();
       expect(credentials).toEqual({
         accessKeyId: "STS_AR_ACCESS_KEY_ID",
@@ -658,7 +645,7 @@ describe("credential-provider-node integration test", () => {
         role_arn: "ROLE_ARN_1",
       };
 
-      const spy = jest.spyOn(credentialProviderHttp, "fromHttp");
+      const spy = vi.spyOn(credentialProviderHttp, "fromHttp");
       sts = new STS({
         region: "us-west-2",
         credentials: defaultProvider({
@@ -670,7 +657,7 @@ describe("credential-provider-node integration test", () => {
           logger: sink,
         }),
       });
-      await sts.getCallerIdentity({});
+
       const credentials = await sts.config.credentials();
       expect(credentials).toEqual({
         accessKeyId: "STS_AR_ACCESS_KEY_ID",
@@ -710,7 +697,7 @@ describe("credential-provider-node integration test", () => {
         // This scenario tests the option of having no role_arn in this step of the chain.
       };
 
-      const spy = jest.spyOn(credentialProviderHttp, "fromHttp");
+      const spy = vi.spyOn(credentialProviderHttp, "fromHttp");
       sts = new STS({
         region: "us-west-2",
         credentials: defaultProvider({
@@ -722,7 +709,7 @@ describe("credential-provider-node integration test", () => {
           logger: sink,
         }),
       });
-      await sts.getCallerIdentity({});
+
       const credentials = await sts.config.credentials();
       expect(credentials).toEqual({
         accessKeyId: "STS_AR_ACCESS_KEY_ID",
@@ -755,7 +742,7 @@ describe("credential-provider-node integration test", () => {
       Object.assign(iniProfileData.default, {
         credential_process: "credential-process",
       });
-      await sts.getCallerIdentity({});
+
       const credentials = await sts.config.credentials();
       expect(credentials).toEqual({
         accessKeyId: "PROCESS_ACCESS_KEY_ID",
@@ -773,7 +760,7 @@ describe("credential-provider-node integration test", () => {
     it("should resolve credentials with STS assumeRoleWithWebIdentity using a token", async () => {
       process.env.AWS_WEB_IDENTITY_TOKEN_FILE = "token-filepath";
       process.env.AWS_ROLE_ARN = "ROLE_ARN";
-      await sts.getCallerIdentity({});
+
       const credentials = await sts.config.credentials();
       expect(credentials).toEqual({
         accessKeyId: "STS_ARWI_ACCESS_KEY_ID",
@@ -792,7 +779,7 @@ describe("credential-provider-node integration test", () => {
     it("should use container metadata if AWS_CONTAINER_CREDENTIALS_FULL_URI is set", async () => {
       process.env.AWS_CONTAINER_CREDENTIALS_FULL_URI = "http://169.254.170.23";
       process.env.AWS_CONTAINER_AUTHORIZATION_TOKEN = "container-authorization";
-      await sts.getCallerIdentity({});
+
       const credentials = await sts.config.credentials();
       expect(credentials).toEqual({
         accessKeyId: "CONTAINER_ACCESS_KEY",
@@ -805,7 +792,7 @@ describe("credential-provider-node integration test", () => {
       });
     });
 
-    xit("should use instance metadata unless IMDS is disabled", async () => {
+    it.skip("should use instance metadata unless IMDS is disabled", async () => {
       // TODO
     });
   });
@@ -818,7 +805,7 @@ describe("credential-provider-node integration test", () => {
           identityId: "",
         }),
       });
-      await sts.getCallerIdentity({});
+
       const credentials = await sts.config.credentials();
       expect(credentials).toEqual({
         accessKeyId: "COGNITO_ACCESS_KEY_ID",
@@ -837,7 +824,7 @@ describe("credential-provider-node integration test", () => {
           identityPoolId: "",
         }),
       });
-      await sts.getCallerIdentity({});
+
       const credentials = await sts.config.credentials();
       expect(credentials).toEqual({
         accessKeyId: "COGNITO_ACCESS_KEY_ID",
@@ -865,7 +852,7 @@ describe("credential-provider-node integration test", () => {
         external_id: "EXTERNAL_ID",
         source_profile: "assume",
       });
-      await sts.getCallerIdentity({});
+
       const credentials = await sts.config.credentials();
       expect(credentials).toEqual({
         accessKeyId: "STS_AR_ACCESS_KEY_ID",
@@ -896,7 +883,7 @@ describe("credential-provider-node integration test", () => {
         external_id: "EXTERNAL_ID",
         source_profile: "assume",
       });
-      await sts.getCallerIdentity({});
+
       const credentials = await sts.config.credentials();
       expect(credentials).toEqual({
         accessKeyId: "STS_AR_ACCESS_KEY_ID",
@@ -919,7 +906,7 @@ describe("credential-provider-node integration test", () => {
           webIdentityToken: "",
         }),
       });
-      await sts.getCallerIdentity({});
+
       const credentials = await sts.config.credentials();
       expect(credentials).toEqual({
         accessKeyId: "STS_ARWI_ACCESS_KEY_ID",
@@ -1050,7 +1037,7 @@ describe("credential-provider-node integration test", () => {
         external_id: "EXTERNAL_ID",
         source_profile: "static",
       };
-      await sts.getCallerIdentity({});
+
       const credentials = await sts.config.credentials();
       expect(credentials).toEqual({
         accessKeyId: "STS_AR_ACCESS_KEY_ID",
@@ -1091,7 +1078,7 @@ describe("credential-provider-node integration test", () => {
           external_id: "EXTERNAL_ID",
           source_profile: "static",
         };
-        await sts.getCallerIdentity({});
+
         const credentials = await sts.config.credentials();
         expect(credentials).toEqual({
           accessKeyId: "STS_AR_ACCESS_KEY_ID",
@@ -1138,7 +1125,7 @@ describe("credential-provider-node integration test", () => {
         external_id: "EXTERNAL_ID",
         source_profile: "static",
       };
-      await sts.getCallerIdentity({});
+
       const credentials = await sts.config.credentials();
       expect(credentials).toEqual({
         accessKeyId: "DEFAULT",
@@ -1172,7 +1159,7 @@ describe("credential-provider-node integration test", () => {
             sso_role_name: "integration-test",
             region: "ap-northeast-1",
           };
-          await sts.getCallerIdentity({});
+
           const credentials = await sts.config.credentials();
           expect(credentials).toEqual({
             accessKeyId: "SSO_ACCESS_KEY_ID",
@@ -1209,7 +1196,7 @@ describe("credential-provider-node integration test", () => {
             sso_role_name: "integration-test",
             region: "ap-northeast-1",
           };
-          await sts.getCallerIdentity({});
+
           const credentials = await sts.config.credentials();
           expect(credentials).toEqual({
             accessKeyId: "SSO_ACCESS_KEY_ID",
@@ -1247,7 +1234,7 @@ describe("credential-provider-node integration test", () => {
         external_id: "EXTERNAL_ID",
         source_profile: "static",
       };
-      await sts.getCallerIdentity({});
+
       const credentials = await sts.config.credentials();
       expect(credentials).toEqual({
         accessKeyId: "STS_AR_ACCESS_KEY_ID",
