@@ -22,7 +22,8 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
-      
+      - uses: gradle/actions/wrapper-validation@v4
+
       - name: Set up JDK ${{ matrix.java }}
         uses: actions/setup-java@v4
         with:
