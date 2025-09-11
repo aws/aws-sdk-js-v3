@@ -79,7 +79,10 @@ tasks.register("set-aws-sdk-versions") {
 sourceSets {
     main {
         resources {
-            setSrcDirs(listOf("src/main/resources", "$buildDir/generated/resources"))
+            setSrcDirs(listOf(
+                "src/main/resources",
+                layout.buildDirectory.dir("generated/resources").get().asFile
+            ))
         }
     }
 }
