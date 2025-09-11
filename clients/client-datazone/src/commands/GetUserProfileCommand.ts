@@ -50,6 +50,7 @@ export interface GetUserProfileCommandOutput extends GetUserProfileOutput, __Met
  * //   details: { // UserProfileDetails Union: only one key present
  * //     iam: { // IamUserProfileDetails
  * //       arn: "STRING_VALUE",
+ * //       principalId: "STRING_VALUE",
  * //     },
  * //     sso: { // SsoUserProfileDetails
  * //       username: "STRING_VALUE",

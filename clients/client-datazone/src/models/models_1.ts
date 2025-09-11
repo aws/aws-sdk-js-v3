@@ -1176,6 +1176,12 @@ export interface IamUserProfileDetails {
    * @public
    */
   arn?: string | undefined;
+
+  /**
+   * <p>Principal ID of the IAM user.</p>
+   * @public
+   */
+  principalId?: string | undefined;
 }
 
 /**

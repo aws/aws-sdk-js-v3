@@ -59,6 +59,7 @@ export interface SearchUserProfilesCommandOutput extends SearchUserProfilesOutpu
  * //       details: { // UserProfileDetails Union: only one key present
  * //         iam: { // IamUserProfileDetails
  * //           arn: "STRING_VALUE",
+ * //           principalId: "STRING_VALUE",
  * //         },
  * //         sso: { // SsoUserProfileDetails
  * //           username: "STRING_VALUE",
