@@ -100,7 +100,7 @@ tasks.register("generate-smithy-build") {
             val version = service.version.lowercase();
 
             val clientName = sdkId.split("-").toTypedArray()
-                    .map { it.capitalize() }
+                    .map { it.replaceFirstChar { it.uppercase() } }
                     .joinToString(separator = " ")
             var manifestOverwrites = Node.parse(
                     File("smithy-aws-typescript-codegen/src/main/resources/software/amazon/smithy/aws/typescript/codegen/package.json.template")
