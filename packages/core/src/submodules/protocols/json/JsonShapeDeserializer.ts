@@ -108,6 +108,10 @@ export class JsonShapeDeserializer extends SerdeContextConfig implements ShapeDe
       if (value instanceof NumericValue) {
         return value;
       }
+      const untyped = value as any;
+      if (untyped.type === "bigDecimal" && "string" in untyped) {
+        return new NumericValue(untyped.string, untyped.type);
+      }
       return new NumericValue(String(value), "bigDecimal");
     }
 
@@ -123,7 +127,19 @@ export class JsonShapeDeserializer extends SerdeContextConfig implements ShapeDe
     }
 
     if (ns.isDocumentSchema()) {
-      return structuredClone(value);
+      if (isObject) {
+        const out = Array.isArray(value) ? [] : ({} as any);
+        for (const [k, v] of Object.entries(value)) {
+          if (v instanceof NumericValue) {
+            out[k] = v;
+          } else {
+            out[k] = this._read(ns, v);
+          }
+        }
+        return out;
+      } else {
+        return structuredClone(value);
+      }
     }
 
     // covers string, numeric, boolean, document, bigDecimal

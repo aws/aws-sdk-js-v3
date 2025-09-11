@@ -86,7 +86,7 @@ function getJsonCodec(test: { settings: JsonSettings }): JsonCodec {
  */
 function readDocument(deserializer: JsonShapeDeserializer, data: DocumentType): any {
   if (data && typeof data === "object" && typeof (data as any).__type === "string") {
-    const object = structuredClone(data as any);
+    const object = data as any;
     const [namespace, name] = object.__type.split("#");
     delete object.__type;
     const schema = TypeRegistry.for(namespace).getSchema(name);
@@ -105,18 +105,19 @@ describe("schema conversion tests for serializations, data objects, and document
       const serializer = codec.createSerializer();
       const deserializer = codec.createDeserializer();
 
-      const serialization = JSON.stringify(test.serialized);
-      const documentFromSerialization = JSON.parse(serialization);
+      serializer.write(SCHEMA.DOCUMENT, test.serialized);
+      const serialization = serializer.flush();
+      const documentFromSerialization = await deserializer.read(SCHEMA.DOCUMENT, serialization);
       const canonicalDataObject = await deserializer.read(subjectSchema, serialization);
 
       serializer.writeDiscriminatedDocument(subjectSchema, canonicalDataObject);
-      const documentFromDataObject = JSON.parse(serializer.flush());
+      const documentFromDataObject = await deserializer.read(SCHEMA.DOCUMENT, serializer.flush());
 
       // 1. data object from serialization
       expect(typeof documentFromSerialization).toBe("object");
 
       // 2. data object document back to data object
-      const dataObjectFromDocument = await readDocument(deserializer, documentFromDataObject);
+      const dataObjectFromDocument = await deserializer.readObject(subjectSchema, documentFromDataObject);
       expect(dataObjectFromDocument).toEqual(canonicalDataObject);
 
       // 3. data object from serialization document
@@ -134,9 +135,8 @@ describe("schema conversion tests for serializations, data objects, and document
       expect(serializationFromSerializedDocument).toEqual(serialization);
 
       // 6. serialization from data object document
-      const undiscriminatedDocument = structuredClone(documentFromDataObject);
-      delete undiscriminatedDocument.__type;
-      serializer.write(SCHEMA.DOCUMENT, undiscriminatedDocument);
+      delete documentFromDataObject.__type;
+      serializer.write(SCHEMA.DOCUMENT, documentFromDataObject);
       const serializationFromDocumentFromDataObject = serializer.flush();
       expect(serializationFromDocumentFromDataObject).toEqual(serialization);
     });

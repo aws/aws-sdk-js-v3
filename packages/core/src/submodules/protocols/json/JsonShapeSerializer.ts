@@ -1,6 +1,6 @@
 import { determineTimestampFormat } from "@smithy/core/protocols";
 import { NormalizedSchema, SCHEMA } from "@smithy/core/schema";
-import { dateToUtcString, generateIdempotencyToken, LazyJsonString } from "@smithy/core/serde";
+import { dateToUtcString, generateIdempotencyToken, LazyJsonString, NumericValue } from "@smithy/core/serde";
 import { Schema, ShapeSerializer } from "@smithy/types";
 import { toBase64 } from "@smithy/util-base64";
 
@@ -138,8 +138,20 @@ export class JsonShapeSerializer extends SerdeContextConfig implements ShapeSeri
       }
     }
 
-    if (ns.isDocumentSchema() && isObject) {
-      return structuredClone(value);
+    if (ns.isDocumentSchema()) {
+      if (isObject) {
+        const out = Array.isArray(value) ? [] : ({} as any);
+        for (const [k, v] of Object.entries(value)) {
+          if (v instanceof NumericValue) {
+            out[k] = v;
+          } else {
+            out[k] = this._write(ns, v);
+          }
+        }
+        return out;
+      } else {
+        return structuredClone(value);
+      }
     }
 
     return value;
