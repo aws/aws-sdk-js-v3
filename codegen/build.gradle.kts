@@ -14,6 +14,7 @@
  */
 
 import org.jreleaser.model.Active
+import com.github.spotbugs.snom.Effort
 
 plugins {
     `java-library`
@@ -242,7 +243,7 @@ subprojects {
 
         // Configure the bug filter for spotbugs.
         spotbugs {
-            setEffort("max")
+            effort.set(Effort.MAX)
             val excludeFile = rootProject.file("gradleConfig/spotbugs/filter.xml")
             if (excludeFile.exists()) {
                 excludeFilter.set(excludeFile)
