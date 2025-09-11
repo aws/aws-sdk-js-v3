@@ -56,7 +56,7 @@ tasks["jar"].enabled = false
 // from smithy-aws-typescript-codegen.
 tasks["smithyBuildJar"].enabled = false
 
-tasks.create<SmithyBuild>("buildSdk") {
+tasks.register<SmithyBuild>("buildSdk") {
     addRuntimeClasspath = true
 }
 
