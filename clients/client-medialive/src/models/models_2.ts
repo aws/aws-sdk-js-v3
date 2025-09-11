@@ -109,8 +109,6 @@ import {
   AvailConfiguration,
   BatchScheduleActionCreateRequest,
   BatchScheduleActionCreateResult,
-  BatchScheduleActionDeleteRequest,
-  BatchScheduleActionDeleteResult,
   OutputGroup,
   PipelineDetail,
   RenewalSettings,
@@ -131,6 +129,66 @@ import {
   TransferringInputDeviceSummary,
   VideoDescription,
 } from "./models_1";
+
+/**
+ * A list of schedule actions to delete.
+ * @public
+ */
+export interface BatchScheduleActionDeleteRequest {
+  /**
+   * A list of schedule actions to delete.
+   * @public
+   */
+  ActionNames: string[] | undefined;
+}
+
+/**
+ * List of actions that have been deleted from the schedule.
+ * @public
+ */
+export interface BatchScheduleActionDeleteResult {
+  /**
+   * List of actions that have been deleted from the schedule.
+   * @public
+   */
+  ScheduleActions: ScheduleAction[] | undefined;
+}
+
+/**
+ * A request to start resources
+ * @public
+ */
+export interface BatchStartRequest {
+  /**
+   * List of channel IDs
+   * @public
+   */
+  ChannelIds?: string[] | undefined;
+
+  /**
+   * List of multiplex IDs
+   * @public
+   */
+  MultiplexIds?: string[] | undefined;
+}
+
+/**
+ * Placeholder documentation for BatchStartResponse
+ * @public
+ */
+export interface BatchStartResponse {
+  /**
+   * List of failed operations
+   * @public
+   */
+  Failed?: BatchFailedResultModel[] | undefined;
+
+  /**
+   * List of successful operations
+   * @public
+   */
+  Successful?: BatchSuccessfulResultModel[] | undefined;
+}
 
 /**
  * A request to stop resources

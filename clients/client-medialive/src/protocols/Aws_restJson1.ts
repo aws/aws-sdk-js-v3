@@ -490,8 +490,6 @@ import {
   BandwidthReductionFilterSettings,
   BatchScheduleActionCreateRequest,
   BatchScheduleActionCreateResult,
-  BatchScheduleActionDeleteRequest,
-  BatchScheduleActionDeleteResult,
   CmafIngestGroupSettings,
   CmafIngestOutputSettings,
   ColorSpacePassthroughSettings,
@@ -538,6 +536,8 @@ import {
   M3u8Settings,
   MediaPackageGroupSettings,
   MediaPackageOutputSettings,
+  MediaPackageV2DestinationSettings,
+  MediaPackageV2GroupSettings,
   MotionGraphicsActivateScheduleActionSettings,
   MotionGraphicsDeactivateScheduleActionSettings,
   Mpeg2FilterSettings,
@@ -609,6 +609,8 @@ import {
   VideoDescription,
 } from "../models/models_1";
 import {
+  BatchScheduleActionDeleteRequest,
+  BatchScheduleActionDeleteResult,
   BlackoutSlate,
   Channel,
   ChannelEngineVersionRequest,
@@ -8779,6 +8781,7 @@ const se_MediaConnectFlowRequest = (input: MediaConnectFlowRequest, context: __S
 const se_MediaPackageGroupSettings = (input: MediaPackageGroupSettings, context: __SerdeContext): any => {
   return take(input, {
     destination: [, (_) => se_OutputLocationRef(_, context), `Destination`],
+    mediapackageV2GroupSettings: [, (_) => se_MediaPackageV2GroupSettings(_, context), `MediapackageV2GroupSettings`],
   });
 };
 
@@ -8796,7 +8799,42 @@ const se_MediaPackageOutputDestinationSettings = (
   });
 };
 
-// se_MediaPackageOutputSettings omitted.
+/**
+ * serializeAws_restJson1MediaPackageOutputSettings
+ */
+const se_MediaPackageOutputSettings = (input: MediaPackageOutputSettings, context: __SerdeContext): any => {
+  return take(input, {
+    mediaPackageV2DestinationSettings: [
+      ,
+      (_) => se_MediaPackageV2DestinationSettings(_, context),
+      `MediaPackageV2DestinationSettings`,
+    ],
+  });
+};
+
+/**
+ * serializeAws_restJson1MediaPackageV2DestinationSettings
+ */
+const se_MediaPackageV2DestinationSettings = (
+  input: MediaPackageV2DestinationSettings,
+  context: __SerdeContext
+): any => {
+  return take(input, {
+    audioGroupId: [, , `AudioGroupId`],
+    audioRenditionSets: [, , `AudioRenditionSets`],
+    hlsAutoSelect: [, , `HlsAutoSelect`],
+    hlsDefault: [, , `HlsDefault`],
+  });
+};
+
+/**
+ * serializeAws_restJson1MediaPackageV2GroupSettings
+ */
+const se_MediaPackageV2GroupSettings = (input: MediaPackageV2GroupSettings, context: __SerdeContext): any => {
+  return take(input, {
+    captionLanguageMappings: [, (_) => se___listOfCaptionLanguageMapping(_, context), `CaptionLanguageMappings`],
+  });
+};
 
 /**
  * serializeAws_restJson1MotionGraphicsActivateScheduleActionSettings
@@ -9300,7 +9338,7 @@ const se_OutputSettings = (input: OutputSettings, context: __SerdeContext): any 
     cmafIngestOutputSettings: [, (_) => se_CmafIngestOutputSettings(_, context), `CmafIngestOutputSettings`],
     frameCaptureOutputSettings: [, (_) => se_FrameCaptureOutputSettings(_, context), `FrameCaptureOutputSettings`],
     hlsOutputSettings: [, (_) => se_HlsOutputSettings(_, context), `HlsOutputSettings`],
-    mediaPackageOutputSettings: [, _json, `MediaPackageOutputSettings`],
+    mediaPackageOutputSettings: [, (_) => se_MediaPackageOutputSettings(_, context), `MediaPackageOutputSettings`],
     msSmoothOutputSettings: [, (_) => se_MsSmoothOutputSettings(_, context), `MsSmoothOutputSettings`],
     multiplexOutputSettings: [, (_) => se_MultiplexOutputSettings(_, context), `MultiplexOutputSettings`],
     rtmpOutputSettings: [, (_) => se_RtmpOutputSettings(_, context), `RtmpOutputSettings`],
@@ -13076,6 +13114,11 @@ const de_MediaConnectFlow = (output: any, context: __SerdeContext): MediaConnect
 const de_MediaPackageGroupSettings = (output: any, context: __SerdeContext): MediaPackageGroupSettings => {
   return take(output, {
     Destination: [, (_: any) => de_OutputLocationRef(_, context), `destination`],
+    MediapackageV2GroupSettings: [
+      ,
+      (_: any) => de_MediaPackageV2GroupSettings(_, context),
+      `mediapackageV2GroupSettings`,
+    ],
   }) as any;
 };
 
@@ -13093,7 +13136,42 @@ const de_MediaPackageOutputDestinationSettings = (
   }) as any;
 };
 
-// de_MediaPackageOutputSettings omitted.
+/**
+ * deserializeAws_restJson1MediaPackageOutputSettings
+ */
+const de_MediaPackageOutputSettings = (output: any, context: __SerdeContext): MediaPackageOutputSettings => {
+  return take(output, {
+    MediaPackageV2DestinationSettings: [
+      ,
+      (_: any) => de_MediaPackageV2DestinationSettings(_, context),
+      `mediaPackageV2DestinationSettings`,
+    ],
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1MediaPackageV2DestinationSettings
+ */
+const de_MediaPackageV2DestinationSettings = (
+  output: any,
+  context: __SerdeContext
+): MediaPackageV2DestinationSettings => {
+  return take(output, {
+    AudioGroupId: [, __expectString, `audioGroupId`],
+    AudioRenditionSets: [, __expectString, `audioRenditionSets`],
+    HlsAutoSelect: [, __expectString, `hlsAutoSelect`],
+    HlsDefault: [, __expectString, `hlsDefault`],
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1MediaPackageV2GroupSettings
+ */
+const de_MediaPackageV2GroupSettings = (output: any, context: __SerdeContext): MediaPackageV2GroupSettings => {
+  return take(output, {
+    CaptionLanguageMappings: [, (_: any) => de___listOfCaptionLanguageMapping(_, context), `captionLanguageMappings`],
+  }) as any;
+};
 
 /**
  * deserializeAws_restJson1MediaResource
@@ -13714,7 +13792,7 @@ const de_OutputSettings = (output: any, context: __SerdeContext): OutputSettings
     CmafIngestOutputSettings: [, (_: any) => de_CmafIngestOutputSettings(_, context), `cmafIngestOutputSettings`],
     FrameCaptureOutputSettings: [, (_: any) => de_FrameCaptureOutputSettings(_, context), `frameCaptureOutputSettings`],
     HlsOutputSettings: [, (_: any) => de_HlsOutputSettings(_, context), `hlsOutputSettings`],
-    MediaPackageOutputSettings: [, _json, `mediaPackageOutputSettings`],
+    MediaPackageOutputSettings: [, (_: any) => de_MediaPackageOutputSettings(_, context), `mediaPackageOutputSettings`],
     MsSmoothOutputSettings: [, (_: any) => de_MsSmoothOutputSettings(_, context), `msSmoothOutputSettings`],
     MultiplexOutputSettings: [, (_: any) => de_MultiplexOutputSettings(_, context), `multiplexOutputSettings`],
     RtmpOutputSettings: [, (_: any) => de_RtmpOutputSettings(_, context), `rtmpOutputSettings`],

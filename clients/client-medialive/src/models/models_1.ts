@@ -910,10 +910,78 @@ export interface HlsOutputSettings {
 }
 
 /**
+ * @public
+ * @enum
+ */
+export const HlsAutoSelect = {
+  NO: "NO",
+  OMIT: "OMIT",
+  YES: "YES",
+} as const;
+
+/**
+ * @public
+ */
+export type HlsAutoSelect = (typeof HlsAutoSelect)[keyof typeof HlsAutoSelect];
+
+/**
+ * @public
+ * @enum
+ */
+export const HlsDefault = {
+  NO: "NO",
+  OMIT: "OMIT",
+  YES: "YES",
+} as const;
+
+/**
+ * @public
+ */
+export type HlsDefault = (typeof HlsDefault)[keyof typeof HlsDefault];
+
+/**
+ * Media Package V2 Destination Settings
+ * @public
+ */
+export interface MediaPackageV2DestinationSettings {
+  /**
+   * Applies only to an output that contains audio. If you want to put several audio encodes into one audio rendition group, decide on a name (ID) for the group. Then in every audio output that you want to belong to that group, enter that ID in this field. Note that this information is part of the HLS specification (not the CMAF specification), but if you include it then MediaPackage will include it in the manifest it creates for the video player.
+   * @public
+   */
+  AudioGroupId?: string | undefined;
+
+  /**
+   * Applies only to an output that contains video, and only if you want to associate one or more audio groups to this video. In this field you assign the groups that you create (in the Group ID fields in the various audio outputs). Enter one group ID, or enter a comma-separated list of group IDs. Note that this information is part of the HLS specification (not the CMAF specification), but if you include it then MediaPackage will include it in the manifest it creates for the video player.
+   * @public
+   */
+  AudioRenditionSets?: string | undefined;
+
+  /**
+   * Specifies whether MediaPackage should set this output as the auto-select rendition in the HLS manifest. YES means this must be the auto-select. NO means this should never be the auto-select. OMIT means MediaPackage decides what to set on this rendition.
+   * When you consider all the renditions, follow these guidelines. You can set zero or one renditions to YES. You can set zero or more renditions to NO, but you can't set all renditions to NO. You can set zero, some, or all to OMIT.
+   * @public
+   */
+  HlsAutoSelect?: HlsAutoSelect | undefined;
+
+  /**
+   * Specifies whether MediaPackage should set this output as the default rendition in the HLS manifest. YES means this must be the default. NO means this should never be the default. OMIT means MediaPackage decides what to set on this rendition.
+   * When you consider all the renditions, follow these guidelines. You can set zero or one renditions to YES. You can set zero or more renditions to NO, but you can't set all renditions to NO. You can set zero, some, or all to OMIT.
+   * @public
+   */
+  HlsDefault?: HlsDefault | undefined;
+}
+
+/**
  * Media Package Output Settings
  * @public
  */
-export interface MediaPackageOutputSettings {}
+export interface MediaPackageOutputSettings {
+  /**
+   * Optional settings for MediaPackage V2 destinations
+   * @public
+   */
+  MediaPackageV2DestinationSettings?: MediaPackageV2DestinationSettings | undefined;
+}
 
 /**
  * @public
@@ -2555,6 +2623,18 @@ export interface HlsGroupSettings {
 }
 
 /**
+ * Media Package V2 Group Settings
+ * @public
+ */
+export interface MediaPackageV2GroupSettings {
+  /**
+   * Mapping of up to 4 caption channels to caption languages.
+   * @public
+   */
+  CaptionLanguageMappings?: CaptionLanguageMapping[] | undefined;
+}
+
+/**
  * Media Package Group Settings
  * @public
  */
@@ -2564,6 +2644,12 @@ export interface MediaPackageGroupSettings {
    * @public
    */
   Destination: OutputLocationRef | undefined;
+
+  /**
+   * Parameters that apply only if the destination parameter (for the output group) specifies a channelGroup and channelName. Use of these two paramters indicates that the output group is for MediaPackage V2 (CMAF Ingest).
+   * @public
+   */
+  MediapackageV2GroupSettings?: MediaPackageV2GroupSettings | undefined;
 }
 
 /**
@@ -5586,7 +5672,7 @@ export type H264TimecodeInsertionBehavior =
  */
 export interface H264Settings {
   /**
-   * Enables or disables adaptive quantization, which is a technique MediaLive can apply to video on a frame-by-frame basis to produce more compression without losing quality. There are three types of adaptive quantization: flicker, spatial, and temporal. Set the field in one of these ways: Set to Auto. Recommended. For each type of AQ, MediaLive will determine if AQ is needed, and if so, the appropriate strength. Set a strength (a value other than Auto or Disable). This strength will apply to any of the AQ fields that you choose to enable. Set to Disabled to disable all types of adaptive quantization.
+   * Enables or disables adaptive quantization (AQ), which is a technique MediaLive can apply to video on a frame-by-frame basis to produce more compression without losing quality. There are three types of adaptive quantization: spatial, temporal, and flicker. We recommend that you set the field to Auto. For more information about all the options, see the topic about video adaptive quantization in the MediaLive user guide.
    * @public
    */
   AdaptiveQuantization?: H264AdaptiveQuantization | undefined;
@@ -5653,7 +5739,7 @@ export interface H264Settings {
   FixedAfd?: FixedAfd | undefined;
 
   /**
-   * Flicker AQ makes adjustments within each frame to reduce flicker or 'pop' on I-frames. The value to enter in this field depends on the value in the Adaptive quantization field: If you have set the Adaptive quantization field to Auto, MediaLive ignores any value in this field. MediaLive will determine if flicker AQ is appropriate and will apply the appropriate strength. If you have set the Adaptive quantization field to a strength, you can set this field to Enabled or Disabled. Enabled: MediaLive will apply flicker AQ using the specified strength. Disabled: MediaLive won't apply flicker AQ. If you have set the Adaptive quantization to Disabled, MediaLive ignores any value in this field and doesn't apply flicker AQ.
+   * Flicker AQ makes adjustments within each frame to reduce flicker or 'pop' on I-frames. The value to enter in this field depends on the value in the Adaptive quantization field. For more information, see the topic about video adaptive quantization in the MediaLive user guide.
    * @public
    */
   FlickerAq?: H264FlickerAq | undefined;
@@ -5838,7 +5924,7 @@ export interface H264Settings {
   Softness?: number | undefined;
 
   /**
-   * Spatial AQ makes adjustments within each frame based on spatial variation of content complexity. The value to enter in this field depends on the value in the Adaptive quantization field: If you have set the Adaptive quantization field to Auto, MediaLive ignores any value in this field. MediaLive will determine if spatial AQ is appropriate and will apply the appropriate strength. If you have set the Adaptive quantization field to a strength, you can set this field to Enabled or Disabled. Enabled: MediaLive will apply spatial AQ using the specified strength. Disabled: MediaLive won't apply spatial AQ. If you have set the Adaptive quantization to Disabled, MediaLive ignores any value in this field and doesn't apply spatial AQ.
+   * Spatial AQ makes adjustments within each frame based on spatial variation of content complexity. The value to enter in this field depends on the value in the Adaptive quantization field. For more information, see the topic about video adaptive quantization in the MediaLive user guide.
    * @public
    */
   SpatialAq?: H264SpatialAq | undefined;
@@ -5856,7 +5942,7 @@ export interface H264Settings {
   Syntax?: H264Syntax | undefined;
 
   /**
-   * Temporal makes adjustments within each frame based on temporal variation of content complexity. The value to enter in this field depends on the value in the Adaptive quantization field: If you have set the Adaptive quantization field to Auto, MediaLive ignores any value in this field. MediaLive will determine if temporal AQ is appropriate and will apply the appropriate strength. If you have set the Adaptive quantization field to a strength, you can set this field to Enabled or Disabled. Enabled: MediaLive will apply temporal AQ using the specified strength. Disabled: MediaLive won't apply temporal AQ. If you have set the Adaptive quantization to Disabled, MediaLive ignores any value in this field and doesn't apply temporal AQ.
+   * Temporal makes adjustments within each frame based on variations in content complexity over time. The value to enter in this field depends on the value in the Adaptive quantization field. For more information, see the topic about video adaptive quantization in the MediaLive user guide.
    * @public
    */
   TemporalAq?: H264TemporalAq | undefined;
@@ -6223,7 +6309,7 @@ export type H265TreeblockSize = (typeof H265TreeblockSize)[keyof typeof H265Tree
  */
 export interface H265Settings {
   /**
-   * Adaptive quantization. Allows intra-frame quantizers to vary to improve visual quality.
+   * Enables or disables adaptive quantization (AQ), which is a technique MediaLive can apply to video on a frame-by-frame basis to produce more compression without losing quality. There are three types of adaptive quantization: spatial, temporal, and flicker. Flicker is the only type that you can customize. We recommend that you set the field to Auto. For more information about all the options, see the topic about video adaptive quantization in the MediaLive user guide.
    * @public
    */
   AdaptiveQuantization?: H265AdaptiveQuantization | undefined;
@@ -6284,7 +6370,7 @@ export interface H265Settings {
   FixedAfd?: FixedAfd | undefined;
 
   /**
-   * If set to enabled, adjust quantization within each frame to reduce flicker or 'pop' on I-frames.
+   * Flicker AQ makes adjustments within each frame to reduce flicker or 'pop' on I-frames. The value to enter in this field depends on the value in the Adaptive quantization field. For more information, see the topic about video adaptive quantization in the MediaLive user guide.
    * @public
    */
   FlickerAq?: H265FlickerAq | undefined;
@@ -7466,64 +7552,4 @@ export interface BatchScheduleActionCreateResult {
    * @public
    */
   ScheduleActions: ScheduleAction[] | undefined;
-}
-
-/**
- * A list of schedule actions to delete.
- * @public
- */
-export interface BatchScheduleActionDeleteRequest {
-  /**
-   * A list of schedule actions to delete.
-   * @public
-   */
-  ActionNames: string[] | undefined;
-}
-
-/**
- * List of actions that have been deleted from the schedule.
- * @public
- */
-export interface BatchScheduleActionDeleteResult {
-  /**
-   * List of actions that have been deleted from the schedule.
-   * @public
-   */
-  ScheduleActions: ScheduleAction[] | undefined;
-}
-
-/**
- * A request to start resources
- * @public
- */
-export interface BatchStartRequest {
-  /**
-   * List of channel IDs
-   * @public
-   */
-  ChannelIds?: string[] | undefined;
-
-  /**
-   * List of multiplex IDs
-   * @public
-   */
-  MultiplexIds?: string[] | undefined;
-}
-
-/**
- * Placeholder documentation for BatchStartResponse
- * @public
- */
-export interface BatchStartResponse {
-  /**
-   * List of failed operations
-   * @public
-   */
-  Failed?: BatchFailedResultModel[] | undefined;
-
-  /**
-   * List of successful operations
-   * @public
-   */
-  Successful?: BatchSuccessfulResultModel[] | undefined;
 }

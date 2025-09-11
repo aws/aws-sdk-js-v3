@@ -478,6 +478,15 @@ export interface CreateChannelCommandOutput extends CreateChannelResponse, __Met
  *             Destination: {
  *               DestinationRefId: "STRING_VALUE",
  *             },
+ *             MediapackageV2GroupSettings: { // MediaPackageV2GroupSettings
+ *               CaptionLanguageMappings: [
+ *                 {
+ *                   CaptionChannel: Number("int"), // required
+ *                   LanguageCode: "STRING_VALUE", // required
+ *                   LanguageDescription: "STRING_VALUE", // required
+ *                 },
+ *               ],
+ *             },
  *           },
  *           MsSmoothGroupSettings: { // MsSmoothGroupSettings
  *             AcquisitionPointId: "STRING_VALUE",
@@ -676,7 +685,14 @@ export interface CreateChannelCommandOutput extends CreateChannelResponse, __Met
  *                 NameModifier: "STRING_VALUE",
  *                 SegmentModifier: "STRING_VALUE",
  *               },
- *               MediaPackageOutputSettings: {},
+ *               MediaPackageOutputSettings: { // MediaPackageOutputSettings
+ *                 MediaPackageV2DestinationSettings: { // MediaPackageV2DestinationSettings
+ *                   AudioGroupId: "STRING_VALUE",
+ *                   AudioRenditionSets: "STRING_VALUE",
+ *                   HlsAutoSelect: "NO" || "OMIT" || "YES",
+ *                   HlsDefault: "NO" || "OMIT" || "YES",
+ *                 },
+ *               },
  *               MsSmoothOutputSettings: { // MsSmoothOutputSettings
  *                 H265PackagingType: "HEV1" || "HVC1",
  *                 NameModifier: "STRING_VALUE",
@@ -1702,6 +1718,15 @@ export interface CreateChannelCommandOutput extends CreateChannelResponse, __Met
  * //               Destination: {
  * //                 DestinationRefId: "STRING_VALUE",
  * //               },
+ * //               MediapackageV2GroupSettings: { // MediaPackageV2GroupSettings
+ * //                 CaptionLanguageMappings: [
+ * //                   {
+ * //                     CaptionChannel: Number("int"), // required
+ * //                     LanguageCode: "STRING_VALUE", // required
+ * //                     LanguageDescription: "STRING_VALUE", // required
+ * //                   },
+ * //                 ],
+ * //               },
  * //             },
  * //             MsSmoothGroupSettings: { // MsSmoothGroupSettings
  * //               AcquisitionPointId: "STRING_VALUE",
@@ -1900,7 +1925,14 @@ export interface CreateChannelCommandOutput extends CreateChannelResponse, __Met
  * //                   NameModifier: "STRING_VALUE",
  * //                   SegmentModifier: "STRING_VALUE",
  * //                 },
- * //                 MediaPackageOutputSettings: {},
+ * //                 MediaPackageOutputSettings: { // MediaPackageOutputSettings
+ * //                   MediaPackageV2DestinationSettings: { // MediaPackageV2DestinationSettings
+ * //                     AudioGroupId: "STRING_VALUE",
+ * //                     AudioRenditionSets: "STRING_VALUE",
+ * //                     HlsAutoSelect: "NO" || "OMIT" || "YES",
+ * //                     HlsDefault: "NO" || "OMIT" || "YES",
+ * //                   },
+ * //                 },
  * //                 MsSmoothOutputSettings: { // MsSmoothOutputSettings
  * //                   H265PackagingType: "HEV1" || "HVC1",
  * //                   NameModifier: "STRING_VALUE",
