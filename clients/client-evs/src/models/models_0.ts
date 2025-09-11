@@ -4,6 +4,295 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-cli
 import { EvsServiceException as __BaseException } from "./EvsServiceException";
 
 /**
+ * @public
+ */
+export interface AssociateEipToVlanRequest {
+  /**
+   * <note> <p>This parameter is not used in Amazon EVS currently. If you supply input for this parameter, it will have no effect.</p> </note> <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the environment creation request. If you do not specify a client token, a randomly generated token is used for the request to ensure idempotency.</p>
+   * @public
+   */
+  clientToken?: string | undefined;
+
+  /**
+   * <p>A unique ID for the environment containing the VLAN that the Elastic IP address associates with.</p>
+   * @public
+   */
+  environmentId: string | undefined;
+
+  /**
+   * <p>The name of the VLAN. <code>hcx</code> is the only accepted VLAN name at this time.</p>
+   * @public
+   */
+  vlanName: string | undefined;
+
+  /**
+   * <p>The Elastic IP address allocation ID.</p>
+   * @public
+   */
+  allocationId: string | undefined;
+}
+
+/**
+ * <p>An Elastic IP address association with the elastic network interface in the VLAN subnet.</p>
+ * @public
+ */
+export interface EipAssociation {
+  /**
+   * <p>A unique ID for the elastic IP address association with the VLAN subnet.</p>
+   * @public
+   */
+  associationId?: string | undefined;
+
+  /**
+   * <p>The Elastic IP address allocation ID.</p>
+   * @public
+   */
+  allocationId?: string | undefined;
+
+  /**
+   * <p>The Elastic IP address.</p>
+   * @public
+   */
+  ipAddress?: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const VlanState = {
+  CREATED: "CREATED",
+  CREATE_FAILED: "CREATE_FAILED",
+  CREATING: "CREATING",
+  DELETED: "DELETED",
+  DELETING: "DELETING",
+} as const;
+
+/**
+ * @public
+ */
+export type VlanState = (typeof VlanState)[keyof typeof VlanState];
+
+/**
+ * <p>The VLANs that Amazon EVS creates during environment creation.</p>
+ * @public
+ */
+export interface Vlan {
+  /**
+   * <p>The unique ID of the VLAN.</p>
+   * @public
+   */
+  vlanId?: number | undefined;
+
+  /**
+   * <p>The CIDR block of the VLAN. Amazon EVS VLAN subnets have a minimum CIDR block size of /28 and a maximum size of /24.</p>
+   * @public
+   */
+  cidr?: string | undefined;
+
+  /**
+   * <p>The availability zone of the VLAN.</p>
+   * @public
+   */
+  availabilityZone?: string | undefined;
+
+  /**
+   * <p>The VMware VCF traffic type that is carried over the VLAN. For example, a VLAN with a <code>functionName</code> of <code>hcx</code> is being used to carry VMware HCX traffic.</p>
+   * @public
+   */
+  functionName?: string | undefined;
+
+  /**
+   * <p> The unique ID of the VLAN subnet.</p>
+   * @public
+   */
+  subnetId?: string | undefined;
+
+  /**
+   * <p>The date and time that the VLAN was created.</p>
+   * @public
+   */
+  createdAt?: Date | undefined;
+
+  /**
+   * <p> The date and time that the VLAN was modified.</p>
+   * @public
+   */
+  modifiedAt?: Date | undefined;
+
+  /**
+   * <p> The state of the VLAN.</p>
+   * @public
+   */
+  vlanState?: VlanState | undefined;
+
+  /**
+   * <p>The state details of the VLAN.</p>
+   * @public
+   */
+  stateDetails?: string | undefined;
+
+  /**
+   * <p>An array of Elastic IP address associations.</p>
+   * @public
+   */
+  eipAssociations?: EipAssociation[] | undefined;
+
+  /**
+   * <p>Determines if the VLAN that Amazon EVS provisions is public or private.</p>
+   * @public
+   */
+  isPublic?: boolean | undefined;
+
+  /**
+   * <p>A unique ID for a network access control list.</p>
+   * @public
+   */
+  networkAclId?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface AssociateEipToVlanResponse {
+  /**
+   * <p>The VLANs that Amazon EVS creates during environment creation.</p>
+   * @public
+   */
+  vlan?: Vlan | undefined;
+}
+
+/**
+ * <p>A service resource associated with the request could not be found. The resource might not be specified correctly, or it may have a <code>state</code> of <code>DELETED</code>.</p>
+ * @public
+ */
+export class ResourceNotFoundException extends __BaseException {
+  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
+  readonly $fault: "client" = "client";
+  /**
+   * <p>The ID of the resource that could not be found.</p>
+   * @public
+   */
+  resourceId: string | undefined;
+
+  /**
+   * <p>The type of the resource that is associated with the error.</p>
+   * @public
+   */
+  resourceType: string | undefined;
+
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
+    super({
+      name: "ResourceNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
+    this.resourceId = opts.resourceId;
+    this.resourceType = opts.resourceType;
+  }
+}
+
+/**
+ * <p>The operation couldn't be performed because the service is throttling requests. This exception is thrown when there are too many requests accepted concurrently from the service endpoint.</p>
+ * @public
+ */
+export class ThrottlingException extends __BaseException {
+  readonly name: "ThrottlingException" = "ThrottlingException";
+  readonly $fault: "client" = "client";
+  $retryable = {};
+  /**
+   * <p>The seconds to wait to retry.</p>
+   * @public
+   */
+  retryAfterSeconds?: number | undefined;
+
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ThrottlingException, __BaseException>) {
+    super({
+      name: "ThrottlingException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ThrottlingException.prototype);
+    this.retryAfterSeconds = opts.retryAfterSeconds;
+  }
+}
+
+/**
+ * <p>Stores information about a field passed inside a request that resulted in an exception.</p>
+ * @public
+ */
+export interface ValidationExceptionField {
+  /**
+   * <p> The field name.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p> A message describing why the field failed validation.</p>
+   * @public
+   */
+  message: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const ValidationExceptionReason = {
+  CANNOT_PARSE: "cannotParse",
+  FIELD_VALIDATION_FAILED: "fieldValidationFailed",
+  OTHER: "other",
+  UNKNOWN_OPERATION: "unknownOperation",
+} as const;
+
+/**
+ * @public
+ */
+export type ValidationExceptionReason = (typeof ValidationExceptionReason)[keyof typeof ValidationExceptionReason];
+
+/**
+ * <p>The input fails to satisfy the specified constraints. You will see this exception if invalid inputs are provided for any of the Amazon EVS environment operations, or if a list operation is performed on an environment resource that is still initializing.</p>
+ * @public
+ */
+export class ValidationException extends __BaseException {
+  readonly name: "ValidationException" = "ValidationException";
+  readonly $fault: "client" = "client";
+  /**
+   * <p>The reason for the exception.</p>
+   * @public
+   */
+  reason: ValidationExceptionReason | undefined;
+
+  /**
+   * <p>A list of fields that didn't validate.</p>
+   * @public
+   */
+  fieldList?: ValidationExceptionField[] | undefined;
+
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ValidationException, __BaseException>) {
+    super({
+      name: "ValidationException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ValidationException.prototype);
+    this.reason = opts.reason;
+    this.fieldList = opts.fieldList;
+  }
+}
+
+/**
  * <p>The connectivity configuration for the environment. Amazon EVS requires that you specify two route server peer IDs. During environment creation, the route server endpoints peer with the NSX uplink VLAN for connectivity to the NSX overlay network.</p>
  * @public
  */
@@ -124,7 +413,7 @@ export interface InitialVlans {
   nsxUplink: InitialVlanInfo | undefined;
 
   /**
-   * <p>The HCX VLAN subnet. This VLAN subnet allows the HCX Interconnnect (IX) and HCX Network Extension (NE) to reach their peers and enable HCX Service Mesh creation.</p>
+   * <p>The HCX VLAN subnet. This VLAN subnet allows the HCX Interconnnect (IX) and HCX Network Extension (NE) to reach their peers and enable HCX Service Mesh creation.</p> <p>If you plan to use a public HCX VLAN subnet, the following requirements must be met:</p> <ul> <li> <p>Must have a /28 netmask and be allocated from the IPAM public pool. Required for HCX internet access configuration.</p> </li> <li> <p>The HCX public VLAN CIDR block must be added to the VPC as a secondary CIDR block.</p> </li> <li> <p>Must have at least three Elastic IP addresses to be allocated from the public IPAM pool for HCX components.</p> </li> </ul>
    * @public
    */
   hcx: InitialVlanInfo | undefined;
@@ -140,6 +429,18 @@ export interface InitialVlans {
    * @public
    */
   expansionVlan2: InitialVlanInfo | undefined;
+
+  /**
+   * <p>Determines if the HCX VLAN that Amazon EVS provisions is public or private.</p>
+   * @public
+   */
+  isHcxPublic?: boolean | undefined;
+
+  /**
+   * <p>A unique ID for a network access control list that the HCX VLAN uses. Required when <code>isHcxPublic</code> is set to <code>true</code>.</p>
+   * @public
+   */
+  hcxNetworkAclId?: string | undefined;
 }
 
 /**
@@ -562,74 +863,6 @@ export interface CreateEnvironmentResponse {
 }
 
 /**
- * <p>Stores information about a field passed inside a request that resulted in an exception.</p>
- * @public
- */
-export interface ValidationExceptionField {
-  /**
-   * <p> The field name.</p>
-   * @public
-   */
-  name: string | undefined;
-
-  /**
-   * <p> A message describing why the field failed validation.</p>
-   * @public
-   */
-  message: string | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const ValidationExceptionReason = {
-  CANNOT_PARSE: "cannotParse",
-  FIELD_VALIDATION_FAILED: "fieldValidationFailed",
-  OTHER: "other",
-  UNKNOWN_OPERATION: "unknownOperation",
-} as const;
-
-/**
- * @public
- */
-export type ValidationExceptionReason = (typeof ValidationExceptionReason)[keyof typeof ValidationExceptionReason];
-
-/**
- * <p>The input fails to satisfy the specified constraints. You will see this exception if invalid inputs are provided for any of the Amazon EVS environment operations, or if a list operation is performed on an environment resource that is still initializing.</p>
- * @public
- */
-export class ValidationException extends __BaseException {
-  readonly name: "ValidationException" = "ValidationException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>The reason for the exception.</p>
-   * @public
-   */
-  reason: ValidationExceptionReason | undefined;
-
-  /**
-   * <p>A list of fields that didn't validate.</p>
-   * @public
-   */
-  fieldList?: ValidationExceptionField[] | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ValidationException, __BaseException>) {
-    super({
-      name: "ValidationException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ValidationException.prototype);
-    this.reason = opts.reason;
-    this.fieldList = opts.fieldList;
-  }
-}
-
-/**
  * @public
  */
 export interface CreateEnvironmentHostRequest {
@@ -833,34 +1066,6 @@ export interface CreateEnvironmentHostResponse {
 }
 
 /**
- * <p>The <code>CreateEnvironmentHost</code> operation couldn't be performed because the service is throttling requests. This exception is thrown when the <code>CreateEnvironmentHost</code> request exceeds concurrency of 1 transaction per second (TPS).</p>
- * @public
- */
-export class ThrottlingException extends __BaseException {
-  readonly name: "ThrottlingException" = "ThrottlingException";
-  readonly $fault: "client" = "client";
-  $retryable = {};
-  /**
-   * <p>The seconds to wait to retry.</p>
-   * @public
-   */
-  retryAfterSeconds?: number | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ThrottlingException, __BaseException>) {
-    super({
-      name: "ThrottlingException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ThrottlingException.prototype);
-    this.retryAfterSeconds = opts.retryAfterSeconds;
-  }
-}
-
-/**
  * @public
  */
 export interface DeleteEnvironmentRequest {
@@ -886,40 +1091,6 @@ export interface DeleteEnvironmentResponse {
    * @public
    */
   environment?: Environment | undefined;
-}
-
-/**
- * <p>A service resource associated with the request could not be found. The resource might not be specified correctly, or it may have a <code>state</code> of <code>DELETED</code>.</p>
- * @public
- */
-export class ResourceNotFoundException extends __BaseException {
-  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>The ID of the resource that could not be found.</p>
-   * @public
-   */
-  resourceId: string | undefined;
-
-  /**
-   * <p>The type of the resource that is associated with the error.</p>
-   * @public
-   */
-  resourceType: string | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
-    super({
-      name: "ResourceNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
-    this.resourceId = opts.resourceId;
-    this.resourceType = opts.resourceType;
-  }
 }
 
 /**
@@ -960,6 +1131,46 @@ export interface DeleteEnvironmentHostResponse {
    * @public
    */
   host?: Host | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DisassociateEipFromVlanRequest {
+  /**
+   * <note> <p>This parameter is not used in Amazon EVS currently. If you supply input for this parameter, it will have no effect.</p> </note> <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the environment creation request. If you do not specify a client token, a randomly generated token is used for the request to ensure idempotency.</p>
+   * @public
+   */
+  clientToken?: string | undefined;
+
+  /**
+   * <p>A unique ID for the environment containing the VLAN that the Elastic IP address disassociates from.</p>
+   * @public
+   */
+  environmentId: string | undefined;
+
+  /**
+   * <p>The name of the VLAN. <code>hcx</code> is the only accepted VLAN name at this time.</p>
+   * @public
+   */
+  vlanName: string | undefined;
+
+  /**
+   * <p> A unique ID for the Elastic IP address association.</p>
+   * @public
+   */
+  associationId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DisassociateEipFromVlanResponse {
+  /**
+   * <p>The VLANs that Amazon EVS creates during environment creation.</p>
+   * @public
+   */
+  vlan?: Vlan | undefined;
 }
 
 /**
@@ -1085,83 +1296,6 @@ export interface ListEnvironmentVlansRequest {
    * @public
    */
   environmentId: string | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const VlanState = {
-  CREATED: "CREATED",
-  CREATE_FAILED: "CREATE_FAILED",
-  CREATING: "CREATING",
-  DELETED: "DELETED",
-  DELETING: "DELETING",
-} as const;
-
-/**
- * @public
- */
-export type VlanState = (typeof VlanState)[keyof typeof VlanState];
-
-/**
- * <p>The VLANs that Amazon EVS creates during environment creation.</p>
- * @public
- */
-export interface Vlan {
-  /**
-   * <p>The unique ID of the VLAN.</p>
-   * @public
-   */
-  vlanId?: number | undefined;
-
-  /**
-   * <p>The CIDR block of the VLAN. Amazon EVS VLAN subnets have a minimum CIDR block size of /28 and a maximum size of /24.</p>
-   * @public
-   */
-  cidr?: string | undefined;
-
-  /**
-   * <p>The availability zone of the VLAN.</p>
-   * @public
-   */
-  availabilityZone?: string | undefined;
-
-  /**
-   * <p>The VMware VCF traffic type that is carried over the VLAN. For example, a VLAN with a <code>functionName</code> of <code>hcx</code> is being used to carry VMware HCX traffic.</p>
-   * @public
-   */
-  functionName?: string | undefined;
-
-  /**
-   * <p> The unique ID of the VLAN subnet.</p>
-   * @public
-   */
-  subnetId?: string | undefined;
-
-  /**
-   * <p>The date and time that the VLAN was created.</p>
-   * @public
-   */
-  createdAt?: Date | undefined;
-
-  /**
-   * <p> The date and time that the VLAN was modified.</p>
-   * @public
-   */
-  modifiedAt?: Date | undefined;
-
-  /**
-   * <p> The state of the VLAN.</p>
-   * @public
-   */
-  vlanState?: VlanState | undefined;
-
-  /**
-   * <p>The state details of the VLAN.</p>
-   * @public
-   */
-  stateDetails?: string | undefined;
 }
 
 /**

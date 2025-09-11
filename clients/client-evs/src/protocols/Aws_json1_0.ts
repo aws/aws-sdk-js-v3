@@ -22,6 +22,7 @@ import {
 } from "@smithy/types";
 import { v4 as generateIdempotencyToken } from "uuid";
 
+import { AssociateEipToVlanCommandInput, AssociateEipToVlanCommandOutput } from "../commands/AssociateEipToVlanCommand";
 import { CreateEnvironmentCommandInput, CreateEnvironmentCommandOutput } from "../commands/CreateEnvironmentCommand";
 import {
   CreateEnvironmentHostCommandInput,
@@ -32,6 +33,10 @@ import {
   DeleteEnvironmentHostCommandInput,
   DeleteEnvironmentHostCommandOutput,
 } from "../commands/DeleteEnvironmentHostCommand";
+import {
+  DisassociateEipFromVlanCommandInput,
+  DisassociateEipFromVlanCommandOutput,
+} from "../commands/DisassociateEipFromVlanCommand";
 import { GetEnvironmentCommandInput, GetEnvironmentCommandOutput } from "../commands/GetEnvironmentCommand";
 import {
   ListEnvironmentHostsCommandInput,
@@ -50,6 +55,8 @@ import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/T
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
 import { EvsServiceException as __BaseException } from "../models/EvsServiceException";
 import {
+  AssociateEipToVlanRequest,
+  AssociateEipToVlanResponse,
   Check,
   ConnectivityInfo,
   CreateEnvironmentHostRequest,
@@ -60,6 +67,8 @@ import {
   DeleteEnvironmentHostResponse,
   DeleteEnvironmentRequest,
   DeleteEnvironmentResponse,
+  DisassociateEipFromVlanRequest,
+  DisassociateEipFromVlanResponse,
   Environment,
   EnvironmentState,
   EnvironmentSummary,
@@ -89,6 +98,19 @@ import {
   VcfHostnames,
   Vlan,
 } from "../models/models_0";
+
+/**
+ * serializeAws_json1_0AssociateEipToVlanCommand
+ */
+export const se_AssociateEipToVlanCommand = async (
+  input: AssociateEipToVlanCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("AssociateEipToVlan");
+  let body: any;
+  body = JSON.stringify(se_AssociateEipToVlanRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
 
 /**
  * serializeAws_json1_0CreateEnvironmentCommand
@@ -139,6 +161,19 @@ export const se_DeleteEnvironmentHostCommand = async (
   const headers: __HeaderBag = sharedHeaders("DeleteEnvironmentHost");
   let body: any;
   body = JSON.stringify(se_DeleteEnvironmentHostRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_0DisassociateEipFromVlanCommand
+ */
+export const se_DisassociateEipFromVlanCommand = async (
+  input: DisassociateEipFromVlanCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("DisassociateEipFromVlan");
+  let body: any;
+  body = JSON.stringify(se_DisassociateEipFromVlanRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -234,6 +269,26 @@ export const se_UntagResourceCommand = async (
 };
 
 /**
+ * deserializeAws_json1_0AssociateEipToVlanCommand
+ */
+export const de_AssociateEipToVlanCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<AssociateEipToVlanCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_AssociateEipToVlanResponse(data, context);
+  const response: AssociateEipToVlanCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
  * deserializeAws_json1_0CreateEnvironmentCommand
  */
 export const de_CreateEnvironmentCommand = async (
@@ -307,6 +362,26 @@ export const de_DeleteEnvironmentHostCommand = async (
   let contents: any = {};
   contents = de_DeleteEnvironmentHostResponse(data, context);
   const response: DeleteEnvironmentHostCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_0DisassociateEipFromVlanCommand
+ */
+export const de_DisassociateEipFromVlanCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DisassociateEipFromVlanCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DisassociateEipFromVlanResponse(data, context);
+  const response: DisassociateEipFromVlanCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
@@ -463,15 +538,15 @@ const de_CommandError = async (output: __HttpResponse, context: __SerdeContext):
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ValidationException":
-    case "com.amazonaws.evs#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.evs#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.evs#ResourceNotFoundException":
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.evs#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.evs#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     case "ServiceQuotaExceededException":
     case "com.amazonaws.evs#ServiceQuotaExceededException":
       throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
@@ -578,6 +653,18 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
   return __decorateServiceException(exception, body);
 };
 
+/**
+ * serializeAws_json1_0AssociateEipToVlanRequest
+ */
+const se_AssociateEipToVlanRequest = (input: AssociateEipToVlanRequest, context: __SerdeContext): any => {
+  return take(input, {
+    allocationId: [],
+    clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
+    environmentId: [],
+    vlanName: [],
+  });
+};
+
 // se_ConnectivityInfo omitted.
 
 /**
@@ -635,6 +722,18 @@ const se_DeleteEnvironmentRequest = (input: DeleteEnvironmentRequest, context: _
   });
 };
 
+/**
+ * serializeAws_json1_0DisassociateEipFromVlanRequest
+ */
+const se_DisassociateEipFromVlanRequest = (input: DisassociateEipFromVlanRequest, context: __SerdeContext): any => {
+  return take(input, {
+    associationId: [],
+    clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
+    environmentId: [],
+    vlanName: [],
+  });
+};
+
 // se_EnvironmentStateList omitted.
 
 // se_GetEnvironmentRequest omitted.
@@ -674,6 +773,15 @@ const se_DeleteEnvironmentRequest = (input: DeleteEnvironmentRequest, context: _
 // se_UntagResourceRequest omitted.
 
 // se_VcfHostnames omitted.
+
+/**
+ * deserializeAws_json1_0AssociateEipToVlanResponse
+ */
+const de_AssociateEipToVlanResponse = (output: any, context: __SerdeContext): AssociateEipToVlanResponse => {
+  return take(output, {
+    vlan: (_: any) => de_Vlan(_, context),
+  }) as any;
+};
 
 /**
  * deserializeAws_json1_0Check
@@ -737,6 +845,19 @@ const de_DeleteEnvironmentResponse = (output: any, context: __SerdeContext): Del
     environment: (_: any) => de_Environment(_, context),
   }) as any;
 };
+
+/**
+ * deserializeAws_json1_0DisassociateEipFromVlanResponse
+ */
+const de_DisassociateEipFromVlanResponse = (output: any, context: __SerdeContext): DisassociateEipFromVlanResponse => {
+  return take(output, {
+    vlan: (_: any) => de_Vlan(_, context),
+  }) as any;
+};
+
+// de_EipAssociation omitted.
+
+// de_EipAssociationList omitted.
 
 /**
  * deserializeAws_json1_0Environment
@@ -917,8 +1038,11 @@ const de_Vlan = (output: any, context: __SerdeContext): Vlan => {
     availabilityZone: __expectString,
     cidr: __expectString,
     createdAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    eipAssociations: _json,
     functionName: __expectString,
+    isPublic: __expectBoolean,
     modifiedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    networkAclId: __expectString,
     stateDetails: __expectString,
     subnetId: __expectString,
     vlanId: __expectInt32,

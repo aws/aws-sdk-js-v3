@@ -78,6 +78,8 @@ export interface CreateEnvironmentCommandOutput extends CreateEnvironmentRespons
  *     hcx: "<InitialVlanInfo>", // required
  *     expansionVlan1: "<InitialVlanInfo>", // required
  *     expansionVlan2: "<InitialVlanInfo>", // required
+ *     isHcxPublic: true || false,
+ *     hcxNetworkAclId: "STRING_VALUE",
  *   },
  *   hosts: [ // HostInfoForCreateList // required
  *     { // HostInfoForCreate

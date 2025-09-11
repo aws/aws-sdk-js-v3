@@ -55,6 +55,15 @@ export interface ListEnvironmentVlansCommandOutput extends ListEnvironmentVlansR
  * //       modifiedAt: new Date("TIMESTAMP"),
  * //       vlanState: "CREATING" || "CREATED" || "DELETING" || "DELETED" || "CREATE_FAILED",
  * //       stateDetails: "STRING_VALUE",
+ * //       eipAssociations: [ // EipAssociationList
+ * //         { // EipAssociation
+ * //           associationId: "STRING_VALUE",
+ * //           allocationId: "STRING_VALUE",
+ * //           ipAddress: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //       isPublic: true || false,
+ * //       networkAclId: "STRING_VALUE",
  * //     },
  * //   ],
  * // };

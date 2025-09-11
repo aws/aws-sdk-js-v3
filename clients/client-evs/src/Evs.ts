@@ -3,6 +3,11 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
+  AssociateEipToVlanCommand,
+  AssociateEipToVlanCommandInput,
+  AssociateEipToVlanCommandOutput,
+} from "./commands/AssociateEipToVlanCommand";
+import {
   CreateEnvironmentCommand,
   CreateEnvironmentCommandInput,
   CreateEnvironmentCommandOutput,
@@ -22,6 +27,11 @@ import {
   DeleteEnvironmentHostCommandInput,
   DeleteEnvironmentHostCommandOutput,
 } from "./commands/DeleteEnvironmentHostCommand";
+import {
+  DisassociateEipFromVlanCommand,
+  DisassociateEipFromVlanCommandInput,
+  DisassociateEipFromVlanCommandOutput,
+} from "./commands/DisassociateEipFromVlanCommand";
 import {
   GetEnvironmentCommand,
   GetEnvironmentCommandInput,
@@ -56,10 +66,12 @@ import {
 import { EvsClient, EvsClientConfig } from "./EvsClient";
 
 const commands = {
+  AssociateEipToVlanCommand,
   CreateEnvironmentCommand,
   CreateEnvironmentHostCommand,
   DeleteEnvironmentCommand,
   DeleteEnvironmentHostCommand,
+  DisassociateEipFromVlanCommand,
   GetEnvironmentCommand,
   ListEnvironmentHostsCommand,
   ListEnvironmentsCommand,
@@ -70,6 +82,23 @@ const commands = {
 };
 
 export interface Evs {
+  /**
+   * @see {@link AssociateEipToVlanCommand}
+   */
+  associateEipToVlan(
+    args: AssociateEipToVlanCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<AssociateEipToVlanCommandOutput>;
+  associateEipToVlan(
+    args: AssociateEipToVlanCommandInput,
+    cb: (err: any, data?: AssociateEipToVlanCommandOutput) => void
+  ): void;
+  associateEipToVlan(
+    args: AssociateEipToVlanCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: AssociateEipToVlanCommandOutput) => void
+  ): void;
+
   /**
    * @see {@link CreateEnvironmentCommand}
    */
@@ -136,6 +165,23 @@ export interface Evs {
     args: DeleteEnvironmentHostCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteEnvironmentHostCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DisassociateEipFromVlanCommand}
+   */
+  disassociateEipFromVlan(
+    args: DisassociateEipFromVlanCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DisassociateEipFromVlanCommandOutput>;
+  disassociateEipFromVlan(
+    args: DisassociateEipFromVlanCommandInput,
+    cb: (err: any, data?: DisassociateEipFromVlanCommandOutput) => void
+  ): void;
+  disassociateEipFromVlan(
+    args: DisassociateEipFromVlanCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DisassociateEipFromVlanCommandOutput) => void
   ): void;
 
   /**
