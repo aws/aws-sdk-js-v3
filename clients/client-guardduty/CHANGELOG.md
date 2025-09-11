@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.887.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.886.0...v3.887.0) (2025-09-11)
+
+
+### Features
+
+* **client-guardduty:** Updated Java SDK implementation of entity set status in GuardDuty API. ([6eb1c3d](https://github.com/aws/aws-sdk-js-v3/commit/6eb1c3d53dfd00fa35de27bc2c22984a0fd0b0de))
+
+
+
+
+
 # [3.886.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.885.0...v3.886.0) (2025-09-10)
 
 **Note:** Version bump only for package @aws-sdk/client-guardduty

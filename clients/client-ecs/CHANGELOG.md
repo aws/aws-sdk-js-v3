@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.887.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.886.0...v3.887.0) (2025-09-11)
+
+
+### Features
+
+* **client-ecs:** This release supports hook details for Amazon ECS lifecycle hooks. ([e2c85d3](https://github.com/aws/aws-sdk-js-v3/commit/e2c85d3261b74d86d202320242d7295babc33c48))
+
+
+
+
+
 # [3.886.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.885.0...v3.886.0) (2025-09-10)
 
 **Note:** Version bump only for package @aws-sdk/client-ecs

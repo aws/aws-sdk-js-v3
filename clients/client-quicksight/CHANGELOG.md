@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.887.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.886.0...v3.887.0) (2025-09-11)
+
+
+### Features
+
+* **client-quicksight:** This release adds support for Account level custom permissions, additional Dashboard Options, and Null support for Q&A. ([40a0cf0](https://github.com/aws/aws-sdk-js-v3/commit/40a0cf0567b518db94e0d00993d7ea9131bd2eaf))
+
+
+
+
+
 # [3.886.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.885.0...v3.886.0) (2025-09-10)
 
 **Note:** Version bump only for package @aws-sdk/client-quicksight

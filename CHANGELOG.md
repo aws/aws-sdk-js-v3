@@ -3,6 +3,31 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.887.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.886.0...v3.887.0) (2025-09-11)
+
+
+### Bug Fixes
+
+* **codegen:** update deprecated APIs in build.gradle.kts ([#7335](https://github.com/aws/aws-sdk-js-v3/issues/7335)) ([127022c](https://github.com/aws/aws-sdk-js-v3/commit/127022cb46610e19e628748fd5a490d5205f7ed9))
+
+
+### Features
+
+* **client-amp:** Add Vended Logs APIs for Amazon Prometheus Managed Collector ([4312d5b](https://github.com/aws/aws-sdk-js-v3/commit/4312d5beaf9cf0dd71e60ad4d0c2f496635c6db6))
+* **client-datazone:** adding IAM principal id to IAM user profile details ([090fbf9](https://github.com/aws/aws-sdk-js-v3/commit/090fbf9558cb684a27ebc0ced37dc598d2b05634))
+* **client-ecs:** This release supports hook details for Amazon ECS lifecycle hooks. ([e2c85d3](https://github.com/aws/aws-sdk-js-v3/commit/e2c85d3261b74d86d202320242d7295babc33c48))
+* **client-emr-containers:** Added nodeLabel support in container provider to aid hardware isolation support for virtual cluster and security configuration. ([b845174](https://github.com/aws/aws-sdk-js-v3/commit/b845174108a3359fe0d41addcc81fda04bc39015))
+* **client-evs:** CreateEnvironment API now supports parameters (isHcxPublic & hcxNetworkAclId) for HCX migration via public internet, adding flexibility for migration scenarios. New APIs have been added for associating (AssociateEipToVlan) & disassociating (DisassociateEipFromVlan) Elastic IP (EIP) addresses. ([6147f35](https://github.com/aws/aws-sdk-js-v3/commit/6147f3535144a372917dac259acced290a112ce1))
+* **client-guardduty:** Updated Java SDK implementation of entity set status in GuardDuty API. ([6eb1c3d](https://github.com/aws/aws-sdk-js-v3/commit/6eb1c3d53dfd00fa35de27bc2c22984a0fd0b0de))
+* **client-medialive:** AWS Elemental MediaLive adds a new feature in MediaPackage output group that enables MediaPackage V2 users to control HLS-related parameters directly in MediaLive. These parameter settings are then reflected in MediaPackage outputs, providing more streamlined control over HLS configurations. ([36b2bf0](https://github.com/aws/aws-sdk-js-v3/commit/36b2bf07c1453e44bdf9452bd89027c104141d59))
+* **client-quicksight:** This release adds support for Account level custom permissions, additional Dashboard Options, and Null support for Q&A. ([40a0cf0](https://github.com/aws/aws-sdk-js-v3/commit/40a0cf0567b518db94e0d00993d7ea9131bd2eaf))
+* **client-rds:** Adds support for end-to-end IAM authentication in RDS Proxy for MySQL, MariaDB, and PostgreSQL engines. ([31a3534](https://github.com/aws/aws-sdk-js-v3/commit/31a3534412579abab72c0c3ccb83551373e51806))
+* **clients:** update client endpoints as of 2025-09-11 ([d1fbb5f](https://github.com/aws/aws-sdk-js-v3/commit/d1fbb5ffae32eec70403ef41ed72b7c95315b931))
+
+
+
+
+
 # [3.886.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.885.0...v3.886.0) (2025-09-10)
 
 
