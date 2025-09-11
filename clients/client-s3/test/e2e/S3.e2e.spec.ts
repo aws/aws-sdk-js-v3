@@ -1,6 +1,6 @@
 import "@aws-sdk/signature-v4-crt";
 
-import { ChecksumAlgorithm, S3, SelectObjectContentEventStream } from "@aws-sdk/client-s3";
+import { ChecksumAlgorithm, S3 } from "@aws-sdk/client-s3";
 import { afterAll, afterEach, beforeAll, describe, expect, test as it } from "vitest";
 
 import { getIntegTestResources } from "../../../../tests/e2e/get-integ-test-resources";

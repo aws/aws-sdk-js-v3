@@ -1,4 +1,4 @@
-import type { S3, SelectObjectContentEventStream, waitUntilObjectExists } from "@aws-sdk/client-s3";
+import type { S3, waitUntilObjectExists } from "@aws-sdk/client-s3";
 import { fromNodeProviderChain } from "@aws-sdk/credential-providers";
 import { FetchHttpHandler } from "@smithy/fetch-http-handler";
 import { Browser } from "happy-dom";
