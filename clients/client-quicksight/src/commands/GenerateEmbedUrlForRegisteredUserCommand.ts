@@ -195,8 +195,8 @@ export interface GenerateEmbedUrlForRegisteredUserCommandOutput
  * @throws {@link UnsupportedPricingPlanException} (client fault)
  *  <p>This error indicates that you are calling an embedding operation in Amazon QuickSight
  * 			without the required pricing plan on your Amazon Web Services account. Before you can use embedding
- * 			for anonymous users, a QuickSight administrator needs to add capacity pricing to Amazon QuickSight. You
- * 		    can do this on the <b>Manage Amazon QuickSight</b> page. </p>
+ * 			for anonymous users, a QuickSight administrator needs to add capacity pricing to QuickSight. You
+ * 		    can do this on the <b>Manage QuickSight</b> page. </p>
  *          <p>After capacity pricing is added, you can use the
  *             <code>
  *                <a href="https://docs.aws.amazon.com/quicksight/latest/APIReference/API_GetDashboardEmbedUrl.html">GetDashboardEmbedUrl</a>
@@ -206,7 +206,7 @@ export interface GenerateEmbedUrlForRegisteredUserCommandOutput
  * @throws {@link UnsupportedUserEditionException} (client fault)
  *  <p>This error indicates that you are calling an operation on an Amazon QuickSight
  * 			subscription where the edition doesn't include support for that operation. Amazon
- * 			Amazon QuickSight currently has Standard Edition and Enterprise Edition. Not every operation and
+ * 			QuickSight currently has Standard Edition and Enterprise Edition. Not every operation and
  * 			capability is available in every edition.</p>
  *
  * @throws {@link QuickSightServiceException}

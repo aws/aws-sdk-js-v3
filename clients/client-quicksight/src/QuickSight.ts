@@ -127,6 +127,11 @@ import {
   DeleteAccountCustomizationCommandOutput,
 } from "./commands/DeleteAccountCustomizationCommand";
 import {
+  DeleteAccountCustomPermissionCommand,
+  DeleteAccountCustomPermissionCommandInput,
+  DeleteAccountCustomPermissionCommandOutput,
+} from "./commands/DeleteAccountCustomPermissionCommand";
+import {
   DeleteAccountSubscriptionCommand,
   DeleteAccountSubscriptionCommandInput,
   DeleteAccountSubscriptionCommandOutput,
@@ -261,6 +266,11 @@ import {
   DescribeAccountCustomizationCommandInput,
   DescribeAccountCustomizationCommandOutput,
 } from "./commands/DescribeAccountCustomizationCommand";
+import {
+  DescribeAccountCustomPermissionCommand,
+  DescribeAccountCustomPermissionCommandInput,
+  DescribeAccountCustomPermissionCommandOutput,
+} from "./commands/DescribeAccountCustomPermissionCommand";
 import {
   DescribeAccountSettingsCommand,
   DescribeAccountSettingsCommandInput,
@@ -769,6 +779,11 @@ import {
   UpdateAccountCustomizationCommandOutput,
 } from "./commands/UpdateAccountCustomizationCommand";
 import {
+  UpdateAccountCustomPermissionCommand,
+  UpdateAccountCustomPermissionCommandInput,
+  UpdateAccountCustomPermissionCommandOutput,
+} from "./commands/UpdateAccountCustomPermissionCommand";
+import {
   UpdateAccountSettingsCommand,
   UpdateAccountSettingsCommandInput,
   UpdateAccountSettingsCommandOutput,
@@ -994,6 +1009,7 @@ const commands = {
   CreateTopicRefreshScheduleCommand,
   CreateVPCConnectionCommand,
   DeleteAccountCustomizationCommand,
+  DeleteAccountCustomPermissionCommand,
   DeleteAccountSubscriptionCommand,
   DeleteAnalysisCommand,
   DeleteBrandCommand,
@@ -1025,6 +1041,7 @@ const commands = {
   DeleteUserCustomPermissionCommand,
   DeleteVPCConnectionCommand,
   DescribeAccountCustomizationCommand,
+  DescribeAccountCustomPermissionCommand,
   DescribeAccountSettingsCommand,
   DescribeAccountSubscriptionCommand,
   DescribeAnalysisCommand,
@@ -1132,6 +1149,7 @@ const commands = {
   TagResourceCommand,
   UntagResourceCommand,
   UpdateAccountCustomizationCommand,
+  UpdateAccountCustomPermissionCommand,
   UpdateAccountSettingsCommand,
   UpdateAnalysisCommand,
   UpdateAnalysisPermissionsCommand,
@@ -1598,6 +1616,23 @@ export interface QuickSight {
     args: DeleteAccountCustomizationCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteAccountCustomizationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteAccountCustomPermissionCommand}
+   */
+  deleteAccountCustomPermission(
+    args: DeleteAccountCustomPermissionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteAccountCustomPermissionCommandOutput>;
+  deleteAccountCustomPermission(
+    args: DeleteAccountCustomPermissionCommandInput,
+    cb: (err: any, data?: DeleteAccountCustomPermissionCommandOutput) => void
+  ): void;
+  deleteAccountCustomPermission(
+    args: DeleteAccountCustomPermissionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteAccountCustomPermissionCommandOutput) => void
   ): void;
 
   /**
@@ -2071,6 +2106,23 @@ export interface QuickSight {
     args: DescribeAccountCustomizationCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DescribeAccountCustomizationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeAccountCustomPermissionCommand}
+   */
+  describeAccountCustomPermission(
+    args: DescribeAccountCustomPermissionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeAccountCustomPermissionCommandOutput>;
+  describeAccountCustomPermission(
+    args: DescribeAccountCustomPermissionCommandInput,
+    cb: (err: any, data?: DescribeAccountCustomPermissionCommandOutput) => void
+  ): void;
+  describeAccountCustomPermission(
+    args: DescribeAccountCustomPermissionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeAccountCustomPermissionCommandOutput) => void
   ): void;
 
   /**
@@ -3740,6 +3792,23 @@ export interface QuickSight {
     args: UpdateAccountCustomizationCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateAccountCustomizationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateAccountCustomPermissionCommand}
+   */
+  updateAccountCustomPermission(
+    args: UpdateAccountCustomPermissionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateAccountCustomPermissionCommandOutput>;
+  updateAccountCustomPermission(
+    args: UpdateAccountCustomPermissionCommandInput,
+    cb: (err: any, data?: UpdateAccountCustomPermissionCommandOutput) => void
+  ): void;
+  updateAccountCustomPermission(
+    args: UpdateAccountCustomPermissionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateAccountCustomPermissionCommandOutput) => void
   ): void;
 
   /**

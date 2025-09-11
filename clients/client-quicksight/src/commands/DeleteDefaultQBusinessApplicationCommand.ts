@@ -36,7 +36,7 @@ export interface DeleteDefaultQBusinessApplicationCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Deletes a linked Amazon Q Business application from an Amazon QuickSight account</p>
+ * <p>Deletes a linked Amazon Q Business application from an QuickSight account</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

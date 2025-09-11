@@ -43,7 +43,7 @@ export interface CreateDataSourceCommandOutput extends CreateDataSourceResponse,
  *   AwsAccountId: "STRING_VALUE", // required
  *   DataSourceId: "STRING_VALUE", // required
  *   Name: "STRING_VALUE", // required
- *   Type: "ADOBE_ANALYTICS" || "AMAZON_ELASTICSEARCH" || "ATHENA" || "AURORA" || "AURORA_POSTGRESQL" || "AWS_IOT_ANALYTICS" || "GITHUB" || "JIRA" || "MARIADB" || "MYSQL" || "ORACLE" || "POSTGRESQL" || "PRESTO" || "REDSHIFT" || "S3" || "SALESFORCE" || "SERVICENOW" || "SNOWFLAKE" || "SPARK" || "SQLSERVER" || "TERADATA" || "TWITTER" || "TIMESTREAM" || "AMAZON_OPENSEARCH" || "EXASOL" || "DATABRICKS" || "STARBURST" || "TRINO" || "BIGQUERY", // required
+ *   Type: "ADOBE_ANALYTICS" || "AMAZON_ELASTICSEARCH" || "ATHENA" || "AURORA" || "AURORA_POSTGRESQL" || "AWS_IOT_ANALYTICS" || "GITHUB" || "JIRA" || "MARIADB" || "MYSQL" || "ORACLE" || "POSTGRESQL" || "PRESTO" || "REDSHIFT" || "S3" || "SALESFORCE" || "SERVICENOW" || "SNOWFLAKE" || "SPARK" || "SQLSERVER" || "TERADATA" || "TWITTER" || "TIMESTREAM" || "AMAZON_OPENSEARCH" || "EXASOL" || "DATABRICKS" || "STARBURST" || "TRINO" || "BIGQUERY" || "GOOGLESHEETS", // required
  *   DataSourceParameters: { // DataSourceParameters Union: only one key present
  *     AmazonElasticsearchParameters: { // AmazonElasticsearchParameters
  *       Domain: "STRING_VALUE", // required
@@ -203,6 +203,9 @@ export interface CreateDataSourceCommandOutput extends CreateDataSourceResponse,
  *       Port: Number("int"), // required
  *       Database: "STRING_VALUE",
  *       SqlEndpointPath: "STRING_VALUE", // required
+ *     },
+ *     CustomConnectionParameters: { // CustomConnectionParameters
+ *       ConnectionType: "STRING_VALUE",
  *     },
  *   },
  *   Credentials: { // DataSourceCredentials
@@ -370,6 +373,9 @@ export interface CreateDataSourceCommandOutput extends CreateDataSourceResponse,
  *             Database: "STRING_VALUE",
  *             SqlEndpointPath: "STRING_VALUE", // required
  *           },
+ *           CustomConnectionParameters: {
+ *             ConnectionType: "STRING_VALUE",
+ *           },
  *         },
  *       ],
  *     },
@@ -426,7 +432,7 @@ export interface CreateDataSourceCommandOutput extends CreateDataSourceResponse,
  *  <p>Updating or deleting a resource can cause an inconsistent state.</p>
  *
  * @throws {@link CustomerManagedKeyUnavailableException} (client fault)
- *  <p>The customer managed key that is registered to your Amazon QuickSight account is unavailable.</p>
+ *  <p>The customer managed key that is registered to your QuickSight account is unavailable.</p>
  *
  * @throws {@link InternalFailureException} (server fault)
  *  <p>An internal failure occurred.</p>

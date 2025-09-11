@@ -124,6 +124,10 @@ import {
   DeleteAccountCustomizationCommandOutput,
 } from "./commands/DeleteAccountCustomizationCommand";
 import {
+  DeleteAccountCustomPermissionCommandInput,
+  DeleteAccountCustomPermissionCommandOutput,
+} from "./commands/DeleteAccountCustomPermissionCommand";
+import {
   DeleteAccountSubscriptionCommandInput,
   DeleteAccountSubscriptionCommandOutput,
 } from "./commands/DeleteAccountSubscriptionCommand";
@@ -208,6 +212,10 @@ import {
   DescribeAccountCustomizationCommandInput,
   DescribeAccountCustomizationCommandOutput,
 } from "./commands/DescribeAccountCustomizationCommand";
+import {
+  DescribeAccountCustomPermissionCommandInput,
+  DescribeAccountCustomPermissionCommandOutput,
+} from "./commands/DescribeAccountCustomPermissionCommand";
 import {
   DescribeAccountSettingsCommandInput,
   DescribeAccountSettingsCommandOutput,
@@ -502,6 +510,10 @@ import {
   UpdateAccountCustomizationCommandOutput,
 } from "./commands/UpdateAccountCustomizationCommand";
 import {
+  UpdateAccountCustomPermissionCommandInput,
+  UpdateAccountCustomPermissionCommandOutput,
+} from "./commands/UpdateAccountCustomPermissionCommand";
+import {
   UpdateAccountSettingsCommandInput,
   UpdateAccountSettingsCommandOutput,
 } from "./commands/UpdateAccountSettingsCommand";
@@ -679,6 +691,7 @@ export type ServiceInputTypes =
   | CreateTopicCommandInput
   | CreateTopicRefreshScheduleCommandInput
   | CreateVPCConnectionCommandInput
+  | DeleteAccountCustomPermissionCommandInput
   | DeleteAccountCustomizationCommandInput
   | DeleteAccountSubscriptionCommandInput
   | DeleteAnalysisCommandInput
@@ -710,6 +723,7 @@ export type ServiceInputTypes =
   | DeleteUserCommandInput
   | DeleteUserCustomPermissionCommandInput
   | DeleteVPCConnectionCommandInput
+  | DescribeAccountCustomPermissionCommandInput
   | DescribeAccountCustomizationCommandInput
   | DescribeAccountSettingsCommandInput
   | DescribeAccountSubscriptionCommandInput
@@ -817,6 +831,7 @@ export type ServiceInputTypes =
   | StartDashboardSnapshotJobScheduleCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
+  | UpdateAccountCustomPermissionCommandInput
   | UpdateAccountCustomizationCommandInput
   | UpdateAccountSettingsCommandInput
   | UpdateAnalysisCommandInput
@@ -893,6 +908,7 @@ export type ServiceOutputTypes =
   | CreateTopicCommandOutput
   | CreateTopicRefreshScheduleCommandOutput
   | CreateVPCConnectionCommandOutput
+  | DeleteAccountCustomPermissionCommandOutput
   | DeleteAccountCustomizationCommandOutput
   | DeleteAccountSubscriptionCommandOutput
   | DeleteAnalysisCommandOutput
@@ -924,6 +940,7 @@ export type ServiceOutputTypes =
   | DeleteUserCommandOutput
   | DeleteUserCustomPermissionCommandOutput
   | DeleteVPCConnectionCommandOutput
+  | DescribeAccountCustomPermissionCommandOutput
   | DescribeAccountCustomizationCommandOutput
   | DescribeAccountSettingsCommandOutput
   | DescribeAccountSubscriptionCommandOutput
@@ -1031,6 +1048,7 @@ export type ServiceOutputTypes =
   | StartDashboardSnapshotJobScheduleCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
+  | UpdateAccountCustomPermissionCommandOutput
   | UpdateAccountCustomizationCommandOutput
   | UpdateAccountSettingsCommandOutput
   | UpdateAnalysisCommandOutput

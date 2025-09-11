@@ -5,7 +5,7 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { SearchGroupsRequest, SearchGroupsResponse } from "../models/models_4";
+import { SearchGroupsRequest, SearchGroupsResponse } from "../models/models_5";
 import { de_SearchGroupsCommand, se_SearchGroupsCommand } from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
@@ -28,7 +28,7 @@ export interface SearchGroupsCommandInput extends SearchGroupsRequest {}
 export interface SearchGroupsCommandOutput extends SearchGroupsResponse, __MetadataBearer {}
 
 /**
- * <p>Use the <code>SearchGroups</code> operation to search groups in a specified Amazon QuickSight namespace using the supplied filters.</p>
+ * <p>Use the <code>SearchGroups</code> operation to search groups in a specified QuickSight namespace using the supplied filters.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

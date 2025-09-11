@@ -5,7 +5,8 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DeleteRoleMembershipRequest, DeleteRoleMembershipResponse } from "../models/models_3";
+import { DeleteRoleMembershipRequest } from "../models/models_3";
+import { DeleteRoleMembershipResponse } from "../models/models_4";
 import { de_DeleteRoleMembershipCommand, se_DeleteRoleMembershipCommand } from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 

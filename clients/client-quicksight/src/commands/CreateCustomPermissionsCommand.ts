@@ -62,6 +62,8 @@ export interface CreateCustomPermissionsCommandOutput extends CreateCustomPermis
  *     ExportToCsvInScheduledReports: "DENY",
  *     ExportToExcelInScheduledReports: "DENY",
  *     IncludeContentInScheduledReportsEmail: "DENY",
+ *     Dashboard: "DENY",
+ *     Analysis: "DENY",
  *   },
  *   Tags: [ // TagList
  *     { // Tag

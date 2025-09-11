@@ -28,7 +28,7 @@ export interface CreateBrandCommandInput extends CreateBrandRequest {}
 export interface CreateBrandCommandOutput extends CreateBrandResponse, __MetadataBearer {}
 
 /**
- * <p>Creates an Amazon QuickSight brand.</p>
+ * <p>Creates an QuickSight brand.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

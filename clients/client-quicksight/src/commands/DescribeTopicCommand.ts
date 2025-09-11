@@ -70,7 +70,7 @@ export interface DescribeTopicCommandOutput extends DescribeTopicResponse, __Met
  * //               "STRING_VALUE",
  * //             ],
  * //             OperandFieldName: "STRING_VALUE", // required
- * //             FilterType: "CATEGORY_FILTER" || "NUMERIC_EQUALITY_FILTER" || "NUMERIC_RANGE_FILTER" || "DATE_RANGE_FILTER" || "RELATIVE_DATE_FILTER",
+ * //             FilterType: "CATEGORY_FILTER" || "NUMERIC_EQUALITY_FILTER" || "NUMERIC_RANGE_FILTER" || "DATE_RANGE_FILTER" || "RELATIVE_DATE_FILTER" || "NULL_FILTER",
  * //             CategoryFilter: { // TopicCategoryFilter
  * //               CategoryFilterFunction: "EXACT" || "CONTAINS",
  * //               CategoryFilterType: "CUSTOM_FILTER" || "CUSTOM_FILTER_LIST" || "FILTER_LIST",
@@ -120,6 +120,14 @@ export interface DescribeTopicCommandOutput extends DescribeTopicResponse, __Met
  * //                 ConstantType: "SINGULAR" || "RANGE" || "COLLECTIVE",
  * //                 SingularConstant: "STRING_VALUE",
  * //               },
+ * //             },
+ * //             NullFilter: { // TopicNullFilter
+ * //               NullFilterType: "ALL_VALUES" || "NON_NULLS_ONLY" || "NULLS_ONLY",
+ * //               Constant: {
+ * //                 ConstantType: "SINGULAR" || "RANGE" || "COLLECTIVE",
+ * //                 SingularConstant: "STRING_VALUE",
+ * //               },
+ * //               Inverse: true || false,
  * //             },
  * //           },
  * //         ],

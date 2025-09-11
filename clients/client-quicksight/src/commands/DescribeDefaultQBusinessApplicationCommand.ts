@@ -36,7 +36,7 @@ export interface DescribeDefaultQBusinessApplicationCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Describes a Amazon Q Business application that is linked to an Amazon QuickSight account.</p>
+ * <p>Describes a Amazon Q Business application that is linked to an QuickSight account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

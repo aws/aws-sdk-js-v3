@@ -33,8 +33,8 @@ export interface ListIdentityPropagationConfigsCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Lists all services and authorized targets that the Amazon QuickSight IAM Identity Center application can access.</p>
- *          <p>This operation is only supported for Amazon QuickSight accounts that use IAM Identity Center.</p>
+ * <p>Lists all services and authorized targets that the QuickSight IAM Identity Center application can access.</p>
+ *          <p>This operation is only supported for QuickSight accounts that use IAM Identity Center.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

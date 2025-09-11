@@ -28,7 +28,7 @@ export interface ListBrandsCommandInput extends ListBrandsRequest {}
 export interface ListBrandsCommandOutput extends ListBrandsResponse, __MetadataBearer {}
 
 /**
- * <p>Lists all brands in an Amazon QuickSight account.</p>
+ * <p>Lists all brands in an QuickSight account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

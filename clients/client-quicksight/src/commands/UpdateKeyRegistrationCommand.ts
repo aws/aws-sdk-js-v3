@@ -28,7 +28,7 @@ export interface UpdateKeyRegistrationCommandInput extends UpdateKeyRegistration
 export interface UpdateKeyRegistrationCommandOutput extends UpdateKeyRegistrationResponse, __MetadataBearer {}
 
 /**
- * <p>Updates a customer managed key in a Amazon QuickSight account.</p>
+ * <p>Updates a customer managed key in a QuickSight account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

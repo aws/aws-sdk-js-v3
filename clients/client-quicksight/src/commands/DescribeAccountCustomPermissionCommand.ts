@@ -5,13 +5,10 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
+import { DescribeAccountCustomPermissionRequest, DescribeAccountCustomPermissionResponse } from "../models/models_4";
 import {
-  UpdateQuickSightQSearchConfigurationRequest,
-  UpdateQuickSightQSearchConfigurationResponse,
-} from "../models/models_5";
-import {
-  de_UpdateQuickSightQSearchConfigurationCommand,
-  se_UpdateQuickSightQSearchConfigurationCommand,
+  de_DescribeAccountCustomPermissionCommand,
+  se_DescribeAccountCustomPermissionCommand,
 } from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
@@ -23,44 +20,43 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link UpdateQuickSightQSearchConfigurationCommand}.
+ * The input for {@link DescribeAccountCustomPermissionCommand}.
  */
-export interface UpdateQuickSightQSearchConfigurationCommandInput extends UpdateQuickSightQSearchConfigurationRequest {}
+export interface DescribeAccountCustomPermissionCommandInput extends DescribeAccountCustomPermissionRequest {}
 /**
  * @public
  *
- * The output of {@link UpdateQuickSightQSearchConfigurationCommand}.
+ * The output of {@link DescribeAccountCustomPermissionCommand}.
  */
-export interface UpdateQuickSightQSearchConfigurationCommandOutput
-  extends UpdateQuickSightQSearchConfigurationResponse,
+export interface DescribeAccountCustomPermissionCommandOutput
+  extends DescribeAccountCustomPermissionResponse,
     __MetadataBearer {}
 
 /**
- * <p>Updates the state of a QuickSight Q Search configuration.</p>
+ * <p>Describes the custom permissions profile that is applied to an account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { QuickSightClient, UpdateQuickSightQSearchConfigurationCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
- * // const { QuickSightClient, UpdateQuickSightQSearchConfigurationCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
+ * import { QuickSightClient, DescribeAccountCustomPermissionCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
+ * // const { QuickSightClient, DescribeAccountCustomPermissionCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
  * const client = new QuickSightClient(config);
- * const input = { // UpdateQuickSightQSearchConfigurationRequest
+ * const input = { // DescribeAccountCustomPermissionRequest
  *   AwsAccountId: "STRING_VALUE", // required
- *   QSearchStatus: "ENABLED" || "DISABLED", // required
  * };
- * const command = new UpdateQuickSightQSearchConfigurationCommand(input);
+ * const command = new DescribeAccountCustomPermissionCommand(input);
  * const response = await client.send(command);
- * // { // UpdateQuickSightQSearchConfigurationResponse
- * //   QSearchStatus: "ENABLED" || "DISABLED",
+ * // { // DescribeAccountCustomPermissionResponse
+ * //   CustomPermissionsName: "STRING_VALUE",
  * //   RequestId: "STRING_VALUE",
  * //   Status: Number("int"),
  * // };
  *
  * ```
  *
- * @param UpdateQuickSightQSearchConfigurationCommandInput - {@link UpdateQuickSightQSearchConfigurationCommandInput}
- * @returns {@link UpdateQuickSightQSearchConfigurationCommandOutput}
- * @see {@link UpdateQuickSightQSearchConfigurationCommandInput} for command's `input` shape.
- * @see {@link UpdateQuickSightQSearchConfigurationCommandOutput} for command's `response` shape.
+ * @param DescribeAccountCustomPermissionCommandInput - {@link DescribeAccountCustomPermissionCommandInput}
+ * @returns {@link DescribeAccountCustomPermissionCommandOutput}
+ * @see {@link DescribeAccountCustomPermissionCommandInput} for command's `input` shape.
+ * @see {@link DescribeAccountCustomPermissionCommandOutput} for command's `response` shape.
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -68,9 +64,6 @@ export interface UpdateQuickSightQSearchConfigurationCommandOutput
  * 			validated. You might not be authorized to carry out the request. Make sure that your
  * 			account is authorized to use the Amazon QuickSight service, that your policies have the
  * 			correct permissions, and that you are using the correct credentials.</p>
- *
- * @throws {@link ConflictException} (client fault)
- *  <p>Updating or deleting a resource can cause an inconsistent state.</p>
  *
  * @throws {@link InternalFailureException} (server fault)
  *  <p>An internal failure occurred.</p>
@@ -90,10 +83,10 @@ export interface UpdateQuickSightQSearchConfigurationCommandOutput
  *
  * @public
  */
-export class UpdateQuickSightQSearchConfigurationCommand extends $Command
+export class DescribeAccountCustomPermissionCommand extends $Command
   .classBuilder<
-    UpdateQuickSightQSearchConfigurationCommandInput,
-    UpdateQuickSightQSearchConfigurationCommandOutput,
+    DescribeAccountCustomPermissionCommandInput,
+    DescribeAccountCustomPermissionCommandOutput,
     QuickSightClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -105,21 +98,21 @@ export class UpdateQuickSightQSearchConfigurationCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("QuickSight_20180401", "UpdateQuickSightQSearchConfiguration", {})
-  .n("QuickSightClient", "UpdateQuickSightQSearchConfigurationCommand")
+  .s("QuickSight_20180401", "DescribeAccountCustomPermission", {})
+  .n("QuickSightClient", "DescribeAccountCustomPermissionCommand")
   .f(void 0, void 0)
-  .ser(se_UpdateQuickSightQSearchConfigurationCommand)
-  .de(de_UpdateQuickSightQSearchConfigurationCommand)
+  .ser(se_DescribeAccountCustomPermissionCommand)
+  .de(de_DescribeAccountCustomPermissionCommand)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: UpdateQuickSightQSearchConfigurationRequest;
-      output: UpdateQuickSightQSearchConfigurationResponse;
+      input: DescribeAccountCustomPermissionRequest;
+      output: DescribeAccountCustomPermissionResponse;
     };
     sdk: {
-      input: UpdateQuickSightQSearchConfigurationCommandInput;
-      output: UpdateQuickSightQSearchConfigurationCommandOutput;
+      input: DescribeAccountCustomPermissionCommandInput;
+      output: DescribeAccountCustomPermissionCommandOutput;
     };
   };
 }

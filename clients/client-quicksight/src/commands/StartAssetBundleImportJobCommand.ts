@@ -33,7 +33,7 @@ export interface StartAssetBundleImportJobCommandOutput extends StartAssetBundle
 
 /**
  * <p>Starts an Asset Bundle import job.</p>
- *          <p>An Asset Bundle import job imports specified Amazon QuickSight assets into an Amazon QuickSight account. You can also choose to import a naming prefix and specified configuration overrides. The assets that are contained in the bundle file that you provide are used to create or update a new or existing asset in your Amazon QuickSight account. Each Amazon QuickSight account can run up to 5 import jobs concurrently.</p>
+ *          <p>An Asset Bundle import job imports specified QuickSight assets into an QuickSight account. You can also choose to import a naming prefix and specified configuration overrides. The assets that are contained in the bundle file that you provide are used to create or update a new or existing asset in your QuickSight account. Each QuickSight account can run up to 5 import jobs concurrently.</p>
  *          <p>The API caller must have the necessary <code>"create"</code>, <code>"describe"</code>, and <code>"update"</code> permissions in their IAM role to access each resource type that is contained in the bundle file before the resources can be imported.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -238,6 +238,9 @@ export interface StartAssetBundleImportJobCommandOutput extends StartAssetBundle
  *             Port: Number("int"), // required
  *             Database: "STRING_VALUE",
  *             SqlEndpointPath: "STRING_VALUE", // required
+ *           },
+ *           CustomConnectionParameters: { // CustomConnectionParameters
+ *             ConnectionType: "STRING_VALUE",
  *           },
  *         },
  *         VpcConnectionProperties: {
@@ -504,7 +507,7 @@ export interface StartAssetBundleImportJobCommandOutput extends StartAssetBundle
  * @throws {@link UnsupportedUserEditionException} (client fault)
  *  <p>This error indicates that you are calling an operation on an Amazon QuickSight
  * 			subscription where the edition doesn't include support for that operation. Amazon
- * 			Amazon QuickSight currently has Standard Edition and Enterprise Edition. Not every operation and
+ * 			QuickSight currently has Standard Edition and Enterprise Edition. Not every operation and
  * 			capability is available in every edition.</p>
  *
  * @throws {@link QuickSightServiceException}

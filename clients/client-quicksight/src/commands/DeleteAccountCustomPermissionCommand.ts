@@ -5,13 +5,10 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
+import { DeleteAccountCustomPermissionRequest, DeleteAccountCustomPermissionResponse } from "../models/models_3";
 import {
-  UpdateQuickSightQSearchConfigurationRequest,
-  UpdateQuickSightQSearchConfigurationResponse,
-} from "../models/models_5";
-import {
-  de_UpdateQuickSightQSearchConfigurationCommand,
-  se_UpdateQuickSightQSearchConfigurationCommand,
+  de_DeleteAccountCustomPermissionCommand,
+  se_DeleteAccountCustomPermissionCommand,
 } from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
@@ -23,44 +20,42 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link UpdateQuickSightQSearchConfigurationCommand}.
+ * The input for {@link DeleteAccountCustomPermissionCommand}.
  */
-export interface UpdateQuickSightQSearchConfigurationCommandInput extends UpdateQuickSightQSearchConfigurationRequest {}
+export interface DeleteAccountCustomPermissionCommandInput extends DeleteAccountCustomPermissionRequest {}
 /**
  * @public
  *
- * The output of {@link UpdateQuickSightQSearchConfigurationCommand}.
+ * The output of {@link DeleteAccountCustomPermissionCommand}.
  */
-export interface UpdateQuickSightQSearchConfigurationCommandOutput
-  extends UpdateQuickSightQSearchConfigurationResponse,
+export interface DeleteAccountCustomPermissionCommandOutput
+  extends DeleteAccountCustomPermissionResponse,
     __MetadataBearer {}
 
 /**
- * <p>Updates the state of a QuickSight Q Search configuration.</p>
+ * <p>Unapplies a custom permissions profile from an account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { QuickSightClient, UpdateQuickSightQSearchConfigurationCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
- * // const { QuickSightClient, UpdateQuickSightQSearchConfigurationCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
+ * import { QuickSightClient, DeleteAccountCustomPermissionCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
+ * // const { QuickSightClient, DeleteAccountCustomPermissionCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
  * const client = new QuickSightClient(config);
- * const input = { // UpdateQuickSightQSearchConfigurationRequest
+ * const input = { // DeleteAccountCustomPermissionRequest
  *   AwsAccountId: "STRING_VALUE", // required
- *   QSearchStatus: "ENABLED" || "DISABLED", // required
  * };
- * const command = new UpdateQuickSightQSearchConfigurationCommand(input);
+ * const command = new DeleteAccountCustomPermissionCommand(input);
  * const response = await client.send(command);
- * // { // UpdateQuickSightQSearchConfigurationResponse
- * //   QSearchStatus: "ENABLED" || "DISABLED",
+ * // { // DeleteAccountCustomPermissionResponse
  * //   RequestId: "STRING_VALUE",
  * //   Status: Number("int"),
  * // };
  *
  * ```
  *
- * @param UpdateQuickSightQSearchConfigurationCommandInput - {@link UpdateQuickSightQSearchConfigurationCommandInput}
- * @returns {@link UpdateQuickSightQSearchConfigurationCommandOutput}
- * @see {@link UpdateQuickSightQSearchConfigurationCommandInput} for command's `input` shape.
- * @see {@link UpdateQuickSightQSearchConfigurationCommandOutput} for command's `response` shape.
+ * @param DeleteAccountCustomPermissionCommandInput - {@link DeleteAccountCustomPermissionCommandInput}
+ * @returns {@link DeleteAccountCustomPermissionCommandOutput}
+ * @see {@link DeleteAccountCustomPermissionCommandInput} for command's `input` shape.
+ * @see {@link DeleteAccountCustomPermissionCommandOutput} for command's `response` shape.
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -68,9 +63,6 @@ export interface UpdateQuickSightQSearchConfigurationCommandOutput
  * 			validated. You might not be authorized to carry out the request. Make sure that your
  * 			account is authorized to use the Amazon QuickSight service, that your policies have the
  * 			correct permissions, and that you are using the correct credentials.</p>
- *
- * @throws {@link ConflictException} (client fault)
- *  <p>Updating or deleting a resource can cause an inconsistent state.</p>
  *
  * @throws {@link InternalFailureException} (server fault)
  *  <p>An internal failure occurred.</p>
@@ -90,10 +82,10 @@ export interface UpdateQuickSightQSearchConfigurationCommandOutput
  *
  * @public
  */
-export class UpdateQuickSightQSearchConfigurationCommand extends $Command
+export class DeleteAccountCustomPermissionCommand extends $Command
   .classBuilder<
-    UpdateQuickSightQSearchConfigurationCommandInput,
-    UpdateQuickSightQSearchConfigurationCommandOutput,
+    DeleteAccountCustomPermissionCommandInput,
+    DeleteAccountCustomPermissionCommandOutput,
     QuickSightClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -105,21 +97,21 @@ export class UpdateQuickSightQSearchConfigurationCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("QuickSight_20180401", "UpdateQuickSightQSearchConfiguration", {})
-  .n("QuickSightClient", "UpdateQuickSightQSearchConfigurationCommand")
+  .s("QuickSight_20180401", "DeleteAccountCustomPermission", {})
+  .n("QuickSightClient", "DeleteAccountCustomPermissionCommand")
   .f(void 0, void 0)
-  .ser(se_UpdateQuickSightQSearchConfigurationCommand)
-  .de(de_UpdateQuickSightQSearchConfigurationCommand)
+  .ser(se_DeleteAccountCustomPermissionCommand)
+  .de(de_DeleteAccountCustomPermissionCommand)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: UpdateQuickSightQSearchConfigurationRequest;
-      output: UpdateQuickSightQSearchConfigurationResponse;
+      input: DeleteAccountCustomPermissionRequest;
+      output: DeleteAccountCustomPermissionResponse;
     };
     sdk: {
-      input: UpdateQuickSightQSearchConfigurationCommandInput;
-      output: UpdateQuickSightQSearchConfigurationCommandOutput;
+      input: DeleteAccountCustomPermissionCommandInput;
+      output: DeleteAccountCustomPermissionCommandOutput;
     };
   };
 }

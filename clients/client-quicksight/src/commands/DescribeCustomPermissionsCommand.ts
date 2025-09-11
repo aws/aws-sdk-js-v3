@@ -70,6 +70,8 @@ export interface DescribeCustomPermissionsCommandOutput extends DescribeCustomPe
  * //       ExportToCsvInScheduledReports: "DENY",
  * //       ExportToExcelInScheduledReports: "DENY",
  * //       IncludeContentInScheduledReportsEmail: "DENY",
+ * //       Dashboard: "DENY",
+ * //       Analysis: "DENY",
  * //     },
  * //   },
  * //   RequestId: "STRING_VALUE",

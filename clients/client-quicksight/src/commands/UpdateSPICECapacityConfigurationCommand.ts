@@ -33,7 +33,7 @@ export interface UpdateSPICECapacityConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Updates the SPICE capacity configuration for a Amazon QuickSight account.</p>
+ * <p>Updates the SPICE capacity configuration for a QuickSight account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

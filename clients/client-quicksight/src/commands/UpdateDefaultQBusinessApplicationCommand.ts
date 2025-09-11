@@ -36,7 +36,7 @@ export interface UpdateDefaultQBusinessApplicationCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Updates a Amazon Q Business application that is linked to a Amazon QuickSight account.</p>
+ * <p>Updates a Amazon Q Business application that is linked to a QuickSight account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

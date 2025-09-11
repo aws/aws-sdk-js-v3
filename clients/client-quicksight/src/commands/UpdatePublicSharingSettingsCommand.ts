@@ -34,13 +34,13 @@ export interface UpdatePublicSharingSettingsCommandOutput
 
 /**
  * <p>Use the <code>UpdatePublicSharingSettings</code> operation to turn on or turn off the
- *             public sharing settings of an Amazon QuickSight dashboard.</p>
- *          <p>To use this operation, turn on session capacity pricing for your Amazon QuickSight
+ *             public sharing settings of an QuickSight dashboard.</p>
+ *          <p>To use this operation, turn on session capacity pricing for your QuickSight
  *             account.</p>
  *          <p>Before you can turn on public sharing on your account, make sure to give public sharing
  *             permissions to an administrative user in the Identity and Access Management (IAM)
- *             console. For more information on using IAM with Amazon QuickSight, see
- *                 <a href="https://docs.aws.amazon.com/quicksight/latest/user/security_iam_service-with-iam.html">Using Amazon QuickSight with IAM</a> in the <i>Amazon QuickSight
+ *             console. For more information on using IAM with QuickSight, see
+ *                 <a href="https://docs.aws.amazon.com/quicksight/latest/user/security_iam_service-with-iam.html">Using QuickSight with IAM</a> in the <i>QuickSight
  *                 User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -88,8 +88,8 @@ export interface UpdatePublicSharingSettingsCommandOutput
  * @throws {@link UnsupportedPricingPlanException} (client fault)
  *  <p>This error indicates that you are calling an embedding operation in Amazon QuickSight
  * 			without the required pricing plan on your Amazon Web Services account. Before you can use embedding
- * 			for anonymous users, a QuickSight administrator needs to add capacity pricing to Amazon QuickSight. You
- * 		    can do this on the <b>Manage Amazon QuickSight</b> page. </p>
+ * 			for anonymous users, a QuickSight administrator needs to add capacity pricing to QuickSight. You
+ * 		    can do this on the <b>Manage QuickSight</b> page. </p>
  *          <p>After capacity pricing is added, you can use the
  *             <code>
  *                <a href="https://docs.aws.amazon.com/quicksight/latest/APIReference/API_GetDashboardEmbedUrl.html">GetDashboardEmbedUrl</a>

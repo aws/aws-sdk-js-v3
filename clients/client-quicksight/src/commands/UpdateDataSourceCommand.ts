@@ -203,6 +203,9 @@ export interface UpdateDataSourceCommandOutput extends UpdateDataSourceResponse,
  *       Database: "STRING_VALUE",
  *       SqlEndpointPath: "STRING_VALUE", // required
  *     },
+ *     CustomConnectionParameters: { // CustomConnectionParameters
+ *       ConnectionType: "STRING_VALUE",
+ *     },
  *   },
  *   Credentials: { // DataSourceCredentials
  *     CredentialPair: { // CredentialPair
@@ -369,6 +372,9 @@ export interface UpdateDataSourceCommandOutput extends UpdateDataSourceResponse,
  *             Database: "STRING_VALUE",
  *             SqlEndpointPath: "STRING_VALUE", // required
  *           },
+ *           CustomConnectionParameters: {
+ *             ConnectionType: "STRING_VALUE",
+ *           },
  *         },
  *       ],
  *     },
@@ -408,7 +414,7 @@ export interface UpdateDataSourceCommandOutput extends UpdateDataSourceResponse,
  *  <p>Updating or deleting a resource can cause an inconsistent state.</p>
  *
  * @throws {@link CustomerManagedKeyUnavailableException} (client fault)
- *  <p>The customer managed key that is registered to your Amazon QuickSight account is unavailable.</p>
+ *  <p>The customer managed key that is registered to your QuickSight account is unavailable.</p>
  *
  * @throws {@link InternalFailureException} (server fault)
  *  <p>An internal failure occurred.</p>

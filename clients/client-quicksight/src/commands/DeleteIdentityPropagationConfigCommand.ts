@@ -33,8 +33,8 @@ export interface DeleteIdentityPropagationConfigCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Deletes all access scopes and authorized targets that are associated with a service from the Amazon QuickSight IAM Identity Center application.</p>
- *          <p>This operation is only supported for Amazon QuickSight accounts that use IAM Identity Center.</p>
+ * <p>Deletes all access scopes and authorized targets that are associated with a service from the QuickSight IAM Identity Center application.</p>
+ *          <p>This operation is only supported for QuickSight accounts that use IAM Identity Center.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -44,8 +44,12 @@ import {
   DashboardVersionDefinition,
   DataSetImportMode,
   DatasetParameter,
+  DataSetSearchFilter,
+  DataSetSummary,
   DataSetUsageConfiguration,
   DataSourceCredentials,
+  DataSourceSearchFilter,
+  DataSourceSummary,
   FieldFolder,
   Group,
   LinkSharingConfiguration,
@@ -73,6 +77,9 @@ import {
 
 import {
   FailedKeyRegistrationEntry,
+  FolderSearchFilter,
+  FolderSummary,
+  GroupSearchFilter,
   IncludeFolderMembers,
   PersonalizationMode,
   PurchaseMode,
@@ -81,11 +88,306 @@ import {
   SessionTag,
   SessionTagFilterSensitiveLog,
   SnapshotConfiguration,
-  TopicSearchFilter,
   TopicSummary,
   User,
   UserRole,
 } from "./models_4";
+
+/**
+ * @public
+ */
+export interface SearchDataSetsRequest {
+  /**
+   * <p>The Amazon Web Services account ID.</p>
+   * @public
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The filters to apply to the search.</p>
+   * @public
+   */
+  Filters: DataSetSearchFilter[] | undefined;
+
+  /**
+   * <p>A pagination token that can be used in a subsequent request.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to be returned per request.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface SearchDataSetsResponse {
+  /**
+   * <p>A <code>DataSetSummaries</code> object that returns a summary of a dataset.</p>
+   * @public
+   */
+  DataSetSummaries?: DataSetSummary[] | undefined;
+
+  /**
+   * <p>A pagination token that can be used in a subsequent request.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   * @public
+   */
+  Status?: number | undefined;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   * @public
+   */
+  RequestId?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface SearchDataSourcesRequest {
+  /**
+   * <p>The Amazon Web Services account ID.</p>
+   * @public
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The filters to apply to the search.</p>
+   * @public
+   */
+  Filters: DataSourceSearchFilter[] | undefined;
+
+  /**
+   * <p>A pagination token that can be used in a subsequent request.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to be returned per request.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface SearchDataSourcesResponse {
+  /**
+   * <p>A <code>DataSourceSummaries</code> object that returns a summary of a data source.</p>
+   * @public
+   */
+  DataSourceSummaries?: DataSourceSummary[] | undefined;
+
+  /**
+   * <p>A pagination token that can be used in a subsequent request.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   * @public
+   */
+  Status?: number | undefined;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   * @public
+   */
+  RequestId?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface SearchFoldersRequest {
+  /**
+   * <p>The ID for the Amazon Web Services account that contains the folder.</p>
+   * @public
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The filters to apply to the search. Currently, you can search only by the parent folder ARN. For example, <code>"Filters": [ \{ "Name": "PARENT_FOLDER_ARN", "Operator": "StringEquals", "Value": "arn:aws:quicksight:us-east-1:1:folder/folderId" \} ]</code>.</p>
+   * @public
+   */
+  Filters: FolderSearchFilter[] | undefined;
+
+  /**
+   * <p>The token for the next set of results, or null if there are no more results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to be returned per request.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface SearchFoldersResponse {
+  /**
+   * <p>The HTTP status of the request.</p>
+   * @public
+   */
+  Status?: number | undefined;
+
+  /**
+   * <p>A structure that contains all of the folders in the Amazon Web Services account. This structure provides basic information about the folders.</p>
+   * @public
+   */
+  FolderSummaryList?: FolderSummary[] | undefined;
+
+  /**
+   * <p>The token for the next set of results, or null if there are no more results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   * @public
+   */
+  RequestId?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface SearchGroupsRequest {
+  /**
+   * <p>The ID for the Amazon Web Services account that the group is in. Currently, you use the ID for the
+   *           Amazon Web Services account that contains your Amazon QuickSight account.</p>
+   * @public
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>A pagination token that can be used in a subsequent request.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return from this request.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>The namespace that you want to search.</p>
+   * @public
+   */
+  Namespace: string | undefined;
+
+  /**
+   * <p>The structure for the search filters that you want to apply to your search.</p>
+   * @public
+   */
+  Filters: GroupSearchFilter[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface SearchGroupsResponse {
+  /**
+   * <p>A list of groups in a specified namespace that match the filters you set in your <code>SearchGroups</code> request.</p>
+   * @public
+   */
+  GroupList?: Group[] | undefined;
+
+  /**
+   * <p>A pagination token that can be used in a subsequent request.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   * @public
+   */
+  RequestId?: string | undefined;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   * @public
+   */
+  Status?: number | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const TopicFilterAttribute = {
+  DIRECT_QUICKSIGHT_OWNER: "DIRECT_QUICKSIGHT_OWNER",
+  DIRECT_QUICKSIGHT_SOLE_OWNER: "DIRECT_QUICKSIGHT_SOLE_OWNER",
+  DIRECT_QUICKSIGHT_VIEWER_OR_OWNER: "DIRECT_QUICKSIGHT_VIEWER_OR_OWNER",
+  QUICKSIGHT_OWNER: "QUICKSIGHT_OWNER",
+  QUICKSIGHT_USER: "QUICKSIGHT_USER",
+  QUICKSIGHT_VIEWER_OR_OWNER: "QUICKSIGHT_VIEWER_OR_OWNER",
+  TOPIC_NAME: "TOPIC_NAME",
+} as const;
+
+/**
+ * @public
+ */
+export type TopicFilterAttribute = (typeof TopicFilterAttribute)[keyof typeof TopicFilterAttribute];
+
+/**
+ * @public
+ * @enum
+ */
+export const TopicFilterOperator = {
+  StringEquals: "StringEquals",
+  StringLike: "StringLike",
+} as const;
+
+/**
+ * @public
+ */
+export type TopicFilterOperator = (typeof TopicFilterOperator)[keyof typeof TopicFilterOperator];
+
+/**
+ * <p>The filter that is used to search for a topic.</p>
+ * @public
+ */
+export interface TopicSearchFilter {
+  /**
+   * <p>The operator like equals or like.</p>
+   * @public
+   */
+  Operator: TopicFilterOperator | undefined;
+
+  /**
+   * <p>The name of the topic search filter.</p>
+   * @public
+   */
+  Name: TopicFilterAttribute | undefined;
+
+  /**
+   * <p>The value of the topic search filter.</p>
+   * @public
+   */
+  Value: string | undefined;
+}
 
 /**
  * @public
@@ -322,7 +624,7 @@ export interface StartAssetBundleImportJobRequest {
    * <p>The failure action for the import job.</p>
    *          <p>If you choose <code>ROLLBACK</code>, failed  import jobs will attempt to  undo any asset changes caused by the failed job.</p>
    *          <p>If you choose <code>DO_NOTHING</code>, failed import jobs will not attempt to roll back
-   *          any asset changes caused by the failed job, possibly keeping the Amazon QuickSight account in an inconsistent state.</p>
+   *          any asset changes caused by the failed job, possibly keeping the QuickSight account in an inconsistent state.</p>
    * @public
    */
   FailureAction?: AssetBundleImportFailureAction | undefined;
@@ -382,7 +684,7 @@ export interface StartAssetBundleImportJobResponse {
 export interface SnapshotAnonymousUser {
   /**
    * <p>The tags to be used for row-level security (RLS). Make sure that the relevant datasets have RLS tags configured before you start a snapshot export job. You can configure the RLS tags of a dataset with a <code>DataSet$RowLevelPermissionTagConfiguration</code> API call.</p>
-   *          <p>These are not the tags that are used for Amazon Web Services resource tagging. For more information on row level security in Amazon QuickSight, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/quicksight-dev-rls-tags.html">Using Row-Level Security (RLS) with Tags</a>in the <i>Amazon QuickSight User Guide</i>.</p>
+   *          <p>These are not the tags that are used for Amazon Web Services resource tagging. For more information on row level security in QuickSight, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/quicksight-dev-rls-tags.html">Using Row-Level Security (RLS) with Tags</a>in the <i>Amazon QuickSight User Guide</i>.</p>
    * @public
    */
   RowLevelPermissionTags?: SessionTag[] | undefined;
@@ -425,7 +727,7 @@ export interface StartDashboardSnapshotJobRequest {
 
   /**
    * <p>
-   *             A structure that contains information about the anonymous users that the generated snapshot is for. This API will not return information about registered Amazon QuickSight.</p>
+   *             A structure that contains information about the anonymous users that the generated snapshot is for. This API will not return information about registered QuickSight.</p>
    * @public
    */
   UserConfiguration: SnapshotUserConfiguration | undefined;
@@ -486,7 +788,7 @@ export interface StartDashboardSnapshotJobScheduleRequest {
   DashboardId: string | undefined;
 
   /**
-   * <p>The ID of the schedule that you want to start a snapshot job schedule for. The schedule ID can be found in the Amazon QuickSight console in the <b>Schedules</b> pane of the dashboard that the schedule is configured for.</p>
+   * <p>The ID of the schedule that you want to start a snapshot job schedule for. The schedule ID can be found in the QuickSight console in the <b>Schedules</b> pane of the dashboard that the schedule is configured for.</p>
    * @public
    */
   ScheduleId: string | undefined;
@@ -584,20 +886,20 @@ export interface UntagResourceResponse {
  */
 export interface UpdateAccountCustomizationRequest {
   /**
-   * <p>The ID for the Amazon Web Services account that you want to update Amazon QuickSight customizations
+   * <p>The ID for the Amazon Web Services account that you want to update QuickSight customizations
    *             for.</p>
    * @public
    */
   AwsAccountId: string | undefined;
 
   /**
-   * <p>The namespace that you want to update Amazon QuickSight customizations for.</p>
+   * <p>The namespace that you want to update QuickSight customizations for.</p>
    * @public
    */
   Namespace?: string | undefined;
 
   /**
-   * <p>The Amazon QuickSight customizations you're updating in the current Amazon Web Services Region. </p>
+   * <p>The QuickSight customizations you're updating in the current Amazon Web Services Region. </p>
    * @public
    */
   AccountCustomization: AccountCustomization | undefined;
@@ -614,7 +916,7 @@ export interface UpdateAccountCustomizationResponse {
   Arn?: string | undefined;
 
   /**
-   * <p>The ID for the Amazon Web Services account that you want to update Amazon QuickSight customizations
+   * <p>The ID for the Amazon Web Services account that you want to update QuickSight customizations
    *             for.</p>
    * @public
    */
@@ -627,7 +929,7 @@ export interface UpdateAccountCustomizationResponse {
   Namespace?: string | undefined;
 
   /**
-   * <p>The Amazon QuickSight customizations you're updating in the current Amazon Web Services Region. </p>
+   * <p>The QuickSight customizations you're updating in the current Amazon Web Services Region. </p>
    * @public
    */
   AccountCustomization?: AccountCustomization | undefined;
@@ -648,9 +950,43 @@ export interface UpdateAccountCustomizationResponse {
 /**
  * @public
  */
+export interface UpdateAccountCustomPermissionRequest {
+  /**
+   * <p>The name of the custom permissions profile that you want to apply to an account.</p>
+   * @public
+   */
+  CustomPermissionsName: string | undefined;
+
+  /**
+   * <p>The ID of the Amazon Web Services account for which you want to apply a custom permissions profile.</p>
+   * @public
+   */
+  AwsAccountId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateAccountCustomPermissionResponse {
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   * @public
+   */
+  RequestId?: string | undefined;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   * @public
+   */
+  Status?: number | undefined;
+}
+
+/**
+ * @public
+ */
 export interface UpdateAccountSettingsRequest {
   /**
-   * <p>The ID for the Amazon Web Services account that contains the Amazon QuickSight settings that you want to
+   * <p>The ID for the Amazon Web Services account that contains the QuickSight settings that you want to
    *             list.</p>
    * @public
    */
@@ -659,7 +995,7 @@ export interface UpdateAccountSettingsRequest {
   /**
    * <p>The default namespace for this Amazon Web Services account. Currently, the default is
    *                 <code>default</code>. IAM users that
-   *             register for the first time with Amazon QuickSight provide an email address that becomes
+   *             register for the first time with QuickSight provide an email address that becomes
    *             associated with the default namespace.
    *         </p>
    * @public
@@ -667,14 +1003,14 @@ export interface UpdateAccountSettingsRequest {
   DefaultNamespace: string | undefined;
 
   /**
-   * <p>The email address that you want Amazon QuickSight to send notifications to regarding your
-   *             Amazon Web Services account or Amazon QuickSight subscription.</p>
+   * <p>The email address that you want QuickSight to send notifications to regarding your
+   *             Amazon Web Services account or QuickSight subscription.</p>
    * @public
    */
   NotificationEmail?: string | undefined;
 
   /**
-   * <p>A boolean value that determines whether or not an Amazon QuickSight account can be deleted. A <code>True</code> value doesn't allow the account to be deleted and results in an error message if a user tries to make a <code>DeleteAccountSubscription</code> request. A <code>False</code> value will allow the account to be deleted.</p>
+   * <p>A boolean value that determines whether or not an QuickSight account can be deleted. A <code>True</code> value doesn't allow the account to be deleted and results in an error message if a user tries to make a <code>DeleteAccountSubscription</code> request. A <code>False</code> value will allow the account to be deleted.</p>
    * @public
    */
   TerminationProtectionEnabled?: boolean | undefined;
@@ -716,7 +1052,7 @@ export interface UpdateAnalysisRequest {
 
   /**
    * <p>A descriptive name for the analysis that you're updating. This name displays for the
-   *             analysis in the Amazon QuickSight console.</p>
+   *             analysis in the QuickSight console.</p>
    * @public
    */
   Name: string | undefined;
@@ -737,7 +1073,7 @@ export interface UpdateAnalysisRequest {
 
   /**
    * <p>The Amazon Resource Name (ARN) for the theme to apply to the analysis that you're
-   *             creating. To see the theme in the Amazon QuickSight console, make sure that you have access to
+   *             creating. To see the theme in the QuickSight console, make sure that you have access to
    *             it.</p>
    * @public
    */
@@ -872,7 +1208,7 @@ export interface UpdateApplicationWithTokenExchangeGrantRequest {
   AwsAccountId: string | undefined;
 
   /**
-   * <p>The namespace of the Amazon QuickSight application.</p>
+   * <p>The namespace of the QuickSight application.</p>
    * @public
    */
   Namespace: string | undefined;
@@ -906,7 +1242,7 @@ export interface UpdateBrandRequest {
   AwsAccountId: string | undefined;
 
   /**
-   * <p>The ID of the Amazon QuickSight brand.</p>
+   * <p>The ID of the QuickSight brand.</p>
    * @public
    */
   BrandId: string | undefined;
@@ -986,7 +1322,7 @@ export interface UpdateBrandPublishedVersionRequest {
   AwsAccountId: string | undefined;
 
   /**
-   * <p>The ID of the Amazon QuickSight brand.</p>
+   * <p>The ID of the QuickSight brand.</p>
    * @public
    */
   BrandId: string | undefined;
@@ -1094,7 +1430,7 @@ export interface UpdateDashboardRequest {
    *             </code> API operation. For
    *             <code>SourceTemplate</code>, specify the Amazon Resource Name (ARN) of the source
    *             template. The <code>SourceTemplate</code> ARN can contain any Amazon Web Services account and any
-   *             Amazon QuickSight-supported Amazon Web Services Region. </p>
+   *             QuickSight-supported Amazon Web Services Region. </p>
    *          <p>Use the <code>DataSetReferences</code> entity within <code>SourceTemplate</code> to
    *             list the replacement datasets for the placeholders listed in the original. The schema in
    *             each dataset must match its placeholder. </p>
@@ -1123,7 +1459,7 @@ export interface UpdateDashboardRequest {
    *                <p>
    *                   <code>AvailabilityStatus</code> for <code>AdHocFilteringOption</code> - This
    *                     status can be either <code>ENABLED</code> or <code>DISABLED</code>. When this is
-   *                     set to <code>DISABLED</code>, Amazon QuickSight disables the left filter pane on the
+   *                     set to <code>DISABLED</code>, QuickSight disables the left filter pane on the
    *                     published dashboard, which can be used for ad hoc (one-time) filtering. This
    *                     option is <code>ENABLED</code> by default. </p>
    *             </li>
@@ -1139,6 +1475,20 @@ export interface UpdateDashboardRequest {
    *                   <code>VisibilityState</code> for <code>SheetControlsOption</code> - This
    *                     visibility state can be either <code>COLLAPSED</code> or <code>EXPANDED</code>.
    *                     This option is <code>COLLAPSED</code> by default. </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>AvailabilityStatus</code> for <code>ExecutiveSummaryOption</code> - This status
+   *                     can be either <code>ENABLED</code> or <code>DISABLED</code>. The option to build an executive
+   *                     summary is disabled when this is set to <code>DISABLED</code>. This option is <code>ENABLED</code>
+   *                     by default.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>AvailabilityStatus</code> for <code>DataStoriesSharingOption</code> - This status
+   *                     can be either <code>ENABLED</code> or <code>DISABLED</code>. The option to share a data story is
+   *                     disabled when this is set to <code>DISABLED</code>. This option is <code>ENABLED</code>
+   *                     by default.</p>
    *             </li>
    *          </ul>
    * @public
@@ -1338,7 +1688,7 @@ export interface UpdateDashboardPermissionsResponse {
   Status?: number | undefined;
 
   /**
-   * <p>Updates the permissions of a shared link to an Amazon QuickSight dashboard.</p>
+   * <p>Updates the permissions of a shared link to an QuickSight dashboard.</p>
    * @public
    */
   LinkSharingConfiguration?: LinkSharingConfiguration | undefined;
@@ -1479,7 +1829,7 @@ export interface UpdateDataSetRequest {
   ImportMode: DataSetImportMode | undefined;
 
   /**
-   * <p>Groupings of columns that work together in certain Amazon QuickSight features. Currently, only geospatial hierarchy is supported.</p>
+   * <p>Groupings of columns that work together in certain QuickSight features. Currently, only geospatial hierarchy is supported.</p>
    * @public
    */
   ColumnGroups?: ColumnGroup[] | undefined;
@@ -1655,27 +2005,27 @@ export interface UpdateDataSourceRequest {
   Name: string | undefined;
 
   /**
-   * <p>The parameters that Amazon QuickSight uses to connect to your underlying source.</p>
+   * <p>The parameters that QuickSight uses to connect to your underlying source.</p>
    * @public
    */
   DataSourceParameters?: DataSourceParameters | undefined;
 
   /**
-   * <p>The credentials that Amazon QuickSight that uses to connect to your underlying source. Currently,
+   * <p>The credentials that QuickSight that uses to connect to your underlying source. Currently,
    * 			only credentials based on user name and password are supported.</p>
    * @public
    */
   Credentials?: DataSourceCredentials | undefined;
 
   /**
-   * <p>Use this parameter only when you want Amazon QuickSight to use a VPC connection when connecting to
+   * <p>Use this parameter only when you want QuickSight to use a VPC connection when connecting to
    * 			your underlying source.</p>
    * @public
    */
   VpcConnectionProperties?: VpcConnectionProperties | undefined;
 
   /**
-   * <p>Secure Socket Layer (SSL) properties that apply when Amazon QuickSight connects to your underlying
+   * <p>Secure Socket Layer (SSL) properties that apply when QuickSight connects to your underlying
    * 			source.</p>
    * @public
    */
@@ -1780,13 +2130,13 @@ export interface UpdateDataSourcePermissionsResponse {
  */
 export interface UpdateDefaultQBusinessApplicationRequest {
   /**
-   * <p>The ID of the Amazon QuickSight account that is connected to the Amazon Q Business application that you want to update.</p>
+   * <p>The ID of the QuickSight account that is connected to the Amazon Q Business application that you want to update.</p>
    * @public
    */
   AwsAccountId: string | undefined;
 
   /**
-   * <p>The Amazon QuickSight namespace that contains the linked Amazon Q Business application. If this field is left blank, the default namespace is used. Currently, the default namespace is the only valid value for this parameter.</p>
+   * <p>The QuickSight namespace that contains the linked Amazon Q Business application. If this field is left blank, the default namespace is used. Currently, the default namespace is the only valid value for this parameter.</p>
    * @public
    */
   Namespace?: string | undefined;
@@ -2034,14 +2384,14 @@ export interface UpdateIAMPolicyAssignmentRequest {
   AssignmentStatus?: AssignmentStatus | undefined;
 
   /**
-   * <p>The ARN for the IAM policy to apply to the Amazon QuickSight users and
+   * <p>The ARN for the IAM policy to apply to the QuickSight users and
    * 			groups specified in this assignment.</p>
    * @public
    */
   PolicyArn?: string | undefined;
 
   /**
-   * <p>The Amazon QuickSight users, groups, or both that you want to assign the policy
+   * <p>The QuickSight users, groups, or both that you want to assign the policy
    * 			to.</p>
    * @public
    */
@@ -2065,14 +2415,14 @@ export interface UpdateIAMPolicyAssignmentResponse {
   AssignmentId?: string | undefined;
 
   /**
-   * <p>The ARN for the IAM policy applied to the Amazon QuickSight users and
+   * <p>The ARN for the IAM policy applied to the QuickSight users and
    * 			groups specified in this assignment.</p>
    * @public
    */
   PolicyArn?: string | undefined;
 
   /**
-   * <p>The Amazon QuickSight users, groups, or both that the IAM policy is
+   * <p>The QuickSight users, groups, or both that the IAM policy is
    * 			assigned to.</p>
    * @public
    */
@@ -2223,14 +2573,14 @@ export interface UpdateKeyRegistrationRequest {
   AwsAccountId: string | undefined;
 
   /**
-   * <p>A list of <code>RegisteredCustomerManagedKey</code> objects to be updated to the Amazon QuickSight account.</p>
+   * <p>A list of <code>RegisteredCustomerManagedKey</code> objects to be updated to the QuickSight account.</p>
    * @public
    */
   KeyRegistration: RegisteredCustomerManagedKey[] | undefined;
 }
 
 /**
- * <p>A success entry that occurs when a <code>KeyRegistration</code> job is successfully applied to the Amazon QuickSight account.</p>
+ * <p>A success entry that occurs when a <code>KeyRegistration</code> job is successfully applied to the QuickSight account.</p>
  * @public
  */
 export interface SuccessfulKeyRegistrationEntry {
@@ -2275,13 +2625,13 @@ export interface UpdateKeyRegistrationResponse {
  */
 export interface UpdatePublicSharingSettingsRequest {
   /**
-   * <p>The Amazon Web Services account ID associated with your Amazon QuickSight subscription.</p>
+   * <p>The Amazon Web Services account ID associated with your QuickSight subscription.</p>
    * @public
    */
   AwsAccountId: string | undefined;
 
   /**
-   * <p>A Boolean value that indicates whether public sharing is turned on for an Amazon QuickSight account.</p>
+   * <p>A Boolean value that indicates whether public sharing is turned on for an QuickSight account.</p>
    * @public
    */
   PublicSharingEnabled?: boolean | undefined;
@@ -2315,7 +2665,7 @@ export interface UpdateQPersonalizationConfigurationRequest {
   AwsAccountId: string | undefined;
 
   /**
-   * <p>An option to allow Amazon QuickSight to customize data stories with user specific metadata, specifically location and job information, in your IAM Identity Center instance.</p>
+   * <p>An option to allow QuickSight to customize data stories with user specific metadata, specifically location and job information, in your IAM Identity Center instance.</p>
    * @public
    */
   PersonalizationMode: PersonalizationMode | undefined;
@@ -2349,13 +2699,13 @@ export interface UpdateQPersonalizationConfigurationResponse {
  */
 export interface UpdateQuickSightQSearchConfigurationRequest {
   /**
-   * <p>The ID of the Amazon Web Services account that contains the Amazon QuickSight Q Search configuration that you want to update.</p>
+   * <p>The ID of the Amazon Web Services account that contains the QuickSight Q Search configuration that you want to update.</p>
    * @public
    */
   AwsAccountId: string | undefined;
 
   /**
-   * <p>The status of the Amazon QuickSight Q Search configuration that the user wants to update.</p>
+   * <p>The status of the QuickSight Q Search configuration that the user wants to update.</p>
    * @public
    */
   QSearchStatus: QSearchStatus | undefined;
@@ -2366,7 +2716,7 @@ export interface UpdateQuickSightQSearchConfigurationRequest {
  */
 export interface UpdateQuickSightQSearchConfigurationResponse {
   /**
-   * <p>The status of the Amazon QuickSight Q Search configuration.</p>
+   * <p>The status of the QuickSight Q Search configuration.</p>
    * @public
    */
   QSearchStatus?: QSearchStatus | undefined;
@@ -2549,7 +2899,7 @@ export interface UpdateTemplateRequest {
    * 			analysis. Both of these require an Amazon Resource Name (ARN). For
    * 			<code>SourceTemplate</code>, specify the ARN of the source template. For
    * 			<code>SourceAnalysis</code>, specify the ARN of the source analysis. The <code>SourceTemplate</code>
-   * 			ARN can contain any Amazon Web Services account and any Amazon QuickSight-supported Amazon Web Services Region;. </p>
+   * 			ARN can contain any Amazon Web Services account and any QuickSight-supported Amazon Web Services Region;. </p>
    *          <p>Use the <code>DataSetReferences</code> entity within <code>SourceTemplate</code> or
    * 			<code>SourceAnalysis</code> to list the replacement datasets for the placeholders listed
    * 			in the original. The schema in each dataset must match its placeholder. </p>
@@ -2770,7 +3120,7 @@ export interface UpdateThemeRequest {
 
   /**
    * <p>The theme ID, defined by Amazon QuickSight, that a custom theme inherits from.
-   * 		All themes initially inherit from a default Amazon QuickSight theme.</p>
+   * 		All themes initially inherit from a default QuickSight theme.</p>
    * @public
    */
   BaseThemeId: string | undefined;
@@ -3191,7 +3541,7 @@ export interface UpdateUserRequest {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>READER_PRO</code>: Reader Pro adds Generative BI capabilities to the Reader role. Reader Pros have access to Amazon Q in Amazon QuickSight, can build stories with Amazon Q, and can generate executive summaries from dashboards.</p>
+   *                   <code>READER_PRO</code>: Reader Pro adds Generative BI capabilities to the Reader role. Reader Pros have access to Amazon Q in QuickSight, can build stories with Amazon Q, and can generate executive summaries from dashboards.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -3202,7 +3552,7 @@ export interface UpdateUserRequest {
    *                   <code>ADMIN_PRO</code>: Admin Pros are Author Pros who can also manage Amazon QuickSight administrative settings. Admin Pro users are billed at Author Pro pricing.</p>
    *             </li>
    *          </ul>
-   *          <p>The name of the Amazon QuickSight role is invisible to the user except for the console
+   *          <p>The name of the QuickSight role is invisible to the user except for the console
    * 	        screens dealing with permissions.</p>
    * @public
    */
@@ -3227,13 +3577,13 @@ export interface UpdateUserRequest {
    *             </li>
    *          </ul>
    *          <p>A set of custom permissions includes any combination of these restrictions. Currently,
-   *             you need to create the profile names for custom permission sets by using the Amazon QuickSight
+   *             you need to create the profile names for custom permission sets by using the QuickSight
    *             console. Then, you use the <code>RegisterUser</code> API operation to assign the named set of
-   *             permissions to a Amazon QuickSight user. </p>
-   *          <p>Amazon QuickSight custom permissions are applied through IAM policies. Therefore, they
-   *             override the permissions typically granted by assigning Amazon QuickSight users to one of the
-   *             default security cohorts in Amazon QuickSight (admin, author, reader).</p>
-   *          <p>This feature is available only to Amazon QuickSight Enterprise edition subscriptions.</p>
+   *             permissions to a QuickSight user. </p>
+   *          <p>QuickSight custom permissions are applied through IAM policies. Therefore, they
+   *             override the permissions typically granted by assigning QuickSight users to one of the
+   *             default security cohorts in QuickSight (admin, author, reader).</p>
+   *          <p>This feature is available only to QuickSight Enterprise edition subscriptions.</p>
    * @public
    */
   CustomPermissionsName?: string | undefined;
@@ -3248,7 +3598,7 @@ export interface UpdateUserRequest {
   UnapplyCustomPermissions?: boolean | undefined;
 
   /**
-   * <p>The type of supported external login provider that provides identity to let a user federate into Amazon QuickSight with an associated Identity and Access Management(IAM) role. The type of supported external login provider can be one of the following.</p>
+   * <p>The type of supported external login provider that provides identity to let a user federate into QuickSight with an associated Identity and Access Management(IAM) role. The type of supported external login provider can be one of the following.</p>
    *          <ul>
    *             <li>
    *                <p>
@@ -3273,7 +3623,7 @@ export interface UpdateUserRequest {
 
   /**
    * <p>The URL of the custom OpenID Connect (OIDC) provider that provides identity to let a user federate
-   *          into Amazon QuickSight with an associated Identity and Access Management(IAM) role. This parameter should
+   *          into QuickSight with an associated Identity and Access Management(IAM) role. This parameter should
    *          only be used when <code>ExternalLoginFederationProviderType</code> parameter is set to <code>CUSTOM_OIDC</code>.</p>
    * @public
    */

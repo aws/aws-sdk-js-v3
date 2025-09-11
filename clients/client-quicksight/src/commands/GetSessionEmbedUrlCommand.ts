@@ -33,9 +33,9 @@ export interface GetSessionEmbedUrlCommandOutput extends GetSessionEmbedUrlRespo
 
 /**
  * <p>Generates a session URL and authorization code that you can use to embed the Amazon
- *             Amazon QuickSight console in your web server code. Use <code>GetSessionEmbedUrl</code> where
+ *             QuickSight console in your web server code. Use <code>GetSessionEmbedUrl</code> where
  *             you want to provide an authoring portal that allows users to create data sources,
- *             datasets, analyses, and dashboards. The users who access an embedded Amazon QuickSight console
+ *             datasets, analyses, and dashboards. The users who access an embedded QuickSight console
  *             need belong to the author or admin security cohort. If you want to restrict permissions
  *             to some of these features, add a custom permissions profile to the user with the
  *             <code>
@@ -119,7 +119,7 @@ export interface GetSessionEmbedUrlCommandOutput extends GetSessionEmbedUrlRespo
  * @throws {@link UnsupportedUserEditionException} (client fault)
  *  <p>This error indicates that you are calling an operation on an Amazon QuickSight
  * 			subscription where the edition doesn't include support for that operation. Amazon
- * 			Amazon QuickSight currently has Standard Edition and Enterprise Edition. Not every operation and
+ * 			QuickSight currently has Standard Edition and Enterprise Edition. Not every operation and
  * 			capability is available in every edition.</p>
  *
  * @throws {@link QuickSightServiceException}

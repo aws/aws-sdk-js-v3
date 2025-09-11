@@ -46,7 +46,7 @@ export interface DescribeDataSourceCommandOutput extends DescribeDataSourceRespo
  * //     Arn: "STRING_VALUE",
  * //     DataSourceId: "STRING_VALUE",
  * //     Name: "STRING_VALUE",
- * //     Type: "ADOBE_ANALYTICS" || "AMAZON_ELASTICSEARCH" || "ATHENA" || "AURORA" || "AURORA_POSTGRESQL" || "AWS_IOT_ANALYTICS" || "GITHUB" || "JIRA" || "MARIADB" || "MYSQL" || "ORACLE" || "POSTGRESQL" || "PRESTO" || "REDSHIFT" || "S3" || "SALESFORCE" || "SERVICENOW" || "SNOWFLAKE" || "SPARK" || "SQLSERVER" || "TERADATA" || "TWITTER" || "TIMESTREAM" || "AMAZON_OPENSEARCH" || "EXASOL" || "DATABRICKS" || "STARBURST" || "TRINO" || "BIGQUERY",
+ * //     Type: "ADOBE_ANALYTICS" || "AMAZON_ELASTICSEARCH" || "ATHENA" || "AURORA" || "AURORA_POSTGRESQL" || "AWS_IOT_ANALYTICS" || "GITHUB" || "JIRA" || "MARIADB" || "MYSQL" || "ORACLE" || "POSTGRESQL" || "PRESTO" || "REDSHIFT" || "S3" || "SALESFORCE" || "SERVICENOW" || "SNOWFLAKE" || "SPARK" || "SQLSERVER" || "TERADATA" || "TWITTER" || "TIMESTREAM" || "AMAZON_OPENSEARCH" || "EXASOL" || "DATABRICKS" || "STARBURST" || "TRINO" || "BIGQUERY" || "GOOGLESHEETS",
  * //     Status: "CREATION_IN_PROGRESS" || "CREATION_SUCCESSFUL" || "CREATION_FAILED" || "UPDATE_IN_PROGRESS" || "UPDATE_SUCCESSFUL" || "UPDATE_FAILED" || "DELETED",
  * //     CreatedTime: new Date("TIMESTAMP"),
  * //     LastUpdatedTime: new Date("TIMESTAMP"),
@@ -210,6 +210,9 @@ export interface DescribeDataSourceCommandOutput extends DescribeDataSourceRespo
  * //         Database: "STRING_VALUE",
  * //         SqlEndpointPath: "STRING_VALUE", // required
  * //       },
+ * //       CustomConnectionParameters: { // CustomConnectionParameters
+ * //         ConnectionType: "STRING_VALUE",
+ * //       },
  * //     },
  * //     AlternateDataSourceParameters: [ // DataSourceParametersList
  * //       {//  Union: only one key present
@@ -371,6 +374,9 @@ export interface DescribeDataSourceCommandOutput extends DescribeDataSourceRespo
  * //           Port: Number("int"), // required
  * //           Database: "STRING_VALUE",
  * //           SqlEndpointPath: "STRING_VALUE", // required
+ * //         },
+ * //         CustomConnectionParameters: {
+ * //           ConnectionType: "STRING_VALUE",
  * //         },
  * //       },
  * //     ],

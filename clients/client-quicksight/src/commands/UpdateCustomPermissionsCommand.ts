@@ -62,6 +62,8 @@ export interface UpdateCustomPermissionsCommandOutput extends UpdateCustomPermis
  *     ExportToCsvInScheduledReports: "DENY",
  *     ExportToExcelInScheduledReports: "DENY",
  *     IncludeContentInScheduledReportsEmail: "DENY",
+ *     Dashboard: "DENY",
+ *     Analysis: "DENY",
  *   },
  * };
  * const command = new UpdateCustomPermissionsCommand(input);

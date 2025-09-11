@@ -72,6 +72,8 @@ export interface ListCustomPermissionsCommandOutput extends ListCustomPermission
  * //         ExportToCsvInScheduledReports: "DENY",
  * //         ExportToExcelInScheduledReports: "DENY",
  * //         IncludeContentInScheduledReportsEmail: "DENY",
+ * //         Dashboard: "DENY",
+ * //         Analysis: "DENY",
  * //       },
  * //     },
  * //   ],

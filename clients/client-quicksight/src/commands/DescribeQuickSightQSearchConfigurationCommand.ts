@@ -37,7 +37,7 @@ export interface DescribeQuickSightQSearchConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Describes the state of a Amazon QuickSight Q Search configuration.</p>
+ * <p>Describes the state of a QuickSight Q Search configuration.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -135,6 +135,12 @@ export interface UpdateDashboardCommandOutput extends UpdateDashboardResponse, _
  *     DataQAEnabledOption: { // DataQAEnabledOption
  *       AvailabilityStatus: "ENABLED" || "DISABLED",
  *     },
+ *     ExecutiveSummaryOption: { // ExecutiveSummaryOption
+ *       AvailabilityStatus: "ENABLED" || "DISABLED",
+ *     },
+ *     DataStoriesSharingOption: { // DataStoriesSharingOption
+ *       AvailabilityStatus: "ENABLED" || "DISABLED",
+ *     },
  *   },
  *   ThemeArn: "STRING_VALUE",
  *   Definition: { // DashboardVersionDefinition
@@ -5589,7 +5595,7 @@ export interface UpdateDashboardCommandOutput extends UpdateDashboardResponse, _
  * @throws {@link UnsupportedUserEditionException} (client fault)
  *  <p>This error indicates that you are calling an operation on an Amazon QuickSight
  * 			subscription where the edition doesn't include support for that operation. Amazon
- * 			Amazon QuickSight currently has Standard Edition and Enterprise Edition. Not every operation and
+ * 			QuickSight currently has Standard Edition and Enterprise Edition. Not every operation and
  * 			capability is available in every edition.</p>
  *
  * @throws {@link QuickSightServiceException}

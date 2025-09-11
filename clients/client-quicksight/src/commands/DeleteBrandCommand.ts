@@ -28,7 +28,7 @@ export interface DeleteBrandCommandInput extends DeleteBrandRequest {}
 export interface DeleteBrandCommandOutput extends DeleteBrandResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes an Amazon QuickSight brand.</p>
+ * <p>Deletes an QuickSight brand.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

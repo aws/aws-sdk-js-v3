@@ -40,7 +40,7 @@ export class AccessDeniedException extends __BaseException {
  */
 export interface AccountCustomization {
   /**
-   * <p>The default theme for this Amazon QuickSight subscription.</p>
+   * <p>The default theme for this QuickSight subscription.</p>
    * @public
    */
   DefaultTheme?: string | undefined;
@@ -72,47 +72,47 @@ export type Edition = (typeof Edition)[keyof typeof Edition];
  *             elements:</p>
  *          <ul>
  *             <li>
- *                <p>Your Amazon QuickSight account name.</p>
+ *                <p>Your QuickSight account name.</p>
  *             </li>
  *             <li>
- *                <p>The edition of Amazon QuickSight that your account is using.</p>
+ *                <p>The edition of QuickSight that your account is using.</p>
  *             </li>
  *             <li>
- *                <p>The notification email address that is associated with the Amazon QuickSight account.
+ *                <p>The notification email address that is associated with the QuickSight account.
  *             </p>
  *             </li>
  *             <li>
- *                <p>The authentication type of the Amazon QuickSight account.</p>
+ *                <p>The authentication type of the QuickSight account.</p>
  *             </li>
  *             <li>
- *                <p>The status of the Amazon QuickSight account's subscription.</p>
+ *                <p>The status of the QuickSight account's subscription.</p>
  *             </li>
  *          </ul>
  * @public
  */
 export interface AccountInfo {
   /**
-   * <p>The account name that you provided for the Amazon QuickSight subscription in your
-   *                 Amazon Web Services account. You create this name when you sign up for Amazon QuickSight. It's unique over all of Amazon Web Services, and it appears only when
+   * <p>The account name that you provided for the QuickSight subscription in your
+   *                 Amazon Web Services account. You create this name when you sign up for QuickSight. It's unique over all of Amazon Web Services, and it appears only when
    *             users sign in.</p>
    * @public
    */
   AccountName?: string | undefined;
 
   /**
-   * <p>The edition of your Amazon QuickSight account.</p>
+   * <p>The edition of your QuickSight account.</p>
    * @public
    */
   Edition?: Edition | undefined;
 
   /**
-   * <p>The email address that will be used for Amazon QuickSight to send notifications regarding your Amazon Web Services account or Amazon QuickSight subscription.</p>
+   * <p>The email address that will be used for QuickSight to send notifications regarding your Amazon Web Services account or QuickSight subscription.</p>
    * @public
    */
   NotificationEmail?: string | undefined;
 
   /**
-   * <p>The way that your Amazon QuickSight account is authenticated.</p>
+   * <p>The way that your QuickSight account is authenticated.</p>
    * @public
    */
   AuthenticationType?: string | undefined;
@@ -131,45 +131,45 @@ export interface AccountInfo {
 }
 
 /**
- * <p>The Amazon QuickSight settings associated with your Amazon Web Services account.</p>
+ * <p>The QuickSight settings associated with your Amazon Web Services account.</p>
  * @public
  */
 export interface AccountSettings {
   /**
-   * <p>The "account name" you provided for the Amazon QuickSight subscription in your Amazon Web Services account.
-   *             You create this name when you sign up for Amazon QuickSight. It is unique in all of Amazon Web Services and
+   * <p>The "account name" you provided for the QuickSight subscription in your Amazon Web Services account.
+   *             You create this name when you sign up for QuickSight. It is unique in all of Amazon Web Services and
    *             it appears only when users sign in.</p>
    * @public
    */
   AccountName?: string | undefined;
 
   /**
-   * <p>The edition of Amazon QuickSight that you're currently subscribed to:
+   * <p>The edition of QuickSight that you're currently subscribed to:
    *         Enterprise edition or Standard edition.</p>
    * @public
    */
   Edition?: Edition | undefined;
 
   /**
-   * <p>The default Amazon QuickSight namespace for your Amazon Web Services account. </p>
+   * <p>The default QuickSight namespace for your Amazon Web Services account. </p>
    * @public
    */
   DefaultNamespace?: string | undefined;
 
   /**
-   * <p>The main notification email for your Amazon QuickSight subscription.</p>
+   * <p>The main notification email for your QuickSight subscription.</p>
    * @public
    */
   NotificationEmail?: string | undefined;
 
   /**
-   * <p>A Boolean value that indicates whether public sharing is turned on for an Amazon QuickSight account. For more information about turning on public sharing, see <a href="https://docs.aws.amazon.com/quicksight/latest/APIReference/API_UpdatePublicSharingSettings.html">UpdatePublicSharingSettings</a>.</p>
+   * <p>A Boolean value that indicates whether public sharing is turned on for an QuickSight account. For more information about turning on public sharing, see <a href="https://docs.aws.amazon.com/quicksight/latest/APIReference/API_UpdatePublicSharingSettings.html">UpdatePublicSharingSettings</a>.</p>
    * @public
    */
   PublicSharingEnabled?: boolean | undefined;
 
   /**
-   * <p>A boolean value that determines whether or not an Amazon QuickSight account can be deleted. A <code>True</code> value doesn't allow the account to be deleted and results in an error message if a user tries to make a <code>DeleteAccountSubsctiption</code> request. A <code>False</code> value will allow the ccount to be deleted. </p>
+   * <p>A boolean value that determines whether or not an QuickSight account can be deleted. A <code>True</code> value doesn't allow the account to be deleted and results in an error message if a user tries to make a <code>DeleteAccountSubsctiption</code> request. A <code>False</code> value will allow the ccount to be deleted. </p>
    * @public
    */
   TerminationProtectionEnabled?: boolean | undefined;
@@ -666,90 +666,90 @@ export interface AmazonOpenSearchParameters {
 }
 
 /**
- * <p>The generative Q&A settings of an embedded Amazon QuickSight console.</p>
+ * <p>The generative Q&A settings of an embedded QuickSight console.</p>
  * @public
  */
 export interface DataQnAConfigurations {
   /**
-   * <p>The generative Q&A settings of an embedded Amazon QuickSight console.</p>
+   * <p>The generative Q&A settings of an embedded QuickSight console.</p>
    * @public
    */
   Enabled: boolean | undefined;
 }
 
 /**
- * <p>The data story settings of an embedded Amazon QuickSight console.</p>
+ * <p>The data story settings of an embedded QuickSight console.</p>
  * @public
  */
 export interface DataStoriesConfigurations {
   /**
-   * <p>The data story settings of an embedded Amazon QuickSight console.</p>
+   * <p>The data story settings of an embedded QuickSight console.</p>
    * @public
    */
   Enabled: boolean | undefined;
 }
 
 /**
- * <p>The executive summary settings of an embedded Amazon QuickSight console or dashboard.</p>
+ * <p>The executive summary settings of an embedded QuickSight console or dashboard.</p>
  * @public
  */
 export interface ExecutiveSummaryConfigurations {
   /**
-   * <p>The executive summary settings of an embedded Amazon QuickSight console or dashboard.</p>
+   * <p>The executive summary settings of an embedded QuickSight console or dashboard.</p>
    * @public
    */
   Enabled: boolean | undefined;
 }
 
 /**
- * <p>The generative BI authoring settings of an embedded Amazon QuickSight console.</p>
+ * <p>The generative BI authoring settings of an embedded QuickSight console.</p>
  * @public
  */
 export interface GenerativeAuthoringConfigurations {
   /**
-   * <p>The generative BI authoring settings of an embedded Amazon QuickSight console.</p>
+   * <p>The generative BI authoring settings of an embedded QuickSight console.</p>
    * @public
    */
   Enabled: boolean | undefined;
 }
 
 /**
- * <p>A collection of Amazon Q feature configurations in an embedded Amazon QuickSight console.</p>
+ * <p>A collection of Amazon Q feature configurations in an embedded QuickSight console.</p>
  * @public
  */
 export interface AmazonQInQuickSightConsoleConfigurations {
   /**
-   * <p>Adds generative Q&A capabilitiees to an embedded Amazon QuickSight console.</p>
+   * <p>Adds generative Q&A capabilitiees to an embedded QuickSight console.</p>
    * @public
    */
   DataQnA?: DataQnAConfigurations | undefined;
 
   /**
-   * <p>Adds the generative BI authoring experience to an embedded Amazon QuickSight console.</p>
+   * <p>Adds the generative BI authoring experience to an embedded QuickSight console.</p>
    * @public
    */
   GenerativeAuthoring?: GenerativeAuthoringConfigurations | undefined;
 
   /**
-   * <p>Adds the executive summaries feature to an embedded Amazon QuickSight console.</p>
+   * <p>Adds the executive summaries feature to an embedded QuickSight console.</p>
    * @public
    */
   ExecutiveSummary?: ExecutiveSummaryConfigurations | undefined;
 
   /**
-   * <p>Adds the data stories feature to an embedded Amazon QuickSight console.</p>
+   * <p>Adds the data stories feature to an embedded QuickSight console.</p>
    * @public
    */
   DataStories?: DataStoriesConfigurations | undefined;
 }
 
 /**
- * <p>A collection of Amazon Q feature configurations in an embedded Amazon QuickSight dashboard.</p>
+ * <p>A collection of Amazon Q feature configurations in an embedded QuickSight dashboard.</p>
  * @public
  */
 export interface AmazonQInQuickSightDashboardConfigurations {
   /**
-   * <p>A generated executive summary of an embedded Amazon QuickSight dashboard.</p>
+   * <p>A generated executive summary of an embedded QuickSight dashboard.</p>
    * @public
    */
   ExecutiveSummary?: ExecutiveSummaryConfigurations | undefined;
@@ -1322,7 +1322,7 @@ export interface Sheet {
   SheetId?: string | undefined;
 
   /**
-   * <p>The name of a sheet. This name is displayed on the sheet's tab in the Amazon QuickSight
+   * <p>The name of a sheet. This name is displayed on the sheet's tab in the QuickSight
    *             console.</p>
    * @public
    */
@@ -1481,12 +1481,12 @@ export interface GridLayoutScreenCanvasSizeOptions {
    *             <li>
    *                <p>
    *                   <code>FIXED</code>: A fixed width will be used when optimizing the layout. In
-   *                     the Amazon QuickSight console, this option is called <code>Classic</code>.</p>
+   *                     the QuickSight console, this option is called <code>Classic</code>.</p>
    *             </li>
    *             <li>
    *                <p>
    *                   <code>RESPONSIVE</code>: The width of the canvas will be responsive and
-   *                     optimized to the view port. In the Amazon QuickSight console, this option is called <code>Tiled</code>.</p>
+   *                     optimized to the view port. In the QuickSight console, this option is called <code>Tiled</code>.</p>
    *             </li>
    *          </ul>
    * @public
@@ -2484,13 +2484,13 @@ export interface FilterListConfiguration {
  */
 export interface CategoryFilterConfiguration {
   /**
-   * <p>A list of filter configurations. In the Amazon QuickSight console, this filter type is called a filter list.</p>
+   * <p>A list of filter configurations. In the QuickSight console, this filter type is called a filter list.</p>
    * @public
    */
   FilterListConfiguration?: FilterListConfiguration | undefined;
 
   /**
-   * <p>A list of custom filter values. In the Amazon QuickSight console, this filter type is called a custom filter list.</p>
+   * <p>A list of custom filter values. In the QuickSight console, this filter type is called a custom filter list.</p>
    * @public
    */
   CustomFilterListConfiguration?: CustomFilterListConfiguration | undefined;

@@ -266,6 +266,9 @@ export interface DescribeAssetBundleImportJobCommandOutput
  * //             Database: "STRING_VALUE",
  * //             SqlEndpointPath: "STRING_VALUE", // required
  * //           },
+ * //           CustomConnectionParameters: { // CustomConnectionParameters
+ * //             ConnectionType: "STRING_VALUE",
+ * //           },
  * //         },
  * //         VpcConnectionProperties: {
  * //           VpcConnectionArn: "STRING_VALUE", // required
@@ -516,7 +519,7 @@ export interface DescribeAssetBundleImportJobCommandOutput
  * @throws {@link UnsupportedUserEditionException} (client fault)
  *  <p>This error indicates that you are calling an operation on an Amazon QuickSight
  * 			subscription where the edition doesn't include support for that operation. Amazon
- * 			Amazon QuickSight currently has Standard Edition and Enterprise Edition. Not every operation and
+ * 			QuickSight currently has Standard Edition and Enterprise Edition. Not every operation and
  * 			capability is available in every edition.</p>
  *
  * @throws {@link QuickSightServiceException}
