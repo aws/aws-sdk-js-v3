@@ -28,6 +28,7 @@ jobs:
         with:
           java-version: ${{ matrix.java }}
           distribution: 'corretto'
+          cache: gradle
       
       - name: build and publish smithy-typescript
         run: |
