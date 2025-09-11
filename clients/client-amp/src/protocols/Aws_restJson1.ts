@@ -70,6 +70,10 @@ import {
   DeleteRuleGroupsNamespaceCommandOutput,
 } from "../commands/DeleteRuleGroupsNamespaceCommand";
 import { DeleteScraperCommandInput, DeleteScraperCommandOutput } from "../commands/DeleteScraperCommand";
+import {
+  DeleteScraperLoggingConfigurationCommandInput,
+  DeleteScraperLoggingConfigurationCommandOutput,
+} from "../commands/DeleteScraperLoggingConfigurationCommand";
 import { DeleteWorkspaceCommandInput, DeleteWorkspaceCommandOutput } from "../commands/DeleteWorkspaceCommand";
 import {
   DescribeAlertManagerDefinitionCommandInput,
@@ -92,6 +96,10 @@ import {
   DescribeRuleGroupsNamespaceCommandOutput,
 } from "../commands/DescribeRuleGroupsNamespaceCommand";
 import { DescribeScraperCommandInput, DescribeScraperCommandOutput } from "../commands/DescribeScraperCommand";
+import {
+  DescribeScraperLoggingConfigurationCommandInput,
+  DescribeScraperLoggingConfigurationCommandOutput,
+} from "../commands/DescribeScraperLoggingConfigurationCommand";
 import { DescribeWorkspaceCommandInput, DescribeWorkspaceCommandOutput } from "../commands/DescribeWorkspaceCommand";
 import {
   DescribeWorkspaceConfigurationCommandInput,
@@ -132,6 +140,10 @@ import {
 } from "../commands/UpdateQueryLoggingConfigurationCommand";
 import { UpdateScraperCommandInput, UpdateScraperCommandOutput } from "../commands/UpdateScraperCommand";
 import {
+  UpdateScraperLoggingConfigurationCommandInput,
+  UpdateScraperLoggingConfigurationCommandOutput,
+} from "../commands/UpdateScraperLoggingConfigurationCommand";
+import {
   UpdateWorkspaceAliasCommandInput,
   UpdateWorkspaceAliasCommandOutput,
 } from "../commands/UpdateWorkspaceAliasCommand";
@@ -145,6 +157,7 @@ import {
   AlertManagerDefinitionDescription,
   AmpConfiguration,
   CloudWatchLogDestination,
+  ComponentConfig,
   ConflictException,
   Destination,
   EksConfiguration,
@@ -160,7 +173,9 @@ import {
   RuleGroupsNamespaceDescription,
   RuleGroupsNamespaceSummary,
   ScrapeConfiguration,
+  ScraperComponent,
   ScraperDescription,
+  ScraperLoggingDestination,
   ScraperSummary,
   ServiceQuotaExceededException,
   Source,
@@ -438,6 +453,25 @@ export const se_DeleteScraperCommand = async (
 };
 
 /**
+ * serializeAws_restJson1DeleteScraperLoggingConfigurationCommand
+ */
+export const se_DeleteScraperLoggingConfigurationCommand = async (
+  input: DeleteScraperLoggingConfigurationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/scrapers/{scraperId}/logging-configuration");
+  b.p("scraperId", () => input.scraperId!, "{scraperId}", false);
+  const query: any = map({
+    [_cT]: [, input[_cT] ?? generateIdempotencyToken()],
+  });
+  let body: any;
+  b.m("DELETE").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1DeleteWorkspaceCommand
  */
 export const se_DeleteWorkspaceCommand = async (
@@ -547,6 +581,22 @@ export const se_DescribeScraperCommand = async (
   const b = rb(input, context);
   const headers: any = {};
   b.bp("/scrapers/{scraperId}");
+  b.p("scraperId", () => input.scraperId!, "{scraperId}", false);
+  let body: any;
+  b.m("GET").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1DescribeScraperLoggingConfigurationCommand
+ */
+export const se_DescribeScraperLoggingConfigurationCommand = async (
+  input: DescribeScraperLoggingConfigurationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/scrapers/{scraperId}/logging-configuration");
   b.p("scraperId", () => input.scraperId!, "{scraperId}", false);
   let body: any;
   b.m("GET").h(headers).b(body);
@@ -869,6 +919,30 @@ export const se_UpdateScraperCommand = async (
 };
 
 /**
+ * serializeAws_restJson1UpdateScraperLoggingConfigurationCommand
+ */
+export const se_UpdateScraperLoggingConfigurationCommand = async (
+  input: UpdateScraperLoggingConfigurationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/scrapers/{scraperId}/logging-configuration");
+  b.p("scraperId", () => input.scraperId!, "{scraperId}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      loggingDestination: (_) => _json(_),
+      scraperComponents: (_) => _json(_),
+    })
+  );
+  b.m("PUT").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1UpdateWorkspaceAliasCommand
  */
 export const se_UpdateWorkspaceAliasCommand = async (
@@ -1161,6 +1235,23 @@ export const de_DeleteScraperCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1DeleteScraperLoggingConfigurationCommand
+ */
+export const de_DeleteScraperLoggingConfigurationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteScraperLoggingConfigurationCommandOutput> => {
+  if (output.statusCode !== 202 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1DeleteWorkspaceCommand
  */
 export const de_DeleteWorkspaceCommand = async (
@@ -1300,6 +1391,31 @@ export const de_DescribeScraperCommand = async (
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
     scraper: (_) => de_ScraperDescription(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DescribeScraperLoggingConfigurationCommand
+ */
+export const de_DescribeScraperLoggingConfigurationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeScraperLoggingConfigurationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    loggingDestination: (_) => _json(__expectUnion(_)),
+    modifiedAt: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    scraperComponents: _json,
+    scraperId: __expectString,
+    status: _json,
   });
   Object.assign(contents, doc);
   return contents;
@@ -1623,6 +1739,27 @@ export const de_UpdateScraperCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1UpdateScraperLoggingConfigurationCommand
+ */
+export const de_UpdateScraperLoggingConfigurationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateScraperLoggingConfigurationCommandOutput> => {
+  if (output.statusCode !== 202 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    status: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1UpdateWorkspaceAliasCommand
  */
 export const de_UpdateWorkspaceAliasCommand = async (
@@ -1853,6 +1990,8 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 
 // se_CloudWatchLogDestination omitted.
 
+// se_ComponentConfig omitted.
+
 // se_Destination omitted.
 
 // se_EksConfiguration omitted.
@@ -1883,9 +2022,17 @@ const se_ScrapeConfiguration = (input: ScrapeConfiguration, context: __SerdeCont
   });
 };
 
+// se_ScraperComponent omitted.
+
+// se_ScraperComponents omitted.
+
+// se_ScraperLoggingDestination omitted.
+
 // se_SecurityGroupIds omitted.
 
 // se_Source omitted.
+
+// se_StringMap omitted.
 
 // se_SubnetIds omitted.
 
@@ -1911,6 +2058,8 @@ const de_AlertManagerDefinitionDescription = (
 // de_AmpConfiguration omitted.
 
 // de_CloudWatchLogDestination omitted.
+
+// de_ComponentConfig omitted.
 
 // de_Destination omitted.
 
@@ -2020,6 +2169,10 @@ const de_ScrapeConfiguration = (output: any, context: __SerdeContext): ScrapeCon
   return { $unknown: Object.entries(output)[0] };
 };
 
+// de_ScraperComponent omitted.
+
+// de_ScraperComponents omitted.
+
 /**
  * deserializeAws_restJson1ScraperDescription
  */
@@ -2040,6 +2193,10 @@ const de_ScraperDescription = (output: any, context: __SerdeContext): ScraperDes
     tags: _json,
   }) as any;
 };
+
+// de_ScraperLoggingConfigurationStatus omitted.
+
+// de_ScraperLoggingDestination omitted.
 
 // de_ScraperStatus omitted.
 
@@ -2078,6 +2235,8 @@ const de_ScraperSummaryList = (output: any, context: __SerdeContext): ScraperSum
 // de_SecurityGroupIds omitted.
 
 // de_Source omitted.
+
+// de_StringMap omitted.
 
 // de_SubnetIds omitted.
 
