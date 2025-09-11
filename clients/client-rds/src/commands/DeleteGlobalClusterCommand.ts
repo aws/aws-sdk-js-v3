@@ -5,7 +5,8 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DeleteGlobalClusterMessage, DeleteGlobalClusterResult } from "../models/models_0";
+import { DeleteGlobalClusterMessage } from "../models/models_0";
+import { DeleteGlobalClusterResult } from "../models/models_1";
 import { de_DeleteGlobalClusterCommand, se_DeleteGlobalClusterCommand } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 

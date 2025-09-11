@@ -64,6 +64,7 @@ export interface DescribeDBProxiesCommandOutput extends DescribeDBProxiesRespons
  * //       VpcSubnetIds: [
  * //         "STRING_VALUE",
  * //       ],
+ * //       DefaultAuthScheme: "STRING_VALUE",
  * //       Auth: [ // UserAuthConfigInfoList
  * //         { // UserAuthConfigInfo
  * //           Description: "STRING_VALUE",

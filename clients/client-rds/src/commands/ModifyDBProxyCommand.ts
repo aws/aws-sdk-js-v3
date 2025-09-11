@@ -38,6 +38,7 @@ export interface ModifyDBProxyCommandOutput extends ModifyDBProxyResponse, __Met
  * const input = { // ModifyDBProxyRequest
  *   DBProxyName: "STRING_VALUE", // required
  *   NewDBProxyName: "STRING_VALUE",
+ *   DefaultAuthScheme: "IAM_AUTH" || "NONE",
  *   Auth: [ // UserAuthConfigList
  *     { // UserAuthConfig
  *       Description: "STRING_VALUE",
@@ -71,6 +72,7 @@ export interface ModifyDBProxyCommandOutput extends ModifyDBProxyResponse, __Met
  * //     VpcSubnetIds: [
  * //       "STRING_VALUE",
  * //     ],
+ * //     DefaultAuthScheme: "STRING_VALUE",
  * //     Auth: [ // UserAuthConfigInfoList
  * //       { // UserAuthConfigInfo
  * //         Description: "STRING_VALUE",

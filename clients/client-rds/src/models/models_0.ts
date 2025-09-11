@@ -11181,6 +11181,20 @@ export interface UserAuthConfig {
  * @public
  * @enum
  */
+export const DefaultAuthScheme = {
+  IAM_AUTH: "IAM_AUTH",
+  NONE: "NONE",
+} as const;
+
+/**
+ * @public
+ */
+export type DefaultAuthScheme = (typeof DefaultAuthScheme)[keyof typeof DefaultAuthScheme];
+
+/**
+ * @public
+ * @enum
+ */
 export const EndpointNetworkType = {
   DUAL: "DUAL",
   IPV4: "IPV4",
@@ -11243,10 +11257,20 @@ export interface CreateDBProxyRequest {
   EngineFamily: EngineFamily | undefined;
 
   /**
+   * <p>The default authentication scheme that the proxy uses for client connections to the proxy and connections from the proxy to the underlying database.
+   *             Valid values are <code>NONE</code> and <code>IAM_AUTH</code>.
+   *             When set to <code>IAM_AUTH</code>, the proxy uses end-to-end IAM authentication to connect to the database.
+   *             If you don't specify <code>DefaultAuthScheme</code> or specify this parameter
+   *             as <code>NONE</code>, you must specify the <code>Auth</code> option.</p>
+   * @public
+   */
+  DefaultAuthScheme?: DefaultAuthScheme | undefined;
+
+  /**
    * <p>The authorization mechanism that the proxy uses.</p>
    * @public
    */
-  Auth: UserAuthConfig[] | undefined;
+  Auth?: UserAuthConfig[] | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the IAM role that the proxy uses to access secrets in Amazon Web Services Secrets Manager.</p>
@@ -11473,6 +11497,15 @@ export interface DBProxy {
    * @public
    */
   VpcSubnetIds?: string[] | undefined;
+
+  /**
+   * <p>The default authentication scheme that the proxy uses for client connections to the proxy and connections from the proxy to the underlying database.
+   *             Valid values are <code>NONE</code> and <code>IAM_AUTH</code>.
+   *             When set to <code>IAM_AUTH</code>, the proxy uses end-to-end IAM authentication to connect to the database.
+   *         </p>
+   * @public
+   */
+  DefaultAuthScheme?: string | undefined;
 
   /**
    * <p>One or more data structures specifying the authorization mechanism to connect to the associated RDS DB instance
@@ -15078,17 +15111,6 @@ export interface DeleteGlobalClusterMessage {
    * @public
    */
   GlobalClusterIdentifier: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteGlobalClusterResult {
-  /**
-   * <p>A data type representing an Aurora global database.</p>
-   * @public
-   */
-  GlobalCluster?: GlobalCluster | undefined;
 }
 
 /**

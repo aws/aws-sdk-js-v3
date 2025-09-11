@@ -25,6 +25,7 @@ import {
   DBShardGroup,
   DBSnapshot,
   DBSubnetGroup,
+  DefaultAuthScheme,
   EventSubscription,
   ExportSourceType,
   ExportTask,
@@ -46,6 +47,17 @@ import {
 } from "./models_0";
 
 import { RDSServiceException as __BaseException } from "./RDSServiceException";
+
+/**
+ * @public
+ */
+export interface DeleteGlobalClusterResult {
+  /**
+   * <p>A data type representing an Aurora global database.</p>
+   * @public
+   */
+  GlobalCluster?: GlobalCluster | undefined;
+}
 
 /**
  * @public
@@ -9947,6 +9959,14 @@ export interface ModifyDBProxyRequest {
    * @public
    */
   NewDBProxyName?: string | undefined;
+
+  /**
+   * <p>The default authentication scheme that the proxy uses for client connections to the proxy and connections from the proxy to the underlying database.
+   *             Valid values are <code>NONE</code> and <code>IAM_AUTH</code>.
+   *             When set to <code>IAM_AUTH</code>, the proxy uses end-to-end IAM authentication to connect to the database.</p>
+   * @public
+   */
+  DefaultAuthScheme?: DefaultAuthScheme | undefined;
 
   /**
    * <p>The new authentication settings for the <code>DBProxy</code>.</p>

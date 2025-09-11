@@ -53,6 +53,7 @@ export interface DeleteDBProxyCommandOutput extends DeleteDBProxyResponse, __Met
  * //     VpcSubnetIds: [
  * //       "STRING_VALUE",
  * //     ],
+ * //     DefaultAuthScheme: "STRING_VALUE",
  * //     Auth: [ // UserAuthConfigInfoList
  * //       { // UserAuthConfigInfo
  * //         Description: "STRING_VALUE",

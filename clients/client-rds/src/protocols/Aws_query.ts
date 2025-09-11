@@ -720,7 +720,6 @@ import {
   DeleteEventSubscriptionMessage,
   DeleteEventSubscriptionResult,
   DeleteGlobalClusterMessage,
-  DeleteGlobalClusterResult,
   DomainMembership,
   DomainNotFoundFault,
   Ec2ImagePropertiesNotSupportedFault,
@@ -868,6 +867,7 @@ import {
   DBSnapshotTenantDatabasesMessage,
   DBSubnetGroupMessage,
   DBUpgradeDependencyFailureFault,
+  DeleteGlobalClusterResult,
   DeleteIntegrationMessage,
   DeleteOptionGroupMessage,
   DeleteTenantDatabaseMessage,
@@ -11234,6 +11234,9 @@ const se_CreateDBProxyRequest = (input: CreateDBProxyRequest, context: __SerdeCo
   if (input[_EF] != null) {
     entries[_EF] = input[_EF];
   }
+  if (input[_DAS] != null) {
+    entries[_DAS] = input[_DAS];
+  }
   if (input[_Au] != null) {
     const memberEntries = se_UserAuthConfigList(input[_Au], context);
     if (input[_Au]?.length === 0) {
@@ -14224,6 +14227,9 @@ const se_ModifyDBProxyRequest = (input: ModifyDBProxyRequest, context: __SerdeCo
   }
   if (input[_NDBPN] != null) {
     entries[_NDBPN] = input[_NDBPN];
+  }
+  if (input[_DAS] != null) {
+    entries[_DAS] = input[_DAS];
   }
   if (input[_Au] != null) {
     const memberEntries = se_UserAuthConfigList(input[_Au], context);
@@ -19504,6 +19510,9 @@ const de_DBProxy = (output: any, context: __SerdeContext): DBProxy => {
     contents[_VSI] = [];
   } else if (output[_VSI] != null && output[_VSI][_me] != null) {
     contents[_VSI] = de_StringList(__getArrayIfSingleItem(output[_VSI][_me]), context);
+  }
+  if (output[_DAS] != null) {
+    contents[_DAS] = __expectString(output[_DAS]);
   }
   if (output.Auth === "") {
     contents[_Au] = [];
@@ -25428,6 +25437,7 @@ const _Cer = "Certificate";
 const _D = "Description";
 const _DAA = "DescribeAccountAttributes";
 const _DAB = "DeleteAutomatedBackups";
+const _DAS = "DefaultAuthScheme";
 const _DASA = "DomainAuthSecretArn";
 const _DBC = "DBCluster";
 const _DBCA = "DBClusterArn";
