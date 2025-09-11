@@ -67,6 +67,7 @@ export interface ListVirtualClustersCommandOutput extends ListVirtualClustersRes
  * //         info: { // ContainerInfo Union: only one key present
  * //           eksInfo: { // EksInfo
  * //             namespace: "STRING_VALUE",
+ * //             nodeLabel: "STRING_VALUE",
  * //           },
  * //         },
  * //       },

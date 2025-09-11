@@ -46,6 +46,7 @@ export interface CreateVirtualClusterCommandOutput extends CreateVirtualClusterR
  *     info: { // ContainerInfo Union: only one key present
  *       eksInfo: { // EksInfo
  *         namespace: "STRING_VALUE",
+ *         nodeLabel: "STRING_VALUE",
  *       },
  *     },
  *   },

@@ -46,6 +46,16 @@ export interface CreateSecurityConfigurationCommandOutput
  * const input = { // CreateSecurityConfigurationRequest
  *   clientToken: "STRING_VALUE", // required
  *   name: "STRING_VALUE", // required
+ *   containerProvider: { // ContainerProvider
+ *     type: "EKS", // required
+ *     id: "STRING_VALUE", // required
+ *     info: { // ContainerInfo Union: only one key present
+ *       eksInfo: { // EksInfo
+ *         namespace: "STRING_VALUE",
+ *         nodeLabel: "STRING_VALUE",
+ *       },
+ *     },
+ *   },
  *   securityConfigurationData: { // SecurityConfigurationData
  *     authorizationConfiguration: { // AuthorizationConfiguration
  *       lakeFormationConfiguration: { // LakeFormationConfiguration

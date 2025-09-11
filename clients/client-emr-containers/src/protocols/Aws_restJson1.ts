@@ -224,6 +224,7 @@ export const se_CreateSecurityConfigurationCommand = async (
   body = JSON.stringify(
     take(input, {
       clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
+      containerProvider: (_) => _json(_),
       name: [],
       securityConfigurationData: (_) => _json(_),
       tags: (_) => _json(_),

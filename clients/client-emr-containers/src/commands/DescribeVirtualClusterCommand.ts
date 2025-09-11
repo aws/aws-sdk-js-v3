@@ -57,6 +57,7 @@ export interface DescribeVirtualClusterCommandOutput extends DescribeVirtualClus
  * //       info: { // ContainerInfo Union: only one key present
  * //         eksInfo: { // EksInfo
  * //           namespace: "STRING_VALUE",
+ * //           nodeLabel: "STRING_VALUE",
  * //         },
  * //       },
  * //     },
