@@ -18,6 +18,7 @@ import {
   withBaseException,
 } from "@smithy/smithy-client";
 import {
+  DocumentType as __DocumentType,
   Endpoint as __Endpoint,
   HeaderBag as __HeaderBag,
   ResponseMetadata as __ResponseMetadata,
@@ -451,7 +452,7 @@ export const se_CreateServiceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("CreateService");
   let body: any;
-  body = JSON.stringify(_json(input));
+  body = JSON.stringify(se_CreateServiceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1153,7 +1154,7 @@ export const se_UpdateServiceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("UpdateService");
   let body: any;
-  body = JSON.stringify(_json(input));
+  body = JSON.stringify(se_UpdateServiceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -2985,7 +2986,39 @@ const se_CreatedAt = (input: CreatedAt, context: __SerdeContext): any => {
   });
 };
 
-// se_CreateServiceRequest omitted.
+/**
+ * serializeAws_json1_1CreateServiceRequest
+ */
+const se_CreateServiceRequest = (input: CreateServiceRequest, context: __SerdeContext): any => {
+  return take(input, {
+    availabilityZoneRebalancing: [],
+    capacityProviderStrategy: _json,
+    clientToken: [],
+    cluster: [],
+    deploymentConfiguration: (_) => se_DeploymentConfiguration(_, context),
+    deploymentController: _json,
+    desiredCount: [],
+    enableECSManagedTags: [],
+    enableExecuteCommand: [],
+    healthCheckGracePeriodSeconds: [],
+    launchType: [],
+    loadBalancers: _json,
+    networkConfiguration: _json,
+    placementConstraints: _json,
+    placementStrategy: _json,
+    platformVersion: [],
+    propagateTags: [],
+    role: [],
+    schedulingStrategy: [],
+    serviceConnectConfiguration: _json,
+    serviceName: [],
+    serviceRegistries: _json,
+    tags: _json,
+    taskDefinition: [],
+    volumeConfigurations: _json,
+    vpcLatticeConfigurations: _json,
+  });
+};
 
 /**
  * serializeAws_json1_1CreateTaskSetRequest
@@ -3026,13 +3059,45 @@ const se_CreateTaskSetRequest = (input: CreateTaskSetRequest, context: __SerdeCo
 
 // se_DeploymentCircuitBreaker omitted.
 
-// se_DeploymentConfiguration omitted.
+/**
+ * serializeAws_json1_1DeploymentConfiguration
+ */
+const se_DeploymentConfiguration = (input: DeploymentConfiguration, context: __SerdeContext): any => {
+  return take(input, {
+    alarms: _json,
+    bakeTimeInMinutes: [],
+    deploymentCircuitBreaker: _json,
+    lifecycleHooks: (_) => se_DeploymentLifecycleHookList(_, context),
+    maximumPercent: [],
+    minimumHealthyPercent: [],
+    strategy: [],
+  });
+};
 
 // se_DeploymentController omitted.
 
-// se_DeploymentLifecycleHook omitted.
+/**
+ * serializeAws_json1_1DeploymentLifecycleHook
+ */
+const se_DeploymentLifecycleHook = (input: DeploymentLifecycleHook, context: __SerdeContext): any => {
+  return take(input, {
+    hookDetails: (_) => se_HookDetails(_, context),
+    hookTargetArn: [],
+    lifecycleStages: _json,
+    roleArn: [],
+  });
+};
 
-// se_DeploymentLifecycleHookList omitted.
+/**
+ * serializeAws_json1_1DeploymentLifecycleHookList
+ */
+const se_DeploymentLifecycleHookList = (input: DeploymentLifecycleHook[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return se_DeploymentLifecycleHook(entry, context);
+    });
+};
 
 // se_DeploymentLifecycleHookStageList omitted.
 
@@ -3103,6 +3168,13 @@ const se_CreateTaskSetRequest = (input: CreateTaskSetRequest, context: __SerdeCo
 // se_GetTaskProtectionRequest omitted.
 
 // se_HealthCheck omitted.
+
+/**
+ * serializeAws_json1_1HookDetails
+ */
+const se_HookDetails = (input: __DocumentType, context: __SerdeContext): any => {
+  return input;
+};
 
 // se_HostEntry omitted.
 
@@ -3429,7 +3501,35 @@ const se_SubmitTaskStateChangeRequest = (input: SubmitTaskStateChangeRequest, co
 
 // se_UpdateServicePrimaryTaskSetRequest omitted.
 
-// se_UpdateServiceRequest omitted.
+/**
+ * serializeAws_json1_1UpdateServiceRequest
+ */
+const se_UpdateServiceRequest = (input: UpdateServiceRequest, context: __SerdeContext): any => {
+  return take(input, {
+    availabilityZoneRebalancing: [],
+    capacityProviderStrategy: _json,
+    cluster: [],
+    deploymentConfiguration: (_) => se_DeploymentConfiguration(_, context),
+    deploymentController: _json,
+    desiredCount: [],
+    enableECSManagedTags: [],
+    enableExecuteCommand: [],
+    forceNewDeployment: [],
+    healthCheckGracePeriodSeconds: [],
+    loadBalancers: _json,
+    networkConfiguration: _json,
+    placementConstraints: _json,
+    placementStrategy: _json,
+    platformVersion: [],
+    propagateTags: [],
+    service: [],
+    serviceConnectConfiguration: _json,
+    serviceRegistries: _json,
+    taskDefinition: [],
+    volumeConfigurations: _json,
+    vpcLatticeConfigurations: _json,
+  });
+};
 
 // se_UpdateTaskProtectionRequest omitted.
 
@@ -3709,15 +3809,48 @@ const de_Deployment = (output: any, context: __SerdeContext): Deployment => {
 
 // de_DeploymentCircuitBreaker omitted.
 
-// de_DeploymentConfiguration omitted.
+/**
+ * deserializeAws_json1_1DeploymentConfiguration
+ */
+const de_DeploymentConfiguration = (output: any, context: __SerdeContext): DeploymentConfiguration => {
+  return take(output, {
+    alarms: _json,
+    bakeTimeInMinutes: __expectInt32,
+    deploymentCircuitBreaker: _json,
+    lifecycleHooks: (_: any) => de_DeploymentLifecycleHookList(_, context),
+    maximumPercent: __expectInt32,
+    minimumHealthyPercent: __expectInt32,
+    strategy: __expectString,
+  }) as any;
+};
 
 // de_DeploymentController omitted.
 
 // de_DeploymentEphemeralStorage omitted.
 
-// de_DeploymentLifecycleHook omitted.
+/**
+ * deserializeAws_json1_1DeploymentLifecycleHook
+ */
+const de_DeploymentLifecycleHook = (output: any, context: __SerdeContext): DeploymentLifecycleHook => {
+  return take(output, {
+    hookDetails: (_: any) => de_HookDetails(_, context),
+    hookTargetArn: __expectString,
+    lifecycleStages: _json,
+    roleArn: __expectString,
+  }) as any;
+};
 
-// de_DeploymentLifecycleHookList omitted.
+/**
+ * deserializeAws_json1_1DeploymentLifecycleHookList
+ */
+const de_DeploymentLifecycleHookList = (output: any, context: __SerdeContext): DeploymentLifecycleHook[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_DeploymentLifecycleHook(entry, context);
+    });
+  return retVal;
+};
 
 // de_DeploymentLifecycleHookStageList omitted.
 
@@ -3899,6 +4032,13 @@ const de_GetTaskProtectionResponse = (output: any, context: __SerdeContext): Get
 // de_GpuIds omitted.
 
 // de_HealthCheck omitted.
+
+/**
+ * deserializeAws_json1_1HookDetails
+ */
+const de_HookDetails = (output: any, context: __SerdeContext): __DocumentType => {
+  return output;
+};
 
 // de_HostEntry omitted.
 
@@ -4200,7 +4340,7 @@ const de_Service = (output: any, context: __SerdeContext): Service => {
     clusterArn: __expectString,
     createdAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     createdBy: __expectString,
-    deploymentConfiguration: _json,
+    deploymentConfiguration: (_: any) => de_DeploymentConfiguration(_, context),
     deploymentController: _json,
     deployments: (_: any) => de_Deployments(_, context),
     desiredCount: __expectInt32,
@@ -4263,7 +4403,7 @@ const de_ServiceDeployment = (output: any, context: __SerdeContext): ServiceDepl
     clusterArn: __expectString,
     createdAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     deploymentCircuitBreaker: _json,
-    deploymentConfiguration: _json,
+    deploymentConfiguration: (_: any) => de_DeploymentConfiguration(_, context),
     finishedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     lifecycleStage: __expectString,
     rollback: (_: any) => de_Rollback(_, context),

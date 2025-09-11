@@ -1,6 +1,8 @@
 // smithy-typescript generated code
 import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@smithy/smithy-client";
 
+import { DocumentType as __DocumentType } from "@smithy/types";
+
 import { ECSServiceException as __BaseException } from "./ECSServiceException";
 
 /**
@@ -1573,6 +1575,12 @@ export interface DeploymentLifecycleHook {
    * @public
    */
   lifecycleStages?: DeploymentLifecycleHookStage[] | undefined;
+
+  /**
+   * <p>Use this field to specify custom parameters that Amazon ECS will pass to your hook target invocations (such as a Lambda function).</p>
+   * @public
+   */
+  hookDetails?: __DocumentType | undefined;
 }
 
 /**
@@ -3201,7 +3209,7 @@ export interface CreateServiceRequest {
    *          <p>The default behavior of <code>AvailabilityZoneRebalancing</code> differs between create and update requests:</p>
    *          <ul>
    *             <li>
-   *                <p>For create service requests, when when no value is specified for <code>AvailabilityZoneRebalancing</code>, Amazon ECS defaults the value to to <code>ENABLED</code>.</p>
+   *                <p>For create service requests, when no value is specified for <code>AvailabilityZoneRebalancing</code>, Amazon ECS defaults the value to <code>ENABLED</code>.</p>
    *             </li>
    *             <li>
    *                <p>For update service requests, when no value is specified for <code>AvailabilityZoneRebalancing</code>, Amazon ECS defaults to the existing service’s <code>AvailabilityZoneRebalancing</code> value. If the service never had an <code>AvailabilityZoneRebalancing</code> value set, Amazon ECS treats this as <code>DISABLED</code>.</p>
@@ -4380,7 +4388,7 @@ export interface Service {
    *          <p>The default behavior of <code>AvailabilityZoneRebalancing</code> differs between create and update requests:</p>
    *          <ul>
    *             <li>
-   *                <p>For create service requests, when when no value is specified for <code>AvailabilityZoneRebalancing</code>, Amazon ECS defaults the value to to <code>ENABLED</code>.</p>
+   *                <p>For create service requests, when no value is specified for <code>AvailabilityZoneRebalancing</code>, Amazon ECS defaults the value to <code>ENABLED</code>.</p>
    *             </li>
    *             <li>
    *                <p>For update service requests, when no value is specified for <code>AvailabilityZoneRebalancing</code>, Amazon ECS defaults to the existing service’s <code>AvailabilityZoneRebalancing</code> value. If the service never had an <code>AvailabilityZoneRebalancing</code> value set, Amazon ECS treats this as <code>DISABLED</code>.</p>
@@ -6535,7 +6543,7 @@ export interface ContainerDefinition {
    *          <p>Port mappings on Windows use the <code>NetNAT</code> gateway address rather than
    * 				<code>localhost</code>. There's no loopback for port mappings on Windows, so you
    * 			can't access a container's mapped port from the host itself. </p>
-   *          <p>This parameter maps to <code>PortBindings</code> in the the docker container create
+   *          <p>This parameter maps to <code>PortBindings</code> in the docker container create
    * 			command and the <code>--publish</code> option to docker run. If the network mode of a
    * 			task definition is set to <code>none</code>, then you can't specify port mappings. If
    * 			the network mode of a task definition is set to <code>host</code>, then host ports must
@@ -13230,7 +13238,7 @@ export interface RunTaskRequest {
 
   /**
    * <p>The details of the volume that was <code>configuredAtLaunch</code>. You can configure
-   * 			the size, volumeType, IOPS, throughput, snapshot and encryption in in <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_TaskManagedEBSVolumeConfiguration.html">TaskManagedEBSVolumeConfiguration</a>. The <code>name</code> of the volume must
+   * 			the size, volumeType, IOPS, throughput, snapshot and encryption in <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_TaskManagedEBSVolumeConfiguration.html">TaskManagedEBSVolumeConfiguration</a>. The <code>name</code> of the volume must
    * 			match the <code>name</code> from the task definition.</p>
    * @public
    */
