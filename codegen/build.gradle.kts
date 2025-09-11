@@ -125,7 +125,7 @@ subprojects {
             repositories {
                 maven {
                     name = "stagingRepository"
-                    url = uri("${rootProject.buildDir}/staging")
+                    url = rootProject.layout.buildDirectory.dir("staging").get().asFile.toURI()
                 }
             }
 
@@ -217,7 +217,9 @@ subprojects {
             reports {
                 xml.required.set(false)
                 csv.required.set(false)
-                html.outputLocation.set(file("$buildDir/reports/jacoco"))
+                html.outputLocation.set(
+                    layout.buildDirectory.dir("reports/jacoco").get().asFile
+                )
             }
         }
 
@@ -288,7 +290,9 @@ jreleaser {
                 create("maven-central") {
                     active = Active.ALWAYS
                     url = "https://central.sonatype.com/api/v1/publisher"
-                    stagingRepositories.add("${rootProject.buildDir}/staging")
+                    stagingRepositories.add(
+                        rootProject.layout.buildDirectory.dir("staging").get().asFile.absolutePath
+                    )
                 }
             }
         }

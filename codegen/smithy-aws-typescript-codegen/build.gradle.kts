@@ -53,9 +53,11 @@ dependencies {
 
 tasks.register("set-aws-sdk-versions") {
     doLast {
-        mkdir("$buildDir/generated/resources/software/amazon/smithy/aws/typescript/codegen")
-        var versionsFile =
-                file("$buildDir/generated/resources/software/amazon/smithy/aws/typescript/codegen/sdkVersions.properties")
+        mkdir(layout.buildDirectory.dir("generated/resources/software/amazon/smithy/aws/typescript/codegen").get().asFile)
+        var versionsFile = layout.buildDirectory
+            .file("generated/resources/software/amazon/smithy/aws/typescript/codegen/sdkVersions.properties")
+            .get()
+            .asFile
         versionsFile.printWriter().close()
 
         var roots = project.file("../../packages").listFiles().toMutableList() + project.file("../../clients").listFiles().toList()
@@ -77,7 +79,10 @@ tasks.register("set-aws-sdk-versions") {
 sourceSets {
     main {
         resources {
-            setSrcDirs(listOf("src/main/resources", "$buildDir/generated/resources"))
+            setSrcDirs(listOf(
+                "src/main/resources",
+                layout.buildDirectory.dir("generated/resources").get().asFile
+            ))
         }
     }
 }

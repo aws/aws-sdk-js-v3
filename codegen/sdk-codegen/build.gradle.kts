@@ -56,7 +56,7 @@ tasks["jar"].enabled = false
 // from smithy-aws-typescript-codegen.
 tasks["smithyBuildJar"].enabled = false
 
-tasks.create<SmithyBuild>("buildSdk") {
+tasks.register<SmithyBuild>("buildSdk") {
     addRuntimeClasspath = true
 }
 
@@ -96,11 +96,11 @@ tasks.register("generate-smithy-build") {
 
             val sdkId = serviceTrait.sdkId
                     .replace(" ", "-")
-                    .toLowerCase();
-            val version = service.version.toLowerCase();
+                    .lowercase();
+            val version = service.version.lowercase();
 
             val clientName = sdkId.split("-").toTypedArray()
-                    .map { it.capitalize() }
+                    .map { it.replaceFirstChar { it.uppercase() } }
                     .joinToString(separator = " ")
             var manifestOverwrites = Node.parse(
                     File("smithy-aws-typescript-codegen/src/main/resources/software/amazon/smithy/aws/typescript/codegen/package.json.template")
@@ -116,7 +116,7 @@ tasks.register("generate-smithy-build") {
                     .withMember("imports", Node.fromStrings("${models.getAbsolutePath()}${File.separator}${file.name}"))
                     .withMember("plugins", Node.objectNode()
                             .withMember("typescript-codegen", Node.objectNodeBuilder()
-                                    .withMember("package", "@aws-sdk/client-" + sdkId.toLowerCase())
+                                    .withMember("package", "@aws-sdk/client-" + sdkId.lowercase())
                                     // Note that this version is replaced by Lerna when publishing.
                                     .withMember("packageVersion", "3.0.0")
                                     .withMember("packageJson", manifestOverwrites)
@@ -128,7 +128,7 @@ tasks.register("generate-smithy-build") {
                                         useSchemaSerde.contains(serviceTrait.sdkId))
                                     .build()))
                     .build()
-            projectionsBuilder.withMember(sdkId + "." + version.toLowerCase(), projectionContents)
+            projectionsBuilder.withMember(sdkId + "." + version.lowercase(), projectionContents)
         }
 
         val buildFile = if (!(clientNameProp?.isEmpty() ?: true))
