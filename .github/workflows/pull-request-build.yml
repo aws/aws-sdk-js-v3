@@ -1,7 +1,7 @@
 name: "Pull Request Workflow"
 on:
   pull_request:
-    types: [ready_for_review]
+    types: [synchronize, ready_for_review]
 
 concurrency:
   group: start-pull-request-build-${{ github.ref }}
@@ -14,6 +14,7 @@ env:
 
 jobs:
   aws-sdk-pr-build:
+    if: github.event.pull_request.draft == false
     runs-on: ubuntu-latest
     permissions:
       id-token: write
