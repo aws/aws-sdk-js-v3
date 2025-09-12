@@ -38,7 +38,7 @@
     "@aws-crypto/util": "5.2.0",
     "@aws-sdk/core": "*",
     "@aws-sdk/types": "*",
-    "@smithy/is-array-buffer": "^4.0.0",
+    "@smithy/is-array-buffer": "^4.1.0",
     "@smithy/node-config-provider": "^4.2.1",
     "@smithy/protocol-http": "^5.2.1",
     "@smithy/types": "^4.5.0",

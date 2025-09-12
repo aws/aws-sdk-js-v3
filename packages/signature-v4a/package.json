@@ -14,7 +14,7 @@
     "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo"
   },
   "dependencies": {
-    "@smithy/signature-v4a": "^3.0.5",
+    "@smithy/signature-v4a": "^3.0.7",
     "tslib": "^2.6.2"
   },
   "devDependencies": {

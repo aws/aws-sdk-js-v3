@@ -16,8 +16,9 @@
     "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
     "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo",
     "test": "yarn g:vitest run",
-    "test:integration": "yarn g:jest -c jest.config.integ.js",
-    "test:watch": "yarn g:vitest watch"
+    "test:watch": "yarn g:vitest watch",
+    "test:integration": "yarn g:vitest run -c vitest.config.integ.mts",
+    "test:integration:watch": "yarn g:vitest watch -c vitest.config.integ.mts"
   },
   "keywords": [
     "aws",
@@ -36,9 +37,9 @@
     "@aws-sdk/credential-provider-sso": "*",
     "@aws-sdk/credential-provider-web-identity": "*",
     "@aws-sdk/types": "*",
-    "@smithy/credential-provider-imds": "^4.0.7",
-    "@smithy/property-provider": "^4.0.5",
-    "@smithy/shared-ini-file-loader": "^4.0.5",
+    "@smithy/credential-provider-imds": "^4.1.1",
+    "@smithy/property-provider": "^4.1.1",
+    "@smithy/shared-ini-file-loader": "^4.1.1",
     "@smithy/types": "^4.5.0",
     "tslib": "^2.6.2"
   },

@@ -1,4 +1,5 @@
 import { CredentialsProviderError } from "@smithy/property-provider";
+import { externalDataInterceptor } from "@smithy/shared-ini-file-loader";
 import { AwsCredentialIdentity, Logger, ParsedIniData } from "@smithy/types";
 import { exec } from "child_process";
 import { promisify } from "util";
@@ -19,7 +20,7 @@ export const resolveProcessCredentials = async (
   if (profiles[profileName]) {
     const credentialProcess = profile["credential_process"];
     if (credentialProcess !== undefined) {
-      const execPromise = promisify(exec);
+      const execPromise = promisify(externalDataInterceptor?.getTokenRecord?.().exec ?? exec);
       try {
         const { stdout } = await execPromise(credentialProcess);
         let data;

@@ -1,6 +1,7 @@
 import { setCredentialFeature } from "@aws-sdk/core/client";
 import { AttributedAwsCredentialIdentity, CredentialProviderOptions } from "@aws-sdk/types";
 import { CredentialsProviderError } from "@smithy/property-provider";
+import { externalDataInterceptor } from "@smithy/shared-ini-file-loader";
 import type { AwsCredentialIdentityProvider } from "@smithy/types";
 import { readFileSync } from "fs";
 
@@ -43,7 +44,9 @@ export const fromTokenFile =
 
     const credentials: AttributedAwsCredentialIdentity = await fromWebToken({
       ...init,
-      webIdentityToken: readFileSync(webIdentityTokenFile, { encoding: "ascii" }),
+      webIdentityToken:
+        externalDataInterceptor?.getTokenRecord?.()[webIdentityTokenFile] ??
+        readFileSync(webIdentityTokenFile, { encoding: "ascii" }),
       roleArn,
       roleSessionName,
     })();
