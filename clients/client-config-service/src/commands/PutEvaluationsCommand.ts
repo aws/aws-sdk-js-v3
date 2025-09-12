@@ -80,7 +80,7 @@ export interface PutEvaluationsCommandOutput extends PutEvaluationsResponse, __M
  *  <p>The specified <code>ResultToken</code> is not valid.</p>
  *
  * @throws {@link NoSuchConfigRuleException} (client fault)
- *  <p>The Config rule in the request is not valid. Verify that the rule is an Config Process Check rule, that the rule name is correct, and that valid Amazon Resouce Names (ARNs) are used before trying again.</p>
+ *  <p>The Config rule in the request is not valid. Verify that the rule is an Config Process Check rule, that the rule name is correct, and that valid Amazon Resource Names (ARNs) are used before trying again.</p>
  *
  * @throws {@link ConfigServiceServiceException}
  * <p>Base exception class for all service exceptions from ConfigService service.</p>
