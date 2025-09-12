@@ -1,4 +1,4 @@
-name: "Pull Request Workflow"
+name: Build SDK
 on:
   pull_request:
     types: [synchronize, ready_for_review]
