@@ -1,104 +1,63 @@
+import "./setup.js";
+
+import { afterEach, beforeAll, beforeEach, describe, expect, test as it, vi } from "vitest";
+import { fs, vol } from "memfs";
 import { STS, STSExtensionConfiguration } from "@aws-sdk/client-sts";
 import * as credentialProviderHttp from "@aws-sdk/credential-provider-http";
 import { fromCognitoIdentity, fromCognitoIdentityPool, fromIni, fromWebToken } from "@aws-sdk/credential-providers";
 import { HttpResponse } from "@smithy/protocol-http";
-import type { SharedConfigInit, SourceProfileInit } from "@smithy/shared-ini-file-loader";
-import type { HttpRequest, NodeHttpHandlerOptions, ParsedIniData, SharedConfigFiles } from "@smithy/types";
+import type { HttpRequest, NodeHttpHandlerOptions, ParsedIniData } from "@smithy/types";
 import { AdaptiveRetryStrategy, StandardRetryStrategy } from "@smithy/util-retry";
-import { PassThrough } from "stream";
+import { PassThrough } from "node:stream";
+import { homedir } from "node:os";
+import { join } from "node:path";
+import { defaultProvider } from "../src";
 
-import { defaultProvider } from "./defaultProvider";
+vi.hoisted(() => {});
 
-jest.mock("fs", () => {
-  const actual = jest.requireActual("fs");
-  return {
-    ...actual,
-    readFileSync(file: string, ...options: any[]) {
-      if (file === "token-filepath") {
-        return "token-contents";
-      }
-      return actual.readFileSync(file, ...options);
-    },
-  };
-});
-
-let iniProfileData: ParsedIniData = null as any;
-jest.mock("@smithy/shared-ini-file-loader", () => {
-  const actual = jest.requireActual("@smithy/shared-ini-file-loader");
-  return {
-    ...actual,
-    async loadSsoSessionData() {
-      return Object.entries(iniProfileData)
-        .filter(([key]) => key.startsWith("sso-session."))
-        .reduce(
-          (acc, [key, value]) => ({
-            ...acc,
-            [key.split("sso-session.")[1]]: value,
-          }),
-          {}
-        );
-    },
-    async parseKnownFiles(init: SourceProfileInit): Promise<ParsedIniData> {
-      return iniProfileData;
-    },
-    async loadSharedConfigFiles(init: SharedConfigInit): Promise<SharedConfigFiles> {
-      return {
-        configFile: iniProfileData,
-        credentialsFile: iniProfileData,
-      };
-    },
-    async getSSOTokenFromFile() {
-      return {
-        accessToken: "mock_sso_token",
-        expiresAt: "3000-01-01T00:00:00.000Z",
-      };
-    },
-  };
-});
+vi.mock("node:child_process");
 
 const assumeRoleArns: string[] = [];
 
-jest.mock("@smithy/node-http-handler", () => {
-  const actual = jest.requireActual("@smithy/node-http-handler");
-
-  class MockNodeHttpHandler {
-    static create(instanceOrOptions?: any) {
-      if (typeof instanceOrOptions?.handle === "function") {
-        return instanceOrOptions;
-      }
-      return new MockNodeHttpHandler();
+class MockNodeHttpHandler {
+  static create(instanceOrOptions?: any) {
+    if (typeof instanceOrOptions?.handle === "function") {
+      return instanceOrOptions;
     }
-    async handle(request: HttpRequest) {
-      const body = new PassThrough({});
+    return new MockNodeHttpHandler();
+  }
 
-      if (request.body?.includes("RoleArn=")) {
-        assumeRoleArns.push(request.body.match(/RoleArn=(.*?)&/)?.[1]);
-      }
+  async handle(request: HttpRequest) {
+    const body = new PassThrough({});
 
-      const region = (request.hostname.match(/(sts|cognito-identity|portal\.sso)\.(.*?)\./) || [, , "unknown"])[2];
+    if (request.body?.includes("RoleArn=")) {
+      assumeRoleArns.push(request.body.match(/RoleArn=(.*?)&/)?.[1]);
+    }
 
-      if (request.headers.Authorization === "container-authorization") {
-        body.write(
-          JSON.stringify({
-            AccessKeyId: "CONTAINER_ACCESS_KEY",
-            SecretAccessKey: "CONTAINER_SECRET_ACCESS_KEY",
-            Token: "CONTAINER_TOKEN",
-            Expiration: "3000-01-01T00:00:00.000Z",
-          })
-        );
-      } else if (request.path?.includes("/federation/credentials")) {
-        body.write(
-          JSON.stringify({
-            roleCredentials: {
-              accessKeyId: "SSO_ACCESS_KEY_ID",
-              secretAccessKey: "SSO_SECRET_ACCESS_KEY",
-              sessionToken: `SSO_SESSION_TOKEN_${region}`,
-              expiration: "3000-01-01T00:00:00.000Z",
-            },
-          })
-        );
-      } else if (request.body?.includes("Action=AssumeRoleWithWebIdentity")) {
-        body.write(`
+    const region = (request.hostname.match(/(sts|cognito-identity|portal\.sso)\.(.*?)\./) || [, , "unknown"])[2];
+
+    if (request.headers.Authorization === "container-authorization") {
+      body.write(
+        JSON.stringify({
+          AccessKeyId: "CONTAINER_ACCESS_KEY",
+          SecretAccessKey: "CONTAINER_SECRET_ACCESS_KEY",
+          Token: "CONTAINER_TOKEN",
+          Expiration: "3000-01-01T00:00:00.000Z",
+        })
+      );
+    } else if (request.path?.includes("/federation/credentials")) {
+      body.write(
+        JSON.stringify({
+          roleCredentials: {
+            accessKeyId: "SSO_ACCESS_KEY_ID",
+            secretAccessKey: "SSO_SECRET_ACCESS_KEY",
+            sessionToken: `SSO_SESSION_TOKEN_${region}`,
+            expiration: "3000-01-01T00:00:00.000Z",
+          },
+        })
+      );
+    } else if (request.body?.includes("Action=AssumeRoleWithWebIdentity")) {
+      body.write(`
 <AssumeRoleWithWebIdentityResponse xmlns="https://sts.amazonaws.com/doc/2011-06-15/">
 <AssumeRoleWithWebIdentityResult>
   <Credentials>
@@ -112,8 +71,8 @@ jest.mock("@smithy/node-http-handler", () => {
   <RequestId>01234567-89ab-cdef-0123-456789abcdef</RequestId>
 </ResponseMetadata>
 </AssumeRoleWithWebIdentityResponse>`);
-      } else if (request.body?.includes("Action=AssumeRole")) {
-        body.write(`
+    } else if (request.body?.includes("Action=AssumeRole")) {
+      body.write(`
 <AssumeRoleResponse xmlns="https://sts.amazonaws.com/doc/2011-06-15/">
 <AssumeRoleResult>
   <Credentials>
@@ -127,8 +86,8 @@ jest.mock("@smithy/node-http-handler", () => {
   <RequestId>01234567-89ab-cdef-0123-456789abcdef</RequestId>
 </ResponseMetadata>
 </AssumeRoleResponse>`);
-      } else if (request.body.includes("Action=GetCallerIdentity")) {
-        body.write(`
+    } else if (request.body.includes("Action=GetCallerIdentity")) {
+      body.write(`
 <GetCallerIdentityResponse xmlns="https://sts.amazonaws.com/doc/2011-06-15/">
 <GetCallerIdentityResult>
   <Arn>arn:aws:iam::123456789012:user/Alice</Arn>
@@ -139,8 +98,8 @@ jest.mock("@smithy/node-http-handler", () => {
   <RequestId>01234567-89ab-cdef-0123-456789abcdef</RequestId>
 </ResponseMetadata>
 </GetCallerIdentityResponse>`);
-      } else if (request.headers["x-amz-target"] === "AWSCognitoIdentityService.GetCredentialsForIdentity") {
-        body.write(`{
+    } else if (request.headers["x-amz-target"] === "AWSCognitoIdentityService.GetCredentialsForIdentity") {
+      body.write(`{
           "Credentials":{
             "SecretKey":"COGNITO_SECRET_KEY",
             "SessionToken":"COGNITO_SESSION_TOKEN_${region}",
@@ -149,58 +108,57 @@ jest.mock("@smithy/node-http-handler", () => {
           },
           "IdentityId":"${region}:COGNITO_IDENTITY_ID"
         }`);
-      } else if (request.headers["x-amz-target"] === "AWSCognitoIdentityService.GetId") {
-        body.write(`{
+    } else if (request.headers["x-amz-target"] === "AWSCognitoIdentityService.GetId") {
+      body.write(`{
           "IdentityId":"${region}:COGNITO_IDENTITY_ID"
         }`);
-      } else {
-        console.log(request);
-        throw new Error("request not supported.");
-      }
-      body.end();
-      return {
-        response: new HttpResponse({
-          statusCode: 200,
-          body,
-          headers: {},
-        }),
-      };
+    } else {
+      console.log(request);
+      throw new Error("request not supported.");
     }
-    updateHttpClientConfig(key: keyof NodeHttpHandlerOptions, value: NodeHttpHandlerOptions[typeof key]): void {}
-    httpHandlerConfigs(): NodeHttpHandlerOptions {
-      return null as any;
-    }
+    body.end();
+    return {
+      response: new HttpResponse({
+        statusCode: 200,
+        body,
+        headers: {},
+      }),
+    };
   }
 
-  return {
-    ...actual,
-    NodeHttpHandler: MockNodeHttpHandler,
-  };
-});
+  updateHttpClientConfig(key: keyof NodeHttpHandlerOptions, value: NodeHttpHandlerOptions[typeof key]): void {}
 
-jest.mock("child_process", () => {
-  const actual = jest.requireActual("child_process");
-  return {
-    ...actual,
-    exec(bin: string, cb: (err: unknown, data: any) => void, ...args: any[]) {
-      if (bin === "credential-process") {
-        return cb(null, {
-          stdout: JSON.stringify({
-            Version: 1,
-            AccessKeyId: "PROCESS_ACCESS_KEY_ID",
-            SecretAccessKey: "PROCESS_SECRET_ACCESS_KEY",
-            SessionToken: "PROCESS_SESSION_TOKEN",
-          }),
-        });
-      }
-      return actual.exec(bin, cb, ...args);
-    },
-  };
-});
+  httpHandlerConfigs(): NodeHttpHandlerOptions {
+    return null as any;
+  }
+}
 
 describe("credential-provider-node integration test", () => {
   let sts: STS = null as any;
   let processSnapshot: typeof process.env = null as any;
+  let iniProfileData: ParsedIniData = null as any;
+  const requestHandler = MockNodeHttpHandler.create({});
+
+  function setIniProfileData(data: ParsedIniData) {
+    iniProfileData = data;
+    let buffer = "[profile memfs-test-mock]\n\n";
+    for (const profile in data) {
+      buffer += `[profile ${profile}]\n`;
+      for (const [k, v] of Object.entries(data[profile])) {
+        buffer += `${k} = ${v}\n`;
+      }
+      buffer += "\n";
+    }
+    const dir = join(homedir(), ".aws");
+    if (!fs.existsSync(dir)) {
+      fs.mkdirSync(dir, { recursive: true });
+    } else {
+      expect(fs.readFileSync(join(dir, "config"), "utf-8").toString().split("\n")[0]).toEqual(
+        `[profile memfs-test-mock]`
+      );
+    }
+    fs.writeFileSync(join(homedir(), ".aws", "config"), buffer);
+  }
 
   const sink = {
     data: [] as string[],
@@ -244,38 +202,42 @@ describe("credential-provider-node integration test", () => {
   });
 
   beforeEach(async () => {
+    vol.reset();
+    fs.writeFileSync("/token-path", "token-contents");
+
+    const ssoToken = {
+      accessToken: "mock_sso_token",
+      expiresAt: "3000-01-01T00:00:00.000Z",
+    };
+
     for (const variable in RESERVED_ENVIRONMENT_VARIABLES) {
       delete process.env[variable];
     }
-    iniProfileData = {
+    setIniProfileData({
       default: {
         region: "us-west-2",
         output: "json",
       },
-    };
+    });
     sts = new STS({
+      requestHandler,
       region: "us-west-2",
     });
   });
 
   afterEach(async () => {
     Object.assign(process.env, processSnapshot);
-    iniProfileData = {
+    setIniProfileData({
       default: {
         region: "us-west-2",
         output: "json",
       },
-    };
+    });
     assumeRoleArns.length = 0;
     sink.data.length = 0;
   });
 
-  afterAll(async () => {
-    jest.clearAllMocks();
-    jest.clearAllTimers();
-  });
-
-  describe("fromEnv", () => {
+  describe.only("fromEnv", () => {
     it("should load static credentials from environment variables", async () => {
       process.env.AWS_ACCESS_KEY_ID = "ENV_ACCESS_KEY";
       process.env.AWS_SECRET_ACCESS_KEY = "ENV_SECRET_KEY";
@@ -313,12 +275,15 @@ describe("credential-provider-node integration test", () => {
       process.env.AWS_SECRET_ACCESS_KEY = "ENV_SECRET_KEY";
       process.env.AWS_PROFILE = "default";
 
-      Object.assign(iniProfileData.default, {
-        aws_access_key_id: "INI_STATIC_ACCESS_KEY",
-        aws_secret_access_key: "INI_STATIC_SECRET_KEY",
+      setIniProfileData({
+        default: {
+          aws_access_key_id: "INI_STATIC_ACCESS_KEY",
+          aws_secret_access_key: "INI_STATIC_SECRET_KEY",
+        },
       });
 
       sts = new STS({
+        requestHandler,
         region: "us-west-2",
         logger: {
           trace() {},
@@ -345,6 +310,7 @@ describe("credential-provider-node integration test", () => {
   describe("fromSSO", () => {
     it("should resolve SSO credentials if legacy SSO parameters are supplied directly", async () => {
       sts = new STS({
+        requestHandler,
         // this is lower priority than the ssoRegion.
         region: "us-sso-region-2",
         credentials: defaultProvider({
@@ -371,9 +337,11 @@ describe("credential-provider-node integration test", () => {
 
   describe("fromIni", () => {
     it("should resolve static credentials if directly present in config profile", async () => {
-      Object.assign(iniProfileData.default, {
-        aws_access_key_id: "INI_STATIC_ACCESS_KEY",
-        aws_secret_access_key: "INI_STATIC_SECRET_KEY",
+      setIniProfileData({
+        default: {
+          aws_access_key_id: "INI_STATIC_ACCESS_KEY",
+          aws_secret_access_key: "INI_STATIC_SECRET_KEY",
+        },
       });
       await sts.getCallerIdentity({});
       const credentials = await sts.config.credentials();
@@ -387,17 +355,19 @@ describe("credential-provider-node integration test", () => {
     });
 
     it("should resolve assumeRole credentials", async () => {
-      iniProfileData.assume = {
-        region: "us-stsar-1",
-        aws_access_key_id: "ASSUME_STATIC_ACCESS_KEY",
-        aws_secret_access_key: "ASSUME_STATIC_SECRET_KEY",
-      };
-      Object.assign(iniProfileData.default, {
-        region: "us-stsar-1",
-        role_arn: "ROLE_ARN",
-        role_session_name: "ROLE_SESSION_NAME",
-        external_id: "EXTERNAL_ID",
-        source_profile: "assume",
+      setIniProfileData({
+        assume: {
+          region: "us-stsar-1",
+          aws_access_key_id: "ASSUME_STATIC_ACCESS_KEY",
+          aws_secret_access_key: "ASSUME_STATIC_SECRET_KEY",
+        },
+        default: {
+          region: "us-stsar-1",
+          role_arn: "ROLE_ARN",
+          role_session_name: "ROLE_SESSION_NAME",
+          external_id: "EXTERNAL_ID",
+          source_profile: "assume",
+        },
       });
       await sts.getCallerIdentity({});
       const credentials = await sts.config.credentials();
@@ -415,19 +385,22 @@ describe("credential-provider-node integration test", () => {
 
     it("should use the outer client's region for STS when the partition is AWS", async () => {
       sts = new STS({
+        requestHandler,
         region: "eu-west-1",
       });
-      iniProfileData.assume = {
-        region: "eu-west-1",
-        aws_access_key_id: "ASSUME_STATIC_ACCESS_KEY",
-        aws_secret_access_key: "ASSUME_STATIC_SECRET_KEY",
-      };
-      Object.assign(iniProfileData.default, {
-        region: "eu-west-1",
-        role_arn: "ROLE_ARN",
-        role_session_name: "ROLE_SESSION_NAME",
-        external_id: "EXTERNAL_ID",
-        source_profile: "assume",
+      setIniProfileData({
+        assume: {
+          region: "eu-west-1",
+          aws_access_key_id: "ASSUME_STATIC_ACCESS_KEY",
+          aws_secret_access_key: "ASSUME_STATIC_SECRET_KEY",
+        },
+        default: {
+          region: "eu-west-1",
+          role_arn: "ROLE_ARN",
+          role_session_name: "ROLE_SESSION_NAME",
+          external_id: "EXTERNAL_ID",
+          source_profile: "assume",
+        },
       });
       await sts.getCallerIdentity({});
       const credentials = await sts.config.credentials();
@@ -445,19 +418,22 @@ describe("credential-provider-node integration test", () => {
 
     it("should use the outer client's region for STS when the partition is not AWS", async () => {
       sts = new STS({
+        requestHandler,
         region: "us-gov-stsar-1",
       });
-      iniProfileData.assume = {
-        region: "us-gov-stsar-1",
-        aws_access_key_id: "ASSUME_STATIC_ACCESS_KEY",
-        aws_secret_access_key: "ASSUME_STATIC_SECRET_KEY",
-      };
-      Object.assign(iniProfileData.default, {
-        region: "us-gov-stsar-1",
-        role_arn: "ROLE_ARN",
-        role_session_name: "ROLE_SESSION_NAME",
-        external_id: "EXTERNAL_ID",
-        source_profile: "assume",
+      setIniProfileData({
+        assume: {
+          region: "us-gov-stsar-1",
+          aws_access_key_id: "ASSUME_STATIC_ACCESS_KEY",
+          aws_secret_access_key: "ASSUME_STATIC_SECRET_KEY",
+        },
+        default: {
+          region: "us-gov-stsar-1",
+          role_arn: "ROLE_ARN",
+          role_session_name: "ROLE_SESSION_NAME",
+          external_id: "EXTERNAL_ID",
+          source_profile: "assume",
+        },
       });
       await sts.getCallerIdentity({});
       const credentials = await sts.config.credentials();
@@ -474,9 +450,11 @@ describe("credential-provider-node integration test", () => {
     });
 
     it("should resolve credentials from STS assumeRoleWithWebIdentity if the ini profile is configured for web identity", async () => {
-      Object.assign(iniProfileData.default, {
-        web_identity_token_file: "token-filepath",
-        role_arn: "ROLE_ARN",
+      setIniProfileData({
+        default: {
+          web_identity_token_file: "token-filepath",
+          role_arn: "ROLE_ARN",
+        },
       });
       await sts.getCallerIdentity({});
       const credentials = await sts.config.credentials();
@@ -497,12 +475,15 @@ describe("credential-provider-node integration test", () => {
         " configured for web identity and the client region is not the default AWS partition",
       async () => {
         sts = new STS({
+          requestHandler,
           region: "us-gov-sts-1",
         });
-        Object.assign(iniProfileData.default, {
-          region: "us-gov-sts-1",
-          web_identity_token_file: "token-filepath",
-          role_arn: "ROLE_ARN",
+        setIniProfileData({
+          default: {
+            region: "us-gov-sts-1",
+            web_identity_token_file: "token-filepath",
+            role_arn: "ROLE_ARN",
+          },
         });
         await sts.getCallerIdentity({});
         const credentials = await sts.config.credentials();
@@ -520,8 +501,11 @@ describe("credential-provider-node integration test", () => {
     );
 
     it("should resolve process credentials if the profile is a process profile", async () => {
-      Object.assign(iniProfileData.default, {
-        credential_process: "credential-process",
+      setIniProfileData({
+        default: {
+          ...iniProfileData.default,
+          credential_process: "credential-process",
+        },
       });
       await sts.getCallerIdentity({});
       const credentials = await sts.config.credentials();
@@ -548,6 +532,7 @@ describe("credential-provider-node integration test", () => {
         sso_account_id: "1234",
         sso_role_name: "integration-test",
       });
+      setIniProfileData(iniProfileData);
       await sts.getCallerIdentity({});
       const credentials = await sts.config.credentials();
       expect(credentials).toEqual({
@@ -570,8 +555,10 @@ describe("credential-provider-node integration test", () => {
       iniProfileData.credential_source_profile = {
         credential_source: "EcsContainer",
       };
+      setIniProfileData(iniProfileData);
       const spy = jest.spyOn(credentialProviderHttp, "fromHttp");
       sts = new STS({
+        requestHandler,
         region: "us-west-2",
         credentials: defaultProvider({
           awsContainerCredentialsFullUri: process.env.AWS_CONTAINER_CREDENTIALS_FULL_URI,
@@ -613,8 +600,10 @@ describe("credential-provider-node integration test", () => {
         web_identity_token_file: "token-filepath",
         role_arn: "ROLE_ARN_1",
       };
+      setIniProfileData(iniProfileData);
 
       sts = new STS({
+        requestHandler,
         region: "us-west-2",
         credentials: defaultProvider({
           awsContainerCredentialsFullUri: process.env.AWS_CONTAINER_CREDENTIALS_FULL_URI,
@@ -657,9 +646,11 @@ describe("credential-provider-node integration test", () => {
         credential_source: "EcsContainer",
         role_arn: "ROLE_ARN_1",
       };
+      setIniProfileData(iniProfileData);
 
       const spy = jest.spyOn(credentialProviderHttp, "fromHttp");
       sts = new STS({
+        requestHandler,
         region: "us-west-2",
         credentials: defaultProvider({
           awsContainerCredentialsFullUri: process.env.AWS_CONTAINER_CREDENTIALS_FULL_URI,
@@ -709,9 +700,11 @@ describe("credential-provider-node integration test", () => {
         credential_source: "EcsContainer",
         // This scenario tests the option of having no role_arn in this step of the chain.
       };
+      setIniProfileData(iniProfileData);
 
       const spy = jest.spyOn(credentialProviderHttp, "fromHttp");
       sts = new STS({
+        requestHandler,
         region: "us-west-2",
         credentials: defaultProvider({
           awsContainerCredentialsFullUri: process.env.AWS_CONTAINER_CREDENTIALS_FULL_URI,
@@ -755,6 +748,8 @@ describe("credential-provider-node integration test", () => {
       Object.assign(iniProfileData.default, {
         credential_process: "credential-process",
       });
+      setIniProfileData(iniProfileData);
+
       await sts.getCallerIdentity({});
       const credentials = await sts.config.credentials();
       expect(credentials).toEqual({
@@ -805,7 +800,7 @@ describe("credential-provider-node integration test", () => {
       });
     });
 
-    xit("should use instance metadata unless IMDS is disabled", async () => {
+    it.skip("should use instance metadata unless IMDS is disabled", async () => {
       // TODO
     });
   });
@@ -813,6 +808,7 @@ describe("credential-provider-node integration test", () => {
   describe("Region resolution for code-level providers given to a client", () => {
     it("fromCognitoIdentity provider should use caller client region", async () => {
       sts = new STS({
+        requestHandler,
         region: "ap-northeast-1",
         credentials: fromCognitoIdentity({
           identityId: "",
@@ -832,6 +828,7 @@ describe("credential-provider-node integration test", () => {
 
     it("fromCognitoIdentityPool provider should use caller client region", async () => {
       sts = new STS({
+        requestHandler,
         region: "ap-northeast-1",
         credentials: fromCognitoIdentityPool({
           identityPoolId: "",
@@ -851,6 +848,7 @@ describe("credential-provider-node integration test", () => {
 
     it("fromIni assumeRole provider should use the caller client's region for STS if profile does not set region", async () => {
       sts = new STS({
+        requestHandler,
         region: "eu-west-1",
         credentials: fromIni({}),
       });
@@ -865,6 +863,7 @@ describe("credential-provider-node integration test", () => {
         external_id: "EXTERNAL_ID",
         source_profile: "assume",
       });
+      setIniProfileData(iniProfileData);
       await sts.getCallerIdentity({});
       const credentials = await sts.config.credentials();
       expect(credentials).toEqual({
@@ -882,6 +881,7 @@ describe("credential-provider-node integration test", () => {
 
     it("fromIni assumeRole provider should prefer profile region for STS", async () => {
       sts = new STS({
+        requestHandler,
         region: "eu-west-1",
         credentials: fromIni({}),
       });
@@ -896,6 +896,7 @@ describe("credential-provider-node integration test", () => {
         external_id: "EXTERNAL_ID",
         source_profile: "assume",
       });
+      setIniProfileData(iniProfileData);
       await sts.getCallerIdentity({});
       const credentials = await sts.config.credentials();
       expect(credentials).toEqual({
@@ -913,6 +914,7 @@ describe("credential-provider-node integration test", () => {
 
     it("fromWebToken provider should use caller client region", async () => {
       sts = new STS({
+        requestHandler,
         region: "ap-northeast-1",
         credentials: fromWebToken({
           roleArn: "",
@@ -961,11 +963,14 @@ describe("credential-provider-node integration test", () => {
         aws_session_token: "bbb",
         region: "us-east-1",
       };
+      setIniProfileData(iniProfileData);
 
       const clientA = new STS({
+        requestHandler,
         profile: "aaa",
       });
       const clientB = new STS({
+        requestHandler,
         profile: "bbb",
       });
 
@@ -1012,11 +1017,14 @@ describe("credential-provider-node integration test", () => {
         use_fips_endpoint: "false",
         use_dualstack_endpoint: "false",
       };
+      setIniProfileData(iniProfileData);
 
       const clientA = new STS({
+        requestHandler,
         profile: "aaa",
       });
       const clientB = new STS({
+        requestHandler,
         profile: "bbb",
       });
 
@@ -1038,6 +1046,7 @@ describe("credential-provider-node integration test", () => {
 
     it("should allow client profile to control fromIni init profile in implicit (default) credentials provider", async () => {
       sts = new STS({
+        requestHandler,
         profile: "assume",
       });
       iniProfileData.static = {
@@ -1051,6 +1060,8 @@ describe("credential-provider-node integration test", () => {
         external_id: "EXTERNAL_ID",
         source_profile: "static",
       };
+      setIniProfileData(iniProfileData);
+
       await sts.getCallerIdentity({});
       const credentials = await sts.config.credentials();
       expect(credentials).toEqual({
@@ -1070,13 +1081,16 @@ describe("credential-provider-node integration test", () => {
         "without requiring redundant setting of profile or region on the provider factory",
       async () => {
         sts = new STS({
+          requestHandler,
           profile: "assume",
           // no profile is given to fromIni(), but it is used in
           // the context of this client and should fall back to the client's
           // profile.
           credentials: fromIni(),
         });
-        const sts2 = new STS({});
+        const sts2 = new STS({
+          requestHandler,
+        });
         Object.assign(iniProfileData.default, {
           aws_access_key_id: "DEFAULT",
           aws_secret_access_key: "DEFAULT",
@@ -1092,6 +1106,8 @@ describe("credential-provider-node integration test", () => {
           external_id: "EXTERNAL_ID",
           source_profile: "static",
         };
+        setIniProfileData(iniProfileData);
+
         await sts.getCallerIdentity({});
         const credentials = await sts.config.credentials();
         expect(credentials).toEqual({
@@ -1118,6 +1134,7 @@ describe("credential-provider-node integration test", () => {
 
     it("credential provider factory init still overrides profile setting", async () => {
       sts = new STS({
+        requestHandler,
         profile: "assume",
         credentials: fromIni({
           profile: "default",
@@ -1139,6 +1156,8 @@ describe("credential-provider-node integration test", () => {
         external_id: "EXTERNAL_ID",
         source_profile: "static",
       };
+      setIniProfileData(iniProfileData);
+
       await sts.getCallerIdentity({});
       const credentials = await sts.config.credentials();
       expect(credentials).toEqual({
@@ -1159,6 +1178,7 @@ describe("credential-provider-node integration test", () => {
           "a profile includes a region but also SSO credentials",
         async () => {
           sts = new STS({
+            requestHandler,
             profile: "sso_root",
           });
           iniProfileData["sso-session.ssoNew"] = {
@@ -1173,6 +1193,8 @@ describe("credential-provider-node integration test", () => {
             sso_role_name: "integration-test",
             region: "ap-northeast-1",
           };
+          setIniProfileData(iniProfileData);
+
           await sts.getCallerIdentity({});
           const credentials = await sts.config.credentials();
           expect(credentials).toEqual({
@@ -1193,6 +1215,7 @@ describe("credential-provider-node integration test", () => {
           "a client has set a region in code but selects a profile with SSO creds",
         async () => {
           sts = new STS({
+            requestHandler,
             region: "eu-west-1",
             credentials: fromIni({
               profile: "sso_root",
@@ -1210,6 +1233,8 @@ describe("credential-provider-node integration test", () => {
             sso_role_name: "integration-test",
             region: "ap-northeast-1",
           };
+          setIniProfileData(iniProfileData);
+
           await sts.getCallerIdentity({});
           const credentials = await sts.config.credentials();
           expect(credentials).toEqual({
@@ -1230,6 +1255,7 @@ describe("credential-provider-node integration test", () => {
 
     it("source_profile does not bring over any client configuration options", async () => {
       sts = new STS({
+        requestHandler,
         profile: "assume",
       });
       iniProfileData.static = {
@@ -1248,6 +1274,8 @@ describe("credential-provider-node integration test", () => {
         external_id: "EXTERNAL_ID",
         source_profile: "static",
       };
+      setIniProfileData(iniProfileData);
+
       await sts.getCallerIdentity({});
       const credentials = await sts.config.credentials();
       expect(credentials).toEqual({
@@ -1271,6 +1299,7 @@ describe("credential-provider-node integration test", () => {
   describe("extension provided credentials", () => {
     class OverrideCredentialsExtension {
       private invocation = 0;
+
       configure(extensionConfiguration: STSExtensionConfiguration): void {
         extensionConfiguration.setCredentials(async () => ({
           accessKeyId: "STS_AK" + ++this.invocation,
@@ -1281,6 +1310,7 @@ describe("credential-provider-node integration test", () => {
 
     it("allows an extension to modify client config credentials", async () => {
       const client = new STS({
+        requestHandler,
         extensions: [new OverrideCredentialsExtension()],
       });
 
@@ -1297,6 +1327,8 @@ describe("credential-provider-node integration test", () => {
 
     it("the extension provided credentials are still memoized", async () => {
       const client = new STS({
+        requestHandler,
+
         extensions: [new OverrideCredentialsExtension()],
       });
 

@@ -104,6 +104,7 @@
     "kill-port": "^2.0.1",
     "lerna": "5.5.2",
     "lint-staged": "^10.0.1",
+    "memfs": "^4.39.0",
     "prettier": "2.8.5",
     "rimraf": "3.0.2",
     "ts-jest": "29.1.1",
