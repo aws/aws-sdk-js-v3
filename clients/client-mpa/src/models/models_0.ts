@@ -372,7 +372,7 @@ export class ValidationException extends __BaseException {
  */
 export interface DeleteInactiveApprovalTeamVersionRequest {
   /**
-   * <p>Amaazon Resource Name (ARN) for the team.</p>
+   * <p>Amazon Resource Name (ARN) for the team.</p>
    * @public
    */
   Arn: string | undefined;
