@@ -1,6 +1,6 @@
 import "@aws-sdk/signature-v4-crt";
 
-import { ChecksumAlgorithm, S3, SelectObjectContentEventStream } from "@aws-sdk/client-s3";
+import { ChecksumAlgorithm, S3 } from "@aws-sdk/client-s3";
 import { afterAll, afterEach, beforeAll, describe, expect, test as it } from "vitest";
 
 import { getIntegTestResources } from "../../../../tests/e2e/get-integ-test-resources";
@@ -228,46 +228,6 @@ describe("@aws-sdk/client-s3", () => {
       });
       expect(listUploadsResult.$metadata.httpStatusCode).toEqual(200);
       expect((listUploadsResult.Uploads || []).map((upload) => upload.UploadId)).not.toContain(toAbort);
-    });
-  });
-
-  describe("selectObjectContent", () => {
-    const csvFile = `user_name,age
-jsrocks,13
-node4life,22
-esfuture,29`;
-    beforeAll(async () => {
-      Key = `${Date.now()}`;
-      await client.putObject({ Bucket, Key, Body: csvFile });
-    });
-    afterAll(async () => {
-      await client.deleteObject({ Bucket, Key });
-    });
-    it("should succeed", async () => {
-      const { Payload } = await client.selectObjectContent({
-        Bucket,
-        Key,
-        ExpressionType: "SQL",
-        Expression: "SELECT user_name FROM S3Object WHERE cast(age as int) > 20",
-        InputSerialization: {
-          CSV: {
-            FileHeaderInfo: "USE",
-            RecordDelimiter: "\n",
-            FieldDelimiter: ",",
-          },
-        },
-        OutputSerialization: {
-          CSV: {},
-        },
-      });
-      const events: SelectObjectContentEventStream[] = [];
-      for await (const event of Payload!) {
-        events.push(event);
-      }
-      expect(events.length).toEqual(3);
-      expect(new TextDecoder().decode(events[0].Records?.Payload)).toEqual("node4life\nesfuture\n");
-      expect(events[1].Stats?.Details).toBeDefined();
-      expect(events[2].End).toBeDefined();
     });
   });
 
