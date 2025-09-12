@@ -745,3 +745,6 @@ Note that if both the CRT-based implementation and the JavaScript implementation
 #### Related issues
 
 1. [S3 Multi-Region Access Point(MRAP) is not available unless with additional dependency](https://github.com/aws/aws-sdk-js-v3/issues/2822)
+
+
+[DO NOT MERGE]!
