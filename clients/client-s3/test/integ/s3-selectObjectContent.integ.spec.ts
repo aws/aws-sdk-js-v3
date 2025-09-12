@@ -1,5 +1,6 @@
 import { S3 } from "@aws-sdk/client-s3";
 import { HttpResponse } from "@smithy/protocol-http";
+import { Readable } from "stream";
 import { describe, expect, test as it } from "vitest";
 
 import { requireRequestsFrom } from "../../../../private/aws-util-test/src";
@@ -33,7 +34,16 @@ describe("selectObjectContent", () => {
       .respondWith(
         new HttpResponse({
           statusCode: 200,
-          body: " ",
+          body: Readable.from([
+            `<?xml version="1.0" encoding="UTF-8"?>`,
+            `<Payload>`,
+            `<Records><Payload>blob</Payload></Records>`,
+            `<Stats><Details><BytesProcessed>100</BytesProcessed><BytesReturned>50</BytesReturned><BytesScanned>100</BytesScanned></Details></Stats>`,
+            `<Progress><Details><BytesProcessed>100</BytesProcessed><BytesReturned>50</BytesReturned><BytesScanned>100</BytesScanned></Details></Progress>`,
+            `<Cont></Cont>`,
+            `<End></End>`,
+            `</Payload>`,
+          ]),
         })
       );
 
