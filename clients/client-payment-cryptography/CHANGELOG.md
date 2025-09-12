@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.888.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.887.0...v3.888.0) (2025-09-12)
+
+
+### Features
+
+* **client-payment-cryptography:** Add support for certificates to be signed by 3rd party certificate authorities.  New API GetCertificateSigningRequest API and support for providing certificates at run-time for tr-34 import/export ([bcb39c2](https://github.com/aws/aws-sdk-js-v3/commit/bcb39c2909a27487b3b31d16ce8ffe7f1a74770b))
+
+
+
+
+
 # [3.887.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.886.0...v3.887.0) (2025-09-11)
 
 **Note:** Version bump only for package @aws-sdk/client-payment-cryptography
