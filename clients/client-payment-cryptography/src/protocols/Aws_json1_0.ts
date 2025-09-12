@@ -39,6 +39,10 @@ import {
 import { ExportKeyCommandInput, ExportKeyCommandOutput } from "../commands/ExportKeyCommand";
 import { GetAliasCommandInput, GetAliasCommandOutput } from "../commands/GetAliasCommand";
 import {
+  GetCertificateSigningRequestCommandInput,
+  GetCertificateSigningRequestCommandOutput,
+} from "../commands/GetCertificateSigningRequestCommand";
+import {
   GetDefaultKeyReplicationRegionsCommandInput,
   GetDefaultKeyReplicationRegionsCommandOutput,
 } from "../commands/GetDefaultKeyReplicationRegionsCommand";
@@ -76,6 +80,7 @@ import {
   AccessDeniedException,
   AddKeyReplicationRegionsInput,
   AddKeyReplicationRegionsOutput,
+  CertificateSubjectType,
   ConflictException,
   CreateAliasInput,
   CreateKeyInput,
@@ -95,6 +100,7 @@ import {
   ExportTr31KeyBlock,
   ExportTr34KeyBlock,
   GetAliasInput,
+  GetCertificateSigningRequestInput,
   GetDefaultKeyReplicationRegionsInput,
   GetKeyInput,
   GetKeyOutput,
@@ -252,6 +258,19 @@ export const se_GetAliasCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetAlias");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_0GetCertificateSigningRequestCommand
+ */
+export const se_GetCertificateSigningRequestCommand = async (
+  input: GetCertificateSigningRequestCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("GetCertificateSigningRequest");
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -636,6 +655,26 @@ export const de_GetAliasCommand = async (
   let contents: any = {};
   contents = _json(data);
   const response: GetAliasCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_0GetCertificateSigningRequestCommand
+ */
+export const de_GetCertificateSigningRequestCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetCertificateSigningRequestCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: GetCertificateSigningRequestCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
@@ -1127,6 +1166,8 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 
 // se_AddKeyReplicationRegionsInput omitted.
 
+// se_CertificateSubjectType omitted.
+
 // se_CreateAliasInput omitted.
 
 // se_CreateKeyInput omitted.
@@ -1158,6 +1199,8 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 // se_ExportTr34KeyBlock omitted.
 
 // se_GetAliasInput omitted.
+
+// se_GetCertificateSigningRequestInput omitted.
 
 // se_GetDefaultKeyReplicationRegionsInput omitted.
 
@@ -1267,6 +1310,8 @@ const de_DeleteKeyOutput = (output: any, context: __SerdeContext): DeleteKeyOutp
 // de_ExportKeyOutput omitted.
 
 // de_GetAliasOutput omitted.
+
+// de_GetCertificateSigningRequestOutput omitted.
 
 // de_GetDefaultKeyReplicationRegionsOutput omitted.
 

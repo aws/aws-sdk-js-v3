@@ -277,6 +277,14 @@ GetAlias
 </details>
 <details>
 <summary>
+GetCertificateSigningRequest
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/payment-cryptography/command/GetCertificateSigningRequestCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-payment-cryptography/Interface/GetCertificateSigningRequestCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-payment-cryptography/Interface/GetCertificateSigningRequestCommandOutput/)
+
+</details>
+<details>
+<summary>
 GetDefaultKeyReplicationRegions
 </summary>
 

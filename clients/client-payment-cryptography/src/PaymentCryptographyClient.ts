@@ -72,6 +72,10 @@ import {
 import { ExportKeyCommandInput, ExportKeyCommandOutput } from "./commands/ExportKeyCommand";
 import { GetAliasCommandInput, GetAliasCommandOutput } from "./commands/GetAliasCommand";
 import {
+  GetCertificateSigningRequestCommandInput,
+  GetCertificateSigningRequestCommandOutput,
+} from "./commands/GetCertificateSigningRequestCommand";
+import {
   GetDefaultKeyReplicationRegionsCommandInput,
   GetDefaultKeyReplicationRegionsCommandOutput,
 } from "./commands/GetDefaultKeyReplicationRegionsCommand";
@@ -129,6 +133,7 @@ export type ServiceInputTypes =
   | EnableDefaultKeyReplicationRegionsCommandInput
   | ExportKeyCommandInput
   | GetAliasCommandInput
+  | GetCertificateSigningRequestCommandInput
   | GetDefaultKeyReplicationRegionsCommandInput
   | GetKeyCommandInput
   | GetParametersForExportCommandInput
@@ -159,6 +164,7 @@ export type ServiceOutputTypes =
   | EnableDefaultKeyReplicationRegionsCommandOutput
   | ExportKeyCommandOutput
   | GetAliasCommandOutput
+  | GetCertificateSigningRequestCommandOutput
   | GetDefaultKeyReplicationRegionsCommandOutput
   | GetKeyCommandOutput
   | GetParametersForExportCommandOutput

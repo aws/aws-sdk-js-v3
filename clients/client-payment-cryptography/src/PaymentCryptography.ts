@@ -24,6 +24,11 @@ import {
 import { ExportKeyCommand, ExportKeyCommandInput, ExportKeyCommandOutput } from "./commands/ExportKeyCommand";
 import { GetAliasCommand, GetAliasCommandInput, GetAliasCommandOutput } from "./commands/GetAliasCommand";
 import {
+  GetCertificateSigningRequestCommand,
+  GetCertificateSigningRequestCommandInput,
+  GetCertificateSigningRequestCommandOutput,
+} from "./commands/GetCertificateSigningRequestCommand";
+import {
   GetDefaultKeyReplicationRegionsCommand,
   GetDefaultKeyReplicationRegionsCommandInput,
   GetDefaultKeyReplicationRegionsCommandOutput,
@@ -87,6 +92,7 @@ const commands = {
   EnableDefaultKeyReplicationRegionsCommand,
   ExportKeyCommand,
   GetAliasCommand,
+  GetCertificateSigningRequestCommand,
   GetDefaultKeyReplicationRegionsCommand,
   GetKeyCommand,
   GetParametersForExportCommand,
@@ -221,6 +227,23 @@ export interface PaymentCryptography {
     args: GetAliasCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetAliasCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetCertificateSigningRequestCommand}
+   */
+  getCertificateSigningRequest(
+    args: GetCertificateSigningRequestCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetCertificateSigningRequestCommandOutput>;
+  getCertificateSigningRequest(
+    args: GetCertificateSigningRequestCommandInput,
+    cb: (err: any, data?: GetCertificateSigningRequestCommandOutput) => void
+  ): void;
+  getCertificateSigningRequest(
+    args: GetCertificateSigningRequestCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetCertificateSigningRequestCommandOutput) => void
   ): void;
 
   /**

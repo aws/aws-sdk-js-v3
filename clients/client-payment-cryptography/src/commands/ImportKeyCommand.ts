@@ -87,7 +87,9 @@ export interface ImportKeyCommandOutput extends ImportKeyOutput, __MetadataBeare
  *     Tr34KeyBlock: { // ImportTr34KeyBlock
  *       CertificateAuthorityPublicKeyIdentifier: "STRING_VALUE", // required
  *       SigningKeyCertificate: "STRING_VALUE", // required
- *       ImportToken: "STRING_VALUE", // required
+ *       ImportToken: "STRING_VALUE",
+ *       WrappingKeyIdentifier: "STRING_VALUE",
+ *       WrappingKeyCertificate: "STRING_VALUE",
  *       WrappedKeyBlock: "STRING_VALUE", // required
  *       KeyBlockFormat: "STRING_VALUE", // required
  *       RandomNonce: "STRING_VALUE",

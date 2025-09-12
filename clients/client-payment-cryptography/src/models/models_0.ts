@@ -324,7 +324,7 @@ export type KeyReplicationState = (typeof KeyReplicationState)[keyof typeof KeyR
  */
 export interface ReplicationStatusType {
   /**
-   * Defines the replication state of a key
+   * <p>The current status of key replication in this region.</p> <p>This field indicates whether the key replication is in progress, completed successfully, or has encountered an error. Possible values include states such as SYNCRHONIZED, IN_PROGRESS, DELETE_IN_PROGRESS, or FAILED. This provides visibility into the replication process for monitoring and troubleshooting purposes.</p>
    * @public
    */
   Status: KeyReplicationState | undefined;
@@ -770,6 +770,54 @@ export interface UpdateAliasOutput {
    * @public
    */
   Alias: Alias | undefined;
+}
+
+/**
+ * Metadata used in generating the CSR
+ * @public
+ */
+export interface CertificateSubjectType {
+  /**
+   * Common Name to be used in the certificate signing request
+   * @public
+   */
+  CommonName: string | undefined;
+
+  /**
+   * Organization Unit to be used in the certificate signing request
+   * @public
+   */
+  OrganizationUnit?: string | undefined;
+
+  /**
+   * Organization to be used in the certificate signing request
+   * @public
+   */
+  Organization?: string | undefined;
+
+  /**
+   * City to be used in the certificate signing request
+   * @public
+   */
+  City?: string | undefined;
+
+  /**
+   * Country to be used in the certificate signing request
+   * @public
+   */
+  Country?: string | undefined;
+
+  /**
+   * State Or Province to be used in the certificate signing request
+   * @public
+   */
+  StateOrProvince?: string | undefined;
+
+  /**
+   * Email to be used in the certificate signing request
+   * @public
+   */
+  EmailAddress?: string | undefined;
 }
 
 /**
@@ -1233,7 +1281,19 @@ export interface ExportTr34KeyBlock {
    * <p>The export token to initiate key export from Amazon Web Services Payment Cryptography. It also contains the signing key certificate that will sign the wrapped key during TR-34 key block generation. Call <a href="https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_GetParametersForExport.html">GetParametersForExport</a> to receive an export token. It expires after 30 days. You can use the same export token to export multiple keys from the same service account.</p>
    * @public
    */
-  ExportToken: string | undefined;
+  ExportToken?: string | undefined;
+
+  /**
+   * Key Identifier used for signing the export key
+   * @public
+   */
+  SigningKeyIdentifier?: string | undefined;
+
+  /**
+   * Certificate used for signing the export key
+   * @public
+   */
+  SigningKeyCertificate?: string | undefined;
 
   /**
    * <p>The format of key block that Amazon Web Services Payment Cryptography will use during key export.</p>
@@ -1429,6 +1489,56 @@ export interface ExportKeyOutput {
    * @public
    */
   WrappedKey?: WrappedKey | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const SigningAlgorithmType = {
+  SHA224: "SHA224",
+  SHA256: "SHA256",
+  SHA384: "SHA384",
+  SHA512: "SHA512",
+} as const;
+
+/**
+ * @public
+ */
+export type SigningAlgorithmType = (typeof SigningAlgorithmType)[keyof typeof SigningAlgorithmType];
+
+/**
+ * @public
+ */
+export interface GetCertificateSigningRequestInput {
+  /**
+   * Asymmetric key used for generating the certificate signing request
+   * @public
+   */
+  KeyIdentifier: string | undefined;
+
+  /**
+   * Algorithm used to generate the certificate signing request
+   * @public
+   */
+  SigningAlgorithm: SigningAlgorithmType | undefined;
+
+  /**
+   * Certificate subject data
+   * @public
+   */
+  CertificateSubject: CertificateSubjectType | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetCertificateSigningRequestOutput {
+  /**
+   * Certificate signing request
+   * @public
+   */
+  CertificateSigningRequest: string | undefined;
 }
 
 /**
@@ -1767,7 +1877,19 @@ export interface ImportTr34KeyBlock {
    * <p>The import token that initiates key import using the asymmetric TR-34 key exchange method into Amazon Web Services Payment Cryptography. It expires after 30 days. You can use the same import token to import multiple keys to the same service account.</p>
    * @public
    */
-  ImportToken: string | undefined;
+  ImportToken?: string | undefined;
+
+  /**
+   * Key Identifier used for unwrapping the import key
+   * @public
+   */
+  WrappingKeyIdentifier?: string | undefined;
+
+  /**
+   * Key Identifier used for unwrapping the import key
+   * @public
+   */
+  WrappingKeyCertificate?: string | undefined;
 
   /**
    * <p>The TR-34 wrapped key block to import.</p>
@@ -2061,7 +2183,7 @@ export interface KeySummary {
   Enabled: boolean | undefined;
 
   /**
-   * Defines the replication type of a key
+   * <p>Indicates whether this key is a multi-region key and its role in the multi-region key hierarchy.</p> <p>Multi-region keys allow the same key material to be used across multiple Amazon Web Services Regions. This field specifies whether the key is a primary key (which can be replicated to other regions) or a replica key (which is a copy of a primary key in another region).</p>
    * @public
    */
   MultiRegionKeyType?: MultiRegionKeyType | undefined;
@@ -2339,6 +2461,14 @@ export const WrappedKeyFilterSensitiveLog = (obj: WrappedKey): any => ({
 export const ExportKeyOutputFilterSensitiveLog = (obj: ExportKeyOutput): any => ({
   ...obj,
   ...(obj.WrappedKey && { WrappedKey: WrappedKeyFilterSensitiveLog(obj.WrappedKey) }),
+});
+
+/**
+ * @internal
+ */
+export const GetCertificateSigningRequestOutputFilterSensitiveLog = (obj: GetCertificateSigningRequestOutput): any => ({
+  ...obj,
+  ...(obj.CertificateSigningRequest && { CertificateSigningRequest: SENSITIVE_STRING }),
 });
 
 /**

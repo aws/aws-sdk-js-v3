@@ -70,7 +70,9 @@ export interface ExportKeyCommandOutput extends ExportKeyOutput, __MetadataBeare
  *     Tr34KeyBlock: { // ExportTr34KeyBlock
  *       CertificateAuthorityPublicKeyIdentifier: "STRING_VALUE", // required
  *       WrappingKeyCertificate: "STRING_VALUE", // required
- *       ExportToken: "STRING_VALUE", // required
+ *       ExportToken: "STRING_VALUE",
+ *       SigningKeyIdentifier: "STRING_VALUE",
+ *       SigningKeyCertificate: "STRING_VALUE",
  *       KeyBlockFormat: "STRING_VALUE", // required
  *       RandomNonce: "STRING_VALUE",
  *       KeyBlockHeaders: {

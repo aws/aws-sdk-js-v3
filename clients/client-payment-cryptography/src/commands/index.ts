@@ -8,6 +8,7 @@ export * from "./DisableDefaultKeyReplicationRegionsCommand";
 export * from "./EnableDefaultKeyReplicationRegionsCommand";
 export * from "./ExportKeyCommand";
 export * from "./GetAliasCommand";
+export * from "./GetCertificateSigningRequestCommand";
 export * from "./GetDefaultKeyReplicationRegionsCommand";
 export * from "./GetKeyCommand";
 export * from "./GetParametersForExportCommand";
