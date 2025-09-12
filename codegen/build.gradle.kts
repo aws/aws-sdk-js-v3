@@ -14,6 +14,7 @@
  */
 
 import org.jreleaser.model.Active
+import com.github.spotbugs.snom.Effort
 
 plugins {
     `java-library`
@@ -21,8 +22,8 @@ plugins {
     signing
     checkstyle
     jacoco
-    id("com.github.spotbugs") version "4.7.1"
-    id("org.jreleaser") version "1.18.0"
+    id("com.github.spotbugs") version "6.3.0"
+    id("org.jreleaser") version "1.20.0"
 }
 
 allprojects {
@@ -72,10 +73,11 @@ subprojects {
 
         // Apply junit 5 and hamcrest test dependencies to all java projects.
         dependencies {
-            testImplementation("org.junit.jupiter:junit-jupiter-api:5.4.0")
-            testImplementation("org.junit.jupiter:junit-jupiter-engine:5.4.0")
-            testImplementation("org.junit.jupiter:junit-jupiter-params:5.4.0")
-            testImplementation("org.hamcrest:hamcrest:2.1")
+            testImplementation("org.junit.jupiter:junit-jupiter-api:5.13.4")
+            testImplementation("org.junit.jupiter:junit-jupiter-engine:5.13.4")
+            testImplementation("org.junit.jupiter:junit-jupiter-params:5.13.4")
+            testImplementation("org.hamcrest:hamcrest:3.0")
+            testRuntimeOnly("org.junit.platform:junit-platform-launcher")
         }
 
         // Reusable license copySpec
@@ -242,7 +244,7 @@ subprojects {
 
         // Configure the bug filter for spotbugs.
         spotbugs {
-            setEffort("max")
+            effort.set(Effort.MAX)
             val excludeFile = rootProject.file("gradleConfig/spotbugs/filter.xml")
             if (excludeFile.exists()) {
                 excludeFilter.set(excludeFile)

@@ -24,4 +24,8 @@
     <Match>
         <Bug pattern="SE_NO_SERIALVERSIONID,SE_BAD_FIELD"/>
     </Match>
+
+    <Match>
+        <Bug pattern="VA_FORMAT_STRING_USES_NEWLINE"/>
+    </Match>
 </FindBugsFilter>
