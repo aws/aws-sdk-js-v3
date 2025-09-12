@@ -17,7 +17,6 @@
     "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo",
     "extract:docs": "api-extractor run --local",
     "test": "yarn g:vitest run",
-    "test:integration": "npx jest -c jest.config.integ.js",
     "test:watch": "yarn g:vitest watch"
   },
   "keywords": [
