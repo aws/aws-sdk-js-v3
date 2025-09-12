@@ -1,4 +1,5 @@
-import { NormalizedSchema, SCHEMA } from "@smithy/core/schema";
+import { determineTimestampFormat } from "@smithy/core/protocols";
+import { NormalizedSchema, SCHEMA, TypeRegistry } from "@smithy/core/schema";
 import {
   LazyJsonString,
   NumericValue,
@@ -84,13 +85,8 @@ export class JsonShapeDeserializer extends SerdeContextConfig implements ShapeDe
       }
     }
 
-    if (ns.isTimestampSchema()) {
-      const options = this.settings.timestampFormat;
-      const format = options.useTrait
-        ? ns.getSchema() === SCHEMA.TIMESTAMP_DEFAULT
-          ? options.default
-          : ns.getSchema() ?? options.default
-        : options.default;
+    if (ns.isTimestampSchema() && value != null) {
+      const format = determineTimestampFormat(ns, this.settings);
       switch (format) {
         case SCHEMA.TIMESTAMP_DATE_TIME:
           return parseRfc3339DateTimeWithOffset(value);
@@ -112,6 +108,10 @@ export class JsonShapeDeserializer extends SerdeContextConfig implements ShapeDe
       if (value instanceof NumericValue) {
         return value;
       }
+      const untyped = value as any;
+      if (untyped.type === "bigDecimal" && "string" in untyped) {
+        return new NumericValue(untyped.string, untyped.type);
+      }
       return new NumericValue(String(value), "bigDecimal");
     }
 
@@ -123,6 +123,22 @@ export class JsonShapeDeserializer extends SerdeContextConfig implements ShapeDe
           return -Infinity;
         case "NaN":
           return NaN;
+      }
+    }
+
+    if (ns.isDocumentSchema()) {
+      if (isObject) {
+        const out = Array.isArray(value) ? [] : ({} as any);
+        for (const [k, v] of Object.entries(value)) {
+          if (v instanceof NumericValue) {
+            out[k] = v;
+          } else {
+            out[k] = this._read(ns, v);
+          }
+        }
+        return out;
+      } else {
+        return structuredClone(value);
       }
     }
 

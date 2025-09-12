@@ -1,6 +1,8 @@
+import { determineTimestampFormat } from "@smithy/core/protocols";
 import { NormalizedSchema, SCHEMA } from "@smithy/core/schema";
-import { dateToUtcString, generateIdempotencyToken, LazyJsonString } from "@smithy/core/serde";
+import { dateToUtcString, generateIdempotencyToken, LazyJsonString, NumericValue } from "@smithy/core/serde";
 import { Schema, ShapeSerializer } from "@smithy/types";
+import { toBase64 } from "@smithy/util-base64";
 
 import { SerdeContextConfig } from "../ConfigurableSerdeContext";
 import { JsonSettings } from "./JsonCodec";
@@ -22,11 +24,25 @@ export class JsonShapeSerializer extends SerdeContextConfig implements ShapeSeri
     this.buffer = this._write(this.rootSchema, value);
   }
 
+  /**
+   * @internal
+   */
+  public writeDiscriminatedDocument(schema: Schema, value: unknown): void {
+    this.write(schema, value);
+    if (typeof this.buffer === "object") {
+      this.buffer.__type = NormalizedSchema.of(schema).getName(true);
+    }
+  }
+
   public flush(): string {
-    if (this.rootSchema?.isStructSchema() || this.rootSchema?.isDocumentSchema()) {
+    const { rootSchema } = this;
+    this.rootSchema = undefined;
+
+    if (rootSchema?.isStructSchema() || rootSchema?.isDocumentSchema()) {
       const replacer = new JsonReplacer();
       return replacer.replaceInJson(JSON.stringify(this.buffer, replacer.createReplacer(), 0));
     }
+    // non-struct root schema indicates a blob (base64 string) or plain string payload.
     return this.buffer;
   }
 
@@ -73,23 +89,21 @@ export class JsonShapeSerializer extends SerdeContextConfig implements ShapeSeri
       return void 0;
     }
 
-    if (ns.isBlobSchema() && (value instanceof Uint8Array || typeof value === "string")) {
+    if (
+      (ns.isBlobSchema() && (value instanceof Uint8Array || typeof value === "string")) ||
+      (ns.isDocumentSchema() && value instanceof Uint8Array)
+    ) {
       if (ns === this.rootSchema) {
         return value;
       }
       if (!this.serdeContext?.base64Encoder) {
-        throw new Error("Missing base64Encoder in serdeContext");
+        return toBase64(value);
       }
       return this.serdeContext?.base64Encoder(value);
     }
 
-    if (ns.isTimestampSchema() && value instanceof Date) {
-      const options = this.settings.timestampFormat;
-      const format = options.useTrait
-        ? ns.getSchema() === SCHEMA.TIMESTAMP_DEFAULT
-          ? options.default
-          : ns.getSchema() ?? options.default
-        : options.default;
+    if ((ns.isTimestampSchema() || ns.isDocumentSchema()) && value instanceof Date) {
+      const format = determineTimestampFormat(ns, this.settings);
       switch (format) {
         case SCHEMA.TIMESTAMP_DATE_TIME:
           return value.toISOString().replace(".000Z", "Z");
@@ -121,6 +135,22 @@ export class JsonShapeSerializer extends SerdeContextConfig implements ShapeSeri
         if (isJson) {
           return LazyJsonString.from(value);
         }
+      }
+    }
+
+    if (ns.isDocumentSchema()) {
+      if (isObject) {
+        const out = Array.isArray(value) ? [] : ({} as any);
+        for (const [k, v] of Object.entries(value)) {
+          if (v instanceof NumericValue) {
+            out[k] = v;
+          } else {
+            out[k] = this._write(ns, v);
+          }
+        }
+        return out;
+      } else {
+        return structuredClone(value);
       }
     }
 

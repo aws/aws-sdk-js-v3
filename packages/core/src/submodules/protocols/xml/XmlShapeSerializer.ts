@@ -1,4 +1,5 @@
 import { XmlNode, XmlText } from "@aws-sdk/xml-builder";
+import { determineTimestampFormat } from "@smithy/core/protocols";
 import { NormalizedSchema, SCHEMA } from "@smithy/core/schema";
 import { generateIdempotencyToken, NumericValue } from "@smithy/core/serde";
 import { dateToUtcString } from "@smithy/smithy-client";
@@ -259,12 +260,7 @@ export class XmlShapeSerializer extends SerdeContextConfig implements ShapeSeria
       if (ns.isBlobSchema()) {
         nodeContents = (this.serdeContext?.base64Encoder ?? toBase64)(value as string | Uint8Array);
       } else if (ns.isTimestampSchema() && value instanceof Date) {
-        const options = this.settings.timestampFormat;
-        const format = options.useTrait
-          ? ns.getSchema() === SCHEMA.TIMESTAMP_DEFAULT
-            ? options.default
-            : ns.getSchema() ?? options.default
-          : options.default;
+        const format = determineTimestampFormat(ns, this.settings);
         switch (format) {
           case SCHEMA.TIMESTAMP_DATE_TIME:
             nodeContents = value.toISOString().replace(".000Z", "Z");

@@ -1,0 +1,272 @@
+{
+  "serdeTests": [
+    {
+      "name": "default test case",
+      "subject": "smithy.example#OmniWidget",
+      "serialized": {
+        "string": "hello"
+      },
+      "deserialized": {
+        "string": "hello"
+      },
+      "codec": "json",
+      "settings": {
+        "jsonName": false
+      }
+    },
+    {
+      "name": "jsonName",
+      "subject": "smithy.example#OmniWidget",
+      "serialized": {
+        "String": "hello"
+      },
+      "deserialized": {
+        "string": "hello"
+      },
+      "codec": "json",
+      "settings": {
+        "jsonName": true
+      }
+    },
+    {
+      "name": "timestampFormat, with default epoch-seconds",
+      "subject": "smithy.example#OmniWidget",
+      "serialized": {
+        "timestamp": 0,
+        "timestampDateTime": "1970-01-01T00:00:00Z",
+        "timestampHttpDate": "Thu, 01 Jan 1970 00:00:00 GMT",
+        "timestampEpochSeconds": 0
+      },
+      "deserialized": {
+        "timestamp": "1970-01-01T00:00:00Z",
+        "timestampDateTime": "1970-01-01T00:00:00Z",
+        "timestampHttpDate": "1970-01-01T00:00:00Z",
+        "timestampEpochSeconds": "1970-01-01T00:00:00Z"
+      },
+      "codec": "json",
+      "settings": {
+        "timestampFormat": {
+          "useTrait": true,
+          "default": "epoch-seconds"
+        }
+      }
+    },
+    {
+      "name": "ignoring timestampFormat, with default epoch-seconds",
+      "subject": "smithy.example#OmniWidget",
+      "serialized": {
+        "timestamp": 0,
+        "timestampDateTime": 0,
+        "timestampHttpDate": 0,
+        "timestampEpochSeconds": 0
+      },
+      "deserialized": {
+        "timestamp": "1970-01-01T00:00:00Z",
+        "timestampDateTime": "1970-01-01T00:00:00Z",
+        "timestampHttpDate": "1970-01-01T00:00:00Z",
+        "timestampEpochSeconds": "1970-01-01T00:00:00Z"
+      },
+      "codec": "json",
+      "settings": {
+        "timestampFormat": {
+          "useTrait": false,
+          "default": "epoch-seconds"
+        }
+      }
+    },
+    {
+      "name": "default settings with populated members with initial values",
+      "subject": "smithy.example#OmniWidget",
+      "serialized": {
+        "blob": "YWJjZA==",
+        "boolean": false,
+        "String": "",
+        "byte": 0,
+        "short": 0,
+        "integer": 0,
+        "long": 0,
+        "float": 0,
+        "double": 0,
+        "bigInteger": 0,
+        "bigDecimal": 0,
+        "timestamp": 0,
+        "timestampDateTime": "1970-01-01T00:00:00Z",
+        "timestampHttpDate": "Thu, 01 Jan 1970 00:00:00 GMT",
+        "timestampEpochSeconds": 0,
+        "document": {},
+        "enum": "A",
+        "intEnum": 0,
+        "list": [],
+        "map": {},
+        "structure": {}
+      },
+      "deserialized": {
+        "blob": "YWJjZA==",
+        "boolean": false,
+        "string": "",
+        "byte": 0,
+        "short": 0,
+        "integer": 0,
+        "long": 0,
+        "float": 0,
+        "double": 0,
+        "bigInteger": 0,
+        "bigDecimal": 0,
+        "timestamp": 0,
+        "timestampDateTime": "1970-01-01T00:00:00Z",
+        "timestampHttpDate": "Thu, 01 Jan 1970 00:00:00 GMT",
+        "timestampEpochSeconds": 0,
+        "document": {},
+        "enum": "A",
+        "intEnum": 0,
+        "list": [],
+        "map": {},
+        "structure": {}
+      },
+      "codec": "json",
+      "settings": {
+        "defaultNamespace": "smithy.example",
+        "jsonName": true,
+        "timestampFormat": {
+          "useTrait": true,
+          "default": "epoch-seconds"
+        }
+      }
+    },
+    {
+      "name": "default settings with populated members with filled values",
+      "subject": "smithy.example#OmniWidget",
+      "serialized": {
+        "blob": "YWJjZA==",
+        "boolean": true,
+        "String": "abcd",
+        "byte": -128,
+        "short": -32768,
+        "integer": -2147483648,
+        "long": -9007199254740991,
+        "float": -0.1,
+        "double": -0.01,
+        "bigInteger": -9007199254740991,
+        "bigDecimal": -9007199254740991.123456789,
+        "timestamp": 17514144000,
+        "timestampDateTime": "2525-01-01T00:00:00Z",
+        "timestampHttpDate": "Mon, 01 Jan 2525 00:00:00 GMT",
+        "timestampEpochSeconds": 17514144000,
+        "document": {
+          "__type": "smithy.example#OmniWidget",
+          "timestamp": 17514144000,
+          "timestampDateTime": "2525-01-01T00:00:00Z",
+          "timestampHttpDate": "Mon, 01 Jan 2525 00:00:00 GMT",
+          "timestampEpochSeconds": 17514144000,
+          "document": true
+        },
+        "enum": "B",
+        "intEnum": 1,
+        "list": [
+          {
+            "byte": -128
+          },
+          {
+            "short": -32768
+          }
+        ],
+        "map": {
+          "a": {
+            "integer": -2147483648
+          },
+          "b": {
+            "long": -9007199254740991
+          }
+        },
+        "structure": {
+          "list": [
+            {
+              "double": -0.01
+            },
+            {
+              "float": -0.1
+            }
+          ],
+          "map": {
+            "a": {
+              "bigInteger": -9007199254740991
+            },
+            "b": {
+              "bigDecimal": -9007199254740991.123456789
+            }
+          }
+        }
+      },
+      "deserialized": {
+        "blob": "YWJjZA==",
+        "boolean": true,
+        "string": "abcd",
+        "byte": -128,
+        "short": -32768,
+        "integer": -2147483648,
+        "long": -9007199254740991,
+        "float": -0.1,
+        "double": -0.01,
+        "bigInteger": -9007199254740991,
+        "bigDecimal": -9007199254740991.123456789,
+        "timestamp": "2525-01-01T00:00:00Z",
+        "timestampDateTime": "2525-01-01T00:00:00Z",
+        "timestampHttpDate": "2525-01-01T00:00:00Z",
+        "timestampEpochSeconds": "2525-01-01T00:00:00Z",
+        "document": {
+          "__type": "smithy.example#OmniWidget",
+          "timestamp": "2525-01-01T00:00:00Z",
+          "timestampDateTime": "2525-01-01T00:00:00Z",
+          "timestampHttpDate": "2525-01-01T00:00:00Z",
+          "timestampEpochSeconds": "2525-01-01T00:00:00Z",
+          "document": true
+        },
+        "enum": "B",
+        "intEnum": 1,
+        "list": [
+          {
+            "byte": -128
+          },
+          {
+            "short": -32768
+          }
+        ],
+        "map": {
+          "a": {
+            "integer": -2147483648
+          },
+          "b": {
+            "long": -9007199254740991
+          }
+        },
+        "structure": {
+          "list": [
+            {
+              "double": -0.01
+            },
+            {
+              "float": -0.1
+            }
+          ],
+          "map": {
+            "a": {
+              "bigInteger": -9007199254740991
+            },
+            "b": {
+              "bigDecimal": -9007199254740991.123456789
+            }
+          }
+        }
+      },
+      "codec": "json",
+      "settings": {
+        "defaultNamespace": "smithy.example",
+        "jsonName": true,
+        "timestampFormat": {
+          "useTrait": true,
+          "default": "epoch-seconds"
+        }
+      }
+    }
+  ]
+}
