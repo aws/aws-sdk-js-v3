@@ -6,7 +6,7 @@ import { Unit } from "./schemas_15_Json";
 
 /* eslint no-var: 0 */
 
-export var GreetingStruct_n1 = struct(n1, _GS, 0, [_hi], [0]);
+export var GreetingStruct = struct(n1, _GS, 0, [_hi], [0]);
 export var MalformedAcceptWithBody = op(
   n0,
   _MAWB,
@@ -14,7 +14,7 @@ export var MalformedAcceptWithBody = op(
     [_ht]: ["POST", "/MalformedAcceptWithBody", 200],
   },
   () => Unit,
-  () => GreetingStruct_n1
+  () => GreetingStruct
 );
 export var MalformedContentTypeWithBody = op(
   n0,
@@ -22,6 +22,6 @@ export var MalformedContentTypeWithBody = op(
   {
     [_ht]: ["POST", "/MalformedContentTypeWithBody", 200],
   },
-  () => GreetingStruct_n1,
+  () => GreetingStruct,
   () => Unit
 );
