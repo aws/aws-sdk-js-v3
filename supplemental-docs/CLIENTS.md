@@ -692,7 +692,7 @@ This is a simple `boolean` setting that is present in most SDK Clients.
 It is used in endpoint resolution.
 
 ```ts
-// Example: setting useDualstackEndpoint
+// Example: setting useFipsEndpoint
 new S3Client({
   useFipsEndpoint: false,
 });
