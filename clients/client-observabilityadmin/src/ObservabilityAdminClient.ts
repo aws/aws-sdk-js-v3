@@ -54,6 +54,10 @@ import {
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
 import {
+  CreateCentralizationRuleForOrganizationCommandInput,
+  CreateCentralizationRuleForOrganizationCommandOutput,
+} from "./commands/CreateCentralizationRuleForOrganizationCommand";
+import {
   CreateTelemetryRuleCommandInput,
   CreateTelemetryRuleCommandOutput,
 } from "./commands/CreateTelemetryRuleCommand";
@@ -62,6 +66,10 @@ import {
   CreateTelemetryRuleForOrganizationCommandOutput,
 } from "./commands/CreateTelemetryRuleForOrganizationCommand";
 import {
+  DeleteCentralizationRuleForOrganizationCommandInput,
+  DeleteCentralizationRuleForOrganizationCommandOutput,
+} from "./commands/DeleteCentralizationRuleForOrganizationCommand";
+import {
   DeleteTelemetryRuleCommandInput,
   DeleteTelemetryRuleCommandOutput,
 } from "./commands/DeleteTelemetryRuleCommand";
@@ -69,6 +77,10 @@ import {
   DeleteTelemetryRuleForOrganizationCommandInput,
   DeleteTelemetryRuleForOrganizationCommandOutput,
 } from "./commands/DeleteTelemetryRuleForOrganizationCommand";
+import {
+  GetCentralizationRuleForOrganizationCommandInput,
+  GetCentralizationRuleForOrganizationCommandOutput,
+} from "./commands/GetCentralizationRuleForOrganizationCommand";
 import {
   GetTelemetryEvaluationStatusCommandInput,
   GetTelemetryEvaluationStatusCommandOutput,
@@ -82,6 +94,10 @@ import {
   GetTelemetryRuleForOrganizationCommandInput,
   GetTelemetryRuleForOrganizationCommandOutput,
 } from "./commands/GetTelemetryRuleForOrganizationCommand";
+import {
+  ListCentralizationRulesForOrganizationCommandInput,
+  ListCentralizationRulesForOrganizationCommandOutput,
+} from "./commands/ListCentralizationRulesForOrganizationCommand";
 import {
   ListResourceTelemetryCommandInput,
   ListResourceTelemetryCommandOutput,
@@ -118,6 +134,10 @@ import {
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import {
+  UpdateCentralizationRuleForOrganizationCommandInput,
+  UpdateCentralizationRuleForOrganizationCommandOutput,
+} from "./commands/UpdateCentralizationRuleForOrganizationCommand";
+import {
   UpdateTelemetryRuleCommandInput,
   UpdateTelemetryRuleCommandOutput,
 } from "./commands/UpdateTelemetryRuleCommand";
@@ -140,14 +160,18 @@ export { __Client };
  * @public
  */
 export type ServiceInputTypes =
+  | CreateCentralizationRuleForOrganizationCommandInput
   | CreateTelemetryRuleCommandInput
   | CreateTelemetryRuleForOrganizationCommandInput
+  | DeleteCentralizationRuleForOrganizationCommandInput
   | DeleteTelemetryRuleCommandInput
   | DeleteTelemetryRuleForOrganizationCommandInput
+  | GetCentralizationRuleForOrganizationCommandInput
   | GetTelemetryEvaluationStatusCommandInput
   | GetTelemetryEvaluationStatusForOrganizationCommandInput
   | GetTelemetryRuleCommandInput
   | GetTelemetryRuleForOrganizationCommandInput
+  | ListCentralizationRulesForOrganizationCommandInput
   | ListResourceTelemetryCommandInput
   | ListResourceTelemetryForOrganizationCommandInput
   | ListTagsForResourceCommandInput
@@ -159,6 +183,7 @@ export type ServiceInputTypes =
   | StopTelemetryEvaluationForOrganizationCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
+  | UpdateCentralizationRuleForOrganizationCommandInput
   | UpdateTelemetryRuleCommandInput
   | UpdateTelemetryRuleForOrganizationCommandInput;
 
@@ -166,14 +191,18 @@ export type ServiceInputTypes =
  * @public
  */
 export type ServiceOutputTypes =
+  | CreateCentralizationRuleForOrganizationCommandOutput
   | CreateTelemetryRuleCommandOutput
   | CreateTelemetryRuleForOrganizationCommandOutput
+  | DeleteCentralizationRuleForOrganizationCommandOutput
   | DeleteTelemetryRuleCommandOutput
   | DeleteTelemetryRuleForOrganizationCommandOutput
+  | GetCentralizationRuleForOrganizationCommandOutput
   | GetTelemetryEvaluationStatusCommandOutput
   | GetTelemetryEvaluationStatusForOrganizationCommandOutput
   | GetTelemetryRuleCommandOutput
   | GetTelemetryRuleForOrganizationCommandOutput
+  | ListCentralizationRulesForOrganizationCommandOutput
   | ListResourceTelemetryCommandOutput
   | ListResourceTelemetryForOrganizationCommandOutput
   | ListTagsForResourceCommandOutput
@@ -185,6 +214,7 @@ export type ServiceOutputTypes =
   | StopTelemetryEvaluationForOrganizationCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
+  | UpdateCentralizationRuleForOrganizationCommandOutput
   | UpdateTelemetryRuleCommandOutput
   | UpdateTelemetryRuleForOrganizationCommandOutput;
 

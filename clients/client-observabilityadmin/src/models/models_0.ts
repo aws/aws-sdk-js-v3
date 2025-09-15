@@ -36,6 +36,290 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
+ * @public
+ * @enum
+ */
+export const CentralizationFailureReason = {
+  DESTINATION_ACCOUNT_NOT_IN_ORGANIZATION: "DESTINATION_ACCOUNT_NOT_IN_ORGANIZATION",
+  INTERNAL_SERVER_ERROR: "INTERNAL_SERVER_ERROR",
+  TRUSTED_ACCESS_NOT_ENABLED: "TRUSTED_ACCESS_NOT_ENABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type CentralizationFailureReason =
+  (typeof CentralizationFailureReason)[keyof typeof CentralizationFailureReason];
+
+/**
+ * <p>Configuration for backing up centralized log data to a secondary region.</p>
+ * @public
+ */
+export interface LogsBackupConfiguration {
+  /**
+   * <p>Logs specific backup destination region within the primary destination account to which log data should be centralized.</p>
+   * @public
+   */
+  Region: string | undefined;
+
+  /**
+   * <p>KMS Key arn belonging to the primary destination account and backup region, to encrypt newly created central log groups in the backup destination.</p>
+   * @public
+   */
+  KmsKeyArn?: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const EncryptionConflictResolutionStrategy = {
+  ALLOW: "ALLOW",
+  SKIP: "SKIP",
+} as const;
+
+/**
+ * @public
+ */
+export type EncryptionConflictResolutionStrategy =
+  (typeof EncryptionConflictResolutionStrategy)[keyof typeof EncryptionConflictResolutionStrategy];
+
+/**
+ * @public
+ * @enum
+ */
+export const EncryptionStrategy = {
+  AWS_OWNED: "AWS_OWNED",
+  CUSTOMER_MANAGED: "CUSTOMER_MANAGED",
+} as const;
+
+/**
+ * @public
+ */
+export type EncryptionStrategy = (typeof EncryptionStrategy)[keyof typeof EncryptionStrategy];
+
+/**
+ * <p>Configuration for encrypting centralized log groups. This configuration is only applied to destination log groups for which the corresponding source log groups are encrypted using Customer Managed KMS Keys.</p>
+ * @public
+ */
+export interface LogsEncryptionConfiguration {
+  /**
+   * <p>Configuration that determines the encryption strategy of the destination log groups. CUSTOMER_MANAGED uses the configured KmsKeyArn to encrypt newly created destination log groups.</p>
+   * @public
+   */
+  EncryptionStrategy: EncryptionStrategy | undefined;
+
+  /**
+   * <p>KMS Key arn belonging to the primary destination account and region, to encrypt newly created central log groups in the primary destination.</p>
+   * @public
+   */
+  KmsKeyArn?: string | undefined;
+
+  /**
+   * <p>Conflict resolution strategy for centralization if the encryption strategy is set to CUSTOMER_MANAGED and the destination log group is encrypted with an AWS_OWNED KMS Key. ALLOW lets centralization go through while SKIP prevents centralization into the destination log group.</p>
+   * @public
+   */
+  EncryptionConflictResolutionStrategy?: EncryptionConflictResolutionStrategy | undefined;
+}
+
+/**
+ * <p>Configuration for centralization destination log groups, including encryption and backup settings.</p>
+ * @public
+ */
+export interface DestinationLogsConfiguration {
+  /**
+   * <p>The encryption configuration for centralization destination log groups.</p>
+   * @public
+   */
+  LogsEncryptionConfiguration?: LogsEncryptionConfiguration | undefined;
+
+  /**
+   * <p>Configuration defining the backup region and an optional KMS key for the backup destination.</p>
+   * @public
+   */
+  BackupConfiguration?: LogsBackupConfiguration | undefined;
+}
+
+/**
+ * <p>Configuration specifying the primary destination for centralized telemetry data.</p>
+ * @public
+ */
+export interface CentralizationRuleDestination {
+  /**
+   * <p>The primary destination region to which telemetry data should be centralized.</p>
+   * @public
+   */
+  Region: string | undefined;
+
+  /**
+   * <p>The destination account (within the organization) to which the telemetry data should be centralized.</p>
+   * @public
+   */
+  Account?: string | undefined;
+
+  /**
+   * <p>Log specific configuration for centralization destination log groups.</p>
+   * @public
+   */
+  DestinationLogsConfiguration?: DestinationLogsConfiguration | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const EncryptedLogGroupStrategy = {
+  ALLOW: "ALLOW",
+  SKIP: "SKIP",
+} as const;
+
+/**
+ * @public
+ */
+export type EncryptedLogGroupStrategy = (typeof EncryptedLogGroupStrategy)[keyof typeof EncryptedLogGroupStrategy];
+
+/**
+ * <p>Configuration for selecting and handling source log groups for centralization.</p>
+ * @public
+ */
+export interface SourceLogsConfiguration {
+  /**
+   * <p>The selection criteria that specifies which source log groups to centralize. The selection criteria uses the same format as OAM link filters.</p>
+   * @public
+   */
+  LogGroupSelectionCriteria: string | undefined;
+
+  /**
+   * <p>A strategy determining whether to centralize source log groups that are encrypted with customer managed KMS keys (CMK). ALLOW will consider CMK encrypted source log groups for centralization while SKIP will skip CMK encrypted source log groups from centralization.</p>
+   * @public
+   */
+  EncryptedLogGroupStrategy: EncryptedLogGroupStrategy | undefined;
+}
+
+/**
+ * <p>Configuration specifying the source of telemetry data to be centralized.</p>
+ * @public
+ */
+export interface CentralizationRuleSource {
+  /**
+   * <p>The list of source regions from which telemetry data should be centralized.</p>
+   * @public
+   */
+  Regions: string[] | undefined;
+
+  /**
+   * <p>The organizational scope from which telemetry data should be centralized, specified using organization id, accounts or organizational unit ids.</p>
+   * @public
+   */
+  Scope?: string | undefined;
+
+  /**
+   * <p>Log specific configuration for centralization source log groups.</p>
+   * @public
+   */
+  SourceLogsConfiguration?: SourceLogsConfiguration | undefined;
+}
+
+/**
+ * <p>Defines how telemetry data should be centralized across an Amazon Web Services Organization, including source and destination configurations.</p>
+ * @public
+ */
+export interface CentralizationRule {
+  /**
+   * <p>Configuration determining the source of the telemetry data to be centralized.</p>
+   * @public
+   */
+  Source: CentralizationRuleSource | undefined;
+
+  /**
+   * <p>Configuration determining where the telemetry data should be centralized, backed up, as well as encryption configuration for the primary and backup destinations.</p>
+   * @public
+   */
+  Destination: CentralizationRuleDestination | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const RuleHealth = {
+  HEALTHY: "Healthy",
+  PROVISIONING: "Provisioning",
+  UNHEALTHY: "Unhealthy",
+} as const;
+
+/**
+ * @public
+ */
+export type RuleHealth = (typeof RuleHealth)[keyof typeof RuleHealth];
+
+/**
+ * <p>A summary of a centralization rule's key properties and status.</p>
+ * @public
+ */
+export interface CentralizationRuleSummary {
+  /**
+   * <p>The name of the organization centralization rule.</p>
+   * @public
+   */
+  RuleName?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the organization centralization rule.</p>
+   * @public
+   */
+  RuleArn?: string | undefined;
+
+  /**
+   * <p>The Amazon Web Services Account that created the organization centralization rule.</p>
+   * @public
+   */
+  CreatorAccountId?: string | undefined;
+
+  /**
+   * <p>The timestamp when the organization centralization rule was created.</p>
+   * @public
+   */
+  CreatedTimeStamp?: number | undefined;
+
+  /**
+   * <p>The Amazon Web Services region where the organization centralization rule was created.</p>
+   * @public
+   */
+  CreatedRegion?: string | undefined;
+
+  /**
+   * <p>The timestamp when the organization centralization rule was last updated.</p>
+   * @public
+   */
+  LastUpdateTimeStamp?: number | undefined;
+
+  /**
+   * <p>The health status of the organization centralization rule.</p>
+   * @public
+   */
+  RuleHealth?: RuleHealth | undefined;
+
+  /**
+   * <p>The reason why an organization centralization rule is marked UNHEALTHY.</p>
+   * @public
+   */
+  FailureReason?: CentralizationFailureReason | undefined;
+
+  /**
+   * <p>The primary destination account of the organization centralization rule.</p>
+   * @public
+   */
+  DestinationAccountId?: string | undefined;
+
+  /**
+   * <p>The primary destination region of the organization centralization rule.</p>
+   * @public
+   */
+  DestinationRegion?: string | undefined;
+}
+
+/**
  * <p>
  *       The requested operation conflicts with the current state of the specified resource or with another request.
  *     </p>
@@ -55,6 +339,152 @@ export class ConflictException extends __BaseException {
       ...opts,
     });
     Object.setPrototypeOf(this, ConflictException.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * @public
+ */
+export interface CreateCentralizationRuleForOrganizationInput {
+  /**
+   * <p>A unique name for the organization-wide centralization rule being created.</p>
+   * @public
+   */
+  RuleName: string | undefined;
+
+  /**
+   * <p>The configuration details for the organization-wide centralization rule, including the source configuration and the destination configuration to centralize telemetry data across the organization.</p>
+   * @public
+   */
+  Rule: CentralizationRule | undefined;
+
+  /**
+   * <p>The key-value pairs to associate with the organization telemetry rule resource for categorization and management purposes.</p>
+   * @public
+   */
+  Tags?: Record<string, string> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateCentralizationRuleForOrganizationOutput {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the created organization centralization rule.</p>
+   * @public
+   */
+  RuleArn?: string | undefined;
+}
+
+/**
+ * <p>
+ *       Indicates the request has failed to process because of an unknown server error, exception, or failure.
+ *     </p>
+ * @public
+ */
+export class InternalServerException extends __BaseException {
+  readonly name: "InternalServerException" = "InternalServerException";
+  readonly $fault: "server" = "server";
+  Message?: string | undefined;
+  /**
+   * <p>
+   *       The name of the exception.
+   *     </p>
+   * @public
+   */
+  amznErrorType?: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InternalServerException, __BaseException>) {
+    super({
+      name: "InternalServerException",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InternalServerException.prototype);
+    this.Message = opts.Message;
+    this.amznErrorType = opts.amznErrorType;
+  }
+}
+
+/**
+ * <p>
+ *       The requested operation would exceed the allowed quota for the specified resource type.
+ *     </p>
+ * @public
+ */
+export class ServiceQuotaExceededException extends __BaseException {
+  readonly name: "ServiceQuotaExceededException" = "ServiceQuotaExceededException";
+  readonly $fault: "client" = "client";
+  Message?: string | undefined;
+  /**
+   * <p>
+   *       The name of the exception.
+   *     </p>
+   * @public
+   */
+  amznErrorType?: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ServiceQuotaExceededException, __BaseException>) {
+    super({
+      name: "ServiceQuotaExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ServiceQuotaExceededException.prototype);
+    this.Message = opts.Message;
+    this.amznErrorType = opts.amznErrorType;
+  }
+}
+
+/**
+ * <p>
+ *       The request throughput limit was exceeded.
+ *     </p>
+ * @public
+ */
+export class TooManyRequestsException extends __BaseException {
+  readonly name: "TooManyRequestsException" = "TooManyRequestsException";
+  readonly $fault: "client" = "client";
+  Message?: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<TooManyRequestsException, __BaseException>) {
+    super({
+      name: "TooManyRequestsException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TooManyRequestsException.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * <p>
+ *      Indicates input validation failed. Check your request parameters and retry the request.
+ *     </p>
+ * @public
+ */
+export class ValidationException extends __BaseException {
+  readonly name: "ValidationException" = "ValidationException";
+  readonly $fault: "client" = "client";
+  Message?: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ValidationException, __BaseException>) {
+    super({
+      name: "ValidationException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ValidationException.prototype);
     this.Message = opts.Message;
   }
 }
@@ -265,118 +695,6 @@ export interface CreateTelemetryRuleOutput {
 }
 
 /**
- * <p>
- *       Indicates the request has failed to process because of an unknown server error, exception, or failure.
- *     </p>
- * @public
- */
-export class InternalServerException extends __BaseException {
-  readonly name: "InternalServerException" = "InternalServerException";
-  readonly $fault: "server" = "server";
-  Message?: string | undefined;
-  /**
-   * <p>
-   *       The name of the exception.
-   *     </p>
-   * @public
-   */
-  amznErrorType?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InternalServerException, __BaseException>) {
-    super({
-      name: "InternalServerException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InternalServerException.prototype);
-    this.Message = opts.Message;
-    this.amznErrorType = opts.amznErrorType;
-  }
-}
-
-/**
- * <p>
- *       The requested operation would exceed the allowed quota for the specified resource type.
- *     </p>
- * @public
- */
-export class ServiceQuotaExceededException extends __BaseException {
-  readonly name: "ServiceQuotaExceededException" = "ServiceQuotaExceededException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * <p>
-   *       The name of the exception.
-   *     </p>
-   * @public
-   */
-  amznErrorType?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ServiceQuotaExceededException, __BaseException>) {
-    super({
-      name: "ServiceQuotaExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ServiceQuotaExceededException.prototype);
-    this.Message = opts.Message;
-    this.amznErrorType = opts.amznErrorType;
-  }
-}
-
-/**
- * <p>
- *       The request throughput limit was exceeded.
- *     </p>
- * @public
- */
-export class TooManyRequestsException extends __BaseException {
-  readonly name: "TooManyRequestsException" = "TooManyRequestsException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<TooManyRequestsException, __BaseException>) {
-    super({
-      name: "TooManyRequestsException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, TooManyRequestsException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>
- *      Indicates input validation failed. Check your request parameters and retry the request.
- *     </p>
- * @public
- */
-export class ValidationException extends __BaseException {
-  readonly name: "ValidationException" = "ValidationException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ValidationException, __BaseException>) {
-    super({
-      name: "ValidationException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ValidationException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
  * @public
  */
 export interface CreateTelemetryRuleForOrganizationInput {
@@ -421,11 +739,9 @@ export interface CreateTelemetryRuleForOrganizationOutput {
 /**
  * @public
  */
-export interface DeleteTelemetryRuleInput {
+export interface DeleteCentralizationRuleForOrganizationInput {
   /**
-   * <p>
-   *       The identifier (name or ARN) of the telemetry rule to delete.
-   *     </p>
+   * <p>The identifier (name or ARN) of the organization centralization rule to delete.</p>
    * @public
    */
   RuleIdentifier: string | undefined;
@@ -458,6 +774,19 @@ export class ResourceNotFoundException extends __BaseException {
 /**
  * @public
  */
+export interface DeleteTelemetryRuleInput {
+  /**
+   * <p>
+   *       The identifier (name or ARN) of the telemetry rule to delete.
+   *     </p>
+   * @public
+   */
+  RuleIdentifier: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface DeleteTelemetryRuleForOrganizationInput {
   /**
    * <p>
@@ -466,6 +795,76 @@ export interface DeleteTelemetryRuleForOrganizationInput {
    * @public
    */
   RuleIdentifier: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetCentralizationRuleForOrganizationInput {
+  /**
+   * <p>The identifier (name or ARN) of the organization centralization rule to retrieve.</p>
+   * @public
+   */
+  RuleIdentifier: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetCentralizationRuleForOrganizationOutput {
+  /**
+   * <p>The name of the organization centralization rule.</p>
+   * @public
+   */
+  RuleName?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the organization centralization rule.</p>
+   * @public
+   */
+  RuleArn?: string | undefined;
+
+  /**
+   * <p>The Amazon Web Services Account that created the organization centralization rule.</p>
+   * @public
+   */
+  CreatorAccountId?: string | undefined;
+
+  /**
+   * <p>The timestamp when the organization centralization rule was created.</p>
+   * @public
+   */
+  CreatedTimeStamp?: number | undefined;
+
+  /**
+   * <p>The Amazon Web Services region where the organization centralization rule was created.</p>
+   * @public
+   */
+  CreatedRegion?: string | undefined;
+
+  /**
+   * <p>The timestamp when the organization centralization rule was last updated.</p>
+   * @public
+   */
+  LastUpdateTimeStamp?: number | undefined;
+
+  /**
+   * <p>The health status of the organization centralization rule.</p>
+   * @public
+   */
+  RuleHealth?: RuleHealth | undefined;
+
+  /**
+   * <p>The reason why an organization centralization rule is marked UNHEALTHY.</p>
+   * @public
+   */
+  FailureReason?: CentralizationFailureReason | undefined;
+
+  /**
+   * <p>The configuration details for the organization centralization rule.</p>
+   * @public
+   */
+  CentralizationRule?: CentralizationRule | undefined;
 }
 
 /**
@@ -643,6 +1042,52 @@ export interface GetTelemetryRuleForOrganizationOutput {
    * @public
    */
   TelemetryRule?: TelemetryRule | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListCentralizationRulesForOrganizationInput {
+  /**
+   * <p>A string to filter organization centralization rules whose names begin with the specified prefix.</p>
+   * @public
+   */
+  RuleNamePrefix?: string | undefined;
+
+  /**
+   * <p>A flag determining whether to return organization centralization rules from all regions or only the current region.</p>
+   * @public
+   */
+  AllRegions?: boolean | undefined;
+
+  /**
+   * <p>The maximum number of organization centralization rules to return in a single call.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>The token for the next set of results. A previous call generates this token.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListCentralizationRulesForOrganizationOutput {
+  /**
+   * <p>A list of centralization rule summaries.</p>
+   * @public
+   */
+  CentralizationRuleSummaries?: CentralizationRuleSummary[] | undefined;
+
+  /**
+   * <p>A token to resume pagination of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
 }
 
 /**
@@ -1110,6 +1555,34 @@ export interface UntagResourceInput {
    * @public
    */
   TagKeys: string[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateCentralizationRuleForOrganizationInput {
+  /**
+   * <p>The identifier (name or ARN) of the organization centralization rule to update.</p>
+   * @public
+   */
+  RuleIdentifier: string | undefined;
+
+  /**
+   * <p>The configuration details for the organization-wide centralization rule, including the source configuration and the destination configuration to centralize telemetry data across the organization.</p>
+   * @public
+   */
+  Rule: CentralizationRule | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateCentralizationRuleForOrganizationOutput {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the updated organization centralization rule.</p>
+   * @public
+   */
+  RuleArn?: string | undefined;
 }
 
 /**
