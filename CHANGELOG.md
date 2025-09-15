@@ -3,6 +3,21 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.889.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.888.0...v3.889.0) (2025-09-15)
+
+
+### Features
+
+* **client-cost-explorer:** Added endpoint support for eusc-de-east-1 region. ([33e2bb3](https://github.com/aws/aws-sdk-js-v3/commit/33e2bb3470218114a90b059bbccfcd28a7b27605))
+* **client-medical-imaging:** Added support for OpenID Connect (OIDC) custom authorizer ([2f41c1a](https://github.com/aws/aws-sdk-js-v3/commit/2f41c1a659d757c349f93356ba38e8e26b650d88))
+* **client-observabilityadmin:** CloudWatch Observability Admin adds the ability to enable telemetry centralization in customers' Organizations. The release introduces new APIs to manage centralization rules, which define settings to replicate telemetry data to a central destination in the customers' Organization. ([8af9fd5](https://github.com/aws/aws-sdk-js-v3/commit/8af9fd5036157db0f9779dbf40ef55a4a940f924))
+* **client-s3-control:** Introduce three new encryption filters: EncryptionType (SSE-S3, SSE-KMS, DSSE-KMS, SSE-C, NOT-SSE), KmsKeyArn (for SSE-KMS and DSSE-KMS), and BucketKeyEnabled (for SSE-KMS). ([cc372e4](https://github.com/aws/aws-sdk-js-v3/commit/cc372e4d3f3c7a03fb512cff44cd239aaec3964c))
+* **clients:** update client endpoints as of 2025-09-15 ([f0a4594](https://github.com/aws/aws-sdk-js-v3/commit/f0a45947563eaa3409545ff654469e9827f6d380))
+
+
+
+
+
 # [3.888.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.887.0...v3.888.0) (2025-09-12)
 
 

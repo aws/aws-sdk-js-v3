@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.889.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.888.0...v3.889.0) (2025-09-15)
+
+
+### Features
+
+* **client-medical-imaging:** Added support for OpenID Connect (OIDC) custom authorizer ([2f41c1a](https://github.com/aws/aws-sdk-js-v3/commit/2f41c1a659d757c349f93356ba38e8e26b650d88))
+
+
+
+
+
 # [3.888.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.887.0...v3.888.0) (2025-09-12)
 
 **Note:** Version bump only for package @aws-sdk/client-medical-imaging

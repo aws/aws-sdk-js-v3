@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.889.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.888.0...v3.889.0) (2025-09-15)
+
+
+### Features
+
+* **client-observabilityadmin:** CloudWatch Observability Admin adds the ability to enable telemetry centralization in customers' Organizations. The release introduces new APIs to manage centralization rules, which define settings to replicate telemetry data to a central destination in the customers' Organization. ([8af9fd5](https://github.com/aws/aws-sdk-js-v3/commit/8af9fd5036157db0f9779dbf40ef55a4a940f924))
+
+
+
+
+
 # [3.888.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.887.0...v3.888.0) (2025-09-12)
 
 **Note:** Version bump only for package @aws-sdk/client-observabilityadmin

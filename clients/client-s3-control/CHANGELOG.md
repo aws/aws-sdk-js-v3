@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.889.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.888.0...v3.889.0) (2025-09-15)
+
+
+### Features
+
+* **client-s3-control:** Introduce three new encryption filters: EncryptionType (SSE-S3, SSE-KMS, DSSE-KMS, SSE-C, NOT-SSE), KmsKeyArn (for SSE-KMS and DSSE-KMS), and BucketKeyEnabled (for SSE-KMS). ([cc372e4](https://github.com/aws/aws-sdk-js-v3/commit/cc372e4d3f3c7a03fb512cff44cd239aaec3964c))
+
+
+
+
+
 # [3.888.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.887.0...v3.888.0) (2025-09-12)
 
 **Note:** Version bump only for package @aws-sdk/client-s3-control
