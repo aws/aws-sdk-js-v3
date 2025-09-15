@@ -45,7 +45,7 @@ export interface DeleteImageSetCommandOutput extends DeleteImageSetResponse, __M
  * //   datastoreId: "STRING_VALUE", // required
  * //   imageSetId: "STRING_VALUE", // required
  * //   imageSetState: "ACTIVE" || "LOCKED" || "DELETED", // required
- * //   imageSetWorkflowStatus: "CREATED" || "COPIED" || "COPYING" || "COPYING_WITH_READ_ONLY_ACCESS" || "COPY_FAILED" || "UPDATING" || "UPDATED" || "UPDATE_FAILED" || "DELETING" || "DELETED", // required
+ * //   imageSetWorkflowStatus: "CREATED" || "COPIED" || "COPYING" || "COPYING_WITH_READ_ONLY_ACCESS" || "COPY_FAILED" || "UPDATING" || "UPDATED" || "UPDATE_FAILED" || "DELETING" || "DELETED" || "IMPORTING" || "IMPORTED" || "IMPORT_FAILED", // required
  * // };
  *
  * ```

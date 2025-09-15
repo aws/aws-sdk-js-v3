@@ -42,6 +42,7 @@ export interface CreateDatastoreCommandOutput extends CreateDatastoreResponse, _
  *     "<keys>": "STRING_VALUE",
  *   },
  *   kmsKeyArn: "STRING_VALUE",
+ *   lambdaAuthorizerArn: "STRING_VALUE",
  * };
  * const command = new CreateDatastoreCommand(input);
  * const response = await client.send(command);
@@ -66,6 +67,9 @@ export interface CreateDatastoreCommandOutput extends CreateDatastoreResponse, _
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>An unexpected error occurred during processing of the request.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The request references a resource which does not exist.</p>
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
  *  <p>The request caused a service quota to be exceeded.</p>

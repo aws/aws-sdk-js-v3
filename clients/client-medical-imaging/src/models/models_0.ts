@@ -173,6 +173,9 @@ export const ImageSetWorkflowStatus = {
   CREATED: "CREATED",
   DELETED: "DELETED",
   DELETING: "DELETING",
+  IMPORTED: "IMPORTED",
+  IMPORTING: "IMPORTING",
+  IMPORT_FAILED: "IMPORT_FAILED",
   UPDATED: "UPDATED",
   UPDATE_FAILED: "UPDATE_FAILED",
   UPDATING: "UPDATING",
@@ -429,6 +432,12 @@ export interface CreateDatastoreRequest {
    * @public
    */
   kmsKeyArn?: string | undefined;
+
+  /**
+   * <p>The ARN of the authorizer's Lambda function.</p>
+   * @public
+   */
+  lambdaAuthorizerArn?: string | undefined;
 }
 
 /**
@@ -532,6 +541,12 @@ export interface DatastoreProperties {
    * @public
    */
   kmsKeyArn?: string | undefined;
+
+  /**
+   * <p>The ARN of the authorizer's Lambda function.</p>
+   * @public
+   */
+  lambdaAuthorizerArn?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) for the data store.</p>

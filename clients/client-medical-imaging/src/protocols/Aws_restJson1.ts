@@ -154,6 +154,7 @@ export const se_CreateDatastoreCommand = async (
       clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       datastoreName: [],
       kmsKeyArn: [],
+      lambdaAuthorizerArn: [],
       tags: (_) => _json(_),
     })
   );
@@ -1272,6 +1273,7 @@ const de_DatastoreProperties = (output: any, context: __SerdeContext): Datastore
     datastoreName: __expectString,
     datastoreStatus: __expectString,
     kmsKeyArn: __expectString,
+    lambdaAuthorizerArn: __expectString,
     updatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
   }) as any;
 };

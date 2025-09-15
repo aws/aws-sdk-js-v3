@@ -47,7 +47,7 @@ export interface GetImageSetCommandOutput extends GetImageSetResponse, __Metadat
  * //   imageSetId: "STRING_VALUE", // required
  * //   versionId: "STRING_VALUE", // required
  * //   imageSetState: "ACTIVE" || "LOCKED" || "DELETED", // required
- * //   imageSetWorkflowStatus: "CREATED" || "COPIED" || "COPYING" || "COPYING_WITH_READ_ONLY_ACCESS" || "COPY_FAILED" || "UPDATING" || "UPDATED" || "UPDATE_FAILED" || "DELETING" || "DELETED",
+ * //   imageSetWorkflowStatus: "CREATED" || "COPIED" || "COPYING" || "COPYING_WITH_READ_ONLY_ACCESS" || "COPY_FAILED" || "UPDATING" || "UPDATED" || "UPDATE_FAILED" || "DELETING" || "DELETED" || "IMPORTING" || "IMPORTED" || "IMPORT_FAILED",
  * //   createdAt: new Date("TIMESTAMP"),
  * //   updatedAt: new Date("TIMESTAMP"),
  * //   deletedAt: new Date("TIMESTAMP"),

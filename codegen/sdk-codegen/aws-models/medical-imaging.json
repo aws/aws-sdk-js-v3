@@ -1076,6 +1076,9 @@
           "target": "com.amazonaws.medicalimaging#InternalServerException"
         },
         {
+          "target": "com.amazonaws.medicalimaging#ResourceNotFoundException"
+        },
+        {
           "target": "com.amazonaws.medicalimaging#ServiceQuotaExceededException"
         },
         {
@@ -1122,6 +1125,12 @@
           "target": "com.amazonaws.medicalimaging#KmsKeyArn",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) assigned to the Key Management Service (KMS) key for accessing encrypted data.</p>"
+          }
+        },
+        "lambdaAuthorizerArn": {
+          "target": "com.amazonaws.medicalimaging#LambdaArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN of the authorizer's Lambda function.</p>"
           }
         }
       },
@@ -1318,7 +1327,7 @@
         "smithy.api#default": 0,
         "smithy.api#range": {
           "min": 0,
-          "max": 10000
+          "max": 1000000
         }
       }
     },
@@ -1389,7 +1398,7 @@
           "min": 0,
           "max": 256
         },
-        "smithy.api#pattern": "^(?:[0-9][0-9]*|0)(\\.(?:[1-9][0-9]*|0))*$",
+        "smithy.api#pattern": "^(?:[0-9][0-9]*|0)(\\.(?:[0-9][0-9]*|0))*$",
         "smithy.api#sensitive": {}
       }
     },
@@ -1449,7 +1458,7 @@
       "traits": {
         "smithy.api#length": {
           "min": 0,
-          "max": 64
+          "max": 256
         },
         "smithy.api#sensitive": {}
       }
@@ -1459,7 +1468,7 @@
       "traits": {
         "smithy.api#length": {
           "min": 0,
-          "max": 16
+          "max": 256
         },
         "smithy.api#sensitive": {}
       }
@@ -1471,7 +1480,7 @@
           "min": 0,
           "max": 256
         },
-        "smithy.api#pattern": "^(?:[0-9][0-9]*|0)(\\.(?:[1-9][0-9]*|0))*$",
+        "smithy.api#pattern": "^(?:[0-9][0-9]*|0)(\\.(?:[0-9][0-9]*|0))*$",
         "smithy.api#sensitive": {}
       }
     },
@@ -1655,6 +1664,12 @@
           "target": "com.amazonaws.medicalimaging#KmsKeyArn",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) assigned to the Key Management Service (KMS) key for accessing encrypted data.</p>"
+          }
+        },
+        "lambdaAuthorizerArn": {
+          "target": "com.amazonaws.medicalimaging#LambdaArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN of the authorizer's Lambda function.</p>"
           }
         },
         "datastoreArn": {
@@ -2684,6 +2699,24 @@
           "traits": {
             "smithy.api#enumValue": "DELETED"
           }
+        },
+        "IMPORTING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "IMPORTING"
+          }
+        },
+        "IMPORTED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "IMPORTED"
+          }
+        },
+        "IMPORT_FAILED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "IMPORT_FAILED"
+          }
         }
       }
     },
@@ -2813,6 +2846,12 @@
           "max": 512
         },
         "smithy.api#pattern": "^arn:aws[a-zA-Z-]{0,16}:kms:[a-z]{2}(-[a-z]{1,16}){1,3}-\\d{1}:\\d{12}:((key/[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12})|(alias/[a-zA-Z0-9:/_-]{1,256}))$"
+      }
+    },
+    "com.amazonaws.medicalimaging#LambdaArn": {
+      "type": "string",
+      "traits": {
+        "smithy.api#pattern": "^arn:(aws[a-zA-Z-]*)?:lambda:[a-z]{2}((-gov)|(-iso(b?)))?-[a-z]+-\\d{1}:\\d{12}:function:[a-zA-Z0-9-_]+(:(\\$LATEST|[a-zA-Z0-9-_]+))?$"
       }
     },
     "com.amazonaws.medicalimaging#ListDICOMImportJobs": {
