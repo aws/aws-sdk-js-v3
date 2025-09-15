@@ -6,7 +6,8 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ListAccessPointsForObjectLambdaRequest, ListAccessPointsForObjectLambdaResult } from "../models/models_0";
+import { ListAccessPointsForObjectLambdaRequest } from "../models/models_0";
+import { ListAccessPointsForObjectLambdaResult } from "../models/models_1";
 import {
   de_ListAccessPointsForObjectLambdaCommand,
   se_ListAccessPointsForObjectLambdaCommand,

@@ -364,6 +364,7 @@ import {
   DeleteMultiRegionAccessPointInput,
   Destination,
   DetailedStatusCodesMetrics,
+  DSSEKMSFilter,
   EncryptionConfiguration,
   EstablishedMultiRegionAccessPointPolicy,
   ExistingObjectReplication,
@@ -372,8 +373,6 @@ import {
   IdempotencyException,
   Include,
   InternalServiceException,
-  InvalidNextTokenException,
-  InvalidRequestException,
   JobDescriptor,
   JobFailure,
   JobManifest,
@@ -395,7 +394,6 @@ import {
   ListAccessGrantEntry,
   ListAccessGrantsInstanceEntry,
   ListAccessGrantsLocationsEntry,
-  ListCallerAccessGrantsEntry,
   MatchObjectAge,
   MatchObjectSize,
   Metrics,
@@ -408,6 +406,8 @@ import {
   NoncurrentVersionTransition,
   NoSuchPublicAccessBlockConfiguration,
   NotFoundException,
+  NotSSEFilter,
+  ObjectEncryptionFilter,
   ObjectLambdaAccessPoint,
   ObjectLambdaAccessPointAlias,
   ObjectLambdaAllowedFeature,
@@ -458,11 +458,14 @@ import {
   ScopePermission,
   SelectionCriteria,
   SourceSelectionCriteria,
+  SSECFilter,
   SSEKMS,
   SseKmsEncryptedObjects,
   SSEKMSEncryption,
+  SSEKMSFilter,
   SSES3,
   SSES3Encryption,
+  SSES3Filter,
   StorageLensAwsOrg,
   StorageLensConfiguration,
   StorageLensDataExport,
@@ -480,9 +483,12 @@ import {
   VpcConfiguration,
 } from "../models/models_0";
 import {
+  InvalidNextTokenException,
+  InvalidRequestException,
   JobListDescriptor,
   JobStatusException,
   LifecycleConfiguration,
+  ListCallerAccessGrantsEntry,
   ListStorageLensConfigurationEntry,
   ListStorageLensGroupEntry,
   RegionalBucket,
@@ -5205,6 +5211,17 @@ const se_DetailedStatusCodesMetrics = (input: DetailedStatusCodesMetrics, contex
 };
 
 /**
+ * serializeAws_restXmlDSSEKMSFilter
+ */
+const se_DSSEKMSFilter = (input: DSSEKMSFilter, context: __SerdeContext): any => {
+  const bn = new __XmlNode(_DSSEKMSF);
+  if (input[_KKA] != null) {
+    bn.c(__XmlNode.of(_NEKKAS, input[_KKA]).n(_KKA));
+  }
+  return bn;
+};
+
+/**
  * serializeAws_restXmlEncryptionConfiguration
  */
 const se_EncryptionConfiguration = (input: EncryptionConfiguration, context: __SerdeContext): any => {
@@ -5342,6 +5359,9 @@ const se_JobManifestGeneratorFilter = (input: JobManifestGeneratorFilter, contex
     bn.c(__XmlNode.of(_OSLTB, String(input[_OSLTB])).n(_OSLTB));
   }
   bn.lc(input, "MatchAnyStorageClass", "MatchAnyStorageClass", () => se_StorageClassList(input[_MASC]!, context));
+  bn.lc(input, "MatchAnyObjectEncryption", "MatchAnyObjectEncryption", () =>
+    se_ObjectEncryptionFilterList(input[_MAOE]!, context)
+  );
   return bn;
 };
 
@@ -5713,6 +5733,67 @@ const se_NonEmptyMaxLength1024StringList = (input: string[], context: __SerdeCon
     .map((entry) => {
       const n = __XmlNode.of(_NEMLSon, entry);
       return n.n(_m);
+    });
+};
+
+/**
+ * serializeAws_restXmlNotSSEFilter
+ */
+const se_NotSSEFilter = (input: NotSSEFilter, context: __SerdeContext): any => {
+  const bn = new __XmlNode(_NSSEF);
+  return bn;
+};
+
+/**
+ * serializeAws_restXmlObjectEncryptionFilter
+ */
+const se_ObjectEncryptionFilter = (input: ObjectEncryptionFilter, context: __SerdeContext): any => {
+  const bn = new __XmlNode(_OEF);
+  ObjectEncryptionFilter.visit(input, {
+    SSES3: (value) => {
+      if (input[_SSES] != null) {
+        bn.c(se_SSES3Filter(value, context).n(_SS));
+      }
+    },
+    SSEKMS: (value) => {
+      if (input[_SSEKMS] != null) {
+        bn.c(se_SSEKMSFilter(value, context).n(_SK));
+      }
+    },
+    DSSEKMS: (value) => {
+      if (input[_DSSEKMS] != null) {
+        bn.c(se_DSSEKMSFilter(value, context).n(_DK));
+      }
+    },
+    SSEC: (value) => {
+      if (input[_SSEC] != null) {
+        bn.c(se_SSECFilter(value, context).n(_SC_));
+      }
+    },
+    NOTSSE: (value) => {
+      if (input[_NOTSSE] != null) {
+        bn.c(se_NotSSEFilter(value, context).n(_NS));
+      }
+    },
+    _: (name: string, value: any) => {
+      if (!(value instanceof __XmlNode || value instanceof __XmlText)) {
+        throw new Error("Unable to serialize unknown union members in XML.");
+      }
+      bn.c(new __XmlNode(name).c(value));
+    },
+  });
+  return bn;
+};
+
+/**
+ * serializeAws_restXmlObjectEncryptionFilterList
+ */
+const se_ObjectEncryptionFilterList = (input: ObjectEncryptionFilter[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      const n = se_ObjectEncryptionFilter(entry, context);
+      return n.n(_OE);
     });
 };
 
@@ -6523,6 +6604,14 @@ const se_SourceSelectionCriteria = (input: SourceSelectionCriteria, context: __S
 };
 
 /**
+ * serializeAws_restXmlSSECFilter
+ */
+const se_SSECFilter = (input: SSECFilter, context: __SerdeContext): any => {
+  const bn = new __XmlNode(_SSECF);
+  return bn;
+};
+
+/**
  * serializeAws_restXmlSSEKMS
  */
 const se_SSEKMS = (input: SSEKMS, context: __SerdeContext): any => {
@@ -6556,6 +6645,20 @@ const se_SSEKMSEncryption = (input: SSEKMSEncryption, context: __SerdeContext): 
 };
 
 /**
+ * serializeAws_restXmlSSEKMSFilter
+ */
+const se_SSEKMSFilter = (input: SSEKMSFilter, context: __SerdeContext): any => {
+  const bn = new __XmlNode(_SSEKMSF);
+  if (input[_KKA] != null) {
+    bn.c(__XmlNode.of(_NEKKAS, input[_KKA]).n(_KKA));
+  }
+  if (input[_BKE] != null) {
+    bn.c(__XmlNode.of(_Bo, String(input[_BKE])).n(_BKE));
+  }
+  return bn;
+};
+
+/**
  * serializeAws_restXmlSSES3
  */
 const se_SSES3 = (input: SSES3, context: __SerdeContext): any => {
@@ -6568,6 +6671,14 @@ const se_SSES3 = (input: SSES3, context: __SerdeContext): any => {
  */
 const se_SSES3Encryption = (input: SSES3Encryption, context: __SerdeContext): any => {
   const bn = new __XmlNode(_SS);
+  return bn;
+};
+
+/**
+ * serializeAws_restXmlSSES3Filter
+ */
+const se_SSES3Filter = (input: SSES3Filter, context: __SerdeContext): any => {
+  const bn = new __XmlNode(_SSESF);
   return bn;
 };
 
@@ -7331,6 +7442,17 @@ const de_DetailedStatusCodesMetrics = (output: any, context: __SerdeContext): De
 };
 
 /**
+ * deserializeAws_restXmlDSSEKMSFilter
+ */
+const de_DSSEKMSFilter = (output: any, context: __SerdeContext): DSSEKMSFilter => {
+  const contents: any = {};
+  if (output[_KKA] != null) {
+    contents[_KKA] = __expectString(output[_KKA]);
+  }
+  return contents;
+};
+
+/**
  * deserializeAws_restXmlEncryptionConfiguration
  */
 const de_EncryptionConfiguration = (output: any, context: __SerdeContext): EncryptionConfiguration => {
@@ -7649,6 +7771,11 @@ const de_JobManifestGeneratorFilter = (output: any, context: __SerdeContext): Jo
     contents[_MASC] = [];
   } else if (output[_MASC] != null && output[_MASC][_m] != null) {
     contents[_MASC] = de_StorageClassList(__getArrayIfSingleItem(output[_MASC][_m]), context);
+  }
+  if (output.MatchAnyObjectEncryption === "") {
+    contents[_MAOE] = [];
+  } else if (output[_MAOE] != null && output[_MAOE][_OE] != null) {
+    contents[_MAOE] = de_ObjectEncryptionFilterList(__getArrayIfSingleItem(output[_MAOE][_OE]), context);
   }
   return contents;
 };
@@ -8315,6 +8442,57 @@ const de_NonEmptyMaxLength1024StringList = (output: any, context: __SerdeContext
     .filter((e: any) => e != null)
     .map((entry: any) => {
       return __expectString(entry) as any;
+    });
+};
+
+/**
+ * deserializeAws_restXmlNotSSEFilter
+ */
+const de_NotSSEFilter = (output: any, context: __SerdeContext): NotSSEFilter => {
+  const contents: any = {};
+  return contents;
+};
+
+/**
+ * deserializeAws_restXmlObjectEncryptionFilter
+ */
+const de_ObjectEncryptionFilter = (output: any, context: __SerdeContext): ObjectEncryptionFilter => {
+  if (output[_SS] != null) {
+    return {
+      SSES3: de_SSES3Filter(output[_SS], context),
+    };
+  }
+  if (output[_SK] != null) {
+    return {
+      SSEKMS: de_SSEKMSFilter(output[_SK], context),
+    };
+  }
+  if (output[_DK] != null) {
+    return {
+      DSSEKMS: de_DSSEKMSFilter(output[_DK], context),
+    };
+  }
+  if (output[_SC_] != null) {
+    return {
+      SSEC: de_SSECFilter(output[_SC_], context),
+    };
+  }
+  if (output[_NS] != null) {
+    return {
+      NOTSSE: de_NotSSEFilter(output[_NS], context),
+    };
+  }
+  return { $unknown: Object.entries(output)[0] };
+};
+
+/**
+ * deserializeAws_restXmlObjectEncryptionFilterList
+ */
+const de_ObjectEncryptionFilterList = (output: any, context: __SerdeContext): ObjectEncryptionFilter[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_ObjectEncryptionFilter(__expectUnion(entry), context);
     });
 };
 
@@ -9318,6 +9496,14 @@ const de_SourceSelectionCriteria = (output: any, context: __SerdeContext): Sourc
 };
 
 /**
+ * deserializeAws_restXmlSSECFilter
+ */
+const de_SSECFilter = (output: any, context: __SerdeContext): SSECFilter => {
+  const contents: any = {};
+  return contents;
+};
+
+/**
  * deserializeAws_restXmlSSEKMS
  */
 const de_SSEKMS = (output: any, context: __SerdeContext): SSEKMS => {
@@ -9351,6 +9537,20 @@ const de_SSEKMSEncryption = (output: any, context: __SerdeContext): SSEKMSEncryp
 };
 
 /**
+ * deserializeAws_restXmlSSEKMSFilter
+ */
+const de_SSEKMSFilter = (output: any, context: __SerdeContext): SSEKMSFilter => {
+  const contents: any = {};
+  if (output[_KKA] != null) {
+    contents[_KKA] = __expectString(output[_KKA]);
+  }
+  if (output[_BKE] != null) {
+    contents[_BKE] = __parseBoolean(output[_BKE]);
+  }
+  return contents;
+};
+
+/**
  * deserializeAws_restXmlSSES3
  */
 const de_SSES3 = (output: any, context: __SerdeContext): SSES3 => {
@@ -9362,6 +9562,14 @@ const de_SSES3 = (output: any, context: __SerdeContext): SSES3 => {
  * deserializeAws_restXmlSSES3Encryption
  */
 const de_SSES3Encryption = (output: any, context: __SerdeContext): SSES3Encryption => {
+  const contents: any = {};
+  return contents;
+};
+
+/**
+ * deserializeAws_restXmlSSES3Filter
+ */
+const de_SSES3Filter = (output: any, context: __SerdeContext): SSES3Filter => {
   const contents: any = {};
   return contents;
 };
@@ -9854,6 +10062,7 @@ const _DAI = "DaysAfterInitiation";
 const _DB = "DirectoryBucket";
 const _DE = "DataExport";
 const _DGT = "DaysGreaterThan";
+const _DK = "DSSE-KMS";
 const _DLT = "DaysLessThan";
 const _DMR = "DeleteMarkerReplication";
 const _DMRAPI = "DeleteMultiRegionAccessPointInput";
@@ -9863,6 +10072,8 @@ const _DN = "DisplayName";
 const _DS = "DurationSeconds";
 const _DSCM = "DetailedStatusCodesMetrics";
 const _DSI = "DataSourceId";
+const _DSSEKMS = "DSSEKMS";
+const _DSSEKMSF = "DSSEKMSFilter";
 const _DST = "DataSourceType";
 const _Da = "Date";
 const _Day = "Days";
@@ -9945,6 +10156,7 @@ const _JS = "JobStatuses";
 const _Jo = "Jobs";
 const _K = "Key";
 const _KI = "KeyId";
+const _KKA = "KmsKeyArn";
 const _KKAS = "KmsKeyArnString";
 const _KNC = "KeyNameConstraint";
 const _L = "Location";
@@ -9959,6 +10171,7 @@ const _LRAO = "LifecycleRuleAndOperator";
 const _LRF = "LifecycleRuleFilter";
 const _LS = "LocationScope";
 const _M = "Manifest";
+const _MAOE = "MatchAnyObjectEncryption";
 const _MAP = "MatchAnyPrefix";
 const _MAS = "MatchAnySuffix";
 const _MASC = "MatchAnyStorageClass";
@@ -9994,6 +10207,7 @@ const _Mo = "Mode";
 const _Mr = "Mrap";
 const _N = "Name";
 const _ND = "NoncurrentDays";
+const _NEKKAS = "NonEmptyKmsKeyArnString";
 const _NEMLS = "NonEmptyMaxLength64String";
 const _NEMLSo = "NonEmptyMaxLength256String";
 const _NEMLSon = "NonEmptyMaxLength1024String";
@@ -10004,6 +10218,9 @@ const _NOM = "NewObjectMetadata";
 const _NOT = "NewObjectTagging";
 const _NOTF = "NumberOfTasksFailed";
 const _NOTS = "NumberOfTasksSucceeded";
+const _NOTSSE = "NOTSSE";
+const _NS = "NOT-SSE";
+const _NSSEF = "NotSSEFilter";
 const _NT = "NextToken";
 const _NVC = "NoncurrentVersionCount";
 const _NVE = "NoncurrentVersionExpiration";
@@ -10013,6 +10230,8 @@ const _O = "Operation";
 const _OA = "ObjectArn";
 const _OAV = "ObjectAgeValue";
 const _OCT = "ObjectCreationTime";
+const _OE = "ObjectEncryption";
+const _OEF = "ObjectEncryptionFilter";
 const _OI = "OutpostId";
 const _OLAF = "ObjectLambdaAllowedFeature";
 const _OLAP = "ObjectLambdaAccessPoint";
@@ -10124,6 +10343,7 @@ const _SCL = "S3ContentLength";
 const _SCOC = "S3ComputeObjectChecksum";
 const _SCOCO = "S3ComputeObjectChecksumOperation";
 const _SCOO = "S3CopyObjectOperation";
+const _SC_ = "SSE-C";
 const _SCe = "SelectionCriteria";
 const _SCu = "SuspendedCause";
 const _SD = "SuspendedDate";
@@ -10188,9 +10408,13 @@ const _SSC = "SourceSelectionCriteria";
 const _SSCt = "S3StorageClass";
 const _SSEA = "SSEAlgorithm";
 const _SSEAKKI = "SSEAwsKmsKeyId";
+const _SSEC = "SSEC";
+const _SSECF = "SSECFilter";
 const _SSEKMS = "SSEKMS";
+const _SSEKMSF = "SSEKMSFilter";
 const _SSEKMSKI = "SSEKMSKeyId";
 const _SSES = "SSES3";
+const _SSESF = "SSES3Filter";
 const _SSOAO = "S3SetObjectAclOperation";
 const _SSOLHO = "S3SetObjectLegalHoldOperation";
 const _SSORO = "S3SetObjectRetentionOperation";

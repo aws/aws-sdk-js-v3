@@ -272,6 +272,20 @@ export interface DescribeJobCommandOutput extends DescribeJobResult, __MetadataB
  * //           MatchAnyStorageClass: [ // StorageClassList
  * //             "STANDARD" || "STANDARD_IA" || "ONEZONE_IA" || "GLACIER" || "INTELLIGENT_TIERING" || "DEEP_ARCHIVE" || "GLACIER_IR",
  * //           ],
+ * //           MatchAnyObjectEncryption: [ // ObjectEncryptionFilterList
+ * //             { // ObjectEncryptionFilter Union: only one key present
+ * //               SSES3: {},
+ * //               SSEKMS: { // SSEKMSFilter
+ * //                 KmsKeyArn: "STRING_VALUE",
+ * //                 BucketKeyEnabled: true || false,
+ * //               },
+ * //               DSSEKMS: { // DSSEKMSFilter
+ * //                 KmsKeyArn: "STRING_VALUE",
+ * //               },
+ * //               SSEC: {},
+ * //               NOTSSE: {},
+ * //             },
+ * //           ],
  * //         },
  * //         EnableManifestOutput: true || false, // required
  * //       },
