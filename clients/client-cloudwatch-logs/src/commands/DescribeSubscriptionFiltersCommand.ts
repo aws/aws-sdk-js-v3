@@ -58,6 +58,10 @@ export interface DescribeSubscriptionFiltersCommandOutput
  * //       distribution: "Random" || "ByLogStream",
  * //       applyOnTransformedLogs: true || false,
  * //       creationTime: Number("long"),
+ * //       fieldSelectionCriteria: "STRING_VALUE",
+ * //       emitSystemFields: [ // EmitSystemFields
+ * //         "STRING_VALUE",
+ * //       ],
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",

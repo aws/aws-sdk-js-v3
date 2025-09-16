@@ -75,6 +75,10 @@ export interface PutMetricFilterCommandOutput extends __MetadataBearer {}
  *     },
  *   ],
  *   applyOnTransformedLogs: true || false,
+ *   fieldSelectionCriteria: "STRING_VALUE",
+ *   emitSystemFieldDimensions: [ // EmitSystemFields
+ *     "STRING_VALUE",
+ *   ],
  * };
  * const command = new PutMetricFilterCommand(input);
  * const response = await client.send(command);

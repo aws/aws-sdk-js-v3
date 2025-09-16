@@ -38,7 +38,7 @@ export interface FilterLogEventsCommandOutput extends FilterLogEventsResponse, _
  *                <p>A time range</p>
  *             </li>
  *             <li>
- *                <p>The log stream name, or a log stream name prefix that matches mutltiple log
+ *                <p>The log stream name, or a log stream name prefix that matches multiple log
  *           streams</p>
  *             </li>
  *          </ul>

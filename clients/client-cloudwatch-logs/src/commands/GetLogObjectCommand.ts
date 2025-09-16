@@ -28,10 +28,17 @@ export interface GetLogObjectCommandInput extends GetLogObjectRequest {}
 export interface GetLogObjectCommandOutput extends GetLogObjectResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves a large logging object (LLO) and streams it back. This API is used to fetch the content of large portions of log events that have been ingested through the PutOpenTelemetryLogs API.
- *       When log events contain fields that would cause the total event size to exceed 1MB, CloudWatch Logs automatically processes up to 10 fields, starting with the largest fields. Each field is truncated as needed to keep
- *       the total event size as close to 1MB as possible. The excess portions are stored as Large Log Objects (LLOs) and these fields are processed separately and LLO reference system fields (in the format <code>@ptr.$[path.to.field]</code>) are
- *       added. The path in the reference field reflects the original JSON structure where the large field was located. For example, this could be <code>@ptr.$['input']['message']</code>, <code>@ptr.$['AAA']['BBB']['CCC']['DDD']</code>, <code>@ptr.$['AAA']</code>, or any other path matching your log structure.</p>
+ * <p>Retrieves a large logging object (LLO) and streams it back. This API is used to fetch the
+ *       content of large portions of log events that have been ingested through the
+ *       PutOpenTelemetryLogs API. When log events contain fields that would cause the total event size
+ *       to exceed 1MB, CloudWatch Logs automatically processes up to 10 fields, starting with the
+ *       largest fields. Each field is truncated as needed to keep the total event size as close to 1MB
+ *       as possible. The excess portions are stored as Large Log Objects (LLOs) and these fields are
+ *       processed separately and LLO reference system fields (in the format
+ *         <code>@ptr.$[path.to.field]</code>) are added. The path in the reference field reflects the
+ *       original JSON structure where the large field was located. For example, this could be
+ *         <code>@ptr.$['input']['message']</code>, <code>@ptr.$['AAA']['BBB']['CCC']['DDD']</code>,
+ *         <code>@ptr.$['AAA']</code>, or any other path matching your log structure.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

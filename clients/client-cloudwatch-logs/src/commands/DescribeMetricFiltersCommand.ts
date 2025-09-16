@@ -67,6 +67,10 @@ export interface DescribeMetricFiltersCommandOutput extends DescribeMetricFilter
  * //       creationTime: Number("long"),
  * //       logGroupName: "STRING_VALUE",
  * //       applyOnTransformedLogs: true || false,
+ * //       fieldSelectionCriteria: "STRING_VALUE",
+ * //       emitSystemFieldDimensions: [ // EmitSystemFields
+ * //         "STRING_VALUE",
+ * //       ],
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",

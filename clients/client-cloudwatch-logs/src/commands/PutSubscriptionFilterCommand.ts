@@ -77,6 +77,10 @@ export interface PutSubscriptionFilterCommandOutput extends __MetadataBearer {}
  *   roleArn: "STRING_VALUE",
  *   distribution: "Random" || "ByLogStream",
  *   applyOnTransformedLogs: true || false,
+ *   fieldSelectionCriteria: "STRING_VALUE",
+ *   emitSystemFields: [ // EmitSystemFields
+ *     "STRING_VALUE",
+ *   ],
  * };
  * const command = new PutSubscriptionFilterCommand(input);
  * const response = await client.send(command);
