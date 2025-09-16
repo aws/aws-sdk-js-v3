@@ -1823,6 +1823,14 @@ export interface GridConfiguration {
    * @public
    */
   gridGap?: number | undefined;
+
+  /**
+   * <p>Attribute name in  <a>ParticipantTokenConfiguration</a> identifying the participant ordering key.
+   *         Participants with <code>participantOrderAttribute</code> set to <code>""</code> or not specified are ordered based
+   * 	on their arrival time into the stage.</p>
+   * @public
+   */
+  participantOrderAttribute?: string | undefined;
 }
 
 /**
@@ -1934,6 +1942,14 @@ export interface PipConfiguration {
    * @public
    */
   pipHeight?: number | undefined;
+
+  /**
+   * <p>Attribute name in  <a>ParticipantTokenConfiguration</a> identifying the participant ordering key.
+   *         Participants with <code>participantOrderAttribute</code> set to <code>""</code> or not specified are ordered based
+   * 	on their arrival time into the stage.</p>
+   * @public
+   */
+  participantOrderAttribute?: string | undefined;
 }
 
 /**
@@ -3064,7 +3080,7 @@ export interface Event {
 
   /**
    * <p>If true, this indicates the <code>participantId</code> is a replicated participant.
-   * 	  If this is a subscribe event, then this flag refers to <code>remoteParticipantId</code>.</p>
+   * 	  If this is a subscribe event, then this flag refers to <code>remoteParticipantId</code>. Default: <code>false</code>.</p>
    * @public
    */
   replica?: boolean | undefined;
@@ -3322,7 +3338,7 @@ export interface ParticipantSummary {
   replicationState?: ReplicationState | undefined;
 
   /**
-   * <p>ARN of the stage from which this participant is replicated.</p>
+   * <p>Source stage ARN from which this participant is replicated, if <code>replicationType</code> is <code>REPLICA</code>.</p>
    * @public
    */
   sourceStageArn?: string | undefined;

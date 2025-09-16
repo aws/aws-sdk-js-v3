@@ -52,6 +52,7 @@ export interface GetCompositionCommandOutput extends GetCompositionResponse, __M
  * //         videoAspectRatio: "AUTO" || "VIDEO" || "SQUARE" || "PORTRAIT",
  * //         videoFillMode: "FILL" || "COVER" || "CONTAIN",
  * //         gridGap: Number("int"),
+ * //         participantOrderAttribute: "STRING_VALUE",
  * //       },
  * //       pip: { // PipConfiguration
  * //         featuredParticipantAttribute: "STRING_VALUE",
@@ -64,6 +65,7 @@ export interface GetCompositionCommandOutput extends GetCompositionResponse, __M
  * //         pipPosition: "TOP_LEFT" || "TOP_RIGHT" || "BOTTOM_LEFT" || "BOTTOM_RIGHT",
  * //         pipWidth: Number("int"),
  * //         pipHeight: Number("int"),
+ * //         participantOrderAttribute: "STRING_VALUE",
  * //       },
  * //     },
  * //     destinations: [ // DestinationList // required
