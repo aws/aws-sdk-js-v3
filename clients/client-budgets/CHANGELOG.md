@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.890.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.889.0...v3.890.0) (2025-09-16)
+
+
+### Features
+
+* **client-budgets:** Add support for custom time periods in budget configuration ([8d88136](https://github.com/aws/aws-sdk-js-v3/commit/8d881364a003ddd56f5f14edb95d6d4c54c12294))
+
+
+
+
+
 # [3.888.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.887.0...v3.888.0) (2025-09-12)
 
 **Note:** Version bump only for package @aws-sdk/client-budgets

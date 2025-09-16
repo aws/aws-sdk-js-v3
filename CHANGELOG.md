@@ -3,6 +3,21 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.890.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.889.0...v3.890.0) (2025-09-16)
+
+
+### Features
+
+* **client-budgets:** Add support for custom time periods in budget configuration ([8d88136](https://github.com/aws/aws-sdk-js-v3/commit/8d881364a003ddd56f5f14edb95d6d4c54c12294))
+* **client-cloudwatch-logs:** Cloudwatch Logs added support for 2 new API parameters in metric and subscription filter APIs to filter log events based on system field values and emit system field values as dimensions and send them to customer destination as additional metadata. ([8d9dd73](https://github.com/aws/aws-sdk-js-v3/commit/8d9dd737a30a8364aa3e7c8e3f0d6296cdb1f60c))
+* **client-ivs-realtime:** IVS now offers customers the ability to control the positioning of participants in both grid and PiP layouts based on custom attribute values in participant tokens. ([bac6c46](https://github.com/aws/aws-sdk-js-v3/commit/bac6c46eb096ec21f5e7981ffb88970060354e57))
+* **client-osis:** Adds support for cross-account ingestion for push-based sources. This includes resource policies for sharing pipelines across accounts and features for managing pipeline endpoints which enable accessing pipelines across different VPCs, including VPCs in other accounts. ([de930e7](https://github.com/aws/aws-sdk-js-v3/commit/de930e70c652608c0681ad5ec5fba146110f4d21))
+* **clients:** update client endpoints as of 2025-09-16 ([aef54eb](https://github.com/aws/aws-sdk-js-v3/commit/aef54eb660ada229bb976a25d702f819cb9809c6))
+
+
+
+
+
 # [3.889.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.888.0...v3.889.0) (2025-09-15)
 
 
