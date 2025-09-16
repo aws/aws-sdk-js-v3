@@ -29,7 +29,8 @@ export interface ListPipelineBlueprintsCommandOutput extends ListPipelineBluepri
 
 /**
  * <p>Retrieves a list of all available blueprints for Data Prepper. For more information, see
- *    <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/creating-pipeline.html#pipeline-blueprint">Using blueprints to create a pipeline</a>.</p>
+ *     <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/creating-pipeline.html#pipeline-blueprint">Using
+ *     blueprints to create a pipeline</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

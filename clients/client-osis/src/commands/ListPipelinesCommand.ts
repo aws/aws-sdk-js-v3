@@ -28,8 +28,9 @@ export interface ListPipelinesCommandInput extends ListPipelinesRequest {}
 export interface ListPipelinesCommandOutput extends ListPipelinesResponse, __MetadataBearer {}
 
 /**
- * <p>Lists all OpenSearch Ingestion pipelines in the current Amazon Web Services account and Region. For
- *    more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/list-pipeline.html">Viewing Amazon OpenSearch Ingestion pipelines</a>.</p>
+ * <p>Lists all OpenSearch Ingestion pipelines in the current Amazon Web Services account and Region.
+ *    For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/list-pipeline.html">Viewing Amazon OpenSearch
+ *     Ingestion pipelines</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

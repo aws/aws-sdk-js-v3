@@ -173,8 +173,8 @@ export interface VpcOptions {
  */
 export interface CreatePipelineRequest {
   /**
-   * <p>The name of the OpenSearch Ingestion pipeline to create. Pipeline names are unique across the pipelines
-   *    owned by an account within an Amazon Web Services Region.</p>
+   * <p>The name of the OpenSearch Ingestion pipeline to create. Pipeline names are unique across the
+   *    pipelines owned by an account within an Amazon Web Services Region.</p>
    * @public
    */
   PipelineName: string | undefined;
@@ -206,8 +206,8 @@ export interface CreatePipelineRequest {
   LogPublishingOptions?: LogPublishingOptions | undefined;
 
   /**
-   * <p>Container for the values required to configure VPC access for the pipeline. If you don't specify
-   *    these values, OpenSearch Ingestion creates the pipeline with a public endpoint.</p>
+   * <p>Container for the values required to configure VPC access for the pipeline. If you don't
+   *    specify these values, OpenSearch Ingestion creates the pipeline with a public endpoint.</p>
    * @public
    */
   VpcOptions?: VpcOptions | undefined;
@@ -219,7 +219,8 @@ export interface CreatePipelineRequest {
   BufferOptions?: BufferOptions | undefined;
 
   /**
-   * <p>Key-value pairs to configure encryption for data that is written to a persistent buffer.</p>
+   * <p>Key-value pairs to configure encryption for data that is written to a persistent
+   *    buffer.</p>
    * @public
    */
   EncryptionAtRestOptions?: EncryptionAtRestOptions | undefined;
@@ -231,9 +232,8 @@ export interface CreatePipelineRequest {
   Tags?: Tag[] | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of an IAM role that provides
-   *    the required permissions for a pipeline to read from the source and write to the sink.
-   *    For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/pipeline-security-overview.html">Setting up roles and users in Amazon OpenSearch Ingestion</a>.</p>
+   * <p>The Amazon Resource Name (ARN) of the IAM role that grants the pipeline permission to access
+   *     Amazon Web Services resources.</p>
    * @public
    */
   PipelineRoleArn?: string | undefined;
@@ -463,8 +463,8 @@ export interface Pipeline {
   Tags?: Tag[] | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the IAM role that provides
-   *    the required permissions for a pipeline to read from the source and write to the sink.</p>
+   * <p>The Amazon Resource Name (ARN) of the IAM role that the pipeline uses to access AWS
+   *    resources.</p>
    * @public
    */
   PipelineRoleArn?: string | undefined;
@@ -603,6 +603,89 @@ export class ValidationException extends __BaseException {
 }
 
 /**
+ * <p>Configuration settings for the VPC endpoint, specifying network access controls.</p>
+ * @public
+ */
+export interface PipelineEndpointVpcOptions {
+  /**
+   * <p>A list of subnet IDs where the pipeline endpoint network interfaces are created.</p>
+   * @public
+   */
+  SubnetIds?: string[] | undefined;
+
+  /**
+   * <p>A list of security group IDs that control network access to the pipeline endpoint.</p>
+   * @public
+   */
+  SecurityGroupIds?: string[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreatePipelineEndpointRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the pipeline to create the endpoint for.</p>
+   * @public
+   */
+  PipelineArn: string | undefined;
+
+  /**
+   * <p>Container for the VPC configuration for the pipeline endpoint, including subnet IDs and
+   *    security group IDs.</p>
+   * @public
+   */
+  VpcOptions: PipelineEndpointVpcOptions | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const PipelineEndpointStatus = {
+  ACTIVE: "ACTIVE",
+  CREATE_FAILED: "CREATE_FAILED",
+  CREATING: "CREATING",
+  DELETING: "DELETING",
+  REVOKED: "REVOKED",
+  REVOKING: "REVOKING",
+} as const;
+
+/**
+ * @public
+ */
+export type PipelineEndpointStatus = (typeof PipelineEndpointStatus)[keyof typeof PipelineEndpointStatus];
+
+/**
+ * @public
+ */
+export interface CreatePipelineEndpointResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the pipeline associated with the endpoint.</p>
+   * @public
+   */
+  PipelineArn?: string | undefined;
+
+  /**
+   * <p>The unique identifier of the pipeline endpoint.</p>
+   * @public
+   */
+  EndpointId?: string | undefined;
+
+  /**
+   * <p>The current status of the pipeline endpoint.</p>
+   * @public
+   */
+  Status?: PipelineEndpointStatus | undefined;
+
+  /**
+   * <p>The ID of the VPC where the pipeline endpoint was created.</p>
+   * @public
+   */
+  VpcId?: string | undefined;
+}
+
+/**
  * <p>The client attempted to remove a resource that is currently in use.</p>
  * @public
  */
@@ -637,6 +720,38 @@ export interface DeletePipelineRequest {
  * @public
  */
 export interface DeletePipelineResponse {}
+
+/**
+ * @public
+ */
+export interface DeletePipelineEndpointRequest {
+  /**
+   * <p>The unique identifier of the pipeline endpoint to delete.</p>
+   * @public
+   */
+  EndpointId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeletePipelineEndpointResponse {}
+
+/**
+ * @public
+ */
+export interface DeleteResourcePolicyRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the resource from which to delete the policy.</p>
+   * @public
+   */
+  ResourceArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteResourcePolicyResponse {}
 
 /**
  * @public
@@ -852,6 +967,34 @@ export interface GetPipelineChangeProgressResponse {
 }
 
 /**
+ * @public
+ */
+export interface GetResourcePolicyRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the resource for which to retrieve the policy.</p>
+   * @public
+   */
+  ResourceArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetResourcePolicyResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the resource.</p>
+   * @public
+   */
+  ResourceArn?: string | undefined;
+
+  /**
+   * <p>The resource-based policy document in JSON format.</p>
+   * @public
+   */
+  Policy?: string | undefined;
+}
+
+/**
  * <p>An invalid pagination token provided in the request.</p>
  * @public
  */
@@ -926,10 +1069,162 @@ export interface ListPipelineBlueprintsResponse {
 /**
  * @public
  */
+export interface ListPipelineEndpointConnectionsRequest {
+  /**
+   * <p>The maximum number of pipeline endpoint connections to return in the response.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>If your initial <code>ListPipelineEndpointConnections</code> operation returns a
+   *     <code>nextToken</code>, you can include the returned <code>nextToken</code> in subsequent
+   *     <code>ListPipelineEndpointConnections</code> operations, which returns results in the next
+   *    page.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * <p>Represents a connection to a pipeline endpoint, containing details about the endpoint
+ *    association.</p>
+ * @public
+ */
+export interface PipelineEndpointConnection {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the pipeline in the endpoint connection.</p>
+   * @public
+   */
+  PipelineArn?: string | undefined;
+
+  /**
+   * <p>The unique identifier of the endpoint in the connection.</p>
+   * @public
+   */
+  EndpointId?: string | undefined;
+
+  /**
+   * <p>The current status of the pipeline endpoint connection.</p>
+   * @public
+   */
+  Status?: PipelineEndpointStatus | undefined;
+
+  /**
+   * <p>The Amazon Web Services account ID that owns the VPC endpoint used in this connection.</p>
+   * @public
+   */
+  VpcEndpointOwner?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListPipelineEndpointConnectionsResponse {
+  /**
+   * <p>When <code>nextToken</code> is returned, there are more results available. The value of
+   *     <code>nextToken</code> is a unique pagination token for each page. Make the call again using the
+   *    returned token to retrieve the next page.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>A list of pipeline endpoint connections.</p>
+   * @public
+   */
+  PipelineEndpointConnections?: PipelineEndpointConnection[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListPipelineEndpointsRequest {
+  /**
+   * <p>The maximum number of pipeline endpoints to return in the response.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>If your initial <code>ListPipelineEndpoints</code> operation returns a
+   *     <code>NextToken</code>, you can include the returned <code>NextToken</code> in subsequent
+   *     <code>ListPipelineEndpoints</code> operations, which returns results in the next page.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * <p>Represents a VPC endpoint for an OpenSearch Ingestion pipeline, enabling private
+ *    connectivity between your VPC and the pipeline.</p>
+ * @public
+ */
+export interface PipelineEndpoint {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the pipeline associated with this endpoint.</p>
+   * @public
+   */
+  PipelineArn?: string | undefined;
+
+  /**
+   * <p>The unique identifier for the pipeline endpoint.</p>
+   * @public
+   */
+  EndpointId?: string | undefined;
+
+  /**
+   * <p>The current status of the pipeline endpoint.</p>
+   * @public
+   */
+  Status?: PipelineEndpointStatus | undefined;
+
+  /**
+   * <p>The ID of the VPC where the pipeline endpoint is created.</p>
+   * @public
+   */
+  VpcId?: string | undefined;
+
+  /**
+   * <p>Configuration options for the VPC endpoint, including subnet and security group
+   *    settings.</p>
+   * @public
+   */
+  VpcOptions?: PipelineEndpointVpcOptions | undefined;
+
+  /**
+   * <p>The URL used to ingest data to the pipeline through the VPC endpoint.</p>
+   * @public
+   */
+  IngestEndpointUrl?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListPipelineEndpointsResponse {
+  /**
+   * <p>When <code>NextToken</code> is returned, there are more results available. The value of
+   *     <code>NextToken</code> is a unique pagination token for each page. Make the call again using the
+   *    returned token to retrieve the next page.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>A list of pipeline endpoints.</p>
+   * @public
+   */
+  PipelineEndpoints?: PipelineEndpoint[] | undefined;
+}
+
+/**
+ * @public
+ */
 export interface ListPipelinesRequest {
   /**
    * <p>An optional parameter that specifies the maximum number of results to return. You can use
-   *    <code>nextToken</code> to get the next page of results.</p>
+   *     <code>nextToken</code> to get the next page of results.</p>
    * @public
    */
   MaxResults?: number | undefined;
@@ -1015,8 +1310,8 @@ export interface PipelineSummary {
 export interface ListPipelinesResponse {
   /**
    * <p>When <code>nextToken</code> is returned, there are more results available. The value of
-   *    <code>nextToken</code> is a unique pagination token for each page. Make the call again using
-   *    the returned token to retrieve the next page.</p>
+   *     <code>nextToken</code> is a unique pagination token for each page. Make the call again using the
+   *    returned token to retrieve the next page.</p>
    * @public
    */
   NextToken?: string | undefined;
@@ -1048,6 +1343,70 @@ export interface ListTagsForResourceResponse {
    * @public
    */
   Tags?: Tag[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface PutResourcePolicyRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the resource to attach the policy to.</p>
+   * @public
+   */
+  ResourceArn: string | undefined;
+
+  /**
+   * <p>The resource-based policy document in JSON format.</p>
+   * @public
+   */
+  Policy: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface PutResourcePolicyResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the resource.</p>
+   * @public
+   */
+  ResourceArn?: string | undefined;
+
+  /**
+   * <p>The resource-based policy document that was attached to the resource.</p>
+   * @public
+   */
+  Policy?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface RevokePipelineEndpointConnectionsRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the pipeline from which to revoke endpoint
+   *    connections.</p>
+   * @public
+   */
+  PipelineArn: string | undefined;
+
+  /**
+   * <p>A list of endpoint IDs for which to revoke access to the pipeline.</p>
+   * @public
+   */
+  EndpointIds: string[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface RevokePipelineEndpointConnectionsResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the pipeline from which endpoint connections were
+   *    revoked.</p>
+   * @public
+   */
+  PipelineArn?: string | undefined;
 }
 
 /**
@@ -1181,15 +1540,15 @@ export interface UpdatePipelineRequest {
   BufferOptions?: BufferOptions | undefined;
 
   /**
-   * <p>Key-value pairs to configure encryption for data that is written to a persistent buffer.</p>
+   * <p>Key-value pairs to configure encryption for data that is written to a persistent
+   *    buffer.</p>
    * @public
    */
   EncryptionAtRestOptions?: EncryptionAtRestOptions | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of an IAM role that provides
-   *    the required permissions for a pipeline to read from the source and write to the sink.
-   *    For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/pipeline-security-overview.html">Setting up roles and users in Amazon OpenSearch Ingestion</a>.</p>
+   * <p>The Amazon Resource Name (ARN) of the IAM role that grants the pipeline permission to access
+   *    Amazon Web Services resources.</p>
    * @public
    */
   PipelineRoleArn?: string | undefined;

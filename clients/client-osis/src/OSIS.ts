@@ -8,10 +8,25 @@ import {
   CreatePipelineCommandOutput,
 } from "./commands/CreatePipelineCommand";
 import {
+  CreatePipelineEndpointCommand,
+  CreatePipelineEndpointCommandInput,
+  CreatePipelineEndpointCommandOutput,
+} from "./commands/CreatePipelineEndpointCommand";
+import {
   DeletePipelineCommand,
   DeletePipelineCommandInput,
   DeletePipelineCommandOutput,
 } from "./commands/DeletePipelineCommand";
+import {
+  DeletePipelineEndpointCommand,
+  DeletePipelineEndpointCommandInput,
+  DeletePipelineEndpointCommandOutput,
+} from "./commands/DeletePipelineEndpointCommand";
+import {
+  DeleteResourcePolicyCommand,
+  DeleteResourcePolicyCommandInput,
+  DeleteResourcePolicyCommandOutput,
+} from "./commands/DeleteResourcePolicyCommand";
 import {
   GetPipelineBlueprintCommand,
   GetPipelineBlueprintCommandInput,
@@ -24,10 +39,25 @@ import {
 } from "./commands/GetPipelineChangeProgressCommand";
 import { GetPipelineCommand, GetPipelineCommandInput, GetPipelineCommandOutput } from "./commands/GetPipelineCommand";
 import {
+  GetResourcePolicyCommand,
+  GetResourcePolicyCommandInput,
+  GetResourcePolicyCommandOutput,
+} from "./commands/GetResourcePolicyCommand";
+import {
   ListPipelineBlueprintsCommand,
   ListPipelineBlueprintsCommandInput,
   ListPipelineBlueprintsCommandOutput,
 } from "./commands/ListPipelineBlueprintsCommand";
+import {
+  ListPipelineEndpointConnectionsCommand,
+  ListPipelineEndpointConnectionsCommandInput,
+  ListPipelineEndpointConnectionsCommandOutput,
+} from "./commands/ListPipelineEndpointConnectionsCommand";
+import {
+  ListPipelineEndpointsCommand,
+  ListPipelineEndpointsCommandInput,
+  ListPipelineEndpointsCommandOutput,
+} from "./commands/ListPipelineEndpointsCommand";
 import {
   ListPipelinesCommand,
   ListPipelinesCommandInput,
@@ -38,6 +68,16 @@ import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
+import {
+  PutResourcePolicyCommand,
+  PutResourcePolicyCommandInput,
+  PutResourcePolicyCommandOutput,
+} from "./commands/PutResourcePolicyCommand";
+import {
+  RevokePipelineEndpointConnectionsCommand,
+  RevokePipelineEndpointConnectionsCommandInput,
+  RevokePipelineEndpointConnectionsCommandOutput,
+} from "./commands/RevokePipelineEndpointConnectionsCommand";
 import {
   StartPipelineCommand,
   StartPipelineCommandInput,
@@ -68,13 +108,21 @@ import { OSISClient, OSISClientConfig } from "./OSISClient";
 
 const commands = {
   CreatePipelineCommand,
+  CreatePipelineEndpointCommand,
   DeletePipelineCommand,
+  DeletePipelineEndpointCommand,
+  DeleteResourcePolicyCommand,
   GetPipelineCommand,
   GetPipelineBlueprintCommand,
   GetPipelineChangeProgressCommand,
+  GetResourcePolicyCommand,
   ListPipelineBlueprintsCommand,
+  ListPipelineEndpointConnectionsCommand,
+  ListPipelineEndpointsCommand,
   ListPipelinesCommand,
   ListTagsForResourceCommand,
+  PutResourcePolicyCommand,
+  RevokePipelineEndpointConnectionsCommand,
   StartPipelineCommand,
   StopPipelineCommand,
   TagResourceCommand,
@@ -99,6 +147,23 @@ export interface OSIS {
   ): void;
 
   /**
+   * @see {@link CreatePipelineEndpointCommand}
+   */
+  createPipelineEndpoint(
+    args: CreatePipelineEndpointCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreatePipelineEndpointCommandOutput>;
+  createPipelineEndpoint(
+    args: CreatePipelineEndpointCommandInput,
+    cb: (err: any, data?: CreatePipelineEndpointCommandOutput) => void
+  ): void;
+  createPipelineEndpoint(
+    args: CreatePipelineEndpointCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreatePipelineEndpointCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DeletePipelineCommand}
    */
   deletePipeline(
@@ -110,6 +175,40 @@ export interface OSIS {
     args: DeletePipelineCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeletePipelineCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeletePipelineEndpointCommand}
+   */
+  deletePipelineEndpoint(
+    args: DeletePipelineEndpointCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeletePipelineEndpointCommandOutput>;
+  deletePipelineEndpoint(
+    args: DeletePipelineEndpointCommandInput,
+    cb: (err: any, data?: DeletePipelineEndpointCommandOutput) => void
+  ): void;
+  deletePipelineEndpoint(
+    args: DeletePipelineEndpointCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeletePipelineEndpointCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteResourcePolicyCommand}
+   */
+  deleteResourcePolicy(
+    args: DeleteResourcePolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteResourcePolicyCommandOutput>;
+  deleteResourcePolicy(
+    args: DeleteResourcePolicyCommandInput,
+    cb: (err: any, data?: DeleteResourcePolicyCommandOutput) => void
+  ): void;
+  deleteResourcePolicy(
+    args: DeleteResourcePolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteResourcePolicyCommandOutput) => void
   ): void;
 
   /**
@@ -158,6 +257,23 @@ export interface OSIS {
   ): void;
 
   /**
+   * @see {@link GetResourcePolicyCommand}
+   */
+  getResourcePolicy(
+    args: GetResourcePolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetResourcePolicyCommandOutput>;
+  getResourcePolicy(
+    args: GetResourcePolicyCommandInput,
+    cb: (err: any, data?: GetResourcePolicyCommandOutput) => void
+  ): void;
+  getResourcePolicy(
+    args: GetResourcePolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetResourcePolicyCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListPipelineBlueprintsCommand}
    */
   listPipelineBlueprints(): Promise<ListPipelineBlueprintsCommandOutput>;
@@ -173,6 +289,42 @@ export interface OSIS {
     args: ListPipelineBlueprintsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListPipelineBlueprintsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListPipelineEndpointConnectionsCommand}
+   */
+  listPipelineEndpointConnections(): Promise<ListPipelineEndpointConnectionsCommandOutput>;
+  listPipelineEndpointConnections(
+    args: ListPipelineEndpointConnectionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListPipelineEndpointConnectionsCommandOutput>;
+  listPipelineEndpointConnections(
+    args: ListPipelineEndpointConnectionsCommandInput,
+    cb: (err: any, data?: ListPipelineEndpointConnectionsCommandOutput) => void
+  ): void;
+  listPipelineEndpointConnections(
+    args: ListPipelineEndpointConnectionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListPipelineEndpointConnectionsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListPipelineEndpointsCommand}
+   */
+  listPipelineEndpoints(): Promise<ListPipelineEndpointsCommandOutput>;
+  listPipelineEndpoints(
+    args: ListPipelineEndpointsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListPipelineEndpointsCommandOutput>;
+  listPipelineEndpoints(
+    args: ListPipelineEndpointsCommandInput,
+    cb: (err: any, data?: ListPipelineEndpointsCommandOutput) => void
+  ): void;
+  listPipelineEndpoints(
+    args: ListPipelineEndpointsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListPipelineEndpointsCommandOutput) => void
   ): void;
 
   /**
@@ -202,6 +354,40 @@ export interface OSIS {
     args: ListTagsForResourceCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link PutResourcePolicyCommand}
+   */
+  putResourcePolicy(
+    args: PutResourcePolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutResourcePolicyCommandOutput>;
+  putResourcePolicy(
+    args: PutResourcePolicyCommandInput,
+    cb: (err: any, data?: PutResourcePolicyCommandOutput) => void
+  ): void;
+  putResourcePolicy(
+    args: PutResourcePolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PutResourcePolicyCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link RevokePipelineEndpointConnectionsCommand}
+   */
+  revokePipelineEndpointConnections(
+    args: RevokePipelineEndpointConnectionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<RevokePipelineEndpointConnectionsCommandOutput>;
+  revokePipelineEndpointConnections(
+    args: RevokePipelineEndpointConnectionsCommandInput,
+    cb: (err: any, data?: RevokePipelineEndpointConnectionsCommandOutput) => void
+  ): void;
+  revokePipelineEndpointConnections(
+    args: RevokePipelineEndpointConnectionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: RevokePipelineEndpointConnectionsCommandOutput) => void
   ): void;
 
   /**

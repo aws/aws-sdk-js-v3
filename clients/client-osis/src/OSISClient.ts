@@ -54,7 +54,19 @@ import {
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
 import { CreatePipelineCommandInput, CreatePipelineCommandOutput } from "./commands/CreatePipelineCommand";
+import {
+  CreatePipelineEndpointCommandInput,
+  CreatePipelineEndpointCommandOutput,
+} from "./commands/CreatePipelineEndpointCommand";
 import { DeletePipelineCommandInput, DeletePipelineCommandOutput } from "./commands/DeletePipelineCommand";
+import {
+  DeletePipelineEndpointCommandInput,
+  DeletePipelineEndpointCommandOutput,
+} from "./commands/DeletePipelineEndpointCommand";
+import {
+  DeleteResourcePolicyCommandInput,
+  DeleteResourcePolicyCommandOutput,
+} from "./commands/DeleteResourcePolicyCommand";
 import {
   GetPipelineBlueprintCommandInput,
   GetPipelineBlueprintCommandOutput,
@@ -64,15 +76,29 @@ import {
   GetPipelineChangeProgressCommandOutput,
 } from "./commands/GetPipelineChangeProgressCommand";
 import { GetPipelineCommandInput, GetPipelineCommandOutput } from "./commands/GetPipelineCommand";
+import { GetResourcePolicyCommandInput, GetResourcePolicyCommandOutput } from "./commands/GetResourcePolicyCommand";
 import {
   ListPipelineBlueprintsCommandInput,
   ListPipelineBlueprintsCommandOutput,
 } from "./commands/ListPipelineBlueprintsCommand";
+import {
+  ListPipelineEndpointConnectionsCommandInput,
+  ListPipelineEndpointConnectionsCommandOutput,
+} from "./commands/ListPipelineEndpointConnectionsCommand";
+import {
+  ListPipelineEndpointsCommandInput,
+  ListPipelineEndpointsCommandOutput,
+} from "./commands/ListPipelineEndpointsCommand";
 import { ListPipelinesCommandInput, ListPipelinesCommandOutput } from "./commands/ListPipelinesCommand";
 import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
+import { PutResourcePolicyCommandInput, PutResourcePolicyCommandOutput } from "./commands/PutResourcePolicyCommand";
+import {
+  RevokePipelineEndpointConnectionsCommandInput,
+  RevokePipelineEndpointConnectionsCommandOutput,
+} from "./commands/RevokePipelineEndpointConnectionsCommand";
 import { StartPipelineCommandInput, StartPipelineCommandOutput } from "./commands/StartPipelineCommand";
 import { StopPipelineCommandInput, StopPipelineCommandOutput } from "./commands/StopPipelineCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
@@ -95,13 +121,21 @@ export { __Client };
  */
 export type ServiceInputTypes =
   | CreatePipelineCommandInput
+  | CreatePipelineEndpointCommandInput
   | DeletePipelineCommandInput
+  | DeletePipelineEndpointCommandInput
+  | DeleteResourcePolicyCommandInput
   | GetPipelineBlueprintCommandInput
   | GetPipelineChangeProgressCommandInput
   | GetPipelineCommandInput
+  | GetResourcePolicyCommandInput
   | ListPipelineBlueprintsCommandInput
+  | ListPipelineEndpointConnectionsCommandInput
+  | ListPipelineEndpointsCommandInput
   | ListPipelinesCommandInput
   | ListTagsForResourceCommandInput
+  | PutResourcePolicyCommandInput
+  | RevokePipelineEndpointConnectionsCommandInput
   | StartPipelineCommandInput
   | StopPipelineCommandInput
   | TagResourceCommandInput
@@ -114,13 +148,21 @@ export type ServiceInputTypes =
  */
 export type ServiceOutputTypes =
   | CreatePipelineCommandOutput
+  | CreatePipelineEndpointCommandOutput
   | DeletePipelineCommandOutput
+  | DeletePipelineEndpointCommandOutput
+  | DeleteResourcePolicyCommandOutput
   | GetPipelineBlueprintCommandOutput
   | GetPipelineChangeProgressCommandOutput
   | GetPipelineCommandOutput
+  | GetResourcePolicyCommandOutput
   | ListPipelineBlueprintsCommandOutput
+  | ListPipelineEndpointConnectionsCommandOutput
+  | ListPipelineEndpointsCommandOutput
   | ListPipelinesCommandOutput
   | ListTagsForResourceCommandOutput
+  | PutResourcePolicyCommandOutput
+  | RevokePipelineEndpointConnectionsCommandOutput
   | StartPipelineCommandOutput
   | StopPipelineCommandOutput
   | TagResourceCommandOutput

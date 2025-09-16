@@ -5,9 +5,9 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DeletePipelineRequest, DeletePipelineResponse } from "../models/models_0";
+import { GetResourcePolicyRequest, GetResourcePolicyResponse } from "../models/models_0";
 import { OSISClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OSISClient";
-import { de_DeletePipelineCommand, se_DeletePipelineCommand } from "../protocols/Aws_restJson1";
+import { de_GetResourcePolicyCommand, se_GetResourcePolicyCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -17,45 +17,44 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link DeletePipelineCommand}.
+ * The input for {@link GetResourcePolicyCommand}.
  */
-export interface DeletePipelineCommandInput extends DeletePipelineRequest {}
+export interface GetResourcePolicyCommandInput extends GetResourcePolicyRequest {}
 /**
  * @public
  *
- * The output of {@link DeletePipelineCommand}.
+ * The output of {@link GetResourcePolicyCommand}.
  */
-export interface DeletePipelineCommandOutput extends DeletePipelineResponse, __MetadataBearer {}
+export interface GetResourcePolicyCommandOutput extends GetResourcePolicyResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes an OpenSearch Ingestion pipeline. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/delete-pipeline.html">Deleting Amazon OpenSearch
- *     Ingestion pipelines</a>.</p>
+ * <p>Retrieves the resource-based policy attached to an OpenSearch Ingestion resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { OSISClient, DeletePipelineCommand } from "@aws-sdk/client-osis"; // ES Modules import
- * // const { OSISClient, DeletePipelineCommand } = require("@aws-sdk/client-osis"); // CommonJS import
+ * import { OSISClient, GetResourcePolicyCommand } from "@aws-sdk/client-osis"; // ES Modules import
+ * // const { OSISClient, GetResourcePolicyCommand } = require("@aws-sdk/client-osis"); // CommonJS import
  * const client = new OSISClient(config);
- * const input = { // DeletePipelineRequest
- *   PipelineName: "STRING_VALUE", // required
+ * const input = { // GetResourcePolicyRequest
+ *   ResourceArn: "STRING_VALUE", // required
  * };
- * const command = new DeletePipelineCommand(input);
+ * const command = new GetResourcePolicyCommand(input);
  * const response = await client.send(command);
- * // {};
+ * // { // GetResourcePolicyResponse
+ * //   ResourceArn: "STRING_VALUE",
+ * //   Policy: "STRING_VALUE",
+ * // };
  *
  * ```
  *
- * @param DeletePipelineCommandInput - {@link DeletePipelineCommandInput}
- * @returns {@link DeletePipelineCommandOutput}
- * @see {@link DeletePipelineCommandInput} for command's `input` shape.
- * @see {@link DeletePipelineCommandOutput} for command's `response` shape.
+ * @param GetResourcePolicyCommandInput - {@link GetResourcePolicyCommandInput}
+ * @returns {@link GetResourcePolicyCommandOutput}
+ * @see {@link GetResourcePolicyCommandInput} for command's `input` shape.
+ * @see {@link GetResourcePolicyCommandOutput} for command's `response` shape.
  * @see {@link OSISClientResolvedConfig | config} for OSISClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
  *  <p>You don't have permissions to access the resource.</p>
- *
- * @throws {@link ConflictException} (client fault)
- *  <p>The client attempted to remove a resource that is currently in use.</p>
  *
  * @throws {@link DisabledOperationException} (client fault)
  *  <p>Exception is thrown when an operation has been disabled.</p>
@@ -63,6 +62,9 @@ export interface DeletePipelineCommandOutput extends DeletePipelineResponse, __M
  * @throws {@link InternalException} (server fault)
  *  <p>The request failed because of an unknown error, exception, or failure (the failure is
  *    internal to the service).</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>You attempted to create more than the allowed number of tags.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>You attempted to access or delete a resource that does not exist.</p>
@@ -76,10 +78,10 @@ export interface DeletePipelineCommandOutput extends DeletePipelineResponse, __M
  *
  * @public
  */
-export class DeletePipelineCommand extends $Command
+export class GetResourcePolicyCommand extends $Command
   .classBuilder<
-    DeletePipelineCommandInput,
-    DeletePipelineCommandOutput,
+    GetResourcePolicyCommandInput,
+    GetResourcePolicyCommandOutput,
     OSISClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -91,21 +93,21 @@ export class DeletePipelineCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("AmazonOpenSearchIngestionService", "DeletePipeline", {})
-  .n("OSISClient", "DeletePipelineCommand")
+  .s("AmazonOpenSearchIngestionService", "GetResourcePolicy", {})
+  .n("OSISClient", "GetResourcePolicyCommand")
   .f(void 0, void 0)
-  .ser(se_DeletePipelineCommand)
-  .de(de_DeletePipelineCommand)
+  .ser(se_GetResourcePolicyCommand)
+  .de(de_GetResourcePolicyCommand)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: DeletePipelineRequest;
-      output: {};
+      input: GetResourcePolicyRequest;
+      output: GetResourcePolicyResponse;
     };
     sdk: {
-      input: DeletePipelineCommandInput;
-      output: DeletePipelineCommandOutput;
+      input: GetResourcePolicyCommandInput;
+      output: GetResourcePolicyCommandOutput;
     };
   };
 }
