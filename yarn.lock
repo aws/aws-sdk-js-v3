@@ -23716,6 +23716,7 @@ __metadata:
     "@aws-sdk/nested-clients": "npm:*"
     "@aws-sdk/types": "npm:*"
     "@smithy/property-provider": "npm:^4.1.1"
+    "@smithy/shared-ini-file-loader": "npm:^4.2.0"
     "@smithy/types": "npm:^4.5.0"
     "@tsconfig/recommended": "npm:1.0.1"
     "@types/node": "npm:^18.19.69"

@@ -14,14 +14,6 @@ const credentials = {
 
 const mockToken = "abcd";
 
-const mockResponse = {
-  AccessKeyId: credentials.accessKeyId,
-  SecretAccessKey: credentials.secretAccessKey,
-  Token: credentials.sessionToken,
-  AccountId: "123",
-  Expiration: new Date(credentials.expiration).toISOString(), // rfc3339
-};
-
 const mockHandle = vi.fn().mockResolvedValue({
   response: new HttpResponse({
     statusCode: 200,
@@ -33,10 +25,16 @@ const mockHandle = vi.fn().mockResolvedValue({
 });
 
 vi.mock("@smithy/node-http-handler", () => ({
-  NodeHttpHandler: vi.fn().mockImplementation(() => ({
-    destroy: () => {},
-    handle: mockHandle,
-  })),
+  NodeHttpHandler: (() => {
+    const getImpl = () => ({
+      destroy: () => {},
+      handle: mockHandle,
+    });
+    const impl = Object.assign(vi.fn().mockImplementation(getImpl), {
+      create: () => getImpl(),
+    });
+    return impl;
+  })(),
   streamCollector: vi.fn(),
 }));
 

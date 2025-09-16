@@ -22,6 +22,9 @@ export const resolveSSOCredentials = async ({
   clientConfig,
   parentClientConfig,
   profile,
+  filepath,
+  configFilepath,
+  ignoreCache,
   logger,
 }: FromSSOInit & SsoCredentialsParameters): Promise<AwsCredentialIdentity> => {
   let token: SSOToken;
@@ -29,7 +32,12 @@ export const resolveSSOCredentials = async ({
 
   if (ssoSession) {
     try {
-      const _token = await getSsoTokenProvider({ profile })();
+      const _token = await getSsoTokenProvider({
+        profile,
+        filepath,
+        configFilepath,
+        ignoreCache,
+      })();
       token = {
         accessToken: _token.token,
         expiresAt: new Date(_token.expiration!).toISOString(),
