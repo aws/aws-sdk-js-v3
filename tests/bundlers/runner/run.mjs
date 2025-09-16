@@ -19,7 +19,7 @@ for (const app of fs.readdirSync(applicationFolder)) {
   report.push(stat);
 }
 
-const reportMd = path.join(__dirname, "..", "..", "..", "benchmark", "bundlers", "report.md");
+const reportMd = path.join(__dirname, "..", "..", "..", "benchmark", "size", "report-bundlers.md");
 
 const formatted = prettier.format(report.toMarkdown(), {
   filepath: reportMd,
