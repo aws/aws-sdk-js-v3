@@ -79,7 +79,7 @@ export interface DescribeBudgetsCommandOutput extends DescribeBudgetsResponse, _
  * //         IncludeDiscount: true || false,
  * //         UseAmortized: true || false,
  * //       },
- * //       TimeUnit: "DAILY" || "MONTHLY" || "QUARTERLY" || "ANNUALLY", // required
+ * //       TimeUnit: "DAILY" || "MONTHLY" || "QUARTERLY" || "ANNUALLY" || "CUSTOM", // required
  * //       TimePeriod: { // TimePeriod
  * //         Start: new Date("TIMESTAMP"),
  * //         End: new Date("TIMESTAMP"),
@@ -177,7 +177,7 @@ export interface DescribeBudgetsCommandOutput extends DescribeBudgetsResponse, _
  * //       BillingViewArn: "STRING_VALUE",
  * //       HealthStatus: { // HealthStatus
  * //         Status: "HEALTHY" || "UNHEALTHY",
- * //         StatusReason: "BILLING_VIEW_NO_ACCESS" || "BILLING_VIEW_UNHEALTHY" || "FILTER_INVALID",
+ * //         StatusReason: "BILLING_VIEW_NO_ACCESS" || "BILLING_VIEW_UNHEALTHY" || "FILTER_INVALID" || "MULTI_YEAR_HISTORICAL_DATA_DISABLED",
  * //         LastUpdatedTime: new Date("TIMESTAMP"),
  * //       },
  * //     },

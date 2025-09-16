@@ -846,6 +846,7 @@ export const HealthStatusReason = {
   BILLING_VIEW_NO_ACCESS: "BILLING_VIEW_NO_ACCESS",
   BILLING_VIEW_UNHEALTHY: "BILLING_VIEW_UNHEALTHY",
   FILTER_INVALID: "FILTER_INVALID",
+  MULTI_YEAR_HISTORICAL_DATA_DISABLED: "MULTI_YEAR_HISTORICAL_DATA_DISABLED",
 } as const;
 
 /**
@@ -882,6 +883,10 @@ export interface HealthStatus {
    *                <p>
    *                   <code>FILTER_INVALID</code>: The filter contains reference to an account you
    * 					do not have access to.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>MULTI_YEAR_HISTORICAL_DATA_DISABLED</code>: The budget is not being updated. Enable multi-year historical data in your Cost Management preferences.</p>
    *             </li>
    *          </ul>
    * @public
@@ -925,7 +930,7 @@ export interface TimePeriod {
   /**
    * <p>The start date for a budget. If you created your budget and didn't specify a start
    * 			date, Amazon Web Services defaults to the start of your chosen time period (DAILY,
-   * 			MONTHLY, QUARTERLY, or ANNUALLY). For example, if you created your budget on January 24,
+   * 			MONTHLY, QUARTERLY, ANNUALLY, or CUSTOM). For example, if you created your budget on January 24,
    * 			2018, chose <code>DAILY</code>, and didn't set a start date, Amazon Web Services set your
    * 			start date to <code>01/24/18 00:00 UTC</code>. If you chose <code>MONTHLY</code>,
    * 				Amazon Web Services set your start date to <code>01/01/18 00:00 UTC</code>. The
@@ -953,6 +958,7 @@ export interface TimePeriod {
  */
 export const TimeUnit = {
   ANNUALLY: "ANNUALLY",
+  CUSTOM: "CUSTOM",
   DAILY: "DAILY",
   MONTHLY: "MONTHLY",
   QUARTERLY: "QUARTERLY",
@@ -2747,7 +2753,7 @@ export interface Budget {
    * 			start date must come before the end date. The end date must come before <code>06/15/87
    * 				00:00 UTC</code>. </p>
    *          <p>If you create your budget and don't specify a start date, Amazon Web Services defaults
-   * 			to the start of your chosen time period (DAILY, MONTHLY, QUARTERLY, or ANNUALLY). For
+   * 			to the start of your chosen time period (DAILY, MONTHLY, QUARTERLY, ANNUALLY, or CUSTOM). For
    * 			example, if you created your budget on January 24, 2018, chose <code>DAILY</code>, and
    * 			didn't set a start date, Amazon Web Services set your start date to <code>01/24/18 00:00
    * 				UTC</code>. If you chose <code>MONTHLY</code>, Amazon Web Services set your start
