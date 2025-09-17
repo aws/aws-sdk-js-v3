@@ -142,6 +142,7 @@ export interface InstanceConfig {
  * @enum
  */
 export const PurchaseOption = {
+  CAPACITY_BLOCK: "CAPACITY_BLOCK",
   ONDEMAND: "ONDEMAND",
   SPOT: "SPOT",
 } as const;
@@ -220,7 +221,7 @@ export type SpotAllocationStrategy = (typeof SpotAllocationStrategy)[keyof typeo
  */
 export interface SpotOptions {
   /**
-   * <p>The Amazon EC2 allocation strategy Amazon Web Services PCS uses to provision EC2 instances. Amazon Web Services PCS supports <b>lowest price</b>, <b>capacity optimized</b>, and <b>price capacity optimized</b>. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-fleet-allocation-strategy.html">Use allocation strategies to determine how EC2 Fleet or Spot Fleet fulfills Spot and On-Demand capacity</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>. If you don't provide this option, it defaults to <b>price capacity optimized</b>.</p>
+   * <p>The Amazon EC2 allocation strategy PCS uses to provision EC2 instances. PCS supports <b>lowest price</b>, <b>capacity optimized</b>, and <b>price capacity optimized</b>. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-fleet-allocation-strategy.html">Use allocation strategies to determine how EC2 Fleet or Spot Fleet fulfills Spot and On-Demand capacity</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>. If you don't provide this option, it defaults to <b>price capacity optimized</b>.</p>
    * @public
    */
   allocationStrategy?: SpotAllocationStrategy | undefined;
@@ -255,7 +256,7 @@ export interface CreateComputeNodeGroupRequest {
   subnetIds: string[] | undefined;
 
   /**
-   * <p>Specifies how EC2 instances are purchased on your behalf. Amazon Web Services PCS supports On-Demand and Spot instances. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-purchasing-options.html">Instance purchasing options</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>. If you don't provide this option, it defaults to On-Demand.</p>
+   * <p>Specifies how EC2 instances are purchased on your behalf. PCS supports On-Demand Instances, Spot Instances, and Amazon EC2 Capacity Blocks for ML. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-purchasing-options.html">Amazon EC2 billing and purchasing options</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>. For more information about PCS support for Capacity Blocks, see <a href="https://docs.aws.amazon.com/pcs/latest/userguide/capacity-blocks.html">Using Amazon EC2 Capacity Blocks for ML with PCS</a> in the <i>PCS User Guide</i>. If you don't provide this option, it defaults to On-Demand.</p>
    * @public
    */
   purchaseOption?: PurchaseOption | undefined;
@@ -279,7 +280,7 @@ export interface CreateComputeNodeGroupRequest {
   scalingConfiguration: ScalingConfigurationRequest | undefined;
 
   /**
-   * <p>A list of EC2 instance configurations that Amazon Web Services PCS can provision in the compute node group.</p>
+   * <p>A list of EC2 instance configurations that PCS can provision in the compute node group.</p>
    * @public
    */
   instanceConfigs: InstanceConfig[] | undefined;
@@ -439,7 +440,7 @@ export interface ComputeNodeGroup {
   subnetIds: string[] | undefined;
 
   /**
-   * <p>Specifies how EC2 instances are purchased on your behalf. Amazon Web Services PCS supports On-Demand and Spot instances. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-purchasing-options.html">Instance purchasing options</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>. If you don't provide this option, it defaults to On-Demand.</p>
+   * <p>Specifies how EC2 instances are purchased on your behalf. PCS supports On-Demand Instances, Spot Instances, and Amazon EC2 Capacity Blocks for ML. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-purchasing-options.html">Amazon EC2 billing and purchasing options</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>. For more information about PCS support for Capacity Blocks, see <a href="https://docs.aws.amazon.com/pcs/latest/userguide/capacity-blocks.html">Using Amazon EC2 Capacity Blocks for ML with PCS</a> in the <i>PCS User Guide</i>. If you don't provide this option, it defaults to On-Demand.</p>
    * @public
    */
   purchaseOption?: PurchaseOption | undefined;
@@ -463,7 +464,7 @@ export interface ComputeNodeGroup {
   scalingConfiguration: ScalingConfiguration | undefined;
 
   /**
-   * <p>A list of EC2 instance configurations that Amazon Web Services PCS can provision in the compute node group.</p>
+   * <p>A list of EC2 instance configurations that PCS can provision in the compute node group.</p>
    * @public
    */
   instanceConfigs: InstanceConfig[] | undefined;
@@ -888,7 +889,7 @@ export interface UpdateComputeNodeGroupRequest {
   customLaunchTemplate?: CustomLaunchTemplate | undefined;
 
   /**
-   * <p>Specifies how EC2 instances are purchased on your behalf. Amazon Web Services PCS supports On-Demand and Spot instances. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-purchasing-options.html">Instance purchasing options</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>. If you don't provide this option, it defaults to On-Demand.</p>
+   * <p>Specifies how EC2 instances are purchased on your behalf. PCS supports On-Demand Instances, Spot Instances, and Amazon EC2 Capacity Blocks for ML. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-purchasing-options.html">Amazon EC2 billing and purchasing options</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>. For more information about PCS support for Capacity Blocks, see <a href="https://docs.aws.amazon.com/pcs/latest/userguide/capacity-blocks.html">Using Amazon EC2 Capacity Blocks for ML with PCS</a> in the <i>PCS User Guide</i>. If you don't provide this option, it defaults to On-Demand.</p>
    * @public
    */
   purchaseOption?: PurchaseOption | undefined;
@@ -955,7 +956,7 @@ export type NetworkType = (typeof NetworkType)[keyof typeof NetworkType];
  */
 export interface NetworkingRequest {
   /**
-   * <p>The list of subnet IDs where Amazon Web Services PCS creates an Elastic Network Interface (ENI) to enable communication between managed controllers and Amazon Web Services PCS resources. Subnet IDs have the form <code>subnet-0123456789abcdef0</code>.</p> <p>Subnets can't be in Outposts, Wavelength or an Amazon Web Services Local Zone.</p> <note> <p>Amazon Web Services PCS currently supports only 1 subnet in this list.</p> </note>
+   * <p>The list of subnet IDs where PCS creates an Elastic Network Interface (ENI) to enable communication between managed controllers and PCS resources. Subnet IDs have the form <code>subnet-0123456789abcdef0</code>.</p> <p>Subnets can't be in Outposts, Wavelength or an Amazon Web Services Local Zone.</p> <note> <p>PCS currently supports only 1 subnet in this list.</p> </note>
    * @public
    */
   subnetIds?: string[] | undefined;
@@ -1188,7 +1189,7 @@ export interface Scheduler {
  */
 export interface SlurmAuthKey {
   /**
-   * <p>The Amazon Resource Name (ARN) of the the shared Slurm key.</p>
+   * <p>The Amazon Resource Name (ARN) of the shared Slurm key.</p>
    * @public
    */
   secretArn: string | undefined;

@@ -56,7 +56,7 @@ export interface GetComputeNodeGroupCommandOutput extends GetComputeNodeGroupRes
  * //     subnetIds: [ // SubnetIdList // required
  * //       "STRING_VALUE",
  * //     ],
- * //     purchaseOption: "ONDEMAND" || "SPOT",
+ * //     purchaseOption: "ONDEMAND" || "SPOT" || "CAPACITY_BLOCK",
  * //     customLaunchTemplate: { // CustomLaunchTemplate
  * //       id: "STRING_VALUE", // required
  * //       version: "STRING_VALUE", // required
