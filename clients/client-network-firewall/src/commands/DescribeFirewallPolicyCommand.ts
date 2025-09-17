@@ -123,6 +123,7 @@ export interface DescribeFirewallPolicyCommandOutput extends DescribeFirewallPol
  * //         },
  * //       },
  * //     },
+ * //     EnableTLSSessionHolding: true || false,
  * //   },
  * // };
  *

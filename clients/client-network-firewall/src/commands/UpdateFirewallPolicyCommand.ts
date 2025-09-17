@@ -98,6 +98,7 @@ export interface UpdateFirewallPolicyCommandOutput extends UpdateFirewallPolicyR
  *         },
  *       },
  *     },
+ *     EnableTLSSessionHolding: true || false,
  *   },
  *   Description: "STRING_VALUE",
  *   DryRun: true || false,

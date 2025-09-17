@@ -99,6 +99,7 @@ export interface CreateFirewallPolicyCommandOutput extends CreateFirewallPolicyR
  *         },
  *       },
  *     },
+ *     EnableTLSSessionHolding: true || false,
  *   },
  *   Description: "STRING_VALUE",
  *   Tags: [ // TagList

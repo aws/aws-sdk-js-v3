@@ -38,7 +38,7 @@ export interface RejectNetworkFirewallTransitGatewayAttachmentCommandOutput
 
 /**
  * <p>Rejects a transit gateway attachment request for Network Firewall. When you reject the attachment request, Network Firewall cancels the creation of routing components between the transit gateway and firewall endpoints.</p>
- *          <p>Only the firewall owner can reject the attachment. After rejection, no traffic will flow through the firewall endpoints for this attachment.</p>
+ *          <p>Only the transit gateway owner can reject the attachment. After rejection, no traffic will flow through the firewall endpoints for this attachment.</p>
  *          <p>Use <a>DescribeFirewall</a> to monitor the rejection status. To accept the attachment instead of rejecting it, use <a>AcceptNetworkFirewallTransitGatewayAttachment</a>.</p>
  *          <note>
  *             <p>Once rejected, you cannot reverse this action. To establish connectivity, you must create a new transit gateway-attached firewall.</p>
