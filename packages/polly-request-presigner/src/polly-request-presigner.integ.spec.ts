@@ -26,10 +26,10 @@ describe("polly-request-presigner", () => {
       "VoiceId=Kimberly",
       "X-Amz-Algorithm=AWS4-HMAC-SHA256",
       /X-Amz-Credential=(.*?)%2F(\d{8})%2Fus-east-1%2Fpolly%2Faws4_request/,
-      /X-Amz-Date=\d{8}T\d+Z/,
+      /X-Amz-Date=\d{8}T\d{6}Z/,
       "X-Amz-Expires=3600",
-      /X-Amz-Signature=(.*?)/,
-      "X-Amz-SignedHeaders=host",
+      /X-Amz-Signature=[a-f0-9]+/,
+      /X-Amz-SignedHeaders=(host|%3Aauthority)/,
       "https://polly.us-east-1.amazonaws.com/v1/speech?OutputFormat=mp3",
       /x-amz-user-agent=aws-sdk-js%2F\d\.\d+\.\d+/,
     ]);
