@@ -121,7 +121,7 @@ __metadata:
     "@smithy/eventstream-serde-node": "npm:^4.1.1"
     "@smithy/hash-node": "npm:^4.1.1"
     "@smithy/hash-stream-node": "npm:^4.1.1"
-    "@smithy/middleware-retry": "npm:^4.2.2"
+    "@smithy/middleware-retry": "npm:^4.2.3"
     "@smithy/node-config-provider": "npm:^4.2.2"
     "@smithy/node-http-handler": "npm:^4.2.1"
     "@smithy/smithy-client": "npm:^4.6.2"
@@ -130,7 +130,7 @@ __metadata:
     "@smithy/util-base64": "npm:^4.1.0"
     "@smithy/util-body-length-node": "npm:^4.1.0"
     "@smithy/util-defaults-mode-node": "npm:^4.1.2"
-    "@smithy/util-retry": "npm:^4.1.1"
+    "@smithy/util-retry": "npm:^4.1.2"
     "@smithy/util-stream": "npm:^4.3.1"
     "@smithy/util-utf8": "npm:^4.1.0"
     "@tsconfig/node18": "npm:18.2.4"
@@ -149,7 +149,7 @@ __metadata:
     "@aws-sdk/client-lambda": "npm:*"
     "@smithy/protocol-http": "npm:^5.2.1"
     "@smithy/types": "npm:^4.5.0"
-    "@smithy/util-retry": "npm:^4.1.1"
+    "@smithy/util-retry": "npm:^4.1.2"
     "@tsconfig/node18": "npm:18.2.4"
     "@types/node": "npm:^18.19.69"
     concurrently: "npm:7.0.0"
@@ -24434,7 +24434,7 @@ __metadata:
     "@smithy/invalid-dependency": "npm:^4.1.1"
     "@smithy/middleware-content-length": "npm:^4.1.1"
     "@smithy/middleware-endpoint": "npm:^4.2.2"
-    "@smithy/middleware-retry": "npm:^4.2.2"
+    "@smithy/middleware-retry": "npm:^4.2.3"
     "@smithy/middleware-serde": "npm:^4.1.1"
     "@smithy/middleware-stack": "npm:^4.1.1"
     "@smithy/node-config-provider": "npm:^4.2.2"
@@ -24450,7 +24450,7 @@ __metadata:
     "@smithy/util-defaults-mode-node": "npm:^4.1.2"
     "@smithy/util-endpoints": "npm:^3.1.2"
     "@smithy/util-middleware": "npm:^4.1.1"
-    "@smithy/util-retry": "npm:^4.1.1"
+    "@smithy/util-retry": "npm:^4.1.2"
     "@smithy/util-utf8": "npm:^4.1.0"
     concurrently: "npm:7.0.0"
     downlevel-dts: "npm:0.10.1"
@@ -29187,24 +29187,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@smithy/middleware-retry@npm:^4.2.2":
-  version: 4.2.2
-  resolution: "@smithy/middleware-retry@npm:4.2.2"
-  dependencies:
-    "@smithy/node-config-provider": "npm:^4.2.2"
-    "@smithy/protocol-http": "npm:^5.2.1"
-    "@smithy/service-error-classification": "npm:^4.1.1"
-    "@smithy/smithy-client": "npm:^4.6.2"
-    "@smithy/types": "npm:^4.5.0"
-    "@smithy/util-middleware": "npm:^4.1.1"
-    "@smithy/util-retry": "npm:^4.1.1"
-    "@types/uuid": "npm:^9.0.1"
-    tslib: "npm:^2.6.2"
-    uuid: "npm:^9.0.1"
-  checksum: 10c0/418e09e635874533255185f84205bc900865bc8e92d92608240448b8e16cfce31b9be0265021cb9dbb61c344252f3b790ec89ce9204fa06d9292f77b372d09ad
-  languageName: node
-  linkType: hard
-
 "@smithy/middleware-retry@npm:^4.2.3":
   version: 4.2.3
   resolution: "@smithy/middleware-retry@npm:4.2.3"
@@ -29307,15 +29289,6 @@ __metadata:
     "@smithy/types": "npm:^4.5.0"
     tslib: "npm:^2.6.2"
   checksum: 10c0/6bf8672aca07826af16625b41f20332fdfdc39861124e026ee929e4652f638edc7107d347a2fe7feb0c2e6f2c98d149d2d383cecaab46a48a990f36333e8f016
-  languageName: node
-  linkType: hard
-
-"@smithy/service-error-classification@npm:^4.1.1":
-  version: 4.1.1
-  resolution: "@smithy/service-error-classification@npm:4.1.1"
-  dependencies:
-    "@smithy/types": "npm:^4.5.0"
-  checksum: 10c0/946d3b7cc642d665a1717c69fdf7df4256a6fe03d3686be8fa9c514c6ff185eaee5a4ac5d0f45958087e8750a2fcba67f30e5567457889b54684e7dd00dfd400
   languageName: node
   linkType: hard
 
@@ -29524,17 +29497,6 @@ __metadata:
     "@smithy/types": "npm:^4.5.0"
     tslib: "npm:^2.6.2"
   checksum: 10c0/47bee56b2fbf9fbe3c4be4e1daac247fea889848d43120c64895529bb92ef43b25cf07213792d1646622356a1572b91cc48b0976c39667a9020edfa5ec58d093
-  languageName: node
-  linkType: hard
-
-"@smithy/util-retry@npm:^4.1.1":
-  version: 4.1.1
-  resolution: "@smithy/util-retry@npm:4.1.1"
-  dependencies:
-    "@smithy/service-error-classification": "npm:^4.1.1"
-    "@smithy/types": "npm:^4.5.0"
-    tslib: "npm:^2.6.2"
-  checksum: 10c0/25f07dbf9be8798d2792b2ebfd68506408797815fc4ef75a6f526f52d3c6e6f7a53723f6c46b6a44855ed3cebee4da5a49a86c4e8b2e8b923e39aff965b00e7d
   languageName: node
   linkType: hard
 
