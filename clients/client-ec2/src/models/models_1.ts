@@ -1862,6 +1862,8 @@ export const _InstanceType = {
   mac2_m2_metal: "mac2-m2.metal",
   mac2_m2pro_metal: "mac2-m2pro.metal",
   mac2_metal: "mac2.metal",
+  mac_m4_metal: "mac-m4.metal",
+  mac_m4pro_metal: "mac-m4pro.metal",
   p2_16xlarge: "p2.16xlarge",
   p2_8xlarge: "p2.8xlarge",
   p2_xlarge: "p2.xlarge",
