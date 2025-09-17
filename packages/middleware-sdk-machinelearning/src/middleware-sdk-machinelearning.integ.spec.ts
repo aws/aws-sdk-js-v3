@@ -1,7 +1,6 @@
+import { requireRequestsFrom } from "@aws-sdk/aws-util-test/src";
 import { MachineLearning } from "@aws-sdk/client-machine-learning";
 import { describe, expect, test as it } from "vitest";
-
-import { requireRequestsFrom } from "../../../private/aws-util-test/src";
 
 describe("middleware-sdk-machine-learning", () => {
   describe(MachineLearning.name, () => {

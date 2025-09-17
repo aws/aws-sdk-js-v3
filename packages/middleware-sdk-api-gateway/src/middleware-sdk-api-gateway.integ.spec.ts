@@ -1,7 +1,6 @@
+import { requireRequestsFrom } from "@aws-sdk/aws-util-test/src";
 import { APIGateway } from "@aws-sdk/client-api-gateway";
 import { describe, expect, test as it } from "vitest";
-
-import { requireRequestsFrom } from "../../../private/aws-util-test/src";
 
 describe("middleware-sdk-api-gateway", () => {
   describe(APIGateway.name, () => {

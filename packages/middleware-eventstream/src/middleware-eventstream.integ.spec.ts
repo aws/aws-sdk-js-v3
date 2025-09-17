@@ -1,10 +1,10 @@
+import { requireRequestsFrom } from "@aws-sdk/aws-util-test/src";
 import { LexRuntimeV2 } from "@aws-sdk/client-lex-runtime-v2";
 import { RekognitionStreaming } from "@aws-sdk/client-rekognitionstreaming";
 import { TranscribeStreaming } from "@aws-sdk/client-transcribe-streaming";
 import { Decoder, Encoder, EventStreamPayloadHandlerProvider } from "@smithy/types";
 import { describe, expect, test as it, vi } from "vitest";
 
-import { requireRequestsFrom } from "../../../private/aws-util-test/src";
 import { resolveEventStreamConfig } from "./eventStreamConfiguration";
 
 describe("middleware-eventstream", () => {

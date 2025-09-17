@@ -1,7 +1,6 @@
+import { requireRequestsFrom } from "@aws-sdk/aws-util-test/src";
 import { TranscribeStreaming } from "@aws-sdk/client-transcribe-streaming";
 import { describe, expect, test as it } from "vitest";
-
-import { requireRequestsFrom } from "../../../private/aws-util-test/src";
 
 describe("middleware-sdk-transcribe-streaming", () => {
   // TODO: http2 in CI

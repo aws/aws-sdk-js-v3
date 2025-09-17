@@ -3,7 +3,7 @@ import { S3 } from "@aws-sdk/client-s3";
 import { XRay } from "@aws-sdk/client-xray";
 import { describe, expect, test as it } from "vitest";
 
-import { requireRequestsFrom } from "../../../private/aws-util-test/src";
+import { requireRequestsFrom } from "@aws-sdk/aws-util-test/src";
 
 describe("middleware-content-length", () => {
   describe(AccessAnalyzer.name, () => {
