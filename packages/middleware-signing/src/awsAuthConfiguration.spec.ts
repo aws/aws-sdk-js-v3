@@ -118,7 +118,10 @@ describe("AuthConfig", () => {
       for (let i = 0; i < repeats; i++) {
         await signer.sign(request);
       }
-      console.log("what is credentials", credentials);
+      expect(await credentials()).toEqual({
+        accessKeyId: "key",
+        secretAccessKey: "secret",
+      });
       expect(spy).toBeCalledTimes(2);
     });
   });
