@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.891.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.890.0...v3.891.0) (2025-09-17)
+
+
+### Features
+
+* **client-ec2:** Add mac-m4.metal and mac-m4pro.metal instance types. ([542f2ab](https://github.com/aws/aws-sdk-js-v3/commit/542f2aba068fd6f180df5f7e7fb630dc1cdc5183))
+
+
+
+
+
 # [3.890.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.889.0...v3.890.0) (2025-09-16)
 
 **Note:** Version bump only for package @aws-sdk/client-ec2

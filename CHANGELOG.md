@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.891.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.890.0...v3.891.0) (2025-09-17)
+
+
+### Features
+
+* **client-ec2:** Add mac-m4.metal and mac-m4pro.metal instance types. ([542f2ab](https://github.com/aws/aws-sdk-js-v3/commit/542f2aba068fd6f180df5f7e7fb630dc1cdc5183))
+* **client-network-firewall:** Network Firewall now prevents TLS handshakes with the target server until after the Server Name Indication (SNI) has been seen and verified. The monitoring dashboard now provides deeper insights into PrivateLink endpoint candidates and offers filters based on IP addresses and protocol. ([11455fd](https://github.com/aws/aws-sdk-js-v3/commit/11455fdf68817f3cc72d2f945fa0ccfac2a3ceba))
+* **client-pcs:** Add support for Amazon EC2 Capacity Blocks for ML ([28cf47d](https://github.com/aws/aws-sdk-js-v3/commit/28cf47d6fc8df1c717899c02d0ac7f8fd25a06b4))
+
+
+
+
+
 # [3.890.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.889.0...v3.890.0) (2025-09-16)
 
 

@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/middleware-expect-continue",
-  "version": "3.887.0",
+  "version": "3.891.0",
   "scripts": {
     "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types'",
     "build:cjs": "node ../../scripts/compilation/inline middleware-expect-continue",

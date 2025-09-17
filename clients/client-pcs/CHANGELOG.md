@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.891.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.890.0...v3.891.0) (2025-09-17)
+
+
+### Features
+
+* **client-pcs:** Add support for Amazon EC2 Capacity Blocks for ML ([28cf47d](https://github.com/aws/aws-sdk-js-v3/commit/28cf47d6fc8df1c717899c02d0ac7f8fd25a06b4))
+
+
+
+
+
 # [3.890.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.889.0...v3.890.0) (2025-09-16)
 
 **Note:** Version bump only for package @aws-sdk/client-pcs
