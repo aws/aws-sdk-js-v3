@@ -1434,6 +1434,10 @@ __metadata:
   resolution: "@aws-sdk/aws-util-test@workspace:private/aws-util-test"
   dependencies:
     "@aws-sdk/aws-protocoltests-json": "npm:*"
+    "@aws-sdk/client-cognito-identity": "npm:*"
+    "@aws-sdk/client-s3": "npm:*"
+    "@aws-sdk/client-s3-control": "npm:*"
+    "@aws-sdk/client-sts": "npm:*"
     "@smithy/protocol-http": "npm:^5.2.1"
     "@smithy/shared-ini-file-loader": "npm:^4.2.0"
     "@smithy/types": "npm:^4.5.0"

@@ -1,10 +1,9 @@
+import { getE2eTestResources } from "@aws-sdk/aws-util-test/src";
 import { ChecksumAlgorithm, S3 } from "@aws-sdk/client-s3";
 import { Upload } from "@aws-sdk/lib-storage";
 import { randomBytes } from "crypto";
 import { Readable } from "stream";
 import { afterAll, beforeAll, describe, expect, test as it } from "vitest";
-
-import { getIntegTestResources } from "../../../tests/e2e/get-integ-test-resources";
 
 describe("@aws-sdk/lib-storage", () => {
   describe.each([undefined, "WHEN_REQUIRED", "WHEN_SUPPORTED"])(
@@ -23,12 +22,11 @@ describe("@aws-sdk/lib-storage", () => {
         let dataString: string;
         let Bucket: string;
         let region: string;
-        let resourcesAvailable = false;
 
         beforeAll(async () => {
           try {
-            const integTestResourcesEnv = await getIntegTestResources();
-            Object.assign(process.env, integTestResourcesEnv);
+            const e2eTestResourcesEnv = await getE2eTestResources();
+            Object.assign(process.env, e2eTestResourcesEnv);
 
             region = process?.env?.AWS_SMOKE_TEST_REGION as string;
             Bucket = process?.env?.AWS_SMOKE_TEST_BUCKET as string;
@@ -43,7 +41,6 @@ describe("@aws-sdk/lib-storage", () => {
               requestChecksumCalculation,
             });
             Key = `multi-part-file-${requestChecksumCalculation}-${ChecksumAlgorithm}-${Date.now()}`;
-            resourcesAvailable = true;
           } catch (error) {
             console.warn("Failed to set up test resources:", error);
           }
