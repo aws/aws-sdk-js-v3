@@ -9,7 +9,7 @@ export class CrtCrc64Nvme implements Checksum {
     this.checksum = checksums.crc64nvme(data, this.checksum);
   }
 
-  async digest() {
+  async digest(): Promise<Uint8Array> {
     return toUint8Array(this.checksum);
   }
 
