@@ -1,3 +1,4 @@
+import { getE2eTestResources } from "@aws-sdk/aws-util-test/src";
 import { S3, UploadPartCommandOutput } from "@aws-sdk/client-s3";
 import { Upload } from "@aws-sdk/lib-storage";
 import { FetchHttpHandler } from "@smithy/fetch-http-handler";
@@ -5,8 +6,6 @@ import type { HttpRequest, HttpResponse } from "@smithy/types";
 import { ChecksumStream, headStream } from "@smithy/util-stream";
 import { Readable } from "node:stream";
 import { beforeAll, describe, expect, test as it, vi } from "vitest";
-
-import { getIntegTestResources } from "../../../tests/e2e/get-integ-test-resources";
 
 describe("S3 checksums", () => {
   let s3: S3;
@@ -38,8 +37,8 @@ describe("S3 checksums", () => {
   }
 
   beforeAll(async () => {
-    const integTestResourcesEnv = await getIntegTestResources();
-    Object.assign(process.env, integTestResourcesEnv);
+    const e2eTestResourcesEnv = await getE2eTestResources();
+    Object.assign(process.env, e2eTestResourcesEnv);
 
     region = process?.env?.AWS_SMOKE_TEST_REGION as string;
     Bucket = process?.env?.AWS_SMOKE_TEST_BUCKET as string;
@@ -252,4 +251,4 @@ describe("S3 checksums", () => {
       await expect(checksumStream.getReader().closed).resolves.toBe(undefined);
     });
   });
-});
+}, 60_000);
