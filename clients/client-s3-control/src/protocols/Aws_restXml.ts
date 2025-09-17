@@ -3445,7 +3445,7 @@ export const de_GetAccessPointCommand = async (
   if (data[_DST] != null) {
     contents[_DST] = __expectString(data[_DST]);
   }
-  if (data.Endpoints === "") {
+  if (String(data.Endpoints).trim() === "") {
     contents[_E] = {};
   } else if (data[_E] != null && data[_E][_e] != null) {
     contents[_E] = de_Endpoints(__getArrayIfSingleItem(data[_E][_e]), context);
@@ -3654,7 +3654,7 @@ export const de_GetBucketLifecycleConfigurationCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Rules === "") {
+  if (String(data.Rules).trim() === "") {
     contents[_Ru] = [];
   } else if (data[_Ru] != null && data[_Ru][_Rul] != null) {
     contents[_Ru] = de_LifecycleRules(__getArrayIfSingleItem(data[_Ru][_Rul]), context);
@@ -3716,7 +3716,7 @@ export const de_GetBucketTaggingCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.TagSet === "") {
+  if (String(data.TagSet).trim() === "") {
     contents[_TS] = [];
   } else if (data[_TS] != null && data[_TS][_m] != null) {
     contents[_TS] = de_S3TagSet(__getArrayIfSingleItem(data[_TS][_m]), context);
@@ -3787,7 +3787,7 @@ export const de_GetJobTaggingCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Tags === "") {
+  if (String(data.Tags).trim() === "") {
     contents[_T] = [];
   } else if (data[_T] != null && data[_T][_m] != null) {
     contents[_T] = de_S3TagSet(__getArrayIfSingleItem(data[_T][_m]), context);
@@ -3872,7 +3872,7 @@ export const de_GetMultiRegionAccessPointRoutesCommand = async (
   if (data[_Mr] != null) {
     contents[_Mr] = __expectString(data[_Mr]);
   }
-  if (data.Routes === "") {
+  if (String(data.Routes).trim() === "") {
     contents[_Ro] = [];
   } else if (data[_Ro] != null && data[_Ro][_Rou] != null) {
     contents[_Ro] = de_RouteList(__getArrayIfSingleItem(data[_Ro][_Rou]), context);
@@ -3930,7 +3930,7 @@ export const de_GetStorageLensConfigurationTaggingCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Tags === "") {
+  if (String(data.Tags).trim() === "") {
     contents[_T] = [];
   } else if (data[_T] != null && data[_T][_Tag] != null) {
     contents[_T] = de_StorageLensTags(__getArrayIfSingleItem(data[_T][_Tag]), context);
@@ -3970,7 +3970,7 @@ export const de_ListAccessGrantsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.AccessGrantsList === "") {
+  if (String(data.AccessGrantsList).trim() === "") {
     contents[_AGL] = [];
   } else if (data[_AGL] != null && data[_AGL][_AG] != null) {
     contents[_AGL] = de_AccessGrantsList(__getArrayIfSingleItem(data[_AGL][_AG]), context);
@@ -3995,7 +3995,7 @@ export const de_ListAccessGrantsInstancesCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.AccessGrantsInstancesList === "") {
+  if (String(data.AccessGrantsInstancesList).trim() === "") {
     contents[_AGIL] = [];
   } else if (data[_AGIL] != null && data[_AGIL][_AGIc] != null) {
     contents[_AGIL] = de_AccessGrantsInstancesList(__getArrayIfSingleItem(data[_AGIL][_AGIc]), context);
@@ -4020,7 +4020,7 @@ export const de_ListAccessGrantsLocationsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.AccessGrantsLocationsList === "") {
+  if (String(data.AccessGrantsLocationsList).trim() === "") {
     contents[_AGLL] = [];
   } else if (data[_AGLL] != null && data[_AGLL][_AGLc] != null) {
     contents[_AGLL] = de_AccessGrantsLocationsList(__getArrayIfSingleItem(data[_AGLL][_AGLc]), context);
@@ -4045,7 +4045,7 @@ export const de_ListAccessPointsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.AccessPointList === "") {
+  if (String(data.AccessPointList).trim() === "") {
     contents[_APL] = [];
   } else if (data[_APL] != null && data[_APL][_AP] != null) {
     contents[_APL] = de_AccessPointList(__getArrayIfSingleItem(data[_APL][_AP]), context);
@@ -4070,7 +4070,7 @@ export const de_ListAccessPointsForDirectoryBucketsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.AccessPointList === "") {
+  if (String(data.AccessPointList).trim() === "") {
     contents[_APL] = [];
   } else if (data[_APL] != null && data[_APL][_AP] != null) {
     contents[_APL] = de_AccessPointList(__getArrayIfSingleItem(data[_APL][_AP]), context);
@@ -4098,7 +4098,7 @@ export const de_ListAccessPointsForObjectLambdaCommand = async (
   if (data[_NT] != null) {
     contents[_NT] = __expectString(data[_NT]);
   }
-  if (data.ObjectLambdaAccessPointList === "") {
+  if (String(data.ObjectLambdaAccessPointList).trim() === "") {
     contents[_OLAPL] = [];
   } else if (data[_OLAPL] != null && data[_OLAPL][_OLAP] != null) {
     contents[_OLAPL] = de_ObjectLambdaAccessPointList(__getArrayIfSingleItem(data[_OLAPL][_OLAP]), context);
@@ -4120,7 +4120,7 @@ export const de_ListCallerAccessGrantsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.CallerAccessGrantsList === "") {
+  if (String(data.CallerAccessGrantsList).trim() === "") {
     contents[_CAGL] = [];
   } else if (data[_CAGL] != null && data[_CAGL][_AG] != null) {
     contents[_CAGL] = de_CallerAccessGrantsList(__getArrayIfSingleItem(data[_CAGL][_AG]), context);
@@ -4145,7 +4145,7 @@ export const de_ListJobsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Jobs === "") {
+  if (String(data.Jobs).trim() === "") {
     contents[_Jo] = [];
   } else if (data[_Jo] != null && data[_Jo][_m] != null) {
     contents[_Jo] = de_JobListDescriptorList(__getArrayIfSingleItem(data[_Jo][_m]), context);
@@ -4170,7 +4170,7 @@ export const de_ListMultiRegionAccessPointsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.AccessPoints === "") {
+  if (String(data.AccessPoints).trim() === "") {
     contents[_APc] = [];
   } else if (data[_APc] != null && data[_APc][_AP] != null) {
     contents[_APc] = de_MultiRegionAccessPointReportList(__getArrayIfSingleItem(data[_APc][_AP]), context);
@@ -4198,7 +4198,7 @@ export const de_ListRegionalBucketsCommand = async (
   if (data[_NT] != null) {
     contents[_NT] = __expectString(data[_NT]);
   }
-  if (data.RegionalBucketList === "") {
+  if (String(data.RegionalBucketList).trim() === "") {
     contents[_RBL] = [];
   } else if (data[_RBL] != null && data[_RBL][_RB] != null) {
     contents[_RBL] = de_RegionalBucketList(__getArrayIfSingleItem(data[_RBL][_RB]), context);
@@ -4223,7 +4223,7 @@ export const de_ListStorageLensConfigurationsCommand = async (
   if (data[_NT] != null) {
     contents[_NT] = __expectString(data[_NT]);
   }
-  if (data.StorageLensConfiguration === "") {
+  if (String(data.StorageLensConfiguration).trim() === "") {
     contents[_SLCL] = [];
   } else if (data[_SLC] != null) {
     contents[_SLCL] = de_StorageLensConfigurationList(__getArrayIfSingleItem(data[_SLC]), context);
@@ -4248,7 +4248,7 @@ export const de_ListStorageLensGroupsCommand = async (
   if (data[_NT] != null) {
     contents[_NT] = __expectString(data[_NT]);
   }
-  if (data.StorageLensGroup === "") {
+  if (String(data.StorageLensGroup).trim() === "") {
     contents[_SLGL] = [];
   } else if (data[_SLG] != null) {
     contents[_SLGL] = de_StorageLensGroupList(__getArrayIfSingleItem(data[_SLG]), context);
@@ -4270,7 +4270,7 @@ export const de_ListTagsForResourceCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Tags === "") {
+  if (String(data.Tags).trim() === "") {
     contents[_T] = [];
   } else if (data[_T] != null && data[_T][_Tag] != null) {
     contents[_T] = de_TagList(__getArrayIfSingleItem(data[_T][_Tag]), context);
@@ -7348,7 +7348,7 @@ const de_CreateMultiRegionAccessPointInput = (
   if (output[_PAB] != null) {
     contents[_PAB] = de_PublicAccessBlockConfiguration(output[_PAB], context);
   }
-  if (output.Regions === "") {
+  if (String(output.Regions).trim() === "") {
     contents[_Re] = [];
   } else if (output[_Re] != null && output[_Re][_Reg] != null) {
     contents[_Re] = de_RegionCreationList(__getArrayIfSingleItem(output[_Re][_Reg]), context);
@@ -7495,12 +7495,12 @@ const de_EstablishedMultiRegionAccessPointPolicy = (
  */
 const de__Exclude = (output: any, context: __SerdeContext): _Exclude => {
   const contents: any = {};
-  if (output.Buckets === "") {
+  if (String(output.Buckets).trim() === "") {
     contents[_Bu] = [];
   } else if (output[_Bu] != null && output[_Bu][_Ar] != null) {
     contents[_Bu] = de_Buckets(__getArrayIfSingleItem(output[_Bu][_Ar]), context);
   }
-  if (output.Regions === "") {
+  if (String(output.Regions).trim() === "") {
     contents[_Re] = [];
   } else if (output[_Re] != null && output[_Re][_Reg] != null) {
     contents[_Re] = de_Regions(__getArrayIfSingleItem(output[_Re][_Reg]), context);
@@ -7552,12 +7552,12 @@ const de_Grantee = (output: any, context: __SerdeContext): Grantee => {
  */
 const de_Include = (output: any, context: __SerdeContext): Include => {
   const contents: any = {};
-  if (output.Buckets === "") {
+  if (String(output.Buckets).trim() === "") {
     contents[_Bu] = [];
   } else if (output[_Bu] != null && output[_Bu][_Ar] != null) {
     contents[_Bu] = de_Buckets(__getArrayIfSingleItem(output[_Bu][_Ar]), context);
   }
-  if (output.Regions === "") {
+  if (String(output.Regions).trim() === "") {
     contents[_Re] = [];
   } else if (output[_Re] != null && output[_Re][_Reg] != null) {
     contents[_Re] = de_Regions(__getArrayIfSingleItem(output[_Re][_Reg]), context);
@@ -7600,7 +7600,7 @@ const de_JobDescriptor = (output: any, context: __SerdeContext): JobDescriptor =
   if (output[_SUR] != null) {
     contents[_SUR] = __expectString(output[_SUR]);
   }
-  if (output.FailureReasons === "") {
+  if (String(output.FailureReasons).trim() === "") {
     contents[_FR] = [];
   } else if (output[_FR] != null && output[_FR][_m] != null) {
     contents[_FR] = de_JobFailureList(__getArrayIfSingleItem(output[_FR][_m]), context);
@@ -7623,7 +7623,7 @@ const de_JobDescriptor = (output: any, context: __SerdeContext): JobDescriptor =
   if (output[_SCu] != null) {
     contents[_SCu] = __expectString(output[_SCu]);
   }
-  if (output.ManifestGenerator === "") {
+  if (String(output.ManifestGenerator).trim() === "") {
     // Pass empty tags.
   } else if (output[_MG] != null) {
     contents[_MG] = de_JobManifestGenerator(__expectUnion(output[_MG]), context);
@@ -7753,7 +7753,7 @@ const de_JobManifestGeneratorFilter = (output: any, context: __SerdeContext): Jo
   if (output[_CB] != null) {
     contents[_CB] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_CB]));
   }
-  if (output.ObjectReplicationStatuses === "") {
+  if (String(output.ObjectReplicationStatuses).trim() === "") {
     contents[_ORS] = [];
   } else if (output[_ORS] != null && output[_ORS][_m] != null) {
     contents[_ORS] = de_ReplicationStatusFilterList(__getArrayIfSingleItem(output[_ORS][_m]), context);
@@ -7767,12 +7767,12 @@ const de_JobManifestGeneratorFilter = (output: any, context: __SerdeContext): Jo
   if (output[_OSLTB] != null) {
     contents[_OSLTB] = __strictParseLong(output[_OSLTB]) as number;
   }
-  if (output.MatchAnyStorageClass === "") {
+  if (String(output.MatchAnyStorageClass).trim() === "") {
     contents[_MASC] = [];
   } else if (output[_MASC] != null && output[_MASC][_m] != null) {
     contents[_MASC] = de_StorageClassList(__getArrayIfSingleItem(output[_MASC][_m]), context);
   }
-  if (output.MatchAnyObjectEncryption === "") {
+  if (String(output.MatchAnyObjectEncryption).trim() === "") {
     contents[_MAOE] = [];
   } else if (output[_MAOE] != null && output[_MAOE][_OE] != null) {
     contents[_MAOE] = de_ObjectEncryptionFilterList(__getArrayIfSingleItem(output[_MAOE][_OE]), context);
@@ -7805,7 +7805,7 @@ const de_JobManifestSpec = (output: any, context: __SerdeContext): JobManifestSp
   if (output[_F] != null) {
     contents[_F] = __expectString(output[_F]);
   }
-  if (output.Fields === "") {
+  if (String(output.Fields).trim() === "") {
     contents[_Fi] = [];
   } else if (output[_Fi] != null && output[_Fi][_m] != null) {
     contents[_Fi] = de_JobManifestFieldList(__getArrayIfSingleItem(output[_Fi][_m]), context);
@@ -7913,17 +7913,17 @@ const de_JobTimers = (output: any, context: __SerdeContext): JobTimers => {
  */
 const de_KeyNameConstraint = (output: any, context: __SerdeContext): KeyNameConstraint => {
   const contents: any = {};
-  if (output.MatchAnyPrefix === "") {
+  if (String(output.MatchAnyPrefix).trim() === "") {
     contents[_MAP] = [];
   } else if (output[_MAP] != null && output[_MAP][_m] != null) {
     contents[_MAP] = de_NonEmptyMaxLength1024StringList(__getArrayIfSingleItem(output[_MAP][_m]), context);
   }
-  if (output.MatchAnySuffix === "") {
+  if (String(output.MatchAnySuffix).trim() === "") {
     contents[_MAS] = [];
   } else if (output[_MAS] != null && output[_MAS][_m] != null) {
     contents[_MAS] = de_NonEmptyMaxLength1024StringList(__getArrayIfSingleItem(output[_MAS][_m]), context);
   }
-  if (output.MatchAnySubstring === "") {
+  if (String(output.MatchAnySubstring).trim() === "") {
     contents[_MASa] = [];
   } else if (output[_MASa] != null && output[_MASa][_m] != null) {
     contents[_MASa] = de_NonEmptyMaxLength1024StringList(__getArrayIfSingleItem(output[_MASa][_m]), context);
@@ -7942,7 +7942,7 @@ const de_LambdaInvokeOperation = (output: any, context: __SerdeContext): LambdaI
   if (output[_ISV] != null) {
     contents[_ISV] = __expectString(output[_ISV]);
   }
-  if (output.UserArguments === "") {
+  if (String(output.UserArguments).trim() === "") {
     contents[_UA] = {};
   } else if (output[_UA] != null && output[_UA][_e] != null) {
     contents[_UA] = de_UserArguments(__getArrayIfSingleItem(output[_UA][_e]), context);
@@ -7984,12 +7984,12 @@ const de_LifecycleRule = (output: any, context: __SerdeContext): LifecycleRule =
   if (output[_St] != null) {
     contents[_St] = __expectString(output[_St]);
   }
-  if (output.Transitions === "") {
+  if (String(output.Transitions).trim() === "") {
     contents[_Tr] = [];
   } else if (output[_Tr] != null && output[_Tr][_Tra] != null) {
     contents[_Tr] = de_TransitionList(__getArrayIfSingleItem(output[_Tr][_Tra]), context);
   }
-  if (output.NoncurrentVersionTransitions === "") {
+  if (String(output.NoncurrentVersionTransitions).trim() === "") {
     contents[_NVT] = [];
   } else if (output[_NVT] != null && output[_NVT][_NVTo] != null) {
     contents[_NVT] = de_NoncurrentVersionTransitionList(__getArrayIfSingleItem(output[_NVT][_NVTo]), context);
@@ -8011,7 +8011,7 @@ const de_LifecycleRuleAndOperator = (output: any, context: __SerdeContext): Life
   if (output[_Pre] != null) {
     contents[_Pre] = __expectString(output[_Pre]);
   }
-  if (output.Tags === "") {
+  if (String(output.Tags).trim() === "") {
     contents[_T] = [];
   } else if (output[_T] != null && output[_T][_m] != null) {
     contents[_T] = de_S3TagSet(__getArrayIfSingleItem(output[_T][_m]), context);
@@ -8343,7 +8343,7 @@ const de_MultiRegionAccessPointReport = (output: any, context: __SerdeContext): 
   if (output[_St] != null) {
     contents[_St] = __expectString(output[_St]);
   }
-  if (output.Regions === "") {
+  if (String(output.Regions).trim() === "") {
     contents[_Re] = [];
   } else if (output[_Re] != null && output[_Re][_Reg] != null) {
     contents[_Re] = de_RegionReportList(__getArrayIfSingleItem(output[_Re][_Reg]), context);
@@ -8387,7 +8387,7 @@ const de_MultiRegionAccessPointsAsyncResponse = (
   context: __SerdeContext
 ): MultiRegionAccessPointsAsyncResponse => {
   const contents: any = {};
-  if (output.Regions === "") {
+  if (String(output.Regions).trim() === "") {
     contents[_Re] = [];
   } else if (output[_Re] != null && output[_Re][_Reg] != null) {
     contents[_Re] = de_MultiRegionAccessPointRegionalResponseList(__getArrayIfSingleItem(output[_Re][_Reg]), context);
@@ -8560,12 +8560,12 @@ const de_ObjectLambdaConfiguration = (output: any, context: __SerdeContext): Obj
   if (output[_CWME] != null) {
     contents[_CWME] = __parseBoolean(output[_CWME]);
   }
-  if (output.AllowedFeatures === "") {
+  if (String(output.AllowedFeatures).trim() === "") {
     contents[_AFl] = [];
   } else if (output[_AFl] != null && output[_AFl][_AF] != null) {
     contents[_AFl] = de_ObjectLambdaAllowedFeaturesList(__getArrayIfSingleItem(output[_AFl][_AF]), context);
   }
-  if (output.TransformationConfigurations === "") {
+  if (String(output.TransformationConfigurations).trim() === "") {
     contents[_TC] = [];
   } else if (output[_TC] != null && output[_TC][_TCr] != null) {
     contents[_TC] = de_ObjectLambdaTransformationConfigurationsList(__getArrayIfSingleItem(output[_TC][_TCr]), context);
@@ -8596,7 +8596,7 @@ const de_ObjectLambdaTransformationConfiguration = (
   context: __SerdeContext
 ): ObjectLambdaTransformationConfiguration => {
   const contents: any = {};
-  if (output.Actions === "") {
+  if (String(output.Actions).trim() === "") {
     contents[_Act] = [];
   } else if (output[_Act] != null && output[_Act][_Acti] != null) {
     contents[_Act] = de_ObjectLambdaTransformationConfigurationActionsList(
@@ -8604,7 +8604,7 @@ const de_ObjectLambdaTransformationConfiguration = (
       context
     );
   }
-  if (output.ContentTransformation === "") {
+  if (String(output.ContentTransformation).trim() === "") {
     // Pass empty tags.
   } else if (output[_CTo] != null) {
     contents[_CTo] = de_ObjectLambdaContentTransformation(__expectUnion(output[_CTo]), context);
@@ -8855,7 +8855,7 @@ const de_ReplicationConfiguration = (output: any, context: __SerdeContext): Repl
   if (output[_Rol] != null) {
     contents[_Rol] = __expectString(output[_Rol]);
   }
-  if (output.Rules === "") {
+  if (String(output.Rules).trim() === "") {
     contents[_Ru] = [];
   } else if (output[_Ru] != null && output[_Ru][_Rul] != null) {
     contents[_Ru] = de_ReplicationRules(__getArrayIfSingleItem(output[_Ru][_Rul]), context);
@@ -8909,7 +8909,7 @@ const de_ReplicationRuleAndOperator = (output: any, context: __SerdeContext): Re
   if (output[_Pre] != null) {
     contents[_Pre] = __expectString(output[_Pre]);
   }
-  if (output.Tags === "") {
+  if (String(output.Tags).trim() === "") {
     contents[_T] = [];
   } else if (output[_T] != null && output[_T][_m] != null) {
     contents[_T] = de_S3TagSet(__getArrayIfSingleItem(output[_T][_m]), context);
@@ -9000,7 +9000,7 @@ const de_S3AccessControlList = (output: any, context: __SerdeContext): S3AccessC
   if (output[_Ow] != null) {
     contents[_Ow] = de_S3ObjectOwner(output[_Ow], context);
   }
-  if (output.Grants === "") {
+  if (String(output.Grants).trim() === "") {
     contents[_Gr] = [];
   } else if (output[_Gr] != null && output[_Gr][_m] != null) {
     contents[_Gr] = de_S3GrantList(__getArrayIfSingleItem(output[_Gr][_m]), context);
@@ -9076,7 +9076,7 @@ const de_S3CopyObjectOperation = (output: any, context: __SerdeContext): S3CopyO
   if (output[_CACL] != null) {
     contents[_CACL] = __expectString(output[_CACL]);
   }
-  if (output.AccessControlGrants === "") {
+  if (String(output.AccessControlGrants).trim() === "") {
     contents[_ACG] = [];
   } else if (output[_ACG] != null && output[_ACG][_m] != null) {
     contents[_ACG] = de_S3GrantList(__getArrayIfSingleItem(output[_ACG][_m]), context);
@@ -9090,7 +9090,7 @@ const de_S3CopyObjectOperation = (output: any, context: __SerdeContext): S3CopyO
   if (output[_NOM] != null) {
     contents[_NOM] = de_S3ObjectMetadata(output[_NOM], context);
   }
-  if (output.NewObjectTagging === "") {
+  if (String(output.NewObjectTagging).trim() === "") {
     contents[_NOT] = [];
   } else if (output[_NOT] != null && output[_NOT][_m] != null) {
     contents[_NOT] = de_S3TagSet(__getArrayIfSingleItem(output[_NOT][_m]), context);
@@ -9286,7 +9286,7 @@ const de_S3ObjectMetadata = (output: any, context: __SerdeContext): S3ObjectMeta
   if (output[_CL] != null) {
     contents[_CL] = __expectString(output[_CL]);
   }
-  if (output.UserMetadata === "") {
+  if (String(output.UserMetadata).trim() === "") {
     contents[_UM] = {};
   } else if (output[_UM] != null && output[_UM][_e] != null) {
     contents[_UM] = de_S3UserMetadata(__getArrayIfSingleItem(output[_UM][_e]), context);
@@ -9389,7 +9389,7 @@ const de_S3SetObjectRetentionOperation = (output: any, context: __SerdeContext):
  */
 const de_S3SetObjectTaggingOperation = (output: any, context: __SerdeContext): S3SetObjectTaggingOperation => {
   const contents: any = {};
-  if (output.TagSet === "") {
+  if (String(output.TagSet).trim() === "") {
     contents[_TS] = [];
   } else if (output[_TS] != null && output[_TS][_m] != null) {
     contents[_TS] = de_S3TagSet(__getArrayIfSingleItem(output[_TS][_m]), context);
@@ -9440,12 +9440,12 @@ const de_S3UserMetadata = (output: any, context: __SerdeContext): Record<string,
  */
 const de_Scope = (output: any, context: __SerdeContext): Scope => {
   const contents: any = {};
-  if (output.Prefixes === "") {
+  if (String(output.Prefixes).trim() === "") {
     contents[_Pref] = [];
   } else if (output[_Pref] != null && output[_Pref][_Pre] != null) {
     contents[_Pref] = de_PrefixesList(__getArrayIfSingleItem(output[_Pref][_Pre]), context);
   }
-  if (output.Permissions === "") {
+  if (String(output.Permissions).trim() === "") {
     contents[_Pe] = [];
   } else if (output[_Pe] != null && output[_Pe][_P] != null) {
     contents[_Pe] = de_ScopePermissionList(__getArrayIfSingleItem(output[_Pe][_P]), context);
@@ -9689,17 +9689,17 @@ const de_StorageLensGroup = (output: any, context: __SerdeContext): StorageLensG
  */
 const de_StorageLensGroupAndOperator = (output: any, context: __SerdeContext): StorageLensGroupAndOperator => {
   const contents: any = {};
-  if (output.MatchAnyPrefix === "") {
+  if (String(output.MatchAnyPrefix).trim() === "") {
     contents[_MAP] = [];
   } else if (output[_MAP] != null && output[_MAP][_Pre] != null) {
     contents[_MAP] = de_MatchAnyPrefix(__getArrayIfSingleItem(output[_MAP][_Pre]), context);
   }
-  if (output.MatchAnySuffix === "") {
+  if (String(output.MatchAnySuffix).trim() === "") {
     contents[_MAS] = [];
   } else if (output[_MAS] != null && output[_MAS][_Su] != null) {
     contents[_MAS] = de_MatchAnySuffix(__getArrayIfSingleItem(output[_MAS][_Su]), context);
   }
-  if (output.MatchAnyTag === "") {
+  if (String(output.MatchAnyTag).trim() === "") {
     contents[_MAT] = [];
   } else if (output[_MAT] != null && output[_MAT][_Tag] != null) {
     contents[_MAT] = de_MatchAnyTag(__getArrayIfSingleItem(output[_MAT][_Tag]), context);
@@ -9718,17 +9718,17 @@ const de_StorageLensGroupAndOperator = (output: any, context: __SerdeContext): S
  */
 const de_StorageLensGroupFilter = (output: any, context: __SerdeContext): StorageLensGroupFilter => {
   const contents: any = {};
-  if (output.MatchAnyPrefix === "") {
+  if (String(output.MatchAnyPrefix).trim() === "") {
     contents[_MAP] = [];
   } else if (output[_MAP] != null && output[_MAP][_Pre] != null) {
     contents[_MAP] = de_MatchAnyPrefix(__getArrayIfSingleItem(output[_MAP][_Pre]), context);
   }
-  if (output.MatchAnySuffix === "") {
+  if (String(output.MatchAnySuffix).trim() === "") {
     contents[_MAS] = [];
   } else if (output[_MAS] != null && output[_MAS][_Su] != null) {
     contents[_MAS] = de_MatchAnySuffix(__getArrayIfSingleItem(output[_MAS][_Su]), context);
   }
-  if (output.MatchAnyTag === "") {
+  if (String(output.MatchAnyTag).trim() === "") {
     contents[_MAT] = [];
   } else if (output[_MAT] != null && output[_MAT][_Tag] != null) {
     contents[_MAT] = de_MatchAnyTag(__getArrayIfSingleItem(output[_MAT][_Tag]), context);
@@ -9789,12 +9789,12 @@ const de_StorageLensGroupLevelSelectionCriteria = (
   context: __SerdeContext
 ): StorageLensGroupLevelSelectionCriteria => {
   const contents: any = {};
-  if (output.Include === "") {
+  if (String(output.Include).trim() === "") {
     contents[_I] = [];
   } else if (output[_I] != null && output[_I][_Ar] != null) {
     contents[_I] = de_StorageLensGroupLevelInclude(__getArrayIfSingleItem(output[_I][_Ar]), context);
   }
-  if (output.Exclude === "") {
+  if (String(output.Exclude).trim() === "") {
     contents[_Ex] = [];
   } else if (output[_Ex] != null && output[_Ex][_Ar] != null) {
     contents[_Ex] = de_StorageLensGroupLevelExclude(__getArrayIfSingleItem(output[_Ex][_Ar]), context);
@@ -9818,17 +9818,17 @@ const de_StorageLensGroupList = (output: any, context: __SerdeContext): ListStor
  */
 const de_StorageLensGroupOrOperator = (output: any, context: __SerdeContext): StorageLensGroupOrOperator => {
   const contents: any = {};
-  if (output.MatchAnyPrefix === "") {
+  if (String(output.MatchAnyPrefix).trim() === "") {
     contents[_MAP] = [];
   } else if (output[_MAP] != null && output[_MAP][_Pre] != null) {
     contents[_MAP] = de_MatchAnyPrefix(__getArrayIfSingleItem(output[_MAP][_Pre]), context);
   }
-  if (output.MatchAnySuffix === "") {
+  if (String(output.MatchAnySuffix).trim() === "") {
     contents[_MAS] = [];
   } else if (output[_MAS] != null && output[_MAS][_Su] != null) {
     contents[_MAS] = de_MatchAnySuffix(__getArrayIfSingleItem(output[_MAS][_Su]), context);
   }
-  if (output.MatchAnyTag === "") {
+  if (String(output.MatchAnyTag).trim() === "") {
     contents[_MAT] = [];
   } else if (output[_MAT] != null && output[_MAT][_Tag] != null) {
     contents[_MAT] = de_MatchAnyTag(__getArrayIfSingleItem(output[_MAT][_Tag]), context);

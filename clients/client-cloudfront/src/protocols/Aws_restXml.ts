@@ -5761,7 +5761,7 @@ export const de_ListConnectionGroupsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.ConnectionGroups === "") {
+  if (String(data.ConnectionGroups).trim() === "") {
     contents[_CG] = [];
   } else if (data[_CG] != null && data[_CG][_CGS] != null) {
     contents[_CG] = de_ConnectionGroupSummaryList(__getArrayIfSingleItem(data[_CG][_CGS]), context);
@@ -5984,7 +5984,7 @@ export const de_ListDistributionTenantsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.DistributionTenantList === "") {
+  if (String(data.DistributionTenantList).trim() === "") {
     contents[_DTL] = [];
   } else if (data[_DTL] != null && data[_DTL][_DTS] != null) {
     contents[_DTL] = de_DistributionTenantList(__getArrayIfSingleItem(data[_DTL][_DTS]), context);
@@ -6009,7 +6009,7 @@ export const de_ListDistributionTenantsByCustomizationCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.DistributionTenantList === "") {
+  if (String(data.DistributionTenantList).trim() === "") {
     contents[_DTL] = [];
   } else if (data[_DTL] != null && data[_DTL][_DTS] != null) {
     contents[_DTL] = de_DistributionTenantList(__getArrayIfSingleItem(data[_DTL][_DTS]), context);
@@ -6034,7 +6034,7 @@ export const de_ListDomainConflictsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.DomainConflicts === "") {
+  if (String(data.DomainConflicts).trim() === "") {
     contents[_DC] = [];
   } else if (data[_DC] != null && data[_DC][_DC] != null) {
     contents[_DC] = de_DomainConflictsList(__getArrayIfSingleItem(data[_DC][_DC]), context);
@@ -6785,7 +6785,7 @@ export const de_VerifyDnsConfigurationCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.DnsConfigurationList === "") {
+  if (String(data.DnsConfigurationList).trim() === "") {
     contents[_DCL] = [];
   } else if (data[_DCL] != null && data[_DCL][_DCn] != null) {
     contents[_DCL] = de_DnsConfigurationList(__getArrayIfSingleItem(data[_DCL][_DCn]), context);
@@ -12650,7 +12650,7 @@ const de_ActiveTrustedKeyGroups = (output: any, context: __SerdeContext): Active
   if (output[_Q] != null) {
     contents[_Q] = __strictParseInt32(output[_Q]) as number;
   }
-  if (output.Items === "") {
+  if (String(output.Items).trim() === "") {
     contents[_It] = [];
   } else if (output[_It] != null && output[_It][_KG] != null) {
     contents[_It] = de_KGKeyPairIdsList(__getArrayIfSingleItem(output[_It][_KG]), context);
@@ -12669,7 +12669,7 @@ const de_ActiveTrustedSigners = (output: any, context: __SerdeContext): ActiveTr
   if (output[_Q] != null) {
     contents[_Q] = __strictParseInt32(output[_Q]) as number;
   }
-  if (output.Items === "") {
+  if (String(output.Items).trim() === "") {
     contents[_It] = [];
   } else if (output[_It] != null && output[_It][_Si] != null) {
     contents[_It] = de_SignerList(__getArrayIfSingleItem(output[_It][_Si]), context);
@@ -12685,7 +12685,7 @@ const de_Aliases = (output: any, context: __SerdeContext): Aliases => {
   if (output[_Q] != null) {
     contents[_Q] = __strictParseInt32(output[_Q]) as number;
   }
-  if (output.Items === "") {
+  if (String(output.Items).trim() === "") {
     contents[_It] = [];
   } else if (output[_It] != null && output[_It][_CNAME] != null) {
     contents[_It] = de_AliasList(__getArrayIfSingleItem(output[_It][_CNAME]), context);
@@ -12737,7 +12737,7 @@ const de_AllowedMethods = (output: any, context: __SerdeContext): AllowedMethods
   if (output[_Q] != null) {
     contents[_Q] = __strictParseInt32(output[_Q]) as number;
   }
-  if (output.Items === "") {
+  if (String(output.Items).trim() === "") {
     contents[_It] = [];
   } else if (output[_It] != null && output[_It][_Met] != null) {
     contents[_It] = de_MethodsList(__getArrayIfSingleItem(output[_It][_Met]), context);
@@ -12765,7 +12765,7 @@ const de_AnycastIpList = (output: any, context: __SerdeContext): AnycastIpList =
   if (output[_Ar] != null) {
     contents[_Ar] = __expectString(output[_Ar]);
   }
-  if (output.AnycastIps === "") {
+  if (String(output.AnycastIps).trim() === "") {
     contents[_AI] = [];
   } else if (output[_AI] != null && output[_AI][_AIn] != null) {
     contents[_AI] = de_AnycastIps(__getArrayIfSingleItem(output[_AI][_AIn]), context);
@@ -12784,7 +12784,7 @@ const de_AnycastIpList = (output: any, context: __SerdeContext): AnycastIpList =
  */
 const de_AnycastIpListCollection = (output: any, context: __SerdeContext): AnycastIpListCollection => {
   const contents: any = {};
-  if (output.Items === "") {
+  if (String(output.Items).trim() === "") {
     contents[_It] = [];
   } else if (output[_It] != null && output[_It][_AILS] != null) {
     contents[_It] = de_AnycastIpListSummaries(__getArrayIfSingleItem(output[_It][_AILS]), context);
@@ -12953,7 +12953,7 @@ const de_CacheBehaviors = (output: any, context: __SerdeContext): CacheBehaviors
   if (output[_Q] != null) {
     contents[_Q] = __strictParseInt32(output[_Q]) as number;
   }
-  if (output.Items === "") {
+  if (String(output.Items).trim() === "") {
     contents[_It] = [];
   } else if (output[_It] != null && output[_It][_CB] != null) {
     contents[_It] = de_CacheBehaviorList(__getArrayIfSingleItem(output[_It][_CB]), context);
@@ -12969,7 +12969,7 @@ const de_CachedMethods = (output: any, context: __SerdeContext): CachedMethods =
   if (output[_Q] != null) {
     contents[_Q] = __strictParseInt32(output[_Q]) as number;
   }
-  if (output.Items === "") {
+  if (String(output.Items).trim() === "") {
     contents[_It] = [];
   } else if (output[_It] != null && output[_It][_Met] != null) {
     contents[_It] = de_MethodsList(__getArrayIfSingleItem(output[_It][_Met]), context);
@@ -13062,7 +13062,7 @@ const de_CachePolicyList = (output: any, context: __SerdeContext): CachePolicyLi
   if (output[_Q] != null) {
     contents[_Q] = __strictParseInt32(output[_Q]) as number;
   }
-  if (output.Items === "") {
+  if (String(output.Items).trim() === "") {
     contents[_It] = [];
   } else if (output[_It] != null && output[_It][_CPS] != null) {
     contents[_It] = de_CachePolicySummaryList(__getArrayIfSingleItem(output[_It][_CPS]), context);
@@ -13177,7 +13177,7 @@ const de_CloudFrontOriginAccessIdentityList = (
   if (output[_Q] != null) {
     contents[_Q] = __strictParseInt32(output[_Q]) as number;
   }
-  if (output.Items === "") {
+  if (String(output.Items).trim() === "") {
     contents[_It] = [];
   } else if (output[_It] != null && output[_It][_CFOAIS] != null) {
     contents[_It] = de_CloudFrontOriginAccessIdentitySummaryList(__getArrayIfSingleItem(output[_It][_CFOAIS]), context);
@@ -13261,7 +13261,7 @@ const de_ConflictingAliasesList = (output: any, context: __SerdeContext): Confli
   if (output[_Q] != null) {
     contents[_Q] = __strictParseInt32(output[_Q]) as number;
   }
-  if (output.Items === "") {
+  if (String(output.Items).trim() === "") {
     contents[_It] = [];
   } else if (output[_It] != null && output[_It][_CAon] != null) {
     contents[_It] = de_ConflictingAliases(__getArrayIfSingleItem(output[_It][_CAon]), context);
@@ -13415,7 +13415,7 @@ const de_ContentTypeProfiles = (output: any, context: __SerdeContext): ContentTy
   if (output[_Q] != null) {
     contents[_Q] = __strictParseInt32(output[_Q]) as number;
   }
-  if (output.Items === "") {
+  if (String(output.Items).trim() === "") {
     contents[_It] = [];
   } else if (output[_It] != null && output[_It][_CTP] != null) {
     contents[_It] = de_ContentTypeProfileList(__getArrayIfSingleItem(output[_It][_CTP]), context);
@@ -13474,7 +13474,7 @@ const de_ContinuousDeploymentPolicyList = (output: any, context: __SerdeContext)
   if (output[_Q] != null) {
     contents[_Q] = __strictParseInt32(output[_Q]) as number;
   }
-  if (output.Items === "") {
+  if (String(output.Items).trim() === "") {
     contents[_It] = [];
   } else if (output[_It] != null && output[_It][_CDPS] != null) {
     contents[_It] = de_ContinuousDeploymentPolicySummaryList(__getArrayIfSingleItem(output[_It][_CDPS]), context);
@@ -13563,7 +13563,7 @@ const de_CookieNames = (output: any, context: __SerdeContext): CookieNames => {
   if (output[_Q] != null) {
     contents[_Q] = __strictParseInt32(output[_Q]) as number;
   }
-  if (output.Items === "") {
+  if (String(output.Items).trim() === "") {
     contents[_It] = [];
   } else if (output[_It] != null && output[_It][_N] != null) {
     contents[_It] = de_CookieNameList(__getArrayIfSingleItem(output[_It][_N]), context);
@@ -13624,7 +13624,7 @@ const de_CustomErrorResponses = (output: any, context: __SerdeContext): CustomEr
   if (output[_Q] != null) {
     contents[_Q] = __strictParseInt32(output[_Q]) as number;
   }
-  if (output.Items === "") {
+  if (String(output.Items).trim() === "") {
     contents[_It] = [];
   } else if (output[_It] != null && output[_It][_CER] != null) {
     contents[_It] = de_CustomErrorResponseList(__getArrayIfSingleItem(output[_It][_CER]), context);
@@ -13640,7 +13640,7 @@ const de_CustomHeaders = (output: any, context: __SerdeContext): CustomHeaders =
   if (output[_Q] != null) {
     contents[_Q] = __strictParseInt32(output[_Q]) as number;
   }
-  if (output.Items === "") {
+  if (String(output.Items).trim() === "") {
     contents[_It] = [];
   } else if (output[_It] != null && output[_It][_OCH] != null) {
     contents[_It] = de_OriginCustomHeadersList(__getArrayIfSingleItem(output[_It][_OCH]), context);
@@ -13791,7 +13791,7 @@ const de_Distribution = (output: any, context: __SerdeContext): Distribution => 
   if (output[_DCi] != null) {
     contents[_DCi] = de_DistributionConfig(output[_DCi], context);
   }
-  if (output.AliasICPRecordals === "") {
+  if (String(output.AliasICPRecordals).trim() === "") {
     contents[_AICPR] = [];
   } else if (output[_AICPR] != null && output[_AICPR][_AICPRl] != null) {
     contents[_AICPR] = de_AliasICPRecordals(__getArrayIfSingleItem(output[_AICPR][_AICPRl]), context);
@@ -13893,7 +13893,7 @@ const de_DistributionIdList = (output: any, context: __SerdeContext): Distributi
   if (output[_Q] != null) {
     contents[_Q] = __strictParseInt32(output[_Q]) as number;
   }
-  if (output.Items === "") {
+  if (String(output.Items).trim() === "") {
     contents[_It] = [];
   } else if (output[_It] != null && output[_It][_DI] != null) {
     contents[_It] = de_DistributionIdListSummary(__getArrayIfSingleItem(output[_It][_DI]), context);
@@ -13932,7 +13932,7 @@ const de_DistributionList = (output: any, context: __SerdeContext): Distribution
   if (output[_Q] != null) {
     contents[_Q] = __strictParseInt32(output[_Q]) as number;
   }
-  if (output.Items === "") {
+  if (String(output.Items).trim() === "") {
     contents[_It] = [];
   } else if (output[_It] != null && output[_It][_DS] != null) {
     contents[_It] = de_DistributionSummaryList(__getArrayIfSingleItem(output[_It][_DS]), context);
@@ -14005,7 +14005,7 @@ const de_DistributionSummary = (output: any, context: __SerdeContext): Distribut
   if (output[_IIPVE] != null) {
     contents[_IIPVE] = __parseBoolean(output[_IIPVE]);
   }
-  if (output.AliasICPRecordals === "") {
+  if (String(output.AliasICPRecordals).trim() === "") {
     contents[_AICPR] = [];
   } else if (output[_AICPR] != null && output[_AICPR][_AICPRl] != null) {
     contents[_AICPR] = de_AliasICPRecordals(__getArrayIfSingleItem(output[_AICPR][_AICPRl]), context);
@@ -14050,7 +14050,7 @@ const de_DistributionTenant = (output: any, context: __SerdeContext): Distributi
   if (output[_Ar] != null) {
     contents[_Ar] = __expectString(output[_Ar]);
   }
-  if (output.Domains === "") {
+  if (String(output.Domains).trim() === "") {
     contents[_D] = [];
   } else if (output[_D] != null && output[_D][_m] != null) {
     contents[_D] = de_DomainResultList(__getArrayIfSingleItem(output[_D][_m]), context);
@@ -14061,7 +14061,7 @@ const de_DistributionTenant = (output: any, context: __SerdeContext): Distributi
   if (output[_C] != null) {
     contents[_C] = de_Customizations(output[_C], context);
   }
-  if (output.Parameters === "") {
+  if (String(output.Parameters).trim() === "") {
     contents[_P] = [];
   } else if (output[_P] != null && output[_P][_m] != null) {
     contents[_P] = de_Parameters(__getArrayIfSingleItem(output[_P][_m]), context);
@@ -14112,7 +14112,7 @@ const de_DistributionTenantSummary = (output: any, context: __SerdeContext): Dis
   if (output[_Ar] != null) {
     contents[_Ar] = __expectString(output[_Ar]);
   }
-  if (output.Domains === "") {
+  if (String(output.Domains).trim() === "") {
     contents[_D] = [];
   } else if (output[_D] != null && output[_D][_m] != null) {
     contents[_D] = de_DomainResultList(__getArrayIfSingleItem(output[_D][_m]), context);
@@ -14233,7 +14233,7 @@ const de_EncryptionEntities = (output: any, context: __SerdeContext): Encryption
   if (output[_Q] != null) {
     contents[_Q] = __strictParseInt32(output[_Q]) as number;
   }
-  if (output.Items === "") {
+  if (String(output.Items).trim() === "") {
     contents[_It] = [];
   } else if (output[_It] != null && output[_It][_EEn] != null) {
     contents[_It] = de_EncryptionEntityList(__getArrayIfSingleItem(output[_It][_EEn]), context);
@@ -14345,7 +14345,7 @@ const de_FieldLevelEncryptionList = (output: any, context: __SerdeContext): Fiel
   if (output[_Q] != null) {
     contents[_Q] = __strictParseInt32(output[_Q]) as number;
   }
-  if (output.Items === "") {
+  if (String(output.Items).trim() === "") {
     contents[_It] = [];
   } else if (output[_It] != null && output[_It][_FLES] != null) {
     contents[_It] = de_FieldLevelEncryptionSummaryList(__getArrayIfSingleItem(output[_It][_FLES]), context);
@@ -14407,7 +14407,7 @@ const de_FieldLevelEncryptionProfileList = (output: any, context: __SerdeContext
   if (output[_Q] != null) {
     contents[_Q] = __strictParseInt32(output[_Q]) as number;
   }
-  if (output.Items === "") {
+  if (String(output.Items).trim() === "") {
     contents[_It] = [];
   } else if (output[_It] != null && output[_It][_FLEPS] != null) {
     contents[_It] = de_FieldLevelEncryptionProfileSummaryList(__getArrayIfSingleItem(output[_It][_FLEPS]), context);
@@ -14519,7 +14519,7 @@ const de_FieldPatterns = (output: any, context: __SerdeContext): FieldPatterns =
   if (output[_Q] != null) {
     contents[_Q] = __strictParseInt32(output[_Q]) as number;
   }
-  if (output.Items === "") {
+  if (String(output.Items).trim() === "") {
     contents[_It] = [];
   } else if (output[_It] != null && output[_It][_FPi] != null) {
     contents[_It] = de_FieldPatternList(__getArrayIfSingleItem(output[_It][_FPi]), context);
@@ -14580,7 +14580,7 @@ const de_FunctionAssociations = (output: any, context: __SerdeContext): Function
   if (output[_Q] != null) {
     contents[_Q] = __strictParseInt32(output[_Q]) as number;
   }
-  if (output.Items === "") {
+  if (String(output.Items).trim() === "") {
     contents[_It] = [];
   } else if (output[_It] != null && output[_It][_FAu] != null) {
     contents[_It] = de_FunctionAssociationList(__getArrayIfSingleItem(output[_It][_FAu]), context);
@@ -14630,7 +14630,7 @@ const de_FunctionList = (output: any, context: __SerdeContext): FunctionList => 
   if (output[_Q] != null) {
     contents[_Q] = __strictParseInt32(output[_Q]) as number;
   }
-  if (output.Items === "") {
+  if (String(output.Items).trim() === "") {
     contents[_It] = [];
   } else if (output[_It] != null && output[_It][_FSu] != null) {
     contents[_It] = de_FunctionSummaryList(__getArrayIfSingleItem(output[_It][_FSu]), context);
@@ -14700,7 +14700,7 @@ const de_GeoRestriction = (output: any, context: __SerdeContext): GeoRestriction
   if (output[_Q] != null) {
     contents[_Q] = __strictParseInt32(output[_Q]) as number;
   }
-  if (output.Items === "") {
+  if (String(output.Items).trim() === "") {
     contents[_It] = [];
   } else if (output[_It] != null && output[_It][_L] != null) {
     contents[_It] = de_LocationList(__getArrayIfSingleItem(output[_It][_L]), context);
@@ -14716,7 +14716,7 @@ const de_GeoRestrictionCustomization = (output: any, context: __SerdeContext): G
   if (output[_RT] != null) {
     contents[_RT] = __expectString(output[_RT]);
   }
-  if (output.Locations === "") {
+  if (String(output.Locations).trim() === "") {
     contents[_Loc] = [];
   } else if (output[_Loc] != null && output[_Loc][_L] != null) {
     contents[_Loc] = de_LocationList(__getArrayIfSingleItem(output[_Loc][_L]), context);
@@ -14754,7 +14754,7 @@ const de_Headers = (output: any, context: __SerdeContext): Headers => {
   if (output[_Q] != null) {
     contents[_Q] = __strictParseInt32(output[_Q]) as number;
   }
-  if (output.Items === "") {
+  if (String(output.Items).trim() === "") {
     contents[_It] = [];
   } else if (output[_It] != null && output[_It][_N] != null) {
     contents[_It] = de_HeaderList(__getArrayIfSingleItem(output[_It][_N]), context);
@@ -14816,7 +14816,7 @@ const de_InvalidationList = (output: any, context: __SerdeContext): Invalidation
   if (output[_Q] != null) {
     contents[_Q] = __strictParseInt32(output[_Q]) as number;
   }
-  if (output.Items === "") {
+  if (String(output.Items).trim() === "") {
     contents[_It] = [];
   } else if (output[_It] != null && output[_It][_ISnv] != null) {
     contents[_It] = de_InvalidationSummaryList(__getArrayIfSingleItem(output[_It][_ISnv]), context);
@@ -14877,7 +14877,7 @@ const de_KeyGroupConfig = (output: any, context: __SerdeContext): KeyGroupConfig
   if (output[_N] != null) {
     contents[_N] = __expectString(output[_N]);
   }
-  if (output.Items === "") {
+  if (String(output.Items).trim() === "") {
     contents[_It] = [];
   } else if (output[_It] != null && output[_It][_PK] != null) {
     contents[_It] = de_PublicKeyIdList(__getArrayIfSingleItem(output[_It][_PK]), context);
@@ -14902,7 +14902,7 @@ const de_KeyGroupList = (output: any, context: __SerdeContext): KeyGroupList => 
   if (output[_Q] != null) {
     contents[_Q] = __strictParseInt32(output[_Q]) as number;
   }
-  if (output.Items === "") {
+  if (String(output.Items).trim() === "") {
     contents[_It] = [];
   } else if (output[_It] != null && output[_It][_KGS] != null) {
     contents[_It] = de_KeyGroupSummaryList(__getArrayIfSingleItem(output[_It][_KGS]), context);
@@ -14951,7 +14951,7 @@ const de_KeyPairIds = (output: any, context: __SerdeContext): KeyPairIds => {
   if (output[_Q] != null) {
     contents[_Q] = __strictParseInt32(output[_Q]) as number;
   }
-  if (output.Items === "") {
+  if (String(output.Items).trim() === "") {
     contents[_It] = [];
   } else if (output[_It] != null && output[_It][_KPI] != null) {
     contents[_It] = de_KeyPairIdList(__getArrayIfSingleItem(output[_It][_KPI]), context);
@@ -15015,7 +15015,7 @@ const de_KeyValueStoreAssociations = (output: any, context: __SerdeContext): Key
   if (output[_Q] != null) {
     contents[_Q] = __strictParseInt32(output[_Q]) as number;
   }
-  if (output.Items === "") {
+  if (String(output.Items).trim() === "") {
     contents[_It] = [];
   } else if (output[_It] != null && output[_It][_KVSAe] != null) {
     contents[_It] = de_KeyValueStoreAssociationList(__getArrayIfSingleItem(output[_It][_KVSAe]), context);
@@ -15037,7 +15037,7 @@ const de_KeyValueStoreList = (output: any, context: __SerdeContext): KeyValueSto
   if (output[_Q] != null) {
     contents[_Q] = __strictParseInt32(output[_Q]) as number;
   }
-  if (output.Items === "") {
+  if (String(output.Items).trim() === "") {
     contents[_It] = [];
   } else if (output[_It] != null && output[_It][_KVS] != null) {
     contents[_It] = de_KeyValueStoreSummaryList(__getArrayIfSingleItem(output[_It][_KVS]), context);
@@ -15131,7 +15131,7 @@ const de_LambdaFunctionAssociations = (output: any, context: __SerdeContext): La
   if (output[_Q] != null) {
     contents[_Q] = __strictParseInt32(output[_Q]) as number;
   }
-  if (output.Items === "") {
+  if (String(output.Items).trim() === "") {
     contents[_It] = [];
   } else if (output[_It] != null && output[_It][_LFAa] != null) {
     contents[_It] = de_LambdaFunctionAssociationList(__getArrayIfSingleItem(output[_It][_LFAa]), context);
@@ -15184,7 +15184,7 @@ const de_ManagedCertificateDetails = (output: any, context: __SerdeContext): Man
   if (output[_VTH] != null) {
     contents[_VTH] = __expectString(output[_VTH]);
   }
-  if (output.ValidationTokenDetails === "") {
+  if (String(output.ValidationTokenDetails).trim() === "") {
     contents[_VTD] = [];
   } else if (output[_VTD] != null && output[_VTD][_m] != null) {
     contents[_VTD] = de_ValidationTokenDetailList(__getArrayIfSingleItem(output[_VTD][_m]), context);
@@ -15315,7 +15315,7 @@ const de_OriginAccessControlList = (output: any, context: __SerdeContext): Origi
   if (output[_Q] != null) {
     contents[_Q] = __strictParseInt32(output[_Q]) as number;
   }
-  if (output.Items === "") {
+  if (String(output.Items).trim() === "") {
     contents[_It] = [];
   } else if (output[_It] != null && output[_It][_OACS] != null) {
     contents[_It] = de_OriginAccessControlSummaryList(__getArrayIfSingleItem(output[_It][_OACS]), context);
@@ -15457,7 +15457,7 @@ const de_OriginGroupMembers = (output: any, context: __SerdeContext): OriginGrou
   if (output[_Q] != null) {
     contents[_Q] = __strictParseInt32(output[_Q]) as number;
   }
-  if (output.Items === "") {
+  if (String(output.Items).trim() === "") {
     contents[_It] = [];
   } else if (output[_It] != null && output[_It][_OGM] != null) {
     contents[_It] = de_OriginGroupMemberList(__getArrayIfSingleItem(output[_It][_OGM]), context);
@@ -15473,7 +15473,7 @@ const de_OriginGroups = (output: any, context: __SerdeContext): OriginGroups => 
   if (output[_Q] != null) {
     contents[_Q] = __strictParseInt32(output[_Q]) as number;
   }
-  if (output.Items === "") {
+  if (String(output.Items).trim() === "") {
     contents[_It] = [];
   } else if (output[_It] != null && output[_It][_OGr] != null) {
     contents[_It] = de_OriginGroupList(__getArrayIfSingleItem(output[_It][_OGr]), context);
@@ -15580,7 +15580,7 @@ const de_OriginRequestPolicyList = (output: any, context: __SerdeContext): Origi
   if (output[_Q] != null) {
     contents[_Q] = __strictParseInt32(output[_Q]) as number;
   }
-  if (output.Items === "") {
+  if (String(output.Items).trim() === "") {
     contents[_It] = [];
   } else if (output[_It] != null && output[_It][_ORPS] != null) {
     contents[_It] = de_OriginRequestPolicySummaryList(__getArrayIfSingleItem(output[_It][_ORPS]), context);
@@ -15638,7 +15638,7 @@ const de_Origins = (output: any, context: __SerdeContext): Origins => {
   if (output[_Q] != null) {
     contents[_Q] = __strictParseInt32(output[_Q]) as number;
   }
-  if (output.Items === "") {
+  if (String(output.Items).trim() === "") {
     contents[_It] = [];
   } else if (output[_It] != null && output[_It][_Or] != null) {
     contents[_It] = de_OriginList(__getArrayIfSingleItem(output[_It][_Or]), context);
@@ -15668,7 +15668,7 @@ const de_OriginSslProtocols = (output: any, context: __SerdeContext): OriginSslP
   if (output[_Q] != null) {
     contents[_Q] = __strictParseInt32(output[_Q]) as number;
   }
-  if (output.Items === "") {
+  if (String(output.Items).trim() === "") {
     contents[_It] = [];
   } else if (output[_It] != null && output[_It][_SPs] != null) {
     contents[_It] = de_SslProtocolsList(__getArrayIfSingleItem(output[_It][_SPs]), context);
@@ -15782,7 +15782,7 @@ const de_Paths = (output: any, context: __SerdeContext): Paths => {
   if (output[_Q] != null) {
     contents[_Q] = __strictParseInt32(output[_Q]) as number;
   }
-  if (output.Items === "") {
+  if (String(output.Items).trim() === "") {
     contents[_It] = [];
   } else if (output[_It] != null && output[_It][_Pat] != null) {
     contents[_It] = de_PathList(__getArrayIfSingleItem(output[_It][_Pat]), context);
@@ -15852,7 +15852,7 @@ const de_PublicKeyList = (output: any, context: __SerdeContext): PublicKeyList =
   if (output[_Q] != null) {
     contents[_Q] = __strictParseInt32(output[_Q]) as number;
   }
-  if (output.Items === "") {
+  if (String(output.Items).trim() === "") {
     contents[_It] = [];
   } else if (output[_It] != null && output[_It][_PKS] != null) {
     contents[_It] = de_PublicKeySummaryList(__getArrayIfSingleItem(output[_It][_PKS]), context);
@@ -15941,7 +15941,7 @@ const de_QueryArgProfiles = (output: any, context: __SerdeContext): QueryArgProf
   if (output[_Q] != null) {
     contents[_Q] = __strictParseInt32(output[_Q]) as number;
   }
-  if (output.Items === "") {
+  if (String(output.Items).trim() === "") {
     contents[_It] = [];
   } else if (output[_It] != null && output[_It][_QAP] != null) {
     contents[_It] = de_QueryArgProfileList(__getArrayIfSingleItem(output[_It][_QAP]), context);
@@ -15957,7 +15957,7 @@ const de_QueryStringCacheKeys = (output: any, context: __SerdeContext): QueryStr
   if (output[_Q] != null) {
     contents[_Q] = __strictParseInt32(output[_Q]) as number;
   }
-  if (output.Items === "") {
+  if (String(output.Items).trim() === "") {
     contents[_It] = [];
   } else if (output[_It] != null && output[_It][_N] != null) {
     contents[_It] = de_QueryStringCacheKeysList(__getArrayIfSingleItem(output[_It][_N]), context);
@@ -15984,7 +15984,7 @@ const de_QueryStringNames = (output: any, context: __SerdeContext): QueryStringN
   if (output[_Q] != null) {
     contents[_Q] = __strictParseInt32(output[_Q]) as number;
   }
-  if (output.Items === "") {
+  if (String(output.Items).trim() === "") {
     contents[_It] = [];
   } else if (output[_It] != null && output[_It][_N] != null) {
     contents[_It] = de_QueryStringNamesList(__getArrayIfSingleItem(output[_It][_N]), context);
@@ -16017,12 +16017,12 @@ const de_RealtimeLogConfig = (output: any, context: __SerdeContext): RealtimeLog
   if (output[_SR] != null) {
     contents[_SR] = __strictParseLong(output[_SR]) as number;
   }
-  if (output.EndPoints === "") {
+  if (String(output.EndPoints).trim() === "") {
     contents[_EP] = [];
   } else if (output[_EP] != null && output[_EP][_m] != null) {
     contents[_EP] = de_EndPointList(__getArrayIfSingleItem(output[_EP][_m]), context);
   }
-  if (output.Fields === "") {
+  if (String(output.Fields).trim() === "") {
     contents[_F] = [];
   } else if (output[_F] != null && output[_F][_Fi] != null) {
     contents[_F] = de_FieldList(__getArrayIfSingleItem(output[_F][_Fi]), context);
@@ -16049,7 +16049,7 @@ const de_RealtimeLogConfigs = (output: any, context: __SerdeContext): RealtimeLo
   if (output[_MI] != null) {
     contents[_MI] = __strictParseInt32(output[_MI]) as number;
   }
-  if (output.Items === "") {
+  if (String(output.Items).trim() === "") {
     contents[_It] = [];
   } else if (output[_It] != null && output[_It][_m] != null) {
     contents[_It] = de_RealtimeLogConfigList(__getArrayIfSingleItem(output[_It][_m]), context);
@@ -16108,7 +16108,7 @@ const de_ResponseHeadersPolicyAccessControlAllowHeaders = (
   if (output[_Q] != null) {
     contents[_Q] = __strictParseInt32(output[_Q]) as number;
   }
-  if (output.Items === "") {
+  if (String(output.Items).trim() === "") {
     contents[_It] = [];
   } else if (output[_It] != null && output[_It][_H] != null) {
     contents[_It] = de_AccessControlAllowHeadersList(__getArrayIfSingleItem(output[_It][_H]), context);
@@ -16127,7 +16127,7 @@ const de_ResponseHeadersPolicyAccessControlAllowMethods = (
   if (output[_Q] != null) {
     contents[_Q] = __strictParseInt32(output[_Q]) as number;
   }
-  if (output.Items === "") {
+  if (String(output.Items).trim() === "") {
     contents[_It] = [];
   } else if (output[_It] != null && output[_It][_Met] != null) {
     contents[_It] = de_AccessControlAllowMethodsList(__getArrayIfSingleItem(output[_It][_Met]), context);
@@ -16146,7 +16146,7 @@ const de_ResponseHeadersPolicyAccessControlAllowOrigins = (
   if (output[_Q] != null) {
     contents[_Q] = __strictParseInt32(output[_Q]) as number;
   }
-  if (output.Items === "") {
+  if (String(output.Items).trim() === "") {
     contents[_It] = [];
   } else if (output[_It] != null && output[_It][_Or] != null) {
     contents[_It] = de_AccessControlAllowOriginsList(__getArrayIfSingleItem(output[_It][_Or]), context);
@@ -16165,7 +16165,7 @@ const de_ResponseHeadersPolicyAccessControlExposeHeaders = (
   if (output[_Q] != null) {
     contents[_Q] = __strictParseInt32(output[_Q]) as number;
   }
-  if (output.Items === "") {
+  if (String(output.Items).trim() === "") {
     contents[_It] = [];
   } else if (output[_It] != null && output[_It][_H] != null) {
     contents[_It] = de_AccessControlExposeHeadersList(__getArrayIfSingleItem(output[_It][_H]), context);
@@ -16307,7 +16307,7 @@ const de_ResponseHeadersPolicyCustomHeadersConfig = (
   if (output[_Q] != null) {
     contents[_Q] = __strictParseInt32(output[_Q]) as number;
   }
-  if (output.Items === "") {
+  if (String(output.Items).trim() === "") {
     contents[_It] = [];
   } else if (output[_It] != null && output[_It][_RHPCH] != null) {
     contents[_It] = de_ResponseHeadersPolicyCustomHeaderList(__getArrayIfSingleItem(output[_It][_RHPCH]), context);
@@ -16346,7 +16346,7 @@ const de_ResponseHeadersPolicyList = (output: any, context: __SerdeContext): Res
   if (output[_Q] != null) {
     contents[_Q] = __strictParseInt32(output[_Q]) as number;
   }
-  if (output.Items === "") {
+  if (String(output.Items).trim() === "") {
     contents[_It] = [];
   } else if (output[_It] != null && output[_It][_RHPS] != null) {
     contents[_It] = de_ResponseHeadersPolicySummaryList(__getArrayIfSingleItem(output[_It][_RHPS]), context);
@@ -16410,7 +16410,7 @@ const de_ResponseHeadersPolicyRemoveHeadersConfig = (
   if (output[_Q] != null) {
     contents[_Q] = __strictParseInt32(output[_Q]) as number;
   }
-  if (output.Items === "") {
+  if (String(output.Items).trim() === "") {
     contents[_It] = [];
   } else if (output[_It] != null && output[_It][_RHPRH] != null) {
     contents[_It] = de_ResponseHeadersPolicyRemoveHeaderList(__getArrayIfSingleItem(output[_It][_RHPRH]), context);
@@ -16643,7 +16643,7 @@ const de_StagingDistributionDnsNames = (output: any, context: __SerdeContext): S
   if (output[_Q] != null) {
     contents[_Q] = __strictParseInt32(output[_Q]) as number;
   }
-  if (output.Items === "") {
+  if (String(output.Items).trim() === "") {
     contents[_It] = [];
   } else if (output[_It] != null && output[_It][_DNn] != null) {
     contents[_It] = de_StagingDistributionDnsNameList(__getArrayIfSingleItem(output[_It][_DNn]), context);
@@ -16670,7 +16670,7 @@ const de_StatusCodes = (output: any, context: __SerdeContext): StatusCodes => {
   if (output[_Q] != null) {
     contents[_Q] = __strictParseInt32(output[_Q]) as number;
   }
-  if (output.Items === "") {
+  if (String(output.Items).trim() === "") {
     contents[_It] = [];
   } else if (output[_It] != null && output[_It][_SCta] != null) {
     contents[_It] = de_StatusCodeList(__getArrayIfSingleItem(output[_It][_SCta]), context);
@@ -16759,7 +16759,7 @@ const de_StreamingDistributionList = (output: any, context: __SerdeContext): Str
   if (output[_Q] != null) {
     contents[_Q] = __strictParseInt32(output[_Q]) as number;
   }
-  if (output.Items === "") {
+  if (String(output.Items).trim() === "") {
     contents[_It] = [];
   } else if (output[_It] != null && output[_It][_SDS] != null) {
     contents[_It] = de_StreamingDistributionSummaryList(__getArrayIfSingleItem(output[_It][_SDS]), context);
@@ -16883,7 +16883,7 @@ const de_TagList = (output: any, context: __SerdeContext): Tag[] => {
  */
 const de_Tags = (output: any, context: __SerdeContext): Tags => {
   const contents: any = {};
-  if (output.Items === "") {
+  if (String(output.Items).trim() === "") {
     contents[_It] = [];
   } else if (output[_It] != null && output[_It][_Ta] != null) {
     contents[_It] = de_TagList(__getArrayIfSingleItem(output[_It][_Ta]), context);
@@ -16896,7 +16896,7 @@ const de_Tags = (output: any, context: __SerdeContext): Tags => {
  */
 const de_TenantConfig = (output: any, context: __SerdeContext): TenantConfig => {
   const contents: any = {};
-  if (output.ParameterDefinitions === "") {
+  if (String(output.ParameterDefinitions).trim() === "") {
     contents[_PDa] = [];
   } else if (output[_PDa] != null && output[_PDa][_m] != null) {
     contents[_PDa] = de_ParameterDefinitions(__getArrayIfSingleItem(output[_PDa][_m]), context);
@@ -16915,7 +16915,7 @@ const de_TestResult = (output: any, context: __SerdeContext): TestResult => {
   if (output[_CU] != null) {
     contents[_CU] = __expectString(output[_CU]);
   }
-  if (output.FunctionExecutionLogs === "") {
+  if (String(output.FunctionExecutionLogs).trim() === "") {
     contents[_FEL] = [];
   } else if (output[_FEL] != null && output[_FEL][_m] != null) {
     contents[_FEL] = de_FunctionExecutionLogList(__getArrayIfSingleItem(output[_FEL][_m]), context);
@@ -16968,7 +16968,7 @@ const de_TrustedKeyGroups = (output: any, context: __SerdeContext): TrustedKeyGr
   if (output[_Q] != null) {
     contents[_Q] = __strictParseInt32(output[_Q]) as number;
   }
-  if (output.Items === "") {
+  if (String(output.Items).trim() === "") {
     contents[_It] = [];
   } else if (output[_It] != null && output[_It][_KG] != null) {
     contents[_It] = de_TrustedKeyGroupIdList(__getArrayIfSingleItem(output[_It][_KG]), context);
@@ -16987,7 +16987,7 @@ const de_TrustedSigners = (output: any, context: __SerdeContext): TrustedSigners
   if (output[_Q] != null) {
     contents[_Q] = __strictParseInt32(output[_Q]) as number;
   }
-  if (output.Items === "") {
+  if (String(output.Items).trim() === "") {
     contents[_It] = [];
   } else if (output[_It] != null && output[_It][_AAN] != null) {
     contents[_It] = de_AwsAccountNumberList(__getArrayIfSingleItem(output[_It][_AAN]), context);
@@ -17141,7 +17141,7 @@ const de_VpcOriginList = (output: any, context: __SerdeContext): VpcOriginList =
   if (output[_Q] != null) {
     contents[_Q] = __strictParseInt32(output[_Q]) as number;
   }
-  if (output.Items === "") {
+  if (String(output.Items).trim() === "") {
     contents[_It] = [];
   } else if (output[_It] != null && output[_It][_VOS] != null) {
     contents[_It] = de_VpcOriginSummaryList(__getArrayIfSingleItem(output[_It][_VOS]), context);

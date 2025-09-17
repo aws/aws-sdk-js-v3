@@ -3510,7 +3510,7 @@ const de_Endpoint = (output: any, context: __SerdeContext): Endpoint => {
   if (output[_EA] != null) {
     contents[_EA] = __expectString(output[_EA]);
   }
-  if (output.Attributes === "") {
+  if (String(output.Attributes).trim() === "") {
     contents[_At] = {};
   } else if (output[_At] != null && output[_At][_e] != null) {
     contents[_At] = de_MapStringToString(__getArrayIfSingleItem(output[_At][_e]), context);
@@ -3559,7 +3559,7 @@ const de_GetDataProtectionPolicyResponse = (output: any, context: __SerdeContext
  */
 const de_GetEndpointAttributesResponse = (output: any, context: __SerdeContext): GetEndpointAttributesResponse => {
   const contents: any = {};
-  if (output.Attributes === "") {
+  if (String(output.Attributes).trim() === "") {
     contents[_At] = {};
   } else if (output[_At] != null && output[_At][_e] != null) {
     contents[_At] = de_MapStringToString(__getArrayIfSingleItem(output[_At][_e]), context);
@@ -3575,7 +3575,7 @@ const de_GetPlatformApplicationAttributesResponse = (
   context: __SerdeContext
 ): GetPlatformApplicationAttributesResponse => {
   const contents: any = {};
-  if (output.Attributes === "") {
+  if (String(output.Attributes).trim() === "") {
     contents[_At] = {};
   } else if (output[_At] != null && output[_At][_e] != null) {
     contents[_At] = de_MapStringToString(__getArrayIfSingleItem(output[_At][_e]), context);
@@ -3588,7 +3588,7 @@ const de_GetPlatformApplicationAttributesResponse = (
  */
 const de_GetSMSAttributesResponse = (output: any, context: __SerdeContext): GetSMSAttributesResponse => {
   const contents: any = {};
-  if (output.attributes === "") {
+  if (String(output.attributes).trim() === "") {
     contents[_a] = {};
   } else if (output[_a] != null && output[_a][_e] != null) {
     contents[_a] = de_MapStringToString(__getArrayIfSingleItem(output[_a][_e]), context);
@@ -3618,7 +3618,7 @@ const de_GetSubscriptionAttributesResponse = (
   context: __SerdeContext
 ): GetSubscriptionAttributesResponse => {
   const contents: any = {};
-  if (output.Attributes === "") {
+  if (String(output.Attributes).trim() === "") {
     contents[_At] = {};
   } else if (output[_At] != null && output[_At][_e] != null) {
     contents[_At] = de_SubscriptionAttributesMap(__getArrayIfSingleItem(output[_At][_e]), context);
@@ -3631,7 +3631,7 @@ const de_GetSubscriptionAttributesResponse = (
  */
 const de_GetTopicAttributesResponse = (output: any, context: __SerdeContext): GetTopicAttributesResponse => {
   const contents: any = {};
-  if (output.Attributes === "") {
+  if (String(output.Attributes).trim() === "") {
     contents[_At] = {};
   } else if (output[_At] != null && output[_At][_e] != null) {
     contents[_At] = de_TopicAttributesMap(__getArrayIfSingleItem(output[_At][_e]), context);
@@ -3779,7 +3779,7 @@ const de_ListEndpointsByPlatformApplicationResponse = (
   context: __SerdeContext
 ): ListEndpointsByPlatformApplicationResponse => {
   const contents: any = {};
-  if (output.Endpoints === "") {
+  if (String(output.Endpoints).trim() === "") {
     contents[_En] = [];
   } else if (output[_En] != null && output[_En][_me] != null) {
     contents[_En] = de_ListOfEndpoints(__getArrayIfSingleItem(output[_En][_me]), context);
@@ -3820,7 +3820,7 @@ const de_ListOriginationNumbersResult = (output: any, context: __SerdeContext): 
   if (output[_NT] != null) {
     contents[_NT] = __expectString(output[_NT]);
   }
-  if (output.PhoneNumbers === "") {
+  if (String(output.PhoneNumbers).trim() === "") {
     contents[_PNh] = [];
   } else if (output[_PNh] != null && output[_PNh][_me] != null) {
     contents[_PNh] = de_PhoneNumberInformationList(__getArrayIfSingleItem(output[_PNh][_me]), context);
@@ -3836,7 +3836,7 @@ const de_ListPhoneNumbersOptedOutResponse = (
   context: __SerdeContext
 ): ListPhoneNumbersOptedOutResponse => {
   const contents: any = {};
-  if (output.phoneNumbers === "") {
+  if (String(output.phoneNumbers).trim() === "") {
     contents[_pNh] = [];
   } else if (output[_pNh] != null && output[_pNh][_me] != null) {
     contents[_pNh] = de_PhoneNumberList(__getArrayIfSingleItem(output[_pNh][_me]), context);
@@ -3855,7 +3855,7 @@ const de_ListPlatformApplicationsResponse = (
   context: __SerdeContext
 ): ListPlatformApplicationsResponse => {
   const contents: any = {};
-  if (output.PlatformApplications === "") {
+  if (String(output.PlatformApplications).trim() === "") {
     contents[_PA] = [];
   } else if (output[_PA] != null && output[_PA][_me] != null) {
     contents[_PA] = de_ListOfPlatformApplications(__getArrayIfSingleItem(output[_PA][_me]), context);
@@ -3874,7 +3874,7 @@ const de_ListSMSSandboxPhoneNumbersResult = (
   context: __SerdeContext
 ): ListSMSSandboxPhoneNumbersResult => {
   const contents: any = {};
-  if (output.PhoneNumbers === "") {
+  if (String(output.PhoneNumbers).trim() === "") {
     contents[_PNh] = [];
   } else if (output[_PNh] != null && output[_PNh][_me] != null) {
     contents[_PNh] = de_SMSSandboxPhoneNumberList(__getArrayIfSingleItem(output[_PNh][_me]), context);
@@ -3893,7 +3893,7 @@ const de_ListSubscriptionsByTopicResponse = (
   context: __SerdeContext
 ): ListSubscriptionsByTopicResponse => {
   const contents: any = {};
-  if (output.Subscriptions === "") {
+  if (String(output.Subscriptions).trim() === "") {
     contents[_Sub] = [];
   } else if (output[_Sub] != null && output[_Sub][_me] != null) {
     contents[_Sub] = de_SubscriptionsList(__getArrayIfSingleItem(output[_Sub][_me]), context);
@@ -3909,7 +3909,7 @@ const de_ListSubscriptionsByTopicResponse = (
  */
 const de_ListSubscriptionsResponse = (output: any, context: __SerdeContext): ListSubscriptionsResponse => {
   const contents: any = {};
-  if (output.Subscriptions === "") {
+  if (String(output.Subscriptions).trim() === "") {
     contents[_Sub] = [];
   } else if (output[_Sub] != null && output[_Sub][_me] != null) {
     contents[_Sub] = de_SubscriptionsList(__getArrayIfSingleItem(output[_Sub][_me]), context);
@@ -3925,7 +3925,7 @@ const de_ListSubscriptionsResponse = (output: any, context: __SerdeContext): Lis
  */
 const de_ListTagsForResourceResponse = (output: any, context: __SerdeContext): ListTagsForResourceResponse => {
   const contents: any = {};
-  if (output.Tags === "") {
+  if (String(output.Tags).trim() === "") {
     contents[_Ta] = [];
   } else if (output[_Ta] != null && output[_Ta][_me] != null) {
     contents[_Ta] = de_TagList(__getArrayIfSingleItem(output[_Ta][_me]), context);
@@ -3938,7 +3938,7 @@ const de_ListTagsForResourceResponse = (output: any, context: __SerdeContext): L
  */
 const de_ListTopicsResponse = (output: any, context: __SerdeContext): ListTopicsResponse => {
   const contents: any = {};
-  if (output.Topics === "") {
+  if (String(output.Topics).trim() === "") {
     contents[_To] = [];
   } else if (output[_To] != null && output[_To][_me] != null) {
     contents[_To] = de_TopicsList(__getArrayIfSingleItem(output[_To][_me]), context);
@@ -4023,7 +4023,7 @@ const de_PhoneNumberInformation = (output: any, context: __SerdeContext): PhoneN
   if (output[_RT] != null) {
     contents[_RT] = __expectString(output[_RT]);
   }
-  if (output.NumberCapabilities === "") {
+  if (String(output.NumberCapabilities).trim() === "") {
     contents[_NC] = [];
   } else if (output[_NC] != null && output[_NC][_me] != null) {
     contents[_NC] = de_NumberCapabilityList(__getArrayIfSingleItem(output[_NC][_me]), context);
@@ -4061,7 +4061,7 @@ const de_PlatformApplication = (output: any, context: __SerdeContext): PlatformA
   if (output[_PAA] != null) {
     contents[_PAA] = __expectString(output[_PAA]);
   }
-  if (output.Attributes === "") {
+  if (String(output.Attributes).trim() === "") {
     contents[_At] = {};
   } else if (output[_At] != null && output[_At][_e] != null) {
     contents[_At] = de_MapStringToString(__getArrayIfSingleItem(output[_At][_e]), context);
@@ -4088,12 +4088,12 @@ const de_PlatformApplicationDisabledException = (
  */
 const de_PublishBatchResponse = (output: any, context: __SerdeContext): PublishBatchResponse => {
   const contents: any = {};
-  if (output.Successful === "") {
+  if (String(output.Successful).trim() === "") {
     contents[_Suc] = [];
   } else if (output[_Suc] != null && output[_Suc][_me] != null) {
     contents[_Suc] = de_PublishBatchResultEntryList(__getArrayIfSingleItem(output[_Suc][_me]), context);
   }
-  if (output.Failed === "") {
+  if (String(output.Failed).trim() === "") {
     contents[_F] = [];
   } else if (output[_F] != null && output[_F][_me] != null) {
     contents[_F] = de_BatchResultErrorEntryList(__getArrayIfSingleItem(output[_F][_me]), context);

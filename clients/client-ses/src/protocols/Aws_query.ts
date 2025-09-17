@@ -6015,7 +6015,7 @@ const de_CloneReceiptRuleSetResponse = (output: any, context: __SerdeContext): C
  */
 const de_CloudWatchDestination = (output: any, context: __SerdeContext): CloudWatchDestination => {
   const contents: any = {};
-  if (output.DimensionConfigurations === "") {
+  if (String(output.DimensionConfigurations).trim() === "") {
     contents[_DC] = [];
   } else if (output[_DC] != null && output[_DC][_me] != null) {
     contents[_DC] = de_CloudWatchDimensionConfigurations(__getArrayIfSingleItem(output[_DC][_me]), context);
@@ -6391,7 +6391,7 @@ const de_DescribeActiveReceiptRuleSetResponse = (
   if (output[_Me] != null) {
     contents[_Me] = de_ReceiptRuleSetMetadata(output[_Me], context);
   }
-  if (output.Rules === "") {
+  if (String(output.Rules).trim() === "") {
     contents[_Rul] = [];
   } else if (output[_Rul] != null && output[_Rul][_me] != null) {
     contents[_Rul] = de_ReceiptRulesList(__getArrayIfSingleItem(output[_Rul][_me]), context);
@@ -6410,7 +6410,7 @@ const de_DescribeConfigurationSetResponse = (
   if (output[_CS] != null) {
     contents[_CS] = de_ConfigurationSet(output[_CS], context);
   }
-  if (output.EventDestinations === "") {
+  if (String(output.EventDestinations).trim() === "") {
     contents[_EDv] = [];
   } else if (output[_EDv] != null && output[_EDv][_me] != null) {
     contents[_EDv] = de_EventDestinations(__getArrayIfSingleItem(output[_EDv][_me]), context);
@@ -6446,7 +6446,7 @@ const de_DescribeReceiptRuleSetResponse = (output: any, context: __SerdeContext)
   if (output[_Me] != null) {
     contents[_Me] = de_ReceiptRuleSetMetadata(output[_Me], context);
   }
-  if (output.Rules === "") {
+  if (String(output.Rules).trim() === "") {
     contents[_Rul] = [];
   } else if (output[_Rul] != null && output[_Rul][_me] != null) {
     contents[_Rul] = de_ReceiptRulesList(__getArrayIfSingleItem(output[_Rul][_me]), context);
@@ -6478,7 +6478,7 @@ const de_EventDestination = (output: any, context: __SerdeContext): EventDestina
   if (output[_E] != null) {
     contents[_E] = __parseBoolean(output[_E]);
   }
-  if (output.MatchingEventTypes === "") {
+  if (String(output.MatchingEventTypes).trim() === "") {
     contents[_MET] = [];
   } else if (output[_MET] != null && output[_MET][_me] != null) {
     contents[_MET] = de_EventTypes(__getArrayIfSingleItem(output[_MET][_me]), context);
@@ -6625,7 +6625,7 @@ const de_GetIdentityDkimAttributesResponse = (
   context: __SerdeContext
 ): GetIdentityDkimAttributesResponse => {
   const contents: any = {};
-  if (output.DkimAttributes === "") {
+  if (String(output.DkimAttributes).trim() === "") {
     contents[_DA] = {};
   } else if (output[_DA] != null && output[_DA][_e] != null) {
     contents[_DA] = de_DkimAttributes(__getArrayIfSingleItem(output[_DA][_e]), context);
@@ -6641,7 +6641,7 @@ const de_GetIdentityMailFromDomainAttributesResponse = (
   context: __SerdeContext
 ): GetIdentityMailFromDomainAttributesResponse => {
   const contents: any = {};
-  if (output.MailFromDomainAttributes === "") {
+  if (String(output.MailFromDomainAttributes).trim() === "") {
     contents[_MFDA] = {};
   } else if (output[_MFDA] != null && output[_MFDA][_e] != null) {
     contents[_MFDA] = de_MailFromDomainAttributes(__getArrayIfSingleItem(output[_MFDA][_e]), context);
@@ -6657,7 +6657,7 @@ const de_GetIdentityNotificationAttributesResponse = (
   context: __SerdeContext
 ): GetIdentityNotificationAttributesResponse => {
   const contents: any = {};
-  if (output.NotificationAttributes === "") {
+  if (String(output.NotificationAttributes).trim() === "") {
     contents[_NA] = {};
   } else if (output[_NA] != null && output[_NA][_e] != null) {
     contents[_NA] = de_NotificationAttributes(__getArrayIfSingleItem(output[_NA][_e]), context);
@@ -6670,7 +6670,7 @@ const de_GetIdentityNotificationAttributesResponse = (
  */
 const de_GetIdentityPoliciesResponse = (output: any, context: __SerdeContext): GetIdentityPoliciesResponse => {
   const contents: any = {};
-  if (output.Policies === "") {
+  if (String(output.Policies).trim() === "") {
     contents[_Po] = {};
   } else if (output[_Po] != null && output[_Po][_e] != null) {
     contents[_Po] = de_PolicyMap(__getArrayIfSingleItem(output[_Po][_e]), context);
@@ -6686,7 +6686,7 @@ const de_GetIdentityVerificationAttributesResponse = (
   context: __SerdeContext
 ): GetIdentityVerificationAttributesResponse => {
   const contents: any = {};
-  if (output.VerificationAttributes === "") {
+  if (String(output.VerificationAttributes).trim() === "") {
     contents[_VA] = {};
   } else if (output[_VA] != null && output[_VA][_e] != null) {
     contents[_VA] = de_VerificationAttributes(__getArrayIfSingleItem(output[_VA][_e]), context);
@@ -6716,7 +6716,7 @@ const de_GetSendQuotaResponse = (output: any, context: __SerdeContext): GetSendQ
  */
 const de_GetSendStatisticsResponse = (output: any, context: __SerdeContext): GetSendStatisticsResponse => {
   const contents: any = {};
-  if (output.SendDataPoints === "") {
+  if (String(output.SendDataPoints).trim() === "") {
     contents[_SDP] = [];
   } else if (output[_SDP] != null && output[_SDP][_me] != null) {
     contents[_SDP] = de_SendDataPointList(__getArrayIfSingleItem(output[_SDP][_me]), context);
@@ -6746,7 +6746,7 @@ const de_IdentityDkimAttributes = (output: any, context: __SerdeContext): Identi
   if (output[_DVSk] != null) {
     contents[_DVSk] = __expectString(output[_DVSk]);
   }
-  if (output.DkimTokens === "") {
+  if (String(output.DkimTokens).trim() === "") {
     contents[_DTk] = [];
   } else if (output[_DTk] != null && output[_DTk][_me] != null) {
     contents[_DTk] = de_VerificationTokenList(__getArrayIfSingleItem(output[_DTk][_me]), context);
@@ -7052,7 +7052,7 @@ const de_LimitExceededException = (output: any, context: __SerdeContext): LimitE
  */
 const de_ListConfigurationSetsResponse = (output: any, context: __SerdeContext): ListConfigurationSetsResponse => {
   const contents: any = {};
-  if (output.ConfigurationSets === "") {
+  if (String(output.ConfigurationSets).trim() === "") {
     contents[_CSo] = [];
   } else if (output[_CSo] != null && output[_CSo][_me] != null) {
     contents[_CSo] = de_ConfigurationSets(__getArrayIfSingleItem(output[_CSo][_me]), context);
@@ -7071,7 +7071,7 @@ const de_ListCustomVerificationEmailTemplatesResponse = (
   context: __SerdeContext
 ): ListCustomVerificationEmailTemplatesResponse => {
   const contents: any = {};
-  if (output.CustomVerificationEmailTemplates === "") {
+  if (String(output.CustomVerificationEmailTemplates).trim() === "") {
     contents[_CVET] = [];
   } else if (output[_CVET] != null && output[_CVET][_me] != null) {
     contents[_CVET] = de_CustomVerificationEmailTemplates(__getArrayIfSingleItem(output[_CVET][_me]), context);
@@ -7087,7 +7087,7 @@ const de_ListCustomVerificationEmailTemplatesResponse = (
  */
 const de_ListIdentitiesResponse = (output: any, context: __SerdeContext): ListIdentitiesResponse => {
   const contents: any = {};
-  if (output.Identities === "") {
+  if (String(output.Identities).trim() === "") {
     contents[_Id] = [];
   } else if (output[_Id] != null && output[_Id][_me] != null) {
     contents[_Id] = de_IdentityList(__getArrayIfSingleItem(output[_Id][_me]), context);
@@ -7103,7 +7103,7 @@ const de_ListIdentitiesResponse = (output: any, context: __SerdeContext): ListId
  */
 const de_ListIdentityPoliciesResponse = (output: any, context: __SerdeContext): ListIdentityPoliciesResponse => {
   const contents: any = {};
-  if (output.PolicyNames === "") {
+  if (String(output.PolicyNames).trim() === "") {
     contents[_PNo] = [];
   } else if (output[_PNo] != null && output[_PNo][_me] != null) {
     contents[_PNo] = de_PolicyNameList(__getArrayIfSingleItem(output[_PNo][_me]), context);
@@ -7116,7 +7116,7 @@ const de_ListIdentityPoliciesResponse = (output: any, context: __SerdeContext): 
  */
 const de_ListReceiptFiltersResponse = (output: any, context: __SerdeContext): ListReceiptFiltersResponse => {
   const contents: any = {};
-  if (output.Filters === "") {
+  if (String(output.Filters).trim() === "") {
     contents[_Fi] = [];
   } else if (output[_Fi] != null && output[_Fi][_me] != null) {
     contents[_Fi] = de_ReceiptFilterList(__getArrayIfSingleItem(output[_Fi][_me]), context);
@@ -7129,7 +7129,7 @@ const de_ListReceiptFiltersResponse = (output: any, context: __SerdeContext): Li
  */
 const de_ListReceiptRuleSetsResponse = (output: any, context: __SerdeContext): ListReceiptRuleSetsResponse => {
   const contents: any = {};
-  if (output.RuleSets === "") {
+  if (String(output.RuleSets).trim() === "") {
     contents[_RS] = [];
   } else if (output[_RS] != null && output[_RS][_me] != null) {
     contents[_RS] = de_ReceiptRuleSetsLists(__getArrayIfSingleItem(output[_RS][_me]), context);
@@ -7145,7 +7145,7 @@ const de_ListReceiptRuleSetsResponse = (output: any, context: __SerdeContext): L
  */
 const de_ListTemplatesResponse = (output: any, context: __SerdeContext): ListTemplatesResponse => {
   const contents: any = {};
-  if (output.TemplatesMetadata === "") {
+  if (String(output.TemplatesMetadata).trim() === "") {
     contents[_TM] = [];
   } else if (output[_TM] != null && output[_TM][_me] != null) {
     contents[_TM] = de_TemplateMetadataList(__getArrayIfSingleItem(output[_TM][_me]), context);
@@ -7164,7 +7164,7 @@ const de_ListVerifiedEmailAddressesResponse = (
   context: __SerdeContext
 ): ListVerifiedEmailAddressesResponse => {
   const contents: any = {};
-  if (output.VerifiedEmailAddresses === "") {
+  if (String(output.VerifiedEmailAddresses).trim() === "") {
     contents[_VEAe] = [];
   } else if (output[_VEAe] != null && output[_VEAe][_me] != null) {
     contents[_VEAe] = de_AddressList(__getArrayIfSingleItem(output[_VEAe][_me]), context);
@@ -7399,12 +7399,12 @@ const de_ReceiptRule = (output: any, context: __SerdeContext): ReceiptRule => {
   if (output[_TP] != null) {
     contents[_TP] = __expectString(output[_TP]);
   }
-  if (output.Recipients === "") {
+  if (String(output.Recipients).trim() === "") {
     contents[_Re] = [];
   } else if (output[_Re] != null && output[_Re][_me] != null) {
     contents[_Re] = de_RecipientsList(__getArrayIfSingleItem(output[_Re][_me]), context);
   }
-  if (output.Actions === "") {
+  if (String(output.Actions).trim() === "") {
     contents[_Ac] = [];
   } else if (output[_Ac] != null && output[_Ac][_me] != null) {
     contents[_Ac] = de_ReceiptActionsList(__getArrayIfSingleItem(output[_Ac][_me]), context);
@@ -7554,7 +7554,7 @@ const de_SendBounceResponse = (output: any, context: __SerdeContext): SendBounce
  */
 const de_SendBulkTemplatedEmailResponse = (output: any, context: __SerdeContext): SendBulkTemplatedEmailResponse => {
   const contents: any = {};
-  if (output.Status === "") {
+  if (String(output.Status).trim() === "") {
     contents[_St] = [];
   } else if (output[_St] != null && output[_St][_me] != null) {
     contents[_St] = de_BulkEmailDestinationStatusList(__getArrayIfSingleItem(output[_St][_me]), context);
@@ -7935,7 +7935,7 @@ const de_VerificationTokenList = (output: any, context: __SerdeContext): string[
  */
 const de_VerifyDomainDkimResponse = (output: any, context: __SerdeContext): VerifyDomainDkimResponse => {
   const contents: any = {};
-  if (output.DkimTokens === "") {
+  if (String(output.DkimTokens).trim() === "") {
     contents[_DTk] = [];
   } else if (output[_DTk] != null && output[_DTk][_me] != null) {
     contents[_DTk] = de_VerificationTokenList(__getArrayIfSingleItem(output[_DTk][_me]), context);

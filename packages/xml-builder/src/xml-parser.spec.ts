@@ -81,6 +81,24 @@ describe("xml parsing", () => {
         });
       });
 
+      it("should create empty objects", () => {
+        const xml = `<XmlEmptyMapsResponse xmlns="https://example.com/">
+          <XmlEmptyMapsResult>
+              <myMap>
+              </myMap>
+          </XmlEmptyMapsResult>
+      </XmlEmptyMapsResponse>`;
+        const object = parse(xml);
+        expect(object).toEqual({
+          XmlEmptyMapsResponse: {
+            xmlns: "https://example.com/",
+            XmlEmptyMapsResult: {
+              myMap: "\n              ",
+            },
+          },
+        });
+      });
+
       it("should parse xml (custom)", () => {
         const xml = `<?xml version="1.0" encoding="UTF-8"?>
 <struct>
@@ -89,14 +107,14 @@ describe("xml parsing", () => {
   <duplicate>dup1</duplicate>
   <duplicate>dup2</duplicate>
   <duplicate>dup3</duplicate>
-  <spaced> s p a c e d </spaced>
+  <spaced>\u0020s p a c e d\u0020</spaced>
   <nested>
     <empty></empty>
     <text>abcdefg</text>
     <duplicate>dup1</duplicate>
     <duplicate>dup2</duplicate>
     <duplicate>dup3</duplicate>
-    <spaced> s p a c e d </spaced>
+    <spaced>\u0020s p a c e d\u0020</spaced>
   </nested>
 </struct>`;
         const object = parse(xml);
@@ -124,7 +142,7 @@ describe("xml parsing", () => {
   <duplicate>dup1</duplicate>
   <duplicate attr="2">dup2</duplicate>
   <duplicate attr="3">
-      <spaced> s p a c e d </spaced>
+      <spaced>\u0020s p a c e d\u0020</spaced>
       <symbol-chars>!@#$%^*()</symbol-chars>
       <number>1000000000000000000000000000000000000000000000000</number>
       <nested>
@@ -138,7 +156,7 @@ describe("xml parsing", () => {
     `<?xml version="1.0" encoding="UTF-8"?>
     <x></x>`,
     `<x>   </x>`,
-    `<?xml version="1.0" encoding="UTF-8"?><struct><duplicate>dup1</duplicate><duplicate attr="2">dup2</duplicate><duplicate attr="3"><spaced> s p a c e d </spaced><symbol-chars>!@#$%^*()</symbol-chars><number>1000000000000000000000000000000000000000000000000</number><nested><empty></empty><duplicate>dup1</duplicate><duplicate>dup2</duplicate></nested></duplicate></struct>`,
+    `<?xml version="1.0" encoding="UTF-8"?><struct><duplicate>dup1</duplicate><duplicate attr="2">dup2</duplicate><duplicate attr="3"><spaced>\u0020s p a c e d\u0020</spaced><symbol-chars>!@#$%^*()</symbol-chars><number>1000000000000000000000000000000000000000000000000</number><nested><empty></empty><duplicate>dup1</duplicate><duplicate>dup2</duplicate></nested></duplicate></struct>`,
     `<x><y>z</y></x>`,
     `<x><y>  </y></x>`,
     `<x><y>  </y><y>  </y></x>`,
@@ -150,4 +168,13 @@ describe("xml parsing", () => {
       expect(parseXMLBrowser(xml)).toEqual(parseXML(xml));
     });
   }
+
+  it("throws on parsing error", () => {
+    const xmlSamples = [`<unclosed`, `<unmatched></matched>`];
+
+    for (const xml of xmlSamples) {
+      expect(() => parseXMLBrowser(xml)).toThrowError();
+      expect(() => parseXML(xml)).toThrowError();
+    }
+  });
 });

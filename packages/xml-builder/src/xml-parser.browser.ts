@@ -11,6 +11,10 @@ const parser = new DOMParser();
 export function parseXML(xmlString: string): any {
   const xmlDocument = parser.parseFromString(xmlString, "application/xml");
 
+  if (xmlDocument.getElementsByTagName("parsererror").length > 0) {
+    throw new Error("DOMParser XML parsing error.");
+  }
+
   // Recursive function to convert XML nodes to JS object
   const xmlToObj = (node: Node): any => {
     if (node.nodeType === Node.TEXT_NODE) {

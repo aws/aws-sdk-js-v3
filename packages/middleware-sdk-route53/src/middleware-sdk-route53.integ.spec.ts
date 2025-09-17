@@ -1,6 +1,6 @@
 import { requireRequestsFrom } from "@aws-sdk/aws-util-test/src";
 import { Route53 } from "@aws-sdk/client-route-53";
-import { XMLParser } from "fast-xml-parser";
+import { parseXML } from "@aws-sdk/xml-builder";
 import { describe, expect, test as it } from "vitest";
 
 describe("middleware-sdk-route53", () => {
@@ -66,7 +66,7 @@ describe("middleware-sdk-route53", () => {
 
       requireRequestsFrom(client).toMatch({
         body(raw) {
-          const parsed = new XMLParser().parse(raw);
+          const parsed = parseXML(raw);
           expect(
             parsed.ChangeResourceRecordSetsRequest.ChangeBatch.Changes.Change.ResourceRecordSet.AliasTarget.HostedZoneId
           ).toMatch(/^my-zone$/);

@@ -18,7 +18,12 @@
 
 // temporary replacement for compatibility testing.
 import { DOMParser } from "@xmldom/xmldom";
-const parser = new DOMParser();
+const parser = new DOMParser({
+  locator: {},
+  errorHandler: (err) => {
+    throw new Error(err);
+  },
+});
 
 /**
  * Cases where this differs from fast-xml-parser:
@@ -30,6 +35,10 @@ const parser = new DOMParser();
  */
 export function parseXML(xmlString: string): any {
   const xmlDocument = parser.parseFromString(xmlString, "application/xml");
+
+  if (xmlDocument.getElementsByTagName("parsererror").length > 0) {
+    throw new Error("DOMParser XML parsing error.");
+  }
 
   // Recursive function to convert XML nodes to JS object
   const xmlToObj = (node: Node): any => {
