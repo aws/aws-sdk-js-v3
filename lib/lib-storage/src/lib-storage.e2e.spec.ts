@@ -41,7 +41,6 @@ describe("@aws-sdk/lib-storage", () => {
               requestChecksumCalculation,
             });
             Key = `multi-part-file-${requestChecksumCalculation}-${ChecksumAlgorithm}-${Date.now()}`;
-            resourcesAvailable = true;
           } catch (error) {
             console.warn("Failed to set up test resources:", error);
           }
