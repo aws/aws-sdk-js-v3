@@ -1,8 +1,7 @@
+import { requireRequestsFrom } from "@aws-sdk/aws-util-test/src";
 import { EC2 } from "@aws-sdk/client-ec2";
 import { SageMaker } from "@aws-sdk/client-sagemaker";
 import { describe, test as it } from "vitest";
-
-import { requireRequestsFrom } from "../../../private/aws-util-test/src";
 
 describe("middleware-signing", () => {
   describe(EC2.name, () => {

@@ -1,8 +1,7 @@
+import { requireRequestsFrom } from "@aws-sdk/aws-util-test/src";
 import { S3 } from "@aws-sdk/client-s3";
 import * as crypto from "crypto";
 import { describe, test as it } from "vitest";
-
-import { requireRequestsFrom } from "../../../private/aws-util-test/src";
 
 // "server-side-encryption"
 describe("middleware-ssec", () => {

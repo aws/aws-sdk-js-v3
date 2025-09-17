@@ -1,7 +1,6 @@
+import { requireRequestsFrom } from "@aws-sdk/aws-util-test/src";
 import { S3Control } from "@aws-sdk/client-s3-control";
 import { describe, expect, test as it } from "vitest";
-
-import { requireRequestsFrom } from "../../../private/aws-util-test/src";
 
 describe("middleware-sdk-s3-control", () => {
   describe(S3Control.name, () => {

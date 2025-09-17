@@ -1,7 +1,6 @@
+import { requireRequestsFrom } from "@aws-sdk/aws-util-test/src";
 import { Lambda } from "@aws-sdk/client-lambda";
 import { describe, expect, test as it } from "vitest";
-
-import { requireRequestsFrom } from "../../../private/aws-util-test/src";
 
 const ENV_LAMBDA_FUNCTION_NAME = "AWS_LAMBDA_FUNCTION_NAME";
 const ENV_TRACE_ID = "_X_AMZN_TRACE_ID";

@@ -2,7 +2,7 @@ import { S3 } from "@aws-sdk/client-s3";
 import { S3Control } from "@aws-sdk/client-s3-control";
 import { describe, expect, test as it } from "vitest";
 
-import { requireRequestsFrom } from "../../aws-util-test/src";
+import { requireRequestsFrom } from "@aws-sdk/aws-util-test/src";
 
 describe("middleware-endpoint", () => {
   // these are token examples because most endpoint

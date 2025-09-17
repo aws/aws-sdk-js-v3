@@ -1,8 +1,7 @@
+import { requireRequestsFrom } from "@aws-sdk/aws-util-test/src";
 import { DynamoDB } from "@aws-sdk/client-dynamodb";
 import { S3 } from "@aws-sdk/client-s3";
 import { afterAll, beforeEach, describe, test as it } from "vitest";
-
-import { requireRequestsFrom } from "../../../private/aws-util-test/src";
 
 /**
  * This is an AWS-specific integration test for a piece of functionality that is contained

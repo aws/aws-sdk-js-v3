@@ -1,7 +1,7 @@
 import { Weather } from "@aws-sdk/weather";
 import { describe, expect, test as it } from "vitest";
 
-import { requireRequestsFrom } from "../requests/test-http-handler";
+import { requireRequestsFrom } from "@aws-sdk/aws-util-test/src";
 
 describe(Weather.name, () => {
   it("should be able to make a request without errors", async () => {

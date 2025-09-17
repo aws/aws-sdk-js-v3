@@ -3,7 +3,7 @@ import { HttpResponse } from "@smithy/protocol-http";
 import { Readable } from "stream";
 import { describe, expect, test as it } from "vitest";
 
-import { requireRequestsFrom } from "../../../../private/aws-util-test/src";
+import { requireRequestsFrom } from "@aws-sdk/aws-util-test/src";
 
 describe("selectObjectContent", () => {
   const credentials = {

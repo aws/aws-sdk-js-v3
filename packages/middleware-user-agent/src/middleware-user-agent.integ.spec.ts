@@ -1,10 +1,9 @@
+import { requireRequestsFrom } from "@aws-sdk/aws-util-test/src";
 import { CodeCatalyst } from "@aws-sdk/client-codecatalyst";
 import { DynamoDB } from "@aws-sdk/client-dynamodb";
 import { DynamoDBDocument } from "@aws-sdk/lib-dynamodb";
 import { AwsSdkFeatures } from "@aws-sdk/types";
 import { describe, expect, test as it } from "vitest";
-
-import { requireRequestsFrom } from "../../../private/aws-util-test/src";
 
 describe("middleware-user-agent", () => {
   describe(CodeCatalyst.name, () => {
