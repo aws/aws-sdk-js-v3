@@ -35,6 +35,8 @@ export interface DeregisterInstanceCommandOutput extends DeregisterInstanceRespo
  * ```javascript
  * import { ServiceDiscoveryClient, DeregisterInstanceCommand } from "@aws-sdk/client-servicediscovery"; // ES Modules import
  * // const { ServiceDiscoveryClient, DeregisterInstanceCommand } = require("@aws-sdk/client-servicediscovery"); // CommonJS import
+ * // import type { ServiceDiscoveryClientConfig } from "@aws-sdk/client-servicediscovery";
+ * const config = {}; // type is ServiceDiscoveryClientConfig
  * const client = new ServiceDiscoveryClient(config);
  * const input = { // DeregisterInstanceRequest
  *   ServiceId: "STRING_VALUE", // required

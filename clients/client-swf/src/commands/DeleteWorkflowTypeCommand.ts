@@ -74,6 +74,8 @@ export interface DeleteWorkflowTypeCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { SWFClient, DeleteWorkflowTypeCommand } from "@aws-sdk/client-swf"; // ES Modules import
  * // const { SWFClient, DeleteWorkflowTypeCommand } = require("@aws-sdk/client-swf"); // CommonJS import
+ * // import type { SWFClientConfig } from "@aws-sdk/client-swf";
+ * const config = {}; // type is SWFClientConfig
  * const client = new SWFClient(config);
  * const input = { // DeleteWorkflowTypeInput
  *   domain: "STRING_VALUE", // required

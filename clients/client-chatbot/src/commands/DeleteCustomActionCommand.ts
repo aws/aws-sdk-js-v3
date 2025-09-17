@@ -34,6 +34,8 @@ export interface DeleteCustomActionCommandOutput extends DeleteCustomActionResul
  * ```javascript
  * import { ChatbotClient, DeleteCustomActionCommand } from "@aws-sdk/client-chatbot"; // ES Modules import
  * // const { ChatbotClient, DeleteCustomActionCommand } = require("@aws-sdk/client-chatbot"); // CommonJS import
+ * // import type { ChatbotClientConfig } from "@aws-sdk/client-chatbot";
+ * const config = {}; // type is ChatbotClientConfig
  * const client = new ChatbotClient(config);
  * const input = { // DeleteCustomActionRequest
  *   CustomActionArn: "STRING_VALUE", // required

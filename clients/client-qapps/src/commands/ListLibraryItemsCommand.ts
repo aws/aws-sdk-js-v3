@@ -34,6 +34,8 @@ export interface ListLibraryItemsCommandOutput extends ListLibraryItemsOutput, _
  * ```javascript
  * import { QAppsClient, ListLibraryItemsCommand } from "@aws-sdk/client-qapps"; // ES Modules import
  * // const { QAppsClient, ListLibraryItemsCommand } = require("@aws-sdk/client-qapps"); // CommonJS import
+ * // import type { QAppsClientConfig } from "@aws-sdk/client-qapps";
+ * const config = {}; // type is QAppsClientConfig
  * const client = new QAppsClient(config);
  * const input = { // ListLibraryItemsInput
  *   instanceId: "STRING_VALUE", // required

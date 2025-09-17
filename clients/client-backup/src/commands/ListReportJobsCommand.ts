@@ -34,6 +34,8 @@ export interface ListReportJobsCommandOutput extends ListReportJobsOutput, __Met
  * ```javascript
  * import { BackupClient, ListReportJobsCommand } from "@aws-sdk/client-backup"; // ES Modules import
  * // const { BackupClient, ListReportJobsCommand } = require("@aws-sdk/client-backup"); // CommonJS import
+ * // import type { BackupClientConfig } from "@aws-sdk/client-backup";
+ * const config = {}; // type is BackupClientConfig
  * const client = new BackupClient(config);
  * const input = { // ListReportJobsInput
  *   ByReportPlanName: "STRING_VALUE",

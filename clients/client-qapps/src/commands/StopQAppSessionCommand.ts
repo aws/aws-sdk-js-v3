@@ -34,6 +34,8 @@ export interface StopQAppSessionCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { QAppsClient, StopQAppSessionCommand } from "@aws-sdk/client-qapps"; // ES Modules import
  * // const { QAppsClient, StopQAppSessionCommand } = require("@aws-sdk/client-qapps"); // CommonJS import
+ * // import type { QAppsClientConfig } from "@aws-sdk/client-qapps";
+ * const config = {}; // type is QAppsClientConfig
  * const client = new QAppsClient(config);
  * const input = { // StopQAppSessionInput
  *   instanceId: "STRING_VALUE", // required

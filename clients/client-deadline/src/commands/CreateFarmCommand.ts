@@ -37,6 +37,8 @@ export interface CreateFarmCommandOutput extends CreateFarmResponse, __MetadataB
  * ```javascript
  * import { DeadlineClient, CreateFarmCommand } from "@aws-sdk/client-deadline"; // ES Modules import
  * // const { DeadlineClient, CreateFarmCommand } = require("@aws-sdk/client-deadline"); // CommonJS import
+ * // import type { DeadlineClientConfig } from "@aws-sdk/client-deadline";
+ * const config = {}; // type is DeadlineClientConfig
  * const client = new DeadlineClient(config);
  * const input = { // CreateFarmRequest
  *   clientToken: "STRING_VALUE",

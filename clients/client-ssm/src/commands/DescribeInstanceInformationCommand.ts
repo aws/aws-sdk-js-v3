@@ -48,6 +48,8 @@ export interface DescribeInstanceInformationCommandOutput extends DescribeInstan
  * ```javascript
  * import { SSMClient, DescribeInstanceInformationCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, DescribeInstanceInformationCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
+ * // import type { SSMClientConfig } from "@aws-sdk/client-ssm";
+ * const config = {}; // type is SSMClientConfig
  * const client = new SSMClient(config);
  * const input = { // DescribeInstanceInformationRequest
  *   InstanceInformationFilterList: [ // InstanceInformationFilterList

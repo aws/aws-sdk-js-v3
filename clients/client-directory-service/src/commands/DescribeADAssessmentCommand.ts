@@ -36,6 +36,8 @@ export interface DescribeADAssessmentCommandOutput extends DescribeADAssessmentR
  * ```javascript
  * import { DirectoryServiceClient, DescribeADAssessmentCommand } from "@aws-sdk/client-directory-service"; // ES Modules import
  * // const { DirectoryServiceClient, DescribeADAssessmentCommand } = require("@aws-sdk/client-directory-service"); // CommonJS import
+ * // import type { DirectoryServiceClientConfig } from "@aws-sdk/client-directory-service";
+ * const config = {}; // type is DirectoryServiceClientConfig
  * const client = new DirectoryServiceClient(config);
  * const input = { // DescribeADAssessmentRequest
  *   AssessmentId: "STRING_VALUE", // required

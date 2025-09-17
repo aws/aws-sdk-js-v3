@@ -38,6 +38,8 @@ export interface DeleteWorkloadEstimateCommandOutput extends DeleteWorkloadEstim
  * ```javascript
  * import { BCMPricingCalculatorClient, DeleteWorkloadEstimateCommand } from "@aws-sdk/client-bcm-pricing-calculator"; // ES Modules import
  * // const { BCMPricingCalculatorClient, DeleteWorkloadEstimateCommand } = require("@aws-sdk/client-bcm-pricing-calculator"); // CommonJS import
+ * // import type { BCMPricingCalculatorClientConfig } from "@aws-sdk/client-bcm-pricing-calculator";
+ * const config = {}; // type is BCMPricingCalculatorClientConfig
  * const client = new BCMPricingCalculatorClient(config);
  * const input = { // DeleteWorkloadEstimateRequest
  *   identifier: "STRING_VALUE", // required

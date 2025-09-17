@@ -34,6 +34,8 @@ export interface DescribeSecurityHubV2CommandOutput extends DescribeSecurityHubV
  * ```javascript
  * import { SecurityHubClient, DescribeSecurityHubV2Command } from "@aws-sdk/client-securityhub"; // ES Modules import
  * // const { SecurityHubClient, DescribeSecurityHubV2Command } = require("@aws-sdk/client-securityhub"); // CommonJS import
+ * // import type { SecurityHubClientConfig } from "@aws-sdk/client-securityhub";
+ * const config = {}; // type is SecurityHubClientConfig
  * const client = new SecurityHubClient(config);
  * const input = {};
  * const command = new DescribeSecurityHubV2Command(input);

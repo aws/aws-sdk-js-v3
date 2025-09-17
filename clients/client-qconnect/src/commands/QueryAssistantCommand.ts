@@ -37,6 +37,8 @@ export interface QueryAssistantCommandOutput extends QueryAssistantResponse, __M
  * ```javascript
  * import { QConnectClient, QueryAssistantCommand } from "@aws-sdk/client-qconnect"; // ES Modules import
  * // const { QConnectClient, QueryAssistantCommand } = require("@aws-sdk/client-qconnect"); // CommonJS import
+ * // import type { QConnectClientConfig } from "@aws-sdk/client-qconnect";
+ * const config = {}; // type is QConnectClientConfig
  * const client = new QConnectClient(config);
  * const input = { // QueryAssistantRequest
  *   assistantId: "STRING_VALUE", // required

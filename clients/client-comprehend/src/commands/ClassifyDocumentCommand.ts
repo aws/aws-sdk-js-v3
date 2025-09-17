@@ -62,6 +62,8 @@ export interface ClassifyDocumentCommandOutput extends ClassifyDocumentResponse,
  * ```javascript
  * import { ComprehendClient, ClassifyDocumentCommand } from "@aws-sdk/client-comprehend"; // ES Modules import
  * // const { ComprehendClient, ClassifyDocumentCommand } = require("@aws-sdk/client-comprehend"); // CommonJS import
+ * // import type { ComprehendClientConfig } from "@aws-sdk/client-comprehend";
+ * const config = {}; // type is ComprehendClientConfig
  * const client = new ComprehendClient(config);
  * const input = { // ClassifyDocumentRequest
  *   Text: "STRING_VALUE",

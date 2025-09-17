@@ -34,6 +34,8 @@ export interface CreateVpcLinkCommandOutput extends CreateVpcLinkResponse, __Met
  * ```javascript
  * import { ApiGatewayV2Client, CreateVpcLinkCommand } from "@aws-sdk/client-apigatewayv2"; // ES Modules import
  * // const { ApiGatewayV2Client, CreateVpcLinkCommand } = require("@aws-sdk/client-apigatewayv2"); // CommonJS import
+ * // import type { ApiGatewayV2ClientConfig } from "@aws-sdk/client-apigatewayv2";
+ * const config = {}; // type is ApiGatewayV2ClientConfig
  * const client = new ApiGatewayV2Client(config);
  * const input = { // CreateVpcLinkRequest
  *   Name: "STRING_VALUE", // required

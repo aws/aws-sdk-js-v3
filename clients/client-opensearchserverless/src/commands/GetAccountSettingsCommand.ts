@@ -38,6 +38,8 @@ export interface GetAccountSettingsCommandOutput extends GetAccountSettingsRespo
  * ```javascript
  * import { OpenSearchServerlessClient, GetAccountSettingsCommand } from "@aws-sdk/client-opensearchserverless"; // ES Modules import
  * // const { OpenSearchServerlessClient, GetAccountSettingsCommand } = require("@aws-sdk/client-opensearchserverless"); // CommonJS import
+ * // import type { OpenSearchServerlessClientConfig } from "@aws-sdk/client-opensearchserverless";
+ * const config = {}; // type is OpenSearchServerlessClientConfig
  * const client = new OpenSearchServerlessClient(config);
  * const input = {};
  * const command = new GetAccountSettingsCommand(input);

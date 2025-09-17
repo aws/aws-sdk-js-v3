@@ -39,6 +39,8 @@ export interface ListProvisionedModelThroughputsCommandOutput
  * ```javascript
  * import { BedrockClient, ListProvisionedModelThroughputsCommand } from "@aws-sdk/client-bedrock"; // ES Modules import
  * // const { BedrockClient, ListProvisionedModelThroughputsCommand } = require("@aws-sdk/client-bedrock"); // CommonJS import
+ * // import type { BedrockClientConfig } from "@aws-sdk/client-bedrock";
+ * const config = {}; // type is BedrockClientConfig
  * const client = new BedrockClient(config);
  * const input = { // ListProvisionedModelThroughputsRequest
  *   creationTimeAfter: new Date("TIMESTAMP"),

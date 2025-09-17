@@ -39,6 +39,8 @@ export interface SearchGroupProfilesCommandOutput extends SearchGroupProfilesOut
  * ```javascript
  * import { DataZoneClient, SearchGroupProfilesCommand } from "@aws-sdk/client-datazone"; // ES Modules import
  * // const { DataZoneClient, SearchGroupProfilesCommand } = require("@aws-sdk/client-datazone"); // CommonJS import
+ * // import type { DataZoneClientConfig } from "@aws-sdk/client-datazone";
+ * const config = {}; // type is DataZoneClientConfig
  * const client = new DataZoneClient(config);
  * const input = { // SearchGroupProfilesInput
  *   domainIdentifier: "STRING_VALUE", // required

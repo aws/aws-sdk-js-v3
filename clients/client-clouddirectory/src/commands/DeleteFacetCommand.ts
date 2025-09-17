@@ -36,6 +36,8 @@ export interface DeleteFacetCommandOutput extends DeleteFacetResponse, __Metadat
  * ```javascript
  * import { CloudDirectoryClient, DeleteFacetCommand } from "@aws-sdk/client-clouddirectory"; // ES Modules import
  * // const { CloudDirectoryClient, DeleteFacetCommand } = require("@aws-sdk/client-clouddirectory"); // CommonJS import
+ * // import type { CloudDirectoryClientConfig } from "@aws-sdk/client-clouddirectory";
+ * const config = {}; // type is CloudDirectoryClientConfig
  * const client = new CloudDirectoryClient(config);
  * const input = { // DeleteFacetRequest
  *   SchemaArn: "STRING_VALUE", // required

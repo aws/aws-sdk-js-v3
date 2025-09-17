@@ -39,6 +39,8 @@ export interface UpdateAIPromptCommandOutput extends UpdateAIPromptResponse, __M
  * ```javascript
  * import { QConnectClient, UpdateAIPromptCommand } from "@aws-sdk/client-qconnect"; // ES Modules import
  * // const { QConnectClient, UpdateAIPromptCommand } = require("@aws-sdk/client-qconnect"); // CommonJS import
+ * // import type { QConnectClientConfig } from "@aws-sdk/client-qconnect";
+ * const config = {}; // type is QConnectClientConfig
  * const client = new QConnectClient(config);
  * const input = { // UpdateAIPromptRequest
  *   clientToken: "STRING_VALUE",

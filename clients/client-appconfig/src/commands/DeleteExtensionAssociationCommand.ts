@@ -35,6 +35,8 @@ export interface DeleteExtensionAssociationCommandOutput extends __MetadataBeare
  * ```javascript
  * import { AppConfigClient, DeleteExtensionAssociationCommand } from "@aws-sdk/client-appconfig"; // ES Modules import
  * // const { AppConfigClient, DeleteExtensionAssociationCommand } = require("@aws-sdk/client-appconfig"); // CommonJS import
+ * // import type { AppConfigClientConfig } from "@aws-sdk/client-appconfig";
+ * const config = {}; // type is AppConfigClientConfig
  * const client = new AppConfigClient(config);
  * const input = { // DeleteExtensionAssociationRequest
  *   ExtensionAssociationId: "STRING_VALUE", // required

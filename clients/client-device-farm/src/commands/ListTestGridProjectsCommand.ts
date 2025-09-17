@@ -34,6 +34,8 @@ export interface ListTestGridProjectsCommandOutput extends ListTestGridProjectsR
  * ```javascript
  * import { DeviceFarmClient, ListTestGridProjectsCommand } from "@aws-sdk/client-device-farm"; // ES Modules import
  * // const { DeviceFarmClient, ListTestGridProjectsCommand } = require("@aws-sdk/client-device-farm"); // CommonJS import
+ * // import type { DeviceFarmClientConfig } from "@aws-sdk/client-device-farm";
+ * const config = {}; // type is DeviceFarmClientConfig
  * const client = new DeviceFarmClient(config);
  * const input = { // ListTestGridProjectsRequest
  *   maxResult: Number("int"),

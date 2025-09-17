@@ -34,6 +34,8 @@ export interface TerminateWorkspacesPoolCommandOutput extends TerminateWorkspace
  * ```javascript
  * import { WorkSpacesClient, TerminateWorkspacesPoolCommand } from "@aws-sdk/client-workspaces"; // ES Modules import
  * // const { WorkSpacesClient, TerminateWorkspacesPoolCommand } = require("@aws-sdk/client-workspaces"); // CommonJS import
+ * // import type { WorkSpacesClientConfig } from "@aws-sdk/client-workspaces";
+ * const config = {}; // type is WorkSpacesClientConfig
  * const client = new WorkSpacesClient(config);
  * const input = { // TerminateWorkspacesPoolRequest
  *   PoolId: "STRING_VALUE", // required

@@ -35,6 +35,8 @@ export interface ResumeClusterCommandOutput extends ResumeClusterResult, __Metad
  * ```javascript
  * import { RedshiftClient, ResumeClusterCommand } from "@aws-sdk/client-redshift"; // ES Modules import
  * // const { RedshiftClient, ResumeClusterCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
+ * // import type { RedshiftClientConfig } from "@aws-sdk/client-redshift";
+ * const config = {}; // type is RedshiftClientConfig
  * const client = new RedshiftClient(config);
  * const input = { // ResumeClusterMessage
  *   ClusterIdentifier: "STRING_VALUE", // required

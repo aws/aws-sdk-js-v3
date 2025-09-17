@@ -33,6 +33,8 @@ export interface JsonBlobsCommandOutput extends JsonBlobsInputOutput, __Metadata
  * ```javascript
  * import { RestJsonProtocolClient, JsonBlobsCommand } from "@aws-sdk/aws-protocoltests-restjson-schema"; // ES Modules import
  * // const { RestJsonProtocolClient, JsonBlobsCommand } = require("@aws-sdk/aws-protocoltests-restjson-schema"); // CommonJS import
+ * // import type { RestJsonProtocolClientConfig } from "@aws-sdk/aws-protocoltests-restjson-schema";
+ * const config = {}; // type is RestJsonProtocolClientConfig
  * const client = new RestJsonProtocolClient(config);
  * const input = { // JsonBlobsInputOutput
  *   data: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")

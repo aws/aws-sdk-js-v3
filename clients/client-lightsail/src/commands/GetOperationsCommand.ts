@@ -37,6 +37,8 @@ export interface GetOperationsCommandOutput extends GetOperationsResult, __Metad
  * ```javascript
  * import { LightsailClient, GetOperationsCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, GetOperationsCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
+ * // import type { LightsailClientConfig } from "@aws-sdk/client-lightsail";
+ * const config = {}; // type is LightsailClientConfig
  * const client = new LightsailClient(config);
  * const input = { // GetOperationsRequest
  *   pageToken: "STRING_VALUE",

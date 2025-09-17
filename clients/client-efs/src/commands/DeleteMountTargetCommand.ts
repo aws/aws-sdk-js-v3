@@ -64,6 +64,8 @@ export interface DeleteMountTargetCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { EFSClient, DeleteMountTargetCommand } from "@aws-sdk/client-efs"; // ES Modules import
  * // const { EFSClient, DeleteMountTargetCommand } = require("@aws-sdk/client-efs"); // CommonJS import
+ * // import type { EFSClientConfig } from "@aws-sdk/client-efs";
+ * const config = {}; // type is EFSClientConfig
  * const client = new EFSClient(config);
  * const input = { // DeleteMountTargetRequest
  *   MountTargetId: "STRING_VALUE", // required

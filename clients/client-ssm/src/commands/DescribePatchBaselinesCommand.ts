@@ -34,6 +34,8 @@ export interface DescribePatchBaselinesCommandOutput extends DescribePatchBaseli
  * ```javascript
  * import { SSMClient, DescribePatchBaselinesCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, DescribePatchBaselinesCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
+ * // import type { SSMClientConfig } from "@aws-sdk/client-ssm";
+ * const config = {}; // type is SSMClientConfig
  * const client = new SSMClient(config);
  * const input = { // DescribePatchBaselinesRequest
  *   Filters: [ // PatchOrchestratorFilterList

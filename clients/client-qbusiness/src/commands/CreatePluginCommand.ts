@@ -34,6 +34,8 @@ export interface CreatePluginCommandOutput extends CreatePluginResponse, __Metad
  * ```javascript
  * import { QBusinessClient, CreatePluginCommand } from "@aws-sdk/client-qbusiness"; // ES Modules import
  * // const { QBusinessClient, CreatePluginCommand } = require("@aws-sdk/client-qbusiness"); // CommonJS import
+ * // import type { QBusinessClientConfig } from "@aws-sdk/client-qbusiness";
+ * const config = {}; // type is QBusinessClientConfig
  * const client = new QBusinessClient(config);
  * const input = { // CreatePluginRequest
  *   applicationId: "STRING_VALUE", // required

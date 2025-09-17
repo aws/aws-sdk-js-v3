@@ -34,6 +34,8 @@ export interface StartSearchJobCommandOutput extends StartSearchJobOutput, __Met
  * ```javascript
  * import { BackupSearchClient, StartSearchJobCommand } from "@aws-sdk/client-backupsearch"; // ES Modules import
  * // const { BackupSearchClient, StartSearchJobCommand } = require("@aws-sdk/client-backupsearch"); // CommonJS import
+ * // import type { BackupSearchClientConfig } from "@aws-sdk/client-backupsearch";
+ * const config = {}; // type is BackupSearchClientConfig
  * const client = new BackupSearchClient(config);
  * const input = { // StartSearchJobInput
  *   Tags: { // TagMap

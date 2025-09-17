@@ -58,6 +58,8 @@ export interface TagQueueCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { SQSClient, TagQueueCommand } from "@aws-sdk/client-sqs"; // ES Modules import
  * // const { SQSClient, TagQueueCommand } = require("@aws-sdk/client-sqs"); // CommonJS import
+ * // import type { SQSClientConfig } from "@aws-sdk/client-sqs";
+ * const config = {}; // type is SQSClientConfig
  * const client = new SQSClient(config);
  * const input = { // TagQueueRequest
  *   QueueUrl: "STRING_VALUE", // required

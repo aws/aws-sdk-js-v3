@@ -34,6 +34,8 @@ export interface GetControlCommandOutput extends GetControlResponse, __MetadataB
  * ```javascript
  * import { AuditManagerClient, GetControlCommand } from "@aws-sdk/client-auditmanager"; // ES Modules import
  * // const { AuditManagerClient, GetControlCommand } = require("@aws-sdk/client-auditmanager"); // CommonJS import
+ * // import type { AuditManagerClientConfig } from "@aws-sdk/client-auditmanager";
+ * const config = {}; // type is AuditManagerClientConfig
  * const client = new AuditManagerClient(config);
  * const input = { // GetControlRequest
  *   controlId: "STRING_VALUE", // required

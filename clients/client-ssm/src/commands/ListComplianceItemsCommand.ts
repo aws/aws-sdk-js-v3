@@ -36,6 +36,8 @@ export interface ListComplianceItemsCommandOutput extends ListComplianceItemsRes
  * ```javascript
  * import { SSMClient, ListComplianceItemsCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, ListComplianceItemsCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
+ * // import type { SSMClientConfig } from "@aws-sdk/client-ssm";
+ * const config = {}; // type is SSMClientConfig
  * const client = new SSMClient(config);
  * const input = { // ListComplianceItemsRequest
  *   Filters: [ // ComplianceStringFilterList

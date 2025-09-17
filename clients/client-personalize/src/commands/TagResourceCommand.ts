@@ -34,6 +34,8 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * ```javascript
  * import { PersonalizeClient, TagResourceCommand } from "@aws-sdk/client-personalize"; // ES Modules import
  * // const { PersonalizeClient, TagResourceCommand } = require("@aws-sdk/client-personalize"); // CommonJS import
+ * // import type { PersonalizeClientConfig } from "@aws-sdk/client-personalize";
+ * const config = {}; // type is PersonalizeClientConfig
  * const client = new PersonalizeClient(config);
  * const input = { // TagResourceRequest
  *   resourceArn: "STRING_VALUE", // required

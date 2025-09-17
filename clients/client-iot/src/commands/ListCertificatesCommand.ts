@@ -37,6 +37,8 @@ export interface ListCertificatesCommandOutput extends ListCertificatesResponse,
  * ```javascript
  * import { IoTClient, ListCertificatesCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, ListCertificatesCommand } = require("@aws-sdk/client-iot"); // CommonJS import
+ * // import type { IoTClientConfig } from "@aws-sdk/client-iot";
+ * const config = {}; // type is IoTClientConfig
  * const client = new IoTClient(config);
  * const input = { // ListCertificatesRequest
  *   pageSize: Number("int"),

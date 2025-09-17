@@ -34,6 +34,8 @@ export interface UpdateTableCommandOutput extends UpdateTableResponse, __Metadat
  * ```javascript
  * import { KeyspacesClient, UpdateTableCommand } from "@aws-sdk/client-keyspaces"; // ES Modules import
  * // const { KeyspacesClient, UpdateTableCommand } = require("@aws-sdk/client-keyspaces"); // CommonJS import
+ * // import type { KeyspacesClientConfig } from "@aws-sdk/client-keyspaces";
+ * const config = {}; // type is KeyspacesClientConfig
  * const client = new KeyspacesClient(config);
  * const input = { // UpdateTableRequest
  *   keyspaceName: "STRING_VALUE", // required

@@ -41,6 +41,8 @@ export interface ListRetrievedTracesCommandOutput extends ListRetrievedTracesRes
  * ```javascript
  * import { XRayClient, ListRetrievedTracesCommand } from "@aws-sdk/client-xray"; // ES Modules import
  * // const { XRayClient, ListRetrievedTracesCommand } = require("@aws-sdk/client-xray"); // CommonJS import
+ * // import type { XRayClientConfig } from "@aws-sdk/client-xray";
+ * const config = {}; // type is XRayClientConfig
  * const client = new XRayClient(config);
  * const input = { // ListRetrievedTracesRequest
  *   RetrievalToken: "STRING_VALUE", // required

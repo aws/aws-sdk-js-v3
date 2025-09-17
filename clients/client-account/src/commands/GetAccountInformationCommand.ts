@@ -38,6 +38,8 @@ export interface GetAccountInformationCommandOutput extends GetAccountInformatio
  * ```javascript
  * import { AccountClient, GetAccountInformationCommand } from "@aws-sdk/client-account"; // ES Modules import
  * // const { AccountClient, GetAccountInformationCommand } = require("@aws-sdk/client-account"); // CommonJS import
+ * // import type { AccountClientConfig } from "@aws-sdk/client-account";
+ * const config = {}; // type is AccountClientConfig
  * const client = new AccountClient(config);
  * const input = { // GetAccountInformationRequest
  *   AccountId: "STRING_VALUE",

@@ -37,6 +37,8 @@ export interface HttpPayloadWithStructureCommandOutput extends HttpPayloadWithSt
  * ```javascript
  * import { RestXmlProtocolClient, HttpPayloadWithStructureCommand } from "@aws-sdk/aws-protocoltests-restxml"; // ES Modules import
  * // const { RestXmlProtocolClient, HttpPayloadWithStructureCommand } = require("@aws-sdk/aws-protocoltests-restxml"); // CommonJS import
+ * // import type { RestXmlProtocolClientConfig } from "@aws-sdk/aws-protocoltests-restxml";
+ * const config = {}; // type is RestXmlProtocolClientConfig
  * const client = new RestXmlProtocolClient(config);
  * const input = { // HttpPayloadWithStructureInputOutput
  *   nested: { // NestedPayload

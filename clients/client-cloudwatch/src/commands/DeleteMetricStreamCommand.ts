@@ -34,6 +34,8 @@ export interface DeleteMetricStreamCommandOutput extends DeleteMetricStreamOutpu
  * ```javascript
  * import { CloudWatchClient, DeleteMetricStreamCommand } from "@aws-sdk/client-cloudwatch"; // ES Modules import
  * // const { CloudWatchClient, DeleteMetricStreamCommand } = require("@aws-sdk/client-cloudwatch"); // CommonJS import
+ * // import type { CloudWatchClientConfig } from "@aws-sdk/client-cloudwatch";
+ * const config = {}; // type is CloudWatchClientConfig
  * const client = new CloudWatchClient(config);
  * const input = { // DeleteMetricStreamInput
  *   Name: "STRING_VALUE", // required

@@ -39,6 +39,8 @@ export interface GetRelationalDatabaseSnapshotsCommandOutput
  * ```javascript
  * import { LightsailClient, GetRelationalDatabaseSnapshotsCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, GetRelationalDatabaseSnapshotsCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
+ * // import type { LightsailClientConfig } from "@aws-sdk/client-lightsail";
+ * const config = {}; // type is LightsailClientConfig
  * const client = new LightsailClient(config);
  * const input = { // GetRelationalDatabaseSnapshotsRequest
  *   pageToken: "STRING_VALUE",

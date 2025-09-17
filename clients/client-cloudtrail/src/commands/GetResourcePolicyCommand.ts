@@ -36,6 +36,8 @@ export interface GetResourcePolicyCommandOutput extends GetResourcePolicyRespons
  * ```javascript
  * import { CloudTrailClient, GetResourcePolicyCommand } from "@aws-sdk/client-cloudtrail"; // ES Modules import
  * // const { CloudTrailClient, GetResourcePolicyCommand } = require("@aws-sdk/client-cloudtrail"); // CommonJS import
+ * // import type { CloudTrailClientConfig } from "@aws-sdk/client-cloudtrail";
+ * const config = {}; // type is CloudTrailClientConfig
  * const client = new CloudTrailClient(config);
  * const input = { // GetResourcePolicyRequest
  *   ResourceArn: "STRING_VALUE", // required

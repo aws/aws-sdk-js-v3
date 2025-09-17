@@ -33,6 +33,8 @@ export interface QueryIncompatibleOperationCommandOutput extends __MetadataBeare
  * ```javascript
  * import { JSONRPC10Client, QueryIncompatibleOperationCommand } from "@aws-sdk/aws-protocoltests-json-10-schema"; // ES Modules import
  * // const { JSONRPC10Client, QueryIncompatibleOperationCommand } = require("@aws-sdk/aws-protocoltests-json-10-schema"); // CommonJS import
+ * // import type { JSONRPC10ClientConfig } from "@aws-sdk/aws-protocoltests-json-10-schema";
+ * const config = {}; // type is JSONRPC10ClientConfig
  * const client = new JSONRPC10Client(config);
  * const input = {};
  * const command = new QueryIncompatibleOperationCommand(input);

@@ -34,6 +34,8 @@ export interface GetJobCommandOutput extends GetJobResponse, __MetadataBearer {}
  * ```javascript
  * import { MediaConvertClient, GetJobCommand } from "@aws-sdk/client-mediaconvert"; // ES Modules import
  * // const { MediaConvertClient, GetJobCommand } = require("@aws-sdk/client-mediaconvert"); // CommonJS import
+ * // import type { MediaConvertClientConfig } from "@aws-sdk/client-mediaconvert";
+ * const config = {}; // type is MediaConvertClientConfig
  * const client = new MediaConvertClient(config);
  * const input = { // GetJobRequest
  *   Id: "STRING_VALUE", // required

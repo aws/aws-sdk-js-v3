@@ -34,6 +34,8 @@ export interface AddUserToGroupCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { IAMClient, AddUserToGroupCommand } from "@aws-sdk/client-iam"; // ES Modules import
  * // const { IAMClient, AddUserToGroupCommand } = require("@aws-sdk/client-iam"); // CommonJS import
+ * // import type { IAMClientConfig } from "@aws-sdk/client-iam";
+ * const config = {}; // type is IAMClientConfig
  * const client = new IAMClient(config);
  * const input = { // AddUserToGroupRequest
  *   GroupName: "STRING_VALUE", // required

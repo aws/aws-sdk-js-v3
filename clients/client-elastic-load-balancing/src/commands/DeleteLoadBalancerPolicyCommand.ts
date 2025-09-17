@@ -38,6 +38,8 @@ export interface DeleteLoadBalancerPolicyCommandOutput extends DeleteLoadBalance
  * ```javascript
  * import { ElasticLoadBalancingClient, DeleteLoadBalancerPolicyCommand } from "@aws-sdk/client-elastic-load-balancing"; // ES Modules import
  * // const { ElasticLoadBalancingClient, DeleteLoadBalancerPolicyCommand } = require("@aws-sdk/client-elastic-load-balancing"); // CommonJS import
+ * // import type { ElasticLoadBalancingClientConfig } from "@aws-sdk/client-elastic-load-balancing";
+ * const config = {}; // type is ElasticLoadBalancingClientConfig
  * const client = new ElasticLoadBalancingClient(config);
  * const input = { // DeleteLoadBalancerPolicyInput
  *   LoadBalancerName: "STRING_VALUE", // required

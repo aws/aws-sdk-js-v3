@@ -35,6 +35,8 @@ export interface GetFlowVersionCommandOutput extends GetFlowVersionResponse, __M
  * ```javascript
  * import { BedrockAgentClient, GetFlowVersionCommand } from "@aws-sdk/client-bedrock-agent"; // ES Modules import
  * // const { BedrockAgentClient, GetFlowVersionCommand } = require("@aws-sdk/client-bedrock-agent"); // CommonJS import
+ * // import type { BedrockAgentClientConfig } from "@aws-sdk/client-bedrock-agent";
+ * const config = {}; // type is BedrockAgentClientConfig
  * const client = new BedrockAgentClient(config);
  * const input = { // GetFlowVersionRequest
  *   flowIdentifier: "STRING_VALUE", // required

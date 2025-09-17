@@ -40,6 +40,8 @@ export interface UpdateTableCommandOutput extends UpdateTableResponse, __Metadat
  * ```javascript
  * import { TimestreamWriteClient, UpdateTableCommand } from "@aws-sdk/client-timestream-write"; // ES Modules import
  * // const { TimestreamWriteClient, UpdateTableCommand } = require("@aws-sdk/client-timestream-write"); // CommonJS import
+ * // import type { TimestreamWriteClientConfig } from "@aws-sdk/client-timestream-write";
+ * const config = {}; // type is TimestreamWriteClientConfig
  * const client = new TimestreamWriteClient(config);
  * const input = { // UpdateTableRequest
  *   DatabaseName: "STRING_VALUE", // required

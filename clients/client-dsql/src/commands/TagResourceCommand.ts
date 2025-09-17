@@ -34,6 +34,8 @@ export interface TagResourceCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { DSQLClient, TagResourceCommand } from "@aws-sdk/client-dsql"; // ES Modules import
  * // const { DSQLClient, TagResourceCommand } = require("@aws-sdk/client-dsql"); // CommonJS import
+ * // import type { DSQLClientConfig } from "@aws-sdk/client-dsql";
+ * const config = {}; // type is DSQLClientConfig
  * const client = new DSQLClient(config);
  * const input = { // TagResourceInput
  *   resourceArn: "STRING_VALUE", // required

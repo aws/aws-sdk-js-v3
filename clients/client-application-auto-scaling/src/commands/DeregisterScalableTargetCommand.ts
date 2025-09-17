@@ -43,6 +43,8 @@ export interface DeregisterScalableTargetCommandOutput extends DeregisterScalabl
  * ```javascript
  * import { ApplicationAutoScalingClient, DeregisterScalableTargetCommand } from "@aws-sdk/client-application-auto-scaling"; // ES Modules import
  * // const { ApplicationAutoScalingClient, DeregisterScalableTargetCommand } = require("@aws-sdk/client-application-auto-scaling"); // CommonJS import
+ * // import type { ApplicationAutoScalingClientConfig } from "@aws-sdk/client-application-auto-scaling";
+ * const config = {}; // type is ApplicationAutoScalingClientConfig
  * const client = new ApplicationAutoScalingClient(config);
  * const input = { // DeregisterScalableTargetRequest
  *   ServiceNamespace: "ecs" || "elasticmapreduce" || "ec2" || "appstream" || "dynamodb" || "rds" || "sagemaker" || "custom-resource" || "comprehend" || "lambda" || "cassandra" || "kafka" || "elasticache" || "neptune" || "workspaces", // required

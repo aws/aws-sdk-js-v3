@@ -39,6 +39,8 @@ export interface GetTableMaintenanceConfigurationCommandOutput
  * ```javascript
  * import { S3TablesClient, GetTableMaintenanceConfigurationCommand } from "@aws-sdk/client-s3tables"; // ES Modules import
  * // const { S3TablesClient, GetTableMaintenanceConfigurationCommand } = require("@aws-sdk/client-s3tables"); // CommonJS import
+ * // import type { S3TablesClientConfig } from "@aws-sdk/client-s3tables";
+ * const config = {}; // type is S3TablesClientConfig
  * const client = new S3TablesClient(config);
  * const input = { // GetTableMaintenanceConfigurationRequest
  *   tableBucketARN: "STRING_VALUE", // required

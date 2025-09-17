@@ -38,6 +38,8 @@ export interface GetPropertyValueHistoryCommandOutput extends GetPropertyValueHi
  * ```javascript
  * import { IoTTwinMakerClient, GetPropertyValueHistoryCommand } from "@aws-sdk/client-iottwinmaker"; // ES Modules import
  * // const { IoTTwinMakerClient, GetPropertyValueHistoryCommand } = require("@aws-sdk/client-iottwinmaker"); // CommonJS import
+ * // import type { IoTTwinMakerClientConfig } from "@aws-sdk/client-iottwinmaker";
+ * const config = {}; // type is IoTTwinMakerClientConfig
  * const client = new IoTTwinMakerClient(config);
  * const input = { // GetPropertyValueHistoryRequest
  *   workspaceId: "STRING_VALUE", // required

@@ -34,6 +34,8 @@ export interface CancelReplayCommandOutput extends CancelReplayResponse, __Metad
  * ```javascript
  * import { EventBridgeClient, CancelReplayCommand } from "@aws-sdk/client-eventbridge"; // ES Modules import
  * // const { EventBridgeClient, CancelReplayCommand } = require("@aws-sdk/client-eventbridge"); // CommonJS import
+ * // import type { EventBridgeClientConfig } from "@aws-sdk/client-eventbridge";
+ * const config = {}; // type is EventBridgeClientConfig
  * const client = new EventBridgeClient(config);
  * const input = { // CancelReplayRequest
  *   ReplayName: "STRING_VALUE", // required

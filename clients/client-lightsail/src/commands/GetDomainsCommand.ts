@@ -34,6 +34,8 @@ export interface GetDomainsCommandOutput extends GetDomainsResult, __MetadataBea
  * ```javascript
  * import { LightsailClient, GetDomainsCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, GetDomainsCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
+ * // import type { LightsailClientConfig } from "@aws-sdk/client-lightsail";
+ * const config = {}; // type is LightsailClientConfig
  * const client = new LightsailClient(config);
  * const input = { // GetDomainsRequest
  *   pageToken: "STRING_VALUE",

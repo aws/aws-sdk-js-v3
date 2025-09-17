@@ -52,6 +52,8 @@ export interface DeleteAppVersionAppComponentCommandOutput
  * ```javascript
  * import { ResiliencehubClient, DeleteAppVersionAppComponentCommand } from "@aws-sdk/client-resiliencehub"; // ES Modules import
  * // const { ResiliencehubClient, DeleteAppVersionAppComponentCommand } = require("@aws-sdk/client-resiliencehub"); // CommonJS import
+ * // import type { ResiliencehubClientConfig } from "@aws-sdk/client-resiliencehub";
+ * const config = {}; // type is ResiliencehubClientConfig
  * const client = new ResiliencehubClient(config);
  * const input = { // DeleteAppVersionAppComponentRequest
  *   appArn: "STRING_VALUE", // required

@@ -36,6 +36,8 @@ export interface UpdateClusterCommandOutput extends UpdateClusterResponse, __Met
  * ```javascript
  * import { DAXClient, UpdateClusterCommand } from "@aws-sdk/client-dax"; // ES Modules import
  * // const { DAXClient, UpdateClusterCommand } = require("@aws-sdk/client-dax"); // CommonJS import
+ * // import type { DAXClientConfig } from "@aws-sdk/client-dax";
+ * const config = {}; // type is DAXClientConfig
  * const client = new DAXClient(config);
  * const input = { // UpdateClusterRequest
  *   ClusterName: "STRING_VALUE", // required

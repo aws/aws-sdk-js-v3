@@ -49,6 +49,8 @@ export interface CreateDataSourceFromRDSCommandOutput extends CreateDataSourceFr
  * ```javascript
  * import { MachineLearningClient, CreateDataSourceFromRDSCommand } from "@aws-sdk/client-machine-learning"; // ES Modules import
  * // const { MachineLearningClient, CreateDataSourceFromRDSCommand } = require("@aws-sdk/client-machine-learning"); // CommonJS import
+ * // import type { MachineLearningClientConfig } from "@aws-sdk/client-machine-learning";
+ * const config = {}; // type is MachineLearningClientConfig
  * const client = new MachineLearningClient(config);
  * const input = { // CreateDataSourceFromRDSInput
  *   DataSourceId: "STRING_VALUE", // required

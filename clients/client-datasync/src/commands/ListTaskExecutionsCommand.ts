@@ -34,6 +34,8 @@ export interface ListTaskExecutionsCommandOutput extends ListTaskExecutionsRespo
  * ```javascript
  * import { DataSyncClient, ListTaskExecutionsCommand } from "@aws-sdk/client-datasync"; // ES Modules import
  * // const { DataSyncClient, ListTaskExecutionsCommand } = require("@aws-sdk/client-datasync"); // CommonJS import
+ * // import type { DataSyncClientConfig } from "@aws-sdk/client-datasync";
+ * const config = {}; // type is DataSyncClientConfig
  * const client = new DataSyncClient(config);
  * const input = { // ListTaskExecutionsRequest
  *   TaskArn: "STRING_VALUE",

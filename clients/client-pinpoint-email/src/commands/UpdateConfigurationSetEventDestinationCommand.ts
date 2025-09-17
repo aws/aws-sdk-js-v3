@@ -48,6 +48,8 @@ export interface UpdateConfigurationSetEventDestinationCommandOutput
  * ```javascript
  * import { PinpointEmailClient, UpdateConfigurationSetEventDestinationCommand } from "@aws-sdk/client-pinpoint-email"; // ES Modules import
  * // const { PinpointEmailClient, UpdateConfigurationSetEventDestinationCommand } = require("@aws-sdk/client-pinpoint-email"); // CommonJS import
+ * // import type { PinpointEmailClientConfig } from "@aws-sdk/client-pinpoint-email";
+ * const config = {}; // type is PinpointEmailClientConfig
  * const client = new PinpointEmailClient(config);
  * const input = { // UpdateConfigurationSetEventDestinationRequest
  *   ConfigurationSetName: "STRING_VALUE", // required

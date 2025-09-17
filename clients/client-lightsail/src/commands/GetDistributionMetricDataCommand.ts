@@ -38,6 +38,8 @@ export interface GetDistributionMetricDataCommandOutput extends GetDistributionM
  * ```javascript
  * import { LightsailClient, GetDistributionMetricDataCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, GetDistributionMetricDataCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
+ * // import type { LightsailClientConfig } from "@aws-sdk/client-lightsail";
+ * const config = {}; // type is LightsailClientConfig
  * const client = new LightsailClient(config);
  * const input = { // GetDistributionMetricDataRequest
  *   distributionName: "STRING_VALUE", // required

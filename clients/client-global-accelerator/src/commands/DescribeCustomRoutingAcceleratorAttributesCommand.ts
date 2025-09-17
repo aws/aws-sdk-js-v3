@@ -47,6 +47,8 @@ export interface DescribeCustomRoutingAcceleratorAttributesCommandOutput
  * ```javascript
  * import { GlobalAcceleratorClient, DescribeCustomRoutingAcceleratorAttributesCommand } from "@aws-sdk/client-global-accelerator"; // ES Modules import
  * // const { GlobalAcceleratorClient, DescribeCustomRoutingAcceleratorAttributesCommand } = require("@aws-sdk/client-global-accelerator"); // CommonJS import
+ * // import type { GlobalAcceleratorClientConfig } from "@aws-sdk/client-global-accelerator";
+ * const config = {}; // type is GlobalAcceleratorClientConfig
  * const client = new GlobalAcceleratorClient(config);
  * const input = { // DescribeCustomRoutingAcceleratorAttributesRequest
  *   AcceleratorArn: "STRING_VALUE", // required

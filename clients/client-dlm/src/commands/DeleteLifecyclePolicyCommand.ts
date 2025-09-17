@@ -37,6 +37,8 @@ export interface DeleteLifecyclePolicyCommandOutput extends DeleteLifecyclePolic
  * ```javascript
  * import { DLMClient, DeleteLifecyclePolicyCommand } from "@aws-sdk/client-dlm"; // ES Modules import
  * // const { DLMClient, DeleteLifecyclePolicyCommand } = require("@aws-sdk/client-dlm"); // CommonJS import
+ * // import type { DLMClientConfig } from "@aws-sdk/client-dlm";
+ * const config = {}; // type is DLMClientConfig
  * const client = new DLMClient(config);
  * const input = { // DeleteLifecyclePolicyRequest
  *   PolicyId: "STRING_VALUE", // required

@@ -34,6 +34,8 @@ export interface ListPartnerAppsCommandOutput extends ListPartnerAppsResponse, _
  * ```javascript
  * import { SageMakerClient, ListPartnerAppsCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, ListPartnerAppsCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * // import type { SageMakerClientConfig } from "@aws-sdk/client-sagemaker";
+ * const config = {}; // type is SageMakerClientConfig
  * const client = new SageMakerClient(config);
  * const input = { // ListPartnerAppsRequest
  *   MaxResults: Number("int"),

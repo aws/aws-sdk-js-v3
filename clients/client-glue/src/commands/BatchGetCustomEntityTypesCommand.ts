@@ -34,6 +34,8 @@ export interface BatchGetCustomEntityTypesCommandOutput extends BatchGetCustomEn
  * ```javascript
  * import { GlueClient, BatchGetCustomEntityTypesCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, BatchGetCustomEntityTypesCommand } = require("@aws-sdk/client-glue"); // CommonJS import
+ * // import type { GlueClientConfig } from "@aws-sdk/client-glue";
+ * const config = {}; // type is GlueClientConfig
  * const client = new GlueClient(config);
  * const input = { // BatchGetCustomEntityTypesRequest
  *   Names: [ // CustomEntityTypeNames // required

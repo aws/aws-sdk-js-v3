@@ -35,6 +35,8 @@ export interface DetectPiiEntitiesCommandOutput extends DetectPiiEntitiesRespons
  * ```javascript
  * import { ComprehendClient, DetectPiiEntitiesCommand } from "@aws-sdk/client-comprehend"; // ES Modules import
  * // const { ComprehendClient, DetectPiiEntitiesCommand } = require("@aws-sdk/client-comprehend"); // CommonJS import
+ * // import type { ComprehendClientConfig } from "@aws-sdk/client-comprehend";
+ * const config = {}; // type is ComprehendClientConfig
  * const client = new ComprehendClient(config);
  * const input = { // DetectPiiEntitiesRequest
  *   Text: "STRING_VALUE", // required

@@ -38,6 +38,8 @@ export interface StartImportCommandOutput extends StartImportResponse, __Metadat
  * ```javascript
  * import { LexModelBuildingServiceClient, StartImportCommand } from "@aws-sdk/client-lex-model-building-service"; // ES Modules import
  * // const { LexModelBuildingServiceClient, StartImportCommand } = require("@aws-sdk/client-lex-model-building-service"); // CommonJS import
+ * // import type { LexModelBuildingServiceClientConfig } from "@aws-sdk/client-lex-model-building-service";
+ * const config = {}; // type is LexModelBuildingServiceClientConfig
  * const client = new LexModelBuildingServiceClient(config);
  * const input = { // StartImportRequest
  *   payload: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")   // required

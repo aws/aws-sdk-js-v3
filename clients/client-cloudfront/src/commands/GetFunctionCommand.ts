@@ -42,6 +42,8 @@ export interface GetFunctionCommandOutput extends GetFunctionCommandOutputType, 
  * ```javascript
  * import { CloudFrontClient, GetFunctionCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
  * // const { CloudFrontClient, GetFunctionCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
+ * // import type { CloudFrontClientConfig } from "@aws-sdk/client-cloudfront";
+ * const config = {}; // type is CloudFrontClientConfig
  * const client = new CloudFrontClient(config);
  * const input = { // GetFunctionRequest
  *   Name: "STRING_VALUE", // required

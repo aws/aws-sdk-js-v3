@@ -46,6 +46,8 @@ export interface UpdateCalculatedAttributeDefinitionCommandOutput
  * ```javascript
  * import { CustomerProfilesClient, UpdateCalculatedAttributeDefinitionCommand } from "@aws-sdk/client-customer-profiles"; // ES Modules import
  * // const { CustomerProfilesClient, UpdateCalculatedAttributeDefinitionCommand } = require("@aws-sdk/client-customer-profiles"); // CommonJS import
+ * // import type { CustomerProfilesClientConfig } from "@aws-sdk/client-customer-profiles";
+ * const config = {}; // type is CustomerProfilesClientConfig
  * const client = new CustomerProfilesClient(config);
  * const input = { // UpdateCalculatedAttributeDefinitionRequest
  *   DomainName: "STRING_VALUE", // required

@@ -38,6 +38,8 @@ export interface RegisterCustomEndpointCommandOutput extends RegisterCustomEndpo
  * ```javascript
  * import { IoTManagedIntegrationsClient, RegisterCustomEndpointCommand } from "@aws-sdk/client-iot-managed-integrations"; // ES Modules import
  * // const { IoTManagedIntegrationsClient, RegisterCustomEndpointCommand } = require("@aws-sdk/client-iot-managed-integrations"); // CommonJS import
+ * // import type { IoTManagedIntegrationsClientConfig } from "@aws-sdk/client-iot-managed-integrations";
+ * const config = {}; // type is IoTManagedIntegrationsClientConfig
  * const client = new IoTManagedIntegrationsClient(config);
  * const input = {};
  * const command = new RegisterCustomEndpointCommand(input);

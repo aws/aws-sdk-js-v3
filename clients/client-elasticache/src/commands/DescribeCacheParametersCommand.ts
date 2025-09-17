@@ -34,6 +34,8 @@ export interface DescribeCacheParametersCommandOutput extends CacheParameterGrou
  * ```javascript
  * import { ElastiCacheClient, DescribeCacheParametersCommand } from "@aws-sdk/client-elasticache"; // ES Modules import
  * // const { ElastiCacheClient, DescribeCacheParametersCommand } = require("@aws-sdk/client-elasticache"); // CommonJS import
+ * // import type { ElastiCacheClientConfig } from "@aws-sdk/client-elasticache";
+ * const config = {}; // type is ElastiCacheClientConfig
  * const client = new ElastiCacheClient(config);
  * const input = { // DescribeCacheParametersMessage
  *   CacheParameterGroupName: "STRING_VALUE", // required

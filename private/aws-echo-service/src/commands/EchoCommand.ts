@@ -34,6 +34,8 @@ export interface EchoCommandOutput extends EchoOutput, __MetadataBearer {}
  * ```javascript
  * import { EchoServiceClient, EchoCommand } from "@aws-sdk/aws-echo-service"; // ES Modules import
  * // const { EchoServiceClient, EchoCommand } = require("@aws-sdk/aws-echo-service"); // CommonJS import
+ * // import type { EchoServiceClientConfig } from "@aws-sdk/aws-echo-service";
+ * const config = {}; // type is EchoServiceClientConfig
  * const client = new EchoServiceClient(config);
  * const input = { // EchoInput
  *   string: "STRING_VALUE",

@@ -48,6 +48,8 @@ export interface GetFaceDetectionCommandOutput extends GetFaceDetectionResponse,
  * ```javascript
  * import { RekognitionClient, GetFaceDetectionCommand } from "@aws-sdk/client-rekognition"; // ES Modules import
  * // const { RekognitionClient, GetFaceDetectionCommand } = require("@aws-sdk/client-rekognition"); // CommonJS import
+ * // import type { RekognitionClientConfig } from "@aws-sdk/client-rekognition";
+ * const config = {}; // type is RekognitionClientConfig
  * const client = new RekognitionClient(config);
  * const input = { // GetFaceDetectionRequest
  *   JobId: "STRING_VALUE", // required

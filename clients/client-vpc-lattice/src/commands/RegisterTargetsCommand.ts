@@ -35,6 +35,8 @@ export interface RegisterTargetsCommandOutput extends RegisterTargetsResponse, _
  * ```javascript
  * import { VPCLatticeClient, RegisterTargetsCommand } from "@aws-sdk/client-vpc-lattice"; // ES Modules import
  * // const { VPCLatticeClient, RegisterTargetsCommand } = require("@aws-sdk/client-vpc-lattice"); // CommonJS import
+ * // import type { VPCLatticeClientConfig } from "@aws-sdk/client-vpc-lattice";
+ * const config = {}; // type is VPCLatticeClientConfig
  * const client = new VPCLatticeClient(config);
  * const input = { // RegisterTargetsRequest
  *   targetGroupIdentifier: "STRING_VALUE", // required

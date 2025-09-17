@@ -34,6 +34,8 @@ export interface RevokeIpRulesCommandOutput extends RevokeIpRulesResult, __Metad
  * ```javascript
  * import { WorkSpacesClient, RevokeIpRulesCommand } from "@aws-sdk/client-workspaces"; // ES Modules import
  * // const { WorkSpacesClient, RevokeIpRulesCommand } = require("@aws-sdk/client-workspaces"); // CommonJS import
+ * // import type { WorkSpacesClientConfig } from "@aws-sdk/client-workspaces";
+ * const config = {}; // type is WorkSpacesClientConfig
  * const client = new WorkSpacesClient(config);
  * const input = { // RevokeIpRulesRequest
  *   GroupId: "STRING_VALUE", // required

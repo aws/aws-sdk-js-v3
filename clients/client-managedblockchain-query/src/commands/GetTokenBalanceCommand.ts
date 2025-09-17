@@ -42,6 +42,8 @@ export interface GetTokenBalanceCommandOutput extends GetTokenBalanceOutput, __M
  * ```javascript
  * import { ManagedBlockchainQueryClient, GetTokenBalanceCommand } from "@aws-sdk/client-managedblockchain-query"; // ES Modules import
  * // const { ManagedBlockchainQueryClient, GetTokenBalanceCommand } = require("@aws-sdk/client-managedblockchain-query"); // CommonJS import
+ * // import type { ManagedBlockchainQueryClientConfig } from "@aws-sdk/client-managedblockchain-query";
+ * const config = {}; // type is ManagedBlockchainQueryClientConfig
  * const client = new ManagedBlockchainQueryClient(config);
  * const input = { // GetTokenBalanceInput
  *   tokenIdentifier: { // TokenIdentifier

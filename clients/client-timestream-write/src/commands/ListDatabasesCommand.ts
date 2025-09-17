@@ -37,6 +37,8 @@ export interface ListDatabasesCommandOutput extends ListDatabasesResponse, __Met
  * ```javascript
  * import { TimestreamWriteClient, ListDatabasesCommand } from "@aws-sdk/client-timestream-write"; // ES Modules import
  * // const { TimestreamWriteClient, ListDatabasesCommand } = require("@aws-sdk/client-timestream-write"); // CommonJS import
+ * // import type { TimestreamWriteClientConfig } from "@aws-sdk/client-timestream-write";
+ * const config = {}; // type is TimestreamWriteClientConfig
  * const client = new TimestreamWriteClient(config);
  * const input = { // ListDatabasesRequest
  *   NextToken: "STRING_VALUE",

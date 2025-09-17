@@ -34,6 +34,8 @@ export interface ListSharesCommandOutput extends ListSharesResponse, __MetadataB
  * ```javascript
  * import { OmicsClient, ListSharesCommand } from "@aws-sdk/client-omics"; // ES Modules import
  * // const { OmicsClient, ListSharesCommand } = require("@aws-sdk/client-omics"); // CommonJS import
+ * // import type { OmicsClientConfig } from "@aws-sdk/client-omics";
+ * const config = {}; // type is OmicsClientConfig
  * const client = new OmicsClient(config);
  * const input = { // ListSharesRequest
  *   resourceOwner: "STRING_VALUE", // required

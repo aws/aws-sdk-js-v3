@@ -66,6 +66,8 @@ export interface ListKeysCommandOutput extends ListKeysResponse, __MetadataBeare
  * ```javascript
  * import { KMSClient, ListKeysCommand } from "@aws-sdk/client-kms"; // ES Modules import
  * // const { KMSClient, ListKeysCommand } = require("@aws-sdk/client-kms"); // CommonJS import
+ * // import type { KMSClientConfig } from "@aws-sdk/client-kms";
+ * const config = {}; // type is KMSClientConfig
  * const client = new KMSClient(config);
  * const input = { // ListKeysRequest
  *   Limit: Number("int"),

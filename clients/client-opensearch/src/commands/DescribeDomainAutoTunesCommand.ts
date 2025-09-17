@@ -36,6 +36,8 @@ export interface DescribeDomainAutoTunesCommandOutput extends DescribeDomainAuto
  * ```javascript
  * import { OpenSearchClient, DescribeDomainAutoTunesCommand } from "@aws-sdk/client-opensearch"; // ES Modules import
  * // const { OpenSearchClient, DescribeDomainAutoTunesCommand } = require("@aws-sdk/client-opensearch"); // CommonJS import
+ * // import type { OpenSearchClientConfig } from "@aws-sdk/client-opensearch";
+ * const config = {}; // type is OpenSearchClientConfig
  * const client = new OpenSearchClient(config);
  * const input = { // DescribeDomainAutoTunesRequest
  *   DomainName: "STRING_VALUE", // required

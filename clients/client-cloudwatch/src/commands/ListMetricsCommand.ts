@@ -44,6 +44,8 @@ export interface ListMetricsCommandOutput extends ListMetricsOutput, __MetadataB
  * ```javascript
  * import { CloudWatchClient, ListMetricsCommand } from "@aws-sdk/client-cloudwatch"; // ES Modules import
  * // const { CloudWatchClient, ListMetricsCommand } = require("@aws-sdk/client-cloudwatch"); // CommonJS import
+ * // import type { CloudWatchClientConfig } from "@aws-sdk/client-cloudwatch";
+ * const config = {}; // type is CloudWatchClientConfig
  * const client = new CloudWatchClient(config);
  * const input = { // ListMetricsInput
  *   Namespace: "STRING_VALUE",

@@ -34,6 +34,8 @@ export interface DeactivateMessageTemplateCommandOutput extends DeactivateMessag
  * ```javascript
  * import { QConnectClient, DeactivateMessageTemplateCommand } from "@aws-sdk/client-qconnect"; // ES Modules import
  * // const { QConnectClient, DeactivateMessageTemplateCommand } = require("@aws-sdk/client-qconnect"); // CommonJS import
+ * // import type { QConnectClientConfig } from "@aws-sdk/client-qconnect";
+ * const config = {}; // type is QConnectClientConfig
  * const client = new QConnectClient(config);
  * const input = { // DeactivateMessageTemplateRequest
  *   knowledgeBaseId: "STRING_VALUE", // required

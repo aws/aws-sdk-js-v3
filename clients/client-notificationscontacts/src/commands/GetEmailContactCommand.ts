@@ -42,6 +42,8 @@ export interface GetEmailContactCommandOutput extends GetEmailContactResponse, _
  * ```javascript
  * import { NotificationsContactsClient, GetEmailContactCommand } from "@aws-sdk/client-notificationscontacts"; // ES Modules import
  * // const { NotificationsContactsClient, GetEmailContactCommand } = require("@aws-sdk/client-notificationscontacts"); // CommonJS import
+ * // import type { NotificationsContactsClientConfig } from "@aws-sdk/client-notificationscontacts";
+ * const config = {}; // type is NotificationsContactsClientConfig
  * const client = new NotificationsContactsClient(config);
  * const input = { // GetEmailContactRequest
  *   arn: "STRING_VALUE", // required

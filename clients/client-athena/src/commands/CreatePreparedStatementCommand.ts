@@ -34,6 +34,8 @@ export interface CreatePreparedStatementCommandOutput extends CreatePreparedStat
  * ```javascript
  * import { AthenaClient, CreatePreparedStatementCommand } from "@aws-sdk/client-athena"; // ES Modules import
  * // const { AthenaClient, CreatePreparedStatementCommand } = require("@aws-sdk/client-athena"); // CommonJS import
+ * // import type { AthenaClientConfig } from "@aws-sdk/client-athena";
+ * const config = {}; // type is AthenaClientConfig
  * const client = new AthenaClient(config);
  * const input = { // CreatePreparedStatementInput
  *   StatementName: "STRING_VALUE", // required

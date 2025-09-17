@@ -73,6 +73,8 @@ export interface WriteRecordsCommandOutput extends WriteRecordsResponse, __Metad
  * ```javascript
  * import { TimestreamWriteClient, WriteRecordsCommand } from "@aws-sdk/client-timestream-write"; // ES Modules import
  * // const { TimestreamWriteClient, WriteRecordsCommand } = require("@aws-sdk/client-timestream-write"); // CommonJS import
+ * // import type { TimestreamWriteClientConfig } from "@aws-sdk/client-timestream-write";
+ * const config = {}; // type is TimestreamWriteClientConfig
  * const client = new TimestreamWriteClient(config);
  * const input = { // WriteRecordsRequest
  *   DatabaseName: "STRING_VALUE", // required

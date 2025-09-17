@@ -41,6 +41,8 @@ export interface CopyPackageVersionsCommandOutput extends CopyPackageVersionsRes
  * ```javascript
  * import { CodeartifactClient, CopyPackageVersionsCommand } from "@aws-sdk/client-codeartifact"; // ES Modules import
  * // const { CodeartifactClient, CopyPackageVersionsCommand } = require("@aws-sdk/client-codeartifact"); // CommonJS import
+ * // import type { CodeartifactClientConfig } from "@aws-sdk/client-codeartifact";
+ * const config = {}; // type is CodeartifactClientConfig
  * const client = new CodeartifactClient(config);
  * const input = { // CopyPackageVersionsRequest
  *   domain: "STRING_VALUE", // required

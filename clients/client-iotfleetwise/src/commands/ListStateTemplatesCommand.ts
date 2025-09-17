@@ -37,6 +37,8 @@ export interface ListStateTemplatesCommandOutput extends ListStateTemplatesRespo
  * ```javascript
  * import { IoTFleetWiseClient, ListStateTemplatesCommand } from "@aws-sdk/client-iotfleetwise"; // ES Modules import
  * // const { IoTFleetWiseClient, ListStateTemplatesCommand } = require("@aws-sdk/client-iotfleetwise"); // CommonJS import
+ * // import type { IoTFleetWiseClientConfig } from "@aws-sdk/client-iotfleetwise";
+ * const config = {}; // type is IoTFleetWiseClientConfig
  * const client = new IoTFleetWiseClient(config);
  * const input = { // ListStateTemplatesRequest
  *   nextToken: "STRING_VALUE",

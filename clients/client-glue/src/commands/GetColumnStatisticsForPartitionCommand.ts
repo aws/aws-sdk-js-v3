@@ -40,6 +40,8 @@ export interface GetColumnStatisticsForPartitionCommandOutput
  * ```javascript
  * import { GlueClient, GetColumnStatisticsForPartitionCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, GetColumnStatisticsForPartitionCommand } = require("@aws-sdk/client-glue"); // CommonJS import
+ * // import type { GlueClientConfig } from "@aws-sdk/client-glue";
+ * const config = {}; // type is GlueClientConfig
  * const client = new GlueClient(config);
  * const input = { // GetColumnStatisticsForPartitionRequest
  *   CatalogId: "STRING_VALUE",

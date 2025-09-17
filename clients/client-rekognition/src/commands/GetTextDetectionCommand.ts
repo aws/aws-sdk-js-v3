@@ -52,6 +52,8 @@ export interface GetTextDetectionCommandOutput extends GetTextDetectionResponse,
  * ```javascript
  * import { RekognitionClient, GetTextDetectionCommand } from "@aws-sdk/client-rekognition"; // ES Modules import
  * // const { RekognitionClient, GetTextDetectionCommand } = require("@aws-sdk/client-rekognition"); // CommonJS import
+ * // import type { RekognitionClientConfig } from "@aws-sdk/client-rekognition";
+ * const config = {}; // type is RekognitionClientConfig
  * const client = new RekognitionClient(config);
  * const input = { // GetTextDetectionRequest
  *   JobId: "STRING_VALUE", // required

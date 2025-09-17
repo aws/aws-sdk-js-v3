@@ -38,6 +38,8 @@ export interface GetEnvironmentBlueprintCommandOutput extends GetEnvironmentBlue
  * ```javascript
  * import { DataZoneClient, GetEnvironmentBlueprintCommand } from "@aws-sdk/client-datazone"; // ES Modules import
  * // const { DataZoneClient, GetEnvironmentBlueprintCommand } = require("@aws-sdk/client-datazone"); // CommonJS import
+ * // import type { DataZoneClientConfig } from "@aws-sdk/client-datazone";
+ * const config = {}; // type is DataZoneClientConfig
  * const client = new DataZoneClient(config);
  * const input = { // GetEnvironmentBlueprintInput
  *   domainIdentifier: "STRING_VALUE", // required

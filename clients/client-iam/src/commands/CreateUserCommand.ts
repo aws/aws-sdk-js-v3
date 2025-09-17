@@ -36,6 +36,8 @@ export interface CreateUserCommandOutput extends CreateUserResponse, __MetadataB
  * ```javascript
  * import { IAMClient, CreateUserCommand } from "@aws-sdk/client-iam"; // ES Modules import
  * // const { IAMClient, CreateUserCommand } = require("@aws-sdk/client-iam"); // CommonJS import
+ * // import type { IAMClientConfig } from "@aws-sdk/client-iam";
+ * const config = {}; // type is IAMClientConfig
  * const client = new IAMClient(config);
  * const input = { // CreateUserRequest
  *   Path: "STRING_VALUE",

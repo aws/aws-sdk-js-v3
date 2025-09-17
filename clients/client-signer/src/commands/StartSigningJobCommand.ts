@@ -62,6 +62,8 @@ export interface StartSigningJobCommandOutput extends StartSigningJobResponse, _
  * ```javascript
  * import { SignerClient, StartSigningJobCommand } from "@aws-sdk/client-signer"; // ES Modules import
  * // const { SignerClient, StartSigningJobCommand } = require("@aws-sdk/client-signer"); // CommonJS import
+ * // import type { SignerClientConfig } from "@aws-sdk/client-signer";
+ * const config = {}; // type is SignerClientConfig
  * const client = new SignerClient(config);
  * const input = { // StartSigningJobRequest
  *   source: { // Source

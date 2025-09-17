@@ -38,6 +38,8 @@ export interface ListTopicsCommandOutput extends ListTopicsResponse, __MetadataB
  * ```javascript
  * import { SNSClient, ListTopicsCommand } from "@aws-sdk/client-sns"; // ES Modules import
  * // const { SNSClient, ListTopicsCommand } = require("@aws-sdk/client-sns"); // CommonJS import
+ * // import type { SNSClientConfig } from "@aws-sdk/client-sns";
+ * const config = {}; // type is SNSClientConfig
  * const client = new SNSClient(config);
  * const input = { // ListTopicsInput
  *   NextToken: "STRING_VALUE",

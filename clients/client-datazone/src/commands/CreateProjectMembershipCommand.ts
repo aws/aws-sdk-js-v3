@@ -34,6 +34,8 @@ export interface CreateProjectMembershipCommandOutput extends CreateProjectMembe
  * ```javascript
  * import { DataZoneClient, CreateProjectMembershipCommand } from "@aws-sdk/client-datazone"; // ES Modules import
  * // const { DataZoneClient, CreateProjectMembershipCommand } = require("@aws-sdk/client-datazone"); // CommonJS import
+ * // import type { DataZoneClientConfig } from "@aws-sdk/client-datazone";
+ * const config = {}; // type is DataZoneClientConfig
  * const client = new DataZoneClient(config);
  * const input = { // CreateProjectMembershipInput
  *   domainIdentifier: "STRING_VALUE", // required

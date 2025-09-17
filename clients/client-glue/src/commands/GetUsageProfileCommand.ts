@@ -34,6 +34,8 @@ export interface GetUsageProfileCommandOutput extends GetUsageProfileResponse, _
  * ```javascript
  * import { GlueClient, GetUsageProfileCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, GetUsageProfileCommand } = require("@aws-sdk/client-glue"); // CommonJS import
+ * // import type { GlueClientConfig } from "@aws-sdk/client-glue";
+ * const config = {}; // type is GlueClientConfig
  * const client = new GlueClient(config);
  * const input = { // GetUsageProfileRequest
  *   Name: "STRING_VALUE", // required

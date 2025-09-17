@@ -39,6 +39,8 @@ export interface UpdateContinuousDeploymentPolicyCommandOutput
  * ```javascript
  * import { CloudFrontClient, UpdateContinuousDeploymentPolicyCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
  * // const { CloudFrontClient, UpdateContinuousDeploymentPolicyCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
+ * // import type { CloudFrontClientConfig } from "@aws-sdk/client-cloudfront";
+ * const config = {}; // type is CloudFrontClientConfig
  * const client = new CloudFrontClient(config);
  * const input = { // UpdateContinuousDeploymentPolicyRequest
  *   ContinuousDeploymentPolicyConfig: { // ContinuousDeploymentPolicyConfig

@@ -85,6 +85,8 @@ export interface PutBucketNotificationConfigurationCommandOutput extends __Metad
  * ```javascript
  * import { S3Client, PutBucketNotificationConfigurationCommand } from "@aws-sdk/client-s3"; // ES Modules import
  * // const { S3Client, PutBucketNotificationConfigurationCommand } = require("@aws-sdk/client-s3"); // CommonJS import
+ * // import type { S3ClientConfig } from "@aws-sdk/client-s3";
+ * const config = {}; // type is S3ClientConfig
  * const client = new S3Client(config);
  * const input = { // PutBucketNotificationConfigurationRequest
  *   Bucket: "STRING_VALUE", // required

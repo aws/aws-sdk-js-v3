@@ -35,6 +35,8 @@ export interface XmlEmptyMapsCommandOutput extends XmlEmptyMapsResponse, __Metad
  * ```javascript
  * import { RestXmlProtocolClient, XmlEmptyMapsCommand } from "@aws-sdk/aws-protocoltests-restxml"; // ES Modules import
  * // const { RestXmlProtocolClient, XmlEmptyMapsCommand } = require("@aws-sdk/aws-protocoltests-restxml"); // CommonJS import
+ * // import type { RestXmlProtocolClientConfig } from "@aws-sdk/aws-protocoltests-restxml";
+ * const config = {}; // type is RestXmlProtocolClientConfig
  * const client = new RestXmlProtocolClient(config);
  * const input = { // XmlEmptyMapsRequest
  *   myMap: { // XmlMapsInputOutputMap

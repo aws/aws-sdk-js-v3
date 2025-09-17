@@ -39,6 +39,8 @@ export interface DeleteResourceConfigurationCommandOutput
  * ```javascript
  * import { VPCLatticeClient, DeleteResourceConfigurationCommand } from "@aws-sdk/client-vpc-lattice"; // ES Modules import
  * // const { VPCLatticeClient, DeleteResourceConfigurationCommand } = require("@aws-sdk/client-vpc-lattice"); // CommonJS import
+ * // import type { VPCLatticeClientConfig } from "@aws-sdk/client-vpc-lattice";
+ * const config = {}; // type is VPCLatticeClientConfig
  * const client = new VPCLatticeClient(config);
  * const input = { // DeleteResourceConfigurationRequest
  *   resourceConfigurationIdentifier: "STRING_VALUE", // required

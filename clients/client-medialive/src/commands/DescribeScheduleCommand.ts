@@ -34,6 +34,8 @@ export interface DescribeScheduleCommandOutput extends DescribeScheduleResponse,
  * ```javascript
  * import { MediaLiveClient, DescribeScheduleCommand } from "@aws-sdk/client-medialive"; // ES Modules import
  * // const { MediaLiveClient, DescribeScheduleCommand } = require("@aws-sdk/client-medialive"); // CommonJS import
+ * // import type { MediaLiveClientConfig } from "@aws-sdk/client-medialive";
+ * const config = {}; // type is MediaLiveClientConfig
  * const client = new MediaLiveClient(config);
  * const input = { // DescribeScheduleRequest
  *   ChannelId: "STRING_VALUE", // required

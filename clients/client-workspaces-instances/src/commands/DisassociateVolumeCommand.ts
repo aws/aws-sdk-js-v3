@@ -38,6 +38,8 @@ export interface DisassociateVolumeCommandOutput extends DisassociateVolumeRespo
  * ```javascript
  * import { WorkspacesInstancesClient, DisassociateVolumeCommand } from "@aws-sdk/client-workspaces-instances"; // ES Modules import
  * // const { WorkspacesInstancesClient, DisassociateVolumeCommand } = require("@aws-sdk/client-workspaces-instances"); // CommonJS import
+ * // import type { WorkspacesInstancesClientConfig } from "@aws-sdk/client-workspaces-instances";
+ * const config = {}; // type is WorkspacesInstancesClientConfig
  * const client = new WorkspacesInstancesClient(config);
  * const input = { // DisassociateVolumeRequest
  *   WorkspaceInstanceId: "STRING_VALUE", // required

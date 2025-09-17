@@ -36,6 +36,8 @@ export interface EnableSsoCommandOutput extends EnableSsoResult, __MetadataBeare
  * ```javascript
  * import { DirectoryServiceClient, EnableSsoCommand } from "@aws-sdk/client-directory-service"; // ES Modules import
  * // const { DirectoryServiceClient, EnableSsoCommand } = require("@aws-sdk/client-directory-service"); // CommonJS import
+ * // import type { DirectoryServiceClientConfig } from "@aws-sdk/client-directory-service";
+ * const config = {}; // type is DirectoryServiceClientConfig
  * const client = new DirectoryServiceClient(config);
  * const input = { // EnableSsoRequest
  *   DirectoryId: "STRING_VALUE", // required

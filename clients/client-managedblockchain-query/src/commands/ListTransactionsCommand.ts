@@ -38,6 +38,8 @@ export interface ListTransactionsCommandOutput extends ListTransactionsOutput, _
  * ```javascript
  * import { ManagedBlockchainQueryClient, ListTransactionsCommand } from "@aws-sdk/client-managedblockchain-query"; // ES Modules import
  * // const { ManagedBlockchainQueryClient, ListTransactionsCommand } = require("@aws-sdk/client-managedblockchain-query"); // CommonJS import
+ * // import type { ManagedBlockchainQueryClientConfig } from "@aws-sdk/client-managedblockchain-query";
+ * const config = {}; // type is ManagedBlockchainQueryClientConfig
  * const client = new ManagedBlockchainQueryClient(config);
  * const input = { // ListTransactionsInput
  *   address: "STRING_VALUE", // required

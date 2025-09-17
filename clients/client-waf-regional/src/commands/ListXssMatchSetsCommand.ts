@@ -42,6 +42,8 @@ export interface ListXssMatchSetsCommandOutput extends ListXssMatchSetsResponse,
  * ```javascript
  * import { WAFRegionalClient, ListXssMatchSetsCommand } from "@aws-sdk/client-waf-regional"; // ES Modules import
  * // const { WAFRegionalClient, ListXssMatchSetsCommand } = require("@aws-sdk/client-waf-regional"); // CommonJS import
+ * // import type { WAFRegionalClientConfig } from "@aws-sdk/client-waf-regional";
+ * const config = {}; // type is WAFRegionalClientConfig
  * const client = new WAFRegionalClient(config);
  * const input = { // ListXssMatchSetsRequest
  *   NextMarker: "STRING_VALUE",

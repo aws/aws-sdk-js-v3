@@ -95,6 +95,8 @@ export interface DescribePipelinesCommandOutput extends DescribePipelinesOutput,
  * ```javascript
  * import { DataPipelineClient, DescribePipelinesCommand } from "@aws-sdk/client-data-pipeline"; // ES Modules import
  * // const { DataPipelineClient, DescribePipelinesCommand } = require("@aws-sdk/client-data-pipeline"); // CommonJS import
+ * // import type { DataPipelineClientConfig } from "@aws-sdk/client-data-pipeline";
+ * const config = {}; // type is DataPipelineClientConfig
  * const client = new DataPipelineClient(config);
  * const input = { // DescribePipelinesInput
  *   pipelineIds: [ // idList // required

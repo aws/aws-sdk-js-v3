@@ -35,6 +35,8 @@ export interface StartFlowCommandOutput extends StartFlowResponse, __MetadataBea
  * ```javascript
  * import { AppflowClient, StartFlowCommand } from "@aws-sdk/client-appflow"; // ES Modules import
  * // const { AppflowClient, StartFlowCommand } = require("@aws-sdk/client-appflow"); // CommonJS import
+ * // import type { AppflowClientConfig } from "@aws-sdk/client-appflow";
+ * const config = {}; // type is AppflowClientConfig
  * const client = new AppflowClient(config);
  * const input = { // StartFlowRequest
  *   flowName: "STRING_VALUE", // required

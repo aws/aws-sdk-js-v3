@@ -35,6 +35,8 @@ export interface DeleteBackupSelectionCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { BackupClient, DeleteBackupSelectionCommand } from "@aws-sdk/client-backup"; // ES Modules import
  * // const { BackupClient, DeleteBackupSelectionCommand } = require("@aws-sdk/client-backup"); // CommonJS import
+ * // import type { BackupClientConfig } from "@aws-sdk/client-backup";
+ * const config = {}; // type is BackupClientConfig
  * const client = new BackupClient(config);
  * const input = { // DeleteBackupSelectionInput
  *   BackupPlanId: "STRING_VALUE", // required

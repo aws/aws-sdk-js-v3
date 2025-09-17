@@ -34,6 +34,8 @@ export interface UpgradeAccountPlanCommandOutput extends UpgradeAccountPlanRespo
  * ```javascript
  * import { FreeTierClient, UpgradeAccountPlanCommand } from "@aws-sdk/client-freetier"; // ES Modules import
  * // const { FreeTierClient, UpgradeAccountPlanCommand } = require("@aws-sdk/client-freetier"); // CommonJS import
+ * // import type { FreeTierClientConfig } from "@aws-sdk/client-freetier";
+ * const config = {}; // type is FreeTierClientConfig
  * const client = new FreeTierClient(config);
  * const input = { // UpgradeAccountPlanRequest
  *   accountPlanType: "FREE" || "PAID", // required

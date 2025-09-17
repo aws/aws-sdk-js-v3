@@ -34,6 +34,8 @@ export interface GetConnectionCommandOutput extends GetConnectionOutput, __Metad
  * ```javascript
  * import { DataZoneClient, GetConnectionCommand } from "@aws-sdk/client-datazone"; // ES Modules import
  * // const { DataZoneClient, GetConnectionCommand } = require("@aws-sdk/client-datazone"); // CommonJS import
+ * // import type { DataZoneClientConfig } from "@aws-sdk/client-datazone";
+ * const config = {}; // type is DataZoneClientConfig
  * const client = new DataZoneClient(config);
  * const input = { // GetConnectionInput
  *   domainIdentifier: "STRING_VALUE", // required

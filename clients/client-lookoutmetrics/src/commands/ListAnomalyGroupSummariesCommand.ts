@@ -34,6 +34,8 @@ export interface ListAnomalyGroupSummariesCommandOutput extends ListAnomalyGroup
  * ```javascript
  * import { LookoutMetricsClient, ListAnomalyGroupSummariesCommand } from "@aws-sdk/client-lookoutmetrics"; // ES Modules import
  * // const { LookoutMetricsClient, ListAnomalyGroupSummariesCommand } = require("@aws-sdk/client-lookoutmetrics"); // CommonJS import
+ * // import type { LookoutMetricsClientConfig } from "@aws-sdk/client-lookoutmetrics";
+ * const config = {}; // type is LookoutMetricsClientConfig
  * const client = new LookoutMetricsClient(config);
  * const input = { // ListAnomalyGroupSummariesRequest
  *   AnomalyDetectorArn: "STRING_VALUE", // required

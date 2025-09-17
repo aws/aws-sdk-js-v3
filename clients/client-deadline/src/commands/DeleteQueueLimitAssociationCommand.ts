@@ -44,6 +44,8 @@ export interface DeleteQueueLimitAssociationCommandOutput
  * ```javascript
  * import { DeadlineClient, DeleteQueueLimitAssociationCommand } from "@aws-sdk/client-deadline"; // ES Modules import
  * // const { DeadlineClient, DeleteQueueLimitAssociationCommand } = require("@aws-sdk/client-deadline"); // CommonJS import
+ * // import type { DeadlineClientConfig } from "@aws-sdk/client-deadline";
+ * const config = {}; // type is DeadlineClientConfig
  * const client = new DeadlineClient(config);
  * const input = { // DeleteQueueLimitAssociationRequest
  *   farmId: "STRING_VALUE", // required

@@ -36,6 +36,8 @@ export interface GetDataSourceIntrospectionCommandOutput extends GetDataSourceIn
  * ```javascript
  * import { AppSyncClient, GetDataSourceIntrospectionCommand } from "@aws-sdk/client-appsync"; // ES Modules import
  * // const { AppSyncClient, GetDataSourceIntrospectionCommand } = require("@aws-sdk/client-appsync"); // CommonJS import
+ * // import type { AppSyncClientConfig } from "@aws-sdk/client-appsync";
+ * const config = {}; // type is AppSyncClientConfig
  * const client = new AppSyncClient(config);
  * const input = { // GetDataSourceIntrospectionRequest
  *   introspectionId: "STRING_VALUE", // required

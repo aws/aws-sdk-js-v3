@@ -38,6 +38,8 @@ export interface DeleteResourcePolicyCommandOutput extends DeleteResourcePolicyR
  * ```javascript
  * import { MigrationHubRefactorSpacesClient, DeleteResourcePolicyCommand } from "@aws-sdk/client-migration-hub-refactor-spaces"; // ES Modules import
  * // const { MigrationHubRefactorSpacesClient, DeleteResourcePolicyCommand } = require("@aws-sdk/client-migration-hub-refactor-spaces"); // CommonJS import
+ * // import type { MigrationHubRefactorSpacesClientConfig } from "@aws-sdk/client-migration-hub-refactor-spaces";
+ * const config = {}; // type is MigrationHubRefactorSpacesClientConfig
  * const client = new MigrationHubRefactorSpacesClient(config);
  * const input = { // DeleteResourcePolicyRequest
  *   Identifier: "STRING_VALUE", // required

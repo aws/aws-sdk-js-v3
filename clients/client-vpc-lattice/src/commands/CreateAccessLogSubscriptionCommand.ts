@@ -44,6 +44,8 @@ export interface CreateAccessLogSubscriptionCommandOutput
  * ```javascript
  * import { VPCLatticeClient, CreateAccessLogSubscriptionCommand } from "@aws-sdk/client-vpc-lattice"; // ES Modules import
  * // const { VPCLatticeClient, CreateAccessLogSubscriptionCommand } = require("@aws-sdk/client-vpc-lattice"); // CommonJS import
+ * // import type { VPCLatticeClientConfig } from "@aws-sdk/client-vpc-lattice";
+ * const config = {}; // type is VPCLatticeClientConfig
  * const client = new VPCLatticeClient(config);
  * const input = { // CreateAccessLogSubscriptionRequest
  *   clientToken: "STRING_VALUE",

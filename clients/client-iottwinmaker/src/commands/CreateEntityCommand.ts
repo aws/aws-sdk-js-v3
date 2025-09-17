@@ -34,6 +34,8 @@ export interface CreateEntityCommandOutput extends CreateEntityResponse, __Metad
  * ```javascript
  * import { IoTTwinMakerClient, CreateEntityCommand } from "@aws-sdk/client-iottwinmaker"; // ES Modules import
  * // const { IoTTwinMakerClient, CreateEntityCommand } = require("@aws-sdk/client-iottwinmaker"); // CommonJS import
+ * // import type { IoTTwinMakerClientConfig } from "@aws-sdk/client-iottwinmaker";
+ * const config = {}; // type is IoTTwinMakerClientConfig
  * const client = new IoTTwinMakerClient(config);
  * const input = { // CreateEntityRequest
  *   workspaceId: "STRING_VALUE", // required

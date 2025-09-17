@@ -46,6 +46,8 @@ export interface CreateMaintenanceWindowCommandOutput extends CreateMaintenanceW
  * ```javascript
  * import { SSMClient, CreateMaintenanceWindowCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, CreateMaintenanceWindowCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
+ * // import type { SSMClientConfig } from "@aws-sdk/client-ssm";
+ * const config = {}; // type is SSMClientConfig
  * const client = new SSMClient(config);
  * const input = { // CreateMaintenanceWindowRequest
  *   Name: "STRING_VALUE", // required

@@ -37,6 +37,8 @@ export interface ListMobileSdkReleasesCommandOutput extends ListMobileSdkRelease
  * ```javascript
  * import { WAFV2Client, ListMobileSdkReleasesCommand } from "@aws-sdk/client-wafv2"; // ES Modules import
  * // const { WAFV2Client, ListMobileSdkReleasesCommand } = require("@aws-sdk/client-wafv2"); // CommonJS import
+ * // import type { WAFV2ClientConfig } from "@aws-sdk/client-wafv2";
+ * const config = {}; // type is WAFV2ClientConfig
  * const client = new WAFV2Client(config);
  * const input = { // ListMobileSdkReleasesRequest
  *   Platform: "IOS" || "ANDROID", // required

@@ -39,6 +39,8 @@ export interface UpdateRecommenderConfigurationCommandOutput
  * ```javascript
  * import { PinpointClient, UpdateRecommenderConfigurationCommand } from "@aws-sdk/client-pinpoint"; // ES Modules import
  * // const { PinpointClient, UpdateRecommenderConfigurationCommand } = require("@aws-sdk/client-pinpoint"); // CommonJS import
+ * // import type { PinpointClientConfig } from "@aws-sdk/client-pinpoint";
+ * const config = {}; // type is PinpointClientConfig
  * const client = new PinpointClient(config);
  * const input = { // UpdateRecommenderConfigurationRequest
  *   RecommenderId: "STRING_VALUE", // required

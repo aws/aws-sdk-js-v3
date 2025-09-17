@@ -39,6 +39,8 @@ export interface GetEvidenceByEvidenceFolderCommandOutput
  * ```javascript
  * import { AuditManagerClient, GetEvidenceByEvidenceFolderCommand } from "@aws-sdk/client-auditmanager"; // ES Modules import
  * // const { AuditManagerClient, GetEvidenceByEvidenceFolderCommand } = require("@aws-sdk/client-auditmanager"); // CommonJS import
+ * // import type { AuditManagerClientConfig } from "@aws-sdk/client-auditmanager";
+ * const config = {}; // type is AuditManagerClientConfig
  * const client = new AuditManagerClient(config);
  * const input = { // GetEvidenceByEvidenceFolderRequest
  *   assessmentId: "STRING_VALUE", // required

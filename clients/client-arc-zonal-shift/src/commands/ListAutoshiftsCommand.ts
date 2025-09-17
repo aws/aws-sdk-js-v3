@@ -34,6 +34,8 @@ export interface ListAutoshiftsCommandOutput extends ListAutoshiftsResponse, __M
  * ```javascript
  * import { ARCZonalShiftClient, ListAutoshiftsCommand } from "@aws-sdk/client-arc-zonal-shift"; // ES Modules import
  * // const { ARCZonalShiftClient, ListAutoshiftsCommand } = require("@aws-sdk/client-arc-zonal-shift"); // CommonJS import
+ * // import type { ARCZonalShiftClientConfig } from "@aws-sdk/client-arc-zonal-shift";
+ * const config = {}; // type is ARCZonalShiftClientConfig
  * const client = new ARCZonalShiftClient(config);
  * const input = { // ListAutoshiftsRequest
  *   nextToken: "STRING_VALUE",

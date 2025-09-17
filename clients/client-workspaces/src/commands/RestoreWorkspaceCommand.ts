@@ -41,6 +41,8 @@ export interface RestoreWorkspaceCommandOutput extends RestoreWorkspaceResult, _
  * ```javascript
  * import { WorkSpacesClient, RestoreWorkspaceCommand } from "@aws-sdk/client-workspaces"; // ES Modules import
  * // const { WorkSpacesClient, RestoreWorkspaceCommand } = require("@aws-sdk/client-workspaces"); // CommonJS import
+ * // import type { WorkSpacesClientConfig } from "@aws-sdk/client-workspaces";
+ * const config = {}; // type is WorkSpacesClientConfig
  * const client = new WorkSpacesClient(config);
  * const input = { // RestoreWorkspaceRequest
  *   WorkspaceId: "STRING_VALUE", // required

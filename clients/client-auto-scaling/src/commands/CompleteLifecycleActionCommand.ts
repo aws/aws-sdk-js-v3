@@ -71,6 +71,8 @@ export interface CompleteLifecycleActionCommandOutput extends CompleteLifecycleA
  * ```javascript
  * import { AutoScalingClient, CompleteLifecycleActionCommand } from "@aws-sdk/client-auto-scaling"; // ES Modules import
  * // const { AutoScalingClient, CompleteLifecycleActionCommand } = require("@aws-sdk/client-auto-scaling"); // CommonJS import
+ * // import type { AutoScalingClientConfig } from "@aws-sdk/client-auto-scaling";
+ * const config = {}; // type is AutoScalingClientConfig
  * const client = new AutoScalingClient(config);
  * const input = { // CompleteLifecycleActionType
  *   LifecycleHookName: "STRING_VALUE", // required

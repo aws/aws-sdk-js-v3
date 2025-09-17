@@ -40,6 +40,8 @@ export interface ListHITsCommandOutput extends ListHITsResponse, __MetadataBeare
  * ```javascript
  * import { MTurkClient, ListHITsCommand } from "@aws-sdk/client-mturk"; // ES Modules import
  * // const { MTurkClient, ListHITsCommand } = require("@aws-sdk/client-mturk"); // CommonJS import
+ * // import type { MTurkClientConfig } from "@aws-sdk/client-mturk";
+ * const config = {}; // type is MTurkClientConfig
  * const client = new MTurkClient(config);
  * const input = { // ListHITsRequest
  *   NextToken: "STRING_VALUE",

@@ -34,6 +34,8 @@ export interface ListFindingsCommandOutput extends ListFindingsResponse, __Metad
  * ```javascript
  * import { Inspector2Client, ListFindingsCommand } from "@aws-sdk/client-inspector2"; // ES Modules import
  * // const { Inspector2Client, ListFindingsCommand } = require("@aws-sdk/client-inspector2"); // CommonJS import
+ * // import type { Inspector2ClientConfig } from "@aws-sdk/client-inspector2";
+ * const config = {}; // type is Inspector2ClientConfig
  * const client = new Inspector2Client(config);
  * const input = { // ListFindingsRequest
  *   maxResults: Number("int"),

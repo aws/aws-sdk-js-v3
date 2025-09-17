@@ -39,6 +39,8 @@ export interface BatchGetTracesCommandOutput extends BatchGetTracesResult, __Met
  * ```javascript
  * import { XRayClient, BatchGetTracesCommand } from "@aws-sdk/client-xray"; // ES Modules import
  * // const { XRayClient, BatchGetTracesCommand } = require("@aws-sdk/client-xray"); // CommonJS import
+ * // import type { XRayClientConfig } from "@aws-sdk/client-xray";
+ * const config = {}; // type is XRayClientConfig
  * const client = new XRayClient(config);
  * const input = { // BatchGetTracesRequest
  *   TraceIds: [ // TraceIdList // required

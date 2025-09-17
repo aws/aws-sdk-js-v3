@@ -38,6 +38,8 @@ export interface GetCostCategoriesCommandOutput extends GetCostCategoriesRespons
  * ```javascript
  * import { CostExplorerClient, GetCostCategoriesCommand } from "@aws-sdk/client-cost-explorer"; // ES Modules import
  * // const { CostExplorerClient, GetCostCategoriesCommand } = require("@aws-sdk/client-cost-explorer"); // CommonJS import
+ * // import type { CostExplorerClientConfig } from "@aws-sdk/client-cost-explorer";
+ * const config = {}; // type is CostExplorerClientConfig
  * const client = new CostExplorerClient(config);
  * const input = { // GetCostCategoriesRequest
  *   SearchString: "STRING_VALUE",

@@ -47,6 +47,8 @@ export interface CreateDataAutomationProjectCommandOutput
  * ```javascript
  * import { BedrockDataAutomationClient, CreateDataAutomationProjectCommand } from "@aws-sdk/client-bedrock-data-automation"; // ES Modules import
  * // const { BedrockDataAutomationClient, CreateDataAutomationProjectCommand } = require("@aws-sdk/client-bedrock-data-automation"); // CommonJS import
+ * // import type { BedrockDataAutomationClientConfig } from "@aws-sdk/client-bedrock-data-automation";
+ * const config = {}; // type is BedrockDataAutomationClientConfig
  * const client = new BedrockDataAutomationClient(config);
  * const input = { // CreateDataAutomationProjectRequest
  *   projectName: "STRING_VALUE", // required

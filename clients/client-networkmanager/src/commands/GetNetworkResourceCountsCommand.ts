@@ -34,6 +34,8 @@ export interface GetNetworkResourceCountsCommandOutput extends GetNetworkResourc
  * ```javascript
  * import { NetworkManagerClient, GetNetworkResourceCountsCommand } from "@aws-sdk/client-networkmanager"; // ES Modules import
  * // const { NetworkManagerClient, GetNetworkResourceCountsCommand } = require("@aws-sdk/client-networkmanager"); // CommonJS import
+ * // import type { NetworkManagerClientConfig } from "@aws-sdk/client-networkmanager";
+ * const config = {}; // type is NetworkManagerClientConfig
  * const client = new NetworkManagerClient(config);
  * const input = { // GetNetworkResourceCountsRequest
  *   GlobalNetworkId: "STRING_VALUE", // required

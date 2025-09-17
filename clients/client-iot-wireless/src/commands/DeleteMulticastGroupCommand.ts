@@ -34,6 +34,8 @@ export interface DeleteMulticastGroupCommandOutput extends DeleteMulticastGroupR
  * ```javascript
  * import { IoTWirelessClient, DeleteMulticastGroupCommand } from "@aws-sdk/client-iot-wireless"; // ES Modules import
  * // const { IoTWirelessClient, DeleteMulticastGroupCommand } = require("@aws-sdk/client-iot-wireless"); // CommonJS import
+ * // import type { IoTWirelessClientConfig } from "@aws-sdk/client-iot-wireless";
+ * const config = {}; // type is IoTWirelessClientConfig
  * const client = new IoTWirelessClient(config);
  * const input = { // DeleteMulticastGroupRequest
  *   Id: "STRING_VALUE", // required

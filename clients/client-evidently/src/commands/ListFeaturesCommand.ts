@@ -34,6 +34,8 @@ export interface ListFeaturesCommandOutput extends ListFeaturesResponse, __Metad
  * ```javascript
  * import { EvidentlyClient, ListFeaturesCommand } from "@aws-sdk/client-evidently"; // ES Modules import
  * // const { EvidentlyClient, ListFeaturesCommand } = require("@aws-sdk/client-evidently"); // CommonJS import
+ * // import type { EvidentlyClientConfig } from "@aws-sdk/client-evidently";
+ * const config = {}; // type is EvidentlyClientConfig
  * const client = new EvidentlyClient(config);
  * const input = { // ListFeaturesRequest
  *   project: "STRING_VALUE", // required

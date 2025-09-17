@@ -38,6 +38,8 @@ export interface BatchGetCommandExecutionsCommandOutput extends BatchGetCommandE
  * ```javascript
  * import { CodeBuildClient, BatchGetCommandExecutionsCommand } from "@aws-sdk/client-codebuild"; // ES Modules import
  * // const { CodeBuildClient, BatchGetCommandExecutionsCommand } = require("@aws-sdk/client-codebuild"); // CommonJS import
+ * // import type { CodeBuildClientConfig } from "@aws-sdk/client-codebuild";
+ * const config = {}; // type is CodeBuildClientConfig
  * const client = new CodeBuildClient(config);
  * const input = { // BatchGetCommandExecutionsInput
  *   sandboxId: "STRING_VALUE", // required

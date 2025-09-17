@@ -34,6 +34,8 @@ export interface CreateRoleMembershipCommandOutput extends CreateRoleMembershipR
  * ```javascript
  * import { QuickSightClient, CreateRoleMembershipCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
  * // const { QuickSightClient, CreateRoleMembershipCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
+ * // import type { QuickSightClientConfig } from "@aws-sdk/client-quicksight";
+ * const config = {}; // type is QuickSightClientConfig
  * const client = new QuickSightClient(config);
  * const input = { // CreateRoleMembershipRequest
  *   MemberName: "STRING_VALUE", // required

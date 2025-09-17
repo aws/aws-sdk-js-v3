@@ -36,6 +36,8 @@ export interface StartSchemaCreationCommandOutput extends StartSchemaCreationRes
  * ```javascript
  * import { AppSyncClient, StartSchemaCreationCommand } from "@aws-sdk/client-appsync"; // ES Modules import
  * // const { AppSyncClient, StartSchemaCreationCommand } = require("@aws-sdk/client-appsync"); // CommonJS import
+ * // import type { AppSyncClientConfig } from "@aws-sdk/client-appsync";
+ * const config = {}; // type is AppSyncClientConfig
  * const client = new AppSyncClient(config);
  * const input = { // StartSchemaCreationRequest
  *   apiId: "STRING_VALUE", // required

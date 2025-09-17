@@ -39,6 +39,8 @@ export interface DeleteWorkflowStepCommandOutput extends DeleteWorkflowStepRespo
  * ```javascript
  * import { MigrationHubOrchestratorClient, DeleteWorkflowStepCommand } from "@aws-sdk/client-migrationhuborchestrator"; // ES Modules import
  * // const { MigrationHubOrchestratorClient, DeleteWorkflowStepCommand } = require("@aws-sdk/client-migrationhuborchestrator"); // CommonJS import
+ * // import type { MigrationHubOrchestratorClientConfig } from "@aws-sdk/client-migrationhuborchestrator";
+ * const config = {}; // type is MigrationHubOrchestratorClientConfig
  * const client = new MigrationHubOrchestratorClient(config);
  * const input = { // DeleteWorkflowStepRequest
  *   id: "STRING_VALUE", // required

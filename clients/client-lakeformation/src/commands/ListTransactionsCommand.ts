@@ -35,6 +35,8 @@ export interface ListTransactionsCommandOutput extends ListTransactionsResponse,
  * ```javascript
  * import { LakeFormationClient, ListTransactionsCommand } from "@aws-sdk/client-lakeformation"; // ES Modules import
  * // const { LakeFormationClient, ListTransactionsCommand } = require("@aws-sdk/client-lakeformation"); // CommonJS import
+ * // import type { LakeFormationClientConfig } from "@aws-sdk/client-lakeformation";
+ * const config = {}; // type is LakeFormationClientConfig
  * const client = new LakeFormationClient(config);
  * const input = { // ListTransactionsRequest
  *   CatalogId: "STRING_VALUE",

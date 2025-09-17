@@ -34,6 +34,8 @@ export interface UpdateFlowOutputCommandOutput extends UpdateFlowOutputResponse,
  * ```javascript
  * import { MediaConnectClient, UpdateFlowOutputCommand } from "@aws-sdk/client-mediaconnect"; // ES Modules import
  * // const { MediaConnectClient, UpdateFlowOutputCommand } = require("@aws-sdk/client-mediaconnect"); // CommonJS import
+ * // import type { MediaConnectClientConfig } from "@aws-sdk/client-mediaconnect";
+ * const config = {}; // type is MediaConnectClientConfig
  * const client = new MediaConnectClient(config);
  * const input = { // UpdateFlowOutputRequest
  *   CidrAllowList: [ // __listOfString

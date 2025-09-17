@@ -34,6 +34,8 @@ export interface ListSchemasCommandOutput extends ListSchemasResponse, __Metadat
  * ```javascript
  * import { SchemasClient, ListSchemasCommand } from "@aws-sdk/client-schemas"; // ES Modules import
  * // const { SchemasClient, ListSchemasCommand } = require("@aws-sdk/client-schemas"); // CommonJS import
+ * // import type { SchemasClientConfig } from "@aws-sdk/client-schemas";
+ * const config = {}; // type is SchemasClientConfig
  * const client = new SchemasClient(config);
  * const input = { // ListSchemasRequest
  *   Limit: Number("int"),

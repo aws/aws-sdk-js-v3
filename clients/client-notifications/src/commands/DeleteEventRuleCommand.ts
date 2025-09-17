@@ -34,6 +34,8 @@ export interface DeleteEventRuleCommandOutput extends DeleteEventRuleResponse, _
  * ```javascript
  * import { NotificationsClient, DeleteEventRuleCommand } from "@aws-sdk/client-notifications"; // ES Modules import
  * // const { NotificationsClient, DeleteEventRuleCommand } = require("@aws-sdk/client-notifications"); // CommonJS import
+ * // import type { NotificationsClientConfig } from "@aws-sdk/client-notifications";
+ * const config = {}; // type is NotificationsClientConfig
  * const client = new NotificationsClient(config);
  * const input = { // DeleteEventRuleRequest
  *   arn: "STRING_VALUE", // required

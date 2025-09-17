@@ -35,6 +35,8 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * ```javascript
  * import { OSISClient, TagResourceCommand } from "@aws-sdk/client-osis"; // ES Modules import
  * // const { OSISClient, TagResourceCommand } = require("@aws-sdk/client-osis"); // CommonJS import
+ * // import type { OSISClientConfig } from "@aws-sdk/client-osis";
+ * const config = {}; // type is OSISClientConfig
  * const client = new OSISClient(config);
  * const input = { // TagResourceRequest
  *   Arn: "STRING_VALUE", // required

@@ -34,6 +34,8 @@ export interface CreateFieldCommandOutput extends CreateFieldResponse, __Metadat
  * ```javascript
  * import { ConnectCasesClient, CreateFieldCommand } from "@aws-sdk/client-connectcases"; // ES Modules import
  * // const { ConnectCasesClient, CreateFieldCommand } = require("@aws-sdk/client-connectcases"); // CommonJS import
+ * // import type { ConnectCasesClientConfig } from "@aws-sdk/client-connectcases";
+ * const config = {}; // type is ConnectCasesClientConfig
  * const client = new ConnectCasesClient(config);
  * const input = { // CreateFieldRequest
  *   domainId: "STRING_VALUE", // required

@@ -35,6 +35,8 @@ export interface DeleteCustomLogSourceCommandOutput extends DeleteCustomLogSourc
  * ```javascript
  * import { SecurityLakeClient, DeleteCustomLogSourceCommand } from "@aws-sdk/client-securitylake"; // ES Modules import
  * // const { SecurityLakeClient, DeleteCustomLogSourceCommand } = require("@aws-sdk/client-securitylake"); // CommonJS import
+ * // import type { SecurityLakeClientConfig } from "@aws-sdk/client-securitylake";
+ * const config = {}; // type is SecurityLakeClientConfig
  * const client = new SecurityLakeClient(config);
  * const input = { // DeleteCustomLogSourceRequest
  *   sourceName: "STRING_VALUE", // required

@@ -38,6 +38,8 @@ export interface ListAnalyzableServersCommandOutput extends ListAnalyzableServer
  * ```javascript
  * import { MigrationHubStrategyClient, ListAnalyzableServersCommand } from "@aws-sdk/client-migrationhubstrategy"; // ES Modules import
  * // const { MigrationHubStrategyClient, ListAnalyzableServersCommand } = require("@aws-sdk/client-migrationhubstrategy"); // CommonJS import
+ * // import type { MigrationHubStrategyClientConfig } from "@aws-sdk/client-migrationhubstrategy";
+ * const config = {}; // type is MigrationHubStrategyClientConfig
  * const client = new MigrationHubStrategyClient(config);
  * const input = { // ListAnalyzableServersRequest
  *   sort: "STRING_VALUE",

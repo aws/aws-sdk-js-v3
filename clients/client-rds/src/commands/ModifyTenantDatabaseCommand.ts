@@ -41,6 +41,8 @@ export interface ModifyTenantDatabaseCommandOutput extends ModifyTenantDatabaseR
  * ```javascript
  * import { RDSClient, ModifyTenantDatabaseCommand } from "@aws-sdk/client-rds"; // ES Modules import
  * // const { RDSClient, ModifyTenantDatabaseCommand } = require("@aws-sdk/client-rds"); // CommonJS import
+ * // import type { RDSClientConfig } from "@aws-sdk/client-rds";
+ * const config = {}; // type is RDSClientConfig
  * const client = new RDSClient(config);
  * const input = { // ModifyTenantDatabaseMessage
  *   DBInstanceIdentifier: "STRING_VALUE", // required

@@ -47,6 +47,8 @@ export interface DeleteResolverQueryLogConfigCommandOutput
  * ```javascript
  * import { Route53ResolverClient, DeleteResolverQueryLogConfigCommand } from "@aws-sdk/client-route53resolver"; // ES Modules import
  * // const { Route53ResolverClient, DeleteResolverQueryLogConfigCommand } = require("@aws-sdk/client-route53resolver"); // CommonJS import
+ * // import type { Route53ResolverClientConfig } from "@aws-sdk/client-route53resolver";
+ * const config = {}; // type is Route53ResolverClientConfig
  * const client = new Route53ResolverClient(config);
  * const input = { // DeleteResolverQueryLogConfigRequest
  *   ResolverQueryLogConfigId: "STRING_VALUE", // required

@@ -34,6 +34,8 @@ export interface DisconnectSourceServerCommandOutput extends SourceServer, __Met
  * ```javascript
  * import { DrsClient, DisconnectSourceServerCommand } from "@aws-sdk/client-drs"; // ES Modules import
  * // const { DrsClient, DisconnectSourceServerCommand } = require("@aws-sdk/client-drs"); // CommonJS import
+ * // import type { DrsClientConfig } from "@aws-sdk/client-drs";
+ * const config = {}; // type is DrsClientConfig
  * const client = new DrsClient(config);
  * const input = { // DisconnectSourceServerRequest
  *   sourceServerID: "STRING_VALUE", // required

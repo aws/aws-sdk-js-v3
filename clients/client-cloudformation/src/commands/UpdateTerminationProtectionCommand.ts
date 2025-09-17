@@ -40,6 +40,8 @@ export interface UpdateTerminationProtectionCommandOutput extends UpdateTerminat
  * ```javascript
  * import { CloudFormationClient, UpdateTerminationProtectionCommand } from "@aws-sdk/client-cloudformation"; // ES Modules import
  * // const { CloudFormationClient, UpdateTerminationProtectionCommand } = require("@aws-sdk/client-cloudformation"); // CommonJS import
+ * // import type { CloudFormationClientConfig } from "@aws-sdk/client-cloudformation";
+ * const config = {}; // type is CloudFormationClientConfig
  * const client = new CloudFormationClient(config);
  * const input = { // UpdateTerminationProtectionInput
  *   EnableTerminationProtection: true || false, // required

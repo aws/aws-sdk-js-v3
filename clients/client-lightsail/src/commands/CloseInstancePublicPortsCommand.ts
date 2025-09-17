@@ -37,6 +37,8 @@ export interface CloseInstancePublicPortsCommandOutput extends CloseInstancePubl
  * ```javascript
  * import { LightsailClient, CloseInstancePublicPortsCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, CloseInstancePublicPortsCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
+ * // import type { LightsailClientConfig } from "@aws-sdk/client-lightsail";
+ * const config = {}; // type is LightsailClientConfig
  * const client = new LightsailClient(config);
  * const input = { // CloseInstancePublicPortsRequest
  *   portInfo: { // PortInfo

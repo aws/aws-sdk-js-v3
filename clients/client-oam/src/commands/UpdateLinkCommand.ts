@@ -34,6 +34,8 @@ export interface UpdateLinkCommandOutput extends UpdateLinkOutput, __MetadataBea
  * ```javascript
  * import { OAMClient, UpdateLinkCommand } from "@aws-sdk/client-oam"; // ES Modules import
  * // const { OAMClient, UpdateLinkCommand } = require("@aws-sdk/client-oam"); // CommonJS import
+ * // import type { OAMClientConfig } from "@aws-sdk/client-oam";
+ * const config = {}; // type is OAMClientConfig
  * const client = new OAMClient(config);
  * const input = { // UpdateLinkInput
  *   Identifier: "STRING_VALUE", // required

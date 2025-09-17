@@ -75,6 +75,8 @@ export interface LabelParameterVersionCommandOutput extends LabelParameterVersio
  * ```javascript
  * import { SSMClient, LabelParameterVersionCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, LabelParameterVersionCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
+ * // import type { SSMClientConfig } from "@aws-sdk/client-ssm";
+ * const config = {}; // type is SSMClientConfig
  * const client = new SSMClient(config);
  * const input = { // LabelParameterVersionRequest
  *   Name: "STRING_VALUE", // required

@@ -39,6 +39,8 @@ export interface UpdateAIGuardrailCommandOutput extends UpdateAIGuardrailRespons
  * ```javascript
  * import { QConnectClient, UpdateAIGuardrailCommand } from "@aws-sdk/client-qconnect"; // ES Modules import
  * // const { QConnectClient, UpdateAIGuardrailCommand } = require("@aws-sdk/client-qconnect"); // CommonJS import
+ * // import type { QConnectClientConfig } from "@aws-sdk/client-qconnect";
+ * const config = {}; // type is QConnectClientConfig
  * const client = new QConnectClient(config);
  * const input = { // UpdateAIGuardrailRequest
  *   clientToken: "STRING_VALUE",

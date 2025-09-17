@@ -34,6 +34,8 @@ export interface DeleteAnalysisTemplateCommandOutput extends DeleteAnalysisTempl
  * ```javascript
  * import { CleanRoomsClient, DeleteAnalysisTemplateCommand } from "@aws-sdk/client-cleanrooms"; // ES Modules import
  * // const { CleanRoomsClient, DeleteAnalysisTemplateCommand } = require("@aws-sdk/client-cleanrooms"); // CommonJS import
+ * // import type { CleanRoomsClientConfig } from "@aws-sdk/client-cleanrooms";
+ * const config = {}; // type is CleanRoomsClientConfig
  * const client = new CleanRoomsClient(config);
  * const input = { // DeleteAnalysisTemplateInput
  *   membershipIdentifier: "STRING_VALUE", // required

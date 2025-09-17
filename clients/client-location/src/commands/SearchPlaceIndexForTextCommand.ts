@@ -48,6 +48,8 @@ export interface SearchPlaceIndexForTextCommandOutput extends SearchPlaceIndexFo
  * ```javascript
  * import { LocationClient, SearchPlaceIndexForTextCommand } from "@aws-sdk/client-location"; // ES Modules import
  * // const { LocationClient, SearchPlaceIndexForTextCommand } = require("@aws-sdk/client-location"); // CommonJS import
+ * // import type { LocationClientConfig } from "@aws-sdk/client-location";
+ * const config = {}; // type is LocationClientConfig
  * const client = new LocationClient(config);
  * const input = { // SearchPlaceIndexForTextRequest
  *   IndexName: "STRING_VALUE", // required

@@ -34,6 +34,8 @@ export interface UpdateDashboardLinksCommandOutput extends UpdateDashboardLinksR
  * ```javascript
  * import { QuickSightClient, UpdateDashboardLinksCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
  * // const { QuickSightClient, UpdateDashboardLinksCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
+ * // import type { QuickSightClientConfig } from "@aws-sdk/client-quicksight";
+ * const config = {}; // type is QuickSightClientConfig
  * const client = new QuickSightClient(config);
  * const input = { // UpdateDashboardLinksRequest
  *   AwsAccountId: "STRING_VALUE", // required

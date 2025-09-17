@@ -47,6 +47,8 @@ export interface CreateHapgCommandOutput extends CreateHapgResponse, __MetadataB
  * ```javascript
  * import { CloudHSMClient, CreateHapgCommand } from "@aws-sdk/client-cloudhsm"; // ES Modules import
  * // const { CloudHSMClient, CreateHapgCommand } = require("@aws-sdk/client-cloudhsm"); // CommonJS import
+ * // import type { CloudHSMClientConfig } from "@aws-sdk/client-cloudhsm";
+ * const config = {}; // type is CloudHSMClientConfig
  * const client = new CloudHSMClient(config);
  * const input = { // CreateHapgRequest
  *   Label: "STRING_VALUE", // required

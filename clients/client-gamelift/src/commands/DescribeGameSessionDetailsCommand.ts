@@ -72,6 +72,8 @@ export interface DescribeGameSessionDetailsCommandOutput extends DescribeGameSes
  * ```javascript
  * import { GameLiftClient, DescribeGameSessionDetailsCommand } from "@aws-sdk/client-gamelift"; // ES Modules import
  * // const { GameLiftClient, DescribeGameSessionDetailsCommand } = require("@aws-sdk/client-gamelift"); // CommonJS import
+ * // import type { GameLiftClientConfig } from "@aws-sdk/client-gamelift";
+ * const config = {}; // type is GameLiftClientConfig
  * const client = new GameLiftClient(config);
  * const input = { // DescribeGameSessionDetailsInput
  *   FleetId: "STRING_VALUE",

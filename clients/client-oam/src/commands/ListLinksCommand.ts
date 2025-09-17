@@ -34,6 +34,8 @@ export interface ListLinksCommandOutput extends ListLinksOutput, __MetadataBeare
  * ```javascript
  * import { OAMClient, ListLinksCommand } from "@aws-sdk/client-oam"; // ES Modules import
  * // const { OAMClient, ListLinksCommand } = require("@aws-sdk/client-oam"); // CommonJS import
+ * // import type { OAMClientConfig } from "@aws-sdk/client-oam";
+ * const config = {}; // type is OAMClientConfig
  * const client = new OAMClient(config);
  * const input = { // ListLinksInput
  *   MaxResults: Number("int"),

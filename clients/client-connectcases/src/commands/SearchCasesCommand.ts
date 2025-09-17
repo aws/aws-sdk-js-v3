@@ -34,6 +34,8 @@ export interface SearchCasesCommandOutput extends SearchCasesResponse, __Metadat
  * ```javascript
  * import { ConnectCasesClient, SearchCasesCommand } from "@aws-sdk/client-connectcases"; // ES Modules import
  * // const { ConnectCasesClient, SearchCasesCommand } = require("@aws-sdk/client-connectcases"); // CommonJS import
+ * // import type { ConnectCasesClientConfig } from "@aws-sdk/client-connectcases";
+ * const config = {}; // type is ConnectCasesClientConfig
  * const client = new ConnectCasesClient(config);
  * const input = { // SearchCasesRequest
  *   domainId: "STRING_VALUE", // required

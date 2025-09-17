@@ -34,6 +34,8 @@ export interface GetGremlinQueryStatusCommandOutput extends GetGremlinQueryStatu
  * ```javascript
  * import { NeptunedataClient, GetGremlinQueryStatusCommand } from "@aws-sdk/client-neptunedata"; // ES Modules import
  * // const { NeptunedataClient, GetGremlinQueryStatusCommand } = require("@aws-sdk/client-neptunedata"); // CommonJS import
+ * // import type { NeptunedataClientConfig } from "@aws-sdk/client-neptunedata";
+ * const config = {}; // type is NeptunedataClientConfig
  * const client = new NeptunedataClient(config);
  * const input = { // GetGremlinQueryStatusInput
  *   queryId: "STRING_VALUE", // required

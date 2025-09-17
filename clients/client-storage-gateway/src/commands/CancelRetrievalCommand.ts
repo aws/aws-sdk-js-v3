@@ -36,6 +36,8 @@ export interface CancelRetrievalCommandOutput extends CancelRetrievalOutput, __M
  * ```javascript
  * import { StorageGatewayClient, CancelRetrievalCommand } from "@aws-sdk/client-storage-gateway"; // ES Modules import
  * // const { StorageGatewayClient, CancelRetrievalCommand } = require("@aws-sdk/client-storage-gateway"); // CommonJS import
+ * // import type { StorageGatewayClientConfig } from "@aws-sdk/client-storage-gateway";
+ * const config = {}; // type is StorageGatewayClientConfig
  * const client = new StorageGatewayClient(config);
  * const input = { // CancelRetrievalInput
  *   GatewayARN: "STRING_VALUE", // required

@@ -34,6 +34,8 @@ export interface ListSessionsForWorkerCommandOutput extends ListSessionsForWorke
  * ```javascript
  * import { DeadlineClient, ListSessionsForWorkerCommand } from "@aws-sdk/client-deadline"; // ES Modules import
  * // const { DeadlineClient, ListSessionsForWorkerCommand } = require("@aws-sdk/client-deadline"); // CommonJS import
+ * // import type { DeadlineClientConfig } from "@aws-sdk/client-deadline";
+ * const config = {}; // type is DeadlineClientConfig
  * const client = new DeadlineClient(config);
  * const input = { // ListSessionsForWorkerRequest
  *   farmId: "STRING_VALUE", // required

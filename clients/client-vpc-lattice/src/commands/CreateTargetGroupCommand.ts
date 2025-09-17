@@ -37,6 +37,8 @@ export interface CreateTargetGroupCommandOutput extends CreateTargetGroupRespons
  * ```javascript
  * import { VPCLatticeClient, CreateTargetGroupCommand } from "@aws-sdk/client-vpc-lattice"; // ES Modules import
  * // const { VPCLatticeClient, CreateTargetGroupCommand } = require("@aws-sdk/client-vpc-lattice"); // CommonJS import
+ * // import type { VPCLatticeClientConfig } from "@aws-sdk/client-vpc-lattice";
+ * const config = {}; // type is VPCLatticeClientConfig
  * const client = new VPCLatticeClient(config);
  * const input = { // CreateTargetGroupRequest
  *   name: "STRING_VALUE", // required

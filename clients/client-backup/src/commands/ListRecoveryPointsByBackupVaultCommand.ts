@@ -39,6 +39,8 @@ export interface ListRecoveryPointsByBackupVaultCommandOutput
  * ```javascript
  * import { BackupClient, ListRecoveryPointsByBackupVaultCommand } from "@aws-sdk/client-backup"; // ES Modules import
  * // const { BackupClient, ListRecoveryPointsByBackupVaultCommand } = require("@aws-sdk/client-backup"); // CommonJS import
+ * // import type { BackupClientConfig } from "@aws-sdk/client-backup";
+ * const config = {}; // type is BackupClientConfig
  * const client = new BackupClient(config);
  * const input = { // ListRecoveryPointsByBackupVaultInput
  *   BackupVaultName: "STRING_VALUE", // required

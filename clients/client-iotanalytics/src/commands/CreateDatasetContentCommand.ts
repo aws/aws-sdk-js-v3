@@ -35,6 +35,8 @@ export interface CreateDatasetContentCommandOutput extends CreateDatasetContentR
  * ```javascript
  * import { IoTAnalyticsClient, CreateDatasetContentCommand } from "@aws-sdk/client-iotanalytics"; // ES Modules import
  * // const { IoTAnalyticsClient, CreateDatasetContentCommand } = require("@aws-sdk/client-iotanalytics"); // CommonJS import
+ * // import type { IoTAnalyticsClientConfig } from "@aws-sdk/client-iotanalytics";
+ * const config = {}; // type is IoTAnalyticsClientConfig
  * const client = new IoTAnalyticsClient(config);
  * const input = { // CreateDatasetContentRequest
  *   datasetName: "STRING_VALUE", // required

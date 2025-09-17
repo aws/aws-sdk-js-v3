@@ -34,6 +34,8 @@ export interface UpdateWorkerCommandOutput extends UpdateWorkerResponse, __Metad
  * ```javascript
  * import { DeadlineClient, UpdateWorkerCommand } from "@aws-sdk/client-deadline"; // ES Modules import
  * // const { DeadlineClient, UpdateWorkerCommand } = require("@aws-sdk/client-deadline"); // CommonJS import
+ * // import type { DeadlineClientConfig } from "@aws-sdk/client-deadline";
+ * const config = {}; // type is DeadlineClientConfig
  * const client = new DeadlineClient(config);
  * const input = { // UpdateWorkerRequest
  *   farmId: "STRING_VALUE", // required

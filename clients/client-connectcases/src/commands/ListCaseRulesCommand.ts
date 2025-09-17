@@ -34,6 +34,8 @@ export interface ListCaseRulesCommandOutput extends ListCaseRulesResponse, __Met
  * ```javascript
  * import { ConnectCasesClient, ListCaseRulesCommand } from "@aws-sdk/client-connectcases"; // ES Modules import
  * // const { ConnectCasesClient, ListCaseRulesCommand } = require("@aws-sdk/client-connectcases"); // CommonJS import
+ * // import type { ConnectCasesClientConfig } from "@aws-sdk/client-connectcases";
+ * const config = {}; // type is ConnectCasesClientConfig
  * const client = new ConnectCasesClient(config);
  * const input = { // ListCaseRulesRequest
  *   domainId: "STRING_VALUE", // required

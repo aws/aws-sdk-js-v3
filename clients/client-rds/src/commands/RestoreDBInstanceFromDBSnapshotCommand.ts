@@ -55,6 +55,8 @@ export interface RestoreDBInstanceFromDBSnapshotCommandOutput
  * ```javascript
  * import { RDSClient, RestoreDBInstanceFromDBSnapshotCommand } from "@aws-sdk/client-rds"; // ES Modules import
  * // const { RDSClient, RestoreDBInstanceFromDBSnapshotCommand } = require("@aws-sdk/client-rds"); // CommonJS import
+ * // import type { RDSClientConfig } from "@aws-sdk/client-rds";
+ * const config = {}; // type is RDSClientConfig
  * const client = new RDSClient(config);
  * const input = { // RestoreDBInstanceFromDBSnapshotMessage
  *   DBInstanceIdentifier: "STRING_VALUE", // required

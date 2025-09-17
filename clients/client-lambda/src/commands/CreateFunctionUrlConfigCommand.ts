@@ -34,6 +34,8 @@ export interface CreateFunctionUrlConfigCommandOutput extends CreateFunctionUrlC
  * ```javascript
  * import { LambdaClient, CreateFunctionUrlConfigCommand } from "@aws-sdk/client-lambda"; // ES Modules import
  * // const { LambdaClient, CreateFunctionUrlConfigCommand } = require("@aws-sdk/client-lambda"); // CommonJS import
+ * // import type { LambdaClientConfig } from "@aws-sdk/client-lambda";
+ * const config = {}; // type is LambdaClientConfig
  * const client = new LambdaClient(config);
  * const input = { // CreateFunctionUrlConfigRequest
  *   FunctionName: "STRING_VALUE", // required

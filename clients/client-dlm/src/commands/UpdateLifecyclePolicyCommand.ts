@@ -36,6 +36,8 @@ export interface UpdateLifecyclePolicyCommandOutput extends UpdateLifecyclePolic
  * ```javascript
  * import { DLMClient, UpdateLifecyclePolicyCommand } from "@aws-sdk/client-dlm"; // ES Modules import
  * // const { DLMClient, UpdateLifecyclePolicyCommand } = require("@aws-sdk/client-dlm"); // CommonJS import
+ * // import type { DLMClientConfig } from "@aws-sdk/client-dlm";
+ * const config = {}; // type is DLMClientConfig
  * const client = new DLMClient(config);
  * const input = { // UpdateLifecyclePolicyRequest
  *   PolicyId: "STRING_VALUE", // required

@@ -34,6 +34,8 @@ export interface GetClassifierCommandOutput extends GetClassifierResponse, __Met
  * ```javascript
  * import { GlueClient, GetClassifierCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, GetClassifierCommand } = require("@aws-sdk/client-glue"); // CommonJS import
+ * // import type { GlueClientConfig } from "@aws-sdk/client-glue";
+ * const config = {}; // type is GlueClientConfig
  * const client = new GlueClient(config);
  * const input = { // GetClassifierRequest
  *   Name: "STRING_VALUE", // required

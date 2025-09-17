@@ -34,6 +34,8 @@ export interface RegisterApplicationRevisionCommandOutput extends __MetadataBear
  * ```javascript
  * import { CodeDeployClient, RegisterApplicationRevisionCommand } from "@aws-sdk/client-codedeploy"; // ES Modules import
  * // const { CodeDeployClient, RegisterApplicationRevisionCommand } = require("@aws-sdk/client-codedeploy"); // CommonJS import
+ * // import type { CodeDeployClientConfig } from "@aws-sdk/client-codedeploy";
+ * const config = {}; // type is CodeDeployClientConfig
  * const client = new CodeDeployClient(config);
  * const input = { // RegisterApplicationRevisionInput
  *   applicationName: "STRING_VALUE", // required

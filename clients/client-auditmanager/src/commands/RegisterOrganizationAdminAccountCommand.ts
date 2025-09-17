@@ -40,6 +40,8 @@ export interface RegisterOrganizationAdminAccountCommandOutput
  * ```javascript
  * import { AuditManagerClient, RegisterOrganizationAdminAccountCommand } from "@aws-sdk/client-auditmanager"; // ES Modules import
  * // const { AuditManagerClient, RegisterOrganizationAdminAccountCommand } = require("@aws-sdk/client-auditmanager"); // CommonJS import
+ * // import type { AuditManagerClientConfig } from "@aws-sdk/client-auditmanager";
+ * const config = {}; // type is AuditManagerClientConfig
  * const client = new AuditManagerClient(config);
  * const input = { // RegisterOrganizationAdminAccountRequest
  *   adminAccountId: "STRING_VALUE", // required

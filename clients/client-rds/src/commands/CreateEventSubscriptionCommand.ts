@@ -57,6 +57,8 @@ export interface CreateEventSubscriptionCommandOutput extends CreateEventSubscri
  * ```javascript
  * import { RDSClient, CreateEventSubscriptionCommand } from "@aws-sdk/client-rds"; // ES Modules import
  * // const { RDSClient, CreateEventSubscriptionCommand } = require("@aws-sdk/client-rds"); // CommonJS import
+ * // import type { RDSClientConfig } from "@aws-sdk/client-rds";
+ * const config = {}; // type is RDSClientConfig
  * const client = new RDSClient(config);
  * const input = { // CreateEventSubscriptionMessage
  *   SubscriptionName: "STRING_VALUE", // required

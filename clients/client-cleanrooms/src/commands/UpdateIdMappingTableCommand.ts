@@ -34,6 +34,8 @@ export interface UpdateIdMappingTableCommandOutput extends UpdateIdMappingTableO
  * ```javascript
  * import { CleanRoomsClient, UpdateIdMappingTableCommand } from "@aws-sdk/client-cleanrooms"; // ES Modules import
  * // const { CleanRoomsClient, UpdateIdMappingTableCommand } = require("@aws-sdk/client-cleanrooms"); // CommonJS import
+ * // import type { CleanRoomsClientConfig } from "@aws-sdk/client-cleanrooms";
+ * const config = {}; // type is CleanRoomsClientConfig
  * const client = new CleanRoomsClient(config);
  * const input = { // UpdateIdMappingTableInput
  *   idMappingTableIdentifier: "STRING_VALUE", // required

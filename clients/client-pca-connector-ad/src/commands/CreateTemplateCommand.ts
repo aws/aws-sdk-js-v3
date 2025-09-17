@@ -35,6 +35,8 @@ export interface CreateTemplateCommandOutput extends CreateTemplateResponse, __M
  * ```javascript
  * import { PcaConnectorAdClient, CreateTemplateCommand } from "@aws-sdk/client-pca-connector-ad"; // ES Modules import
  * // const { PcaConnectorAdClient, CreateTemplateCommand } = require("@aws-sdk/client-pca-connector-ad"); // CommonJS import
+ * // import type { PcaConnectorAdClientConfig } from "@aws-sdk/client-pca-connector-ad";
+ * const config = {}; // type is PcaConnectorAdClientConfig
  * const client = new PcaConnectorAdClient(config);
  * const input = { // CreateTemplateRequest
  *   ConnectorArn: "STRING_VALUE", // required

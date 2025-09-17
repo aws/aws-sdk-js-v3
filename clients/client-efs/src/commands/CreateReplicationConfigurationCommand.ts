@@ -65,6 +65,8 @@ export interface CreateReplicationConfigurationCommandOutput
  * ```javascript
  * import { EFSClient, CreateReplicationConfigurationCommand } from "@aws-sdk/client-efs"; // ES Modules import
  * // const { EFSClient, CreateReplicationConfigurationCommand } = require("@aws-sdk/client-efs"); // CommonJS import
+ * // import type { EFSClientConfig } from "@aws-sdk/client-efs";
+ * const config = {}; // type is EFSClientConfig
  * const client = new EFSClient(config);
  * const input = { // CreateReplicationConfigurationRequest
  *   SourceFileSystemId: "STRING_VALUE", // required

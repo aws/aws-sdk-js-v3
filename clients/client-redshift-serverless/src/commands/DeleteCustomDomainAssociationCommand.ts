@@ -43,6 +43,8 @@ export interface DeleteCustomDomainAssociationCommandOutput
  * ```javascript
  * import { RedshiftServerlessClient, DeleteCustomDomainAssociationCommand } from "@aws-sdk/client-redshift-serverless"; // ES Modules import
  * // const { RedshiftServerlessClient, DeleteCustomDomainAssociationCommand } = require("@aws-sdk/client-redshift-serverless"); // CommonJS import
+ * // import type { RedshiftServerlessClientConfig } from "@aws-sdk/client-redshift-serverless";
+ * const config = {}; // type is RedshiftServerlessClientConfig
  * const client = new RedshiftServerlessClient(config);
  * const input = { // DeleteCustomDomainAssociationRequest
  *   workgroupName: "STRING_VALUE", // required

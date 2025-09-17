@@ -38,6 +38,8 @@ export interface EnableTrustAnchorCommandOutput extends TrustAnchorDetailRespons
  * ```javascript
  * import { RolesAnywhereClient, EnableTrustAnchorCommand } from "@aws-sdk/client-rolesanywhere"; // ES Modules import
  * // const { RolesAnywhereClient, EnableTrustAnchorCommand } = require("@aws-sdk/client-rolesanywhere"); // CommonJS import
+ * // import type { RolesAnywhereClientConfig } from "@aws-sdk/client-rolesanywhere";
+ * const config = {}; // type is RolesAnywhereClientConfig
  * const client = new RolesAnywhereClient(config);
  * const input = { // ScalarTrustAnchorRequest
  *   trustAnchorId: "STRING_VALUE", // required

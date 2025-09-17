@@ -36,6 +36,8 @@ export interface ListAuthenticationProfilesCommandOutput extends ListAuthenticat
  * ```javascript
  * import { ConnectClient, ListAuthenticationProfilesCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, ListAuthenticationProfilesCommand } = require("@aws-sdk/client-connect"); // CommonJS import
+ * // import type { ConnectClientConfig } from "@aws-sdk/client-connect";
+ * const config = {}; // type is ConnectClientConfig
  * const client = new ConnectClient(config);
  * const input = { // ListAuthenticationProfilesRequest
  *   InstanceId: "STRING_VALUE", // required

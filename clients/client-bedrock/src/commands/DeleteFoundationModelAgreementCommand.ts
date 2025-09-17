@@ -39,6 +39,8 @@ export interface DeleteFoundationModelAgreementCommandOutput
  * ```javascript
  * import { BedrockClient, DeleteFoundationModelAgreementCommand } from "@aws-sdk/client-bedrock"; // ES Modules import
  * // const { BedrockClient, DeleteFoundationModelAgreementCommand } = require("@aws-sdk/client-bedrock"); // CommonJS import
+ * // import type { BedrockClientConfig } from "@aws-sdk/client-bedrock";
+ * const config = {}; // type is BedrockClientConfig
  * const client = new BedrockClient(config);
  * const input = { // DeleteFoundationModelAgreementRequest
  *   modelId: "STRING_VALUE", // required

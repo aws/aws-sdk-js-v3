@@ -34,6 +34,8 @@ export interface UntagResourceCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { PCSClient, UntagResourceCommand } from "@aws-sdk/client-pcs"; // ES Modules import
  * // const { PCSClient, UntagResourceCommand } = require("@aws-sdk/client-pcs"); // CommonJS import
+ * // import type { PCSClientConfig } from "@aws-sdk/client-pcs";
+ * const config = {}; // type is PCSClientConfig
  * const client = new PCSClient(config);
  * const input = { // UntagResourceRequest
  *   resourceArn: "STRING_VALUE", // required

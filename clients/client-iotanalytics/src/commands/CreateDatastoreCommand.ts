@@ -34,6 +34,8 @@ export interface CreateDatastoreCommandOutput extends CreateDatastoreResponse, _
  * ```javascript
  * import { IoTAnalyticsClient, CreateDatastoreCommand } from "@aws-sdk/client-iotanalytics"; // ES Modules import
  * // const { IoTAnalyticsClient, CreateDatastoreCommand } = require("@aws-sdk/client-iotanalytics"); // CommonJS import
+ * // import type { IoTAnalyticsClientConfig } from "@aws-sdk/client-iotanalytics";
+ * const config = {}; // type is IoTAnalyticsClientConfig
  * const client = new IoTAnalyticsClient(config);
  * const input = { // CreateDatastoreRequest
  *   datastoreName: "STRING_VALUE", // required

@@ -39,6 +39,8 @@ export interface ListConfigurationCheckOperationsCommandOutput
  * ```javascript
  * import { SsmSapClient, ListConfigurationCheckOperationsCommand } from "@aws-sdk/client-ssm-sap"; // ES Modules import
  * // const { SsmSapClient, ListConfigurationCheckOperationsCommand } = require("@aws-sdk/client-ssm-sap"); // CommonJS import
+ * // import type { SsmSapClientConfig } from "@aws-sdk/client-ssm-sap";
+ * const config = {}; // type is SsmSapClientConfig
  * const client = new SsmSapClient(config);
  * const input = { // ListConfigurationCheckOperationsInput
  *   ApplicationId: "STRING_VALUE", // required

@@ -38,6 +38,8 @@ export interface StopSimulationCommandOutput extends StopSimulationOutput, __Met
  * ```javascript
  * import { SimSpaceWeaverClient, StopSimulationCommand } from "@aws-sdk/client-simspaceweaver"; // ES Modules import
  * // const { SimSpaceWeaverClient, StopSimulationCommand } = require("@aws-sdk/client-simspaceweaver"); // CommonJS import
+ * // import type { SimSpaceWeaverClientConfig } from "@aws-sdk/client-simspaceweaver";
+ * const config = {}; // type is SimSpaceWeaverClientConfig
  * const client = new SimSpaceWeaverClient(config);
  * const input = { // StopSimulationInput
  *   Simulation: "STRING_VALUE", // required

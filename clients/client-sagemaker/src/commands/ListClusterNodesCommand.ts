@@ -34,6 +34,8 @@ export interface ListClusterNodesCommandOutput extends ListClusterNodesResponse,
  * ```javascript
  * import { SageMakerClient, ListClusterNodesCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, ListClusterNodesCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * // import type { SageMakerClientConfig } from "@aws-sdk/client-sagemaker";
+ * const config = {}; // type is SageMakerClientConfig
  * const client = new SageMakerClient(config);
  * const input = { // ListClusterNodesRequest
  *   ClusterName: "STRING_VALUE", // required

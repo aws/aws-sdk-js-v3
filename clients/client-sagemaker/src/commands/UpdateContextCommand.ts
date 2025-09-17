@@ -34,6 +34,8 @@ export interface UpdateContextCommandOutput extends UpdateContextResponse, __Met
  * ```javascript
  * import { SageMakerClient, UpdateContextCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, UpdateContextCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * // import type { SageMakerClientConfig } from "@aws-sdk/client-sagemaker";
+ * const config = {}; // type is SageMakerClientConfig
  * const client = new SageMakerClient(config);
  * const input = { // UpdateContextRequest
  *   ContextName: "STRING_VALUE", // required

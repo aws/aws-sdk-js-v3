@@ -34,6 +34,8 @@ export interface DeleteMLInputChannelDataCommandOutput extends __MetadataBearer 
  * ```javascript
  * import { CleanRoomsMLClient, DeleteMLInputChannelDataCommand } from "@aws-sdk/client-cleanroomsml"; // ES Modules import
  * // const { CleanRoomsMLClient, DeleteMLInputChannelDataCommand } = require("@aws-sdk/client-cleanroomsml"); // CommonJS import
+ * // import type { CleanRoomsMLClientConfig } from "@aws-sdk/client-cleanroomsml";
+ * const config = {}; // type is CleanRoomsMLClientConfig
  * const client = new CleanRoomsMLClient(config);
  * const input = { // DeleteMLInputChannelDataRequest
  *   mlInputChannelArn: "STRING_VALUE", // required

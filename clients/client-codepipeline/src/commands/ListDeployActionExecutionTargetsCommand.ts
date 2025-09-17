@@ -39,6 +39,8 @@ export interface ListDeployActionExecutionTargetsCommandOutput
  * ```javascript
  * import { CodePipelineClient, ListDeployActionExecutionTargetsCommand } from "@aws-sdk/client-codepipeline"; // ES Modules import
  * // const { CodePipelineClient, ListDeployActionExecutionTargetsCommand } = require("@aws-sdk/client-codepipeline"); // CommonJS import
+ * // import type { CodePipelineClientConfig } from "@aws-sdk/client-codepipeline";
+ * const config = {}; // type is CodePipelineClientConfig
  * const client = new CodePipelineClient(config);
  * const input = { // ListDeployActionExecutionTargetsInput
  *   pipelineName: "STRING_VALUE",

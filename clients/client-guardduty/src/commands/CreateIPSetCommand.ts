@@ -37,6 +37,8 @@ export interface CreateIPSetCommandOutput extends CreateIPSetResponse, __Metadat
  * ```javascript
  * import { GuardDutyClient, CreateIPSetCommand } from "@aws-sdk/client-guardduty"; // ES Modules import
  * // const { GuardDutyClient, CreateIPSetCommand } = require("@aws-sdk/client-guardduty"); // CommonJS import
+ * // import type { GuardDutyClientConfig } from "@aws-sdk/client-guardduty";
+ * const config = {}; // type is GuardDutyClientConfig
  * const client = new GuardDutyClient(config);
  * const input = { // CreateIPSetRequest
  *   DetectorId: "STRING_VALUE", // required

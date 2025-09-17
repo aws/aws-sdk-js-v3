@@ -36,6 +36,8 @@ export interface GetJobRunsCommandOutput extends GetJobRunsResponse, __MetadataB
  * ```javascript
  * import { GlueClient, GetJobRunsCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, GetJobRunsCommand } = require("@aws-sdk/client-glue"); // CommonJS import
+ * // import type { GlueClientConfig } from "@aws-sdk/client-glue";
+ * const config = {}; // type is GlueClientConfig
  * const client = new GlueClient(config);
  * const input = { // GetJobRunsRequest
  *   JobName: "STRING_VALUE", // required

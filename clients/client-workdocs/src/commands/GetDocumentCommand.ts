@@ -39,6 +39,8 @@ export interface GetDocumentCommandOutput extends GetDocumentResponse, __Metadat
  * ```javascript
  * import { WorkDocsClient, GetDocumentCommand } from "@aws-sdk/client-workdocs"; // ES Modules import
  * // const { WorkDocsClient, GetDocumentCommand } = require("@aws-sdk/client-workdocs"); // CommonJS import
+ * // import type { WorkDocsClientConfig } from "@aws-sdk/client-workdocs";
+ * const config = {}; // type is WorkDocsClientConfig
  * const client = new WorkDocsClient(config);
  * const input = { // GetDocumentRequest
  *   AuthenticationToken: "STRING_VALUE",

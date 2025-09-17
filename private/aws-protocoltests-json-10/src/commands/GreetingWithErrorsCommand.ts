@@ -41,6 +41,8 @@ export interface GreetingWithErrorsCommandOutput extends GreetingWithErrorsOutpu
  * ```javascript
  * import { JSONRPC10Client, GreetingWithErrorsCommand } from "@aws-sdk/aws-protocoltests-json-10"; // ES Modules import
  * // const { JSONRPC10Client, GreetingWithErrorsCommand } = require("@aws-sdk/aws-protocoltests-json-10"); // CommonJS import
+ * // import type { JSONRPC10ClientConfig } from "@aws-sdk/aws-protocoltests-json-10";
+ * const config = {}; // type is JSONRPC10ClientConfig
  * const client = new JSONRPC10Client(config);
  * const input = { // GreetingWithErrorsInput
  *   greeting: "STRING_VALUE",

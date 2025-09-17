@@ -34,6 +34,8 @@ export interface DescribeTestSetGenerationCommandOutput extends DescribeTestSetG
  * ```javascript
  * import { LexModelsV2Client, DescribeTestSetGenerationCommand } from "@aws-sdk/client-lex-models-v2"; // ES Modules import
  * // const { LexModelsV2Client, DescribeTestSetGenerationCommand } = require("@aws-sdk/client-lex-models-v2"); // CommonJS import
+ * // import type { LexModelsV2ClientConfig } from "@aws-sdk/client-lex-models-v2";
+ * const config = {}; // type is LexModelsV2ClientConfig
  * const client = new LexModelsV2Client(config);
  * const input = { // DescribeTestSetGenerationRequest
  *   testSetGenerationId: "STRING_VALUE", // required

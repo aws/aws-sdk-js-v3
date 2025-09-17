@@ -35,6 +35,8 @@ export interface DeleteConnectClientAddInCommandOutput extends DeleteConnectClie
  * ```javascript
  * import { WorkSpacesClient, DeleteConnectClientAddInCommand } from "@aws-sdk/client-workspaces"; // ES Modules import
  * // const { WorkSpacesClient, DeleteConnectClientAddInCommand } = require("@aws-sdk/client-workspaces"); // CommonJS import
+ * // import type { WorkSpacesClientConfig } from "@aws-sdk/client-workspaces";
+ * const config = {}; // type is WorkSpacesClientConfig
  * const client = new WorkSpacesClient(config);
  * const input = { // DeleteConnectClientAddInRequest
  *   AddInId: "STRING_VALUE", // required

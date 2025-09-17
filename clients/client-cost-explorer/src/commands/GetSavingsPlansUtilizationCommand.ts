@@ -41,6 +41,8 @@ export interface GetSavingsPlansUtilizationCommandOutput extends GetSavingsPlans
  * ```javascript
  * import { CostExplorerClient, GetSavingsPlansUtilizationCommand } from "@aws-sdk/client-cost-explorer"; // ES Modules import
  * // const { CostExplorerClient, GetSavingsPlansUtilizationCommand } = require("@aws-sdk/client-cost-explorer"); // CommonJS import
+ * // import type { CostExplorerClientConfig } from "@aws-sdk/client-cost-explorer";
+ * const config = {}; // type is CostExplorerClientConfig
  * const client = new CostExplorerClient(config);
  * const input = { // GetSavingsPlansUtilizationRequest
  *   TimePeriod: { // DateInterval

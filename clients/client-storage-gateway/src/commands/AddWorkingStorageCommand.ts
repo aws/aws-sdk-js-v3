@@ -44,6 +44,8 @@ export interface AddWorkingStorageCommandOutput extends AddWorkingStorageOutput,
  * ```javascript
  * import { StorageGatewayClient, AddWorkingStorageCommand } from "@aws-sdk/client-storage-gateway"; // ES Modules import
  * // const { StorageGatewayClient, AddWorkingStorageCommand } = require("@aws-sdk/client-storage-gateway"); // CommonJS import
+ * // import type { StorageGatewayClientConfig } from "@aws-sdk/client-storage-gateway";
+ * const config = {}; // type is StorageGatewayClientConfig
  * const client = new StorageGatewayClient(config);
  * const input = { // AddWorkingStorageInput
  *   GatewayARN: "STRING_VALUE", // required

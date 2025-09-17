@@ -38,6 +38,8 @@ export interface GetAIGuardrailCommandOutput extends GetAIGuardrailResponse, __M
  * ```javascript
  * import { QConnectClient, GetAIGuardrailCommand } from "@aws-sdk/client-qconnect"; // ES Modules import
  * // const { QConnectClient, GetAIGuardrailCommand } = require("@aws-sdk/client-qconnect"); // CommonJS import
+ * // import type { QConnectClientConfig } from "@aws-sdk/client-qconnect";
+ * const config = {}; // type is QConnectClientConfig
  * const client = new QConnectClient(config);
  * const input = { // GetAIGuardrailRequest
  *   assistantId: "STRING_VALUE", // required

@@ -34,6 +34,8 @@ export interface ListJobsCommandOutput extends ListJobsResponse, __MetadataBeare
  * ```javascript
  * import { DeadlineClient, ListJobsCommand } from "@aws-sdk/client-deadline"; // ES Modules import
  * // const { DeadlineClient, ListJobsCommand } = require("@aws-sdk/client-deadline"); // CommonJS import
+ * // import type { DeadlineClientConfig } from "@aws-sdk/client-deadline";
+ * const config = {}; // type is DeadlineClientConfig
  * const client = new DeadlineClient(config);
  * const input = { // ListJobsRequest
  *   farmId: "STRING_VALUE", // required

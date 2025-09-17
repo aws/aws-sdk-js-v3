@@ -35,6 +35,8 @@ export interface ApplySchemaCommandOutput extends ApplySchemaResponse, __Metadat
  * ```javascript
  * import { CloudDirectoryClient, ApplySchemaCommand } from "@aws-sdk/client-clouddirectory"; // ES Modules import
  * // const { CloudDirectoryClient, ApplySchemaCommand } = require("@aws-sdk/client-clouddirectory"); // CommonJS import
+ * // import type { CloudDirectoryClientConfig } from "@aws-sdk/client-clouddirectory";
+ * const config = {}; // type is CloudDirectoryClientConfig
  * const client = new CloudDirectoryClient(config);
  * const input = { // ApplySchemaRequest
  *   PublishedSchemaArn: "STRING_VALUE", // required

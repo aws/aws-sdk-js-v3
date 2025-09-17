@@ -34,6 +34,8 @@ export interface ListMembersCommandOutput extends ListMembersOutput, __MetadataB
  * ```javascript
  * import { CleanRoomsClient, ListMembersCommand } from "@aws-sdk/client-cleanrooms"; // ES Modules import
  * // const { CleanRoomsClient, ListMembersCommand } = require("@aws-sdk/client-cleanrooms"); // CommonJS import
+ * // import type { CleanRoomsClientConfig } from "@aws-sdk/client-cleanrooms";
+ * const config = {}; // type is CleanRoomsClientConfig
  * const client = new CleanRoomsClient(config);
  * const input = { // ListMembersInput
  *   collaborationIdentifier: "STRING_VALUE", // required

@@ -38,6 +38,8 @@ export interface GetPlaybackKeyPairCommandOutput extends GetPlaybackKeyPairRespo
  * ```javascript
  * import { IvsClient, GetPlaybackKeyPairCommand } from "@aws-sdk/client-ivs"; // ES Modules import
  * // const { IvsClient, GetPlaybackKeyPairCommand } = require("@aws-sdk/client-ivs"); // CommonJS import
+ * // import type { IvsClientConfig } from "@aws-sdk/client-ivs";
+ * const config = {}; // type is IvsClientConfig
  * const client = new IvsClient(config);
  * const input = { // GetPlaybackKeyPairRequest
  *   arn: "STRING_VALUE", // required

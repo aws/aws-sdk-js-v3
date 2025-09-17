@@ -34,6 +34,8 @@ export interface UpdateApiDestinationCommandOutput extends UpdateApiDestinationR
  * ```javascript
  * import { CloudWatchEventsClient, UpdateApiDestinationCommand } from "@aws-sdk/client-cloudwatch-events"; // ES Modules import
  * // const { CloudWatchEventsClient, UpdateApiDestinationCommand } = require("@aws-sdk/client-cloudwatch-events"); // CommonJS import
+ * // import type { CloudWatchEventsClientConfig } from "@aws-sdk/client-cloudwatch-events";
+ * const config = {}; // type is CloudWatchEventsClientConfig
  * const client = new CloudWatchEventsClient(config);
  * const input = { // UpdateApiDestinationRequest
  *   Name: "STRING_VALUE", // required

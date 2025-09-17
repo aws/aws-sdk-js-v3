@@ -34,6 +34,8 @@ export interface DeleteConfigurationCommandOutput extends DeleteConfigurationRes
  * ```javascript
  * import { MqClient, DeleteConfigurationCommand } from "@aws-sdk/client-mq"; // ES Modules import
  * // const { MqClient, DeleteConfigurationCommand } = require("@aws-sdk/client-mq"); // CommonJS import
+ * // import type { MqClientConfig } from "@aws-sdk/client-mq";
+ * const config = {}; // type is MqClientConfig
  * const client = new MqClient(config);
  * const input = { // DeleteConfigurationRequest
  *   ConfigurationId: "STRING_VALUE", // required

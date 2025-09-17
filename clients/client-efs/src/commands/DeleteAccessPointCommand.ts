@@ -37,6 +37,8 @@ export interface DeleteAccessPointCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { EFSClient, DeleteAccessPointCommand } from "@aws-sdk/client-efs"; // ES Modules import
  * // const { EFSClient, DeleteAccessPointCommand } = require("@aws-sdk/client-efs"); // CommonJS import
+ * // import type { EFSClientConfig } from "@aws-sdk/client-efs";
+ * const config = {}; // type is EFSClientConfig
  * const client = new EFSClient(config);
  * const input = { // DeleteAccessPointRequest
  *   AccessPointId: "STRING_VALUE", // required

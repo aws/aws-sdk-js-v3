@@ -37,6 +37,8 @@ export interface ReplaceTopicRuleCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { IoTClient, ReplaceTopicRuleCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, ReplaceTopicRuleCommand } = require("@aws-sdk/client-iot"); // CommonJS import
+ * // import type { IoTClientConfig } from "@aws-sdk/client-iot";
+ * const config = {}; // type is IoTClientConfig
  * const client = new IoTClient(config);
  * const input = { // ReplaceTopicRuleRequest
  *   ruleName: "STRING_VALUE", // required

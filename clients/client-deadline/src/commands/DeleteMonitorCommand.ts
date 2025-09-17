@@ -35,6 +35,8 @@ export interface DeleteMonitorCommandOutput extends DeleteMonitorResponse, __Met
  * ```javascript
  * import { DeadlineClient, DeleteMonitorCommand } from "@aws-sdk/client-deadline"; // ES Modules import
  * // const { DeadlineClient, DeleteMonitorCommand } = require("@aws-sdk/client-deadline"); // CommonJS import
+ * // import type { DeadlineClientConfig } from "@aws-sdk/client-deadline";
+ * const config = {}; // type is DeadlineClientConfig
  * const client = new DeadlineClient(config);
  * const input = { // DeleteMonitorRequest
  *   monitorId: "STRING_VALUE", // required

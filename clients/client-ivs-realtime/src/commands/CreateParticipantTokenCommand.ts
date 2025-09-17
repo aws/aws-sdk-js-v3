@@ -42,6 +42,8 @@ export interface CreateParticipantTokenCommandOutput extends CreateParticipantTo
  * ```javascript
  * import { IVSRealTimeClient, CreateParticipantTokenCommand } from "@aws-sdk/client-ivs-realtime"; // ES Modules import
  * // const { IVSRealTimeClient, CreateParticipantTokenCommand } = require("@aws-sdk/client-ivs-realtime"); // CommonJS import
+ * // import type { IVSRealTimeClientConfig } from "@aws-sdk/client-ivs-realtime";
+ * const config = {}; // type is IVSRealTimeClientConfig
  * const client = new IVSRealTimeClient(config);
  * const input = { // CreateParticipantTokenRequest
  *   stageArn: "STRING_VALUE", // required

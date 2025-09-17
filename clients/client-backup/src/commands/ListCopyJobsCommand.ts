@@ -34,6 +34,8 @@ export interface ListCopyJobsCommandOutput extends ListCopyJobsOutput, __Metadat
  * ```javascript
  * import { BackupClient, ListCopyJobsCommand } from "@aws-sdk/client-backup"; // ES Modules import
  * // const { BackupClient, ListCopyJobsCommand } = require("@aws-sdk/client-backup"); // CommonJS import
+ * // import type { BackupClientConfig } from "@aws-sdk/client-backup";
+ * const config = {}; // type is BackupClientConfig
  * const client = new BackupClient(config);
  * const input = { // ListCopyJobsInput
  *   NextToken: "STRING_VALUE",

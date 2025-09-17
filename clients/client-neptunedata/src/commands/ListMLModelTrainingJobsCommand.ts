@@ -34,6 +34,8 @@ export interface ListMLModelTrainingJobsCommandOutput extends ListMLModelTrainin
  * ```javascript
  * import { NeptunedataClient, ListMLModelTrainingJobsCommand } from "@aws-sdk/client-neptunedata"; // ES Modules import
  * // const { NeptunedataClient, ListMLModelTrainingJobsCommand } = require("@aws-sdk/client-neptunedata"); // CommonJS import
+ * // import type { NeptunedataClientConfig } from "@aws-sdk/client-neptunedata";
+ * const config = {}; // type is NeptunedataClientConfig
  * const client = new NeptunedataClient(config);
  * const input = { // ListMLModelTrainingJobsInput
  *   maxItems: Number("int"),

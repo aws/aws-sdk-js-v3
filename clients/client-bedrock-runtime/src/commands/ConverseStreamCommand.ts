@@ -39,6 +39,8 @@ export interface ConverseStreamCommandOutput extends ConverseStreamResponse, __M
  * ```javascript
  * import { BedrockRuntimeClient, ConverseStreamCommand } from "@aws-sdk/client-bedrock-runtime"; // ES Modules import
  * // const { BedrockRuntimeClient, ConverseStreamCommand } = require("@aws-sdk/client-bedrock-runtime"); // CommonJS import
+ * // import type { BedrockRuntimeClientConfig } from "@aws-sdk/client-bedrock-runtime";
+ * const config = {}; // type is BedrockRuntimeClientConfig
  * const client = new BedrockRuntimeClient(config);
  * const input = { // ConverseStreamRequest
  *   modelId: "STRING_VALUE", // required

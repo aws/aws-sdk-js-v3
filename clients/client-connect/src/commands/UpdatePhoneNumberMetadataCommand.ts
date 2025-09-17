@@ -37,6 +37,8 @@ export interface UpdatePhoneNumberMetadataCommandOutput extends __MetadataBearer
  * ```javascript
  * import { ConnectClient, UpdatePhoneNumberMetadataCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, UpdatePhoneNumberMetadataCommand } = require("@aws-sdk/client-connect"); // CommonJS import
+ * // import type { ConnectClientConfig } from "@aws-sdk/client-connect";
+ * const config = {}; // type is ConnectClientConfig
  * const client = new ConnectClient(config);
  * const input = { // UpdatePhoneNumberMetadataRequest
  *   PhoneNumberId: "STRING_VALUE", // required

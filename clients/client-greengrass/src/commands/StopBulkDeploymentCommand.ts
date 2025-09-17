@@ -34,6 +34,8 @@ export interface StopBulkDeploymentCommandOutput extends StopBulkDeploymentRespo
  * ```javascript
  * import { GreengrassClient, StopBulkDeploymentCommand } from "@aws-sdk/client-greengrass"; // ES Modules import
  * // const { GreengrassClient, StopBulkDeploymentCommand } = require("@aws-sdk/client-greengrass"); // CommonJS import
+ * // import type { GreengrassClientConfig } from "@aws-sdk/client-greengrass";
+ * const config = {}; // type is GreengrassClientConfig
  * const client = new GreengrassClient(config);
  * const input = { // StopBulkDeploymentRequest
  *   BulkDeploymentId: "STRING_VALUE", // required

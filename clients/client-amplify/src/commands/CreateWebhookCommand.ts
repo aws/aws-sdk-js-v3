@@ -34,6 +34,8 @@ export interface CreateWebhookCommandOutput extends CreateWebhookResult, __Metad
  * ```javascript
  * import { AmplifyClient, CreateWebhookCommand } from "@aws-sdk/client-amplify"; // ES Modules import
  * // const { AmplifyClient, CreateWebhookCommand } = require("@aws-sdk/client-amplify"); // CommonJS import
+ * // import type { AmplifyClientConfig } from "@aws-sdk/client-amplify";
+ * const config = {}; // type is AmplifyClientConfig
  * const client = new AmplifyClient(config);
  * const input = { // CreateWebhookRequest
  *   appId: "STRING_VALUE", // required

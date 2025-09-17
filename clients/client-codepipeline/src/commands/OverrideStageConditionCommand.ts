@@ -36,6 +36,8 @@ export interface OverrideStageConditionCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { CodePipelineClient, OverrideStageConditionCommand } from "@aws-sdk/client-codepipeline"; // ES Modules import
  * // const { CodePipelineClient, OverrideStageConditionCommand } = require("@aws-sdk/client-codepipeline"); // CommonJS import
+ * // import type { CodePipelineClientConfig } from "@aws-sdk/client-codepipeline";
+ * const config = {}; // type is CodePipelineClientConfig
  * const client = new CodePipelineClient(config);
  * const input = { // OverrideStageConditionInput
  *   pipelineName: "STRING_VALUE", // required

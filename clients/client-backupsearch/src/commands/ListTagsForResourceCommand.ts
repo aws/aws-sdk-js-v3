@@ -34,6 +34,8 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * ```javascript
  * import { BackupSearchClient, ListTagsForResourceCommand } from "@aws-sdk/client-backupsearch"; // ES Modules import
  * // const { BackupSearchClient, ListTagsForResourceCommand } = require("@aws-sdk/client-backupsearch"); // CommonJS import
+ * // import type { BackupSearchClientConfig } from "@aws-sdk/client-backupsearch";
+ * const config = {}; // type is BackupSearchClientConfig
  * const client = new BackupSearchClient(config);
  * const input = { // ListTagsForResourceRequest
  *   ResourceArn: "STRING_VALUE", // required

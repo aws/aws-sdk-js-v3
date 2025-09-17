@@ -47,6 +47,8 @@ export interface StartExportTaskCommandOutput extends ExportTask, __MetadataBear
  * ```javascript
  * import { RDSClient, StartExportTaskCommand } from "@aws-sdk/client-rds"; // ES Modules import
  * // const { RDSClient, StartExportTaskCommand } = require("@aws-sdk/client-rds"); // CommonJS import
+ * // import type { RDSClientConfig } from "@aws-sdk/client-rds";
+ * const config = {}; // type is RDSClientConfig
  * const client = new RDSClient(config);
  * const input = { // StartExportTaskMessage
  *   ExportTaskIdentifier: "STRING_VALUE", // required

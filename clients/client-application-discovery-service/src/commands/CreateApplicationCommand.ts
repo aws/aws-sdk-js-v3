@@ -38,6 +38,8 @@ export interface CreateApplicationCommandOutput extends CreateApplicationRespons
  * ```javascript
  * import { ApplicationDiscoveryServiceClient, CreateApplicationCommand } from "@aws-sdk/client-application-discovery-service"; // ES Modules import
  * // const { ApplicationDiscoveryServiceClient, CreateApplicationCommand } = require("@aws-sdk/client-application-discovery-service"); // CommonJS import
+ * // import type { ApplicationDiscoveryServiceClientConfig } from "@aws-sdk/client-application-discovery-service";
+ * const config = {}; // type is ApplicationDiscoveryServiceClientConfig
  * const client = new ApplicationDiscoveryServiceClient(config);
  * const input = { // CreateApplicationRequest
  *   name: "STRING_VALUE", // required

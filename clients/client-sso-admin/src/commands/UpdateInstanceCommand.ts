@@ -34,6 +34,8 @@ export interface UpdateInstanceCommandOutput extends UpdateInstanceResponse, __M
  * ```javascript
  * import { SSOAdminClient, UpdateInstanceCommand } from "@aws-sdk/client-sso-admin"; // ES Modules import
  * // const { SSOAdminClient, UpdateInstanceCommand } = require("@aws-sdk/client-sso-admin"); // CommonJS import
+ * // import type { SSOAdminClientConfig } from "@aws-sdk/client-sso-admin";
+ * const config = {}; // type is SSOAdminClientConfig
  * const client = new SSOAdminClient(config);
  * const input = { // UpdateInstanceRequest
  *   Name: "STRING_VALUE", // required

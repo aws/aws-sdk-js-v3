@@ -39,6 +39,8 @@ export interface UpdateFieldLevelEncryptionProfileCommandOutput
  * ```javascript
  * import { CloudFrontClient, UpdateFieldLevelEncryptionProfileCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
  * // const { CloudFrontClient, UpdateFieldLevelEncryptionProfileCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
+ * // import type { CloudFrontClientConfig } from "@aws-sdk/client-cloudfront";
+ * const config = {}; // type is CloudFrontClientConfig
  * const client = new CloudFrontClient(config);
  * const input = { // UpdateFieldLevelEncryptionProfileRequest
  *   FieldLevelEncryptionProfileConfig: { // FieldLevelEncryptionProfileConfig

@@ -36,6 +36,8 @@ export interface CreateStudioLifecycleConfigCommandOutput
  * ```javascript
  * import { SageMakerClient, CreateStudioLifecycleConfigCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, CreateStudioLifecycleConfigCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * // import type { SageMakerClientConfig } from "@aws-sdk/client-sagemaker";
+ * const config = {}; // type is SageMakerClientConfig
  * const client = new SageMakerClient(config);
  * const input = { // CreateStudioLifecycleConfigRequest
  *   StudioLifecycleConfigName: "STRING_VALUE", // required

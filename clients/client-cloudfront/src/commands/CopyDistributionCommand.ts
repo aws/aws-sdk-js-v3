@@ -38,6 +38,8 @@ export interface CopyDistributionCommandOutput extends CopyDistributionResult, _
  * ```javascript
  * import { CloudFrontClient, CopyDistributionCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
  * // const { CloudFrontClient, CopyDistributionCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
+ * // import type { CloudFrontClientConfig } from "@aws-sdk/client-cloudfront";
+ * const config = {}; // type is CloudFrontClientConfig
  * const client = new CloudFrontClient(config);
  * const input = { // CopyDistributionRequest
  *   PrimaryDistributionId: "STRING_VALUE", // required

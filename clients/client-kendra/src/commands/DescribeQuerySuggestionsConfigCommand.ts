@@ -44,6 +44,8 @@ export interface DescribeQuerySuggestionsConfigCommandOutput
  * ```javascript
  * import { KendraClient, DescribeQuerySuggestionsConfigCommand } from "@aws-sdk/client-kendra"; // ES Modules import
  * // const { KendraClient, DescribeQuerySuggestionsConfigCommand } = require("@aws-sdk/client-kendra"); // CommonJS import
+ * // import type { KendraClientConfig } from "@aws-sdk/client-kendra";
+ * const config = {}; // type is KendraClientConfig
  * const client = new KendraClient(config);
  * const input = { // DescribeQuerySuggestionsConfigRequest
  *   IndexId: "STRING_VALUE", // required

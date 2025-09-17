@@ -35,6 +35,8 @@ export interface CreateContainerRecipeCommandOutput extends CreateContainerRecip
  * ```javascript
  * import { ImagebuilderClient, CreateContainerRecipeCommand } from "@aws-sdk/client-imagebuilder"; // ES Modules import
  * // const { ImagebuilderClient, CreateContainerRecipeCommand } = require("@aws-sdk/client-imagebuilder"); // CommonJS import
+ * // import type { ImagebuilderClientConfig } from "@aws-sdk/client-imagebuilder";
+ * const config = {}; // type is ImagebuilderClientConfig
  * const client = new ImagebuilderClient(config);
  * const input = { // CreateContainerRecipeRequest
  *   containerType: "DOCKER", // required

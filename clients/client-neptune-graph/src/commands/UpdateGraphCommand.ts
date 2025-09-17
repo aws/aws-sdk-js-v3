@@ -34,6 +34,8 @@ export interface UpdateGraphCommandOutput extends UpdateGraphOutput, __MetadataB
  * ```javascript
  * import { NeptuneGraphClient, UpdateGraphCommand } from "@aws-sdk/client-neptune-graph"; // ES Modules import
  * // const { NeptuneGraphClient, UpdateGraphCommand } = require("@aws-sdk/client-neptune-graph"); // CommonJS import
+ * // import type { NeptuneGraphClientConfig } from "@aws-sdk/client-neptune-graph";
+ * const config = {}; // type is NeptuneGraphClientConfig
  * const client = new NeptuneGraphClient(config);
  * const input = { // UpdateGraphInput
  *   graphIdentifier: "STRING_VALUE", // required

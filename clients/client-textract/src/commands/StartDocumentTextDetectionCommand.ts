@@ -50,6 +50,8 @@ export interface StartDocumentTextDetectionCommandOutput extends StartDocumentTe
  * ```javascript
  * import { TextractClient, StartDocumentTextDetectionCommand } from "@aws-sdk/client-textract"; // ES Modules import
  * // const { TextractClient, StartDocumentTextDetectionCommand } = require("@aws-sdk/client-textract"); // CommonJS import
+ * // import type { TextractClientConfig } from "@aws-sdk/client-textract";
+ * const config = {}; // type is TextractClientConfig
  * const client = new TextractClient(config);
  * const input = { // StartDocumentTextDetectionRequest
  *   DocumentLocation: { // DocumentLocation

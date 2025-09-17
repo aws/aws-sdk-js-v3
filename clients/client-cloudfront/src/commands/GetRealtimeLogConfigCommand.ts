@@ -34,6 +34,8 @@ export interface GetRealtimeLogConfigCommandOutput extends GetRealtimeLogConfigR
  * ```javascript
  * import { CloudFrontClient, GetRealtimeLogConfigCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
  * // const { CloudFrontClient, GetRealtimeLogConfigCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
+ * // import type { CloudFrontClientConfig } from "@aws-sdk/client-cloudfront";
+ * const config = {}; // type is CloudFrontClientConfig
  * const client = new CloudFrontClient(config);
  * const input = { // GetRealtimeLogConfigRequest
  *   Name: "STRING_VALUE",

@@ -34,6 +34,8 @@ export interface EnableCommandOutput extends EnableResponse, __MetadataBearer {}
  * ```javascript
  * import { Inspector2Client, EnableCommand } from "@aws-sdk/client-inspector2"; // ES Modules import
  * // const { Inspector2Client, EnableCommand } = require("@aws-sdk/client-inspector2"); // CommonJS import
+ * // import type { Inspector2ClientConfig } from "@aws-sdk/client-inspector2";
+ * const config = {}; // type is Inspector2ClientConfig
  * const client = new Inspector2Client(config);
  * const input = { // EnableRequest
  *   accountIds: [ // AccountIdSet

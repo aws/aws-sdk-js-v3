@@ -40,6 +40,8 @@ export interface DeleteBudgetActionCommandOutput extends DeleteBudgetActionRespo
  * ```javascript
  * import { BudgetsClient, DeleteBudgetActionCommand } from "@aws-sdk/client-budgets"; // ES Modules import
  * // const { BudgetsClient, DeleteBudgetActionCommand } = require("@aws-sdk/client-budgets"); // CommonJS import
+ * // import type { BudgetsClientConfig } from "@aws-sdk/client-budgets";
+ * const config = {}; // type is BudgetsClientConfig
  * const client = new BudgetsClient(config);
  * const input = { // DeleteBudgetActionRequest
  *   AccountId: "STRING_VALUE", // required

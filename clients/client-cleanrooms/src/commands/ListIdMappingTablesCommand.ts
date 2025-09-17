@@ -34,6 +34,8 @@ export interface ListIdMappingTablesCommandOutput extends ListIdMappingTablesOut
  * ```javascript
  * import { CleanRoomsClient, ListIdMappingTablesCommand } from "@aws-sdk/client-cleanrooms"; // ES Modules import
  * // const { CleanRoomsClient, ListIdMappingTablesCommand } = require("@aws-sdk/client-cleanrooms"); // CommonJS import
+ * // import type { CleanRoomsClientConfig } from "@aws-sdk/client-cleanrooms";
+ * const config = {}; // type is CleanRoomsClientConfig
  * const client = new CleanRoomsClient(config);
  * const input = { // ListIdMappingTablesInput
  *   membershipIdentifier: "STRING_VALUE", // required

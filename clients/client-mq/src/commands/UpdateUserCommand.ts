@@ -34,6 +34,8 @@ export interface UpdateUserCommandOutput extends UpdateUserResponse, __MetadataB
  * ```javascript
  * import { MqClient, UpdateUserCommand } from "@aws-sdk/client-mq"; // ES Modules import
  * // const { MqClient, UpdateUserCommand } = require("@aws-sdk/client-mq"); // CommonJS import
+ * // import type { MqClientConfig } from "@aws-sdk/client-mq";
+ * const config = {}; // type is MqClientConfig
  * const client = new MqClient(config);
  * const input = { // UpdateUserRequest
  *   BrokerId: "STRING_VALUE", // required

@@ -39,6 +39,8 @@ export interface ListCoreNetworkPolicyVersionsCommandOutput
  * ```javascript
  * import { NetworkManagerClient, ListCoreNetworkPolicyVersionsCommand } from "@aws-sdk/client-networkmanager"; // ES Modules import
  * // const { NetworkManagerClient, ListCoreNetworkPolicyVersionsCommand } = require("@aws-sdk/client-networkmanager"); // CommonJS import
+ * // import type { NetworkManagerClientConfig } from "@aws-sdk/client-networkmanager";
+ * const config = {}; // type is NetworkManagerClientConfig
  * const client = new NetworkManagerClient(config);
  * const input = { // ListCoreNetworkPolicyVersionsRequest
  *   CoreNetworkId: "STRING_VALUE", // required

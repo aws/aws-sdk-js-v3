@@ -37,6 +37,8 @@ export interface CreatePrivacyBudgetTemplateCommandOutput extends CreatePrivacyB
  * ```javascript
  * import { CleanRoomsClient, CreatePrivacyBudgetTemplateCommand } from "@aws-sdk/client-cleanrooms"; // ES Modules import
  * // const { CleanRoomsClient, CreatePrivacyBudgetTemplateCommand } = require("@aws-sdk/client-cleanrooms"); // CommonJS import
+ * // import type { CleanRoomsClientConfig } from "@aws-sdk/client-cleanrooms";
+ * const config = {}; // type is CleanRoomsClientConfig
  * const client = new CleanRoomsClient(config);
  * const input = { // CreatePrivacyBudgetTemplateInput
  *   membershipIdentifier: "STRING_VALUE", // required

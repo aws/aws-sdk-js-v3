@@ -34,6 +34,8 @@ export interface CreateAssistantCommandOutput extends CreateAssistantResponse, _
  * ```javascript
  * import { WisdomClient, CreateAssistantCommand } from "@aws-sdk/client-wisdom"; // ES Modules import
  * // const { WisdomClient, CreateAssistantCommand } = require("@aws-sdk/client-wisdom"); // CommonJS import
+ * // import type { WisdomClientConfig } from "@aws-sdk/client-wisdom";
+ * const config = {}; // type is WisdomClientConfig
  * const client = new WisdomClient(config);
  * const input = { // CreateAssistantRequest
  *   clientToken: "STRING_VALUE",

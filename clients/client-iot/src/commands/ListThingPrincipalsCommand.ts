@@ -37,6 +37,8 @@ export interface ListThingPrincipalsCommandOutput extends ListThingPrincipalsRes
  * ```javascript
  * import { IoTClient, ListThingPrincipalsCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, ListThingPrincipalsCommand } = require("@aws-sdk/client-iot"); // CommonJS import
+ * // import type { IoTClientConfig } from "@aws-sdk/client-iot";
+ * const config = {}; // type is IoTClientConfig
  * const client = new IoTClient(config);
  * const input = { // ListThingPrincipalsRequest
  *   nextToken: "STRING_VALUE",

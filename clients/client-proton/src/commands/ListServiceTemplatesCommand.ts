@@ -38,6 +38,8 @@ export interface ListServiceTemplatesCommandOutput extends ListServiceTemplatesO
  * ```javascript
  * import { ProtonClient, ListServiceTemplatesCommand } from "@aws-sdk/client-proton"; // ES Modules import
  * // const { ProtonClient, ListServiceTemplatesCommand } = require("@aws-sdk/client-proton"); // CommonJS import
+ * // import type { ProtonClientConfig } from "@aws-sdk/client-proton";
+ * const config = {}; // type is ProtonClientConfig
  * const client = new ProtonClient(config);
  * const input = { // ListServiceTemplatesInput
  *   nextToken: "STRING_VALUE",

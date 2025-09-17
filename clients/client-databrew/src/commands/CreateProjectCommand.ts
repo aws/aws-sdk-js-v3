@@ -34,6 +34,8 @@ export interface CreateProjectCommandOutput extends CreateProjectResponse, __Met
  * ```javascript
  * import { DataBrewClient, CreateProjectCommand } from "@aws-sdk/client-databrew"; // ES Modules import
  * // const { DataBrewClient, CreateProjectCommand } = require("@aws-sdk/client-databrew"); // CommonJS import
+ * // import type { DataBrewClientConfig } from "@aws-sdk/client-databrew";
+ * const config = {}; // type is DataBrewClientConfig
  * const client = new DataBrewClient(config);
  * const input = { // CreateProjectRequest
  *   DatasetName: "STRING_VALUE", // required

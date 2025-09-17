@@ -35,6 +35,8 @@ export interface UpdateNamedQueryCommandOutput extends UpdateNamedQueryOutput, _
  * ```javascript
  * import { AthenaClient, UpdateNamedQueryCommand } from "@aws-sdk/client-athena"; // ES Modules import
  * // const { AthenaClient, UpdateNamedQueryCommand } = require("@aws-sdk/client-athena"); // CommonJS import
+ * // import type { AthenaClientConfig } from "@aws-sdk/client-athena";
+ * const config = {}; // type is AthenaClientConfig
  * const client = new AthenaClient(config);
  * const input = { // UpdateNamedQueryInput
  *   NamedQueryId: "STRING_VALUE", // required

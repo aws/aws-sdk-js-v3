@@ -35,6 +35,8 @@ export interface DeregisterNamespaceCommandOutput extends DeregisterNamespaceOut
  * ```javascript
  * import { RedshiftClient, DeregisterNamespaceCommand } from "@aws-sdk/client-redshift"; // ES Modules import
  * // const { RedshiftClient, DeregisterNamespaceCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
+ * // import type { RedshiftClientConfig } from "@aws-sdk/client-redshift";
+ * const config = {}; // type is RedshiftClientConfig
  * const client = new RedshiftClient(config);
  * const input = { // DeregisterNamespaceInputMessage
  *   NamespaceIdentifier: { // NamespaceIdentifierUnion Union: only one key present

@@ -33,6 +33,8 @@ export interface DocumentTypeCommandOutput extends DocumentTypeInputOutput, __Me
  * ```javascript
  * import { RestJsonProtocolClient, DocumentTypeCommand } from "@aws-sdk/aws-protocoltests-restjson-schema"; // ES Modules import
  * // const { RestJsonProtocolClient, DocumentTypeCommand } = require("@aws-sdk/aws-protocoltests-restjson-schema"); // CommonJS import
+ * // import type { RestJsonProtocolClientConfig } from "@aws-sdk/aws-protocoltests-restjson-schema";
+ * const config = {}; // type is RestJsonProtocolClientConfig
  * const client = new RestJsonProtocolClient(config);
  * const input = { // DocumentTypeInputOutput
  *   stringValue: "STRING_VALUE",

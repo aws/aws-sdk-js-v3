@@ -37,6 +37,8 @@ export interface ResyncMFADeviceCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { IAMClient, ResyncMFADeviceCommand } from "@aws-sdk/client-iam"; // ES Modules import
  * // const { IAMClient, ResyncMFADeviceCommand } = require("@aws-sdk/client-iam"); // CommonJS import
+ * // import type { IAMClientConfig } from "@aws-sdk/client-iam";
+ * const config = {}; // type is IAMClientConfig
  * const client = new IAMClient(config);
  * const input = { // ResyncMFADeviceRequest
  *   UserName: "STRING_VALUE", // required

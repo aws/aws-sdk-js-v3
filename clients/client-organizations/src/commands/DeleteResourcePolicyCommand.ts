@@ -34,6 +34,8 @@ export interface DeleteResourcePolicyCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { OrganizationsClient, DeleteResourcePolicyCommand } from "@aws-sdk/client-organizations"; // ES Modules import
  * // const { OrganizationsClient, DeleteResourcePolicyCommand } = require("@aws-sdk/client-organizations"); // CommonJS import
+ * // import type { OrganizationsClientConfig } from "@aws-sdk/client-organizations";
+ * const config = {}; // type is OrganizationsClientConfig
  * const client = new OrganizationsClient(config);
  * const input = {};
  * const command = new DeleteResourcePolicyCommand(input);

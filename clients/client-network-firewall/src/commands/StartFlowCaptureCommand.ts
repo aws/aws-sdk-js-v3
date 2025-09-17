@@ -42,6 +42,8 @@ export interface StartFlowCaptureCommandOutput extends StartFlowCaptureResponse,
  * ```javascript
  * import { NetworkFirewallClient, StartFlowCaptureCommand } from "@aws-sdk/client-network-firewall"; // ES Modules import
  * // const { NetworkFirewallClient, StartFlowCaptureCommand } = require("@aws-sdk/client-network-firewall"); // CommonJS import
+ * // import type { NetworkFirewallClientConfig } from "@aws-sdk/client-network-firewall";
+ * const config = {}; // type is NetworkFirewallClientConfig
  * const client = new NetworkFirewallClient(config);
  * const input = { // StartFlowCaptureRequest
  *   FirewallArn: "STRING_VALUE", // required

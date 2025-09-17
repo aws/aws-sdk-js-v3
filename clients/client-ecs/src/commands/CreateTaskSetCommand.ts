@@ -42,6 +42,8 @@ export interface CreateTaskSetCommandOutput extends CreateTaskSetResponse, __Met
  * ```javascript
  * import { ECSClient, CreateTaskSetCommand } from "@aws-sdk/client-ecs"; // ES Modules import
  * // const { ECSClient, CreateTaskSetCommand } = require("@aws-sdk/client-ecs"); // CommonJS import
+ * // import type { ECSClientConfig } from "@aws-sdk/client-ecs";
+ * const config = {}; // type is ECSClientConfig
  * const client = new ECSClient(config);
  * const input = { // CreateTaskSetRequest
  *   service: "STRING_VALUE", // required

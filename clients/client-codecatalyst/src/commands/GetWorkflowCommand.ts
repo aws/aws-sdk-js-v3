@@ -34,6 +34,8 @@ export interface GetWorkflowCommandOutput extends GetWorkflowResponse, __Metadat
  * ```javascript
  * import { CodeCatalystClient, GetWorkflowCommand } from "@aws-sdk/client-codecatalyst"; // ES Modules import
  * // const { CodeCatalystClient, GetWorkflowCommand } = require("@aws-sdk/client-codecatalyst"); // CommonJS import
+ * // import type { CodeCatalystClientConfig } from "@aws-sdk/client-codecatalyst";
+ * const config = {}; // type is CodeCatalystClientConfig
  * const client = new CodeCatalystClient(config);
  * const input = { // GetWorkflowRequest
  *   spaceName: "STRING_VALUE", // required

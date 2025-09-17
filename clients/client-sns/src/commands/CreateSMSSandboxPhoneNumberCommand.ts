@@ -47,6 +47,8 @@ export interface CreateSMSSandboxPhoneNumberCommandOutput extends CreateSMSSandb
  * ```javascript
  * import { SNSClient, CreateSMSSandboxPhoneNumberCommand } from "@aws-sdk/client-sns"; // ES Modules import
  * // const { SNSClient, CreateSMSSandboxPhoneNumberCommand } = require("@aws-sdk/client-sns"); // CommonJS import
+ * // import type { SNSClientConfig } from "@aws-sdk/client-sns";
+ * const config = {}; // type is SNSClientConfig
  * const client = new SNSClient(config);
  * const input = { // CreateSMSSandboxPhoneNumberInput
  *   PhoneNumber: "STRING_VALUE", // required

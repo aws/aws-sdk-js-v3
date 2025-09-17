@@ -43,6 +43,8 @@ export interface GetCollaborationAnalysisTemplateCommandOutput
  * ```javascript
  * import { CleanRoomsClient, GetCollaborationAnalysisTemplateCommand } from "@aws-sdk/client-cleanrooms"; // ES Modules import
  * // const { CleanRoomsClient, GetCollaborationAnalysisTemplateCommand } = require("@aws-sdk/client-cleanrooms"); // CommonJS import
+ * // import type { CleanRoomsClientConfig } from "@aws-sdk/client-cleanrooms";
+ * const config = {}; // type is CleanRoomsClientConfig
  * const client = new CleanRoomsClient(config);
  * const input = { // GetCollaborationAnalysisTemplateInput
  *   collaborationIdentifier: "STRING_VALUE", // required

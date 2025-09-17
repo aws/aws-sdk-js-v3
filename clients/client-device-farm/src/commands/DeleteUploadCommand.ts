@@ -34,6 +34,8 @@ export interface DeleteUploadCommandOutput extends DeleteUploadResult, __Metadat
  * ```javascript
  * import { DeviceFarmClient, DeleteUploadCommand } from "@aws-sdk/client-device-farm"; // ES Modules import
  * // const { DeviceFarmClient, DeleteUploadCommand } = require("@aws-sdk/client-device-farm"); // CommonJS import
+ * // import type { DeviceFarmClientConfig } from "@aws-sdk/client-device-farm";
+ * const config = {}; // type is DeviceFarmClientConfig
  * const client = new DeviceFarmClient(config);
  * const input = { // DeleteUploadRequest
  *   arn: "STRING_VALUE", // required

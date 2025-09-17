@@ -43,6 +43,8 @@ export interface ListConfiguredModelAlgorithmAssociationsCommandOutput
  * ```javascript
  * import { CleanRoomsMLClient, ListConfiguredModelAlgorithmAssociationsCommand } from "@aws-sdk/client-cleanroomsml"; // ES Modules import
  * // const { CleanRoomsMLClient, ListConfiguredModelAlgorithmAssociationsCommand } = require("@aws-sdk/client-cleanroomsml"); // CommonJS import
+ * // import type { CleanRoomsMLClientConfig } from "@aws-sdk/client-cleanroomsml";
+ * const config = {}; // type is CleanRoomsMLClientConfig
  * const client = new CleanRoomsMLClient(config);
  * const input = { // ListConfiguredModelAlgorithmAssociationsRequest
  *   nextToken: "STRING_VALUE",

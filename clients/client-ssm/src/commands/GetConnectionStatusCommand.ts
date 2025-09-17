@@ -35,6 +35,8 @@ export interface GetConnectionStatusCommandOutput extends GetConnectionStatusRes
  * ```javascript
  * import { SSMClient, GetConnectionStatusCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, GetConnectionStatusCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
+ * // import type { SSMClientConfig } from "@aws-sdk/client-ssm";
+ * const config = {}; // type is SSMClientConfig
  * const client = new SSMClient(config);
  * const input = { // GetConnectionStatusRequest
  *   Target: "STRING_VALUE", // required

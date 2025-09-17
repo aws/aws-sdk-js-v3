@@ -50,6 +50,8 @@ export interface UpdateResourceCommandOutput extends UpdateResourceOutput, __Met
  * ```javascript
  * import { CloudControlClient, UpdateResourceCommand } from "@aws-sdk/client-cloudcontrol"; // ES Modules import
  * // const { CloudControlClient, UpdateResourceCommand } = require("@aws-sdk/client-cloudcontrol"); // CommonJS import
+ * // import type { CloudControlClientConfig } from "@aws-sdk/client-cloudcontrol";
+ * const config = {}; // type is CloudControlClientConfig
  * const client = new CloudControlClient(config);
  * const input = { // UpdateResourceInput
  *   TypeName: "STRING_VALUE", // required

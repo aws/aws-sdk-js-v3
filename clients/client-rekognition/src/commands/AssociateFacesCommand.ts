@@ -68,6 +68,8 @@ export interface AssociateFacesCommandOutput extends AssociateFacesResponse, __M
  * ```javascript
  * import { RekognitionClient, AssociateFacesCommand } from "@aws-sdk/client-rekognition"; // ES Modules import
  * // const { RekognitionClient, AssociateFacesCommand } = require("@aws-sdk/client-rekognition"); // CommonJS import
+ * // import type { RekognitionClientConfig } from "@aws-sdk/client-rekognition";
+ * const config = {}; // type is RekognitionClientConfig
  * const client = new RekognitionClient(config);
  * const input = { // AssociateFacesRequest
  *   CollectionId: "STRING_VALUE", // required

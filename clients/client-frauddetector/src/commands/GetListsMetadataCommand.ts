@@ -36,6 +36,8 @@ export interface GetListsMetadataCommandOutput extends GetListsMetadataResult, _
  * ```javascript
  * import { FraudDetectorClient, GetListsMetadataCommand } from "@aws-sdk/client-frauddetector"; // ES Modules import
  * // const { FraudDetectorClient, GetListsMetadataCommand } = require("@aws-sdk/client-frauddetector"); // CommonJS import
+ * // import type { FraudDetectorClientConfig } from "@aws-sdk/client-frauddetector";
+ * const config = {}; // type is FraudDetectorClientConfig
  * const client = new FraudDetectorClient(config);
  * const input = { // GetListsMetadataRequest
  *   name: "STRING_VALUE",

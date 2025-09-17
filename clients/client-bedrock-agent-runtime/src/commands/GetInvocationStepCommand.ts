@@ -42,6 +42,8 @@ export interface GetInvocationStepCommandOutput extends GetInvocationStepRespons
  * ```javascript
  * import { BedrockAgentRuntimeClient, GetInvocationStepCommand } from "@aws-sdk/client-bedrock-agent-runtime"; // ES Modules import
  * // const { BedrockAgentRuntimeClient, GetInvocationStepCommand } = require("@aws-sdk/client-bedrock-agent-runtime"); // CommonJS import
+ * // import type { BedrockAgentRuntimeClientConfig } from "@aws-sdk/client-bedrock-agent-runtime";
+ * const config = {}; // type is BedrockAgentRuntimeClientConfig
  * const client = new BedrockAgentRuntimeClient(config);
  * const input = { // GetInvocationStepRequest
  *   invocationIdentifier: "STRING_VALUE", // required

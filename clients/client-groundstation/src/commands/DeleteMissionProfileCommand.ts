@@ -34,6 +34,8 @@ export interface DeleteMissionProfileCommandOutput extends MissionProfileIdRespo
  * ```javascript
  * import { GroundStationClient, DeleteMissionProfileCommand } from "@aws-sdk/client-groundstation"; // ES Modules import
  * // const { GroundStationClient, DeleteMissionProfileCommand } = require("@aws-sdk/client-groundstation"); // CommonJS import
+ * // import type { GroundStationClientConfig } from "@aws-sdk/client-groundstation";
+ * const config = {}; // type is GroundStationClientConfig
  * const client = new GroundStationClient(config);
  * const input = { // DeleteMissionProfileRequest
  *   missionProfileId: "STRING_VALUE", // required

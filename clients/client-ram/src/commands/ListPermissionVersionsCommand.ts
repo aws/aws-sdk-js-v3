@@ -34,6 +34,8 @@ export interface ListPermissionVersionsCommandOutput extends ListPermissionVersi
  * ```javascript
  * import { RAMClient, ListPermissionVersionsCommand } from "@aws-sdk/client-ram"; // ES Modules import
  * // const { RAMClient, ListPermissionVersionsCommand } = require("@aws-sdk/client-ram"); // CommonJS import
+ * // import type { RAMClientConfig } from "@aws-sdk/client-ram";
+ * const config = {}; // type is RAMClientConfig
  * const client = new RAMClient(config);
  * const input = { // ListPermissionVersionsRequest
  *   permissionArn: "STRING_VALUE", // required

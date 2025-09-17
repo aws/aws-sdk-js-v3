@@ -34,6 +34,8 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * ```javascript
  * import { CodeGuruSecurityClient, ListTagsForResourceCommand } from "@aws-sdk/client-codeguru-security"; // ES Modules import
  * // const { CodeGuruSecurityClient, ListTagsForResourceCommand } = require("@aws-sdk/client-codeguru-security"); // CommonJS import
+ * // import type { CodeGuruSecurityClientConfig } from "@aws-sdk/client-codeguru-security";
+ * const config = {}; // type is CodeGuruSecurityClientConfig
  * const client = new CodeGuruSecurityClient(config);
  * const input = { // ListTagsForResourceRequest
  *   resourceArn: "STRING_VALUE", // required

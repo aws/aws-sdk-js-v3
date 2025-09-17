@@ -43,6 +43,8 @@ export interface CreateLakeFormationIdentityCenterConfigurationCommandOutput
  * ```javascript
  * import { LakeFormationClient, CreateLakeFormationIdentityCenterConfigurationCommand } from "@aws-sdk/client-lakeformation"; // ES Modules import
  * // const { LakeFormationClient, CreateLakeFormationIdentityCenterConfigurationCommand } = require("@aws-sdk/client-lakeformation"); // CommonJS import
+ * // import type { LakeFormationClientConfig } from "@aws-sdk/client-lakeformation";
+ * const config = {}; // type is LakeFormationClientConfig
  * const client = new LakeFormationClient(config);
  * const input = { // CreateLakeFormationIdentityCenterConfigurationRequest
  *   CatalogId: "STRING_VALUE",

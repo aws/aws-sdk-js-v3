@@ -63,6 +63,8 @@ export interface PutScalingPolicyCommandOutput extends PutScalingPolicyResponse,
  * ```javascript
  * import { ApplicationAutoScalingClient, PutScalingPolicyCommand } from "@aws-sdk/client-application-auto-scaling"; // ES Modules import
  * // const { ApplicationAutoScalingClient, PutScalingPolicyCommand } = require("@aws-sdk/client-application-auto-scaling"); // CommonJS import
+ * // import type { ApplicationAutoScalingClientConfig } from "@aws-sdk/client-application-auto-scaling";
+ * const config = {}; // type is ApplicationAutoScalingClientConfig
  * const client = new ApplicationAutoScalingClient(config);
  * const input = { // PutScalingPolicyRequest
  *   PolicyName: "STRING_VALUE", // required

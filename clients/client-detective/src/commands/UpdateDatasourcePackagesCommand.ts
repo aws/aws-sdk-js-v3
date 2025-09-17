@@ -34,6 +34,8 @@ export interface UpdateDatasourcePackagesCommandOutput extends __MetadataBearer 
  * ```javascript
  * import { DetectiveClient, UpdateDatasourcePackagesCommand } from "@aws-sdk/client-detective"; // ES Modules import
  * // const { DetectiveClient, UpdateDatasourcePackagesCommand } = require("@aws-sdk/client-detective"); // CommonJS import
+ * // import type { DetectiveClientConfig } from "@aws-sdk/client-detective";
+ * const config = {}; // type is DetectiveClientConfig
  * const client = new DetectiveClient(config);
  * const input = { // UpdateDatasourcePackagesRequest
  *   GraphArn: "STRING_VALUE", // required

@@ -36,6 +36,8 @@ export interface GetDashboardCommandOutput extends GetDashboardResponse, __Metad
  * ```javascript
  * import { CloudTrailClient, GetDashboardCommand } from "@aws-sdk/client-cloudtrail"; // ES Modules import
  * // const { CloudTrailClient, GetDashboardCommand } = require("@aws-sdk/client-cloudtrail"); // CommonJS import
+ * // import type { CloudTrailClientConfig } from "@aws-sdk/client-cloudtrail";
+ * const config = {}; // type is CloudTrailClientConfig
  * const client = new CloudTrailClient(config);
  * const input = { // GetDashboardRequest
  *   DashboardId: "STRING_VALUE", // required

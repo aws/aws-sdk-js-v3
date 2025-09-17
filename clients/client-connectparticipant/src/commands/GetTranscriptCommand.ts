@@ -83,6 +83,8 @@ export interface GetTranscriptCommandOutput extends GetTranscriptResponse, __Met
  * ```javascript
  * import { ConnectParticipantClient, GetTranscriptCommand } from "@aws-sdk/client-connectparticipant"; // ES Modules import
  * // const { ConnectParticipantClient, GetTranscriptCommand } = require("@aws-sdk/client-connectparticipant"); // CommonJS import
+ * // import type { ConnectParticipantClientConfig } from "@aws-sdk/client-connectparticipant";
+ * const config = {}; // type is ConnectParticipantClientConfig
  * const client = new ConnectParticipantClient(config);
  * const input = { // GetTranscriptRequest
  *   ContactId: "STRING_VALUE",

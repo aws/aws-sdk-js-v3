@@ -35,6 +35,8 @@ export interface UpdateWorkGroupCommandOutput extends UpdateWorkGroupOutput, __M
  * ```javascript
  * import { AthenaClient, UpdateWorkGroupCommand } from "@aws-sdk/client-athena"; // ES Modules import
  * // const { AthenaClient, UpdateWorkGroupCommand } = require("@aws-sdk/client-athena"); // CommonJS import
+ * // import type { AthenaClientConfig } from "@aws-sdk/client-athena";
+ * const config = {}; // type is AthenaClientConfig
  * const client = new AthenaClient(config);
  * const input = { // UpdateWorkGroupInput
  *   WorkGroup: "STRING_VALUE", // required

@@ -55,6 +55,8 @@ export interface CreateDeploymentJobCommandOutput extends CreateDeploymentJobRes
  * ```javascript
  * import { RoboMakerClient, CreateDeploymentJobCommand } from "@aws-sdk/client-robomaker"; // ES Modules import
  * // const { RoboMakerClient, CreateDeploymentJobCommand } = require("@aws-sdk/client-robomaker"); // CommonJS import
+ * // import type { RoboMakerClientConfig } from "@aws-sdk/client-robomaker";
+ * const config = {}; // type is RoboMakerClientConfig
  * const client = new RoboMakerClient(config);
  * const input = { // CreateDeploymentJobRequest
  *   deploymentConfig: { // DeploymentConfig

@@ -38,6 +38,8 @@ export interface GetConnectionCommandOutput extends GetConnectionOutput, __Metad
  * ```javascript
  * import { CodeStarConnectionsClient, GetConnectionCommand } from "@aws-sdk/client-codestar-connections"; // ES Modules import
  * // const { CodeStarConnectionsClient, GetConnectionCommand } = require("@aws-sdk/client-codestar-connections"); // CommonJS import
+ * // import type { CodeStarConnectionsClientConfig } from "@aws-sdk/client-codestar-connections";
+ * const config = {}; // type is CodeStarConnectionsClientConfig
  * const client = new CodeStarConnectionsClient(config);
  * const input = { // GetConnectionInput
  *   ConnectionArn: "STRING_VALUE", // required

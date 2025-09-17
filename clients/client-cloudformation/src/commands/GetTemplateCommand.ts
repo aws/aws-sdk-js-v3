@@ -40,6 +40,8 @@ export interface GetTemplateCommandOutput extends GetTemplateOutput, __MetadataB
  * ```javascript
  * import { CloudFormationClient, GetTemplateCommand } from "@aws-sdk/client-cloudformation"; // ES Modules import
  * // const { CloudFormationClient, GetTemplateCommand } = require("@aws-sdk/client-cloudformation"); // CommonJS import
+ * // import type { CloudFormationClientConfig } from "@aws-sdk/client-cloudformation";
+ * const config = {}; // type is CloudFormationClientConfig
  * const client = new CloudFormationClient(config);
  * const input = { // GetTemplateInput
  *   StackName: "STRING_VALUE",

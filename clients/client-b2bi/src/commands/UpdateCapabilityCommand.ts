@@ -34,6 +34,8 @@ export interface UpdateCapabilityCommandOutput extends UpdateCapabilityResponse,
  * ```javascript
  * import { B2biClient, UpdateCapabilityCommand } from "@aws-sdk/client-b2bi"; // ES Modules import
  * // const { B2biClient, UpdateCapabilityCommand } = require("@aws-sdk/client-b2bi"); // CommonJS import
+ * // import type { B2biClientConfig } from "@aws-sdk/client-b2bi";
+ * const config = {}; // type is B2biClientConfig
  * const client = new B2biClient(config);
  * const input = { // UpdateCapabilityRequest
  *   capabilityId: "STRING_VALUE", // required

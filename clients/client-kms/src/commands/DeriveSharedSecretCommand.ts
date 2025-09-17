@@ -128,6 +128,8 @@ export interface DeriveSharedSecretCommandOutput extends DeriveSharedSecretRespo
  * ```javascript
  * import { KMSClient, DeriveSharedSecretCommand } from "@aws-sdk/client-kms"; // ES Modules import
  * // const { KMSClient, DeriveSharedSecretCommand } = require("@aws-sdk/client-kms"); // CommonJS import
+ * // import type { KMSClientConfig } from "@aws-sdk/client-kms";
+ * const config = {}; // type is KMSClientConfig
  * const client = new KMSClient(config);
  * const input = { // DeriveSharedSecretRequest
  *   KeyId: "STRING_VALUE", // required

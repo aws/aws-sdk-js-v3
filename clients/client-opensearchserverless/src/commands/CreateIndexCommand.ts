@@ -38,6 +38,8 @@ export interface CreateIndexCommandOutput extends CreateIndexResponse, __Metadat
  * ```javascript
  * import { OpenSearchServerlessClient, CreateIndexCommand } from "@aws-sdk/client-opensearchserverless"; // ES Modules import
  * // const { OpenSearchServerlessClient, CreateIndexCommand } = require("@aws-sdk/client-opensearchserverless"); // CommonJS import
+ * // import type { OpenSearchServerlessClientConfig } from "@aws-sdk/client-opensearchserverless";
+ * const config = {}; // type is OpenSearchServerlessClientConfig
  * const client = new OpenSearchServerlessClient(config);
  * const input = { // CreateIndexRequest
  *   id: "STRING_VALUE", // required

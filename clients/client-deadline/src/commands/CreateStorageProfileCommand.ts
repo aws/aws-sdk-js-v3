@@ -39,6 +39,8 @@ export interface CreateStorageProfileCommandOutput extends CreateStorageProfileR
  * ```javascript
  * import { DeadlineClient, CreateStorageProfileCommand } from "@aws-sdk/client-deadline"; // ES Modules import
  * // const { DeadlineClient, CreateStorageProfileCommand } = require("@aws-sdk/client-deadline"); // CommonJS import
+ * // import type { DeadlineClientConfig } from "@aws-sdk/client-deadline";
+ * const config = {}; // type is DeadlineClientConfig
  * const client = new DeadlineClient(config);
  * const input = { // CreateStorageProfileRequest
  *   clientToken: "STRING_VALUE",

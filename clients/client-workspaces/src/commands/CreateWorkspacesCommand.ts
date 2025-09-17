@@ -60,6 +60,8 @@ export interface CreateWorkspacesCommandOutput extends CreateWorkspacesResult, _
  * ```javascript
  * import { WorkSpacesClient, CreateWorkspacesCommand } from "@aws-sdk/client-workspaces"; // ES Modules import
  * // const { WorkSpacesClient, CreateWorkspacesCommand } = require("@aws-sdk/client-workspaces"); // CommonJS import
+ * // import type { WorkSpacesClientConfig } from "@aws-sdk/client-workspaces";
+ * const config = {}; // type is WorkSpacesClientConfig
  * const client = new WorkSpacesClient(config);
  * const input = { // CreateWorkspacesRequest
  *   Workspaces: [ // WorkspaceRequestList // required

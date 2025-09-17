@@ -34,6 +34,8 @@ export interface TagResourceCommandOutput extends TagResourceOutput, __MetadataB
  * ```javascript
  * import { ControlTowerClient, TagResourceCommand } from "@aws-sdk/client-controltower"; // ES Modules import
  * // const { ControlTowerClient, TagResourceCommand } = require("@aws-sdk/client-controltower"); // CommonJS import
+ * // import type { ControlTowerClientConfig } from "@aws-sdk/client-controltower";
+ * const config = {}; // type is ControlTowerClientConfig
  * const client = new ControlTowerClient(config);
  * const input = { // TagResourceInput
  *   resourceArn: "STRING_VALUE", // required

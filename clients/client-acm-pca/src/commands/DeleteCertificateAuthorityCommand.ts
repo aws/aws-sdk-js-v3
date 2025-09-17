@@ -34,6 +34,8 @@ export interface DeleteCertificateAuthorityCommandOutput extends __MetadataBeare
  * ```javascript
  * import { ACMPCAClient, DeleteCertificateAuthorityCommand } from "@aws-sdk/client-acm-pca"; // ES Modules import
  * // const { ACMPCAClient, DeleteCertificateAuthorityCommand } = require("@aws-sdk/client-acm-pca"); // CommonJS import
+ * // import type { ACMPCAClientConfig } from "@aws-sdk/client-acm-pca";
+ * const config = {}; // type is ACMPCAClientConfig
  * const client = new ACMPCAClient(config);
  * const input = { // DeleteCertificateAuthorityRequest
  *   CertificateAuthorityArn: "STRING_VALUE", // required

@@ -33,6 +33,8 @@ export interface QueryIdempotencyTokenAutoFillCommandOutput extends __MetadataBe
  * ```javascript
  * import { RestXmlProtocolClient, QueryIdempotencyTokenAutoFillCommand } from "@aws-sdk/aws-protocoltests-restxml-schema"; // ES Modules import
  * // const { RestXmlProtocolClient, QueryIdempotencyTokenAutoFillCommand } = require("@aws-sdk/aws-protocoltests-restxml-schema"); // CommonJS import
+ * // import type { RestXmlProtocolClientConfig } from "@aws-sdk/aws-protocoltests-restxml-schema";
+ * const config = {}; // type is RestXmlProtocolClientConfig
  * const client = new RestXmlProtocolClient(config);
  * const input = { // QueryIdempotencyTokenAutoFillInput
  *   token: "STRING_VALUE",

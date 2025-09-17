@@ -39,6 +39,8 @@ export interface CreateFunctionCommandOutput extends FunctionConfiguration, __Me
  * ```javascript
  * import { LambdaClient, CreateFunctionCommand } from "@aws-sdk/client-lambda"; // ES Modules import
  * // const { LambdaClient, CreateFunctionCommand } = require("@aws-sdk/client-lambda"); // CommonJS import
+ * // import type { LambdaClientConfig } from "@aws-sdk/client-lambda";
+ * const config = {}; // type is LambdaClientConfig
  * const client = new LambdaClient(config);
  * const input = { // CreateFunctionRequest
  *   FunctionName: "STRING_VALUE", // required

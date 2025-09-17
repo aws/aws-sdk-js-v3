@@ -34,6 +34,8 @@ export interface StartIngestionCommandOutput extends StartIngestionResponse, __M
  * ```javascript
  * import { AppFabricClient, StartIngestionCommand } from "@aws-sdk/client-appfabric"; // ES Modules import
  * // const { AppFabricClient, StartIngestionCommand } = require("@aws-sdk/client-appfabric"); // CommonJS import
+ * // import type { AppFabricClientConfig } from "@aws-sdk/client-appfabric";
+ * const config = {}; // type is AppFabricClientConfig
  * const client = new AppFabricClient(config);
  * const input = { // StartIngestionRequest
  *   ingestionIdentifier: "STRING_VALUE", // required

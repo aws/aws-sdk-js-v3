@@ -39,6 +39,8 @@ export interface CreateQueryLoggingConfigurationCommandOutput
  * ```javascript
  * import { AmpClient, CreateQueryLoggingConfigurationCommand } from "@aws-sdk/client-amp"; // ES Modules import
  * // const { AmpClient, CreateQueryLoggingConfigurationCommand } = require("@aws-sdk/client-amp"); // CommonJS import
+ * // import type { AmpClientConfig } from "@aws-sdk/client-amp";
+ * const config = {}; // type is AmpClientConfig
  * const client = new AmpClient(config);
  * const input = { // CreateQueryLoggingConfigurationRequest
  *   workspaceId: "STRING_VALUE", // required

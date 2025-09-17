@@ -38,6 +38,8 @@ export interface EndpointWithHostLabelOperationCommandOutput extends __MetadataB
  * ```javascript
  * import { RestXmlProtocolClient, EndpointWithHostLabelOperationCommand } from "@aws-sdk/aws-protocoltests-restxml"; // ES Modules import
  * // const { RestXmlProtocolClient, EndpointWithHostLabelOperationCommand } = require("@aws-sdk/aws-protocoltests-restxml"); // CommonJS import
+ * // import type { RestXmlProtocolClientConfig } from "@aws-sdk/aws-protocoltests-restxml";
+ * const config = {}; // type is RestXmlProtocolClientConfig
  * const client = new RestXmlProtocolClient(config);
  * const input = { // EndpointWithHostLabelOperationRequest
  *   label: "STRING_VALUE", // required

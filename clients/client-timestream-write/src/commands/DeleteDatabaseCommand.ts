@@ -46,6 +46,8 @@ export interface DeleteDatabaseCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { TimestreamWriteClient, DeleteDatabaseCommand } from "@aws-sdk/client-timestream-write"; // ES Modules import
  * // const { TimestreamWriteClient, DeleteDatabaseCommand } = require("@aws-sdk/client-timestream-write"); // CommonJS import
+ * // import type { TimestreamWriteClientConfig } from "@aws-sdk/client-timestream-write";
+ * const config = {}; // type is TimestreamWriteClientConfig
  * const client = new TimestreamWriteClient(config);
  * const input = { // DeleteDatabaseRequest
  *   DatabaseName: "STRING_VALUE", // required

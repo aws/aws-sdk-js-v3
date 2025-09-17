@@ -35,6 +35,8 @@ export interface CreateRepositoryCommandOutput extends CreateRepositoryResponse,
  * ```javascript
  * import { ECRClient, CreateRepositoryCommand } from "@aws-sdk/client-ecr"; // ES Modules import
  * // const { ECRClient, CreateRepositoryCommand } = require("@aws-sdk/client-ecr"); // CommonJS import
+ * // import type { ECRClientConfig } from "@aws-sdk/client-ecr";
+ * const config = {}; // type is ECRClientConfig
  * const client = new ECRClient(config);
  * const input = { // CreateRepositoryRequest
  *   registryId: "STRING_VALUE",

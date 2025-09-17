@@ -34,6 +34,8 @@ export interface GetJobCommandOutput extends GetJobResult, __MetadataBearer {}
  * ```javascript
  * import { AmplifyClient, GetJobCommand } from "@aws-sdk/client-amplify"; // ES Modules import
  * // const { AmplifyClient, GetJobCommand } = require("@aws-sdk/client-amplify"); // CommonJS import
+ * // import type { AmplifyClientConfig } from "@aws-sdk/client-amplify";
+ * const config = {}; // type is AmplifyClientConfig
  * const client = new AmplifyClient(config);
  * const input = { // GetJobRequest
  *   appId: "STRING_VALUE", // required

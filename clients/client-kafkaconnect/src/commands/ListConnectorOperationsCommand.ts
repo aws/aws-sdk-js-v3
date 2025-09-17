@@ -34,6 +34,8 @@ export interface ListConnectorOperationsCommandOutput extends ListConnectorOpera
  * ```javascript
  * import { KafkaConnectClient, ListConnectorOperationsCommand } from "@aws-sdk/client-kafkaconnect"; // ES Modules import
  * // const { KafkaConnectClient, ListConnectorOperationsCommand } = require("@aws-sdk/client-kafkaconnect"); // CommonJS import
+ * // import type { KafkaConnectClientConfig } from "@aws-sdk/client-kafkaconnect";
+ * const config = {}; // type is KafkaConnectClientConfig
  * const client = new KafkaConnectClient(config);
  * const input = { // ListConnectorOperationsRequest
  *   connectorArn: "STRING_VALUE", // required

@@ -43,6 +43,8 @@ export interface GetTestGridSessionCommandOutput extends GetTestGridSessionResul
  * ```javascript
  * import { DeviceFarmClient, GetTestGridSessionCommand } from "@aws-sdk/client-device-farm"; // ES Modules import
  * // const { DeviceFarmClient, GetTestGridSessionCommand } = require("@aws-sdk/client-device-farm"); // CommonJS import
+ * // import type { DeviceFarmClientConfig } from "@aws-sdk/client-device-farm";
+ * const config = {}; // type is DeviceFarmClientConfig
  * const client = new DeviceFarmClient(config);
  * const input = { // GetTestGridSessionRequest
  *   projectArn: "STRING_VALUE",

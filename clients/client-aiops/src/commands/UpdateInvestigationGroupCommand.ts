@@ -34,6 +34,8 @@ export interface UpdateInvestigationGroupCommandOutput extends UpdateInvestigati
  * ```javascript
  * import { AIOpsClient, UpdateInvestigationGroupCommand } from "@aws-sdk/client-aiops"; // ES Modules import
  * // const { AIOpsClient, UpdateInvestigationGroupCommand } = require("@aws-sdk/client-aiops"); // CommonJS import
+ * // import type { AIOpsClientConfig } from "@aws-sdk/client-aiops";
+ * const config = {}; // type is AIOpsClientConfig
  * const client = new AIOpsClient(config);
  * const input = { // UpdateInvestigationGroupRequest
  *   identifier: "STRING_VALUE", // required

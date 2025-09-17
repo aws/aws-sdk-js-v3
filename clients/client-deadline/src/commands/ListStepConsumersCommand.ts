@@ -34,6 +34,8 @@ export interface ListStepConsumersCommandOutput extends ListStepConsumersRespons
  * ```javascript
  * import { DeadlineClient, ListStepConsumersCommand } from "@aws-sdk/client-deadline"; // ES Modules import
  * // const { DeadlineClient, ListStepConsumersCommand } = require("@aws-sdk/client-deadline"); // CommonJS import
+ * // import type { DeadlineClientConfig } from "@aws-sdk/client-deadline";
+ * const config = {}; // type is DeadlineClientConfig
  * const client = new DeadlineClient(config);
  * const input = { // ListStepConsumersRequest
  *   farmId: "STRING_VALUE", // required

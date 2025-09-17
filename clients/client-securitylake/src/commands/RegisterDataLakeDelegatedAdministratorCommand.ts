@@ -45,6 +45,8 @@ export interface RegisterDataLakeDelegatedAdministratorCommandOutput
  * ```javascript
  * import { SecurityLakeClient, RegisterDataLakeDelegatedAdministratorCommand } from "@aws-sdk/client-securitylake"; // ES Modules import
  * // const { SecurityLakeClient, RegisterDataLakeDelegatedAdministratorCommand } = require("@aws-sdk/client-securitylake"); // CommonJS import
+ * // import type { SecurityLakeClientConfig } from "@aws-sdk/client-securitylake";
+ * const config = {}; // type is SecurityLakeClientConfig
  * const client = new SecurityLakeClient(config);
  * const input = { // RegisterDataLakeDelegatedAdministratorRequest
  *   accountId: "STRING_VALUE", // required

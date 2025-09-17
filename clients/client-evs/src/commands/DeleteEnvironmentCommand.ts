@@ -34,6 +34,8 @@ export interface DeleteEnvironmentCommandOutput extends DeleteEnvironmentRespons
  * ```javascript
  * import { EvsClient, DeleteEnvironmentCommand } from "@aws-sdk/client-evs"; // ES Modules import
  * // const { EvsClient, DeleteEnvironmentCommand } = require("@aws-sdk/client-evs"); // CommonJS import
+ * // import type { EvsClientConfig } from "@aws-sdk/client-evs";
+ * const config = {}; // type is EvsClientConfig
  * const client = new EvsClient(config);
  * const input = { // DeleteEnvironmentRequest
  *   clientToken: "STRING_VALUE",

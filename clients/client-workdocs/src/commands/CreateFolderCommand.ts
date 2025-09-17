@@ -39,6 +39,8 @@ export interface CreateFolderCommandOutput extends CreateFolderResponse, __Metad
  * ```javascript
  * import { WorkDocsClient, CreateFolderCommand } from "@aws-sdk/client-workdocs"; // ES Modules import
  * // const { WorkDocsClient, CreateFolderCommand } = require("@aws-sdk/client-workdocs"); // CommonJS import
+ * // import type { WorkDocsClientConfig } from "@aws-sdk/client-workdocs";
+ * const config = {}; // type is WorkDocsClientConfig
  * const client = new WorkDocsClient(config);
  * const input = { // CreateFolderRequest
  *   AuthenticationToken: "STRING_VALUE",

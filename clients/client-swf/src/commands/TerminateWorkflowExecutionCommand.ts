@@ -73,6 +73,8 @@ export interface TerminateWorkflowExecutionCommandOutput extends __MetadataBeare
  * ```javascript
  * import { SWFClient, TerminateWorkflowExecutionCommand } from "@aws-sdk/client-swf"; // ES Modules import
  * // const { SWFClient, TerminateWorkflowExecutionCommand } = require("@aws-sdk/client-swf"); // CommonJS import
+ * // import type { SWFClientConfig } from "@aws-sdk/client-swf";
+ * const config = {}; // type is SWFClientConfig
  * const client = new SWFClient(config);
  * const input = { // TerminateWorkflowExecutionInput
  *   domain: "STRING_VALUE", // required

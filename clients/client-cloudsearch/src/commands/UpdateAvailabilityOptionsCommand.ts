@@ -34,6 +34,8 @@ export interface UpdateAvailabilityOptionsCommandOutput extends UpdateAvailabili
  * ```javascript
  * import { CloudSearchClient, UpdateAvailabilityOptionsCommand } from "@aws-sdk/client-cloudsearch"; // ES Modules import
  * // const { CloudSearchClient, UpdateAvailabilityOptionsCommand } = require("@aws-sdk/client-cloudsearch"); // CommonJS import
+ * // import type { CloudSearchClientConfig } from "@aws-sdk/client-cloudsearch";
+ * const config = {}; // type is CloudSearchClientConfig
  * const client = new CloudSearchClient(config);
  * const input = { // UpdateAvailabilityOptionsRequest
  *   DomainName: "STRING_VALUE", // required

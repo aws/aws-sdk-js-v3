@@ -34,6 +34,8 @@ export interface ListReferenceImportJobsCommandOutput extends ListReferenceImpor
  * ```javascript
  * import { OmicsClient, ListReferenceImportJobsCommand } from "@aws-sdk/client-omics"; // ES Modules import
  * // const { OmicsClient, ListReferenceImportJobsCommand } = require("@aws-sdk/client-omics"); // CommonJS import
+ * // import type { OmicsClientConfig } from "@aws-sdk/client-omics";
+ * const config = {}; // type is OmicsClientConfig
  * const client = new OmicsClient(config);
  * const input = { // ListReferenceImportJobsRequest
  *   maxResults: Number("int"),

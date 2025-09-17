@@ -34,6 +34,8 @@ export interface GetEnvironmentCommandOutput extends GetEnvironmentOutput, __Met
  * ```javascript
  * import { MWAAClient, GetEnvironmentCommand } from "@aws-sdk/client-mwaa"; // ES Modules import
  * // const { MWAAClient, GetEnvironmentCommand } = require("@aws-sdk/client-mwaa"); // CommonJS import
+ * // import type { MWAAClientConfig } from "@aws-sdk/client-mwaa";
+ * const config = {}; // type is MWAAClientConfig
  * const client = new MWAAClient(config);
  * const input = { // GetEnvironmentInput
  *   Name: "STRING_VALUE", // required

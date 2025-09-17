@@ -36,6 +36,8 @@ export interface GetKxDataviewCommandOutput extends GetKxDataviewResponse, __Met
  * ```javascript
  * import { FinspaceClient, GetKxDataviewCommand } from "@aws-sdk/client-finspace"; // ES Modules import
  * // const { FinspaceClient, GetKxDataviewCommand } = require("@aws-sdk/client-finspace"); // CommonJS import
+ * // import type { FinspaceClientConfig } from "@aws-sdk/client-finspace";
+ * const config = {}; // type is FinspaceClientConfig
  * const client = new FinspaceClient(config);
  * const input = { // GetKxDataviewRequest
  *   environmentId: "STRING_VALUE", // required

@@ -34,6 +34,8 @@ export interface DeleteQueueEnvironmentCommandOutput extends DeleteQueueEnvironm
  * ```javascript
  * import { DeadlineClient, DeleteQueueEnvironmentCommand } from "@aws-sdk/client-deadline"; // ES Modules import
  * // const { DeadlineClient, DeleteQueueEnvironmentCommand } = require("@aws-sdk/client-deadline"); // CommonJS import
+ * // import type { DeadlineClientConfig } from "@aws-sdk/client-deadline";
+ * const config = {}; // type is DeadlineClientConfig
  * const client = new DeadlineClient(config);
  * const input = { // DeleteQueueEnvironmentRequest
  *   farmId: "STRING_VALUE", // required

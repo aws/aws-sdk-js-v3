@@ -41,6 +41,8 @@ export interface GetShardIteratorCommandOutput extends GetShardIteratorOutput, _
  * ```javascript
  * import { DynamoDBStreamsClient, GetShardIteratorCommand } from "@aws-sdk/client-dynamodb-streams"; // ES Modules import
  * // const { DynamoDBStreamsClient, GetShardIteratorCommand } = require("@aws-sdk/client-dynamodb-streams"); // CommonJS import
+ * // import type { DynamoDBStreamsClientConfig } from "@aws-sdk/client-dynamodb-streams";
+ * const config = {}; // type is DynamoDBStreamsClientConfig
  * const client = new DynamoDBStreamsClient(config);
  * const input = { // GetShardIteratorInput
  *   StreamArn: "STRING_VALUE", // required

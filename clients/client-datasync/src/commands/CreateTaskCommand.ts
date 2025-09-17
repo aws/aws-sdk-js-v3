@@ -43,6 +43,8 @@ export interface CreateTaskCommandOutput extends CreateTaskResponse, __MetadataB
  * ```javascript
  * import { DataSyncClient, CreateTaskCommand } from "@aws-sdk/client-datasync"; // ES Modules import
  * // const { DataSyncClient, CreateTaskCommand } = require("@aws-sdk/client-datasync"); // CommonJS import
+ * // import type { DataSyncClientConfig } from "@aws-sdk/client-datasync";
+ * const config = {}; // type is DataSyncClientConfig
  * const client = new DataSyncClient(config);
  * const input = { // CreateTaskRequest
  *   SourceLocationArn: "STRING_VALUE", // required

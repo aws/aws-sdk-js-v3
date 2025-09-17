@@ -50,6 +50,8 @@ export interface PutBackupVaultLockConfigurationCommandOutput extends __Metadata
  * ```javascript
  * import { BackupClient, PutBackupVaultLockConfigurationCommand } from "@aws-sdk/client-backup"; // ES Modules import
  * // const { BackupClient, PutBackupVaultLockConfigurationCommand } = require("@aws-sdk/client-backup"); // CommonJS import
+ * // import type { BackupClientConfig } from "@aws-sdk/client-backup";
+ * const config = {}; // type is BackupClientConfig
  * const client = new BackupClient(config);
  * const input = { // PutBackupVaultLockConfigurationInput
  *   BackupVaultName: "STRING_VALUE", // required

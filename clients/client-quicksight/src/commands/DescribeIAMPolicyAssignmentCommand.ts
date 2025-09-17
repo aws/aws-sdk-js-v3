@@ -40,6 +40,8 @@ export interface DescribeIAMPolicyAssignmentCommandOutput
  * ```javascript
  * import { QuickSightClient, DescribeIAMPolicyAssignmentCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
  * // const { QuickSightClient, DescribeIAMPolicyAssignmentCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
+ * // import type { QuickSightClientConfig } from "@aws-sdk/client-quicksight";
+ * const config = {}; // type is QuickSightClientConfig
  * const client = new QuickSightClient(config);
  * const input = { // DescribeIAMPolicyAssignmentRequest
  *   AwsAccountId: "STRING_VALUE", // required

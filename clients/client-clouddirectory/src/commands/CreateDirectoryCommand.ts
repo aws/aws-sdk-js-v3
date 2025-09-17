@@ -37,6 +37,8 @@ export interface CreateDirectoryCommandOutput extends CreateDirectoryResponse, _
  * ```javascript
  * import { CloudDirectoryClient, CreateDirectoryCommand } from "@aws-sdk/client-clouddirectory"; // ES Modules import
  * // const { CloudDirectoryClient, CreateDirectoryCommand } = require("@aws-sdk/client-clouddirectory"); // CommonJS import
+ * // import type { CloudDirectoryClientConfig } from "@aws-sdk/client-clouddirectory";
+ * const config = {}; // type is CloudDirectoryClientConfig
  * const client = new CloudDirectoryClient(config);
  * const input = { // CreateDirectoryRequest
  *   Name: "STRING_VALUE", // required

@@ -34,6 +34,8 @@ export interface ListConnectionGroupsCommandOutput extends ListConnectionGroupsR
  * ```javascript
  * import { CloudFrontClient, ListConnectionGroupsCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
  * // const { CloudFrontClient, ListConnectionGroupsCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
+ * // import type { CloudFrontClientConfig } from "@aws-sdk/client-cloudfront";
+ * const config = {}; // type is CloudFrontClientConfig
  * const client = new CloudFrontClient(config);
  * const input = { // ListConnectionGroupsRequest
  *   AssociationFilter: { // ConnectionGroupAssociationFilter

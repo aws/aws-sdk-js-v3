@@ -38,6 +38,8 @@ export interface GetSessionLoggerCommandOutput extends GetSessionLoggerResponse,
  * ```javascript
  * import { WorkSpacesWebClient, GetSessionLoggerCommand } from "@aws-sdk/client-workspaces-web"; // ES Modules import
  * // const { WorkSpacesWebClient, GetSessionLoggerCommand } = require("@aws-sdk/client-workspaces-web"); // CommonJS import
+ * // import type { WorkSpacesWebClientConfig } from "@aws-sdk/client-workspaces-web";
+ * const config = {}; // type is WorkSpacesWebClientConfig
  * const client = new WorkSpacesWebClient(config);
  * const input = { // GetSessionLoggerRequest
  *   sessionLoggerArn: "STRING_VALUE", // required

@@ -42,6 +42,8 @@ export interface CreateDestinationCommandOutput extends CreateDestinationRespons
  * ```javascript
  * import { IoTManagedIntegrationsClient, CreateDestinationCommand } from "@aws-sdk/client-iot-managed-integrations"; // ES Modules import
  * // const { IoTManagedIntegrationsClient, CreateDestinationCommand } = require("@aws-sdk/client-iot-managed-integrations"); // CommonJS import
+ * // import type { IoTManagedIntegrationsClientConfig } from "@aws-sdk/client-iot-managed-integrations";
+ * const config = {}; // type is IoTManagedIntegrationsClientConfig
  * const client = new IoTManagedIntegrationsClient(config);
  * const input = { // CreateDestinationRequest
  *   DeliveryDestinationArn: "STRING_VALUE", // required

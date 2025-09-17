@@ -42,6 +42,8 @@ export interface CreateMonitorCommandOutput extends CreateMonitorOutput, __Metad
  * ```javascript
  * import { InternetMonitorClient, CreateMonitorCommand } from "@aws-sdk/client-internetmonitor"; // ES Modules import
  * // const { InternetMonitorClient, CreateMonitorCommand } = require("@aws-sdk/client-internetmonitor"); // CommonJS import
+ * // import type { InternetMonitorClientConfig } from "@aws-sdk/client-internetmonitor";
+ * const config = {}; // type is InternetMonitorClientConfig
  * const client = new InternetMonitorClient(config);
  * const input = { // CreateMonitorInput
  *   MonitorName: "STRING_VALUE", // required

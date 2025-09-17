@@ -36,6 +36,8 @@ export interface ListAssociationsCommandOutput extends ListAssociationsResult, _
  * ```javascript
  * import { SSMClient, ListAssociationsCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, ListAssociationsCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
+ * // import type { SSMClientConfig } from "@aws-sdk/client-ssm";
+ * const config = {}; // type is SSMClientConfig
  * const client = new SSMClient(config);
  * const input = { // ListAssociationsRequest
  *   AssociationFilterList: [ // AssociationFilterList

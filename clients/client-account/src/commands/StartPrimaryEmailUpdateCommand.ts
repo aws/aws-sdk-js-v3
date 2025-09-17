@@ -38,6 +38,8 @@ export interface StartPrimaryEmailUpdateCommandOutput extends StartPrimaryEmailU
  * ```javascript
  * import { AccountClient, StartPrimaryEmailUpdateCommand } from "@aws-sdk/client-account"; // ES Modules import
  * // const { AccountClient, StartPrimaryEmailUpdateCommand } = require("@aws-sdk/client-account"); // CommonJS import
+ * // import type { AccountClientConfig } from "@aws-sdk/client-account";
+ * const config = {}; // type is AccountClientConfig
  * const client = new AccountClient(config);
  * const input = { // StartPrimaryEmailUpdateRequest
  *   AccountId: "STRING_VALUE", // required

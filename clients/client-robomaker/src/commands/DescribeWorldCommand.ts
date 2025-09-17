@@ -42,6 +42,8 @@ export interface DescribeWorldCommandOutput extends DescribeWorldResponse, __Met
  * ```javascript
  * import { RoboMakerClient, DescribeWorldCommand } from "@aws-sdk/client-robomaker"; // ES Modules import
  * // const { RoboMakerClient, DescribeWorldCommand } = require("@aws-sdk/client-robomaker"); // CommonJS import
+ * // import type { RoboMakerClientConfig } from "@aws-sdk/client-robomaker";
+ * const config = {}; // type is RoboMakerClientConfig
  * const client = new RoboMakerClient(config);
  * const input = { // DescribeWorldRequest
  *   world: "STRING_VALUE", // required

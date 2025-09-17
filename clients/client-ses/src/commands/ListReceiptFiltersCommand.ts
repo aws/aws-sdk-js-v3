@@ -38,6 +38,8 @@ export interface ListReceiptFiltersCommandOutput extends ListReceiptFiltersRespo
  * ```javascript
  * import { SESClient, ListReceiptFiltersCommand } from "@aws-sdk/client-ses"; // ES Modules import
  * // const { SESClient, ListReceiptFiltersCommand } = require("@aws-sdk/client-ses"); // CommonJS import
+ * // import type { SESClientConfig } from "@aws-sdk/client-ses";
+ * const config = {}; // type is SESClientConfig
  * const client = new SESClient(config);
  * const input = {};
  * const command = new ListReceiptFiltersCommand(input);

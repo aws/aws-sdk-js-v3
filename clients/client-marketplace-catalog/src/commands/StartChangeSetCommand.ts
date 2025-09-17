@@ -52,6 +52,8 @@ export interface StartChangeSetCommandOutput extends StartChangeSetResponse, __M
  * ```javascript
  * import { MarketplaceCatalogClient, StartChangeSetCommand } from "@aws-sdk/client-marketplace-catalog"; // ES Modules import
  * // const { MarketplaceCatalogClient, StartChangeSetCommand } = require("@aws-sdk/client-marketplace-catalog"); // CommonJS import
+ * // import type { MarketplaceCatalogClientConfig } from "@aws-sdk/client-marketplace-catalog";
+ * const config = {}; // type is MarketplaceCatalogClientConfig
  * const client = new MarketplaceCatalogClient(config);
  * const input = { // StartChangeSetRequest
  *   Catalog: "STRING_VALUE", // required

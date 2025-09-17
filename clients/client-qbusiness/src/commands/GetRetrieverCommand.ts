@@ -34,6 +34,8 @@ export interface GetRetrieverCommandOutput extends GetRetrieverResponse, __Metad
  * ```javascript
  * import { QBusinessClient, GetRetrieverCommand } from "@aws-sdk/client-qbusiness"; // ES Modules import
  * // const { QBusinessClient, GetRetrieverCommand } = require("@aws-sdk/client-qbusiness"); // CommonJS import
+ * // import type { QBusinessClientConfig } from "@aws-sdk/client-qbusiness";
+ * const config = {}; // type is QBusinessClientConfig
  * const client = new QBusinessClient(config);
  * const input = { // GetRetrieverRequest
  *   applicationId: "STRING_VALUE", // required

@@ -83,6 +83,8 @@ export interface CreateEventTrackerCommandOutput extends CreateEventTrackerRespo
  * ```javascript
  * import { PersonalizeClient, CreateEventTrackerCommand } from "@aws-sdk/client-personalize"; // ES Modules import
  * // const { PersonalizeClient, CreateEventTrackerCommand } = require("@aws-sdk/client-personalize"); // CommonJS import
+ * // import type { PersonalizeClientConfig } from "@aws-sdk/client-personalize";
+ * const config = {}; // type is PersonalizeClientConfig
  * const client = new PersonalizeClient(config);
  * const input = { // CreateEventTrackerRequest
  *   name: "STRING_VALUE", // required

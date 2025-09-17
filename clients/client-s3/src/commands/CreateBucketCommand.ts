@@ -187,6 +187,8 @@ export interface CreateBucketCommandOutput extends CreateBucketOutput, __Metadat
  * ```javascript
  * import { S3Client, CreateBucketCommand } from "@aws-sdk/client-s3"; // ES Modules import
  * // const { S3Client, CreateBucketCommand } = require("@aws-sdk/client-s3"); // CommonJS import
+ * // import type { S3ClientConfig } from "@aws-sdk/client-s3";
+ * const config = {}; // type is S3ClientConfig
  * const client = new S3Client(config);
  * const input = { // CreateBucketRequest
  *   ACL: "private" || "public-read" || "public-read-write" || "authenticated-read",

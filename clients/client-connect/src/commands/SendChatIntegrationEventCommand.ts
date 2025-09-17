@@ -49,6 +49,8 @@ export interface SendChatIntegrationEventCommandOutput extends SendChatIntegrati
  * ```javascript
  * import { ConnectClient, SendChatIntegrationEventCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, SendChatIntegrationEventCommand } = require("@aws-sdk/client-connect"); // CommonJS import
+ * // import type { ConnectClientConfig } from "@aws-sdk/client-connect";
+ * const config = {}; // type is ConnectClientConfig
  * const client = new ConnectClient(config);
  * const input = { // SendChatIntegrationEventRequest
  *   SourceId: "STRING_VALUE", // required

@@ -37,6 +37,8 @@ export interface PutTableMaintenanceConfigurationCommandOutput extends __Metadat
  * ```javascript
  * import { S3TablesClient, PutTableMaintenanceConfigurationCommand } from "@aws-sdk/client-s3tables"; // ES Modules import
  * // const { S3TablesClient, PutTableMaintenanceConfigurationCommand } = require("@aws-sdk/client-s3tables"); // CommonJS import
+ * // import type { S3TablesClientConfig } from "@aws-sdk/client-s3tables";
+ * const config = {}; // type is S3TablesClientConfig
  * const client = new S3TablesClient(config);
  * const input = { // PutTableMaintenanceConfigurationRequest
  *   tableBucketARN: "STRING_VALUE", // required

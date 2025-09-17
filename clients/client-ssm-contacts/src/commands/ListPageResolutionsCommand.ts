@@ -38,6 +38,8 @@ export interface ListPageResolutionsCommandOutput extends ListPageResolutionsRes
  * ```javascript
  * import { SSMContactsClient, ListPageResolutionsCommand } from "@aws-sdk/client-ssm-contacts"; // ES Modules import
  * // const { SSMContactsClient, ListPageResolutionsCommand } = require("@aws-sdk/client-ssm-contacts"); // CommonJS import
+ * // import type { SSMContactsClientConfig } from "@aws-sdk/client-ssm-contacts";
+ * const config = {}; // type is SSMContactsClientConfig
  * const client = new SSMContactsClient(config);
  * const input = { // ListPageResolutionsRequest
  *   NextToken: "STRING_VALUE",

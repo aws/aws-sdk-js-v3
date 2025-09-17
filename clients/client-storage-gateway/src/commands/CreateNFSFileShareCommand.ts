@@ -48,6 +48,8 @@ export interface CreateNFSFileShareCommandOutput extends CreateNFSFileShareOutpu
  * ```javascript
  * import { StorageGatewayClient, CreateNFSFileShareCommand } from "@aws-sdk/client-storage-gateway"; // ES Modules import
  * // const { StorageGatewayClient, CreateNFSFileShareCommand } = require("@aws-sdk/client-storage-gateway"); // CommonJS import
+ * // import type { StorageGatewayClientConfig } from "@aws-sdk/client-storage-gateway";
+ * const config = {}; // type is StorageGatewayClientConfig
  * const client = new StorageGatewayClient(config);
  * const input = { // CreateNFSFileShareInput
  *   ClientToken: "STRING_VALUE", // required

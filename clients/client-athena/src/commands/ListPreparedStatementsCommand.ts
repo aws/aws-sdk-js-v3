@@ -34,6 +34,8 @@ export interface ListPreparedStatementsCommandOutput extends ListPreparedStateme
  * ```javascript
  * import { AthenaClient, ListPreparedStatementsCommand } from "@aws-sdk/client-athena"; // ES Modules import
  * // const { AthenaClient, ListPreparedStatementsCommand } = require("@aws-sdk/client-athena"); // CommonJS import
+ * // import type { AthenaClientConfig } from "@aws-sdk/client-athena";
+ * const config = {}; // type is AthenaClientConfig
  * const client = new AthenaClient(config);
  * const input = { // ListPreparedStatementsInput
  *   WorkGroup: "STRING_VALUE", // required

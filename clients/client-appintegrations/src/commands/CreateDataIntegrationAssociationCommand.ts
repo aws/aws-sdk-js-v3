@@ -39,6 +39,8 @@ export interface CreateDataIntegrationAssociationCommandOutput
  * ```javascript
  * import { AppIntegrationsClient, CreateDataIntegrationAssociationCommand } from "@aws-sdk/client-appintegrations"; // ES Modules import
  * // const { AppIntegrationsClient, CreateDataIntegrationAssociationCommand } = require("@aws-sdk/client-appintegrations"); // CommonJS import
+ * // import type { AppIntegrationsClientConfig } from "@aws-sdk/client-appintegrations";
+ * const config = {}; // type is AppIntegrationsClientConfig
  * const client = new AppIntegrationsClient(config);
  * const input = { // CreateDataIntegrationAssociationRequest
  *   DataIntegrationIdentifier: "STRING_VALUE", // required

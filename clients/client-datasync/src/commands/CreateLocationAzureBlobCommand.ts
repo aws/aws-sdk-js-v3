@@ -42,6 +42,8 @@ export interface CreateLocationAzureBlobCommandOutput extends CreateLocationAzur
  * ```javascript
  * import { DataSyncClient, CreateLocationAzureBlobCommand } from "@aws-sdk/client-datasync"; // ES Modules import
  * // const { DataSyncClient, CreateLocationAzureBlobCommand } = require("@aws-sdk/client-datasync"); // CommonJS import
+ * // import type { DataSyncClientConfig } from "@aws-sdk/client-datasync";
+ * const config = {}; // type is DataSyncClientConfig
  * const client = new DataSyncClient(config);
  * const input = { // CreateLocationAzureBlobRequest
  *   ContainerUrl: "STRING_VALUE", // required

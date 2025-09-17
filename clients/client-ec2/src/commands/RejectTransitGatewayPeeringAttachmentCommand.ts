@@ -43,6 +43,8 @@ export interface RejectTransitGatewayPeeringAttachmentCommandOutput
  * ```javascript
  * import { EC2Client, RejectTransitGatewayPeeringAttachmentCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, RejectTransitGatewayPeeringAttachmentCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
+ * // import type { EC2ClientConfig } from "@aws-sdk/client-ec2";
+ * const config = {}; // type is EC2ClientConfig
  * const client = new EC2Client(config);
  * const input = { // RejectTransitGatewayPeeringAttachmentRequest
  *   TransitGatewayAttachmentId: "STRING_VALUE", // required

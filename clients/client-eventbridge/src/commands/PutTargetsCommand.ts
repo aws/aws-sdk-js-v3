@@ -146,6 +146,8 @@ export interface PutTargetsCommandOutput extends PutTargetsResponse, __MetadataB
  * ```javascript
  * import { EventBridgeClient, PutTargetsCommand } from "@aws-sdk/client-eventbridge"; // ES Modules import
  * // const { EventBridgeClient, PutTargetsCommand } = require("@aws-sdk/client-eventbridge"); // CommonJS import
+ * // import type { EventBridgeClientConfig } from "@aws-sdk/client-eventbridge";
+ * const config = {}; // type is EventBridgeClientConfig
  * const client = new EventBridgeClient(config);
  * const input = { // PutTargetsRequest
  *   Rule: "STRING_VALUE", // required

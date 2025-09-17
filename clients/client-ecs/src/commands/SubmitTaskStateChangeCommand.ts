@@ -37,6 +37,8 @@ export interface SubmitTaskStateChangeCommandOutput extends SubmitTaskStateChang
  * ```javascript
  * import { ECSClient, SubmitTaskStateChangeCommand } from "@aws-sdk/client-ecs"; // ES Modules import
  * // const { ECSClient, SubmitTaskStateChangeCommand } = require("@aws-sdk/client-ecs"); // CommonJS import
+ * // import type { ECSClientConfig } from "@aws-sdk/client-ecs";
+ * const config = {}; // type is ECSClientConfig
  * const client = new ECSClient(config);
  * const input = { // SubmitTaskStateChangeRequest
  *   cluster: "STRING_VALUE",

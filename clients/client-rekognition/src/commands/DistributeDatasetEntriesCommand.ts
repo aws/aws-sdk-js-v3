@@ -47,6 +47,8 @@ export interface DistributeDatasetEntriesCommandOutput extends DistributeDataset
  * ```javascript
  * import { RekognitionClient, DistributeDatasetEntriesCommand } from "@aws-sdk/client-rekognition"; // ES Modules import
  * // const { RekognitionClient, DistributeDatasetEntriesCommand } = require("@aws-sdk/client-rekognition"); // CommonJS import
+ * // import type { RekognitionClientConfig } from "@aws-sdk/client-rekognition";
+ * const config = {}; // type is RekognitionClientConfig
  * const client = new RekognitionClient(config);
  * const input = { // DistributeDatasetEntriesRequest
  *   Datasets: [ // DistributeDatasetMetadataList // required

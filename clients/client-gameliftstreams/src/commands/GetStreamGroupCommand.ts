@@ -34,6 +34,8 @@ export interface GetStreamGroupCommandOutput extends GetStreamGroupOutput, __Met
  * ```javascript
  * import { GameLiftStreamsClient, GetStreamGroupCommand } from "@aws-sdk/client-gameliftstreams"; // ES Modules import
  * // const { GameLiftStreamsClient, GetStreamGroupCommand } = require("@aws-sdk/client-gameliftstreams"); // CommonJS import
+ * // import type { GameLiftStreamsClientConfig } from "@aws-sdk/client-gameliftstreams";
+ * const config = {}; // type is GameLiftStreamsClientConfig
  * const client = new GameLiftStreamsClient(config);
  * const input = { // GetStreamGroupInput
  *   Identifier: "STRING_VALUE", // required

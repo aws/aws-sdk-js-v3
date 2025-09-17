@@ -34,6 +34,8 @@ export interface UntagResourceCommandOutput extends UntagResourceOutput, __Metad
  * ```javascript
  * import { OAMClient, UntagResourceCommand } from "@aws-sdk/client-oam"; // ES Modules import
  * // const { OAMClient, UntagResourceCommand } = require("@aws-sdk/client-oam"); // CommonJS import
+ * // import type { OAMClientConfig } from "@aws-sdk/client-oam";
+ * const config = {}; // type is OAMClientConfig
  * const client = new OAMClient(config);
  * const input = { // UntagResourceInput
  *   ResourceArn: "STRING_VALUE", // required

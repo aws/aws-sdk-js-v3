@@ -34,6 +34,8 @@ export interface GetKnowledgeBaseDocumentsCommandOutput extends GetKnowledgeBase
  * ```javascript
  * import { BedrockAgentClient, GetKnowledgeBaseDocumentsCommand } from "@aws-sdk/client-bedrock-agent"; // ES Modules import
  * // const { BedrockAgentClient, GetKnowledgeBaseDocumentsCommand } = require("@aws-sdk/client-bedrock-agent"); // CommonJS import
+ * // import type { BedrockAgentClientConfig } from "@aws-sdk/client-bedrock-agent";
+ * const config = {}; // type is BedrockAgentClientConfig
  * const client = new BedrockAgentClient(config);
  * const input = { // GetKnowledgeBaseDocumentsRequest
  *   knowledgeBaseId: "STRING_VALUE", // required

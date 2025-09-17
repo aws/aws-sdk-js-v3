@@ -34,6 +34,8 @@ export interface PutSchemaFromJsonCommandOutput extends PutSchemaFromJsonRespons
  * ```javascript
  * import { CloudDirectoryClient, PutSchemaFromJsonCommand } from "@aws-sdk/client-clouddirectory"; // ES Modules import
  * // const { CloudDirectoryClient, PutSchemaFromJsonCommand } = require("@aws-sdk/client-clouddirectory"); // CommonJS import
+ * // import type { CloudDirectoryClientConfig } from "@aws-sdk/client-clouddirectory";
+ * const config = {}; // type is CloudDirectoryClientConfig
  * const client = new CloudDirectoryClient(config);
  * const input = { // PutSchemaFromJsonRequest
  *   SchemaArn: "STRING_VALUE", // required

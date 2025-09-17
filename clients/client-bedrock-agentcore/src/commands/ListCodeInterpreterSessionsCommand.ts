@@ -39,6 +39,8 @@ export interface ListCodeInterpreterSessionsCommandOutput
  * ```javascript
  * import { BedrockAgentCoreClient, ListCodeInterpreterSessionsCommand } from "@aws-sdk/client-bedrock-agentcore"; // ES Modules import
  * // const { BedrockAgentCoreClient, ListCodeInterpreterSessionsCommand } = require("@aws-sdk/client-bedrock-agentcore"); // CommonJS import
+ * // import type { BedrockAgentCoreClientConfig } from "@aws-sdk/client-bedrock-agentcore";
+ * const config = {}; // type is BedrockAgentCoreClientConfig
  * const client = new BedrockAgentCoreClient(config);
  * const input = { // ListCodeInterpreterSessionsRequest
  *   codeInterpreterIdentifier: "STRING_VALUE", // required

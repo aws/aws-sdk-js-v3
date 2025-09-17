@@ -35,6 +35,8 @@ export interface EmptyInputOutputCommandOutput extends EmptyStructure, __Metadat
  * ```javascript
  * import { RpcV2ProtocolClient, EmptyInputOutputCommand } from "@aws-sdk/aws-protocoltests-smithy-rpcv2-cbor"; // ES Modules import
  * // const { RpcV2ProtocolClient, EmptyInputOutputCommand } = require("@aws-sdk/aws-protocoltests-smithy-rpcv2-cbor"); // CommonJS import
+ * // import type { RpcV2ProtocolClientConfig } from "@aws-sdk/aws-protocoltests-smithy-rpcv2-cbor";
+ * const config = {}; // type is RpcV2ProtocolClientConfig
  * const client = new RpcV2ProtocolClient(config);
  * const input = {};
  * const command = new EmptyInputOutputCommand(input);

@@ -39,6 +39,8 @@ export interface PutFunctionCodeSigningConfigCommandOutput
  * ```javascript
  * import { LambdaClient, PutFunctionCodeSigningConfigCommand } from "@aws-sdk/client-lambda"; // ES Modules import
  * // const { LambdaClient, PutFunctionCodeSigningConfigCommand } = require("@aws-sdk/client-lambda"); // CommonJS import
+ * // import type { LambdaClientConfig } from "@aws-sdk/client-lambda";
+ * const config = {}; // type is LambdaClientConfig
  * const client = new LambdaClient(config);
  * const input = { // PutFunctionCodeSigningConfigRequest
  *   CodeSigningConfigArn: "STRING_VALUE", // required

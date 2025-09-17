@@ -34,6 +34,8 @@ export interface StartConfigurationChecksCommandOutput extends StartConfiguratio
  * ```javascript
  * import { SsmSapClient, StartConfigurationChecksCommand } from "@aws-sdk/client-ssm-sap"; // ES Modules import
  * // const { SsmSapClient, StartConfigurationChecksCommand } = require("@aws-sdk/client-ssm-sap"); // CommonJS import
+ * // import type { SsmSapClientConfig } from "@aws-sdk/client-ssm-sap";
+ * const config = {}; // type is SsmSapClientConfig
  * const client = new SsmSapClient(config);
  * const input = { // StartConfigurationChecksInput
  *   ApplicationId: "STRING_VALUE", // required

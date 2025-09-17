@@ -39,6 +39,8 @@ export interface DescribeFlowExecutionRecordsCommandOutput
  * ```javascript
  * import { AppflowClient, DescribeFlowExecutionRecordsCommand } from "@aws-sdk/client-appflow"; // ES Modules import
  * // const { AppflowClient, DescribeFlowExecutionRecordsCommand } = require("@aws-sdk/client-appflow"); // CommonJS import
+ * // import type { AppflowClientConfig } from "@aws-sdk/client-appflow";
+ * const config = {}; // type is AppflowClientConfig
  * const client = new AppflowClient(config);
  * const input = { // DescribeFlowExecutionRecordsRequest
  *   flowName: "STRING_VALUE", // required

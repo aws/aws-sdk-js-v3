@@ -39,6 +39,8 @@ export interface GetCloudFrontOriginAccessIdentityCommandOutput
  * ```javascript
  * import { CloudFrontClient, GetCloudFrontOriginAccessIdentityCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
  * // const { CloudFrontClient, GetCloudFrontOriginAccessIdentityCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
+ * // import type { CloudFrontClientConfig } from "@aws-sdk/client-cloudfront";
+ * const config = {}; // type is CloudFrontClientConfig
  * const client = new CloudFrontClient(config);
  * const input = { // GetCloudFrontOriginAccessIdentityRequest
  *   Id: "STRING_VALUE", // required

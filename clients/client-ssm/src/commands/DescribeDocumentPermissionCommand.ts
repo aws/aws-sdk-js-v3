@@ -36,6 +36,8 @@ export interface DescribeDocumentPermissionCommandOutput extends DescribeDocumen
  * ```javascript
  * import { SSMClient, DescribeDocumentPermissionCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, DescribeDocumentPermissionCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
+ * // import type { SSMClientConfig } from "@aws-sdk/client-ssm";
+ * const config = {}; // type is SSMClientConfig
  * const client = new SSMClient(config);
  * const input = { // DescribeDocumentPermissionRequest
  *   Name: "STRING_VALUE", // required

@@ -70,6 +70,8 @@ export interface DetectProtectiveEquipmentCommandOutput extends DetectProtective
  * ```javascript
  * import { RekognitionClient, DetectProtectiveEquipmentCommand } from "@aws-sdk/client-rekognition"; // ES Modules import
  * // const { RekognitionClient, DetectProtectiveEquipmentCommand } = require("@aws-sdk/client-rekognition"); // CommonJS import
+ * // import type { RekognitionClientConfig } from "@aws-sdk/client-rekognition";
+ * const config = {}; // type is RekognitionClientConfig
  * const client = new RekognitionClient(config);
  * const input = { // DetectProtectiveEquipmentRequest
  *   Image: { // Image

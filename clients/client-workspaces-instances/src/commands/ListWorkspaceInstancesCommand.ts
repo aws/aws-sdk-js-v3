@@ -43,6 +43,8 @@ export interface ListWorkspaceInstancesCommandOutput extends ListWorkspaceInstan
  * ```javascript
  * import { WorkspacesInstancesClient, ListWorkspaceInstancesCommand } from "@aws-sdk/client-workspaces-instances"; // ES Modules import
  * // const { WorkspacesInstancesClient, ListWorkspaceInstancesCommand } = require("@aws-sdk/client-workspaces-instances"); // CommonJS import
+ * // import type { WorkspacesInstancesClientConfig } from "@aws-sdk/client-workspaces-instances";
+ * const config = {}; // type is WorkspacesInstancesClientConfig
  * const client = new WorkspacesInstancesClient(config);
  * const input = { // ListWorkspaceInstancesRequest
  *   ProvisionStates: [ // ProvisionStates

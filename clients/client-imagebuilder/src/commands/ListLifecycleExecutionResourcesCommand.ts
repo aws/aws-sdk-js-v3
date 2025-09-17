@@ -39,6 +39,8 @@ export interface ListLifecycleExecutionResourcesCommandOutput
  * ```javascript
  * import { ImagebuilderClient, ListLifecycleExecutionResourcesCommand } from "@aws-sdk/client-imagebuilder"; // ES Modules import
  * // const { ImagebuilderClient, ListLifecycleExecutionResourcesCommand } = require("@aws-sdk/client-imagebuilder"); // CommonJS import
+ * // import type { ImagebuilderClientConfig } from "@aws-sdk/client-imagebuilder";
+ * const config = {}; // type is ImagebuilderClientConfig
  * const client = new ImagebuilderClient(config);
  * const input = { // ListLifecycleExecutionResourcesRequest
  *   lifecycleExecutionId: "STRING_VALUE", // required

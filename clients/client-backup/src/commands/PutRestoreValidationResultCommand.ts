@@ -38,6 +38,8 @@ export interface PutRestoreValidationResultCommandOutput extends __MetadataBeare
  * ```javascript
  * import { BackupClient, PutRestoreValidationResultCommand } from "@aws-sdk/client-backup"; // ES Modules import
  * // const { BackupClient, PutRestoreValidationResultCommand } = require("@aws-sdk/client-backup"); // CommonJS import
+ * // import type { BackupClientConfig } from "@aws-sdk/client-backup";
+ * const config = {}; // type is BackupClientConfig
  * const client = new BackupClient(config);
  * const input = { // PutRestoreValidationResultInput
  *   RestoreJobId: "STRING_VALUE", // required

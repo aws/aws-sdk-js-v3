@@ -34,6 +34,8 @@ export interface StartMetricStreamsCommandOutput extends StartMetricStreamsOutpu
  * ```javascript
  * import { CloudWatchClient, StartMetricStreamsCommand } from "@aws-sdk/client-cloudwatch"; // ES Modules import
  * // const { CloudWatchClient, StartMetricStreamsCommand } = require("@aws-sdk/client-cloudwatch"); // CommonJS import
+ * // import type { CloudWatchClientConfig } from "@aws-sdk/client-cloudwatch";
+ * const config = {}; // type is CloudWatchClientConfig
  * const client = new CloudWatchClient(config);
  * const input = { // StartMetricStreamsInput
  *   Names: [ // MetricStreamNames // required

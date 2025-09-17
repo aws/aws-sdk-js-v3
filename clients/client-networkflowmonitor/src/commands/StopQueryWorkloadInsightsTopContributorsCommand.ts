@@ -47,6 +47,8 @@ export interface StopQueryWorkloadInsightsTopContributorsCommandOutput
  * ```javascript
  * import { NetworkFlowMonitorClient, StopQueryWorkloadInsightsTopContributorsCommand } from "@aws-sdk/client-networkflowmonitor"; // ES Modules import
  * // const { NetworkFlowMonitorClient, StopQueryWorkloadInsightsTopContributorsCommand } = require("@aws-sdk/client-networkflowmonitor"); // CommonJS import
+ * // import type { NetworkFlowMonitorClientConfig } from "@aws-sdk/client-networkflowmonitor";
+ * const config = {}; // type is NetworkFlowMonitorClientConfig
  * const client = new NetworkFlowMonitorClient(config);
  * const input = { // StopQueryWorkloadInsightsTopContributorsInput
  *   scopeId: "STRING_VALUE", // required

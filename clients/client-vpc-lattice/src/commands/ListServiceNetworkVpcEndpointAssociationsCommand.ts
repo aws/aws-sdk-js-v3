@@ -43,6 +43,8 @@ export interface ListServiceNetworkVpcEndpointAssociationsCommandOutput
  * ```javascript
  * import { VPCLatticeClient, ListServiceNetworkVpcEndpointAssociationsCommand } from "@aws-sdk/client-vpc-lattice"; // ES Modules import
  * // const { VPCLatticeClient, ListServiceNetworkVpcEndpointAssociationsCommand } = require("@aws-sdk/client-vpc-lattice"); // CommonJS import
+ * // import type { VPCLatticeClientConfig } from "@aws-sdk/client-vpc-lattice";
+ * const config = {}; // type is VPCLatticeClientConfig
  * const client = new VPCLatticeClient(config);
  * const input = { // ListServiceNetworkVpcEndpointAssociationsRequest
  *   serviceNetworkIdentifier: "STRING_VALUE", // required

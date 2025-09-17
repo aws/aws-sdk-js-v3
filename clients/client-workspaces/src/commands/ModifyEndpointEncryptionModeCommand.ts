@@ -40,6 +40,8 @@ export interface ModifyEndpointEncryptionModeCommandOutput
  * ```javascript
  * import { WorkSpacesClient, ModifyEndpointEncryptionModeCommand } from "@aws-sdk/client-workspaces"; // ES Modules import
  * // const { WorkSpacesClient, ModifyEndpointEncryptionModeCommand } = require("@aws-sdk/client-workspaces"); // CommonJS import
+ * // import type { WorkSpacesClientConfig } from "@aws-sdk/client-workspaces";
+ * const config = {}; // type is WorkSpacesClientConfig
  * const client = new WorkSpacesClient(config);
  * const input = { // ModifyEndpointEncryptionModeRequest
  *   DirectoryId: "STRING_VALUE", // required

@@ -34,6 +34,8 @@ export interface PutEventStreamCommandOutput extends PutEventStreamResponse, __M
  * ```javascript
  * import { PinpointClient, PutEventStreamCommand } from "@aws-sdk/client-pinpoint"; // ES Modules import
  * // const { PinpointClient, PutEventStreamCommand } = require("@aws-sdk/client-pinpoint"); // CommonJS import
+ * // import type { PinpointClientConfig } from "@aws-sdk/client-pinpoint";
+ * const config = {}; // type is PinpointClientConfig
  * const client = new PinpointClient(config);
  * const input = { // PutEventStreamRequest
  *   ApplicationId: "STRING_VALUE", // required

@@ -41,6 +41,8 @@ export interface GetRetrievedTracesGraphCommandOutput extends GetRetrievedTraces
  * ```javascript
  * import { XRayClient, GetRetrievedTracesGraphCommand } from "@aws-sdk/client-xray"; // ES Modules import
  * // const { XRayClient, GetRetrievedTracesGraphCommand } = require("@aws-sdk/client-xray"); // CommonJS import
+ * // import type { XRayClientConfig } from "@aws-sdk/client-xray";
+ * const config = {}; // type is XRayClientConfig
  * const client = new XRayClient(config);
  * const input = { // GetRetrievedTracesGraphRequest
  *   RetrievalToken: "STRING_VALUE", // required

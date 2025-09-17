@@ -37,6 +37,8 @@ export interface DeleteClusterSchedulerConfigCommandOutput extends __MetadataBea
  * ```javascript
  * import { SageMakerClient, DeleteClusterSchedulerConfigCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, DeleteClusterSchedulerConfigCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * // import type { SageMakerClientConfig } from "@aws-sdk/client-sagemaker";
+ * const config = {}; // type is SageMakerClientConfig
  * const client = new SageMakerClient(config);
  * const input = { // DeleteClusterSchedulerConfigRequest
  *   ClusterSchedulerConfigId: "STRING_VALUE", // required

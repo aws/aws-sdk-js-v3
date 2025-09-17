@@ -34,6 +34,8 @@ export interface DeleteVcenterClientCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { MgnClient, DeleteVcenterClientCommand } from "@aws-sdk/client-mgn"; // ES Modules import
  * // const { MgnClient, DeleteVcenterClientCommand } = require("@aws-sdk/client-mgn"); // CommonJS import
+ * // import type { MgnClientConfig } from "@aws-sdk/client-mgn";
+ * const config = {}; // type is MgnClientConfig
  * const client = new MgnClient(config);
  * const input = { // DeleteVcenterClientRequest
  *   vcenterClientID: "STRING_VALUE", // required

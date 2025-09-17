@@ -34,6 +34,8 @@ export interface CreateQueueCommandOutput extends CreateQueueResponse, __Metadat
  * ```javascript
  * import { MediaConvertClient, CreateQueueCommand } from "@aws-sdk/client-mediaconvert"; // ES Modules import
  * // const { MediaConvertClient, CreateQueueCommand } = require("@aws-sdk/client-mediaconvert"); // CommonJS import
+ * // import type { MediaConvertClientConfig } from "@aws-sdk/client-mediaconvert";
+ * const config = {}; // type is MediaConvertClientConfig
  * const client = new MediaConvertClient(config);
  * const input = { // CreateQueueRequest
  *   ConcurrentJobs: Number("int"),

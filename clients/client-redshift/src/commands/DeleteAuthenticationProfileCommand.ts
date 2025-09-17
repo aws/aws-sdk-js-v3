@@ -34,6 +34,8 @@ export interface DeleteAuthenticationProfileCommandOutput extends DeleteAuthenti
  * ```javascript
  * import { RedshiftClient, DeleteAuthenticationProfileCommand } from "@aws-sdk/client-redshift"; // ES Modules import
  * // const { RedshiftClient, DeleteAuthenticationProfileCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
+ * // import type { RedshiftClientConfig } from "@aws-sdk/client-redshift";
+ * const config = {}; // type is RedshiftClientConfig
  * const client = new RedshiftClient(config);
  * const input = { // DeleteAuthenticationProfileMessage
  *   AuthenticationProfileName: "STRING_VALUE", // required

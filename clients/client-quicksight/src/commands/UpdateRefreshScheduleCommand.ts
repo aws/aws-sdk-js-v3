@@ -34,6 +34,8 @@ export interface UpdateRefreshScheduleCommandOutput extends UpdateRefreshSchedul
  * ```javascript
  * import { QuickSightClient, UpdateRefreshScheduleCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
  * // const { QuickSightClient, UpdateRefreshScheduleCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
+ * // import type { QuickSightClientConfig } from "@aws-sdk/client-quicksight";
+ * const config = {}; // type is QuickSightClientConfig
  * const client = new QuickSightClient(config);
  * const input = { // UpdateRefreshScheduleRequest
  *   DataSetId: "STRING_VALUE", // required

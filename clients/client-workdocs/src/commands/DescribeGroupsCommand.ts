@@ -39,6 +39,8 @@ export interface DescribeGroupsCommandOutput extends DescribeGroupsResponse, __M
  * ```javascript
  * import { WorkDocsClient, DescribeGroupsCommand } from "@aws-sdk/client-workdocs"; // ES Modules import
  * // const { WorkDocsClient, DescribeGroupsCommand } = require("@aws-sdk/client-workdocs"); // CommonJS import
+ * // import type { WorkDocsClientConfig } from "@aws-sdk/client-workdocs";
+ * const config = {}; // type is WorkDocsClientConfig
  * const client = new WorkDocsClient(config);
  * const input = { // DescribeGroupsRequest
  *   AuthenticationToken: "STRING_VALUE",

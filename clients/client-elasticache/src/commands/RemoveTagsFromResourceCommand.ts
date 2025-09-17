@@ -38,6 +38,8 @@ export interface RemoveTagsFromResourceCommandOutput extends TagListMessage, __M
  * ```javascript
  * import { ElastiCacheClient, RemoveTagsFromResourceCommand } from "@aws-sdk/client-elasticache"; // ES Modules import
  * // const { ElastiCacheClient, RemoveTagsFromResourceCommand } = require("@aws-sdk/client-elasticache"); // CommonJS import
+ * // import type { ElastiCacheClientConfig } from "@aws-sdk/client-elasticache";
+ * const config = {}; // type is ElastiCacheClientConfig
  * const client = new ElastiCacheClient(config);
  * const input = { // RemoveTagsFromResourceMessage
  *   ResourceName: "STRING_VALUE", // required

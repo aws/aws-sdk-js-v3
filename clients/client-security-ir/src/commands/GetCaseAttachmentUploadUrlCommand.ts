@@ -39,6 +39,8 @@ export interface GetCaseAttachmentUploadUrlCommandOutput extends GetCaseAttachme
  * ```javascript
  * import { SecurityIRClient, GetCaseAttachmentUploadUrlCommand } from "@aws-sdk/client-security-ir"; // ES Modules import
  * // const { SecurityIRClient, GetCaseAttachmentUploadUrlCommand } = require("@aws-sdk/client-security-ir"); // CommonJS import
+ * // import type { SecurityIRClientConfig } from "@aws-sdk/client-security-ir";
+ * const config = {}; // type is SecurityIRClientConfig
  * const client = new SecurityIRClient(config);
  * const input = { // GetCaseAttachmentUploadUrlRequest
  *   caseId: "STRING_VALUE", // required

@@ -34,6 +34,8 @@ export interface DescribeBrokerEngineTypesCommandOutput extends DescribeBrokerEn
  * ```javascript
  * import { MqClient, DescribeBrokerEngineTypesCommand } from "@aws-sdk/client-mq"; // ES Modules import
  * // const { MqClient, DescribeBrokerEngineTypesCommand } = require("@aws-sdk/client-mq"); // CommonJS import
+ * // import type { MqClientConfig } from "@aws-sdk/client-mq";
+ * const config = {}; // type is MqClientConfig
  * const client = new MqClient(config);
  * const input = { // DescribeBrokerEngineTypesRequest
  *   EngineType: "STRING_VALUE",

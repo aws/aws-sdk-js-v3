@@ -34,6 +34,8 @@ export interface GetCertificateCommandOutput extends GetCertificateResponse, __M
  * ```javascript
  * import { ACMClient, GetCertificateCommand } from "@aws-sdk/client-acm"; // ES Modules import
  * // const { ACMClient, GetCertificateCommand } = require("@aws-sdk/client-acm"); // CommonJS import
+ * // import type { ACMClientConfig } from "@aws-sdk/client-acm";
+ * const config = {}; // type is ACMClientConfig
  * const client = new ACMClient(config);
  * const input = { // GetCertificateRequest
  *   CertificateArn: "STRING_VALUE", // required

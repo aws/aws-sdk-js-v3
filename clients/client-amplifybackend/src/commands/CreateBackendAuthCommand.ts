@@ -38,6 +38,8 @@ export interface CreateBackendAuthCommandOutput extends CreateBackendAuthRespons
  * ```javascript
  * import { AmplifyBackendClient, CreateBackendAuthCommand } from "@aws-sdk/client-amplifybackend"; // ES Modules import
  * // const { AmplifyBackendClient, CreateBackendAuthCommand } = require("@aws-sdk/client-amplifybackend"); // CommonJS import
+ * // import type { AmplifyBackendClientConfig } from "@aws-sdk/client-amplifybackend";
+ * const config = {}; // type is AmplifyBackendClientConfig
  * const client = new AmplifyBackendClient(config);
  * const input = { // CreateBackendAuthRequest
  *   AppId: "STRING_VALUE", // required

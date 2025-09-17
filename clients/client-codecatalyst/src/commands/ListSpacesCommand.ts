@@ -34,6 +34,8 @@ export interface ListSpacesCommandOutput extends ListSpacesResponse, __MetadataB
  * ```javascript
  * import { CodeCatalystClient, ListSpacesCommand } from "@aws-sdk/client-codecatalyst"; // ES Modules import
  * // const { CodeCatalystClient, ListSpacesCommand } = require("@aws-sdk/client-codecatalyst"); // CommonJS import
+ * // import type { CodeCatalystClientConfig } from "@aws-sdk/client-codecatalyst";
+ * const config = {}; // type is CodeCatalystClientConfig
  * const client = new CodeCatalystClient(config);
  * const input = { // ListSpacesRequest
  *   nextToken: "STRING_VALUE",

@@ -34,6 +34,8 @@ export interface StartExportCommandOutput extends StartExportResponse, __Metadat
  * ```javascript
  * import { MgnClient, StartExportCommand } from "@aws-sdk/client-mgn"; // ES Modules import
  * // const { MgnClient, StartExportCommand } = require("@aws-sdk/client-mgn"); // CommonJS import
+ * // import type { MgnClientConfig } from "@aws-sdk/client-mgn";
+ * const config = {}; // type is MgnClientConfig
  * const client = new MgnClient(config);
  * const input = { // StartExportRequest
  *   s3Bucket: "STRING_VALUE", // required

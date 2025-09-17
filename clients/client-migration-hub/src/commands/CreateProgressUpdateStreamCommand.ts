@@ -38,6 +38,8 @@ export interface CreateProgressUpdateStreamCommandOutput extends CreateProgressU
  * ```javascript
  * import { MigrationHubClient, CreateProgressUpdateStreamCommand } from "@aws-sdk/client-migration-hub"; // ES Modules import
  * // const { MigrationHubClient, CreateProgressUpdateStreamCommand } = require("@aws-sdk/client-migration-hub"); // CommonJS import
+ * // import type { MigrationHubClientConfig } from "@aws-sdk/client-migration-hub";
+ * const config = {}; // type is MigrationHubClientConfig
  * const client = new MigrationHubClient(config);
  * const input = { // CreateProgressUpdateStreamRequest
  *   ProgressUpdateStreamName: "STRING_VALUE", // required

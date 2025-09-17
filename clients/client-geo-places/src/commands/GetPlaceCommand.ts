@@ -39,6 +39,8 @@ export interface GetPlaceCommandOutput extends GetPlaceResponse, __MetadataBeare
  * ```javascript
  * import { GeoPlacesClient, GetPlaceCommand } from "@aws-sdk/client-geo-places"; // ES Modules import
  * // const { GeoPlacesClient, GetPlaceCommand } = require("@aws-sdk/client-geo-places"); // CommonJS import
+ * // import type { GeoPlacesClientConfig } from "@aws-sdk/client-geo-places";
+ * const config = {}; // type is GeoPlacesClientConfig
  * const client = new GeoPlacesClient(config);
  * const input = { // GetPlaceRequest
  *   PlaceId: "STRING_VALUE", // required

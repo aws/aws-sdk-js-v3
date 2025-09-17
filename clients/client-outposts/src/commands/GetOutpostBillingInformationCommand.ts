@@ -39,6 +39,8 @@ export interface GetOutpostBillingInformationCommandOutput
  * ```javascript
  * import { OutpostsClient, GetOutpostBillingInformationCommand } from "@aws-sdk/client-outposts"; // ES Modules import
  * // const { OutpostsClient, GetOutpostBillingInformationCommand } = require("@aws-sdk/client-outposts"); // CommonJS import
+ * // import type { OutpostsClientConfig } from "@aws-sdk/client-outposts";
+ * const config = {}; // type is OutpostsClientConfig
  * const client = new OutpostsClient(config);
  * const input = { // GetOutpostBillingInformationInput
  *   NextToken: "STRING_VALUE",

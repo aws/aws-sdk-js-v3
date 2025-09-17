@@ -34,6 +34,8 @@ export interface UpdateBrokerCommandOutput extends UpdateBrokerResponse, __Metad
  * ```javascript
  * import { MqClient, UpdateBrokerCommand } from "@aws-sdk/client-mq"; // ES Modules import
  * // const { MqClient, UpdateBrokerCommand } = require("@aws-sdk/client-mq"); // CommonJS import
+ * // import type { MqClientConfig } from "@aws-sdk/client-mq";
+ * const config = {}; // type is MqClientConfig
  * const client = new MqClient(config);
  * const input = { // UpdateBrokerRequest
  *   AuthenticationStrategy: "SIMPLE" || "LDAP" || "CONFIG_MANAGED",

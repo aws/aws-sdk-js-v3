@@ -34,6 +34,8 @@ export interface ListIdMappingWorkflowsCommandOutput extends ListIdMappingWorkfl
  * ```javascript
  * import { EntityResolutionClient, ListIdMappingWorkflowsCommand } from "@aws-sdk/client-entityresolution"; // ES Modules import
  * // const { EntityResolutionClient, ListIdMappingWorkflowsCommand } = require("@aws-sdk/client-entityresolution"); // CommonJS import
+ * // import type { EntityResolutionClientConfig } from "@aws-sdk/client-entityresolution";
+ * const config = {}; // type is EntityResolutionClientConfig
  * const client = new EntityResolutionClient(config);
  * const input = { // ListIdMappingWorkflowsInput
  *   nextToken: "STRING_VALUE",

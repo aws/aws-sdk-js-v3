@@ -36,6 +36,8 @@ export interface CreateSecurityConfigurationCommandOutput
  * ```javascript
  * import { GlueClient, CreateSecurityConfigurationCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, CreateSecurityConfigurationCommand } = require("@aws-sdk/client-glue"); // CommonJS import
+ * // import type { GlueClientConfig } from "@aws-sdk/client-glue";
+ * const config = {}; // type is GlueClientConfig
  * const client = new GlueClient(config);
  * const input = { // CreateSecurityConfigurationRequest
  *   Name: "STRING_VALUE", // required

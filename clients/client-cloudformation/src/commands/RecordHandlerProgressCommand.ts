@@ -36,6 +36,8 @@ export interface RecordHandlerProgressCommandOutput extends RecordHandlerProgres
  * ```javascript
  * import { CloudFormationClient, RecordHandlerProgressCommand } from "@aws-sdk/client-cloudformation"; // ES Modules import
  * // const { CloudFormationClient, RecordHandlerProgressCommand } = require("@aws-sdk/client-cloudformation"); // CommonJS import
+ * // import type { CloudFormationClientConfig } from "@aws-sdk/client-cloudformation";
+ * const config = {}; // type is CloudFormationClientConfig
  * const client = new CloudFormationClient(config);
  * const input = { // RecordHandlerProgressInput
  *   BearerToken: "STRING_VALUE", // required

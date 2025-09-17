@@ -34,6 +34,8 @@ export interface CreateFolderMembershipCommandOutput extends CreateFolderMembers
  * ```javascript
  * import { QuickSightClient, CreateFolderMembershipCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
  * // const { QuickSightClient, CreateFolderMembershipCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
+ * // import type { QuickSightClientConfig } from "@aws-sdk/client-quicksight";
+ * const config = {}; // type is QuickSightClientConfig
  * const client = new QuickSightClient(config);
  * const input = { // CreateFolderMembershipRequest
  *   AwsAccountId: "STRING_VALUE", // required

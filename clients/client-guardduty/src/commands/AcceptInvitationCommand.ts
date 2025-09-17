@@ -36,6 +36,8 @@ export interface AcceptInvitationCommandOutput extends AcceptInvitationResponse,
  * ```javascript
  * import { GuardDutyClient, AcceptInvitationCommand } from "@aws-sdk/client-guardduty"; // ES Modules import
  * // const { GuardDutyClient, AcceptInvitationCommand } = require("@aws-sdk/client-guardduty"); // CommonJS import
+ * // import type { GuardDutyClientConfig } from "@aws-sdk/client-guardduty";
+ * const config = {}; // type is GuardDutyClientConfig
  * const client = new GuardDutyClient(config);
  * const input = { // AcceptInvitationRequest
  *   DetectorId: "STRING_VALUE", // required

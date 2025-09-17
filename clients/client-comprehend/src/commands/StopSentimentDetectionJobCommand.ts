@@ -43,6 +43,8 @@ export interface StopSentimentDetectionJobCommandOutput extends StopSentimentDet
  * ```javascript
  * import { ComprehendClient, StopSentimentDetectionJobCommand } from "@aws-sdk/client-comprehend"; // ES Modules import
  * // const { ComprehendClient, StopSentimentDetectionJobCommand } = require("@aws-sdk/client-comprehend"); // CommonJS import
+ * // import type { ComprehendClientConfig } from "@aws-sdk/client-comprehend";
+ * const config = {}; // type is ComprehendClientConfig
  * const client = new ComprehendClient(config);
  * const input = { // StopSentimentDetectionJobRequest
  *   JobId: "STRING_VALUE", // required

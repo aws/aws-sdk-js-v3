@@ -34,6 +34,8 @@ export interface ListScheduleGroupsCommandOutput extends ListScheduleGroupsOutpu
  * ```javascript
  * import { SchedulerClient, ListScheduleGroupsCommand } from "@aws-sdk/client-scheduler"; // ES Modules import
  * // const { SchedulerClient, ListScheduleGroupsCommand } = require("@aws-sdk/client-scheduler"); // CommonJS import
+ * // import type { SchedulerClientConfig } from "@aws-sdk/client-scheduler";
+ * const config = {}; // type is SchedulerClientConfig
  * const client = new SchedulerClient(config);
  * const input = { // ListScheduleGroupsInput
  *   NamePrefix: "STRING_VALUE",

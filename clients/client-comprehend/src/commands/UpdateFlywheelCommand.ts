@@ -34,6 +34,8 @@ export interface UpdateFlywheelCommandOutput extends UpdateFlywheelResponse, __M
  * ```javascript
  * import { ComprehendClient, UpdateFlywheelCommand } from "@aws-sdk/client-comprehend"; // ES Modules import
  * // const { ComprehendClient, UpdateFlywheelCommand } = require("@aws-sdk/client-comprehend"); // CommonJS import
+ * // import type { ComprehendClientConfig } from "@aws-sdk/client-comprehend";
+ * const config = {}; // type is ComprehendClientConfig
  * const client = new ComprehendClient(config);
  * const input = { // UpdateFlywheelRequest
  *   FlywheelArn: "STRING_VALUE", // required

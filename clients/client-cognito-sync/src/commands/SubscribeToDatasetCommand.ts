@@ -77,6 +77,8 @@ export interface SubscribeToDatasetCommandOutput extends SubscribeToDatasetRespo
  * ```javascript
  * import { CognitoSyncClient, SubscribeToDatasetCommand } from "@aws-sdk/client-cognito-sync"; // ES Modules import
  * // const { CognitoSyncClient, SubscribeToDatasetCommand } = require("@aws-sdk/client-cognito-sync"); // CommonJS import
+ * // import type { CognitoSyncClientConfig } from "@aws-sdk/client-cognito-sync";
+ * const config = {}; // type is CognitoSyncClientConfig
  * const client = new CognitoSyncClient(config);
  * const input = { // SubscribeToDatasetRequest
  *   IdentityPoolId: "STRING_VALUE", // required

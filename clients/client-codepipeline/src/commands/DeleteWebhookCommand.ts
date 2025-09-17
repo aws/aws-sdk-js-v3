@@ -37,6 +37,8 @@ export interface DeleteWebhookCommandOutput extends DeleteWebhookOutput, __Metad
  * ```javascript
  * import { CodePipelineClient, DeleteWebhookCommand } from "@aws-sdk/client-codepipeline"; // ES Modules import
  * // const { CodePipelineClient, DeleteWebhookCommand } = require("@aws-sdk/client-codepipeline"); // CommonJS import
+ * // import type { CodePipelineClientConfig } from "@aws-sdk/client-codepipeline";
+ * const config = {}; // type is CodePipelineClientConfig
  * const client = new CodePipelineClient(config);
  * const input = { // DeleteWebhookInput
  *   name: "STRING_VALUE", // required

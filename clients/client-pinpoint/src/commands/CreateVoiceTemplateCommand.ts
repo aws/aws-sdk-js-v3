@@ -34,6 +34,8 @@ export interface CreateVoiceTemplateCommandOutput extends CreateVoiceTemplateRes
  * ```javascript
  * import { PinpointClient, CreateVoiceTemplateCommand } from "@aws-sdk/client-pinpoint"; // ES Modules import
  * // const { PinpointClient, CreateVoiceTemplateCommand } = require("@aws-sdk/client-pinpoint"); // CommonJS import
+ * // import type { PinpointClientConfig } from "@aws-sdk/client-pinpoint";
+ * const config = {}; // type is PinpointClientConfig
  * const client = new PinpointClient(config);
  * const input = { // CreateVoiceTemplateRequest
  *   TemplateName: "STRING_VALUE", // required

@@ -36,6 +36,8 @@ export interface UpdateIncidentRecordCommandOutput extends UpdateIncidentRecordO
  * ```javascript
  * import { SSMIncidentsClient, UpdateIncidentRecordCommand } from "@aws-sdk/client-ssm-incidents"; // ES Modules import
  * // const { SSMIncidentsClient, UpdateIncidentRecordCommand } = require("@aws-sdk/client-ssm-incidents"); // CommonJS import
+ * // import type { SSMIncidentsClientConfig } from "@aws-sdk/client-ssm-incidents";
+ * const config = {}; // type is SSMIncidentsClientConfig
  * const client = new SSMIncidentsClient(config);
  * const input = { // UpdateIncidentRecordInput
  *   clientToken: "STRING_VALUE",

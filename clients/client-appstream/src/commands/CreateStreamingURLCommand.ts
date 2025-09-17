@@ -34,6 +34,8 @@ export interface CreateStreamingURLCommandOutput extends CreateStreamingURLResul
  * ```javascript
  * import { AppStreamClient, CreateStreamingURLCommand } from "@aws-sdk/client-appstream"; // ES Modules import
  * // const { AppStreamClient, CreateStreamingURLCommand } = require("@aws-sdk/client-appstream"); // CommonJS import
+ * // import type { AppStreamClientConfig } from "@aws-sdk/client-appstream";
+ * const config = {}; // type is AppStreamClientConfig
  * const client = new AppStreamClient(config);
  * const input = { // CreateStreamingURLRequest
  *   StackName: "STRING_VALUE", // required

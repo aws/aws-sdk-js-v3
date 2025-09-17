@@ -39,6 +39,8 @@ export interface StartCommandExecutionCommandOutput extends StartCommandExecutio
  * ```javascript
  * import { CodeBuildClient, StartCommandExecutionCommand } from "@aws-sdk/client-codebuild"; // ES Modules import
  * // const { CodeBuildClient, StartCommandExecutionCommand } = require("@aws-sdk/client-codebuild"); // CommonJS import
+ * // import type { CodeBuildClientConfig } from "@aws-sdk/client-codebuild";
+ * const config = {}; // type is CodeBuildClientConfig
  * const client = new CodeBuildClient(config);
  * const input = { // StartCommandExecutionInput
  *   sandboxId: "STRING_VALUE", // required

@@ -38,6 +38,8 @@ export interface ContinueDeploymentCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { CodeDeployClient, ContinueDeploymentCommand } from "@aws-sdk/client-codedeploy"; // ES Modules import
  * // const { CodeDeployClient, ContinueDeploymentCommand } = require("@aws-sdk/client-codedeploy"); // CommonJS import
+ * // import type { CodeDeployClientConfig } from "@aws-sdk/client-codedeploy";
+ * const config = {}; // type is CodeDeployClientConfig
  * const client = new CodeDeployClient(config);
  * const input = { // ContinueDeploymentInput
  *   deploymentId: "STRING_VALUE",

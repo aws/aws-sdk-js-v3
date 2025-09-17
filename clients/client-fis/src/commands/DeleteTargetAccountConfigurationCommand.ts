@@ -39,6 +39,8 @@ export interface DeleteTargetAccountConfigurationCommandOutput
  * ```javascript
  * import { FisClient, DeleteTargetAccountConfigurationCommand } from "@aws-sdk/client-fis"; // ES Modules import
  * // const { FisClient, DeleteTargetAccountConfigurationCommand } = require("@aws-sdk/client-fis"); // CommonJS import
+ * // import type { FisClientConfig } from "@aws-sdk/client-fis";
+ * const config = {}; // type is FisClientConfig
  * const client = new FisClient(config);
  * const input = { // DeleteTargetAccountConfigurationRequest
  *   experimentTemplateId: "STRING_VALUE", // required

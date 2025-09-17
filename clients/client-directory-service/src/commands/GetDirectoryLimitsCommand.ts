@@ -34,6 +34,8 @@ export interface GetDirectoryLimitsCommandOutput extends GetDirectoryLimitsResul
  * ```javascript
  * import { DirectoryServiceClient, GetDirectoryLimitsCommand } from "@aws-sdk/client-directory-service"; // ES Modules import
  * // const { DirectoryServiceClient, GetDirectoryLimitsCommand } = require("@aws-sdk/client-directory-service"); // CommonJS import
+ * // import type { DirectoryServiceClientConfig } from "@aws-sdk/client-directory-service";
+ * const config = {}; // type is DirectoryServiceClientConfig
  * const client = new DirectoryServiceClient(config);
  * const input = {};
  * const command = new GetDirectoryLimitsCommand(input);

@@ -48,6 +48,8 @@ export interface CreateDBInstanceReadReplicaCommandOutput extends CreateDBInstan
  * ```javascript
  * import { RDSClient, CreateDBInstanceReadReplicaCommand } from "@aws-sdk/client-rds"; // ES Modules import
  * // const { RDSClient, CreateDBInstanceReadReplicaCommand } = require("@aws-sdk/client-rds"); // CommonJS import
+ * // import type { RDSClientConfig } from "@aws-sdk/client-rds";
+ * const config = {}; // type is RDSClientConfig
  * const client = new RDSClient(config);
  * const input = { // CreateDBInstanceReadReplicaMessage
  *   DBInstanceIdentifier: "STRING_VALUE", // required

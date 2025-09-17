@@ -36,6 +36,8 @@ export interface AssociateAccessPolicyCommandOutput extends AssociateAccessPolic
  * ```javascript
  * import { EKSClient, AssociateAccessPolicyCommand } from "@aws-sdk/client-eks"; // ES Modules import
  * // const { EKSClient, AssociateAccessPolicyCommand } = require("@aws-sdk/client-eks"); // CommonJS import
+ * // import type { EKSClientConfig } from "@aws-sdk/client-eks";
+ * const config = {}; // type is EKSClientConfig
  * const client = new EKSClient(config);
  * const input = { // AssociateAccessPolicyRequest
  *   clusterName: "STRING_VALUE", // required

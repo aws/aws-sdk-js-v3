@@ -40,6 +40,8 @@ export interface ListPodIdentityAssociationsCommandOutput
  * ```javascript
  * import { EKSClient, ListPodIdentityAssociationsCommand } from "@aws-sdk/client-eks"; // ES Modules import
  * // const { EKSClient, ListPodIdentityAssociationsCommand } = require("@aws-sdk/client-eks"); // CommonJS import
+ * // import type { EKSClientConfig } from "@aws-sdk/client-eks";
+ * const config = {}; // type is EKSClientConfig
  * const client = new EKSClient(config);
  * const input = { // ListPodIdentityAssociationsRequest
  *   clusterName: "STRING_VALUE", // required

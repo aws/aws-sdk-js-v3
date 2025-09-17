@@ -38,6 +38,8 @@ export interface UpdateLoadBalancerAttributeCommandOutput extends UpdateLoadBala
  * ```javascript
  * import { LightsailClient, UpdateLoadBalancerAttributeCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, UpdateLoadBalancerAttributeCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
+ * // import type { LightsailClientConfig } from "@aws-sdk/client-lightsail";
+ * const config = {}; // type is LightsailClientConfig
  * const client = new LightsailClient(config);
  * const input = { // UpdateLoadBalancerAttributeRequest
  *   loadBalancerName: "STRING_VALUE", // required

@@ -57,6 +57,8 @@ export interface VerifyMacCommandOutput extends VerifyMacResponse, __MetadataBea
  * ```javascript
  * import { KMSClient, VerifyMacCommand } from "@aws-sdk/client-kms"; // ES Modules import
  * // const { KMSClient, VerifyMacCommand } = require("@aws-sdk/client-kms"); // CommonJS import
+ * // import type { KMSClientConfig } from "@aws-sdk/client-kms";
+ * const config = {}; // type is KMSClientConfig
  * const client = new KMSClient(config);
  * const input = { // VerifyMacRequest
  *   Message: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")   // required

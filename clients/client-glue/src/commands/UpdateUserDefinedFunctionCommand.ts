@@ -34,6 +34,8 @@ export interface UpdateUserDefinedFunctionCommandOutput extends UpdateUserDefine
  * ```javascript
  * import { GlueClient, UpdateUserDefinedFunctionCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, UpdateUserDefinedFunctionCommand } = require("@aws-sdk/client-glue"); // CommonJS import
+ * // import type { GlueClientConfig } from "@aws-sdk/client-glue";
+ * const config = {}; // type is GlueClientConfig
  * const client = new GlueClient(config);
  * const input = { // UpdateUserDefinedFunctionRequest
  *   CatalogId: "STRING_VALUE",

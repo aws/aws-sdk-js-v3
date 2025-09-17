@@ -35,6 +35,8 @@ export interface DeactivateEvaluationFormCommandOutput extends DeactivateEvaluat
  * ```javascript
  * import { ConnectClient, DeactivateEvaluationFormCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, DeactivateEvaluationFormCommand } = require("@aws-sdk/client-connect"); // CommonJS import
+ * // import type { ConnectClientConfig } from "@aws-sdk/client-connect";
+ * const config = {}; // type is ConnectClientConfig
  * const client = new ConnectClient(config);
  * const input = { // DeactivateEvaluationFormRequest
  *   InstanceId: "STRING_VALUE", // required

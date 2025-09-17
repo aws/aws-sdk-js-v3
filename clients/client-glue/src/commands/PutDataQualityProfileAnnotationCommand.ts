@@ -39,6 +39,8 @@ export interface PutDataQualityProfileAnnotationCommandOutput
  * ```javascript
  * import { GlueClient, PutDataQualityProfileAnnotationCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, PutDataQualityProfileAnnotationCommand } = require("@aws-sdk/client-glue"); // CommonJS import
+ * // import type { GlueClientConfig } from "@aws-sdk/client-glue";
+ * const config = {}; // type is GlueClientConfig
  * const client = new GlueClient(config);
  * const input = { // PutDataQualityProfileAnnotationRequest
  *   ProfileId: "STRING_VALUE", // required

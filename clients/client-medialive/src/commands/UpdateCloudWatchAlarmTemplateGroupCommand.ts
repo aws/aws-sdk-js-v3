@@ -42,6 +42,8 @@ export interface UpdateCloudWatchAlarmTemplateGroupCommandOutput
  * ```javascript
  * import { MediaLiveClient, UpdateCloudWatchAlarmTemplateGroupCommand } from "@aws-sdk/client-medialive"; // ES Modules import
  * // const { MediaLiveClient, UpdateCloudWatchAlarmTemplateGroupCommand } = require("@aws-sdk/client-medialive"); // CommonJS import
+ * // import type { MediaLiveClientConfig } from "@aws-sdk/client-medialive";
+ * const config = {}; // type is MediaLiveClientConfig
  * const client = new MediaLiveClient(config);
  * const input = { // UpdateCloudWatchAlarmTemplateGroupRequest
  *   Description: "STRING_VALUE",

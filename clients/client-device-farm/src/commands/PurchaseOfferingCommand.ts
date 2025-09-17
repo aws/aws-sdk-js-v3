@@ -37,6 +37,8 @@ export interface PurchaseOfferingCommandOutput extends PurchaseOfferingResult, _
  * ```javascript
  * import { DeviceFarmClient, PurchaseOfferingCommand } from "@aws-sdk/client-device-farm"; // ES Modules import
  * // const { DeviceFarmClient, PurchaseOfferingCommand } = require("@aws-sdk/client-device-farm"); // CommonJS import
+ * // import type { DeviceFarmClientConfig } from "@aws-sdk/client-device-farm";
+ * const config = {}; // type is DeviceFarmClientConfig
  * const client = new DeviceFarmClient(config);
  * const input = { // PurchaseOfferingRequest
  *   offeringId: "STRING_VALUE", // required

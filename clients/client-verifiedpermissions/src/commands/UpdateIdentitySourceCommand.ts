@@ -42,6 +42,8 @@ export interface UpdateIdentitySourceCommandOutput extends UpdateIdentitySourceO
  * ```javascript
  * import { VerifiedPermissionsClient, UpdateIdentitySourceCommand } from "@aws-sdk/client-verifiedpermissions"; // ES Modules import
  * // const { VerifiedPermissionsClient, UpdateIdentitySourceCommand } = require("@aws-sdk/client-verifiedpermissions"); // CommonJS import
+ * // import type { VerifiedPermissionsClientConfig } from "@aws-sdk/client-verifiedpermissions";
+ * const config = {}; // type is VerifiedPermissionsClientConfig
  * const client = new VerifiedPermissionsClient(config);
  * const input = { // UpdateIdentitySourceInput
  *   policyStoreId: "STRING_VALUE", // required

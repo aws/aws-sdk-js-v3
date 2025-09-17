@@ -34,6 +34,8 @@ export interface GetGlossaryCommandOutput extends GetGlossaryOutput, __MetadataB
  * ```javascript
  * import { DataZoneClient, GetGlossaryCommand } from "@aws-sdk/client-datazone"; // ES Modules import
  * // const { DataZoneClient, GetGlossaryCommand } = require("@aws-sdk/client-datazone"); // CommonJS import
+ * // import type { DataZoneClientConfig } from "@aws-sdk/client-datazone";
+ * const config = {}; // type is DataZoneClientConfig
  * const client = new DataZoneClient(config);
  * const input = { // GetGlossaryInput
  *   domainIdentifier: "STRING_VALUE", // required

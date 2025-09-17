@@ -48,6 +48,8 @@ export interface UpdateCanaryCommandOutput extends UpdateCanaryResponse, __Metad
  * ```javascript
  * import { SyntheticsClient, UpdateCanaryCommand } from "@aws-sdk/client-synthetics"; // ES Modules import
  * // const { SyntheticsClient, UpdateCanaryCommand } = require("@aws-sdk/client-synthetics"); // CommonJS import
+ * // import type { SyntheticsClientConfig } from "@aws-sdk/client-synthetics";
+ * const config = {}; // type is SyntheticsClientConfig
  * const client = new SyntheticsClient(config);
  * const input = { // UpdateCanaryRequest
  *   Name: "STRING_VALUE", // required

@@ -34,6 +34,8 @@ export interface DeleteMatchingWorkflowCommandOutput extends DeleteMatchingWorkf
  * ```javascript
  * import { EntityResolutionClient, DeleteMatchingWorkflowCommand } from "@aws-sdk/client-entityresolution"; // ES Modules import
  * // const { EntityResolutionClient, DeleteMatchingWorkflowCommand } = require("@aws-sdk/client-entityresolution"); // CommonJS import
+ * // import type { EntityResolutionClientConfig } from "@aws-sdk/client-entityresolution";
+ * const config = {}; // type is EntityResolutionClientConfig
  * const client = new EntityResolutionClient(config);
  * const input = { // DeleteMatchingWorkflowInput
  *   workflowName: "STRING_VALUE", // required

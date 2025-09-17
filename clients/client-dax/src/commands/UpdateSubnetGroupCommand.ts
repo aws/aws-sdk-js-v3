@@ -34,6 +34,8 @@ export interface UpdateSubnetGroupCommandOutput extends UpdateSubnetGroupRespons
  * ```javascript
  * import { DAXClient, UpdateSubnetGroupCommand } from "@aws-sdk/client-dax"; // ES Modules import
  * // const { DAXClient, UpdateSubnetGroupCommand } = require("@aws-sdk/client-dax"); // CommonJS import
+ * // import type { DAXClientConfig } from "@aws-sdk/client-dax";
+ * const config = {}; // type is DAXClientConfig
  * const client = new DAXClient(config);
  * const input = { // UpdateSubnetGroupRequest
  *   SubnetGroupName: "STRING_VALUE", // required

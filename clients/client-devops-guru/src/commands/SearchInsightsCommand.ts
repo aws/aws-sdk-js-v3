@@ -40,6 +40,8 @@ export interface SearchInsightsCommandOutput extends SearchInsightsResponse, __M
  * ```javascript
  * import { DevOpsGuruClient, SearchInsightsCommand } from "@aws-sdk/client-devops-guru"; // ES Modules import
  * // const { DevOpsGuruClient, SearchInsightsCommand } = require("@aws-sdk/client-devops-guru"); // CommonJS import
+ * // import type { DevOpsGuruClientConfig } from "@aws-sdk/client-devops-guru";
+ * const config = {}; // type is DevOpsGuruClientConfig
  * const client = new DevOpsGuruClient(config);
  * const input = { // SearchInsightsRequest
  *   StartTimeRange: { // StartTimeRange

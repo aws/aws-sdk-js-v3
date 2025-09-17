@@ -39,6 +39,8 @@ export interface CreateQuickResponseCommandOutput extends CreateQuickResponseRes
  * ```javascript
  * import { WisdomClient, CreateQuickResponseCommand } from "@aws-sdk/client-wisdom"; // ES Modules import
  * // const { WisdomClient, CreateQuickResponseCommand } = require("@aws-sdk/client-wisdom"); // CommonJS import
+ * // import type { WisdomClientConfig } from "@aws-sdk/client-wisdom";
+ * const config = {}; // type is WisdomClientConfig
  * const client = new WisdomClient(config);
  * const input = { // CreateQuickResponseRequest
  *   knowledgeBaseId: "STRING_VALUE", // required

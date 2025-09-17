@@ -36,6 +36,8 @@ export interface ListContainerInstancesCommandOutput extends ListContainerInstan
  * ```javascript
  * import { ECSClient, ListContainerInstancesCommand } from "@aws-sdk/client-ecs"; // ES Modules import
  * // const { ECSClient, ListContainerInstancesCommand } = require("@aws-sdk/client-ecs"); // CommonJS import
+ * // import type { ECSClientConfig } from "@aws-sdk/client-ecs";
+ * const config = {}; // type is ECSClientConfig
  * const client = new ECSClient(config);
  * const input = { // ListContainerInstancesRequest
  *   cluster: "STRING_VALUE",

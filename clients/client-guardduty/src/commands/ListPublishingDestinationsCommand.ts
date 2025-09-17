@@ -35,6 +35,8 @@ export interface ListPublishingDestinationsCommandOutput extends ListPublishingD
  * ```javascript
  * import { GuardDutyClient, ListPublishingDestinationsCommand } from "@aws-sdk/client-guardduty"; // ES Modules import
  * // const { GuardDutyClient, ListPublishingDestinationsCommand } = require("@aws-sdk/client-guardduty"); // CommonJS import
+ * // import type { GuardDutyClientConfig } from "@aws-sdk/client-guardduty";
+ * const config = {}; // type is GuardDutyClientConfig
  * const client = new GuardDutyClient(config);
  * const input = { // ListPublishingDestinationsRequest
  *   DetectorId: "STRING_VALUE", // required

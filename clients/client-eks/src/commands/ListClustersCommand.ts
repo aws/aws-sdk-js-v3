@@ -34,6 +34,8 @@ export interface ListClustersCommandOutput extends ListClustersResponse, __Metad
  * ```javascript
  * import { EKSClient, ListClustersCommand } from "@aws-sdk/client-eks"; // ES Modules import
  * // const { EKSClient, ListClustersCommand } = require("@aws-sdk/client-eks"); // CommonJS import
+ * // import type { EKSClientConfig } from "@aws-sdk/client-eks";
+ * const config = {}; // type is EKSClientConfig
  * const client = new EKSClient(config);
  * const input = { // ListClustersRequest
  *   maxResults: Number("int"),

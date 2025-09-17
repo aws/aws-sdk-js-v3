@@ -44,6 +44,8 @@ export interface DeleteIdentityProviderConfigurationCommandOutput
  * ```javascript
  * import { WorkMailClient, DeleteIdentityProviderConfigurationCommand } from "@aws-sdk/client-workmail"; // ES Modules import
  * // const { WorkMailClient, DeleteIdentityProviderConfigurationCommand } = require("@aws-sdk/client-workmail"); // CommonJS import
+ * // import type { WorkMailClientConfig } from "@aws-sdk/client-workmail";
+ * const config = {}; // type is WorkMailClientConfig
  * const client = new WorkMailClient(config);
  * const input = { // DeleteIdentityProviderConfigurationRequest
  *   OrganizationId: "STRING_VALUE", // required

@@ -45,6 +45,8 @@ export interface GetTrustStoreRevocationContentCommandOutput
  * ```javascript
  * import { ElasticLoadBalancingV2Client, GetTrustStoreRevocationContentCommand } from "@aws-sdk/client-elastic-load-balancing-v2"; // ES Modules import
  * // const { ElasticLoadBalancingV2Client, GetTrustStoreRevocationContentCommand } = require("@aws-sdk/client-elastic-load-balancing-v2"); // CommonJS import
+ * // import type { ElasticLoadBalancingV2ClientConfig } from "@aws-sdk/client-elastic-load-balancing-v2";
+ * const config = {}; // type is ElasticLoadBalancingV2ClientConfig
  * const client = new ElasticLoadBalancingV2Client(config);
  * const input = { // GetTrustStoreRevocationContentInput
  *   TrustStoreArn: "STRING_VALUE", // required

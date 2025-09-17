@@ -39,6 +39,8 @@ export interface CreateLocationHdfsCommandOutput extends CreateLocationHdfsRespo
  * ```javascript
  * import { DataSyncClient, CreateLocationHdfsCommand } from "@aws-sdk/client-datasync"; // ES Modules import
  * // const { DataSyncClient, CreateLocationHdfsCommand } = require("@aws-sdk/client-datasync"); // CommonJS import
+ * // import type { DataSyncClientConfig } from "@aws-sdk/client-datasync";
+ * const config = {}; // type is DataSyncClientConfig
  * const client = new DataSyncClient(config);
  * const input = { // CreateLocationHdfsRequest
  *   Subdirectory: "STRING_VALUE",

@@ -42,6 +42,8 @@ export interface ModifyWorkspacePropertiesCommandOutput extends ModifyWorkspaceP
  * ```javascript
  * import { WorkSpacesClient, ModifyWorkspacePropertiesCommand } from "@aws-sdk/client-workspaces"; // ES Modules import
  * // const { WorkSpacesClient, ModifyWorkspacePropertiesCommand } = require("@aws-sdk/client-workspaces"); // CommonJS import
+ * // import type { WorkSpacesClientConfig } from "@aws-sdk/client-workspaces";
+ * const config = {}; // type is WorkSpacesClientConfig
  * const client = new WorkSpacesClient(config);
  * const input = { // ModifyWorkspacePropertiesRequest
  *   WorkspaceId: "STRING_VALUE", // required

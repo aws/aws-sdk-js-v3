@@ -36,6 +36,8 @@ export interface CreateSessionCommandOutput extends CreateSessionResponse, __Met
  * ```javascript
  * import { WisdomClient, CreateSessionCommand } from "@aws-sdk/client-wisdom"; // ES Modules import
  * // const { WisdomClient, CreateSessionCommand } = require("@aws-sdk/client-wisdom"); // CommonJS import
+ * // import type { WisdomClientConfig } from "@aws-sdk/client-wisdom";
+ * const config = {}; // type is WisdomClientConfig
  * const client = new WisdomClient(config);
  * const input = { // CreateSessionRequest
  *   clientToken: "STRING_VALUE",

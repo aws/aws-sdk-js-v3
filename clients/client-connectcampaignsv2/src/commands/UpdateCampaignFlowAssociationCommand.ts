@@ -41,6 +41,8 @@ export interface UpdateCampaignFlowAssociationCommandOutput extends __MetadataBe
  * ```javascript
  * import { ConnectCampaignsV2Client, UpdateCampaignFlowAssociationCommand } from "@aws-sdk/client-connectcampaignsv2"; // ES Modules import
  * // const { ConnectCampaignsV2Client, UpdateCampaignFlowAssociationCommand } = require("@aws-sdk/client-connectcampaignsv2"); // CommonJS import
+ * // import type { ConnectCampaignsV2ClientConfig } from "@aws-sdk/client-connectcampaignsv2";
+ * const config = {}; // type is ConnectCampaignsV2ClientConfig
  * const client = new ConnectCampaignsV2Client(config);
  * const input = { // UpdateCampaignFlowAssociationRequest
  *   id: "STRING_VALUE", // required

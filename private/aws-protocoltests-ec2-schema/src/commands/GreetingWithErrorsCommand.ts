@@ -37,6 +37,8 @@ export interface GreetingWithErrorsCommandOutput extends GreetingWithErrorsOutpu
  * ```javascript
  * import { EC2ProtocolClient, GreetingWithErrorsCommand } from "@aws-sdk/aws-protocoltests-ec2-schema"; // ES Modules import
  * // const { EC2ProtocolClient, GreetingWithErrorsCommand } = require("@aws-sdk/aws-protocoltests-ec2-schema"); // CommonJS import
+ * // import type { EC2ProtocolClientConfig } from "@aws-sdk/aws-protocoltests-ec2-schema";
+ * const config = {}; // type is EC2ProtocolClientConfig
  * const client = new EC2ProtocolClient(config);
  * const input = {};
  * const command = new GreetingWithErrorsCommand(input);

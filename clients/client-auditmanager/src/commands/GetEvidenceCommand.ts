@@ -34,6 +34,8 @@ export interface GetEvidenceCommandOutput extends GetEvidenceResponse, __Metadat
  * ```javascript
  * import { AuditManagerClient, GetEvidenceCommand } from "@aws-sdk/client-auditmanager"; // ES Modules import
  * // const { AuditManagerClient, GetEvidenceCommand } = require("@aws-sdk/client-auditmanager"); // CommonJS import
+ * // import type { AuditManagerClientConfig } from "@aws-sdk/client-auditmanager";
+ * const config = {}; // type is AuditManagerClientConfig
  * const client = new AuditManagerClient(config);
  * const input = { // GetEvidenceRequest
  *   assessmentId: "STRING_VALUE", // required

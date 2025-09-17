@@ -37,6 +37,8 @@ export interface CreateServiceCommandOutput extends CreateServiceResponse, __Met
  * ```javascript
  * import { VPCLatticeClient, CreateServiceCommand } from "@aws-sdk/client-vpc-lattice"; // ES Modules import
  * // const { VPCLatticeClient, CreateServiceCommand } = require("@aws-sdk/client-vpc-lattice"); // CommonJS import
+ * // import type { VPCLatticeClientConfig } from "@aws-sdk/client-vpc-lattice";
+ * const config = {}; // type is VPCLatticeClientConfig
  * const client = new VPCLatticeClient(config);
  * const input = { // CreateServiceRequest
  *   clientToken: "STRING_VALUE",

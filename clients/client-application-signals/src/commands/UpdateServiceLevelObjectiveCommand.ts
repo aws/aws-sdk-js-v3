@@ -44,6 +44,8 @@ export interface UpdateServiceLevelObjectiveCommandOutput extends UpdateServiceL
  * ```javascript
  * import { ApplicationSignalsClient, UpdateServiceLevelObjectiveCommand } from "@aws-sdk/client-application-signals"; // ES Modules import
  * // const { ApplicationSignalsClient, UpdateServiceLevelObjectiveCommand } = require("@aws-sdk/client-application-signals"); // CommonJS import
+ * // import type { ApplicationSignalsClientConfig } from "@aws-sdk/client-application-signals";
+ * const config = {}; // type is ApplicationSignalsClientConfig
  * const client = new ApplicationSignalsClient(config);
  * const input = { // UpdateServiceLevelObjectiveInput
  *   Id: "STRING_VALUE", // required

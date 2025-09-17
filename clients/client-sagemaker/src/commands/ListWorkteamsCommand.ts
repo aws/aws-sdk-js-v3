@@ -34,6 +34,8 @@ export interface ListWorkteamsCommandOutput extends ListWorkteamsResponse, __Met
  * ```javascript
  * import { SageMakerClient, ListWorkteamsCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, ListWorkteamsCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * // import type { SageMakerClientConfig } from "@aws-sdk/client-sagemaker";
+ * const config = {}; // type is SageMakerClientConfig
  * const client = new SageMakerClient(config);
  * const input = { // ListWorkteamsRequest
  *   SortBy: "Name" || "CreateDate",

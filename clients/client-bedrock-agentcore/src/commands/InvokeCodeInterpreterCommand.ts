@@ -39,6 +39,8 @@ export interface InvokeCodeInterpreterCommandOutput extends InvokeCodeInterprete
  * ```javascript
  * import { BedrockAgentCoreClient, InvokeCodeInterpreterCommand } from "@aws-sdk/client-bedrock-agentcore"; // ES Modules import
  * // const { BedrockAgentCoreClient, InvokeCodeInterpreterCommand } = require("@aws-sdk/client-bedrock-agentcore"); // CommonJS import
+ * // import type { BedrockAgentCoreClientConfig } from "@aws-sdk/client-bedrock-agentcore";
+ * const config = {}; // type is BedrockAgentCoreClientConfig
  * const client = new BedrockAgentCoreClient(config);
  * const input = { // InvokeCodeInterpreterRequest
  *   codeInterpreterIdentifier: "STRING_VALUE", // required

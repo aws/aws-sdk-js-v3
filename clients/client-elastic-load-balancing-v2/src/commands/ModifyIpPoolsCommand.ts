@@ -38,6 +38,8 @@ export interface ModifyIpPoolsCommandOutput extends ModifyIpPoolsOutput, __Metad
  * ```javascript
  * import { ElasticLoadBalancingV2Client, ModifyIpPoolsCommand } from "@aws-sdk/client-elastic-load-balancing-v2"; // ES Modules import
  * // const { ElasticLoadBalancingV2Client, ModifyIpPoolsCommand } = require("@aws-sdk/client-elastic-load-balancing-v2"); // CommonJS import
+ * // import type { ElasticLoadBalancingV2ClientConfig } from "@aws-sdk/client-elastic-load-balancing-v2";
+ * const config = {}; // type is ElasticLoadBalancingV2ClientConfig
  * const client = new ElasticLoadBalancingV2Client(config);
  * const input = { // ModifyIpPoolsInput
  *   LoadBalancerArn: "STRING_VALUE", // required

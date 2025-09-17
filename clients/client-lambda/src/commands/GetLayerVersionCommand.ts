@@ -34,6 +34,8 @@ export interface GetLayerVersionCommandOutput extends GetLayerVersionResponse, _
  * ```javascript
  * import { LambdaClient, GetLayerVersionCommand } from "@aws-sdk/client-lambda"; // ES Modules import
  * // const { LambdaClient, GetLayerVersionCommand } = require("@aws-sdk/client-lambda"); // CommonJS import
+ * // import type { LambdaClientConfig } from "@aws-sdk/client-lambda";
+ * const config = {}; // type is LambdaClientConfig
  * const client = new LambdaClient(config);
  * const input = { // GetLayerVersionRequest
  *   LayerName: "STRING_VALUE", // required

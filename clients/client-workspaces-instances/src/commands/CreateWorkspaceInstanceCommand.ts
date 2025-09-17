@@ -42,6 +42,8 @@ export interface CreateWorkspaceInstanceCommandOutput extends CreateWorkspaceIns
  * ```javascript
  * import { WorkspacesInstancesClient, CreateWorkspaceInstanceCommand } from "@aws-sdk/client-workspaces-instances"; // ES Modules import
  * // const { WorkspacesInstancesClient, CreateWorkspaceInstanceCommand } = require("@aws-sdk/client-workspaces-instances"); // CommonJS import
+ * // import type { WorkspacesInstancesClientConfig } from "@aws-sdk/client-workspaces-instances";
+ * const config = {}; // type is WorkspacesInstancesClientConfig
  * const client = new WorkspacesInstancesClient(config);
  * const input = { // CreateWorkspaceInstanceRequest
  *   ClientToken: "STRING_VALUE",

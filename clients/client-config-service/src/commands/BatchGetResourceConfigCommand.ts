@@ -52,6 +52,8 @@ export interface BatchGetResourceConfigCommandOutput extends BatchGetResourceCon
  * ```javascript
  * import { ConfigServiceClient, BatchGetResourceConfigCommand } from "@aws-sdk/client-config-service"; // ES Modules import
  * // const { ConfigServiceClient, BatchGetResourceConfigCommand } = require("@aws-sdk/client-config-service"); // CommonJS import
+ * // import type { ConfigServiceClientConfig } from "@aws-sdk/client-config-service";
+ * const config = {}; // type is ConfigServiceClientConfig
  * const client = new ConfigServiceClient(config);
  * const input = { // BatchGetResourceConfigRequest
  *   resourceKeys: [ // ResourceKeys // required

@@ -44,6 +44,8 @@ export interface DescribeConfigurationAggregatorSourcesStatusCommandOutput
  * ```javascript
  * import { ConfigServiceClient, DescribeConfigurationAggregatorSourcesStatusCommand } from "@aws-sdk/client-config-service"; // ES Modules import
  * // const { ConfigServiceClient, DescribeConfigurationAggregatorSourcesStatusCommand } = require("@aws-sdk/client-config-service"); // CommonJS import
+ * // import type { ConfigServiceClientConfig } from "@aws-sdk/client-config-service";
+ * const config = {}; // type is ConfigServiceClientConfig
  * const client = new ConfigServiceClient(config);
  * const input = { // DescribeConfigurationAggregatorSourcesStatusRequest
  *   ConfigurationAggregatorName: "STRING_VALUE", // required

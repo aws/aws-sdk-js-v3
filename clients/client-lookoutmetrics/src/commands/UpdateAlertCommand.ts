@@ -34,6 +34,8 @@ export interface UpdateAlertCommandOutput extends UpdateAlertResponse, __Metadat
  * ```javascript
  * import { LookoutMetricsClient, UpdateAlertCommand } from "@aws-sdk/client-lookoutmetrics"; // ES Modules import
  * // const { LookoutMetricsClient, UpdateAlertCommand } = require("@aws-sdk/client-lookoutmetrics"); // CommonJS import
+ * // import type { LookoutMetricsClientConfig } from "@aws-sdk/client-lookoutmetrics";
+ * const config = {}; // type is LookoutMetricsClientConfig
  * const client = new LookoutMetricsClient(config);
  * const input = { // UpdateAlertRequest
  *   AlertArn: "STRING_VALUE", // required

@@ -42,6 +42,8 @@ export interface DescribeCanariesLastRunCommandOutput extends DescribeCanariesLa
  * ```javascript
  * import { SyntheticsClient, DescribeCanariesLastRunCommand } from "@aws-sdk/client-synthetics"; // ES Modules import
  * // const { SyntheticsClient, DescribeCanariesLastRunCommand } = require("@aws-sdk/client-synthetics"); // CommonJS import
+ * // import type { SyntheticsClientConfig } from "@aws-sdk/client-synthetics";
+ * const config = {}; // type is SyntheticsClientConfig
  * const client = new SyntheticsClient(config);
  * const input = { // DescribeCanariesLastRunRequest
  *   NextToken: "STRING_VALUE",

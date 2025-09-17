@@ -35,6 +35,8 @@ export interface CreateVPCEConfigurationCommandOutput extends CreateVPCEConfigur
  * ```javascript
  * import { DeviceFarmClient, CreateVPCEConfigurationCommand } from "@aws-sdk/client-device-farm"; // ES Modules import
  * // const { DeviceFarmClient, CreateVPCEConfigurationCommand } = require("@aws-sdk/client-device-farm"); // CommonJS import
+ * // import type { DeviceFarmClientConfig } from "@aws-sdk/client-device-farm";
+ * const config = {}; // type is DeviceFarmClientConfig
  * const client = new DeviceFarmClient(config);
  * const input = { // CreateVPCEConfigurationRequest
  *   vpceConfigurationName: "STRING_VALUE", // required

@@ -39,6 +39,8 @@ export interface DescribeUserCommandOutput extends DescribeUserResponse, __Metad
  * ```javascript
  * import { IdentitystoreClient, DescribeUserCommand } from "@aws-sdk/client-identitystore"; // ES Modules import
  * // const { IdentitystoreClient, DescribeUserCommand } = require("@aws-sdk/client-identitystore"); // CommonJS import
+ * // import type { IdentitystoreClientConfig } from "@aws-sdk/client-identitystore";
+ * const config = {}; // type is IdentitystoreClientConfig
  * const client = new IdentitystoreClient(config);
  * const input = { // DescribeUserRequest
  *   IdentityStoreId: "STRING_VALUE", // required

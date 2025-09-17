@@ -38,6 +38,8 @@ export interface CreateTemplateCommandOutput extends CreateTemplateResponse, __M
  * ```javascript
  * import { MigrationHubOrchestratorClient, CreateTemplateCommand } from "@aws-sdk/client-migrationhuborchestrator"; // ES Modules import
  * // const { MigrationHubOrchestratorClient, CreateTemplateCommand } = require("@aws-sdk/client-migrationhuborchestrator"); // CommonJS import
+ * // import type { MigrationHubOrchestratorClientConfig } from "@aws-sdk/client-migrationhuborchestrator";
+ * const config = {}; // type is MigrationHubOrchestratorClientConfig
  * const client = new MigrationHubOrchestratorClient(config);
  * const input = { // CreateTemplateRequest
  *   templateName: "STRING_VALUE", // required

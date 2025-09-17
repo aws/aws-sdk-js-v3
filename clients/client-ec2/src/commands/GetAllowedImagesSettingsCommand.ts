@@ -43,6 +43,8 @@ export interface GetAllowedImagesSettingsCommandOutput extends GetAllowedImagesS
  * ```javascript
  * import { EC2Client, GetAllowedImagesSettingsCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, GetAllowedImagesSettingsCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
+ * // import type { EC2ClientConfig } from "@aws-sdk/client-ec2";
+ * const config = {}; // type is EC2ClientConfig
  * const client = new EC2Client(config);
  * const input = { // GetAllowedImagesSettingsRequest
  *   DryRun: true || false,

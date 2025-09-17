@@ -34,6 +34,8 @@ export interface DescribeInputCommandOutput extends DescribeInputResponse, __Met
  * ```javascript
  * import { IoTEventsClient, DescribeInputCommand } from "@aws-sdk/client-iot-events"; // ES Modules import
  * // const { IoTEventsClient, DescribeInputCommand } = require("@aws-sdk/client-iot-events"); // CommonJS import
+ * // import type { IoTEventsClientConfig } from "@aws-sdk/client-iot-events";
+ * const config = {}; // type is IoTEventsClientConfig
  * const client = new IoTEventsClient(config);
  * const input = { // DescribeInputRequest
  *   inputName: "STRING_VALUE", // required

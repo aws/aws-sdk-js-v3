@@ -34,6 +34,8 @@ export interface DescribePatchGroupStateCommandOutput extends DescribePatchGroup
  * ```javascript
  * import { SSMClient, DescribePatchGroupStateCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, DescribePatchGroupStateCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
+ * // import type { SSMClientConfig } from "@aws-sdk/client-ssm";
+ * const config = {}; // type is SSMClientConfig
  * const client = new SSMClient(config);
  * const input = { // DescribePatchGroupStateRequest
  *   PatchGroup: "STRING_VALUE", // required

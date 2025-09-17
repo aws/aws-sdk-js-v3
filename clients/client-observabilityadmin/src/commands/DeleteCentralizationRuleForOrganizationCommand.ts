@@ -42,6 +42,8 @@ export interface DeleteCentralizationRuleForOrganizationCommandOutput extends __
  * ```javascript
  * import { ObservabilityAdminClient, DeleteCentralizationRuleForOrganizationCommand } from "@aws-sdk/client-observabilityadmin"; // ES Modules import
  * // const { ObservabilityAdminClient, DeleteCentralizationRuleForOrganizationCommand } = require("@aws-sdk/client-observabilityadmin"); // CommonJS import
+ * // import type { ObservabilityAdminClientConfig } from "@aws-sdk/client-observabilityadmin";
+ * const config = {}; // type is ObservabilityAdminClientConfig
  * const client = new ObservabilityAdminClient(config);
  * const input = { // DeleteCentralizationRuleForOrganizationInput
  *   RuleIdentifier: "STRING_VALUE", // required

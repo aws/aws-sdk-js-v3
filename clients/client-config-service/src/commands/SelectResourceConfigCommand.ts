@@ -38,6 +38,8 @@ export interface SelectResourceConfigCommandOutput extends SelectResourceConfigR
  * ```javascript
  * import { ConfigServiceClient, SelectResourceConfigCommand } from "@aws-sdk/client-config-service"; // ES Modules import
  * // const { ConfigServiceClient, SelectResourceConfigCommand } = require("@aws-sdk/client-config-service"); // CommonJS import
+ * // import type { ConfigServiceClientConfig } from "@aws-sdk/client-config-service";
+ * const config = {}; // type is ConfigServiceClientConfig
  * const client = new ConfigServiceClient(config);
  * const input = { // SelectResourceConfigRequest
  *   Expression: "STRING_VALUE", // required

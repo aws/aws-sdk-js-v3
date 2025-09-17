@@ -38,6 +38,8 @@ export interface RejectDomainNameAccessAssociationCommandOutput extends __Metada
  * ```javascript
  * import { APIGatewayClient, RejectDomainNameAccessAssociationCommand } from "@aws-sdk/client-api-gateway"; // ES Modules import
  * // const { APIGatewayClient, RejectDomainNameAccessAssociationCommand } = require("@aws-sdk/client-api-gateway"); // CommonJS import
+ * // import type { APIGatewayClientConfig } from "@aws-sdk/client-api-gateway";
+ * const config = {}; // type is APIGatewayClientConfig
  * const client = new APIGatewayClient(config);
  * const input = { // RejectDomainNameAccessAssociationRequest
  *   domainNameAccessAssociationArn: "STRING_VALUE", // required

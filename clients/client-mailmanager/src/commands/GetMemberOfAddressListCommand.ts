@@ -39,6 +39,8 @@ export interface GetMemberOfAddressListCommandOutput extends GetMemberOfAddressL
  * ```javascript
  * import { MailManagerClient, GetMemberOfAddressListCommand } from "@aws-sdk/client-mailmanager"; // ES Modules import
  * // const { MailManagerClient, GetMemberOfAddressListCommand } = require("@aws-sdk/client-mailmanager"); // CommonJS import
+ * // import type { MailManagerClientConfig } from "@aws-sdk/client-mailmanager";
+ * const config = {}; // type is MailManagerClientConfig
  * const client = new MailManagerClient(config);
  * const input = { // GetMemberOfAddressListRequest
  *   AddressListId: "STRING_VALUE", // required

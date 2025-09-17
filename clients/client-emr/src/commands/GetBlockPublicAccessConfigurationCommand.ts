@@ -41,6 +41,8 @@ export interface GetBlockPublicAccessConfigurationCommandOutput
  * ```javascript
  * import { EMRClient, GetBlockPublicAccessConfigurationCommand } from "@aws-sdk/client-emr"; // ES Modules import
  * // const { EMRClient, GetBlockPublicAccessConfigurationCommand } = require("@aws-sdk/client-emr"); // CommonJS import
+ * // import type { EMRClientConfig } from "@aws-sdk/client-emr";
+ * const config = {}; // type is EMRClientConfig
  * const client = new EMRClient(config);
  * const input = {};
  * const command = new GetBlockPublicAccessConfigurationCommand(input);

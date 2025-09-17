@@ -35,6 +35,8 @@ export interface DescribeResourcePolicyCommandOutput extends DescribeResourcePol
  * ```javascript
  * import { LexModelsV2Client, DescribeResourcePolicyCommand } from "@aws-sdk/client-lex-models-v2"; // ES Modules import
  * // const { LexModelsV2Client, DescribeResourcePolicyCommand } = require("@aws-sdk/client-lex-models-v2"); // CommonJS import
+ * // import type { LexModelsV2ClientConfig } from "@aws-sdk/client-lex-models-v2";
+ * const config = {}; // type is LexModelsV2ClientConfig
  * const client = new LexModelsV2Client(config);
  * const input = { // DescribeResourcePolicyRequest
  *   resourceArn: "STRING_VALUE", // required

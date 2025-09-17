@@ -34,6 +34,8 @@ export interface DeleteTestCaseCommandOutput extends DeleteTestCaseResponse, __M
  * ```javascript
  * import { AppTestClient, DeleteTestCaseCommand } from "@aws-sdk/client-apptest"; // ES Modules import
  * // const { AppTestClient, DeleteTestCaseCommand } = require("@aws-sdk/client-apptest"); // CommonJS import
+ * // import type { AppTestClientConfig } from "@aws-sdk/client-apptest";
+ * const config = {}; // type is AppTestClientConfig
  * const client = new AppTestClient(config);
  * const input = { // DeleteTestCaseRequest
  *   testCaseId: "STRING_VALUE", // required

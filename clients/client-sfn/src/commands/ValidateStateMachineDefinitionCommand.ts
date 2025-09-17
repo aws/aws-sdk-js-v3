@@ -75,6 +75,8 @@ export interface ValidateStateMachineDefinitionCommandOutput
  * ```javascript
  * import { SFNClient, ValidateStateMachineDefinitionCommand } from "@aws-sdk/client-sfn"; // ES Modules import
  * // const { SFNClient, ValidateStateMachineDefinitionCommand } = require("@aws-sdk/client-sfn"); // CommonJS import
+ * // import type { SFNClientConfig } from "@aws-sdk/client-sfn";
+ * const config = {}; // type is SFNClientConfig
  * const client = new SFNClient(config);
  * const input = { // ValidateStateMachineDefinitionInput
  *   definition: "STRING_VALUE", // required

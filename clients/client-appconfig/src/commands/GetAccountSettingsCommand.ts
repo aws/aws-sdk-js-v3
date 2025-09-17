@@ -35,6 +35,8 @@ export interface GetAccountSettingsCommandOutput extends AccountSettings, __Meta
  * ```javascript
  * import { AppConfigClient, GetAccountSettingsCommand } from "@aws-sdk/client-appconfig"; // ES Modules import
  * // const { AppConfigClient, GetAccountSettingsCommand } = require("@aws-sdk/client-appconfig"); // CommonJS import
+ * // import type { AppConfigClientConfig } from "@aws-sdk/client-appconfig";
+ * const config = {}; // type is AppConfigClientConfig
  * const client = new AppConfigClient(config);
  * const input = {};
  * const command = new GetAccountSettingsCommand(input);

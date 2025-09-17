@@ -34,6 +34,8 @@ export interface DeleteSecurityConfigurationCommandOutput extends DeleteSecurity
  * ```javascript
  * import { EMRClient, DeleteSecurityConfigurationCommand } from "@aws-sdk/client-emr"; // ES Modules import
  * // const { EMRClient, DeleteSecurityConfigurationCommand } = require("@aws-sdk/client-emr"); // CommonJS import
+ * // import type { EMRClientConfig } from "@aws-sdk/client-emr";
+ * const config = {}; // type is EMRClientConfig
  * const client = new EMRClient(config);
  * const input = { // DeleteSecurityConfigurationInput
  *   Name: "STRING_VALUE", // required

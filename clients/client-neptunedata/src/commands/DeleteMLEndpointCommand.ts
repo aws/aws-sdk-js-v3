@@ -34,6 +34,8 @@ export interface DeleteMLEndpointCommandOutput extends DeleteMLEndpointOutput, _
  * ```javascript
  * import { NeptunedataClient, DeleteMLEndpointCommand } from "@aws-sdk/client-neptunedata"; // ES Modules import
  * // const { NeptunedataClient, DeleteMLEndpointCommand } = require("@aws-sdk/client-neptunedata"); // CommonJS import
+ * // import type { NeptunedataClientConfig } from "@aws-sdk/client-neptunedata";
+ * const config = {}; // type is NeptunedataClientConfig
  * const client = new NeptunedataClient(config);
  * const input = { // DeleteMLEndpointInput
  *   id: "STRING_VALUE", // required

@@ -34,6 +34,8 @@ export interface CreateDataSetImportTaskCommandOutput extends CreateDataSetImpor
  * ```javascript
  * import { M2Client, CreateDataSetImportTaskCommand } from "@aws-sdk/client-m2"; // ES Modules import
  * // const { M2Client, CreateDataSetImportTaskCommand } = require("@aws-sdk/client-m2"); // CommonJS import
+ * // import type { M2ClientConfig } from "@aws-sdk/client-m2";
+ * const config = {}; // type is M2ClientConfig
  * const client = new M2Client(config);
  * const input = { // CreateDataSetImportTaskRequest
  *   applicationId: "STRING_VALUE", // required

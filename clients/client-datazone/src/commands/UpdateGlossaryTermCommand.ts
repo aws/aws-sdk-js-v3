@@ -39,6 +39,8 @@ export interface UpdateGlossaryTermCommandOutput extends UpdateGlossaryTermOutpu
  * ```javascript
  * import { DataZoneClient, UpdateGlossaryTermCommand } from "@aws-sdk/client-datazone"; // ES Modules import
  * // const { DataZoneClient, UpdateGlossaryTermCommand } = require("@aws-sdk/client-datazone"); // CommonJS import
+ * // import type { DataZoneClientConfig } from "@aws-sdk/client-datazone";
+ * const config = {}; // type is DataZoneClientConfig
  * const client = new DataZoneClient(config);
  * const input = { // UpdateGlossaryTermInput
  *   domainIdentifier: "STRING_VALUE", // required

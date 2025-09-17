@@ -34,6 +34,8 @@ export interface DeleteCoreDefinitionCommandOutput extends DeleteCoreDefinitionR
  * ```javascript
  * import { GreengrassClient, DeleteCoreDefinitionCommand } from "@aws-sdk/client-greengrass"; // ES Modules import
  * // const { GreengrassClient, DeleteCoreDefinitionCommand } = require("@aws-sdk/client-greengrass"); // CommonJS import
+ * // import type { GreengrassClientConfig } from "@aws-sdk/client-greengrass";
+ * const config = {}; // type is GreengrassClientConfig
  * const client = new GreengrassClient(config);
  * const input = { // DeleteCoreDefinitionRequest
  *   CoreDefinitionId: "STRING_VALUE", // required

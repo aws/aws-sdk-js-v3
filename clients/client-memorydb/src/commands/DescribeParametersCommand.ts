@@ -34,6 +34,8 @@ export interface DescribeParametersCommandOutput extends DescribeParametersRespo
  * ```javascript
  * import { MemoryDBClient, DescribeParametersCommand } from "@aws-sdk/client-memorydb"; // ES Modules import
  * // const { MemoryDBClient, DescribeParametersCommand } = require("@aws-sdk/client-memorydb"); // CommonJS import
+ * // import type { MemoryDBClientConfig } from "@aws-sdk/client-memorydb";
+ * const config = {}; // type is MemoryDBClientConfig
  * const client = new MemoryDBClient(config);
  * const input = { // DescribeParametersRequest
  *   ParameterGroupName: "STRING_VALUE", // required

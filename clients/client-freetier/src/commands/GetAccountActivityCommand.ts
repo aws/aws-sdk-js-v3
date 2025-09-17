@@ -34,6 +34,8 @@ export interface GetAccountActivityCommandOutput extends GetAccountActivityRespo
  * ```javascript
  * import { FreeTierClient, GetAccountActivityCommand } from "@aws-sdk/client-freetier"; // ES Modules import
  * // const { FreeTierClient, GetAccountActivityCommand } = require("@aws-sdk/client-freetier"); // CommonJS import
+ * // import type { FreeTierClientConfig } from "@aws-sdk/client-freetier";
+ * const config = {}; // type is FreeTierClientConfig
  * const client = new FreeTierClient(config);
  * const input = { // GetAccountActivityRequest
  *   activityId: "STRING_VALUE", // required

@@ -36,6 +36,8 @@ export interface ListAlertsCommandOutput extends ListAlertsResponse, __MetadataB
  * ```javascript
  * import { LookoutMetricsClient, ListAlertsCommand } from "@aws-sdk/client-lookoutmetrics"; // ES Modules import
  * // const { LookoutMetricsClient, ListAlertsCommand } = require("@aws-sdk/client-lookoutmetrics"); // CommonJS import
+ * // import type { LookoutMetricsClientConfig } from "@aws-sdk/client-lookoutmetrics";
+ * const config = {}; // type is LookoutMetricsClientConfig
  * const client = new LookoutMetricsClient(config);
  * const input = { // ListAlertsRequest
  *   AnomalyDetectorArn: "STRING_VALUE",

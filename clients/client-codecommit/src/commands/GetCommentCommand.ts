@@ -38,6 +38,8 @@ export interface GetCommentCommandOutput extends GetCommentOutput, __MetadataBea
  * ```javascript
  * import { CodeCommitClient, GetCommentCommand } from "@aws-sdk/client-codecommit"; // ES Modules import
  * // const { CodeCommitClient, GetCommentCommand } = require("@aws-sdk/client-codecommit"); // CommonJS import
+ * // import type { CodeCommitClientConfig } from "@aws-sdk/client-codecommit";
+ * const config = {}; // type is CodeCommitClientConfig
  * const client = new CodeCommitClient(config);
  * const input = { // GetCommentInput
  *   commentId: "STRING_VALUE", // required

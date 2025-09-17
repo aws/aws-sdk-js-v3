@@ -34,6 +34,8 @@ export interface GetDiskCommandOutput extends GetDiskResult, __MetadataBearer {}
  * ```javascript
  * import { LightsailClient, GetDiskCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, GetDiskCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
+ * // import type { LightsailClientConfig } from "@aws-sdk/client-lightsail";
+ * const config = {}; // type is LightsailClientConfig
  * const client = new LightsailClient(config);
  * const input = { // GetDiskRequest
  *   diskName: "STRING_VALUE", // required

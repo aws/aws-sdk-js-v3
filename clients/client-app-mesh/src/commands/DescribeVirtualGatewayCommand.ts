@@ -34,6 +34,8 @@ export interface DescribeVirtualGatewayCommandOutput extends DescribeVirtualGate
  * ```javascript
  * import { AppMeshClient, DescribeVirtualGatewayCommand } from "@aws-sdk/client-app-mesh"; // ES Modules import
  * // const { AppMeshClient, DescribeVirtualGatewayCommand } = require("@aws-sdk/client-app-mesh"); // CommonJS import
+ * // import type { AppMeshClientConfig } from "@aws-sdk/client-app-mesh";
+ * const config = {}; // type is AppMeshClientConfig
  * const client = new AppMeshClient(config);
  * const input = { // DescribeVirtualGatewayInput
  *   virtualGatewayName: "STRING_VALUE", // required

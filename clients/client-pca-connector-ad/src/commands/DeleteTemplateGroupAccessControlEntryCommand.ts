@@ -38,6 +38,8 @@ export interface DeleteTemplateGroupAccessControlEntryCommandOutput extends __Me
  * ```javascript
  * import { PcaConnectorAdClient, DeleteTemplateGroupAccessControlEntryCommand } from "@aws-sdk/client-pca-connector-ad"; // ES Modules import
  * // const { PcaConnectorAdClient, DeleteTemplateGroupAccessControlEntryCommand } = require("@aws-sdk/client-pca-connector-ad"); // CommonJS import
+ * // import type { PcaConnectorAdClientConfig } from "@aws-sdk/client-pca-connector-ad";
+ * const config = {}; // type is PcaConnectorAdClientConfig
  * const client = new PcaConnectorAdClient(config);
  * const input = { // DeleteTemplateGroupAccessControlEntryRequest
  *   TemplateArn: "STRING_VALUE", // required

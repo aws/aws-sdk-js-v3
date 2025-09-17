@@ -38,6 +38,8 @@ export interface StartAsyncInvokeCommandOutput extends StartAsyncInvokeResponse,
  * ```javascript
  * import { BedrockRuntimeClient, StartAsyncInvokeCommand } from "@aws-sdk/client-bedrock-runtime"; // ES Modules import
  * // const { BedrockRuntimeClient, StartAsyncInvokeCommand } = require("@aws-sdk/client-bedrock-runtime"); // CommonJS import
+ * // import type { BedrockRuntimeClientConfig } from "@aws-sdk/client-bedrock-runtime";
+ * const config = {}; // type is BedrockRuntimeClientConfig
  * const client = new BedrockRuntimeClient(config);
  * const input = { // StartAsyncInvokeRequest
  *   clientRequestToken: "STRING_VALUE",

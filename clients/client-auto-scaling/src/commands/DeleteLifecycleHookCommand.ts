@@ -37,6 +37,8 @@ export interface DeleteLifecycleHookCommandOutput extends DeleteLifecycleHookAns
  * ```javascript
  * import { AutoScalingClient, DeleteLifecycleHookCommand } from "@aws-sdk/client-auto-scaling"; // ES Modules import
  * // const { AutoScalingClient, DeleteLifecycleHookCommand } = require("@aws-sdk/client-auto-scaling"); // CommonJS import
+ * // import type { AutoScalingClientConfig } from "@aws-sdk/client-auto-scaling";
+ * const config = {}; // type is AutoScalingClientConfig
  * const client = new AutoScalingClient(config);
  * const input = { // DeleteLifecycleHookType
  *   LifecycleHookName: "STRING_VALUE", // required

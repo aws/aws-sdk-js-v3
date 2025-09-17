@@ -43,6 +43,8 @@ export interface DeleteProvisioningTemplateVersionCommandOutput
  * ```javascript
  * import { IoTClient, DeleteProvisioningTemplateVersionCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, DeleteProvisioningTemplateVersionCommand } = require("@aws-sdk/client-iot"); // CommonJS import
+ * // import type { IoTClientConfig } from "@aws-sdk/client-iot";
+ * const config = {}; // type is IoTClientConfig
  * const client = new IoTClient(config);
  * const input = { // DeleteProvisioningTemplateVersionRequest
  *   templateName: "STRING_VALUE", // required

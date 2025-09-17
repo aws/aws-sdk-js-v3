@@ -54,6 +54,8 @@ export interface DeleteMessageCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { SQSClient, DeleteMessageCommand } from "@aws-sdk/client-sqs"; // ES Modules import
  * // const { SQSClient, DeleteMessageCommand } = require("@aws-sdk/client-sqs"); // CommonJS import
+ * // import type { SQSClientConfig } from "@aws-sdk/client-sqs";
+ * const config = {}; // type is SQSClientConfig
  * const client = new SQSClient(config);
  * const input = { // DeleteMessageRequest
  *   QueueUrl: "STRING_VALUE", // required

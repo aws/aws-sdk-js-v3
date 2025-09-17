@@ -36,6 +36,8 @@ export interface UpdateEnvironmentCommandOutput extends UpdateEnvironmentRespons
  * ```javascript
  * import { FinspaceClient, UpdateEnvironmentCommand } from "@aws-sdk/client-finspace"; // ES Modules import
  * // const { FinspaceClient, UpdateEnvironmentCommand } = require("@aws-sdk/client-finspace"); // CommonJS import
+ * // import type { FinspaceClientConfig } from "@aws-sdk/client-finspace";
+ * const config = {}; // type is FinspaceClientConfig
  * const client = new FinspaceClient(config);
  * const input = { // UpdateEnvironmentRequest
  *   environmentId: "STRING_VALUE", // required

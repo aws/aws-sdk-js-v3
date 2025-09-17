@@ -34,6 +34,8 @@ export interface DeleteReplicatorCommandOutput extends DeleteReplicatorResponse,
  * ```javascript
  * import { KafkaClient, DeleteReplicatorCommand } from "@aws-sdk/client-kafka"; // ES Modules import
  * // const { KafkaClient, DeleteReplicatorCommand } = require("@aws-sdk/client-kafka"); // CommonJS import
+ * // import type { KafkaClientConfig } from "@aws-sdk/client-kafka";
+ * const config = {}; // type is KafkaClientConfig
  * const client = new KafkaClient(config);
  * const input = { // DeleteReplicatorRequest
  *   CurrentVersion: "STRING_VALUE",

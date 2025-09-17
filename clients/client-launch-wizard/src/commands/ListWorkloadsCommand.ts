@@ -34,6 +34,8 @@ export interface ListWorkloadsCommandOutput extends ListWorkloadsOutput, __Metad
  * ```javascript
  * import { LaunchWizardClient, ListWorkloadsCommand } from "@aws-sdk/client-launch-wizard"; // ES Modules import
  * // const { LaunchWizardClient, ListWorkloadsCommand } = require("@aws-sdk/client-launch-wizard"); // CommonJS import
+ * // import type { LaunchWizardClientConfig } from "@aws-sdk/client-launch-wizard";
+ * const config = {}; // type is LaunchWizardClientConfig
  * const client = new LaunchWizardClient(config);
  * const input = { // ListWorkloadsInput
  *   maxResults: Number("int"),

@@ -34,6 +34,8 @@ export interface UpdatePlanExecutionStepCommandOutput extends UpdatePlanExecutio
  * ```javascript
  * import { ARCRegionSwitchClient, UpdatePlanExecutionStepCommand } from "@aws-sdk/client-arc-region-switch"; // ES Modules import
  * // const { ARCRegionSwitchClient, UpdatePlanExecutionStepCommand } = require("@aws-sdk/client-arc-region-switch"); // CommonJS import
+ * // import type { ARCRegionSwitchClientConfig } from "@aws-sdk/client-arc-region-switch";
+ * const config = {}; // type is ARCRegionSwitchClientConfig
  * const client = new ARCRegionSwitchClient(config);
  * const input = { // UpdatePlanExecutionStepRequest
  *   planArn: "STRING_VALUE", // required

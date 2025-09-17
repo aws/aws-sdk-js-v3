@@ -34,6 +34,8 @@ export interface BatchGetFleetsCommandOutput extends BatchGetFleetsOutput, __Met
  * ```javascript
  * import { CodeBuildClient, BatchGetFleetsCommand } from "@aws-sdk/client-codebuild"; // ES Modules import
  * // const { CodeBuildClient, BatchGetFleetsCommand } = require("@aws-sdk/client-codebuild"); // CommonJS import
+ * // import type { CodeBuildClientConfig } from "@aws-sdk/client-codebuild";
+ * const config = {}; // type is CodeBuildClientConfig
  * const client = new CodeBuildClient(config);
  * const input = { // BatchGetFleetsInput
  *   names: [ // FleetNames // required

@@ -35,6 +35,8 @@ export interface DeleteCACertificateCommandOutput extends DeleteCACertificateRes
  * ```javascript
  * import { IoTClient, DeleteCACertificateCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, DeleteCACertificateCommand } = require("@aws-sdk/client-iot"); // CommonJS import
+ * // import type { IoTClientConfig } from "@aws-sdk/client-iot";
+ * const config = {}; // type is IoTClientConfig
  * const client = new IoTClient(config);
  * const input = { // DeleteCACertificateRequest
  *   certificateId: "STRING_VALUE", // required

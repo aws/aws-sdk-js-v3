@@ -38,6 +38,8 @@ export interface GetMigrationsCommandOutput extends GetMigrationsResponse, __Met
  * ```javascript
  * import { LexModelBuildingServiceClient, GetMigrationsCommand } from "@aws-sdk/client-lex-model-building-service"; // ES Modules import
  * // const { LexModelBuildingServiceClient, GetMigrationsCommand } = require("@aws-sdk/client-lex-model-building-service"); // CommonJS import
+ * // import type { LexModelBuildingServiceClientConfig } from "@aws-sdk/client-lex-model-building-service";
+ * const config = {}; // type is LexModelBuildingServiceClientConfig
  * const client = new LexModelBuildingServiceClient(config);
  * const input = { // GetMigrationsRequest
  *   sortByAttribute: "V1_BOT_NAME" || "MIGRATION_DATE_TIME",

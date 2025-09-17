@@ -34,6 +34,8 @@ export interface GetInstanceCommandOutput extends GetInstanceResponse, __Metadat
  * ```javascript
  * import { ServiceDiscoveryClient, GetInstanceCommand } from "@aws-sdk/client-servicediscovery"; // ES Modules import
  * // const { ServiceDiscoveryClient, GetInstanceCommand } = require("@aws-sdk/client-servicediscovery"); // CommonJS import
+ * // import type { ServiceDiscoveryClientConfig } from "@aws-sdk/client-servicediscovery";
+ * const config = {}; // type is ServiceDiscoveryClientConfig
  * const client = new ServiceDiscoveryClient(config);
  * const input = { // GetInstanceRequest
  *   ServiceId: "STRING_VALUE", // required

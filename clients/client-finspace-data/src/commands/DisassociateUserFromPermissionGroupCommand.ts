@@ -44,6 +44,8 @@ export interface DisassociateUserFromPermissionGroupCommandOutput
  * ```javascript
  * import { FinspaceDataClient, DisassociateUserFromPermissionGroupCommand } from "@aws-sdk/client-finspace-data"; // ES Modules import
  * // const { FinspaceDataClient, DisassociateUserFromPermissionGroupCommand } = require("@aws-sdk/client-finspace-data"); // CommonJS import
+ * // import type { FinspaceDataClientConfig } from "@aws-sdk/client-finspace-data";
+ * const config = {}; // type is FinspaceDataClientConfig
  * const client = new FinspaceDataClient(config);
  * const input = { // DisassociateUserFromPermissionGroupRequest
  *   permissionGroupId: "STRING_VALUE", // required

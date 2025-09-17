@@ -34,6 +34,8 @@ export interface ListFindingsMetricsCommandOutput extends ListFindingsMetricsRes
  * ```javascript
  * import { CodeGuruSecurityClient, ListFindingsMetricsCommand } from "@aws-sdk/client-codeguru-security"; // ES Modules import
  * // const { CodeGuruSecurityClient, ListFindingsMetricsCommand } = require("@aws-sdk/client-codeguru-security"); // CommonJS import
+ * // import type { CodeGuruSecurityClientConfig } from "@aws-sdk/client-codeguru-security";
+ * const config = {}; // type is CodeGuruSecurityClientConfig
  * const client = new CodeGuruSecurityClient(config);
  * const input = { // ListFindingsMetricsRequest
  *   nextToken: "STRING_VALUE",

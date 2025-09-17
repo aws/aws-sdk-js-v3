@@ -34,6 +34,8 @@ export interface UpdateDomainCommandOutput extends UpdateDomainResponse, __Metad
  * ```javascript
  * import { SageMakerClient, UpdateDomainCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, UpdateDomainCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * // import type { SageMakerClientConfig } from "@aws-sdk/client-sagemaker";
+ * const config = {}; // type is SageMakerClientConfig
  * const client = new SageMakerClient(config);
  * const input = { // UpdateDomainRequest
  *   DomainId: "STRING_VALUE", // required

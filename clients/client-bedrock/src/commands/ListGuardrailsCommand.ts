@@ -38,6 +38,8 @@ export interface ListGuardrailsCommandOutput extends ListGuardrailsResponse, __M
  * ```javascript
  * import { BedrockClient, ListGuardrailsCommand } from "@aws-sdk/client-bedrock"; // ES Modules import
  * // const { BedrockClient, ListGuardrailsCommand } = require("@aws-sdk/client-bedrock"); // CommonJS import
+ * // import type { BedrockClientConfig } from "@aws-sdk/client-bedrock";
+ * const config = {}; // type is BedrockClientConfig
  * const client = new BedrockClient(config);
  * const input = { // ListGuardrailsRequest
  *   guardrailIdentifier: "STRING_VALUE",

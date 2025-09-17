@@ -34,6 +34,8 @@ export interface DeleteNetworkSettingsCommandOutput extends DeleteNetworkSetting
  * ```javascript
  * import { WorkSpacesWebClient, DeleteNetworkSettingsCommand } from "@aws-sdk/client-workspaces-web"; // ES Modules import
  * // const { WorkSpacesWebClient, DeleteNetworkSettingsCommand } = require("@aws-sdk/client-workspaces-web"); // CommonJS import
+ * // import type { WorkSpacesWebClientConfig } from "@aws-sdk/client-workspaces-web";
+ * const config = {}; // type is WorkSpacesWebClientConfig
  * const client = new WorkSpacesWebClient(config);
  * const input = { // DeleteNetworkSettingsRequest
  *   networkSettingsArn: "STRING_VALUE", // required

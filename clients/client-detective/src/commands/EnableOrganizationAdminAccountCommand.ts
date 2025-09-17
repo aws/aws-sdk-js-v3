@@ -48,6 +48,8 @@ export interface EnableOrganizationAdminAccountCommandOutput extends __MetadataB
  * ```javascript
  * import { DetectiveClient, EnableOrganizationAdminAccountCommand } from "@aws-sdk/client-detective"; // ES Modules import
  * // const { DetectiveClient, EnableOrganizationAdminAccountCommand } = require("@aws-sdk/client-detective"); // CommonJS import
+ * // import type { DetectiveClientConfig } from "@aws-sdk/client-detective";
+ * const config = {}; // type is DetectiveClientConfig
  * const client = new DetectiveClient(config);
  * const input = { // EnableOrganizationAdminAccountRequest
  *   AccountId: "STRING_VALUE", // required

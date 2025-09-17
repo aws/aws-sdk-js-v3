@@ -39,6 +39,8 @@ export interface DescribeTestSetDiscrepancyReportCommandOutput
  * ```javascript
  * import { LexModelsV2Client, DescribeTestSetDiscrepancyReportCommand } from "@aws-sdk/client-lex-models-v2"; // ES Modules import
  * // const { LexModelsV2Client, DescribeTestSetDiscrepancyReportCommand } = require("@aws-sdk/client-lex-models-v2"); // CommonJS import
+ * // import type { LexModelsV2ClientConfig } from "@aws-sdk/client-lex-models-v2";
+ * const config = {}; // type is LexModelsV2ClientConfig
  * const client = new LexModelsV2Client(config);
  * const input = { // DescribeTestSetDiscrepancyReportRequest
  *   testSetDiscrepancyReportId: "STRING_VALUE", // required

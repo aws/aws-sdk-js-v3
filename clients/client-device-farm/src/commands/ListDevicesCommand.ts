@@ -34,6 +34,8 @@ export interface ListDevicesCommandOutput extends ListDevicesResult, __MetadataB
  * ```javascript
  * import { DeviceFarmClient, ListDevicesCommand } from "@aws-sdk/client-device-farm"; // ES Modules import
  * // const { DeviceFarmClient, ListDevicesCommand } = require("@aws-sdk/client-device-farm"); // CommonJS import
+ * // import type { DeviceFarmClientConfig } from "@aws-sdk/client-device-farm";
+ * const config = {}; // type is DeviceFarmClientConfig
  * const client = new DeviceFarmClient(config);
  * const input = { // ListDevicesRequest
  *   arn: "STRING_VALUE",

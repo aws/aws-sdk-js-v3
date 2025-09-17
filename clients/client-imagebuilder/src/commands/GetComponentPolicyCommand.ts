@@ -34,6 +34,8 @@ export interface GetComponentPolicyCommandOutput extends GetComponentPolicyRespo
  * ```javascript
  * import { ImagebuilderClient, GetComponentPolicyCommand } from "@aws-sdk/client-imagebuilder"; // ES Modules import
  * // const { ImagebuilderClient, GetComponentPolicyCommand } = require("@aws-sdk/client-imagebuilder"); // CommonJS import
+ * // import type { ImagebuilderClientConfig } from "@aws-sdk/client-imagebuilder";
+ * const config = {}; // type is ImagebuilderClientConfig
  * const client = new ImagebuilderClient(config);
  * const input = { // GetComponentPolicyRequest
  *   componentArn: "STRING_VALUE", // required

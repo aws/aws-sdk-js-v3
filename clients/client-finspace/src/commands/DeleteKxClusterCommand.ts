@@ -34,6 +34,8 @@ export interface DeleteKxClusterCommandOutput extends DeleteKxClusterResponse, _
  * ```javascript
  * import { FinspaceClient, DeleteKxClusterCommand } from "@aws-sdk/client-finspace"; // ES Modules import
  * // const { FinspaceClient, DeleteKxClusterCommand } = require("@aws-sdk/client-finspace"); // CommonJS import
+ * // import type { FinspaceClientConfig } from "@aws-sdk/client-finspace";
+ * const config = {}; // type is FinspaceClientConfig
  * const client = new FinspaceClient(config);
  * const input = { // DeleteKxClusterRequest
  *   environmentId: "STRING_VALUE", // required

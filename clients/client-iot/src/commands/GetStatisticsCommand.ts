@@ -37,6 +37,8 @@ export interface GetStatisticsCommandOutput extends GetStatisticsResponse, __Met
  * ```javascript
  * import { IoTClient, GetStatisticsCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, GetStatisticsCommand } = require("@aws-sdk/client-iot"); // CommonJS import
+ * // import type { IoTClientConfig } from "@aws-sdk/client-iot";
+ * const config = {}; // type is IoTClientConfig
  * const client = new IoTClient(config);
  * const input = { // GetStatisticsRequest
  *   indexName: "STRING_VALUE",

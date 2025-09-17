@@ -39,6 +39,8 @@ export interface CreateAlertManagerDefinitionCommandOutput
  * ```javascript
  * import { AmpClient, CreateAlertManagerDefinitionCommand } from "@aws-sdk/client-amp"; // ES Modules import
  * // const { AmpClient, CreateAlertManagerDefinitionCommand } = require("@aws-sdk/client-amp"); // CommonJS import
+ * // import type { AmpClientConfig } from "@aws-sdk/client-amp";
+ * const config = {}; // type is AmpClientConfig
  * const client = new AmpClient(config);
  * const input = { // CreateAlertManagerDefinitionRequest
  *   workspaceId: "STRING_VALUE", // required

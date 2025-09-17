@@ -34,6 +34,8 @@ export interface DescribeSavingsPlansCommandOutput extends DescribeSavingsPlansR
  * ```javascript
  * import { SavingsplansClient, DescribeSavingsPlansCommand } from "@aws-sdk/client-savingsplans"; // ES Modules import
  * // const { SavingsplansClient, DescribeSavingsPlansCommand } = require("@aws-sdk/client-savingsplans"); // CommonJS import
+ * // import type { SavingsplansClientConfig } from "@aws-sdk/client-savingsplans";
+ * const config = {}; // type is SavingsplansClientConfig
  * const client = new SavingsplansClient(config);
  * const input = { // DescribeSavingsPlansRequest
  *   savingsPlanArns: [ // SavingsPlanArnList

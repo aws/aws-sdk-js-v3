@@ -41,6 +41,8 @@ export interface SendTaskFailureCommandOutput extends SendTaskFailureOutput, __M
  * ```javascript
  * import { SFNClient, SendTaskFailureCommand } from "@aws-sdk/client-sfn"; // ES Modules import
  * // const { SFNClient, SendTaskFailureCommand } = require("@aws-sdk/client-sfn"); // CommonJS import
+ * // import type { SFNClientConfig } from "@aws-sdk/client-sfn";
+ * const config = {}; // type is SFNClientConfig
  * const client = new SFNClient(config);
  * const input = { // SendTaskFailureInput
  *   taskToken: "STRING_VALUE", // required

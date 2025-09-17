@@ -34,6 +34,8 @@ export interface XmlNamespacesCommandOutput extends XmlNamespacesOutput, __Metad
  * ```javascript
  * import { EC2ProtocolClient, XmlNamespacesCommand } from "@aws-sdk/aws-protocoltests-ec2-schema"; // ES Modules import
  * // const { EC2ProtocolClient, XmlNamespacesCommand } = require("@aws-sdk/aws-protocoltests-ec2-schema"); // CommonJS import
+ * // import type { EC2ProtocolClientConfig } from "@aws-sdk/aws-protocoltests-ec2-schema";
+ * const config = {}; // type is EC2ProtocolClientConfig
  * const client = new EC2ProtocolClient(config);
  * const input = {};
  * const command = new XmlNamespacesCommand(input);

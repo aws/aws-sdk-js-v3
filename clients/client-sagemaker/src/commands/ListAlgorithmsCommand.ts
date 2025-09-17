@@ -34,6 +34,8 @@ export interface ListAlgorithmsCommandOutput extends ListAlgorithmsOutput, __Met
  * ```javascript
  * import { SageMakerClient, ListAlgorithmsCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, ListAlgorithmsCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * // import type { SageMakerClientConfig } from "@aws-sdk/client-sagemaker";
+ * const config = {}; // type is SageMakerClientConfig
  * const client = new SageMakerClient(config);
  * const input = { // ListAlgorithmsInput
  *   CreationTimeAfter: new Date("TIMESTAMP"),

@@ -39,6 +39,8 @@ export interface CreateDataIntegrationCommandOutput extends CreateDataIntegratio
  * ```javascript
  * import { AppIntegrationsClient, CreateDataIntegrationCommand } from "@aws-sdk/client-appintegrations"; // ES Modules import
  * // const { AppIntegrationsClient, CreateDataIntegrationCommand } = require("@aws-sdk/client-appintegrations"); // CommonJS import
+ * // import type { AppIntegrationsClientConfig } from "@aws-sdk/client-appintegrations";
+ * const config = {}; // type is AppIntegrationsClientConfig
  * const client = new AppIntegrationsClient(config);
  * const input = { // CreateDataIntegrationRequest
  *   Name: "STRING_VALUE", // required

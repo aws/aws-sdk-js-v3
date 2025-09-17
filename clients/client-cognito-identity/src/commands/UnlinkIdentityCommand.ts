@@ -37,6 +37,8 @@ export interface UnlinkIdentityCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { CognitoIdentityClient, UnlinkIdentityCommand } from "@aws-sdk/client-cognito-identity"; // ES Modules import
  * // const { CognitoIdentityClient, UnlinkIdentityCommand } = require("@aws-sdk/client-cognito-identity"); // CommonJS import
+ * // import type { CognitoIdentityClientConfig } from "@aws-sdk/client-cognito-identity";
+ * const config = {}; // type is CognitoIdentityClientConfig
  * const client = new CognitoIdentityClient(config);
  * const input = { // UnlinkIdentityInput
  *   IdentityId: "STRING_VALUE", // required

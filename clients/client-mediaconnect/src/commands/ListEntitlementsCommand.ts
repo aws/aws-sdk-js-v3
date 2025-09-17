@@ -34,6 +34,8 @@ export interface ListEntitlementsCommandOutput extends ListEntitlementsResponse,
  * ```javascript
  * import { MediaConnectClient, ListEntitlementsCommand } from "@aws-sdk/client-mediaconnect"; // ES Modules import
  * // const { MediaConnectClient, ListEntitlementsCommand } = require("@aws-sdk/client-mediaconnect"); // CommonJS import
+ * // import type { MediaConnectClientConfig } from "@aws-sdk/client-mediaconnect";
+ * const config = {}; // type is MediaConnectClientConfig
  * const client = new MediaConnectClient(config);
  * const input = { // ListEntitlementsRequest
  *   MaxResults: Number("int"),

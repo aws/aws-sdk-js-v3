@@ -37,6 +37,8 @@ export interface ImportStacksToStackSetCommandOutput extends ImportStacksToStack
  * ```javascript
  * import { CloudFormationClient, ImportStacksToStackSetCommand } from "@aws-sdk/client-cloudformation"; // ES Modules import
  * // const { CloudFormationClient, ImportStacksToStackSetCommand } = require("@aws-sdk/client-cloudformation"); // CommonJS import
+ * // import type { CloudFormationClientConfig } from "@aws-sdk/client-cloudformation";
+ * const config = {}; // type is CloudFormationClientConfig
  * const client = new CloudFormationClient(config);
  * const input = { // ImportStacksToStackSetInput
  *   StackSetName: "STRING_VALUE", // required

@@ -34,6 +34,8 @@ export interface ListBackendJobsCommandOutput extends ListBackendJobsResponse, _
  * ```javascript
  * import { AmplifyBackendClient, ListBackendJobsCommand } from "@aws-sdk/client-amplifybackend"; // ES Modules import
  * // const { AmplifyBackendClient, ListBackendJobsCommand } = require("@aws-sdk/client-amplifybackend"); // CommonJS import
+ * // import type { AmplifyBackendClientConfig } from "@aws-sdk/client-amplifybackend";
+ * const config = {}; // type is AmplifyBackendClientConfig
  * const client = new AmplifyBackendClient(config);
  * const input = { // ListBackendJobsRequest
  *   AppId: "STRING_VALUE", // required

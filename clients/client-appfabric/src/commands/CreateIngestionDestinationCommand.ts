@@ -35,6 +35,8 @@ export interface CreateIngestionDestinationCommandOutput extends CreateIngestion
  * ```javascript
  * import { AppFabricClient, CreateIngestionDestinationCommand } from "@aws-sdk/client-appfabric"; // ES Modules import
  * // const { AppFabricClient, CreateIngestionDestinationCommand } = require("@aws-sdk/client-appfabric"); // CommonJS import
+ * // import type { AppFabricClientConfig } from "@aws-sdk/client-appfabric";
+ * const config = {}; // type is AppFabricClientConfig
  * const client = new AppFabricClient(config);
  * const input = { // CreateIngestionDestinationRequest
  *   appBundleIdentifier: "STRING_VALUE", // required

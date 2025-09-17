@@ -45,6 +45,8 @@ export interface DescribeAccessControlConfigurationCommandOutput
  * ```javascript
  * import { KendraClient, DescribeAccessControlConfigurationCommand } from "@aws-sdk/client-kendra"; // ES Modules import
  * // const { KendraClient, DescribeAccessControlConfigurationCommand } = require("@aws-sdk/client-kendra"); // CommonJS import
+ * // import type { KendraClientConfig } from "@aws-sdk/client-kendra";
+ * const config = {}; // type is KendraClientConfig
  * const client = new KendraClient(config);
  * const input = { // DescribeAccessControlConfigurationRequest
  *   IndexId: "STRING_VALUE", // required

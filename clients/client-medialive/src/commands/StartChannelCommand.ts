@@ -34,6 +34,8 @@ export interface StartChannelCommandOutput extends StartChannelResponse, __Metad
  * ```javascript
  * import { MediaLiveClient, StartChannelCommand } from "@aws-sdk/client-medialive"; // ES Modules import
  * // const { MediaLiveClient, StartChannelCommand } = require("@aws-sdk/client-medialive"); // CommonJS import
+ * // import type { MediaLiveClientConfig } from "@aws-sdk/client-medialive";
+ * const config = {}; // type is MediaLiveClientConfig
  * const client = new MediaLiveClient(config);
  * const input = { // StartChannelRequest
  *   ChannelId: "STRING_VALUE", // required

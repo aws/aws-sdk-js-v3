@@ -34,6 +34,8 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * ```javascript
  * import { InvoicingClient, TagResourceCommand } from "@aws-sdk/client-invoicing"; // ES Modules import
  * // const { InvoicingClient, TagResourceCommand } = require("@aws-sdk/client-invoicing"); // CommonJS import
+ * // import type { InvoicingClientConfig } from "@aws-sdk/client-invoicing";
+ * const config = {}; // type is InvoicingClientConfig
  * const client = new InvoicingClient(config);
  * const input = { // TagResourceRequest
  *   ResourceArn: "STRING_VALUE", // required

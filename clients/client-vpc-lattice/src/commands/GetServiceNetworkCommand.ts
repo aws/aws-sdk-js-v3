@@ -34,6 +34,8 @@ export interface GetServiceNetworkCommandOutput extends GetServiceNetworkRespons
  * ```javascript
  * import { VPCLatticeClient, GetServiceNetworkCommand } from "@aws-sdk/client-vpc-lattice"; // ES Modules import
  * // const { VPCLatticeClient, GetServiceNetworkCommand } = require("@aws-sdk/client-vpc-lattice"); // CommonJS import
+ * // import type { VPCLatticeClientConfig } from "@aws-sdk/client-vpc-lattice";
+ * const config = {}; // type is VPCLatticeClientConfig
  * const client = new VPCLatticeClient(config);
  * const input = { // GetServiceNetworkRequest
  *   serviceNetworkIdentifier: "STRING_VALUE", // required

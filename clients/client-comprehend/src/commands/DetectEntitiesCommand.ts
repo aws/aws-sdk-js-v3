@@ -54,6 +54,8 @@ export interface DetectEntitiesCommandOutput extends DetectEntitiesResponse, __M
  * ```javascript
  * import { ComprehendClient, DetectEntitiesCommand } from "@aws-sdk/client-comprehend"; // ES Modules import
  * // const { ComprehendClient, DetectEntitiesCommand } = require("@aws-sdk/client-comprehend"); // CommonJS import
+ * // import type { ComprehendClientConfig } from "@aws-sdk/client-comprehend";
+ * const config = {}; // type is ComprehendClientConfig
  * const client = new ComprehendClient(config);
  * const input = { // DetectEntitiesRequest
  *   Text: "STRING_VALUE",

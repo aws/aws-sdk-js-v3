@@ -79,6 +79,8 @@ export interface GetRepositoryEndpointCommandOutput extends GetRepositoryEndpoin
  * ```javascript
  * import { CodeartifactClient, GetRepositoryEndpointCommand } from "@aws-sdk/client-codeartifact"; // ES Modules import
  * // const { CodeartifactClient, GetRepositoryEndpointCommand } = require("@aws-sdk/client-codeartifact"); // CommonJS import
+ * // import type { CodeartifactClientConfig } from "@aws-sdk/client-codeartifact";
+ * const config = {}; // type is CodeartifactClientConfig
  * const client = new CodeartifactClient(config);
  * const input = { // GetRepositoryEndpointRequest
  *   domain: "STRING_VALUE", // required

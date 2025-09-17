@@ -46,6 +46,8 @@ export interface InvokeModelWithBidirectionalStreamCommandOutput
  * ```javascript
  * import { BedrockRuntimeClient, InvokeModelWithBidirectionalStreamCommand } from "@aws-sdk/client-bedrock-runtime"; // ES Modules import
  * // const { BedrockRuntimeClient, InvokeModelWithBidirectionalStreamCommand } = require("@aws-sdk/client-bedrock-runtime"); // CommonJS import
+ * // import type { BedrockRuntimeClientConfig } from "@aws-sdk/client-bedrock-runtime";
+ * const config = {}; // type is BedrockRuntimeClientConfig
  * const client = new BedrockRuntimeClient(config);
  * const input = { // InvokeModelWithBidirectionalStreamRequest
  *   modelId: "STRING_VALUE", // required

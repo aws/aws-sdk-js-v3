@@ -34,6 +34,8 @@ export interface GetKeyPairsCommandOutput extends GetKeyPairsResult, __MetadataB
  * ```javascript
  * import { LightsailClient, GetKeyPairsCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, GetKeyPairsCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
+ * // import type { LightsailClientConfig } from "@aws-sdk/client-lightsail";
+ * const config = {}; // type is LightsailClientConfig
  * const client = new LightsailClient(config);
  * const input = { // GetKeyPairsRequest
  *   pageToken: "STRING_VALUE",

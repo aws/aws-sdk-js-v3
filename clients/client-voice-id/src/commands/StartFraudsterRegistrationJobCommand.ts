@@ -44,6 +44,8 @@ export interface StartFraudsterRegistrationJobCommandOutput
  * ```javascript
  * import { VoiceIDClient, StartFraudsterRegistrationJobCommand } from "@aws-sdk/client-voice-id"; // ES Modules import
  * // const { VoiceIDClient, StartFraudsterRegistrationJobCommand } = require("@aws-sdk/client-voice-id"); // CommonJS import
+ * // import type { VoiceIDClientConfig } from "@aws-sdk/client-voice-id";
+ * const config = {}; // type is VoiceIDClientConfig
  * const client = new VoiceIDClient(config);
  * const input = { // StartFraudsterRegistrationJobRequest
  *   ClientToken: "STRING_VALUE",

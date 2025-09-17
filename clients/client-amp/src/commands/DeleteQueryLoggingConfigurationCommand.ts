@@ -37,6 +37,8 @@ export interface DeleteQueryLoggingConfigurationCommandOutput extends __Metadata
  * ```javascript
  * import { AmpClient, DeleteQueryLoggingConfigurationCommand } from "@aws-sdk/client-amp"; // ES Modules import
  * // const { AmpClient, DeleteQueryLoggingConfigurationCommand } = require("@aws-sdk/client-amp"); // CommonJS import
+ * // import type { AmpClientConfig } from "@aws-sdk/client-amp";
+ * const config = {}; // type is AmpClientConfig
  * const client = new AmpClient(config);
  * const input = { // DeleteQueryLoggingConfigurationRequest
  *   workspaceId: "STRING_VALUE", // required

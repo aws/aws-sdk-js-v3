@@ -38,6 +38,8 @@ export interface GetMonitorCommandOutput extends GetMonitorOutput, __MetadataBea
  * ```javascript
  * import { NetworkFlowMonitorClient, GetMonitorCommand } from "@aws-sdk/client-networkflowmonitor"; // ES Modules import
  * // const { NetworkFlowMonitorClient, GetMonitorCommand } = require("@aws-sdk/client-networkflowmonitor"); // CommonJS import
+ * // import type { NetworkFlowMonitorClientConfig } from "@aws-sdk/client-networkflowmonitor";
+ * const config = {}; // type is NetworkFlowMonitorClientConfig
  * const client = new NetworkFlowMonitorClient(config);
  * const input = { // GetMonitorInput
  *   monitorName: "STRING_VALUE", // required

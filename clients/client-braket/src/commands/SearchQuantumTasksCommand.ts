@@ -34,6 +34,8 @@ export interface SearchQuantumTasksCommandOutput extends SearchQuantumTasksRespo
  * ```javascript
  * import { BraketClient, SearchQuantumTasksCommand } from "@aws-sdk/client-braket"; // ES Modules import
  * // const { BraketClient, SearchQuantumTasksCommand } = require("@aws-sdk/client-braket"); // CommonJS import
+ * // import type { BraketClientConfig } from "@aws-sdk/client-braket";
+ * const config = {}; // type is BraketClientConfig
  * const client = new BraketClient(config);
  * const input = { // SearchQuantumTasksRequest
  *   nextToken: "STRING_VALUE",

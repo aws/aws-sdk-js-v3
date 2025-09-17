@@ -92,6 +92,8 @@ export interface JoinStorageSessionCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { KinesisVideoWebRTCStorageClient, JoinStorageSessionCommand } from "@aws-sdk/client-kinesis-video-webrtc-storage"; // ES Modules import
  * // const { KinesisVideoWebRTCStorageClient, JoinStorageSessionCommand } = require("@aws-sdk/client-kinesis-video-webrtc-storage"); // CommonJS import
+ * // import type { KinesisVideoWebRTCStorageClientConfig } from "@aws-sdk/client-kinesis-video-webrtc-storage";
+ * const config = {}; // type is KinesisVideoWebRTCStorageClientConfig
  * const client = new KinesisVideoWebRTCStorageClient(config);
  * const input = { // JoinStorageSessionInput
  *   channelArn: "STRING_VALUE", // required

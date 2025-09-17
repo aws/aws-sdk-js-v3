@@ -34,6 +34,8 @@ export interface GetDomainSuggestionsCommandOutput extends GetDomainSuggestionsR
  * ```javascript
  * import { Route53DomainsClient, GetDomainSuggestionsCommand } from "@aws-sdk/client-route-53-domains"; // ES Modules import
  * // const { Route53DomainsClient, GetDomainSuggestionsCommand } = require("@aws-sdk/client-route-53-domains"); // CommonJS import
+ * // import type { Route53DomainsClientConfig } from "@aws-sdk/client-route-53-domains";
+ * const config = {}; // type is Route53DomainsClientConfig
  * const client = new Route53DomainsClient(config);
  * const input = { // GetDomainSuggestionsRequest
  *   DomainName: "STRING_VALUE", // required

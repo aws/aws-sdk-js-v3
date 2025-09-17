@@ -34,6 +34,8 @@ export interface GetKxChangesetCommandOutput extends GetKxChangesetResponse, __M
  * ```javascript
  * import { FinspaceClient, GetKxChangesetCommand } from "@aws-sdk/client-finspace"; // ES Modules import
  * // const { FinspaceClient, GetKxChangesetCommand } = require("@aws-sdk/client-finspace"); // CommonJS import
+ * // import type { FinspaceClientConfig } from "@aws-sdk/client-finspace";
+ * const config = {}; // type is FinspaceClientConfig
  * const client = new FinspaceClient(config);
  * const input = { // GetKxChangesetRequest
  *   environmentId: "STRING_VALUE", // required

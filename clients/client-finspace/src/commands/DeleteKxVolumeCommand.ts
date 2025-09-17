@@ -37,6 +37,8 @@ export interface DeleteKxVolumeCommandOutput extends DeleteKxVolumeResponse, __M
  * ```javascript
  * import { FinspaceClient, DeleteKxVolumeCommand } from "@aws-sdk/client-finspace"; // ES Modules import
  * // const { FinspaceClient, DeleteKxVolumeCommand } = require("@aws-sdk/client-finspace"); // CommonJS import
+ * // import type { FinspaceClientConfig } from "@aws-sdk/client-finspace";
+ * const config = {}; // type is FinspaceClientConfig
  * const client = new FinspaceClient(config);
  * const input = { // DeleteKxVolumeRequest
  *   environmentId: "STRING_VALUE", // required

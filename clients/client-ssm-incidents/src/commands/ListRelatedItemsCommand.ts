@@ -34,6 +34,8 @@ export interface ListRelatedItemsCommandOutput extends ListRelatedItemsOutput, _
  * ```javascript
  * import { SSMIncidentsClient, ListRelatedItemsCommand } from "@aws-sdk/client-ssm-incidents"; // ES Modules import
  * // const { SSMIncidentsClient, ListRelatedItemsCommand } = require("@aws-sdk/client-ssm-incidents"); // CommonJS import
+ * // import type { SSMIncidentsClientConfig } from "@aws-sdk/client-ssm-incidents";
+ * const config = {}; // type is SSMIncidentsClientConfig
  * const client = new SSMIncidentsClient(config);
  * const input = { // ListRelatedItemsInput
  *   incidentRecordArn: "STRING_VALUE", // required

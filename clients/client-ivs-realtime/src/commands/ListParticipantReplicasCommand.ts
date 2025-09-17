@@ -34,6 +34,8 @@ export interface ListParticipantReplicasCommandOutput extends ListParticipantRep
  * ```javascript
  * import { IVSRealTimeClient, ListParticipantReplicasCommand } from "@aws-sdk/client-ivs-realtime"; // ES Modules import
  * // const { IVSRealTimeClient, ListParticipantReplicasCommand } = require("@aws-sdk/client-ivs-realtime"); // CommonJS import
+ * // import type { IVSRealTimeClientConfig } from "@aws-sdk/client-ivs-realtime";
+ * const config = {}; // type is IVSRealTimeClientConfig
  * const client = new IVSRealTimeClient(config);
  * const input = { // ListParticipantReplicasRequest
  *   sourceStageArn: "STRING_VALUE", // required

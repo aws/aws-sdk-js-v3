@@ -34,6 +34,8 @@ export interface GetSourceRepositoryCommandOutput extends GetSourceRepositoryRes
  * ```javascript
  * import { CodeCatalystClient, GetSourceRepositoryCommand } from "@aws-sdk/client-codecatalyst"; // ES Modules import
  * // const { CodeCatalystClient, GetSourceRepositoryCommand } = require("@aws-sdk/client-codecatalyst"); // CommonJS import
+ * // import type { CodeCatalystClientConfig } from "@aws-sdk/client-codecatalyst";
+ * const config = {}; // type is CodeCatalystClientConfig
  * const client = new CodeCatalystClient(config);
  * const input = { // GetSourceRepositoryRequest
  *   spaceName: "STRING_VALUE", // required

@@ -39,6 +39,8 @@ export interface GetServiceInstanceSyncStatusCommandOutput
  * ```javascript
  * import { ProtonClient, GetServiceInstanceSyncStatusCommand } from "@aws-sdk/client-proton"; // ES Modules import
  * // const { ProtonClient, GetServiceInstanceSyncStatusCommand } = require("@aws-sdk/client-proton"); // CommonJS import
+ * // import type { ProtonClientConfig } from "@aws-sdk/client-proton";
+ * const config = {}; // type is ProtonClientConfig
  * const client = new ProtonClient(config);
  * const input = { // GetServiceInstanceSyncStatusInput
  *   serviceName: "STRING_VALUE", // required

@@ -43,6 +43,8 @@ export interface ListManagedNotificationChannelAssociationsCommandOutput
  * ```javascript
  * import { NotificationsClient, ListManagedNotificationChannelAssociationsCommand } from "@aws-sdk/client-notifications"; // ES Modules import
  * // const { NotificationsClient, ListManagedNotificationChannelAssociationsCommand } = require("@aws-sdk/client-notifications"); // CommonJS import
+ * // import type { NotificationsClientConfig } from "@aws-sdk/client-notifications";
+ * const config = {}; // type is NotificationsClientConfig
  * const client = new NotificationsClient(config);
  * const input = { // ListManagedNotificationChannelAssociationsRequest
  *   managedNotificationConfigurationArn: "STRING_VALUE", // required

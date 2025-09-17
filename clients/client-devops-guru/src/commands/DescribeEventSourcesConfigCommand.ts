@@ -37,6 +37,8 @@ export interface DescribeEventSourcesConfigCommandOutput extends DescribeEventSo
  * ```javascript
  * import { DevOpsGuruClient, DescribeEventSourcesConfigCommand } from "@aws-sdk/client-devops-guru"; // ES Modules import
  * // const { DevOpsGuruClient, DescribeEventSourcesConfigCommand } = require("@aws-sdk/client-devops-guru"); // CommonJS import
+ * // import type { DevOpsGuruClientConfig } from "@aws-sdk/client-devops-guru";
+ * const config = {}; // type is DevOpsGuruClientConfig
  * const client = new DevOpsGuruClient(config);
  * const input = {};
  * const command = new DescribeEventSourcesConfigCommand(input);

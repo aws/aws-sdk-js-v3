@@ -44,6 +44,8 @@ export interface UpdateDocumentDefaultVersionCommandOutput
  * ```javascript
  * import { SSMClient, UpdateDocumentDefaultVersionCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, UpdateDocumentDefaultVersionCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
+ * // import type { SSMClientConfig } from "@aws-sdk/client-ssm";
+ * const config = {}; // type is SSMClientConfig
  * const client = new SSMClient(config);
  * const input = { // UpdateDocumentDefaultVersionRequest
  *   Name: "STRING_VALUE", // required

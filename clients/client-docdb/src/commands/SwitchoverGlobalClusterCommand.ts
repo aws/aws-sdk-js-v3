@@ -34,6 +34,8 @@ export interface SwitchoverGlobalClusterCommandOutput extends SwitchoverGlobalCl
  * ```javascript
  * import { DocDBClient, SwitchoverGlobalClusterCommand } from "@aws-sdk/client-docdb"; // ES Modules import
  * // const { DocDBClient, SwitchoverGlobalClusterCommand } = require("@aws-sdk/client-docdb"); // CommonJS import
+ * // import type { DocDBClientConfig } from "@aws-sdk/client-docdb";
+ * const config = {}; // type is DocDBClientConfig
  * const client = new DocDBClient(config);
  * const input = { // SwitchoverGlobalClusterMessage
  *   GlobalClusterIdentifier: "STRING_VALUE", // required

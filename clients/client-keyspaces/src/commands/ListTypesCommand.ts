@@ -34,6 +34,8 @@ export interface ListTypesCommandOutput extends ListTypesResponse, __MetadataBea
  * ```javascript
  * import { KeyspacesClient, ListTypesCommand } from "@aws-sdk/client-keyspaces"; // ES Modules import
  * // const { KeyspacesClient, ListTypesCommand } = require("@aws-sdk/client-keyspaces"); // CommonJS import
+ * // import type { KeyspacesClientConfig } from "@aws-sdk/client-keyspaces";
+ * const config = {}; // type is KeyspacesClientConfig
  * const client = new KeyspacesClient(config);
  * const input = { // ListTypesRequest
  *   nextToken: "STRING_VALUE",

@@ -39,6 +39,8 @@ export interface DescribeOrderableDBInstanceOptionsCommandOutput
  * ```javascript
  * import { DocDBClient, DescribeOrderableDBInstanceOptionsCommand } from "@aws-sdk/client-docdb"; // ES Modules import
  * // const { DocDBClient, DescribeOrderableDBInstanceOptionsCommand } = require("@aws-sdk/client-docdb"); // CommonJS import
+ * // import type { DocDBClientConfig } from "@aws-sdk/client-docdb";
+ * const config = {}; // type is DocDBClientConfig
  * const client = new DocDBClient(config);
  * const input = { // DescribeOrderableDBInstanceOptionsMessage
  *   Engine: "STRING_VALUE", // required

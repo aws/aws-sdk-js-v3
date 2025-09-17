@@ -34,6 +34,8 @@ export interface StopDbNodeCommandOutput extends StopDbNodeOutput, __MetadataBea
  * ```javascript
  * import { OdbClient, StopDbNodeCommand } from "@aws-sdk/client-odb"; // ES Modules import
  * // const { OdbClient, StopDbNodeCommand } = require("@aws-sdk/client-odb"); // CommonJS import
+ * // import type { OdbClientConfig } from "@aws-sdk/client-odb";
+ * const config = {}; // type is OdbClientConfig
  * const client = new OdbClient(config);
  * const input = { // StopDbNodeInput
  *   cloudVmClusterId: "STRING_VALUE", // required

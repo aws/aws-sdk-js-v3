@@ -50,6 +50,8 @@ export interface CreateTrafficPolicyInstanceCommandOutput
  * ```javascript
  * import { Route53Client, CreateTrafficPolicyInstanceCommand } from "@aws-sdk/client-route-53"; // ES Modules import
  * // const { Route53Client, CreateTrafficPolicyInstanceCommand } = require("@aws-sdk/client-route-53"); // CommonJS import
+ * // import type { Route53ClientConfig } from "@aws-sdk/client-route-53";
+ * const config = {}; // type is Route53ClientConfig
  * const client = new Route53Client(config);
  * const input = { // CreateTrafficPolicyInstanceRequest
  *   HostedZoneId: "STRING_VALUE", // required

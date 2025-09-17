@@ -43,6 +43,8 @@ export interface AttachCustomerManagedPolicyReferenceToPermissionSetCommandOutpu
  * ```javascript
  * import { SSOAdminClient, AttachCustomerManagedPolicyReferenceToPermissionSetCommand } from "@aws-sdk/client-sso-admin"; // ES Modules import
  * // const { SSOAdminClient, AttachCustomerManagedPolicyReferenceToPermissionSetCommand } = require("@aws-sdk/client-sso-admin"); // CommonJS import
+ * // import type { SSOAdminClientConfig } from "@aws-sdk/client-sso-admin";
+ * const config = {}; // type is SSOAdminClientConfig
  * const client = new SSOAdminClient(config);
  * const input = { // AttachCustomerManagedPolicyReferenceToPermissionSetRequest
  *   InstanceArn: "STRING_VALUE", // required

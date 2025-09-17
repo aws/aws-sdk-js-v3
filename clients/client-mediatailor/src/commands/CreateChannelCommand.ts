@@ -34,6 +34,8 @@ export interface CreateChannelCommandOutput extends CreateChannelResponse, __Met
  * ```javascript
  * import { MediaTailorClient, CreateChannelCommand } from "@aws-sdk/client-mediatailor"; // ES Modules import
  * // const { MediaTailorClient, CreateChannelCommand } = require("@aws-sdk/client-mediatailor"); // CommonJS import
+ * // import type { MediaTailorClientConfig } from "@aws-sdk/client-mediatailor";
+ * const config = {}; // type is MediaTailorClientConfig
  * const client = new MediaTailorClient(config);
  * const input = { // CreateChannelRequest
  *   ChannelName: "STRING_VALUE", // required

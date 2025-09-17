@@ -40,6 +40,8 @@ export interface CreateDirectoryRegistrationCommandOutput
  * ```javascript
  * import { PcaConnectorAdClient, CreateDirectoryRegistrationCommand } from "@aws-sdk/client-pca-connector-ad"; // ES Modules import
  * // const { PcaConnectorAdClient, CreateDirectoryRegistrationCommand } = require("@aws-sdk/client-pca-connector-ad"); // CommonJS import
+ * // import type { PcaConnectorAdClientConfig } from "@aws-sdk/client-pca-connector-ad";
+ * const config = {}; // type is PcaConnectorAdClientConfig
  * const client = new PcaConnectorAdClient(config);
  * const input = { // CreateDirectoryRegistrationRequest
  *   DirectoryId: "STRING_VALUE", // required

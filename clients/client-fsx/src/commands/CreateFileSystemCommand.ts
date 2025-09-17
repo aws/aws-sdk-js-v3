@@ -80,6 +80,8 @@ export interface CreateFileSystemCommandOutput extends CreateFileSystemResponse,
  * ```javascript
  * import { FSxClient, CreateFileSystemCommand } from "@aws-sdk/client-fsx"; // ES Modules import
  * // const { FSxClient, CreateFileSystemCommand } = require("@aws-sdk/client-fsx"); // CommonJS import
+ * // import type { FSxClientConfig } from "@aws-sdk/client-fsx";
+ * const config = {}; // type is FSxClientConfig
  * const client = new FSxClient(config);
  * const input = { // CreateFileSystemRequest
  *   ClientRequestToken: "STRING_VALUE",

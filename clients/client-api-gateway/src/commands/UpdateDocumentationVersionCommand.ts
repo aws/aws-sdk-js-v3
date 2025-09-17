@@ -34,6 +34,8 @@ export interface UpdateDocumentationVersionCommandOutput extends DocumentationVe
  * ```javascript
  * import { APIGatewayClient, UpdateDocumentationVersionCommand } from "@aws-sdk/client-api-gateway"; // ES Modules import
  * // const { APIGatewayClient, UpdateDocumentationVersionCommand } = require("@aws-sdk/client-api-gateway"); // CommonJS import
+ * // import type { APIGatewayClientConfig } from "@aws-sdk/client-api-gateway";
+ * const config = {}; // type is APIGatewayClientConfig
  * const client = new APIGatewayClient(config);
  * const input = { // UpdateDocumentationVersionRequest
  *   restApiId: "STRING_VALUE", // required

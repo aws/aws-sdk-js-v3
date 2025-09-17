@@ -34,6 +34,8 @@ export interface ListTemplateVersionsCommandOutput extends ListTemplateVersionsR
  * ```javascript
  * import { QuickSightClient, ListTemplateVersionsCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
  * // const { QuickSightClient, ListTemplateVersionsCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
+ * // import type { QuickSightClientConfig } from "@aws-sdk/client-quicksight";
+ * const config = {}; // type is QuickSightClientConfig
  * const client = new QuickSightClient(config);
  * const input = { // ListTemplateVersionsRequest
  *   AwsAccountId: "STRING_VALUE", // required

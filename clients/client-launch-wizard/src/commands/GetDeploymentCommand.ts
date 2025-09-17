@@ -34,6 +34,8 @@ export interface GetDeploymentCommandOutput extends GetDeploymentOutput, __Metad
  * ```javascript
  * import { LaunchWizardClient, GetDeploymentCommand } from "@aws-sdk/client-launch-wizard"; // ES Modules import
  * // const { LaunchWizardClient, GetDeploymentCommand } = require("@aws-sdk/client-launch-wizard"); // CommonJS import
+ * // import type { LaunchWizardClientConfig } from "@aws-sdk/client-launch-wizard";
+ * const config = {}; // type is LaunchWizardClientConfig
  * const client = new LaunchWizardClient(config);
  * const input = { // GetDeploymentInput
  *   deploymentId: "STRING_VALUE", // required

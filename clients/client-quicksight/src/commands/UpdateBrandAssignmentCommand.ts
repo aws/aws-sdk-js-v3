@@ -34,6 +34,8 @@ export interface UpdateBrandAssignmentCommandOutput extends UpdateBrandAssignmen
  * ```javascript
  * import { QuickSightClient, UpdateBrandAssignmentCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
  * // const { QuickSightClient, UpdateBrandAssignmentCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
+ * // import type { QuickSightClientConfig } from "@aws-sdk/client-quicksight";
+ * const config = {}; // type is QuickSightClientConfig
  * const client = new QuickSightClient(config);
  * const input = { // UpdateBrandAssignmentRequest
  *   AwsAccountId: "STRING_VALUE", // required

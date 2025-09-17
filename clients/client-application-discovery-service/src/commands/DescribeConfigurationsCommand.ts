@@ -61,6 +61,8 @@ export interface DescribeConfigurationsCommandOutput extends DescribeConfigurati
  * ```javascript
  * import { ApplicationDiscoveryServiceClient, DescribeConfigurationsCommand } from "@aws-sdk/client-application-discovery-service"; // ES Modules import
  * // const { ApplicationDiscoveryServiceClient, DescribeConfigurationsCommand } = require("@aws-sdk/client-application-discovery-service"); // CommonJS import
+ * // import type { ApplicationDiscoveryServiceClientConfig } from "@aws-sdk/client-application-discovery-service";
+ * const config = {}; // type is ApplicationDiscoveryServiceClientConfig
  * const client = new ApplicationDiscoveryServiceClient(config);
  * const input = { // DescribeConfigurationsRequest
  *   configurationIds: [ // ConfigurationIdList // required

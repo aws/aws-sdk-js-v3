@@ -34,6 +34,8 @@ export interface CreateInvoiceUnitCommandOutput extends CreateInvoiceUnitRespons
  * ```javascript
  * import { InvoicingClient, CreateInvoiceUnitCommand } from "@aws-sdk/client-invoicing"; // ES Modules import
  * // const { InvoicingClient, CreateInvoiceUnitCommand } = require("@aws-sdk/client-invoicing"); // CommonJS import
+ * // import type { InvoicingClientConfig } from "@aws-sdk/client-invoicing";
+ * const config = {}; // type is InvoicingClientConfig
  * const client = new InvoicingClient(config);
  * const input = { // CreateInvoiceUnitRequest
  *   Name: "STRING_VALUE", // required

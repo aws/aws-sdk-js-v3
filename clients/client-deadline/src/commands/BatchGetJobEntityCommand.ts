@@ -38,6 +38,8 @@ export interface BatchGetJobEntityCommandOutput extends BatchGetJobEntityRespons
  * ```javascript
  * import { DeadlineClient, BatchGetJobEntityCommand } from "@aws-sdk/client-deadline"; // ES Modules import
  * // const { DeadlineClient, BatchGetJobEntityCommand } = require("@aws-sdk/client-deadline"); // CommonJS import
+ * // import type { DeadlineClientConfig } from "@aws-sdk/client-deadline";
+ * const config = {}; // type is DeadlineClientConfig
  * const client = new DeadlineClient(config);
  * const input = { // BatchGetJobEntityRequest
  *   farmId: "STRING_VALUE", // required

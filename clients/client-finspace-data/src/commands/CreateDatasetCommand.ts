@@ -40,6 +40,8 @@ export interface CreateDatasetCommandOutput extends CreateDatasetResponse, __Met
  * ```javascript
  * import { FinspaceDataClient, CreateDatasetCommand } from "@aws-sdk/client-finspace-data"; // ES Modules import
  * // const { FinspaceDataClient, CreateDatasetCommand } = require("@aws-sdk/client-finspace-data"); // CommonJS import
+ * // import type { FinspaceDataClientConfig } from "@aws-sdk/client-finspace-data";
+ * const config = {}; // type is FinspaceDataClientConfig
  * const client = new FinspaceDataClient(config);
  * const input = { // CreateDatasetRequest
  *   clientToken: "STRING_VALUE",

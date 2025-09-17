@@ -34,6 +34,8 @@ export interface ListDbNodesCommandOutput extends ListDbNodesOutput, __MetadataB
  * ```javascript
  * import { OdbClient, ListDbNodesCommand } from "@aws-sdk/client-odb"; // ES Modules import
  * // const { OdbClient, ListDbNodesCommand } = require("@aws-sdk/client-odb"); // CommonJS import
+ * // import type { OdbClientConfig } from "@aws-sdk/client-odb";
+ * const config = {}; // type is OdbClientConfig
  * const client = new OdbClient(config);
  * const input = { // ListDbNodesInput
  *   maxResults: Number("int"),

@@ -35,6 +35,8 @@ export interface DescribeInstancePatchesCommandOutput extends DescribeInstancePa
  * ```javascript
  * import { SSMClient, DescribeInstancePatchesCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, DescribeInstancePatchesCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
+ * // import type { SSMClientConfig } from "@aws-sdk/client-ssm";
+ * const config = {}; // type is SSMClientConfig
  * const client = new SSMClient(config);
  * const input = { // DescribeInstancePatchesRequest
  *   InstanceId: "STRING_VALUE", // required

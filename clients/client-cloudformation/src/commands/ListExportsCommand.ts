@@ -38,6 +38,8 @@ export interface ListExportsCommandOutput extends ListExportsOutput, __MetadataB
  * ```javascript
  * import { CloudFormationClient, ListExportsCommand } from "@aws-sdk/client-cloudformation"; // ES Modules import
  * // const { CloudFormationClient, ListExportsCommand } = require("@aws-sdk/client-cloudformation"); // CommonJS import
+ * // import type { CloudFormationClientConfig } from "@aws-sdk/client-cloudformation";
+ * const config = {}; // type is CloudFormationClientConfig
  * const client = new CloudFormationClient(config);
  * const input = { // ListExportsInput
  *   NextToken: "STRING_VALUE",

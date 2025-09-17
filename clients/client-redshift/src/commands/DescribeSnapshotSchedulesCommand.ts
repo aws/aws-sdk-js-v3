@@ -36,6 +36,8 @@ export interface DescribeSnapshotSchedulesCommandOutput
  * ```javascript
  * import { RedshiftClient, DescribeSnapshotSchedulesCommand } from "@aws-sdk/client-redshift"; // ES Modules import
  * // const { RedshiftClient, DescribeSnapshotSchedulesCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
+ * // import type { RedshiftClientConfig } from "@aws-sdk/client-redshift";
+ * const config = {}; // type is RedshiftClientConfig
  * const client = new RedshiftClient(config);
  * const input = { // DescribeSnapshotSchedulesMessage
  *   ClusterIdentifier: "STRING_VALUE",

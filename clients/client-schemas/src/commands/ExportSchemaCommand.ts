@@ -35,6 +35,8 @@ export interface ExportSchemaCommandOutput extends ExportSchemaResponse, __Metad
  * ```javascript
  * import { SchemasClient, ExportSchemaCommand } from "@aws-sdk/client-schemas"; // ES Modules import
  * // const { SchemasClient, ExportSchemaCommand } = require("@aws-sdk/client-schemas"); // CommonJS import
+ * // import type { SchemasClientConfig } from "@aws-sdk/client-schemas";
+ * const config = {}; // type is SchemasClientConfig
  * const client = new SchemasClient(config);
  * const input = { // ExportSchemaRequest
  *   RegistryName: "STRING_VALUE", // required

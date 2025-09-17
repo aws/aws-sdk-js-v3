@@ -34,6 +34,8 @@ export interface CreateLayoutCommandOutput extends CreateLayoutResponse, __Metad
  * ```javascript
  * import { ConnectCasesClient, CreateLayoutCommand } from "@aws-sdk/client-connectcases"; // ES Modules import
  * // const { ConnectCasesClient, CreateLayoutCommand } = require("@aws-sdk/client-connectcases"); // CommonJS import
+ * // import type { ConnectCasesClientConfig } from "@aws-sdk/client-connectcases";
+ * const config = {}; // type is ConnectCasesClientConfig
  * const client = new ConnectCasesClient(config);
  * const input = { // CreateLayoutRequest
  *   domainId: "STRING_VALUE", // required

@@ -40,6 +40,8 @@ export interface AssociateBackupVaultMpaApprovalTeamCommandOutput extends __Meta
  * ```javascript
  * import { BackupClient, AssociateBackupVaultMpaApprovalTeamCommand } from "@aws-sdk/client-backup"; // ES Modules import
  * // const { BackupClient, AssociateBackupVaultMpaApprovalTeamCommand } = require("@aws-sdk/client-backup"); // CommonJS import
+ * // import type { BackupClientConfig } from "@aws-sdk/client-backup";
+ * const config = {}; // type is BackupClientConfig
  * const client = new BackupClient(config);
  * const input = { // AssociateBackupVaultMpaApprovalTeamInput
  *   BackupVaultName: "STRING_VALUE", // required

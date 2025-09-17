@@ -37,6 +37,8 @@ export interface GetOfferingStatusCommandOutput extends GetOfferingStatusResult,
  * ```javascript
  * import { DeviceFarmClient, GetOfferingStatusCommand } from "@aws-sdk/client-device-farm"; // ES Modules import
  * // const { DeviceFarmClient, GetOfferingStatusCommand } = require("@aws-sdk/client-device-farm"); // CommonJS import
+ * // import type { DeviceFarmClientConfig } from "@aws-sdk/client-device-farm";
+ * const config = {}; // type is DeviceFarmClientConfig
  * const client = new DeviceFarmClient(config);
  * const input = { // GetOfferingStatusRequest
  *   nextToken: "STRING_VALUE",

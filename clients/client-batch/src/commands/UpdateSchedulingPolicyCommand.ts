@@ -34,6 +34,8 @@ export interface UpdateSchedulingPolicyCommandOutput extends UpdateSchedulingPol
  * ```javascript
  * import { BatchClient, UpdateSchedulingPolicyCommand } from "@aws-sdk/client-batch"; // ES Modules import
  * // const { BatchClient, UpdateSchedulingPolicyCommand } = require("@aws-sdk/client-batch"); // CommonJS import
+ * // import type { BatchClientConfig } from "@aws-sdk/client-batch";
+ * const config = {}; // type is BatchClientConfig
  * const client = new BatchClient(config);
  * const input = { // UpdateSchedulingPolicyRequest
  *   arn: "STRING_VALUE", // required

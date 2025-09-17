@@ -34,6 +34,8 @@ export interface ListSessionsCommandOutput extends ListSessionsOutput, __Metadat
  * ```javascript
  * import { BedrockAgentCoreClient, ListSessionsCommand } from "@aws-sdk/client-bedrock-agentcore"; // ES Modules import
  * // const { BedrockAgentCoreClient, ListSessionsCommand } = require("@aws-sdk/client-bedrock-agentcore"); // CommonJS import
+ * // import type { BedrockAgentCoreClientConfig } from "@aws-sdk/client-bedrock-agentcore";
+ * const config = {}; // type is BedrockAgentCoreClientConfig
  * const client = new BedrockAgentCoreClient(config);
  * const input = { // ListSessionsInput
  *   memoryId: "STRING_VALUE", // required

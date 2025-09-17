@@ -34,6 +34,8 @@ export interface ListTrafficPoliciesCommandOutput extends ListTrafficPoliciesRes
  * ```javascript
  * import { MailManagerClient, ListTrafficPoliciesCommand } from "@aws-sdk/client-mailmanager"; // ES Modules import
  * // const { MailManagerClient, ListTrafficPoliciesCommand } = require("@aws-sdk/client-mailmanager"); // CommonJS import
+ * // import type { MailManagerClientConfig } from "@aws-sdk/client-mailmanager";
+ * const config = {}; // type is MailManagerClientConfig
  * const client = new MailManagerClient(config);
  * const input = { // ListTrafficPoliciesRequest
  *   PageSize: Number("int"),

@@ -36,6 +36,8 @@ export interface GetInventoryCommandOutput extends GetInventoryResult, __Metadat
  * ```javascript
  * import { SSMClient, GetInventoryCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, GetInventoryCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
+ * // import type { SSMClientConfig } from "@aws-sdk/client-ssm";
+ * const config = {}; // type is SSMClientConfig
  * const client = new SSMClient(config);
  * const input = { // GetInventoryRequest
  *   Filters: [ // InventoryFilterList

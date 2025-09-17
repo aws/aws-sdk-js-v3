@@ -34,6 +34,8 @@ export interface DeleteAgentAliasCommandOutput extends DeleteAgentAliasResponse,
  * ```javascript
  * import { BedrockAgentClient, DeleteAgentAliasCommand } from "@aws-sdk/client-bedrock-agent"; // ES Modules import
  * // const { BedrockAgentClient, DeleteAgentAliasCommand } = require("@aws-sdk/client-bedrock-agent"); // CommonJS import
+ * // import type { BedrockAgentClientConfig } from "@aws-sdk/client-bedrock-agent";
+ * const config = {}; // type is BedrockAgentClientConfig
  * const client = new BedrockAgentClient(config);
  * const input = { // DeleteAgentAliasRequest
  *   agentId: "STRING_VALUE", // required

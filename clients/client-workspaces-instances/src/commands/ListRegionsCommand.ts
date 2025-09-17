@@ -43,6 +43,8 @@ export interface ListRegionsCommandOutput extends ListRegionsResponse, __Metadat
  * ```javascript
  * import { WorkspacesInstancesClient, ListRegionsCommand } from "@aws-sdk/client-workspaces-instances"; // ES Modules import
  * // const { WorkspacesInstancesClient, ListRegionsCommand } = require("@aws-sdk/client-workspaces-instances"); // CommonJS import
+ * // import type { WorkspacesInstancesClientConfig } from "@aws-sdk/client-workspaces-instances";
+ * const config = {}; // type is WorkspacesInstancesClientConfig
  * const client = new WorkspacesInstancesClient(config);
  * const input = { // ListRegionsRequest
  *   MaxResults: Number("int"),

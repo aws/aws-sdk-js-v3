@@ -41,6 +41,8 @@ export interface ListEnvironmentAccountConnectionsCommandOutput
  * ```javascript
  * import { ProtonClient, ListEnvironmentAccountConnectionsCommand } from "@aws-sdk/client-proton"; // ES Modules import
  * // const { ProtonClient, ListEnvironmentAccountConnectionsCommand } = require("@aws-sdk/client-proton"); // CommonJS import
+ * // import type { ProtonClientConfig } from "@aws-sdk/client-proton";
+ * const config = {}; // type is ProtonClientConfig
  * const client = new ProtonClient(config);
  * const input = { // ListEnvironmentAccountConnectionsInput
  *   requestedBy: "STRING_VALUE", // required

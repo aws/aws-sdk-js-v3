@@ -49,6 +49,8 @@ export interface ListAccountsWithInvalidEffectivePolicyCommandOutput
  * ```javascript
  * import { OrganizationsClient, ListAccountsWithInvalidEffectivePolicyCommand } from "@aws-sdk/client-organizations"; // ES Modules import
  * // const { OrganizationsClient, ListAccountsWithInvalidEffectivePolicyCommand } = require("@aws-sdk/client-organizations"); // CommonJS import
+ * // import type { OrganizationsClientConfig } from "@aws-sdk/client-organizations";
+ * const config = {}; // type is OrganizationsClientConfig
  * const client = new OrganizationsClient(config);
  * const input = { // ListAccountsWithInvalidEffectivePolicyRequest
  *   PolicyType: "TAG_POLICY" || "BACKUP_POLICY" || "AISERVICES_OPT_OUT_POLICY" || "CHATBOT_POLICY" || "DECLARATIVE_POLICY_EC2" || "SECURITYHUB_POLICY", // required

@@ -34,6 +34,8 @@ export interface RejectAccountLinkInvitationCommandOutput extends RejectAccountL
  * ```javascript
  * import { WorkSpacesClient, RejectAccountLinkInvitationCommand } from "@aws-sdk/client-workspaces"; // ES Modules import
  * // const { WorkSpacesClient, RejectAccountLinkInvitationCommand } = require("@aws-sdk/client-workspaces"); // CommonJS import
+ * // import type { WorkSpacesClientConfig } from "@aws-sdk/client-workspaces";
+ * const config = {}; // type is WorkSpacesClientConfig
  * const client = new WorkSpacesClient(config);
  * const input = { // RejectAccountLinkInvitationRequest
  *   LinkId: "STRING_VALUE", // required

@@ -35,6 +35,8 @@ export interface ListEncoderConfigurationsCommandOutput extends ListEncoderConfi
  * ```javascript
  * import { IVSRealTimeClient, ListEncoderConfigurationsCommand } from "@aws-sdk/client-ivs-realtime"; // ES Modules import
  * // const { IVSRealTimeClient, ListEncoderConfigurationsCommand } = require("@aws-sdk/client-ivs-realtime"); // CommonJS import
+ * // import type { IVSRealTimeClientConfig } from "@aws-sdk/client-ivs-realtime";
+ * const config = {}; // type is IVSRealTimeClientConfig
  * const client = new IVSRealTimeClient(config);
  * const input = { // ListEncoderConfigurationsRequest
  *   nextToken: "STRING_VALUE",

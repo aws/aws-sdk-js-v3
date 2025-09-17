@@ -35,6 +35,8 @@ export interface ListBackupSelectionsCommandOutput extends ListBackupSelectionsO
  * ```javascript
  * import { BackupClient, ListBackupSelectionsCommand } from "@aws-sdk/client-backup"; // ES Modules import
  * // const { BackupClient, ListBackupSelectionsCommand } = require("@aws-sdk/client-backup"); // CommonJS import
+ * // import type { BackupClientConfig } from "@aws-sdk/client-backup";
+ * const config = {}; // type is BackupClientConfig
  * const client = new BackupClient(config);
  * const input = { // ListBackupSelectionsInput
  *   BackupPlanId: "STRING_VALUE", // required

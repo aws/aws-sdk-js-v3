@@ -34,6 +34,8 @@ export interface UpdateLinkAttributesCommandOutput extends UpdateLinkAttributesR
  * ```javascript
  * import { CloudDirectoryClient, UpdateLinkAttributesCommand } from "@aws-sdk/client-clouddirectory"; // ES Modules import
  * // const { CloudDirectoryClient, UpdateLinkAttributesCommand } = require("@aws-sdk/client-clouddirectory"); // CommonJS import
+ * // import type { CloudDirectoryClientConfig } from "@aws-sdk/client-clouddirectory";
+ * const config = {}; // type is CloudDirectoryClientConfig
  * const client = new CloudDirectoryClient(config);
  * const input = { // UpdateLinkAttributesRequest
  *   DirectoryArn: "STRING_VALUE", // required

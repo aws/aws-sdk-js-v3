@@ -46,6 +46,8 @@ export interface StopServiceDeploymentCommandOutput extends StopServiceDeploymen
  * ```javascript
  * import { ECSClient, StopServiceDeploymentCommand } from "@aws-sdk/client-ecs"; // ES Modules import
  * // const { ECSClient, StopServiceDeploymentCommand } = require("@aws-sdk/client-ecs"); // CommonJS import
+ * // import type { ECSClientConfig } from "@aws-sdk/client-ecs";
+ * const config = {}; // type is ECSClientConfig
  * const client = new ECSClient(config);
  * const input = { // StopServiceDeploymentRequest
  *   serviceDeploymentArn: "STRING_VALUE", // required

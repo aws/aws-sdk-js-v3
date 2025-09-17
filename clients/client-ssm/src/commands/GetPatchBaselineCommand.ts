@@ -38,6 +38,8 @@ export interface GetPatchBaselineCommandOutput extends GetPatchBaselineResult, _
  * ```javascript
  * import { SSMClient, GetPatchBaselineCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, GetPatchBaselineCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
+ * // import type { SSMClientConfig } from "@aws-sdk/client-ssm";
+ * const config = {}; // type is SSMClientConfig
  * const client = new SSMClient(config);
  * const input = { // GetPatchBaselineRequest
  *   BaselineId: "STRING_VALUE", // required

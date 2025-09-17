@@ -38,6 +38,8 @@ export interface StopCanaryCommandOutput extends StopCanaryResponse, __MetadataB
  * ```javascript
  * import { SyntheticsClient, StopCanaryCommand } from "@aws-sdk/client-synthetics"; // ES Modules import
  * // const { SyntheticsClient, StopCanaryCommand } = require("@aws-sdk/client-synthetics"); // CommonJS import
+ * // import type { SyntheticsClientConfig } from "@aws-sdk/client-synthetics";
+ * const config = {}; // type is SyntheticsClientConfig
  * const client = new SyntheticsClient(config);
  * const input = { // StopCanaryRequest
  *   Name: "STRING_VALUE", // required

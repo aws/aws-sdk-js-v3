@@ -34,6 +34,8 @@ export interface ListPrivateGraphEndpointsCommandOutput extends ListPrivateGraph
  * ```javascript
  * import { NeptuneGraphClient, ListPrivateGraphEndpointsCommand } from "@aws-sdk/client-neptune-graph"; // ES Modules import
  * // const { NeptuneGraphClient, ListPrivateGraphEndpointsCommand } = require("@aws-sdk/client-neptune-graph"); // CommonJS import
+ * // import type { NeptuneGraphClientConfig } from "@aws-sdk/client-neptune-graph";
+ * const config = {}; // type is NeptuneGraphClientConfig
  * const client = new NeptuneGraphClient(config);
  * const input = { // ListPrivateGraphEndpointsInput
  *   graphIdentifier: "STRING_VALUE", // required

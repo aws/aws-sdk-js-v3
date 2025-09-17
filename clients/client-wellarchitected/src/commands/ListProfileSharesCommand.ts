@@ -34,6 +34,8 @@ export interface ListProfileSharesCommandOutput extends ListProfileSharesOutput,
  * ```javascript
  * import { WellArchitectedClient, ListProfileSharesCommand } from "@aws-sdk/client-wellarchitected"; // ES Modules import
  * // const { WellArchitectedClient, ListProfileSharesCommand } = require("@aws-sdk/client-wellarchitected"); // CommonJS import
+ * // import type { WellArchitectedClientConfig } from "@aws-sdk/client-wellarchitected";
+ * const config = {}; // type is WellArchitectedClientConfig
  * const client = new WellArchitectedClient(config);
  * const input = { // ListProfileSharesInput
  *   ProfileArn: "STRING_VALUE", // required

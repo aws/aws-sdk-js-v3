@@ -34,6 +34,8 @@ export interface CreateListingChangeSetCommandOutput extends CreateListingChange
  * ```javascript
  * import { DataZoneClient, CreateListingChangeSetCommand } from "@aws-sdk/client-datazone"; // ES Modules import
  * // const { DataZoneClient, CreateListingChangeSetCommand } = require("@aws-sdk/client-datazone"); // CommonJS import
+ * // import type { DataZoneClientConfig } from "@aws-sdk/client-datazone";
+ * const config = {}; // type is DataZoneClientConfig
  * const client = new DataZoneClient(config);
  * const input = { // CreateListingChangeSetInput
  *   domainIdentifier: "STRING_VALUE", // required

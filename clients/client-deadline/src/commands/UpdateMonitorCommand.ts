@@ -35,6 +35,8 @@ export interface UpdateMonitorCommandOutput extends UpdateMonitorResponse, __Met
  * ```javascript
  * import { DeadlineClient, UpdateMonitorCommand } from "@aws-sdk/client-deadline"; // ES Modules import
  * // const { DeadlineClient, UpdateMonitorCommand } = require("@aws-sdk/client-deadline"); // CommonJS import
+ * // import type { DeadlineClientConfig } from "@aws-sdk/client-deadline";
+ * const config = {}; // type is DeadlineClientConfig
  * const client = new DeadlineClient(config);
  * const input = { // UpdateMonitorRequest
  *   monitorId: "STRING_VALUE", // required

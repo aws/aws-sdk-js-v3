@@ -39,6 +39,8 @@ export interface SuggestCommandOutput extends SuggestResponse, __MetadataBearer 
  * ```javascript
  * import { GeoPlacesClient, SuggestCommand } from "@aws-sdk/client-geo-places"; // ES Modules import
  * // const { GeoPlacesClient, SuggestCommand } = require("@aws-sdk/client-geo-places"); // CommonJS import
+ * // import type { GeoPlacesClientConfig } from "@aws-sdk/client-geo-places";
+ * const config = {}; // type is GeoPlacesClientConfig
  * const client = new GeoPlacesClient(config);
  * const input = { // SuggestRequest
  *   QueryText: "STRING_VALUE", // required

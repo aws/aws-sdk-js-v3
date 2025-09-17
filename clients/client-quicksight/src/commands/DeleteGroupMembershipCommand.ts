@@ -34,6 +34,8 @@ export interface DeleteGroupMembershipCommandOutput extends DeleteGroupMembershi
  * ```javascript
  * import { QuickSightClient, DeleteGroupMembershipCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
  * // const { QuickSightClient, DeleteGroupMembershipCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
+ * // import type { QuickSightClientConfig } from "@aws-sdk/client-quicksight";
+ * const config = {}; // type is QuickSightClientConfig
  * const client = new QuickSightClient(config);
  * const input = { // DeleteGroupMembershipRequest
  *   MemberName: "STRING_VALUE", // required

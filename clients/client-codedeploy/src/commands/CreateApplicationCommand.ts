@@ -34,6 +34,8 @@ export interface CreateApplicationCommandOutput extends CreateApplicationOutput,
  * ```javascript
  * import { CodeDeployClient, CreateApplicationCommand } from "@aws-sdk/client-codedeploy"; // ES Modules import
  * // const { CodeDeployClient, CreateApplicationCommand } = require("@aws-sdk/client-codedeploy"); // CommonJS import
+ * // import type { CodeDeployClientConfig } from "@aws-sdk/client-codedeploy";
+ * const config = {}; // type is CodeDeployClientConfig
  * const client = new CodeDeployClient(config);
  * const input = { // CreateApplicationInput
  *   applicationName: "STRING_VALUE", // required

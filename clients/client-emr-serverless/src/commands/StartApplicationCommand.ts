@@ -34,6 +34,8 @@ export interface StartApplicationCommandOutput extends StartApplicationResponse,
  * ```javascript
  * import { EMRServerlessClient, StartApplicationCommand } from "@aws-sdk/client-emr-serverless"; // ES Modules import
  * // const { EMRServerlessClient, StartApplicationCommand } = require("@aws-sdk/client-emr-serverless"); // CommonJS import
+ * // import type { EMRServerlessClientConfig } from "@aws-sdk/client-emr-serverless";
+ * const config = {}; // type is EMRServerlessClientConfig
  * const client = new EMRServerlessClient(config);
  * const input = { // StartApplicationRequest
  *   applicationId: "STRING_VALUE", // required

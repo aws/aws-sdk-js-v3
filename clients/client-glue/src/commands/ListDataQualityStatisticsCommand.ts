@@ -38,6 +38,8 @@ export interface ListDataQualityStatisticsCommandOutput extends ListDataQualityS
  * ```javascript
  * import { GlueClient, ListDataQualityStatisticsCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, ListDataQualityStatisticsCommand } = require("@aws-sdk/client-glue"); // CommonJS import
+ * // import type { GlueClientConfig } from "@aws-sdk/client-glue";
+ * const config = {}; // type is GlueClientConfig
  * const client = new GlueClient(config);
  * const input = { // ListDataQualityStatisticsRequest
  *   StatisticId: "STRING_VALUE",

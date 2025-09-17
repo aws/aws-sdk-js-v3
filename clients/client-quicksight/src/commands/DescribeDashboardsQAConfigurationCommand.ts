@@ -42,6 +42,8 @@ export interface DescribeDashboardsQAConfigurationCommandOutput
  * ```javascript
  * import { QuickSightClient, DescribeDashboardsQAConfigurationCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
  * // const { QuickSightClient, DescribeDashboardsQAConfigurationCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
+ * // import type { QuickSightClientConfig } from "@aws-sdk/client-quicksight";
+ * const config = {}; // type is QuickSightClientConfig
  * const client = new QuickSightClient(config);
  * const input = { // DescribeDashboardsQAConfigurationRequest
  *   AwsAccountId: "STRING_VALUE", // required

@@ -39,6 +39,8 @@ export interface GetEnvironmentCommandOutput extends Environment, __MetadataBear
  * ```javascript
  * import { AppConfigClient, GetEnvironmentCommand } from "@aws-sdk/client-appconfig"; // ES Modules import
  * // const { AppConfigClient, GetEnvironmentCommand } = require("@aws-sdk/client-appconfig"); // CommonJS import
+ * // import type { AppConfigClientConfig } from "@aws-sdk/client-appconfig";
+ * const config = {}; // type is AppConfigClientConfig
  * const client = new AppConfigClient(config);
  * const input = { // GetEnvironmentRequest
  *   ApplicationId: "STRING_VALUE", // required

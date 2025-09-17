@@ -37,6 +37,8 @@ export interface PutBackupVaultNotificationsCommandOutput extends __MetadataBear
  * ```javascript
  * import { BackupClient, PutBackupVaultNotificationsCommand } from "@aws-sdk/client-backup"; // ES Modules import
  * // const { BackupClient, PutBackupVaultNotificationsCommand } = require("@aws-sdk/client-backup"); // CommonJS import
+ * // import type { BackupClientConfig } from "@aws-sdk/client-backup";
+ * const config = {}; // type is BackupClientConfig
  * const client = new BackupClient(config);
  * const input = { // PutBackupVaultNotificationsInput
  *   BackupVaultName: "STRING_VALUE", // required

@@ -34,6 +34,8 @@ export interface CreateAuthenticationProfileCommandOutput extends CreateAuthenti
  * ```javascript
  * import { RedshiftClient, CreateAuthenticationProfileCommand } from "@aws-sdk/client-redshift"; // ES Modules import
  * // const { RedshiftClient, CreateAuthenticationProfileCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
+ * // import type { RedshiftClientConfig } from "@aws-sdk/client-redshift";
+ * const config = {}; // type is RedshiftClientConfig
  * const client = new RedshiftClient(config);
  * const input = { // CreateAuthenticationProfileMessage
  *   AuthenticationProfileName: "STRING_VALUE", // required

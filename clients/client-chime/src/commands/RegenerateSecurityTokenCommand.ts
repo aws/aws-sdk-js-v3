@@ -38,6 +38,8 @@ export interface RegenerateSecurityTokenCommandOutput extends RegenerateSecurity
  * ```javascript
  * import { ChimeClient, RegenerateSecurityTokenCommand } from "@aws-sdk/client-chime"; // ES Modules import
  * // const { ChimeClient, RegenerateSecurityTokenCommand } = require("@aws-sdk/client-chime"); // CommonJS import
+ * // import type { ChimeClientConfig } from "@aws-sdk/client-chime";
+ * const config = {}; // type is ChimeClientConfig
  * const client = new ChimeClient(config);
  * const input = { // RegenerateSecurityTokenRequest
  *   AccountId: "STRING_VALUE", // required

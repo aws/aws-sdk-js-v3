@@ -34,6 +34,8 @@ export interface ListDomainUnitsForParentCommandOutput extends ListDomainUnitsFo
  * ```javascript
  * import { DataZoneClient, ListDomainUnitsForParentCommand } from "@aws-sdk/client-datazone"; // ES Modules import
  * // const { DataZoneClient, ListDomainUnitsForParentCommand } = require("@aws-sdk/client-datazone"); // CommonJS import
+ * // import type { DataZoneClientConfig } from "@aws-sdk/client-datazone";
+ * const config = {}; // type is DataZoneClientConfig
  * const client = new DataZoneClient(config);
  * const input = { // ListDomainUnitsForParentInput
  *   domainIdentifier: "STRING_VALUE", // required

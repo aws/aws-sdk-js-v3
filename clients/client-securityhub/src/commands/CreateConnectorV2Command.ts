@@ -38,6 +38,8 @@ export interface CreateConnectorV2CommandOutput extends CreateConnectorV2Respons
  * ```javascript
  * import { SecurityHubClient, CreateConnectorV2Command } from "@aws-sdk/client-securityhub"; // ES Modules import
  * // const { SecurityHubClient, CreateConnectorV2Command } = require("@aws-sdk/client-securityhub"); // CommonJS import
+ * // import type { SecurityHubClientConfig } from "@aws-sdk/client-securityhub";
+ * const config = {}; // type is SecurityHubClientConfig
  * const client = new SecurityHubClient(config);
  * const input = { // CreateConnectorV2Request
  *   Name: "STRING_VALUE", // required

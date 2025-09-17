@@ -36,6 +36,8 @@ export interface DisableDirectoryDataAccessCommandOutput extends DisableDirector
  * ```javascript
  * import { DirectoryServiceClient, DisableDirectoryDataAccessCommand } from "@aws-sdk/client-directory-service"; // ES Modules import
  * // const { DirectoryServiceClient, DisableDirectoryDataAccessCommand } = require("@aws-sdk/client-directory-service"); // CommonJS import
+ * // import type { DirectoryServiceClientConfig } from "@aws-sdk/client-directory-service";
+ * const config = {}; // type is DirectoryServiceClientConfig
  * const client = new DirectoryServiceClient(config);
  * const input = { // DisableDirectoryDataAccessRequest
  *   DirectoryId: "STRING_VALUE", // required

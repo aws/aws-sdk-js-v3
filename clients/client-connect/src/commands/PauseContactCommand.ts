@@ -34,6 +34,8 @@ export interface PauseContactCommandOutput extends PauseContactResponse, __Metad
  * ```javascript
  * import { ConnectClient, PauseContactCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, PauseContactCommand } = require("@aws-sdk/client-connect"); // CommonJS import
+ * // import type { ConnectClientConfig } from "@aws-sdk/client-connect";
+ * const config = {}; // type is ConnectClientConfig
  * const client = new ConnectClient(config);
  * const input = { // PauseContactRequest
  *   ContactId: "STRING_VALUE", // required

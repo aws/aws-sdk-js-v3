@@ -34,6 +34,8 @@ export interface DeleteActivityCommandOutput extends DeleteActivityOutput, __Met
  * ```javascript
  * import { SFNClient, DeleteActivityCommand } from "@aws-sdk/client-sfn"; // ES Modules import
  * // const { SFNClient, DeleteActivityCommand } = require("@aws-sdk/client-sfn"); // CommonJS import
+ * // import type { SFNClientConfig } from "@aws-sdk/client-sfn";
+ * const config = {}; // type is SFNClientConfig
  * const client = new SFNClient(config);
  * const input = { // DeleteActivityInput
  *   activityArn: "STRING_VALUE", // required

@@ -46,6 +46,8 @@ export interface CreateLaunchConfigurationCommandOutput extends __MetadataBearer
  * ```javascript
  * import { AutoScalingClient, CreateLaunchConfigurationCommand } from "@aws-sdk/client-auto-scaling"; // ES Modules import
  * // const { AutoScalingClient, CreateLaunchConfigurationCommand } = require("@aws-sdk/client-auto-scaling"); // CommonJS import
+ * // import type { AutoScalingClientConfig } from "@aws-sdk/client-auto-scaling";
+ * const config = {}; // type is AutoScalingClientConfig
  * const client = new AutoScalingClient(config);
  * const input = { // CreateLaunchConfigurationType
  *   LaunchConfigurationName: "STRING_VALUE", // required

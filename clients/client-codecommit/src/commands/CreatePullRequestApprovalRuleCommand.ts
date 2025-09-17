@@ -39,6 +39,8 @@ export interface CreatePullRequestApprovalRuleCommandOutput
  * ```javascript
  * import { CodeCommitClient, CreatePullRequestApprovalRuleCommand } from "@aws-sdk/client-codecommit"; // ES Modules import
  * // const { CodeCommitClient, CreatePullRequestApprovalRuleCommand } = require("@aws-sdk/client-codecommit"); // CommonJS import
+ * // import type { CodeCommitClientConfig } from "@aws-sdk/client-codecommit";
+ * const config = {}; // type is CodeCommitClientConfig
  * const client = new CodeCommitClient(config);
  * const input = { // CreatePullRequestApprovalRuleInput
  *   pullRequestId: "STRING_VALUE", // required

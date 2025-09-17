@@ -56,6 +56,8 @@ export interface DescribeWhatIfForecastCommandOutput extends DescribeWhatIfForec
  * ```javascript
  * import { ForecastClient, DescribeWhatIfForecastCommand } from "@aws-sdk/client-forecast"; // ES Modules import
  * // const { ForecastClient, DescribeWhatIfForecastCommand } = require("@aws-sdk/client-forecast"); // CommonJS import
+ * // import type { ForecastClientConfig } from "@aws-sdk/client-forecast";
+ * const config = {}; // type is ForecastClientConfig
  * const client = new ForecastClient(config);
  * const input = { // DescribeWhatIfForecastRequest
  *   WhatIfForecastArn: "STRING_VALUE", // required

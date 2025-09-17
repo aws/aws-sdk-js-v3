@@ -34,6 +34,8 @@ export interface ListApplicationInstancesCommandOutput extends ListApplicationIn
  * ```javascript
  * import { PanoramaClient, ListApplicationInstancesCommand } from "@aws-sdk/client-panorama"; // ES Modules import
  * // const { PanoramaClient, ListApplicationInstancesCommand } = require("@aws-sdk/client-panorama"); // CommonJS import
+ * // import type { PanoramaClientConfig } from "@aws-sdk/client-panorama";
+ * const config = {}; // type is PanoramaClientConfig
  * const client = new PanoramaClient(config);
  * const input = { // ListApplicationInstancesRequest
  *   DeviceId: "STRING_VALUE",

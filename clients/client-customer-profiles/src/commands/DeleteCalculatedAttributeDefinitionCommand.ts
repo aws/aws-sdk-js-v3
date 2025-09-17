@@ -45,6 +45,8 @@ export interface DeleteCalculatedAttributeDefinitionCommandOutput
  * ```javascript
  * import { CustomerProfilesClient, DeleteCalculatedAttributeDefinitionCommand } from "@aws-sdk/client-customer-profiles"; // ES Modules import
  * // const { CustomerProfilesClient, DeleteCalculatedAttributeDefinitionCommand } = require("@aws-sdk/client-customer-profiles"); // CommonJS import
+ * // import type { CustomerProfilesClientConfig } from "@aws-sdk/client-customer-profiles";
+ * const config = {}; // type is CustomerProfilesClientConfig
  * const client = new CustomerProfilesClient(config);
  * const input = { // DeleteCalculatedAttributeDefinitionRequest
  *   DomainName: "STRING_VALUE", // required

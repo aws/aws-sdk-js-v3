@@ -34,6 +34,8 @@ export interface GetRegistryCatalogDataCommandOutput extends GetRegistryCatalogD
  * ```javascript
  * import { ECRPUBLICClient, GetRegistryCatalogDataCommand } from "@aws-sdk/client-ecr-public"; // ES Modules import
  * // const { ECRPUBLICClient, GetRegistryCatalogDataCommand } = require("@aws-sdk/client-ecr-public"); // CommonJS import
+ * // import type { ECRPUBLICClientConfig } from "@aws-sdk/client-ecr-public";
+ * const config = {}; // type is ECRPUBLICClientConfig
  * const client = new ECRPUBLICClient(config);
  * const input = {};
  * const command = new GetRegistryCatalogDataCommand(input);

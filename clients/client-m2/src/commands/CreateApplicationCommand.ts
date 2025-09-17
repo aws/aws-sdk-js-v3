@@ -35,6 +35,8 @@ export interface CreateApplicationCommandOutput extends CreateApplicationRespons
  * ```javascript
  * import { M2Client, CreateApplicationCommand } from "@aws-sdk/client-m2"; // ES Modules import
  * // const { M2Client, CreateApplicationCommand } = require("@aws-sdk/client-m2"); // CommonJS import
+ * // import type { M2ClientConfig } from "@aws-sdk/client-m2";
+ * const config = {}; // type is M2ClientConfig
  * const client = new M2Client(config);
  * const input = { // CreateApplicationRequest
  *   name: "STRING_VALUE", // required

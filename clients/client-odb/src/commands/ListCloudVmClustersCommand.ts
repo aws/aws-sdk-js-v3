@@ -38,6 +38,8 @@ export interface ListCloudVmClustersCommandOutput extends ListCloudVmClustersOut
  * ```javascript
  * import { OdbClient, ListCloudVmClustersCommand } from "@aws-sdk/client-odb"; // ES Modules import
  * // const { OdbClient, ListCloudVmClustersCommand } = require("@aws-sdk/client-odb"); // CommonJS import
+ * // import type { OdbClientConfig } from "@aws-sdk/client-odb";
+ * const config = {}; // type is OdbClientConfig
  * const client = new OdbClient(config);
  * const input = { // ListCloudVmClustersInput
  *   maxResults: Number("int"),

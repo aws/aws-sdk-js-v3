@@ -35,6 +35,8 @@ export interface DescribeSessionsCommandOutput extends DescribeSessionsResponse,
  * ```javascript
  * import { SSMClient, DescribeSessionsCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, DescribeSessionsCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
+ * // import type { SSMClientConfig } from "@aws-sdk/client-ssm";
+ * const config = {}; // type is SSMClientConfig
  * const client = new SSMClient(config);
  * const input = { // DescribeSessionsRequest
  *   State: "Active" || "History", // required

@@ -34,6 +34,8 @@ export interface DatetimeOffsetsCommandOutput extends DatetimeOffsetsOutput, __M
  * ```javascript
  * import { JsonProtocolClient, DatetimeOffsetsCommand } from "@aws-sdk/aws-protocoltests-json-schema"; // ES Modules import
  * // const { JsonProtocolClient, DatetimeOffsetsCommand } = require("@aws-sdk/aws-protocoltests-json-schema"); // CommonJS import
+ * // import type { JsonProtocolClientConfig } from "@aws-sdk/aws-protocoltests-json-schema";
+ * const config = {}; // type is JsonProtocolClientConfig
  * const client = new JsonProtocolClient(config);
  * const input = {};
  * const command = new DatetimeOffsetsCommand(input);

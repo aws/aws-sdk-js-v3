@@ -34,6 +34,8 @@ export interface GetMilestoneCommandOutput extends GetMilestoneOutput, __Metadat
  * ```javascript
  * import { WellArchitectedClient, GetMilestoneCommand } from "@aws-sdk/client-wellarchitected"; // ES Modules import
  * // const { WellArchitectedClient, GetMilestoneCommand } = require("@aws-sdk/client-wellarchitected"); // CommonJS import
+ * // import type { WellArchitectedClientConfig } from "@aws-sdk/client-wellarchitected";
+ * const config = {}; // type is WellArchitectedClientConfig
  * const client = new WellArchitectedClient(config);
  * const input = { // GetMilestoneInput
  *   WorkloadId: "STRING_VALUE", // required

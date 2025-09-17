@@ -47,6 +47,8 @@ export interface ListEndpointsCommandOutput extends ListEndpointsResult, __Metad
  * ```javascript
  * import { S3OutpostsClient, ListEndpointsCommand } from "@aws-sdk/client-s3outposts"; // ES Modules import
  * // const { S3OutpostsClient, ListEndpointsCommand } = require("@aws-sdk/client-s3outposts"); // CommonJS import
+ * // import type { S3OutpostsClientConfig } from "@aws-sdk/client-s3outposts";
+ * const config = {}; // type is S3OutpostsClientConfig
  * const client = new S3OutpostsClient(config);
  * const input = { // ListEndpointsRequest
  *   NextToken: "STRING_VALUE",

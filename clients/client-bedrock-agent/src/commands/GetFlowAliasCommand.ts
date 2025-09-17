@@ -34,6 +34,8 @@ export interface GetFlowAliasCommandOutput extends GetFlowAliasResponse, __Metad
  * ```javascript
  * import { BedrockAgentClient, GetFlowAliasCommand } from "@aws-sdk/client-bedrock-agent"; // ES Modules import
  * // const { BedrockAgentClient, GetFlowAliasCommand } = require("@aws-sdk/client-bedrock-agent"); // CommonJS import
+ * // import type { BedrockAgentClientConfig } from "@aws-sdk/client-bedrock-agent";
+ * const config = {}; // type is BedrockAgentClientConfig
  * const client = new BedrockAgentClient(config);
  * const input = { // GetFlowAliasRequest
  *   flowIdentifier: "STRING_VALUE", // required

@@ -38,6 +38,8 @@ export interface UpdatePolicyCommandOutput extends UpdatePolicyResponse, __Metad
  * ```javascript
  * import { OrganizationsClient, UpdatePolicyCommand } from "@aws-sdk/client-organizations"; // ES Modules import
  * // const { OrganizationsClient, UpdatePolicyCommand } = require("@aws-sdk/client-organizations"); // CommonJS import
+ * // import type { OrganizationsClientConfig } from "@aws-sdk/client-organizations";
+ * const config = {}; // type is OrganizationsClientConfig
  * const client = new OrganizationsClient(config);
  * const input = { // UpdatePolicyRequest
  *   PolicyId: "STRING_VALUE", // required

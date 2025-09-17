@@ -37,6 +37,8 @@ export interface RegisterCACertificateCommandOutput extends RegisterCACertificat
  * ```javascript
  * import { IoTClient, RegisterCACertificateCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, RegisterCACertificateCommand } = require("@aws-sdk/client-iot"); // CommonJS import
+ * // import type { IoTClientConfig } from "@aws-sdk/client-iot";
+ * const config = {}; // type is IoTClientConfig
  * const client = new IoTClient(config);
  * const input = { // RegisterCACertificateRequest
  *   caCertificate: "STRING_VALUE", // required

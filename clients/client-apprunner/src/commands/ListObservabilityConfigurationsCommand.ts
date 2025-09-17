@@ -43,6 +43,8 @@ export interface ListObservabilityConfigurationsCommandOutput
  * ```javascript
  * import { AppRunnerClient, ListObservabilityConfigurationsCommand } from "@aws-sdk/client-apprunner"; // ES Modules import
  * // const { AppRunnerClient, ListObservabilityConfigurationsCommand } = require("@aws-sdk/client-apprunner"); // CommonJS import
+ * // import type { AppRunnerClientConfig } from "@aws-sdk/client-apprunner";
+ * const config = {}; // type is AppRunnerClientConfig
  * const client = new AppRunnerClient(config);
  * const input = { // ListObservabilityConfigurationsRequest
  *   ObservabilityConfigurationName: "STRING_VALUE",

@@ -36,6 +36,8 @@ export interface ListCertificateProvidersCommandOutput extends ListCertificatePr
  * ```javascript
  * import { IoTClient, ListCertificateProvidersCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, ListCertificateProvidersCommand } = require("@aws-sdk/client-iot"); // CommonJS import
+ * // import type { IoTClientConfig } from "@aws-sdk/client-iot";
+ * const config = {}; // type is IoTClientConfig
  * const client = new IoTClient(config);
  * const input = { // ListCertificateProvidersRequest
  *   nextToken: "STRING_VALUE",

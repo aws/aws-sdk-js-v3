@@ -34,6 +34,8 @@ export interface ListQAppSessionDataCommandOutput extends ListQAppSessionDataOut
  * ```javascript
  * import { QAppsClient, ListQAppSessionDataCommand } from "@aws-sdk/client-qapps"; // ES Modules import
  * // const { QAppsClient, ListQAppSessionDataCommand } = require("@aws-sdk/client-qapps"); // CommonJS import
+ * // import type { QAppsClientConfig } from "@aws-sdk/client-qapps";
+ * const config = {}; // type is QAppsClientConfig
  * const client = new QAppsClient(config);
  * const input = { // ListQAppSessionDataInput
  *   instanceId: "STRING_VALUE", // required

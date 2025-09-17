@@ -42,6 +42,8 @@ export interface ListFlowExecutionEventsCommandOutput extends ListFlowExecutionE
  * ```javascript
  * import { BedrockAgentRuntimeClient, ListFlowExecutionEventsCommand } from "@aws-sdk/client-bedrock-agent-runtime"; // ES Modules import
  * // const { BedrockAgentRuntimeClient, ListFlowExecutionEventsCommand } = require("@aws-sdk/client-bedrock-agent-runtime"); // CommonJS import
+ * // import type { BedrockAgentRuntimeClientConfig } from "@aws-sdk/client-bedrock-agent-runtime";
+ * const config = {}; // type is BedrockAgentRuntimeClientConfig
  * const client = new BedrockAgentRuntimeClient(config);
  * const input = { // ListFlowExecutionEventsRequest
  *   flowIdentifier: "STRING_VALUE", // required

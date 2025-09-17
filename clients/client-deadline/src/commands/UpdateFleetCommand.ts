@@ -34,6 +34,8 @@ export interface UpdateFleetCommandOutput extends UpdateFleetResponse, __Metadat
  * ```javascript
  * import { DeadlineClient, UpdateFleetCommand } from "@aws-sdk/client-deadline"; // ES Modules import
  * // const { DeadlineClient, UpdateFleetCommand } = require("@aws-sdk/client-deadline"); // CommonJS import
+ * // import type { DeadlineClientConfig } from "@aws-sdk/client-deadline";
+ * const config = {}; // type is DeadlineClientConfig
  * const client = new DeadlineClient(config);
  * const input = { // UpdateFleetRequest
  *   clientToken: "STRING_VALUE",

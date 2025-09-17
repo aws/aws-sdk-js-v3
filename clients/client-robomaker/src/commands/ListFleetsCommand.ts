@@ -49,6 +49,8 @@ export interface ListFleetsCommandOutput extends ListFleetsResponse, __MetadataB
  * ```javascript
  * import { RoboMakerClient, ListFleetsCommand } from "@aws-sdk/client-robomaker"; // ES Modules import
  * // const { RoboMakerClient, ListFleetsCommand } = require("@aws-sdk/client-robomaker"); // CommonJS import
+ * // import type { RoboMakerClientConfig } from "@aws-sdk/client-robomaker";
+ * const config = {}; // type is RoboMakerClientConfig
  * const client = new RoboMakerClient(config);
  * const input = { // ListFleetsRequest
  *   nextToken: "STRING_VALUE",

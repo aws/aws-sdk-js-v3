@@ -36,6 +36,8 @@ export interface DescribeSessionsCommandOutput extends DescribeSessionsResult, _
  * ```javascript
  * import { AppStreamClient, DescribeSessionsCommand } from "@aws-sdk/client-appstream"; // ES Modules import
  * // const { AppStreamClient, DescribeSessionsCommand } = require("@aws-sdk/client-appstream"); // CommonJS import
+ * // import type { AppStreamClientConfig } from "@aws-sdk/client-appstream";
+ * const config = {}; // type is AppStreamClientConfig
  * const client = new AppStreamClient(config);
  * const input = { // DescribeSessionsRequest
  *   StackName: "STRING_VALUE", // required

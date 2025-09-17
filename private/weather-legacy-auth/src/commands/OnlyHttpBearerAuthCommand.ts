@@ -34,6 +34,8 @@ export interface OnlyHttpBearerAuthCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { WeatherClient, OnlyHttpBearerAuthCommand } from "@aws-sdk/weather-legacy-auth"; // ES Modules import
  * // const { WeatherClient, OnlyHttpBearerAuthCommand } = require("@aws-sdk/weather-legacy-auth"); // CommonJS import
+ * // import type { WeatherClientConfig } from "@aws-sdk/weather-legacy-auth";
+ * const config = {}; // type is WeatherClientConfig
  * const client = new WeatherClient(config);
  * const input = {};
  * const command = new OnlyHttpBearerAuthCommand(input);

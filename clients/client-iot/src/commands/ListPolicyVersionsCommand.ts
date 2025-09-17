@@ -36,6 +36,8 @@ export interface ListPolicyVersionsCommandOutput extends ListPolicyVersionsRespo
  * ```javascript
  * import { IoTClient, ListPolicyVersionsCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, ListPolicyVersionsCommand } = require("@aws-sdk/client-iot"); // CommonJS import
+ * // import type { IoTClientConfig } from "@aws-sdk/client-iot";
+ * const config = {}; // type is IoTClientConfig
  * const client = new IoTClient(config);
  * const input = { // ListPolicyVersionsRequest
  *   policyName: "STRING_VALUE", // required

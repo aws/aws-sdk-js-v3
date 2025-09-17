@@ -34,6 +34,8 @@ export interface DescribePipeCommandOutput extends DescribePipeResponse, __Metad
  * ```javascript
  * import { PipesClient, DescribePipeCommand } from "@aws-sdk/client-pipes"; // ES Modules import
  * // const { PipesClient, DescribePipeCommand } = require("@aws-sdk/client-pipes"); // CommonJS import
+ * // import type { PipesClientConfig } from "@aws-sdk/client-pipes";
+ * const config = {}; // type is PipesClientConfig
  * const client = new PipesClient(config);
  * const input = { // DescribePipeRequest
  *   Name: "STRING_VALUE", // required

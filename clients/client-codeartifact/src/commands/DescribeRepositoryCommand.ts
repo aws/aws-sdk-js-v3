@@ -37,6 +37,8 @@ export interface DescribeRepositoryCommandOutput extends DescribeRepositoryResul
  * ```javascript
  * import { CodeartifactClient, DescribeRepositoryCommand } from "@aws-sdk/client-codeartifact"; // ES Modules import
  * // const { CodeartifactClient, DescribeRepositoryCommand } = require("@aws-sdk/client-codeartifact"); // CommonJS import
+ * // import type { CodeartifactClientConfig } from "@aws-sdk/client-codeartifact";
+ * const config = {}; // type is CodeartifactClientConfig
  * const client = new CodeartifactClient(config);
  * const input = { // DescribeRepositoryRequest
  *   domain: "STRING_VALUE", // required

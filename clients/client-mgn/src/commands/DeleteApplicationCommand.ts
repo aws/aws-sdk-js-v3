@@ -34,6 +34,8 @@ export interface DeleteApplicationCommandOutput extends DeleteApplicationRespons
  * ```javascript
  * import { MgnClient, DeleteApplicationCommand } from "@aws-sdk/client-mgn"; // ES Modules import
  * // const { MgnClient, DeleteApplicationCommand } = require("@aws-sdk/client-mgn"); // CommonJS import
+ * // import type { MgnClientConfig } from "@aws-sdk/client-mgn";
+ * const config = {}; // type is MgnClientConfig
  * const client = new MgnClient(config);
  * const input = { // DeleteApplicationRequest
  *   applicationID: "STRING_VALUE", // required

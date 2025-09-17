@@ -34,6 +34,8 @@ export interface GetResourceLFTagsCommandOutput extends GetResourceLFTagsRespons
  * ```javascript
  * import { LakeFormationClient, GetResourceLFTagsCommand } from "@aws-sdk/client-lakeformation"; // ES Modules import
  * // const { LakeFormationClient, GetResourceLFTagsCommand } = require("@aws-sdk/client-lakeformation"); // CommonJS import
+ * // import type { LakeFormationClientConfig } from "@aws-sdk/client-lakeformation";
+ * const config = {}; // type is LakeFormationClientConfig
  * const client = new LakeFormationClient(config);
  * const input = { // GetResourceLFTagsRequest
  *   CatalogId: "STRING_VALUE",

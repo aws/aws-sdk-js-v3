@@ -41,6 +41,8 @@ export interface ReloadReplicationTablesCommandOutput extends ReloadReplicationT
  * ```javascript
  * import { DatabaseMigrationServiceClient, ReloadReplicationTablesCommand } from "@aws-sdk/client-database-migration-service"; // ES Modules import
  * // const { DatabaseMigrationServiceClient, ReloadReplicationTablesCommand } = require("@aws-sdk/client-database-migration-service"); // CommonJS import
+ * // import type { DatabaseMigrationServiceClientConfig } from "@aws-sdk/client-database-migration-service";
+ * const config = {}; // type is DatabaseMigrationServiceClientConfig
  * const client = new DatabaseMigrationServiceClient(config);
  * const input = { // ReloadReplicationTablesMessage
  *   ReplicationConfigArn: "STRING_VALUE", // required

@@ -34,6 +34,8 @@ export interface GetQueryCommandOutput extends GetQueryOutput, __MetadataBearer 
  * ```javascript
  * import { NeptuneGraphClient, GetQueryCommand } from "@aws-sdk/client-neptune-graph"; // ES Modules import
  * // const { NeptuneGraphClient, GetQueryCommand } = require("@aws-sdk/client-neptune-graph"); // CommonJS import
+ * // import type { NeptuneGraphClientConfig } from "@aws-sdk/client-neptune-graph";
+ * const config = {}; // type is NeptuneGraphClientConfig
  * const client = new NeptuneGraphClient(config);
  * const input = { // GetQueryInput
  *   graphIdentifier: "STRING_VALUE", // required

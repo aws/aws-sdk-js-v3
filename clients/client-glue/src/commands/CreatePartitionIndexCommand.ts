@@ -34,6 +34,8 @@ export interface CreatePartitionIndexCommandOutput extends CreatePartitionIndexR
  * ```javascript
  * import { GlueClient, CreatePartitionIndexCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, CreatePartitionIndexCommand } = require("@aws-sdk/client-glue"); // CommonJS import
+ * // import type { GlueClientConfig } from "@aws-sdk/client-glue";
+ * const config = {}; // type is GlueClientConfig
  * const client = new GlueClient(config);
  * const input = { // CreatePartitionIndexRequest
  *   CatalogId: "STRING_VALUE",

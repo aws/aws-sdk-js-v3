@@ -39,6 +39,8 @@ export interface CreateDataSourceCommandOutput extends CreateDataSourceOutput, _
  * ```javascript
  * import { DataZoneClient, CreateDataSourceCommand } from "@aws-sdk/client-datazone"; // ES Modules import
  * // const { DataZoneClient, CreateDataSourceCommand } = require("@aws-sdk/client-datazone"); // CommonJS import
+ * // import type { DataZoneClientConfig } from "@aws-sdk/client-datazone";
+ * const config = {}; // type is DataZoneClientConfig
  * const client = new DataZoneClient(config);
  * const input = { // CreateDataSourceInput
  *   name: "STRING_VALUE", // required

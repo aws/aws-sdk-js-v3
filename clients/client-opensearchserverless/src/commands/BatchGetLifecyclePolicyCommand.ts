@@ -38,6 +38,8 @@ export interface BatchGetLifecyclePolicyCommandOutput extends BatchGetLifecycleP
  * ```javascript
  * import { OpenSearchServerlessClient, BatchGetLifecyclePolicyCommand } from "@aws-sdk/client-opensearchserverless"; // ES Modules import
  * // const { OpenSearchServerlessClient, BatchGetLifecyclePolicyCommand } = require("@aws-sdk/client-opensearchserverless"); // CommonJS import
+ * // import type { OpenSearchServerlessClientConfig } from "@aws-sdk/client-opensearchserverless";
+ * const config = {}; // type is OpenSearchServerlessClientConfig
  * const client = new OpenSearchServerlessClient(config);
  * const input = { // BatchGetLifecyclePolicyRequest
  *   identifiers: [ // LifecyclePolicyIdentifiers // required

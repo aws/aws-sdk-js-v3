@@ -34,6 +34,8 @@ export interface ListManagedSchemaArnsCommandOutput extends ListManagedSchemaArn
  * ```javascript
  * import { CloudDirectoryClient, ListManagedSchemaArnsCommand } from "@aws-sdk/client-clouddirectory"; // ES Modules import
  * // const { CloudDirectoryClient, ListManagedSchemaArnsCommand } = require("@aws-sdk/client-clouddirectory"); // CommonJS import
+ * // import type { CloudDirectoryClientConfig } from "@aws-sdk/client-clouddirectory";
+ * const config = {}; // type is CloudDirectoryClientConfig
  * const client = new CloudDirectoryClient(config);
  * const input = { // ListManagedSchemaArnsRequest
  *   SchemaArn: "STRING_VALUE",

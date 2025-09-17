@@ -34,6 +34,8 @@ export interface StartImportTaskCommandOutput extends StartImportTaskOutput, __M
  * ```javascript
  * import { NeptuneGraphClient, StartImportTaskCommand } from "@aws-sdk/client-neptune-graph"; // ES Modules import
  * // const { NeptuneGraphClient, StartImportTaskCommand } = require("@aws-sdk/client-neptune-graph"); // CommonJS import
+ * // import type { NeptuneGraphClientConfig } from "@aws-sdk/client-neptune-graph";
+ * const config = {}; // type is NeptuneGraphClientConfig
  * const client = new NeptuneGraphClient(config);
  * const input = { // StartImportTaskInput
  *   importOptions: { // ImportOptions Union: only one key present

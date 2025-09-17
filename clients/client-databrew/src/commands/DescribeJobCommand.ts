@@ -34,6 +34,8 @@ export interface DescribeJobCommandOutput extends DescribeJobResponse, __Metadat
  * ```javascript
  * import { DataBrewClient, DescribeJobCommand } from "@aws-sdk/client-databrew"; // ES Modules import
  * // const { DataBrewClient, DescribeJobCommand } = require("@aws-sdk/client-databrew"); // CommonJS import
+ * // import type { DataBrewClientConfig } from "@aws-sdk/client-databrew";
+ * const config = {}; // type is DataBrewClientConfig
  * const client = new DataBrewClient(config);
  * const input = { // DescribeJobRequest
  *   Name: "STRING_VALUE", // required

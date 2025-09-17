@@ -34,6 +34,8 @@ export interface DisassociateQAppFromUserCommandOutput extends __MetadataBearer 
  * ```javascript
  * import { QAppsClient, DisassociateQAppFromUserCommand } from "@aws-sdk/client-qapps"; // ES Modules import
  * // const { QAppsClient, DisassociateQAppFromUserCommand } = require("@aws-sdk/client-qapps"); // CommonJS import
+ * // import type { QAppsClientConfig } from "@aws-sdk/client-qapps";
+ * const config = {}; // type is QAppsClientConfig
  * const client = new QAppsClient(config);
  * const input = { // DisassociateQAppFromUserInput
  *   instanceId: "STRING_VALUE", // required

@@ -43,6 +43,8 @@ export interface CancelAutomatedReasoningPolicyBuildWorkflowCommandOutput
  * ```javascript
  * import { BedrockClient, CancelAutomatedReasoningPolicyBuildWorkflowCommand } from "@aws-sdk/client-bedrock"; // ES Modules import
  * // const { BedrockClient, CancelAutomatedReasoningPolicyBuildWorkflowCommand } = require("@aws-sdk/client-bedrock"); // CommonJS import
+ * // import type { BedrockClientConfig } from "@aws-sdk/client-bedrock";
+ * const config = {}; // type is BedrockClientConfig
  * const client = new BedrockClient(config);
  * const input = { // CancelAutomatedReasoningPolicyBuildWorkflowRequest
  *   policyArn: "STRING_VALUE", // required

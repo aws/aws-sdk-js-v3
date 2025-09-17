@@ -34,6 +34,8 @@ export interface CreateKeyValueStoreCommandOutput extends CreateKeyValueStoreRes
  * ```javascript
  * import { CloudFrontClient, CreateKeyValueStoreCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
  * // const { CloudFrontClient, CreateKeyValueStoreCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
+ * // import type { CloudFrontClientConfig } from "@aws-sdk/client-cloudfront";
+ * const config = {}; // type is CloudFrontClientConfig
  * const client = new CloudFrontClient(config);
  * const input = { // CreateKeyValueStoreRequest
  *   Name: "STRING_VALUE", // required

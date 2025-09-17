@@ -35,6 +35,8 @@ export interface CreateDomainCommandOutput extends CreateDomainResponse, __Metad
  * ```javascript
  * import { CloudSearchClient, CreateDomainCommand } from "@aws-sdk/client-cloudsearch"; // ES Modules import
  * // const { CloudSearchClient, CreateDomainCommand } = require("@aws-sdk/client-cloudsearch"); // CommonJS import
+ * // import type { CloudSearchClientConfig } from "@aws-sdk/client-cloudsearch";
+ * const config = {}; // type is CloudSearchClientConfig
  * const client = new CloudSearchClient(config);
  * const input = { // CreateDomainRequest
  *   DomainName: "STRING_VALUE", // required

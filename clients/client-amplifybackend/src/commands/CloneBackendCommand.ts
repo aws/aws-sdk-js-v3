@@ -34,6 +34,8 @@ export interface CloneBackendCommandOutput extends CloneBackendResponse, __Metad
  * ```javascript
  * import { AmplifyBackendClient, CloneBackendCommand } from "@aws-sdk/client-amplifybackend"; // ES Modules import
  * // const { AmplifyBackendClient, CloneBackendCommand } = require("@aws-sdk/client-amplifybackend"); // CommonJS import
+ * // import type { AmplifyBackendClientConfig } from "@aws-sdk/client-amplifybackend";
+ * const config = {}; // type is AmplifyBackendClientConfig
  * const client = new AmplifyBackendClient(config);
  * const input = { // CloneBackendRequest
  *   AppId: "STRING_VALUE", // required

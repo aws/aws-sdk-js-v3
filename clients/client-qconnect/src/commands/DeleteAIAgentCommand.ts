@@ -34,6 +34,8 @@ export interface DeleteAIAgentCommandOutput extends DeleteAIAgentResponse, __Met
  * ```javascript
  * import { QConnectClient, DeleteAIAgentCommand } from "@aws-sdk/client-qconnect"; // ES Modules import
  * // const { QConnectClient, DeleteAIAgentCommand } = require("@aws-sdk/client-qconnect"); // CommonJS import
+ * // import type { QConnectClientConfig } from "@aws-sdk/client-qconnect";
+ * const config = {}; // type is QConnectClientConfig
  * const client = new QConnectClient(config);
  * const input = { // DeleteAIAgentRequest
  *   assistantId: "STRING_VALUE", // required

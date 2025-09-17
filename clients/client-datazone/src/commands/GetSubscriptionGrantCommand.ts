@@ -34,6 +34,8 @@ export interface GetSubscriptionGrantCommandOutput extends GetSubscriptionGrantO
  * ```javascript
  * import { DataZoneClient, GetSubscriptionGrantCommand } from "@aws-sdk/client-datazone"; // ES Modules import
  * // const { DataZoneClient, GetSubscriptionGrantCommand } = require("@aws-sdk/client-datazone"); // CommonJS import
+ * // import type { DataZoneClientConfig } from "@aws-sdk/client-datazone";
+ * const config = {}; // type is DataZoneClientConfig
  * const client = new DataZoneClient(config);
  * const input = { // GetSubscriptionGrantInput
  *   domainIdentifier: "STRING_VALUE", // required

@@ -34,6 +34,8 @@ export interface GetApisCommandOutput extends GetApisResponse, __MetadataBearer 
  * ```javascript
  * import { ApiGatewayV2Client, GetApisCommand } from "@aws-sdk/client-apigatewayv2"; // ES Modules import
  * // const { ApiGatewayV2Client, GetApisCommand } = require("@aws-sdk/client-apigatewayv2"); // CommonJS import
+ * // import type { ApiGatewayV2ClientConfig } from "@aws-sdk/client-apigatewayv2";
+ * const config = {}; // type is ApiGatewayV2ClientConfig
  * const client = new ApiGatewayV2Client(config);
  * const input = { // GetApisRequest
  *   MaxResults: "STRING_VALUE",

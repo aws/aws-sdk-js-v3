@@ -45,6 +45,8 @@ export interface DeleteSnapshotScheduleCommandOutput extends DeleteSnapshotSched
  * ```javascript
  * import { StorageGatewayClient, DeleteSnapshotScheduleCommand } from "@aws-sdk/client-storage-gateway"; // ES Modules import
  * // const { StorageGatewayClient, DeleteSnapshotScheduleCommand } = require("@aws-sdk/client-storage-gateway"); // CommonJS import
+ * // import type { StorageGatewayClientConfig } from "@aws-sdk/client-storage-gateway";
+ * const config = {}; // type is StorageGatewayClientConfig
  * const client = new StorageGatewayClient(config);
  * const input = { // DeleteSnapshotScheduleInput
  *   VolumeARN: "STRING_VALUE", // required

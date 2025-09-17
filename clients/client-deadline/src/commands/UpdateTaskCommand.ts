@@ -34,6 +34,8 @@ export interface UpdateTaskCommandOutput extends UpdateTaskResponse, __MetadataB
  * ```javascript
  * import { DeadlineClient, UpdateTaskCommand } from "@aws-sdk/client-deadline"; // ES Modules import
  * // const { DeadlineClient, UpdateTaskCommand } = require("@aws-sdk/client-deadline"); // CommonJS import
+ * // import type { DeadlineClientConfig } from "@aws-sdk/client-deadline";
+ * const config = {}; // type is DeadlineClientConfig
  * const client = new DeadlineClient(config);
  * const input = { // UpdateTaskRequest
  *   clientToken: "STRING_VALUE",

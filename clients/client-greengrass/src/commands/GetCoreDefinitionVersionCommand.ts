@@ -34,6 +34,8 @@ export interface GetCoreDefinitionVersionCommandOutput extends GetCoreDefinition
  * ```javascript
  * import { GreengrassClient, GetCoreDefinitionVersionCommand } from "@aws-sdk/client-greengrass"; // ES Modules import
  * // const { GreengrassClient, GetCoreDefinitionVersionCommand } = require("@aws-sdk/client-greengrass"); // CommonJS import
+ * // import type { GreengrassClientConfig } from "@aws-sdk/client-greengrass";
+ * const config = {}; // type is GreengrassClientConfig
  * const client = new GreengrassClient(config);
  * const input = { // GetCoreDefinitionVersionRequest
  *   CoreDefinitionId: "STRING_VALUE", // required

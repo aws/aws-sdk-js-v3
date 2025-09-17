@@ -34,6 +34,8 @@ export interface BatchGetBuildsCommandOutput extends BatchGetBuildsOutput, __Met
  * ```javascript
  * import { CodeBuildClient, BatchGetBuildsCommand } from "@aws-sdk/client-codebuild"; // ES Modules import
  * // const { CodeBuildClient, BatchGetBuildsCommand } = require("@aws-sdk/client-codebuild"); // CommonJS import
+ * // import type { CodeBuildClientConfig } from "@aws-sdk/client-codebuild";
+ * const config = {}; // type is CodeBuildClientConfig
  * const client = new CodeBuildClient(config);
  * const input = { // BatchGetBuildsInput
  *   ids: [ // BuildIds // required

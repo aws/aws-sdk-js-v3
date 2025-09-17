@@ -34,6 +34,8 @@ export interface ListJobsCommandOutput extends ListJobsResponse, __MetadataBeare
  * ```javascript
  * import { DataExchangeClient, ListJobsCommand } from "@aws-sdk/client-dataexchange"; // ES Modules import
  * // const { DataExchangeClient, ListJobsCommand } = require("@aws-sdk/client-dataexchange"); // CommonJS import
+ * // import type { DataExchangeClientConfig } from "@aws-sdk/client-dataexchange";
+ * const config = {}; // type is DataExchangeClientConfig
  * const client = new DataExchangeClient(config);
  * const input = { // ListJobsRequest
  *   DataSetId: "STRING_VALUE",

@@ -34,6 +34,8 @@ export interface CreateSpaceCommandOutput extends CreateSpaceOutput, __MetadataB
  * ```javascript
  * import { RepostspaceClient, CreateSpaceCommand } from "@aws-sdk/client-repostspace"; // ES Modules import
  * // const { RepostspaceClient, CreateSpaceCommand } = require("@aws-sdk/client-repostspace"); // CommonJS import
+ * // import type { RepostspaceClientConfig } from "@aws-sdk/client-repostspace";
+ * const config = {}; // type is RepostspaceClientConfig
  * const client = new RepostspaceClient(config);
  * const input = { // CreateSpaceInput
  *   name: "STRING_VALUE", // required

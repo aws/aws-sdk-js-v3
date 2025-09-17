@@ -35,6 +35,8 @@ export interface GetLifecyclePolicyPreviewCommandOutput extends GetLifecyclePoli
  * ```javascript
  * import { ECRClient, GetLifecyclePolicyPreviewCommand } from "@aws-sdk/client-ecr"; // ES Modules import
  * // const { ECRClient, GetLifecyclePolicyPreviewCommand } = require("@aws-sdk/client-ecr"); // CommonJS import
+ * // import type { ECRClientConfig } from "@aws-sdk/client-ecr";
+ * const config = {}; // type is ECRClientConfig
  * const client = new ECRClient(config);
  * const input = { // GetLifecyclePolicyPreviewRequest
  *   registryId: "STRING_VALUE",

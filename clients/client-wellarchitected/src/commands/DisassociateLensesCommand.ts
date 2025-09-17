@@ -39,6 +39,8 @@ export interface DisassociateLensesCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { WellArchitectedClient, DisassociateLensesCommand } from "@aws-sdk/client-wellarchitected"; // ES Modules import
  * // const { WellArchitectedClient, DisassociateLensesCommand } = require("@aws-sdk/client-wellarchitected"); // CommonJS import
+ * // import type { WellArchitectedClientConfig } from "@aws-sdk/client-wellarchitected";
+ * const config = {}; // type is WellArchitectedClientConfig
  * const client = new WellArchitectedClient(config);
  * const input = { // DisassociateLensesInput
  *   WorkloadId: "STRING_VALUE", // required

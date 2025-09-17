@@ -34,6 +34,8 @@ export interface ListFleetsCommandOutput extends ListFleetsResponse, __MetadataB
  * ```javascript
  * import { DeadlineClient, ListFleetsCommand } from "@aws-sdk/client-deadline"; // ES Modules import
  * // const { DeadlineClient, ListFleetsCommand } = require("@aws-sdk/client-deadline"); // CommonJS import
+ * // import type { DeadlineClientConfig } from "@aws-sdk/client-deadline";
+ * const config = {}; // type is DeadlineClientConfig
  * const client = new DeadlineClient(config);
  * const input = { // ListFleetsRequest
  *   farmId: "STRING_VALUE", // required

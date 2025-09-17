@@ -57,6 +57,8 @@ export interface GetQueryStatusCommandOutput extends GetQueryStatusOutput, __Met
  * ```javascript
  * import { InternetMonitorClient, GetQueryStatusCommand } from "@aws-sdk/client-internetmonitor"; // ES Modules import
  * // const { InternetMonitorClient, GetQueryStatusCommand } = require("@aws-sdk/client-internetmonitor"); // CommonJS import
+ * // import type { InternetMonitorClientConfig } from "@aws-sdk/client-internetmonitor";
+ * const config = {}; // type is InternetMonitorClientConfig
  * const client = new InternetMonitorClient(config);
  * const input = { // GetQueryStatusInput
  *   MonitorName: "STRING_VALUE", // required

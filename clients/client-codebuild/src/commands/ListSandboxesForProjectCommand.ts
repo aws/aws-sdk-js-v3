@@ -38,6 +38,8 @@ export interface ListSandboxesForProjectCommandOutput extends ListSandboxesForPr
  * ```javascript
  * import { CodeBuildClient, ListSandboxesForProjectCommand } from "@aws-sdk/client-codebuild"; // ES Modules import
  * // const { CodeBuildClient, ListSandboxesForProjectCommand } = require("@aws-sdk/client-codebuild"); // CommonJS import
+ * // import type { CodeBuildClientConfig } from "@aws-sdk/client-codebuild";
+ * const config = {}; // type is CodeBuildClientConfig
  * const client = new CodeBuildClient(config);
  * const input = { // ListSandboxesForProjectInput
  *   projectName: "STRING_VALUE", // required

@@ -39,6 +39,8 @@ export interface CreateProjectCommandOutput extends CreateProjectOutput, __Metad
  * ```javascript
  * import { DataZoneClient, CreateProjectCommand } from "@aws-sdk/client-datazone"; // ES Modules import
  * // const { DataZoneClient, CreateProjectCommand } = require("@aws-sdk/client-datazone"); // CommonJS import
+ * // import type { DataZoneClientConfig } from "@aws-sdk/client-datazone";
+ * const config = {}; // type is DataZoneClientConfig
  * const client = new DataZoneClient(config);
  * const input = { // CreateProjectInput
  *   domainIdentifier: "STRING_VALUE", // required

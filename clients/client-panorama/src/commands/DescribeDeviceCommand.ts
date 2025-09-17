@@ -34,6 +34,8 @@ export interface DescribeDeviceCommandOutput extends DescribeDeviceResponse, __M
  * ```javascript
  * import { PanoramaClient, DescribeDeviceCommand } from "@aws-sdk/client-panorama"; // ES Modules import
  * // const { PanoramaClient, DescribeDeviceCommand } = require("@aws-sdk/client-panorama"); // CommonJS import
+ * // import type { PanoramaClientConfig } from "@aws-sdk/client-panorama";
+ * const config = {}; // type is PanoramaClientConfig
  * const client = new PanoramaClient(config);
  * const input = { // DescribeDeviceRequest
  *   DeviceId: "STRING_VALUE", // required

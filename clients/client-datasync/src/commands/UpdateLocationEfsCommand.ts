@@ -37,6 +37,8 @@ export interface UpdateLocationEfsCommandOutput extends UpdateLocationEfsRespons
  * ```javascript
  * import { DataSyncClient, UpdateLocationEfsCommand } from "@aws-sdk/client-datasync"; // ES Modules import
  * // const { DataSyncClient, UpdateLocationEfsCommand } = require("@aws-sdk/client-datasync"); // CommonJS import
+ * // import type { DataSyncClientConfig } from "@aws-sdk/client-datasync";
+ * const config = {}; // type is DataSyncClientConfig
  * const client = new DataSyncClient(config);
  * const input = { // UpdateLocationEfsRequest
  *   LocationArn: "STRING_VALUE", // required

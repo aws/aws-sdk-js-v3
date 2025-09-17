@@ -34,6 +34,8 @@ export interface ListSharedProjectsCommandOutput extends ListSharedProjectsOutpu
  * ```javascript
  * import { CodeBuildClient, ListSharedProjectsCommand } from "@aws-sdk/client-codebuild"; // ES Modules import
  * // const { CodeBuildClient, ListSharedProjectsCommand } = require("@aws-sdk/client-codebuild"); // CommonJS import
+ * // import type { CodeBuildClientConfig } from "@aws-sdk/client-codebuild";
+ * const config = {}; // type is CodeBuildClientConfig
  * const client = new CodeBuildClient(config);
  * const input = { // ListSharedProjectsInput
  *   sortBy: "ARN" || "MODIFIED_TIME",

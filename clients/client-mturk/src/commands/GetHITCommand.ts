@@ -36,6 +36,8 @@ export interface GetHITCommandOutput extends GetHITResponse, __MetadataBearer {}
  * ```javascript
  * import { MTurkClient, GetHITCommand } from "@aws-sdk/client-mturk"; // ES Modules import
  * // const { MTurkClient, GetHITCommand } = require("@aws-sdk/client-mturk"); // CommonJS import
+ * // import type { MTurkClientConfig } from "@aws-sdk/client-mturk";
+ * const config = {}; // type is MTurkClientConfig
  * const client = new MTurkClient(config);
  * const input = { // GetHITRequest
  *   HITId: "STRING_VALUE", // required

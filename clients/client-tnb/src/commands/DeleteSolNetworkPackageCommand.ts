@@ -37,6 +37,8 @@ export interface DeleteSolNetworkPackageCommandOutput extends __MetadataBearer {
  * ```javascript
  * import { TnbClient, DeleteSolNetworkPackageCommand } from "@aws-sdk/client-tnb"; // ES Modules import
  * // const { TnbClient, DeleteSolNetworkPackageCommand } = require("@aws-sdk/client-tnb"); // CommonJS import
+ * // import type { TnbClientConfig } from "@aws-sdk/client-tnb";
+ * const config = {}; // type is TnbClientConfig
  * const client = new TnbClient(config);
  * const input = { // DeleteSolNetworkPackageInput
  *   nsdInfoId: "STRING_VALUE", // required

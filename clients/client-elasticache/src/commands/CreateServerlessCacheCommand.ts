@@ -34,6 +34,8 @@ export interface CreateServerlessCacheCommandOutput extends CreateServerlessCach
  * ```javascript
  * import { ElastiCacheClient, CreateServerlessCacheCommand } from "@aws-sdk/client-elasticache"; // ES Modules import
  * // const { ElastiCacheClient, CreateServerlessCacheCommand } = require("@aws-sdk/client-elasticache"); // CommonJS import
+ * // import type { ElastiCacheClientConfig } from "@aws-sdk/client-elasticache";
+ * const config = {}; // type is ElastiCacheClientConfig
  * const client = new ElastiCacheClient(config);
  * const input = { // CreateServerlessCacheRequest
  *   ServerlessCacheName: "STRING_VALUE", // required

@@ -34,6 +34,8 @@ export interface GetArchiveRuleCommandOutput extends GetArchiveRuleResponse, __M
  * ```javascript
  * import { AccessAnalyzerClient, GetArchiveRuleCommand } from "@aws-sdk/client-accessanalyzer"; // ES Modules import
  * // const { AccessAnalyzerClient, GetArchiveRuleCommand } = require("@aws-sdk/client-accessanalyzer"); // CommonJS import
+ * // import type { AccessAnalyzerClientConfig } from "@aws-sdk/client-accessanalyzer";
+ * const config = {}; // type is AccessAnalyzerClientConfig
  * const client = new AccessAnalyzerClient(config);
  * const input = { // GetArchiveRuleRequest
  *   analyzerName: "STRING_VALUE", // required

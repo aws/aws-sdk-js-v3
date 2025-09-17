@@ -34,6 +34,8 @@ export interface ListPrivacyBudgetsCommandOutput extends ListPrivacyBudgetsOutpu
  * ```javascript
  * import { CleanRoomsClient, ListPrivacyBudgetsCommand } from "@aws-sdk/client-cleanrooms"; // ES Modules import
  * // const { CleanRoomsClient, ListPrivacyBudgetsCommand } = require("@aws-sdk/client-cleanrooms"); // CommonJS import
+ * // import type { CleanRoomsClientConfig } from "@aws-sdk/client-cleanrooms";
+ * const config = {}; // type is CleanRoomsClientConfig
  * const client = new CleanRoomsClient(config);
  * const input = { // ListPrivacyBudgetsInput
  *   membershipIdentifier: "STRING_VALUE", // required

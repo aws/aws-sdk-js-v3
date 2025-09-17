@@ -69,6 +69,8 @@ export interface PutRemediationConfigurationsCommandOutput
  * ```javascript
  * import { ConfigServiceClient, PutRemediationConfigurationsCommand } from "@aws-sdk/client-config-service"; // ES Modules import
  * // const { ConfigServiceClient, PutRemediationConfigurationsCommand } = require("@aws-sdk/client-config-service"); // CommonJS import
+ * // import type { ConfigServiceClientConfig } from "@aws-sdk/client-config-service";
+ * const config = {}; // type is ConfigServiceClientConfig
  * const client = new ConfigServiceClient(config);
  * const input = { // PutRemediationConfigurationsRequest
  *   RemediationConfigurations: [ // RemediationConfigurations // required

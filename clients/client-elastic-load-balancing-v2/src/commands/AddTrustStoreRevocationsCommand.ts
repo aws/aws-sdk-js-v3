@@ -38,6 +38,8 @@ export interface AddTrustStoreRevocationsCommandOutput extends AddTrustStoreRevo
  * ```javascript
  * import { ElasticLoadBalancingV2Client, AddTrustStoreRevocationsCommand } from "@aws-sdk/client-elastic-load-balancing-v2"; // ES Modules import
  * // const { ElasticLoadBalancingV2Client, AddTrustStoreRevocationsCommand } = require("@aws-sdk/client-elastic-load-balancing-v2"); // CommonJS import
+ * // import type { ElasticLoadBalancingV2ClientConfig } from "@aws-sdk/client-elastic-load-balancing-v2";
+ * const config = {}; // type is ElasticLoadBalancingV2ClientConfig
  * const client = new ElasticLoadBalancingV2Client(config);
  * const input = { // AddTrustStoreRevocationsInput
  *   TrustStoreArn: "STRING_VALUE", // required

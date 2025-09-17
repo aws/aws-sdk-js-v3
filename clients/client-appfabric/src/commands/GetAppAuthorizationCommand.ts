@@ -34,6 +34,8 @@ export interface GetAppAuthorizationCommandOutput extends GetAppAuthorizationRes
  * ```javascript
  * import { AppFabricClient, GetAppAuthorizationCommand } from "@aws-sdk/client-appfabric"; // ES Modules import
  * // const { AppFabricClient, GetAppAuthorizationCommand } = require("@aws-sdk/client-appfabric"); // CommonJS import
+ * // import type { AppFabricClientConfig } from "@aws-sdk/client-appfabric";
+ * const config = {}; // type is AppFabricClientConfig
  * const client = new AppFabricClient(config);
  * const input = { // GetAppAuthorizationRequest
  *   appBundleIdentifier: "STRING_VALUE", // required

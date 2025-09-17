@@ -36,6 +36,8 @@ export interface CreateEntityRecognizerCommandOutput extends CreateEntityRecogni
  * ```javascript
  * import { ComprehendClient, CreateEntityRecognizerCommand } from "@aws-sdk/client-comprehend"; // ES Modules import
  * // const { ComprehendClient, CreateEntityRecognizerCommand } = require("@aws-sdk/client-comprehend"); // CommonJS import
+ * // import type { ComprehendClientConfig } from "@aws-sdk/client-comprehend";
+ * const config = {}; // type is ComprehendClientConfig
  * const client = new ComprehendClient(config);
  * const input = { // CreateEntityRecognizerRequest
  *   RecognizerName: "STRING_VALUE", // required

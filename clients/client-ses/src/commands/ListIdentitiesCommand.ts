@@ -46,6 +46,8 @@ export interface ListIdentitiesCommandOutput extends ListIdentitiesResponse, __M
  * ```javascript
  * import { SESClient, ListIdentitiesCommand } from "@aws-sdk/client-ses"; // ES Modules import
  * // const { SESClient, ListIdentitiesCommand } = require("@aws-sdk/client-ses"); // CommonJS import
+ * // import type { SESClientConfig } from "@aws-sdk/client-ses";
+ * const config = {}; // type is SESClientConfig
  * const client = new SESClient(config);
  * const input = { // ListIdentitiesRequest
  *   IdentityType: "EmailAddress" || "Domain",

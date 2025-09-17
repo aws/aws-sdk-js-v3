@@ -38,6 +38,8 @@ export interface ListDocumentClassifiersCommandOutput extends ListDocumentClassi
  * ```javascript
  * import { ComprehendClient, ListDocumentClassifiersCommand } from "@aws-sdk/client-comprehend"; // ES Modules import
  * // const { ComprehendClient, ListDocumentClassifiersCommand } = require("@aws-sdk/client-comprehend"); // CommonJS import
+ * // import type { ComprehendClientConfig } from "@aws-sdk/client-comprehend";
+ * const config = {}; // type is ComprehendClientConfig
  * const client = new ComprehendClient(config);
  * const input = { // ListDocumentClassifiersRequest
  *   Filter: { // DocumentClassifierFilter

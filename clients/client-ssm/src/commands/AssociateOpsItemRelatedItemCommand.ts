@@ -38,6 +38,8 @@ export interface AssociateOpsItemRelatedItemCommandOutput
  * ```javascript
  * import { SSMClient, AssociateOpsItemRelatedItemCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, AssociateOpsItemRelatedItemCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
+ * // import type { SSMClientConfig } from "@aws-sdk/client-ssm";
+ * const config = {}; // type is SSMClientConfig
  * const client = new SSMClient(config);
  * const input = { // AssociateOpsItemRelatedItemRequest
  *   OpsItemId: "STRING_VALUE", // required

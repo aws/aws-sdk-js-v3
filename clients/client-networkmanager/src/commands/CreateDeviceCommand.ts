@@ -40,6 +40,8 @@ export interface CreateDeviceCommandOutput extends CreateDeviceResponse, __Metad
  * ```javascript
  * import { NetworkManagerClient, CreateDeviceCommand } from "@aws-sdk/client-networkmanager"; // ES Modules import
  * // const { NetworkManagerClient, CreateDeviceCommand } = require("@aws-sdk/client-networkmanager"); // CommonJS import
+ * // import type { NetworkManagerClientConfig } from "@aws-sdk/client-networkmanager";
+ * const config = {}; // type is NetworkManagerClientConfig
  * const client = new NetworkManagerClient(config);
  * const input = { // CreateDeviceRequest
  *   GlobalNetworkId: "STRING_VALUE", // required

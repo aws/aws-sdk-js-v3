@@ -37,6 +37,8 @@ export interface UpdateRegionSettingsCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { BackupClient, UpdateRegionSettingsCommand } from "@aws-sdk/client-backup"; // ES Modules import
  * // const { BackupClient, UpdateRegionSettingsCommand } = require("@aws-sdk/client-backup"); // CommonJS import
+ * // import type { BackupClientConfig } from "@aws-sdk/client-backup";
+ * const config = {}; // type is BackupClientConfig
  * const client = new BackupClient(config);
  * const input = { // UpdateRegionSettingsInput
  *   ResourceTypeOptInPreference: { // ResourceTypeOptInPreference

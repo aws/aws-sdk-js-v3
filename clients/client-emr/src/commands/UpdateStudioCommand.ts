@@ -35,6 +35,8 @@ export interface UpdateStudioCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { EMRClient, UpdateStudioCommand } from "@aws-sdk/client-emr"; // ES Modules import
  * // const { EMRClient, UpdateStudioCommand } = require("@aws-sdk/client-emr"); // CommonJS import
+ * // import type { EMRClientConfig } from "@aws-sdk/client-emr";
+ * const config = {}; // type is EMRClientConfig
  * const client = new EMRClient(config);
  * const input = { // UpdateStudioInput
  *   StudioId: "STRING_VALUE", // required

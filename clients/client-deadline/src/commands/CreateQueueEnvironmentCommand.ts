@@ -38,6 +38,8 @@ export interface CreateQueueEnvironmentCommandOutput extends CreateQueueEnvironm
  * ```javascript
  * import { DeadlineClient, CreateQueueEnvironmentCommand } from "@aws-sdk/client-deadline"; // ES Modules import
  * // const { DeadlineClient, CreateQueueEnvironmentCommand } = require("@aws-sdk/client-deadline"); // CommonJS import
+ * // import type { DeadlineClientConfig } from "@aws-sdk/client-deadline";
+ * const config = {}; // type is DeadlineClientConfig
  * const client = new DeadlineClient(config);
  * const input = { // CreateQueueEnvironmentRequest
  *   clientToken: "STRING_VALUE",

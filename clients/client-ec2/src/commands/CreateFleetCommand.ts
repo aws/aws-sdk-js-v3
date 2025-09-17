@@ -38,6 +38,8 @@ export interface CreateFleetCommandOutput extends CreateFleetResult, __MetadataB
  * ```javascript
  * import { EC2Client, CreateFleetCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, CreateFleetCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
+ * // import type { EC2ClientConfig } from "@aws-sdk/client-ec2";
+ * const config = {}; // type is EC2ClientConfig
  * const client = new EC2Client(config);
  * const input = { // CreateFleetRequest
  *   DryRun: true || false,

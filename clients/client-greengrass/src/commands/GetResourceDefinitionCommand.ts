@@ -34,6 +34,8 @@ export interface GetResourceDefinitionCommandOutput extends GetResourceDefinitio
  * ```javascript
  * import { GreengrassClient, GetResourceDefinitionCommand } from "@aws-sdk/client-greengrass"; // ES Modules import
  * // const { GreengrassClient, GetResourceDefinitionCommand } = require("@aws-sdk/client-greengrass"); // CommonJS import
+ * // import type { GreengrassClientConfig } from "@aws-sdk/client-greengrass";
+ * const config = {}; // type is GreengrassClientConfig
  * const client = new GreengrassClient(config);
  * const input = { // GetResourceDefinitionRequest
  *   ResourceDefinitionId: "STRING_VALUE", // required

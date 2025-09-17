@@ -34,6 +34,8 @@ export interface CreateFilterCommandOutput extends CreateFilterResponse, __Metad
  * ```javascript
  * import { PersonalizeClient, CreateFilterCommand } from "@aws-sdk/client-personalize"; // ES Modules import
  * // const { PersonalizeClient, CreateFilterCommand } = require("@aws-sdk/client-personalize"); // CommonJS import
+ * // import type { PersonalizeClientConfig } from "@aws-sdk/client-personalize";
+ * const config = {}; // type is PersonalizeClientConfig
  * const client = new PersonalizeClient(config);
  * const input = { // CreateFilterRequest
  *   name: "STRING_VALUE", // required

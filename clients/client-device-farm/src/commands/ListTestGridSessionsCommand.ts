@@ -34,6 +34,8 @@ export interface ListTestGridSessionsCommandOutput extends ListTestGridSessionsR
  * ```javascript
  * import { DeviceFarmClient, ListTestGridSessionsCommand } from "@aws-sdk/client-device-farm"; // ES Modules import
  * // const { DeviceFarmClient, ListTestGridSessionsCommand } = require("@aws-sdk/client-device-farm"); // CommonJS import
+ * // import type { DeviceFarmClientConfig } from "@aws-sdk/client-device-farm";
+ * const config = {}; // type is DeviceFarmClientConfig
  * const client = new DeviceFarmClient(config);
  * const input = { // ListTestGridSessionsRequest
  *   projectArn: "STRING_VALUE", // required

@@ -35,6 +35,8 @@ export interface DeleteEventBusCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { EventBridgeClient, DeleteEventBusCommand } from "@aws-sdk/client-eventbridge"; // ES Modules import
  * // const { EventBridgeClient, DeleteEventBusCommand } = require("@aws-sdk/client-eventbridge"); // CommonJS import
+ * // import type { EventBridgeClientConfig } from "@aws-sdk/client-eventbridge";
+ * const config = {}; // type is EventBridgeClientConfig
  * const client = new EventBridgeClient(config);
  * const input = { // DeleteEventBusRequest
  *   Name: "STRING_VALUE", // required

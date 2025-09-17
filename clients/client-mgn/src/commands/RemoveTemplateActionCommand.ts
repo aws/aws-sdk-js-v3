@@ -34,6 +34,8 @@ export interface RemoveTemplateActionCommandOutput extends RemoveTemplateActionR
  * ```javascript
  * import { MgnClient, RemoveTemplateActionCommand } from "@aws-sdk/client-mgn"; // ES Modules import
  * // const { MgnClient, RemoveTemplateActionCommand } = require("@aws-sdk/client-mgn"); // CommonJS import
+ * // import type { MgnClientConfig } from "@aws-sdk/client-mgn";
+ * const config = {}; // type is MgnClientConfig
  * const client = new MgnClient(config);
  * const input = { // RemoveTemplateActionRequest
  *   launchConfigurationTemplateID: "STRING_VALUE", // required

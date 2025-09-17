@@ -38,6 +38,8 @@ export interface DeleteCodeInterpreterCommandOutput extends DeleteCodeInterprete
  * ```javascript
  * import { BedrockAgentCoreControlClient, DeleteCodeInterpreterCommand } from "@aws-sdk/client-bedrock-agentcore-control"; // ES Modules import
  * // const { BedrockAgentCoreControlClient, DeleteCodeInterpreterCommand } = require("@aws-sdk/client-bedrock-agentcore-control"); // CommonJS import
+ * // import type { BedrockAgentCoreControlClientConfig } from "@aws-sdk/client-bedrock-agentcore-control";
+ * const config = {}; // type is BedrockAgentCoreControlClientConfig
  * const client = new BedrockAgentCoreControlClient(config);
  * const input = { // DeleteCodeInterpreterRequest
  *   codeInterpreterId: "STRING_VALUE", // required

@@ -50,6 +50,8 @@ export interface ListBuildsCommandOutput extends ListBuildsOutput, __MetadataBea
  * ```javascript
  * import { GameLiftClient, ListBuildsCommand } from "@aws-sdk/client-gamelift"; // ES Modules import
  * // const { GameLiftClient, ListBuildsCommand } = require("@aws-sdk/client-gamelift"); // CommonJS import
+ * // import type { GameLiftClientConfig } from "@aws-sdk/client-gamelift";
+ * const config = {}; // type is GameLiftClientConfig
  * const client = new GameLiftClient(config);
  * const input = { // ListBuildsInput
  *   Status: "INITIALIZED" || "READY" || "FAILED",

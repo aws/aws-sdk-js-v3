@@ -40,6 +40,8 @@ export interface ListUsersByPermissionGroupCommandOutput extends ListUsersByPerm
  * ```javascript
  * import { FinspaceDataClient, ListUsersByPermissionGroupCommand } from "@aws-sdk/client-finspace-data"; // ES Modules import
  * // const { FinspaceDataClient, ListUsersByPermissionGroupCommand } = require("@aws-sdk/client-finspace-data"); // CommonJS import
+ * // import type { FinspaceDataClientConfig } from "@aws-sdk/client-finspace-data";
+ * const config = {}; // type is FinspaceDataClientConfig
  * const client = new FinspaceDataClient(config);
  * const input = { // ListUsersByPermissionGroupRequest
  *   permissionGroupId: "STRING_VALUE", // required

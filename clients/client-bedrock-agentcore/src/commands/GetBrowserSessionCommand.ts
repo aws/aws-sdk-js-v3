@@ -34,6 +34,8 @@ export interface GetBrowserSessionCommandOutput extends GetBrowserSessionRespons
  * ```javascript
  * import { BedrockAgentCoreClient, GetBrowserSessionCommand } from "@aws-sdk/client-bedrock-agentcore"; // ES Modules import
  * // const { BedrockAgentCoreClient, GetBrowserSessionCommand } = require("@aws-sdk/client-bedrock-agentcore"); // CommonJS import
+ * // import type { BedrockAgentCoreClientConfig } from "@aws-sdk/client-bedrock-agentcore";
+ * const config = {}; // type is BedrockAgentCoreClientConfig
  * const client = new BedrockAgentCoreClient(config);
  * const input = { // GetBrowserSessionRequest
  *   browserIdentifier: "STRING_VALUE", // required

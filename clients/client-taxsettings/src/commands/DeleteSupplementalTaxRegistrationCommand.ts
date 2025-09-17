@@ -44,6 +44,8 @@ export interface DeleteSupplementalTaxRegistrationCommandOutput
  * ```javascript
  * import { TaxSettingsClient, DeleteSupplementalTaxRegistrationCommand } from "@aws-sdk/client-taxsettings"; // ES Modules import
  * // const { TaxSettingsClient, DeleteSupplementalTaxRegistrationCommand } = require("@aws-sdk/client-taxsettings"); // CommonJS import
+ * // import type { TaxSettingsClientConfig } from "@aws-sdk/client-taxsettings";
+ * const config = {}; // type is TaxSettingsClientConfig
  * const client = new TaxSettingsClient(config);
  * const input = { // DeleteSupplementalTaxRegistrationRequest
  *   authorityId: "STRING_VALUE", // required

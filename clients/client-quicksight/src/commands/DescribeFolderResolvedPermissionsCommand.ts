@@ -42,6 +42,8 @@ export interface DescribeFolderResolvedPermissionsCommandOutput
  * ```javascript
  * import { QuickSightClient, DescribeFolderResolvedPermissionsCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
  * // const { QuickSightClient, DescribeFolderResolvedPermissionsCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
+ * // import type { QuickSightClientConfig } from "@aws-sdk/client-quicksight";
+ * const config = {}; // type is QuickSightClientConfig
  * const client = new QuickSightClient(config);
  * const input = { // DescribeFolderResolvedPermissionsRequest
  *   AwsAccountId: "STRING_VALUE", // required

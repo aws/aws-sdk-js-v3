@@ -47,6 +47,8 @@ export interface BatchGetSecretValueCommandOutput extends BatchGetSecretValueRes
  * ```javascript
  * import { SecretsManagerClient, BatchGetSecretValueCommand } from "@aws-sdk/client-secrets-manager"; // ES Modules import
  * // const { SecretsManagerClient, BatchGetSecretValueCommand } = require("@aws-sdk/client-secrets-manager"); // CommonJS import
+ * // import type { SecretsManagerClientConfig } from "@aws-sdk/client-secrets-manager";
+ * const config = {}; // type is SecretsManagerClientConfig
  * const client = new SecretsManagerClient(config);
  * const input = { // BatchGetSecretValueRequest
  *   SecretIdList: [ // SecretIdListType

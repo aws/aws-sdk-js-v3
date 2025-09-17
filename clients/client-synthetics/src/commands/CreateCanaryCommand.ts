@@ -47,6 +47,8 @@ export interface CreateCanaryCommandOutput extends CreateCanaryResponse, __Metad
  * ```javascript
  * import { SyntheticsClient, CreateCanaryCommand } from "@aws-sdk/client-synthetics"; // ES Modules import
  * // const { SyntheticsClient, CreateCanaryCommand } = require("@aws-sdk/client-synthetics"); // CommonJS import
+ * // import type { SyntheticsClientConfig } from "@aws-sdk/client-synthetics";
+ * const config = {}; // type is SyntheticsClientConfig
  * const client = new SyntheticsClient(config);
  * const input = { // CreateCanaryRequest
  *   Name: "STRING_VALUE", // required

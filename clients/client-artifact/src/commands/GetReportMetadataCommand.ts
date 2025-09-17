@@ -34,6 +34,8 @@ export interface GetReportMetadataCommandOutput extends GetReportMetadataRespons
  * ```javascript
  * import { ArtifactClient, GetReportMetadataCommand } from "@aws-sdk/client-artifact"; // ES Modules import
  * // const { ArtifactClient, GetReportMetadataCommand } = require("@aws-sdk/client-artifact"); // CommonJS import
+ * // import type { ArtifactClientConfig } from "@aws-sdk/client-artifact";
+ * const config = {}; // type is ArtifactClientConfig
  * const client = new ArtifactClient(config);
  * const input = { // GetReportMetadataRequest
  *   reportId: "STRING_VALUE", // required

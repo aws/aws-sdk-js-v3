@@ -37,6 +37,8 @@ export interface BatchGetIncidentFindingsCommandOutput extends BatchGetIncidentF
  * ```javascript
  * import { SSMIncidentsClient, BatchGetIncidentFindingsCommand } from "@aws-sdk/client-ssm-incidents"; // ES Modules import
  * // const { SSMIncidentsClient, BatchGetIncidentFindingsCommand } = require("@aws-sdk/client-ssm-incidents"); // CommonJS import
+ * // import type { SSMIncidentsClientConfig } from "@aws-sdk/client-ssm-incidents";
+ * const config = {}; // type is SSMIncidentsClientConfig
  * const client = new SSMIncidentsClient(config);
  * const input = { // BatchGetIncidentFindingsInput
  *   incidentRecordArn: "STRING_VALUE", // required

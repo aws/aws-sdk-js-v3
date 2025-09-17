@@ -34,6 +34,8 @@ export interface CreateInvestigationGroupCommandOutput extends CreateInvestigati
  * ```javascript
  * import { AIOpsClient, CreateInvestigationGroupCommand } from "@aws-sdk/client-aiops"; // ES Modules import
  * // const { AIOpsClient, CreateInvestigationGroupCommand } = require("@aws-sdk/client-aiops"); // CommonJS import
+ * // import type { AIOpsClientConfig } from "@aws-sdk/client-aiops";
+ * const config = {}; // type is AIOpsClientConfig
  * const client = new AIOpsClient(config);
  * const input = { // CreateInvestigationGroupInput
  *   name: "STRING_VALUE", // required

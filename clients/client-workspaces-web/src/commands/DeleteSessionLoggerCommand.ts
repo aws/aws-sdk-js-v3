@@ -34,6 +34,8 @@ export interface DeleteSessionLoggerCommandOutput extends DeleteSessionLoggerRes
  * ```javascript
  * import { WorkSpacesWebClient, DeleteSessionLoggerCommand } from "@aws-sdk/client-workspaces-web"; // ES Modules import
  * // const { WorkSpacesWebClient, DeleteSessionLoggerCommand } = require("@aws-sdk/client-workspaces-web"); // CommonJS import
+ * // import type { WorkSpacesWebClientConfig } from "@aws-sdk/client-workspaces-web";
+ * const config = {}; // type is WorkSpacesWebClientConfig
  * const client = new WorkSpacesWebClient(config);
  * const input = { // DeleteSessionLoggerRequest
  *   sessionLoggerArn: "STRING_VALUE", // required

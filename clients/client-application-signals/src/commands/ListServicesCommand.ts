@@ -40,6 +40,8 @@ export interface ListServicesCommandOutput extends ListServicesOutput, __Metadat
  * ```javascript
  * import { ApplicationSignalsClient, ListServicesCommand } from "@aws-sdk/client-application-signals"; // ES Modules import
  * // const { ApplicationSignalsClient, ListServicesCommand } = require("@aws-sdk/client-application-signals"); // CommonJS import
+ * // import type { ApplicationSignalsClientConfig } from "@aws-sdk/client-application-signals";
+ * const config = {}; // type is ApplicationSignalsClientConfig
  * const client = new ApplicationSignalsClient(config);
  * const input = { // ListServicesInput
  *   StartTime: new Date("TIMESTAMP"), // required

@@ -40,6 +40,8 @@ export interface ListTelemetryRulesCommandOutput extends ListTelemetryRulesOutpu
  * ```javascript
  * import { ObservabilityAdminClient, ListTelemetryRulesCommand } from "@aws-sdk/client-observabilityadmin"; // ES Modules import
  * // const { ObservabilityAdminClient, ListTelemetryRulesCommand } = require("@aws-sdk/client-observabilityadmin"); // CommonJS import
+ * // import type { ObservabilityAdminClientConfig } from "@aws-sdk/client-observabilityadmin";
+ * const config = {}; // type is ObservabilityAdminClientConfig
  * const client = new ObservabilityAdminClient(config);
  * const input = { // ListTelemetryRulesInput
  *   RuleNamePrefix: "STRING_VALUE",

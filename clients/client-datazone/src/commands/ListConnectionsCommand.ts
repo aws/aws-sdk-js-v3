@@ -38,6 +38,8 @@ export interface ListConnectionsCommandOutput extends ListConnectionsOutput, __M
  * ```javascript
  * import { DataZoneClient, ListConnectionsCommand } from "@aws-sdk/client-datazone"; // ES Modules import
  * // const { DataZoneClient, ListConnectionsCommand } = require("@aws-sdk/client-datazone"); // CommonJS import
+ * // import type { DataZoneClientConfig } from "@aws-sdk/client-datazone";
+ * const config = {}; // type is DataZoneClientConfig
  * const client = new DataZoneClient(config);
  * const input = { // ListConnectionsInput
  *   domainIdentifier: "STRING_VALUE", // required

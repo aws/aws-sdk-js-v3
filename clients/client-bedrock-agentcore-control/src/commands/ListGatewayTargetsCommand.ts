@@ -42,6 +42,8 @@ export interface ListGatewayTargetsCommandOutput extends ListGatewayTargetsRespo
  * ```javascript
  * import { BedrockAgentCoreControlClient, ListGatewayTargetsCommand } from "@aws-sdk/client-bedrock-agentcore-control"; // ES Modules import
  * // const { BedrockAgentCoreControlClient, ListGatewayTargetsCommand } = require("@aws-sdk/client-bedrock-agentcore-control"); // CommonJS import
+ * // import type { BedrockAgentCoreControlClientConfig } from "@aws-sdk/client-bedrock-agentcore-control";
+ * const config = {}; // type is BedrockAgentCoreControlClientConfig
  * const client = new BedrockAgentCoreControlClient(config);
  * const input = { // ListGatewayTargetsRequest
  *   gatewayIdentifier: "STRING_VALUE", // required

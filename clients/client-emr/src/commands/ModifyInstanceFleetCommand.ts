@@ -40,6 +40,8 @@ export interface ModifyInstanceFleetCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { EMRClient, ModifyInstanceFleetCommand } from "@aws-sdk/client-emr"; // ES Modules import
  * // const { EMRClient, ModifyInstanceFleetCommand } = require("@aws-sdk/client-emr"); // CommonJS import
+ * // import type { EMRClientConfig } from "@aws-sdk/client-emr";
+ * const config = {}; // type is EMRClientConfig
  * const client = new EMRClient(config);
  * const input = { // ModifyInstanceFleetInput
  *   ClusterId: "STRING_VALUE", // required

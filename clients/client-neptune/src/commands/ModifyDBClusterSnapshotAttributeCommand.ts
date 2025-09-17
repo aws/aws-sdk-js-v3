@@ -52,6 +52,8 @@ export interface ModifyDBClusterSnapshotAttributeCommandOutput
  * ```javascript
  * import { NeptuneClient, ModifyDBClusterSnapshotAttributeCommand } from "@aws-sdk/client-neptune"; // ES Modules import
  * // const { NeptuneClient, ModifyDBClusterSnapshotAttributeCommand } = require("@aws-sdk/client-neptune"); // CommonJS import
+ * // import type { NeptuneClientConfig } from "@aws-sdk/client-neptune";
+ * const config = {}; // type is NeptuneClientConfig
  * const client = new NeptuneClient(config);
  * const input = { // ModifyDBClusterSnapshotAttributeMessage
  *   DBClusterSnapshotIdentifier: "STRING_VALUE", // required

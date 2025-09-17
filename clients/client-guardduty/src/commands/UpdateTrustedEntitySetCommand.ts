@@ -34,6 +34,8 @@ export interface UpdateTrustedEntitySetCommandOutput extends UpdateTrustedEntity
  * ```javascript
  * import { GuardDutyClient, UpdateTrustedEntitySetCommand } from "@aws-sdk/client-guardduty"; // ES Modules import
  * // const { GuardDutyClient, UpdateTrustedEntitySetCommand } = require("@aws-sdk/client-guardduty"); // CommonJS import
+ * // import type { GuardDutyClientConfig } from "@aws-sdk/client-guardduty";
+ * const config = {}; // type is GuardDutyClientConfig
  * const client = new GuardDutyClient(config);
  * const input = { // UpdateTrustedEntitySetRequest
  *   DetectorId: "STRING_VALUE", // required

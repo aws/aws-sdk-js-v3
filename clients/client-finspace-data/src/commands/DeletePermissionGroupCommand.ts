@@ -36,6 +36,8 @@ export interface DeletePermissionGroupCommandOutput extends DeletePermissionGrou
  * ```javascript
  * import { FinspaceDataClient, DeletePermissionGroupCommand } from "@aws-sdk/client-finspace-data"; // ES Modules import
  * // const { FinspaceDataClient, DeletePermissionGroupCommand } = require("@aws-sdk/client-finspace-data"); // CommonJS import
+ * // import type { FinspaceDataClientConfig } from "@aws-sdk/client-finspace-data";
+ * const config = {}; // type is FinspaceDataClientConfig
  * const client = new FinspaceDataClient(config);
  * const input = { // DeletePermissionGroupRequest
  *   permissionGroupId: "STRING_VALUE", // required

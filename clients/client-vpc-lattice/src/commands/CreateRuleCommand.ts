@@ -37,6 +37,8 @@ export interface CreateRuleCommandOutput extends CreateRuleResponse, __MetadataB
  * ```javascript
  * import { VPCLatticeClient, CreateRuleCommand } from "@aws-sdk/client-vpc-lattice"; // ES Modules import
  * // const { VPCLatticeClient, CreateRuleCommand } = require("@aws-sdk/client-vpc-lattice"); // CommonJS import
+ * // import type { VPCLatticeClientConfig } from "@aws-sdk/client-vpc-lattice";
+ * const config = {}; // type is VPCLatticeClientConfig
  * const client = new VPCLatticeClient(config);
  * const input = { // CreateRuleRequest
  *   serviceIdentifier: "STRING_VALUE", // required

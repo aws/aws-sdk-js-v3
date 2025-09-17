@@ -44,6 +44,8 @@ export interface GetStorageLensGroupCommandOutput extends GetStorageLensGroupRes
  * ```javascript
  * import { S3ControlClient, GetStorageLensGroupCommand } from "@aws-sdk/client-s3-control"; // ES Modules import
  * // const { S3ControlClient, GetStorageLensGroupCommand } = require("@aws-sdk/client-s3-control"); // CommonJS import
+ * // import type { S3ControlClientConfig } from "@aws-sdk/client-s3-control";
+ * const config = {}; // type is S3ControlClientConfig
  * const client = new S3ControlClient(config);
  * const input = { // GetStorageLensGroupRequest
  *   Name: "STRING_VALUE", // required

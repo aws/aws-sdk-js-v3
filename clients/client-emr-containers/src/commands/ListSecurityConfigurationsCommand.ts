@@ -38,6 +38,8 @@ export interface ListSecurityConfigurationsCommandOutput extends ListSecurityCon
  * ```javascript
  * import { EMRContainersClient, ListSecurityConfigurationsCommand } from "@aws-sdk/client-emr-containers"; // ES Modules import
  * // const { EMRContainersClient, ListSecurityConfigurationsCommand } = require("@aws-sdk/client-emr-containers"); // CommonJS import
+ * // import type { EMRContainersClientConfig } from "@aws-sdk/client-emr-containers";
+ * const config = {}; // type is EMRContainersClientConfig
  * const client = new EMRContainersClient(config);
  * const input = { // ListSecurityConfigurationsRequest
  *   createdAfter: new Date("TIMESTAMP"),

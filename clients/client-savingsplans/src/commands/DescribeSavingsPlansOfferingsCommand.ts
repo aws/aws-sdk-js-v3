@@ -39,6 +39,8 @@ export interface DescribeSavingsPlansOfferingsCommandOutput
  * ```javascript
  * import { SavingsplansClient, DescribeSavingsPlansOfferingsCommand } from "@aws-sdk/client-savingsplans"; // ES Modules import
  * // const { SavingsplansClient, DescribeSavingsPlansOfferingsCommand } = require("@aws-sdk/client-savingsplans"); // CommonJS import
+ * // import type { SavingsplansClientConfig } from "@aws-sdk/client-savingsplans";
+ * const config = {}; // type is SavingsplansClientConfig
  * const client = new SavingsplansClient(config);
  * const input = { // DescribeSavingsPlansOfferingsRequest
  *   offeringIds: [ // UUIDs

@@ -34,6 +34,8 @@ export interface ListServicesCommandOutput extends ListServicesResponse, __Metad
  * ```javascript
  * import { VPCLatticeClient, ListServicesCommand } from "@aws-sdk/client-vpc-lattice"; // ES Modules import
  * // const { VPCLatticeClient, ListServicesCommand } = require("@aws-sdk/client-vpc-lattice"); // CommonJS import
+ * // import type { VPCLatticeClientConfig } from "@aws-sdk/client-vpc-lattice";
+ * const config = {}; // type is VPCLatticeClientConfig
  * const client = new VPCLatticeClient(config);
  * const input = { // ListServicesRequest
  *   maxResults: Number("int"),

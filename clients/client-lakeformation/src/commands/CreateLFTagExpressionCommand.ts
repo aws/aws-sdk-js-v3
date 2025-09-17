@@ -42,6 +42,8 @@ export interface CreateLFTagExpressionCommandOutput extends CreateLFTagExpressio
  * ```javascript
  * import { LakeFormationClient, CreateLFTagExpressionCommand } from "@aws-sdk/client-lakeformation"; // ES Modules import
  * // const { LakeFormationClient, CreateLFTagExpressionCommand } = require("@aws-sdk/client-lakeformation"); // CommonJS import
+ * // import type { LakeFormationClientConfig } from "@aws-sdk/client-lakeformation";
+ * const config = {}; // type is LakeFormationClientConfig
  * const client = new LakeFormationClient(config);
  * const input = { // CreateLFTagExpressionRequest
  *   Name: "STRING_VALUE", // required

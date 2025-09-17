@@ -34,6 +34,8 @@ export interface PutPolicyCommandOutput extends PutPolicyOutput, __MetadataBeare
  * ```javascript
  * import { EntityResolutionClient, PutPolicyCommand } from "@aws-sdk/client-entityresolution"; // ES Modules import
  * // const { EntityResolutionClient, PutPolicyCommand } = require("@aws-sdk/client-entityresolution"); // CommonJS import
+ * // import type { EntityResolutionClientConfig } from "@aws-sdk/client-entityresolution";
+ * const config = {}; // type is EntityResolutionClientConfig
  * const client = new EntityResolutionClient(config);
  * const input = { // PutPolicyInput
  *   arn: "STRING_VALUE", // required

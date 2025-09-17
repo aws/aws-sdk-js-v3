@@ -34,6 +34,8 @@ export interface UpdateLogAnomalyDetectorCommandOutput extends __MetadataBearer 
  * ```javascript
  * import { CloudWatchLogsClient, UpdateLogAnomalyDetectorCommand } from "@aws-sdk/client-cloudwatch-logs"; // ES Modules import
  * // const { CloudWatchLogsClient, UpdateLogAnomalyDetectorCommand } = require("@aws-sdk/client-cloudwatch-logs"); // CommonJS import
+ * // import type { CloudWatchLogsClientConfig } from "@aws-sdk/client-cloudwatch-logs";
+ * const config = {}; // type is CloudWatchLogsClientConfig
  * const client = new CloudWatchLogsClient(config);
  * const input = { // UpdateLogAnomalyDetectorRequest
  *   anomalyDetectorArn: "STRING_VALUE", // required

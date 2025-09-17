@@ -58,6 +58,8 @@ export interface RestoreTableFromBackupCommandOutput extends RestoreTableFromBac
  * ```javascript
  * import { DynamoDBClient, RestoreTableFromBackupCommand } from "@aws-sdk/client-dynamodb"; // ES Modules import
  * // const { DynamoDBClient, RestoreTableFromBackupCommand } = require("@aws-sdk/client-dynamodb"); // CommonJS import
+ * // import type { DynamoDBClientConfig } from "@aws-sdk/client-dynamodb";
+ * const config = {}; // type is DynamoDBClientConfig
  * const client = new DynamoDBClient(config);
  * const input = { // RestoreTableFromBackupInput
  *   TargetTableName: "STRING_VALUE", // required

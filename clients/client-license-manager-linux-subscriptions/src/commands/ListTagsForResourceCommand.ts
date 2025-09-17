@@ -43,6 +43,8 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * ```javascript
  * import { LicenseManagerLinuxSubscriptionsClient, ListTagsForResourceCommand } from "@aws-sdk/client-license-manager-linux-subscriptions"; // ES Modules import
  * // const { LicenseManagerLinuxSubscriptionsClient, ListTagsForResourceCommand } = require("@aws-sdk/client-license-manager-linux-subscriptions"); // CommonJS import
+ * // import type { LicenseManagerLinuxSubscriptionsClientConfig } from "@aws-sdk/client-license-manager-linux-subscriptions";
+ * const config = {}; // type is LicenseManagerLinuxSubscriptionsClientConfig
  * const client = new LicenseManagerLinuxSubscriptionsClient(config);
  * const input = { // ListTagsForResourceRequest
  *   resourceArn: "STRING_VALUE", // required

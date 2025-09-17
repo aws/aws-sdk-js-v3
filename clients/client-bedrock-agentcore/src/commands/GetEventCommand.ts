@@ -34,6 +34,8 @@ export interface GetEventCommandOutput extends GetEventOutput, __MetadataBearer 
  * ```javascript
  * import { BedrockAgentCoreClient, GetEventCommand } from "@aws-sdk/client-bedrock-agentcore"; // ES Modules import
  * // const { BedrockAgentCoreClient, GetEventCommand } = require("@aws-sdk/client-bedrock-agentcore"); // CommonJS import
+ * // import type { BedrockAgentCoreClientConfig } from "@aws-sdk/client-bedrock-agentcore";
+ * const config = {}; // type is BedrockAgentCoreClientConfig
  * const client = new BedrockAgentCoreClient(config);
  * const input = { // GetEventInput
  *   memoryId: "STRING_VALUE", // required

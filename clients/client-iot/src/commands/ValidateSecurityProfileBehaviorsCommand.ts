@@ -40,6 +40,8 @@ export interface ValidateSecurityProfileBehaviorsCommandOutput
  * ```javascript
  * import { IoTClient, ValidateSecurityProfileBehaviorsCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, ValidateSecurityProfileBehaviorsCommand } = require("@aws-sdk/client-iot"); // CommonJS import
+ * // import type { IoTClientConfig } from "@aws-sdk/client-iot";
+ * const config = {}; // type is IoTClientConfig
  * const client = new IoTClient(config);
  * const input = { // ValidateSecurityProfileBehaviorsRequest
  *   behaviors: [ // Behaviors // required

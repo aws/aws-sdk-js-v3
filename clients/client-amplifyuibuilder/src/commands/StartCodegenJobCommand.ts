@@ -34,6 +34,8 @@ export interface StartCodegenJobCommandOutput extends StartCodegenJobResponse, _
  * ```javascript
  * import { AmplifyUIBuilderClient, StartCodegenJobCommand } from "@aws-sdk/client-amplifyuibuilder"; // ES Modules import
  * // const { AmplifyUIBuilderClient, StartCodegenJobCommand } = require("@aws-sdk/client-amplifyuibuilder"); // CommonJS import
+ * // import type { AmplifyUIBuilderClientConfig } from "@aws-sdk/client-amplifyuibuilder";
+ * const config = {}; // type is AmplifyUIBuilderClientConfig
  * const client = new AmplifyUIBuilderClient(config);
  * const input = { // StartCodegenJobRequest
  *   appId: "STRING_VALUE", // required

@@ -38,6 +38,8 @@ export interface ModifyReservedInstancesCommandOutput extends ModifyReservedInst
  * ```javascript
  * import { EC2Client, ModifyReservedInstancesCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, ModifyReservedInstancesCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
+ * // import type { EC2ClientConfig } from "@aws-sdk/client-ec2";
+ * const config = {}; // type is EC2ClientConfig
  * const client = new EC2Client(config);
  * const input = { // ModifyReservedInstancesRequest
  *   ReservedInstancesIds: [ // ReservedInstancesIdStringList // required

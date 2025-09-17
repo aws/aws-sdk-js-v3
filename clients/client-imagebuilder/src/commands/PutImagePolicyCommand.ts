@@ -36,6 +36,8 @@ export interface PutImagePolicyCommandOutput extends PutImagePolicyResponse, __M
  * ```javascript
  * import { ImagebuilderClient, PutImagePolicyCommand } from "@aws-sdk/client-imagebuilder"; // ES Modules import
  * // const { ImagebuilderClient, PutImagePolicyCommand } = require("@aws-sdk/client-imagebuilder"); // CommonJS import
+ * // import type { ImagebuilderClientConfig } from "@aws-sdk/client-imagebuilder";
+ * const config = {}; // type is ImagebuilderClientConfig
  * const client = new ImagebuilderClient(config);
  * const input = { // PutImagePolicyRequest
  *   imageArn: "STRING_VALUE", // required

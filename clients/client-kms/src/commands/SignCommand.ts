@@ -88,6 +88,8 @@ export interface SignCommandOutput extends SignResponse, __MetadataBearer {}
  * ```javascript
  * import { KMSClient, SignCommand } from "@aws-sdk/client-kms"; // ES Modules import
  * // const { KMSClient, SignCommand } = require("@aws-sdk/client-kms"); // CommonJS import
+ * // import type { KMSClientConfig } from "@aws-sdk/client-kms";
+ * const config = {}; // type is KMSClientConfig
  * const client = new KMSClient(config);
  * const input = { // SignRequest
  *   KeyId: "STRING_VALUE", // required

@@ -35,6 +35,8 @@ export interface UpdateBillingGroupCommandOutput extends UpdateBillingGroupRespo
  * ```javascript
  * import { IoTClient, UpdateBillingGroupCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, UpdateBillingGroupCommand } = require("@aws-sdk/client-iot"); // CommonJS import
+ * // import type { IoTClientConfig } from "@aws-sdk/client-iot";
+ * const config = {}; // type is IoTClientConfig
  * const client = new IoTClient(config);
  * const input = { // UpdateBillingGroupRequest
  *   billingGroupName: "STRING_VALUE", // required

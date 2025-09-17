@@ -47,6 +47,8 @@ export interface SearchAvailablePhoneNumbersCommandOutput
  * ```javascript
  * import { ChimeClient, SearchAvailablePhoneNumbersCommand } from "@aws-sdk/client-chime"; // ES Modules import
  * // const { ChimeClient, SearchAvailablePhoneNumbersCommand } = require("@aws-sdk/client-chime"); // CommonJS import
+ * // import type { ChimeClientConfig } from "@aws-sdk/client-chime";
+ * const config = {}; // type is ChimeClientConfig
  * const client = new ChimeClient(config);
  * const input = { // SearchAvailablePhoneNumbersRequest
  *   AreaCode: "STRING_VALUE",

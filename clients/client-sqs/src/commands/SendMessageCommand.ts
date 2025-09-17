@@ -42,6 +42,8 @@ export interface SendMessageCommandOutput extends SendMessageResult, __MetadataB
  * ```javascript
  * import { SQSClient, SendMessageCommand } from "@aws-sdk/client-sqs"; // ES Modules import
  * // const { SQSClient, SendMessageCommand } = require("@aws-sdk/client-sqs"); // CommonJS import
+ * // import type { SQSClientConfig } from "@aws-sdk/client-sqs";
+ * const config = {}; // type is SQSClientConfig
  * const client = new SQSClient(config);
  * const input = { // SendMessageRequest
  *   QueueUrl: "STRING_VALUE", // required

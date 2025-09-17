@@ -59,6 +59,8 @@ export interface DescribeMatchmakingCommandOutput extends DescribeMatchmakingOut
  * ```javascript
  * import { GameLiftClient, DescribeMatchmakingCommand } from "@aws-sdk/client-gamelift"; // ES Modules import
  * // const { GameLiftClient, DescribeMatchmakingCommand } = require("@aws-sdk/client-gamelift"); // CommonJS import
+ * // import type { GameLiftClientConfig } from "@aws-sdk/client-gamelift";
+ * const config = {}; // type is GameLiftClientConfig
  * const client = new GameLiftClient(config);
  * const input = { // DescribeMatchmakingInput
  *   TicketIds: [ // MatchmakingIdList // required

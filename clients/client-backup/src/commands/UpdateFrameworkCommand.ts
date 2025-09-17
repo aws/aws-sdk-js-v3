@@ -34,6 +34,8 @@ export interface UpdateFrameworkCommandOutput extends UpdateFrameworkOutput, __M
  * ```javascript
  * import { BackupClient, UpdateFrameworkCommand } from "@aws-sdk/client-backup"; // ES Modules import
  * // const { BackupClient, UpdateFrameworkCommand } = require("@aws-sdk/client-backup"); // CommonJS import
+ * // import type { BackupClientConfig } from "@aws-sdk/client-backup";
+ * const config = {}; // type is BackupClientConfig
  * const client = new BackupClient(config);
  * const input = { // UpdateFrameworkInput
  *   FrameworkName: "STRING_VALUE", // required

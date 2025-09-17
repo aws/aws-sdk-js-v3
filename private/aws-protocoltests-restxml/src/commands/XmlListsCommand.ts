@@ -45,6 +45,8 @@ export interface XmlListsCommandOutput extends XmlListsResponse, __MetadataBeare
  * ```javascript
  * import { RestXmlProtocolClient, XmlListsCommand } from "@aws-sdk/aws-protocoltests-restxml"; // ES Modules import
  * // const { RestXmlProtocolClient, XmlListsCommand } = require("@aws-sdk/aws-protocoltests-restxml"); // CommonJS import
+ * // import type { RestXmlProtocolClientConfig } from "@aws-sdk/aws-protocoltests-restxml";
+ * const config = {}; // type is RestXmlProtocolClientConfig
  * const client = new RestXmlProtocolClient(config);
  * const input = { // XmlListsRequest
  *   stringList: [ // StringList

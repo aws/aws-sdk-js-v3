@@ -34,6 +34,8 @@ export interface DeleteVehicleCommandOutput extends DeleteVehicleResponse, __Met
  * ```javascript
  * import { IoTFleetWiseClient, DeleteVehicleCommand } from "@aws-sdk/client-iotfleetwise"; // ES Modules import
  * // const { IoTFleetWiseClient, DeleteVehicleCommand } = require("@aws-sdk/client-iotfleetwise"); // CommonJS import
+ * // import type { IoTFleetWiseClientConfig } from "@aws-sdk/client-iotfleetwise";
+ * const config = {}; // type is IoTFleetWiseClientConfig
  * const client = new IoTFleetWiseClient(config);
  * const input = { // DeleteVehicleRequest
  *   vehicleName: "STRING_VALUE", // required

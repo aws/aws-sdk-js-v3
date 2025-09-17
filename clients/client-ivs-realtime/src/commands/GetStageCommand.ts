@@ -34,6 +34,8 @@ export interface GetStageCommandOutput extends GetStageResponse, __MetadataBeare
  * ```javascript
  * import { IVSRealTimeClient, GetStageCommand } from "@aws-sdk/client-ivs-realtime"; // ES Modules import
  * // const { IVSRealTimeClient, GetStageCommand } = require("@aws-sdk/client-ivs-realtime"); // CommonJS import
+ * // import type { IVSRealTimeClientConfig } from "@aws-sdk/client-ivs-realtime";
+ * const config = {}; // type is IVSRealTimeClientConfig
  * const client = new IVSRealTimeClient(config);
  * const input = { // GetStageRequest
  *   arn: "STRING_VALUE", // required

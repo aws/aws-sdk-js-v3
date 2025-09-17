@@ -42,6 +42,8 @@ export interface UpdateIntegrationResourcePropertyCommandOutput
  * ```javascript
  * import { GlueClient, UpdateIntegrationResourcePropertyCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, UpdateIntegrationResourcePropertyCommand } = require("@aws-sdk/client-glue"); // CommonJS import
+ * // import type { GlueClientConfig } from "@aws-sdk/client-glue";
+ * const config = {}; // type is GlueClientConfig
  * const client = new GlueClient(config);
  * const input = { // UpdateIntegrationResourcePropertyRequest
  *   ResourceArn: "STRING_VALUE", // required

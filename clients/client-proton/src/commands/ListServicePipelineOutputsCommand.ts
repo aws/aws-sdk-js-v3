@@ -38,6 +38,8 @@ export interface ListServicePipelineOutputsCommandOutput extends ListServicePipe
  * ```javascript
  * import { ProtonClient, ListServicePipelineOutputsCommand } from "@aws-sdk/client-proton"; // ES Modules import
  * // const { ProtonClient, ListServicePipelineOutputsCommand } = require("@aws-sdk/client-proton"); // CommonJS import
+ * // import type { ProtonClientConfig } from "@aws-sdk/client-proton";
+ * const config = {}; // type is ProtonClientConfig
  * const client = new ProtonClient(config);
  * const input = { // ListServicePipelineOutputsInput
  *   serviceName: "STRING_VALUE", // required

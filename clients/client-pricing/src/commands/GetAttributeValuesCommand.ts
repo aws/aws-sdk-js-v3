@@ -37,6 +37,8 @@ export interface GetAttributeValuesCommandOutput extends GetAttributeValuesRespo
  * ```javascript
  * import { PricingClient, GetAttributeValuesCommand } from "@aws-sdk/client-pricing"; // ES Modules import
  * // const { PricingClient, GetAttributeValuesCommand } = require("@aws-sdk/client-pricing"); // CommonJS import
+ * // import type { PricingClientConfig } from "@aws-sdk/client-pricing";
+ * const config = {}; // type is PricingClientConfig
  * const client = new PricingClient(config);
  * const input = { // GetAttributeValuesRequest
  *   ServiceCode: "STRING_VALUE", // required

@@ -39,6 +39,8 @@ export interface GetIpamDiscoveredResourceCidrsCommandOutput
  * ```javascript
  * import { EC2Client, GetIpamDiscoveredResourceCidrsCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, GetIpamDiscoveredResourceCidrsCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
+ * // import type { EC2ClientConfig } from "@aws-sdk/client-ec2";
+ * const config = {}; // type is EC2ClientConfig
  * const client = new EC2Client(config);
  * const input = { // GetIpamDiscoveredResourceCidrsRequest
  *   DryRun: true || false,

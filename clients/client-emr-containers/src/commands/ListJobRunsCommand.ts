@@ -35,6 +35,8 @@ export interface ListJobRunsCommandOutput extends ListJobRunsResponse, __Metadat
  * ```javascript
  * import { EMRContainersClient, ListJobRunsCommand } from "@aws-sdk/client-emr-containers"; // ES Modules import
  * // const { EMRContainersClient, ListJobRunsCommand } = require("@aws-sdk/client-emr-containers"); // CommonJS import
+ * // import type { EMRContainersClientConfig } from "@aws-sdk/client-emr-containers";
+ * const config = {}; // type is EMRContainersClientConfig
  * const client = new EMRContainersClient(config);
  * const input = { // ListJobRunsRequest
  *   virtualClusterId: "STRING_VALUE", // required

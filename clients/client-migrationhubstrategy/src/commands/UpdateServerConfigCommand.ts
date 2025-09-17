@@ -38,6 +38,8 @@ export interface UpdateServerConfigCommandOutput extends UpdateServerConfigRespo
  * ```javascript
  * import { MigrationHubStrategyClient, UpdateServerConfigCommand } from "@aws-sdk/client-migrationhubstrategy"; // ES Modules import
  * // const { MigrationHubStrategyClient, UpdateServerConfigCommand } = require("@aws-sdk/client-migrationhubstrategy"); // CommonJS import
+ * // import type { MigrationHubStrategyClientConfig } from "@aws-sdk/client-migrationhubstrategy";
+ * const config = {}; // type is MigrationHubStrategyClientConfig
  * const client = new MigrationHubStrategyClient(config);
  * const input = { // UpdateServerConfigRequest
  *   serverId: "STRING_VALUE", // required

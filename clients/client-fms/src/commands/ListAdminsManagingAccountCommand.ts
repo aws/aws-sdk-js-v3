@@ -34,6 +34,8 @@ export interface ListAdminsManagingAccountCommandOutput extends ListAdminsManagi
  * ```javascript
  * import { FMSClient, ListAdminsManagingAccountCommand } from "@aws-sdk/client-fms"; // ES Modules import
  * // const { FMSClient, ListAdminsManagingAccountCommand } = require("@aws-sdk/client-fms"); // CommonJS import
+ * // import type { FMSClientConfig } from "@aws-sdk/client-fms";
+ * const config = {}; // type is FMSClientConfig
  * const client = new FMSClient(config);
  * const input = { // ListAdminsManagingAccountRequest
  *   NextToken: "STRING_VALUE",

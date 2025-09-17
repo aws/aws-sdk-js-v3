@@ -34,6 +34,8 @@ export interface CreateTestConfigurationCommandOutput extends CreateTestConfigur
  * ```javascript
  * import { AppTestClient, CreateTestConfigurationCommand } from "@aws-sdk/client-apptest"; // ES Modules import
  * // const { AppTestClient, CreateTestConfigurationCommand } = require("@aws-sdk/client-apptest"); // CommonJS import
+ * // import type { AppTestClientConfig } from "@aws-sdk/client-apptest";
+ * const config = {}; // type is AppTestClientConfig
  * const client = new AppTestClient(config);
  * const input = { // CreateTestConfigurationRequest
  *   name: "STRING_VALUE", // required

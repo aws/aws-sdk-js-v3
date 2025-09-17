@@ -35,6 +35,8 @@ export interface ListCompositionsCommandOutput extends ListCompositionsResponse,
  * ```javascript
  * import { IVSRealTimeClient, ListCompositionsCommand } from "@aws-sdk/client-ivs-realtime"; // ES Modules import
  * // const { IVSRealTimeClient, ListCompositionsCommand } = require("@aws-sdk/client-ivs-realtime"); // CommonJS import
+ * // import type { IVSRealTimeClientConfig } from "@aws-sdk/client-ivs-realtime";
+ * const config = {}; // type is IVSRealTimeClientConfig
  * const client = new IVSRealTimeClient(config);
  * const input = { // ListCompositionsRequest
  *   filterByStageArn: "STRING_VALUE",

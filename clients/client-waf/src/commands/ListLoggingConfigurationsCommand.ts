@@ -42,6 +42,8 @@ export interface ListLoggingConfigurationsCommandOutput extends ListLoggingConfi
  * ```javascript
  * import { WAFClient, ListLoggingConfigurationsCommand } from "@aws-sdk/client-waf"; // ES Modules import
  * // const { WAFClient, ListLoggingConfigurationsCommand } = require("@aws-sdk/client-waf"); // CommonJS import
+ * // import type { WAFClientConfig } from "@aws-sdk/client-waf";
+ * const config = {}; // type is WAFClientConfig
  * const client = new WAFClient(config);
  * const input = { // ListLoggingConfigurationsRequest
  *   NextMarker: "STRING_VALUE",

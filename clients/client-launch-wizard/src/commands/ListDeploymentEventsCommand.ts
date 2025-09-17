@@ -34,6 +34,8 @@ export interface ListDeploymentEventsCommandOutput extends ListDeploymentEventsO
  * ```javascript
  * import { LaunchWizardClient, ListDeploymentEventsCommand } from "@aws-sdk/client-launch-wizard"; // ES Modules import
  * // const { LaunchWizardClient, ListDeploymentEventsCommand } = require("@aws-sdk/client-launch-wizard"); // CommonJS import
+ * // import type { LaunchWizardClientConfig } from "@aws-sdk/client-launch-wizard";
+ * const config = {}; // type is LaunchWizardClientConfig
  * const client = new LaunchWizardClient(config);
  * const input = { // ListDeploymentEventsInput
  *   deploymentId: "STRING_VALUE", // required

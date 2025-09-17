@@ -34,6 +34,8 @@ export interface CreateGroupCommandOutput extends CreateGroupResponse, __Metadat
  * ```javascript
  * import { GreengrassClient, CreateGroupCommand } from "@aws-sdk/client-greengrass"; // ES Modules import
  * // const { GreengrassClient, CreateGroupCommand } = require("@aws-sdk/client-greengrass"); // CommonJS import
+ * // import type { GreengrassClientConfig } from "@aws-sdk/client-greengrass";
+ * const config = {}; // type is GreengrassClientConfig
  * const client = new GreengrassClient(config);
  * const input = { // CreateGroupRequest
  *   AmznClientToken: "STRING_VALUE",

@@ -37,6 +37,8 @@ export interface GetAccountSettingsCommandOutput extends GetAccountSettingsRespo
  * ```javascript
  * import { ChimeClient, GetAccountSettingsCommand } from "@aws-sdk/client-chime"; // ES Modules import
  * // const { ChimeClient, GetAccountSettingsCommand } = require("@aws-sdk/client-chime"); // CommonJS import
+ * // import type { ChimeClientConfig } from "@aws-sdk/client-chime";
+ * const config = {}; // type is ChimeClientConfig
  * const client = new ChimeClient(config);
  * const input = { // GetAccountSettingsRequest
  *   AccountId: "STRING_VALUE", // required

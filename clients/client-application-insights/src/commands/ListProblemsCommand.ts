@@ -38,6 +38,8 @@ export interface ListProblemsCommandOutput extends ListProblemsResponse, __Metad
  * ```javascript
  * import { ApplicationInsightsClient, ListProblemsCommand } from "@aws-sdk/client-application-insights"; // ES Modules import
  * // const { ApplicationInsightsClient, ListProblemsCommand } = require("@aws-sdk/client-application-insights"); // CommonJS import
+ * // import type { ApplicationInsightsClientConfig } from "@aws-sdk/client-application-insights";
+ * const config = {}; // type is ApplicationInsightsClientConfig
  * const client = new ApplicationInsightsClient(config);
  * const input = { // ListProblemsRequest
  *   AccountId: "STRING_VALUE",

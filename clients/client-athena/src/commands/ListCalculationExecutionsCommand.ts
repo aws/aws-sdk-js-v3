@@ -35,6 +35,8 @@ export interface ListCalculationExecutionsCommandOutput extends ListCalculationE
  * ```javascript
  * import { AthenaClient, ListCalculationExecutionsCommand } from "@aws-sdk/client-athena"; // ES Modules import
  * // const { AthenaClient, ListCalculationExecutionsCommand } = require("@aws-sdk/client-athena"); // CommonJS import
+ * // import type { AthenaClientConfig } from "@aws-sdk/client-athena";
+ * const config = {}; // type is AthenaClientConfig
  * const client = new AthenaClient(config);
  * const input = { // ListCalculationExecutionsRequest
  *   SessionId: "STRING_VALUE", // required

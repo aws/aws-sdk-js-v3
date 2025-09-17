@@ -34,6 +34,8 @@ export interface CreateBackendStorageCommandOutput extends CreateBackendStorageR
  * ```javascript
  * import { AmplifyBackendClient, CreateBackendStorageCommand } from "@aws-sdk/client-amplifybackend"; // ES Modules import
  * // const { AmplifyBackendClient, CreateBackendStorageCommand } = require("@aws-sdk/client-amplifybackend"); // CommonJS import
+ * // import type { AmplifyBackendClientConfig } from "@aws-sdk/client-amplifybackend";
+ * const config = {}; // type is AmplifyBackendClientConfig
  * const client = new AmplifyBackendClient(config);
  * const input = { // CreateBackendStorageRequest
  *   AppId: "STRING_VALUE", // required

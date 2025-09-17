@@ -56,6 +56,8 @@ export interface ShutdownGatewayCommandOutput extends ShutdownGatewayOutput, __M
  * ```javascript
  * import { StorageGatewayClient, ShutdownGatewayCommand } from "@aws-sdk/client-storage-gateway"; // ES Modules import
  * // const { StorageGatewayClient, ShutdownGatewayCommand } = require("@aws-sdk/client-storage-gateway"); // CommonJS import
+ * // import type { StorageGatewayClientConfig } from "@aws-sdk/client-storage-gateway";
+ * const config = {}; // type is StorageGatewayClientConfig
  * const client = new StorageGatewayClient(config);
  * const input = { // ShutdownGatewayInput
  *   GatewayARN: "STRING_VALUE", // required

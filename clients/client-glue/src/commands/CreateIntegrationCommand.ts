@@ -34,6 +34,8 @@ export interface CreateIntegrationCommandOutput extends CreateIntegrationRespons
  * ```javascript
  * import { GlueClient, CreateIntegrationCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, CreateIntegrationCommand } = require("@aws-sdk/client-glue"); // CommonJS import
+ * // import type { GlueClientConfig } from "@aws-sdk/client-glue";
+ * const config = {}; // type is GlueClientConfig
  * const client = new GlueClient(config);
  * const input = { // CreateIntegrationRequest
  *   IntegrationName: "STRING_VALUE", // required

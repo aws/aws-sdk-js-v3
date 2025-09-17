@@ -34,6 +34,8 @@ export interface GetServiceCommandOutput extends GetServiceResponse, __MetadataB
  * ```javascript
  * import { VPCLatticeClient, GetServiceCommand } from "@aws-sdk/client-vpc-lattice"; // ES Modules import
  * // const { VPCLatticeClient, GetServiceCommand } = require("@aws-sdk/client-vpc-lattice"); // CommonJS import
+ * // import type { VPCLatticeClientConfig } from "@aws-sdk/client-vpc-lattice";
+ * const config = {}; // type is VPCLatticeClientConfig
  * const client = new VPCLatticeClient(config);
  * const input = { // GetServiceRequest
  *   serviceIdentifier: "STRING_VALUE", // required

@@ -34,6 +34,8 @@ export interface CancelMLDataProcessingJobCommandOutput extends CancelMLDataProc
  * ```javascript
  * import { NeptunedataClient, CancelMLDataProcessingJobCommand } from "@aws-sdk/client-neptunedata"; // ES Modules import
  * // const { NeptunedataClient, CancelMLDataProcessingJobCommand } = require("@aws-sdk/client-neptunedata"); // CommonJS import
+ * // import type { NeptunedataClientConfig } from "@aws-sdk/client-neptunedata";
+ * const config = {}; // type is NeptunedataClientConfig
  * const client = new NeptunedataClient(config);
  * const input = { // CancelMLDataProcessingJobInput
  *   id: "STRING_VALUE", // required

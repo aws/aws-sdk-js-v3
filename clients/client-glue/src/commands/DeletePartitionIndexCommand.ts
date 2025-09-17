@@ -34,6 +34,8 @@ export interface DeletePartitionIndexCommandOutput extends DeletePartitionIndexR
  * ```javascript
  * import { GlueClient, DeletePartitionIndexCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, DeletePartitionIndexCommand } = require("@aws-sdk/client-glue"); // CommonJS import
+ * // import type { GlueClientConfig } from "@aws-sdk/client-glue";
+ * const config = {}; // type is GlueClientConfig
  * const client = new GlueClient(config);
  * const input = { // DeletePartitionIndexRequest
  *   CatalogId: "STRING_VALUE",

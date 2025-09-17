@@ -34,6 +34,8 @@ export interface StartMatchingJobCommandOutput extends StartMatchingJobOutput, _
  * ```javascript
  * import { EntityResolutionClient, StartMatchingJobCommand } from "@aws-sdk/client-entityresolution"; // ES Modules import
  * // const { EntityResolutionClient, StartMatchingJobCommand } = require("@aws-sdk/client-entityresolution"); // CommonJS import
+ * // import type { EntityResolutionClientConfig } from "@aws-sdk/client-entityresolution";
+ * const config = {}; // type is EntityResolutionClientConfig
  * const client = new EntityResolutionClient(config);
  * const input = { // StartMatchingJobInput
  *   workflowName: "STRING_VALUE", // required

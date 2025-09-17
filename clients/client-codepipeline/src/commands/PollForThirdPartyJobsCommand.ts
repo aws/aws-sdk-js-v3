@@ -40,6 +40,8 @@ export interface PollForThirdPartyJobsCommandOutput extends PollForThirdPartyJob
  * ```javascript
  * import { CodePipelineClient, PollForThirdPartyJobsCommand } from "@aws-sdk/client-codepipeline"; // ES Modules import
  * // const { CodePipelineClient, PollForThirdPartyJobsCommand } = require("@aws-sdk/client-codepipeline"); // CommonJS import
+ * // import type { CodePipelineClientConfig } from "@aws-sdk/client-codepipeline";
+ * const config = {}; // type is CodePipelineClientConfig
  * const client = new CodePipelineClient(config);
  * const input = { // PollForThirdPartyJobsInput
  *   actionTypeId: { // ActionTypeId

@@ -43,6 +43,8 @@ export interface GetCommandInvocationCommandOutput extends GetCommandInvocationR
  * ```javascript
  * import { SSMClient, GetCommandInvocationCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, GetCommandInvocationCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
+ * // import type { SSMClientConfig } from "@aws-sdk/client-ssm";
+ * const config = {}; // type is SSMClientConfig
  * const client = new SSMClient(config);
  * const input = { // GetCommandInvocationRequest
  *   CommandId: "STRING_VALUE", // required

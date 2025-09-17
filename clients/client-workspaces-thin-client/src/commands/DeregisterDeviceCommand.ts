@@ -38,6 +38,8 @@ export interface DeregisterDeviceCommandOutput extends DeregisterDeviceResponse,
  * ```javascript
  * import { WorkSpacesThinClientClient, DeregisterDeviceCommand } from "@aws-sdk/client-workspaces-thin-client"; // ES Modules import
  * // const { WorkSpacesThinClientClient, DeregisterDeviceCommand } = require("@aws-sdk/client-workspaces-thin-client"); // CommonJS import
+ * // import type { WorkSpacesThinClientClientConfig } from "@aws-sdk/client-workspaces-thin-client";
+ * const config = {}; // type is WorkSpacesThinClientClientConfig
  * const client = new WorkSpacesThinClientClient(config);
  * const input = { // DeregisterDeviceRequest
  *   id: "STRING_VALUE", // required

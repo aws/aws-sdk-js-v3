@@ -34,6 +34,8 @@ export interface DescribeTrustedTokenIssuerCommandOutput extends DescribeTrusted
  * ```javascript
  * import { SSOAdminClient, DescribeTrustedTokenIssuerCommand } from "@aws-sdk/client-sso-admin"; // ES Modules import
  * // const { SSOAdminClient, DescribeTrustedTokenIssuerCommand } = require("@aws-sdk/client-sso-admin"); // CommonJS import
+ * // import type { SSOAdminClientConfig } from "@aws-sdk/client-sso-admin";
+ * const config = {}; // type is SSOAdminClientConfig
  * const client = new SSOAdminClient(config);
  * const input = { // DescribeTrustedTokenIssuerRequest
  *   TrustedTokenIssuerArn: "STRING_VALUE", // required

@@ -45,6 +45,8 @@ export interface GetRDSDatabaseRecommendationProjectedMetricsCommandOutput
  * ```javascript
  * import { ComputeOptimizerClient, GetRDSDatabaseRecommendationProjectedMetricsCommand } from "@aws-sdk/client-compute-optimizer"; // ES Modules import
  * // const { ComputeOptimizerClient, GetRDSDatabaseRecommendationProjectedMetricsCommand } = require("@aws-sdk/client-compute-optimizer"); // CommonJS import
+ * // import type { ComputeOptimizerClientConfig } from "@aws-sdk/client-compute-optimizer";
+ * const config = {}; // type is ComputeOptimizerClientConfig
  * const client = new ComputeOptimizerClient(config);
  * const input = { // GetRDSDatabaseRecommendationProjectedMetricsRequest
  *   resourceArn: "STRING_VALUE", // required

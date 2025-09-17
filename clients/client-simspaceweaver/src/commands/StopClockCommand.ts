@@ -34,6 +34,8 @@ export interface StopClockCommandOutput extends StopClockOutput, __MetadataBeare
  * ```javascript
  * import { SimSpaceWeaverClient, StopClockCommand } from "@aws-sdk/client-simspaceweaver"; // ES Modules import
  * // const { SimSpaceWeaverClient, StopClockCommand } = require("@aws-sdk/client-simspaceweaver"); // CommonJS import
+ * // import type { SimSpaceWeaverClientConfig } from "@aws-sdk/client-simspaceweaver";
+ * const config = {}; // type is SimSpaceWeaverClientConfig
  * const client = new SimSpaceWeaverClient(config);
  * const input = { // StopClockInput
  *   Simulation: "STRING_VALUE", // required

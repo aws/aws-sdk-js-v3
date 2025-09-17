@@ -34,6 +34,8 @@ export interface TagCertificateAuthorityCommandOutput extends __MetadataBearer {
  * ```javascript
  * import { ACMPCAClient, TagCertificateAuthorityCommand } from "@aws-sdk/client-acm-pca"; // ES Modules import
  * // const { ACMPCAClient, TagCertificateAuthorityCommand } = require("@aws-sdk/client-acm-pca"); // CommonJS import
+ * // import type { ACMPCAClientConfig } from "@aws-sdk/client-acm-pca";
+ * const config = {}; // type is ACMPCAClientConfig
  * const client = new ACMPCAClient(config);
  * const input = { // TagCertificateAuthorityRequest
  *   CertificateAuthorityArn: "STRING_VALUE", // required

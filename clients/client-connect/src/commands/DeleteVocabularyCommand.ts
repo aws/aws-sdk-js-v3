@@ -34,6 +34,8 @@ export interface DeleteVocabularyCommandOutput extends DeleteVocabularyResponse,
  * ```javascript
  * import { ConnectClient, DeleteVocabularyCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, DeleteVocabularyCommand } = require("@aws-sdk/client-connect"); // CommonJS import
+ * // import type { ConnectClientConfig } from "@aws-sdk/client-connect";
+ * const config = {}; // type is ConnectClientConfig
  * const client = new ConnectClient(config);
  * const input = { // DeleteVocabularyRequest
  *   InstanceId: "STRING_VALUE", // required

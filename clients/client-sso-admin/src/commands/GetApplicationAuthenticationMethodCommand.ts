@@ -42,6 +42,8 @@ export interface GetApplicationAuthenticationMethodCommandOutput
  * ```javascript
  * import { SSOAdminClient, GetApplicationAuthenticationMethodCommand } from "@aws-sdk/client-sso-admin"; // ES Modules import
  * // const { SSOAdminClient, GetApplicationAuthenticationMethodCommand } = require("@aws-sdk/client-sso-admin"); // CommonJS import
+ * // import type { SSOAdminClientConfig } from "@aws-sdk/client-sso-admin";
+ * const config = {}; // type is SSOAdminClientConfig
  * const client = new SSOAdminClient(config);
  * const input = { // GetApplicationAuthenticationMethodRequest
  *   ApplicationArn: "STRING_VALUE", // required

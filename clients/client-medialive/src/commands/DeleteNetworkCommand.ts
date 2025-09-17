@@ -34,6 +34,8 @@ export interface DeleteNetworkCommandOutput extends DeleteNetworkResponse, __Met
  * ```javascript
  * import { MediaLiveClient, DeleteNetworkCommand } from "@aws-sdk/client-medialive"; // ES Modules import
  * // const { MediaLiveClient, DeleteNetworkCommand } = require("@aws-sdk/client-medialive"); // CommonJS import
+ * // import type { MediaLiveClientConfig } from "@aws-sdk/client-medialive";
+ * const config = {}; // type is MediaLiveClientConfig
  * const client = new MediaLiveClient(config);
  * const input = { // DeleteNetworkRequest
  *   NetworkId: "STRING_VALUE", // required

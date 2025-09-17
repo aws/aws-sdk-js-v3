@@ -34,6 +34,8 @@ export interface AssociateLibraryItemReviewCommandOutput extends __MetadataBeare
  * ```javascript
  * import { QAppsClient, AssociateLibraryItemReviewCommand } from "@aws-sdk/client-qapps"; // ES Modules import
  * // const { QAppsClient, AssociateLibraryItemReviewCommand } = require("@aws-sdk/client-qapps"); // CommonJS import
+ * // import type { QAppsClientConfig } from "@aws-sdk/client-qapps";
+ * const config = {}; // type is QAppsClientConfig
  * const client = new QAppsClient(config);
  * const input = { // AssociateLibraryItemReviewInput
  *   instanceId: "STRING_VALUE", // required

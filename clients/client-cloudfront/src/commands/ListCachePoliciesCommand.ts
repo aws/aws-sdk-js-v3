@@ -34,6 +34,8 @@ export interface ListCachePoliciesCommandOutput extends ListCachePoliciesResult,
  * ```javascript
  * import { CloudFrontClient, ListCachePoliciesCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
  * // const { CloudFrontClient, ListCachePoliciesCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
+ * // import type { CloudFrontClientConfig } from "@aws-sdk/client-cloudfront";
+ * const config = {}; // type is CloudFrontClientConfig
  * const client = new CloudFrontClient(config);
  * const input = { // ListCachePoliciesRequest
  *   Type: "managed" || "custom",

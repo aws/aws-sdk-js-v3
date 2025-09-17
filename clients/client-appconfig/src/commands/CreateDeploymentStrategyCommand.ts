@@ -37,6 +37,8 @@ export interface CreateDeploymentStrategyCommandOutput extends DeploymentStrateg
  * ```javascript
  * import { AppConfigClient, CreateDeploymentStrategyCommand } from "@aws-sdk/client-appconfig"; // ES Modules import
  * // const { AppConfigClient, CreateDeploymentStrategyCommand } = require("@aws-sdk/client-appconfig"); // CommonJS import
+ * // import type { AppConfigClientConfig } from "@aws-sdk/client-appconfig";
+ * const config = {}; // type is AppConfigClientConfig
  * const client = new AppConfigClient(config);
  * const input = { // CreateDeploymentStrategyRequest
  *   Name: "STRING_VALUE", // required

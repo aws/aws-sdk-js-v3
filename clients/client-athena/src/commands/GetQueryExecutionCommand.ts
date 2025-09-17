@@ -36,6 +36,8 @@ export interface GetQueryExecutionCommandOutput extends GetQueryExecutionOutput,
  * ```javascript
  * import { AthenaClient, GetQueryExecutionCommand } from "@aws-sdk/client-athena"; // ES Modules import
  * // const { AthenaClient, GetQueryExecutionCommand } = require("@aws-sdk/client-athena"); // CommonJS import
+ * // import type { AthenaClientConfig } from "@aws-sdk/client-athena";
+ * const config = {}; // type is AthenaClientConfig
  * const client = new AthenaClient(config);
  * const input = { // GetQueryExecutionInput
  *   QueryExecutionId: "STRING_VALUE", // required

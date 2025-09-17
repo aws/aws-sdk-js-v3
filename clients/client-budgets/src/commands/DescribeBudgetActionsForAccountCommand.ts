@@ -45,6 +45,8 @@ export interface DescribeBudgetActionsForAccountCommandOutput
  * ```javascript
  * import { BudgetsClient, DescribeBudgetActionsForAccountCommand } from "@aws-sdk/client-budgets"; // ES Modules import
  * // const { BudgetsClient, DescribeBudgetActionsForAccountCommand } = require("@aws-sdk/client-budgets"); // CommonJS import
+ * // import type { BudgetsClientConfig } from "@aws-sdk/client-budgets";
+ * const config = {}; // type is BudgetsClientConfig
  * const client = new BudgetsClient(config);
  * const input = { // DescribeBudgetActionsForAccountRequest
  *   AccountId: "STRING_VALUE", // required

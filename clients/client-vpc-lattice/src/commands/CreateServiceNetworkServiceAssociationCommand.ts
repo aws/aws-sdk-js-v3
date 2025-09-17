@@ -51,6 +51,8 @@ export interface CreateServiceNetworkServiceAssociationCommandOutput
  * ```javascript
  * import { VPCLatticeClient, CreateServiceNetworkServiceAssociationCommand } from "@aws-sdk/client-vpc-lattice"; // ES Modules import
  * // const { VPCLatticeClient, CreateServiceNetworkServiceAssociationCommand } = require("@aws-sdk/client-vpc-lattice"); // CommonJS import
+ * // import type { VPCLatticeClientConfig } from "@aws-sdk/client-vpc-lattice";
+ * const config = {}; // type is VPCLatticeClientConfig
  * const client = new VPCLatticeClient(config);
  * const input = { // CreateServiceNetworkServiceAssociationRequest
  *   clientToken: "STRING_VALUE",

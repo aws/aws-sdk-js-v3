@@ -35,6 +35,8 @@ export interface AssociateAnalyticsDataSetCommandOutput extends AssociateAnalyti
  * ```javascript
  * import { ConnectClient, AssociateAnalyticsDataSetCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, AssociateAnalyticsDataSetCommand } = require("@aws-sdk/client-connect"); // CommonJS import
+ * // import type { ConnectClientConfig } from "@aws-sdk/client-connect";
+ * const config = {}; // type is ConnectClientConfig
  * const client = new ConnectClient(config);
  * const input = { // AssociateAnalyticsDataSetRequest
  *   InstanceId: "STRING_VALUE", // required

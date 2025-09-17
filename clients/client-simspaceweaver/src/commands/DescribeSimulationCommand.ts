@@ -34,6 +34,8 @@ export interface DescribeSimulationCommandOutput extends DescribeSimulationOutpu
  * ```javascript
  * import { SimSpaceWeaverClient, DescribeSimulationCommand } from "@aws-sdk/client-simspaceweaver"; // ES Modules import
  * // const { SimSpaceWeaverClient, DescribeSimulationCommand } = require("@aws-sdk/client-simspaceweaver"); // CommonJS import
+ * // import type { SimSpaceWeaverClientConfig } from "@aws-sdk/client-simspaceweaver";
+ * const config = {}; // type is SimSpaceWeaverClientConfig
  * const client = new SimSpaceWeaverClient(config);
  * const input = { // DescribeSimulationInput
  *   Simulation: "STRING_VALUE", // required

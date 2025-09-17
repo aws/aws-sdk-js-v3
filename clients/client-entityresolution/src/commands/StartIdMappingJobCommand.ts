@@ -34,6 +34,8 @@ export interface StartIdMappingJobCommandOutput extends StartIdMappingJobOutput,
  * ```javascript
  * import { EntityResolutionClient, StartIdMappingJobCommand } from "@aws-sdk/client-entityresolution"; // ES Modules import
  * // const { EntityResolutionClient, StartIdMappingJobCommand } = require("@aws-sdk/client-entityresolution"); // CommonJS import
+ * // import type { EntityResolutionClientConfig } from "@aws-sdk/client-entityresolution";
+ * const config = {}; // type is EntityResolutionClientConfig
  * const client = new EntityResolutionClient(config);
  * const input = { // StartIdMappingJobInput
  *   workflowName: "STRING_VALUE", // required

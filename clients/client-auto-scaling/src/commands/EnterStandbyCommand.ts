@@ -43,6 +43,8 @@ export interface EnterStandbyCommandOutput extends EnterStandbyAnswer, __Metadat
  * ```javascript
  * import { AutoScalingClient, EnterStandbyCommand } from "@aws-sdk/client-auto-scaling"; // ES Modules import
  * // const { AutoScalingClient, EnterStandbyCommand } = require("@aws-sdk/client-auto-scaling"); // CommonJS import
+ * // import type { AutoScalingClientConfig } from "@aws-sdk/client-auto-scaling";
+ * const config = {}; // type is AutoScalingClientConfig
  * const client = new AutoScalingClient(config);
  * const input = { // EnterStandbyQuery
  *   InstanceIds: [ // InstanceIds

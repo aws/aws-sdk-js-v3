@@ -47,6 +47,8 @@ export interface DisassociateFileSystemAliasesCommandOutput
  * ```javascript
  * import { FSxClient, DisassociateFileSystemAliasesCommand } from "@aws-sdk/client-fsx"; // ES Modules import
  * // const { FSxClient, DisassociateFileSystemAliasesCommand } = require("@aws-sdk/client-fsx"); // CommonJS import
+ * // import type { FSxClientConfig } from "@aws-sdk/client-fsx";
+ * const config = {}; // type is FSxClientConfig
  * const client = new FSxClient(config);
  * const input = { // DisassociateFileSystemAliasesRequest
  *   ClientRequestToken: "STRING_VALUE",

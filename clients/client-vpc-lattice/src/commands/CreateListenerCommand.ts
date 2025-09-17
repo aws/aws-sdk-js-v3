@@ -37,6 +37,8 @@ export interface CreateListenerCommandOutput extends CreateListenerResponse, __M
  * ```javascript
  * import { VPCLatticeClient, CreateListenerCommand } from "@aws-sdk/client-vpc-lattice"; // ES Modules import
  * // const { VPCLatticeClient, CreateListenerCommand } = require("@aws-sdk/client-vpc-lattice"); // CommonJS import
+ * // import type { VPCLatticeClientConfig } from "@aws-sdk/client-vpc-lattice";
+ * const config = {}; // type is VPCLatticeClientConfig
  * const client = new VPCLatticeClient(config);
  * const input = { // CreateListenerRequest
  *   serviceIdentifier: "STRING_VALUE", // required

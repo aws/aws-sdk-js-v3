@@ -38,6 +38,8 @@ export interface DeleteAccountAssociationCommandOutput extends __MetadataBearer 
  * ```javascript
  * import { IoTManagedIntegrationsClient, DeleteAccountAssociationCommand } from "@aws-sdk/client-iot-managed-integrations"; // ES Modules import
  * // const { IoTManagedIntegrationsClient, DeleteAccountAssociationCommand } = require("@aws-sdk/client-iot-managed-integrations"); // CommonJS import
+ * // import type { IoTManagedIntegrationsClientConfig } from "@aws-sdk/client-iot-managed-integrations";
+ * const config = {}; // type is IoTManagedIntegrationsClientConfig
  * const client = new IoTManagedIntegrationsClient(config);
  * const input = { // DeleteAccountAssociationRequest
  *   AccountAssociationId: "STRING_VALUE", // required

@@ -34,6 +34,8 @@ export interface UpdateDevEnvironmentCommandOutput extends UpdateDevEnvironmentR
  * ```javascript
  * import { CodeCatalystClient, UpdateDevEnvironmentCommand } from "@aws-sdk/client-codecatalyst"; // ES Modules import
  * // const { CodeCatalystClient, UpdateDevEnvironmentCommand } = require("@aws-sdk/client-codecatalyst"); // CommonJS import
+ * // import type { CodeCatalystClientConfig } from "@aws-sdk/client-codecatalyst";
+ * const config = {}; // type is CodeCatalystClientConfig
  * const client = new CodeCatalystClient(config);
  * const input = { // UpdateDevEnvironmentRequest
  *   spaceName: "STRING_VALUE", // required

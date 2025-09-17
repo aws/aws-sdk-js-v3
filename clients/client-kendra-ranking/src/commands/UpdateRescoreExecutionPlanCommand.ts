@@ -39,6 +39,8 @@ export interface UpdateRescoreExecutionPlanCommandOutput extends __MetadataBeare
  * ```javascript
  * import { KendraRankingClient, UpdateRescoreExecutionPlanCommand } from "@aws-sdk/client-kendra-ranking"; // ES Modules import
  * // const { KendraRankingClient, UpdateRescoreExecutionPlanCommand } = require("@aws-sdk/client-kendra-ranking"); // CommonJS import
+ * // import type { KendraRankingClientConfig } from "@aws-sdk/client-kendra-ranking";
+ * const config = {}; // type is KendraRankingClientConfig
  * const client = new KendraRankingClient(config);
  * const input = { // UpdateRescoreExecutionPlanRequest
  *   Id: "STRING_VALUE", // required

@@ -34,6 +34,8 @@ export interface DeleteAppInstanceBotCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { ChimeSDKIdentityClient, DeleteAppInstanceBotCommand } from "@aws-sdk/client-chime-sdk-identity"; // ES Modules import
  * // const { ChimeSDKIdentityClient, DeleteAppInstanceBotCommand } = require("@aws-sdk/client-chime-sdk-identity"); // CommonJS import
+ * // import type { ChimeSDKIdentityClientConfig } from "@aws-sdk/client-chime-sdk-identity";
+ * const config = {}; // type is ChimeSDKIdentityClientConfig
  * const client = new ChimeSDKIdentityClient(config);
  * const input = { // DeleteAppInstanceBotRequest
  *   AppInstanceBotArn: "STRING_VALUE", // required

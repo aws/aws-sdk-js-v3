@@ -34,6 +34,8 @@ export interface CreateCustomModelCommandOutput extends CreateCustomModelRespons
  * ```javascript
  * import { BedrockClient, CreateCustomModelCommand } from "@aws-sdk/client-bedrock"; // ES Modules import
  * // const { BedrockClient, CreateCustomModelCommand } = require("@aws-sdk/client-bedrock"); // CommonJS import
+ * // import type { BedrockClientConfig } from "@aws-sdk/client-bedrock";
+ * const config = {}; // type is BedrockClientConfig
  * const client = new BedrockClient(config);
  * const input = { // CreateCustomModelRequest
  *   modelName: "STRING_VALUE", // required

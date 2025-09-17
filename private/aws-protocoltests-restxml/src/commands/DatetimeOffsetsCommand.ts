@@ -35,6 +35,8 @@ export interface DatetimeOffsetsCommandOutput extends DatetimeOffsetsOutput, __M
  * ```javascript
  * import { RestXmlProtocolClient, DatetimeOffsetsCommand } from "@aws-sdk/aws-protocoltests-restxml"; // ES Modules import
  * // const { RestXmlProtocolClient, DatetimeOffsetsCommand } = require("@aws-sdk/aws-protocoltests-restxml"); // CommonJS import
+ * // import type { RestXmlProtocolClientConfig } from "@aws-sdk/aws-protocoltests-restxml";
+ * const config = {}; // type is RestXmlProtocolClientConfig
  * const client = new RestXmlProtocolClient(config);
  * const input = {};
  * const command = new DatetimeOffsetsCommand(input);

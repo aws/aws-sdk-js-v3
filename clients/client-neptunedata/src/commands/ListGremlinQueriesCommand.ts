@@ -34,6 +34,8 @@ export interface ListGremlinQueriesCommandOutput extends ListGremlinQueriesOutpu
  * ```javascript
  * import { NeptunedataClient, ListGremlinQueriesCommand } from "@aws-sdk/client-neptunedata"; // ES Modules import
  * // const { NeptunedataClient, ListGremlinQueriesCommand } = require("@aws-sdk/client-neptunedata"); // CommonJS import
+ * // import type { NeptunedataClientConfig } from "@aws-sdk/client-neptunedata";
+ * const config = {}; // type is NeptunedataClientConfig
  * const client = new NeptunedataClient(config);
  * const input = { // ListGremlinQueriesInput
  *   includeWaiting: true || false,

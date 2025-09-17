@@ -34,6 +34,8 @@ export interface DescribeSlotTypeCommandOutput extends DescribeSlotTypeResponse,
  * ```javascript
  * import { LexModelsV2Client, DescribeSlotTypeCommand } from "@aws-sdk/client-lex-models-v2"; // ES Modules import
  * // const { LexModelsV2Client, DescribeSlotTypeCommand } = require("@aws-sdk/client-lex-models-v2"); // CommonJS import
+ * // import type { LexModelsV2ClientConfig } from "@aws-sdk/client-lex-models-v2";
+ * const config = {}; // type is LexModelsV2ClientConfig
  * const client = new LexModelsV2Client(config);
  * const input = { // DescribeSlotTypeRequest
  *   slotTypeId: "STRING_VALUE", // required

@@ -34,6 +34,8 @@ export interface GetWorkflowRunPropertiesCommandOutput extends GetWorkflowRunPro
  * ```javascript
  * import { GlueClient, GetWorkflowRunPropertiesCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, GetWorkflowRunPropertiesCommand } = require("@aws-sdk/client-glue"); // CommonJS import
+ * // import type { GlueClientConfig } from "@aws-sdk/client-glue";
+ * const config = {}; // type is GlueClientConfig
  * const client = new GlueClient(config);
  * const input = { // GetWorkflowRunPropertiesRequest
  *   Name: "STRING_VALUE", // required

@@ -42,6 +42,8 @@ export interface VerifyCardValidationDataCommandOutput extends VerifyCardValidat
  * ```javascript
  * import { PaymentCryptographyDataClient, VerifyCardValidationDataCommand } from "@aws-sdk/client-payment-cryptography-data"; // ES Modules import
  * // const { PaymentCryptographyDataClient, VerifyCardValidationDataCommand } = require("@aws-sdk/client-payment-cryptography-data"); // CommonJS import
+ * // import type { PaymentCryptographyDataClientConfig } from "@aws-sdk/client-payment-cryptography-data";
+ * const config = {}; // type is PaymentCryptographyDataClientConfig
  * const client = new PaymentCryptographyDataClient(config);
  * const input = { // VerifyCardValidationDataInput
  *   KeyIdentifier: "STRING_VALUE", // required

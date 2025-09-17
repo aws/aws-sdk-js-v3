@@ -34,6 +34,8 @@ export interface RemoveBackendConfigCommandOutput extends RemoveBackendConfigRes
  * ```javascript
  * import { AmplifyBackendClient, RemoveBackendConfigCommand } from "@aws-sdk/client-amplifybackend"; // ES Modules import
  * // const { AmplifyBackendClient, RemoveBackendConfigCommand } = require("@aws-sdk/client-amplifybackend"); // CommonJS import
+ * // import type { AmplifyBackendClientConfig } from "@aws-sdk/client-amplifybackend";
+ * const config = {}; // type is AmplifyBackendClientConfig
  * const client = new AmplifyBackendClient(config);
  * const input = { // RemoveBackendConfigRequest
  *   AppId: "STRING_VALUE", // required

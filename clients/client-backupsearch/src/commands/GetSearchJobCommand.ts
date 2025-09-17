@@ -34,6 +34,8 @@ export interface GetSearchJobCommandOutput extends GetSearchJobOutput, __Metadat
  * ```javascript
  * import { BackupSearchClient, GetSearchJobCommand } from "@aws-sdk/client-backupsearch"; // ES Modules import
  * // const { BackupSearchClient, GetSearchJobCommand } = require("@aws-sdk/client-backupsearch"); // CommonJS import
+ * // import type { BackupSearchClientConfig } from "@aws-sdk/client-backupsearch";
+ * const config = {}; // type is BackupSearchClientConfig
  * const client = new BackupSearchClient(config);
  * const input = { // GetSearchJobInput
  *   SearchJobIdentifier: "STRING_VALUE", // required

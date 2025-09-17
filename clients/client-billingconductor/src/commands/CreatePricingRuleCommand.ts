@@ -40,6 +40,8 @@ export interface CreatePricingRuleCommandOutput extends CreatePricingRuleOutput,
  * ```javascript
  * import { BillingconductorClient, CreatePricingRuleCommand } from "@aws-sdk/client-billingconductor"; // ES Modules import
  * // const { BillingconductorClient, CreatePricingRuleCommand } = require("@aws-sdk/client-billingconductor"); // CommonJS import
+ * // import type { BillingconductorClientConfig } from "@aws-sdk/client-billingconductor";
+ * const config = {}; // type is BillingconductorClientConfig
  * const client = new BillingconductorClient(config);
  * const input = { // CreatePricingRuleInput
  *   ClientToken: "STRING_VALUE",

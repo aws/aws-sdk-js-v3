@@ -34,6 +34,8 @@ export interface ListJobRunsCommandOutput extends ListJobRunsOutput, __MetadataB
  * ```javascript
  * import { DataZoneClient, ListJobRunsCommand } from "@aws-sdk/client-datazone"; // ES Modules import
  * // const { DataZoneClient, ListJobRunsCommand } = require("@aws-sdk/client-datazone"); // CommonJS import
+ * // import type { DataZoneClientConfig } from "@aws-sdk/client-datazone";
+ * const config = {}; // type is DataZoneClientConfig
  * const client = new DataZoneClient(config);
  * const input = { // ListJobRunsInput
  *   domainIdentifier: "STRING_VALUE", // required

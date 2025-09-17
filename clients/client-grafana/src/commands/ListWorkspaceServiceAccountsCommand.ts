@@ -41,6 +41,8 @@ export interface ListWorkspaceServiceAccountsCommandOutput
  * ```javascript
  * import { GrafanaClient, ListWorkspaceServiceAccountsCommand } from "@aws-sdk/client-grafana"; // ES Modules import
  * // const { GrafanaClient, ListWorkspaceServiceAccountsCommand } = require("@aws-sdk/client-grafana"); // CommonJS import
+ * // import type { GrafanaClientConfig } from "@aws-sdk/client-grafana";
+ * const config = {}; // type is GrafanaClientConfig
  * const client = new GrafanaClient(config);
  * const input = { // ListWorkspaceServiceAccountsRequest
  *   maxResults: Number("int"),

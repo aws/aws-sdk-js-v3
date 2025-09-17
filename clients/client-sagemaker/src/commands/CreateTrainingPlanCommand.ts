@@ -34,6 +34,8 @@ export interface CreateTrainingPlanCommandOutput extends CreateTrainingPlanRespo
  * ```javascript
  * import { SageMakerClient, CreateTrainingPlanCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, CreateTrainingPlanCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * // import type { SageMakerClientConfig } from "@aws-sdk/client-sagemaker";
+ * const config = {}; // type is SageMakerClientConfig
  * const client = new SageMakerClient(config);
  * const input = { // CreateTrainingPlanRequest
  *   TrainingPlanName: "STRING_VALUE", // required

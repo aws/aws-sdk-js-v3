@@ -34,6 +34,8 @@ export interface GetLibraryItemCommandOutput extends GetLibraryItemOutput, __Met
  * ```javascript
  * import { QAppsClient, GetLibraryItemCommand } from "@aws-sdk/client-qapps"; // ES Modules import
  * // const { QAppsClient, GetLibraryItemCommand } = require("@aws-sdk/client-qapps"); // CommonJS import
+ * // import type { QAppsClientConfig } from "@aws-sdk/client-qapps";
+ * const config = {}; // type is QAppsClientConfig
  * const client = new QAppsClient(config);
  * const input = { // GetLibraryItemInput
  *   instanceId: "STRING_VALUE", // required

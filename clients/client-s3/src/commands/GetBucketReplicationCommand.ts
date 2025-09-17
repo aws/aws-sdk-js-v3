@@ -66,6 +66,8 @@ export interface GetBucketReplicationCommandOutput extends GetBucketReplicationO
  * ```javascript
  * import { S3Client, GetBucketReplicationCommand } from "@aws-sdk/client-s3"; // ES Modules import
  * // const { S3Client, GetBucketReplicationCommand } = require("@aws-sdk/client-s3"); // CommonJS import
+ * // import type { S3ClientConfig } from "@aws-sdk/client-s3";
+ * const config = {}; // type is S3ClientConfig
  * const client = new S3Client(config);
  * const input = { // GetBucketReplicationRequest
  *   Bucket: "STRING_VALUE", // required

@@ -38,6 +38,8 @@ export interface ListFlowExecutionsCommandOutput extends ListFlowExecutionsRespo
  * ```javascript
  * import { BedrockAgentRuntimeClient, ListFlowExecutionsCommand } from "@aws-sdk/client-bedrock-agent-runtime"; // ES Modules import
  * // const { BedrockAgentRuntimeClient, ListFlowExecutionsCommand } = require("@aws-sdk/client-bedrock-agent-runtime"); // CommonJS import
+ * // import type { BedrockAgentRuntimeClientConfig } from "@aws-sdk/client-bedrock-agent-runtime";
+ * const config = {}; // type is BedrockAgentRuntimeClientConfig
  * const client = new BedrockAgentRuntimeClient(config);
  * const input = { // ListFlowExecutionsRequest
  *   flowIdentifier: "STRING_VALUE", // required

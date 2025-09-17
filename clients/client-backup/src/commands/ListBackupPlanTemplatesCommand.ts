@@ -34,6 +34,8 @@ export interface ListBackupPlanTemplatesCommandOutput extends ListBackupPlanTemp
  * ```javascript
  * import { BackupClient, ListBackupPlanTemplatesCommand } from "@aws-sdk/client-backup"; // ES Modules import
  * // const { BackupClient, ListBackupPlanTemplatesCommand } = require("@aws-sdk/client-backup"); // CommonJS import
+ * // import type { BackupClientConfig } from "@aws-sdk/client-backup";
+ * const config = {}; // type is BackupClientConfig
  * const client = new BackupClient(config);
  * const input = { // ListBackupPlanTemplatesInput
  *   NextToken: "STRING_VALUE",

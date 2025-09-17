@@ -34,6 +34,8 @@ export interface ListEphemeridesCommandOutput extends ListEphemeridesResponse, _
  * ```javascript
  * import { GroundStationClient, ListEphemeridesCommand } from "@aws-sdk/client-groundstation"; // ES Modules import
  * // const { GroundStationClient, ListEphemeridesCommand } = require("@aws-sdk/client-groundstation"); // CommonJS import
+ * // import type { GroundStationClientConfig } from "@aws-sdk/client-groundstation";
+ * const config = {}; // type is GroundStationClientConfig
  * const client = new GroundStationClient(config);
  * const input = { // ListEphemeridesRequest
  *   satelliteId: "STRING_VALUE", // required

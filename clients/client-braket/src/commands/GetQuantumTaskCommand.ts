@@ -34,6 +34,8 @@ export interface GetQuantumTaskCommandOutput extends GetQuantumTaskResponse, __M
  * ```javascript
  * import { BraketClient, GetQuantumTaskCommand } from "@aws-sdk/client-braket"; // ES Modules import
  * // const { BraketClient, GetQuantumTaskCommand } = require("@aws-sdk/client-braket"); // CommonJS import
+ * // import type { BraketClientConfig } from "@aws-sdk/client-braket";
+ * const config = {}; // type is BraketClientConfig
  * const client = new BraketClient(config);
  * const input = { // GetQuantumTaskRequest
  *   quantumTaskArn: "STRING_VALUE", // required

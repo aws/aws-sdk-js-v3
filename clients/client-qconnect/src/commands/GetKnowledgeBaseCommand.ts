@@ -38,6 +38,8 @@ export interface GetKnowledgeBaseCommandOutput extends GetKnowledgeBaseResponse,
  * ```javascript
  * import { QConnectClient, GetKnowledgeBaseCommand } from "@aws-sdk/client-qconnect"; // ES Modules import
  * // const { QConnectClient, GetKnowledgeBaseCommand } = require("@aws-sdk/client-qconnect"); // CommonJS import
+ * // import type { QConnectClientConfig } from "@aws-sdk/client-qconnect";
+ * const config = {}; // type is QConnectClientConfig
  * const client = new QConnectClient(config);
  * const input = { // GetKnowledgeBaseRequest
  *   knowledgeBaseId: "STRING_VALUE", // required

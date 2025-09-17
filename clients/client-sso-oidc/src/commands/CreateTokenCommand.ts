@@ -41,6 +41,8 @@ export interface CreateTokenCommandOutput extends CreateTokenResponse, __Metadat
  * ```javascript
  * import { SSOOIDCClient, CreateTokenCommand } from "@aws-sdk/client-sso-oidc"; // ES Modules import
  * // const { SSOOIDCClient, CreateTokenCommand } = require("@aws-sdk/client-sso-oidc"); // CommonJS import
+ * // import type { SSOOIDCClientConfig } from "@aws-sdk/client-sso-oidc";
+ * const config = {}; // type is SSOOIDCClientConfig
  * const client = new SSOOIDCClient(config);
  * const input = { // CreateTokenRequest
  *   clientId: "STRING_VALUE", // required

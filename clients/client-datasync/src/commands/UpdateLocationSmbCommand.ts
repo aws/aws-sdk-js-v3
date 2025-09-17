@@ -41,6 +41,8 @@ export interface UpdateLocationSmbCommandOutput extends UpdateLocationSmbRespons
  * ```javascript
  * import { DataSyncClient, UpdateLocationSmbCommand } from "@aws-sdk/client-datasync"; // ES Modules import
  * // const { DataSyncClient, UpdateLocationSmbCommand } = require("@aws-sdk/client-datasync"); // CommonJS import
+ * // import type { DataSyncClientConfig } from "@aws-sdk/client-datasync";
+ * const config = {}; // type is DataSyncClientConfig
  * const client = new DataSyncClient(config);
  * const input = { // UpdateLocationSmbRequest
  *   LocationArn: "STRING_VALUE", // required

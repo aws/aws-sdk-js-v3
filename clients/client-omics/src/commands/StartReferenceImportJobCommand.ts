@@ -34,6 +34,8 @@ export interface StartReferenceImportJobCommandOutput extends StartReferenceImpo
  * ```javascript
  * import { OmicsClient, StartReferenceImportJobCommand } from "@aws-sdk/client-omics"; // ES Modules import
  * // const { OmicsClient, StartReferenceImportJobCommand } = require("@aws-sdk/client-omics"); // CommonJS import
+ * // import type { OmicsClientConfig } from "@aws-sdk/client-omics";
+ * const config = {}; // type is OmicsClientConfig
  * const client = new OmicsClient(config);
  * const input = { // StartReferenceImportJobRequest
  *   referenceStoreId: "STRING_VALUE", // required

@@ -34,6 +34,8 @@ export interface UpdateApplicationCommandOutput extends Application, __MetadataB
  * ```javascript
  * import { MgnClient, UpdateApplicationCommand } from "@aws-sdk/client-mgn"; // ES Modules import
  * // const { MgnClient, UpdateApplicationCommand } = require("@aws-sdk/client-mgn"); // CommonJS import
+ * // import type { MgnClientConfig } from "@aws-sdk/client-mgn";
+ * const config = {}; // type is MgnClientConfig
  * const client = new MgnClient(config);
  * const input = { // UpdateApplicationRequest
  *   applicationID: "STRING_VALUE", // required

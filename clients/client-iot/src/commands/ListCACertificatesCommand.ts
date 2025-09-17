@@ -37,6 +37,8 @@ export interface ListCACertificatesCommandOutput extends ListCACertificatesRespo
  * ```javascript
  * import { IoTClient, ListCACertificatesCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, ListCACertificatesCommand } = require("@aws-sdk/client-iot"); // CommonJS import
+ * // import type { IoTClientConfig } from "@aws-sdk/client-iot";
+ * const config = {}; // type is IoTClientConfig
  * const client = new IoTClient(config);
  * const input = { // ListCACertificatesRequest
  *   pageSize: Number("int"),

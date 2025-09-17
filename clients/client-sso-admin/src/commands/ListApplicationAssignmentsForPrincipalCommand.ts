@@ -43,6 +43,8 @@ export interface ListApplicationAssignmentsForPrincipalCommandOutput
  * ```javascript
  * import { SSOAdminClient, ListApplicationAssignmentsForPrincipalCommand } from "@aws-sdk/client-sso-admin"; // ES Modules import
  * // const { SSOAdminClient, ListApplicationAssignmentsForPrincipalCommand } = require("@aws-sdk/client-sso-admin"); // CommonJS import
+ * // import type { SSOAdminClientConfig } from "@aws-sdk/client-sso-admin";
+ * const config = {}; // type is SSOAdminClientConfig
  * const client = new SSOAdminClient(config);
  * const input = { // ListApplicationAssignmentsForPrincipalRequest
  *   InstanceArn: "STRING_VALUE", // required

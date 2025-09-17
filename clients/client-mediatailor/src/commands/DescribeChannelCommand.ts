@@ -34,6 +34,8 @@ export interface DescribeChannelCommandOutput extends DescribeChannelResponse, _
  * ```javascript
  * import { MediaTailorClient, DescribeChannelCommand } from "@aws-sdk/client-mediatailor"; // ES Modules import
  * // const { MediaTailorClient, DescribeChannelCommand } = require("@aws-sdk/client-mediatailor"); // CommonJS import
+ * // import type { MediaTailorClientConfig } from "@aws-sdk/client-mediatailor";
+ * const config = {}; // type is MediaTailorClientConfig
  * const client = new MediaTailorClient(config);
  * const input = { // DescribeChannelRequest
  *   ChannelName: "STRING_VALUE", // required

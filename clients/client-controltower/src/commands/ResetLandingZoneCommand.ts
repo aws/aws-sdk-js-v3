@@ -34,6 +34,8 @@ export interface ResetLandingZoneCommandOutput extends ResetLandingZoneOutput, _
  * ```javascript
  * import { ControlTowerClient, ResetLandingZoneCommand } from "@aws-sdk/client-controltower"; // ES Modules import
  * // const { ControlTowerClient, ResetLandingZoneCommand } = require("@aws-sdk/client-controltower"); // CommonJS import
+ * // import type { ControlTowerClientConfig } from "@aws-sdk/client-controltower";
+ * const config = {}; // type is ControlTowerClientConfig
  * const client = new ControlTowerClient(config);
  * const input = { // ResetLandingZoneInput
  *   landingZoneIdentifier: "STRING_VALUE", // required

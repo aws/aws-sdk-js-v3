@@ -38,6 +38,8 @@ export interface CreatePresignedNotebookUrlCommandOutput extends CreatePresigned
  * ```javascript
  * import { AthenaClient, CreatePresignedNotebookUrlCommand } from "@aws-sdk/client-athena"; // ES Modules import
  * // const { AthenaClient, CreatePresignedNotebookUrlCommand } = require("@aws-sdk/client-athena"); // CommonJS import
+ * // import type { AthenaClientConfig } from "@aws-sdk/client-athena";
+ * const config = {}; // type is AthenaClientConfig
  * const client = new AthenaClient(config);
  * const input = { // CreatePresignedNotebookUrlRequest
  *   SessionId: "STRING_VALUE", // required

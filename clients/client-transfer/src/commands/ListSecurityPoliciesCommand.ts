@@ -34,6 +34,8 @@ export interface ListSecurityPoliciesCommandOutput extends ListSecurityPoliciesR
  * ```javascript
  * import { TransferClient, ListSecurityPoliciesCommand } from "@aws-sdk/client-transfer"; // ES Modules import
  * // const { TransferClient, ListSecurityPoliciesCommand } = require("@aws-sdk/client-transfer"); // CommonJS import
+ * // import type { TransferClientConfig } from "@aws-sdk/client-transfer";
+ * const config = {}; // type is TransferClientConfig
  * const client = new TransferClient(config);
  * const input = { // ListSecurityPoliciesRequest
  *   MaxResults: Number("int"),

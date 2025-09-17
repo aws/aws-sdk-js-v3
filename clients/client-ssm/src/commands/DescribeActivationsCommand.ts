@@ -37,6 +37,8 @@ export interface DescribeActivationsCommandOutput extends DescribeActivationsRes
  * ```javascript
  * import { SSMClient, DescribeActivationsCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, DescribeActivationsCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
+ * // import type { SSMClientConfig } from "@aws-sdk/client-ssm";
+ * const config = {}; // type is SSMClientConfig
  * const client = new SSMClient(config);
  * const input = { // DescribeActivationsRequest
  *   Filters: [ // DescribeActivationsFilterList

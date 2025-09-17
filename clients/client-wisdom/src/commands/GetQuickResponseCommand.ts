@@ -38,6 +38,8 @@ export interface GetQuickResponseCommandOutput extends GetQuickResponseResponse,
  * ```javascript
  * import { WisdomClient, GetQuickResponseCommand } from "@aws-sdk/client-wisdom"; // ES Modules import
  * // const { WisdomClient, GetQuickResponseCommand } = require("@aws-sdk/client-wisdom"); // CommonJS import
+ * // import type { WisdomClientConfig } from "@aws-sdk/client-wisdom";
+ * const config = {}; // type is WisdomClientConfig
  * const client = new WisdomClient(config);
  * const input = { // GetQuickResponseRequest
  *   quickResponseId: "STRING_VALUE", // required

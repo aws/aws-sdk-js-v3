@@ -34,6 +34,8 @@ export interface BatchAssociateScramSecretCommandOutput extends BatchAssociateSc
  * ```javascript
  * import { KafkaClient, BatchAssociateScramSecretCommand } from "@aws-sdk/client-kafka"; // ES Modules import
  * // const { KafkaClient, BatchAssociateScramSecretCommand } = require("@aws-sdk/client-kafka"); // CommonJS import
+ * // import type { KafkaClientConfig } from "@aws-sdk/client-kafka";
+ * const config = {}; // type is KafkaClientConfig
  * const client = new KafkaClient(config);
  * const input = { // BatchAssociateScramSecretRequest
  *   ClusterArn: "STRING_VALUE", // required

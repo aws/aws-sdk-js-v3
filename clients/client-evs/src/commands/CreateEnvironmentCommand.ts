@@ -34,6 +34,8 @@ export interface CreateEnvironmentCommandOutput extends CreateEnvironmentRespons
  * ```javascript
  * import { EvsClient, CreateEnvironmentCommand } from "@aws-sdk/client-evs"; // ES Modules import
  * // const { EvsClient, CreateEnvironmentCommand } = require("@aws-sdk/client-evs"); // CommonJS import
+ * // import type { EvsClientConfig } from "@aws-sdk/client-evs";
+ * const config = {}; // type is EvsClientConfig
  * const client = new EvsClient(config);
  * const input = { // CreateEnvironmentRequest
  *   clientToken: "STRING_VALUE",

@@ -38,6 +38,8 @@ export interface DeletePolicyTemplateCommandOutput extends DeletePolicyTemplateO
  * ```javascript
  * import { VerifiedPermissionsClient, DeletePolicyTemplateCommand } from "@aws-sdk/client-verifiedpermissions"; // ES Modules import
  * // const { VerifiedPermissionsClient, DeletePolicyTemplateCommand } = require("@aws-sdk/client-verifiedpermissions"); // CommonJS import
+ * // import type { VerifiedPermissionsClientConfig } from "@aws-sdk/client-verifiedpermissions";
+ * const config = {}; // type is VerifiedPermissionsClientConfig
  * const client = new VerifiedPermissionsClient(config);
  * const input = { // DeletePolicyTemplateInput
  *   policyStoreId: "STRING_VALUE", // required

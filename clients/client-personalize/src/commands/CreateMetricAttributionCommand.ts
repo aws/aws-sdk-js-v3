@@ -36,6 +36,8 @@ export interface CreateMetricAttributionCommandOutput extends CreateMetricAttrib
  * ```javascript
  * import { PersonalizeClient, CreateMetricAttributionCommand } from "@aws-sdk/client-personalize"; // ES Modules import
  * // const { PersonalizeClient, CreateMetricAttributionCommand } = require("@aws-sdk/client-personalize"); // CommonJS import
+ * // import type { PersonalizeClientConfig } from "@aws-sdk/client-personalize";
+ * const config = {}; // type is PersonalizeClientConfig
  * const client = new PersonalizeClient(config);
  * const input = { // CreateMetricAttributionRequest
  *   name: "STRING_VALUE", // required

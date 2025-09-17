@@ -39,6 +39,8 @@ export interface GetManagedNotificationEventCommandOutput
  * ```javascript
  * import { NotificationsClient, GetManagedNotificationEventCommand } from "@aws-sdk/client-notifications"; // ES Modules import
  * // const { NotificationsClient, GetManagedNotificationEventCommand } = require("@aws-sdk/client-notifications"); // CommonJS import
+ * // import type { NotificationsClientConfig } from "@aws-sdk/client-notifications";
+ * const config = {}; // type is NotificationsClientConfig
  * const client = new NotificationsClient(config);
  * const input = { // GetManagedNotificationEventRequest
  *   arn: "STRING_VALUE", // required

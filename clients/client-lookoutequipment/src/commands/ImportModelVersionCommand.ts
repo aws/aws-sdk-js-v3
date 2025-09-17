@@ -34,6 +34,8 @@ export interface ImportModelVersionCommandOutput extends ImportModelVersionRespo
  * ```javascript
  * import { LookoutEquipmentClient, ImportModelVersionCommand } from "@aws-sdk/client-lookoutequipment"; // ES Modules import
  * // const { LookoutEquipmentClient, ImportModelVersionCommand } = require("@aws-sdk/client-lookoutequipment"); // CommonJS import
+ * // import type { LookoutEquipmentClientConfig } from "@aws-sdk/client-lookoutequipment";
+ * const config = {}; // type is LookoutEquipmentClientConfig
  * const client = new LookoutEquipmentClient(config);
  * const input = { // ImportModelVersionRequest
  *   SourceModelVersionArn: "STRING_VALUE", // required

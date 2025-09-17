@@ -34,6 +34,8 @@ export interface UpdateApiCommandOutput extends UpdateApiResponse, __MetadataBea
  * ```javascript
  * import { AppSyncClient, UpdateApiCommand } from "@aws-sdk/client-appsync"; // ES Modules import
  * // const { AppSyncClient, UpdateApiCommand } = require("@aws-sdk/client-appsync"); // CommonJS import
+ * // import type { AppSyncClientConfig } from "@aws-sdk/client-appsync";
+ * const config = {}; // type is AppSyncClientConfig
  * const client = new AppSyncClient(config);
  * const input = { // UpdateApiRequest
  *   apiId: "STRING_VALUE", // required

@@ -34,6 +34,8 @@ export interface GetTargetResourceTypeCommandOutput extends GetTargetResourceTyp
  * ```javascript
  * import { FisClient, GetTargetResourceTypeCommand } from "@aws-sdk/client-fis"; // ES Modules import
  * // const { FisClient, GetTargetResourceTypeCommand } = require("@aws-sdk/client-fis"); // CommonJS import
+ * // import type { FisClientConfig } from "@aws-sdk/client-fis";
+ * const config = {}; // type is FisClientConfig
  * const client = new FisClient(config);
  * const input = { // GetTargetResourceTypeRequest
  *   resourceType: "STRING_VALUE", // required

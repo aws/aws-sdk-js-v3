@@ -34,6 +34,8 @@ export interface UpdateProfilingGroupCommandOutput extends UpdateProfilingGroupR
  * ```javascript
  * import { CodeGuruProfilerClient, UpdateProfilingGroupCommand } from "@aws-sdk/client-codeguruprofiler"; // ES Modules import
  * // const { CodeGuruProfilerClient, UpdateProfilingGroupCommand } = require("@aws-sdk/client-codeguruprofiler"); // CommonJS import
+ * // import type { CodeGuruProfilerClientConfig } from "@aws-sdk/client-codeguruprofiler";
+ * const config = {}; // type is CodeGuruProfilerClientConfig
  * const client = new CodeGuruProfilerClient(config);
  * const input = { // UpdateProfilingGroupRequest
  *   profilingGroupName: "STRING_VALUE", // required

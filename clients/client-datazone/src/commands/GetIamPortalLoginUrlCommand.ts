@@ -34,6 +34,8 @@ export interface GetIamPortalLoginUrlCommandOutput extends GetIamPortalLoginUrlO
  * ```javascript
  * import { DataZoneClient, GetIamPortalLoginUrlCommand } from "@aws-sdk/client-datazone"; // ES Modules import
  * // const { DataZoneClient, GetIamPortalLoginUrlCommand } = require("@aws-sdk/client-datazone"); // CommonJS import
+ * // import type { DataZoneClientConfig } from "@aws-sdk/client-datazone";
+ * const config = {}; // type is DataZoneClientConfig
  * const client = new DataZoneClient(config);
  * const input = { // GetIamPortalLoginUrlInput
  *   domainIdentifier: "STRING_VALUE", // required

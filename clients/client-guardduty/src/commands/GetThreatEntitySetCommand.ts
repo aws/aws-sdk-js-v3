@@ -34,6 +34,8 @@ export interface GetThreatEntitySetCommandOutput extends GetThreatEntitySetRespo
  * ```javascript
  * import { GuardDutyClient, GetThreatEntitySetCommand } from "@aws-sdk/client-guardduty"; // ES Modules import
  * // const { GuardDutyClient, GetThreatEntitySetCommand } = require("@aws-sdk/client-guardduty"); // CommonJS import
+ * // import type { GuardDutyClientConfig } from "@aws-sdk/client-guardduty";
+ * const config = {}; // type is GuardDutyClientConfig
  * const client = new GuardDutyClient(config);
  * const input = { // GetThreatEntitySetRequest
  *   DetectorId: "STRING_VALUE", // required

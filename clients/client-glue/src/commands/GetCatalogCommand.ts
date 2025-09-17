@@ -34,6 +34,8 @@ export interface GetCatalogCommandOutput extends GetCatalogResponse, __MetadataB
  * ```javascript
  * import { GlueClient, GetCatalogCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, GetCatalogCommand } = require("@aws-sdk/client-glue"); // CommonJS import
+ * // import type { GlueClientConfig } from "@aws-sdk/client-glue";
+ * const config = {}; // type is GlueClientConfig
  * const client = new GlueClient(config);
  * const input = { // GetCatalogRequest
  *   CatalogId: "STRING_VALUE", // required

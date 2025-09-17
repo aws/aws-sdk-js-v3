@@ -34,6 +34,8 @@ export interface TimestampFormatHeadersCommandOutput extends TimestampFormatHead
  * ```javascript
  * import { RestXmlProtocolClient, TimestampFormatHeadersCommand } from "@aws-sdk/aws-protocoltests-restxml"; // ES Modules import
  * // const { RestXmlProtocolClient, TimestampFormatHeadersCommand } = require("@aws-sdk/aws-protocoltests-restxml"); // CommonJS import
+ * // import type { RestXmlProtocolClientConfig } from "@aws-sdk/aws-protocoltests-restxml";
+ * const config = {}; // type is RestXmlProtocolClientConfig
  * const client = new RestXmlProtocolClient(config);
  * const input = { // TimestampFormatHeadersIO
  *   memberEpochSeconds: new Date("TIMESTAMP"),

@@ -39,6 +39,8 @@ export interface DeletePolicyCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { AutoScalingClient, DeletePolicyCommand } from "@aws-sdk/client-auto-scaling"; // ES Modules import
  * // const { AutoScalingClient, DeletePolicyCommand } = require("@aws-sdk/client-auto-scaling"); // CommonJS import
+ * // import type { AutoScalingClientConfig } from "@aws-sdk/client-auto-scaling";
+ * const config = {}; // type is AutoScalingClientConfig
  * const client = new AutoScalingClient(config);
  * const input = { // DeletePolicyType
  *   AutoScalingGroupName: "STRING_VALUE",

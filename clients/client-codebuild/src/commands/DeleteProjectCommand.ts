@@ -35,6 +35,8 @@ export interface DeleteProjectCommandOutput extends DeleteProjectOutput, __Metad
  * ```javascript
  * import { CodeBuildClient, DeleteProjectCommand } from "@aws-sdk/client-codebuild"; // ES Modules import
  * // const { CodeBuildClient, DeleteProjectCommand } = require("@aws-sdk/client-codebuild"); // CommonJS import
+ * // import type { CodeBuildClientConfig } from "@aws-sdk/client-codebuild";
+ * const config = {}; // type is CodeBuildClientConfig
  * const client = new CodeBuildClient(config);
  * const input = { // DeleteProjectInput
  *   name: "STRING_VALUE", // required

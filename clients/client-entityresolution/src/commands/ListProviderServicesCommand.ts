@@ -34,6 +34,8 @@ export interface ListProviderServicesCommandOutput extends ListProviderServicesO
  * ```javascript
  * import { EntityResolutionClient, ListProviderServicesCommand } from "@aws-sdk/client-entityresolution"; // ES Modules import
  * // const { EntityResolutionClient, ListProviderServicesCommand } = require("@aws-sdk/client-entityresolution"); // CommonJS import
+ * // import type { EntityResolutionClientConfig } from "@aws-sdk/client-entityresolution";
+ * const config = {}; // type is EntityResolutionClientConfig
  * const client = new EntityResolutionClient(config);
  * const input = { // ListProviderServicesInput
  *   nextToken: "STRING_VALUE",

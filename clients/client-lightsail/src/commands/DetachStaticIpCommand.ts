@@ -34,6 +34,8 @@ export interface DetachStaticIpCommandOutput extends DetachStaticIpResult, __Met
  * ```javascript
  * import { LightsailClient, DetachStaticIpCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, DetachStaticIpCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
+ * // import type { LightsailClientConfig } from "@aws-sdk/client-lightsail";
+ * const config = {}; // type is LightsailClientConfig
  * const client = new LightsailClient(config);
  * const input = { // DetachStaticIpRequest
  *   staticIpName: "STRING_VALUE", // required

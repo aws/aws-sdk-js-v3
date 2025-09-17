@@ -34,6 +34,8 @@ export interface TagResourceCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { PcaConnectorScepClient, TagResourceCommand } from "@aws-sdk/client-pca-connector-scep"; // ES Modules import
  * // const { PcaConnectorScepClient, TagResourceCommand } = require("@aws-sdk/client-pca-connector-scep"); // CommonJS import
+ * // import type { PcaConnectorScepClientConfig } from "@aws-sdk/client-pca-connector-scep";
+ * const config = {}; // type is PcaConnectorScepClientConfig
  * const client = new PcaConnectorScepClient(config);
  * const input = { // TagResourceRequest
  *   ResourceArn: "STRING_VALUE", // required

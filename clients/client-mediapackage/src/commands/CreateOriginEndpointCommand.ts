@@ -34,6 +34,8 @@ export interface CreateOriginEndpointCommandOutput extends CreateOriginEndpointR
  * ```javascript
  * import { MediaPackageClient, CreateOriginEndpointCommand } from "@aws-sdk/client-mediapackage"; // ES Modules import
  * // const { MediaPackageClient, CreateOriginEndpointCommand } = require("@aws-sdk/client-mediapackage"); // CommonJS import
+ * // import type { MediaPackageClientConfig } from "@aws-sdk/client-mediapackage";
+ * const config = {}; // type is MediaPackageClientConfig
  * const client = new MediaPackageClient(config);
  * const input = { // CreateOriginEndpointRequest
  *   Authorization: { // Authorization

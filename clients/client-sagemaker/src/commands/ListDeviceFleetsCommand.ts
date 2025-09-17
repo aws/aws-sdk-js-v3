@@ -34,6 +34,8 @@ export interface ListDeviceFleetsCommandOutput extends ListDeviceFleetsResponse,
  * ```javascript
  * import { SageMakerClient, ListDeviceFleetsCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, ListDeviceFleetsCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * // import type { SageMakerClientConfig } from "@aws-sdk/client-sagemaker";
+ * const config = {}; // type is SageMakerClientConfig
  * const client = new SageMakerClient(config);
  * const input = { // ListDeviceFleetsRequest
  *   NextToken: "STRING_VALUE",

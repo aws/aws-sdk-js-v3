@@ -36,6 +36,8 @@ export interface DescribeRegistryCommandOutput extends DescribeRegistryResponse,
  * ```javascript
  * import { ECRClient, DescribeRegistryCommand } from "@aws-sdk/client-ecr"; // ES Modules import
  * // const { ECRClient, DescribeRegistryCommand } = require("@aws-sdk/client-ecr"); // CommonJS import
+ * // import type { ECRClientConfig } from "@aws-sdk/client-ecr";
+ * const config = {}; // type is ECRClientConfig
  * const client = new ECRClient(config);
  * const input = {};
  * const command = new DescribeRegistryCommand(input);

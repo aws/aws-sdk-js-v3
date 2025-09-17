@@ -38,6 +38,8 @@ export interface DeleteDBSubnetGroupCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { DocDBClient, DeleteDBSubnetGroupCommand } from "@aws-sdk/client-docdb"; // ES Modules import
  * // const { DocDBClient, DeleteDBSubnetGroupCommand } = require("@aws-sdk/client-docdb"); // CommonJS import
+ * // import type { DocDBClientConfig } from "@aws-sdk/client-docdb";
+ * const config = {}; // type is DocDBClientConfig
  * const client = new DocDBClient(config);
  * const input = { // DeleteDBSubnetGroupMessage
  *   DBSubnetGroupName: "STRING_VALUE", // required

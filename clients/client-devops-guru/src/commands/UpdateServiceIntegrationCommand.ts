@@ -36,6 +36,8 @@ export interface UpdateServiceIntegrationCommandOutput extends UpdateServiceInte
  * ```javascript
  * import { DevOpsGuruClient, UpdateServiceIntegrationCommand } from "@aws-sdk/client-devops-guru"; // ES Modules import
  * // const { DevOpsGuruClient, UpdateServiceIntegrationCommand } = require("@aws-sdk/client-devops-guru"); // CommonJS import
+ * // import type { DevOpsGuruClientConfig } from "@aws-sdk/client-devops-guru";
+ * const config = {}; // type is DevOpsGuruClientConfig
  * const client = new DevOpsGuruClient(config);
  * const input = { // UpdateServiceIntegrationRequest
  *   ServiceIntegration: { // UpdateServiceIntegrationConfig

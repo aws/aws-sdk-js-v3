@@ -44,6 +44,8 @@ export interface StartMisconfiguredStateRecoveryCommandOutput
  * ```javascript
  * import { FSxClient, StartMisconfiguredStateRecoveryCommand } from "@aws-sdk/client-fsx"; // ES Modules import
  * // const { FSxClient, StartMisconfiguredStateRecoveryCommand } = require("@aws-sdk/client-fsx"); // CommonJS import
+ * // import type { FSxClientConfig } from "@aws-sdk/client-fsx";
+ * const config = {}; // type is FSxClientConfig
  * const client = new FSxClient(config);
  * const input = { // StartMisconfiguredStateRecoveryRequest
  *   ClientRequestToken: "STRING_VALUE",

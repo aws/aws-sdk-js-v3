@@ -34,6 +34,8 @@ export interface MergeBranchesBySquashCommandOutput extends MergeBranchesBySquas
  * ```javascript
  * import { CodeCommitClient, MergeBranchesBySquashCommand } from "@aws-sdk/client-codecommit"; // ES Modules import
  * // const { CodeCommitClient, MergeBranchesBySquashCommand } = require("@aws-sdk/client-codecommit"); // CommonJS import
+ * // import type { CodeCommitClientConfig } from "@aws-sdk/client-codecommit";
+ * const config = {}; // type is CodeCommitClientConfig
  * const client = new CodeCommitClient(config);
  * const input = { // MergeBranchesBySquashInput
  *   repositoryName: "STRING_VALUE", // required

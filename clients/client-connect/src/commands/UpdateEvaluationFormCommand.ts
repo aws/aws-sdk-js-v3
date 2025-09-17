@@ -39,6 +39,8 @@ export interface UpdateEvaluationFormCommandOutput extends UpdateEvaluationFormR
  * ```javascript
  * import { ConnectClient, UpdateEvaluationFormCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, UpdateEvaluationFormCommand } = require("@aws-sdk/client-connect"); // CommonJS import
+ * // import type { ConnectClientConfig } from "@aws-sdk/client-connect";
+ * const config = {}; // type is ConnectClientConfig
  * const client = new ConnectClient(config);
  * const input = { // UpdateEvaluationFormRequest
  *   InstanceId: "STRING_VALUE", // required

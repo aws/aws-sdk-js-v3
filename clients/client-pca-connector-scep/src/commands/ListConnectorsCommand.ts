@@ -34,6 +34,8 @@ export interface ListConnectorsCommandOutput extends ListConnectorsResponse, __M
  * ```javascript
  * import { PcaConnectorScepClient, ListConnectorsCommand } from "@aws-sdk/client-pca-connector-scep"; // ES Modules import
  * // const { PcaConnectorScepClient, ListConnectorsCommand } = require("@aws-sdk/client-pca-connector-scep"); // CommonJS import
+ * // import type { PcaConnectorScepClientConfig } from "@aws-sdk/client-pca-connector-scep";
+ * const config = {}; // type is PcaConnectorScepClientConfig
  * const client = new PcaConnectorScepClient(config);
  * const input = { // ListConnectorsRequest
  *   MaxResults: Number("int"),

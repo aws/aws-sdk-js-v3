@@ -43,6 +43,8 @@ export interface ListDistributionsByConnectionModeCommandOutput
  * ```javascript
  * import { CloudFrontClient, ListDistributionsByConnectionModeCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
  * // const { CloudFrontClient, ListDistributionsByConnectionModeCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
+ * // import type { CloudFrontClientConfig } from "@aws-sdk/client-cloudfront";
+ * const config = {}; // type is CloudFrontClientConfig
  * const client = new CloudFrontClient(config);
  * const input = { // ListDistributionsByConnectionModeRequest
  *   Marker: "STRING_VALUE",

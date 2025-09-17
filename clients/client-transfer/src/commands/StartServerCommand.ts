@@ -34,6 +34,8 @@ export interface StartServerCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { TransferClient, StartServerCommand } from "@aws-sdk/client-transfer"; // ES Modules import
  * // const { TransferClient, StartServerCommand } = require("@aws-sdk/client-transfer"); // CommonJS import
+ * // import type { TransferClientConfig } from "@aws-sdk/client-transfer";
+ * const config = {}; // type is TransferClientConfig
  * const client = new TransferClient(config);
  * const input = { // StartServerRequest
  *   ServerId: "STRING_VALUE", // required

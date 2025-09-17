@@ -34,6 +34,8 @@ export interface DeleteBackendAuthCommandOutput extends DeleteBackendAuthRespons
  * ```javascript
  * import { AmplifyBackendClient, DeleteBackendAuthCommand } from "@aws-sdk/client-amplifybackend"; // ES Modules import
  * // const { AmplifyBackendClient, DeleteBackendAuthCommand } = require("@aws-sdk/client-amplifybackend"); // CommonJS import
+ * // import type { AmplifyBackendClientConfig } from "@aws-sdk/client-amplifybackend";
+ * const config = {}; // type is AmplifyBackendClientConfig
  * const client = new AmplifyBackendClient(config);
  * const input = { // DeleteBackendAuthRequest
  *   AppId: "STRING_VALUE", // required

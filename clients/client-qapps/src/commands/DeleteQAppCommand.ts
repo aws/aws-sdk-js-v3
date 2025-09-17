@@ -34,6 +34,8 @@ export interface DeleteQAppCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { QAppsClient, DeleteQAppCommand } from "@aws-sdk/client-qapps"; // ES Modules import
  * // const { QAppsClient, DeleteQAppCommand } = require("@aws-sdk/client-qapps"); // CommonJS import
+ * // import type { QAppsClientConfig } from "@aws-sdk/client-qapps";
+ * const config = {}; // type is QAppsClientConfig
  * const client = new QAppsClient(config);
  * const input = { // DeleteQAppInput
  *   instanceId: "STRING_VALUE", // required

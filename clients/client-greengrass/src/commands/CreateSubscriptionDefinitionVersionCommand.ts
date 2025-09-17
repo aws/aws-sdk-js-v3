@@ -42,6 +42,8 @@ export interface CreateSubscriptionDefinitionVersionCommandOutput
  * ```javascript
  * import { GreengrassClient, CreateSubscriptionDefinitionVersionCommand } from "@aws-sdk/client-greengrass"; // ES Modules import
  * // const { GreengrassClient, CreateSubscriptionDefinitionVersionCommand } = require("@aws-sdk/client-greengrass"); // CommonJS import
+ * // import type { GreengrassClientConfig } from "@aws-sdk/client-greengrass";
+ * const config = {}; // type is GreengrassClientConfig
  * const client = new GreengrassClient(config);
  * const input = { // CreateSubscriptionDefinitionVersionRequest
  *   AmznClientToken: "STRING_VALUE",

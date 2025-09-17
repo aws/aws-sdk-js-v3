@@ -44,6 +44,8 @@ export interface ListClientDevicesAssociatedWithCoreDeviceCommandOutput
  * ```javascript
  * import { GreengrassV2Client, ListClientDevicesAssociatedWithCoreDeviceCommand } from "@aws-sdk/client-greengrassv2"; // ES Modules import
  * // const { GreengrassV2Client, ListClientDevicesAssociatedWithCoreDeviceCommand } = require("@aws-sdk/client-greengrassv2"); // CommonJS import
+ * // import type { GreengrassV2ClientConfig } from "@aws-sdk/client-greengrassv2";
+ * const config = {}; // type is GreengrassV2ClientConfig
  * const client = new GreengrassV2Client(config);
  * const input = { // ListClientDevicesAssociatedWithCoreDeviceRequest
  *   coreDeviceThingName: "STRING_VALUE", // required

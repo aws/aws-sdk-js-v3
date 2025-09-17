@@ -45,6 +45,8 @@ export interface UpdateDashboardCommandOutput extends UpdateDashboardResponse, _
  * ```javascript
  * import { CloudTrailClient, UpdateDashboardCommand } from "@aws-sdk/client-cloudtrail"; // ES Modules import
  * // const { CloudTrailClient, UpdateDashboardCommand } = require("@aws-sdk/client-cloudtrail"); // CommonJS import
+ * // import type { CloudTrailClientConfig } from "@aws-sdk/client-cloudtrail";
+ * const config = {}; // type is CloudTrailClientConfig
  * const client = new CloudTrailClient(config);
  * const input = { // UpdateDashboardRequest
  *   DashboardId: "STRING_VALUE", // required

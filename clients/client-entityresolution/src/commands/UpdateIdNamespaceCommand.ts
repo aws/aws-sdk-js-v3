@@ -34,6 +34,8 @@ export interface UpdateIdNamespaceCommandOutput extends UpdateIdNamespaceOutput,
  * ```javascript
  * import { EntityResolutionClient, UpdateIdNamespaceCommand } from "@aws-sdk/client-entityresolution"; // ES Modules import
  * // const { EntityResolutionClient, UpdateIdNamespaceCommand } = require("@aws-sdk/client-entityresolution"); // CommonJS import
+ * // import type { EntityResolutionClientConfig } from "@aws-sdk/client-entityresolution";
+ * const config = {}; // type is EntityResolutionClientConfig
  * const client = new EntityResolutionClient(config);
  * const input = { // UpdateIdNamespaceInput
  *   idNamespaceName: "STRING_VALUE", // required

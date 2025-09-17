@@ -94,6 +94,8 @@ export interface PutRecordsCommandOutput extends PutRecordsOutput, __MetadataBea
  * ```javascript
  * import { KinesisClient, PutRecordsCommand } from "@aws-sdk/client-kinesis"; // ES Modules import
  * // const { KinesisClient, PutRecordsCommand } = require("@aws-sdk/client-kinesis"); // CommonJS import
+ * // import type { KinesisClientConfig } from "@aws-sdk/client-kinesis";
+ * const config = {}; // type is KinesisClientConfig
  * const client = new KinesisClient(config);
  * const input = { // PutRecordsInput
  *   Records: [ // PutRecordsRequestEntryList // required

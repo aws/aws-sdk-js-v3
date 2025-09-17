@@ -34,6 +34,8 @@ export interface DeleteParallelDataCommandOutput extends DeleteParallelDataRespo
  * ```javascript
  * import { TranslateClient, DeleteParallelDataCommand } from "@aws-sdk/client-translate"; // ES Modules import
  * // const { TranslateClient, DeleteParallelDataCommand } = require("@aws-sdk/client-translate"); // CommonJS import
+ * // import type { TranslateClientConfig } from "@aws-sdk/client-translate";
+ * const config = {}; // type is TranslateClientConfig
  * const client = new TranslateClient(config);
  * const input = { // DeleteParallelDataRequest
  *   Name: "STRING_VALUE", // required

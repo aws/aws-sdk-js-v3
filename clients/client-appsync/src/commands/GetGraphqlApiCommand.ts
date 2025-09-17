@@ -34,6 +34,8 @@ export interface GetGraphqlApiCommandOutput extends GetGraphqlApiResponse, __Met
  * ```javascript
  * import { AppSyncClient, GetGraphqlApiCommand } from "@aws-sdk/client-appsync"; // ES Modules import
  * // const { AppSyncClient, GetGraphqlApiCommand } = require("@aws-sdk/client-appsync"); // CommonJS import
+ * // import type { AppSyncClientConfig } from "@aws-sdk/client-appsync";
+ * const config = {}; // type is AppSyncClientConfig
  * const client = new AppSyncClient(config);
  * const input = { // GetGraphqlApiRequest
  *   apiId: "STRING_VALUE", // required

@@ -34,6 +34,8 @@ export interface DeleteClusterCommandOutput extends DeleteClusterOutput, __Metad
  * ```javascript
  * import { DSQLClient, DeleteClusterCommand } from "@aws-sdk/client-dsql"; // ES Modules import
  * // const { DSQLClient, DeleteClusterCommand } = require("@aws-sdk/client-dsql"); // CommonJS import
+ * // import type { DSQLClientConfig } from "@aws-sdk/client-dsql";
+ * const config = {}; // type is DSQLClientConfig
  * const client = new DSQLClient(config);
  * const input = { // DeleteClusterInput
  *   identifier: "STRING_VALUE", // required

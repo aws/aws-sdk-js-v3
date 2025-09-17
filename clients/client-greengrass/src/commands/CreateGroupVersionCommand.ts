@@ -34,6 +34,8 @@ export interface CreateGroupVersionCommandOutput extends CreateGroupVersionRespo
  * ```javascript
  * import { GreengrassClient, CreateGroupVersionCommand } from "@aws-sdk/client-greengrass"; // ES Modules import
  * // const { GreengrassClient, CreateGroupVersionCommand } = require("@aws-sdk/client-greengrass"); // CommonJS import
+ * // import type { GreengrassClientConfig } from "@aws-sdk/client-greengrass";
+ * const config = {}; // type is GreengrassClientConfig
  * const client = new GreengrassClient(config);
  * const input = { // CreateGroupVersionRequest
  *   AmznClientToken: "STRING_VALUE",

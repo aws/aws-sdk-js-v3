@@ -47,6 +47,8 @@ export interface UpdateMaintenanceWindowCommandOutput extends UpdateMaintenanceW
  * ```javascript
  * import { SSMClient, UpdateMaintenanceWindowCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, UpdateMaintenanceWindowCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
+ * // import type { SSMClientConfig } from "@aws-sdk/client-ssm";
+ * const config = {}; // type is SSMClientConfig
  * const client = new SSMClient(config);
  * const input = { // UpdateMaintenanceWindowRequest
  *   WindowId: "STRING_VALUE", // required

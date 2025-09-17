@@ -40,6 +40,8 @@ export interface GetImageFrameCommandOutput extends Omit<GetImageFrameResponse, 
  * ```javascript
  * import { MedicalImagingClient, GetImageFrameCommand } from "@aws-sdk/client-medical-imaging"; // ES Modules import
  * // const { MedicalImagingClient, GetImageFrameCommand } = require("@aws-sdk/client-medical-imaging"); // CommonJS import
+ * // import type { MedicalImagingClientConfig } from "@aws-sdk/client-medical-imaging";
+ * const config = {}; // type is MedicalImagingClientConfig
  * const client = new MedicalImagingClient(config);
  * const input = { // GetImageFrameRequest
  *   datastoreId: "STRING_VALUE", // required

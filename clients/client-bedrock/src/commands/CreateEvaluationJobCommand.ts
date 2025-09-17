@@ -35,6 +35,8 @@ export interface CreateEvaluationJobCommandOutput extends CreateEvaluationJobRes
  * ```javascript
  * import { BedrockClient, CreateEvaluationJobCommand } from "@aws-sdk/client-bedrock"; // ES Modules import
  * // const { BedrockClient, CreateEvaluationJobCommand } = require("@aws-sdk/client-bedrock"); // CommonJS import
+ * // import type { BedrockClientConfig } from "@aws-sdk/client-bedrock";
+ * const config = {}; // type is BedrockClientConfig
  * const client = new BedrockClient(config);
  * const input = { // CreateEvaluationJobRequest
  *   jobName: "STRING_VALUE", // required

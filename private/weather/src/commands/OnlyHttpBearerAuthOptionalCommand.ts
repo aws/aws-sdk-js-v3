@@ -33,6 +33,8 @@ export interface OnlyHttpBearerAuthOptionalCommandOutput extends __MetadataBeare
  * ```javascript
  * import { WeatherClient, OnlyHttpBearerAuthOptionalCommand } from "@aws-sdk/weather"; // ES Modules import
  * // const { WeatherClient, OnlyHttpBearerAuthOptionalCommand } = require("@aws-sdk/weather"); // CommonJS import
+ * // import type { WeatherClientConfig } from "@aws-sdk/weather";
+ * const config = {}; // type is WeatherClientConfig
  * const client = new WeatherClient(config);
  * const input = {};
  * const command = new OnlyHttpBearerAuthOptionalCommand(input);

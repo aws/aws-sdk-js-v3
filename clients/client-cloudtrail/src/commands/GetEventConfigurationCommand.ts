@@ -35,6 +35,8 @@ export interface GetEventConfigurationCommandOutput extends GetEventConfiguratio
  * ```javascript
  * import { CloudTrailClient, GetEventConfigurationCommand } from "@aws-sdk/client-cloudtrail"; // ES Modules import
  * // const { CloudTrailClient, GetEventConfigurationCommand } = require("@aws-sdk/client-cloudtrail"); // CommonJS import
+ * // import type { CloudTrailClientConfig } from "@aws-sdk/client-cloudtrail";
+ * const config = {}; // type is CloudTrailClientConfig
  * const client = new CloudTrailClient(config);
  * const input = { // GetEventConfigurationRequest
  *   EventDataStore: "STRING_VALUE",

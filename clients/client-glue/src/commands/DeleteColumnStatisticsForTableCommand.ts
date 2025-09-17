@@ -40,6 +40,8 @@ export interface DeleteColumnStatisticsForTableCommandOutput
  * ```javascript
  * import { GlueClient, DeleteColumnStatisticsForTableCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, DeleteColumnStatisticsForTableCommand } = require("@aws-sdk/client-glue"); // CommonJS import
+ * // import type { GlueClientConfig } from "@aws-sdk/client-glue";
+ * const config = {}; // type is GlueClientConfig
  * const client = new GlueClient(config);
  * const input = { // DeleteColumnStatisticsForTableRequest
  *   CatalogId: "STRING_VALUE",

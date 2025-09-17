@@ -39,6 +39,8 @@ export interface ListIndexesCommandOutput extends ListIndexesOutput, __MetadataB
  * ```javascript
  * import { ResourceExplorer2Client, ListIndexesCommand } from "@aws-sdk/client-resource-explorer-2"; // ES Modules import
  * // const { ResourceExplorer2Client, ListIndexesCommand } = require("@aws-sdk/client-resource-explorer-2"); // CommonJS import
+ * // import type { ResourceExplorer2ClientConfig } from "@aws-sdk/client-resource-explorer-2";
+ * const config = {}; // type is ResourceExplorer2ClientConfig
  * const client = new ResourceExplorer2Client(config);
  * const input = { // ListIndexesInput
  *   Type: "STRING_VALUE",

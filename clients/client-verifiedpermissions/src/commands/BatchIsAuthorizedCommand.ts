@@ -43,6 +43,8 @@ export interface BatchIsAuthorizedCommandOutput extends BatchIsAuthorizedOutput,
  * ```javascript
  * import { VerifiedPermissionsClient, BatchIsAuthorizedCommand } from "@aws-sdk/client-verifiedpermissions"; // ES Modules import
  * // const { VerifiedPermissionsClient, BatchIsAuthorizedCommand } = require("@aws-sdk/client-verifiedpermissions"); // CommonJS import
+ * // import type { VerifiedPermissionsClientConfig } from "@aws-sdk/client-verifiedpermissions";
+ * const config = {}; // type is VerifiedPermissionsClientConfig
  * const client = new VerifiedPermissionsClient(config);
  * const input = { // BatchIsAuthorizedInput
  *   policyStoreId: "STRING_VALUE", // required

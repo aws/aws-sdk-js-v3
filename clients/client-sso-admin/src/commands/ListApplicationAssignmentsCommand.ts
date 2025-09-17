@@ -34,6 +34,8 @@ export interface ListApplicationAssignmentsCommandOutput extends ListApplication
  * ```javascript
  * import { SSOAdminClient, ListApplicationAssignmentsCommand } from "@aws-sdk/client-sso-admin"; // ES Modules import
  * // const { SSOAdminClient, ListApplicationAssignmentsCommand } = require("@aws-sdk/client-sso-admin"); // CommonJS import
+ * // import type { SSOAdminClientConfig } from "@aws-sdk/client-sso-admin";
+ * const config = {}; // type is SSOAdminClientConfig
  * const client = new SSOAdminClient(config);
  * const input = { // ListApplicationAssignmentsRequest
  *   ApplicationArn: "STRING_VALUE", // required

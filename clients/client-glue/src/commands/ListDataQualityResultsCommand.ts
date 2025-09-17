@@ -34,6 +34,8 @@ export interface ListDataQualityResultsCommandOutput extends ListDataQualityResu
  * ```javascript
  * import { GlueClient, ListDataQualityResultsCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, ListDataQualityResultsCommand } = require("@aws-sdk/client-glue"); // CommonJS import
+ * // import type { GlueClientConfig } from "@aws-sdk/client-glue";
+ * const config = {}; // type is GlueClientConfig
  * const client = new GlueClient(config);
  * const input = { // ListDataQualityResultsRequest
  *   Filter: { // DataQualityResultFilterCriteria

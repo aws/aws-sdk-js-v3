@@ -34,6 +34,8 @@ export interface CreateMultiplexProgramCommandOutput extends CreateMultiplexProg
  * ```javascript
  * import { MediaLiveClient, CreateMultiplexProgramCommand } from "@aws-sdk/client-medialive"; // ES Modules import
  * // const { MediaLiveClient, CreateMultiplexProgramCommand } = require("@aws-sdk/client-medialive"); // CommonJS import
+ * // import type { MediaLiveClientConfig } from "@aws-sdk/client-medialive";
+ * const config = {}; // type is MediaLiveClientConfig
  * const client = new MediaLiveClient(config);
  * const input = { // CreateMultiplexProgramRequest
  *   MultiplexId: "STRING_VALUE", // required

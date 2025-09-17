@@ -34,6 +34,8 @@ export interface CreateGraphSnapshotCommandOutput extends CreateGraphSnapshotOut
  * ```javascript
  * import { NeptuneGraphClient, CreateGraphSnapshotCommand } from "@aws-sdk/client-neptune-graph"; // ES Modules import
  * // const { NeptuneGraphClient, CreateGraphSnapshotCommand } = require("@aws-sdk/client-neptune-graph"); // CommonJS import
+ * // import type { NeptuneGraphClientConfig } from "@aws-sdk/client-neptune-graph";
+ * const config = {}; // type is NeptuneGraphClientConfig
  * const client = new NeptuneGraphClient(config);
  * const input = { // CreateGraphSnapshotInput
  *   graphIdentifier: "STRING_VALUE", // required

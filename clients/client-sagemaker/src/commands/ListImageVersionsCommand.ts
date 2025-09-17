@@ -34,6 +34,8 @@ export interface ListImageVersionsCommandOutput extends ListImageVersionsRespons
  * ```javascript
  * import { SageMakerClient, ListImageVersionsCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, ListImageVersionsCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * // import type { SageMakerClientConfig } from "@aws-sdk/client-sagemaker";
+ * const config = {}; // type is SageMakerClientConfig
  * const client = new SageMakerClient(config);
  * const input = { // ListImageVersionsRequest
  *   CreationTimeAfter: new Date("TIMESTAMP"),

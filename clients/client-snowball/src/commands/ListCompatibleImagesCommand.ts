@@ -37,6 +37,8 @@ export interface ListCompatibleImagesCommandOutput extends ListCompatibleImagesR
  * ```javascript
  * import { SnowballClient, ListCompatibleImagesCommand } from "@aws-sdk/client-snowball"; // ES Modules import
  * // const { SnowballClient, ListCompatibleImagesCommand } = require("@aws-sdk/client-snowball"); // CommonJS import
+ * // import type { SnowballClientConfig } from "@aws-sdk/client-snowball";
+ * const config = {}; // type is SnowballClientConfig
  * const client = new SnowballClient(config);
  * const input = { // ListCompatibleImagesRequest
  *   MaxResults: Number("int"),

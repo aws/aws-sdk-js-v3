@@ -35,6 +35,8 @@ export interface GetExecutionPreviewCommandOutput extends GetExecutionPreviewRes
  * ```javascript
  * import { SSMClient, GetExecutionPreviewCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, GetExecutionPreviewCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
+ * // import type { SSMClientConfig } from "@aws-sdk/client-ssm";
+ * const config = {}; // type is SSMClientConfig
  * const client = new SSMClient(config);
  * const input = { // GetExecutionPreviewRequest
  *   ExecutionPreviewId: "STRING_VALUE", // required

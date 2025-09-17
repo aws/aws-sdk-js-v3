@@ -34,6 +34,8 @@ export interface RemoveTagsFromCertificateCommandOutput extends __MetadataBearer
  * ```javascript
  * import { ACMClient, RemoveTagsFromCertificateCommand } from "@aws-sdk/client-acm"; // ES Modules import
  * // const { ACMClient, RemoveTagsFromCertificateCommand } = require("@aws-sdk/client-acm"); // CommonJS import
+ * // import type { ACMClientConfig } from "@aws-sdk/client-acm";
+ * const config = {}; // type is ACMClientConfig
  * const client = new ACMClient(config);
  * const input = { // RemoveTagsFromCertificateRequest
  *   CertificateArn: "STRING_VALUE", // required

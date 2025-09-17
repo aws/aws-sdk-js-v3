@@ -34,6 +34,8 @@ export interface AssociateChannelCommandOutput extends AssociateChannelResponse,
  * ```javascript
  * import { NotificationsClient, AssociateChannelCommand } from "@aws-sdk/client-notifications"; // ES Modules import
  * // const { NotificationsClient, AssociateChannelCommand } = require("@aws-sdk/client-notifications"); // CommonJS import
+ * // import type { NotificationsClientConfig } from "@aws-sdk/client-notifications";
+ * const config = {}; // type is NotificationsClientConfig
  * const client = new NotificationsClient(config);
  * const input = { // AssociateChannelRequest
  *   arn: "STRING_VALUE", // required

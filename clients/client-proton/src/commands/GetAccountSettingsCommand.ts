@@ -34,6 +34,8 @@ export interface GetAccountSettingsCommandOutput extends GetAccountSettingsOutpu
  * ```javascript
  * import { ProtonClient, GetAccountSettingsCommand } from "@aws-sdk/client-proton"; // ES Modules import
  * // const { ProtonClient, GetAccountSettingsCommand } = require("@aws-sdk/client-proton"); // CommonJS import
+ * // import type { ProtonClientConfig } from "@aws-sdk/client-proton";
+ * const config = {}; // type is ProtonClientConfig
  * const client = new ProtonClient(config);
  * const input = {};
  * const command = new GetAccountSettingsCommand(input);

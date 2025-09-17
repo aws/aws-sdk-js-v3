@@ -34,6 +34,8 @@ export interface DeleteConnectorV2CommandOutput extends DeleteConnectorV2Respons
  * ```javascript
  * import { SecurityHubClient, DeleteConnectorV2Command } from "@aws-sdk/client-securityhub"; // ES Modules import
  * // const { SecurityHubClient, DeleteConnectorV2Command } = require("@aws-sdk/client-securityhub"); // CommonJS import
+ * // import type { SecurityHubClientConfig } from "@aws-sdk/client-securityhub";
+ * const config = {}; // type is SecurityHubClientConfig
  * const client = new SecurityHubClient(config);
  * const input = { // DeleteConnectorV2Request
  *   ConnectorId: "STRING_VALUE", // required

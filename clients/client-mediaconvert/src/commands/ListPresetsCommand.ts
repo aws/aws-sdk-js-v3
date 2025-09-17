@@ -34,6 +34,8 @@ export interface ListPresetsCommandOutput extends ListPresetsResponse, __Metadat
  * ```javascript
  * import { MediaConvertClient, ListPresetsCommand } from "@aws-sdk/client-mediaconvert"; // ES Modules import
  * // const { MediaConvertClient, ListPresetsCommand } = require("@aws-sdk/client-mediaconvert"); // CommonJS import
+ * // import type { MediaConvertClientConfig } from "@aws-sdk/client-mediaconvert";
+ * const config = {}; // type is MediaConvertClientConfig
  * const client = new MediaConvertClient(config);
  * const input = { // ListPresetsRequest
  *   Category: "STRING_VALUE",

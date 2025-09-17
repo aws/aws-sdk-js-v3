@@ -55,6 +55,8 @@ export interface ListCommandExecutionsCommandOutput extends ListCommandExecution
  * ```javascript
  * import { IoTClient, ListCommandExecutionsCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, ListCommandExecutionsCommand } = require("@aws-sdk/client-iot"); // CommonJS import
+ * // import type { IoTClientConfig } from "@aws-sdk/client-iot";
+ * const config = {}; // type is IoTClientConfig
  * const client = new IoTClient(config);
  * const input = { // ListCommandExecutionsRequest
  *   maxResults: Number("int"),

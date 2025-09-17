@@ -34,6 +34,8 @@ export interface GetSessionCommandOutput extends GetSessionResponse, __MetadataB
  * ```javascript
  * import { MPAClient, GetSessionCommand } from "@aws-sdk/client-mpa"; // ES Modules import
  * // const { MPAClient, GetSessionCommand } = require("@aws-sdk/client-mpa"); // CommonJS import
+ * // import type { MPAClientConfig } from "@aws-sdk/client-mpa";
+ * const config = {}; // type is MPAClientConfig
  * const client = new MPAClient(config);
  * const input = { // GetSessionRequest
  *   SessionArn: "STRING_VALUE", // required

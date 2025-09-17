@@ -34,6 +34,8 @@ export interface RestoreClusterFromSnapshotCommandOutput extends RestoreClusterF
  * ```javascript
  * import { DocDBElasticClient, RestoreClusterFromSnapshotCommand } from "@aws-sdk/client-docdb-elastic"; // ES Modules import
  * // const { DocDBElasticClient, RestoreClusterFromSnapshotCommand } = require("@aws-sdk/client-docdb-elastic"); // CommonJS import
+ * // import type { DocDBElasticClientConfig } from "@aws-sdk/client-docdb-elastic";
+ * const config = {}; // type is DocDBElasticClientConfig
  * const client = new DocDBElasticClient(config);
  * const input = { // RestoreClusterFromSnapshotInput
  *   clusterName: "STRING_VALUE", // required

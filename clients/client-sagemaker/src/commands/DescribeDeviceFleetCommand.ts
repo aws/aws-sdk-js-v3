@@ -34,6 +34,8 @@ export interface DescribeDeviceFleetCommandOutput extends DescribeDeviceFleetRes
  * ```javascript
  * import { SageMakerClient, DescribeDeviceFleetCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, DescribeDeviceFleetCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * // import type { SageMakerClientConfig } from "@aws-sdk/client-sagemaker";
+ * const config = {}; // type is SageMakerClientConfig
  * const client = new SageMakerClient(config);
  * const input = { // DescribeDeviceFleetRequest
  *   DeviceFleetName: "STRING_VALUE", // required

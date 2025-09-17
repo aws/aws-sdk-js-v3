@@ -41,6 +41,8 @@ export interface BatchGetAssetPropertyAggregatesCommandOutput
  * ```javascript
  * import { IoTSiteWiseClient, BatchGetAssetPropertyAggregatesCommand } from "@aws-sdk/client-iotsitewise"; // ES Modules import
  * // const { IoTSiteWiseClient, BatchGetAssetPropertyAggregatesCommand } = require("@aws-sdk/client-iotsitewise"); // CommonJS import
+ * // import type { IoTSiteWiseClientConfig } from "@aws-sdk/client-iotsitewise";
+ * const config = {}; // type is IoTSiteWiseClientConfig
  * const client = new IoTSiteWiseClient(config);
  * const input = { // BatchGetAssetPropertyAggregatesRequest
  *   entries: [ // BatchGetAssetPropertyAggregatesEntries // required

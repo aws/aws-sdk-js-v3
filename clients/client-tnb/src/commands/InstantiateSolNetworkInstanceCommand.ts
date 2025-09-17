@@ -47,6 +47,8 @@ export interface InstantiateSolNetworkInstanceCommandOutput
  * ```javascript
  * import { TnbClient, InstantiateSolNetworkInstanceCommand } from "@aws-sdk/client-tnb"; // ES Modules import
  * // const { TnbClient, InstantiateSolNetworkInstanceCommand } = require("@aws-sdk/client-tnb"); // CommonJS import
+ * // import type { TnbClientConfig } from "@aws-sdk/client-tnb";
+ * const config = {}; // type is TnbClientConfig
  * const client = new TnbClient(config);
  * const input = { // InstantiateSolNetworkInstanceInput
  *   nsInstanceId: "STRING_VALUE", // required

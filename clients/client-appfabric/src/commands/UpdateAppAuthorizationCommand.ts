@@ -41,6 +41,8 @@ export interface UpdateAppAuthorizationCommandOutput extends UpdateAppAuthorizat
  * ```javascript
  * import { AppFabricClient, UpdateAppAuthorizationCommand } from "@aws-sdk/client-appfabric"; // ES Modules import
  * // const { AppFabricClient, UpdateAppAuthorizationCommand } = require("@aws-sdk/client-appfabric"); // CommonJS import
+ * // import type { AppFabricClientConfig } from "@aws-sdk/client-appfabric";
+ * const config = {}; // type is AppFabricClientConfig
  * const client = new AppFabricClient(config);
  * const input = { // UpdateAppAuthorizationRequest
  *   appBundleIdentifier: "STRING_VALUE", // required

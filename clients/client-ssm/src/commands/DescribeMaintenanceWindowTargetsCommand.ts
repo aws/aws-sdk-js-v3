@@ -43,6 +43,8 @@ export interface DescribeMaintenanceWindowTargetsCommandOutput
  * ```javascript
  * import { SSMClient, DescribeMaintenanceWindowTargetsCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, DescribeMaintenanceWindowTargetsCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
+ * // import type { SSMClientConfig } from "@aws-sdk/client-ssm";
+ * const config = {}; // type is SSMClientConfig
  * const client = new SSMClient(config);
  * const input = { // DescribeMaintenanceWindowTargetsRequest
  *   WindowId: "STRING_VALUE", // required

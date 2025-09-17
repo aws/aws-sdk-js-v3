@@ -34,6 +34,8 @@ export interface GetDeploymentsCommandOutput extends Deployments, __MetadataBear
  * ```javascript
  * import { APIGatewayClient, GetDeploymentsCommand } from "@aws-sdk/client-api-gateway"; // ES Modules import
  * // const { APIGatewayClient, GetDeploymentsCommand } = require("@aws-sdk/client-api-gateway"); // CommonJS import
+ * // import type { APIGatewayClientConfig } from "@aws-sdk/client-api-gateway";
+ * const config = {}; // type is APIGatewayClientConfig
  * const client = new APIGatewayClient(config);
  * const input = { // GetDeploymentsRequest
  *   restApiId: "STRING_VALUE", // required

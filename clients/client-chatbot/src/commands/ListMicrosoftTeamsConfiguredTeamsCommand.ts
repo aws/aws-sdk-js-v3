@@ -39,6 +39,8 @@ export interface ListMicrosoftTeamsConfiguredTeamsCommandOutput
  * ```javascript
  * import { ChatbotClient, ListMicrosoftTeamsConfiguredTeamsCommand } from "@aws-sdk/client-chatbot"; // ES Modules import
  * // const { ChatbotClient, ListMicrosoftTeamsConfiguredTeamsCommand } = require("@aws-sdk/client-chatbot"); // CommonJS import
+ * // import type { ChatbotClientConfig } from "@aws-sdk/client-chatbot";
+ * const config = {}; // type is ChatbotClientConfig
  * const client = new ChatbotClient(config);
  * const input = { // ListMicrosoftTeamsConfiguredTeamsRequest
  *   MaxResults: Number("int"),

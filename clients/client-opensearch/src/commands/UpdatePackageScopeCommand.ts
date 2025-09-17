@@ -34,6 +34,8 @@ export interface UpdatePackageScopeCommandOutput extends UpdatePackageScopeRespo
  * ```javascript
  * import { OpenSearchClient, UpdatePackageScopeCommand } from "@aws-sdk/client-opensearch"; // ES Modules import
  * // const { OpenSearchClient, UpdatePackageScopeCommand } = require("@aws-sdk/client-opensearch"); // CommonJS import
+ * // import type { OpenSearchClientConfig } from "@aws-sdk/client-opensearch";
+ * const config = {}; // type is OpenSearchClientConfig
  * const client = new OpenSearchClient(config);
  * const input = { // UpdatePackageScopeRequest
  *   PackageID: "STRING_VALUE", // required

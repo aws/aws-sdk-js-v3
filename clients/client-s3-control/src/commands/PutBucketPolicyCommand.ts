@@ -71,6 +71,8 @@ export interface PutBucketPolicyCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { S3ControlClient, PutBucketPolicyCommand } from "@aws-sdk/client-s3-control"; // ES Modules import
  * // const { S3ControlClient, PutBucketPolicyCommand } = require("@aws-sdk/client-s3-control"); // CommonJS import
+ * // import type { S3ControlClientConfig } from "@aws-sdk/client-s3-control";
+ * const config = {}; // type is S3ControlClientConfig
  * const client = new S3ControlClient(config);
  * const input = { // PutBucketPolicyRequest
  *   AccountId: "STRING_VALUE",

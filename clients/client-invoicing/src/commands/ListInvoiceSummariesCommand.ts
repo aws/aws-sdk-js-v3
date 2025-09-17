@@ -34,6 +34,8 @@ export interface ListInvoiceSummariesCommandOutput extends ListInvoiceSummariesR
  * ```javascript
  * import { InvoicingClient, ListInvoiceSummariesCommand } from "@aws-sdk/client-invoicing"; // ES Modules import
  * // const { InvoicingClient, ListInvoiceSummariesCommand } = require("@aws-sdk/client-invoicing"); // CommonJS import
+ * // import type { InvoicingClientConfig } from "@aws-sdk/client-invoicing";
+ * const config = {}; // type is InvoicingClientConfig
  * const client = new InvoicingClient(config);
  * const input = { // ListInvoiceSummariesRequest
  *   Selector: { // InvoiceSummariesSelector

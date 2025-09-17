@@ -34,6 +34,8 @@ export interface ListApiDestinationsCommandOutput extends ListApiDestinationsRes
  * ```javascript
  * import { EventBridgeClient, ListApiDestinationsCommand } from "@aws-sdk/client-eventbridge"; // ES Modules import
  * // const { EventBridgeClient, ListApiDestinationsCommand } = require("@aws-sdk/client-eventbridge"); // CommonJS import
+ * // import type { EventBridgeClientConfig } from "@aws-sdk/client-eventbridge";
+ * const config = {}; // type is EventBridgeClientConfig
  * const client = new EventBridgeClient(config);
  * const input = { // ListApiDestinationsRequest
  *   NamePrefix: "STRING_VALUE",

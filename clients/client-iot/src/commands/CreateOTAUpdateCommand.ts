@@ -35,6 +35,8 @@ export interface CreateOTAUpdateCommandOutput extends CreateOTAUpdateResponse, _
  * ```javascript
  * import { IoTClient, CreateOTAUpdateCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, CreateOTAUpdateCommand } = require("@aws-sdk/client-iot"); // CommonJS import
+ * // import type { IoTClientConfig } from "@aws-sdk/client-iot";
+ * const config = {}; // type is IoTClientConfig
  * const client = new IoTClient(config);
  * const input = { // CreateOTAUpdateRequest
  *   otaUpdateId: "STRING_VALUE", // required

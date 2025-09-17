@@ -38,6 +38,8 @@ export interface CopyDBParameterGroupCommandOutput extends CopyDBParameterGroupR
  * ```javascript
  * import { RDSClient, CopyDBParameterGroupCommand } from "@aws-sdk/client-rds"; // ES Modules import
  * // const { RDSClient, CopyDBParameterGroupCommand } = require("@aws-sdk/client-rds"); // CommonJS import
+ * // import type { RDSClientConfig } from "@aws-sdk/client-rds";
+ * const config = {}; // type is RDSClientConfig
  * const client = new RDSClient(config);
  * const input = { // CopyDBParameterGroupMessage
  *   SourceDBParameterGroupIdentifier: "STRING_VALUE", // required

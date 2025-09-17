@@ -34,6 +34,8 @@ export interface CreateMultiRegionClusterCommandOutput extends CreateMultiRegion
  * ```javascript
  * import { MemoryDBClient, CreateMultiRegionClusterCommand } from "@aws-sdk/client-memorydb"; // ES Modules import
  * // const { MemoryDBClient, CreateMultiRegionClusterCommand } = require("@aws-sdk/client-memorydb"); // CommonJS import
+ * // import type { MemoryDBClientConfig } from "@aws-sdk/client-memorydb";
+ * const config = {}; // type is MemoryDBClientConfig
  * const client = new MemoryDBClient(config);
  * const input = { // CreateMultiRegionClusterRequest
  *   MultiRegionClusterNameSuffix: "STRING_VALUE", // required

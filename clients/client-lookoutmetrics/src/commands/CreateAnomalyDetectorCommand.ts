@@ -34,6 +34,8 @@ export interface CreateAnomalyDetectorCommandOutput extends CreateAnomalyDetecto
  * ```javascript
  * import { LookoutMetricsClient, CreateAnomalyDetectorCommand } from "@aws-sdk/client-lookoutmetrics"; // ES Modules import
  * // const { LookoutMetricsClient, CreateAnomalyDetectorCommand } = require("@aws-sdk/client-lookoutmetrics"); // CommonJS import
+ * // import type { LookoutMetricsClientConfig } from "@aws-sdk/client-lookoutmetrics";
+ * const config = {}; // type is LookoutMetricsClientConfig
  * const client = new LookoutMetricsClient(config);
  * const input = { // CreateAnomalyDetectorRequest
  *   AnomalyDetectorName: "STRING_VALUE", // required

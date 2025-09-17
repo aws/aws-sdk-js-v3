@@ -40,6 +40,8 @@ export interface UpdatePermissionGroupCommandOutput extends UpdatePermissionGrou
  * ```javascript
  * import { FinspaceDataClient, UpdatePermissionGroupCommand } from "@aws-sdk/client-finspace-data"; // ES Modules import
  * // const { FinspaceDataClient, UpdatePermissionGroupCommand } = require("@aws-sdk/client-finspace-data"); // CommonJS import
+ * // import type { FinspaceDataClientConfig } from "@aws-sdk/client-finspace-data";
+ * const config = {}; // type is FinspaceDataClientConfig
  * const client = new FinspaceDataClient(config);
  * const input = { // UpdatePermissionGroupRequest
  *   permissionGroupId: "STRING_VALUE", // required

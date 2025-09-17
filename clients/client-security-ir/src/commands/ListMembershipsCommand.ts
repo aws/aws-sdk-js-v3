@@ -34,6 +34,8 @@ export interface ListMembershipsCommandOutput extends ListMembershipsResponse, _
  * ```javascript
  * import { SecurityIRClient, ListMembershipsCommand } from "@aws-sdk/client-security-ir"; // ES Modules import
  * // const { SecurityIRClient, ListMembershipsCommand } = require("@aws-sdk/client-security-ir"); // CommonJS import
+ * // import type { SecurityIRClientConfig } from "@aws-sdk/client-security-ir";
+ * const config = {}; // type is SecurityIRClientConfig
  * const client = new SecurityIRClient(config);
  * const input = { // ListMembershipsRequest
  *   nextToken: "STRING_VALUE",

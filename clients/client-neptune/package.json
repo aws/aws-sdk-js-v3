@@ -39,7 +39,7 @@
     "@smithy/invalid-dependency": "^4.1.1",
     "@smithy/middleware-content-length": "^4.1.1",
     "@smithy/middleware-endpoint": "^4.2.2",
-    "@smithy/middleware-retry": "^4.2.2",
+    "@smithy/middleware-retry": "^4.2.3",
     "@smithy/middleware-serde": "^4.1.1",
     "@smithy/middleware-stack": "^4.1.1",
     "@smithy/node-config-provider": "^4.2.2",
@@ -55,7 +55,7 @@
     "@smithy/util-defaults-mode-node": "^4.1.2",
     "@smithy/util-endpoints": "^3.1.2",
     "@smithy/util-middleware": "^4.1.1",
-    "@smithy/util-retry": "^4.1.1",
+    "@smithy/util-retry": "^4.1.2",
     "@smithy/util-utf8": "^4.1.0",
     "@smithy/util-waiter": "^4.1.1",
     "tslib": "^2.6.2"

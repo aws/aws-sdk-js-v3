@@ -40,6 +40,8 @@ export interface DescribeSharedVpcConfigurationCommandOutput
  * ```javascript
  * import { FSxClient, DescribeSharedVpcConfigurationCommand } from "@aws-sdk/client-fsx"; // ES Modules import
  * // const { FSxClient, DescribeSharedVpcConfigurationCommand } = require("@aws-sdk/client-fsx"); // CommonJS import
+ * // import type { FSxClientConfig } from "@aws-sdk/client-fsx";
+ * const config = {}; // type is FSxClientConfig
  * const client = new FSxClient(config);
  * const input = {};
  * const command = new DescribeSharedVpcConfigurationCommand(input);

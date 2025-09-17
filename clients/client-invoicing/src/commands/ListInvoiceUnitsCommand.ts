@@ -34,6 +34,8 @@ export interface ListInvoiceUnitsCommandOutput extends ListInvoiceUnitsResponse,
  * ```javascript
  * import { InvoicingClient, ListInvoiceUnitsCommand } from "@aws-sdk/client-invoicing"; // ES Modules import
  * // const { InvoicingClient, ListInvoiceUnitsCommand } = require("@aws-sdk/client-invoicing"); // CommonJS import
+ * // import type { InvoicingClientConfig } from "@aws-sdk/client-invoicing";
+ * const config = {}; // type is InvoicingClientConfig
  * const client = new InvoicingClient(config);
  * const input = { // ListInvoiceUnitsRequest
  *   Filters: { // Filters

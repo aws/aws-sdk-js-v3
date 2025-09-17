@@ -39,6 +39,8 @@ export interface OptimizeWaypointsCommandOutput extends OptimizeWaypointsRespons
  * ```javascript
  * import { GeoRoutesClient, OptimizeWaypointsCommand } from "@aws-sdk/client-geo-routes"; // ES Modules import
  * // const { GeoRoutesClient, OptimizeWaypointsCommand } = require("@aws-sdk/client-geo-routes"); // CommonJS import
+ * // import type { GeoRoutesClientConfig } from "@aws-sdk/client-geo-routes";
+ * const config = {}; // type is GeoRoutesClientConfig
  * const client = new GeoRoutesClient(config);
  * const input = { // OptimizeWaypointsRequest
  *   Avoid: { // WaypointOptimizationAvoidanceOptions

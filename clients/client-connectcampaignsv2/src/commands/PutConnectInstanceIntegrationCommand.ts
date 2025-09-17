@@ -41,6 +41,8 @@ export interface PutConnectInstanceIntegrationCommandOutput extends __MetadataBe
  * ```javascript
  * import { ConnectCampaignsV2Client, PutConnectInstanceIntegrationCommand } from "@aws-sdk/client-connectcampaignsv2"; // ES Modules import
  * // const { ConnectCampaignsV2Client, PutConnectInstanceIntegrationCommand } = require("@aws-sdk/client-connectcampaignsv2"); // CommonJS import
+ * // import type { ConnectCampaignsV2ClientConfig } from "@aws-sdk/client-connectcampaignsv2";
+ * const config = {}; // type is ConnectCampaignsV2ClientConfig
  * const client = new ConnectCampaignsV2Client(config);
  * const input = { // PutConnectInstanceIntegrationRequest
  *   connectInstanceId: "STRING_VALUE", // required

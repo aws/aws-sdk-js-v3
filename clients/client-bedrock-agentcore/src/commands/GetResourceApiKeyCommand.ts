@@ -39,6 +39,8 @@ export interface GetResourceApiKeyCommandOutput extends GetResourceApiKeyRespons
  * ```javascript
  * import { BedrockAgentCoreClient, GetResourceApiKeyCommand } from "@aws-sdk/client-bedrock-agentcore"; // ES Modules import
  * // const { BedrockAgentCoreClient, GetResourceApiKeyCommand } = require("@aws-sdk/client-bedrock-agentcore"); // CommonJS import
+ * // import type { BedrockAgentCoreClientConfig } from "@aws-sdk/client-bedrock-agentcore";
+ * const config = {}; // type is BedrockAgentCoreClientConfig
  * const client = new BedrockAgentCoreClient(config);
  * const input = { // GetResourceApiKeyRequest
  *   workloadIdentityToken: "STRING_VALUE", // required

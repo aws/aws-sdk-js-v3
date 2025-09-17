@@ -51,6 +51,8 @@ export interface DeleteFleetCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { GameLiftClient, DeleteFleetCommand } from "@aws-sdk/client-gamelift"; // ES Modules import
  * // const { GameLiftClient, DeleteFleetCommand } = require("@aws-sdk/client-gamelift"); // CommonJS import
+ * // import type { GameLiftClientConfig } from "@aws-sdk/client-gamelift";
+ * const config = {}; // type is GameLiftClientConfig
  * const client = new GameLiftClient(config);
  * const input = { // DeleteFleetInput
  *   FleetId: "STRING_VALUE", // required

@@ -35,6 +35,8 @@ export interface UpdateCapacityReservationCommandOutput extends UpdateCapacityRe
  * ```javascript
  * import { AthenaClient, UpdateCapacityReservationCommand } from "@aws-sdk/client-athena"; // ES Modules import
  * // const { AthenaClient, UpdateCapacityReservationCommand } = require("@aws-sdk/client-athena"); // CommonJS import
+ * // import type { AthenaClientConfig } from "@aws-sdk/client-athena";
+ * const config = {}; // type is AthenaClientConfig
  * const client = new AthenaClient(config);
  * const input = { // UpdateCapacityReservationInput
  *   TargetDpus: Number("int"), // required

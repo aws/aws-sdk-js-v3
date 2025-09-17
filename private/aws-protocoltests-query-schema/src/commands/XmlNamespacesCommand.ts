@@ -34,6 +34,8 @@ export interface XmlNamespacesCommandOutput extends XmlNamespacesOutput, __Metad
  * ```javascript
  * import { QueryProtocolClient, XmlNamespacesCommand } from "@aws-sdk/aws-protocoltests-query-schema"; // ES Modules import
  * // const { QueryProtocolClient, XmlNamespacesCommand } = require("@aws-sdk/aws-protocoltests-query-schema"); // CommonJS import
+ * // import type { QueryProtocolClientConfig } from "@aws-sdk/aws-protocoltests-query-schema";
+ * const config = {}; // type is QueryProtocolClientConfig
  * const client = new QueryProtocolClient(config);
  * const input = {};
  * const command = new XmlNamespacesCommand(input);

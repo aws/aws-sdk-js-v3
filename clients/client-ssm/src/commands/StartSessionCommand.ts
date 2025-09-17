@@ -43,6 +43,8 @@ export interface StartSessionCommandOutput extends StartSessionResponse, __Metad
  * ```javascript
  * import { SSMClient, StartSessionCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, StartSessionCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
+ * // import type { SSMClientConfig } from "@aws-sdk/client-ssm";
+ * const config = {}; // type is SSMClientConfig
  * const client = new SSMClient(config);
  * const input = { // StartSessionRequest
  *   Target: "STRING_VALUE", // required

@@ -34,6 +34,8 @@ export interface CreateKxEnvironmentCommandOutput extends CreateKxEnvironmentRes
  * ```javascript
  * import { FinspaceClient, CreateKxEnvironmentCommand } from "@aws-sdk/client-finspace"; // ES Modules import
  * // const { FinspaceClient, CreateKxEnvironmentCommand } = require("@aws-sdk/client-finspace"); // CommonJS import
+ * // import type { FinspaceClientConfig } from "@aws-sdk/client-finspace";
+ * const config = {}; // type is FinspaceClientConfig
  * const client = new FinspaceClient(config);
  * const input = { // CreateKxEnvironmentRequest
  *   name: "STRING_VALUE", // required

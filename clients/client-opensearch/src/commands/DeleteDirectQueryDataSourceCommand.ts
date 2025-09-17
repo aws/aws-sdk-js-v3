@@ -40,6 +40,8 @@ export interface DeleteDirectQueryDataSourceCommandOutput extends __MetadataBear
  * ```javascript
  * import { OpenSearchClient, DeleteDirectQueryDataSourceCommand } from "@aws-sdk/client-opensearch"; // ES Modules import
  * // const { OpenSearchClient, DeleteDirectQueryDataSourceCommand } = require("@aws-sdk/client-opensearch"); // CommonJS import
+ * // import type { OpenSearchClientConfig } from "@aws-sdk/client-opensearch";
+ * const config = {}; // type is OpenSearchClientConfig
  * const client = new OpenSearchClient(config);
  * const input = { // DeleteDirectQueryDataSourceRequest
  *   DataSourceName: "STRING_VALUE", // required

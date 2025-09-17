@@ -165,6 +165,8 @@ export interface PutBucketLifecycleConfigurationCommandOutput
  * ```javascript
  * import { S3Client, PutBucketLifecycleConfigurationCommand } from "@aws-sdk/client-s3"; // ES Modules import
  * // const { S3Client, PutBucketLifecycleConfigurationCommand } = require("@aws-sdk/client-s3"); // CommonJS import
+ * // import type { S3ClientConfig } from "@aws-sdk/client-s3";
+ * const config = {}; // type is S3ClientConfig
  * const client = new S3Client(config);
  * const input = { // PutBucketLifecycleConfigurationRequest
  *   Bucket: "STRING_VALUE", // required

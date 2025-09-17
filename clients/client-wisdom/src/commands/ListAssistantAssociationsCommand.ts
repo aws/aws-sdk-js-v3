@@ -34,6 +34,8 @@ export interface ListAssistantAssociationsCommandOutput extends ListAssistantAss
  * ```javascript
  * import { WisdomClient, ListAssistantAssociationsCommand } from "@aws-sdk/client-wisdom"; // ES Modules import
  * // const { WisdomClient, ListAssistantAssociationsCommand } = require("@aws-sdk/client-wisdom"); // CommonJS import
+ * // import type { WisdomClientConfig } from "@aws-sdk/client-wisdom";
+ * const config = {}; // type is WisdomClientConfig
  * const client = new WisdomClient(config);
  * const input = { // ListAssistantAssociationsRequest
  *   nextToken: "STRING_VALUE",

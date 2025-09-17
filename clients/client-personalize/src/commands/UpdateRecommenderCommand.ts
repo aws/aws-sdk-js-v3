@@ -41,6 +41,8 @@ export interface UpdateRecommenderCommandOutput extends UpdateRecommenderRespons
  * ```javascript
  * import { PersonalizeClient, UpdateRecommenderCommand } from "@aws-sdk/client-personalize"; // ES Modules import
  * // const { PersonalizeClient, UpdateRecommenderCommand } = require("@aws-sdk/client-personalize"); // CommonJS import
+ * // import type { PersonalizeClientConfig } from "@aws-sdk/client-personalize";
+ * const config = {}; // type is PersonalizeClientConfig
  * const client = new PersonalizeClient(config);
  * const input = { // UpdateRecommenderRequest
  *   recommenderArn: "STRING_VALUE", // required

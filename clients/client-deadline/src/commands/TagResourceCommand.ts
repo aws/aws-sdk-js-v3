@@ -34,6 +34,8 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * ```javascript
  * import { DeadlineClient, TagResourceCommand } from "@aws-sdk/client-deadline"; // ES Modules import
  * // const { DeadlineClient, TagResourceCommand } = require("@aws-sdk/client-deadline"); // CommonJS import
+ * // import type { DeadlineClientConfig } from "@aws-sdk/client-deadline";
+ * const config = {}; // type is DeadlineClientConfig
  * const client = new DeadlineClient(config);
  * const input = { // TagResourceRequest
  *   resourceArn: "STRING_VALUE", // required

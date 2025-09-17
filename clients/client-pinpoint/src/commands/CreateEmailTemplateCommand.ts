@@ -34,6 +34,8 @@ export interface CreateEmailTemplateCommandOutput extends CreateEmailTemplateRes
  * ```javascript
  * import { PinpointClient, CreateEmailTemplateCommand } from "@aws-sdk/client-pinpoint"; // ES Modules import
  * // const { PinpointClient, CreateEmailTemplateCommand } = require("@aws-sdk/client-pinpoint"); // CommonJS import
+ * // import type { PinpointClientConfig } from "@aws-sdk/client-pinpoint";
+ * const config = {}; // type is PinpointClientConfig
  * const client = new PinpointClient(config);
  * const input = { // CreateEmailTemplateRequest
  *   EmailTemplateRequest: { // EmailTemplateRequest

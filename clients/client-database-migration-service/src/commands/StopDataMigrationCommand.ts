@@ -42,6 +42,8 @@ export interface StopDataMigrationCommandOutput extends StopDataMigrationRespons
  * ```javascript
  * import { DatabaseMigrationServiceClient, StopDataMigrationCommand } from "@aws-sdk/client-database-migration-service"; // ES Modules import
  * // const { DatabaseMigrationServiceClient, StopDataMigrationCommand } = require("@aws-sdk/client-database-migration-service"); // CommonJS import
+ * // import type { DatabaseMigrationServiceClientConfig } from "@aws-sdk/client-database-migration-service";
+ * const config = {}; // type is DatabaseMigrationServiceClientConfig
  * const client = new DatabaseMigrationServiceClient(config);
  * const input = { // StopDataMigrationMessage
  *   DataMigrationIdentifier: "STRING_VALUE", // required

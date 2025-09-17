@@ -37,6 +37,8 @@ export interface ReverseReplicationCommandOutput extends ReverseReplicationRespo
  * ```javascript
  * import { DrsClient, ReverseReplicationCommand } from "@aws-sdk/client-drs"; // ES Modules import
  * // const { DrsClient, ReverseReplicationCommand } = require("@aws-sdk/client-drs"); // CommonJS import
+ * // import type { DrsClientConfig } from "@aws-sdk/client-drs";
+ * const config = {}; // type is DrsClientConfig
  * const client = new DrsClient(config);
  * const input = { // ReverseReplicationRequest
  *   recoveryInstanceID: "STRING_VALUE", // required

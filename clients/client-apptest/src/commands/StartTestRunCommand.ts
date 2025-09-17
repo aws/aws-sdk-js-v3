@@ -34,6 +34,8 @@ export interface StartTestRunCommandOutput extends StartTestRunResponse, __Metad
  * ```javascript
  * import { AppTestClient, StartTestRunCommand } from "@aws-sdk/client-apptest"; // ES Modules import
  * // const { AppTestClient, StartTestRunCommand } = require("@aws-sdk/client-apptest"); // CommonJS import
+ * // import type { AppTestClientConfig } from "@aws-sdk/client-apptest";
+ * const config = {}; // type is AppTestClientConfig
  * const client = new AppTestClient(config);
  * const input = { // StartTestRunRequest
  *   testSuiteId: "STRING_VALUE", // required

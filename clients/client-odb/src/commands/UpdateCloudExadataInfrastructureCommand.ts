@@ -39,6 +39,8 @@ export interface UpdateCloudExadataInfrastructureCommandOutput
  * ```javascript
  * import { OdbClient, UpdateCloudExadataInfrastructureCommand } from "@aws-sdk/client-odb"; // ES Modules import
  * // const { OdbClient, UpdateCloudExadataInfrastructureCommand } = require("@aws-sdk/client-odb"); // CommonJS import
+ * // import type { OdbClientConfig } from "@aws-sdk/client-odb";
+ * const config = {}; // type is OdbClientConfig
  * const client = new OdbClient(config);
  * const input = { // UpdateCloudExadataInfrastructureInput
  *   cloudExadataInfrastructureId: "STRING_VALUE", // required

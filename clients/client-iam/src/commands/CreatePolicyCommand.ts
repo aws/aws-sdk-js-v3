@@ -44,6 +44,8 @@ export interface CreatePolicyCommandOutput extends CreatePolicyResponse, __Metad
  * ```javascript
  * import { IAMClient, CreatePolicyCommand } from "@aws-sdk/client-iam"; // ES Modules import
  * // const { IAMClient, CreatePolicyCommand } = require("@aws-sdk/client-iam"); // CommonJS import
+ * // import type { IAMClientConfig } from "@aws-sdk/client-iam";
+ * const config = {}; // type is IAMClientConfig
  * const client = new IAMClient(config);
  * const input = { // CreatePolicyRequest
  *   PolicyName: "STRING_VALUE", // required

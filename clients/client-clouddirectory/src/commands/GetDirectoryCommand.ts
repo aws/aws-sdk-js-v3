@@ -34,6 +34,8 @@ export interface GetDirectoryCommandOutput extends GetDirectoryResponse, __Metad
  * ```javascript
  * import { CloudDirectoryClient, GetDirectoryCommand } from "@aws-sdk/client-clouddirectory"; // ES Modules import
  * // const { CloudDirectoryClient, GetDirectoryCommand } = require("@aws-sdk/client-clouddirectory"); // CommonJS import
+ * // import type { CloudDirectoryClientConfig } from "@aws-sdk/client-clouddirectory";
+ * const config = {}; // type is CloudDirectoryClientConfig
  * const client = new CloudDirectoryClient(config);
  * const input = { // GetDirectoryRequest
  *   DirectoryArn: "STRING_VALUE", // required

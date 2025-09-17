@@ -40,6 +40,8 @@ export interface PutGeofenceCommandOutput extends PutGeofenceResponse, __Metadat
  * ```javascript
  * import { LocationClient, PutGeofenceCommand } from "@aws-sdk/client-location"; // ES Modules import
  * // const { LocationClient, PutGeofenceCommand } = require("@aws-sdk/client-location"); // CommonJS import
+ * // import type { LocationClientConfig } from "@aws-sdk/client-location";
+ * const config = {}; // type is LocationClientConfig
  * const client = new LocationClient(config);
  * const input = { // PutGeofenceRequest
  *   CollectionName: "STRING_VALUE", // required

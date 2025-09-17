@@ -41,6 +41,8 @@ export interface UpdateLocationFsxOntapCommandOutput extends UpdateLocationFsxOn
  * ```javascript
  * import { DataSyncClient, UpdateLocationFsxOntapCommand } from "@aws-sdk/client-datasync"; // ES Modules import
  * // const { DataSyncClient, UpdateLocationFsxOntapCommand } = require("@aws-sdk/client-datasync"); // CommonJS import
+ * // import type { DataSyncClientConfig } from "@aws-sdk/client-datasync";
+ * const config = {}; // type is DataSyncClientConfig
  * const client = new DataSyncClient(config);
  * const input = { // UpdateLocationFsxOntapRequest
  *   LocationArn: "STRING_VALUE", // required

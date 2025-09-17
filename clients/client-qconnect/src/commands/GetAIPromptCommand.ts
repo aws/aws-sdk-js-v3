@@ -34,6 +34,8 @@ export interface GetAIPromptCommandOutput extends GetAIPromptResponse, __Metadat
  * ```javascript
  * import { QConnectClient, GetAIPromptCommand } from "@aws-sdk/client-qconnect"; // ES Modules import
  * // const { QConnectClient, GetAIPromptCommand } = require("@aws-sdk/client-qconnect"); // CommonJS import
+ * // import type { QConnectClientConfig } from "@aws-sdk/client-qconnect";
+ * const config = {}; // type is QConnectClientConfig
  * const client = new QConnectClient(config);
  * const input = { // GetAIPromptRequest
  *   assistantId: "STRING_VALUE", // required

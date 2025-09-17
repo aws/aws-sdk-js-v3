@@ -36,6 +36,8 @@ export interface OnlyHttpApiKeyAndBearerAuthReversedCommandOutput extends __Meta
  * ```javascript
  * import { WeatherClient, OnlyHttpApiKeyAndBearerAuthReversedCommand } from "@aws-sdk/weather"; // ES Modules import
  * // const { WeatherClient, OnlyHttpApiKeyAndBearerAuthReversedCommand } = require("@aws-sdk/weather"); // CommonJS import
+ * // import type { WeatherClientConfig } from "@aws-sdk/weather";
+ * const config = {}; // type is WeatherClientConfig
  * const client = new WeatherClient(config);
  * const input = {};
  * const command = new OnlyHttpApiKeyAndBearerAuthReversedCommand(input);

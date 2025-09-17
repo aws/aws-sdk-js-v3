@@ -34,6 +34,8 @@ export interface ListPrefetchSchedulesCommandOutput extends ListPrefetchSchedule
  * ```javascript
  * import { MediaTailorClient, ListPrefetchSchedulesCommand } from "@aws-sdk/client-mediatailor"; // ES Modules import
  * // const { MediaTailorClient, ListPrefetchSchedulesCommand } = require("@aws-sdk/client-mediatailor"); // CommonJS import
+ * // import type { MediaTailorClientConfig } from "@aws-sdk/client-mediatailor";
+ * const config = {}; // type is MediaTailorClientConfig
  * const client = new MediaTailorClient(config);
  * const input = { // ListPrefetchSchedulesRequest
  *   MaxResults: Number("int"),

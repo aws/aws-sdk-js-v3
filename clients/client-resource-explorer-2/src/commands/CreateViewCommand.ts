@@ -50,6 +50,8 @@ export interface CreateViewCommandOutput extends CreateViewOutput, __MetadataBea
  * ```javascript
  * import { ResourceExplorer2Client, CreateViewCommand } from "@aws-sdk/client-resource-explorer-2"; // ES Modules import
  * // const { ResourceExplorer2Client, CreateViewCommand } = require("@aws-sdk/client-resource-explorer-2"); // CommonJS import
+ * // import type { ResourceExplorer2ClientConfig } from "@aws-sdk/client-resource-explorer-2";
+ * const config = {}; // type is ResourceExplorer2ClientConfig
  * const client = new ResourceExplorer2Client(config);
  * const input = { // CreateViewInput
  *   ClientToken: "STRING_VALUE",

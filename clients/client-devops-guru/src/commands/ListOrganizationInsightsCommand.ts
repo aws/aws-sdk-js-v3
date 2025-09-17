@@ -34,6 +34,8 @@ export interface ListOrganizationInsightsCommandOutput extends ListOrganizationI
  * ```javascript
  * import { DevOpsGuruClient, ListOrganizationInsightsCommand } from "@aws-sdk/client-devops-guru"; // ES Modules import
  * // const { DevOpsGuruClient, ListOrganizationInsightsCommand } = require("@aws-sdk/client-devops-guru"); // CommonJS import
+ * // import type { DevOpsGuruClientConfig } from "@aws-sdk/client-devops-guru";
+ * const config = {}; // type is DevOpsGuruClientConfig
  * const client = new DevOpsGuruClient(config);
  * const input = { // ListOrganizationInsightsRequest
  *   StatusFilter: { // ListInsightsStatusFilter

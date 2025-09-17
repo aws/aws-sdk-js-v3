@@ -36,6 +36,8 @@ export interface ListMedicalVocabulariesCommandOutput extends ListMedicalVocabul
  * ```javascript
  * import { TranscribeClient, ListMedicalVocabulariesCommand } from "@aws-sdk/client-transcribe"; // ES Modules import
  * // const { TranscribeClient, ListMedicalVocabulariesCommand } = require("@aws-sdk/client-transcribe"); // CommonJS import
+ * // import type { TranscribeClientConfig } from "@aws-sdk/client-transcribe";
+ * const config = {}; // type is TranscribeClientConfig
  * const client = new TranscribeClient(config);
  * const input = { // ListMedicalVocabulariesRequest
  *   NextToken: "STRING_VALUE",

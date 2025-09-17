@@ -36,6 +36,8 @@ export interface DeleteResourcePolicyCommandOutput extends DeleteResourcePolicyR
  * ```javascript
  * import { CloudTrailClient, DeleteResourcePolicyCommand } from "@aws-sdk/client-cloudtrail"; // ES Modules import
  * // const { CloudTrailClient, DeleteResourcePolicyCommand } = require("@aws-sdk/client-cloudtrail"); // CommonJS import
+ * // import type { CloudTrailClientConfig } from "@aws-sdk/client-cloudtrail";
+ * const config = {}; // type is CloudTrailClientConfig
  * const client = new CloudTrailClient(config);
  * const input = { // DeleteResourcePolicyRequest
  *   ResourceArn: "STRING_VALUE", // required

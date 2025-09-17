@@ -43,6 +43,8 @@ export interface StartDBInstanceCommandOutput extends StartDBInstanceResult, __M
  * ```javascript
  * import { RDSClient, StartDBInstanceCommand } from "@aws-sdk/client-rds"; // ES Modules import
  * // const { RDSClient, StartDBInstanceCommand } = require("@aws-sdk/client-rds"); // CommonJS import
+ * // import type { RDSClientConfig } from "@aws-sdk/client-rds";
+ * const config = {}; // type is RDSClientConfig
  * const client = new RDSClient(config);
  * const input = { // StartDBInstanceMessage
  *   DBInstanceIdentifier: "STRING_VALUE", // required

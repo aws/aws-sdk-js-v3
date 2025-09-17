@@ -66,6 +66,8 @@ export interface UpdateManagedLoginBrandingCommandOutput extends UpdateManagedLo
  * ```javascript
  * import { CognitoIdentityProviderClient, UpdateManagedLoginBrandingCommand } from "@aws-sdk/client-cognito-identity-provider"; // ES Modules import
  * // const { CognitoIdentityProviderClient, UpdateManagedLoginBrandingCommand } = require("@aws-sdk/client-cognito-identity-provider"); // CommonJS import
+ * // import type { CognitoIdentityProviderClientConfig } from "@aws-sdk/client-cognito-identity-provider";
+ * const config = {}; // type is CognitoIdentityProviderClientConfig
  * const client = new CognitoIdentityProviderClient(config);
  * const input = { // UpdateManagedLoginBrandingRequest
  *   UserPoolId: "STRING_VALUE",

@@ -34,6 +34,8 @@ export interface StartSearchResultExportJobCommandOutput extends StartSearchResu
  * ```javascript
  * import { BackupSearchClient, StartSearchResultExportJobCommand } from "@aws-sdk/client-backupsearch"; // ES Modules import
  * // const { BackupSearchClient, StartSearchResultExportJobCommand } = require("@aws-sdk/client-backupsearch"); // CommonJS import
+ * // import type { BackupSearchClientConfig } from "@aws-sdk/client-backupsearch";
+ * const config = {}; // type is BackupSearchClientConfig
  * const client = new BackupSearchClient(config);
  * const input = { // StartSearchResultExportJobInput
  *   SearchJobIdentifier: "STRING_VALUE", // required

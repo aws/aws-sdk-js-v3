@@ -34,6 +34,8 @@ export interface ListSpacesCommandOutput extends ListSpacesResponse, __MetadataB
  * ```javascript
  * import { SageMakerClient, ListSpacesCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, ListSpacesCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * // import type { SageMakerClientConfig } from "@aws-sdk/client-sagemaker";
+ * const config = {}; // type is SageMakerClientConfig
  * const client = new SageMakerClient(config);
  * const input = { // ListSpacesRequest
  *   NextToken: "STRING_VALUE",

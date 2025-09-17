@@ -98,6 +98,8 @@ export interface CreateGrantCommandOutput extends CreateGrantResponse, __Metadat
  * ```javascript
  * import { KMSClient, CreateGrantCommand } from "@aws-sdk/client-kms"; // ES Modules import
  * // const { KMSClient, CreateGrantCommand } = require("@aws-sdk/client-kms"); // CommonJS import
+ * // import type { KMSClientConfig } from "@aws-sdk/client-kms";
+ * const config = {}; // type is KMSClientConfig
  * const client = new KMSClient(config);
  * const input = { // CreateGrantRequest
  *   KeyId: "STRING_VALUE", // required

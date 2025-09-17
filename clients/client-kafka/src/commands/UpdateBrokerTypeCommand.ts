@@ -34,6 +34,8 @@ export interface UpdateBrokerTypeCommandOutput extends UpdateBrokerTypeResponse,
  * ```javascript
  * import { KafkaClient, UpdateBrokerTypeCommand } from "@aws-sdk/client-kafka"; // ES Modules import
  * // const { KafkaClient, UpdateBrokerTypeCommand } = require("@aws-sdk/client-kafka"); // CommonJS import
+ * // import type { KafkaClientConfig } from "@aws-sdk/client-kafka";
+ * const config = {}; // type is KafkaClientConfig
  * const client = new KafkaClient(config);
  * const input = { // UpdateBrokerTypeRequest
  *   ClusterArn: "STRING_VALUE", // required

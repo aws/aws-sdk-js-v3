@@ -44,6 +44,8 @@ export interface GetRecordsCommandOutput extends GetRecordsOutput, __MetadataBea
  * ```javascript
  * import { DynamoDBStreamsClient, GetRecordsCommand } from "@aws-sdk/client-dynamodb-streams"; // ES Modules import
  * // const { DynamoDBStreamsClient, GetRecordsCommand } = require("@aws-sdk/client-dynamodb-streams"); // CommonJS import
+ * // import type { DynamoDBStreamsClientConfig } from "@aws-sdk/client-dynamodb-streams";
+ * const config = {}; // type is DynamoDBStreamsClientConfig
  * const client = new DynamoDBStreamsClient(config);
  * const input = { // GetRecordsInput
  *   ShardIterator: "STRING_VALUE", // required

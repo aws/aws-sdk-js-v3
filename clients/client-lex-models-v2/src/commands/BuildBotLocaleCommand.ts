@@ -36,6 +36,8 @@ export interface BuildBotLocaleCommandOutput extends BuildBotLocaleResponse, __M
  * ```javascript
  * import { LexModelsV2Client, BuildBotLocaleCommand } from "@aws-sdk/client-lex-models-v2"; // ES Modules import
  * // const { LexModelsV2Client, BuildBotLocaleCommand } = require("@aws-sdk/client-lex-models-v2"); // CommonJS import
+ * // import type { LexModelsV2ClientConfig } from "@aws-sdk/client-lex-models-v2";
+ * const config = {}; // type is LexModelsV2ClientConfig
  * const client = new LexModelsV2Client(config);
  * const input = { // BuildBotLocaleRequest
  *   botId: "STRING_VALUE", // required

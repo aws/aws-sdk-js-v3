@@ -39,6 +39,8 @@ export interface DescribeModelPackagingJobCommandOutput extends DescribeModelPac
  * ```javascript
  * import { LookoutVisionClient, DescribeModelPackagingJobCommand } from "@aws-sdk/client-lookoutvision"; // ES Modules import
  * // const { LookoutVisionClient, DescribeModelPackagingJobCommand } = require("@aws-sdk/client-lookoutvision"); // CommonJS import
+ * // import type { LookoutVisionClientConfig } from "@aws-sdk/client-lookoutvision";
+ * const config = {}; // type is LookoutVisionClientConfig
  * const client = new LookoutVisionClient(config);
  * const input = { // DescribeModelPackagingJobRequest
  *   ProjectName: "STRING_VALUE", // required

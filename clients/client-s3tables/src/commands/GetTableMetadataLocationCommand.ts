@@ -34,6 +34,8 @@ export interface GetTableMetadataLocationCommandOutput extends GetTableMetadataL
  * ```javascript
  * import { S3TablesClient, GetTableMetadataLocationCommand } from "@aws-sdk/client-s3tables"; // ES Modules import
  * // const { S3TablesClient, GetTableMetadataLocationCommand } = require("@aws-sdk/client-s3tables"); // CommonJS import
+ * // import type { S3TablesClientConfig } from "@aws-sdk/client-s3tables";
+ * const config = {}; // type is S3TablesClientConfig
  * const client = new S3TablesClient(config);
  * const input = { // GetTableMetadataLocationRequest
  *   tableBucketARN: "STRING_VALUE", // required

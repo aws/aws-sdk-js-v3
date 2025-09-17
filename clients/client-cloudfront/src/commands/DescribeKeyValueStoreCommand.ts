@@ -34,6 +34,8 @@ export interface DescribeKeyValueStoreCommandOutput extends DescribeKeyValueStor
  * ```javascript
  * import { CloudFrontClient, DescribeKeyValueStoreCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
  * // const { CloudFrontClient, DescribeKeyValueStoreCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
+ * // import type { CloudFrontClientConfig } from "@aws-sdk/client-cloudfront";
+ * const config = {}; // type is CloudFrontClientConfig
  * const client = new CloudFrontClient(config);
  * const input = { // DescribeKeyValueStoreRequest
  *   Name: "STRING_VALUE", // required

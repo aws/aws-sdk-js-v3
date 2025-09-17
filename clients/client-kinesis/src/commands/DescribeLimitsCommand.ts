@@ -37,6 +37,8 @@ export interface DescribeLimitsCommandOutput extends DescribeLimitsOutput, __Met
  * ```javascript
  * import { KinesisClient, DescribeLimitsCommand } from "@aws-sdk/client-kinesis"; // ES Modules import
  * // const { KinesisClient, DescribeLimitsCommand } = require("@aws-sdk/client-kinesis"); // CommonJS import
+ * // import type { KinesisClientConfig } from "@aws-sdk/client-kinesis";
+ * const config = {}; // type is KinesisClientConfig
  * const client = new KinesisClient(config);
  * const input = {};
  * const command = new DescribeLimitsCommand(input);

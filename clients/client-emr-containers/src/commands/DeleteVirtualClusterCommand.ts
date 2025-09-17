@@ -37,6 +37,8 @@ export interface DeleteVirtualClusterCommandOutput extends DeleteVirtualClusterR
  * ```javascript
  * import { EMRContainersClient, DeleteVirtualClusterCommand } from "@aws-sdk/client-emr-containers"; // ES Modules import
  * // const { EMRContainersClient, DeleteVirtualClusterCommand } = require("@aws-sdk/client-emr-containers"); // CommonJS import
+ * // import type { EMRContainersClientConfig } from "@aws-sdk/client-emr-containers";
+ * const config = {}; // type is EMRContainersClientConfig
  * const client = new EMRContainersClient(config);
  * const input = { // DeleteVirtualClusterRequest
  *   id: "STRING_VALUE", // required

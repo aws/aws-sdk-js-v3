@@ -34,6 +34,8 @@ export interface DeleteSegmentDefinitionCommandOutput extends DeleteSegmentDefin
  * ```javascript
  * import { CustomerProfilesClient, DeleteSegmentDefinitionCommand } from "@aws-sdk/client-customer-profiles"; // ES Modules import
  * // const { CustomerProfilesClient, DeleteSegmentDefinitionCommand } = require("@aws-sdk/client-customer-profiles"); // CommonJS import
+ * // import type { CustomerProfilesClientConfig } from "@aws-sdk/client-customer-profiles";
+ * const config = {}; // type is CustomerProfilesClientConfig
  * const client = new CustomerProfilesClient(config);
  * const input = { // DeleteSegmentDefinitionRequest
  *   DomainName: "STRING_VALUE", // required

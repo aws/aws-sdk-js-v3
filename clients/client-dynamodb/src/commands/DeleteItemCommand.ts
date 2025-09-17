@@ -44,6 +44,8 @@ export interface DeleteItemCommandOutput extends DeleteItemOutput, __MetadataBea
  * ```javascript
  * import { DynamoDBClient, DeleteItemCommand } from "@aws-sdk/client-dynamodb"; // ES Modules import
  * // const { DynamoDBClient, DeleteItemCommand } = require("@aws-sdk/client-dynamodb"); // CommonJS import
+ * // import type { DynamoDBClientConfig } from "@aws-sdk/client-dynamodb";
+ * const config = {}; // type is DynamoDBClientConfig
  * const client = new DynamoDBClient(config);
  * const input = { // DeleteItemInput
  *   TableName: "STRING_VALUE", // required

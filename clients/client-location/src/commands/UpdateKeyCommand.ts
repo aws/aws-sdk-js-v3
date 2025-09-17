@@ -39,6 +39,8 @@ export interface UpdateKeyCommandOutput extends UpdateKeyResponse, __MetadataBea
  * ```javascript
  * import { LocationClient, UpdateKeyCommand } from "@aws-sdk/client-location"; // ES Modules import
  * // const { LocationClient, UpdateKeyCommand } = require("@aws-sdk/client-location"); // CommonJS import
+ * // import type { LocationClientConfig } from "@aws-sdk/client-location";
+ * const config = {}; // type is LocationClientConfig
  * const client = new LocationClient(config);
  * const input = { // UpdateKeyRequest
  *   KeyName: "STRING_VALUE", // required

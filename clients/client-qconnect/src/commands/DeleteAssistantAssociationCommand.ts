@@ -34,6 +34,8 @@ export interface DeleteAssistantAssociationCommandOutput extends DeleteAssistant
  * ```javascript
  * import { QConnectClient, DeleteAssistantAssociationCommand } from "@aws-sdk/client-qconnect"; // ES Modules import
  * // const { QConnectClient, DeleteAssistantAssociationCommand } = require("@aws-sdk/client-qconnect"); // CommonJS import
+ * // import type { QConnectClientConfig } from "@aws-sdk/client-qconnect";
+ * const config = {}; // type is QConnectClientConfig
  * const client = new QConnectClient(config);
  * const input = { // DeleteAssistantAssociationRequest
  *   assistantAssociationId: "STRING_VALUE", // required

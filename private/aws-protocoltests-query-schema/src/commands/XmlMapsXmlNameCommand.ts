@@ -34,6 +34,8 @@ export interface XmlMapsXmlNameCommandOutput extends XmlMapsXmlNameOutput, __Met
  * ```javascript
  * import { QueryProtocolClient, XmlMapsXmlNameCommand } from "@aws-sdk/aws-protocoltests-query-schema"; // ES Modules import
  * // const { QueryProtocolClient, XmlMapsXmlNameCommand } = require("@aws-sdk/aws-protocoltests-query-schema"); // CommonJS import
+ * // import type { QueryProtocolClientConfig } from "@aws-sdk/aws-protocoltests-query-schema";
+ * const config = {}; // type is QueryProtocolClientConfig
  * const client = new QueryProtocolClient(config);
  * const input = {};
  * const command = new XmlMapsXmlNameCommand(input);

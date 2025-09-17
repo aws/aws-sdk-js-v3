@@ -34,6 +34,8 @@ export interface UpdateThemeCommandOutput extends UpdateThemeResponse, __Metadat
  * ```javascript
  * import { QuickSightClient, UpdateThemeCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
  * // const { QuickSightClient, UpdateThemeCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
+ * // import type { QuickSightClientConfig } from "@aws-sdk/client-quicksight";
+ * const config = {}; // type is QuickSightClientConfig
  * const client = new QuickSightClient(config);
  * const input = { // UpdateThemeRequest
  *   AwsAccountId: "STRING_VALUE", // required

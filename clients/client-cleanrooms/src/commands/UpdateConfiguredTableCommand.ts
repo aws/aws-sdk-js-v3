@@ -34,6 +34,8 @@ export interface UpdateConfiguredTableCommandOutput extends UpdateConfiguredTabl
  * ```javascript
  * import { CleanRoomsClient, UpdateConfiguredTableCommand } from "@aws-sdk/client-cleanrooms"; // ES Modules import
  * // const { CleanRoomsClient, UpdateConfiguredTableCommand } = require("@aws-sdk/client-cleanrooms"); // CommonJS import
+ * // import type { CleanRoomsClientConfig } from "@aws-sdk/client-cleanrooms";
+ * const config = {}; // type is CleanRoomsClientConfig
  * const client = new CleanRoomsClient(config);
  * const input = { // UpdateConfiguredTableInput
  *   configuredTableIdentifier: "STRING_VALUE", // required

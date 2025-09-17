@@ -47,6 +47,8 @@ export interface UpdatePublicSharingSettingsCommandOutput
  * ```javascript
  * import { QuickSightClient, UpdatePublicSharingSettingsCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
  * // const { QuickSightClient, UpdatePublicSharingSettingsCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
+ * // import type { QuickSightClientConfig } from "@aws-sdk/client-quicksight";
+ * const config = {}; // type is QuickSightClientConfig
  * const client = new QuickSightClient(config);
  * const input = { // UpdatePublicSharingSettingsRequest
  *   AwsAccountId: "STRING_VALUE", // required

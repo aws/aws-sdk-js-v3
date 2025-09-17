@@ -34,6 +34,8 @@ export interface ListLogSubscriptionsCommandOutput extends ListLogSubscriptionsR
  * ```javascript
  * import { DirectoryServiceClient, ListLogSubscriptionsCommand } from "@aws-sdk/client-directory-service"; // ES Modules import
  * // const { DirectoryServiceClient, ListLogSubscriptionsCommand } = require("@aws-sdk/client-directory-service"); // CommonJS import
+ * // import type { DirectoryServiceClientConfig } from "@aws-sdk/client-directory-service";
+ * const config = {}; // type is DirectoryServiceClientConfig
  * const client = new DirectoryServiceClient(config);
  * const input = { // ListLogSubscriptionsRequest
  *   DirectoryId: "STRING_VALUE",

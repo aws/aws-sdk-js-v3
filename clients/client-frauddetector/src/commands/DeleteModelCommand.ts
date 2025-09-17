@@ -36,6 +36,8 @@ export interface DeleteModelCommandOutput extends DeleteModelResult, __MetadataB
  * ```javascript
  * import { FraudDetectorClient, DeleteModelCommand } from "@aws-sdk/client-frauddetector"; // ES Modules import
  * // const { FraudDetectorClient, DeleteModelCommand } = require("@aws-sdk/client-frauddetector"); // CommonJS import
+ * // import type { FraudDetectorClientConfig } from "@aws-sdk/client-frauddetector";
+ * const config = {}; // type is FraudDetectorClientConfig
  * const client = new FraudDetectorClient(config);
  * const input = { // DeleteModelRequest
  *   modelId: "STRING_VALUE", // required

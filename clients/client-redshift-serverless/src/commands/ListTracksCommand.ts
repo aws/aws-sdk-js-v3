@@ -38,6 +38,8 @@ export interface ListTracksCommandOutput extends ListTracksResponse, __MetadataB
  * ```javascript
  * import { RedshiftServerlessClient, ListTracksCommand } from "@aws-sdk/client-redshift-serverless"; // ES Modules import
  * // const { RedshiftServerlessClient, ListTracksCommand } = require("@aws-sdk/client-redshift-serverless"); // CommonJS import
+ * // import type { RedshiftServerlessClientConfig } from "@aws-sdk/client-redshift-serverless";
+ * const config = {}; // type is RedshiftServerlessClientConfig
  * const client = new RedshiftServerlessClient(config);
  * const input = { // ListTracksRequest
  *   nextToken: "STRING_VALUE",

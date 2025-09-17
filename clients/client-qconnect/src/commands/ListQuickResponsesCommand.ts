@@ -38,6 +38,8 @@ export interface ListQuickResponsesCommandOutput extends ListQuickResponsesRespo
  * ```javascript
  * import { QConnectClient, ListQuickResponsesCommand } from "@aws-sdk/client-qconnect"; // ES Modules import
  * // const { QConnectClient, ListQuickResponsesCommand } = require("@aws-sdk/client-qconnect"); // CommonJS import
+ * // import type { QConnectClientConfig } from "@aws-sdk/client-qconnect";
+ * const config = {}; // type is QConnectClientConfig
  * const client = new QConnectClient(config);
  * const input = { // ListQuickResponsesRequest
  *   nextToken: "STRING_VALUE",

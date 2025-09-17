@@ -36,6 +36,8 @@ export interface AssociateResourceShareCommandOutput extends AssociateResourceSh
  * ```javascript
  * import { RAMClient, AssociateResourceShareCommand } from "@aws-sdk/client-ram"; // ES Modules import
  * // const { RAMClient, AssociateResourceShareCommand } = require("@aws-sdk/client-ram"); // CommonJS import
+ * // import type { RAMClientConfig } from "@aws-sdk/client-ram";
+ * const config = {}; // type is RAMClientConfig
  * const client = new RAMClient(config);
  * const input = { // AssociateResourceShareRequest
  *   resourceShareArn: "STRING_VALUE", // required

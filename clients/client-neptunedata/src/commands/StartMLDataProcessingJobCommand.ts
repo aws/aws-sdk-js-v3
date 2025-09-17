@@ -34,6 +34,8 @@ export interface StartMLDataProcessingJobCommandOutput extends StartMLDataProces
  * ```javascript
  * import { NeptunedataClient, StartMLDataProcessingJobCommand } from "@aws-sdk/client-neptunedata"; // ES Modules import
  * // const { NeptunedataClient, StartMLDataProcessingJobCommand } = require("@aws-sdk/client-neptunedata"); // CommonJS import
+ * // import type { NeptunedataClientConfig } from "@aws-sdk/client-neptunedata";
+ * const config = {}; // type is NeptunedataClientConfig
  * const client = new NeptunedataClient(config);
  * const input = { // StartMLDataProcessingJobInput
  *   id: "STRING_VALUE",

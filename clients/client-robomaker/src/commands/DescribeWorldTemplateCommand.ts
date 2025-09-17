@@ -42,6 +42,8 @@ export interface DescribeWorldTemplateCommandOutput extends DescribeWorldTemplat
  * ```javascript
  * import { RoboMakerClient, DescribeWorldTemplateCommand } from "@aws-sdk/client-robomaker"; // ES Modules import
  * // const { RoboMakerClient, DescribeWorldTemplateCommand } = require("@aws-sdk/client-robomaker"); // CommonJS import
+ * // import type { RoboMakerClientConfig } from "@aws-sdk/client-robomaker";
+ * const config = {}; // type is RoboMakerClientConfig
  * const client = new RoboMakerClient(config);
  * const input = { // DescribeWorldTemplateRequest
  *   template: "STRING_VALUE", // required

@@ -42,6 +42,8 @@ export interface GetEnvironmentCommandOutput extends GetEnvironmentResponse, __M
  * ```javascript
  * import { MigrationHubRefactorSpacesClient, GetEnvironmentCommand } from "@aws-sdk/client-migration-hub-refactor-spaces"; // ES Modules import
  * // const { MigrationHubRefactorSpacesClient, GetEnvironmentCommand } = require("@aws-sdk/client-migration-hub-refactor-spaces"); // CommonJS import
+ * // import type { MigrationHubRefactorSpacesClientConfig } from "@aws-sdk/client-migration-hub-refactor-spaces";
+ * const config = {}; // type is MigrationHubRefactorSpacesClientConfig
  * const client = new MigrationHubRefactorSpacesClient(config);
  * const input = { // GetEnvironmentRequest
  *   EnvironmentIdentifier: "STRING_VALUE", // required

@@ -34,6 +34,8 @@ export interface GetDeploymentGroupCommandOutput extends GetDeploymentGroupOutpu
  * ```javascript
  * import { CodeDeployClient, GetDeploymentGroupCommand } from "@aws-sdk/client-codedeploy"; // ES Modules import
  * // const { CodeDeployClient, GetDeploymentGroupCommand } = require("@aws-sdk/client-codedeploy"); // CommonJS import
+ * // import type { CodeDeployClientConfig } from "@aws-sdk/client-codedeploy";
+ * const config = {}; // type is CodeDeployClientConfig
  * const client = new CodeDeployClient(config);
  * const input = { // GetDeploymentGroupInput
  *   applicationName: "STRING_VALUE", // required

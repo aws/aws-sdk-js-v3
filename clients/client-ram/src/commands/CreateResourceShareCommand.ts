@@ -41,6 +41,8 @@ export interface CreateResourceShareCommandOutput extends CreateResourceShareRes
  * ```javascript
  * import { RAMClient, CreateResourceShareCommand } from "@aws-sdk/client-ram"; // ES Modules import
  * // const { RAMClient, CreateResourceShareCommand } = require("@aws-sdk/client-ram"); // CommonJS import
+ * // import type { RAMClientConfig } from "@aws-sdk/client-ram";
+ * const config = {}; // type is RAMClientConfig
  * const client = new RAMClient(config);
  * const input = { // CreateResourceShareRequest
  *   name: "STRING_VALUE", // required

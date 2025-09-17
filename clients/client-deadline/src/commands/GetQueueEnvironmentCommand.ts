@@ -38,6 +38,8 @@ export interface GetQueueEnvironmentCommandOutput extends GetQueueEnvironmentRes
  * ```javascript
  * import { DeadlineClient, GetQueueEnvironmentCommand } from "@aws-sdk/client-deadline"; // ES Modules import
  * // const { DeadlineClient, GetQueueEnvironmentCommand } = require("@aws-sdk/client-deadline"); // CommonJS import
+ * // import type { DeadlineClientConfig } from "@aws-sdk/client-deadline";
+ * const config = {}; // type is DeadlineClientConfig
  * const client = new DeadlineClient(config);
  * const input = { // GetQueueEnvironmentRequest
  *   farmId: "STRING_VALUE", // required

@@ -39,6 +39,8 @@ export interface DescribeInstanceConnectEndpointsCommandOutput
  * ```javascript
  * import { EC2Client, DescribeInstanceConnectEndpointsCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DescribeInstanceConnectEndpointsCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
+ * // import type { EC2ClientConfig } from "@aws-sdk/client-ec2";
+ * const config = {}; // type is EC2ClientConfig
  * const client = new EC2Client(config);
  * const input = { // DescribeInstanceConnectEndpointsRequest
  *   DryRun: true || false,

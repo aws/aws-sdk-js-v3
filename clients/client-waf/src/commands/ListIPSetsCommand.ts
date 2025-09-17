@@ -42,6 +42,8 @@ export interface ListIPSetsCommandOutput extends ListIPSetsResponse, __MetadataB
  * ```javascript
  * import { WAFClient, ListIPSetsCommand } from "@aws-sdk/client-waf"; // ES Modules import
  * // const { WAFClient, ListIPSetsCommand } = require("@aws-sdk/client-waf"); // CommonJS import
+ * // import type { WAFClientConfig } from "@aws-sdk/client-waf";
+ * const config = {}; // type is WAFClientConfig
  * const client = new WAFClient(config);
  * const input = { // ListIPSetsRequest
  *   NextMarker: "STRING_VALUE",

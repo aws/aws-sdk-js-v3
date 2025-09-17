@@ -34,6 +34,8 @@ export interface UpdateTableObjectsCommandOutput extends UpdateTableObjectsRespo
  * ```javascript
  * import { LakeFormationClient, UpdateTableObjectsCommand } from "@aws-sdk/client-lakeformation"; // ES Modules import
  * // const { LakeFormationClient, UpdateTableObjectsCommand } = require("@aws-sdk/client-lakeformation"); // CommonJS import
+ * // import type { LakeFormationClientConfig } from "@aws-sdk/client-lakeformation";
+ * const config = {}; // type is LakeFormationClientConfig
  * const client = new LakeFormationClient(config);
  * const input = { // UpdateTableObjectsRequest
  *   CatalogId: "STRING_VALUE",

@@ -34,6 +34,8 @@ export interface CreateDashboardCommandOutput extends CreateDashboardResponse, _
  * ```javascript
  * import { BCMDashboardsClient, CreateDashboardCommand } from "@aws-sdk/client-bcm-dashboards"; // ES Modules import
  * // const { BCMDashboardsClient, CreateDashboardCommand } = require("@aws-sdk/client-bcm-dashboards"); // CommonJS import
+ * // import type { BCMDashboardsClientConfig } from "@aws-sdk/client-bcm-dashboards";
+ * const config = {}; // type is BCMDashboardsClientConfig
  * const client = new BCMDashboardsClient(config);
  * const input = { // CreateDashboardRequest
  *   name: "STRING_VALUE", // required

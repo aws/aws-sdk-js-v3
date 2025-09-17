@@ -34,6 +34,8 @@ export interface UpdateInferenceExperimentCommandOutput extends UpdateInferenceE
  * ```javascript
  * import { SageMakerClient, UpdateInferenceExperimentCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, UpdateInferenceExperimentCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * // import type { SageMakerClientConfig } from "@aws-sdk/client-sagemaker";
+ * const config = {}; // type is SageMakerClientConfig
  * const client = new SageMakerClient(config);
  * const input = { // UpdateInferenceExperimentRequest
  *   Name: "STRING_VALUE", // required

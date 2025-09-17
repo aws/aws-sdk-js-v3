@@ -34,6 +34,8 @@ export interface ListTasksCommandOutput extends ListTasksResponse, __MetadataBea
  * ```javascript
  * import { DataSyncClient, ListTasksCommand } from "@aws-sdk/client-datasync"; // ES Modules import
  * // const { DataSyncClient, ListTasksCommand } = require("@aws-sdk/client-datasync"); // CommonJS import
+ * // import type { DataSyncClientConfig } from "@aws-sdk/client-datasync";
+ * const config = {}; // type is DataSyncClientConfig
  * const client = new DataSyncClient(config);
  * const input = { // ListTasksRequest
  *   MaxResults: Number("int"),

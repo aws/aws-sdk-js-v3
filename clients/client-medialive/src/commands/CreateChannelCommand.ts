@@ -34,6 +34,8 @@ export interface CreateChannelCommandOutput extends CreateChannelResponse, __Met
  * ```javascript
  * import { MediaLiveClient, CreateChannelCommand } from "@aws-sdk/client-medialive"; // ES Modules import
  * // const { MediaLiveClient, CreateChannelCommand } = require("@aws-sdk/client-medialive"); // CommonJS import
+ * // import type { MediaLiveClientConfig } from "@aws-sdk/client-medialive";
+ * const config = {}; // type is MediaLiveClientConfig
  * const client = new MediaLiveClient(config);
  * const input = { // CreateChannelRequest
  *   CdiInputSpecification: { // CdiInputSpecification

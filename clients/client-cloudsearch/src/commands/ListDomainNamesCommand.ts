@@ -34,6 +34,8 @@ export interface ListDomainNamesCommandOutput extends ListDomainNamesResponse, _
  * ```javascript
  * import { CloudSearchClient, ListDomainNamesCommand } from "@aws-sdk/client-cloudsearch"; // ES Modules import
  * // const { CloudSearchClient, ListDomainNamesCommand } = require("@aws-sdk/client-cloudsearch"); // CommonJS import
+ * // import type { CloudSearchClientConfig } from "@aws-sdk/client-cloudsearch";
+ * const config = {}; // type is CloudSearchClientConfig
  * const client = new CloudSearchClient(config);
  * const input = {};
  * const command = new ListDomainNamesCommand(input);

@@ -37,6 +37,8 @@ export interface CreateParameterGroupCommandOutput extends CreateParameterGroupR
  * ```javascript
  * import { MemoryDBClient, CreateParameterGroupCommand } from "@aws-sdk/client-memorydb"; // ES Modules import
  * // const { MemoryDBClient, CreateParameterGroupCommand } = require("@aws-sdk/client-memorydb"); // CommonJS import
+ * // import type { MemoryDBClientConfig } from "@aws-sdk/client-memorydb";
+ * const config = {}; // type is MemoryDBClientConfig
  * const client = new MemoryDBClient(config);
  * const input = { // CreateParameterGroupRequest
  *   ParameterGroupName: "STRING_VALUE", // required

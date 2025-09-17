@@ -35,6 +35,8 @@ export interface DeleteKxDataviewCommandOutput extends DeleteKxDataviewResponse,
  * ```javascript
  * import { FinspaceClient, DeleteKxDataviewCommand } from "@aws-sdk/client-finspace"; // ES Modules import
  * // const { FinspaceClient, DeleteKxDataviewCommand } = require("@aws-sdk/client-finspace"); // CommonJS import
+ * // import type { FinspaceClientConfig } from "@aws-sdk/client-finspace";
+ * const config = {}; // type is FinspaceClientConfig
  * const client = new FinspaceClient(config);
  * const input = { // DeleteKxDataviewRequest
  *   environmentId: "STRING_VALUE", // required

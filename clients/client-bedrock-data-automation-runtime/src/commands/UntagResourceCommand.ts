@@ -38,6 +38,8 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
  * ```javascript
  * import { BedrockDataAutomationRuntimeClient, UntagResourceCommand } from "@aws-sdk/client-bedrock-data-automation-runtime"; // ES Modules import
  * // const { BedrockDataAutomationRuntimeClient, UntagResourceCommand } = require("@aws-sdk/client-bedrock-data-automation-runtime"); // CommonJS import
+ * // import type { BedrockDataAutomationRuntimeClientConfig } from "@aws-sdk/client-bedrock-data-automation-runtime";
+ * const config = {}; // type is BedrockDataAutomationRuntimeClientConfig
  * const client = new BedrockDataAutomationRuntimeClient(config);
  * const input = { // UntagResourceRequest
  *   resourceARN: "STRING_VALUE", // required

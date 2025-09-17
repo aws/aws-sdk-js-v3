@@ -35,6 +35,8 @@ export interface ListBackupJobsCommandOutput extends ListBackupJobsOutput, __Met
  * ```javascript
  * import { BackupClient, ListBackupJobsCommand } from "@aws-sdk/client-backup"; // ES Modules import
  * // const { BackupClient, ListBackupJobsCommand } = require("@aws-sdk/client-backup"); // CommonJS import
+ * // import type { BackupClientConfig } from "@aws-sdk/client-backup";
+ * const config = {}; // type is BackupClientConfig
  * const client = new BackupClient(config);
  * const input = { // ListBackupJobsInput
  *   NextToken: "STRING_VALUE",

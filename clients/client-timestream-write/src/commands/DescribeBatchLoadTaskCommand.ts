@@ -38,6 +38,8 @@ export interface DescribeBatchLoadTaskCommandOutput extends DescribeBatchLoadTas
  * ```javascript
  * import { TimestreamWriteClient, DescribeBatchLoadTaskCommand } from "@aws-sdk/client-timestream-write"; // ES Modules import
  * // const { TimestreamWriteClient, DescribeBatchLoadTaskCommand } = require("@aws-sdk/client-timestream-write"); // CommonJS import
+ * // import type { TimestreamWriteClientConfig } from "@aws-sdk/client-timestream-write";
+ * const config = {}; // type is TimestreamWriteClientConfig
  * const client = new TimestreamWriteClient(config);
  * const input = { // DescribeBatchLoadTaskRequest
  *   TaskId: "STRING_VALUE", // required

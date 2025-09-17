@@ -51,6 +51,8 @@ export interface InvokeModelWithResponseStreamCommandOutput
  * ```javascript
  * import { BedrockRuntimeClient, InvokeModelWithResponseStreamCommand } from "@aws-sdk/client-bedrock-runtime"; // ES Modules import
  * // const { BedrockRuntimeClient, InvokeModelWithResponseStreamCommand } = require("@aws-sdk/client-bedrock-runtime"); // CommonJS import
+ * // import type { BedrockRuntimeClientConfig } from "@aws-sdk/client-bedrock-runtime";
+ * const config = {}; // type is BedrockRuntimeClientConfig
  * const client = new BedrockRuntimeClient(config);
  * const input = { // InvokeModelWithResponseStreamRequest
  *   body: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")

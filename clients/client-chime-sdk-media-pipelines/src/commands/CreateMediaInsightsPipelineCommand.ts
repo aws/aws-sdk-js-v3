@@ -48,6 +48,8 @@ export interface CreateMediaInsightsPipelineCommandOutput
  * ```javascript
  * import { ChimeSDKMediaPipelinesClient, CreateMediaInsightsPipelineCommand } from "@aws-sdk/client-chime-sdk-media-pipelines"; // ES Modules import
  * // const { ChimeSDKMediaPipelinesClient, CreateMediaInsightsPipelineCommand } = require("@aws-sdk/client-chime-sdk-media-pipelines"); // CommonJS import
+ * // import type { ChimeSDKMediaPipelinesClientConfig } from "@aws-sdk/client-chime-sdk-media-pipelines";
+ * const config = {}; // type is ChimeSDKMediaPipelinesClientConfig
  * const client = new ChimeSDKMediaPipelinesClient(config);
  * const input = { // CreateMediaInsightsPipelineRequest
  *   MediaInsightsPipelineConfigurationArn: "STRING_VALUE", // required

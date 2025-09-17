@@ -34,6 +34,8 @@ export interface GetEngineStatusCommandOutput extends GetEngineStatusOutput, __M
  * ```javascript
  * import { NeptunedataClient, GetEngineStatusCommand } from "@aws-sdk/client-neptunedata"; // ES Modules import
  * // const { NeptunedataClient, GetEngineStatusCommand } = require("@aws-sdk/client-neptunedata"); // CommonJS import
+ * // import type { NeptunedataClientConfig } from "@aws-sdk/client-neptunedata";
+ * const config = {}; // type is NeptunedataClientConfig
  * const client = new NeptunedataClient(config);
  * const input = {};
  * const command = new GetEngineStatusCommand(input);

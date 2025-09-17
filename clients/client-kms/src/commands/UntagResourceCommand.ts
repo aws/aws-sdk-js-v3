@@ -78,6 +78,8 @@ export interface UntagResourceCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { KMSClient, UntagResourceCommand } from "@aws-sdk/client-kms"; // ES Modules import
  * // const { KMSClient, UntagResourceCommand } = require("@aws-sdk/client-kms"); // CommonJS import
+ * // import type { KMSClientConfig } from "@aws-sdk/client-kms";
+ * const config = {}; // type is KMSClientConfig
  * const client = new KMSClient(config);
  * const input = { // UntagResourceRequest
  *   KeyId: "STRING_VALUE", // required

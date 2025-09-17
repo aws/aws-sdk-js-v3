@@ -34,6 +34,8 @@ export interface CreateKxClusterCommandOutput extends CreateKxClusterResponse, _
  * ```javascript
  * import { FinspaceClient, CreateKxClusterCommand } from "@aws-sdk/client-finspace"; // ES Modules import
  * // const { FinspaceClient, CreateKxClusterCommand } = require("@aws-sdk/client-finspace"); // CommonJS import
+ * // import type { FinspaceClientConfig } from "@aws-sdk/client-finspace";
+ * const config = {}; // type is FinspaceClientConfig
  * const client = new FinspaceClient(config);
  * const input = { // CreateKxClusterRequest
  *   clientToken: "STRING_VALUE",

@@ -42,6 +42,8 @@ export interface CreateViewVersionCommandOutput extends CreateViewVersionRespons
  * ```javascript
  * import { ConnectClient, CreateViewVersionCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, CreateViewVersionCommand } = require("@aws-sdk/client-connect"); // CommonJS import
+ * // import type { ConnectClientConfig } from "@aws-sdk/client-connect";
+ * const config = {}; // type is ConnectClientConfig
  * const client = new ConnectClient(config);
  * const input = { // CreateViewVersionRequest
  *   InstanceId: "STRING_VALUE", // required

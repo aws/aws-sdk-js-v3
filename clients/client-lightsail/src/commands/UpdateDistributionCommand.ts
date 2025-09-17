@@ -35,6 +35,8 @@ export interface UpdateDistributionCommandOutput extends UpdateDistributionResul
  * ```javascript
  * import { LightsailClient, UpdateDistributionCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, UpdateDistributionCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
+ * // import type { LightsailClientConfig } from "@aws-sdk/client-lightsail";
+ * const config = {}; // type is LightsailClientConfig
  * const client = new LightsailClient(config);
  * const input = { // UpdateDistributionRequest
  *   distributionName: "STRING_VALUE", // required

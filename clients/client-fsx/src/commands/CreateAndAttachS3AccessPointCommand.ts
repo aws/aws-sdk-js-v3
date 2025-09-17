@@ -84,6 +84,8 @@ export interface CreateAndAttachS3AccessPointCommandOutput
  * ```javascript
  * import { FSxClient, CreateAndAttachS3AccessPointCommand } from "@aws-sdk/client-fsx"; // ES Modules import
  * // const { FSxClient, CreateAndAttachS3AccessPointCommand } = require("@aws-sdk/client-fsx"); // CommonJS import
+ * // import type { FSxClientConfig } from "@aws-sdk/client-fsx";
+ * const config = {}; // type is FSxClientConfig
  * const client = new FSxClient(config);
  * const input = { // CreateAndAttachS3AccessPointRequest
  *   ClientRequestToken: "STRING_VALUE",

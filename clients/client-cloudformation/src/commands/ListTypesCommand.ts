@@ -36,6 +36,8 @@ export interface ListTypesCommandOutput extends ListTypesOutput, __MetadataBeare
  * ```javascript
  * import { CloudFormationClient, ListTypesCommand } from "@aws-sdk/client-cloudformation"; // ES Modules import
  * // const { CloudFormationClient, ListTypesCommand } = require("@aws-sdk/client-cloudformation"); // CommonJS import
+ * // import type { CloudFormationClientConfig } from "@aws-sdk/client-cloudformation";
+ * const config = {}; // type is CloudFormationClientConfig
  * const client = new CloudFormationClient(config);
  * const input = { // ListTypesInput
  *   Visibility: "PUBLIC" || "PRIVATE",

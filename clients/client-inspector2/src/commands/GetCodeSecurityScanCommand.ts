@@ -34,6 +34,8 @@ export interface GetCodeSecurityScanCommandOutput extends GetCodeSecurityScanRes
  * ```javascript
  * import { Inspector2Client, GetCodeSecurityScanCommand } from "@aws-sdk/client-inspector2"; // ES Modules import
  * // const { Inspector2Client, GetCodeSecurityScanCommand } = require("@aws-sdk/client-inspector2"); // CommonJS import
+ * // import type { Inspector2ClientConfig } from "@aws-sdk/client-inspector2";
+ * const config = {}; // type is Inspector2ClientConfig
  * const client = new Inspector2Client(config);
  * const input = { // GetCodeSecurityScanRequest
  *   resource: { // CodeSecurityResource Union: only one key present

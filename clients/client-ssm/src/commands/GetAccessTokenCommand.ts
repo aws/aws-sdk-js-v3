@@ -38,6 +38,8 @@ export interface GetAccessTokenCommandOutput extends GetAccessTokenResponse, __M
  * ```javascript
  * import { SSMClient, GetAccessTokenCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, GetAccessTokenCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
+ * // import type { SSMClientConfig } from "@aws-sdk/client-ssm";
+ * const config = {}; // type is SSMClientConfig
  * const client = new SSMClient(config);
  * const input = { // GetAccessTokenRequest
  *   AccessRequestId: "STRING_VALUE", // required

@@ -38,6 +38,8 @@ export interface UpdateScopeCommandOutput extends UpdateScopeOutput, __MetadataB
  * ```javascript
  * import { NetworkFlowMonitorClient, UpdateScopeCommand } from "@aws-sdk/client-networkflowmonitor"; // ES Modules import
  * // const { NetworkFlowMonitorClient, UpdateScopeCommand } = require("@aws-sdk/client-networkflowmonitor"); // CommonJS import
+ * // import type { NetworkFlowMonitorClientConfig } from "@aws-sdk/client-networkflowmonitor";
+ * const config = {}; // type is NetworkFlowMonitorClientConfig
  * const client = new NetworkFlowMonitorClient(config);
  * const input = { // UpdateScopeInput
  *   scopeId: "STRING_VALUE", // required

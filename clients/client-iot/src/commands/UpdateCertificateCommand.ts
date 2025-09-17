@@ -41,6 +41,8 @@ export interface UpdateCertificateCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { IoTClient, UpdateCertificateCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, UpdateCertificateCommand } = require("@aws-sdk/client-iot"); // CommonJS import
+ * // import type { IoTClientConfig } from "@aws-sdk/client-iot";
+ * const config = {}; // type is IoTClientConfig
  * const client = new IoTClient(config);
  * const input = { // UpdateCertificateRequest
  *   certificateId: "STRING_VALUE", // required

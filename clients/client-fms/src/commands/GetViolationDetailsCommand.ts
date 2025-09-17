@@ -34,6 +34,8 @@ export interface GetViolationDetailsCommandOutput extends GetViolationDetailsRes
  * ```javascript
  * import { FMSClient, GetViolationDetailsCommand } from "@aws-sdk/client-fms"; // ES Modules import
  * // const { FMSClient, GetViolationDetailsCommand } = require("@aws-sdk/client-fms"); // CommonJS import
+ * // import type { FMSClientConfig } from "@aws-sdk/client-fms";
+ * const config = {}; // type is FMSClientConfig
  * const client = new FMSClient(config);
  * const input = { // GetViolationDetailsRequest
  *   PolicyId: "STRING_VALUE", // required

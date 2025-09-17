@@ -39,6 +39,8 @@ export interface ListWorkspacesCommandOutput extends ListWorkspacesResponse, __M
  * ```javascript
  * import { GrafanaClient, ListWorkspacesCommand } from "@aws-sdk/client-grafana"; // ES Modules import
  * // const { GrafanaClient, ListWorkspacesCommand } = require("@aws-sdk/client-grafana"); // CommonJS import
+ * // import type { GrafanaClientConfig } from "@aws-sdk/client-grafana";
+ * const config = {}; // type is GrafanaClientConfig
  * const client = new GrafanaClient(config);
  * const input = { // ListWorkspacesRequest
  *   maxResults: Number("int"),

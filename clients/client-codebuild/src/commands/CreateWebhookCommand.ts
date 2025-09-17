@@ -44,6 +44,8 @@ export interface CreateWebhookCommandOutput extends CreateWebhookOutput, __Metad
  * ```javascript
  * import { CodeBuildClient, CreateWebhookCommand } from "@aws-sdk/client-codebuild"; // ES Modules import
  * // const { CodeBuildClient, CreateWebhookCommand } = require("@aws-sdk/client-codebuild"); // CommonJS import
+ * // import type { CodeBuildClientConfig } from "@aws-sdk/client-codebuild";
+ * const config = {}; // type is CodeBuildClientConfig
  * const client = new CodeBuildClient(config);
  * const input = { // CreateWebhookInput
  *   projectName: "STRING_VALUE", // required

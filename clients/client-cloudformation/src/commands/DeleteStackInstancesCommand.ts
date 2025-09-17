@@ -52,6 +52,8 @@ export interface DeleteStackInstancesCommandOutput extends DeleteStackInstancesO
  * ```javascript
  * import { CloudFormationClient, DeleteStackInstancesCommand } from "@aws-sdk/client-cloudformation"; // ES Modules import
  * // const { CloudFormationClient, DeleteStackInstancesCommand } = require("@aws-sdk/client-cloudformation"); // CommonJS import
+ * // import type { CloudFormationClientConfig } from "@aws-sdk/client-cloudformation";
+ * const config = {}; // type is CloudFormationClientConfig
  * const client = new CloudFormationClient(config);
  * const input = { // DeleteStackInstancesInput
  *   StackSetName: "STRING_VALUE", // required

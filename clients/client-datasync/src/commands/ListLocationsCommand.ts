@@ -37,6 +37,8 @@ export interface ListLocationsCommandOutput extends ListLocationsResponse, __Met
  * ```javascript
  * import { DataSyncClient, ListLocationsCommand } from "@aws-sdk/client-datasync"; // ES Modules import
  * // const { DataSyncClient, ListLocationsCommand } = require("@aws-sdk/client-datasync"); // CommonJS import
+ * // import type { DataSyncClientConfig } from "@aws-sdk/client-datasync";
+ * const config = {}; // type is DataSyncClientConfig
  * const client = new DataSyncClient(config);
  * const input = { // ListLocationsRequest
  *   MaxResults: Number("int"),

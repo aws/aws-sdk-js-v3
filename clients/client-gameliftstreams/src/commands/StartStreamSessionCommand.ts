@@ -39,6 +39,8 @@ export interface StartStreamSessionCommandOutput extends StartStreamSessionOutpu
  * ```javascript
  * import { GameLiftStreamsClient, StartStreamSessionCommand } from "@aws-sdk/client-gameliftstreams"; // ES Modules import
  * // const { GameLiftStreamsClient, StartStreamSessionCommand } = require("@aws-sdk/client-gameliftstreams"); // CommonJS import
+ * // import type { GameLiftStreamsClientConfig } from "@aws-sdk/client-gameliftstreams";
+ * const config = {}; // type is GameLiftStreamsClientConfig
  * const client = new GameLiftStreamsClient(config);
  * const input = { // StartStreamSessionInput
  *   ClientToken: "STRING_VALUE",

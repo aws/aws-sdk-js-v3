@@ -47,6 +47,8 @@ export interface GetObjectRetentionCommandOutput extends GetObjectRetentionOutpu
  * ```javascript
  * import { S3Client, GetObjectRetentionCommand } from "@aws-sdk/client-s3"; // ES Modules import
  * // const { S3Client, GetObjectRetentionCommand } = require("@aws-sdk/client-s3"); // CommonJS import
+ * // import type { S3ClientConfig } from "@aws-sdk/client-s3";
+ * const config = {}; // type is S3ClientConfig
  * const client = new S3Client(config);
  * const input = { // GetObjectRetentionRequest
  *   Bucket: "STRING_VALUE", // required

@@ -34,6 +34,8 @@ export interface UpdateComputationModelCommandOutput extends UpdateComputationMo
  * ```javascript
  * import { IoTSiteWiseClient, UpdateComputationModelCommand } from "@aws-sdk/client-iotsitewise"; // ES Modules import
  * // const { IoTSiteWiseClient, UpdateComputationModelCommand } = require("@aws-sdk/client-iotsitewise"); // CommonJS import
+ * // import type { IoTSiteWiseClientConfig } from "@aws-sdk/client-iotsitewise";
+ * const config = {}; // type is IoTSiteWiseClientConfig
  * const client = new IoTSiteWiseClient(config);
  * const input = { // UpdateComputationModelRequest
  *   computationModelId: "STRING_VALUE", // required

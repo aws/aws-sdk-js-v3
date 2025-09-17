@@ -45,6 +45,8 @@ export interface ListDomainDeliverabilityCampaignsCommandOutput
  * ```javascript
  * import { PinpointEmailClient, ListDomainDeliverabilityCampaignsCommand } from "@aws-sdk/client-pinpoint-email"; // ES Modules import
  * // const { PinpointEmailClient, ListDomainDeliverabilityCampaignsCommand } = require("@aws-sdk/client-pinpoint-email"); // CommonJS import
+ * // import type { PinpointEmailClientConfig } from "@aws-sdk/client-pinpoint-email";
+ * const config = {}; // type is PinpointEmailClientConfig
  * const client = new PinpointEmailClient(config);
  * const input = { // ListDomainDeliverabilityCampaignsRequest
  *   StartDate: new Date("TIMESTAMP"), // required

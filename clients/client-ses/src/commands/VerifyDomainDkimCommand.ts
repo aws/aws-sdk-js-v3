@@ -72,6 +72,8 @@ export interface VerifyDomainDkimCommandOutput extends VerifyDomainDkimResponse,
  * ```javascript
  * import { SESClient, VerifyDomainDkimCommand } from "@aws-sdk/client-ses"; // ES Modules import
  * // const { SESClient, VerifyDomainDkimCommand } = require("@aws-sdk/client-ses"); // CommonJS import
+ * // import type { SESClientConfig } from "@aws-sdk/client-ses";
+ * const config = {}; // type is SESClientConfig
  * const client = new SESClient(config);
  * const input = { // VerifyDomainDkimRequest
  *   Domain: "STRING_VALUE", // required

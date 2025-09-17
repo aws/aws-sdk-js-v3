@@ -34,6 +34,8 @@ export interface ListSchemasCommandOutput extends ListSchemasOutput, __MetadataB
  * ```javascript
  * import { CleanRoomsClient, ListSchemasCommand } from "@aws-sdk/client-cleanrooms"; // ES Modules import
  * // const { CleanRoomsClient, ListSchemasCommand } = require("@aws-sdk/client-cleanrooms"); // CommonJS import
+ * // import type { CleanRoomsClientConfig } from "@aws-sdk/client-cleanrooms";
+ * const config = {}; // type is CleanRoomsClientConfig
  * const client = new CleanRoomsClient(config);
  * const input = { // ListSchemasInput
  *   collaborationIdentifier: "STRING_VALUE", // required

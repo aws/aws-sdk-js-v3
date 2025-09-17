@@ -39,6 +39,8 @@ export interface DescribeTunnelCommandOutput extends DescribeTunnelResponse, __M
  * ```javascript
  * import { IoTSecureTunnelingClient, DescribeTunnelCommand } from "@aws-sdk/client-iotsecuretunneling"; // ES Modules import
  * // const { IoTSecureTunnelingClient, DescribeTunnelCommand } = require("@aws-sdk/client-iotsecuretunneling"); // CommonJS import
+ * // import type { IoTSecureTunnelingClientConfig } from "@aws-sdk/client-iotsecuretunneling";
+ * const config = {}; // type is IoTSecureTunnelingClientConfig
  * const client = new IoTSecureTunnelingClient(config);
  * const input = { // DescribeTunnelRequest
  *   tunnelId: "STRING_VALUE", // required

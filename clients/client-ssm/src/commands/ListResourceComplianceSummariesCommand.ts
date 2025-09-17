@@ -41,6 +41,8 @@ export interface ListResourceComplianceSummariesCommandOutput
  * ```javascript
  * import { SSMClient, ListResourceComplianceSummariesCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, ListResourceComplianceSummariesCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
+ * // import type { SSMClientConfig } from "@aws-sdk/client-ssm";
+ * const config = {}; // type is SSMClientConfig
  * const client = new SSMClient(config);
  * const input = { // ListResourceComplianceSummariesRequest
  *   Filters: [ // ComplianceStringFilterList

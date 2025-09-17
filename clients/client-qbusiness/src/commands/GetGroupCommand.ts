@@ -34,6 +34,8 @@ export interface GetGroupCommandOutput extends GetGroupResponse, __MetadataBeare
  * ```javascript
  * import { QBusinessClient, GetGroupCommand } from "@aws-sdk/client-qbusiness"; // ES Modules import
  * // const { QBusinessClient, GetGroupCommand } = require("@aws-sdk/client-qbusiness"); // CommonJS import
+ * // import type { QBusinessClientConfig } from "@aws-sdk/client-qbusiness";
+ * const config = {}; // type is QBusinessClientConfig
  * const client = new QBusinessClient(config);
  * const input = { // GetGroupRequest
  *   applicationId: "STRING_VALUE", // required

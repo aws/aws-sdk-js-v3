@@ -38,6 +38,8 @@ export interface ListWorkloadsCommandOutput extends ListWorkloadsResponse, __Met
  * ```javascript
  * import { ApplicationInsightsClient, ListWorkloadsCommand } from "@aws-sdk/client-application-insights"; // ES Modules import
  * // const { ApplicationInsightsClient, ListWorkloadsCommand } = require("@aws-sdk/client-application-insights"); // CommonJS import
+ * // import type { ApplicationInsightsClientConfig } from "@aws-sdk/client-application-insights";
+ * const config = {}; // type is ApplicationInsightsClientConfig
  * const client = new ApplicationInsightsClient(config);
  * const input = { // ListWorkloadsRequest
  *   ResourceGroupName: "STRING_VALUE", // required

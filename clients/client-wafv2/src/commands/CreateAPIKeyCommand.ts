@@ -39,6 +39,8 @@ export interface CreateAPIKeyCommandOutput extends CreateAPIKeyResponse, __Metad
  * ```javascript
  * import { WAFV2Client, CreateAPIKeyCommand } from "@aws-sdk/client-wafv2"; // ES Modules import
  * // const { WAFV2Client, CreateAPIKeyCommand } = require("@aws-sdk/client-wafv2"); // CommonJS import
+ * // import type { WAFV2ClientConfig } from "@aws-sdk/client-wafv2";
+ * const config = {}; // type is WAFV2ClientConfig
  * const client = new WAFV2Client(config);
  * const input = { // CreateAPIKeyRequest
  *   Scope: "CLOUDFRONT" || "REGIONAL", // required

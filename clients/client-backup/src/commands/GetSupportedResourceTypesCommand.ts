@@ -34,6 +34,8 @@ export interface GetSupportedResourceTypesCommandOutput extends GetSupportedReso
  * ```javascript
  * import { BackupClient, GetSupportedResourceTypesCommand } from "@aws-sdk/client-backup"; // ES Modules import
  * // const { BackupClient, GetSupportedResourceTypesCommand } = require("@aws-sdk/client-backup"); // CommonJS import
+ * // import type { BackupClientConfig } from "@aws-sdk/client-backup";
+ * const config = {}; // type is BackupClientConfig
  * const client = new BackupClient(config);
  * const input = {};
  * const command = new GetSupportedResourceTypesCommand(input);

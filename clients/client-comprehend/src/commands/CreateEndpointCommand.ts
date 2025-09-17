@@ -36,6 +36,8 @@ export interface CreateEndpointCommandOutput extends CreateEndpointResponse, __M
  * ```javascript
  * import { ComprehendClient, CreateEndpointCommand } from "@aws-sdk/client-comprehend"; // ES Modules import
  * // const { ComprehendClient, CreateEndpointCommand } = require("@aws-sdk/client-comprehend"); // CommonJS import
+ * // import type { ComprehendClientConfig } from "@aws-sdk/client-comprehend";
+ * const config = {}; // type is ComprehendClientConfig
  * const client = new ComprehendClient(config);
  * const input = { // CreateEndpointRequest
  *   EndpointName: "STRING_VALUE", // required

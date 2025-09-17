@@ -42,6 +42,8 @@ export interface DescribeObservabilityConfigurationCommandOutput
  * ```javascript
  * import { AppRunnerClient, DescribeObservabilityConfigurationCommand } from "@aws-sdk/client-apprunner"; // ES Modules import
  * // const { AppRunnerClient, DescribeObservabilityConfigurationCommand } = require("@aws-sdk/client-apprunner"); // CommonJS import
+ * // import type { AppRunnerClientConfig } from "@aws-sdk/client-apprunner";
+ * const config = {}; // type is AppRunnerClientConfig
  * const client = new AppRunnerClient(config);
  * const input = { // DescribeObservabilityConfigurationRequest
  *   ObservabilityConfigurationArn: "STRING_VALUE", // required

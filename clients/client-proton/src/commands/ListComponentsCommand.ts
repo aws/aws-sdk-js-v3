@@ -37,6 +37,8 @@ export interface ListComponentsCommandOutput extends ListComponentsOutput, __Met
  * ```javascript
  * import { ProtonClient, ListComponentsCommand } from "@aws-sdk/client-proton"; // ES Modules import
  * // const { ProtonClient, ListComponentsCommand } = require("@aws-sdk/client-proton"); // CommonJS import
+ * // import type { ProtonClientConfig } from "@aws-sdk/client-proton";
+ * const config = {}; // type is ProtonClientConfig
  * const client = new ProtonClient(config);
  * const input = { // ListComponentsInput
  *   nextToken: "STRING_VALUE",

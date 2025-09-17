@@ -34,6 +34,8 @@ export interface CreateProjectCommandOutput extends CreateProjectResult, __Metad
  * ```javascript
  * import { DeviceFarmClient, CreateProjectCommand } from "@aws-sdk/client-device-farm"; // ES Modules import
  * // const { DeviceFarmClient, CreateProjectCommand } = require("@aws-sdk/client-device-farm"); // CommonJS import
+ * // import type { DeviceFarmClientConfig } from "@aws-sdk/client-device-farm";
+ * const config = {}; // type is DeviceFarmClientConfig
  * const client = new DeviceFarmClient(config);
  * const input = { // CreateProjectRequest
  *   name: "STRING_VALUE", // required

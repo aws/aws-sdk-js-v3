@@ -48,6 +48,8 @@ export interface GetSolNetworkPackageContentCommandOutput
  * ```javascript
  * import { TnbClient, GetSolNetworkPackageContentCommand } from "@aws-sdk/client-tnb"; // ES Modules import
  * // const { TnbClient, GetSolNetworkPackageContentCommand } = require("@aws-sdk/client-tnb"); // CommonJS import
+ * // import type { TnbClientConfig } from "@aws-sdk/client-tnb";
+ * const config = {}; // type is TnbClientConfig
  * const client = new TnbClient(config);
  * const input = { // GetSolNetworkPackageContentInput
  *   nsdInfoId: "STRING_VALUE", // required

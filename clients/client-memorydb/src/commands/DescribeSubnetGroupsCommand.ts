@@ -34,6 +34,8 @@ export interface DescribeSubnetGroupsCommandOutput extends DescribeSubnetGroupsR
  * ```javascript
  * import { MemoryDBClient, DescribeSubnetGroupsCommand } from "@aws-sdk/client-memorydb"; // ES Modules import
  * // const { MemoryDBClient, DescribeSubnetGroupsCommand } = require("@aws-sdk/client-memorydb"); // CommonJS import
+ * // import type { MemoryDBClientConfig } from "@aws-sdk/client-memorydb";
+ * const config = {}; // type is MemoryDBClientConfig
  * const client = new MemoryDBClient(config);
  * const input = { // DescribeSubnetGroupsRequest
  *   SubnetGroupName: "STRING_VALUE",

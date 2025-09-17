@@ -34,6 +34,8 @@ export interface StopInputDeviceCommandOutput extends StopInputDeviceResponse, _
  * ```javascript
  * import { MediaLiveClient, StopInputDeviceCommand } from "@aws-sdk/client-medialive"; // ES Modules import
  * // const { MediaLiveClient, StopInputDeviceCommand } = require("@aws-sdk/client-medialive"); // CommonJS import
+ * // import type { MediaLiveClientConfig } from "@aws-sdk/client-medialive";
+ * const config = {}; // type is MediaLiveClientConfig
  * const client = new MediaLiveClient(config);
  * const input = { // StopInputDeviceRequest
  *   InputDeviceId: "STRING_VALUE", // required

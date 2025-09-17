@@ -35,6 +35,8 @@ export interface PutResourcePolicyCommandOutput extends PutResourcePolicyRespons
  * ```javascript
  * import { RUMClient, PutResourcePolicyCommand } from "@aws-sdk/client-rum"; // ES Modules import
  * // const { RUMClient, PutResourcePolicyCommand } = require("@aws-sdk/client-rum"); // CommonJS import
+ * // import type { RUMClientConfig } from "@aws-sdk/client-rum";
+ * const config = {}; // type is RUMClientConfig
  * const client = new RUMClient(config);
  * const input = { // PutResourcePolicyRequest
  *   Name: "STRING_VALUE", // required

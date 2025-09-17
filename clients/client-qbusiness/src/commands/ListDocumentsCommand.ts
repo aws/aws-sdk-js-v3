@@ -34,6 +34,8 @@ export interface ListDocumentsCommandOutput extends ListDocumentsResponse, __Met
  * ```javascript
  * import { QBusinessClient, ListDocumentsCommand } from "@aws-sdk/client-qbusiness"; // ES Modules import
  * // const { QBusinessClient, ListDocumentsCommand } = require("@aws-sdk/client-qbusiness"); // CommonJS import
+ * // import type { QBusinessClientConfig } from "@aws-sdk/client-qbusiness";
+ * const config = {}; // type is QBusinessClientConfig
  * const client = new QBusinessClient(config);
  * const input = { // ListDocumentsRequest
  *   applicationId: "STRING_VALUE", // required

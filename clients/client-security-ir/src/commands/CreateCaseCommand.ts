@@ -34,6 +34,8 @@ export interface CreateCaseCommandOutput extends CreateCaseResponse, __MetadataB
  * ```javascript
  * import { SecurityIRClient, CreateCaseCommand } from "@aws-sdk/client-security-ir"; // ES Modules import
  * // const { SecurityIRClient, CreateCaseCommand } = require("@aws-sdk/client-security-ir"); // CommonJS import
+ * // import type { SecurityIRClientConfig } from "@aws-sdk/client-security-ir";
+ * const config = {}; // type is SecurityIRClientConfig
  * const client = new SecurityIRClient(config);
  * const input = { // CreateCaseRequest
  *   clientToken: "STRING_VALUE",

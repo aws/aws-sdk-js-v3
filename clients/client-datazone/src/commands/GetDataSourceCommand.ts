@@ -34,6 +34,8 @@ export interface GetDataSourceCommandOutput extends GetDataSourceOutput, __Metad
  * ```javascript
  * import { DataZoneClient, GetDataSourceCommand } from "@aws-sdk/client-datazone"; // ES Modules import
  * // const { DataZoneClient, GetDataSourceCommand } = require("@aws-sdk/client-datazone"); // CommonJS import
+ * // import type { DataZoneClientConfig } from "@aws-sdk/client-datazone";
+ * const config = {}; // type is DataZoneClientConfig
  * const client = new DataZoneClient(config);
  * const input = { // GetDataSourceInput
  *   domainIdentifier: "STRING_VALUE", // required

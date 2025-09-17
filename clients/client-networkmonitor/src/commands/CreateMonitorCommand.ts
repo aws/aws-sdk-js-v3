@@ -66,6 +66,8 @@ export interface CreateMonitorCommandOutput extends CreateMonitorOutput, __Metad
  * ```javascript
  * import { NetworkMonitorClient, CreateMonitorCommand } from "@aws-sdk/client-networkmonitor"; // ES Modules import
  * // const { NetworkMonitorClient, CreateMonitorCommand } = require("@aws-sdk/client-networkmonitor"); // CommonJS import
+ * // import type { NetworkMonitorClientConfig } from "@aws-sdk/client-networkmonitor";
+ * const config = {}; // type is NetworkMonitorClientConfig
  * const client = new NetworkMonitorClient(config);
  * const input = { // CreateMonitorInput
  *   monitorName: "STRING_VALUE", // required

@@ -45,6 +45,8 @@ export interface CheckCapacityCommandOutput extends CheckCapacityResponse, __Met
  * ```javascript
  * import { WAFV2Client, CheckCapacityCommand } from "@aws-sdk/client-wafv2"; // ES Modules import
  * // const { WAFV2Client, CheckCapacityCommand } = require("@aws-sdk/client-wafv2"); // CommonJS import
+ * // import type { WAFV2ClientConfig } from "@aws-sdk/client-wafv2";
+ * const config = {}; // type is WAFV2ClientConfig
  * const client = new WAFV2Client(config);
  * const input = { // CheckCapacityRequest
  *   Scope: "CLOUDFRONT" || "REGIONAL", // required

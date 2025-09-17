@@ -43,6 +43,8 @@ export interface UpdateDomainNameserversCommandOutput extends UpdateDomainNamese
  * ```javascript
  * import { Route53DomainsClient, UpdateDomainNameserversCommand } from "@aws-sdk/client-route-53-domains"; // ES Modules import
  * // const { Route53DomainsClient, UpdateDomainNameserversCommand } = require("@aws-sdk/client-route-53-domains"); // CommonJS import
+ * // import type { Route53DomainsClientConfig } from "@aws-sdk/client-route-53-domains";
+ * const config = {}; // type is Route53DomainsClientConfig
  * const client = new Route53DomainsClient(config);
  * const input = { // UpdateDomainNameserversRequest
  *   DomainName: "STRING_VALUE", // required

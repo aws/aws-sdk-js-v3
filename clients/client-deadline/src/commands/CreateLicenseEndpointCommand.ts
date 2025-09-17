@@ -35,6 +35,8 @@ export interface CreateLicenseEndpointCommandOutput extends CreateLicenseEndpoin
  * ```javascript
  * import { DeadlineClient, CreateLicenseEndpointCommand } from "@aws-sdk/client-deadline"; // ES Modules import
  * // const { DeadlineClient, CreateLicenseEndpointCommand } = require("@aws-sdk/client-deadline"); // CommonJS import
+ * // import type { DeadlineClientConfig } from "@aws-sdk/client-deadline";
+ * const config = {}; // type is DeadlineClientConfig
  * const client = new DeadlineClient(config);
  * const input = { // CreateLicenseEndpointRequest
  *   clientToken: "STRING_VALUE",

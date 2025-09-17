@@ -34,6 +34,8 @@ export interface ListIntegrationsCommandOutput extends ListIntegrationsResponse,
  * ```javascript
  * import { CustomerProfilesClient, ListIntegrationsCommand } from "@aws-sdk/client-customer-profiles"; // ES Modules import
  * // const { CustomerProfilesClient, ListIntegrationsCommand } = require("@aws-sdk/client-customer-profiles"); // CommonJS import
+ * // import type { CustomerProfilesClientConfig } from "@aws-sdk/client-customer-profiles";
+ * const config = {}; // type is CustomerProfilesClientConfig
  * const client = new CustomerProfilesClient(config);
  * const input = { // ListIntegrationsRequest
  *   DomainName: "STRING_VALUE", // required

@@ -35,6 +35,8 @@ export interface CreateWebACLCommandOutput extends CreateWebACLResponse, __Metad
  * ```javascript
  * import { WAFV2Client, CreateWebACLCommand } from "@aws-sdk/client-wafv2"; // ES Modules import
  * // const { WAFV2Client, CreateWebACLCommand } = require("@aws-sdk/client-wafv2"); // CommonJS import
+ * // import type { WAFV2ClientConfig } from "@aws-sdk/client-wafv2";
+ * const config = {}; // type is WAFV2ClientConfig
  * const client = new WAFV2Client(config);
  * const input = { // CreateWebACLRequest
  *   Name: "STRING_VALUE", // required

@@ -34,6 +34,8 @@ export interface CreateTemplateAliasCommandOutput extends CreateTemplateAliasRes
  * ```javascript
  * import { QuickSightClient, CreateTemplateAliasCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
  * // const { QuickSightClient, CreateTemplateAliasCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
+ * // import type { QuickSightClientConfig } from "@aws-sdk/client-quicksight";
+ * const config = {}; // type is QuickSightClientConfig
  * const client = new QuickSightClient(config);
  * const input = { // CreateTemplateAliasRequest
  *   AwsAccountId: "STRING_VALUE", // required

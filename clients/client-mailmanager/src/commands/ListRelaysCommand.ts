@@ -34,6 +34,8 @@ export interface ListRelaysCommandOutput extends ListRelaysResponse, __MetadataB
  * ```javascript
  * import { MailManagerClient, ListRelaysCommand } from "@aws-sdk/client-mailmanager"; // ES Modules import
  * // const { MailManagerClient, ListRelaysCommand } = require("@aws-sdk/client-mailmanager"); // CommonJS import
+ * // import type { MailManagerClientConfig } from "@aws-sdk/client-mailmanager";
+ * const config = {}; // type is MailManagerClientConfig
  * const client = new MailManagerClient(config);
  * const input = { // ListRelaysRequest
  *   PageSize: Number("int"),

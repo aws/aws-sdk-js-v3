@@ -84,6 +84,8 @@ export interface UpdateSizeConstraintSetCommandOutput extends UpdateSizeConstrai
  * ```javascript
  * import { WAFClient, UpdateSizeConstraintSetCommand } from "@aws-sdk/client-waf"; // ES Modules import
  * // const { WAFClient, UpdateSizeConstraintSetCommand } = require("@aws-sdk/client-waf"); // CommonJS import
+ * // import type { WAFClientConfig } from "@aws-sdk/client-waf";
+ * const config = {}; // type is WAFClientConfig
  * const client = new WAFClient(config);
  * const input = { // UpdateSizeConstraintSetRequest
  *   SizeConstraintSetId: "STRING_VALUE", // required

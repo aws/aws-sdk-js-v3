@@ -46,6 +46,8 @@ export interface ExportLicenseRecommendationsCommandOutput
  * ```javascript
  * import { ComputeOptimizerClient, ExportLicenseRecommendationsCommand } from "@aws-sdk/client-compute-optimizer"; // ES Modules import
  * // const { ComputeOptimizerClient, ExportLicenseRecommendationsCommand } = require("@aws-sdk/client-compute-optimizer"); // CommonJS import
+ * // import type { ComputeOptimizerClientConfig } from "@aws-sdk/client-compute-optimizer";
+ * const config = {}; // type is ComputeOptimizerClientConfig
  * const client = new ComputeOptimizerClient(config);
  * const input = { // ExportLicenseRecommendationsRequest
  *   accountIds: [ // AccountIds

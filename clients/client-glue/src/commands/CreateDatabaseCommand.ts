@@ -34,6 +34,8 @@ export interface CreateDatabaseCommandOutput extends CreateDatabaseResponse, __M
  * ```javascript
  * import { GlueClient, CreateDatabaseCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, CreateDatabaseCommand } = require("@aws-sdk/client-glue"); // CommonJS import
+ * // import type { GlueClientConfig } from "@aws-sdk/client-glue";
+ * const config = {}; // type is GlueClientConfig
  * const client = new GlueClient(config);
  * const input = { // CreateDatabaseRequest
  *   CatalogId: "STRING_VALUE",

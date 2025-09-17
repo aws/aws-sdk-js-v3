@@ -39,6 +39,8 @@ export interface DeleteAvailabilityConfigurationCommandOutput
  * ```javascript
  * import { WorkMailClient, DeleteAvailabilityConfigurationCommand } from "@aws-sdk/client-workmail"; // ES Modules import
  * // const { WorkMailClient, DeleteAvailabilityConfigurationCommand } = require("@aws-sdk/client-workmail"); // CommonJS import
+ * // import type { WorkMailClientConfig } from "@aws-sdk/client-workmail";
+ * const config = {}; // type is WorkMailClientConfig
  * const client = new WorkMailClient(config);
  * const input = { // DeleteAvailabilityConfigurationRequest
  *   OrganizationId: "STRING_VALUE", // required

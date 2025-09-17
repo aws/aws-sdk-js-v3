@@ -50,6 +50,8 @@ export interface DeleteAccessGrantsInstanceCommandOutput extends __MetadataBeare
  * ```javascript
  * import { S3ControlClient, DeleteAccessGrantsInstanceCommand } from "@aws-sdk/client-s3-control"; // ES Modules import
  * // const { S3ControlClient, DeleteAccessGrantsInstanceCommand } = require("@aws-sdk/client-s3-control"); // CommonJS import
+ * // import type { S3ControlClientConfig } from "@aws-sdk/client-s3-control";
+ * const config = {}; // type is S3ControlClientConfig
  * const client = new S3ControlClient(config);
  * const input = { // DeleteAccessGrantsInstanceRequest
  *   AccountId: "STRING_VALUE",

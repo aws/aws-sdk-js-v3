@@ -39,6 +39,8 @@ export interface DeleteInvestigationGroupPolicyCommandOutput
  * ```javascript
  * import { AIOpsClient, DeleteInvestigationGroupPolicyCommand } from "@aws-sdk/client-aiops"; // ES Modules import
  * // const { AIOpsClient, DeleteInvestigationGroupPolicyCommand } = require("@aws-sdk/client-aiops"); // CommonJS import
+ * // import type { AIOpsClientConfig } from "@aws-sdk/client-aiops";
+ * const config = {}; // type is AIOpsClientConfig
  * const client = new AIOpsClient(config);
  * const input = { // DeleteInvestigationGroupPolicyRequest
  *   identifier: "STRING_VALUE", // required

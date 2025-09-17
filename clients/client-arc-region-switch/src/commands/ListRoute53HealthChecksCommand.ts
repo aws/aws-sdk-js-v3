@@ -34,6 +34,8 @@ export interface ListRoute53HealthChecksCommandOutput extends ListRoute53HealthC
  * ```javascript
  * import { ARCRegionSwitchClient, ListRoute53HealthChecksCommand } from "@aws-sdk/client-arc-region-switch"; // ES Modules import
  * // const { ARCRegionSwitchClient, ListRoute53HealthChecksCommand } = require("@aws-sdk/client-arc-region-switch"); // CommonJS import
+ * // import type { ARCRegionSwitchClientConfig } from "@aws-sdk/client-arc-region-switch";
+ * const config = {}; // type is ARCRegionSwitchClientConfig
  * const client = new ARCRegionSwitchClient(config);
  * const input = { // ListRoute53HealthChecksRequest
  *   arn: "STRING_VALUE", // required

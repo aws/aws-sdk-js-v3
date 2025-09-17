@@ -34,6 +34,8 @@ export interface UpdateServiceSyncConfigCommandOutput extends UpdateServiceSyncC
  * ```javascript
  * import { ProtonClient, UpdateServiceSyncConfigCommand } from "@aws-sdk/client-proton"; // ES Modules import
  * // const { ProtonClient, UpdateServiceSyncConfigCommand } = require("@aws-sdk/client-proton"); // CommonJS import
+ * // import type { ProtonClientConfig } from "@aws-sdk/client-proton";
+ * const config = {}; // type is ProtonClientConfig
  * const client = new ProtonClient(config);
  * const input = { // UpdateServiceSyncConfigInput
  *   serviceName: "STRING_VALUE", // required

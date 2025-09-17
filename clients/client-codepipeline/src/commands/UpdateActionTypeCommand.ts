@@ -37,6 +37,8 @@ export interface UpdateActionTypeCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { CodePipelineClient, UpdateActionTypeCommand } from "@aws-sdk/client-codepipeline"; // ES Modules import
  * // const { CodePipelineClient, UpdateActionTypeCommand } = require("@aws-sdk/client-codepipeline"); // CommonJS import
+ * // import type { CodePipelineClientConfig } from "@aws-sdk/client-codepipeline";
+ * const config = {}; // type is CodePipelineClientConfig
  * const client = new CodePipelineClient(config);
  * const input = { // UpdateActionTypeInput
  *   actionType: { // ActionTypeDeclaration

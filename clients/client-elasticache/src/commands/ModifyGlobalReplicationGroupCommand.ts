@@ -36,6 +36,8 @@ export interface ModifyGlobalReplicationGroupCommandOutput
  * ```javascript
  * import { ElastiCacheClient, ModifyGlobalReplicationGroupCommand } from "@aws-sdk/client-elasticache"; // ES Modules import
  * // const { ElastiCacheClient, ModifyGlobalReplicationGroupCommand } = require("@aws-sdk/client-elasticache"); // CommonJS import
+ * // import type { ElastiCacheClientConfig } from "@aws-sdk/client-elasticache";
+ * const config = {}; // type is ElastiCacheClientConfig
  * const client = new ElastiCacheClient(config);
  * const input = { // ModifyGlobalReplicationGroupMessage
  *   GlobalReplicationGroupId: "STRING_VALUE", // required

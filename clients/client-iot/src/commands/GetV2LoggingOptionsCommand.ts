@@ -35,6 +35,8 @@ export interface GetV2LoggingOptionsCommandOutput extends GetV2LoggingOptionsRes
  * ```javascript
  * import { IoTClient, GetV2LoggingOptionsCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, GetV2LoggingOptionsCommand } = require("@aws-sdk/client-iot"); // CommonJS import
+ * // import type { IoTClientConfig } from "@aws-sdk/client-iot";
+ * const config = {}; // type is IoTClientConfig
  * const client = new IoTClient(config);
  * const input = {};
  * const command = new GetV2LoggingOptionsCommand(input);

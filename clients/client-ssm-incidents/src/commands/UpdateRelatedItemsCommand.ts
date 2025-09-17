@@ -34,6 +34,8 @@ export interface UpdateRelatedItemsCommandOutput extends UpdateRelatedItemsOutpu
  * ```javascript
  * import { SSMIncidentsClient, UpdateRelatedItemsCommand } from "@aws-sdk/client-ssm-incidents"; // ES Modules import
  * // const { SSMIncidentsClient, UpdateRelatedItemsCommand } = require("@aws-sdk/client-ssm-incidents"); // CommonJS import
+ * // import type { SSMIncidentsClientConfig } from "@aws-sdk/client-ssm-incidents";
+ * const config = {}; // type is SSMIncidentsClientConfig
  * const client = new SSMIncidentsClient(config);
  * const input = { // UpdateRelatedItemsInput
  *   clientToken: "STRING_VALUE",

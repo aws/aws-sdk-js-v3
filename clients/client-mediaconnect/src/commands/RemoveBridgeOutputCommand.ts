@@ -34,6 +34,8 @@ export interface RemoveBridgeOutputCommandOutput extends RemoveBridgeOutputRespo
  * ```javascript
  * import { MediaConnectClient, RemoveBridgeOutputCommand } from "@aws-sdk/client-mediaconnect"; // ES Modules import
  * // const { MediaConnectClient, RemoveBridgeOutputCommand } = require("@aws-sdk/client-mediaconnect"); // CommonJS import
+ * // import type { MediaConnectClientConfig } from "@aws-sdk/client-mediaconnect";
+ * const config = {}; // type is MediaConnectClientConfig
  * const client = new MediaConnectClient(config);
  * const input = { // RemoveBridgeOutputRequest
  *   BridgeArn: "STRING_VALUE", // required

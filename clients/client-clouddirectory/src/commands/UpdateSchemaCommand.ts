@@ -35,6 +35,8 @@ export interface UpdateSchemaCommandOutput extends UpdateSchemaResponse, __Metad
  * ```javascript
  * import { CloudDirectoryClient, UpdateSchemaCommand } from "@aws-sdk/client-clouddirectory"; // ES Modules import
  * // const { CloudDirectoryClient, UpdateSchemaCommand } = require("@aws-sdk/client-clouddirectory"); // CommonJS import
+ * // import type { CloudDirectoryClientConfig } from "@aws-sdk/client-clouddirectory";
+ * const config = {}; // type is CloudDirectoryClientConfig
  * const client = new CloudDirectoryClient(config);
  * const input = { // UpdateSchemaRequest
  *   SchemaArn: "STRING_VALUE", // required

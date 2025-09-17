@@ -40,6 +40,8 @@ export interface DescribeAccountCommandOutput extends DescribeAccountResponse, _
  * ```javascript
  * import { OrganizationsClient, DescribeAccountCommand } from "@aws-sdk/client-organizations"; // ES Modules import
  * // const { OrganizationsClient, DescribeAccountCommand } = require("@aws-sdk/client-organizations"); // CommonJS import
+ * // import type { OrganizationsClientConfig } from "@aws-sdk/client-organizations";
+ * const config = {}; // type is OrganizationsClientConfig
  * const client = new OrganizationsClient(config);
  * const input = { // DescribeAccountRequest
  *   AccountId: "STRING_VALUE", // required

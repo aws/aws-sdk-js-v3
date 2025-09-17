@@ -34,6 +34,8 @@ export interface DeleteAttributeMappingCommandOutput extends DeleteAttributeMapp
  * ```javascript
  * import { RolesAnywhereClient, DeleteAttributeMappingCommand } from "@aws-sdk/client-rolesanywhere"; // ES Modules import
  * // const { RolesAnywhereClient, DeleteAttributeMappingCommand } = require("@aws-sdk/client-rolesanywhere"); // CommonJS import
+ * // import type { RolesAnywhereClientConfig } from "@aws-sdk/client-rolesanywhere";
+ * const config = {}; // type is RolesAnywhereClientConfig
  * const client = new RolesAnywhereClient(config);
  * const input = { // DeleteAttributeMappingRequest
  *   profileId: "STRING_VALUE", // required

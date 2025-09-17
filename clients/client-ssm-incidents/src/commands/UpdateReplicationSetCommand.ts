@@ -34,6 +34,8 @@ export interface UpdateReplicationSetCommandOutput extends UpdateReplicationSetO
  * ```javascript
  * import { SSMIncidentsClient, UpdateReplicationSetCommand } from "@aws-sdk/client-ssm-incidents"; // ES Modules import
  * // const { SSMIncidentsClient, UpdateReplicationSetCommand } = require("@aws-sdk/client-ssm-incidents"); // CommonJS import
+ * // import type { SSMIncidentsClientConfig } from "@aws-sdk/client-ssm-incidents";
+ * const config = {}; // type is SSMIncidentsClientConfig
  * const client = new SSMIncidentsClient(config);
  * const input = { // UpdateReplicationSetInput
  *   arn: "STRING_VALUE", // required

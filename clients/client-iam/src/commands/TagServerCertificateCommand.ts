@@ -81,6 +81,8 @@ export interface TagServerCertificateCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { IAMClient, TagServerCertificateCommand } from "@aws-sdk/client-iam"; // ES Modules import
  * // const { IAMClient, TagServerCertificateCommand } = require("@aws-sdk/client-iam"); // CommonJS import
+ * // import type { IAMClientConfig } from "@aws-sdk/client-iam";
+ * const config = {}; // type is IAMClientConfig
  * const client = new IAMClient(config);
  * const input = { // TagServerCertificateRequest
  *   ServerCertificateName: "STRING_VALUE", // required

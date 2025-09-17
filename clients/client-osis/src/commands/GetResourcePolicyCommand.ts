@@ -34,6 +34,8 @@ export interface GetResourcePolicyCommandOutput extends GetResourcePolicyRespons
  * ```javascript
  * import { OSISClient, GetResourcePolicyCommand } from "@aws-sdk/client-osis"; // ES Modules import
  * // const { OSISClient, GetResourcePolicyCommand } = require("@aws-sdk/client-osis"); // CommonJS import
+ * // import type { OSISClientConfig } from "@aws-sdk/client-osis";
+ * const config = {}; // type is OSISClientConfig
  * const client = new OSISClient(config);
  * const input = { // GetResourcePolicyRequest
  *   ResourceArn: "STRING_VALUE", // required

@@ -34,6 +34,8 @@ export interface AddRegionCommandOutput extends AddRegionResult, __MetadataBeare
  * ```javascript
  * import { DirectoryServiceClient, AddRegionCommand } from "@aws-sdk/client-directory-service"; // ES Modules import
  * // const { DirectoryServiceClient, AddRegionCommand } = require("@aws-sdk/client-directory-service"); // CommonJS import
+ * // import type { DirectoryServiceClientConfig } from "@aws-sdk/client-directory-service";
+ * const config = {}; // type is DirectoryServiceClientConfig
  * const client = new DirectoryServiceClient(config);
  * const input = { // AddRegionRequest
  *   DirectoryId: "STRING_VALUE", // required

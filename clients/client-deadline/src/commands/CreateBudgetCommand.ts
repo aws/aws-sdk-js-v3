@@ -34,6 +34,8 @@ export interface CreateBudgetCommandOutput extends CreateBudgetResponse, __Metad
  * ```javascript
  * import { DeadlineClient, CreateBudgetCommand } from "@aws-sdk/client-deadline"; // ES Modules import
  * // const { DeadlineClient, CreateBudgetCommand } = require("@aws-sdk/client-deadline"); // CommonJS import
+ * // import type { DeadlineClientConfig } from "@aws-sdk/client-deadline";
+ * const config = {}; // type is DeadlineClientConfig
  * const client = new DeadlineClient(config);
  * const input = { // CreateBudgetRequest
  *   clientToken: "STRING_VALUE",

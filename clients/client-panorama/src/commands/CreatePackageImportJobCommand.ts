@@ -34,6 +34,8 @@ export interface CreatePackageImportJobCommandOutput extends CreatePackageImport
  * ```javascript
  * import { PanoramaClient, CreatePackageImportJobCommand } from "@aws-sdk/client-panorama"; // ES Modules import
  * // const { PanoramaClient, CreatePackageImportJobCommand } = require("@aws-sdk/client-panorama"); // CommonJS import
+ * // import type { PanoramaClientConfig } from "@aws-sdk/client-panorama";
+ * const config = {}; // type is PanoramaClientConfig
  * const client = new PanoramaClient(config);
  * const input = { // CreatePackageImportJobRequest
  *   JobType: "STRING_VALUE", // required

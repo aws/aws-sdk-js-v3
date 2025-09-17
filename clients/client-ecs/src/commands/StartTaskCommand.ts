@@ -45,6 +45,8 @@ export interface StartTaskCommandOutput extends StartTaskResponse, __MetadataBea
  * ```javascript
  * import { ECSClient, StartTaskCommand } from "@aws-sdk/client-ecs"; // ES Modules import
  * // const { ECSClient, StartTaskCommand } = require("@aws-sdk/client-ecs"); // CommonJS import
+ * // import type { ECSClientConfig } from "@aws-sdk/client-ecs";
+ * const config = {}; // type is ECSClientConfig
  * const client = new ECSClient(config);
  * const input = { // StartTaskRequest
  *   cluster: "STRING_VALUE",

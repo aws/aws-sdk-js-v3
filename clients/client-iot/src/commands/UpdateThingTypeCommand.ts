@@ -34,6 +34,8 @@ export interface UpdateThingTypeCommandOutput extends UpdateThingTypeResponse, _
  * ```javascript
  * import { IoTClient, UpdateThingTypeCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, UpdateThingTypeCommand } = require("@aws-sdk/client-iot"); // CommonJS import
+ * // import type { IoTClientConfig } from "@aws-sdk/client-iot";
+ * const config = {}; // type is IoTClientConfig
  * const client = new IoTClient(config);
  * const input = { // UpdateThingTypeRequest
  *   thingTypeName: "STRING_VALUE", // required

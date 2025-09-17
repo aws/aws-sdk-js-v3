@@ -58,6 +58,8 @@ export interface CreateForecastCommandOutput extends CreateForecastResponse, __M
  * ```javascript
  * import { ForecastClient, CreateForecastCommand } from "@aws-sdk/client-forecast"; // ES Modules import
  * // const { ForecastClient, CreateForecastCommand } = require("@aws-sdk/client-forecast"); // CommonJS import
+ * // import type { ForecastClientConfig } from "@aws-sdk/client-forecast";
+ * const config = {}; // type is ForecastClientConfig
  * const client = new ForecastClient(config);
  * const input = { // CreateForecastRequest
  *   ForecastName: "STRING_VALUE", // required

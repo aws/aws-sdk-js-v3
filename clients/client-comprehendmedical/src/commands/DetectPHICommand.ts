@@ -40,6 +40,8 @@ export interface DetectPHICommandOutput extends DetectPHIResponse, __MetadataBea
  * ```javascript
  * import { ComprehendMedicalClient, DetectPHICommand } from "@aws-sdk/client-comprehendmedical"; // ES Modules import
  * // const { ComprehendMedicalClient, DetectPHICommand } = require("@aws-sdk/client-comprehendmedical"); // CommonJS import
+ * // import type { ComprehendMedicalClientConfig } from "@aws-sdk/client-comprehendmedical";
+ * const config = {}; // type is ComprehendMedicalClientConfig
  * const client = new ComprehendMedicalClient(config);
  * const input = { // DetectPHIRequest
  *   Text: "STRING_VALUE", // required

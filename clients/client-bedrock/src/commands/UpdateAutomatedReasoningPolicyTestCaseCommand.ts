@@ -44,6 +44,8 @@ export interface UpdateAutomatedReasoningPolicyTestCaseCommandOutput
  * ```javascript
  * import { BedrockClient, UpdateAutomatedReasoningPolicyTestCaseCommand } from "@aws-sdk/client-bedrock"; // ES Modules import
  * // const { BedrockClient, UpdateAutomatedReasoningPolicyTestCaseCommand } = require("@aws-sdk/client-bedrock"); // CommonJS import
+ * // import type { BedrockClientConfig } from "@aws-sdk/client-bedrock";
+ * const config = {}; // type is BedrockClientConfig
  * const client = new BedrockClient(config);
  * const input = { // UpdateAutomatedReasoningPolicyTestCaseRequest
  *   policyArn: "STRING_VALUE", // required

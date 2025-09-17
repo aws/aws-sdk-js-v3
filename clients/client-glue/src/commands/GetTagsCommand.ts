@@ -34,6 +34,8 @@ export interface GetTagsCommandOutput extends GetTagsResponse, __MetadataBearer 
  * ```javascript
  * import { GlueClient, GetTagsCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, GetTagsCommand } = require("@aws-sdk/client-glue"); // CommonJS import
+ * // import type { GlueClientConfig } from "@aws-sdk/client-glue";
+ * const config = {}; // type is GlueClientConfig
  * const client = new GlueClient(config);
  * const input = { // GetTagsRequest
  *   ResourceArn: "STRING_VALUE", // required

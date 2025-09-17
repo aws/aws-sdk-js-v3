@@ -35,6 +35,8 @@ export interface ListDirectoryRegistrationsCommandOutput extends ListDirectoryRe
  * ```javascript
  * import { PcaConnectorAdClient, ListDirectoryRegistrationsCommand } from "@aws-sdk/client-pca-connector-ad"; // ES Modules import
  * // const { PcaConnectorAdClient, ListDirectoryRegistrationsCommand } = require("@aws-sdk/client-pca-connector-ad"); // CommonJS import
+ * // import type { PcaConnectorAdClientConfig } from "@aws-sdk/client-pca-connector-ad";
+ * const config = {}; // type is PcaConnectorAdClientConfig
  * const client = new PcaConnectorAdClient(config);
  * const input = { // ListDirectoryRegistrationsRequest
  *   MaxResults: Number("int"),

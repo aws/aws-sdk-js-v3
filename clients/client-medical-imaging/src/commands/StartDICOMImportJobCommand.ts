@@ -34,6 +34,8 @@ export interface StartDICOMImportJobCommandOutput extends StartDICOMImportJobRes
  * ```javascript
  * import { MedicalImagingClient, StartDICOMImportJobCommand } from "@aws-sdk/client-medical-imaging"; // ES Modules import
  * // const { MedicalImagingClient, StartDICOMImportJobCommand } = require("@aws-sdk/client-medical-imaging"); // CommonJS import
+ * // import type { MedicalImagingClientConfig } from "@aws-sdk/client-medical-imaging";
+ * const config = {}; // type is MedicalImagingClientConfig
  * const client = new MedicalImagingClient(config);
  * const input = { // StartDICOMImportJobRequest
  *   jobName: "STRING_VALUE",

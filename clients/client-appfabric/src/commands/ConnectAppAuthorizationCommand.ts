@@ -39,6 +39,8 @@ export interface ConnectAppAuthorizationCommandOutput extends ConnectAppAuthoriz
  * ```javascript
  * import { AppFabricClient, ConnectAppAuthorizationCommand } from "@aws-sdk/client-appfabric"; // ES Modules import
  * // const { AppFabricClient, ConnectAppAuthorizationCommand } = require("@aws-sdk/client-appfabric"); // CommonJS import
+ * // import type { AppFabricClientConfig } from "@aws-sdk/client-appfabric";
+ * const config = {}; // type is AppFabricClientConfig
  * const client = new AppFabricClient(config);
  * const input = { // ConnectAppAuthorizationRequest
  *   appBundleIdentifier: "STRING_VALUE", // required

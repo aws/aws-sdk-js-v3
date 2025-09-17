@@ -37,6 +37,8 @@ export interface CreateEventStreamCommandOutput extends CreateEventStreamRespons
  * ```javascript
  * import { CustomerProfilesClient, CreateEventStreamCommand } from "@aws-sdk/client-customer-profiles"; // ES Modules import
  * // const { CustomerProfilesClient, CreateEventStreamCommand } = require("@aws-sdk/client-customer-profiles"); // CommonJS import
+ * // import type { CustomerProfilesClientConfig } from "@aws-sdk/client-customer-profiles";
+ * const config = {}; // type is CustomerProfilesClientConfig
  * const client = new CustomerProfilesClient(config);
  * const input = { // CreateEventStreamRequest
  *   DomainName: "STRING_VALUE", // required

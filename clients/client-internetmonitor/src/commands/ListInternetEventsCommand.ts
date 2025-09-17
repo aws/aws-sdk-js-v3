@@ -41,6 +41,8 @@ export interface ListInternetEventsCommandOutput extends ListInternetEventsOutpu
  * ```javascript
  * import { InternetMonitorClient, ListInternetEventsCommand } from "@aws-sdk/client-internetmonitor"; // ES Modules import
  * // const { InternetMonitorClient, ListInternetEventsCommand } = require("@aws-sdk/client-internetmonitor"); // CommonJS import
+ * // import type { InternetMonitorClientConfig } from "@aws-sdk/client-internetmonitor";
+ * const config = {}; // type is InternetMonitorClientConfig
  * const client = new InternetMonitorClient(config);
  * const input = { // ListInternetEventsInput
  *   NextToken: "STRING_VALUE",

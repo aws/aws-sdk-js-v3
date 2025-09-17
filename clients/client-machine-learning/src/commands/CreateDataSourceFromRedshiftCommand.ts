@@ -75,6 +75,8 @@ export interface CreateDataSourceFromRedshiftCommandOutput
  * ```javascript
  * import { MachineLearningClient, CreateDataSourceFromRedshiftCommand } from "@aws-sdk/client-machine-learning"; // ES Modules import
  * // const { MachineLearningClient, CreateDataSourceFromRedshiftCommand } = require("@aws-sdk/client-machine-learning"); // CommonJS import
+ * // import type { MachineLearningClientConfig } from "@aws-sdk/client-machine-learning";
+ * const config = {}; // type is MachineLearningClientConfig
  * const client = new MachineLearningClient(config);
  * const input = { // CreateDataSourceFromRedshiftInput
  *   DataSourceId: "STRING_VALUE", // required

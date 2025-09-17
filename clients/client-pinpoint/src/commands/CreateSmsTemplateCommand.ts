@@ -34,6 +34,8 @@ export interface CreateSmsTemplateCommandOutput extends CreateSmsTemplateRespons
  * ```javascript
  * import { PinpointClient, CreateSmsTemplateCommand } from "@aws-sdk/client-pinpoint"; // ES Modules import
  * // const { PinpointClient, CreateSmsTemplateCommand } = require("@aws-sdk/client-pinpoint"); // CommonJS import
+ * // import type { PinpointClientConfig } from "@aws-sdk/client-pinpoint";
+ * const config = {}; // type is PinpointClientConfig
  * const client = new PinpointClient(config);
  * const input = { // CreateSmsTemplateRequest
  *   SMSTemplateRequest: { // SMSTemplateRequest

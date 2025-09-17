@@ -35,6 +35,8 @@ export interface DescribeSnapshotsCommandOutput extends DescribeSnapshotsRespons
  * ```javascript
  * import { MemoryDBClient, DescribeSnapshotsCommand } from "@aws-sdk/client-memorydb"; // ES Modules import
  * // const { MemoryDBClient, DescribeSnapshotsCommand } = require("@aws-sdk/client-memorydb"); // CommonJS import
+ * // import type { MemoryDBClientConfig } from "@aws-sdk/client-memorydb";
+ * const config = {}; // type is MemoryDBClientConfig
  * const client = new MemoryDBClient(config);
  * const input = { // DescribeSnapshotsRequest
  *   ClusterName: "STRING_VALUE",

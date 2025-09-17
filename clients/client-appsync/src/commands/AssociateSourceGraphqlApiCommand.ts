@@ -35,6 +35,8 @@ export interface AssociateSourceGraphqlApiCommandOutput extends AssociateSourceG
  * ```javascript
  * import { AppSyncClient, AssociateSourceGraphqlApiCommand } from "@aws-sdk/client-appsync"; // ES Modules import
  * // const { AppSyncClient, AssociateSourceGraphqlApiCommand } = require("@aws-sdk/client-appsync"); // CommonJS import
+ * // import type { AppSyncClientConfig } from "@aws-sdk/client-appsync";
+ * const config = {}; // type is AppSyncClientConfig
  * const client = new AppSyncClient(config);
  * const input = { // AssociateSourceGraphqlApiRequest
  *   mergedApiIdentifier: "STRING_VALUE", // required

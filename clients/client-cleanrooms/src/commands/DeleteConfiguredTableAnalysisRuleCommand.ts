@@ -39,6 +39,8 @@ export interface DeleteConfiguredTableAnalysisRuleCommandOutput
  * ```javascript
  * import { CleanRoomsClient, DeleteConfiguredTableAnalysisRuleCommand } from "@aws-sdk/client-cleanrooms"; // ES Modules import
  * // const { CleanRoomsClient, DeleteConfiguredTableAnalysisRuleCommand } = require("@aws-sdk/client-cleanrooms"); // CommonJS import
+ * // import type { CleanRoomsClientConfig } from "@aws-sdk/client-cleanrooms";
+ * const config = {}; // type is CleanRoomsClientConfig
  * const client = new CleanRoomsClient(config);
  * const input = { // DeleteConfiguredTableAnalysisRuleInput
  *   configuredTableIdentifier: "STRING_VALUE", // required

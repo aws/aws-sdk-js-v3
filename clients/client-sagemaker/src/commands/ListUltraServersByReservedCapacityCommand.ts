@@ -40,6 +40,8 @@ export interface ListUltraServersByReservedCapacityCommandOutput
  * ```javascript
  * import { SageMakerClient, ListUltraServersByReservedCapacityCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, ListUltraServersByReservedCapacityCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * // import type { SageMakerClientConfig } from "@aws-sdk/client-sagemaker";
+ * const config = {}; // type is SageMakerClientConfig
  * const client = new SageMakerClient(config);
  * const input = { // ListUltraServersByReservedCapacityRequest
  *   ReservedCapacityArn: "STRING_VALUE", // required

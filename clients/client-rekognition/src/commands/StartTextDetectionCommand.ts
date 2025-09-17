@@ -41,6 +41,8 @@ export interface StartTextDetectionCommandOutput extends StartTextDetectionRespo
  * ```javascript
  * import { RekognitionClient, StartTextDetectionCommand } from "@aws-sdk/client-rekognition"; // ES Modules import
  * // const { RekognitionClient, StartTextDetectionCommand } = require("@aws-sdk/client-rekognition"); // CommonJS import
+ * // import type { RekognitionClientConfig } from "@aws-sdk/client-rekognition";
+ * const config = {}; // type is RekognitionClientConfig
  * const client = new RekognitionClient(config);
  * const input = { // StartTextDetectionRequest
  *   Video: { // Video

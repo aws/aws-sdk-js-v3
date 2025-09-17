@@ -41,6 +41,8 @@ export interface StartFlowFlushCommandOutput extends StartFlowFlushResponse, __M
  * ```javascript
  * import { NetworkFirewallClient, StartFlowFlushCommand } from "@aws-sdk/client-network-firewall"; // ES Modules import
  * // const { NetworkFirewallClient, StartFlowFlushCommand } = require("@aws-sdk/client-network-firewall"); // CommonJS import
+ * // import type { NetworkFirewallClientConfig } from "@aws-sdk/client-network-firewall";
+ * const config = {}; // type is NetworkFirewallClientConfig
  * const client = new NetworkFirewallClient(config);
  * const input = { // StartFlowFlushRequest
  *   FirewallArn: "STRING_VALUE", // required

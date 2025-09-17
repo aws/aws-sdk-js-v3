@@ -38,6 +38,8 @@ export interface CreateScopeCommandOutput extends CreateScopeOutput, __MetadataB
  * ```javascript
  * import { NetworkFlowMonitorClient, CreateScopeCommand } from "@aws-sdk/client-networkflowmonitor"; // ES Modules import
  * // const { NetworkFlowMonitorClient, CreateScopeCommand } = require("@aws-sdk/client-networkflowmonitor"); // CommonJS import
+ * // import type { NetworkFlowMonitorClientConfig } from "@aws-sdk/client-networkflowmonitor";
+ * const config = {}; // type is NetworkFlowMonitorClientConfig
  * const client = new NetworkFlowMonitorClient(config);
  * const input = { // CreateScopeInput
  *   targets: [ // TargetResourceList // required

@@ -35,6 +35,8 @@ export interface ActivateEventSourceCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { EventBridgeClient, ActivateEventSourceCommand } from "@aws-sdk/client-eventbridge"; // ES Modules import
  * // const { EventBridgeClient, ActivateEventSourceCommand } = require("@aws-sdk/client-eventbridge"); // CommonJS import
+ * // import type { EventBridgeClientConfig } from "@aws-sdk/client-eventbridge";
+ * const config = {}; // type is EventBridgeClientConfig
  * const client = new EventBridgeClient(config);
  * const input = { // ActivateEventSourceRequest
  *   Name: "STRING_VALUE", // required

@@ -34,6 +34,8 @@ export interface ListDataSourceSyncJobsCommandOutput extends ListDataSourceSyncJ
  * ```javascript
  * import { KendraClient, ListDataSourceSyncJobsCommand } from "@aws-sdk/client-kendra"; // ES Modules import
  * // const { KendraClient, ListDataSourceSyncJobsCommand } = require("@aws-sdk/client-kendra"); // CommonJS import
+ * // import type { KendraClientConfig } from "@aws-sdk/client-kendra";
+ * const config = {}; // type is KendraClientConfig
  * const client = new KendraClient(config);
  * const input = { // ListDataSourceSyncJobsRequest
  *   Id: "STRING_VALUE", // required

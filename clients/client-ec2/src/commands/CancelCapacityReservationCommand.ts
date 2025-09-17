@@ -60,6 +60,8 @@ export interface CancelCapacityReservationCommandOutput extends CancelCapacityRe
  * ```javascript
  * import { EC2Client, CancelCapacityReservationCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, CancelCapacityReservationCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
+ * // import type { EC2ClientConfig } from "@aws-sdk/client-ec2";
+ * const config = {}; // type is EC2ClientConfig
  * const client = new EC2Client(config);
  * const input = { // CancelCapacityReservationRequest
  *   CapacityReservationId: "STRING_VALUE", // required

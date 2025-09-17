@@ -38,6 +38,8 @@ export interface UpdateInstanceStorageConfigCommandOutput extends __MetadataBear
  * ```javascript
  * import { ConnectClient, UpdateInstanceStorageConfigCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, UpdateInstanceStorageConfigCommand } = require("@aws-sdk/client-connect"); // CommonJS import
+ * // import type { ConnectClientConfig } from "@aws-sdk/client-connect";
+ * const config = {}; // type is ConnectClientConfig
  * const client = new ConnectClient(config);
  * const input = { // UpdateInstanceStorageConfigRequest
  *   InstanceId: "STRING_VALUE", // required

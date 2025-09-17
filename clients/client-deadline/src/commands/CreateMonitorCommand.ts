@@ -36,6 +36,8 @@ export interface CreateMonitorCommandOutput extends CreateMonitorResponse, __Met
  * ```javascript
  * import { DeadlineClient, CreateMonitorCommand } from "@aws-sdk/client-deadline"; // ES Modules import
  * // const { DeadlineClient, CreateMonitorCommand } = require("@aws-sdk/client-deadline"); // CommonJS import
+ * // import type { DeadlineClientConfig } from "@aws-sdk/client-deadline";
+ * const config = {}; // type is DeadlineClientConfig
  * const client = new DeadlineClient(config);
  * const input = { // CreateMonitorRequest
  *   clientToken: "STRING_VALUE",

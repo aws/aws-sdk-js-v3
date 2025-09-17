@@ -39,6 +39,8 @@ export interface DisassociateOrganizationalUnitCommandOutput
  * ```javascript
  * import { NotificationsClient, DisassociateOrganizationalUnitCommand } from "@aws-sdk/client-notifications"; // ES Modules import
  * // const { NotificationsClient, DisassociateOrganizationalUnitCommand } = require("@aws-sdk/client-notifications"); // CommonJS import
+ * // import type { NotificationsClientConfig } from "@aws-sdk/client-notifications";
+ * const config = {}; // type is NotificationsClientConfig
  * const client = new NotificationsClient(config);
  * const input = { // DisassociateOrganizationalUnitRequest
  *   organizationalUnitId: "STRING_VALUE", // required

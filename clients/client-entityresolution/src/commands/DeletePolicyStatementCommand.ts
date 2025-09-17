@@ -34,6 +34,8 @@ export interface DeletePolicyStatementCommandOutput extends DeletePolicyStatemen
  * ```javascript
  * import { EntityResolutionClient, DeletePolicyStatementCommand } from "@aws-sdk/client-entityresolution"; // ES Modules import
  * // const { EntityResolutionClient, DeletePolicyStatementCommand } = require("@aws-sdk/client-entityresolution"); // CommonJS import
+ * // import type { EntityResolutionClientConfig } from "@aws-sdk/client-entityresolution";
+ * const config = {}; // type is EntityResolutionClientConfig
  * const client = new EntityResolutionClient(config);
  * const input = { // DeletePolicyStatementInput
  *   arn: "STRING_VALUE", // required

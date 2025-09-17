@@ -40,6 +40,8 @@ export interface CreateBatchSegmentJobCommandOutput extends CreateBatchSegmentJo
  * ```javascript
  * import { PersonalizeClient, CreateBatchSegmentJobCommand } from "@aws-sdk/client-personalize"; // ES Modules import
  * // const { PersonalizeClient, CreateBatchSegmentJobCommand } = require("@aws-sdk/client-personalize"); // CommonJS import
+ * // import type { PersonalizeClientConfig } from "@aws-sdk/client-personalize";
+ * const config = {}; // type is PersonalizeClientConfig
  * const client = new PersonalizeClient(config);
  * const input = { // CreateBatchSegmentJobRequest
  *   jobName: "STRING_VALUE", // required

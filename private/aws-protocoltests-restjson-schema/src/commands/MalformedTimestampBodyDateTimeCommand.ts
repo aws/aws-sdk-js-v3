@@ -34,6 +34,8 @@ export interface MalformedTimestampBodyDateTimeCommandOutput extends __MetadataB
  * ```javascript
  * import { RestJsonProtocolClient, MalformedTimestampBodyDateTimeCommand } from "@aws-sdk/aws-protocoltests-restjson-schema"; // ES Modules import
  * // const { RestJsonProtocolClient, MalformedTimestampBodyDateTimeCommand } = require("@aws-sdk/aws-protocoltests-restjson-schema"); // CommonJS import
+ * // import type { RestJsonProtocolClientConfig } from "@aws-sdk/aws-protocoltests-restjson-schema";
+ * const config = {}; // type is RestJsonProtocolClientConfig
  * const client = new RestJsonProtocolClient(config);
  * const input = { // MalformedTimestampBodyDateTimeInput
  *   timestamp: new Date("TIMESTAMP"), // required

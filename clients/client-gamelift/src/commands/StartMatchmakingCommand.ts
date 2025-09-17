@@ -68,6 +68,8 @@ export interface StartMatchmakingCommandOutput extends StartMatchmakingOutput, _
  * ```javascript
  * import { GameLiftClient, StartMatchmakingCommand } from "@aws-sdk/client-gamelift"; // ES Modules import
  * // const { GameLiftClient, StartMatchmakingCommand } = require("@aws-sdk/client-gamelift"); // CommonJS import
+ * // import type { GameLiftClientConfig } from "@aws-sdk/client-gamelift";
+ * const config = {}; // type is GameLiftClientConfig
  * const client = new GameLiftClient(config);
  * const input = { // StartMatchmakingInput
  *   TicketId: "STRING_VALUE",

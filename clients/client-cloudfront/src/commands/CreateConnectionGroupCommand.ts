@@ -34,6 +34,8 @@ export interface CreateConnectionGroupCommandOutput extends CreateConnectionGrou
  * ```javascript
  * import { CloudFrontClient, CreateConnectionGroupCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
  * // const { CloudFrontClient, CreateConnectionGroupCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
+ * // import type { CloudFrontClientConfig } from "@aws-sdk/client-cloudfront";
+ * const config = {}; // type is CloudFrontClientConfig
  * const client = new CloudFrontClient(config);
  * const input = { // CreateConnectionGroupRequest
  *   Name: "STRING_VALUE", // required

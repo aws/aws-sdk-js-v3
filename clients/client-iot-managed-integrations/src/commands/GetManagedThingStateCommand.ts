@@ -42,6 +42,8 @@ export interface GetManagedThingStateCommandOutput extends GetManagedThingStateR
  * ```javascript
  * import { IoTManagedIntegrationsClient, GetManagedThingStateCommand } from "@aws-sdk/client-iot-managed-integrations"; // ES Modules import
  * // const { IoTManagedIntegrationsClient, GetManagedThingStateCommand } = require("@aws-sdk/client-iot-managed-integrations"); // CommonJS import
+ * // import type { IoTManagedIntegrationsClientConfig } from "@aws-sdk/client-iot-managed-integrations";
+ * const config = {}; // type is IoTManagedIntegrationsClientConfig
  * const client = new IoTManagedIntegrationsClient(config);
  * const input = { // GetManagedThingStateRequest
  *   ManagedThingId: "STRING_VALUE", // required

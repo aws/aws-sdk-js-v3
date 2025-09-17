@@ -34,6 +34,8 @@ export interface StartDataSourceSyncJobCommandOutput extends StartDataSourceSync
  * ```javascript
  * import { QBusinessClient, StartDataSourceSyncJobCommand } from "@aws-sdk/client-qbusiness"; // ES Modules import
  * // const { QBusinessClient, StartDataSourceSyncJobCommand } = require("@aws-sdk/client-qbusiness"); // CommonJS import
+ * // import type { QBusinessClientConfig } from "@aws-sdk/client-qbusiness";
+ * const config = {}; // type is QBusinessClientConfig
  * const client = new QBusinessClient(config);
  * const input = { // StartDataSourceSyncJobRequest
  *   dataSourceId: "STRING_VALUE", // required

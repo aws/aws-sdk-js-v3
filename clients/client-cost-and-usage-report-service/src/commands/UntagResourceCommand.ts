@@ -38,6 +38,8 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
  * ```javascript
  * import { CostAndUsageReportServiceClient, UntagResourceCommand } from "@aws-sdk/client-cost-and-usage-report-service"; // ES Modules import
  * // const { CostAndUsageReportServiceClient, UntagResourceCommand } = require("@aws-sdk/client-cost-and-usage-report-service"); // CommonJS import
+ * // import type { CostAndUsageReportServiceClientConfig } from "@aws-sdk/client-cost-and-usage-report-service";
+ * const config = {}; // type is CostAndUsageReportServiceClientConfig
  * const client = new CostAndUsageReportServiceClient(config);
  * const input = { // UntagResourceRequest
  *   ReportName: "STRING_VALUE", // required

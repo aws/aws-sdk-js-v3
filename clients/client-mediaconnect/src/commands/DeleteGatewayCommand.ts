@@ -34,6 +34,8 @@ export interface DeleteGatewayCommandOutput extends DeleteGatewayResponse, __Met
  * ```javascript
  * import { MediaConnectClient, DeleteGatewayCommand } from "@aws-sdk/client-mediaconnect"; // ES Modules import
  * // const { MediaConnectClient, DeleteGatewayCommand } = require("@aws-sdk/client-mediaconnect"); // CommonJS import
+ * // import type { MediaConnectClientConfig } from "@aws-sdk/client-mediaconnect";
+ * const config = {}; // type is MediaConnectClientConfig
  * const client = new MediaConnectClient(config);
  * const input = { // DeleteGatewayRequest
  *   GatewayArn: "STRING_VALUE", // required

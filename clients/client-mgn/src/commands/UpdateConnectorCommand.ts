@@ -34,6 +34,8 @@ export interface UpdateConnectorCommandOutput extends Connector, __MetadataBeare
  * ```javascript
  * import { MgnClient, UpdateConnectorCommand } from "@aws-sdk/client-mgn"; // ES Modules import
  * // const { MgnClient, UpdateConnectorCommand } = require("@aws-sdk/client-mgn"); // CommonJS import
+ * // import type { MgnClientConfig } from "@aws-sdk/client-mgn";
+ * const config = {}; // type is MgnClientConfig
  * const client = new MgnClient(config);
  * const input = { // UpdateConnectorRequest
  *   connectorID: "STRING_VALUE", // required

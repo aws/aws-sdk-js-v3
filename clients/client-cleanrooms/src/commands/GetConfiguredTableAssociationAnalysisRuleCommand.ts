@@ -43,6 +43,8 @@ export interface GetConfiguredTableAssociationAnalysisRuleCommandOutput
  * ```javascript
  * import { CleanRoomsClient, GetConfiguredTableAssociationAnalysisRuleCommand } from "@aws-sdk/client-cleanrooms"; // ES Modules import
  * // const { CleanRoomsClient, GetConfiguredTableAssociationAnalysisRuleCommand } = require("@aws-sdk/client-cleanrooms"); // CommonJS import
+ * // import type { CleanRoomsClientConfig } from "@aws-sdk/client-cleanrooms";
+ * const config = {}; // type is CleanRoomsClientConfig
  * const client = new CleanRoomsClient(config);
  * const input = { // GetConfiguredTableAssociationAnalysisRuleInput
  *   membershipIdentifier: "STRING_VALUE", // required

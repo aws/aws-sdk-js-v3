@@ -61,6 +61,8 @@ export interface CancelServicePipelineDeploymentCommandOutput
  * ```javascript
  * import { ProtonClient, CancelServicePipelineDeploymentCommand } from "@aws-sdk/client-proton"; // ES Modules import
  * // const { ProtonClient, CancelServicePipelineDeploymentCommand } = require("@aws-sdk/client-proton"); // CommonJS import
+ * // import type { ProtonClientConfig } from "@aws-sdk/client-proton";
+ * const config = {}; // type is ProtonClientConfig
  * const client = new ProtonClient(config);
  * const input = { // CancelServicePipelineDeploymentInput
  *   serviceName: "STRING_VALUE", // required

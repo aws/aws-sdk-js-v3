@@ -35,6 +35,8 @@ export interface DeleteRouteServerEndpointCommandOutput extends DeleteRouteServe
  * ```javascript
  * import { EC2Client, DeleteRouteServerEndpointCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DeleteRouteServerEndpointCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
+ * // import type { EC2ClientConfig } from "@aws-sdk/client-ec2";
+ * const config = {}; // type is EC2ClientConfig
  * const client = new EC2Client(config);
  * const input = { // DeleteRouteServerEndpointRequest
  *   RouteServerEndpointId: "STRING_VALUE", // required

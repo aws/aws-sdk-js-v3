@@ -37,6 +37,8 @@ export interface UpdatePipelineCommandOutput extends UpdatePipelineOutput, __Met
  * ```javascript
  * import { CodePipelineClient, UpdatePipelineCommand } from "@aws-sdk/client-codepipeline"; // ES Modules import
  * // const { CodePipelineClient, UpdatePipelineCommand } = require("@aws-sdk/client-codepipeline"); // CommonJS import
+ * // import type { CodePipelineClientConfig } from "@aws-sdk/client-codepipeline";
+ * const config = {}; // type is CodePipelineClientConfig
  * const client = new CodePipelineClient(config);
  * const input = { // UpdatePipelineInput
  *   pipeline: { // PipelineDeclaration

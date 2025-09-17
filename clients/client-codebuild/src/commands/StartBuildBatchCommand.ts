@@ -34,6 +34,8 @@ export interface StartBuildBatchCommandOutput extends StartBuildBatchOutput, __M
  * ```javascript
  * import { CodeBuildClient, StartBuildBatchCommand } from "@aws-sdk/client-codebuild"; // ES Modules import
  * // const { CodeBuildClient, StartBuildBatchCommand } = require("@aws-sdk/client-codebuild"); // CommonJS import
+ * // import type { CodeBuildClientConfig } from "@aws-sdk/client-codebuild";
+ * const config = {}; // type is CodeBuildClientConfig
  * const client = new CodeBuildClient(config);
  * const input = { // StartBuildBatchInput
  *   projectName: "STRING_VALUE", // required

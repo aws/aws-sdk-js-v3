@@ -34,6 +34,8 @@ export interface DeleteLicenseEndpointCommandOutput extends DeleteLicenseEndpoin
  * ```javascript
  * import { DeadlineClient, DeleteLicenseEndpointCommand } from "@aws-sdk/client-deadline"; // ES Modules import
  * // const { DeadlineClient, DeleteLicenseEndpointCommand } = require("@aws-sdk/client-deadline"); // CommonJS import
+ * // import type { DeadlineClientConfig } from "@aws-sdk/client-deadline";
+ * const config = {}; // type is DeadlineClientConfig
  * const client = new DeadlineClient(config);
  * const input = { // DeleteLicenseEndpointRequest
  *   licenseEndpointId: "STRING_VALUE", // required

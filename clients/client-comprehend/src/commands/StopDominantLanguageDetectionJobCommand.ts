@@ -48,6 +48,8 @@ export interface StopDominantLanguageDetectionJobCommandOutput
  * ```javascript
  * import { ComprehendClient, StopDominantLanguageDetectionJobCommand } from "@aws-sdk/client-comprehend"; // ES Modules import
  * // const { ComprehendClient, StopDominantLanguageDetectionJobCommand } = require("@aws-sdk/client-comprehend"); // CommonJS import
+ * // import type { ComprehendClientConfig } from "@aws-sdk/client-comprehend";
+ * const config = {}; // type is ComprehendClientConfig
  * const client = new ComprehendClient(config);
  * const input = { // StopDominantLanguageDetectionJobRequest
  *   JobId: "STRING_VALUE", // required

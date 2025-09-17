@@ -34,6 +34,8 @@ export interface StopAccessLoggingCommandOutput extends StopAccessLoggingOutput,
  * ```javascript
  * import { MediaStoreClient, StopAccessLoggingCommand } from "@aws-sdk/client-mediastore"; // ES Modules import
  * // const { MediaStoreClient, StopAccessLoggingCommand } = require("@aws-sdk/client-mediastore"); // CommonJS import
+ * // import type { MediaStoreClientConfig } from "@aws-sdk/client-mediastore";
+ * const config = {}; // type is MediaStoreClientConfig
  * const client = new MediaStoreClient(config);
  * const input = { // StopAccessLoggingInput
  *   ContainerName: "STRING_VALUE", // required

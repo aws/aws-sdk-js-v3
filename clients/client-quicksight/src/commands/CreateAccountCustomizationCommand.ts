@@ -56,6 +56,8 @@ export interface CreateAccountCustomizationCommandOutput extends CreateAccountCu
  * ```javascript
  * import { QuickSightClient, CreateAccountCustomizationCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
  * // const { QuickSightClient, CreateAccountCustomizationCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
+ * // import type { QuickSightClientConfig } from "@aws-sdk/client-quicksight";
+ * const config = {}; // type is QuickSightClientConfig
  * const client = new QuickSightClient(config);
  * const input = { // CreateAccountCustomizationRequest
  *   AwsAccountId: "STRING_VALUE", // required

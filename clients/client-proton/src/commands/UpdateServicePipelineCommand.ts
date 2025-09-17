@@ -79,6 +79,8 @@ export interface UpdateServicePipelineCommandOutput extends UpdateServicePipelin
  * ```javascript
  * import { ProtonClient, UpdateServicePipelineCommand } from "@aws-sdk/client-proton"; // ES Modules import
  * // const { ProtonClient, UpdateServicePipelineCommand } = require("@aws-sdk/client-proton"); // CommonJS import
+ * // import type { ProtonClientConfig } from "@aws-sdk/client-proton";
+ * const config = {}; // type is ProtonClientConfig
  * const client = new ProtonClient(config);
  * const input = { // UpdateServicePipelineInput
  *   serviceName: "STRING_VALUE", // required

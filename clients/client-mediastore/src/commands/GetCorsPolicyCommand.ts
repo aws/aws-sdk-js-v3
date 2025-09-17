@@ -38,6 +38,8 @@ export interface GetCorsPolicyCommandOutput extends GetCorsPolicyOutput, __Metad
  * ```javascript
  * import { MediaStoreClient, GetCorsPolicyCommand } from "@aws-sdk/client-mediastore"; // ES Modules import
  * // const { MediaStoreClient, GetCorsPolicyCommand } = require("@aws-sdk/client-mediastore"); // CommonJS import
+ * // import type { MediaStoreClientConfig } from "@aws-sdk/client-mediastore";
+ * const config = {}; // type is MediaStoreClientConfig
  * const client = new MediaStoreClient(config);
  * const input = { // GetCorsPolicyInput
  *   ContainerName: "STRING_VALUE", // required

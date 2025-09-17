@@ -34,6 +34,8 @@ export interface GetEncryptionConfigurationCommandOutput extends GetEncryptionCo
  * ```javascript
  * import { IoTFleetWiseClient, GetEncryptionConfigurationCommand } from "@aws-sdk/client-iotfleetwise"; // ES Modules import
  * // const { IoTFleetWiseClient, GetEncryptionConfigurationCommand } = require("@aws-sdk/client-iotfleetwise"); // CommonJS import
+ * // import type { IoTFleetWiseClientConfig } from "@aws-sdk/client-iotfleetwise";
+ * const config = {}; // type is IoTFleetWiseClientConfig
  * const client = new IoTFleetWiseClient(config);
  * const input = {};
  * const command = new GetEncryptionConfigurationCommand(input);

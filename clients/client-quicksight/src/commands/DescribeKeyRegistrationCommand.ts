@@ -34,6 +34,8 @@ export interface DescribeKeyRegistrationCommandOutput extends DescribeKeyRegistr
  * ```javascript
  * import { QuickSightClient, DescribeKeyRegistrationCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
  * // const { QuickSightClient, DescribeKeyRegistrationCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
+ * // import type { QuickSightClientConfig } from "@aws-sdk/client-quicksight";
+ * const config = {}; // type is QuickSightClientConfig
  * const client = new QuickSightClient(config);
  * const input = { // DescribeKeyRegistrationRequest
  *   AwsAccountId: "STRING_VALUE", // required

@@ -39,6 +39,8 @@ export interface ListRestoreAccessBackupVaultsCommandOutput
  * ```javascript
  * import { BackupClient, ListRestoreAccessBackupVaultsCommand } from "@aws-sdk/client-backup"; // ES Modules import
  * // const { BackupClient, ListRestoreAccessBackupVaultsCommand } = require("@aws-sdk/client-backup"); // CommonJS import
+ * // import type { BackupClientConfig } from "@aws-sdk/client-backup";
+ * const config = {}; // type is BackupClientConfig
  * const client = new BackupClient(config);
  * const input = { // ListRestoreAccessBackupVaultsInput
  *   BackupVaultName: "STRING_VALUE", // required

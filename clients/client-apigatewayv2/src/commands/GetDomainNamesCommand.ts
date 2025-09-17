@@ -34,6 +34,8 @@ export interface GetDomainNamesCommandOutput extends GetDomainNamesResponse, __M
  * ```javascript
  * import { ApiGatewayV2Client, GetDomainNamesCommand } from "@aws-sdk/client-apigatewayv2"; // ES Modules import
  * // const { ApiGatewayV2Client, GetDomainNamesCommand } = require("@aws-sdk/client-apigatewayv2"); // CommonJS import
+ * // import type { ApiGatewayV2ClientConfig } from "@aws-sdk/client-apigatewayv2";
+ * const config = {}; // type is ApiGatewayV2ClientConfig
  * const client = new ApiGatewayV2Client(config);
  * const input = { // GetDomainNamesRequest
  *   MaxResults: "STRING_VALUE",

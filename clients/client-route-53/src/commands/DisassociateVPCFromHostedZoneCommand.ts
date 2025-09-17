@@ -88,6 +88,8 @@ export interface DisassociateVPCFromHostedZoneCommandOutput
  * ```javascript
  * import { Route53Client, DisassociateVPCFromHostedZoneCommand } from "@aws-sdk/client-route-53"; // ES Modules import
  * // const { Route53Client, DisassociateVPCFromHostedZoneCommand } = require("@aws-sdk/client-route-53"); // CommonJS import
+ * // import type { Route53ClientConfig } from "@aws-sdk/client-route-53";
+ * const config = {}; // type is Route53ClientConfig
  * const client = new Route53Client(config);
  * const input = { // DisassociateVPCFromHostedZoneRequest
  *   HostedZoneId: "STRING_VALUE", // required

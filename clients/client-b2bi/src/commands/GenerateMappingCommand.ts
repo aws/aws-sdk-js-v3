@@ -34,6 +34,8 @@ export interface GenerateMappingCommandOutput extends GenerateMappingResponse, _
  * ```javascript
  * import { B2biClient, GenerateMappingCommand } from "@aws-sdk/client-b2bi"; // ES Modules import
  * // const { B2biClient, GenerateMappingCommand } = require("@aws-sdk/client-b2bi"); // CommonJS import
+ * // import type { B2biClientConfig } from "@aws-sdk/client-b2bi";
+ * const config = {}; // type is B2biClientConfig
  * const client = new B2biClient(config);
  * const input = { // GenerateMappingRequest
  *   inputFileContent: "STRING_VALUE", // required

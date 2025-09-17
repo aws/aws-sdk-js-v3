@@ -38,6 +38,8 @@ export interface UpdateSubscriberCommandOutput extends UpdateSubscriberResponse,
  * ```javascript
  * import { BudgetsClient, UpdateSubscriberCommand } from "@aws-sdk/client-budgets"; // ES Modules import
  * // const { BudgetsClient, UpdateSubscriberCommand } = require("@aws-sdk/client-budgets"); // CommonJS import
+ * // import type { BudgetsClientConfig } from "@aws-sdk/client-budgets";
+ * const config = {}; // type is BudgetsClientConfig
  * const client = new BudgetsClient(config);
  * const input = { // UpdateSubscriberRequest
  *   AccountId: "STRING_VALUE", // required

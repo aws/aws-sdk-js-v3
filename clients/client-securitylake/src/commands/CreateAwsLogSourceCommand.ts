@@ -40,6 +40,8 @@ export interface CreateAwsLogSourceCommandOutput extends CreateAwsLogSourceRespo
  * ```javascript
  * import { SecurityLakeClient, CreateAwsLogSourceCommand } from "@aws-sdk/client-securitylake"; // ES Modules import
  * // const { SecurityLakeClient, CreateAwsLogSourceCommand } = require("@aws-sdk/client-securitylake"); // CommonJS import
+ * // import type { SecurityLakeClientConfig } from "@aws-sdk/client-securitylake";
+ * const config = {}; // type is SecurityLakeClientConfig
  * const client = new SecurityLakeClient(config);
  * const input = { // CreateAwsLogSourceRequest
  *   sources: [ // AwsLogSourceConfigurationList // required

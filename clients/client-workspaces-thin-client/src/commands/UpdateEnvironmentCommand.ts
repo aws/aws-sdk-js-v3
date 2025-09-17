@@ -43,6 +43,8 @@ export interface UpdateEnvironmentCommandOutput extends UpdateEnvironmentRespons
  * ```javascript
  * import { WorkSpacesThinClientClient, UpdateEnvironmentCommand } from "@aws-sdk/client-workspaces-thin-client"; // ES Modules import
  * // const { WorkSpacesThinClientClient, UpdateEnvironmentCommand } = require("@aws-sdk/client-workspaces-thin-client"); // CommonJS import
+ * // import type { WorkSpacesThinClientClientConfig } from "@aws-sdk/client-workspaces-thin-client";
+ * const config = {}; // type is WorkSpacesThinClientClientConfig
  * const client = new WorkSpacesThinClientClient(config);
  * const input = { // UpdateEnvironmentRequest
  *   id: "STRING_VALUE", // required

@@ -34,6 +34,8 @@ export interface UpdateGroupCommandOutput extends UpdateGroupResponse, __Metadat
  * ```javascript
  * import { IdentitystoreClient, UpdateGroupCommand } from "@aws-sdk/client-identitystore"; // ES Modules import
  * // const { IdentitystoreClient, UpdateGroupCommand } = require("@aws-sdk/client-identitystore"); // CommonJS import
+ * // import type { IdentitystoreClientConfig } from "@aws-sdk/client-identitystore";
+ * const config = {}; // type is IdentitystoreClientConfig
  * const client = new IdentitystoreClient(config);
  * const input = { // UpdateGroupRequest
  *   IdentityStoreId: "STRING_VALUE", // required

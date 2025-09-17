@@ -34,6 +34,8 @@ export interface GetShareCommandOutput extends GetShareResponse, __MetadataBeare
  * ```javascript
  * import { OmicsClient, GetShareCommand } from "@aws-sdk/client-omics"; // ES Modules import
  * // const { OmicsClient, GetShareCommand } = require("@aws-sdk/client-omics"); // CommonJS import
+ * // import type { OmicsClientConfig } from "@aws-sdk/client-omics";
+ * const config = {}; // type is OmicsClientConfig
  * const client = new OmicsClient(config);
  * const input = { // GetShareRequest
  *   shareId: "STRING_VALUE", // required

@@ -34,6 +34,8 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * ```javascript
  * import { QBusinessClient, TagResourceCommand } from "@aws-sdk/client-qbusiness"; // ES Modules import
  * // const { QBusinessClient, TagResourceCommand } = require("@aws-sdk/client-qbusiness"); // CommonJS import
+ * // import type { QBusinessClientConfig } from "@aws-sdk/client-qbusiness";
+ * const config = {}; // type is QBusinessClientConfig
  * const client = new QBusinessClient(config);
  * const input = { // TagResourceRequest
  *   resourceARN: "STRING_VALUE", // required

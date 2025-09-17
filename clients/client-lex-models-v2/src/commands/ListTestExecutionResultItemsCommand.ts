@@ -39,6 +39,8 @@ export interface ListTestExecutionResultItemsCommandOutput
  * ```javascript
  * import { LexModelsV2Client, ListTestExecutionResultItemsCommand } from "@aws-sdk/client-lex-models-v2"; // ES Modules import
  * // const { LexModelsV2Client, ListTestExecutionResultItemsCommand } = require("@aws-sdk/client-lex-models-v2"); // CommonJS import
+ * // import type { LexModelsV2ClientConfig } from "@aws-sdk/client-lex-models-v2";
+ * const config = {}; // type is LexModelsV2ClientConfig
  * const client = new LexModelsV2Client(config);
  * const input = { // ListTestExecutionResultItemsRequest
  *   testExecutionId: "STRING_VALUE", // required

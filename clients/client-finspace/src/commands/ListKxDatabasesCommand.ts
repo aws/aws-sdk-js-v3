@@ -34,6 +34,8 @@ export interface ListKxDatabasesCommandOutput extends ListKxDatabasesResponse, _
  * ```javascript
  * import { FinspaceClient, ListKxDatabasesCommand } from "@aws-sdk/client-finspace"; // ES Modules import
  * // const { FinspaceClient, ListKxDatabasesCommand } = require("@aws-sdk/client-finspace"); // CommonJS import
+ * // import type { FinspaceClientConfig } from "@aws-sdk/client-finspace";
+ * const config = {}; // type is FinspaceClientConfig
  * const client = new FinspaceClient(config);
  * const input = { // ListKxDatabasesRequest
  *   environmentId: "STRING_VALUE", // required

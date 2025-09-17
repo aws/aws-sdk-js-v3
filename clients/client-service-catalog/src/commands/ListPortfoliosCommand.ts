@@ -34,6 +34,8 @@ export interface ListPortfoliosCommandOutput extends ListPortfoliosOutput, __Met
  * ```javascript
  * import { ServiceCatalogClient, ListPortfoliosCommand } from "@aws-sdk/client-service-catalog"; // ES Modules import
  * // const { ServiceCatalogClient, ListPortfoliosCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import
+ * // import type { ServiceCatalogClientConfig } from "@aws-sdk/client-service-catalog";
+ * const config = {}; // type is ServiceCatalogClientConfig
  * const client = new ServiceCatalogClient(config);
  * const input = { // ListPortfoliosInput
  *   AcceptLanguage: "STRING_VALUE",

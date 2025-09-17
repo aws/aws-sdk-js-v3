@@ -50,6 +50,8 @@ export interface ModifyDBSnapshotAttributeCommandOutput extends ModifyDBSnapshot
  * ```javascript
  * import { RDSClient, ModifyDBSnapshotAttributeCommand } from "@aws-sdk/client-rds"; // ES Modules import
  * // const { RDSClient, ModifyDBSnapshotAttributeCommand } = require("@aws-sdk/client-rds"); // CommonJS import
+ * // import type { RDSClientConfig } from "@aws-sdk/client-rds";
+ * const config = {}; // type is RDSClientConfig
  * const client = new RDSClient(config);
  * const input = { // ModifyDBSnapshotAttributeMessage
  *   DBSnapshotIdentifier: "STRING_VALUE", // required

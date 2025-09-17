@@ -134,6 +134,8 @@ export interface SendRawEmailCommandOutput extends SendRawEmailResponse, __Metad
  * ```javascript
  * import { SESClient, SendRawEmailCommand } from "@aws-sdk/client-ses"; // ES Modules import
  * // const { SESClient, SendRawEmailCommand } = require("@aws-sdk/client-ses"); // CommonJS import
+ * // import type { SESClientConfig } from "@aws-sdk/client-ses";
+ * const config = {}; // type is SESClientConfig
  * const client = new SESClient(config);
  * const input = { // SendRawEmailRequest
  *   Source: "STRING_VALUE",

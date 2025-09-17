@@ -38,6 +38,8 @@ export interface CreateSecurityProfileCommandOutput extends CreateSecurityProfil
  * ```javascript
  * import { ConnectClient, CreateSecurityProfileCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, CreateSecurityProfileCommand } = require("@aws-sdk/client-connect"); // CommonJS import
+ * // import type { ConnectClientConfig } from "@aws-sdk/client-connect";
+ * const config = {}; // type is ConnectClientConfig
  * const client = new ConnectClient(config);
  * const input = { // CreateSecurityProfileRequest
  *   SecurityProfileName: "STRING_VALUE", // required

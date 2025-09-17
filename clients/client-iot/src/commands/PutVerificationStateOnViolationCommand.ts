@@ -39,6 +39,8 @@ export interface PutVerificationStateOnViolationCommandOutput
  * ```javascript
  * import { IoTClient, PutVerificationStateOnViolationCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, PutVerificationStateOnViolationCommand } = require("@aws-sdk/client-iot"); // CommonJS import
+ * // import type { IoTClientConfig } from "@aws-sdk/client-iot";
+ * const config = {}; // type is IoTClientConfig
  * const client = new IoTClient(config);
  * const input = { // PutVerificationStateOnViolationRequest
  *   violationId: "STRING_VALUE", // required

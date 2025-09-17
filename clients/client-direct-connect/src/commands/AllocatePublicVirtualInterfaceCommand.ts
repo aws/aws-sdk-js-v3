@@ -42,6 +42,8 @@ export interface AllocatePublicVirtualInterfaceCommandOutput extends VirtualInte
  * ```javascript
  * import { DirectConnectClient, AllocatePublicVirtualInterfaceCommand } from "@aws-sdk/client-direct-connect"; // ES Modules import
  * // const { DirectConnectClient, AllocatePublicVirtualInterfaceCommand } = require("@aws-sdk/client-direct-connect"); // CommonJS import
+ * // import type { DirectConnectClientConfig } from "@aws-sdk/client-direct-connect";
+ * const config = {}; // type is DirectConnectClientConfig
  * const client = new DirectConnectClient(config);
  * const input = { // AllocatePublicVirtualInterfaceRequest
  *   connectionId: "STRING_VALUE", // required

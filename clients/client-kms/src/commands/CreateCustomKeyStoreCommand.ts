@@ -127,6 +127,8 @@ export interface CreateCustomKeyStoreCommandOutput extends CreateCustomKeyStoreR
  * ```javascript
  * import { KMSClient, CreateCustomKeyStoreCommand } from "@aws-sdk/client-kms"; // ES Modules import
  * // const { KMSClient, CreateCustomKeyStoreCommand } = require("@aws-sdk/client-kms"); // CommonJS import
+ * // import type { KMSClientConfig } from "@aws-sdk/client-kms";
+ * const config = {}; // type is KMSClientConfig
  * const client = new KMSClient(config);
  * const input = { // CreateCustomKeyStoreRequest
  *   CustomKeyStoreName: "STRING_VALUE", // required

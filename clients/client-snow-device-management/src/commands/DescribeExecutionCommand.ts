@@ -38,6 +38,8 @@ export interface DescribeExecutionCommandOutput extends DescribeExecutionOutput,
  * ```javascript
  * import { SnowDeviceManagementClient, DescribeExecutionCommand } from "@aws-sdk/client-snow-device-management"; // ES Modules import
  * // const { SnowDeviceManagementClient, DescribeExecutionCommand } = require("@aws-sdk/client-snow-device-management"); // CommonJS import
+ * // import type { SnowDeviceManagementClientConfig } from "@aws-sdk/client-snow-device-management";
+ * const config = {}; // type is SnowDeviceManagementClientConfig
  * const client = new SnowDeviceManagementClient(config);
  * const input = { // DescribeExecutionInput
  *   taskId: "STRING_VALUE", // required

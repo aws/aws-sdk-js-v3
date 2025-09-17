@@ -35,6 +35,8 @@ export interface DescribeFeedbackCommandOutput extends DescribeFeedbackResponse,
  * ```javascript
  * import { DevOpsGuruClient, DescribeFeedbackCommand } from "@aws-sdk/client-devops-guru"; // ES Modules import
  * // const { DevOpsGuruClient, DescribeFeedbackCommand } = require("@aws-sdk/client-devops-guru"); // CommonJS import
+ * // import type { DevOpsGuruClientConfig } from "@aws-sdk/client-devops-guru";
+ * const config = {}; // type is DevOpsGuruClientConfig
  * const client = new DevOpsGuruClient(config);
  * const input = { // DescribeFeedbackRequest
  *   InsightId: "STRING_VALUE",

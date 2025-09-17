@@ -34,6 +34,8 @@ export interface DeleteFunctionDefinitionCommandOutput extends DeleteFunctionDef
  * ```javascript
  * import { GreengrassClient, DeleteFunctionDefinitionCommand } from "@aws-sdk/client-greengrass"; // ES Modules import
  * // const { GreengrassClient, DeleteFunctionDefinitionCommand } = require("@aws-sdk/client-greengrass"); // CommonJS import
+ * // import type { GreengrassClientConfig } from "@aws-sdk/client-greengrass";
+ * const config = {}; // type is GreengrassClientConfig
  * const client = new GreengrassClient(config);
  * const input = { // DeleteFunctionDefinitionRequest
  *   FunctionDefinitionId: "STRING_VALUE", // required

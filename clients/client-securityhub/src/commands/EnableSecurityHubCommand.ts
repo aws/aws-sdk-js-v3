@@ -53,6 +53,8 @@ export interface EnableSecurityHubCommandOutput extends EnableSecurityHubRespons
  * ```javascript
  * import { SecurityHubClient, EnableSecurityHubCommand } from "@aws-sdk/client-securityhub"; // ES Modules import
  * // const { SecurityHubClient, EnableSecurityHubCommand } = require("@aws-sdk/client-securityhub"); // CommonJS import
+ * // import type { SecurityHubClientConfig } from "@aws-sdk/client-securityhub";
+ * const config = {}; // type is SecurityHubClientConfig
  * const client = new SecurityHubClient(config);
  * const input = { // EnableSecurityHubRequest
  *   Tags: { // TagMap

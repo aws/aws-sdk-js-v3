@@ -34,6 +34,8 @@ export interface GetResourceConfigurationCommandOutput extends GetResourceConfig
  * ```javascript
  * import { VPCLatticeClient, GetResourceConfigurationCommand } from "@aws-sdk/client-vpc-lattice"; // ES Modules import
  * // const { VPCLatticeClient, GetResourceConfigurationCommand } = require("@aws-sdk/client-vpc-lattice"); // CommonJS import
+ * // import type { VPCLatticeClientConfig } from "@aws-sdk/client-vpc-lattice";
+ * const config = {}; // type is VPCLatticeClientConfig
  * const client = new VPCLatticeClient(config);
  * const input = { // GetResourceConfigurationRequest
  *   resourceConfigurationIdentifier: "STRING_VALUE", // required

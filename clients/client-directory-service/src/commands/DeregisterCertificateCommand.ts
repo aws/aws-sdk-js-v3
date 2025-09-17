@@ -35,6 +35,8 @@ export interface DeregisterCertificateCommandOutput extends DeregisterCertificat
  * ```javascript
  * import { DirectoryServiceClient, DeregisterCertificateCommand } from "@aws-sdk/client-directory-service"; // ES Modules import
  * // const { DirectoryServiceClient, DeregisterCertificateCommand } = require("@aws-sdk/client-directory-service"); // CommonJS import
+ * // import type { DirectoryServiceClientConfig } from "@aws-sdk/client-directory-service";
+ * const config = {}; // type is DirectoryServiceClientConfig
  * const client = new DirectoryServiceClient(config);
  * const input = { // DeregisterCertificateRequest
  *   DirectoryId: "STRING_VALUE", // required

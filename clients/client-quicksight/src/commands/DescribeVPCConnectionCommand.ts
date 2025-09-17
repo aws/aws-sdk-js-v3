@@ -34,6 +34,8 @@ export interface DescribeVPCConnectionCommandOutput extends DescribeVPCConnectio
  * ```javascript
  * import { QuickSightClient, DescribeVPCConnectionCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
  * // const { QuickSightClient, DescribeVPCConnectionCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
+ * // import type { QuickSightClientConfig } from "@aws-sdk/client-quicksight";
+ * const config = {}; // type is QuickSightClientConfig
  * const client = new QuickSightClient(config);
  * const input = { // DescribeVPCConnectionRequest
  *   AwsAccountId: "STRING_VALUE", // required

@@ -39,6 +39,8 @@ export interface DetectKeyPhrasesCommandOutput extends DetectKeyPhrasesResponse,
  * ```javascript
  * import { ComprehendClient, DetectKeyPhrasesCommand } from "@aws-sdk/client-comprehend"; // ES Modules import
  * // const { ComprehendClient, DetectKeyPhrasesCommand } = require("@aws-sdk/client-comprehend"); // CommonJS import
+ * // import type { ComprehendClientConfig } from "@aws-sdk/client-comprehend";
+ * const config = {}; // type is ComprehendClientConfig
  * const client = new ComprehendClient(config);
  * const input = { // DetectKeyPhrasesRequest
  *   Text: "STRING_VALUE", // required

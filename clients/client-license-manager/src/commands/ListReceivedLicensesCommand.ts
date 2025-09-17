@@ -34,6 +34,8 @@ export interface ListReceivedLicensesCommandOutput extends ListReceivedLicensesR
  * ```javascript
  * import { LicenseManagerClient, ListReceivedLicensesCommand } from "@aws-sdk/client-license-manager"; // ES Modules import
  * // const { LicenseManagerClient, ListReceivedLicensesCommand } = require("@aws-sdk/client-license-manager"); // CommonJS import
+ * // import type { LicenseManagerClientConfig } from "@aws-sdk/client-license-manager";
+ * const config = {}; // type is LicenseManagerClientConfig
  * const client = new LicenseManagerClient(config);
  * const input = { // ListReceivedLicensesRequest
  *   LicenseArns: [ // ArnList

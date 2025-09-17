@@ -34,6 +34,8 @@ export interface CreatePermissionSetCommandOutput extends CreatePermissionSetRes
  * ```javascript
  * import { SSOAdminClient, CreatePermissionSetCommand } from "@aws-sdk/client-sso-admin"; // ES Modules import
  * // const { SSOAdminClient, CreatePermissionSetCommand } = require("@aws-sdk/client-sso-admin"); // CommonJS import
+ * // import type { SSOAdminClientConfig } from "@aws-sdk/client-sso-admin";
+ * const config = {}; // type is SSOAdminClientConfig
  * const client = new SSOAdminClient(config);
  * const input = { // CreatePermissionSetRequest
  *   Name: "STRING_VALUE", // required

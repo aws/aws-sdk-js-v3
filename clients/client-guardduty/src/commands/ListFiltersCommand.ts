@@ -34,6 +34,8 @@ export interface ListFiltersCommandOutput extends ListFiltersResponse, __Metadat
  * ```javascript
  * import { GuardDutyClient, ListFiltersCommand } from "@aws-sdk/client-guardduty"; // ES Modules import
  * // const { GuardDutyClient, ListFiltersCommand } = require("@aws-sdk/client-guardduty"); // CommonJS import
+ * // import type { GuardDutyClientConfig } from "@aws-sdk/client-guardduty";
+ * const config = {}; // type is GuardDutyClientConfig
  * const client = new GuardDutyClient(config);
  * const input = { // ListFiltersRequest
  *   DetectorId: "STRING_VALUE", // required

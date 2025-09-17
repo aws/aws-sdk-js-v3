@@ -36,6 +36,8 @@ export interface ListFileSystemAssociationsCommandOutput extends ListFileSystemA
  * ```javascript
  * import { StorageGatewayClient, ListFileSystemAssociationsCommand } from "@aws-sdk/client-storage-gateway"; // ES Modules import
  * // const { StorageGatewayClient, ListFileSystemAssociationsCommand } = require("@aws-sdk/client-storage-gateway"); // CommonJS import
+ * // import type { StorageGatewayClientConfig } from "@aws-sdk/client-storage-gateway";
+ * const config = {}; // type is StorageGatewayClientConfig
  * const client = new StorageGatewayClient(config);
  * const input = { // ListFileSystemAssociationsInput
  *   GatewayARN: "STRING_VALUE",

@@ -34,6 +34,8 @@ export interface UpdateAIAgentCommandOutput extends UpdateAIAgentResponse, __Met
  * ```javascript
  * import { QConnectClient, UpdateAIAgentCommand } from "@aws-sdk/client-qconnect"; // ES Modules import
  * // const { QConnectClient, UpdateAIAgentCommand } = require("@aws-sdk/client-qconnect"); // CommonJS import
+ * // import type { QConnectClientConfig } from "@aws-sdk/client-qconnect";
+ * const config = {}; // type is QConnectClientConfig
  * const client = new QConnectClient(config);
  * const input = { // UpdateAIAgentRequest
  *   clientToken: "STRING_VALUE",

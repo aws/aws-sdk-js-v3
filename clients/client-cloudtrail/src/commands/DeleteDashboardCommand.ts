@@ -36,6 +36,8 @@ export interface DeleteDashboardCommandOutput extends DeleteDashboardResponse, _
  * ```javascript
  * import { CloudTrailClient, DeleteDashboardCommand } from "@aws-sdk/client-cloudtrail"; // ES Modules import
  * // const { CloudTrailClient, DeleteDashboardCommand } = require("@aws-sdk/client-cloudtrail"); // CommonJS import
+ * // import type { CloudTrailClientConfig } from "@aws-sdk/client-cloudtrail";
+ * const config = {}; // type is CloudTrailClientConfig
  * const client = new CloudTrailClient(config);
  * const input = { // DeleteDashboardRequest
  *   DashboardId: "STRING_VALUE", // required

@@ -38,6 +38,8 @@ export interface CreateFeatureCommandOutput extends CreateFeatureResponse, __Met
  * ```javascript
  * import { EvidentlyClient, CreateFeatureCommand } from "@aws-sdk/client-evidently"; // ES Modules import
  * // const { EvidentlyClient, CreateFeatureCommand } = require("@aws-sdk/client-evidently"); // CommonJS import
+ * // import type { EvidentlyClientConfig } from "@aws-sdk/client-evidently";
+ * const config = {}; // type is EvidentlyClientConfig
  * const client = new EvidentlyClient(config);
  * const input = { // CreateFeatureRequest
  *   project: "STRING_VALUE", // required

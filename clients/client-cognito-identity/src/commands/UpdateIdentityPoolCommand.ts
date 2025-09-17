@@ -40,6 +40,8 @@ export interface UpdateIdentityPoolCommandOutput extends IdentityPool, __Metadat
  * ```javascript
  * import { CognitoIdentityClient, UpdateIdentityPoolCommand } from "@aws-sdk/client-cognito-identity"; // ES Modules import
  * // const { CognitoIdentityClient, UpdateIdentityPoolCommand } = require("@aws-sdk/client-cognito-identity"); // CommonJS import
+ * // import type { CognitoIdentityClientConfig } from "@aws-sdk/client-cognito-identity";
+ * const config = {}; // type is CognitoIdentityClientConfig
  * const client = new CognitoIdentityClient(config);
  * const input = { // IdentityPool
  *   IdentityPoolId: "STRING_VALUE", // required

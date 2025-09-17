@@ -34,6 +34,8 @@ export interface ListIngestionsCommandOutput extends ListIngestionsResponse, __M
  * ```javascript
  * import { AppFabricClient, ListIngestionsCommand } from "@aws-sdk/client-appfabric"; // ES Modules import
  * // const { AppFabricClient, ListIngestionsCommand } = require("@aws-sdk/client-appfabric"); // CommonJS import
+ * // import type { AppFabricClientConfig } from "@aws-sdk/client-appfabric";
+ * const config = {}; // type is AppFabricClientConfig
  * const client = new AppFabricClient(config);
  * const input = { // ListIngestionsRequest
  *   appBundleIdentifier: "STRING_VALUE", // required

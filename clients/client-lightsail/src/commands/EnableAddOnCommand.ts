@@ -35,6 +35,8 @@ export interface EnableAddOnCommandOutput extends EnableAddOnResult, __MetadataB
  * ```javascript
  * import { LightsailClient, EnableAddOnCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, EnableAddOnCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
+ * // import type { LightsailClientConfig } from "@aws-sdk/client-lightsail";
+ * const config = {}; // type is LightsailClientConfig
  * const client = new LightsailClient(config);
  * const input = { // EnableAddOnRequest
  *   resourceName: "STRING_VALUE", // required

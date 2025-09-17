@@ -34,6 +34,8 @@ export interface GetResourcePolicyCommandOutput extends GetResourcePolicyRespons
  * ```javascript
  * import { RUMClient, GetResourcePolicyCommand } from "@aws-sdk/client-rum"; // ES Modules import
  * // const { RUMClient, GetResourcePolicyCommand } = require("@aws-sdk/client-rum"); // CommonJS import
+ * // import type { RUMClientConfig } from "@aws-sdk/client-rum";
+ * const config = {}; // type is RUMClientConfig
  * const client = new RUMClient(config);
  * const input = { // GetResourcePolicyRequest
  *   Name: "STRING_VALUE", // required

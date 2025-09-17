@@ -34,6 +34,8 @@ export interface UpdateArchiveRuleCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { AccessAnalyzerClient, UpdateArchiveRuleCommand } from "@aws-sdk/client-accessanalyzer"; // ES Modules import
  * // const { AccessAnalyzerClient, UpdateArchiveRuleCommand } = require("@aws-sdk/client-accessanalyzer"); // CommonJS import
+ * // import type { AccessAnalyzerClientConfig } from "@aws-sdk/client-accessanalyzer";
+ * const config = {}; // type is AccessAnalyzerClientConfig
  * const client = new AccessAnalyzerClient(config);
  * const input = { // UpdateArchiveRuleRequest
  *   analyzerName: "STRING_VALUE", // required

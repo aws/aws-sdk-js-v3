@@ -34,6 +34,8 @@ export interface GetRegistryPolicyCommandOutput extends GetRegistryPolicyRespons
  * ```javascript
  * import { ECRClient, GetRegistryPolicyCommand } from "@aws-sdk/client-ecr"; // ES Modules import
  * // const { ECRClient, GetRegistryPolicyCommand } = require("@aws-sdk/client-ecr"); // CommonJS import
+ * // import type { ECRClientConfig } from "@aws-sdk/client-ecr";
+ * const config = {}; // type is ECRClientConfig
  * const client = new ECRClient(config);
  * const input = {};
  * const command = new GetRegistryPolicyCommand(input);

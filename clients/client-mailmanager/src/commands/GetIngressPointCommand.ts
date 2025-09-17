@@ -34,6 +34,8 @@ export interface GetIngressPointCommandOutput extends GetIngressPointResponse, _
  * ```javascript
  * import { MailManagerClient, GetIngressPointCommand } from "@aws-sdk/client-mailmanager"; // ES Modules import
  * // const { MailManagerClient, GetIngressPointCommand } = require("@aws-sdk/client-mailmanager"); // CommonJS import
+ * // import type { MailManagerClientConfig } from "@aws-sdk/client-mailmanager";
+ * const config = {}; // type is MailManagerClientConfig
  * const client = new MailManagerClient(config);
  * const input = { // GetIngressPointRequest
  *   IngressPointId: "STRING_VALUE", // required

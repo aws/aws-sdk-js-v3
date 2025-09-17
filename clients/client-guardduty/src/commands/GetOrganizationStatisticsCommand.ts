@@ -37,6 +37,8 @@ export interface GetOrganizationStatisticsCommandOutput extends GetOrganizationS
  * ```javascript
  * import { GuardDutyClient, GetOrganizationStatisticsCommand } from "@aws-sdk/client-guardduty"; // ES Modules import
  * // const { GuardDutyClient, GetOrganizationStatisticsCommand } = require("@aws-sdk/client-guardduty"); // CommonJS import
+ * // import type { GuardDutyClientConfig } from "@aws-sdk/client-guardduty";
+ * const config = {}; // type is GuardDutyClientConfig
  * const client = new GuardDutyClient(config);
  * const input = {};
  * const command = new GetOrganizationStatisticsCommand(input);

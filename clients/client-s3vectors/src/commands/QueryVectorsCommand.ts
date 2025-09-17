@@ -34,6 +34,8 @@ export interface QueryVectorsCommandOutput extends QueryVectorsOutput, __Metadat
  * ```javascript
  * import { S3VectorsClient, QueryVectorsCommand } from "@aws-sdk/client-s3vectors"; // ES Modules import
  * // const { S3VectorsClient, QueryVectorsCommand } = require("@aws-sdk/client-s3vectors"); // CommonJS import
+ * // import type { S3VectorsClientConfig } from "@aws-sdk/client-s3vectors";
+ * const config = {}; // type is S3VectorsClientConfig
  * const client = new S3VectorsClient(config);
  * const input = { // QueryVectorsInput
  *   vectorBucketName: "STRING_VALUE",

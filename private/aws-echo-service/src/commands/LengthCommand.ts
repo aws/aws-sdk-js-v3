@@ -34,6 +34,8 @@ export interface LengthCommandOutput extends LengthOutput, __MetadataBearer {}
  * ```javascript
  * import { EchoServiceClient, LengthCommand } from "@aws-sdk/aws-echo-service"; // ES Modules import
  * // const { EchoServiceClient, LengthCommand } = require("@aws-sdk/aws-echo-service"); // CommonJS import
+ * // import type { EchoServiceClientConfig } from "@aws-sdk/aws-echo-service";
+ * const config = {}; // type is EchoServiceClientConfig
  * const client = new EchoServiceClient(config);
  * const input = { // LengthInput
  *   string: "STRING_VALUE", // required

@@ -34,6 +34,8 @@ export interface DeleteDataProductCommandOutput extends DeleteDataProductOutput,
  * ```javascript
  * import { DataZoneClient, DeleteDataProductCommand } from "@aws-sdk/client-datazone"; // ES Modules import
  * // const { DataZoneClient, DeleteDataProductCommand } = require("@aws-sdk/client-datazone"); // CommonJS import
+ * // import type { DataZoneClientConfig } from "@aws-sdk/client-datazone";
+ * const config = {}; // type is DataZoneClientConfig
  * const client = new DataZoneClient(config);
  * const input = { // DeleteDataProductInput
  *   domainIdentifier: "STRING_VALUE", // required

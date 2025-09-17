@@ -34,6 +34,8 @@ export interface CancelJobCommandOutput extends CancelJobResponse, __MetadataBea
  * ```javascript
  * import { BraketClient, CancelJobCommand } from "@aws-sdk/client-braket"; // ES Modules import
  * // const { BraketClient, CancelJobCommand } = require("@aws-sdk/client-braket"); // CommonJS import
+ * // import type { BraketClientConfig } from "@aws-sdk/client-braket";
+ * const config = {}; // type is BraketClientConfig
  * const client = new BraketClient(config);
  * const input = { // CancelJobRequest
  *   jobArn: "STRING_VALUE", // required

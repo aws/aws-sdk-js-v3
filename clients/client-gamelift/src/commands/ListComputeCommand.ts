@@ -66,6 +66,8 @@ export interface ListComputeCommandOutput extends ListComputeOutput, __MetadataB
  * ```javascript
  * import { GameLiftClient, ListComputeCommand } from "@aws-sdk/client-gamelift"; // ES Modules import
  * // const { GameLiftClient, ListComputeCommand } = require("@aws-sdk/client-gamelift"); // CommonJS import
+ * // import type { GameLiftClientConfig } from "@aws-sdk/client-gamelift";
+ * const config = {}; // type is GameLiftClientConfig
  * const client = new GameLiftClient(config);
  * const input = { // ListComputeInput
  *   FleetId: "STRING_VALUE", // required

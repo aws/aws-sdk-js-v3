@@ -34,6 +34,8 @@ export interface ListCommentsCommandOutput extends ListCommentsResponse, __Metad
  * ```javascript
  * import { SecurityIRClient, ListCommentsCommand } from "@aws-sdk/client-security-ir"; // ES Modules import
  * // const { SecurityIRClient, ListCommentsCommand } = require("@aws-sdk/client-security-ir"); // CommonJS import
+ * // import type { SecurityIRClientConfig } from "@aws-sdk/client-security-ir";
+ * const config = {}; // type is SecurityIRClientConfig
  * const client = new SecurityIRClient(config);
  * const input = { // ListCommentsRequest
  *   nextToken: "STRING_VALUE",

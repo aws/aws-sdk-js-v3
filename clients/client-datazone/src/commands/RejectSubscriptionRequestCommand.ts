@@ -39,6 +39,8 @@ export interface RejectSubscriptionRequestCommandOutput extends RejectSubscripti
  * ```javascript
  * import { DataZoneClient, RejectSubscriptionRequestCommand } from "@aws-sdk/client-datazone"; // ES Modules import
  * // const { DataZoneClient, RejectSubscriptionRequestCommand } = require("@aws-sdk/client-datazone"); // CommonJS import
+ * // import type { DataZoneClientConfig } from "@aws-sdk/client-datazone";
+ * const config = {}; // type is DataZoneClientConfig
  * const client = new DataZoneClient(config);
  * const input = { // RejectSubscriptionRequestInput
  *   domainIdentifier: "STRING_VALUE", // required

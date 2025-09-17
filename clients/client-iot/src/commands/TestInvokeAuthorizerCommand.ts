@@ -37,6 +37,8 @@ export interface TestInvokeAuthorizerCommandOutput extends TestInvokeAuthorizerR
  * ```javascript
  * import { IoTClient, TestInvokeAuthorizerCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, TestInvokeAuthorizerCommand } = require("@aws-sdk/client-iot"); // CommonJS import
+ * // import type { IoTClientConfig } from "@aws-sdk/client-iot";
+ * const config = {}; // type is IoTClientConfig
  * const client = new IoTClient(config);
  * const input = { // TestInvokeAuthorizerRequest
  *   authorizerName: "STRING_VALUE", // required

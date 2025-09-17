@@ -34,6 +34,8 @@ export interface DescribeMapCommandOutput extends DescribeMapResponse, __Metadat
  * ```javascript
  * import { LocationClient, DescribeMapCommand } from "@aws-sdk/client-location"; // ES Modules import
  * // const { LocationClient, DescribeMapCommand } = require("@aws-sdk/client-location"); // CommonJS import
+ * // import type { LocationClientConfig } from "@aws-sdk/client-location";
+ * const config = {}; // type is LocationClientConfig
  * const client = new LocationClient(config);
  * const input = { // DescribeMapRequest
  *   MapName: "STRING_VALUE", // required

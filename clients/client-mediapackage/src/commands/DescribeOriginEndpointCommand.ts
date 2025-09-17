@@ -34,6 +34,8 @@ export interface DescribeOriginEndpointCommandOutput extends DescribeOriginEndpo
  * ```javascript
  * import { MediaPackageClient, DescribeOriginEndpointCommand } from "@aws-sdk/client-mediapackage"; // ES Modules import
  * // const { MediaPackageClient, DescribeOriginEndpointCommand } = require("@aws-sdk/client-mediapackage"); // CommonJS import
+ * // import type { MediaPackageClientConfig } from "@aws-sdk/client-mediapackage";
+ * const config = {}; // type is MediaPackageClientConfig
  * const client = new MediaPackageClient(config);
  * const input = { // DescribeOriginEndpointRequest
  *   Id: "STRING_VALUE", // required

@@ -35,6 +35,8 @@ export interface CreateSecurityProfileCommandOutput extends CreateSecurityProfil
  * ```javascript
  * import { IoTClient, CreateSecurityProfileCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, CreateSecurityProfileCommand } = require("@aws-sdk/client-iot"); // CommonJS import
+ * // import type { IoTClientConfig } from "@aws-sdk/client-iot";
+ * const config = {}; // type is IoTClientConfig
  * const client = new IoTClient(config);
  * const input = { // CreateSecurityProfileRequest
  *   securityProfileName: "STRING_VALUE", // required

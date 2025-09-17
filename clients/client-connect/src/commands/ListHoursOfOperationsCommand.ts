@@ -37,6 +37,8 @@ export interface ListHoursOfOperationsCommandOutput extends ListHoursOfOperation
  * ```javascript
  * import { ConnectClient, ListHoursOfOperationsCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, ListHoursOfOperationsCommand } = require("@aws-sdk/client-connect"); // CommonJS import
+ * // import type { ConnectClientConfig } from "@aws-sdk/client-connect";
+ * const config = {}; // type is ConnectClientConfig
  * const client = new ConnectClient(config);
  * const input = { // ListHoursOfOperationsRequest
  *   InstanceId: "STRING_VALUE", // required

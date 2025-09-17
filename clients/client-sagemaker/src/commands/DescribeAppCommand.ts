@@ -34,6 +34,8 @@ export interface DescribeAppCommandOutput extends DescribeAppResponse, __Metadat
  * ```javascript
  * import { SageMakerClient, DescribeAppCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, DescribeAppCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * // import type { SageMakerClientConfig } from "@aws-sdk/client-sagemaker";
+ * const config = {}; // type is SageMakerClientConfig
  * const client = new SageMakerClient(config);
  * const input = { // DescribeAppRequest
  *   DomainId: "STRING_VALUE", // required

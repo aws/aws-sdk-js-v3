@@ -34,6 +34,8 @@ export interface GetAccountSettingsCommandOutput extends GetAccountSettingsRespo
  * ```javascript
  * import { ArtifactClient, GetAccountSettingsCommand } from "@aws-sdk/client-artifact"; // ES Modules import
  * // const { ArtifactClient, GetAccountSettingsCommand } = require("@aws-sdk/client-artifact"); // CommonJS import
+ * // import type { ArtifactClientConfig } from "@aws-sdk/client-artifact";
+ * const config = {}; // type is ArtifactClientConfig
  * const client = new ArtifactClient(config);
  * const input = {};
  * const command = new GetAccountSettingsCommand(input);

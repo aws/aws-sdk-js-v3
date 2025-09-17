@@ -56,6 +56,8 @@ export interface DeletePolicyCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { IAMClient, DeletePolicyCommand } from "@aws-sdk/client-iam"; // ES Modules import
  * // const { IAMClient, DeletePolicyCommand } = require("@aws-sdk/client-iam"); // CommonJS import
+ * // import type { IAMClientConfig } from "@aws-sdk/client-iam";
+ * const config = {}; // type is IAMClientConfig
  * const client = new IAMClient(config);
  * const input = { // DeletePolicyRequest
  *   PolicyArn: "STRING_VALUE", // required

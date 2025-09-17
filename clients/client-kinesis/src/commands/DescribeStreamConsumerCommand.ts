@@ -44,6 +44,8 @@ export interface DescribeStreamConsumerCommandOutput extends DescribeStreamConsu
  * ```javascript
  * import { KinesisClient, DescribeStreamConsumerCommand } from "@aws-sdk/client-kinesis"; // ES Modules import
  * // const { KinesisClient, DescribeStreamConsumerCommand } = require("@aws-sdk/client-kinesis"); // CommonJS import
+ * // import type { KinesisClientConfig } from "@aws-sdk/client-kinesis";
+ * const config = {}; // type is KinesisClientConfig
  * const client = new KinesisClient(config);
  * const input = { // DescribeStreamConsumerInput
  *   StreamARN: "STRING_VALUE",

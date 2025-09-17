@@ -39,6 +39,8 @@ export interface DeleteProjectPolicyCommandOutput extends DeleteProjectPolicyRes
  * ```javascript
  * import { RekognitionClient, DeleteProjectPolicyCommand } from "@aws-sdk/client-rekognition"; // ES Modules import
  * // const { RekognitionClient, DeleteProjectPolicyCommand } = require("@aws-sdk/client-rekognition"); // CommonJS import
+ * // import type { RekognitionClientConfig } from "@aws-sdk/client-rekognition";
+ * const config = {}; // type is RekognitionClientConfig
  * const client = new RekognitionClient(config);
  * const input = { // DeleteProjectPolicyRequest
  *   ProjectArn: "STRING_VALUE", // required

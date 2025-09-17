@@ -43,6 +43,8 @@ export interface UpdateDeviceCommandOutput extends UpdateDeviceResponse, __Metad
  * ```javascript
  * import { WorkSpacesThinClientClient, UpdateDeviceCommand } from "@aws-sdk/client-workspaces-thin-client"; // ES Modules import
  * // const { WorkSpacesThinClientClient, UpdateDeviceCommand } = require("@aws-sdk/client-workspaces-thin-client"); // CommonJS import
+ * // import type { WorkSpacesThinClientClientConfig } from "@aws-sdk/client-workspaces-thin-client";
+ * const config = {}; // type is WorkSpacesThinClientClientConfig
  * const client = new WorkSpacesThinClientClient(config);
  * const input = { // UpdateDeviceRequest
  *   id: "STRING_VALUE", // required

@@ -41,6 +41,8 @@ export interface PutHypervisorPropertyMappingsCommandOutput
  * ```javascript
  * import { BackupGatewayClient, PutHypervisorPropertyMappingsCommand } from "@aws-sdk/client-backup-gateway"; // ES Modules import
  * // const { BackupGatewayClient, PutHypervisorPropertyMappingsCommand } = require("@aws-sdk/client-backup-gateway"); // CommonJS import
+ * // import type { BackupGatewayClientConfig } from "@aws-sdk/client-backup-gateway";
+ * const config = {}; // type is BackupGatewayClientConfig
  * const client = new BackupGatewayClient(config);
  * const input = { // PutHypervisorPropertyMappingsInput
  *   HypervisorArn: "STRING_VALUE", // required

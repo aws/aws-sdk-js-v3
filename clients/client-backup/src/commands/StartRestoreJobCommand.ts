@@ -38,6 +38,8 @@ export interface StartRestoreJobCommandOutput extends StartRestoreJobOutput, __M
  * ```javascript
  * import { BackupClient, StartRestoreJobCommand } from "@aws-sdk/client-backup"; // ES Modules import
  * // const { BackupClient, StartRestoreJobCommand } = require("@aws-sdk/client-backup"); // CommonJS import
+ * // import type { BackupClientConfig } from "@aws-sdk/client-backup";
+ * const config = {}; // type is BackupClientConfig
  * const client = new BackupClient(config);
  * const input = { // StartRestoreJobInput
  *   RecoveryPointArn: "STRING_VALUE", // required

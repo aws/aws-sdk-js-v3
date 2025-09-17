@@ -38,6 +38,8 @@ export interface ListBrowsersCommandOutput extends ListBrowsersResponse, __Metad
  * ```javascript
  * import { BedrockAgentCoreControlClient, ListBrowsersCommand } from "@aws-sdk/client-bedrock-agentcore-control"; // ES Modules import
  * // const { BedrockAgentCoreControlClient, ListBrowsersCommand } = require("@aws-sdk/client-bedrock-agentcore-control"); // CommonJS import
+ * // import type { BedrockAgentCoreControlClientConfig } from "@aws-sdk/client-bedrock-agentcore-control";
+ * const config = {}; // type is BedrockAgentCoreControlClientConfig
  * const client = new BedrockAgentCoreControlClient(config);
  * const input = { // ListBrowsersRequest
  *   maxResults: Number("int"),

@@ -34,6 +34,8 @@ export interface ListControlsCommandOutput extends ListControlsResponse, __Metad
  * ```javascript
  * import { ControlCatalogClient, ListControlsCommand } from "@aws-sdk/client-controlcatalog"; // ES Modules import
  * // const { ControlCatalogClient, ListControlsCommand } = require("@aws-sdk/client-controlcatalog"); // CommonJS import
+ * // import type { ControlCatalogClientConfig } from "@aws-sdk/client-controlcatalog";
+ * const config = {}; // type is ControlCatalogClientConfig
  * const client = new ControlCatalogClient(config);
  * const input = { // ListControlsRequest
  *   NextToken: "STRING_VALUE",

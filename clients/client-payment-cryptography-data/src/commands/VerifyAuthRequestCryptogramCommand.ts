@@ -46,6 +46,8 @@ export interface VerifyAuthRequestCryptogramCommandOutput extends VerifyAuthRequ
  * ```javascript
  * import { PaymentCryptographyDataClient, VerifyAuthRequestCryptogramCommand } from "@aws-sdk/client-payment-cryptography-data"; // ES Modules import
  * // const { PaymentCryptographyDataClient, VerifyAuthRequestCryptogramCommand } = require("@aws-sdk/client-payment-cryptography-data"); // CommonJS import
+ * // import type { PaymentCryptographyDataClientConfig } from "@aws-sdk/client-payment-cryptography-data";
+ * const config = {}; // type is PaymentCryptographyDataClientConfig
  * const client = new PaymentCryptographyDataClient(config);
  * const input = { // VerifyAuthRequestCryptogramInput
  *   KeyIdentifier: "STRING_VALUE", // required

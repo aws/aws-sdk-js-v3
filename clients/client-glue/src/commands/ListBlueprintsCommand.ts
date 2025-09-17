@@ -34,6 +34,8 @@ export interface ListBlueprintsCommandOutput extends ListBlueprintsResponse, __M
  * ```javascript
  * import { GlueClient, ListBlueprintsCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, ListBlueprintsCommand } = require("@aws-sdk/client-glue"); // CommonJS import
+ * // import type { GlueClientConfig } from "@aws-sdk/client-glue";
+ * const config = {}; // type is GlueClientConfig
  * const client = new GlueClient(config);
  * const input = { // ListBlueprintsRequest
  *   NextToken: "STRING_VALUE",

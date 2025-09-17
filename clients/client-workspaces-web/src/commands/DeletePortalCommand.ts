@@ -34,6 +34,8 @@ export interface DeletePortalCommandOutput extends DeletePortalResponse, __Metad
  * ```javascript
  * import { WorkSpacesWebClient, DeletePortalCommand } from "@aws-sdk/client-workspaces-web"; // ES Modules import
  * // const { WorkSpacesWebClient, DeletePortalCommand } = require("@aws-sdk/client-workspaces-web"); // CommonJS import
+ * // import type { WorkSpacesWebClientConfig } from "@aws-sdk/client-workspaces-web";
+ * const config = {}; // type is WorkSpacesWebClientConfig
  * const client = new WorkSpacesWebClient(config);
  * const input = { // DeletePortalRequest
  *   portalArn: "STRING_VALUE", // required

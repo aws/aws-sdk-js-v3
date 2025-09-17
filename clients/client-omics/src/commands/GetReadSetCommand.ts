@@ -36,6 +36,8 @@ export interface GetReadSetCommandOutput extends Omit<GetReadSetResponse, "paylo
  * ```javascript
  * import { OmicsClient, GetReadSetCommand } from "@aws-sdk/client-omics"; // ES Modules import
  * // const { OmicsClient, GetReadSetCommand } = require("@aws-sdk/client-omics"); // CommonJS import
+ * // import type { OmicsClientConfig } from "@aws-sdk/client-omics";
+ * const config = {}; // type is OmicsClientConfig
  * const client = new OmicsClient(config);
  * const input = { // GetReadSetRequest
  *   id: "STRING_VALUE", // required

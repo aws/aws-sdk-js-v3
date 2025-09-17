@@ -38,6 +38,8 @@ export interface CreateSecurityPolicyCommandOutput extends CreateSecurityPolicyR
  * ```javascript
  * import { OpenSearchServerlessClient, CreateSecurityPolicyCommand } from "@aws-sdk/client-opensearchserverless"; // ES Modules import
  * // const { OpenSearchServerlessClient, CreateSecurityPolicyCommand } = require("@aws-sdk/client-opensearchserverless"); // CommonJS import
+ * // import type { OpenSearchServerlessClientConfig } from "@aws-sdk/client-opensearchserverless";
+ * const config = {}; // type is OpenSearchServerlessClientConfig
  * const client = new OpenSearchServerlessClient(config);
  * const input = { // CreateSecurityPolicyRequest
  *   type: "STRING_VALUE", // required

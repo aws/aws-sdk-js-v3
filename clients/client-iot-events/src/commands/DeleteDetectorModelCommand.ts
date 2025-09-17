@@ -35,6 +35,8 @@ export interface DeleteDetectorModelCommandOutput extends DeleteDetectorModelRes
  * ```javascript
  * import { IoTEventsClient, DeleteDetectorModelCommand } from "@aws-sdk/client-iot-events"; // ES Modules import
  * // const { IoTEventsClient, DeleteDetectorModelCommand } = require("@aws-sdk/client-iot-events"); // CommonJS import
+ * // import type { IoTEventsClientConfig } from "@aws-sdk/client-iot-events";
+ * const config = {}; // type is IoTEventsClientConfig
  * const client = new IoTEventsClient(config);
  * const input = { // DeleteDetectorModelRequest
  *   detectorModelName: "STRING_VALUE", // required

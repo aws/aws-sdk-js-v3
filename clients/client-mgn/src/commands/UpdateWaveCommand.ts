@@ -34,6 +34,8 @@ export interface UpdateWaveCommandOutput extends Wave, __MetadataBearer {}
  * ```javascript
  * import { MgnClient, UpdateWaveCommand } from "@aws-sdk/client-mgn"; // ES Modules import
  * // const { MgnClient, UpdateWaveCommand } = require("@aws-sdk/client-mgn"); // CommonJS import
+ * // import type { MgnClientConfig } from "@aws-sdk/client-mgn";
+ * const config = {}; // type is MgnClientConfig
  * const client = new MgnClient(config);
  * const input = { // UpdateWaveRequest
  *   waveID: "STRING_VALUE", // required

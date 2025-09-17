@@ -34,6 +34,8 @@ export interface CancelLoaderJobCommandOutput extends CancelLoaderJobOutput, __M
  * ```javascript
  * import { NeptunedataClient, CancelLoaderJobCommand } from "@aws-sdk/client-neptunedata"; // ES Modules import
  * // const { NeptunedataClient, CancelLoaderJobCommand } = require("@aws-sdk/client-neptunedata"); // CommonJS import
+ * // import type { NeptunedataClientConfig } from "@aws-sdk/client-neptunedata";
+ * const config = {}; // type is NeptunedataClientConfig
  * const client = new NeptunedataClient(config);
  * const input = { // CancelLoaderJobInput
  *   loadId: "STRING_VALUE", // required

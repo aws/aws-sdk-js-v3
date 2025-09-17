@@ -34,6 +34,8 @@ export interface AddLFTagsToResourceCommandOutput extends AddLFTagsToResourceRes
  * ```javascript
  * import { LakeFormationClient, AddLFTagsToResourceCommand } from "@aws-sdk/client-lakeformation"; // ES Modules import
  * // const { LakeFormationClient, AddLFTagsToResourceCommand } = require("@aws-sdk/client-lakeformation"); // CommonJS import
+ * // import type { LakeFormationClientConfig } from "@aws-sdk/client-lakeformation";
+ * const config = {}; // type is LakeFormationClientConfig
  * const client = new LakeFormationClient(config);
  * const input = { // AddLFTagsToResourceRequest
  *   CatalogId: "STRING_VALUE",

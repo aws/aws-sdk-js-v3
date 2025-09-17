@@ -50,6 +50,8 @@ export interface ListLunaClientsCommandOutput extends ListLunaClientsResponse, _
  * ```javascript
  * import { CloudHSMClient, ListLunaClientsCommand } from "@aws-sdk/client-cloudhsm"; // ES Modules import
  * // const { CloudHSMClient, ListLunaClientsCommand } = require("@aws-sdk/client-cloudhsm"); // CommonJS import
+ * // import type { CloudHSMClientConfig } from "@aws-sdk/client-cloudhsm";
+ * const config = {}; // type is CloudHSMClientConfig
  * const client = new CloudHSMClient(config);
  * const input = { // ListLunaClientsRequest
  *   NextToken: "STRING_VALUE",

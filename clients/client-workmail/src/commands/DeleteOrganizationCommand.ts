@@ -34,6 +34,8 @@ export interface DeleteOrganizationCommandOutput extends DeleteOrganizationRespo
  * ```javascript
  * import { WorkMailClient, DeleteOrganizationCommand } from "@aws-sdk/client-workmail"; // ES Modules import
  * // const { WorkMailClient, DeleteOrganizationCommand } = require("@aws-sdk/client-workmail"); // CommonJS import
+ * // import type { WorkMailClientConfig } from "@aws-sdk/client-workmail";
+ * const config = {}; // type is WorkMailClientConfig
  * const client = new WorkMailClient(config);
  * const input = { // DeleteOrganizationRequest
  *   ClientToken: "STRING_VALUE",

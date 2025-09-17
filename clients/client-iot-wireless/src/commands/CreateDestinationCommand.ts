@@ -34,6 +34,8 @@ export interface CreateDestinationCommandOutput extends CreateDestinationRespons
  * ```javascript
  * import { IoTWirelessClient, CreateDestinationCommand } from "@aws-sdk/client-iot-wireless"; // ES Modules import
  * // const { IoTWirelessClient, CreateDestinationCommand } = require("@aws-sdk/client-iot-wireless"); // CommonJS import
+ * // import type { IoTWirelessClientConfig } from "@aws-sdk/client-iot-wireless";
+ * const config = {}; // type is IoTWirelessClientConfig
  * const client = new IoTWirelessClient(config);
  * const input = { // CreateDestinationRequest
  *   Name: "STRING_VALUE", // required

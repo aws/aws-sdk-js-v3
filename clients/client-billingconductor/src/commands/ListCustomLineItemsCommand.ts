@@ -41,6 +41,8 @@ export interface ListCustomLineItemsCommandOutput extends ListCustomLineItemsOut
  * ```javascript
  * import { BillingconductorClient, ListCustomLineItemsCommand } from "@aws-sdk/client-billingconductor"; // ES Modules import
  * // const { BillingconductorClient, ListCustomLineItemsCommand } = require("@aws-sdk/client-billingconductor"); // CommonJS import
+ * // import type { BillingconductorClientConfig } from "@aws-sdk/client-billingconductor";
+ * const config = {}; // type is BillingconductorClientConfig
  * const client = new BillingconductorClient(config);
  * const input = { // ListCustomLineItemsInput
  *   BillingPeriod: "STRING_VALUE",

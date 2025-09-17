@@ -44,6 +44,8 @@ export interface DeleteFirewallCommandOutput extends DeleteFirewallResponse, __M
  * ```javascript
  * import { NetworkFirewallClient, DeleteFirewallCommand } from "@aws-sdk/client-network-firewall"; // ES Modules import
  * // const { NetworkFirewallClient, DeleteFirewallCommand } = require("@aws-sdk/client-network-firewall"); // CommonJS import
+ * // import type { NetworkFirewallClientConfig } from "@aws-sdk/client-network-firewall";
+ * const config = {}; // type is NetworkFirewallClientConfig
  * const client = new NetworkFirewallClient(config);
  * const input = { // DeleteFirewallRequest
  *   FirewallName: "STRING_VALUE",

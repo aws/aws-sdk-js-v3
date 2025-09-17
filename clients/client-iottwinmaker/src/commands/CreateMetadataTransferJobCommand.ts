@@ -34,6 +34,8 @@ export interface CreateMetadataTransferJobCommandOutput extends CreateMetadataTr
  * ```javascript
  * import { IoTTwinMakerClient, CreateMetadataTransferJobCommand } from "@aws-sdk/client-iottwinmaker"; // ES Modules import
  * // const { IoTTwinMakerClient, CreateMetadataTransferJobCommand } = require("@aws-sdk/client-iottwinmaker"); // CommonJS import
+ * // import type { IoTTwinMakerClientConfig } from "@aws-sdk/client-iottwinmaker";
+ * const config = {}; // type is IoTTwinMakerClientConfig
  * const client = new IoTTwinMakerClient(config);
  * const input = { // CreateMetadataTransferJobRequest
  *   metadataTransferJobId: "STRING_VALUE",

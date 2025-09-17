@@ -34,6 +34,8 @@ export interface ListDomainMaintenancesCommandOutput extends ListDomainMaintenan
  * ```javascript
  * import { OpenSearchClient, ListDomainMaintenancesCommand } from "@aws-sdk/client-opensearch"; // ES Modules import
  * // const { OpenSearchClient, ListDomainMaintenancesCommand } = require("@aws-sdk/client-opensearch"); // CommonJS import
+ * // import type { OpenSearchClientConfig } from "@aws-sdk/client-opensearch";
+ * const config = {}; // type is OpenSearchClientConfig
  * const client = new OpenSearchClient(config);
  * const input = { // ListDomainMaintenancesRequest
  *   DomainName: "STRING_VALUE", // required

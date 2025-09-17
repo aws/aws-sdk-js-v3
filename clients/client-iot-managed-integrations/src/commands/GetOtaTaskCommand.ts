@@ -38,6 +38,8 @@ export interface GetOtaTaskCommandOutput extends GetOtaTaskResponse, __MetadataB
  * ```javascript
  * import { IoTManagedIntegrationsClient, GetOtaTaskCommand } from "@aws-sdk/client-iot-managed-integrations"; // ES Modules import
  * // const { IoTManagedIntegrationsClient, GetOtaTaskCommand } = require("@aws-sdk/client-iot-managed-integrations"); // CommonJS import
+ * // import type { IoTManagedIntegrationsClientConfig } from "@aws-sdk/client-iot-managed-integrations";
+ * const config = {}; // type is IoTManagedIntegrationsClientConfig
  * const client = new IoTManagedIntegrationsClient(config);
  * const input = { // GetOtaTaskRequest
  *   Identifier: "STRING_VALUE", // required

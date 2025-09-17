@@ -34,6 +34,8 @@ export interface ListTrackersCommandOutput extends ListTrackersResponse, __Metad
  * ```javascript
  * import { LocationClient, ListTrackersCommand } from "@aws-sdk/client-location"; // ES Modules import
  * // const { LocationClient, ListTrackersCommand } = require("@aws-sdk/client-location"); // CommonJS import
+ * // import type { LocationClientConfig } from "@aws-sdk/client-location";
+ * const config = {}; // type is LocationClientConfig
  * const client = new LocationClient(config);
  * const input = { // ListTrackersRequest
  *   MaxResults: Number("int"),

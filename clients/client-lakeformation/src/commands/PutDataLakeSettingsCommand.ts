@@ -35,6 +35,8 @@ export interface PutDataLakeSettingsCommandOutput extends PutDataLakeSettingsRes
  * ```javascript
  * import { LakeFormationClient, PutDataLakeSettingsCommand } from "@aws-sdk/client-lakeformation"; // ES Modules import
  * // const { LakeFormationClient, PutDataLakeSettingsCommand } = require("@aws-sdk/client-lakeformation"); // CommonJS import
+ * // import type { LakeFormationClientConfig } from "@aws-sdk/client-lakeformation";
+ * const config = {}; // type is LakeFormationClientConfig
  * const client = new LakeFormationClient(config);
  * const input = { // PutDataLakeSettingsRequest
  *   CatalogId: "STRING_VALUE",

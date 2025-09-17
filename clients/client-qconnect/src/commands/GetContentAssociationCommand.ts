@@ -34,6 +34,8 @@ export interface GetContentAssociationCommandOutput extends GetContentAssociatio
  * ```javascript
  * import { QConnectClient, GetContentAssociationCommand } from "@aws-sdk/client-qconnect"; // ES Modules import
  * // const { QConnectClient, GetContentAssociationCommand } = require("@aws-sdk/client-qconnect"); // CommonJS import
+ * // import type { QConnectClientConfig } from "@aws-sdk/client-qconnect";
+ * const config = {}; // type is QConnectClientConfig
  * const client = new QConnectClient(config);
  * const input = { // GetContentAssociationRequest
  *   knowledgeBaseId: "STRING_VALUE", // required

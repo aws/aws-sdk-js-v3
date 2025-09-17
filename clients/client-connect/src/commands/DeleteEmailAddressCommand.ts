@@ -34,6 +34,8 @@ export interface DeleteEmailAddressCommandOutput extends DeleteEmailAddressRespo
  * ```javascript
  * import { ConnectClient, DeleteEmailAddressCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, DeleteEmailAddressCommand } = require("@aws-sdk/client-connect"); // CommonJS import
+ * // import type { ConnectClientConfig } from "@aws-sdk/client-connect";
+ * const config = {}; // type is ConnectClientConfig
  * const client = new ConnectClient(config);
  * const input = { // DeleteEmailAddressRequest
  *   InstanceId: "STRING_VALUE", // required

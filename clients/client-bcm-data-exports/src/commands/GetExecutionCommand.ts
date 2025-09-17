@@ -34,6 +34,8 @@ export interface GetExecutionCommandOutput extends GetExecutionResponse, __Metad
  * ```javascript
  * import { BCMDataExportsClient, GetExecutionCommand } from "@aws-sdk/client-bcm-data-exports"; // ES Modules import
  * // const { BCMDataExportsClient, GetExecutionCommand } = require("@aws-sdk/client-bcm-data-exports"); // CommonJS import
+ * // import type { BCMDataExportsClientConfig } from "@aws-sdk/client-bcm-data-exports";
+ * const config = {}; // type is BCMDataExportsClientConfig
  * const client = new BCMDataExportsClient(config);
  * const input = { // GetExecutionRequest
  *   ExportArn: "STRING_VALUE", // required

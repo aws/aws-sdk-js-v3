@@ -35,6 +35,8 @@ export interface StartDBClusterCommandOutput extends StartDBClusterResult, __Met
  * ```javascript
  * import { NeptuneClient, StartDBClusterCommand } from "@aws-sdk/client-neptune"; // ES Modules import
  * // const { NeptuneClient, StartDBClusterCommand } = require("@aws-sdk/client-neptune"); // CommonJS import
+ * // import type { NeptuneClientConfig } from "@aws-sdk/client-neptune";
+ * const config = {}; // type is NeptuneClientConfig
  * const client = new NeptuneClient(config);
  * const input = { // StartDBClusterMessage
  *   DBClusterIdentifier: "STRING_VALUE", // required

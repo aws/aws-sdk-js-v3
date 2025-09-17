@@ -36,6 +36,8 @@ export interface DescribeRuleGroupSummaryCommandOutput extends DescribeRuleGroup
  * ```javascript
  * import { NetworkFirewallClient, DescribeRuleGroupSummaryCommand } from "@aws-sdk/client-network-firewall"; // ES Modules import
  * // const { NetworkFirewallClient, DescribeRuleGroupSummaryCommand } = require("@aws-sdk/client-network-firewall"); // CommonJS import
+ * // import type { NetworkFirewallClientConfig } from "@aws-sdk/client-network-firewall";
+ * const config = {}; // type is NetworkFirewallClientConfig
  * const client = new NetworkFirewallClient(config);
  * const input = { // DescribeRuleGroupSummaryRequest
  *   RuleGroupName: "STRING_VALUE",

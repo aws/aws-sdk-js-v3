@@ -35,6 +35,8 @@ export interface ModifyAccountCommandOutput extends ModifyAccountResult, __Metad
  * ```javascript
  * import { WorkSpacesClient, ModifyAccountCommand } from "@aws-sdk/client-workspaces"; // ES Modules import
  * // const { WorkSpacesClient, ModifyAccountCommand } = require("@aws-sdk/client-workspaces"); // CommonJS import
+ * // import type { WorkSpacesClientConfig } from "@aws-sdk/client-workspaces";
+ * const config = {}; // type is WorkSpacesClientConfig
  * const client = new WorkSpacesClient(config);
  * const input = { // ModifyAccountRequest
  *   DedicatedTenancySupport: "ENABLED",

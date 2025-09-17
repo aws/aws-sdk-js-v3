@@ -38,6 +38,8 @@ export interface GetGroupProfileCommandOutput extends GetGroupProfileOutput, __M
  * ```javascript
  * import { DataZoneClient, GetGroupProfileCommand } from "@aws-sdk/client-datazone"; // ES Modules import
  * // const { DataZoneClient, GetGroupProfileCommand } = require("@aws-sdk/client-datazone"); // CommonJS import
+ * // import type { DataZoneClientConfig } from "@aws-sdk/client-datazone";
+ * const config = {}; // type is DataZoneClientConfig
  * const client = new DataZoneClient(config);
  * const input = { // GetGroupProfileInput
  *   domainIdentifier: "STRING_VALUE", // required

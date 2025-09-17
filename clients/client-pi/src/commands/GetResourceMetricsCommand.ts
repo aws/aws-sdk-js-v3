@@ -40,6 +40,8 @@ export interface GetResourceMetricsCommandOutput extends GetResourceMetricsRespo
  * ```javascript
  * import { PIClient, GetResourceMetricsCommand } from "@aws-sdk/client-pi"; // ES Modules import
  * // const { PIClient, GetResourceMetricsCommand } = require("@aws-sdk/client-pi"); // CommonJS import
+ * // import type { PIClientConfig } from "@aws-sdk/client-pi";
+ * const config = {}; // type is PIClientConfig
  * const client = new PIClient(config);
  * const input = { // GetResourceMetricsRequest
  *   ServiceType: "RDS" || "DOCDB", // required

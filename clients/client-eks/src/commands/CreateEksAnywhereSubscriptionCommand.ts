@@ -42,6 +42,8 @@ export interface CreateEksAnywhereSubscriptionCommandOutput
  * ```javascript
  * import { EKSClient, CreateEksAnywhereSubscriptionCommand } from "@aws-sdk/client-eks"; // ES Modules import
  * // const { EKSClient, CreateEksAnywhereSubscriptionCommand } = require("@aws-sdk/client-eks"); // CommonJS import
+ * // import type { EKSClientConfig } from "@aws-sdk/client-eks";
+ * const config = {}; // type is EKSClientConfig
  * const client = new EKSClient(config);
  * const input = { // CreateEksAnywhereSubscriptionRequest
  *   name: "STRING_VALUE", // required

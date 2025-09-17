@@ -43,6 +43,8 @@ export interface RegisterComputeNodeGroupInstanceCommandOutput
  * ```javascript
  * import { PCSClient, RegisterComputeNodeGroupInstanceCommand } from "@aws-sdk/client-pcs"; // ES Modules import
  * // const { PCSClient, RegisterComputeNodeGroupInstanceCommand } = require("@aws-sdk/client-pcs"); // CommonJS import
+ * // import type { PCSClientConfig } from "@aws-sdk/client-pcs";
+ * const config = {}; // type is PCSClientConfig
  * const client = new PCSClient(config);
  * const input = { // RegisterComputeNodeGroupInstanceRequest
  *   clusterIdentifier: "STRING_VALUE", // required

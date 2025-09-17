@@ -35,6 +35,8 @@ export interface DescribeSMBSettingsCommandOutput extends DescribeSMBSettingsOut
  * ```javascript
  * import { StorageGatewayClient, DescribeSMBSettingsCommand } from "@aws-sdk/client-storage-gateway"; // ES Modules import
  * // const { StorageGatewayClient, DescribeSMBSettingsCommand } = require("@aws-sdk/client-storage-gateway"); // CommonJS import
+ * // import type { StorageGatewayClientConfig } from "@aws-sdk/client-storage-gateway";
+ * const config = {}; // type is StorageGatewayClientConfig
  * const client = new StorageGatewayClient(config);
  * const input = { // DescribeSMBSettingsInput
  *   GatewayARN: "STRING_VALUE", // required

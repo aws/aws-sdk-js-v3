@@ -39,6 +39,8 @@ export interface GetDetectorsCommandOutput extends GetDetectorsResult, __Metadat
  * ```javascript
  * import { FraudDetectorClient, GetDetectorsCommand } from "@aws-sdk/client-frauddetector"; // ES Modules import
  * // const { FraudDetectorClient, GetDetectorsCommand } = require("@aws-sdk/client-frauddetector"); // CommonJS import
+ * // import type { FraudDetectorClientConfig } from "@aws-sdk/client-frauddetector";
+ * const config = {}; // type is FraudDetectorClientConfig
  * const client = new FraudDetectorClient(config);
  * const input = { // GetDetectorsRequest
  *   detectorId: "STRING_VALUE",

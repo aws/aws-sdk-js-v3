@@ -34,6 +34,8 @@ export interface DescribeInsightCommandOutput extends DescribeInsightResponse, _
  * ```javascript
  * import { EKSClient, DescribeInsightCommand } from "@aws-sdk/client-eks"; // ES Modules import
  * // const { EKSClient, DescribeInsightCommand } = require("@aws-sdk/client-eks"); // CommonJS import
+ * // import type { EKSClientConfig } from "@aws-sdk/client-eks";
+ * const config = {}; // type is EKSClientConfig
  * const client = new EKSClient(config);
  * const input = { // DescribeInsightRequest
  *   clusterName: "STRING_VALUE", // required

@@ -35,6 +35,8 @@ export interface DeleteAssessmentRunCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { InspectorClient, DeleteAssessmentRunCommand } from "@aws-sdk/client-inspector"; // ES Modules import
  * // const { InspectorClient, DeleteAssessmentRunCommand } = require("@aws-sdk/client-inspector"); // CommonJS import
+ * // import type { InspectorClientConfig } from "@aws-sdk/client-inspector";
+ * const config = {}; // type is InspectorClientConfig
  * const client = new InspectorClient(config);
  * const input = { // DeleteAssessmentRunRequest
  *   assessmentRunArn: "STRING_VALUE", // required

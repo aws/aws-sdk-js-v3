@@ -39,6 +39,8 @@ export interface CreateBranchCommandOutput extends CreateBranchResult, __Metadat
  * ```javascript
  * import { AmplifyClient, CreateBranchCommand } from "@aws-sdk/client-amplify"; // ES Modules import
  * // const { AmplifyClient, CreateBranchCommand } = require("@aws-sdk/client-amplify"); // CommonJS import
+ * // import type { AmplifyClientConfig } from "@aws-sdk/client-amplify";
+ * const config = {}; // type is AmplifyClientConfig
  * const client = new AmplifyClient(config);
  * const input = { // CreateBranchRequest
  *   appId: "STRING_VALUE", // required

@@ -38,6 +38,8 @@ export interface UpdateAccountAssociationCommandOutput extends __MetadataBearer 
  * ```javascript
  * import { IoTManagedIntegrationsClient, UpdateAccountAssociationCommand } from "@aws-sdk/client-iot-managed-integrations"; // ES Modules import
  * // const { IoTManagedIntegrationsClient, UpdateAccountAssociationCommand } = require("@aws-sdk/client-iot-managed-integrations"); // CommonJS import
+ * // import type { IoTManagedIntegrationsClientConfig } from "@aws-sdk/client-iot-managed-integrations";
+ * const config = {}; // type is IoTManagedIntegrationsClientConfig
  * const client = new IoTManagedIntegrationsClient(config);
  * const input = { // UpdateAccountAssociationRequest
  *   AccountAssociationId: "STRING_VALUE", // required

@@ -35,6 +35,8 @@ export interface DeleteParameterGroupCommandOutput extends DeleteParameterGroupR
  * ```javascript
  * import { DAXClient, DeleteParameterGroupCommand } from "@aws-sdk/client-dax"; // ES Modules import
  * // const { DAXClient, DeleteParameterGroupCommand } = require("@aws-sdk/client-dax"); // CommonJS import
+ * // import type { DAXClientConfig } from "@aws-sdk/client-dax";
+ * const config = {}; // type is DAXClientConfig
  * const client = new DAXClient(config);
  * const input = { // DeleteParameterGroupRequest
  *   ParameterGroupName: "STRING_VALUE", // required

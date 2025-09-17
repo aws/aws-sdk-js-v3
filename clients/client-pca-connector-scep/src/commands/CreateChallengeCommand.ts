@@ -39,6 +39,8 @@ export interface CreateChallengeCommandOutput extends CreateChallengeResponse, _
  * ```javascript
  * import { PcaConnectorScepClient, CreateChallengeCommand } from "@aws-sdk/client-pca-connector-scep"; // ES Modules import
  * // const { PcaConnectorScepClient, CreateChallengeCommand } = require("@aws-sdk/client-pca-connector-scep"); // CommonJS import
+ * // import type { PcaConnectorScepClientConfig } from "@aws-sdk/client-pca-connector-scep";
+ * const config = {}; // type is PcaConnectorScepClientConfig
  * const client = new PcaConnectorScepClient(config);
  * const input = { // CreateChallengeRequest
  *   ConnectorArn: "STRING_VALUE", // required

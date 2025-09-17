@@ -38,6 +38,8 @@ export interface GetKxConnectionStringCommandOutput extends GetKxConnectionStrin
  * ```javascript
  * import { FinspaceClient, GetKxConnectionStringCommand } from "@aws-sdk/client-finspace"; // ES Modules import
  * // const { FinspaceClient, GetKxConnectionStringCommand } = require("@aws-sdk/client-finspace"); // CommonJS import
+ * // import type { FinspaceClientConfig } from "@aws-sdk/client-finspace";
+ * const config = {}; // type is FinspaceClientConfig
  * const client = new FinspaceClient(config);
  * const input = { // GetKxConnectionStringRequest
  *   userArn: "STRING_VALUE", // required

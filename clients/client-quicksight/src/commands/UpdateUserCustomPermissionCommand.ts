@@ -34,6 +34,8 @@ export interface UpdateUserCustomPermissionCommandOutput extends UpdateUserCusto
  * ```javascript
  * import { QuickSightClient, UpdateUserCustomPermissionCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
  * // const { QuickSightClient, UpdateUserCustomPermissionCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
+ * // import type { QuickSightClientConfig } from "@aws-sdk/client-quicksight";
+ * const config = {}; // type is QuickSightClientConfig
  * const client = new QuickSightClient(config);
  * const input = { // UpdateUserCustomPermissionRequest
  *   UserName: "STRING_VALUE", // required

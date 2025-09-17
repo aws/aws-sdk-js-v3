@@ -41,6 +41,8 @@ export interface DescribeEncryptionConfigurationCommandOutput
  * ```javascript
  * import { IoTClient, DescribeEncryptionConfigurationCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, DescribeEncryptionConfigurationCommand } = require("@aws-sdk/client-iot"); // CommonJS import
+ * // import type { IoTClientConfig } from "@aws-sdk/client-iot";
+ * const config = {}; // type is IoTClientConfig
  * const client = new IoTClient(config);
  * const input = {};
  * const command = new DescribeEncryptionConfigurationCommand(input);

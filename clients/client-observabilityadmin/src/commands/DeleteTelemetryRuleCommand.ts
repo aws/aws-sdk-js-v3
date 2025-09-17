@@ -40,6 +40,8 @@ export interface DeleteTelemetryRuleCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { ObservabilityAdminClient, DeleteTelemetryRuleCommand } from "@aws-sdk/client-observabilityadmin"; // ES Modules import
  * // const { ObservabilityAdminClient, DeleteTelemetryRuleCommand } = require("@aws-sdk/client-observabilityadmin"); // CommonJS import
+ * // import type { ObservabilityAdminClientConfig } from "@aws-sdk/client-observabilityadmin";
+ * const config = {}; // type is ObservabilityAdminClientConfig
  * const client = new ObservabilityAdminClient(config);
  * const input = { // DeleteTelemetryRuleInput
  *   RuleIdentifier: "STRING_VALUE", // required

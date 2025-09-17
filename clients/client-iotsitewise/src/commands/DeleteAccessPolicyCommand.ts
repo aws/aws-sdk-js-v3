@@ -36,6 +36,8 @@ export interface DeleteAccessPolicyCommandOutput extends DeleteAccessPolicyRespo
  * ```javascript
  * import { IoTSiteWiseClient, DeleteAccessPolicyCommand } from "@aws-sdk/client-iotsitewise"; // ES Modules import
  * // const { IoTSiteWiseClient, DeleteAccessPolicyCommand } = require("@aws-sdk/client-iotsitewise"); // CommonJS import
+ * // import type { IoTSiteWiseClientConfig } from "@aws-sdk/client-iotsitewise";
+ * const config = {}; // type is IoTSiteWiseClientConfig
  * const client = new IoTSiteWiseClient(config);
  * const input = { // DeleteAccessPolicyRequest
  *   accessPolicyId: "STRING_VALUE", // required

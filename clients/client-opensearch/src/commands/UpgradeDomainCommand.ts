@@ -35,6 +35,8 @@ export interface UpgradeDomainCommandOutput extends UpgradeDomainResponse, __Met
  * ```javascript
  * import { OpenSearchClient, UpgradeDomainCommand } from "@aws-sdk/client-opensearch"; // ES Modules import
  * // const { OpenSearchClient, UpgradeDomainCommand } = require("@aws-sdk/client-opensearch"); // CommonJS import
+ * // import type { OpenSearchClientConfig } from "@aws-sdk/client-opensearch";
+ * const config = {}; // type is OpenSearchClientConfig
  * const client = new OpenSearchClient(config);
  * const input = { // UpgradeDomainRequest
  *   DomainName: "STRING_VALUE", // required

@@ -34,6 +34,8 @@ export interface ListStackRefactorsCommandOutput extends ListStackRefactorsOutpu
  * ```javascript
  * import { CloudFormationClient, ListStackRefactorsCommand } from "@aws-sdk/client-cloudformation"; // ES Modules import
  * // const { CloudFormationClient, ListStackRefactorsCommand } = require("@aws-sdk/client-cloudformation"); // CommonJS import
+ * // import type { CloudFormationClientConfig } from "@aws-sdk/client-cloudformation";
+ * const config = {}; // type is CloudFormationClientConfig
  * const client = new CloudFormationClient(config);
  * const input = { // ListStackRefactorsInput
  *   ExecutionStatusFilter: [ // StackRefactorExecutionStatusFilter

@@ -61,6 +61,8 @@ export interface GetPlaceCommandOutput extends GetPlaceResponse, __MetadataBeare
  * ```javascript
  * import { LocationClient, GetPlaceCommand } from "@aws-sdk/client-location"; // ES Modules import
  * // const { LocationClient, GetPlaceCommand } = require("@aws-sdk/client-location"); // CommonJS import
+ * // import type { LocationClientConfig } from "@aws-sdk/client-location";
+ * const config = {}; // type is LocationClientConfig
  * const client = new LocationClient(config);
  * const input = { // GetPlaceRequest
  *   IndexName: "STRING_VALUE", // required

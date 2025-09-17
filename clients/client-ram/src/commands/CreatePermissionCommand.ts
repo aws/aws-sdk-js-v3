@@ -35,6 +35,8 @@ export interface CreatePermissionCommandOutput extends CreatePermissionResponse,
  * ```javascript
  * import { RAMClient, CreatePermissionCommand } from "@aws-sdk/client-ram"; // ES Modules import
  * // const { RAMClient, CreatePermissionCommand } = require("@aws-sdk/client-ram"); // CommonJS import
+ * // import type { RAMClientConfig } from "@aws-sdk/client-ram";
+ * const config = {}; // type is RAMClientConfig
  * const client = new RAMClient(config);
  * const input = { // CreatePermissionRequest
  *   name: "STRING_VALUE", // required

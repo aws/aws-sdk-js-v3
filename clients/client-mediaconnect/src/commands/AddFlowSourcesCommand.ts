@@ -34,6 +34,8 @@ export interface AddFlowSourcesCommandOutput extends AddFlowSourcesResponse, __M
  * ```javascript
  * import { MediaConnectClient, AddFlowSourcesCommand } from "@aws-sdk/client-mediaconnect"; // ES Modules import
  * // const { MediaConnectClient, AddFlowSourcesCommand } = require("@aws-sdk/client-mediaconnect"); // CommonJS import
+ * // import type { MediaConnectClientConfig } from "@aws-sdk/client-mediaconnect";
+ * const config = {}; // type is MediaConnectClientConfig
  * const client = new MediaConnectClient(config);
  * const input = { // AddFlowSourcesRequest
  *   FlowArn: "STRING_VALUE", // required

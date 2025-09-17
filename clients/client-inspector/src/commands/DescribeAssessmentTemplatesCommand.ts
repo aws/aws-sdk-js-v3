@@ -37,6 +37,8 @@ export interface DescribeAssessmentTemplatesCommandOutput
  * ```javascript
  * import { InspectorClient, DescribeAssessmentTemplatesCommand } from "@aws-sdk/client-inspector"; // ES Modules import
  * // const { InspectorClient, DescribeAssessmentTemplatesCommand } = require("@aws-sdk/client-inspector"); // CommonJS import
+ * // import type { InspectorClientConfig } from "@aws-sdk/client-inspector";
+ * const config = {}; // type is InspectorClientConfig
  * const client = new InspectorClient(config);
  * const input = { // DescribeAssessmentTemplatesRequest
  *   assessmentTemplateArns: [ // BatchDescribeArnList // required

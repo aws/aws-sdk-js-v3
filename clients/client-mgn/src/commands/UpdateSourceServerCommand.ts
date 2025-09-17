@@ -34,6 +34,8 @@ export interface UpdateSourceServerCommandOutput extends SourceServer, __Metadat
  * ```javascript
  * import { MgnClient, UpdateSourceServerCommand } from "@aws-sdk/client-mgn"; // ES Modules import
  * // const { MgnClient, UpdateSourceServerCommand } = require("@aws-sdk/client-mgn"); // CommonJS import
+ * // import type { MgnClientConfig } from "@aws-sdk/client-mgn";
+ * const config = {}; // type is MgnClientConfig
  * const client = new MgnClient(config);
  * const input = { // UpdateSourceServerRequest
  *   accountID: "STRING_VALUE",

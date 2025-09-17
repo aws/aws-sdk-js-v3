@@ -42,6 +42,8 @@ export interface DeleteResourceEndpointAssociationCommandOutput
  * ```javascript
  * import { VPCLatticeClient, DeleteResourceEndpointAssociationCommand } from "@aws-sdk/client-vpc-lattice"; // ES Modules import
  * // const { VPCLatticeClient, DeleteResourceEndpointAssociationCommand } = require("@aws-sdk/client-vpc-lattice"); // CommonJS import
+ * // import type { VPCLatticeClientConfig } from "@aws-sdk/client-vpc-lattice";
+ * const config = {}; // type is VPCLatticeClientConfig
  * const client = new VPCLatticeClient(config);
  * const input = { // DeleteResourceEndpointAssociationRequest
  *   resourceEndpointAssociationIdentifier: "STRING_VALUE", // required

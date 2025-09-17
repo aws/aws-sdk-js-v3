@@ -38,6 +38,8 @@ export interface GetEventLogConfigurationCommandOutput extends GetEventLogConfig
  * ```javascript
  * import { IoTManagedIntegrationsClient, GetEventLogConfigurationCommand } from "@aws-sdk/client-iot-managed-integrations"; // ES Modules import
  * // const { IoTManagedIntegrationsClient, GetEventLogConfigurationCommand } = require("@aws-sdk/client-iot-managed-integrations"); // CommonJS import
+ * // import type { IoTManagedIntegrationsClientConfig } from "@aws-sdk/client-iot-managed-integrations";
+ * const config = {}; // type is IoTManagedIntegrationsClientConfig
  * const client = new IoTManagedIntegrationsClient(config);
  * const input = { // GetEventLogConfigurationRequest
  *   Id: "STRING_VALUE", // required

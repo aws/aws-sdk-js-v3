@@ -34,6 +34,8 @@ export interface DescribeWorkspacesPoolsCommandOutput extends DescribeWorkspaces
  * ```javascript
  * import { WorkSpacesClient, DescribeWorkspacesPoolsCommand } from "@aws-sdk/client-workspaces"; // ES Modules import
  * // const { WorkSpacesClient, DescribeWorkspacesPoolsCommand } = require("@aws-sdk/client-workspaces"); // CommonJS import
+ * // import type { WorkSpacesClientConfig } from "@aws-sdk/client-workspaces";
+ * const config = {}; // type is WorkSpacesClientConfig
  * const client = new WorkSpacesClient(config);
  * const input = { // DescribeWorkspacesPoolsRequest
  *   PoolIds: [ // WorkspacesPoolIds

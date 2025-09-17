@@ -36,6 +36,8 @@ export interface DescribeDBProxyTargetGroupsCommandOutput
  * ```javascript
  * import { RDSClient, DescribeDBProxyTargetGroupsCommand } from "@aws-sdk/client-rds"; // ES Modules import
  * // const { RDSClient, DescribeDBProxyTargetGroupsCommand } = require("@aws-sdk/client-rds"); // CommonJS import
+ * // import type { RDSClientConfig } from "@aws-sdk/client-rds";
+ * const config = {}; // type is RDSClientConfig
  * const client = new RDSClient(config);
  * const input = { // DescribeDBProxyTargetGroupsRequest
  *   DBProxyName: "STRING_VALUE", // required

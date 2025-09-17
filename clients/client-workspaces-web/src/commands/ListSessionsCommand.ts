@@ -39,6 +39,8 @@ export interface ListSessionsCommandOutput extends ListSessionsResponse, __Metad
  * ```javascript
  * import { WorkSpacesWebClient, ListSessionsCommand } from "@aws-sdk/client-workspaces-web"; // ES Modules import
  * // const { WorkSpacesWebClient, ListSessionsCommand } = require("@aws-sdk/client-workspaces-web"); // CommonJS import
+ * // import type { WorkSpacesWebClientConfig } from "@aws-sdk/client-workspaces-web";
+ * const config = {}; // type is WorkSpacesWebClientConfig
  * const client = new WorkSpacesWebClient(config);
  * const input = { // ListSessionsRequest
  *   portalId: "STRING_VALUE", // required

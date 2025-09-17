@@ -34,6 +34,8 @@ export interface UpdateLayoutCommandOutput extends UpdateLayoutResponse, __Metad
  * ```javascript
  * import { ConnectCasesClient, UpdateLayoutCommand } from "@aws-sdk/client-connectcases"; // ES Modules import
  * // const { ConnectCasesClient, UpdateLayoutCommand } = require("@aws-sdk/client-connectcases"); // CommonJS import
+ * // import type { ConnectCasesClientConfig } from "@aws-sdk/client-connectcases";
+ * const config = {}; // type is ConnectCasesClientConfig
  * const client = new ConnectCasesClient(config);
  * const input = { // UpdateLayoutRequest
  *   domainId: "STRING_VALUE", // required

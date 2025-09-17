@@ -34,6 +34,8 @@ export interface GetKxClusterCommandOutput extends GetKxClusterResponse, __Metad
  * ```javascript
  * import { FinspaceClient, GetKxClusterCommand } from "@aws-sdk/client-finspace"; // ES Modules import
  * // const { FinspaceClient, GetKxClusterCommand } = require("@aws-sdk/client-finspace"); // CommonJS import
+ * // import type { FinspaceClientConfig } from "@aws-sdk/client-finspace";
+ * const config = {}; // type is FinspaceClientConfig
  * const client = new FinspaceClient(config);
  * const input = { // GetKxClusterRequest
  *   environmentId: "STRING_VALUE", // required

@@ -34,6 +34,8 @@ export interface DeleteListenerCommandOutput extends DeleteListenerResponse, __M
  * ```javascript
  * import { VPCLatticeClient, DeleteListenerCommand } from "@aws-sdk/client-vpc-lattice"; // ES Modules import
  * // const { VPCLatticeClient, DeleteListenerCommand } = require("@aws-sdk/client-vpc-lattice"); // CommonJS import
+ * // import type { VPCLatticeClientConfig } from "@aws-sdk/client-vpc-lattice";
+ * const config = {}; // type is VPCLatticeClientConfig
  * const client = new VPCLatticeClient(config);
  * const input = { // DeleteListenerRequest
  *   serviceIdentifier: "STRING_VALUE", // required

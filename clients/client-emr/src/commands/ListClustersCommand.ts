@@ -38,6 +38,8 @@ export interface ListClustersCommandOutput extends ListClustersOutput, __Metadat
  * ```javascript
  * import { EMRClient, ListClustersCommand } from "@aws-sdk/client-emr"; // ES Modules import
  * // const { EMRClient, ListClustersCommand } = require("@aws-sdk/client-emr"); // CommonJS import
+ * // import type { EMRClientConfig } from "@aws-sdk/client-emr";
+ * const config = {}; // type is EMRClientConfig
  * const client = new EMRClient(config);
  * const input = { // ListClustersInput
  *   CreatedAfter: new Date("TIMESTAMP"),

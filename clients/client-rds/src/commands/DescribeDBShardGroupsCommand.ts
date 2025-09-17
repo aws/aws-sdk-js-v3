@@ -34,6 +34,8 @@ export interface DescribeDBShardGroupsCommandOutput extends DescribeDBShardGroup
  * ```javascript
  * import { RDSClient, DescribeDBShardGroupsCommand } from "@aws-sdk/client-rds"; // ES Modules import
  * // const { RDSClient, DescribeDBShardGroupsCommand } = require("@aws-sdk/client-rds"); // CommonJS import
+ * // import type { RDSClientConfig } from "@aws-sdk/client-rds";
+ * const config = {}; // type is RDSClientConfig
  * const client = new RDSClient(config);
  * const input = { // DescribeDBShardGroupsMessage
  *   DBShardGroupIdentifier: "STRING_VALUE",

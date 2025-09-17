@@ -81,6 +81,8 @@ export interface ListObjectsCommandOutput extends ListObjectsOutput, __MetadataB
  * ```javascript
  * import { S3Client, ListObjectsCommand } from "@aws-sdk/client-s3"; // ES Modules import
  * // const { S3Client, ListObjectsCommand } = require("@aws-sdk/client-s3"); // CommonJS import
+ * // import type { S3ClientConfig } from "@aws-sdk/client-s3";
+ * const config = {}; // type is S3ClientConfig
  * const client = new S3Client(config);
  * const input = { // ListObjectsRequest
  *   Bucket: "STRING_VALUE", // required

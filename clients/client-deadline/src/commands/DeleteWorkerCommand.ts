@@ -34,6 +34,8 @@ export interface DeleteWorkerCommandOutput extends DeleteWorkerResponse, __Metad
  * ```javascript
  * import { DeadlineClient, DeleteWorkerCommand } from "@aws-sdk/client-deadline"; // ES Modules import
  * // const { DeadlineClient, DeleteWorkerCommand } = require("@aws-sdk/client-deadline"); // CommonJS import
+ * // import type { DeadlineClientConfig } from "@aws-sdk/client-deadline";
+ * const config = {}; // type is DeadlineClientConfig
  * const client = new DeadlineClient(config);
  * const input = { // DeleteWorkerRequest
  *   farmId: "STRING_VALUE", // required

@@ -34,6 +34,8 @@ export interface AddStreamGroupLocationsCommandOutput extends AddStreamGroupLoca
  * ```javascript
  * import { GameLiftStreamsClient, AddStreamGroupLocationsCommand } from "@aws-sdk/client-gameliftstreams"; // ES Modules import
  * // const { GameLiftStreamsClient, AddStreamGroupLocationsCommand } = require("@aws-sdk/client-gameliftstreams"); // CommonJS import
+ * // import type { GameLiftStreamsClientConfig } from "@aws-sdk/client-gameliftstreams";
+ * const config = {}; // type is GameLiftStreamsClientConfig
  * const client = new GameLiftStreamsClient(config);
  * const input = { // AddStreamGroupLocationsInput
  *   Identifier: "STRING_VALUE", // required

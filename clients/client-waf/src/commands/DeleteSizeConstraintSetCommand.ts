@@ -57,6 +57,8 @@ export interface DeleteSizeConstraintSetCommandOutput extends DeleteSizeConstrai
  * ```javascript
  * import { WAFClient, DeleteSizeConstraintSetCommand } from "@aws-sdk/client-waf"; // ES Modules import
  * // const { WAFClient, DeleteSizeConstraintSetCommand } = require("@aws-sdk/client-waf"); // CommonJS import
+ * // import type { WAFClientConfig } from "@aws-sdk/client-waf";
+ * const config = {}; // type is WAFClientConfig
  * const client = new WAFClient(config);
  * const input = { // DeleteSizeConstraintSetRequest
  *   SizeConstraintSetId: "STRING_VALUE", // required

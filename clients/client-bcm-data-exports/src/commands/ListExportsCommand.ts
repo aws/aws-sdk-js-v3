@@ -34,6 +34,8 @@ export interface ListExportsCommandOutput extends ListExportsResponse, __Metadat
  * ```javascript
  * import { BCMDataExportsClient, ListExportsCommand } from "@aws-sdk/client-bcm-data-exports"; // ES Modules import
  * // const { BCMDataExportsClient, ListExportsCommand } = require("@aws-sdk/client-bcm-data-exports"); // CommonJS import
+ * // import type { BCMDataExportsClientConfig } from "@aws-sdk/client-bcm-data-exports";
+ * const config = {}; // type is BCMDataExportsClientConfig
  * const client = new BCMDataExportsClient(config);
  * const input = { // ListExportsRequest
  *   MaxResults: Number("int"),

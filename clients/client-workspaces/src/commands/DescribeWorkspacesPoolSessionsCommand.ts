@@ -39,6 +39,8 @@ export interface DescribeWorkspacesPoolSessionsCommandOutput
  * ```javascript
  * import { WorkSpacesClient, DescribeWorkspacesPoolSessionsCommand } from "@aws-sdk/client-workspaces"; // ES Modules import
  * // const { WorkSpacesClient, DescribeWorkspacesPoolSessionsCommand } = require("@aws-sdk/client-workspaces"); // CommonJS import
+ * // import type { WorkSpacesClientConfig } from "@aws-sdk/client-workspaces";
+ * const config = {}; // type is WorkSpacesClientConfig
  * const client = new WorkSpacesClient(config);
  * const input = { // DescribeWorkspacesPoolSessionsRequest
  *   PoolId: "STRING_VALUE", // required

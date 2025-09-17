@@ -52,6 +52,8 @@ export interface CreateEnvironmentCommandOutput extends CreateEnvironmentRespons
  * ```javascript
  * import { MigrationHubRefactorSpacesClient, CreateEnvironmentCommand } from "@aws-sdk/client-migration-hub-refactor-spaces"; // ES Modules import
  * // const { MigrationHubRefactorSpacesClient, CreateEnvironmentCommand } = require("@aws-sdk/client-migration-hub-refactor-spaces"); // CommonJS import
+ * // import type { MigrationHubRefactorSpacesClientConfig } from "@aws-sdk/client-migration-hub-refactor-spaces";
+ * const config = {}; // type is MigrationHubRefactorSpacesClientConfig
  * const client = new MigrationHubRefactorSpacesClient(config);
  * const input = { // CreateEnvironmentRequest
  *   Name: "STRING_VALUE", // required

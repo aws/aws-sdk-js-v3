@@ -34,6 +34,8 @@ export interface ListFoldersForResourceCommandOutput extends ListFoldersForResou
  * ```javascript
  * import { QuickSightClient, ListFoldersForResourceCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
  * // const { QuickSightClient, ListFoldersForResourceCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
+ * // import type { QuickSightClientConfig } from "@aws-sdk/client-quicksight";
+ * const config = {}; // type is QuickSightClientConfig
  * const client = new QuickSightClient(config);
  * const input = { // ListFoldersForResourceRequest
  *   AwsAccountId: "STRING_VALUE", // required

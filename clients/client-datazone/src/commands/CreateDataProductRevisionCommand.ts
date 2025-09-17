@@ -39,6 +39,8 @@ export interface CreateDataProductRevisionCommandOutput extends CreateDataProduc
  * ```javascript
  * import { DataZoneClient, CreateDataProductRevisionCommand } from "@aws-sdk/client-datazone"; // ES Modules import
  * // const { DataZoneClient, CreateDataProductRevisionCommand } = require("@aws-sdk/client-datazone"); // CommonJS import
+ * // import type { DataZoneClientConfig } from "@aws-sdk/client-datazone";
+ * const config = {}; // type is DataZoneClientConfig
  * const client = new DataZoneClient(config);
  * const input = { // CreateDataProductRevisionInput
  *   domainIdentifier: "STRING_VALUE", // required

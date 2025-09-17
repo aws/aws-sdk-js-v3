@@ -43,6 +43,8 @@ export interface QueryAssistantCommandOutput extends QueryAssistantResponse, __M
  * ```javascript
  * import { WisdomClient, QueryAssistantCommand } from "@aws-sdk/client-wisdom"; // ES Modules import
  * // const { WisdomClient, QueryAssistantCommand } = require("@aws-sdk/client-wisdom"); // CommonJS import
+ * // import type { WisdomClientConfig } from "@aws-sdk/client-wisdom";
+ * const config = {}; // type is WisdomClientConfig
  * const client = new WisdomClient(config);
  * const input = { // QueryAssistantRequest
  *   assistantId: "STRING_VALUE", // required

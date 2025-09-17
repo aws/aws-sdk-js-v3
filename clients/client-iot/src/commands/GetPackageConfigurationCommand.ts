@@ -35,6 +35,8 @@ export interface GetPackageConfigurationCommandOutput extends GetPackageConfigur
  * ```javascript
  * import { IoTClient, GetPackageConfigurationCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, GetPackageConfigurationCommand } = require("@aws-sdk/client-iot"); // CommonJS import
+ * // import type { IoTClientConfig } from "@aws-sdk/client-iot";
+ * const config = {}; // type is IoTClientConfig
  * const client = new IoTClient(config);
  * const input = {};
  * const command = new GetPackageConfigurationCommand(input);

@@ -62,6 +62,8 @@ export interface CreateStateMachineCommandOutput extends CreateStateMachineOutpu
  * ```javascript
  * import { SFNClient, CreateStateMachineCommand } from "@aws-sdk/client-sfn"; // ES Modules import
  * // const { SFNClient, CreateStateMachineCommand } = require("@aws-sdk/client-sfn"); // CommonJS import
+ * // import type { SFNClientConfig } from "@aws-sdk/client-sfn";
+ * const config = {}; // type is SFNClientConfig
  * const client = new SFNClient(config);
  * const input = { // CreateStateMachineInput
  *   name: "STRING_VALUE", // required

@@ -40,6 +40,8 @@ export interface UpdateStorageVirtualMachineCommandOutput
  * ```javascript
  * import { FSxClient, UpdateStorageVirtualMachineCommand } from "@aws-sdk/client-fsx"; // ES Modules import
  * // const { FSxClient, UpdateStorageVirtualMachineCommand } = require("@aws-sdk/client-fsx"); // CommonJS import
+ * // import type { FSxClientConfig } from "@aws-sdk/client-fsx";
+ * const config = {}; // type is FSxClientConfig
  * const client = new FSxClient(config);
  * const input = { // UpdateStorageVirtualMachineRequest
  *   ActiveDirectoryConfiguration: { // UpdateSvmActiveDirectoryConfiguration

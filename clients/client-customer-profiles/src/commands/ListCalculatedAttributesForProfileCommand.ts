@@ -42,6 +42,8 @@ export interface ListCalculatedAttributesForProfileCommandOutput
  * ```javascript
  * import { CustomerProfilesClient, ListCalculatedAttributesForProfileCommand } from "@aws-sdk/client-customer-profiles"; // ES Modules import
  * // const { CustomerProfilesClient, ListCalculatedAttributesForProfileCommand } = require("@aws-sdk/client-customer-profiles"); // CommonJS import
+ * // import type { CustomerProfilesClientConfig } from "@aws-sdk/client-customer-profiles";
+ * const config = {}; // type is CustomerProfilesClientConfig
  * const client = new CustomerProfilesClient(config);
  * const input = { // ListCalculatedAttributesForProfileRequest
  *   NextToken: "STRING_VALUE",

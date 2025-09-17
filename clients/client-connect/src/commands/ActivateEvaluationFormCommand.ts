@@ -35,6 +35,8 @@ export interface ActivateEvaluationFormCommandOutput extends ActivateEvaluationF
  * ```javascript
  * import { ConnectClient, ActivateEvaluationFormCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, ActivateEvaluationFormCommand } = require("@aws-sdk/client-connect"); // CommonJS import
+ * // import type { ConnectClientConfig } from "@aws-sdk/client-connect";
+ * const config = {}; // type is ConnectClientConfig
  * const client = new ConnectClient(config);
  * const input = { // ActivateEvaluationFormRequest
  *   InstanceId: "STRING_VALUE", // required

@@ -34,6 +34,8 @@ export interface GetBulkDeploymentStatusCommandOutput extends GetBulkDeploymentS
  * ```javascript
  * import { GreengrassClient, GetBulkDeploymentStatusCommand } from "@aws-sdk/client-greengrass"; // ES Modules import
  * // const { GreengrassClient, GetBulkDeploymentStatusCommand } = require("@aws-sdk/client-greengrass"); // CommonJS import
+ * // import type { GreengrassClientConfig } from "@aws-sdk/client-greengrass";
+ * const config = {}; // type is GreengrassClientConfig
  * const client = new GreengrassClient(config);
  * const input = { // GetBulkDeploymentStatusRequest
  *   BulkDeploymentId: "STRING_VALUE", // required

@@ -36,6 +36,8 @@ export interface DescribeAccountAttributesCommandOutput extends AccountAttribute
  * ```javascript
  * import { RDSClient, DescribeAccountAttributesCommand } from "@aws-sdk/client-rds"; // ES Modules import
  * // const { RDSClient, DescribeAccountAttributesCommand } = require("@aws-sdk/client-rds"); // CommonJS import
+ * // import type { RDSClientConfig } from "@aws-sdk/client-rds";
+ * const config = {}; // type is RDSClientConfig
  * const client = new RDSClient(config);
  * const input = {};
  * const command = new DescribeAccountAttributesCommand(input);

@@ -44,6 +44,8 @@ export interface UpdateMicrosoftTeamsChannelConfigurationCommandOutput
  * ```javascript
  * import { ChatbotClient, UpdateMicrosoftTeamsChannelConfigurationCommand } from "@aws-sdk/client-chatbot"; // ES Modules import
  * // const { ChatbotClient, UpdateMicrosoftTeamsChannelConfigurationCommand } = require("@aws-sdk/client-chatbot"); // CommonJS import
+ * // import type { ChatbotClientConfig } from "@aws-sdk/client-chatbot";
+ * const config = {}; // type is ChatbotClientConfig
  * const client = new ChatbotClient(config);
  * const input = { // UpdateTeamsChannelConfigurationRequest
  *   ChatConfigurationArn: "STRING_VALUE", // required

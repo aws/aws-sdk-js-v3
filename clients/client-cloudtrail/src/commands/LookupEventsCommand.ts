@@ -86,6 +86,8 @@ export interface LookupEventsCommandOutput extends LookupEventsResponse, __Metad
  * ```javascript
  * import { CloudTrailClient, LookupEventsCommand } from "@aws-sdk/client-cloudtrail"; // ES Modules import
  * // const { CloudTrailClient, LookupEventsCommand } = require("@aws-sdk/client-cloudtrail"); // CommonJS import
+ * // import type { CloudTrailClientConfig } from "@aws-sdk/client-cloudtrail";
+ * const config = {}; // type is CloudTrailClientConfig
  * const client = new CloudTrailClient(config);
  * const input = { // LookupEventsRequest
  *   LookupAttributes: [ // LookupAttributesList

@@ -51,6 +51,8 @@ export interface AnalyzeExpenseCommandOutput extends AnalyzeExpenseResponse, __M
  * ```javascript
  * import { TextractClient, AnalyzeExpenseCommand } from "@aws-sdk/client-textract"; // ES Modules import
  * // const { TextractClient, AnalyzeExpenseCommand } = require("@aws-sdk/client-textract"); // CommonJS import
+ * // import type { TextractClientConfig } from "@aws-sdk/client-textract";
+ * const config = {}; // type is TextractClientConfig
  * const client = new TextractClient(config);
  * const input = { // AnalyzeExpenseRequest
  *   Document: { // Document

@@ -53,6 +53,8 @@ export interface SendMessageBatchCommandOutput extends SendMessageBatchResult, _
  * ```javascript
  * import { SQSClient, SendMessageBatchCommand } from "@aws-sdk/client-sqs"; // ES Modules import
  * // const { SQSClient, SendMessageBatchCommand } = require("@aws-sdk/client-sqs"); // CommonJS import
+ * // import type { SQSClientConfig } from "@aws-sdk/client-sqs";
+ * const config = {}; // type is SQSClientConfig
  * const client = new SQSClient(config);
  * const input = { // SendMessageBatchRequest
  *   QueueUrl: "STRING_VALUE", // required

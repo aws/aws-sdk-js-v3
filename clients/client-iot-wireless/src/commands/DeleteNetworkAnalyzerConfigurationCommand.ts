@@ -42,6 +42,8 @@ export interface DeleteNetworkAnalyzerConfigurationCommandOutput
  * ```javascript
  * import { IoTWirelessClient, DeleteNetworkAnalyzerConfigurationCommand } from "@aws-sdk/client-iot-wireless"; // ES Modules import
  * // const { IoTWirelessClient, DeleteNetworkAnalyzerConfigurationCommand } = require("@aws-sdk/client-iot-wireless"); // CommonJS import
+ * // import type { IoTWirelessClientConfig } from "@aws-sdk/client-iot-wireless";
+ * const config = {}; // type is IoTWirelessClientConfig
  * const client = new IoTWirelessClient(config);
  * const input = { // DeleteNetworkAnalyzerConfigurationRequest
  *   ConfigurationName: "STRING_VALUE", // required

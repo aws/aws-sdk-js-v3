@@ -40,6 +40,8 @@ export interface DescribeFleetsCommandOutput extends DescribeFleetsResult, __Met
  * ```javascript
  * import { EC2Client, DescribeFleetsCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DescribeFleetsCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
+ * // import type { EC2ClientConfig } from "@aws-sdk/client-ec2";
+ * const config = {}; // type is EC2ClientConfig
  * const client = new EC2Client(config);
  * const input = { // DescribeFleetsRequest
  *   DryRun: true || false,

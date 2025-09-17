@@ -34,6 +34,8 @@ export interface ListEnvironmentsCommandOutput extends ListEnvironmentsOutput, _
  * ```javascript
  * import { MWAAClient, ListEnvironmentsCommand } from "@aws-sdk/client-mwaa"; // ES Modules import
  * // const { MWAAClient, ListEnvironmentsCommand } = require("@aws-sdk/client-mwaa"); // CommonJS import
+ * // import type { MWAAClientConfig } from "@aws-sdk/client-mwaa";
+ * const config = {}; // type is MWAAClientConfig
  * const client = new MWAAClient(config);
  * const input = { // ListEnvironmentsInput
  *   NextToken: "STRING_VALUE",

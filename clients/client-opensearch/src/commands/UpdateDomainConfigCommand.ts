@@ -39,6 +39,8 @@ export interface UpdateDomainConfigCommandOutput extends UpdateDomainConfigRespo
  * ```javascript
  * import { OpenSearchClient, UpdateDomainConfigCommand } from "@aws-sdk/client-opensearch"; // ES Modules import
  * // const { OpenSearchClient, UpdateDomainConfigCommand } = require("@aws-sdk/client-opensearch"); // CommonJS import
+ * // import type { OpenSearchClientConfig } from "@aws-sdk/client-opensearch";
+ * const config = {}; // type is OpenSearchClientConfig
  * const client = new OpenSearchClient(config);
  * const input = { // UpdateDomainConfigRequest
  *   DomainName: "STRING_VALUE", // required

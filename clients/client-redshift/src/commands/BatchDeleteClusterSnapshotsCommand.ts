@@ -34,6 +34,8 @@ export interface BatchDeleteClusterSnapshotsCommandOutput extends BatchDeleteClu
  * ```javascript
  * import { RedshiftClient, BatchDeleteClusterSnapshotsCommand } from "@aws-sdk/client-redshift"; // ES Modules import
  * // const { RedshiftClient, BatchDeleteClusterSnapshotsCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
+ * // import type { RedshiftClientConfig } from "@aws-sdk/client-redshift";
+ * const config = {}; // type is RedshiftClientConfig
  * const client = new RedshiftClient(config);
  * const input = { // BatchDeleteClusterSnapshotsRequest
  *   Identifiers: [ // DeleteClusterSnapshotMessageList // required

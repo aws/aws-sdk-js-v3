@@ -35,6 +35,8 @@ export interface DeleteTapeArchiveCommandOutput extends DeleteTapeArchiveOutput,
  * ```javascript
  * import { StorageGatewayClient, DeleteTapeArchiveCommand } from "@aws-sdk/client-storage-gateway"; // ES Modules import
  * // const { StorageGatewayClient, DeleteTapeArchiveCommand } = require("@aws-sdk/client-storage-gateway"); // CommonJS import
+ * // import type { StorageGatewayClientConfig } from "@aws-sdk/client-storage-gateway";
+ * const config = {}; // type is StorageGatewayClientConfig
  * const client = new StorageGatewayClient(config);
  * const input = { // DeleteTapeArchiveInput
  *   TapeARN: "STRING_VALUE", // required

@@ -35,6 +35,8 @@ export interface SearchEmailAddressesCommandOutput extends SearchEmailAddressesR
  * ```javascript
  * import { ConnectClient, SearchEmailAddressesCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, SearchEmailAddressesCommand } = require("@aws-sdk/client-connect"); // CommonJS import
+ * // import type { ConnectClientConfig } from "@aws-sdk/client-connect";
+ * const config = {}; // type is ConnectClientConfig
  * const client = new ConnectClient(config);
  * const input = { // SearchEmailAddressesRequest
  *   InstanceId: "STRING_VALUE", // required

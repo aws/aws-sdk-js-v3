@@ -34,6 +34,8 @@ export interface DescribeDataDeletionJobCommandOutput extends DescribeDataDeleti
  * ```javascript
  * import { PersonalizeClient, DescribeDataDeletionJobCommand } from "@aws-sdk/client-personalize"; // ES Modules import
  * // const { PersonalizeClient, DescribeDataDeletionJobCommand } = require("@aws-sdk/client-personalize"); // CommonJS import
+ * // import type { PersonalizeClientConfig } from "@aws-sdk/client-personalize";
+ * const config = {}; // type is PersonalizeClientConfig
  * const client = new PersonalizeClient(config);
  * const input = { // DescribeDataDeletionJobRequest
  *   dataDeletionJobArn: "STRING_VALUE", // required

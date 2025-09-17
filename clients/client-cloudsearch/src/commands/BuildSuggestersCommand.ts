@@ -34,6 +34,8 @@ export interface BuildSuggestersCommandOutput extends BuildSuggestersResponse, _
  * ```javascript
  * import { CloudSearchClient, BuildSuggestersCommand } from "@aws-sdk/client-cloudsearch"; // ES Modules import
  * // const { CloudSearchClient, BuildSuggestersCommand } = require("@aws-sdk/client-cloudsearch"); // CommonJS import
+ * // import type { CloudSearchClientConfig } from "@aws-sdk/client-cloudsearch";
+ * const config = {}; // type is CloudSearchClientConfig
  * const client = new CloudSearchClient(config);
  * const input = { // BuildSuggestersRequest
  *   DomainName: "STRING_VALUE", // required

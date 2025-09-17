@@ -38,6 +38,8 @@ export interface ImportWorkspaceImageCommandOutput extends ImportWorkspaceImageR
  * ```javascript
  * import { WorkSpacesClient, ImportWorkspaceImageCommand } from "@aws-sdk/client-workspaces"; // ES Modules import
  * // const { WorkSpacesClient, ImportWorkspaceImageCommand } = require("@aws-sdk/client-workspaces"); // CommonJS import
+ * // import type { WorkSpacesClientConfig } from "@aws-sdk/client-workspaces";
+ * const config = {}; // type is WorkSpacesClientConfig
  * const client = new WorkSpacesClient(config);
  * const input = { // ImportWorkspaceImageRequest
  *   Ec2ImageId: "STRING_VALUE", // required

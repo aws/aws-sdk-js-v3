@@ -34,6 +34,8 @@ export interface GetResourceSharesCommandOutput extends GetResourceSharesRespons
  * ```javascript
  * import { RAMClient, GetResourceSharesCommand } from "@aws-sdk/client-ram"; // ES Modules import
  * // const { RAMClient, GetResourceSharesCommand } = require("@aws-sdk/client-ram"); // CommonJS import
+ * // import type { RAMClientConfig } from "@aws-sdk/client-ram";
+ * const config = {}; // type is RAMClientConfig
  * const client = new RAMClient(config);
  * const input = { // GetResourceSharesRequest
  *   resourceShareArns: [ // ResourceShareArnList

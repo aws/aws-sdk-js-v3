@@ -34,6 +34,8 @@ export interface UpdateTrialComponentCommandOutput extends UpdateTrialComponentR
  * ```javascript
  * import { SageMakerClient, UpdateTrialComponentCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, UpdateTrialComponentCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * // import type { SageMakerClientConfig } from "@aws-sdk/client-sagemaker";
+ * const config = {}; // type is SageMakerClientConfig
  * const client = new SageMakerClient(config);
  * const input = { // UpdateTrialComponentRequest
  *   TrialComponentName: "STRING_VALUE", // required

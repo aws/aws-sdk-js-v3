@@ -34,6 +34,8 @@ export interface DescribeMetricAttributionCommandOutput extends DescribeMetricAt
  * ```javascript
  * import { PersonalizeClient, DescribeMetricAttributionCommand } from "@aws-sdk/client-personalize"; // ES Modules import
  * // const { PersonalizeClient, DescribeMetricAttributionCommand } = require("@aws-sdk/client-personalize"); // CommonJS import
+ * // import type { PersonalizeClientConfig } from "@aws-sdk/client-personalize";
+ * const config = {}; // type is PersonalizeClientConfig
  * const client = new PersonalizeClient(config);
  * const input = { // DescribeMetricAttributionRequest
  *   metricAttributionArn: "STRING_VALUE", // required

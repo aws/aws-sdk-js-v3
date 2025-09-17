@@ -43,6 +43,8 @@ export interface CreateAccountAssociationCommandOutput extends CreateAccountAsso
  * ```javascript
  * import { IoTManagedIntegrationsClient, CreateAccountAssociationCommand } from "@aws-sdk/client-iot-managed-integrations"; // ES Modules import
  * // const { IoTManagedIntegrationsClient, CreateAccountAssociationCommand } = require("@aws-sdk/client-iot-managed-integrations"); // CommonJS import
+ * // import type { IoTManagedIntegrationsClientConfig } from "@aws-sdk/client-iot-managed-integrations";
+ * const config = {}; // type is IoTManagedIntegrationsClientConfig
  * const client = new IoTManagedIntegrationsClient(config);
  * const input = { // CreateAccountAssociationRequest
  *   ClientToken: "STRING_VALUE",

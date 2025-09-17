@@ -61,6 +61,8 @@ export interface DescribeSnapshotsCommandOutput extends DescribeSnapshotsRespons
  * ```javascript
  * import { FSxClient, DescribeSnapshotsCommand } from "@aws-sdk/client-fsx"; // ES Modules import
  * // const { FSxClient, DescribeSnapshotsCommand } = require("@aws-sdk/client-fsx"); // CommonJS import
+ * // import type { FSxClientConfig } from "@aws-sdk/client-fsx";
+ * const config = {}; // type is FSxClientConfig
  * const client = new FSxClient(config);
  * const input = { // DescribeSnapshotsRequest
  *   SnapshotIds: [ // SnapshotIds

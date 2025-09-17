@@ -36,6 +36,8 @@ export interface ListDataSourcesCommandOutput extends ListDataSourcesResponse, _
  * ```javascript
  * import { OpenSearchClient, ListDataSourcesCommand } from "@aws-sdk/client-opensearch"; // ES Modules import
  * // const { OpenSearchClient, ListDataSourcesCommand } = require("@aws-sdk/client-opensearch"); // CommonJS import
+ * // import type { OpenSearchClientConfig } from "@aws-sdk/client-opensearch";
+ * const config = {}; // type is OpenSearchClientConfig
  * const client = new OpenSearchClient(config);
  * const input = { // ListDataSourcesRequest
  *   DomainName: "STRING_VALUE", // required

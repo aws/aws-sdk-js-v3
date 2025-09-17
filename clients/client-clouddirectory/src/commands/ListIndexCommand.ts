@@ -34,6 +34,8 @@ export interface ListIndexCommandOutput extends ListIndexResponse, __MetadataBea
  * ```javascript
  * import { CloudDirectoryClient, ListIndexCommand } from "@aws-sdk/client-clouddirectory"; // ES Modules import
  * // const { CloudDirectoryClient, ListIndexCommand } = require("@aws-sdk/client-clouddirectory"); // CommonJS import
+ * // import type { CloudDirectoryClientConfig } from "@aws-sdk/client-clouddirectory";
+ * const config = {}; // type is CloudDirectoryClientConfig
  * const client = new CloudDirectoryClient(config);
  * const input = { // ListIndexRequest
  *   DirectoryArn: "STRING_VALUE", // required

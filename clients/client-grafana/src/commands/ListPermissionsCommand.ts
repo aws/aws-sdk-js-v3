@@ -39,6 +39,8 @@ export interface ListPermissionsCommandOutput extends ListPermissionsResponse, _
  * ```javascript
  * import { GrafanaClient, ListPermissionsCommand } from "@aws-sdk/client-grafana"; // ES Modules import
  * // const { GrafanaClient, ListPermissionsCommand } = require("@aws-sdk/client-grafana"); // CommonJS import
+ * // import type { GrafanaClientConfig } from "@aws-sdk/client-grafana";
+ * const config = {}; // type is GrafanaClientConfig
  * const client = new GrafanaClient(config);
  * const input = { // ListPermissionsRequest
  *   maxResults: Number("int"),

@@ -38,6 +38,8 @@ export interface ListNotificationRulesCommandOutput extends ListNotificationRule
  * ```javascript
  * import { CodestarNotificationsClient, ListNotificationRulesCommand } from "@aws-sdk/client-codestar-notifications"; // ES Modules import
  * // const { CodestarNotificationsClient, ListNotificationRulesCommand } = require("@aws-sdk/client-codestar-notifications"); // CommonJS import
+ * // import type { CodestarNotificationsClientConfig } from "@aws-sdk/client-codestar-notifications";
+ * const config = {}; // type is CodestarNotificationsClientConfig
  * const client = new CodestarNotificationsClient(config);
  * const input = { // ListNotificationRulesRequest
  *   Filters: [ // ListNotificationRulesFilters

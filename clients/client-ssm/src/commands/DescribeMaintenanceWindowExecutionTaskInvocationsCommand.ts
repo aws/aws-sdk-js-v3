@@ -45,6 +45,8 @@ export interface DescribeMaintenanceWindowExecutionTaskInvocationsCommandOutput
  * ```javascript
  * import { SSMClient, DescribeMaintenanceWindowExecutionTaskInvocationsCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, DescribeMaintenanceWindowExecutionTaskInvocationsCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
+ * // import type { SSMClientConfig } from "@aws-sdk/client-ssm";
+ * const config = {}; // type is SSMClientConfig
  * const client = new SSMClient(config);
  * const input = { // DescribeMaintenanceWindowExecutionTaskInvocationsRequest
  *   WindowExecutionId: "STRING_VALUE", // required

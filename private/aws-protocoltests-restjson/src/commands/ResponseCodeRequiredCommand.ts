@@ -35,6 +35,8 @@ export interface ResponseCodeRequiredCommandOutput extends ResponseCodeRequiredO
  * ```javascript
  * import { RestJsonProtocolClient, ResponseCodeRequiredCommand } from "@aws-sdk/aws-protocoltests-restjson"; // ES Modules import
  * // const { RestJsonProtocolClient, ResponseCodeRequiredCommand } = require("@aws-sdk/aws-protocoltests-restjson"); // CommonJS import
+ * // import type { RestJsonProtocolClientConfig } from "@aws-sdk/aws-protocoltests-restjson";
+ * const config = {}; // type is RestJsonProtocolClientConfig
  * const client = new RestJsonProtocolClient(config);
  * const input = {};
  * const command = new ResponseCodeRequiredCommand(input);

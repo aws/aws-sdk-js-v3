@@ -35,6 +35,8 @@ export interface ListDataSetsCommandOutput extends ListDataSetsResponse, __Metad
  * ```javascript
  * import { DataExchangeClient, ListDataSetsCommand } from "@aws-sdk/client-dataexchange"; // ES Modules import
  * // const { DataExchangeClient, ListDataSetsCommand } = require("@aws-sdk/client-dataexchange"); // CommonJS import
+ * // import type { DataExchangeClientConfig } from "@aws-sdk/client-dataexchange";
+ * const config = {}; // type is DataExchangeClientConfig
  * const client = new DataExchangeClient(config);
  * const input = { // ListDataSetsRequest
  *   MaxResults: Number("int"),

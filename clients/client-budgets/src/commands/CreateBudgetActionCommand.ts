@@ -40,6 +40,8 @@ export interface CreateBudgetActionCommandOutput extends CreateBudgetActionRespo
  * ```javascript
  * import { BudgetsClient, CreateBudgetActionCommand } from "@aws-sdk/client-budgets"; // ES Modules import
  * // const { BudgetsClient, CreateBudgetActionCommand } = require("@aws-sdk/client-budgets"); // CommonJS import
+ * // import type { BudgetsClientConfig } from "@aws-sdk/client-budgets";
+ * const config = {}; // type is BudgetsClientConfig
  * const client = new BudgetsClient(config);
  * const input = { // CreateBudgetActionRequest
  *   AccountId: "STRING_VALUE", // required

@@ -34,6 +34,8 @@ export interface ListManagedJobTemplatesCommandOutput extends ListManagedJobTemp
  * ```javascript
  * import { IoTClient, ListManagedJobTemplatesCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, ListManagedJobTemplatesCommand } = require("@aws-sdk/client-iot"); // CommonJS import
+ * // import type { IoTClientConfig } from "@aws-sdk/client-iot";
+ * const config = {}; // type is IoTClientConfig
  * const client = new IoTClient(config);
  * const input = { // ListManagedJobTemplatesRequest
  *   templateName: "STRING_VALUE",

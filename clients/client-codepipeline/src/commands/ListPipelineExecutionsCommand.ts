@@ -39,6 +39,8 @@ export interface ListPipelineExecutionsCommandOutput extends ListPipelineExecuti
  * ```javascript
  * import { CodePipelineClient, ListPipelineExecutionsCommand } from "@aws-sdk/client-codepipeline"; // ES Modules import
  * // const { CodePipelineClient, ListPipelineExecutionsCommand } = require("@aws-sdk/client-codepipeline"); // CommonJS import
+ * // import type { CodePipelineClientConfig } from "@aws-sdk/client-codepipeline";
+ * const config = {}; // type is CodePipelineClientConfig
  * const client = new CodePipelineClient(config);
  * const input = { // ListPipelineExecutionsInput
  *   pipelineName: "STRING_VALUE", // required

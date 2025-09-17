@@ -38,6 +38,8 @@ export interface DeleteCertificateCommandOutput extends DeleteCertificateResult,
  * ```javascript
  * import { LightsailClient, DeleteCertificateCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, DeleteCertificateCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
+ * // import type { LightsailClientConfig } from "@aws-sdk/client-lightsail";
+ * const config = {}; // type is LightsailClientConfig
  * const client = new LightsailClient(config);
  * const input = { // DeleteCertificateRequest
  *   certificateName: "STRING_VALUE", // required

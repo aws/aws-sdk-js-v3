@@ -54,6 +54,8 @@ export interface DescribeClusterParameterGroupsCommandOutput extends ClusterPara
  * ```javascript
  * import { RedshiftClient, DescribeClusterParameterGroupsCommand } from "@aws-sdk/client-redshift"; // ES Modules import
  * // const { RedshiftClient, DescribeClusterParameterGroupsCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
+ * // import type { RedshiftClientConfig } from "@aws-sdk/client-redshift";
+ * const config = {}; // type is RedshiftClientConfig
  * const client = new RedshiftClient(config);
  * const input = { // DescribeClusterParameterGroupsMessage
  *   ParameterGroupName: "STRING_VALUE",

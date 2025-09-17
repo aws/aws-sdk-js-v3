@@ -45,6 +45,8 @@ export interface DescribeTagsCommandOutput extends DescribeTagsResult, __Metadat
  * ```javascript
  * import { EC2Client, DescribeTagsCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DescribeTagsCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
+ * // import type { EC2ClientConfig } from "@aws-sdk/client-ec2";
+ * const config = {}; // type is EC2ClientConfig
  * const client = new EC2Client(config);
  * const input = { // DescribeTagsRequest
  *   DryRun: true || false,

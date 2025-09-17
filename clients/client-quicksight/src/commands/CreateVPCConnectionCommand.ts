@@ -34,6 +34,8 @@ export interface CreateVPCConnectionCommandOutput extends CreateVPCConnectionRes
  * ```javascript
  * import { QuickSightClient, CreateVPCConnectionCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
  * // const { QuickSightClient, CreateVPCConnectionCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
+ * // import type { QuickSightClientConfig } from "@aws-sdk/client-quicksight";
+ * const config = {}; // type is QuickSightClientConfig
  * const client = new QuickSightClient(config);
  * const input = { // CreateVPCConnectionRequest
  *   AwsAccountId: "STRING_VALUE", // required

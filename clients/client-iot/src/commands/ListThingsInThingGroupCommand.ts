@@ -35,6 +35,8 @@ export interface ListThingsInThingGroupCommandOutput extends ListThingsInThingGr
  * ```javascript
  * import { IoTClient, ListThingsInThingGroupCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, ListThingsInThingGroupCommand } = require("@aws-sdk/client-iot"); // CommonJS import
+ * // import type { IoTClientConfig } from "@aws-sdk/client-iot";
+ * const config = {}; // type is IoTClientConfig
  * const client = new IoTClient(config);
  * const input = { // ListThingsInThingGroupRequest
  *   thingGroupName: "STRING_VALUE", // required

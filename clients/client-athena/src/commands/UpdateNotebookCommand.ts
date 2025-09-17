@@ -34,6 +34,8 @@ export interface UpdateNotebookCommandOutput extends UpdateNotebookOutput, __Met
  * ```javascript
  * import { AthenaClient, UpdateNotebookCommand } from "@aws-sdk/client-athena"; // ES Modules import
  * // const { AthenaClient, UpdateNotebookCommand } = require("@aws-sdk/client-athena"); // CommonJS import
+ * // import type { AthenaClientConfig } from "@aws-sdk/client-athena";
+ * const config = {}; // type is AthenaClientConfig
  * const client = new AthenaClient(config);
  * const input = { // UpdateNotebookInput
  *   NotebookId: "STRING_VALUE", // required

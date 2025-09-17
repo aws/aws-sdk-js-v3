@@ -42,6 +42,8 @@ export interface GetCloudFormationStackRecordsCommandOutput
  * ```javascript
  * import { LightsailClient, GetCloudFormationStackRecordsCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, GetCloudFormationStackRecordsCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
+ * // import type { LightsailClientConfig } from "@aws-sdk/client-lightsail";
+ * const config = {}; // type is LightsailClientConfig
  * const client = new LightsailClient(config);
  * const input = { // GetCloudFormationStackRecordsRequest
  *   pageToken: "STRING_VALUE",

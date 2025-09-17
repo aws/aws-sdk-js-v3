@@ -34,6 +34,8 @@ export interface ListLakeFormationOptInsCommandOutput extends ListLakeFormationO
  * ```javascript
  * import { LakeFormationClient, ListLakeFormationOptInsCommand } from "@aws-sdk/client-lakeformation"; // ES Modules import
  * // const { LakeFormationClient, ListLakeFormationOptInsCommand } = require("@aws-sdk/client-lakeformation"); // CommonJS import
+ * // import type { LakeFormationClientConfig } from "@aws-sdk/client-lakeformation";
+ * const config = {}; // type is LakeFormationClientConfig
  * const client = new LakeFormationClient(config);
  * const input = { // ListLakeFormationOptInsRequest
  *   Principal: { // DataLakePrincipal

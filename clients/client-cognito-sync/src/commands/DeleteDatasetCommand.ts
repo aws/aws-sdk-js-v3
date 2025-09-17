@@ -38,6 +38,8 @@ export interface DeleteDatasetCommandOutput extends DeleteDatasetResponse, __Met
  * ```javascript
  * import { CognitoSyncClient, DeleteDatasetCommand } from "@aws-sdk/client-cognito-sync"; // ES Modules import
  * // const { CognitoSyncClient, DeleteDatasetCommand } = require("@aws-sdk/client-cognito-sync"); // CommonJS import
+ * // import type { CognitoSyncClientConfig } from "@aws-sdk/client-cognito-sync";
+ * const config = {}; // type is CognitoSyncClientConfig
  * const client = new CognitoSyncClient(config);
  * const input = { // DeleteDatasetRequest
  *   IdentityPoolId: "STRING_VALUE", // required

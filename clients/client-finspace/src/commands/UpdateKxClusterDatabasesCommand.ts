@@ -35,6 +35,8 @@ export interface UpdateKxClusterDatabasesCommandOutput extends UpdateKxClusterDa
  * ```javascript
  * import { FinspaceClient, UpdateKxClusterDatabasesCommand } from "@aws-sdk/client-finspace"; // ES Modules import
  * // const { FinspaceClient, UpdateKxClusterDatabasesCommand } = require("@aws-sdk/client-finspace"); // CommonJS import
+ * // import type { FinspaceClientConfig } from "@aws-sdk/client-finspace";
+ * const config = {}; // type is FinspaceClientConfig
  * const client = new FinspaceClient(config);
  * const input = { // UpdateKxClusterDatabasesRequest
  *   environmentId: "STRING_VALUE", // required

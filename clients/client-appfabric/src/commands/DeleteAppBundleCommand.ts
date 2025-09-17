@@ -35,6 +35,8 @@ export interface DeleteAppBundleCommandOutput extends DeleteAppBundleResponse, _
  * ```javascript
  * import { AppFabricClient, DeleteAppBundleCommand } from "@aws-sdk/client-appfabric"; // ES Modules import
  * // const { AppFabricClient, DeleteAppBundleCommand } = require("@aws-sdk/client-appfabric"); // CommonJS import
+ * // import type { AppFabricClientConfig } from "@aws-sdk/client-appfabric";
+ * const config = {}; // type is AppFabricClientConfig
  * const client = new AppFabricClient(config);
  * const input = { // DeleteAppBundleRequest
  *   appBundleIdentifier: "STRING_VALUE", // required

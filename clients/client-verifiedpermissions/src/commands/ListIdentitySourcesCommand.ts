@@ -43,6 +43,8 @@ export interface ListIdentitySourcesCommandOutput extends ListIdentitySourcesOut
  * ```javascript
  * import { VerifiedPermissionsClient, ListIdentitySourcesCommand } from "@aws-sdk/client-verifiedpermissions"; // ES Modules import
  * // const { VerifiedPermissionsClient, ListIdentitySourcesCommand } = require("@aws-sdk/client-verifiedpermissions"); // CommonJS import
+ * // import type { VerifiedPermissionsClientConfig } from "@aws-sdk/client-verifiedpermissions";
+ * const config = {}; // type is VerifiedPermissionsClientConfig
  * const client = new VerifiedPermissionsClient(config);
  * const input = { // ListIdentitySourcesInput
  *   policyStoreId: "STRING_VALUE", // required

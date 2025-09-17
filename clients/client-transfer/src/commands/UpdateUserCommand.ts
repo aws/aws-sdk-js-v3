@@ -34,6 +34,8 @@ export interface UpdateUserCommandOutput extends UpdateUserResponse, __MetadataB
  * ```javascript
  * import { TransferClient, UpdateUserCommand } from "@aws-sdk/client-transfer"; // ES Modules import
  * // const { TransferClient, UpdateUserCommand } = require("@aws-sdk/client-transfer"); // CommonJS import
+ * // import type { TransferClientConfig } from "@aws-sdk/client-transfer";
+ * const config = {}; // type is TransferClientConfig
  * const client = new TransferClient(config);
  * const input = { // UpdateUserRequest
  *   HomeDirectory: "STRING_VALUE",

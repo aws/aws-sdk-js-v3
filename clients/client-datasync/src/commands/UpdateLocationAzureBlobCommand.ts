@@ -40,6 +40,8 @@ export interface UpdateLocationAzureBlobCommandOutput extends UpdateLocationAzur
  * ```javascript
  * import { DataSyncClient, UpdateLocationAzureBlobCommand } from "@aws-sdk/client-datasync"; // ES Modules import
  * // const { DataSyncClient, UpdateLocationAzureBlobCommand } = require("@aws-sdk/client-datasync"); // CommonJS import
+ * // import type { DataSyncClientConfig } from "@aws-sdk/client-datasync";
+ * const config = {}; // type is DataSyncClientConfig
  * const client = new DataSyncClient(config);
  * const input = { // UpdateLocationAzureBlobRequest
  *   LocationArn: "STRING_VALUE", // required

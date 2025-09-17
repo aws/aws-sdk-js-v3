@@ -62,6 +62,8 @@ export interface GetBucketNotificationConfigurationCommandOutput extends Notific
  * ```javascript
  * import { S3Client, GetBucketNotificationConfigurationCommand } from "@aws-sdk/client-s3"; // ES Modules import
  * // const { S3Client, GetBucketNotificationConfigurationCommand } = require("@aws-sdk/client-s3"); // CommonJS import
+ * // import type { S3ClientConfig } from "@aws-sdk/client-s3";
+ * const config = {}; // type is S3ClientConfig
  * const client = new S3Client(config);
  * const input = { // GetBucketNotificationConfigurationRequest
  *   Bucket: "STRING_VALUE", // required

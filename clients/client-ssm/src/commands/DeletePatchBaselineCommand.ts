@@ -34,6 +34,8 @@ export interface DeletePatchBaselineCommandOutput extends DeletePatchBaselineRes
  * ```javascript
  * import { SSMClient, DeletePatchBaselineCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, DeletePatchBaselineCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
+ * // import type { SSMClientConfig } from "@aws-sdk/client-ssm";
+ * const config = {}; // type is SSMClientConfig
  * const client = new SSMClient(config);
  * const input = { // DeletePatchBaselineRequest
  *   BaselineId: "STRING_VALUE", // required

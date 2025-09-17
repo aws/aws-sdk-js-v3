@@ -38,6 +38,8 @@ export interface DeleteMonitorCommandOutput extends DeleteMonitorOutput, __Metad
  * ```javascript
  * import { NetworkFlowMonitorClient, DeleteMonitorCommand } from "@aws-sdk/client-networkflowmonitor"; // ES Modules import
  * // const { NetworkFlowMonitorClient, DeleteMonitorCommand } = require("@aws-sdk/client-networkflowmonitor"); // CommonJS import
+ * // import type { NetworkFlowMonitorClientConfig } from "@aws-sdk/client-networkflowmonitor";
+ * const config = {}; // type is NetworkFlowMonitorClientConfig
  * const client = new NetworkFlowMonitorClient(config);
  * const input = { // DeleteMonitorInput
  *   monitorName: "STRING_VALUE", // required

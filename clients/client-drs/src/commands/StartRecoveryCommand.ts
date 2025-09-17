@@ -39,6 +39,8 @@ export interface StartRecoveryCommandOutput extends StartRecoveryResponse, __Met
  * ```javascript
  * import { DrsClient, StartRecoveryCommand } from "@aws-sdk/client-drs"; // ES Modules import
  * // const { DrsClient, StartRecoveryCommand } = require("@aws-sdk/client-drs"); // CommonJS import
+ * // import type { DrsClientConfig } from "@aws-sdk/client-drs";
+ * const config = {}; // type is DrsClientConfig
  * const client = new DrsClient(config);
  * const input = { // StartRecoveryRequest
  *   sourceServers: [ // StartRecoveryRequestSourceServers // required

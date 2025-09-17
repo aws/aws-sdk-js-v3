@@ -34,6 +34,8 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * ```javascript
  * import { NotificationsClient, ListTagsForResourceCommand } from "@aws-sdk/client-notifications"; // ES Modules import
  * // const { NotificationsClient, ListTagsForResourceCommand } = require("@aws-sdk/client-notifications"); // CommonJS import
+ * // import type { NotificationsClientConfig } from "@aws-sdk/client-notifications";
+ * const config = {}; // type is NotificationsClientConfig
  * const client = new NotificationsClient(config);
  * const input = { // ListTagsForResourceRequest
  *   arn: "STRING_VALUE", // required

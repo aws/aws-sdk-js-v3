@@ -43,6 +43,8 @@ export interface DescribeUsersCommandOutput extends DescribeUsersResponse, __Met
  * ```javascript
  * import { WorkDocsClient, DescribeUsersCommand } from "@aws-sdk/client-workdocs"; // ES Modules import
  * // const { WorkDocsClient, DescribeUsersCommand } = require("@aws-sdk/client-workdocs"); // CommonJS import
+ * // import type { WorkDocsClientConfig } from "@aws-sdk/client-workdocs";
+ * const config = {}; // type is WorkDocsClientConfig
  * const client = new WorkDocsClient(config);
  * const input = { // DescribeUsersRequest
  *   AuthenticationToken: "STRING_VALUE",

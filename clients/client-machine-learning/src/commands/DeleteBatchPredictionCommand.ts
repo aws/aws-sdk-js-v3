@@ -39,6 +39,8 @@ export interface DeleteBatchPredictionCommandOutput extends DeleteBatchPredictio
  * ```javascript
  * import { MachineLearningClient, DeleteBatchPredictionCommand } from "@aws-sdk/client-machine-learning"; // ES Modules import
  * // const { MachineLearningClient, DeleteBatchPredictionCommand } = require("@aws-sdk/client-machine-learning"); // CommonJS import
+ * // import type { MachineLearningClientConfig } from "@aws-sdk/client-machine-learning";
+ * const config = {}; // type is MachineLearningClientConfig
  * const client = new MachineLearningClient(config);
  * const input = { // DeleteBatchPredictionInput
  *   BatchPredictionId: "STRING_VALUE", // required

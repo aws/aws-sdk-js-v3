@@ -38,6 +38,8 @@ export interface CreateEvaluationFormCommandOutput extends CreateEvaluationFormR
  * ```javascript
  * import { ConnectClient, CreateEvaluationFormCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, CreateEvaluationFormCommand } = require("@aws-sdk/client-connect"); // CommonJS import
+ * // import type { ConnectClientConfig } from "@aws-sdk/client-connect";
+ * const config = {}; // type is ConnectClientConfig
  * const client = new ConnectClient(config);
  * const input = { // CreateEvaluationFormRequest
  *   InstanceId: "STRING_VALUE", // required

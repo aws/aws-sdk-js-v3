@@ -34,6 +34,8 @@ export interface GetConfiguredAudienceModelCommandOutput extends GetConfiguredAu
  * ```javascript
  * import { CleanRoomsMLClient, GetConfiguredAudienceModelCommand } from "@aws-sdk/client-cleanroomsml"; // ES Modules import
  * // const { CleanRoomsMLClient, GetConfiguredAudienceModelCommand } = require("@aws-sdk/client-cleanroomsml"); // CommonJS import
+ * // import type { CleanRoomsMLClientConfig } from "@aws-sdk/client-cleanroomsml";
+ * const config = {}; // type is CleanRoomsMLClientConfig
  * const client = new CleanRoomsMLClient(config);
  * const input = { // GetConfiguredAudienceModelRequest
  *   configuredAudienceModelArn: "STRING_VALUE", // required

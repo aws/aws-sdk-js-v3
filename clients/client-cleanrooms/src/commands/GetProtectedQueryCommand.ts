@@ -38,6 +38,8 @@ export interface GetProtectedQueryCommandOutput extends GetProtectedQueryOutput,
  * ```javascript
  * import { CleanRoomsClient, GetProtectedQueryCommand } from "@aws-sdk/client-cleanrooms"; // ES Modules import
  * // const { CleanRoomsClient, GetProtectedQueryCommand } = require("@aws-sdk/client-cleanrooms"); // CommonJS import
+ * // import type { CleanRoomsClientConfig } from "@aws-sdk/client-cleanrooms";
+ * const config = {}; // type is CleanRoomsClientConfig
  * const client = new CleanRoomsClient(config);
  * const input = { // GetProtectedQueryInput
  *   membershipIdentifier: "STRING_VALUE", // required

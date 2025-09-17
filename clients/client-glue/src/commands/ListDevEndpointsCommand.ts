@@ -39,6 +39,8 @@ export interface ListDevEndpointsCommandOutput extends ListDevEndpointsResponse,
  * ```javascript
  * import { GlueClient, ListDevEndpointsCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, ListDevEndpointsCommand } = require("@aws-sdk/client-glue"); // CommonJS import
+ * // import type { GlueClientConfig } from "@aws-sdk/client-glue";
+ * const config = {}; // type is GlueClientConfig
  * const client = new GlueClient(config);
  * const input = { // ListDevEndpointsRequest
  *   NextToken: "STRING_VALUE",

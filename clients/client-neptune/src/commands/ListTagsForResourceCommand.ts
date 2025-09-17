@@ -34,6 +34,8 @@ export interface ListTagsForResourceCommandOutput extends TagListMessage, __Meta
  * ```javascript
  * import { NeptuneClient, ListTagsForResourceCommand } from "@aws-sdk/client-neptune"; // ES Modules import
  * // const { NeptuneClient, ListTagsForResourceCommand } = require("@aws-sdk/client-neptune"); // CommonJS import
+ * // import type { NeptuneClientConfig } from "@aws-sdk/client-neptune";
+ * const config = {}; // type is NeptuneClientConfig
  * const client = new NeptuneClient(config);
  * const input = { // ListTagsForResourceMessage
  *   ResourceName: "STRING_VALUE", // required

@@ -42,6 +42,8 @@ export interface DeleteColumnStatisticsTaskSettingsCommandOutput
  * ```javascript
  * import { GlueClient, DeleteColumnStatisticsTaskSettingsCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, DeleteColumnStatisticsTaskSettingsCommand } = require("@aws-sdk/client-glue"); // CommonJS import
+ * // import type { GlueClientConfig } from "@aws-sdk/client-glue";
+ * const config = {}; // type is GlueClientConfig
  * const client = new GlueClient(config);
  * const input = { // DeleteColumnStatisticsTaskSettingsRequest
  *   DatabaseName: "STRING_VALUE", // required

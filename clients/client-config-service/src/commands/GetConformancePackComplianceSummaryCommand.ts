@@ -42,6 +42,8 @@ export interface GetConformancePackComplianceSummaryCommandOutput
  * ```javascript
  * import { ConfigServiceClient, GetConformancePackComplianceSummaryCommand } from "@aws-sdk/client-config-service"; // ES Modules import
  * // const { ConfigServiceClient, GetConformancePackComplianceSummaryCommand } = require("@aws-sdk/client-config-service"); // CommonJS import
+ * // import type { ConfigServiceClientConfig } from "@aws-sdk/client-config-service";
+ * const config = {}; // type is ConfigServiceClientConfig
  * const client = new ConfigServiceClient(config);
  * const input = { // GetConformancePackComplianceSummaryRequest
  *   ConformancePackNames: [ // ConformancePackNamesToSummarizeList // required

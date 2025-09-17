@@ -37,6 +37,8 @@ export interface DescribeCacheSubnetGroupsCommandOutput extends CacheSubnetGroup
  * ```javascript
  * import { ElastiCacheClient, DescribeCacheSubnetGroupsCommand } from "@aws-sdk/client-elasticache"; // ES Modules import
  * // const { ElastiCacheClient, DescribeCacheSubnetGroupsCommand } = require("@aws-sdk/client-elasticache"); // CommonJS import
+ * // import type { ElastiCacheClientConfig } from "@aws-sdk/client-elasticache";
+ * const config = {}; // type is ElastiCacheClientConfig
  * const client = new ElastiCacheClient(config);
  * const input = { // DescribeCacheSubnetGroupsMessage
  *   CacheSubnetGroupName: "STRING_VALUE",

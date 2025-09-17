@@ -42,6 +42,8 @@ export interface ListResourceDataSyncCommandOutput extends ListResourceDataSyncR
  * ```javascript
  * import { SSMClient, ListResourceDataSyncCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, ListResourceDataSyncCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
+ * // import type { SSMClientConfig } from "@aws-sdk/client-ssm";
+ * const config = {}; // type is SSMClientConfig
  * const client = new SSMClient(config);
  * const input = { // ListResourceDataSyncRequest
  *   SyncType: "STRING_VALUE",

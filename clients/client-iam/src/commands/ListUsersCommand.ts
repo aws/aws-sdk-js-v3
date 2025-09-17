@@ -51,6 +51,8 @@ export interface ListUsersCommandOutput extends ListUsersResponse, __MetadataBea
  * ```javascript
  * import { IAMClient, ListUsersCommand } from "@aws-sdk/client-iam"; // ES Modules import
  * // const { IAMClient, ListUsersCommand } = require("@aws-sdk/client-iam"); // CommonJS import
+ * // import type { IAMClientConfig } from "@aws-sdk/client-iam";
+ * const config = {}; // type is IAMClientConfig
  * const client = new IAMClient(config);
  * const input = { // ListUsersRequest
  *   PathPrefix: "STRING_VALUE",

@@ -34,6 +34,8 @@ export interface ListReadSetsCommandOutput extends ListReadSetsResponse, __Metad
  * ```javascript
  * import { OmicsClient, ListReadSetsCommand } from "@aws-sdk/client-omics"; // ES Modules import
  * // const { OmicsClient, ListReadSetsCommand } = require("@aws-sdk/client-omics"); // CommonJS import
+ * // import type { OmicsClientConfig } from "@aws-sdk/client-omics";
+ * const config = {}; // type is OmicsClientConfig
  * const client = new OmicsClient(config);
  * const input = { // ListReadSetsRequest
  *   sequenceStoreId: "STRING_VALUE", // required

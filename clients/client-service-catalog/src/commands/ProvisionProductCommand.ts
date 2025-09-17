@@ -70,6 +70,8 @@ export interface ProvisionProductCommandOutput extends ProvisionProductOutput, _
  * ```javascript
  * import { ServiceCatalogClient, ProvisionProductCommand } from "@aws-sdk/client-service-catalog"; // ES Modules import
  * // const { ServiceCatalogClient, ProvisionProductCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import
+ * // import type { ServiceCatalogClientConfig } from "@aws-sdk/client-service-catalog";
+ * const config = {}; // type is ServiceCatalogClientConfig
  * const client = new ServiceCatalogClient(config);
  * const input = { // ProvisionProductInput
  *   AcceptLanguage: "STRING_VALUE",

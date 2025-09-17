@@ -41,6 +41,8 @@ export interface UpdateLogLevelsByResourceTypesCommandOutput
  * ```javascript
  * import { IoTWirelessClient, UpdateLogLevelsByResourceTypesCommand } from "@aws-sdk/client-iot-wireless"; // ES Modules import
  * // const { IoTWirelessClient, UpdateLogLevelsByResourceTypesCommand } = require("@aws-sdk/client-iot-wireless"); // CommonJS import
+ * // import type { IoTWirelessClientConfig } from "@aws-sdk/client-iot-wireless";
+ * const config = {}; // type is IoTWirelessClientConfig
  * const client = new IoTWirelessClient(config);
  * const input = { // UpdateLogLevelsByResourceTypesRequest
  *   DefaultLogLevel: "INFO" || "ERROR" || "DISABLED",

@@ -40,6 +40,8 @@ export interface GetCapacityAssignmentConfigurationCommandOutput
  * ```javascript
  * import { AthenaClient, GetCapacityAssignmentConfigurationCommand } from "@aws-sdk/client-athena"; // ES Modules import
  * // const { AthenaClient, GetCapacityAssignmentConfigurationCommand } = require("@aws-sdk/client-athena"); // CommonJS import
+ * // import type { AthenaClientConfig } from "@aws-sdk/client-athena";
+ * const config = {}; // type is AthenaClientConfig
  * const client = new AthenaClient(config);
  * const input = { // GetCapacityAssignmentConfigurationInput
  *   CapacityReservationName: "STRING_VALUE", // required

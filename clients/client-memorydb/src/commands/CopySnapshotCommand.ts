@@ -34,6 +34,8 @@ export interface CopySnapshotCommandOutput extends CopySnapshotResponse, __Metad
  * ```javascript
  * import { MemoryDBClient, CopySnapshotCommand } from "@aws-sdk/client-memorydb"; // ES Modules import
  * // const { MemoryDBClient, CopySnapshotCommand } = require("@aws-sdk/client-memorydb"); // CommonJS import
+ * // import type { MemoryDBClientConfig } from "@aws-sdk/client-memorydb";
+ * const config = {}; // type is MemoryDBClientConfig
  * const client = new MemoryDBClient(config);
  * const input = { // CopySnapshotRequest
  *   SourceSnapshotName: "STRING_VALUE", // required

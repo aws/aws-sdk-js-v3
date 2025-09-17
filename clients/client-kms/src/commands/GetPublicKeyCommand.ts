@@ -85,6 +85,8 @@ export interface GetPublicKeyCommandOutput extends GetPublicKeyResponse, __Metad
  * ```javascript
  * import { KMSClient, GetPublicKeyCommand } from "@aws-sdk/client-kms"; // ES Modules import
  * // const { KMSClient, GetPublicKeyCommand } = require("@aws-sdk/client-kms"); // CommonJS import
+ * // import type { KMSClientConfig } from "@aws-sdk/client-kms";
+ * const config = {}; // type is KMSClientConfig
  * const client = new KMSClient(config);
  * const input = { // GetPublicKeyRequest
  *   KeyId: "STRING_VALUE", // required

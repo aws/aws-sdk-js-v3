@@ -37,6 +37,8 @@ export interface UpdateLocationFsxLustreCommandOutput extends UpdateLocationFsxL
  * ```javascript
  * import { DataSyncClient, UpdateLocationFsxLustreCommand } from "@aws-sdk/client-datasync"; // ES Modules import
  * // const { DataSyncClient, UpdateLocationFsxLustreCommand } = require("@aws-sdk/client-datasync"); // CommonJS import
+ * // import type { DataSyncClientConfig } from "@aws-sdk/client-datasync";
+ * const config = {}; // type is DataSyncClientConfig
  * const client = new DataSyncClient(config);
  * const input = { // UpdateLocationFsxLustreRequest
  *   LocationArn: "STRING_VALUE", // required

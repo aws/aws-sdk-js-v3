@@ -34,6 +34,8 @@ export interface PredictQAppCommandOutput extends PredictQAppOutput, __MetadataB
  * ```javascript
  * import { QAppsClient, PredictQAppCommand } from "@aws-sdk/client-qapps"; // ES Modules import
  * // const { QAppsClient, PredictQAppCommand } = require("@aws-sdk/client-qapps"); // CommonJS import
+ * // import type { QAppsClientConfig } from "@aws-sdk/client-qapps";
+ * const config = {}; // type is QAppsClientConfig
  * const client = new QAppsClient(config);
  * const input = { // PredictQAppInput
  *   instanceId: "STRING_VALUE", // required

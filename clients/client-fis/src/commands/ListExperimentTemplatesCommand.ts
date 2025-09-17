@@ -34,6 +34,8 @@ export interface ListExperimentTemplatesCommandOutput extends ListExperimentTemp
  * ```javascript
  * import { FisClient, ListExperimentTemplatesCommand } from "@aws-sdk/client-fis"; // ES Modules import
  * // const { FisClient, ListExperimentTemplatesCommand } = require("@aws-sdk/client-fis"); // CommonJS import
+ * // import type { FisClientConfig } from "@aws-sdk/client-fis";
+ * const config = {}; // type is FisClientConfig
  * const client = new FisClient(config);
  * const input = { // ListExperimentTemplatesRequest
  *   maxResults: Number("int"),

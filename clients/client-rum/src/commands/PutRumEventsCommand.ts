@@ -37,6 +37,8 @@ export interface PutRumEventsCommandOutput extends PutRumEventsResponse, __Metad
  * ```javascript
  * import { RUMClient, PutRumEventsCommand } from "@aws-sdk/client-rum"; // ES Modules import
  * // const { RUMClient, PutRumEventsCommand } = require("@aws-sdk/client-rum"); // CommonJS import
+ * // import type { RUMClientConfig } from "@aws-sdk/client-rum";
+ * const config = {}; // type is RUMClientConfig
  * const client = new RUMClient(config);
  * const input = { // PutRumEventsRequest
  *   Id: "STRING_VALUE", // required

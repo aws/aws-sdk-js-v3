@@ -38,6 +38,8 @@ export interface ResumeCampaignCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { ConnectCampaignsV2Client, ResumeCampaignCommand } from "@aws-sdk/client-connectcampaignsv2"; // ES Modules import
  * // const { ConnectCampaignsV2Client, ResumeCampaignCommand } = require("@aws-sdk/client-connectcampaignsv2"); // CommonJS import
+ * // import type { ConnectCampaignsV2ClientConfig } from "@aws-sdk/client-connectcampaignsv2";
+ * const config = {}; // type is ConnectCampaignsV2ClientConfig
  * const client = new ConnectCampaignsV2Client(config);
  * const input = { // ResumeCampaignRequest
  *   id: "STRING_VALUE", // required

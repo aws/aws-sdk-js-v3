@@ -39,6 +39,8 @@ export interface DescribeScalingPlanResourcesCommandOutput
  * ```javascript
  * import { AutoScalingPlansClient, DescribeScalingPlanResourcesCommand } from "@aws-sdk/client-auto-scaling-plans"; // ES Modules import
  * // const { AutoScalingPlansClient, DescribeScalingPlanResourcesCommand } = require("@aws-sdk/client-auto-scaling-plans"); // CommonJS import
+ * // import type { AutoScalingPlansClientConfig } from "@aws-sdk/client-auto-scaling-plans";
+ * const config = {}; // type is AutoScalingPlansClientConfig
  * const client = new AutoScalingPlansClient(config);
  * const input = { // DescribeScalingPlanResourcesRequest
  *   ScalingPlanName: "STRING_VALUE", // required

@@ -35,6 +35,8 @@ export interface PutJobSuccessResultCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { CodePipelineClient, PutJobSuccessResultCommand } from "@aws-sdk/client-codepipeline"; // ES Modules import
  * // const { CodePipelineClient, PutJobSuccessResultCommand } = require("@aws-sdk/client-codepipeline"); // CommonJS import
+ * // import type { CodePipelineClientConfig } from "@aws-sdk/client-codepipeline";
+ * const config = {}; // type is CodePipelineClientConfig
  * const client = new CodePipelineClient(config);
  * const input = { // PutJobSuccessResultInput
  *   jobId: "STRING_VALUE", // required

@@ -52,6 +52,8 @@ export interface DescribeAttachmentCommandOutput extends DescribeAttachmentRespo
  * ```javascript
  * import { SupportClient, DescribeAttachmentCommand } from "@aws-sdk/client-support"; // ES Modules import
  * // const { SupportClient, DescribeAttachmentCommand } = require("@aws-sdk/client-support"); // CommonJS import
+ * // import type { SupportClientConfig } from "@aws-sdk/client-support";
+ * const config = {}; // type is SupportClientConfig
  * const client = new SupportClient(config);
  * const input = { // DescribeAttachmentRequest
  *   attachmentId: "STRING_VALUE", // required

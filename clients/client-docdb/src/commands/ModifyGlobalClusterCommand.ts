@@ -37,6 +37,8 @@ export interface ModifyGlobalClusterCommandOutput extends ModifyGlobalClusterRes
  * ```javascript
  * import { DocDBClient, ModifyGlobalClusterCommand } from "@aws-sdk/client-docdb"; // ES Modules import
  * // const { DocDBClient, ModifyGlobalClusterCommand } = require("@aws-sdk/client-docdb"); // CommonJS import
+ * // import type { DocDBClientConfig } from "@aws-sdk/client-docdb";
+ * const config = {}; // type is DocDBClientConfig
  * const client = new DocDBClient(config);
  * const input = { // ModifyGlobalClusterMessage
  *   GlobalClusterIdentifier: "STRING_VALUE", // required

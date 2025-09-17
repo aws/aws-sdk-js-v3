@@ -34,6 +34,8 @@ export interface BatchRevokePermissionsCommandOutput extends BatchRevokePermissi
  * ```javascript
  * import { LakeFormationClient, BatchRevokePermissionsCommand } from "@aws-sdk/client-lakeformation"; // ES Modules import
  * // const { LakeFormationClient, BatchRevokePermissionsCommand } = require("@aws-sdk/client-lakeformation"); // CommonJS import
+ * // import type { LakeFormationClientConfig } from "@aws-sdk/client-lakeformation";
+ * const config = {}; // type is LakeFormationClientConfig
  * const client = new LakeFormationClient(config);
  * const input = { // BatchRevokePermissionsRequest
  *   CatalogId: "STRING_VALUE",

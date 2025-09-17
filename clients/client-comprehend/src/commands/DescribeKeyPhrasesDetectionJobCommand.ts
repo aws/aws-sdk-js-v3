@@ -40,6 +40,8 @@ export interface DescribeKeyPhrasesDetectionJobCommandOutput
  * ```javascript
  * import { ComprehendClient, DescribeKeyPhrasesDetectionJobCommand } from "@aws-sdk/client-comprehend"; // ES Modules import
  * // const { ComprehendClient, DescribeKeyPhrasesDetectionJobCommand } = require("@aws-sdk/client-comprehend"); // CommonJS import
+ * // import type { ComprehendClientConfig } from "@aws-sdk/client-comprehend";
+ * const config = {}; // type is ComprehendClientConfig
  * const client = new ComprehendClient(config);
  * const input = { // DescribeKeyPhrasesDetectionJobRequest
  *   JobId: "STRING_VALUE", // required

@@ -38,6 +38,8 @@ export interface BatchGetViewCommandOutput extends BatchGetViewOutput, __Metadat
  * ```javascript
  * import { ResourceExplorer2Client, BatchGetViewCommand } from "@aws-sdk/client-resource-explorer-2"; // ES Modules import
  * // const { ResourceExplorer2Client, BatchGetViewCommand } = require("@aws-sdk/client-resource-explorer-2"); // CommonJS import
+ * // import type { ResourceExplorer2ClientConfig } from "@aws-sdk/client-resource-explorer-2";
+ * const config = {}; // type is ResourceExplorer2ClientConfig
  * const client = new ResourceExplorer2Client(config);
  * const input = { // BatchGetViewInput
  *   ViewArns: [ // ViewArnList

@@ -34,6 +34,8 @@ export interface CreateTypeCommandOutput extends CreateTypeResponse, __MetadataB
  * ```javascript
  * import { KeyspacesClient, CreateTypeCommand } from "@aws-sdk/client-keyspaces"; // ES Modules import
  * // const { KeyspacesClient, CreateTypeCommand } = require("@aws-sdk/client-keyspaces"); // CommonJS import
+ * // import type { KeyspacesClientConfig } from "@aws-sdk/client-keyspaces";
+ * const config = {}; // type is KeyspacesClientConfig
  * const client = new KeyspacesClient(config);
  * const input = { // CreateTypeRequest
  *   keyspaceName: "STRING_VALUE", // required

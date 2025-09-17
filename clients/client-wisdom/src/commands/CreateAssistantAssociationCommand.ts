@@ -36,6 +36,8 @@ export interface CreateAssistantAssociationCommandOutput extends CreateAssistant
  * ```javascript
  * import { WisdomClient, CreateAssistantAssociationCommand } from "@aws-sdk/client-wisdom"; // ES Modules import
  * // const { WisdomClient, CreateAssistantAssociationCommand } = require("@aws-sdk/client-wisdom"); // CommonJS import
+ * // import type { WisdomClientConfig } from "@aws-sdk/client-wisdom";
+ * const config = {}; // type is WisdomClientConfig
  * const client = new WisdomClient(config);
  * const input = { // CreateAssistantAssociationRequest
  *   assistantId: "STRING_VALUE", // required

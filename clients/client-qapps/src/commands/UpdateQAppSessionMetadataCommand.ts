@@ -34,6 +34,8 @@ export interface UpdateQAppSessionMetadataCommandOutput extends UpdateQAppSessio
  * ```javascript
  * import { QAppsClient, UpdateQAppSessionMetadataCommand } from "@aws-sdk/client-qapps"; // ES Modules import
  * // const { QAppsClient, UpdateQAppSessionMetadataCommand } = require("@aws-sdk/client-qapps"); // CommonJS import
+ * // import type { QAppsClientConfig } from "@aws-sdk/client-qapps";
+ * const config = {}; // type is QAppsClientConfig
  * const client = new QAppsClient(config);
  * const input = { // UpdateQAppSessionMetadataInput
  *   instanceId: "STRING_VALUE", // required

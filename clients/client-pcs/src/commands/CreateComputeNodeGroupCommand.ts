@@ -34,6 +34,8 @@ export interface CreateComputeNodeGroupCommandOutput extends CreateComputeNodeGr
  * ```javascript
  * import { PCSClient, CreateComputeNodeGroupCommand } from "@aws-sdk/client-pcs"; // ES Modules import
  * // const { PCSClient, CreateComputeNodeGroupCommand } = require("@aws-sdk/client-pcs"); // CommonJS import
+ * // import type { PCSClientConfig } from "@aws-sdk/client-pcs";
+ * const config = {}; // type is PCSClientConfig
  * const client = new PCSClient(config);
  * const input = { // CreateComputeNodeGroupRequest
  *   clusterIdentifier: "STRING_VALUE", // required

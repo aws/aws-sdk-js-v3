@@ -42,6 +42,8 @@ export interface ListPolicyStoresCommandOutput extends ListPolicyStoresOutput, _
  * ```javascript
  * import { VerifiedPermissionsClient, ListPolicyStoresCommand } from "@aws-sdk/client-verifiedpermissions"; // ES Modules import
  * // const { VerifiedPermissionsClient, ListPolicyStoresCommand } = require("@aws-sdk/client-verifiedpermissions"); // CommonJS import
+ * // import type { VerifiedPermissionsClientConfig } from "@aws-sdk/client-verifiedpermissions";
+ * const config = {}; // type is VerifiedPermissionsClientConfig
  * const client = new VerifiedPermissionsClient(config);
  * const input = { // ListPolicyStoresInput
  *   nextToken: "STRING_VALUE",

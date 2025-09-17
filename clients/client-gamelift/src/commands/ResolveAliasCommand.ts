@@ -44,6 +44,8 @@ export interface ResolveAliasCommandOutput extends ResolveAliasOutput, __Metadat
  * ```javascript
  * import { GameLiftClient, ResolveAliasCommand } from "@aws-sdk/client-gamelift"; // ES Modules import
  * // const { GameLiftClient, ResolveAliasCommand } = require("@aws-sdk/client-gamelift"); // CommonJS import
+ * // import type { GameLiftClientConfig } from "@aws-sdk/client-gamelift";
+ * const config = {}; // type is GameLiftClientConfig
  * const client = new GameLiftClient(config);
  * const input = { // ResolveAliasInput
  *   AliasId: "STRING_VALUE", // required

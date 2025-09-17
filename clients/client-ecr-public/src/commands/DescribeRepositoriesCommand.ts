@@ -34,6 +34,8 @@ export interface DescribeRepositoriesCommandOutput extends DescribeRepositoriesR
  * ```javascript
  * import { ECRPUBLICClient, DescribeRepositoriesCommand } from "@aws-sdk/client-ecr-public"; // ES Modules import
  * // const { ECRPUBLICClient, DescribeRepositoriesCommand } = require("@aws-sdk/client-ecr-public"); // CommonJS import
+ * // import type { ECRPUBLICClientConfig } from "@aws-sdk/client-ecr-public";
+ * const config = {}; // type is ECRPUBLICClientConfig
  * const client = new ECRPUBLICClient(config);
  * const input = { // DescribeRepositoriesRequest
  *   registryId: "STRING_VALUE",

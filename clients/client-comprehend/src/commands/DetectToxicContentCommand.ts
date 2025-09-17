@@ -41,6 +41,8 @@ export interface DetectToxicContentCommandOutput extends DetectToxicContentRespo
  * ```javascript
  * import { ComprehendClient, DetectToxicContentCommand } from "@aws-sdk/client-comprehend"; // ES Modules import
  * // const { ComprehendClient, DetectToxicContentCommand } = require("@aws-sdk/client-comprehend"); // CommonJS import
+ * // import type { ComprehendClientConfig } from "@aws-sdk/client-comprehend";
+ * const config = {}; // type is ComprehendClientConfig
  * const client = new ComprehendClient(config);
  * const input = { // DetectToxicContentRequest
  *   TextSegments: [ // ListOfTextSegments // required

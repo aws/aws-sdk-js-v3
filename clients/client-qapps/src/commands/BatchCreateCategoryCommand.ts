@@ -34,6 +34,8 @@ export interface BatchCreateCategoryCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { QAppsClient, BatchCreateCategoryCommand } from "@aws-sdk/client-qapps"; // ES Modules import
  * // const { QAppsClient, BatchCreateCategoryCommand } = require("@aws-sdk/client-qapps"); // CommonJS import
+ * // import type { QAppsClientConfig } from "@aws-sdk/client-qapps";
+ * const config = {}; // type is QAppsClientConfig
  * const client = new QAppsClient(config);
  * const input = { // BatchCreateCategoryInput
  *   instanceId: "STRING_VALUE", // required

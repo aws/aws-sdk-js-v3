@@ -39,6 +39,8 @@ export interface DescribeViewCommandOutput extends DescribeViewResponse, __Metad
  * ```javascript
  * import { ConnectParticipantClient, DescribeViewCommand } from "@aws-sdk/client-connectparticipant"; // ES Modules import
  * // const { ConnectParticipantClient, DescribeViewCommand } = require("@aws-sdk/client-connectparticipant"); // CommonJS import
+ * // import type { ConnectParticipantClientConfig } from "@aws-sdk/client-connectparticipant";
+ * const config = {}; // type is ConnectParticipantClientConfig
  * const client = new ConnectParticipantClient(config);
  * const input = { // DescribeViewRequest
  *   ViewToken: "STRING_VALUE", // required

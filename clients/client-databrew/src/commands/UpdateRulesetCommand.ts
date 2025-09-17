@@ -34,6 +34,8 @@ export interface UpdateRulesetCommandOutput extends UpdateRulesetResponse, __Met
  * ```javascript
  * import { DataBrewClient, UpdateRulesetCommand } from "@aws-sdk/client-databrew"; // ES Modules import
  * // const { DataBrewClient, UpdateRulesetCommand } = require("@aws-sdk/client-databrew"); // CommonJS import
+ * // import type { DataBrewClientConfig } from "@aws-sdk/client-databrew";
+ * const config = {}; // type is DataBrewClientConfig
  * const client = new DataBrewClient(config);
  * const input = { // UpdateRulesetRequest
  *   Name: "STRING_VALUE", // required

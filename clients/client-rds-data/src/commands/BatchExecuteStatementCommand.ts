@@ -47,6 +47,8 @@ export interface BatchExecuteStatementCommandOutput extends BatchExecuteStatemen
  * ```javascript
  * import { RDSDataClient, BatchExecuteStatementCommand } from "@aws-sdk/client-rds-data"; // ES Modules import
  * // const { RDSDataClient, BatchExecuteStatementCommand } = require("@aws-sdk/client-rds-data"); // CommonJS import
+ * // import type { RDSDataClientConfig } from "@aws-sdk/client-rds-data";
+ * const config = {}; // type is RDSDataClientConfig
  * const client = new RDSDataClient(config);
  * const input = { // BatchExecuteStatementRequest
  *   resourceArn: "STRING_VALUE", // required

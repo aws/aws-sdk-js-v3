@@ -84,6 +84,8 @@ export interface DeleteAliasCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { KMSClient, DeleteAliasCommand } from "@aws-sdk/client-kms"; // ES Modules import
  * // const { KMSClient, DeleteAliasCommand } = require("@aws-sdk/client-kms"); // CommonJS import
+ * // import type { KMSClientConfig } from "@aws-sdk/client-kms";
+ * const config = {}; // type is KMSClientConfig
  * const client = new KMSClient(config);
  * const input = { // DeleteAliasRequest
  *   AliasName: "STRING_VALUE", // required

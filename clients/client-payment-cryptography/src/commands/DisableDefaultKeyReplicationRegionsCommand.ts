@@ -46,6 +46,8 @@ export interface DisableDefaultKeyReplicationRegionsCommandOutput
  * ```javascript
  * import { PaymentCryptographyClient, DisableDefaultKeyReplicationRegionsCommand } from "@aws-sdk/client-payment-cryptography"; // ES Modules import
  * // const { PaymentCryptographyClient, DisableDefaultKeyReplicationRegionsCommand } = require("@aws-sdk/client-payment-cryptography"); // CommonJS import
+ * // import type { PaymentCryptographyClientConfig } from "@aws-sdk/client-payment-cryptography";
+ * const config = {}; // type is PaymentCryptographyClientConfig
  * const client = new PaymentCryptographyClient(config);
  * const input = { // DisableDefaultKeyReplicationRegionsInput
  *   ReplicationRegions: [ // Regions // required

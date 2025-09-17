@@ -50,6 +50,8 @@ export interface DescribeParametersCommandOutput extends DescribeParametersResul
  * ```javascript
  * import { SSMClient, DescribeParametersCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, DescribeParametersCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
+ * // import type { SSMClientConfig } from "@aws-sdk/client-ssm";
+ * const config = {}; // type is SSMClientConfig
  * const client = new SSMClient(config);
  * const input = { // DescribeParametersRequest
  *   Filters: [ // ParametersFilterList

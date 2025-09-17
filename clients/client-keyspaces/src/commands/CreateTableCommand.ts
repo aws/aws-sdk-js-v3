@@ -34,6 +34,8 @@ export interface CreateTableCommandOutput extends CreateTableResponse, __Metadat
  * ```javascript
  * import { KeyspacesClient, CreateTableCommand } from "@aws-sdk/client-keyspaces"; // ES Modules import
  * // const { KeyspacesClient, CreateTableCommand } = require("@aws-sdk/client-keyspaces"); // CommonJS import
+ * // import type { KeyspacesClientConfig } from "@aws-sdk/client-keyspaces";
+ * const config = {}; // type is KeyspacesClientConfig
  * const client = new KeyspacesClient(config);
  * const input = { // CreateTableRequest
  *   keyspaceName: "STRING_VALUE", // required

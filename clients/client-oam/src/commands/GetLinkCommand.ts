@@ -34,6 +34,8 @@ export interface GetLinkCommandOutput extends GetLinkOutput, __MetadataBearer {}
  * ```javascript
  * import { OAMClient, GetLinkCommand } from "@aws-sdk/client-oam"; // ES Modules import
  * // const { OAMClient, GetLinkCommand } = require("@aws-sdk/client-oam"); // CommonJS import
+ * // import type { OAMClientConfig } from "@aws-sdk/client-oam";
+ * const config = {}; // type is OAMClientConfig
  * const client = new OAMClient(config);
  * const input = { // GetLinkInput
  *   Identifier: "STRING_VALUE", // required

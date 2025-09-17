@@ -38,6 +38,8 @@ export interface GetCodeSecurityIntegrationCommandOutput extends GetCodeSecurity
  * ```javascript
  * import { Inspector2Client, GetCodeSecurityIntegrationCommand } from "@aws-sdk/client-inspector2"; // ES Modules import
  * // const { Inspector2Client, GetCodeSecurityIntegrationCommand } = require("@aws-sdk/client-inspector2"); // CommonJS import
+ * // import type { Inspector2ClientConfig } from "@aws-sdk/client-inspector2";
+ * const config = {}; // type is Inspector2ClientConfig
  * const client = new Inspector2Client(config);
  * const input = { // GetCodeSecurityIntegrationRequest
  *   integrationArn: "STRING_VALUE", // required

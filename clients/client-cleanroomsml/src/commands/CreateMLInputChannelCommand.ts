@@ -38,6 +38,8 @@ export interface CreateMLInputChannelCommandOutput extends CreateMLInputChannelR
  * ```javascript
  * import { CleanRoomsMLClient, CreateMLInputChannelCommand } from "@aws-sdk/client-cleanroomsml"; // ES Modules import
  * // const { CleanRoomsMLClient, CreateMLInputChannelCommand } = require("@aws-sdk/client-cleanroomsml"); // CommonJS import
+ * // import type { CleanRoomsMLClientConfig } from "@aws-sdk/client-cleanroomsml";
+ * const config = {}; // type is CleanRoomsMLClientConfig
  * const client = new CleanRoomsMLClient(config);
  * const input = { // CreateMLInputChannelRequest
  *   membershipIdentifier: "STRING_VALUE", // required

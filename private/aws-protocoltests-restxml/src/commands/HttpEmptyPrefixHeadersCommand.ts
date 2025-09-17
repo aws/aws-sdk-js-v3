@@ -34,6 +34,8 @@ export interface HttpEmptyPrefixHeadersCommandOutput extends HttpEmptyPrefixHead
  * ```javascript
  * import { RestXmlProtocolClient, HttpEmptyPrefixHeadersCommand } from "@aws-sdk/aws-protocoltests-restxml"; // ES Modules import
  * // const { RestXmlProtocolClient, HttpEmptyPrefixHeadersCommand } = require("@aws-sdk/aws-protocoltests-restxml"); // CommonJS import
+ * // import type { RestXmlProtocolClientConfig } from "@aws-sdk/aws-protocoltests-restxml";
+ * const config = {}; // type is RestXmlProtocolClientConfig
  * const client = new RestXmlProtocolClient(config);
  * const input = { // HttpEmptyPrefixHeadersInput
  *   prefixHeaders: { // StringMap

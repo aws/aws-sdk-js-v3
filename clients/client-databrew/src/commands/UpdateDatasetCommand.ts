@@ -34,6 +34,8 @@ export interface UpdateDatasetCommandOutput extends UpdateDatasetResponse, __Met
  * ```javascript
  * import { DataBrewClient, UpdateDatasetCommand } from "@aws-sdk/client-databrew"; // ES Modules import
  * // const { DataBrewClient, UpdateDatasetCommand } = require("@aws-sdk/client-databrew"); // CommonJS import
+ * // import type { DataBrewClientConfig } from "@aws-sdk/client-databrew";
+ * const config = {}; // type is DataBrewClientConfig
  * const client = new DataBrewClient(config);
  * const input = { // UpdateDatasetRequest
  *   Name: "STRING_VALUE", // required

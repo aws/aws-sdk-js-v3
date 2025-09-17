@@ -37,6 +37,8 @@ export interface DescribeGeneratedTemplateCommandOutput extends DescribeGenerate
  * ```javascript
  * import { CloudFormationClient, DescribeGeneratedTemplateCommand } from "@aws-sdk/client-cloudformation"; // ES Modules import
  * // const { CloudFormationClient, DescribeGeneratedTemplateCommand } = require("@aws-sdk/client-cloudformation"); // CommonJS import
+ * // import type { CloudFormationClientConfig } from "@aws-sdk/client-cloudformation";
+ * const config = {}; // type is CloudFormationClientConfig
  * const client = new CloudFormationClient(config);
  * const input = { // DescribeGeneratedTemplateInput
  *   GeneratedTemplateName: "STRING_VALUE", // required

@@ -35,6 +35,8 @@ export interface ListRevisionAssetsCommandOutput extends ListRevisionAssetsRespo
  * ```javascript
  * import { DataExchangeClient, ListRevisionAssetsCommand } from "@aws-sdk/client-dataexchange"; // ES Modules import
  * // const { DataExchangeClient, ListRevisionAssetsCommand } = require("@aws-sdk/client-dataexchange"); // CommonJS import
+ * // import type { DataExchangeClientConfig } from "@aws-sdk/client-dataexchange";
+ * const config = {}; // type is DataExchangeClientConfig
  * const client = new DataExchangeClient(config);
  * const input = { // ListRevisionAssetsRequest
  *   DataSetId: "STRING_VALUE", // required

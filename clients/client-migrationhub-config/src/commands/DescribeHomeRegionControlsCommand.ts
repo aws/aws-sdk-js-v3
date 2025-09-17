@@ -39,6 +39,8 @@ export interface DescribeHomeRegionControlsCommandOutput extends DescribeHomeReg
  * ```javascript
  * import { MigrationHubConfigClient, DescribeHomeRegionControlsCommand } from "@aws-sdk/client-migrationhub-config"; // ES Modules import
  * // const { MigrationHubConfigClient, DescribeHomeRegionControlsCommand } = require("@aws-sdk/client-migrationhub-config"); // CommonJS import
+ * // import type { MigrationHubConfigClientConfig } from "@aws-sdk/client-migrationhub-config";
+ * const config = {}; // type is MigrationHubConfigClientConfig
  * const client = new MigrationHubConfigClient(config);
  * const input = { // DescribeHomeRegionControlsRequest
  *   ControlId: "STRING_VALUE",

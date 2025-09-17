@@ -34,6 +34,8 @@ export interface DeleteSourceLocationCommandOutput extends DeleteSourceLocationR
  * ```javascript
  * import { MediaTailorClient, DeleteSourceLocationCommand } from "@aws-sdk/client-mediatailor"; // ES Modules import
  * // const { MediaTailorClient, DeleteSourceLocationCommand } = require("@aws-sdk/client-mediatailor"); // CommonJS import
+ * // import type { MediaTailorClientConfig } from "@aws-sdk/client-mediatailor";
+ * const config = {}; // type is MediaTailorClientConfig
  * const client = new MediaTailorClient(config);
  * const input = { // DeleteSourceLocationRequest
  *   SourceLocationName: "STRING_VALUE", // required

@@ -34,6 +34,8 @@ export interface CreateServiceProfileCommandOutput extends CreateServiceProfileR
  * ```javascript
  * import { IoTWirelessClient, CreateServiceProfileCommand } from "@aws-sdk/client-iot-wireless"; // ES Modules import
  * // const { IoTWirelessClient, CreateServiceProfileCommand } = require("@aws-sdk/client-iot-wireless"); // CommonJS import
+ * // import type { IoTWirelessClientConfig } from "@aws-sdk/client-iot-wireless";
+ * const config = {}; // type is IoTWirelessClientConfig
  * const client = new IoTWirelessClient(config);
  * const input = { // CreateServiceProfileRequest
  *   Name: "STRING_VALUE",

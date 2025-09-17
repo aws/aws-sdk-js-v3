@@ -34,6 +34,8 @@ export interface UpdateGlobalSettingsCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { ChimeSDKVoiceClient, UpdateGlobalSettingsCommand } from "@aws-sdk/client-chime-sdk-voice"; // ES Modules import
  * // const { ChimeSDKVoiceClient, UpdateGlobalSettingsCommand } = require("@aws-sdk/client-chime-sdk-voice"); // CommonJS import
+ * // import type { ChimeSDKVoiceClientConfig } from "@aws-sdk/client-chime-sdk-voice";
+ * const config = {}; // type is ChimeSDKVoiceClientConfig
  * const client = new ChimeSDKVoiceClient(config);
  * const input = { // UpdateGlobalSettingsRequest
  *   VoiceConnector: { // VoiceConnectorSettings

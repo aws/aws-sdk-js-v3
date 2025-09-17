@@ -34,6 +34,8 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * ```javascript
  * import { DataZoneClient, TagResourceCommand } from "@aws-sdk/client-datazone"; // ES Modules import
  * // const { DataZoneClient, TagResourceCommand } = require("@aws-sdk/client-datazone"); // CommonJS import
+ * // import type { DataZoneClientConfig } from "@aws-sdk/client-datazone";
+ * const config = {}; // type is DataZoneClientConfig
  * const client = new DataZoneClient(config);
  * const input = { // TagResourceRequest
  *   resourceArn: "STRING_VALUE", // required

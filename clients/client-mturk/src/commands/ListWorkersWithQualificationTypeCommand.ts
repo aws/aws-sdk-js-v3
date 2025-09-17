@@ -42,6 +42,8 @@ export interface ListWorkersWithQualificationTypeCommandOutput
  * ```javascript
  * import { MTurkClient, ListWorkersWithQualificationTypeCommand } from "@aws-sdk/client-mturk"; // ES Modules import
  * // const { MTurkClient, ListWorkersWithQualificationTypeCommand } = require("@aws-sdk/client-mturk"); // CommonJS import
+ * // import type { MTurkClientConfig } from "@aws-sdk/client-mturk";
+ * const config = {}; // type is MTurkClientConfig
  * const client = new MTurkClient(config);
  * const input = { // ListWorkersWithQualificationTypeRequest
  *   QualificationTypeId: "STRING_VALUE", // required

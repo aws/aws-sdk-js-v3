@@ -40,6 +40,8 @@ export interface ListCompositionRelationshipsCommandOutput
  * ```javascript
  * import { IoTSiteWiseClient, ListCompositionRelationshipsCommand } from "@aws-sdk/client-iotsitewise"; // ES Modules import
  * // const { IoTSiteWiseClient, ListCompositionRelationshipsCommand } = require("@aws-sdk/client-iotsitewise"); // CommonJS import
+ * // import type { IoTSiteWiseClientConfig } from "@aws-sdk/client-iotsitewise";
+ * const config = {}; // type is IoTSiteWiseClientConfig
  * const client = new IoTSiteWiseClient(config);
  * const input = { // ListCompositionRelationshipsRequest
  *   assetModelId: "STRING_VALUE", // required

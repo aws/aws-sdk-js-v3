@@ -34,6 +34,8 @@ export interface StopEventsDetectionJobCommandOutput extends StopEventsDetection
  * ```javascript
  * import { ComprehendClient, StopEventsDetectionJobCommand } from "@aws-sdk/client-comprehend"; // ES Modules import
  * // const { ComprehendClient, StopEventsDetectionJobCommand } = require("@aws-sdk/client-comprehend"); // CommonJS import
+ * // import type { ComprehendClientConfig } from "@aws-sdk/client-comprehend";
+ * const config = {}; // type is ComprehendClientConfig
  * const client = new ComprehendClient(config);
  * const input = { // StopEventsDetectionJobRequest
  *   JobId: "STRING_VALUE", // required

@@ -45,6 +45,8 @@ export interface GetThirdPartyJobDetailsCommandOutput extends GetThirdPartyJobDe
  * ```javascript
  * import { CodePipelineClient, GetThirdPartyJobDetailsCommand } from "@aws-sdk/client-codepipeline"; // ES Modules import
  * // const { CodePipelineClient, GetThirdPartyJobDetailsCommand } = require("@aws-sdk/client-codepipeline"); // CommonJS import
+ * // import type { CodePipelineClientConfig } from "@aws-sdk/client-codepipeline";
+ * const config = {}; // type is CodePipelineClientConfig
  * const client = new CodePipelineClient(config);
  * const input = { // GetThirdPartyJobDetailsInput
  *   jobId: "STRING_VALUE", // required

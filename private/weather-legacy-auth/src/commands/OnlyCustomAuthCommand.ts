@@ -34,6 +34,8 @@ export interface OnlyCustomAuthCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { WeatherClient, OnlyCustomAuthCommand } from "@aws-sdk/weather-legacy-auth"; // ES Modules import
  * // const { WeatherClient, OnlyCustomAuthCommand } = require("@aws-sdk/weather-legacy-auth"); // CommonJS import
+ * // import type { WeatherClientConfig } from "@aws-sdk/weather-legacy-auth";
+ * const config = {}; // type is WeatherClientConfig
  * const client = new WeatherClient(config);
  * const input = {};
  * const command = new OnlyCustomAuthCommand(input);

@@ -34,6 +34,8 @@ export interface DisassociateEipFromVlanCommandOutput extends DisassociateEipFro
  * ```javascript
  * import { EvsClient, DisassociateEipFromVlanCommand } from "@aws-sdk/client-evs"; // ES Modules import
  * // const { EvsClient, DisassociateEipFromVlanCommand } = require("@aws-sdk/client-evs"); // CommonJS import
+ * // import type { EvsClientConfig } from "@aws-sdk/client-evs";
+ * const config = {}; // type is EvsClientConfig
  * const client = new EvsClient(config);
  * const input = { // DisassociateEipFromVlanRequest
  *   clientToken: "STRING_VALUE",

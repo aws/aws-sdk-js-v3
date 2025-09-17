@@ -34,6 +34,8 @@ export interface UpdateLensReviewCommandOutput extends UpdateLensReviewOutput, _
  * ```javascript
  * import { WellArchitectedClient, UpdateLensReviewCommand } from "@aws-sdk/client-wellarchitected"; // ES Modules import
  * // const { WellArchitectedClient, UpdateLensReviewCommand } = require("@aws-sdk/client-wellarchitected"); // CommonJS import
+ * // import type { WellArchitectedClientConfig } from "@aws-sdk/client-wellarchitected";
+ * const config = {}; // type is WellArchitectedClientConfig
  * const client = new WellArchitectedClient(config);
  * const input = { // UpdateLensReviewInput
  *   WorkloadId: "STRING_VALUE", // required

@@ -36,6 +36,8 @@ export interface UntagMFADeviceCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { IAMClient, UntagMFADeviceCommand } from "@aws-sdk/client-iam"; // ES Modules import
  * // const { IAMClient, UntagMFADeviceCommand } = require("@aws-sdk/client-iam"); // CommonJS import
+ * // import type { IAMClientConfig } from "@aws-sdk/client-iam";
+ * const config = {}; // type is IAMClientConfig
  * const client = new IAMClient(config);
  * const input = { // UntagMFADeviceRequest
  *   SerialNumber: "STRING_VALUE", // required

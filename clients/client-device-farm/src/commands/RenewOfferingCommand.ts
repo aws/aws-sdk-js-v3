@@ -36,6 +36,8 @@ export interface RenewOfferingCommandOutput extends RenewOfferingResult, __Metad
  * ```javascript
  * import { DeviceFarmClient, RenewOfferingCommand } from "@aws-sdk/client-device-farm"; // ES Modules import
  * // const { DeviceFarmClient, RenewOfferingCommand } = require("@aws-sdk/client-device-farm"); // CommonJS import
+ * // import type { DeviceFarmClientConfig } from "@aws-sdk/client-device-farm";
+ * const config = {}; // type is DeviceFarmClientConfig
  * const client = new DeviceFarmClient(config);
  * const input = { // RenewOfferingRequest
  *   offeringId: "STRING_VALUE", // required

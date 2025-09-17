@@ -38,6 +38,8 @@ export interface DescribeCertificateCommandOutput extends DescribeCertificateRes
  * ```javascript
  * import { TransferClient, DescribeCertificateCommand } from "@aws-sdk/client-transfer"; // ES Modules import
  * // const { TransferClient, DescribeCertificateCommand } = require("@aws-sdk/client-transfer"); // CommonJS import
+ * // import type { TransferClientConfig } from "@aws-sdk/client-transfer";
+ * const config = {}; // type is TransferClientConfig
  * const client = new TransferClient(config);
  * const input = { // DescribeCertificateRequest
  *   CertificateId: "STRING_VALUE", // required

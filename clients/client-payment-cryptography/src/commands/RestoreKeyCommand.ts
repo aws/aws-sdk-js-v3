@@ -38,6 +38,8 @@ export interface RestoreKeyCommandOutput extends RestoreKeyOutput, __MetadataBea
  * ```javascript
  * import { PaymentCryptographyClient, RestoreKeyCommand } from "@aws-sdk/client-payment-cryptography"; // ES Modules import
  * // const { PaymentCryptographyClient, RestoreKeyCommand } = require("@aws-sdk/client-payment-cryptography"); // CommonJS import
+ * // import type { PaymentCryptographyClientConfig } from "@aws-sdk/client-payment-cryptography";
+ * const config = {}; // type is PaymentCryptographyClientConfig
  * const client = new PaymentCryptographyClient(config);
  * const input = { // RestoreKeyInput
  *   KeyIdentifier: "STRING_VALUE", // required

@@ -38,6 +38,8 @@ export interface GetVoiceToneAnalysisTaskCommandOutput extends GetVoiceToneAnaly
  * ```javascript
  * import { ChimeSDKMediaPipelinesClient, GetVoiceToneAnalysisTaskCommand } from "@aws-sdk/client-chime-sdk-media-pipelines"; // ES Modules import
  * // const { ChimeSDKMediaPipelinesClient, GetVoiceToneAnalysisTaskCommand } = require("@aws-sdk/client-chime-sdk-media-pipelines"); // CommonJS import
+ * // import type { ChimeSDKMediaPipelinesClientConfig } from "@aws-sdk/client-chime-sdk-media-pipelines";
+ * const config = {}; // type is ChimeSDKMediaPipelinesClientConfig
  * const client = new ChimeSDKMediaPipelinesClient(config);
  * const input = { // GetVoiceToneAnalysisTaskRequest
  *   Identifier: "STRING_VALUE", // required

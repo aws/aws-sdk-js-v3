@@ -46,6 +46,8 @@ export interface CreateSimulationJobCommandOutput extends CreateSimulationJobRes
  * ```javascript
  * import { RoboMakerClient, CreateSimulationJobCommand } from "@aws-sdk/client-robomaker"; // ES Modules import
  * // const { RoboMakerClient, CreateSimulationJobCommand } = require("@aws-sdk/client-robomaker"); // CommonJS import
+ * // import type { RoboMakerClientConfig } from "@aws-sdk/client-robomaker";
+ * const config = {}; // type is RoboMakerClientConfig
  * const client = new RoboMakerClient(config);
  * const input = { // CreateSimulationJobRequest
  *   clientRequestToken: "STRING_VALUE",

@@ -40,6 +40,8 @@ export interface AbortDocumentVersionUploadCommandOutput extends __MetadataBeare
  * ```javascript
  * import { WorkDocsClient, AbortDocumentVersionUploadCommand } from "@aws-sdk/client-workdocs"; // ES Modules import
  * // const { WorkDocsClient, AbortDocumentVersionUploadCommand } = require("@aws-sdk/client-workdocs"); // CommonJS import
+ * // import type { WorkDocsClientConfig } from "@aws-sdk/client-workdocs";
+ * const config = {}; // type is WorkDocsClientConfig
  * const client = new WorkDocsClient(config);
  * const input = { // AbortDocumentVersionUploadRequest
  *   AuthenticationToken: "STRING_VALUE",

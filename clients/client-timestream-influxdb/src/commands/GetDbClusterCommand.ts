@@ -38,6 +38,8 @@ export interface GetDbClusterCommandOutput extends GetDbClusterOutput, __Metadat
  * ```javascript
  * import { TimestreamInfluxDBClient, GetDbClusterCommand } from "@aws-sdk/client-timestream-influxdb"; // ES Modules import
  * // const { TimestreamInfluxDBClient, GetDbClusterCommand } = require("@aws-sdk/client-timestream-influxdb"); // CommonJS import
+ * // import type { TimestreamInfluxDBClientConfig } from "@aws-sdk/client-timestream-influxdb";
+ * const config = {}; // type is TimestreamInfluxDBClientConfig
  * const client = new TimestreamInfluxDBClient(config);
  * const input = { // GetDbClusterInput
  *   dbClusterId: "STRING_VALUE", // required

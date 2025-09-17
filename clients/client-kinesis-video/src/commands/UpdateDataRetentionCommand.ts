@@ -55,6 +55,8 @@ export interface UpdateDataRetentionCommandOutput extends UpdateDataRetentionOut
  * ```javascript
  * import { KinesisVideoClient, UpdateDataRetentionCommand } from "@aws-sdk/client-kinesis-video"; // ES Modules import
  * // const { KinesisVideoClient, UpdateDataRetentionCommand } = require("@aws-sdk/client-kinesis-video"); // CommonJS import
+ * // import type { KinesisVideoClientConfig } from "@aws-sdk/client-kinesis-video";
+ * const config = {}; // type is KinesisVideoClientConfig
  * const client = new KinesisVideoClient(config);
  * const input = { // UpdateDataRetentionInput
  *   StreamName: "STRING_VALUE",

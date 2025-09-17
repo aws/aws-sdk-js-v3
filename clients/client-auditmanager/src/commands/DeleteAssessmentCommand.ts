@@ -34,6 +34,8 @@ export interface DeleteAssessmentCommandOutput extends DeleteAssessmentResponse,
  * ```javascript
  * import { AuditManagerClient, DeleteAssessmentCommand } from "@aws-sdk/client-auditmanager"; // ES Modules import
  * // const { AuditManagerClient, DeleteAssessmentCommand } = require("@aws-sdk/client-auditmanager"); // CommonJS import
+ * // import type { AuditManagerClientConfig } from "@aws-sdk/client-auditmanager";
+ * const config = {}; // type is AuditManagerClientConfig
  * const client = new AuditManagerClient(config);
  * const input = { // DeleteAssessmentRequest
  *   assessmentId: "STRING_VALUE", // required

@@ -44,6 +44,8 @@ export interface DescribeCostCategoryDefinitionCommandOutput
  * ```javascript
  * import { CostExplorerClient, DescribeCostCategoryDefinitionCommand } from "@aws-sdk/client-cost-explorer"; // ES Modules import
  * // const { CostExplorerClient, DescribeCostCategoryDefinitionCommand } = require("@aws-sdk/client-cost-explorer"); // CommonJS import
+ * // import type { CostExplorerClientConfig } from "@aws-sdk/client-cost-explorer";
+ * const config = {}; // type is CostExplorerClientConfig
  * const client = new CostExplorerClient(config);
  * const input = { // DescribeCostCategoryDefinitionRequest
  *   CostCategoryArn: "STRING_VALUE", // required

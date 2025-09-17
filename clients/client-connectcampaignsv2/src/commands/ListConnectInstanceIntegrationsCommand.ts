@@ -43,6 +43,8 @@ export interface ListConnectInstanceIntegrationsCommandOutput
  * ```javascript
  * import { ConnectCampaignsV2Client, ListConnectInstanceIntegrationsCommand } from "@aws-sdk/client-connectcampaignsv2"; // ES Modules import
  * // const { ConnectCampaignsV2Client, ListConnectInstanceIntegrationsCommand } = require("@aws-sdk/client-connectcampaignsv2"); // CommonJS import
+ * // import type { ConnectCampaignsV2ClientConfig } from "@aws-sdk/client-connectcampaignsv2";
+ * const config = {}; // type is ConnectCampaignsV2ClientConfig
  * const client = new ConnectCampaignsV2Client(config);
  * const input = { // ListConnectInstanceIntegrationsRequest
  *   connectInstanceId: "STRING_VALUE", // required

@@ -35,6 +35,8 @@ export interface EnableDirectoryCommandOutput extends EnableDirectoryResponse, _
  * ```javascript
  * import { CloudDirectoryClient, EnableDirectoryCommand } from "@aws-sdk/client-clouddirectory"; // ES Modules import
  * // const { CloudDirectoryClient, EnableDirectoryCommand } = require("@aws-sdk/client-clouddirectory"); // CommonJS import
+ * // import type { CloudDirectoryClientConfig } from "@aws-sdk/client-clouddirectory";
+ * const config = {}; // type is CloudDirectoryClientConfig
  * const client = new CloudDirectoryClient(config);
  * const input = { // EnableDirectoryRequest
  *   DirectoryArn: "STRING_VALUE", // required

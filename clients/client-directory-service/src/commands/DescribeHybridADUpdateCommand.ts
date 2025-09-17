@@ -36,6 +36,8 @@ export interface DescribeHybridADUpdateCommandOutput extends DescribeHybridADUpd
  * ```javascript
  * import { DirectoryServiceClient, DescribeHybridADUpdateCommand } from "@aws-sdk/client-directory-service"; // ES Modules import
  * // const { DirectoryServiceClient, DescribeHybridADUpdateCommand } = require("@aws-sdk/client-directory-service"); // CommonJS import
+ * // import type { DirectoryServiceClientConfig } from "@aws-sdk/client-directory-service";
+ * const config = {}; // type is DirectoryServiceClientConfig
  * const client = new DirectoryServiceClient(config);
  * const input = { // DescribeHybridADUpdateRequest
  *   DirectoryId: "STRING_VALUE", // required

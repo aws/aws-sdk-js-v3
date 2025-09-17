@@ -51,6 +51,8 @@ export interface SendContactMethodVerificationCommandOutput
  * ```javascript
  * import { LightsailClient, SendContactMethodVerificationCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, SendContactMethodVerificationCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
+ * // import type { LightsailClientConfig } from "@aws-sdk/client-lightsail";
+ * const config = {}; // type is LightsailClientConfig
  * const client = new LightsailClient(config);
  * const input = { // SendContactMethodVerificationRequest
  *   protocol: "Email", // required

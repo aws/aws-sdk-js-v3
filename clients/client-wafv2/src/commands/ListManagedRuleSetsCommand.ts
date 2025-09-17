@@ -38,6 +38,8 @@ export interface ListManagedRuleSetsCommandOutput extends ListManagedRuleSetsRes
  * ```javascript
  * import { WAFV2Client, ListManagedRuleSetsCommand } from "@aws-sdk/client-wafv2"; // ES Modules import
  * // const { WAFV2Client, ListManagedRuleSetsCommand } = require("@aws-sdk/client-wafv2"); // CommonJS import
+ * // import type { WAFV2ClientConfig } from "@aws-sdk/client-wafv2";
+ * const config = {}; // type is WAFV2ClientConfig
  * const client = new WAFV2Client(config);
  * const input = { // ListManagedRuleSetsRequest
  *   Scope: "CLOUDFRONT" || "REGIONAL", // required

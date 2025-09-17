@@ -39,6 +39,8 @@ export interface UpdateUserCommandOutput extends UpdateUserResponse, __MetadataB
  * ```javascript
  * import { ChimeClient, UpdateUserCommand } from "@aws-sdk/client-chime"; // ES Modules import
  * // const { ChimeClient, UpdateUserCommand } = require("@aws-sdk/client-chime"); // CommonJS import
+ * // import type { ChimeClientConfig } from "@aws-sdk/client-chime";
+ * const config = {}; // type is ChimeClientConfig
  * const client = new ChimeClient(config);
  * const input = { // UpdateUserRequest
  *   AccountId: "STRING_VALUE", // required

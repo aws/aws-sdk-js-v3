@@ -36,6 +36,8 @@ export interface CreateThreatIntelSetCommandOutput extends CreateThreatIntelSetR
  * ```javascript
  * import { GuardDutyClient, CreateThreatIntelSetCommand } from "@aws-sdk/client-guardduty"; // ES Modules import
  * // const { GuardDutyClient, CreateThreatIntelSetCommand } = require("@aws-sdk/client-guardduty"); // CommonJS import
+ * // import type { GuardDutyClientConfig } from "@aws-sdk/client-guardduty";
+ * const config = {}; // type is GuardDutyClientConfig
  * const client = new GuardDutyClient(config);
  * const input = { // CreateThreatIntelSetRequest
  *   DetectorId: "STRING_VALUE", // required

@@ -34,6 +34,8 @@ export interface CreateConsumableResourceCommandOutput extends CreateConsumableR
  * ```javascript
  * import { BatchClient, CreateConsumableResourceCommand } from "@aws-sdk/client-batch"; // ES Modules import
  * // const { BatchClient, CreateConsumableResourceCommand } = require("@aws-sdk/client-batch"); // CommonJS import
+ * // import type { BatchClientConfig } from "@aws-sdk/client-batch";
+ * const config = {}; // type is BatchClientConfig
  * const client = new BatchClient(config);
  * const input = { // CreateConsumableResourceRequest
  *   consumableResourceName: "STRING_VALUE", // required

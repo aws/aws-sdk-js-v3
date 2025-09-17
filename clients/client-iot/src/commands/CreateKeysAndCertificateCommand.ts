@@ -44,6 +44,8 @@ export interface CreateKeysAndCertificateCommandOutput extends CreateKeysAndCert
  * ```javascript
  * import { IoTClient, CreateKeysAndCertificateCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, CreateKeysAndCertificateCommand } = require("@aws-sdk/client-iot"); // CommonJS import
+ * // import type { IoTClientConfig } from "@aws-sdk/client-iot";
+ * const config = {}; // type is IoTClientConfig
  * const client = new IoTClient(config);
  * const input = { // CreateKeysAndCertificateRequest
  *   setAsActive: true || false,

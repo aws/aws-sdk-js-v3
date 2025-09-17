@@ -34,6 +34,8 @@ export interface UpdateTimelineEventCommandOutput extends UpdateTimelineEventOut
  * ```javascript
  * import { SSMIncidentsClient, UpdateTimelineEventCommand } from "@aws-sdk/client-ssm-incidents"; // ES Modules import
  * // const { SSMIncidentsClient, UpdateTimelineEventCommand } = require("@aws-sdk/client-ssm-incidents"); // CommonJS import
+ * // import type { SSMIncidentsClientConfig } from "@aws-sdk/client-ssm-incidents";
+ * const config = {}; // type is SSMIncidentsClientConfig
  * const client = new SSMIncidentsClient(config);
  * const input = { // UpdateTimelineEventInput
  *   clientToken: "STRING_VALUE",

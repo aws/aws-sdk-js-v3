@@ -36,6 +36,8 @@ export interface CreateNotebookCommandOutput extends CreateNotebookOutput, __Met
  * ```javascript
  * import { AthenaClient, CreateNotebookCommand } from "@aws-sdk/client-athena"; // ES Modules import
  * // const { AthenaClient, CreateNotebookCommand } = require("@aws-sdk/client-athena"); // CommonJS import
+ * // import type { AthenaClientConfig } from "@aws-sdk/client-athena";
+ * const config = {}; // type is AthenaClientConfig
  * const client = new AthenaClient(config);
  * const input = { // CreateNotebookInput
  *   WorkGroup: "STRING_VALUE", // required

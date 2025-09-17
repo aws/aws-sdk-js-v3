@@ -34,6 +34,8 @@ export interface GetOdbPeeringConnectionCommandOutput extends GetOdbPeeringConne
  * ```javascript
  * import { OdbClient, GetOdbPeeringConnectionCommand } from "@aws-sdk/client-odb"; // ES Modules import
  * // const { OdbClient, GetOdbPeeringConnectionCommand } = require("@aws-sdk/client-odb"); // CommonJS import
+ * // import type { OdbClientConfig } from "@aws-sdk/client-odb";
+ * const config = {}; // type is OdbClientConfig
  * const client = new OdbClient(config);
  * const input = { // GetOdbPeeringConnectionInput
  *   odbPeeringConnectionId: "STRING_VALUE", // required

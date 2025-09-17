@@ -34,6 +34,8 @@ export interface CreateGraphCommandOutput extends CreateGraphOutput, __MetadataB
  * ```javascript
  * import { NeptuneGraphClient, CreateGraphCommand } from "@aws-sdk/client-neptune-graph"; // ES Modules import
  * // const { NeptuneGraphClient, CreateGraphCommand } = require("@aws-sdk/client-neptune-graph"); // CommonJS import
+ * // import type { NeptuneGraphClientConfig } from "@aws-sdk/client-neptune-graph";
+ * const config = {}; // type is NeptuneGraphClientConfig
  * const client = new NeptuneGraphClient(config);
  * const input = { // CreateGraphInput
  *   graphName: "STRING_VALUE", // required

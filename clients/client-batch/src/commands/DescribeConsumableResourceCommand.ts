@@ -34,6 +34,8 @@ export interface DescribeConsumableResourceCommandOutput extends DescribeConsuma
  * ```javascript
  * import { BatchClient, DescribeConsumableResourceCommand } from "@aws-sdk/client-batch"; // ES Modules import
  * // const { BatchClient, DescribeConsumableResourceCommand } = require("@aws-sdk/client-batch"); // CommonJS import
+ * // import type { BatchClientConfig } from "@aws-sdk/client-batch";
+ * const config = {}; // type is BatchClientConfig
  * const client = new BatchClient(config);
  * const input = { // DescribeConsumableResourceRequest
  *   consumableResource: "STRING_VALUE", // required

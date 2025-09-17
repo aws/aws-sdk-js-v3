@@ -36,6 +36,8 @@ export interface DeleteSubscriptionCommandOutput extends DeleteSubscriptionRespo
  * ```javascript
  * import { ShieldClient, DeleteSubscriptionCommand } from "@aws-sdk/client-shield"; // ES Modules import
  * // const { ShieldClient, DeleteSubscriptionCommand } = require("@aws-sdk/client-shield"); // CommonJS import
+ * // import type { ShieldClientConfig } from "@aws-sdk/client-shield";
+ * const config = {}; // type is ShieldClientConfig
  * const client = new ShieldClient(config);
  * const input = {};
  * const command = new DeleteSubscriptionCommand(input);

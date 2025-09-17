@@ -41,6 +41,8 @@ export interface CreateFleetCommandOutput extends CreateFleetResponse, __Metadat
  * ```javascript
  * import { IoTFleetWiseClient, CreateFleetCommand } from "@aws-sdk/client-iotfleetwise"; // ES Modules import
  * // const { IoTFleetWiseClient, CreateFleetCommand } = require("@aws-sdk/client-iotfleetwise"); // CommonJS import
+ * // import type { IoTFleetWiseClientConfig } from "@aws-sdk/client-iotfleetwise";
+ * const config = {}; // type is IoTFleetWiseClientConfig
  * const client = new IoTFleetWiseClient(config);
  * const input = { // CreateFleetRequest
  *   fleetId: "STRING_VALUE", // required

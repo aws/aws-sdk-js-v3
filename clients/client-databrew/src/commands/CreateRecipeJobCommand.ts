@@ -34,6 +34,8 @@ export interface CreateRecipeJobCommandOutput extends CreateRecipeJobResponse, _
  * ```javascript
  * import { DataBrewClient, CreateRecipeJobCommand } from "@aws-sdk/client-databrew"; // ES Modules import
  * // const { DataBrewClient, CreateRecipeJobCommand } = require("@aws-sdk/client-databrew"); // CommonJS import
+ * // import type { DataBrewClientConfig } from "@aws-sdk/client-databrew";
+ * const config = {}; // type is DataBrewClientConfig
  * const client = new DataBrewClient(config);
  * const input = { // CreateRecipeJobRequest
  *   DatasetName: "STRING_VALUE",

@@ -46,6 +46,8 @@ export interface UpdateBudgetCommandOutput extends UpdateBudgetResponse, __Metad
  * ```javascript
  * import { BudgetsClient, UpdateBudgetCommand } from "@aws-sdk/client-budgets"; // ES Modules import
  * // const { BudgetsClient, UpdateBudgetCommand } = require("@aws-sdk/client-budgets"); // CommonJS import
+ * // import type { BudgetsClientConfig } from "@aws-sdk/client-budgets";
+ * const config = {}; // type is BudgetsClientConfig
  * const client = new BudgetsClient(config);
  * const input = { // UpdateBudgetRequest
  *   AccountId: "STRING_VALUE", // required

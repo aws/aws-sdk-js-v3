@@ -34,6 +34,8 @@ export interface GetExtensionCommandOutput extends Extension, __MetadataBearer {
  * ```javascript
  * import { AppConfigClient, GetExtensionCommand } from "@aws-sdk/client-appconfig"; // ES Modules import
  * // const { AppConfigClient, GetExtensionCommand } = require("@aws-sdk/client-appconfig"); // CommonJS import
+ * // import type { AppConfigClientConfig } from "@aws-sdk/client-appconfig";
+ * const config = {}; // type is AppConfigClientConfig
  * const client = new AppConfigClient(config);
  * const input = { // GetExtensionRequest
  *   ExtensionIdentifier: "STRING_VALUE", // required

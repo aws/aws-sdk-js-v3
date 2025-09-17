@@ -41,6 +41,8 @@ export interface DescribeTaskDefinitionCommandOutput extends DescribeTaskDefinit
  * ```javascript
  * import { ECSClient, DescribeTaskDefinitionCommand } from "@aws-sdk/client-ecs"; // ES Modules import
  * // const { ECSClient, DescribeTaskDefinitionCommand } = require("@aws-sdk/client-ecs"); // CommonJS import
+ * // import type { ECSClientConfig } from "@aws-sdk/client-ecs";
+ * const config = {}; // type is ECSClientConfig
  * const client = new ECSClient(config);
  * const input = { // DescribeTaskDefinitionRequest
  *   taskDefinition: "STRING_VALUE", // required

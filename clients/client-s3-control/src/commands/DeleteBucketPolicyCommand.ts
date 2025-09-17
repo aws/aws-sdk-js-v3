@@ -73,6 +73,8 @@ export interface DeleteBucketPolicyCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { S3ControlClient, DeleteBucketPolicyCommand } from "@aws-sdk/client-s3-control"; // ES Modules import
  * // const { S3ControlClient, DeleteBucketPolicyCommand } = require("@aws-sdk/client-s3-control"); // CommonJS import
+ * // import type { S3ControlClientConfig } from "@aws-sdk/client-s3-control";
+ * const config = {}; // type is S3ControlClientConfig
  * const client = new S3ControlClient(config);
  * const input = { // DeleteBucketPolicyRequest
  *   AccountId: "STRING_VALUE",

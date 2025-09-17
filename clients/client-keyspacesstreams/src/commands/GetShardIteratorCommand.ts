@@ -34,6 +34,8 @@ export interface GetShardIteratorCommandOutput extends GetShardIteratorOutput, _
  * ```javascript
  * import { KeyspacesStreamsClient, GetShardIteratorCommand } from "@aws-sdk/client-keyspacesstreams"; // ES Modules import
  * // const { KeyspacesStreamsClient, GetShardIteratorCommand } = require("@aws-sdk/client-keyspacesstreams"); // CommonJS import
+ * // import type { KeyspacesStreamsClientConfig } from "@aws-sdk/client-keyspacesstreams";
+ * const config = {}; // type is KeyspacesStreamsClientConfig
  * const client = new KeyspacesStreamsClient(config);
  * const input = { // GetShardIteratorInput
  *   streamArn: "STRING_VALUE", // required

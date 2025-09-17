@@ -38,6 +38,8 @@ export interface GetModelCustomizationJobCommandOutput extends GetModelCustomiza
  * ```javascript
  * import { BedrockClient, GetModelCustomizationJobCommand } from "@aws-sdk/client-bedrock"; // ES Modules import
  * // const { BedrockClient, GetModelCustomizationJobCommand } = require("@aws-sdk/client-bedrock"); // CommonJS import
+ * // import type { BedrockClientConfig } from "@aws-sdk/client-bedrock";
+ * const config = {}; // type is BedrockClientConfig
  * const client = new BedrockClient(config);
  * const input = { // GetModelCustomizationJobRequest
  *   jobIdentifier: "STRING_VALUE", // required

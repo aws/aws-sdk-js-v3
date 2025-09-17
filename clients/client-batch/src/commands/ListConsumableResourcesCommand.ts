@@ -34,6 +34,8 @@ export interface ListConsumableResourcesCommandOutput extends ListConsumableReso
  * ```javascript
  * import { BatchClient, ListConsumableResourcesCommand } from "@aws-sdk/client-batch"; // ES Modules import
  * // const { BatchClient, ListConsumableResourcesCommand } = require("@aws-sdk/client-batch"); // CommonJS import
+ * // import type { BatchClientConfig } from "@aws-sdk/client-batch";
+ * const config = {}; // type is BatchClientConfig
  * const client = new BatchClient(config);
  * const input = { // ListConsumableResourcesRequest
  *   filters: [ // ListConsumableResourcesFilterList

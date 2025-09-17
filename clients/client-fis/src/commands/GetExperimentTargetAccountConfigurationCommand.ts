@@ -43,6 +43,8 @@ export interface GetExperimentTargetAccountConfigurationCommandOutput
  * ```javascript
  * import { FisClient, GetExperimentTargetAccountConfigurationCommand } from "@aws-sdk/client-fis"; // ES Modules import
  * // const { FisClient, GetExperimentTargetAccountConfigurationCommand } = require("@aws-sdk/client-fis"); // CommonJS import
+ * // import type { FisClientConfig } from "@aws-sdk/client-fis";
+ * const config = {}; // type is FisClientConfig
  * const client = new FisClient(config);
  * const input = { // GetExperimentTargetAccountConfigurationRequest
  *   experimentId: "STRING_VALUE", // required

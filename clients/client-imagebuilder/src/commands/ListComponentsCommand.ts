@@ -45,6 +45,8 @@ export interface ListComponentsCommandOutput extends ListComponentsResponse, __M
  * ```javascript
  * import { ImagebuilderClient, ListComponentsCommand } from "@aws-sdk/client-imagebuilder"; // ES Modules import
  * // const { ImagebuilderClient, ListComponentsCommand } = require("@aws-sdk/client-imagebuilder"); // CommonJS import
+ * // import type { ImagebuilderClientConfig } from "@aws-sdk/client-imagebuilder";
+ * const config = {}; // type is ImagebuilderClientConfig
  * const client = new ImagebuilderClient(config);
  * const input = { // ListComponentsRequest
  *   owner: "Self" || "Shared" || "Amazon" || "ThirdParty" || "AWSMarketplace",

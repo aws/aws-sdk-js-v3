@@ -39,6 +39,8 @@ export interface UpdateApnsVoipSandboxChannelCommandOutput
  * ```javascript
  * import { PinpointClient, UpdateApnsVoipSandboxChannelCommand } from "@aws-sdk/client-pinpoint"; // ES Modules import
  * // const { PinpointClient, UpdateApnsVoipSandboxChannelCommand } = require("@aws-sdk/client-pinpoint"); // CommonJS import
+ * // import type { PinpointClientConfig } from "@aws-sdk/client-pinpoint";
+ * const config = {}; // type is PinpointClientConfig
  * const client = new PinpointClient(config);
  * const input = { // UpdateApnsVoipSandboxChannelRequest
  *   APNSVoipSandboxChannelRequest: { // APNSVoipSandboxChannelRequest

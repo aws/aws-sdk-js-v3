@@ -39,6 +39,8 @@ export interface DeleteServerlessCacheSnapshotCommandOutput
  * ```javascript
  * import { ElastiCacheClient, DeleteServerlessCacheSnapshotCommand } from "@aws-sdk/client-elasticache"; // ES Modules import
  * // const { ElastiCacheClient, DeleteServerlessCacheSnapshotCommand } = require("@aws-sdk/client-elasticache"); // CommonJS import
+ * // import type { ElastiCacheClientConfig } from "@aws-sdk/client-elasticache";
+ * const config = {}; // type is ElastiCacheClientConfig
  * const client = new ElastiCacheClient(config);
  * const input = { // DeleteServerlessCacheSnapshotRequest
  *   ServerlessCacheSnapshotName: "STRING_VALUE", // required

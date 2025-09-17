@@ -34,6 +34,8 @@ export interface ListCertificatesCommandOutput extends ListCertificatesResponse,
  * ```javascript
  * import { ACMClient, ListCertificatesCommand } from "@aws-sdk/client-acm"; // ES Modules import
  * // const { ACMClient, ListCertificatesCommand } = require("@aws-sdk/client-acm"); // CommonJS import
+ * // import type { ACMClientConfig } from "@aws-sdk/client-acm";
+ * const config = {}; // type is ACMClientConfig
  * const client = new ACMClient(config);
  * const input = { // ListCertificatesRequest
  *   CertificateStatuses: [ // CertificateStatuses

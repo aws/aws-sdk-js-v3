@@ -34,6 +34,8 @@ export interface BatchGetPartitionCommandOutput extends BatchGetPartitionRespons
  * ```javascript
  * import { GlueClient, BatchGetPartitionCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, BatchGetPartitionCommand } = require("@aws-sdk/client-glue"); // CommonJS import
+ * // import type { GlueClientConfig } from "@aws-sdk/client-glue";
+ * const config = {}; // type is GlueClientConfig
  * const client = new GlueClient(config);
  * const input = { // BatchGetPartitionRequest
  *   CatalogId: "STRING_VALUE",

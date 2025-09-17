@@ -34,6 +34,8 @@ export interface GetSpaceCommandOutput extends GetSpaceOutput, __MetadataBearer 
  * ```javascript
  * import { RepostspaceClient, GetSpaceCommand } from "@aws-sdk/client-repostspace"; // ES Modules import
  * // const { RepostspaceClient, GetSpaceCommand } = require("@aws-sdk/client-repostspace"); // CommonJS import
+ * // import type { RepostspaceClientConfig } from "@aws-sdk/client-repostspace";
+ * const config = {}; // type is RepostspaceClientConfig
  * const client = new RepostspaceClient(config);
  * const input = { // GetSpaceInput
  *   spaceId: "STRING_VALUE", // required

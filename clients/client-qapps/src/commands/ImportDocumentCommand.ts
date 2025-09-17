@@ -34,6 +34,8 @@ export interface ImportDocumentCommandOutput extends ImportDocumentOutput, __Met
  * ```javascript
  * import { QAppsClient, ImportDocumentCommand } from "@aws-sdk/client-qapps"; // ES Modules import
  * // const { QAppsClient, ImportDocumentCommand } = require("@aws-sdk/client-qapps"); // CommonJS import
+ * // import type { QAppsClientConfig } from "@aws-sdk/client-qapps";
+ * const config = {}; // type is QAppsClientConfig
  * const client = new QAppsClient(config);
  * const input = { // ImportDocumentInput
  *   instanceId: "STRING_VALUE", // required

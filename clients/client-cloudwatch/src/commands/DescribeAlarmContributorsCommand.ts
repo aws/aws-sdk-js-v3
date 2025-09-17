@@ -34,6 +34,8 @@ export interface DescribeAlarmContributorsCommandOutput extends DescribeAlarmCon
  * ```javascript
  * import { CloudWatchClient, DescribeAlarmContributorsCommand } from "@aws-sdk/client-cloudwatch"; // ES Modules import
  * // const { CloudWatchClient, DescribeAlarmContributorsCommand } = require("@aws-sdk/client-cloudwatch"); // CommonJS import
+ * // import type { CloudWatchClientConfig } from "@aws-sdk/client-cloudwatch";
+ * const config = {}; // type is CloudWatchClientConfig
  * const client = new CloudWatchClient(config);
  * const input = { // DescribeAlarmContributorsInput
  *   AlarmName: "STRING_VALUE", // required

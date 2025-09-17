@@ -42,6 +42,8 @@ export interface UpdatePolicyTemplateCommandOutput extends UpdatePolicyTemplateO
  * ```javascript
  * import { VerifiedPermissionsClient, UpdatePolicyTemplateCommand } from "@aws-sdk/client-verifiedpermissions"; // ES Modules import
  * // const { VerifiedPermissionsClient, UpdatePolicyTemplateCommand } = require("@aws-sdk/client-verifiedpermissions"); // CommonJS import
+ * // import type { VerifiedPermissionsClientConfig } from "@aws-sdk/client-verifiedpermissions";
+ * const config = {}; // type is VerifiedPermissionsClientConfig
  * const client = new VerifiedPermissionsClient(config);
  * const input = { // UpdatePolicyTemplateInput
  *   policyStoreId: "STRING_VALUE", // required

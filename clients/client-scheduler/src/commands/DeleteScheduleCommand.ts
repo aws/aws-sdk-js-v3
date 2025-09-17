@@ -34,6 +34,8 @@ export interface DeleteScheduleCommandOutput extends DeleteScheduleOutput, __Met
  * ```javascript
  * import { SchedulerClient, DeleteScheduleCommand } from "@aws-sdk/client-scheduler"; // ES Modules import
  * // const { SchedulerClient, DeleteScheduleCommand } = require("@aws-sdk/client-scheduler"); // CommonJS import
+ * // import type { SchedulerClientConfig } from "@aws-sdk/client-scheduler";
+ * const config = {}; // type is SchedulerClientConfig
  * const client = new SchedulerClient(config);
  * const input = { // DeleteScheduleInput
  *   Name: "STRING_VALUE", // required

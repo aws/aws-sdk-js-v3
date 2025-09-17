@@ -39,6 +39,8 @@ export interface ListStepsCommandOutput extends ListStepsOutput, __MetadataBeare
  * ```javascript
  * import { EMRClient, ListStepsCommand } from "@aws-sdk/client-emr"; // ES Modules import
  * // const { EMRClient, ListStepsCommand } = require("@aws-sdk/client-emr"); // CommonJS import
+ * // import type { EMRClientConfig } from "@aws-sdk/client-emr";
+ * const config = {}; // type is EMRClientConfig
  * const client = new EMRClient(config);
  * const input = { // ListStepsInput
  *   ClusterId: "STRING_VALUE", // required

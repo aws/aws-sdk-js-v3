@@ -43,6 +43,8 @@ export interface SetLogDeliveryConfigurationCommandOutput
  * ```javascript
  * import { CognitoIdentityProviderClient, SetLogDeliveryConfigurationCommand } from "@aws-sdk/client-cognito-identity-provider"; // ES Modules import
  * // const { CognitoIdentityProviderClient, SetLogDeliveryConfigurationCommand } = require("@aws-sdk/client-cognito-identity-provider"); // CommonJS import
+ * // import type { CognitoIdentityProviderClientConfig } from "@aws-sdk/client-cognito-identity-provider";
+ * const config = {}; // type is CognitoIdentityProviderClientConfig
  * const client = new CognitoIdentityProviderClient(config);
  * const input = { // SetLogDeliveryConfigurationRequest
  *   UserPoolId: "STRING_VALUE", // required

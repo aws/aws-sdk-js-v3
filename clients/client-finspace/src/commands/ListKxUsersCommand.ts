@@ -34,6 +34,8 @@ export interface ListKxUsersCommandOutput extends ListKxUsersResponse, __Metadat
  * ```javascript
  * import { FinspaceClient, ListKxUsersCommand } from "@aws-sdk/client-finspace"; // ES Modules import
  * // const { FinspaceClient, ListKxUsersCommand } = require("@aws-sdk/client-finspace"); // CommonJS import
+ * // import type { FinspaceClientConfig } from "@aws-sdk/client-finspace";
+ * const config = {}; // type is FinspaceClientConfig
  * const client = new FinspaceClient(config);
  * const input = { // ListKxUsersRequest
  *   environmentId: "STRING_VALUE", // required

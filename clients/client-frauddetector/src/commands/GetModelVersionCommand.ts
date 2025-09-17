@@ -34,6 +34,8 @@ export interface GetModelVersionCommandOutput extends GetModelVersionResult, __M
  * ```javascript
  * import { FraudDetectorClient, GetModelVersionCommand } from "@aws-sdk/client-frauddetector"; // ES Modules import
  * // const { FraudDetectorClient, GetModelVersionCommand } = require("@aws-sdk/client-frauddetector"); // CommonJS import
+ * // import type { FraudDetectorClientConfig } from "@aws-sdk/client-frauddetector";
+ * const config = {}; // type is FraudDetectorClientConfig
  * const client = new FraudDetectorClient(config);
  * const input = { // GetModelVersionRequest
  *   modelId: "STRING_VALUE", // required

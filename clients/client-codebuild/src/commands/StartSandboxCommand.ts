@@ -34,6 +34,8 @@ export interface StartSandboxCommandOutput extends StartSandboxOutput, __Metadat
  * ```javascript
  * import { CodeBuildClient, StartSandboxCommand } from "@aws-sdk/client-codebuild"; // ES Modules import
  * // const { CodeBuildClient, StartSandboxCommand } = require("@aws-sdk/client-codebuild"); // CommonJS import
+ * // import type { CodeBuildClientConfig } from "@aws-sdk/client-codebuild";
+ * const config = {}; // type is CodeBuildClientConfig
  * const client = new CodeBuildClient(config);
  * const input = { // StartSandboxInput
  *   projectName: "STRING_VALUE",

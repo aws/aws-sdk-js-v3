@@ -37,6 +37,8 @@ export interface DeleteUserCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { WorkDocsClient, DeleteUserCommand } from "@aws-sdk/client-workdocs"; // ES Modules import
  * // const { WorkDocsClient, DeleteUserCommand } = require("@aws-sdk/client-workdocs"); // CommonJS import
+ * // import type { WorkDocsClientConfig } from "@aws-sdk/client-workdocs";
+ * const config = {}; // type is WorkDocsClientConfig
  * const client = new WorkDocsClient(config);
  * const input = { // DeleteUserRequest
  *   AuthenticationToken: "STRING_VALUE",

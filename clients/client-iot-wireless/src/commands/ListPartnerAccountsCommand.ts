@@ -38,6 +38,8 @@ export interface ListPartnerAccountsCommandOutput extends ListPartnerAccountsRes
  * ```javascript
  * import { IoTWirelessClient, ListPartnerAccountsCommand } from "@aws-sdk/client-iot-wireless"; // ES Modules import
  * // const { IoTWirelessClient, ListPartnerAccountsCommand } = require("@aws-sdk/client-iot-wireless"); // CommonJS import
+ * // import type { IoTWirelessClientConfig } from "@aws-sdk/client-iot-wireless";
+ * const config = {}; // type is IoTWirelessClientConfig
  * const client = new IoTWirelessClient(config);
  * const input = { // ListPartnerAccountsRequest
  *   NextToken: "STRING_VALUE",

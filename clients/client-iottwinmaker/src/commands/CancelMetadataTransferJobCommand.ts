@@ -34,6 +34,8 @@ export interface CancelMetadataTransferJobCommandOutput extends CancelMetadataTr
  * ```javascript
  * import { IoTTwinMakerClient, CancelMetadataTransferJobCommand } from "@aws-sdk/client-iottwinmaker"; // ES Modules import
  * // const { IoTTwinMakerClient, CancelMetadataTransferJobCommand } = require("@aws-sdk/client-iottwinmaker"); // CommonJS import
+ * // import type { IoTTwinMakerClientConfig } from "@aws-sdk/client-iottwinmaker";
+ * const config = {}; // type is IoTTwinMakerClientConfig
  * const client = new IoTTwinMakerClient(config);
  * const input = { // CancelMetadataTransferJobRequest
  *   metadataTransferJobId: "STRING_VALUE", // required

@@ -34,6 +34,8 @@ export interface CreateInputCommandOutput extends CreateInputResponse, __Metadat
  * ```javascript
  * import { IoTEventsClient, CreateInputCommand } from "@aws-sdk/client-iot-events"; // ES Modules import
  * // const { IoTEventsClient, CreateInputCommand } = require("@aws-sdk/client-iot-events"); // CommonJS import
+ * // import type { IoTEventsClientConfig } from "@aws-sdk/client-iot-events";
+ * const config = {}; // type is IoTEventsClientConfig
  * const client = new IoTEventsClient(config);
  * const input = { // CreateInputRequest
  *   inputName: "STRING_VALUE", // required

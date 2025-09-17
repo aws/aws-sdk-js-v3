@@ -34,6 +34,8 @@ export interface DeleteAliasCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { LambdaClient, DeleteAliasCommand } from "@aws-sdk/client-lambda"; // ES Modules import
  * // const { LambdaClient, DeleteAliasCommand } = require("@aws-sdk/client-lambda"); // CommonJS import
+ * // import type { LambdaClientConfig } from "@aws-sdk/client-lambda";
+ * const config = {}; // type is LambdaClientConfig
  * const client = new LambdaClient(config);
  * const input = { // DeleteAliasRequest
  *   FunctionName: "STRING_VALUE", // required

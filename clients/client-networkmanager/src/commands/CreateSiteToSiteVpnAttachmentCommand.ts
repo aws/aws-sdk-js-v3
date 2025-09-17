@@ -39,6 +39,8 @@ export interface CreateSiteToSiteVpnAttachmentCommandOutput
  * ```javascript
  * import { NetworkManagerClient, CreateSiteToSiteVpnAttachmentCommand } from "@aws-sdk/client-networkmanager"; // ES Modules import
  * // const { NetworkManagerClient, CreateSiteToSiteVpnAttachmentCommand } = require("@aws-sdk/client-networkmanager"); // CommonJS import
+ * // import type { NetworkManagerClientConfig } from "@aws-sdk/client-networkmanager";
+ * const config = {}; // type is NetworkManagerClientConfig
  * const client = new NetworkManagerClient(config);
  * const input = { // CreateSiteToSiteVpnAttachmentRequest
  *   CoreNetworkId: "STRING_VALUE", // required

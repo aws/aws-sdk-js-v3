@@ -34,6 +34,8 @@ export interface TagResourceCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { BackupClient, TagResourceCommand } from "@aws-sdk/client-backup"; // ES Modules import
  * // const { BackupClient, TagResourceCommand } = require("@aws-sdk/client-backup"); // CommonJS import
+ * // import type { BackupClientConfig } from "@aws-sdk/client-backup";
+ * const config = {}; // type is BackupClientConfig
  * const client = new BackupClient(config);
  * const input = { // TagResourceInput
  *   ResourceArn: "STRING_VALUE", // required

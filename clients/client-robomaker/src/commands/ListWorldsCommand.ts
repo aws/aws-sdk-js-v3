@@ -42,6 +42,8 @@ export interface ListWorldsCommandOutput extends ListWorldsResponse, __MetadataB
  * ```javascript
  * import { RoboMakerClient, ListWorldsCommand } from "@aws-sdk/client-robomaker"; // ES Modules import
  * // const { RoboMakerClient, ListWorldsCommand } = require("@aws-sdk/client-robomaker"); // CommonJS import
+ * // import type { RoboMakerClientConfig } from "@aws-sdk/client-robomaker";
+ * const config = {}; // type is RoboMakerClientConfig
  * const client = new RoboMakerClient(config);
  * const input = { // ListWorldsRequest
  *   nextToken: "STRING_VALUE",

@@ -34,6 +34,8 @@ export interface ListPublicKeysCommandOutput extends ListPublicKeysResponse, __M
  * ```javascript
  * import { IVSRealTimeClient, ListPublicKeysCommand } from "@aws-sdk/client-ivs-realtime"; // ES Modules import
  * // const { IVSRealTimeClient, ListPublicKeysCommand } = require("@aws-sdk/client-ivs-realtime"); // CommonJS import
+ * // import type { IVSRealTimeClientConfig } from "@aws-sdk/client-ivs-realtime";
+ * const config = {}; // type is IVSRealTimeClientConfig
  * const client = new IVSRealTimeClient(config);
  * const input = { // ListPublicKeysRequest
  *   nextToken: "STRING_VALUE",

@@ -34,6 +34,8 @@ export interface ListLandingZonesCommandOutput extends ListLandingZonesOutput, _
  * ```javascript
  * import { ControlTowerClient, ListLandingZonesCommand } from "@aws-sdk/client-controltower"; // ES Modules import
  * // const { ControlTowerClient, ListLandingZonesCommand } = require("@aws-sdk/client-controltower"); // CommonJS import
+ * // import type { ControlTowerClientConfig } from "@aws-sdk/client-controltower";
+ * const config = {}; // type is ControlTowerClientConfig
  * const client = new ControlTowerClient(config);
  * const input = { // ListLandingZonesInput
  *   nextToken: "STRING_VALUE",

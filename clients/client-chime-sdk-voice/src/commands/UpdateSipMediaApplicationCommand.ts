@@ -39,6 +39,8 @@ export interface UpdateSipMediaApplicationCommandOutput extends UpdateSipMediaAp
  * ```javascript
  * import { ChimeSDKVoiceClient, UpdateSipMediaApplicationCommand } from "@aws-sdk/client-chime-sdk-voice"; // ES Modules import
  * // const { ChimeSDKVoiceClient, UpdateSipMediaApplicationCommand } = require("@aws-sdk/client-chime-sdk-voice"); // CommonJS import
+ * // import type { ChimeSDKVoiceClientConfig } from "@aws-sdk/client-chime-sdk-voice";
+ * const config = {}; // type is ChimeSDKVoiceClientConfig
  * const client = new ChimeSDKVoiceClient(config);
  * const input = { // UpdateSipMediaApplicationRequest
  *   SipMediaApplicationId: "STRING_VALUE", // required

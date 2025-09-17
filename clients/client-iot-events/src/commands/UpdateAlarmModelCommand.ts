@@ -35,6 +35,8 @@ export interface UpdateAlarmModelCommandOutput extends UpdateAlarmModelResponse,
  * ```javascript
  * import { IoTEventsClient, UpdateAlarmModelCommand } from "@aws-sdk/client-iot-events"; // ES Modules import
  * // const { IoTEventsClient, UpdateAlarmModelCommand } = require("@aws-sdk/client-iot-events"); // CommonJS import
+ * // import type { IoTEventsClientConfig } from "@aws-sdk/client-iot-events";
+ * const config = {}; // type is IoTEventsClientConfig
  * const client = new IoTEventsClient(config);
  * const input = { // UpdateAlarmModelRequest
  *   alarmModelName: "STRING_VALUE", // required

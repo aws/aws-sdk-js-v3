@@ -38,6 +38,8 @@ export interface GetGlossaryTermCommandOutput extends GetGlossaryTermOutput, __M
  * ```javascript
  * import { DataZoneClient, GetGlossaryTermCommand } from "@aws-sdk/client-datazone"; // ES Modules import
  * // const { DataZoneClient, GetGlossaryTermCommand } = require("@aws-sdk/client-datazone"); // CommonJS import
+ * // import type { DataZoneClientConfig } from "@aws-sdk/client-datazone";
+ * const config = {}; // type is DataZoneClientConfig
  * const client = new DataZoneClient(config);
  * const input = { // GetGlossaryTermInput
  *   domainIdentifier: "STRING_VALUE", // required

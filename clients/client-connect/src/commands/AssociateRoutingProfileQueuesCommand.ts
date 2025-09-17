@@ -37,6 +37,8 @@ export interface AssociateRoutingProfileQueuesCommandOutput extends __MetadataBe
  * ```javascript
  * import { ConnectClient, AssociateRoutingProfileQueuesCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, AssociateRoutingProfileQueuesCommand } = require("@aws-sdk/client-connect"); // CommonJS import
+ * // import type { ConnectClientConfig } from "@aws-sdk/client-connect";
+ * const config = {}; // type is ConnectClientConfig
  * const client = new ConnectClient(config);
  * const input = { // AssociateRoutingProfileQueuesRequest
  *   InstanceId: "STRING_VALUE", // required

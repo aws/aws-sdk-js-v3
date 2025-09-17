@@ -39,6 +39,8 @@ export interface RemoveFromGlobalClusterCommandOutput extends RemoveFromGlobalCl
  * ```javascript
  * import { RDSClient, RemoveFromGlobalClusterCommand } from "@aws-sdk/client-rds"; // ES Modules import
  * // const { RDSClient, RemoveFromGlobalClusterCommand } = require("@aws-sdk/client-rds"); // CommonJS import
+ * // import type { RDSClientConfig } from "@aws-sdk/client-rds";
+ * const config = {}; // type is RDSClientConfig
  * const client = new RDSClient(config);
  * const input = { // RemoveFromGlobalClusterMessage
  *   GlobalClusterIdentifier: "STRING_VALUE",

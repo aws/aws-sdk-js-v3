@@ -39,6 +39,8 @@ export interface DescribeInstanceProfilesCommandOutput extends DescribeInstanceP
  * ```javascript
  * import { DatabaseMigrationServiceClient, DescribeInstanceProfilesCommand } from "@aws-sdk/client-database-migration-service"; // ES Modules import
  * // const { DatabaseMigrationServiceClient, DescribeInstanceProfilesCommand } = require("@aws-sdk/client-database-migration-service"); // CommonJS import
+ * // import type { DatabaseMigrationServiceClientConfig } from "@aws-sdk/client-database-migration-service";
+ * const config = {}; // type is DatabaseMigrationServiceClientConfig
  * const client = new DatabaseMigrationServiceClient(config);
  * const input = { // DescribeInstanceProfilesMessage
  *   Filters: [ // FilterList

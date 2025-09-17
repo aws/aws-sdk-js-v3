@@ -42,6 +42,8 @@ export interface DeleteDataMigrationCommandOutput extends DeleteDataMigrationRes
  * ```javascript
  * import { DatabaseMigrationServiceClient, DeleteDataMigrationCommand } from "@aws-sdk/client-database-migration-service"; // ES Modules import
  * // const { DatabaseMigrationServiceClient, DeleteDataMigrationCommand } = require("@aws-sdk/client-database-migration-service"); // CommonJS import
+ * // import type { DatabaseMigrationServiceClientConfig } from "@aws-sdk/client-database-migration-service";
+ * const config = {}; // type is DatabaseMigrationServiceClientConfig
  * const client = new DatabaseMigrationServiceClient(config);
  * const input = { // DeleteDataMigrationMessage
  *   DataMigrationIdentifier: "STRING_VALUE", // required

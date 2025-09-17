@@ -38,6 +38,8 @@ export interface ListProfileObjectTypesCommandOutput extends ListProfileObjectTy
  * ```javascript
  * import { CustomerProfilesClient, ListProfileObjectTypesCommand } from "@aws-sdk/client-customer-profiles"; // ES Modules import
  * // const { CustomerProfilesClient, ListProfileObjectTypesCommand } = require("@aws-sdk/client-customer-profiles"); // CommonJS import
+ * // import type { CustomerProfilesClientConfig } from "@aws-sdk/client-customer-profiles";
+ * const config = {}; // type is CustomerProfilesClientConfig
  * const client = new CustomerProfilesClient(config);
  * const input = { // ListProfileObjectTypesRequest
  *   DomainName: "STRING_VALUE", // required

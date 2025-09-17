@@ -34,6 +34,8 @@ export interface ListKxEnvironmentsCommandOutput extends ListKxEnvironmentsRespo
  * ```javascript
  * import { FinspaceClient, ListKxEnvironmentsCommand } from "@aws-sdk/client-finspace"; // ES Modules import
  * // const { FinspaceClient, ListKxEnvironmentsCommand } = require("@aws-sdk/client-finspace"); // CommonJS import
+ * // import type { FinspaceClientConfig } from "@aws-sdk/client-finspace";
+ * const config = {}; // type is FinspaceClientConfig
  * const client = new FinspaceClient(config);
  * const input = { // ListKxEnvironmentsRequest
  *   nextToken: "STRING_VALUE",

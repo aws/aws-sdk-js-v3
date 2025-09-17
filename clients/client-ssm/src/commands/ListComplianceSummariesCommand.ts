@@ -36,6 +36,8 @@ export interface ListComplianceSummariesCommandOutput extends ListComplianceSumm
  * ```javascript
  * import { SSMClient, ListComplianceSummariesCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, ListComplianceSummariesCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
+ * // import type { SSMClientConfig } from "@aws-sdk/client-ssm";
+ * const config = {}; // type is SSMClientConfig
  * const client = new SSMClient(config);
  * const input = { // ListComplianceSummariesRequest
  *   Filters: [ // ComplianceStringFilterList

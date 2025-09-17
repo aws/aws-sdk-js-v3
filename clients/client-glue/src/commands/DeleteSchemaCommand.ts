@@ -34,6 +34,8 @@ export interface DeleteSchemaCommandOutput extends DeleteSchemaResponse, __Metad
  * ```javascript
  * import { GlueClient, DeleteSchemaCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, DeleteSchemaCommand } = require("@aws-sdk/client-glue"); // CommonJS import
+ * // import type { GlueClientConfig } from "@aws-sdk/client-glue";
+ * const config = {}; // type is GlueClientConfig
  * const client = new GlueClient(config);
  * const input = { // DeleteSchemaInput
  *   SchemaId: { // SchemaId

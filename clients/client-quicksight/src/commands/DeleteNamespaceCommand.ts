@@ -36,6 +36,8 @@ export interface DeleteNamespaceCommandOutput extends DeleteNamespaceResponse, _
  * ```javascript
  * import { QuickSightClient, DeleteNamespaceCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
  * // const { QuickSightClient, DeleteNamespaceCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
+ * // import type { QuickSightClientConfig } from "@aws-sdk/client-quicksight";
+ * const config = {}; // type is QuickSightClientConfig
  * const client = new QuickSightClient(config);
  * const input = { // DeleteNamespaceRequest
  *   AwsAccountId: "STRING_VALUE", // required

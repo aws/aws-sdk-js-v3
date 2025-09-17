@@ -38,6 +38,8 @@ export interface CreateKeyCommandOutput extends CreateKeyOutput, __MetadataBeare
  * ```javascript
  * import { PaymentCryptographyClient, CreateKeyCommand } from "@aws-sdk/client-payment-cryptography"; // ES Modules import
  * // const { PaymentCryptographyClient, CreateKeyCommand } = require("@aws-sdk/client-payment-cryptography"); // CommonJS import
+ * // import type { PaymentCryptographyClientConfig } from "@aws-sdk/client-payment-cryptography";
+ * const config = {}; // type is PaymentCryptographyClientConfig
  * const client = new PaymentCryptographyClient(config);
  * const input = { // CreateKeyInput
  *   KeyAttributes: { // KeyAttributes

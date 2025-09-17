@@ -63,6 +63,8 @@ export interface CreateXssMatchSetCommandOutput extends CreateXssMatchSetRespons
  * ```javascript
  * import { WAFClient, CreateXssMatchSetCommand } from "@aws-sdk/client-waf"; // ES Modules import
  * // const { WAFClient, CreateXssMatchSetCommand } = require("@aws-sdk/client-waf"); // CommonJS import
+ * // import type { WAFClientConfig } from "@aws-sdk/client-waf";
+ * const config = {}; // type is WAFClientConfig
  * const client = new WAFClient(config);
  * const input = { // CreateXssMatchSetRequest
  *   Name: "STRING_VALUE", // required

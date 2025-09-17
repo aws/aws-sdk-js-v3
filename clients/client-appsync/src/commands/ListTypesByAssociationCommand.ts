@@ -34,6 +34,8 @@ export interface ListTypesByAssociationCommandOutput extends ListTypesByAssociat
  * ```javascript
  * import { AppSyncClient, ListTypesByAssociationCommand } from "@aws-sdk/client-appsync"; // ES Modules import
  * // const { AppSyncClient, ListTypesByAssociationCommand } = require("@aws-sdk/client-appsync"); // CommonJS import
+ * // import type { AppSyncClientConfig } from "@aws-sdk/client-appsync";
+ * const config = {}; // type is AppSyncClientConfig
  * const client = new AppSyncClient(config);
  * const input = { // ListTypesByAssociationRequest
  *   mergedApiIdentifier: "STRING_VALUE", // required

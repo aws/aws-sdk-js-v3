@@ -34,6 +34,8 @@ export interface GetConfigurationCommandOutput extends GetConfigurationOutput, _
  * ```javascript
  * import { SSMQuickSetupClient, GetConfigurationCommand } from "@aws-sdk/client-ssm-quicksetup"; // ES Modules import
  * // const { SSMQuickSetupClient, GetConfigurationCommand } = require("@aws-sdk/client-ssm-quicksetup"); // CommonJS import
+ * // import type { SSMQuickSetupClientConfig } from "@aws-sdk/client-ssm-quicksetup";
+ * const config = {}; // type is SSMQuickSetupClientConfig
  * const client = new SSMQuickSetupClient(config);
  * const input = { // GetConfigurationInput
  *   ConfigurationId: "STRING_VALUE", // required

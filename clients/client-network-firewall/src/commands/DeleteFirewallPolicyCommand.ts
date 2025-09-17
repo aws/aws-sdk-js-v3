@@ -34,6 +34,8 @@ export interface DeleteFirewallPolicyCommandOutput extends DeleteFirewallPolicyR
  * ```javascript
  * import { NetworkFirewallClient, DeleteFirewallPolicyCommand } from "@aws-sdk/client-network-firewall"; // ES Modules import
  * // const { NetworkFirewallClient, DeleteFirewallPolicyCommand } = require("@aws-sdk/client-network-firewall"); // CommonJS import
+ * // import type { NetworkFirewallClientConfig } from "@aws-sdk/client-network-firewall";
+ * const config = {}; // type is NetworkFirewallClientConfig
  * const client = new NetworkFirewallClient(config);
  * const input = { // DeleteFirewallPolicyRequest
  *   FirewallPolicyName: "STRING_VALUE",

@@ -35,6 +35,8 @@ export interface DeleteStreamProcessorCommandOutput extends DeleteStreamProcesso
  * ```javascript
  * import { RekognitionClient, DeleteStreamProcessorCommand } from "@aws-sdk/client-rekognition"; // ES Modules import
  * // const { RekognitionClient, DeleteStreamProcessorCommand } = require("@aws-sdk/client-rekognition"); // CommonJS import
+ * // import type { RekognitionClientConfig } from "@aws-sdk/client-rekognition";
+ * const config = {}; // type is RekognitionClientConfig
  * const client = new RekognitionClient(config);
  * const input = { // DeleteStreamProcessorRequest
  *   Name: "STRING_VALUE", // required

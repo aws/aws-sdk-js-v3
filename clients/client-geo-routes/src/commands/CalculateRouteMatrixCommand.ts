@@ -39,6 +39,8 @@ export interface CalculateRouteMatrixCommandOutput extends CalculateRouteMatrixR
  * ```javascript
  * import { GeoRoutesClient, CalculateRouteMatrixCommand } from "@aws-sdk/client-geo-routes"; // ES Modules import
  * // const { GeoRoutesClient, CalculateRouteMatrixCommand } = require("@aws-sdk/client-geo-routes"); // CommonJS import
+ * // import type { GeoRoutesClientConfig } from "@aws-sdk/client-geo-routes";
+ * const config = {}; // type is GeoRoutesClientConfig
  * const client = new GeoRoutesClient(config);
  * const input = { // CalculateRouteMatrixRequest
  *   Allow: { // RouteMatrixAllowOptions

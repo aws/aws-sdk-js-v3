@@ -34,6 +34,8 @@ export interface GetPlanEvaluationStatusCommandOutput extends GetPlanEvaluationS
  * ```javascript
  * import { ARCRegionSwitchClient, GetPlanEvaluationStatusCommand } from "@aws-sdk/client-arc-region-switch"; // ES Modules import
  * // const { ARCRegionSwitchClient, GetPlanEvaluationStatusCommand } = require("@aws-sdk/client-arc-region-switch"); // CommonJS import
+ * // import type { ARCRegionSwitchClientConfig } from "@aws-sdk/client-arc-region-switch";
+ * const config = {}; // type is ARCRegionSwitchClientConfig
  * const client = new ARCRegionSwitchClient(config);
  * const input = { // GetPlanEvaluationStatusRequest
  *   planArn: "STRING_VALUE", // required

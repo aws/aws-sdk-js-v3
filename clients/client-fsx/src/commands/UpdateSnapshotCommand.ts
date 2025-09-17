@@ -35,6 +35,8 @@ export interface UpdateSnapshotCommandOutput extends UpdateSnapshotResponse, __M
  * ```javascript
  * import { FSxClient, UpdateSnapshotCommand } from "@aws-sdk/client-fsx"; // ES Modules import
  * // const { FSxClient, UpdateSnapshotCommand } = require("@aws-sdk/client-fsx"); // CommonJS import
+ * // import type { FSxClientConfig } from "@aws-sdk/client-fsx";
+ * const config = {}; // type is FSxClientConfig
  * const client = new FSxClient(config);
  * const input = { // UpdateSnapshotRequest
  *   ClientRequestToken: "STRING_VALUE",

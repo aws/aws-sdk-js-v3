@@ -38,6 +38,8 @@ export interface GetServiceTemplateCommandOutput extends GetServiceTemplateOutpu
  * ```javascript
  * import { ProtonClient, GetServiceTemplateCommand } from "@aws-sdk/client-proton"; // ES Modules import
  * // const { ProtonClient, GetServiceTemplateCommand } = require("@aws-sdk/client-proton"); // CommonJS import
+ * // import type { ProtonClientConfig } from "@aws-sdk/client-proton";
+ * const config = {}; // type is ProtonClientConfig
  * const client = new ProtonClient(config);
  * const input = { // GetServiceTemplateInput
  *   name: "STRING_VALUE", // required

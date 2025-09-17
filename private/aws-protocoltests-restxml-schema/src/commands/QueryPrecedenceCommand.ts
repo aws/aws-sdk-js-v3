@@ -34,6 +34,8 @@ export interface QueryPrecedenceCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { RestXmlProtocolClient, QueryPrecedenceCommand } from "@aws-sdk/aws-protocoltests-restxml-schema"; // ES Modules import
  * // const { RestXmlProtocolClient, QueryPrecedenceCommand } = require("@aws-sdk/aws-protocoltests-restxml-schema"); // CommonJS import
+ * // import type { RestXmlProtocolClientConfig } from "@aws-sdk/aws-protocoltests-restxml-schema";
+ * const config = {}; // type is RestXmlProtocolClientConfig
  * const client = new RestXmlProtocolClient(config);
  * const input = { // QueryPrecedenceInput
  *   foo: "STRING_VALUE",

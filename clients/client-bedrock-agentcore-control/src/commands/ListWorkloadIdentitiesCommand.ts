@@ -38,6 +38,8 @@ export interface ListWorkloadIdentitiesCommandOutput extends ListWorkloadIdentit
  * ```javascript
  * import { BedrockAgentCoreControlClient, ListWorkloadIdentitiesCommand } from "@aws-sdk/client-bedrock-agentcore-control"; // ES Modules import
  * // const { BedrockAgentCoreControlClient, ListWorkloadIdentitiesCommand } = require("@aws-sdk/client-bedrock-agentcore-control"); // CommonJS import
+ * // import type { BedrockAgentCoreControlClientConfig } from "@aws-sdk/client-bedrock-agentcore-control";
+ * const config = {}; // type is BedrockAgentCoreControlClientConfig
  * const client = new BedrockAgentCoreControlClient(config);
  * const input = { // ListWorkloadIdentitiesRequest
  *   nextToken: "STRING_VALUE",

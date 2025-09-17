@@ -39,6 +39,8 @@ export interface GetThingRuntimeConfigurationCommandOutput
  * ```javascript
  * import { GreengrassClient, GetThingRuntimeConfigurationCommand } from "@aws-sdk/client-greengrass"; // ES Modules import
  * // const { GreengrassClient, GetThingRuntimeConfigurationCommand } = require("@aws-sdk/client-greengrass"); // CommonJS import
+ * // import type { GreengrassClientConfig } from "@aws-sdk/client-greengrass";
+ * const config = {}; // type is GreengrassClientConfig
  * const client = new GreengrassClient(config);
  * const input = { // GetThingRuntimeConfigurationRequest
  *   ThingName: "STRING_VALUE", // required

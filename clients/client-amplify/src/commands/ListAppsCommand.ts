@@ -34,6 +34,8 @@ export interface ListAppsCommandOutput extends ListAppsResult, __MetadataBearer 
  * ```javascript
  * import { AmplifyClient, ListAppsCommand } from "@aws-sdk/client-amplify"; // ES Modules import
  * // const { AmplifyClient, ListAppsCommand } = require("@aws-sdk/client-amplify"); // CommonJS import
+ * // import type { AmplifyClientConfig } from "@aws-sdk/client-amplify";
+ * const config = {}; // type is AmplifyClientConfig
  * const client = new AmplifyClient(config);
  * const input = { // ListAppsRequest
  *   nextToken: "STRING_VALUE",

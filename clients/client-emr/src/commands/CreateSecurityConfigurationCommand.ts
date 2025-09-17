@@ -35,6 +35,8 @@ export interface CreateSecurityConfigurationCommandOutput extends CreateSecurity
  * ```javascript
  * import { EMRClient, CreateSecurityConfigurationCommand } from "@aws-sdk/client-emr"; // ES Modules import
  * // const { EMRClient, CreateSecurityConfigurationCommand } = require("@aws-sdk/client-emr"); // CommonJS import
+ * // import type { EMRClientConfig } from "@aws-sdk/client-emr";
+ * const config = {}; // type is EMRClientConfig
  * const client = new EMRClient(config);
  * const input = { // CreateSecurityConfigurationInput
  *   Name: "STRING_VALUE", // required

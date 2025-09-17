@@ -34,6 +34,8 @@ export interface UpdateSessionCommandOutput extends UpdateSessionResponse, __Met
  * ```javascript
  * import { DeadlineClient, UpdateSessionCommand } from "@aws-sdk/client-deadline"; // ES Modules import
  * // const { DeadlineClient, UpdateSessionCommand } = require("@aws-sdk/client-deadline"); // CommonJS import
+ * // import type { DeadlineClientConfig } from "@aws-sdk/client-deadline";
+ * const config = {}; // type is DeadlineClientConfig
  * const client = new DeadlineClient(config);
  * const input = { // UpdateSessionRequest
  *   clientToken: "STRING_VALUE",

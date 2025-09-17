@@ -36,6 +36,8 @@ export interface CreateReportGroupCommandOutput extends CreateReportGroupOutput,
  * ```javascript
  * import { CodeBuildClient, CreateReportGroupCommand } from "@aws-sdk/client-codebuild"; // ES Modules import
  * // const { CodeBuildClient, CreateReportGroupCommand } = require("@aws-sdk/client-codebuild"); // CommonJS import
+ * // import type { CodeBuildClientConfig } from "@aws-sdk/client-codebuild";
+ * const config = {}; // type is CodeBuildClientConfig
  * const client = new CodeBuildClient(config);
  * const input = { // CreateReportGroupInput
  *   name: "STRING_VALUE", // required

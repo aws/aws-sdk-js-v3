@@ -34,6 +34,8 @@ export interface CreateRealtimeLogConfigCommandOutput extends CreateRealtimeLogC
  * ```javascript
  * import { CloudFrontClient, CreateRealtimeLogConfigCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
  * // const { CloudFrontClient, CreateRealtimeLogConfigCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
+ * // import type { CloudFrontClientConfig } from "@aws-sdk/client-cloudfront";
+ * const config = {}; // type is CloudFrontClientConfig
  * const client = new CloudFrontClient(config);
  * const input = { // CreateRealtimeLogConfigRequest
  *   EndPoints: [ // EndPointList // required

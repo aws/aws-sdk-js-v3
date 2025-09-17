@@ -40,6 +40,8 @@ export interface DeleteTestGridProjectCommandOutput extends DeleteTestGridProjec
  * ```javascript
  * import { DeviceFarmClient, DeleteTestGridProjectCommand } from "@aws-sdk/client-device-farm"; // ES Modules import
  * // const { DeviceFarmClient, DeleteTestGridProjectCommand } = require("@aws-sdk/client-device-farm"); // CommonJS import
+ * // import type { DeviceFarmClientConfig } from "@aws-sdk/client-device-farm";
+ * const config = {}; // type is DeviceFarmClientConfig
  * const client = new DeviceFarmClient(config);
  * const input = { // DeleteTestGridProjectRequest
  *   projectArn: "STRING_VALUE", // required

@@ -36,6 +36,8 @@ export interface CreateRedshiftIdcApplicationCommandOutput
  * ```javascript
  * import { RedshiftClient, CreateRedshiftIdcApplicationCommand } from "@aws-sdk/client-redshift"; // ES Modules import
  * // const { RedshiftClient, CreateRedshiftIdcApplicationCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
+ * // import type { RedshiftClientConfig } from "@aws-sdk/client-redshift";
+ * const config = {}; // type is RedshiftClientConfig
  * const client = new RedshiftClient(config);
  * const input = { // CreateRedshiftIdcApplicationMessage
  *   IdcInstanceArn: "STRING_VALUE", // required

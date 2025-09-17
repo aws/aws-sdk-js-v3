@@ -35,6 +35,8 @@ export interface DescribeEventCategoriesCommandOutput extends EventCategoriesMes
  * ```javascript
  * import { NeptuneClient, DescribeEventCategoriesCommand } from "@aws-sdk/client-neptune"; // ES Modules import
  * // const { NeptuneClient, DescribeEventCategoriesCommand } = require("@aws-sdk/client-neptune"); // CommonJS import
+ * // import type { NeptuneClientConfig } from "@aws-sdk/client-neptune";
+ * const config = {}; // type is NeptuneClientConfig
  * const client = new NeptuneClient(config);
  * const input = { // DescribeEventCategoriesMessage
  *   SourceType: "STRING_VALUE",

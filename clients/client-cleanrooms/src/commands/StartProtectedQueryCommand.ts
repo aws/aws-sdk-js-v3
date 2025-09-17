@@ -39,6 +39,8 @@ export interface StartProtectedQueryCommandOutput extends StartProtectedQueryOut
  * ```javascript
  * import { CleanRoomsClient, StartProtectedQueryCommand } from "@aws-sdk/client-cleanrooms"; // ES Modules import
  * // const { CleanRoomsClient, StartProtectedQueryCommand } = require("@aws-sdk/client-cleanrooms"); // CommonJS import
+ * // import type { CleanRoomsClientConfig } from "@aws-sdk/client-cleanrooms";
+ * const config = {}; // type is CleanRoomsClientConfig
  * const client = new CleanRoomsClient(config);
  * const input = { // StartProtectedQueryInput
  *   type: "STRING_VALUE", // required

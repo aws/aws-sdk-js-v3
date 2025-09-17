@@ -34,6 +34,8 @@ export interface DeleteAnnotationStoreCommandOutput extends DeleteAnnotationStor
  * ```javascript
  * import { OmicsClient, DeleteAnnotationStoreCommand } from "@aws-sdk/client-omics"; // ES Modules import
  * // const { OmicsClient, DeleteAnnotationStoreCommand } = require("@aws-sdk/client-omics"); // CommonJS import
+ * // import type { OmicsClientConfig } from "@aws-sdk/client-omics";
+ * const config = {}; // type is OmicsClientConfig
  * const client = new OmicsClient(config);
  * const input = { // DeleteAnnotationStoreRequest
  *   name: "STRING_VALUE", // required

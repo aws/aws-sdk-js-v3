@@ -85,6 +85,8 @@ export interface StartMedicalScribeStreamCommandOutput extends StartMedicalScrib
  * ```javascript
  * import { TranscribeStreamingClient, StartMedicalScribeStreamCommand } from "@aws-sdk/client-transcribe-streaming"; // ES Modules import
  * // const { TranscribeStreamingClient, StartMedicalScribeStreamCommand } = require("@aws-sdk/client-transcribe-streaming"); // CommonJS import
+ * // import type { TranscribeStreamingClientConfig } from "@aws-sdk/client-transcribe-streaming";
+ * const config = {}; // type is TranscribeStreamingClientConfig
  * const client = new TranscribeStreamingClient(config);
  * const input = { // StartMedicalScribeStreamRequest
  *   SessionId: "STRING_VALUE",

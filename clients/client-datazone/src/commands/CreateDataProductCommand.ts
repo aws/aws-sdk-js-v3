@@ -39,6 +39,8 @@ export interface CreateDataProductCommandOutput extends CreateDataProductOutput,
  * ```javascript
  * import { DataZoneClient, CreateDataProductCommand } from "@aws-sdk/client-datazone"; // ES Modules import
  * // const { DataZoneClient, CreateDataProductCommand } = require("@aws-sdk/client-datazone"); // CommonJS import
+ * // import type { DataZoneClientConfig } from "@aws-sdk/client-datazone";
+ * const config = {}; // type is DataZoneClientConfig
  * const client = new DataZoneClient(config);
  * const input = { // CreateDataProductInput
  *   domainIdentifier: "STRING_VALUE", // required

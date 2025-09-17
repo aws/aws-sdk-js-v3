@@ -34,6 +34,8 @@ export interface ListMultiplexProgramsCommandOutput extends ListMultiplexProgram
  * ```javascript
  * import { MediaLiveClient, ListMultiplexProgramsCommand } from "@aws-sdk/client-medialive"; // ES Modules import
  * // const { MediaLiveClient, ListMultiplexProgramsCommand } = require("@aws-sdk/client-medialive"); // CommonJS import
+ * // import type { MediaLiveClientConfig } from "@aws-sdk/client-medialive";
+ * const config = {}; // type is MediaLiveClientConfig
  * const client = new MediaLiveClient(config);
  * const input = { // ListMultiplexProgramsRequest
  *   MaxResults: Number("int"),

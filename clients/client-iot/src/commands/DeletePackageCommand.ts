@@ -37,6 +37,8 @@ export interface DeletePackageCommandOutput extends DeletePackageResponse, __Met
  * ```javascript
  * import { IoTClient, DeletePackageCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, DeletePackageCommand } = require("@aws-sdk/client-iot"); // CommonJS import
+ * // import type { IoTClientConfig } from "@aws-sdk/client-iot";
+ * const config = {}; // type is IoTClientConfig
  * const client = new IoTClient(config);
  * const input = { // DeletePackageRequest
  *   packageName: "STRING_VALUE", // required

@@ -38,6 +38,8 @@ export interface ListSolutionsCommandOutput extends ListSolutionsResponse, __Met
  * ```javascript
  * import { PartnerCentralSellingClient, ListSolutionsCommand } from "@aws-sdk/client-partnercentral-selling"; // ES Modules import
  * // const { PartnerCentralSellingClient, ListSolutionsCommand } = require("@aws-sdk/client-partnercentral-selling"); // CommonJS import
+ * // import type { PartnerCentralSellingClientConfig } from "@aws-sdk/client-partnercentral-selling";
+ * const config = {}; // type is PartnerCentralSellingClientConfig
  * const client = new PartnerCentralSellingClient(config);
  * const input = { // ListSolutionsRequest
  *   Catalog: "STRING_VALUE", // required

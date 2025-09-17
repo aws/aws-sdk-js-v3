@@ -34,6 +34,8 @@ export interface GetPresetCommandOutput extends GetPresetResponse, __MetadataBea
  * ```javascript
  * import { MediaConvertClient, GetPresetCommand } from "@aws-sdk/client-mediaconvert"; // ES Modules import
  * // const { MediaConvertClient, GetPresetCommand } = require("@aws-sdk/client-mediaconvert"); // CommonJS import
+ * // import type { MediaConvertClientConfig } from "@aws-sdk/client-mediaconvert";
+ * const config = {}; // type is MediaConvertClientConfig
  * const client = new MediaConvertClient(config);
  * const input = { // GetPresetRequest
  *   Name: "STRING_VALUE", // required

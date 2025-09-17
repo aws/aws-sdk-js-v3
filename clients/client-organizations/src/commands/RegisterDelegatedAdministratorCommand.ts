@@ -45,6 +45,8 @@ export interface RegisterDelegatedAdministratorCommandOutput extends __MetadataB
  * ```javascript
  * import { OrganizationsClient, RegisterDelegatedAdministratorCommand } from "@aws-sdk/client-organizations"; // ES Modules import
  * // const { OrganizationsClient, RegisterDelegatedAdministratorCommand } = require("@aws-sdk/client-organizations"); // CommonJS import
+ * // import type { OrganizationsClientConfig } from "@aws-sdk/client-organizations";
+ * const config = {}; // type is OrganizationsClientConfig
  * const client = new OrganizationsClient(config);
  * const input = { // RegisterDelegatedAdministratorRequest
  *   AccountId: "STRING_VALUE", // required

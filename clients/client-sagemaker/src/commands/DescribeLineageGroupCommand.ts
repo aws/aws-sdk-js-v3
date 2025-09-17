@@ -34,6 +34,8 @@ export interface DescribeLineageGroupCommandOutput extends DescribeLineageGroupR
  * ```javascript
  * import { SageMakerClient, DescribeLineageGroupCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, DescribeLineageGroupCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * // import type { SageMakerClientConfig } from "@aws-sdk/client-sagemaker";
+ * const config = {}; // type is SageMakerClientConfig
  * const client = new SageMakerClient(config);
  * const input = { // DescribeLineageGroupRequest
  *   LineageGroupName: "STRING_VALUE", // required

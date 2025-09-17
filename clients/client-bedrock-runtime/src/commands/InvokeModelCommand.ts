@@ -54,6 +54,8 @@ export interface InvokeModelCommandOutput extends InvokeModelCommandOutputType, 
  * ```javascript
  * import { BedrockRuntimeClient, InvokeModelCommand } from "@aws-sdk/client-bedrock-runtime"; // ES Modules import
  * // const { BedrockRuntimeClient, InvokeModelCommand } = require("@aws-sdk/client-bedrock-runtime"); // CommonJS import
+ * // import type { BedrockRuntimeClientConfig } from "@aws-sdk/client-bedrock-runtime";
+ * const config = {}; // type is BedrockRuntimeClientConfig
  * const client = new BedrockRuntimeClient(config);
  * const input = { // InvokeModelRequest
  *   body: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")

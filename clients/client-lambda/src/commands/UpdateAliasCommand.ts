@@ -34,6 +34,8 @@ export interface UpdateAliasCommandOutput extends AliasConfiguration, __Metadata
  * ```javascript
  * import { LambdaClient, UpdateAliasCommand } from "@aws-sdk/client-lambda"; // ES Modules import
  * // const { LambdaClient, UpdateAliasCommand } = require("@aws-sdk/client-lambda"); // CommonJS import
+ * // import type { LambdaClientConfig } from "@aws-sdk/client-lambda";
+ * const config = {}; // type is LambdaClientConfig
  * const client = new LambdaClient(config);
  * const input = { // UpdateAliasRequest
  *   FunctionName: "STRING_VALUE", // required

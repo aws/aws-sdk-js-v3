@@ -34,6 +34,8 @@ export interface StartAccessLoggingCommandOutput extends StartAccessLoggingOutpu
  * ```javascript
  * import { MediaStoreClient, StartAccessLoggingCommand } from "@aws-sdk/client-mediastore"; // ES Modules import
  * // const { MediaStoreClient, StartAccessLoggingCommand } = require("@aws-sdk/client-mediastore"); // CommonJS import
+ * // import type { MediaStoreClientConfig } from "@aws-sdk/client-mediastore";
+ * const config = {}; // type is MediaStoreClientConfig
  * const client = new MediaStoreClient(config);
  * const input = { // StartAccessLoggingInput
  *   ContainerName: "STRING_VALUE", // required

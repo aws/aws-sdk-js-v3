@@ -38,6 +38,8 @@ export interface UpdateUserProfileCommandOutput extends UpdateUserProfileOutput,
  * ```javascript
  * import { DataZoneClient, UpdateUserProfileCommand } from "@aws-sdk/client-datazone"; // ES Modules import
  * // const { DataZoneClient, UpdateUserProfileCommand } = require("@aws-sdk/client-datazone"); // CommonJS import
+ * // import type { DataZoneClientConfig } from "@aws-sdk/client-datazone";
+ * const config = {}; // type is DataZoneClientConfig
  * const client = new DataZoneClient(config);
  * const input = { // UpdateUserProfileInput
  *   domainIdentifier: "STRING_VALUE", // required

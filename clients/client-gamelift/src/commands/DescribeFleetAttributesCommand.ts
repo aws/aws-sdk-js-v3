@@ -60,6 +60,8 @@ export interface DescribeFleetAttributesCommandOutput extends DescribeFleetAttri
  * ```javascript
  * import { GameLiftClient, DescribeFleetAttributesCommand } from "@aws-sdk/client-gamelift"; // ES Modules import
  * // const { GameLiftClient, DescribeFleetAttributesCommand } = require("@aws-sdk/client-gamelift"); // CommonJS import
+ * // import type { GameLiftClientConfig } from "@aws-sdk/client-gamelift";
+ * const config = {}; // type is GameLiftClientConfig
  * const client = new GameLiftClient(config);
  * const input = { // DescribeFleetAttributesInput
  *   FleetIds: [ // FleetIdOrArnList

@@ -34,6 +34,8 @@ export interface UpdateTemplateCommandOutput extends UpdateTemplateResponse, __M
  * ```javascript
  * import { ConnectCasesClient, UpdateTemplateCommand } from "@aws-sdk/client-connectcases"; // ES Modules import
  * // const { ConnectCasesClient, UpdateTemplateCommand } = require("@aws-sdk/client-connectcases"); // CommonJS import
+ * // import type { ConnectCasesClientConfig } from "@aws-sdk/client-connectcases";
+ * const config = {}; // type is ConnectCasesClientConfig
  * const client = new ConnectCasesClient(config);
  * const input = { // UpdateTemplateRequest
  *   domainId: "STRING_VALUE", // required

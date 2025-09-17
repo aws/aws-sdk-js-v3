@@ -35,6 +35,8 @@ export interface GetAssetFilterCommandOutput extends GetAssetFilterOutput, __Met
  * ```javascript
  * import { DataZoneClient, GetAssetFilterCommand } from "@aws-sdk/client-datazone"; // ES Modules import
  * // const { DataZoneClient, GetAssetFilterCommand } = require("@aws-sdk/client-datazone"); // CommonJS import
+ * // import type { DataZoneClientConfig } from "@aws-sdk/client-datazone";
+ * const config = {}; // type is DataZoneClientConfig
  * const client = new DataZoneClient(config);
  * const input = { // GetAssetFilterInput
  *   domainIdentifier: "STRING_VALUE", // required

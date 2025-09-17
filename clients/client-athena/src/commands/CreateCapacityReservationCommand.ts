@@ -35,6 +35,8 @@ export interface CreateCapacityReservationCommandOutput extends CreateCapacityRe
  * ```javascript
  * import { AthenaClient, CreateCapacityReservationCommand } from "@aws-sdk/client-athena"; // ES Modules import
  * // const { AthenaClient, CreateCapacityReservationCommand } = require("@aws-sdk/client-athena"); // CommonJS import
+ * // import type { AthenaClientConfig } from "@aws-sdk/client-athena";
+ * const config = {}; // type is AthenaClientConfig
  * const client = new AthenaClient(config);
  * const input = { // CreateCapacityReservationInput
  *   TargetDpus: Number("int"), // required

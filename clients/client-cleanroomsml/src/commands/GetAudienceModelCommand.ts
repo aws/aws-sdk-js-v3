@@ -34,6 +34,8 @@ export interface GetAudienceModelCommandOutput extends GetAudienceModelResponse,
  * ```javascript
  * import { CleanRoomsMLClient, GetAudienceModelCommand } from "@aws-sdk/client-cleanroomsml"; // ES Modules import
  * // const { CleanRoomsMLClient, GetAudienceModelCommand } = require("@aws-sdk/client-cleanroomsml"); // CommonJS import
+ * // import type { CleanRoomsMLClientConfig } from "@aws-sdk/client-cleanroomsml";
+ * const config = {}; // type is CleanRoomsMLClientConfig
  * const client = new CleanRoomsMLClient(config);
  * const input = { // GetAudienceModelRequest
  *   audienceModelArn: "STRING_VALUE", // required

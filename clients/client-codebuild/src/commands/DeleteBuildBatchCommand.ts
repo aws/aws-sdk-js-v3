@@ -34,6 +34,8 @@ export interface DeleteBuildBatchCommandOutput extends DeleteBuildBatchOutput, _
  * ```javascript
  * import { CodeBuildClient, DeleteBuildBatchCommand } from "@aws-sdk/client-codebuild"; // ES Modules import
  * // const { CodeBuildClient, DeleteBuildBatchCommand } = require("@aws-sdk/client-codebuild"); // CommonJS import
+ * // import type { CodeBuildClientConfig } from "@aws-sdk/client-codebuild";
+ * const config = {}; // type is CodeBuildClientConfig
  * const client = new CodeBuildClient(config);
  * const input = { // DeleteBuildBatchInput
  *   id: "STRING_VALUE", // required

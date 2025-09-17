@@ -41,6 +41,8 @@ export interface ListInstanceProfilesForRoleCommandOutput
  * ```javascript
  * import { IAMClient, ListInstanceProfilesForRoleCommand } from "@aws-sdk/client-iam"; // ES Modules import
  * // const { IAMClient, ListInstanceProfilesForRoleCommand } = require("@aws-sdk/client-iam"); // CommonJS import
+ * // import type { IAMClientConfig } from "@aws-sdk/client-iam";
+ * const config = {}; // type is IAMClientConfig
  * const client = new IAMClient(config);
  * const input = { // ListInstanceProfilesForRoleRequest
  *   RoleName: "STRING_VALUE", // required

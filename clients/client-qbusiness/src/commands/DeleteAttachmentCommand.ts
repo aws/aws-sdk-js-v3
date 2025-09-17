@@ -34,6 +34,8 @@ export interface DeleteAttachmentCommandOutput extends DeleteAttachmentResponse,
  * ```javascript
  * import { QBusinessClient, DeleteAttachmentCommand } from "@aws-sdk/client-qbusiness"; // ES Modules import
  * // const { QBusinessClient, DeleteAttachmentCommand } = require("@aws-sdk/client-qbusiness"); // CommonJS import
+ * // import type { QBusinessClientConfig } from "@aws-sdk/client-qbusiness";
+ * const config = {}; // type is QBusinessClientConfig
  * const client = new QBusinessClient(config);
  * const input = { // DeleteAttachmentRequest
  *   applicationId: "STRING_VALUE", // required

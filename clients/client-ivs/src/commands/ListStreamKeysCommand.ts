@@ -34,6 +34,8 @@ export interface ListStreamKeysCommandOutput extends ListStreamKeysResponse, __M
  * ```javascript
  * import { IvsClient, ListStreamKeysCommand } from "@aws-sdk/client-ivs"; // ES Modules import
  * // const { IvsClient, ListStreamKeysCommand } = require("@aws-sdk/client-ivs"); // CommonJS import
+ * // import type { IvsClientConfig } from "@aws-sdk/client-ivs";
+ * const config = {}; // type is IvsClientConfig
  * const client = new IvsClient(config);
  * const input = { // ListStreamKeysRequest
  *   channelArn: "STRING_VALUE", // required

@@ -42,6 +42,8 @@ export interface ExecuteChangeSetCommandOutput extends ExecuteChangeSetOutput, _
  * ```javascript
  * import { CloudFormationClient, ExecuteChangeSetCommand } from "@aws-sdk/client-cloudformation"; // ES Modules import
  * // const { CloudFormationClient, ExecuteChangeSetCommand } = require("@aws-sdk/client-cloudformation"); // CommonJS import
+ * // import type { CloudFormationClientConfig } from "@aws-sdk/client-cloudformation";
+ * const config = {}; // type is CloudFormationClientConfig
  * const client = new CloudFormationClient(config);
  * const input = { // ExecuteChangeSetInput
  *   ChangeSetName: "STRING_VALUE", // required

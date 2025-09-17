@@ -34,6 +34,8 @@ export interface QueryWhatIfForecastCommandOutput extends QueryWhatIfForecastRes
  * ```javascript
  * import { ForecastqueryClient, QueryWhatIfForecastCommand } from "@aws-sdk/client-forecastquery"; // ES Modules import
  * // const { ForecastqueryClient, QueryWhatIfForecastCommand } = require("@aws-sdk/client-forecastquery"); // CommonJS import
+ * // import type { ForecastqueryClientConfig } from "@aws-sdk/client-forecastquery";
+ * const config = {}; // type is ForecastqueryClientConfig
  * const client = new ForecastqueryClient(config);
  * const input = { // QueryWhatIfForecastRequest
  *   WhatIfForecastArn: "STRING_VALUE", // required

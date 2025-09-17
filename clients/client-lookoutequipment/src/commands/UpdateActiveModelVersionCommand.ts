@@ -34,6 +34,8 @@ export interface UpdateActiveModelVersionCommandOutput extends UpdateActiveModel
  * ```javascript
  * import { LookoutEquipmentClient, UpdateActiveModelVersionCommand } from "@aws-sdk/client-lookoutequipment"; // ES Modules import
  * // const { LookoutEquipmentClient, UpdateActiveModelVersionCommand } = require("@aws-sdk/client-lookoutequipment"); // CommonJS import
+ * // import type { LookoutEquipmentClientConfig } from "@aws-sdk/client-lookoutequipment";
+ * const config = {}; // type is LookoutEquipmentClientConfig
  * const client = new LookoutEquipmentClient(config);
  * const input = { // UpdateActiveModelVersionRequest
  *   ModelName: "STRING_VALUE", // required

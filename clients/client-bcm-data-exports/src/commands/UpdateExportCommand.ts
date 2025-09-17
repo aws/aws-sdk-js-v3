@@ -35,6 +35,8 @@ export interface UpdateExportCommandOutput extends UpdateExportResponse, __Metad
  * ```javascript
  * import { BCMDataExportsClient, UpdateExportCommand } from "@aws-sdk/client-bcm-data-exports"; // ES Modules import
  * // const { BCMDataExportsClient, UpdateExportCommand } = require("@aws-sdk/client-bcm-data-exports"); // CommonJS import
+ * // import type { BCMDataExportsClientConfig } from "@aws-sdk/client-bcm-data-exports";
+ * const config = {}; // type is BCMDataExportsClientConfig
  * const client = new BCMDataExportsClient(config);
  * const input = { // UpdateExportRequest
  *   ExportArn: "STRING_VALUE", // required

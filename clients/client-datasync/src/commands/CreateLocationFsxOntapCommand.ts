@@ -42,6 +42,8 @@ export interface CreateLocationFsxOntapCommandOutput extends CreateLocationFsxOn
  * ```javascript
  * import { DataSyncClient, CreateLocationFsxOntapCommand } from "@aws-sdk/client-datasync"; // ES Modules import
  * // const { DataSyncClient, CreateLocationFsxOntapCommand } = require("@aws-sdk/client-datasync"); // CommonJS import
+ * // import type { DataSyncClientConfig } from "@aws-sdk/client-datasync";
+ * const config = {}; // type is DataSyncClientConfig
  * const client = new DataSyncClient(config);
  * const input = { // CreateLocationFsxOntapRequest
  *   Protocol: { // FsxProtocol

@@ -34,6 +34,8 @@ export interface DeletePartnerAppCommandOutput extends DeletePartnerAppResponse,
  * ```javascript
  * import { SageMakerClient, DeletePartnerAppCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, DeletePartnerAppCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * // import type { SageMakerClientConfig } from "@aws-sdk/client-sagemaker";
+ * const config = {}; // type is SageMakerClientConfig
  * const client = new SageMakerClient(config);
  * const input = { // DeletePartnerAppRequest
  *   Arn: "STRING_VALUE", // required

@@ -38,6 +38,8 @@ export interface DescribeTagsCommandOutput extends DescribeTagsOutput, __Metadat
  * ```javascript
  * import { ElasticLoadBalancingClient, DescribeTagsCommand } from "@aws-sdk/client-elastic-load-balancing"; // ES Modules import
  * // const { ElasticLoadBalancingClient, DescribeTagsCommand } = require("@aws-sdk/client-elastic-load-balancing"); // CommonJS import
+ * // import type { ElasticLoadBalancingClientConfig } from "@aws-sdk/client-elastic-load-balancing";
+ * const config = {}; // type is ElasticLoadBalancingClientConfig
  * const client = new ElasticLoadBalancingClient(config);
  * const input = { // DescribeTagsInput
  *   LoadBalancerNames: [ // LoadBalancerNamesMax20 // required

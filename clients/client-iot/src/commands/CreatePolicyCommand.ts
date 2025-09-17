@@ -38,6 +38,8 @@ export interface CreatePolicyCommandOutput extends CreatePolicyResponse, __Metad
  * ```javascript
  * import { IoTClient, CreatePolicyCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, CreatePolicyCommand } = require("@aws-sdk/client-iot"); // CommonJS import
+ * // import type { IoTClientConfig } from "@aws-sdk/client-iot";
+ * const config = {}; // type is IoTClientConfig
  * const client = new IoTClient(config);
  * const input = { // CreatePolicyRequest
  *   policyName: "STRING_VALUE", // required

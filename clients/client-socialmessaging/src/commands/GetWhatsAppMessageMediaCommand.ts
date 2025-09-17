@@ -42,6 +42,8 @@ export interface GetWhatsAppMessageMediaCommandOutput extends GetWhatsAppMessage
  * ```javascript
  * import { SocialMessagingClient, GetWhatsAppMessageMediaCommand } from "@aws-sdk/client-socialmessaging"; // ES Modules import
  * // const { SocialMessagingClient, GetWhatsAppMessageMediaCommand } = require("@aws-sdk/client-socialmessaging"); // CommonJS import
+ * // import type { SocialMessagingClientConfig } from "@aws-sdk/client-socialmessaging";
+ * const config = {}; // type is SocialMessagingClientConfig
  * const client = new SocialMessagingClient(config);
  * const input = { // GetWhatsAppMessageMediaInput
  *   mediaId: "STRING_VALUE", // required

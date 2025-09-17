@@ -98,6 +98,8 @@ export interface PutComplianceItemsCommandOutput extends PutComplianceItemsResul
  * ```javascript
  * import { SSMClient, PutComplianceItemsCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, PutComplianceItemsCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
+ * // import type { SSMClientConfig } from "@aws-sdk/client-ssm";
+ * const config = {}; // type is SSMClientConfig
  * const client = new SSMClient(config);
  * const input = { // PutComplianceItemsRequest
  *   ResourceId: "STRING_VALUE", // required

@@ -34,6 +34,8 @@ export interface ProbeCommandOutput extends ProbeResponse, __MetadataBearer {}
  * ```javascript
  * import { MediaConvertClient, ProbeCommand } from "@aws-sdk/client-mediaconvert"; // ES Modules import
  * // const { MediaConvertClient, ProbeCommand } = require("@aws-sdk/client-mediaconvert"); // CommonJS import
+ * // import type { MediaConvertClientConfig } from "@aws-sdk/client-mediaconvert";
+ * const config = {}; // type is MediaConvertClientConfig
  * const client = new MediaConvertClient(config);
  * const input = { // ProbeRequest
  *   InputFiles: [ // __listOfProbeInputFile

@@ -34,6 +34,8 @@ export interface CreateAppCommandOutput extends CreateAppResponse, __MetadataBea
  * ```javascript
  * import { SageMakerClient, CreateAppCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, CreateAppCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * // import type { SageMakerClientConfig } from "@aws-sdk/client-sagemaker";
+ * const config = {}; // type is SageMakerClientConfig
  * const client = new SageMakerClient(config);
  * const input = { // CreateAppRequest
  *   DomainId: "STRING_VALUE", // required

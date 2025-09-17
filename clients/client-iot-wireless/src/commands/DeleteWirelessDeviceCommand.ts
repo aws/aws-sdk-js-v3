@@ -34,6 +34,8 @@ export interface DeleteWirelessDeviceCommandOutput extends DeleteWirelessDeviceR
  * ```javascript
  * import { IoTWirelessClient, DeleteWirelessDeviceCommand } from "@aws-sdk/client-iot-wireless"; // ES Modules import
  * // const { IoTWirelessClient, DeleteWirelessDeviceCommand } = require("@aws-sdk/client-iot-wireless"); // CommonJS import
+ * // import type { IoTWirelessClientConfig } from "@aws-sdk/client-iot-wireless";
+ * const config = {}; // type is IoTWirelessClientConfig
  * const client = new IoTWirelessClient(config);
  * const input = { // DeleteWirelessDeviceRequest
  *   Id: "STRING_VALUE", // required

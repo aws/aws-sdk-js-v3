@@ -41,6 +41,8 @@ export interface CreateRestoreTestingPlanCommandOutput extends CreateRestoreTest
  * ```javascript
  * import { BackupClient, CreateRestoreTestingPlanCommand } from "@aws-sdk/client-backup"; // ES Modules import
  * // const { BackupClient, CreateRestoreTestingPlanCommand } = require("@aws-sdk/client-backup"); // CommonJS import
+ * // import type { BackupClientConfig } from "@aws-sdk/client-backup";
+ * const config = {}; // type is BackupClientConfig
  * const client = new BackupClient(config);
  * const input = { // CreateRestoreTestingPlanInput
  *   CreatorRequestId: "STRING_VALUE",

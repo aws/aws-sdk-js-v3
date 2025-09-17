@@ -39,6 +39,8 @@ export interface ListModelQualityJobDefinitionsCommandOutput
  * ```javascript
  * import { SageMakerClient, ListModelQualityJobDefinitionsCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, ListModelQualityJobDefinitionsCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * // import type { SageMakerClientConfig } from "@aws-sdk/client-sagemaker";
+ * const config = {}; // type is SageMakerClientConfig
  * const client = new SageMakerClient(config);
  * const input = { // ListModelQualityJobDefinitionsRequest
  *   EndpointName: "STRING_VALUE",

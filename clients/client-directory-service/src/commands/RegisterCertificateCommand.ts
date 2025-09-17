@@ -34,6 +34,8 @@ export interface RegisterCertificateCommandOutput extends RegisterCertificateRes
  * ```javascript
  * import { DirectoryServiceClient, RegisterCertificateCommand } from "@aws-sdk/client-directory-service"; // ES Modules import
  * // const { DirectoryServiceClient, RegisterCertificateCommand } = require("@aws-sdk/client-directory-service"); // CommonJS import
+ * // import type { DirectoryServiceClientConfig } from "@aws-sdk/client-directory-service";
+ * const config = {}; // type is DirectoryServiceClientConfig
  * const client = new DirectoryServiceClient(config);
  * const input = { // RegisterCertificateRequest
  *   DirectoryId: "STRING_VALUE", // required

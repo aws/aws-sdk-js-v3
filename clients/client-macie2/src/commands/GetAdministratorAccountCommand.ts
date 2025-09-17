@@ -34,6 +34,8 @@ export interface GetAdministratorAccountCommandOutput extends GetAdministratorAc
  * ```javascript
  * import { Macie2Client, GetAdministratorAccountCommand } from "@aws-sdk/client-macie2"; // ES Modules import
  * // const { Macie2Client, GetAdministratorAccountCommand } = require("@aws-sdk/client-macie2"); // CommonJS import
+ * // import type { Macie2ClientConfig } from "@aws-sdk/client-macie2";
+ * const config = {}; // type is Macie2ClientConfig
  * const client = new Macie2Client(config);
  * const input = {};
  * const command = new GetAdministratorAccountCommand(input);

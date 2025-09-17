@@ -35,6 +35,8 @@ export interface TranslateTextCommandOutput extends TranslateTextResponse, __Met
  * ```javascript
  * import { TranslateClient, TranslateTextCommand } from "@aws-sdk/client-translate"; // ES Modules import
  * // const { TranslateClient, TranslateTextCommand } = require("@aws-sdk/client-translate"); // CommonJS import
+ * // import type { TranslateClientConfig } from "@aws-sdk/client-translate";
+ * const config = {}; // type is TranslateClientConfig
  * const client = new TranslateClient(config);
  * const input = { // TranslateTextRequest
  *   Text: "STRING_VALUE", // required

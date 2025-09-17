@@ -34,6 +34,8 @@ export interface ListFacetNamesCommandOutput extends ListFacetNamesResponse, __M
  * ```javascript
  * import { CloudDirectoryClient, ListFacetNamesCommand } from "@aws-sdk/client-clouddirectory"; // ES Modules import
  * // const { CloudDirectoryClient, ListFacetNamesCommand } = require("@aws-sdk/client-clouddirectory"); // CommonJS import
+ * // import type { CloudDirectoryClientConfig } from "@aws-sdk/client-clouddirectory";
+ * const config = {}; // type is CloudDirectoryClientConfig
  * const client = new CloudDirectoryClient(config);
  * const input = { // ListFacetNamesRequest
  *   SchemaArn: "STRING_VALUE", // required

@@ -34,6 +34,8 @@ export interface DeleteAppsListCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { FMSClient, DeleteAppsListCommand } from "@aws-sdk/client-fms"; // ES Modules import
  * // const { FMSClient, DeleteAppsListCommand } = require("@aws-sdk/client-fms"); // CommonJS import
+ * // import type { FMSClientConfig } from "@aws-sdk/client-fms";
+ * const config = {}; // type is FMSClientConfig
  * const client = new FMSClient(config);
  * const input = { // DeleteAppsListRequest
  *   ListId: "STRING_VALUE", // required

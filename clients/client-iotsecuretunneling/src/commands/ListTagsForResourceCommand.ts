@@ -38,6 +38,8 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * ```javascript
  * import { IoTSecureTunnelingClient, ListTagsForResourceCommand } from "@aws-sdk/client-iotsecuretunneling"; // ES Modules import
  * // const { IoTSecureTunnelingClient, ListTagsForResourceCommand } = require("@aws-sdk/client-iotsecuretunneling"); // CommonJS import
+ * // import type { IoTSecureTunnelingClientConfig } from "@aws-sdk/client-iotsecuretunneling";
+ * const config = {}; // type is IoTSecureTunnelingClientConfig
  * const client = new IoTSecureTunnelingClient(config);
  * const input = { // ListTagsForResourceRequest
  *   resourceArn: "STRING_VALUE", // required

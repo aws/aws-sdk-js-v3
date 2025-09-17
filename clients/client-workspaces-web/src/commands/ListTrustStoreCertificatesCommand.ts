@@ -34,6 +34,8 @@ export interface ListTrustStoreCertificatesCommandOutput extends ListTrustStoreC
  * ```javascript
  * import { WorkSpacesWebClient, ListTrustStoreCertificatesCommand } from "@aws-sdk/client-workspaces-web"; // ES Modules import
  * // const { WorkSpacesWebClient, ListTrustStoreCertificatesCommand } = require("@aws-sdk/client-workspaces-web"); // CommonJS import
+ * // import type { WorkSpacesWebClientConfig } from "@aws-sdk/client-workspaces-web";
+ * const config = {}; // type is WorkSpacesWebClientConfig
  * const client = new WorkSpacesWebClient(config);
  * const input = { // ListTrustStoreCertificatesRequest
  *   trustStoreArn: "STRING_VALUE", // required

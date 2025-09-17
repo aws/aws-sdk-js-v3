@@ -34,6 +34,8 @@ export interface SendDataSetNotificationCommandOutput extends SendDataSetNotific
  * ```javascript
  * import { DataExchangeClient, SendDataSetNotificationCommand } from "@aws-sdk/client-dataexchange"; // ES Modules import
  * // const { DataExchangeClient, SendDataSetNotificationCommand } = require("@aws-sdk/client-dataexchange"); // CommonJS import
+ * // import type { DataExchangeClientConfig } from "@aws-sdk/client-dataexchange";
+ * const config = {}; // type is DataExchangeClientConfig
  * const client = new DataExchangeClient(config);
  * const input = { // SendDataSetNotificationRequest
  *   Scope: { // ScopeDetails

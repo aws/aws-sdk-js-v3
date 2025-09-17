@@ -36,6 +36,8 @@ export interface StartDBClusterCommandOutput extends StartDBClusterResult, __Met
  * ```javascript
  * import { DocDBClient, StartDBClusterCommand } from "@aws-sdk/client-docdb"; // ES Modules import
  * // const { DocDBClient, StartDBClusterCommand } = require("@aws-sdk/client-docdb"); // CommonJS import
+ * // import type { DocDBClientConfig } from "@aws-sdk/client-docdb";
+ * const config = {}; // type is DocDBClientConfig
  * const client = new DocDBClient(config);
  * const input = { // StartDBClusterMessage
  *   DBClusterIdentifier: "STRING_VALUE", // required

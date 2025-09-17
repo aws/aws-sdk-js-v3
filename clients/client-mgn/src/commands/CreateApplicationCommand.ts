@@ -39,6 +39,8 @@ export interface CreateApplicationCommandOutput extends Application, __MetadataB
  * ```javascript
  * import { MgnClient, CreateApplicationCommand } from "@aws-sdk/client-mgn"; // ES Modules import
  * // const { MgnClient, CreateApplicationCommand } = require("@aws-sdk/client-mgn"); // CommonJS import
+ * // import type { MgnClientConfig } from "@aws-sdk/client-mgn";
+ * const config = {}; // type is MgnClientConfig
  * const client = new MgnClient(config);
  * const input = { // CreateApplicationRequest
  *   name: "STRING_VALUE", // required

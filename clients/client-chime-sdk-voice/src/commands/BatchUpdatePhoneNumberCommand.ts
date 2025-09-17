@@ -44,6 +44,8 @@ export interface BatchUpdatePhoneNumberCommandOutput extends BatchUpdatePhoneNum
  * ```javascript
  * import { ChimeSDKVoiceClient, BatchUpdatePhoneNumberCommand } from "@aws-sdk/client-chime-sdk-voice"; // ES Modules import
  * // const { ChimeSDKVoiceClient, BatchUpdatePhoneNumberCommand } = require("@aws-sdk/client-chime-sdk-voice"); // CommonJS import
+ * // import type { ChimeSDKVoiceClientConfig } from "@aws-sdk/client-chime-sdk-voice";
+ * const config = {}; // type is ChimeSDKVoiceClientConfig
  * const client = new ChimeSDKVoiceClient(config);
  * const input = { // BatchUpdatePhoneNumberRequest
  *   UpdatePhoneNumberRequestItems: [ // UpdatePhoneNumberRequestItemList // required

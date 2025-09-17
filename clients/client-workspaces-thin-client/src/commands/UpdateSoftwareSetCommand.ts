@@ -38,6 +38,8 @@ export interface UpdateSoftwareSetCommandOutput extends UpdateSoftwareSetRespons
  * ```javascript
  * import { WorkSpacesThinClientClient, UpdateSoftwareSetCommand } from "@aws-sdk/client-workspaces-thin-client"; // ES Modules import
  * // const { WorkSpacesThinClientClient, UpdateSoftwareSetCommand } = require("@aws-sdk/client-workspaces-thin-client"); // CommonJS import
+ * // import type { WorkSpacesThinClientClientConfig } from "@aws-sdk/client-workspaces-thin-client";
+ * const config = {}; // type is WorkSpacesThinClientClientConfig
  * const client = new WorkSpacesThinClientClient(config);
  * const input = { // UpdateSoftwareSetRequest
  *   id: "STRING_VALUE", // required

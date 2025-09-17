@@ -36,6 +36,8 @@ export interface DeleteContainerCommandOutput extends DeleteContainerOutput, __M
  * ```javascript
  * import { MediaStoreClient, DeleteContainerCommand } from "@aws-sdk/client-mediastore"; // ES Modules import
  * // const { MediaStoreClient, DeleteContainerCommand } = require("@aws-sdk/client-mediastore"); // CommonJS import
+ * // import type { MediaStoreClientConfig } from "@aws-sdk/client-mediastore";
+ * const config = {}; // type is MediaStoreClientConfig
  * const client = new MediaStoreClient(config);
  * const input = { // DeleteContainerInput
  *   ContainerName: "STRING_VALUE", // required

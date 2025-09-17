@@ -36,6 +36,8 @@ export interface DeleteUserCommandOutput extends DeleteUserResponse, __MetadataB
  * ```javascript
  * import { QuickSightClient, DeleteUserCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
  * // const { QuickSightClient, DeleteUserCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
+ * // import type { QuickSightClientConfig } from "@aws-sdk/client-quicksight";
+ * const config = {}; // type is QuickSightClientConfig
  * const client = new QuickSightClient(config);
  * const input = { // DeleteUserRequest
  *   UserName: "STRING_VALUE", // required

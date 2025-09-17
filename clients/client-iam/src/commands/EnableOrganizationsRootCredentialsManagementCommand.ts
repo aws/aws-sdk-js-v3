@@ -58,6 +58,8 @@ export interface EnableOrganizationsRootCredentialsManagementCommandOutput
  * ```javascript
  * import { IAMClient, EnableOrganizationsRootCredentialsManagementCommand } from "@aws-sdk/client-iam"; // ES Modules import
  * // const { IAMClient, EnableOrganizationsRootCredentialsManagementCommand } = require("@aws-sdk/client-iam"); // CommonJS import
+ * // import type { IAMClientConfig } from "@aws-sdk/client-iam";
+ * const config = {}; // type is IAMClientConfig
  * const client = new IAMClient(config);
  * const input = {};
  * const command = new EnableOrganizationsRootCredentialsManagementCommand(input);

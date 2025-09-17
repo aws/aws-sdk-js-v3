@@ -35,6 +35,8 @@ export interface UpdateIngestionDestinationCommandOutput extends UpdateIngestion
  * ```javascript
  * import { AppFabricClient, UpdateIngestionDestinationCommand } from "@aws-sdk/client-appfabric"; // ES Modules import
  * // const { AppFabricClient, UpdateIngestionDestinationCommand } = require("@aws-sdk/client-appfabric"); // CommonJS import
+ * // import type { AppFabricClientConfig } from "@aws-sdk/client-appfabric";
+ * const config = {}; // type is AppFabricClientConfig
  * const client = new AppFabricClient(config);
  * const input = { // UpdateIngestionDestinationRequest
  *   appBundleIdentifier: "STRING_VALUE", // required

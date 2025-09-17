@@ -39,6 +39,8 @@ export interface GetDevEndpointsCommandOutput extends GetDevEndpointsResponse, _
  * ```javascript
  * import { GlueClient, GetDevEndpointsCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, GetDevEndpointsCommand } = require("@aws-sdk/client-glue"); // CommonJS import
+ * // import type { GlueClientConfig } from "@aws-sdk/client-glue";
+ * const config = {}; // type is GlueClientConfig
  * const client = new GlueClient(config);
  * const input = { // GetDevEndpointsRequest
  *   MaxResults: Number("int"),

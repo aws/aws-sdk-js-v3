@@ -34,6 +34,8 @@ export interface GetBlacklistReportsCommandOutput extends GetBlacklistReportsRes
  * ```javascript
  * import { PinpointEmailClient, GetBlacklistReportsCommand } from "@aws-sdk/client-pinpoint-email"; // ES Modules import
  * // const { PinpointEmailClient, GetBlacklistReportsCommand } = require("@aws-sdk/client-pinpoint-email"); // CommonJS import
+ * // import type { PinpointEmailClientConfig } from "@aws-sdk/client-pinpoint-email";
+ * const config = {}; // type is PinpointEmailClientConfig
  * const client = new PinpointEmailClient(config);
  * const input = { // GetBlacklistReportsRequest
  *   BlacklistItemNames: [ // BlacklistItemNames // required

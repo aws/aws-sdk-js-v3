@@ -38,6 +38,8 @@ export interface BatchGetVpcEndpointCommandOutput extends BatchGetVpcEndpointRes
  * ```javascript
  * import { OpenSearchServerlessClient, BatchGetVpcEndpointCommand } from "@aws-sdk/client-opensearchserverless"; // ES Modules import
  * // const { OpenSearchServerlessClient, BatchGetVpcEndpointCommand } = require("@aws-sdk/client-opensearchserverless"); // CommonJS import
+ * // import type { OpenSearchServerlessClientConfig } from "@aws-sdk/client-opensearchserverless";
+ * const config = {}; // type is OpenSearchServerlessClientConfig
  * const client = new OpenSearchServerlessClient(config);
  * const input = { // BatchGetVpcEndpointRequest
  *   ids: [ // VpcEndpointIds // required

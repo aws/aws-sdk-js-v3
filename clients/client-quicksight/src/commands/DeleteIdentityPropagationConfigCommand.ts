@@ -40,6 +40,8 @@ export interface DeleteIdentityPropagationConfigCommandOutput
  * ```javascript
  * import { QuickSightClient, DeleteIdentityPropagationConfigCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
  * // const { QuickSightClient, DeleteIdentityPropagationConfigCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
+ * // import type { QuickSightClientConfig } from "@aws-sdk/client-quicksight";
+ * const config = {}; // type is QuickSightClientConfig
  * const client = new QuickSightClient(config);
  * const input = { // DeleteIdentityPropagationConfigRequest
  *   AwsAccountId: "STRING_VALUE", // required

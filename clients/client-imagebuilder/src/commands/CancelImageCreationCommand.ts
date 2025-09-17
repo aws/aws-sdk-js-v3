@@ -35,6 +35,8 @@ export interface CancelImageCreationCommandOutput extends CancelImageCreationRes
  * ```javascript
  * import { ImagebuilderClient, CancelImageCreationCommand } from "@aws-sdk/client-imagebuilder"; // ES Modules import
  * // const { ImagebuilderClient, CancelImageCreationCommand } = require("@aws-sdk/client-imagebuilder"); // CommonJS import
+ * // import type { ImagebuilderClientConfig } from "@aws-sdk/client-imagebuilder";
+ * const config = {}; // type is ImagebuilderClientConfig
  * const client = new ImagebuilderClient(config);
  * const input = { // CancelImageCreationRequest
  *   imageBuildVersionArn: "STRING_VALUE", // required

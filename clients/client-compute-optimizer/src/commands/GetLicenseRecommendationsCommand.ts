@@ -38,6 +38,8 @@ export interface GetLicenseRecommendationsCommandOutput extends GetLicenseRecomm
  * ```javascript
  * import { ComputeOptimizerClient, GetLicenseRecommendationsCommand } from "@aws-sdk/client-compute-optimizer"; // ES Modules import
  * // const { ComputeOptimizerClient, GetLicenseRecommendationsCommand } = require("@aws-sdk/client-compute-optimizer"); // CommonJS import
+ * // import type { ComputeOptimizerClientConfig } from "@aws-sdk/client-compute-optimizer";
+ * const config = {}; // type is ComputeOptimizerClientConfig
  * const client = new ComputeOptimizerClient(config);
  * const input = { // GetLicenseRecommendationsRequest
  *   resourceArns: [ // ResourceArns

@@ -38,6 +38,8 @@ export interface DisassociateUserCommandOutput extends DisassociateUserResponse,
  * ```javascript
  * import { LicenseManagerUserSubscriptionsClient, DisassociateUserCommand } from "@aws-sdk/client-license-manager-user-subscriptions"; // ES Modules import
  * // const { LicenseManagerUserSubscriptionsClient, DisassociateUserCommand } = require("@aws-sdk/client-license-manager-user-subscriptions"); // CommonJS import
+ * // import type { LicenseManagerUserSubscriptionsClientConfig } from "@aws-sdk/client-license-manager-user-subscriptions";
+ * const config = {}; // type is LicenseManagerUserSubscriptionsClientConfig
  * const client = new LicenseManagerUserSubscriptionsClient(config);
  * const input = { // DisassociateUserRequest
  *   Username: "STRING_VALUE",

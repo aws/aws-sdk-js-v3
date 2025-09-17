@@ -34,6 +34,8 @@ export interface DescribeSavingsPlanRatesCommandOutput extends DescribeSavingsPl
  * ```javascript
  * import { SavingsplansClient, DescribeSavingsPlanRatesCommand } from "@aws-sdk/client-savingsplans"; // ES Modules import
  * // const { SavingsplansClient, DescribeSavingsPlanRatesCommand } = require("@aws-sdk/client-savingsplans"); // CommonJS import
+ * // import type { SavingsplansClientConfig } from "@aws-sdk/client-savingsplans";
+ * const config = {}; // type is SavingsplansClientConfig
  * const client = new SavingsplansClient(config);
  * const input = { // DescribeSavingsPlanRatesRequest
  *   savingsPlanId: "STRING_VALUE", // required

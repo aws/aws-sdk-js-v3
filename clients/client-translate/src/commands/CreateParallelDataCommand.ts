@@ -37,6 +37,8 @@ export interface CreateParallelDataCommandOutput extends CreateParallelDataRespo
  * ```javascript
  * import { TranslateClient, CreateParallelDataCommand } from "@aws-sdk/client-translate"; // ES Modules import
  * // const { TranslateClient, CreateParallelDataCommand } = require("@aws-sdk/client-translate"); // CommonJS import
+ * // import type { TranslateClientConfig } from "@aws-sdk/client-translate";
+ * const config = {}; // type is TranslateClientConfig
  * const client = new TranslateClient(config);
  * const input = { // CreateParallelDataRequest
  *   Name: "STRING_VALUE", // required

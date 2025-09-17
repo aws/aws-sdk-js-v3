@@ -34,6 +34,8 @@ export interface ListAdaptersCommandOutput extends ListAdaptersResponse, __Metad
  * ```javascript
  * import { TextractClient, ListAdaptersCommand } from "@aws-sdk/client-textract"; // ES Modules import
  * // const { TextractClient, ListAdaptersCommand } = require("@aws-sdk/client-textract"); // CommonJS import
+ * // import type { TextractClientConfig } from "@aws-sdk/client-textract";
+ * const config = {}; // type is TextractClientConfig
  * const client = new TextractClient(config);
  * const input = { // ListAdaptersRequest
  *   AfterCreationTime: new Date("TIMESTAMP"),

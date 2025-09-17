@@ -36,6 +36,8 @@ export interface ModifyUsageLimitCommandOutput extends UsageLimit, __MetadataBea
  * ```javascript
  * import { RedshiftClient, ModifyUsageLimitCommand } from "@aws-sdk/client-redshift"; // ES Modules import
  * // const { RedshiftClient, ModifyUsageLimitCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
+ * // import type { RedshiftClientConfig } from "@aws-sdk/client-redshift";
+ * const config = {}; // type is RedshiftClientConfig
  * const client = new RedshiftClient(config);
  * const input = { // ModifyUsageLimitMessage
  *   UsageLimitId: "STRING_VALUE", // required

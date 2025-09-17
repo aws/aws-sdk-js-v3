@@ -34,6 +34,8 @@ export interface GetQAppSessionMetadataCommandOutput extends GetQAppSessionMetad
  * ```javascript
  * import { QAppsClient, GetQAppSessionMetadataCommand } from "@aws-sdk/client-qapps"; // ES Modules import
  * // const { QAppsClient, GetQAppSessionMetadataCommand } = require("@aws-sdk/client-qapps"); // CommonJS import
+ * // import type { QAppsClientConfig } from "@aws-sdk/client-qapps";
+ * const config = {}; // type is QAppsClientConfig
  * const client = new QAppsClient(config);
  * const input = { // GetQAppSessionMetadataInput
  *   instanceId: "STRING_VALUE", // required

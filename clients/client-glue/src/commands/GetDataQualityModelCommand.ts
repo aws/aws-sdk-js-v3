@@ -34,6 +34,8 @@ export interface GetDataQualityModelCommandOutput extends GetDataQualityModelRes
  * ```javascript
  * import { GlueClient, GetDataQualityModelCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, GetDataQualityModelCommand } = require("@aws-sdk/client-glue"); // CommonJS import
+ * // import type { GlueClientConfig } from "@aws-sdk/client-glue";
+ * const config = {}; // type is GlueClientConfig
  * const client = new GlueClient(config);
  * const input = { // GetDataQualityModelRequest
  *   StatisticId: "STRING_VALUE",

@@ -37,6 +37,8 @@ export interface DeregisterAppInstanceUserEndpointCommandOutput extends __Metada
  * ```javascript
  * import { ChimeSDKIdentityClient, DeregisterAppInstanceUserEndpointCommand } from "@aws-sdk/client-chime-sdk-identity"; // ES Modules import
  * // const { ChimeSDKIdentityClient, DeregisterAppInstanceUserEndpointCommand } = require("@aws-sdk/client-chime-sdk-identity"); // CommonJS import
+ * // import type { ChimeSDKIdentityClientConfig } from "@aws-sdk/client-chime-sdk-identity";
+ * const config = {}; // type is ChimeSDKIdentityClientConfig
  * const client = new ChimeSDKIdentityClient(config);
  * const input = { // DeregisterAppInstanceUserEndpointRequest
  *   AppInstanceUserArn: "STRING_VALUE", // required

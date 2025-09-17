@@ -36,6 +36,8 @@ export interface DeleteMultiRegionEndpointCommandOutput extends DeleteMultiRegio
  * ```javascript
  * import { SESv2Client, DeleteMultiRegionEndpointCommand } from "@aws-sdk/client-sesv2"; // ES Modules import
  * // const { SESv2Client, DeleteMultiRegionEndpointCommand } = require("@aws-sdk/client-sesv2"); // CommonJS import
+ * // import type { SESv2ClientConfig } from "@aws-sdk/client-sesv2";
+ * const config = {}; // type is SESv2ClientConfig
  * const client = new SESv2Client(config);
  * const input = { // DeleteMultiRegionEndpointRequest
  *   EndpointName: "STRING_VALUE", // required

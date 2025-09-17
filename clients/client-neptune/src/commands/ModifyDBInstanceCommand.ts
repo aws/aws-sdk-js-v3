@@ -40,6 +40,8 @@ export interface ModifyDBInstanceCommandOutput extends ModifyDBInstanceResult, _
  * ```javascript
  * import { NeptuneClient, ModifyDBInstanceCommand } from "@aws-sdk/client-neptune"; // ES Modules import
  * // const { NeptuneClient, ModifyDBInstanceCommand } = require("@aws-sdk/client-neptune"); // CommonJS import
+ * // import type { NeptuneClientConfig } from "@aws-sdk/client-neptune";
+ * const config = {}; // type is NeptuneClientConfig
  * const client = new NeptuneClient(config);
  * const input = { // ModifyDBInstanceMessage
  *   DBInstanceIdentifier: "STRING_VALUE", // required

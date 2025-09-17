@@ -44,6 +44,8 @@ export interface CreateKeyPairCommandOutput extends KeyPair, __MetadataBearer {}
  * ```javascript
  * import { EC2Client, CreateKeyPairCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, CreateKeyPairCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
+ * // import type { EC2ClientConfig } from "@aws-sdk/client-ec2";
+ * const config = {}; // type is EC2ClientConfig
  * const client = new EC2Client(config);
  * const input = { // CreateKeyPairRequest
  *   KeyName: "STRING_VALUE", // required

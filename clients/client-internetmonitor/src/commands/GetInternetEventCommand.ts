@@ -39,6 +39,8 @@ export interface GetInternetEventCommandOutput extends GetInternetEventOutput, _
  * ```javascript
  * import { InternetMonitorClient, GetInternetEventCommand } from "@aws-sdk/client-internetmonitor"; // ES Modules import
  * // const { InternetMonitorClient, GetInternetEventCommand } = require("@aws-sdk/client-internetmonitor"); // CommonJS import
+ * // import type { InternetMonitorClientConfig } from "@aws-sdk/client-internetmonitor";
+ * const config = {}; // type is InternetMonitorClientConfig
  * const client = new InternetMonitorClient(config);
  * const input = { // GetInternetEventInput
  *   EventId: "STRING_VALUE", // required

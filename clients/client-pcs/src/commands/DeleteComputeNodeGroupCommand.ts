@@ -34,6 +34,8 @@ export interface DeleteComputeNodeGroupCommandOutput extends DeleteComputeNodeGr
  * ```javascript
  * import { PCSClient, DeleteComputeNodeGroupCommand } from "@aws-sdk/client-pcs"; // ES Modules import
  * // const { PCSClient, DeleteComputeNodeGroupCommand } = require("@aws-sdk/client-pcs"); // CommonJS import
+ * // import type { PCSClientConfig } from "@aws-sdk/client-pcs";
+ * const config = {}; // type is PCSClientConfig
  * const client = new PCSClient(config);
  * const input = { // DeleteComputeNodeGroupRequest
  *   clusterIdentifier: "STRING_VALUE", // required

@@ -44,6 +44,8 @@ export interface StartBulkAssociateWirelessDeviceWithMulticastGroupCommandOutput
  * ```javascript
  * import { IoTWirelessClient, StartBulkAssociateWirelessDeviceWithMulticastGroupCommand } from "@aws-sdk/client-iot-wireless"; // ES Modules import
  * // const { IoTWirelessClient, StartBulkAssociateWirelessDeviceWithMulticastGroupCommand } = require("@aws-sdk/client-iot-wireless"); // CommonJS import
+ * // import type { IoTWirelessClientConfig } from "@aws-sdk/client-iot-wireless";
+ * const config = {}; // type is IoTWirelessClientConfig
  * const client = new IoTWirelessClient(config);
  * const input = { // StartBulkAssociateWirelessDeviceWithMulticastGroupRequest
  *   Id: "STRING_VALUE", // required

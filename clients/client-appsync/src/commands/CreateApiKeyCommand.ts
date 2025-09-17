@@ -34,6 +34,8 @@ export interface CreateApiKeyCommandOutput extends CreateApiKeyResponse, __Metad
  * ```javascript
  * import { AppSyncClient, CreateApiKeyCommand } from "@aws-sdk/client-appsync"; // ES Modules import
  * // const { AppSyncClient, CreateApiKeyCommand } = require("@aws-sdk/client-appsync"); // CommonJS import
+ * // import type { AppSyncClientConfig } from "@aws-sdk/client-appsync";
+ * const config = {}; // type is AppSyncClientConfig
  * const client = new AppSyncClient(config);
  * const input = { // CreateApiKeyRequest
  *   apiId: "STRING_VALUE", // required

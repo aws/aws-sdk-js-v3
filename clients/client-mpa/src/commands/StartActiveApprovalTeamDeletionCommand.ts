@@ -39,6 +39,8 @@ export interface StartActiveApprovalTeamDeletionCommandOutput
  * ```javascript
  * import { MPAClient, StartActiveApprovalTeamDeletionCommand } from "@aws-sdk/client-mpa"; // ES Modules import
  * // const { MPAClient, StartActiveApprovalTeamDeletionCommand } = require("@aws-sdk/client-mpa"); // CommonJS import
+ * // import type { MPAClientConfig } from "@aws-sdk/client-mpa";
+ * const config = {}; // type is MPAClientConfig
  * const client = new MPAClient(config);
  * const input = { // StartActiveApprovalTeamDeletionRequest
  *   PendingWindowDays: Number("int"),

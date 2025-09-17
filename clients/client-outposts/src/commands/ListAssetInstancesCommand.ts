@@ -35,6 +35,8 @@ export interface ListAssetInstancesCommandOutput extends ListAssetInstancesOutpu
  * ```javascript
  * import { OutpostsClient, ListAssetInstancesCommand } from "@aws-sdk/client-outposts"; // ES Modules import
  * // const { OutpostsClient, ListAssetInstancesCommand } = require("@aws-sdk/client-outposts"); // CommonJS import
+ * // import type { OutpostsClientConfig } from "@aws-sdk/client-outposts";
+ * const config = {}; // type is OutpostsClientConfig
  * const client = new OutpostsClient(config);
  * const input = { // ListAssetInstancesInput
  *   OutpostIdentifier: "STRING_VALUE", // required

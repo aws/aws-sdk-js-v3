@@ -38,6 +38,8 @@ export interface GetKnowledgeBaseCommandOutput extends GetKnowledgeBaseResponse,
  * ```javascript
  * import { BedrockAgentClient, GetKnowledgeBaseCommand } from "@aws-sdk/client-bedrock-agent"; // ES Modules import
  * // const { BedrockAgentClient, GetKnowledgeBaseCommand } = require("@aws-sdk/client-bedrock-agent"); // CommonJS import
+ * // import type { BedrockAgentClientConfig } from "@aws-sdk/client-bedrock-agent";
+ * const config = {}; // type is BedrockAgentClientConfig
  * const client = new BedrockAgentClient(config);
  * const input = { // GetKnowledgeBaseRequest
  *   knowledgeBaseId: "STRING_VALUE", // required

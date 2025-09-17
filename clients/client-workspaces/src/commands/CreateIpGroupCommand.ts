@@ -42,6 +42,8 @@ export interface CreateIpGroupCommandOutput extends CreateIpGroupResult, __Metad
  * ```javascript
  * import { WorkSpacesClient, CreateIpGroupCommand } from "@aws-sdk/client-workspaces"; // ES Modules import
  * // const { WorkSpacesClient, CreateIpGroupCommand } = require("@aws-sdk/client-workspaces"); // CommonJS import
+ * // import type { WorkSpacesClientConfig } from "@aws-sdk/client-workspaces";
+ * const config = {}; // type is WorkSpacesClientConfig
  * const client = new WorkSpacesClient(config);
  * const input = { // CreateIpGroupRequest
  *   GroupName: "STRING_VALUE", // required

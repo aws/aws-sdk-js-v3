@@ -34,6 +34,8 @@ export interface CreateArchiveCommandOutput extends CreateArchiveResponse, __Met
  * ```javascript
  * import { MailManagerClient, CreateArchiveCommand } from "@aws-sdk/client-mailmanager"; // ES Modules import
  * // const { MailManagerClient, CreateArchiveCommand } = require("@aws-sdk/client-mailmanager"); // CommonJS import
+ * // import type { MailManagerClientConfig } from "@aws-sdk/client-mailmanager";
+ * const config = {}; // type is MailManagerClientConfig
  * const client = new MailManagerClient(config);
  * const input = { // CreateArchiveRequest
  *   ClientToken: "STRING_VALUE",

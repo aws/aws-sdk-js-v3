@@ -34,6 +34,8 @@ export interface GetQueueCommandOutput extends GetQueueResponse, __MetadataBeare
  * ```javascript
  * import { PCSClient, GetQueueCommand } from "@aws-sdk/client-pcs"; // ES Modules import
  * // const { PCSClient, GetQueueCommand } = require("@aws-sdk/client-pcs"); // CommonJS import
+ * // import type { PCSClientConfig } from "@aws-sdk/client-pcs";
+ * const config = {}; // type is PCSClientConfig
  * const client = new PCSClient(config);
  * const input = { // GetQueueRequest
  *   clusterIdentifier: "STRING_VALUE", // required

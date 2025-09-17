@@ -39,6 +39,8 @@ export interface ListLoggerDefinitionVersionsCommandOutput
  * ```javascript
  * import { GreengrassClient, ListLoggerDefinitionVersionsCommand } from "@aws-sdk/client-greengrass"; // ES Modules import
  * // const { GreengrassClient, ListLoggerDefinitionVersionsCommand } = require("@aws-sdk/client-greengrass"); // CommonJS import
+ * // import type { GreengrassClientConfig } from "@aws-sdk/client-greengrass";
+ * const config = {}; // type is GreengrassClientConfig
  * const client = new GreengrassClient(config);
  * const input = { // ListLoggerDefinitionVersionsRequest
  *   LoggerDefinitionId: "STRING_VALUE", // required

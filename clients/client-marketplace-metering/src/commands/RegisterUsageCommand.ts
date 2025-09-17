@@ -82,6 +82,8 @@ export interface RegisterUsageCommandOutput extends RegisterUsageResult, __Metad
  * ```javascript
  * import { MarketplaceMeteringClient, RegisterUsageCommand } from "@aws-sdk/client-marketplace-metering"; // ES Modules import
  * // const { MarketplaceMeteringClient, RegisterUsageCommand } = require("@aws-sdk/client-marketplace-metering"); // CommonJS import
+ * // import type { MarketplaceMeteringClientConfig } from "@aws-sdk/client-marketplace-metering";
+ * const config = {}; // type is MarketplaceMeteringClientConfig
  * const client = new MarketplaceMeteringClient(config);
  * const input = { // RegisterUsageRequest
  *   ProductCode: "STRING_VALUE", // required

@@ -71,6 +71,8 @@ export interface CompleteMultipartUploadCommandOutput extends ArchiveCreationOut
  * ```javascript
  * import { GlacierClient, CompleteMultipartUploadCommand } from "@aws-sdk/client-glacier"; // ES Modules import
  * // const { GlacierClient, CompleteMultipartUploadCommand } = require("@aws-sdk/client-glacier"); // CommonJS import
+ * // import type { GlacierClientConfig } from "@aws-sdk/client-glacier";
+ * const config = {}; // type is GlacierClientConfig
  * const client = new GlacierClient(config);
  * const input = { // CompleteMultipartUploadInput
  *   accountId: "STRING_VALUE", // required

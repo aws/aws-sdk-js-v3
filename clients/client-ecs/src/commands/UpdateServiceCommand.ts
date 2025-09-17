@@ -150,6 +150,8 @@ export interface UpdateServiceCommandOutput extends UpdateServiceResponse, __Met
  * ```javascript
  * import { ECSClient, UpdateServiceCommand } from "@aws-sdk/client-ecs"; // ES Modules import
  * // const { ECSClient, UpdateServiceCommand } = require("@aws-sdk/client-ecs"); // CommonJS import
+ * // import type { ECSClientConfig } from "@aws-sdk/client-ecs";
+ * const config = {}; // type is ECSClientConfig
  * const client = new ECSClient(config);
  * const input = { // UpdateServiceRequest
  *   cluster: "STRING_VALUE",

@@ -38,6 +38,8 @@ export interface DeleteConnectorCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { PcaConnectorAdClient, DeleteConnectorCommand } from "@aws-sdk/client-pca-connector-ad"; // ES Modules import
  * // const { PcaConnectorAdClient, DeleteConnectorCommand } = require("@aws-sdk/client-pca-connector-ad"); // CommonJS import
+ * // import type { PcaConnectorAdClientConfig } from "@aws-sdk/client-pca-connector-ad";
+ * const config = {}; // type is PcaConnectorAdClientConfig
  * const client = new PcaConnectorAdClient(config);
  * const input = { // DeleteConnectorRequest
  *   ConnectorArn: "STRING_VALUE", // required

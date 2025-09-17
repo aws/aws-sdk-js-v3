@@ -40,6 +40,8 @@ export interface DescribeCustomDomainAssociationsCommandOutput
  * ```javascript
  * import { RedshiftClient, DescribeCustomDomainAssociationsCommand } from "@aws-sdk/client-redshift"; // ES Modules import
  * // const { RedshiftClient, DescribeCustomDomainAssociationsCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
+ * // import type { RedshiftClientConfig } from "@aws-sdk/client-redshift";
+ * const config = {}; // type is RedshiftClientConfig
  * const client = new RedshiftClient(config);
  * const input = { // DescribeCustomDomainAssociationsMessage
  *   CustomDomainName: "STRING_VALUE",

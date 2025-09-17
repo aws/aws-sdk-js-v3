@@ -44,6 +44,8 @@ export interface GetLinkedWhatsAppBusinessAccountPhoneNumberCommandOutput
  * ```javascript
  * import { SocialMessagingClient, GetLinkedWhatsAppBusinessAccountPhoneNumberCommand } from "@aws-sdk/client-socialmessaging"; // ES Modules import
  * // const { SocialMessagingClient, GetLinkedWhatsAppBusinessAccountPhoneNumberCommand } = require("@aws-sdk/client-socialmessaging"); // CommonJS import
+ * // import type { SocialMessagingClientConfig } from "@aws-sdk/client-socialmessaging";
+ * const config = {}; // type is SocialMessagingClientConfig
  * const client = new SocialMessagingClient(config);
  * const input = { // GetLinkedWhatsAppBusinessAccountPhoneNumberInput
  *   id: "STRING_VALUE", // required

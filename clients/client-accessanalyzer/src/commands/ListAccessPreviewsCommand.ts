@@ -34,6 +34,8 @@ export interface ListAccessPreviewsCommandOutput extends ListAccessPreviewsRespo
  * ```javascript
  * import { AccessAnalyzerClient, ListAccessPreviewsCommand } from "@aws-sdk/client-accessanalyzer"; // ES Modules import
  * // const { AccessAnalyzerClient, ListAccessPreviewsCommand } = require("@aws-sdk/client-accessanalyzer"); // CommonJS import
+ * // import type { AccessAnalyzerClientConfig } from "@aws-sdk/client-accessanalyzer";
+ * const config = {}; // type is AccessAnalyzerClientConfig
  * const client = new AccessAnalyzerClient(config);
  * const input = { // ListAccessPreviewsRequest
  *   analyzerArn: "STRING_VALUE", // required

@@ -38,6 +38,8 @@ export interface DeletePackageGroupCommandOutput extends DeletePackageGroupResul
  * ```javascript
  * import { CodeartifactClient, DeletePackageGroupCommand } from "@aws-sdk/client-codeartifact"; // ES Modules import
  * // const { CodeartifactClient, DeletePackageGroupCommand } = require("@aws-sdk/client-codeartifact"); // CommonJS import
+ * // import type { CodeartifactClientConfig } from "@aws-sdk/client-codeartifact";
+ * const config = {}; // type is CodeartifactClientConfig
  * const client = new CodeartifactClient(config);
  * const input = { // DeletePackageGroupRequest
  *   domain: "STRING_VALUE", // required

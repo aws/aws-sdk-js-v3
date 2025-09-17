@@ -64,6 +64,8 @@ export interface CreateStreamProcessorCommandOutput extends CreateStreamProcesso
  * ```javascript
  * import { RekognitionClient, CreateStreamProcessorCommand } from "@aws-sdk/client-rekognition"; // ES Modules import
  * // const { RekognitionClient, CreateStreamProcessorCommand } = require("@aws-sdk/client-rekognition"); // CommonJS import
+ * // import type { RekognitionClientConfig } from "@aws-sdk/client-rekognition";
+ * const config = {}; // type is RekognitionClientConfig
  * const client = new RekognitionClient(config);
  * const input = { // CreateStreamProcessorRequest
  *   Input: { // StreamProcessorInput

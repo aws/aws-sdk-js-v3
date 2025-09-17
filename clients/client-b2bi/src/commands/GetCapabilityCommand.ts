@@ -34,6 +34,8 @@ export interface GetCapabilityCommandOutput extends GetCapabilityResponse, __Met
  * ```javascript
  * import { B2biClient, GetCapabilityCommand } from "@aws-sdk/client-b2bi"; // ES Modules import
  * // const { B2biClient, GetCapabilityCommand } = require("@aws-sdk/client-b2bi"); // CommonJS import
+ * // import type { B2biClientConfig } from "@aws-sdk/client-b2bi";
+ * const config = {}; // type is B2biClientConfig
  * const client = new B2biClient(config);
  * const input = { // GetCapabilityRequest
  *   capabilityId: "STRING_VALUE", // required

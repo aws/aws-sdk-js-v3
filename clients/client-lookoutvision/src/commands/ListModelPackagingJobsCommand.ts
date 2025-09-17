@@ -41,6 +41,8 @@ export interface ListModelPackagingJobsCommandOutput extends ListModelPackagingJ
  * ```javascript
  * import { LookoutVisionClient, ListModelPackagingJobsCommand } from "@aws-sdk/client-lookoutvision"; // ES Modules import
  * // const { LookoutVisionClient, ListModelPackagingJobsCommand } = require("@aws-sdk/client-lookoutvision"); // CommonJS import
+ * // import type { LookoutVisionClientConfig } from "@aws-sdk/client-lookoutvision";
+ * const config = {}; // type is LookoutVisionClientConfig
  * const client = new LookoutVisionClient(config);
  * const input = { // ListModelPackagingJobsRequest
  *   ProjectName: "STRING_VALUE", // required

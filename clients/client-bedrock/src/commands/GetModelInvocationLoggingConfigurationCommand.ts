@@ -43,6 +43,8 @@ export interface GetModelInvocationLoggingConfigurationCommandOutput
  * ```javascript
  * import { BedrockClient, GetModelInvocationLoggingConfigurationCommand } from "@aws-sdk/client-bedrock"; // ES Modules import
  * // const { BedrockClient, GetModelInvocationLoggingConfigurationCommand } = require("@aws-sdk/client-bedrock"); // CommonJS import
+ * // import type { BedrockClientConfig } from "@aws-sdk/client-bedrock";
+ * const config = {}; // type is BedrockClientConfig
  * const client = new BedrockClient(config);
  * const input = {};
  * const command = new GetModelInvocationLoggingConfigurationCommand(input);

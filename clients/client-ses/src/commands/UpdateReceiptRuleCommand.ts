@@ -37,6 +37,8 @@ export interface UpdateReceiptRuleCommandOutput extends UpdateReceiptRuleRespons
  * ```javascript
  * import { SESClient, UpdateReceiptRuleCommand } from "@aws-sdk/client-ses"; // ES Modules import
  * // const { SESClient, UpdateReceiptRuleCommand } = require("@aws-sdk/client-ses"); // CommonJS import
+ * // import type { SESClientConfig } from "@aws-sdk/client-ses";
+ * const config = {}; // type is SESClientConfig
  * const client = new SESClient(config);
  * const input = { // UpdateReceiptRuleRequest
  *   RuleSetName: "STRING_VALUE", // required

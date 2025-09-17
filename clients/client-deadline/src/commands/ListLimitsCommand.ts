@@ -34,6 +34,8 @@ export interface ListLimitsCommandOutput extends ListLimitsResponse, __MetadataB
  * ```javascript
  * import { DeadlineClient, ListLimitsCommand } from "@aws-sdk/client-deadline"; // ES Modules import
  * // const { DeadlineClient, ListLimitsCommand } = require("@aws-sdk/client-deadline"); // CommonJS import
+ * // import type { DeadlineClientConfig } from "@aws-sdk/client-deadline";
+ * const config = {}; // type is DeadlineClientConfig
  * const client = new DeadlineClient(config);
  * const input = { // ListLimitsRequest
  *   farmId: "STRING_VALUE", // required

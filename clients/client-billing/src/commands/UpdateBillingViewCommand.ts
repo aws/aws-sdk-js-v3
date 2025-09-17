@@ -38,6 +38,8 @@ export interface UpdateBillingViewCommandOutput extends UpdateBillingViewRespons
  * ```javascript
  * import { BillingClient, UpdateBillingViewCommand } from "@aws-sdk/client-billing"; // ES Modules import
  * // const { BillingClient, UpdateBillingViewCommand } = require("@aws-sdk/client-billing"); // CommonJS import
+ * // import type { BillingClientConfig } from "@aws-sdk/client-billing";
+ * const config = {}; // type is BillingClientConfig
  * const client = new BillingClient(config);
  * const input = { // UpdateBillingViewRequest
  *   arn: "STRING_VALUE", // required

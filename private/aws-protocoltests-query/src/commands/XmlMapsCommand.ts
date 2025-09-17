@@ -34,6 +34,8 @@ export interface XmlMapsCommandOutput extends XmlMapsOutput, __MetadataBearer {}
  * ```javascript
  * import { QueryProtocolClient, XmlMapsCommand } from "@aws-sdk/aws-protocoltests-query"; // ES Modules import
  * // const { QueryProtocolClient, XmlMapsCommand } = require("@aws-sdk/aws-protocoltests-query"); // CommonJS import
+ * // import type { QueryProtocolClientConfig } from "@aws-sdk/aws-protocoltests-query";
+ * const config = {}; // type is QueryProtocolClientConfig
  * const client = new QueryProtocolClient(config);
  * const input = {};
  * const command = new XmlMapsCommand(input);

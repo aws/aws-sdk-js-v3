@@ -34,6 +34,8 @@ export interface DeleteOriginEndpointCommandOutput extends DeleteOriginEndpointR
  * ```javascript
  * import { MediaPackageClient, DeleteOriginEndpointCommand } from "@aws-sdk/client-mediapackage"; // ES Modules import
  * // const { MediaPackageClient, DeleteOriginEndpointCommand } = require("@aws-sdk/client-mediapackage"); // CommonJS import
+ * // import type { MediaPackageClientConfig } from "@aws-sdk/client-mediapackage";
+ * const config = {}; // type is MediaPackageClientConfig
  * const client = new MediaPackageClient(config);
  * const input = { // DeleteOriginEndpointRequest
  *   Id: "STRING_VALUE", // required

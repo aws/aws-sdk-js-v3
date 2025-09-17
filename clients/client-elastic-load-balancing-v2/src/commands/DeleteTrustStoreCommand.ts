@@ -38,6 +38,8 @@ export interface DeleteTrustStoreCommandOutput extends DeleteTrustStoreOutput, _
  * ```javascript
  * import { ElasticLoadBalancingV2Client, DeleteTrustStoreCommand } from "@aws-sdk/client-elastic-load-balancing-v2"; // ES Modules import
  * // const { ElasticLoadBalancingV2Client, DeleteTrustStoreCommand } = require("@aws-sdk/client-elastic-load-balancing-v2"); // CommonJS import
+ * // import type { ElasticLoadBalancingV2ClientConfig } from "@aws-sdk/client-elastic-load-balancing-v2";
+ * const config = {}; // type is ElasticLoadBalancingV2ClientConfig
  * const client = new ElasticLoadBalancingV2Client(config);
  * const input = { // DeleteTrustStoreInput
  *   TrustStoreArn: "STRING_VALUE", // required

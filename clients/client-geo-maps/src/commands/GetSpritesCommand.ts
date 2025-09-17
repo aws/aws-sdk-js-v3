@@ -42,6 +42,8 @@ export interface GetSpritesCommandOutput extends GetSpritesCommandOutputType, __
  * ```javascript
  * import { GeoMapsClient, GetSpritesCommand } from "@aws-sdk/client-geo-maps"; // ES Modules import
  * // const { GeoMapsClient, GetSpritesCommand } = require("@aws-sdk/client-geo-maps"); // CommonJS import
+ * // import type { GeoMapsClientConfig } from "@aws-sdk/client-geo-maps";
+ * const config = {}; // type is GeoMapsClientConfig
  * const client = new GeoMapsClient(config);
  * const input = { // GetSpritesRequest
  *   FileName: "STRING_VALUE", // required

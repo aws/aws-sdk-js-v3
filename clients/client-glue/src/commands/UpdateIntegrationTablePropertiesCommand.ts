@@ -40,6 +40,8 @@ export interface UpdateIntegrationTablePropertiesCommandOutput
  * ```javascript
  * import { GlueClient, UpdateIntegrationTablePropertiesCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, UpdateIntegrationTablePropertiesCommand } = require("@aws-sdk/client-glue"); // CommonJS import
+ * // import type { GlueClientConfig } from "@aws-sdk/client-glue";
+ * const config = {}; // type is GlueClientConfig
  * const client = new GlueClient(config);
  * const input = { // UpdateIntegrationTablePropertiesRequest
  *   ResourceArn: "STRING_VALUE", // required

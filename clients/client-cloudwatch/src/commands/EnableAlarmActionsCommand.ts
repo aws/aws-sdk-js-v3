@@ -34,6 +34,8 @@ export interface EnableAlarmActionsCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { CloudWatchClient, EnableAlarmActionsCommand } from "@aws-sdk/client-cloudwatch"; // ES Modules import
  * // const { CloudWatchClient, EnableAlarmActionsCommand } = require("@aws-sdk/client-cloudwatch"); // CommonJS import
+ * // import type { CloudWatchClientConfig } from "@aws-sdk/client-cloudwatch";
+ * const config = {}; // type is CloudWatchClientConfig
  * const client = new CloudWatchClient(config);
  * const input = { // EnableAlarmActionsInput
  *   AlarmNames: [ // AlarmNames // required

@@ -38,6 +38,8 @@ export interface DeleteServiceCommandOutput extends DeleteServiceResponse, __Met
  * ```javascript
  * import { VPCLatticeClient, DeleteServiceCommand } from "@aws-sdk/client-vpc-lattice"; // ES Modules import
  * // const { VPCLatticeClient, DeleteServiceCommand } = require("@aws-sdk/client-vpc-lattice"); // CommonJS import
+ * // import type { VPCLatticeClientConfig } from "@aws-sdk/client-vpc-lattice";
+ * const config = {}; // type is VPCLatticeClientConfig
  * const client = new VPCLatticeClient(config);
  * const input = { // DeleteServiceRequest
  *   serviceIdentifier: "STRING_VALUE", // required

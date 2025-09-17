@@ -54,6 +54,8 @@ export interface AssociateEnclaveCertificateIamRoleCommandOutput
  * ```javascript
  * import { EC2Client, AssociateEnclaveCertificateIamRoleCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, AssociateEnclaveCertificateIamRoleCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
+ * // import type { EC2ClientConfig } from "@aws-sdk/client-ec2";
+ * const config = {}; // type is EC2ClientConfig
  * const client = new EC2Client(config);
  * const input = { // AssociateEnclaveCertificateIamRoleRequest
  *   CertificateArn: "STRING_VALUE", // required

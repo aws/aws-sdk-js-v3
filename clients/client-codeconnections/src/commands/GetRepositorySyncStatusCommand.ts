@@ -35,6 +35,8 @@ export interface GetRepositorySyncStatusCommandOutput extends GetRepositorySyncS
  * ```javascript
  * import { CodeConnectionsClient, GetRepositorySyncStatusCommand } from "@aws-sdk/client-codeconnections"; // ES Modules import
  * // const { CodeConnectionsClient, GetRepositorySyncStatusCommand } = require("@aws-sdk/client-codeconnections"); // CommonJS import
+ * // import type { CodeConnectionsClientConfig } from "@aws-sdk/client-codeconnections";
+ * const config = {}; // type is CodeConnectionsClientConfig
  * const client = new CodeConnectionsClient(config);
  * const input = { // GetRepositorySyncStatusInput
  *   Branch: "STRING_VALUE", // required

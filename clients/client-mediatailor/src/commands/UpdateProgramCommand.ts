@@ -34,6 +34,8 @@ export interface UpdateProgramCommandOutput extends UpdateProgramResponse, __Met
  * ```javascript
  * import { MediaTailorClient, UpdateProgramCommand } from "@aws-sdk/client-mediatailor"; // ES Modules import
  * // const { MediaTailorClient, UpdateProgramCommand } = require("@aws-sdk/client-mediatailor"); // CommonJS import
+ * // import type { MediaTailorClientConfig } from "@aws-sdk/client-mediatailor";
+ * const config = {}; // type is MediaTailorClientConfig
  * const client = new MediaTailorClient(config);
  * const input = { // UpdateProgramRequest
  *   AdBreaks: [ // __listOfAdBreak

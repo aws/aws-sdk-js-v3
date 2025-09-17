@@ -34,6 +34,8 @@ export interface DeleteQueueCommandOutput extends DeleteQueueResponse, __Metadat
  * ```javascript
  * import { PCSClient, DeleteQueueCommand } from "@aws-sdk/client-pcs"; // ES Modules import
  * // const { PCSClient, DeleteQueueCommand } = require("@aws-sdk/client-pcs"); // CommonJS import
+ * // import type { PCSClientConfig } from "@aws-sdk/client-pcs";
+ * const config = {}; // type is PCSClientConfig
  * const client = new PCSClient(config);
  * const input = { // DeleteQueueRequest
  *   clusterIdentifier: "STRING_VALUE", // required

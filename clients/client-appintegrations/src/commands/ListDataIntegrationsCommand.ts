@@ -39,6 +39,8 @@ export interface ListDataIntegrationsCommandOutput extends ListDataIntegrationsR
  * ```javascript
  * import { AppIntegrationsClient, ListDataIntegrationsCommand } from "@aws-sdk/client-appintegrations"; // ES Modules import
  * // const { AppIntegrationsClient, ListDataIntegrationsCommand } = require("@aws-sdk/client-appintegrations"); // CommonJS import
+ * // import type { AppIntegrationsClientConfig } from "@aws-sdk/client-appintegrations";
+ * const config = {}; // type is AppIntegrationsClientConfig
  * const client = new AppIntegrationsClient(config);
  * const input = { // ListDataIntegrationsRequest
  *   NextToken: "STRING_VALUE",

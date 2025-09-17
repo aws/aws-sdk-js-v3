@@ -39,6 +39,8 @@ export interface GetHostedZoneCommandOutput extends GetHostedZoneResponse, __Met
  * ```javascript
  * import { Route53Client, GetHostedZoneCommand } from "@aws-sdk/client-route-53"; // ES Modules import
  * // const { Route53Client, GetHostedZoneCommand } = require("@aws-sdk/client-route-53"); // CommonJS import
+ * // import type { Route53ClientConfig } from "@aws-sdk/client-route-53";
+ * const config = {}; // type is Route53ClientConfig
  * const client = new Route53Client(config);
  * const input = { // GetHostedZoneRequest
  *   Id: "STRING_VALUE", // required

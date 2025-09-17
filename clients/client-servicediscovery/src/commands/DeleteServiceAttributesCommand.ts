@@ -34,6 +34,8 @@ export interface DeleteServiceAttributesCommandOutput extends DeleteServiceAttri
  * ```javascript
  * import { ServiceDiscoveryClient, DeleteServiceAttributesCommand } from "@aws-sdk/client-servicediscovery"; // ES Modules import
  * // const { ServiceDiscoveryClient, DeleteServiceAttributesCommand } = require("@aws-sdk/client-servicediscovery"); // CommonJS import
+ * // import type { ServiceDiscoveryClientConfig } from "@aws-sdk/client-servicediscovery";
+ * const config = {}; // type is ServiceDiscoveryClientConfig
  * const client = new ServiceDiscoveryClient(config);
  * const input = { // DeleteServiceAttributesRequest
  *   ServiceId: "STRING_VALUE", // required

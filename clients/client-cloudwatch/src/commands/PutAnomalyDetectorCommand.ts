@@ -40,6 +40,8 @@ export interface PutAnomalyDetectorCommandOutput extends PutAnomalyDetectorOutpu
  * ```javascript
  * import { CloudWatchClient, PutAnomalyDetectorCommand } from "@aws-sdk/client-cloudwatch"; // ES Modules import
  * // const { CloudWatchClient, PutAnomalyDetectorCommand } = require("@aws-sdk/client-cloudwatch"); // CommonJS import
+ * // import type { CloudWatchClientConfig } from "@aws-sdk/client-cloudwatch";
+ * const config = {}; // type is CloudWatchClientConfig
  * const client = new CloudWatchClient(config);
  * const input = { // PutAnomalyDetectorInput
  *   Namespace: "STRING_VALUE",

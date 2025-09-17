@@ -34,6 +34,8 @@ export interface CreateAccountLinkInvitationCommandOutput extends CreateAccountL
  * ```javascript
  * import { WorkSpacesClient, CreateAccountLinkInvitationCommand } from "@aws-sdk/client-workspaces"; // ES Modules import
  * // const { WorkSpacesClient, CreateAccountLinkInvitationCommand } = require("@aws-sdk/client-workspaces"); // CommonJS import
+ * // import type { WorkSpacesClientConfig } from "@aws-sdk/client-workspaces";
+ * const config = {}; // type is WorkSpacesClientConfig
  * const client = new WorkSpacesClient(config);
  * const input = { // CreateAccountLinkInvitationRequest
  *   TargetAccountId: "STRING_VALUE", // required

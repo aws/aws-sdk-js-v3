@@ -46,6 +46,8 @@ export interface CreateExplainabilityExportCommandOutput extends CreateExplainab
  * ```javascript
  * import { ForecastClient, CreateExplainabilityExportCommand } from "@aws-sdk/client-forecast"; // ES Modules import
  * // const { ForecastClient, CreateExplainabilityExportCommand } = require("@aws-sdk/client-forecast"); // CommonJS import
+ * // import type { ForecastClientConfig } from "@aws-sdk/client-forecast";
+ * const config = {}; // type is ForecastClientConfig
  * const client = new ForecastClient(config);
  * const input = { // CreateExplainabilityExportRequest
  *   ExplainabilityExportName: "STRING_VALUE", // required

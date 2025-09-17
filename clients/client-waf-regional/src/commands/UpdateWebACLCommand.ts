@@ -113,6 +113,8 @@ export interface UpdateWebACLCommandOutput extends UpdateWebACLResponse, __Metad
  * ```javascript
  * import { WAFRegionalClient, UpdateWebACLCommand } from "@aws-sdk/client-waf-regional"; // ES Modules import
  * // const { WAFRegionalClient, UpdateWebACLCommand } = require("@aws-sdk/client-waf-regional"); // CommonJS import
+ * // import type { WAFRegionalClientConfig } from "@aws-sdk/client-waf-regional";
+ * const config = {}; // type is WAFRegionalClientConfig
  * const client = new WAFRegionalClient(config);
  * const input = { // UpdateWebACLRequest
  *   WebACLId: "STRING_VALUE", // required

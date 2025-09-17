@@ -34,6 +34,8 @@ export interface CreateOdbNetworkCommandOutput extends CreateOdbNetworkOutput, _
  * ```javascript
  * import { OdbClient, CreateOdbNetworkCommand } from "@aws-sdk/client-odb"; // ES Modules import
  * // const { OdbClient, CreateOdbNetworkCommand } = require("@aws-sdk/client-odb"); // CommonJS import
+ * // import type { OdbClientConfig } from "@aws-sdk/client-odb";
+ * const config = {}; // type is OdbClientConfig
  * const client = new OdbClient(config);
  * const input = { // CreateOdbNetworkInput
  *   displayName: "STRING_VALUE", // required

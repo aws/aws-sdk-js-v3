@@ -34,6 +34,8 @@ export interface GetLifecycleExecutionCommandOutput extends GetLifecycleExecutio
  * ```javascript
  * import { ImagebuilderClient, GetLifecycleExecutionCommand } from "@aws-sdk/client-imagebuilder"; // ES Modules import
  * // const { ImagebuilderClient, GetLifecycleExecutionCommand } = require("@aws-sdk/client-imagebuilder"); // CommonJS import
+ * // import type { ImagebuilderClientConfig } from "@aws-sdk/client-imagebuilder";
+ * const config = {}; // type is ImagebuilderClientConfig
  * const client = new ImagebuilderClient(config);
  * const input = { // GetLifecycleExecutionRequest
  *   lifecycleExecutionId: "STRING_VALUE", // required

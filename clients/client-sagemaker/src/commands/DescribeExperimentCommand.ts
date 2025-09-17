@@ -34,6 +34,8 @@ export interface DescribeExperimentCommandOutput extends DescribeExperimentRespo
  * ```javascript
  * import { SageMakerClient, DescribeExperimentCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, DescribeExperimentCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * // import type { SageMakerClientConfig } from "@aws-sdk/client-sagemaker";
+ * const config = {}; // type is SageMakerClientConfig
  * const client = new SageMakerClient(config);
  * const input = { // DescribeExperimentRequest
  *   ExperimentName: "STRING_VALUE", // required

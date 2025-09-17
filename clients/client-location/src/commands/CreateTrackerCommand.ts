@@ -39,6 +39,8 @@ export interface CreateTrackerCommandOutput extends CreateTrackerResponse, __Met
  * ```javascript
  * import { LocationClient, CreateTrackerCommand } from "@aws-sdk/client-location"; // ES Modules import
  * // const { LocationClient, CreateTrackerCommand } = require("@aws-sdk/client-location"); // CommonJS import
+ * // import type { LocationClientConfig } from "@aws-sdk/client-location";
+ * const config = {}; // type is LocationClientConfig
  * const client = new LocationClient(config);
  * const input = { // CreateTrackerRequest
  *   TrackerName: "STRING_VALUE", // required

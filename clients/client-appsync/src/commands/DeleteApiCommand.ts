@@ -34,6 +34,8 @@ export interface DeleteApiCommandOutput extends DeleteApiResponse, __MetadataBea
  * ```javascript
  * import { AppSyncClient, DeleteApiCommand } from "@aws-sdk/client-appsync"; // ES Modules import
  * // const { AppSyncClient, DeleteApiCommand } = require("@aws-sdk/client-appsync"); // CommonJS import
+ * // import type { AppSyncClientConfig } from "@aws-sdk/client-appsync";
+ * const config = {}; // type is AppSyncClientConfig
  * const client = new AppSyncClient(config);
  * const input = { // DeleteApiRequest
  *   apiId: "STRING_VALUE", // required

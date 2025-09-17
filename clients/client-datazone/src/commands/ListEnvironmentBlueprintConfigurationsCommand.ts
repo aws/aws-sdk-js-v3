@@ -43,6 +43,8 @@ export interface ListEnvironmentBlueprintConfigurationsCommandOutput
  * ```javascript
  * import { DataZoneClient, ListEnvironmentBlueprintConfigurationsCommand } from "@aws-sdk/client-datazone"; // ES Modules import
  * // const { DataZoneClient, ListEnvironmentBlueprintConfigurationsCommand } = require("@aws-sdk/client-datazone"); // CommonJS import
+ * // import type { DataZoneClientConfig } from "@aws-sdk/client-datazone";
+ * const config = {}; // type is DataZoneClientConfig
  * const client = new DataZoneClient(config);
  * const input = { // ListEnvironmentBlueprintConfigurationsInput
  *   domainIdentifier: "STRING_VALUE", // required

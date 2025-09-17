@@ -43,6 +43,8 @@ export interface CreateModelCustomizationJobCommandOutput
  * ```javascript
  * import { BedrockClient, CreateModelCustomizationJobCommand } from "@aws-sdk/client-bedrock"; // ES Modules import
  * // const { BedrockClient, CreateModelCustomizationJobCommand } = require("@aws-sdk/client-bedrock"); // CommonJS import
+ * // import type { BedrockClientConfig } from "@aws-sdk/client-bedrock";
+ * const config = {}; // type is BedrockClientConfig
  * const client = new BedrockClient(config);
  * const input = { // CreateModelCustomizationJobRequest
  *   jobName: "STRING_VALUE", // required

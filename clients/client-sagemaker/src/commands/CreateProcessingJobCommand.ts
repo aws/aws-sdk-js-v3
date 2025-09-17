@@ -34,6 +34,8 @@ export interface CreateProcessingJobCommandOutput extends CreateProcessingJobRes
  * ```javascript
  * import { SageMakerClient, CreateProcessingJobCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, CreateProcessingJobCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * // import type { SageMakerClientConfig } from "@aws-sdk/client-sagemaker";
+ * const config = {}; // type is SageMakerClientConfig
  * const client = new SageMakerClient(config);
  * const input = { // CreateProcessingJobRequest
  *   ProcessingInputs: [ // ProcessingInputs

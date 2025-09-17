@@ -39,6 +39,8 @@ export interface ListDomainLayoutsCommandOutput extends ListDomainLayoutsRespons
  * ```javascript
  * import { CustomerProfilesClient, ListDomainLayoutsCommand } from "@aws-sdk/client-customer-profiles"; // ES Modules import
  * // const { CustomerProfilesClient, ListDomainLayoutsCommand } = require("@aws-sdk/client-customer-profiles"); // CommonJS import
+ * // import type { CustomerProfilesClientConfig } from "@aws-sdk/client-customer-profiles";
+ * const config = {}; // type is CustomerProfilesClientConfig
  * const client = new CustomerProfilesClient(config);
  * const input = { // ListDomainLayoutsRequest
  *   DomainName: "STRING_VALUE", // required

@@ -35,6 +35,8 @@ export interface ListRecipesCommandOutput extends ListRecipesResponse, __Metadat
  * ```javascript
  * import { PersonalizeClient, ListRecipesCommand } from "@aws-sdk/client-personalize"; // ES Modules import
  * // const { PersonalizeClient, ListRecipesCommand } = require("@aws-sdk/client-personalize"); // CommonJS import
+ * // import type { PersonalizeClientConfig } from "@aws-sdk/client-personalize";
+ * const config = {}; // type is PersonalizeClientConfig
  * const client = new PersonalizeClient(config);
  * const input = { // ListRecipesRequest
  *   recipeProvider: "SERVICE",

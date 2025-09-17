@@ -38,6 +38,8 @@ export interface ListIdentityProvidersCommandOutput extends ListIdentityProvider
  * ```javascript
  * import { LicenseManagerUserSubscriptionsClient, ListIdentityProvidersCommand } from "@aws-sdk/client-license-manager-user-subscriptions"; // ES Modules import
  * // const { LicenseManagerUserSubscriptionsClient, ListIdentityProvidersCommand } = require("@aws-sdk/client-license-manager-user-subscriptions"); // CommonJS import
+ * // import type { LicenseManagerUserSubscriptionsClientConfig } from "@aws-sdk/client-license-manager-user-subscriptions";
+ * const config = {}; // type is LicenseManagerUserSubscriptionsClientConfig
  * const client = new LicenseManagerUserSubscriptionsClient(config);
  * const input = { // ListIdentityProvidersRequest
  *   MaxResults: Number("int"),

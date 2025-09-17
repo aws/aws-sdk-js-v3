@@ -42,6 +42,8 @@ export interface CreateEngagementInvitationCommandOutput extends CreateEngagemen
  * ```javascript
  * import { PartnerCentralSellingClient, CreateEngagementInvitationCommand } from "@aws-sdk/client-partnercentral-selling"; // ES Modules import
  * // const { PartnerCentralSellingClient, CreateEngagementInvitationCommand } = require("@aws-sdk/client-partnercentral-selling"); // CommonJS import
+ * // import type { PartnerCentralSellingClientConfig } from "@aws-sdk/client-partnercentral-selling";
+ * const config = {}; // type is PartnerCentralSellingClientConfig
  * const client = new PartnerCentralSellingClient(config);
  * const input = { // CreateEngagementInvitationRequest
  *   Catalog: "STRING_VALUE", // required

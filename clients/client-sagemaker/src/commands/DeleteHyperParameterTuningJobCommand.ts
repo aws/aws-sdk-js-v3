@@ -37,6 +37,8 @@ export interface DeleteHyperParameterTuningJobCommandOutput extends __MetadataBe
  * ```javascript
  * import { SageMakerClient, DeleteHyperParameterTuningJobCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, DeleteHyperParameterTuningJobCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * // import type { SageMakerClientConfig } from "@aws-sdk/client-sagemaker";
+ * const config = {}; // type is SageMakerClientConfig
  * const client = new SageMakerClient(config);
  * const input = { // DeleteHyperParameterTuningJobRequest
  *   HyperParameterTuningJobName: "STRING_VALUE", // required

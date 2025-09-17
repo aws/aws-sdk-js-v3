@@ -34,6 +34,8 @@ export interface ListLicenseEndpointsCommandOutput extends ListLicenseEndpointsR
  * ```javascript
  * import { DeadlineClient, ListLicenseEndpointsCommand } from "@aws-sdk/client-deadline"; // ES Modules import
  * // const { DeadlineClient, ListLicenseEndpointsCommand } = require("@aws-sdk/client-deadline"); // CommonJS import
+ * // import type { DeadlineClientConfig } from "@aws-sdk/client-deadline";
+ * const config = {}; // type is DeadlineClientConfig
  * const client = new DeadlineClient(config);
  * const input = { // ListLicenseEndpointsRequest
  *   nextToken: "STRING_VALUE",

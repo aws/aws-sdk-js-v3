@@ -36,6 +36,8 @@ export interface GetEndpointAttributesCommandOutput extends GetEndpointAttribute
  * ```javascript
  * import { SNSClient, GetEndpointAttributesCommand } from "@aws-sdk/client-sns"; // ES Modules import
  * // const { SNSClient, GetEndpointAttributesCommand } = require("@aws-sdk/client-sns"); // CommonJS import
+ * // import type { SNSClientConfig } from "@aws-sdk/client-sns";
+ * const config = {}; // type is SNSClientConfig
  * const client = new SNSClient(config);
  * const input = { // GetEndpointAttributesInput
  *   EndpointArn: "STRING_VALUE", // required

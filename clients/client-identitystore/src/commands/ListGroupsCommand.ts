@@ -45,6 +45,8 @@ export interface ListGroupsCommandOutput extends ListGroupsResponse, __MetadataB
  * ```javascript
  * import { IdentitystoreClient, ListGroupsCommand } from "@aws-sdk/client-identitystore"; // ES Modules import
  * // const { IdentitystoreClient, ListGroupsCommand } = require("@aws-sdk/client-identitystore"); // CommonJS import
+ * // import type { IdentitystoreClientConfig } from "@aws-sdk/client-identitystore";
+ * const config = {}; // type is IdentitystoreClientConfig
  * const client = new IdentitystoreClient(config);
  * const input = { // ListGroupsRequest
  *   IdentityStoreId: "STRING_VALUE", // required

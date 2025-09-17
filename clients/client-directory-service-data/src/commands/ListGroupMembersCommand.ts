@@ -49,6 +49,8 @@ export interface ListGroupMembersCommandOutput extends ListGroupMembersResult, _
  * ```javascript
  * import { DirectoryServiceDataClient, ListGroupMembersCommand } from "@aws-sdk/client-directory-service-data"; // ES Modules import
  * // const { DirectoryServiceDataClient, ListGroupMembersCommand } = require("@aws-sdk/client-directory-service-data"); // CommonJS import
+ * // import type { DirectoryServiceDataClientConfig } from "@aws-sdk/client-directory-service-data";
+ * const config = {}; // type is DirectoryServiceDataClientConfig
  * const client = new DirectoryServiceDataClient(config);
  * const input = { // ListGroupMembersRequest
  *   DirectoryId: "STRING_VALUE", // required

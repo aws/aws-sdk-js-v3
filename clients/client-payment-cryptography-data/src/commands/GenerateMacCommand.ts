@@ -43,6 +43,8 @@ export interface GenerateMacCommandOutput extends GenerateMacOutput, __MetadataB
  * ```javascript
  * import { PaymentCryptographyDataClient, GenerateMacCommand } from "@aws-sdk/client-payment-cryptography-data"; // ES Modules import
  * // const { PaymentCryptographyDataClient, GenerateMacCommand } = require("@aws-sdk/client-payment-cryptography-data"); // CommonJS import
+ * // import type { PaymentCryptographyDataClientConfig } from "@aws-sdk/client-payment-cryptography-data";
+ * const config = {}; // type is PaymentCryptographyDataClientConfig
  * const client = new PaymentCryptographyDataClient(config);
  * const input = { // GenerateMacInput
  *   KeyIdentifier: "STRING_VALUE", // required

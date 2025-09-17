@@ -34,6 +34,8 @@ export interface DeleteArchiveRuleCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { AccessAnalyzerClient, DeleteArchiveRuleCommand } from "@aws-sdk/client-accessanalyzer"; // ES Modules import
  * // const { AccessAnalyzerClient, DeleteArchiveRuleCommand } = require("@aws-sdk/client-accessanalyzer"); // CommonJS import
+ * // import type { AccessAnalyzerClientConfig } from "@aws-sdk/client-accessanalyzer";
+ * const config = {}; // type is AccessAnalyzerClientConfig
  * const client = new AccessAnalyzerClient(config);
  * const input = { // DeleteArchiveRuleRequest
  *   analyzerName: "STRING_VALUE", // required

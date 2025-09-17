@@ -39,6 +39,8 @@ export interface UpdateAssetFilterCommandOutput extends UpdateAssetFilterOutput,
  * ```javascript
  * import { DataZoneClient, UpdateAssetFilterCommand } from "@aws-sdk/client-datazone"; // ES Modules import
  * // const { DataZoneClient, UpdateAssetFilterCommand } = require("@aws-sdk/client-datazone"); // CommonJS import
+ * // import type { DataZoneClientConfig } from "@aws-sdk/client-datazone";
+ * const config = {}; // type is DataZoneClientConfig
  * const client = new DataZoneClient(config);
  * const input = { // UpdateAssetFilterInput
  *   domainIdentifier: "STRING_VALUE", // required

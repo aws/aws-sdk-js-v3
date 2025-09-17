@@ -34,6 +34,8 @@ export interface ListSandboxesCommandOutput extends ListSandboxesOutput, __Metad
  * ```javascript
  * import { CodeBuildClient, ListSandboxesCommand } from "@aws-sdk/client-codebuild"; // ES Modules import
  * // const { CodeBuildClient, ListSandboxesCommand } = require("@aws-sdk/client-codebuild"); // CommonJS import
+ * // import type { CodeBuildClientConfig } from "@aws-sdk/client-codebuild";
+ * const config = {}; // type is CodeBuildClientConfig
  * const client = new CodeBuildClient(config);
  * const input = { // ListSandboxesInput
  *   maxResults: Number("int"),

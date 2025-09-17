@@ -34,6 +34,8 @@ export interface CancelLifecycleExecutionCommandOutput extends CancelLifecycleEx
  * ```javascript
  * import { ImagebuilderClient, CancelLifecycleExecutionCommand } from "@aws-sdk/client-imagebuilder"; // ES Modules import
  * // const { ImagebuilderClient, CancelLifecycleExecutionCommand } = require("@aws-sdk/client-imagebuilder"); // CommonJS import
+ * // import type { ImagebuilderClientConfig } from "@aws-sdk/client-imagebuilder";
+ * const config = {}; // type is ImagebuilderClientConfig
  * const client = new ImagebuilderClient(config);
  * const input = { // CancelLifecycleExecutionRequest
  *   lifecycleExecutionId: "STRING_VALUE", // required

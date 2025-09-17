@@ -34,6 +34,8 @@ export interface ListQueuesCommandOutput extends ListQueuesResponse, __MetadataB
  * ```javascript
  * import { DeadlineClient, ListQueuesCommand } from "@aws-sdk/client-deadline"; // ES Modules import
  * // const { DeadlineClient, ListQueuesCommand } = require("@aws-sdk/client-deadline"); // CommonJS import
+ * // import type { DeadlineClientConfig } from "@aws-sdk/client-deadline";
+ * const config = {}; // type is DeadlineClientConfig
  * const client = new DeadlineClient(config);
  * const input = { // ListQueuesRequest
  *   farmId: "STRING_VALUE", // required

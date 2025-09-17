@@ -40,6 +40,8 @@ export interface UpdateDistributionConfigurationCommandOutput
  * ```javascript
  * import { ImagebuilderClient, UpdateDistributionConfigurationCommand } from "@aws-sdk/client-imagebuilder"; // ES Modules import
  * // const { ImagebuilderClient, UpdateDistributionConfigurationCommand } = require("@aws-sdk/client-imagebuilder"); // CommonJS import
+ * // import type { ImagebuilderClientConfig } from "@aws-sdk/client-imagebuilder";
+ * const config = {}; // type is ImagebuilderClientConfig
  * const client = new ImagebuilderClient(config);
  * const input = { // UpdateDistributionConfigurationRequest
  *   distributionConfigurationArn: "STRING_VALUE", // required

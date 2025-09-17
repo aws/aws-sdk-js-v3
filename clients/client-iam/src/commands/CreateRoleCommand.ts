@@ -38,6 +38,8 @@ export interface CreateRoleCommandOutput extends CreateRoleResponse, __MetadataB
  * ```javascript
  * import { IAMClient, CreateRoleCommand } from "@aws-sdk/client-iam"; // ES Modules import
  * // const { IAMClient, CreateRoleCommand } = require("@aws-sdk/client-iam"); // CommonJS import
+ * // import type { IAMClientConfig } from "@aws-sdk/client-iam";
+ * const config = {}; // type is IAMClientConfig
  * const client = new IAMClient(config);
  * const input = { // CreateRoleRequest
  *   Path: "STRING_VALUE",

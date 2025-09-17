@@ -34,6 +34,8 @@ export interface UpdateConnectivityInfoCommandOutput extends UpdateConnectivityI
  * ```javascript
  * import { GreengrassClient, UpdateConnectivityInfoCommand } from "@aws-sdk/client-greengrass"; // ES Modules import
  * // const { GreengrassClient, UpdateConnectivityInfoCommand } = require("@aws-sdk/client-greengrass"); // CommonJS import
+ * // import type { GreengrassClientConfig } from "@aws-sdk/client-greengrass";
+ * const config = {}; // type is GreengrassClientConfig
  * const client = new GreengrassClient(config);
  * const input = { // UpdateConnectivityInfoRequest
  *   ConnectivityInfo: [ // __listOfConnectivityInfo

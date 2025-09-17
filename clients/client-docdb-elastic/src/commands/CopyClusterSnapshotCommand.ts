@@ -34,6 +34,8 @@ export interface CopyClusterSnapshotCommandOutput extends CopyClusterSnapshotOut
  * ```javascript
  * import { DocDBElasticClient, CopyClusterSnapshotCommand } from "@aws-sdk/client-docdb-elastic"; // ES Modules import
  * // const { DocDBElasticClient, CopyClusterSnapshotCommand } = require("@aws-sdk/client-docdb-elastic"); // CommonJS import
+ * // import type { DocDBElasticClientConfig } from "@aws-sdk/client-docdb-elastic";
+ * const config = {}; // type is DocDBElasticClientConfig
  * const client = new DocDBElasticClient(config);
  * const input = { // CopyClusterSnapshotInput
  *   snapshotArn: "STRING_VALUE", // required

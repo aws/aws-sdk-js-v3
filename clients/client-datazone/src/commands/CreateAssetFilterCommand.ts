@@ -39,6 +39,8 @@ export interface CreateAssetFilterCommandOutput extends CreateAssetFilterOutput,
  * ```javascript
  * import { DataZoneClient, CreateAssetFilterCommand } from "@aws-sdk/client-datazone"; // ES Modules import
  * // const { DataZoneClient, CreateAssetFilterCommand } = require("@aws-sdk/client-datazone"); // CommonJS import
+ * // import type { DataZoneClientConfig } from "@aws-sdk/client-datazone";
+ * const config = {}; // type is DataZoneClientConfig
  * const client = new DataZoneClient(config);
  * const input = { // CreateAssetFilterInput
  *   domainIdentifier: "STRING_VALUE", // required

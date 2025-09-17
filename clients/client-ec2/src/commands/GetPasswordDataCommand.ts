@@ -50,6 +50,8 @@ export interface GetPasswordDataCommandOutput extends GetPasswordDataResult, __M
  * ```javascript
  * import { EC2Client, GetPasswordDataCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, GetPasswordDataCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
+ * // import type { EC2ClientConfig } from "@aws-sdk/client-ec2";
+ * const config = {}; // type is EC2ClientConfig
  * const client = new EC2Client(config);
  * const input = { // GetPasswordDataRequest
  *   InstanceId: "STRING_VALUE", // required

@@ -39,6 +39,8 @@ export interface CreateWhatIfForecastCommandOutput extends CreateWhatIfForecastR
  * ```javascript
  * import { ForecastClient, CreateWhatIfForecastCommand } from "@aws-sdk/client-forecast"; // ES Modules import
  * // const { ForecastClient, CreateWhatIfForecastCommand } = require("@aws-sdk/client-forecast"); // CommonJS import
+ * // import type { ForecastClientConfig } from "@aws-sdk/client-forecast";
+ * const config = {}; // type is ForecastClientConfig
  * const client = new ForecastClient(config);
  * const input = { // CreateWhatIfForecastRequest
  *   WhatIfForecastName: "STRING_VALUE", // required

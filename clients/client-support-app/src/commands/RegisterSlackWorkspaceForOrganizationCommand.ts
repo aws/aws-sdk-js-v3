@@ -72,6 +72,8 @@ export interface RegisterSlackWorkspaceForOrganizationCommandOutput
  * ```javascript
  * import { SupportAppClient, RegisterSlackWorkspaceForOrganizationCommand } from "@aws-sdk/client-support-app"; // ES Modules import
  * // const { SupportAppClient, RegisterSlackWorkspaceForOrganizationCommand } = require("@aws-sdk/client-support-app"); // CommonJS import
+ * // import type { SupportAppClientConfig } from "@aws-sdk/client-support-app";
+ * const config = {}; // type is SupportAppClientConfig
  * const client = new SupportAppClient(config);
  * const input = { // RegisterSlackWorkspaceForOrganizationRequest
  *   teamId: "STRING_VALUE", // required

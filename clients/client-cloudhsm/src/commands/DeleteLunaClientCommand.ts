@@ -46,6 +46,8 @@ export interface DeleteLunaClientCommandOutput extends DeleteLunaClientResponse,
  * ```javascript
  * import { CloudHSMClient, DeleteLunaClientCommand } from "@aws-sdk/client-cloudhsm"; // ES Modules import
  * // const { CloudHSMClient, DeleteLunaClientCommand } = require("@aws-sdk/client-cloudhsm"); // CommonJS import
+ * // import type { CloudHSMClientConfig } from "@aws-sdk/client-cloudhsm";
+ * const config = {}; // type is CloudHSMClientConfig
  * const client = new CloudHSMClient(config);
  * const input = { // DeleteLunaClientRequest
  *   ClientArn: "STRING_VALUE", // required

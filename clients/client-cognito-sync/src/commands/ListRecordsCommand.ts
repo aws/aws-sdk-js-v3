@@ -89,6 +89,8 @@ export interface ListRecordsCommandOutput extends ListRecordsResponse, __Metadat
  * ```javascript
  * import { CognitoSyncClient, ListRecordsCommand } from "@aws-sdk/client-cognito-sync"; // ES Modules import
  * // const { CognitoSyncClient, ListRecordsCommand } = require("@aws-sdk/client-cognito-sync"); // CommonJS import
+ * // import type { CognitoSyncClientConfig } from "@aws-sdk/client-cognito-sync";
+ * const config = {}; // type is CognitoSyncClientConfig
  * const client = new CognitoSyncClient(config);
  * const input = { // ListRecordsRequest
  *   IdentityPoolId: "STRING_VALUE", // required

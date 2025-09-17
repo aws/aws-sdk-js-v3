@@ -48,6 +48,8 @@ export interface UpdateSharedVpcConfigurationCommandOutput
  * ```javascript
  * import { FSxClient, UpdateSharedVpcConfigurationCommand } from "@aws-sdk/client-fsx"; // ES Modules import
  * // const { FSxClient, UpdateSharedVpcConfigurationCommand } = require("@aws-sdk/client-fsx"); // CommonJS import
+ * // import type { FSxClientConfig } from "@aws-sdk/client-fsx";
+ * const config = {}; // type is FSxClientConfig
  * const client = new FSxClient(config);
  * const input = { // UpdateSharedVpcConfigurationRequest
  *   EnableFsxRouteTableUpdatesFromParticipantAccounts: "STRING_VALUE",

@@ -34,6 +34,8 @@ export interface DeleteApiCacheCommandOutput extends DeleteApiCacheResponse, __M
  * ```javascript
  * import { AppSyncClient, DeleteApiCacheCommand } from "@aws-sdk/client-appsync"; // ES Modules import
  * // const { AppSyncClient, DeleteApiCacheCommand } = require("@aws-sdk/client-appsync"); // CommonJS import
+ * // import type { AppSyncClientConfig } from "@aws-sdk/client-appsync";
+ * const config = {}; // type is AppSyncClientConfig
  * const client = new AppSyncClient(config);
  * const input = { // DeleteApiCacheRequest
  *   apiId: "STRING_VALUE", // required

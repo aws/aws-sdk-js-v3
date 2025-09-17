@@ -39,6 +39,8 @@ export interface CreateFoundationModelAgreementCommandOutput
  * ```javascript
  * import { BedrockClient, CreateFoundationModelAgreementCommand } from "@aws-sdk/client-bedrock"; // ES Modules import
  * // const { BedrockClient, CreateFoundationModelAgreementCommand } = require("@aws-sdk/client-bedrock"); // CommonJS import
+ * // import type { BedrockClientConfig } from "@aws-sdk/client-bedrock";
+ * const config = {}; // type is BedrockClientConfig
  * const client = new BedrockClient(config);
  * const input = { // CreateFoundationModelAgreementRequest
  *   offerToken: "STRING_VALUE", // required

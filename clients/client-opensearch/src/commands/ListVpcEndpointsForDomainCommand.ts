@@ -35,6 +35,8 @@ export interface ListVpcEndpointsForDomainCommandOutput extends ListVpcEndpoints
  * ```javascript
  * import { OpenSearchClient, ListVpcEndpointsForDomainCommand } from "@aws-sdk/client-opensearch"; // ES Modules import
  * // const { OpenSearchClient, ListVpcEndpointsForDomainCommand } = require("@aws-sdk/client-opensearch"); // CommonJS import
+ * // import type { OpenSearchClientConfig } from "@aws-sdk/client-opensearch";
+ * const config = {}; // type is OpenSearchClientConfig
  * const client = new OpenSearchClient(config);
  * const input = { // ListVpcEndpointsForDomainRequest
  *   DomainName: "STRING_VALUE", // required

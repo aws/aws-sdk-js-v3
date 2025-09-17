@@ -57,6 +57,8 @@ export interface CreateMembersCommandOutput extends CreateMembersResponse, __Met
  * ```javascript
  * import { GuardDutyClient, CreateMembersCommand } from "@aws-sdk/client-guardduty"; // ES Modules import
  * // const { GuardDutyClient, CreateMembersCommand } = require("@aws-sdk/client-guardduty"); // CommonJS import
+ * // import type { GuardDutyClientConfig } from "@aws-sdk/client-guardduty";
+ * const config = {}; // type is GuardDutyClientConfig
  * const client = new GuardDutyClient(config);
  * const input = { // CreateMembersRequest
  *   DetectorId: "STRING_VALUE", // required

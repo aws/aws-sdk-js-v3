@@ -39,6 +39,8 @@ export interface UpdateProfileCommandOutput extends UpdateProfileResponse, __Met
  * ```javascript
  * import { B2biClient, UpdateProfileCommand } from "@aws-sdk/client-b2bi"; // ES Modules import
  * // const { B2biClient, UpdateProfileCommand } = require("@aws-sdk/client-b2bi"); // CommonJS import
+ * // import type { B2biClientConfig } from "@aws-sdk/client-b2bi";
+ * const config = {}; // type is B2biClientConfig
  * const client = new B2biClient(config);
  * const input = { // UpdateProfileRequest
  *   profileId: "STRING_VALUE", // required

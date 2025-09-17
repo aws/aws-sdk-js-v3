@@ -41,6 +41,8 @@ export interface ReleaseFileSystemNfsV3LocksCommandOutput
  * ```javascript
  * import { FSxClient, ReleaseFileSystemNfsV3LocksCommand } from "@aws-sdk/client-fsx"; // ES Modules import
  * // const { FSxClient, ReleaseFileSystemNfsV3LocksCommand } = require("@aws-sdk/client-fsx"); // CommonJS import
+ * // import type { FSxClientConfig } from "@aws-sdk/client-fsx";
+ * const config = {}; // type is FSxClientConfig
  * const client = new FSxClient(config);
  * const input = { // ReleaseFileSystemNfsV3LocksRequest
  *   FileSystemId: "STRING_VALUE", // required

@@ -35,6 +35,8 @@ export interface MalformedDoubleCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { RestJsonProtocolClient, MalformedDoubleCommand } from "@aws-sdk/aws-protocoltests-restjson"; // ES Modules import
  * // const { RestJsonProtocolClient, MalformedDoubleCommand } = require("@aws-sdk/aws-protocoltests-restjson"); // CommonJS import
+ * // import type { RestJsonProtocolClientConfig } from "@aws-sdk/aws-protocoltests-restjson";
+ * const config = {}; // type is RestJsonProtocolClientConfig
  * const client = new RestJsonProtocolClient(config);
  * const input = { // MalformedDoubleInput
  *   doubleInBody: Number("double"),

@@ -48,6 +48,8 @@ export interface PurchaseReservedInstancesOfferingCommandOutput
  * ```javascript
  * import { EC2Client, PurchaseReservedInstancesOfferingCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, PurchaseReservedInstancesOfferingCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
+ * // import type { EC2ClientConfig } from "@aws-sdk/client-ec2";
+ * const config = {}; // type is EC2ClientConfig
  * const client = new EC2Client(config);
  * const input = { // PurchaseReservedInstancesOfferingRequest
  *   InstanceCount: Number("int"), // required

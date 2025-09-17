@@ -34,6 +34,8 @@ export interface CopyImageSetCommandOutput extends CopyImageSetResponse, __Metad
  * ```javascript
  * import { MedicalImagingClient, CopyImageSetCommand } from "@aws-sdk/client-medical-imaging"; // ES Modules import
  * // const { MedicalImagingClient, CopyImageSetCommand } = require("@aws-sdk/client-medical-imaging"); // CommonJS import
+ * // import type { MedicalImagingClientConfig } from "@aws-sdk/client-medical-imaging";
+ * const config = {}; // type is MedicalImagingClientConfig
  * const client = new MedicalImagingClient(config);
  * const input = { // CopyImageSetRequest
  *   datastoreId: "STRING_VALUE", // required

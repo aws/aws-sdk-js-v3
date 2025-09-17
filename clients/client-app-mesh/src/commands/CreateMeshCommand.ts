@@ -39,6 +39,8 @@ export interface CreateMeshCommandOutput extends CreateMeshOutput, __MetadataBea
  * ```javascript
  * import { AppMeshClient, CreateMeshCommand } from "@aws-sdk/client-app-mesh"; // ES Modules import
  * // const { AppMeshClient, CreateMeshCommand } = require("@aws-sdk/client-app-mesh"); // CommonJS import
+ * // import type { AppMeshClientConfig } from "@aws-sdk/client-app-mesh";
+ * const config = {}; // type is AppMeshClientConfig
  * const client = new AppMeshClient(config);
  * const input = { // CreateMeshInput
  *   meshName: "STRING_VALUE", // required

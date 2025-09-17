@@ -278,6 +278,8 @@ export interface PutAccountPolicyCommandOutput extends PutAccountPolicyResponse,
  * ```javascript
  * import { CloudWatchLogsClient, PutAccountPolicyCommand } from "@aws-sdk/client-cloudwatch-logs"; // ES Modules import
  * // const { CloudWatchLogsClient, PutAccountPolicyCommand } = require("@aws-sdk/client-cloudwatch-logs"); // CommonJS import
+ * // import type { CloudWatchLogsClientConfig } from "@aws-sdk/client-cloudwatch-logs";
+ * const config = {}; // type is CloudWatchLogsClientConfig
  * const client = new CloudWatchLogsClient(config);
  * const input = { // PutAccountPolicyRequest
  *   policyName: "STRING_VALUE", // required

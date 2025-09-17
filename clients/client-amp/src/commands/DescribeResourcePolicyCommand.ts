@@ -34,6 +34,8 @@ export interface DescribeResourcePolicyCommandOutput extends DescribeResourcePol
  * ```javascript
  * import { AmpClient, DescribeResourcePolicyCommand } from "@aws-sdk/client-amp"; // ES Modules import
  * // const { AmpClient, DescribeResourcePolicyCommand } = require("@aws-sdk/client-amp"); // CommonJS import
+ * // import type { AmpClientConfig } from "@aws-sdk/client-amp";
+ * const config = {}; // type is AmpClientConfig
  * const client = new AmpClient(config);
  * const input = { // DescribeResourcePolicyRequest
  *   workspaceId: "STRING_VALUE", // required

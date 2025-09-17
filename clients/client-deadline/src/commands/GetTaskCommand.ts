@@ -34,6 +34,8 @@ export interface GetTaskCommandOutput extends GetTaskResponse, __MetadataBearer 
  * ```javascript
  * import { DeadlineClient, GetTaskCommand } from "@aws-sdk/client-deadline"; // ES Modules import
  * // const { DeadlineClient, GetTaskCommand } = require("@aws-sdk/client-deadline"); // CommonJS import
+ * // import type { DeadlineClientConfig } from "@aws-sdk/client-deadline";
+ * const config = {}; // type is DeadlineClientConfig
  * const client = new DeadlineClient(config);
  * const input = { // GetTaskRequest
  *   farmId: "STRING_VALUE", // required

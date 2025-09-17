@@ -38,6 +38,8 @@ export interface InvokeDataAutomationAsyncCommandOutput extends InvokeDataAutoma
  * ```javascript
  * import { BedrockDataAutomationRuntimeClient, InvokeDataAutomationAsyncCommand } from "@aws-sdk/client-bedrock-data-automation-runtime"; // ES Modules import
  * // const { BedrockDataAutomationRuntimeClient, InvokeDataAutomationAsyncCommand } = require("@aws-sdk/client-bedrock-data-automation-runtime"); // CommonJS import
+ * // import type { BedrockDataAutomationRuntimeClientConfig } from "@aws-sdk/client-bedrock-data-automation-runtime";
+ * const config = {}; // type is BedrockDataAutomationRuntimeClientConfig
  * const client = new BedrockDataAutomationRuntimeClient(config);
  * const input = { // InvokeDataAutomationAsyncRequest
  *   clientToken: "STRING_VALUE",

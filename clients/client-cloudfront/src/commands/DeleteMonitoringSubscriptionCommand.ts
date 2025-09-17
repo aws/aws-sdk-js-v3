@@ -39,6 +39,8 @@ export interface DeleteMonitoringSubscriptionCommandOutput
  * ```javascript
  * import { CloudFrontClient, DeleteMonitoringSubscriptionCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
  * // const { CloudFrontClient, DeleteMonitoringSubscriptionCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
+ * // import type { CloudFrontClientConfig } from "@aws-sdk/client-cloudfront";
+ * const config = {}; // type is CloudFrontClientConfig
  * const client = new CloudFrontClient(config);
  * const input = { // DeleteMonitoringSubscriptionRequest
  *   DistributionId: "STRING_VALUE", // required

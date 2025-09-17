@@ -277,6 +277,8 @@ export interface UpdateFileSystemCommandOutput extends UpdateFileSystemResponse,
  * ```javascript
  * import { FSxClient, UpdateFileSystemCommand } from "@aws-sdk/client-fsx"; // ES Modules import
  * // const { FSxClient, UpdateFileSystemCommand } = require("@aws-sdk/client-fsx"); // CommonJS import
+ * // import type { FSxClientConfig } from "@aws-sdk/client-fsx";
+ * const config = {}; // type is FSxClientConfig
  * const client = new FSxClient(config);
  * const input = { // UpdateFileSystemRequest
  *   FileSystemId: "STRING_VALUE", // required

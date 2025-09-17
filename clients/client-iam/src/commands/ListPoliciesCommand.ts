@@ -49,6 +49,8 @@ export interface ListPoliciesCommandOutput extends ListPoliciesResponse, __Metad
  * ```javascript
  * import { IAMClient, ListPoliciesCommand } from "@aws-sdk/client-iam"; // ES Modules import
  * // const { IAMClient, ListPoliciesCommand } = require("@aws-sdk/client-iam"); // CommonJS import
+ * // import type { IAMClientConfig } from "@aws-sdk/client-iam";
+ * const config = {}; // type is IAMClientConfig
  * const client = new IAMClient(config);
  * const input = { // ListPoliciesRequest
  *   Scope: "All" || "AWS" || "Local",

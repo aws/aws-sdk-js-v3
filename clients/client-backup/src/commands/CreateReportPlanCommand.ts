@@ -37,6 +37,8 @@ export interface CreateReportPlanCommandOutput extends CreateReportPlanOutput, _
  * ```javascript
  * import { BackupClient, CreateReportPlanCommand } from "@aws-sdk/client-backup"; // ES Modules import
  * // const { BackupClient, CreateReportPlanCommand } = require("@aws-sdk/client-backup"); // CommonJS import
+ * // import type { BackupClientConfig } from "@aws-sdk/client-backup";
+ * const config = {}; // type is BackupClientConfig
  * const client = new BackupClient(config);
  * const input = { // CreateReportPlanInput
  *   ReportPlanName: "STRING_VALUE", // required

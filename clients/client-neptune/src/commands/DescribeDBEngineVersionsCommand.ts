@@ -34,6 +34,8 @@ export interface DescribeDBEngineVersionsCommandOutput extends DBEngineVersionMe
  * ```javascript
  * import { NeptuneClient, DescribeDBEngineVersionsCommand } from "@aws-sdk/client-neptune"; // ES Modules import
  * // const { NeptuneClient, DescribeDBEngineVersionsCommand } = require("@aws-sdk/client-neptune"); // CommonJS import
+ * // import type { NeptuneClientConfig } from "@aws-sdk/client-neptune";
+ * const config = {}; // type is NeptuneClientConfig
  * const client = new NeptuneClient(config);
  * const input = { // DescribeDBEngineVersionsMessage
  *   Engine: "STRING_VALUE",

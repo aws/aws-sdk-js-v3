@@ -57,6 +57,8 @@ export interface ModifyDBClusterSnapshotAttributeCommandOutput
  * ```javascript
  * import { RDSClient, ModifyDBClusterSnapshotAttributeCommand } from "@aws-sdk/client-rds"; // ES Modules import
  * // const { RDSClient, ModifyDBClusterSnapshotAttributeCommand } = require("@aws-sdk/client-rds"); // CommonJS import
+ * // import type { RDSClientConfig } from "@aws-sdk/client-rds";
+ * const config = {}; // type is RDSClientConfig
  * const client = new RDSClient(config);
  * const input = { // ModifyDBClusterSnapshotAttributeMessage
  *   DBClusterSnapshotIdentifier: "STRING_VALUE", // required

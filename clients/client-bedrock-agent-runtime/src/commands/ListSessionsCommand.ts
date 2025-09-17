@@ -38,6 +38,8 @@ export interface ListSessionsCommandOutput extends ListSessionsResponse, __Metad
  * ```javascript
  * import { BedrockAgentRuntimeClient, ListSessionsCommand } from "@aws-sdk/client-bedrock-agent-runtime"; // ES Modules import
  * // const { BedrockAgentRuntimeClient, ListSessionsCommand } = require("@aws-sdk/client-bedrock-agent-runtime"); // CommonJS import
+ * // import type { BedrockAgentRuntimeClientConfig } from "@aws-sdk/client-bedrock-agent-runtime";
+ * const config = {}; // type is BedrockAgentRuntimeClientConfig
  * const client = new BedrockAgentRuntimeClient(config);
  * const input = { // ListSessionsRequest
  *   maxResults: Number("int"),

@@ -36,6 +36,8 @@ export interface UpdateParameterGroupCommandOutput extends UpdateParameterGroupR
  * ```javascript
  * import { DAXClient, UpdateParameterGroupCommand } from "@aws-sdk/client-dax"; // ES Modules import
  * // const { DAXClient, UpdateParameterGroupCommand } = require("@aws-sdk/client-dax"); // CommonJS import
+ * // import type { DAXClientConfig } from "@aws-sdk/client-dax";
+ * const config = {}; // type is DAXClientConfig
  * const client = new DAXClient(config);
  * const input = { // UpdateParameterGroupRequest
  *   ParameterGroupName: "STRING_VALUE", // required

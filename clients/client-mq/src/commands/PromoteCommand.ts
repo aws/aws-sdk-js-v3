@@ -34,6 +34,8 @@ export interface PromoteCommandOutput extends PromoteResponse, __MetadataBearer 
  * ```javascript
  * import { MqClient, PromoteCommand } from "@aws-sdk/client-mq"; // ES Modules import
  * // const { MqClient, PromoteCommand } = require("@aws-sdk/client-mq"); // CommonJS import
+ * // import type { MqClientConfig } from "@aws-sdk/client-mq";
+ * const config = {}; // type is MqClientConfig
  * const client = new MqClient(config);
  * const input = { // PromoteRequest
  *   BrokerId: "STRING_VALUE", // required

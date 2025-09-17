@@ -104,6 +104,8 @@ export interface CreateSolutionVersionCommandOutput extends CreateSolutionVersio
  * ```javascript
  * import { PersonalizeClient, CreateSolutionVersionCommand } from "@aws-sdk/client-personalize"; // ES Modules import
  * // const { PersonalizeClient, CreateSolutionVersionCommand } = require("@aws-sdk/client-personalize"); // CommonJS import
+ * // import type { PersonalizeClientConfig } from "@aws-sdk/client-personalize";
+ * const config = {}; // type is PersonalizeClientConfig
  * const client = new PersonalizeClient(config);
  * const input = { // CreateSolutionVersionRequest
  *   name: "STRING_VALUE",

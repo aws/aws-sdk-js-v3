@@ -43,6 +43,8 @@ export interface PutEmailIdentityMailFromAttributesCommandOutput
  * ```javascript
  * import { PinpointEmailClient, PutEmailIdentityMailFromAttributesCommand } from "@aws-sdk/client-pinpoint-email"; // ES Modules import
  * // const { PinpointEmailClient, PutEmailIdentityMailFromAttributesCommand } = require("@aws-sdk/client-pinpoint-email"); // CommonJS import
+ * // import type { PinpointEmailClientConfig } from "@aws-sdk/client-pinpoint-email";
+ * const config = {}; // type is PinpointEmailClientConfig
  * const client = new PinpointEmailClient(config);
  * const input = { // PutEmailIdentityMailFromAttributesRequest
  *   EmailIdentity: "STRING_VALUE", // required

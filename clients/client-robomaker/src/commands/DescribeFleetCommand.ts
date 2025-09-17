@@ -47,6 +47,8 @@ export interface DescribeFleetCommandOutput extends DescribeFleetResponse, __Met
  * ```javascript
  * import { RoboMakerClient, DescribeFleetCommand } from "@aws-sdk/client-robomaker"; // ES Modules import
  * // const { RoboMakerClient, DescribeFleetCommand } = require("@aws-sdk/client-robomaker"); // CommonJS import
+ * // import type { RoboMakerClientConfig } from "@aws-sdk/client-robomaker";
+ * const config = {}; // type is RoboMakerClientConfig
  * const client = new RoboMakerClient(config);
  * const input = { // DescribeFleetRequest
  *   fleet: "STRING_VALUE", // required

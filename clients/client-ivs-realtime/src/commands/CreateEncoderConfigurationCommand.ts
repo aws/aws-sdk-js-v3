@@ -34,6 +34,8 @@ export interface CreateEncoderConfigurationCommandOutput extends CreateEncoderCo
  * ```javascript
  * import { IVSRealTimeClient, CreateEncoderConfigurationCommand } from "@aws-sdk/client-ivs-realtime"; // ES Modules import
  * // const { IVSRealTimeClient, CreateEncoderConfigurationCommand } = require("@aws-sdk/client-ivs-realtime"); // CommonJS import
+ * // import type { IVSRealTimeClientConfig } from "@aws-sdk/client-ivs-realtime";
+ * const config = {}; // type is IVSRealTimeClientConfig
  * const client = new IVSRealTimeClient(config);
  * const input = { // CreateEncoderConfigurationRequest
  *   name: "STRING_VALUE",

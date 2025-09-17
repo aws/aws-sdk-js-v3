@@ -34,6 +34,8 @@ export interface DeleteDeviceFleetCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { SageMakerClient, DeleteDeviceFleetCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, DeleteDeviceFleetCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * // import type { SageMakerClientConfig } from "@aws-sdk/client-sagemaker";
+ * const config = {}; // type is SageMakerClientConfig
  * const client = new SageMakerClient(config);
  * const input = { // DeleteDeviceFleetRequest
  *   DeviceFleetName: "STRING_VALUE", // required

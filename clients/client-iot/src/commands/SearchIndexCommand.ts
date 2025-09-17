@@ -35,6 +35,8 @@ export interface SearchIndexCommandOutput extends SearchIndexResponse, __Metadat
  * ```javascript
  * import { IoTClient, SearchIndexCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, SearchIndexCommand } = require("@aws-sdk/client-iot"); // CommonJS import
+ * // import type { IoTClientConfig } from "@aws-sdk/client-iot";
+ * const config = {}; // type is IoTClientConfig
  * const client = new IoTClient(config);
  * const input = { // SearchIndexRequest
  *   indexName: "STRING_VALUE",

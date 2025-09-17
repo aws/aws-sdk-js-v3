@@ -53,6 +53,8 @@ export interface ValidateSolNetworkPackageContentCommandOutput
  * ```javascript
  * import { TnbClient, ValidateSolNetworkPackageContentCommand } from "@aws-sdk/client-tnb"; // ES Modules import
  * // const { TnbClient, ValidateSolNetworkPackageContentCommand } = require("@aws-sdk/client-tnb"); // CommonJS import
+ * // import type { TnbClientConfig } from "@aws-sdk/client-tnb";
+ * const config = {}; // type is TnbClientConfig
  * const client = new TnbClient(config);
  * const input = { // ValidateSolNetworkPackageContentInput
  *   nsdInfoId: "STRING_VALUE", // required

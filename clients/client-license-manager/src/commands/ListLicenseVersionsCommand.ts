@@ -34,6 +34,8 @@ export interface ListLicenseVersionsCommandOutput extends ListLicenseVersionsRes
  * ```javascript
  * import { LicenseManagerClient, ListLicenseVersionsCommand } from "@aws-sdk/client-license-manager"; // ES Modules import
  * // const { LicenseManagerClient, ListLicenseVersionsCommand } = require("@aws-sdk/client-license-manager"); // CommonJS import
+ * // import type { LicenseManagerClientConfig } from "@aws-sdk/client-license-manager";
+ * const config = {}; // type is LicenseManagerClientConfig
  * const client = new LicenseManagerClient(config);
  * const input = { // ListLicenseVersionsRequest
  *   LicenseArn: "STRING_VALUE", // required

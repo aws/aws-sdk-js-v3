@@ -35,6 +35,8 @@ export interface ListProjectsCommandOutput extends ListProjectsResponse, __Metad
  * ```javascript
  * import { EvidentlyClient, ListProjectsCommand } from "@aws-sdk/client-evidently"; // ES Modules import
  * // const { EvidentlyClient, ListProjectsCommand } = require("@aws-sdk/client-evidently"); // CommonJS import
+ * // import type { EvidentlyClientConfig } from "@aws-sdk/client-evidently";
+ * const config = {}; // type is EvidentlyClientConfig
  * const client = new EvidentlyClient(config);
  * const input = { // ListProjectsRequest
  *   maxResults: Number("int"),

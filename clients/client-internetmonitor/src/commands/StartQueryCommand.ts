@@ -39,6 +39,8 @@ export interface StartQueryCommandOutput extends StartQueryOutput, __MetadataBea
  * ```javascript
  * import { InternetMonitorClient, StartQueryCommand } from "@aws-sdk/client-internetmonitor"; // ES Modules import
  * // const { InternetMonitorClient, StartQueryCommand } = require("@aws-sdk/client-internetmonitor"); // CommonJS import
+ * // import type { InternetMonitorClientConfig } from "@aws-sdk/client-internetmonitor";
+ * const config = {}; // type is InternetMonitorClientConfig
  * const client = new InternetMonitorClient(config);
  * const input = { // StartQueryInput
  *   MonitorName: "STRING_VALUE", // required

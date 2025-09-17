@@ -88,6 +88,8 @@ export interface CreateDataDeletionJobCommandOutput extends CreateDataDeletionJo
  * ```javascript
  * import { PersonalizeClient, CreateDataDeletionJobCommand } from "@aws-sdk/client-personalize"; // ES Modules import
  * // const { PersonalizeClient, CreateDataDeletionJobCommand } = require("@aws-sdk/client-personalize"); // CommonJS import
+ * // import type { PersonalizeClientConfig } from "@aws-sdk/client-personalize";
+ * const config = {}; // type is PersonalizeClientConfig
  * const client = new PersonalizeClient(config);
  * const input = { // CreateDataDeletionJobRequest
  *   jobName: "STRING_VALUE", // required

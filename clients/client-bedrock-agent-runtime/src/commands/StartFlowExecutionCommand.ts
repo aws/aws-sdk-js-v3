@@ -42,6 +42,8 @@ export interface StartFlowExecutionCommandOutput extends StartFlowExecutionRespo
  * ```javascript
  * import { BedrockAgentRuntimeClient, StartFlowExecutionCommand } from "@aws-sdk/client-bedrock-agent-runtime"; // ES Modules import
  * // const { BedrockAgentRuntimeClient, StartFlowExecutionCommand } = require("@aws-sdk/client-bedrock-agent-runtime"); // CommonJS import
+ * // import type { BedrockAgentRuntimeClientConfig } from "@aws-sdk/client-bedrock-agent-runtime";
+ * const config = {}; // type is BedrockAgentRuntimeClientConfig
  * const client = new BedrockAgentRuntimeClient(config);
  * const input = { // StartFlowExecutionRequest
  *   flowIdentifier: "STRING_VALUE", // required

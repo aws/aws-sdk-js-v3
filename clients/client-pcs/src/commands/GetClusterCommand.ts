@@ -34,6 +34,8 @@ export interface GetClusterCommandOutput extends GetClusterResponse, __MetadataB
  * ```javascript
  * import { PCSClient, GetClusterCommand } from "@aws-sdk/client-pcs"; // ES Modules import
  * // const { PCSClient, GetClusterCommand } = require("@aws-sdk/client-pcs"); // CommonJS import
+ * // import type { PCSClientConfig } from "@aws-sdk/client-pcs";
+ * const config = {}; // type is PCSClientConfig
  * const client = new PCSClient(config);
  * const input = { // GetClusterRequest
  *   clusterIdentifier: "STRING_VALUE", // required

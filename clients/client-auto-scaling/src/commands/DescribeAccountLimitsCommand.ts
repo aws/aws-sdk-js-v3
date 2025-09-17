@@ -38,6 +38,8 @@ export interface DescribeAccountLimitsCommandOutput extends DescribeAccountLimit
  * ```javascript
  * import { AutoScalingClient, DescribeAccountLimitsCommand } from "@aws-sdk/client-auto-scaling"; // ES Modules import
  * // const { AutoScalingClient, DescribeAccountLimitsCommand } = require("@aws-sdk/client-auto-scaling"); // CommonJS import
+ * // import type { AutoScalingClientConfig } from "@aws-sdk/client-auto-scaling";
+ * const config = {}; // type is AutoScalingClientConfig
  * const client = new AutoScalingClient(config);
  * const input = {};
  * const command = new DescribeAccountLimitsCommand(input);

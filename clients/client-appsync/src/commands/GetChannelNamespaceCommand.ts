@@ -34,6 +34,8 @@ export interface GetChannelNamespaceCommandOutput extends GetChannelNamespaceRes
  * ```javascript
  * import { AppSyncClient, GetChannelNamespaceCommand } from "@aws-sdk/client-appsync"; // ES Modules import
  * // const { AppSyncClient, GetChannelNamespaceCommand } = require("@aws-sdk/client-appsync"); // CommonJS import
+ * // import type { AppSyncClientConfig } from "@aws-sdk/client-appsync";
+ * const config = {}; // type is AppSyncClientConfig
  * const client = new AppSyncClient(config);
  * const input = { // GetChannelNamespaceRequest
  *   apiId: "STRING_VALUE", // required

@@ -43,6 +43,8 @@ export interface RunScheduledInstancesCommandOutput extends RunScheduledInstance
  * ```javascript
  * import { EC2Client, RunScheduledInstancesCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, RunScheduledInstancesCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
+ * // import type { EC2ClientConfig } from "@aws-sdk/client-ec2";
+ * const config = {}; // type is EC2ClientConfig
  * const client = new EC2Client(config);
  * const input = { // RunScheduledInstancesRequest
  *   ClientToken: "STRING_VALUE",

@@ -39,6 +39,8 @@ export interface SearchResourcesCommandOutput extends SearchResourcesResponse, _
  * ```javascript
  * import { WorkDocsClient, SearchResourcesCommand } from "@aws-sdk/client-workdocs"; // ES Modules import
  * // const { WorkDocsClient, SearchResourcesCommand } = require("@aws-sdk/client-workdocs"); // CommonJS import
+ * // import type { WorkDocsClientConfig } from "@aws-sdk/client-workdocs";
+ * const config = {}; // type is WorkDocsClientConfig
  * const client = new WorkDocsClient(config);
  * const input = { // SearchResourcesRequest
  *   AuthenticationToken: "STRING_VALUE",

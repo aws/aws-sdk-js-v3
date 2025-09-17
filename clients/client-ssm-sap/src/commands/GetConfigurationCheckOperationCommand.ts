@@ -39,6 +39,8 @@ export interface GetConfigurationCheckOperationCommandOutput
  * ```javascript
  * import { SsmSapClient, GetConfigurationCheckOperationCommand } from "@aws-sdk/client-ssm-sap"; // ES Modules import
  * // const { SsmSapClient, GetConfigurationCheckOperationCommand } = require("@aws-sdk/client-ssm-sap"); // CommonJS import
+ * // import type { SsmSapClientConfig } from "@aws-sdk/client-ssm-sap";
+ * const config = {}; // type is SsmSapClientConfig
  * const client = new SsmSapClient(config);
  * const input = { // GetConfigurationCheckOperationInput
  *   OperationId: "STRING_VALUE", // required

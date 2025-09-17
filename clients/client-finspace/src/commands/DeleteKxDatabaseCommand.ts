@@ -34,6 +34,8 @@ export interface DeleteKxDatabaseCommandOutput extends DeleteKxDatabaseResponse,
  * ```javascript
  * import { FinspaceClient, DeleteKxDatabaseCommand } from "@aws-sdk/client-finspace"; // ES Modules import
  * // const { FinspaceClient, DeleteKxDatabaseCommand } = require("@aws-sdk/client-finspace"); // CommonJS import
+ * // import type { FinspaceClientConfig } from "@aws-sdk/client-finspace";
+ * const config = {}; // type is FinspaceClientConfig
  * const client = new FinspaceClient(config);
  * const input = { // DeleteKxDatabaseRequest
  *   environmentId: "STRING_VALUE", // required

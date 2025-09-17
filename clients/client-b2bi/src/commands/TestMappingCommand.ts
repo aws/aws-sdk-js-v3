@@ -34,6 +34,8 @@ export interface TestMappingCommandOutput extends TestMappingResponse, __Metadat
  * ```javascript
  * import { B2biClient, TestMappingCommand } from "@aws-sdk/client-b2bi"; // ES Modules import
  * // const { B2biClient, TestMappingCommand } = require("@aws-sdk/client-b2bi"); // CommonJS import
+ * // import type { B2biClientConfig } from "@aws-sdk/client-b2bi";
+ * const config = {}; // type is B2biClientConfig
  * const client = new B2biClient(config);
  * const input = { // TestMappingRequest
  *   inputFileContent: "STRING_VALUE", // required

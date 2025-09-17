@@ -34,6 +34,8 @@ export interface GetApiCacheCommandOutput extends GetApiCacheResponse, __Metadat
  * ```javascript
  * import { AppSyncClient, GetApiCacheCommand } from "@aws-sdk/client-appsync"; // ES Modules import
  * // const { AppSyncClient, GetApiCacheCommand } = require("@aws-sdk/client-appsync"); // CommonJS import
+ * // import type { AppSyncClientConfig } from "@aws-sdk/client-appsync";
+ * const config = {}; // type is AppSyncClientConfig
  * const client = new AppSyncClient(config);
  * const input = { // GetApiCacheRequest
  *   apiId: "STRING_VALUE", // required

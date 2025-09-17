@@ -34,6 +34,8 @@ export interface CancelOpenCypherQueryCommandOutput extends CancelOpenCypherQuer
  * ```javascript
  * import { NeptunedataClient, CancelOpenCypherQueryCommand } from "@aws-sdk/client-neptunedata"; // ES Modules import
  * // const { NeptunedataClient, CancelOpenCypherQueryCommand } = require("@aws-sdk/client-neptunedata"); // CommonJS import
+ * // import type { NeptunedataClientConfig } from "@aws-sdk/client-neptunedata";
+ * const config = {}; // type is NeptunedataClientConfig
  * const client = new NeptunedataClient(config);
  * const input = { // CancelOpenCypherQueryInput
  *   queryId: "STRING_VALUE", // required

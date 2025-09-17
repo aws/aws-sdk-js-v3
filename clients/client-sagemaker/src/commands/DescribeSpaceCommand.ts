@@ -34,6 +34,8 @@ export interface DescribeSpaceCommandOutput extends DescribeSpaceResponse, __Met
  * ```javascript
  * import { SageMakerClient, DescribeSpaceCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, DescribeSpaceCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * // import type { SageMakerClientConfig } from "@aws-sdk/client-sagemaker";
+ * const config = {}; // type is SageMakerClientConfig
  * const client = new SageMakerClient(config);
  * const input = { // DescribeSpaceRequest
  *   DomainId: "STRING_VALUE", // required

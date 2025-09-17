@@ -36,6 +36,8 @@ export interface CreateSignalingChannelCommandOutput extends CreateSignalingChan
  * ```javascript
  * import { KinesisVideoClient, CreateSignalingChannelCommand } from "@aws-sdk/client-kinesis-video"; // ES Modules import
  * // const { KinesisVideoClient, CreateSignalingChannelCommand } = require("@aws-sdk/client-kinesis-video"); // CommonJS import
+ * // import type { KinesisVideoClientConfig } from "@aws-sdk/client-kinesis-video";
+ * const config = {}; // type is KinesisVideoClientConfig
  * const client = new KinesisVideoClient(config);
  * const input = { // CreateSignalingChannelInput
  *   ChannelName: "STRING_VALUE", // required

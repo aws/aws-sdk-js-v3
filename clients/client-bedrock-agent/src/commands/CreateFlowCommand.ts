@@ -39,6 +39,8 @@ export interface CreateFlowCommandOutput extends CreateFlowResponse, __MetadataB
  * ```javascript
  * import { BedrockAgentClient, CreateFlowCommand } from "@aws-sdk/client-bedrock-agent"; // ES Modules import
  * // const { BedrockAgentClient, CreateFlowCommand } = require("@aws-sdk/client-bedrock-agent"); // CommonJS import
+ * // import type { BedrockAgentClientConfig } from "@aws-sdk/client-bedrock-agent";
+ * const config = {}; // type is BedrockAgentClientConfig
  * const client = new BedrockAgentClient(config);
  * const input = { // CreateFlowRequest
  *   name: "STRING_VALUE", // required

@@ -39,6 +39,8 @@ export interface GetInlinePolicyForPermissionSetCommandOutput
  * ```javascript
  * import { SSOAdminClient, GetInlinePolicyForPermissionSetCommand } from "@aws-sdk/client-sso-admin"; // ES Modules import
  * // const { SSOAdminClient, GetInlinePolicyForPermissionSetCommand } = require("@aws-sdk/client-sso-admin"); // CommonJS import
+ * // import type { SSOAdminClientConfig } from "@aws-sdk/client-sso-admin";
+ * const config = {}; // type is SSOAdminClientConfig
  * const client = new SSOAdminClient(config);
  * const input = { // GetInlinePolicyForPermissionSetRequest
  *   InstanceArn: "STRING_VALUE", // required

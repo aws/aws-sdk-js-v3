@@ -35,6 +35,8 @@ export interface UpdateGatewayInformationCommandOutput extends UpdateGatewayInfo
  * ```javascript
  * import { BackupGatewayClient, UpdateGatewayInformationCommand } from "@aws-sdk/client-backup-gateway"; // ES Modules import
  * // const { BackupGatewayClient, UpdateGatewayInformationCommand } = require("@aws-sdk/client-backup-gateway"); // CommonJS import
+ * // import type { BackupGatewayClientConfig } from "@aws-sdk/client-backup-gateway";
+ * const config = {}; // type is BackupGatewayClientConfig
  * const client = new BackupGatewayClient(config);
  * const input = { // UpdateGatewayInformationInput
  *   GatewayArn: "STRING_VALUE", // required

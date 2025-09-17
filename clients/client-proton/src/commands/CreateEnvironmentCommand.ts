@@ -54,6 +54,8 @@ export interface CreateEnvironmentCommandOutput extends CreateEnvironmentOutput,
  * ```javascript
  * import { ProtonClient, CreateEnvironmentCommand } from "@aws-sdk/client-proton"; // ES Modules import
  * // const { ProtonClient, CreateEnvironmentCommand } = require("@aws-sdk/client-proton"); // CommonJS import
+ * // import type { ProtonClientConfig } from "@aws-sdk/client-proton";
+ * const config = {}; // type is ProtonClientConfig
  * const client = new ProtonClient(config);
  * const input = { // CreateEnvironmentInput
  *   name: "STRING_VALUE", // required

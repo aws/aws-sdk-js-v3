@@ -37,6 +37,8 @@ export interface DeleteConnectInstanceConfigCommandOutput extends __MetadataBear
  * ```javascript
  * import { ConnectCampaignsClient, DeleteConnectInstanceConfigCommand } from "@aws-sdk/client-connectcampaigns"; // ES Modules import
  * // const { ConnectCampaignsClient, DeleteConnectInstanceConfigCommand } = require("@aws-sdk/client-connectcampaigns"); // CommonJS import
+ * // import type { ConnectCampaignsClientConfig } from "@aws-sdk/client-connectcampaigns";
+ * const config = {}; // type is ConnectCampaignsClientConfig
  * const client = new ConnectCampaignsClient(config);
  * const input = { // DeleteConnectInstanceConfigRequest
  *   connectInstanceId: "STRING_VALUE", // required

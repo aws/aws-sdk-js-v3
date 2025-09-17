@@ -76,6 +76,8 @@ export interface CreateBuildCommandOutput extends CreateBuildOutput, __MetadataB
  * ```javascript
  * import { GameLiftClient, CreateBuildCommand } from "@aws-sdk/client-gamelift"; // ES Modules import
  * // const { GameLiftClient, CreateBuildCommand } = require("@aws-sdk/client-gamelift"); // CommonJS import
+ * // import type { GameLiftClientConfig } from "@aws-sdk/client-gamelift";
+ * const config = {}; // type is GameLiftClientConfig
  * const client = new GameLiftClient(config);
  * const input = { // CreateBuildInput
  *   Name: "STRING_VALUE",

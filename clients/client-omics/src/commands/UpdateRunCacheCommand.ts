@@ -34,6 +34,8 @@ export interface UpdateRunCacheCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { OmicsClient, UpdateRunCacheCommand } from "@aws-sdk/client-omics"; // ES Modules import
  * // const { OmicsClient, UpdateRunCacheCommand } = require("@aws-sdk/client-omics"); // CommonJS import
+ * // import type { OmicsClientConfig } from "@aws-sdk/client-omics";
+ * const config = {}; // type is OmicsClientConfig
  * const client = new OmicsClient(config);
  * const input = { // UpdateRunCacheRequest
  *   cacheBehavior: "STRING_VALUE",

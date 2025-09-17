@@ -35,6 +35,8 @@ export interface ListSolFunctionInstancesCommandOutput extends ListSolFunctionIn
  * ```javascript
  * import { TnbClient, ListSolFunctionInstancesCommand } from "@aws-sdk/client-tnb"; // ES Modules import
  * // const { TnbClient, ListSolFunctionInstancesCommand } = require("@aws-sdk/client-tnb"); // CommonJS import
+ * // import type { TnbClientConfig } from "@aws-sdk/client-tnb";
+ * const config = {}; // type is TnbClientConfig
  * const client = new TnbClient(config);
  * const input = { // ListSolFunctionInstancesInput
  *   maxResults: Number("int"),

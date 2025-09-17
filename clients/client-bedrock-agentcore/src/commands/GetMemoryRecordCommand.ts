@@ -38,6 +38,8 @@ export interface GetMemoryRecordCommandOutput extends GetMemoryRecordOutput, __M
  * ```javascript
  * import { BedrockAgentCoreClient, GetMemoryRecordCommand } from "@aws-sdk/client-bedrock-agentcore"; // ES Modules import
  * // const { BedrockAgentCoreClient, GetMemoryRecordCommand } = require("@aws-sdk/client-bedrock-agentcore"); // CommonJS import
+ * // import type { BedrockAgentCoreClientConfig } from "@aws-sdk/client-bedrock-agentcore";
+ * const config = {}; // type is BedrockAgentCoreClientConfig
  * const client = new BedrockAgentCoreClient(config);
  * const input = { // GetMemoryRecordInput
  *   memoryId: "STRING_VALUE", // required

@@ -42,6 +42,8 @@ export interface DeleteAccountAuditConfigurationCommandOutput
  * ```javascript
  * import { IoTClient, DeleteAccountAuditConfigurationCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, DeleteAccountAuditConfigurationCommand } = require("@aws-sdk/client-iot"); // CommonJS import
+ * // import type { IoTClientConfig } from "@aws-sdk/client-iot";
+ * const config = {}; // type is IoTClientConfig
  * const client = new IoTClient(config);
  * const input = { // DeleteAccountAuditConfigurationRequest
  *   deleteScheduledAudits: true || false,

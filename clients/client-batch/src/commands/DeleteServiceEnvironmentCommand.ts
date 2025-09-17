@@ -34,6 +34,8 @@ export interface DeleteServiceEnvironmentCommandOutput extends DeleteServiceEnvi
  * ```javascript
  * import { BatchClient, DeleteServiceEnvironmentCommand } from "@aws-sdk/client-batch"; // ES Modules import
  * // const { BatchClient, DeleteServiceEnvironmentCommand } = require("@aws-sdk/client-batch"); // CommonJS import
+ * // import type { BatchClientConfig } from "@aws-sdk/client-batch";
+ * const config = {}; // type is BatchClientConfig
  * const client = new BatchClient(config);
  * const input = { // DeleteServiceEnvironmentRequest
  *   serviceEnvironment: "STRING_VALUE", // required

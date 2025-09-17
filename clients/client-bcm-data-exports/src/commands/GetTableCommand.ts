@@ -35,6 +35,8 @@ export interface GetTableCommandOutput extends GetTableResponse, __MetadataBeare
  * ```javascript
  * import { BCMDataExportsClient, GetTableCommand } from "@aws-sdk/client-bcm-data-exports"; // ES Modules import
  * // const { BCMDataExportsClient, GetTableCommand } = require("@aws-sdk/client-bcm-data-exports"); // CommonJS import
+ * // import type { BCMDataExportsClientConfig } from "@aws-sdk/client-bcm-data-exports";
+ * const config = {}; // type is BCMDataExportsClientConfig
  * const client = new BCMDataExportsClient(config);
  * const input = { // GetTableRequest
  *   TableName: "STRING_VALUE", // required

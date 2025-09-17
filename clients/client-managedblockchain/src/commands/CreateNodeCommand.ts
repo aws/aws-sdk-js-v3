@@ -39,6 +39,8 @@ export interface CreateNodeCommandOutput extends CreateNodeOutput, __MetadataBea
  * ```javascript
  * import { ManagedBlockchainClient, CreateNodeCommand } from "@aws-sdk/client-managedblockchain"; // ES Modules import
  * // const { ManagedBlockchainClient, CreateNodeCommand } = require("@aws-sdk/client-managedblockchain"); // CommonJS import
+ * // import type { ManagedBlockchainClientConfig } from "@aws-sdk/client-managedblockchain";
+ * const config = {}; // type is ManagedBlockchainClientConfig
  * const client = new ManagedBlockchainClient(config);
  * const input = { // CreateNodeInput
  *   ClientRequestToken: "STRING_VALUE", // required

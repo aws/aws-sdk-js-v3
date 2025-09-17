@@ -51,6 +51,8 @@ export interface PutSolFunctionPackageContentCommandOutput
  * ```javascript
  * import { TnbClient, PutSolFunctionPackageContentCommand } from "@aws-sdk/client-tnb"; // ES Modules import
  * // const { TnbClient, PutSolFunctionPackageContentCommand } = require("@aws-sdk/client-tnb"); // CommonJS import
+ * // import type { TnbClientConfig } from "@aws-sdk/client-tnb";
+ * const config = {}; // type is TnbClientConfig
  * const client = new TnbClient(config);
  * const input = { // PutSolFunctionPackageContentInput
  *   vnfPkgId: "STRING_VALUE", // required

@@ -42,6 +42,8 @@ export interface CreateQueueLimitAssociationCommandOutput
  * ```javascript
  * import { DeadlineClient, CreateQueueLimitAssociationCommand } from "@aws-sdk/client-deadline"; // ES Modules import
  * // const { DeadlineClient, CreateQueueLimitAssociationCommand } = require("@aws-sdk/client-deadline"); // CommonJS import
+ * // import type { DeadlineClientConfig } from "@aws-sdk/client-deadline";
+ * const config = {}; // type is DeadlineClientConfig
  * const client = new DeadlineClient(config);
  * const input = { // CreateQueueLimitAssociationRequest
  *   farmId: "STRING_VALUE", // required

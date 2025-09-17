@@ -51,6 +51,8 @@ export interface SearchUsersCommandOutput extends SearchUsersResult, __MetadataB
  * ```javascript
  * import { DirectoryServiceDataClient, SearchUsersCommand } from "@aws-sdk/client-directory-service-data"; // ES Modules import
  * // const { DirectoryServiceDataClient, SearchUsersCommand } = require("@aws-sdk/client-directory-service-data"); // CommonJS import
+ * // import type { DirectoryServiceDataClientConfig } from "@aws-sdk/client-directory-service-data";
+ * const config = {}; // type is DirectoryServiceDataClientConfig
  * const client = new DirectoryServiceDataClient(config);
  * const input = { // SearchUsersRequest
  *   DirectoryId: "STRING_VALUE", // required

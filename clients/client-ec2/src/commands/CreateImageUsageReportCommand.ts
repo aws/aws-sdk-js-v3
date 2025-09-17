@@ -38,6 +38,8 @@ export interface CreateImageUsageReportCommandOutput extends CreateImageUsageRep
  * ```javascript
  * import { EC2Client, CreateImageUsageReportCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, CreateImageUsageReportCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
+ * // import type { EC2ClientConfig } from "@aws-sdk/client-ec2";
+ * const config = {}; // type is EC2ClientConfig
  * const client = new EC2Client(config);
  * const input = { // CreateImageUsageReportRequest
  *   ImageId: "STRING_VALUE", // required
